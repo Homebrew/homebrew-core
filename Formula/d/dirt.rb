@@ -9,9 +9,11 @@ class Dirt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "dc0671b289e79190e0d962b995c11ba8d0f828fb9a9903c5981e8a7fddca28c0"
     sha256 cellar: :any,                 arm64_ventura:  "7b0e123381c73cf489c38368999dcf0886843f8223562f83db6b6a5fde4dcaf7"
     sha256 cellar: :any,                 arm64_monterey: "6ac9e97def1a071fda1e4fc145450cdafed11444358537d2824cea8d77e73155"
     sha256 cellar: :any,                 arm64_big_sur:  "ed0c1c48b840abfd9336d6b292e1e08896bddc3663164815fd6fc489b0d3495e"
+    sha256 cellar: :any,                 sonoma:         "938298f9f34341b030fec41d4b61002a75ef6a626b7b6a9479584581e52f569c"
     sha256 cellar: :any,                 ventura:        "5ff0f05492f68f79315dd99ce136a09cfb3455b030bf1a12d9164f4dee70b43c"
     sha256 cellar: :any,                 monterey:       "f4c8eaef7bd081e9c346af24400410671665836820077afdcc13e68c676903bd"
     sha256 cellar: :any,                 big_sur:        "bb32869ee985043d05056f89254e369dcc8be8cfaaedaa1427787fc5e04fa62c"

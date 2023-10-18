@@ -6,9 +6,11 @@ class Wakeonlan < Formula
   license "Artistic-1.0-Perl"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd7879b6d846df1d5a5186b6c05cde2207467aaf6e58a807012d7ac91a5b8ab3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f541c4803bb947fd8bec2daa1ff9ddcc5c1f7aab2f2b1952cbae99bacea30d8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f541c4803bb947fd8bec2daa1ff9ddcc5c1f7aab2f2b1952cbae99bacea30d8c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd9429ee013c7d939887d72d5876a7f617855bc521f372a9d30dd393917e874d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fd7879b6d846df1d5a5186b6c05cde2207467aaf6e58a807012d7ac91a5b8ab3"
     sha256 cellar: :any_skip_relocation, ventura:        "f541c4803bb947fd8bec2daa1ff9ddcc5c1f7aab2f2b1952cbae99bacea30d8c"
     sha256 cellar: :any_skip_relocation, monterey:       "f541c4803bb947fd8bec2daa1ff9ddcc5c1f7aab2f2b1952cbae99bacea30d8c"
     sha256 cellar: :any_skip_relocation, big_sur:        "cd9429ee013c7d939887d72d5876a7f617855bc521f372a9d30dd393917e874d"

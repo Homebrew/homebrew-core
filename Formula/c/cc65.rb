@@ -7,9 +7,11 @@ class Cc65 < Formula
   head "https://github.com/cc65/cc65.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "41632cc243d34d069cc66bd938aaa297265ab1f5438c59bfef49d8c49965c0a2"
     sha256 arm64_ventura:  "753141cb314e207064134c09d9f31ce82f9d2ca720925f321cb81100ef3ee347"
     sha256 arm64_monterey: "9353c4052546b46967c63aabc48e64633164669129e6406f8afc2dcaac17fb89"
     sha256 arm64_big_sur:  "47405e34cd591b17d9ed65842f25ac7c6d9f61e98f21b9c403596257d7e23dae"
+    sha256 sonoma:         "f253df296eb1aeb17bc02fef52e836d45b77b3364337abf68d53d26cbda218a5"
     sha256 ventura:        "18dc69ba26b9bee5ef93a34ec4e38111c7cf6c8fe0d4fdee174ed9980718e66e"
     sha256 monterey:       "2598003d7c24868193167d8095f1c4c22a4f46627073e480dbf7c67bba340ce3"
     sha256 big_sur:        "d0010fe7f4b58daea95dd57f4116668bd2bedfbd5392e73412162292034d456d"

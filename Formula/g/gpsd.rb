@@ -12,9 +12,11 @@ class Gpsd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b66ca13a735d2dbf166b572f035f2bb56c551939cf0dd14e66ec427c45167fbc"
     sha256 cellar: :any,                 arm64_ventura:  "e9acbc066222d5eeeef6cd072b65d7c394d8b54943d80f40426f69c2cd6e8c7f"
     sha256 cellar: :any,                 arm64_monterey: "7d8b72dd69fee140654975b7f932ebd4bf527356e9256f76a39c958cccaf8cd1"
     sha256 cellar: :any,                 arm64_big_sur:  "5e563d468cecd7415ed0c064187a3083b4df611c502b24dff8b3314767c41adb"
+    sha256 cellar: :any,                 sonoma:         "ec712553fec47bf5d396e73757d53f27d7ee234a99072254f7b65dc5e7f2a8d5"
     sha256 cellar: :any,                 ventura:        "6ddffba6867de189fc5b54a92c4a256ee5aa4e71a5690c30169d18efcbc3d63b"
     sha256 cellar: :any,                 monterey:       "d88a2ce7d9438b7c3402d7a55d8e7c09dac34609db903f47a0601be6cb093ab7"
     sha256 cellar: :any,                 big_sur:        "bb51fd5c72e41d1e35bc8338df4de04584bcdb095ab890f0d28ce7ed5867dace"

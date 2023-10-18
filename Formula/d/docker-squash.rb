@@ -6,26 +6,27 @@ class DockerSquash < Formula
   url "https://files.pythonhosted.org/packages/6c/0b/3684b7e34c46045dda03b34be50392c689b23fa8788a0c0f7daf98db35d8/docker-squash-1.1.0.tar.gz"
   sha256 "819a87bf44c575c76d8d8f15544363a7a81ca2b176d424b67b39cd2cd9acc89e"
   license "MIT"
-  revision 1
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b333ff5e20a892182f7ac9c80da4032567d6abfa9b8c7abd5ebf95e59f046bd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "55f8e22952687f03add22989d5f8c7d6c334310d1b905a314761c75a4bdb02e0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "770cbdc26dffe5cf113c3b75532f4533468eb05b8c3361c6259c6d4f1bbca127"
-    sha256 cellar: :any_skip_relocation, ventura:        "21f5110b358d7d67892d7f8592ea67e904f910a382376e69aa44ed9f8af5b6c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "8c41d539551604f20fd15447a9c312c4dbf3f2d6efb09ea6076139a271a3133e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "03167a06696c7fea5c11eaca37c2ade47e74afd4c00be80cb10fd09bf378a3b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f239ce8bbe25b11ca1b2d1c36e7d16c34472e09e5d894cf622df43166da5f265"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3cb889ad1ecaaf80af66a20932b55938048b59d85826c2a4a5037ff1b39a1f1a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62f9702c0b00672534187216d9f87e966b9525680282ff9d18d2f94921c47ddb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1738205c1f74d5c1b8d705441cd67159f5a5d44fba131dc5f42e914a85d81a05"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eb58adffdfb9187219a19b8bee75151b693c602d845b8c347bf407f45ca29569"
+    sha256 cellar: :any_skip_relocation, ventura:        "4e86ff72450897b754e132b559c999a35943a6ec895bd38d894b744724ff249e"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb03abf57b4fb9a917165816fa97a3378c0848b445eeb8e4a2fbf1e65daa846e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da87b72818b3e22a73372cb433b28d617d61d5784308a7c1cfe0a7a71af68787"
   end
 
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python-packaging"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "docker" do
@@ -38,24 +39,19 @@ class DockerSquash < Formula
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
+    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/b1/34/3a5cae1e07d9566ad073fa6d169bf22c03a3ba7b31b3c3422ec88d039108/websocket-client-1.6.1.tar.gz"
-    sha256 "c951af98631d24f8df89ab1019fc365f2227c0892f12fd150e935607c79dd0dd"
+    url "https://files.pythonhosted.org/packages/cb/eb/19eadbb717ef032749853ef5eb1c28e9ca974711e28bccd4815913ba5546/websocket-client-1.6.4.tar.gz"
+    sha256 "b3324019b3c28572086c4a319f91d1dcd44e6e11cd340232978c684a7650d0df"
   end
 
   def install

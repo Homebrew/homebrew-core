@@ -3,27 +3,36 @@ class PythonLspServer < Formula
 
   desc "Python Language Server for the Language Server Protocol"
   homepage "https://github.com/python-lsp/python-lsp-server"
-  url "https://files.pythonhosted.org/packages/7e/56/b7c8569ab17ed75a858487d26fa5e8f489e72e8d5842107329490c6a6323/python-lsp-server-1.7.4.tar.gz"
-  sha256 "c84254485a4d9431b24ecefd59741d21c00165611bcf6037bd7d54d0ed06a197"
+  url "https://files.pythonhosted.org/packages/23/1f/41be2a7fd29d29bad4f186e25fa28e1faa121688d18a9b84cd8eb9b6fd9a/python-lsp-server-1.8.2.tar.gz"
+  sha256 "fd85e1c6ad95c1d276c82a33c2c85898f110afc3c7bfeaced79c0df095076fd1"
   license "MIT"
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb8b37a15eb903e65accb806f4e65dc032cd6ef7e42f8bbd6c7f0e7053c49513"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d37a5d42959c0188598f2fe3b01477ecd46cbbc18b70dfde7cfa9ccf42c8007"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44126dac9bf0d9f1eaba24cd6cc536dc2288ab9b5a8a909ab5295070bcc4231e"
-    sha256 cellar: :any_skip_relocation, ventura:        "d20862919fe83b44cebba195404d65de0b0ba64747f66486d58e9f19e3216737"
-    sha256 cellar: :any_skip_relocation, monterey:       "96a67a2fe928a61e20bc40cf5f57c1098d40a6216d3d9fef7cd2cbe8c82f25ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f09d550a792b0a8a1f8c041f90c4211a82e910ee05fe591a4c65752ad4364265"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dc3f895a332b33e5d6d6c5badecc2571dd80f411a431584a6e6794746fbcc6e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f75d847f1b7f59d2eea64f5b9b64f1e9553949b0eee531afec83f3294e569276"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6105e5904bb15aad3cdab043bc777995511b7b4ebd84d933bc7c0d1bc80bc63"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8a6ed7a53da974e47bc0893cc014894cb746e31107b6ba5f3b70d3c558ba610"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b255ccb793414c5fd0e032943846aa0fe87b90b8437cfdae1fd58959bd1d3be2"
+    sha256 cellar: :any_skip_relocation, ventura:        "d61431aeb586820ee23afe4d7183de8e6db3e6e6d948e0eb1f3209ba184f49ec"
+    sha256 cellar: :any_skip_relocation, monterey:       "27a1a27c014d67e8d3e84ab9f73dda709e7afc7292db2af2106c4f927117617c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38bc8c93a1c9a0b3021e40ad907d321bb362ce00f776ed96b0af43b8bb450bb4"
   end
 
   depends_on "black"
   depends_on "mypy"
-  depends_on "pycodestyle"
   depends_on "pydocstyle"
   depends_on "python@3.11"
+  depends_on "ruff"
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
+    sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
+  end
+
+  resource "cattrs" do
+    url "https://files.pythonhosted.org/packages/68/d4/27f9fd840e74d51b6d6a024d39ff495b56ffde71d28eb82758b7b85d0617/cattrs-23.1.2.tar.gz"
+    sha256 "db1c821b8c537382b2c7c66678c3790091ca0275ac486c76f3c8f3920e83c657"
+  end
 
   resource "docstring-to-markdown" do
     url "https://files.pythonhosted.org/packages/52/c2/6f73c08b97bacd1242835bdca1cfc123b059eb15af9350eb1eb5d58868fc/docstring-to-markdown-0.12.tar.gz"
@@ -31,8 +40,13 @@ class PythonLspServer < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/15/02/afd43c5066de05f6b3188f3aa74136a3289e6c30e7a45f351546cab0928c/jedi-0.18.2.tar.gz"
-    sha256 "bae794c30d07f6d910d32a7048af09b5a39ed740918da923c6b780790ebac612"
+    url "https://files.pythonhosted.org/packages/d6/99/99b493cec4bf43176b678de30f81ed003fd6a647a301b9c927280c600f0a/jedi-0.19.1.tar.gz"
+    sha256 "cf0496f3651bc65d7174ac1b7d043eff454892c708a87d1b683e57b569927ffd"
+  end
+
+  resource "lsprotocol" do
+    url "https://files.pythonhosted.org/packages/22/a1/4df53bbe3663de65ad90c6bbc2e6e8779b61fba1e13ee9a21a0f2f7db8f9/lsprotocol-2023.0.0b1.tar.gz"
+    sha256 "f7a2d4655cbd5639f373ddd1789807450c543341fa0a32b064ad30dbb9f510d4"
   end
 
   resource "parso" do
@@ -41,13 +55,18 @@ class PythonLspServer < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/8a/42/8f2833655a29c4e9cb52ee8a2be04ceac61bcff4a680fb338cbd3d1e322d/pluggy-1.2.0.tar.gz"
-    sha256 "d12f0c4b579b15f5e054301bb226ee85eeeba08ffec228092f8defbaa3a4c4b3"
+    url "https://files.pythonhosted.org/packages/36/51/04defc761583568cae5fd533abda3d40164cbdcf22dee5b7126ffef68a40/pluggy-1.3.0.tar.gz"
+    sha256 "cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"
   end
 
   resource "pylsp-mypy" do
     url "https://files.pythonhosted.org/packages/5f/56/5dd31793481169f71f3849d9b455c253511c1298db7ec73f484b923bac22/pylsp-mypy-0.6.7.tar.gz"
     sha256 "06ba6d09bdd6ec29025ccc952dd66a849361a224a9f04cebd69b9f45f7d4a064"
+  end
+
+  resource "pylsp-rope" do
+    url "https://files.pythonhosted.org/packages/fe/25/1935fc44a596427d50be237658a8fd23302a7904705422a5f1e39468e921/pylsp-rope-0.1.11.tar.gz"
+    sha256 "48aadf993dafa5e8fca1108b4a5431314cf80bc78cffdd56400ead9c407553be"
   end
 
   resource "python-lsp-black" do
@@ -56,8 +75,27 @@ class PythonLspServer < Formula
   end
 
   resource "python-lsp-jsonrpc" do
-    url "https://files.pythonhosted.org/packages/99/45/1c2a272950679af529f7360af6ee567ef266f282e451be926329e8d50d84/python-lsp-jsonrpc-1.0.0.tar.gz"
-    sha256 "7bec170733db628d3506ea3a5288ff76aa33c70215ed223abdb0d95e957660bd"
+    url "https://files.pythonhosted.org/packages/48/b6/fd92e2ea4635d88966bb42c20198df1a981340f07843b5e3c6694ba3557b/python-lsp-jsonrpc-1.1.2.tar.gz"
+    sha256 "4688e453eef55cd952bff762c705cedefa12055c0aec17a06f595bcc002cc912"
+  end
+
+  resource "python-lsp-ruff" do
+    url "https://files.pythonhosted.org/packages/d4/e6/58bf4c349843548fdba5279821a4c8830464821705973b3b2f577a28ba46/python-lsp-ruff-1.5.2.tar.gz"
+    sha256 "eef8a5228d4f1e01d9eb2691c5356dfdb3f01adf60eeb1afaeaf387b2203201c"
+
+    # this depends on `ruff` solely to install the binary,
+    # but we can just depend on the `ruff` formula in Homebrew
+    patch :DATA
+  end
+
+  resource "pytoolconfig" do
+    url "https://files.pythonhosted.org/packages/aa/ce/ac21cf0549ae05d8924e91f02f8b406e43beb42e605dc732fdf700f8cd8c/pytoolconfig-1.2.5.tar.gz"
+    sha256 "a50f9dfe23b03a9d40414c1fdf902fefbeae12f2ac75a3c8f915944d6ffac279"
+  end
+
+  resource "rope" do
+    url "https://files.pythonhosted.org/packages/3e/bc/821e7c8e556a13014702fb81ae97da868fbbe0bab8cc38d9600309fabf91/rope-1.10.0.tar.gz"
+    sha256 "14bfcc7dfea69fa32c53db0667e86e321ef059de555c7f8101a0cb91c8d85a55"
   end
 
   resource "ujson" do
@@ -79,7 +117,7 @@ class PythonLspServer < Formula
 
     # link dependent virtualenvs to this one
     site_packages = Language::Python.site_packages(python3)
-    paths = %w[black mypy pycodestyle pydocstyle].map do |package_name|
+    paths = %w[black mypy pydocstyle].map do |package_name|
       package = Formula[package_name].opt_libexec
       package/site_packages
     end
@@ -99,7 +137,32 @@ class PythonLspServer < Formula
       }
     JSON
     input = "Content-Length: #{json.size}\r\n\r\n#{json}"
-    output = pipe_output("#{bin}/pylsp", input)
+    output = pipe_output("#{bin}/pylsp -v 2>&1", input)
     assert_match(/^Content-Length: \d+/i, output)
+
+    expected_plugins = %w[
+      pydocstyle
+      pylsp_black
+      pylsp_mypy
+      pylsp_rope
+      ruff
+    ]
+    expected_plugins.each do |plugin_name|
+      assert_match("Loaded pylsp plugin #{plugin_name}", output)
+    end
   end
 end
+
+__END__
+diff --git a/pyproject.toml b/pyproject.toml
+index 4c133c7..205d9e3 100644
+--- a/pyproject.toml
++++ b/pyproject.toml
+@@ -13,7 +13,6 @@ readme = "README.md"
+ requires-python = ">=3.7"
+ license = {text = "MIT"}
+ dependencies = [
+-  "ruff>=0.0.267",
+   "python-lsp-server",
+   "lsprotocol>=2022.0.0a1",
+   "tomli>=1.1.0; python_version < '3.11'",

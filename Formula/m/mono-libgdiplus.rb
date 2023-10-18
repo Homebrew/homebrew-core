@@ -12,9 +12,11 @@ class MonoLibgdiplus < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "17bb690baf4c81a255f8aaa4dd26a3fe213107d435a09056edf75fbe20a96f86"
     sha256 cellar: :any,                 arm64_ventura:  "baa165d73925f5841420b2fc30e940f6e9e41feae17276008e9c9749a5aedc43"
     sha256 cellar: :any,                 arm64_monterey: "c6aa23ec4f0567c5fbc66d2f337154d027c445ce5e185e9add426abe2421b2b2"
     sha256 cellar: :any,                 arm64_big_sur:  "0d867f4956abbc40cbb77e02fa065e29f9b542cf62c241c8b9bdd63d1545386c"
+    sha256 cellar: :any,                 sonoma:         "fcfd56c45fedb582eee479197e13c10ec528f6d36f3ba3ec94803c7cfdd98c21"
     sha256 cellar: :any,                 ventura:        "914cd00240487b6f029a094d0daf4817bfee298061550b35a0b43d02ddf62af9"
     sha256 cellar: :any,                 monterey:       "2007d0ab77950b6c610e2285c3bee3d86f40bda83741b03b5a2ffe170e0dff74"
     sha256 cellar: :any,                 big_sur:        "8dc5b4a3e00eef554d5a96cf6978c6da43e60cccb9d623e22d913b426f050ae9"

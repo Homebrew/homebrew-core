@@ -12,9 +12,11 @@ class ChibiScheme < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "fc6874281f699af16828073dcf1b38c0e37089f7bd0bf20e45926651ec222ec8"
     sha256 arm64_ventura:  "ad09d2ffe56cff238f35f494831537ee5abf0cfb79eac853d4fdf30c59f4db59"
     sha256 arm64_monterey: "d2f22ab5082b1d77f7511e4d94c84ccc75a5661b8b4a88e2b8f3e1aef005f338"
     sha256 arm64_big_sur:  "18fc48f1b5623936fd24b7259b4bcb0e611a91ebe2354b2e1ca8b3dc99dd3eb6"
+    sha256 sonoma:         "4e38bb6fd16c66c4dfbdfc7deafa99e4dd7c8ae87ea32c068f79902dee8e57f5"
     sha256 ventura:        "3da3a458763da85598324d71211965cb01e34d2b0f4fa590957ba63b12e3f0f8"
     sha256 monterey:       "17e2c86eb08a94910eef369344fa0bc0136120155f9b94aa465d4ed63e450124"
     sha256 big_sur:        "2547ea8be7276702a7db43cd70ca284d74fd7176d612e4b2bab2837343fd3736"

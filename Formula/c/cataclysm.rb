@@ -14,9 +14,11 @@ class Cataclysm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1f0baa0478cd23de28c5ad1d2b10b90979b0c627a6445f15b287193d760c8493"
     sha256 cellar: :any,                 arm64_ventura:  "99558da9dc0aff5d3e520504578ba4112a1ccd25be503414c8b35473b9b4e298"
     sha256 cellar: :any,                 arm64_monterey: "9e83a6fc0c9ae9ae1364fe3dcaa56192b9324f7d2423b8e4df309f1044a717b4"
     sha256 cellar: :any,                 arm64_big_sur:  "655e4c659d55a1844ef8ebb910f297bbb27ff8b10905c6e9e95232b76cdf1d1b"
+    sha256 cellar: :any,                 sonoma:         "3355476707fda486bb180c4320063c03cf3cb16f6e084d835597089c08d55865"
     sha256 cellar: :any,                 ventura:        "6f54c0f3258b4231e38dd38d9e094cdd24389ebb1cdb423c3fda60396d588fc9"
     sha256 cellar: :any,                 monterey:       "062842315c06a4e816fc9885e4b670a306521dbc3b78537e83a6fb304790854d"
     sha256 cellar: :any,                 big_sur:        "a395f1cc45907a5f83ddd9499fe7178c0220f1af20b6910901a4b434cc95b82c"

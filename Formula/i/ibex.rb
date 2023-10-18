@@ -13,6 +13,7 @@ class Ibex < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, sonoma:       "05e8146b72de3a2d65cab6bafa5d24b58b95901c4d44ce609b4561773ada2cd5"
     sha256 cellar: :any_skip_relocation, ventura:      "eea592d2c1c13bde0a000ca8705cabce4e11aeabb76a30dc8baf09931b9a22dd"
     sha256 cellar: :any_skip_relocation, monterey:     "5fe0810e9f6ef9b72c7d1e9ceba7b6b9c37410dd93f9801ac37e9738ec245005"
     sha256 cellar: :any_skip_relocation, big_sur:      "dbe9f4d68e4a406bd4926d6c821887e32af2d323f1d7ecd9a729ee0957c3e120"

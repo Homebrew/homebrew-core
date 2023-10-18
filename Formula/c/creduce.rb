@@ -36,9 +36,11 @@ class Creduce < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "86f827dbec5d9cd7c0441524da51406b3053f9eb4473fe5f261ffb92de6758f7"
     sha256 cellar: :any,                 arm64_ventura:  "7237b5dcaa9b242dbf6d802b899055e27464968a8c260843836e266def749f28"
     sha256 cellar: :any,                 arm64_monterey: "1cea9260c4c9bb7163c3e0892ac5a43d42fe3061bfa3b1d4cf8c27c921b6aa45"
     sha256 cellar: :any,                 arm64_big_sur:  "01a3f3bf670aa664211b14c98095d555d3a1eaddeae77a4b97beb9244fa73c66"
+    sha256 cellar: :any,                 sonoma:         "866a2058a1604832fc533fab192d35370036aefc12a91f2af833652f5942a6d5"
     sha256 cellar: :any,                 ventura:        "08f96b6e80c46641a5131c7c2ec1cda64f7837888b2679eff86d33bb5a03382c"
     sha256 cellar: :any,                 monterey:       "66ab9b7fc1131261676c4993d5a15f324a095016b536592180e30d641aafb257"
     sha256 cellar: :any,                 big_sur:        "8bdeb52e5688a4cefac68a1c42f8785ff5ac246bb1f11a42b766f9bacf499905"

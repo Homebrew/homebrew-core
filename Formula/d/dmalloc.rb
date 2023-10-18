@@ -11,9 +11,11 @@ class Dmalloc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5326a45ed099179ae2f05299e3bf0e90b2f7b037594cf175da72830963687acf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc77030dce1a9f169758cd306be4a70d322479044dd598ce74e7733bbe0a7d71"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2f328197f63c96ff0ce40846bb242b3e1d04985567893adefd2d47f79f6f96d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8e1beff8a66f4a5d7a90fa8c5f9836ed79b9241ab642966d82550916a3af5c1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7768789dadca658d2591b23ad1be950f3c0930dc5a81eff33d16cc2d31ab305b"
     sha256 cellar: :any_skip_relocation, ventura:        "01adf9d08a79145edccb9004602becb64b659062815b15ce5504a80937c80970"
     sha256 cellar: :any_skip_relocation, monterey:       "e81b6c8a327baa3612aed45f6dfc157885344bb64f925dcf1cb00d12acfb2f9d"
     sha256 cellar: :any_skip_relocation, big_sur:        "300f9e7b54c15071bc36fb861cc6b75ef671052c8be6096a99314b1ca0077565"

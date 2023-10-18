@@ -7,9 +7,11 @@ class Libmarpa < Formula
   head "https://github.com/jeffreykegler/libmarpa.git", branch: "tested"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d8990e68cdbf7e72eabee1a7b07813fb1d9c7342ab7429ef17c96cdd007a5489"
     sha256 cellar: :any,                 arm64_ventura:  "9c44b6ac4750d7c0c22928c3ed71b177149bc04f9b0eb1d81f1e4a0a44f20d93"
     sha256 cellar: :any,                 arm64_monterey: "3b1f23479cc0c9be0394de78dcd2c6f45958f0dd4537766e8620baf12b9e52e9"
     sha256 cellar: :any,                 arm64_big_sur:  "3ef4f6ceface8cd5589bed2074d6a2f90853e0f1a6e04bddcf3fee3f7d282b95"
+    sha256 cellar: :any,                 sonoma:         "638ee3848ae1395f7b3447634f3e7b2c6a89afc329aa3ec90eb70d5dc7001372"
     sha256 cellar: :any,                 ventura:        "291cbe0cc4cca93255535ae8f3cca6ecc825b6ddb3ff8428644904c76b80bcc3"
     sha256 cellar: :any,                 monterey:       "d989c55363840d93279540952280d095ffdd370f421564b58971784152de3619"
     sha256 cellar: :any,                 big_sur:        "ad0ccc298e941b7a668af5355e2955f1be470a48a38c4aced5ee6fae1e172902"

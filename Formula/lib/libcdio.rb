@@ -7,9 +7,11 @@ class Libcdio < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ca64fa34030dc416bc1e3d40e6d74037ae575f3890fc2fff439ebe96e8a00218"
     sha256 cellar: :any,                 arm64_ventura:  "118cf68c27ed81b7b99dde4419ba1fb8c6734568face2b741c1aeefa1a567cf1"
     sha256 cellar: :any,                 arm64_monterey: "1a494adcac50f09c217499a52a3bc585164e31bc655208f9d1239599b6687c61"
     sha256 cellar: :any,                 arm64_big_sur:  "48111a6c9c6f82aeafae559a73aa8acb1c33eb12f71e059a5d6a4bcdab846206"
+    sha256 cellar: :any,                 sonoma:         "8bf3409be367c02d2af4846ad4c515919808f1c2ce1811a51ae71b7ba3f6490e"
     sha256 cellar: :any,                 ventura:        "06bfca059c6f5e949f8e45ac6c218b13df8ec4e3efa9720f4a16c3f87203820f"
     sha256 cellar: :any,                 monterey:       "bedfea3e35f4b1a7fa77ee2f8da00fb603e012b9be281a449b924e9487a5fd18"
     sha256 cellar: :any,                 big_sur:        "d8bddd24c6d4686f77bd507fdb3380ce6acd3b3f799188e8961d1feeb269c422"

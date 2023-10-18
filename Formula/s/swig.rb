@@ -6,9 +6,11 @@ class Swig < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "e27a061c91b485a37f144661bcfaa1c99866d299477c5014778b64c608086131"
     sha256 arm64_ventura:  "360d6e5438f0ac5a819ce2f9a0812dd9fa4d8c6edec7ac7377d2717779e26bb6"
     sha256 arm64_monterey: "27c89aff26a1b22f1f645298992fba5db8d70b71772509f75870eefd7382e2e8"
     sha256 arm64_big_sur:  "d939f6eeeb6f58e3057fd311362b9e37fa969b83f6654752f5d3749898e99b69"
+    sha256 sonoma:         "8596c81c9bdd3c50f915f1cdf6cb5977646bbd0a3e9963e5b497dae7c2a01079"
     sha256 ventura:        "f478fa16ba778eac8227fe51844909db95887153f6fbb8ee4e050dbb0c4acc8e"
     sha256 monterey:       "7762910a737820dc734b089253c2f5bc7140673a2300acd97f0338ebc7ef6fd5"
     sha256 big_sur:        "8133b566757d1d2295bb38d77a536258aef56b9f6b15ec3c222ff1166d596204"
@@ -24,7 +26,7 @@ class Swig < Formula
 
   depends_on "pcre2"
 
-  uses_from_macos "ruby" => :test
+  uses_from_macos "python" => :test
 
   def install
     system "./autogen.sh" if build.head?
@@ -47,27 +49,24 @@ class Swig < Formula
       extern int add(int x, int y);
       %}
     EOS
-    (testpath/"run.rb").write <<~EOS
-      require "./test"
-      puts Test.add(1, 1)
+    (testpath/"setup.py").write <<~EOS
+      #!/usr/bin/env python3
+      from distutils.core import setup, Extension
+      test_module = Extension("_test", sources=["test_wrap.c", "test.c"])
+      setup(name="test",
+            version="0.1",
+            ext_modules=[test_module],
+            py_modules=["test"])
     EOS
-    system "#{bin}/swig", "-ruby", "test.i"
-    if OS.mac?
-      system ENV.cc, "-c", "test.c"
-      system ENV.cc, "-c", "test_wrap.c", "-I#{MacOS.sdk_path}/System/Library/Frameworks/Ruby.framework/Headers/"
-      system ENV.cc, "-bundle", "-undefined", "dynamic_lookup", "test.o", "test_wrap.o", "-o", "test.bundle"
-    else
-      ruby = Formula["ruby"]
-      args = Utils.safe_popen_read(
-        ruby.opt_bin/"ruby", "-e", "'puts RbConfig::CONFIG[\"LIBRUBYARG\"]'"
-      ).chomp
-      system ENV.cc, "-c", "-fPIC", "test.c"
-      system ENV.cc, "-c", "-fPIC", "test_wrap.c",
-             "-I#{ruby.opt_include}/ruby-#{ruby.version.major_minor}.0",
-             "-I#{ruby.opt_include}/ruby-#{ruby.version.major_minor}.0/x86_64-linux/"
-      system ENV.cc, "-shared", "test.o", "test_wrap.o", "-o", "test.so",
-             *args.delete("'").split
-    end
-    assert_equal "2", shell_output("ruby run.rb").strip
+    (testpath/"run.py").write <<~EOS
+      #!/usr/bin/env python3
+      import test
+      print(test.add(1, 1))
+    EOS
+
+    ENV.remove_from_cflags(/-march=\S*/)
+    system "#{bin}/swig", "-python", "test.i"
+    system "python3", "setup.py", "build_ext", "--inplace"
+    assert_equal "2", shell_output("python3 ./run.py").strip
   end
 end

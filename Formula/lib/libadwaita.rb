@@ -1,8 +1,8 @@
 class Libadwaita < Formula
   desc "Building blocks for modern adaptive GNOME applications"
   homepage "https://gnome.pages.gitlab.gnome.org/libadwaita/"
-  url "https://download.gnome.org/sources/libadwaita/1.3/libadwaita-1.3.4.tar.xz"
-  sha256 "801ccaf3a760213b59ebb9b8185327df225049544aee68a1340b165710acb1bd"
+  url "https://download.gnome.org/sources/libadwaita/1.3/libadwaita-1.3.5.tar.xz"
+  sha256 "faa3ff0f36db18ab4942f4904a295293ccb144755b9bb85131393f201926b586"
   license "LGPL-2.1-or-later"
 
   # libadwaita doesn't use GNOME's "even-numbered minor is stable" version
@@ -14,13 +14,15 @@ class Libadwaita < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e2908ac3790f2706c3739fdab2c2100d693ca9e2ec82b019a99e7b13510cc5a6"
-    sha256 arm64_monterey: "ec6e42b6ae622d975cff68e8d32562fac7da0d420078e8d78f3bf2c5b8fe26d9"
-    sha256 arm64_big_sur:  "79430eb51035c011bfadcf0b865ac46e129398d109109e6c622ee8c26fc22c99"
-    sha256 ventura:        "a54ab75b0c49290b790478f08b5c10783c69255b05cb998d9f95f28deeb6cae0"
-    sha256 monterey:       "684363e4a363eec59ddd34f36b7d5ae8f351f82b4a0ea736901ea3b04beec331"
-    sha256 big_sur:        "08389a84c8bc3e7ec8e28484f3f21112c12871a33128585b84133c27cb5b23a6"
-    sha256 x86_64_linux:   "0648439a56b7e5c2f53c6d97f385f9542590d2965456ef9396eed31a245a991c"
+    sha256 arm64_sonoma:   "ef1daeea57ba4deb70ef5338bd739ae51646c471edc3bd4c0d8ad1bf3c3b4f40"
+    sha256 arm64_ventura:  "6d85d0d5c2d4d48934730d04b1d71fcdaaaa4d5340121de7331be6a454df411a"
+    sha256 arm64_monterey: "8f6bfd36aa92234f34c453fbb9d8556470b18c0955610551c4d1a3e1a1fd46fe"
+    sha256 arm64_big_sur:  "63ce30ff4af57ce0a74b87470b1924407af75a14b94cc9c81740a62b7b46e9d9"
+    sha256 sonoma:         "2f5c848d832ea53d1b9649104bc727b7886458b0e1091194339f1c26fb8b736b"
+    sha256 ventura:        "a65f238ab3becb3d69862e92ded83bc75255ce9291e58a2622497798a0537340"
+    sha256 monterey:       "eb4efa96500402a29400b4ed1a7bf6813904bce971e5637052d88efdcc37e44d"
+    sha256 big_sur:        "0c21c762f5e5e0a84d8d749cc6214ee9aae2ff566e4dfd4abf5b75923553ae83"
+    sha256 x86_64_linux:   "9c9ed668d719bab47cc21c920d3214de8c81b9447232ba8f0bce968053a41b05"
   end
 
   depends_on "gettext" => :build
@@ -38,9 +40,6 @@ class Libadwaita < Formula
   end
 
   test do
-    # Remove when `jpeg-turbo` is no longer keg-only.
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["jpeg-turbo"].opt_lib/"pkgconfig"
-
     (testpath/"test.c").write <<~EOS
       #include <adwaita.h>
 

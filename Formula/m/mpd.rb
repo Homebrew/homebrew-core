@@ -1,20 +1,19 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://web.archive.org/web/20230506090801/https://www.musicpd.org/"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.13.tar.gz"
-  sha256 "c002fd15033d791c8ac3dcc009b728b0e8440ed483ba56e3ff8964587fe9f97d"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.14.tar.gz"
+  sha256 "3547237437368962c8a8bdec088a369a94ef66f7afc22f6fc0d643c1406bd533"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "fa9cd11e5bbe4d9b30b3af5b39914b43946c145d83447b79ce51f9bab6c6da3a"
-    sha256 cellar: :any, arm64_monterey: "66e53255d65450435c792e043ea312ba3cdb487df388ea5e3f767d7ace183f6f"
-    sha256 cellar: :any, arm64_big_sur:  "06644e8bbbfe2db88880b5eff435abda354ab9b2ca71c1450eff958015e0efe2"
-    sha256 cellar: :any, ventura:        "b34f0e6df048aeeaf16f89b5f3a5821b0bd26262459c5e33f9a5befd3ab2b67d"
-    sha256 cellar: :any, monterey:       "8635a464ff00e30d4486b5d8bff9ce2a885f3cef5941d6084aef5bf29d2bb183"
-    sha256 cellar: :any, big_sur:        "0fda32e1f629baaae537f2542ceeb5983a6a3e0b3807fcd8453be07d2d13a96a"
-    sha256               x86_64_linux:   "f01776e8946de962cdd307cc73a1cac1ea8e9a9540a9677a4f5f614bf7cd35ee"
+    sha256 cellar: :any, arm64_sonoma:   "367b98185a3776ebba3dc4940be453761ad8833420a9eeac58bb7628dec44551"
+    sha256 cellar: :any, arm64_ventura:  "c899b3d2b1b813a7d9bec3d3722272a852f68d22f0467608b351d64ac8d23a94"
+    sha256 cellar: :any, arm64_monterey: "26a65973bf58b0302d4a62cdc0f287e92ed3fde3f76ee0a6ec2cc908738463dc"
+    sha256 cellar: :any, sonoma:         "4634cbe7c2aa2776dd7685f5428cd0be4d8eb71596ed56cf0e36681bc608d9e2"
+    sha256 cellar: :any, ventura:        "30f5fff398061e4799a46ef0c34f780621671cad90262b38ee86932bbfd26c21"
+    sha256 cellar: :any, monterey:       "ce48447f1ae44e638efbe8d3752788a90d517f8a5e5cdd4b83514404c5e19d94"
+    sha256               x86_64_linux:   "7affc1bf59ff418623d336b07aaa29ed02a5d5f980004f7033bb7200a4ddbdd7"
   end
 
   depends_on "boost" => :build
@@ -42,6 +41,7 @@ class Mpd < Formula
   depends_on macos: :mojave # requires C++17 features unavailable in High Sierra
   depends_on "opus"
   depends_on "sqlite"
+  depends_on "wavpack"
 
   uses_from_macos "curl"
 
@@ -71,6 +71,7 @@ class Mpd < Formula
       -Dshout=enabled
       -Dupnp=pupnp
       -Dvorbisenc=enabled
+      -Dwavpack=enabled
       -Dsystemd_system_unit_dir=#{lib}/systemd/system
       -Dsystemd_user_unit_dir=#{lib}/systemd/user
     ]
@@ -104,6 +105,8 @@ class Mpd < Formula
     # oss_output: Error opening OSS device "/dev/dsp": No such file or directory
     # oss_output: Error opening OSS device "/dev/sound/dsp": No such file or directory
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
+    assert_match "[wavpack] wv", shell_output("#{bin}/mpd --version")
 
     require "expect"
 

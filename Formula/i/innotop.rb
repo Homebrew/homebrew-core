@@ -4,17 +4,17 @@ class Innotop < Formula
   url "https://github.com/innotop/innotop/archive/v1.13.0.tar.gz"
   sha256 "6ec91568e32bda3126661523d9917c7fbbd4b9f85db79224c01b2a740727a65c"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 4
+  revision 5
   head "https://github.com/innotop/innotop.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "068773ea3da98de5fe42044cc0520afdddedfa7c84fb5e62108b1720b9c20248"
-    sha256 cellar: :any,                 arm64_monterey: "77425886a3180aa4b961083035c3e6425d85dbfb387bdf569f0573120ea34943"
-    sha256 cellar: :any,                 arm64_big_sur:  "278185fd679a22585d66d86d28e08db84bd49ddb720c070826b25588dd4aeb6b"
-    sha256 cellar: :any,                 ventura:        "e7234b7ec0b3464de544936ab873a2370c862cb84a4cc97263e7f20187aa7585"
-    sha256 cellar: :any,                 monterey:       "af869d75e218b48c71d8cf9f7ed87b9298776fdd17dfa0586f890d3610e45e45"
-    sha256 cellar: :any,                 big_sur:        "60a364a7d80d3918c6d8b52ceeb4fa78bcfe84c200dc8705a8c756b32b8f2a4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb2cb1f63384bafc63123f727a97a9dc5ab18d4c17814b94050d1f698795c187"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b141f9ff15ff71a137932ce0d92782fe456f16da7797c8ea01e8d442327ef27"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4435fa9d4eddf25fa938fd5a27997399340291b80b9fa0c51329ef895b6f877"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e3191f7604047d76c459f0c5d4f342a9a3613ddb315235f6c5d275224c1ecc55"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7a2b580ecac088e1e4da1d76cb09bb41849a6b56e294e59502b64813d7045b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "e2e4617476609c115395c72820fa66f54e8dcde160c081791ea0547312fa0d7c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f7ee202e37395f89fa8bbdda66f08e6087d324a764034d28d51bafecfae2e093"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab969696af775acad4be0288eb659937e1777d14693e766164994de8f9a86302"
   end
 
   depends_on "mysql-client"

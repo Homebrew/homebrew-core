@@ -11,9 +11,11 @@ class Nuttcp < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3307110d7f6cb527152b3f3e70bdec5f80a89b5be55c27bada5b35d549d51714"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ac8108263034cac96c76efb07222a474c603fee130f0751dd9957bd52111280"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "354b4a9b24a8af78f93bc7214b10137897a2bb04d49e42273a7b203265309fce"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c284b20a30f158f7321ca918bc27ffac8f5e644e85acba6231477aa9c4a9f06e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5cfa8c2cc2f19adca00c59e5f2a2ff0aadf5f5a3b35626c928437b83acdcc22a"
     sha256 cellar: :any_skip_relocation, ventura:        "3f32f4184daaad9ca38c76c61eef16551706949199fc6ca890357547e249509c"
     sha256 cellar: :any_skip_relocation, monterey:       "23f6274a513fc5e03b2eba2ea26496beb8e1b7e21ac0824fb7abea9e3487b296"
     sha256 cellar: :any_skip_relocation, big_sur:        "9001ef97c90c4097f1ebabed20e63305f82a5f04d7ffc0f0d788c249c49d236d"

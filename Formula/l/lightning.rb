@@ -7,6 +7,7 @@ class Lightning < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 sonoma:       "099e81b84e2fc1a31b43d316df2768dfa6441e55aca90e8113fe18772c3f611e"
     sha256 cellar: :any,                 ventura:      "05f528061480f85ae5451ad09770f5a44e60388f9cae719735640c8819e2970b"
     sha256 cellar: :any,                 monterey:     "8ba3c1335a85fa0d61611fa0bf5aa73ae9628afb412a3e5a60f6cb847802ba30"
     sha256 cellar: :any,                 big_sur:      "dd12b9fd6a87b5ecbca432211b26c26f3ca8fb1b032e4d61a144d38a2ca14bd5"

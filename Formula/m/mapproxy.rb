@@ -9,20 +9,21 @@ class Mapproxy < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4d62d3b9582cbad75557c070576a7b3a41d7ba2eee3397072183083b7b21dbf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "82c7dd4bf09cba521f587db39964d50601381ea5d0edacdd14c92f9fa2ba2ab7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53556be7146ab2c20b8510d5204883d1f1eef915d333f9fca0906ddc4e989f13"
-    sha256 cellar: :any_skip_relocation, ventura:        "dcc64e57343878981e73170c4b1c0c8800345dbe14f58a354e37f51c8e254380"
-    sha256 cellar: :any_skip_relocation, monterey:       "1b27b3755848f832b0ebb31e6b59c2b3a0a93ca57f3e9d276d549cea0cd6325a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ebf5d78a5d1fd156418889fe073fda2624bc559b702039a85ceb049321805067"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8775c1b03984cdbc6c2deb8ef7e034ebb5c69baa094ef6f145c086daebfcb44b"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "b5c14d783b11413e42b2d03577485ee70d1b10ea1ffc05371b559aafa938c214"
+    sha256 cellar: :any,                 arm64_ventura:  "687a7c9e3fb4149243698809b029d8af44daf0c86e29a9355d75e6c11dbd4167"
+    sha256 cellar: :any,                 arm64_monterey: "6e34e109fa0a42c3732353863853a9cdfd9ace585e6c6399dfa895c2e277ef8a"
+    sha256 cellar: :any,                 sonoma:         "e19b4d8f69457cbd87a66786bce575d0978e471e51a7ba502b55841322578d9e"
+    sha256 cellar: :any,                 ventura:        "01109ae42429b2b4070f9aa56bab4b6cdea3c4e749888388b1b279b38d17679e"
+    sha256 cellar: :any,                 monterey:       "20442865c78a9f962379811bf8919e405d8a9e08cf623e09558083f390b070c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b48d916430a9594c6f250cd2e7068f7d30a81aa8ad4a794d9e5547fb82acede3"
   end
 
   depends_on "pillow"
   depends_on "proj"
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 

@@ -12,9 +12,11 @@ class SLang < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "8f5f2ce496f0103eb571b4762b956193adf5819a4800192c62be5e8b0beae99b"
     sha256 arm64_ventura:  "efee4508d1dca5519b52de6bea66a589bcb203c62b826101fe599e4f3862f149"
     sha256 arm64_monterey: "5378418e6b6e974287ded1bc8f6ecbcffe4dfab01ac35c92a1f83336d0d49270"
     sha256 arm64_big_sur:  "c79914984d5c401d8fed000d07ca34b914ae585461c86be3672e3172d5035f9a"
+    sha256 sonoma:         "72b3198c9149036ea0924f9ab8a7d3254969edf4a6a28c6ece19e7592969bdbb"
     sha256 ventura:        "cbb5b0a2f1b1821be50e9c3ca7c01811ad60ddfe49c2c022cf486399f664e994"
     sha256 monterey:       "66e107f60db823f566bf6d2101fca2b2aff3b572312cd34a9a86b0cdba47adcd"
     sha256 big_sur:        "71450b5ff5941e3b2f6a8ca4864affbf8fa5c50b4753860ca86e596834618638"

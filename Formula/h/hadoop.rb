@@ -7,9 +7,11 @@ class Hadoop < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "babb72b9ea422ae665945db155016e9fda102ec8fd37af97261faf72805ac7ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cddc35ec7bb9fa8f6304588d52b62886ea9cb6ede2bd25368565457423258e2f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cddc35ec7bb9fa8f6304588d52b62886ea9cb6ede2bd25368565457423258e2f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cddc35ec7bb9fa8f6304588d52b62886ea9cb6ede2bd25368565457423258e2f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "104b0ece894cfc0b4fac859cbc370117748cbedd21890846bb7ca87a95ee72ec"
     sha256 cellar: :any_skip_relocation, ventura:        "6191a8773d779d5307e2f3fb7bb0c0d6f797638a8f87f07e849a0a61be3a726d"
     sha256 cellar: :any_skip_relocation, monterey:       "6191a8773d779d5307e2f3fb7bb0c0d6f797638a8f87f07e849a0a61be3a726d"
     sha256 cellar: :any_skip_relocation, big_sur:        "6191a8773d779d5307e2f3fb7bb0c0d6f797638a8f87f07e849a0a61be3a726d"

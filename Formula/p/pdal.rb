@@ -1,10 +1,9 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.5.5/PDAL-2.5.5-src.tar.bz2"
-  sha256 "b32b16475619a6bdfaee5a07a9b859206e18de5acff2a4447502fd0a9c6538d6"
+  url "https://github.com/PDAL/PDAL/releases/download/2.5.6/PDAL-2.5.6-src.tar.bz2"
+  sha256 "7c7c4570ef518942299479cc4077e0c657ec5b5174daf465415de947a1d3eb99"
   license "BSD-3-Clause"
-  revision 3
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes creates tags that only include a
@@ -18,13 +17,15 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "48afc00971d9b72829406fa2d5ed28cc36f4b453531d30dc6f894abab6982df5"
-    sha256                               arm64_monterey: "ae867cbfcb9dc3e8392b741de59037c6ea828c863fa11144805772d314c0a8f1"
-    sha256                               arm64_big_sur:  "b8e42461e0b41a0ace6cf6ac7b1713f6fc5aff81baf6ea0cf7eb87abdc98e793"
-    sha256                               ventura:        "065fe354793c615ca42ee391e2079eb205010b169e762340b6f05edebc8029c1"
-    sha256                               monterey:       "2db1a7879387eaac5d8e23b9f561d7374e5d8a020b18a5cde167d19117f3e78b"
-    sha256                               big_sur:        "8799b5be8cba98681b202f72463462c7064ef83e43268cafeb8fd3f0090f890a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5cd6d374597ec37ab8497ee85857c9e8e76d081ed30c289651e32eb34b024b6"
+    sha256                               arm64_sonoma:   "7a89d979e455bba37345a4875096d129f5886361e6895b20e23ef8be09b4f6b8"
+    sha256                               arm64_ventura:  "907016c2faf1e258115d68d664ecd49a6c17df7dac074e669932643e669c4c81"
+    sha256                               arm64_monterey: "d7e219f143d23f14b6fe5a808ef37fcd6a90c37d6ead0a942acac6cce2422647"
+    sha256                               arm64_big_sur:  "41ef2b8263849cdf7ebaf6127e73997f41e2087abfc3ea5d56062e4138d9c24f"
+    sha256                               sonoma:         "82886d4bf2ddaa26216d3dd5e3023dafe9e10db8c71290e6cd20a3a58e33c67f"
+    sha256                               ventura:        "cb89ab55cc2837bf223f855d8e13aa2bae41a1ce65312d2391a6f6fd3ee3dbea"
+    sha256                               monterey:       "8dd43f33d18cc4f8d9bb0cd46e2f445ad4e43cbccbb3f98625cc3e2c4155fda5"
+    sha256                               big_sur:        "e449cf49e82392a9d257aac914298d4aaffb7c136e853d3f8f697cf6d97e1ccf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e7a2b4eb9accfaa73a653ad9d91d9b3d31e30f209d49fa86d92d658fc721279"
   end
 
   depends_on "cmake" => :build

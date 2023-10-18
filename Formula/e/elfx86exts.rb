@@ -1,8 +1,8 @@
 class Elfx86exts < Formula
   desc "Decodes x86 binaries (ELF and Mach-O) and prints out ISA extensions in use"
   homepage "https://github.com/pkgw/elfx86exts"
-  url "https://github.com/pkgw/elfx86exts/archive/refs/tags/elfx86exts@0.5.0.tar.gz"
-  sha256 "e09c3b7a08b7034859d4d56d0fbfa1d0c45b3df3d4345af51cca05d1f7d80766"
+  url "https://github.com/pkgw/elfx86exts/archive/refs/tags/elfx86exts@0.6.0.tar.gz"
+  sha256 "976f845635f08160c1330f3e70fd9b61bafbc26c76577bd278a7f2e8513d4130"
   license "MIT"
   head "https://github.com/pkgw/elfx86exts.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Elfx86exts < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8680dbd22fcccac5b1b11ea34f2e812f8736261a094802521cd746ddb8ca1fa1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e787acd4405cf44c00986c85702d8dd4b77a247122a770c04c579b731a436c69"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "86c69958793913345e7b5559cae950b9ce4c8834bbd457b2d5be7a4082f819d2"
-    sha256 cellar: :any_skip_relocation, ventura:        "f81d09003f7a89641675dddee66f243fa30368d8d629c3fb3cc6e706200a1880"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb5614cd1479da8b6432cce92774439ccb8d95529aad981f926fe0361679be13"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f06642868d5e4b81af3e51bdf4f1956c018fd66da15ed68f9b12b6f82e60e60a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9994e41bd2fd391a5fc0dde2ada4fac0b0f93b6b15f88364b5864b868dba83b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c716057d907972efaeca5bea46c37b55cab430c1bc137ad0e13598824c0c9d82"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a0554a17a80005a128712f2d36bf76937e6fe8c6e251924df4675d1d254826e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "814b6a9eafe0ba01113f321ff3422b0a0b548ced73990f0bcd1536a892b93e88"
+    sha256 cellar: :any_skip_relocation, sonoma:         "49652af634ddcdc92910dfa7b5ce9732d96e1314285b3263247c49721da35db3"
+    sha256 cellar: :any_skip_relocation, ventura:        "53ae0ee4d79ac9da52afd2889ac36e8b2dae183b99445d3b0d6f2ab8abef155f"
+    sha256 cellar: :any_skip_relocation, monterey:       "afd45d57a6586a7c6551a5e8e64bce951672aba684066e2eb0136077410b88e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e3a46896ba36346c6338838c2380ccb3cdf26c23cb796bbe95d3a7bf95434b5"
   end
 
   depends_on "rust" => :build
@@ -30,7 +30,9 @@ class Elfx86exts < Formula
 
   test do
     expected = <<~EOS
+      File format and CPU architecture: Elf, X86_64
       MODE64 (call)
+      Instruction set extensions used: MODE64
       CPU Generation: Intel Core
     EOS
     actual = shell_output("#{bin}/elfx86exts #{test_fixtures("elf/hello")}")

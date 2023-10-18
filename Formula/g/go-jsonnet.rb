@@ -12,9 +12,11 @@ class GoJsonnet < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7eed7e4575bf7d5222f5d2e40ab27c0fbc5ef5a1c06cb45bb69a84060500a8cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d7ef4c5d8638c9eb8197bd5be4bfc1e1e52d6dcb7275fe193850b4729ca199af"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f6ee690b5458c98426e668d40adc3d9f392b1a3d66a084eb5661dd032ba25d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "047317978d20c496cecfed47b54268962b041ef4599de8d46218f382b2ff60d9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5890f2fa8484a2b9492ee5a0e95aba6231f0c62bdbc5541297b95856a3586d75"
     sha256 cellar: :any_skip_relocation, ventura:        "0cb7c6f14e4d80552bb290c3f6f9cfe564ca46c37756b14a86adf0ddf671e146"
     sha256 cellar: :any_skip_relocation, monterey:       "ad1d51519e7a45af2b8132258360965ca84d7b9e4a36ea30dc5b708682ef06d8"
     sha256 cellar: :any_skip_relocation, big_sur:        "c11c053543e2d2bae86497ceadb07ebd78949aa4822a7061757604a920ce3e1b"

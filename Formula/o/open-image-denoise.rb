@@ -1,23 +1,23 @@
 class OpenImageDenoise < Formula
   desc "High-performance denoising library for ray tracing"
   homepage "https://openimagedenoise.github.io"
-  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.0.1/oidn-2.0.1.src.tar.gz"
-  sha256 "328eeb9809d18e835dca7203224af3748578794784c026940c02eea09c695b90"
+  url "https://github.com/OpenImageDenoise/oidn/releases/download/v2.1.0/oidn-2.1.0.src.tar.gz"
+  sha256 "ce144ba582ff36563d9442ee07fa2a4d249bc85aa93e5b25fc527ff4ee755ed6"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bdaf6403a929f235b0ff6da19baba1c951ac94e8cbf9ba09a0394a7ef322ee24"
-    sha256 cellar: :any,                 arm64_monterey: "ea08619a2c5659543660997d7bcf3f39e94d34b4ad6b4dfefd0a8a94922a97af"
-    sha256 cellar: :any,                 arm64_big_sur:  "35736aee28ab714cf7709dc2c537db39d05ebd77e223718224f222466ef057b7"
-    sha256 cellar: :any,                 ventura:        "e1d90b853cc0b39eb5e7b4bda9a2a6dcfd10a07691583bfd371e9968fcc63b73"
-    sha256 cellar: :any,                 monterey:       "7ac3e7ef40abca3755ff98de4de0b8da25ce17526da61f4ed21682e1a601d992"
-    sha256 cellar: :any,                 big_sur:        "24c6e0b8efbdd9b888c2190ba1d1380c40002957993d10bd8bf2362552f0aa12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fae9536588c4cc4d1528bf42df82faaf756d3230690d6b51444a23b01083551"
+    sha256 cellar: :any,                 arm64_sonoma:   "a96398cc02533fbaa5eb1e023eb9b55b7583962872b39de59e91bb478cf2ad97"
+    sha256 cellar: :any,                 arm64_ventura:  "cda4f6d69fdff552386b1c008e33eea7b62003acd0cc3f4cd6656079d0293c27"
+    sha256 cellar: :any,                 arm64_monterey: "b915493d031742df1ee7416ad75d1bfa8d55807492d14b4e3a935698f5b59ddc"
+    sha256 cellar: :any,                 sonoma:         "d709bc497269bdeb4493ecf054e0f4d307471ca4e0b33d6590bfe4bfc5a24db2"
+    sha256 cellar: :any,                 ventura:        "29cd93cbbad5f0022deac23e8f6d37c23c62408a536901e8120ef86740a5716b"
+    sha256 cellar: :any,                 monterey:       "06722fa3563f4c9852098d3b1ce100fd3f5a7a5eb975868b2eca3b66b42bf7db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec0e3d1304bcc479feb9403e677c986a45c676be0d71a3a84527a2d48e24eef1"
   end
 
   depends_on "cmake" => :build
   depends_on "ispc" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   # clang: error: unknown argument: '-fopenmp-simd'
   # https://github.com/OpenImageDenoise/oidn/issues/35
   depends_on macos: :high_sierra

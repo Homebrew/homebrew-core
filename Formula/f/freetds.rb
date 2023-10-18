@@ -1,18 +1,9 @@
 class Freetds < Formula
   desc "Libraries to talk to Microsoft SQL Server and Sybase databases"
   homepage "https://www.freetds.org/"
+  url "https://www.freetds.org/files/stable/freetds-1.4.3.tar.bz2", using: :homebrew_curl
+  sha256 "12f8b55b1e1816aec60e0d067de939c09e3477363250be95755b9b36e1c3c5d3"
   license "GPL-2.0-or-later"
-
-  stable do
-    url "https://www.freetds.org/files/stable/freetds-1.3.19.tar.bz2", using: :homebrew_curl
-    sha256 "35e69ae5ccd7045c8a5291e9fc2b23844a9fdfef6b4e0ee7f62a069579012b85"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   livecheck do
     url "https://www.freetds.org/files/stable/"
@@ -20,13 +11,13 @@ class Freetds < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "b695d5f390d024b8ff8cea4971aa07ae7a008c90ea4f155420a3808f08221f36"
-    sha256 arm64_monterey: "8ee494b9f729e5f005275e6a7a6d90b594fd4730456ff60d454ba4ffa98deb5c"
-    sha256 arm64_big_sur:  "3ad4bf87dae6562e91cd73638ff210bf3d6d431aa20e7a8163dd5abcf6668353"
-    sha256 ventura:        "77e436bd5a5b5d048ba54a128838aa74b10ba8bad3aefcbef57f2a1c05cccb44"
-    sha256 monterey:       "9bba20ed20b88ed0e2415a5d4816e2aef37e6e9669b363d65148e10018ade8bb"
-    sha256 big_sur:        "c19add5431c9e776f33f4b7d8ebc29ac6d4b559980fb70185b3e4275f2bb32e5"
-    sha256 x86_64_linux:   "33c5b54fcf00715384da5de2ebc063361cf1b2250b418e77813102d17bda03ff"
+    sha256 arm64_sonoma:   "569227423a93ed673c687934dab55431a0c8dd6caae54147dbc250cbcb9a0e19"
+    sha256 arm64_ventura:  "2ff22774008ee2ed524bce4f7965b098aeb043cc53147ff07620cf920fd4b7e3"
+    sha256 arm64_monterey: "c68a651c58974b8a9042c8abcaccbc8d906153b04b1f38f89bb41af50db0ccce"
+    sha256 sonoma:         "3e36a3c0687512030f57f958d52e0e1c2c3ee9da09adbc32687f7506cf94494a"
+    sha256 ventura:        "0c010977e5701217127383ed6bf148849ed716670c20a3151798b8d9cf7bef1c"
+    sha256 monterey:       "bb8f0e3efc67d6d251ce1fb8cd6cfcf8fcdf5812169975568d45a2e546b59610"
+    sha256 x86_64_linux:   "7271f370ad1c4d14313291eabf69e83900f1ec99ef869d71cabb4816853852f0"
   end
 
   head do

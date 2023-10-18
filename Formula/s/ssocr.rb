@@ -7,9 +7,11 @@ class Ssocr < Formula
   head "https://github.com/auerswal/ssocr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "05e32dab8541d1374429670a5f43dd8db12d27bcd55572ab7e94c17be017d8f7"
     sha256 cellar: :any,                 arm64_ventura:  "9b68ac4bc049a9b267ed55f4c8c24849b323d8ced82d4357ae7186c1662adfad"
     sha256 cellar: :any,                 arm64_monterey: "6adb84dc391e2698fd8524874a0d4fedc7a0f1c0813b5689675ac85f6d19223a"
     sha256 cellar: :any,                 arm64_big_sur:  "db20f9830db2694bd1d00229c747db3783a63a1d982cb0c31390e3d9823b31a5"
+    sha256 cellar: :any,                 sonoma:         "476c222a1826107fa45fe96d8a8572ead6b8064776d342bbb1bda2c71f89474d"
     sha256 cellar: :any,                 ventura:        "10d8589622bc91e3894c78424cc7ab58c61d3ef6148a04eeed6671ee1b30c718"
     sha256 cellar: :any,                 monterey:       "92b1d79b2f4a21114fa1bc02906ef2e70152efd014e5825860887f0a93e817da"
     sha256 cellar: :any,                 big_sur:        "4183491c53880ce620df9bfeffa8502260b52bc87aff91d967d6a99e8064eddc"

@@ -6,9 +6,11 @@ class Ttf2eot < Formula
   license any_of: ["LGPL-2.0-or-later", "BSD-2-Clause"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "04c47f19d3aaac57af033502618dc069f0145102dc4296c17afd5ec871cdddeb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "867b5d7d37b4ac230168ea41318dd3a6f9fed7b64dba3f6aed2e57ac3f89d9a8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ac0f37ff08692308c939a421e2d2ab2dfc7130d1bcc85ca070e1baab844dfcc8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad7c55fc38097327fcc7ecc967f4af2a24ee690ffe8f1ed5e465f5ef398c4750"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aa65afa0cca03bd779972063ad68340335fc8411e9af7ce3f18c684a4f0059eb"
     sha256 cellar: :any_skip_relocation, ventura:        "d2f96c1fb256084ee3ac130861a7a72ddf03841ff45414dada9ec4d04acc1241"
     sha256 cellar: :any_skip_relocation, monterey:       "7b791e8df0d498383f11ccbed2017a57be517169725560b92ccd0d25ef602123"
     sha256 cellar: :any_skip_relocation, big_sur:        "88edb09b376fe32ce292747416549530e92a763c9859817e7eb936c65cf1c696"

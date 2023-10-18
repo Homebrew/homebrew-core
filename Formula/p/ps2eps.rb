@@ -6,9 +6,11 @@ class Ps2eps < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09d6e7f0fbbec5bd6e494715028e9730c32ddb1284261d5593734d1bd35c79da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0993f1da048518572c4388a4eab1e7c37151c97859eec0802b639ef803d71eca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdadaaab653031dd42695d12d97e7b831e15d6e823f00abc74a5a2f89a7e4954"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb048bafbe5b44a17151bc81c5743045f3f4963d6f3cf2adf38685bba82c8c67"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2fc82fc12235919d0057debb4376ad1102a9f914f8e0da4bb473c74506fa020e"
     sha256 cellar: :any_skip_relocation, ventura:        "1942c75b041b2ffd5b15664549297c06a558564f487f49b16bad3abb329c5fe9"
     sha256 cellar: :any_skip_relocation, monterey:       "692aad4f078bddacb438898e625887ae1278fc07de6a1c9ce37ee9683cc5f7fe"
     sha256 cellar: :any_skip_relocation, big_sur:        "91e08e8ced4f5394ad3f4990a092fa61a547cce4264127350f97912c50dda5f3"

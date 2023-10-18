@@ -7,9 +7,11 @@ class Glui < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88a3c782310cf2ba070f8bef4991da04770a86df4c48d0a6d47f71065116fcac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1ca3761236e58be6553617d9ac8dc0eb3a22e753beab0b3d11d1fbbdba98eeb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4446bb9bfbe249e1c9b306e5286e0e9279b189def2f1b1c97cb7cbce0a243d86"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "67cba51fd8f00de16bfc0f14db93a31f543681eb558a452a790e0d400a8bbcd4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dcdef63dc7078e4a9ec4934dbe84c950f8f2a7e786e48787492f6f17d23ce4ab"
     sha256 cellar: :any_skip_relocation, ventura:        "6db07713f38f5fb245d84657f023cdee2a60b0b17fec9f4443c86297e653dfb4"
     sha256 cellar: :any_skip_relocation, monterey:       "1ae9d5b6a49f0a0b82ed3763ba118e7614a690dda330d1db0124293257bc3711"
     sha256 cellar: :any_skip_relocation, big_sur:        "c1884496c319d53faf60c40a4dfe83d0198af2d4a13d377e06c0187624392f74"

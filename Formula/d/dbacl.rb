@@ -6,9 +6,11 @@ class Dbacl < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "239b148299a11f7847b2ee32de7d24cd4cdc2f4f0dfbb36c61b57a18a6332142"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "09a812fe378bbee0cfaeb31af232529e2e682379077a6435fcd2acb268047825"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "66ed22f1faf6f76848af60768dc3cd915f92859fb4c527657e06768d0499e443"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "267668662863b785760b49c085001924efb548d2a01e9be3a14e330233a58943"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c7721036d54906209c3ad37dc14fc001dd0646240e9fbce53298cc7495202ed"
     sha256 cellar: :any_skip_relocation, ventura:        "016b9c97da07866abe32a76f55a0e8e28744cb34aa5a71eae7e3b2033f8a71d7"
     sha256 cellar: :any_skip_relocation, monterey:       "70c98f90cec395f2366d669999f11334f95c8e97657f9845307c3bc37d67278a"
     sha256 cellar: :any_skip_relocation, big_sur:        "643c9891b075b1f8a766269cc1a9f5ec6b541e23055124f7cb2d289650bf08d0"

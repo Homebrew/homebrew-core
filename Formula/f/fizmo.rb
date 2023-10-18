@@ -12,9 +12,11 @@ class Fizmo < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "40879942bfcd0d7fe5b9ffbf4ae0392d0e93b3ffc148aaa06b803388284ab23f"
     sha256 arm64_ventura:  "878df159a06663acf65f7038069c45e7b679269c5e8dcb9c4490f512f1cd2826"
     sha256 arm64_monterey: "869fedbd10336fffd09d9f28cb0459dba50d54e5d99f9977c57359a4af33f6fb"
     sha256 arm64_big_sur:  "71a6701b5983df601d714b574d480ac3943efc0f67f119b43a6c37bd3b4cef2e"
+    sha256 sonoma:         "802b7299660b696f26bce7418aa0d214a896bf08bdae7e14767923775aee3dbf"
     sha256 ventura:        "3bb045bbcbb685260968f288bce323bb4d13c10a242c24dd67811d90d9c35d09"
     sha256 monterey:       "d34d8d73e7d009ec869a41d39e058a2cdd5b53584f4d6e91de6007808c17e420"
     sha256 big_sur:        "2b316eea30d6bc1c9b1d031a33d267320ff05ec61da20d5b3698c760d3acd1be"

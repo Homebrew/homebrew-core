@@ -7,9 +7,11 @@ class CrystalIcr < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sonoma:   "c20524531eb331ee159bcb097d64ef72e9f3a22964ce5c8f21b9eff74734da3b"
     sha256 arm64_ventura:  "edde5bd51d5bb2b03570b20e45ebc53ce09832920f75a3e50cbac956f661c215"
     sha256 arm64_monterey: "bc8b1981630d79dc3e135ad87f1ddedee260a92c1a5a19b31fc681fe2b596ad4"
     sha256 arm64_big_sur:  "13ef5cc2c563f77416cb551e301c9819e3948f736828fe87129f8a24bfebe399"
+    sha256 sonoma:         "fde1cf609f157925e76e67d4fb7e9730d9c06e820df68d52cd7c68932893683d"
     sha256 ventura:        "72683ff057900f8a0a07858f0b1087674c535897c4e6f43faadd4675f658e4af"
     sha256 monterey:       "10adec2a41f666a46c7e1095b95f8d3016dbf11f4087a1e222b69f3f18658041"
     sha256 big_sur:        "7e4e298588d34c599657ef4d62d2fe4e44e5ec80a982b656eba12b2d7c8e416a"

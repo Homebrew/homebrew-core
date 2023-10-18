@@ -6,9 +6,11 @@ class Gravity < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1938bccfa92b1139af3b20ffd2acab61f7860bfaa0a08ddb233b365db300e59c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3e27f2ccdad0ad0ea5b4c51406aa149a830647be7746fc5a331aa55ac537be8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fd8ad02be9b28d88e59d71b34ec0e57e11f8647654de9787a01529ab2740f527"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45bbef2a6a44492360953457a4bcedc14d5158d5ae654dac143d4acf6a0ceccd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ea10a43302c779b73aa7480c707b0b76a51582a9b17b81ffb912ba447ab4aec3"
     sha256 cellar: :any_skip_relocation, ventura:        "31be6d870c1a1def84a678ffc2201d2a846eabf208aaad97ffca0e6065a72f26"
     sha256 cellar: :any_skip_relocation, monterey:       "106785af925ee88415030eede30c8eadc5cdd590cdfdf992d8c2d3ea4fb7ae27"
     sha256 cellar: :any_skip_relocation, big_sur:        "b3ac70acf8c191279d44ca6ee217677922dbbebd47ce4aeafb08279e25a54c58"

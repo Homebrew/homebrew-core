@@ -1,19 +1,18 @@
 class Tgui < Formula
   desc "GUI library for use with sfml"
   homepage "https://tgui.eu"
-  url "https://github.com/texus/TGUI/archive/v0.9.5.tar.gz"
-  sha256 "819865bf13661050161bce1e1ad68530a1f234becd3358c96d8701ea4e76bcc1"
+  url "https://github.com/texus/TGUI/archive/v1.0.0.tar.gz"
+  sha256 "ceb3ad89308ae1b1e22bdcd6d476ff5b91b41d0449853d5644845de93d346088"
   license "Zlib"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b760089e9901e780346faeda6d680ebc3d752f54a6a46d4c782872f08ce5c9fb"
-    sha256 cellar: :any,                 arm64_monterey: "8a2456389f6a9a9ca380736525d059ac91aa46eb2d4fc15484a25347a9df6c6f"
-    sha256 cellar: :any,                 arm64_big_sur:  "895ca27d73fbefeb0a8aa3549544a5ffd37bf12b3e644614674621201b40f321"
-    sha256 cellar: :any,                 ventura:        "2c405311a5faf7e09c44220a4d597f51814fd94473a19eacb686d8a45fc55afb"
-    sha256 cellar: :any,                 monterey:       "d283a951bca2b60726ea2b3eaf6e4ee7be0454f577402c1db8b86d6624a0bd8d"
-    sha256 cellar: :any,                 big_sur:        "a0576cdb65a60167ae19063c933983e7fae19bb1f98307f5e790fe885dfbe429"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f36bca7449191ceb14c4ff91f34e34712ed8d9128eb0fe40abaa0d3bea69e944"
+    sha256 cellar: :any,                 arm64_sonoma:   "81bfd5c282caf84cf7321d2d37a038d479a550a84e939a85165012f18c2f40d0"
+    sha256 cellar: :any,                 arm64_ventura:  "e934a271a6dcf07ef29b7d53a50868a8441118737b387e87ca453d205455e84a"
+    sha256 cellar: :any,                 arm64_monterey: "42cbf442654fb533cbdf77874f78af0cad3218e8c3d3ed52c9d5c835da35b4f4"
+    sha256 cellar: :any,                 sonoma:         "ce2ccbc04743a8e54761949b1925ebb68569e4821bf89bda3c9451e85fab68af"
+    sha256 cellar: :any,                 ventura:        "1136ffa8f4be75e8cea56c5b4ccc3f0fb1222251a29b734803a792ccd77cabe7"
+    sha256 cellar: :any,                 monterey:       "6e992cf7649019c8cba59c2a7cd2bb691fec34b620170c5d7a9dd5d6be48a0bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89b683ffa921aff7b7f7eb179b110811d72a62f7af0adbfb32091e85d1b91e8b"
   end
 
   depends_on "cmake" => :build
@@ -22,6 +21,7 @@ class Tgui < Formula
   def install
     args = %W[
       -DTGUI_MISC_INSTALL_PREFIX=#{pkgshare}
+      -DTGUI_BACKEND=SFML_GRAPHICS
       -DTGUI_BUILD_FRAMEWORK=FALSE
       -DTGUI_BUILD_EXAMPLES=TRUE
       -DTGUI_BUILD_GUI_BUILDER=TRUE
@@ -37,6 +37,7 @@ class Tgui < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <TGUI/TGUI.hpp>
+      #include <TGUI/Backend/SFML-Graphics.hpp>
       int main()
       {
         sf::Text text;

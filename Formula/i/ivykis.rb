@@ -12,9 +12,11 @@ class Ivykis < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "e2441d7ac6ebcab80d7867ed1c7d57ad09e04373e8fc2acdbf87d8befc5fe9e5"
     sha256 cellar: :any,                 arm64_ventura:  "81c383eb047987000be061f4beaa4f0621900fdf299405a32bd0d875f4cb6bc8"
     sha256 cellar: :any,                 arm64_monterey: "117efe3df301c5489c623091a19c5b81957343e0fbc93da8165034772caae24a"
     sha256 cellar: :any,                 arm64_big_sur:  "cd87cff2d6552030ba5b277853bf4f386bc28411ca0c9283e1ed90981f0ba6aa"
+    sha256 cellar: :any,                 sonoma:         "4c79c356f85d6572ed40fa555f046bae60481922c5357c45dabb03bd295e3549"
     sha256 cellar: :any,                 ventura:        "70a2f7977517abd77a4c446196340c9a2cc41d5929df8ba79cec43265d23f7b1"
     sha256 cellar: :any,                 monterey:       "e1cdca7723759314df53420febdf1407ed1dec93b7969ce59a584b28694ab399"
     sha256 cellar: :any,                 big_sur:        "b3a788209e93dab2e5056bacbe24b7efe5554131d9b26ace853ca68f42e9d23c"

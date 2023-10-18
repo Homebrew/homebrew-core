@@ -7,9 +7,11 @@ class Lutok < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e97f0fa9ac92630fe607079cf1d65836e756bc2bb7779400f4193296609a4c96"
     sha256 cellar: :any,                 arm64_ventura:  "3303d39bfed8576c90cdc019ab9b6984f90e57b5e5a7facc955dc06fc0664d02"
     sha256 cellar: :any,                 arm64_monterey: "22ff0adc8a95ee3329f51de5b49dfa78ea41651b449877317b1ad631f6c1a210"
     sha256 cellar: :any,                 arm64_big_sur:  "97cc58e57eb823ca7be58be09b8f36e5bd431150391ccb50e1d0647205089430"
+    sha256 cellar: :any,                 sonoma:         "3adda74213f15c14a57537ffdae932a3369268580e71f5fff878ac97d08a8ac7"
     sha256 cellar: :any,                 ventura:        "926ae8331c4eda228aa5c90c7684999b5bfb0d0da256c3a5981c6d64ad3fa0e2"
     sha256 cellar: :any,                 monterey:       "06a97c8c728734827f019dac9cf01f0e7ec06652bd436f531332c93e0682f77d"
     sha256 cellar: :any,                 big_sur:        "5d0c028406ba39fe3f26f3994d3454935e5f38f07018b03a953f9aff81999b6a"

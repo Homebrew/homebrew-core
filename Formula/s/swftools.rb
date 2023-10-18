@@ -12,9 +12,11 @@ class Swftools < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "748aa1b21377ed7009f151bb4e9f8beb240f52bc8b8e5cb68e88b4a5928eafdf"
     sha256 arm64_ventura:  "e5d604b100f9911bd2d61f4f4c2bfc5bc3121734de1cef9beedb7b5ae06b1a67"
     sha256 arm64_monterey: "f580bc8117485a0a4be18f76ffa5d3c5764aa04e1d4eb6b3e17b64239d88fb4d"
     sha256 arm64_big_sur:  "4737739b57d119d07cca0689481151e9ed2a815d3e026d85be4354ef76200877"
+    sha256 sonoma:         "01f967e4fe8aa9edd73611dfbbc96a43cc687f4e9aaffa97e0522246a112a510"
     sha256 ventura:        "4e099a2079eb825d49c09fd0214bdde20e9b0e52754d73b920de4de4aaa5a7bd"
     sha256 monterey:       "109f5b7057ce61a14f6eb11eb87afb90305b0dc7d830d6ce8d70872e9338b939"
     sha256 big_sur:        "bacf30e9986bb179127942abea49fac9ca05cf1ac3b3851cf3faf1cb970009b4"

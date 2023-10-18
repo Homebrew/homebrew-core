@@ -4,6 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.7/qca-2.3.7.tar.xz"
   sha256 "fee2343b54687d5be3e30fb33ce296ee50ac7ae5e23d7ab725f63ffdf7af3f43"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Qca < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f7c386d6484854c37b199fbd2229bf09d7c0feb4292dba7f31be570ea7a17c6e"
-    sha256 cellar: :any,                 arm64_monterey: "a2c25cf1264e6bb33b1aaf8ec8525c58df60f0c003906469f77eda3c56e73518"
-    sha256 cellar: :any,                 arm64_big_sur:  "c7ff822233c00931c5da4c22689269edcc5244fa7bc1ade0d213be11266c10a8"
-    sha256 cellar: :any,                 ventura:        "1894df58bbbef4986d47d50edb3c49d189d9c1c0748b5cb80589e095222b2f26"
-    sha256 cellar: :any,                 monterey:       "dae78d2860c8d11a268ae4f9ebcc62d1fcf7501d5ace5e3a93294539188860bc"
-    sha256 cellar: :any,                 big_sur:        "2e63ba841df444e96470611e7adc7b8e4a88e23a735042780731fddeb5f78762"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfdcd1c448ce4881ace28b56b9415a229cc597a73e778acabb7f4af061d95939"
+    sha256 cellar: :any,                 arm64_sonoma:   "dc817be4986a7d4d17be9ac9db00a8d55c5ac2097f4c801fe4ea7bd24f37854e"
+    sha256 cellar: :any,                 arm64_ventura:  "843d60499e572915067992458249f4c281166a0b90ea2bd846d3fa9bde1bb2e0"
+    sha256 cellar: :any,                 arm64_monterey: "c03a81927c330ff84817859230f9a706c48ade46df22d07d764840a891eee25d"
+    sha256 cellar: :any,                 sonoma:         "4b73a17ee0af0fc560eb48970d8d0e7084544c15ba56737c7c52652f1a1668dc"
+    sha256 cellar: :any,                 ventura:        "b0a7a57035929f9bd33e4b999cb419487da776c6e1a2a2fcbb182aa98d53285e"
+    sha256 cellar: :any,                 monterey:       "26a7e7ded36e8cbf9c20685acb1e1947a66f3e054a7b18e60fa3e56986a7cc6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b627471a9b90d6d17f0659cb41b06693c353ee40b7ddbbe3c3e1b1ed405249d9"
   end
 
   depends_on "cmake" => :build

@@ -1,19 +1,19 @@
 class PfetchRs < Formula
   desc "Pretty system information tool written in Rust"
   homepage "https://github.com/Gobidev/pfetch-rs"
-  url "https://github.com/Gobidev/pfetch-rs/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "5546d66fcd5b29526f2762c0a55b236be14573c1e9adee0425e425fd19b07411"
+  url "https://github.com/Gobidev/pfetch-rs/archive/refs/tags/v2.8.1.tar.gz"
+  sha256 "f3ae46062d2d9dc928433b32000c08954df89b731b7f72a764aa9a97cac8594e"
   license "MIT"
   head "https://github.com/Gobidev/pfetch-rs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1fdb1dbe1230b64af06c2e620a03cd2f53413ab288f5dd8e954561ad466f95c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d4866ff19fb0423a0ee1de124dd506f809a25eb3c982d861b2c0dd5b167cccb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66c49e16c55ece2d9e31eef29a1bc9b5343b4c4eb2c3690514c1cdb25a0926de"
-    sha256 cellar: :any_skip_relocation, ventura:        "47e3f7ef56da69d6aef625a822aa177b817c8dcce4166bb715cc95bfd58df9b2"
-    sha256 cellar: :any_skip_relocation, monterey:       "073c0e7443a39b656ddddec860ae4daedb49fb5fd702ea46e9ccbe7f1d66eaf7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1906af7fefec5d4e35476b9a15ef06c1e8e93b06f03a7e2f9147d00f9e694226"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d69a7f85aa06f38ac3b17e129f7b0e9b19cf5710af92ecef123bca41028fd6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9da9655d70408761e5aa924baf03a3852652a27edcf298fd51dc10762ed44808"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a7cd6c50399b7552e9e09688134402d91dbe3b890ca57a36ed2e63af55ef3cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e72b6d59d0c50798dc795cfa07bba4401c63037742695075c840c764ca17fc93"
+    sha256 cellar: :any_skip_relocation, sonoma:         "38855cf21efb66d35b5b5b7cbbb4ebff5e0a8764d6f4c2b79112019dac51a7eb"
+    sha256 cellar: :any_skip_relocation, ventura:        "2f3012ca3acae5930d8bc370142e71d1a0c15c5b3a6195e537fcbbb1a9935578"
+    sha256 cellar: :any_skip_relocation, monterey:       "89eaa421c80c23fb5882ed345559f2f6b38a9bcb9587687b371c0baaeae83716"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7ff7decc19d48164751b186799d04fe7ecebcd476c222911c1e9e66e49d5305"
   end
 
   depends_on "rust" => :build

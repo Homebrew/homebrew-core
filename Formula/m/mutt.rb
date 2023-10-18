@@ -10,19 +10,20 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.10.tar.gz"
-  sha256 "4d773f22422f79096f7b94b57bee45654ad9a25165dbb36463c58295b4cd3d88"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.12.tar.gz"
+  sha256 "043af312f64b8e56f7fd0bf77f84a205d4c498030bd9586457665c47bb18ce38"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "84c9fb99a748ea2ba9802cb5a3045dbc48dc4db4130fb440ba21887a3f1f73d6"
-    sha256 arm64_monterey: "7a7d134940105af10f2ab19f906af3db5279e796d554da49276894bf12b86169"
-    sha256 arm64_big_sur:  "8d274ef46f219d9f1d962cea42b09a709f806224548929d2c0381276f4289ef8"
-    sha256 ventura:        "0af7138ecfcc4583634cb89a2d8ae5c306c7703634c60d0f52a8582bc03661e0"
-    sha256 monterey:       "f60835d5396bdadfe9c90c43d5ff276d34199b8ba1197238237dd570ab9eae23"
-    sha256 big_sur:        "4bea848f974ae99a98096c462e5bc1c597d56322ff7fb3687a5b4291b57843a2"
-    sha256 x86_64_linux:   "bd874113ef66637acd6fd628345a910345854689745eb003afa174af525fe5b5"
+    sha256 arm64_sonoma:   "0295e7d5aef519e73a62f4070123ca677bbc02e3b39a5851b8258720b545aa62"
+    sha256 arm64_ventura:  "20fce7f33fa97a819b5178ac81fd7d2ff755b3606892589e2419ec8b16c051ef"
+    sha256 arm64_monterey: "a6c31c9d9fc9003d5b7b54d94c558babe0a24f865b0cee7c5873c7e16acd626c"
+    sha256 arm64_big_sur:  "37e48aa656c0713c6d337142efb5cdf94de8107fc99357e3c1c1e2056b3fd1b6"
+    sha256 sonoma:         "5c7750bd5ec725e32eebb36f235d4f46b732f7a796e803ea75453ac0c9a7e000"
+    sha256 ventura:        "ac4479fa581e6e4932350745653cf9d392bdc2f8fc6ae7f8a6af2639d219a0b4"
+    sha256 monterey:       "52441c0417872be911d39cf718c7937b752548a918429391b0e26d38b66af3fc"
+    sha256 big_sur:        "fc9cc0c2b3f3f7ebc9156d3e0c57e46b525a622c316678634ac3ca7602a3d33a"
+    sha256 x86_64_linux:   "5562f9355239c29ae8471b50574c911782e2de2554db163f75c75893d1ad55ef"
   end
 
   head do
@@ -37,13 +38,13 @@ class Mutt < Formula
   depends_on "automake" => :build
   depends_on "gpgme"
   depends_on "libidn2"
+  depends_on "ncurses"
   depends_on "openssl@3"
   depends_on "tokyo-cabinet"
 
   uses_from_macos "bzip2"
   uses_from_macos "cyrus-sasl"
   uses_from_macos "krb5"
-  uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   conflicts_with "tin", because: "both install mmdf.5 and mbox.5 man pages"

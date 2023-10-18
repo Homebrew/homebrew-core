@@ -1,8 +1,8 @@
 class Capnp < Formula
   desc "Data interchange format and capability-based RPC system"
   homepage "https://capnproto.org/"
-  url "https://capnproto.org/capnproto-c++-1.0.0.tar.gz"
-  sha256 "4829b3b5f5d03ea83cf6eabd18ceac04ab393398322427eda4411d9f1d017ea9"
+  url "https://capnproto.org/capnproto-c++-1.0.1.tar.gz"
+  sha256 "0f7f4b8a76a2cdb284fddef20de8306450df6dd031a47a15ac95bc43c3358e09"
   license "MIT"
   head "https://github.com/capnproto/capnproto.git", branch: "master"
 
@@ -12,14 +12,15 @@ class Capnp < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "6c2d8a399f6b2b7eeb3b4bc5eb3520f170e2d83666d6b4e2ef922b75054b5c9a"
-    sha256 arm64_monterey: "3ab20257244e6efc9b47cfd12f68fcb1bab866c141a5a3600e1f9ba573e8876e"
-    sha256 arm64_big_sur:  "5e03fd4d01b8951fade183b73994a4b8f00415177c08133ff94f0d415cbfa162"
-    sha256 ventura:        "a57c156bf9c34baf6a510f0cea2bd15716e274468255981f5583de3f4ca7aa3e"
-    sha256 monterey:       "a45dbdecc39c35b5889d62f1768729e4e6e1a2f108837097b86c3abb7abf0fe1"
-    sha256 big_sur:        "8502c3d2ac9725545bae86497ea82707ad755ca895f1f37811a322289553e675"
-    sha256 x86_64_linux:   "5b2f7489c8f7532b5f0f0e3a08760944f47bcad6f1232c79a7291928faeda445"
+    sha256 arm64_sonoma:   "813f6c36704966cc86e6f6075d238b1d23f1ec7fd6c22ef25aca9eea52fdc1cc"
+    sha256 arm64_ventura:  "85b7fa56075fd5cfc7ac2826db04393bcedc532d6c1b7e77a0fb9640b73dae23"
+    sha256 arm64_monterey: "705425ac57b11d428626f70ef1fc7b3a9bb137b11797445f6e6121cd5c677222"
+    sha256 arm64_big_sur:  "646fda7aeff0ecf305688e1f1752bd78e0d9477508d9c4e71b96c2ee2ce31259"
+    sha256 sonoma:         "f6752df4e6bf2bfbbcb254b9df123d9114a2946955eeeaa44f683daf33a31bea"
+    sha256 ventura:        "a3979d91880e97d250a9f2decb2655c8d5bbccb7be0f48468fd65826ce40a4b5"
+    sha256 monterey:       "96e2da3790877a51e93bb65e67781e203fc7c73387ac5aaa14f578627bd60fa2"
+    sha256 big_sur:        "6160d5afc05b64c8cdfb836b0d35972bf573de4136068e4f4f1ddec32a9674c7"
+    sha256 x86_64_linux:   "6a64eeff8dc7fba4f39ed8a4d25908f7757c175f21de3ff72ed62852d8275304"
   end
 
   depends_on "cmake" => :build

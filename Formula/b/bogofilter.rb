@@ -5,9 +5,11 @@ class Bogofilter < Formula
   sha256 "3248a1373bff552c500834adbea4b6caee04224516ae581fb25a4c6a6dee89ea"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ec8c71278efaa065520dea52242c08b71132b778e7d7fdd265d492ce6323a14b"
     sha256 cellar: :any,                 arm64_ventura:  "3beb85ddc53ce9d24e4e3b413ef5d1f054f5aa79608351d6c2f73d230c26f37f"
     sha256 cellar: :any,                 arm64_monterey: "25e3974a7aa8d9dcc2c3e95b85e7a4e9abba388adf54470dcfd705d29ba3c6d1"
     sha256 cellar: :any,                 arm64_big_sur:  "2206ad532a38d489deb48bb9cafec00c9b98a09f621f7f208f95cc36387dafb4"
+    sha256 cellar: :any,                 sonoma:         "b956b71c09062080cf7e34849acccd44c6fc37f89529d847742831c325b5c179"
     sha256 cellar: :any,                 ventura:        "565a7ff34275e08445e326d292e53d1a24483c62e95e7f81c9ba1374c5a1f46e"
     sha256 cellar: :any,                 monterey:       "89d4f31cd57d801d99a68950682b746c490b481891bfb904f173270f13fc751f"
     sha256 cellar: :any,                 big_sur:        "d6ad409edcabed2d32cc945c36151b3a0ae17258d9430f3192b912f1dd1050e8"

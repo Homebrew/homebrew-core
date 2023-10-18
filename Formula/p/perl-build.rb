@@ -7,9 +7,11 @@ class PerlBuild < Formula
   head "https://github.com/tokuhirom/perl-build.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fab20ad3803975d872a837b0094e104a76b477b50358ebc858761609cd95b94a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "88242c3173ebedeb662528ee8d076253fbe18c189cdef42768efc5e377bec466"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "88242c3173ebedeb662528ee8d076253fbe18c189cdef42768efc5e377bec466"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "18c043e60df07f020af0785e1f6dcad1ad1b3782e8f596efb8a5363c78669ccb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a5a97a22ee550507bb8fc07353054a1c3eb8923a01ac5ad9510ba940b5089afc"
     sha256 cellar: :any_skip_relocation, ventura:        "9c09caf60e490235fc8366f3d47d32d8be9cf887d71cc3f80213700ef3443a65"
     sha256 cellar: :any_skip_relocation, monterey:       "9c09caf60e490235fc8366f3d47d32d8be9cf887d71cc3f80213700ef3443a65"
     sha256 cellar: :any_skip_relocation, big_sur:        "8699ea1e8465d1906944894a63767c339312afe64a850620dea4f0e2f05f3017"

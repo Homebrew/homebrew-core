@@ -9,16 +9,18 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b199d0185fc54d12a09f7ac1d30c949f2a841e5834d9b40615efc1439b04cf3c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5ff905f852f1650f38d5fc3c7ac4122749132b2dd44d083ff560e6a433deca6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b7cc545ce3650dd35b2d7f2fc2ab28208e9c69dc2234ebec5c1215491ca02ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "e60df987a2d75a5708ab3918e16887f05902a3c9051b90dc629480f27e2def12"
-    sha256 cellar: :any_skip_relocation, monterey:       "b5d358eb37695096e5caf3bc258afd461d047d73bc7459ac29bc3c822651574b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8ddeb132236c35ed087597398c595699581a4fee2fa6a89822069fc597b07a0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c12dbd958e173b54baee81c0d71790e1ebfdc567488f82e6570cd42ccf4559fe"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e671db017a9b6e807f1b098b42593427cddbd70ed06de717e06cb126731f361"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "52fdce743553f2af2af295fee810a3d837d52b9ca4a270d1633e9e04722c89ae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "71b82f87b1b6311127969e6d3f3d3a1c1961b98fc39fbe222b18cdbc7f6d45a8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cb28514c5452e2b86fdfec706e5e08650cb87e1650ac060c6b307fad48d8d8af"
+    sha256 cellar: :any_skip_relocation, ventura:        "c568707247602a690fc403f3947af35398c5496abecc65e1550c0c1c8588e560"
+    sha256 cellar: :any_skip_relocation, monterey:       "a06aa22256ebdd9093848e938ce2b1b3dc11056c8bc32086ff8b3abe7c69942d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0204a134f9bd75f6f2f851f55302daddb3861b549ccf9cb4c8d12da76dec885"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-pytz"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "atomicwrites" do
@@ -27,8 +29,8 @@ class Khal < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
-    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "click-log" do
@@ -42,18 +44,13 @@ class Khal < Formula
   end
 
   resource "icalendar" do
-    url "https://files.pythonhosted.org/packages/7b/cb/ab742b444f6a25a349f061f1d661060060191e065f0aa815ba1bf989bf5c/icalendar-5.0.7.tar.gz"
-    sha256 "e306014a64dc4dcf638da0acb2487ee4ada57b871b03a62ed7b513dfc135655c"
+    url "https://files.pythonhosted.org/packages/40/d7/06707c968c2ce93e60eeb9f849c84e96c710660054e09791ffa3e5ef04ad/icalendar-5.0.10.tar.gz"
+    sha256 "34f0ca020b804758ddf316eb70d1d46f769bce64638d5a080cb65dd46cfee642"
   end
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/5e/32/12032aa8c673ee16707a9b6cdda2b09c0089131f35af55d443b6a9c69c1d/pytz-2023.3.tar.gz"
-    sha256 "1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"
   end
 
   resource "pyxdg" do
@@ -62,13 +59,13 @@ class Khal < Formula
   end
 
   resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/ee/f5/3e644f08771b242f7460438cdc0aaad4d1484c1f060f1e52f4738d342983/tzlocal-5.0.1.tar.gz"
-    sha256 "46eb99ad4bdb71f3f72b7d24f4267753e240944ecfc16f25d2719ba89827a803"
+    url "https://files.pythonhosted.org/packages/b2/e2/adf17c75bab9b33e7f392b063468d50e513b2921bbae7343eb3728e0bc0a/tzlocal-5.1.tar.gz"
+    sha256 "a5ccb2365b295ed964e0a98ad076fe10c495591e75505d34f154d60a7f1ed722"
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/94/3f/e3010f4a11c08a5690540f7ebd0b0d251cc8a456895b7e49be201f73540c/urwid-2.1.2.tar.gz"
-    sha256 "588bee9c1cb208d0906a9f73c613d2bd32c3ed3702012f51efe318a3f2127eae"
+    url "https://files.pythonhosted.org/packages/5f/cf/2f01d2231e7fb52bd8190954b6165c89baa17e713c690bdb2dfea1dcd25d/urwid-2.2.2.tar.gz"
+    sha256 "5f83b241c1cbf3ec6c4b8c6b908127e0c9ad7481c5d3145639524157fc4e1744"
   end
 
   def install

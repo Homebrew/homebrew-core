@@ -1,10 +1,9 @@
 class Libzip < Formula
   desc "C library for reading, creating, and modifying zip archives"
   homepage "https://libzip.org/"
-  url "https://libzip.org/download/libzip-1.10.0.tar.xz", using: :homebrew_curl
-  sha256 "cd2a7ac9f1fb5bfa6218272d9929955dc7237515bba6e14b5ad0e1d1e2212b43"
+  url "https://libzip.org/download/libzip-1.10.1.tar.xz", using: :homebrew_curl
+  sha256 "dc3c8d5b4c8bbd09626864f6bcf93de701540f761d76b85d7c7d710f4bd90318"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url "https://libzip.org/download/"
@@ -12,13 +11,16 @@ class Libzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7396ff8c885b5b409971c8f1327d8f5053d8d06e840e6bc6b993150c77cb663f"
-    sha256 cellar: :any,                 arm64_monterey: "5bf073278ba871965559111f2f8be014817649c92059a46b3f9b82162d5163f9"
-    sha256 cellar: :any,                 arm64_big_sur:  "43a494470436568645796a9387c1693c23123928bb87a85c404e5760456ab4be"
-    sha256 cellar: :any,                 ventura:        "c7260f05af8676b4556a4f8257d04f0e88a49d6ea5a515abd4a4902bba8fef48"
-    sha256 cellar: :any,                 monterey:       "c1d53223d07bea7473df733d36b446a80498b06c719e70403b619f969075235f"
-    sha256 cellar: :any,                 big_sur:        "87f5c908912692fe28e548d51d96c8659d500bfb991784796ec149201a9a9e79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3eb7d9dff36b2fe8809015f1b1bf3f8cc6635a4b8db3b86ec6cdf7bc4e4858e2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "8ecf154f8c0bab71c0008c6f73eb8cd2df78cfa424d8bdcffc66dc95b3bf7c14"
+    sha256 cellar: :any,                 arm64_ventura:  "cd7bda731a8b2e5d1a3cdf5be6b515718c56d55d16a5b45faa1a91daf9c0ca2b"
+    sha256 cellar: :any,                 arm64_monterey: "a0d8bae54df1068c92ad894eddca0cd7465ecbaa3ef875c07c46bcea764bac71"
+    sha256 cellar: :any,                 arm64_big_sur:  "6549fda9b8f6ac3904b55bc0b8c601ecf15773eb4c97c40091148559d69bfec1"
+    sha256 cellar: :any,                 sonoma:         "f782643b254f58ddf3830272c0221f5d35db84ebd4f3d4ef19894ca0c91648ad"
+    sha256 cellar: :any,                 ventura:        "4fca00c15a69f25064b40b12e37a6f552edd632f77e2947e076745b55aaeffd3"
+    sha256 cellar: :any,                 monterey:       "5fbb0e2a2cd9b17a416d518d324d9eb3eac88626851bad41d9fb144ccebd8757"
+    sha256 cellar: :any,                 big_sur:        "db6453b117d39f0fe310f30e0d92124c453dd1568edd5800fd886bdb2b35e9df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5c180236137518d040277c1310e4b7c34337a0d396053e9a2534861453f70bc"
   end
 
   depends_on "cmake" => :build

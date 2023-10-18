@@ -1,26 +1,36 @@
 class Sheldon < Formula
   desc "Fast, configurable, shell plugin manager"
   homepage "https://sheldon.cli.rs"
-  url "https://github.com/rossmacarthur/sheldon/archive/0.7.3.tar.gz"
+  # TODO: check if we can use unversioned `libgit2` at version bump.
+  # See comments below for steps.
+  url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.7.3.tar.gz"
   sha256 "cf8844dce853156d076a6956733420ad7a9365e16a928e419b11de8bc634fc67"
   license any_of: ["Apache-2.0", "MIT"]
-  revision 1
+  revision 2
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1b24b3fee34c0c3238a23b78d8232629a92bc4264f954f1e6eaa2fdd16330df1"
-    sha256 cellar: :any,                 arm64_monterey: "7b6a23932b20209f6b42659e2b4444f9dca2b2f63b51791a7cf7752a5a739e4a"
-    sha256 cellar: :any,                 arm64_big_sur:  "c6d86976e495da8790c18254cc10dafadfacbf17b4b9098c2547697451b8a3f8"
-    sha256 cellar: :any,                 ventura:        "0b2588ca3661de9c4e3a158bb00ddaa110c32d4aafc441e7e303308558697cc8"
-    sha256 cellar: :any,                 monterey:       "b5c654a04fba02a7930c78ba5587a89a401ced8840af80d217c48117b5e0ad57"
-    sha256 cellar: :any,                 big_sur:        "0c360e431327824b762897b0396d267d7e2c04039451aceeb24a75e8dbe5c9a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c2e08181dcf2ea7b34ce3e6c1174fb90ac60f89f9d1006b4206cd3f71a028af"
+    sha256 cellar: :any,                 arm64_sonoma:   "686bf7d06e69d2d6e9265e40970b9bbbb73bdec0bea52b2d586f24a9c873cab8"
+    sha256 cellar: :any,                 arm64_ventura:  "118dc8ee031a0b2b159c66e6dbbbbd42fe407270220e5ff07de1a764dd5acdf4"
+    sha256 cellar: :any,                 arm64_monterey: "db0e38c468d5745f301fb3d90ef2f4aba554cd2e6aba7b7468349789aa25c892"
+    sha256 cellar: :any,                 arm64_big_sur:  "189fdb36ea4f1f1d95b69a6e246364bc860a6d596064f22b753fa1edd1fb12d0"
+    sha256 cellar: :any,                 sonoma:         "51d24f0620009443d8047bf1625d1a2b34ca3f89e46e83d750bed420dd70f750"
+    sha256 cellar: :any,                 ventura:        "d30c78b96cc49ee5074dcdb9bbd75e2b81305a2f940f83ea863ee8be12ef3b22"
+    sha256 cellar: :any,                 monterey:       "cb515d97b3b15a9b0b41620a7790b117f0618159bed8dbaad5199e3c2d1039d2"
+    sha256 cellar: :any,                 big_sur:        "70aced1caac7e5f67181cbf2ea32afdb73ada5be882049a9e1a94993bf8f9112"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5b623285df6357937868aeb66dfb6b7d610deb01686e52d84fc351d62ecb9a6"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "curl"
-  depends_on "libgit2"
+  # To check for `libgit2` version:
+  # 1. Search for `libgit2-sys` version at https://github.com/rossmacarthur/sheldon/blob/#{version}/Cargo.lock
+  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
+  #    - Migrate to the corresponding `libgit2` formula.
+  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
+  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
+  depends_on "libgit2@1.6"
   depends_on "openssl@3"
 
   def install
@@ -31,6 +41,7 @@ class Sheldon < Formula
 
     # Replace vendored `libgit2` with our formula
     inreplace "Cargo.toml", /features = \["vendored-libgit2"\]/, "features = []"
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
 
     system "cargo", "install", *std_cargo_args
 
@@ -52,7 +63,7 @@ class Sheldon < Formula
     assert_predicate testpath/"plugins.lock", :exist?
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.6"].opt_lib/shared_library("libgit2"),
       Formula["curl"].opt_lib/shared_library("libcurl"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),

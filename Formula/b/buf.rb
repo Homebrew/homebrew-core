@@ -1,19 +1,27 @@
 class Buf < Formula
   desc "New way of working with Protocol Buffers"
   homepage "https://github.com/bufbuild/buf"
-  url "https://github.com/bufbuild/buf/archive/refs/tags/v1.26.1.tar.gz"
-  sha256 "6e60239c6c26315e3aeac6ede9f485d39d11548293536f0c0ae06d52fc275fc7"
+  url "https://github.com/bufbuild/buf/archive/refs/tags/v1.27.1.tar.gz"
+  sha256 "ffe3f817527c3c92e26f88d85b8abf2f414071074e30ef2f7597e3e9dc69492c"
   license "Apache-2.0"
   head "https://github.com/bufbuild/buf.git", branch: "main"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c475cd048376ee072eab0937e6d7f5d68d05b7020060935c01543ec23f5d5fdf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c475cd048376ee072eab0937e6d7f5d68d05b7020060935c01543ec23f5d5fdf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c475cd048376ee072eab0937e6d7f5d68d05b7020060935c01543ec23f5d5fdf"
-    sha256 cellar: :any_skip_relocation, ventura:        "2bfa6c69743f930335e5bc9a2df3228f0afdff496843f8d1acc8962bc25d1e2e"
-    sha256 cellar: :any_skip_relocation, monterey:       "2bfa6c69743f930335e5bc9a2df3228f0afdff496843f8d1acc8962bc25d1e2e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2f3790702a4c5e5d67be9589f71bed2cfcb173583063df5303fceb34ad1f5069"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0931ada10907d38c1568e86a9b2bff44eeb0d591aaec45895b3b8ff45e72a81"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ffec83b2738a6739e8f852585c488ad446b142f62601f84173a798e62582992"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbcef83d467951531a3ea1de376cd78e919490ea0ed410a7d0b73fb262d90782"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bed4ebe1d4dc742b63a40c2900d6e2271c6eebd9cd1c648f5b78860f779f4ee8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "90dff94a8e996411fa8ea46aea716259b7367db303eff9b23973b998d2e5aac7"
+    sha256 cellar: :any_skip_relocation, ventura:        "eef5a7a042318f0547dbf18338c63f185fa0c99619082261a28099c0e6ea6ec2"
+    sha256 cellar: :any_skip_relocation, monterey:       "d8f9fbaeeec5d7940ba5b798515c28db5d590d1cd527e9212aa571045f7aa9ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "379c70913b39fdd2878232f64ed29dc8ce9382ad913be0642bb34494a2870dd5"
   end
 
   depends_on "go" => :build

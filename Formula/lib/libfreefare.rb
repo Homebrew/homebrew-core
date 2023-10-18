@@ -7,9 +7,11 @@ class Libfreefare < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "be04856cd0edfb30a50104ea7fd3a5b7ce66c25921179415eddd8542b328d3a0"
     sha256 cellar: :any,                 arm64_ventura:  "6d9f13777430e1e406a80bb919603e2e1f823a84628ff9a6c27786e97077015b"
     sha256 cellar: :any,                 arm64_monterey: "dd6a7123a899f9ea2e0f2f1bb96ee61510d384db5dcda776968e5f642cdb3b1a"
     sha256 cellar: :any,                 arm64_big_sur:  "07bb6816871ab4f86df23f9929b7f5830b3203ee8573c61c1162155665be1cf6"
+    sha256 cellar: :any,                 sonoma:         "cf47d28d3d12d295a911f266dcc2f1b124d333200214b835e41ae8d19f22c28a"
     sha256 cellar: :any,                 ventura:        "9bdc20fc20c01740f5e5c9f038e475f5ca940bf53f106884c5efa2a8b9bf78f5"
     sha256 cellar: :any,                 monterey:       "e88a2a0561e9bd91bcdda69fdec347abfa715876a540da3f5e12d71488ad4921"
     sha256 cellar: :any,                 big_sur:        "caf07c0af324770ece19c45f53697c88cedc651cad24c66e257fbb7b87391fc7"

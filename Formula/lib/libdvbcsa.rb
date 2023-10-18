@@ -8,9 +8,11 @@ class Libdvbcsa < Formula
   head "https://code.videolan.org/videolan/libdvbcsa.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "dccd0d514954d35f9965c1bd03bf4e917cf7c33b3b8eee56213c4e71b1a427eb"
     sha256 cellar: :any,                 arm64_ventura:  "455b0168a4c59e756200be47603e1090535ab36c9a9550df92b5359375e22e19"
     sha256 cellar: :any,                 arm64_monterey: "880b119027071e1f755479049e7c250ddf240aa7e3b1a70d45dcc5a280e0fd5a"
     sha256 cellar: :any,                 arm64_big_sur:  "dfdb5b69befb37656f00769a3d657644f983c27c2b0ab93708c4eabcc48e9288"
+    sha256 cellar: :any,                 sonoma:         "87eb0ce6fabdb8466725bf37dd270ed2853b1c14186bc4448878eb06367eb9a4"
     sha256 cellar: :any,                 ventura:        "6dbe9f5323baa58981e962a837d19357806a3d5ca233f87daf8e606855635146"
     sha256 cellar: :any,                 monterey:       "bbda0b438d4a659c99d2f23fd706db9fe72bfacea2394c69e0e8130f43e1d9d7"
     sha256 cellar: :any,                 big_sur:        "478a1dc726d6a48236b199e709f95440083afda1e25aee072ab33fac7f783183"

@@ -7,9 +7,11 @@ class Stuffbin < Formula
   head "https://github.com/knadh/stuffbin.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5335c13248d0f9462e61b72d691425212196d08c5de79b071ced51d8fc67ce68"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e29b89cceb2446e9c1aa387638882edabb1cec8b704ec513f95e33c2ba577cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6fc4d0b8c004180ad3ab32f8dd86a00f1ba774e9e1c6a5e04efa2f953b0d516b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b21b4d0ff19720e8c4858204b1b170a8da6fdad94634f1de261777b4e45a6b55"
+    sha256 cellar: :any_skip_relocation, sonoma:         "17e1fd3f60ca736a655afb2455cc1f80a3e88ff8a4c24b2f000582caa923d44a"
     sha256 cellar: :any_skip_relocation, ventura:        "2a6e24289acd934a18c075c9f0f2169653468a03693c0bb0f1571ad38b08d783"
     sha256 cellar: :any_skip_relocation, monterey:       "1a0e90411661711f560c0a2876e5855749026ff9e56710bee4dadf8f11794439"
     sha256 cellar: :any_skip_relocation, big_sur:        "613439ea92ed5ef10237bea7853d6a60f0cf043928c0d73907aa72599b207df7"

@@ -12,9 +12,11 @@ class Enca < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "2528d77eb23d82075f2cb1d877ea170927c4bb16a38f1a05fa1494545973ef23"
     sha256 arm64_ventura:  "e15cd4000e00b96652d900fdce002e2180eed2fe09662ad0359fd176a4e1e3ce"
     sha256 arm64_monterey: "305c3af3a704843192d4ed0bf9e75df33742d186ba3bcfec4273ced362dab5da"
     sha256 arm64_big_sur:  "bb6dbdce00c0f724d1c6bbb8afdf057e857851dac9d7ced14f61504382ce6ee0"
+    sha256 sonoma:         "3cb0516182d1dd6a088df1ea64dc194c0b37c795cd71e169a0e1bcb07eb4c484"
     sha256 ventura:        "d71371be8f80e3c61e5a53cd3fc8624d65b58f79cb27f72de95ea16ecf959b22"
     sha256 monterey:       "e30444291139db29c1c1cde042bfef31578923c9133eeb96f3780af14c4fc55e"
     sha256 big_sur:        "6c16034f0a17fdcc4c5ca8c1f280da2138213958f3ea7aac007ad8a54e063a76"

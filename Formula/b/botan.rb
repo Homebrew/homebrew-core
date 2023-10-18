@@ -1,8 +1,8 @@
 class Botan < Formula
   desc "Cryptographic algorithms and formats library in C++"
   homepage "https://botan.randombit.net/"
-  url "https://botan.randombit.net/releases/Botan-3.1.1.tar.xz"
-  sha256 "30c84fe919936a98fef5331f246c62aa2c0e4d2085b2d4511207f6a20afa3a6b"
+  url "https://botan.randombit.net/releases/Botan-3.2.0.tar.xz"
+  sha256 "049c847835fcf6ef3a9e206b33de05dd38999c325e247482772a5598d9e5ece3"
   license "BSD-2-Clause"
   head "https://github.com/randombit/botan.git", branch: "master"
 
@@ -12,17 +12,18 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e155fbf0abfa49d3f24acddb83cde96ee8944f8e5f4870619b9f367db91aa093"
-    sha256 arm64_monterey: "4ad92355e643a718b79f59ea39fcaee2e178f6aacc6a5d45b91c2c99b3f1ad1d"
-    sha256 arm64_big_sur:  "086afb441414ac0c21a9a2cd4bfc63925cb84025149a3f067514a09712ed554b"
-    sha256 ventura:        "04b5659a9a85f81083e21c477b2e45f49e49e932130bbdacab0d6ebd8d1104f2"
-    sha256 monterey:       "a7b3dee57d226c222d62983346d9bce72e5c66adbda19f8c11bb92fe45548758"
-    sha256 big_sur:        "83028e70de04793e28f3b50839522ec69c1e1301ec5712e7a52564e3f50cf97c"
-    sha256 x86_64_linux:   "ac1c5782f0db87f770212ef4ec2ee0593746025fd231ddabce960827c15c62f6"
+    rebuild 1
+    sha256 arm64_sonoma:   "bb6f2d3eb693d5b692b64f30296765a24ff93d53e284d322c630dde2422249b5"
+    sha256 arm64_ventura:  "01bac65450b2e718000e0c5412a1c404b12451187cc9ce5782496deeffd100f5"
+    sha256 arm64_monterey: "a2145a83102be0793df0d1f125f2ee5d94b58be251c4a6130bda25a4d19d4455"
+    sha256 sonoma:         "2adb9e029d4f155308114f14499a707f999f0c369e07a38de5a750059b69133c"
+    sha256 ventura:        "3144838597286774c9089edd77193d340f0a568defd97cb2a37281825706297b"
+    sha256 monterey:       "9eecd69953d77fca52e7a7cbe7ae4ae7ffde45958723b615e64a9b1a6d0523ee"
+    sha256 x86_64_linux:   "543af6a676b2d65794acc8eb8a8a29ac5faac19425a0b2fe4e273d392e6b94cb"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -39,6 +40,10 @@ class Botan < Formula
 
   fails_with gcc: "5"
 
+  def python3
+    which("python3.12")
+  end
+
   def install
     ENV.cxx11
     ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1315
@@ -51,7 +56,7 @@ class Botan < Formula
       --with-sqlite3
     ]
 
-    system "python3.11", "configure.py", *args
+    system python3, "configure.py", *args
     system "make", "install"
   end
 

@@ -9,22 +9,23 @@ class Doc8 < Formula
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "894235ad2cded34e1072772a8df17f42432e6e8dcb9aff59d252c78f7ddd3fe7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c91549a8ebe1453a0f98a575c0543c3d60a1411634b39d799d4d0da3d3b0780"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc2acb3dce64a72ebbadd46bf579d3484c700d133de53ef306f1ff9ef56732d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "844310402007a53b10c4af06a289ad096097156d165c27b62885726cebf32fba"
-    sha256 cellar: :any_skip_relocation, monterey:       "cc36ed9318a5ed8aa742e270dd7f6c63efc7d28984390f21790fb217ab779cc5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "970258070670b9bda9a05ef6549a032eb42dd3d105c76f9399eb73eadd7610e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81cb6a88c01fa3565eaea21f3ce16d52cca08d078c435e635220f07180bf2102"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcab8748ce6d8189bca884ce88ab7196b44bb73ac97d790180366458f8fbb243"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "829b928634e11c99d75b28ad3ae3922d718b706363e875581e18779e6d835adf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5492b0b1f69c7da9031822ad056f5d226c4483ea7234b3473b88d5893d961801"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3e50e5e4ad8474f92edbba636a15dcb26f686bad8075b93db4c91901cf1eeeeb"
+    sha256 cellar: :any_skip_relocation, ventura:        "9f9c957149c0f97c629a56469cb7d454e6822685d0e1abd3245d55a9e4419eef"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc8fc1492606b7fcc5d49560b73171729f4bf0cdb5258c2a8aa1759306eccb5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9f92b4c8a1d56cfbb40e073702afd85d6753867e1cf3391af542f1c9126d919"
   end
 
   depends_on "docutils"
   depends_on "pygments"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/52/fb/630d52aaca8fc7634a0711b6ae12a0e828b6f9264bd8051225025c3ed075/pbr-5.11.0.tar.gz"
-    sha256 "b97bc6695b2aff02144133c2e7399d5885223d42b7912ffaec2ca3898e673bfe"
+    url "https://files.pythonhosted.org/packages/02/d8/acee75603f31e27c51134a858e0dea28d321770c5eedb9d1d673eb7d3817/pbr-5.11.1.tar.gz"
+    sha256 "aefc51675b0b533d56bb5fd1c8c6c0522fe31896679882e1c4c63d5e4a0fccb3"
   end
 
   resource "restructuredtext-lint" do
@@ -33,8 +34,8 @@ class Doc8 < Formula
   end
 
   resource "stevedore" do
-    url "https://files.pythonhosted.org/packages/66/c0/26afabea111a642f33cfd15f54b3dbe9334679294ad5c0423c556b75eba2/stevedore-4.1.1.tar.gz"
-    sha256 "7f8aeb6e3f90f96832c301bff21a7eb5eefbe894c88c506483d355565d88cc1a"
+    url "https://files.pythonhosted.org/packages/ac/d6/77387d3fc81f07bc8877e6f29507bd7943569093583b0a07b28cfa286780/stevedore-5.1.0.tar.gz"
+    sha256 "a54534acf9b89bc7ed264807013b505bf07f74dbe4bcfa37d32bd063870b087c"
   end
 
   def install

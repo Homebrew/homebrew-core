@@ -1,20 +1,19 @@
 class Unar < Formula
   desc "Command-line unarchiving tools supporting multiple formats"
   homepage "https://theunarchiver.com/command-line"
-  url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.7.tar.gz"
-  sha256 "3d766dc1856d04a8fb6de9942a6220d754d0fa7eae635d5287e7b1cf794c4f45"
+  url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.8.tar.gz"
+  sha256 "652953d7988b3c33f4f52b61c357afd1a7c2fc170e5e6e2219f4432b0c4cd39f"
   license "LGPL-2.1-or-later"
-  revision 4
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2f7418944e65d03ae59952bdc495d9769e8cb86b8c4cf1b4e52fbcf19958d66a"
-    sha256 cellar: :any,                 arm64_monterey: "e956b811e4b7c5c41813b4c658b2414245f89649fba3cc590089d8c75934e594"
-    sha256 cellar: :any,                 arm64_big_sur:  "76cd7a8c9df44bf9232f11912f1196f278c3348910147b1b7e732c1da9b0ca99"
-    sha256 cellar: :any,                 ventura:        "21566470343aff3640eb246d8bb6efe39401012f3a97c669be6ecb50dfd4b2b2"
-    sha256 cellar: :any,                 monterey:       "4a70b5234b934464d3ad9d1dc48ac7f3182c4a64106064d9805200f178e6ad2c"
-    sha256 cellar: :any,                 big_sur:        "f1c973880b26aab62a27bc5644446fe7d70f2a2bd7f1e081878fa8b206542a6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00db101a62a4261c5593e8ac1a79f7be19dedf392d679cb4ee730ec91b9d5e73"
+    sha256 cellar: :any,                 arm64_sonoma:   "955959ff3b95599559099d55be858c42bcae51573547c605ee427bb786acce72"
+    sha256 cellar: :any,                 arm64_ventura:  "8f315ded2a58518d307a5e5787294e00aa95fa2198a342349a3aafdc25bf5f9f"
+    sha256 cellar: :any,                 arm64_monterey: "012f7b4535902de8ee57b62429cc78a4f3b17466a0151961410190def9b65317"
+    sha256 cellar: :any,                 sonoma:         "0d691d5ca8f7bace618acba25a1831ee20adacb7f039b92e81e0b20d4c1058be"
+    sha256 cellar: :any,                 ventura:        "9f618c0fedf4e290c98655e0fef4bb072506b024ce4125b63123a26a03560848"
+    sha256 cellar: :any,                 monterey:       "3edcc1dafa50751632ebaa3033156ad20177195b6912f669fa4fd7db7868c41e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddba47b3729d99ceda24f362d3173b59cafafb5ff2d775a41831cb98fd7e3227"
   end
 
   depends_on xcode: :build

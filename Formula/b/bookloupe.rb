@@ -12,9 +12,11 @@ class Bookloupe < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "24bf9a6ae43fe3f89408a72d83f31b770ed3a34b8cd1bc2a8966418015b0035c"
     sha256 cellar: :any,                 arm64_ventura:  "4421a88b7f0f464d3469a652e232134ae0f9402c48201515a3c04f9e9f267c45"
     sha256 cellar: :any,                 arm64_monterey: "f981bcea12ecb29401b723391ccf8a7b47ba68bf57dd7277cc4474fc3e0767af"
     sha256 cellar: :any,                 arm64_big_sur:  "52b3382b76c8ef2e8edd46e3bcbe56620d659713f0e8fc4a4fe3e109fc25d7ca"
+    sha256 cellar: :any,                 sonoma:         "ee90301308017763e04f2d40a2ba8e50a3adb0b9015e23f59f1b211ce3563c69"
     sha256 cellar: :any,                 ventura:        "f39f6f8a9a229fcd14e1784dd57f1215afae5f8473ce0508392e64ba8063d540"
     sha256 cellar: :any,                 monterey:       "b2df92066e4e19f5a6c9eb4c0784b9f736e1e9043dcb83798e7f2bdf02295942"
     sha256 cellar: :any,                 big_sur:        "7ccdee4a97e6c705e478e38aeca1648b06a39c2edfcfa807a4a07ab12eb0d3c8"

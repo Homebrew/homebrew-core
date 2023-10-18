@@ -1,18 +1,20 @@
 class Secp256k1 < Formula
   desc "Optimized C library for EC operations on curve secp256k1"
   homepage "https://github.com/bitcoin-core/secp256k1"
-  url "https://github.com/bitcoin-core/secp256k1/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "ef2e1061951b8cf94a7597b4e60fd7810613e327e25305e8d73dfdff67d12190"
+  url "https://github.com/bitcoin-core/secp256k1/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "d7c956606e7f52b7703fd2967cb31d2e21ec90c0b440ff1cc7c7d764a4092b98"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "0c7aadfa2c4e16008976d0392d303d853ca303761a33edefbc91bd65349033d1"
-    sha256 cellar: :any,                 arm64_monterey: "b151935b712ede931579c527659980601eb91daa75914bce6a2aa18f8acc598a"
-    sha256 cellar: :any,                 arm64_big_sur:  "4cd10f47fcd3830ad58ccaea156aa804d74af61adbbbd886e7db1a8503259089"
-    sha256 cellar: :any,                 ventura:        "97b55ceb0fd8419d8374ea420cb3517a90a88252469d590074aacd3b2a20c7f5"
-    sha256 cellar: :any,                 monterey:       "4bdeb1e333d34144fe0c1b461461cd0772ac64a45acb38fc26ed81c75ce13614"
-    sha256 cellar: :any,                 big_sur:        "72c9a488df7b3885b8cbeb636e00dab0fcf0efd9ad015156869083b23e0b5e3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b59e49adc20fcfff78ad76299b8e4f314d43f59a3f35fa33fcbc315ad52aad5c"
+    sha256 cellar: :any,                 arm64_sonoma:   "0c1d369fabdca254603e1f0381a7c8d7465dc90684ea440f07454c9ecd5d9762"
+    sha256 cellar: :any,                 arm64_ventura:  "b8052ad2c3cf363619c481e08ace05aa608524c393a371739877b7cd49644204"
+    sha256 cellar: :any,                 arm64_monterey: "f680e1d8c031b995c3311e45af700851dd48e1e8bb0f6853d31937fa77437234"
+    sha256 cellar: :any,                 arm64_big_sur:  "1f375a5c53f753b0a769a6f5f86dc7b18f6e689e1f452ce495a50cf2135e4d16"
+    sha256 cellar: :any,                 sonoma:         "7a5d2678bbea5a24f36ae4ee56664ac577f6c51081bebab3943a29906259d381"
+    sha256 cellar: :any,                 ventura:        "f844e97ab346d800b0e4b27697788e90fc1df03f23bd557c2bc2ace431aac74a"
+    sha256 cellar: :any,                 monterey:       "e1a96645352094a69c55ca5549b83252dc9166c8492756e79b9db7ce971a8b8b"
+    sha256 cellar: :any,                 big_sur:        "3bf4f57e1445c953e6e2446e9d18f33c9ae6349a850f01d806b3139597abce65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d7c64f8408205f74592dac509f55dae6c896a036c8fd58ba3ff2c67d14edb50"
   end
 
   depends_on "autoconf" => [:build]
@@ -21,7 +23,14 @@ class Secp256k1 < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", *std_configure_args, "--disable-silent-rules", "--enable-module-recovery"
+    args = %w[
+      --disable-silent-rules
+      --enable-module-recovery
+      --enable-module-ecdh
+      --enable-module-schnorrsig
+      --enable-module-extrakeys
+    ]
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

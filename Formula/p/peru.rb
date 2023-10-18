@@ -8,18 +8,17 @@ class Peru < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33781e91b6ffa754ccb1f3b3df42fb627325ce6809ff9a42941fc67ba0740d82"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33781e91b6ffa754ccb1f3b3df42fb627325ce6809ff9a42941fc67ba0740d82"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33781e91b6ffa754ccb1f3b3df42fb627325ce6809ff9a42941fc67ba0740d82"
-    sha256 cellar: :any_skip_relocation, ventura:        "f94520f666b3acef6644b3ea43b4d9327b28ca45cfd822909e8010ab6d6e6834"
-    sha256 cellar: :any_skip_relocation, monterey:       "f94520f666b3acef6644b3ea43b4d9327b28ca45cfd822909e8010ab6d6e6834"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f94520f666b3acef6644b3ea43b4d9327b28ca45cfd822909e8010ab6d6e6834"
-    sha256 cellar: :any_skip_relocation, catalina:       "f94520f666b3acef6644b3ea43b4d9327b28ca45cfd822909e8010ab6d6e6834"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2016883c0c26a317caf13e96965be03c97df01e67543a4d9a903477c0571313"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fe6741a51002284c7cf18864a7d7e75f55dd82ba085102fe5785f392a60b7db"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecf79403dba06b8ed9b82d9a2a4f307b91d7cf08773b606921ea9dea006e017e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "219316df676d2b308854a5fb074836cab3d9cdc9c520b3354c29de3218cb19a3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a73f064a78a1e8c353e798f7c3471f156d59d3a04f66f184460b53a8de6f5e22"
+    sha256 cellar: :any_skip_relocation, ventura:        "8b850b6763e6b83854e06bdc81ed512f3b3cb7f45c8178b9c1ec241306697744"
+    sha256 cellar: :any_skip_relocation, monterey:       "f473af78b2dbca0073c4ab4be030b2ff57f1cb505fc4ba8368a5df1609b74690"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "761eccab8b61910522dd259608851e2dcd533f92e5c02272e21f760e1f3ddd4c"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
 
   resource "docopt" do
@@ -30,7 +29,7 @@ class Peru < Formula
   def install
     # Fix plugins (executed like an executable) looking for Python outside the virtualenv
     Dir["peru/resources/plugins/**/*.py"].each do |f|
-      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.11"
+      inreplace f, "#! /usr/bin/env python3", "#!#{libexec}/bin/python3.12"
     end
 
     virtualenv_install_with_resources

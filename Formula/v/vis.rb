@@ -8,9 +8,11 @@ class Vis < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "d645f9d687468ef9df01b7553ba153010e0c11cf61efeed8613ed0f69d8ab8ec"
     sha256 arm64_ventura:  "32908c8b3e0251376b5a5020fde49c276c652a71eeee6a624dea98ab61211260"
     sha256 arm64_monterey: "4175e1489036cb6b42e68c2073e4b5626cfb2ae3fadfba52e2e32d0a7e324dc3"
     sha256 arm64_big_sur:  "067127470533d46e86b8ef7c6aba0e203061347fa1e6a74933e0fbc833d81ff2"
+    sha256 sonoma:         "f4f517e6eef8fd53dc1a662b06a2e14dcc880d7bf0a93bc732bc4bb5497eeeab"
     sha256 ventura:        "8311b635e107ec0cb5282cf86920bee36d5cc32219fb9b41a0b77f0980c4b745"
     sha256 monterey:       "fc879a20d56fbe7eb9956dda54fd0f603f4d14d4a3f903462946f23fba5766a0"
     sha256 big_sur:        "6d2d2178c60f3d091818d80c9e9c86744e946661f1dede662d3b248c2cb1a858"

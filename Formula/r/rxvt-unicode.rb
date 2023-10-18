@@ -4,6 +4,7 @@ class RxvtUnicode < Formula
   url "http://dist.schmorp.de/rxvt-unicode/rxvt-unicode-9.31.tar.bz2"
   sha256 "aaa13fcbc149fe0f3f391f933279580f74a96fd312d6ed06b8ff03c2d46672e8"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url "http://dist.schmorp.de/rxvt-unicode/"
@@ -11,13 +12,13 @@ class RxvtUnicode < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "7dcc677369d1baab6f16df81f8b8eb55ec58e7250c63823105a4b41dfc076012"
-    sha256 arm64_monterey: "d7d065eaa8a9edb656446536bc45466062f0c8fd5aba80583bae20c2813b72f2"
-    sha256 arm64_big_sur:  "3770fbf0ca91a3f894862c40d27699aa2d602bd5a7420cb3c760c16d98c79f94"
-    sha256 ventura:        "de7ffce5e796bac2174392eff67aebcfc19a841e3c10c8e1eb43cf9afb319957"
-    sha256 monterey:       "54b0be5c3682b2d6974696b708935ad239ec26117a6028c201f5ca99a701dc90"
-    sha256 big_sur:        "ca8c7a88bdb67f56ea721039077450a4f4ceac8f5ea83518bca596f8daedecd5"
-    sha256 x86_64_linux:   "69f31db1144e72a56e1453390170053d38fdfcba1d359e6a34c88ff1842cf749"
+    sha256 arm64_sonoma:   "70b29b652c086003e230952471da39a12032dd80242d86a631b928acc71e37ca"
+    sha256 arm64_ventura:  "2f9c19525fe1dbce9500da67db6d0448f2e0e2ee26d66adeb15946ab07c55745"
+    sha256 arm64_monterey: "82cee1ad76351a94e29e4d78a9ac8cb6f2931b211536dabe41b1cc25e0a4d0a4"
+    sha256 sonoma:         "711146d0e1e926dd067fc33a3a38ae9c1e13b415a573dbbc91ebfa8a0be25f29"
+    sha256 ventura:        "613a2d166f0c1e22022a636988c2154515a92647a854d6935e0242036352d413"
+    sha256 monterey:       "81910faaa1dc810a5fbc8758f5d9aac32effdab35234a349e1cceb12be7ac75f"
+    sha256 x86_64_linux:   "fb67c2eb745d231fa3440147e04b2d3df8ef205a1e0593da2b0620352f6fe182"
   end
 
   depends_on "cmake" => :build

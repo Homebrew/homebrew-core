@@ -1,36 +1,36 @@
 class PythonTypingExtensions < Formula
   desc "Backported and experimental type hints for Python"
   homepage "https://github.com/python/typing_extensions"
-  url "https://files.pythonhosted.org/packages/3c/8b/0111dd7d6c1478bf83baa1cab85c686426c7a6274119aceb2bd9d35395ad/typing_extensions-4.7.1.tar.gz"
-  sha256 "b75ddc264f0ba5615db7ba217daeb99701ad295353c45f9e95963337ceeeffb2"
+  url "https://files.pythonhosted.org/packages/1f/7a/8b94bb016069caa12fc9f587b28080ac33b4fbb8ca369b98bc0a4828543e/typing_extensions-4.8.0.tar.gz"
+  sha256 "df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"
   license "Python-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1c75dfa4e3689c94d2a4794fdd31d1b991c76736e4de0ad1bc3606af3e6ac77"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "186d7748e9614fcd886c64a9de6be03f13bcc8a500539e4be35611b7c5a39c5d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "679855c41557ccce9c67fb14487d706614095f3ecf868eafb4d12aab9137b443"
-    sha256 cellar: :any_skip_relocation, ventura:        "90486b199c016587d6e75a11e7790287dc7ec91f0a585a6850d7c8e62b0681a8"
-    sha256 cellar: :any_skip_relocation, monterey:       "5298b4e0a53abc1514b627021a821e707c557f3d32f4d3332ec21cc7b68d8cc6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0f9859ea8e5a978ddfdccd6d763807818ac8f70326b14c2d7393b78e37b3c405"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4847e9ea5d39f49c8bbe53e6c7c43abd9e1a515622cd5541843ca8627a69b63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4138102c5291a13eb6c5f64303a49881f7e7e988077dbed91482ca338b216b03"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3288bb986ec0f759bb9682bad52007174ba5145b4a063f26844257ddf17e3893"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e50cd8cc622a1fd191a1318df52d5ec74c82911c6d3968e6d6ee44d031bb3a4e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5da893864219e7104a2c62ff400a63b8ce4bbccb7b67306d1a67394642254111"
+    sha256 cellar: :any_skip_relocation, ventura:        "51fcab54c1caa9f5bdc4f228249d8cc680c7978b71a4ee710060ba1aa40eca24"
+    sha256 cellar: :any_skip_relocation, monterey:       "f332513e1a606fc1542344b1a16af82f019e292942617352e7003cf8599ea737"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fe82dee67341e40570ac55f7fab625c580a10d13dbea498bbf3ba50eafc8730"
   end
 
-  depends_on "flit" => :build
+  depends_on "python-flit-core" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "mypy" => :test
 
   def pythons
-    deps.select { |dep| dep.name.start_with?("python") }
+    deps.select { |dep| dep.name.start_with?("python@") }
         .map(&:to_formula)
         .sort_by(&:version)
   end
 
   def install
-    system Formula["flit"].opt_bin/"flit", "build", "--format", "wheel"
-    wheel = Pathname.glob("dist/typing_extensions-*.whl").first
     pythons.each do |python|
-      system python.opt_libexec/"bin/pip", "install", *std_pip_args, wheel
+      system python.opt_libexec/"bin/pip", "install", *std_pip_args, "."
     end
   end
 

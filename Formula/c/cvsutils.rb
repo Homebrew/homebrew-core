@@ -11,9 +11,11 @@ class Cvsutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "236e094935c0cb2016f782d32d93375062226579a047ec4f356e62165c4d291a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aeccad5743770ecfbb4c92fcbc9899927714b1214fa89dcdba6d4fa6ae630f2a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "aeccad5743770ecfbb4c92fcbc9899927714b1214fa89dcdba6d4fa6ae630f2a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2a9644fe70816d7ca61c0497ce3baad7a81596e69254cf9d7d775d9e430f7f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "236e094935c0cb2016f782d32d93375062226579a047ec4f356e62165c4d291a"
     sha256 cellar: :any_skip_relocation, ventura:        "aeccad5743770ecfbb4c92fcbc9899927714b1214fa89dcdba6d4fa6ae630f2a"
     sha256 cellar: :any_skip_relocation, monterey:       "aeccad5743770ecfbb4c92fcbc9899927714b1214fa89dcdba6d4fa6ae630f2a"
     sha256 cellar: :any_skip_relocation, big_sur:        "f7173229e45bd423c11d21800ddf636afdb0903fff09e0514b21a3065ce8fba3"

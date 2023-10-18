@@ -6,14 +6,14 @@ class Unibilium < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "a09c64419c3bfd241682b2b866845c47e14fb34f2ec4c00432a0ffd94552088b"
-    sha256 cellar: :any,                 arm64_monterey: "61e46223a65d53ff12dbae623c31b6bf6cf5814e3ef378172a76e157f11a8327"
-    sha256 cellar: :any,                 arm64_big_sur:  "949ec76abe1f8f7c3804028793133d68036734b326ee9d30db2132fbc02e7f4e"
-    sha256 cellar: :any,                 ventura:        "f7105a9bffd1de736ef229c6079bd2d535516ebb9bf7a6b3efb7332423c2925e"
-    sha256 cellar: :any,                 monterey:       "4293a007fa231e58f31aa1fee7cd1f08ab901678c80adbea2e4efaa49d7cb3ca"
-    sha256 cellar: :any,                 big_sur:        "d437072bceb93b39d6231dc1132f10284c7033690e2e8fe85193670157c680a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "713531ec3ccf93b6f4ae8e5d5efadf15a2c985176a2086b5607d33598e4de45d"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "62e3649d689c32c0d3042436395bf2bcd8d316c30d22d2f9dc666d9776968f51"
+    sha256 cellar: :any,                 arm64_ventura:  "27a0c608e5bb1926436855ea5e9c6b1154ff001237aaee905faa1fef9f943396"
+    sha256 cellar: :any,                 arm64_monterey: "b4172b327c9ab41032fecb648eedac18e867add559b3cc7951b15f10ae6cd0e1"
+    sha256 cellar: :any,                 sonoma:         "0ffc646d060f5e39096f7c3869530b412ad104c21c91fbec057561e9ff1d5112"
+    sha256 cellar: :any,                 ventura:        "3f0176e90ac411b252263a1ce8cc2a765bdaabee52af58df33cd5af6bc4dd933"
+    sha256 cellar: :any,                 monterey:       "62654f38ea347e7d00e1339dbf6e495d38822fe7484661546ac7fa009d621ac5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b83976c8990c0f8a2be32686b8b5ed284184065aea16e4a3c304842d78da7b26"
   end
 
   depends_on "libtool" => :build
@@ -21,8 +21,15 @@ class Unibilium < Formula
   def install
     # Check Homebrew ncurses terminfo if available.
     terminfo_dirs = [Formula["ncurses"].opt_share/"terminfo"]
+
     terminfo_dirs += if OS.mac?
-      [Utils.safe_popen_read("ncurses5.4-config", "--terminfo-dirs").strip]
+      if MacOS.version == :sonoma
+        # There is a bug in ncurses5.4-config in the 14.0 SDK (FB13204756)
+        # We know what it should output, so enforce it.
+        ["/usr/share/terminfo"]
+      else
+        [Utils.safe_popen_read("ncurses5.4-config", "--terminfo-dirs").strip]
+      end
     else
       # Unibilium's default terminfo path
       %w[

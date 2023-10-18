@@ -6,9 +6,11 @@ class Gnumeric < Formula
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
+    sha256 arm64_sonoma:   "5bff6b05940bdccf798dfc3b10213e9032bbc1ed4fe9a4b33661b6aca6e259b1"
     sha256 arm64_ventura:  "488370521c3bff2b234422df1c6468b33dd562c1497ca4cd8cfcf1c88a1a9dde"
     sha256 arm64_monterey: "b1398c8ebef228c9d6bf70ab7412245efd9e239a84c77a71cb1d26bf8906586e"
     sha256 arm64_big_sur:  "3c638fb56a210bb76c33dc932f74c5640317e90b7f5a61b14ed8cbf76a09eb57"
+    sha256 sonoma:         "9651e6351cb2764088a65d063d780e86ba5d99db379a25e8965c76ccb13f3c3b"
     sha256 ventura:        "5d5d4ae015519c7fb93b1e49c865e0cc24402b88628028e5d0b5840fdb2b9abe"
     sha256 monterey:       "abf3df42402d276c0275fd20697f0a1d58e9242cab0b85a3a40257624cba83d2"
     sha256 big_sur:        "233706512d8b3812b44d02048c91edd36976ff7a2a4f86706aba72a9d0ba66c4"

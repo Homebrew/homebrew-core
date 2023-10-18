@@ -1,8 +1,8 @@
 class Sdl2 < Formula
   desc "Low-level access to audio, keyboard, mouse, joystick, and graphics"
   homepage "https://www.libsdl.org/"
-  url "https://github.com/libsdl-org/SDL/releases/download/release-2.28.2/SDL2-2.28.2.tar.gz"
-  sha256 "64b1102fa22093515b02ef33dd8739dee1ba57e9dbba6a092942b8bbed1a1c5e"
+  url "https://github.com/libsdl-org/SDL/releases/download/release-2.28.4/SDL2-2.28.4.tar.gz"
+  sha256 "888b8c39f36ae2035d023d1b14ab0191eb1d26403c3cf4d4d5ede30e66a4942c"
   license "Zlib"
 
   livecheck do
@@ -12,17 +12,17 @@ class Sdl2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cfa4fcd327d0a1bf1241df0b25c33c6e8912dd25fb0e373b85f34a696ccda894"
-    sha256 cellar: :any,                 arm64_monterey: "c0bbcfca51e71baad1a0b7e877eb3e8b60f510216be65fe42184e8ef34175fd1"
-    sha256 cellar: :any,                 arm64_big_sur:  "8b52a1ca7da7138fa8465387358e3908d52a65e483342a8134f51bf3bda983c2"
-    sha256 cellar: :any,                 ventura:        "dfc44316769e87fd93c96fb2b4b74caa98e89b96acdc98c547fc1e1e50d6efa3"
-    sha256 cellar: :any,                 monterey:       "f6bc882a2a91d8e974fdb55e6dda145477d4397893ca0c1962106d89ed475d52"
-    sha256 cellar: :any,                 big_sur:        "c7ea523fc46fbc83d51fd19c52bc26f3c06b4a1318f8522cc94b1e14821c9e52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2a37ed6dd4edc283c1e310f2bee751fabd8b6aa27fdb9d1ad7f7cdcd3d9790d"
+    sha256 cellar: :any,                 arm64_sonoma:   "e6fe97069d2c299cef1d407c11403714c20a50fd95a2ce16609e7477d792a9b9"
+    sha256 cellar: :any,                 arm64_ventura:  "ebb73d39781af471e402732e1ff8f683343f58dbe6c97dfb408cb814f95ed5ff"
+    sha256 cellar: :any,                 arm64_monterey: "d69978b66c194ae2d087322245c783083a80ca14da243f3bb1f45397ed4dbfcf"
+    sha256 cellar: :any,                 sonoma:         "d42c77061a90fcdf02f4a5180f32599ff75321285fff06d786fe9cc213e76f8d"
+    sha256 cellar: :any,                 ventura:        "9cd70d93ffac88df31be73fb88c488114b200ae3a87e51acfb6e2fc6d27ec916"
+    sha256 cellar: :any,                 monterey:       "92daa8144a71de0224e8d09f3ecba21dca93344eb109529394d498c4967e8fe4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "004689b7441721c1e95e4706fe2bc781b028f4721ba079a89457ecbcb9debc8a"
   end
 
   head do
-    url "https://github.com/libsdl-org/SDL.git", branch: "main"
+    url "https://github.com/libsdl-org/SDL.git", branch: "SDL2"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build

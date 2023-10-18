@@ -1,11 +1,11 @@
 class CAres < Formula
   desc "Asynchronous DNS library"
   homepage "https://c-ares.org/"
-  url "https://c-ares.org/download/c-ares-1.19.1.tar.gz"
-  mirror "https://github.com/c-ares/c-ares/releases/download/cares-1_17_2/c-ares-1.19.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/dns/c-ares-1.19.1.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/dns/legacy/c-ares-1.19.1.tar.gz"
-  sha256 "321700399b72ed0e037d0074c629e7741f6b2ec2dda92956abe3e9671d3e268e"
+  url "https://c-ares.org/download/c-ares-1.20.1.tar.gz"
+  mirror "https://github.com/c-ares/c-ares/releases/download/cares-1_17_2/c-ares-1.20.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/dns/c-ares-1.20.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/dns/legacy/c-ares-1.20.1.tar.gz"
+  sha256 "de24a314844cb157909730828560628704f4f896d167dd7da0fa2fb93ea18b10"
   license "MIT"
   head "https://github.com/c-ares/c-ares.git", branch: "main"
 
@@ -15,13 +15,13 @@ class CAres < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ba35cc0962beaea7ae345ee1818297c40d5653649e563dc9493b93924b87ae41"
-    sha256 cellar: :any,                 arm64_monterey: "de7817bc21be96a6ddc10a8f5c0dbefc7930b9d9a8bdca24ecd88c23d5e592ef"
-    sha256 cellar: :any,                 arm64_big_sur:  "f8671b1156701b219b38544e7edab45a97afea17f06e5e2db4113d43036d1c2f"
-    sha256 cellar: :any,                 ventura:        "504f6347444d599983e075211dee95529f7329324f3f7470914adebf06f46419"
-    sha256 cellar: :any,                 monterey:       "c954838d76e0f11529f20455fa4173e5390a97479d141f3b6d2d136054a2453e"
-    sha256 cellar: :any,                 big_sur:        "8e2a1fa105cdc6be5e40a16a32a21fee6fb64fbccc9826906e4097573c22b357"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a3705f6172017f6a8201a902a083898923ba3dc369889bc5572fd93564c3f6b"
+    sha256 cellar: :any,                 arm64_sonoma:   "81f08757c7bc31cd7c7d2051df0fb0c27b48ee2b36379afae28e706adf2ce07d"
+    sha256 cellar: :any,                 arm64_ventura:  "c4c691f0df9857f0864330416c17b21954895207f4f0ad259145094b47aceee0"
+    sha256 cellar: :any,                 arm64_monterey: "da1c903d162efe06724116d24ee5aa0da384f332d63decfb88e5f089325ff8b1"
+    sha256 cellar: :any,                 sonoma:         "5d4e46a5d1bedf2de6fb39fe1f9087bf59649511c5afe6054f48b858437fc365"
+    sha256 cellar: :any,                 ventura:        "0da5674e27d885db0fad5ecf47e1410e2584c9dbbc88efedc08b90bb0c035924"
+    sha256 cellar: :any,                 monterey:       "5b0e0a93c240f8ca1aa3ccf0a7139ab0d1b8c81c2c670953ad05e8786eb1b286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb67a4010483bebd0536293a3955475d785f3b51468a7d19ab8e03174bdaddb7"
   end
 
   depends_on "cmake" => :build

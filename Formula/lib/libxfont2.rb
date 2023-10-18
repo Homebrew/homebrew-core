@@ -6,14 +6,16 @@ class Libxfont2 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "841a2661ab9a5de3edc0d436d14802a811c495e4f7036b84da083ff6456da2df"
-    sha256 cellar: :any,                 arm64_monterey: "b6ad688dc31a73b3a9bb5368bbf5624cf410007955cd3b2feb9ea1a663b7241c"
-    sha256 cellar: :any,                 arm64_big_sur:  "3e7cd1603b33ffa074ad368ac277889ca8709bfda2ce03e222acb91ba90b4b7b"
-    sha256 cellar: :any,                 ventura:        "f5b166780122300dc73a7e4154868f241dabaf3573de040bde4f2b2d9afb3399"
-    sha256 cellar: :any,                 monterey:       "13ae077d69dc0a31de51d1ebac0ec9f5a6dcdcaff5685ea1904fd7057a56c936"
-    sha256 cellar: :any,                 big_sur:        "945df3484eed14747271f4c8dded5e69a503352ac41d66d2a2c1873fb8b4395d"
-    sha256 cellar: :any,                 catalina:       "425147217de1a857aba247b24c7f96c21239a459dd69fac469d0debc9feb42c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ae886e57074b44004d36a3025039506e45a126d5acf77e2b4c4df76e699c450"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "9b460431534eaf8a4fc608aee15a4c6280a969dc41790a57074022aec30eb1b7"
+    sha256 cellar: :any,                 arm64_ventura:  "44da375c2fc8bafff763cfb2dba910dd678f57cf6ce2aeba8fd72e4fbb86c869"
+    sha256 cellar: :any,                 arm64_monterey: "09e50cb913e815ea32277dc0ec23e310bb6d4731e90e3412e9ee2affb5a262ae"
+    sha256 cellar: :any,                 arm64_big_sur:  "561f79f169796b4a1efa9e2d16ca265f4953d4a1f2cb6be6c8a27ad8304f5fd6"
+    sha256 cellar: :any,                 sonoma:         "2337adff049134c0599e19b96e9e11a685c24d0d97d5541cde98b04cc39a99cd"
+    sha256 cellar: :any,                 ventura:        "f94e0374fabd345c61bf9f1e075df63a3f463031dd50c3122993f839b6e0aa91"
+    sha256 cellar: :any,                 monterey:       "c4b1e0ccbbe516996d172865a1800982d2da702ffdce524c622e657fba52d066"
+    sha256 cellar: :any,                 big_sur:        "141d3bd006ad7bd579d4831694331cde1c53f6ef1c62c34c6ed14cd9143c948d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35a40dae3956a3956ee2866692dcc600b659495599aa5f4ff4f42718d74ad777"
   end
 
   depends_on "pkg-config"  => :build
@@ -35,7 +37,6 @@ class Libxfont2 < Formula
       --enable-unix-transport
       --enable-tcp-transport
       --enable-ipv6
-      --enable-local-transport
     ]
 
     system "./configure", *configure_args

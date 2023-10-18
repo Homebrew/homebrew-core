@@ -11,13 +11,14 @@ class NodeAT16 < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "fcb0196c762c1285e93d40c4fa91e57db792e2f8cbaa4459e1a5ba092322921b"
-    sha256                               arm64_monterey: "db3b1122c63407398c18d860daadb56ef6eeac042b35a932e57418d71607a6cb"
-    sha256                               arm64_big_sur:  "018ce8adf2f049cbd92cc730605862f15fdf95fc514416c7b1ec596beb82bb3b"
-    sha256                               ventura:        "cf33712c50cc6a78f3de277a1a6d6c55a178ac1879b89cccaf0f4ff560fdb6bc"
-    sha256                               monterey:       "d758457ff6ca6f2d1967b869a0e54f4aa23a844378409c3b6e99d9d3160b0297"
-    sha256                               big_sur:        "dab1b8edddfcfec97f3821ebecb75802e75b9e79532ee41c582ecddfc004694d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8b42ddd456c1c4420762fd3cb320290a5235d54f5e82d2d3f7ab8bf7d622ed1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "27070fb9275d5dd1d4bf816659705acc1048ff947a30cc6b0816900d198fab69"
+    sha256 cellar: :any,                 arm64_ventura:  "6712e525f435f790df664cf063b18f85973043f8a3817e14764f0e73ba3d14ce"
+    sha256 cellar: :any,                 arm64_monterey: "d6849c663947a208dbb494be1433ecea9736896988b7078d41e3ed002eb3d0c5"
+    sha256 cellar: :any,                 sonoma:         "5422ad0692efb86e6499645e9cc91de15ae688d426991ae24084fe89a76394c3"
+    sha256 cellar: :any,                 ventura:        "8a163469a0ee7d005efc9ded82e6de9fe80075a207aaaff6c69b675c3fe2e17f"
+    sha256 cellar: :any,                 monterey:       "7c3eace3570476ba69a6922f1de10dab934112fbf5c5f7ae7a6f1b3f30518f44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ade4824e8c644789ac5dcbe03b5e58cf6f07915ebe22771de948a159dd05da9"
   end
 
   keg_only :versioned_formula
@@ -26,7 +27,8 @@ class NodeAT16 < Formula
   # disable! date: "2023-09-11", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
@@ -45,7 +47,7 @@ class NodeAT16 < Formula
   fails_with gcc: "5"
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which(python3)
 

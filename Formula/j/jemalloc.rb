@@ -6,9 +6,11 @@ class Jemalloc < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f70f02aa2f1b858ed5e5cef84a271efeaaa27e79f266844997aab95daa66a7fa"
     sha256 cellar: :any,                 arm64_ventura:  "33e0c3fbe56642e081018a9674df734d34afdc35af7d03f5dd2b484a804555e3"
     sha256 cellar: :any,                 arm64_monterey: "b7ef9abad498e6eb53fb476fde4396fc9ab99a23092ea14bcf576548e198f9bd"
     sha256 cellar: :any,                 arm64_big_sur:  "b24e4a9413b347397a10ebc9a7a2d309d88c0f9479c1cdebe6c302acba9a43a9"
+    sha256 cellar: :any,                 sonoma:         "cb1d95640b85ec863d457722af363119b9a16274ce6f9e968f939fcf85bdd350"
     sha256 cellar: :any,                 ventura:        "66b5f3a4c4ad9f7801e6ad2e76d1586e7b57e2cc64b24c2684dd1c2af8bc82f3"
     sha256 cellar: :any,                 monterey:       "27ae29c02d718c38ee5f623c3ef08ad3530a6fd3595d16d2ddadd6552bf32c12"
     sha256 cellar: :any,                 big_sur:        "72aef17aa140b457400c4f2b74d0473bf1160616c3df7cb8604ac2bf734afea5"
@@ -39,7 +41,11 @@ class Jemalloc < Formula
     end
 
     system "make"
-    system "make", "check"
+    # Do not run checks with Xcode 15, they fail because of
+    # overly eager optimization in the new compiler:
+    # https://github.com/jemalloc/jemalloc/issues/2540
+    # Reported to Apple as FB13209585
+    system "make", "check" if DevelopmentTools.clang_build_version < 1500
     system "make", "install"
   end
 

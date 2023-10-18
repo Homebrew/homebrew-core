@@ -11,9 +11,11 @@ class QwtQt5 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "1cb860970697ad28b35641bf18fda11fb24b7f6c47dfe4cde6c1093d51d62e53"
     sha256 cellar: :any,                 arm64_ventura:  "06c70cbba80bbfe1650c3f144c291a40a4489cf096683d6cb1e47bfa75652008"
     sha256 cellar: :any,                 arm64_monterey: "0269802930f5588330a78fc3a87bc72f18efbca5d2adf14a2ae66af99b8098a3"
     sha256 cellar: :any,                 arm64_big_sur:  "0a02df654d0c1e813cb9329921d28efec925df351c142c906603a59005726faf"
+    sha256 cellar: :any,                 sonoma:         "d62febe0437854e274675e36a5729e1dc452aa0c6e9413a622d0bdf187d18431"
     sha256 cellar: :any,                 ventura:        "a4d4365fca136628fd7166f4c3f384a5e10e6ded39b54787cbe5c326b4c2ad11"
     sha256 cellar: :any,                 monterey:       "4bfd9eb2a914188a9b9bd3c4ff7e4365e23bb67f3efaabaf924d38990c93ea82"
     sha256 cellar: :any,                 big_sur:        "58547807ea1f43913b4527b0f086c2c1143e57a932609b85a5269b4b02b36b0a"
@@ -48,7 +50,6 @@ class QwtQt5 < Formula
     else
       "macx-g++"
     end
-    spec << "-arm64" if Hardware::CPU.arm?
     args << spec
 
     qt5 = Formula["qt@5"].opt_prefix

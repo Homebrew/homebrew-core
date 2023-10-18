@@ -1,20 +1,21 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.10.tar.gz"
-  sha256 "a9c61744e5cd8c366e2db4d282badc74021ddb614bd65b41240937997e457d25"
+  url "https://humdi.net/vnstat/vnstat-2.11.tar.gz"
+  sha256 "babc3f1583cc40e4e8ffb2f53296d93d308cb5a5043e85054f6eaf7b4ae57856"
   license "GPL-2.0-only"
   head "https://github.com/vergoh/vnstat.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "bd9a2bfadf1fde522bdd1585143fa20ec241cf45122326818d03978b8b60ef03"
-    sha256 arm64_monterey: "5e96e31ef8696a64e1906d4ffae3c4eac62c4bd253bcdf5b8338b4d6d01d0941"
-    sha256 arm64_big_sur:  "37aa0b638d91053d9cf4db7f8018e916dda834f78dc7dadcc9035d7da051b588"
-    sha256 ventura:        "ebb8ec94d4039ce7f59dfd299cd36f84b46e7e4c73371cb5f625a3c760268147"
-    sha256 monterey:       "930bbc22109b08c0a26176980d02035df26b0cc9708a5fb0cdbc4a3fd5882e4c"
-    sha256 big_sur:        "8436229f2365d0651efb45aecd9779c2dd55fccd4582d0b537d2c2755cecc349"
-    sha256 catalina:       "0ed1bb9f2b172352da86411952bb6497e5a8de075c0f0eab3567ce4a23369080"
-    sha256 x86_64_linux:   "585625ad0406edac731722bfa00226da552b038b73bd185f39dd638c7fc7081b"
+    sha256 arm64_sonoma:   "82a27759165561abdcb95bee69b60f460ba21c77e411695452669a614168ec2f"
+    sha256 arm64_ventura:  "273d5ae9920f32ad1fc22a8cd3a8cd16021175d380059489ceee02f189bfe72d"
+    sha256 arm64_monterey: "40d35d2096727b3e8cafa2b23de4a75fe6e7d104b336cd10d54b5c3d24333425"
+    sha256 arm64_big_sur:  "eda88fe18783d34e22d4b7d04efa303f588c5a112a12e93e816816f97c6279c0"
+    sha256 sonoma:         "40b623b7b6d4ff17b627955873f3a2129d26c81510d04e2d9df4e40c68f0063e"
+    sha256 ventura:        "8989044eaebd33345f005c005fca3a8f7a5a04f71a72bac0585c849056173fe9"
+    sha256 monterey:       "1a4999f1e59b1c1d21500e7df3dad26ffbb198f589cb9f3d337875ac8c985691"
+    sha256 big_sur:        "7180971117aa772820ca83052f282c855e0fb2b0ab5186b69f055fde257441d4"
+    sha256 x86_64_linux:   "176ea16a1ca4a86515db372afaa28e49863fbb2fa14b68c586327142de5c36bb"
   end
 
   depends_on "gd"

@@ -3,34 +3,33 @@ class Awscurl < Formula
 
   desc "Curl like simplicity to access AWS resources"
   homepage "https://github.com/okigan/awscurl"
-  url "https://files.pythonhosted.org/packages/80/f4/95935ad7041ba008221ce81b698963c8be0c5c97e6fcfd86e0e2009ebacd/awscurl-0.29.tar.gz"
-  sha256 "5e1ecd0ab7b014de697a1e161fa483c2263d16c3e156a81bdc8b9a9c2d0ba3f3"
+  url "https://files.pythonhosted.org/packages/09/5b/98f022bc96ceb68b12fb4cfe6fdf52cc3051fa0b7bf51dc805521afe72bd/awscurl-0.31.tar.gz"
+  sha256 "6ce032543c0ec00857ce9c08cafe8041270b5508b08ec73e264e63f1e1255601"
   license "MIT"
-  revision 4
+  revision 1
   head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "651b2f50108becd6484226e3b99c27bd09e0a8efd0e4c70c278f3444e134527e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c4b60f73cec473b28e2a7b9b269199b040a3dca89028d489957009dc9520e97"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1202043bbae6351d5ce3ef9611bf4094669aadd978e7940a545f76859ef1b0be"
-    sha256 cellar: :any_skip_relocation, ventura:        "15a4df9347fe5900fa2c3793074a82f99ce77f8fc024414623c85cdfaa64adc1"
-    sha256 cellar: :any_skip_relocation, monterey:       "252814d4b04cd5a02d46894da2b8abf0c4a65df295219de97001caf1017e28fa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "246cef67cd82390778b43bb6d893bb9e29b99635183fc531bd0d0caacc50d72d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53275eabb198f089034239f7b7ca8701068da924cd4a43d454abb23a4dcb9d07"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a55974060f69e84b9fc9b507be2b9be3cc9f79ee8e2ee89dfe4c962580f8d934"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0810425114ae89adfb02068cb106fe8518ae9b7f35b67392724c093c3c41c384"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "970f6678fdbfe8e0cbecdd5a354a982eb4e9cd818060d4b68768db97ce8e8e5c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d7d794cf2b354e2f627a5965fe26413d4153b5a7a0cdc6070032eeac6cc8e8b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "9160b480de144b1423f19ab0df8e824c832870980ddd8929709b94a51866dafb"
+    sha256 cellar: :any_skip_relocation, monterey:       "254e3c98b37430acecc91a5c89d5cde6efbb02653adf65360011f0144517f6dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84e1eac66005d85821321079180fb955390bcf1331e3ea47a0df36a01b8908e3"
   end
 
   depends_on "cffi"
   depends_on "pycparser"
   depends_on "python-certifi"
   depends_on "python-cryptography"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   uses_from_macos "libffi"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "configargparse" do
@@ -48,24 +47,14 @@ class Awscurl < Formula
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
-  resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/be/df/75a6525d8988a89aed2393347e9db27a56cb38a3e864314fac223e905aef/pyOpenSSL-23.2.0.tar.gz"
-    sha256 "276f931f55a452e7dea69c7173e984eb2a4407ce413c918aa34b55f82f9b8bac"
-  end
-
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
-  end
-
-  resource "urllib3-secure-extra" do
-    url "https://files.pythonhosted.org/packages/c9/67/76b7c055ea787729bb9f839a84689ea2f88e217519d59ae547824431ec95/urllib3-secure-extra-0.1.0.tar.gz"
-    sha256 "ee9409cbfeb4b8609047be4c32fb4317870c602767e53fd8a41005ebe6a41dff"
+    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
+    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
   def install

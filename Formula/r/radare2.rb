@@ -12,9 +12,11 @@ class Radare2 < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "cc461fb2eb731b50d14c43d48a04d37ba2a6157121c8d525ccd2a6c2ba7b5a23"
     sha256 arm64_ventura:  "0582c617fbe468060ad6a15132d7323a55914325345b8daaf2e81d92e8b6e75b"
     sha256 arm64_monterey: "96b42e7055216f1c293ea00150287679cd021b8723d72244d75e6a369d5204c5"
     sha256 arm64_big_sur:  "1660c7cd456b8ce50547bfd0eacf8b447d69267c024bc62deeeb081e57b378e5"
+    sha256 sonoma:         "76edfcaba498af270afa9a4cb1df7f110a4df931846c78d30fc46e2750b25e91"
     sha256 ventura:        "e64b3ad74eb8a43b7876bc978d442305651f9ba6507df679c1f73966c9ad833d"
     sha256 monterey:       "2bdc2d8f249c6c025b36863264fa2209e9e81485bf0430a061e23d9c0a061fbf"
     sha256 big_sur:        "c0e1a1f9a27d4976ca94f0c8b4ce4c092147fa5911b29a0f3329b5f63280b632"

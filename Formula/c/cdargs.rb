@@ -7,9 +7,11 @@ class Cdargs < Formula
   head "https://github.com/cbxbiker61/cdargs.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fed4d372bf68ed5208d3ea9a33934d90089839d309da6600377430af6682c2a3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "48b0cc0d5f0f06a74cb14d049f2cb4540be4e14d3e6a8e1b651ff64a34c249ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cc63406b9216e6ae1ed24d3e7840776919dd1ad9a566610544fcf3c3520461b8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb52b8d939ea7fde7c8579710b1bad8617e987214f2bfb730300b2e761ebf4dd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ddc21725211421991e9335eec785ca97fde89ceb4840942d46dd2238d426277e"
     sha256 cellar: :any_skip_relocation, ventura:        "86be7bd36de93c3cd56ab18d4b4887a25abe3ece14e85fcf55867e73f453c586"
     sha256 cellar: :any_skip_relocation, monterey:       "8ab5eb91d90bb095fac13138ae4d86bd641075608aa173545fcca1c08f01bea1"
     sha256 cellar: :any_skip_relocation, big_sur:        "4c2ee17afed909adb4511fbbd7521e0cc4a852fd383f94735f1de76e63ffeeeb"

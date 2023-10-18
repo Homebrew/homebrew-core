@@ -12,9 +12,11 @@ class Quasi88 < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "643a3684cc93e7e3a047072e0013f1f0eb2b1248e07d1526e1bb016bbeb016f3"
     sha256 cellar: :any,                 arm64_ventura:  "7b4c72ce4204ac7a10b58982ba65f7bb900f3b6bc2a71533efdd4eb8394b38e1"
     sha256 cellar: :any,                 arm64_monterey: "5a13523bdec455846c2a50a069305794522261565d040aac6304b2b07af649e9"
     sha256 cellar: :any,                 arm64_big_sur:  "6a128b745d94138d3fe571518ce9755c0bfa34324e229da743007e6d5961aab1"
+    sha256 cellar: :any,                 sonoma:         "453d73a74b467f0776936e76713c0f728161a377f5755ddb2a664af3f1d2856b"
     sha256 cellar: :any,                 ventura:        "c70a45dd3e4f7f7aed3e14cefd80319e7f1dc8644dab7597df4cdddf9191011e"
     sha256 cellar: :any,                 monterey:       "5af9ca3ad12c1bfa8d761fc1ff30d36099dd032fdd47fc2e85f89722a21de6dd"
     sha256 cellar: :any,                 big_sur:        "3a46e754acb469e4619f3cedeb402ebe45b69a096c65688697e3144aac61b413"

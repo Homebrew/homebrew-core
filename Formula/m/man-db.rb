@@ -13,9 +13,11 @@ class ManDb < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "875d8d6613853c270fd4e5b82930435e8a66cd1e9419a52b492722ecddceb09f"
     sha256 arm64_ventura:  "5f8afec3772d45578aa84cc9569d28acaa7d350d990f96f4a07a64bdfe5b6420"
     sha256 arm64_monterey: "de84cd14a55ffbe287c028cc309a71a9839a06d022d0e14e10840014bc53ebd2"
     sha256 arm64_big_sur:  "e1ce7ec4744f4283e0a2a51b9de6e3c2dfff36e3f787ec758f1c311cc8c88330"
+    sha256 sonoma:         "0835e3e3d8d96e8bc89d5fb01454a2414ef2a895e5efdba1a8faeadc070620d7"
     sha256 ventura:        "67ec88e0f8a4f0cfb234b6f4fdae3e52623ded06eaab6bd098aec60334ba791c"
     sha256 monterey:       "a4ead25ae1398a3f2d1121fe95ee794b6ade70b1e0695a6b37258c4d94bbf26a"
     sha256 big_sur:        "58620eaa0d633f2b9217c80c5ba43472cf90a5f83ed4cc8e7457c18ddca60a50"

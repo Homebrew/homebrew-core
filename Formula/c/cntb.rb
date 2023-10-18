@@ -6,9 +6,11 @@ class Cntb < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f927236aea7e75a35511eba6efbe079005d6ff75a75ffc3f92416a02cbaa9b1e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e953bfd451e66d9f1ff5896e5d948988c322e14710a2d2ba8ee3bd229c265cf7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e953bfd451e66d9f1ff5896e5d948988c322e14710a2d2ba8ee3bd229c265cf7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e953bfd451e66d9f1ff5896e5d948988c322e14710a2d2ba8ee3bd229c265cf7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "667c64324aa8549b8917b8cb9d7ff0c29710afbfaae820f2f71fd54127714525"
     sha256 cellar: :any_skip_relocation, ventura:        "6c53c36c04129e14550a5cebd1eb078ed8f82a8543c375dc72fce79acd296de8"
     sha256 cellar: :any_skip_relocation, monterey:       "6c53c36c04129e14550a5cebd1eb078ed8f82a8543c375dc72fce79acd296de8"
     sha256 cellar: :any_skip_relocation, big_sur:        "6c53c36c04129e14550a5cebd1eb078ed8f82a8543c375dc72fce79acd296de8"

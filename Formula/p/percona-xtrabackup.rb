@@ -5,7 +5,7 @@ class PerconaXtrabackup < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.33-27/source/tarball/percona-xtrabackup-8.0.33-27.tar.gz"
   sha256 "64b3b0ecaab5a5ee50af02ec40f12664bfe4c94f929ff0c189705ae886da0b12"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://docs.percona.com/percona-xtrabackup/latest/"
@@ -20,13 +20,15 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "937b353dad9a7cbb1893c15b01bb411662c11a69f1520ed5b33fc51b90090bc6"
-    sha256 arm64_monterey: "8cca0a8263716a5fd9f1502aca39c0f83ff58e36b8e0306e6ef3c764e4d8f0ae"
-    sha256 arm64_big_sur:  "6e6bffe23a6f800997c1e32713dbe10dbaab51d5a618b889932476b408b35653"
-    sha256 ventura:        "1a5fa290c4a6fe1d2e990733a0874cb281b654cd9850dea2d5cb927a3895347d"
-    sha256 monterey:       "6143bb6eac718724597c360520643acfb9c550649b8f71b9d0ae73be93ad7eef"
-    sha256 big_sur:        "4539220cae43a98599d8b3fb5d8f1c83ede9029fa34a2f7457214fe6fef477cd"
-    sha256 x86_64_linux:   "f50ba6d78343cb94d3ac956454024bae7c49e0432858d12fd10bed3d8ed7af82"
+    sha256 arm64_sonoma:   "4f7102862711e05f0983fc4f360a8d40905f5cb593d397f07f1e196d523c391c"
+    sha256 arm64_ventura:  "2764795befb42a6e22e8789c31c231e1d2d8e1733ab7c4cbf5fa82ffb9d418aa"
+    sha256 arm64_monterey: "eddbd1568b6e8944ce0b2659d616d1692a2ccd4f82d961eacfd033bd2366c45b"
+    sha256 arm64_big_sur:  "f66796cc3e73e9a02d0522b339655446a5a860cec10a489ff1295e96401f20b0"
+    sha256 sonoma:         "1b3037f50e0f07d4bed46f709daa2036cc2bf70e036c8bd132ae7b68e5e0c886"
+    sha256 ventura:        "4f4cbcfa36e16220e90997bb379c516a9153878ea58cdf04311d5e823c3afc3d"
+    sha256 monterey:       "af8430d405bcf8fbc4df570f501f2a0779cdad689385c885aa0402501940ffd7"
+    sha256 big_sur:        "103b2c76f1d450f2df412784afacd4939fa07c4d3a7d2135878fea0931d81059"
+    sha256 x86_64_linux:   "397d8edc78cfca437bee8a82a71b8d1b4053a4f0ca8b82c719a45161c2f2b6ab"
   end
 
   depends_on "cmake" => :build

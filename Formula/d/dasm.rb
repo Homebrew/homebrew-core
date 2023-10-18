@@ -7,9 +7,11 @@ class Dasm < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d556e6302cb3fa636be29a938b48905d5685697dc0875a7f9e469ab4e1307f5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "58360e2858c11aa4bcfefad632932d52bdf5fa38bbe3914f555a9ec515ac7278"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "60b9a619d4394ab4079ce4f909549c604aabfd32f1a3ecd96b8e7c30c1cfb823"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edc22129ec5a851546aa675a89dc4e6895eac68428914d806cfc03a4bb119eeb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5f0b00c2325e27d6b47e040d6ccacacef637757f4d0d92dfce6303f133264f8e"
     sha256 cellar: :any_skip_relocation, ventura:        "4a267314f9ad2a37150c159fabbaea9620311f61c5b9ac60007e369d8709db9e"
     sha256 cellar: :any_skip_relocation, monterey:       "39de6472c8ffb52fbeaff1d112b4961b3d0912bbd1777f35db5f7fab46955fe7"
     sha256 cellar: :any_skip_relocation, big_sur:        "0de7ec1bbb50537c46364d86188b6ef07c2e6d6efeee6b013be29eab793290d3"

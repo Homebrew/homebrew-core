@@ -8,18 +8,17 @@ class Xxh < Formula
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a69d8012317f6d887403af6695817e8f68ce8b0884132a6663b72aa6946e4c1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b38d55cda2bcd7b4bfe898f42585c6fc8b30865439c7126262b3a5a3fefe4fe9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "acdf2d90e74d9f9a695cb28f8397ed5b04ced16cbd5898b14900354e4fa7f573"
-    sha256 cellar: :any_skip_relocation, ventura:        "e6aea90d000df6897044aeb7f32cc4680b674a7b2ea5b3fb9ad5116d085aa811"
-    sha256 cellar: :any_skip_relocation, monterey:       "21164a6f91fb009f97f9754ff294423dc683c55e510fdf4bdc9bdcb49e5f55f8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4c39f3328e4fd3120da656889b62fed687d7406d2e012f46c14d82fe0d40f9b8"
-    sha256 cellar: :any_skip_relocation, catalina:       "1027b023243ac643cda97f528e06f13da5bcb59861acb7c596806f77001b8cfb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f27a4c3773d9f2fe00f3582e1b10a9b37717b729b6ba7c1f2fc84e9ea6d4a0a3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47172f4a08d3248a5b3dbd761da8ebc0e050a0394cdcc09d283b269aa478bb40"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03bf2c78dd77992e5e82bc089f58617c5165c797b56b0eb8d6939cd780cf3c60"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5db9198a94336a94b70bb322855ad5789d709c64be0b3bed97071f9796d90b71"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e59e595e1348f7181c9a56e7cf81b9755a47232e7d875802a6b94ce8d6fb1ba8"
+    sha256 cellar: :any_skip_relocation, ventura:        "4bd73a9b8bd76f2ad74ec9c9dcf77565eb4c92a5858c3a5a0cefa2e3a8594c36"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4a117e7ab19bff1602f79914f5c2ff1c33e5d1426e16fcfb188a9b315683f08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9cb19657f532c1b92df2981188d98bf222f7241e0db5383f40413f8e0ac4100"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
 
   resource "pexpect" do

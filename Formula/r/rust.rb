@@ -4,25 +4,30 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.71.0-src.tar.gz"
-    sha256 "a667e4abdc5588ebfea35c381e319d840ffbf8d2dbfb79771730573642034c96"
+    # TODO: try switching to `llvm` 17 at 1.73.0.
+    # See: https://github.com/rust-lang/rust/issues/116020
+    url "https://static.rust-lang.org/dist/rustc-1.72.1-src.tar.gz"
+    sha256 "7f48845f6a52cdbb5d63fb0528fd5f520eb443275b55f98e328159f86568f895"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
+    # When bumping to a new version, check if we can use unversioned `libgit2`.
+    # See comments below for details.
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo.git",
-          tag:      "0.72.0",
-          revision: "cfd3bbd8fe4fd92074dfad04b7eb9a923646839f"
+      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.73.1.tar.gz"
+      sha256 "976fb6f3e773319e60875772478645297d9eacc852857e288e8cec65399d2c88"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6d3c3af59119378b1834dd1e2a8305ed112495d57752c8121a316494879b32c9"
-    sha256 cellar: :any,                 arm64_monterey: "e9129363c876ab1e895a4d43b4c5522a993311a0110b99ac98a4d33565ff5f91"
-    sha256 cellar: :any,                 arm64_big_sur:  "e555d0975215ee1463f6054433ce46efd44df6ac24b764c943c7a6de63b9309e"
-    sha256 cellar: :any,                 ventura:        "157c9336adb9c0610464e97c0e7a87e8befd311b5eef005baee4f23d06c217be"
-    sha256 cellar: :any,                 monterey:       "4e8338719bd8480e7252fa8403588ce115707e863444b38d2f3efd0cc07aa5b3"
-    sha256 cellar: :any,                 big_sur:        "8dd7e892b5626872be4c19fb7b9f17ea377e1217cc907bf343f4f32efd30f418"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91ba09bd1a47c20decf9540f1352ea49287b79106fc407074985536c48e5a03a"
+    sha256 cellar: :any,                 arm64_sonoma:   "40687edb42b50bdf778643803a21a98fca07d86b6a138edfdd73a282c1e18ad8"
+    sha256 cellar: :any,                 arm64_ventura:  "be9922a4b56016f18d209067f5a4d148d2aad4db3061092f848744aff41e337d"
+    sha256 cellar: :any,                 arm64_monterey: "a9ada0e355a336a55545a16e615daa051c5a675dc05c63793a77b8bac98ba04e"
+    sha256 cellar: :any,                 arm64_big_sur:  "9bfc9baf003134053944ad145cc48155a23607ff73fecd6d45d1e4d3b429d6fd"
+    sha256 cellar: :any,                 sonoma:         "fbc3c8c3894f64dc121541cc9a50fb22a38ccff82d4dba9c370d70a6785f614e"
+    sha256 cellar: :any,                 ventura:        "4cd3be4492eae97232dd1d868fb40f849882724688c4bd792f1e720d8710803d"
+    sha256 cellar: :any,                 monterey:       "f7b8d6dc15d845f4ad715706542237386f97cf045e9168b34876bccb060e0e26"
+    sha256 cellar: :any,                 big_sur:        "20214e26fbc77ef51e3be59c970ed9a109f3c13cfa7331a973d60d06b907760a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36b6bb23066fccd7b3c9311d5c671768133bbe5c27cce132376c4c0ec30abf9c"
   end
 
   head do
@@ -33,50 +38,54 @@ class Rust < Formula
     end
   end
 
-  depends_on "cmake" => :build
-  depends_on "ninja" => :build
-  depends_on "python@3.11" => :build
+  # To check for `libgit2` version:
+  # 1. Search for `libgit2-sys` version at https://github.com/rust-lang/cargo/blob/#{cargo_version}/Cargo.lock
+  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
+  #    - Use the corresponding `libgit2` formula.
+  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
+  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
+  depends_on "libgit2@1.6"
+  depends_on "libssh2"
+  depends_on "llvm@16"
   depends_on "openssl@3"
   depends_on "pkg-config"
 
+  uses_from_macos "python" => :build
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
-  conflicts_with "rust-analyzer", because: "both install `rust-analyzer` binary"
-  conflicts_with "rustfmt", because: "both install `cargo-fmt` and `rustfmt` binaries"
-
+  # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
   resource "cargobootstrap" do
     on_macos do
-      # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       on_arm do
-        url "https://static.rust-lang.org/dist/2023-06-01/cargo-1.70.0-aarch64-apple-darwin.tar.xz"
-        sha256 "faa0c57eab1846f4220e0833a167b845799bfc2d43aee819db7e9f5fe7d5a031"
+        url "https://static.rust-lang.org/dist/2023-07-13/cargo-1.71.0-aarch64-apple-darwin.tar.xz"
+        sha256 "7637bc54d15cec656d7abb32417316546c7a784eded8677753b5dad7f05b5b09"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2023-06-01/cargo-1.70.0-x86_64-apple-darwin.tar.xz"
-        sha256 "0aa4661564be110614874812891d29b327eb343d2eb1eaf9862438aa2436f6b5"
+        url "https://static.rust-lang.org/dist/2023-07-13/cargo-1.71.0-x86_64-apple-darwin.tar.xz"
+        sha256 "d83fe33cabf20394168f056ead44d243bd37dc96165d87867ea5114cfb52e739"
       end
     end
 
     on_linux do
-      # From: https://github.com/rust-lang/rust/blob/#{version}/src/stage0.json
       on_arm do
-        url "https://static.rust-lang.org/dist/2023-06-01/cargo-1.70.0-aarch64-unknown-linux-gnu.tar.xz"
-        sha256 "8fd2d9806f0601feab1485f79e46d1441af2158c68abf56788ff355d5c6b4ab5"
+        url "https://static.rust-lang.org/dist/2023-07-13/cargo-1.71.0-aarch64-unknown-linux-gnu.tar.xz"
+        sha256 "13e8ff23d6af976a45f3ab451bf698e318a8d1823d588ff8a989555096f894a8"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2023-06-01/cargo-1.70.0-x86_64-unknown-linux-gnu.tar.xz"
-        sha256 "650e7a890a52869cd14e2305652bff775aec7fc2cf47fc62cf4a89ff07242333"
+        url "https://static.rust-lang.org/dist/2023-07-13/cargo-1.71.0-x86_64-unknown-linux-gnu.tar.xz"
+        sha256 "fe6fb520f59966300ee661d18b37c36cb3e614877c4c01dfedf987b8a9c577e9"
       end
     end
   end
 
   def install
-    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
-
     # Ensure that the `openssl` crate picks up the intended library.
-    # https://crates.io/crates/openssl#manual-configuration
+    # https://docs.rs/openssl/latest/openssl/#manual
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+    ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
 
     if OS.mac?
       # Requires the CLT to be the active developer directory if Xcode is installed
@@ -86,7 +95,40 @@ class Rust < Formula
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
     end
 
-    args = %W[--prefix=#{prefix} --enable-vendor --set rust.jemalloc]
+    resource("cargobootstrap").stage do
+      system "./install.sh", "--prefix=#{buildpath}/cargobootstrap"
+    end
+    ENV.prepend_path "PATH", buildpath/"cargobootstrap/bin"
+
+    cargo_src_path = buildpath/"src/tools/cargo"
+    cargo_src_path.rmtree
+    resource("cargo").stage cargo_src_path
+    if OS.mac?
+      inreplace cargo_src_path/"Cargo.toml",
+                /^curl\s*=\s*"(.+)"$/,
+                'curl = { version = "\\1", features = ["force-system-lib-on-osx"] }'
+    end
+
+    # rustfmt and rust-analyzer are available in their own formulae.
+    tools = %w[
+      analysis
+      cargo
+      clippy
+      rustdoc
+      rust-demangler
+      src
+    ]
+    args = %W[
+      --prefix=#{prefix}
+      --sysconfdir=#{etc}
+      --tools=#{tools.join(",")}
+      --llvm-root=#{Formula["llvm@16"].opt_prefix}
+      --enable-llvm-link-shared
+      --enable-vendor
+      --disable-cargo-native-static
+      --set=rust.jemalloc
+      --release-description=#{tap.user}
+    ]
     if build.head?
       args << "--disable-rpath"
       args << "--release-channel=nightly"
@@ -98,24 +140,13 @@ class Rust < Formula
     system "make"
     system "make", "install"
 
-    resource("cargobootstrap").stage do
-      system "./install.sh", "--prefix=#{buildpath}/cargobootstrap"
-    end
-    ENV.prepend_path "PATH", buildpath/"cargobootstrap/bin"
-
-    resource("cargo").stage do
-      ENV["RUSTC"] = bin/"rustc"
-      args = %W[--root #{prefix} --path . --force]
-      args += %w[--features curl-sys/force-system-lib-on-osx] if OS.mac?
-      system "cargo", "install", *args
-      man1.install Dir["src/etc/man/*.1"]
-      bash_completion.install "src/etc/cargo.bashcomp.sh"
-      zsh_completion.install "src/etc/_cargo"
-    end
-
     (lib/"rustlib/src/rust").install "library"
-    rm_rf prefix/"lib/rustlib/uninstall.sh"
-    rm_rf prefix/"lib/rustlib/install.log"
+    rm_f [
+      bin.glob("*.old"),
+      lib/"rustlib/install.log",
+      lib/"rustlib/uninstall.sh",
+      (lib/"rustlib").glob("manifest-*"),
+    ]
   end
 
   def post_install
@@ -124,6 +155,14 @@ class Rust < Formula
       MachO::Tools.change_dylib_id(dylib, "@rpath/#{File.basename(dylib)}")
       MachO.codesign!(dylib) if Hardware::CPU.arm?
       chmod 0444, dylib
+    end
+  end
+
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
     end
   end
 
@@ -138,5 +177,30 @@ class Rust < Formula
     assert_equal "Hello World!\n", shell_output("./hello")
     system bin/"cargo", "new", "hello_world", "--bin"
     assert_equal "Hello, world!", cd("hello_world") { shell_output("#{bin}/cargo run").split("\n").last }
+
+    # We only check the tools' linkage here. No need to check rustc.
+    expected_linkage = {
+      bin/"cargo" => [
+        Formula["libgit2@1.6"].opt_lib/shared_library("libgit2"),
+        Formula["libssh2"].opt_lib/shared_library("libssh2"),
+        Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+        Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      ],
+    }
+    unless OS.mac?
+      expected_linkage[bin/"cargo"] += [
+        Formula["curl"].opt_lib/shared_library("libcurl"),
+        Formula["zlib"].opt_lib/shared_library("libz"),
+      ]
+    end
+    missing_linkage = []
+    expected_linkage.each do |binary, dylibs|
+      dylibs.each do |dylib|
+        next if check_binary_linkage(binary, dylib)
+
+        missing_linkage << "#{binary} => #{dylib}"
+      end
+    end
+    assert missing_linkage.empty?, "Missing linkage: #{missing_linkage.join(", ")}"
   end
 end

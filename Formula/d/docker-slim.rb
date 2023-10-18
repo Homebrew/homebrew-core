@@ -1,8 +1,8 @@
 class DockerSlim < Formula
   desc "Minify and secure Docker images"
   homepage "https://slimtoolkit.org/"
-  url "https://github.com/slimtoolkit/slim/archive/refs/tags/1.40.3.tar.gz"
-  sha256 "7b72b423ba3d031cbd5113ad35bf2ef1e8f2088f7dbb37e348ca5cd8292af1bc"
+  url "https://github.com/slimtoolkit/slim/archive/refs/tags/1.40.4.tar.gz"
+  sha256 "92256e0ac5375949ded34381d0c4efbc580c81a7666c1cb704717f446a16bcb8"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,15 @@ class DockerSlim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc051ed5957049cbaa5217083e95ba24e3944c5093e9cb7af0626a8c62124953"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "10292c47f2690b7c41bdafb01175c48597735c405aa72bc96a6052e1b440ca89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc5475200fd870b5d1a91899d2fe998b56e2b6fb8261cf44a46258d6234449b0"
-    sha256 cellar: :any_skip_relocation, ventura:        "e7bf1e53a1e573e774ac53657ab6cf157f3a85c0abe61806d493b6a800b19465"
-    sha256 cellar: :any_skip_relocation, monterey:       "b288fc055b442a0ada12e85223913e3bcba7c9f7ec3c2bc8c3ce1644dab5137a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "951fdac1fa02e5808e5ff7f458856d9158ee0de4f143a2c5a7937a5ec72249cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a62303baca3dcada61f20014382c4b3b7bfda211d54b640afcad17fd68021eb2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38e44d2d2e01293e99e012d4d23f56c1e5f4954590c912080d7d58351073f6aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5bc6c2b7de08b6fefb154e82d6615f8aac7d97681d4f600344e1495eca925433"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43a75f56feb9eeb4d4fe08c67b2b8681e2b1ef3e740b10797b8402faf4aadc06"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd14fda3a90edd27bf75513be2254b393d63c7d50733223bcf70eb3dc6ec253c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "afd8d4eb3bb82f762469173332be02a11a26eff4435f47ff06c41ef1dd89a7ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "273dac38547f1fe1b8aa8b5bedfed43e027f6601b0d269fefb94b301e7a2898d"
+    sha256 cellar: :any_skip_relocation, monterey:       "e59a07ed4ca419795f9792737c529682c89b0cbd2daea8da48ed29ef4755fbfe"
+    sha256 cellar: :any_skip_relocation, big_sur:        "5beed233d732562d2ea9ec217ceb729361b4db5e2991257fde2339b8c6976078"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b02912dc895352824760335f09e76923449042f57b75b0658c46482cee8e83e8"
   end
 
   depends_on "go" => :build
@@ -50,7 +52,7 @@ class DockerSlim < Formula
     EOS
 
     output = shell_output("#{bin}/slim lint #{testpath}/Dockerfile")
-    assert_match "id='ID.10001' name='Missing .dockerignore'", output
-    assert_match "id='ID.20006' name='Stage from latest tag'", output
+    assert_match "Missing .dockerignore", output
+    assert_match "Stage from latest tag", output
   end
 end

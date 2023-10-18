@@ -3,24 +3,27 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/da/90/c34adb94645a75baa315287353fcfec8ea4b46eec4c9f951934c0b6d61d2/dxpy-0.355.0.tar.gz"
-  sha256 "02888dd6e13760d7cf636ec14b2438388d78357d6519c7d8c222929e2bf5e881"
+  url "https://files.pythonhosted.org/packages/90/4a/8546678963831a30b5b7ca34210da4873aeef15aff0ab9d598c11fcdf965/dxpy-0.361.0.tar.gz"
+  sha256 "455c2a63764e7a1158cdb48abcf987e80d186fb92c23c539d8e6f2e4cc0368c7"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc4a429d7b55bc98bdd3b4043ef830ddb8c08216e6ddb6babd97a3a39ab531a0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6a8ac8f6b3881c6098016c5c191cdc9207790ca4e79edb59a7dfffa2118570e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e0cfd30ce290c1827cb37b877e6b7394603f64320429a5557b69cd490f3d1eba"
-    sha256 cellar: :any_skip_relocation, ventura:        "ad5a3088551e4f8b68278efe9fd85526f1e22ca4f47d4a3ce1ce2b2c000ab701"
-    sha256 cellar: :any_skip_relocation, monterey:       "c2187f175daeccbb36dd572a6c83e6405e05eac2c91007c8fc8addaf751deb88"
-    sha256 cellar: :any_skip_relocation, big_sur:        "05bc30887dd94b38e590018c455cc93a75475bca88c37a2fadd98dc7c2f1465e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2578997b7f2df22b7b13dcbc421cbf9f2fe7a1920c7f84cd1b8bd2a9f60c06e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d0011354496aaca3de6acd37357ded3c4f0a874295201e4f5cdc4cf3bdf23347"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f39849d149af55661a4ba9d74014df5deac3b23d826dfb15f01f181681028851"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "099b0ca065fcde9550b128f1273b04d418bc8217ead5ad2c4dae1c7d20a843cd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ed02d43fa263af6f569226506c7560cc5ea6867677de952eb6a3b9f1497ebe17"
+    sha256 cellar: :any_skip_relocation, ventura:        "214b022749c8380df32ec42f0997be7826d9fc0af836307a31635623ae93f105"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f4b90f2500f72e0b9e394efb734476503386e2e36c9e1302a6c8f4d7694e5c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "312b74775736a9a783a1312f216c78b572fa591805b0146636053f4272980a35"
   end
 
   depends_on "cffi"
+  depends_on "python-argcomplete"
   depends_on "python-certifi"
   depends_on "python-cryptography"
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "libffi"
@@ -29,14 +32,9 @@ class Dxpy < Formula
     depends_on "readline"
   end
 
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/54/c9/41c4dfde7623e053cbc37ac8bc7ca03b28093748340871d4e7f1630780c4/argcomplete-3.1.1.tar.gz"
-    sha256 "6c4c563f14f01440aaffa3eae13441c5db2357b5eec639abe7c0b15334627dff"
-  end
-
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -45,8 +43,8 @@ class Dxpy < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
-    sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
+    url "https://files.pythonhosted.org/packages/2d/01/beb7331fc6c8d1c49dd051e3611379bfe379e915c808e1301506027fce9d/psutil-5.9.6.tar.gz"
+    sha256 "e4b92ddcd7dd4cdd3f900180ea1e104932c7bce234fb88976e2a3b296441225a"
   end
 
   resource "python-dateutil" do
@@ -60,8 +58,8 @@ class Dxpy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
-    sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
+    url "https://files.pythonhosted.org/packages/0c/39/64487bf07df2ed854cc06078c27c0d0abc59bd27b32232876e403c333a08/urllib3-1.26.18.tar.gz"
+    sha256 "f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"
   end
 
   resource "websocket-client" do

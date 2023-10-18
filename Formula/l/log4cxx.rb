@@ -7,9 +7,11 @@ class Log4cxx < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c1659df32ab097bb579cfa91676aff9a98120ee4296fb07a037b3ef685f64b61"
     sha256 cellar: :any,                 arm64_ventura:  "c5e8608447ef140e30beb4d3af98ead428159fa2cf3a561e88e47249de504131"
     sha256 cellar: :any,                 arm64_monterey: "7e4b418f5e96883128b3ff409974f63179ec2e4b05f8c8f53aed25a836b051bf"
     sha256 cellar: :any,                 arm64_big_sur:  "84b64c6a7f245af8bfe68ebe0162b69398657a7f9768a0b6221cc51706f65811"
+    sha256 cellar: :any,                 sonoma:         "3b7f9666b405be1704af4dde821091a59667beb38dc3bf9d4ee84f22682105f2"
     sha256 cellar: :any,                 ventura:        "890ffbebd63b81412b019d66a07b6ac2595e6a3bf7d0a5dd19deb1e129f99fe4"
     sha256 cellar: :any,                 monterey:       "8c30ba98d371b21078c04b2eddf1523fa2750cc11c81714565d830c727eacfe4"
     sha256 cellar: :any,                 big_sur:        "386b8149bb19eeec6524525634c06d3179d63b9a77fee090ff5f65dd11009fa5"

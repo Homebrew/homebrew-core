@@ -1,19 +1,21 @@
 class Nnn < Formula
   desc "Tiny, lightning fast, feature-packed file manager"
   homepage "https://github.com/jarun/nnn"
-  url "https://github.com/jarun/nnn/archive/v4.8.tar.gz"
-  sha256 "0a744e67a0ce8b5e1e04961f542d2c33ddb6ceed46ba760dd35c4922b21f1146"
+  url "https://github.com/jarun/nnn/archive/v4.9.tar.gz"
+  sha256 "9e25465a856d3ba626d6163046669c0d4010d520f2fb848b0d611e1ec6af1b22"
   license "BSD-2-Clause"
   head "https://github.com/jarun/nnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d5f557981513afab9592ea456b58bf6a4ba752cc7e2ce79e0fa53b21a2fa21da"
-    sha256 cellar: :any,                 arm64_monterey: "91c6071b99b909d7b9e05e13bbd46db7e936456952a2e78da0fc8d387bddf0b9"
-    sha256 cellar: :any,                 arm64_big_sur:  "bf095fffb53cfdc30866b394a01c683bf2bf29792fa7ef3a315fd7897e50fe66"
-    sha256 cellar: :any,                 ventura:        "6975527088a5fedfd9b8b848aafa73ceefe100a2971d2c7f12fdcfd3f04f4aa1"
-    sha256 cellar: :any,                 monterey:       "da5c72abb656d4bb508393d3a8ad2ae02d65115b3108b85bfbb2f18be10920b6"
-    sha256 cellar: :any,                 big_sur:        "5336ef7d41f43071e8538af0fb94ac16521f51fbc0385faecce9b63e733148a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f02c735de7f1d4e3a483244eebf4170a5482c0b76f7dfbf5bb9c16fe30cf316"
+    sha256 cellar: :any,                 arm64_sonoma:   "b6db038e5881996c464a0a03cff5822a1ef447b7a871aa74cbf7d49a584e049b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aedf2b937bfbc61834f9373386907ef9aef7e2c5582ee8b7fb189557937067de"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a325f22a8f7d399aaa7d24cc7e92e72f26afbbdf122fae72fb4d4f435987142b"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e49a1963570a2bf1ac43bd44a88a417dddd383c2cbe0636c7d331aa9726d143"
+    sha256 cellar: :any,                 sonoma:         "4ad5b7bea096a5a0a1a47b1c05dfc5e9290ab8cba0045b48683432c61b92fd86"
+    sha256 cellar: :any_skip_relocation, ventura:        "d44bae7e9592cf3deeba0be69df4e7a79cb98aed93270ec16126fe12fc5d8189"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c5fbf8f266297f31e77e288dc8b1844854ac5e2ca5de6306951b41fde18327a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8e218da4b7158b4d7e14a1fcc95d26d2448e308e45a131d4e8b7540c1735c2c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a85922f41bf36871d8f31755c1d0de81011bff8de457350e7f3b2fbe1e881672"
   end
 
   depends_on "gnu-sed"

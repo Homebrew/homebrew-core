@@ -8,9 +8,11 @@ class NeovimQt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "7575964ee3eafb0df3cd241c1be9d14631331f76506623e3d7e15a4cd9dbc373"
     sha256 cellar: :any,                 arm64_ventura:  "ba069626e6a18a2d6a4d7c53b1b6807ca7b47ed4fb11253c747183f13715406d"
     sha256 cellar: :any,                 arm64_monterey: "c43685139264ca10c57b80a7328340f9036c2c07fca44f507104cea67274d9e4"
     sha256 cellar: :any,                 arm64_big_sur:  "e35446a4b5b00b7b82387c523fbf229333426707a17a42c4016dfa7862681d2e"
+    sha256 cellar: :any,                 sonoma:         "071bce587e7423293f0b26567f6f326f4e8da2d91d6e99d3242294f2a669b6d9"
     sha256 cellar: :any,                 ventura:        "504ec4239004f831968b089d78a28c7633210c1de1eacbce2281c0ec8e6a71df"
     sha256 cellar: :any,                 monterey:       "937fa07572c5bc168106b2bdd8d47d168ed722aa6c1ca99aa12514312abefe90"
     sha256 cellar: :any,                 big_sur:        "3cb5e4c689e23d40c5c397fb11292bd1efceb5aac51a08d42c24e2247b584996"

@@ -6,9 +6,11 @@ class Libxres < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d75dbe208195822aa95957e8037d80dec8c5c86c60a5669afb7ec2187210d64b"
     sha256 cellar: :any,                 arm64_ventura:  "fbf27991234578c082292975c64ee98b2ab2b69dd2cbc71056dfb3c2fd94ffb9"
     sha256 cellar: :any,                 arm64_monterey: "e3fa4b14265315d1dd48439e241df505cef320c6a25a33a91e58e2245bb2f203"
     sha256 cellar: :any,                 arm64_big_sur:  "cb39d8ae314b09357fbaadbcbb14abb7a21e85bb4d298a3e2efe2bd411a21fe9"
+    sha256 cellar: :any,                 sonoma:         "f13a56fa17a6818add007ee90aebe57911fa824dda047d836169ce241873b6c3"
     sha256 cellar: :any,                 ventura:        "7ba9d4daab9d3636b53d98510309eb2c37dd07ba9efd5585947d1e3609067388"
     sha256 cellar: :any,                 monterey:       "ab7139ca0d7d8b12508d9211704963ff34d8b62a3888b222018c76dad8702280"
     sha256 cellar: :any,                 big_sur:        "6dfe38b8542221db4841c3326d2c647894b7a86b45cae7b82ee83e95105ec150"

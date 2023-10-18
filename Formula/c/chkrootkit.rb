@@ -12,9 +12,11 @@ class Chkrootkit < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c24f28d8f90e8f0aa3eea0978e1f518dce8a288919927b24ebb5d77a6aa9121"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbd2dd4ac20e747293eedd01d9ccc8c9bfbd56d75b4cc269f33c9e3cd793ceda"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d7d9ddf16ed810c46ebc3aa73063bb35887722d115a317b5c4ab9d099c12bb82"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7cc2ca082dcb083a06732f58d51ce7ed9f3a4ee3eccd2aea4e3b7d8fd14861c7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9e8632f9ef69b72066519be738516b81e15485b41d03d5cc6c89ac40b0b59089"
     sha256 cellar: :any_skip_relocation, ventura:        "d4fb446dedba887717246dabc02a955b435fddb76d3d24f227e3048b02cc5d03"
     sha256 cellar: :any_skip_relocation, monterey:       "792f77c1f50ff0cd9c93974d1729e65cccceb9c89acb102ad3d86d8a6ffe8241"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c891dc0f3d653c9e072cef412a9ffe697dccc170a2c28fbc5710a6b61249072"
@@ -24,7 +26,7 @@ class Chkrootkit < Formula
   def install
     ENV.deparallelize
 
-    # Workaround for Xcode 14.3
+    # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}",

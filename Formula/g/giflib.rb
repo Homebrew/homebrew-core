@@ -10,9 +10,11 @@ class Giflib < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0810045224fbfa1ae8c5bbdfc44d454efcaf76606e865f8be4a46606369c44b1"
     sha256 cellar: :any,                 arm64_ventura:  "ced5a24b12f7057504aa8821a81c03c4d83ff6ba861487e25eba34b863237c20"
     sha256 cellar: :any,                 arm64_monterey: "6a1194d7b2d991583e3b5d46782ac8d0cecfc35bc28a5b4daf86ec4311cc7cdc"
     sha256 cellar: :any,                 arm64_big_sur:  "e9a78b55a43f68f2552f845fff27d1c247ed865b1dd653f4c8ab259594411f86"
+    sha256 cellar: :any,                 sonoma:         "84a39bf9c63c3a0fd781c994921f012b5d34bcb8ab39105909453d8635488337"
     sha256 cellar: :any,                 ventura:        "7b542ce4281136276979dfbe45cea1a84060f624ee307917c24499398b210103"
     sha256 cellar: :any,                 monterey:       "fa6adb4afc1abd76f8a80afd8c25572f7c990cbfc88a43496350e8c363048217"
     sha256 cellar: :any,                 big_sur:        "dc23500f50d599c4dbfcea0107b643bef41538c2f5fd162b049f82d21e3d32d5"

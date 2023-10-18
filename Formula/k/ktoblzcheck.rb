@@ -13,9 +13,11 @@ class Ktoblzcheck < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "2918dd89e9ac1cffb57d875a30583650624268e6f7e192b65ea85733e63ae0ac"
     sha256 arm64_ventura:  "8085c03ee7b21d4a949509374263b39fb130b94b7e890aaf80262a7d5d773215"
     sha256 arm64_monterey: "83a69f2e2a4d5c7e9c96118037337f34e4ec28569d89532afc7ad7e41951e717"
     sha256 arm64_big_sur:  "42680d8ba1e53d95f2ce71111b443f55806da778881ac2cc8cc06febd9c023f8"
+    sha256 sonoma:         "08805f31d7c225962873b2fb51b32ef7aa4a2262865af198e01cf9865ebd84c3"
     sha256 ventura:        "d08a40ea385d6160d575466104d0869a282284d37dcad2b8cffaf5eb58dbc258"
     sha256 monterey:       "72a3fce8f0c8f1dcfbed9779e04b74e3bb4df4db2b5610bc066e90906e507d0c"
     sha256 big_sur:        "d9abaad3e06fa41e6864ba91fd2dcd9dec86a4a3e5150a330981f5d557ba7b1d"

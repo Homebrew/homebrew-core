@@ -12,9 +12,11 @@ class Gplcver < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dde704f0707db66fc51b44e80096d941e26737b98ea99f43e78be17a32f9963c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfc01eb32389c8d3d48139c0fce48a1b2ccca7776a7cbef7e0a304851eacdb6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "43a7946fa8079b469acfcd95ba308b4ffa110280d6da04955243514a505cad80"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcf72ee125083159c6ab19cf20f0b5e1aeebcba61210776afe558f7eefe7e3ae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "05879b5d5c370482b457431fb68951f77902c6d15fbdbe25a804b621b2478fde"
     sha256 cellar: :any_skip_relocation, ventura:        "7f5a82695d115973abaf6713640fb3a64890014727c3a630e667396ba86bc900"
     sha256 cellar: :any_skip_relocation, monterey:       "47876bc00a9e225f1f48036e954f6ae60d56d44fe883447314b48f64bd6166cf"
     sha256 cellar: :any_skip_relocation, big_sur:        "43a4cecb99e48c33a4136346b110d56c8a91472634524071727c5b88afe67fba"

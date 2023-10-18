@@ -6,9 +6,11 @@ class Msktutil < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "853cef17d14092971223a416e347ddc8a6a851cfe70616975ca79020440a44e6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b71c42ed1031ee7b78cc32565e0a3bf5abee42034a055e92e28628679b4fef4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f359bdca4a4282cddd3181d9c3f231c4d95dd99c7fd19e8118f9a1b460d80ad5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b30da17f59ba235a55d146e7af8e5c704105a4947f6cc8136764db2664ca67c1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1b3ec90cb2d79fe014141a408bd289452ecb478fcd7b11943d6f35cdbf3d89d8"
     sha256 cellar: :any_skip_relocation, ventura:        "22e28f1d16f83ecf7fc7eab5efa8b8439b356eb81c0f9c39e7ad09fe5ef6162f"
     sha256 cellar: :any_skip_relocation, monterey:       "175635f2d96e975165e31ee4701edf837b71a2c37c3884d50cf3216e97690423"
     sha256 cellar: :any_skip_relocation, big_sur:        "7792cda91c0fe3c5bb4858d5af90cc897fa193c0609a44be276da8397bc97549"

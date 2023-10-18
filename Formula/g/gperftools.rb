@@ -1,12 +1,9 @@
 class Gperftools < Formula
   desc "Multi-threaded malloc() and performance analysis tools"
   homepage "https://github.com/gperftools/gperftools"
+  url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.13/gperftools-2.13.tar.gz"
+  sha256 "4882c5ece69f8691e51ffd6486df7d79dbf43b0c909d84d3c0883e30d27323e7"
   license "BSD-3-Clause"
-
-  stable do
-    url "https://github.com/gperftools/gperftools/releases/download/gperftools-2.11/gperftools-2.11.tar.gz"
-    sha256 "8ffda10e7c500fea23df182d7adddbf378a203c681515ad913c28a64b87e24dc"
-  end
 
   livecheck do
     url :stable
@@ -15,13 +12,13 @@ class Gperftools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6c6c3e16fa7fca30205f400257f5eb427c27d704098cc9c266c9897bdf8e09bd"
-    sha256 cellar: :any,                 arm64_monterey: "5f51a35d4055b548a42ad3e0009e5bf44a1dc15dcd4d3319fe9b86587e6ec916"
-    sha256 cellar: :any,                 arm64_big_sur:  "d8c4a525a638167330f07fe519214efdae76cd141d08cd7a82a24af3f8ad382c"
-    sha256 cellar: :any,                 ventura:        "36b66a37fb05abbed3ae165b902115f0cdca3917fe234ef05a43a0927b65cda3"
-    sha256 cellar: :any,                 monterey:       "b5748b86f6ae4a051de593243800bffca453c3fd8bfbe222baa657388c3aa28b"
-    sha256 cellar: :any,                 big_sur:        "a88112dfe2cff88a50d8c8634ba45a45b803693b9bc8cefba2e7b6dfa6a13e9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb6c55e7d9c2aabda701076d96dcddb7688b0809e5a56780649ae396871ec603"
+    sha256 cellar: :any,                 arm64_ventura:  "732e4d9aab72c1e28c50304fd726e9b41b2847b87fde57965ab76b947968719d"
+    sha256 cellar: :any,                 arm64_monterey: "38be747816f190d6159f2b70201f6204103bc4a61b07343eec0fbe7554591d27"
+    sha256 cellar: :any,                 arm64_big_sur:  "65d89f828d675f4dc6ee4fdaf976ee70369d13d34025cc2b30e7d6d4b5eb5b5a"
+    sha256 cellar: :any,                 ventura:        "93a8cc2a328a8a5a3705afd6c6b6072b29e414312a9f165cc0bb3a5dccc55e7b"
+    sha256 cellar: :any,                 monterey:       "56e939770b774daf8016ae1151af8f412f5492d84e526a841d0fc317603e41a6"
+    sha256 cellar: :any,                 big_sur:        "5ac2fab24732f5a0577f78d7070241ad0c5ace97914a3099a6834560744ea343"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b39cc229b25a9d759be53d21a6f9a0fdc12e028ec9054b3671795b6998f0b7ed"
   end
 
   head do
@@ -43,7 +40,7 @@ class Gperftools < Formula
   def install
     ENV.append_to_cflags "-D_XOPEN_SOURCE" if OS.mac?
 
-    system "autoreconf", "-fiv" if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
     args = [
       "--disable-dependency-tracking",

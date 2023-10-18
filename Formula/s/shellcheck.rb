@@ -7,17 +7,18 @@ class Shellcheck < Formula
   head "https://github.com/koalaman/shellcheck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bebeffc6b702b0684977937af20bd6dec9241f1f6bb206cf8c002bff76f0ab25"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0c8f83c50c5adae71abc074b69932249354869bb7c67161e0a783a11e6004f7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d81c9557cec60f65820ac4727dafbd0871276b66038d1c82f8e04ee03ed3df0"
-    sha256 cellar: :any_skip_relocation, ventura:        "5eb6e89880dcb5cc6baeff63f6c2453342cee15ec35c525351c2099545ad4d62"
-    sha256 cellar: :any_skip_relocation, monterey:       "957348802279e04cba39b7b9d4a3300f1891e73646dcba5ca36a30b15d6e2e6b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1513cc886e5117e572a642864edee6882409f9800a57315e9c87d17c52156847"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e9e847cc3ad50ae9bdbe9215bfaf9f33836378b54b07b716b25bc66f65a0d23"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0688df1adf51536205cde96e4910b26c88b10eb2f967a8255c726f9d0cb57d2a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42ac0d4c4c44a3fd85a52caa0d655c32f28e609713530ba69a52d182b61351e4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d9fc87309f3997d443d5a5e2c6ec72f3586cbeecdeb002f52f64414f106110e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dec4133905b1115275e6ce2d9cd5ef966cbac0e5912fc32e3c89356922ea0ec1"
+    sha256 cellar: :any_skip_relocation, ventura:        "89d1c2a187c42d41e99856895989e2bf57a9f82e8a0265dd30d3f417baf273dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "f1506e3dfd48ac61184f37b5b6cb48328018bc37e415f78dd4348d2730ad9cf7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0f7c834a0266325e8dab25a04aeadc67664701b767d3ed2529286fb0fb66823"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.4" => :build
   depends_on "pandoc" => :build
 
   def install

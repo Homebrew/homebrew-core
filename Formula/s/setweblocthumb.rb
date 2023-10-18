@@ -6,9 +6,11 @@ class Setweblocthumb < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb99da3db71d9602d3c6ddf5b615a8b9b90ee253fc7561fe02116791050a2376"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6eb231e7fa24dcebe8d1d863bc1bbbcec86943522f4391dce30c0d0a14a99e7e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f306986d59d8d148fe8619ef3a14b12fc89235e199ab18cfd691885009cc47f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "849e242cc0d75408abb95ed3afead495868ae730132fd4a648f032ea3b873774"
+    sha256 cellar: :any_skip_relocation, sonoma:         "248f41330bafe2862826339ebce3630bb0873f8c69a64fa57d865801fabafab5"
     sha256 cellar: :any_skip_relocation, ventura:        "7731be759ebec8e9e06e70056f4ddc19498872cc8daafa4079baa7610a0662d0"
     sha256 cellar: :any_skip_relocation, monterey:       "20e1fe63be72e27183b5e0a5885f5456882b1a72487e72c446ae48723f793920"
     sha256 cellar: :any_skip_relocation, big_sur:        "565f0fb62158115fcd9e1618282b989bd50007f5c8c0260df5f47f85660adb87"
@@ -22,6 +24,9 @@ class Setweblocthumb < Formula
   depends_on :macos
 
   def install
+    # https://github.com/ali-rantakari/setWeblocThumb/issues/3
+    inreplace "Makefile", "-force_cpusubtype_ALL -mmacosx-version-min=10.5 -arch i386", ""
+
     system "make"
     bin.install "setWeblocThumb"
   end

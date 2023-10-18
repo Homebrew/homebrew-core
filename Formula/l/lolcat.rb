@@ -7,9 +7,11 @@ class Lolcat < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7951f0c60d29956b4b12ba502297f0fa75210d66ed59a6d4f9819f14579d254d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9525a05daefb242035ef0eebe35f63b4a6fd1c90b8a2d7aaec906d770aa4997"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f9525a05daefb242035ef0eebe35f63b4a6fd1c90b8a2d7aaec906d770aa4997"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a910107509f0e2b478d97837822deb1297155bcba4622b696ef19d424382346"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7951f0c60d29956b4b12ba502297f0fa75210d66ed59a6d4f9819f14579d254d"
     sha256 cellar: :any_skip_relocation, ventura:        "f9525a05daefb242035ef0eebe35f63b4a6fd1c90b8a2d7aaec906d770aa4997"
     sha256 cellar: :any_skip_relocation, monterey:       "f9525a05daefb242035ef0eebe35f63b4a6fd1c90b8a2d7aaec906d770aa4997"
     sha256 cellar: :any_skip_relocation, big_sur:        "df80796c28d2084b48ee2045954dbb2685eaa46935238b6b2a2cd1f41a546860"

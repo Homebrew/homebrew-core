@@ -1,8 +1,8 @@
 class Rakudo < Formula
   desc "Mature, production-ready implementation of the Raku language"
   homepage "https://rakudo.org"
-  url "https://github.com/rakudo/rakudo/releases/download/2023.06/rakudo-2023.06.tar.gz"
-  sha256 "da50fed9fa99cced37f8e450c6a023150804d627bf698a5c0d88cbe84f405e72"
+  url "https://github.com/rakudo/rakudo/releases/download/2023.09/rakudo-2023.09.tar.gz"
+  sha256 "e33b9999f2157721faa97a9a3df52825759680f777bc480a922bdd20757e0cf7"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,13 +11,15 @@ class Rakudo < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8ebed7b3a548af77e8579d7a0de0d8052349a76032fa5ff3198cccd1e9f33eb7"
-    sha256 arm64_monterey: "d6a6e420169edd502ed8379d42d3ff922a408df73fd5aeb08f83ed50ab012906"
-    sha256 arm64_big_sur:  "272b6fd0fc8fdfbb793458bbee9fb04f6f5671c439579bbe4d80b94a961592d8"
-    sha256 ventura:        "e0530f839fbc9b25d9e7eef36d0542d1f08ee7626daa973d0ae925f21689e398"
-    sha256 monterey:       "52b3d5eb22ddb2f1adbe6b4e974fc3e5fb931fd8877bea72627c0dc7495842e4"
-    sha256 big_sur:        "9405bb16fa06a1fdf55b48fd09af907efccd8766d6052b498017e4c81dee3627"
-    sha256 x86_64_linux:   "062155964aa252575b52176b7dcd3910b03fa0d7cc43d753fa7f956830876bdb"
+    sha256 arm64_sonoma:   "96f0341ce7223bff0fa17eb455505cec2c0174ea6eb8171a9b0dbe88c3dd4e98"
+    sha256 arm64_ventura:  "37e968cbd9e9df5fa12e359f68b862800ed34c220dddfbf9f2e0cbd28f4c8036"
+    sha256 arm64_monterey: "ba928972182ad121c2cd2f87a323b761fbaf3f04f5012faceda48f83a0dd0c3d"
+    sha256 arm64_big_sur:  "ede21c4f9da8441a6db1783c9ff7874fa9df066cd92d8046f1a98e74582cbf3b"
+    sha256 sonoma:         "98cb1b2da579d740fd34bb9d22f2cc824f63d6fdaa1a10fabc95b891c29eae18"
+    sha256 ventura:        "d565edf7336a06139678b87ecd6c02ff34ed317b1f4489b019dd88e8660d34bb"
+    sha256 monterey:       "b3b7e5f5a6b0e7d664d9c5c48a962f9c03a9a31559fcdf1a5b25e9cf57b6484c"
+    sha256 big_sur:        "204177d792bbec421abd38fff5a1e25fe87f35625378e8aa5f1e83bb2474b3de"
+    sha256 x86_64_linux:   "da09c10ce071e7635f3f6518d47251289d8c264bd343088ce0857874e044b514"
   end
 
   depends_on "libtommath"

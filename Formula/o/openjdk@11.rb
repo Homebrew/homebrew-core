@@ -1,8 +1,8 @@
 class OpenjdkAT11 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.20-ga.tar.gz"
-  sha256 "a277b89ff5ade85d3b5885ad7bffb3f2d9c80df47363fedb9110b62c45dbec37"
+  url "https://github.com/openjdk/jdk11u/archive/refs/tags/jdk-11.0.20.1-ga.tar.gz"
+  sha256 "fe8012c253573536990ad0f987e0ffeae75a12f1dbd7c02caed8ea899006c313"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,15 @@ class OpenjdkAT11 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "79e6d8b60cbe3896c77a209622d8a7449c0aeaa2c07464902a04d85a4c6e2704"
-    sha256 cellar: :any,                 arm64_monterey: "3e4bfb1c1059ee26db039055b0964d9f0d6b7f92dc4c18e756943645771f7fb4"
-    sha256 cellar: :any,                 arm64_big_sur:  "abf60cb7f20d52819226e23c6a0bcd8e49ec778320a542693b5091fd8ae1358c"
-    sha256 cellar: :any,                 ventura:        "eda4e4cd6ffd4c3f7d72cf69c64587bea7871487a645d0e138887a76b45cb69e"
-    sha256 cellar: :any,                 monterey:       "22e912ea60485fe6deb33d7dde5266cc7c64472a721e3c80ea5768f7d6db96ad"
-    sha256 cellar: :any,                 big_sur:        "c408b88d9129ee2776ef680c07fea3da17d96204239a098cb7baa437a638cb03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "889a2c142fb442a9945389c56659b7f65d59620f87271ba7c688f839e03d209e"
+    sha256 cellar: :any,                 arm64_sonoma:   "73f7501ed777808defb385e366a994a3a8c796efc4a0721d15014e49b7f4cd78"
+    sha256 cellar: :any,                 arm64_ventura:  "acb950d29ebe67acc6f0b486af1be66b141fc2bfc87c9660453dca8f6ae73fc8"
+    sha256 cellar: :any,                 arm64_monterey: "1c39edd79ca579b7b0d545f7189236603cdd8f0fb24139f6be5e9819d7453dd4"
+    sha256 cellar: :any,                 arm64_big_sur:  "8720e96e2f98e7e2458033c7ba6c0dc0417a399f6a829249ac9d57313fbe42a1"
+    sha256 cellar: :any,                 sonoma:         "bcf4eeac49ff615734c3c478a7db3e2b3044a5df115fa8aef569f595c082db3b"
+    sha256 cellar: :any,                 ventura:        "c00f5cfd982caa01977c071eee9e0455cd67aa439883789e8706620b38197e43"
+    sha256 cellar: :any,                 monterey:       "66755ef4e7995057d77d2d1d77f8359c57a1e7380fac5f5b1f28c60ab433365f"
+    sha256 cellar: :any,                 big_sur:        "0eb1cdc8a26e18f3346911a8938e590744bc77216b1efe388062a145124ce163"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b5812220064da95519a73c828d1ae073241cff162e677b0b8d84f18ebf5eab8"
   end
 
   keg_only :versioned_formula

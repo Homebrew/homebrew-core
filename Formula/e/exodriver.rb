@@ -1,22 +1,21 @@
 class Exodriver < Formula
   desc "Thin interface to LabJack devices"
   homepage "https://labjack.com/support/linux-and-mac-os-x-drivers"
-  url "https://github.com/labjack/exodriver/archive/v2.6.0.tar.gz"
-  sha256 "d2ccf992bf42b50e7c009ae3d9d3d3191a67bfc8a2027bd54ba4cbd4a80114b2"
+  url "https://github.com/labjack/exodriver/archive/v2.7.0.tar.gz"
+  sha256 "ef11760322b31f16802ec202406e780339f54bde774689b97e926778417d6c79"
   license "MIT"
   head "https://github.com/labjack/exodriver.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "72d4d19357747fdee009d6ae85a057f26b03a6e35f0768fc3dae4aa461009cfb"
-    sha256 cellar: :any,                 arm64_monterey: "5df43dee856d5a6ea4cce237bd351ba39bdf6ed4ef61427de673c03ac87a45e2"
-    sha256 cellar: :any,                 arm64_big_sur:  "fa9283c7c2a58da585d849ea514ac7f63a1bab2fa7205f24b5c6b7f122218e81"
-    sha256 cellar: :any,                 ventura:        "1974b6d1f500c424ae92eeaccbac4035020512eb7b0071948f8d8c146fbfdf33"
-    sha256 cellar: :any,                 monterey:       "b91938833dbde9f4ead3b37188076c226deba99f916b8811a876b813d96407f2"
-    sha256 cellar: :any,                 big_sur:        "5fbc6d425b55fc83fc05847a766fa74f33d932c495a4ab7c9b3469441552e489"
-    sha256 cellar: :any,                 catalina:       "aa86ed0ef4a6886bf65ba979938202a7bfabf2d844f2ffe14dee2466f3c65e59"
-    sha256 cellar: :any,                 mojave:         "9451412a4469cdf44e56eeac4c457a91b3363410859d4d48975ce3223f8b20d2"
-    sha256 cellar: :any,                 high_sierra:    "db8ef53e652b1296843207ee4d315b7ce5e7adf35ce5cf07f36d1d3f8dfdd28f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13f30f7efeaad3c463ee360d4b0ec24e97905c3b2b031ce55c3f9604b3c57d36"
+    sha256 cellar: :any,                 arm64_sonoma:   "459ce6ca331aeac97187dda22c289353e521a130ca33f3db6db8810b64d9ad6c"
+    sha256 cellar: :any,                 arm64_ventura:  "70b1afd209046f565518384c2c974346ca96324beb2dc51fced383463c6133bf"
+    sha256 cellar: :any,                 arm64_monterey: "dfa84090b35d7105eb7e57d95a8aa1c29d82996b530ab185996d3ac9ab09e01a"
+    sha256 cellar: :any,                 arm64_big_sur:  "cf6b1fc2151d7058b04b0e21ef74604a657ea8fc02f61de05bb05ff3fc4c0e9f"
+    sha256 cellar: :any,                 sonoma:         "bc4979f9cb06b3bf093a6f7a5d60c2b372299c0c0dab38e24cb0833767f6b4bd"
+    sha256 cellar: :any,                 ventura:        "32715a1a59209051175d941d67522ac295d1676a86588029a88b1450a15e2688"
+    sha256 cellar: :any,                 monterey:       "22a821cbd31ec096872832ed6d0cb11aa0c5790f2db69d4bc2782cf3b619c454"
+    sha256 cellar: :any,                 big_sur:        "507baa6e157dfa2b3b5f824aa6a73fd58f19daac9b1e73fd735048323fb241cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b69e819a81bb5dea9e4281eb7edd24d70409c8db75c2d6eeba1a9f90c24ebf3b"
   end
 
   depends_on "libusb"

@@ -13,9 +13,11 @@ class Ledger < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "286b4fcd25f72c9c54c29cc4ede723f1e126a7d0ca9aacecf86142dbb0ee64a7"
     sha256 cellar: :any,                 arm64_ventura:  "c83ac2d2e77e26d1318b7b4d74864c795bdf8a5e209605a5a0be1b5cd94baa2c"
     sha256 cellar: :any,                 arm64_monterey: "44a9a8feae3f659231f2c73a4df8be7c3de0f248774e7e48234b773df314bb17"
     sha256 cellar: :any,                 arm64_big_sur:  "5004524e2b4133730fecacc855d4bf61a5ac79e155c6616d22513e9898787330"
+    sha256 cellar: :any,                 sonoma:         "4d1b9c43f8d8ad02b12404bd964816a8c6fbf6f45ce685a8ae8c513a3058cbdc"
     sha256 cellar: :any,                 ventura:        "82b7edb137dfc24db8b617dd7ff3e3045e55732c50168ace7a0615d1b36f04a2"
     sha256 cellar: :any,                 monterey:       "084ad5855d53c11e4f153cf1462810f9a2d2b8d74147f7baeabb0e725b775f2c"
     sha256 cellar: :any,                 big_sur:        "adccf26b056139a2745fe94d8042ff7c5a288e884b052084d01306d674f7c16b"

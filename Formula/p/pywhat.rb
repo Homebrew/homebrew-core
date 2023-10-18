@@ -11,9 +11,11 @@ class Pywhat < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "151e2d4ea3e5e9f0e285de81ba28b6c7ba1e6b1ddd573e8b937b55ab0cac10e7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4968c7ff6c37272afedb526e8bd71aa04c4cfe9539bb095082d65980680ab9c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fbf27dd5fcbee4898510b45c5aa86297d46e3a53448dbea1f330113a64526cca"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "afc7dcf4f11bef07bc6d06c2195e9ac9acf641ea8a9455e586ee90a20be11b5a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4ffbcfb1ca85503af56bbbe2f299bdddf91115dd105243821993cd48b0ac7dac"
     sha256 cellar: :any_skip_relocation, ventura:        "d24dfb3b8b8bb78a470907caf5a7014af1581bb796c0fec704bf73454735cd15"
     sha256 cellar: :any_skip_relocation, monterey:       "33ae9b4c199197f328f6141e5900d946ab6d85712266b86200208372698bdf14"
     sha256 cellar: :any_skip_relocation, big_sur:        "c16b928e2087cf586005ac5f7ea5671c44d69521317b0b8db9f367581c87a5f2"

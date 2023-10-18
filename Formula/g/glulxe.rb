@@ -1,21 +1,20 @@
 class Glulxe < Formula
   desc "Portable VM like the Z-machine"
   homepage "https://www.eblong.com/zarf/glulx/"
-  url "https://eblong.com/zarf/glulx/glulxe-060.tar.gz"
-  version "0.6.0"
-  sha256 "74880ecbe57130da67119388f29565fbc9198408cc100819fa602d7d82c746bb"
+  url "https://eblong.com/zarf/glulx/glulxe-061.tar.gz"
+  version "0.6.1"
+  sha256 "f81dc474d60d7d914fcde45844a4e1acafee50e13aebfcb563249cc56740769f"
   license "MIT"
   head "https://github.com/erkyrath/glulxe.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a1428eb47dd0443e7d76127116828461087d9006810827318464138aae8f309"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "26ce8c326d32c6a9bc677cb31ac3d71ad3c342b9268519ed852e3067073e020c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4685ff356d489470d50622a226708c1934221e100048759f2e63edb18c711964"
-    sha256 cellar: :any_skip_relocation, ventura:        "728499b6faf39d716c538bf45b4fd63ec5a0702cbc08d4c9252a67967489228e"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a5f7a89d8fb4f97d8dd4c0e129c57750e716822f5a74d050f8d3e5012461710"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c147aa8b889f611ce1b8d1e7bdefc29c9b0da936fea7e187068039eb89255a0f"
-    sha256 cellar: :any_skip_relocation, catalina:       "50f3bb35f8755b4c24989bc354d9fc81afc5c2442e6bb5250a9aa47541c0dff2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d094a606fc180d36718be5f056934f832e7273be306e87813a190050181eedde"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6605dc4b713cf75ff1e2082b4e515bbb3ec36dbb2846da6786538e1449fcef8b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5559708d83a18e07bffde1b0c645a1efab90d28ea53b7d527d4a5c7b33601f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d08fff0e271fd5f05d5ef30215914fc7429e9b81f54255b7acea3f1350ddd29"
+    sha256 cellar: :any_skip_relocation, sonoma:         "84c5aab0650e51fbc4fafcce2f61b6cb680b2e037ab3426ef4f1d3a4cf662f9e"
+    sha256 cellar: :any_skip_relocation, ventura:        "bb4cd4317c7867a4ac3e41ad77a0d4aa84350aa7f356564e38fa8c1e3575c519"
+    sha256 cellar: :any_skip_relocation, monterey:       "05f624354fa770cf82d75abf4f69e5f7d9a88962fa0e4e0416f55b65b2c46792"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8af6c5daa098d3cd5b2878393f4b76efd773bf0d1be30ab2a8ed4fdfb84d38a7"
   end
 
   depends_on "glktermw" => :build
@@ -27,6 +26,7 @@ class Glulxe < Formula
     inreplace "Makefile", "GLKINCLUDEDIR = ../cheapglk", "GLKINCLUDEDIR = #{glk.include}"
     inreplace "Makefile", "GLKLIBDIR = ../cheapglk", "GLKLIBDIR = #{glk.lib}"
     inreplace "Makefile", "Make.cheapglk", "Make.#{glk.name}"
+    inreplace "Makefile", "-DOS_MAC", "-DOS_UNIX -DUNIX_RAND_GETRANDOM" if OS.linux?
 
     system "make"
     bin.install "glulxe"

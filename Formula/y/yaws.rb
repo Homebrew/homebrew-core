@@ -13,9 +13,11 @@ class Yaws < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9691b1f2db8123fa575ffeec832355aa28fc3206796dfe743509528e364ff859"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "979fa10690f71f32f99ff48ba73b61db66841fc6dab8759a0b70d768d4e09483"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "915f2debcd29895c2dd235232fae27c6b93a8df74600324fc6281c037a8f0a9f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9e8b1c12a01f2a69f60629ce7e9238b502cefca4838c7ec8f10add24560c66a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2eb08889b5aec7d6e7cdabf8b5deda6ba98ed696ecea94dc9474908067b48c2e"
     sha256 cellar: :any_skip_relocation, ventura:        "32023b27f056a704bf8a74a83cd07efc1680b440ff6b7f2e22c3549d38e221ac"
     sha256 cellar: :any_skip_relocation, monterey:       "c8ed14ebe8b7754b382567af80237d9622197e3a10b1aa673aaf6201c9d8cc17"
     sha256 cellar: :any_skip_relocation, big_sur:        "c8ed6901333af5bda880682772f53eb3cbcfc89323527d0820696e9a0d963979"

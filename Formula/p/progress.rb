@@ -1,21 +1,19 @@
 class Progress < Formula
   desc "Coreutils progress viewer"
   homepage "https://github.com/Xfennec/progress"
-  url "https://github.com/Xfennec/progress/archive/v0.16.tar.gz"
-  sha256 "59944ee35f8ae6d62ed4f9b643eee2ae6d03825da288d9779dc43de41164c834"
+  url "https://github.com/Xfennec/progress/archive/v0.17.tar.gz"
+  sha256 "ee9538fce98895dcf0d108087d3ee2e13f5c08ed94c983f0218a7a3d153b725d"
   license "GPL-3.0"
   head "https://github.com/Xfennec/progress.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97145efe8aa3701c8f6327c23a029827ab755b737f9768608f86c72a7cb5e95a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95538fd7595dfdb2d046961264df824fd0ad908afaf732b6bbd2e5ddf13af2ea"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "97407ff56c65c8f77371ce073478868eb507742db82c11e107a43413bce646c3"
-    sha256 cellar: :any_skip_relocation, ventura:        "575b87849ef9d8e50e80d169304c65568a9c2b3a8d69590dded348cebc4fe3c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a8e247b7fd7ba0c6bd3556739b283d4609ee32ce82b986637a6d1d823a9cf31"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21a1663abf8e1a60baf99a3ae46d41883cd5136fabbe77dd07987e0730b08ec0"
-    sha256 cellar: :any_skip_relocation, catalina:       "804256c3be440464694fe8f0e9b94f323860f9fa2304c8984dc0e8cbbce43fab"
-    sha256 cellar: :any_skip_relocation, mojave:         "5c834228aa86062624e1d2f6f3c386607d3151842218eb9c70529e1485ee1e5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31559faf7e06989812f6ea8069a8baf8de1b1abcd68c41dba11f5f2004595f65"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d7b757f8bcc4961b40058126f0614470418e55ac6fead877cdd8e4f98684a32"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4102bb16c1bf18d9d0a46b8a170cef1f0b1032ec07f0835de750b2f998d03393"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "11cff7ffa2580585d9fab4f550d1229a59337dcddf07a1e7980b46b473bfd4b0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "69d736301d682b39561e659e6a7a37f886cf842dcced3dd7856c32947eee6995"
+    sha256 cellar: :any_skip_relocation, ventura:        "c838dd67490a7aaf419ca5e538b699c895b42911d4c8998876258648b8eb06f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "b91471bcf961169742cca485c90b52dd6be8cfb0f9ef8b5169124309d2143f7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86cdd8365a105b82a4ab6a8f041bdc8c1dc277ce12eb06626f32e484636b5a78"
   end
 
   uses_from_macos "ncurses"

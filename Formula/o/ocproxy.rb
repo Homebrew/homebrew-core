@@ -13,9 +13,11 @@ class Ocproxy < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "28eaf6815e07abd2aa324b3adb957523b49de41139079f3ab4480be043aa8a29"
     sha256 cellar: :any,                 arm64_ventura:  "a30cfaf7533957b5a7fab43d8123047d97ad5e989189556dfff3b539c6d771aa"
     sha256 cellar: :any,                 arm64_monterey: "e7ef216d7ca89c5c390833fd8272b5e114d45b9740d4b0a21b1c751363405b87"
     sha256 cellar: :any,                 arm64_big_sur:  "d598c7b18b39b70d0bff1cc24b044a7351f8161ada44ef860649bc658323734a"
+    sha256 cellar: :any,                 sonoma:         "7a25236711849a703c3aff501fff6b004a6f4005724ca9c39e46a7e488a7c637"
     sha256 cellar: :any,                 ventura:        "ddd7dee9b0d0f05232a844a56e2a9264504ba6abc0a16742640e92c408561ad9"
     sha256 cellar: :any,                 monterey:       "27e6a065435fd38f0b59ec01a38a424272d914574c2c1b36f5e90df3f05baeba"
     sha256 cellar: :any,                 big_sur:        "c215e90cdcbcd59674c111bd2bbdf157ad554247c65025560c6688677d25be53"

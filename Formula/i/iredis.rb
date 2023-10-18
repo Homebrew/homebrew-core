@@ -2,24 +2,28 @@ class Iredis < Formula
   include Language::Python::Virtualenv
 
   desc "Terminal Client for Redis with AutoCompletion and Syntax Highlighting"
-  homepage "https://iredis.io"
-  url "https://files.pythonhosted.org/packages/26/61/165066a5f1e75203ff13516ee6fd14b67da085c203bd33ff669076afe4b0/iredis-1.13.1.tar.gz"
-  sha256 "316cdb9aec542a1d320606abd6093c406250c1b1ed20db1b0ac6d333e44b990a"
+  homepage "https://iredis.xbin.io/"
+  url "https://files.pythonhosted.org/packages/33/30/bf585c76653873b74b9bfebf1fdb22aee4e6959f37e68d8a883684a7ec95/iredis-1.13.2.tar.gz"
+  sha256 "7645fe5e153c12e231f68e58067bcc678dce2a61ee572bb0992dbe7159b85302"
   license "BSD-3-Clause"
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6141d1b7f8beb87a0540b8dab2da2434c1929cd7f98277e38bf53246b8906bac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83e3f1a43cf5a7bb3c82288b36a1438897b9e29f3672f7e8ae1d4591b22fdbc9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7bed9184bbc1f5228b76c5f636df41f2ebc2632ec34e9004bf32245fb5012f91"
-    sha256 cellar: :any_skip_relocation, ventura:        "a51ca95cf032e43bce04881a11145f5b9ca45cd9258685afef44ef1e6e4e8346"
-    sha256 cellar: :any_skip_relocation, monterey:       "728c58b2563a3f529f9075890c2a862d1abe557e58bfdc464cbbcec0b965c544"
-    sha256 cellar: :any_skip_relocation, big_sur:        "07b0b93399c43ee4808b0ba96665590f3bb1223ed22b5aa3f0d09ea44d451607"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fa23c2b94cf34914269a16c8a30cd0d6588a11feb092a05c8b634ea623d0a6e"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fade1399e18b59908d295ec1b759fc8169e81df014e578586986643c064bf67c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5a50008cee2da87dcafd7afb3c172809250a6b1b4ad81099cf385f7638f7513"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6847a48c56af908f0e493dc2491a85a02b970b33384021a0326c358dec4bc741"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6de51b264bade34980d373af935010c68fb05fee83ee988c1fa073d83c765cff"
+    sha256 cellar: :any_skip_relocation, ventura:        "e6b3885e4698d3637c19438fdbedaa7e0b074e002255812b79686d71b69597f8"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ef581c30dfaaa29ab5f20c92766e803e908f83458d483821f9ebd2fb1610c1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b873556fa5ad46f33e10d99ba08ce768c59f11b1683ae3bb90ef95a73234d2b"
   end
 
   depends_on "pygments"
-  depends_on "python@3.11"
+  depends_on "python-packaging"
+  depends_on "python-pyparsing"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "click" do
@@ -32,19 +36,9 @@ class Iredis < Formula
     sha256 "6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97"
   end
 
-  resource "importlib-resources" do
-    url "https://files.pythonhosted.org/packages/4e/a2/3cab1de83f95dd15297c15bdc04d50902391d707247cada1f021bbfe2149/importlib_resources-5.12.0.tar.gz"
-    sha256 "4be82589bf5c1d7999aedf2a45159d10cb3ca4f19b2271f8792bc8e6da7b22f6"
-  end
-
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/fb/6b/d8013058fcdb0088b4130164fc961e15c50d30302f60a349c16bdfda9770/mistune-2.0.5.tar.gz"
-    sha256 "0246113cb2492db875c6be56974a7c893333bf26cd92891c85f63151cee09d34"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
+    url "https://files.pythonhosted.org/packages/ef/c8/f0173fe3bf85fd891aee2e7bcd8207dfe26c2c683d727c5a6cc3aec7b628/mistune-3.0.2.tar.gz"
+    sha256 "fc7f93ded930c92394ef2cb6f04a8aabab4117a91449e72dcc8dfa646a508be8"
   end
 
   resource "pendulum" do
@@ -55,11 +49,6 @@ class Iredis < Formula
   resource "prompt-toolkit" do
     url "https://files.pythonhosted.org/packages/9a/02/76cadde6135986dc1e82e2928f35ebeb5a1af805e2527fe466285593a2ba/prompt_toolkit-3.0.39.tar.gz"
     sha256 "04505ade687dc26dc4284b1ad19a83be2f2afe83e7a828ace0c72f3a1df72aac"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/4f/13/28e88033cab976721512e7741000fb0635fa078045e530a91abb25aea0c0/pyparsing-3.1.0.tar.gz"
-    sha256 "edb662d6fe322d6e990b1594b5feaeadf806803359e3d4d42f11e295e588f0ea"
   end
 
   resource "python-dateutil" do
@@ -83,7 +72,7 @@ class Iredis < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.11")
+    venv = virtualenv_create(libexec, "python3.12")
 
     # Switch build-system to poetry-core to avoid rust dependency on Linux.
     # Remove when merged/released: https://github.com/sdispater/pytzdata/pull/13

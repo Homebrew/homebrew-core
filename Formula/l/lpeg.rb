@@ -12,13 +12,16 @@ class Lpeg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c1682de26518f02988af37b26b82436735887d9e706a492470912d4d7d3bcf32"
-    sha256 cellar: :any,                 arm64_monterey: "85261557c9e28bcc69e57a039dc37f041822ad173b12ed8929ccf3b188792a45"
-    sha256 cellar: :any,                 arm64_big_sur:  "cacf451975f7154a73f943d3cf875547b3adcae9142f8b7edf305158f2ddeb25"
-    sha256 cellar: :any,                 ventura:        "29f514322b45fc9cbca0e56d3c04b3e99acd493adabd124658e023aa8fd04b94"
-    sha256 cellar: :any,                 monterey:       "515b7651928ec35f3f794f9d43a3a77b991e65f57b1c9f0541babec684f90c82"
-    sha256 cellar: :any,                 big_sur:        "ba9d20b0c8e3c8310ab8b8ad6f62ac7b55a03050afa037257823962a84a40c4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72cc4cc5e772e414daf6ca8dea191184c659eb6bd050bf42da5e100807b53d69"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "d725e7feeb5c96970d64781282c5c4ae56e9e1b2e824280c9ac2d4098acd18cb"
+    sha256 cellar: :any,                 arm64_ventura:  "032f19654879a0542eb5836fa19da7ae278fb1709375f4b17e8a24b219e54293"
+    sha256 cellar: :any,                 arm64_monterey: "d9b65ef2160677f986634fb433681bab43f7f87d2510884e373dab0d7bbd86a2"
+    sha256 cellar: :any,                 arm64_big_sur:  "940a61e43f0f916e029a4afa277f55f95f2d780a5e88cbb255d9d7ca24d3a25d"
+    sha256 cellar: :any,                 sonoma:         "8d5ac91544867d83ce0ec6f407e6a3ead572ccbd523234d2673322da355435fb"
+    sha256 cellar: :any,                 ventura:        "0bd6d115782c46c0a09e07a4d27429211bef1a251ceb8d33f14a5530ce530c9e"
+    sha256 cellar: :any,                 monterey:       "66c950f321432b109386fa6182bdfe6afb26d59f38d2d70e3d1087f5cf1637ed"
+    sha256 cellar: :any,                 big_sur:        "cb3e28c5aacd7007606fedac99181a819081e5bb80fe2eee6689b6a30dc1768b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e9143038c664866b58c882ed78450fc005c6169d32d9bf2ded09f2af664b3c4"
   end
 
   depends_on "lua" => [:build, :test]
@@ -43,6 +46,8 @@ class Lpeg < Formula
 
     doc.install "lpeg.html", "re.html"
     pkgshare.install "test.lua", "re.lua"
+    # Needed by neovim.
+    lib.install_symlink lib/"lua/5.1/lpeg.so" => shared_library("liblpeg")
   end
 
   test do

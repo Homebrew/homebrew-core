@@ -7,9 +7,11 @@ class BoostAT176 < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "eeafff189152118243504a54beb22ab68bddd258d6f307ef8c44158cc66757a7"
     sha256 cellar: :any,                 arm64_ventura:  "960bbd424890c9d6a08104dd5714d620d215f144ad69e816154723423989040d"
     sha256 cellar: :any,                 arm64_monterey: "26aa21aaa3142a4fed4e6432664eb50704d06a05e49fda44904a6be8401b67c9"
     sha256 cellar: :any,                 arm64_big_sur:  "30cee145b99d61188734587a08e1bf21b669cf75dfcf4fa1032e76f23b6de51b"
+    sha256 cellar: :any,                 sonoma:         "bf4e91f0c9c34fdd260a16a3b885d7dc85917c9908ce50f1243b54685552681d"
     sha256 cellar: :any,                 ventura:        "ae7b3d8a883abed1ea4f7bdd51dd26dd52c7c6dfb126ef819bcace472389b9a7"
     sha256 cellar: :any,                 monterey:       "7458b977ef6a75dc3b873fac286cb3ba2330d06034228fc0ef76c86feaaa0f42"
     sha256 cellar: :any,                 big_sur:        "0552835e6fa8401714d0571c2fb621416da9d78f21f3093d0b0e5a65f2da6812"

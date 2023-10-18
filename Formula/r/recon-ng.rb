@@ -9,23 +9,22 @@ class ReconNg < Formula
   revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11871c74fb2ae0038a80dd333c0e78adf1692f5afb33e54dde9ecf81eb35736e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5429eb920ad7366f3933ef6e4332d8e1af8ac71326114eab3533d2b06ab1f5bf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a15921933fa60a5dfce42485316257403ecd23bfac6467477c34431476353c58"
-    sha256 cellar: :any_skip_relocation, ventura:        "564831d37e5fbe07ad28eec6927a8f1ea12938a2097ae1d67de820e9760e3b0b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7c6c2ec957daf5a31d571c37bbbfd2d01c54cbc9c410fdb188e9eccae3015a61"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abd8d94b1c59739943e8383ea9bf18e0f35340472e00c9bb38f2338e8e86065c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "699c64db85f52ecf831983f62c613c9873faea6b971d54a66001a20a596056d7"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f9283fa1d6b2535c9352e309cdc31f0243de1bf0ad47412647811dec88cb2e4a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "506b6b1c98b3169377acb905497bccd5a41476ae72e29a0eef701721b4a5c9fb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d639281e26312d57790e19e778bc13b673eea7fdcca9d4c6e4af81e834b3abf7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f29f3c8595971d5d73c36960e84dac7559758e176f4b047fa919f6c492a1a889"
+    sha256 cellar: :any_skip_relocation, ventura:        "cb6bfdde653e08be72e4c91a0fbaaf414b757d7c100038e9912c84dc7610a5b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf4db2e9c7237107c60c47a0655c1c9cb6725f413a6d3878dd621ee1d8987178"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0685b46bc33139aea7a4258cae366b2cdb572e9f98d7686071b60bfdd1af4685"
   end
 
   depends_on "python-certifi"
+  depends_on "python-lxml"
+  depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "six"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   # See the REQUIREMENTS file in the archive for the top level of dependencies.
   # Please check for changes that may have been made since the last update.
@@ -105,11 +104,6 @@ class ReconNg < Formula
     sha256 "0f864437ab8b6076ba6707453ef8f98a6a0d512a80e93f8abdb676f737ecb60d"
   end
 
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/06/5a/e11cad7b79f2cf3dd2ff8f81fa8ca667e7591d3d8451768589996b65dec1/lxml-4.9.2.tar.gz"
-    sha256 "2455cfaeb7ac70338b3257f41e21f0724f4b5b0c0e7702da67ee6c3640835b67"
-  end
-
   resource "MarkupSafe" do
     url "https://files.pythonhosted.org/packages/1d/97/2288fe498044284f39ab8950703e88abbac2abbdf65524d576157af70556/MarkupSafe-2.1.1.tar.gz"
     sha256 "7f91197cc9e48f989d12e4e6fbc46495c446636dfc81b9ccf50bb0ec74b91d4b"
@@ -128,11 +122,6 @@ class ReconNg < Formula
   resource "pyrsistent" do
     url "https://files.pythonhosted.org/packages/bf/90/445a7dbd275c654c268f47fa9452152709134f61f09605cf776407055a89/pyrsistent-0.19.3.tar.gz"
     sha256 "1a2994773706bbb4995c31a97bc94f1418314923bd1048c6d964837040376440"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/6d/37/54f2d7c147e42dc85ffbc6910862bb4f141fb3fc14d9a88efaa1a76c7df2/pytz-2022.7.tar.gz"
-    sha256 "7ccfae7b4b2c067464a6733c6261673fdb8fd1be905460396b97a073e9fa683a"
   end
 
   resource "redis" do

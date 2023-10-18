@@ -2,19 +2,21 @@ class Dump1090Mutability < Formula
   desc "ADS-B Ground Station System for RTL-SDR"
   homepage "https://packages.ubuntu.com/jammy/dump1090-mutability"
   url "http://archive.ubuntu.com/ubuntu/pool/universe/d/dump1090-mutability/dump1090-mutability_1.15~20180310.4a16df3+dfsg.orig.tar.gz"
-  version "1.15~20180310.4a16df3+dfsg"
+  version "1.15_20180310-4a16df3-dfsg"
   sha256 "778f389508eccbce6c90d7f56cd01568fad2aaa5618cb5e7c41640a2473905a6"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "65a2246aa5277b6eac0a934c32db640af72b39bdf4913788cea5711ff3f599a8"
-    sha256 cellar: :any,                 arm64_monterey: "74d4061c93d647ace683380b85ab320e96b7e115a30ffe7587bc0c0672a097b5"
-    sha256 cellar: :any,                 arm64_big_sur:  "53aa50bb97ebb0923c0ea340562f523e61018454bfcf78dcc6a6b5509aef6462"
-    sha256 cellar: :any,                 ventura:        "bcdfc614e9496a402d75b7e4decb92704c7c9739fe8fff3f56cc3b1945184065"
-    sha256 cellar: :any,                 monterey:       "7c2a4fc31ec409abf1ac74f68b65325f8d5ff38389b7f2be44b51d8529eeb338"
-    sha256 cellar: :any,                 big_sur:        "331470e3b5efe1732916e5d6e5267dfee973d7be2c5573a4c6a9c2e8f207b1e9"
-    sha256 cellar: :any,                 catalina:       "c2b702a7432ab1dd5086c693d4930103d2386782e43453fb7811a8d415505459"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51cef04d99c6aeec12b2a1ae03cfcc84059d6fd0060026fc590ef93a3c172e91"
+    sha256 cellar: :any,                 arm64_sonoma:   "02a0fd32e9d19fe91d1df08b1ea0b311533f46a56f8c0b2bf9cf4f8293600296"
+    sha256 cellar: :any,                 arm64_ventura:  "264596f4b4085ca767c42e98ceb6f12897b91e961e6bac9e7b834df858391726"
+    sha256 cellar: :any,                 arm64_monterey: "47002545c1e0305470816a74c5bdc9d98127ad82a87de30e3f7c366155a3b010"
+    sha256 cellar: :any,                 arm64_big_sur:  "a7f37b0cc23e3fadcb4e69c80a6284c18e332954b1e46503e4aae57583658134"
+    sha256 cellar: :any,                 sonoma:         "2366624d988b940d91f3b3fce6367a06a12267a8e7077930ec9cda9ca43c9012"
+    sha256 cellar: :any,                 ventura:        "05efbb740c3b713a085e32dfa0ac941f99bb8c18e4bd8e0f7b37f95cd2b42cbd"
+    sha256 cellar: :any,                 monterey:       "57309c2c362d501df09fc6f6f5a021b00a8ca623f20affe69825e9fd1782e5ea"
+    sha256 cellar: :any,                 big_sur:        "1fc00f125fcd58e210f4e4e080ae0966f1c93746558fbed23f37c6238584a21f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91b264594df660ffeac7430f48dd75d40bc92d7797c1bee0528172d08fd8e410"
   end
 
   depends_on "pkg-config" => :build

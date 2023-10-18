@@ -8,9 +8,11 @@ class Robotfindskitten < Formula
   head "https://github.com/robotfindskitten/robotfindskitten.git", branch: "main"
 
   bottle do
+    sha256 arm64_sonoma:   "94751d896df7daed821dfd5ba1a5c89c05b9e014f9e44c3d9f5e0f09a9f512be"
     sha256 arm64_ventura:  "594de510a65fdc1d5e49721661badf9d65c66ffcd6948de794e3aa1ad7de0f90"
     sha256 arm64_monterey: "4b05b5753ba51c24aa690eb643d8abd4b471a4a417e061f3197e9f5ac9fe9b9a"
     sha256 arm64_big_sur:  "be80f51d5ff011ef17235dbd64bca5f1a857e30aca478421555b21a613b73b3b"
+    sha256 sonoma:         "9b2f45fa85903a46134701d4131609ea2db758843d3f36f93f476cd8713ea003"
     sha256 ventura:        "dcba79e1df56fb0c9dddcdb6d8e361508367f9199fbc37b1ff7a823648beafda"
     sha256 monterey:       "eccc3189c1083ea09ac7a52b2cac91fc2f5a7251523c4a07ddf4bcf9653572e3"
     sha256 big_sur:        "6e95713a4c9a5ace4ece0bcf430b08caaa09876a002964f9ef01ee6fc982d302"

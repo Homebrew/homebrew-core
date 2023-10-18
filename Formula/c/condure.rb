@@ -11,6 +11,7 @@ class Condure < Formula
     sha256 cellar: :any,                 arm64_ventura:  "7cbf1b4f07f0fa4abf5253d02beb7445118f5b9fd6dd765c3cd802f53a6141d3"
     sha256 cellar: :any,                 arm64_monterey: "3ff53263a687653623e67c2bbc2d8cfaac6dd39ecfa66aa5b575299f753fd3b9"
     sha256 cellar: :any,                 arm64_big_sur:  "9e21d650e79b5f518e5d56456a9d8f44fe4d9a05e19aa7d95f998cbff1e91d43"
+    sha256 cellar: :any,                 sonoma:         "8dd6d8f11317644b9f5fc0d3a25a111eff3dd3f212b6fd282adfc18e7ba1b763"
     sha256 cellar: :any,                 ventura:        "edc995c5d6f9c12116e79642aa8c24e1e6d1c407a58caa16efa2f76b7f0b3efc"
     sha256 cellar: :any,                 monterey:       "2522ab36941f43986b4428cc8bbb8656d579ba236fbde045541fecaf3307d395"
     sha256 cellar: :any,                 big_sur:        "f734cdba37663a940a6de71bc6be83796672ecbcfa9bdd9ee6f310d90498c121"

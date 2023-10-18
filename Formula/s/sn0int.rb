@@ -1,18 +1,19 @@
 class Sn0int < Formula
   desc "Semi-automatic OSINT framework and package manager"
   homepage "https://github.com/kpcyrd/sn0int"
-  url "https://github.com/kpcyrd/sn0int/archive/v0.25.0.tar.gz"
-  sha256 "1a0a65e22ebdea4cc9d876a794c4374354cbf4733e11427190e146d32db37d8b"
+  url "https://github.com/kpcyrd/sn0int/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "4ce71f69410a9c9470edf922c3c09b6a53bfbf41d154aa124859bbce8014cf13"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b22a87efb37627da4ed66db2cab4b00211b372dc852a241cc60f0bfcd81ee5d8"
-    sha256 cellar: :any,                 arm64_monterey: "3fe7d506b479e8c415233f50d779cc5adf0dc74d789e83d7fc5096da0eeffce5"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef3da3327700ce42227eb3b0bdcad1e00acb715c22caa46fe47950d31b0107ab"
-    sha256 cellar: :any,                 ventura:        "dcc44580bf31a965415715da2bf7cb3ad2d2d8445efe2267fccb6468d0852a93"
-    sha256 cellar: :any,                 monterey:       "a8f78088e4d82c0abc026a8e84015edcc9262534dbf9c03d551ac0fb9c4f4cc8"
-    sha256 cellar: :any,                 big_sur:        "387b9b03ae5a1950864d29a3e4cb63c7596138a7e53f90892f482e5f49588e5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "618d7b14bc76a4a3511809d06c65da23df62cc97d40a008c64b3114ad89da628"
+    sha256 cellar: :any,                 arm64_sonoma:   "6415a95bd619a030f851a83a60f405c23d5ea4492263b51eeb6c137e0101785a"
+    sha256 cellar: :any,                 arm64_ventura:  "4d20a6e19b7aa98c411722f19bffef7ffc3e75554be86d248d7a0ff970e51eb7"
+    sha256 cellar: :any,                 arm64_monterey: "a19b7a410639c804bc04d5052ae49df58d834bd4116b1268e007be6016cd6d63"
+    sha256 cellar: :any,                 arm64_big_sur:  "c0c9e6010d3400a040ffeb4a512174f0565aad224f7dc9f6b0d9a96d9ca9f01a"
+    sha256 cellar: :any,                 ventura:        "dd83c87da148fd5a745b1e4148f0312b8c1b243b33488c92f40bfa971fdf89c9"
+    sha256 cellar: :any,                 monterey:       "67e5aead2e26fac75cb92fe0b6133c905637b6d4f855bfeb8fd556e96e77f2d6"
+    sha256 cellar: :any,                 big_sur:        "c3777031f85c33a0a541d973d2c970368f785e75906eb3f2fc15c505f7b9a239"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb3272429b612d549220af36d0ae97a867c69747d7c13965c0baa12514bcfd98"
   end
 
   depends_on "pkg-config" => :build

@@ -8,17 +8,18 @@ class PodmanCompose < Formula
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7eab4f78ae279cecaadcbe69296c9494f4d4f82fce5690066b5717f0be00aec0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7eab4f78ae279cecaadcbe69296c9494f4d4f82fce5690066b5717f0be00aec0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7eab4f78ae279cecaadcbe69296c9494f4d4f82fce5690066b5717f0be00aec0"
-    sha256 cellar: :any_skip_relocation, ventura:        "b9d8b85155552c42aba788d8e55e17d3a5273fecd8edba8316b40225d265f720"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9d8b85155552c42aba788d8e55e17d3a5273fecd8edba8316b40225d265f720"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b9d8b85155552c42aba788d8e55e17d3a5273fecd8edba8316b40225d265f720"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d1fb4ed1aa41b889adef793317a754c49d5ce088e4dae33ec16c3fedbbf8df"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "becb8466afbb5d6b9b61079da397d98e0c592fc4471e5bceadb8a88364a5efbb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3204f96b8e98a2fcb20dcafe036a3b7e25b115f4f81b27f65dac5d33716c0f4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da701c43e938f94868e201dd00259da79ae4e7c697b7dbd0098c7da9ddb7e56f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "519db088b6e269efd89cb223b2f4233082454e4d41b2db5f0b969a8bfdb4c68e"
+    sha256 cellar: :any_skip_relocation, ventura:        "d92642fb09e8231385c116a633affab24dbd5ed73e10cf17e7467bffb4ce739c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a2faa01e0c24959aedbb50f0492d6a9334a0e3444c33bb44a363edebe4e6e38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "236c6bed04d63d4585c7cea61f82cf63a2a1aac14c4fc9eb1ff736f405ba30cb"
   end
 
   depends_on "podman"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
 
   resource "python-dotenv" do

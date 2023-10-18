@@ -8,9 +8,11 @@ class DotenvLinter < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "981a11e38772c78552307b2c72983ca365ca9f40778a7cfce3f313d202d9ccf3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "061184afd4a55c9b9a1095ab0adc9306fea34473b79908e31d63b3322952b4fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2758e27ba06e8c9593de63f69e0de848137ce7d0f176a6ddc61e5cd3584d5aff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ce2bfeff94f6b0d50d14e690054038172d7ad26800f4eb9031f88eb9b390c9e9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fdbc5c9441782795e7e1ec27befc257875e880b48111dc111d545933084b18c1"
     sha256 cellar: :any_skip_relocation, ventura:        "a5ee9c2f5b214a98f6f132647cca658fbfe71e6fac928323cbc75da3d28d92ce"
     sha256 cellar: :any_skip_relocation, monterey:       "5d16c28fec308fcc777002e6a6c58ae798ac141898c3b8c68242dbab9b9160b5"
     sha256 cellar: :any_skip_relocation, big_sur:        "a575348fa033223614c4dac49591ad81129238c3d8675d3e7a26fed6989e446e"

@@ -3,5 +3,6 @@
   "botan@2",
   "imagemagick@6",
   "libgit2@1.5",
+  "libgit2@1.6",
   "mbedtls@2"
 ]

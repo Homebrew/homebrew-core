@@ -6,32 +6,31 @@ class S4cmd < Formula
   url "https://files.pythonhosted.org/packages/42/b4/0061f4930958cd790098738659c1c39f8feaf688e698142435eedaa4ae34/s4cmd-2.1.0.tar.gz"
   sha256 "42566058a74d3e1e553351966efaaffa08e4b6ac28a19e72a51be21151ea9534"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/bloomreach/s4cmd.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "56fbd838e588d65381bbf8aed3502dc32f8ebfb72cc4853ee2ed31af2cc8a9ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "579c89b3b9fa40c0ac1a426e55bd5b9a88f9f8e0560e08f89f5faccafa1d797c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bddd00a80e1ebe79b113c0f7f5d42158f438f5c4382dfe7c7a25eb24a453c65a"
-    sha256 cellar: :any_skip_relocation, ventura:        "b5f8276bab65617391c6ec39c73481cd318c2b914beb729b29eea4343e89face"
-    sha256 cellar: :any_skip_relocation, monterey:       "4fb07106e61b0d9317a091193d4a221053f24a5f02dc81e106c34710f749457e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7bb2576ce8c56705a123814b30d90e20f0361fb763aadf6c141fef33b3b64b06"
-    sha256 cellar: :any_skip_relocation, catalina:       "ff4ceeea473f6e83f1a9c59c16a056d6d6c1829bf3aad1770aeb82248f883ce6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82f269866cfadecf803bbf8901c120760a63efc5bd21bfe9d86073ea11370f43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1ee35d4a4d11c4297df0b6bf56ff1448616960db0a3f0afbd67291b66c353e65"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0e2d3884cd5a992cd9423e76561be1e0de1fabaa724b7a7bfc2963fb6577b26"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f5bdce73e592f7f2cab9b54e0d8b0b9540b4ebfb3419eee3ee5522c3ed8c2dd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8752f2baff2da9bcabc021c1d683ca543331ee3f0e01564c458e115b2cfaa026"
+    sha256 cellar: :any_skip_relocation, ventura:        "dd08c43715a3175b6e4f4a16111cf13e86f8848a58fad720bed8e5887d5d058d"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf90beebe88af4bddecbdc0417c5f5d7ed19de6291717621b64f79081062ae47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "251decd2246f8d66a5aca060fcd18300ba378993e8f1a59292e362f74ae500ca"
   end
 
+  depends_on "python-pytz"
   depends_on "python@3.11"
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b8/0e/3a271954247f48ee2bc586aaa0d25467da722dff7059426311a3f9e81e93/boto3-1.26.3.tar.gz"
-    sha256 "b81e4aa16891eac7532ce6cc9eb690a8d2e0ceea3bcf44b5c5a1309c2500d35f"
+    url "https://files.pythonhosted.org/packages/42/56/633b5f5b930732282e8dfb05c02a3d19394d41f4e60abfe85d26497e8036/boto3-1.28.61.tar.gz"
+    sha256 "7a539aaf00eb45aea1ae857ef5d05e67def24fc07af4cb36c202fa45f8f30590"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/61/d0/864d19810c779c8f2cc4e64030414c2056178863c6a61d2f831ab031cc35/botocore-1.29.3.tar.gz"
-    sha256 "ac7986fefe1b9c6323d381c4fdee3845c67fa53eb6c9cf586a8e8a07270dbcfe"
+    url "https://files.pythonhosted.org/packages/05/2e/9cb8adca433af2bb6240514448b35fa797c881975ea752242294d6e0b79f/botocore-1.31.61.tar.gz"
+    sha256 "39b059603f0e92a26599eecc7fe9b141f13eb412c964786ca3a7df5375928c87"
   end
 
   resource "jmespath" do
@@ -44,19 +43,14 @@ class S4cmd < Formula
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/76/63/1be349ff0a44e4795d9712cc0b2d806f5e063d4d34631b71b832fac715a8/pytz-2022.6.tar.gz"
-    sha256 "e89512406b793ca39f5971bc999cc538ce125c0e51c27941bef4568b460095e2"
-  end
-
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
-    sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
+    url "https://files.pythonhosted.org/packages/3f/ff/5fd9375f3fe467263cff9cad9746fd4c4e1399440ea9563091c958ff90b5/s3transfer-0.7.0.tar.gz"
+    sha256 "fd3889a66f5fe17299fe75b82eae6cf722554edca744ca5d5fe308b104883d2e"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/b2/56/d87d6d3c4121c0bcec116919350ca05dc3afd2eeb7dc88d07e8083f8ea94/urllib3-1.26.12.tar.gz"
-    sha256 "3fa96cf423e6987997fc326ae8df396db2a8b7c667747d47ddd8ecba91f4a74e"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   def install

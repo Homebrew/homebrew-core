@@ -6,9 +6,11 @@ class GoBindata < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e84dc7d2a78aad296659dbe0d476a943eccf5493274e4c0ca6a75470b3c4beaf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3546c1b7bb0397e9f8fde3eaee97b5c89a6fc0a7519dc45d718d6ed68a5d8916"
     sha256 cellar: :any_skip_relocation, ventura:        "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
     sha256 cellar: :any_skip_relocation, monterey:       "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
     sha256 cellar: :any_skip_relocation, big_sur:        "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"

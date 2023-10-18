@@ -7,9 +7,11 @@ class Duc < Formula
   head "https://github.com/zevv/duc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "df0c4ee04b4b588ebd6c627e769773354c8c990bd62dcb1d5a2cd4d7d8f7eaa8"
     sha256 cellar: :any,                 arm64_ventura:  "f84fa8689d44e453cc7795e284c4bb33b5406f57e7e3e49dea18eed1e9853269"
     sha256 cellar: :any,                 arm64_monterey: "672f0a2f6ce1dd2ce3eac59e247af247c254ffac22b962f0931e3c637aede1e7"
     sha256 cellar: :any,                 arm64_big_sur:  "d70515b63c95de8ae52fb7e8ca11ef6fb6f98c1ab0661b4ce452fce2907cd35a"
+    sha256 cellar: :any,                 sonoma:         "83abc6de8f808854af5de8900a9e8dec941c428d9599c51e24d6f29b9ac54809"
     sha256 cellar: :any,                 ventura:        "e6e560263c0fe5805daa0d4a7acde5480d3607807d63a1b626d17ad83b5ac0b7"
     sha256 cellar: :any,                 monterey:       "36c158318b3407f306c82914ba1d63d9492c39644ae0ef1ad627ea20ef38351b"
     sha256 cellar: :any,                 big_sur:        "4c95e3a0b2a6222344c157b9a12a26cb9ee78a447788f124a8eb8d9968368779"

@@ -6,9 +6,11 @@ class Heatshrink < Formula
   license "ISC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ceb0d2e8dff933f32c0aae21c396d5f2ea1bbffa163fced76f09e1b8b4680df8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f897e27aea76f1c2723f8cca5418f8d1cad173b0457348200b609e452f8584da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1c86c8958da5c539b53eb0a34f12502aea411b86fd0bcece742397fc515178db"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a6a1ec3b2cd5dc0ebc16fe7ed2beabdb2aba1c7fd9782d3d7fe5f667f4298b44"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8b8841b365d74adf6e4300d9d7bf092fd6c3bb3badace8636688fc6dc7debe24"
     sha256 cellar: :any_skip_relocation, ventura:        "0bde7796c0ff7e0b7d9963db722a39a69baa5b9d89b975b8e49bbab5a6b246a7"
     sha256 cellar: :any_skip_relocation, monterey:       "e211c2b12e4cfb4ccc65155ec91a03d4b5eaf04538814a7404787f308463fbcd"
     sha256 cellar: :any_skip_relocation, big_sur:        "9131daef95de9b3c7fecb082ade54be4b67f8c4ca3f3bce6d18f19b1492078d9"

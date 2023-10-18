@@ -12,9 +12,11 @@ class Liblinear < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "447ba6aa36bec6cb65825dd9d6aad55e07e2eb9cb10537a4ad142546bb015e1f"
     sha256 cellar: :any,                 arm64_ventura:  "2f7f959e3a537760a29d4f4f4ff949bf5ef8f7206dbbb7f48492e8b733978f78"
     sha256 cellar: :any,                 arm64_monterey: "3c2ee17592c9ff78f3b58baf9bdae899be678d7c073b471896314896c854c540"
     sha256 cellar: :any,                 arm64_big_sur:  "c0f811408e6e5d5a29d7c8d94b89d92980d1b149b1c909413bae383a0df0cf31"
+    sha256 cellar: :any,                 sonoma:         "0fafcc1fcf64b944113137b103a7ff4900ceea6c96672979b79a7a88150869c2"
     sha256 cellar: :any,                 ventura:        "785f3d2ae8640b9689caa8982f13119ad27b88868a432c9ccaaec6a345e2ac68"
     sha256 cellar: :any,                 monterey:       "2b5c4306ba3b88b67d803d0b5ff4562889f1516d5e2a9b479c3c2ee3eb573a53"
     sha256 cellar: :any,                 big_sur:        "26e5cca0e853ce2014ccf29cf38513e5a852e4c4a65b4fe1f39220f4a176d6f9"

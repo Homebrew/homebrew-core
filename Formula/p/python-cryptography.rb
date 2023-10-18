@@ -1,27 +1,30 @@
 class PythonCryptography < Formula
   desc "Cryptographic recipes and primitives for Python"
   homepage "https://cryptography.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/8e/5d/2bf54672898375d081cb24b30baeb7793568ae5d958ef781349e9635d1c8/cryptography-41.0.3.tar.gz"
-  sha256 "6d192741113ef5e30d89dcb5b956ef4e1578f304708701b8b73d38e3e1461f34"
+  url "https://files.pythonhosted.org/packages/ef/33/87512644b788b00a250203382e40ee7040ae6fa6b4c4a31dcfeeaa26043b/cryptography-41.0.4.tar.gz"
+  sha256 "7febc3094125fc126a7f6fb1f420d0da639f3f32cb15c8ff0dc3997c4549f51a"
   license any_of: ["Apache-2.0", "BSD-3-Clause"]
+  revision 1
   head "https://github.com/pyca/cryptography.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d7ead1f1511d83029e3f8ec317507c42a0080fb5190750924c66211037a6ec3d"
-    sha256 cellar: :any,                 arm64_monterey: "ae1e8b4040aa85c1341930e624a62bb5daff8692d46106cfb7afbf9acfc708ba"
-    sha256 cellar: :any,                 arm64_big_sur:  "98021dd3b22f142e4d3f7c74b2c3da9c2b04b6816d5fc45237e0e10dc5b64823"
-    sha256 cellar: :any,                 ventura:        "c147b66c763acadc383ae2dbebe6e6cee0e5fd88e81c4ff3a5127816c9668b1e"
-    sha256 cellar: :any,                 monterey:       "e3e7bd1c770b7ef3133a9bc285935e13a9a2ef9c51d0fe6751c63a9d74b710dc"
-    sha256 cellar: :any,                 big_sur:        "6990d076d8becb612a83a790052fdc03c399ea3b85083b06ac74d1f750777679"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0b5a1fd8736d081f4e44f476fe93356710f845f2da60dbac4dc47de8baf7545"
+    sha256 cellar: :any,                 arm64_sonoma:   "9acb1d0b08ffeba7d234fc6ab541c3282511e7d27be0fb1e973ba662362545f9"
+    sha256 cellar: :any,                 arm64_ventura:  "008403e77eef739ee0cc619ba9fdcdaef63ce4ef38d0164c87eaa6244a78378b"
+    sha256 cellar: :any,                 arm64_monterey: "9d92672b1154bacaf1799b5fc93c7d15b4a9c171d60f0e6901077005b4eb85ff"
+    sha256 cellar: :any,                 sonoma:         "38f7fcee1124605ba68461b53256689cee4cf3985ddd17c60ff2fd384a761bdf"
+    sha256 cellar: :any,                 ventura:        "febf8084de667e0e940517efa36f1e8cbe89e3950b89bc586b60dc9f06f114d6"
+    sha256 cellar: :any,                 monterey:       "882876e694786b83c28bb43fc07357e1dd36d424a902a62c0aca99393cde9b6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95ddf1c56853e59509abc47c89155f7b5363cb5c8c8bb1c43305441e7443aa42"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python-typing-extensions" => :build
+  depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "rust" => :build
   depends_on "cffi"
   depends_on "openssl@3"
-  depends_on "python@3.11"
 
   resource "semantic-version" do
     url "https://files.pythonhosted.org/packages/7d/31/f2289ce78b9b473d582568c234e104d2a342fd658cc288a7553d83bb8595/semantic_version-2.10.0.tar.gz"
@@ -29,25 +32,28 @@ class PythonCryptography < Formula
   end
 
   resource "setuptools-rust" do
-    url "https://files.pythonhosted.org/packages/0e/c9/6f9de9f7a8404416d5d22484ccdeb138f469cc1e11bbd62a2bd26d5c1385/setuptools-rust-1.6.0.tar.gz"
-    sha256 "c86e734deac330597998bfbc08da45187e6b27837e23bd91eadb320732392262"
+    url "https://files.pythonhosted.org/packages/90/f1/70b31cacce03bf21fa645d359d6303fb5590c1a02c41c7e2df1c480826b4/setuptools-rust-1.7.0.tar.gz"
+    sha256 "c7100999948235a38ae7e555fe199aa66c253dc384b125f5d85473bf81eae3a3"
   end
 
-  def python3
-    "python3.11"
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.start_with?("python@") }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
-    site_packages = buildpath/Language::Python.site_packages(python3)
-    ENV.append_path "PYTHONPATH", site_packages
+    pythons.each do |python3|
+      ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python3)
 
-    resources.each do |r|
-      r.stage do
-        system python3, "-m", "pip", "install", *std_pip_args(prefix: buildpath), "."
+      resources.each do |r|
+        r.stage do
+          system python3, "-m", "pip", "install", *std_pip_args(prefix: buildpath), "."
+        end
       end
-    end
 
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+      system python3, "-m", "pip", "install", *std_pip_args, "."
+    end
   end
 
   test do
@@ -59,6 +65,8 @@ class PythonCryptography < Formula
       print(f.decrypt(token))
     EOS
 
-    assert_match "b'homebrew'", shell_output("#{python3} test.py")
+    pythons.each do |python3|
+      assert_match "b'homebrew'", shell_output("#{python3} test.py")
+    end
   end
 end

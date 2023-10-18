@@ -6,9 +6,11 @@ class GnomeLatex < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256                               arm64_sonoma:   "d1b02ad59cd60ee54deeaf695c4f8595a0768dc9d54591a57c82f59e75e9be36"
     sha256                               arm64_ventura:  "babf74829df2d757f7b03485c681fbc4c76a43078c247f637ae227e29cfeb822"
     sha256                               arm64_monterey: "d25c28a03cd594f3d65980d1b89820579e0a6be6d3f43d6e2990f3df67f26a84"
     sha256                               arm64_big_sur:  "22644d43bcc27e2429e46fb12e4983d356e0c0ce0f0efe4add127a357f90786c"
+    sha256                               sonoma:         "ac843e6ee66c60e7669bc12a36533eecb520d38be5c6071ed83bc1586371223a"
     sha256                               ventura:        "df375601b9b20cb8a3e6fb0621d87f3c57654ba29d44faa669b9947295f5cd89"
     sha256                               monterey:       "6921484d22aeb89bf8d6c8932020a42f704a3a7df8bf4287610ad0b192b1ed3a"
     sha256                               big_sur:        "09c10576ad649d1c3b5d1d72f149618078011264751dd428545deb7abf39ecc3"

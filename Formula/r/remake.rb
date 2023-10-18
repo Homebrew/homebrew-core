@@ -19,9 +19,11 @@ class Remake < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "a4f68de1ce00c29c883c1c43b36b256ae2d5d7575673036467cdac1dd565a84b"
     sha256 arm64_ventura:  "5a7316d4730a456b7a84576294cf3ecc43bb0d66198a56c006b8b6fcd7ee34a8"
     sha256 arm64_monterey: "fe58f73701268996a6f273fd59cc85694152ed4a2e1f2268b22c532c5797a91d"
     sha256 arm64_big_sur:  "95b6ece00e5597ef7277055fbd63584d87255bc1f23168b496cc81bbed99c7ef"
+    sha256 sonoma:         "b5cf395e923ae2dd635151eb563064ba9cdfc0521a0109d2a73bec3555289192"
     sha256 ventura:        "cb1b7c4b4f65b0ee7bdc44243f69d45ef825c876f3349d8ed33c892998a2540f"
     sha256 monterey:       "692455854a3099491ec14ab4f1c45cbf9c92002a1ecc4c472e0418b73604901c"
     sha256 big_sur:        "523411a133faf8c381ca3d6ab6b057d42b4a14eaf21b249dc5a0213f5cfe974e"

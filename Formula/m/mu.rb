@@ -4,8 +4,8 @@
 class Mu < Formula
   desc "Tool for searching e-mail messages stored in the maildir-format"
   homepage "https://www.djcbsoftware.nl/code/mu/"
-  url "https://github.com/djcb/mu/releases/download/v1.10.6/mu-1.10.6.tar.xz"
-  sha256 "3c45b72ad5de350c8ff6e1ad19a3cb868719cfc3e65c3427797e757d6eff18d6"
+  url "https://github.com/djcb/mu/releases/download/v1.10.7/mu-1.10.7.tar.xz"
+  sha256 "eaaac9ba515da232295b03f2797eed13552fdd29a30122134dd382a64d0d3c21"
   license "GPL-3.0-or-later"
   head "https://github.com/djcb/mu.git", branch: "master"
 
@@ -18,13 +18,15 @@ class Mu < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "81f1e70c20875e92a3f431746e7373e9088428870f435929136b887df72d7f06"
-    sha256 arm64_monterey: "5d1671287275d822a3c101466f4b9cb1099e5edade871a364eccac1c9617e92f"
-    sha256 arm64_big_sur:  "30faf5ef8dd448bbcbe680ebf8954bdc587752e10082ed2d24c4f14084a41258"
-    sha256 ventura:        "d85d7c499c099b62c68c6a5646ff8a440dc190c8b3df174d7758423b092a4f7d"
-    sha256 monterey:       "d34b8d54ab20d14960aef7698fc95a57ce25d682202b61cffddaa5a1d31d470c"
-    sha256 big_sur:        "2377c67a64adbe6583ab98c342ae2909c1ea17ead499908a13ccf69c1c38b152"
-    sha256 x86_64_linux:   "56efa3b5c5368b8b1a77c7430aae13a254d837748d142502268c1ca697aa1a1b"
+    sha256 arm64_sonoma:   "c97506909d083544aecf575289b5b38f5911c60eca4121fed4959a86d7da3a28"
+    sha256 arm64_ventura:  "bc90dc1e9f62e2acf71ceb7094417b25683a399d4fe7e26a69097c6bdc95f16a"
+    sha256 arm64_monterey: "e4ac32f4f8a9bddc3f2bfc52a23d186371fa270af83b4f90412fd8a63587af11"
+    sha256 arm64_big_sur:  "7181dbc47760b649d561e9c6093810177df8d07877ac7e739150dd24ea1c49cf"
+    sha256 sonoma:         "032f874677bdbf478900b2665d12fb97dabe9d62302e57332afae8dfa3f83e68"
+    sha256 ventura:        "d0b69037da3168e252d43659af5af418bcfe87a305d4fc9edc83d456b481f9aa"
+    sha256 monterey:       "c7308c82ae928c4f2c5e9385c671318edd1a77b3d2ee7530fd7f6e7b93bda635"
+    sha256 big_sur:        "58ee12b5f75b81f23a0f29f8f4c44bd81e9b151fb3968ff4cd44cfdd5bd473f7"
+    sha256 x86_64_linux:   "2511719b6f1ac7b9e7fce329afe712c074ead932b1b3ad058e1ad02291ade7c5"
   end
 
   depends_on "emacs" => :build
@@ -108,7 +110,7 @@ index 933553c..ca051d1 100644
      'mu-guile-message.cc' ],
    dependencies: [guile_dep, glib_dep, lib_mu_dep, config_h_dep, thread_dep ],
 -  install: true,
--  install_dir: guile_dep.get_variable(pkgconfig: 'extensiondir')
+-  install_dir: guile_extension_dir
 -)
 +  install: true)
 

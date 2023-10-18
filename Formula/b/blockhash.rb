@@ -8,9 +8,11 @@ class Blockhash < Formula
   head "https://github.com/commonsmachinery/blockhash.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "251e7a3a447adf80f2d2756a929382245415ea57396dc23c88b5712acedee62e"
     sha256 cellar: :any,                 arm64_ventura:  "038b0670df91404e906fe197916916c68f61a82d852c106c4efe264462cddb07"
     sha256 cellar: :any,                 arm64_monterey: "2d4b09f8db1db75fdcb79bc4876fd33a1663ef2180deb6fe6c8e0c44a68ce27b"
     sha256 cellar: :any,                 arm64_big_sur:  "47c642decba6f1acb6f94b7a644a0e9cc104b90434028ae80232b2d038942ba1"
+    sha256 cellar: :any,                 sonoma:         "a6ba8893f041e115d6510d1fd40acc8b4e4898fefc9b1e15bc03ecfb67bc9151"
     sha256 cellar: :any,                 ventura:        "2e0f529baa77937899b2dbd71739ad986a90f9ea6b8f753a8ebb6cae7974c7fd"
     sha256 cellar: :any,                 monterey:       "54fac760e9b22d8681a67f80c9258f1301ae9ab86f06079cf43242414a018bcd"
     sha256 cellar: :any,                 big_sur:        "c7681e033e02989c06dcb2fc500e56ad8a60700216d6f5191c87972b5ea2489d"

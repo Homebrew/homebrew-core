@@ -6,9 +6,11 @@ class Pla < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "34622b25b182676b0af0bcb5832d47a7d72672d3ad6e972036efdb551011fa7e"
     sha256 cellar: :any,                 arm64_ventura:  "7be71e6a234104ac6da8b3fdbf000f04345d08c4e1ba933bf736833628e1c415"
     sha256 cellar: :any,                 arm64_monterey: "f335f954b419f71258a566f1abee2db8211f21aee91bb98f1c97ea8d42e48761"
     sha256 cellar: :any,                 arm64_big_sur:  "2cf83294bbf3d2bd6679e81eb248c588a413ddeadac46ceb24de6affb368aa06"
+    sha256 cellar: :any,                 sonoma:         "0f45496b905bbfe8c259e01559fb2a2b4a1675bc211b80af5c5b62b4a5cf132d"
     sha256 cellar: :any,                 ventura:        "326cc1c21ff09f02478fc21e8a9050c413c5a6d233e53a49920bc8b0fde09b83"
     sha256 cellar: :any,                 monterey:       "0787de036e4a83bc03c2153ec4f447d187d6382c5bbf55f19cefb96488412b1a"
     sha256 cellar: :any,                 big_sur:        "a40094ed802100f73d1ba8fedf5e536649c7fcae1e8a1bed9e240abdc690f221"

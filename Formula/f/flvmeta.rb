@@ -12,9 +12,11 @@ class Flvmeta < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ba117a6573cabe3ccb7b5ae11483fe4fee639ccdb638512d338704604951fc8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d758531df2c34ec2ecec08d3a9e9cc9f250b720a38abff2fa5745d2c8ed16aaf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0b62fd205c68ecd0eb7c13b8d550844f4b7d5d7e48eae9b9f6d8d7ab6f9d84d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1278110538d3806072234a6dc02858b96ed87f8de9110398ba07af5b345f6e4e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "17beba4f1b154f4266bdbba7a9115870774b6812a0da0baa762a44c8c65e4b69"
     sha256 cellar: :any_skip_relocation, ventura:        "312b9f4eefa50eeab352a048587d4ce79e0bba6f3591ec1ba31dc3cd9e832dd9"
     sha256 cellar: :any_skip_relocation, monterey:       "cc36bbb5f3c0542bbddc90be35e85bd5d059bb3373dc852b1bdf339dc0bf88e1"
     sha256 cellar: :any_skip_relocation, big_sur:        "e519203e5deb5c2f18f34b12095f4389a5a76d86f914379cb62e397b175e7466"

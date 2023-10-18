@@ -13,9 +13,11 @@ class Qwt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0f7593ebdd6f36cd40d5e004526ccc50782f8549dee322ee5c02fddbb79348e6"
     sha256 cellar: :any,                 arm64_ventura:  "8420ce0e8b374e2451d5453e08414ed0eb261b3aeab1cc39602415f5eb7f2f6a"
     sha256 cellar: :any,                 arm64_monterey: "3788ac401342ed9e2bb65df01a28d1b2d275863078122daf8bc4608e40c7a68d"
     sha256 cellar: :any,                 arm64_big_sur:  "5298d5e6b9dc707ec137521490cabf0096646539d93c83143b35ec528b785d80"
+    sha256 cellar: :any,                 sonoma:         "e55f39b9d900c9704ef77952d777effe79dd1007348df2e8e571b16968ab6fed"
     sha256 cellar: :any,                 ventura:        "c73dce9c5fae18ea6c3b294241c28bdd10f5811ee73225289ab0dbae3e4c40e5"
     sha256 cellar: :any,                 monterey:       "b037d4085bf7072c7bdc4eb370019964460bb42e5070da35e5ecef9e2c020662"
     sha256 cellar: :any,                 big_sur:        "d9a994f7bff978e0e9907f9fe76f3ba9d73b7055735c00e5ad61cc3b4abcf398"

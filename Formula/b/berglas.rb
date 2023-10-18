@@ -6,9 +6,11 @@ class Berglas < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7ad1eafd4f37e6505382bc42be379c9d423591f28924aab05a1f24943aac735"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e2db1fd8a69de0c4fa61c62c0e95648fde57bc9caa77f0591e8444466d73d54"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5e2db1fd8a69de0c4fa61c62c0e95648fde57bc9caa77f0591e8444466d73d54"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e2db1fd8a69de0c4fa61c62c0e95648fde57bc9caa77f0591e8444466d73d54"
+    sha256 cellar: :any_skip_relocation, sonoma:         "96a93d8e1ff7436356842c416e1eae4410f6b3e47a36afcf9c353fc210a7fac4"
     sha256 cellar: :any_skip_relocation, ventura:        "26d30506404f40acf01adbd18ed3ce6e0499ada8719ef4dcb149c59d3a18bf66"
     sha256 cellar: :any_skip_relocation, monterey:       "26d30506404f40acf01adbd18ed3ce6e0499ada8719ef4dcb149c59d3a18bf66"
     sha256 cellar: :any_skip_relocation, big_sur:        "26d30506404f40acf01adbd18ed3ce6e0499ada8719ef4dcb149c59d3a18bf66"

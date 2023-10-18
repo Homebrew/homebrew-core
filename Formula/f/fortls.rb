@@ -2,41 +2,31 @@ class Fortls < Formula
   include Language::Python::Virtualenv
 
   desc "Fortran language server"
-  homepage "https://gnikit.github.io/fortls"
+  homepage "https://fortls.fortran-lang.org/"
   url "https://files.pythonhosted.org/packages/38/04/db988efbcaac142999af91888e9750dfa422108a318ec3038c2cd42ecf04/fortls-2.13.0.tar.gz"
   sha256 "23c5013e8dd8e1d65bf07be610d0827bc48aa7331a7a7ce13612d4c646d0db31"
   license "MIT"
-  head "https://github.com/gnikit/fortls.git", branch: "master"
+  head "https://github.com/fortran-lang/fortls.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d343091984013ed0eb45865981423c44f0c01e794d415cba0910bb9ac4241d83"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "174b1f4e2cd7d06a56dd4c8883d136a420ce74d57310c07f7e5aa2f095f68f71"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2cb162dde0328f45c09e9d0e184d6796183551df29380a8fde13cc97ed1309c5"
-    sha256 cellar: :any_skip_relocation, ventura:        "4e6939a128ef37a6426147a959f339373998e400a50f8d4b2f7056b71ea25f26"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f88081d545cecc1965e05ec0691192b878461e30225cdcc24e0025b0fcd5941"
-    sha256 cellar: :any_skip_relocation, big_sur:        "305bc04b30d95ef280fc34d1fea38f032e54a19a126d016da69835a35877ee8e"
-    sha256 cellar: :any_skip_relocation, catalina:       "853915ba370ec51c3c2ed3aa8253f31691a9a4674e3708f4c22084b2b4420994"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba1a8b8188320fa146ab8ae10b970a539e8514ca07daa43a427479447bd204c"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d2540cdbaea952f38aac873dd8d19c9404f90093f250be08c4051a226c6397c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "364872120beea98946dd8bd10f974addc00d35617e88fca6373116ff1217237d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "89708fedc19ade3e41704eab5d9dffa22867a77d3ca502c7043b1d0926572408"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b95eebf3293522341599f7cd32efcde0e76b43eb0c4f0148a4be0006d17055b6"
+    sha256 cellar: :any_skip_relocation, ventura:        "59537d4418469e3e97545944b197142e85f780b93ec2e01db1a1e3401a6d7c9f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec86fe9071e7375e380ff118d8a9cbdf924a3c3d4dec6adf29978abf36791a27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc750c090055052b2ddc422030bf75e7d56aeee7a88dadde6455b0d665fe7faf"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-packaging"
+  depends_on "python@3.12"
 
   conflicts_with "fortran-language-server", because: "both install `fortls` binaries"
 
   resource "json5" do
-    url "https://files.pythonhosted.org/packages/47/12/611bf15000c1fc54af909565aed1ad045e5ae1890d8c56cbfe5ceaf52446/json5-0.9.10.tar.gz"
-    sha256 "ad9f048c5b5a4c3802524474ce40a622fae789860a86f10cc4f7e5f9cf9b46ab"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/df/9e/d1a7217f69310c1db8fdf8ab396229f55a699ce34a203691794c5d1cad0c/packaging-21.3.tar.gz"
-    sha256 "dd47c42927d89ab911e606518907cc2d3a1f38bbd026385970643f9c5b8ecfeb"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/71/22/207523d16464c40a0310d2d4d8926daffa00ac1f5b1576170a32db749636/pyparsing-3.0.9.tar.gz"
-    sha256 "2b020ecf7d21b687f219b71ecad3631f644a47f01403fa1d1036b0c6416d70fb"
+    url "https://files.pythonhosted.org/packages/f9/40/89e0ecbf8180e112f22046553b50a99fdbb9e8b7c49d547cda2bfa81097b/json5-0.9.14.tar.gz"
+    sha256 "9ed66c3a6ca3510a976a9ef9b8c0787de24802724ab1860bc0153c7fdd589b02"
   end
 
   def install

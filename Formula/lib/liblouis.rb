@@ -1,18 +1,19 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
-  homepage "http://liblouis.org"
-  url "https://github.com/liblouis/liblouis/releases/download/v3.26.0/liblouis-3.26.0.tar.gz"
-  sha256 "ca9446c57fbce16a856f99a1abf69ae2e8671d4d8ab44cfb353bb651a820b73e"
+  homepage "https://liblouis.org"
+  url "https://github.com/liblouis/liblouis/releases/download/v3.27.0/liblouis-3.27.0.tar.gz"
+  sha256 "b3f1526f28612ee0297472100e3d825fcb333326c385f794f5a9072b8c29615d"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_ventura:  "8e27ca6da922c6ff1ea36af27d9d8a0a24d7d5f00b9743da9b9547dac8117ed2"
-    sha256 arm64_monterey: "4dcc704a4b92219200e4a3ae2b324a9f22c8da9bab4531afb3b20d1ef26914f8"
-    sha256 arm64_big_sur:  "53b9468532da8a619b1b9c85e20d6a8c134af1429e5209756c6ff1d6abd142a5"
-    sha256 ventura:        "8e8641750034e91abbbb806b7f6724cf15a0a15d9e0fe4dfa6d256d45b97d894"
-    sha256 monterey:       "fb0bfdfda6bb39d3d89c66109510a5f9bbb31acc26e5e0fedb29de72c8f605c0"
-    sha256 big_sur:        "cac423a01faa175a39b03f678da7c07d4cbc3846b08bb4ad6ef34d31410af600"
-    sha256 x86_64_linux:   "6bc0e47d9ef9a869f7a4cdbcc32efe997f927c2171fda117ef3e9865a51be857"
+    rebuild 1
+    sha256 arm64_sonoma:   "a81eea7d4800706fd8a6b41c3ae254acbd444cdf9424bfe65a16358f6ae01686"
+    sha256 arm64_ventura:  "7e970b0edb98af8e3a7b03cf3ed95848c0f8ee9eaa501b3fa5a227edd4fa04d4"
+    sha256 arm64_monterey: "5a8536e0073325a8f9e8a95044a7453d9c03bab9281de1cfcf089789a4715b49"
+    sha256 sonoma:         "32e6ba5134dc11c832d9639bb1871e6c9ba854262184b6d5c9168d09f8bb0898"
+    sha256 ventura:        "9898201b9f21fb473ee63c4b5a2df4afd928ef86c907c85fca2d4932e2041007"
+    sha256 monterey:       "ae00b24333293c97c2815ce7590d2f58d9a3b693bbf52d9ed355a0e68d3b8597"
+    sha256 x86_64_linux:   "4784b929e8e42d0bd1c3de30de2373aabe51699db2cf15c9efcccabd7de46f2b"
   end
 
   head do
@@ -25,10 +26,11 @@ class Liblouis < Formula
 
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11"
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12"
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install

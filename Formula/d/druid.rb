@@ -1,24 +1,26 @@
 class Druid < Formula
   desc "High-performance, column-oriented, distributed data store"
   homepage "https://druid.apache.org/"
-  url "https://dlcdn.apache.org/druid/26.0.0/apache-druid-26.0.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/druid/26.0.0/apache-druid-26.0.0-bin.tar.gz"
-  sha256 "535424284c141ce9736e3a4c198fc367707b9471a4c739d13d1cb8b142d945b0"
+  url "https://dlcdn.apache.org/druid/27.0.0/apache-druid-27.0.0-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/druid/27.0.0/apache-druid-27.0.0-bin.tar.gz"
+  sha256 "c6f1a3bb207ff82a93357959d9504cf639bd58623d08a765cdfda71c76f5e729"
   license "Apache-2.0"
 
   livecheck do
-    url "https://druid.apache.org/downloads.html"
+    url "https://druid.apache.org/downloads/"
     regex(/href=.*?druid[._-]v?(\d+(?:\.\d+)+)-bin\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82669b9daf370814051d8f059a45c2381f41eef304b198bdf8f3032f95f4cc20"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "82669b9daf370814051d8f059a45c2381f41eef304b198bdf8f3032f95f4cc20"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82669b9daf370814051d8f059a45c2381f41eef304b198bdf8f3032f95f4cc20"
-    sha256 cellar: :any_skip_relocation, ventura:        "856b76b85b577ba23439471ecd3cca1bf6c791f7b01a8c26ebc54cd561a57c24"
-    sha256 cellar: :any_skip_relocation, monterey:       "856b76b85b577ba23439471ecd3cca1bf6c791f7b01a8c26ebc54cd561a57c24"
-    sha256 cellar: :any_skip_relocation, big_sur:        "856b76b85b577ba23439471ecd3cca1bf6c791f7b01a8c26ebc54cd561a57c24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7b7eb4c77c049ca32abcce61cb911c4498f8beb661752a53e4b906c36cf4734"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "572489695d59f1be0bc9cc76c03ca580ec4f8440c1bc27a800440ea8d57c47d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "572489695d59f1be0bc9cc76c03ca580ec4f8440c1bc27a800440ea8d57c47d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "572489695d59f1be0bc9cc76c03ca580ec4f8440c1bc27a800440ea8d57c47d8"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "572489695d59f1be0bc9cc76c03ca580ec4f8440c1bc27a800440ea8d57c47d8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "255d797399e6b691c2f01001ee60d5879a0d1cb2549958219cda1c2ffebb98ae"
+    sha256 cellar: :any_skip_relocation, ventura:        "255d797399e6b691c2f01001ee60d5879a0d1cb2549958219cda1c2ffebb98ae"
+    sha256 cellar: :any_skip_relocation, monterey:       "255d797399e6b691c2f01001ee60d5879a0d1cb2549958219cda1c2ffebb98ae"
+    sha256 cellar: :any_skip_relocation, big_sur:        "255d797399e6b691c2f01001ee60d5879a0d1cb2549958219cda1c2ffebb98ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9f05770b4c450344a5c38223cde2cebe28f78d6c1e09b13d1ed7c90d98a43a2"
   end
 
   depends_on "zookeeper" => :test
@@ -43,7 +45,8 @@ class Druid < Formula
     end
 
     inreplace libexec/"bin/node.sh" do |s|
-      s.gsub! "nohup $JAVA", "nohup $JAVA -Ddruid.extensions.directory=\"#{libexec}/extensions\""
+      s.gsub! "nohup \"$BIN_DIR/run-java\"",
+              "nohup \"$BIN_DIR/run-java\" -Ddruid.extensions.directory=\"#{libexec}/extensions\""
       s.gsub! ":=lib", ":=#{libexec}/lib"
       s.gsub! ":=conf/druid", ":=#{libexec}/conf/druid"
       s.gsub! ":=${WHEREAMI}/log", ":=#{var}/druid/log"

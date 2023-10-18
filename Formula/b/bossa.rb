@@ -7,9 +7,11 @@ class Bossa < Formula
   head "https://github.com/shumatech/BOSSA.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7ca492e595832676559c6b646e3d702ddd46dcb0610bf8d03c225b49c6d4624"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2158f7a97081f5f80316164003c9081332974aef077205116c33a4aecd374baa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "13a2c2eb937b91821a9f6f353219287ef55b464b9cf7c1b856d886fb1497f0eb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "374d82b1d164b7996887cad910472e9a9e58fc5eecfb8e61271e26059137727a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e0acbe505207e5941a946aa5578011eb90c34feda27045e6bd311f0f18ea9f8d"
     sha256 cellar: :any_skip_relocation, ventura:        "d2c70106f28ae84a178b62a6f028eac65adf61baf48c6de1d2992796403eb6a6"
     sha256 cellar: :any_skip_relocation, monterey:       "0cc5c9f5080c2066dde8ee2c4c9fe8d7d6fc251a89bc975e2fde2fc99399e10a"
     sha256 cellar: :any_skip_relocation, big_sur:        "aa5fe3c981a324abb67a667253e2cfae1479b832e8a2d53ba615d99d3e0f0002"

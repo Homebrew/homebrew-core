@@ -7,9 +7,11 @@ class StripNondeterminism < Formula
   head "https://salsa.debian.org/reproducible-builds/strip-nondeterminism.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aae7c8eee08d5348a2897848b4fc2ace653fd851103970bca9633ca18bc114ce"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ba3ad2c20a564c08f0e2baa695747714899aa45ea7aee3e756c6de29342f6823"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ba3ad2c20a564c08f0e2baa695747714899aa45ea7aee3e756c6de29342f6823"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "263c7feef3a16a8a8fd3acdb6040c471691781cca9a86d93d8d3171e15f970f8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5f6606234e2bceab2887132e6a888854c1d4af84f92ec9ee1c925f4e116ffc73"
     sha256 cellar: :any_skip_relocation, ventura:        "dbd497072b9febd8b80a6c891f3f3b50127ab8f768acd30f87b96dd293a19a91"
     sha256 cellar: :any_skip_relocation, monterey:       "dbd497072b9febd8b80a6c891f3f3b50127ab8f768acd30f87b96dd293a19a91"
     sha256 cellar: :any_skip_relocation, big_sur:        "00d0414ef922ed84f8a40a4441d3b4144de61fcb98d4472a6ee1990464a135d8"

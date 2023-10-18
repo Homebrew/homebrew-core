@@ -12,9 +12,11 @@ class Cutter < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "16bad5398ee66928c15164f769470028aca2912c9b634b45c11cd708f05de11f"
     sha256 arm64_ventura:  "37e55863dc6c7a518de33492c6afe7618604ffbc4871ea756bee1782325987e4"
     sha256 arm64_monterey: "3e314f0acebc224eabaa266508356e09142f2834d7b6b2b1611d66eacc2496e3"
     sha256 arm64_big_sur:  "ac45c9987b4d770856db1f5e2c8fc20fb1ed882297c22691fe29fb153f7b9828"
+    sha256 sonoma:         "3048a1973b5c6a8015a73e9b94b08497f8f05f65669c5d17db7b2daacc0652da"
     sha256 ventura:        "e1ca298daad5c2cd36945fbe4460938ae2412097fe71fe61587ecff9572e8bef"
     sha256 monterey:       "f6288d98ed9a5fd49d2223ae5a426bed1c9503672f971aae3d1433ebaf2f0d13"
     sha256 big_sur:        "3ac33f6c41d14b9d1fd3486fe811dda6219d45930b0359f4300b69c50a56572d"

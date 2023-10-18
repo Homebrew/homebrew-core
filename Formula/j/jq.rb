@@ -1,18 +1,9 @@
 class Jq < Formula
   desc "Lightweight and flexible command-line JSON processor"
-  homepage "https://stedolan.github.io/jq/"
+  homepage "https://jqlang.github.io/jq/"
+  url "https://github.com/jqlang/jq/releases/download/jq-1.7/jq-1.7.tar.gz"
+  sha256 "402a0d6975d946e6f4e484d1a84320414a0ff8eb6cf49d2c11d144d4d344db62"
   license "MIT"
-
-  stable do
-    url "https://github.com/stedolan/jq/releases/download/jq-1.6/jq-1.6.tar.gz"
-    sha256 "5de8c8e29aaa3fb9cc6b47bb27299f271354ebb72514e3accadc7d38b5bbaa72"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
 
   livecheck do
     url :stable
@@ -20,22 +11,19 @@ class Jq < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "4622927182fbc7bf27c4b706e005fbae2700d15e69a68ef7002aed2676b8a4f7"
-    sha256 cellar: :any,                 arm64_monterey: "f70e1ae8df182b242ca004492cc0a664e2a8195e2e46f30546fe78e265d5eb87"
-    sha256 cellar: :any,                 arm64_big_sur:  "674b3ae41c399f1e8e44c271b0e6909babff9fcd2e04a2127d25e2407ea4dd33"
-    sha256 cellar: :any,                 ventura:        "b70ec02353c5f6cb69d947e1506e71c96d2952ed4099ae3948c6c61420b16ef9"
-    sha256 cellar: :any,                 monterey:       "7fee6ea327062b37d34ef5346a84810a1752cc7146fff1223fab76c9b45686e0"
-    sha256 cellar: :any,                 big_sur:        "bf0f8577632af7b878b6425476f5b1ab9c3bf66d65affb0c455048a173a0b6bf"
-    sha256 cellar: :any,                 catalina:       "820a3c85fcbb63088b160c7edf125d7e55fc2c5c1d51569304499c9cc4b89ce8"
-    sha256 cellar: :any,                 mojave:         "71f0e76c5b22e5088426c971d5e795fe67abee7af6c2c4ae0cf4c0eb98ed21ff"
-    sha256 cellar: :any,                 high_sierra:    "dffcffa4ea13e8f0f2b45c5121e529077e135ae9a47254c32182231662ee9b72"
-    sha256 cellar: :any,                 sierra:         "bb4d19dc026c2d72c53eed78eaa0ab982e9fcad2cd2acc6d13e7a12ff658e877"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2beea2c2c372ccf1081e9a5233fc3020470803254284aeecc071249d76b62338"
+    sha256 cellar: :any,                 arm64_sonoma:   "fe0e7ed9a1407256a50afe7f49af6018f450a6e2bf04d47eafec60f1f63111ac"
+    sha256 cellar: :any,                 arm64_ventura:  "976b252c6a3f6dfa2531ee1459718ab7a8338ac4fb84edacd6f6d55743713a16"
+    sha256 cellar: :any,                 arm64_monterey: "c702eade07a9a6914fc3aa075d89ccca3afc2d4ea77bee895f233ca4479e570d"
+    sha256 cellar: :any,                 arm64_big_sur:  "d121938e0e87bd80584f6b452b29ac22cde7acca0b15ed3e91f8fd1d3c9014eb"
+    sha256 cellar: :any,                 sonoma:         "8d0493297afbb4ae6131c51e4eed0369cf3aaacf0f845f6cca078b6201a7288b"
+    sha256 cellar: :any,                 ventura:        "e4b23ebcff759f57e62e2573359ccb62e8e3426a1237082bf3301843230d3094"
+    sha256 cellar: :any,                 monterey:       "748e1d8825d2961e082d412583e6e7b6e60ad75408325e976516c0db266720fe"
+    sha256 cellar: :any,                 big_sur:        "0edbe8f1792bd794762018699592fe24d4aac01a2de369a4c4a4e25b96bc213f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9dfc7c926478acd7652b60300155adf5df9a0afbb4f9fe1a838793529d968ca0"
   end
 
   head do
-    url "https://github.com/stedolan/jq.git", branch: "master"
+    url "https://github.com/jqlang/jq.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -45,11 +33,10 @@ class Jq < Formula
   depends_on "oniguruma"
 
   def install
-    system "autoreconf", "-iv" if build.head?
-    system "./configure", "--disable-dependency-tracking",
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--disable-maintainer-mode",
-                          "--prefix=#{prefix}"
+                          "--disable-maintainer-mode"
     system "make", "install"
   end
 

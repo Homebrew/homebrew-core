@@ -8,9 +8,11 @@ class Restview < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69e9f52fded0cb1401fbe75560ffe235371f5e8bbde2bf090c2e487c6d3d6c16"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7144d1e54ac3ed388b6af07e9d5d4d5c3ab69a7d8335827d436e5d95cd90700"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c41b60a583752a7c15309695cdc0dccccc9f98771cc28d290352863877fadfd4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0526020a022a59774f2eb26fbcf5f9422085fce34286004c37e8a74f715ff51"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bad5747d70d3b49a67555aab7e324de6f5f442558166dbdb93a47dc0bd5518aa"
     sha256 cellar: :any_skip_relocation, ventura:        "5c36b262a3d8898d9caeebc8f9faf3806e2554a3836d430ad2ce985ae389c69d"
     sha256 cellar: :any_skip_relocation, monterey:       "045d7c7fbec94805454c23b54ac749995171610eb9b7e8a39d96f740bd02e44d"
     sha256 cellar: :any_skip_relocation, big_sur:        "41c9ba7729e2494ef67b6158b715b03dbf186e33cd12f9cdf7f35263578ea456"

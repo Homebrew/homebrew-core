@@ -6,9 +6,11 @@ class Ncspot < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8a16541082cfede78dc8598fe43067ce672abe8eddca3231d829d936a1c227fb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf80dd4275133ea765c63d1c010dca30edcf1c88c2ffa3781ffdc57885c73fa6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22269bdae3fbc24cbc00958acbd816d070cfbefe7f30adc30ac9ba272e17a0c8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da8df063e75c7340d8e717cc91127c042ebcb7a6cd345d2150252fb6e0532b90"
+    sha256 cellar: :any,                 sonoma:         "70dd57e385f24cd4352a0a0f193bb86da715de77c2b5ebdc05c7a757c77f7b9f"
     sha256 cellar: :any_skip_relocation, ventura:        "91bab1360f3899c49ff721b76c0b552dc03aa919a37f10b3087769bdc7a1ae0c"
     sha256 cellar: :any_skip_relocation, monterey:       "4fc223f0349d2203b779f0b5447221a90f44e75278189a1218616a0d331aad2c"
     sha256 cellar: :any_skip_relocation, big_sur:        "effc9974650f1e2271d2204af2b67ef0ee48b179185068d24e782fc43539c6c9"

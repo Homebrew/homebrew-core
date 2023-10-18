@@ -1,19 +1,21 @@
 class Csvtk < Formula
   desc "Cross-platform, efficient and practical CSV/TSV toolkit in Golang"
   homepage "https://bioinf.shenwei.me/csvtk"
-  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "9679315c8937f37a3d4ff7230df2502feb64fa6a8b937a89ae49b276411f3f9e"
+  url "https://github.com/shenwei356/csvtk/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "e1017ac0da20e058efd0445fe889ee9d7b91b56a13e68379fe3035b218ae79dc"
   license "MIT"
   head "https://github.com/shenwei356/csvtk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cbabb1afb6103c460595c43e711870aa4a983ab283159e15e70145fac462fb88"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c124f09bb32b0f56f7d97b52c0f80ccd6f5aba9fc3eb842c30067161ee5701c8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dcae83fb16e81c50e68c38c22f65ae758d27b566d6b1a82c19764d1403805ce6"
-    sha256 cellar: :any_skip_relocation, ventura:        "2d220a3049ca384bc018b7b079987dd1ab59f2750892aaf0a149c0d034b55abc"
-    sha256 cellar: :any_skip_relocation, monterey:       "6c94fefa1a00e30aac147f3aa0c5e89a1a02c2d2be5871cfd1158727b8621ad8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5b72fc178c40dd9d9756732652e876f0c9544cfe0c5c2f31dfdb703a7adc5b54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92e22a033958ca0d1b36903af61d4e18961ebbec39ea7f7000b3bae157f8b0c7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b013e3abad9c11ee3da6c055e208e7df0f9d1ecc6995d84183e00cec069c0364"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bda4d2f37af34cd86c46bc20936680b58ef2a6a9f79790c7e7694dba9aa73624"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "942b325e864334ce75516899c33fd9f423d2034fbdc878a39d355aad56af8c7a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6be6ee0e1849f26f204a12418f114a08149d1a0adfe4215c66eec0611caec728"
+    sha256 cellar: :any_skip_relocation, sonoma:         "343f81559c6ac68edf4078b669a86f340f9e92ae3190addaf487c56c1e6d0004"
+    sha256 cellar: :any_skip_relocation, ventura:        "7421e6efc0999e1d2738bf31b1ee537401a35b34cde583f9de37a1aebcd406ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "dd08c584ec7198768c9ff05ae6ffddb912a5823aa0b412116bb745125008e70c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9bdbb8583fecb3b0c0788d66d489ecb92e48f6cba6464d9b9de21fe79e4104ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c83aab3ecca4d38786c786887b2a2e47bf06f9095486ca91676244c44770ba0f"
   end
 
   depends_on "go" => :build

@@ -7,9 +7,11 @@ class Xplanet < Formula
   revision 6
 
   bottle do
+    sha256                               arm64_sonoma:   "1092db3b7841f3a9e16d41baa7b4370ab212ec0523275e2b96cad8f2235873e7"
     sha256                               arm64_ventura:  "aa69c74fc48645353401ccfeb35f7bf0527b696f34523754e2c81077459bbc64"
     sha256                               arm64_monterey: "07924721350d8ca211611b26b4e78729062cb040cb1031f88d9fb621106cbf60"
     sha256                               arm64_big_sur:  "a1c93cfbcb085731799a2e3d94c0f4f14b5ef962dbf3f001660c17790faa5a29"
+    sha256                               sonoma:         "3a688306c871799a9ec418677bcd9b38bf3ed7eefa80b0433f681cb59c5fadc4"
     sha256                               ventura:        "e567fd98fcd6d0f8903ee632f21b6658756eaff80d46de2730a91d0e600289dc"
     sha256                               monterey:       "0d4fd995ed8518e11c0e7072dba0364b8d9db777625a114aab6696ab927fadf7"
     sha256                               big_sur:        "227cbd44a9be2502a24f459725881e7705263af1a00ae53e38a8cc9b111b87b0"

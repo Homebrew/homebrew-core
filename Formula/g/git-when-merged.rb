@@ -14,7 +14,7 @@ class GitWhenMerged < Formula
   end
 
   # TODO: Update this to whichever python has `bin/python3`.
-  depends_on "python@3.11" => :test
+  depends_on "python@3.12" => :test
   uses_from_macos "python"
 
   def install

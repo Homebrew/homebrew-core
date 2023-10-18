@@ -6,9 +6,11 @@ class Menhir < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "39d4fed859248a6aced0a8cacf4505a247b6b85be62f5b424ff47143f1c4876a"
     sha256 cellar: :any,                 arm64_ventura:  "b5f3471fdeedef8360e4ef1a220787993578205fdf64b34bfe52eaf426ad40a0"
     sha256 cellar: :any,                 arm64_monterey: "b092e36031f47030e59839d5fd05d321317ace2cd20a83f0ed952a416bd0a90e"
     sha256 cellar: :any,                 arm64_big_sur:  "14f19b612756c58d8c935598f6f6a8f7b11f405a1cb3b7dbad0fe6063e941f3f"
+    sha256 cellar: :any,                 sonoma:         "49bfa69329f007bdbd7cc2679a3c6cfe7bb929839b226c842cc409613ba2588f"
     sha256 cellar: :any,                 ventura:        "03f6d47c1c894c0892a536dc0abcf744039b747bbe707880024d491c16e8a9ac"
     sha256 cellar: :any,                 monterey:       "17a7165e6c26f622e431953ab5a9723b36035d31dc2296768dda298f5b0995e0"
     sha256 cellar: :any,                 big_sur:        "d1cace7fa759e156a78d1e3f2e71723bb0971e549a64c16dbea5f206ee028aea"

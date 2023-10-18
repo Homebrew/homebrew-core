@@ -7,9 +7,11 @@ class Mpg321 < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sonoma:   "bc5cc2c87722e58a84ceda3af28b4f75296fa6e5d2dbcdde666dec260630b239"
     sha256 arm64_ventura:  "5121567767b2da54cd4eca9c38f941dcd99000c53e46c9e3e6029a82e54e5712"
     sha256 arm64_monterey: "aae6a0f70e06529f68c1f32ae77ab30d733993989aebd4680e49f84b3c26afe2"
     sha256 arm64_big_sur:  "f3ba496b39e008dfe0e2b92c4d5fcc55f3040eef0cf45bfb29eec86f618929de"
+    sha256 sonoma:         "2a8a8d62e31f30e06993933168dceef1620b35e863b28317e0d734472e56582e"
     sha256 ventura:        "dc2cc77c92a01c5fe94ad0fbc467302e47f38743e8a3ac4d66d25b3e38c19a6e"
     sha256 monterey:       "5c160696795a2cf4262e4183ca91e934c70828b6af8de77479972b3e640247e9"
     sha256 big_sur:        "8e0c58eb4f9a91375d28cf616563733a91baa1d06dd66317826d096c48a277a6"
@@ -35,6 +37,12 @@ class Mpg321 < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    # Fix compilation with GCC 11
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./configure", "--disable-dependency-tracking",
                           "--disable-debug",
                           "--prefix=#{prefix}",

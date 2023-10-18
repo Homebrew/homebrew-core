@@ -20,9 +20,11 @@ class Libdvdnav < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "77516e8cb99cad1e25fd119a6c573e0fb9c96b5ed7685f1222b9f76a5d1d1013"
     sha256 cellar: :any,                 arm64_ventura:  "77a874039ce80696ea655e95514dc26776a34f1c9675f583ebc0b9ae083be84c"
     sha256 cellar: :any,                 arm64_monterey: "efafd019d3a0cff8710e286c2fd7817865b1be5ff539c39639c71de9f61d9c50"
     sha256 cellar: :any,                 arm64_big_sur:  "e3ea0ddda7b96b799c2a67fd6687c25679001e2dc3893f200c70d4a599bc3996"
+    sha256 cellar: :any,                 sonoma:         "1652846a6a793bc010056d0720931b73ae544fe5f378681b3223b9595b8b41be"
     sha256 cellar: :any,                 ventura:        "53d1dde0566dc12fe4e804d379d7b7cdfdc411dae8b290e866517c6f1023b796"
     sha256 cellar: :any,                 monterey:       "56d2c8450b882b776d5935a138d8031585366f59a740ea26db871d06c94d7d95"
     sha256 cellar: :any,                 big_sur:        "cabd25ecc0df8a3729e7196737e56041d8d6b9f369972d66de1ade19b4bfbafb"

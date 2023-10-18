@@ -6,9 +6,11 @@ class Jless < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce76bc45d945ae9210c3ede829ae8dbf7087faffa41f8edd18887566aca9a944"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5950521cf007e81591e09fb2f7f2b85e704609fa7cf9aa035125343e2fc7657e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d1c870a901478c8084488d128b0baf7a3859e5d53b6cfcc048fe0418d96e1552"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef4ca6e6317cf02257759c994f95cb3a35aef960cb7abb2babd3c94f49eeff1e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4ec22c222b62c7e7439eff8d357a841aff831c1e544c58de3bf0c8d56ba32f45"
     sha256 cellar: :any_skip_relocation, ventura:        "5fd473bb7164c9c5ea0ce8695e0c1aa7976a7acf914455c3ddde42c24d3c25c4"
     sha256 cellar: :any_skip_relocation, monterey:       "d89da34d0330ce44f59bc97d83fff9c2e1851210587d1e5fa69b4b9d6ec784e8"
     sha256 cellar: :any_skip_relocation, big_sur:        "ebeed1f09b8a73d3918d0123d2d9dbc26da31d40be642f6dc6a9d9d02a7ae972"
@@ -17,8 +19,9 @@ class Jless < Formula
 
   depends_on "rust" => :build
 
+  uses_from_macos "python" => :build # for xcb < 0.10.0
+
   on_linux do
-    depends_on "python@3.11" => :build # for xcb < 0.10.0
     depends_on "libxcb"
   end
 

@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Open-source distributed event streaming platform"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/3.4.0/kafka_2.13-3.4.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/3.4.0/kafka_2.13-3.4.0.tgz"
-  sha256 "67025feb03eb963a8852d4adc5b2810744f493a672c5992728955e38bed43da8"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/3.6.0/kafka_2.13-3.6.0.tgz"
+  mirror "https://archive.apache.org/dist/kafka/3.6.0/kafka_2.13-3.6.0.tgz"
+  sha256 "e10af3f30d720d183d604a299b5e1b33c896e19eb672e601949d8c6dcc951489"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class Kafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "563718c3e8b37ed6e6fb7c70b7f03cf77f79439be7f07e48b2e6b596189387ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "81209b8ead942df98c4972e05fb8499d0ae987681adcd9ec9e5d714ee702c44c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "819102974d57365dab3a009bf793e43935e9ee0d1e70c3202c1fa9c45fa3aaeb"
-    sha256 cellar: :any_skip_relocation, ventura:        "aa2865ded7a9001ed89cfa90c3758d25e3716096dfd91f11909dacc5ff0d0faa"
-    sha256 cellar: :any_skip_relocation, monterey:       "e51aed7bfeb7e4a8928a14cacb25802ce778e28ad61db16faf8ce855706bdbf7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8f2a380a432eaed351ef6bcd539bbe4dc71b4d526858192867b96b85b80c6729"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "890e6a2a5fa039cbb46dbe3e31573516ac294824a9f2b3f7dfda559f753e0590"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
+    sha256 cellar: :any_skip_relocation, sonoma:         "087ff27b7e84531b1b3b755c75a175665dacfbd6e8a23487309c27a085342a4e"
+    sha256 cellar: :any_skip_relocation, ventura:        "087ff27b7e84531b1b3b755c75a175665dacfbd6e8a23487309c27a085342a4e"
+    sha256 cellar: :any_skip_relocation, monterey:       "087ff27b7e84531b1b3b755c75a175665dacfbd6e8a23487309c27a085342a4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
   end
 
   depends_on "openjdk"
@@ -68,6 +68,10 @@ class Kafka < Formula
 
   test do
     ENV["LOG_DIR"] = "#{testpath}/kafkalog"
+
+    # Workaround for https://issues.apache.org/jira/browse/KAFKA-15413
+    # See https://github.com/Homebrew/homebrew-core/pull/133887#issuecomment-1679907729
+    ENV.delete "COLUMNS"
 
     (testpath/"kafka").mkpath
     cp "#{etc}/kafka/zookeeper.properties", testpath/"kafka"

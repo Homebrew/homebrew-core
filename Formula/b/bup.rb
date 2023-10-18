@@ -7,21 +7,25 @@ class Bup < Formula
   head "https://github.com/bup/bup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bb46a019407e6c7ee72bc421c5bd3ed63d35cc86af160edc2d589fbb1f775b7f"
-    sha256 cellar: :any,                 arm64_monterey: "cd481ee1377e13c638c9cccfa11100e48a0bd959da4885b43c8e11d7451034d1"
-    sha256 cellar: :any,                 arm64_big_sur:  "83ff925b58003d8636f0a84b04f25433ed6b5ead1228782561ce9f6e07cff34f"
-    sha256 cellar: :any,                 ventura:        "565a89a883b428cc9f5cd9e7175307a950da1e9cea33fd259a75a75b60157480"
-    sha256 cellar: :any,                 monterey:       "6f04f6b3b8705d984061cf1fa31a584494d54a0cba9d4931c284249d848d83b9"
-    sha256 cellar: :any,                 big_sur:        "878ff99437d3ab084517ad1d1d48637e0750b2d762248a7beef53401f4ecbdc2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3f8a0520a6aec3025fe0c4b75c7bc0b121cfb58c78f6adf859737d51dfabadf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c06dfa40708ec8158912d6a2481ce6cfa39e829396b063f7c9569df6e6829dad"
+    sha256 cellar: :any,                 arm64_ventura:  "755c4ac3f23e711c306b88bd5b03cdcfab1e73e41c90d9a6685d79dab634fd2b"
+    sha256 cellar: :any,                 arm64_monterey: "49effff9f3e42a0792da444b5c77443f76427e468c7a5bfe590d6e55763a82f4"
+    sha256 cellar: :any,                 sonoma:         "1c547df49d99f8236584da0e156d3d67f18b0e591cc7ac51804d1c978aeba2ab"
+    sha256 cellar: :any,                 ventura:        "96bf06e4122558f11037fe1440f379281a95481167b00dc107cfc0d16dc22214"
+    sha256 cellar: :any,                 monterey:       "e8c288adf042f124d177e962666c338a9bed36d1b15bc84971ccccae4de87fe4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82cac0e032e3274d89d678c1d339fe90b4a43d805d16a120579d41855dd29de7"
   end
 
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11"
+  depends_on "python@3.12"
+
+  def python3
+    which("python3.12")
+  end
 
   def install
-    python3 = "python3.11"
     ENV["BUP_PYTHON_CONFIG"] = "#{python3}-config"
     system "make", "PREFIX=#{prefix}", "install"
   end

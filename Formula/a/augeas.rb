@@ -13,13 +13,14 @@ class Augeas < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "645ef0a289b82eba6c529784382de45763432457902402b9c33c5818387edb3a"
-    sha256 arm64_monterey: "a1cd27ecd44f8e69c9e54433cbcfdee18d20f3a35f3b94e048f8b520bca045a8"
-    sha256 arm64_big_sur:  "677f8c16ca36a6360acba59123d166dfa336f5e8c419263c0732ea50e018e675"
-    sha256 ventura:        "8642b0d19d8a11a1d7f46deaa63cb96b9108f1511e82072781bddbccb82aa607"
-    sha256 monterey:       "aeb35b8dd081642befbb5f67a373d06e459b70aab03f4954e76ab0d217a230d4"
-    sha256 big_sur:        "42c50013aa4e9134aa5306762ea0e022057166b311ddd6dab0e74374a0ff42e0"
-    sha256 x86_64_linux:   "bbb9c2c8b61a5000b52927daccca19cc9eb3a3d22d0a1d911d67da52a0a0968f"
+    rebuild 1
+    sha256 arm64_sonoma:   "72892294927f45da15836ea628404d5ea93597344d93dfe1ba3889dc9c1daf68"
+    sha256 arm64_ventura:  "9d42d73d125f3aa9e859ecf4e0029b9e0e4a9354b166d7d7d96e4753bf99348c"
+    sha256 arm64_monterey: "6ce2ccf218f4ac51eae364b50a74eae014820ddb0e2073700da3e8b3b58735e3"
+    sha256 sonoma:         "8a2fe89ec726bcc30aeb669014f3a22dee5f5d649cd35f32839fb41f01ac1e10"
+    sha256 ventura:        "9ecddaf5c923d43477fcd22de3949bf85bdadd5c69c424af840e7e636ecd47de"
+    sha256 monterey:       "39ec06ee5c541c591d89ed0770a9b6de354f4df19413217d70eecf272e4662b2"
+    sha256 x86_64_linux:   "b42ec1edf00ea7a66acff5ea7286a68b5bbbfa49442a3ab818f8c6c13eafdb32"
   end
 
   depends_on "autoconf" => :build
@@ -31,16 +32,17 @@ class Augeas < Formula
 
   uses_from_macos "libxml2"
 
-  def install
-    # Workaround for Xcode 14.3
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+  # Fixes `implicit-function-declaration` error
+  # Remove when merged and released
+  patch do
+    url "https://github.com/hercules-team/augeas/commit/26d297825000dd2cdc45d0fa6bf68dcc14b08d7d.patch?full_index=1"
+    sha256 "6bed3c3201eabb1849cbc729d42e33a3692069a06d298ce3f4a8bce7cdbf9f0e"
+  end
 
+  def install
     if build.head?
       system "./autogen.sh", *std_configure_args
     else
-      # autoreconf is needed to work around
-      # https://debbugs.gnu.org/cgi/bugreport.cgi?bug=44605.
-      system "autoreconf", "--force", "--install"
       system "./configure", *std_configure_args
     end
 

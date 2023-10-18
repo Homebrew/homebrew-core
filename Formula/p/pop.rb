@@ -6,9 +6,11 @@ class Pop < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dfda627b23f5fe1cef94ea1f9932edcd93f8930af29e6ded7161546112e30e60"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "03eb314794237b4fc005f0d7128d4679dda5415979c7ee28646d8c88f176a696"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "03eb314794237b4fc005f0d7128d4679dda5415979c7ee28646d8c88f176a696"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03eb314794237b4fc005f0d7128d4679dda5415979c7ee28646d8c88f176a696"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6d3084e9113707d91e78dad216111b682b2a3d3e69a2113f16bdd1afbf154815"
     sha256 cellar: :any_skip_relocation, ventura:        "4e17cddc694a0d7da02829d8dd7039dad792b31801468cd13beac526a0855d2b"
     sha256 cellar: :any_skip_relocation, monterey:       "4e17cddc694a0d7da02829d8dd7039dad792b31801468cd13beac526a0855d2b"
     sha256 cellar: :any_skip_relocation, big_sur:        "4e17cddc694a0d7da02829d8dd7039dad792b31801468cd13beac526a0855d2b"

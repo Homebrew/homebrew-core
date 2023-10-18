@@ -12,9 +12,11 @@ class NodeExporter < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9898ffbf728bfba909d808162019ed1f0771fbd28ef90a29496e7418a23dfe52"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8cae73e819d8b58983cfbcb2500e406acb8846b2dfbb9d9945bf01843f699936"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "221dc6a72fbed73d439e58e34a5afdd1cc42880b517865c5d535873774cdde3f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc32594b9b12a5285e48aab4b7a1502ca0ba4e25109ece2ee115159a37de2108"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fca0917211e872f59f618dc41a4a456d726d18296c202e0704c56d2b795afd80"
     sha256 cellar: :any_skip_relocation, ventura:        "1f5fc236847e29a3f2eaf31fd801935a2448e5c75ae0af72fce44fb5e34e4360"
     sha256 cellar: :any_skip_relocation, monterey:       "b2bfcd925ad88c66c92b9cfa234c478ca5ac4b2b7217911f9af26dbbce3446e5"
     sha256 cellar: :any_skip_relocation, big_sur:        "733c760bcb42a72ac6967ebcc6d3e4525bc92ad92c450772c48bfc85b2cf5b00"

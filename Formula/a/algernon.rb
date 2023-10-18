@@ -1,8 +1,8 @@
 class Algernon < Formula
   desc "Pure Go web server with Lua, Markdown, HTTP/2 and template support"
   homepage "https://github.com/xyproto/algernon"
-  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.15.3.tar.gz"
-  sha256 "38dfdda60b0a29d0c22b8a2b0ad549b66d554d1e4f076c76722b532aa281d2dd"
+  url "https://github.com/xyproto/algernon/archive/refs/tags/v1.15.4.tar.gz"
+  sha256 "8db84c35fcc87e0a376a44e7406d6168a7c90a588c7a4045c6ede272a5d9a3c2"
   license "BSD-3-Clause"
   version_scheme 1
   head "https://github.com/xyproto/algernon.git", branch: "main"
@@ -13,13 +13,13 @@ class Algernon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a5fbc78f56e52a4936aad2b6b8cf7df79bc025d2fdacb46c215c8d608c5095f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a5fbc78f56e52a4936aad2b6b8cf7df79bc025d2fdacb46c215c8d608c5095f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a5fbc78f56e52a4936aad2b6b8cf7df79bc025d2fdacb46c215c8d608c5095f"
-    sha256 cellar: :any_skip_relocation, ventura:        "385a17d4bf85d85ca448a5b80dc5f36c4ed4e76efc5b9f5d350217d66df1fcdb"
-    sha256 cellar: :any_skip_relocation, monterey:       "385a17d4bf85d85ca448a5b80dc5f36c4ed4e76efc5b9f5d350217d66df1fcdb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "385a17d4bf85d85ca448a5b80dc5f36c4ed4e76efc5b9f5d350217d66df1fcdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e220fe9c18b40e21f33e2b49ec620a3b5b5d8f962c70aa3e06f0c652b6de45e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24558ad7b97461868b11f0a4875f3bc651bf3e0c727904e11a415ec29d6457cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f98d158a36c9db94115d9713bc7d263e7804115c76d6a71b1f240291e5c5f19"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3770da7df5afaa4df02e22706dec62fbc7aa1c94d491a99894357ce19553f061"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3a2c4909cf0a6bf4b8b16e05a896cddd65d46807dfe2e6fd43f8792377a7dbf9"
+    sha256 cellar: :any_skip_relocation, ventura:        "df303dd25f162500037e2e8786a20e8e4347722656e4cc0bb3919b74a3d0eac1"
+    sha256 cellar: :any_skip_relocation, monterey:       "2965d400e4b41fa3bfdea618df5c68715afeb0b4723017c4ca75ba8367fb796e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30636912403d2f6ce957c4f8ee66f90e45f58aa534d9ae49bf914b5bf6222b60"
   end
 
   depends_on "go" => :build

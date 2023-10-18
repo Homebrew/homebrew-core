@@ -8,9 +8,11 @@ class Ijq < Formula
   head "https://git.sr.ht/~gpanders/ijq", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ca1f0ee5bb2cc9c4cc06b26944fc3678035a67620ef4c284272b35188e3f008"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "564d6d6f157700d1d0869d3340186bbf6bf8325314954804d8d9dbea45d9fe63"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9a7ea5d89f9eb6e575d2b4f3a5667364d03fccb1373207e6f6f226544f23a3d0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f215c334ffea9e2ddf51319ac5b80a9b0ecab7e1d652ac8b72eb22534a8dae05"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e987b411771836c35c0843de0d87878e8cc4068487c21ff55cf220e115696997"
     sha256 cellar: :any_skip_relocation, ventura:        "db72d1ed855f451cfb0e8e4f5ef6565e89b273e26d22635186aeb7a764eca033"
     sha256 cellar: :any_skip_relocation, monterey:       "47a030fd33f08d4888a73b3ac03135fb8493bfabeaeea13231143393cfb42be3"
     sha256 cellar: :any_skip_relocation, big_sur:        "16b7b6a8c95d9a8ba5b2f5610438c70b0b139e279910f88e823bb1239e53ed7d"

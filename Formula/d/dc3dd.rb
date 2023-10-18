@@ -6,9 +6,11 @@ class Dc3dd < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "31e4adf9ec3c885a693cc149e6319e6ca2b4e8af140a4b72c6a537196daa2e21"
     sha256 arm64_ventura:  "e0f138b256f063d582d624d041ff18933e3cdec9921cbea06b4500f766a6a2cf"
     sha256 arm64_monterey: "f77cd62b64d5ae2680254fd0568f82a5cc86afe8340d9cf523b54e88c9ad1f26"
     sha256 arm64_big_sur:  "a4f247d8b8f6f68e697c325989fd79d1c019e7d8babcbd48d0327480a676c43b"
+    sha256 sonoma:         "45804b97f88239ae78085257aee9c32a397e183d8f83035cd84d0a8fb4d2aa66"
     sha256 ventura:        "f65cccfafa99f62c687eb87c64cfdb3492f8050e86a268045d73f53f5c5dfe97"
     sha256 monterey:       "b8270f518be57090a150e2d78048b8f2e6a81e16092007e48bef6e5e567a4cf3"
     sha256 big_sur:        "f61a5f9196c0c30c9087d92b22522db1c344137406a3272381add30d49c9621f"

@@ -6,9 +6,11 @@ class BitGit < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a28f8da02e22757fa2d836e5767926918410ab8f85f7e46ea330d5d5255b937a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "82fc55cd7f3b2e7fa64bb366e4ca6e9024510df3e734e8e54800dcbda8870c77"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5ec8c891231ff16cf80a718430dec65bea587391dc0ebe31494fea95edb44723"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cc0139db7fef5d988bd822b90f8551d8ed5a5cdccdcc71520ae6f326cdad89ac"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f1848708a2ca3bf3ad52aad8e4005adc464b824da5b38c3eb69bc80d9c8979d5"
     sha256 cellar: :any_skip_relocation, ventura:        "23bc09ee2722746a76d3fbd4dba8d4f8d9adceba6e558c2f92ba051f385081d9"
     sha256 cellar: :any_skip_relocation, monterey:       "e80cd43fa56f86ba282f2f91ca68336eecc331119e78e5757e53a3c4c5f9fe37"
     sha256 cellar: :any_skip_relocation, big_sur:        "f321a7d78c247054446dfbd07a46de743a36ad591f034e2e81c93b443741288a"

@@ -1,28 +1,28 @@
 class OpentelemetryCpp < Formula
   desc "OpenTelemetry C++ Client"
   homepage "https://opentelemetry.io/"
-  # TODO: Check if we can use unversioned `grpc` and `protobuf` at version bump.
-  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "19e8ade04a674c8cf7f0dc6da1f7b0583a27d2cf4dbc03df87894a16a4547834"
+  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.12.0.tar.gz"
+  sha256 "09c208a21fb1159d114a3ea15dc1bcc5dee28eb39907ba72a6012d2c7b7564a0"
   license "Apache-2.0"
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "de744b63cdd56736dc5009b45226b95d1b92777746c1694e2074ef3d296be357"
-    sha256 cellar: :any,                 arm64_monterey: "ce39b15daeaa4d969237e6cebc8a08e7db522132b2a37f845253b407363910eb"
-    sha256 cellar: :any,                 arm64_big_sur:  "01e3bbe7ddb28bb37c8eb63c062e7e4e14511cffeb6e7eacc03a574389d91b19"
-    sha256 cellar: :any,                 ventura:        "c774edb06f689c87c3234ec83fd207d04c3ba548604c0ecdda07ec94d1d99189"
-    sha256 cellar: :any,                 monterey:       "8b348e4c0f7b23200c1e95609152c91f5abcff35dcff53f4575026ddb24d3793"
-    sha256 cellar: :any,                 big_sur:        "0abfc2f525e2494e29389b6d497a830388334d41803df822c5c1515631c6a26d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71b52bdb1602500dd947ce4d6361cf6805e9f3d691bd4f8b2214ece5d1b2b053"
+    sha256 cellar: :any,                 arm64_sonoma:   "9d523af87d04b0d5fe6a5aaa5d3bfffa8c4565e92b96d396ccac9759dfef91ec"
+    sha256 cellar: :any,                 arm64_ventura:  "9a237e7c99689f1ad0a97e9919ed84a1fc39054c74ad6878b9b7f2847056c740"
+    sha256 cellar: :any,                 arm64_monterey: "6b4c3b8bcd942843db0e04a0be7cdf0cd69304d63b80dd832818f18d863fd3a1"
+    sha256 cellar: :any,                 sonoma:         "b10546ddf975f77c8e74d95f9dc15ca336e4757e8f4fc9241d7cb82a05e62812"
+    sha256 cellar: :any,                 ventura:        "272fa5526555ac3e6b721bc0d2da12e6deaec5874b5d606cf4fb965d509be9a6"
+    sha256 cellar: :any,                 monterey:       "e0e430615532c53d310bae8b6f8f074fe0b6e3a079fe34c3f4bd0e96031f4f23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a5f5842d49317e09fd9a687eca6556fb8ce2beea36b3c98e290fb024f7f6515"
   end
 
   depends_on "cmake" => :build
+  depends_on "abseil"
   depends_on "boost"
-  depends_on "grpc@1.54"
+  depends_on "grpc"
   depends_on "nlohmann-json"
   depends_on "prometheus-cpp"
-  depends_on "protobuf@21"
+  depends_on "protobuf"
   uses_from_macos "curl"
 
   def install
@@ -34,10 +34,10 @@ class OpentelemetryCpp < Formula
                     "-DWITH_ELASTICSEARCH=ON",
                     "-DWITH_EXAMPLES=OFF",
                     "-DWITH_JAEGER=OFF", # deprecated, needs older `thrift`
-                    "-DWITH_LOGS_PREVIEW=ON",
                     "-DWITH_METRICS_PREVIEW=ON",
                     "-DWITH_OTLP_GRPC=ON",
                     "-DWITH_OTLP_HTTP=ON",
+                    "-DWITH_ABSEIL=ON",
                     "-DWITH_PROMETHEUS=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
@@ -72,10 +72,9 @@ class OpentelemetryCpp < Formula
         auto scoped_span = trace_api::Scope(tracer->StartSpan("test"));
       }
     EOS
-    # Manual `protobuf` include can be removed when we depend on unversioned protobuf.
     system ENV.cxx, "test.cc", "-std=c++17",
+                    "-DHAVE_ABSEIL",
                     "-I#{include}", "-L#{lib}",
-                    "-I#{Formula["protobuf@21"].opt_include}",
                     "-lopentelemetry_resources",
                     "-lopentelemetry_exporter_ostream_span",
                     "-lopentelemetry_trace",

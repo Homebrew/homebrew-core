@@ -1,20 +1,19 @@
 class Ttyd < Formula
   desc "Command-line tool for sharing terminal over the web"
   homepage "https://tsl0922.github.io/ttyd/"
-  url "https://github.com/tsl0922/ttyd/archive/refs/tags/1.7.3.tar.gz"
-  sha256 "c9cf5eece52d27c5d728000f11315d36cb400c6948d1964a34a7eae74b454099"
+  url "https://github.com/tsl0922/ttyd/archive/refs/tags/1.7.4.tar.gz"
+  sha256 "300d8cef4b0b32b0ec30d7bf4d3721a5d180e22607f9467a95ab7b6d9652ca9b"
   license "MIT"
-  revision 1
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "69a099f652a4627ebd1883cf6f30ffaf24d10860f09ad70f165d1d325cef8df1"
-    sha256 arm64_monterey: "904dc5cfb60de817fceadfe24656122a3afd9ec4aa7f9e66d7a6adfeb2da2b5c"
-    sha256 arm64_big_sur:  "f59972a5107ab4f0db65881a886b6305d1c85cc7cabdc1c63c9019e059f58653"
-    sha256 ventura:        "bf497b4d9a89b2a0fe3298e41b114aaf15745b30600a58867465c25a5c2690ad"
-    sha256 monterey:       "714cce29332912b168fb7f3bb5c96c94804b88051d906bccc8d2008361e9497e"
-    sha256 big_sur:        "4c565f05abbe15174806522d06bc5b764544c1c4cc5ab48d97ce886d4d5af108"
-    sha256 x86_64_linux:   "3d8bc1f21cc6c9f0d94e3e74bcf60adb9be03f06dd7b49f5e2d16b4212b052c9"
+    sha256 arm64_sonoma:   "c9adbdd1216b21fccbb48c99710476e3a775ae674fa7ab9917bcf460c87b4756"
+    sha256 arm64_ventura:  "14e4f30ed9d013899611d906d9763d9d69063789395d7cce1bbb51a11b643956"
+    sha256 arm64_monterey: "0223ca1acdd9631e08afdf6527b34b1cea5f16af32b96cea9e03d3035118e090"
+    sha256 sonoma:         "c757a2bf373d1734ec14eb11140df2ba9eff849af8f9c727b2385b4290eb6313"
+    sha256 ventura:        "c2ad72104df43b4988adcbe6eaaa74fb2ced88c96aa428c5fd3faff04d14a0ba"
+    sha256 monterey:       "959512318be4738c518d62f7113a111f3c49329e7e55b6e6aabc618a9c0e838c"
+    sha256 x86_64_linux:   "351b9e02f3a2083a20b29002d114a398e223d1581d30a7859e0846690060025c"
   end
 
   depends_on "cmake" => :build

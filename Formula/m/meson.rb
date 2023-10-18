@@ -1,20 +1,22 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/1.2.1/meson-1.2.1.tar.gz"
-  sha256 "b1db3a153087549497ee52b1c938d2134e0338214fe14f7efd16fecd57b639f5"
+  url "https://github.com/mesonbuild/meson/releases/download/1.2.2/meson-1.2.2.tar.gz"
+  sha256 "4a0f04de331fbc7af3b802a844fc8838f4ccd1ded1e792ba4f8f2faf8c5fe4d6"
   license "Apache-2.0"
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9406d5874fbda9762088d746cc03f858530c68af2685d36d8e3ab3a125f5e274"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "4b8fa8d6f17e912e96e3ad43475f44c3ba3ce8c5a43e45f8ea03b52fc517d797"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "ninja"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
-    python = "python3.11"
+    python = "python3.12"
     system python, *Language::Python.setup_install_args(prefix, python), "--install-data=#{prefix}"
 
     bash_completion.install "data/shell-completions/bash/meson"

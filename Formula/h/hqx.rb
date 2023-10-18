@@ -8,9 +8,11 @@ class Hqx < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "1d690216c9ec6dedb23e318b8d83da3687dcedf9f1a533ad59e58e6fcf6be39b"
     sha256 cellar: :any,                 arm64_ventura:  "83b6c8f9ae3cfcf01fd4745bf1170829206069830a119324cf382c7a258ea66b"
     sha256 cellar: :any,                 arm64_monterey: "09abea6af7106f8bdcf0e58e7b17cd91e1c22074139596a2c4f23afdbf9c9a07"
     sha256 cellar: :any,                 arm64_big_sur:  "d782e36758fe3e2a3b354a3c9e021078230934c2bbc2bd4f7043cf7ad570f542"
+    sha256 cellar: :any,                 sonoma:         "4f96059b9bb168ee276f6cd0ea67f3f21240c03682dfb57ec3b672258100ef57"
     sha256 cellar: :any,                 ventura:        "dcf39c5df3a0caa4b58e68cf62d77fb1f5c75fdfb1c2d1cd31dab8ad263d69f5"
     sha256 cellar: :any,                 monterey:       "3d8f69b255851ecfcefd4ddaf2011eb70a2a038868001194fcff7f87c777c891"
     sha256 cellar: :any,                 big_sur:        "8eccb719985ba896880e42efd7266c24ee920c3952441ac90f8fb327c875b1c0"

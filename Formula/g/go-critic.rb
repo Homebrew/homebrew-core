@@ -13,9 +13,11 @@ class GoCritic < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a9e3b34f56a4617dea67cbc0959f69f8c88833fdf05035de344e200b4e4f99c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "751a7ba33d429ec2457ca8ba92275cdce9b15bc234ea8fd962ca1b5869bd6461"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "751a7ba33d429ec2457ca8ba92275cdce9b15bc234ea8fd962ca1b5869bd6461"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "751a7ba33d429ec2457ca8ba92275cdce9b15bc234ea8fd962ca1b5869bd6461"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0cacf6d3ad070b6ab22aa2f6f01386d3ecde6694162e18b28c753e0f5e91bbc0"
     sha256 cellar: :any_skip_relocation, ventura:        "643274fa569b56452578647cda64676c9d53ef5c22c02d83e0399e2bff6696f7"
     sha256 cellar: :any_skip_relocation, monterey:       "643274fa569b56452578647cda64676c9d53ef5c22c02d83e0399e2bff6696f7"
     sha256 cellar: :any_skip_relocation, big_sur:        "643274fa569b56452578647cda64676c9d53ef5c22c02d83e0399e2bff6696f7"

@@ -1,13 +1,13 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.1.2.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.1.2.tar.gz"
-  mirror "https://www.openssl.org/source/old/3.1/openssl-3.1.2.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.1/openssl-3.1.2.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.1.2.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.1/openssl-3.1.2.tar.gz"
-  sha256 "a0ce69b8b97ea6a35b96875235aa453b966ba3cba8af2de23657d8b6767d6539"
+  url "https://www.openssl.org/source/openssl-3.1.3.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.1.3.tar.gz"
+  mirror "https://www.openssl.org/source/old/3.1/openssl-3.1.3.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.1/openssl-3.1.3.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.1.3.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.1/openssl-3.1.3.tar.gz"
+  sha256 "f0316a2ebd89e7f2352976445458689f80302093788c466692fb2a188b2eacf6"
   license "Apache-2.0"
 
   livecheck do
@@ -16,14 +16,15 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "904a07d94bd731815d2db4c92abec9b90132cb9b0fb1c83a2906c364f9665b04"
-    sha256 arm64_monterey: "6333d8c662b8aa2854e99d7f1a8d0c243a44731bd61134ae3cbe4201a882bbec"
-    sha256 arm64_big_sur:  "6a0a17074695a4da0066543cdd23e8e4904ae718108b6415a9daa23af97ad0df"
-    sha256 ventura:        "2bea791e9eacc59e0a9099065f3229afaf2b68a9b7b3136ec508103985b1176c"
-    sha256 monterey:       "0acd29c85897b753de593d47bebc262fa5912cee2de65a041852ce5adb62a04f"
-    sha256 big_sur:        "23b87e2e71c62a0128d1731af6e9a2d2eb4b741319b257e52aacb6994b7b6414"
-    sha256 x86_64_linux:   "8e331173f849ca5d02237f086b80568aff17dba7741a995021e3787da6b0434f"
+    sha256 arm64_sonoma:   "fd6e90e00f1c395feb60d0244eb66583caab494f8e0a0988afaa838511265d98"
+    sha256 arm64_ventura:  "297a2c1c5cc8a43dd60afd548326caf13e2b5ebefe56215068d7b1aafd3134ae"
+    sha256 arm64_monterey: "69ccfadb162202358150af54d1df8f454745b8975f9ca0694a34a1eaf0c26982"
+    sha256 arm64_big_sur:  "becff25b568741734f1026bfadc774447a66b025e91630e75b9ad8f0bb2250cb"
+    sha256 sonoma:         "b3c246dae84e6fe84b9c1a896bf7392aa457667c580509c6161d71e440636d1e"
+    sha256 ventura:        "2cc86941823ff633c21ef3533d7a106c4bddbcb35adac8fa6ef2d039c0860cdd"
+    sha256 monterey:       "f563de8198ba01ba3549d496b0775314619dba70ac8b2583ac76e3a5646b850f"
+    sha256 big_sur:        "54a0798dcff31fc2840554213157b1acd31ee862ccce8554dd3c6860583178b7"
+    sha256 x86_64_linux:   "bd50b79ca656395601c950729ac37ae2eb6cf798a38169dfe1902b675cb9e52f"
   end
 
   depends_on "ca-certificates"

@@ -6,8 +6,10 @@ class GtkGnutella < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "ddc6e4c9efc0894d47b720852b568a33aaf32b81d646ceccdd439566861b2295"
     sha256 arm64_monterey: "dfc1a6e5ea48981b08e4ec2a74dbf2e60204c0577ebd42512252dfd465dfb312"
     sha256 arm64_big_sur:  "e6569a85d4d46b2583050ab09c1716ebabef593d560c07808e9530a629b5db79"
+    sha256 sonoma:         "7e0c1b7fff9c8672f6669292140dc81023f41449c53d1b4592c93a1172ba62e6"
     sha256 ventura:        "5f6a18f45f5ad9b696d4511a7f52de34440d2613d91e560a66232dc6a1ace873"
     sha256 monterey:       "50e16867768e56729aa34a8a8b96a103652b056c508744542cf1108d11a9937c"
     sha256 big_sur:        "92c2fcc1744502b5b1baf63ad167e70414c0434ad2d7aaf6598bfd2625ed8c5f"

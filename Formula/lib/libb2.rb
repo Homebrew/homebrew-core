@@ -6,9 +6,11 @@ class Libb2 < Formula
   license "CC0-1.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "52cef2730b3520e99f75f1478f2b953dc46e362a8dbf90f2c6a9028b47bbb8bd"
     sha256 cellar: :any,                 arm64_ventura:  "6c9ffaf08fde8879febf2998a289d6e9bfa505ed29cdf5f4c41d52a632c11f1e"
     sha256 cellar: :any,                 arm64_monterey: "fa45f83dfa716f0f69bb395eeb3016c9cc3223c975b64bed5544304e0eb4cd2c"
     sha256 cellar: :any,                 arm64_big_sur:  "7713b483f3474a3531c5830bbc8de7ad1903989e55e5da3ff5bfd85e87c5c045"
+    sha256 cellar: :any,                 sonoma:         "747d5e721f9fae99dbc96b9091a4e9f237919f812723d24965846523782b7381"
     sha256 cellar: :any,                 ventura:        "cc245560dda3edceb402702f3066f6aeb5c526e93dbb2a1e06bc02139d6154c2"
     sha256 cellar: :any,                 monterey:       "f526645f4114ef85c577d611383bb7e0acdc2697719caa73cd8677260b516a25"
     sha256 cellar: :any,                 big_sur:        "7e21b980288ef9449cb44a4b2d33a0d0772b0482165c9ee5f12d42b71b357bc0"

@@ -5,9 +5,11 @@ class Gibbslda < Formula
   sha256 "4ca7b51bd2f098534f2fdf82c3f861f5d8bf92e29a6b7fbdc50c3c2baeb070ae"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4671894574c3037f3da88cce3a3327bf1448bb0e07eee695367a819b9c80447d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6495fc8734f25a5e3a40658a5dd0b4683ad3014bc1943dc0aa2fc2845e61a4ce"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "61e1f465b8ebfe185fcd5b335723cca3ec6ccfb5bb7fe2c411e91c22c0277501"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ef52ad690cdbeaaf7b4a148dc97b730585f491335aae782c2d1fbda0149e868"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dd693de81f93ba6758cd14c39af74de1bd77a7e4f5a7767b21f686315aaac4f4"
     sha256 cellar: :any_skip_relocation, ventura:        "7b142fad1e04fe47487d8c5b446bf096baf6277c4567c56898d62322fad3a7d8"
     sha256 cellar: :any_skip_relocation, monterey:       "6be2191e470aa1530264d2af8c872f2324de2e7fecaf225385edcccffa27eb6d"
     sha256 cellar: :any_skip_relocation, big_sur:        "4e088fd9bf4de22483a82b36f48fbe0f2ea8ecb16e08f2fb2cbfd6a68e0dc274"

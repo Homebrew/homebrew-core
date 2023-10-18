@@ -9,7 +9,7 @@ class Grok < Formula
 
   livecheck do
     url :stable
-    regex(/^v?(\d+\.\d{6,8}(\.\d+)*)$/i)
+    regex(/^v?(\d+\.\d{,3}(\.\d+)*)$/i)
   end
 
   bottle do

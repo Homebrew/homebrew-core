@@ -10,9 +10,11 @@ class Sdl2Sound < Formula
   head "https://github.com/icculus/SDL_sound.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c0e08d7f39c6a105807852f51e101b5753929046f715a6a6c8908f4456374662"
     sha256 cellar: :any,                 arm64_ventura:  "78efdb69dd2f29646f6e4e13ebe2b73021b16c39be323c589a9076c89431f31d"
     sha256 cellar: :any,                 arm64_monterey: "fc10f79b0f7063898408b2256c67205bf4da1b64858534b605ee4d2502812884"
     sha256 cellar: :any,                 arm64_big_sur:  "bd8b8ebfe41a9635a97c6798eda4a584dc6ca4046fe5195d47d89c2bbc267205"
+    sha256 cellar: :any,                 sonoma:         "c825a14430098f03bacb6186997e4860780f299ae85fd1a58acc764b6c30cfc1"
     sha256 cellar: :any,                 ventura:        "e7e2502eeadf23ca7327e087c6b7d7afeb12f75727a2ecbc2662bcacb0b951e1"
     sha256 cellar: :any,                 monterey:       "b4b2f9f1681928e4cc8dbe0fddbc40eb311de24144155d6b043dbb1415af3bd2"
     sha256 cellar: :any,                 big_sur:        "b7d96ba9534e1e3fbff4585f8994169c148c1e19da87b0bdd879bdca2211a5aa"

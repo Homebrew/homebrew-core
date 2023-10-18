@@ -13,9 +13,11 @@ class Knock < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0705f9179784dc82526bc20a47df2b3a39b1b5e476cca49d4406c9c0e3f1ea1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "326959f0e368e3b38816abdc5b45d483d1c4d46f0d26775171bd7d5ebeaa059d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f84095e2b3b16af1f3d2263b79dd3432f9dbc9db27654377d520fdb54a0c520"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "81bcc7e4f700f88fd52678bcb97fe0eddf0a562e28bd406268ae263e286903dd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6cffa8fa11e0df3dd002848ae504e67dec0064e8d8d37787020a5b3b068e14f7"
     sha256 cellar: :any_skip_relocation, ventura:        "765d3a0f6ae6560d5c274cda7330e50faaa3412d11251594a8463b5acd9a0539"
     sha256 cellar: :any_skip_relocation, monterey:       "964a0505b7d815efb5be3a9ecf3e935d19e07e8fb9245fc292dda30501d089cd"
     sha256 cellar: :any_skip_relocation, big_sur:        "b8d423345658b70c35b16a032ace493f1da244144dbfe0f4c4b0ed79ce0ac560"

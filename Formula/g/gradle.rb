@@ -1,8 +1,8 @@
 class Gradle < Formula
   desc "Open-source build automation tool based on the Groovy and Kotlin DSL"
   homepage "https://www.gradle.org/"
-  url "https://services.gradle.org/distributions/gradle-8.2.1-all.zip"
-  sha256 "7c3ad722e9b0ce8205b91560fd6ce8296ac3eadf065672242fd73c06b8eeb6ee"
+  url "https://services.gradle.org/distributions/gradle-8.4-all.zip"
+  sha256 "f2b9ed0faf8472cbe469255ae6c86eddb77076c75191741b4a462f33128dd419"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Gradle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb845ba56cfb528ebd2c35f4b7e93ac5a7017a48c5e17df6deceed93fc30f028"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb845ba56cfb528ebd2c35f4b7e93ac5a7017a48c5e17df6deceed93fc30f028"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb845ba56cfb528ebd2c35f4b7e93ac5a7017a48c5e17df6deceed93fc30f028"
-    sha256 cellar: :any_skip_relocation, ventura:        "0827979f8a88ab5d214ccf22f4627f4d173140ec16f3c09f7a0ad7689bb45f5e"
-    sha256 cellar: :any_skip_relocation, monterey:       "0827979f8a88ab5d214ccf22f4627f4d173140ec16f3c09f7a0ad7689bb45f5e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0827979f8a88ab5d214ccf22f4627f4d173140ec16f3c09f7a0ad7689bb45f5e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb845ba56cfb528ebd2c35f4b7e93ac5a7017a48c5e17df6deceed93fc30f028"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37fd452bf27f2996b459d9d24b1631a26e0625b4960f4219d0ff1db61e27faa4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37fd452bf27f2996b459d9d24b1631a26e0625b4960f4219d0ff1db61e27faa4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37fd452bf27f2996b459d9d24b1631a26e0625b4960f4219d0ff1db61e27faa4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e13e584cd2c8432c9c66f19d4a78b86cc75dceab0895f831ffc39e10806bd323"
+    sha256 cellar: :any_skip_relocation, ventura:        "e13e584cd2c8432c9c66f19d4a78b86cc75dceab0895f831ffc39e10806bd323"
+    sha256 cellar: :any_skip_relocation, monterey:       "e13e584cd2c8432c9c66f19d4a78b86cc75dceab0895f831ffc39e10806bd323"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37fd452bf27f2996b459d9d24b1631a26e0625b4960f4219d0ff1db61e27faa4"
   end
 
   depends_on "openjdk"

@@ -6,9 +6,11 @@ class Killswitch < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6046e0651dbe643a18f990226484960f38a73a0e5c6e8dcc13f8d7f0a0304801"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e8274a56bcdefb89eec6aa37d881866e77833f8e29291066adcfc55a7436088"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73d4c8aa15e1aa363089be53bc11fb347994c1144ad35a65d01584727f74082d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf8c995419a923e0512fd5e2d54a88d46719e157f1f9592ec82289e97f3da876"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c562a7bf378042372d2cc9227db029779db7077e64ffce9880564978b33b2812"
     sha256 cellar: :any_skip_relocation, ventura:        "894d0603001920b3ac4f419cb730b52e3b273ba4d0cd38a5f318e86fb4c3d577"
     sha256 cellar: :any_skip_relocation, monterey:       "aaddf26597e4de2554dfc11bb909615a612e0389774cea37f4356432a666bb41"
     sha256 cellar: :any_skip_relocation, big_sur:        "8d3e4381fb6137e38fd394941e40f1c0fab743c7b4bfef3c2ecb43679b6ab03b"

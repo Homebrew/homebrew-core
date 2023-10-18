@@ -6,9 +6,11 @@ class Nbimg < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "246aad3351ee67b9e20c9c78a8ecc60e8bcfc7f0fb5ef544b07322af8206e4bf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5062c7ecff47f50b55169fb91b19b100237535ce3fff3796f273617b59df58aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "542f99d9f78e4a9820b6ea2fa1e265d5e261d0d6fdfe98e08af41327d16bdb5e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d03cde2be335d6c4b096090f9c61b9f2af639fe7e10b9d25ca876bcb2613aed"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c58a9a03c8ae224ccac719f8f3e3345eea9848592fcb802751e6eae2176e0e12"
     sha256 cellar: :any_skip_relocation, ventura:        "e57f45a96041ad2e60e4f3203fab14346a85c67d05f87885bbac162a9f805b3c"
     sha256 cellar: :any_skip_relocation, monterey:       "906607cb9db983c3fc6db43774e66a1e33d19ceaacc5814dad554a9cf38364a5"
     sha256 cellar: :any_skip_relocation, big_sur:        "59cb045e4e21e2e205b0b51bbbaa189838c212741fdbbed061596e924286ec97"
@@ -18,6 +20,11 @@ class Nbimg < Formula
     sha256 cellar: :any_skip_relocation, sierra:         "75fd1505a68d1c499ddcf73e912947910659d9bd127c208cafeb3e8899664fbd"
     sha256 cellar: :any_skip_relocation, el_capitan:     "402904e3588fe5a8ae00d7131fe29821880f31a8ec19fb89e70a79f76e067452"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4c91a552e56c4f2e78422c8a4721d7ffbb54bb0bdb326e983f9989c5c9500ce"
+  end
+
+  resource "homebrew-test-bmp" do
+    url "https://gist.githubusercontent.com/staticfloat/8253400/raw/41aa4aca5f1aa0a82c85c126967677f830fe98ee/tiny.bmp"
+    sha256 "08556be354e0766eb4a1fd216c26989ad652902040676379e1d0f0b14c12f2e2"
   end
 
   def install
@@ -30,8 +37,8 @@ class Nbimg < Formula
   end
 
   test do
-    curl "https://gist.githubusercontent.com/staticfloat/8253400/raw/" \
-         "41aa4aca5f1aa0a82c85c126967677f830fe98ee/tiny.bmp", "-O"
-    system "#{bin}/nbimg", "-Ftiny.bmp"
+    resource("homebrew-test-bmp").stage testpath
+    system bin/"nbimg", "-Ftiny.bmp"
+    assert_predicate testpath/"tiny.bmp.nb", :exist?
   end
 end

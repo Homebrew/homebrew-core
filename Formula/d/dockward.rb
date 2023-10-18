@@ -10,9 +10,11 @@ class Dockward < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4dcc89ce1f3bdd3721e544178d9a381971539c6553ecbc45e00407a3262c363"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f12be7e1ce960c12d1348a1b42aedbdacd7bd1cbe35f1833746b0bb9bb16b26a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "870ce371df50c4998c78435d70b882ab21a5abb90f5bd476397433f167c893e7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f9f6705d78dd9d8d596d92ca7dbde056b4954fdebb467c155064bb93f7e7b063"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8c7e80660b91ec33c94e84a25486e9a89e1488ca433feaba6b9a99782ee37aa7"
     sha256 cellar: :any_skip_relocation, ventura:        "6457ba171a71b24d66a97ed30ece8b88dbce7410be014cc170ba93d6b40d5cda"
     sha256 cellar: :any_skip_relocation, monterey:       "f4ae4442fb735f9a74a0b29b666132660e7fc85a824fc467ff7d8ed8ee632bfa"
     sha256 cellar: :any_skip_relocation, big_sur:        "5287a1a8f985e8ecaba4a98eac278828e515bf4a8ba789ea68fd72a4243e8424"

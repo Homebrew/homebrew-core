@@ -12,9 +12,11 @@ class Fnm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ba97921bea561fd3698868e948f8ed27d543eaa540290bf1bc4899c662175255"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fbb22cacea5d3c7cb42475dd7e43201a5d116d50fdb43e95385eb1b68885eeb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5350206d2303e2d245677faad2703e15693d21215287291c07723544a0c61eab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba67a51982008afc40abec26132c44d7fcd954a3412a129aa1cb6a92489fa448"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cef7e318b8f968f89fea00a32a070d4467f94a6eb112ab406dd1111c6761643c"
     sha256 cellar: :any_skip_relocation, ventura:        "fd850b0d6e3bd8e97ed402d375727d593b59cc44a90131a2229ed1c3e0110296"
     sha256 cellar: :any_skip_relocation, monterey:       "88a723fa5287e9b1dc257234c7097988039a9283a166d9e9ef54ee25a5c7680f"
     sha256 cellar: :any_skip_relocation, big_sur:        "9afda928770a16c931ef8d3dbacf31add4c2e02d194f5793fc75827a911684ce"

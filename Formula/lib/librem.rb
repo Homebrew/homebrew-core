@@ -6,9 +6,11 @@ class Librem < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b51fd254fb664f054a75301fa0297835d4f80eadce6768ba728a64c7a416b506"
     sha256 cellar: :any,                 arm64_ventura:  "6311d836e32f2cc72490c1484418f76089bf27b37fe5c1e5ddd77ae9fb3953bc"
     sha256 cellar: :any,                 arm64_monterey: "fb7961d1461685a6dd70c8d14a4598114ec3bb4d4183e8d30a93f5c8b7d70667"
     sha256 cellar: :any,                 arm64_big_sur:  "b10ed4a7fc586c070c09e41301d61bad6a446ec1cc5b1a6f5b033411e2618b58"
+    sha256 cellar: :any,                 sonoma:         "0f453d09a5c7cea661ed4c8402d19004ce1080c7c51bea7636ef60e18de5422c"
     sha256 cellar: :any,                 ventura:        "cd528ed5f81d091514814fa741f0f0446694d1c46c0ed4cf151f3a3c75703c22"
     sha256 cellar: :any,                 monterey:       "f502db9e4dc4e0e0bd218d89facf211672b64a126a8d107be672e193835dc5af"
     sha256 cellar: :any,                 big_sur:        "0edf7381b5f92ae438f6fec144e6a50786d82ee8e9adf45f22f6e558ec209c6c"

@@ -10,9 +10,11 @@ class Unifdef < Formula
   head "https://github.com/fanf2/unifdef.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c67a592e10c3d607f6ea9676fe8bb6ac59472b2eec185261e9d382d186f65707"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "703fd0028a589e6862e6fb89564a0f1bbb17091dd5d9b35b7c338e172e8d554c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6f6b3c3f19a6bcf92928abedb4b6b77249fd8b88caa25495c6dd2367f34d6ac0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8dbc4bc39701aac4f2da738734f72bc002ad3e3e802343405b5c4acd1eb42928"
+    sha256 cellar: :any_skip_relocation, sonoma:         "20af4f3b948e04fda28c60eb66b3f8b641073d2b4f84ecc54c0df4172961484f"
     sha256 cellar: :any_skip_relocation, ventura:        "dc78ddeb1a4e7a7501b778360e664f0ddb7a66945b5ee66141a8292f072fbce5"
     sha256 cellar: :any_skip_relocation, monterey:       "a4f1210ad5c6a8b1c4673aec0339343492ac84eadec4c16a4ebf259e982604af"
     sha256 cellar: :any_skip_relocation, big_sur:        "aa7b0d6df5dfa2fbaa5886881def3b22b1bb55917f3734f7aede03816c257b28"

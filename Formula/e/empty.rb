@@ -11,9 +11,11 @@ class Empty < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0e6d00eaaefbe6a60857ff4a530fb8d28bc5f620ec8716d26c16071c2ecc5f4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b22f16579a729968596b00989f62625dd4c9bbcc80b087057f5cfd5d2ecffef"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "85ab1fd9a6ed43ce5d9ad0172d4fe9e62b1f52162e2b99ff7a60fd9d17007511"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "aed303027d0ffbeaa26261bc64f0ccc440d8765d38044dbdd5c9885aac4442a0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ba9e403002ccb197f4789d6a654214980010c94999133142c8f787dfaefccbaa"
     sha256 cellar: :any_skip_relocation, ventura:        "3fb2717f273099d9011d8382c033afe8d6b7836dc2223b1ac3a301b683a0aea3"
     sha256 cellar: :any_skip_relocation, monterey:       "6ba9bd7cdb7d47260f1c5dc600e93514c2222f7b3e5aab9a2ff5dbcadbf81d13"
     sha256 cellar: :any_skip_relocation, big_sur:        "b8de713e95fe5ac8ffdb15ea679106b41ed858d70d7a96250b9694cfee4fb855"

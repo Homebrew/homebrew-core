@@ -1,18 +1,18 @@
 class Frugal < Formula
   desc "Cross language code generator for creating scalable microservices"
   homepage "https://github.com/Workiva/frugal"
-  url "https://github.com/Workiva/frugal/archive/v3.16.24.tar.gz"
-  sha256 "70e14552bdf59608f35703deb6f6132fa376cbdb8173c07efdd59fc610ed12ba"
+  url "https://github.com/Workiva/frugal/archive/refs/tags/v3.17.5.tar.gz"
+  sha256 "bf9d5e554ed72beffe0a88a6b5bdc0fbf81771edeba768315d8079e6296ae66e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62bdd97f6129bf2228f5af11f42f0866229e84b0b6a171601573a80be5262f56"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d6661504e4e3821300e8f26ee81237be48f5202d3d75ddf4a67156a59091dc1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9dd19130ac3ee85f6aa736eb40841bb1ecbe0f17bc0c90564d921d7377113800"
-    sha256 cellar: :any_skip_relocation, ventura:        "daa32b9816a9c64194cb3a5dabe5ff214de2eabcbeeb543fc0e1706416b8e3b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "194ee6404d2a5f484a6890f265edce2fcfad674fa87ae6d50fd8083feb77f4aa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8ba2c73b605a58994e961641cdeecc92c042e200d4dad6538d6a7b179c543a5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea26909ee36f9c9cb10929a5fe147d184190f20700efb0a2c88c9f7820c57ee9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3fec5c56e2e35df0cf5c8c8620aed81558eb118402573d125270d4ac5bfa936c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62259103d5ee8ae54a97612a09ba7fb979794d23c8adb5348288af4eaca256b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "300a597a17f7082032ca2e82eb3f0e75491cdeec06f62b31941e800927b0372f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dd24259a445d25a272846b74c4b0b97a3c7e9b9ee93e2021a7ced6fa972c9e4d"
+    sha256 cellar: :any_skip_relocation, ventura:        "19eec3806810a6fb68f5fa0cd7a34b967212c7d451f4571279d96ebc3894a37a"
+    sha256 cellar: :any_skip_relocation, monterey:       "87bb99bbdc6ca05f0eae831b24ee1ac7797280a3ece26fdfbb6a06c2ade4c618"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f2b3cf06a772c07a6c7b03043268036f588a994ffac7ed66ed76e7e6c60e848"
   end
 
   depends_on "go" => :build

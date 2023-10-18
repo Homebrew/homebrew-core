@@ -12,9 +12,11 @@ class Quictls < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "e7573f3d557754e41b30e9db14bfef8ffdef2b9330b7e5b52ba1e6f443325b12"
     sha256 arm64_ventura:  "4ffa722fb1756ea0c30d697a5dffc811e129062346e50e40ff976e31a0111745"
     sha256 arm64_monterey: "1cd25250ea9d032dfd5dbc7f7118d9a287935541eadef9019fd3cbfec877bb33"
     sha256 arm64_big_sur:  "b00e7991d2420650932db6f72d1d947ec9bffa1715df40ddd5107e90250b5166"
+    sha256 sonoma:         "4e8e48ef59b17d2c33e606a3ca6da3517f8083c9d341c78ebc58f36ae3f6dabe"
     sha256 ventura:        "8eb411af2ce71bc976ba60aa1a8e35c450e6fbf3e2bdb7d30b2d4ac4a1d35baf"
     sha256 monterey:       "5c3890ccf66c1177ea60ee444821a5592d5e6c372f85aa264ea69a508ea598ae"
     sha256 big_sur:        "03714b1a508f5d85cc79239ce88566396a3a9e680a150aa4aa29b477aa7538bb"

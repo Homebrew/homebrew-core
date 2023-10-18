@@ -2,25 +2,36 @@ class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
   # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/ispc/ispc/archive/v1.20.0.tar.gz"
-  sha256 "28a1de948fb8b6bbe81d981a4821306167c64c305e839708423abb6322cf3b22"
+  url "https://github.com/ispc/ispc/archive/refs/tags/v1.21.0.tar.gz"
+  sha256 "ac0941ce4a0aae76901133c0d65975a17632734534668ce2871aacb0d99a036c"
   license "BSD-3-Clause"
+  revision 1
+
+  # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
+  # but are labeled as "pre-release" on GitHub, so it's necessary to use the
+  # `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "642ebcde4c69fe8037c74281ea26a75b95fd2afd0f382c4dd8c5d3cd938dd100"
-    sha256 cellar: :any,                 arm64_monterey: "a6a32ada2909684f9ae3b21306aa1ea0042bd5caad04bf375c8d08b940e4ec1f"
-    sha256 cellar: :any,                 arm64_big_sur:  "ac260f46115bd06f5fb0bc41c4cc8d30a3834a390ab38a71d379a3b3539564af"
-    sha256 cellar: :any,                 ventura:        "4f697f98ec17ca59cfd9f6028a8c4de4fb53eb8449525587e784cd6c40c902bb"
-    sha256 cellar: :any,                 monterey:       "1f71c068679fd604d45dfcb5cd4a9a3575ac7f6bcba879202abed981d43131da"
-    sha256 cellar: :any,                 big_sur:        "a115c3b38997b84d9b4ccc2b5dae131db1dbd3d53c31c088c82656ec73d31c63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bffe5ff68fc71ff23fa4f5ba00315cc508317d464f0eb086d307deddf5224291"
+    sha256 cellar: :any,                 arm64_sonoma:   "af5ef48ee6f33c9ac86c183eca004fbf4f254187c715f5d2c3c0f42b8f5243c0"
+    sha256 cellar: :any,                 arm64_ventura:  "7e43f261e5dfc5b6062bcdf8dacf85c8f13d8019bfd5b91bff91e09724d95359"
+    sha256 cellar: :any,                 arm64_monterey: "f37589c9357b32bbf8274630132d4e87b8affdcb6f39490ee6fedc1b272dce6b"
+    sha256 cellar: :any,                 arm64_big_sur:  "52716d7e78db928ed6cc15b79cf45ce0d57327e4650a68b31de885c3057da246"
+    sha256 cellar: :any,                 sonoma:         "c20fed701b750163625b9704a870bc2752e2e73393c8298ba2563edb635a331a"
+    sha256 cellar: :any,                 ventura:        "75f9cda460ab9dc1217bfee756ec3542869498fb27d3875de070b85be607e860"
+    sha256 cellar: :any,                 monterey:       "3f3ceec3a5612c379c913d397ba78aa1797898845457df0e4ed0746b69b71bcd"
+    sha256 cellar: :any,                 big_sur:        "24c8a8f743f466ebb7e66f35bdb93995562528dbfc132f642ed35cf08e24dfe1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8feece2fe5d215ca1114272961bd30c7b8549dd2d8efd6988721ddd9f78a9439"
   end
 
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "python@3.11" => :build
-  depends_on "llvm@15"
+  depends_on "llvm@16"
 
   on_linux do
     depends_on "tbb"
@@ -33,10 +44,6 @@ class Ispc < Formula
   end
 
   def install
-    # FIXME: Set correct RPATH on macOS
-    inreplace "ispcrt/CMakeLists.txt", "set(CMAKE_INSTALL_RPATH $ORIGIN)",
-                                       "set(CMAKE_INSTALL_RPATH #{loader_path})"
-
     # Force cmake to use our compiler shims instead of bypassing them.
     inreplace "CMakeLists.txt", "set(CMAKE_C_COMPILER \"clang\")", "set(CMAKE_C_COMPILER \"#{ENV.cc}\")"
     inreplace "CMakeLists.txt", "set(CMAKE_CXX_COMPILER \"clang++\")", "set(CMAKE_CXX_COMPILER \"#{ENV.cxx}\")"

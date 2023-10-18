@@ -7,9 +7,11 @@ class SdlMixer < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "95a7bad268b68cec8b5c54faf38f7f4ec9ff2f1167940120a388caaddb139182"
     sha256 cellar: :any,                 arm64_ventura:  "9011aeb2677555c32d4fbed09977e07faf7b9eea1e12f6a5b9802c504ad8dfe0"
     sha256 cellar: :any,                 arm64_monterey: "3a887eb57fef0c55e2b1696f465ab80f449785d3b7708c183a5484d079bd22da"
     sha256 cellar: :any,                 arm64_big_sur:  "e8b3fe965cb691647c21d62e06fd2d04f287a03b7a6b91a087c8e869354aef54"
+    sha256 cellar: :any,                 sonoma:         "116bd277b73e3b79fb1668ffd63fdba7afa35b4d7518355496f8bc13fdd90601"
     sha256 cellar: :any,                 ventura:        "9e71b3de0e9c7bef14278104a089eb65ac11d1ff0984629761d498416d0f948a"
     sha256 cellar: :any,                 monterey:       "7c3b42e4f38050ac7534257208ee8fe7cd3660670b8665d5fd88bb09625000f4"
     sha256 cellar: :any,                 big_sur:        "3bd79dfc2a50e07eeb6e652f3c3300885af35eb2003f77de50c13aec41c2fbe6"

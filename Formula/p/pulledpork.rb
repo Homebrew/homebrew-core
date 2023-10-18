@@ -8,9 +8,11 @@ class Pulledpork < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73420470b3baa100fcd93013911028bf923cb110e9ef7a76d5aa3bce5700dd60"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c426bbb74ebe2d71cdcc359b5b627d3cee771138be816e22aafcf9bacab773e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c426bbb74ebe2d71cdcc359b5b627d3cee771138be816e22aafcf9bacab773e2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9d356a368ba34f3ebabf869b9edf2038d962b7cdd661be3317e3b3b68b825c03"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ca02edd3b3c9f8520ffb30a7cfec1f73e07dc18c7a85fa769534ce304afb9979"
     sha256 cellar: :any_skip_relocation, ventura:        "9ac992cb245188689c716615660393ff8904ed48b56ddf5d5b36df147274480c"
     sha256 cellar: :any_skip_relocation, monterey:       "9ac992cb245188689c716615660393ff8904ed48b56ddf5d5b36df147274480c"
     sha256 cellar: :any_skip_relocation, big_sur:        "ef9c66506c6ac34967fbc3c9bf48ecfc2946814a2dccb3e1fb53f1212e7a3bb1"

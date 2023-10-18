@@ -6,9 +6,11 @@ class Pgsync < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_sonoma:   "dcffe5761fc5428530f190c688049136dd2410e1b8dd686d16e06f7c687ef1f6"
     sha256                               arm64_ventura:  "2dfb0ba78422a71258c0046a1c59e433a7c70fd98e8564494b8878624e056756"
     sha256                               arm64_monterey: "169345dc69a037d36dac2f0d54ffd229236bd62c86c97f85f07cced38f8c7f65"
     sha256                               arm64_big_sur:  "c3dd3f2937b118494d0002e08fd95ec0959b982396d9f3008d24f7ba05d84fec"
+    sha256                               sonoma:         "721fac721e372c58926f39b1387e90841519d664134fb2d0043ca649b454ccdf"
     sha256                               ventura:        "c621ec145ac0bb5ba6297e2b24ee351c418e8144bc6d18c178c5a27c3e431a26"
     sha256                               monterey:       "8f1be82ef9f91002531609773443d58aea9bfb0bd11e6979f7944680960e860e"
     sha256                               big_sur:        "a38c199ddfda5b26938988cb5f575669e3bb0748c045ca5d49da6774988a09b2"

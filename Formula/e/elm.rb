@@ -17,6 +17,8 @@ class Elm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "810bfd7c5a40e9c6f4bae78af527acf2df4fbea11bc1af632526e90429fb68e0"
   end
 
+  deprecate! date: "2023-09-10", because: :unmaintained
+
   depends_on "cabal-install" => :build
   depends_on "ghc@8.10" => :build
 

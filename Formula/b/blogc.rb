@@ -7,9 +7,11 @@ class Blogc < Formula
   head "https://github.com/blogc/blogc.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e277f0a14ca6504906fee7b93a4f08a9191694afa1a8eb6748a0f2bebd37bef"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a042dd99d35a1bf290cf530b21adf7a248e1fc33010b64497e689c9e3ba49680"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c132ce8fffa573a857c2ce019118f46bf11b52748dc9da184f3cc42779f7cfd1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f51d0d693775155a5eb1199a7ee90abb00e35a00a7469e02f3a31c074aff57cf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c00764c88556c239149297995b261c607c8f733fa90774bbf7f35cf32c9ee4b0"
     sha256 cellar: :any_skip_relocation, ventura:        "947fede34167be2c54235e21108c6bc1cf4457d1fcf6416f917a2b1aec6a5860"
     sha256 cellar: :any_skip_relocation, monterey:       "cebc47838829ba79f58cf14561233d6af355ea261206969fcb63abfe24bbf266"
     sha256 cellar: :any_skip_relocation, big_sur:        "ff83c11472e9295479779c6e27d5ae59efb77bdb216ba4d4efb30ae88f847981"

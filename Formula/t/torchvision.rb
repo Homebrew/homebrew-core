@@ -14,8 +14,10 @@ class Torchvision < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b44609f8e3db9a1261d427c146773199f26cb361443ee4421ade88fd1475761f"
     sha256                               arm64_ventura:  "1e940d1d0bf48766dca5cb234b0a02144dfac406c086034b6b6520be93c2a4b0"
     sha256                               arm64_monterey: "a3515f767ca6a27bde2b59b2f56389f090ce93211b760191c0c1ea4e3f686e18"
+    sha256 cellar: :any,                 sonoma:         "eb4a3a5b5af591068e914236c2089c5fe96d991620175be3937848a16d044949"
     sha256                               monterey:       "a20ded6ef80e2bac95c8af8937cd57d213f3c0f97043b0e863866341fbf27df4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9d42cdbf6e02aab4a170bb86d176c6d75627508d46c1af2e4bf6ae77e9e37dd"
   end

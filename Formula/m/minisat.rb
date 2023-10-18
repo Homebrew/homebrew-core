@@ -7,9 +7,11 @@ class Minisat < Formula
   head "https://github.com/stp/minisat.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "956661daa83980e03eecb0b94a3acba68ce6a8bf4a122b286c94c9aeed708db9"
     sha256 cellar: :any,                 arm64_ventura:  "518ea1441facc4926c3edddf1fd5e6bf4d2db6460f10d4c4d4ef6c9fd69dcd3d"
     sha256 cellar: :any,                 arm64_monterey: "22895418f1f5e0d2a1efb9cc700f40bdb29e9809423f0c7949eeaacbbbf7b4f3"
     sha256 cellar: :any,                 arm64_big_sur:  "b802117d6cc0fa96bedac9eaa086908687ad87c7a368558e47c2417d3d2b7146"
+    sha256 cellar: :any,                 sonoma:         "1f8b90a6d6db3e00b7d74587345abdeeb472a2b423f2a940ef1b487e86e410cf"
     sha256 cellar: :any,                 ventura:        "491bdcc2b593d154333f27413de300da1ef3112c12e950906d49bc50de9aada8"
     sha256 cellar: :any,                 monterey:       "5b028ad6aa66e082709083453b17d150eee4cb2a134b8cccd8c62567928b5859"
     sha256 cellar: :any,                 big_sur:        "ecc424ea3cde4f1a8d7056802d384ce1ab9823393301cac432dc26260685437a"

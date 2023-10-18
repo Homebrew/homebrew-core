@@ -3,18 +3,18 @@ class Polynote < Formula
 
   desc "Polyglot notebook with first-class Scala support"
   homepage "https://polynote.org/"
-  url "https://github.com/polynote/polynote/releases/download/0.5.1/polynote-dist.tar.gz"
-  sha256 "e7715dd7e044cdf4149a1178b42a506c639a31bcb9bf97d08cec4d1fe529bf18"
+  url "https://github.com/polynote/polynote/releases/download/0.5.2/polynote-dist.tar.gz"
+  sha256 "5dd26119e1b472fad0e0f24a43bb621a6f585f143440dbdeaf35e53d8b5bd046"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "17484d27531470d57c182ea117f90f905e6f337892d77bd540aae7ff835acd44"
-    sha256 cellar: :any, arm64_monterey: "2ae123b944f380cbaac774768c300ba24ed641e9577b3b3a440962bcfcab4806"
-    sha256 cellar: :any, arm64_big_sur:  "d977082f5ced92ddf993fa0646c334143cc7a0366342b13e0f7955d969716fee"
-    sha256 cellar: :any, ventura:        "2850dbf9d6ef7358f20a23f4d8fc50d630cfbd798764119a57c91d6f2ab9a619"
-    sha256 cellar: :any, monterey:       "d8afbfd0f181b1b427fd6826949b5c84a16d0ac8c2481894d328b5a2fd4c857b"
-    sha256 cellar: :any, big_sur:        "fa4305ad30d2da3d531e0965357dbf78053a3710f8d6ceeddaa7d7fc277ecf0c"
-    sha256               x86_64_linux:   "4727c9959271464c8193c106a68aa1748e9af1044686553e63993b7960970281"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "811cc8d34cae7dd7d978ba2f58e4feb7b9ed5c1aa1a3850da88ce2d5190e90dc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0edb80020862e5a35d3a61f9fe2d1b73e7a36b1f4fff3847970e5d76e0d8074d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "53131cfe180688890e81eb1e8124bc00dde06537ad05925229735407d9aef193"
+    sha256 cellar: :any_skip_relocation, ventura:        "73585da59526fb84d37a5604e1a5346bcf7e891a3a6bf5460f4b2ebeb928395b"
+    sha256 cellar: :any_skip_relocation, monterey:       "fe02e612290eebc6ebc844ea9cb4261d8e932bad97993ae8ce6c7c6c9c8882e5"
+    sha256 cellar: :any_skip_relocation, big_sur:        "184118891cf00b1b00a3e5242d31ed6bb0c617bfa0d53765372ffe1fd0da8544"
+    sha256                               x86_64_linux:   "0dcf1e96d83ab62405b09c48f796b9ffe3d729cbc6ad1701c552079d93753f3a"
   end
 
   depends_on "numpy" # used by `jep` for Java primitive arrays

@@ -7,9 +7,11 @@ class GnuBarcode < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d037ed37810d7bd12b7e915857ec6789445d67ac197ba328102099ce8e00e781"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef4c6bfacdcb641696dbc98dd7baf68fadab846c1e80c5e42e75ad068e327336"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed996c9d8421dcd926b85eefc7e3dd04cc9d9430f72f0b466f62647a5f322e94"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e621e1e142ab7c323b6bc133b4b3c373df050986e4282814f07a8ca1928d83c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bdc959e1f896a2d8d009bc700ded086d9675facce052e08e9146724e97fa0a69"
     sha256 cellar: :any_skip_relocation, ventura:        "930679d903dca0fa945427cd97be4243a047e17c8be5e1f8085ddd34c13d5ec2"
     sha256 cellar: :any_skip_relocation, monterey:       "8442ab838d1f32813d7e8ffc4efec8a5c9bc32241cdbb8a9a3acd4efe506ff9f"
     sha256 cellar: :any_skip_relocation, big_sur:        "8db9cd7477dfce32af8a9451c792683d97ef0ab81d7929881ac59a6fab9d88aa"

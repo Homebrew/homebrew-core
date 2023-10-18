@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
   homepage "https://confluence.ecmwf.int/display/ECFLOW"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.11.3-Source.tar.gz"
-  sha256 "66f4959e88b94dfecb7901a9370916bb57fa8b2cdaa2889099a907a706b655ec"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.11.4-Source.tar.gz"
+  sha256 "4836a876277c9a65a47a3dc87cae116c3009699f8a25bab4e3afabf160bcf212"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "47fdb3e2ea890d16dc84008f169461e25bab2067ddc59751db04191dc98bcfb1"
-    sha256                               arm64_monterey: "3cf0b39c84a2e81a6f4b0cb940e0b6021cd4a519b3780c1b39772ca3f8305cc1"
-    sha256                               arm64_big_sur:  "bfff4f201ed80d7ea06a59659e3129ee913b37c26d52f97d1c802ba12c364def"
-    sha256                               ventura:        "7eccdbe7ae6a4d63554297a2eecb441be77bc16753a4a39d2e518a9a03c5feed"
-    sha256                               monterey:       "1dc5e6bc1ba0752ac47fca7eaf3bb9e2cc3dbba7c1b3e55a748dfb9f9a904bc1"
-    sha256                               big_sur:        "7e07b9f55a5ca7bdc7bd997d5bbc7e0a8406c04874af4b0c7786f50df4acf3ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8641681fdeb893419c7cc01315995c515720757588a288d10a2150f43eda1ea8"
+    sha256                               arm64_sonoma:   "1a121595a6400b918596dc7e8cf3de5b3fd0f1b884ee665fc6ed6edae8eac8ea"
+    sha256                               arm64_ventura:  "433514a4337a239d95622a63e0238e4e0d15bbdb0af27736aad2df7ae0ea2d1a"
+    sha256                               arm64_monterey: "c241c4c06635ef7f7ff3d4d65d91efdc5e79b1ec56acfd9c2a07e741cd9c29db"
+    sha256                               sonoma:         "2b6d739250675e59a1c7ed6ff60ec868acf9c682dfd0db2e9dad47ccfca4005a"
+    sha256                               ventura:        "66b1e480c3f35afc5800f8abb150031258847e06fc0ab38b3eef80fff05e9826"
+    sha256                               monterey:       "cf6b9ca09de87a706585bcd40802e4ece4cc0d9ea6e0b93b32d34fca369136a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c53d3d60d8d2fe3df9cda45da950598fad76f992d3a81a8e1d90bbe058a9ed6"
   end
 
   depends_on "boost" => :build

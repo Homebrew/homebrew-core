@@ -1,10 +1,9 @@
 class Exim < Formula
   desc "Complete replacement for sendmail"
   homepage "https://exim.org"
-  url "https://ftp.exim.org/pub/exim/exim4/exim-4.96.tar.xz"
-  sha256 "299a56927b2eb3477daafd3c5bda02bc67e5c4e5898a7aeaf2740875278cf1a3"
+  url "https://ftp.exim.org/pub/exim/exim4/exim-4.96.2.tar.xz"
+  sha256 "038e327e8d1e93d005bac9bb06fd22aec44d5028930d6dbe8817ad44bbfc1de6"
   license "GPL-2.0-or-later"
-  revision 2
 
   # Maintenance releases are kept in a `fixes` subdirectory, so it's necessary
   # to check both the main `exim4` directory and the `fixes` subdirectory to
@@ -30,14 +29,13 @@ class Exim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "02bbfd3d923e23dd8b9d605ff9f3079b9cbe29150b77c9ee10004c5d4de483ba"
-    sha256 arm64_monterey: "1dcfe9e8ff31d30c8c03c2f6db86d29199e3ad3884626e24a202dbf10da5b815"
-    sha256 arm64_big_sur:  "9a376535eb48485e2cf30910da5da8fbc422f20790639f643f60195a29ad4bba"
-    sha256 ventura:        "7d030fce1ff8c9326ce679d95f07c1ae1ad429e5b54c3363de23e3b207bf25db"
-    sha256 monterey:       "8212b900afb9970de0ea5a666d1fdf524d74f638d8233d3edf375ce13668678a"
-    sha256 big_sur:        "2380ffa1a08a087a4ccc85c776fabc661cc377f32cd3fba3ebf79d042ae53727"
-    sha256 catalina:       "e49195d49265f2e1941c71c39811d92a329ae04b5ea33c34116bdb1c0723307c"
-    sha256 x86_64_linux:   "c189cd50a88e4494a00520e2ce63066cea2bcbe8ed3fa1435fcadb73b0d11d29"
+    sha256 arm64_sonoma:   "7d3f9bdbc6f9f15582d1369b5b7c075b06382e2a38a8427e620d6904d964dee8"
+    sha256 arm64_ventura:  "b03aec79724e3d4a0e78b821231cda68f192024301081032e502f081a3b843ca"
+    sha256 arm64_monterey: "f49778de6eefe6c6aa0a0e6473fa4e96439118c015fcae2b4a720589f7e6b272"
+    sha256 sonoma:         "775be4d0834de8392d422c01180308f283184c0e022eb7793e948ca74a12c7b5"
+    sha256 ventura:        "2fbb0b86014cac747e67c74f8eefebc05936a154057ce2a5fa5db6f1424148b9"
+    sha256 monterey:       "7370aca2253de325967b050ff571435b73957398fa15194035df228d8acb4d2d"
+    sha256 x86_64_linux:   "bdf951569f0cbafcbac6a1f50660ca9148dd7611983ce1f9fb4ce23c3c1f9dda"
   end
 
   depends_on "berkeley-db@5"

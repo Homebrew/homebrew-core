@@ -1,21 +1,20 @@
 class GitIf < Formula
   desc "Glulx interpreter that is optimized for speed"
   homepage "https://ifarchive.org/indexes/if-archiveXprogrammingXglulxXinterpretersXgit.html"
-  url "https://ifarchive.org/if-archive/programming/glulx/interpreters/git/git-137.zip"
-  version "1.3.7"
-  sha256 "b4a9356482e83080e4e9008ea4d0d05412e64564256c6b21709d8e253f217bef"
+  url "https://ifarchive.org/if-archive/programming/glulx/interpreters/git/git-138.zip"
+  version "1.3.8"
+  sha256 "59de132505fdf2d212db569211c18ff0f1f4c1032c5370b95272d2c2b4e95c00"
   license "MIT"
   head "https://github.com/DavidKinder/Git.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1816d6ea69848e3c6c01454ca2c06e305d18fa56167f5daa88737e814bcb5315"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e276ffffb24bbdb9fe565c7c55f79aec5df8d3a4c7b64541bbe73c757e2e45b2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb7f09ba2cb7c865b0ee80dd312e28250635a79173c0c2d3781acca03d519ee3"
-    sha256 cellar: :any_skip_relocation, ventura:        "405055ae1de47eb0af8b88dbc141b0c9ab8a8b246cc710d2833cdbcc31ff0adf"
-    sha256 cellar: :any_skip_relocation, monterey:       "a69998ddf6e70dacfbc12c9c17912fb7ece0e0dad9437201209554a50154f802"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5d2791d14db4f96ff76532d537d12d9eda5298e1a7190bd538801cdc3813739f"
-    sha256 cellar: :any_skip_relocation, catalina:       "0188ac542b752d94d6b8b544ab5a95ac8608ec0261a40be55ca6fa87140d2e9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f858e0ad782b54d8e630159b9be4dfc3e05a3a5e6f23e1a7378653bf1b54f1ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfcee8f4eaa935d5d9ae04a218a2c6e23b3a61dc28efcc07c6e2324951270f52"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f35fdcc34084acb96613f2cb035fd16d349fcd7f5dcc82dc33eafe76f45aff12"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12fb6bc8de954d79ceb96ea55d9701791e5594a904975bf83ca44553b137c458"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e1907bad802aea91587b1a8a1dc2479f141a7e4a29a1456b32554ca9baad1f14"
+    sha256 cellar: :any_skip_relocation, ventura:        "6aa6daff0372749efa6ef75264013026afac6860c606213b73d86e3b977ccd20"
+    sha256 cellar: :any_skip_relocation, monterey:       "942aadac90c26be5df726e9625f220e1a4cab5c9b576cfd82b168be1f6c3f0b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90c71e0a8189e0872070926f2c9e2a5e032e62e11b57738728d9ee640c0d26ba"
   end
 
   depends_on "glktermw" => :build

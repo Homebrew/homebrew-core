@@ -12,9 +12,11 @@ class Mp3info < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5f7b1c26df867fb0e9031c525710cdc3e3cab06f1885f8da99ed41753eee0735"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "81ac6e08be5d5bcdeb1fe53b6ae9967662fc31fcb18cd9de9a8758ced4a1d3a7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4d14f5dd7a1e4f7e441e94d5c43f7786169190125da84e1b425005c79164e55d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebb88262f3ba1eb8196c8821769298b4aa29bb4c5d0733fc8dcd47092cfafdd5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "098e6dc6a470fdc2fdcb12612036c40e9ad5775cf301986220911865cc102638"
     sha256 cellar: :any_skip_relocation, ventura:        "0f0471f80fe9004fd5c0028ffc6ab8b5b5240474a5b04533b5d53104e732d7a8"
     sha256 cellar: :any_skip_relocation, monterey:       "a6c032a31a38ab8d086b20944fd5b4e3bf074ecaca2f7d593897fd5deb19e250"
     sha256 cellar: :any_skip_relocation, big_sur:        "f5e52d02125f49b9c5afc960a565f7f5a774ced3f88fabd07d2723e741369d82"

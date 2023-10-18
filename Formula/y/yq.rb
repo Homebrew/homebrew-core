@@ -1,8 +1,8 @@
 class Yq < Formula
   desc "Process YAML, JSON, XML, CSV and properties documents from the CLI"
   homepage "https://github.com/mikefarah/yq"
-  url "https://github.com/mikefarah/yq/archive/v4.35.1.tar.gz"
-  sha256 "b3e079169529ec6b42925d0802c22d86f1ef6e1458dce67eae5a1d6db56cb8c3"
+  url "https://github.com/mikefarah/yq/archive/v4.35.2.tar.gz"
+  sha256 "8b17d710c56f764e9beff06d7a7b1c77d87c4ba4219ce4ce67e7ee29670f4f13"
   license "MIT"
   head "https://github.com/mikefarah/yq.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Yq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e0be75603207f48c20c318d72be1589beea10452ac2bc5296018499d478b3889"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0be75603207f48c20c318d72be1589beea10452ac2bc5296018499d478b3889"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e0be75603207f48c20c318d72be1589beea10452ac2bc5296018499d478b3889"
-    sha256 cellar: :any_skip_relocation, ventura:        "5c01401fcc1b7f7d71ca34b0dcbca1d984b2fcae4de189304f272dfcd59e28ca"
-    sha256 cellar: :any_skip_relocation, monterey:       "5c01401fcc1b7f7d71ca34b0dcbca1d984b2fcae4de189304f272dfcd59e28ca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5c01401fcc1b7f7d71ca34b0dcbca1d984b2fcae4de189304f272dfcd59e28ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9f35eb5832f15c1627dade905689d4280ec142c50087bbe4e7c70de940441df"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00c7ddd0a55c4e568adcd132e8d7237323a2d4420f2dcb5ca181fee09799fe5e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c250de25ccdef46918ca4a0e741afd07264098e441e85961f19876d4cb44619"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "529fc766b8f90e38c567d3ffdc7d98a5de2d07dd3927f11ca4bf2432e83c8fd8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b78ebfef3a66fcc146e081c69058f5962e6c006dc233a655376221814c5050f2"
+    sha256 cellar: :any_skip_relocation, ventura:        "ac7b8dbe3ec2846631185ed1939acc236df88305eab4cab768ea104caba146cc"
+    sha256 cellar: :any_skip_relocation, monterey:       "3eb5dc0fcf9059d25a50984b08b5fcd484ed976972a59984dc10405560f96442"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fb3392745bd82d694bb0539c603dcc759ffa64387ba33f41c925484f9756a74"
   end
 
   depends_on "go" => :build

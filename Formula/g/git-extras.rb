@@ -7,9 +7,11 @@ class GitExtras < Formula
   head "https://github.com/tj/git-extras.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1dbb26bbe72045d94f5d1dd7173f5b65bd002080ae7eaeb955215047fff75b4f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1dbb26bbe72045d94f5d1dd7173f5b65bd002080ae7eaeb955215047fff75b4f"
     sha256 cellar: :any_skip_relocation, ventura:        "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
     sha256 cellar: :any_skip_relocation, monterey:       "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"
     sha256 cellar: :any_skip_relocation, big_sur:        "59d95f1583bfadaf3d3088fda40871c703668e8acc9592f544e49de5341956ec"

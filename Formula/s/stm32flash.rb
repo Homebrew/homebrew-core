@@ -11,9 +11,11 @@ class Stm32flash < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b07e1d419f8b53f22dbd8479b61446e99cf2f9fcad620af12ab8cbcce21d27f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "069b91e908bd359fa0e012376d4eb6718c4ac734319ba06d6dd4e74359528a96"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "38b8fa0ed69728d5241842266710e1a788e50bd1ceab7fa2a01606dbb62cf887"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8d0be7957abf2048e99a1fea198a207be5edbd7ccdb402b8bfe650575ac64ef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "953034cea97ccfa773a277c96d39f008ab73849a7d709feb453b6fc990955407"
     sha256 cellar: :any_skip_relocation, ventura:        "10f5d11bf70e2d5f4b7bcc15468c698d90bf3fef80f7a9242aa0590d69fead89"
     sha256 cellar: :any_skip_relocation, monterey:       "eb2bcf9748b22a6d1809d675ad765345f0f539d0dbf49449d0977618e4e7f019"
     sha256 cellar: :any_skip_relocation, big_sur:        "b3a9d072fce40d5fd3af1f86019966abf4d4a711b26ad8539ec382aa6dfc5848"

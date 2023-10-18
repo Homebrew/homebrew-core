@@ -12,9 +12,11 @@ class Tarlz < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f34d88b446e9a9890484c64313eea9429b9a3fb2c138377529436edfd365444f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c7f680ff8a870429c7a98f8bb0edf8b850bfbc0c626b37310b21dca9fb4dc6d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0fcc9cf154b30fea24d72a427df605d4b72ee416f1e84f11ea57a058e0cb37ab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b06bcb32d18976af959d11e388647c81d6374aee847bff9b8449176e87fd5bb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e0f2253d33b0df1eadbafa93e1a11474f41b4f4edd5b552802fcf4d3b44086d7"
     sha256 cellar: :any_skip_relocation, ventura:        "66c15f18d1a4bf05abde08bcc1e28622c97ee2be33457c28b6a57c8af53416c1"
     sha256 cellar: :any_skip_relocation, monterey:       "465b6e8af9bb245935f364856954d6970f4f5f853d1c7d76d65e9e5fcc98285a"
     sha256 cellar: :any_skip_relocation, big_sur:        "994f2a00cfed90ac4892b1e134d176db4a6cdaea9ceea3b6118988a19ba7d9aa"

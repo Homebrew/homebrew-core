@@ -1,21 +1,21 @@
 class VapoursynthOcr < Formula
   desc "VapourSynth filters - Tesseract OCR filter"
   homepage "https://www.vapoursynth.com"
-  url "https://github.com/vapoursynth/vs-ocr/archive/R2.tar.gz"
-  sha256 "64ee82a6c9c59ab2aa0f5ab54224e42b027e39ea44be9784861d9e11c8532fb0"
+  url "https://github.com/vapoursynth/vs-ocr/archive/R3.tar.gz"
+  sha256 "e9da11b7f5f3e4acfee5890729769217aa5b385bb573cb303c2661d8d8a83712"
   license "MIT"
   version_scheme 1
 
   head "https://github.com/vapoursynth/vs-ocr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "9b635d6c1b56a97d6cdafef0470e26769486e19418400c56defdfa81d0577c9e"
-    sha256 cellar: :any, arm64_monterey: "e8e11e248289747ce1cd57caed559dcd959c531a65b3151ff3bf04d638edc26b"
-    sha256 cellar: :any, arm64_big_sur:  "20ad8e7a483b069cadc169f356006403b6ba10731b4f6f4bbd8848e4b9c72c63"
-    sha256 cellar: :any, ventura:        "ed2c569fba05a3f3abd0b54f877326afa63bca120eefe0f3758c46fec20e96eb"
-    sha256 cellar: :any, monterey:       "e2ccadae92be39e3f424c1b80629c4c80354b3ccf7228dd41575c71e04d1e1ca"
-    sha256 cellar: :any, big_sur:        "26cc8b76d5f94632f73933cc9893f317f878c20e4e9156b3133e37df1c1c06ce"
-    sha256               x86_64_linux:   "5da3243e4db078a215fc1cbacabc33538d2fc757a08812bc7839c76636785409"
+    sha256 cellar: :any,                 arm64_sonoma:   "2c20c4ffb3ea7354b2cf70e66a713409b9b62cba6ddda5eb3e9b98af8b913359"
+    sha256 cellar: :any,                 arm64_ventura:  "23f4b1b3d4db7e4147bb0814440dbfc7fd48caa629135d8438feceb05d79357d"
+    sha256 cellar: :any,                 arm64_monterey: "972228660132a42823e45a5a2a6403f06a2db8ff240d7191b0eb692c93154143"
+    sha256 cellar: :any,                 sonoma:         "35eae2559c4b298569ee7581a46a988d6d597143f00c227cc783757b9c1de40e"
+    sha256 cellar: :any,                 ventura:        "96b4371b0a405577847782fba92187ce377ffc5d93037c1de836acd7aada60b6"
+    sha256 cellar: :any,                 monterey:       "173146b8ced3df6b4b944474afffd9a7a4204af4425f7c197ecf035d2abc96e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80abfe935f66ee87e061ce9d1241bcde2a481280a8f4bd2b7fc249590e5b0b84"
   end
 
   depends_on "meson" => :build

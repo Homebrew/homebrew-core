@@ -6,9 +6,11 @@ class Gqview < Formula
   revision 3
 
   bottle do
+    sha256 arm64_sonoma:   "1211ff5095c73359c2652426a098a1139e1f225d19abe32a286dda7796c60c96"
     sha256 arm64_ventura:  "a16fd3dcd391be5e7568bb232037c4af9c677cca3f520ab0886ea679cf5002f1"
     sha256 arm64_monterey: "ffe4e090d128841b174008928e53dcd153827c075ed8c8124cf6164f5733a9df"
     sha256 arm64_big_sur:  "9b80b415172fc45373bcb1c68b03b3c0c26e6181e3c5ff4e353c7b685fbf6524"
+    sha256 sonoma:         "7c3aeb0a73262b9b116a351e7879aff21ea819d7c4c5821124bee4143b19bf04"
     sha256 ventura:        "bd1802a32656bd2d9b61a0f7c9132130e2e3fea29aaefd4cb14616d33083ffbe"
     sha256 monterey:       "32146672314f1d61669e46d8d01d6ac205d15d75d62a6bed5af1281335541ee7"
     sha256 big_sur:        "34819384f6dd734a0000543eed0865a48ad9b218d9bbd0662b64cf2edc4cd3c4"

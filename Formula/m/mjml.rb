@@ -8,9 +8,11 @@ class Mjml < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ada1ce373c69a12da3ae25f41ec14771a0e59ad282084b6eba32feb4d7b3edd1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b455e25e7a59b43ccf662c88aba0bd03f8ef7916147dc1aeb3e7df3220bad0d7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b455e25e7a59b43ccf662c88aba0bd03f8ef7916147dc1aeb3e7df3220bad0d7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b455e25e7a59b43ccf662c88aba0bd03f8ef7916147dc1aeb3e7df3220bad0d7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "654cb54388d4f4041dd675507bf1abc68c9f6964c4f3ebc2d9af1d3bf2b176c8"
     sha256 cellar: :any_skip_relocation, ventura:        "0c3fa66cdaae582eb8fb5971b7ec41475af85133f779f1ea824e1bb9492e968b"
     sha256 cellar: :any_skip_relocation, monterey:       "0c3fa66cdaae582eb8fb5971b7ec41475af85133f779f1ea824e1bb9492e968b"
     sha256 cellar: :any_skip_relocation, big_sur:        "0c3fa66cdaae582eb8fb5971b7ec41475af85133f779f1ea824e1bb9492e968b"

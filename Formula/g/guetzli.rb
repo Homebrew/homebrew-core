@@ -7,9 +7,11 @@ class Guetzli < Formula
   head "https://github.com/google/guetzli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "48791444d83a6bff9ff37b33b55422cebcca2c162e0d6c8daf3bbdaf62cc5bc7"
     sha256 cellar: :any,                 arm64_ventura:  "e914138a9bf24f33e5b66a2ae0721f64551a6d0e342d2aab989417a5290da0ee"
     sha256 cellar: :any,                 arm64_monterey: "72334c25e95e54a5c5622b1e0e3f494f32117604f7d2a151a5f3dcbe15581907"
     sha256 cellar: :any,                 arm64_big_sur:  "4337b23e3a80393c75f23df48034d14e408b72647ec918caf5ae524ee6716a99"
+    sha256 cellar: :any,                 sonoma:         "93a976e44bcdb34e084bc689d4cc7ab8bb8eb1b60f7f53e6b7c379599237b552"
     sha256 cellar: :any,                 ventura:        "e6a66cebdbadbf4de6e1d54e46af1e0bdb30db3b079fe73123687a4c1265e33b"
     sha256 cellar: :any,                 monterey:       "f0e8f99a914028ca43d741d20984d44f6249e3989b9f8f9a7f068dc169d8f3be"
     sha256 cellar: :any,                 big_sur:        "9f1fb787b3b21f795dd2a5d0399bf4f1263ca0e5c28f04e4d101ac33ea22503b"

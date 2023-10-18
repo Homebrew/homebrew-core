@@ -12,9 +12,11 @@ class Cbc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "4dad34d4dfb037ad4e8c9b190869231f791e2db66d155a1e36a33f71650ed0dd"
     sha256 cellar: :any,                 arm64_ventura:  "32da450c124aa43693350de653d23fa411fabaed1ba97f8e94933573eb0e1357"
     sha256 cellar: :any,                 arm64_monterey: "fd6a0b813968f05f2bad57997854b015544b05e1f85b311491e8a91ee740f52f"
     sha256 cellar: :any,                 arm64_big_sur:  "196878c4018b81771965a8bda4708df33265570d1eaa8af8556188da729e8ecc"
+    sha256 cellar: :any,                 sonoma:         "6040daacde10ef830d3f7714a4fa12f1a499608dd5dab98d70a298b6cb2cbdf9"
     sha256 cellar: :any,                 ventura:        "8aed7852512faccee24efcb137c5ca34dbb34a0623286ab197a85d5d45528686"
     sha256 cellar: :any,                 monterey:       "f5e472945f58484d6ac18920aca10ed79e9dd64e41b98cfb5dec00e0e9def371"
     sha256 cellar: :any,                 big_sur:        "a206dcdd7b939067d87e21689f2c55f97259ae2cff3941813de0ef7fa555d715"

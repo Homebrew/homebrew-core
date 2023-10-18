@@ -9,9 +9,11 @@ class Lolcode < Formula
   head "https://github.com/justinmeza/lci.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "41bf236e028b388c85213b0e45f10fa83aea6c4b283c96f86426313646424a52"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7bf8def14baaebde0558f5a5d7355d41dc46c1d62ad00fe36bf33b40735c3ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "65cf3b809d4ad69918a45976eb04f22f93c785638336e2ae1ba862ef8eeade4a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3da1a3ea810fb481b1a6e3e62f81fa5a24ce593b2f69630d6b523a63449531c8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3a28a3eac2937e9e8a36e92f3fd592b53efd1c9aa65965986603e5b90f0dc2cc"
     sha256 cellar: :any_skip_relocation, ventura:        "6d050e28b462cc3d4466fd98cb7160e589e1efa9c3e163084c16660c8777557a"
     sha256 cellar: :any_skip_relocation, monterey:       "147cc9048722688b7b2744f316db94899843959e1d9a94ce91593087a3e6f1a3"
     sha256 cellar: :any_skip_relocation, big_sur:        "0fe2dd80ac746019da7ebba97a43f010c54ac64fcdff6d87dffffd1e06b43dd3"

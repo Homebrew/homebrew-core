@@ -1,24 +1,26 @@
 class Pillow < Formula
   desc "Friendly PIL fork (Python Imaging Library)"
   homepage "https://python-pillow.org"
-  url "https://files.pythonhosted.org/packages/0f/8b/2ebaf9adcf4260c00f842154865f8730cf745906aa5dd499141fb6063e26/Pillow-10.0.0.tar.gz"
-  sha256 "9c82b5b3e043c7af0d95792d0d20ccf68f61a1fec6b3530e718b688422727396"
+  url "https://files.pythonhosted.org/packages/80/d7/c4b258c9098b469c4a4e77b0a99b5f4fd21e359c2e486c977d231f52fc71/Pillow-10.1.0.tar.gz"
+  sha256 "e6bf8de6c36ed96c86ea3b6e1d5273c53f46ef518a062464cd7ef5dd2cf92e38"
   license "HPND"
   head "https://github.com/python-pillow/Pillow.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "1c157280a9671e1d4e1fd12d021bcb755d739cff061e0725468ce6e6f19e7192"
-    sha256 cellar: :any, arm64_monterey: "e6190bafe6c6b0e0b1327b547603591e799af07cd9fc42dd26ddb1c709ae0c83"
-    sha256 cellar: :any, arm64_big_sur:  "7a3df0ffdfa7e641a01423b32720c541a95c39e78396f6b2afc60328489a851a"
-    sha256 cellar: :any, ventura:        "c813fb7d7f03c9426a6a4b22b4b8e49abd6c99a6f1defd48b25b6caee09aa631"
-    sha256 cellar: :any, monterey:       "6b96d00be21890f5229cdb4e0b3f89c104a8730c3c381f987526736a437780f0"
-    sha256 cellar: :any, big_sur:        "35e7b1beade031a529ffab554714031a4f849fe94c8ac89a844e7ad1fb12a7b1"
-    sha256               x86_64_linux:   "38925f18bdb9b7d60d9be4ff6ca674943ec4f1058dbc81ee82987b8d2a4b9111"
+    sha256 cellar: :any, arm64_sonoma:   "53af893ab6b9e369162cee379f4d0ffeb6638656aa68f4bc4701e4b07236aae9"
+    sha256 cellar: :any, arm64_ventura:  "a6d4ad8b0e295a6b7ad0478f7ac28ba7181763b92c92586beddb21e48c1e7d29"
+    sha256 cellar: :any, arm64_monterey: "b53ca2c8c450f2ff524873246dd5c8f8a29be1934a594de258065e820f3b621d"
+    sha256 cellar: :any, sonoma:         "0fe8b6a662ded558291556073096a23a2cab69a457a82fc582255a9339568daf"
+    sha256 cellar: :any, ventura:        "ce59a424c06c3fc0ce504e0cfa18976104a39992d218cdc4763cc86ffe882521"
+    sha256 cellar: :any, monterey:       "2782c20eb0b7c7775fff3f7e6c52de7c5a18639b5172c643932779155f4c97dc"
+    sha256               x86_64_linux:   "1b29cd93fdeaa3c99feb05a90e154c875ec8cb33d4bd29f368850832b607a4c0"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "jpeg-turbo"
   depends_on "libimagequant"
   depends_on "libraqm"
@@ -38,19 +40,6 @@ class Pillow < Formula
   end
 
   def install
-    build_ext_args = %w[
-      --enable-tiff
-      --enable-freetype
-      --enable-lcms
-      --enable-webp
-      --enable-xcb
-    ]
-
-    install_args = %w[
-      --single-version-externally-managed
-      --record=installed.txt
-    ]
-
     ENV["MAX_CONCURRENCY"] = ENV.make_jobs.to_s
     deps.each do |dep|
       next if dep.build? || dep.test?
@@ -59,15 +48,15 @@ class Pillow < Formula
       ENV.prepend "LDFLAGS", "-L#{dep.to_formula.opt_lib}"
     end
 
-    # Useful in case of build failures.
-    inreplace "setup.py", "DEBUG = False", "DEBUG = True"
-
     pythons.each do |python|
-      prefix_site_packages = prefix/Language::Python.site_packages(python)
-      system python, "setup.py",
-                     "build_ext", *build_ext_args,
-                     "install", *install_args,
-                     "--install-lib=#{prefix_site_packages}"
+      system python, "-m", "pip", "install", *std_pip_args,
+                     "-C", "debug=true", # Useful in case of build failures.
+                     "-C", "tiff=enable",
+                     "-C", "freetype=enable",
+                     "-C", "lcms=enable",
+                     "-C", "webp=enable",
+                     "-C", "xcb=enable",
+                     "."
     end
   end
 

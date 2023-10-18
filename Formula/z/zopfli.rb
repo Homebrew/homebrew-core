@@ -8,9 +8,11 @@ class Zopfli < Formula
   head "https://github.com/google/zopfli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "171ca3e9b77ac8ebac1b2c082c4938d845605d599e30c671003ca3b5f8f0f795"
     sha256 cellar: :any,                 arm64_ventura:  "68ec999fc21b6ea2e0a44fe4a9cb23dc6fbfac6f51ee153b268fd33408f6d801"
     sha256 cellar: :any,                 arm64_monterey: "31f0023436da6f38a1a1df31ca8b2fd82eaac4a7ce1bc2a2b7cf05a0c4ec2f05"
     sha256 cellar: :any,                 arm64_big_sur:  "2f093e34188e4c0b3d7b2acdd913ecc302ba6dafe722f943e579bf70a09ef15a"
+    sha256 cellar: :any,                 sonoma:         "cee5a9b397978a707970ca5f9caaa4c5c461effcb3c4291ae74d2e40ac769dc2"
     sha256 cellar: :any,                 ventura:        "ef2f18c71a1473972602aa28fc2e0c508c89336e42633423804877ab33dc6ccb"
     sha256 cellar: :any,                 monterey:       "6f02f39b1b143725890fb1d1a33e6f587daf33ef473ff2991189e2fd1d1a5f85"
     sha256 cellar: :any,                 big_sur:        "64f2102bff6163156d073e4554532c990c3a65669b7a52d2cec83a22d5b32d4c"

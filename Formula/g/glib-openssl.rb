@@ -7,9 +7,11 @@ class GlibOpenssl < Formula
   revision 3
 
   bottle do
+    sha256 arm64_sonoma:   "edd321d466102072915b2a2739d8f3e3c7579fce0578ad69d77593ebb7028af3"
     sha256 arm64_ventura:  "ad209d0b9a8612f54f34a611ac3d634edf3187bdf04cdf6e4301b8b468208e24"
     sha256 arm64_monterey: "db8f2b1599d0c3060229a32f7d4bb775d6907126db00624345d91d23dbd7fa6d"
     sha256 arm64_big_sur:  "3ff9db75ad58b19fe3b0c364cc0d8e1c7e570e6edd3eab8e7145f50ecdb2d237"
+    sha256 sonoma:         "53d971659876ee9b72b2a9b2ae309cebacaf5445f983eb7ab6d6d9deb89d50f2"
     sha256 ventura:        "5523ae74c6efb772bc23e7fa86f61d715832c2e02f05ffc325af852e0f07def7"
     sha256 monterey:       "abb3ca9b64ae5187dee0e23899d034865baefa1a66b4b137c0e5d3ec6e7a8646"
     sha256 big_sur:        "3ed8dc7e291495db26d893b673e7c665972569efa1fdbe0a3cf1ae39c1c2da50"

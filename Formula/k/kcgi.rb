@@ -11,9 +11,11 @@ class Kcgi < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6fcb3b8c182fe400fd030cc7b7ba1841dc6d35859432c1f5b89b53700afdf822"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "554fd1a334f699a9b632d4f51092a202f817acaf3adfd3fb14c4ddc08742a03b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "94328c333800419711f54bb6bb199c632e8dd665dd04f8fdac22d54a2391c2fa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "477a66993f541e9b595996d577c766c5eb205730b97885853322b32bb3d66285"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7403b067536b76f6fbcbcf98c022b83d5737b64ce81eed39c559b5b56fdc404c"
     sha256 cellar: :any_skip_relocation, ventura:        "dd6b93a3da7b6b33bc534e05983f10b3bdb2c518d4cb5555ae052aefc1cb7b0c"
     sha256 cellar: :any_skip_relocation, monterey:       "d8559957ace2184733fa9d74ebee348137efa4093e6f07b5c907cc924aaa1532"
     sha256 cellar: :any_skip_relocation, big_sur:        "aea0950090e27a079ea4f104a726676c13f01de6c56284b2f98e8bfd1a208e21"

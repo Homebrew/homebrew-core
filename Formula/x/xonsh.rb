@@ -9,17 +9,18 @@ class Xonsh < Formula
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b616825a61f1264ca9b63fc704318dce96f3ed9038d720555bcb88792edc2727"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3933275facc6b997169c1aaf579d0971ac8e6107aaec427572ed467b0fe58516"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "42515b1f5e3bc81b7b2087513d0e7a9d755e0120168398b0b76816cede950af6"
-    sha256 cellar: :any_skip_relocation, ventura:        "510b34598dcb6d125c4ae5a1e74256d69d8acdd424c85d82d8bef1af6c0094e2"
-    sha256 cellar: :any_skip_relocation, monterey:       "8eee38ec25d74bd5f685d60bf316fee401e8ab3d308885695fab70b873a90b31"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ce32d6c3d335bcb871efc0e41ae58991df226dd770d405f94288d7d58e28852b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9857ea795f4e0a46c79b2f98fe0226be03134080699bce645094e88de42bc255"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d42e2ca14aae41731ac3b9288437288f54d7958261345fd3d4452ea53e85423b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c19097123e4a028dc86b05f5951bd6f895d4f7b77709dac413d5b5cb3e1cf0b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e249a5adc4edd4b7ba3b92616276909ef24301c541690ab439a69ca1ad3f3c33"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aee1d059f93d0d448c552747fa7b76348ca999963941554e8ba22aed6b13ed33"
+    sha256 cellar: :any_skip_relocation, ventura:        "84186d85a66e8c53795cd9cd48902bef0501889e90246ae8d828f14da813fe02"
+    sha256 cellar: :any_skip_relocation, monterey:       "365e25d76ab9fade6d1f78309fe7bfe3ea9d5ffaf2338d356501ed146bd5e601"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7955d9d80e3ef3b5bea7cd79a95fd6c07759c3414c5e43c168654dcae6feaa76"
   end
 
   depends_on "pygments"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   # Resources based on `pip3 install xonsh[ptk,pygments,proctitle]`
   # See https://xon.sh/osx.html#dependencies

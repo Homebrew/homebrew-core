@@ -1,25 +1,35 @@
 class CargoGenerate < Formula
   desc "Use pre-existing git repositories as templates"
   homepage "https://github.com/cargo-generate/cargo-generate"
-  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.18.3.tar.gz"
-  sha256 "e44e021dbc83cc862e4f52fce76ed6cfab0cf08d74505fe177bec048f981ac9b"
+  # TODO: check if we can use unversioned `libgit2` at version bump.
+  # See comments below for details.
+  url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.18.4.tar.gz"
+  sha256 "830c9a6bc6350f47e854260291d7303b8058659f8e03b85894f5636ec2d69b17"
   license any_of: ["Apache-2.0", "MIT"]
   revision 1
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f1423eba17a969331a6245be5750dd057993c96dd7d3f88e6e10f3775522bb44"
-    sha256 cellar: :any,                 arm64_monterey: "872007cf7741a8c95e571d06cae772ce30bf4b05792cb38cc3070290b88a0657"
-    sha256 cellar: :any,                 arm64_big_sur:  "a279ff568f299917443c319f901544faf7bc49e067758e6b011710a286dc95af"
-    sha256 cellar: :any,                 ventura:        "83f7d54dc2ca09ae6696e2e58e5e9601c2d4ef8404630c9772ea7a48b1145707"
-    sha256 cellar: :any,                 monterey:       "99a7741c22c61bf9f48f0b0e1b565231b35f4a1f52a5836bc0f86d1dd490ff8f"
-    sha256 cellar: :any,                 big_sur:        "6f7b3ce671653d4f4660943708f41d49846d0aef7f4018cdf2d076d5c96627ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7100287872bf0fabcf2a03cfa891eb83c63a780c84d8b03f07b9ba69ae6711bc"
+    sha256 cellar: :any,                 arm64_sonoma:   "21579bcb1c519918780f419cccf75c0a5bc43c1941c3820c27aa439e9be77c67"
+    sha256 cellar: :any,                 arm64_ventura:  "f8604cdaa3abbad85cebf35c31ea9094cd485846db6a1e7c1501c347a0c887a7"
+    sha256 cellar: :any,                 arm64_monterey: "5531f9d28f0987b8df1618c14756c3058249fdeaf875e9f062a5d5c2ed93e8c1"
+    sha256 cellar: :any,                 arm64_big_sur:  "bea38c9c69707163bdcfd676dc4fc6e0c0270b332ccaa108636e84053a8f3666"
+    sha256 cellar: :any,                 sonoma:         "827f03d0c299fcccd6c070ae1f16431fe9142149e3793accc5edcc0a89848546"
+    sha256 cellar: :any,                 ventura:        "74e5a5029a89b5b8473eac07d20af0419b7480b00d818137f3cc81cee26ebf1a"
+    sha256 cellar: :any,                 monterey:       "e0281cd735b23577defc2f3a4c152aac138de326682e6f7c72cfea90395af7f4"
+    sha256 cellar: :any,                 big_sur:        "a4a4c91e2797eccb3d4ea68090e15d10e97849275a62cd158293712780711bce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d19aecb6fd248226f867516b30c395efce81544550d7a343ba3dbd94213f51f2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  # To check for `libgit2` version:
+  # 1. Search for `libgit2-sys` version at https://github.com/cargo-generate/cargo-generate/blob/v#{version}/Cargo.lock
+  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
+  #    - Migrate to the corresponding `libgit2` formula.
+  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
+  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
+  depends_on "libgit2@1.6"
   depends_on "libssh2"
   depends_on "openssl@3"
 
@@ -50,7 +60,7 @@ class CargoGenerate < Formula
     assert_match "brewtest", (testpath/"brewtest/Cargo.toml").read
 
     linked_libraries = [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.6"].opt_lib/shared_library("libgit2"),
       Formula["libssh2"].opt_lib/shared_library("libssh2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ]

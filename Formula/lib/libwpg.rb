@@ -11,9 +11,11 @@ class Libwpg < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d2b1e6eed68f342f9a97a9059d84880c33316fbc4efaa011562b852432e6dd11"
     sha256 cellar: :any,                 arm64_ventura:  "c31dc532929561dc728f03ac0ff1ab2aeef0c0428df51cc8be13a7ea05a0e16e"
     sha256 cellar: :any,                 arm64_monterey: "387b98747ca1ef188c562bc3ab88283920a9ec220666b4a49ce27de7fbcd5f5c"
     sha256 cellar: :any,                 arm64_big_sur:  "6849a8efcf3f1a1440cb7b929d5cd1053d5b7944f7bc5adcfa835a95951b0eb3"
+    sha256 cellar: :any,                 sonoma:         "aacf3220cfb291ab3d957eef407bc743ed767e17a0b926fa542db7fd785add80"
     sha256 cellar: :any,                 ventura:        "58f2f9eca5ef6a1c769dd67aa64f8b4d90740d1c0493791c6f06b3c2ab06a1d5"
     sha256 cellar: :any,                 monterey:       "24d4e25ee9c2468c18d9a578ef7a46499f4e46f1d85316ef57ce128adee16f63"
     sha256 cellar: :any,                 big_sur:        "c97eced8c226e67a62e503b0edf54f4114c0b3ef6213765eacdef6ae719938d1"

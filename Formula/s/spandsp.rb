@@ -6,9 +6,11 @@ class Spandsp < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c0031a76da7569594a6e541f5373a81fd8fd67fe51d8ded0bc317c22b7c9d61b"
     sha256 cellar: :any,                 arm64_ventura:  "1de79b77a71edef3e67c18da0b22400821a06190cd2c6e1363ed8bdf92fb6379"
     sha256 cellar: :any,                 arm64_monterey: "1dfce0ba8ff13c46c285baa0de02f0d2e82fae7b86ca5e81fdcd5b520924511b"
     sha256 cellar: :any,                 arm64_big_sur:  "de22c2ec1fe6dad211a9593851195445774f0e9d49768bfa663b50d8f26c12d0"
+    sha256 cellar: :any,                 sonoma:         "97da2e382c38c039845f20c0299bee1568ed0d45cec38662427a531fc9091202"
     sha256 cellar: :any,                 ventura:        "c950d3121cfcf2033617bac7b3c440ac07b5cba8166102f6fab8aeaa1eec20bb"
     sha256 cellar: :any,                 monterey:       "5a2514fe428dbc60642c6d787a0d7e2f9c337ee11c8e0cd10b8e67630919ab82"
     sha256 cellar: :any,                 big_sur:        "89a015496e6aedb1a07ae9186b799dfe96ae673213c27a9da9937d3d09ceb577"

@@ -7,9 +7,11 @@ class Pict < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14edff2fd027c72de89053d0d6ab2b5fd5ebe3b3068bf6a971b3ca18fd8ecf36"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa4517aea0e42f613cd176baa46a11f3e46d216fb1050c9059d93bca14df049c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f3b42cd438f51790b14275f2ff2d7d6dc897f8ce32489c997602d8dd5f8984f2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "863064a24888d6aef5013b37eeb22abd0fdce747badfe27c189959b01d9c7a16"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ed4ba842b942185dc01d6d83fe06320c947a5e33066171a8f6c9130a57809b2f"
     sha256 cellar: :any_skip_relocation, ventura:        "7dc3684b30b611acb139b8f5b908eba640a76d49cc424db06a6f814515eafddd"
     sha256 cellar: :any_skip_relocation, monterey:       "2acd315ec72d1d92cca685e2e6953539d2d9d37d18ea0889ad5e67c06f83b4ee"
     sha256 cellar: :any_skip_relocation, big_sur:        "96d58480ac15db41e7bd9831c9287afaefd1bce20d275e1a2642c070cd3fdb8b"

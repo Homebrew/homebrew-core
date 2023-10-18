@@ -11,9 +11,11 @@ class Grails < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"
     sha256 cellar: :any_skip_relocation, ventura:        "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"
     sha256 cellar: :any_skip_relocation, monterey:       "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"
     sha256 cellar: :any_skip_relocation, big_sur:        "9ad002a03561858bcdc20c3922ec58a8bda981f204d630ebca03dd72f66e3b60"

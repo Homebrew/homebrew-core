@@ -6,9 +6,11 @@ class Lynis < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"
     sha256 cellar: :any_skip_relocation, ventura:        "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"
     sha256 cellar: :any_skip_relocation, monterey:       "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"
     sha256 cellar: :any_skip_relocation, big_sur:        "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"

@@ -8,9 +8,11 @@ class ParquetCli < Formula
   head "https://github.com/apache/parquet-mr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7defb69f6e030edd438986e145e292414b0c9b3fc7187d120fc3c9714a5a02a6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "83032114cbf3211065d1b6c6eed1c5cc015537de97dda4cccf8b1b2d6ea29730"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7291370a53a441f2146970ad2aae9702f6d4c30877cab6383405472b200c19b0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba13e5f576a996077f1d6991a0beec921ba2712d7a0a3ba245f55bff2c7fe650"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c34c17e78d4b1d3cdd12efbd8d1ea1948b2a85feabb0761afeee112f1410a0e4"
     sha256 cellar: :any_skip_relocation, ventura:        "5858da332424e0fc36e4be38b97ee56f40f19b6567d031faf4f82ee8dff2be2b"
     sha256 cellar: :any_skip_relocation, monterey:       "07699736b31de33a4f3714e9699e410a50d70bf4e1e7393d08f67db722140207"
     sha256 cellar: :any_skip_relocation, big_sur:        "c5c1dad7c8bdd4236690462194aae87fe907cfefda954a5881282861c6f7a9f9"

@@ -1,8 +1,8 @@
 class LcdfTypetools < Formula
   desc "Manipulate OpenType and multiple-master fonts"
   homepage "https://www.lcdf.org/type/"
-  url "https://www.lcdf.org/type/lcdf-typetools-2.108.tar.gz"
-  sha256 "fb09bf45d98fa9ab104687e58d6e8a6727c53937e451603662338a490cbbcb26"
+  url "https://www.lcdf.org/type/lcdf-typetools-2.110.tar.gz"
+  sha256 "517f9ee879208679d3224a14d5e6eb20598fc648d5c3562708083d003088a934"
   license "GPL-2.0-or-later"
   head "https://github.com/kohler/lcdf-typetools.git", branch: "master"
 
@@ -12,17 +12,15 @@ class LcdfTypetools < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "4a3eed405c90e63d9b545828b1be31f3058090a13df8c6bdc7b20b4df385234f"
-    sha256 arm64_monterey: "a0d7a6e2b9be3e584f4dcacb653e751ffaf57480b599c485700df330e53763fe"
-    sha256 arm64_big_sur:  "bea41132d0d057aef10d64fe53b52bb198c3ce49b8548c72d5430f1411f68afe"
-    sha256 ventura:        "628ab26912469dbe132996144e44c19774f6eaf2618e6bea9dd4a4c375a37f34"
-    sha256 monterey:       "70e227962b9890b989234cf6d8b2faf7ec10bb1a2bd3f3f8cd6306ae07b75858"
-    sha256 big_sur:        "45ff77c662edb2a238d2c07be58cf242685ed85c926847a381e9a2acf7035b3a"
-    sha256 catalina:       "e7ce2d4d16d2b79e482cb862231519653e6d3c09cd5e310573b04f804323e1e3"
-    sha256 mojave:         "0fd983396dbcf027e560753e6f25797500d085762edcf59a1a2034cd55c24cfd"
-    sha256 high_sierra:    "cdff1c16d03fd920033f85dd2e2180f91791057729fbd26b6f193ac7cd0ce9f4"
-    sha256 sierra:         "2bfe28f9e869eec676cada56bcf6efe97024e0e1f93b126a7b26ac2a292db2af"
-    sha256 x86_64_linux:   "ba34cee40d5450d1deba4434cc43458d5407ef47b9f0563530b04dfac8fadc7a"
+    sha256 arm64_sonoma:   "adebc013b9cd122099069d78f3da8eca8c86f585e2e08476f4fafe852acc6414"
+    sha256 arm64_ventura:  "8236a9837f726de7f4134db255df5df0c74b6d3aa0827a583e5c3d121e2170c1"
+    sha256 arm64_monterey: "be7523e73f08148f0848d41a93ae2443227d06d88da621f576c7fe346070224d"
+    sha256 arm64_big_sur:  "bfdcd6b8f33e4a552a0ddc6eb20ee8311332477647ac02c96ce92eb0f3a0f10f"
+    sha256 sonoma:         "ad5b178aa2847ac19ed1dd15d43137d90758d84978ff8b36df9db66437323be8"
+    sha256 ventura:        "1dd345c1b3f20d16d2303573c9324047172f728999ecb497cb6e13c56e31c96a"
+    sha256 monterey:       "81daa75ad3bfaf2257c2967749981284d2a9076bbdd60176f6ee845b6419a90e"
+    sha256 big_sur:        "34f194d4996198a1c3f5ffb49b65c2e00af73e88db861d49a22f7ee9dcf3ea3c"
+    sha256 x86_64_linux:   "bc299e560c0228488ee8205b9e9a91d007d205beddd06c0461fa6e8d4e9d2589"
   end
 
   conflicts_with "texlive", because: "both install a `cfftot1` executable"

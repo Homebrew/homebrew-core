@@ -14,9 +14,11 @@ class FfmpegAT28 < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "89be05eeb2d6d6b6a6b2d21f0d158f9dd31c6f0014ab4371f39013dfe600fecc"
     sha256 arm64_ventura:  "39ab9275cf8e96084bf71186064c3b44a266bb9738bfbed6e276182acbc62c9e"
     sha256 arm64_monterey: "e2933796de987f8b85ccf3a8ad0cfc762866a5d51cea54fd0202d74c64736050"
     sha256 arm64_big_sur:  "be1a0c4ce83319cb11a6df578ac665968e8ce79696229bcb3d9624cdf1c1dca2"
+    sha256 sonoma:         "46bbc62d6e8fc5c801dcefe7d81322fd6b69b8d728dcf9048c107deb626f09d5"
     sha256 ventura:        "1de0658a8355e4879bed836d15f58e30832b42ed3b0b968c810874d5408d5eb1"
     sha256 monterey:       "7d9ed87744201a90e1c40432484584b5485e359002f982796e07425dfe85a8e3"
     sha256 big_sur:        "b68fb395e1651b58d0f5edd40f49bbaf7a9a02b2f5aa1466dd62a991ea967676"

@@ -11,9 +11,11 @@ class Freeciv < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "25b8029d258012c3df04f7106422432a9607ac5abf437884c10c3ccbd379552d"
     sha256 arm64_ventura:  "12103450985cb49a61edf1d54047ddfec154ef20a60cad28015369a729771c63"
     sha256 arm64_monterey: "c577c7eb56ce28f3972b8d342237f6cd60dfcbd87679abfe74ba7dbe048eb74e"
     sha256 arm64_big_sur:  "5ab40e524f2c262b68994733ac5b33c2006ffc14fc2299b4d9a6624b14470317"
+    sha256 sonoma:         "09f9dc123ebf438ea715611c45914a99d1c6b7d44bdc99701a50af4cc1e66840"
     sha256 ventura:        "c3c647835c5c603896ce2bd39d9cfc5fb7c14a7f7ead7d5ee6bfbaad869fdaa8"
     sha256 monterey:       "c26d89d174ee14e179c6844d15ae988856d30c67b000d7bcfbb1f0bc274c49df"
     sha256 big_sur:        "f83674bd7f14a400f4c13094c845b37f739806854a65d8b0719b9461296e99e6"

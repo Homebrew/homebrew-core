@@ -2,8 +2,8 @@ class Rubyfmt < Formula
   desc "Ruby autoformatter"
   homepage "https://github.com/fables-tales/rubyfmt"
   url "https://github.com/fables-tales/rubyfmt.git",
-    tag:      "v0.9.5",
-    revision: "46e08ebde71f5e816bdde0065c5100f33ee638a7"
+    tag:      "v0.10.0",
+    revision: "e00d2ab89fd4b0b85a7897fac393c1ad987136de"
   license "MIT"
   head "https://github.com/fables-tales/rubyfmt.git", branch: "trunk"
 
@@ -16,11 +16,13 @@ class Rubyfmt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d09a3a4d1c12a51b7089fd7554c0aace9cf01aa9cd210160b916da9ba201d7d0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7792ccbf555b666ed796bcd19fcc9437fca0ba305f3b411163adb04aefbd5eb8"
-    sha256 cellar: :any_skip_relocation, ventura:        "2d37979f16e2e376c0719df485922a6aa4f68c0d85797ea918b93e16499c2554"
-    sha256 cellar: :any_skip_relocation, monterey:       "bfb1947a9f36e056edff55e5d300da4d63becc2f2f990d5df5f57c194abb5ff0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38fe5b3aaa09f9bc6d57a2119152b116813702fe98daf0a1e654c8cd4b5e1e4d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53a6870d51b42778724d9f6d051a16e2769701cf3c4946d5b464ac0da0656fe5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd0e320c01c7848a26b51e6d06f9d96d2d8d765eb4b943ca570a546bc063d503"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54ac9bdaab5905b208a7b80f6f8c1f0fd6752636821322d27d33458cd94988fd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "72a7b6f0425b6ff0ad1bd324db39cf6dfca154dbfa71eae087088fd22254e84a"
+    sha256 cellar: :any_skip_relocation, ventura:        "733d2fe74b0a32666b708b5b265302268dcc088c897798380f2c6f677e06c707"
+    sha256 cellar: :any_skip_relocation, monterey:       "00f60ebdde76b0ac30df678b597e2b184b65146021099f8fecde4a36fb7cf4f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d10a98c28284d130b05f63649d4e89bbdd73b57d1522b0b2fc1ca3f4ddce973"
   end
 
   depends_on "autoconf" => :build

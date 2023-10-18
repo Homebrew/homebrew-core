@@ -4,17 +4,19 @@ class Criterion < Formula
   url "https://github.com/Snaipe/Criterion/releases/download/v2.4.1/criterion-2.4.1.tar.xz"
   sha256 "d0f86a8fc868e2c7b83894ad058313023176d406501a4ee8863e5357e31a80e7"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/Snaipe/Criterion.git", branch: "bleeding"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "024f829292c95e44dcbf5d418dbab3f522de8b8817af94b9e6755922395cf10b"
-    sha256 cellar: :any, arm64_monterey: "baaef6ed0a89f1dc2c23ab986b57bbe4c2b874bbf75e9ff4ecbbfe6a6fe4d3e6"
-    sha256 cellar: :any, arm64_big_sur:  "ca48903b667e7a43848fa625c6a88faad8af1253b8439a1aa74859335fcc91f2"
-    sha256 cellar: :any, ventura:        "46380b7b004712fa4989d35e0f6b9564474e509a612d5e386165ad2c7457f161"
-    sha256 cellar: :any, monterey:       "0758af431a378629d15665b337af210dfb953f81d35daf38c81b532a0c6bdcc5"
-    sha256 cellar: :any, big_sur:        "250273dc8dbe3d0b1517134e86c5d65fe6b223c93236a2e538b286d702f9ede9"
-    sha256               x86_64_linux:   "4bd64030261a71a8aab068ca01edf2cdcdb9f5cbfe5dd5f63097123bed9706c5"
+    sha256 cellar: :any, arm64_sonoma:   "8c197f88d8ab0ef7db30d11c2621cf75b9c95a914b736a1a689351c7ba572ea2"
+    sha256 cellar: :any, arm64_ventura:  "e2fa6b6131c59f39a3153bc8f5a90bcaf5c5ee4b7cf5375572c0e79edb559d81"
+    sha256 cellar: :any, arm64_monterey: "6342d313467fc469437fedeff6dafcf6db55eb4e9afa56a4b3d39ed30ee3462c"
+    sha256 cellar: :any, arm64_big_sur:  "a72de1d6b5e7dee339ff55d9e5322e31338997e0f750d1e90ba3879f1bd13ff9"
+    sha256 cellar: :any, sonoma:         "331a9f46e37f20268a4f3397c1176fb81afc079b54c8f39b7f1d2d28445030db"
+    sha256 cellar: :any, ventura:        "698a580f22b167eddca65ee4a296436ab78f414281cb6816bef1ba1112cb5ff2"
+    sha256 cellar: :any, monterey:       "d047a288db8efb7335928601b3f33604a6784c6f0f134400bba0584e1d222e4d"
+    sha256 cellar: :any, big_sur:        "b5552777b6e4a64ea00444da777d40d5c62078a77a1828e8610161143f36d5f4"
+    sha256               x86_64_linux:   "b58276340d35a0ab8ed97152a6ed76d33547df5cac1bf69b8eaca673dc5fc6d6"
   end
 
   depends_on "cmake" => :build

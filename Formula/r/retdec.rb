@@ -9,9 +9,11 @@ class Retdec < Formula
   head "https://github.com/avast/retdec.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a13dc26a54022a10d84c27df2a23437de8c80729b6e6e43309ce6213488363db"
     sha256 cellar: :any,                 arm64_ventura:  "e976bb48ed3134c1b66577c8a16371f58c919fb2e19de6aac69f4fe05fb90b9c"
     sha256 cellar: :any,                 arm64_monterey: "2e10771a8c543677b24d9a8e7834f0e68bad87d5ce0c79fd8d81c7aec5c37907"
     sha256 cellar: :any,                 arm64_big_sur:  "c862bcb6fc9aca00707abe35c7e2fef22a51a9907fe0ed74b5ba70b72bed1412"
+    sha256 cellar: :any,                 sonoma:         "4178f85f6136abe80073e969e06c829716651691febd951b0e6752ac0f1bd53b"
     sha256 cellar: :any,                 ventura:        "e781c8d105388cc40825b04848f2168c67b5bcf381aebc77914f3752c59846d2"
     sha256 cellar: :any,                 monterey:       "61e8941ee8c7658c36728bc6cbe7d8cc89c343b60541a5c914cd05a6f8d74d50"
     sha256 cellar: :any,                 big_sur:        "c9b06269e6cefdc03d0045db89b812bd59a653b146c4550124f1109fbceaf6d9"

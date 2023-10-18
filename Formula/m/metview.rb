@@ -1,9 +1,9 @@
 class Metview < Formula
   desc "Meteorological workstation software"
   homepage "https://metview.readthedocs.io/en/latest/"
-  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2023.7.0-Source.tar.gz"
-  version "5.19.2"
-  sha256 "93e1721f08baaf280eab30557dbb936433bc02be268a69ef1794f8af11a3d3a5"
+  url "https://confluence.ecmwf.int/download/attachments/51731119/MetviewBundle-2023.10.0-Source.tar.gz"
+  version "5.20.0"
+  sha256 "8d55a554f25fa17e2fb5f45111ca3dd03e6bbf00f6216aef132fc9bed36d4708"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,11 @@ class Metview < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e2a758c49c3c0ce6ae5a190098981c85cc6a1a26261c8888325027085df15216"
-    sha256 arm64_monterey: "c0b364d7d735c408b3433eae844844130ab537d8db7b9f8f0d8388e905043bb7"
-    sha256 arm64_big_sur:  "53801782e96471f5a5802b78e445c5f5596c49f53f47fa92da759a864531d4dd"
-    sha256 ventura:        "dd54825096d772a00a0bfb2af2f4c31d6f6af8c56f895326c92a3f143486e467"
-    sha256 monterey:       "d9f9730bf566946f898039143db134356c0e10d3897bfa548b2d82528338c1d6"
-    sha256 big_sur:        "e2958db4b5dfec4387f360d0c4efb4125777a2b8cb52a8f2eb3829a4b1ac7a0e"
-    sha256 x86_64_linux:   "3e0f4b0233f991448acb5aefcc86110cf2fbad5a3cbab0e8dc5c0c4a624e3119"
+    sha256 arm64_ventura:  "c3e18bef83f2da49288308430450a73c73f17397ff8c66e66ad65a47c165d5ea"
+    sha256 arm64_monterey: "4ef29cdc6c1458ac3ce66bfd071a2268c79ecf97ed268a0aea9de751d2b511f1"
+    sha256 ventura:        "1f61027d26b53ff07f1edfd34d66f372f886b0cebf7f7f28921017e827139425"
+    sha256 monterey:       "c29662c45399c0be20b95b56753f89800571095664429b2e834f6e451d1862cb"
+    sha256 x86_64_linux:   "25616c754343b8082d933fcd77656a5c542413150d31611d8e0c793143449b00"
   end
 
   depends_on "cmake" => :build

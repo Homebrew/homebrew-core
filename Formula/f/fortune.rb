@@ -13,9 +13,11 @@ class Fortune < Formula
 
   bottle do
     rebuild 4
+    sha256 arm64_sonoma:   "c41455674cf0ff7332fc390420ce86c9e92a876cecfde07856a254706167b162"
     sha256 arm64_ventura:  "4c2c46f7e506de4349b370e2bdd61fef3ada89564446d0eb23969fa3f5ef369c"
     sha256 arm64_monterey: "9412148af6d5be4f3256e07427834522e5c241b5ba7d6b71fefa1112774bf337"
     sha256 arm64_big_sur:  "78689923b7ba4d7d5a4541a93a543effcbc7dcd722d803b47954656c92dfdeca"
+    sha256 sonoma:         "459ae4678779b2414a335b5d6080b3636702b139eacf6af354ea2d998a8389c4"
     sha256 ventura:        "eb226e3087a3f58f8bc0dc0eafabfb7625605bc6e023ed45d9386692cb26cc63"
     sha256 monterey:       "edf16c29c279acfdbeecb0202f93ef36852f96060fadf7645b94aa19b0cb054d"
     sha256 big_sur:        "de301856c24aee684544214cb83474fe8237104c9cf214df6777267418b17d9f"

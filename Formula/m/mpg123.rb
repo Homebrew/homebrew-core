@@ -1,9 +1,9 @@
 class Mpg123 < Formula
   desc "MP3 player for Linux and UNIX"
   homepage "https://www.mpg123.de/"
-  url "https://www.mpg123.de/download/mpg123-1.31.3.tar.bz2"
-  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.31.3/mpg123-1.31.3.tar.bz2"
-  sha256 "1ca77d3a69a5ff845b7a0536f783fee554e1041139a6b978f6afe14f5814ad1a"
+  url "https://www.mpg123.de/download/mpg123-1.32.3.tar.bz2"
+  mirror "https://downloads.sourceforge.net/project/mpg123/mpg123/1.32.3/mpg123-1.32.3.tar.bz2"
+  sha256 "2d9913a57d4ee8f497a182c6e82582602409782a4fb481e989feebf4435867b4"
   license "LGPL-2.1-only"
 
   livecheck do
@@ -12,20 +12,17 @@ class Mpg123 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "28c36a95aa73e8168cd267e17c00b7461afe9f72470b5a5f2ad4270cffe54d6c"
-    sha256 arm64_monterey: "f23ff202265261d8fa26e2d0f75cbdc37983e4db907730fb9b881d07426bc143"
-    sha256 arm64_big_sur:  "93f95c194f36a8e70f8b8481643d3f01c670c1467852d61a5759f83c26ddceb6"
-    sha256 ventura:        "62bdc19ab0fb45a6e5c9043ccdb403b042a29d72416a6de777c65a1937b82967"
-    sha256 monterey:       "c019bd4a86883f358388511ba013eb88c52017f1ce81321941904e73ab410887"
-    sha256 big_sur:        "2239b5414a9a80c44ebf39ede0304619a1a3fbaa5feca7b37df68a629f619b23"
-    sha256 x86_64_linux:   "f6f378ab7a10bf6e14832c270962adb7eb2e18fd80f35535d49201dce842d54b"
+    sha256 arm64_sonoma:   "6324a30c5b49b4c62882ad10adcce474a3649c466a9557def3ca9dcda10439e6"
+    sha256 arm64_ventura:  "f0ec99c74eea1c53a1f567b5c7ddef33b9c606b5af49d9913e49e52e468f859b"
+    sha256 arm64_monterey: "fd9b2d9479afcac36e5bf8fc994c84f3dcf5706586a44e9db95bce9a6a45d043"
+    sha256 sonoma:         "d5b83bc1af027fde3daedac23dcdb0e16e200938297017b80a07ec7c73ce6674"
+    sha256 ventura:        "9058810279d84c616d1ee14a38538712cf25c2ce57d56ebf7dc542c8ae988000"
+    sha256 monterey:       "84a62db870ec01c79069eee3d1c77b7fcec72e84d78e79a32ab3c79201ec55d0"
+    sha256 x86_64_linux:   "d32e43d1bf8b202c853b0c5d532e475f53e6979c2bf61ad1d214068e88d96f79"
   end
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+    args = %w[
       --with-module-suffix=.so
       --enable-static
     ]
@@ -38,7 +35,7 @@ class Mpg123 < Formula
       "--with-cpu=x86-64"
     end
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

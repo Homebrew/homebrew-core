@@ -7,9 +7,11 @@ class Nedit < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8f6e94981bc35788dba9284a2313b48003f8a6bb10b26f15ee4dc2f20c4ecba5"
     sha256 cellar: :any,                 arm64_ventura:  "2ce67e319d75468e209d20d306cb6c3dcacea83feafd8114902273b1cb4b3344"
     sha256 cellar: :any,                 arm64_monterey: "9ee06ab3c8df64e26b87d80ac63acfff12ce97286ce115f2fc8882b3e4c88605"
     sha256 cellar: :any,                 arm64_big_sur:  "e81454f55e5a3b396abe741f65a4a2600d18e93301385edd3481d8d55cee20c0"
+    sha256 cellar: :any,                 sonoma:         "8422e83c7f1428b1188a85db7c86ede8660169ebe97c14728a45a7428908d7a7"
     sha256 cellar: :any,                 ventura:        "4a0ede3b87a97df3bb77ef2ffaac6632cb6f3834c1208cf9c076c0b3eda751c4"
     sha256 cellar: :any,                 monterey:       "97501b6d060c2da91ce81ff637fc9898e5f3696c0ca6005ea862d5cf3b9b59f6"
     sha256 cellar: :any,                 big_sur:        "d39ce752a03c79732c908a3cbe93df61f413a12126f764e7e1c3d71f4106f701"

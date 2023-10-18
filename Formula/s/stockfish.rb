@@ -12,9 +12,11 @@ class Stockfish < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "642a2ff8b5fdd336062b5cf4b747d9033d56a5ac97c6b30501e10dee362589d7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c85682af4f040f57555116ac1762f6d6d4749fcf419e21e94fd91c46a50fd9ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "50a5998dbabe422fe64e49fbc259bedfc2cb1e9657a6375f1ef467ece03b8cae"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de69084dc86ff7a30c4b0561d2a5091d88a43c96dd5f13842d50327a8663283d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8739cb16ad47e8fdf5b43d2ec82303061332968f88fc14626d77b296d430a9e2"
     sha256 cellar: :any_skip_relocation, ventura:        "196f7d090cbfde5aa3aff32748f3081b4d7ea4f29588e9a5551df4e392048b64"
     sha256 cellar: :any_skip_relocation, monterey:       "5f90ccc4d589b06bcff87f70856c754074656cec63fe5252f252f13fb699fff6"
     sha256 cellar: :any_skip_relocation, big_sur:        "5a2430875eee53cf4855a1a897220115df48f5d8463c1b10d57f4db22286a3e2"

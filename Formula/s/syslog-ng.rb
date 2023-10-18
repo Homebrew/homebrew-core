@@ -9,9 +9,11 @@ class SyslogNg < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "b77ea6bad52e9fea0baed6afe621bdaeefce0ed35cf14a600e54cfef34a140a0"
     sha256 arm64_ventura:  "4ef97eb024a908a39221bfecee23ed2578b3846c12e62b31004feeeffddf7456"
     sha256 arm64_monterey: "fe3bcb50386bd8920f3a65b161d0300bb16f212a024cc67c664d2289dacf4971"
     sha256 arm64_big_sur:  "de9817a4897edd2784b052ea4522b8a0eadaf6412a325c190eebb221db42d630"
+    sha256 sonoma:         "af44538a08a589214820e51da3697ec984520557af2e43e5c65926ab762d4f8e"
     sha256 ventura:        "eb0c417c37cd153382100bc7941a305db19b1264bd003472fc74465b0d5d41c9"
     sha256 monterey:       "ad846597fded4dc7bb58fc75403b3480ad113f2d55dfb3288b0ca76c459bfba8"
     sha256 big_sur:        "9b38e7118f424020b318f7c917fc627adc145ceefb3c93e7a38190d45c0901d0"

@@ -23,9 +23,11 @@ class Devd < Formula
 
   bottle do
     rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f3fc464a6deb3e098bf848f03c4cd5030287493c92198140ad9056e36b67a09e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "13847da393a2fc68810f987451c78f751fd9a3ea4fc2e07a00b01464f3eed02c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "82d937b6bcf0f37755df12694e934a8032ce155fc2895ec227f4887b2662d9c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "47f06f9c6157c81eaf52040448e5f131a6a660f96e78186146ab469345e6ea96"
+    sha256 cellar: :any_skip_relocation, sonoma:         "144a24494c3e24414d13e0d336b09d69969b110cfaf37c618d4e2d7c599a0054"
     sha256 cellar: :any_skip_relocation, ventura:        "c3a45de493d66241a712df0ec91b66bbb110a221e9e5b4d0216050dea7cc7e9e"
     sha256 cellar: :any_skip_relocation, monterey:       "e815c896205297337741c856016809aa6603547c4a4302acb0ad307f3c91f10c"
     sha256 cellar: :any_skip_relocation, big_sur:        "446557dc47076e2e0f4d93d6e33ecdac80721f4da9c391af29154509c425dd57"
@@ -37,7 +39,7 @@ class Devd < Formula
   # We backported upstream support for Go modules, but have not received
   # a response on request for a new release since 2021-01-21.
   # Issue ref: https://github.com/cortesi/devd/issues/115
-  deprecate! date: "2022-09-21", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "go" => :build
 

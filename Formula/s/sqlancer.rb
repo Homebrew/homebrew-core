@@ -4,11 +4,14 @@ class Sqlancer < Formula
   url "https://github.com/sqlancer/sqlancer/archive/v2.0.0.tar.gz"
   sha256 "4811fea3d08d668cd2a41086be049bdcf74c46a6bb714eb73cdf6ed19a013f41"
   license "MIT"
+  head "https://github.com/sqlancer/sqlancer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "351350797f563ba03179e8c47f8556b5950f8ba52fa6d9eed411384405c11230"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a8f6995c0eaf3002eead99ad6ca75a3922c7e6d4f1206a1f573fc55b2445140"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3e7fba8aa71ddb6e684ec75b414f4920a4e7f9d6cd50cbadd9952a5ae18366e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c92f7d690ed61405369d71a0ae3ce6cb0f5f102d3e330d20f9c2dd20831d434"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d53935c68d2add8d86432c2a0671cc9200105bb85a0cb39dc5949a7b1bbd0611"
     sha256 cellar: :any_skip_relocation, ventura:        "94d63909d9e75194f791872f30e80496c16ecf119f36f69f9c39c259efc9b787"
     sha256 cellar: :any_skip_relocation, monterey:       "132c2d5e369de21ea6e7e7860ca95f44d2a36c5f50325896cf170bb3e49a8d8d"
     sha256 cellar: :any_skip_relocation, big_sur:        "c355a181b18f9c30e07f98dc66b3075a56baeb775646a7b7a0417231110f49a6"
@@ -22,6 +25,10 @@ class Sqlancer < Formula
   uses_from_macos "sqlite" => :test
 
   def install
+    if build.head?
+      inreplace "pom.xml", %r{<artifactId>sqlancer</artifactId>\n\s*<version>#{stable.version}</version>},
+                             "<artifactId>sqlancer</artifactId>\n   <version>#{version}</version>"
+    end
     system "mvn", "package", "-DskipTests=true",
                              "-Dmaven.javadoc.skip=true",
                              "-Djacoco.skip=true"

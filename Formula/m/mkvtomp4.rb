@@ -10,20 +10,18 @@ class Mkvtomp4 < Formula
   head "https://github.com/gavinbeatty/mkvtomp4.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40b20115a22f30e12c87b231eca95ab046e3b83e953b52b72cc854590c1d5b1e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "40b20115a22f30e12c87b231eca95ab046e3b83e953b52b72cc854590c1d5b1e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "40b20115a22f30e12c87b231eca95ab046e3b83e953b52b72cc854590c1d5b1e"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7cd942202d691603d7168598bbed297c48c231bc3ef6425483899d9b7229a4b"
-    sha256 cellar: :any_skip_relocation, monterey:       "b7cd942202d691603d7168598bbed297c48c231bc3ef6425483899d9b7229a4b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b7cd942202d691603d7168598bbed297c48c231bc3ef6425483899d9b7229a4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bf4126d40540e60ed5901ae61ed87bdd039abcc21d834165a882a3932bf925a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0172b3bc26de89c91c4660b9bb2a7efbe5d02d804eb971ce57eb2f095a8d26c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b17897f565647cc96ef82d31e285e720e7bbf8f24b3ff8ca82982a8f6cf41400"
+    sha256 cellar: :any_skip_relocation, ventura:        "27f5efc06b833837ca9bfda6dbd879f638c0f968bf29076145f1ae150e45ad29"
+    sha256 cellar: :any_skip_relocation, monterey:       "d50e60e03cf5c79a517df1d861b1c681df15a438e14245443a70187faef0ac32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26c9985853df8ccc0ee242454c6bec5e82d4334262b05f7ec00c153e0a844e6e"
   end
 
   depends_on "ffmpeg"
   depends_on "gpac"
   depends_on "mkvtoolnix"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

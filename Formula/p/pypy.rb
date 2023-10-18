@@ -1,8 +1,8 @@
 class Pypy < Formula
   desc "Highly performant implementation of Python 2 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy2.7-v7.3.12-src.tar.bz2"
-  sha256 "dd61d88da274c2ce2cec77667d4a3df9a652bcc50e26f90991d4dd0af66bccf4"
+  url "https://downloads.python.org/pypy/pypy2.7-v7.3.13-src.tar.bz2"
+  sha256 "976984bc6ca5ec9d37ae4e219b020cbed2751d1a02267033f59ed700ba8cec40"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg
 
@@ -12,13 +12,13 @@ class Pypy < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "72d020e6636b793655a7dbf76426943edc64b82c26a12d37249d4dd55785d64b"
-    sha256 cellar: :any,                 arm64_monterey: "44bc02650e5b0c879956e328cb2a0ec61b3076d6d71945fb0edec7dec218266a"
-    sha256 cellar: :any,                 arm64_big_sur:  "02c8c813d93fe2f9d030b1545f65d840bcacaf5b5e00f83ab50830fa9a186015"
-    sha256 cellar: :any,                 ventura:        "3cea00e5b65cc015f85d381dc130de64976f7d98dba2e7f831beecd207b49cf5"
-    sha256 cellar: :any,                 monterey:       "d4394557612b898ab032706d741659769e8ef1fef38b7a25dc874bbfe48ddf6e"
-    sha256 cellar: :any,                 big_sur:        "1df1252d1edf27d93c3e2d022902463150196c08780a51f0dc96c86c6830d09d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55263b35f3525afeaa7699687863b558f1f3d43ec50ea38455e60f42b3fed6f2"
+    sha256 cellar: :any,                 arm64_sonoma:   "2f57ee978b8b24a9ae1a1784b83986868684e420b32f3c603804f9eb6c9c2c2b"
+    sha256 cellar: :any,                 arm64_ventura:  "1a915ed39bec21adf67ac01328be3b48c531de57deb23b45dbed499b7de3704f"
+    sha256 cellar: :any,                 arm64_monterey: "2508ed81bb096f9ba7e4a3545228677e91ef5292f6f1ec2ce7a134a5f10df0cf"
+    sha256 cellar: :any,                 sonoma:         "1a7d487d93fc934403f6cb26ec42102652cbd0002328d128724cd7d81a0f3ca6"
+    sha256 cellar: :any,                 ventura:        "8b7ffc536675361a392443e12601c014991b6ebe94b7653a14e10464a8f2ac52"
+    sha256 cellar: :any,                 monterey:       "4dcb6e6f3aff4ece555b47d755c886e5e79c7a93e6c4b7d294986ac3b1da36f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6febd30b506c63e695fbdce7333465a2db748c0533b01f9e080ebafc404c76d1"
   end
 
   depends_on "pkg-config" => :build

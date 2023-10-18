@@ -1,29 +1,33 @@
 class Scipy < Formula
   desc "Software for mathematics, science, and engineering"
   homepage "https://www.scipy.org"
-  url "https://files.pythonhosted.org/packages/a6/98/fceb84466a74b8fe74ce2dcc3a0a89cb7b4a689d4775e0fb4c95f335ef6a/scipy-1.11.1.tar.gz"
-  sha256 "fb5b492fa035334fd249f0973cc79ecad8b09c604b42a127a677b45a9a3d4289"
+  url "https://files.pythonhosted.org/packages/39/7b/9f265b7f074195392e893a5cdc66116c2f7a31fd5f3d9cceff661ec6df82/scipy-1.11.3.tar.gz"
+  sha256 "bba4d955f54edd61899776bad459bf7326e14b9fa1c552181f0479cc60a568cd"
   license "BSD-3-Clause"
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cb737edb4cc8aaa4fcab6e9459aaf63822894930b79d01b11dfaf4574f02dfd6"
-    sha256 cellar: :any,                 arm64_monterey: "f7aee1ea0d70dfe3143c5dbb9bebc451f5453c8cf03ff32c10c1023f779b3513"
-    sha256 cellar: :any,                 arm64_big_sur:  "3cd8b3c1480d3811d581291bb155b4af5ad3ec59ee85d133f8aea5714c1cbdb1"
-    sha256 cellar: :any,                 ventura:        "c3463b9ee0484ebcd82244e537fd099530216d8768fa6f69741138a2887bc166"
-    sha256 cellar: :any,                 monterey:       "c0dd5208d9b5d8fd63baa3731ee3e92e2997b978afa33e20f357de9e05071be8"
-    sha256 cellar: :any,                 big_sur:        "df93a51573e035179aaaa2d3a06a124720b7a962a9c297e9d29f1ff96077fd6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e352dcf10b39445b802b5243fd96f4eb201d9918ccf673d809bfa0ba2fb53719"
+    sha256 cellar: :any,                 arm64_sonoma:   "ebe5a63603e24a4ca17131c957e72f93aa49bc101c8c08798c1f57e12405915a"
+    sha256 cellar: :any,                 arm64_ventura:  "c001e62674458c5875cf06f301c86ab9b14d4e71a7e24eaaa83ec908aba8d716"
+    sha256 cellar: :any,                 arm64_monterey: "cfe4ada39860d229ea94632e6c7292a9192ab0a3e77c4c516fd247dda5bd8c2d"
+    sha256 cellar: :any,                 sonoma:         "a9fb9a36174436e19ba946afec394f6b404835580115ff8d84d6be7d2eab12ba"
+    sha256 cellar: :any,                 ventura:        "d6b1da45259ebd8cda4b6258b848f88b55a2bd8f7cfa29949facd7279c33c735"
+    sha256 cellar: :any,                 monterey:       "cd2528d95402ca7608e07e976a7dc67bbec2a68f4876ea52a4fed23d2f20e30b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb9ce8dabb7b29350e92e51a0192907f4f65bc3fa9e428ad5daa212ce065bfe9"
   end
 
   depends_on "libcython" => :build
+  depends_on "meson" => :build
+  depends_on "meson-python" => :build
+  depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "pythran" => :build
-  depends_on "swig" => :build
   depends_on "gcc" # for gfortran
   depends_on "numpy"
   depends_on "openblas"
   depends_on "pybind11"
   depends_on "python@3.11"
+  depends_on "xsimd"
 
   cxxstdlib_check :skip
 
@@ -51,13 +55,13 @@ class Scipy < Formula
     Pathname("site.cfg").write config
 
     site_packages = Language::Python.site_packages(python3)
+    ENV.prepend_path "PATH", Formula["libcython"].opt_libexec/"bin"
     ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
     ENV.prepend_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
     ENV.prepend_path "PYTHONPATH", Formula["numpy"].opt_prefix/site_packages
     ENV.prepend_create_path "PYTHONPATH", site_packages
 
-    system python3, "setup.py", "build", "--fcompiler=gfortran", "--parallel=#{ENV.make_jobs}"
-    system python3, *Language::Python.setup_install_args(prefix, python3)
+    system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems

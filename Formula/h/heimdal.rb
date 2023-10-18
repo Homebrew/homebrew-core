@@ -13,9 +13,11 @@ class Heimdal < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "8b480f9df4e9202f563a2d9946ff32ee8f32396ddbc203c426d6571444b943d4"
     sha256 arm64_ventura:  "3cc28db88f119ee29956332ee3bb187c3aa7b8248ff1a455a85575568bf0118f"
     sha256 arm64_monterey: "e9afb91c49a8763636ee2ba0e278dc41137cd0ebe94d7b33893d9ee4cebb0277"
     sha256 arm64_big_sur:  "0919ca038055abca1ed8454d85b394dd0448c7a8822605bdec25e67d3f620de8"
+    sha256 sonoma:         "71b25e02df1ba68d4c27654415424ed02d7d87a56b5bfc84922593f7cbad0ff0"
     sha256 ventura:        "13c389d268721a6b423b6c0aea6e5d9a97b5037171cc72452f59e78ae961e453"
     sha256 monterey:       "bea74d1460429c73745f8d2459fda3788d628fa5a819185e6d41cc93b55b37d9"
     sha256 big_sur:        "e14aaa2d7953fae00c33ea0fb8faf17f87b35a0ca9158436b7bb327e7a23dc02"

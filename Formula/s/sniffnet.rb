@@ -7,9 +7,11 @@ class Sniffnet < Formula
   head "https://github.com/GyulyVGC/sniffnet.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "052e9aad0c48e75a89c247fb6d2e99ce6b8d6ec215f98803f571522cb485ecab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e8cb9ccb9c357d147cdbacd2a0f5174691a33e62762ad444f16805dbaed1a6b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3802c5cb60cb38b48d1533e0ba5055e3a0f92aa87cc3830035abe9e93b5df067"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bed274251c38c182349dedf479494346f90ddcb43dd14f8a81139d769ff7b3c7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f0c714e487a7b3b5fc5103c5158a4e03930ffc4fb85cb303c26cb088f1836a1c"
     sha256 cellar: :any_skip_relocation, ventura:        "d333fcd07692bbf2d27cda50452c45d1b32dfa2456e06101de123f42696ec400"
     sha256 cellar: :any_skip_relocation, monterey:       "852a6d871c1ecb85337474a6650b0634d3c0d5008b03a7269d9bdf3c821c1ed4"
     sha256 cellar: :any_skip_relocation, big_sur:        "d23411868e5df55b6ea1617d78631619f9028f043111e581591f69dde120036a"

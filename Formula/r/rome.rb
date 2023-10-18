@@ -15,6 +15,9 @@ class Rome < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a60357d041aa0c5547afc0cd0ea6bc9d2933d0db3ce3bfaeb6607c9b664f0e4"
   end
 
+  # https://github.com/tmspzz/Rome/issues/262
+  deprecate! date: "2023-10-01", because: :does_not_build
+
   depends_on "cabal-install" => :build
   depends_on "ghc@8.10" => :build
 

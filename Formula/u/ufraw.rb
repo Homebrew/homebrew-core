@@ -6,9 +6,11 @@ class Ufraw < Formula
   revision 5
 
   bottle do
+    sha256 arm64_sonoma:   "53776b1213ec006373ed79f0ef751d5c1940f6acdef7498bc48e25e53ec54793"
     sha256 arm64_ventura:  "e8ebe194de0a2b0abc47fbba2a18729e261294a7128f9124daba92f31ebd56de"
     sha256 arm64_monterey: "b83f6e4a6e1c65437da3f79385b87c4e34282bf116f69860be96866cc1f08652"
     sha256 arm64_big_sur:  "738c930141c10646e2838eae83f5436346cb617aad1272e024cde80b1e288b03"
+    sha256 sonoma:         "3df44fa8ec3c6486298bef4db0fed8ac237cf318dbe3f29237ae5ce5f88447dd"
     sha256 ventura:        "c6aeaadf650b049cecdf42d8e5f3647f440817b382f6d950e71198c0c8f8e7fd"
     sha256 monterey:       "57daa4e9573a66030817ba412cf5989555cf569a6e156e4128598e6eabc2c419"
     sha256 big_sur:        "8daab4a6aff60fba25cb522f217f4aee722b018825506de0b8a3b1127372109c"

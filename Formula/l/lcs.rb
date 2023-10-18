@@ -14,9 +14,11 @@ class Lcs < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "53c3857d8a8d4fbe45e84b0489f9a9b50da8078fc037f470473272ff36d7cb4d"
     sha256 arm64_ventura:  "af4b1c073592ae9b4f5f168b00c13fd02fddd09be18938c0d392812ae36a507b"
     sha256 arm64_monterey: "fe4700d7dbd9901cd46e1fdd19453b308d918391914bac529059b25f229b7bc9"
     sha256 arm64_big_sur:  "1ec069485376de05c00be777102bcef25f3f1349d84ecfc2e53990d6c6e403dd"
+    sha256 sonoma:         "ad71dc194ad2f21f033c2415649ff165266aef24aa10f60c94f7add9f82256f2"
     sha256 ventura:        "3ee4e2b8a059045bf17d7d0b32860c1ec4ae23a996c9babf5a58efa0871659d6"
     sha256 monterey:       "a90a57e3001f38f79b787bbaad00e38099fcac09da06780f2996ae0666d80420"
     sha256 big_sur:        "9e3c6957bab58eaf828f8420fd7e493bb352544ec552c96eb24c8d1ec8d4adc6"

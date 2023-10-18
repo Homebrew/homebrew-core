@@ -12,9 +12,11 @@ class Elektra < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "145f4e7335c44640cb1b89fc077451ab1f0667d00fc9622d19754c8d7fda6fd0"
     sha256 arm64_ventura:  "225bf8018ed6d4ab4b17e06b0fd54734aa8549aa9014fb45fd3c169a1baa95ac"
     sha256 arm64_monterey: "b2adcbd5ee3af2902697b7a7ff66ff03c44f0606e4b3713f3040f5b65c529d6e"
     sha256 arm64_big_sur:  "030d9616b72dcba09a838efff2d3ab1bf4f250d94e404b44232822f27ecf40f8"
+    sha256 sonoma:         "750a4e0e2cd2e7eeeb9b6277a9f436eba9dff0559211912275e8ae9d76284c2c"
     sha256 ventura:        "572831f83143c1f019fd2f3a964778f3614f06a9bd47a94cf533fb53b07d0d6f"
     sha256 monterey:       "a0afa6b581c6e4224136a484fdce54340cfc33b7c59faba3c713f4418a9e95ba"
     sha256 big_sur:        "840c731a3c0afc0b417a8886f24ef3a9bb20c5ae27571a3bb9df382c29358faf"

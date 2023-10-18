@@ -8,6 +8,7 @@ class Bedops < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fa0e42d870cb2e5fd71ecfe637ec760352eb571074aa19156564f8fd1fc0cb2f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4716026be4f889b0c6ea10e8288be373cac72224aa63376b08192ab07f440d5c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6e3fcaa46ec3dc817710e2cfd3fcb2c750a5064fa276f922daf9030451d83665"
     sha256 cellar: :any_skip_relocation, ventura:        "cfc5f580c14bc11bad34d5b8b5ff6b84180ef5238a86d7b67ab9ffde4699a611"
     sha256 cellar: :any_skip_relocation, monterey:       "044fcad68d63ce2863dc43d69cbcff7b0b8d519086565ab8a2fa654b07f78bf0"
     sha256 cellar: :any_skip_relocation, big_sur:        "12419efcde367c515fd963910d949141e3b95ff57c288730ba6e176499e519a2"

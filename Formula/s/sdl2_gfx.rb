@@ -12,9 +12,11 @@ class Sdl2Gfx < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ce7aacaf54e17f764780e7480ea8c6ea032f9736565974537bbf3a09645cbc01"
     sha256 cellar: :any,                 arm64_ventura:  "9c294fad8fbad927f3041868451946dc56c35f1d90f9aeef625e803113e65d09"
     sha256 cellar: :any,                 arm64_monterey: "7c17dcf54036d30d7bbc8d76bfcd51b8c966cc1653c886a7b188a897a483da94"
     sha256 cellar: :any,                 arm64_big_sur:  "7c632415953aecce33ea6b66b0d0b75461db7987bf560802e408d308bcd9b653"
+    sha256 cellar: :any,                 sonoma:         "3678d4052241eb8785cca53190d302d8ccb69d05a4f12f28eb1d09af05070de6"
     sha256 cellar: :any,                 ventura:        "07ced752aa459a1242b44edb51e3ad95146ac3a0920a904ce85d00ff22389906"
     sha256 cellar: :any,                 monterey:       "befe6548ad09bcdb75ce8363af39231065da928283ed7628daf7a5776725462c"
     sha256 cellar: :any,                 big_sur:        "9466b3ad0c9a29ca01a8c804b529ad7c89bd42c4d8b79b37bc079419464cc9f2"

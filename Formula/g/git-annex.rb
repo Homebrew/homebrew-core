@@ -1,20 +1,20 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20230802/git-annex-10.20230802.tar.gz"
-  sha256 "c7e89ced9dcb9516d924fe7bc4a41fead795a5538939c7ef19b0fbf3f8607217"
+  url "https://hackage.haskell.org/package/git-annex-10.20230926/git-annex-10.20230926.tar.gz"
+  sha256 "e7ded189aa10b7926ec8624a30755c63d117b59d2d714c5f79b0b1962f70a41a"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   head "git://git-annex.branchable.com/", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8bbbf4d6bcbf25e6aa6df6418c5c8505b9edce7da8a97b01dd52431bee798301"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5fbadcb20c3408d6b379cab77e3677fe38b3a7a8d032b1dc87d24679b613b01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "077e4b5b731cc56b633ac1df9f546ac0761719832dcadf891c0f17da71d89def"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7e3e5df37e4fb7f9fb79388e7fc87244525cd3566debcb854001a2ad8329d4d"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f77c924f64abcf8a40c2ddbce6a08ea3204a9abb8c22ea4a6da5800a780639b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ace357e4217c0d6acf143726e363fa91823bf49b964be649ff8f39c1b2ca0af1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28bf18d857c39bea3d5b2543ce6cd0892c2d2d7e6c0100fd57b0aeb6b4237ae5"
+    sha256 cellar: :any,                 arm64_sonoma:   "59d124ef423c9f6e6bfb92b06f74a0d20855f19c688d705c7c8aa96328f98158"
+    sha256 cellar: :any,                 arm64_ventura:  "72111a427c64eeded953fdf5da51dbc2b7463d3a4e649d5cf75b50dd785fcabf"
+    sha256 cellar: :any,                 arm64_monterey: "54d201f6cca9371551b665aaba0211651e527f253361555cc6486cf136b6c5ca"
+    sha256 cellar: :any,                 sonoma:         "578d2c2fd6a6eca84f97333a4a9fbd99e73a19122e7ccb26c50be35e46643e30"
+    sha256 cellar: :any,                 ventura:        "31f7af0aee41392c0e319e23c708a5a33347327bc35c072bf7133825d0655226"
+    sha256 cellar: :any,                 monterey:       "1716c05f2eb5ced147458dd23b33e3cbf18f54e403632a617be3a390be318751"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c7abeed7e3d80b67c2b79a039f9f74a6a84fa32be4e5bd84def04bd71ffafc2"
   end
 
   depends_on "cabal-install" => :build
@@ -22,28 +22,11 @@ class GitAnnex < Formula
   depends_on "pkg-config" => :build
   depends_on "libmagic"
 
-  resource "bloomfilter" do
-    url "https://hackage.haskell.org/package/bloomfilter-2.0.1.0/bloomfilter-2.0.1.0.tar.gz"
-    sha256 "6c5e0d357d5d39efe97ae2776e8fb533fa50c1c05397c7b85020b0f098ad790f"
-
-    # Fix build with GHC >= 9.2
-    # PR ref: https://github.com/bos/bloomfilter/pull/20
-    patch do
-      url "https://github.com/bos/bloomfilter/commit/fb79b39c44404fd791a3bed973e9d844fb084f1e.patch?full_index=1"
-      sha256 "c91c45fbdeb92f9dcb9b55412d14603b4e480139f6638e8b6ed651acd92409f3"
-    end
-  end
-
   def install
-    # Add workarounds to build with GHC >= 9.2
-    (buildpath/"homebrew/bloomfilter").install resource("bloomfilter")
-    (buildpath/"cabal.project.local").write <<~EOS
-      packages: ./*.cabal
-                homebrew/bloomfilter/
-    EOS
-
+    # https://github.com/aristidb/aws/issues/288
+    cabal_args = std_cabal_v2_args + ["--constraint=attoparsec-aeson<2.2.0.0"]
     system "cabal", "v2-update"
-    system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+S3"
+    system "cabal", "v2-install", *cabal_args, "--flags=+S3"
     bin.install_symlink "git-annex" => "git-annex-shell"
   end
 

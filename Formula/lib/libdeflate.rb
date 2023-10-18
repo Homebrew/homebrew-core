@@ -1,18 +1,20 @@
 class Libdeflate < Formula
   desc "Heavily optimized DEFLATE/zlib/gzip compression and decompression"
   homepage "https://github.com/ebiggers/libdeflate"
-  url "https://github.com/ebiggers/libdeflate/archive/v1.18.tar.gz"
-  sha256 "225d982bcaf553221c76726358d2ea139bb34913180b20823c782cede060affd"
+  url "https://github.com/ebiggers/libdeflate/archive/v1.19.tar.gz"
+  sha256 "27bf62d71cd64728ff43a9feb92f2ac2f2bf748986d856133cc1e51992428c25"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1b2e112627f0d3d96bdcc963325d8adaa25b3a0f9fd496fb16c9e90bee89075c"
-    sha256 cellar: :any,                 arm64_monterey: "6033e7914e305fdf6a89beb659d7b13d142c22b120cadd58818e716894d8d3ad"
-    sha256 cellar: :any,                 arm64_big_sur:  "8ca091cea4f792ecccc9b1a04b5aa191069be84275026d8f558a0bf83d9de4c7"
-    sha256 cellar: :any,                 ventura:        "04afdbb6ce553f2fcb8d1c592dab0ae5d72c43a4aa0f9d0701548033e5512ff7"
-    sha256 cellar: :any,                 monterey:       "b1cfd87672ba2ea5b73e1d9e63394eadab5e0534d6024094a866575867319deb"
-    sha256 cellar: :any,                 big_sur:        "23aed6083b2e468777c4815297c9a1ef22a2cb04d827812f62b6feef8707405f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5321d573c497dddbac53530c2fffb3e15a4fd0f31bee3976bec294dd4004949"
+    sha256 cellar: :any,                 arm64_sonoma:   "25a9ae1e8167bd14f5f1bf88165f27c80caf8f5d24604579865eaf13b7a27bc1"
+    sha256 cellar: :any,                 arm64_ventura:  "a97e5d8d855fd8bcd1e35a0ca2bb55bb3e05da8928ab091003c8bfd001162247"
+    sha256 cellar: :any,                 arm64_monterey: "6d514e7fda8cb70c16d95147f50342fdbbf87b9706f3b9df78e3ac5eef8f324d"
+    sha256 cellar: :any,                 arm64_big_sur:  "f03cc89c76225623adcee307931ae1b8f6306ae0996c9a1403091209b6743226"
+    sha256 cellar: :any,                 sonoma:         "71836a9918b68414109129a7828a2e79d542d89cf05405836bcbf1dd65e77f2b"
+    sha256 cellar: :any,                 ventura:        "87e07a558b1533935a4a3582948976c232ade085acb0ed39aa58736280940e93"
+    sha256 cellar: :any,                 monterey:       "12d872b0cc1cfcf167a8273b555b8108c0a2ad01fbe3213fbadfa5c3a0cb3842"
+    sha256 cellar: :any,                 big_sur:        "32623fc04c5e7dc31a042fc7e7029143d4a8ee77a13a9fe023dbd5038869787b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c75f2d165b9c852d2c53a4a145b3a49896c1809d23f42c20d663d7c2987c96cd"
   end
 
   depends_on "cmake" => :build

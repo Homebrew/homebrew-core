@@ -12,9 +12,11 @@ class Sentencepiece < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "da8c2f769a9e3fb9ca6ddb4733197e3e1e29f98a367358b51f7c6d746395945c"
     sha256 cellar: :any,                 arm64_ventura:  "e87ca15b0001e4f83f245683724d620bad421a568eb85cdfed53db941438a4cd"
     sha256 cellar: :any,                 arm64_monterey: "37d69ef235e82f82414f1490cd60b71efc2be89850857a22ad38c4b3e72846c7"
     sha256 cellar: :any,                 arm64_big_sur:  "fa97fafd3633dbc1531169adbdbe36d9b39b13a94db6f44b9a719f14c59ba346"
+    sha256 cellar: :any,                 sonoma:         "5278ede95775aa4809f02fe9081196f06bdfd5017fc58596a460300f33f05988"
     sha256 cellar: :any,                 ventura:        "15713cf96fc6eafd2c7b85748a784b9f14fbed557091427b83c35bb5d325632c"
     sha256 cellar: :any,                 monterey:       "7f88d1c72fff0ae96318ef9d00dd62ce8552b014109e3221f004ddef74db018b"
     sha256 cellar: :any,                 big_sur:        "79e0e90606d60e71c77e81d7704dae54f3cfc1fef62421dded430c326a487da9"

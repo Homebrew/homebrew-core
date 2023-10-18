@@ -10,9 +10,11 @@ class Termius < Formula
   head "https://github.com/termius/termius-cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "69d938e866fc4c831902672187500ccbc4e82dc68f815843774bf5399d8c3187"
     sha256 cellar: :any,                 arm64_ventura:  "3b8b1add7406fd53ed6841289642eb611077a1494b9637b59242fd2990316ccd"
     sha256 cellar: :any,                 arm64_monterey: "f1232f80e5401956c3a8486315cd9adb9b2cfbd1a30979421b9d2537c284688d"
     sha256 cellar: :any,                 arm64_big_sur:  "af2ba00ad36e578b0f0454bd659f1e8efbbfbaf88b2375031bb0746bd4980565"
+    sha256 cellar: :any,                 sonoma:         "7b19613ee7ffe6fdfcc02d8518849c39fccb767cbce3249e6c24baa321f7c1b8"
     sha256 cellar: :any,                 ventura:        "6fef17c9b1ced8ad4333c93b9a115f399b32052378d0901040ec8aa20ac41102"
     sha256 cellar: :any,                 monterey:       "ae2c4980e751c027df0f879a9ab39d6921dbf69981260f0d382ba88bd7881c95"
     sha256 cellar: :any,                 big_sur:        "db41c6dbedd8750c8c172a52e2331288f7c67c43d183c17a1de9fbb2a2034b97"

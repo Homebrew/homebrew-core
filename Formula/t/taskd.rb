@@ -1,7 +1,7 @@
 class Taskd < Formula
   desc "Client-server synchronization for todo lists"
   homepage "https://taskwarrior.org/docs/taskserver/setup.html"
-  url "https://taskwarrior.org/download/taskd-1.1.0.tar.gz"
+  url "https://github.com/GothenburgBitFactory/taskserver/releases/download/v1.1.0/taskd-1.1.0.tar.gz"
   sha256 "7b8488e687971ae56729ff4e2e5209ff8806cf8cd57718bfd7e521be130621b4"
   license "MIT"
   revision 1
@@ -13,17 +13,14 @@ class Taskd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "de9179448eb26d2d5bcf63fc2bed922e8488181520508a390d113ad0939e1d2f"
-    sha256 cellar: :any,                 arm64_monterey: "fbee3ac49bb6169fbd115157c8c8cc030817d0e5e8f872669ded94e203db770d"
-    sha256 cellar: :any,                 arm64_big_sur:  "538ccd42a9ccb36722a35116bb1652217eeb33813683e14d194a3a8aab33bf35"
-    sha256 cellar: :any,                 ventura:        "490f7197acd57aef38de7b8388a48d19b705fbc53d8ea30e6706775a39429b55"
-    sha256 cellar: :any,                 monterey:       "eef1a2c3549d1ef75365ee3d134b4ec30604deabfd4fb51421fc323e18ff9045"
-    sha256 cellar: :any,                 big_sur:        "842ffc8f10936b3803281743196d37571057656ccfcd019364b8c5114ddc36cd"
-    sha256 cellar: :any,                 catalina:       "88580976ecb71d4f74d814ff06c88c2082565fee61c7ff8e7f506bce19b460d4"
-    sha256 cellar: :any,                 mojave:         "225bedd463f0344572ec985bbb49693dc0b6d5c095c87a5157bcfc437317c1d7"
-    sha256 cellar: :any,                 high_sierra:    "f9737943f0b2877414bf8c0d957a88d79010334a145be6420fd93f64b9569cb3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b29eee73430b07da2a84a6a321cdbecce2926f1766d600efd9128cf181079509"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "e3bb75dc9d5d281fcdd7a9eb5604d5d17f36791458bf69c91a88403c385913f3"
+    sha256 cellar: :any,                 arm64_ventura:  "dff5f74888539c8a37113ff4f0cdb5c4753a6bcfd8cba312978eada666286b6e"
+    sha256 cellar: :any,                 arm64_monterey: "d965204a53afd9cb1f71824fffda964a63ca016560d31d8eabe7d1e2d87f804a"
+    sha256 cellar: :any,                 sonoma:         "f95e28f8daaea0136706ae30efc5c12afcae319e8ee29de57318977f30d3d118"
+    sha256 cellar: :any,                 ventura:        "1654093173dc0c9e2fba9bc9be2a50d28fe437f9332f853b54c4b3cf503b6eae"
+    sha256 cellar: :any,                 monterey:       "a0131221a82276fc6feb0bec88b260d6731d346e05c84570b7f8ba376d1714eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d81536e57b798ded725ca302e02ff8b57e49445b02346508a5a707c925608a8e"
   end
 
   depends_on "cmake" => :build

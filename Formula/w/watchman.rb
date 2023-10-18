@@ -1,19 +1,30 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2023.08.14.00.tar.gz"
-  sha256 "aa56da5e9b7957f37af9a41d7f5ff99d6924a1c7b23e8707de35f3b819a4024c"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
+  stable do
+    url "https://github.com/facebook/watchman/archive/refs/tags/v2023.10.09.00.tar.gz"
+    sha256 "f7e92f4007c151480f91b57c6b687b376a91a8c4dd3a7184588166b45445861c"
+
+    # Add support for fmt 10
+    # See https://github.com/facebook/watchman/pull/1141
+    # Remove with `stable` block on next release.
+    patch do
+      url "https://github.com/facebook/watchman/commit/e9be5564fbff3b9efd21caed524cd72e33584773.patch?full_index=1"
+      sha256 "dc3ef949b0a4be7dd67267eb057fb855926b3708e0ce1df310f431fd157721ca"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9db44027e276e6d0d36aa74c00ee9bddc620d2caa2546f5c2275533d3717294"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e04780ba6db5254737b8579d36524010e9fd8140bde1ad104e9f0e9dd7272962"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1106730dbbabbb535e630ae1ae3432557722aeef9527098fe07d8ce54f4f56fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "a6a93479204832ed1a723b2ef4f736b6d3f03e2a9492cea17eaa3e4a366a576c"
-    sha256 cellar: :any_skip_relocation, monterey:       "7fc19ea1131f1980c0a78d12e52db5c9567b84145bb980bb5cb18291c2dadd2a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0286bf75d9732685554f981645a9371969985a40663c2df88978d728b9f2839e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7830d3e6cc98bfcc9f6daa4afe41c899a59d8cf9711b9d914630812f0d3bcdb2"
+    sha256 cellar: :any,                 arm64_sonoma:   "b260ef8c6405e245bc81c379484802d4a73a4acf956370d605080ba03ebf056c"
+    sha256 cellar: :any,                 arm64_ventura:  "7c1ff98949395ad3da84ed36543bb45bb2b5522bdfa07da30bb1cba6ff284849"
+    sha256 cellar: :any,                 arm64_monterey: "8c4fdb600a5fa453bb26a682caa7c1a6efd698bec641953a459f1f99af0a45bb"
+    sha256 cellar: :any,                 sonoma:         "215ed6e496a6288b2d0716c7f05b4a8fb1de4a1130b6145dc40c8f9395aed729"
+    sha256 cellar: :any,                 ventura:        "9fba8d481f96efb52a9d00688ab0e9733c764304db520547a6073b5623cda295"
+    sha256 cellar: :any,                 monterey:       "413aea41bddd75af521b7beaaa04d4052f77535f1eafa6cf12fb63f5c8992749"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad2a79df110dd0dc44b43a02b750a4790ecff952026423cd624e052bf2510258"
   end
 
   # https://github.com/facebook/watchman/issues/963
@@ -39,13 +50,6 @@ class Watchman < Formula
 
   fails_with gcc: "5"
 
-  # Add support for fmt 10
-  # See https://github.com/facebook/watchman/pull/1141
-  patch do
-    url "https://github.com/facebook/watchman/commit/e9be5564fbff3b9efd21caed524cd72e33584773.patch?full_index=1"
-    sha256 "dc3ef949b0a4be7dd67267eb057fb855926b3708e0ce1df310f431fd157721ca"
-  end
-
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
     inreplace "CMakeLists.txt",
@@ -59,6 +63,7 @@ class Watchman < Formula
     #       formulae, so let's link them statically instead. This is done by default.
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_EDEN_SUPPORT=ON",
+                    "-DPython3_EXECUTABLE=#{which("python3.11")}",
                     "-DWATCHMAN_VERSION_OVERRIDE=#{version}",
                     "-DWATCHMAN_BUILDINFO_OVERRIDE=#{tap.user}",
                     "-DWATCHMAN_STATE_DIR=#{var}/run/watchman",

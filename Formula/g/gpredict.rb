@@ -31,9 +31,11 @@ class Gpredict < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "33d8ea891b67d66f1681026b9b2e7b9d9db05018f44887026eaf4faf9169c304"
     sha256 arm64_ventura:  "afe4cc604e87a3446fac9a882292efa4ded782ee40e6b2bfee9549c4ea1c285e"
     sha256 arm64_monterey: "269c3a416e968dcc1ebddeb7580660acb9568387121a52cd5dae4a421747ea2f"
     sha256 arm64_big_sur:  "ef852387a0eeb9e19c38fabcf717c58f5a4924bb11c93a79ed214aa41dc5e0a3"
+    sha256 sonoma:         "8c3d097c5ee32221912a68351087671d5db97494aeafbfdc26d7ecd4bced9def"
     sha256 ventura:        "c388efa5790d4a364a46af6210c0ef9e3e750c37413b4c3d315a039caa804a5c"
     sha256 monterey:       "6486c396b33ef98057502fa04c9f8e53cd91493d541635ba9c04b61323be189f"
     sha256 big_sur:        "914edd91da98b60ce958b96c2ff8c83f23d94ccb9b486beb745acc7766fa1686"

@@ -8,9 +8,11 @@ class SaltLint < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10ba885f733d52f226a9643e7b0aadbf5e237b076265345d3e125809ff2b48f6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c2cd0d7d476e651ba383c2fac5d342b6ff6cacd4c067d06d1ee532238ba9447"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2dab22268d03811a93cabfdf358bc0bfd13f3051b72317672bfd976eaaa110c4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9524446bac5fa0e317fa7e46ecf0be18e1d2fbbc54a8e0eeccb2c39cfe4b03f7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f5c6b23ee3b6e6c58d21e43e61579bdf86ba7b50e080b46118e2040c21f4f4c1"
     sha256 cellar: :any_skip_relocation, ventura:        "f0a06c52e6a37db529743d9432a35f7893c77a1725084c26a85e482c22cb99d2"
     sha256 cellar: :any_skip_relocation, monterey:       "1cad246b52cda8bfe5504099ff779da5aa2076767d18a0c9b1c47557d8f0556e"
     sha256 cellar: :any_skip_relocation, big_sur:        "b8f74d038dd22849312195c816b2a56a75231ba046b0ddb485ed03d38651fb73"

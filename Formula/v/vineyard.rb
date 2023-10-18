@@ -3,18 +3,19 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.16.4/v6d-0.16.4.tar.gz"
-  sha256 "b0566f122120a50001c8b3a70d6cceda3495c48aaca20240665e8ebb18b444de"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.17.3/v6d-0.17.3.tar.gz"
+  sha256 "34178fbc814a28b0dae8f26bf1c140ef0163c4c6fb57d5c4be06cd6c4d904718"
   license "Apache-2.0"
+  revision 2
 
   bottle do
-    sha256                               arm64_ventura:  "89f3b52e785c55e61332b18d3227dda8e92b6023724e99c1ef937344eb968488"
-    sha256                               arm64_monterey: "9f3e2845277e0c53eb8f60d7e38ceb9475a2ce4a72090de7cbed9b5122894388"
-    sha256                               arm64_big_sur:  "8a17a36c107915ca14339103a3cc65b667a2e010af56ff478bf3455bae285a9f"
-    sha256                               ventura:        "b8e448e380e67bf4b4769252eea36044f92dd276b646e0b407391a258c664edc"
-    sha256                               monterey:       "c2ab49faab8e6255c5d24f5ecba900397e10b0e25af4e65851c6887181a19942"
-    sha256                               big_sur:        "b051bf7aed3ae60c9674a0d7c7dff5e57e7925131eeeea3c9bc4f891b47ce4a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9141f56c458d1ca72a77d9ce608e500eb12d18ec87adb65b7136f85022d63fb"
+    sha256                               arm64_sonoma:   "22fc09826da06dc466bae372997024810f240fb20b69a7fb9ef20f1f8b7ca8f9"
+    sha256                               arm64_ventura:  "3ac7d39e34b55c3c4bd12d9b27ea645cd98d9a9fb80e3d070006b2668bd5b8bc"
+    sha256                               arm64_monterey: "40869f3a79d1d31fe1eee36244c5caa3582916044f34d25f1471aa2060ae8211"
+    sha256                               sonoma:         "d39f70dcda43a5ab5d7afb6275c6b07d0578275f2ea907e40686b0e0c88a07fc"
+    sha256                               ventura:        "1c45960b42c74d771081ffc3602cc340f0a70d6e558a5e21a5e48023d9528c76"
+    sha256                               monterey:       "8dfefe8d700db7474ae6dd7fd0ac80ecb611ac73fc4bc9b51fe67a0d37d89258"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c77a7684df23eb5d04e695216607ebc7e043b734756cee9036fa0bc49438d757"
   end
 
   depends_on "cmake" => :build
@@ -40,6 +41,10 @@ class Vineyard < Formula
     python = "python3.11"
     # LLVM is keg-only.
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
+
+    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+    # libunwind due to it being present in a library search path.
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=17",

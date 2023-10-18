@@ -7,9 +7,11 @@ class Mp3blaster < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "8ead649ae9cf1daec1f1c2d15c527c9beb9b51039668fed085857a33e83f7cae"
     sha256 arm64_ventura:  "301c45f8598765fdfacdbd773046f77406714c334946c6778cf7334b18004dbb"
     sha256 arm64_monterey: "7ec5e7135245bad785d3267ee2dcca69442a9bf6e8e2922ef8cfd2d4632cdb4a"
     sha256 arm64_big_sur:  "accc717158abb4d7493f4ff6bdd6c3dcf192ba06208efb08f93bb8c0f461d2d4"
+    sha256 sonoma:         "cde9f28105e542dec0abd01ed0e2dd7bb92396af46769f305e2379cad95b98ce"
     sha256 ventura:        "891ee24c9ab3afd96503c7a0baaf2e20bd3f2fe84f3727eeaf93b62d3de2b39d"
     sha256 monterey:       "0d343b563ad1378a233e2bb1d13207635b92aac493f8e39d9dc0800920d7699a"
     sha256 big_sur:        "6c1f0d720d7451421e8b86dd8f2d910613f7201da6ba56ea1b449b2d2e94aa90"

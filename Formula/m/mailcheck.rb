@@ -6,9 +6,11 @@ class Mailcheck < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5892072eefc7d2c38a7acabbb05bb380943380d11e46ea2c6f514abe08979184"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa14d797b2b2de01428e52e56c0e26ffe36d72227393ec4554c0749b8189aa60"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ebfbf5a09b426cf879dc604f856b3512febfe7013bc74039dc35dcbf0d28b57e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cb8f491eff846164c8732bf372b323f8546830237ac097dc55dfba3747d6331"
+    sha256 cellar: :any_skip_relocation, sonoma:         "193fcd7805d976190391ae4bcf34afd28ebd82bfd45aff54c307aa6325a7a93f"
     sha256 cellar: :any_skip_relocation, ventura:        "d6e91d19af4b560df0f8a4c02dc922e7e31273812076b8d326109f394a8d7dbf"
     sha256 cellar: :any_skip_relocation, monterey:       "212f413b638cf5e1e95f27edec31f6f197cf4ff2f20d24e0580d7db1957b2ea6"
     sha256 cellar: :any_skip_relocation, big_sur:        "59d3c8716efff8670b81cec68c47b0663ffa079938ee6aae55078770564fa481"

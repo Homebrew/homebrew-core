@@ -20,7 +20,7 @@ class GhcAT88 < Formula
 
   keg_only :versioned_formula
 
-  deprecate! date: "2022-12-08", because: :unmaintained
+  disable! date: "2023-09-06", because: :unmaintained
 
   depends_on "python@3.10" => :build
   depends_on arch: :x86_64

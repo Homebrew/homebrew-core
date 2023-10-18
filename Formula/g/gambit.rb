@@ -6,10 +6,17 @@ class Gambit < Formula
   license all_of: ["GPL-2.0-or-later", "Zlib"]
   revision 3
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5cb5990e339a9b45230838aca0f780ef0bc9539fb8aa02ed7ab1a150456a7782"
     sha256 cellar: :any,                 arm64_ventura:  "183dc5a8d5d31cd73296b04216727a1049cebb34788f1b58c421536a6d9d9d36"
     sha256 cellar: :any,                 arm64_monterey: "9e8a6532979a76099a1aec227b3b581f72ace90d5d6df95ef92a9aee4695ea91"
     sha256 cellar: :any,                 arm64_big_sur:  "8095ee116fc0670d6f2a162851c65bcfd975bafdb728c3a7748a09a59f09c72b"
+    sha256 cellar: :any,                 sonoma:         "13305ae8ef1ce1ab306fdf528859aa584ba895af5731f1ba44c631cfec3f64d0"
     sha256 cellar: :any,                 ventura:        "7c088cdd93af9aa729243909d2f0d1b6b4d04e2893c5b49293f22ea1b75a9059"
     sha256 cellar: :any,                 monterey:       "bcfcbfc39abea04e9a9f724ac800042003ce9d3dd56a9bab77615825032e0ef0"
     sha256 cellar: :any,                 big_sur:        "57c1e208efcda541d09673f8852ef2903a5bae47ddfcaccfcfa5b42b9f46070a"

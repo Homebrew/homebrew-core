@@ -6,9 +6,11 @@ class Hilite < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "428126844c77fdfab8f4d4d007a3e5c2a743511b4005e71f91b74a4a162836d1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d2fa393a2cd13f75d3793c7d543ae3fd5a053cdfdd82ac722015912618fa596"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f3e960b26ed8e81acab99dd342d1e2946b1ec8003fb99dd65b91add5af31c93"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4095517387a97c332c1acb88969995248ee95d2c29483e56ed7e47bbb8ca721"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1419bc243a91c8c7f71649cdeb80843940133dd48b0f26d475db261fd7af8571"
     sha256 cellar: :any_skip_relocation, ventura:        "5316dcf6b7f26ecf9a6149a3db6026a9b1c467f35af63e2dcd499f0262c3db52"
     sha256 cellar: :any_skip_relocation, monterey:       "5c5bf78c282a2858319b08bcfcc65af8be02431aeae83ac6654b32cc7c3bb605"
     sha256 cellar: :any_skip_relocation, big_sur:        "3f3139534dda449285ab33db2042a264bc553b7efa47ac86507b598c50a5a2d7"

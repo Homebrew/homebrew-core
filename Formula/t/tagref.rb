@@ -6,9 +6,11 @@ class Tagref < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "709e5c538191ec4da822f21c29c67745d520522a44c5cdc12386ee252c74f9f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "70c1adcf722b7d54cea4361e0282d67f432154f7c13f7a79f29439427d173b34"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1638f0e7c3f0e448a3bce949fb7624335a6fc4a492b4aa9111ef15ad72462220"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70558da90d6dc09e838cee7f2e4df5c3720416650ff10b5ec9adbea4b457db82"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be21f24fbf59dee9b9893b54d1086fe827d99c8d515db6775c35054be1a22b91"
     sha256 cellar: :any_skip_relocation, ventura:        "3afd1c563d3dbc8dc539f534d30c5c2fe183318db294b34a1293ca2be87e28c5"
     sha256 cellar: :any_skip_relocation, monterey:       "d81c5188dd14f91040a01427e3df8a9291b48eccc3ec74122ae79541c7edcc79"
     sha256 cellar: :any_skip_relocation, big_sur:        "151a4439dab0defdb5fa0afb9291b297cd606aa6f7359a0248c9d56f86694ce0"

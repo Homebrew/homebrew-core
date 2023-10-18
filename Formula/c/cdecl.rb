@@ -9,9 +9,11 @@ class Cdecl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "846241c80519b5d11e202535582176b22077b1460e53e14347ccdbca61abdc93"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "36acc58f38ee551b35a2c531d9bdfb8113aee61cbb4bdb9d43646ddcfeba9053"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8dcff021c0d0078666c5a4781d738e8958fc52222bb2062b447f581d1b398971"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6ffb24daa6ca1e12ddfbc0cf77ef3461dfdc7eec3ba8149e0f5dbacabeefce2b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9927708e1d28894af1d6ff2b06d5ef00ec7650be6facea6eee5aee2644461f0a"
     sha256 cellar: :any_skip_relocation, ventura:        "172450bfee9de34b028b40568fbd21662fb6fbf5149343eee624b0cd03766f02"
     sha256 cellar: :any_skip_relocation, monterey:       "484c974a4e2c954bd4c5dc321de2ca4a778be9d55db712cd9913ec2fd67b41ad"
     sha256 cellar: :any_skip_relocation, big_sur:        "ac04af015afd9bc8d756f4220c53d484de0fba6f0c8a0976f99b63e2bdfccf3e"

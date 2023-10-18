@@ -8,9 +8,11 @@ class Tcpstat < Formula
   head "https://github.com/jtt/tcpstat.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05facda1f2a318b0253ef9b01500561ed6791d0b5143c5aeb05d1187902a6758"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "50c363371b5503288c97c1a00b5dc678aa2e121fc5470bb42676bb1c107fc7da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4126408cb79eaf56b14fb122539a770f8c593c90576c2f23cc6cfaef2a094f54"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f5880a02d97d890364b5e98871dabb0682bf1d73d43f6a2cf92f0039f29619c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "54ea40debc75f08ad7120f8bccafceefea48cb0caa516f674a5d45f95cd84adb"
     sha256 cellar: :any_skip_relocation, ventura:        "64eeee455c63e53025d2bae91de42a412c3459afe2cd7c080f6ba272f66f2b7e"
     sha256 cellar: :any_skip_relocation, monterey:       "c4a031f93d9e107740f63c329da289a7b8534d168b66326f67b3f0dc5da82e6e"
     sha256 cellar: :any_skip_relocation, big_sur:        "1a8c9f2f529162b1b5fecee421aaa0c99b80864f752717142fb7f77c5f5acc43"

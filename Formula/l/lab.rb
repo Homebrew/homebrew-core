@@ -7,9 +7,11 @@ class Lab < Formula
   head "https://github.com/zaquestion/lab.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f11a5e58b8158bd43d1e4f93e4c85e398f6ba34308957b6e5b868c58d582cdb2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "eee3b3d1a309b0a61a5224cc1c13b0de765518b86015f6985a09347e86554b00"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "31e8b682f99fd9f456d298e09d20521317f3b04248f53029d04ce5f8b3f3b75a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cc2420cd4dd1db173333ff7c51530deee73b47a8fb5d3d36d60893dfd4c35ae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9806b52adc5a587c7992ca6e1fc86da47bdd71020c93d24c8d1ceb118d419fa1"
     sha256 cellar: :any_skip_relocation, ventura:        "5509e7f37eb68c9404e0f862fc87535091b7928a891fa38deede63fefcf314f5"
     sha256 cellar: :any_skip_relocation, monterey:       "d1e3f02ef9e1748260a2ba5d9eefc79312b77f8d3ae223485aab7a025e7638e5"
     sha256 cellar: :any_skip_relocation, big_sur:        "f20ca44b476a3d6a3ef9a74047d4dd863403d72a427f1baa0dc19a9df5b33667"

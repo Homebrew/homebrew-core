@@ -20,9 +20,11 @@ class Cattle < Formula
   end
 
   bottle do
+    sha256                               arm64_sonoma:   "2e8272b2652bd83dda6c28b3b13464ef9adbd7f905bfa6a604e89bad92b5f652"
     sha256                               arm64_ventura:  "dbe7b8b3f8f215b8d73218e64e6f884b248da90095f2dc6ea8f73abf3db72f79"
     sha256                               arm64_monterey: "a8cfe837a78af532853dc6fefce95c2b11212e287640a3b527ca6e30a99e8edb"
     sha256                               arm64_big_sur:  "30cc03818912570ba2f48545b53a8217d2f8d0883e0308b55825d59aba1e342d"
+    sha256                               sonoma:         "0b70e1d36468fdea6a86e9e35425d7d35298a448c79d4a8a92fb6b02fa28a1fc"
     sha256                               ventura:        "3ea680e66032aa529230bab1e7f3d63fe1fa49febb51b6f5629c09370bfff182"
     sha256                               monterey:       "f6367afe418e8a7715ef32fc386228aae672034e62b35f84ac7ebe7476cb88ff"
     sha256                               big_sur:        "d6d17fed746c28274bd67416616df6ed87b7c6eae25593792d1ce815760458d3"

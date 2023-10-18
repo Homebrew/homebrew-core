@@ -6,9 +6,11 @@ class SimpleScan < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "a151bc9892b812b9f4d002a5419fcb522ab13e974b618484fa37b82ab2d39e88"
     sha256 arm64_ventura:  "ee3a3064079b059bd94d4192ae570cdbd69a9afc4170f96a0d79c06a05242a58"
     sha256 arm64_monterey: "03cb79c0d57b59ee137039d945f06205bab8c1fb4d59d23a4b370cacf3354b69"
     sha256 arm64_big_sur:  "2149639d70234943efafcf317b3b62d69db43ec2f481b44f6a407455f1bf3d68"
+    sha256 sonoma:         "b88cd22c4611d1d1d81973fb7df078cfc72c89fbe6dde6151c37550227a3d41f"
     sha256 ventura:        "28e873b997239eda0a4eb2b5507ecbcf061cf8e332550a435f8460d1da6e188c"
     sha256 monterey:       "cd801aeae0fdde16834189cf91378006e9c79e2c5bd74aacfb37ce24159b153a"
     sha256 big_sur:        "63637752cefd64e78b6b0142056f1db280bb6854911471304c804cf1484a8b0b"

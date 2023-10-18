@@ -9,9 +9,11 @@ class Gdm < Formula
   head "https://github.com/sparrc/gdm.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "028f91a50ebe55cb07330ad0044a7dfc3200ede8b34e714bada58ca66bae39e4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8c01e7222d46005257a757c00fb6dbf6e476be44502d4cee0d7afc2b759b801"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "45fa20615c4ff168b2753f538d396a9a92cc851ead7eab94c2a21faac5bee814"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "684b0b0f11a168b38500f0e9c4e8419bf39979501014f5e4a5177be2ac5352f1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8999aeae4fe6ecdb78a9633b510c46ec8a219936493d543c1832123306b1cc6f"
     sha256 cellar: :any_skip_relocation, ventura:        "9ccfb93348ed299dfa37bb416202514672c7933189d438593b57a629169d2f88"
     sha256 cellar: :any_skip_relocation, monterey:       "4ee869fe61efff2e95c1979ee051a5209d2fae0ca4b74585b678c9fdcce5f9d8"
     sha256 cellar: :any_skip_relocation, big_sur:        "fc0e6626aec33649015a5808dd6c2b2d5b73051ff71231c6b482bba9e599efc1"

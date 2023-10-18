@@ -20,9 +20,11 @@ class OsrmBackend < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8cabeea661b54d765ac785393d9f75ccfdcbcacc92647fdb8909362bdd5c7403"
     sha256 cellar: :any,                 arm64_ventura:  "44144dafdb204030ddefce66ac98e5d15c330bd98ff9397500ba9d4b65a94565"
     sha256 cellar: :any,                 arm64_monterey: "d81204f9ffcc5999aae199e93fe8eedfd48d3ed65143fa287e9bd660716da2a9"
     sha256 cellar: :any,                 arm64_big_sur:  "d48cfda368155e929f22c0cf08d1f8edee08366ebb65045b53d069fd1aeed86b"
+    sha256 cellar: :any,                 sonoma:         "d46f7fa4be50de4bbddb3e7f592b4c0e6156c981e703e8d99020442d541c7018"
     sha256 cellar: :any,                 ventura:        "b68803f30785d4bc12e7a21f72b189e0918a8091f50d7b86df0d37df11b473d2"
     sha256 cellar: :any,                 monterey:       "b40166ee8b4752089e41213e9795eb90c3fb8b057f77375342669b46001c444b"
     sha256 cellar: :any,                 big_sur:        "f7468b379ec2ef34dba76e5ab90ff9bbc86a505d54493f039548b59760551787"
@@ -56,7 +58,7 @@ class OsrmBackend < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_CCACHE:BOOL=OFF",
                     "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
-                    "-DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua", luaversion)}",
+                    "-DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua", luaversion.to_s)}",
                     "-DENABLE_GOLD_LINKER=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"

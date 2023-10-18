@@ -10,9 +10,11 @@ class Ncurses < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "77f64a7cb19a73264573f58c05cc76869a788d192b84934642bae8732f0df1b7"
     sha256 arm64_ventura:  "8afdd105a6b1d9ec6c567edfe5a08dd3eff5bece58fc29894ff64ae3851c4ddb"
     sha256 arm64_monterey: "b841fae8df4143be3b7e5d0cf711f0514b0ef45592c0737c1bf416ee972283d4"
     sha256 arm64_big_sur:  "18dd7acd5aad938bf0d7d27bd930fe6d846161aa0dad148b086eceb392eeb67d"
+    sha256 sonoma:         "3111efe7420b7dd00eb9ff5736fb0ba981bd6d6f49042c4dff067a96b146cae7"
     sha256 ventura:        "f31d17ab8166110d3dd0337b240c616acf33a3582c0ded2fbe4db61fbdda1b5d"
     sha256 monterey:       "cd6258524addc5ac1fdbbd92e7e2c46b240cae5d0c4fa771c0976da861f7198f"
     sha256 big_sur:        "b5e8d53b2860f5c778ac99d01417a0596c66ebab670169e8a472d65c253870ba"

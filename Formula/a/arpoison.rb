@@ -11,9 +11,11 @@ class Arpoison < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2c6f2456c9b2ba1ac193df313e5b48ffe0ec438d0a4abce2a0913a77783e04a1"
     sha256 cellar: :any,                 arm64_ventura:  "fda2504283a2fc1da565c46545d392afca3bf569aab288480f0d2521898a1967"
     sha256 cellar: :any,                 arm64_monterey: "26c33452df47e5d7ec7953bce6aab14f87ea5151363530593440964bacd36266"
     sha256 cellar: :any,                 arm64_big_sur:  "376ce845d964f61c095ab7a16d2645d3688ebf5810b18dfb8badb8a24da0e66f"
+    sha256 cellar: :any,                 sonoma:         "44c3875b6b3a12730676cab6eb35ca21b7e7d101cf5aa5647ea8711574e2fb04"
     sha256 cellar: :any,                 ventura:        "eee365fdbdf0f7a61b4a2ca6f97f62d3a011bf9b4d27b30ec20ffb7f088633cf"
     sha256 cellar: :any,                 monterey:       "efb931a73eccda7ae706e9138112c9ecb898fd09c42dcb0876b85899734eb93f"
     sha256 cellar: :any,                 big_sur:        "2009a1bff74b3d6e4fd4eb5f76ce104473e1c322e2f666cf3f5962de2bc99a0c"

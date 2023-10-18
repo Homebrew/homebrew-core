@@ -6,9 +6,11 @@ class Arss < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b0bf1ad20a051b16f65fbbe1ee4780b674ae2a12953291e51de2ca4fd1d478d8"
     sha256 cellar: :any,                 arm64_ventura:  "8daf9486dc32c8698fa1fb731ceb12b04d00019043a803803a71e7472a0781ee"
     sha256 cellar: :any,                 arm64_monterey: "89e8bfca3e620702bbf44ad9f75dcf18c48ef90b5ea97709a657be4cf15e6d25"
     sha256 cellar: :any,                 arm64_big_sur:  "0f31b0ca051c5caa089350b30ffd07bed2c24ff2c64dcec6776e19d594b36ad7"
+    sha256 cellar: :any,                 sonoma:         "1fb3b69447553ca6d5ab2c3a98a44573e0dd3b176a68310b4fc543c68d72f7af"
     sha256 cellar: :any,                 ventura:        "1be5f2c7ce8ee18a767065c0ed7b3783de17a36dae8eaf73f838537ece38fb71"
     sha256 cellar: :any,                 monterey:       "22747b60848d59c6989707efb0373305af7376de07a4e8958426ddff11ff6bc5"
     sha256 cellar: :any,                 big_sur:        "153a648ed0bdec6e1f0abbdbefff2815b793bf79c4967c803cf55a512228dcfa"

@@ -7,9 +7,11 @@ class Rename < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49eb3fbea363a6fbeac6f9d237c88432fdd6260c35ef0dfd18cda4f637778e5b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d7f81a8f319841108fb8082ea6cd5cf591224964e6f34bb0135cf851b7f951f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d7f81a8f319841108fb8082ea6cd5cf591224964e6f34bb0135cf851b7f951f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "308b9f76cf8386eb9c5835204233f0869cc566d9995b383a5215649e8b1c7a48"
+    sha256 cellar: :any_skip_relocation, sonoma:         "49eb3fbea363a6fbeac6f9d237c88432fdd6260c35ef0dfd18cda4f637778e5b"
     sha256 cellar: :any_skip_relocation, ventura:        "1d7f81a8f319841108fb8082ea6cd5cf591224964e6f34bb0135cf851b7f951f"
     sha256 cellar: :any_skip_relocation, monterey:       "1d7f81a8f319841108fb8082ea6cd5cf591224964e6f34bb0135cf851b7f951f"
     sha256 cellar: :any_skip_relocation, big_sur:        "308b9f76cf8386eb9c5835204233f0869cc566d9995b383a5215649e8b1c7a48"

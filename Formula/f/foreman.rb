@@ -7,9 +7,11 @@ class Foreman < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f16acf768c02068b620297c80f75273993227b25723fa8f64f023eeebda966c4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c37735684c31bbdcef1e95c9e7cfbc6245cdcf1f3ee962a67ae8aa53daa43b2a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c37735684c31bbdcef1e95c9e7cfbc6245cdcf1f3ee962a67ae8aa53daa43b2a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "575f9fbc16eca16cf479196ce44d87bb817ddb1e2eed59869ffe158d98d08a9f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f16acf768c02068b620297c80f75273993227b25723fa8f64f023eeebda966c4"
     sha256 cellar: :any_skip_relocation, ventura:        "c37735684c31bbdcef1e95c9e7cfbc6245cdcf1f3ee962a67ae8aa53daa43b2a"
     sha256 cellar: :any_skip_relocation, monterey:       "c37735684c31bbdcef1e95c9e7cfbc6245cdcf1f3ee962a67ae8aa53daa43b2a"
     sha256 cellar: :any_skip_relocation, big_sur:        "70c762dd642d8f5aa3ca5a28e420b6c9f7befaf7699de073b7d62e174fdee88f"

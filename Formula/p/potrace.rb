@@ -11,9 +11,11 @@ class Potrace < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "003f7041bd6b4ea6de5ac2c8fbe9e2537a6a6dbd169f0c872627c5e2daa00afa"
     sha256 cellar: :any,                 arm64_ventura:  "a7201a2a7bc8af588056ef0319281dab31dd376af60a379430edc495eea29041"
     sha256 cellar: :any,                 arm64_monterey: "cc774c2a6d82a036c9ccf80ed467aabbf39697e8a36ef210cb5b793fb4b6be05"
     sha256 cellar: :any,                 arm64_big_sur:  "80d3d0256f9b7add7d3835f6c84f30afec6a4893f2fcd2aa44b07ebe95876c7f"
+    sha256 cellar: :any,                 sonoma:         "84bb1788a245f7bbd5c2bb8adb2f4693c5ff4ca7a97dda75235be2d5a590106c"
     sha256 cellar: :any,                 ventura:        "a79629c4ae550b6894ce39a3afd6ed75063c885155bf44365feaa551c346e2ca"
     sha256 cellar: :any,                 monterey:       "2e65796f5e50c82a6b11475034b04f6a0647f044c5c81a819bb6b3e8f0d5e6cc"
     sha256 cellar: :any,                 big_sur:        "3b5294deed86179a4e496236fb882eb0b7ad3c020741e2a1398861b545062712"

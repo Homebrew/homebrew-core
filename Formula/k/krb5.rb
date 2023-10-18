@@ -1,8 +1,8 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://kerberos.org/dist/krb5/1.21/krb5-1.21.1.tar.gz"
-  sha256 "7881c3aaaa1b329bd27dbc6bf2bf1c85c5d0b6c7358aff2b35d513ec2d50fa1f"
+  url "https://kerberos.org/dist/krb5/1.21/krb5-1.21.2.tar.gz"
+  sha256 "9560941a9d843c0243a71b17a7ac6fe31c7cebb5bce3983db79e52ae7e850491"
   license :cannot_represent
 
   livecheck do
@@ -11,13 +11,15 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "fa17fb49aa0363f2de649bd8b6ca370d3a97dee5e7299bc07e6b7b344d4ccc59"
-    sha256 arm64_monterey: "5760aac9f37d8500d50bb598a30f359c634a50fac8938dfae30dde196eea7b78"
-    sha256 arm64_big_sur:  "4451b71c7ba7ee3ba0672902e5f144868a44b9e2b94254cc0d283c092f3a0940"
-    sha256 ventura:        "96ea0626a36b769ed4bc56a8c2e4eca44892426edcfa7661964bd29d57b80d14"
-    sha256 monterey:       "cb3da2bf3c62782d5795c89f30cc5fccf675307df276ac17f0d0c6ae8a62845b"
-    sha256 big_sur:        "f133bd49a4feb6dabddc22667bdcf8663c7a1be2ff5e5f4feee8de63a1c32244"
-    sha256 x86_64_linux:   "eb9b6638eeac1834e233fffef4e1ac145c5d38ae2f00c7844fe06afad26195ba"
+    sha256 arm64_sonoma:   "2d4dc47f318eb4b612c6082831602dabf86737abaf16205efca110f79d2c4582"
+    sha256 arm64_ventura:  "7d9d7b0073393cd9629f017b4dfe5866363884703fff78cbbff8a6cb39390f77"
+    sha256 arm64_monterey: "23e6b429459601ee94ff71df2130d01e31498a2c2b6ffbc37223cb84fb71a06b"
+    sha256 arm64_big_sur:  "b6dd4f6d440efce85e407f663b288586919fc99e442e94d0eb04f9371b34a65d"
+    sha256 sonoma:         "20a39d385f0cdc34029de2e0c030fc0787940a7be69cdcaa9de6899170cbb731"
+    sha256 ventura:        "3d61bf09ad35a994a36390723f15d2be2be9969a980884a45941300a8c9b33cf"
+    sha256 monterey:       "aba14932d5689bc4f527838ff4750fcdce0c1f634d579e7e3b9fee4bd67d8c84"
+    sha256 big_sur:        "4e3b7e7e810be949b2182a3e30a0a95a5c478fa70abb07de852a14a7664bc548"
+    sha256 x86_64_linux:   "4bb56ec3b3263b64169a57e3722f54f60ee048a57d290dfffc0481e09d05ceb3"
   end
 
   keg_only :provided_by_macos

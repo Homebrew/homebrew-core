@@ -15,6 +15,7 @@ class Spades < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, sonoma:       "2801af7d1693b0ddb1a6e0121633240f5128958f0ded1f63e5297fe0c6738147"
     sha256 cellar: :any_skip_relocation, ventura:      "04556a71583e8f9a32f8eb0e68509156ceb41f801c7c67311ed5abee49c673fd"
     sha256 cellar: :any_skip_relocation, monterey:     "20789d391cc248d051c8370922326ed590944aaf6bbdd822ae9ba506f73cfdbb"
     sha256 cellar: :any_skip_relocation, big_sur:      "57f9773581ada2f7410f4b8a75e987fdb1571a95e32361780efdbec29edb9217"

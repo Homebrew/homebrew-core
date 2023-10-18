@@ -11,9 +11,11 @@ class Packetq < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e6b0ba7c6c0bc4e0dd92e76744571c0ab3b4db39490fbd615b5fb8901050cbb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "772e29dc8f04711cdfeab1d1930db27433f609372ecec6f1a9ea8b3459431519"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "05b37ea2ed6f049d5d85235a5713fb7e355ae63ec870847503424651f0b5b0ed"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c985f67ce185fe618952564a9eccf7927cb325be1ffec0b040f64b73061bff51"
+    sha256 cellar: :any_skip_relocation, sonoma:         "281f7fbc4ad70060f5d9710200fde1bce56dae33f753f942f65e9296df5483a9"
     sha256 cellar: :any_skip_relocation, ventura:        "294b415eb4de3152240592d854f2b4c9a9212ae730deecf50926978533d91b6b"
     sha256 cellar: :any_skip_relocation, monterey:       "085d057f267c86b2bb471deccb2768100ce3c75b87111c673b25d7b173852291"
     sha256 cellar: :any_skip_relocation, big_sur:        "d7866c5cecef9997ef4a37966479be14c80d79a914b5c5d2b99123eb910cb1e9"

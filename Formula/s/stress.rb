@@ -6,9 +6,11 @@ class Stress < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70295f81088618111fc3a3c27d91de5518f63f275b161f3552b52aa8237eb433"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f744647b8c4d3d83ecedd29b802bcf4d03b8fde7ca5a659caceb3d3bf4a19df8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ecf4d28b29d30fe0d43c30d5bb8f5bb119842694a04dcefdbef78a37ce0adb77"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8ec9b4a8cd6c22f4987344d6db9d9287a54b0e9ec45897dae46deb1c49684da"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7c8460f9a1805d20e6f36f2e4768dce9ba5ade639186fa9204439fe52a55e2c3"
     sha256 cellar: :any_skip_relocation, ventura:        "7c8d2136d92522af1285918a98ee6f175252ce4a575997aa34f05de62cab378a"
     sha256 cellar: :any_skip_relocation, monterey:       "35747dadcf335894c442ffccfc3e85f16f35f404aae3e7630015abaeea2f6890"
     sha256 cellar: :any_skip_relocation, big_sur:        "4c0e687b08b14497b89ff3fee89e878808c32dd73d3ea1452ec5bfd49abab88c"

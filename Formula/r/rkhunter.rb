@@ -5,9 +5,11 @@ class Rkhunter < Formula
   sha256 "f750aa3e22f839b637a073647510d7aa3adf7496e21f3c875b7a368c71d37487"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b2a4538360218a1f44f63eb61a24e6b9ecc36dfc613dfb2c404f10f8cb75a7f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0352661692f5a34e6febf6822eb3e1eb212e5aefd2189ee403def6acf247a38a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1c3872b26c375898fbc61439a6605f42c59e1ad11a339e551d6788c29794cc88"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d560c35e3fef71d00f5ea9ee54e3f175f39e0c3fabdd1e141cc247c2a886d91"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f0e854c86f509718bc7c3acc2da1d7228405179dbef528c449bd091ce104e189"
     sha256 cellar: :any_skip_relocation, ventura:        "3db88c3dd06a9a6b84773472428a17fb1b8133dd7fec11781a32b185a89ad65b"
     sha256 cellar: :any_skip_relocation, monterey:       "6e7b220d8e9f61934488d2858254db636b1dddbe96512ed01a1b3a81d03f4e3f"
     sha256 cellar: :any_skip_relocation, big_sur:        "398958bdafc37011a76efa6e6d2fefc8c34964eb6ba29a0f6823fb8c1058e9c5"

@@ -13,7 +13,7 @@ class Bond < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "c5c047bff8729f94818174f40051191e242ccd8383553b30b18e0bc598847126"
   end
 
-  deprecate! date: "2022-12-10", because: "depends on GHC 8.6 to build"
+  disable! date: "2023-09-06", because: "depends on GHC 8.6 to build"
 
   depends_on "cmake" => :build
   depends_on "ghc@8.6" => :build

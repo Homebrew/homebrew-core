@@ -6,9 +6,11 @@ class Libucl < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b2f2fd577e0764bcf332778bc81447e5b52d1332a12c14bdedf891b97ada23ed"
     sha256 cellar: :any,                 arm64_ventura:  "f9e944d05b49df899f5b5cf0e655f4f23fc6978abd38e6b420e69f54b2d0b334"
     sha256 cellar: :any,                 arm64_monterey: "09a3e260d36bcdc45e887b82eb7ec003509866fc34d781024bec94577e2e48c2"
     sha256 cellar: :any,                 arm64_big_sur:  "2cb2ecaf50cddcaf11d401e0f9af425ba31b9a39010aaf320421403104445321"
+    sha256 cellar: :any,                 sonoma:         "a783845ae0e78c93f34d0b2ac05eaac200e09b659e5b7bf9e9e27709f6f8f007"
     sha256 cellar: :any,                 ventura:        "247a34b8fdfd55c25c6bb432bf0a99c46a33137491d9073bf64feb5f468ded44"
     sha256 cellar: :any,                 monterey:       "91209890a1a2666cb79822dde2bb7c4914472c145f53019a546271e8845be9f2"
     sha256 cellar: :any,                 big_sur:        "7496b34362a2cab89c43a44f76bacedf44f62835d80f651ab7348c8163b88e4d"

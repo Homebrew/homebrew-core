@@ -1,8 +1,8 @@
 class Zabbix < Formula
   desc "Availability and monitoring solution"
   homepage "https://www.zabbix.com/"
-  url "https://cdn.zabbix.com/zabbix/sources/stable/6.4/zabbix-6.4.5.tar.gz"
-  sha256 "8761ab337826b1b705678cbd07d22400085718bef893b64718931c6f4f54eede"
+  url "https://cdn.zabbix.com/zabbix/sources/stable/6.4/zabbix-6.4.7.tar.gz"
+  sha256 "6b4e81f07de4c82c7994871bea51be4d6427683fa9a7fbe112fd7559b3670e49"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/zabbix/zabbix.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Zabbix < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "0a7a5d073cd0c1892ff6374123d307d53294b19ddbd25ce7d3da4d14400ffb95"
-    sha256 arm64_monterey: "4f832fe25bb2ad7f70b6e966b062cdae1a0db850775fc28f364917fc431aba22"
-    sha256 arm64_big_sur:  "fa4db57087b9aa3c7414555945ba843bc7704297b5bcce646dc3cd1c34a86eba"
-    sha256 ventura:        "c1714c8aaf73e03012494344215424a0eb5d2195fcac2354d5e35632a426c7a5"
-    sha256 monterey:       "3a0e4539b878496c36ce4fa66fd72dbfdf03e3aeba931fe192a34b103c18626c"
-    sha256 big_sur:        "f06ee63967a91a1432ed1173ce5d1c46f3a7bb3410d906ae482eab815b76f82c"
-    sha256 x86_64_linux:   "c22e86aa28087def0995929dff6420d68456eef9c6aabd0aaa73682376827b0c"
+    sha256 arm64_sonoma:   "d16638cdb1dc6a5c43dff3e6ca4521ce420de54406b86c78ebc938728555b207"
+    sha256 arm64_ventura:  "50a5b6bd5a36abd9cd2fab4cf6ab185663196f6d1efe99890c1fad16492c8f75"
+    sha256 arm64_monterey: "e994dc8c290c727cff1563a668a8a84cc719359ef85b2effef27af33b6c64269"
+    sha256 sonoma:         "c3b408c7e9d65b985870a4d06dd82fcaca0f96403bce1838dbef9f080dba149f"
+    sha256 ventura:        "9d4d741cc312367870a9f40ee4af6db418470477b9107b5e577c3d6a92202ab1"
+    sha256 monterey:       "de845b6ed584f4739ef96b1d43f1133c812d659273913e852c0cc42d9c7e10c7"
+    sha256 x86_64_linux:   "2ecdb25cbfbe9f593feec7f831399c879f261a59352243cea60b734f0ca3822e"
   end
 
   depends_on "pkg-config" => :build

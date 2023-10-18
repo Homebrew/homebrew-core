@@ -6,9 +6,11 @@ class Navi < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54a46a01ce5a214f86b5f72d48786789c45e7f98a2183cd29b42b4b3b92c52b4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "11fb063a8feb7479c1c8e027b418fe4eeb2ce0c6533e9e1fcb8f0bb6b3e51184"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7b298bac9d3585536f184768eaf6a6553d66c4ba8ffcca2a477e5d5dc8cb95d9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00928858c1656fb7d2c4c914537d280b519705f64c363c8e2f8be2834cb2348e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d8ba961cfec586eac1a1ea4a963130c790a762c9e02f1343f1e4a0596bc13f21"
     sha256 cellar: :any_skip_relocation, ventura:        "8c80e5544f78032c082085ec62c684f118d1eedeaa8ed221a29de30fb9622638"
     sha256 cellar: :any_skip_relocation, monterey:       "521bfbff2d18d71ffbad13f779db5fdd3c7845979056b3b971764b75666cc4be"
     sha256 cellar: :any_skip_relocation, big_sur:        "e7365c1f4a1aeed3d144c6e4ef71deb5a0d0e5339338cf62adedb205098f0c81"

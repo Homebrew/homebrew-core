@@ -3,17 +3,10 @@ class AzureCli < Formula
 
   desc "Microsoft Azure CLI 2.0"
   homepage "https://docs.microsoft.com/cli/azure/overview"
+  url "https://github.com/Azure/azure-cli/archive/azure-cli-2.53.0.tar.gz"
+  sha256 "8076c55a6c6327879b973a1906f4ad45928004292ece5d696fc5855e92e1aeb2"
   license "MIT"
-  revision 1
   head "https://github.com/Azure/azure-cli.git", branch: "dev"
-
-  stable do
-    url "https://github.com/Azure/azure-cli/archive/azure-cli-2.50.0.tar.gz"
-    sha256 "eca7d1a6ecfb45b24b5499db141617258b79b8c01db7be6b75c9f1e225ad3623"
-
-    # patch to build with pyyaml6, remove in next release
-    patch :DATA
-  end
 
   livecheck do
     url :stable
@@ -22,13 +15,13 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3a43627756fc066cfb06867e9f55666bac1856a23afab4a8245fa81fae315127"
-    sha256 cellar: :any,                 arm64_monterey: "b01ab5827af902822fc93d53340918eb6fcf09edc24ea2b63dad5085d732bdd3"
-    sha256 cellar: :any,                 arm64_big_sur:  "9260b52803155d1ba37a18735cb66a31703adda57aa15386518c34d31145a0c4"
-    sha256 cellar: :any,                 ventura:        "41d8e281b12c06286501323b37644a98f8aba772fa4fb0ea0e9c963bd071291a"
-    sha256 cellar: :any,                 monterey:       "f7165a3bb3ec269ab50e1f4df7a9e775c7769bb144079127938769379df10290"
-    sha256 cellar: :any,                 big_sur:        "caaa1577628651756482300586672a6f57dfad3380e69cda05788f8a44dac796"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7e710a10d050c889e7c1ce128912f7aeba2bdbcc373c9a071d6f7d5c375a2bd"
+    sha256 cellar: :any,                 arm64_sonoma:   "a3d09b2b057a132b832fe5eda69ea987189b55b5c976c87b27a42073c20100d4"
+    sha256 cellar: :any,                 arm64_ventura:  "166d5f49911be6551a8ff948a20cbbfada59cac0e8aa44b77d644ff70a13535e"
+    sha256 cellar: :any,                 arm64_monterey: "2d815b1e9cf31d96304c493196a8edf92026af70f368483540eb74c33aabada5"
+    sha256 cellar: :any,                 sonoma:         "422ce59279b0964a39c22086ae262994486d1f0af03dac8d508428b18337dc9c"
+    sha256 cellar: :any,                 ventura:        "76d18647d5f2453ace9f1dceabfc1bb401fa94c22b8300a455f3ec7b201d3000"
+    sha256 cellar: :any,                 monterey:       "c3cf5b2d649ff7956e551c1f2e3e32acead40cc53029d8e9367e4df013e4b0c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31fdc1ed412509e1917a0e55d0e1ecc124ff4bacc4c1ce665b099f93a500fa86"
   end
 
   # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
@@ -84,8 +77,8 @@ class AzureCli < Formula
   end
 
   resource "azure-batch" do
-    url "https://files.pythonhosted.org/packages/b9/2b/28153115f287a7d8f5964223744a466eaf3f78adcac070cb8113ce65aa0e/azure-batch-13.0.0.zip"
-    sha256 "e9295de70404d276eda0dd2253d76397439abe5d8f18c1fca199c49b8d6ae30a"
+    url "https://files.pythonhosted.org/packages/2a/30/ff110d2e3fd960fe29986c080bed49741f4f9549e5f28810c3c0d32a5a66/azure-batch-14.0.0.zip"
+    sha256 "165b1e99b86f821024c4fae85fb34869d407aa0ebb0ca4b96fb26d859c26c934"
   end
 
   resource "azure-common" do
@@ -116,11 +109,6 @@ class AzureCli < Formula
   resource "azure-graphrbac" do
     url "https://files.pythonhosted.org/packages/3e/4e/4598ea52efc2654b0c865243bd60625d4ffa4df874e7e5dcb76a9a4ddbbc/azure-graphrbac-0.60.0.zip"
     sha256 "d0bb62d8bf8e196b903f3971ba4afa448e4fe14e8394ebfcdd941d84d62ecafe"
-  end
-
-  resource "azure-keyvault" do
-    url "https://files.pythonhosted.org/packages/8e/47/b71d7ab466189d0663a8aa216e4cc67eb16d5dfc7d69b62a9140dd8d1a20/azure-keyvault-1.1.0.zip"
-    sha256 "37a8e5f376eb5a304fcd066d414b5d93b987e68f9212b0c41efa37d429aadd49"
   end
 
   resource "azure-keyvault-administration" do
@@ -174,8 +162,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-authorization" do
-    url "https://files.pythonhosted.org/packages/7b/39/46adcbabc61a6d91f8514b46a2b64cfba365170325a6c38c31e2c1567090/azure-mgmt-authorization-3.0.0.zip"
-    sha256 "0a5d7f683bf3372236b841cdbd4677f6b08ed7ce41b999c3e644d4286252057d"
+    url "https://files.pythonhosted.org/packages/9e/ab/e79874f166eed24f4456ce4d532b29a926fb4c798c2c609eefd916a3f73d/azure-mgmt-authorization-4.0.0.zip"
+    sha256 "69b85abc09ae64fc72975bd43431170d8c7eb5d166754b98aac5f3845de57dc4"
   end
 
   resource "azure-mgmt-batch" do
@@ -204,18 +192,13 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-cognitiveservices" do
-    url "https://files.pythonhosted.org/packages/ae/06/4c72a2996870dae1a3ddee84e390d9f3a098e0d784f17bd41914a4e4742e/azure-mgmt-cognitiveservices-13.3.0.zip"
-    sha256 "bf5a5334f1f4ba3466e1532df79530e9dd3b945f1b80cdd721adcd2486cd2c52"
+    url "https://files.pythonhosted.org/packages/f7/86/8f31cf3709ad612f5e0f17810d97124193468eb5f1e3b36d37227715a2df/azure-mgmt-cognitiveservices-13.5.0.zip"
+    sha256 "44af0b19b1f827e9cdea09c6054c1e66092a51c32bc1ef5a56dbd9b40bc57815"
   end
 
   resource "azure-mgmt-compute" do
-    url "https://files.pythonhosted.org/packages/cd/f2/69cdd710bd8171fb2a0b30749811eeb311f703e9af40d21fc91b13ec3d2a/azure-mgmt-compute-29.1.0.zip"
-    sha256 "2d5a1bae7f5d307ca1e850d7e83fed9c839d4f635b10a4b8d3f8bc6098ac2888"
-  end
-
-  resource "azure-mgmt-consumption" do
-    url "https://files.pythonhosted.org/packages/8c/f0/e2d94b246e2dce71eff8d362836a1979f02b4185f5403a13e4fb26c07ccb/azure-mgmt-consumption-2.0.0.zip"
-    sha256 "9a85a89f30f224d261749be20b4616a0eb8948586f7f0f20573b8ea32f265189"
+    url "https://files.pythonhosted.org/packages/d8/3f/651b3ddfe3849bbdc247ea4a75a506137d1ecdfb460b70dfff81c42e5bb0/azure-mgmt-compute-30.0.0.zip"
+    sha256 "7320fbafc392770b03ed02b68760185e6094552ed98d7fd5ea77210a5a513c78"
   end
 
   resource "azure-mgmt-containerinstance" do
@@ -229,8 +212,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-containerservice" do
-    url "https://files.pythonhosted.org/packages/e6/2c/e0bd81c6144063d3c6c46b55afd4a245e298739e1c0cf92234c413618c1b/azure-mgmt-containerservice-24.0.0.zip"
-    sha256 "b14a772c356c7350e655fe0775a5c6483784be6004db07921c74f12ff070464f"
+    url "https://files.pythonhosted.org/packages/04/e7/094d49776e5031ab609c5bbab95f19f0f3cde16d4f9208fb5740bb064a63/azure-mgmt-containerservice-26.0.0.tar.gz"
+    sha256 "069be74aa79ee70a1db4c5cfc68fe91c2064f18cb8c8f9c474ad7ae1df482ee3"
   end
 
   resource "azure-mgmt-core" do
@@ -246,11 +229,6 @@ class AzureCli < Formula
   resource "azure-mgmt-databoxedge" do
     url "https://files.pythonhosted.org/packages/bc/97/e6f9041c0e22cdf3fa8f5ccfec70daf0d1c15740bc5f36e8e9694ff98a98/azure-mgmt-databoxedge-1.0.0.zip"
     sha256 "04090062bc1e8f00c2f45315a3bceb0fb3b3479ec1474d71b88342e13499b087"
-  end
-
-  resource "azure-mgmt-datalake-analytics" do
-    url "https://files.pythonhosted.org/packages/f4/c6/6b273e3b7bc17c13ef85c0ebc6bf7bbd8289a46892ee5bef1f0859aff11d/azure-mgmt-datalake-analytics-0.2.1.zip"
-    sha256 "4c7960d094f5847d9a456c18b8a3c8e60c428e3080a3905f1c943d81ba6351a4"
   end
 
   resource "azure-mgmt-datalake-nspkg" do
@@ -319,8 +297,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-keyvault" do
-    url "https://files.pythonhosted.org/packages/e6/e6/7fe0f188a1a574941f19820170350b321bb7fdc3f1abec232f517aadb090/azure-mgmt-keyvault-10.2.2.zip"
-    sha256 "2c6ea831365ea604fceca749af00a973865811c954b04007522b59af114290be"
+    url "https://files.pythonhosted.org/packages/55/6f/de750d85ee60d56ee4666c264d49e3455e093a9aa28d587aed75818580b0/azure-mgmt-keyvault-10.2.3.zip"
+    sha256 "24333a1744e832951e0652d42e2875ed32f309bacd771ac6adcab9a087ecc9b5"
   end
 
   resource "azure-mgmt-kusto" do
@@ -369,8 +347,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-netapp" do
-    url "https://files.pythonhosted.org/packages/ee/bd/82e8ee14fa61db2ef53aafb8f5b31efcc7748cae851f5c0567afb1903a2d/azure-mgmt-netapp-10.0.0.zip"
-    sha256 "f7e717b18f10af976cf65630dfd76e59d72a9ba4144de7506e39fcc7acc9a321"
+    url "https://files.pythonhosted.org/packages/0f/f2/074f7ddf5e62b5853b88483fcdc5bd5acb12ae16d98aa910c8e57132f1f3/azure-mgmt-netapp-10.1.0.zip"
+    sha256 "7898964ce0a4d82efd268b64bbd6ca96edef53a1fcd34e215ab5fe87be8c8d03"
   end
 
   resource "azure-mgmt-nspkg" do
@@ -379,8 +357,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-policyinsights" do
-    url "https://files.pythonhosted.org/packages/15/08/572e5907cececdf3976493f55d1970e0492fdaad85678a8058035a26ed8b/azure-mgmt-policyinsights-1.1.0b2.zip"
-    sha256 "7be23931d6db5fb5a1c470a3d44af2df3d9652b26da56183d5b84b6ea45e6f9f"
+    url "https://files.pythonhosted.org/packages/d8/ec/4af9af212e5680831208e12874dd064dfdd5a0876af0edfe15be79c04f0e/azure-mgmt-policyinsights-1.1.0b4.zip"
+    sha256 "681d7ac72ae13581c97a2b6f742795fa48a4db50762c2fb9fce4834081b04e92"
   end
 
   resource "azure-mgmt-privatedns" do
@@ -394,28 +372,23 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-recoveryservices" do
-    url "https://files.pythonhosted.org/packages/70/e1/f6d04b1128f655ef4451c8b3bd977fc185c6cb866e3bf4d31ce79c8f5530/azure-mgmt-recoveryservices-2.4.0.zip"
-    sha256 "d8978ebed371c7a677018e0623d7c144a6cc718547b1bae193c0bee6de5e7a59"
+    url "https://files.pythonhosted.org/packages/ac/d8/24320755875f749066e1f504667abdb75b20dd3b6332df8304c5fb175b3e/azure-mgmt-recoveryservices-2.5.0.tar.gz"
+    sha256 "5f1a308c4858c79b83ff8bd8e61192092bdc6ab99d6dd73963618b1dc884bab5"
   end
 
   resource "azure-mgmt-recoveryservicesbackup" do
-    url "https://files.pythonhosted.org/packages/38/3a/9e604acfe62dbd2af81ee3f2562da0bb86685843f5e2c33e6503d5ad43f0/azure-mgmt-recoveryservicesbackup-6.0.0.zip"
-    sha256 "9481188bf8ef17da586e71fe7255337d4d1f131958f9d6688c8c9946d4cb421f"
+    url "https://files.pythonhosted.org/packages/1c/26/acece583c6a4626631df7b0c572b786620961407e635ff8937e0197b11d7/azure-mgmt-recoveryservicesbackup-7.0.0.tar.gz"
+    sha256 "1ae5bac7c24674179dcb0ba6e1f0c043caf06d553d520416807ac5a89e94cfd0"
   end
 
   resource "azure-mgmt-redhatopenshift" do
-    url "https://files.pythonhosted.org/packages/1a/cb/b6bfc87e72d8b8e89ee15402eb9ac88893715f494b1e5a61303a44a169ad/azure-mgmt-redhatopenshift-1.2.0.zip"
-    sha256 "654e26293ce7cbdb6c283ac5494fa5965e6fea80e2bd82655c3ae25892c061e7"
+    url "https://files.pythonhosted.org/packages/0f/23/2602186ef691acfc6d94b296489b0edb26172f854a522749d4f81c4003d5/azure-mgmt-redhatopenshift-1.3.0.tar.gz"
+    sha256 "2ce265754c967554a1a4df250fccc674579816229298e0e4dd634e3f57c97dcb"
   end
 
   resource "azure-mgmt-redis" do
     url "https://files.pythonhosted.org/packages/c1/fa/fda9c31e9d6580bfb9dd3ccfb7e1c1399feb888f3e2a53aa1b3187da6c3a/azure-mgmt-redis-14.1.0.zip"
     sha256 "2cef7659cdbe56fb042a23a35521d7c36a370faf4d4252f9f26f98a9697afa28"
-  end
-
-  resource "azure-mgmt-relay" do
-    url "https://files.pythonhosted.org/packages/df/76/f4673094df467c1198dfd944f8a800a25d0ed7f4bbd7c73e9e2605874576/azure-mgmt-relay-0.1.0.zip"
-    sha256 "d9f987cf2998b8a354f331b2a71082c049193f1e1cd345812e14b9b821365acb"
   end
 
   resource "azure-mgmt-resource" do
@@ -429,8 +402,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-security" do
-    url "https://files.pythonhosted.org/packages/a5/e7/5242104430b1b8337e7c2e91a09981985c4eab6dca663ddaafd6118a0a16/azure-mgmt-security-3.0.0.zip"
-    sha256 "bcba7cef857f6b02a2d98afeb07f9871b1628fa33d8861ab1387e732e7db3f84"
+    url "https://files.pythonhosted.org/packages/ee/ba/a3ac088d30e0179df32e0a4981e670e96138b6141d4be821ccfd9ea5951b/azure-mgmt-security-5.0.0.zip"
+    sha256 "38b03efe82c2344cea203fda95e6d00b7ac22782fa1c0b585cd0ea2c8ff3e702"
   end
 
   resource "azure-mgmt-servicebus" do
@@ -459,8 +432,8 @@ class AzureCli < Formula
   end
 
   resource "azure-mgmt-sql" do
-    url "https://files.pythonhosted.org/packages/25/32/51cb4aeb96d4b82a7e3034dfb19c6896558541fa34c224f37e9cd1a1085e/azure-mgmt-sql-4.0.0b10.zip"
-    sha256 "407bdb3ba4e887941f94c21a3589b15c1cb40e6c3ef9155d8a6dc7103b4b06b4"
+    url "https://files.pythonhosted.org/packages/65/66/1282b7eb14582f29245c9c47ee68dde6c34e4013ace07f3949cde2e2b8cb/azure-mgmt-sql-4.0.0b12.tar.gz"
+    sha256 "2c9c7d71db6aa681e5d693c6628768039d32f0d3f87ed6d7858ef3a21b023c7f"
   end
 
   resource "azure-mgmt-sqlvirtualmachine" do
@@ -509,8 +482,8 @@ class AzureCli < Formula
   end
 
   resource "azure-synapse-artifacts" do
-    url "https://files.pythonhosted.org/packages/35/3e/d9baf379f88caa4bfdf877537523f6d0091a4f4883fce1cc197b6877bb46/azure-synapse-artifacts-0.15.0.zip"
-    sha256 "5f1af2b8de4756e63d87a8a8484bfd9f0ce42bac182eea6f14e089a97f367961"
+    url "https://files.pythonhosted.org/packages/2d/8c/bb9cf3c6490e5961136e703a9e853c8843b076469c9b44dd6470ba971dd3/azure-synapse-artifacts-0.17.0.zip"
+    sha256 "e7c93c17f694041349c060623d9a23912cc45d9dca77ab84c2bd1c65b15a33d9"
   end
 
   resource "azure-synapse-managedprivateendpoints" do
@@ -529,13 +502,13 @@ class AzureCli < Formula
   end
 
   resource "certifi" do
-    url "https://files.pythonhosted.org/packages/37/f7/2b1b0ec44fdc30a3d31dfebe52226be9ddc40cd6c0f34ffc8923ba423b69/certifi-2022.12.7.tar.gz"
-    sha256 "35824b4c3a97115964b408844d64aa14db1cc518f6562e8d7261699d1350a9e3"
+    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
+    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
   end
 
   resource "cffi" do
-    url "https://files.pythonhosted.org/packages/00/9e/92de7e1217ccc3d5f352ba21e52398372525765b2e0c4530e6eb2ba9282a/cffi-1.15.0.tar.gz"
-    sha256 "920f0d66a896c2d99f0adbb391f990a84091179542c205fa53ce5787aff87954"
+    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
+    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "chardet" do
@@ -544,8 +517,8 @@ class AzureCli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/ff/d7/8d757f8bd45be079d76309248845a04f09619a7b17d6dfc8c9ff6433cac2/charset-normalizer-3.1.0.tar.gz"
-    sha256 "34e0a2f9c370eb95597aae63bf85eb5e96826d81e3dcf88b8886012906f509b5"
+    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
+    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
   end
 
   resource "colorama" do
@@ -554,8 +527,8 @@ class AzureCli < Formula
   end
 
   resource "cryptography" do
-    url "https://files.pythonhosted.org/packages/19/8c/47f061de65d1571210dc46436c14a0a4c260fd0f3eaf61ce9b9d445ce12f/cryptography-41.0.1.tar.gz"
-    sha256 "d34579085401d3f49762d2f7d6634d6b6c2ae1242202e860f4d26b046e3a1006"
+    url "https://files.pythonhosted.org/packages/8e/5d/2bf54672898375d081cb24b30baeb7793568ae5d958ef781349e9635d1c8/cryptography-41.0.3.tar.gz"
+    sha256 "6d192741113ef5e30d89dcb5b956ef4e1578f304708701b8b73d38e3e1461f34"
   end
 
   resource "distro" do
@@ -604,13 +577,13 @@ class AzureCli < Formula
   end
 
   resource "knack" do
-    url "https://files.pythonhosted.org/packages/2e/9c/b6fc4ca774d3730fd1c2c9fe516afc223562976a4bcf0cec6e9e4dbf38c5/knack-0.10.1.tar.gz"
-    sha256 "c5728128297e6d269791085cf96c2ffdfcef58cf83c634a5cb92eb03b2929838"
+    url "https://files.pythonhosted.org/packages/0c/5b/7cc69b2941a11bdace4faffef8f023543feefd14ab0222b6e62a318c53b9/knack-0.11.0.tar.gz"
+    sha256 "eb6568001e9110b1b320941431c51033d104cc98cda2254a5c2b09ba569fd494"
   end
 
   resource "msal" do
-    url "https://files.pythonhosted.org/packages/10/b1/a648bdd3116d0028685987fb4120a37bb91d268509e09dfbafd6ae8bed87/msal-1.22.0.tar.gz"
-    sha256 "8a82f5375642c1625c89058018430294c109440dce42ea667d466c2cab520acd"
+    url "https://files.pythonhosted.org/packages/e1/e3/29efa5525198ecd4e1de11b24ab54670e9483510cc001e9121863debe533/msal-1.24.0b2.tar.gz"
+    sha256 "a0e6e3f1b099ed29a39e167e83a069ab84d9a7712627f72950030b56791b7cbc"
   end
 
   resource "msal-extensions" do
@@ -654,8 +627,8 @@ class AzureCli < Formula
   end
 
   resource "psutil" do
-    url "https://files.pythonhosted.org/packages/47/b6/ea8a7728f096a597f0032564e8013b705aa992a0990becd773dcc4d7b4a7/psutil-5.9.0.tar.gz"
-    sha256 "869842dbd66bb80c3217158e629d6fceaecc3a3166d3d1faee515b05dd26ca25"
+    url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
+    sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
   end
 
   resource "pycparser" do
@@ -664,8 +637,8 @@ class AzureCli < Formula
   end
 
   resource "Pygments" do
-    url "https://files.pythonhosted.org/packages/89/6b/2114e54b290824197006e41be3f9bbe1a26e9c39d1f5fa20a6d62945a0b3/Pygments-2.15.1.tar.gz"
-    sha256 "8ace4d3c1dd481894b2005f560ead0f9f19ee64fe983366be1a21e171d12775c"
+    url "https://files.pythonhosted.org/packages/d6/f7/4d461ddf9c2bcd6a4d7b2b139267ca32a69439387cc1f02a924ff8883825/Pygments-2.16.1.tar.gz"
+    sha256 "1daff0494820c69bc8941e407aa20f577374ee88364ee10a98fdbe0aece96e29"
   end
 
   resource "PyJWT" do
@@ -681,6 +654,11 @@ class AzureCli < Formula
   resource "pyOpenSSL" do
     url "https://files.pythonhosted.org/packages/be/df/75a6525d8988a89aed2393347e9db27a56cb38a3e864314fac223e905aef/pyOpenSSL-23.2.0.tar.gz"
     sha256 "276f931f55a452e7dea69c7173e984eb2a4407ce413c918aa34b55f82f9b8bac"
+  end
+
+  resource "pycomposefile" do
+    url "https://files.pythonhosted.org/packages/a6/29/58e6dddddf8f76af870365be52532d84ad40b469a317b39e9c0f087fa214/pycomposefile-0.0.30.tar.gz"
+    sha256 "190a2920ef05f86e620f3e0d1761931c2a57a38baa2877472337df69c8a1ca53"
   end
 
   resource "python-dateutil" do
@@ -729,8 +707,8 @@ class AzureCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/57/e3/b37a6b1ce6c1b2b75d05997ec24f73c794bc05a587e0f30a532d0ab13cb2/typing_extensions-4.7.0.tar.gz"
-    sha256 "935ccf31549830cda708b42289d44b6f74084d616a00be651601a4f968e77c82"
+    url "https://files.pythonhosted.org/packages/1f/7a/8b94bb016069caa12fc9f587b28080ac33b4fbb8ca369b98bc0a4828543e/typing_extensions-4.8.0.tar.gz"
+    sha256 "df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"
   end
 
   resource "urllib3" do
@@ -758,7 +736,7 @@ class AzureCli < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    venv = virtualenv_create(libexec, "python3.10", system_site_packages: false)
+    venv = virtualenv_create(libexec, "python3.10", system_site_packages: false, without_pip: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
@@ -777,7 +755,7 @@ class AzureCli < Formula
 
     (bin/"az").write <<~EOS
       #!/usr/bin/env bash
-      AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -m azure.cli "$@"
+      AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -Im azure.cli "$@"
     EOS
 
     bash_completion.install "az.completion" => "az"
@@ -791,18 +769,3 @@ class AzureCli < Formula
     assert_equal azure_cloud["endpoints"]["resourceManager"], "https://management.azure.com/"
   end
 end
-
-__END__
-diff --git a/tools/setup.py b/tools/setup.py
-index 2ff3976..356f5b8 100644
---- a/tools/setup.py
-+++ b/tools/setup.py
-@@ -27,7 +27,7 @@ DEPENDENCIES = [
-     'nose>=1.3.7',
-     'readme_renderer>=17.2',
-     'requests',
--    'pyyaml~=5.2',
-+    'pyyaml',
-     'knack',
-     'tabulate>=0.7.7',
-     'colorama>=0.3.7'

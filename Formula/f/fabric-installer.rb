@@ -13,9 +13,11 @@ class FabricInstaller < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c91c4421286fb38135856bb113e78a43ee44f80454efb8891c5bdf17e946ddcf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4126ef7546f0feaadfbd1238b808319f76e70791b8ddc2341a673cb6cb0598be"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4126ef7546f0feaadfbd1238b808319f76e70791b8ddc2341a673cb6cb0598be"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4126ef7546f0feaadfbd1238b808319f76e70791b8ddc2341a673cb6cb0598be"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c91c4421286fb38135856bb113e78a43ee44f80454efb8891c5bdf17e946ddcf"
     sha256 cellar: :any_skip_relocation, ventura:        "4126ef7546f0feaadfbd1238b808319f76e70791b8ddc2341a673cb6cb0598be"
     sha256 cellar: :any_skip_relocation, monterey:       "4126ef7546f0feaadfbd1238b808319f76e70791b8ddc2341a673cb6cb0598be"
     sha256 cellar: :any_skip_relocation, big_sur:        "4126ef7546f0feaadfbd1238b808319f76e70791b8ddc2341a673cb6cb0598be"

@@ -6,9 +6,11 @@ class Cityhash < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5a0d0a8fd944f2ce605734f896bf19bf634378f6754d604b026a22692f461361"
     sha256 cellar: :any,                 arm64_ventura:  "8b40df9470428bbabbd02a72658b34469a59c14d41f2782d0c6cd657aaa7613e"
     sha256 cellar: :any,                 arm64_monterey: "a7bdc9022f63b8137aa89ffa935b059bbb00fef7a017a4e374f85a006b6a407a"
     sha256 cellar: :any,                 arm64_big_sur:  "e43f909c5fb775ca6c05675798d12343b1187820316716a844634e1a3419e21f"
+    sha256 cellar: :any,                 sonoma:         "bcc3ba4da5829115dcae4e1f57a6795a33ca041d356a1f97f02a440bbe8d033a"
     sha256 cellar: :any,                 ventura:        "e28b61cd0edb007b53f6effd11dda5b1b40e694dd6fb19a23aaf2c30105e5952"
     sha256 cellar: :any,                 monterey:       "af8607ad49fe965c7d64547928d2813259a2d55dd8556f5a82bbcb6e54dfefc4"
     sha256 cellar: :any,                 big_sur:        "8ef1413a8bdd03a86b054f673462e82cdea4230fb9a75f98ada2d996bdcd0893"

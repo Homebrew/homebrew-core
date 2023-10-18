@@ -7,9 +7,11 @@ class Peco < Formula
   head "https://github.com/peco/peco.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "837a17172f4346d52cd042a91b1238e8765fdd829cc2c33b13911a9604612562"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6ee18836e9fb37550e7245924f49a2c4fd6031d0c03398838e93f5ca0ea80bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c6ee18836e9fb37550e7245924f49a2c4fd6031d0c03398838e93f5ca0ea80bb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6ee18836e9fb37550e7245924f49a2c4fd6031d0c03398838e93f5ca0ea80bb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bd46db16c2244bb3f959b175812614f58679f13648f3713d2ce669006b39ff60"
     sha256 cellar: :any_skip_relocation, ventura:        "7a91ef4b46bebf8e13308598da973d70b373e30f0d0193e771b1914198120cd2"
     sha256 cellar: :any_skip_relocation, monterey:       "7a91ef4b46bebf8e13308598da973d70b373e30f0d0193e771b1914198120cd2"
     sha256 cellar: :any_skip_relocation, big_sur:        "7a91ef4b46bebf8e13308598da973d70b373e30f0d0193e771b1914198120cd2"

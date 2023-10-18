@@ -1,19 +1,20 @@
 class JsonGlib < Formula
   desc "Library for JSON, based on GLib"
   homepage "https://wiki.gnome.org/Projects/JsonGlib"
-  url "https://download.gnome.org/sources/json-glib/1.6/json-glib-1.6.6.tar.xz"
-  sha256 "96ec98be7a91f6dde33636720e3da2ff6ecbb90e76ccaa49497f31a6855a490e"
+  url "https://download.gnome.org/sources/json-glib/1.8/json-glib-1.8.0.tar.xz"
+  sha256 "97ef5eb92ca811039ad50a65f06633f1aae64792789307be7170795d8b319454"
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "753f1b417f67019352dd2241a506056d3a61d517143983963bbf100d0bf39305"
-    sha256 arm64_monterey: "2905d1e62cc0d99fd5bb240b0899401d2dc667f317d07d19378a0cccea01bf48"
-    sha256 arm64_big_sur:  "e74f3f36f6388489d5940ee05c290ad6f7164d65a141d31384ba4c7454bc9064"
-    sha256 ventura:        "bc74ee2868329c5484a5d98ce1e612f9f135f209a62e3f5ed7b80b2f446899d5"
-    sha256 monterey:       "c9e3f1128cf4ac8db8ca28ca88ab72a3fb6c50a3ce0c9df5fc394ed5c95b38b3"
-    sha256 big_sur:        "223b8bc85f42b9a68bbca1ccfce4e6daff89c0e51275ec26cb9a0a012b7bceeb"
-    sha256 x86_64_linux:   "3fae78dea79874ebb00176ac6e7d1af0972d47da744ad30b4d189d765098653f"
+    sha256 arm64_sonoma:   "fbe3c0724f164ccdee84f32d1b69c77d1a107e44a3da3a61143ac7c22f2fc1dd"
+    sha256 arm64_ventura:  "b593108eeb37d792eb9ef773159457d25516dabd2be4cea505154838c8878035"
+    sha256 arm64_monterey: "8996945cc14f5da7a9d99e9ef9d2ca8d72eeee82366a115376d8ec3e7fc84c87"
+    sha256 arm64_big_sur:  "51081c6d5e7536d4318e6e3242187b2e1ed6bbe8406c327c3d04718d468f4abc"
+    sha256 sonoma:         "2d5b69e36b373c3290404997fce2861ff93051d090893387d63ae46684327c19"
+    sha256 ventura:        "7029704cd9940fac2877a284b3af4b3cf357449e1655c732dd83a50ee1b7bb4e"
+    sha256 monterey:       "0613f8b663813f0437152fc6eda96d7b5b494a5b0e4fdc8812aa23a1c8823a58"
+    sha256 big_sur:        "c41242bb352c932355cee7f76f218765009635e8ccde86875b5ac8ca2ba5099a"
+    sha256 x86_64_linux:   "4cc13206b988e32ae264a4cc41e97fe7e0fa7d123f4903109e50583634d2140b"
   end
 
   depends_on "docbook-xsl" => :build

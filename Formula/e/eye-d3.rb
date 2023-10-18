@@ -15,25 +15,25 @@ class EyeD3 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f4883bcbee1f7a8c72a814ceda0bdd774dab13090f5788abe618e27a20c75dc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dd6b0258622b3307eb3bf54bcabcd8cf62c1585d77656817a25281fc387a9903"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1f7f2c3f630ae636d131e25e7c6751e7e303c93853078ff5d91ec1a48fdb6ec1"
-    sha256 cellar: :any_skip_relocation, ventura:        "2eeb90f36cce98ebb93f4b9ce76118449e38f7736a7a1d6a6d77839110decec0"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1e52d17783493b79d1c3ee81dcec2d3ea807c8593e436f0507dc95f5e96b683"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aaffc02514d0c8810236b9a67650e67c3b76e41057afc6f15429102c28a3571c"
-    sha256 cellar: :any_skip_relocation, catalina:       "ef09a7738882c59ae2adf8939dd5237118668c7fe11e61c953f36c992d3648c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b3f33169eb14293fbcea9aa6e15b03ba6eb883f6ca6c2d18121656e4c8da9ae"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e50b802b509efe48af1160f735d7b70787aa0ff4c28688d09f9072345eb457bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0dd4bf5b8858e115873831f7516dc98e3e22a05504b71ab13745fd7436adda9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb4d34362295ce6d84a018917077e8299f8e474a994de01e0b6422150fe616c8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "82e19c13342f6c387227eac27c3d28644f70b346f6bb1196db448c2412482deb"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e67f287ceb97b931f844b1d195f058a7de3aad85aab10110814f61dac857201"
+    sha256 cellar: :any_skip_relocation, monterey:       "87d8952b4913e6abe209577e34f4f5e9e3193d19e70873d38296443374c437f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eeabb5c5a8fed3e4e8194d48880ed9034f40993022f816290923b9eedf63b9e1"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-packaging"
+  depends_on "python@3.12"
 
   # Looking for documentation? Please submit a PR to build some!
   # See https://github.com/Homebrew/homebrew/issues/32770 for previous attempt.
 
   resource "coverage" do
-    url "https://files.pythonhosted.org/packages/40/05/2c1d1405edeec38114abcd404f15a35a41029b89d0514aa8ad11ffcbde81/coverage-5.3.1.tar.gz"
-    sha256 "38f16b1317b8dd82df67ed5daa5f5e7c959e46579840d77a67a4ceb9cef0a50b"
+    url "https://files.pythonhosted.org/packages/38/df/d5e67851e83948def768d7fb1a0fd373665b20f56ff63ed220c6cd16cb11/coverage-5.5.tar.gz"
+    sha256 "ebe78fe9a0e874362175b02371bdfbee64d8edc42a044253ddf4ee7d3c15212c"
   end
 
   resource "deprecation" do
@@ -42,18 +42,8 @@ class EyeD3 < Formula
   end
 
   resource "filetype" do
-    url "https://files.pythonhosted.org/packages/56/86/1a6b76adf5be0e88ebc084beacb80fa3fb0eab68890ed1030ad50ac83c3a/filetype-1.0.7.tar.gz"
-    sha256 "da393ece8d98b47edf2dd5a85a2c8733e44b769e32c71af4cd96ed8d38d96aa7"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/d7/c5/e81b9fb8033fe78a2355ea7b1774338e1dca2c9cbd2ee140211a9e6291ab/packaging-20.8.tar.gz"
-    sha256 "78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/c1/47/dfc9c342c9842bbe0036c7f763d2d6686bcf5eb1808ba3e170afdb282210/pyparsing-2.4.7.tar.gz"
-    sha256 "c203ec8783bf771a155b207279b9bccb8dea02d8f0c9e5f8ead507bc3246ecc1"
+    url "https://files.pythonhosted.org/packages/bb/29/745f7d30d47fe0f251d3ad3dc2978a23141917661998763bebb6da007eb1/filetype-1.2.0.tar.gz"
+    sha256 "66b56cd6474bf41d8c54660347d37afcc3f7d1970648de365c102ef77548aadb"
   end
 
   resource "toml" do

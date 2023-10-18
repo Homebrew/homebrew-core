@@ -5,9 +5,11 @@ class Pcal < Formula
   sha256 "8406190e7912082719262b71b63ee31a98face49aa52297db96cc0c970f8d207"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19b81c568f2c5aae1c0d148f8c9746f858613c11c2fb5196264f73297dbcb7b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d837d4b3cb7b1133b733c4c688a1d36ef7117fd5b9668e8c671a38f46f6ed9b3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b4a76aed457b08622d910fadeacd998972ed4c16a9c2747fac5c26d4ecfbab4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fdd9d437f60310691c6df93af1ee0bd2cc08e8bae5ee3fa1d73d76b76b4c88e4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ac1418d17450998bec7de62e86d71d0bc116cd4eb0ae45d5756d701ceecfa697"
     sha256 cellar: :any_skip_relocation, ventura:        "3c4d6d54cba50845f194e621e60a86d71f16712a1bf643eeff14cd669b08a7d1"
     sha256 cellar: :any_skip_relocation, monterey:       "8b780cbb1c7a72381be2baf453fc7f9f3940aa30e73608928682a2acf6266fab"
     sha256 cellar: :any_skip_relocation, big_sur:        "53c8157fa626298655248853dc283fe15947f47c725de2ea0c934773f0470063"

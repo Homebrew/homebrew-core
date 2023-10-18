@@ -12,9 +12,11 @@ class Apcupsd < Formula
 
   bottle do
     rebuild 4
+    sha256 arm64_sonoma:   "5a906ee35f2ec26d466dab2060b61af39dd43297e9580f804fba78f7f1e1bb33"
     sha256 arm64_ventura:  "d09fad7812d162e402914ee0fdf8e5bd91593dfc1a5050258eb6ba2296ef767d"
     sha256 arm64_monterey: "a6cf4c78394837233cb366da2697b0c80a69d5191b09b5aba0125d40fcdb48a5"
     sha256 arm64_big_sur:  "891644e5123fc8fd644cf88809642334f07093f7dae656c3f65d276e90a2b6bf"
+    sha256 sonoma:         "d38f2c3404c9d08bd7bbe480cd8acf70153bf7486ee01da4b71d31f05acccc71"
     sha256 ventura:        "bb3971d7d541206fc672a8d01410674a3a7d8abac848f8e8049589369d1b081f"
     sha256 monterey:       "e1b0cba1a14c977d8a7faad52c9d72080b745f7b3a49557a5cebe8171bcbc9a1"
     sha256 big_sur:        "1c425f1d6db43a760e4d068ae8ef193c3ca32a3157564989ba1a6aa2ce44a2c7"

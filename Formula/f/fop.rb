@@ -1,13 +1,13 @@
 class Fop < Formula
   desc "XSL-FO print formatter for making PDF or PS documents"
   homepage "https://xmlgraphics.apache.org/fop/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.8-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.8-bin.tar.gz"
-  sha256 "88bbc6037705bf5ca62604445d9922fe134bd527c502f02ead4a5aa713b4ee91"
+  url "https://www.apache.org/dyn/closer.lua?path=xmlgraphics/fop/binaries/fop-2.9-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/xmlgraphics/fop/binaries/fop-2.9-bin.tar.gz"
+  sha256 "b698bfba5d6dea9d01aafd94d1a1359e443ebfb6b2b9ea69c6ed2852ab554784"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "106b70ddf0af25c564c147ce57368ca6d16d5a1f91b75361b5bcaf2bdd110d90"
+    sha256 cellar: :any_skip_relocation, all: "1b6a33e57663ce5811f9e82fa1c093cf01a971a07a341ba13fc22c7c3d5d6841"
   end
 
   depends_on "openjdk"

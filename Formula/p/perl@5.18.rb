@@ -23,7 +23,7 @@ class PerlAT518 < Formula
 
   # https://www.cpan.org/src/ lists 5.18 as end-of-life and also
   # states that "branches earlier than 5.20 are no longer supported"
-  deprecate! date: "2022-08-16", because: :deprecated_upstream
+  disable! date: "2023-08-29", because: :deprecated_upstream
 
   def install
     ENV.deparallelize if MacOS.version >= :catalina

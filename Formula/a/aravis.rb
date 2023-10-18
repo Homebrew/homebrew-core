@@ -6,9 +6,11 @@ class Aravis < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "ada69df0be784d7f0c7e7e33b803e2b5e8172bad0112770cb5eee8fbdd51003c"
     sha256 arm64_ventura:  "21ffa0efe8c6bda8c5a6a981b070082d277a68dfe002a27adf2436fe6dc8a0c5"
     sha256 arm64_monterey: "7ff5a8f7e8afc162163c3018e18998672d820309764c63b7a6257f8e68b09474"
     sha256 arm64_big_sur:  "79a84f181912afcaa4954999216d8a1f294898ccae419858698020bbd36001ff"
+    sha256 sonoma:         "50e2393bfcd60aa63774a095cd2b82ff7eca721a123129c1dd16ddc97248e5a2"
     sha256 ventura:        "0a808a780f9a334fdad53cfc4b8ff02fc1ebaa0b0ae01369b8bcd6fb33453e13"
     sha256 monterey:       "9b171685c68d560e6cade4b9170a616a4176c236c8e2b861bea8a336cde1d8f0"
     sha256 big_sur:        "7c3643e2bf32f59c4693738b148b6475a76acd7bbec35c60d2b7372876c30522"

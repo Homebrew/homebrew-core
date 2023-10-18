@@ -7,9 +7,11 @@ class Moe < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "3ee6a6a0673741cb0fce3ee421c6c16f001a149fe33260fe0021587ab6000289"
     sha256 arm64_ventura:  "57d22728f30b5d1e97ff391dfe1d8caa6d97b609d88eb681eff156108fe94632"
     sha256 arm64_monterey: "6c38cece38f6143e4aeac01818ca54f118197f383b1afc21424699d5a97a9eee"
     sha256 arm64_big_sur:  "8326650484531e703e10ad741c0cfb5923c8983859a111f96f26028982ea7181"
+    sha256 sonoma:         "4d9bf2a5abdb26c0305b90c35d05a98275d320335567733575bb950101c1ddf7"
     sha256 ventura:        "c44f9353b9ab2a21e3da5961da9fd45e89e2c75d0cd1aeb535923226102b0f0b"
     sha256 monterey:       "57c61e6567f1d67657d3f12b474cbf55f183f2ea4a51b0a9e3327b972bdfbb8b"
     sha256 big_sur:        "a071d0686b00cb471bd8496c1d595edd26da26f923a59213ffa62418f71e9567"

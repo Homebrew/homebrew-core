@@ -11,9 +11,11 @@ class Duktape < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8afe806970354b4fafeb1e390d3823964c2fe969d5ae9498612a1c0422cea24f"
     sha256 cellar: :any,                 arm64_ventura:  "cb5c28b480f4948b1c058146568829a0a31a082ee5646af9f1c9d163f8fea00a"
     sha256 cellar: :any,                 arm64_monterey: "50433844eb30fed82c204f4ad5b0fe58f70f6ab3fdcaf88f58df1080cc65d3cd"
     sha256 cellar: :any,                 arm64_big_sur:  "37641156c20de01c3fe4a5f2df5a16cf2d5ff3f64376a63969643c463ed35e02"
+    sha256 cellar: :any,                 sonoma:         "dbf3ef6af3565f4a08abdcc243ac18214ae37000b3cb3d4704b807b32cc8040d"
     sha256 cellar: :any,                 ventura:        "1c4196f4cfb1ba4319714b7d31249e89cce27ed41ff82bf10ae90e10be159b21"
     sha256 cellar: :any,                 monterey:       "1da51e2ceb61766abe0074b869c482feb2b61cffbd9419ceb70157191528f703"
     sha256 cellar: :any,                 big_sur:        "89c9cbfd84d99f2cc97f1cd8a4e57f18c3aa3803be295328a8b67239ae51ed27"

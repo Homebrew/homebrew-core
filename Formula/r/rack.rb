@@ -9,9 +9,11 @@ class Rack < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ca055d57a0b7118129720698989f6f43dc536772699f03a5706f4c47702b22c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0759cf2ff2e0d842496eb25f1f485532d9aa42ef1f62d1c4210ea4a4fdace3d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d81bffa7fcd9b0e5079359935e35b155a3e0a970b0526b50928c084522fcdc79"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3da24ffbc52e301b97902eee71ecddbbb16c6df508a9241a4a9ed2dc7eed0652"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0041c553e0e8920b0f377fdb0cc42636efeba068c63605ff82cb95b790261d97"
     sha256 cellar: :any_skip_relocation, ventura:        "9899299df120a54af4b9137076d412649bcb8bde210fb7a60b49552fbe9e7528"
     sha256 cellar: :any_skip_relocation, monterey:       "5f0280df3a5a8ea3e28533d43434ce2d97e0ba3ff35f74f1b3041008f594b820"
     sha256 cellar: :any_skip_relocation, big_sur:        "8f5f2eac4a06a9295875d213a31505f9b8e66e96b16814176582e3fd5a0a223e"

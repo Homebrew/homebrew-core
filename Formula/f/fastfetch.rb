@@ -1,19 +1,17 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
-  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/1.12.2.tar.gz"
-  sha256 "e3d7384de0aa306effdcbe1b7e8095b40649773086b838d925fbfc2ec5027ab0"
+  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.1.2.tar.gz"
+  sha256 "62b02c7e48cb328c4381e7d4af4b23a7c74a2879eeea53525b8c45cc0e79e65f"
   license "MIT"
   head "https://github.com/fastfetch-cli/fastfetch.git", branch: "dev"
 
   bottle do
-    sha256 arm64_ventura:  "f18ccf446da89bb42575ad4161036df4d293e3e8a7bd835e74929d592531cea3"
-    sha256 arm64_monterey: "fd94550f8fb5b7193cba0f7b924fe2de45fdeb29fb9e30f17303c80e2bafe376"
-    sha256 arm64_big_sur:  "97e12c4a596e9babe444d7b2d885629ec1691a06658542f58c3552fe5e043290"
-    sha256 ventura:        "0f32d9a46d150198848e6441aec8940c63091dcfe0d3dc5d07492d9b790bb88b"
-    sha256 monterey:       "ca2bc1c567383abc67d2e81247d39a8b75c62dab604bbebe35f48404d2c36578"
-    sha256 big_sur:        "0ce6b678982376146b981134b8a71fa820adc8ecf2ed61137b0a384bc0cd6aec"
-    sha256 x86_64_linux:   "e4495a383f4e25dc07a7afcc8d9315a2000cd057567ffe3a4266b42fd37d428a"
+    sha256 arm64_ventura:  "a5fc25e4099442741cae3b692fcb7369e63644af643cbc90fbe69eaa81681ffd"
+    sha256 arm64_monterey: "68f6cbb04fc55eecb71eef91cf21ba168dc08845b46408b967fbb4d7a4e5f8b1"
+    sha256 ventura:        "31d45a55846a0bd82c579a20bdce02e4645dffe732057b35c3e6cb26839a3fa2"
+    sha256 monterey:       "2233b7765eee69b09cc81db2828b27901a91b1a7a39a96eea678f67e2697a5a9"
+    sha256 x86_64_linux:   "337d6e1d28a2da0678293b98c6f7345b65900ae87920640efe8193375f23d543"
   end
 
   depends_on "chafa" => :build
@@ -23,11 +21,12 @@ class Fastfetch < Formula
   depends_on "pkg-config" => :build
   depends_on "vulkan-loader" => :build
 
+  uses_from_macos "sqlite" => :build
   uses_from_macos "zlib" => :build
 
   on_linux do
-    depends_on "cjson" => :build
     depends_on "dbus" => :build
+    depends_on "ddcutil" => :build
     depends_on "libx11" => :build
     depends_on "libxcb" => :build
     depends_on "libxrandr" => :build
@@ -35,7 +34,6 @@ class Fastfetch < Formula
     depends_on "opencl-icd-loader" => :build
     depends_on "pulseaudio" => :build
     depends_on "rpm" => :build
-    depends_on "sqlite" => :build
     depends_on "wayland" => :build
   end
 
@@ -48,6 +46,6 @@ class Fastfetch < Formula
 
   test do
     assert_match "fastfetch", shell_output("#{bin}/fastfetch --version")
-    assert_match "OS", shell_output("#{bin}/fastfetch --structure OS --logo none --hide-cursor false")
+    assert_match "OS", shell_output("#{bin}/fastfetch --structure OS --pipe")
   end
 end

@@ -6,9 +6,11 @@ class Fprobe < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8bdcb6faba3511a0868787da0e4baeb9219e9862c0323722d6137473ac81d0f8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc681a6b0978ce9f02ba8004055f444567398e689b8f453d2061f6f2f20d3bd3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "166c831373d123030545fa69b5fabbb0124fa9501ac1258e43c81a1b00222a1a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83c78c439cf2ec7338b3033e9cd623d04f8d19064ad566d206fc290d375f5472"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ff966a798c134ba1c15e224e5aa6803ce478dc0bf733b332e6f57c2fdbe1a20f"
     sha256 cellar: :any_skip_relocation, ventura:        "cb2e30b70d2d6c74bf835841fe85df84c2465e562e573985567f29bc61ec6b6d"
     sha256 cellar: :any_skip_relocation, monterey:       "61a41b0da60f8b3a285216e847d25c25d95e457cb3da9c8f63bdfdaae4f8b8ae"
     sha256 cellar: :any_skip_relocation, big_sur:        "b0a00f4b300f319155db2ce5c159dd5731147380cb4b21cdd001e7b519d132b2"

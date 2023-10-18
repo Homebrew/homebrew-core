@@ -6,9 +6,11 @@ class Blahtexml < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f2fa3f37ba34fe8b733fd1c0253606fd4ed3dea27fc3065b87ea6f5e4194c51b"
     sha256 cellar: :any,                 arm64_ventura:  "db64fdc2a7df77d68c7530ea4285ae78bcf601088c7e77acea81f529ac469446"
     sha256 cellar: :any,                 arm64_monterey: "893abf6f661a0ba1d90d7dc42bdb1c3ba83ce1799b5b99c4b442a8559cb1d71b"
     sha256 cellar: :any,                 arm64_big_sur:  "de3e5596434795f4afd9439f639a26ebcd8007f4050176ab3dd46cda795a7e9c"
+    sha256 cellar: :any,                 sonoma:         "08642c5fc90bb274742c682b303ef71aaffbe00b9a4383f4cad246144a2f60b5"
     sha256 cellar: :any,                 ventura:        "9e6c88b7639416423b74abf8ed3c0c25e412ee42bfc7452d8cd0ff26e1183713"
     sha256 cellar: :any,                 monterey:       "ca50dc5a8d4e300ab143f1dd92f182c792fa5f1b6840333c4944e1c5f48cbc2f"
     sha256 cellar: :any,                 big_sur:        "97e4a9e3841ec8fd6c13db2ee2a02c57b0896501296b5da82f510a676482e7d8"

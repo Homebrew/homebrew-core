@@ -7,9 +7,11 @@ class Dbdeployer < Formula
   head "https://github.com/datacharmer/dbdeployer.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bf76138da81b0cf596eef9743794f933c0d086f034c2589148c2a89bbb8a8acb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b23f66521f0f730865d23d9305990ba11807eb1d539ba90394bbb4f282bcdf7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5b23f66521f0f730865d23d9305990ba11807eb1d539ba90394bbb4f282bcdf7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b23f66521f0f730865d23d9305990ba11807eb1d539ba90394bbb4f282bcdf7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "45f9bda916bf3da1b367b5580283841e9f46799fda8e01aed128a2e264ec3f64"
     sha256 cellar: :any_skip_relocation, ventura:        "4891e7e65214adfbbc5543737281be8bfda669964f8dd2bab40794adce9f4bfa"
     sha256 cellar: :any_skip_relocation, monterey:       "4891e7e65214adfbbc5543737281be8bfda669964f8dd2bab40794adce9f4bfa"
     sha256 cellar: :any_skip_relocation, big_sur:        "4891e7e65214adfbbc5543737281be8bfda669964f8dd2bab40794adce9f4bfa"

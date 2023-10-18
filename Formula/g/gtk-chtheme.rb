@@ -6,9 +6,11 @@ class GtkChtheme < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fd993a95f52231aac2acb71aa478d443562516a2e8df9ee17c59a102dcb954b8"
     sha256 cellar: :any,                 arm64_ventura:  "5b0a66205d00b377659f777db9aa0196af0ba64519bcd759ba7bc9da55afb37e"
     sha256 cellar: :any,                 arm64_monterey: "a6b9e2b55273be2bbfe8b54a82757e22c4a19e45a1f63780500499e73393d408"
     sha256 cellar: :any,                 arm64_big_sur:  "8db79039412079abddb969b631131eb3a85f4e90edbcda84bffe4505e55f44b7"
+    sha256 cellar: :any,                 sonoma:         "68c360cf0af1ac7cc7bf9910daaa86996825131e58579fc872c094fb479ca672"
     sha256 cellar: :any,                 ventura:        "98eeaded4eeae18b8aab5b9a91a8063facaa044a62cdfa7ad0afeaa15cad6259"
     sha256 cellar: :any,                 monterey:       "b5f53c47bbe67239f626bd71f2c19e3d1327b232a089bf9a6989e2cb8b1eebc2"
     sha256 cellar: :any,                 big_sur:        "b6255d461ea8c2ce6606170fdfc3d0564cc7d83ad5feeb7243c6dac01a7ba9e1"

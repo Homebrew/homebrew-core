@@ -8,9 +8,11 @@ class Zx < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3f80bc23250282d81529b886168d6e21a219e20777d3b80711e7a837e065c7d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "543e21439f8c31d8aab38fdff7e374aad1d8f36cc9ad16b474162294d78dca2b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "543e21439f8c31d8aab38fdff7e374aad1d8f36cc9ad16b474162294d78dca2b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "543e21439f8c31d8aab38fdff7e374aad1d8f36cc9ad16b474162294d78dca2b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cae7fc3b4db925c7a65501d6e09c42f5d3d997c3ae3c82af1a5d47a411f0a727"
     sha256 cellar: :any_skip_relocation, ventura:        "655673ef365dc41ce93cc8d421f1a80fde74070e1a6d8dd11de54944df89abe0"
     sha256 cellar: :any_skip_relocation, monterey:       "655673ef365dc41ce93cc8d421f1a80fde74070e1a6d8dd11de54944df89abe0"
     sha256 cellar: :any_skip_relocation, big_sur:        "655673ef365dc41ce93cc8d421f1a80fde74070e1a6d8dd11de54944df89abe0"

@@ -6,31 +6,27 @@ class Goolabs < Formula
   url "https://files.pythonhosted.org/packages/ce/86/2d3b5bd85311ee3a7ae7a661b3619095431503cd0cae03048c646b700cad/goolabs-0.4.0.tar.gz"
   sha256 "4f768a5b98960c507f5ba4e1ca14d45e3139388669148a2750d415c312281527"
   license "MIT"
-  revision 6
+  revision 7
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e658052b927f381ded8fb29e51fb483413f4dfd2d968deb0f3b4655917246a00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6545d30e95c943fa46d1481957ecea03ec0d709ffc62d144ea2ae828ade14ff7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfcb5b0d948d2d06610af5886da741a7fa508070b6ef21a5d9faeb5e5c1a9f2c"
-    sha256 cellar: :any_skip_relocation, ventura:        "f11c2742812fa86aaf19206ddeb4556579cc4e96da09ef131fc228def2d083fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "2cc76a7b0ce3b7e4356d8a36835a88bf4cb6478c8f83b78b9be37187119ff61c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3b62af966862d5608ac825a11735bedc17f57a2274be3297b7e091740a9014e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bce094e87867d9b40980d969a9f5b5fe12f0062b604289fcdeeaf62ff8510faf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9bd701a453f954a13658ad92f71e5c14e226c9fe6a92727c7c7ccb5f15c907a2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9e7d7e87de181ced8471bbfce522b655d999f8241c21fbc4005ff91c17ee6d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "13447039d6faf4f55782dd9540a2e4de141d79997b58f0546ff2571b63542166"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c36c85d100f4de6f3ac9cc96a33fce4fd723b87422ff22a18430de66f05f583f"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c20f42708141d1426daa0ef8c4580d270200381c26b07d5eee8ec90b5746a44"
+    sha256 cellar: :any_skip_relocation, monterey:       "c15d278d0ea075dbeef84aa9adbaf3dbc93b787f96b8c6b7048d861caf409008"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f6283db4d6f018fb30022d0bd73c181bc32b98ea27ef9b4d63cde8d42b72620"
   end
 
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python-click"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -44,8 +40,8 @@ class Goolabs < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

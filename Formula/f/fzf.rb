@@ -1,19 +1,19 @@
 class Fzf < Formula
   desc "Command-line fuzzy finder written in Go"
   homepage "https://github.com/junegunn/fzf"
-  url "https://github.com/junegunn/fzf/archive/0.42.0.tar.gz"
-  sha256 "743c1bfc7851b0796ab73c6da7db09d915c2b54c0dd3e8611308985af8ed3df2"
+  url "https://github.com/junegunn/fzf/archive/0.43.0.tar.gz"
+  sha256 "2cd3fd1f0bcba6bdeddbbbccfb72b1a8bdcbb8283d86600819993cc5e62b0080"
   license "MIT"
   head "https://github.com/junegunn/fzf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "007ac5ffcfa1cbf733393fe35d5daf3647e07865f04d31d6c442fb8de936d219"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "007ac5ffcfa1cbf733393fe35d5daf3647e07865f04d31d6c442fb8de936d219"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "007ac5ffcfa1cbf733393fe35d5daf3647e07865f04d31d6c442fb8de936d219"
-    sha256 cellar: :any_skip_relocation, ventura:        "5cd9be92ee93dd44fecaaec2528656d609ef968ca1529fbf01720afbff5dfdcd"
-    sha256 cellar: :any_skip_relocation, monterey:       "5cd9be92ee93dd44fecaaec2528656d609ef968ca1529fbf01720afbff5dfdcd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5cd9be92ee93dd44fecaaec2528656d609ef968ca1529fbf01720afbff5dfdcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c7586893fbacc5e1755ecb44dae017b283bd45a6a28017409396ea950116dd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29f422ed068d49980a67acd48b0228832c69844e002678c25c7208add139fc87"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "faa625c9d736126f7f7de58f29c312a9b66de612e4af8ce8de4739a58a017d17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "025a61c1a7feec78622d77ce6b4361db0881ab903c65ef64b4fff23af147be02"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fb9a6dff16c37485766015f536323924b998f8c38a9050267a14f86efb7475b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "f913b93bab5eef01ad1fc420236de35476042cdc6460314b47e96d3dfb019871"
+    sha256 cellar: :any_skip_relocation, monterey:       "41e11aa6dff0aaae489d2f7d25633c833ae831d0bb6e5c78587abdb54777aabd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98899999ad198ebd7d67602ac6c139c627a85c7bde89292918770a56e73fb8b5"
   end
 
   depends_on "go" => :build

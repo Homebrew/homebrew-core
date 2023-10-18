@@ -12,9 +12,11 @@ class Falcon < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "683542b650e4c3b170b0a616e415994f00e44531bc7718961edcf9a6656deb55"
     sha256 cellar: :any, arm64_ventura:  "4175de46b048ba1b5ad68abaa8168d97f9b39483efa53b8c3ecdfb42519b3dbc"
     sha256 cellar: :any, arm64_monterey: "04d77eba622a43e3e74ce4c22bffcbb41ef71aaf7fe5a0c26db310f72597a671"
     sha256 cellar: :any, arm64_big_sur:  "8727eb2b82dfbe15b089ffe42ff0e5f205399badde1c7dcfaf470a13141e4334"
+    sha256 cellar: :any, sonoma:         "7b16fe7d32a281f88accc46d32d7cf06bd701e281cca9139dc332915a842d929"
     sha256 cellar: :any, ventura:        "5c2bbe81854e3f532a07bd4760dfe2b1e942ce05bd35492b320fe8c790c9e5a4"
     sha256 cellar: :any, monterey:       "c19f0db85c93a318056d6069b4b9e49af411a7524882cf475f86ceb43630c9a1"
     sha256 cellar: :any, big_sur:        "fab1a5546fe1e1abff7525ef791126c341fc305ef1bee37ad3b1c2788342c451"
@@ -22,6 +24,9 @@ class Falcon < Formula
     sha256 cellar: :any, mojave:         "d87b0664e797106f23bd5167c32988a7154d177955c2f612803999ebc4306fd9"
     sha256 cellar: :any, high_sierra:    "670ae92a7f950558ea95001b45a848ef6d3f98d5fa414ba3549032d07badca47"
   end
+
+  # Last release on 2010-12-31. Depends on deprecated `mysql@5.7`.
+  deprecate! date: "2023-10-01", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "mysql@5.7" => :build

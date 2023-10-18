@@ -1,21 +1,24 @@
 class Waffle < Formula
   desc "C library for selecting an OpenGL API and window system at runtime"
   homepage "https://waffle.freedesktop.org/"
-  url "https://waffle.freedesktop.org/files/release/waffle-1.7.2/waffle-1.7.2.tar.xz"
-  sha256 "f676195cfea58cc75ef2441c5616b2f1d5565a7d371a6aa655aff3cc67c7c2c9"
+  url "https://waffle.freedesktop.org/files/release/waffle-1.8.0/waffle-1.8.0.tar.xz"
+  sha256 "29f462b5ea93510f585ae59b09f1aef6f9bad7287c7b82a7e8bd88f766e3afc7"
   license "BSD-2-Clause"
   head "https://gitlab.freedesktop.org/mesa/waffle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "c49b293a55d1fc03a49c27f2932fedab240aaae603bf6de8c713a3f4472575b5"
-    sha256 cellar: :any,                 arm64_big_sur:  "44e6ed255b8ddafc5572f25b1f65cc59477e2961176eda549aa558e54a6b44f6"
-    sha256 cellar: :any,                 monterey:       "2f6bb76c9f4c50e79c627b6e2c2e954f128df89ff86ac3bda0a9007948290ae1"
-    sha256 cellar: :any,                 big_sur:        "9753062a77bcff11767245914b40ba773844a58f0991cb0487c8b76d07a34cec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d8a1781ff86d13b723a635387f6a47c67c2133e0a786ada9e4b4233dedcdd19"
+    sha256 cellar: :any, arm64_sonoma:   "9262c7229fc67f91e8c58e7dccf11ebc7652d63925f6488704f087975ed67647"
+    sha256 cellar: :any, arm64_ventura:  "6af22d78936c2b6e67001861b7a4a449649914a5cba4adf2d0bef1fd7c6bf029"
+    sha256 cellar: :any, arm64_monterey: "26ae9441eede32d245fb40bfeda38953e73b361ed1a504f7429d857107b48c41"
+    sha256 cellar: :any, sonoma:         "0aef39cc92a84c10da9114377a516c59ff4c11ed644ade74b22349bcfedbb9c1"
+    sha256 cellar: :any, ventura:        "147a48d3cde58b8e210e82353c420c22e0bc357d50546da5d45315b1f2178342"
+    sha256 cellar: :any, monterey:       "8ad7eec2aa3521e34bf908c5795e3a3ae5d3bc84a48d14ee509f6e5fac04a5c5"
+    sha256               x86_64_linux:   "8e9c5d2b594568c7f49e447824a3e7d1f6c0da7de6fad365ecfc83822d0a30ea"
   end
 
-  depends_on "cmake" => :build
   depends_on "docbook-xsl" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
 
   uses_from_macos "libxslt" => :build
@@ -29,35 +32,29 @@ class Waffle < Formula
   end
 
   def install
-    # https://gitlab.freedesktop.org/mesa/waffle/-/issues/115
-    # Fix: Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/usr/include/netinet/ip.h:102:2:
-    # error: unknown type name 'u_char'; did you mean 'char'?
-    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
-
-    args = std_cmake_args + %w[
-      -Dwaffle_build_examples=1
-      -Dwaffle_build_htmldocs=1
-      -Dwaffle_build_manpages=1
+    args = %w[
+      -Dbuild-examples=true
+      -Dbuild-htmldocs=true
+      -Dbuild-manpages=true
     ]
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
     cp_r prefix/"share/doc/waffle1/examples", testpath
     cd "examples"
-    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
-    # Remove after migration to 18.04.
+    # Homebrew-specific work around for linker flag ordering problem in Ubuntu.
     unless OS.mac?
       inreplace "Makefile.example", "$(LDFLAGS) -o gl_basic gl_basic.c",
                 "gl_basic.c $(LDFLAGS) -o gl_basic"
       inreplace "Makefile.example", "$(LDFLAGS) -o simple-x11-egl simple-x11-egl.c",
                 "simple-x11-egl.c $(LDFLAGS) -o simple-x11-egl"
     end
+    ENV.append_to_cflags "-D_DARWIN_C_SOURCE" if OS.mac?
     system "make", "-f", "Makefile.example"
   end
 end

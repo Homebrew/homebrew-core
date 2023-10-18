@@ -12,9 +12,11 @@ class Sevenzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1693819a308515fdbba7c429feaba6d7e54b8b33fd736a9429ba86178c4d9119"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "827903d5393cf2a7133ef1f77ffddbd9b6a2965a3cfa4184e58c9c70830645ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1316330166099a51f2378e50e35e5b459e961864e6b87a86bad3d327c378c61a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9de3c95cad8ee9623c11c49032ff3b46f1a96bf5f8ea135d5e6c68f5910390f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d483673824aaf7cdcee1462ed5af1280f36d78b28711ba04cb085168a33f5b1b"
     sha256 cellar: :any_skip_relocation, ventura:        "3b505d473a2e42e31a1af5a18979da017bbdd513c82f61c0a50ec290848c9a9a"
     sha256 cellar: :any_skip_relocation, monterey:       "d9c9012ba656543db5561303a09b080a2ece88053c4c8a14a90ff061825bcc02"
     sha256 cellar: :any_skip_relocation, big_sur:        "2a6f73420c63aa119439a9bd7fe0e60a487a815f4292fcca34a79f78e67c98bf"

@@ -12,9 +12,11 @@ class Cgvg < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "22299a8d50dee829ddcc85c08c6751449dd81dbab10cbc496a0a30b844d19ee2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "57907efecbccd7eb40e8ab42da791682eebdb3d9bb9efa3d93312d2ef364ee3c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "57907efecbccd7eb40e8ab42da791682eebdb3d9bb9efa3d93312d2ef364ee3c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db2e726fa0cc8e08dc89c030ea6aa2295b07a0559d7ec25d9ee159e5a917385e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "22299a8d50dee829ddcc85c08c6751449dd81dbab10cbc496a0a30b844d19ee2"
     sha256 cellar: :any_skip_relocation, ventura:        "57907efecbccd7eb40e8ab42da791682eebdb3d9bb9efa3d93312d2ef364ee3c"
     sha256 cellar: :any_skip_relocation, monterey:       "57907efecbccd7eb40e8ab42da791682eebdb3d9bb9efa3d93312d2ef364ee3c"
     sha256 cellar: :any_skip_relocation, big_sur:        "b5d4e1695f676016451d89d502a534d4536449f77ca52091ca49fd0a83909b3c"

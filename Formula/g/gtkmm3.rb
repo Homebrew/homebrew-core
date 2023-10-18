@@ -11,9 +11,11 @@ class Gtkmm3 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "4e45dd6bcbbcc6edea1604f8b9bf713de8e78309300e768a5540c7fe5799b270"
     sha256 cellar: :any, arm64_ventura:  "d09df4ca0f3ab0d81e6f6adf49fb8897e69f8d8782fe435fd941e1f8e67ce367"
     sha256 cellar: :any, arm64_monterey: "abc44666af25bedd6e470ed46dd54f6d8b9ce1e3e03c4020e335fa269e6f16e5"
     sha256 cellar: :any, arm64_big_sur:  "74547d4474ffdc944b017fa8394681b7ee669216ca1d3b0957d69c17968c99ca"
+    sha256 cellar: :any, sonoma:         "ed0b7ec0302bec6e71c305d5912ce7d51114c31a314b3188d57095f5f0b4aea1"
     sha256 cellar: :any, ventura:        "63fca66eadb4a64d3a4155e8671ec80dccc423150eeab5bb50534830eae4221d"
     sha256 cellar: :any, monterey:       "25d28cb65838bb115c07facd15450f69b16919fca544e97c2302cb51e1d33070"
     sha256 cellar: :any, big_sur:        "cc4a7601a18212b67b82c0b630a93d8bd95cd67cee936f2e8c93b612d7bbf12e"

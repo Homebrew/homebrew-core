@@ -7,10 +7,15 @@ class Influxdb < Formula
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "master"
 
-  # The regex below omits a rogue `v9.9.9` tag that breaks version comparison.
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check releases instead of the Git
+  # tags. Upstream maintains multiple major/minor versions and the "latest"
+  # release may be for an older version, so we have to check multiple releases
+  # to identify the highest version.
   livecheck do
     url :stable
-    regex(/^v?((?!9\.9\.9)\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases
   end
 
   bottle do

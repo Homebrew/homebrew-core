@@ -7,9 +7,11 @@ class Snag < Formula
   head "https://github.com/Tonkpils/snag.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3047af31785c147bfb9cf1fb8d3621de36339c95e49393f0fed5c0d60b933c5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa9946a8925f1aa3881c48e93893a412938c9681f0bd2427a4d652e366c0aedc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1714f0e948566336c34fcf45dce8f7a5d76cfdcad20545af460dd271daf8bdde"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "687d1c28e0f911d8343db56f993e4ab0088ec34e40b9a99c1139ec4f8db558c3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c06aa3205e4da50e8123ef2926b08de62ffa8129e8dfe3c39cae4d7acc5ccfb4"
     sha256 cellar: :any_skip_relocation, ventura:        "e9512e6adfaa81d36ec98c2b95e2cd5dcd2bc9bda8fa441fb9c37f01d565106d"
     sha256 cellar: :any_skip_relocation, monterey:       "f3a6ed5e8543f7b4c6eda761a849680ffd869a6fe1d0b51eee3ecc6761d4fe9d"
     sha256 cellar: :any_skip_relocation, big_sur:        "5b7076d11282b0ec9d25cf2f03e529dfc1d6d417dda5b80d44332a12767e68d1"

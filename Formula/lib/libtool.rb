@@ -8,9 +8,11 @@ class Libtool < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "211b174c29c24b3bdd42c44a12262ba479c4707b19bd2abd41f41a67f1b45cf5"
     sha256 cellar: :any,                 arm64_ventura:  "a7196b340a6b2ee833b9451409a2e83b08ba192bebe4fd019c6e658789c76298"
     sha256 cellar: :any,                 arm64_monterey: "359d2a8f85d03f310263b91c665bf591703e8a7a6e79396bc2fc64df75e0655a"
     sha256 cellar: :any,                 arm64_big_sur:  "faa1bb0c78ff5881efcaf476ccfc6ec400e56a4583fcc850d265b70f37fd577e"
+    sha256 cellar: :any,                 sonoma:         "47676ae503261483d5f1f35caa074efc416527bc471e25b0dc5c19bf588ed39f"
     sha256 cellar: :any,                 ventura:        "d20beb0eb96c3ab67be5987393c64a575781c5d7abe6fb20efd2ae343a0680c7"
     sha256 cellar: :any,                 monterey:       "4b248059b3fed99774183f17e335eca05edb25698dabcecbe916f4ec63a48cc6"
     sha256 cellar: :any,                 big_sur:        "deffadfecec61da06dde9edf5eae19381f80f99ae78e57607732fd54be366b8a"

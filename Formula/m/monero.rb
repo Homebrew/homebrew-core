@@ -1,12 +1,10 @@
 class Monero < Formula
   desc "Official Monero wallet and CPU miner"
   homepage "https://www.getmonero.org/"
-  # TODO: Check if we can use unversioned `protobuf` at version bump
   url "https://github.com/monero-project/monero.git",
-      tag:      "v0.18.2.2",
-      revision: "e06129bb4d1076f4f2cebabddcee09f1e9e30dcc"
+      tag:      "v0.18.3.1",
+      revision: "2656cdf5056c07684741c4425a051760b97025b0"
   license "BSD-3-Clause"
-  revision 3
 
   livecheck do
     url :stable
@@ -14,13 +12,13 @@ class Monero < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "248771c9bc50bc5a7b903cfbe149982ac361a003eb6919069b622854555c913e"
-    sha256 cellar: :any,                 arm64_monterey: "8ad2591d01eaca15eb20e69dcc5348ea2a0c96b0bdb4d9a13bf822d6b3a8e53d"
-    sha256 cellar: :any,                 arm64_big_sur:  "7781801fa13ea21a4233ebd16f46bdfdf0a16409f385ac9e7447b1f4f9cc5972"
-    sha256 cellar: :any,                 ventura:        "eb2bfd2acdc6e8f7c5ec3028a9a09fa34d5eb531dec1f74a5df5c886228bf526"
-    sha256 cellar: :any,                 monterey:       "366c4fcebfe64f5bb031c1efefda3d528b47f019fc1f46a09b8db81ea7c31edf"
-    sha256 cellar: :any,                 big_sur:        "ffc14524e35b93b2734fcbabc5e4fb15a2c27bf81befaccca42e8ec47e63ba56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae2653d859456a9f0088d54784ce7e2be713c5675c8fb6443e185fbf64d36a7b"
+    sha256 cellar: :any,                 arm64_sonoma:   "f3fec95a2139b925780d20f8957bae54fd7444a72c1ebe856e47d38d69f18d7f"
+    sha256 cellar: :any,                 arm64_ventura:  "c13ba0a80ae9e48eda8ef55ddcb08f22ef3da9e6b2283a330ea38b5b604be166"
+    sha256 cellar: :any,                 arm64_monterey: "0ea9f8a1c025eec5a3f78e173f411a7b9c97eb5987e1bee69075064d4ac5f5d2"
+    sha256 cellar: :any,                 sonoma:         "3dda2b16796e0c5e7fc6378238f67a8308e5a1996955b32cb9d344a098db4d37"
+    sha256 cellar: :any,                 ventura:        "5d08ea51e3f3f3be0486f1f38088bbad8cad4d1d80ee5f5e1adceadefd463081"
+    sha256 cellar: :any,                 monterey:       "d5bb73dd84f32b9fa5b899a2849f1eb7bafe5dedd13ae6fdff44be976bb47844"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48ab04ddd490714d6c6149982dd87f61972baedac00882d784d89713fe36f832"
   end
 
   depends_on "cmake" => :build
@@ -30,7 +28,7 @@ class Monero < Formula
   depends_on "libsodium"
   depends_on "libusb"
   depends_on "openssl@3"
-  depends_on "protobuf@21"
+  depends_on "protobuf"
   depends_on "readline"
   depends_on "unbound"
   depends_on "zeromq"

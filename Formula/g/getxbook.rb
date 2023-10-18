@@ -13,9 +13,11 @@ class Getxbook < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "142814753bace7b2f0465c067b29a1e58bba5d638c53e044e8250843b7be64e2"
     sha256 cellar: :any,                 arm64_ventura:  "7254e0b761a6e9eb9388b1a7af5f70d4ec26afbfec79924a11ff343ac68cffd8"
     sha256 cellar: :any,                 arm64_monterey: "2237deb414c3adb1808dd399db44aaa9716d6c015a23091fd0293551caa18d41"
     sha256 cellar: :any,                 arm64_big_sur:  "00932264ebc086317cc3ef8fbd68c7cc06be424ecd51c331fc84797a1a862268"
+    sha256 cellar: :any,                 sonoma:         "3f75182278ee1a2114c21be830e8b3c805e62ff7c8f943b990e08a8d5bcd1ce8"
     sha256 cellar: :any,                 ventura:        "cf59d18cfd93e5378cfa7d99833955936c352c78de14f30fea628fb828057bb0"
     sha256 cellar: :any,                 monterey:       "95ba1369c672fc85ee368dfeed1854d0c60ead37fb2ee61d970b62e4c0ae5668"
     sha256 cellar: :any,                 big_sur:        "2af17bd072313e56ca6c199dcf9aadbdfbed69288fb21345a7395777b5d88a45"

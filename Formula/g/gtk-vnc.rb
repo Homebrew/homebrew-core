@@ -15,9 +15,11 @@ class GtkVnc < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "e3a7ae8507ea686b29315c59c5db6696ce255ea9c1e27c5d9430f91b361cce49"
     sha256 arm64_ventura:  "74998a793c0d7fd96b2a9d4a7ed4b0da1a4d84dce9c2f3aac187fb1430f43423"
     sha256 arm64_monterey: "2109dd9faa3e24eb8d2bab51a3e00cfde6f660bd690912326c0185d61b9b684b"
     sha256 arm64_big_sur:  "45af9d03738555dea42232249d0b44d115efa45e45f7e3e304a156ca7101c92d"
+    sha256 sonoma:         "a307f16c381ebf7a05b18df474802accb200e550b49d82661aa6cc71d2c3ecb0"
     sha256 ventura:        "0280b7af865b61bba28e5f921b7a3905be00621f831e51bdd4291c300bc4fa72"
     sha256 monterey:       "9dd26957dbc1e2481560b641e34d363df11638713cc3e5872ac978f44e658b59"
     sha256 big_sur:        "002f65ea23b94e3307cf9363670d4de923643cde75334294ce9df880dde01168"

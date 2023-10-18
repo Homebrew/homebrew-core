@@ -11,9 +11,11 @@ class Gocr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0d859924dd354cc1c623786533136a7ecded331ad47565f208f954ad7091e957"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "83e2ae4571c3fede1d3af4d0c46a09179275af8c8506d54843a7a01f55efc712"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "53e3f30e26e5c707e006cf08ebe4043b8f4bced950ce61bb6ba2e7926797d0a9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e18ecb5d37e3105891f5ef43b6e81dff52cb5148e1425a42bdc7c5a71f106ddd"
+    sha256 cellar: :any,                 sonoma:         "8d1a2d42e8c6063d35390c128c34ee66420912b9a78c37dbf5c015cff1ac1d58"
     sha256 cellar: :any_skip_relocation, ventura:        "44bfd6e6d26d3554a8cf204e053adfb063b1bcbe3d7c62e2d8dd6814e53b8498"
     sha256 cellar: :any_skip_relocation, monterey:       "43d025be56c56b56f15621742a716f1c6ad7d645a4c2f4ceceb0b85f63ec2787"
     sha256 cellar: :any_skip_relocation, big_sur:        "4d0cd5d85d36fd7e34ade41d36f49628323f81f2274fc3de1654d8b3b837c90d"

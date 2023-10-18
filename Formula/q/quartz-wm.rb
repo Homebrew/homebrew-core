@@ -7,9 +7,11 @@ class QuartzWm < Formula
   license "APSL-2.0"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "8383efc0dafe5d0f14b6dd255b3f4a336ff8b5ad347005fab412e0b466bf3253"
     sha256 cellar: :any, arm64_ventura:  "a6c735c400154429cb612b7886bdcab1337a7e1b65e2c94a14bef1404e6aa4dd"
     sha256 cellar: :any, arm64_monterey: "cabeb2c482930b2f1e03a6328659546bd6847497a56c838f48efb86678cf798b"
     sha256 cellar: :any, arm64_big_sur:  "b0cdccaa2c76e580c9d35c2a75c459e965254f226e635d3951f4b20b228fbd44"
+    sha256 cellar: :any, sonoma:         "c4a725767d49a67ecd9b03c2916cc9dbaf7aaeee973d1342e93e0bf714fe50c8"
     sha256 cellar: :any, ventura:        "b994c864513fbfab4728a5b3cb3b26c69072a1c82d3140908ed7bde34df56b37"
     sha256 cellar: :any, monterey:       "8107b0c85a02432912e041960e1f3ec1096bdf46ca876a696550a98b645ade00"
     sha256 cellar: :any, big_sur:        "4d0abe6b48b2ce5ee2c6c44c3c7af67201f0df90b2fe7d75e9273238df19fdce"

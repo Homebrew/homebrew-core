@@ -13,9 +13,11 @@ class Supertux < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "277b9408e3c91def0ae1ec7ca49aaa89cebe7a89da57f1171bbfb3beb3dd1298"
     sha256 cellar: :any,                 arm64_ventura:  "10c0c7d82c4febfe1f5b5bbc6b0211c2059dd88f06deec4a49ba66714db4178a"
     sha256 cellar: :any,                 arm64_monterey: "e5c784e30f00052d68f402ac8de525ce4c7af69099eee823d04ee3efc4e52cd5"
     sha256 cellar: :any,                 arm64_big_sur:  "32425f5048b29966d32a6c864b69bde8fff548e490c4a21ce5c26506885abb1f"
+    sha256 cellar: :any,                 sonoma:         "1c40a37126f7c498aaf8d7402037db84dec26b2f950cf878a11f6d59e86ad3da"
     sha256 cellar: :any,                 ventura:        "99daaa4aa45da2c7e8df9ab09522294bbc2791529b86d61ff587225a3ff62cc3"
     sha256 cellar: :any,                 monterey:       "ab0f2f0bc71f37dbd6743f5a7de71649ddd013ad34add68a4ad9b256466e374e"
     sha256 cellar: :any,                 big_sur:        "8544df6656d9e2cc0414c4cf9ba14e5e459e84ab01ea828a00dd41c77c55e9cf"

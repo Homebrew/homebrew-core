@@ -6,9 +6,11 @@ class Mlogger < Formula
   license "BSD-4-Clause-UC"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a33b7e72d83775458e4cdde286cde80c32e30d03d4580f12d74f07db43ded13c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3aa5e9292806dcc8150dafdd703720141806be0b610198826e8d226baad776d8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2446f830d72176c5dda94e2023f588fea40cb7f0d1fbcce88e07f7ba56cb414"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae9dd6052251a2283883741ec0c1643cf70e62c2acbda9bec06971375b98eced"
+    sha256 cellar: :any_skip_relocation, sonoma:         "42d5f8ef829d658a56aefeeb745d09a0629a2dc65fef77782230cb769a76a25f"
     sha256 cellar: :any_skip_relocation, ventura:        "23fb2fbde1f3dcf119ad7d994555dd2920170009a3cf768af1e98b877521f981"
     sha256 cellar: :any_skip_relocation, monterey:       "234b0797fe08d79cd45ee6e2587fafe3322657b70b386e3327f4dc7a103edb3f"
     sha256 cellar: :any_skip_relocation, big_sur:        "251a03f6e4954f46183a2eaa1ead28e993974d1ab5e6b4b6ae85d1777b15a379"

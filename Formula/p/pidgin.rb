@@ -4,6 +4,7 @@ class Pidgin < Formula
   url "https://downloads.sourceforge.net/project/pidgin/Pidgin/2.14.12/pidgin-2.14.12.tar.bz2"
   sha256 "2b05246be208605edbb93ae9edc079583d449e2a9710db6d348d17f59020a4b7"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://sourceforge.net/projects/pidgin/files/Pidgin/"
@@ -12,13 +13,13 @@ class Pidgin < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "a04309e2217e0983459955016b4460954c613eac84da8283afc8e2f4eb650d9e"
-    sha256 arm64_monterey: "0167e1a59e189d616d909688dadfda1d9648ab7d3f84fbb8db34fb30e259b415"
-    sha256 arm64_big_sur:  "cec31339d3e2a83f61fac179cd72bc2b00e63611a5a2561018db865f659983f5"
-    sha256 ventura:        "4aa98090185eb17a74b68ec64bdf1551382d0778d01e00691395b488a0e3d027"
-    sha256 monterey:       "d6407e69aad79bcf6ad08625510306e10a45e594af1ec225249647e180462b1b"
-    sha256 big_sur:        "e70d0f821cb46ccd6d1e78855125db8c55e2bd4afeae7b20f933ec37de13d9ce"
-    sha256 x86_64_linux:   "e45ab075f267eaa4dee89536c9a4561f3e5676221337274857c268fde1c8ed81"
+    sha256 arm64_sonoma:   "b2e5c0e2731a46e7979f8906ef13157590979ad6cb060c276f276ce1a6ebfb18"
+    sha256 arm64_ventura:  "f3a2601a1197c63c8e63cfed471019e1e5422511206848d6b37b6383431ce87d"
+    sha256 arm64_monterey: "945f3685930f41562f171b64f8714f80d52c52ab454b084201c493f4ab00d10b"
+    sha256 sonoma:         "d856de13e81f1e274b423f6c6a43aff86c7d4e9291cf288242beddc243bc65bd"
+    sha256 ventura:        "1cfa9ff27dab1b9d09e7ce7a14b0b4a28b9b69acf9167cdd2459bc2c23a5f4a3"
+    sha256 monterey:       "f88f5105b1d6b113c39e448455dc8069bdca68fb9d3a36a203218428a4ab76c6"
+    sha256 x86_64_linux:   "77505b9bb23f796cbaa6948e23a83e25e96ad88fc509a92f451456fcbeac6569"
   end
 
   depends_on "intltool" => :build
@@ -41,6 +42,11 @@ class Pidgin < Formula
   on_linux do
     depends_on "libsm"
     depends_on "libxscrnsaver"
+
+    resource "XML::Parser" do
+      url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz"
+      sha256 "d331332491c51cccfb4cb94ffc44f9cd73378e618498d4a37df9e043661c515d"
+    end
   end
 
   # Finch has an equal port called purple-otr but it is a NIGHTMARE to compile
@@ -51,7 +57,19 @@ class Pidgin < Formula
   end
 
   def install
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+    unless OS.mac?
+      ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5"
+      ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+
+      perl_resources = %w[XML::Parser]
+      perl_resources.each do |r|
+        resource(r).stage do
+          system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+          system "make"
+          system "make", "install"
+        end
+      end
+    end
 
     args = %W[
       --disable-debug
@@ -92,6 +110,13 @@ class Pidgin < Formula
     inreplace "libpurple/plugin.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/purple-2\""
     inreplace "pidgin/gtkmain.c", "LIBDIR", "\"#{HOMEBREW_PREFIX}/lib/pidgin\""
     inreplace "pidgin/gtkutils.c", "DATADIR", "\"#{HOMEBREW_PREFIX}/share\""
+
+    unless OS.mac?
+      # Fix linkage error due to RPATH missing directory with libperl.so
+      perl = DevelopmentTools.locate("perl")
+      perl_archlib = Utils.safe_popen_read(perl.to_s, "-MConfig", "-e", "print $Config{archlib}")
+      ENV.append "LDFLAGS", "-Wl,-rpath,#{perl_archlib}/CORE"
+    end
 
     system "./configure", *args
     system "make", "install"

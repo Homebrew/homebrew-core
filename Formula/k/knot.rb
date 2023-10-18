@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-3.2.9.tar.xz"
-  sha256 "bc1f9eb8c9f67f52805f3acfa2d0153190245fa145b007fafa9068d2da292506"
+  url "https://secure.nic.cz/files/knot-dns/knot-3.3.1.tar.xz"
+  sha256 "f3f4b1d49ec9b81113b14a38354b823bd4a470356ed7e8e555595b6fd1ac80c9"
   license all_of: ["GPL-3.0-or-later", "0BSD", "BSD-3-Clause", "LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -11,13 +11,15 @@ class Knot < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "25c40f24b9d22f4d12dda0bc390944f2057b64554bdc37b1a1426a38d722142d"
-    sha256 arm64_monterey: "19e054cab71eefe9862c8c3579bbbe5c20041d1a73124278fe4434a221bcaadf"
-    sha256 arm64_big_sur:  "2466d9f5212edb548aaa90e58756f4776a1e55b8d07cc63e58fb578604b62f8a"
-    sha256 ventura:        "7e94e8e00724f7d7f07623e72c5959b306f7484d3159b8287287193bcefcf434"
-    sha256 monterey:       "980b43439226cbc6e2e8f25b19f35c712d8827a086029bb9cd641571b3d55596"
-    sha256 big_sur:        "e4d85f64a2a641d87bff677f37ac094a6af53845c76e99a1ef19d44b8a9c6a04"
-    sha256 x86_64_linux:   "467e952639225de5dd7b830c733750992479db99e070ad7218625b92f8f44642"
+    sha256 arm64_sonoma:   "9bafa4e70a2de2753091a74cebba75b1ca40789176875cb52150f9685c27700c"
+    sha256 arm64_ventura:  "fdab087109be263ecb271d33ab96c24a7e69e323861e6adc67f087a7d1b75f5e"
+    sha256 arm64_monterey: "658ae67c5b0a97c88a0a11724876a14699888ba958ee6c64c2d775adcbeb88a0"
+    sha256 arm64_big_sur:  "4fc2c4f4e3883a651f3af679e6a752ecc4005f157c7b851db00c90003bbbaa33"
+    sha256 sonoma:         "27cae6a0d5a25563f1cdc8f8b5db488854cd231a691c4d49fb4978145c1ee3ba"
+    sha256 ventura:        "a9053be1aaa13108e7b0af12de072db03376ace07d5e9f51883c61a35c311b39"
+    sha256 monterey:       "4ea0e015df97eac68fd4512d5ec264754d185968de74c732522a6ce09fe9807c"
+    sha256 big_sur:        "28a94bcdcb8cce27e8c3e7d9ff1365ffb824dd8f76389fa107cbbed549301fa6"
+    sha256 x86_64_linux:   "66cca250d77ecbd4b94f8afe9e061d131cdc8c70c8c2b5438ee22dfecfca847b"
   end
 
   head do

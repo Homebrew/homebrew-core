@@ -1,8 +1,8 @@
 class Gpgme < Formula
   desc "Library access to GnuPG"
   homepage "https://www.gnupg.org/related_software/gpgme/"
-  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.21.0.tar.bz2"
-  sha256 "416e174e165734d84806253f8c96bda2993fd07f258c3aad5f053a6efd463e88"
+  url "https://www.gnupg.org/ftp/gcrypt/gpgme/gpgme-1.22.0.tar.bz2"
+  sha256 "9551e37081ad3bde81018a0d24f245c3f8206990549598fb31a97a68380a7b71"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,15 @@ class Gpgme < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7932c628062f36ea88ec3587edbcfae7f6cd01adf7a0ea5ba2dbb502d48fb042"
-    sha256 cellar: :any,                 arm64_monterey: "c794d10dc455bf42e37efdec1fd60ffb060d3286ac9aac29a264c903ec3e7ffb"
-    sha256 cellar: :any,                 arm64_big_sur:  "f94664f483167421ebddf2720bc4f0ba8d39446bb9923ff00e9a8f0eefe593e1"
-    sha256 cellar: :any,                 ventura:        "9f93a6b94588f910828fb835c030281f6fcec876884d7b610d530d29aa506730"
-    sha256 cellar: :any,                 monterey:       "56e05f923984a175ac612183343fc62975c280b5c340bb2ab9940166d264ef5b"
-    sha256 cellar: :any,                 big_sur:        "97fff6e1779100a00f28eba4113ba402eba111d5a99684380201edbd458c3a82"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cce228e88243a8a271a62d06998e66d69cda8a00dbc29cb3b45095758cdf463"
+    sha256 cellar: :any,                 arm64_sonoma:   "05bd1c3d313e417b36f1aa6ee9fc84e94d8d0e5653219ee069057fb9053332f9"
+    sha256 cellar: :any,                 arm64_ventura:  "fc529dd5239bbf289d13f0f01c8e3b62c09ecf28b721d36573e5ec85dbdebd11"
+    sha256 cellar: :any,                 arm64_monterey: "28dd91b3a53218195b80764766578a2248f9bda4f867347c92771f404c68421c"
+    sha256 cellar: :any,                 arm64_big_sur:  "56c71d9cf05e3fc7cf24eb7578d8795e4535be402c24197019155454f92c2022"
+    sha256 cellar: :any,                 sonoma:         "fc6deaddb923fb0e24659f2ba29cde7d13ccc900f9ab09834f325929c31d35c9"
+    sha256 cellar: :any,                 ventura:        "278162f8fd37221612f935e297170a144a61f8b1bb9fe6529c0344f738c1bcc9"
+    sha256 cellar: :any,                 monterey:       "413658de4b53231ea36461d0acd434a1af3e18fbe01c15e0c03b5afc418eccca"
+    sha256 cellar: :any,                 big_sur:        "27ee36120bf7846c41982e613236765e23b1af0d05dc9e9813d46b5f3da2336f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db0bceef522dc84b3f29d1814e151a30b96d82438e093b1ad03f9372779e1196"
   end
 
   depends_on "python@3.11" => [:build, :test]

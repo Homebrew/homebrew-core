@@ -8,9 +8,11 @@ class Apngasm < Formula
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
+    sha256                               arm64_sonoma:   "d06584bffeace37d61046d9bb3696082134a3d894e6fe8c7575e34eefe9953ee"
     sha256 cellar: :any,                 arm64_ventura:  "3f9da6cc06a428bf332a05d0e37f24b8ef58d3367d387f3d0e0b055a88865cc8"
     sha256 cellar: :any,                 arm64_monterey: "5da7148c96b13c85f4ff8cdb1b3f3a309be19b0a07ebb5711eaa7d2037158d19"
     sha256 cellar: :any,                 arm64_big_sur:  "38878c113cd01abe132818b6e50b48382c221390c5aca0d118d35a4f49c58066"
+    sha256                               sonoma:         "ab9a837c0c58c071afcc96d81d8e9506ae31638f0ec7c4bf3e1c96282ab2da34"
     sha256 cellar: :any,                 ventura:        "7c0293ed4c217e252bb34875f4ae70d0bfdfa139a1b52ff2668140358d39c54f"
     sha256 cellar: :any,                 monterey:       "10b52f74ab62f801c62f1b78614eba2e4e21f080eee53c3aea2e9c9718d24a62"
     sha256 cellar: :any,                 big_sur:        "e5becfcec0027d6cd8752e4d8382040877d34fa36099dbd558e554801029fced"

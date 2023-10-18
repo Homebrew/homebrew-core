@@ -7,9 +7,11 @@ class Cloudpan189Go < Formula
   head "https://github.com/tickstep/cloudpan189-go.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c66a3ce0426a356d4b5c05fe95fc6213ed4c867048157ebbc862ca9196af857e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6870cbe4123a3eae721cc676130d2146794d9a3631268d48c579430a923173f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b6870cbe4123a3eae721cc676130d2146794d9a3631268d48c579430a923173f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6870cbe4123a3eae721cc676130d2146794d9a3631268d48c579430a923173f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0259637185f73febd2da780378accfa232b124b8cb46aa376a64ce5adc319140"
     sha256 cellar: :any_skip_relocation, ventura:        "6ab13514be4a47d60c22436daad9bd2ca0612b61eff549630d8548cb24405424"
     sha256 cellar: :any_skip_relocation, monterey:       "6ab13514be4a47d60c22436daad9bd2ca0612b61eff549630d8548cb24405424"
     sha256 cellar: :any_skip_relocation, big_sur:        "6ab13514be4a47d60c22436daad9bd2ca0612b61eff549630d8548cb24405424"

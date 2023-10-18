@@ -12,9 +12,11 @@ class Minidjvu < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "affa202294a94626e2135bc65c2e2aacc5e3e5bfba4dc37f9c968d21c917cf09"
     sha256 cellar: :any,                 arm64_ventura:  "2d49c0d30645a4fced0469d6a8e01e0e2e01a2df825a294f8c1f2f96c2e1a88c"
     sha256 cellar: :any,                 arm64_monterey: "99e77ef6ad2913838bb979ef9e675e1f1ca194713cf7e8faf5f1b807e84b927c"
     sha256 cellar: :any,                 arm64_big_sur:  "8b120c1eda7fdb21104835b968eeebcd83f12d36d3bee874d6d42f10f4bbc5c1"
+    sha256 cellar: :any,                 sonoma:         "44991a7f8c62e2020d8d37e9d3ee1e2f1637bdeda9e8f7a4c21762a52c4956bc"
     sha256 cellar: :any,                 ventura:        "4ebde838536ddeb8879a44fedea358296ede38ec2ca9d6d43ff10aeade2df579"
     sha256 cellar: :any,                 monterey:       "af61231d4d560cd5476697ea6ef186adaa388569d5cb73d9c03dcec659746c92"
     sha256 cellar: :any,                 big_sur:        "7cefcca081ea49ddddc9bd0731dc0eb2246921720cc7b9ed9a1d2e3e62086aa8"

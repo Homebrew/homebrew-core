@@ -7,9 +7,11 @@ class Libcec < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "4ae97897b594a5f39f8e87beec34fe49aa3c6d9e9ba78c0a98b856b039ddfe89"
     sha256 cellar: :any,                 arm64_ventura:  "c7aff3833ac339327e1881340d289cae6864dddca9ed4237d50c401856a9bf56"
     sha256 cellar: :any,                 arm64_monterey: "b888e7cd72aaa5312697203f0146f4352e42439fc625c4e6798ef90e930c3402"
     sha256 cellar: :any,                 arm64_big_sur:  "d3c6c1ef0af67ec3bcc8d2357e2c3a937b79cc8298e2a09f462870a0b0efed8a"
+    sha256 cellar: :any,                 sonoma:         "492cbb0d6581b40dac0143977f98bbb2392f487ddb257696648bfab7ada90177"
     sha256 cellar: :any,                 ventura:        "1cfe634b03237f5e68cc4c3586c73fd5f22c7ab16a4e21bda0ab71c66673c9aa"
     sha256 cellar: :any,                 monterey:       "763e6237d21c4a4b637256e192c17676b7f2466b66ce446a2f22732497e66558"
     sha256 cellar: :any,                 big_sur:        "8dfef5759341d551a996bbcedcbef9a8876e12c046dd3d4b40bbc4c72bbaa9a5"

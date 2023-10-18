@@ -11,9 +11,11 @@ class Jags < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "576bfc31090a7cc7bbae18111b04dd83bea17682c2262d287614727f72410e63"
     sha256 cellar: :any,                 arm64_ventura:  "c8ba96c00fb39ab7f4c3089238a555e27ce43f6ab60e9b6999584280340ecb21"
     sha256 cellar: :any,                 arm64_monterey: "3f1eacf3e53bf3189c9d196eb6de1d65a05f7e57f9b25d6d160941fe57325825"
     sha256 cellar: :any,                 arm64_big_sur:  "3c606af0d9e40ccd6b0760ded88dc5900c5a8c8c9c5dd0b1a4854a53a804865c"
+    sha256 cellar: :any,                 sonoma:         "4a4faf34b75030cefcc11cf429718f3615c49ffebf4c0b77acbbb0edf478dc96"
     sha256 cellar: :any,                 ventura:        "d40f5a21bf78129d3b7f2971599820cd314abc833845cbf26873ca46898354c3"
     sha256 cellar: :any,                 monterey:       "d839d57ae5b36275eef12c902e66b29321085f025795f2c074e5d65eda01f984"
     sha256 cellar: :any,                 big_sur:        "0cd7d7d301775a3efdaa8dc7aa1c10100b7aba983a22a1b08a68a76f8aa0b434"

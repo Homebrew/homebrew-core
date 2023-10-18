@@ -52,6 +52,7 @@ class SolrAT811 < Formula
     # Start a Solr node => exit code 0
     shell_output("#{bin}/solr start -p #{port} -Djava.io.tmpdir=/tmp")
     # Info detects a Solr node => exit code 0
+    sleep 3
     assert_match "Found 1 Solr nodes", shell_output("#{bin}/solr status")
     # Impossible to start a second Solr node on the same port => exit code 1
     shell_output("#{bin}/solr start -p #{port}", 1)

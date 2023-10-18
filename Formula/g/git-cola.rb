@@ -3,28 +3,26 @@ class GitCola < Formula
 
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://files.pythonhosted.org/packages/c2/1c/25d293f113d6091412ac5dbe2eee56bad5ba97c7a4ce0ca25df91c0c3eb8/git-cola-4.3.0.tar.gz"
-  sha256 "fcf8ad0886660f5bc957878655648e0701c092d0aba2ae1e8f82c73562ab874b"
+  url "https://files.pythonhosted.org/packages/d5/df/41ebfbae6c317da0569637bf16c74ace7e6dd729c075677fff09b8ca5db8/git-cola-4.3.2.tar.gz"
+  sha256 "5ae4e7299e4f455f162dc8ce79cdf351a80da656ac7acb58459c19691b04e83f"
   license "GPL-2.0-or-later"
   head "https://github.com/git-cola/git-cola.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8bda5f27d1c9dcdc9ccb04f98a419c3fb789f386a71e29d4e43c46b59e8294a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fab8f93876e7c07b8c037597ec9a436a7852fc1e9c72625183012df9b6ace996"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2001bc5b645ebd58905a4bb1b9e31d02eec9866e4ba261f6e6c6439991d9391c"
-    sha256 cellar: :any_skip_relocation, ventura:        "50404e49d9aaea4443e5b75c2acf7377b8e78b6bf959e63379d5ed0f521f7b08"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba01d1c584b53ea723a5b67c889fca4798bd6a95e763654d449f7e1e5477d93a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0ed38933c825da5f37eb65cde83c61b9f87613374ef851ae3fe0f7f327f76cf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "288dee8ec85484d005d2cba097add13df4f6d134a1b3407b59d4b58e782d5f12"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "33678584870160d2f3613872bd1d1a8b52b7921e273b2111b9fa98748c4e6987"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b2068b9aeeb7b411d9ee29f7c9e96637cb4574d73b65964d76359f7bcfb8c90"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e03d55101ab978f3e7bc2edf169e9e68ed0ff49ead0ed174d6b18b0a63d905f4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2fa82169f18dedcf1dd83309d57ab7518ee1f665fe4c564ea28066ba1187c2bc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be5ec2a4fafbcccc67a03524627e3a8a810270bfa332b72f88269f79f9f3fdb0"
+    sha256 cellar: :any_skip_relocation, ventura:        "c25c8646fca823cda352b50cef673df8834a7c27e411b4627544d95bbe5c6041"
+    sha256 cellar: :any_skip_relocation, monterey:       "237dfe103071dc7a7f7c0042e20ae9e4fdcb3cfa2dc2283f8c5eb2f97fd64992"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0827100bd8425d2c811eef3511687f64f58a32d53cc039509ed2323896b39160"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56986142690b372507b4ec22ee53142fae8809d5ab6ee51c239c4a4c5c7552fb"
   end
 
   depends_on "pyqt@5"
+  depends_on "python-packaging"
   depends_on "python@3.11"
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
 
   resource "pyparsing" do
     url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"

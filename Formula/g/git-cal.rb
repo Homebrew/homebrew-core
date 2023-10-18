@@ -13,9 +13,11 @@ class GitCal < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c7c3ba94ee664f9c479f64ed4ade96645c824c2820f738581ced5dbb3f2d423"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6228f62ffe5b766fb9b546613777249e348dd5caa14e83138397974f198ba20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e6228f62ffe5b766fb9b546613777249e348dd5caa14e83138397974f198ba20"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d2100e367528b52d5bf60d1e85687908e154fc8f831ef7bd29862b3bc899395c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3c7c3ba94ee664f9c479f64ed4ade96645c824c2820f738581ced5dbb3f2d423"
     sha256 cellar: :any_skip_relocation, ventura:        "e6228f62ffe5b766fb9b546613777249e348dd5caa14e83138397974f198ba20"
     sha256 cellar: :any_skip_relocation, monterey:       "e6228f62ffe5b766fb9b546613777249e348dd5caa14e83138397974f198ba20"
     sha256 cellar: :any_skip_relocation, big_sur:        "1d191bdf9da21ef2dbe3eeb3909fbf738df652931b5ee9876b9868b429644899"

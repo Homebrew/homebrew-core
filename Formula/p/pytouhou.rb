@@ -9,9 +9,11 @@ class Pytouhou < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "e83c5e161c69cc14081b875a18043a08fa60db38b9a6703d290c5f6d80da95aa"
     sha256 cellar: :any,                 arm64_ventura:  "5529fede19cacc4e69b69985db53991070de184c7a4d50adb7649264b9df7ef3"
     sha256 cellar: :any,                 arm64_monterey: "b7da4dfc02540ed042b90827630e16026eeb6dbf0cc8e66657acf2e768a78776"
     sha256 cellar: :any,                 arm64_big_sur:  "a967c785a6916c4930e9dcbc3418eba15f26242ef1988a9fbdd272059bd45bd9"
+    sha256 cellar: :any,                 sonoma:         "4844e4ee6302412c6814ace3d8429b82ea87adc30f6e0fe5970dcb757e532f57"
     sha256 cellar: :any,                 ventura:        "aaa8b69e4983370a51fd4799b5605e4d073610011170e8332eb674e5b4a6ccf2"
     sha256 cellar: :any,                 monterey:       "6a73d4bdbe1bf13e38d5a3a2ee5edbc6f41399894d28c5260d76ed7e02dbea8c"
     sha256 cellar: :any,                 big_sur:        "68865e9179adfb70ee4b113563e577f09ef0fe1bdbe1fe6f226931fe407e7fda"

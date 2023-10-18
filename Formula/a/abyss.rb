@@ -11,9 +11,11 @@ class Abyss < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "79cb5a6c7414ad5b6a288a088ad472897edf7643dde0df8dba867f356aa4449c"
     sha256 cellar: :any,                 arm64_ventura:  "1ba7dce6f3cec234f9fab6d19711739ec64539124e034bbedc501dd8b6dacf48"
     sha256 cellar: :any,                 arm64_monterey: "2f8447dfaa29be848ed9cc343b2a10b6c4de902a3d1443907a8e2189a9ef894c"
     sha256 cellar: :any,                 arm64_big_sur:  "130faddf4d47b9296578726e486ec5ac8308b48f4d7b69ffe0aac4199bc61648"
+    sha256 cellar: :any,                 sonoma:         "58082f4a3277be3a15ce05b9e202d5906f9066baec4f320013b58723511c81ad"
     sha256 cellar: :any,                 ventura:        "6ff3e90c05d2bf5e91a1df6891634942f93439e76f2af2c5946eee010fac065d"
     sha256 cellar: :any,                 monterey:       "0c42a5f6d2c6206c06c6131dd65c293741016f44623da7fcb382dce478af0ec6"
     sha256 cellar: :any,                 big_sur:        "f98e11643c56066529c0c0d9cd93f063442e57536d42790e1fc0f0313b96cbcf"

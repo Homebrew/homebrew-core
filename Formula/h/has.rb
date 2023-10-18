@@ -7,9 +7,11 @@ class Has < Formula
   head "https://github.com/kdabir/has.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"
     sha256 cellar: :any_skip_relocation, ventura:        "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"
     sha256 cellar: :any_skip_relocation, monterey:       "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"
     sha256 cellar: :any_skip_relocation, big_sur:        "7e9e38ec67613f798b702a0d489566adf51ca3f2e7486b0f6960ce0b5fa7f44f"

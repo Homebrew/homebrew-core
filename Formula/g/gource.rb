@@ -7,9 +7,11 @@ class Gource < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "12890c4d132262201c394013213294907bbdd62b923533dff002358e90b801f6"
     sha256 arm64_ventura:  "55bde6411130890bdfd748a794b146b1f51a124d52f696031b5cae73f0348128"
     sha256 arm64_monterey: "cd48f104b8543646206b889ff287c33ccc9d39a7abf422ecb910d90c7735ff46"
     sha256 arm64_big_sur:  "3d44bb4efa40c8a38a56ef8353eae092ecbe0be9ba248a3f0eda8f20369c594f"
+    sha256 sonoma:         "a449d158676fd844b1f0efa5cac72bfe9880a76dd86f19b655605e35ec11117d"
     sha256 ventura:        "acfa227bd1a271c427baf0ea8f632f4a3feaf4d5deec4857e45282f0014443bc"
     sha256 monterey:       "9dac8b441b10030e29c92bb397b7a0063dfeefdf28280bd97b30316d809e8a9f"
     sha256 big_sur:        "44e965db2b905de18031741315ce5554b048c77510be2611164700dbf6b4601f"

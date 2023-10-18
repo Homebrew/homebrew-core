@@ -1,8 +1,8 @@
 class Grokj2k < Formula
   desc "JPEG 2000 Library"
   homepage "https://github.com/GrokImageCompression/grok"
-  url "https://github.com/GrokImageCompression/grok/archive/refs/tags/v10.0.8.tar.gz"
-  sha256 "3ca531ed3fc8841b285fb41776c9640a2c4d7d980b24942470aab399e2764542"
+  url "https://github.com/GrokImageCompression/grok/archive/refs/tags/v11.0.0.tar.gz"
+  sha256 "ffaa563312071197db5bc2a180d74fea061be5e76fcb9915caf886fe61d4b391"
   license "AGPL-3.0-or-later"
   head "https://github.com/GrokImageCompression/grok.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Grokj2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "454e5db3da106f4a05d3e910d2a9eddad4d8686da39b6d3960d6fa3e30396040"
-    sha256 cellar: :any,                 arm64_monterey: "ec19f0bd07ad94ead5ff5ae27f67c3a5865cb7ba44675c5ef80625d93c701ea3"
-    sha256 cellar: :any,                 arm64_big_sur:  "b3fc7d488dd1744db86fe4dccae13a73c3864abdef7f9341ab6106372312f42b"
-    sha256 cellar: :any,                 ventura:        "60f638ed5e3b00f3e6e0539adecf6983214f55098da5d07d615625499d7cfa8f"
-    sha256 cellar: :any,                 monterey:       "b30205941ca26a9db98b3e9df4db4cb7bf178bb0b4ee786d41f2f7acb4eab3b7"
-    sha256 cellar: :any,                 big_sur:        "167f3e00b817fb9627fd4016a450d9e1699a26e42d976558b2de4a95e652bf5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5040474536e4976dd8e4dd6c7a178d5ab40e007a3e93e6eca311938005c89ff7"
+    sha256 cellar: :any,                 arm64_sonoma:   "a018021e20928f70e15304ee6cdabf8e9803bace477d297622e912e9948b9a0b"
+    sha256 cellar: :any,                 arm64_ventura:  "309595ab19cd56fa38f4bfc4a83adaa85efe36b36fe3ab94f55921a702ed9064"
+    sha256 cellar: :any,                 arm64_monterey: "c329ac91f31498f41ab7831978527861f62f240e872155c856189a1ea74e9e31"
+    sha256 cellar: :any,                 sonoma:         "564845e91c71024199121ee927724d2b63cde2ba1ea3771c4124b91cdbb9ef02"
+    sha256 cellar: :any,                 ventura:        "9d9fc6f2668885a22d7ee4d4f1211b82729e01812315f4dfecfb5417eb5ca94b"
+    sha256 cellar: :any,                 monterey:       "1c0d96a81ce806e0547b1661e32a581cb55919e93f5b71115141fbad201e42e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e87098bb841ce35969cca99ca31a2021adf5248d21eae018580425dbaf9f136"
   end
 
   depends_on "cmake" => :build
@@ -47,11 +47,6 @@ class Grokj2k < Formula
   fails_with :gcc do
     version "9"
     cause "GNU compiler version must be at least 10.0"
-  end
-
-  resource "homebrew-test_image" do
-    url "https://raw.githubusercontent.com/GrokImageCompression/input_image_test_suite/173de0ae73371751f857d16fdaf2c3301e54a3a6/exif-samples/tiff/Tless0.tiff"
-    sha256 "32f6aab90dc2d284a83040debe379e01333107b83a98c1aa2e6dabf56790b48a"
   end
 
   def install
@@ -97,6 +92,11 @@ class Grokj2k < Formula
   end
 
   test do
+    resource "homebrew-test_image" do
+      url "https://github.com/GrokImageCompression/grok-test-data/raw/43ce4cb/input/nonregression/basn6a08.tif"
+      sha256 "d0b9715d79b10b088333350855f9721e3557b38465b1354b0fa67f230f5679f3"
+    end
+
     (testpath/"test.c").write <<~EOS
       #include <grok/grok.h>
 
@@ -116,7 +116,7 @@ class Grokj2k < Formula
 
     # Test Exif metadata retrieval
     resource("homebrew-test_image").stage do
-      system bin/"grk_compress", "-in_file", "Tless0.tiff",
+      system bin/"grk_compress", "-in_file", "basn6a08.tif",
                                  "-out_file", "test.jp2", "-out_fmt", "jp2",
                                  "-transfer_exif_tags"
       output = shell_output("#{Formula["exiftool"].bin}/exiftool test.jp2")

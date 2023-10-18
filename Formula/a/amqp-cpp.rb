@@ -12,9 +12,11 @@ class AmqpCpp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7a65fc4786cbc69389a293510b277cfeb36c168f049053f290f59f1e45d77f58"
     sha256 cellar: :any,                 arm64_ventura:  "f65f76531ab89061aed98f55056ef7a920dd3368d8d738c0615b9d52956745ce"
     sha256 cellar: :any,                 arm64_monterey: "29327632ff96b7dd4cf5721039ad8001ab758f14a528f6b0ca7cb4ee37740ff8"
     sha256 cellar: :any,                 arm64_big_sur:  "065b8751feca819dd49671549d29f038bf41d59076b60ff53aa36da2b974eeae"
+    sha256 cellar: :any,                 sonoma:         "ab4ca6c2e6805e7447b569541e22452400be0f9133c4cc995993d9e4936eaf48"
     sha256 cellar: :any,                 ventura:        "7ddb6e8142b7f99ea479a274a21c2e75a0317f1dc48d895744e1b3d396192173"
     sha256 cellar: :any,                 monterey:       "a717607eb6c8014424dad81ecb9e5e55926800a32a2855e6b666bee9f2800dc1"
     sha256 cellar: :any,                 big_sur:        "1a0b91a113adaaf303a4187051af2f49f52bbedfa84ae5a672be63158f332c85"

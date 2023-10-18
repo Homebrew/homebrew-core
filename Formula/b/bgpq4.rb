@@ -12,9 +12,11 @@ class Bgpq4 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b413f56068f288c112ae65dedea2eada947e8d18801a675fd9afd6e011c9ee80"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b5c9a1871de533c0d74a3052489400ced52e49e6e99475e258a6442e0a4041e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "417f0f9521bd293a97185c7f792987e9a4fb0b5d8b7a92b54b571f24a9658878"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "31d0cbfc96c55a284a9532853d086127bfa521789c729a326bd5bb3408108411"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b7d129b51458427924e3af1ecec0a522294af5c11aface985c277cbded06baf8"
     sha256 cellar: :any_skip_relocation, ventura:        "3ffbdc6135d1e5a964933b27d6f3d46f576ae9dd797c0d14657b139c5b5703ca"
     sha256 cellar: :any_skip_relocation, monterey:       "7b5aa6a92d074e95581a838ffee72d444566e3a234060a5097933f666b725f5a"
     sha256 cellar: :any_skip_relocation, big_sur:        "54aea55941a349a5f272e684d4edab343e99f955f295f80ce5ab7574ed0eb733"

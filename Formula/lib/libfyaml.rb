@@ -1,23 +1,17 @@
 class Libfyaml < Formula
   desc "Fully feature complete YAML parser and emitter"
   homepage "https://github.com/pantoniou/libfyaml"
-  url "https://github.com/pantoniou/libfyaml/releases/download/v0.8/libfyaml-0.8.tar.gz"
-  sha256 "dc4d4348eedca68e8e2394556d57f71410e7d61791a71cbe178302ebe5f26b99"
+  url "https://github.com/pantoniou/libfyaml/releases/download/v0.9/libfyaml-0.9.tar.gz"
+  sha256 "7731edc5dfcc345d5c5c9f6ce597133991a689dabede393cd77bae89b327cd6d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "fa7e81a89971ca3a452b831bfa017778b24f734b49b57ea730dda4b6791e2cb2"
-    sha256 cellar: :any, arm64_monterey: "40163086b94a5d8e80da16ca8bdafe7d36a751aa5cf29a341b0e48d4dc4ff1ea"
-    sha256 cellar: :any, arm64_big_sur:  "dd5c5d612403756d6385e35682010025e859a40cc4ed470589847516de520404"
-    sha256 cellar: :any, ventura:        "03600f95a70968eb1769442bad770abe8a872c4d0ed0d175cb19cc2f359acbfb"
-    sha256 cellar: :any, monterey:       "2abbe7b8e83aa2f820ef0096f8bf2eedccb134f732dd7c819c64406a81a78883"
-    sha256 cellar: :any, big_sur:        "e64216b07a8bcc58d1fd8186721901a91feb5b7d67389220f479cb5ea2ae2fab"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    sha256 cellar: :any, arm64_sonoma:   "f048b398ea675ff84cffed39be72aad7aebc2ff7b343291e82982e1d8aa299bc"
+    sha256 cellar: :any, arm64_ventura:  "7e0abdbb0374744a92305e607e3fccee6ba6bc09f01906719ec91b721a7176a8"
+    sha256 cellar: :any, arm64_monterey: "a4b6daf2e59d3361a9eeda457e5964672ecba38d7126c731684aec495db5bd2c"
+    sha256 cellar: :any, sonoma:         "6758d7c2b7667096e19a1b6f5a41b072fe34aafda17650fc873b781eeebc7211"
+    sha256 cellar: :any, ventura:        "24121cefb2cdd277652bfc857f9fd2b01042769aeeb9a622aba142e978ba99c0"
+    sha256 cellar: :any, monterey:       "4730aa6a64ffd960a0d82cbcc69734ffddb7abf29ae27450dfed7fc818a17935"
   end
 
   def install
@@ -44,6 +38,6 @@ class Libfyaml < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-lfyaml", "-o", "test"
     assert_equal 0, $CHILD_STATUS.exitstatus
     assert_equal version.to_s, shell_output("#{testpath}/test").strip
-    assert_equal version.to_s, shell_output("fy-tool --version").strip
+    assert_equal version.to_s, shell_output("#{bin}/fy-tool --version").strip
   end
 end

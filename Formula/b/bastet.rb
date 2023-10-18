@@ -7,9 +7,11 @@ class Bastet < Formula
   revision 5
 
   bottle do
+    sha256 arm64_sonoma:   "441eef57cde0386b5da6340b9d2358a8311666477153cc2e06d8c0b43d00330f"
     sha256 arm64_ventura:  "ab8917177ce7dbe0adf2ce68b2b74d931d62ac124b702a029475717e058dd5ee"
     sha256 arm64_monterey: "af3f3df41a07583a6e6737c475b374a65eddb79c82d62e80f4350a0b93d206c5"
     sha256 arm64_big_sur:  "62eb01fe9d32979f3f21a1e477a3808a6d0aaef5939342e2a02970b0367ffbfd"
+    sha256 sonoma:         "8c14cf789322e2bd5bd23f9264f3406d0a3cf92bff2ec822303a7e265578a65e"
     sha256 ventura:        "cab6773e9e5cbfce880975e6401d150d06c541064333a5aa698e25b5c0335d78"
     sha256 monterey:       "fda8ed1bd078f83d4027af1852af55c1314c5b3b7eeb249a141eade4f24f2529"
     sha256 big_sur:        "9de7d39f5e3cd635dd8f2ac0ab8e8e95967fe25f1b00c95c5411927ed760ac0e"

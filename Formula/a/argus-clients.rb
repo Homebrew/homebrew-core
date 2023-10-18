@@ -11,9 +11,11 @@ class ArgusClients < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "bbd65b29c0ebfde03358e5878c52e993af6280a24562b424cead54ff88ce47e9"
     sha256 cellar: :any,                 arm64_ventura:  "99613002c84306c9f1e7484fac652dc73c6250ddd6b6a2dcca87c72c360c5dfc"
     sha256 cellar: :any,                 arm64_monterey: "5ba432fb7867e00b2bc6c092640f77b737a83bf39dfecc6b2c6915fa650b1c0b"
     sha256 cellar: :any,                 arm64_big_sur:  "399217b0dc94900b41013e73be7ac85cccf52d9046d42d960f0461d07657739c"
+    sha256 cellar: :any,                 sonoma:         "eb2dafb544637e0fc92f2323724e847994f2c659373bcf9dcca4470fedc18e9c"
     sha256 cellar: :any,                 ventura:        "565845067061784fa312f5ce682a31635e6c8f2d0c28fe797e755321d5b06ea6"
     sha256 cellar: :any,                 monterey:       "53205c437e2a8f661c55de6b46e63ecd81b7d5cb3d72dff69d9a2da4876a3299"
     sha256 cellar: :any,                 big_sur:        "8f1f7bfced13b9a62c6455be898a72e545f60d6f3c42a7ca9809bb8723ca4042"

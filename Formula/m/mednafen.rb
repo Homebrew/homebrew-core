@@ -12,9 +12,11 @@ class Mednafen < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "31f9e8cf4f40a68c78ddc144dd6ceb081e159021385964b8064d381207464503"
     sha256 arm64_ventura:  "9096c00e39b4ca7cf5180f4afc46e607f38314336bc591e24723171adebb81b4"
     sha256 arm64_monterey: "59e6b6f8f9d8797c87b78a7d80d41a75375cec35123e574406f80d8e0464a06c"
     sha256 arm64_big_sur:  "48a7df09b1d9e6244883287fe1ba28cfcb73b94b4d4ca40b90aeda35a0d076d0"
+    sha256 sonoma:         "328dcf68065d6ab4d9368c438c1ea6d045b17895659d446b91673d5e7c9d0122"
     sha256 ventura:        "3dcedcf3c6042e2993a5153dcc530c8c4f58b962fc3b3c549a4c1b8b02aa775e"
     sha256 monterey:       "0d17cda29047b8b86656601227e40e678e358cac1a8acb60841e31c1f96ca4a8"
     sha256 big_sur:        "e04c8f424849bf8afdfd1bfa55e7f768f87ddb5dcd9449543ecb39a9d8cc7c72"

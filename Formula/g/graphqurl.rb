@@ -8,9 +8,11 @@ class Graphqurl < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ecfdbb2039bd457f665f16c03ac81db8c892ff7d41bcaed19772cf9c4215eaa"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6720b6787af01d641813f3f8afd2c6f48bb0897c88c8a7a2dc1a3d25fa09749d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8f189f4e958a6f06e820be1734fcdacf427b7ae67d7230347ee05a067ac5035"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "138b68d4fffc64cd4ce86e07b618ccfa561aa15a700e8c08c66b20b65797ba70"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9a0b2d487459b2a1f3351d08a7d0bb512fc329952c397ebadcf0aeef1f3cac0a"
     sha256 cellar: :any_skip_relocation, ventura:        "a26640944c1ed16f99a09a4bb96bcb36b49fa3c56f36b22123e80e0d19aee6b0"
     sha256 cellar: :any_skip_relocation, monterey:       "06e0a8884f13c768f968e32737ec8cc75d6abf6c92a02f9cab6d00d782d4c010"
     sha256 cellar: :any_skip_relocation, big_sur:        "5300156ac1794e98e8e9e8f261f469ae7a6749631dfd55c8374054f425e83cb4"

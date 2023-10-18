@@ -14,7 +14,7 @@ class PhpCsFixerAT2 < Formula
 
   # The 2.19 branch was deleted and there is no remaining branch for 2.x.
   # Also, `php@8.0` formula is planned for deprecation on 2022-11-26.
-  deprecate! date: "2022-08-16", because: :versioned_formula
+  disable! date: "2023-08-29", because: :versioned_formula
 
   depends_on "php@8.0"
 

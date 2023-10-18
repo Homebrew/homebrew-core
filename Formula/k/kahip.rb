@@ -7,9 +7,11 @@ class Kahip < Formula
   head "https://github.com/KaHIP/KaHIP.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f4f24b7397a122f5dfbbfbe46c9a11b8f4ee873a53f00d8d975993eb89b88614"
     sha256 cellar: :any,                 arm64_ventura:  "60fc78ed51f4d78d9442ce39603a5c6f55802fa4092aa3ecb232e2f7dea46861"
     sha256 cellar: :any,                 arm64_monterey: "43f0235ffb5230b4069abc2b53a0c88a114bc3e79d317247fe7e86dbd5c7d4ff"
     sha256 cellar: :any,                 arm64_big_sur:  "f0edebe4d4485a71c21845dd760b2e6a04deb13179a81935122ed2151313e2d3"
+    sha256 cellar: :any,                 sonoma:         "c9a113c46dba4578f4f8c76f879d4a9ef1953574a91f0d0414c3dd073f67babd"
     sha256 cellar: :any,                 ventura:        "39b3dfe20c92afaed1fb94a1acea77a09376494f394be4938a228ec0e5add8ad"
     sha256 cellar: :any,                 monterey:       "6ba610be5b00f1114293d1d0eac272b36609728eda02ba3c6fd741847c68466d"
     sha256 cellar: :any,                 big_sur:        "be0c6bb0acbfe826dca554e8c669d35720257c94bd0184644f4b456451b0c811"

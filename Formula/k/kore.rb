@@ -13,9 +13,11 @@ class Kore < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "d984004ecf128c881234240035fe13f5e2c9af10c9bb0552f4ee0a321d2f5bdb"
     sha256 arm64_ventura:  "2079b1a823ee0915cb18e0148f04514d04638dc91807d2b3ef27c32129f7303a"
     sha256 arm64_monterey: "0a22c98bd62f85f7cb1dcd41ef763c95bb97c4d77592432770de250e97dde75c"
     sha256 arm64_big_sur:  "37860487cb7c2ec1efeb924857b32da30d3bd6dd07f7eff4da3ad42d24134252"
+    sha256 sonoma:         "87b0774ca1be1fadbe6353582a6af3fc01e53e80f31891fc152458584e3ac9b0"
     sha256 ventura:        "a826de0cab4f5e9b7cef6d7a08573d38b476cefda028e3ace20a8c1b79b7d414"
     sha256 monterey:       "4a013753ae526626e4afd5519a41521c5c2e2a004b741306617b7d23f6c7b218"
     sha256 big_sur:        "13917b8cf36d5fb5b57fb5028aa49fd421bd4ec930742b697d194ee0c0e1bb21"

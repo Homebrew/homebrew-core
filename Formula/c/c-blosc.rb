@@ -1,18 +1,20 @@
 class CBlosc < Formula
   desc "Blocking, shuffling and loss-less compression library"
   homepage "https://www.blosc.org/"
-  url "https://github.com/Blosc/c-blosc/archive/v1.21.4.tar.gz"
-  sha256 "e72bd03827b8564bbb3dc3ea0d0e689b4863871ce3861d946f2efd7a186ecf3e"
+  url "https://github.com/Blosc/c-blosc/archive/v1.21.5.tar.gz"
+  sha256 "32e61961bbf81ffea6ff30e9d70fca36c86178afd3e3cfa13376adec8c687509"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d52d939fe29c501914e3cea415756a0324a73157e16023dc2c148aa665c17bb9"
-    sha256 cellar: :any,                 arm64_monterey: "8f5cd6d0670a21cab38df355c6f183f6fc77cfb7bb520fa70edba3fffd59e97f"
-    sha256 cellar: :any,                 arm64_big_sur:  "bbc66d7eacd592fadebb395a618953decd34fe1c94bb4822673e235f41457d52"
-    sha256 cellar: :any,                 ventura:        "9a1b53bd64a02c249500e9741ed2648550a2240af0681907bcf68c530f14ab1f"
-    sha256 cellar: :any,                 monterey:       "0f2e66f12f4b8c5b49460f80fe6dac397cf463a325daa33d1567882e5a0a8087"
-    sha256 cellar: :any,                 big_sur:        "5ec8b99afbd659312223f83e6b739d226e7df87403f24e1e79a8e6ebee3e5cd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "807513351705aafc65cae1be6a6d455d25c6a03e261df98bca14bc1e012db5c7"
+    sha256 cellar: :any,                 arm64_sonoma:   "4ff0be188b96f9ebacd83d8b25015feac6f78de35b0fb67dd70837e65291e408"
+    sha256 cellar: :any,                 arm64_ventura:  "2a1992fd6a094c7ac73f4d12fa5b606beb62bab208003f221e50dcb2d51fda26"
+    sha256 cellar: :any,                 arm64_monterey: "f55c895afdcc122f8b49f1404a288ed4aeef6b7539577da70987e3d1968a3770"
+    sha256 cellar: :any,                 arm64_big_sur:  "15cfa6fff49af80574e0108aea825dae74e28a1e318b790d79ced54d33dc309b"
+    sha256 cellar: :any,                 sonoma:         "f6dd732bcb77dffdfc166adec982681573d702e9b244aaf2573eff73e590a760"
+    sha256 cellar: :any,                 ventura:        "56efa790f1df122940ebd87ac61875e4e86217116356ed20a8f51a9e44d2f288"
+    sha256 cellar: :any,                 monterey:       "a9789c30f2081f39220ad4bf55d80ba1acab4688d8c21d0272010a736c63e442"
+    sha256 cellar: :any,                 big_sur:        "83b0928b9d75fa1b0d9f12d43044d7147b5124b63ff872ad9027c4071440a31b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "030ac448ebe514e55f1fef4cec0690ce839e62ea7015385c3f52180e0f8dc9ca"
   end
 
   depends_on "cmake" => :build

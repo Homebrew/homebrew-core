@@ -10,9 +10,11 @@ class Fdclone < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "78daa3983f98bea1071db92ef70b8c9a3ea5e01f1d36a32d093de1512b1a65d8"
     sha256 arm64_ventura:  "6307f6eece0a8e13794fb57ef3ac793c5f72bb2769310803e4fee5bb30352e2b"
     sha256 arm64_monterey: "770b2d767ccfa06c3fe7a4066b59a9e067b27a2f719bac604a1588c7ec57c134"
     sha256 arm64_big_sur:  "e4346ef1c465a9753d44998015f004ef76d49f35b57e224c4c74da48fa00a226"
+    sha256 sonoma:         "4d5d5dd54d0dee95bbc98e35e9bdd76fb36155f3f01c5374b86249ffe1576e8d"
     sha256 ventura:        "77caac2a97e0b941e44f6985c618f7877d75d918cc73d90b1b7c2e87a9e647ba"
     sha256 monterey:       "6468c945d2556066eab41175891ea46918c319398a2f10767a0af4d4dc698c9f"
     sha256 big_sur:        "c1c2dcd4d0e97e717dd9444c9ac8b37d77810c8162a481106d68be3c54f999a9"

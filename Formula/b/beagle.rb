@@ -1,8 +1,8 @@
 class Beagle < Formula
   desc "Evaluate the likelihood of sequence evolution on trees"
   homepage "https://github.com/beagle-dev/beagle-lib"
-  url "https://github.com/beagle-dev/beagle-lib/archive/v4.0.0.tar.gz"
-  sha256 "d197eeb7fe5879dfbae789c459bcc901cb04d52c9cf5ef14fb07ff7a6b74560b"
+  url "https://github.com/beagle-dev/beagle-lib/archive/v4.0.1.tar.gz"
+  sha256 "9d258cd9bedd86d7c28b91587acd1132f4e01d4f095c657ad4dc93bd83d4f120"
   license "MIT"
 
   livecheck do
@@ -11,24 +11,17 @@ class Beagle < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "ca4a6d6a63718cbfffbc3d4f4729bd0dac761e12d5249bb69dd4cc9336af12c7"
-    sha256 cellar: :any,                 arm64_monterey: "ce5c2677ecdb6a2969889eb4540188d2011c11d89254377357b798650e306d58"
-    sha256 cellar: :any,                 arm64_big_sur:  "718a01898aefd3ae1bfdb855d15e2181b2391c30aa7ae657696caaab64481013"
-    sha256 cellar: :any,                 ventura:        "fd6f151f516ea25e41988a4f84d504e058d9bb176a4d0a286ae9a961229eb0d9"
-    sha256 cellar: :any,                 monterey:       "58819eab7ee85c4ef9a5d387e49b9a71f4ed7af37e89fae1b3671277f62a4ded"
-    sha256 cellar: :any,                 big_sur:        "ad1826295881c322d817c4be45da9bc16d8e9e60908aa5f01cad8e6cc023c120"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c43b06552d98d1890569bd221710face4cf9301336ee0ecd2f612ec8831ee9e"
+    sha256 cellar: :any,                 arm64_sonoma:   "b6d8ccd22a1a3dd0fc66aa753d774382005e10a6c92102af898a8c48a249e2d6"
+    sha256 cellar: :any,                 arm64_ventura:  "3d83a1652998bf200c2b1a7942fb3946d751a9d647f46b1275109e49c48be695"
+    sha256 cellar: :any,                 arm64_monterey: "8ec46e2c91cff30977deec35fc3e01707f11f81960075c16da25edb8a6f9ca8c"
+    sha256 cellar: :any,                 sonoma:         "da4b28f050e38cfafa7cdcfaef9cec21e01f9335a609ea2e415357c8fe901da4"
+    sha256 cellar: :any,                 ventura:        "b59a52ec3fac58ea5c9e1b9e9240befe1f3d81fb30803c8c1028047f3d192cdb"
+    sha256 cellar: :any,                 monterey:       "ab9a7a95580ffe99fde279ce650f66a39fc3f1065c9cf767feb4b2bec6f71b3d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a8fce3c841addff79fd9d784f923a29b7e5f3549ce75b91c2d895f83542411c"
   end
 
   depends_on "cmake" => :build
   depends_on "openjdk@11" => [:build, :test]
-
-  # Reinstate versioning for libhmsbeagle. Remove in the next release
-  patch do
-    url "https://github.com/beagle-dev/beagle-lib/commit/2af91163d48bed8edfbf64af46d5877305546fd1.patch?full_index=1"
-    sha256 "2b16b2441083890bacb85ed082b3a7667a83621564b30a132b7ba8538f7d1d6f"
-  end
 
   def install
     # Avoid building Linux bottle with `-march=native`. Need to enable SSE4.1 for _mm_dp_pd

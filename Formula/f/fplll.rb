@@ -1,18 +1,18 @@
 class Fplll < Formula
   desc "Lattice algorithms using floating-point arithmetic"
   homepage "https://github.com/fplll/fplll"
-  url "https://github.com/fplll/fplll/releases/download/5.4.4/fplll-5.4.4.tar.gz"
-  sha256 "0fd9d378f04ff886d8864728baf5d90b8b0b82c1e541e92550644fb54f75691d"
+  url "https://github.com/fplll/fplll/releases/download/5.4.5/fplll-5.4.5.tar.gz"
+  sha256 "76d3778f0326597ed7505bab19493a9bf6b73a5c5ca614e8fb82f42105c57d00"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256                               arm64_ventura:  "1ba1a1085084572ef340831e6a3ac9bde2cf6cda68e71075ccd8e1ee05dfa5ec"
-    sha256                               arm64_monterey: "f6b54eef42956eb6d47951a5050fe5b38a420fc160086d20e38751d113b896ef"
-    sha256                               arm64_big_sur:  "ce9be65f08ef8ecb291ae15916ca0d1cb6f160b09629649739754b93300f7717"
-    sha256                               ventura:        "2b19d4550c1ba260b0a4d8809d9ad6e4db767d53243ed4b974020628fb693070"
-    sha256                               monterey:       "3c4eb9b7a09063287a71ffae596ddbd13d515e3cd13e4253e6bc7dd082f7935d"
-    sha256                               big_sur:        "c63834cc0c9dd96522545abbe3e68459b019910e59cc42692c053f56991d8098"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4550c39058db9b126338325f9ee65a93e13bc39336a96c5a5805d08d740d930f"
+    sha256                               arm64_sonoma:   "005ede2a59af2f7cca112eae17a3128cc51655e87b94f32d99cc419370e84f8a"
+    sha256                               arm64_ventura:  "b6cd7be6eff467d3232377783aca10e2f233550ac3d41e50731e78fc3d7bd528"
+    sha256                               arm64_monterey: "0e4d84d3652a61c6276ae3514062702c6d908eaff1ebca50942a9c20c73112dc"
+    sha256                               sonoma:         "3894a53bb67520e1917065140d56bd920f86a550d3ba9a04c2e79caf7df74b97"
+    sha256                               ventura:        "9880f878b0569d0bb86363a9cc3a46b4b4688bd48b2f8b4fb8cf25e1b2d20039"
+    sha256                               monterey:       "f23ce17d986fa034eb47fdb832a32d7c1d01482cd289876547ce830062386595"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5384ba66202662ce80e4a5d644a6e2f1f38a6432d4b1a772b716428553ce2ae3"
   end
 
   depends_on "automake" => :build

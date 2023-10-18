@@ -12,9 +12,11 @@ class VaultCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"
     sha256 cellar: :any_skip_relocation, ventura:        "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"
     sha256 cellar: :any_skip_relocation, monterey:       "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"
     sha256 cellar: :any_skip_relocation, big_sur:        "cde05d75b070ebd23dc721b1e772a743b33383c6889676868eae51dbc5314b32"

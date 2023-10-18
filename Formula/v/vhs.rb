@@ -7,9 +7,11 @@ class Vhs < Formula
   head "https://github.com/charmbracelet/vhs.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "718b068230a2d931af6100d01f9220ea8dcdb10cd13bd80b333cc383003add30"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "87adc926741c2cede54d4b6a453862407cd3cde38d93648832090a8a11a963c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "87adc926741c2cede54d4b6a453862407cd3cde38d93648832090a8a11a963c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "87adc926741c2cede54d4b6a453862407cd3cde38d93648832090a8a11a963c2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "972499b2fddfae943e6b1d1b2de027dac16941a73646cb09f37622a5d75ec14b"
     sha256 cellar: :any_skip_relocation, ventura:        "191b7b279c041b06d8367b16da08aba9640080dbf6b2c0f0cf0a8838bb179b8e"
     sha256 cellar: :any_skip_relocation, monterey:       "191b7b279c041b06d8367b16da08aba9640080dbf6b2c0f0cf0a8838bb179b8e"
     sha256 cellar: :any_skip_relocation, big_sur:        "191b7b279c041b06d8367b16da08aba9640080dbf6b2c0f0cf0a8838bb179b8e"

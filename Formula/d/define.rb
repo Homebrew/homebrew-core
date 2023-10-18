@@ -7,9 +7,11 @@ class Define < Formula
   head "https://github.com/Rican7/define.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9193d4617c8c8958bd174457ac4d90b56e06bc6898d1dc22f0bd0d252e5ea497"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d98a366eb9aa54573e18a04522d60b6ff36a02d9693edf4aedd2e6023a4802cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d98a366eb9aa54573e18a04522d60b6ff36a02d9693edf4aedd2e6023a4802cf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d98a366eb9aa54573e18a04522d60b6ff36a02d9693edf4aedd2e6023a4802cf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6a3f7a3a16a7595cffb41589a3cd0770ba91cb9b60001df8fd34c560906ef152"
     sha256 cellar: :any_skip_relocation, ventura:        "b8c0ec8a8a3b85cb98a43303d2239a9e4c733459891f340e50e9aa53b712a5ac"
     sha256 cellar: :any_skip_relocation, monterey:       "b8c0ec8a8a3b85cb98a43303d2239a9e4c733459891f340e50e9aa53b712a5ac"
     sha256 cellar: :any_skip_relocation, big_sur:        "b8c0ec8a8a3b85cb98a43303d2239a9e4c733459891f340e50e9aa53b712a5ac"

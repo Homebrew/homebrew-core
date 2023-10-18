@@ -13,9 +13,11 @@ class Ipv6toolkit < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4a45d913f12fe71fcbb19db2cee10a04016f3a501b0719be848e6c9840c4449"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1b2e4c72b667645eecf35a6fd6f5a155833a859d0871f8774d1c507cdac5eb1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79ca05285bd1af83adba5abc616a2b991fd65c0255466745b0b3a6815d49b0d2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee329b82ef00e47b858fe38adc0e0320635c66847c3986dc2e1727fa529173af"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8f4fa847950dc918ff1cfbf7c738b03fe192d9e593fae8bad67b998de91b4f5c"
     sha256 cellar: :any_skip_relocation, ventura:        "9a075376fd95cbbbce662b52d4cb90a67c1a7970fe53cd48a730b9553e431745"
     sha256 cellar: :any_skip_relocation, monterey:       "63e06e58b85f10ca935dbfd52860ef330d734ec7c29425aaa8f33a05037c2979"
     sha256 cellar: :any_skip_relocation, big_sur:        "7ccda456d8eb276a1a462bc06e63167984e5c1a45f58ba453063c5a22b5b31bd"

@@ -21,7 +21,7 @@ class Libchamplain < Formula
   # Ref: https://wiki.gnome.org/Projects/libchamplain
   # Ref: https://gitlab.gnome.org/GNOME/libchamplain/-/issues/50
   # Ref: https://gitlab.gnome.org/GNOME/libchamplain/-/issues/52
-  deprecate! date: "2022-09-21", because: :unmaintained
+  disable! date: "2023-09-25", because: :unmaintained
 
   depends_on "gnome-common" => :build
   depends_on "gobject-introspection" => :build

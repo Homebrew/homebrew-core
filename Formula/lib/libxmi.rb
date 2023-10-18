@@ -8,9 +8,11 @@ class Libxmi < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "c3b129b35e3e50b1bdba2987150164d3e553d31118119c94691d17b6e0297e5f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "932b2ebc8aa7c03aa6f8f372f5ec3e2def0dc6d5f628dfbfcd7952c52b4c8384"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d4415d53e7ab98998a088de1148339142edd47d8abf8058d9014b077907ef07"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f62b288c26ca17a79f7c066f82a0a26b84e768960095eefdcf6c0c3b420d4a1"
+    sha256 cellar: :any,                 sonoma:         "0326bd04964e9707c76d9f532e50e4871d78f519b721f7cc8f502ec7f64e3f6f"
     sha256 cellar: :any_skip_relocation, ventura:        "bad9ab9655d2e75c8d999725163da71b9061f05f8c9bf5ff89b5e81c1b0fdb11"
     sha256 cellar: :any_skip_relocation, monterey:       "fafba3428a0f8d222ed035043883dc2230be492abc71fd8eb140b2b3e1884922"
     sha256 cellar: :any_skip_relocation, big_sur:        "f5e9c2fce42f171773589cb0b1bfbf88cadf5036d86a6f502d5f415b8ad20f62"
@@ -22,14 +24,14 @@ class Libxmi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a82bdaa8f3c6d1d63dc572bf315c10418d39a0f1e12407dc187f793d8e6e9609"
   end
 
-  on_linux do
+  on_system :linux, macos: :ventura_or_newer do
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
   end
 
   def install
-    system "autoreconf", "--force", "--install", "--verbose" if OS.linux?
+    system "autoreconf", "--force", "--install", "--verbose" if OS.linux? || (OS.mac? && MacOS.version >= :ventura)
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--infodir=#{info}"
     system "make", "install"

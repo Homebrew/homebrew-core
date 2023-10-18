@@ -7,9 +7,11 @@ class Sshguard < Formula
   version_scheme 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dfcd69dfa51b4976cfbd022ba196c47e5e2d78059ffe90db19dd3c66c72eb3d9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1f7f154a01ba3ba3e1ef3862f0ea18c2460184686dce1129b1ccc0b6dd6231e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ad5eef11b004af2258151a03ee2b9802267be357da3c14e0c4cf104294d1085"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3662f3a27292d8a40abb8645eed33d17ee718c877d419c61e3f44020a49a712"
+    sha256 cellar: :any_skip_relocation, sonoma:         "723b522af26e5582a342587180df22e7ee0d131250569ddb155c71c937bd9b08"
     sha256 cellar: :any_skip_relocation, ventura:        "65fce1b8916c1e589e329fd991de5d55abf25dabcd87ae6cd444a458bb4ac3f0"
     sha256 cellar: :any_skip_relocation, monterey:       "cb3e4ad746aa9eb9d840fd332a98fe60fd71632fdf28f90e21f643dd3d92bb03"
     sha256 cellar: :any_skip_relocation, big_sur:        "8fe1ac17002be39b5b190d1d98822ce397740e032cdaee6994ded17af59c954a"

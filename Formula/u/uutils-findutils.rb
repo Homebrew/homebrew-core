@@ -7,20 +7,24 @@ class UutilsFindutils < Formula
   head "https://github.com/uutils/findutils.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46c3776daae394601d7bbe347a624b40aec9d980e6670cbaf4281377d3c9f8fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5676fc52e1c936b9c4c0d7e05a0dcbe941ab36f9f42c45500ab59329946034a9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd8dbcce4cde5f848b8fdacd58fcc7f49feb06960c91e994308e6a66837be7c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "3b12831cd03483b5a11a08f899261b55325649110652916e309e5592f7205165"
-    sha256 cellar: :any_skip_relocation, monterey:       "757cb5575ac4a797d11fc9e7b47c82faf20303f8e2942f8ac3845fb564ec123d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b92ef5601c1730634241e4127797be3e74a9859847e2571360b0503a2ccb6ca0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11ce4cb813793fe4d60014fc621a9e74ff93c6c1f3eb3f0217423d5e8ed120d4"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "c9b20a92a27ec6e59d85ea2c7504c7b6b742a8fbce18584add667691bd8ed3a7"
+    sha256 cellar: :any,                 arm64_ventura:  "8be60da1dbce8c62f921e9906b76a9f3384b0f6e7d912a26afd633ac694889a2"
+    sha256 cellar: :any,                 arm64_monterey: "a6a59cb7c7e765c4df4135ddcd8766f676e70d5c08dc004f744e598bfba3481f"
+    sha256 cellar: :any,                 sonoma:         "9b65bda73278dfffcb6977d9e5771bb0134050937b1b181bcee4a2308817e9d2"
+    sha256 cellar: :any,                 ventura:        "a3bc5fead8a81e9c9cf771ac931f204b4fa258be83a14ffd3648c9e5267784e5"
+    sha256 cellar: :any,                 monterey:       "ca68615f9cdca938f9a3d45833207603fd8a2fc9217c86fe0e79857e00c6ed8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c81b5f592d7e87310bbf175f5890e0e18a0177d2c819447021576bf8691f22a6"
   end
 
+  # Use `llvm@15` to work around build failure with Clang 16 described in
+  # https://github.com/rust-lang/rust-bindgen/issues/2312.
+  # TODO: Switch back to `uses_from_macos "llvm" => :build` when `bindgen` is
+  # updated to 0.62.0 or newer. There is a check in the `install` method.
+  depends_on "llvm@15" => :build # for libclang
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
-
-  on_linux do
-    depends_on "llvm@15" => :build
-  end
+  depends_on "oniguruma"
 
   def unwanted_bin_link?(cmd)
     %w[
@@ -29,7 +33,23 @@ class UutilsFindutils < Formula
   end
 
   def install
-    ENV["LIBCLANG_PATH"] = Formula["llvm@15"].opt_lib.to_s if OS.linux?
+    bindgen_version = Version.new(
+      (buildpath/"Cargo.lock").read
+                              .match(/name = "bindgen"\nversion = "(.*)"/)[1],
+    )
+    if bindgen_version >= "0.62.0"
+      odie "`bindgen` crate is updated to 0.62.0 or newer! Please remove " \
+           'this check and try switching to `uses_from_macos "llvm" => :build`.'
+    end
+
+    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+    # libunwind due to it being present in a library search path.
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@15"].opt_lib
+
+    ENV["LIBCLANG_PATH"] = Formula["llvm@15"].opt_lib.to_s
+    ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
+    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
+
     system "cargo", "install", *std_cargo_args(root: libexec)
     mv libexec/"bin", libexec/"uubin"
     Dir.children(libexec/"uubin").each do |cmd|
@@ -46,9 +66,35 @@ class UutilsFindutils < Formula
     EOS
   end
 
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
+  end
+
   test do
     touch "HOMEBREW"
     assert_match "HOMEBREW", shell_output("#{bin}/ufind .")
     assert_match "HOMEBREW", shell_output("#{opt_libexec}/uubin/find .")
+
+    expected_linkage = {
+      libexec/"uubin/find"  => [
+        Formula["oniguruma"].opt_lib/shared_library("libonig"),
+      ],
+      libexec/"uubin/xargs" => [
+        Formula["oniguruma"].opt_lib/shared_library("libonig"),
+      ],
+    }
+    missing_linkage = []
+    expected_linkage.each do |binary, dylibs|
+      dylibs.each do |dylib|
+        next if check_binary_linkage(binary, dylib)
+
+        missing_linkage << "#{binary} => #{dylib}"
+      end
+    end
+    assert missing_linkage.empty?, "Missing linkage: #{missing_linkage.join(", ")}"
   end
 end

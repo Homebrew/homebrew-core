@@ -11,9 +11,11 @@ class PicardTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"
     sha256 cellar: :any_skip_relocation, ventura:        "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"
     sha256 cellar: :any_skip_relocation, monterey:       "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"
     sha256 cellar: :any_skip_relocation, big_sur:        "b907079bb51dd225d5cc4cd2686daa51374f8b05a93dd4130704b048f1b841c2"

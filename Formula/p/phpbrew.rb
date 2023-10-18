@@ -6,9 +6,11 @@ class Phpbrew < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "630b11c8b90e5426cf322b390975b392c8ae007fbe692cd631466c23b043cf54"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e20e3587cdb7bb9d7c599b3c6c886741175f816e15119342408db805d1040afc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e20e3587cdb7bb9d7c599b3c6c886741175f816e15119342408db805d1040afc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e20e3587cdb7bb9d7c599b3c6c886741175f816e15119342408db805d1040afc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d9948981ed0ae1b0a865c406196f7fdfd715e21e177c14d32c537a6add52669"
     sha256 cellar: :any_skip_relocation, ventura:        "0d565cc6354d5b0a0061356412f79ad79560072774a4bfbc1eb240f80e87c8eb"
     sha256 cellar: :any_skip_relocation, monterey:       "0d565cc6354d5b0a0061356412f79ad79560072774a4bfbc1eb240f80e87c8eb"
     sha256 cellar: :any_skip_relocation, big_sur:        "0d565cc6354d5b0a0061356412f79ad79560072774a4bfbc1eb240f80e87c8eb"

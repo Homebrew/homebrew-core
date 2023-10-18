@@ -6,9 +6,11 @@ class Mailcatcher < Formula
   license "MIT"
 
   bottle do
+    sha256                               arm64_sonoma:   "24d088adafb5277c5a550836dc32009bcf320de229ec44f3f5a8cab573436135"
     sha256                               arm64_ventura:  "6c04fd2473fc24df836d8dcdab4a7534f4366ec5c5648b7b98462ec9de74d96f"
     sha256                               arm64_monterey: "6aeff71ae28206fe39800ec8f7233a6ab39c7130688f97e3c2115bae0df5aad6"
     sha256                               arm64_big_sur:  "825e9ac8678b8eb0e879a864fa48653ff65351eaab8ed3c816ee568dc5e7cc25"
+    sha256                               sonoma:         "46351e4e2e1418b493818975a832e42733337cb747f9fef1133cfb9b89efea29"
     sha256                               ventura:        "9ef40b473248d0eb34206d131b135c64331c6d96d7039e99b23413b862ad89de"
     sha256                               monterey:       "f3a391805115ae9a3dfcaabb63d59eb4bf4c4d24b78b8ffb5deddcf1a2315d11"
     sha256                               big_sur:        "23804ac86d1dcf62f0726c656f121ac320b93a5b865267562063d2cf9afed6db"

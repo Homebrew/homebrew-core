@@ -72,6 +72,7 @@ env:
     baidupcs-go
     ballerina
     bash_unit
+    bashunit
     batik
     bazel
     bazelisk
@@ -143,7 +144,6 @@ env:
     clojurescript
     closure-compiler
     cloud-nuke
-    cloudflare-wrangler
     cloudformation-guard
     clusterctl
     cobalt
@@ -154,7 +154,6 @@ env:
     composer
     condure
     conftest
-    consul
     consul-template
     contentful-cli
     convox
@@ -493,7 +492,6 @@ env:
     minetest
     minikube
     miniserve
-    mitmproxy
     mmark
     mmctl
     moar
@@ -535,7 +533,6 @@ env:
     nng
     node_exporter
     node-sass
-    nomad
     notcurses
     nsq
     nuclei
@@ -568,7 +565,6 @@ env:
     ott
     oxipng
     pacapt
-    packer
     passenger
     patchelf
     payara
@@ -763,7 +759,6 @@ env:
     valabind
     vale
     vapoursynth
-    vault
     vault-cli
     veclibfort
     velero
@@ -789,7 +784,6 @@ env:
     wasmer
     wasmtime
     watchexec
-    waypoint
     webdis
     webp
     webpack

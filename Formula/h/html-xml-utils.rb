@@ -11,9 +11,11 @@ class HtmlXmlUtils < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79efbafe7ae7adae1f605960f695b05b9d109ecd4646c0b2d66af0ebf2437cb7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "61a7fa1820b923739046d869de9ecfbc5c13c5ac073da1a6e4fd63d6a61b25af"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0148c9b6bfd501d437d0533c79aba9166bcace206b938b852186b08ec4702008"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c6702650ee3b2a69abf343e531dde2ec22ccef5bee275f2715aa68536470f1a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2e44cc8827e9de4dbfe28b6679dba91e476e462748faf484c6a094beb52f1ee5"
     sha256 cellar: :any_skip_relocation, ventura:        "596832bcf2700b76b8d35f4b1e973f6bf3a67c5f999015215582154aa2402684"
     sha256 cellar: :any_skip_relocation, monterey:       "7f4d59ddda6304638418dc439db6d5c278443bf8a9d700e6bea06627116b33c3"
     sha256 cellar: :any_skip_relocation, big_sur:        "c1b0270881457aa0b1ca7092f6be52476e4c67cd2056cb4b9597f2cde1d36fb0"

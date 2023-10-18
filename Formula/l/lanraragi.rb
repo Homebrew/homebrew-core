@@ -6,17 +6,17 @@ class Lanraragi < Formula
   url "https://github.com/Difegue/LANraragi/archive/v.0.8.90.tar.gz"
   sha256 "290bd2299962f14667a279dd8e40a1f93d1e9e338c08342af5830a1ce119c93e"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/Difegue/LANraragi.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "acfebac85db427ee57f85ff766fcde3beb1998d5ab0d1fc068005240d5bcecb5"
-    sha256 cellar: :any,                 arm64_monterey: "2a91a1f7b24fe399ebeb0cd778482e3b565efc549806a8b388be04e597b2535e"
-    sha256 cellar: :any,                 arm64_big_sur:  "b88ce15fc0bee771b32cf2756055223ec938ffdb283dea002e6b863eb9391f4c"
-    sha256 cellar: :any,                 ventura:        "7443f0e124560311ad902beafa77b2f3227ee8534621445ba49e475a1fa4ee78"
-    sha256 cellar: :any,                 monterey:       "62f7edd68fec57a1e42fe09d62442da2c6a30cf9afad9b6b2ab46b47781770d3"
-    sha256 cellar: :any,                 big_sur:        "c9e70d4b8caa235b5fc061db4f8fa89662cdf981f2594fe9d459fe300b0296d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d10b27225caa01cc0635d3a99f78b5e3f3423e315bf028d37e1d65f437ce0a80"
+    sha256 cellar: :any,                 arm64_sonoma:   "6d7cecbd0f38afed3ee880deca03e8aee23cc18f4d7fb51657d0a0e8e9bd80b6"
+    sha256 cellar: :any,                 arm64_ventura:  "6ac4aa61abe98f69a42b73b465e8928fa7c06d3933f023fddc2690ad588af4d5"
+    sha256 cellar: :any,                 arm64_monterey: "aec9003288a39616f378a570a1e13b26dc299061f2f436e0d83b18365dd6cc9f"
+    sha256 cellar: :any,                 sonoma:         "6c1d39363d02694aa3ad570371eef0a7866974629d0cda89edbd1fdea93b9607"
+    sha256 cellar: :any,                 ventura:        "2c8e3c4d10539a00006d61e1dd76c8263fcb91cf51d071e356c250117889cdf2"
+    sha256 cellar: :any,                 monterey:       "708cdbb45a1da8b23ca91564568ec0b451b10911f2b4ff70d1a66d37e69e14d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e9a46d6556104ff0c6039b1fee385acaa23a344a095bd956d8816c1cfad267c"
   end
 
   depends_on "nettle" => :build

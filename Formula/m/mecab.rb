@@ -12,9 +12,11 @@ class Mecab < Formula
 
   bottle do
     rebuild 3
+    sha256 arm64_sonoma:   "0daf2cce68e6bb2c4886ea5737860447301d8eb6a4395d04f0e382c45b2d1b36"
     sha256 arm64_ventura:  "492e9bdfcbb7968c03dff7736cd94ba5ad97df0c164bb62c1fe9f9e389881ceb"
     sha256 arm64_monterey: "868884cacf2503757291056a3cee77daaba404fd43abeeb0b2dc7e0a6fceee29"
     sha256 arm64_big_sur:  "495c42533a5ea5bdedcf4a95c05e613c3579f626b17d0df0396d8a0ea9328bbe"
+    sha256 sonoma:         "087bf7e7601e967845864f284b1194b0d5f341dbbcd9f62ad52ff81e0df6a483"
     sha256 ventura:        "9bd251f2b61cab5850ac818ac06b879889c8c9c88c54c7163920099938c76b0d"
     sha256 monterey:       "839a67ae318170dea1c0ea8f3e55d8c5291da3e77ad0d62491fa656cf5539a18"
     sha256 big_sur:        "53efb8669f932aac26f4669db62eb858e6e31860923460a6c4e74d84685e8146"

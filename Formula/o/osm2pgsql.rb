@@ -1,19 +1,21 @@
 class Osm2pgsql < Formula
   desc "OpenStreetMap data to PostgreSQL converter"
   homepage "https://osm2pgsql.org"
-  url "https://github.com/openstreetmap/osm2pgsql/archive/1.9.0.tar.gz"
-  sha256 "f568618809930d550fc21a1951180b58b72c091235e4b0bc93477e4c27d54e88"
+  url "https://github.com/openstreetmap/osm2pgsql/archive/1.9.2.tar.gz"
+  sha256 "dc30a3ad9a27f944e4169be9a8e07ee09711901536ddc8fcf4a292bd3aec51d9"
   license "GPL-2.0-only"
   head "https://github.com/openstreetmap/osm2pgsql.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "5b855eb9b537cc57c832f5eac56308b63e1cd0d474616bdf49be140355741074"
-    sha256 arm64_monterey: "4acfa4074baf4175ffeec2438208261e8c60a82ad80a8f86ebd2bf6b18f993cb"
-    sha256 arm64_big_sur:  "397e72dac95d603ffb164ff5d556f55496c580bc18916576bf694c8efb4fcb03"
-    sha256 ventura:        "57f423d54d381d90aa1a9b2cd107e51aa821c8fa6b519c01dfd0b15fa9a5b270"
-    sha256 monterey:       "2eab576a4b605c9d8c1dfb78cb449121ef1fa7bb1fe69ba087a5f5c65091977b"
-    sha256 big_sur:        "70b1f7a27335d206c367e5d18cd371a1defb0629d5aa51bf8952134138869210"
-    sha256 x86_64_linux:   "5fae3f08d98d62d899d7f1cbcdcddb46a323442d940efd3b02df170bfaba862a"
+    sha256 arm64_sonoma:   "2b6aff67e40e631823f5d53bcfca3bffccdb8f71b707239f6bf8992d4edde0fd"
+    sha256 arm64_ventura:  "e3abb7bc3dabcb12115b63fa0c22ee813ca44f9de209a6b2e2c0a6e5fe2cd5c9"
+    sha256 arm64_monterey: "7776ceee6332172c3b37fe41417ddbb09bd61f02a85548f56039387a5c7bace4"
+    sha256 arm64_big_sur:  "d95bdd9864736f1d08dbe0aa762117fb15dfd0f06cc32ba91fa3622342474fa0"
+    sha256 sonoma:         "e642b3d9cedabc089d11af3b82d25bf75d81b1f8c524679bff3c06e86044080e"
+    sha256 ventura:        "667fb46bad11718d43d21780a211a5128a20d780003c96b0611609e921678a94"
+    sha256 monterey:       "1a6f32dc3c69aec68483d7f391de6cae4e752e78845d328695446fbacad717ff"
+    sha256 big_sur:        "633b99819065c8da59a60aeb74829cb0127e1982fac21e986770cf13303cbc89"
+    sha256 x86_64_linux:   "578e65d82cb65809d13408ea008c7743ce8abe34d951eff3bfe51d6f93e525bb"
   end
 
   depends_on "cmake" => :build

@@ -12,7 +12,9 @@ class Gpsim < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:  "ff38f5f57aec23966b25cdaae05ce47af0395ae78093e3bbc62435369377e462"
     sha256 cellar: :any,                 arm64_big_sur: "7c2f982e48f43bd5b4bf96bc789292d2e786be2cba23cda8b23303cb4f323ad9"
+    sha256 cellar: :any,                 sonoma:        "8092f60096211d2ccd3e8d68915e6013abffd44489cf4b019ea372666c1aad2a"
     sha256 cellar: :any,                 monterey:      "67592314e36ca6c5c0bfa338ec40ba7b2c168665bbff42f280429866da401e3c"
     sha256 cellar: :any,                 big_sur:       "65f8044f61bd55813e73385c46ec6bb167c45ac9af373d14c544cdbdff932fb4"
     sha256 cellar: :any,                 catalina:      "7f92c6ae94438c73050aea08fa41c56b93efa9464855b3b0861b0bb3c6a08621"

@@ -9,6 +9,7 @@ class Gdbgui < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, sonoma:       "90f57ed26219bc56ba9d4cd6723e1be22671ab33b61e4dd82607cf5fb13c07ff"
     sha256 cellar: :any_skip_relocation, ventura:      "93601eb1af66befa802f36eb45afc053f172cb6c19e5a6281c1b3f0f75d544f9"
     sha256 cellar: :any_skip_relocation, monterey:     "6cac4a7fd50072c2108068772edf1ba7e78270946c428620b47ca81139e644e2"
     sha256 cellar: :any_skip_relocation, big_sur:      "d1a4536b5eb571a9ca4fcffc86a0529712ac50340131a1681c32a38af7e1a218"

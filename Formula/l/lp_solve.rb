@@ -7,9 +7,11 @@ class LpSolve < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "4612a045dc9d01f8edcc1d9a81c3696e665e2ff3f990de158e6e34fff0644241"
     sha256 cellar: :any,                 arm64_ventura:  "94b01c00f2c0fab83fef56cf4e1cfe30e400db29e33007cfcf0fa95a5737df2e"
     sha256 cellar: :any,                 arm64_monterey: "e496fe2ab54f35a44e66c68c54124260554b23194f38880fa934ff20d5a17b2b"
     sha256 cellar: :any,                 arm64_big_sur:  "064364e4edd599066792e63f44649f9986d3b3ef10e83b91c68d756aaac2f543"
+    sha256 cellar: :any,                 sonoma:         "3a9afe5491f9c2f45637cec9f3b8de48defe38bb55ad57714a8bdf8c25a41a8e"
     sha256 cellar: :any,                 ventura:        "d25c84ab6d67b5d6e223179202b5a07fe41825ab550205739d20173b948d6ca3"
     sha256 cellar: :any,                 monterey:       "4f875e5986e06b7b231f9f9ceb797becd8ddd04acc040097c82284efba44cbff"
     sha256 cellar: :any,                 big_sur:        "04e8e54a2c3c58d7430337dc2b0f9ca6c2db2d144bb98a6b91312cd63faf834d"

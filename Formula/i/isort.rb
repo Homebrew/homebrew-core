@@ -6,6 +6,7 @@ class Isort < Formula
   url "https://files.pythonhosted.org/packages/a9/c4/dc00e42c158fc4dda2afebe57d2e948805c06d5169007f1724f0683010a9/isort-5.12.0.tar.gz"
   sha256 "8bef7dde241278824a6d83f44a544709b065191b95b6e50894bdc722fcba0504"
   license "MIT"
+  revision 1
   head "https://github.com/PyCQA/isort.git", branch: "main"
 
   livecheck do
@@ -14,16 +15,16 @@ class Isort < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ef29d8c4cf23dc882bc6c9e9557f3768c9958542158f6edd203b9be08a7c34d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8db78503c60295ff50a1808f6b0fa0ca2a6c414c861385eb4e2f840c25e41513"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "77befe934c459a512ba42ec882928f6560ef7a7e4973ce58067d53bcea9e37e5"
-    sha256 cellar: :any_skip_relocation, ventura:        "20d60ae5afe0f3b9ad6d83e3bb862631eee8f5d567ecaa988bf69f4534beefb1"
-    sha256 cellar: :any_skip_relocation, monterey:       "1664136b00f4ae23f07c20f36a0a0303e8f8480910905e398e0febea56239c33"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d633c35d1ee149d1fb5fc0ac262c5fc30539363fd952a041ec4939cb1808a718"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5be5b318a34e64f4c13388e7fe8582eae88a5557fe6632d8ed402d3ff071c79"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a6fe0fa7fff82ad3f77066d49102cac7ced09f0431fe7c34ef4db390c2de8b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "766a9c948c66313d18af5adeb24c2c55a7cd5f8419490e65846457535451c26a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "abf6cbbe5fee719854f6438726a39f358fdd623889948903fead3222f363e37f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c77093fe5ec5a3bf45df36a6eb761a304fef472adf4bab0c0d43d34b17bca813"
+    sha256 cellar: :any_skip_relocation, ventura:        "fdb28d5ebec41304551a8eaa70c69a21e5fe6099303d84d9ad96614c9b561f7b"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d076d14e42b27fd509c01555439c83e3ae59d24ba4a5c20aeeb66781925a300"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be81f88db2b0136b2dd8803a5b6bd4c23b04b6f2f77337b22bb5fb50eb662d7d"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

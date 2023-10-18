@@ -12,9 +12,11 @@ class Pcb < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "ecedb141b039b57367605465bd2b82b375b24c464a16e024bc4f48fdf6c07942"
     sha256 arm64_ventura:  "20a606566fd0c8b018cdd0dd4ca211d099818286e0ebbdbcd157e721e38aaedc"
     sha256 arm64_monterey: "71f5ca60f422ffc8d6555560f37167aae20a07c103c35fa3d100feafb9a9bc01"
     sha256 arm64_big_sur:  "41a14f1d1a3439469248dd6b58535c082f084376a90ecf3ccca2513e70cd2028"
+    sha256 sonoma:         "af424765f5930108fe078dd23beb74c037350c0bdab0db25bb27865dbec7655e"
     sha256 ventura:        "0a58696e6e8bef6689734d98d79644535cf34aec2616b120c587124a6daaaa90"
     sha256 big_sur:        "f73590271ddcf104d25fecad90c916e4d535a5041280a1bbd661acdafc806b24"
     sha256 catalina:       "a8937f1ce318a6472532eae067dc581ddef61518a5b56db83883cb2119c2bf32"

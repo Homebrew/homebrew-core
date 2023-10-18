@@ -12,9 +12,11 @@ class Libcdr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1973af0ddfdaf9d13d3cb94ccb4cfa9ec269b70c7b682bf7e9d46e8600097076"
     sha256 cellar: :any,                 arm64_ventura:  "6141888d52c7b3936088755ed90952ad1991f0994b5f7390b2611cdfd92e8031"
     sha256 cellar: :any,                 arm64_monterey: "3e81b65399b22fb51dd5f2a519fd5b5cfafaa9a2d42b57c0d2d2194c5223c611"
     sha256 cellar: :any,                 arm64_big_sur:  "b6a97482a83ea524eb47c9995661e907c23f569ed1d5166f83143ef3f3d6841c"
+    sha256 cellar: :any,                 sonoma:         "3c49141731599575a98c9f47c1361a320b15635cb473c1875a9b650fe9f8a148"
     sha256 cellar: :any,                 ventura:        "867cb6c4edf171df1224bd9a6740e96f78e4116f18f253d499c3c85e1247ec34"
     sha256 cellar: :any,                 monterey:       "ab27a9457704979bb0e33c59d03649725f2c421dfac3c13a54034a8bc007430e"
     sha256 cellar: :any,                 big_sur:        "a363205ee91eff85e566a8d162353d1f7201b468300a438d7ccc2937d49b117c"

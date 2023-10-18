@@ -6,6 +6,7 @@ class Libtensorflow < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5fa88f49d5784db01a7d40f18545fe81f90e4d9646f45abd9fce600e7a53c415"
     sha256 cellar: :any,                 arm64_ventura:  "a02e1473f4da79861359f692b4831183491991e18bdfc669747319187005b7c7"
     sha256 cellar: :any,                 arm64_monterey: "a02e1473f4da79861359f692b4831183491991e18bdfc669747319187005b7c7"
     sha256 cellar: :any,                 arm64_big_sur:  "f552152df7b221e03f2e806cb3a4e3acdcab9097a570034871673de10c479d9f"

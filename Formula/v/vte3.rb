@@ -1,19 +1,20 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.72/vte-0.72.2.tar.xz"
-  sha256 "f7966fd185a6981f53964162b71cfef7e606495155d6f5827b72aa0dd6741c9e"
+  url "https://download.gnome.org/sources/vte/0.74/vte-0.74.0.tar.xz"
+  sha256 "9ae08f777952ba793221152d360550451580f42d3b570e3341ebb6841984c76b"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "8ac37e59af06d50f530848e554a278cfb2af1a04823f3bb8630f6b61db183e81"
-    sha256 arm64_monterey: "25d1323a48a52738ae37258600e4b0a3c6a511eac5efd154838966737b24fcbc"
-    sha256 arm64_big_sur:  "ea57a67d22d29bc7e17de3c6f7f9f2a2e3b8bca7bc9d3a58064885dfdabddcc7"
-    sha256 ventura:        "a388dcaafcaca40a829db250af0cf8bf5fe09a2e1a38d5127b18b1fc6a0e9b3f"
-    sha256 monterey:       "b583d22e70408a36ea745b2f0d53bc99b318b93ff833c129623c159655950072"
-    sha256 big_sur:        "f78cc65316c1b53a5029ad836092bb702dddff1e9d9ce01f99df34aee773bd05"
-    sha256 x86_64_linux:   "cfa286e9d1b16a34b7199cb532d7a4d668e6ef6310b1f593c4d1d63348df375a"
+    sha256 arm64_sonoma:   "cc22f94d6f70d85f24a6e578936a057b8f697f63150bbc6f0012a38b8bb81d11"
+    sha256 arm64_ventura:  "bbd2a98932548ba836f5e5463b866c095e031056eaae94afcfddf26ba2f0958a"
+    sha256 arm64_monterey: "3d35f6f70b7941c2d45d95e915cd97c8f896dae7b2fdf833d45910f8335012d9"
+    sha256 arm64_big_sur:  "a279247cf09741b615a70f2152dcae8313e87e921946c8eb267d890cdac1881f"
+    sha256 sonoma:         "14a6e2381950eabb55eb45255010b192d2944c7bba545602dcb34b7ac846c586"
+    sha256 ventura:        "0051a31e65236ce11c28fe34394ba0287d1982cc80c1c3eaa322ccb37c4d77dd"
+    sha256 monterey:       "4cf49fd4d7a8dd9655439478df7956dfdb0341147a06ab671255896f5c2e15ab"
+    sha256 big_sur:        "e90b00ff5a11130466d98b35e0e6cb08834ccc152704d38b04ebf43da6db3370"
+    sha256 x86_64_linux:   "87ff394a696b3fbc9db8f65de7d0afc78b9b998a29597d947ec9fc16c7e668c6"
   end
 
   depends_on "gettext" => :build

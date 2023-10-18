@@ -6,6 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.7.0.tar.gz"
   sha256 "55156650ada130600c70bc2ab38eee718fc1d23011be548471e888399f207ddc"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -14,13 +15,14 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d7734684f5bf563e1a10f2a43e30b74b221ba579f356a1d02b01a99f51e7359f"
-    sha256 cellar: :any,                 arm64_monterey: "d6a9b293a076348f0910b60a33ce49175b57304928c89f71695c544762326f77"
-    sha256 cellar: :any,                 arm64_big_sur:  "685a385c70cf2a312824e4099d1d029d5d77b74e9cd1226afa2254dc31c67ecf"
-    sha256 cellar: :any,                 ventura:        "76fe4dded41372648a7d4d0842ef30374b4d90a4656fd6924a898c9187a7d24f"
-    sha256 cellar: :any,                 monterey:       "a190f43c683ee03f684127cb721dadb4ed1d35a9c31188f6a20918f896b17c7a"
-    sha256 cellar: :any,                 big_sur:        "e010c745cd908ee1c9dfb2a9a09c7463103913b990c2576d1ac39b01178ed7da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e8aae6eab4f9025b4e21cca5181f7b97c4bdafd3c74760987a00a8814d8a796"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "839eb2d7efe5791fce81fd64de62f3e6140ce66c2be70e4ef613d2377ecddf70"
+    sha256 cellar: :any,                 arm64_ventura:  "a53b9d611e12f8e631b08155963625f1c26abb708c3886dad0c92a9e160cbe5a"
+    sha256 cellar: :any,                 arm64_monterey: "158899805d1a3db0eeadfdb5c1b289af16a09b0d0c81cc677878ca19b34b0b4e"
+    sha256 cellar: :any,                 sonoma:         "57ed3428d8e0d09687d3090371f24afc1eb28fffd99ace62449cae398225b125"
+    sha256 cellar: :any,                 ventura:        "18dd6de00a94c34b723d0851343a3baca32a5b1e9663ba86e2e73cdd0e5f6cbf"
+    sha256 cellar: :any,                 monterey:       "3b69585a9723d5c04f79f12357f25ee79306725f0281aa467d6d8d41ab1340f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38ac0235c9b49afb3d66a10465b109ad4ea9f1313e3d92a9eaecaced503f7182"
   end
 
   depends_on "cmake" => :build
@@ -43,6 +45,7 @@ class Gnuradio < Formula
   depends_on "pygments"
   depends_on "pygobject3"
   depends_on "pyqt@5"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
   depends_on "qt@5"
@@ -74,11 +77,6 @@ class Gnuradio < Formula
   resource "mako" do
     url "https://files.pythonhosted.org/packages/05/5f/2ba6e026d33a0e6ddc1dddf9958677f76f5f80c236bd65309d280b166d3e/Mako-1.2.4.tar.gz"
     sha256 "d60a3903dc3bb01a18ad6a89cdbe2e4eadc69c0bc8ef1e3773ba53d44c3f7a34"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "markupsafe" do

@@ -6,9 +6,11 @@ class Apachetop < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "32e56eb605dc205768eeeb8fa3d6bd575dee188cef3e4962e6e62ffb7bfb7075"
     sha256 cellar: :any,                 arm64_ventura:  "83ab9282b83e2d1e56142e673273f8b709944a0019ffc42547be9a50040c6fcd"
     sha256 cellar: :any,                 arm64_monterey: "090134b03c12d592af96aea44192ba384f283ba968d90d267f30fd888599cd33"
     sha256 cellar: :any,                 arm64_big_sur:  "7fa14fb5f2569c2519b97d0ba9be81e3300acefc7439359053569dca949cd20c"
+    sha256 cellar: :any,                 sonoma:         "6f1bb6b2163f1738b3ab80f3c4a41fb0c73f50a07cc45a8924b31b22ec355334"
     sha256 cellar: :any,                 ventura:        "4c6d945946d47eed147f9ff9550bb06d00c5c12662d32375a0ad2e1c2a2429d5"
     sha256 cellar: :any,                 monterey:       "d2e4cc231ecfa99b31fa9d7348755322ee8d3370fb7c9bcbf4516397ebf858b3"
     sha256 cellar: :any,                 big_sur:        "14e727f81b2b5960f03a93e15a5fb345c17749deff826170417bc8aa54687dc8"

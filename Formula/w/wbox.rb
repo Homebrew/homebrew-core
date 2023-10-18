@@ -1,8 +1,9 @@
 class Wbox < Formula
   desc "HTTP testing tool and configuration-less HTTP server"
-  homepage "http://hping.org/wbox/"
-  url "http://www.hping.org/wbox/wbox-5.tar.gz"
+  homepage "https://web.archive.org/web/20221105011338/http://www.hping.org/wbox/"
+  url "https://web.archive.org/web/20220524011612/http://www.hping.org/wbox/wbox-5.tar.gz"
   sha256 "1589d85e83c8ee78383a491d89e768ab9aab9f433c5f5e035cfb5eed17efaa19"
+  license "BSD-3-Clause"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1827a6a134cf36e397ab072de38c15f9b8689a50c6018b17adce1ad9a7f50fa3"
@@ -17,7 +18,7 @@ class Wbox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7b840389d15d72983d68617019bc052ddcea1249468c939f53c70dc3d1dede3"
   end
 
-  deprecate! date: "2023-02-15", because: :repo_removed
+  disable! date: "2023-09-20", because: :repo_removed
 
   def install
     system "make"

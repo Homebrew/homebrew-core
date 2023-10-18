@@ -11,9 +11,11 @@ class Nng < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5f5623d16680f40d0fa7fddebf0aa4de4843278dd8f659f68cb151feb3432068"
     sha256 cellar: :any,                 arm64_ventura:  "667a5f6b653b1883e9d1dff858db9c6bbc446d0057567e8f52e05d7b8e6584d8"
     sha256 cellar: :any,                 arm64_monterey: "8a33b0d9fed3ae4df70c6c6c1bc0e6c86d5580aab8fd9d0c55b87a860c70f1a8"
     sha256 cellar: :any,                 arm64_big_sur:  "65e87ec5195f73dd28ac038232cfd97f726e39d6420ee3eb8b09043fb6bbaf74"
+    sha256 cellar: :any,                 sonoma:         "174b0ba52bba081e1e42f561529896c21a15546006b72e864a9dcce483b917dd"
     sha256 cellar: :any,                 ventura:        "bfcae8b1a13d2f4ecd40586835cfd027e8e113cc9fca50386bc3bdaa19a6904a"
     sha256 cellar: :any,                 monterey:       "c2411011f0a91195cc46ac4e1c4dd064893bec79d0ac1aeb52bf979b5dabb90c"
     sha256 cellar: :any,                 big_sur:        "4f8669a031bc81bcbee803c873ef1d97f2725d4a6fea722e5774b211edb7d6a5"

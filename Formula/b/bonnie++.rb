@@ -11,9 +11,11 @@ class Bonniexx < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "748ee8216cf3b93d071f7fd95977e3d7a7ef28dd3c73467b212ef9594b037f7d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb48f4977b6fffe6260f6adf6a20b15d0e33ef6f0f70a3d5fe36f3d1cd708c3c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0cfe1657cc446af26bc4d3f2cf50e4a804fa98539993a007ab13b466536cda1d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "902ceb61db37a6795eee8d7941a44633faa38bcd9c2a4b952bf837bab0ee6d59"
+    sha256 cellar: :any_skip_relocation, sonoma:         "097a86502ffbab14bbae35829de5d631181c0ff0db9e214d1b7c6c3899e1d5c2"
     sha256 cellar: :any_skip_relocation, ventura:        "6f87cb770bbb2cac134625c7998bd3bc0974ceaaf9d352045a5659adba6d6ae6"
     sha256 cellar: :any_skip_relocation, monterey:       "d6203a132a5f2e56a85356d5dd9c4545af59e7199b72eaca3a9571d171322d5a"
     sha256 cellar: :any_skip_relocation, big_sur:        "75e1876579c6638c1e4c0509af5c76950ae379b034e6a051d091593cb08c1ddd"

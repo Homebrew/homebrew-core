@@ -1,18 +1,21 @@
 class Medusa < Formula
   desc "Solidity smart contract fuzzer powered by go-ethereum"
   homepage "https://github.com/crytic/medusa"
-  url "https://github.com/crytic/medusa/archive/refs/tags/v0.1.1.tar.gz"
-  sha256 "5ba7ff3654b229a44684f473725dd7256e0514926fa553fbccfa556e399b3c3e"
+  url "https://github.com/crytic/medusa/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "17163cb9c5f73eac3d896d91622a6fbd24c5c0a516b4248d679b26b35df1849a"
   license "AGPL-3.0-only"
+  head "https://github.com/crytic/medusa.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d5fce00a1fa24bf839644fe2f009a2c2834f4d5f0a4588ec88fd5e23272c5ef"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "348314d4db83f68035fc2427850317fa141e63d68fa9cabaa152b4b02bfaff6b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5ef3d1be8d586c561fcad6e6e77e97955210621c0d0c1cb92c7321586de1a4cd"
-    sha256 cellar: :any_skip_relocation, ventura:        "bf308ef20d5d8c84a42dc3e71ed71b6de7000e527d632ea3402e9c16225a5014"
-    sha256 cellar: :any_skip_relocation, monterey:       "609f93aafa5b92687ad2838a4f6856150e270c6507de81e73adde621fda293dd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "cb8a690fc77ba0067206fd631474515c97ea74719c18e30bfa441b9463849bc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "449e97d3c58d616d1c9eb1b632e7972b68cd802a1180a0c8b00e48a80f18a155"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67cb8d46135477feda8dabc97a748d003ba9fc25ad6b74cdd265e7af98d6087a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "841d2dc6b4a5808a3a9583d4fd465c5e7f5a6ffa4e243ca9b16f4ca169d555cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b246c45262229a939028bb58de0b7e3394c7f3df929f41bc4409e1ea65af0249"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d8632555a00e4b6997b9a5a011709a7bca304f084458ad0131d179069332738"
+    sha256 cellar: :any_skip_relocation, sonoma:         "10b75abd0088c64e876e2571099e7892e379cfb909c336deb0eba9de5839a42d"
+    sha256 cellar: :any_skip_relocation, ventura:        "f51d41d50a6564647451371885baf6182c03de1688ce75782d5813d8ca070339"
+    sha256 cellar: :any_skip_relocation, monterey:       "01b83d69c3587ac988d64ca76da2809cda605bf1237003545995a0f06c8948a4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c53df68bc21d836fae466d49f44066464f9f78eb1cdbcaf8f41bb80d1f90d845"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "920f39756818dd331a6f90a616f7024c0624a9dd00763f39a22aa5201e7ca5ba"
   end
 
   depends_on "go" => :build
@@ -26,11 +29,6 @@ class Medusa < Formula
 
   test do
     system "truffle", "init"
-
-    # medusa does not appear to work with 'shanghai' EVM targets yet, which became the
-    # default in solc 0.8.20 / truffle 5.9.1
-    # Use an explicit 'paris' EVM target meanwhile, which was the previous default
-    inreplace "truffle-config.js", %r{//\s*evmVersion:.*$}, "evmVersion: 'paris'"
 
     (testpath/"contracts/test.sol").write <<~EOS
       pragma solidity ^0.8.0;

@@ -7,9 +7,11 @@ class Gron < Formula
   head "https://github.com/tomnomnom/gron.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "597c9c6fc6cdf0006dece77e1954e5112ebb2d61d996fc5d2273018a634a3ecd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ab0e3eca90fad344508e30b818ad21ecb6bd4f0995bde86d0d8b86e47cbc3bf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "856236ceb1dbc90437bd4a214ac5cbf9618ae17bb170f5187fc0acbd8110b174"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "322c63263dead630c89ab151634b663ecf95d93a82034b3e5b75c42318912835"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98148084bf065904b2a75f4dc7b94982f09a277c62cd5e0d843918e6fb022f4f"
     sha256 cellar: :any_skip_relocation, ventura:        "f046a622113661374c20ca12ba8e725f80bdf9ac1be704e3e7b850a0219e9e84"
     sha256 cellar: :any_skip_relocation, monterey:       "7b03cebd6d4120718aeb3de935087981d9e234c844df866076518417dfd6e9e0"
     sha256 cellar: :any_skip_relocation, big_sur:        "c28a8bf800179d49a5aeb52d57bac6100eee9a5755c0dc112dc7fd7e7413323f"

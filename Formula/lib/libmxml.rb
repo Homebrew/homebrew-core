@@ -7,9 +7,11 @@ class Libmxml < Formula
   head "https://github.com/michaelrsweet/mxml.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0f89df646562027832ad3b5c2531c452985fa159ed08839f9d6b4a24aed54846"
     sha256 cellar: :any,                 arm64_ventura:  "69fb9bc4b6c43bed31c3d8b08a4202e2aa6a24abb1c9719e8a2a78feedead088"
     sha256 cellar: :any,                 arm64_monterey: "9c13d0bd3840b69d130cd1f4741f9936d7b2a90297a9925d1325682c143fb2f6"
     sha256 cellar: :any,                 arm64_big_sur:  "e5156d05dec405c83a198a997f668a3a92bdd9499220e7feffd46f4f4c1a4e19"
+    sha256 cellar: :any,                 sonoma:         "84d9d15aeebcf6dc29c0b8507eb091f279f4fd4500fd78310bc0b8e3dfd6b86d"
     sha256 cellar: :any,                 ventura:        "708c1042fb9ca17c2a37a8e6d96499f2a576c364e145d70ea7162247eee0771b"
     sha256 cellar: :any,                 monterey:       "f9e8125473110fef459d5d815a8e96e673815428eac1067f1e4b9c18d6c3aca9"
     sha256 cellar: :any,                 big_sur:        "e2d1dab5660d84e5647b01117b907e07b58e5dade826bd6f5859c7538cab2066"

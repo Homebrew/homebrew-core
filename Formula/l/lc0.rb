@@ -7,9 +7,11 @@ class Lc0 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a13aa9442869cd7cd46c9f6ec86b7346177e93981ecfea2f723d2b9bcbfba347"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e010af9bbc8615097befd17d72551f6271399e0ba6bf17d09b3f8a81e681b1c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "67f388251920e35eca0d28e175cf902e1add3d37ec46fa563a6959ed02bf26ec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e062c34cde10264f2bcad3bb22e38e5dd102d838d58b6e36d5acb9b158006003"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0dac792ffdb44afe580efbd5abb71c13c7aff5a2184f705e517ff22a973c149a"
     sha256 cellar: :any_skip_relocation, ventura:        "6725b604ba0003035986bc7be6399fb6731341d8f3b96f087ab0a68432e87093"
     sha256 cellar: :any_skip_relocation, monterey:       "1015c4823f4055a8c9b9b1824795e7a269c009991f4cdfa02d1bbc309118edba"
     sha256 cellar: :any_skip_relocation, big_sur:        "07ef8d0e683d2f9ba8276461554e5950333809739e016b3bad6a8d7b449b52b1"
@@ -20,9 +22,9 @@ class Lc0 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build # required to compile .pb files
   depends_on "eigen"
 
+  uses_from_macos "python" => :build # required to compile .pb files
   uses_from_macos "zlib"
 
   on_linux do

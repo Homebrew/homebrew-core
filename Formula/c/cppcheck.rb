@@ -1,30 +1,31 @@
 class Cppcheck < Formula
   desc "Static analysis of C and C++ code"
   homepage "https://sourceforge.net/projects/cppcheck/"
-  url "https://github.com/danmar/cppcheck/archive/2.11.1.tar.gz"
-  sha256 "fef6ef868d562d49136f158e1d0f7a38237e7e1c0a91d9189bdd465f1fe54316"
+  url "https://github.com/danmar/cppcheck/archive/2.12.1.tar.gz"
+  sha256 "2a3d4ba1179419612183ab3d6aed6d3b18be75e98cd6f138ea8e2020905dced2"
   license "GPL-3.0-or-later"
   head "https://github.com/danmar/cppcheck.git", branch: "main"
 
   bottle do
-    sha256 arm64_ventura:  "48933b2187e98a0b70003d594042e311a354c1e782d64a7f49781374af71b635"
-    sha256 arm64_monterey: "ec42be87bd74f2d27ac56a8720115f179a23c863027d8fdac992e987b7034f50"
-    sha256 arm64_big_sur:  "32fe3a51ddccf0ac5cdc76dba7002ab00417be3b70043892e9277b42e106ea6c"
-    sha256 ventura:        "c8a4389214138d7f729759f7fd43a8ab60ccbdf60a3431596f3d02daf5881fcb"
-    sha256 monterey:       "49d88ab7633210b3c5f8731ecc4fda8375801b5b9b2dedc445241efa4a7cd864"
-    sha256 big_sur:        "54566b98f2fb96d9d8aacc8a0a21bb46857f331bbd52f08ffd3ec3d5c25d89d7"
-    sha256 x86_64_linux:   "d81099bf2338bcd416ee94ad75a9a462162a6f514048e6585fa2bf271292846e"
+    rebuild 1
+    sha256 arm64_sonoma:   "4f8972865b9f6e566a63c6ba59e6fb09f1aa7c8d57fea2985d1ea165d3ff5ca6"
+    sha256 arm64_ventura:  "998efc003731e5f835246be86c5e857f77e3602eb68c68f8379cf12110830aad"
+    sha256 arm64_monterey: "3ee5bff50a866b39d92a42e35521c59bd7cedc9c82aa4b516b6b8b9ecf424eaf"
+    sha256 sonoma:         "e9175d09e701197968728723dc8583c0904b8d21d726f923f7f3db3245ea1a94"
+    sha256 ventura:        "8f3c3b7b4206d6f43d0c7eb573a8ba1ca5275b4294185c5801d435055e0d2d66"
+    sha256 monterey:       "bdfe0d0ec85532ab8ef808dc70decf33c34b86e509b98deeac30ca8ce9278628"
+    sha256 x86_64_linux:   "507a848d3b983a5263257b63b0467f1ab2650b4e74d42029d4eba09dce375a22"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "pcre"
   depends_on "tinyxml2"
 
   uses_from_macos "libxml2"
 
   def python3
-    which("python3.11")
+    which("python3.12")
   end
 
   def install

@@ -15,9 +15,11 @@ class Ipmitool < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "706bd54ab2e1ba25915652b20b40a3fcef4611e185c5a6910a4c2b73d737df2b"
     sha256 arm64_ventura:  "9c793c56cdb44aab31470708ab208e9525d4a5782b313f3cf7dd12fad2759275"
     sha256 arm64_monterey: "c19e86e32583bceb9c38f2232c90726b2a529857d24638e62e355ad47eb8bfdb"
     sha256 arm64_big_sur:  "d8e13a2e7d3c9bb7cb0f04aaeb559154685ca752247b0ebf45ee9c3e4e85fdfc"
+    sha256 sonoma:         "3c4a0d31ca3b729ae30dc91019f4e1c6359b753f8973149f444d78fb644d585b"
     sha256 ventura:        "3f390f62eceea1ff43f989033f099f54a0f9f006b915e4f60b044dd6c9473a09"
     sha256 monterey:       "9977d1fe240ac918fe0f2a2468a4fa451faf3a442b0136dd490cc58d02b2898b"
     sha256 big_sur:        "18a570a5c08115eada019cd65b3a889e51f950ba9efed6bd1cb82864ff3661f7"

@@ -11,20 +11,20 @@ class Ginac < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "6b1f54f17f7035edd80c36af3402485f99654fe651c8c06e55eebc886ceef480"
-    sha256 cellar: :any,                 monterey:     "2e32ee246037520340c63cb173593b22e88aa49fd67fde26e2a990effe68a36e"
-    sha256 cellar: :any,                 big_sur:      "5a0597e100de5340db7682e7ef2a4609eaa7eb87817f933fd13ff3de243238a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "dbabf993c6a4453301f92b8697a6e10f865def6d817eebed7c57ae548edaf018"
+    rebuild 1
+    sha256 cellar: :any,                 sonoma:       "20aa8a3ddee662108a4d9abcca8efbb439a42b6518621604c2cd9f2f8358d21e"
+    sha256 cellar: :any,                 ventura:      "eea2055db77984131bb8e266e1011838c5d988a990c2268ef0f0f721a75d1a1c"
+    sha256 cellar: :any,                 monterey:     "c05da698a6f66bc30300c78da3ba78ab1a9f7b83aa039b93435768f9ca74a7bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "125b63819d971c7ca2fdc1edbe2234d8acf21bc8852ee2db4d728406bd056984"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cln"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "readline"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 

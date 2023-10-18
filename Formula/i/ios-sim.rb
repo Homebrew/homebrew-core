@@ -9,9 +9,11 @@ class IosSim < Formula
   head "https://github.com/ios-control/ios-sim.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24800ebb5c539325cb0f1b7e5cefe34ab9398f9973a07bbdd65ac77992a6cbb8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f524340517b2489bef21f9994bdf04a7071d9544f57715fd75bc64f220be03d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c1a5c50ae49619b4df9dee4cfd1f010de791d35d939cf4a635e68dd1ba6a8fd3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54028aa5938c6a5f7e4f2106b31e47a18778961bdb8c3ae73f8935a569c91764"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad063cce07ae800039c9d00433fee710d8b0c59aab956144a306b68cdeb048e8"
     sha256 cellar: :any_skip_relocation, ventura:        "80245dc86a77f47fdfcb5f1a2a49f15cd5583cccae5a668c046080c8a7cfaded"
     sha256 cellar: :any_skip_relocation, monterey:       "e741d066f12c6325452d5b65ea9894ade7878a6c85304c4b75f56f1c21563a33"
     sha256 cellar: :any_skip_relocation, big_sur:        "36da0b5e859153bd745a49214df77b469c2b5211e2c11a2dd7d711ff1cfdf914"

@@ -11,9 +11,11 @@ class Mpdscribble < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "cd779e47e8c11d9ab3d2dc0f16af582c2d48fddc55a8ae329457a9cbd1c0e28d"
     sha256 arm64_ventura:  "ae57ca49a553d9b3c52d221c988fd7db50cb2b73a6bfa8770f40afe2072b7818"
     sha256 arm64_monterey: "101f7677113534f4432b89ff1ca9cd9a9677a1ca15697cf876b7c430c6883b23"
     sha256 arm64_big_sur:  "c473ded7b091401379daf8b14d076c7e4ea835e0da5915f689c10482e413fc55"
+    sha256 sonoma:         "e56cf7a89a42a53e5d02dc46cea831e44bdeb7c318181b576cacced4d9431ce7"
     sha256 ventura:        "382070590073cb7a59e5ba786eb506a735ef2989b0351ebb9c620b555a967954"
     sha256 monterey:       "7c8ac2c91c994368d5978770ceeb9f63960bec3b043b4b22538804268f1c0db8"
     sha256 big_sur:        "fbd81b4642294a6d2362ee03d17315d20c3aefc8aa07731bc9ff01cf9134be96"

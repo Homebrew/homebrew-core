@@ -6,9 +6,11 @@ class Curlie < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f401bdf579738fdfd5b4337bc32a3d0b8ebbced94f4a2f83b7a9d12942588988"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d07ad785416ede91518b9ab7df692902374eea6bb37161b8e55b5da83f13c5c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d07ad785416ede91518b9ab7df692902374eea6bb37161b8e55b5da83f13c5c6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d07ad785416ede91518b9ab7df692902374eea6bb37161b8e55b5da83f13c5c6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9c5e3829354c0a034d36176085185015785872fe1c7ed1a812c0fb4fed861cf0"
     sha256 cellar: :any_skip_relocation, ventura:        "01023ef2b609aa6c98c8ea6e306a4e0acba9024fe065d8f845b690045ea13972"
     sha256 cellar: :any_skip_relocation, monterey:       "01023ef2b609aa6c98c8ea6e306a4e0acba9024fe065d8f845b690045ea13972"
     sha256 cellar: :any_skip_relocation, big_sur:        "01023ef2b609aa6c98c8ea6e306a4e0acba9024fe065d8f845b690045ea13972"

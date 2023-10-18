@@ -6,19 +6,20 @@ class Libecpint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a37e3014839b368a0355389c4e17a2346f8de13d1c5250edf4a0cc1736a3cd3b"
-    sha256 cellar: :any,                 arm64_monterey: "5ae1945106a527cfb54aba12b540ac85feae706d216143389174aa7e1f6d12ed"
-    sha256 cellar: :any,                 arm64_big_sur:  "0114bd3d35c87dcf7ad6e3c959992ae79091b654b7c8c87319d665f19770781b"
-    sha256 cellar: :any,                 ventura:        "6398a4d761c21ae717b55a54eaeed406f66ebc4b2b4ca4916ed5c7c5f2df608e"
-    sha256 cellar: :any,                 monterey:       "0201916caae92234c864e5bacdc8ad303a7891aa1c1d13d90707d62312ff2322"
-    sha256 cellar: :any,                 big_sur:        "062187fb6ebb6b4f3b731333209d30703afeba6208e3cd2566f7053457a9820b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b702393f9dcb41836efdab31c913fe81437aa1724e8006e0abc14908badd2868"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "d754e834771a32fc1c9e09e0d90b72232970512fc889a84b5a9b9ce6ca110cd4"
+    sha256 cellar: :any,                 arm64_ventura:  "2c6e35a7a116b61a0ce86a7c98ea815366bf50e05262ce95695402ec0963906f"
+    sha256 cellar: :any,                 arm64_monterey: "354ad48d6548c4c14a11c7fe6906d3144b62970ed28b6945449bacd68070a654"
+    sha256 cellar: :any,                 sonoma:         "fac0c8b117413ae906344bef51c1c39fcfcea62ef89d17d232602e0d3e62ff90"
+    sha256 cellar: :any,                 ventura:        "2ad164c6bde6c42997d6d520c1b948c6fd068eb8a014bcb37a27a794cf73e61a"
+    sha256 cellar: :any,                 monterey:       "4679cb57350812962b316debc76e489ea8b19806a566aaa7c00f25d47d821a5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f0c3872e62c90591879e5de99b0f67932051815627ebbdabe2653203d7337ed"
   end
 
   depends_on "cmake" => :build
   depends_on "libcerf"
   depends_on "pugixml"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     args = [

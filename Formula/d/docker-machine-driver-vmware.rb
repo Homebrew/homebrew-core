@@ -8,9 +8,11 @@ class DockerMachineDriverVmware < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "81805da1dba151839c89b920d7c8690adfc56d57b37dd6c83a599b2d29d2d292"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "780fd9e178b5d74e3e0d8e9682460c01d22f53bf291bff09270ef600b758c4ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8435fdd294f5ada321d652dec3eba0a01811576074e9d169b96d4bedcb31c630"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51441771e510e3263cfddbefe03c1306bd971624e35d5a44a3a8acb37be141c6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3d14214a8054e0c62a52853e889663be19897ef55d7a3fb9f5e7203ec309f7ce"
     sha256 cellar: :any_skip_relocation, ventura:        "e88d45b53c2fa8ca55a55f4e5bf0f793da4e8cbc0be4cd3109cb232a858586a1"
     sha256 cellar: :any_skip_relocation, monterey:       "ffa978d59f3f647229527029ab3a3a88fdd3bed7d7000214969acf218fc1d084"
     sha256 cellar: :any_skip_relocation, big_sur:        "a4cc3a076070538c9bacec55e70ed2fd454f860c5c3c9a5f3f1986abb8c7be88"

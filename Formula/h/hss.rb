@@ -6,9 +6,11 @@ class Hss < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2aff0aef887b145023e4a61c093bf041696c8e4d34f38a0cba28cef8ecbd76af"
     sha256 cellar: :any,                 arm64_ventura:  "8a236cdb837ab620def9e04659cef476c55b046888dbc0c89047aca8e9fff865"
     sha256 cellar: :any,                 arm64_monterey: "b22fe721a066962a1673c52f8c1152b46c451cd4cfa3672158faefb24533fe5b"
     sha256 cellar: :any,                 arm64_big_sur:  "510fa3605e4d856cde1df1fd6af76db46b00b382738004931a6a59cfe78d1a4c"
+    sha256 cellar: :any,                 sonoma:         "f5525633894624bbe6e098593a2297d52c66385e07c602ef6d1f4152a4519fc4"
     sha256 cellar: :any,                 ventura:        "30aee10929522aa5f226d171caf6c072fcc1ca552400262acd5c11c9992c9d07"
     sha256 cellar: :any,                 monterey:       "148418af9ede974ce97929a4d2203427b67d8cefd49001e8f70eaae68742b8dd"
     sha256 cellar: :any,                 big_sur:        "3b2888677612b095f03226c3a9cd1dbb788233dc909519021f38a4fcbed09a49"

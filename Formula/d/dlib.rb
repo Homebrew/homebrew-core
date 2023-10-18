@@ -16,6 +16,7 @@ class Dlib < Formula
     sha256 cellar: :any,                 arm64_ventura:  "72d97fda7f1615c971e268477e67f8ca5969fa2a98a368fbd0d28bc762991864"
     sha256 cellar: :any,                 arm64_monterey: "20350a3f0a638a1a5b6466c4809c7beea386545b35a98de7181bc66e2d3a0e3d"
     sha256 cellar: :any,                 arm64_big_sur:  "2546c7c03817f1181c406a1e6167c2a66a0a87b224567b7a7feb7c4111736e39"
+    sha256 cellar: :any,                 sonoma:         "8d11ad5a0f1d950bd91b816c8c8d249d7325bc310ba7ea6bf4b403d2be3559d6"
     sha256 cellar: :any,                 ventura:        "86647e13b66b5aa7285c47144c30ca79075583a97805c1409e11366ae4592ab7"
     sha256 cellar: :any,                 monterey:       "3be4dd9f52d3d4aa041c1909159466b57f4ccbbb32404f3a07325d37d0fd8144"
     sha256 cellar: :any,                 big_sur:        "2d16a7080c79a77d00003641420e051dd08a69f6b1f2233af47afd76de567909"

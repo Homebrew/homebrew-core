@@ -6,9 +6,11 @@ class Jshon < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9f0b7bc5a2120f0ee203a1398bf9f35b45e3ba143adf38a6220c066db09e48f6"
     sha256 cellar: :any,                 arm64_ventura:  "143f521901ed3810e8b535bfe42acdb099026a2560c96a65095d977f5e1bb331"
     sha256 cellar: :any,                 arm64_monterey: "61a74bb42fb52712f535d63e3a7e3f9b0e06c372ce6d4b0c20e07af22d360620"
     sha256 cellar: :any,                 arm64_big_sur:  "cda0d78d58a0f23419cef2718919688bef98ec7461e750e60f9a10dd528c02ff"
+    sha256 cellar: :any,                 sonoma:         "5368b1d8cdca07e75d70b448bb6414f62876344d82c8c26c0c5785def3fc0dc0"
     sha256 cellar: :any,                 ventura:        "642bbf1d65f96c69316ce7e0294bb750107912515d47d92417a5482e73ba7e2b"
     sha256 cellar: :any,                 monterey:       "9f42af851267206d434ccbd1765c6bf9044ddcca29682b3a8b88947dbb8f5dab"
     sha256 cellar: :any,                 big_sur:        "301ae5b178d603c79eb0ae2316647ea558c0eaea4331a525a9bc52f6f6387203"

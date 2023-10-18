@@ -1,18 +1,18 @@
 class Pgvector < Formula
   desc "Open-source vector similarity search for Postgres"
   homepage "https://github.com/pgvector/pgvector"
-  url "https://github.com/pgvector/pgvector/archive/v0.4.4.tar.gz"
-  sha256 "1cb70a63f8928e396474796c22a20be9f7285a8a013009deb8152445b61b72e6"
+  url "https://github.com/pgvector/pgvector/archive/v0.5.1.tar.gz"
+  sha256 "cc7a8e034a96e30a819911ac79d32f6bc47bdd1aa2de4d7d4904e26b83209dc8"
   license "PostgreSQL"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e3466589872b97d0ae85c623b680a7955619c2320fc49078a57c54d578ade75"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fd55d382ae482e08d6448258b1b8f56fb4e7b262bc6e2a44f888598955176ab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "204c249bbe791132ee82fae31469bf38007a736049c9b8045f8d235fdf04231c"
-    sha256 cellar: :any_skip_relocation, ventura:        "d81c8413a2f5ffd62cfbde08e8c4f9447b20234f216724fb6fcfde32a6402606"
-    sha256 cellar: :any_skip_relocation, monterey:       "067039e9d3be6ec5dd402c17fc7e29d84f7a1c0037fdf6044837b5bce481fab2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "716e04db16520f3423bb3b58f6e11d2d5709bdc01238b353d28e2a118e03c286"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b73b98986c49df75e2c298b7c9ca5008df82e6964ba2f322fa19de9fe11b8e2e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd35ed8d3861f7a63b2e3ecb3e313a1d04c692217653047c26445e8267d068e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3aa310ce6b3d8983b272e65a07da1b88ff70029bf4c7c345543daadbf313395c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbc637916d4d5d1f48ecacc31f0eb84932602aa65966fd03e2184fc414abf02d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "47dcec2eba86593f17bb9c70f1df0f7e32b2164af985e89ff132f3c4336b06f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "fc3096f2ad79fff305effbc82c6432b3fa86eb1b2296079822520bb3b2444062"
+    sha256 cellar: :any_skip_relocation, monterey:       "7245dd8df790678ca7708eb0a243e67f9bb7a3ac251a64eb4563a2087bdb9bd3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "125ac363467a38139f439964cdfddbae17632b1d4615ebcf55ff697ad38abfd8"
   end
 
   depends_on "postgresql@14"
@@ -28,6 +28,7 @@ class Pgvector < Formula
     (lib/postgresql.name).install "vector.so"
     (share/postgresql.name/"extension").install "vector.control"
     (share/postgresql.name/"extension").install Dir["sql/vector--*.sql"]
+    (include/postgresql.name/"server/extension/vector").install "src/vector.h"
   end
 
   test do

@@ -7,9 +7,11 @@ class Oq < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8df162607ce2ab7494fccf24efcf87af4033e7fc7e66a5086f86d195dd86ba26"
     sha256 cellar: :any,                 arm64_ventura:  "75a8cc4cfa2586b342b64c65e4a6aac0d03a4fcaf9aeb3e3f5455d07282788e0"
     sha256 cellar: :any,                 arm64_monterey: "8e50955137a1196431e6323923a223bca628e6e25bc15de29a40f714e117fc9e"
     sha256 cellar: :any,                 arm64_big_sur:  "6593873b7bf1f52b6ef49efcf24a82116f67ec418180407c146cac2a7fdc3732"
+    sha256 cellar: :any,                 sonoma:         "0cc3d947b2456c729b5c4203eee37761ebe33ee4cece898640d4444f6a4ec813"
     sha256 cellar: :any,                 ventura:        "74bf344804ef1017576514cabde8ca1dc51c73535cd3fca0e0c3820b0adca9f6"
     sha256 cellar: :any,                 monterey:       "fcb33b4ec3d23973937252c430bdf01c9047020d374c31e9f15f9f63e04a82c1"
     sha256 cellar: :any,                 big_sur:        "ed634cea33ba5fd7418eb32f24fd551c46bcd1b45dc1c8d3495b1136f2e7f57f"

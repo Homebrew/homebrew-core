@@ -7,9 +7,11 @@ class Lr < Formula
   head "https://github.com/leahneukirchen/lr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f6e26a4e87af89c61b15d5b15dd275393b411153c40a35cd3e5e79bf9ccc10a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "501cd972976041e65e066e2fcd49b0d6be2627ca686e230ee987dd3042bb3ea4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c380adb162fc049ad50a96ea2277feffefbf014d3038b1ce62190bbbd6fb08a8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0e7b1a762a2194579ccff17c52b287b69f59162d6182c7c84ef6859286f4459"
+    sha256 cellar: :any_skip_relocation, sonoma:         "67ffe810e8a771b05f063f8e914370bb033d31d398d3a97139781ef149e91353"
     sha256 cellar: :any_skip_relocation, ventura:        "b6497f9afd4b1f50b47399ea5d6f82e8bacb4e890b861d07f6c57a113cf7db16"
     sha256 cellar: :any_skip_relocation, monterey:       "829cf70a931246edf6f238bc929ee9381eafb41aece7d3017ca402115fa0e6d7"
     sha256 cellar: :any_skip_relocation, big_sur:        "8bce6806f73a80466046ae85376607765322c51e7e3b9296581834c2135b743e"

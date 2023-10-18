@@ -6,9 +6,11 @@ class Openfast < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "dd351677059a2cbeb1bbd3d6e0736f86e88a351665d73c3b1970b410eb25c225"
     sha256 cellar: :any,                 arm64_ventura:  "3c8114d72bf6297b402e24113f948419dcdd603be737bddd6f17757fea49bdea"
     sha256 cellar: :any,                 arm64_monterey: "08decbbe549849dc949075318d4414a16dcb6be5adaa54e160336005a15ba651"
     sha256 cellar: :any,                 arm64_big_sur:  "02843b0d2e40c708bcf3637ef418eb774fb6aa8d67c0a83e3c79ee4ad93905a6"
+    sha256 cellar: :any,                 sonoma:         "98cf299cc763a51bab9622ba3db4f5a7f35336039d92534c7a641f78dbff0047"
     sha256 cellar: :any,                 ventura:        "ff00385872ac1c9131cbbb0360763062c34a812f841ece0f5066b7b2145b949d"
     sha256 cellar: :any,                 monterey:       "4f6fa51b03eda107bf2da080c957dcbba22c60a3ada674845f3e68cf4d195484"
     sha256 cellar: :any,                 big_sur:        "252d26505307ce0e6943acc0c96663a3a69cb5421d3ebc0aa107bd94d1d8b0f0"

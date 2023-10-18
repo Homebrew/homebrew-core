@@ -6,9 +6,11 @@ class Perceptualdiff < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b114f4c6c43b2282782ad2195f3e05c7177d8369c1526d4bc092d3c3ace87e51"
     sha256 cellar: :any,                 arm64_ventura:  "cd7694959ea2d1c45f69101b17974cad283ad5075ff3adb0b5efed3a23549f47"
     sha256 cellar: :any,                 arm64_monterey: "aada4032f19de165252aa13e584609103b36cb3c62e17ef5519122409cb7a0a4"
     sha256 cellar: :any,                 arm64_big_sur:  "6260c155e96ef17bdaf4ba1032986371db4748e3de145c5354e936fd0f854875"
+    sha256 cellar: :any,                 sonoma:         "6da21d373d2b55f336f8e19a2eab16843b58288790a78b9e8ab301e079e628d8"
     sha256 cellar: :any,                 ventura:        "c329dd1cd469f9e1a4efdee715c8aa3722dd35633ebd984f90f1e54638332aee"
     sha256 cellar: :any,                 monterey:       "fd75a857ebc139216c5edc6c671c60ca9d3862a5f7702bfe33fb5293c2ba6a30"
     sha256 cellar: :any,                 big_sur:        "fdc7e444e4d48802ce4a7c671260ec1a51ebb100248d4cb90622ce3cb2dfce82"

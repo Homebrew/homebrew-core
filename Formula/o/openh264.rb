@@ -7,9 +7,11 @@ class Openh264 < Formula
   head "https://github.com/cisco/openh264.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5ce0c5d17c351c271c213e32da46d85d6d7e2189171a31a2bd152f758f848897"
     sha256 cellar: :any,                 arm64_ventura:  "af4d886c8a4a3df4fe67657099cc2ff74e6327890c71f678f32d7e49a321fef4"
     sha256 cellar: :any,                 arm64_monterey: "ae73e6d36f91ac47d93c4725356b6887ddd991d304af65015b958f4301fe61d8"
     sha256 cellar: :any,                 arm64_big_sur:  "c79e4b81dccaa0901dd4b0df153375479c430253b9a5e7081e5e48ae7c834e2e"
+    sha256 cellar: :any,                 sonoma:         "6852b176398342c0f133259da32d88ad2fd0268bebd88c9ce50bc4b3c509a405"
     sha256 cellar: :any,                 ventura:        "7c49620720886cb39b4a871783fa26fb194aa6b632b02ac15fe751baa98b1b64"
     sha256 cellar: :any,                 monterey:       "8a7b21814fc08e259a6fe8a9da00cac96d953ce10011b741dbd4feca426824ec"
     sha256 cellar: :any,                 big_sur:        "c0d6182c17eb670e2abe5ecc865b5c22119980f3940b00ffffabd78ff50e4d09"

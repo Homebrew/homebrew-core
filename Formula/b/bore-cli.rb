@@ -7,9 +7,11 @@ class BoreCli < Formula
   head "https://github.com/ekzhang/bore.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "282b75b9ae8f66be3673c5b773f61155e14b3bef8c0f0b55185ed423503ca45f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb47ecce95ccc9be42a41eda84b836c24d51e3f0f03d7bc2f9f58930d44f1926"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0df2603bf726d38c1bb460314d7aab187fde1c27da34317cbff46747ec84089e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3141c449ac083c080e231209c7bafb116e976dfec7e928be33fc8c2fb2e4218"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d265122080de61d48774ba1b3cebf7d02a063750f50076403cf0309f2a0143ae"
     sha256 cellar: :any_skip_relocation, ventura:        "d3f94ffbd3c2d3f8aa5759ca3067bf0720de74e30245f919713e3d11a9359076"
     sha256 cellar: :any_skip_relocation, monterey:       "a5b791059a772c80e99672c0b74cec175ca92e6d491dde57b4706e9725bf7d58"
     sha256 cellar: :any_skip_relocation, big_sur:        "f0d502b5d29f2ac526f860d30df22672a3e4da6ad95a528e9fa57227914ff3b4"

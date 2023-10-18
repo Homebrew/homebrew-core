@@ -11,9 +11,11 @@ class Cabextract < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "624bed1dfb0c77ecba2f8d6bd3deb022caae6d47af7d4edc314008aa001b036b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e4cd53d32db9ea97656f399dd9033eaa5ef5c8cc3226de8de09865e6c610435"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "371a13fefca5fbd78edd570020e5f0eaf82536c55e54a8efd01fe7570103cd01"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d71ed3ba74cc371c392104c0f9c8f2fdc8e504e046140f5c1c74e95680fd6db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dc0647788eb36c731bcd20897ac0e15b64d8cc51a950910098e2ef4ccaca0d4a"
     sha256 cellar: :any_skip_relocation, ventura:        "2e30506702df76799a4c685f6004e58cbf06b27a1bbb25fb401f802aa95bd80b"
     sha256 cellar: :any_skip_relocation, monterey:       "add98c9cb4c6d920c8acb6378ad9bec3bf1f95f531a522c07e4cfc6bf00c687f"
     sha256 cellar: :any_skip_relocation, big_sur:        "af25a0c0dadcae5b550953a5c2857533c65013ff65daaa67555d6bf0b204249c"

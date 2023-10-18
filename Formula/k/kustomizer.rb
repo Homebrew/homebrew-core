@@ -7,9 +7,11 @@ class Kustomizer < Formula
   head "https://github.com/stefanprodan/kustomizer.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db4028189fa70a68b0c6c33a0837b864a9fce38f0b9e232c8adc3adfbf7a6efc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ba254b8051b47aa5f1fb36236027a7ba73cda8218c504b43065ab3ad7677584"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cc06563ebe12218833949dd690e7c3ffbe71d815e16581657ba4971af6ad1a64"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34ca6d21c6761b9732b0bd0cbb3bdc7bfa8c0701ba7edf2bd236f820be1ef44b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "49f39ea95d4c027c7ca8808b0d05258a3d6905debd124f198f34c20e95427231"
     sha256 cellar: :any_skip_relocation, ventura:        "417bce8bb8cb178b6fcc5386ecbf4a01405253abfca33c036a03f99058ce9dd7"
     sha256 cellar: :any_skip_relocation, monterey:       "826930275079d88859fd26976d3e7d8d7e9ebf57edeae256e232ce4c3603ce2f"
     sha256 cellar: :any_skip_relocation, big_sur:        "8f9ac16b04e1da34901f680da8c8f481e605d374822cf77752d68777f9cd9cf1"

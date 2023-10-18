@@ -6,9 +6,11 @@ class Ahoy < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0ff980df2002a55329beeff9be13e0fb87c21b2c21d8ea134a15a1e2e2a5b77"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af46c291ed8074770313676100c783c09f3e89f8513cf0772c49e2fa577fb684"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6a24eb00ed3deb45025094df3034b3fb9fbf3eda0a0832e5e3073251d8c21433"
     sha256 cellar: :any_skip_relocation, ventura:        "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
     sha256 cellar: :any_skip_relocation, monterey:       "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"
     sha256 cellar: :any_skip_relocation, big_sur:        "50400846fb4102aa87185c75b2b962e1fe8c2a2ed4a5ba59dcff3c7a48427feb"

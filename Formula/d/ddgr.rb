@@ -8,11 +8,11 @@ class Ddgr < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "19ece8c05b5b538dd4f3dff9b379fb29a77afab06f916393dcb273a19583cde8"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "1897c82717033ec9ed60f36143882de688dd39cf36af2f06c6ffbcc73518a09a"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     rewrite_shebang detected_python_shebang, "ddgr"

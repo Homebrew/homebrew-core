@@ -6,9 +6,11 @@ class Cloog < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ead03f190330ee52bead39f8d29fdb67667882b5acecaa490f6d63c2bc750cac"
     sha256 cellar: :any,                 arm64_ventura:  "cead91fed1a94c7121eb28dbd53060c3bf70a83c62a0546e50d2ec486e1e1e63"
     sha256 cellar: :any,                 arm64_monterey: "9d8c88f5f09bcc01984b15f0ba5d2fe143ee4e129f7dafce268cb36831f33480"
     sha256 cellar: :any,                 arm64_big_sur:  "c0c6fe61fc3cab274494d0afc7c1d3391b58890544efd5f43e4ab13c3c7fccfe"
+    sha256 cellar: :any,                 sonoma:         "df4fcfc84b3e7d63f3443caca892be8d75bcd7d59f42ec2353d8358f646253db"
     sha256 cellar: :any,                 ventura:        "d46074ebafa3ac16eedd35381930c80446da0db12109746fc39ad316dc9f98a2"
     sha256 cellar: :any,                 monterey:       "3a6c23a37dcb685ec5ecdd08921dcad09c121d3e0763c0df609e6a9c85fcd964"
     sha256 cellar: :any,                 big_sur:        "9e572d9cca3d5da40666ea38027e38e4189f8c8471d4fe12376828f234b12721"

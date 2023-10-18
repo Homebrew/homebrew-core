@@ -6,9 +6,11 @@ class Conman < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "12e867d583636858f7ed1b9feb145c2783448252837b0a384f22247f7c9ca605"
     sha256 arm64_ventura:  "a0be94a97c0d77a9078b71d6f7be6066c5ba7f0fbb43d9c129a014804b4221f0"
     sha256 arm64_monterey: "3a7279a18eaecf1db5ce2308b7e3e534c58eb23dd8ab06767fdf003309551eac"
     sha256 arm64_big_sur:  "ba4ee04b659ea6b5663821a4a5262fe7e04cdb715fe216275f9b88c7305d80d2"
+    sha256 sonoma:         "744c637c568d133c33075924f83f9c86b2dfcc3fee60c21fecc1144d9a0313dc"
     sha256 ventura:        "694da5ae8b52314bdf7500b9c266f122ea7507c6c3f3355d329e4b13f8c9c6db"
     sha256 monterey:       "e18ed06db8ac7678344e9c55726026570a350b80f8d771b24fa14ec87547d85b"
     sha256 big_sur:        "d589fec5d6868bd0437e053d6cacbb739716033735fa6a2d5f5e4dda70a8eae5"

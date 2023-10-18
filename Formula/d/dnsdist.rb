@@ -1,10 +1,9 @@
 class Dnsdist < Formula
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-1.8.0.tar.bz2"
-  sha256 "1c0d375c25453d349b88e03ff589aa2603ca8692fc98364c068ead372804704f"
+  url "https://downloads.powerdns.com/releases/dnsdist-1.8.2.tar.bz2"
+  sha256 "6688f09b2c52f9bf935f0769f4ee28dd0760e5622dade7b3f4e6fa3776f07ab8"
   license "GPL-2.0-only"
-  revision 2
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -12,13 +11,11 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bcdcbf3481715212f7e08ecd4ba643b6b49ef0f284155b15101a4deb46ef572b"
-    sha256 cellar: :any,                 arm64_monterey: "d1523bc0741fec73483d5d97d646b494725b06a9df3cb210ea670850368aa6e7"
-    sha256 cellar: :any,                 arm64_big_sur:  "68b519a35fe9f68622db48dcf068c97c65c7fbcb47f2290a34728b00f6e34891"
-    sha256 cellar: :any,                 ventura:        "383c9920efbc55782f3e579544b1c31758513f4a07d8e0911e259992cd19aa30"
-    sha256 cellar: :any,                 monterey:       "6c1cd8b38d8a79261a47be1567f9b8133bfd806169c7701374352382e8fe3d90"
-    sha256 cellar: :any,                 big_sur:        "f0e75d49e95e926f612fe49d72c93e5709cb6916aac804e70357c8ef8ac80512"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5de363e7cd6bc0475a64909ed04ea72e7cb0a0cba89c615dde510dc0b24215dc"
+    sha256 cellar: :any,                 arm64_ventura:  "887adf419880d8a9769381d6f2e16e16ed4bd79d9b205b68ac895d2906fe5df5"
+    sha256 cellar: :any,                 arm64_monterey: "4f6ed09a29018e237acacd747300805f0f9aa8a711e6da864a22f984789cd8ee"
+    sha256 cellar: :any,                 ventura:        "963744f8733a8fd6e0aa16f349d64844f03577d5336176c19cc89a9255503ff9"
+    sha256 cellar: :any,                 monterey:       "3a7eadfe040b593fdbb906eb83b2f1d67dfdf34eaa810c5823aba9c68b2c0a74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd6e6c071ddd4a5b0a8a154ebefe98127caf93cc8b14640e521de403fdae0172"
   end
 
   depends_on "boost" => :build

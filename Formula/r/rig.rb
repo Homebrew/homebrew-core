@@ -6,9 +6,11 @@ class Rig < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256                               arm64_sonoma:   "c49772908fab4d132435015e225760d30f00d742f5e09123c71cdf90a453d3ea"
     sha256                               arm64_ventura:  "1ffffb584e30f49d7b8c4b5dcc99141fff24697dc0512a6cfd8deba04720ef54"
     sha256                               arm64_monterey: "beffb2a7922b42831deb088af7d1f9ae0aefd703f676a1bafffa420ea96bf23c"
     sha256                               arm64_big_sur:  "b9736b9b35547ab9af2afc1e84698f5001e7f0ba9208ee171a58f554d9780c25"
+    sha256                               sonoma:         "643e207aeaaeefde3364f9d95eb743afd98973cce9220c374bb4b23cbc0740dc"
     sha256                               ventura:        "605e1c4428ce942389573258015a36bc3a20c8e5dc7464ff3fd57240a816f72f"
     sha256 cellar: :any_skip_relocation, monterey:       "5b3a4522d3f584f5239b2e993517d20f5d37fcfa474c8ba0fad8be7aa91372d5"
     sha256 cellar: :any_skip_relocation, big_sur:        "e763b581f6a9410df5cca2384f0f9108c06a1c2e90ad3ebfccf7bf2297b7b641"

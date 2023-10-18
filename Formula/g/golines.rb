@@ -7,9 +7,11 @@ class Golines < Formula
   head "https://github.com/segmentio/golines.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b6dc43c965d0054ba38469480c298e81f9563609b0f8ce0d3c34013711840ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "51f84f0bd25513108f8a8160eaf66abb0c6b74a393dc2edde4af90409096d85a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "51f84f0bd25513108f8a8160eaf66abb0c6b74a393dc2edde4af90409096d85a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "51f84f0bd25513108f8a8160eaf66abb0c6b74a393dc2edde4af90409096d85a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1bbb1164f31bada1a2f8a40a83862a59505e6a79a261446eafff26dc8f8587a6"
     sha256 cellar: :any_skip_relocation, ventura:        "c02d8f38f78fe5916beae3e9bafcfd89c4741300821f795ca1e9edd3d90a67e4"
     sha256 cellar: :any_skip_relocation, monterey:       "c02d8f38f78fe5916beae3e9bafcfd89c4741300821f795ca1e9edd3d90a67e4"
     sha256 cellar: :any_skip_relocation, big_sur:        "c02d8f38f78fe5916beae3e9bafcfd89c4741300821f795ca1e9edd3d90a67e4"

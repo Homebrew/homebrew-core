@@ -12,17 +12,18 @@ class OpenAdventure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e6f2d3f7a760d964064cee9c866733598248904d490c977f0d4a730dbfcd7ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "16eb8d8d02295df84ddc94176aed567869161c6cb61bb223d7223e17e1ec8cb3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "195f5a0edff650d5de1ce70899c466b0d29fe64f04bd6667bb8e8f4b357fcc7f"
-    sha256 cellar: :any_skip_relocation, ventura:        "4a3c131645f948efa59328b8820f21b67060c0fbf08fb0444d05d17858798580"
-    sha256 cellar: :any_skip_relocation, monterey:       "62e6659adad76fa8cad53f9dcab9692182d292cbd844e86700f58702a0fe7fdc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dc2567ca7d9614aa10bc35dac478f3dc6665968262197dc64a399ae29daef50e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecc81be4f42c271404e5e0a21113b3dad586845abda18af69166298c3b732e69"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da50d95cedf6710e39a27bbd76b888ace398ac67327f17f288017a79aa9ae274"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3236428d53140ff49d8644b02454bca093edb2dfe475733322a4ba91ab5816c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "64a00d3b046d6b2ead8cc9d813703c19dac975d91332325e21fd11c00ac79fdd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f01a13553c82ef643542de0d7842cf4fb44b64ebbba765c33356f27c59cd253e"
+    sha256 cellar: :any_skip_relocation, ventura:        "afd7abb9f76f17e89d0ab93ec220bc4838231eafa7a8553e3bb21ce86e160685"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c2b1b8b0fac0c693934f822651749a7daaab7edfcc17ea6d488b8f58a836ec3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe4b3cf7fccb8954df99da30e0356aa2ad053194a9a2ee740a59292509d797e0"
   end
 
   depends_on "asciidoc" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "pyyaml" => :build
 
   uses_from_macos "libxml2" => :build
@@ -33,7 +34,7 @@ class OpenAdventure < Formula
   end
 
   def install
-    python = Formula["python@3.11"].opt_bin/"python3.11"
+    python = Formula["python@3.12"].opt_bin/"python3.12"
     system python, "./make_dungeon.py"
     system "make"
     bin.install "advent"

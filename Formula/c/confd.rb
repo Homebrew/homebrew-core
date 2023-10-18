@@ -7,9 +7,11 @@ class Confd < Formula
   head "https://github.com/kelseyhightower/confd.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4320090003f15247aa5f860a784bf57f9791b917aab9504f27b576f7b692e028"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "99f4686a6b8780c84e9382061d6b1538aab608d6e33e7e208aef6ec39f1f4b79"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "346a9185c6665e85a0b7a810cfdabb1cd397d628a58a40935028a39d3dac6da0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2eb5cdb05b9f92b2472331857765f5b4922183d4cde23e61c44d7bb3d080dfe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "20ef434c3daa75110a05e2634555a72bc2ffe40a257b151d3f08e1e92dd88547"
     sha256 cellar: :any_skip_relocation, ventura:        "c98a1cbef3ada8032619ae238d2a83b61a743079f06e2a31f436f7e9bd08374f"
     sha256 cellar: :any_skip_relocation, monterey:       "ba0c1ddd10c298a6283a5d5bcad10304211a68b0d139e27f30c7ef34ae8d2aab"
     sha256 cellar: :any_skip_relocation, big_sur:        "8c337c7afdcf9d7bf7662f94d24fa326990e69344f6c23700ba2a5c0c540592e"

@@ -8,19 +8,20 @@ class Gyb < Formula
   head "https://github.com/GAM-team/got-your-back.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f44593e3249b2d1c3aaea59f18255724e27fa806ae2088da47189a0063a60d35"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "78adcbaa6d7b29e0aa2c5e1b82cae368beafc1d4a3dd3b9731daebf5b27bfec8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9628c65661b531ad6a6d621dd3f998c31fc1364ff1c99a5e0b8de7a7529ca7df"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2f9b38d1abc950e390c7c670f061dafe80cb75c8cfc46f218a0c5a5fcc1e543"
-    sha256 cellar: :any_skip_relocation, monterey:       "4e6b5cec4b1a7fd2f140d6fe28d1ad775d7d1a0f530656434de03b6204ee1fe4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0fc72f79551f89fb7c10620bbbf802c13db23cceb0bd612cc0ba83d50560ef52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d86b45e5d406868cf9fb510d1ffc152953374e2b70e350d52b68c865e504751"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e394300c5f11dc1811fd6d1f8197055435a2893e5b55f5b84fadf028fe33e5ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c28b0920c8e2d2c26edd760902d662cea7708e5f6f4c8ee9cd1d1ce7b04bd4c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "001a4038949c0db3815fdef012f3d9282cac27e1085eadfeb455c8445a06f4b7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad52a4ba434da5f7109e103b43e61ba3f2f2d86ee0023540148e0a29c10f7b04"
+    sha256 cellar: :any_skip_relocation, ventura:        "e583328505a608f6cbe29ca609e1c286eb1ab8b55d86530e626c07b059bd3685"
+    sha256 cellar: :any_skip_relocation, monterey:       "8546705fc38278d5816e899613e9b21b74883ffc64892e5ce8e389f93e4b9ae5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61a2c08143b51304d9b29d3940b654a0026bb0ebd89222d6b0f1e14469d3d296"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "rust" => :build # for cryptography
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "altgraph" do

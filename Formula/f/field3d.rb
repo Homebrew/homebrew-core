@@ -7,9 +7,11 @@ class Field3d < Formula
   revision 10
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "badf01fe9f3ce3d876aa212afe849e2597ab7e7c0d881622895e73f7c05951ac"
     sha256 cellar: :any,                 arm64_ventura:  "84775376ed6d1d9031455dc9a9130570e65e0c804e1b8543679258a2ed735859"
     sha256 cellar: :any,                 arm64_monterey: "2a2c1c5b03675b4939e84e5f59e42e4b5ecec38961b8b187bb126c396b930aff"
     sha256 cellar: :any,                 arm64_big_sur:  "115d9cf5592fb883058ec8a1e51105a709d02aa0e6529aa7d3777f912ac602aa"
+    sha256 cellar: :any,                 sonoma:         "5a8dc4b6678bbfb63f88a533adb4b50325e35f03a546906b9bc7e33a4a86e723"
     sha256 cellar: :any,                 ventura:        "25fb0a2d50d3cc64d7a5ad7db60aab7b4a988a507b8206c812f25cf6c19e0310"
     sha256 cellar: :any,                 monterey:       "0a3a952b86f24e779d0b0f2dca84574ab067b2c0bbbc83eba4ae1f1a223ba0fe"
     sha256 cellar: :any,                 big_sur:        "3c11ab54417b1f865a1d72197ab611617f132aeaf97b549a3f9881b06f13415a"

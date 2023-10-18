@@ -7,9 +7,11 @@ class JpegArchive < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "baf9261d5b80bc442cbf7ea1e7f4f98f8e52339009dfecad4175e8622f283382"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fab1849787fa6dc209963175b418748a9b92bdb64f0a39a4329afac2d8b262f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbaf592384b0d9906eb44217daa1971ec19d571cbc4cd25c2a14caa2451428e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6608df468a7af8298e39f54afc7b391cd9660bdd88783850577d86862b6ccb51"
+    sha256 cellar: :any_skip_relocation, sonoma:         "93023158605c8b8a20c8551a84b43755b5890371c720ec9173bd316fd71307df"
     sha256 cellar: :any_skip_relocation, ventura:        "0009726c390613fd0ed7f47a95383df4454efd2291da691129539f6ab32422f6"
     sha256 cellar: :any_skip_relocation, monterey:       "3461975fc932a94798f2d7c6cad3f030081a29a24a31bc391e2344c6aa6ed177"
     sha256 cellar: :any_skip_relocation, big_sur:        "41ac0d9c5bd290d77e7e5548a2257c6455f9f87265b06b5dc4e02ac7836dfc22"

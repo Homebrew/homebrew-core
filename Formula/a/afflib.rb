@@ -10,13 +10,14 @@ class Afflib < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f70b99a2dcbbe6f02f8e68947a66d5b6135ff312bd68e615a2d563a6024fa762"
-    sha256 cellar: :any,                 arm64_monterey: "810fa90bb97749a60f9afb2d641a09e6c7fbe81ce2c43c70a492f2e0b94baa95"
-    sha256 cellar: :any,                 arm64_big_sur:  "1883e6f1b7f31b0ec70008ab32333096a354b3a39e149b7477f1f41311956bab"
-    sha256 cellar: :any,                 ventura:        "e589fede26d18a7da57dc67da470a821a91753235868504d7c780e569c8a49cd"
-    sha256 cellar: :any,                 monterey:       "29e8f49a180d936652393aad1e21f1f2e3f813653c7df91efcf8e5b39d31a625"
-    sha256 cellar: :any,                 big_sur:        "aecd70af3a64d7d8bb2f54a4b02066e4e85b292b3b4c83aaa0ebd3ee59231f5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "264f0c1e8fc945963dc1654e68e6d6b99575fb85ddc3ff2d15b7597ee1a9417e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "645ea2880c23e3613925a61a769d6df03d272f14d398ed5b38250e1ff17178ef"
+    sha256 cellar: :any,                 arm64_ventura:  "39944f02e04efff99d4ba079e10d0e396dfb6025a7129591be8bd69fe194174f"
+    sha256 cellar: :any,                 arm64_monterey: "feb3ea9b5e4778eec142cf4d229d49cfc727d9579c5b432fbb3cbce28ce4bce1"
+    sha256 cellar: :any,                 sonoma:         "16a7055a8cc8d4ffab10cf59613d06dd26b7e79b70c029bbb60d0cbebdd8e926"
+    sha256 cellar: :any,                 ventura:        "4fe2379aa5371898278a70039518c72579e5d19758bcc0dcccc446044a01e703"
+    sha256 cellar: :any,                 monterey:       "8970905f67c00de1d7598feec1bd05ccc8db924f1cb267a570530a63ee4fe60c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8743cca0396f102a6a57ae731d00b9974e990442101444bccab41c669afe37a5"
   end
 
   depends_on "autoconf" => :build
@@ -24,18 +25,19 @@ class Afflib < Formula
   depends_on "libcython" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "openssl@3"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
 
   def python3
-    which("python3.11")
+    which("python3.12")
   end
 
   def install
-    # Fix build with Python 3.11 by regenerating cythonized file.
+    # Fix build with Python 3.12 by regenerating cythonized file.
     (buildpath/"pyaff/pyaff.c").unlink
     site_packages = Language::Python.site_packages(python3)
     ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages

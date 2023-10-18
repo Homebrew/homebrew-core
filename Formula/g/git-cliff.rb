@@ -1,18 +1,18 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v1.2.0.tar.gz"
-  sha256 "10db6fd8fe777f384de2e00336b1cb664095a2f068526f8ace4e7944a7ada270"
-  license "GPL-3.0-only"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v1.3.1.tar.gz"
+  sha256 "909b652939299040ebbd15994d710aff7e38fa38683bb5111dd46cc4ed454b43"
+  license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "67e97f4a1b6da20215be6400dcf1b93c107a044c848fc1545d8ee8033f4d7c0a"
-    sha256 cellar: :any,                 arm64_monterey: "d91841d5a53dca96decb13f9e1471a1b09760f193cfcd6171841b7a8118c0d3b"
-    sha256 cellar: :any,                 arm64_big_sur:  "2873a85f1fc86aee18de54885e25254be210a9d53c4de3846c427da2cce1fce8"
-    sha256 cellar: :any,                 ventura:        "3fae07e67f5360602f67b04e5577a7cf429bf53c84de67599d910417f2f62874"
-    sha256 cellar: :any,                 monterey:       "ef43f2262656247517e3c3e0ec372205c4f02b5c3664200c2a77c202852a9e74"
-    sha256 cellar: :any,                 big_sur:        "14e2fcd17a28ffb622329ccb31bb7af84ac0b85da93c37a6dee9c32aad9bcb14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82d81f3e300727fc927c63bbfd7552569e0ea0e84ff971c575fe0d93c262ecd9"
+    sha256 cellar: :any,                 arm64_sonoma:   "d105241e4938241dadf3339827303bff621f9b148975e2668f4b0a865b1cf3f5"
+    sha256 cellar: :any,                 arm64_ventura:  "265420c86b0cb0818ea00b0112f78ce85936a1215c0e86eb0d28b8b892cc83d9"
+    sha256 cellar: :any,                 arm64_monterey: "611c085855ca2bc9ee77539ce104f6b538269b2175f99bfb1f1479d1e6253c25"
+    sha256 cellar: :any,                 sonoma:         "d4ef877b14ba2b3a3b6ced90407a3c4ff2794dc0ce0abadc5e4d761b1e8864b8"
+    sha256 cellar: :any,                 ventura:        "d4a5553e5fd5df120570fc02cb51eccbd8e61e11f780f3ca27b71bfb17662321"
+    sha256 cellar: :any,                 monterey:       "e74d9a12e07e2f6a8f3a982f3aad52f30261bdd581344e1e0180509fe448ea21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "729942b1b50484dc32740d06bec62299db54fc4b209d9446b90643ba208e0b7a"
   end
 
   depends_on "pkg-config" => :build
@@ -20,6 +20,8 @@ class GitCliff < Formula
   depends_on "libgit2"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args(path: "git-cliff")
 
     ENV["OUT_DIR"] = buildpath

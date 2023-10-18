@@ -13,9 +13,11 @@ class Simgrid < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "a0c2fdf62c20a5db20664e6c9839d883fd2f9407a8737b7daa947549e0b822d2"
     sha256 arm64_ventura:  "2f33ab2f6763de557371c73e031f905cede78edb13d05e4303ddf8460bd06fea"
     sha256 arm64_monterey: "d1123201b2ca0a05c204f7656e66a70e13ad113d1076878118005c3340005b7f"
     sha256 arm64_big_sur:  "ced3f4e5ed8965eb888e99ba0d5decbcfc696a72c8b633af482ddeb5d92ddfb0"
+    sha256 sonoma:         "e8ca598d042cb38fc0ba2e89dc7d404bd1f1c59623743d962e2577b29d9370f9"
     sha256 ventura:        "3b9ef7cb555fc6d93e9bd2592e8d6b726ec442342283c2ce2736f57688995131"
     sha256 monterey:       "706004fb650b0b65fa61016fe1eeff690dec5614e1cecbc47deda950749a1e97"
     sha256 big_sur:        "596008e36e2b953ee077927c8116eefa4cfb5887b05aae0620f83b8303a047e3"

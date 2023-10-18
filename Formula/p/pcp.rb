@@ -8,9 +8,11 @@ class Pcp < Formula
   head "https://github.com/dennis-tra/pcp.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1aaac9b306226ce54909757ccdb10996d84803605c1e01f6f08e907ba7b30ec0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1bfa73d57867b1d14809dca455e97ebcb4cb36c67080f64f8a44b242719cf79"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "127549faab2d9cb13ebd4ea2d7dfd17f0054776367769631b387aada1f7eacd6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d495ee0f766c2d09355453d4f4691c7d5ca9bdf57ac82c0ef1d3552df19fefe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4fddd434a5b6f469fd52bd804b85b4bad0f0814df4bc3f3e55b10534277c65d9"
     sha256 cellar: :any_skip_relocation, ventura:        "57e0f9db54f3539e0ef5a09bc957ca39e03fd8bd1db1764c47c06a13d7fc52a2"
     sha256 cellar: :any_skip_relocation, monterey:       "37aa1824b66b4581a3c2054c26731ee41ab757e3d768399ec43dedbfe2bc183e"
     sha256 cellar: :any_skip_relocation, big_sur:        "7fec012a0331f8ded437d4af20dd6ff527ca0b10ca8cfba73a40aa637358ec54"

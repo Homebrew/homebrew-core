@@ -7,9 +7,11 @@ class AzureStorageCpp < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "24e15a4652c0901a3b2d5c6b2ec25f09396e25673f84cd271c41bef31328217a"
     sha256 cellar: :any,                 arm64_ventura:  "ab552ebf3bdc993fc9e579e2a6b75759c9da2ae1be66951caf8f9e609d7a1800"
     sha256 cellar: :any,                 arm64_monterey: "46cd609d6586555b067f95d24cf0de532e40db79b0b3367c290d51cab751ce41"
     sha256 cellar: :any,                 arm64_big_sur:  "be9e3706cc237d12e7285ca3184b45681784905855e0f12e71457fdde06e980d"
+    sha256 cellar: :any,                 sonoma:         "4da76bd9176c7282e8e9e6fa223c9865bb2142ec5c0866d7a505117806ea5a89"
     sha256 cellar: :any,                 ventura:        "30ff16a364d78d4ff1b0478c79262628c42f614a585be85649cdb6dd1ef9d37c"
     sha256 cellar: :any,                 monterey:       "412a2a4bc2bb9a1e8e350fc906b43bc1f6461efc36bc21246358b4ee0cea2c4f"
     sha256 cellar: :any,                 big_sur:        "cf309d60aec3a7898cb09864286a950332cda74e165f7c8d741ef8f74b1cdd3a"

@@ -12,9 +12,11 @@ class GnuChess < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "e2dc7bd2b90516f3b5683473f39fdf20f0da1759b1b5ee6c2ea8c6055d079e8b"
     sha256 arm64_ventura:  "86f7885d980763cbe4543012b9f9f55b8cf3065da939d06bb35dd9b0f94272de"
     sha256 arm64_monterey: "b03db46e113c63c8d141181ca6f89626414827a3d0aa15dc88e7cb72f2fcaf69"
     sha256 arm64_big_sur:  "8e356eccb6a541eee641342bc7f923b35271fd51c094ca6b83e8abdecd7226a1"
+    sha256 sonoma:         "11bd3d26a4ef8104f2a800b06ba672e3202b5755792de0e1ae936450f053b888"
     sha256 ventura:        "1d5ac1a6260b684188c024f2bdb4e6838ce78d442f42fa59ebf2af1b00d18123"
     sha256 monterey:       "7e1eed30943db3dc80910b5f10ae6df5b65354e65748fff524dba044ea495da8"
     sha256 big_sur:        "11997b7b97ab58380f07e491fc9b75649f52ab6d7edfdfbdbf025a3a12d81d3a"

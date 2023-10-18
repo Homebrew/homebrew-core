@@ -8,8 +8,10 @@ class Unxip < Formula
   head "https://github.com/saagarjha/unxip.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ee51b96033690d1f81f9d90bfa3555117bf23a9484501fad87b2eefdc6697a8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf94349d691350ec8160955c2a77025c3bc63b2c401553f5eff9f32883ce4a13"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c671c3fdb6be7fed02dadf61dfd2923723db45fe29fc5a8c193e260753ec687a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "16272f9d821ce3394dd56165257a97a300b611b7b03a691dfc42d6118625fe6f"
     sha256 cellar: :any_skip_relocation, ventura:        "0fc3789f8da947610c5fee132d43a17de421deaea890834a5535426477618ab4"
     sha256 cellar: :any_skip_relocation, monterey:       "afe99e754d69a10def7565d2f83fa931b08a533c1fc9d71ce72854f42d5c5a53"
   end

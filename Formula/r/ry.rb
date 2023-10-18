@@ -8,9 +8,11 @@ class Ry < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63d31e87529debad50cd49e16b6acabcdfd5305f3a9b9da65445ccbe27a0c3f7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4df5abf69ebfc48335682ce491e2dec93750d1f7247fcec40f9c32fa16653895"
+    sha256 cellar: :any_skip_relocation, sonoma:         "63d31e87529debad50cd49e16b6acabcdfd5305f3a9b9da65445ccbe27a0c3f7"
     sha256 cellar: :any_skip_relocation, ventura:        "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
     sha256 cellar: :any_skip_relocation, monterey:       "f877d1b934d03d73ec0fb2a11021a5eafa08d057a9c3c0e9e52883e6cf9f51c2"
     sha256 cellar: :any_skip_relocation, big_sur:        "3ad95cc81d14e2844234bec25236dca63e31404dfe7e57bef41ab3e4a638047a"

@@ -1,20 +1,21 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.6.0/rizin-src-v0.6.0.tar.xz"
-  sha256 "6a924906efdf547ac50462767f5add53902436e7a4862d2c0e24ca91b7761508"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.6.2/rizin-src-v0.6.2.tar.xz"
+  sha256 "e29a00a3e22004bdd10146d286b1cce0e06196d41aae4729aafc9d78321ff86b"
   license "LGPL-3.0-only"
-  revision 1
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_ventura:  "851c6ea0a78df7ef9099c5f25ee607be12be0edcea789ed368fe25599bae8c8d"
-    sha256 arm64_monterey: "cd638a3a23f28fcd7380dbba4ddef251f04c7bacd5a6bb7a31fe035a05829d3e"
-    sha256 arm64_big_sur:  "e20a047829d5ac1ed6a0aa549a70b87375057d7e6249a82606e86529f1d4dffa"
-    sha256 ventura:        "f94f9267c6eadffbf82f70ef383db5d779083770f056c05f81dc0865da9405f3"
-    sha256 monterey:       "19c9c269c670341b1cf9de0fd1f8b14be0a59ba87f163b27c8754c1985d7d2ca"
-    sha256 big_sur:        "c01368faee40cd7183e98e792dd4767eb8d0c35009699e44084c787dc5ef9372"
-    sha256 x86_64_linux:   "f97f900b84442c0b2e078a9ee0864670bcaeddfdc2529b6b5c9cc9a41d141688"
+    sha256 arm64_sonoma:   "5021d7962d12dca710e372c07e0e508447a8f541526e79953cb659ad7c123db5"
+    sha256 arm64_ventura:  "d25e105b66cad21f89e9404990faaa709ec2437a11f6402ca87a6f049608607b"
+    sha256 arm64_monterey: "35db62d58c5ee63450d0459ac73c7804c943d3e13ff08addaa9360bfa768b132"
+    sha256 arm64_big_sur:  "f7139d17f16671225d7e604c910addef06cf7122f501a8518e02842a24fae52e"
+    sha256 sonoma:         "ce37296cbaa00ba72dd0f86f30c5514b85ecaf6cb6478f63b4c200b744c9a625"
+    sha256 ventura:        "a521ec17ed67e879b4c2f5595dae3171a8485d92bccb8ace7565ebbdc954b5d6"
+    sha256 monterey:       "a4ba60ec71dbbf5234d7e6056b2f2c2d2c511fcab4d321121320a353b9fd36d8"
+    sha256 big_sur:        "e2b698934765e132f2107b391951f233c80f322b23fca77c653d84c8b23da6d9"
+    sha256 x86_64_linux:   "13e5eb46d3609a27a4c709f42b9675ffd97cbefa848ed40516b3484e6b1de3fb"
   end
 
   depends_on "meson" => :build

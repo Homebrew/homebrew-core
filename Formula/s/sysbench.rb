@@ -4,17 +4,19 @@ class Sysbench < Formula
   url "https://github.com/akopytov/sysbench/archive/1.0.20.tar.gz"
   sha256 "e8ee79b1f399b2d167e6a90de52ccc90e52408f7ade1b9b7135727efe181347f"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/akopytov/sysbench.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bd6313f906b867b19f8a7465b4f7a80169d2e4a7916d69f2da864437979e8966"
-    sha256 cellar: :any,                 arm64_monterey: "817b352a292da3477b1756d821fad347e282eda93fa61a503251ec20cadb6599"
-    sha256 cellar: :any,                 arm64_big_sur:  "3ed34ddca46da962077b1f690f802c852601f9af61aa265d2d31c5b44be24e14"
-    sha256 cellar: :any,                 ventura:        "9f310c5ee955ff09898977b4851a94c80d832e248450a6e664817003475de65e"
-    sha256 cellar: :any,                 monterey:       "5170b0cd36d6aa793244b06a2023eb4e6d8d62b5e56bc4b05d115ca28e7113f0"
-    sha256 cellar: :any,                 big_sur:        "e873a2ca248c5c6dceb59860f928b2b6f3e1fb831a5b0d20fb2484f5f1a1afd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd8b79dcaf01792bc8f831adfabd4f98ea4409e0bbdc036b23ea3d8c008c05df"
+    sha256 cellar: :any,                 arm64_sonoma:   "ed29e43c94e1713c5e4eb2f48bd41cc1f6bd2ff41f1c08916e0581339933d479"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81962fb67a1580a33a35250ad0b1a04a03d37ad9a1d576b6a59e8b32325f1945"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d96776e2af71e38a6cf1e8ca92eef2279d84d6cae3f3eed3e0d6c6400d9b5ba"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8da6ba2affa28401106d38efaf5152545a59f91d5d07fdd766ce0e889b8ae22a"
+    sha256 cellar: :any,                 sonoma:         "c88109c162804f5679c8a19cdcfd48f7554854d7159e27ff98f85b680fbcbb55"
+    sha256 cellar: :any_skip_relocation, ventura:        "22b44b41d90e0784d60a4ddff9fc2227a85152df9bdc911e9925e69949fc294a"
+    sha256 cellar: :any_skip_relocation, monterey:       "b407155ac959bac94e4f41b3e730495815b31bd129604ff69bed0435cacfc3c1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8d1192e27825c1176ddadae072936ff0364015e94d0f8bf36a06d63c0d262f2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23f5b21581931bb1730facab837585e7f985d901f63daa3568575c975c886545"
   end
 
   depends_on "autoconf" => :build

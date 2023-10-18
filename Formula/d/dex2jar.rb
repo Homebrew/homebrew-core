@@ -1,8 +1,8 @@
 class Dex2jar < Formula
   desc "Tools to work with Android .dex and Java .class files"
   homepage "https://github.com/pxb1988/dex2jar"
-  url "https://github.com/pxb1988/dex2jar/releases/download/v2.1/dex2jar-2.1.zip"
-  sha256 "7a9bdf843d43de4d1e94ec2e7b6f55825017b0c4a7ee39ff82660e2493a46f08"
+  url "https://github.com/pxb1988/dex2jar/releases/download/v2.4/dex-tools-v2.4.zip"
+  sha256 "ee7c45eb3c1d2474a6145d8d447e651a736a22d9664b6d3d3be5a5a817dda23a"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,7 @@ class Dex2jar < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "19befbca4d509e7895c346200eb08faf8fba035a297760bc6e3f60785901add1"
+    sha256 cellar: :any_skip_relocation, all: "e531f001f490218f7fc03902fa6012bcefd611ff63dadfb1caa057d4a8fc4978"
   end
 
   depends_on "openjdk"

@@ -11,13 +11,14 @@ class Ola < Formula
   head "https://github.com/OpenLightingProject/ola.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "70bc041b7b093dad97457e7384ab334b35d2cfebe15f6f51616493a93f83a246"
-    sha256 arm64_monterey: "e98135ba113896d907f982ceec5c7d5329f7daa5e095ca488dbd951c5b0334a6"
-    sha256 arm64_big_sur:  "6436e1d0108fee7e8771adbfc66a3780c3b02cd087f09c4631a43c2e8492ab12"
-    sha256 ventura:        "48c24b257ef8381f901a81817e4a757aea056371b48f92ca4af5edf037a6ca29"
-    sha256 monterey:       "9199cced2f2c365923d088d367d47828bf3abb839825b42c5f1bc17651b1a1e4"
-    sha256 big_sur:        "133412d65cfe02c454d4a7c172af8c7dd5a0f31c1b62d26705c8063a8c4acc7c"
-    sha256 x86_64_linux:   "339101088570b59af916d7586451a29b82bc443f42ea694249558b38a135f3ba"
+    rebuild 1
+    sha256 arm64_sonoma:   "9388c8bba01773aa91a9685a1cb4fc82e0a80dacf4f0414f5cc2a90db5302579"
+    sha256 arm64_ventura:  "18f42878d05f104a389e40f8fe4999286fed25cbf1075bfec19f68b6719b61bc"
+    sha256 arm64_monterey: "bed04ab8e79d59830d5ea03e2e3d66e64f3948d0f9b42374b6cf5cd046c81ebe"
+    sha256 sonoma:         "64c933089f105c2968b38431ff11a8b5468052edbe971546057228cf0f888987"
+    sha256 ventura:        "f8af0e213940d61c3f5e81d1d37eed7baf0315f3f07bb3b514558ee131a6dc99"
+    sha256 monterey:       "e04546c5b1d70e22ed87ff3a836a189837ea83c9febcaf53e5911471d7f3e7ad"
+    sha256 x86_64_linux:   "447d2768a8f7c86c6adb3aa30f08dcfc2b3b7f834a325e0d0d132cdeccdc7e94"
   end
 
   depends_on "autoconf" => :build
@@ -29,13 +30,13 @@ class Ola < Formula
   depends_on "libusb"
   depends_on "numpy"
   depends_on "protobuf@21"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   # Remove when we use unversioned protobuf

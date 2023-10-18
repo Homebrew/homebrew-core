@@ -12,9 +12,11 @@ class Fatsort < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19232a80ff846e801ac176cbc07b67be6ae337b4b411159f98f3f1510659f982"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "592fcf0abcecbd68e972ef3d30f307913f332bd43c44bcf7fa61ebfd19014bc5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "17602321477fe03dd60ae1cef95f8c28e0d390b360ba5702ebff7eb6c0903713"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c26e2866f3b047c5c07ff66e4df5727db8d2f9b92d7ee12232b41c4fc1c8a5ae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8689519ad4fbcab004d4e965475e17b151e13adcf0c34da2cf14798f0f031525"
     sha256 cellar: :any_skip_relocation, ventura:        "a0f47c5a77ea5f44004012fdb01a9d8dd0e265766b82d78ee03abc5eabcf20fe"
     sha256 cellar: :any_skip_relocation, monterey:       "c8573fed1249cc4be686d3b7c3e0be2dda4dfce65f3bebc4516ef7118c038d59"
     sha256 cellar: :any_skip_relocation, big_sur:        "9940ff3f816c8010d064c8a637375ffd7c1358ad60cb5bc6608d312be385874b"

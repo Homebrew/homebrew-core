@@ -9,6 +9,8 @@ class Finatra < Formula
     sha256 cellar: :any_skip_relocation, all: "4647f53656631f55bef9d4a4c3ef66adafa598c3e48a65be4199a1cdc33bf5dc"
   end
 
+  deprecate! date: "2023-09-03", because: "library with minimal downloads"
+
   def install
     libexec.install Dir["*"]
     bin.install_symlink libexec/"finatra"

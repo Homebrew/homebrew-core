@@ -11,6 +11,9 @@ class Upx < Formula
     sha256 cellar: :any_skip_relocation, big_sur:  "8e6aa21f689985270ff1cc3857ef9848f63f3c79a96604884ee846ce76e6401b"
   end
 
+  # https://github.com/upx/upx/issues/612
+  deprecate! date: "2023-10-14", because: "is crashing for macOS Ventura or above"
+
   depends_on "cmake" => :build
   depends_on "ucl" => :build
 

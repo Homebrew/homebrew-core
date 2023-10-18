@@ -12,9 +12,11 @@ class OpenMesh < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5ea29c9c512447c3b6abb52f5d431adecf27380cf2a713a943fe5c46545ce13f"
     sha256 cellar: :any,                 arm64_ventura:  "36d3182e03a2d69226203c13d3579fcc67faca7637fd8c437351e33012ed968b"
     sha256 cellar: :any,                 arm64_monterey: "04e362ff1d3d9dc04399cf018ca9d19330693094b2de00f66ce60dbb2afd9aed"
     sha256 cellar: :any,                 arm64_big_sur:  "ef9bdabb86ef70f589a16a33d0074bf4f22f1c5ae13bd66d78723e52df2ed921"
+    sha256 cellar: :any,                 sonoma:         "31696ed30a3a2fd1b5d946def4371ddf365f4401f6c0bab24ab800c8605e8455"
     sha256 cellar: :any,                 ventura:        "62f264ab93c9f611bacd9dc5007e635a49c056285953d9d94beb810b4472aa9a"
     sha256 cellar: :any,                 monterey:       "913221efd242346fa16b5e36313cbc614e9e397fd64a7dc21038012ef1bb4400"
     sha256 cellar: :any,                 big_sur:        "02040786c707f555cb3fe98ab34445f4034f4dcfc4ede94002207983be2e3767"

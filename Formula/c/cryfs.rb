@@ -8,7 +8,8 @@ class Cryfs < Formula
   license "LGPL-3.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "b4dcdb310929123fa966efa07d4206e24b36293e63bbc8f947f2d63cf0fb8ee0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "9cec1f648aaa35adc5a9ede343188d831c60ccab0fb4eb67b5b744be65766d2e"
   end
 
   head do
@@ -22,7 +23,7 @@ class Cryfs < Formula
   depends_on "fmt"
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "range-v3"
   depends_on "spdlog"
 
@@ -34,7 +35,7 @@ class Cryfs < Formula
   end
 
   def install
-    python = "python3.11"
+    python = "python3.12"
     venv_root = buildpath/"venv"
 
     venv = virtualenv_create(venv_root, python)

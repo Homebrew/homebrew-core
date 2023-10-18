@@ -9,26 +9,31 @@ class Esptool < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4517b511bbcd91822736fa48918f3f9afa0ae1e284b407f8a6875f1d738853f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae65f4afe6c08c172d9498e616d6007d79d45297d9783ef7242753fa3a6fd3b4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "549b0faeb57eaa7713757bca7f5b6919dd65f339d2ee153455ae826c5fbe6779"
-    sha256 cellar: :any_skip_relocation, ventura:        "51fdf57b1836ed2c4b23709e7d196eb7cbc19515e115c4122e85d74ff720c299"
-    sha256 cellar: :any_skip_relocation, monterey:       "1399c973bb2f882c3660d338aaebe555315dcd449825ff3e9a9741907af0778f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f24dfb880ab417140a921aa0f648824e2276071fc1303ccdaf60cb3491a5e4a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e15c224a541e1b450a2f6191521b24c425738b9ec575d666085ef1b02bc0814"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2eaac4e9cee2bb19e4f51b2d33cbdfeb0f0241afeba929d8ae9fa50098a57f14"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c20791ca0cfdf081f5db8f3503186f1a3032563f41bf21275112a2c28127d276"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3891c7ae07a41b8b447dad70bf04ca8e61c67459177bee8389b5d5d0c23ea209"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a7595afb62aebbdc31195b1a6ba118f5949b6f2b27bf7f9a30fd3b23b482ad78"
+    sha256 cellar: :any_skip_relocation, ventura:        "a476d04cf47f91ff9313c643675e4261afcabbd5da000c1006896707cffb15ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb19b0eb41d90a07423fa2154d5aa0571de1390e30b028804234e447aa40d1bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "740e2f07e494eea1ae176b50b01b7419c7aa813d08efa19655d80978e0fd752b"
   end
 
   depends_on "cffi"
   depends_on "pycparser"
   depends_on "python-cryptography"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 
+  resource "bitarray" do
+    url "https://files.pythonhosted.org/packages/99/f4/316cfb1cd62886d7bf87da48cf847ecfced48ed5f91ff8e54bc52f7fd76e/bitarray-2.8.2.tar.gz"
+    sha256 "f90b2f44b5b23364d5fbade2c34652e15b1fcfe813c46f828e008f68a709160f"
+  end
+
   resource "bitstring" do
-    url "https://files.pythonhosted.org/packages/b5/f1/f55f568ef587fe7a74f46a9ae869dbbda10575b2a404c831d2bc0567b7de/bitstring-4.0.2.tar.gz"
-    sha256 "a391db8828ac4485dd5ce72c80b27ebac3e7b989631359959e310cd9729723b2"
+    url "https://files.pythonhosted.org/packages/23/fc/b5ace4f51fea5bcc7f8cca8859748ea5eb941680b82a5b3687c980d9589b/bitstring-4.1.2.tar.gz"
+    sha256 "c22283d60fd3e1a8f386ccd4f1915d7fe13481d6349db39711421e24d4a9cccf"
   end
 
   resource "ecdsa" do

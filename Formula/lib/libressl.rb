@@ -14,9 +14,11 @@ class Libressl < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "cc538bbd34294caede346b3258e1555dd149f8358851099c604fbfb7d325de26"
     sha256 arm64_ventura:  "92af271440e96175044bc6976f171eab677d3c2cadccb37f92dffdb73f56d4d1"
     sha256 arm64_monterey: "41bda964c02b2e5de90918e46979ab251ea865227c936fd3c89b641a7570a98e"
     sha256 arm64_big_sur:  "1b8de42a012f5c7bf6ba0c6ba9bb75cf292a0695fc64e4d5579c3d78cfda2537"
+    sha256 sonoma:         "866dea3038a81e672c54384096bc5005caa1fabb782987cbea7f9421ff0f12a9"
     sha256 ventura:        "101035f5a4ce0fe52b7340e710470b9932de57d85810730c8f7ead7c671b9196"
     sha256 monterey:       "2c54083fc264c565013434ec47d3c8f27e9e8e2c6c9a3aadbe71a9510926b726"
     sha256 big_sur:        "068a040109a368aca77822ef96db06f4695642adce1c7e134df069a23a2eaea5"

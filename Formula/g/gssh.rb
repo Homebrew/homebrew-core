@@ -6,9 +6,11 @@ class Gssh < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f088b4f210dd46ae1dbcef3c418c0f0b5bf5932c2ce0c4e22e0b4216d4f37657"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e5c10ea739e816aecf3c7db36673c3b28d016a9c8cd24d102223f0044170474"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f63dfca6ad3c9db36050d581582b87357b9483e7117e5dc851fd7a641ce8e454"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca925dbbc301b24f163061017b455e5a076ba20a3a0e7dc90cfe1b04c488a4f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "00205bbe2a8d8b9717af8aa4b7926d978f0814ada10b0d05be7ab3884fe41713"
     sha256 cellar: :any_skip_relocation, ventura:        "7435236d8601e27ec7a71843a972ac31acc61be595e94235dd12a8229c89b4f9"
     sha256 cellar: :any_skip_relocation, monterey:       "7bc677e68b78169c7f0cb92305fbb176250c97a68bbb1606d77c365aa1384c68"
     sha256 cellar: :any_skip_relocation, big_sur:        "a8b2cdae040ff2a37ba7df91b5ba9b292633df0656791fc7617585300b8bdb26"

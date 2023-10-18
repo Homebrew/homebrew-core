@@ -8,9 +8,11 @@ class Pqiv < Formula
   head "https://github.com/phillipberndt/pqiv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fb41bbf298991047ee6e1d3aa72c6b3d7596c324204b247ab077d76b89cb0334"
     sha256 cellar: :any,                 arm64_ventura:  "bd472d3115ae616771f87e49202dc724acab4fadc1e4160ee482b7732e469a33"
     sha256 cellar: :any,                 arm64_monterey: "33b25feb413e20e9251f8894a9ed0bfbcf976e9fef69924346abaa6ef5dd9a32"
     sha256 cellar: :any,                 arm64_big_sur:  "592107c51d103ec69e312593833579975bccbee9b36390fe37f4234340755731"
+    sha256 cellar: :any,                 sonoma:         "32dfc4568e3a0b82a3e5af35922b2c775d4d76819e33da123628086b12a5317b"
     sha256 cellar: :any,                 ventura:        "02dcebc9faa615cb079ca3b471da4e892c780b4e0d2e685c6bae3b1c02f543a2"
     sha256 cellar: :any,                 monterey:       "7a75809c729c1ec7a3e71a94f26de9976f71142b2998edbe5187797646cb1e5b"
     sha256 cellar: :any,                 big_sur:        "577abb3ab63808e9080afd934bc99bdb305cefd0ee10494b18a2d95e3c48d960"

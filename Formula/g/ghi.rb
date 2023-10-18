@@ -7,9 +7,11 @@ class Ghi < Formula
   head "https://github.com/drazisil/ghi.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d1a0a48ba1c295cef475eb7ebfdb13ab669619f53374a80abcf405bca5db766"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c96d29c0f571a6444c7472f9b607ceb76d21ca1d05eb5152d97d4d4b7549a8f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8d1a0a48ba1c295cef475eb7ebfdb13ab669619f53374a80abcf405bca5db766"
     sha256 cellar: :any_skip_relocation, ventura:        "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
     sha256 cellar: :any_skip_relocation, monterey:       "43ccd9845bf6f7e2a99d4ced9f23ee0f9e859d15af547ce115d61c149ef12f4c"
     sha256 cellar: :any_skip_relocation, big_sur:        "c96d29c0f571a6444c7472f9b607ceb76d21ca1d05eb5152d97d4d4b7549a8f3"

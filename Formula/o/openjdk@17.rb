@@ -1,8 +1,8 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.8-ga.tar.gz"
-  sha256 "8d631dac790ec3eab008639db5b449e8a36310171b3cd68cb7f0b1260ca2467f"
+  url "https://github.com/openjdk/jdk17u/archive/jdk-17.0.8.1-ga.tar.gz"
+  sha256 "484d0cfc164ce4c8aa10987bde7c8abb41e8a51c0459a8740b30d7886248a3b1"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,13 +11,15 @@ class OpenjdkAT17 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "2495d8a100661305d71a66c18bc93b245709b7decd20d2d6fafcb0875ed8df6e"
-    sha256 cellar: :any, arm64_monterey: "38b458386c01b5636fd645069240f7c194fc307755020f20140f01a63748ad89"
-    sha256 cellar: :any, arm64_big_sur:  "cd7127ab1ef37cfc0ba8a30d053d2f7714db92cf46005b5087c6036e58a0b8fc"
-    sha256 cellar: :any, ventura:        "36429051804604907b57e6ab0101f3c5cf4562852906cb2ff20fbd6272e49ced"
-    sha256 cellar: :any, monterey:       "b6c258fce26fe781d7a2d0aab9d8c734d2e737b10d71200cfbb98023429394f2"
-    sha256 cellar: :any, big_sur:        "a8c1fc0458af52dd774465bb6e774d0f51b0b308c618c8e5b653b495f24ee695"
-    sha256               x86_64_linux:   "69b2bea839d39a4e02131491658299299e4e152d4cea69dbb4d8991d61e09f0d"
+    sha256 cellar: :any, arm64_sonoma:   "60b4dba1554095dcf5cda49e967d0bdecd5da3ff81714c9a64c8242226547e2d"
+    sha256 cellar: :any, arm64_ventura:  "e0014c12d5ad608fdbcdbbea3b1fe0de81693ee12dcdb3272e6dad5a210292dc"
+    sha256 cellar: :any, arm64_monterey: "a076338f579e95c2ab9177db96df011a5a2efea66e6ee3795dedb7374c5ec6e6"
+    sha256 cellar: :any, arm64_big_sur:  "9abbccde6e3c8448d4caa3b4bc5534b5b5cd36ed4257595a234b28fab02023d3"
+    sha256 cellar: :any, sonoma:         "db0701acab42d256d887afdefafe1b1bb7dcf367e6ed6d62c18c1976a7cd3fa3"
+    sha256 cellar: :any, ventura:        "b1ae5836faa78e8810abfda890facbaf31a64dd1da46573788eb6293791f966a"
+    sha256 cellar: :any, monterey:       "0385cb2d68cd8257e991891ca56ad59609202750097bd041a7dfe611cd3c486c"
+    sha256 cellar: :any, big_sur:        "aea92b4d7d042c35ff3fcad0ee7cea2d2045bd4f9b2006992363919cadf98e8d"
+    sha256               x86_64_linux:   "5420e8780f7c53a958c07fe119cbc13526fa811332aa170d853c83ee08169e04"
   end
 
   keg_only :versioned_formula

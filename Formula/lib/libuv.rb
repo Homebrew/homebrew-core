@@ -12,9 +12,11 @@ class Libuv < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "483977e99e68aa3e257b35af9bf75d7806d2a9a05e7ca9a696087c612be1e968"
     sha256 cellar: :any,                 arm64_ventura:  "8c3beb4d11ed0d45cf0b7e07d280ff815eab9f9c138eec90a2f824168aed039e"
     sha256 cellar: :any,                 arm64_monterey: "bfaeee8ea65a26b881951c90d5ec1f4000039f228a4198735c015309307c47d9"
     sha256 cellar: :any,                 arm64_big_sur:  "1f1c49121e9a4df9eb520aceac58781a3ee61364370f04096ddc043842c8beda"
+    sha256 cellar: :any,                 sonoma:         "cf983ebc487161ba5329c3da86081d61dd17a7f2c29302584a30e4f076ae3705"
     sha256 cellar: :any,                 ventura:        "68085c874a3df5a9dc0a6a86bbce91ef370373523602fcbb31a63d37f259e025"
     sha256 cellar: :any,                 monterey:       "38513d0917c18b294afadbca1ad005d73c450f3a06a5afcd2396398f428157ad"
     sha256 cellar: :any,                 big_sur:        "f75b27c39a13b279554a2c6f5c0451d54af1c9f7abc312e6c5e50ae3f346599d"

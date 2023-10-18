@@ -4,17 +4,17 @@ class Abricate < Formula
   url "https://github.com/tseemann/abricate/archive/v1.0.1.tar.gz"
   sha256 "5edc6b45a0ff73dcb4f1489a64cb3385d065a6f29185406197379522226a5d20"
   license "GPL-2.0-only"
-  revision 1
+  revision 2
   head "https://github.com/tseemann/abricate.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "fda2b58bf152b001521cacd1dd46f3aa4ea0aab81ef8287e374d2a9fdca74979"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "20bfb72d3f3e5888db151b87faa3b19a570496c164e4a88d1b1a826ef460fe23"
-    sha256 cellar: :any_skip_relocation, ventura:       "17c58b1ad438f67604a57d942865f23c0ffdf78dba3e4147c1db163cf9db249b"
-    sha256 cellar: :any_skip_relocation, monterey:      "9af68aea3abc83447b1399866d25687869d443750e737a87ec17cec44af506c3"
-    sha256 cellar: :any_skip_relocation, big_sur:       "d0a18cc2245bd70d282b95749bdb7e20b018d1f4ab972e43ac14d465a12a98cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "308ec7b38b1aeb25a26ead0df73dfac165dd5e72024ae117c4d9dbec51d96e51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4e05f6bc80f04e8706e082b21e944921b6de7811be3388f099dfb9df298825da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "312093ac29b9f9c387d802172e05fbed5ea0cf0d0ef664718ecc1d7a520b2361"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff3521c9a86fbf51387785500f2006106a11362c5223923e00191db3d43c1d1f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "17a15ded172e09a0c28affc08139e8f63998fa83004ec234c18d391c85be3664"
+    sha256 cellar: :any_skip_relocation, ventura:        "4db0a30d1cd363a5e26b12cece47161f817bf37374030ced0c343e1c3f462bb0"
+    sha256 cellar: :any_skip_relocation, monterey:       "f658b5d10292077b2862e50d33dd7b4e1cffa40e69fbdda0ecf4841d3338710c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "346086c1c023b982321bab45d20316d1c25e9f47437bf95350a026bc4fd71d6b"
   end
 
   depends_on "bioperl"

@@ -20,7 +20,7 @@ class Spago < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa71b6e0cbd41ac5c0bb966030f1fe4ca2d1dbc11c19162a9407cd0d0d5d82ab"
   end
 
-  depends_on "ghc@8.10" => :build
+  depends_on "ghc@9.2" => :build
   depends_on "haskell-stack" => :build
   depends_on "purescript"
 

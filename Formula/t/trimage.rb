@@ -12,6 +12,9 @@ class Trimage < Formula
     sha256 cellar: :any_skip_relocation, all: "8a431f153a9ebde3caaac7ce16403332dafa459476e7f2ad95863c87bd1941cc"
   end
 
+  # https://github.com/Kilian/Trimage/issues/89
+  deprecate! date: "2023-08-30", because: :unmaintained
+
   depends_on "advancecomp"
   depends_on "jpegoptim"
   depends_on "optipng"

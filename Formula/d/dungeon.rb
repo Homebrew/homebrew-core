@@ -7,9 +7,11 @@ class Dungeon < Formula
   revision 3
 
   bottle do
+    sha256                               arm64_sonoma:   "465920dcc443e450f3043dbe316c10c57cd640393b1640fb4756f4acee9e72f1"
     sha256                               arm64_ventura:  "3c9c893622d3b9051d0c42929ecc64774e4bc9669a50cf2a088f32de229e05f2"
     sha256                               arm64_monterey: "7738a32ea7545be8c7bfa3e5c0deb5f675b34c89d72d352088cfe6e985673ea0"
     sha256                               arm64_big_sur:  "5a1bb16510c15a842aa9979c4d4c8655642b62959e46a857fdf68322a0967879"
+    sha256 cellar: :any,                 sonoma:         "18130669bbc21c7b6ee6a51d7e751771588c95c92ddbab5d68b62ffcbe148c9d"
     sha256 cellar: :any,                 ventura:        "f1197055b9b31daea8f6e6cb9c28488a91c01c6a145604a18f6c077ef5e7c17d"
     sha256 cellar: :any,                 monterey:       "299d381405bcf4fe73087e2737812d12ad97dbc996e2015d3f666c0296660b23"
     sha256 cellar: :any,                 big_sur:        "c81b8009fb2183b96f6f0c45c4906a0048b535fb2d6abe7a82628e3c164a7375"

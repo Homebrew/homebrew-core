@@ -6,9 +6,11 @@ class Cconv < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "da6b870d250ca95eff392c8da4c1e703d292a764c02df3b44f3a2ebf1ff06e31"
     sha256 cellar: :any,                 arm64_ventura:  "90c54593dd333d215cd536457021fde2a90c768b9d3cbac601be53d4b793f268"
     sha256 cellar: :any,                 arm64_monterey: "26691ab7b01031ee988442fb08c173d48da19e26d9cc494c829284b0248ee6d2"
     sha256 cellar: :any,                 arm64_big_sur:  "58c753e4b4b6887b81202d33c63ac6ef153d7166c6542661ab3dcbb322f173bf"
+    sha256 cellar: :any,                 sonoma:         "ea6d3aef081f06fc31212ce8b68db8ac79eb590f10ab100e0706ecd8e85e5763"
     sha256 cellar: :any,                 ventura:        "d1848162e06e023be64aa6c61f22e3b2185409e0549c0ae2ad7629590cf10d80"
     sha256 cellar: :any,                 monterey:       "0e2e409ca1a2358465d8a780c94df0041cf7f162139eebdb86e9b6443376fac8"
     sha256 cellar: :any,                 big_sur:        "f39720a1d032edbcdbf6ccfd6a5f8c9dc46faaf95e479904cfde25ec5c7622d6"

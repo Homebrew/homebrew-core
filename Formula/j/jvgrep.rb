@@ -16,9 +16,11 @@ class Jvgrep < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd3fbdc85d5706bd5849c72931fd69c082aa18197b70f1573ea76ed10e4177b0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3500cca592776298c3e931471df33ddd104d896132172ef65c3b23a40c97044"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d3500cca592776298c3e931471df33ddd104d896132172ef65c3b23a40c97044"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3500cca592776298c3e931471df33ddd104d896132172ef65c3b23a40c97044"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7d3ced0f6941b7fd41399272c7d16cbeb02d0b2c7247398cf518c38419fc490f"
     sha256 cellar: :any_skip_relocation, ventura:        "3a81d099a7a5124558df7a8cd3086ab9ff28ecbe2bbfa6d1efc76c68e993e0ab"
     sha256 cellar: :any_skip_relocation, monterey:       "3a81d099a7a5124558df7a8cd3086ab9ff28ecbe2bbfa6d1efc76c68e993e0ab"
     sha256 cellar: :any_skip_relocation, big_sur:        "3a81d099a7a5124558df7a8cd3086ab9ff28ecbe2bbfa6d1efc76c68e993e0ab"

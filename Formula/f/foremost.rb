@@ -12,9 +12,11 @@ class Foremost < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ba5d99373d1b35db5088801426f5c2f4d3f091887e0b96f561938008565212db"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6392cf002604c650162671aad2867f5247480eb2195472c1d403760430aec07f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "82358815462d1b7d346af9c65a6cf8f4982aa7df77d0eda43dc25d1fd5880025"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b00ca6770529d4df2682f62deda5cee60cd86553d2402e3e0b4411c63ea444a1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5272ace8913590e9e04a3b68f1e0af19ea697e146f0e6ff8f3ffd2cc417661bb"
     sha256 cellar: :any_skip_relocation, ventura:        "2d80ae72544ef8057af1a21228eb3c6772ae35086fc710094c55778c716b0431"
     sha256 cellar: :any_skip_relocation, monterey:       "8c6fc154197c47c601939579ec62059a00dca3c73793ead083e788cf2daa7dbe"
     sha256 cellar: :any_skip_relocation, big_sur:        "46ddc6fa415ef88bb90b4f14698b8051d6167a7e1763863bbdc4116eed590317"

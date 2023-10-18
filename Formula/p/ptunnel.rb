@@ -12,9 +12,11 @@ class Ptunnel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d848b4fd2c1139d8ae71d471f17fec38d775c6d6a24db390d1abdc425d4a522c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1de9c44033945ce32afe27993fee10ab0811b3fa64c50482dbb046feeb92c34b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d64c07c1f6080241961bd8744f5990af83217198b6385a2a878c10e5e4e8352"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "706c9eaf3a158032cf0f361ceee4779ef2afe74f515853405afd24cc9c6e8ade"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f65aa88ce0023383667679f121c2c849fe0391b6684ddb25d79255d18773a67b"
     sha256 cellar: :any_skip_relocation, ventura:        "42d5d51d090829c42004c09ee3558247818c654f2adc25ea39f377f0c3cc54ee"
     sha256 cellar: :any_skip_relocation, monterey:       "58964687f840c6e5c7b785060b23068ab6735c798a284bd07bd8457747717def"
     sha256 cellar: :any_skip_relocation, big_sur:        "23ebdbcf1362144e6fc8b02d950ee43e6216338b940fd90c471a132c0e5f49b3"

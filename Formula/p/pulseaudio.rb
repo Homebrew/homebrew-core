@@ -22,13 +22,14 @@ class Pulseaudio < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "c25a0e254142a3eecb5d295287e088a99b8180063dfd18549436cdd7b4069abe"
-    sha256 arm64_monterey: "64990573445f5bc983e2b9a012467461105e3f27db32cebd50928a4475f8a4ff"
-    sha256 arm64_big_sur:  "38ab366dd759b32d98eefb30b9e3ddae39e7dbe08d77491292b35f7c3f018a02"
-    sha256 ventura:        "402bdaa3ceab515d76892cd98398347d5d2c59266a365697fcb6e1284bfd1ec0"
-    sha256 monterey:       "e55d382c12bd8177388ed7258a5ca2670f153d7b2c4d5770c91943ead49d0d96"
-    sha256 big_sur:        "d3805677092b193a449d5ea22f525d8ad2ffc990728a89872fe61767440cb0cc"
-    sha256 x86_64_linux:   "b8cdd8e82aaa02bf92eff2cde432dd8ff7637a3b63ac60c95710eacec300e4ac"
+    rebuild 1
+    sha256 arm64_sonoma:   "27d4abbe8ff504b140b588fe78d7e7b798c0a076f94d1c25418b6a3be8fcd5e2"
+    sha256 arm64_ventura:  "18a8f6d639cdd2e3e387886eada41d7fcb458d9bf03375a39fe7d372d60a92cf"
+    sha256 arm64_monterey: "99b50d18d374013340228f611af63fcb66bdc9e0a681fa3a9ebb2c3b05a89430"
+    sha256 sonoma:         "252b453dab9684b191f8119c2992f70b8e3cab3cd9b65e248b5f01e3b3a40649"
+    sha256 ventura:        "cc5870768b17130fb40b517d422ef6e0b915695c2fac9a8e8931800caaab29d6"
+    sha256 monterey:       "6febd7d96e526e962947e64c597701d0be1000a9f626b4a02467f0bf582f83d6"
+    sha256 x86_64_linux:   "618016935992f4317a6cea21054682693644743dead13896e97af76ab93847b8"
   end
 
   head do
@@ -101,8 +102,9 @@ class Pulseaudio < Formula
       args << "--with-udev-rules-dir=#{lib}/udev/rules.d"
     end
 
-    # Workaround for Xcode 14.3.
-    ENV.append_to_cflags "-Wno-strict-prototypes" if DevelopmentTools.clang_build_version == 1403
+    # Fix compilation with Xcode 14.3 and later
+    ENV.append_to_cflags "-Wno-strict-prototypes" if DevelopmentTools.clang_build_version >= 1403
+
     if build.head?
       # autogen.sh runs bootstrap.sh then ./configure
       system "./autogen.sh", *args

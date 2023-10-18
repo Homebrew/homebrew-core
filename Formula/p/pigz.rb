@@ -1,10 +1,10 @@
 class Pigz < Formula
   desc "Parallel gzip"
   homepage "https://zlib.net/pigz/"
-  url "https://zlib.net/pigz/pigz-2.7.tar.gz"
-  sha256 "b4c9e60344a08d5db37ca7ad00a5b2c76ccb9556354b722d56d55ca7e8b1c707"
+  url "https://zlib.net/pigz/pigz-2.8.tar.gz"
+  sha256 "eb872b4f0e1f0ebe59c9f7bd8c506c4204893ba6a8492de31df416f0d5170fd0"
   license "Zlib"
-  revision 1
+  head "https://github.com/madler/pigz.git", branch: "develop"
 
   livecheck do
     url :homepage
@@ -12,14 +12,15 @@ class Pigz < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "02afde85821d63d31ef189f4e93a26f431ed649e4d8715975f673cdd21468070"
-    sha256 cellar: :any,                 arm64_monterey: "f40d1f626296ecdb179a190453a4da78c7c435050af09b1a53f87b1bea300b17"
-    sha256 cellar: :any,                 arm64_big_sur:  "180262f7c12c864db915febe813113b1ece1ab32be08c71584ad3f9871db6d0c"
-    sha256 cellar: :any,                 ventura:        "2d5f69c5828d38b9dcc5b4e07060f064f8b740c2b62431dcb037b1268850cd9f"
-    sha256 cellar: :any,                 monterey:       "7e224864ecdb1a168d106dfb1513d157bdceb96d9b7128b2dee2c09dc54b7995"
-    sha256 cellar: :any,                 big_sur:        "f198953b4dd30c2a1f94e15a5eeaaa3a08f939aabd9e1677e0084280854bd84a"
-    sha256 cellar: :any,                 catalina:       "aed8ea6e7144a01303be662196ddbe47f170a3106e04fca51a452319fac6a422"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2be1ff19dbddcea217e2f2c8d45cd6d288ee379c099cf6c3b69b8eaa0157b52"
+    sha256 cellar: :any,                 arm64_sonoma:   "97752b6fd2b65df80d73068299789a714fb01b6b904fd843c142677e4f2c3db7"
+    sha256 cellar: :any,                 arm64_ventura:  "ddd9fed16f07f42285d3a4a46b6d769f4ca2e902827dbd44a3f69597eca5cb77"
+    sha256 cellar: :any,                 arm64_monterey: "043af6f4e17cb7776003f982331552ed3b6ce10a46fdce4687952fa9443fbab8"
+    sha256 cellar: :any,                 arm64_big_sur:  "1f4b378d4427db80c89231ddf0ca710f11c6a300d36687b30025dcd263c9441e"
+    sha256 cellar: :any,                 sonoma:         "cd7b739570e228afbea2ad719c4789607d41a441d6c03dd4115a97e67cae729c"
+    sha256 cellar: :any,                 ventura:        "0d30f581ef66c28103ccec510b9df46f2cd761bc9f9ce76af0422b60256739f7"
+    sha256 cellar: :any,                 monterey:       "0ef362a072b9e707ee292162d44d46a23e9f04c1e239d05f462d20fad9c8c1b2"
+    sha256 cellar: :any,                 big_sur:        "cd36e7d4ec7c3f373a4e74f280ac1001aa834d035f20a3ec3a2e3140f75fd525"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca1011cd83d5acec7b50fd581f4efa9d189c22058d652736f3dc565a0165c67b"
   end
 
   depends_on "zopfli"

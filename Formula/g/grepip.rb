@@ -11,9 +11,11 @@ class Grepip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c7dab5d4e074a90602f8669e7d11be8b36ab9a43308aeae9e364b3f4f440281"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "127a16e5a544dfd437b203f471b8259cf247c655cbc1031689998280d5a4054c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "127a16e5a544dfd437b203f471b8259cf247c655cbc1031689998280d5a4054c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "127a16e5a544dfd437b203f471b8259cf247c655cbc1031689998280d5a4054c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2b6153b9cb1e54550ed479280b06f9dd5222a441c39a9133697986d829f9d2df"
     sha256 cellar: :any_skip_relocation, ventura:        "1368886025366798bc84ccf0dece8def4aeec415fa2dad37a9cdc675b09b8526"
     sha256 cellar: :any_skip_relocation, monterey:       "1368886025366798bc84ccf0dece8def4aeec415fa2dad37a9cdc675b09b8526"
     sha256 cellar: :any_skip_relocation, big_sur:        "1368886025366798bc84ccf0dece8def4aeec415fa2dad37a9cdc675b09b8526"

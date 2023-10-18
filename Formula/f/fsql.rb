@@ -6,9 +6,11 @@ class Fsql < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b08f3c24a75ac89af59e1cc7023c40ebaee15e9dea4e5ec6aa33a8e98179ca0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "417e28b2d563993b3271eb618a36d63613ec33dcdf641825a857201f32290b16"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9503bad9beef53afe723b7f108358387dbd27e6e95840b4bf1f05b417e26c554"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3152db0f493ffed00da1697927faf6d6abd5dd2507fc16522aa0880e989f938d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b505266ccbeb6f6ede655e94313b65cda72626603e48a6e0db7116fedf1d86cb"
     sha256 cellar: :any_skip_relocation, ventura:        "e9df3db0def1f9b2b7728947ab2b311dbfc5962e4f34e272ef5bc897712e296c"
     sha256 cellar: :any_skip_relocation, monterey:       "119db791efbfa4c293dbfefbcf3d06cc1e6513c77d4243fde6954aaa350aeb00"
     sha256 cellar: :any_skip_relocation, big_sur:        "51427ac84aead8115df46e52cb129d88007f6432b8b91c246a8775ae753e440e"

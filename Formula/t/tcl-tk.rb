@@ -5,7 +5,7 @@ class TclTk < Formula
   mirror "https://fossies.org/linux/misc/tcl8.6.13-src.tar.gz"
   sha256 "43a1fae7412f61ff11de2cfd05d28cfc3a73762f354a417c62370a54e2caf066"
   license "TCL"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -13,13 +13,15 @@ class TclTk < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "08b0adf64e7ed72c3665cd7ccf6551456c2d2682b88449f7dce9beb3e1856d71"
-    sha256 arm64_monterey: "be50577af5dd5c8f77bfcbd81869674e2ce667cf3e0d5968ef3c915cca5133cc"
-    sha256 arm64_big_sur:  "57112c61bc5c52d3652d30c7126b298f79f58a44095330c027f9d29542ff9516"
-    sha256 ventura:        "738d5d6f51520dedb90df80b618d15b46d2deee4bcd6ba71b4159d685d9362f1"
-    sha256 monterey:       "1be828e596499e7b91372b48d5b7b9e50e12bf059fc166064a282dd7586513b0"
-    sha256 big_sur:        "d16ee53ec43dfeba443cd720d5131deb0591b8e568e20db4a7b4ac876296f14a"
-    sha256 x86_64_linux:   "b8ab6476e3ab5577f3b426ff7ce3906478b5147c1bbf3684ad65d58f7282fb24"
+    sha256 arm64_sonoma:   "74132c29be2e0b94b8677f8675c271e4b3157a348c40836b975a5c2bb42a5cc7"
+    sha256 arm64_ventura:  "9954fa13ce6b951279337ceac95df1f0a95514e984811e3870e67e96d5be991b"
+    sha256 arm64_monterey: "69995b0bb1f27f326f26da7feb252faa90c0a81b84f9fc31fa97ac5c7f85d346"
+    sha256 arm64_big_sur:  "66810835803c886015176b754e2d03ca619d5171e7ce7b206bfab6050dbbaafb"
+    sha256 sonoma:         "15a86180e3f339dffb1fad34a8800e3dda404084749c5374778e5f87d73e020c"
+    sha256 ventura:        "5c42d94815be17612d95eb4e62e88f546a2093386819c9ef857886373df641d9"
+    sha256 monterey:       "72212f6d3cd1874634f6c320f02b50f34f296bd30a26d4db3063bd354d9b15a0"
+    sha256 big_sur:        "2e645e825dfc8d6fcbd664e5c66b042f5a8784cb33305864867ca9ee6479dbd1"
+    sha256 x86_64_linux:   "99f5e8a2effac888f1538a1225af6e8ce70f39dd143adf8d03a35b040089a9b2"
   end
 
   depends_on "openssl@3"
@@ -61,10 +63,18 @@ class TclTk < Formula
       url "https://raw.githubusercontent.com/macports/macports-ports/db4f8f774193/x11/tk/files/fix-themechanged-error.patch"
       sha256 "2a75496dc597dec9d25401ab002f290be74d4acd5566793c5114e75a154c280a"
     end
+
+    # Bugfix for KVO crash; will be in Tk 8.6.14
+    # See https://core.tcl-lang.org/tk/info/ef5d3e29a4
+    patch :p0 do
+      url "https://raw.githubusercontent.com/macports/macports-ports/6a93695d61d3/x11/tk/files/fix-kvo-crash.diff"
+      sha256 "ec9a9234b4a326e5621fe78e078c29aa4784b6dc88c59a43d828639ebae0af41"
+    end
   end
 
   resource "itk4" do
     url "https://downloads.sourceforge.net/project/incrtcl/%5Bincr%20Tcl_Tk%5D-4-source/itk%204.1.0/itk4.1.0.tar.gz"
+    mirror "https://src.fedoraproject.org/lookaside/extras/itk/itk4.1.0.tar.gz/sha512/1deed09daf66ae1d0cc88550be13814edff650f3ef2ecb5ae8d28daf92e37550b0e46921eb161da8ccc3886aaf62a4a3087df0f13610839b7c2d6f4b39c9f07e/itk4.1.0.tar.gz"
     sha256 "da646199222efdc4d8c99593863c8d287442ea5a8687f95460d6e9e72431c9c7"
   end
 

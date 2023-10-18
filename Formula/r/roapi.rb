@@ -1,18 +1,18 @@
 class Roapi < Formula
   desc "Full-fledged APIs for static datasets without writing a single line of code"
   homepage "https://roapi.github.io/docs"
-  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.9.0.tar.gz"
-  sha256 "90dc3c036ba284504f0af023e343603b74a8f9222999fa6968fd2d7782fa6bac"
+  url "https://github.com/roapi/roapi/archive/refs/tags/roapi-v0.10.0.tar.gz"
+  sha256 "85d194b78dfef8aaab5da0c609d8c6d126ee0d474e6b1455b6ca3c7f1b8afd06"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e985295ec049440a4de8847b2572e6aca8be1e31603623b310a47ef333c9216f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4e9f75ce10c6e60d8a6101eb1c40781b96a859a026656194c1ba3632f3ef6f6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98dec57754abe011af47c52623981039c31c49e1d7275214ac9d79252a1d5642"
-    sha256 cellar: :any_skip_relocation, ventura:        "6daf36288d0cc4d48084c819c772286f66152b358dfd6e84d45c675d5ebc380d"
-    sha256 cellar: :any_skip_relocation, monterey:       "56019992e8e75b0493423015d4e86160ff8103c831bbddf43c860199142092e9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d2f2d1db30113ff3c3b6bb5e9669c02889293e0e99a6d92a13674f521a73e47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cec37d5bebb1ff28144fd339bd1120599c71d9628042500bbc83e038b5122fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da0ff1811b9e4d919e86f901e1d4017a80e69e6f539bfd53d5f44e8cc72aa117"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d92b3d686644d95288450228953cb884a81abb76b36ca0884f5b08adad9ef4d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e70fa2082fd8b32fd9dfbac610fd2f31a57bca475ca6c1daaa9013b10939fd7b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "207a3d71484b4526a106991fba4dbc66a2dacb46523b24de35fb821f51c186e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "4a9ca50752ccea857755dc4aa12a956d4ef62ea1a9e9ad66a0e2b720ead32241"
+    sha256 cellar: :any_skip_relocation, monterey:       "2bd306cb30e00d2514de46a34542b22dd050b09ec37c2db3f672061bc9094fc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ba8869362eb39131a1e983affe78d6791707fec63330d4412d126f56d4d5d0c"
   end
 
   depends_on "rust" => :build

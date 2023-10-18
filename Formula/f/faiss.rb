@@ -12,9 +12,11 @@ class Faiss < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "9ee51131776348cac02bd190dae812d63896b8d8a374a20a72608eb18d670d01"
     sha256 cellar: :any,                 arm64_ventura:  "fce50696b90d0357b420807c89f13b20851a187759c01a20cec3cd281c34fbd6"
     sha256 cellar: :any,                 arm64_monterey: "d8e5da0af54d584559f730e823abfe76334638e86a6f58ffa8416efae1b58f8b"
     sha256 cellar: :any,                 arm64_big_sur:  "3bad3d3ecc1fa8fd4d8e6421f4bd2d031143490785ac3f276a432df9dfbd0ac1"
+    sha256 cellar: :any,                 sonoma:         "5347a09cd113db4654eaeb277745edb5210277ab7e4203d2a72808a697769b07"
     sha256 cellar: :any,                 ventura:        "b6d728b6141c74eae30ae89c2ed3faa44a198afd890da6482b407209c79325c5"
     sha256 cellar: :any,                 monterey:       "8b88769ab126f91fd0269306e3bcc5102baaab9e61730095a24d71c5b3b79546"
     sha256 cellar: :any,                 big_sur:        "efc062d04573dd6d5b1911cc7cb333f125ae67aae11a8964490852297d8cf941"

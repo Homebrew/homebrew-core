@@ -1,19 +1,18 @@
 class Libheif < Formula
   desc "ISO/IEC 23008-12:2017 HEIF file format decoder and encoder"
   homepage "https://www.libde265.org/"
-  url "https://github.com/strukturag/libheif/releases/download/v1.16.2/libheif-1.16.2.tar.gz"
-  sha256 "7f97e4205c0bd9f9b8560536c8bd2e841d1c9a6d610401eb3eb87ed9cdfe78ea"
+  url "https://github.com/strukturag/libheif/releases/download/v1.17.0/libheif-1.17.0.tar.gz"
+  sha256 "c86661e9ef9c43ad8de9d2b38b7b508df5322580b24d22fc25a977e7fdb26f3c"
   license "LGPL-3.0-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "82f6e15c2c6bbd6aabc793a219b24ce16695113c7df6d5a8cf1b4ac82a42034f"
-    sha256 cellar: :any,                 arm64_monterey: "ee412a79e8f261e90bbc5fae5f2d6dd2f1e3ea615b5af2642146ac28121ac4df"
-    sha256 cellar: :any,                 arm64_big_sur:  "ebc16ed45c1641dd955a5abe4065239d813e75d7cc75c119e94766077c469e77"
-    sha256 cellar: :any,                 ventura:        "a8d94c2ee75e69789bf32a7c14f05812b08caa220d71640e0dab464be419387a"
-    sha256 cellar: :any,                 monterey:       "eefc53996197989013739ad8c2d7fd77de54abaf3817ff8da4c5b1fcadaf37fe"
-    sha256 cellar: :any,                 big_sur:        "ad7f86d5a3424f3b52985b36f7e1eb3fcc843bb4c9ebf97b2dc2107ba0880046"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0afc0a90a360bd89f0cc382767c5efe724f7e8487b0212f60ab309f4ed42c1fc"
+    sha256 cellar: :any,                 arm64_sonoma:   "3603cb66e439a18b93913948d80ec242817502d28c777e7ba99dcbe161430791"
+    sha256 cellar: :any,                 arm64_ventura:  "0bb2044fda6c88ffe17cd503a4b0efbb3e8aad98f906ecd4f1ef6a02ffd443c3"
+    sha256 cellar: :any,                 arm64_monterey: "bda82f1705b60091e00a2dc984ea7e0d2e5661aeeda7186dab22b1025d475dab"
+    sha256 cellar: :any,                 sonoma:         "030fe4fc307f2f0db05caae3fca8fcc3eb3925cfc60035b8d5983430ec9d2ffe"
+    sha256 cellar: :any,                 ventura:        "64b65254a14580ff7e0d61892f98892a0fb36aee22683d7b999e7ab2219ae4d1"
+    sha256 cellar: :any,                 monterey:       "2f92b59f2c3441e59ec588cb3a1c779f94dac0db7466c228b9eb5f6ac31f118b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c39626d741b40c588cdb309d6f2b076a621dfc86edd768094fcc5ae79bac11ea"
   end
 
   depends_on "cmake" => :build

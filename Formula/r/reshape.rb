@@ -8,9 +8,11 @@ class Reshape < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d92840365f4aa4d120467d129977421d42b3a89e465adf4b34cd881443b95377"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c0ba6cc6e8cb823b6ae4b723e262ac9559dcb32e63830dfb6f6a49c5c5a1617"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb86556a181a162f1137ff6725c7f1261080369a8d888aadc82c5fc2ed11ccec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e03b64855b0ead19d73ecc3ef909a848be65cad053ac90064685ecb83321896c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "54b215b8e60d19d9b435a496019680817ff32eb894012ecbe99274fed3f37371"
     sha256 cellar: :any_skip_relocation, ventura:        "e1141f94a3ed771638371da2138abf53debf733ad26ba4c4a464a98d2dc4b1d3"
     sha256 cellar: :any_skip_relocation, monterey:       "2758bb9ece62be0961b0372269349912414abc658a6501eade88a2c055cd92fe"
     sha256 cellar: :any_skip_relocation, big_sur:        "e1e1609d559dabfcad4979db9a14621aa44c644cb662493d07efe3147ecc1115"

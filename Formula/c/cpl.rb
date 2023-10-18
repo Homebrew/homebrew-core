@@ -12,9 +12,11 @@ class Cpl < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "710c0bce11e34ef18dcba1f2c592b82827daa9027a2e6ffdf7a5523db746f4c3"
     sha256 cellar: :any,                 arm64_ventura:  "867112ff76fc10a5a8ccf3871398c4057aba8aac147f0452f4b74e60f30c1417"
     sha256 cellar: :any,                 arm64_monterey: "dc4fd5e0d10ebb4d9d3ae0d4c2138765e28e9185f2810fa9f5397ceb6874d409"
     sha256 cellar: :any,                 arm64_big_sur:  "1546444c73b9c83ad97136d5fe48bcd6bee09dd72ed9de6b8ce650a6cbf28610"
+    sha256 cellar: :any,                 sonoma:         "a66a7bc13c9683f48d18ad24928ff5effa8737e61ac08da1717de9bb24d5de24"
     sha256 cellar: :any,                 ventura:        "fc6cfb837a591afec3369fa882e5abbd9d806f9d67ed83bd9f345ce3d89a4415"
     sha256 cellar: :any,                 monterey:       "a74afb54620905b6ae184bf64d73f67713e1016e27f97a6db6b793c72b4ba646"
     sha256 cellar: :any,                 big_sur:        "2fff6fb7574c82deb23328136b2666cd181d864fe09eb42780bea78cf63327a1"

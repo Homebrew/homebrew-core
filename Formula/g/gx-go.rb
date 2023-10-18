@@ -9,9 +9,11 @@ class GxGo < Formula
   head "https://github.com/whyrusleeping/gx-go.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9c7ca000510ef160dc187f094090bb53c2a8abe7148429b05e84092e0733d53"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "558cc3380d5004e4dc70927523f0900d89b11441aa75439049ef04317cde5606"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be5396fc6d5a6908b2a41a321dd7aa4f87d78ffb656bf54a14869fb4cb1e51d4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f19c6b08f918f3a5d697033421405cc1d8640251c1f35debc5c64a68638a6bf6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b56120d4f18db189ffe6f0b0bf9999311ff388cb363cb3278b4b6a7d7e9cd53b"
     sha256 cellar: :any_skip_relocation, ventura:        "4f9b488b986e19ba22109848419684a6f933abb46881a957c90d07cab701201e"
     sha256 cellar: :any_skip_relocation, monterey:       "ce75606c2944f263c2cf7b83930c1cd3ce57fd6dce50be5ba37b8d074e86c8eb"
     sha256 cellar: :any_skip_relocation, big_sur:        "5dc1b0036572c7bd56d60b294608b151f1740018d90b94034072d8a97f3c0368"

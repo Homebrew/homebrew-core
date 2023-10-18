@@ -9,9 +9,11 @@ class Autorest < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e439aaed393e06226cbe6e372486560980e2884678875dbc2e6152ab82324dad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b4915255e97fe2641111b8dadb313951bc66947513bc3785933ec58d154d7ee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3b4915255e97fe2641111b8dadb313951bc66947513bc3785933ec58d154d7ee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b4915255e97fe2641111b8dadb313951bc66947513bc3785933ec58d154d7ee"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8d214a62a050840620091c040183f512a5aa49af046bb3fd8062625471f8e2da"
     sha256 cellar: :any_skip_relocation, ventura:        "fe4ddfb4c7b22e1549e2cf91d3ed9a1d7f773175cbf2f2b706994546afe876d0"
     sha256 cellar: :any_skip_relocation, monterey:       "fe4ddfb4c7b22e1549e2cf91d3ed9a1d7f773175cbf2f2b706994546afe876d0"
     sha256 cellar: :any_skip_relocation, big_sur:        "fe4ddfb4c7b22e1549e2cf91d3ed9a1d7f773175cbf2f2b706994546afe876d0"

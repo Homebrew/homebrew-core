@@ -7,9 +7,11 @@ class Minidlna < Formula
   revision 6
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "367651c797c908776eca47c29866d1fbed048fa3be34e475e228907be78d7349"
     sha256 cellar: :any,                 arm64_ventura:  "7084ce93804a189f7b06791ab9a8fe25b5c5a94c6e2d8772002a899fe8eb0925"
     sha256 cellar: :any,                 arm64_monterey: "1edd947d1252977df7f73d95afef4c68937e91454cf8cfd2b7b304fbd1a0c334"
     sha256 cellar: :any,                 arm64_big_sur:  "36072976cbebd7c14eac5400ec5b5495955e980ec922a72732384b830df19674"
+    sha256 cellar: :any,                 sonoma:         "47354a6b673d90ba807d2906234a7b2589fdca97b1679d55ca4ed3a480c98eee"
     sha256 cellar: :any,                 ventura:        "713ac9c912faf4cf0b5d7ba9d84b9fd33703c8712d1d88fdbc9d1148143b3ecc"
     sha256 cellar: :any,                 monterey:       "0ddb7b01d43497351f8daef3aeed5daad168a6ce58c432d5d930f3a14a3858a4"
     sha256 cellar: :any,                 big_sur:        "390f161b6057e85f58af6be48c388c3ea72b5f168c15becac79ce121f31763de"

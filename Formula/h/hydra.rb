@@ -4,17 +4,19 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/v9.5.tar.gz"
   sha256 "9dd193b011fdb3c52a17b0da61a38a4148ffcad731557696819d4721d1bee76b"
   license "AGPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4233b96be61ab5a51cc06ce000551cdda2930b9908520c4431e7f8a6778fc08c"
-    sha256 cellar: :any,                 arm64_monterey: "d6027630cf3aaa8c88dcb70e0d4f8cb202a1eab7b8b2ad348ff4c60753fcf457"
-    sha256 cellar: :any,                 arm64_big_sur:  "fc87e1cf552aafa0b3948c475b2a2ea5a89feb39572393f80ff17db9623c5e8c"
-    sha256 cellar: :any,                 ventura:        "7166d64116322a253217a1363c32838ff3003d3d2ab70299a9b89e6503278a35"
-    sha256 cellar: :any,                 monterey:       "6a3c2fce671fa1b2ae2ce7291f9300d180ed1595176d6fc7d7c8cbc67530081e"
-    sha256 cellar: :any,                 big_sur:        "d0dce2ce89065f3026e5e07bfd3935e17b4e4e21357a03d77806766bef2766e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa4a0a0ba72ad73ea3d23e84bef1ff6ecb0a88ea3c307c8997a6c9f95af9aa2b"
+    sha256 cellar: :any,                 arm64_sonoma:   "3b5572227a5ef2ff439b5d95e41502d3aac78efc01c43ed4316fa9570acc0554"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4dd1a40a47a6d21db024a3fa9c9c538c46f2e6a19b7db8b7443977b87b8baf76"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1d8c51d8f1768fa1b4f88b90cbdc792f59387e59562a1a9d057a2a4bcba0541"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5b0056b050593dc17211890362fa09c1bd52d889fd142736b7b4c1114bb5e05"
+    sha256 cellar: :any,                 sonoma:         "a5cd4f90c900f58438505c2e65a0cea4a16b3c2b214c7274684473ad44fa9e51"
+    sha256 cellar: :any_skip_relocation, ventura:        "fdd37885440ef848dfc7030e67c281262b5b5b5e4139372f40a91f894b28f256"
+    sha256 cellar: :any_skip_relocation, monterey:       "073cd2c90a68bdeb9c2108e84bdb18dc1caf8c2b924f7466d868288edc6ef929"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4d411dcdc73070bdc6c01b458ba694717b8a9970a21ddcc75d4ab7c87611015c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8b19d859564f0dc079b0e81717f6d747028b0837b2cb277dd0df9d017836b0d"
   end
 
   depends_on "pkg-config" => :build

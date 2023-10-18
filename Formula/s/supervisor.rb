@@ -9,16 +9,18 @@ class Supervisor < Formula
   head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30c5d30e66ec6a8f15adf002cac89c2a5692eefa54e1ea4626e0a29d956b6c38"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "30c5d30e66ec6a8f15adf002cac89c2a5692eefa54e1ea4626e0a29d956b6c38"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30c5d30e66ec6a8f15adf002cac89c2a5692eefa54e1ea4626e0a29d956b6c38"
-    sha256 cellar: :any_skip_relocation, ventura:        "21d219b124dff18019063b8cd125c4548ede2110107897c5a6adf419322c1b5b"
-    sha256 cellar: :any_skip_relocation, monterey:       "21d219b124dff18019063b8cd125c4548ede2110107897c5a6adf419322c1b5b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21d219b124dff18019063b8cd125c4548ede2110107897c5a6adf419322c1b5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adef8866166ae6da259889ee8645fdbdbeed275b34392b0f63aed98ed067010b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff8c113fa52ad7fcfdd63fbcc761809f5e27afd73b9ad9f09a1771d7dcae16eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "379f1c1e3a7f699ee93c23ec56ea88aa521e07bd57c872794d9a84f31a079d1a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a4d870e085e652b0d20ba483013e960556df58032111db255056d3c469c9e22"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5733f2279479f146558632128ac2e09c0f8679d669d1dcc0eca2227e61410c74"
+    sha256 cellar: :any_skip_relocation, ventura:        "bdafd39efc94ca15c14d1c8cc27637c88de5b346b097d4bed01a8be68b27bd14"
+    sha256 cellar: :any_skip_relocation, monterey:       "6261dc4b3b8b532f362ab3f13009a78fc3e1b4079e0cd5bc58c0cc7dac2c70b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5c5f62ca8dc1b0d9643a120ea346c9b5206a726fe8c27de63321e2c9cb2666a"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|

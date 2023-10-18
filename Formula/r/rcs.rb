@@ -7,9 +7,11 @@ class Rcs < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "538f4c9f1747041c737c8c57f49ca2becc2cca7cd0c31f88cf14142d5d00c873"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7f9cf6ea9614d1286230615b81443f0941b32cd7768769378039df8463d71fbf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "579a458898062f0b99c455e69e93cbf4c2b5637ae72806d4ee74f4063f2a25ff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b241d433eecdd7d01df54bafa597df65a42ad75866ece0a16d865a205c0660b1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0bf006b8c2137100fd45092c3465ff9a3938e5f864a3c4e8186ca70d922f1d6a"
     sha256 cellar: :any_skip_relocation, ventura:        "92020e945f2e80c82762fc8153a95223d040ed5024a4a93f396fc26195787d65"
     sha256 cellar: :any_skip_relocation, monterey:       "816051fa12300cd95e60babba5d4613e47f4c0c6fb426d520edf1f04914b91c6"
     sha256 cellar: :any_skip_relocation, big_sur:        "cf4c810451ae3f5d2fe9ee983bce3c3d21573125bf55375a27e0dd7a7ff461f6"

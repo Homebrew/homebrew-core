@@ -6,9 +6,11 @@ class Gotests < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0b134507e83f35bd6ea48afde71bd95ffe174d98b9dd64fbd1f7afe7fda75b5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb95a89300241d532d54e78bf10b6190a2172c6e83a8e32e00805624dfa9cd69"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a2daf6aeff322ba4de342bb2d21b485732ae4851575387860ff91462e14e8d31"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ca761cc187d08b5d211562b383610d614c67a4533de9c552f6e2b57a07b7ed5b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6c46068d4c9adb7ce035b5eedad92647e2a2397a5040981765615c522a26108"
     sha256 cellar: :any_skip_relocation, ventura:        "14616cbad502d944d8462efa61b0da7a0f74cd4f1fd01fb1b3e68dcd391d1ddb"
     sha256 cellar: :any_skip_relocation, monterey:       "cbd11e7ba3400d2a6896974899257d37105759cabebe94bc4a599c739e3ade92"
     sha256 cellar: :any_skip_relocation, big_sur:        "222e2a0280ae3d085bbf76080b9bd30e4fe1e9942a0427dc2840d74337621f76"

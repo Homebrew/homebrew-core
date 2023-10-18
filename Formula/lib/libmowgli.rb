@@ -9,9 +9,11 @@ class Libmowgli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "7a949575c3803dbfd27a4ad549c6f24c67f2159b9dfd73d83b5eb9ffd872561c"
     sha256 cellar: :any,                 arm64_ventura:  "19a8d7aa0f5c72bf5c7e459c1d6924fc7f5ab479f878c8129de5a3693dae3b8d"
     sha256 cellar: :any,                 arm64_monterey: "476e3d8c4864929ada3e6a5af324c768cb18719e9b2200e7ceeb7fe8711d9a2f"
     sha256 cellar: :any,                 arm64_big_sur:  "706a51d84a1e84e3046231012cce4be4eb78288901bd8f07d274161c187a831c"
+    sha256 cellar: :any,                 sonoma:         "f8c15ed2d394847405537f8664131626ab22d738cc123658ebe7fabcd1842339"
     sha256 cellar: :any,                 ventura:        "76457d788e5c2f85dbc452a0232bb38ff256f4136d188983ac8b9af87be78019"
     sha256 cellar: :any,                 monterey:       "62bff6552997f1240e9568627847e46c1f55371f2b383d005a8a62975ed2a029"
     sha256 cellar: :any,                 big_sur:        "f64462da9e3debd990315e0c16ecfcffae50fcdddf44538f125ae9dbd4c98fdc"

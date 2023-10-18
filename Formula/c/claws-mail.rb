@@ -1,8 +1,8 @@
 class ClawsMail < Formula
   desc "User-friendly, lightweight, and fast email client"
   homepage "https://www.claws-mail.org/"
-  url "https://www.claws-mail.org/releases/claws-mail-3.19.0.tar.gz"
-  sha256 "3feef9ff72b15fb9f1ecc5102d7dfbb5b1c2c53172d331a3fb453645a6b53a6b"
+  url "https://www.claws-mail.org/releases/claws-mail-3.19.1.tar.gz"
+  sha256 "4fcc2b0b39a6d40e4dc3e49fac2f1cf063575d6570e93408fa4a76ab67531ae1"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,12 @@ class ClawsMail < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "dfc013fe205c3e9e485ff23e2e41782df497ace6312a0ace48e05639be9a9f61"
-    sha256 arm64_monterey: "74b9d0de5a9b8500e2a71ee118bcb5cd72a7901639ff1bccb3f2bcb633362de7"
-    sha256 arm64_big_sur:  "00d742baadda6934b41f056e76741da56021a70f405169d91cfae04cf2052cf6"
-    sha256 ventura:        "4e233006854352a4a518004a42acef004ad4af820cf4c04406fbe6e100e79762"
-    sha256 monterey:       "f6a71dae91ade0eb99d4ec6b9aeca45c7c9e67a98ecd25b7618ba82ddf152685"
-    sha256 big_sur:        "ff579b37e2968ffc54055e5d8fdc2cd07af57cb26859b4cda388ab4f83597a3b"
-    sha256 catalina:       "fc87978da74bb95b34c5ab7a2a01c478be7087e49f46549c55c3908aa8371623"
+    sha256 arm64_sonoma:   "27556d5cbc7fe4ee270b90a3f6c0b04975d3be71374d87ae2648722be39c9dcd"
+    sha256 arm64_ventura:  "5a319893dbb61fecce7527d7aa50c8498281c0db65b637401a850a30f4dc3566"
+    sha256 arm64_monterey: "d859faed86f3da9fc93f51644fd5f330b021c3b387392935e303c356fe9152ec"
+    sha256 sonoma:         "a0eb24fe0b25855cdebb845f9dd75a6da1a211057fabecd28f117c2a2a1a457b"
+    sha256 ventura:        "ead29a0507893b238927b2fec984b4d0885ba6d062bd09d39ee224a63cb39780"
+    sha256 monterey:       "6241c21eac60f1fe0078b60e53ef55e94600dbc75bbccae3b3a6a9ce3f58e97c"
   end
 
   depends_on "pkg-config" => :build

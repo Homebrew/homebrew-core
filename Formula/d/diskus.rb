@@ -6,21 +6,23 @@ class Diskus < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d90f186d664613cb2648b8d162bb8939ae4d0402686e4cb3b4af8c849c0ae0d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "74e62c4583cf8b98f123611e300f717a5105dcb6ba355ae6584acda35ecb2c89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b78500b9b1efc3ab29584d668d900682240ed2a7d709c99701ed688d26d9c13a"
-    sha256 cellar: :any_skip_relocation, ventura:        "442324b818b67e8a668166db5a59e2c7a8df7c95e02d5ce8ac2d4465d3561e61"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe8f17e650e60a533e372f4f36ac4937283f2bdedc8451232b73cf9bc86fa710"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b1a7d68183cbef10abb0fed70d25051eee61751ee740b7e8c33beab0b7338a0e"
-    sha256 cellar: :any_skip_relocation, catalina:       "e7c2db589c2dbe6340a297ae96dd4a92e4cd1654d4ab0f8a8bd77fd8fd87e583"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b627c9ead2e29d59b924b402b92b0f8c2ca43b6c646bb6ad740e680084d160d1"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28c1375f94ba0ff11a36e06628b22d49b76fa5f565c8a09d91fd346b7a60c36b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17eeae141efc2ea4eb096bcad53246a699bb486fe1b70cbd3e0530b4ea36ea69"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b851bd62c52e63a8c583eda93cdbb49efe75295f55a2811cf6d9cd7e18359f6"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c07b7ab1808da13bf85de3224a240012ca31fb007a2b66db3987499681994ff6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c50d69fb03e11b072f89a179ea137e143388f1b2e74e9811f6f719d6eb5ce0c5"
+    sha256 cellar: :any_skip_relocation, ventura:        "f9b0c91217bee8c3b6b734bbf781315219a91f6ac62cb21e56ee1d190e8c65c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "6d0d71a9315253cbf3dc7aeaa7ecb0bfd4d2d26773d97f530a4b95fd3a2ffa35"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c823e41546c43c955d5756e22f098188154f7875af6a834794278e88a100d55a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee19ac082cfff4ff93a5f007efc0eccfa07e2f87bdb1c5df4a949056808dc43"
   end
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+    man1.install "doc/diskus.1"
   end
 
   test do

@@ -1,8 +1,8 @@
 class Poppler < Formula
   desc "PDF rendering library (based on the xpdf-3.0 code base)"
   homepage "https://poppler.freedesktop.org/"
-  url "https://poppler.freedesktop.org/poppler-23.08.0.tar.xz"
-  sha256 "4a4bf7fc903b9f1a2ab7d04b7c5d8220db9bc6261cc73fdb9a826dc272f49aa8"
+  url "https://poppler.freedesktop.org/poppler-23.10.0.tar.xz"
+  sha256 "31a3dfdea79f4922402d313737415a44d44dc14d6b317f959a77c5bba0647dd9"
   license "GPL-2.0-only"
   head "https://gitlab.freedesktop.org/poppler/poppler.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Poppler < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "fa50c0f53490132659ff12590a1d59d816bf04162f633ee02cc893bff8b254aa"
-    sha256 arm64_monterey: "b8df7d6b19699169a43f669b55aea07f545e72abee35b2353043367df2114adf"
-    sha256 arm64_big_sur:  "71d3b17ce4b372540e5fca95a2e3be90ab8b1e4adb3113c9ac1e7c776111f47f"
-    sha256 ventura:        "c182cfb011e33826a7fb614ecf8adb0607c0f3e45b3b25e5aed065d1c29e152e"
-    sha256 monterey:       "9e2b3d1d010194719a15077022e3d58d4112280c96637a14c78345ae0420e686"
-    sha256 big_sur:        "0c0257149c1c1abecae49bfc4e157de5d325f3d649efaa542b2adcaf1e214de9"
-    sha256 x86_64_linux:   "7356a56d545c4880521946251545ec16a66cc0296f70d235e6efb7aece15a761"
+    sha256 arm64_sonoma:   "d4cd081ff74d8fa0eb9aef28e4b2a4b821a782aa3147c8d2ec20d7ab30770678"
+    sha256 arm64_ventura:  "09c83d97c4c1adeb1a7da0af2edf7f197578f4af617327dd0c24adc78235458f"
+    sha256 arm64_monterey: "0a4082a646815f4d35646563f400e8d5916d82bcb2240aed80ee144b64bf6233"
+    sha256 sonoma:         "e39cd00d86229a23d76264f6435b97aebd38e925714211fa5b74def42969f32b"
+    sha256 ventura:        "6630a2787c2e47a6248ec787083ec3c67db4f44d9a87d4f84f0af7862d10f3ae"
+    sha256 monterey:       "a6dbc35d00aca8d182f4a51c02b34a74e3d88bd3b326e3adb842f3656f9df84a"
+    sha256 x86_64_linux:   "5af100603bcc85fbd69f0566a750d01f5521b6404582a2d07ea166f3a6d459d8"
   end
 
   depends_on "cmake" => :build
@@ -29,6 +29,7 @@ class Poppler < Formula
   depends_on "freetype"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "gpgme"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libtiff"
@@ -38,7 +39,7 @@ class Poppler < Formula
   depends_on "openjpeg"
 
   uses_from_macos "gperf" => :build
-  uses_from_macos "curl", since: :catalina # 7.55.0 required by poppler
+  uses_from_macos "curl", since: :monterey # 7.68.0 required by poppler as of https://gitlab.freedesktop.org/poppler/poppler/-/commit/8646a6aa2cb60644b56dc6e6e3b3af30ba920245
   uses_from_macos "zlib"
 
   conflicts_with "pdftohtml", "pdf2image", "xpdf",

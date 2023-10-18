@@ -12,9 +12,11 @@ class Efl < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "a1aa4b1b0b107f43ce197d0b6393cace14e5621d716a3df0f878437e7e329d9e"
     sha256 arm64_ventura:  "2b653b7a4bfdead4b6567f9633dc1d0ec851e2678920236ad57463eea369f9a4"
     sha256 arm64_monterey: "a7144e491351f8475a5dfe051112f150df09ff410bcc963b182aef50106a2381"
     sha256 arm64_big_sur:  "b444bced3c8b20c19df34893a3760c9e3f8bcf9a2fa84fd912111c07645df52b"
+    sha256 sonoma:         "d6c8329b6dd3903a7934845ef24ee75a5f5ceaa7950a56464e260315f535f514"
     sha256 ventura:        "de13653096d6456aff03cc84c8c728db8214ba25b97f92967005b3ae071469d9"
     sha256 monterey:       "9daaffaab0f55f68f13594599e7738ae7a36e351b903e133ad76ec64fe52024a"
     sha256 big_sur:        "3b8df4569420168d8b8055f2edfbfb91da6c85807bf4c8b87895a17ab43f2354"

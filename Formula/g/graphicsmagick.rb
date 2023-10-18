@@ -1,10 +1,9 @@
 class Graphicsmagick < Formula
   desc "Image processing tools collection"
   homepage "http://www.graphicsmagick.org/"
-  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.41/GraphicsMagick-1.3.41.tar.xz"
-  sha256 "b741b11ba86162db4d4ec1b354989a773f73c40722d1148239f6c69c9f04a6aa"
+  url "https://downloads.sourceforge.net/project/graphicsmagick/graphicsmagick/1.3.42/GraphicsMagick-1.3.42.tar.xz"
+  sha256 "484fccfd2b2faf6c2ba9151469ece5072bcb91ba4ed73e75ed3d8e46c759d557"
   license "MIT"
-  revision 1
   head "http://hg.code.sf.net/p/graphicsmagick/code", using: :hg
 
   livecheck do
@@ -12,13 +11,15 @@ class Graphicsmagick < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "4f124e242ad6316aa4cb9015d5fc093c44bbc345199419909baf634f771716fc"
-    sha256 arm64_monterey: "c1c6f774744204a02932a710f27398e2c72ced67993955199c7fabbc46a62325"
-    sha256 arm64_big_sur:  "fe2933be797bd6c40264071d4597e3d83046ea58737cb4b4f6232f634f1f0668"
-    sha256 ventura:        "9ce44c958b0871720b818ecfcdb550432effc6058ac61fff876488683d6bb68c"
-    sha256 monterey:       "2c7153e854059e7715c4d8d16cbefda41925c86167ac2d1d4765c20d1d94cb50"
-    sha256 big_sur:        "e52498494fc7fd930a60475225ef1245ec2aa680b23552aa1587a9863ff49d90"
-    sha256 x86_64_linux:   "6c518a2ae30ab24cde772fd013b31b84751264ee663f08fbf80a9e005eaa6b86"
+    sha256 arm64_sonoma:   "20cfcce4373d2e2bfc32537b8bd347f323321df60dbf647c86903de5ffcf52f6"
+    sha256 arm64_ventura:  "1ec94cdffcbfd37a3a3eeb6866923057cc84bcec3bd58f941c113bdabb233e5b"
+    sha256 arm64_monterey: "b6b182bb4d7325d802322eeca0f42352b194c9edb23e295827957d67119460d1"
+    sha256 arm64_big_sur:  "6e7c652dad9bc24967f041d6437990a56b4e7b9741c9f11702fb4d67c22d6103"
+    sha256 sonoma:         "63e670f5859d21cef1e61e5118f94d31e8fdcb3e7beb9ff83f9e3eaf32c6b4c4"
+    sha256 ventura:        "d54d90d88dc4a69dd55c5e5ead34ec679cf5802fcb9346519c46142d36908169"
+    sha256 monterey:       "e4c6162c23798a781099a760f8feea4ca1cc94335caaaffce5bdf6171a317910"
+    sha256 big_sur:        "0d9a8cab31c155b1b5525508f610a3ccd5881ebd75a740ac7ba80ae84dfec7b6"
+    sha256 x86_64_linux:   "6a0e18561264f883a58f8ed373d979900a6d2c348436b1c8d112f2aa4eda405c"
   end
 
   depends_on "pkg-config" => :build
@@ -37,13 +38,6 @@ class Graphicsmagick < Formula
   uses_from_macos "zlib"
 
   skip_clean :la
-
-  # See https://sourceforge.net/p/graphicsmagick/bugs/718/.
-  # Remove in next release.
-  patch do
-    url "https://sourceforge.net/p/graphicsmagick/bugs/718/attachment/002-tiff-transparency.patch"
-    sha256 "e040ba17c50391d03322e9f47ca5876385e8f1a984ec96856276a97f2794be16"
-  end
 
   def install
     args = %W[

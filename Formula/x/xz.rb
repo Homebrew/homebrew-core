@@ -17,9 +17,11 @@ class Xz < Formula
   ]
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "2e78578e241975899342fa4ad4ca4315a4e74117696af09440cf2ce485febebb"
     sha256 cellar: :any, arm64_ventura:  "ba318d89eea54f33cc3613b1cb69ca4217a8f961e59026418e569e8421afbb8c"
     sha256 cellar: :any, arm64_monterey: "c8a9e7812c258a3b5043c0207b8044ba099a0a4a97d3ab5314a0dbd171fff3f4"
     sha256 cellar: :any, arm64_big_sur:  "1857edbbd38cff88854e529670e708e6d87e9d01641e291efee79cafa82fe5b2"
+    sha256 cellar: :any, sonoma:         "bc3b9885851178a5363c88917f7a439af880ec4ecdac24b0061608c5963b6bf6"
     sha256 cellar: :any, ventura:        "4c25f68798c0b4c9b869e78fdfbd9cd7f8f723c51ea56d643b5644456288d69e"
     sha256 cellar: :any, monterey:       "39a76706744e6f78f883c38e800d277bc6df71186313cc5fa362072d6c79f991"
     sha256 cellar: :any, big_sur:        "7bc66bbf17c331e226b65947a7b2c326a883bc70ccdd13127802612713ae1cc2"

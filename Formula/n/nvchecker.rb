@@ -9,42 +9,29 @@ class Nvchecker < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47288b1fa808ce67e7b7fe0063784ed04add719e1387ab780191bce931a2aa21"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1bffe2dc457ed6797fc8de6e6c116762e8b1013718f45dcc517da6c7f02d5c6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "641aea8c3cb378d81b4ecb08317e20813d9ce1698ac3e54b712cc6dbd69744fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "7530ac266b3423319cd11f41681e0aff6ade71ab241e75c6ab04d7a13ca868bd"
-    sha256 cellar: :any_skip_relocation, monterey:       "07f9f6e6255f1cfb8a75abbbd5b61e8f6895715e2d125ed57f8e3f790b057310"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4a5dacaa160b2d7b9aeb242fe8e54d505780d9849d3ffd1ed92ef7d4aebeacc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "608784a3a5b015876a0480013b6e9de9a36c6ddb5eb829dbdeac1d52bdc25688"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1d6abf66947c36ef620be172cd8531d950e785574f187853b5ba5201c9981ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b215c8739de7b77d460e5b9621ca084d0b603dcee89ab33483d7fb422ab1c7f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb239f66c865aaa1a0bf73ff04eff61fde5322f2510db6e3dfb0a1c3d694b447"
+    sha256 cellar: :any_skip_relocation, sonoma:         "92f4c4ac52e991d8fef6e9caf2b2d57d3eaf518bbda345ff3b50280b5db4a7be"
+    sha256 cellar: :any_skip_relocation, ventura:        "7675910c53e81945064dae7594d50f37a2fbeac2c9aa4b2704a1f9e6ca3c16f1"
+    sha256 cellar: :any_skip_relocation, monterey:       "ffa9fe0ebd5bc5126bc63f90624665857f0f6bef0801915ed156c6d9f8c8edec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06be258da8babd9595f84be864cc23633a0d2405578822604aa7e446a90a78b0"
   end
 
   depends_on "jq" => :test
-  depends_on "python@3.11"
-
-  uses_from_macos "curl"
-
-  on_linux do
-    depends_on "openssl@3"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
+  depends_on "python-packaging"
+  depends_on "python-pycurl"
+  depends_on "python@3.12"
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/dc/99/c922839819f5d00d78b3a1057b5ceee3123c69b2216e776ddcb5a4c265ff/platformdirs-3.10.0.tar.gz"
-    sha256 "b45696dab2d7cc691a3226759c0d3b00c47c8b6e293d96f6436f733303f77f6d"
-  end
-
-  resource "pycurl" do
-    url "https://files.pythonhosted.org/packages/a8/af/24d3acfa76b867dbd8f1166853c18eefc890fc5da03a48672b38ea77ddae/pycurl-7.45.2.tar.gz"
-    sha256 "5730590be0271364a5bddd9e245c9cc0fb710c4cbacbdd95264a3122d23224ca"
+    url "https://files.pythonhosted.org/packages/d3/e3/aa14d6b2c379fbb005993514988d956f1b9fdccd9cbe78ec0dbe5fb79bf5/platformdirs-3.11.0.tar.gz"
+    sha256 "cf8ee52a3afdb965072dcc652433e0c7e3e40cf5ea1477cd4b3b1d2eb75495b3"
   end
 
   resource "structlog" do
-    url "https://files.pythonhosted.org/packages/9e/c4/688d14600f3a8afa31816ac95220f2548648e292c3ff2262057aa51ac2fb/structlog-23.1.0.tar.gz"
-    sha256 "270d681dd7d163c11ba500bc914b2472d2b50a8ef00faa999ded5ff83a2f906b"
+    url "https://files.pythonhosted.org/packages/99/4c/67e8cc235bbeb0a87053739c4c9d0619e3f284730ebdb2b34349488d9e8a/structlog-23.2.0.tar.gz"
+    sha256 "334666b94707f89dbc4c81a22a8ccd34449f0201d5b1ee097a030b577fa8c858"
   end
 
   resource "tornado" do

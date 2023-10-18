@@ -7,6 +7,7 @@ class Ddd < Formula
   license all_of: ["GPL-3.0-only", "GFDL-1.1-or-later"]
 
   bottle do
+    sha256 sonoma:       "aebf4974ee7aa21c65355662a1cacac7ffa0f376dc2b8b42b7bb9a9b9855f934"
     sha256 ventura:      "e83d30cbbf7149a044e20f8a874f590d942dc5a377b4ea8cac7f92b9b2c11473"
     sha256 monterey:     "4473c8af5c52c43e08ed9c4f0982ae086d6a4224830575b8b0dde893a16b47bf"
     sha256 big_sur:      "6f2d07fb46a5580cef95fe26a9babee60eb4378930e68f389f07e5897fd1a473"

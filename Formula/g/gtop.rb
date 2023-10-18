@@ -8,9 +8,11 @@ class Gtop < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e3c41671b0b6c453ad948118263f7a089943033d8783e645a8012c748c879cb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad8728e8e6ab40ea7a850cacbe732ccf45bdf413023a9f2d053c8f704707a019"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ad8728e8e6ab40ea7a850cacbe732ccf45bdf413023a9f2d053c8f704707a019"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ad8728e8e6ab40ea7a850cacbe732ccf45bdf413023a9f2d053c8f704707a019"
+    sha256 cellar: :any_skip_relocation, sonoma:         "009993faa4cb9d7a197625d1a48179560a65b4e9ad9fee9ef0a82a51a989d43e"
     sha256 cellar: :any_skip_relocation, ventura:        "6ef92b38dab30566604d6ac2af7c720e413b3a441620926c12d0cd04150afb11"
     sha256 cellar: :any_skip_relocation, monterey:       "6ef92b38dab30566604d6ac2af7c720e413b3a441620926c12d0cd04150afb11"
     sha256 cellar: :any_skip_relocation, big_sur:        "6ef92b38dab30566604d6ac2af7c720e413b3a441620926c12d0cd04150afb11"

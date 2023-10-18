@@ -7,9 +7,11 @@ class Checkmake < Formula
   head "https://github.com/mrtazz/checkmake.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7140ec560527466720bbd18e7337f47243ce479bac151a7dea0a84f70a8fd9da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d48a73b85de9be214bafa9ab4cf9712cf1934f898d3fc7b3b6160507a788e3b7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4ddd0a9fa6c9c4e9ba3cd4b04986f6f34f55e3787bd6c6e9dde0dee30a577937"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56a6b97b1e5c3dc5b6a589e0d52b526eb2a0529dfce6a9b8a4a85b93a9bd9da3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ee0863d4827ecd46eed6829e6142d37abc0d918629bb3700336817cbadb3b203"
     sha256 cellar: :any_skip_relocation, ventura:        "836d536fe0255fc744a2fa630572e54477f8e59ab19006ddfebb09be51fd14c0"
     sha256 cellar: :any_skip_relocation, monterey:       "16692c95f5e36286cfeedfe914b239200d428b7ed64c1ae61c931c1568dcdbdd"
     sha256 cellar: :any_skip_relocation, big_sur:        "e8f88660a76082b44e64c8485238aaf46d5e18575ea11ce47c93a2466af24bcd"

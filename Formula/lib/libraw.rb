@@ -11,9 +11,11 @@ class Libraw < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "672bc2a9397e7cdc2f15a52ff2b96cb9e7b9ed66ae16600f6866c59b3c6c841a"
     sha256 cellar: :any,                 arm64_ventura:  "48c6d89fba370facdc7e567846749076f986a42e2da1213185b810d5af6e10c6"
     sha256 cellar: :any,                 arm64_monterey: "14b96b95c16c358c1dde93a035e1f731aa72ad0000875005d239647464496a09"
     sha256 cellar: :any,                 arm64_big_sur:  "81a83bd632b57ca84ce11f0829942a8061c7a57d3568e6c20c54c919fa2c6111"
+    sha256 cellar: :any,                 sonoma:         "9cfe98270f856a227ebe78740680e5f2993e8583890dfa97cf9bb1265e69d7e1"
     sha256 cellar: :any,                 ventura:        "bc0c3676076fd70ee07bba4da886eb70a97539f597d438c785f2cf58af93ec72"
     sha256 cellar: :any,                 monterey:       "33ddfdcf0fbd8d9d0c6bf2408d20b9fd090788ddd2d45bc760d9b78d11b784fa"
     sha256 cellar: :any,                 big_sur:        "4e3c0f783afeac2b9da275168846a87621d95663e592c3225869b1412b155137"

@@ -7,9 +7,11 @@ class Cjson < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "5e917935bb9f6d66e4c080d14d3d3d4a9d77ff6839e0f97c0be18778bd4ed060"
     sha256 cellar: :any,                 arm64_ventura:  "86ee096088caae2433c9f85afa172a6aef245fdf6ce9fcf9ff352702fe2000a6"
     sha256 cellar: :any,                 arm64_monterey: "f1b4e9f60327ba7e9eb14560bb79483ac417724c20563079d302dbf2d01ebcc0"
     sha256 cellar: :any,                 arm64_big_sur:  "679191a14c283a9d5c4169e25845815608b91a5c9a32a656bcb48fd47072d4a5"
+    sha256 cellar: :any,                 sonoma:         "4918ffa1ece97c80450a11c65bbaf2d5ceae0650382183147014f72a544bdc40"
     sha256 cellar: :any,                 ventura:        "3f08bd5fbd91e65ae011c7de3b9f91d4b853a4238e5a204311f346047c67aece"
     sha256 cellar: :any,                 monterey:       "945bbf9662147b825b0b40e4859ab4c7125e3735a360bcd063e80e23b1784076"
     sha256 cellar: :any,                 big_sur:        "67370802349999b8861bdca4607b5e7ac0ddef44d43677e38fa04ddcc2610068"

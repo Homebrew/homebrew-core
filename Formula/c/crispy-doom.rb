@@ -9,9 +9,11 @@ class CrispyDoom < Formula
   head "https://github.com/fabiangreffrath/crispy-doom.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "be4ceab9e1cb7a1563e57c654a90ee309948b47e719aecc7426fbabef2f0ec52"
     sha256 cellar: :any,                 arm64_ventura:  "19e4f1a6e23950ec922e672be298e8ca8d702e503f85d51a9da64ee4083dc314"
     sha256 cellar: :any,                 arm64_monterey: "9902a1e17493c3a05ef1eee4f20cd9182667ff89fb062988894eacf8af9fc6ec"
     sha256 cellar: :any,                 arm64_big_sur:  "5efe0048088ffb5ee12472407d421a9712bca17eb8e47686bd9b7e647e8db1de"
+    sha256 cellar: :any,                 sonoma:         "41df7efb26c6c9b99f2e2e980ac99490e05aa6436ccf1b358531fe602fac8be1"
     sha256 cellar: :any,                 ventura:        "8d4a9d5c429d7352e683af1cfe2469d3509a156a764d4c5fc4dd4dd58c5f5acb"
     sha256 cellar: :any,                 monterey:       "793f15b76ec873e43f0365683644163d017d3f17ad179d63bd820c498ad85a21"
     sha256 cellar: :any,                 big_sur:        "314dce30413f43e4f7cf986896e89fa3abcc4d9dcf4922f3cf12320a43d17663"

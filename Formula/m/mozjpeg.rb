@@ -1,8 +1,8 @@
 class Mozjpeg < Formula
   desc "Improved JPEG encoder"
   homepage "https://github.com/mozilla/mozjpeg"
-  url "https://github.com/mozilla/mozjpeg/archive/v4.1.3.tar.gz"
-  sha256 "f6ce89f616b30c498d1fb3b0f0940914557d8393a79c9e7aafff72032446bca0"
+  url "https://github.com/mozilla/mozjpeg/archive/v4.1.5.tar.gz"
+  sha256 "9fcbb7171f6ac383f5b391175d6fb3acde5e64c4c4727274eade84ed0998fcc1"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Mozjpeg < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "adcd6c15bd49bbf9915c5c913e30fdcbc44a64b1d9fb54b15add4f9dcb4c31d1"
-    sha256 cellar: :any,                 arm64_monterey: "4f1dfbac46563db022f793425c7435aba5d5ee9214824fdd4f6099aacb28cd96"
-    sha256 cellar: :any,                 arm64_big_sur:  "a391c3e425976d27ba6782c0c9a491439f0b928378da5d5d8cc0a3396c0a3ed5"
-    sha256 cellar: :any,                 ventura:        "53c7bc2e054a111de7a0c3fbb235379f73764d231c4de3483881ae018a807448"
-    sha256 cellar: :any,                 monterey:       "73b31e0919836222dfc73485d4abc2d67256eeb836725875315a7718ebd3370b"
-    sha256 cellar: :any,                 big_sur:        "1f17ab33409735ecdbe46d04b594b1c120ad470c9e4efcf6344b7d7a73d35ec8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83a66dbe6ac6d15085dab502c1062deb0383dffb62caf5dddfac91a12aa0194f"
+    sha256 cellar: :any,                 arm64_sonoma:   "5254d35ee2814e82b176fa779fc87a69468969dc28f750aaa602d17fd15d1646"
+    sha256 cellar: :any,                 arm64_ventura:  "7b364b6311f2a0bcc20c22f66c38eee66427da82fd22293815456ff0f74027da"
+    sha256 cellar: :any,                 arm64_monterey: "3b30413d731bd4ad5175dad5e460f6606757ccd4f7d595dd722ce265c839d10d"
+    sha256 cellar: :any,                 sonoma:         "fcb0583588eeba6f707aea5899ad93dd5eb49d2982019a4836d817ae0dfbb8bf"
+    sha256 cellar: :any,                 ventura:        "db38b13c7efa289ddc6248e3068d3eade4c2314f795650d70bebd6c38d4cca3e"
+    sha256 cellar: :any,                 monterey:       "6fddd7081db83c75d0098e0e681c4553b1e6d53fbb88cc744a766552f1f796ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e69f9e76bf590d31a85839acdc52bbee9b1c4ccef0370f82f5a80e9d21c69298"
   end
 
   keg_only "mozjpeg is not linked to prevent conflicts with the standard libjpeg"
@@ -25,13 +25,6 @@ class Mozjpeg < Formula
   depends_on "cmake" => :build
   depends_on "nasm" => :build
   depends_on "libpng"
-
-  # Fixes multi-threading failures
-  # PR ref: https://github.com/mozilla/mozjpeg/pull/432
-  patch do
-    url "https://github.com/mozilla/mozjpeg/commit/86cfd539d1064df572667844885500e40b063322.patch?full_index=1"
-    sha256 "c3bba20fb8a7917410bf917e75d4fe59ac36add3eae7e634e66d34687d2a55f9"
-  end
 
   def install
     mkdir "build" do

@@ -8,9 +8,11 @@ class CucumberCpp < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e87212f6030783f55ba38528ffda7715ae31a02c154c50d10430ea5123e4abca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d540f6ce4b8341c81108b6982fb397ca81ddcdd198f42f2272cde4c663a2c2cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d3555ced3da78df86ea2167719051e71050ae478872f5440d4d1f23204f3efb7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b26e8188eba3e33e66af2fee3f89fcfd491575d1a7279dd122dcbf3c97947b9b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f5d1c61654144668ef342b8814419bfcd3070644f9d9ca0009b971f09ce555a4"
     sha256 cellar: :any_skip_relocation, ventura:        "b904ae5c64aad86e153669a30bbda4f2d47047599e02a7487c6f68acb4b1606c"
     sha256 cellar: :any_skip_relocation, monterey:       "84d4a28b5728185faa0c082cc158481fa7636a69010958ea34ffbeae85210301"
     sha256 cellar: :any_skip_relocation, big_sur:        "1fb0eea94924ccd3bdab9cb11e9647d11c650f0c8c769517e74d3bdb169fb44b"

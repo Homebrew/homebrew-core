@@ -12,9 +12,11 @@ class Mad < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "ccc2d73926af48cbc320bbe9d029a8d7043c6a8b3375cecc5d9d031cee83b245"
     sha256 cellar: :any,                 arm64_ventura:  "9d6ef63d6de6de6a1fecf34c3f5be58952ca778829c93df51e4ec491b97b0fa3"
     sha256 cellar: :any,                 arm64_monterey: "e6a54111ab617580c360bfa07c8503cddf52b1df5bda2cd51da086e4e9470223"
     sha256 cellar: :any,                 arm64_big_sur:  "ee9a37f6202a784c1564ac92613821e9bfd0f75fca8ef24262e444e5ec424ca6"
+    sha256 cellar: :any,                 sonoma:         "fd9ab67d8f1b77a62a47b0308eb0b9275f331162079de54b600f7226638c8145"
     sha256 cellar: :any,                 ventura:        "435f04d35968bb228b0f9078190f5895d90d5a46db66d5731b02cf916b1014a3"
     sha256 cellar: :any,                 monterey:       "912da077a9ff47e8e0b19ed160646c8a365e448b81786fbc2f64a2813c8d6b33"
     sha256 cellar: :any,                 big_sur:        "0ad06329f73d5dc15cba262feca6e1c582e10ad3b9ca0476e46c37e6d878d0ab"

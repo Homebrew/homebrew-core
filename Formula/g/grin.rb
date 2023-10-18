@@ -8,9 +8,11 @@ class Grin < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e39401a14c113a9dc0f5596b05254528729459bd91487dd9c1491378365c473b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fab9195a99a295a16188c052518879bd5dadedc2ebcbd8c320ed498facf1f28"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6401984d8253b18d9b6ddb50d7804d53e77df627b97430a4dc7403f24e8ee2de"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e85a55594c77f1a6864064b8764221e543b679b673adab978e586c21945bee4b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "930b4c12cf15053a5064bafcf708adf1d78083b6ebfc6a3b2d8d4f992edaf8e6"
     sha256 cellar: :any_skip_relocation, ventura:        "33b88a2920ae853a8945fb31b60fb913b729618811a1ed2059bf34ac862011fa"
     sha256 cellar: :any_skip_relocation, monterey:       "379a7ae7790a3e4eaa6d43da60a43e9d431dd94cb9c21165be3cd5ce640b8161"
     sha256 cellar: :any_skip_relocation, big_sur:        "2c30855732887dd75a1fdb3e88127a42c3f748f2787cf133c5643ba8bf976f34"
@@ -34,6 +36,10 @@ class Grin < Formula
   end
 
   def install
+    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+    # libunwind due to it being present in a library search path.
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@15"].opt_lib
+
     # Fixes compile with newer Rust.
     # REMOVE ME in the next release.
     system "cargo", "update", "--package", "socket2", "--precise", "0.3.16"

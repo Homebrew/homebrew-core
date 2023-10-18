@@ -12,9 +12,11 @@ class Libwmf < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "877950d7e281db2ae95cb74cab50330b721416f6389f5f9bdc985bf2e2c5b926"
     sha256 arm64_ventura:  "bd3df915d0b9d87c94aab7ee63670f911c971c7733d7f4a5b711b65e4d6a05b0"
     sha256 arm64_monterey: "3e48bed98b30b6740c80267498806123a035d100711c6ed8afcb5399dabd2d06"
     sha256 arm64_big_sur:  "544befd86f2efc9ba73b08b2724c0e1951d88c8fe753aa568e442df449d55192"
+    sha256 sonoma:         "64679a33288e29e92ec766c07e47afc1131eb48d6acb088317557bfaeddc4ac0"
     sha256 ventura:        "c5c923d66e7954cb488c631bc0dc9f1fa52c1fd5b63d50639d78020db10d88f3"
     sha256 monterey:       "f83417389f14343ca059d9c13c91b01cef4b5fa8ecccee254bbbcf830a6c0c2f"
     sha256 big_sur:        "5886a1a89f5a13f4b1d6e3b9bf5d6d9bbc237833e9ff0347679cf17a6b5d40f8"

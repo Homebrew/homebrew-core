@@ -3,26 +3,23 @@ class Dunamai < Formula
 
   desc "Dynamic version generation"
   homepage "https://github.com/mtkennerly/dunamai"
-  url "https://files.pythonhosted.org/packages/77/c8/845bdb9167570937cada51b586393dded1e77c56db458f350a671c4f1ab9/dunamai-1.18.0.tar.gz"
-  sha256 "5200598561ea5ba956a6174c36e402e92206c6a6aa4a93a6c5cb8003ee1e0997"
+  url "https://files.pythonhosted.org/packages/1d/03/338fba56a6c76ea6d99ca0b7af3098292c2dd6597ed656daa6ae26a07a77/dunamai-1.19.0.tar.gz"
+  sha256 "6ad99ae34f7cd290550a2ef1305d2e0292e6e6b5b1b830dfc07ceb7fd35fec09"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6945b4438559c6b638924175abf2a2ea82e9e26287680c69e96a9ee38e9a93fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6dd8af031e7a9a11059b7fbb3a35deb3b6ab361968a056d118ed07fd8cd9b693"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebb3b6232125c18a83e656204244f0523734366bc25c30962a9eb49447fe7399"
-    sha256 cellar: :any_skip_relocation, ventura:        "9cf8ab1ccada6c06e052804d4ec9007bac080710a97b622c65b6c5ac351f6e62"
-    sha256 cellar: :any_skip_relocation, monterey:       "a4de1854607b52304e0ba638ee2f056285ba61c45f609436f3e6816bedfea73b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8e745307de017055f29c996470a9929176589ecad846158dc193fee59e104888"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcd88fccf7512658a531acd4c1c21c7183a74a50ebcb59bc1699c6fa5f8f674e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23134ecf6ddb25eccee07a2b51e8223826b5000d539c25e4bbbaf11804936f41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebe202fa284a2efaeb365cf9bfe3bb0ebe1b70876d3adbf994af3ab11848e137"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "57df59a50346a2f330055a2a110c1c3238b9415649efab5aba639de687d9d01d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d9a68b63346282df79d202d7dba6b86f1243ae1d0bb242d566e0630d6beadf80"
+    sha256 cellar: :any_skip_relocation, ventura:        "9449c31b2200dc0ef391a64b9e9514af9dd81e37b571a63c846b45dd64a34a65"
+    sha256 cellar: :any_skip_relocation, monterey:       "c92958c2a64a4d6f88ed34e7d12db8d8888586e9993732495e46b99767b4b33c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c7ce7a5209524f43bd013b76f27f1bb8372e15186f4ce58a46aa7c369bc3246"
   end
 
-  depends_on "python@3.11"
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
+  depends_on "python-packaging"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources

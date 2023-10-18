@@ -8,9 +8,11 @@ class Ne < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "a94b840b71ba903b74c328a58cb01d4107be7dc47e8be933998ca6e6b8c9b67d"
     sha256 arm64_ventura:  "118365512d7c91463595795cf8ac3f5bb8c0ced42fdb8c4e52321c6858ec61e0"
     sha256 arm64_monterey: "041e27ae4a7fabc0e61e89365c63916bf2e4be0ab0e1da78b4a2c0e9043a9ba8"
     sha256 arm64_big_sur:  "53b99d998ae08a5608c2c3f049306619cb80b11a1d44ddc243d32378357df5ad"
+    sha256 sonoma:         "e128be1da9bd8aa95d08fb91569630b6a7adc1f907574f2c57025259a5e8f277"
     sha256 ventura:        "ce2f35fd2873e3ee85470a4c2e19eb68d5e03060b70eca9973b5fa5e3741be8d"
     sha256 monterey:       "60cc57ed07026f7a2b67f32b011e6c6f5b2105e2d0ceeff772d7052746797153"
     sha256 big_sur:        "bec8bb3b21f20213c3f4d26f6dc03d5c7d25b269d22ac460b5fe810343506d14"

@@ -7,9 +7,11 @@ class YubikeyAgent < Formula
   head "https://github.com/FiloSottile/yubikey-agent.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68bef9f91a8d57edc11813ae0261a1a7c18a9a37afd7b376cb29c5e0b836bd69"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16fbb36f3bab79726c96cfc94dfda3aaabe290a8c72f5a73dba3d76cee916ee1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "028f45f8152045bbb98ddcac5ad41a554ee3a809e6e89cf76519b7b61e049243"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "408049a241d52174c985883c037422d9deac1596072a8aa6afdc59a1e4e8e437"
+    sha256 cellar: :any_skip_relocation, sonoma:         "366ed6e74c186624edfb5fc808071b025c4e89d0b4d56dfea2fc3781b4daf865"
     sha256 cellar: :any_skip_relocation, ventura:        "9f4df13a79a921345e33da19009cd6a15c0371cfbec2a69875072ecc14ad116a"
     sha256 cellar: :any_skip_relocation, monterey:       "0908727c1be05e84776c37cbabdc38519882a1ddc9fe5faddfe60ecf9442bdc2"
     sha256 cellar: :any_skip_relocation, big_sur:        "16270ab84fc500f9ca17817fd35f783c5b272266e4abfaba79c8bc40e0a36cee"

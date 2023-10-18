@@ -6,9 +6,11 @@ class Lci < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256                               arm64_sonoma:   "c4d21727f797911c504241d45f2fabf93835e650ec5fdfe5bc86a53caf5b6a53"
     sha256                               arm64_ventura:  "21afc33909d59c974988a19f1189c56451430b0ff1bd687d421fbcb227e3c215"
     sha256                               arm64_monterey: "7fb1ab319d3340b759042f184cd043f50f3897bf8f0650885fe8b679b630c52c"
     sha256                               arm64_big_sur:  "6540439b0f6ea5653aab7ac697f708bf3effa3135f2b8a8d2d98a08e137fab15"
+    sha256                               sonoma:         "f216228f58e813c480d2459c76d59a51ecadd203f65419c3ec1e7da503bfd9f1"
     sha256                               ventura:        "4dd1911200ea6dda6223506317afea28ef0d54271b61922f6d18b87211b0e68a"
     sha256                               monterey:       "3f433ee3ec85efa51ac6faab75a0570ed673c5ee0ec36598fa968e2525989d78"
     sha256                               big_sur:        "f531babdee7254e6bcf5a04f44e388d7b398925d7b9529f0a6fba11e3dae4ced"

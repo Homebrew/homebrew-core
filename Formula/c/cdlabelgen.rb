@@ -10,9 +10,11 @@ class Cdlabelgen < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ac1cd2a6a78abdd5adff5ac90d8eb311ca1113f9a673097ae25d8619dd24eb4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ba8549a259b725eb231f8ae136a290a24156dc267050796bbff796f6135c9f8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1ba8549a259b725eb231f8ae136a290a24156dc267050796bbff796f6135c9f8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1ba8549a259b725eb231f8ae136a290a24156dc267050796bbff796f6135c9f8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6017838a534fbaa5f33c5905867926df9160c33e25bb4b78302708f1f73ea157"
     sha256 cellar: :any_skip_relocation, ventura:        "584f58b2a0815c049eef3b967afe1563fe3fb6251224b69b7b1622407aeda35c"
     sha256 cellar: :any_skip_relocation, monterey:       "584f58b2a0815c049eef3b967afe1563fe3fb6251224b69b7b1622407aeda35c"
     sha256 cellar: :any_skip_relocation, big_sur:        "8c1096a23f2ce2b8db912fcb9786c2f9d76b7ece60d2269512e90fa9505d0d9e"

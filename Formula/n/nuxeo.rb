@@ -7,9 +7,11 @@ class Nuxeo < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91529a50c5884a8acfe586aeed26e210a16c586394561cb1dd877cdb9e753284"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9934a6e927552abb69fded251e937080ea9982e343870b8ce0eebde144ac5b52"
+    sha256 cellar: :any_skip_relocation, sonoma:         "abda12e73ac873abc6eaaf7cc8d8ba5a68d979ee9104821623fad2ffaf5a8707"
     sha256 cellar: :any_skip_relocation, ventura:        "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
     sha256 cellar: :any_skip_relocation, monterey:       "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"
     sha256 cellar: :any_skip_relocation, big_sur:        "0510b9e5e54d325058dd57c1f6246f551b32fd34f7282480c4c03a85cba10ce7"

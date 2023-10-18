@@ -7,9 +7,11 @@ class GnuTar < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "15a0dbc1fe67cae4498891493686afca6d745b001a2913760ce79cd52c918079"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b5debb34f53626f09c119c96ab75e46dfcc9c816ca5ccbf4ce1b051251c3752"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "78bbae315786562366b35a1c1d25c391824281aab63421e4243ec927dbe647b1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "98ce20547135be57ef9ee9b6e85df5081ba8b907f113c6d19b3e4a296b3930fc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "da82f5abafab8ba2bfc25a33e500a546985e0b2789ea915d7ad05292b41a373b"
     sha256 cellar: :any_skip_relocation, ventura:        "5078709c3c1643d2ac42da4fc354baee127d06e4a4f8b04c9770867ec5166188"
     sha256 cellar: :any_skip_relocation, monterey:       "b083b4ca16eea4b23615ce1b90b7e1a3ee52dd90cd5a4275567cb0ea55339ee4"
     sha256 cellar: :any_skip_relocation, big_sur:        "d7947a84f5bd5458a1faf9854a90d788c7661a6aba37b7ff7f8fba1e9d04ac24"

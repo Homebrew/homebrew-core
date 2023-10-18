@@ -1,197 +1,136 @@
 class Wpscan < Formula
   desc "WordPress security scanner"
   homepage "https://wpscan.com"
-  url "https://github.com/wpscanteam/wpscan/archive/refs/tags/v3.8.24.tar.gz"
-  sha256 "03d1852e9cb7e50c175f5699cd4055494ce379d6b2a931cdb8ca6000c932f767"
+  url "https://github.com/wpscanteam/wpscan/archive/refs/tags/v3.8.25.tar.gz"
+  sha256 "25f14d254279d3944f35f8f4638f0fcdc89dc60e28179d0d7fb64b9366e86fd8"
   license :cannot_represent # Source is public, commercial use requires a paid license
   head "https://github.com/wpscanteam/wpscan.git", branch: "master"
 
   bottle do
-    sha256                               arm64_ventura:  "061486585f55e99314f0c9c780c292068dcaec8e8a57a709219622a41df26597"
-    sha256                               arm64_monterey: "d7af224790e97fbe5501ca63348316b419dc5ab477e17a3417f64ad428fc54d5"
-    sha256                               arm64_big_sur:  "f9a53bdbe66814ba0fd7bd0f03c824fc32f7a55b0f6d7f51d425025d1a47029c"
-    sha256                               ventura:        "f5580ce4710e99c3a10417bffe467df192378957c614f23910c17e8c266accc6"
-    sha256                               monterey:       "05bcd7784f5edfa8c2e4f73f70cb27d05eda9e2977efe496a75553e2f8323382"
-    sha256                               big_sur:        "f137dee75e90db661cf3ba9ad4c6e510484723c0a1dad17369c45c356895ccc0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fee7317717fc3e11acab6c721aca52977b06f991f11e52ee2a5746f52f500a70"
+    sha256 cellar: :any,                 arm64_sonoma:   "142d9960895c8e2c003ad6356ef2e43b22db97d51a9d0cd603e415de40fb575b"
+    sha256 cellar: :any,                 arm64_ventura:  "fb80a89e966d3d6ac18107e61176f9ba84cabe60858ea3981a93d92f46d16d84"
+    sha256 cellar: :any,                 arm64_monterey: "f85d08916cbce890f2a538eab4eb3dbddbb45b0ee52f001394869eddb8c3a0dc"
+    sha256 cellar: :any,                 sonoma:         "6bda1faf1505cd39a4848ab830d708e393870993e3105cf2943df8513644b06c"
+    sha256 cellar: :any,                 ventura:        "a3ac4570fa1a9d4363f44d65d3173ec7aabc8fda5ecb75d1772df95bff555d98"
+    sha256 cellar: :any,                 monterey:       "6b6311dbc6618b6f914d7268de0ec812f1f44642e443c7e22006d82cc4d229cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f02bc3cbb730b93e44c82b257df6a327310c8a93df417736a0946a680a2c0a09"
   end
 
+  depends_on "ruby" # Some gems require >= ruby 2.7
   depends_on "xz" # for liblzma
 
-  uses_from_macos "ruby"
+  # Runtime dependencies of wpscan
+  # List with `gem install --explain wpscan`
 
-  # cms_scanner 0.13.8 -> ethon 0.15.0 -> ffi 1.15.5
-  resource "ffi" do
-    url "https://rubygems.org/gems/ffi-1.15.5.gem"
-    sha256 "6f2ed2fa68047962d6072b964420cba91d82ce6fa8ee251950c17fca6af3c2a0"
-  end
-
-  # cms_scanner 0.13.8 -> ethon 0.15.0
-  resource "ethon-0.15.0" do
-    url "https://rubygems.org/downloads/ethon-0.15.0.gem"
-    sha256 "0809805a035bc10f54162ca99f15ded49e428e0488bcfe1c08c821e18261a74d"
-  end
-
-  # cms_scanner 0.13.8 -> get_process_mem 0.2.7 -> ffi 1.15.5
-  resource "ffi" do
-    url "https://rubygems.org/gems/ffi-1.15.5.gem"
-    sha256 "6f2ed2fa68047962d6072b964420cba91d82ce6fa8ee251950c17fca6af3c2a0"
-  end
-
-  # cms_scanner 0.13.8 -> get_process_mem 0.2.7
-  resource "get_process_mem" do
-    url "https://rubygems.org/downloads/get_process_mem-0.2.7.gem"
-    sha256 "4afd3c3641dd6a817c09806c7d6d509d8a9984512ac38dea8b917426bbf77eba"
-  end
-
-  # cms_scanner 0.13.8 -> nokogiri 1.13.10 -> mini_portile2 2.82
-  resource "mini_portile2" do
-    url "https://rubygems.org/gems/mini_portile2-2.8.2.gem"
-    sha256 "46b2d244cc6ff01a89bf61274690c09fdbdca47a84ae9eac39039e81231aee7c"
-  end
-
-  # cms_scanner 0.13.8 -> nokogiri 1.13.10 -> racc 1.7.1
-  resource "racc" do
-    url "https://rubygems.org/downloads/racc-1.7.1.gem"
-    sha256 "af64124836fdd3c00e830703d7f873ea5deabde923f37006a39f5a5e0da16387"
-  end
-
-  # cms_scanner 0.13.8 -> nokogiri 1.13.10
-  resource "nokogiri" do
-    url "https://rubygems.org/downloads/nokogiri-1.13.10.gem"
-    sha256 "d3ee00f26c151763da1691c7fc6871ddd03e532f74f85101f5acedc2d099e958"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4 -> concurrent-ruby 1.2.2
-  resource "concurrent-ruby" do
-    url "https://rubygems.org/downloads/concurrent-ruby-1.2.2.gem"
-    sha256 "3879119b8b75e3b62616acc256c64a134d0b0a7a9a3fcba5a233025bcde22c4f"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4 -> i18n 1.14.1 -> concurrent-ruby 1.2.2
-  resource "concurrent-ruby" do
-    url "https://rubygems.org/downloads/concurrent-ruby-1.2.2.gem"
-    sha256 "3879119b8b75e3b62616acc256c64a134d0b0a7a9a3fcba5a233025bcde22c4f"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4 -> i18n 1.14.1
-  resource "i18n" do
-    url "https://rubygems.org/downloads/i18n-1.14.1.gem"
-    sha256 "9d03698903547c060928e70a9bc8b6b87fda674453cda918fc7ab80235ae4a61"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4 -> minitest 5.18.1
-  resource "minitest" do
-    url "https://rubygems.org/downloads/minitest-5.18.1.gem"
-    sha256 "ab5ee381871aaddc3a6aa2a6abcab5c4590fec9affc20947d63f312a0fe4e9cd"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4 -> tzinfo 2.0.6 -> concurrent-ruby 1.2.2
-  resource "concurrent-ruby" do
-    url "https://rubygems.org/downloads/concurrent-ruby-1.2.2.gem"
-    sha256 "3879119b8b75e3b62616acc256c64a134d0b0a7a9a3fcba5a233025bcde22c4f"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4 -> tzinfo 2.0.6
-  resource "tzinfo" do
-    url "https://rubygems.org/downloads/tzinfo-2.0.6.gem"
-    sha256 "8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4 -> zeitwerk 2.6.8
-  resource "zeitwerk" do
-    url "https://rubygems.org/downloads/zeitwerk-2.6.8.gem"
-    sha256 "7361fc7da53b2a81b49ab2d38792b78e99690095659c11609b6d1cc58f5c6632"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> activesupport 6.1.7.4
-  resource "activesupport" do
-    url "https://rubygems.org/downloads/activesupport-6.1.7.4.gem"
-    sha256 "3599df3432172cbd204844cf6f7743a954e115441cd988357bcc999b422a8668"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> addressable 2.8.4 -> public_suffix 5.0.3
-  resource "public_suffix-5.0.3" do
-    url "https://rubygems.org/downloads/public_suffix-5.0.3.gem"
-    sha256 "337d475da2bd2ea1de0446751cb972ad43243b4b00aa8cf91cb904fa593d3259"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5 -> addressable 2.8.4
-  resource "addressable" do
-    url "https://rubygems.org/downloads/addressable-2.8.4.gem"
-    sha256 "40a88af5285625b7fb14070e550e667d5b0cc91f748068701b4d897cacda4897"
-  end
-
-  # cms_scanner 0.13.8 -> opt_parse_validator 1.9.5
-  resource "opt_parse_validator" do
-    url "https://rubygems.org/downloads/opt_parse_validator-1.9.5.gem"
-    sha256 "2c69ece2110436148ecb78f1a5f768a7e3fd3d81db3517a484eb649de0b0f5cb"
-  end
-
-  # cms_scanner 0.13.8 -> public_suffix 4.0.7
-  resource "public_suffix-4.0.7" do
-    url "https://rubygems.org/downloads/public_suffix-4.0.7.gem"
-    sha256 "8be161e2421f8d45b0098c042c06486789731ea93dc3a896d30554ee38b573b8"
-  end
-
-  # cms_scanner 0.13.8 -> ruby-progressbar 1.11.0
-  resource "ruby-progressbar" do
-    url "https://rubygems.org/downloads/ruby-progressbar-1.11.0.gem"
-    sha256 "cc127db3866dc414ffccbf92928a241e585b3aa2b758a5563e74a6ee0f57d50a"
-  end
-
-  # cms_scanner 0.13.8 -> sys-proctable 1.2.7 -> ffi 1.15.5
-  resource "ffi" do
-    url "https://rubygems.org/gems/ffi-1.15.5.gem"
-    sha256 "6f2ed2fa68047962d6072b964420cba91d82ce6fa8ee251950c17fca6af3c2a0"
-  end
-
-  # cms_scanner 0.13.8 -> sys-proctable 1.2.7
-  resource "sys-proctable" do
-    url "https://rubygems.org/downloads/sys-proctable-1.2.7.gem"
-    sha256 "50252ca7ae3792c0fb4c5f4306697f10b4d9da73fa042d29e4eaa64017e83188"
-  end
-
-  # cms_scanner 0.13.8 -> typhoeus 1.4.0 -> ethon 0.16.0 -> ffi 1.15.5
-  resource "ffi" do
-    url "https://rubygems.org/gems/ffi-1.15.5.gem"
-    sha256 "6f2ed2fa68047962d6072b964420cba91d82ce6fa8ee251950c17fca6af3c2a0"
-  end
-
-  # cms_scanner 0.13.8 -> typhoeus 1.4.0 -> ethon 0.16.0
-  resource "ethon-0.16.0" do
-    url "https://rubygems.org/downloads/ethon-0.16.0.gem"
-    sha256 "bba0da1cea8ac3e1f5cdd7cb1cb5fc78d7ac562c33736f18f0c3eb2b63053d9e"
-  end
-
-  # cms_scanner 0.13.8 -> typhoeus 1.4.0
-  resource "typhoeus" do
-    url "https://rubygems.org/downloads/typhoeus-1.4.0.gem"
-    sha256 "fff9880d5dc35950e7706cf132fd297f377c049101794be1cf01c95567f642d4"
-  end
-
-  # cms_scanner 0.13.8 -> xmlrpc 0.3.2 -> webrick 1.8.1
-  resource "webrick" do
-    url "https://rubygems.org/downloads/webrick-1.8.1.gem"
-    sha256 "19411ec6912911fd3df13559110127ea2badd0c035f7762873f58afc803e158f"
-  end
-
-  # cms_scanner 0.13.8 -> xmlrpc 0.3.2
-  resource "xmlrpc" do
-    url "https://rubygems.org/downloads/xmlrpc-0.3.2.gem"
-    sha256 "579ac5fc5cafdac7db6898ba104ca537a03ab079253334aea2de9c347c4e47f5"
-  end
-
-  # cms_scanner 0.13.8 -> yajl-ruby 1.4.3
   resource "yajl-ruby" do
     url "https://rubygems.org/downloads/yajl-ruby-1.4.3.gem"
     sha256 "8c974d9c11ae07b0a3b6d26efea8407269b02e4138118fbe3ef0d2ec9724d1d2"
   end
 
-  # cms_scanner 0.13.8
+  resource "webrick" do
+    url "https://rubygems.org/downloads/webrick-1.8.1.gem"
+    sha256 "19411ec6912911fd3df13559110127ea2badd0c035f7762873f58afc803e158f"
+  end
+
+  resource "xmlrpc" do
+    url "https://rubygems.org/downloads/xmlrpc-0.3.3.gem"
+    sha256 "ec3d46bc63a44920ac2d67c49399fd493295ff98cb96adf25e59eaa718b38e3b"
+  end
+
+  resource "ffi" do
+    url "https://rubygems.org/gems/ffi-1.16.2.gem"
+    sha256 "8ef2ae82bb0c332d2ce3e92d9446b2ba2bc7c40a53d785a8556640afad995d39"
+  end
+
+  resource "ethon" do
+    url "https://rubygems.org/downloads/ethon-0.16.0.gem"
+    sha256 "bba0da1cea8ac3e1f5cdd7cb1cb5fc78d7ac562c33736f18f0c3eb2b63053d9e"
+  end
+
+  resource "typhoeus" do
+    url "https://rubygems.org/downloads/typhoeus-1.4.0.gem"
+    sha256 "fff9880d5dc35950e7706cf132fd297f377c049101794be1cf01c95567f642d4"
+  end
+
+  resource "sys-proctable" do
+    url "https://rubygems.org/downloads/sys-proctable-1.3.0.gem"
+    sha256 "31f61ad79aa0d4412155132beadf2b7ca706a6badce4ad2dfeda5d1ca4916e54"
+  end
+
+  resource "ruby-progressbar" do
+    url "https://rubygems.org/downloads/ruby-progressbar-1.13.0.gem"
+    sha256 "80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33"
+  end
+
+  resource "public_suffix-5.0.3" do
+    url "https://rubygems.org/downloads/public_suffix-5.0.3.gem"
+    sha256 "337d475da2bd2ea1de0446751cb972ad43243b4b00aa8cf91cb904fa593d3259"
+  end
+
+  resource "addressable" do
+    url "https://rubygems.org/downloads/addressable-2.8.5.gem"
+    sha256 "63f0fbcde42edf116d6da98a9437f19dd1692152f1efa3fcc4741e443c772117"
+  end
+
+  resource "zeitwerk" do
+    url "https://rubygems.org/downloads/zeitwerk-2.6.12.gem"
+    sha256 "561e12975d0332fd3b62cc859aff3bab432e5f320689c8a10cd4674b5c0439be"
+  end
+
+  resource "concurrent-ruby" do
+    url "https://rubygems.org/downloads/concurrent-ruby-1.2.2.gem"
+    sha256 "3879119b8b75e3b62616acc256c64a134d0b0a7a9a3fcba5a233025bcde22c4f"
+  end
+
+  resource "tzinfo" do
+    url "https://rubygems.org/downloads/tzinfo-2.0.6.gem"
+    sha256 "8daf828cc77bcf7d63b0e3bdb6caa47e2272dcfaf4fbfe46f8c3a9df087a829b"
+  end
+
+  resource "minitest" do
+    url "https://rubygems.org/downloads/minitest-5.16.3.gem"
+    sha256 "60f81ad96ca5518e1457bd29eb826db60f86fbbdf8c05eac63b4824ef1f52614"
+  end
+
+  resource "i18n" do
+    url "https://rubygems.org/downloads/i18n-1.14.1.gem"
+    sha256 "9d03698903547c060928e70a9bc8b6b87fda674453cda918fc7ab80235ae4a61"
+  end
+
+  resource "activesupport" do
+    url "https://rubygems.org/downloads/activesupport-6.1.7.6.gem"
+    sha256 "b3b7a04426d32cad7aa2ee15fa877030c87afd82d89e6e348886cc0c606c19da"
+  end
+
+  resource "opt_parse_validator" do
+    url "https://rubygems.org/downloads/opt_parse_validator-1.9.5.gem"
+    sha256 "2c69ece2110436148ecb78f1a5f768a7e3fd3d81db3517a484eb649de0b0f5cb"
+  end
+
+  resource "racc" do
+    url "https://rubygems.org/downloads/racc-1.6.2.gem"
+    sha256 "58d26b3666382396fea84d33dc0639b7ee8d704156a52f8f22681f07b2f94f26"
+  end
+
+  # Not listed by `gem install --explain` but required for `nokogiri`
+  resource "mini_portile2" do
+    url "https://rubygems.org/gems/mini_portile2-2.8.2.gem"
+    sha256 "46b2d244cc6ff01a89bf61274690c09fdbdca47a84ae9eac39039e81231aee7c"
+  end
+
+  resource "nokogiri" do
+    url "https://rubygems.org/downloads/nokogiri-1.15.4.gem"
+    sha256 "e4a801e5ef643cc0036f0a7e93433d18818b31d48c9c287596b68e92c0173c4d"
+  end
+
+  resource "get_process_mem" do
+    url "https://rubygems.org/downloads/get_process_mem-0.2.7.gem"
+    sha256 "4afd3c3641dd6a817c09806c7d6d509d8a9984512ac38dea8b917426bbf77eba"
+  end
+
   resource "cms_scanner" do
-    url "https://rubygems.org/downloads/cms_scanner-0.13.8.gem"
-    sha256 "d271feb53d96b01089b512e27080537de92501f224cf479ffd9ce599b36ca795"
+    url "https://rubygems.org/downloads/cms_scanner-0.13.9.gem"
+    sha256 "be79a61c6fc69fa0cb5c2c9ec3237401d30e1001bbfc014a0b2313d0e66c7b5c"
   end
 
   def install

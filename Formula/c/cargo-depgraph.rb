@@ -11,9 +11,11 @@ class CargoDepgraph < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4be7bd761790bf6659ff39e751e1d5483239ca6fb88fa75f6c7224b0b4e3f15c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a85fe08115630edfbf6ca9e45fb992dad14764216b5a7a95d6a6618043c35e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ccfb07e2c8f69244373ca5260b7d8ec5a412ff0028136756e8b4ede03a55f6f4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f6c261795d2024686bb9e5a4fb2a66a87cfc03568fabf13569d656838caa0ef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e66c0f1cacdd423f395150856db53ad913b4921a7a961265a64a0c1feb6c1872"
     sha256 cellar: :any_skip_relocation, ventura:        "93a09afedffc4580f76060a16599508730f77b56ecc4ebab6442ba16b6e93b1d"
     sha256 cellar: :any_skip_relocation, monterey:       "51bdc864ae900348f1a5cf5609fb30d35d754d9e8626da25a70e06737b6983f1"
     sha256 cellar: :any_skip_relocation, big_sur:        "eac46431eac8ddec19b2f6de50bd359e018ffd8eedcb2abfc9d350c3ce74dc12"
@@ -31,9 +33,9 @@ class CargoDepgraph < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV["RUSTUP_INIT_SKIP_PATH_CHECK"] = "yes"
-    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
+    rustup_init = Formula["rustup-init"].bin/"rustup-init"
+    system rustup_init, "-y", "--profile", "minimal", "--default-toolchain", "beta", "--no-modify-path"
     ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
-    system "rustup", "default", "beta"
 
     crate = testpath/"demo-crate"
     mkdir crate do

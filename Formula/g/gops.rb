@@ -7,9 +7,11 @@ class Gops < Formula
   head "https://github.com/google/gops.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9705e404ae430eef52e18a9bd0efcd7aba007de76ef17d967a1da2c949e73130"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7680e1666c0a84e516a2d8cfc5882137a3ceec2f766ed52fd329c5f2381c2fb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "73b0acd3e244d661ad8afb34b2deae54ce4fae4ff0915a96fe74d97d869f55dd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "153c588b4492ff65989099e2906417ce9653ad5d3d44268efcb616d353e181e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4cbc574d3ccc11003eee6cb68d68f0e64235a84007feddcc0e5a1e154bbd9089"
     sha256 cellar: :any_skip_relocation, ventura:        "108f4f2b6f4e5f79ca47026f68830c2b9b024afd3d725b58dc8ae6e65a4dd25d"
     sha256 cellar: :any_skip_relocation, monterey:       "a65ae8fbe8e9761b3326e1b3f39dfbfa2bbcbc1156adfa012824661735c360b0"
     sha256 cellar: :any_skip_relocation, big_sur:        "e14a6d521e10aaedd20738507a2e02100d66c31b90243916ad846bd500c7bfa5"

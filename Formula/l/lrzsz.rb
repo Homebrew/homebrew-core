@@ -11,9 +11,11 @@ class Lrzsz < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "427b498d1c8853fdcd90bc96572f5f622c7c17b229101382fa235aad6e95fd40"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e482e9c98553b62eb062bc44af16fe368ab8d58eea5802619e6f88c75204bbeb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d103f9f4cfdf4f19a69c5d47b80ab8bfcfa2e19ead1c187a25d89e49b70120a3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af1dde66f4c633e9fdfa3b5108987626f79d3f8e3c5efc80b55f29c4720cef04"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7e142df2d83321df66df998711fd74b4e69394064e11851506cefe77acdeb7b5"
     sha256 cellar: :any_skip_relocation, ventura:        "4136c5c9b7272acc2d6bc646e25b100eac45357b83ad6c12dada8307ae138a8d"
     sha256 cellar: :any_skip_relocation, monterey:       "7cdda25c0645a005a715e99bfd591c575425cb8eb4667b4c51aadaab097154dd"
     sha256 cellar: :any_skip_relocation, big_sur:        "8030d909e2c336ada4563b4bb7e052f8ab382e3ea1325599bcf52b14a35fcbd0"
@@ -43,6 +45,11 @@ class Lrzsz < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/ed7e89dfbf638daf6f217274e7a366ebc3c7e34e/comms/lrzsz/files/patch-zglobal.h.diff"
     sha256 "16c2097ceb2c5c9a6c4872aa9f903b57b557b428765d0f981579206c68f927b9"
+  end
+
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/1dc9c770d34f9f235e5ed619d9284e521d4bbeb8/comms/lrzsz/files/implicit.patch"
+    sha256 "215bcf3d21f8cb310c1a3de9a35184effe7f10d2e6ab4d91a65cfb436ddc5c4e"
   end
 
   # Patch CVE-2018-10195.

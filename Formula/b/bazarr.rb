@@ -5,19 +5,19 @@ class Bazarr < Formula
 
   desc "Companion to Sonarr and Radarr for managing and downloading subtitles"
   homepage "https://www.bazarr.media"
-  url "https://github.com/morpheus65535/bazarr/releases/download/v1.2.4/bazarr.zip"
-  sha256 "4dd05acde63fc3dbd211bb3f3a046d7688bfae20146a2d73ae633f03c79c6960"
+  url "https://github.com/morpheus65535/bazarr/releases/download/v1.3.1/bazarr.zip"
+  sha256 "02150caef9d9a28d1731f27a17d062e260b4864e53dc49103d7fece2d1d67227"
   license "GPL-3.0-or-later"
   head "https://github.com/morpheus65535/bazarr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7b0c2439a686beaadd18c60ceb72855cbfe00b16e470079302d4b40116c98f1c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ecf5450a7d3ede1484357669e564c7a6392149377b4c5dda57e9490c22ac6e9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a166a08f5dccc1095f773be7f0cd0dd3d71e1acc364b00afa0e4cc7279bab262"
-    sha256 cellar: :any_skip_relocation, ventura:        "69b835d7998c4d5a016fa202ca1f5c7b2a6688444ea2c704d4b529ba3ddcf2e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "830671046b2eb128b22229170a74a313ebd9433737d23424dbab29018fbdbd4b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5d6e962a7aa277c69055e6663ace6008ac802904060ffc6983ea6c97df5bb3e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "388b0d13df91711071656eba524fb55517ffc8b065ae414e0a2ba67e7ac5f4b2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5f8110d8fa7ac2da9c1ff3ec183e3a1d53fe2a05d092c33bb2533406802cf014"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3094952807be577cd5547fac535060d69c6f24c0a6323d1500216a57b876fd1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5411e167b6577349e10d72bd1b713a6a8c2e3d669ed5d63fa6fe1520aeb66b7c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "55c304fa19b2a0c37ec161330b5b29499514da7ef3dfbfed5aafa9bfbd591a24"
+    sha256 cellar: :any_skip_relocation, ventura:        "b67dee5f86d031727a547dceebd80e84e180243802addaf2a83e381385e20401"
+    sha256 cellar: :any_skip_relocation, monterey:       "87bbe837214e2f6d7e5a85ca1e314eabfa66703944d4d5a94cdc509a951fb7a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d28f197321bdcb049bec199c1190d080eba53cb27b0193112f748821ce5c918a"
   end
 
   depends_on "node" => :build
@@ -25,17 +25,11 @@ class Bazarr < Formula
   depends_on "gcc"
   depends_on "numpy"
   depends_on "pillow"
+  depends_on "python-lxml"
   depends_on "python@3.11"
   depends_on "unar"
 
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
   uses_from_macos "zlib"
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
-  end
 
   resource "webrtcvad-wheels" do
     url "https://files.pythonhosted.org/packages/59/d9/17fe64f981a2d33c6e95e115c29e8b6bd036c2a0f90323585f1af639d5fc/webrtcvad-wheels-2.0.11.post1.tar.gz"

@@ -12,9 +12,11 @@ class Conserver < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "18063d8dc8777cfa74adbdcd2014c955f6961f9eaf1b9049a9a13946b1fe6203"
     sha256 cellar: :any,                 arm64_ventura:  "8c85d9e24aeeb0f9e6ef4840f5927511db3179ad29fcccfc4643d8d17660402c"
     sha256 cellar: :any,                 arm64_monterey: "cbe78e9a34501f728a0815e9ccf11c3a149b6e16fd902339ccf1680cebefcebe"
     sha256 cellar: :any,                 arm64_big_sur:  "a01d04c6b9b777e20f96e1a05d32040d636b624c647f114c2093e04d117d11b3"
+    sha256 cellar: :any,                 sonoma:         "7d631907a0b42cd0c3988f9a61466237b6d65d71999862b756849bce69d08274"
     sha256 cellar: :any,                 ventura:        "223d91506822b1d74d0bd1c0c8c2c4e7649ebe23d8ef2f5c431b76f84d7d975f"
     sha256 cellar: :any,                 monterey:       "3184c7059ff555f33cfe4e8c6b06c58266bd6cfd17991493ec1edd2f79436091"
     sha256 cellar: :any,                 big_sur:        "909d45ca31f883bc661141cb2fa173c2c218dd5cd9305ddb5737aac0081eb81d"

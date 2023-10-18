@@ -12,9 +12,11 @@ class Ats2Postiats < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53cc8a637f0375080c8071792bef06c870579bab915aa44f7525ae580e9fd8f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "edc96757ad3e2248e4d87f904edeb0af670f07989406e0f5a4ae5e9e342ef959"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bd07b22230211e0dd486209ccf7e4e370ae0f23cd651b57ad53ecd897143affd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e1df17625267408944c93dc245b69d4d9fbbc94a2c61352d4ec1a23a88168e0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8237ef66fb0b9a07269662b74692cab6553440ed113d2b40fd1f304915b60711"
     sha256 cellar: :any_skip_relocation, ventura:        "fb64d3578989ac866fbe0aa59cb22626abaa518dd0f82c196a1378b8983fd6cf"
     sha256 cellar: :any_skip_relocation, monterey:       "ea6fbabe5daedb333244e591027f092c335a08ca202863df9ea045f36d983661"
     sha256 cellar: :any_skip_relocation, big_sur:        "747125c30964abb7ad33c827104ca58fdacbba8010f19e3cbf9c0590d3b95734"
@@ -27,7 +29,8 @@ class Ats2Postiats < Formula
   def install
     ENV.deparallelize
     system "./configure", "--prefix=#{prefix}"
-    system "make", "all", "install"
+    # -Wno-implicit-function-declaration is added to fix compilation with newer Clang
+    system "make", "all", "install", "CFLAGS=-I. -I./ccomp/runtime -Wno-implicit-function-declaration"
   end
 
   test do

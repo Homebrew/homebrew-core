@@ -6,9 +6,11 @@ class Unac < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "27170110668e4f920abf561c75cc4b8f0f9bed1ba84ab5b52426663f2fb68546"
     sha256 cellar: :any,                 arm64_ventura:  "9ef0e09918bdf4928f18a5ef4759da9877635890cae18a739b149d25933034f8"
     sha256 cellar: :any,                 arm64_monterey: "4a72fdcbb521166b6e9e470cbbdd8027d52d883e849a3428583f5b00b16353fd"
     sha256 cellar: :any,                 arm64_big_sur:  "5d58477a342637a20d39e60b0164846f14e8f2aac2d1fc01e162e8eefef63af7"
+    sha256 cellar: :any,                 sonoma:         "98f6c4c1cdaef704abb8111989b7ab0bc8cf215164a6c8f175c1e6ef5b3ccda4"
     sha256 cellar: :any,                 ventura:        "46fa079329a7e44ea6f5d48cc8466d73cff663a9ceb2753159e0045babaff7f7"
     sha256 cellar: :any,                 monterey:       "9c0f897a477038083f9531c3a258f85df3dad6d5fbdcd0e00df8070ee4675c26"
     sha256 cellar: :any,                 big_sur:        "434a30fa5bd969126e166925e6509885bb45e12977f4690c08b2b4fbcfb20dd4"
@@ -30,23 +32,18 @@ class Unac < Formula
     patch :DATA
   end
 
-  patch :p0 do
-    url "https://bugs.debian.org/cgi-bin/bugreport.cgi?msg=5;filename=patch-libunac1.txt;att=1;bug=623340"
-    sha256 "59e98d779424c17f6549860672085ffbd4dda8961d49eda289aa6835710b91c8"
-  end
-
-  patch :p0 do
-    url "https://bugs.debian.org/cgi-bin/bugreport.cgi?msg=10;filename=patch-unaccent.c.txt;att=1;bug=623340"
-    sha256 "a2fd06151214400ba007ecd2193b07bdfb81f84aa63323ef3e31a196e38afda7"
+  # Patches from https://udd.debian.org/patches.cgi?src=unac&version=1.8.0-8
+  patch do
+    url "https://sources.debian.org/data/main/u/unac/1.8.0-8/debian/patches/gcc-4-fix-bug-556379.patch"
+    sha256 "f91d2c376826ff05eba7a13ee37b8152851f2c24ced29ee88afdf9b42b6a2fc8"
   end
 
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/unac/unac_1.8.0-6.diff.gz"
-    sha256 "13a362f8d682670c71182ab5f0bbf3756295a99fae0d7deb9311e611a43b8111"
+    url "https://sources.debian.org/data/main/u/unac/1.8.0-8/debian/patches/update-autotools.diff"
+    sha256 "8310103e199edf477e3f3fd961a2ecb09bf361ba1602871b8a223b1ee65cc11a"
   end
 
   def install
-    chmod 0755, "configure"
     touch "config.rpath"
     inreplace "autogen.sh", "libtool", "glibtool"
     system "./autogen.sh"

@@ -7,9 +7,11 @@ class Groestlcoin < Formula
   head "https://github.com/groestlcoin/groestlcoin.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "654cf2fcd91ae68cef262de33d7363033e70581b7c18c81534843b845c3d2087"
     sha256 cellar: :any,                 arm64_ventura:  "8df27e0a9ad72e4641f117dd09343d2af38e7425a9d564faab54fa4235fbd6ad"
     sha256 cellar: :any,                 arm64_monterey: "f6e9c3d1f8c170b0db451b7309141128a60cb4a88179ebdf317be99fcf8f85d3"
     sha256 cellar: :any,                 arm64_big_sur:  "46960b1e46dd3cf020da8afebf573dad45e17c485e2ce8b7cb78c8a8486b5908"
+    sha256 cellar: :any,                 sonoma:         "99dac6681fabef69342d99bf72d87f5a9fea249bc23a50837657d9e7b73d60da"
     sha256 cellar: :any,                 ventura:        "e06a712aa0c6d318c287963d3802302b8b6cc9310320b70a471d69b2573aa36a"
     sha256 cellar: :any,                 monterey:       "352b6b249dbab2f9a2cf6fd2a38989c8cd382336b2a6d98e3dc18d1514e21e05"
     sha256 cellar: :any,                 big_sur:        "a677d317e7cc24d8494bbb87a5e2b2687866904f0e58a834ba71ae0c95dfe419"

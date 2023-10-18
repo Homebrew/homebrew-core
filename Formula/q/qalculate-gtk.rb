@@ -1,18 +1,20 @@
 class QalculateGtk < Formula
   desc "Multi-purpose desktop calculator"
   homepage "https://qalculate.github.io/"
-  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v4.7.0/qalculate-gtk-4.7.0.tar.gz"
-  sha256 "4500b9a6567868821f3d21f1403faf8491422bec1e5692397678a7fcc41a52ab"
+  url "https://github.com/Qalculate/qalculate-gtk/releases/download/v4.8.1/qalculate-gtk-4.8.1.tar.gz"
+  sha256 "b97e84a5f52b277eefb8e5b9b60cfc7aeed3b243f92a9725ff9cc3aeeacf41c2"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "3c33f0aebab360a84c05845de9bf9b185fb4e83768633cb7de7887a82e9e91a9"
-    sha256 arm64_monterey: "667e9b0b0aee3e584e6eaae90b004819aacffaebd45c4795d2a4565deae7d76e"
-    sha256 arm64_big_sur:  "fc425ddda010799cd2fd0e7e1529ed03e49ee867dd0834042c640fa4c1c72839"
-    sha256 ventura:        "edaff9c715de640257e84bb4527d920684c3b6e96cd1a53e069702bd3439ee1e"
-    sha256 monterey:       "f693093c29dfabc72781914f1c77ca937680d6c7856c19ceea4fd5ee4af9a597"
-    sha256 big_sur:        "53a6ab8d88240c1ac337495f0a9ad7d5075126d2c60291fa7a0101bde82fedfb"
-    sha256 x86_64_linux:   "f5135d3c388604b570fba3049d8542e5e62ada0c0d341dbd7c3e0bd91b809929"
+    sha256 arm64_sonoma:   "7d598b6ab8a1631a64c3606b8299aa874ca5aad2b0dc74b0a71f1e8aba358c44"
+    sha256 arm64_ventura:  "25d2c13c609ce148da7b0d16ef1db5661f45919a02fc60cde907284a10a2c95f"
+    sha256 arm64_monterey: "327782673f6d44feb5fd94780fb6f035660d8509eb89bf7646d3566c90e73f12"
+    sha256 arm64_big_sur:  "cf33a03eb79acaf470ffa04ba1af4255dc37de223f1220f23a97498762456025"
+    sha256 sonoma:         "239ec5c9c49cf04eeb69858adcd870176563fde38a42702d977a8a68dad8f5b1"
+    sha256 ventura:        "4fb639709e34ddecedc522ff2d011a4ab7446a3621fd7e3343b69ca70f8e186f"
+    sha256 monterey:       "54c81069d96282328cb53a96831c483ea47be9cf0aaab82866f27eaf6a5b9cb4"
+    sha256 big_sur:        "a23b0d80a5097b4d4644e6d16481898cd5e7f3128fcef228c99bdaaa38cccbce"
+    sha256 x86_64_linux:   "f7ae75461c3f3428886efa4b8e16fccfff19fd6ddbb89578f7b73c804cb0d9fa"
   end
 
   depends_on "intltool" => :build

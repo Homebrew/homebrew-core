@@ -7,9 +7,11 @@ class Eiffelstudio < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0f874957ea698f23de6ad67f6bcde3d1f06d636857c5b81cfd69bc502dd4662f"
     sha256 cellar: :any,                 arm64_ventura:  "f649798d11ada5d28576c801c4f9f3e5b73aae8e7b82ba73c502c4894e405415"
     sha256 cellar: :any,                 arm64_monterey: "7702a2a1ad36efe8571c676468582eacc949c64fbd785684e64adbb9613c394b"
     sha256 cellar: :any,                 arm64_big_sur:  "05891069a779e163414a4fb38126f81974375bb762a16391446efb7d8925213a"
+    sha256 cellar: :any,                 sonoma:         "e999afb43388ab169f86074adcf157008574d5e27024f492ff82dde005b46548"
     sha256 cellar: :any,                 ventura:        "e462d3c40cc95e39824936bd6365416bcd968a16c605acae501e1f68b8ba08e6"
     sha256 cellar: :any,                 monterey:       "7b93bd2cba3b0fd57de705bdce5d9f5d9602f12789468a067d40cafd2ab1a225"
     sha256 cellar: :any,                 big_sur:        "6f6cdc2480c8fd52baa606189ef7a7f381779655640bb84ce89c7651d52858c5"

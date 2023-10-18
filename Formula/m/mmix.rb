@@ -10,9 +10,11 @@ class Mmix < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45fa11184bd917b9c6fed6910afb1f5b2cf9a92d1bec2a0d821e3b3c68ccb5e2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf7b89901297da556ae769c209fae21d23057d4e0277197b3e317efbcef427a7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb698eeaba81433e47c44d2eab8858b272c3c711d6b6a745e9a43d7d0c3908c7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "03a6468d729fc0ccddb6187c50b8f0318dedbe2bf613ef2e86e95aada83daeac"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8bc17d38356b5fa43bd4029db34b82fbe6cca469a3d09831a9747b4c945b17d5"
     sha256 cellar: :any_skip_relocation, ventura:        "f246f0fd905410b6c8df7802eaaa0af9bcb7cde18af61a623f4f0b7a18443b8e"
     sha256 cellar: :any_skip_relocation, monterey:       "69c25099d92634bba78ac9ad1565f5af979bd473b14414cf4dd35dc9349c4a76"
     sha256 cellar: :any_skip_relocation, big_sur:        "fa0a9dd7f5ea9520ffd9c4682df2d754462a7b7e6d7b30bc8ea84f39903fa29e"

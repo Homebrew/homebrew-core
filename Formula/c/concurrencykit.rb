@@ -6,10 +6,20 @@ class Concurrencykit < Formula
   license "BSD-2-Clause"
   head "https://github.com/concurrencykit/ck.git", branch: "master"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "52db982710afc7be4787f7d4d739517a28d8b92e6e016292d4700d2164e07797"
     sha256 cellar: :any,                 arm64_ventura:  "e5dd4b47a7200e0179e740bfa48f34fa0194263e038020b97303e9b2f7cc93d7"
     sha256 cellar: :any,                 arm64_monterey: "b2d070df1dd5cad29f20b6a5192c2683086af490bd768a3b698e0fddb657cc2a"
     sha256 cellar: :any,                 arm64_big_sur:  "fad8ab6678349a6ae3a81ba7a8264591868f8c180c867f06ad98cb422d9627bf"
+    sha256 cellar: :any,                 sonoma:         "bf7d287996890d9dd003f6702950d7e2ff25e42e64c0e286d60886bb411139cc"
     sha256 cellar: :any,                 ventura:        "5543bda088a7d54b530aed705e22028a9c6a6bc75da68bad81c0afbf4b4d4b12"
     sha256 cellar: :any,                 monterey:       "f5ccb2c540ce46a669ec5960ecdeb4f92e8eaa7c8e0bd889d0bc2a11474f2ac3"
     sha256 cellar: :any,                 big_sur:        "2834fffaf1b10eb3ee40fa9f01bfbe72a5df37161cbf78f8dd016f73aaf16966"

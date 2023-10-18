@@ -4,7 +4,7 @@ class Mysqlxx < Formula
   url "https://tangentsoft.com/mysqlpp/releases/mysql++-3.3.0.tar.gz"
   sha256 "449cbc46556cc2cc9f9d6736904169a8df6415f6960528ee658998f96ca0e7cf"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -12,15 +12,15 @@ class Mysqlxx < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "683d70555153779df51d77592cfb9e216caebff08ce0f46914f6c0a92e376eed"
-    sha256 cellar: :any,                 arm64_monterey: "d2e0c2dc9d6e377683bceba98294b05cf37b7e27f09fa16bc5e1a008d5e56546"
-    sha256 cellar: :any,                 arm64_big_sur:  "986394ee4f18b46c60d1322cedb944cf55f3bc6c260cb48f5cb403e706370cdc"
-    sha256 cellar: :any,                 ventura:        "0879c16b25edce02246f09bffc4dcd94fb21fafc9e4a445accf9c1827548a880"
-    sha256 cellar: :any,                 monterey:       "75aba44deb5c3759891533ca3b1d9c1a4a04bca27a9ad218f4ffa7c5fdced92b"
-    sha256 cellar: :any,                 big_sur:        "73d8bcba51380239e981d14636a1ac225ac3e4c7b42b67610441ce080f956429"
-    sha256 cellar: :any,                 catalina:       "37f643c40b54098cdcc42a0dd19747e153f9e11ef8fb02d697e6b8ef360f998e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ad62612f64296dd4faa68b07a3a008865f948685871bcea234be57d05f34d6d"
+    sha256 cellar: :any,                 arm64_sonoma:   "eee1456f0bc1e77efe95cad1415ca377525ae10c618cbb033c190dc1309bafca"
+    sha256 cellar: :any,                 arm64_ventura:  "9244f1ab36df8527bde5bbfa1896fc43511076cb4c1312b70b88dda97cf514d4"
+    sha256 cellar: :any,                 arm64_monterey: "c042304bf3959e8ff9f5f98c6e7121af78daeeec0d3ae9efb650eabaa713536a"
+    sha256 cellar: :any,                 arm64_big_sur:  "2a0f6e540ab0ebb1594fae343e8358d98cf22bda4887d039f9e05155ec9f5dab"
+    sha256 cellar: :any,                 sonoma:         "a0f19621b399f1e21fa6cc9d902012280d960c0f39c37fbfcbd1b63c8c483180"
+    sha256 cellar: :any,                 ventura:        "665e4cc095a04a2e7d04edc1f8fb7f306a1b4923b2be8afce48b39c107873c43"
+    sha256 cellar: :any,                 monterey:       "675b77e64a1ca5dbb5fc8dff4a720a4182e7143906cceecbd074d274f5b19cb4"
+    sha256 cellar: :any,                 big_sur:        "aeaf076e16d85aaee1e5dddd2c926bd0a8cc142735ab585a7a1530e41dd15b2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d04204c93a9db0aa946a735e4bef186a0f1caddab7c985c5244b8d39e129d9ec"
   end
 
   depends_on "mysql-client"

@@ -1,8 +1,8 @@
 class Pypy39 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.9-v7.3.12-src.tar.bz2"
-  sha256 "e7a2046c7e6c25fc386abbb5132e92a7cc2491e3935699a946cb5dcbb342c2aa"
+  url "https://downloads.python.org/pypy/pypy3.9-v7.3.13-src.tar.bz2"
+  sha256 "bc6147268105e7cb3bd57b401e6d97f66aa4ede269104b2712a7cdd9f02f68cd"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.9"
 
@@ -12,13 +12,13 @@ class Pypy39 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2e2eee853177992eabf63b0c9251bf2280160e26a4571e16033871497a7c9a0a"
-    sha256 cellar: :any,                 arm64_monterey: "9b9bdc966adaaf1c15cf548a0d20eb462435feba6a21bfbc420747f72d06d6a3"
-    sha256 cellar: :any,                 arm64_big_sur:  "2b84630784d7cfb8cb5128b103672ffa56ee05c2896287cef1a4d0986acda369"
-    sha256 cellar: :any,                 ventura:        "ea237cd00d0794749239bcdca0e1fb1935754a6bf0019f22c157a86df5cc4683"
-    sha256 cellar: :any,                 monterey:       "9920ee7aa34f05b1c88e0eec04469e3168ae58f92c1a91b3ebefc9e3c539d356"
-    sha256 cellar: :any,                 big_sur:        "59ae88c8b04a9fd672187616c029d74210829fbba972d7354a815ffa3574040d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df10c4fc32676bace39ce7d1bba754df9805695f1316b4e1404d421daed2892e"
+    sha256 cellar: :any,                 arm64_sonoma:   "86e42aa52ee6c734577ce2ae2b2cce97710b0b9b3583cd95dbe1b35ee65741c5"
+    sha256 cellar: :any,                 arm64_ventura:  "57d5dde2da036b7c837883b64ea855352588f6c97a03690b3c3d688836dcf879"
+    sha256 cellar: :any,                 arm64_monterey: "4e9192e575e82587bdc0c21a1c33c563c9e3f73a12704974c2fef3e72225f427"
+    sha256 cellar: :any,                 sonoma:         "2ca57f280e3d14097af6752ab8a7a9f25ac9560e6c0f6c86ec1295bc80c56847"
+    sha256 cellar: :any,                 ventura:        "22a926e652c34beee6ba3c037f8ccd0ae037d1a3d198bf4832a657665325d0f7"
+    sha256 cellar: :any,                 monterey:       "df5e03f02dd99b43d69bcc4828c5f4d68ae0dab7b90db3c4c064f61c23ecc0bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c6f5688746dfa9f23f2ac347e56690da02a5818fe713b7295c0c70d79f36f97"
   end
 
   depends_on "pkg-config" => :build
@@ -44,8 +44,8 @@ class Pypy39 < Formula
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/fa/ee/74ff76da0ab649eec7581233daeb43d8aa35383d8f75317b2ab3b80c922f/pip-23.1.2.tar.gz"
-    sha256 "0e7c86f486935893c708287b30bd050a36ac827ec7fe5e43fe7cb198dd835fba"
+    url "https://files.pythonhosted.org/packages/ba/19/e63fb4e0d20e48bd2167bb7e857abc0e21679e24805ba921a224df8977c0/pip-23.2.1.tar.gz"
+    sha256 "fb0bd5435b3200c602b5bf61d2d43c2f13c02e29c1707567ae7fbc514eb9faf2"
   end
 
   # Build fixes:

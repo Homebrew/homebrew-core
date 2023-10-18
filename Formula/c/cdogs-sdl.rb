@@ -12,19 +12,20 @@ class CdogsSdl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "de84293a061b921d52579e08dee01d406af21e5c2e0c879334b6671323e916bf"
-    sha256 arm64_monterey: "d47ee8ce5044bad8f2c37ce34145a82a6b2f6e35d7177d893889c4e58bd1d670"
-    sha256 arm64_big_sur:  "85268b66b49fd79243743b889b392060f721098f365f84ec54dc55d2c8083763"
-    sha256 ventura:        "5f36be72087ecf02d4c7e43abe33c549d260b218edcae8d9edb53c7d4e215c78"
-    sha256 monterey:       "55c75aaf8a865a6da8310c21956abd2910d5acb1c2589b13f397693b7782c608"
-    sha256 big_sur:        "460fd533f9a602c86a59015bbc9c7ff329f92735be4d05f67a98e6a4a2717457"
-    sha256 x86_64_linux:   "ab5e85ae2fe3ac76ed6408063ddc5abdf7e6f59f378ee062c1f390c3083d08d7"
+    rebuild 1
+    sha256 arm64_sonoma:   "e98f5afcb97d4b21f52afd14bff13b4ad9e2c6b98b36c2e5a22acf35cb342295"
+    sha256 arm64_ventura:  "85bb144f474cfd58dd6abaea3a4a46e6b156decd58b026af8c7f97147a8a8454"
+    sha256 arm64_monterey: "401c109ca7a1e2001989284902d1b2c3f861d21ba1fac5537ce75558c0a43e4d"
+    sha256 sonoma:         "429f62c0d2f5a0299ce10bdda8133646f7f3160ed4caacc77658dcdae58de61a"
+    sha256 ventura:        "7d8e4a34d38d70e8e8fa5cd15fd53d5ab00b83edb752e664c43a8367cf5f5596"
+    sha256 monterey:       "c125ecd6f390d45e4ad45860c0068e6efa155737f27f7ef70cca74783b9eadab"
+    sha256 x86_64_linux:   "3d9de87a4a0f34dd18860a8a5f7d2ba9f7bb39d561d9fe81741676d4f46db946"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "protobuf" => :build
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"

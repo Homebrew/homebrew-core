@@ -1,21 +1,19 @@
 class Terminalimageviewer < Formula
   desc "Display images in a terminal using block graphic characters"
   homepage "https://github.com/stefanhaustein/TerminalImageViewer"
-  url "https://github.com/stefanhaustein/TerminalImageViewer/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "9a5f5c8688ef8db0e88dfcea6a1ae30da32268a7ab7972ff0de71955a75af0db"
+  url "https://github.com/stefanhaustein/TerminalImageViewer/archive/refs/tags/v.1.2.tar.gz"
+  sha256 "6807ab4986b3893e97e8ee0eb59f02d93ff74a3994bf524d7747ac80b827184b"
   license "Apache-2.0"
   head "https://github.com/stefanhaustein/TerminalImageViewer.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c81b92d798635c6fdae0106ed4a1633c70985e93f80e8dee1506e53b214ce29d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f6aeba5ada7ff92bc303930dfc3fba0d89cc3d6a06a0ce12db97856e2b4dde8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1cfe13918f86cb72157a042bc009874829d4cf59ab9426ab3bdda4614421d22c"
-    sha256 cellar: :any_skip_relocation, ventura:        "1743e0ace153f89e0a9e7e4fc05c17ddb0cca6f8c2c2c20aa4309ee1966cb06b"
-    sha256 cellar: :any_skip_relocation, monterey:       "9197c1aa0d01e3bafaa8500ea96b56c0b7fba1f0b20d2fede4b8d30df2d10b9a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "dbec90a4aa92c309150e28ba05bb18ba992f4904e590c97b43dc5a8273917aa6"
-    sha256 cellar: :any_skip_relocation, catalina:       "87321c04895355910aa3fdeb3ddd7ee0bb57360dc4e2ca833757c0143a730632"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cbd1e574fbc0887390334a602a6110a98f1d6400c3cac9ccd9bac1adf28908a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9eaaf65db7366655dc972e5a74fd9e83a29a43ae6d2abe999d49bbeb2cc4a106"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14e11f4ffaf73746aeeb970788d23ca773ba6fc7e6555ba0a26630c57107f473"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b9d18a0d8af8ab824b41235b49a7f161881df7bfcbcdcb6689be83aaad0a4ae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a17756964ac946c3559f040d0c59f3d5ed64306e203724d44e297a4ca5cd21b9"
+    sha256 cellar: :any_skip_relocation, ventura:        "e3fb80f6ffedd3ebbf6319c6348d74af0f399b6b16c77605a95ef143f626c620"
+    sha256 cellar: :any_skip_relocation, monterey:       "04257fc4451f77b686e47aba01e76e691ac1dcc375a8dfa499434a3113e30167"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6307c82112b211b7a05514a638c99191d3c31f92d6b196a4b1a987a6d4bce368"
   end
 
   depends_on "imagemagick"
@@ -24,7 +22,7 @@ class Terminalimageviewer < Formula
   fails_with gcc: "5"
 
   def install
-    cd "src/main/cpp" do
+    cd "src" do
       system "make"
       bin.install "tiv"
     end

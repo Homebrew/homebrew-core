@@ -7,9 +7,11 @@ class Packr < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0c506346d1094e616583eda4f6904eb0cf67a9df0c534a76be04bc471e556a4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "012421ccb6766aa56682433e05e85b8c8b6afc1c2681edbc856a02c2fecc74d7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c7cf08f5bbb1612452c67526c02f0f9d48ca9837962c89ba6a60886280c61dc5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da232cec4e97f9565bd16bb0e3e4d64abbd4699883a4c1b380217312674ad5a7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dc6109395c36939386a732a27731896a19e2bf0069e4b2ca86019a3d460bf3ae"
     sha256 cellar: :any_skip_relocation, ventura:        "375adfa65193c1923987f2edabe0e145c98514eecabdf4b9868836ee1362e104"
     sha256 cellar: :any_skip_relocation, monterey:       "035174493dcdafadae9f1c38c8e651f9d2511f37df2eeb9e9634e02dc5791f9c"
     sha256 cellar: :any_skip_relocation, big_sur:        "3ced81e9a80049d9f1c878cb7b5850c7d1fe61b93b9f1847e659180f9ed0c215"

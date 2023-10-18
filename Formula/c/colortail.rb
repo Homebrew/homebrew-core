@@ -7,9 +7,11 @@ class Colortail < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dddf27b1538766c826383b6c53477a543f0d1944cc36f49e5559b30c967fda67"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "01d31038e80f6c276198a8dba844c6090156125163588cb42b344673507c68e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "620058633e6ec31c36c0cc251d355a1ec4537f91d1563e95b5308561b2277fdf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2d7e35ff95a2d161fc60fcefa368c901dbe3ff1c973025f7f4c96617fd959fc3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "71231c312b32b026241435da0d1dc85456f9c58c0555062e9deb61ad0575ee89"
     sha256 cellar: :any_skip_relocation, ventura:        "83d2bb33d8908c63fa2c1c7112afe87c90fd1b185b0783b0fd05e6f0cf910a48"
     sha256 cellar: :any_skip_relocation, monterey:       "94feb2affa50d2d9e6b829d1608246f4a4aa15b09adc485080da655022a822ad"
     sha256 cellar: :any_skip_relocation, big_sur:        "1cbd1fd25ee747f5c8db91de50511cc93ded9deb1b6daf99b343f5efaf449cda"

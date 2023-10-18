@@ -7,9 +7,11 @@ class Cuetools < Formula
   head "https://github.com/svend/cuetools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d73bc896a9509dae8389723d55e686f56d361f361ce19913092d7e3c294acdd1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "66cbde230df93cb4cd662c02ff028989e141f6c2cf0e50769a60c4c3bac95c48"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b8f56e6ee35c74523629176408833a619c16aba5b81ab260222ed1682f7f938"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6065775e7e6286464caa093613104c747720e1b9ea98f29f71abea5a365ac05"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d081a481b29edd36ca8444f1f5a959f825b15326713f4f44445cc203c43726a5"
     sha256 cellar: :any_skip_relocation, ventura:        "812f65a66d659a29eae61ad58c82c9ab2f993fd1ae26b8ec5f6577e07d5983f5"
     sha256 cellar: :any_skip_relocation, monterey:       "65929af8ca94c0c28f16886667d1869924da3bb193ed10797af30f0e43de1744"
     sha256 cellar: :any_skip_relocation, big_sur:        "f649575d3661f08e573a8e72aa3e45580ed8f75f89fbe2409b2684732ab0f0a3"
@@ -43,7 +45,7 @@ class Cuetools < Formula
         TRACK 01 MODE1/2352
           INDEX 01 00:00:00
     EOS
-    system "cueconvert", testpath/"test.cue", testpath/"test.toc"
+    system "#{bin}/cueconvert", testpath/"test.cue", testpath/"test.toc"
     assert_predicate testpath/"test.toc", :exist?
   end
 end

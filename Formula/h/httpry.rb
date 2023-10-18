@@ -8,9 +8,11 @@ class Httpry < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b00d782c62d0ecf4e4b784178575ce77075887d1a614f3c4cc16127cd1ee37e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a55a20ab1f6989ce19201f8f542961cf83dedb772a32006f600270ee199b551"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "35b7bf13b5cb242152bddbdd26ffc2d3102849a0ff8c95f5b7fac5ee818cd0ae"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "96df271f206bb36741a419eb5dced955578cb462c849da52e61778102f8629d2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d59fe1cd0cbceb67f849c6b39f65f391eaba5b8a31fe7eabe240646abb29ae17"
     sha256 cellar: :any_skip_relocation, ventura:        "20c4af64c9155666c8c0c777c065aef44bb29e35c339e280d3e834b5759cd026"
     sha256 cellar: :any_skip_relocation, monterey:       "31a42f2ee46af90cf63b5da4cf20066a8a35cb4f977794e94e1179bd2df01169"
     sha256 cellar: :any_skip_relocation, big_sur:        "4be4a4e9939e75e8eb4854df6003265f986ada5b2d08ba96fbaf355323f184f2"

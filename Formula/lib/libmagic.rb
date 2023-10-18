@@ -11,9 +11,11 @@ class Libmagic < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "4175e9bd00edb289020b1412fe1762554ccea7f5073050134995fc1578062341"
     sha256 arm64_ventura:  "ec5c143e70bff4635e77a831ac3a03a059d11fdf0512d37e6ab7de977dca8ad9"
     sha256 arm64_monterey: "a2e6411d29aaeff36e1e458fa9ac152d5f16a6093f8dd7c724c70da1afbd1f88"
     sha256 arm64_big_sur:  "3bbb6a6b220df55a5fcb8df54a170003d1dc4c7a3fbd3bd26a56f17ada8d0025"
+    sha256 sonoma:         "41360c07f92f0a4ab86a78048f6c1fa74a0d1192b60ad45954d384d7606adada"
     sha256 ventura:        "81ae0df797e6cf1af040f0a99f446ff1ad2f8a8ca2a70d6b34c847996754a585"
     sha256 monterey:       "7d6b7e742b260e15df798b70e56f96a978aca56fe16777416bffec271bd077b6"
     sha256 big_sur:        "81c93a0805ef1e1a519988bf0c561bbcff058f9a129bec9691c4177505052bff"

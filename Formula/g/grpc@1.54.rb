@@ -6,6 +6,7 @@ class GrpcAT154 < Formula
       tag:      "v1.54.3",
       revision: "868412b573a0663c8db41558498caf44098f4390"
   license "Apache-2.0"
+  revision 1
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check releases instead of the Git
@@ -19,13 +20,15 @@ class GrpcAT154 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "bfa00d3fae2fa2979f96586eb27b14bfd7b80c03d6063d096da4e66663dc333f"
-    sha256 cellar: :any,                 arm64_monterey: "3af3788a10d4f87457e49701295175e7d7ea56ff3130aa86dde7e5509d0133b2"
-    sha256 cellar: :any,                 arm64_big_sur:  "30ae9d7735656bbdcd1e93a1738d684ecb6d05d878217ad98279d3676cc9ab51"
-    sha256 cellar: :any,                 ventura:        "64f3093de3222d52d44df48bb181d70d977306e115adaa9ce81cfc8329d26479"
-    sha256 cellar: :any,                 monterey:       "9a40ad20338637b7b9a4faee58bef5b60c73cbe985482933e08dde0c1fb016e1"
-    sha256 cellar: :any,                 big_sur:        "1594c126ff699b67f58a15c670bd2da87f2d4cc07d2200acbb5d831d0969536f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "163546cd8b26a7784041581a12fc79bf01c2484b2805f988686ca7a059b15ecd"
+    sha256 cellar: :any,                 arm64_sonoma:   "cf92a1cc58e01fea2cc5344d1bf56cc4599a621a19221afefb973b8b54c8c324"
+    sha256 cellar: :any,                 arm64_ventura:  "0631cf6a63fca83abd8ff53b0a41811957c8efaf7a422a9f1987f5ee2fa4f88e"
+    sha256 cellar: :any,                 arm64_monterey: "b757a9ba28c98f1a0b2190c4fd8d30fd578b8024271295dda9940494a7184eb4"
+    sha256 cellar: :any,                 arm64_big_sur:  "56e870bfa7c06a1726ffd4661f1d7a7e74fe9688b80544a44244262b40e64e3a"
+    sha256 cellar: :any,                 sonoma:         "381a3af7f47c997510798e7e4636ef9ccfb54247661fa46759ba0d3ea2be4290"
+    sha256 cellar: :any,                 ventura:        "8d73e997bc07465c96293af80e0530efdeaa92efe93fbb4bf73953895780e0ca"
+    sha256 cellar: :any,                 monterey:       "3452857ae337fc8dfd15501a3794638692afb3f416643c072f966aa2ad76d755"
+    sha256 cellar: :any,                 big_sur:        "6217233621ae1a4e337f64f5f6e0b7202e45266bddec1d33b13f272dd9675659"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28d7467fb3e8243d7981ad883cc4a9838d477da3fd4b3e5cdbafb9b30ea84e7f"
   end
 
   keg_only :versioned_formula

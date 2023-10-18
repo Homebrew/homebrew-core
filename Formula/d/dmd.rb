@@ -5,20 +5,20 @@ class Dmd < Formula
 
   stable do
     # make sure resources also use the same version
-    url "https://github.com/dlang/dmd/archive/refs/tags/v2.105.0.tar.gz"
-    sha256 "fe04d52647e580b6936796e4d26dbfbb28e90a0d59a190fb2dd2f68d85253e22"
+    url "https://github.com/dlang/dmd/archive/refs/tags/v2.105.2.tar.gz"
+    sha256 "374b24aaf698e00f964fbe33c4cb2230182b3beb11f2c097a059c002b7a2ecf2"
 
     resource "phobos" do
-      url "https://github.com/dlang/phobos/archive/refs/tags/v2.105.0.tar.gz"
-      sha256 "ccbcb1441c0a215a85785d6987b4ae7e1d00816168ecf1eaa45bb0ea0d25c508"
+      url "https://github.com/dlang/phobos/archive/refs/tags/v2.105.2.tar.gz"
+      sha256 "285fe91629f8402c82e6fa9ff751747e77057fa4d97be6116594da76991b7a6e"
     end
   end
 
   bottle do
-    sha256 ventura:      "fabec280c3d97240c6a1fc9eaf897ef420728f5919b57f9b9e2538deff43e86e"
-    sha256 monterey:     "1567c64c63ffc7939a41d3e184b6a43377247b8233d2e45e611c28d38c294f68"
-    sha256 big_sur:      "593873ae63b7c6213350e99eaab3fc20483614e32d3ad3195ba903042f8895d7"
-    sha256 x86_64_linux: "8e28d632e2b964d06e2c58c609882ef9973c94b423f30143c24497a00e1fecf1"
+    sha256 ventura:      "4a9736baae6e7ee4d0edad980d7da84522e6e16be6056bd39136def226823646"
+    sha256 monterey:     "ea79458eca8f161f82735a94dd3fc7a2a6d9ca6161613b616574c231b07c6b86"
+    sha256 big_sur:      "2a732f847ab81f7c3b618dbfb36ba5aca18091f69568e12b1259f3931684391f"
+    sha256 x86_64_linux: "1b17ec3fbab2ccabb0dc3da36441a6e568e87d2f70bf668e410035d789f1edb2"
   end
 
   head do

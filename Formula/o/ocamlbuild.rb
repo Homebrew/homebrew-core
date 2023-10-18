@@ -12,9 +12,11 @@ class Ocamlbuild < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "8e577b0597bf27c65647bb9b72fff75f7cdf6aa1c581e1d46db9e914c4c246d2"
     sha256 arm64_ventura:  "231ebb957bc74819336ca55e48987714dea31d104b4e84db210c78618c91b087"
     sha256 arm64_monterey: "3d47c72ddcd5a6bead87487dd503bd8cf98b015e04c17a5b2b0696bb75ce83de"
     sha256 arm64_big_sur:  "85b92b0677aa8eb69c0d5835eb2c13d4cf188caec95352060bf7e174950f82ea"
+    sha256 sonoma:         "1d8398a58e096964393d3678e040f1246c3bbc6d8c78340ea48aafb2d33098d0"
     sha256 ventura:        "75d8634b4512010a45bb4972feccd672c11f1e480f13feedc7b1dc5a040a4c65"
     sha256 monterey:       "4b209b5cac1d988448bd636f92af9d136d789ba0fdf94c92ac691b42294aa987"
     sha256 big_sur:        "7b3e3b42d3183983c581948a3cd125179da47bc000edf3c0fe143cad820589ec"

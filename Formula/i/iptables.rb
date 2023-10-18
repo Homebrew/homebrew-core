@@ -1,8 +1,8 @@
 class Iptables < Formula
   desc "Linux kernel packet control tool"
   homepage "https://www.netfilter.org/projects/iptables/index.html"
-  url "https://www.netfilter.org/pub/iptables/iptables-1.8.9.tar.xz"
-  sha256 "ef6639a43be8325a4f8ea68123ffac236cb696e8c78501b64e8106afb008c87f"
+  url "https://www.netfilter.org/pub/iptables/iptables-1.8.10.tar.xz"
+  sha256 "5cc255c189356e317d070755ce9371eb63a1b783c34498fb8c30264f3cc59c9c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class Iptables < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "c51bb8a5dd82a11b2230095f7152092497e8d868d0a1ea76de6b48f81556de05"
+    sha256 x86_64_linux: "0fa05e2dceae6e0e09db597382c5940cf41176ab6bd5f092d654bcb7551205b5"
   end
 
   depends_on "linux-headers@5.15" => :build

@@ -4,23 +4,23 @@ class Agda < Formula
   license "BSD-3-Clause"
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.3/Agda-2.6.3.tar.gz"
-    sha256 "beacc9802c470e42bb0707f9ffe7db488a936c635407dada5d4db060b58d6016"
+    url "https://hackage.haskell.org/package/Agda-2.6.4/Agda-2.6.4.tar.gz"
+    sha256 "5b2cbc719157fadcf32f9a8d1915c360c5a5328c34745f15a7c49d71b6f5ef4b"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/v1.7.2.tar.gz"
-      sha256 "d86a41b9d2e1d2e956ec91bdef9cb34646da11f50f76996761c9a1562c3c47a2"
+      url "https://github.com/agda/agda-stdlib/archive/v1.7.3.tar.gz"
+      sha256 "91c42323fdc94d032a8c98ea9249d9d77e7ba3b51749fe85f18536dbbe603437"
     end
   end
 
   bottle do
-    sha256 arm64_ventura:  "e6d794683df004cb540fc13038cb80378b7e5ee42fe8c20bd7c87cd7313606fe"
-    sha256 arm64_monterey: "ef61f482507d2e0f89c2df9136f83fee454701c570f7834d60da72ec0f707264"
-    sha256 arm64_big_sur:  "ccfb912d275052fb8d0a81ea3216e921c77f46cf0b2ec7b7dba5ef238f1868e1"
-    sha256 ventura:        "5dbae0ce1b653e7dc099e234e137bb703dc8ded804d2785aaab3129440befb6d"
-    sha256 monterey:       "afffee3246e21852bae17f1587a35a279fcdba0b87cda6fd8ed20c4166218a56"
-    sha256 big_sur:        "e3a67f21d8e018dc4bb3ba17f08e1906125a7f2920b1e36a3af691cd1ad4f6ad"
-    sha256 x86_64_linux:   "764d1eb2568588b1cb9a9e62dbc78e8caadd361424c2dde1b060f024cec399f9"
+    sha256 arm64_sonoma:   "4448f766b6f8720480dd91343419fb729bf4b31d7e159db8c5875a6bc207ea26"
+    sha256 arm64_ventura:  "603697a77734602555b817b4528259d81d01e2657a5a769e31f0e5769ef3eef9"
+    sha256 arm64_monterey: "7707123f1f59194d559b8c35ae83c384347942f9e83fd000dada13c9c5cf677e"
+    sha256 sonoma:         "9f1a5b0e6d1988b7083177edadbed26c75837567441e04bd9e315df2018a2a31"
+    sha256 ventura:        "348f958cbeae5aad1eae9801d68932ead52cf4b8e2d1c050007c09aab4720b29"
+    sha256 monterey:       "570bb10e098deac4fdece09d402862b8fa64cfe9439ee9dba8842c39e711ef64"
+    sha256 x86_64_linux:   "b0059840d871280b216d5bab6155ba2124e09acce611eb8b1480307197904e6c"
   end
 
   head do
@@ -43,9 +43,11 @@ class Agda < Formula
     system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args
 
     # generate the standard library's documentation and vim highlighting files
-    resource("stdlib").stage lib/"agda"
-    cd lib/"agda" do
+    agdalib = lib/"agda"
+    resource("stdlib").stage agdalib
+    cd agdalib do
       cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
+      system "cabal", "v2-update"
       system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
       system "./GenerateEverything"
       system bin/"agda", "-i", ".", "-i", "src", "--html", "--vim", "README.agda"
@@ -125,10 +127,12 @@ class Agda < Formula
     # test the GHC backend
     cabal_args = std_cabal_v2_args.reject { |s| s["installdir"] }
     system "cabal", "v2-update"
+    system "cabal", "install", "--lib", "base"
     system "cabal", "v2-install", "ieee754", "--lib", *cabal_args
+    system "cabal", "v2-install", "text", "--lib", *cabal_args
 
     # compile and run a simple program
-    system bin/"agda", "-c", iotest
+    system bin/"agda", "--ghc-flag=-fno-warn-star-is-type", "-c", iotest
     assert_equal "", shell_output(testpath/"IOTest")
   end
 end

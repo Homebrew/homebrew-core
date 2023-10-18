@@ -1,18 +1,18 @@
 class TomlTest < Formula
   desc "Language agnostic test suite for TOML parsers"
   homepage "https://github.com/burntsushi/toml-test"
-  url "https://github.com/BurntSushi/toml-test/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "737604b374669975fd8d80c562124e2ff4913217aeadbb14ff07033c52fe09ac"
+  url "https://github.com/BurntSushi/toml-test/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "3717163777494016243a47261500bbbed6a59c89e232f9f969b3dd849c12db63"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "591bf561dfdaaf206b5b622853f2520effd025ef36e5b35046863cca6a56bcb2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "591bf561dfdaaf206b5b622853f2520effd025ef36e5b35046863cca6a56bcb2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "591bf561dfdaaf206b5b622853f2520effd025ef36e5b35046863cca6a56bcb2"
-    sha256 cellar: :any_skip_relocation, ventura:        "33c6ade25312fa354e0bf9ba1f754644904cae6e2eb9c5793517ef92ab683c46"
-    sha256 cellar: :any_skip_relocation, monterey:       "33c6ade25312fa354e0bf9ba1f754644904cae6e2eb9c5793517ef92ab683c46"
-    sha256 cellar: :any_skip_relocation, big_sur:        "33c6ade25312fa354e0bf9ba1f754644904cae6e2eb9c5793517ef92ab683c46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4ed2940fb820d865bc210919fbb8e105a369dbf164cac5f6caf3fea89cc330f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8038b7561bc45ff83022330c7933e11b5d634e0b8152654a134daf8dfd74c1f2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8038b7561bc45ff83022330c7933e11b5d634e0b8152654a134daf8dfd74c1f2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8038b7561bc45ff83022330c7933e11b5d634e0b8152654a134daf8dfd74c1f2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4a1f31af0b426f36346bcf01973e27772000292947041e4f9e573cec38c9587b"
+    sha256 cellar: :any_skip_relocation, ventura:        "4a1f31af0b426f36346bcf01973e27772000292947041e4f9e573cec38c9587b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a1f31af0b426f36346bcf01973e27772000292947041e4f9e573cec38c9587b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80903b80656360a49fa248bcfeb0d8331ae791646d75f7d2d2b553a532c52e94"
   end
 
   depends_on "go" => :build

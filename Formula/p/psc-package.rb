@@ -7,17 +7,16 @@ class PscPackage < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb8fb988ac116590ec36ae48034fb205c2c1799183a477959a4f56edd239fe08"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d690a0db3d5c917fda1164691912d14f71bf21eb74d98070c7860805c0ee1a2c"
-    sha256 cellar: :any_skip_relocation, ventura:        "ed33f7c5b04a5ae8cd2e8b7c270f7ec9d89bdc15caa38d99d3d1cc0f4f2238c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "4bd4095ce0672aaa435d7f09b5f82bbea637f8e75550b0809cfd08e8127eb30b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3a366e22aefb8cf179cf1aca4a4aae93bfac187a9d84324c9ba33e7a00abf7c3"
-    sha256 cellar: :any_skip_relocation, catalina:       "699a7ad7342f3abba90787f0c3b2a2b981ebc2aa33f45015720a48e3c4a7110b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23deb52781043ee39883a273da33d4df45d55c772814e9ee237f0b6b0d74c9e2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d218b3190d7af58a6dee769d8fc8b0543ac7eed760af9552b871ec9e6c28b918"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f896fa8803f8405c76b6814302c9a81bc88ad63facccf653f302ca6c7314862"
+    sha256 cellar: :any_skip_relocation, ventura:        "34a6d89e4900fadd0f3844622d53df285ab26a54fb2b46c61191bd6b1b835c29"
+    sha256 cellar: :any_skip_relocation, monterey:       "c96222df112a5a511469867e560157aab7ffc0fba812261302ac227fc682aebe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57150c2dfc8edce29db3b116563bb83d58c573b95cf497381a711f960f804378"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.4" => :build
   depends_on "purescript"
 
   # Apply upstream patch to fix build. Remove with next release.

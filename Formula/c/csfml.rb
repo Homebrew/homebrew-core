@@ -9,9 +9,11 @@ class Csfml < Formula
   head "https://github.com/SFML/CSFML.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9faf9aff5b2bd8f901055d477e3ff0702fa675ccb6dea5fc1f34f79ce50acd38"
     sha256 cellar: :any,                 arm64_ventura:  "ffe6c174f1386b9aa9e82eebf34240395dec2167a8783861cb10fd9f64654275"
     sha256 cellar: :any,                 arm64_monterey: "4d40b9e48454350f58bac875b12091e58de655677abc212eb32808fa97536fe2"
     sha256 cellar: :any,                 arm64_big_sur:  "caa271cb7428aa9813fada7fe4d080faa058f3b1599c2ef4eff05453260658a3"
+    sha256 cellar: :any,                 sonoma:         "0ed8a2f8ae71c6813fff337242e774b45d2d141500ca18687ee1432ad2661008"
     sha256 cellar: :any,                 ventura:        "dd3a2adba0082f3d5505d1564345bd28ccfa2a4eaf00642558354e025140a7c0"
     sha256 cellar: :any,                 monterey:       "881ff68b8f8a5e2f9e4feac22d1af3f7255179bd0cac00720e358059a717be5f"
     sha256 cellar: :any,                 big_sur:        "37b4d2ae7b2f5ff1a9032b8086eaa7b0d3960185f264f28992d053621feb094a"

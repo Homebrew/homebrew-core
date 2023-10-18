@@ -6,9 +6,11 @@ class Latexdiff < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57909743f4c8256ea71312130ee8583057297ba15c87cbd0c8e2808f45f79c44"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8d86124c7257174e320c6fb0c26eb54254079ce7af27cdc303cdf8d88a8bac9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8d86124c7257174e320c6fb0c26eb54254079ce7af27cdc303cdf8d88a8bac9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f8d86124c7257174e320c6fb0c26eb54254079ce7af27cdc303cdf8d88a8bac9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c59cdbac5180371f3351abea87550738e796c907d963f7dc14ea23bb13aef021"
     sha256 cellar: :any_skip_relocation, ventura:        "1d9555dcabb14322349dd93128d81078dfc4326878532173f184c8f9dbb61757"
     sha256 cellar: :any_skip_relocation, monterey:       "1d9555dcabb14322349dd93128d81078dfc4326878532173f184c8f9dbb61757"
     sha256 cellar: :any_skip_relocation, big_sur:        "1d9555dcabb14322349dd93128d81078dfc4326878532173f184c8f9dbb61757"

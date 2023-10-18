@@ -12,9 +12,11 @@ class CheckPostgres < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8138d47d70f097677e5f9ae0d88e797e66395026b1d0615781492cb28294b96d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "af79787c77281d36ab2852d98a020ed94c4360e494ad58ac8fff38852c0f9cab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af79787c77281d36ab2852d98a020ed94c4360e494ad58ac8fff38852c0f9cab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b229c41507d787d0783e608304dedc416e9a5b7b343fd2cce91a12c9aa92d4b4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "599f04f4bd0fe98038e513c562f2ca8a0cb5fbaee326b2a78ac3e1c38fcaa7e3"
     sha256 cellar: :any_skip_relocation, ventura:        "f4023f4278d08648ad51b4c531a72e961e648736578efb14e6d44296af328496"
     sha256 cellar: :any_skip_relocation, monterey:       "f4023f4278d08648ad51b4c531a72e961e648736578efb14e6d44296af328496"
     sha256 cellar: :any_skip_relocation, big_sur:        "b37868aa190bf21cf2272f588d4e815b0621c873d824e1a13ab15bea6ceb2d4e"

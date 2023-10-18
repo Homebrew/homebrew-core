@@ -7,9 +7,11 @@ class Gti < Formula
   head "https://github.com/rwos/gti.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfb1fb060aff58bce136591fa0ea1323b2ae122e7f6544d34d7e003ef2b3c2a7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "97349fc9a6650a617c1bd2648c700f53cac6f69e41c5a15f99417532fa66e41b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "82db99490ed0414cb2a724301b9e6c5d4a945281bad8fa050a255461ebe6b00c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9e5543b011f73b404717004dcf5280f3e4ad340c2afebd579f245137c0020def"
+    sha256 cellar: :any_skip_relocation, sonoma:         "caf278729e932f5d66c0ca9f918391f7d6e48a95d136d56b83616215a9582a2a"
     sha256 cellar: :any_skip_relocation, ventura:        "78e2007286d0f13fd0a1b236b7453e998ecaa2c9df6e3867446d924c93715109"
     sha256 cellar: :any_skip_relocation, monterey:       "fcb9b0845661d70831ee78f420d9bb3a335471b8c06ad0cf7e040edb44ee6675"
     sha256 cellar: :any_skip_relocation, big_sur:        "86d084489a7fc049de77b93878c57eaab3086ce7603e4aeee9a6552c80a82bcc"

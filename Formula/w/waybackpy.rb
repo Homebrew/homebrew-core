@@ -6,30 +6,26 @@ class Waybackpy < Formula
   url "https://files.pythonhosted.org/packages/34/ab/90085feb81e7fad7d00c736f98e74ec315159ebef2180a77c85a06b2f0aa/waybackpy-3.0.6.tar.gz"
   sha256 "497a371756aba7644eb7ada0ebd4edb15cb8c53bc134cc973bf023a12caff83f"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cee3fd02b5fc9ad049d1130db0488a65ad08e13f6b81411dde2609900067ce6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae7d64e2524ddcf10a79ba79a52ce9f01d387103910573453e510fcfed17291c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "61293dba2227e814a19a931971360cba689fdd41d8b44d16ef1465d45ae8bedb"
-    sha256 cellar: :any_skip_relocation, ventura:        "70a1154f2875c283a7da59c0ba37abc1d60087bbc15b8e34ba30a4b029c2ebcf"
-    sha256 cellar: :any_skip_relocation, monterey:       "8735878f425e79efcaeb853740a3a461df46c5e9c16c1ec59a6f977b9806722f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3abb26084ba0405de912914b10e5b9b1e048a0cfe5fb2c2fbc2605238e912e17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5cdcc28a4667af82170728c43d6f8fa0e5816f31ebab66b19174dea9aa49388"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "13812cda049e09fbddf86a15b5410684d5efc9a2ac5973a2538deed3887e00c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c343d03448321aadda29273f7cc5ee27f53625d81b8287c74ced4fcd709644a2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3111f1fda42ae05e8b42b789aabb8691b7fa0799a589b2df9f322259cb2519d9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a033a78eafa754e4843cf601624e7b55a76e3cf41b3a7bcbff4464f7929af266"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d9efd6afff45082317c96ee362b29479261feae37881be5191328cf193a0160"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0162c2a196ae868aabae0ee7339254c7d9ca4bbb65b77094f6ef412d82e4536"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1039778de05dacd7b72ba940e30fca0c44a8ed6b214e7a7eb7367b8647511712"
   end
 
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python-click"
+  depends_on "python@3.12"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -43,8 +39,8 @@ class Waybackpy < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

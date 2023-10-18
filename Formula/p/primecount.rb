@@ -6,9 +6,11 @@ class Primecount < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a044bf29de75dfa6069f5910ece929058ef1efb25166c18754e5e2ccc064208c"
     sha256 cellar: :any,                 arm64_ventura:  "2cd3fe1055bb9ce4063eb098b6273732463728f193e0e0ed5d9add00d74a9dae"
     sha256 cellar: :any,                 arm64_monterey: "60030cdaabb4d4bb378b7dbfde0236972f43f1e79f709e0c2b369158b75e6eb5"
     sha256 cellar: :any,                 arm64_big_sur:  "64f337ab4851f0c1d164097818e71e1344ceaebc93617f1b7ac6e01a6a21fd5a"
+    sha256 cellar: :any,                 sonoma:         "e618592d9bb903968a0b6dccda0d833c2d599f7dfeadb621e68cabfa854e6f0e"
     sha256 cellar: :any,                 ventura:        "5985fd7228b47c055cf511215d17c38fe098402f243fc5b57c604d70b87820b2"
     sha256 cellar: :any,                 monterey:       "e03aa189690d2f7c2936898c782366ded4b32683d6d7b9f4c2b936ea25c68ee1"
     sha256 cellar: :any,                 big_sur:        "b2ac0708bb66d3e9433696888b0da707ab1eda5d92aa1f79b7c1313d2950049a"

@@ -14,9 +14,11 @@ class Rethinkdb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2f7ff9fdebc5e0742ca015d5d918d7ccb49fcc7266a2b10a5f5cb8647e8affc0"
     sha256 cellar: :any,                 arm64_ventura:  "ac93c27bbe23258d83f6c1898523e5854288cbdb791f6e56eee209d0d971d19f"
     sha256 cellar: :any,                 arm64_monterey: "1f148716b53dc578b1c8b7f038a6eebe1cf90cb0c6c89f471fb3d5a124b88f3d"
     sha256 cellar: :any,                 arm64_big_sur:  "2a2c3b1ad26019faf4d38dfac453d903c53aadf09c3afe01883875044b19d097"
+    sha256 cellar: :any,                 sonoma:         "03aafd3404f695448953caa49746921950bb72bf437ffdb4fd6a1369827ca922"
     sha256 cellar: :any,                 ventura:        "b2468e75a2aecb02655945f06506777f77caa5e885cef5aa7bec84374e1cb59c"
     sha256 cellar: :any,                 monterey:       "5af7b252bfb89953457377aaa4e2c6436d5dcdc92cc1bb0b9ccc48ae935c72af"
     sha256 cellar: :any,                 big_sur:        "86ddd338419a615b2cfae24713003aa6ac38d4fc49d98f436d7bc3f89e9c6552"

@@ -11,9 +11,11 @@ class Readosm < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ec95a91f77c40f87229dab3be2be87e40354ac76c9517752524cccb44ae20219"
     sha256 cellar: :any,                 arm64_ventura:  "159a85b13ee27c3aec192f7cdfb26f58677890ca98768a1f9ab4a6843eefc791"
     sha256 cellar: :any,                 arm64_monterey: "938d6d422d3eb547b702f3bbeb547b1a6879f37782d72c705475a61fede5c780"
     sha256 cellar: :any,                 arm64_big_sur:  "bd41553e655ddd0efb25350087b8247102f308e40e20de46274a703beee4a1de"
+    sha256 cellar: :any,                 sonoma:         "0db75c5f56cc0358622ea46bebd793fdc1417b318dd92fc377562aee2fe6070b"
     sha256 cellar: :any,                 ventura:        "9e6e4ee8ebb6ee681d5280fcf8e61e5ffbd0acb2bc2e6b97c6bf1bce32b37023"
     sha256 cellar: :any,                 monterey:       "37ac4df09be8730582ff8b11bf3480145eabdd697bf3335f80e7c6629b7bc74e"
     sha256 cellar: :any,                 big_sur:        "6f0a6b5f33f57429ed7d4608cf6819d85b829468abd7c954c381a599c8c73647"

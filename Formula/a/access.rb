@@ -8,9 +8,11 @@ class Access < Formula
   head "https://github.com/indentapis/access.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "747d33dad01a56760cb4d3934856b7a1f591e61d01ab14c4ddd6064a6ecf3329"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d72d19172c369f06e75b592c6638f321d4037212c1133e92f6a77338c4bb91d8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d72d19172c369f06e75b592c6638f321d4037212c1133e92f6a77338c4bb91d8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d72d19172c369f06e75b592c6638f321d4037212c1133e92f6a77338c4bb91d8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bc6b359a800445b5a4ebbd0af9fcace65e3649321e19e86a9ef0fd86216e8ca3"
     sha256 cellar: :any_skip_relocation, ventura:        "07d21cbdb98e62015a0268c4fc4d95df3c3c08a3b894f28e88709830d815698d"
     sha256 cellar: :any_skip_relocation, monterey:       "07d21cbdb98e62015a0268c4fc4d95df3c3c08a3b894f28e88709830d815698d"
     sha256 cellar: :any_skip_relocation, big_sur:        "07d21cbdb98e62015a0268c4fc4d95df3c3c08a3b894f28e88709830d815698d"

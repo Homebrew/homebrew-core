@@ -8,9 +8,11 @@ class Box2d < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7cf8f8a2a5434824b104802954abcec963c46b7f3c06411ca02c91dacc4e6aa5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2971d7cf8b4c8783fc26b4df34b62c18154ee2ab30a23fa60b2161b6f86952d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "32f5c7935fad82f881fb7871a1e3460918ff77d7af747f4a2fce8c3f0e3e3e4c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6474e67e155044f94bd27f589a4ce3789723b87916c05a83fea19b9f5afc7a41"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a001e457f1c3b61f6c1ccb7f3cdca0625dfa542238230c6e1247cc38ea762d51"
     sha256 cellar: :any_skip_relocation, ventura:        "85eabab92c7555fd7e1ad23e8fd78b7b01ba3bf5819f8dc743bf6a9ccbffeedd"
     sha256 cellar: :any_skip_relocation, monterey:       "501b55a5647ee9ce43457ca9df4661069fb915de9f146a77bbac0b856d56f417"
     sha256 cellar: :any_skip_relocation, big_sur:        "752a3bae8af1fbcd90d9d27a42ba5a5f32006ae6673bbeeb0479de7bf53d833c"

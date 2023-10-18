@@ -1,23 +1,27 @@
 class Lsd < Formula
   desc "Clone of ls with colorful output, file type icons, and more"
   homepage "https://github.com/lsd-rs/lsd"
-  url "https://github.com/lsd-rs/lsd/archive/0.23.1.tar.gz"
-  sha256 "9698919689178cc095f39dcb6a8a41ce32d5a1283e6fe62755e9a861232c307d"
+  url "https://github.com/lsd-rs/lsd/archive/v1.0.0.tar.gz"
+  sha256 "ab34e9c85bc77cfa42b43bfb54414200433a37419f3b1947d0e8cfbb4b7a6325"
   license "Apache-2.0"
+  head "https://github.com/lsd-rs/lsd.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cef8b9164d7907fd6262ca87dbb76b7fac3299b90bd8aaf77e648fe2c16e47d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e11daecb5477e2ae9b2f50a794c9b5b1ae743d2919dcec246f7847defc713c21"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "88600adc3058f94ba3b2251ffc0922fb56562bb03a9f702c78ce25e56aa2ba9e"
-    sha256 cellar: :any_skip_relocation, ventura:        "243288af0ca893419f121aada1428918fe65299874c7c72fdbf123d785f09816"
-    sha256 cellar: :any_skip_relocation, monterey:       "13e032fca1bd1b05a3f849616a003a2e2916e6028b46d5f22cfab4525651d546"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c8dddf65721edbac80730054a73eb92972486fe4aafbcc400378044abd432653"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81e19ccd2a5f0ca61d4d6638e71bafa19a8eb19a774e323f2897639ed1e45c0e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96842f513bc310991a5aed5d259fa2e3dcb28293c1f2582158fd2fc7825cebf3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1fe94fff7fef86679f860d60d5e59559d9fb9c5ed95087e16f8016e343d8d8a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9330a76224be3e560f26949615fc1b3651b2ec51537c52b2dcd4467c10db9646"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bd47f830bc20dbe0be8fdd92268d85d0f6c9091aa3976666db33d0766832925"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d24adcf6a92bb3e034dcf2b0250c41e8f20b0c6638f9058271b33fe5b5a8ac03"
+    sha256 cellar: :any_skip_relocation, ventura:        "4731d6e0e3797d7aea0a06042a19879bf75c216e74115e9a06ed5b5fecd0760d"
+    sha256 cellar: :any_skip_relocation, monterey:       "98f336d3681119672ec7bdcf796d5467a5f3ab32b50bbd03b4c5285ce8f1095d"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3109494fd5ddeb57d7a553c5a1e36ecfede0ba6ed5e909d3456ff144af7a34e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d402f8a249cdda889a2df5b0f93e7b8002cdf4ebb52101f9235f09660d18a368"
   end
 
   depends_on "pandoc" => :build
   depends_on "rust" => :build
+
+  uses_from_macos "zlib"
 
   def install
     ENV["SHELL_COMPLETIONS_DIR"] = buildpath

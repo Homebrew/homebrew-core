@@ -5,9 +5,11 @@ class MysqlClientAT57 < Formula
   sha256 "7e1a7d45e7ca382eb3a992f63631c380904dd49c89f3382ec950aef01997524f"
 
   bottle do
+    sha256 arm64_sonoma:   "1bc3efd20113dbe76c87fee1871d171b9c55896b4a89a7ed7d1f235cb518b650"
     sha256 arm64_ventura:  "223ac8c2302eef56a26c1b76068581df25cfb19b92f2d7b04b281554d515d52d"
     sha256 arm64_monterey: "2ff11cb1eaf22ee421580481e1d1101c10b3e22ac670944fcc3630bb9b25d5f9"
     sha256 arm64_big_sur:  "ff7c8463bdf3a1b1064c82e6da8f8165f12684defcb68d57c4aa48d65045af14"
+    sha256 sonoma:         "a83537cb5e942ece6ede11b1893c0f966204decd173b96fee15c3bd865df4c3f"
     sha256 ventura:        "d3d0898ebca83a38365b6aa72a31d2ea72ab1727c0ab576c8bf385eb9d8bcd48"
     sha256 monterey:       "9deda0454a1ab6be155966e328a6e1354bc19859efb35ad470615adf241691e2"
     sha256 big_sur:        "13a2302e62a0494ce327197bd877a453a7b97299dec4e0547b7d8ee37c3b48bb"

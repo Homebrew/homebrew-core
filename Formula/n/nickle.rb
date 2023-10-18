@@ -1,8 +1,8 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.92.tar.xz"
-  sha256 "51f1ae85a17acc0d8736ab73f4ec2478cd3358c0911b498ef9382c0438437d72"
+  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.93.tar.xz"
+  sha256 "a8dafb5f3e42528c212046a24559cbdbcb5d197c71b24f3e61543b85d3842beb"
   license "MIT"
   head "https://keithp.com/cgit/nickle.git", branch: "master"
 
@@ -12,13 +12,15 @@ class Nickle < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "6b74586d69fb295209f1e134497730201e7ca406d2aaaa4b0fa9ce385bc4a952"
-    sha256 arm64_monterey: "3473cad84ef0de455ec96344c7e66da0960f30c6563342beee8f0d6bf2a36ff4"
-    sha256 arm64_big_sur:  "d1a703115d1003e20de3f2573018441c14037997ae3d131a0b0e67736f29548b"
-    sha256 ventura:        "ed7c59237f0f8d62ad817e39467b52a38c8616d4cb9e95864b19b0d4c511044a"
-    sha256 monterey:       "d39add4399034b3c4e8aa4bcd06d62374b37c4347a816c65035dbc0f05e38ebd"
-    sha256 big_sur:        "4d34984970372d1c8ce3b450628f01f06b58b66d6c84e6cf5f0d86f4c3b7bfcf"
-    sha256 x86_64_linux:   "2526e64a0645e1fa72221049f6f1a27488f8066490966cb0f5237f6352bbab17"
+    sha256 arm64_sonoma:   "909f1ee1488fea628e21686b9235e779d691bfa5cb2ebcd640c56a43ed30c726"
+    sha256 arm64_ventura:  "d0d6255b9d3fb675313e9cffadbfc052e0277b7da6e89940c00c3154f349a5c6"
+    sha256 arm64_monterey: "519e19dfb3e6d0f240d9f9403e1d81fcc70058685dcd855d74d44373bf602204"
+    sha256 arm64_big_sur:  "235c2dc6123664e5ebd6357aaeb03fa9ab581607cff8d92c37e39b22585641c3"
+    sha256 sonoma:         "f9554c9387d7e224c4b6fb4da719a525f767dd24566985a55d67c91b713b4463"
+    sha256 ventura:        "2e40cebbf8c374d255374a28204b5905c650bd7a3653f921e585b5ef3085ba14"
+    sha256 monterey:       "bbd70d1d86297d8118ce157f99b588eba33e3b086356d20405f1bb6d1ee45e74"
+    sha256 big_sur:        "2920ed867e365086f38766c1b2df9d523f27046b02c50e88a5a454a41cc2ce13"
+    sha256 x86_64_linux:   "0ded2c09a3d1e1bcfb36d5d7fc0b0e2bf78354065b02a0c8927535f00b846a41"
   end
 
   depends_on "autoconf" => :build
@@ -29,12 +31,6 @@ class Nickle < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "libedit"
-
-  # Add math-tables.c to fix build issue, remove in next release
-  patch do
-    url "https://keithp.com/cgit/nickle.git/patch/?id=ecddca204fd83d2a7a3af76accf57d77d8b9fd64"
-    sha256 "3459fef502825faeadd8fde120ee4c22c8f6ad52fd0c3a1e026b02d21ba89c4a"
-  end
 
   def install
     ENV["CC_FOR_BUILD"] = ENV.cc

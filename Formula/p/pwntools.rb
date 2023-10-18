@@ -3,21 +3,20 @@ class Pwntools < Formula
 
   desc "CTF framework used by Gallopsled in every CTF"
   homepage "https://github.com/Gallopsled/pwntools"
-  url "https://files.pythonhosted.org/packages/fa/76/aed9a42988214d6af85aa650a90be6225cfc689ad5f5c3c3b61059668f4b/pwntools-4.10.0.tar.gz"
-  sha256 "588e89ea678527c0b5b6caeeee7e76e31352e78e2f1cf3dda7bc9acf526e446d"
+  url "https://files.pythonhosted.org/packages/cf/ce/5b44dc18f0090a2f7188f0a8b98f00aebaa10537fffa3e66351b6972c02e/pwntools-4.11.0.tar.gz"
+  sha256 "a85f1e777f343f91e221d175e1523d006eef1c8106c10fd2e338280bab273fa6"
   license "MIT"
-  revision 4
+  revision 1
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_ventura:  "679bdb07afd5b59add7c816fadf14466f5618e52537c4e59db00d197ead020a9"
-    sha256 cellar: :any,                 arm64_monterey: "a8a68211bb579eb5100f138b3dcfd1d4786541ef2882ba2aeef774c4e18c556e"
-    sha256 cellar: :any,                 arm64_big_sur:  "be3f296423e047f7893bafbb5df884bb05725cc321aff12036053bfd47dc3745"
-    sha256 cellar: :any,                 ventura:        "764807ec7932f1c6300bcae2a7684bf832362663fce282f9463a6632b4b41a1b"
-    sha256 cellar: :any,                 monterey:       "de5c96f1f0e4f6854d7e74cb74de04ce79cf33d3af187232a1e1ba89b3f2b874"
-    sha256 cellar: :any,                 big_sur:        "16c02f7b1bcbe29caa6c40784f90df112e0e7a03ab28e2f498f6785bd5092b85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a29c54372bbd36514093946e9a212f7ad68f7a589205f443a38f9f2683f16735"
+    sha256 cellar: :any,                 arm64_sonoma:   "5b5d0dac5bfeaf0ea136d933424b8f345c831e4087b790082e8e0e9b7c5db9e3"
+    sha256 cellar: :any,                 arm64_ventura:  "028e38df40268f66468178e964d6fe833823e8eadb75199e013a99e3510f1721"
+    sha256 cellar: :any,                 arm64_monterey: "43667de85b5c3b57a3fd440b4e633808e8b28c3d86540a84de443362fcbc6a01"
+    sha256 cellar: :any,                 sonoma:         "24b1e98176b27c6ccfb6f270227706471bab0f30a585ef0ffdd8f79e4cef1b40"
+    sha256 cellar: :any,                 ventura:        "ff1b7006967c69d42c20fc4afee7b72f11b095d3a508f54f9936a767467b2aa9"
+    sha256 cellar: :any,                 monterey:       "a6302c2159160caa423244851a762ae3b98e5fef14e4f7ee0cefcb2c24abe920"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f907b1e0fd1ed2871751320193ecd035f1322a63c1252f507e793983ec44ffc"
   end
 
   depends_on "rust" => :build # for bcrypt
@@ -26,6 +25,7 @@ class Pwntools < Formula
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "six"
   depends_on "unicorn"
@@ -40,13 +40,13 @@ class Pwntools < Formula
   end
 
   resource "capstone" do
-    url "https://files.pythonhosted.org/packages/de/04/4c2ae5ef70dadd773b39d39d30f1cab54d4a27aa0af69ac1414e2338434e/capstone-5.0.0.post1.tar.gz"
-    sha256 "fe0affca395c09ce76a21c5f0fac026e74396839a220798ca5e57c54305bcf65"
+    url "https://files.pythonhosted.org/packages/7a/fe/e6cdc4ad6e0d9603fa662d1ccba6301c0cb762a1c90a42c7146a538c24e9/capstone-5.0.1.tar.gz"
+    sha256 "740afacc29861db591316beefe30df382c4da08dcb0345a0d10f0cac4f8b1ee2"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "colored-traceback" do
@@ -74,11 +74,6 @@ class Pwntools < Formula
     sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "paramiko" do
     url "https://files.pythonhosted.org/packages/44/03/158ae1dcb950bd96f04038502238159e116fafb27addf5df1ba35068f2d6/paramiko-3.3.1.tar.gz"
     sha256 "6a3777a961ac86dbef375c5f5b8d50014a1a96d0fd7f054a43bc880134b0ff77"
@@ -95,8 +90,8 @@ class Pwntools < Formula
   end
 
   resource "pyelftools" do
-    url "https://files.pythonhosted.org/packages/0e/35/e76da824595452a5ad07f289ea1737ca0971fc6cc7b6ee9464279be06b5e/pyelftools-0.29.tar.gz"
-    sha256 "ec761596aafa16e282a31de188737e5485552469ac63b60cfcccf22263fd24ff"
+    url "https://files.pythonhosted.org/packages/84/05/fd41cd647de044d1ffec90ce5aaae935126ac217f8ecb302186655284fc8/pyelftools-0.30.tar.gz"
+    sha256 "2fc92b0d534f8b081f58c7c370967379123d8e00984deb53c209364efd575b40"
   end
 
   resource "pynacl" do
@@ -125,8 +120,8 @@ class Pwntools < Formula
   end
 
   resource "ropgadget" do
-    url "https://files.pythonhosted.org/packages/9a/f3/b9d945c624b6df35a36d52b97719ba93c0d81484a5b51c3829ac7caf620f/ROPGadget-7.3.tar.gz"
-    sha256 "4078e70601a2dc869123dfa352812dcc44767a4bbde482b7059d34b33bb67850"
+    url "https://files.pythonhosted.org/packages/0f/5f/55add023bd2af62dc25f17bb0f26360e228ecb5cb4c0182a714a01672000/ROPGadget-7.4.tar.gz"
+    sha256 "a40626a32cf867d06192ef24e16221b2b7ba82e2ec84ab5bfdfb0b017559342f"
   end
 
   resource "rpyc" do
@@ -145,8 +140,8 @@ class Pwntools < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install

@@ -1,20 +1,21 @@
 class LibbitcoinNode < Formula
   desc "Bitcoin Full Node"
   homepage "https://github.com/libbitcoin/libbitcoin-node"
-  url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.6.0.tar.gz"
-  sha256 "9556ee8aab91e893db1cf343883034571153b206ffbbce3e3133c97e6ee4693b"
+  url "https://github.com/libbitcoin/libbitcoin-node/archive/v3.8.0.tar.gz"
+  sha256 "49a2c83a01c3fe2f80eb22dd48b2a2ea77cbb963bcc5b98f07d0248dbb4ee7a9"
   license "AGPL-3.0"
-  revision 2
+  revision 1
 
   bottle do
-    sha256 arm64_ventura:  "cc194f6874baa26fce10fb3b58b0ab520d0d6e3905f9fc21efaca2cc6f380393"
-    sha256 arm64_monterey: "0fbb1c20470a60232647651c29ad41b547b8a162d5f6f59d64bacec746aa8a1a"
-    sha256 arm64_big_sur:  "3ca1bcd8c32bfa5d8e3a5327d9f8358df52fecdf812fb3087de7892b6d0dec03"
-    sha256 ventura:        "d2051f6d157cef0abe11c17b479e8c04f7f47b283412b76034a93b749f24249b"
-    sha256 monterey:       "a5571bba28d70456ccc9305288dbd732026ab47c10617fee089a96edbaf04ec3"
-    sha256 big_sur:        "9a5602620a3379a70257c8982f18c93b17de661201100e612e0c47276ad7b1ba"
-    sha256 catalina:       "858904050abfa1fb52dfc0f4e2c3cd87938824ad41582d439c0d411817b00213"
-    sha256 x86_64_linux:   "d1c90e07fdb6ffc78954bdba380dd7930a3acd243047a8f470a4f1a2fb792610"
+    sha256 arm64_sonoma:   "af98941d96c71ee8c0c6f155e5cc1d1cb1a6fed85eae311a663671f0baf8fc4d"
+    sha256 arm64_ventura:  "b77eab1650d04674e86c7b794bc0e96f70fffcb2549008bdba0f278c1aa4b589"
+    sha256 arm64_monterey: "456c03407d6cb891359d728d6303b2d668bc1a1cf7cfe0d878874fc110b40a65"
+    sha256 arm64_big_sur:  "c198ecbe4bcab7fafd39a9ed847abccd84f26c8b3de45ae11c13f7e8bd07341d"
+    sha256 sonoma:         "904ab97f4921e3d7c5f68d7f6fdcb17a67d487d7e9d3ce8073b09fb276ae1e41"
+    sha256 ventura:        "97e1d00dab5e9da0a73c52d6abffa612753d09117a31729fc31262c5d0e88c1b"
+    sha256 monterey:       "6a12ab524605ea8714c35c49f037f54ce53250516d875e132b0c9efad8b1d40c"
+    sha256 big_sur:        "4a38fdcc76528e657974a00fcd98cf80947cfdc4834af7fe5307c8b734eefd1a"
+    sha256 x86_64_linux:   "1f8fc0a015f1ee935c9731a9d58940eeec0c9b5f641f2dad229e8c71f5c09f4d"
   end
 
   depends_on "autoconf" => :build
@@ -53,7 +54,7 @@ class LibbitcoinNode < Formula
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-I#{boost.include}",
-                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
+                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin-system",
                     "-L#{lib}", "-lbitcoin-node",
                     "-L#{boost.lib}", "-lboost_system"
     system "./test"

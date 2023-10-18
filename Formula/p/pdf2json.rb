@@ -6,9 +6,11 @@ class Pdf2json < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a791ed61467ee9df00b0901fed7ffb14f97295d2139f01363bf433c879e7be94"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "323095faeba1b4fd27ec6040ef7a5037a1ecbbc7f077cbde173a72c5ab6c3396"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c113b37537d9cdd7e698502406a17d699eb823437a6d9086c68591146c074a54"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e648062e7a117f95679cd30c63773085ba2712752450f0b422be8f2fd4d66050"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1be2124143b035485aaaeae155324606f06f6400971a67b20c0bd82051770e55"
     sha256 cellar: :any_skip_relocation, ventura:        "a06ac07d12709d87065c455126794ee1f5f282c895ec03e90abcd498b0c83739"
     sha256 cellar: :any_skip_relocation, monterey:       "8af9890390ac354624c50a6cbd706d6b538ed8050bc54b1b4a5d091a249401eb"
     sha256 cellar: :any_skip_relocation, big_sur:        "20fe898333fa761b942ee5b0f2d41e47660389a250f5c8604ff1ed22788d9581"

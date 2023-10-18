@@ -7,9 +7,11 @@ class Zzz < Formula
   head "https://github.com/Orc/Zzz.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "87aded93dd5a70ab018880e46586b6a7c0929414def405edb1db0e1e6b7a5936"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5da5ac10ecb8c990e69702b8c671a701d662ab63755a25b2fd0a90e84790f007"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a1135d50a709f3c6a64316e5a92a6f269bdb865d21fa26e279c38344afde541"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e08914c722e58a5f5a43c70b395a198faf42e08bc31476fcf226ee77bd42195f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "75d43876070b1f6160b4cb6a07f70599a4aa50556fc542c2523397d30ba747bc"
     sha256 cellar: :any_skip_relocation, ventura:        "0466ce782b6410ac3fd3df809c516c53763a9e4a90d1ed81f48118090dd497d9"
     sha256 cellar: :any_skip_relocation, monterey:       "086a43f796e1d9630aa6980fcca37971031e37234f065295d55f4de1f72c8c35"
     sha256 cellar: :any_skip_relocation, big_sur:        "3609040838445e383713a328d0838510d77c3d222f8ecd6892e0e99455668ab1"

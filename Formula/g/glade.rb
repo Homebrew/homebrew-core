@@ -6,9 +6,11 @@ class Glade < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "28e61c555dda9c24738a962df1d597fc713462c4c94b23a36a22e1c7181e5228"
     sha256 arm64_ventura:  "e9d58dc0453a314a7f65b58a05c26a60e1738129d46ab680809dd6ef8c1a940a"
     sha256 arm64_monterey: "3204eb2e65d9f7ee7bb01278866cd651584379e17bc3d9deb84fa3a9407e8c92"
     sha256 arm64_big_sur:  "90b87f046dff0347c67730ecc5e616477add043a717d3014fe6a5d585c0b87c8"
+    sha256 sonoma:         "d8d85e0e39a27ac1efcdf785fff08a3f1500b796e069ef7c1ed7f8f2271aed3a"
     sha256 ventura:        "9e7168e7ffcaaaadc81f3afa6206a77e00a76801f05d0a3a2b964770ca28caf9"
     sha256 monterey:       "29586d6ceb94728ae1dc1195e512a9a53da6a67c0efa52786f9860f768f43b73"
     sha256 big_sur:        "6ecb0865146c646602a1cfc885992a0d5f0e6b2a5b2eda31af6a6b05a3d25e2f"

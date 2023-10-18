@@ -11,23 +11,23 @@ class Fail2ban < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f911d7921d2738aa75228e317e2a4100e1462de3464acd2a7a5edd716f74ed4a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f911d7921d2738aa75228e317e2a4100e1462de3464acd2a7a5edd716f74ed4a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f911d7921d2738aa75228e317e2a4100e1462de3464acd2a7a5edd716f74ed4a"
-    sha256 cellar: :any_skip_relocation, ventura:        "0a05b30fecd031fba3686b8667325b4b4e14c31ce23c879d28227b0f1613b51c"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a05b30fecd031fba3686b8667325b4b4e14c31ce23c879d28227b0f1613b51c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0a05b30fecd031fba3686b8667325b4b4e14c31ce23c879d28227b0f1613b51c"
-    sha256 cellar: :any_skip_relocation, catalina:       "0a05b30fecd031fba3686b8667325b4b4e14c31ce23c879d28227b0f1613b51c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33bbfefcc5a2a740e03ae2b858cca57502f57e3635f89169fd07d77f4155293d"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b85f9c530ea11f18748d36b4385b9350592b56f8086c74f513372bff3968878"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b85f9c530ea11f18748d36b4385b9350592b56f8086c74f513372bff3968878"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b85f9c530ea11f18748d36b4385b9350592b56f8086c74f513372bff3968878"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e6837df7ad022e5595329922103f21b16f062cc26cbf4f68995cd435f8935f15"
+    sha256 cellar: :any_skip_relocation, ventura:        "e6837df7ad022e5595329922103f21b16f062cc26cbf4f68995cd435f8935f15"
+    sha256 cellar: :any_skip_relocation, monterey:       "e6837df7ad022e5595329922103f21b16f062cc26cbf4f68995cd435f8935f15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41468dd0a4be14f7ff63caec323b7fa248cf8c17f02640ebc45d592e99b3a454"
   end
 
   depends_on "help2man" => :build
+  depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
     ENV["PYTHON"] = which(python3)
 
     rm "setup.cfg"

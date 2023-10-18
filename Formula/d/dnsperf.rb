@@ -1,10 +1,9 @@
 class Dnsperf < Formula
   desc "Measure DNS performance by simulating network conditions"
   homepage "https://www.dns-oarc.net/tools/dnsperf"
-  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.13.0.tar.gz"
-  sha256 "a31caa1899c67f35f28b970abe1f31f1d9c6b1f8b20ea24187ca1a82baac53cb"
+  url "https://www.dns-oarc.net/files/dnsperf/dnsperf-2.13.1.tar.gz"
+  sha256 "d3c64afed01adeb7cd52b89166d50ce4d105203132ad09da3a284511530abe80"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url :homepage
@@ -12,13 +11,15 @@ class Dnsperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "be46ad0c98cf9615c5856fa8dd690d0a9dcf2a06f1f46bebc20851668ab52a30"
-    sha256 cellar: :any,                 arm64_monterey: "b89bcceb9ef38b5eb14699a212d9808c11395e8aefc91c353f41bf2b8d56abe6"
-    sha256 cellar: :any,                 arm64_big_sur:  "e2017c6ce565d3316ee3a5be2f5b6e3001d89d2d898b7115fe69a313fffc248d"
-    sha256 cellar: :any,                 ventura:        "197737e13f99489490fd60378f40ca685dd391c2cf689544f5758475c5c14a7e"
-    sha256 cellar: :any,                 monterey:       "65089b4e579d3d98277f3a0f3db60d2310e6a668f638df21437eb8a560281c97"
-    sha256 cellar: :any,                 big_sur:        "702d2a9288a3e832d9575c169964e376ed758aa7299c54366466bc8f273e2521"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b91fed1b250487eb342425a70e796656c3d56b40fbe352cc86ac17949080cd9"
+    sha256 cellar: :any,                 arm64_sonoma:   "d54a248758bd8d8d1246f98846b12501c058db80f10ff4e99c898a65adfcce05"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9d03d7e34c041870345afda0cd2a95bd3b6a2459e7caacbaa88784c3082904c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "68b26adc20e0e9e00a3cfe80ce7261ba092ce695dbff99f876556e4f557acc0d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c158baa62a0e744502860283fc4e7711fe1315fe1a32bc8f6859b07ea7bc4d2f"
+    sha256 cellar: :any,                 sonoma:         "cfcc3cf81e4e0d828f1d68c7b009257bbf5021e1803d8f95ed52df179a19372d"
+    sha256 cellar: :any_skip_relocation, ventura:        "e9c4c9abab4cb2895c1ba722841e18a1bb91fe5f82b1ade2ff5a3fe1470dde7b"
+    sha256 cellar: :any_skip_relocation, monterey:       "35b4f451bd16df11a9c80e2be717d09333e8d55a58cb98b087f28b71f89dc40b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "002e509a7f321ce2d14df8e57b607f1d866f8bc5fbee173fa5431840fa0f251f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8edc4f2e1120b299305b11638419ccb837971e13dcfc1d6fd6263ce881769a8"
   end
 
   depends_on "pkg-config" => :build

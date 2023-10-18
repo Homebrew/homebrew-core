@@ -7,9 +7,11 @@ class Openslide < Formula
   revision 8
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "afb277f95420c92e38e2735224127bfe63bbca01549c3ad63b2b1d110f85df3b"
     sha256 cellar: :any,                 arm64_ventura:  "e583738663abd681d8251f1dc228f025c1c6938a928a96b728bce74fa34353c0"
     sha256 cellar: :any,                 arm64_monterey: "d37da9b5759f55d1d70a911a237c9be6275b3dc645c393cbd0467799fa17e989"
     sha256 cellar: :any,                 arm64_big_sur:  "b2368526acf0b7b6ea124c2c9b5faa93aff6f6e933ff7f53c8db6499094d2782"
+    sha256 cellar: :any,                 sonoma:         "4f3fa6514f9f6449b0a23962cbef7c89c1801efe93d5c4e28cd40d23519985ed"
     sha256 cellar: :any,                 ventura:        "196c77d171091b1ebdd7c8697c3241fa8102b0965fb2bee4f03118ed139061eb"
     sha256 cellar: :any,                 monterey:       "33e28390bea7296e1eac8f5e70c4099d53c90191138690382933350615ece546"
     sha256 cellar: :any,                 big_sur:        "f62cbddfc327ae795bdceed9c3c66dc22e955a28cd14190ae6844f990c346301"

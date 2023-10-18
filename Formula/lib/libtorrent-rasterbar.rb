@@ -13,9 +13,11 @@ class LibtorrentRasterbar < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f91390f2e29bfcea35690f4ddd7d9b61a36299125160f3f0b55943ad012c1336"
     sha256 cellar: :any,                 arm64_ventura:  "86e523fc8cd5fd49599171295c4866b6ad14d6374ad46a495b8cda6d38e2d098"
     sha256 cellar: :any,                 arm64_monterey: "5678eb2ed0b5693f3316d9ead4a4485bf295f7d49d8a94d031f949fccb7902c6"
     sha256 cellar: :any,                 arm64_big_sur:  "9d36a8ba83f84e6712f9d4390934dedb36060b4511207524a2d37489595d42cc"
+    sha256 cellar: :any,                 sonoma:         "18d46d686880f7bae22b69bff7ba85ff090e98ca1cd467097dbd7a8b585b1350"
     sha256 cellar: :any,                 ventura:        "f857488d501e6d047043532584a75d9f526d4be2b2e6c1a88313ac38078de700"
     sha256 cellar: :any,                 monterey:       "67361c2f8ae3c68f044bec1a2552f94bfb46f79ae33b1092b921b82010ab6e6f"
     sha256 cellar: :any,                 big_sur:        "1c2c548868767ed00f74abdc585e099941c489ca0f4a67fe1de3bb2469f09ba8"

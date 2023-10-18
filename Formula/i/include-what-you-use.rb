@@ -2,12 +2,13 @@ class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
   license "NCSA"
-  revision 1
+  revision 2
 
   stable do
+    # TODO: Check if we can use unversioned `llvm` at version bump.
     url "https://include-what-you-use.org/downloads/include-what-you-use-0.20.src.tar.gz"
     sha256 "75fce1e6485f280f8f13f4c2d090b11d2fd2102b50857507c8413a919b7af899"
-    depends_on "llvm"
+    depends_on "llvm@16"
   end
 
   # This omits the 3.3, 3.4, and 3.5 versions, which come from the older
@@ -20,13 +21,15 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a46b37c52edceed1e29ee97fe41498ff7064b5deb2a720f853487392656840e0"
-    sha256 cellar: :any,                 arm64_monterey: "1758e544df7d750bff4f960a1ccd69a5daaa7934e05c19fdf654f419463ba7b9"
-    sha256 cellar: :any,                 arm64_big_sur:  "af06164bdbd60c21f5223661dc41e2655e56f3a12da856ec264b136b117fa426"
-    sha256 cellar: :any,                 ventura:        "c5ebbdf1f0a808609493482b1bfc06f801c59a860749f0ba094b642014e9ddb3"
-    sha256 cellar: :any,                 monterey:       "369b7f5f71a8cf386ee16daa5904da807e863de88477fac97f696f3d412d1aa5"
-    sha256 cellar: :any,                 big_sur:        "3399dcc5e5ab6e18d594daa37c990bd301b36035b8603f3b41bc105671f1b8f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed6945b3893c94832916329f8b287ae223f4726ab6b39cb80c3bee4b5d5b5e08"
+    sha256 cellar: :any,                 arm64_sonoma:   "ef8f37cc8f4eebacb2b5d00cf63f45697a7766920cfad74ac9ed9c4a2b053723"
+    sha256 cellar: :any,                 arm64_ventura:  "0afd0990d819a2568df41c17f085d9b160230bee5574a6033602296a9e188ded"
+    sha256 cellar: :any,                 arm64_monterey: "843aef80aacd7d951c74263a2f4c521114e0a52f8f95514c4ebda405e0eaa1f4"
+    sha256 cellar: :any,                 arm64_big_sur:  "27ac00895576941fb13b3caa6d0d1f6a464c0a0ebcc240feefece53e8cf382de"
+    sha256 cellar: :any,                 sonoma:         "062d2677974e4dd52eba2904339b0260606632cb4c1e5bfc9f42a4e499afb919"
+    sha256 cellar: :any,                 ventura:        "ddfce96e790ca3b1c6482159148725f8fa9ee058cbdffd405d53aa1bfcd13df6"
+    sha256 cellar: :any,                 monterey:       "30badd3f3516e107b32f22eae3dc47750e0d748095a797b7d2d5a59c84506e43"
+    sha256 cellar: :any,                 big_sur:        "34834940add5003d4495185c6f4108ab83c0adf85b2cd30a2d5f8b459a6f2201"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c7abdfa312fab71542b757c034cd5617c99898d12f4cc5c7ce0e5e1d9b24c6e"
   end
 
   head do
@@ -45,11 +48,16 @@ class IncludeWhatYouUse < Formula
   end
 
   def install
+    # FIXME: CMake stripped out our `llvm` rpath; work around that.
+    args = %W[
+      -DCMAKE_INSTALL_RPATH=#{rpath(source: libexec/"bin", target: llvm.opt_lib)}
+    ]
+
     # We do not want to symlink clang or libc++ headers into HOMEBREW_PREFIX,
     # so install to libexec to ensure that the resource path, which is always
     # computed relative to the location of the include-what-you-use executable
     # and is not configurable, is also located under libexec.
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec)
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args(install_prefix: libexec), *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

@@ -9,44 +9,32 @@ class Luajit < Formula
   # Update this to the tip of the `v2.1` branch at the start of every month.
   # Get the latest commit with:
   #   `git ls-remote --heads https://github.com/LuaJIT/LuaJIT.git v2.1`
-  url "https://github.com/LuaJIT/LuaJIT/archive/72efc42ef2258086a9cb797c676e2916b0a9e7e1.tar.gz"
-  # Use the version scheme `2.1.0-beta3-yyyymmdd.x` where `yyyymmdd` is the date of the
-  # latest commit at the time of updating, and `x` is the number of commits on that date.
+  # This is a rolling release model so take care not to ignore CI failures that may be regressions.
+  url "https://github.com/LuaJIT/LuaJIT/archive/656ecbcf8f669feb94e0d0ec4b4f59190bcd2e48.tar.gz"
+  # Use the version scheme `2.1.timestamp` where `timestamp` is the Unix timestamp of the
+  # latest commit at the time of updating.
   # `brew livecheck luajit` will generate the correct version for you automatically.
-  version "2.1.0-beta3-20230813.2"
-  sha256 "940b2afd480d0a6365fcae11415117b016e485f2bf8a68c7a12534b9ab42d35a"
+  version "2.1.1696795921"
+  sha256 "b73cc2968a16435e899a381d36744f65e3a2d6688213fcbce95aeac56ce38d53"
   license "MIT"
-  head "https://luajit.org/git/luajit-2.0.git", branch: "v2.1"
+  head "https://luajit.org/git/luajit.git", branch: "v2.1"
 
   livecheck do
     url "https://github.com/LuaJIT/LuaJIT/commits/v2.1"
     regex(/<relative-time[^>]+?datetime=["']?(\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z)["' >]/im)
     strategy :page_match do |page, regex|
-      newest_date = nil
-      commit_count = 0
-      page.scan(regex).map do |match|
-        date = Date.parse(match[0])
-        newest_date ||= date
-        break if date != newest_date
-
-        commit_count += 1
-      end
-      next if newest_date.blank? || commit_count.zero?
-
-      # The main LuaJIT version is rarely updated, so we recycle it from the
-      # `version` to avoid having to fetch another page.
-      version.to_s.sub(/\d+\.\d+$/, "#{newest_date.strftime("%Y%m%d")}.#{commit_count}")
+      page.scan(regex).map { |match| "2.1.#{DateTime.parse(match[0]).strftime("%s")}" }
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "83ff44fbfaa9312b80ee92c80c2683eccdf7f997bdd6608d1b0bcf2057f48b9c"
-    sha256 cellar: :any,                 arm64_monterey: "46066e754a2d030fc781a9865cde2d50cc2eb76ba565005ec7ac3ffb7d0e298b"
-    sha256 cellar: :any,                 arm64_big_sur:  "e231ae553b2f134916e28bc43e34f82c1b99d2c22c4977ed03701224a37de8c5"
-    sha256 cellar: :any,                 ventura:        "7703055988274d4d9acd8e04b28a937db7a3e5d31531d8f555cb715c1e794cbc"
-    sha256 cellar: :any,                 monterey:       "ca3ac71bd6f9ae3854e046e7ebca55a9d427197d42b55e656c831fc9cc4f87b1"
-    sha256 cellar: :any,                 big_sur:        "98918574b3945dbdbab7f0e7952dd1482bdbffb0fd5fe26b3c806542bfb09222"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25a3de845d0a769045d2bab5337762d7bcb6b31a52a1e28fcfa1ab0c308dc0db"
+    sha256 cellar: :any,                 arm64_sonoma:   "1027b27021dae7d24cfbd2c9442e57b7575333cc0d57b7e0b6906337e54d2f28"
+    sha256 cellar: :any,                 arm64_ventura:  "9a130c06aaa198255f0163b37600a37bd44ecae8c914b549deffc922e108faac"
+    sha256 cellar: :any,                 arm64_monterey: "5456a76e6e36b2019f0d41ac53552546202e1911b3924ea7ee901e479582eca7"
+    sha256 cellar: :any,                 sonoma:         "f7068b17e8a82eabfa84d90a2ec6bf264f9934508c04fb57c9c9f51bb438cac1"
+    sha256 cellar: :any,                 ventura:        "fcb8413972dc988572bf9faa969825a9df0d1fb7b6d75ad139fb21b24293cef8"
+    sha256 cellar: :any,                 monterey:       "7b7c6498813508d5e39dc0f0ab6036f802b7507ed009c17a284a63ac1a96e1c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e76e82cb555c5c85f3c27ba530f739fc1b5c11311b7eab79f2220bd3312ecc09"
   end
 
   def install
@@ -74,12 +62,6 @@ class Luajit < Formula
     system "make", "install", "PREFIX=#{prefix}", *verbose_args
     doc.install (buildpath/"doc").children
 
-    # We need `stable.version` here to avoid breaking symlink generation for HEAD.
-    upstream_version = stable.version.to_s.sub(/-\d+\.\d+$/, "")
-    # v2.1 branch doesn't install symlink for luajit.
-    # This breaks tools like `luarocks` that require the `luajit` bin to be present.
-    bin.install_symlink "luajit-#{upstream_version}" => "luajit"
-
     # LuaJIT doesn't automatically symlink unversioned libraries:
     # https://github.com/Homebrew/homebrew/issues/45854.
     lib.install_symlink lib/shared_library("libluajit-5.1") => shared_library("libluajit")
@@ -96,6 +78,8 @@ class Luajit < Formula
   end
 
   test do
+    assert_includes shell_output("#{bin}/luajit -v"), " #{version} "
+
     system bin/"luajit", "-e", <<~EOS
       local ffi = require("ffi")
       ffi.cdef("int printf(const char *fmt, ...);")

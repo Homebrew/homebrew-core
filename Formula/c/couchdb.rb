@@ -1,6 +1,7 @@
 class Couchdb < Formula
   desc "Apache CouchDB database server"
   homepage "https://couchdb.apache.org/"
+  # TODO: Check if we can use unversioned `erlang` at version bump.
   url "https://www.apache.org/dyn/closer.lua?path=couchdb/source/3.3.2/apache-couchdb-3.3.2.tar.gz"
   mirror "https://archive.apache.org/dist/couchdb/source/3.3.2/apache-couchdb-3.3.2.tar.gz"
   sha256 "3d6823d42d10cf0d4f86c9c4fe59c9932c89d68578fcb6c4b4278dc769308daa"
@@ -13,24 +14,18 @@ class Couchdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b44aacdf280a2f3c2f3af38a7f70085e235f054603da579defd71fc254fb2acc"
-    sha256 cellar: :any,                 arm64_monterey: "4410e98100842db4c70040e0fe36b024f4c2f84aa56a218e026f081ae85dcb21"
-    sha256 cellar: :any,                 arm64_big_sur:  "f9ec695c49e2b460bf6ce4f65202c2f55f420dcfb2123ba4f6ef8c6c84aa1130"
-    sha256 cellar: :any,                 ventura:        "ef789cc239ffcd25bb447f0292c7687b7edd391df336e8c0e3999a735cc8ca35"
-    sha256 cellar: :any,                 monterey:       "207ce0c943397c513a8b8a213a723278c32d07769879ce4efadc792dac4c0c5f"
-    sha256 cellar: :any,                 big_sur:        "c9c10e39919268530595ca4d5d6597527782319c7b50897b4422ce6dae0a2ef9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7aa15ebf83c32e0cdfdaf44aa9151cec5a170462f4a999f4bd00f2b131e959d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "d6a47ac0fb58267e64699d8115e19f98bc2174c05786960468ece30414910a7c"
+    sha256 cellar: :any,                 arm64_monterey: "94387865d1659a2e0587894e785ee2b7416c0cfaa7fa32d869d5ab9427fe1d39"
+    sha256 cellar: :any,                 ventura:        "b641d0f8d05406c8493855a4d8129407374466ebaa1ce0125ac0c818f56e29a6"
+    sha256 cellar: :any,                 monterey:       "8b3f31e9ef0ff3ffc87e2e9c16dfe535aa6fc30ef07635a896a7c2166d460fec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88579949ac1064d63ffa9ad518bf69df2ce2e123ef830b1637dd1ba037dfddc1"
   end
 
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build
-  # Use Erlang 24 to work around a sporadic build error with rebar (v2) and Erlang 25.
-  # beam/beam_load.c(551): Error loading function rebar:save_options/2: op put_tuple u x:
-  #   please re-compile this module with an Erlang/OTP 25 compiler
-  # escript: exception error: undefined function rebar:main/1
-  # Ref: https://github.com/Homebrew/homebrew-core/pull/105876
-  depends_on "erlang" => :build
+  depends_on "erlang@25" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "icu4c"
@@ -55,7 +50,7 @@ class Couchdb < Formula
       s.gsub! "-L/usr/local/lib", "-L#{spidermonkey.opt_lib} -L#{HOMEBREW_PREFIX}/lib"
     end
 
-    system "./configure", "--spidermonkey-version", spidermonkey.version.major
+    system "./configure", "--spidermonkey-version", spidermonkey.version.major.to_s
     system "make", "release"
     # setting new database dir
     inreplace "rel/couchdb/etc/default.ini", "./data", "#{var}/couchdb/data"

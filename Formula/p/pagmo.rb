@@ -7,9 +7,11 @@ class Pagmo < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d47f97fa7cea8f3197da057b0657996c74128cf06961ffe0be775e4a91034f9f"
     sha256 cellar: :any,                 arm64_ventura:  "0d699efa58477387d7144cf25c91c1809d3c95e8e4eff135dd5d3385ceb8fb35"
     sha256 cellar: :any,                 arm64_monterey: "967930e4a14276c3159edf5e8d3dac7ad6cf39b8727b5f5479ddf7677c1ec366"
     sha256 cellar: :any,                 arm64_big_sur:  "da4daa92ea36eafc36a7eeb0895add7a8a28f35780e4856e2c90f3709d85645c"
+    sha256 cellar: :any,                 sonoma:         "74aa1c5ac34ec0e05b4440c075153dbb878b576f5f54f146bfb8a4a73c1c9fdd"
     sha256 cellar: :any,                 ventura:        "e87448b08bb3eef888de8becfda13b7d3b02353320a3cdcb7d0e18a307cbdca2"
     sha256 cellar: :any,                 monterey:       "a87d2af510454417523cce4c4d0566d160ab396fed05bc90161ddb9df3d286ca"
     sha256 cellar: :any,                 big_sur:        "760c2abca386c2cee9121af707f3eec8ffdba239e75da6a8b8e0fed1ba14f782"

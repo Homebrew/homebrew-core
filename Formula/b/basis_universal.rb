@@ -6,9 +6,11 @@ class BasisUniversal < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8f176e149c4baa2f3beaf3986ac77ecccbe1aa19d21bea15c10000ce74a67560"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f07b78dbb559ad8460d74beb4c7b1ddd4f4f2d3e2ad59bf240d6ce5b65119499"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "60349947a86d4bd5b18563412ba991ef86c670ffc950a9a09a6eb6109e5da30d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d257f0ec38624ee12cd06276bf9027b8321f1164709740715767ee0f553a622e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4cbd2ac330391e180fdb82185bdb2226636694634a1586f719fcba6efd3fb7a9"
     sha256 cellar: :any_skip_relocation, ventura:        "69185b9f65c1ef1e33048bdf4b9b326d1fa01541614c927ec5b596e69c5bf2f7"
     sha256 cellar: :any_skip_relocation, monterey:       "5edfa9db9c6aec95c25a11c3aed0737f5ce49da24ad3d0f5a239d279a5ac12e1"
     sha256 cellar: :any_skip_relocation, big_sur:        "252c8b100e8897113762d5e6b666d393aa49f6ee94c9d52f90d4218c0c8ffdf5"

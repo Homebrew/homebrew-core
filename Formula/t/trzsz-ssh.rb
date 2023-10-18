@@ -1,18 +1,20 @@
 class TrzszSsh < Formula
   desc "Simple ssh client with trzsz ( trz / tsz ) support"
   homepage "https://trzsz.github.io/ssh"
-  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.10.tar.gz"
-  sha256 "783fc812bc16e52992c7053f3432b2a9ad285dbc854f88a510c671bbdd4c5c4b"
+  url "https://github.com/trzsz/trzsz-ssh/archive/refs/tags/v0.1.11.tar.gz"
+  sha256 "1e11ffefd5021996bf1bcbc9b84b644a48ea7ef2262acece2f373f0795e48c35"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a74d8967e0013a0a6e8b47093c9c14df7470e43121285b7df42b39091c81b108"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8919ff8975bd2350b72f04e59f5227196df79dfc09390a548c6dfa9b4b354a15"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edfef1a792229deb5ba743c83105099dc749199c2432626cd64241069f10d41d"
-    sha256 cellar: :any_skip_relocation, ventura:        "16152b17c8c5976730c61bb866c7e19dbb8524169d201f7697051e515c2b3ee3"
-    sha256 cellar: :any_skip_relocation, monterey:       "7cfc5c7061762f4360ff066963e08128392f0c4ba1bc5bb2a73cbad4b8c5d03f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "73b103b97994b91838b5cad09605bff7bdf82b300668e78b511891ced5f240cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "537eeea8e669608049988a42368ed0c36ac4396ea8618de6628ad4944ae73007"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c1ffd7ca39ba10f825bcd039085dd253f85e952398cb674c0e3c7a8421931ea0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d6f50f406455b5859a7dfb9e246684fc46299c34a70057675eeb39c9dc2beec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7199aae0cc11edecc9c1aff0c3b1ba622a20203838bc87a13a86018935b754e"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "431f6b1cde494c494aaed50daf5c28fefbae7636f9f983ac7f6386f00fbcdc62"
+    sha256 cellar: :any_skip_relocation, sonoma:         "46253a2e18ae213a553a56c5f500608be2bdc7fd1e0e69203d371aab6c76dd03"
+    sha256 cellar: :any_skip_relocation, ventura:        "70b7b95250d6d5dba79c96b83b2cb7eb33c22080de8206577a347f3bccfc454c"
+    sha256 cellar: :any_skip_relocation, monterey:       "dd2bc73958945bfab0f6d71d130b72d4388d0aae46b474aaa3e2c05a0f179f8c"
+    sha256 cellar: :any_skip_relocation, big_sur:        "21a23642ddbfac93eefbaef6902c805a627910a58f2a7e250b489b5d8b901562"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e43ac2536dfac843b88726bf3dabf3b6951b64cd41320075a0dcf23209000e9b"
   end
 
   depends_on "go" => :build

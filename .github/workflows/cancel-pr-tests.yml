@@ -1,0 +1,55 @@
+name: Cancel PR tests
+
+on:
+  pull_request_target:
+    types:
+      - closed
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number }}
+  cancel-in-progress: true
+
+env:
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  PR: ${{ github.event.number }}
+
+jobs:
+  cancel-tests:
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      !github.event.pull_request.merged
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    defaults:
+      run:
+        shell: bash
+    permissions:
+      contents: read
+      actions: write # for `gh run cancel`
+      checks: read # for `GitHub.get_workflow_run`
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: false
+          cask: false
+          test-bot: false
+
+      - name: Check CI status
+        id: check
+        env:
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          brew check-ci-status --cancel "$PR"
+
+      - name: Cancel tests
+        if: fromJson(steps.check.outputs.cancellable-run-id) != null
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          RUN_ID: ${{ fromJson(steps.check.outputs.cancellable-run-id) }}
+        run: |
+          echo "::notice ::Cancelling tests on closed PR #$PR"
+          gh run cancel "$RUN_ID"

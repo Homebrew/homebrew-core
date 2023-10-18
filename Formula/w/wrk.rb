@@ -16,9 +16,11 @@ class Wrk < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "89a17214695f28852b9be47589b1f8788b7209201c163b2bf39b608c1ba2bacd"
     sha256 cellar: :any,                 arm64_ventura:  "f1838e262aaea9a48cd54b0e33c25e39131a9732d5e9b9748498ef37cf468699"
     sha256 cellar: :any,                 arm64_monterey: "dff2f475aaebf54bf90ca442ed041fb857b43249e9c8c7f4503018bb3970a4e3"
     sha256 cellar: :any,                 arm64_big_sur:  "8a60990dd837067cc883e28fa18500ed86125cf054f2d4030098423b879b97f6"
+    sha256 cellar: :any,                 sonoma:         "11ddc1b8dfc48bd2c8bb3b2b96f4b01b5356f5b8d0702d7ee287bf56a96b3b55"
     sha256 cellar: :any,                 ventura:        "cd319593d2f5ad2d1335cac14ebbf192af7502a63e83d4b8d1cb6e80fede99e4"
     sha256 cellar: :any,                 monterey:       "86b756396151c118e4a2e419b692923a6c8d71a02f355f5c1390fe11659125ab"
     sha256 cellar: :any,                 big_sur:        "fcb1b19c7ec424642d0dc7cf0a9a1dde8872a64a4e91fdf07a16f0b64ba10e4b"

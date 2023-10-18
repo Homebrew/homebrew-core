@@ -19,9 +19,11 @@ class SyncGateway < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "abb762a9ab0adb5d448fe772eb16320889107513e1e3b8ffa96d8f906955f1f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2eeb4fc96bdbbe45ebbe3697a6b66c5af1fb669d838641f3f4196e25c0347776"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12e6c262ca1813ad780e52198b11aaa3756ddf070a2979185406a6e0114782d0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8c73fc61bd3b98f2d5a16567207e53292e923782eb03368749540b543683d37e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3fecd6d239da03e4d2361259c8068a26115541411b422317a1e7b5992c455295"
     sha256 cellar: :any_skip_relocation, ventura:        "a1ae675bdd86d4dff95de1a3fa840c582cd3ad308615e150ee91d0e9d296af24"
     sha256 cellar: :any_skip_relocation, monterey:       "6a7a3017185bb88be88d29956f01940ba8bcab4b2662295fa92e62e224aeb35f"
     sha256 cellar: :any_skip_relocation, big_sur:        "0e32ee39b28d597b25f950b27cfb14b306db52fd752f855cab27d0a994271277"

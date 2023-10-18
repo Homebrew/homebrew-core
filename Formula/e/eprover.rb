@@ -11,9 +11,11 @@ class Eprover < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00f72e1343bbd0500616967a713ec1a6069abdf982c01a3754539c165638686d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "933c3244099f0d7631bc4b5fff2ff790686d3fd8519448118d80a57664133984"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f2df4ffe6c58bfdbd59c96e662f1ca66a91f5f26b21b8de2cbf6e36368443f4c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6c5b3ef3fe7c4d8a83d6bc36414cc31a75ee9ec0444e8bc3a53ad9c0e398d388"
+    sha256 cellar: :any_skip_relocation, sonoma:         "90de544bd2613abe310df52da1fef3562e281f467ecc49cc0bbfb7e409901e2b"
     sha256 cellar: :any_skip_relocation, ventura:        "fa5c8ccf21c2651c3e5ce3ee03cd4b02bfd17e2f6d4a4cd7d84f27a0eb86fa8b"
     sha256 cellar: :any_skip_relocation, monterey:       "d43e11494bbb94729f103b7680e258d98397954b26ec1ee876c7600f6433ea37"
     sha256 cellar: :any_skip_relocation, big_sur:        "5ca253b65f824844b7238c6a48870d62aa7c59759b30caaaf297019dddb1546f"

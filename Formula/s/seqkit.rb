@@ -7,9 +7,11 @@ class Seqkit < Formula
   head "https://github.com/shenwei356/seqkit.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ac38302880be42acf6ddc1f954224f09e12e42bc3149c3359388c5ec07151e4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fafcd5531a29dd73b5870d0c9525c0a9f6bcf77967d750e4bb62bc9a18ebf3b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fafcd5531a29dd73b5870d0c9525c0a9f6bcf77967d750e4bb62bc9a18ebf3b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fafcd5531a29dd73b5870d0c9525c0a9f6bcf77967d750e4bb62bc9a18ebf3b5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e993bf831de972607dd79ba0af74ba7b0a0ed99f3ee82f6af5c053e177b635a0"
     sha256 cellar: :any_skip_relocation, ventura:        "bb9b4b600fe138d1544f3ed9e9024e6b53f5d47d7fc868a8ece96f0a3c74430f"
     sha256 cellar: :any_skip_relocation, monterey:       "bb9b4b600fe138d1544f3ed9e9024e6b53f5d47d7fc868a8ece96f0a3c74430f"
     sha256 cellar: :any_skip_relocation, big_sur:        "bb9b4b600fe138d1544f3ed9e9024e6b53f5d47d7fc868a8ece96f0a3c74430f"

@@ -1,8 +1,8 @@
 class CrosstoolNg < Formula
   desc "Tool for building toolchains"
   homepage "https://crosstool-ng.github.io/"
-  url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.25.0.tar.xz"
-  sha256 "68162f342243cd4189ed7c1f4e3bb1302caa3f2cbbf8331879bd01fe06c60cd3"
+  url "http://crosstool-ng.org/download/crosstool-ng/crosstool-ng-1.26.0.tar.xz"
+  sha256 "e8ce69c5c8ca8d904e6923ccf86c53576761b9cf219e2e69235b139c8e1b74fc"
   license "GPL-2.0-only"
   head "https://github.com/crosstool-ng/crosstool-ng.git", branch: "master"
 
@@ -13,13 +13,13 @@ class CrosstoolNg < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "da0b42cf1239cb133d7dc6862671d0d3debc4f67db4b8c5ad322dad49709c519"
-    sha256 cellar: :any,                 arm64_monterey: "d1d2a99a0f22af7153a165b2dc72541094bf7bdaf993a00899f84f02888f6a53"
-    sha256 cellar: :any,                 arm64_big_sur:  "d9b7df3a04edcdc51f34f60a2cb78c888eb90e31451fe02e60d83f972ed222c1"
-    sha256 cellar: :any,                 ventura:        "5c26c9c40110c1c92da9154d2c4fb3d5eb2ffcb66ca7c995090382ca74f983ab"
-    sha256 cellar: :any,                 monterey:       "8726ee9c9bd3681c32b2cdfb6244dffa1d4930248f5c3259ca644318e54d01b5"
-    sha256 cellar: :any,                 big_sur:        "ca4b8bfba4291c253b52159f7f600fc1b5ce3bd49961a9db0eb678e4949e2cd1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78bcc039c0893b52f57eb794368e2ce47dc0f41f9d2dad2ed08312b6bd79cf79"
+    sha256 cellar: :any,                 arm64_sonoma:   "c3beaab909d4b0890ce0b6264c18981a6afbe7ee2487f49d01ae5b51c12ff6c6"
+    sha256 cellar: :any,                 arm64_ventura:  "d177d9aa721b098257b31e09b64d8e9ff9eea1f49ea75e20333c304778100f2a"
+    sha256 cellar: :any,                 arm64_monterey: "a0899205ebaa1b23ba3808277821a75fe418dd0929a1a35bc736f0ed32ff20df"
+    sha256 cellar: :any,                 sonoma:         "1c5e8c757523288697612a1474709ab06b89dbfbced6b26ff2384858dbceb1a3"
+    sha256 cellar: :any,                 ventura:        "8107a048de577c810cc5404b6949decc44b6f50ee812576facbfa884607f99de"
+    sha256 cellar: :any,                 monterey:       "fc5ae025b96ac3410b52e92475db88bbc06f81252cd5d096177efd6d1a681f55"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a309a9662fc4b2f991e21fde07dd0e4b552829d36add35543991cf77ea7d6b3d"
   end
 
   depends_on "help2man" => :build
@@ -33,7 +33,7 @@ class CrosstoolNg < Formula
   depends_on "lzip"
   depends_on "m4"
   depends_on "ncurses"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "xz"
 
   uses_from_macos "flex" => :build
@@ -58,7 +58,7 @@ class CrosstoolNg < Formula
 
     ENV["BISON"] = Formula["bison"].opt_bin/"bison"
     ENV["M4"] = Formula["m4"].opt_bin/"m4"
-    ENV["PYTHON"] = Formula["python@3.11"].opt_bin/"python3.11"
+    ENV["PYTHON"] = Formula["python@3.12"].opt_bin/"python3.12"
 
     if OS.mac?
       ENV["MAKE"] = Formula["make"].opt_bin/"gmake"
@@ -73,7 +73,7 @@ class CrosstoolNg < Formula
     system "make"
     system "make", "install"
 
-    inreplace [bin/"ct-ng", pkgshare/"paths.sh"], Superenv.shims_path/"make", "make" unless OS.mac?
+    inreplace [bin/"ct-ng", pkgshare/"paths.sh"], Superenv.shims_path/"gmake", "gmake" unless OS.mac?
   end
 
   test do

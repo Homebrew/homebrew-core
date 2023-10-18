@@ -11,9 +11,11 @@ class Alluxio < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd26ea56d1c396cb64e0bb58fe7cda96c2455a86f1fada424d89e66a99de209d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c38d5e85079041c189c0fe008618802ee1a87f2efb94f1b3d0be35c23e27ec01"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c38d5e85079041c189c0fe008618802ee1a87f2efb94f1b3d0be35c23e27ec01"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c38d5e85079041c189c0fe008618802ee1a87f2efb94f1b3d0be35c23e27ec01"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a6ca39e8f84ac5a4550cb32d282bb2f7bbf3857837fe8ff75dc020b9abfbba62"
     sha256 cellar: :any_skip_relocation, ventura:        "f32a22feeccef5d59267a8936b1bc400996e96bd0a8f935eccf30fa8afb74722"
     sha256 cellar: :any_skip_relocation, monterey:       "f32a22feeccef5d59267a8936b1bc400996e96bd0a8f935eccf30fa8afb74722"
     sha256 cellar: :any_skip_relocation, big_sur:        "f32a22feeccef5d59267a8936b1bc400996e96bd0a8f935eccf30fa8afb74722"

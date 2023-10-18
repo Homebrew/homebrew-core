@@ -1,10 +1,9 @@
 class Libgphoto2 < Formula
   desc "Gphoto2 digital camera library"
   homepage "http://www.gphoto.org/proj/libgphoto2/"
-  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.30/libgphoto2-2.5.30.tar.bz2"
-  sha256 "ee61a1dac6ad5cf711d114e06b90a6d431961a6e7ec59f4b757a7cd77b1c0fb4"
+  url "https://downloads.sourceforge.net/project/gphoto/libgphoto/2.5.31/libgphoto2-2.5.31.tar.bz2"
+  sha256 "4f81c34c0b812bee67afd5f144940fbcbe01a2055586a6a1fa2d0626024a545b"
   license "LGPL-2.1-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,14 +11,15 @@ class Libgphoto2 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "688c529e85f9e34c624cfde0dddbcef5aebfeff2237954d8ce53ef60d444cced"
-    sha256 arm64_monterey: "68c8f29614d57710c8d00f5ad526b848eaaf38c4d70ec77f8531283255ed2c1b"
-    sha256 arm64_big_sur:  "e3744a3675a5f6b5727181755d126730bcc79a39545e6a0a1133a1e4d5a97e74"
-    sha256 ventura:        "831c3e119f5e201b25799003a1a372b661c9235b15287d5b08ff5f1d157a07c7"
-    sha256 monterey:       "d72b3a28421b921f1189717b8aa9cefb819e7d90fcd0029b8b2c4e354836023a"
-    sha256 big_sur:        "54eb7a59f8fe1f56eafb31441f29c577e7685e39590cd8d3cfa59ee54c8c24b0"
-    sha256 catalina:       "31adfaaaee016330cf07e8e9a71ccc4517a987038504d8a6992cb6bf2deea596"
-    sha256 x86_64_linux:   "96e0c553d9c3d7d25ba2a73b35660403ada42e5bc2dc7f7b7be98e3acad846e2"
+    sha256 arm64_sonoma:   "a755497f42fd0a62182de3d1ba2956af248282fc6b3462e700b8f9a5713110a4"
+    sha256 arm64_ventura:  "989c4ffad8b8da9e9e7748e83989601d098c124274d971871c2088f1b98f78cc"
+    sha256 arm64_monterey: "f291bfec3c081315cc530beb04e7ff103f5d4fc2fcae93f5afa10da435f7402f"
+    sha256 arm64_big_sur:  "2ee65202bb463bf07f09372c95da9ab0d9b23b51eedf6fdf3e3ae5b19a11a7bf"
+    sha256 sonoma:         "b7d5802488add54cbeb1c52c2b954058ccdc6904e39010009638bea5d15d6075"
+    sha256 ventura:        "481cd4585e8278757a229d2f75f43d9ee51962b3608870c392a37e0d761e8989"
+    sha256 monterey:       "39889cb109e62d49a237282be1e978a5c064cc9f8f393446d9b8faf5a39b6bb8"
+    sha256 big_sur:        "24327cb6e498cba40d9ae4b1a35161cc7ee112e33d0da33486c4ee4b19585a23"
+    sha256 x86_64_linux:   "02f41488d9958e0be78a30c5d32d8f2b0e0073f954219deffc6f5f53f11120ca"
   end
 
   head do

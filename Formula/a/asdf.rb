@@ -1,13 +1,13 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
   homepage "https://asdf-vm.com/"
-  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "8416d3556f093b3f2f9931b30165efd8800c520c129bed22a537f889aa6dff90"
+  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.13.1.tar.gz"
+  sha256 "da22f5bce2dcf13edaa0b6381b6734e55fbf43128f12ca5f575ff4fda03399f4"
   license "MIT"
   head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d96303f7e926935adfbe217ee7f157427cc5877a24894baa59500d6c27c215af"
+    sha256 cellar: :any_skip_relocation, all: "ce9cfa03a236cba15a77b2e567d5ec9b2406a8ba0ab78d653ca2bf28f4014f35"
   end
 
   depends_on "autoconf"
@@ -42,7 +42,7 @@ class Asdf < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/asdf version")
-    output = shell_output("#{bin}/asdf plugin-list 2>&1", 1)
+    output = shell_output("#{bin}/asdf plugin-list 2>&1")
     assert_match "No plugins installed", output
     assert_match "Update command disabled.", shell_output("#{bin}/asdf update", 42)
   end

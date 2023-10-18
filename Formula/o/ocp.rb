@@ -13,9 +13,11 @@ class Ocp < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "7fc465e28f1d399f3dc1dc1614e234eccceade82063730d9eda5a722407d0b4c"
     sha256 arm64_ventura:  "98b920bce3a8dd1664102804316a636f1f36a1750d54be98a27d2c208585078f"
     sha256 arm64_monterey: "98bee92ef9e920e5d4e5a16af9efba47eb26bca3bab25bc3b8de8fd57124a526"
     sha256 arm64_big_sur:  "7dfbcf78f996adff1dc4c1dab3f908912b9109e068503361c10546adc397cdb4"
+    sha256 sonoma:         "62e8995e94e330bba95d89a4cf0bfda90eb782199ae0a3b5e7aa4aea6abbc956"
     sha256 ventura:        "43069ef46c4e17de75490c55aa93393420660c2fafbb21dd6af13408601d3d56"
     sha256 monterey:       "bdf0c54732d8169c6f0f2b10ac74eb388234bf41f9a8c7edbceae18e18b0b712"
     sha256 big_sur:        "303b794f8055a4657ecfd8982930b1e7f96cb3f73111d6c5da78dfc9cf6218d8"

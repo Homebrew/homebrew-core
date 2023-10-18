@@ -14,9 +14,11 @@ class Simutrans < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "815adc48a2f0a3f15fbaca2d2b7b3ffe64f92499a7b0aeb4cc04820e778bcf0e"
     sha256 cellar: :any,                 arm64_ventura:  "7724a711b377c830aa0e47224a9ad947de30b6f5f5a53473815c67dcb3ec0979"
     sha256 cellar: :any,                 arm64_monterey: "07b96b69671a91db8a708c1052fbeaa6d1731ce3803026fdb6a15cefb398df82"
     sha256 cellar: :any,                 arm64_big_sur:  "576142b4340df99b5539eb8d1169be30809f34e993d9dd4e959e3bcd4d9ca730"
+    sha256 cellar: :any,                 sonoma:         "f29c8583ab4684805673185e843fadb9a658b92256c586c637765556f15e2bdb"
     sha256 cellar: :any,                 ventura:        "71d3083f4f6699aa4862d88839ef767f31c2a4575b8b8c7b8f4ec0a83695b2f2"
     sha256 cellar: :any,                 monterey:       "cf6297e4f98a2a7a65dcf8ebeb8dcfff8d7d5e8ff2520cde81e7e7bd4c2e9f85"
     sha256 cellar: :any,                 big_sur:        "57473a566814dfabb642bf5b0d27bfbe0763213438946034c8c09ab960d12f7a"

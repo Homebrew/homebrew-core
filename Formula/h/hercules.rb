@@ -13,9 +13,11 @@ class Hercules < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "68878f114b2f527152e73c11c8dfdf8f4b449ad1bdd98e2cce203d11d6eab59e"
     sha256 arm64_ventura:  "9fcd456bb4ae3b312765e3b0c2c3d10a3d24aab9d2d39745b7bb049b08d1dd35"
     sha256 arm64_monterey: "989fec41881653b8d1f7372d4de8447703fba4b2b6880194e5974cdad50b58d9"
     sha256 arm64_big_sur:  "ba4b3fa347d63601909127c94c0a2b1e42d81bbcc154970a18d7dd4ad8b15bba"
+    sha256 sonoma:         "e7ff4c56c22896aab1caa013a28885b8c59654904c97f24713a64ca9102a990c"
     sha256 ventura:        "478ecb96c865328760fd636aee98d44e0b5f27e90be83d3fef3c0f437d41830e"
     sha256 monterey:       "00df43bff8324b015c01c6cae809d69b911e2c2ba45b0a07a4d3be440daf672b"
     sha256 big_sur:        "c85d96adaa0f5cc5a17d5927d4cd1b44f42003baba3e59ff11cee5ce444512fc"

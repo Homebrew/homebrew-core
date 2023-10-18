@@ -11,9 +11,11 @@ class Hmmer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0b23b02bb7bf3113ad01b32f5410ad7e1aade6186e5b54f788bc4c5345ea7d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6285afc40e6975a1c8c0def48bc621e91801995481683954e580529fe4a5ae2a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c32f8196a92df90112d84a4478ff8621ad2682074765fb956e6eb47a2ad9a86"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "37ffb9e206f2bd9a6bcfc8ec0209ef879057293ec0cf3588c083e6948c51c548"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dccdc668733d08a039d2ae9c5c40e4aef51c7b3bd8ed87398bc4159b7275cbef"
     sha256 cellar: :any_skip_relocation, ventura:        "1158f5420a01acc1906a56f654c564dc1538fc7961472f4a00598875b474f7c3"
     sha256 cellar: :any_skip_relocation, monterey:       "454e0ba7a19efebc0ec14b06d0075c377fab5ffc69c2a2fc7c54a2bac6406d76"
     sha256 cellar: :any_skip_relocation, big_sur:        "3fd8305a219c8084fa7fa34915fb904837b172fe7f3aafc8d6aa3c4e9a6f919d"

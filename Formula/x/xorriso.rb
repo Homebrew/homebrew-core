@@ -7,9 +7,11 @@ class Xorriso < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4231bedc678f7cbb7151e5dd846ade6123811b472b7a378164b29d0edaaf8680"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e64ea078ab6659f5892db71cf6d2c72825cbefb80956ee88a8aaf5d0080594d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c7004800a9d909e5cbe3373dbb2d8fb71a943d022901f8a5b950c34c52215b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6a4f6c99d783a4c6c7b32438aae079f7d769b34ad831310868309fe275ff585"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f9020ad45bcbf572393a1a95377c38fb8aaf861aaa09510d379fdd19e0f9a598"
     sha256 cellar: :any_skip_relocation, ventura:        "3865faab160986fdaa7e94f37056a15a1b790a32501118e4d6ab91abeb9543ce"
     sha256 cellar: :any_skip_relocation, monterey:       "b0d7600730ba18eab8cdc658ddeb80f849906fbd505694a7603e57650568b392"
     sha256 cellar: :any_skip_relocation, big_sur:        "b69459a4b5cbf28b29730e7b79ee89f1fd916d2c7f05c4de83826296c576a79f"

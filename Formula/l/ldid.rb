@@ -5,22 +5,26 @@ class Ldid < Formula
       tag:      "v2.1.5",
       revision: "a23f0faadd29ec00a6b7fb2498c3d15af15a7100"
   license "AGPL-3.0-or-later"
+  revision 1
   head "https://git.saurik.com/ldid.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f59786f3fff036564365d4ed4a8b41d4402bccbbbfa3162ae994bec1796ab3ef"
-    sha256 cellar: :any,                 arm64_monterey: "047e835731b086550a69c187b4705b3d746ea1cf813f63a804a87fa1c4c7f45a"
-    sha256 cellar: :any,                 arm64_big_sur:  "c81a69241a7bdea0eacd718bd1dbd473607224f38600f043d73be3641ece8cca"
-    sha256 cellar: :any,                 ventura:        "313f9431728e3b2f0ad61e12941447cadc3bb84ba1369c6cc6b01334420276b5"
-    sha256 cellar: :any,                 monterey:       "35aa6c645ea6b89a1745a636c2710e2638f88edc0ad097e38f09e3f7e9c20c6a"
-    sha256 cellar: :any,                 big_sur:        "b75d803f0c93a89a51d9a40d7e6184e4085fe31e5eb5e8b50c11735e9660903c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "016c453d56d1bf999650f1fe6c86b6a06affe7e64bb5e22c187b69e0a0fb11a5"
+    sha256 cellar: :any,                 arm64_sonoma:   "e3c26343041639b82e88edf54d3af9f579876f800b7aeada94d36c807e441c27"
+    sha256 cellar: :any,                 arm64_ventura:  "552c265e507a066ffec6f2476dc9d6057a2ba41537f44f067a50c74ece9429bf"
+    sha256 cellar: :any,                 arm64_monterey: "a14aa56dab553afd69f82c3b63a167edb6ae2c3355a8f393e9a6c6c3c05e8432"
+    sha256 cellar: :any,                 arm64_big_sur:  "a5f4fffe051e8b54f8c0158ce937802297a76af4dad9140c13ad25a935f4f38d"
+    sha256 cellar: :any,                 sonoma:         "a2b4c79cc1cdc1cc91cd7a9474f5edbdd7ed299aad720c65a8e63bbb68d594b0"
+    sha256 cellar: :any,                 ventura:        "b6aba3db5dd5aab6835280e0fe777a566cc5eb524290482602ee2b8018145760"
+    sha256 cellar: :any,                 monterey:       "2adcc78190f359d7c5485a29cc84c37f5bf3360c39e2cd2cc975a5449bf3db6c"
+    sha256 cellar: :any,                 big_sur:        "7373fc777890c829de08c79475c3b2caa55f68c30f97398201ff3dd9c55638ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4519a8fb688fea614c230562638a0d4704e7f1aad8d9372845d0b28cc5281479"
   end
 
   depends_on "libplist"
   depends_on "openssl@3"
   uses_from_macos "libxml2"
+
+  conflicts_with "ldid-procursus", because: "ldid-proucursus installs a conflicting ldid binary"
 
   def install
     ENV.append_to_cflags "-I."

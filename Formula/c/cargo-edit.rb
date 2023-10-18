@@ -1,25 +1,34 @@
 class CargoEdit < Formula
   desc "Utility for managing cargo dependencies from the command-line"
   homepage "https://killercup.github.io/cargo-edit/"
-  url "https://github.com/killercup/cargo-edit/archive/v0.12.0.tar.gz"
-  sha256 "a8168ea2320c095f55d2b32f8bede8c814dcdc4290c250df36dc8ce0f6fb2095"
+  # TODO: check if we can use unversioned `libgit2` at version bump.
+  # See comments below for details.
+  url "https://github.com/killercup/cargo-edit/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "10c86ca7585852ce288a44608ef87c827f4b733a94eb847ab15735b823b30560"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "fc9733fcc9a17ddec26cf85c6b3d78012d4be90accb077607e45ec22e78349c5"
-    sha256 cellar: :any,                 arm64_monterey: "c3650279b6ee915c9463492908197860208dc426a28e95762fc10cdbc7257fd1"
-    sha256 cellar: :any,                 arm64_big_sur:  "e5ce6bf8ca65178bd4df7bf646b819f7103ddff0c516c242d8ea2fd89585464c"
-    sha256 cellar: :any,                 ventura:        "a79a10921fbfbc69a34c237498265c8e962b16dd9144f0cfa6fdd8235ce41675"
-    sha256 cellar: :any,                 monterey:       "41c7884cfe078e882e04ad2d7b97e7f0b728f0d0f36852ae5bd4bfe003991fad"
-    sha256 cellar: :any,                 big_sur:        "def7d5ad96345c237572ef1fcca6fe7c2570114932ed59c0c99352d511d63c04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2674078d811596c0e31ef8ca74c764f3eeef1e2950f70c94656e25ac24de3bd"
+    sha256 cellar: :any,                 arm64_sonoma:   "5235c556554c2eb6def794df2e685aef958a2fc8a1065d3633a14f1e8b15f167"
+    sha256 cellar: :any,                 arm64_ventura:  "6107b6be4adadbcebb57c48a1e2d0a9db7ee59c3c88ffff9a26291464015ec86"
+    sha256 cellar: :any,                 arm64_monterey: "27a9d9bd285690b75e28929ad7fcbc4c823d1d4edafce07472795401c5db95bf"
+    sha256 cellar: :any,                 arm64_big_sur:  "96f7883d97ab6de68eaf0cda9deecf920754bf438c21ab920da63def1379d786"
+    sha256 cellar: :any,                 sonoma:         "0285b7a2772bc5f346319ae2bfb68d685a0e47bb5b08856f70ce757eb61edea0"
+    sha256 cellar: :any,                 ventura:        "ce20a66b7219a80617ad20042284afd4eaa8608f90084ca854701fb31e68c7e7"
+    sha256 cellar: :any,                 monterey:       "78be6fc5df8d7ae8d3926a0bb1497ac26db866acb84ddb0974dfb73632fe6018"
+    sha256 cellar: :any,                 big_sur:        "1be9c417a263a035c124020a65786c495b2219d664d4bd18d0a7b0d850c37a28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79df633b377c8c2fd2ba9f73ee41ca825f7158688d8a378110f56625c712775d"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  depends_on "libgit2"
+  # To check for `libgit2` version:
+  # 1. Search for `libgit2-sys` version at https://github.com/killercup/cargo-edit/blob/v#{version}/Cargo.lock
+  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
+  #    - Migrate to the corresponding `libgit2` formula.
+  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
+  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
+  depends_on "libgit2@1.6"
   depends_on "openssl@3"
 
   def install
@@ -33,6 +42,7 @@ class CargoEdit < Formula
     cargo_option_regex = /default\s*=\s*(\[.+?\])/m
     cargo_options = JSON.parse(cargo_toml[cargo_option_regex, 1].sub(",\n]", "]"))
     cargo_options.delete("vendored-libgit2")
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
 
     # We use the `features` flags to disable vendored `libgit2` but enable all other defaults.
     # We do this since there is no way to disable a specific default feature with `cargo`.
@@ -53,9 +63,9 @@ class CargoEdit < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV["RUSTUP_INIT_SKIP_PATH_CHECK"] = "yes"
-    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
+    rustup_init = Formula["rustup-init"].bin/"rustup-init"
+    system rustup_init, "-y", "--profile", "minimal", "--default-toolchain", "beta", "--no-modify-path"
     ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
-    system "rustup", "default", "beta"
 
     crate = testpath/"demo-crate"
     mkdir crate do
@@ -77,7 +87,7 @@ class CargoEdit < Formula
     end
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.6"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|

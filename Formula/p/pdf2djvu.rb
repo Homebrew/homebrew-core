@@ -8,9 +8,11 @@ class Pdf2djvu < Formula
   head "https://github.com/jwilk/pdf2djvu.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "16302ca2297a15cb537b4b2820f232dc067bb1db2afe32fb8b9e7acd2dbc72f1"
     sha256 arm64_ventura:  "1b89f7cc11c1ed0ad9893790ef19f53ac26da2d35b9cc7e65fb6aca6b08620c9"
     sha256 arm64_monterey: "50b7761da3c04a30f23e49483d009347968aa435f689cacdb51829a978a7bb6a"
     sha256 arm64_big_sur:  "7ab97261a347114c5682747d97619bd9bbb67a11f7f6f31183c7db874cff07e3"
+    sha256 sonoma:         "1332a7cdfd88879204e4ac4b5c90ed8ba17d3290f6913f819415abbff00c42a8"
     sha256 ventura:        "2cfdba470ffefa30573ee653c830b797e32d0f885764f713b2f10062f0952275"
     sha256 monterey:       "9cbfd8910b823ca474078f727ef20f75eed9793a7a6f1f15ee772938935795dd"
     sha256 big_sur:        "45cf358f9a387f948a2ee380415a266db6714885dbfa5aad33438e176cb6a326"

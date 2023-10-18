@@ -7,9 +7,11 @@ class Hub < Formula
   head "https://github.com/github/hub.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7df6f6e443e8e00fa18c8bd5e88fa666fe0a40659832e478a0d2345233ca374d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1b4d7c179ca172a5d00781021defae38a452408eab7077e26ad4f317cfad9e6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "00602733d9a4c8049e34cb20a7c96dbd51f98a60e1cb5fbc9aec72663324ce89"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19d761270350d4c4b6d5118d096dc7c012e7b58b43c0d81f9c6d8bded1888dd9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "007fb6c7dcfd7feb24afdcd95d016756357eb5bf38716c887e7839e4eeebfde7"
     sha256 cellar: :any_skip_relocation, ventura:        "737b57476182bf2e937a570be65f991590d79d84b9d14299fe15c2711a715113"
     sha256 cellar: :any_skip_relocation, monterey:       "d4c647211cc8a8e9aa9bedfaa4cb079a3a5fafea3f8378c7eaf5c50e2503cd0e"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c480f3de5f449a741f88718194c129d597f0fe0db8b2130c1ccf4daa9a8dfca"

@@ -19,9 +19,11 @@ class Lha < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00c0d551ed3318b4e5bbcac323c3c7135991007b3e149c9a8c9d591491272c47"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5c086e5d925a20f9582a1685c1ed5e94df7fadeab034fb5a776a83285297a8d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f36323fc8887aa0dfb1ad6897f3c097eebe199b80ec6e873e3c121dd286df627"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d328d1b1740353a2e04c6f79dc863f3fa2caca9380e76b3e48b4b72f5e1ad32b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "74087234a9e14c534ccd09049cd0a738f585d178a1da516c0ccc5f5c5e8568a4"
     sha256 cellar: :any_skip_relocation, ventura:        "b6181ea6e55fbcab6912619285b287461e24aa97419b68285b5e3fe0009913df"
     sha256 cellar: :any_skip_relocation, monterey:       "530aa92b0d3fbfdfaa01c6fb94e7a3dd4e98927055589a586145e8c7f5415bd1"
     sha256 cellar: :any_skip_relocation, big_sur:        "bd78eb55cbce8091fd07d82ec486bfd67fc8079b2fe6385c8374b2e7c5171528"
@@ -39,8 +41,8 @@ class Lha < Formula
   conflicts_with "lhasa", because: "both install a `lha` binary"
 
   def install
-    # Work around configure/build issues with Xcode 12
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
     system "autoreconf", "-is" if build.head?
     system "./configure", "--disable-debug",

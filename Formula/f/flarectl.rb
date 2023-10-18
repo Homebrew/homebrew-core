@@ -1,19 +1,19 @@
 class Flarectl < Formula
   desc "CLI application for interacting with a Cloudflare account"
   homepage "https://github.com/cloudflare/cloudflare-go/tree/master/cmd/flarectl"
-  url "https://github.com/cloudflare/cloudflare-go/archive/v0.75.0.tar.gz"
-  sha256 "b133c90f97ccb90a7f3b7d9e60547b67a384a038702c8854f02975f67315e5de"
+  url "https://github.com/cloudflare/cloudflare-go/archive/refs/tags/v0.79.0.tar.gz"
+  sha256 "23ad69a54f8a0e545d135d4a3dc002a76ccba8991b63dc6b8ac06e47d95ea274"
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/cloudflare-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0341081e9bb9fe8105e8db1fb38fb3ee5ec28ec1cf49d5c80c7c7342184d182d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c14c1b889e417609a9f605fb40a668a2265380105512ad1b9814c8c35dbeb255"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "07fbb90a3ba58b952d0b2d153410c9258187def467adb6f2456f091582ec01ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "5bf8689e398c9f28582b867ca857e9f9c4f146cda830908c6cd1ea7aa45f7741"
-    sha256 cellar: :any_skip_relocation, monterey:       "0fa951eaf61d1073aa9a3a30be0499ddde663856e78b6970376e05182551bc25"
-    sha256 cellar: :any_skip_relocation, big_sur:        "537715a2d13c0b9f4b5f67d0b679d1c3dbd4f52595fa51222e300c3aa5d48253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "897c446855f17b60f1ad36b62836bbbe60382d2e8adc856decaa9f073b6bcf8e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18497e067c909f2f669ce0ceba98498305ce974a21629e5e141f890ad5428d5e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "565e968e142bc5ad9d7935d58006baaacff2d96fb233b62c9ea7700efefebf7e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "801a94efaa1998ee7002dbc6d06a14be596f06f3eea9a5afdeef3a57ac0bd5a3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "77cc84e574b44c7a7c6cc945b4cdc1a507574683b0d07b948a69aa9dbdff32a3"
+    sha256 cellar: :any_skip_relocation, ventura:        "dfdc721af75525d186e665c0847ed566e25a651dfaeed0957e3fcabcd0c8dcb9"
+    sha256 cellar: :any_skip_relocation, monterey:       "6413a6f8916a2a0937cc2b8ea0fe4425576d112b1913cd2ccef228388359ee19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c404cfee2cc22740dfab2097ede4559095b19539326f28de2b221aa41711b1ec"
   end
 
   depends_on "go" => :build

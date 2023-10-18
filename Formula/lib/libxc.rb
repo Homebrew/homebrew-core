@@ -6,9 +6,11 @@ class Libxc < Formula
   license "MPL-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "869c370bc016aea18087cbe71c8535a12fcfa68501258eeec743c3c3becc352a"
     sha256 cellar: :any,                 arm64_ventura:  "6bf3929d9889b0078afb09ffc285b66c268aa0d665ec21ab56e1f51ddba78a26"
     sha256 cellar: :any,                 arm64_monterey: "241a0cb7e33d79615fc390d19ea846df49893e57f08fa0561ae881c8b395d89a"
     sha256 cellar: :any,                 arm64_big_sur:  "258ac8b1c6b73472797552674aa2b51d9d145fe3a34a94e0c872ecb1e1ef1821"
+    sha256 cellar: :any,                 sonoma:         "c25fe7f56bf53e01539aa84a3f6703afbbbc4c9b7d3b2891364ca600f711536a"
     sha256 cellar: :any,                 ventura:        "2eeace080d0402fa565815e822a9a4807c47e523d6fd703ea006533b6cb85ba1"
     sha256 cellar: :any,                 monterey:       "1140249e839f5f232ba9efc1692418c12ad8ba9848370068cef81cfba2a4b3ce"
     sha256 cellar: :any,                 big_sur:        "886bef2546e6eff2896c094fdfd4ed12173b1a660fdbfe73247adbfdf47f7067"

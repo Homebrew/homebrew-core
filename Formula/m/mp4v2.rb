@@ -6,9 +6,11 @@ class Mp4v2 < Formula
   license "MPL-1.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e9bc1800a60417f19d19347569285480d631355b615ad520d2b5c4f28b219d28"
     sha256 cellar: :any,                 arm64_ventura:  "1eeebb5c4beeda316aec2ab260c37b2eb7375330af16ff7f80a5e63f61ca7042"
     sha256 cellar: :any,                 arm64_monterey: "ab285946431ba3b30e0541a5391ff4ae0af7fa6ec6d84bd3213ac34400bf4682"
     sha256 cellar: :any,                 arm64_big_sur:  "48b40608f388870c825a0655c317293927d37899fc412c73c998cb3db60b1670"
+    sha256 cellar: :any,                 sonoma:         "59d2e7c940d983d7f291230b93df803ab99ae9834a40adec08d77be60e05f858"
     sha256 cellar: :any,                 ventura:        "5f584150ea02e3b5d3049a117b60dbe88d412c380442fef8246267bf6f66ed36"
     sha256 cellar: :any,                 monterey:       "62619da0d20b36b5854c08f531687dfe55d9fbd87dabaaf985ced7fe1b24b3aa"
     sha256 cellar: :any,                 big_sur:        "c7c93618a03cfb59e95a6d39e9e6e9d1f355b72ea199b9c6e3d881f606323c88"

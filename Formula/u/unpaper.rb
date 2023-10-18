@@ -8,9 +8,11 @@ class Unpaper < Formula
   head "https://github.com/unpaper/unpaper.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b191aba7bb9028cc378aeaebc8d8a301a4eae80a341c0012056c37aae566a2bf"
     sha256 cellar: :any,                 arm64_ventura:  "03414c349a45717cc5c9269aaece72051676b4a9df0d6ace2adc48a141529e0b"
     sha256 cellar: :any,                 arm64_monterey: "472966ff01e3c2ded01d802e7ccb51ac067bfbd3936576fde97bc73d9a94e3d0"
     sha256 cellar: :any,                 arm64_big_sur:  "7cab5bdf86d2b767b01284ee82a012dac07b7e034c2728168a62c6dfa9926d00"
+    sha256 cellar: :any,                 sonoma:         "ed21e55a1ddb88139a5c867ee3856279a93641f6f127925ed56617b27c999a62"
     sha256 cellar: :any,                 ventura:        "2131b439d88b39b3485030eb54bac1108ed19cad02d7995ee6ed4beb254f3e61"
     sha256 cellar: :any,                 monterey:       "5617fea75f70878d603fed75df6afbbd3abea7981c41cbe55065c08c2cd26437"
     sha256 cellar: :any,                 big_sur:        "69636bead34107d0247c5733b6b02b159f8434bf474a6b2c3279f8a8ad2ccd2e"

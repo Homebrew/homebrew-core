@@ -8,9 +8,11 @@ class Sift < Formula
   license "GPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d0530df43f6a11f1896f7520c499708945c213f842be222c9745af4193e39851"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "85a34b9b8aaf883d3659eabf4d5ed58c26c695f8882d6fbcb1987a8fd2bc59ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c93899f610215c5f879a7dc895c6d549573bde6389ecd1b5624bf119e585d7a6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28fd605e32b0dbf9526939fd5e366c46f5ad0c45b2a5e9cb2bb7fb8815a7f97c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ebb503184c83ea315c083b3be32217d43caef2cde6cd25ba32f42f8bd3908e5f"
     sha256 cellar: :any_skip_relocation, ventura:        "62ad19beb77a328b4ad7a1bba2ec84fe1d87d91aa01bd4dafaa5a229c5835e27"
     sha256 cellar: :any_skip_relocation, monterey:       "eaa4c4e84606b8dd32e3064819fc05f16b22a76f0be493bc283a2d256c050ff8"
     sha256 cellar: :any_skip_relocation, big_sur:        "08978d211e26b262c551418ca7c6d93f2b05a0e7887e10831a5a70f23f445e8f"

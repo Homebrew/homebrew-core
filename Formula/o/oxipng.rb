@@ -1,18 +1,18 @@
 class Oxipng < Formula
   desc "Multithreaded PNG optimizer written in Rust"
   homepage "https://github.com/shssoichiro/oxipng"
-  url "https://github.com/shssoichiro/oxipng/archive/v8.0.0.tar.gz"
-  sha256 "ef96d6340e70900de0a38ace8f5f20878f6c256b18b0c59cd87f2b515437b87b"
+  url "https://github.com/shssoichiro/oxipng/archive/v9.0.0.tar.gz"
+  sha256 "534fa8f349f52b01c2ee4332cef25ce1311edca04209ac6d972e38b171550a1b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab9167d9fac2985e904c86f32e05266b7b483aa5eeeb921d29b83afece4afe2c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "def19daa9c66adcf5d92dc3c71f2b531af46f637c1d8f567ec4812fb9e3a1138"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "836f09e119c031e40473101093003cca4ec659403d0a647a029749eab8c65518"
-    sha256 cellar: :any_skip_relocation, ventura:        "2d6a20924a4a07e48b5afc8d5878ff82dee29428551e9b0113b02e1c4a66b31d"
-    sha256 cellar: :any_skip_relocation, monterey:       "b1c0d211e9db0033ea8de501ce95463a2c3845a782cda6422fa91343a5cc1c58"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0ecc4ad6e44aba3f42f0f935f415d6d264ec0a8bca1f4169a174cfe330b32dde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b02dc75713930b03e7a89ceae1809e5e1c0404dc574d8e70b8ef0441035a1dd2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "515a50a042def4794a83acc53185f281bce8312a6ec082f607c294694eac1229"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f25c738b7ccd0fdc1445e00e57f90f50c1053cc5935223a381f158473f576a54"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "306871ca772324b194bf16058923755a5fbbd2aacfbbf4bc81bfe216f1748cfb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d70214dbc046088a04dd949acedc15bc81b39a8fb6e5c0adde08fb509284665a"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f16034e85b67e9927f23067ec3dc4050c1206dda80ad2b83d6ac49c8cbe2f8e"
+    sha256 cellar: :any_skip_relocation, monterey:       "84313801552949295a5148f6c0cc4ab941b8035a7951c05ad80c7fb3a73604a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54a62a64b21a2a312e3c54a8379230a4e857d9cff7e2cb664b277a8e7e6bebc0"
   end
 
   depends_on "rust" => :build

@@ -12,9 +12,11 @@ class Librasterlite2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d31a806dc93f565780c5704c3d4ac4d4925f02f3682a1638ee85f384470ceae3"
     sha256 cellar: :any,                 arm64_ventura:  "594f332c68d15b51bb405623131a630fa528693ee21f2f220d3220bc280fd2dc"
     sha256 cellar: :any,                 arm64_monterey: "3733644a6d712a0be663b99b9b153cba11d05cfb34dc5c207fab8df8a4077a56"
     sha256 cellar: :any,                 arm64_big_sur:  "6bbd6b88f06188a5009e8d451c6f3898e2df630131f5c68953528863a06e9ec2"
+    sha256 cellar: :any,                 sonoma:         "d96d40ff1a70980b217bf88a930594175b3b4d4b2f8b308d3978337c31abab39"
     sha256 cellar: :any,                 ventura:        "385aeaee7f4a7e565b6368e2577a73ba58f75d7161bbbe480cc1a6eebc12552f"
     sha256 cellar: :any,                 monterey:       "fcc1aba7b865bd46d2986e77c9d9bf3d8dca6641b9c9fb7ebbbeca409692153e"
     sha256 cellar: :any,                 big_sur:        "642c88a5013468fbc96058720beadc6f6aacbb3a47b60530c434b9df4081aa86"

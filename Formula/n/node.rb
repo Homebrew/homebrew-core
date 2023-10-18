@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.5.1/node-v20.5.1.tar.xz"
-  sha256 "439c71aa2f38c2861657bfa538e99191a571258066cbfd4548586049c8134190"
+  url "https://nodejs.org/dist/v20.8.1/node-v20.8.1.tar.xz"
+  sha256 "f799c66f6a6386bb8ac2c75a378f740c455e97f1fe964393dd39c9f9f6efbc70"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -12,17 +12,19 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "7d5ca1c3f43d83919cb90baacf34bf7d8538215a3cf0257fbacfc94348967144"
-    sha256 arm64_monterey: "78adc0a8771a6d29fe4f524752806173ca0a4083a36c01dc516170d54cc69c53"
-    sha256 arm64_big_sur:  "eee240ad16d64063e10834d5dc61125270fb4791aa9641ee9a052f94f249df94"
-    sha256 ventura:        "dbc66de6e6dc19601a5509b3c682b22eb3a17e7f06874e270633789d7d4f3732"
-    sha256 monterey:       "882be2c2f249de1a2b780660dbd01238c09ac342b3d6845e488fa56f2b6748f5"
-    sha256 big_sur:        "f3b9ca987e3b0b1ed9b1896199bf93e127fdeb90ba337265134801b013e40fd0"
-    sha256 x86_64_linux:   "d6b715e779be78c420f8379422942a33c15b93daecbce618a3efb8d83eaac1e3"
+    rebuild 1
+    sha256 arm64_sonoma:   "2797beb6f0b88241309e1711bad0e9cb9a60d26cf3e5ea11e6c7311e86d72385"
+    sha256 arm64_ventura:  "90a2e545f6332b1a8d35f0b4d60ff9cd281db9e4ca30d0c5b187a6c708f54550"
+    sha256 arm64_monterey: "55b06adc8d5a1e0017ab8393e061b82f2dfb479d30144b9f4ba510a65338a88f"
+    sha256 sonoma:         "11523f478bc1122a9bd30e7ec11d3fd33ec21f39a6841b821456af8f48e1a6b0"
+    sha256 ventura:        "38b2dadbf4798da3af4b434cb2c316c9e49f7da3fdd7f23779ef6d7b87ca4fc4"
+    sha256 monterey:       "d7920897f0b55072650f5ae93f83cd268efcd441cbaa940744f0d11d446c30ef"
+    sha256 x86_64_linux:   "4e7a5ed3488811d150819282762f1a7278dab0c3e92047a83e9de4434c4e1943"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
@@ -49,15 +51,21 @@ class Node < Formula
   # We track major/minor from upstream Node releases.
   # We will accept *important* npm patch releases when necessary.
   resource "npm" do
-    url "https://registry.npmjs.org/npm/-/npm-9.8.0.tgz"
-    sha256 "da8e338ed36797be4008091c092efb0ca62f6106102b4a34e9670a68d1ef2bf8"
+    url "https://registry.npmjs.org/npm/-/npm-10.1.0.tgz"
+    sha256 "7cb31c0a881964a22577fd84e5a9a5b11e6f49ef8aa0893036b0b68015056252"
   end
+
+  # Support Python 3.12
+  patch :DATA
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
+    # The new linker crashed during LTO due to high memory usage.
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3.11")
+    ENV["PYTHON"] = which("python3.12")
 
     # Never install the bundled "npm", always prefer our
     # installation from tarball for better packaging control.
@@ -127,8 +135,10 @@ class Node < Formula
     # bottle-npm-and-retain-a-private-copy-in-libexec setup
     # All other installs **do** symlink to homebrew_prefix/bin correctly.
     # We ln rather than cp this because doing so mimics npm's normal install.
-    ln_sf node_modules/"npm/bin/npm-cli.js", HOMEBREW_PREFIX/"bin/npm"
-    ln_sf node_modules/"npm/bin/npx-cli.js", HOMEBREW_PREFIX/"bin/npx"
+    ln_sf node_modules/"npm/bin/npm-cli.js", bin/"npm"
+    ln_sf node_modules/"npm/bin/npx-cli.js", bin/"npx"
+    ln_sf bin/"npm", HOMEBREW_PREFIX/"bin/npm"
+    ln_sf bin/"npx", HOMEBREW_PREFIX/"bin/npx"
 
     # Create manpage symlinks (or overwrite the old ones)
     %w[man1 man5 man7].each do |man|
@@ -171,3 +181,26 @@ class Node < Formula
     assert_match "< hello >", shell_output("#{HOMEBREW_PREFIX}/bin/npx --yes cowsay hello")
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index fefb313c..711a3014 100755
+--- a/configure
++++ b/configure
+@@ -4,6 +4,7 @@
+ # Note that the mix of single and double quotes is intentional,
+ # as is the fact that the ] goes on a new line.
+ _=[ 'exec' '/bin/sh' '-c' '''
++command -v python3.12 >/dev/null && exec python3.12 "$0" "$@"
+ command -v python3.11 >/dev/null && exec python3.11 "$0" "$@"
+ command -v python3.10 >/dev/null && exec python3.10 "$0" "$@"
+ command -v python3.9 >/dev/null && exec python3.9 "$0" "$@"
+@@ -23,7 +24,7 @@ except ImportError:
+   from distutils.spawn import find_executable as which
+
+ print('Node.js configure: Found Python {}.{}.{}...'.format(*sys.version_info))
+-acceptable_pythons = ((3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
++acceptable_pythons = ((3, 12), (3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
+ if sys.version_info[:2] in acceptable_pythons:
+   import configure
+ else:

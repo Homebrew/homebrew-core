@@ -1,8 +1,8 @@
 class Openmsx < Formula
   desc "MSX emulator"
   homepage "https://openmsx.org/"
-  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_18_0/openmsx-18.0.tar.gz"
-  sha256 "23db7756e6c6b5cfd157bb4720a0d96aa2bb75e88d1fdf5a0f76210eef4aff60"
+  url "https://github.com/openMSX/openMSX/releases/download/RELEASE_19_1/openmsx-19.1.tar.gz"
+  sha256 "979b1322215095d82d5ea4a455c5e089fcbc4916c0725d6362a15b7022c0e249"
   license "GPL-2.0-or-later"
   head "https://github.com/openMSX/openMSX.git", branch: "master"
 
@@ -13,16 +13,15 @@ class Openmsx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c88ed1921071cf39a547c1e89c96244daabffe03fcf23d447757c2ad80152073"
-    sha256 cellar: :any,                 arm64_monterey: "85aead3586814f26eef0224afc1fd62cb3837909ae1b4af3e1380b1abe49661f"
-    sha256 cellar: :any,                 arm64_big_sur:  "f99d60566159a10f90310769ece077eafeba03746d8c2a3b508287c251c4f223"
-    sha256 cellar: :any,                 ventura:        "e8fe3426d99ecf8bc6e28539ae4dde0696c44afb172452c1fc50618df7a71e16"
-    sha256 cellar: :any,                 monterey:       "4a0ea1fa214e29c33d3c94ee3a45922f565729a6eabb531971f72a02bfffea32"
-    sha256 cellar: :any,                 big_sur:        "4fb17e2654f3eb4576f7953af9d721e21a5ccd0758b41554cdfe2a64983b5dfa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98cf43540bc05224c493f35ded9a443003b279c65bfa5a351426dc98f9a12567"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2fc603ee93d27464126277dc97a244707dbf534a2432781d6995bba3c4135a17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbeab633f428ffa82660c21e981473032adafd22697143db3c16c0679ae4cf4d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b8801dbe18da6330df0aa221dda79f0d73e4290f79ee77267cdcaba3df83e0d"
+    sha256 cellar: :any_skip_relocation, ventura:        "7114ed2d2d4ceb881ca64f0ed05d16d7d355aa1e5aaba54c6901a6f05cba2b16"
+    sha256 cellar: :any_skip_relocation, monterey:       "149b0d1626cd2e2ae7782008f54118a13929245b79a7e74ed49d192e7aef77bc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "faea2b8ed860e0ba7b62a6b74fad36916ed2dd2ec6d45dfdf4a30323aa3ce4c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd11f2af1e91fa6e4e59e952dead395775ff2858a6a65d954b696aa6539e10f5"
   end
 
-  depends_on "python@3.11" => :build
   depends_on "freetype"
   depends_on "glew"
   depends_on "libogg"
@@ -32,16 +31,31 @@ class Openmsx < Formula
   depends_on "sdl2_ttf"
   depends_on "theora"
 
+  uses_from_macos "python" => :build
   uses_from_macos "tcl-tk"
   uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1300
+  end
 
   on_linux do
     depends_on "alsa-lib"
   end
 
-  fails_with gcc: "5"
+  fails_with :clang do
+    build 1300
+    cause "Requires C++20"
+  end
+
+  fails_with :gcc do
+    version "7"
+    cause "Requires C++20"
+  end
 
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1300
+
     # Hardcode prefix
     inreplace "build/custom.mk", "/opt/openMSX", prefix
     inreplace "build/probe.py", "platform == 'darwin'", "platform == 'linux'" if OS.linux?
@@ -51,7 +65,7 @@ class Openmsx < Formula
     ENV["TCL_CONFIG"] = OS.mac? ? MacOS.sdk_path/"System/Library/Frameworks/Tcl.framework" : Formula["tcl-tk"].lib
 
     system "./configure"
-    system "make"
+    system "make", "CXX=#{ENV.cxx}"
 
     if OS.mac?
       prefix.install Dir["derived/**/openMSX.app"]

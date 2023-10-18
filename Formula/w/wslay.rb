@@ -6,9 +6,11 @@ class Wslay < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a589896e5f7fce349934f90cee721270752c65cfb58dfca69ce9d13f6bfc52e7"
     sha256 cellar: :any,                 arm64_ventura:  "696c0681644905529efaaa30ab237023dc12c9a726af0bd7c700302308401a2a"
     sha256 cellar: :any,                 arm64_monterey: "f09d67afcce3498de58ebcb20cf0c5478ff9cd909fa3841a9545e526c31f9b34"
     sha256 cellar: :any,                 arm64_big_sur:  "3921e0d42b7388dd8229d2019d67319330b7c53e862c120612b72565a7eff37f"
+    sha256 cellar: :any,                 sonoma:         "8215cb7e32c441a1f92c93ede616c06c12eb1b70817185e8d7f606737522aa71"
     sha256 cellar: :any,                 ventura:        "643367160b3009f918296e97316bb9e353cca450e0e10e79db7053ba5e563afb"
     sha256 cellar: :any,                 monterey:       "9d44bad51a861ee84b5cbdf755d7f786b4b54b49441cc5e424b1921983de0d7d"
     sha256 cellar: :any,                 big_sur:        "aa3c50a846b0e72238f22dc55ff1d158e2d2845c75997f6d508383be122d4f8f"

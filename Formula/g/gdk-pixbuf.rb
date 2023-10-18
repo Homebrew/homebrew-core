@@ -7,9 +7,11 @@ class GdkPixbuf < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "2fa4dee638dff110b3884b6c878898061a2fed8fe111f3311b9c0c99c37a8cfe"
     sha256 arm64_ventura:  "fe74fd0d46b3042bf5bdc0a281f4d2f4fc873456ca2be043eeb7f9430723f26c"
     sha256 arm64_monterey: "5c995956e552bb56edf6a65394a7638b9c6851e778db47e7038afc671ea05412"
     sha256 arm64_big_sur:  "f875e17f1233c385be75b0d7e1b3a7887c4de1613186cc902de41fa7d4857ad6"
+    sha256 sonoma:         "c176aae3c3688e9086a6609e08baa86255d40760e376a1dae14eff8b0f663039"
     sha256 ventura:        "df616ba6672581575db43297f7af9cf7b9220b0dec24d1dc108f2e1ca2c1a1c8"
     sha256 monterey:       "e1fb42aac96f8e1b10dbdf8cbb74957678bfc405885653391f2436facd07e026"
     sha256 big_sur:        "40c99bdc4ae06e902bcefcdd20525f9a3aaef0509d61a18489ab1639572b708a"

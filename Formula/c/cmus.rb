@@ -8,9 +8,11 @@ class Cmus < Formula
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "1ba2da4ed1bc465370e8e2d42e88e590596b99e88d130d887074597428ac1993"
     sha256 arm64_ventura:  "c676d903f551c4358b4fdc38f7b3152cdeb917b2a8390b0983f659fd6ba2d79d"
     sha256 arm64_monterey: "952c7e7175254572228a1e7a5c6b04be1a613cc4757cbf0d87f1e53263f745e7"
     sha256 arm64_big_sur:  "563768eef81faa0f544380e1cbe668da81038ad9252e80bb0cee275c8fcbacd8"
+    sha256 sonoma:         "9a369bba5c68a4148eeab73915827854c6f6cfe59605763c93ff7ae3535942eb"
     sha256 ventura:        "65a22e527bfbd3dacd500e123452cf719e97011b95ede36e40b1e4e3496aca26"
     sha256 monterey:       "d38a5f8f62abd393a8afb60a1bceea1fd48d7668919959d107624fb3576c8c06"
     sha256 big_sur:        "98c14f791bef5c18758a47fe06da795cfa1f061665f7977959d7fd763cacd5ff"

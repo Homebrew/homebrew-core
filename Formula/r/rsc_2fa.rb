@@ -6,9 +6,11 @@ class Rsc2fa < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d16796c1727ca9ef2310ec669216fc6ec64053e28781431aaf4cc4186828dad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c88d62abe74ed6cc04cc70f5c4b86a9fce044672beda3e026aff13cbe68a28ac"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f832afe87766e2847eadb453848ebf881c0c60bb608a71640b6c237ec44b9069"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6db5849c61249766bb9ac2168f2570c87b0893e19c7600e9749f375c6934ffa5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9fe85bab87545f8cae9c24f71f5a14020032d169a0172e9509352eaf6aa16dc3"
     sha256 cellar: :any_skip_relocation, ventura:        "ec0046a6c98d1fe4ac25ba97d805234e68b79158fa09019ee6a3ccf9ca0fcc98"
     sha256 cellar: :any_skip_relocation, monterey:       "aaf3afec742c3a53fd5a78e6677750b90120bc7803ac93c004d4f337d285a605"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c0d499b3ee3fa0a1d2934e05fd36cdcf75f10710ec3fdc9192d07f74074262b"

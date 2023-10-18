@@ -1,25 +1,16 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://dlcdn.apache.org/solr/solr/9.3.0/solr-9.3.0.tgz"
-  mirror "https://archive.apache.org/dist/solr/solr/9.3.0/solr-9.3.0.tgz"
-  sha256 "2a924a776d7c06dea561f12bdb17291dbaecc9e9a06f363d4599acb7fb7bfa71"
+  url "https://dlcdn.apache.org/solr/solr/9.4.0/solr-9.4.0.tgz"
+  mirror "https://archive.apache.org/dist/solr/solr/9.4.0/solr-9.4.0.tgz"
+  sha256 "5ff28fe3a9d92804d53c0072a8459bb1d0c280e212a288a9efd31f923fe1a9d4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebcf2f867f5cd0d82917888941764a3fc9ee39f76e6a8d76f3dc357b09741f51"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ebcf2f867f5cd0d82917888941764a3fc9ee39f76e6a8d76f3dc357b09741f51"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ebcf2f867f5cd0d82917888941764a3fc9ee39f76e6a8d76f3dc357b09741f51"
-    sha256 cellar: :any_skip_relocation, ventura:        "ebcf2f867f5cd0d82917888941764a3fc9ee39f76e6a8d76f3dc357b09741f51"
-    sha256 cellar: :any_skip_relocation, monterey:       "ebcf2f867f5cd0d82917888941764a3fc9ee39f76e6a8d76f3dc357b09741f51"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ebcf2f867f5cd0d82917888941764a3fc9ee39f76e6a8d76f3dc357b09741f51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a2d708a2c93ad59b9b7899896db6024c4127a63fa32b9363ee0d5c5d98fd19d"
+    sha256 cellar: :any_skip_relocation, all: "f27ba1ed5a9d2793330d32c546c51bf1e2e942ec90e7275779cb7694e7496a75"
   end
 
-  # `solr` fails to start on macOS with `openjdk` 20.
-  # TODO: Switch back to `openjdk` when resolved:
-  #   https://issues.apache.org/jira/browse/SOLR-16733
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
     pkgshare.install "bin/solr.in.sh"
@@ -27,7 +18,7 @@ class Solr < Formula
     prefix.install "licenses", "modules", "server"
     bin.install "bin/solr", "bin/post"
 
-    env = Language::Java.overridable_java_home_env("17")
+    env = Language::Java.overridable_java_home_env
     env["SOLR_HOME"] = "${SOLR_HOME:-#{var}/lib/solr}"
     env["SOLR_LOGS_DIR"] = "${SOLR_LOGS_DIR:-#{var}/log/solr}"
     env["SOLR_PID_DIR"] = "${SOLR_PID_DIR:-#{var}/run/solr}"

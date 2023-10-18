@@ -1,8 +1,8 @@
 class Steampipe < Formula
   desc "Use SQL to instantly query your cloud services"
   homepage "https://steampipe.io/"
-  url "https://github.com/turbot/steampipe/archive/refs/tags/v0.20.10.tar.gz"
-  sha256 "99b540ce232a1f965a214470df9e40fe805c644854fe3b237dcc8a0669e252ea"
+  url "https://github.com/turbot/steampipe/archive/refs/tags/v0.21.1.tar.gz"
+  sha256 "749d5ee59a8e07aae85c59fc45fd51f8549c49e2608221a3dba1ce576647bdb7"
   license "AGPL-3.0-only"
   head "https://github.com/turbot/steampipe.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Steampipe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "059b34aff25f0d0882ffc4e4a81912f0f289c3aa752124ca980e4d6e6a865f78"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "80b30a7b9f66db8b570a576c6e3bd3630bc01729b43e1d565c391eaef759ccf6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "856e14789c04604ef021c4a5df789825b600a9f9d4abd16f7626c28a0bb72d64"
-    sha256 cellar: :any_skip_relocation, ventura:        "831ecd558dfb13225f3c0d837caa0f2f7916bd671badc24b20b11589cc28ffe2"
-    sha256 cellar: :any_skip_relocation, monterey:       "3966525f60a8f1eb431932533ed79dbb0bcf27e250e2680d5d85d79f7afd1624"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fe4f719e3b9cabe2c0342ee49e1e7bd45f157c22216ea599df100ef869ab0bcc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adfdc71128ef3d9e26036602d54c2be8fbb71f3d784c8440f5958bdcb7719a26"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "46dbc5693869dffb78663f3472c023f67875b1f49c19b4c0f8b8262ee6f5d81a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3ff17c9a4d0c3ea7fff24c51027f2c3ccc0fe927910b759e357946d795ac403"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "47809d4685494a7b7ea71190fd97c4c9a6e98277394b9ac84d9a8d7feb96824e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cbd049f031682fba4dd1d6abc82ea4d08ace4f7e370d86f6316be8b78565f4a7"
+    sha256 cellar: :any_skip_relocation, ventura:        "b8cafb610d00accbf44fd75f426b5d058706f9d6464439eff003499eb0548572"
+    sha256 cellar: :any_skip_relocation, monterey:       "7cc1d62c2ee5d438feef363dfaa2b3275048ac0d11cc30c316e371fe7d1e234f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5592f058ec8d30a64bee9c70e56e07124826d24b0c01fc7c1ccf25d5f323c4cb"
   end
 
   depends_on "go" => :build
@@ -32,7 +32,7 @@ class Steampipe < Formula
   test do
     if OS.mac?
       output = shell_output(bin/"steampipe service status 2>&1", 255)
-      assert_match "Error: could not create installation directory", output
+      assert_match "Error: could not create sample workspace", output
     else # Linux
       output = shell_output(bin/"steampipe service status 2>&1")
       assert_match "Steampipe service is not installed", output

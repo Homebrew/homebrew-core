@@ -7,9 +7,11 @@ class Notify < Formula
   head "https://github.com/projectdiscovery/notify.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d474d89a4dc8a38006226e552101ad8c836d1d16d6ad925f98bd3b8cc577ecc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a98b613b397408f9064059db3cb9d395d00c34f60e5b47195f2a3d3442be76f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a98b613b397408f9064059db3cb9d395d00c34f60e5b47195f2a3d3442be76f0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a98b613b397408f9064059db3cb9d395d00c34f60e5b47195f2a3d3442be76f0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fac6a12c063651dc6b326407549e4ed9a572809afddd1f981379856e3a2038d3"
     sha256 cellar: :any_skip_relocation, ventura:        "4ab287f6289bd0e830b3e599c7b886d6399c95639712edf5e6e972b37cf8cdb8"
     sha256 cellar: :any_skip_relocation, monterey:       "4ab287f6289bd0e830b3e599c7b886d6399c95639712edf5e6e972b37cf8cdb8"
     sha256 cellar: :any_skip_relocation, big_sur:        "4ab287f6289bd0e830b3e599c7b886d6399c95639712edf5e6e972b37cf8cdb8"

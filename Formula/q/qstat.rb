@@ -6,9 +6,11 @@ class Qstat < Formula
   license "Artistic-2.0"
 
   bottle do
+    sha256                               arm64_sonoma:   "f2a21de14cf56f81071c54f323b70b96d745203b3e7cc4343e3b49e9ca683dfa"
     sha256                               arm64_ventura:  "11a9a33fc7615e85441444af37ed41d87f0659f672d958824f7cca77eacd2729"
     sha256                               arm64_monterey: "407570a7c868ec0815588e1b2c5ed8716b1392bc7452fcc31ab1b16f217febaf"
     sha256                               arm64_big_sur:  "381072b9472ed1ab8a8f0d7409571262555d33da9d02f3ccdabc117bc9d6a6c5"
+    sha256                               sonoma:         "df87597a43685ed18dda22fdd04a08e04c41565ebcc52d2673623baf7a2aa6d8"
     sha256                               ventura:        "288eff7f500462b9adcc7e3704fdd2b07ce5853830adfa9d246aa67ff1411df3"
     sha256                               monterey:       "1e7728d7b8689eec71c2285e3c1595180a985f6d44d32d6452df62da33ab4bab"
     sha256                               big_sur:        "e7620697e587b4e46f1f0a1558e2fb9a1dee96c289958ea54269cf7321197d26"

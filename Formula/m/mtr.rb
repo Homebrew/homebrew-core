@@ -7,9 +7,11 @@ class Mtr < Formula
   head "https://github.com/traviscross/mtr.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d1d03f6a4f9a9e49321d656b787d4e53f1f6acad08384d68bb4ad8199bf1626e"
     sha256 cellar: :any,                 arm64_ventura:  "83d9da1de6a03855e99e0db1f8060f196fda988b187493aaad8d15b039176644"
     sha256 cellar: :any,                 arm64_monterey: "832e28a80e1b4340c19c4dc3511504672ec03ff5cb54d7294e932b7d9aa80085"
     sha256 cellar: :any,                 arm64_big_sur:  "0e41037f1e0f662b87155307468c740594d2e16761e2b120a3086e0922c7bda5"
+    sha256 cellar: :any,                 sonoma:         "fad686ff163def04ca773130a81921c8498606f072ff7af37c62463e8aaf5412"
     sha256 cellar: :any,                 ventura:        "bbff689ff843d38238f2379af5022b4bd0848234a9bc4e0a79fae8669510cc8b"
     sha256 cellar: :any,                 monterey:       "8388e7af1b04e7749ffa93b3a9479df605cbe16d7a88c02625ecd229e36043f9"
     sha256 cellar: :any,                 big_sur:        "bb07a178a739fc8c8a15fc7645efc7fe749b81663752bcd66cb1efcd47217371"

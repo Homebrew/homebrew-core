@@ -34,9 +34,11 @@ class Upscaledb < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f9e07f206aa8c7656e752da77826815d0bc704c2f71beaed6341817b60cb9ba5"
     sha256 cellar: :any,                 arm64_ventura:  "31263250b809be124c24d249704e8a84de26c46c12b1f9e4a7abea51dbd79c4f"
     sha256 cellar: :any,                 arm64_monterey: "c6cbe6b8adad2e84227bc980e6c68c4ed4334a4bdfa95a19b2a396adb01b87a8"
     sha256 cellar: :any,                 arm64_big_sur:  "60ead2f03c0516d85867b3bf1d5070fcde864c30826e5143bc73bc82dceefe52"
+    sha256 cellar: :any,                 sonoma:         "69a4883083e54f64c9e7f798eeebf7e449c18ca8a727896e5e77f06caf61ada7"
     sha256 cellar: :any,                 ventura:        "6310bae4f6d2a68eada0d688b15ccef4aaba1a1552549bc111dd47bd01ecdbec"
     sha256 cellar: :any,                 monterey:       "5972bc432022b76c16388c7accd2290506193e9d375a505f4a4bff3796982425"
     sha256 cellar: :any,                 big_sur:        "aaec25a0ebacba42a481712faf1051440c3c457d1a67d1672f495cda961ed93c"

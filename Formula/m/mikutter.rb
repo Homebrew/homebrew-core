@@ -12,6 +12,7 @@ class Mikutter < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e7ce00f31958e9554b25fd386852381dbadc40526bb5d51da157964c6815c7ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "805dd1277322aac659da0935d5ac2606e6d01f5cedff6c51227fa60f996057c8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ed439f50638267e078091938b175fbcdcf397ced7b5ecfb4a5deefebe470188c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "57a3a7832956e6df3efecc47efa760fe7a66ef23eb2dd2a32898d315b31580a1"

@@ -6,9 +6,11 @@ class Cobalt < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "996503d27f5d1973f72780ad1432ddca552bbaf8f7808946e1ec4a661adf8c0f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d3dfee072b977bf0cf4d8fbc23328ab327c568dbe9fa07765355a2b18f918b8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "99ab0dc602e261c0e4d76c494f89a0cca384e14fa3443ee19bf240c6964aeca9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cea7e332edc8d0b8d1ee002523020960fb328c2b05bfaa8d97c05ebf9fbb779d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "562ab8cbecbe4bb4f6ef9d56dde4a9a4a5e887d01b9e7a965dd66848b2680b68"
     sha256 cellar: :any_skip_relocation, ventura:        "f43753164106a755a61fe2626a47d2a70709302463029260f4fea51f53009990"
     sha256 cellar: :any_skip_relocation, monterey:       "742761af2433458c12837cabc1dffee119bd846c2b18623379cb3eb3f1e035a1"
     sha256 cellar: :any_skip_relocation, big_sur:        "e3f3612d0a5fde600a98f87753567f82304387fe648cd5534185b8650cc829d7"

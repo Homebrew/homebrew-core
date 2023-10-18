@@ -1,18 +1,18 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.10/sile-0.14.10.tar.xz"
-  sha256 "208ac6030d3a6f3922fa4addc5ede75aa3c3931cf681c5437c7f0c8f69ca5816"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.12/sile-0.14.12.tar.xz"
+  sha256 "8b2c4d8b8636cda791e8751ffc8556d4cee60745a1336cb13aa0e46f5a009078"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "300147ce484851f50745e7c2be5e7a8ab1beb06f03dc31f4a8eaae085cb406bf"
-    sha256 cellar: :any,                 arm64_monterey: "2aab4b259829736e3f9bba03cb6cf63a654a14ec105f445b116ddea5de48eae8"
-    sha256 cellar: :any,                 arm64_big_sur:  "e633a49e6ac850ffe465e34e522b86d812c899eadcbee507778450c50cc35f44"
-    sha256 cellar: :any,                 ventura:        "323f79b54c374468fe1d82f26e54265566db1e9b1f406ef64606d9233737b98c"
-    sha256 cellar: :any,                 monterey:       "89d935af69973c74f69faf7680f5df25cbb61f1e8457079465681022505faa92"
-    sha256 cellar: :any,                 big_sur:        "4b349daed7af784fc826a4d9329d23ae3ee79617d8599c96c7f3fdf2817ea3c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e95a7a7ce93ebaa9f00903793a1af1c46b4eb93344c61e2a13bb29ac1c99e71d"
+    sha256 cellar: :any,                 arm64_sonoma:   "f32691b9d1ad89498c864f8fc4cfa3c88a4f7210afeadee1843433e5c5e48b66"
+    sha256 cellar: :any,                 arm64_ventura:  "3db09098337804f370aa6e4150f4d436010dec06daf65e26a0f3c1c845143186"
+    sha256 cellar: :any,                 arm64_monterey: "f67e1047a5b0cf7b9b0026480be2a6327d90a3f0d745ad5c65c67385530f9b0a"
+    sha256 cellar: :any,                 sonoma:         "66e12f0d7819b5b3aca482aa6462da994e2cf969c3916a387d1662893a18301a"
+    sha256 cellar: :any,                 ventura:        "ced2a31899ad2f73b4bac89e0bd80731f8273f236eb224ef9f10de593df11fbe"
+    sha256 cellar: :any,                 monterey:       "fe84a797acd1564e0114030b5a8f6f3ec4a2dcdff75f1fcb36c3be4d3ef302b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cba5651c9c18183df406bda942d641603591ba5dc2a555aa9d95b4914ecb27c8"
   end
 
   head do
@@ -42,8 +42,8 @@ class Sile < Formula
   end
 
   resource "lpeg" do
-    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.0.2-1.src.rock"
-    sha256 "e0d0d687897f06588558168eeb1902ac41a11edd1b58f1aa61b99d0ea0abbfbc"
+    url "https://luarocks.org/manifests/gvvaughan/lpeg-1.1.0-1.src.rock"
+    sha256 "6637fcf4d3ddef7be490a2f0155bd2dcd053272d1bb78c015498709ef9fa75dd"
   end
 
   # depends on lpeg
@@ -97,8 +97,8 @@ class Sile < Formula
 
   # depends on luasocket
   resource "luasec" do
-    url "https://luarocks.org/manifests/brunoos/luasec-1.2.0-1.src.rock"
-    sha256 "82d9ea7d11688a2b11fc1c4549a2e7b0aca00790b49e67a41dac0c81f2890f1c"
+    url "https://luarocks.org/manifests/brunoos/luasec-1.3.2-1.src.rock"
+    sha256 "f93bf9927bd34a5d4f897f4488b285a12bee89c0e7d54b3b36dfcbf43a7ad4e5"
   end
 
   # depends on luafilesystem
@@ -126,8 +126,8 @@ class Sile < Formula
   end
 
   resource "luautf8" do
-    url "https://luarocks.org/manifests/xavier-wang/luautf8-0.1.5-1.src.rock"
-    sha256 "33ce04dad817a9d9b05ea5e14663aa4b83da6f8a82dea594e556693fd0b8e42a"
+    url "https://luarocks.org/manifests/xavier-wang/luautf8-0.1.5-2.src.rock"
+    sha256 "68bd8e3c3e20f98fceb9e20d5a7a50168202c22eb45b87eff3247a0608f465ae"
   end
 
   resource "vstruct" do

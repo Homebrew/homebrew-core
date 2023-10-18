@@ -16,9 +16,11 @@ class Sgrep < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "836a9d21daa61fa592a52541e2927175f2689e67569562961ea4c22278fe65a0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6492d756d61b8cacca30d42da39a0d039a3d9e90ae03a7ed7fa5461970dc4af4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "213de82d5aff5377df50fbe7cedcaa3e099feb2ccee33c7f9dbc35ff4bfb8c7f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "775257fda7135fce998eafe41e1c39f32da44a2c5440dd205ff0a7801e6ef9f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "da55a160f395a28966803b2e1b124e5ed1c7489f53d6d038f228c8ae9c4d78bc"
     sha256 cellar: :any_skip_relocation, ventura:        "a6aac3155b62fd7feed928b2c57f9b417ee102688352b573c9e39122e19c463a"
     sha256 cellar: :any_skip_relocation, monterey:       "192436239783803b977e5804d989dc67f7760d87ed7831bb3c30dae5146204cf"
     sha256 cellar: :any_skip_relocation, big_sur:        "fedcff86ec032617015882c5729298bbe1f1fcbda14cdde6167b00ae2af586b8"
@@ -36,6 +38,9 @@ class Sgrep < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     if Hardware::CPU.arm?
       # Workaround for ancient config files not recognizing aarch64 macos.
       %w[config.guess config.sub].each do |fn|

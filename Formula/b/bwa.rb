@@ -7,9 +7,11 @@ class Bwa < Formula
   head "https://github.com/lh3/bwa.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8a3ccdfdc0f75dbe5efff72c4d12d933a22659e5973431cc4186f655615eb173"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "16f68f7c570fdc002ad5a75ddb23a7b4cf6c7993ff09b3e7aa39683e3f32b5b5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c21d941893a927b1f362fb0f44d809cc81b5d4ec59f4073b5f39d081902f321b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4340d5a65a5c146033ea20710f9489ef2fe2a3b2c85937f3e71da141c44d4658"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fc42f96cf406cb2f0c4535688c11aff1eb7d5d2c7099fc67b7fba1947a5c695f"
     sha256 cellar: :any_skip_relocation, ventura:        "70436d404c59f546c96157cfd4329980d51413346f2383ce96d9dcb5dbc6885b"
     sha256 cellar: :any_skip_relocation, monterey:       "815da042557c670364ad899e1257f51c893979436beb1c016c8fdb6ad9ef734a"
     sha256 cellar: :any_skip_relocation, big_sur:        "d67267aeea4145fef5e65fe1c8d9f9b34121c0339badf703811027db2570967a"

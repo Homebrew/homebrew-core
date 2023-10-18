@@ -90,7 +90,7 @@ jobs:
         id: check
         env:
           HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: brew check-ci-status "$PR"
+        run: brew check-ci-status --long-timeout-label "$PR"
 
       - name: Remove long timeout label
         if: fromJson(steps.check.outputs.allow-long-timeout-label-removal)

@@ -12,9 +12,11 @@ class DsdaDoom < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "45d2a26ec0d81842e7d05382303cf49e3522b26f9b73b33c0eb4cc17fc3ef9c9"
     sha256 arm64_ventura:  "47cdcea400de632ebc88a53880224a864db327ab864bd7f673a933f6c1ceb6e8"
     sha256 arm64_monterey: "535ddd3f5044a12b80d735faf70b151ecf8be6d413d168f8ee4640a123607190"
     sha256 arm64_big_sur:  "052c0f60ac8267c96fac699d5bfd4e21a4af612d07772657c3216f1181869906"
+    sha256 sonoma:         "8c1a5e0310dd9ec68121fa436820867272c7e502b993686b13a1bdac103b8eac"
     sha256 ventura:        "263027ee9bb442769114d46e901bbd0aa262d172325169fe41e9c7b0eb055b05"
     sha256 monterey:       "b0ebf39325d85826550d5eb01b23a1ef4c707cb57d839487e82094ddde4d4fec"
     sha256 big_sur:        "7be3e2016e550349fb5b9c23e6ffa3eb878d92e3495e31aed7153b59825ac899"

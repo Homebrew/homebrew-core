@@ -1,19 +1,19 @@
 class Lima < Formula
   desc "Linux virtual machines"
   homepage "https://github.com/lima-vm/lima"
-  url "https://github.com/lima-vm/lima/archive/v0.17.2.tar.gz"
-  sha256 "fcc3ea1de6fe5910fb1a436729e2aecf6c9b261e5c2e55a1c6754d9a5b75eb49"
+  url "https://github.com/lima-vm/lima/archive/v0.18.0.tar.gz"
+  sha256 "f133c6fb3e4a382441d30bd8fc87581649cdd22dfddd0c024f11bf0367a9eac3"
   license "Apache-2.0"
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b769e329437f18161ac7074812ffcf58c0c5058db0896385888f31fb221b093e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "56a03be6d965a803fb90821c5f52708586c87ba0930802689144f4a805fe145b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0a585e425992231d6a0f92496a7a453369e7ad6b6a3e08ff0bb52629e90b9450"
-    sha256 cellar: :any_skip_relocation, ventura:        "8f3e4f1a72b2cb2004e7ba85ebea702538f0779713c23b3a9bd1e67f10ea0e65"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a03f375958a5a32baeb05661fedfa632b13169efe28ea70d727b9bb10661870"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c9f34bbce59c9b0c2bd7a21ef867a5e6882d4d3eb15df69e64afa2e9e10ec72b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9924f7e208f4298e5f98ca0444b2ae3a0f65459a1ccf389040b724e2e45654bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f95090e2360ab3680ed20648ca3888225efe587ba9229c648f1e63e219967687"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6fab71646bd647da8b1fbe93ca93cb5c39ce550bcdec4c1961a6a2227478769"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70413385beb65071461606ba214600f44182bacf40c027bef154592a3ebc974f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "94af9be3bbcd2bb0ebc6646226aa180165df96a0e6dc8b837b6ed4beb79dd04c"
+    sha256 cellar: :any_skip_relocation, ventura:        "3bbf83268ac0615a9012e5f9f939d1362aea1c85737b7839a0544dc201cd41cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "7f313697af14437adebf45b0e42e9a94485fe24cbab0c8f56ec6410c99dbcf70"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c77a7b5821db611f593056a0b211dd4fa615eb09036498b59fa98d95e67bfe5"
   end
 
   depends_on "go" => :build

@@ -13,9 +13,11 @@ class Povray < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "8dbac6e3e488d146d6de16a86147e86719b56d31302402d6caf8859cdbe6789f"
     sha256 arm64_ventura:  "92ce02da2ae0eea57acb586fc919264b4918f7696405a7c6a8b66c4d920a0c7d"
     sha256 arm64_monterey: "aace1bf57f9bba4f26b714a494d388c6b98efd8970130f72774bb658616760ac"
     sha256 arm64_big_sur:  "3869e58d10d1caa2c94dcfd31c45e01e4b7ea71f99bba45992edd56904732c66"
+    sha256 sonoma:         "f7480a95e249e8352a35b45e54b67b4522dcfe2cfba7b4c2b6a63435795b9eb4"
     sha256 ventura:        "09afcc0eea5c0093285c6c50b5bc24353d20e2835f9f762df69f6d34d66c2d06"
     sha256 monterey:       "bb416493be670f03c49257472d316dc361822fada5826b932a02778d6072d0e2"
     sha256 big_sur:        "017544d66e4526704f389e2d264fa05681e33a0b4a9091dd0d6b6e6d195516a0"

@@ -17,9 +17,11 @@ class Vilistextum < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ca2e91c4c222843276180c7e4368437fad8284a673b5cd3b26aeb3650204b6f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4a6b83b2e8ddabeedb5def8c287c556efa9b442929a98d06171265b7f781e8cf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e63b2fe29b72a3f2203aaf741fa4589b345c6ca5fb761a132cf27a6b5bee5068"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfd4ab35a880dbac2c93e43eed5e0001093fad04c94c32f955c3f91822d84ccd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8cbbc0db2ecdc6e6cd4cc5d6c003e757911c724310d249553a0cd848b26317c7"
     sha256 cellar: :any_skip_relocation, ventura:        "768041a4e365f2dde17beb262782927aed7a6b44f5d6d0290e962ce2b96d0925"
     sha256 cellar: :any_skip_relocation, monterey:       "24296c2112ad6437cf40295a62b10898500ed3c13b2af65f514f8138ea874b6b"
     sha256 cellar: :any_skip_relocation, big_sur:        "c1107f3edeb308819c5b074f1ed2072583c3bc5a7800af162ab10ef460548f18"

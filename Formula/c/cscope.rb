@@ -10,9 +10,11 @@ class Cscope < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45fbc22efa33e380eeca6976ad47869871115e9be506b16dfce771783ccd7c0a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "955599d1da5c49055ac99ef74278c40fa33079472e106115a5b3d754758167e0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b85e2ad5e9ddcdb57a2cca430520e64f70cefd2b182bae70c216360e72757611"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "149cb1ebe576bca4c8c928ed98005054e9ac2b8822c80ce9582d500453bce0ad"
+    sha256 cellar: :any_skip_relocation, sonoma:         "151c5fc8f429b052dedb87188017857da6fd4966f47bb1de1044a77adc2bb9ab"
     sha256 cellar: :any_skip_relocation, ventura:        "2de1fac38c80a9b6643ebaaf7990928e7ea2764c435489d8fda616e661620d03"
     sha256 cellar: :any_skip_relocation, monterey:       "0baacd94730059e4a03e8980f1332ca38ed48f98dc70950103a71f4435347f2e"
     sha256 cellar: :any_skip_relocation, big_sur:        "41553bf0bbc2ce6e41712381fcbc2d86eca0dd4618d138ca70037df8a1bf4e01"

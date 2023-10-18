@@ -8,9 +8,11 @@ class GithubRelease < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "341e850b66904e4eb870de3b926284f56bbd6f40f33491c28c0f96623d85fa5d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9813355bc2c269f5729efb5e212522d9aa876f80ef488c09a3c8e7d69fac2c90"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d85d8888a8214690922cf085ac5207ee2fc34b15da2d877691955db4819cc68"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dfaa0f4ae21d44b1e0716ef71cabf02ac60a8692893b2a49bb32e096cb441a4a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ea137b1f95b412d6cdca3ea7d8c4173afd1848ebe8ee9833462e040e5417c279"
     sha256 cellar: :any_skip_relocation, ventura:        "353e7edcd5c8952b49878c1c264d94ea8be756fed3e3d098199abb2802e15756"
     sha256 cellar: :any_skip_relocation, monterey:       "338994c0481c0f4ab4523a29b4c1c7c10553b621ee7921aa3aa7d36bbada3b79"
     sha256 cellar: :any_skip_relocation, big_sur:        "d7770942546f2a49c7b44104fe69ad7cf724cc1eac39280d1217af66ccd97e3b"

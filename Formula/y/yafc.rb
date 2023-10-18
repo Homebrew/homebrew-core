@@ -7,9 +7,11 @@ class Yafc < Formula
   revision 5
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f2c0733bdc6d9842bc5dd1400fa1e9a4a2d5af3f0ca8578caf32bca5b46ae2ec"
     sha256 cellar: :any,                 arm64_ventura:  "79f180267773ebe99148b9e55e1fce873dfe7b1b8aa14050191a5cab8ad93145"
     sha256 cellar: :any,                 arm64_monterey: "0b779fe68332dfaf1182fd343aad750a2346f95c9d5019e0e9245ae60a2fc4e1"
     sha256 cellar: :any,                 arm64_big_sur:  "bd86e141e4c5f328f59bffa84490e988d6996acfd631988103da5be103539689"
+    sha256 cellar: :any,                 sonoma:         "a16e93692fe9cf919c6ed4432be40f3e9aeebc81ff4498e4ec1179b055d457aa"
     sha256 cellar: :any,                 ventura:        "6ad15e0287643c6e1157b51762e21443e2c15e8b88610903676316b6b1bd10d9"
     sha256 cellar: :any,                 monterey:       "428ecc7f65e46aaf484032777245e9aee40b1c4290efb5f1c5ac0abd4511a698"
     sha256 cellar: :any,                 big_sur:        "d7212a2284b1cdd5bbebf59e8e1dcefe6073d8e29eb1574d7ed6e80249723160"

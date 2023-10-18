@@ -7,9 +7,11 @@ class GnuUnits < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "d2a400b22c86dc78512c7d91913724b0a4494858953e37cd5fe9b4aeefa0e53a"
     sha256 arm64_ventura:  "513874dc0676da8124c51c057b940752ed76663c6d290c11b33fc7767a84b2cb"
     sha256 arm64_monterey: "642c474a2809e0d9db1d0db76e37f02913da673cfc4fdc337d3b4f4412dd9058"
     sha256 arm64_big_sur:  "c7a080c4aba8efa918476470972561d4a8e3ead5d808f02fcbf41c50226d5602"
+    sha256 sonoma:         "7195fc1ca41a6ef75959eef670728ec8d09481e78009ae17b27f8a3c306dd5e5"
     sha256 ventura:        "ef142fd61422ad8cb76d4baaeaa71847ebbbf6c54fd351bda9d407d258d4e933"
     sha256 monterey:       "07de02b9e3aa4e1dae47247a30a29c4e8b09013778d6efd040a0774136996a75"
     sha256 big_sur:        "ed207519d9523dffa34a8000d8d40f2488a439c29527a07dd0d00a29aa093b3c"

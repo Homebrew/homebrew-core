@@ -1,23 +1,23 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.261.tar.gz"
-  sha256 "2e9a1b380f4e494934c72e2b2fb77d2c3ae03ba19fd36ffad65529413108db2f"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.268.tar.gz"
+  sha256 "07b08b45812da1e82921ac707076558ec9b2f6f00eefefb69b911a1ba0715294"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9e56da40ef8dba6ee29dcbf4444cad4549710de6b0d641c6747050cc5f1bfa2c"
-    sha256 cellar: :any,                 arm64_monterey: "44eb826281716e1127cab1255365e70b272df13b604fa94def82d8e2133fec7a"
-    sha256 cellar: :any,                 arm64_big_sur:  "20b5e97125ce636c33b92f3cba0567cc733d6a209ce1e10de9e0d56b46e97759"
-    sha256 cellar: :any,                 ventura:        "b2669e6545da86fa9d319d369c4ea2e69a0a7f8c538d634dd61b98dc0b8e1467"
-    sha256 cellar: :any,                 monterey:       "eda9e78ba210dded38a0d38df8f6dada42260ca680c162f1747d93e369ca3990"
-    sha256 cellar: :any,                 big_sur:        "df26604836fadf60a89e8726628b8576d1fa1d6cc751bfe5040edd8829885d3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ff22b6e07a2982ea033d7167a206f15c601fca0056c6b619fe823178e884491"
+    sha256 cellar: :any,                 arm64_sonoma:   "b4d41df7875f155c4fdadc3345f49901772efcb8d70424fe389f6a4c856126af"
+    sha256 cellar: :any,                 arm64_ventura:  "d4cac3776598e19391ed199f8bdfc4de6c630af8e8c6fe4a962631996fa2ea04"
+    sha256 cellar: :any,                 arm64_monterey: "940fe5d5f84beeb96219bead4454a8bdfcace6505f1d4d0d5ad4354fe0371507"
+    sha256 cellar: :any,                 sonoma:         "d9ad23d802ddd301ff8116d979023e5807e8d5ad585bd9078265d065742e5246"
+    sha256 cellar: :any,                 ventura:        "ca30603a36c46a092a240c162bdd664c9e2d0d2a8aad5b54655ef1cba3339dcd"
+    sha256 cellar: :any,                 monterey:       "80b6af96aa3a7ee0aa0a56992bdacfc519f7cc9f2137835d0c649a3835300e66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4e8ab6083445030ee7036adc642dded10bccff35fccbceb18313ac5a222507d"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "glslang"
   depends_on "vulkan-headers"
   depends_on "vulkan-loader"

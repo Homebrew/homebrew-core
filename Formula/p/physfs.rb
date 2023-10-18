@@ -7,9 +7,11 @@ class Physfs < Formula
   head "https://github.com/icculus/physfs.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7556de6af5b763d6ce5fbb4e56acd432aefd2752a8bd27b38377de64f7f0ffc6"
     sha256 cellar: :any,                 arm64_ventura:  "033ca59ee6e8065927dc2c9e9161c5c673cc479d6d5991fe797c7677e474617d"
     sha256 cellar: :any,                 arm64_monterey: "b46aa5368cc2331f6b7f9abd675e40ae06fce1c0864bcf3ded3ebabf1bbc4756"
     sha256 cellar: :any,                 arm64_big_sur:  "f627a4cae2e3476f4ed357f265d522a06a1b5d3c51064dcce1dafb0c625d8904"
+    sha256 cellar: :any,                 sonoma:         "57d1132edf37fbffbd596c962efb07fbf60a038874c6fbaab3280cad289ddd24"
     sha256 cellar: :any,                 ventura:        "7cbc056544fd8a02a9e85931cf7a7e9fe9387b0c41ad485a8d0bc29a217d11a9"
     sha256 cellar: :any,                 monterey:       "8d81d2499641e8c30ccc9bcbd2d26ed59f173a4b438b64a554b8c9af62b94fec"
     sha256 cellar: :any,                 big_sur:        "6a28290a9fc698ba51ebcab233cabc708c5a611f74d94f99dc00a8348032438c"

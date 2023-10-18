@@ -9,9 +9,11 @@ class OnlykeyAgent < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "cfe26b89aa44b006d82132036f2200b46b5bb077a34207b32a0e95e76692bfdc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1133ee61bfd2d0f209c8e02b168c97db978ccdd96cefaa6ec57d67fd7730bc5a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4857723af86dfa00dff3a67ef91518c88e2d76c89769fca9c7ee151d61f649c3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f92f72e7071213a2b6a6e1f0a606f1b7b83748769e98c29233b09c239d06b5c"
+    sha256 cellar: :any,                 sonoma:         "ee04af2e8e06c1d25c5cbcd87f84031010962df500c1db4f2d0ca33be32b7a97"
     sha256 cellar: :any_skip_relocation, ventura:        "b1e82daaecbd965237b419e09e6995374a9791c583f9cb55b825bbd7023e34e6"
     sha256 cellar: :any_skip_relocation, monterey:       "c5e95d33ff2c466fd952dda040c54645f667db02b9723a7372c624addf4dccd6"
     sha256 cellar: :any_skip_relocation, big_sur:        "b969768f4604c21ee90174153c1e66dbd9c9e30a1932f971f5845a5e9664a1ba"

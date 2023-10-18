@@ -7,9 +7,11 @@ class PdfDiff < Formula
   head "https://github.com/serhack/pdf-diff.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9880f5520ed55ad05c505196a7d9c826c1a9afebefd1c96b56d9f38fca232a6d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fe08862077f15673639f22904af5e0e6d3953e29f5df8b8a231b38f748e6af05"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe08862077f15673639f22904af5e0e6d3953e29f5df8b8a231b38f748e6af05"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe08862077f15673639f22904af5e0e6d3953e29f5df8b8a231b38f748e6af05"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a459eb490a382b87a8e0145910830ace8b8a736eea8c0ce3ed7d18c80ac92883"
     sha256 cellar: :any_skip_relocation, ventura:        "e8b0e6e652c67281398e49a6d61c2b8624c5ea7fb538771fc4b47ce50188a877"
     sha256 cellar: :any_skip_relocation, monterey:       "e8b0e6e652c67281398e49a6d61c2b8624c5ea7fb538771fc4b47ce50188a877"
     sha256 cellar: :any_skip_relocation, big_sur:        "e8b0e6e652c67281398e49a6d61c2b8624c5ea7fb538771fc4b47ce50188a877"

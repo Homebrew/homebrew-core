@@ -1,8 +1,8 @@
 class Antlr4CppRuntime < Formula
   desc "ANother Tool for Language Recognition C++ Runtime Library"
   homepage "https://www.antlr.org/"
-  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.13.0-source.zip"
-  sha256 "2e5db62acdca9adc3329c485c3b9ce3029e40d13cc9c3e74ced354e818cb63e9"
+  url "https://www.antlr.org/download/antlr4-cpp-runtime-4.13.1-source.zip"
+  sha256 "d350e09917a633b738c68e1d6dc7d7710e91f4d6543e154a78bb964cfd8eb4de"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,15 @@ class Antlr4CppRuntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "20b274eaf7c4361628f3dad30601713286db8c2f35ad69bc156085ed9a7be2a0"
-    sha256 cellar: :any,                 arm64_monterey: "c043aedbfad3ddaf11493ced1f11b05336dd4d74a024d3e39315e1817ad6dcc1"
-    sha256 cellar: :any,                 arm64_big_sur:  "d1458bcc4aa241b6710155e27924ac9bf432aa5f9ad4ede8d0a558170a55c954"
-    sha256 cellar: :any,                 ventura:        "fab801a58d218eaa743e7599df628a6962f5e93e77c4dce31b22339950257a4c"
-    sha256 cellar: :any,                 monterey:       "244eee75564a6abed381510b8ae8184595774bb86fb85b13767e3cc7a30f8ce8"
-    sha256 cellar: :any,                 big_sur:        "3a86f2d6672246c84233012ead14c256548989c41089451490dfea25b000f208"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9f0480e9a2cb4afa911b52c70c4346bbea34eac91d2e81b768ccec94ce687b4"
+    sha256 cellar: :any,                 arm64_sonoma:   "6d6a16511a791342ff105ad71c495349b6ed9c7e94affcc368598c08c01f1121"
+    sha256 cellar: :any,                 arm64_ventura:  "5d45d015de7e2bd862ed904ed88374553327bf4a4e2c9d0d7eb34500465a7834"
+    sha256 cellar: :any,                 arm64_monterey: "297906e04b7d3784f31d25e9fde214a928f070fb80923bc974d446c5f25e6bd3"
+    sha256 cellar: :any,                 arm64_big_sur:  "64917cc9322bcd9ad9ddfd76ed95735deccadb4ea73f332264b2a5d554a3e2d4"
+    sha256 cellar: :any,                 sonoma:         "0d48dd2e8ccc966ecfa5343cbed87ef0e6c17a46f1a4870b5056d5f1c113e7a7"
+    sha256 cellar: :any,                 ventura:        "a291d3a2e51595f49c1cb3d76474825ef15091e1c8ab9bb5021b58fec50e9388"
+    sha256 cellar: :any,                 monterey:       "75a51fa0a6999b6afb90f62659e80904c799c5b018f41821c4f2bd1fe3ca0c80"
+    sha256 cellar: :any,                 big_sur:        "670e3b11a40281c0270dad7f2d7bf6fc9cb741931e0c956a15e6adf2b63d4bee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a07f086d1449687c942c93e12fb42bfafc47e9a9a130539e71ae86ed3b7915a3"
   end
 
   depends_on "cmake" => :build

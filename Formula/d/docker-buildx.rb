@@ -8,9 +8,11 @@ class DockerBuildx < Formula
   head "https://github.com/docker/buildx.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c08efee9bc1bd9cda36503edffacb3778780c8c68c5aa07d81c22c87635dd1eb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9725a277a0819ee7377757e94b83d30b14d69314756110aec9638ad6d13e858"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d9725a277a0819ee7377757e94b83d30b14d69314756110aec9638ad6d13e858"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9725a277a0819ee7377757e94b83d30b14d69314756110aec9638ad6d13e858"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98749a98f045ca87ebab37026162b4def68fef4b1e7a566386ae78e6a1d9e3e2"
     sha256 cellar: :any_skip_relocation, ventura:        "058c89a3d99ac1468dc4c4c597d046fc45d0841676d4580daec5b2e4595f8917"
     sha256 cellar: :any_skip_relocation, monterey:       "058c89a3d99ac1468dc4c4c597d046fc45d0841676d4580daec5b2e4595f8917"
     sha256 cellar: :any_skip_relocation, big_sur:        "058c89a3d99ac1468dc4c4c597d046fc45d0841676d4580daec5b2e4595f8917"

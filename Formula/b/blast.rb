@@ -1,9 +1,9 @@
 class Blast < Formula
   desc "Basic Local Alignment Search Tool"
   homepage "https://blast.ncbi.nlm.nih.gov/"
-  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.14.0/ncbi-blast-2.14.0+-src.tar.gz"
-  version "2.14.0"
-  sha256 "bf477f1b0c3b82f0b7a7094bf003a9a83e37e3b0716c1df799060c4feab17500"
+  url "https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.14.1/ncbi-blast-2.14.1+-src.tar.gz"
+  version "2.14.1"
+  sha256 "712c2dbdf0fb13cc1c2d4f4ef5dd1ce4b06c3b57e96dfea8f23e6e99f5b1650e"
   license :public_domain
 
   livecheck do
@@ -12,12 +12,15 @@ class Blast < Formula
   end
 
   bottle do
-    sha256 arm64_ventura: "ef7f64b650ddd5bd5a1dfb7607866653506dc4ea4b1002e17ec1ac0b0b2e6753"
-    sha256 arm64_big_sur: "0239f0d621e069cfaff7c7efd2e340986fa7dc81a19a1d5ff06afc651339d9ac"
-    sha256 ventura:       "d44e031c5bb344160bfcd823e31d4e01416930e5d304edcc0a5cc4b9d668fa3b"
-    sha256 monterey:      "ccb2bf7d47607eb7a2bda69666bfa26d592132bef1b65f2b8ffec0ef35f97713"
-    sha256 big_sur:       "8b56e231976a2fc415ed0e8a95c311c098a602241bd535b777c783d5e33959df"
-    sha256 x86_64_linux:  "feb66ab235cf31ad8ea401aa3923e2066988f85580b3aa44c0acc028dee49e0d"
+    sha256 arm64_sonoma:   "39921182f3bd695d7471a823f3665ede38c3b26663797c4bb33400535ac8fd68"
+    sha256 arm64_ventura:  "5ac733bc4b3dd1dad7e31743523fbbda7e373ef046eedb5b63efd3337377278a"
+    sha256 arm64_monterey: "48a21807f138f6f32c8961e3e42d6d95fe28c3ece6b044a99b0261a2f775683b"
+    sha256 arm64_big_sur:  "14c11bab160ab54a32636d20f0e7d7966cd4e555c597e0b45b8b68c253d1fbf4"
+    sha256 sonoma:         "0459862bcb6556b952bb6c6e1569481e2e10f72b208017ddefd158a9418c0409"
+    sha256 ventura:        "a037c5f6b34bfc3a6da7df53040982820f4fa6bc04b40d267029a5609bc70aa0"
+    sha256 monterey:       "e03015a5f73afdd483c0a4b50641a4f536a838813f4eb080a10495b1ac7eb1b6"
+    sha256 big_sur:        "b663ea74f93a8cb23661aab8b831bef3b1c11877bef219057e1361c4e12021ba"
+    sha256 x86_64_linux:   "6a9d61075581b765efc9e632d1f72099a262fdcbac402db9bc6e052745d096a1"
   end
 
   depends_on "lmdb"

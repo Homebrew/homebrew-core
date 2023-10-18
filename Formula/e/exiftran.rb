@@ -13,9 +13,11 @@ class Exiftran < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "53793d2d72884e10ddf5d26a6af3b0c4b3fe28f8b28e4f96127612a2ca5c1a44"
     sha256 cellar: :any,                 arm64_ventura:  "00bbfab43b25d8747630f7a724302fa81a0cf142872c015e5083b24773678cf2"
     sha256 cellar: :any,                 arm64_monterey: "102fc92b15a47eaa70d675d6ab35dc54376dafa8f094acebc48178307f969064"
     sha256 cellar: :any,                 arm64_big_sur:  "6d4edb4e74112bc2835d5a096a689e7cb556d9ef58f1169de616151aee9e69f3"
+    sha256 cellar: :any,                 sonoma:         "4267824506175ba35297c38e433a1ee8ec5118dec80f8763e604c08a8ab8256b"
     sha256 cellar: :any,                 ventura:        "5b325ba44ebed23f36442ac9379a33d4d71ca3a8f392997bfec59edd3b47660e"
     sha256 cellar: :any,                 monterey:       "4f5803bd4cca5cca2fdaa1a60acd163e46bfc16eb311c562ed05d2c5d949197c"
     sha256 cellar: :any,                 big_sur:        "64c65cb5b823a3b5b6d341a32bffee78a90d17dfbd1e07a9edef9df828025c63"

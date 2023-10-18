@@ -8,9 +8,11 @@ class Weggli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64c0f26ea39b8458017d80fffa9e632650b9fdb97ce8ae1cc69128ba68898308"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b85863bb8393ee053190a070ec0fcc44d7d7c78709df4f50e4811301edcf7652"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1d71e7a726a9745ad22a4a7db9beec29730d0147b49088614a4dda3ad16da59f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7035dc61b7193c31af0c5e50e655b73b219e67accb597eb937f8bcada03e770b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1977c0e4e4ba9d419f965e47555703b4fa371eafc5e19e7ba4fe1b300345d434"
     sha256 cellar: :any_skip_relocation, ventura:        "b2ec4a783dad5f1169dc0b1f70ecb6038632297e82ffea4e70c94d07ec1a1c7f"
     sha256 cellar: :any_skip_relocation, monterey:       "58fd6b690d5a4a5a92660d701c2e6627e9e9076a5c935e24298d2123227ce723"
     sha256 cellar: :any_skip_relocation, big_sur:        "f4f54dbc53220583652199f660a9cf93abcb084042b5e6a9744cd6fe5fdefb95"

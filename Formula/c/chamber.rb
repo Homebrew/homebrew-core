@@ -14,9 +14,11 @@ class Chamber < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ee66f3883c786fe36edaded8beb4d16c96692851201ecffbfee20b9f0297eab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3fd197d5d728c2155c57774f64b3298d27159eab7924fc6bdd2f1761dbbf5d19"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f62da9b882a7b60ce3fc5a55ff7c2c6534c9baaf2fa342cc3ae2b779cc751895"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be946fb092b3156572893296fe3461337ef8e2a7b2ceb56aba70817dc064dd97"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4dfabb0df83c907fff10cae849c68a661148f3927b28a17bfef707655730af2b"
     sha256 cellar: :any_skip_relocation, ventura:        "4a1d53fd965a3964bb07605a6c0afd809738c0d3fcc25b9d663866ac3c92478f"
     sha256 cellar: :any_skip_relocation, monterey:       "fc1479263e985d8eb7e84361c5f4fd3d4139c1ae8ab9e70d67a56ff28adc64ba"
     sha256 cellar: :any_skip_relocation, big_sur:        "92cad37a2016130d3bfe93e9a82da321967f8f0f58b60249c85e8b943edc8f02"

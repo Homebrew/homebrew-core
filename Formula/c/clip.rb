@@ -13,9 +13,11 @@ class Clip < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e65b6602f8310fa20b2dbccc53bc4d090736869a8ba71e6038d7cf279b106e98"
     sha256 cellar: :any,                 arm64_ventura:  "7bf42be3c4e801e44703b3c8a962c57d8954d3e485ea543006fe2ea40de6d1f8"
     sha256 cellar: :any,                 arm64_monterey: "19abd42b4275674b6dc23f3bd73ecc964c511f13f5005789ed1245d59a3eb1fe"
     sha256 cellar: :any,                 arm64_big_sur:  "aee203a305119447f0b85edbd3a4402fac8eac9173a0140d61545fce9f5a82ee"
+    sha256 cellar: :any,                 sonoma:         "83f111f7b472d1c2464c20eb9fc0d2029482e0679b2d305ff59f5806c2c7ba9f"
     sha256 cellar: :any,                 ventura:        "31cac271bb4e5d72a86455c7761d70619afe06b25269c617ba29a98d4e96eba9"
     sha256 cellar: :any,                 monterey:       "e56a30f599d2a0e117bffba8507bb4ee1f2be06c8b75784875312287138caf00"
     sha256 cellar: :any,                 big_sur:        "89fba65ae4a95e419d4b3838360911954362a97d0d6613734d72c2a1f4b10567"

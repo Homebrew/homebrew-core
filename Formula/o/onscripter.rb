@@ -1,20 +1,20 @@
 class Onscripter < Formula
   desc "NScripter-compatible visual novel engine"
   homepage "https://onscripter.osdn.jp/onscripter.html"
-  url "https://onscripter.osdn.jp/onscripter-20220816.tar.gz"
-  sha256 "e2bea400a51777e91a10e6a30e2bb4060e30fe7eb1d293c659b4a9668742d5d5"
+  url "https://onscripter.osdn.jp/onscripter-20230825.tar.gz"
+  sha256 "03299ab9468b080ac0a90211ad4479376add45db3ef5a46be69b4c23c440fb87"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "b291a3aa9c8aa3b28bef0cbcaf28caefe0650d0a4203dcda060635a0bbf4d806"
-    sha256 cellar: :any,                 arm64_monterey: "511063ae79a45b8dfad195cc4b16e84d00aa6932caff7c1835344be4852d65e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "3b50dbbdbeb3a938fed69938e3fb29a199464c975aaf15e456d6a87ce7bf3bfa"
-    sha256 cellar: :any,                 ventura:        "a2be73c39aa5465ec40890fe7a1f5be4b011e453e467bab092e5cccf07b25b53"
-    sha256 cellar: :any,                 monterey:       "6f82c8d95036968a7b159166594dda8ca7e7880608def8a4bacacf13a262c8e3"
-    sha256 cellar: :any,                 big_sur:        "f75b61d74d23475c90889a81ad583c5939bb1216db58a2c27dccd6e6a0b0b285"
-    sha256 cellar: :any,                 catalina:       "9225c0a491a3ec8292d605929af81daf7f155768ba1eadb1d4e60acaa940765d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a30882de58f50332809a732af98007ef932ddc259e7c928c5ff9f959a349727"
+    sha256 cellar: :any,                 arm64_sonoma:   "976eb85cb68b75c8d05a99a8a7229d95dde665b086d7c3487257ae7b73b2bca0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4500c6b81e79fcce6f25ceb5a725f3f61ca4085dffddb1e7bb2571c81cfb8c51"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f988f81af74291e517c4e0010f086de294dd705584c186518f17fabb7dcbf027"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "988db2dba660dba1abc5c8f6145480deb8219dcbc62c4eb7ad6f6cb88afe4435"
+    sha256 cellar: :any,                 sonoma:         "f43cce01409904c02640dcfb203932816661c94e3e8cc2a976a743bbdd833651"
+    sha256 cellar: :any_skip_relocation, ventura:        "ad135d147b63f7746f4ff8f8c6e4fc24ce5ec7c640aab87ef351272a73144827"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a89c54f6daf473e431bbf15173b2b16b117809cd422489d4407b24a5bcb16fa"
+    sha256 cellar: :any_skip_relocation, big_sur:        "ab670d0f52888c0a76694a3c05e889d016d233670b1098dfdb256a6bc5aa277c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06626f8dbf7167cd8e5f8e9a9e6986d7d0988f1c89ba6889bec1cc191f4852c5"
   end
 
   deprecate! date: "2023-02-05", because: "uses deprecated `sdl_image`, `sdl_mixer`, and `sdl_ttf`"

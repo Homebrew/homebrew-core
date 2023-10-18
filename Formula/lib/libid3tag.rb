@@ -1,19 +1,20 @@
 class Libid3tag < Formula
   desc "ID3 tag manipulation library"
   homepage "https://www.underbit.com/products/mad/"
-  url "https://codeberg.org/tenacityteam/libid3tag/archive/0.16.2.tar.gz"
-  sha256 "02721346d554c4b4aa3966b134152be65eb4df1fb9322d2d019133238d2ba017"
+  url "https://codeberg.org/tenacityteam/libid3tag/archive/0.16.3.tar.gz"
+  sha256 "8cebfba0a7cdf4fada8b715fc17a29ddadd825448da05db006e18acd8bc2731d"
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "f881ed95a669df1c88dca0c60fcf2eee77a752884a3e2b6332b70cba9d51f2f9"
-    sha256 cellar: :any,                 arm64_monterey: "bafa60c5f60c3f181eaf53ff64acae1cf04cb3600a49755f0eb7a589ad2f6b0f"
-    sha256 cellar: :any,                 arm64_big_sur:  "05d1ea6709e912c43d07043476aab2ddc131198215bcf2caffe3a1c5176a6d7b"
-    sha256 cellar: :any,                 ventura:        "2dfe1c49fc68e3ea8e18a456775282288158ae32f0d61d659ce1a8b3d70b3ff6"
-    sha256 cellar: :any,                 monterey:       "86d3dbe6f29ca5cc9ccd255c2c488c2267d2fa3bdcada964b25d3cf6014d0701"
-    sha256 cellar: :any,                 big_sur:        "d37b4456d86459e44c6784bb0c722f15bf59f558905c3c17edfd8537d80d141b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c78951ee4f80eaec7f2d958c790612e6f7edcadddc7a38f2c89c24438d0eeb48"
+    sha256 cellar: :any,                 arm64_sonoma:   "1ed10109e8ae30da194fe62e3a71bee568b0cde84e78c0e9bbeaafed93e0927b"
+    sha256 cellar: :any,                 arm64_ventura:  "0ea24c45073d3e7a8b939a1776d4fafcf6bb8072c9d2107f5b5e9903d2a18564"
+    sha256 cellar: :any,                 arm64_monterey: "c632b8be47cc5f122745b4e6c0948d56cee499c276f7b6ced2f479f078dae8ad"
+    sha256 cellar: :any,                 arm64_big_sur:  "9f9f8eea108670fd8d9f1bbde465e49543fb09926d0699bd03e03ad4ce4a4059"
+    sha256 cellar: :any,                 sonoma:         "c544219bae9e69ac20915abf32abcef7b8a5b4f702eb13d508dab3914fd992e8"
+    sha256 cellar: :any,                 ventura:        "1b6387129a1f3dad504548c0dc6c686e2d8478cbe4c759609780af7eba72466e"
+    sha256 cellar: :any,                 monterey:       "7878d7bd1222ba5e6bfd588c7a8f37eb37e008de6a6c8041846de9d3175b3528"
+    sha256 cellar: :any,                 big_sur:        "3fcfb9567c7f844e56d3844c951452eaf9a074019732b0768bd64daa3a5e7766"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5174d49cb919793e71f1c5cf3609a3c717e1f047d6360aa183830943c5e3a8b"
   end
 
   depends_on "cmake" => :build

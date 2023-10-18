@@ -1,23 +1,24 @@
 class Cgrep < Formula
   desc "Context-aware grep for source code"
   homepage "https://github.com/awgn/cgrep"
-  url "https://github.com/awgn/cgrep/archive/v8.1.0.tar.gz"
-  sha256 "029eec8f0339e79eb9d9e92935e5fcf03a40180cb1adfa8784fa4bf3fee11dac"
+  url "https://github.com/awgn/cgrep/archive/v8.1.1.tar.gz"
+  sha256 "de11b252c5a917909a0eac473843368655efc0f3cea30beea2aedeec3069d54e"
   license "GPL-2.0-or-later"
   head "https://github.com/awgn/cgrep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1be4666dae6c73bf8266fb23aecebffe4b9ee7683f37571cfaead814984ff4e4"
-    sha256 cellar: :any,                 arm64_monterey: "259521bed3744ab359046cd17f61bb2bfacf32e9a11a82908b0bfdd3fdc67391"
-    sha256 cellar: :any,                 arm64_big_sur:  "a213ca116fa7f00535a4569bc19ad9174ac2d43074386af5ac39d0f114b42fd0"
-    sha256 cellar: :any,                 ventura:        "802fbd7f2a47c416cf5ec1d2edcaaffb3b903570b9950deebd1381c9530bbd3b"
-    sha256 cellar: :any,                 monterey:       "ac64013156a71e7b3e597b42b41e88ed2a035c1c79d5d945ce64cadd8ab93b01"
-    sha256 cellar: :any,                 big_sur:        "7c530d952f30e64e4bb5a695f01e7976ea82d5ff4418c9142d7df7fb2d7c0b6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fc65a983cde8ba338d2894fe28a85e2b68500e4b48c35b5156b0d172207bbb8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "72fce3bd6ddd8fcd4c61523f30f89ae170ae0f12a5b120f28ae88787d4dd1ee2"
+    sha256 cellar: :any,                 arm64_ventura:  "80ce6bd6ea41b234a641e2f375d093622f9297752a1d5fb4ab144ed364b76fce"
+    sha256 cellar: :any,                 arm64_monterey: "83e88aaaa16832298b9bd0197974896f45286d9b82a176a2e4ae66b678767212"
+    sha256 cellar: :any,                 sonoma:         "7ce5b54f71a327cfae61dc77f4b06c4d5da252c6a8ed80e6cb1c05bab649f905"
+    sha256 cellar: :any,                 ventura:        "2f0f21f024af1cf96bc1b04db9c8ad4361d106f79a8af0aeae8843eef1f25263"
+    sha256 cellar: :any,                 monterey:       "bb1ec88e8d9420460c7a24c418146771ad300ef0faea774a88b6d67de7b8956c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e1622103466e9301eb288b5c465bf5a519a048bb689d85c9fc9fe2a4df074a4"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc" => :build
+  depends_on "ghc@9.4" => :build
   depends_on "pkg-config" => :build
   depends_on "pcre"
 

@@ -1,19 +1,21 @@
 class Webp < Formula
   desc "Image format providing lossless and lossy compression for web images"
   homepage "https://developers.google.com/speed/webp/"
-  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.3.1.tar.gz"
-  sha256 "b3779627c2dfd31e3d8c4485962c2efe17785ef975e2be5c8c0c9e6cd3c4ef66"
+  url "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.3.2.tar.gz"
+  sha256 "2a499607df669e40258e53d0ade8035ba4ec0175244869d1025d460562aa09b4"
   license "BSD-3-Clause"
   head "https://chromium.googlesource.com/webm/libwebp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "59410a24631f195f51044c59046086396e5ef52b4c521dbd6112af4df5c8bf79"
-    sha256 cellar: :any,                 arm64_monterey: "7dd2b62d07c9185a2c6669c8ec623751c974a074d15ed678f44aca782d72d797"
-    sha256 cellar: :any,                 arm64_big_sur:  "7a5c987579c9144bcf3da8cb8404f8b7f8c17dee8c60cdb61c029413930b1c74"
-    sha256 cellar: :any,                 ventura:        "296ea3254aa001b93e232b1c930b5cd3c46eac776b1712187085db4de61d694c"
-    sha256 cellar: :any,                 monterey:       "560213b626ef622d997789a0f58b0117e4b9f0c80cba33375920c3dba13494ac"
-    sha256 cellar: :any,                 big_sur:        "fa7d51196ee4ab61f2526cc0c99d00353990c8e15bc413dfe4c173eeb4cc39d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e0c8a46ec725d2e233989490b60de2f66bc635872aeadd2ddafb2fb680bee54"
+    sha256 cellar: :any,                 arm64_sonoma:   "47ca7e11b4c06d638c857a72c9383b7d528a013b7aaafbde33d4cf59f91359ed"
+    sha256 cellar: :any,                 arm64_ventura:  "e36770b86bd3d3a71469dc66bd2fe5070f80d8d1f4dab1c6ff2d9732bd9e0ed3"
+    sha256 cellar: :any,                 arm64_monterey: "1d7039a4068e31d4643eba3e516b72df0bfede9c800dda4ff4c08de927f1947a"
+    sha256 cellar: :any,                 arm64_big_sur:  "419842fa92f7b818f452628a80ef4391f8d1b947b602f0cf84f486a458c4a721"
+    sha256 cellar: :any,                 sonoma:         "1acdc37723e07cf0acc3eade96fa8cc1e5e7c6e6176c84b61a0813cb07a61368"
+    sha256 cellar: :any,                 ventura:        "9296ad4f9d17026fa88995b9fb79c942179e6bad159b1d4a36827e8d9bc57c19"
+    sha256 cellar: :any,                 monterey:       "4de31743324ead0cd7978083192bb107f6cd09b11d4a81be4b6c550b91a2136c"
+    sha256 cellar: :any,                 big_sur:        "28cbb05c0cc1d30882e1511b6790300f3bcc82a0bc38031e55f0222c875a877f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f701c0f638b6392585ab57acb0b16b64e4df0fffc1665e12c0d9f5c0547871df"
   end
 
   depends_on "cmake" => :build

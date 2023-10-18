@@ -1,19 +1,24 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://onefetch.dev/"
-  url "https://github.com/o2sh/onefetch/archive/2.18.1.tar.gz"
+  # TODO: check if we can use unversioned `libgit2` at version bump.
+  # See comments below for details.
+  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.18.1.tar.gz"
   sha256 "7b0f03e9d2383ac32283cfb9ec09d10c8789a298969c8b7d45fa0168bd909140"
   license "MIT"
+  revision 1
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c7b09d80fb4e0e4624aa30a1fbce5ec60af434f8db85f421a89d9ddfbc033dab"
-    sha256 cellar: :any,                 arm64_monterey: "85a14e0c3a888845f85c5de4107245a6bc331045ee96ef6a5c6bd27ee7f14b9b"
-    sha256 cellar: :any,                 arm64_big_sur:  "5ebce0d46976838b8a4cbd06777ed352a4120940bc9f874cf1d110f4531e314c"
-    sha256 cellar: :any,                 ventura:        "ba1165769b47df32a7ea6f18c9640117d55862aa7c21504ac25f0a9667362820"
-    sha256 cellar: :any,                 monterey:       "630a686f791d1aba88e3490e499cf543a5662908e8b482769bfccdaf5ec09aa6"
-    sha256 cellar: :any,                 big_sur:        "cfc7e13df7690999e2f4b173485d541a2a696c9af51fdf3f756342f3874306ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36aa89fcd86c7867ba44d078a1b8eef44ee4e5f67cdb04598a5316bf93fe041f"
+    sha256 cellar: :any,                 arm64_sonoma:   "6dc4cc26db8fc147540961f52d1f7cee2693f7b81a1e6b394da3bb5299d4af53"
+    sha256 cellar: :any,                 arm64_ventura:  "13491ecb6b14e676dd75eada2c98a52bd72afecd0335bd9c39f7795aa24ff20d"
+    sha256 cellar: :any,                 arm64_monterey: "6715b79a60fc0d1572f5abbba2c841d7be4420aa75114f4cc3467e6013ae15d0"
+    sha256 cellar: :any,                 arm64_big_sur:  "b1c8a32b3f992d09d4e0f87fb7a536bf56fe04dd6c288289efa743358b03901a"
+    sha256 cellar: :any,                 sonoma:         "0f87b3f2862d2077d9a3a853fbd4654c5d333ca7a48f689bd011e89f38ea3102"
+    sha256 cellar: :any,                 ventura:        "6cf0339a4c6fab1fa624b77e3ddeaa1dfba966adacc7a1e0aa820fe3dd02abb0"
+    sha256 cellar: :any,                 monterey:       "2747b0fece549cd8c75a38d69753b684777f7a52cd7be130b341451ffc8273f9"
+    sha256 cellar: :any,                 big_sur:        "5ad3dce345afb2f2b87287bb07ba69a3ecdb9f51c526b628f2e92a7766ed623b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e8c88c3adf425e057cf7a0797d2c94d92a974f4bde6389848d9bf22b33615e3"
   end
 
   # `cmake` is used to build `zstd` and `zlib`.
@@ -21,9 +26,16 @@ class Onefetch < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
+  # To check for `libgit2` version:
+  # 1. Search for `libgit2-sys` version at https://github.com/o2sh/onefetch/blob/#{version}/Cargo.lock
+  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
+  #    - Migrate to the corresponding `libgit2` formula.
+  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
+  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
+  depends_on "libgit2@1.6"
 
   def install
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     system "cargo", "install", *std_cargo_args
 
     man1.install "docs/onefetch.1"
@@ -46,7 +58,7 @@ class Onefetch < Formula
     linkage_with_libgit2 = (bin/"onefetch").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2@1.6"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."

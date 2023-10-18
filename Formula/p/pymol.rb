@@ -9,9 +9,11 @@ class Pymol < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "24d4ba0d575991dce546bc859aa4b3ddcb89448731cb03e232a9e1b2d7143d05"
     sha256 cellar: :any,                 arm64_ventura:  "83349892fd62c0e7f4779f518466ac427a3a1c8c94942d1d5c6cd28dd36dca83"
     sha256 cellar: :any,                 arm64_monterey: "dca9c78b36701af74a6c3d0809e7c1e56342d2c71ee1c9c65426256ad7964dc2"
     sha256 cellar: :any,                 arm64_big_sur:  "65d1a74e957aae8f1b02dd4706d332a0b53305b065053df3ece0dc136a66d790"
+    sha256 cellar: :any,                 sonoma:         "c6c7818f5a7fd85896443499d3e0933eaf172c0bc8d9daca749f79707ebc1263"
     sha256 cellar: :any,                 ventura:        "fc1a8e0a998879a07f1e04f7b045766d993728e9ff9d11debd4ff849879ccde0"
     sha256 cellar: :any,                 monterey:       "28467563c8d033cea9c34bb660d439342d08bf20fe1caf8e8bf372cf28e0679f"
     sha256 cellar: :any,                 big_sur:        "28d5d457a0f29a105752da1d9fbdeec8ce17d00624d5d3ecedd2fe13fc4bfe06"

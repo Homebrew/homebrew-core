@@ -11,9 +11,11 @@ class AnimeDownloader < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f91739b656bb1165fe754066cdf834630d3215db265df563183823781a042fd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "647c05f2aab4373df042279267464f1d356f96be248fba315ba73f8610438f79"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "65bf2e379d99e9af5c72b406d38ed6f336532116c9a16d11e3c3ec32bc590d83"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34990e1ea3973b2fe138b0f171e913c4ca30211301080177bb742d82176eb6f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "43ab870c7cb8b692d63ebef75a00c86aefa26e574149ce5fd3387e1103ecb946"
     sha256 cellar: :any_skip_relocation, ventura:        "f226ed63d4058cd13e4d6b34b5f92bf879828aa15bb5e77b71ea14fcef04576c"
     sha256 cellar: :any_skip_relocation, monterey:       "f1855ef41361a65b90b2a7d8dd4bc3da0705cfaa08be1c0b47db4e5f146cb7d5"
     sha256 cellar: :any_skip_relocation, big_sur:        "2c632ca8127cbd7dc0cc3bb0670ba6c032deba47bffae8cae59723a4a3eb0ec2"

@@ -20,7 +20,7 @@ class Ftjam < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "03bc2f284df267e0e2f669480b142ae11c5bf15066eebc0dc7de69c42e116d41"
   end
 
-  deprecate! date: "2022-09-18", because: :unmaintained
+  disable! date: "2023-09-25", because: :unmaintained
 
   uses_from_macos "bison" => :build
 

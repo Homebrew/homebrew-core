@@ -20,7 +20,7 @@ class PandocIncludeCode < Formula
   end
 
   # see https://github.com/owickstrom/pandoc-include-code/issues/46
-  deprecate! date: "2023-01-25", because: :unmaintained
+  disable! date: "2023-09-06", because: :unmaintained
 
   depends_on "cabal-install" => :build
   depends_on "ghc@8.10" => :build

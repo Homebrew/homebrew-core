@@ -6,9 +6,11 @@ class Iat < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9bf951c493709c86c80ded9cfda13a70c2fb7c6736ed66403bd493cd4267c5e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0db42bcd57f51e6e6ae308b4e5999449bd70113b22e1e581331b892895d1c52"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "093c585bccdf3c2befc96c8050fc922267769a8d11e5d8d613aaaf5771ccc5cb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d62b3a234d80f15acfed8e030897b09f88678213024c5b5f47ae667507984d24"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bdb26eec9b7caef99572119093011954c596d32273d663bad57e98e869cdbc05"
     sha256 cellar: :any_skip_relocation, ventura:        "e01adc32b1913dab6e6907a82fcc5865c6f7d9cf1d18ea65225fb45726862fef"
     sha256 cellar: :any_skip_relocation, monterey:       "9cd2da0793bd90422e81e10cc2748b3d5c27cdb8fb2e47d167cc0bf2a94ed096"
     sha256 cellar: :any_skip_relocation, big_sur:        "a1a5029ab927dc08cf6cf89a583c52e475dd50521d461f5ed3d05056a7605dc1"

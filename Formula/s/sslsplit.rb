@@ -17,9 +17,11 @@ class Sslsplit < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a78baab2eb804a8825d8e32e7b196ba855c020f95e82b2f3d97791f57ed6f6f8"
     sha256 cellar: :any,                 arm64_ventura:  "ad6eef71652050dd7586ca130538d612f71d6e0486a5c1b2b9eb98e5d0675e0c"
     sha256 cellar: :any,                 arm64_monterey: "dba0a5403a541ff22b1e63577de39af59c2bdfa4ea43536664526efd4c10b479"
     sha256 cellar: :any,                 arm64_big_sur:  "9a6bc8259feb162971310ab7cbb802a6d792c9a13684d756c74f2e4c12f91527"
+    sha256 cellar: :any,                 sonoma:         "5ecbf858d101619382213826f91a12b0585d6fcf8aa5be655cbc1e2952565436"
     sha256 cellar: :any,                 ventura:        "6b5c5082caa1b33a2ec68d438965ef1c405404b8808ca1fd9cda7397ac366165"
     sha256 cellar: :any,                 monterey:       "5f23f06acb83de8e1730a267b0e543e5a2b46af6ca0021922fa2e427c8eb3cdb"
     sha256 cellar: :any,                 big_sur:        "5609fe01116b26aeae02e483354ab84a4b9cb223095618640c32af5bd7341cca"

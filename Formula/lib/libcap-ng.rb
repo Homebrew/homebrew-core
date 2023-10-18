@@ -6,8 +6,8 @@ class LibcapNg < Formula
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "176901077020fcb6da35d20c9e52d9787d09d18965491176bd4f4879587a34a0"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "06cf74b413be1eae87983a59d42aec2e241b044130069cc2c7375e1272372e1b"
   end
 
   head do
@@ -19,7 +19,8 @@ class LibcapNg < Formula
     depends_on "m4" => :build
   end
 
-  depends_on "python@3.11" => [:build, :test]
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => [:build, :test]
   depends_on "swig" => :build
   depends_on :linux
 
@@ -45,6 +46,6 @@ class LibcapNg < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcap-ng", "-o", "test"
     assert_equal "ok", `./test`
-    system "python3.11", "-c", "import capng"
+    system "python3.12", "-c", "import capng"
   end
 end

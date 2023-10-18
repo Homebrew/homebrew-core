@@ -9,17 +9,18 @@ class ArxivLatexCleaner < Formula
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59e1f7f2b1fd4a108cd90d8f37e4f25df256f1497d33a06ac7dd1816feca76ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "443cd9aa0aa89848be97e53875f750350038a51ab823054eb4d2e2d045564388"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e553bbb1f502cd3af77fc1f47f74e12f346d8c13bfc498a7b5dad91ec4d5cd9f"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2c836ed2b9e98abf78c749bb7063f4b7d82f70aa894a4a3fc7e127ccbb75f22"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec7d1e9001dc717e0e675251fcea6dc279e76c0ab33bb6cc49e05bf5f2021ce7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f3e4be0d6ce58369194aadbd41d7b7b01499fefc0cd96ecf5cb0953074152b23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f1d41f50ae1732dbbaf453074307d963e5cc787a7716d50d6469b524b2e4c07"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a1c337a3db307e559ead0dcfdc44378886e11d218a639ae26ae4a0dde3fb13e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aca841acaf15a0d97155fe05daf99070005683409fcad42959df06a1531f54dc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b62ebfea37df88758c3bc34f540edc9d819ac6040d11ec4d7afd1303bf418453"
+    sha256 cellar: :any_skip_relocation, sonoma:         "05f6bd6f5db883a7c0bea1eaa1b2a60a1bef8379298e17bb08811afe205a5c9d"
+    sha256 cellar: :any_skip_relocation, ventura:        "768ee6afbef80a82c9fe3130d2e679d658a589335fe8f28ff841e729a9f2a01a"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb4daee3eebc170cfdbad210decd3d6cb4097301af5cb4d3080c4396a8d5a2c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed1b43f5f808505364aa9fd8a23d7330ed44ce8756c27180d446f980d7c74d9a"
   end
 
   depends_on "pillow"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 

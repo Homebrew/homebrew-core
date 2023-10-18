@@ -3,33 +3,30 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/5d/dd/8e2a7bf66232aa054474ab83e55b03eed39f516fdb40ad7c041c475ee40d/commitizen-3.6.0.tar.gz"
-  sha256 "979f659f9fc071c675f41796bb7c56a827aacc2e312db4ec3920951211a72ce3"
+  url "https://files.pythonhosted.org/packages/9e/f0/0619026e006f246227c53d9c327ee2a830e82668d983a64af297d132fa62/commitizen-3.12.0.tar.gz"
+  sha256 "7c313f1f85f45c9acf1a70f1637deab5c388150ae8660a0037ac260e77bb1492"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1993b3edecd40741038e1381e847edbad3d682093c46a576affd82a7aea39cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "84976cd0f0e847e68d09f397d8f0a0522dc10618212683f52e9d236feef73275"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "27e2dcbdd75f9dd5ddfcf80884ad3b42734f9374c846cd0d0713d4ff8b8be81f"
-    sha256 cellar: :any_skip_relocation, ventura:        "0d328b0a902e39d7631460475e14ef284fa4b35c4d35d2536a16ce0aaa92b479"
-    sha256 cellar: :any_skip_relocation, monterey:       "573a40dceef895217200751f858cb422c953fc78483c7bd620c4666f81968876"
-    sha256 cellar: :any_skip_relocation, big_sur:        "faa35cd4208af44c445cc45f88dd66dcc68df85d749e3ca130bfecd20ff04211"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "846c6d3625163beb88f571744381236a5da4c487677684f82bc08093e2f2b69a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16aa6ab33f26df3a995f0aa004852a4b0afa1367dc2c823bff886f9e4c06d3ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1ae683186033a1c7dbfa8eb1b617eba32dd477141d84f2590930ec52a8de2cb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a35aaebd8cec8524d163c82b4995f019c91d59570ad9305d952e4f0b6691133"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aafa7d6e66690ac2e7b5a21120a329d8efdecec54aabc2ecc1009439bfac2b59"
+    sha256 cellar: :any_skip_relocation, ventura:        "42ac25b4950275f7d90fec5004c75d8bb73b10c0a6a2e5edc7ba013a5ef0d36e"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a161e2e2803496cc94c658b957a824ad840555b30ec6aaed6954119415fb258"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b29b89acd8e57fac06854a244b4377318320595c9c7fcdb3f92ea4472f3c08b"
   end
 
+  depends_on "python-argcomplete"
+  depends_on "python-packaging"
   depends_on "python-typing-extensions"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
 
-  resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/54/c9/41c4dfde7623e053cbc37ac8bc7ca03b28093748340871d4e7f1630780c4/argcomplete-3.1.1.tar.gz"
-    sha256 "6c4c563f14f01440aaffa3eae13441c5db2357b5eec639abe7c0b15334627dff"
-  end
-
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "colorama" do
@@ -57,19 +54,14 @@ class Commitizen < Formula
     sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
-  end
-
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/9a/02/76cadde6135986dc1e82e2928f35ebeb5a1af805e2527fe466285593a2ba/prompt_toolkit-3.0.39.tar.gz"
-    sha256 "04505ade687dc26dc4284b1ad19a83be2f2afe83e7a828ace0c72f3a1df72aac"
+    url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
+    sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
   end
 
   resource "questionary" do
-    url "https://files.pythonhosted.org/packages/04/c6/a8dbf1edcbc236d93348f6e7c437cf09c7356dd27119fcc3be9d70c93bb1/questionary-1.10.0.tar.gz"
-    sha256 "600d3aefecce26d48d97eee936fdb66e4bc27f934c3ab6dd1e292c4f43946d90"
+    url "https://files.pythonhosted.org/packages/84/d0/d73525aeba800df7030ac187d09c59dc40df1c878b4fab8669bdc805535d/questionary-2.0.1.tar.gz"
+    sha256 "bcce898bf3dbb446ff62830c86c5c6fb9a22a54146f0f5597d3da43b10d8fc8b"
   end
 
   resource "termcolor" do
@@ -83,17 +75,25 @@ class Commitizen < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
-    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+    url "https://files.pythonhosted.org/packages/cb/ee/20850e9f388d8b52b481726d41234f67bc89a85eeade6e2d6e2965be04ba/wcwidth-0.2.8.tar.gz"
+    sha256 "8705c569999ffbb4f6a87c6d1b80f324bd6db952f5eb0b95bc07517f4c1813d4"
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/e2/45/f3b987ad5bf9e08095c1ebe6352238be36f25dd106fde424a160061dce6d/zipp-3.16.2.tar.gz"
-    sha256 "ebc15946aa78bd63458992fc81ec3b6f7b1e92d51c35e6de1c3804e73b799147"
+    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
+    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
   end
 
   def install
     virtualenv_install_with_resources
+
+    python_exe = Formula["python@3.12"].opt_libexec/"bin/python"
+    register_argcomplete = Formula["python-argcomplete"].opt_bin/"register-python-argcomplete"
+    generate_completions_from_executable(
+      python_exe, register_argcomplete, "cz",
+      base_name:              "cz",
+      shell_parameter_format: :arg
+    )
   end
 
   test do

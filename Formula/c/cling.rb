@@ -21,6 +21,11 @@ class Cling < Formula
     sha256               x86_64_linux:   "315073c45b0684a970493476b9c8476ddf90eb7d69bd5326efdf97b79ec55e25"
   end
 
+  # Does not build on Ventura
+  # https://github.com/Homebrew/homebrew-core/pull/131473
+  # https://github.com/root-project/cling/issues/492#issuecomment-1555938334
+  deprecate! date: "2023-08-24", because: :does_not_build
+
   depends_on "cmake" => :build
 
   uses_from_macos "libxml2"

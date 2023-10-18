@@ -6,9 +6,11 @@ class Gotop < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ca9e4643126c9f07e728798d9c784b613d03bb6a947b7641b7e6e702f39a94e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "59120887e3b8c12144e56945486da0ba9cb53ca1f3c9242e9992c2d79debc119"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "26f36d53f4f63536d74c2565a66595f2b5658ff0322e123486fdc2df73fcc9ff"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a4ec909ce13bf1627374bc35a3e5f55a6e897cb14fb779d677a0c715d580c22"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e16d440d5b7db710a63baa9f0d115c89c24a5980d684850df98f1f86f7e7c5ed"
     sha256 cellar: :any_skip_relocation, ventura:        "16826d2a09c771408f8686dd3eb2be2e354b457c5e81d14d331498e4a8768e8a"
     sha256 cellar: :any_skip_relocation, monterey:       "967cf5ea968270791932cef90aaeb8c131a695e142429d72a1694508c6a01dda"
     sha256 cellar: :any_skip_relocation, big_sur:        "61f87b013e7a20046a34ef65bfeb2cbc68a6e78df6f04baee64fa1bdc5be2d66"

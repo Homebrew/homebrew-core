@@ -1,30 +1,39 @@
 class Cffi < Formula
   desc "C Foreign Function Interface for Python"
   homepage "https://cffi.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-  sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
+  url "https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz"
+  sha256 "bcb3ef43e58665bbda2fb198698fcae6776483e0c4a631aa5647806c25e02cc0"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5971b4b3104b5b50eb147696a0ce95d93b2e62fe6dc219a78368e512f6d0b519"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b3a6548b25534c9cb8fc9561d2fdbee5a59c9fc9c0acf7bc766a0918683487e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f6e36e0a87362dfe3052329c7a38f7bd10325ab6473f58ba90e428f065df68d2"
-    sha256 cellar: :any_skip_relocation, ventura:        "3865305b346855d194487dae89baf1d4c8ea47d25a18adf48d1f46896eb06aa0"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f56e911853ab2d4d0508a4062c00e47d3c83e73ad99a5fc93114dc76798a881"
-    sha256 cellar: :any_skip_relocation, big_sur:        "746640d4f76e427485dbf604b51a3c753e1ddf2cf56337d9e80fe1167cdbc610"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca6ed36c6e14a67c5c7d105a46905a8144ea2f1fed314159fc9de67de52cb07a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68b4851eb6de67bcfaf57a2d08c4a412f5e645f15300efa4cb42dc1be2094d21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68986a32110045f2d6c27b69fe2f03ffb3cc7753ba40fa965dc9ee9c3862387e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e130c7cffc0f6e39be2c730dfcf67d48c1e9dc55d43d8822d9441c62f0c2e661"
+    sha256 cellar: :any_skip_relocation, sonoma:         "76f2b60ba93496474a243f5a365b9a0040b25f0e5ecb2ff9b3f1eb210b54f814"
+    sha256 cellar: :any_skip_relocation, ventura:        "e9a3a49b93e4ad95fddb3668b0f48efb0e14edf9f6c95c6acaadd0534964d0f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "db7a676d820849c018e6103a68eac47695c584eb802ffdded0055b88ba6d3675"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d014e7fedeb7161b5f6ca55d47bff9c7e3fe4798f76cb6a891d9e2b073917dee"
   end
 
+  depends_on "python@3.10" => [:build, :test]
+  depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   depends_on "pycparser"
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+
   uses_from_macos "libffi"
 
-  def python3
-    "python3.11"
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.start_with?("python@") }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    pythons.each do |python|
+      system python, "-m", "pip", "install", *std_pip_args, "."
+    end
   end
 
   test do
@@ -54,7 +63,9 @@ class Cffi < Formula
       ffibuilder.compile(verbose=True)
     PYTHON
 
-    system python3, "sum_build.py"
-    assert_equal 3, shell_output("#{python3} -c 'import _sum_cffi; print(_sum_cffi.lib.sum(1, 2))'").to_i
+    pythons.each do |python|
+      system python, "sum_build.py"
+      assert_equal 3, shell_output("#{python} -c 'import _sum_cffi; print(_sum_cffi.lib.sum(1, 2))'").to_i
+    end
   end
 end

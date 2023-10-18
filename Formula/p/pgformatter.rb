@@ -6,9 +6,11 @@ class Pgformatter < Formula
   license "PostgreSQL"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bf3d26c14d04d969ffbda591452fad5676f730279e946ea83bb7b26d8a72eb6"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f55a58ffba124482444519c77f9e29cfab2bb7148b78da263eb20f64a3a184c4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f55a58ffba124482444519c77f9e29cfab2bb7148b78da263eb20f64a3a184c4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19b902f507e8db9da9f1c17367a4427edae7a92cf5a935bcbd61cced35803129"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dba88452f13c2be2c123bf5d26ea45d8d590ccc96ac0688549b9dbc609634f2a"
     sha256 cellar: :any_skip_relocation, ventura:        "5ed298cd9259c04e657f25ba10211677c940c568212188af3f1af11c960ece6e"
     sha256 cellar: :any_skip_relocation, monterey:       "5ed298cd9259c04e657f25ba10211677c940c568212188af3f1af11c960ece6e"
     sha256 cellar: :any_skip_relocation, big_sur:        "b9bc5a12c9188639e69b5aa6c418e0f16005fe60643a7dd23fc2d9ad117352e3"

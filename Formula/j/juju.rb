@@ -1,8 +1,8 @@
 class Juju < Formula
   desc "DevOps management tool"
   homepage "https://juju.is/"
-  url "https://launchpad.net/juju/3.2/3.2.0/+download/juju-core_3.2.0.tar.gz"
-  sha256 "cd761ff63ff46f96b51ff94ec0b6871c519b242fb5966b5393a3a417386162f8"
+  url "https://launchpad.net/juju/3.2/3.2.3/+download/juju-core_3.2.3.tar.gz"
+  sha256 "a1a44d4b2edb49202bb02fc330fd6b2c01997abba09c5eff3b7798cf38236f4d"
   license "AGPL-3.0-only"
   version_scheme 1
   head "https://github.com/juju/juju.git", branch: "develop"
@@ -16,13 +16,15 @@ class Juju < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97b148247322f5ba4f109f109ebb9cfe597c72d82b2463f7feac12990a5e2b7b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd9862ca1ca90fb02c1300a09168946d33398cbabeff87cc476e312b239293a5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30f2e76df904b15b66fd5fac7b00c99d3086107ceacfada159c3e2870d9d66d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "70b11b1a58d44fb9addf67bf6e22dc8689c7a3b40816d2983e096b8840e5d819"
-    sha256 cellar: :any_skip_relocation, monterey:       "ced4599bcf5e6751771f319275e434838114875fd9d78fc0f35ac8fa30d1adc4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1557b7cfdc303123f9c10e0b867d13cd721296e10318c08bf36b6d3a2f966812"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12d7e4dfa90d84e857309a9b5dcd99806ef7e66161ae84310c45c52b430037e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1130265f693de69125c75800aeffb53880d5d4b14ed2fed560d070b148bbd37d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3c3b88d8ccc81cf68d260920a6bf33cccecda42bcc74b3b3f705354e635be74"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52d1cc141cae792aa9641eb98915f03e0a36ad872cf7ec273dde7f0954a8cdb7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1b308f8013e9ceb01b3971d75a45799ec5c5909cf4bcad78065b3157beade829"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a91e1eca674b42291b7ea7e1706a0daa1cece4fa232f528f68edaa28fc55c2c"
+    sha256 cellar: :any_skip_relocation, ventura:        "d4ca0097cdd2375a6fdaf5dc829f0722ddfd9e7a3a2ae5ccd707b4f8b7cfe524"
+    sha256 cellar: :any_skip_relocation, monterey:       "ca8c60a918d8d1c11a125b77bd0aa568cd7ada7f4a3300a547cd80cab7f7ac6f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "8acc6f5631dca298772139362c2f7935162ee442ca5fe71401f3f3d2123a5bc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35facc52b0e2ba44695088992d813854bc5f35598f60fdc43d41af68d16c3c4e"
   end
 
   depends_on "go" => :build

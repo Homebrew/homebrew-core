@@ -7,9 +7,11 @@ class Gitql < Formula
   head "https://github.com/filhodanuvem/gitql.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "331949f049d7c58c277f5842a3dda54101c55499a070c22f1481f288d573fcfd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3aa2f078b36976dfbfe3b5a906ac43f625b04851fa400e03e21d5abcc965c9e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f8d5a45420e0c8696a821493c292c57a929d5571007fa0d6863a6c0479c17e0e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c510bf179af95811b10550f58751e33b54f7becae1106ead14d2088058deb141"
+    sha256 cellar: :any_skip_relocation, sonoma:         "49095a2c9239aa2d8f4948e6b48c3cc2bf25e2cca551092517b6c09293d558b4"
     sha256 cellar: :any_skip_relocation, ventura:        "1afa4269aa54b3f990d4061b7fe21424c9aeb509ba86a6af4a6b7cdfd5d6daf6"
     sha256 cellar: :any_skip_relocation, monterey:       "211d0bb817e59169943c5e12a9b6b147cb74a409eb59af501e774eedf30d7f4f"
     sha256 cellar: :any_skip_relocation, big_sur:        "1d03ac14a4d11bd7f0c09694b68b04b679eb6fc1feb5b292b1c289417e46ce26"

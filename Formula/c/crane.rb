@@ -6,9 +6,11 @@ class Crane < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1215f1496b1c91ce0153712af8e4baa1157876b3adb6dd3a51ade48c23255f58"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6828ee0cb41f068f187165190773acff3186256b0ee2290b2613d9744a6edfb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d6828ee0cb41f068f187165190773acff3186256b0ee2290b2613d9744a6edfb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d6828ee0cb41f068f187165190773acff3186256b0ee2290b2613d9744a6edfb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "917fed460ca82fa03d79d4830d41e867ec84831a798a762a28413228149e5125"
     sha256 cellar: :any_skip_relocation, ventura:        "b860bc0d7a2d0d77c5b9324ad62d5a0d5976c43799d7c03cff2c02764f465cde"
     sha256 cellar: :any_skip_relocation, monterey:       "b860bc0d7a2d0d77c5b9324ad62d5a0d5976c43799d7c03cff2c02764f465cde"
     sha256 cellar: :any_skip_relocation, big_sur:        "b860bc0d7a2d0d77c5b9324ad62d5a0d5976c43799d7c03cff2c02764f465cde"

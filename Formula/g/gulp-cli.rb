@@ -8,9 +8,11 @@ class GulpCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c024559e125bf487e861b20f7f4470bea2d2aaeb580493ea61e771c13a820843"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9f72528f44356b837abfe0ea3a09de449f56a8d7e5281ad46e3a3a0d42eec51"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8ea471114a8812cf87daaea09ea00dc61297ac35c4227372a9c68aaa04ed1901"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc2ba1fab80c6b58a6f916e317141e155369834a16526ce271758f46384813a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c8b55a3d9ee3d16dd0a194e53276310c8c569b819a14ce443c3e13b1b0387271"
     sha256 cellar: :any_skip_relocation, ventura:        "185236b4489a9c64db268f73e0aed7a353eb6a6477192d1382de5e2bcfeefbff"
     sha256 cellar: :any_skip_relocation, monterey:       "32786bd48576d4da7d9ad45254c5a414b651ec4a385db0b422fa2496a3ee6bed"
     sha256 cellar: :any_skip_relocation, big_sur:        "e011832e0a4186df90c8b6131b1ec39e60540de336bd557879351011246cfcdf"

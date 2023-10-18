@@ -1,9 +1,9 @@
 class OpensslAT30 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.0.10.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.10.tar.gz"
-  sha256 "1761d4f5b13a1028b9b6f3d4b8e17feb0cedc9370f6afe61d7193d2cdce83323"
+  url "https://www.openssl.org/source/openssl-3.0.11.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.11.tar.gz"
+  sha256 "b3425d3bb4a2218d0697eb41f7fc0cdede016ed19ca49d168b78e8d947887f55"
   license "Apache-2.0"
 
   livecheck do
@@ -12,14 +12,15 @@ class OpensslAT30 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "9256e1d5a435207d263cc790357897437d3a66436e71ea5f71dc57afbc7dfaea"
-    sha256 arm64_monterey: "9c3e38fd016ec89c2153f7f1e13dd5ed3e9ab5697561fe3b2e1cb31e7d6d4cb3"
-    sha256 arm64_big_sur:  "9234fe3c799a8e00cb013e7b2f738189f50e33264233c4dccb44e9e01ee92b67"
-    sha256 ventura:        "ebc7ffbfec57a65cfd2cac53380ddc2de6c570ab8077a2243c8646c9791c4359"
-    sha256 monterey:       "316b4efd3e44f445154cde034e4f88fc657d7135f09b3b9a91865ab11f0423f1"
-    sha256 big_sur:        "5b061b324549d3463dd1649c3deab42895389fdf5e08575e0150b10313d83363"
-    sha256 x86_64_linux:   "e567e3aff9f1d9f3ec184af01f9617feb21beb77b4f7714276730871583297bb"
+    sha256 arm64_sonoma:   "49a423fdf19afa01581e74f890952078793963573ea74af615aebe476e7d3a92"
+    sha256 arm64_ventura:  "7da0facf56ab5171f7578ed2b944b4322e7e0c7d1ab524f134b5d769066397a9"
+    sha256 arm64_monterey: "f3e4da82e9d838881f88ee05b692dfd8e117d8708023cef00a020147b8f24c1b"
+    sha256 arm64_big_sur:  "7fd1f6c2dc50511bd72bab3d9953472ed62cc11b4ead5b43ebadb4329aa949c4"
+    sha256 sonoma:         "c5b66c9d5a88888ba0ecba8989aa02c8222a1e461d288aab6a0b5fe013a9dc82"
+    sha256 ventura:        "b9d484a3dfbbe977fb05554063915a6801c8064766264e037ce517f8bd2d9027"
+    sha256 monterey:       "d860b5b03426ba96b33f201419d7089ceec582622f85e04e291e5f4c4d9db1f5"
+    sha256 big_sur:        "0a5d215b4fad927e3862cb4ca305a831e69dfa2e125c8bd829937faa071cfe5f"
+    sha256 x86_64_linux:   "1b24bdcc2f2b8dee07e54b868177149519adb65a749a7a90e86cec66aa464690"
   end
 
   keg_only :shadowed_by_macos, "macOS provides LibreSSL"

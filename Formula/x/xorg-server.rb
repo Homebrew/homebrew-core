@@ -7,9 +7,11 @@ class XorgServer < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "2a66d0b55a3b50abf04962e84c28e2fdbf60bf8fbe8f0557cc6ae14177b92484"
     sha256 arm64_ventura:  "6bb00eac2b812c4b5976e3e01560fa7146e68bf259a6286a428b906b6c6fb205"
     sha256 arm64_monterey: "b4c11cd4d503fcb2201d2c8d1633917357b5a8c5146a0fae47d9904039707df3"
     sha256 arm64_big_sur:  "0eb0e18b02dad58e8f7f07f1165051127cbf9d8bdb043bcdf2e161a8d8348368"
+    sha256 sonoma:         "11b3645be5eb6edbca5185fc8f66c31abcdef213796fdaf422476320263ac535"
     sha256 ventura:        "b0d9e8ca4de101b4eb6b350994181168a9aa7234d9fc0d8ff8b968a06fec01b6"
     sha256 monterey:       "ca801c81f81f4ba98a565d18cc532a0e49f4b921bb88105e4feaf3c96d5f0527"
     sha256 big_sur:        "aeda4c28fc95f6879ecf0a0e7e355edca5a502342c98b0a2a9b3ce1635a1c700"

@@ -12,25 +12,23 @@ class Aubio < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "fc1d3b1aa92672e0c3e35b09bf6d85b7dba1b050ad2487b4b2b0e09c21c10043"
-    sha256 cellar: :any,                 arm64_monterey: "e14563110ed6dec852f555c029950424f4be1df4528185c9157f472bce458134"
-    sha256 cellar: :any,                 arm64_big_sur:  "4698b86e472c8dd33c2f3e89bfed39dff49b6da6d7bf507a920f0a9a0ddf89a9"
-    sha256 cellar: :any,                 ventura:        "50b70b2039563f25e2db9d31537da6e1ea8fd43a31aa75a90faeccb8c939ce2f"
-    sha256 cellar: :any,                 monterey:       "40cb324664af9b380697f41e56cd65d00d8d8b95a3fcc37fada0816716fba180"
-    sha256 cellar: :any,                 big_sur:        "6e0ca22b336d5a080bf1507e9bf33e4ad6e92256cab6ea3d4c160f91fb2548d3"
-    sha256 cellar: :any,                 catalina:       "4f0fb8e363ba83e36c1186a58f15f9b780d72d090915ceb0cf9a99756b209d86"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a4c98bc548d77658141e6bc1075b250fa75755e687c7e6a43dd611b25dd2ef6"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "8c23c7633064df0072287f6bf5178bd44dac868efd2224e28f85f0408d1445ec"
+    sha256 cellar: :any,                 arm64_ventura:  "1eee72e6668994865c26b6e3ae4cdde3dd8c275448e5940c36b251db5cc66bc1"
+    sha256 cellar: :any,                 arm64_monterey: "f61587af7daa4baca8780ffc61dcc4cc72f03d0a9d0567f7153d27960746f28b"
+    sha256 cellar: :any,                 arm64_big_sur:  "aa410dbe37a4beb13ad47982da915eb678f621090cb6cf2c96c5e36b534a3bb7"
+    sha256 cellar: :any,                 sonoma:         "02cae2513ca092204e792bcee49057f214aad446ea951bdcd9f1673bcf23fa80"
+    sha256 cellar: :any,                 ventura:        "32087ed3e3f47b5a1b7d38efc99f91b215eafb28dd989bdbca98dbdd45f75939"
+    sha256 cellar: :any,                 monterey:       "86ec0b11858d37483abeac3750d7af632dd2b719f8043cdd6341c6654e4290d3"
+    sha256 cellar: :any,                 big_sur:        "7e012835534713c23613399d0e92fdafa1736f584d877e3952b5c128e3d7792c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e37dbcb7d229175fc7aeee247c94bcedd30fd02d61d0ee5a3a60aca35b54dc6c"
   end
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libsndfile"
   depends_on "numpy"
   depends_on "python@3.11"
-
-  on_linux do
-    depends_on "libsndfile"
-  end
 
   resource "homebrew-aiff" do
     url "https://archive.org/download/TestAifAiffFile/02DayIsDone.aif"

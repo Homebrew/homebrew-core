@@ -1,8 +1,8 @@
 class Pkgconf < Formula
   desc "Package compiler and linker metadata toolkit"
   homepage "https://github.com/pkgconf/pkgconf"
-  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.0.1.tar.xz"
-  sha256 "3238af7473740844e5159dd8fb6540603e3fbcebf60beb3c8a426cdca2e29c51"
+  url "https://distfiles.ariadne.space/pkgconf/pkgconf-2.0.3.tar.xz"
+  sha256 "cabdf3c474529854f7ccce8573c5ac68ad34a7e621037535cbc3981f6b23836c"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,15 @@ class Pkgconf < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "47e57c4b9303d22573c021e7586127516a4ffd450b94d17ef065528185967a53"
-    sha256 arm64_monterey: "58bcddd46998c1b52252620441d05ee1faa3de610e2772200495a02329d90f22"
-    sha256 arm64_big_sur:  "f3d457d382fde3285c3985a3cc3c4ad3234379ae78d904cf2bbbc5c80bbe2382"
-    sha256 ventura:        "a891cc11426d12f47c03e2975ee67ca976905dccdcf44c2c5f27dfe9d7aafa52"
-    sha256 monterey:       "fadbe21a56a29c9fe6e9e7c1bbe6bdb283d067917e52bc7f22d59cf7acd03c8b"
-    sha256 big_sur:        "b776eccbeef34af9f91b70b16abfc30ca67dcaf46968c54dd8c28280f5f44eff"
-    sha256 x86_64_linux:   "40441919c9fbde01d91020c0e0be43e77f6cf0640e78836b7ea8e2d9183f5607"
+    sha256 arm64_sonoma:   "e43cf7bf3262964d17b5c07e1a2d065dc46705eb0749adb5af3b98df523f90a7"
+    sha256 arm64_ventura:  "6c97564eb8b3746671f0c6f5fdb0a544a3af326fab41b5781a99fcc810fbab00"
+    sha256 arm64_monterey: "54bd66532feb26f055b3fc79a39a3ad27ed210eed32231d8c096805ee67f6e1c"
+    sha256 arm64_big_sur:  "a5ac60ba814d8d8fe4bc6379a2279078a77a46c39cd6d1d3709223a59addbc7b"
+    sha256 sonoma:         "ab4f89cd2efa5d6ed06a7a5554c244abf10c5d5cfa7010f25f7f4df674ada58a"
+    sha256 ventura:        "ad8c5070e4445df33eb1857f7995a5a0310bd3f97ee46c4fe2947a7a01c20717"
+    sha256 monterey:       "d5a9ca2ead811a1b3814329863df3c0f68c82d90534c861a47eb7b9a1180b6b7"
+    sha256 big_sur:        "5ae0b4ed4bf6880d99a433844bfd62059eddec8c92f0c7c8bc6cfe5cea04a990"
+    sha256 x86_64_linux:   "f35562a79af267639bf31f991a97412d9ed6b14042020762b4407cafdf0b6851"
   end
 
   head do

@@ -12,9 +12,11 @@ class Spotifyd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "95e7793371f6653dd0bafcecbdc3a3ad9df502a1019911aceb2476f0de4f39d3"
     sha256 cellar: :any,                 arm64_ventura:  "c20ff1077a0340d3b3f8324bb0476a277e173a4454c9738b4d85d3864333ef8a"
     sha256 cellar: :any,                 arm64_monterey: "2cdbfff4f46c77b505cb10d50f7779baaf31682f34998d60a744c4ac902791f7"
     sha256 cellar: :any,                 arm64_big_sur:  "dd7e1f611771ad76903e7f9ab922d3ad8f01266390a0e28361e526a75fea58e8"
+    sha256 cellar: :any,                 sonoma:         "c601ce737baf1da96f6ee4a94c8ee332e1eccaeb9521ca12b7f1d16e871b7bb7"
     sha256 cellar: :any,                 ventura:        "64249703160dc45cc48743e309d85165ce37cd220550fcbf1a460e221353d453"
     sha256 cellar: :any,                 monterey:       "464c5f5825b68ba8c81340314467d078537b8c72fe1a0176d6c671756b2f2b18"
     sha256 cellar: :any,                 big_sur:        "7ffffa9cb731bc19954c5c39163183aafd74cfc6aaedd7275ebf17ee8ce1bb62"

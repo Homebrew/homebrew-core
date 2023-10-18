@@ -11,9 +11,11 @@ class Offlineimap < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "657a6d23720a82033ebefeb8f9fe09d0d1d1ee919d79dc5069ea900a04058264"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "83f5ee79454aacd9cd58fb5c4c6eb4aa6932d0ba483b2199564d2af74997d040"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c81fb4109a28e931a6325beabcb5a19effe25d5852125d6e13354450a0923047"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "795ae0345b2044cc0db0c72b493bfc664419f196f5581a71d505db5f2a1c8cb7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9a152788e47489ef411db17030248443ed7f2c013021baee4857e17d002ad9c2"
     sha256 cellar: :any_skip_relocation, ventura:        "362944ab2e8ed18b32808ffb6dbbba7758a5ed582836ac1ba6be8bf96bf5ebcb"
     sha256 cellar: :any_skip_relocation, monterey:       "6f1108e087c2c9637a25219d38c2e3a02e654749f34ae45dfcb18b9230b6d66e"
     sha256 cellar: :any_skip_relocation, big_sur:        "91224cc003fba38cbdb80e9951a86e9a5544ba7f5aa2695c0d6727c4a8c557b0"

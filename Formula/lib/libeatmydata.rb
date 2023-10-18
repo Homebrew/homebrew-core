@@ -18,9 +18,11 @@ class Libeatmydata < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "31d27501006e2d40b9d48c6d004e46ad2c2dab4709c7bb49cdac96f81e8f5984"
     sha256 cellar: :any,                 arm64_ventura:  "ba431c20d2cfdca496b982172a5c1cfa54019e722d39d68452da7ba777b90364"
     sha256 cellar: :any,                 arm64_monterey: "e85eba783c02da67dbba76f16de831769b13ce6fdaccf94e0404567b2a0646f4"
     sha256 cellar: :any,                 arm64_big_sur:  "a0d61b1323d5efdcb7ad0d9a5c92e0196d75e0cc10ffa53acd65813dbfe5e152"
+    sha256 cellar: :any,                 sonoma:         "888117a3bf6892fa4276968ae237f45e1323629fb35608b98efd1a8c4d902f9a"
     sha256 cellar: :any,                 ventura:        "03d011ca0e5c1a324b8ba45a10ddcb07fba2128ce0ae352a3c4c652ea060f347"
     sha256 cellar: :any,                 monterey:       "c424091120ea1d287a7ac95cdbf2620cdc0adf8e251e79cbeb8b4326b800ae24"
     sha256 cellar: :any,                 big_sur:        "4d2a2ee043f16c6215d03d286f27395cf40ed7d2de56bee098b36cad579dbe0f"

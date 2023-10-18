@@ -13,9 +13,11 @@ class Nmh < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "4b087eeaa03d67b95eab1e96ec6f87f683012adbbbc2d8693d1a99c2003d12a8"
     sha256 arm64_ventura:  "ca1326e5695a86d075a90e0b1e86916a748df6a376bd851f0d6d8432853660d5"
     sha256 arm64_monterey: "89888db63666acb8fc7e909a9e681194506cd51806d1b33c70ccb07802c93dcc"
     sha256 arm64_big_sur:  "61a5e6e21ff29746bef4ae4d89e86d7bf8f1d625a311c6d0203b8d4aa9eb12c1"
+    sha256 sonoma:         "8c65bdbcf7a531a8a5e10793fe5ce6ae73941f2e589ce6bcda2a093835b8c3ed"
     sha256 ventura:        "3d599eb842fd242bc921500512f6dd79273dac4de44fd1e9b5b3e2178c974f99"
     sha256 monterey:       "1baa3243548fd2b34f59d1d5352602ee0a197ef0d91000de5d0aca382eb1cea8"
     sha256 big_sur:        "f2203024b91015dcc3c00fc690fbf253361ea12f443c97f7290985ea4e0f62c5"

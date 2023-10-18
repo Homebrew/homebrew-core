@@ -1,18 +1,20 @@
 class Pdfcpu < Formula
   desc "PDF processor written in Go"
   homepage "https://pdfcpu.io"
-  url "https://github.com/pdfcpu/pdfcpu/archive/v0.4.2.tar.gz"
-  sha256 "d5c385e6f9bb8b997e771b883606375925ebeb682853a59c15d99e3c834bb992"
+  url "https://github.com/pdfcpu/pdfcpu/archive/v0.5.0.tar.gz"
+  sha256 "d67529db954b4b8fd708ac984cf79a53baf57ab2d50ef9ee0f9188f7e4a83127"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac2fa8e27755ad26a114e0408526abd4ea59905346d2c06db1e72611fccbd4b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac2fa8e27755ad26a114e0408526abd4ea59905346d2c06db1e72611fccbd4b6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac2fa8e27755ad26a114e0408526abd4ea59905346d2c06db1e72611fccbd4b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "98bc92c89ba09495a9439d3accf75eff37a2c4087534d0e066dad9d6cad281ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "98bc92c89ba09495a9439d3accf75eff37a2c4087534d0e066dad9d6cad281ac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98bc92c89ba09495a9439d3accf75eff37a2c4087534d0e066dad9d6cad281ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fa74626275b2e03fa3b5a710b252feb77c7d9b76f1d03688826b59189916117"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c7d0dbdbd3883b9381f008da00167579a524cbdb33f8341ec4b305bb48ab3af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5c4dba29b404cfc873a667bcc5693fef156d9e712a03203939142ba4afc2909"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3a700dbcc9b8f179f0eddec942c02a4d17851700abd2f5cce7d69ab7a83e6d7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ab382dbe13c65804f22ca8ccda84c3c58b76fece858273c35114822dd42f5ff"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bf4bc33c88d07f5724254e3c31e5cdb11003f14a7cc932e39839638d99f7ce53"
+    sha256 cellar: :any_skip_relocation, ventura:        "764606b36814edaf4c5c4d56b5d2bbac5b64d7a0eb35b98ef66b225c580be7ff"
+    sha256 cellar: :any_skip_relocation, monterey:       "121b4c05f3310693a9094258c888d081911cc3123b6febdcbf9ec558bcdbe3e6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "434ea9d7e2ab797beebd7c59e43d6b40f8c8e22da2501e44b2772725304c87cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffc2c40994468ce444bc83edea61b02a3fa12478667f75af9e4d96e6172ed65c"
   end
 
   depends_on "go" => :build

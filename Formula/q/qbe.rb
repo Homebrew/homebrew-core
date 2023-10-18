@@ -11,9 +11,11 @@ class Qbe < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f6f7b5fb72bfa840a2108c2d3b0749ee0a46351a66a4c998d37d180db82800be"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e0f58c85a4bbf3b4eef38435d8bdfee9254a4e0311381e939d000311081c289"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c5318c7031f94916e283ab4161095171b6ab9cb6e6a9430ea6c5f0811568ab62"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e00dce5f83a8cf7e9400c42234e5b63f670d99a2fdcbad487389f90093780bf2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0e323a907ad4aedaa186fd7e0fa27099e8ec8a0b7fb0a6803b735203283afb76"
     sha256 cellar: :any_skip_relocation, ventura:        "0c919e700fb02acf816593311660d0269c621eabd2a3274d85d0a4496a00fef9"
     sha256 cellar: :any_skip_relocation, monterey:       "7a48c78d50eb35e007a17431b41d59f08a23ce911291bb9bdc13a0dab59f40ca"
     sha256 cellar: :any_skip_relocation, big_sur:        "c56c49645beaec309145f55d36ca1cab8109f92621ce74f0d742350e6b30a05a"

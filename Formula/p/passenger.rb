@@ -8,9 +8,11 @@ class Passenger < Formula
   head "https://github.com/phusion/passenger.git", branch: "stable-6.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "e4ae9120ee5e23389b93d0bf40618aa7c3a5d841163b2c4da38a2fde32156cc4"
     sha256                               arm64_ventura:  "64261fcbe859cb04c75c09026224619ed28117c6aa6a8e67cd1c2a6df4db940e"
     sha256                               arm64_monterey: "290fea979c89b6d82add7ec94304678689983fbbdc34e68fcbc03482d7879d9d"
     sha256                               arm64_big_sur:  "6dd5c3a43a584ee6b9da56f29f020bb468b797472a3ea50e7b17f831ff91e20a"
+    sha256 cellar: :any,                 sonoma:         "85a6da3d90c03976d9cb63b847c34589b9bd6fa3c716f57b8fdc252dc2a8c55b"
     sha256                               ventura:        "208c33acc007dec45e421f6f47ed49c3b18bd14254128a46d4ef2c7c30d29406"
     sha256                               monterey:       "4bbae9f2d361dfc56715ba191b2c1e00d07ecbc6bb9647ba33800e688df7af9f"
     sha256                               big_sur:        "e3a374c42b51be97f78331948a651f62ae98f384804990323769887f46af7c63"

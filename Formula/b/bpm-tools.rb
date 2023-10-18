@@ -13,9 +13,11 @@ class BpmTools < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dacfbda1751d63d7e6920d2201ff8b1eaa3a85a2317ce89f0c54595666540b5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2b2f0588023837c6a2340024fce562029370273c22a79296756223907c8dc7c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "34949c1ed18d4065930654bb35f1fb88c4b5ab53a3571d1cbf52e6e79b452005"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "19d555332dffb4fbcc6a80f15c3aa7692594b5c75fb3e01a9da6f0878fc5a98b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5f59f612366fde2bb900c8bd8481bef6c041baf0be571e622e0e4f336fbddfbc"
     sha256 cellar: :any_skip_relocation, ventura:        "483c8d0501a94e517e62dda21c44474d9315286e206e7e61e990502bcad0717e"
     sha256 cellar: :any_skip_relocation, monterey:       "4429ecadee7430b8c147e1631cea030c10953a00b3ec04e0afd031ff74a0fd8d"
     sha256 cellar: :any_skip_relocation, big_sur:        "6ad965195d96e6d9f1b01732b1314af6211b101a6113aab02c9fbf799f3ded1d"

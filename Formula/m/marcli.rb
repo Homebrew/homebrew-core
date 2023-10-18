@@ -7,9 +7,11 @@ class Marcli < Formula
   head "https://github.com/hectorcorrea/marcli.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63fd48b516c9d021c8ba4aec971382dd92c68fb2252b513b0a2439fbff3ad44f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1fbbc916e7202b5589388b2b5c956ea8bb47c3216e65b7b6767f006f4293ea7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d1fbbc916e7202b5589388b2b5c956ea8bb47c3216e65b7b6767f006f4293ea7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d1fbbc916e7202b5589388b2b5c956ea8bb47c3216e65b7b6767f006f4293ea7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7e4735d20948c27011d2e6f70f8f71ba2d6b502eb5fa430a933f069153e753dc"
     sha256 cellar: :any_skip_relocation, ventura:        "32844aa6393c6be96fd00321d3fbe18a19118465f79d20a1a5679c2d911629b1"
     sha256 cellar: :any_skip_relocation, monterey:       "32844aa6393c6be96fd00321d3fbe18a19118465f79d20a1a5679c2d911629b1"
     sha256 cellar: :any_skip_relocation, big_sur:        "32844aa6393c6be96fd00321d3fbe18a19118465f79d20a1a5679c2d911629b1"

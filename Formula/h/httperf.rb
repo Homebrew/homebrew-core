@@ -24,9 +24,11 @@ class Httperf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "4f3dbaee84b9ecec246b11f1da959850d5ec283d28dd0ec11e40c7d93975734e"
     sha256 cellar: :any,                 arm64_ventura:  "cf626f3e9d749e395728ce1ca02b1441be6321989841a0b1135baef10455b739"
     sha256 cellar: :any,                 arm64_monterey: "a6976f04d98a5195075909f77587f0c113ed94389a49ab1ff4ddfc263c14c3ea"
     sha256 cellar: :any,                 arm64_big_sur:  "e8a25cd3891631f61aaaf69682a952ceaa5e680559defd48a0de3eaebe1f1519"
+    sha256 cellar: :any,                 sonoma:         "3ca6eec51c2712c64eb58bab12064953826af672d843171672f6d60fb034df0c"
     sha256 cellar: :any,                 ventura:        "3f61658586cbdac24c810c9b201d8054f9f800046a7ec1b6754e82e49be64244"
     sha256 cellar: :any,                 monterey:       "72bdd969d2e88750ea3827860143f05756fb0da35f9ce04d185ed9de0f42791f"
     sha256 cellar: :any,                 big_sur:        "a77143c2960957c7b998ef8259f23f7252264e297c1f8a7f812c7712eec756f3"

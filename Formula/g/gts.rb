@@ -4,19 +4,18 @@ class Gts < Formula
   url "https://downloads.sourceforge.net/project/gts/gts/0.7.6/gts-0.7.6.tar.gz"
   sha256 "059c3e13e3e3b796d775ec9f96abdce8f2b3b5144df8514eda0cc12e13e8b81e"
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c35739e0ed8143e634eb8f0f55b892a16ced6ec9a2970eabc1f64292a5d81215"
-    sha256 cellar: :any,                 arm64_monterey: "5eb4dfee13280ea9c104b3839dc42d6ace7b8f6a154c3ea1aa991aae0fc4d4a2"
-    sha256 cellar: :any,                 arm64_big_sur:  "efa1e3990e707e16709bbd258502b9c248c25bb5468e8a7b3ef491c56c3a180a"
-    sha256 cellar: :any,                 ventura:        "0b09f78c4fdc75e02a4036e72dc929da671249228bd67d94cbd581fd67fc5647"
-    sha256 cellar: :any,                 monterey:       "7a4a3f8806004639c4006ca8b22d782cd9d9a55ee720468f7858875630882d0e"
-    sha256 cellar: :any,                 big_sur:        "659f27e7e8ab695125ffe0175bf4d915f5e5618fcae0c425180fc085c3388d41"
-    sha256 cellar: :any,                 catalina:       "8a0c9b4f60a2cbea2e2e3469880284c2373843e676aaf58c1ff28d1e31c2ccb9"
-    sha256 cellar: :any,                 mojave:         "e0ba5b2700ba2a0c88a6345117a699c08f47738d3e727dbc64d815d1a3b7492b"
-    sha256 cellar: :any,                 high_sierra:    "5aa85562ed3d0aad446825d7c4e3cc717f8044a2c638bbdcdd0e18bc0f366e81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8574a923a6854116b836f04ffdd0b556d71c3e63da1127a90c2e6ac573900c88"
+    sha256 cellar: :any,                 arm64_sonoma:   "45ce1fc7fc4da58e808c6d11bd19a17c35bed97719b63e2572b22ff6bd417aac"
+    sha256 cellar: :any,                 arm64_ventura:  "de8259a24624223ddab38d0e1482ec9f055ddfacc353fb0290d127919e509cf1"
+    sha256 cellar: :any,                 arm64_monterey: "8bedf36ac77f7998ea926904efe011d52086e67f9901c1a64cda7e8013f7bc07"
+    sha256 cellar: :any,                 arm64_big_sur:  "ed540825164e099f8f1c9719fada2d186a3f9b9ee10279ad4f2dac658bc68cb8"
+    sha256 cellar: :any,                 sonoma:         "63d06518c5c1da686ecf76d612b7717bc021d8c19a6470a21ec1f69020fe1dac"
+    sha256 cellar: :any,                 ventura:        "946d3f08c41e94c2861e555358fd152df7c069ad8a2a7f621b64b55cfb8ceffb"
+    sha256 cellar: :any,                 monterey:       "3800de79b45b9a5736b9ecd9d48b2ab2935d74cbe57e308eeed2ddb2e07a08e1"
+    sha256 cellar: :any,                 big_sur:        "486a4d3b428e12daf5573a21d60371b4cd1f9e1c7e3b14c7d2d1c0a3bea58524"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c6bb3e3859bee6f8b113a08d7d158a19ef46ec307073fac12c90c4a0113f69e"
   end
 
   # We regenerate configure to avoid the `-flat_namespace` flag.

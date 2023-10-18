@@ -6,9 +6,11 @@ class Id3v2 < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9bf6ca393764873ff61916821417e4bfbbe1564682ca2004fcbeef1525c211b7"
     sha256 cellar: :any,                 arm64_ventura:  "222ba809b014c313ebe411cff50e684b04ece17c3d2a380ac0b794b03c3aaae2"
     sha256 cellar: :any,                 arm64_monterey: "d987f37e40ed136bf3eb8a46e867dad0a78f48a1b5457085161f90404b1eee20"
     sha256 cellar: :any,                 arm64_big_sur:  "4eb1279baa3350a16d82139446ab610aa897087821c2dd6fce2a12fac692f958"
+    sha256 cellar: :any,                 sonoma:         "38486f0dc0335b2aef545f3da7f12019ac89485ef778b40271d90ddfbd1b4077"
     sha256 cellar: :any,                 ventura:        "585863c7e461122fa8ebcf700a1a87d6bc506f2b4ab21c472974f5c52dcc19b8"
     sha256 cellar: :any,                 monterey:       "f2ef072277b52404b538228954a139a02828b20696ffe12b968d1ae64a40d70a"
     sha256 cellar: :any,                 big_sur:        "363e3ccb0976eddc681538d70f43e498eafc6b03b31bcb1f3f4fccb2382790d9"

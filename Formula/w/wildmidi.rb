@@ -6,9 +6,11 @@ class Wildmidi < Formula
   license all_of: ["GPL-3.0-only", "LGPL-3.0-only"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "cb6f579f935c83a1a5ca941b7e3ed4410d2974ea1387bdaa4444a32bdc72f724"
     sha256 cellar: :any,                 arm64_ventura:  "c9f6a91fe4869ffd9a6fdf175455edcb07dc94ede1782e73f87a0f609e19782f"
     sha256 cellar: :any,                 arm64_monterey: "d7f63b942beb87caa17f2a89069cf766c8fe88f9175f0641e01ebd98b270901e"
     sha256 cellar: :any,                 arm64_big_sur:  "eddaba1d79d4686cf0fc6b0cdf6e5b7ce3dc9ab89411c2ff6ace8206f79301ba"
+    sha256 cellar: :any,                 sonoma:         "842766df0fc26a09e68afe3057d2ba292582ee1adf5b03df82e69d6c9c702cbe"
     sha256 cellar: :any,                 ventura:        "3b2063fefbabb8ef456a8052e7c83ed51b0b0fef6ba82a4a11f61d16c698570a"
     sha256 cellar: :any,                 monterey:       "e38845cf8dd6b0714d22854ea133863f0fa651804f3c64f1f0cd7c8c3bcf6b54"
     sha256 cellar: :any,                 big_sur:        "11c6dd85e84f26270f893422a8fa46cf1fffb2ce77902e54c60f199942433bd2"

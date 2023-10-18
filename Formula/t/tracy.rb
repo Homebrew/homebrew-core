@@ -1,18 +1,18 @@
 class Tracy < Formula
   desc "Real-time, nanosecond resolution frame profiler"
   homepage "https://github.com/wolfpld/tracy"
-  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "c2de9f35ab2a516a9689ff18f5b62a55b73b93b66514bd09ba013d7957993cd7"
+  url "https://github.com/wolfpld/tracy/archive/refs/tags/v0.10.tar.gz"
+  sha256 "a76017d928f3f2727540fb950edd3b736caa97b12dbb4e5edce66542cbea6600"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "83e94a2d3f9c29911844e48b55def7807b42f11ca0be6a96fa5ec31bfa7c56e9"
-    sha256 cellar: :any,                 arm64_monterey: "c1c03506306ce73ef85af7a40442eca87e4b4ce1b9aab09c64c2c38f23ecd992"
-    sha256 cellar: :any,                 arm64_big_sur:  "390bf6bb1f080b20285929679304758a04140e52ce86956f57694b7835bfec78"
-    sha256 cellar: :any,                 ventura:        "226dc07fc98a86cd44dc3e626257d238b8557fe7cc6b44f579a41ed59d91afce"
-    sha256 cellar: :any,                 monterey:       "34ebd84f9ddeb63b81e9aad5b5ae40fd144290967789ba47cb279523ef5fd077"
-    sha256 cellar: :any,                 big_sur:        "306585e77d83ad00b9160ffa2bd5b04fd83ca07d11a44080d113ad4bea82cc06"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48d39610618ac1e3972d0db0afdacf0d305438358486f65b9c60b11e10bf763a"
+    sha256 cellar: :any,                 arm64_sonoma:   "89d591c75f9dcf9cef53b6243b68d1a8b2d192c8f7a514000334bb8aa0a3c4e0"
+    sha256 cellar: :any,                 arm64_ventura:  "8e755a116f50f11a23a0a4ced30bdd8d990ca9708a02e1dfdd06fd47dcdc4cb7"
+    sha256 cellar: :any,                 arm64_monterey: "511c556958a4927e0f3d2ee1d8e03fc974a888a70fa436975fbdc2ac0b5002a1"
+    sha256 cellar: :any,                 sonoma:         "9bfd9235a73dacb47faa65730acb7ebced534bb49f235a674ba089f4c27ddc17"
+    sha256 cellar: :any,                 ventura:        "ba33f0fcd37ad5aad9adc864d0e29368ca93df88e7a0af1c002f0e2722df8359"
+    sha256 cellar: :any,                 monterey:       "ef4ba91b47ab2c9f8533b22eb4d00377455831c4b9282d5eee22ef829c877d5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bab7235ba26d16cecb2c91532d0b4e48d29ef9550a08c2288dd56cbd5948501f"
   end
 
   depends_on "pkg-config" => :build

@@ -12,9 +12,11 @@ class Tcping < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3658deb0ed9da1938d4c2a6c4336fdc51ac8a2037365a9b9b19708d5c16d7cd9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "126f8832750fd4260255814f399ca26fdd109a8bd52cde1737670b3be389213e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8784cccfd9d750f59c8e9437fde962edc453147d4fdc960f34b047cc4b3eb909"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "291b7eae0dc9f77b2df1d10ed1c685ddf48af0b835b4818f96a256a10b0841c3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c1cc2aea721c8489ca2f2dd6e6141062bbce6b926e0fbd7137b28d4c33907007"
     sha256 cellar: :any_skip_relocation, ventura:        "74dabc6cf5b77e3251cb11ab8fcd1a6bba24e67fb180871833c11919f193c496"
     sha256 cellar: :any_skip_relocation, monterey:       "90eb918cc445fb97563d157bd1c75ca2abf1a8423c2b83de0d2c101ae13a9c86"
     sha256 cellar: :any_skip_relocation, big_sur:        "0049f186fb30a2217b7a8fe05eacac7e766f666135d5c898221e6cc25455349a"

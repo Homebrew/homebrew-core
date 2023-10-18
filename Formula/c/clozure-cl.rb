@@ -12,6 +12,7 @@ class ClozureCl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, sonoma:       "49bbd4b8343312ec9c624c25a93e6a372b0c58027a6ada5d1bb0ab050736c5a9"
     sha256 cellar: :any_skip_relocation, ventura:      "662e440dda7b6d62329b02bdbbe683bd48dd608c70e6a3841e18ded69a4cea0f"
     sha256 cellar: :any_skip_relocation, monterey:     "9bad448a48e4a5c8774d1bff451009c66bf3a8aba6871eb931827b5fc2ffe25b"
     sha256 cellar: :any_skip_relocation, big_sur:      "1cd8f8a8e010db33aa548a9430b43d4ae95b4f1b56999862e648988269751cde"

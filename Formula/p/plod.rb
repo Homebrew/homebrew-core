@@ -7,9 +7,11 @@ class Plod < Formula
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b9c9cd2b570e27155488643d25109a5782ef3acbf76aa86ce249630999c5043"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8361343544ac10cdf1c2c6b37b4a8a4882d199c2d49ac22fc35b776199527fbf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "50b1de5ad6d7fd6c74d36d14f45ea812fd606b1d1c1c3779c071c7c957323d48"
     sha256 cellar: :any_skip_relocation, ventura:        "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
     sha256 cellar: :any_skip_relocation, monterey:       "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"
     sha256 cellar: :any_skip_relocation, big_sur:        "7398f28822ffb0a9b2d84ba2bf98ed4bb49dea0c26ed4d8b6b0c16360173ca4b"

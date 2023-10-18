@@ -13,9 +13,11 @@ class Nopoll < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "101340e01f272b13f94d734cf940c2fd4c766bddb373c4524ed234ef7720d65b"
     sha256 cellar: :any,                 arm64_ventura:  "506b43f4c6599606a2d963ebc96fbb6fe0d513227a241bdf2be7645dce62fb62"
     sha256 cellar: :any,                 arm64_monterey: "67fa34a544afa84b26e296f7c5614eb4f5d676f907a83048ee5912d256d80e9a"
     sha256 cellar: :any,                 arm64_big_sur:  "549c85f59b6565f42734f55c461ddf7c6d6d5a501456d99bbae0baae769bc258"
+    sha256 cellar: :any,                 sonoma:         "4ed8a78deaa4520ddff1b8c930f54b0be76364f5badf24d64b689398edda4647"
     sha256 cellar: :any,                 ventura:        "6f6519530b264e20b7f569d15a409d000fa1aa1eddaf0d8c148e08b0a9bb2066"
     sha256 cellar: :any,                 monterey:       "9ef66c711085d89346b8982c3f637aa6d97b8bfcb82fc3a69112c980c435b930"
     sha256 cellar: :any,                 big_sur:        "786ad31fb592a5d8c9ea666714417e157833a68d639061466b283e744b06ce93"

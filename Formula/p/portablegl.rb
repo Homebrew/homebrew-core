@@ -11,6 +11,7 @@ class Portablegl < Formula
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fc866f73a0cffcbc313a1eb276659dbea3e8d22a87cf9742523e73605ce65ffe"
     sha256 cellar: :any_skip_relocation, ventura:        "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
     sha256 cellar: :any_skip_relocation, monterey:       "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"
     sha256 cellar: :any_skip_relocation, big_sur:        "abb0c595bf1ede018e8e0644d3aa263c9cd65af2572c16590b6214f23aa7f402"

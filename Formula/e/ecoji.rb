@@ -7,9 +7,11 @@ class Ecoji < Formula
   head "https://github.com/keith-turner/ecoji.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b250a66fa8d6343158e39d70d313eb2ceb2ca22bb22c9a00744bb8f72f90e95a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "23b8840deb6010c46dbef2a199375627fbe0d29d0fdd4fe0f7b3bb7998a66742"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "23b8840deb6010c46dbef2a199375627fbe0d29d0fdd4fe0f7b3bb7998a66742"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23b8840deb6010c46dbef2a199375627fbe0d29d0fdd4fe0f7b3bb7998a66742"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c296fb03b9cdf3b34b600f32e03918e05379430598c8d8d64d63d22baf0f4e8a"
     sha256 cellar: :any_skip_relocation, ventura:        "262576c8572a6bf2b65b8fb0cb5091a2831616e84f586af9a88d72584f3b1c5c"
     sha256 cellar: :any_skip_relocation, monterey:       "262576c8572a6bf2b65b8fb0cb5091a2831616e84f586af9a88d72584f3b1c5c"
     sha256 cellar: :any_skip_relocation, big_sur:        "262576c8572a6bf2b65b8fb0cb5091a2831616e84f586af9a88d72584f3b1c5c"

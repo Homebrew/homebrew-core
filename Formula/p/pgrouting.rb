@@ -1,8 +1,8 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v3.5.0/pgrouting-3.5.0.tar.gz"
-  sha256 "ce3a591d57466d64420923b6ac4df10ad27cac9f5e21f18eed66afe4543dfb48"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.5.1/pgrouting-3.5.1.tar.gz"
+  sha256 "fb0d9ef3247a95166e172412734fda9746233912601a4891cbcf02fe87764140"
   license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e212b89b2b4d7a4d17a39c8d193eee0a5fdb1f9302848929f342a49160d84595"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e272bbbdae3fa13431a1e3fe57fd20a706c11747d9fc55c3f721a7787a13f8d6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c5df8083a2799229eb16de496618d8be628cdb196c52f93f4265f3daafcabae8"
-    sha256 cellar: :any_skip_relocation, ventura:        "daf6f7d9dc110bab1af83e5a001d9f75acd9db35646b2db737cb369209282d5d"
-    sha256 cellar: :any_skip_relocation, monterey:       "b8f25977f9f58e4ecc5419053537be6bc9269ad561ef49b3cb3637801c951b42"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8674a9d574e5aae96b94f7584337040d74e5af5091138a7667c88a2028f0be8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3b80d93a0f78c79160427c17dc453dc287626488e37bc45c967c33adb44a3e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef3cb20c9c0b654bc9c7f96c4664e7bdc040cbd8e098eb9e48cc7a598d1bb530"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "26ae5aeb6db94e9da691ed81a4be05994398730a800909d3fd3ae236295ded24"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b26288f9833c98cfe48ae40f991b8c08f01ce1e820e506f2e3c99f0a70f29ebf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "060a8154f509bd913706a97e348fd686325f684772cc43058428c344219b4266"
+    sha256 cellar: :any_skip_relocation, ventura:        "5bf098ea7aa1dd85a73b218b1929700b9736939807cd9b17fbb647ca1eb3d594"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4a4fd2dddcd4703752f44a6ab9c2bae75dafa4ba57e2505f48019323c374a7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f148f8d642b78601414d57a203e09cef54286431bd7f66db47fb705aed951abe"
   end
 
   depends_on "cmake" => :build

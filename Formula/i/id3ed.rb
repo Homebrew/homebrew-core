@@ -11,9 +11,11 @@ class Id3ed < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee1364fbe79738671595a35b7050d96ce311d8653d317f0f3ac6a23f8e853c18"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b6b901c8500506fbec5ace1aad481fae193b52264a0c40f1911b94f1f4961d4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ec8b1d5f390522de640fa294bf2d3c45b2f8aba7ed9711cb7698ed0ce998e935"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0adb83739ee928667c488d4213369f5854900380f159219d0f04dc929ff731cc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8744bdcf51ddb52130d9daf02707f6f87220c8dd9b8a79aecdc01827e3fd1995"
     sha256 cellar: :any_skip_relocation, ventura:        "e18e3ce1e739fcbfe0efe68334c6e1bb38e789b13be19fdbf4d8edd4e8382769"
     sha256 cellar: :any_skip_relocation, monterey:       "a4e6c6805d84b99c9302f9656e19c6430489d6518ff154f6983e2319e5d24c8f"
     sha256 cellar: :any_skip_relocation, big_sur:        "a560e42fb11482b14d22079ffa0ffb2dd2307f5e740b22acd2636b4fa6e4a307"

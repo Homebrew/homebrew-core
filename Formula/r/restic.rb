@@ -7,9 +7,11 @@ class Restic < Formula
   head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d8b7c2d76a14680ec134d894325b990b510f820ca50b36ed713008fe87de21c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4cc654a7b8b733ee1d072b25cd2492a04432f5338016c6b8837c2eca02264aa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e4cc654a7b8b733ee1d072b25cd2492a04432f5338016c6b8837c2eca02264aa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e4cc654a7b8b733ee1d072b25cd2492a04432f5338016c6b8837c2eca02264aa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "26a355e664820604853b9c9c5839c69e49f0816b24e2d5e911399b9edcac9f2e"
     sha256 cellar: :any_skip_relocation, ventura:        "4b0999b52b7f1415b0081595c1d75d0a0500b108085ba32d7db914a0641d2a78"
     sha256 cellar: :any_skip_relocation, monterey:       "4b0999b52b7f1415b0081595c1d75d0a0500b108085ba32d7db914a0641d2a78"
     sha256 cellar: :any_skip_relocation, big_sur:        "4b0999b52b7f1415b0081595c1d75d0a0500b108085ba32d7db914a0641d2a78"

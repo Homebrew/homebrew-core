@@ -14,6 +14,7 @@ class RedisAT62 < Formula
     sha256 cellar: :any,                 arm64_ventura:  "590f0b9a56306a34e6aa53c6fa03e1021a04deef819bdf68c1e440c14c47d992"
     sha256 cellar: :any,                 arm64_monterey: "04f7c5e429ab9de51bcae8aa9c7bdbb9cb73312c61b2b2a6e8f19f8c160c19f0"
     sha256 cellar: :any,                 arm64_big_sur:  "1d95294e4e2ea39d82a41370e36d6c9d00f910e1618ce4c23ea1e34cdcac63e0"
+    sha256 cellar: :any,                 sonoma:         "42147053779ca433726f49babc1a201c6d8d7b5185d9a8854d2e855678e6a68c"
     sha256 cellar: :any,                 ventura:        "b9eded6ffd53ddf8ecba1c4b5a3a314bf2da512d06517de5a832429f6dea0818"
     sha256 cellar: :any,                 monterey:       "2fc856b8be810735a54a688344a38be6c96e2ef0c39522715409b934ee02fe86"
     sha256 cellar: :any,                 big_sur:        "9ba7d091d8bb226844d854b2e50988fd04540a236c2997226863eb6ca6a47e80"

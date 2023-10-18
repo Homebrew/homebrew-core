@@ -1,18 +1,18 @@
 class Gtranslator < Formula
   desc "GNOME gettext PO file editor"
   homepage "https://wiki.gnome.org/Design/Apps/Translator"
-  url "https://download.gnome.org/sources/gtranslator/42/gtranslator-42.0.tar.xz"
-  sha256 "2a67bcbfe643061b0696d89a10847d50bf35905ff3361b9871357d3e3422f13b"
+  url "https://download.gnome.org/sources/gtranslator/45/gtranslator-45.2.tar.xz"
+  sha256 "1c946110e6f19013c162a422ca17f1de944c5ab8c29e30389a0df9f33314c8aa"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "eff3164e795130ffbfb819d020f10d12c7c26433645d41258f9168b179a5e0fa"
-    sha256 arm64_monterey: "c9dad313a4b72b1a06828305fd3c7be3cdc9ed990faac40dc8325245d19d1a23"
-    sha256 arm64_big_sur:  "7dc1c16652e097e44e7e02f3ad95c361b208426517898de58160a98b8a1361a4"
-    sha256 ventura:        "d1b51162cd3762bf620685a287603026937831e492896ccbfb99485a9516e031"
-    sha256 monterey:       "6f82d622765a3269c0b0bca386ee425375b369f20d1eaa2bc5b9fdbe19951998"
-    sha256 big_sur:        "c4b68d96cb52329c1ae13d146ce5d76ed47a8d92be5ae33022af2194e14f353a"
-    sha256 x86_64_linux:   "bbd7b7cc4d3466f46bac926ae3ca16ab81cbeadd13baafdd7dfe550d530e67cc"
+    sha256 arm64_sonoma:   "56639c17c38bc6619b229bbf92ef417cbb5be0366ee421b633e0adee646040b2"
+    sha256 arm64_ventura:  "adb4941369d05f7972c9b444210f22916c58acc15e8358a74826594202e98505"
+    sha256 arm64_monterey: "9d66dcbbdde00352abe166e8414d9e50bbc5c83abb38ab7bab5e86df4de7256a"
+    sha256 sonoma:         "72277e92042dfa982ab01387a9fa778f5fdb4e02dea71d9d0b8cc0d5390c0f49"
+    sha256 ventura:        "3f97185c50b288e6a106a9cc8825c78eff1bff4541968d8935f8e18647970e8d"
+    sha256 monterey:       "2f62c0ca0a4667dcd04d8f8d99cf7b181cbf8e7b410b0f9351e393efe5fcc6af"
+    sha256 x86_64_linux:   "0403fd864304c79ca777c2d99974ee3c4cfbe7225b1fef6efadf1bb2ef08a4a2"
   end
 
   depends_on "itstool" => :build
@@ -23,9 +23,10 @@ class Gtranslator < Formula
   depends_on "gettext"
   depends_on "glib"
   depends_on "gspell"
-  depends_on "gtk+3"
-  depends_on "gtksourceview4"
+  depends_on "gtk4"
+  depends_on "gtksourceview5"
   depends_on "json-glib"
+  depends_on "libadwaita"
   depends_on "libgda"
   depends_on "libhandy"
   depends_on "libsoup"

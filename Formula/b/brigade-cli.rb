@@ -13,9 +13,11 @@ class BrigadeCli < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37470ccf6183c82d4fbdc502adce51bafd52c44af60547a2c54b494bdb270d66"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcb3e8a2f7518bd173d3a0c0427b11b817495408fb91adbd5a7ea0b1345e2f1e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4e178e6bfe8c8a61e05b2ada8776a5604613048747225d3e9860dc1dad623ead"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "48ec0ce5d53d16f87f4609aebdc42f589c4319ef546bec4c4cfe58d08c3cb7bf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7376dace115e55e67a571e2a249765e957b7f1f44fbe8832f01c6f64bef8981a"
     sha256 cellar: :any_skip_relocation, ventura:        "86d2d5dbfcacd337eb27194414c7e46e2fd40d7a537e17a3293ea00f6e79e7a1"
     sha256 cellar: :any_skip_relocation, monterey:       "ac352707fa64317b9a5f9761bca6e51ef9da7381e070bfcbe54aceb6561f2ba0"
     sha256 cellar: :any_skip_relocation, big_sur:        "df47dabe1fa9f31b4e192307622c25134f09672b5a3149f634b360beef60a31c"

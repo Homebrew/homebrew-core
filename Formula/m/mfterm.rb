@@ -7,9 +7,11 @@ class Mfterm < Formula
   revision 3
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f8fe27bad6cfa36a2883513d7d5656022c08cd96974fe350a5e77f51a668fca1"
     sha256 cellar: :any,                 arm64_ventura:  "d6700be1830322a6b2c164cecdfcdbeb2285c4ab2db1518a0782f820e842b63b"
     sha256 cellar: :any,                 arm64_monterey: "a8910ab8b9320d26fb258e95f1d2d8a1d5d8dfcbed739464c916e6f0b6b8b896"
     sha256 cellar: :any,                 arm64_big_sur:  "d8ebffdc37a5ab667c1e7c969d66bf2407c820ade96701806fc149f8e95ffe78"
+    sha256 cellar: :any,                 sonoma:         "12c14653abe38cfd1333ddd11f24fe60e54e9eb5a19e5d6422983fb843a2bc96"
     sha256 cellar: :any,                 ventura:        "bf979c85bd74aef426a7d1911fb54ec6e9d3e187c2fba1b692dc502020b832cc"
     sha256 cellar: :any,                 monterey:       "524e0778d1d15de19bbb7e5f052c338542f2fd4684f4f1cae018cf662bbb1f81"
     sha256 cellar: :any,                 big_sur:        "4f1976bef27bb44358dfb064726b666b3b7e08a7e2670d0964423fa78b8afa1f"

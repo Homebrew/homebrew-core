@@ -12,9 +12,11 @@ class Pjproject < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a4beecac03e4e791cd6171ff6183ba60fad401e55f2a1e695a778fb925fc5244"
     sha256 cellar: :any,                 arm64_ventura:  "f726f77dd38e734ea7f87fa9c1b98a1ecbc1ef1c69e94868242c866f2c74e087"
     sha256 cellar: :any,                 arm64_monterey: "056ddd3d616ef3cec8a08d83256c057589ecdbda9e517ebb8aeca446dfd0a2f5"
     sha256 cellar: :any,                 arm64_big_sur:  "99685833f0e06c4daa44831d8b04d11100a435eda000e788efcd0bd6e1030f51"
+    sha256 cellar: :any,                 sonoma:         "89335d84e4862abb32be473209629efb1cde149fa5a075a2770142939af79bae"
     sha256 cellar: :any,                 ventura:        "7762d02b800fc958741659fac1cf44be6fd398bca506c0862d7d82e50276a876"
     sha256 cellar: :any,                 monterey:       "721afc38bbdd1f5aeadaa7dae3931be0973ee72c5e90596d7a50172bbf36edf9"
     sha256 cellar: :any,                 big_sur:        "21f80abae30db9f098f5385cd7c36f037639d7d2826c490ad74a5a50b8f556f7"

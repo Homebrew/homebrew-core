@@ -12,9 +12,11 @@ class G2o < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "cbb981a42b19ca21f85263240d4d4659886ff14ba366ae4dd5643074b1c23909"
     sha256 cellar: :any,                 arm64_ventura:  "d1cbe8ce20b3b583d8390364a2d76a745cf3cdfd7dbed194fa456b4ea9a251db"
     sha256 cellar: :any,                 arm64_monterey: "8945d0ec8a2a00ce3e5bda9e3bd83953e37d2f5828b0f078b45dab8b35aaeb70"
     sha256 cellar: :any,                 arm64_big_sur:  "77b3b006d9e12ea5176de813963afae700cebecd2c7fbb42ad6dd98d636fb386"
+    sha256 cellar: :any,                 sonoma:         "3fb4423a1a091ae6a1d394a1bda3be4c17834a1a0c6b41b47bf004e1616ffc2f"
     sha256 cellar: :any,                 ventura:        "67ba9a8b944f127858cbe66fff742ab900c498f27535e3287feb67161db110cf"
     sha256 cellar: :any,                 monterey:       "eaa5b6858b45b308096959db38d5dcc59e74ac18548a2f183242c1313af4dee7"
     sha256 cellar: :any,                 big_sur:        "3cd190b553f999dde5bf21c7f46bf4d24ad721d4381f366afe42166a41088a1f"

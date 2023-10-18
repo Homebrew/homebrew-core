@@ -7,9 +7,11 @@ class Qdmr < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "9f2e10e7aaa0af1d6530358f840f53f5e28c8fe08a391b92fd39ee9b59cf20ea"
     sha256 arm64_ventura:  "a3d47d1a4f74f29d7205b551e09602e0d7459677f25653fc788e3bf8fe3cbd6f"
     sha256 arm64_monterey: "b825f13edb4f363391a354ff6c99b1f117dbc07ea222804ddeade267642fafc6"
     sha256 arm64_big_sur:  "e24d6e79da29b3e49aa5e727b89aa6c41cfc8d87d6d731576ad643507701a867"
+    sha256 sonoma:         "2980a84c67bf0bf683c97a3bfc94d2f446dbb73ca0f69c11e355bab2e83776ec"
     sha256 ventura:        "96a334c4673dd26658fac496c7788bb27f4efcdf0b1bf8f2b720888a435e2cbb"
     sha256 monterey:       "7702c73879f9acdbab76b3fdfa684533f674a6b36f35ed23ae91ae1c983f73a7"
     sha256 big_sur:        "0115dad9c598ae7fd2ebcf0127d5daaf87db0bb324698ff99dd6e8e9d3c99d86"

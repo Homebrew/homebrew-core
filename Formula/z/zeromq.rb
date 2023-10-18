@@ -1,9 +1,9 @@
 class Zeromq < Formula
   desc "High-performance, asynchronous messaging library"
   homepage "https://zeromq.org/"
-  url "https://github.com/zeromq/libzmq/releases/download/v4.3.4/zeromq-4.3.4.tar.gz"
-  sha256 "c593001a89f5a85dd2ddf564805deb860e02471171b3f204944857336295c3e5"
-  license "LGPL-3.0-or-later" => { with: "LGPL-3.0-linking-exception" }
+  url "https://github.com/zeromq/libzmq/releases/download/v4.3.5/zeromq-4.3.5.tar.gz"
+  sha256 "6653ef5910f17954861fe72332e68b03ca6e4d9c7160eb3a8de5a5a913bfab43"
+  license "MPL-2.0"
 
   livecheck do
     url :stable
@@ -11,15 +11,13 @@ class Zeromq < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6bc660ae09b329a376dc1784d2fa5d7f97ebfffdbbd8548fc664668d5b7d9406"
-    sha256 cellar: :any,                 arm64_monterey: "3776994a62536dd689bfa39321f8d0eb92cb9e71ae6fb8c7c3041be344af52c9"
-    sha256 cellar: :any,                 arm64_big_sur:  "eb0ee61f9c1e894c9ad5e55a5a8bc0b3859d56fab57179f82e3e41df6ca4b9f5"
-    sha256 cellar: :any,                 ventura:        "c4e25da540f8d95e6d5048e6c7caf2e5f367b6e6b0858cfb6bdcc00f39223525"
-    sha256 cellar: :any,                 monterey:       "5806c8a77daa291e27c94ea0c905fd5b57484bc2546a11936daee72944615401"
-    sha256 cellar: :any,                 big_sur:        "579862174f4ce6883fe9871e52d0d4306c8daa67ecc7b5ab94c6174e29bb54bb"
-    sha256 cellar: :any,                 catalina:       "64bdc5d8d6cc656f1a086157bdbe565f658996f93e8d65af2ad222d80b23aa08"
-    sha256 cellar: :any,                 mojave:         "ee58ce5abf154406908cbc5104126d543ff47d62ae90319b4b7227726adb885b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f5ec18a6ea91285231ab20957ca570b5affa0a6f2bfa10e3c608580c2416293"
+    sha256 cellar: :any,                 arm64_sonoma:   "9a9cbfb80e43d28c3a8871b7d5ffd7d9b4063e3ae331e7ef386d16f1a6189936"
+    sha256 cellar: :any,                 arm64_ventura:  "4bf90a33c91ed8cb4ffadbb6659688da9900df3568d6e2ef39f80cc2a74f7b35"
+    sha256 cellar: :any,                 arm64_monterey: "7bf8e1dc5c4412df84c158090ecbf6663e00a6dc5da6b7e71f5f9c991484c47b"
+    sha256 cellar: :any,                 sonoma:         "9b85bd11720da06156daf3671a419c1fcb37e63086417f5b4de86b7830baf653"
+    sha256 cellar: :any,                 ventura:        "aea0c66541f97bd22a81c8908efc97d5b555653e4bbbdd177a186c570cf221ac"
+    sha256 cellar: :any,                 monterey:       "04e39c5b511bfdef7c383638076ff1009acd5a9cfc7cded4bb76cc5045928a80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23ae381d326c253fa3e2aa672002577dc744cace025545841c829718012ab6d5"
   end
 
   head do

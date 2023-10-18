@@ -1,19 +1,18 @@
 class Mrboom < Formula
   desc "Eight player Bomberman clone"
   homepage "http://mrboom.mumblecore.org/"
-  url "https://github.com/Javanaise/mrboom-libretro/releases/download/5.2/MrBoom-src-5.2.454d614.tar.gz"
-  version "5.2"
-  sha256 "50e4fe4bc74b23ac441499c756c4575dfe9faab9e787a3ab942a856ac63cf10d"
+  url "https://github.com/Javanaise/mrboom-libretro/releases/download/5.3/MrBoom-src-5.3.tar.gz"
+  sha256 "75c3812878809c908094416b0d50e8b380d158d0ad12b9ae6a9a95ab926866c1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "cf2c1633672145fe98dcc7ed89e75b1282081941d8def655b84967c5d2a80ea8"
-    sha256 cellar: :any,                 arm64_big_sur:  "90484ee7a62a29aa82242664b917340def45c3b999a7d21197ac10e020617194"
-    sha256 cellar: :any,                 monterey:       "fd4bf9a47d15da1e296433860388dd78cbc6d46d036a0145eb36c651693fce25"
-    sha256 cellar: :any,                 big_sur:        "904cd506e99c6269809fe4c593263de7cc1f0746fe0c5b5180aa63ef522ca212"
-    sha256 cellar: :any,                 catalina:       "7fc60e5a37d093f2311b797c5822dbeb098cdf47c038c808496973d29f563f2c"
-    sha256 cellar: :any,                 mojave:         "262fab23ed3b5a3b80948ae4fb4eca1c0c0cad04220a031a731905d812aebaae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb5d8f528c43dfa0eb5970a5ba8e0b98d4db662f903ec2d62751d98ef013f780"
+    sha256 cellar: :any,                 arm64_sonoma:   "cdaaa2a50c27d99e9d66601ebd40897dc14e019b2def57077d2484af8297112c"
+    sha256 cellar: :any,                 arm64_ventura:  "d7812215deb1254ac2b4003ee0182d4ec03ae45f81c4d9f41d627efc8dff65f2"
+    sha256 cellar: :any,                 arm64_monterey: "5098c3b755f663af968243251760fe3a39ce38c4af256959df60fb09f12c82a2"
+    sha256 cellar: :any,                 sonoma:         "5a083da53a4c1a630b5c8b77cf8fb95572aa319caebd179bc0b285175df3ef91"
+    sha256 cellar: :any,                 ventura:        "e7080fdad61d206f0ab52a03d09c2e7a53347bed66e6f4993530ccbdf96d8c87"
+    sha256 cellar: :any,                 monterey:       "7009374a1fb96c001f1cffb96e08c004455b4e114670c906c82e78f8c01853ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf114b335c1056c8e6a1e94cb4eab46974c84ef2c8f2f5521440c46d5b36bc82"
   end
 
   depends_on "cmake" => :build
@@ -21,6 +20,13 @@ class Mrboom < Formula
   depends_on "minizip"
   depends_on "sdl2"
   depends_on "sdl2_mixer"
+
+  # Remove in next release
+  # Fixes: common.cpp:115:10: fatal error: 'SDL_mixer.h' file not found
+  patch do
+    url "https://github.com/Javanaise/mrboom-libretro/commit/d483c2dc308ddaf831fb81bff965a1bca266b7c8.patch?full_index=1"
+    sha256 "573f11c68b97190398f7f0bcb3338c6f387bf4be39e4fbd3896278b611d0cf59"
+  end
 
   def install
     system "make", "mrboom", "LIBSDL2=1"

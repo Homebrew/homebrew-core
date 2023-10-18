@@ -8,18 +8,14 @@ class Cmockery < Formula
   license all_of: ["BSD-3-Clause", "Apache-2.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "27e2a27f99126c4d28ca0460cc4c95cc5329bde175485fdecee4370382fae971"
-    sha256 cellar: :any,                 arm64_monterey: "97f59df29c326e7b2fafd9a2590f57e168626b0b4a3056b3989298f2a26346b8"
-    sha256 cellar: :any,                 arm64_big_sur:  "aa62f9303682b243044246c155e301361e9ea68a52b9ff66a83a6432aa7b1ddd"
-    sha256 cellar: :any,                 ventura:        "165de9e0e46a0169854fe359b5c4ba2650e6649796eb89f412e2e16ee4d26963"
-    sha256 cellar: :any,                 monterey:       "43839a0ebd0077d09add32aa3206b15ead3e3e8423c81a406ee5c8dc64f9c2e2"
-    sha256 cellar: :any,                 big_sur:        "cfecce020c743de6d0e72dbcc3d5a104024e69979c3b8fa085997b3a5ae17619"
-    sha256 cellar: :any,                 catalina:       "1df72472ccf182fc7de6a14b047affceba8e7c986110f883ef55701b93b19d0f"
-    sha256 cellar: :any,                 mojave:         "d239e243454b5bac5d0bab915ff506199c97bd27bf188c0938911c5c091af020"
-    sha256 cellar: :any,                 high_sierra:    "8ee7bb6453fae2cdfc129f6aad3ac9a8766a396ec7df9d38444f6b688697c3ea"
-    sha256 cellar: :any,                 sierra:         "f3b1c3d5c96ea9e30dc008e557239e972a18e65b3dd1ee8a593a0eb6e11d7858"
-    sha256 cellar: :any,                 el_capitan:     "6cc440503b2fce7def7d584aacf8e9142ad430de799b466f609f57fd9beb4ede"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "533f1415fd60a5f31757ede621f69316eb6a944b1702a0c9a846cadd9390d2d6"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "96b7a50e99334762c47dbc4bb42797533aca4aa0141ec6f424f507a292bd69a4"
+    sha256 cellar: :any,                 arm64_ventura:  "0f6c19c77f86e9f39f372d29d58e853214b1b6b3fcf20f6373caac86703c2279"
+    sha256 cellar: :any,                 arm64_monterey: "9e210bb4657cf606373fa730ab8b6d7d730fd98d61b1d5d0b06f81221e33b3c9"
+    sha256 cellar: :any,                 sonoma:         "4131cb44e21e3d538d40dfe05a22e74ecb606f6d62824033a16f8c16500425a7"
+    sha256 cellar: :any,                 ventura:        "794e2b0c95e15b2afdfb0c4d2a2cd958a44010ca8af935106859f12d12d2c505"
+    sha256 cellar: :any,                 monterey:       "cfab88dcbb19db85f57560657a7658e4eb6353ca0ca104ffa27b78c4bf877b95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55dae4a89d4badbbe3628527d765ac03feb8a344607af7ddf7b7d6396cf78a29"
   end
 
   on_macos do
@@ -37,6 +33,9 @@ class Cmockery < Formula
   end
 
   def install
+    # workaround for Xcode 14.3
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Fix -flat_namespace being used on Big Sur and later.
     # Need to regenerate configure since existing patches don't apply.
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?

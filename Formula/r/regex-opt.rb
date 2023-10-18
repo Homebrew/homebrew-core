@@ -12,9 +12,11 @@ class RegexOpt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "13e3835588ba832622b5955f506b695016e1812c0fcaa903becb714442cf3a21"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d4874247088ba62cdcf1304c0dfd6910812b0a6e6a915a3d160dd43f0e3202e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ce44869b68dab6e2d6bc5480c8c998b39aab0fc8dd56c915d9c8386fdea9778"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0d8b19c7d0c896626944d9affc850e42f0073ecbfe82b6380f0ed494c13bc759"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c9916801c59c641417a206eaf39ffa0c9ac1d86e40116923f78355f3a66be8d9"
     sha256 cellar: :any_skip_relocation, ventura:        "086aadac89bc6873dea864407ea634b84bc2b092ae6625a28ccb731ca9ac8fe0"
     sha256 cellar: :any_skip_relocation, monterey:       "1e232a280f15762a4de83d47a3bce3ae4ac726e9ad6ef8627ab47c425465b81d"
     sha256 cellar: :any_skip_relocation, big_sur:        "6c06ca3033c1a2d174368b4ca2194f732411c24911945cbad73b47a50ed1393b"

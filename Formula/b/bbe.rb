@@ -6,9 +6,11 @@ class Bbe < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da94323f0ee1b72c623dd63f3198dd8e25e0cb627277ff1bfeb9c81373441be5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1c7ca0dd8b2f4c9161de533964c1d783b3e09c9a108880d87236db9a7401eab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "095d439542aced7baf7f5994fe1d8ca64da82039222c1c083d09262cf559d4a4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7181a956a065ea4b793431041e45cc04d217a7c64a579dcf1c7078249ee579ab"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e82c72f757c617bc346b5702fe9333902e157042f4516acbb17d53164ecb5d16"
     sha256 cellar: :any_skip_relocation, ventura:        "81e9cc86f064e0e4a4b7dd44b6752a8f8643ba70dca6f08ae66dce92d4de58bd"
     sha256 cellar: :any_skip_relocation, monterey:       "1a2799215e2d472a9ae04a451e486da0853b2861e3e9e04d274c8ba5e0c30f30"
     sha256 cellar: :any_skip_relocation, big_sur:        "677a07ce2e73761b8403033706a969d15bd89f98401054dccae350c0d9acdf6b"

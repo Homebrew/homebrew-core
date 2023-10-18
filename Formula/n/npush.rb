@@ -7,9 +7,11 @@ class Npush < Formula
   head "https://svn.code.sf.net/p/npush/code/"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58edd27febec742ef46cf8e1b6fca1bf8053a99c953fbd53743a6b12387d924c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee910410e365aa4d509068cb68d14bf871b9a679cfff678db620bbb6603838fc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae543262c4b86f3d0babffd21d015739bf5db0838fc7ee604df46cf8e26e3178"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0be6b0d7949e3e6b3322089f84c10c60c15ea41a0a7ebdaa7ff04862c1be103"
+    sha256 cellar: :any_skip_relocation, sonoma:         "351248c804fc342573641fe453f90b6e768d8bda8376eaeee18b3a7e169b6bcf"
     sha256 cellar: :any_skip_relocation, ventura:        "019a35f0de52024835407a2fb6d643b9cbf8d9ccc52889f9b40de056a3f73467"
     sha256 cellar: :any_skip_relocation, monterey:       "7f24fc8d2212c912748809e540f129ff5a873d00639c1f2d262d869714746a67"
     sha256 cellar: :any_skip_relocation, big_sur:        "d3b1eb1513919a4120a9c2b6541872b39ef78d9eb618df96e62a1cc6f28d53ff"

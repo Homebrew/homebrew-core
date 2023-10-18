@@ -8,9 +8,11 @@ class Gojq < Formula
   head "https://github.com/itchyny/gojq.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92549bc8ddd023f849beb0035a7aa014776a8568aed8894f904dc560f9b3be67"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "117a0ea1d137502605bd2ac32deecf715cfd21e7b6dd46ac1ba110ed07fcb327"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "117a0ea1d137502605bd2ac32deecf715cfd21e7b6dd46ac1ba110ed07fcb327"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "117a0ea1d137502605bd2ac32deecf715cfd21e7b6dd46ac1ba110ed07fcb327"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e704ab45460fe39f0a8c59fad0ddcd71d6c5adc8111257d165e03797925ddebe"
     sha256 cellar: :any_skip_relocation, ventura:        "281a5794ae94e537b7f73e402fec5f1f3bb76026411e58849b1e06c85d64d7e3"
     sha256 cellar: :any_skip_relocation, monterey:       "281a5794ae94e537b7f73e402fec5f1f3bb76026411e58849b1e06c85d64d7e3"
     sha256 cellar: :any_skip_relocation, big_sur:        "281a5794ae94e537b7f73e402fec5f1f3bb76026411e58849b1e06c85d64d7e3"

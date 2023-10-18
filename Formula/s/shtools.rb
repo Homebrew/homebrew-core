@@ -1,19 +1,21 @@
 class Shtools < Formula
   desc "Spherical Harmonic Tools"
   homepage "https://shtools.github.io/SHTOOLS/"
-  url "https://github.com/SHTOOLS/SHTOOLS/releases/download/v4.10.3/SHTOOLS-4.10.3.tar.gz"
-  sha256 "ff630d6eeea73891c8c50bc73ad1c8539b7a0b5095449fbad1554493c4714d1e"
+  url "https://github.com/SHTOOLS/SHTOOLS/releases/download/v4.10.4/SHTOOLS-4.10.4.tar.gz"
+  sha256 "f31ab09e960d85ad23d046fa427b692ffb80915a2c96773725bb83ad90bdec20"
   license "BSD-3-Clause"
   head "https://github.com/SHTOOLS/SHTOOLS.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d4a9d6382303c5be51c4cb128603e10404ee516de50cc774774c82b030ee8df"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8fa8bc51fa29619664bf00d5e913fc679ef2f50eba4a2fff53661298f24d34c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ac52042aa6cf73fe61a5b1b95315c3b477e0e92bc0b58323597118df9dc51897"
-    sha256 cellar: :any_skip_relocation, ventura:        "7cb43115fe58af4a9f8c6edceb45ca7433d5644c3f463c51fff26765697b36d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "c633ab38961cc7a5e23fae59eed6cb431c3406dec81d5d79960c597ac613d523"
-    sha256 cellar: :any_skip_relocation, big_sur:        "99e3a3160bdcef39386b4bcffec851a61ae8ee344e57f91a6423acca8d1e9ca7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00f89161ac24d3da25c7267d61a41fa3c550df1296bce66b9b43b62c93d46ca8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99a547af263119505ce2709cb23d536397aedcc4be1eaf3b47e85bb37376d7e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d516fee552a00a9ee794b7c490354e249df71c139e10b18a8c98f1e63977296"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3041130dbfb04cb18c21d6666e367fc5aec833be4d8d58d566f368a92ce9bf43"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4c2d62f87979d7ba8e5a2225346e5a29f08b4949850595cc35b40b16e3ad1fa5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9a977ae71fd82a1d1783373b699aac11c9804bc23c4d8b22c9e19d91f3132b70"
+    sha256 cellar: :any_skip_relocation, ventura:        "d954b3cfc364762d426be63f215abe53f67e98f949410f15f20f46bbcc973c18"
+    sha256 cellar: :any_skip_relocation, monterey:       "83cab587a3b98a1553b4122cb6f5091b8e1ede7885f93b6d364c72baded57f55"
+    sha256 cellar: :any_skip_relocation, big_sur:        "17f1f6d84a125a4be262219979b833639ed9d9eeadb7c9128d02dc2424fb1b37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "849384f63da7846b6894e0b2dd44538f66f5da43d60e6baa7afb137a67b829cf"
   end
 
   depends_on "fftw"

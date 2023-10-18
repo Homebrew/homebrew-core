@@ -1,9 +1,9 @@
 class Tnftpd < Formula
   desc "NetBSD's FTP server"
   homepage "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/"
-  url "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20200704.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20200704.tar.gz"
-  sha256 "92de915e1b4b7e4bd403daac5d89ce67fa73e49e8dda18e230fa86ee98e26ab7"
+  url "https://cdn.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20231001.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.netbsd.org/pub/NetBSD/misc/tnftp/tnftpd-20231001.tar.gz"
+  sha256 "24a51bd2e5818ddb8c2479df9c8175a78dd8a5ef49ee3ab09f5f39c35069826e"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "ISC"]
 
   livecheck do
@@ -12,19 +12,17 @@ class Tnftpd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53205e6fefc86a25914875481cfdcdf489ca3a080c4ffee53a1ef8565a108f6e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f3744dddab0c9c5e6384b45925b7e97399227c9516c6befb32d6cfde89360a0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da16904f59892ebef30355ea2dbaf1a0d5d6fe890d30c65b7d7f82992e4bc0de"
-    sha256 cellar: :any_skip_relocation, ventura:        "924e2c3866d9b7361b0a4c5b5d65f4c740e01e43d7ccad70035ab38fbf137e3f"
-    sha256 cellar: :any_skip_relocation, monterey:       "cbecb6b4eb8a376217311ccafa6588b20839cd256ca6c997af2632cb41d04a05"
-    sha256 cellar: :any_skip_relocation, big_sur:        "05728c1edd46c07fe6e19d54094d53dc78614cae7b04320794a9e4ba43dad099"
-    sha256 cellar: :any_skip_relocation, catalina:       "cbc7f23e857584e25c7d2d043a3971841febe99f12830d82cf28fe47a2e9e254"
-    sha256 cellar: :any_skip_relocation, mojave:         "3e8848729081c09a247e0326ede175db12111360905f69cc339dea3ba0213e62"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "18a15c1572f7f5b33b7678d9a322de20efcd0c1b1c5c98d8cb00e13a80bfa518"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00a3f41077529f1428dcc9c99c4500c9d043032d174baa9ee1b735c91eb06dc3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d2553f19ea668a58de5f03311347e89a3522e458c9d9482ea3ae4a8825ae34eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "846e191bdee68e9a0123e864e7683917efce53a479ecfaa1448422bc512024af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "011a300c9b49318f006a133c9967d2a5968862e427204d578752b692105070e2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8985fce13cecf1bc9e202f30ea4a5c9cd19c417ff4eb7afe6cd8d08dfd02a819"
+    sha256 cellar: :any_skip_relocation, ventura:        "80301322ab495d2380c7be37f703293f89b6a0956b27fe6f796ce493ca862da2"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c0f3a77356aa9ea4a691f0388cf4e9ad42002c7d67a09fa18b500d0172abe0c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef05fc95a88ae0c7ca0fba016115eb2d840d4a218935f39d137f61a5e63144ef"
   end
 
   uses_from_macos "bison" => :build
+  uses_from_macos "libxcrypt"
 
   def install
     system "./configure", "--prefix=#{prefix}"

@@ -6,9 +6,11 @@ class AppstreamGlib < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "a4f2cc335d188d441983d924633f37a79f6dd8cc3675fb0ba3c26d32e5e7c338"
     sha256 cellar: :any, arm64_ventura:  "c3f6d2c0984122b0713f4feb1602dbef56ff7cb387845f743e9eb141f27bcba2"
     sha256 cellar: :any, arm64_monterey: "90068630f6442eb177f80f7b724df77cf7bca37ab06d6b23f60e0473589c4e4f"
     sha256 cellar: :any, arm64_big_sur:  "44cf000fc5d424c0381ccfde90746356a135554a5fd8f9c7d5c6f1122f0cba2a"
+    sha256 cellar: :any, sonoma:         "eb83692e9f3f9a4823ae28b96cf6997f194d78d5f19a6737bebc702949b3bbbc"
     sha256 cellar: :any, ventura:        "791389da6a2ba026ad09b35a28d7dce14c57eb6d267ed3bf71aca3c0dd2dd618"
     sha256 cellar: :any, monterey:       "1f0c23d95b641c365c5ae51c9243c4e0c4b7eb3241c5a0fb826329a99fa76e4c"
     sha256 cellar: :any, big_sur:        "51567bf93b2dbd9aabb0dd044f7a05ece05a93f1e5b126e204f21d78a34d1e42"

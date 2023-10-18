@@ -1,30 +1,21 @@
 class Libgit2Glib < Formula
   desc "Glib wrapper library around libgit2 git access library"
   homepage "https://gitlab.gnome.org/GNOME/libgit2-glib"
+  url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/v1.2.0/libgit2-glib-v1.2.0.tar.bz2"
+  sha256 "421ac5c99e02c5b6235842e60eb7f9fa8dc580d2500fb1eb521ced8a22de9f29"
   license "LGPL-2.1-only"
-  revision 1
   head "https://gitlab.gnome.org/GNOME/libgit2-glib.git", branch: "master"
 
-  stable do
-    url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/v1.1.0/libgit2-glib-v1.1.0.tar.bz2"
-    sha256 "6cbbf43eda241cc8602fc22ccd05bbc4355d9873634bc12576346e6b22321f03"
-
-    # Add commit signing API. Needed for dependent `gitg`.
-    # Remove with `stable` block on next release.
-    patch do
-      url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/commit/7f36e18f41e0b28b35c85fe8bf11d844a0001305.diff"
-      sha256 "e5a07c6bbd05b88f1d52107167d7db52f43abfd0b367645cc75b72acb623d9ff"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "dc78ea81c37b8e8977ef2d6469166e37937c06238cee7b5e46c3856b459aed8a"
-    sha256 cellar: :any, arm64_monterey: "e3ff1e622801cc996caff77b2ca138e69764fceab2f4dfccb7a35f4dd622643f"
-    sha256 cellar: :any, arm64_big_sur:  "3a250cd16c5583e345b2eba049765b4b27c67207a2a0373c741710e7a139105a"
-    sha256 cellar: :any, ventura:        "d416576872b58f6b67fe70d94f2af9a0174da2f44c4cb95ddddc8f628de78fc1"
-    sha256 cellar: :any, monterey:       "731ae37b595af558aa4fe4a0d18cc43916405d73b6eecaa0045c42b414e6e735"
-    sha256 cellar: :any, big_sur:        "227b09aa6272fc3e4aba191c7d3144c09d0888a229291a717ba293251ca193c0"
-    sha256               x86_64_linux:   "ef2aaf12a607c505944c2d752f31b8c1120993a9c499bfc93b0f71353975e55a"
+    sha256 cellar: :any, arm64_sonoma:   "bfcbc9f8a8bdd07cd9a5c62da9e50bc454d73269db42a7ba8f93c30eea2be410"
+    sha256 cellar: :any, arm64_ventura:  "1fe5fe74645a85743b063f8b3b87a3a95d1f08baaf939eea3a8399fb7d11f4d2"
+    sha256 cellar: :any, arm64_monterey: "0acba9ffc1f7f5a9b78d3dba685564b9abb1f2ab7fafc33c952a0f38ed18c665"
+    sha256 cellar: :any, arm64_big_sur:  "d25c6019431293c7c4536c88c78dfddfa7d6daa58865a0d751d5e063cc3d3bfb"
+    sha256 cellar: :any, sonoma:         "6894a3e05597929f5e4c2fae9329fe217b5450d73d8f0399236d741e6d2d4cb8"
+    sha256 cellar: :any, ventura:        "7821187b992687679d7c7a0ff2d26a13c4cf9b0acebc8c64a80227e05f3a002f"
+    sha256 cellar: :any, monterey:       "9088ebccecd0b04312da6a6fc457600c085d7279f8c7e797eae315cc94c12110"
+    sha256 cellar: :any, big_sur:        "bafc615584caf3b11a104e4f2e83416b80ab442ec7ee82d0993cd3a4647c5232"
+    sha256               x86_64_linux:   "29a96ea2997da39fc923ee2c90b4f7cc604cd34e2e3a648ccf9c6e937f397177"
   end
 
   depends_on "gobject-introspection" => :build

@@ -1,8 +1,8 @@
 class Oniguruma < Formula
   desc "Regular expressions library"
   homepage "https://github.com/kkos/oniguruma/"
-  url "https://github.com/kkos/oniguruma/releases/download/v6.9.8/onig-6.9.8.tar.gz"
-  sha256 "28cd62c1464623c7910565fb1ccaaa0104b2fe8b12bcd646e81f73b47535213e"
+  url "https://github.com/kkos/oniguruma/releases/download/v6.9.9/onig-6.9.9.tar.gz"
+  sha256 "60162bd3b9fc6f4886d4c7a07925ffd374167732f55dce8c491bfd9cd818a6cf"
   license "BSD-2-Clause"
   head "https://github.com/kkos/oniguruma.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Oniguruma < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ce1351a948c52a2d0fb08e3c1eba5c1cd8ac22abb9c348299fb7b95a81e7a56d"
-    sha256 cellar: :any,                 arm64_monterey: "6c66f5d4198bfd9d9be019f4f40d19f4c68676df9eb0702f450ec818ef43d3e9"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c9cd371a4baa9cf7322d3083aaf3d6c77f0d676a3ad2db6c80ee5e19c89367a"
-    sha256 cellar: :any,                 ventura:        "877e5ee7b7af6f8c219ce3525526f7608adb89cec960759aa4f9d1a5d290661d"
-    sha256 cellar: :any,                 monterey:       "680427d257a0ec9851f736e09c07ca3a808710ce57635024d8ddf31543c8c6db"
-    sha256 cellar: :any,                 big_sur:        "2abcc410df54889260ec1dc5cdb93cbe22ee01d4df5bff97d2ab43b4aaad3afb"
-    sha256 cellar: :any,                 catalina:       "000bae49a7219387f2a94e2c675113d241217702cde7f424e3590d7350270dc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3e431432a920a795798426fe7a32b5536909947d8a23970c4274029b8d03607"
+    sha256 cellar: :any,                 arm64_sonoma:   "53913ccbdad8ce504d0266fc20a867f2fc306d7331d066f2895f48d167102a24"
+    sha256 cellar: :any,                 arm64_ventura:  "def0fa2c032e85b817ed3408867af987da1cafe3f2aa6aee2fb3c29df2d202d6"
+    sha256 cellar: :any,                 arm64_monterey: "d0e0811b41b34a4fbbe65c9206b9969f8c469fca8cfe619caa7e5c74036921c3"
+    sha256 cellar: :any,                 sonoma:         "75f2ef5b5593401d265669503cff50cda1fc10dbe2750fc54c87cbe578211b58"
+    sha256 cellar: :any,                 ventura:        "5c4c16da729f311a12bd7863648b1c692fe502a0a3127eeb7460a47098c7a9a4"
+    sha256 cellar: :any,                 monterey:       "86b7b52451edba60d365586a975d1eb40f7823992565dde5c88abb97fde483d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18f0e52bb660582698f390023d5db08208ed468d2f01758018b9ee8c69aeba4f"
   end
 
   depends_on "autoconf" => :build

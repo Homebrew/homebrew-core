@@ -6,9 +6,11 @@ class Cli53 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef23798b7feb21fe2dcf19360548b44ea5e6d0d3ce755d6a295a30e24d82dd06"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb27aef03a8a1238d7d6daebc3b1a40569c3895b3ff94deb2cbf600b3001e4e9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fb27aef03a8a1238d7d6daebc3b1a40569c3895b3ff94deb2cbf600b3001e4e9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fb27aef03a8a1238d7d6daebc3b1a40569c3895b3ff94deb2cbf600b3001e4e9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4b947c58451743f9290db4cec6ee0b6c3fb1293050a924e98f765da5987357ad"
     sha256 cellar: :any_skip_relocation, ventura:        "0cbae4a4ed0e2f14e48ae285d665b9d683a4f3c23b74735992f4a6d77c5fe0de"
     sha256 cellar: :any_skip_relocation, monterey:       "0cbae4a4ed0e2f14e48ae285d665b9d683a4f3c23b74735992f4a6d77c5fe0de"
     sha256 cellar: :any_skip_relocation, big_sur:        "0cbae4a4ed0e2f14e48ae285d665b9d683a4f3c23b74735992f4a6d77c5fe0de"

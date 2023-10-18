@@ -10,9 +10,11 @@ class Serialosc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "167c9c76b53a711595088b8fa35873625dbc4310cf7ea32ea4990dd119569c24"
     sha256 cellar: :any,                 arm64_ventura:  "3080c9badf496b7befff93f8a00d58fa83ce0de652bb0eb08296b409491b2efb"
     sha256 cellar: :any,                 arm64_monterey: "318e77a4ee30e5b95315e2d05ee4967400fabc94cfb9621961f425132fa96f78"
     sha256 cellar: :any,                 arm64_big_sur:  "f5b5a750553afaad105661c6c3a1d863bd18e89a6c1f818877e09fab50798e23"
+    sha256 cellar: :any,                 sonoma:         "dd51fc0dbf6fbdc7c0613a14c77f2d37c39eedbc929cebd43461e67f3accce76"
     sha256 cellar: :any,                 ventura:        "740a5861d890f439eab1812de773d574c27dac4581db94ccbb09a1c3acb70077"
     sha256 cellar: :any,                 monterey:       "cf20c8747d7be7d4fea6709348af811a25f7e82c40ec462f6f2fe746951da665"
     sha256 cellar: :any,                 big_sur:        "dd151339ca334c6719b61216a4ca378f1980079de8b7d666a7b544aa3eb71484"

@@ -6,9 +6,11 @@ class Zork < Formula
   head "https://github.com/devshane/zork.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "2abffab6441cae3c3ca7247d1f0d313571ae873f536fb647b605bec580688d55"
     sha256 arm64_ventura:  "ec4836e8f767968119feea70913b248475a549d10f9dc78f1777b0cffc78dde7"
     sha256 arm64_monterey: "506debc59ab6d891ce98da1bfe4c8a6e5604dc9a91cf225ed19fe3027544f3ea"
     sha256 arm64_big_sur:  "3f9f282ff618e0a31976bbae0b95e1fabcab2053cef50e2e54bce7877533bbec"
+    sha256 sonoma:         "1baa8e6b8652a3e2097f4cf7bdd682aefc2257539ba3e2c128b67ead17a2dbe1"
     sha256 ventura:        "d3bee8f46195e47e19bf1772a6e2bc394f314d1730af2576590a65a24875a10c"
     sha256 monterey:       "6693bf5507881124657a5cbeb75fc6df3d2f21aafbecce1967212d631924a5cf"
     sha256 big_sur:        "d8138472c8d3b67db24ce72d03228081118aed98007d5280f6713f556fea337e"

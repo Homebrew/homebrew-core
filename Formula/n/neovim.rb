@@ -4,16 +4,16 @@ class Neovim < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/v0.9.1.tar.gz"
-    sha256 "8db17c2a1f4776dcda00e59489ea0d98ba82f7d1a8ea03281d640e58d8a3a00e"
+    url "https://github.com/neovim/neovim/archive/v0.9.4.tar.gz"
+    sha256 "148356027ee8d586adebb6513a94d76accc79da9597109ace5c445b09d383093"
 
     # Remove when `mpack` resource is removed.
     depends_on "luarocks" => :build
 
     # Remove in 0.10.
     resource "mpack" do
-      url "https://github.com/libmpack/libmpack-lua/releases/download/1.0.10/libmpack-lua-1.0.10.tar.gz"
-      sha256 "18e202473c9a255f1d2261b019874522a4f1c6b6f989f80da93d7335933e8119"
+      url "https://github.com/libmpack/libmpack-lua/releases/download/1.0.11/libmpack-lua-1.0.11.tar.gz"
+      sha256 "a2d9ec184867ab92ad86e251908619fa13e345b8f2c9bc99df4ac63c8039d796"
     end
 
     # Keep resources updated according to:
@@ -22,13 +22,13 @@ class Neovim < Formula
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
     resource "tree-sitter-c" do
-      url "https://github.com/tree-sitter/tree-sitter-c/archive/v0.20.2.tar.gz"
-      sha256 "af66fde03feb0df4faf03750102a0d265b007e5d957057b6b293c13116a70af2"
+      url "https://github.com/tree-sitter/tree-sitter-c/archive/v0.20.5.tar.gz"
+      sha256 "694a5408246ee45d535df9df025febecdb50bee764df64a94346b9805a5f349b"
     end
 
     resource "tree-sitter-lua" do
-      url "https://github.com/MunifTanjim/tree-sitter-lua/archive/v0.0.17.tar.gz"
-      sha256 "8963fd0a185d786c164dfca3824941c7eaec497ce49a3a0bc24bf753f5e0e59c"
+      url "https://github.com/MunifTanjim/tree-sitter-lua/archive/v0.0.18.tar.gz"
+      sha256 "659beef871a7fa1d9a02c23f5ebf55019aa3adce6d7f5441947781e128845256"
     end
 
     resource "tree-sitter-vim" do
@@ -53,13 +53,13 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "ca207194a6ed07851c3a36293e32c37e879365f2ad2731f450455da1bec9d7a4"
-    sha256 arm64_monterey: "85795a3a28506df3c7d281d9f9fe1d1f2d50c3834e7287bb17d86d80cbe67f3d"
-    sha256 arm64_big_sur:  "ec4415c980e03abb98631cf6d701bf02eb31430b696de11915900ab2daebb9e0"
-    sha256 ventura:        "70888c68b7413575337a00a044b17a1a06e8948b6b3fa3317a99f66ea6f03f58"
-    sha256 monterey:       "3993bd104e748db9b4f1b2994082d570ebb84ff4facaaeb66ce9d20647613a09"
-    sha256 big_sur:        "fe91386e1a0e9cddb90b13b3998f8f1e293d74f1a4a411b7b6e122771ae3ade7"
-    sha256 x86_64_linux:   "17a892c8ecfd1206aa894663b6d68a7dea4767b4b323afd76263e9aafe3fa673"
+    sha256 arm64_sonoma:   "28ef7032c35b01b4d0c787cfa479a4e5cfa721920c7e16c9cfbe16ced2899f40"
+    sha256 arm64_ventura:  "d86a5c7cfc96b756f1169d62f3193bb32837878ab230a52f66b752d817483465"
+    sha256 arm64_monterey: "107e1eeaae2826286b8e91421b9f658da562389b1a289c321c88266b710412da"
+    sha256 sonoma:         "d8349c7fc1e0605507bb7ffe8b809d459bffbc144da0d5555248f3d80358adf1"
+    sha256 ventura:        "37eb3344698eba447de3497f6232fa7075488f67d8c0fec75bc2b910db05a9d0"
+    sha256 monterey:       "f8b0ab4ccc82676f516e137b53b4a0de405ac2f609329106f1a286e2a1b37e50"
+    sha256 x86_64_linux:   "1b4a294d242a749ca6d6eb0710fcbeb4cff8873608bd9296814edcd58983f89f"
   end
 
   # TODO: Replace with single-line `head` when `lpeg`
@@ -105,7 +105,7 @@ class Neovim < Formula
           ENV.prepend "LUA_PATH", deps_build/"share/lua/5.1/?.lua", ";"
           ENV.prepend "LUA_CPATH", deps_build/"lib/lua/5.1/?.so", ";"
 
-          rock = "mpack-1.0.10-0.rockspec"
+          rock = "mpack-1.0.11-0.rockspec"
           output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{deps_build}")
           unpack_dir = output.split("\n")[-2]
 
@@ -148,6 +148,7 @@ class Neovim < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",
                     "-DLIBUV_LIBRARY=#{Formula["libuv"].opt_lib/shared_library("libuv")}",
+                    "-DLPEG_LIBRARY=#{Formula["lpeg"].opt_lib/shared_library("liblpeg")}",
                     *std_cmake_args
 
     system "cmake", "--build", "build"

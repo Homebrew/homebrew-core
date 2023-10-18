@@ -12,6 +12,7 @@ class Clucene < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 sonoma:       "f574282f7bbf88b219a39b50160dde1c101ed8b95943242049d97b88229effb8"
     sha256 cellar: :any,                 ventura:      "f3f128d222d9407a6572c7ea4cfc84d3bd76ba0359969b2e0f1c6433e5368674"
     sha256 cellar: :any,                 monterey:     "c557e0403dce15f14e8584b4542fbe6dbd7ddc467d085d99e396b3fd16651dcb"
     sha256 cellar: :any,                 big_sur:      "22366684958d7ee8fd5d0b07efe750a74347a4394dbc56ea80db1cf25db70c2f"

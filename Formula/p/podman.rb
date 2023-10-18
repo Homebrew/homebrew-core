@@ -2,19 +2,19 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v4.6.1",
-      revision: "f3069b3ff48e30373c33b3f5976f15abf8cfee20"
+      tag:      "v4.7.1",
+      revision: "ef83eeb9c7482826672f3efa12db3d61c88df6c4"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "faf7698ec848c9e455913709b407db7e065063c378f16834d2d8f62a859de5ef"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d3452dd252a0719f559e158f2957398a563a81ec8877c302d41bc14a9c9eee2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0df1ae3b51a09af85385bcf960df10a17c35fa3891ab65170a0389e1290113c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "141ee4ac5c89594ce7b6552bc9f8a9fdfe81300afdd8e99149cf90c7cbbb78e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "2da0261c6617fd3de4e237f158f293d88d5d8925faf3b8132db39eddec86ec3a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7d422ae4195bea082c657757d1e450e0138bf140678fd19dab8b51ba56105c3e"
-    sha256                               x86_64_linux:   "4110cdb058dc5530658573ac63d7b000c19af1960e535a9bf67d500b21ffee56"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a548b5f3abc24639883e76aa90de3f282c8342ac1a241083fa950826dcdfa934"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ea874ca28fdbae4a7b4fd72f71b15e54553c17f0d2be893f5a2345ae4a8367"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d88ad41bf88b194d5bfbe3d201f1b4078b78913a88ead7707c180dcba0b85fdd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "affb2838ad3776e42d459296d631950eb7ee3cac29b76b652af1944c1744974f"
+    sha256 cellar: :any_skip_relocation, ventura:        "a97f0162b8fb99acc0c5bd4f5a2750c58ea6d28cba3befe5168cb3deef211c2f"
+    sha256 cellar: :any_skip_relocation, monterey:       "56619db93a15222acd702b85af15b2bce56110df562860c39f12f328a4e3ff27"
+    sha256                               x86_64_linux:   "c9af55e59926c616850f5bf7b2fa02ff09aeef281cbcbc333a5eab8d26f6b30e"
   end
 
   depends_on "go" => :build
@@ -43,35 +43,29 @@ class Podman < Formula
 
   resource "gvproxy" do
     on_macos do
-      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.7.0.tar.gz"
-      sha256 "e526b8bf568a5145f4f265a8d450483be27c82717e60f4f22902589a78f68e1f"
+      url "https://github.com/containers/gvisor-tap-vsock/archive/refs/tags/v0.7.1.tar.gz"
+      sha256 "cbc97a44b6ca8f6c427ac58e193aa39c28674e4f1d2af09b5a9e35d1d3bb7fd3"
     end
   end
 
   resource "catatonit" do
     on_linux do
-      url "https://github.com/openSUSE/catatonit/archive/refs/tags/v0.1.7.tar.gz"
-      sha256 "e22bc72ebc23762dad8f5d2ed9d5ab1aaad567bdd54422f1d1da775277a93296"
-
-      # Fix autogen.sh. Delete on next catatonit release.
-      patch do
-        url "https://github.com/openSUSE/catatonit/commit/99bb9048f532257f3a2c3856cfa19fe957ab6cec.patch?full_index=1"
-        sha256 "cc0828569e930ae648e53b647a7d779b1363bbb9dcbd8852eb1cd02279cdbe6c"
-      end
+      url "https://github.com/openSUSE/catatonit/archive/refs/tags/v0.2.0.tar.gz"
+      sha256 "d0cf1feffdc89c9fb52af20fc10127887a408bbd99e0424558d182b310a3dc92"
     end
   end
 
   resource "netavark" do
     on_linux do
-      url "https://github.com/containers/netavark/archive/refs/tags/v1.7.0.tar.gz"
-      sha256 "b0ed7d80fd96ef2af88e7a001d91024919125e5842d9772de94648044630e116"
+      url "https://github.com/containers/netavark/archive/refs/tags/v1.8.0.tar.gz"
+      sha256 "b1422ef6927458e9f80f7d322b751e29ab5d04d8ed6cb065baa82fa4291af10f"
     end
   end
 
   resource "aardvark-dns" do
     on_linux do
-      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.7.0.tar.gz"
-      sha256 "6ee7dfa8bab8040b917959a2f57f25496ad036a2d933c6225114e2c1e68bab0b"
+      url "https://github.com/containers/aardvark-dns/archive/refs/tags/v1.8.0.tar.gz"
+      sha256 "c9b818110e3d5d45f8bdb3c9ccc48c994aedb0b19fefcc7577fc1ef7ed294343"
     end
   end
 

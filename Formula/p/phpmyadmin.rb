@@ -10,9 +10,11 @@ class Phpmyadmin < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb34ea7ccef57d1f9a45841b4dc4bd8a6d483611bc4aeaa4d5ddfda417005864"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bd02506f7741f5c566ce1208327f2a2cf02e2295d4cb5cadb6f9f2c4fafb8ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2545dca90ee52f478275ff1a0da76cf27fcaf20fa7071f5cfe00f2c7fcdf1f7a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83753db830be44e9d0b476e3fbb02ccabf9673364da6c9af9a15909d790acaf5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "af9fe78d82eedac1e56a34dc09d2f15aaeecba6dd21f8c51706afce6cd0c6170"
     sha256 cellar: :any_skip_relocation, ventura:        "15496fab9c4d8744f5d69869e0862a9c3ea957ebb1c3e62c6f02b7a8ba810169"
     sha256 cellar: :any_skip_relocation, monterey:       "d0e69d5885b6c7a0e34214d6f3f5ef1aa982c913a239ff3e71c1b4ac6732e701"
     sha256 cellar: :any_skip_relocation, big_sur:        "77e2cb701aaf85ea94c8e1c9b9345fb6bd6ef6f6ec51a956eed2e3d81895cd21"

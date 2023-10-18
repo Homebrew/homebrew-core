@@ -7,9 +7,11 @@ class Pdfpc < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sonoma:   "4b76c88f065350a748304511382c62d9418dbbcea2baaeddbd749a1a7e27322e"
     sha256 arm64_ventura:  "1aace7c3c440270bc84311fe981b884ad25ef95124ff8bb20ad8e1987a0b48b6"
     sha256 arm64_monterey: "845616bcf0c462c48d7fe8560a990049cce37122a64f146048b2315b0a1c39eb"
     sha256 arm64_big_sur:  "1460cd4ac02aabc384a1ef9f63b80d39324f20599071b1b30bc658d38b79b97e"
+    sha256 sonoma:         "5ee19f8d32c1e6ac995d93e54cdc68a192ce63c0cee67c33f9bb6b104ff497cb"
     sha256 ventura:        "0db9b677c52f7918f1e880e732ab22dab9c497930540358cf8b5bbd1bbe4adaf"
     sha256 monterey:       "394fdad94e1359040ab98677190efe4088eb7ce722a12a256ac05a76447b14e3"
     sha256 big_sur:        "e9326d3ea690dc41682ff022c73798e14113b502779e295f737c62b2ccf74233"

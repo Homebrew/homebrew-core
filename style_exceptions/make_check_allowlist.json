@@ -3,6 +3,7 @@
   "beecrypt",
   "bdw-gc",
   "ccrypt",
+  "cryptopp",
   "git",
   "gmp",
   "gnupg",

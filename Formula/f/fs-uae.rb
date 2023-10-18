@@ -11,9 +11,11 @@ class FsUae < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9a2fbee9c1775354923db18f96abbd547af702a295b74754efe801addb1559bc"
     sha256 cellar: :any,                 arm64_ventura:  "796be0965c3ac6791c1dc8b2a55ced73b935ce5d74ed1406a2561ae1269bc59b"
     sha256 cellar: :any,                 arm64_monterey: "b9f361e0cc2b048aedb761409cd9a79c34c98ebaa22a35c426b4a42e93884933"
     sha256 cellar: :any,                 arm64_big_sur:  "0caec2b541d80f8645decd87cabdb34e327844afaf5c06b526572eb52d3526ec"
+    sha256 cellar: :any,                 sonoma:         "260f474cd82501a383fd20295d8e8917d52ad28f008f9f6b5f145955c988293a"
     sha256 cellar: :any,                 ventura:        "8ffb22e83dade981cbd3b4ccb58dc032db6f38dc0401620491d96e93342a12a0"
     sha256 cellar: :any,                 monterey:       "e73f955c331c42ddcbada8c15dcaaba7aa3c4c1f2471b6303ca920d90977b6c8"
     sha256 cellar: :any,                 big_sur:        "7d0fa0057f0d4e76d802554b9a29666b556f0bae8520430e73244abfbfcbbd72"

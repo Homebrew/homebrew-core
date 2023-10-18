@@ -3,8 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapcraft/archive/refs/tags/7.5.0.tar.gz"
-  sha256 "93cf864cb9bab8614411ed97dcf6b5dfc1bd4cb1c2a7044960986da0c7695288"
+  url "https://github.com/snapcore/snapcraft/archive/refs/tags/7.5.3.tar.gz"
+  sha256 "3dd5cc59a2cb56e647e7906af7e2c9c01493d19c91132a8d0208a930449db650"
   license "GPL-3.0-only"
 
   livecheck do
@@ -13,17 +13,23 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c3a2d0391d87d471f2479570a296f7df0a0305c384eca65aa325a11e927cf6d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "940f1a574217a971d39a7d8dca874a2277ec4d6befcdb57aca376714908ac76e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "af0ec5835739dda677cbd5ea4c1aebb974327aa13dad3ec2bca5b3b93ddea18b"
-    sha256 cellar: :any_skip_relocation, ventura:        "890dbad183ff29534f3a0fcf24fd1f7ab2c3e9a176840a160024953371f7f164"
-    sha256 cellar: :any_skip_relocation, monterey:       "870423ea70caf9771ebb7b72f8d87346e15e10dde9b7cf9d4002c5e2193b38e4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6ed7885490c70e8fe34159d924c3d814086b2d0b52a4b8bf2baf76f89d8b4dc7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2db9e70ac3ff4f292ec0f8e441daacb8ffcca91b0ca067a33cb1f25e91630728"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6eac6e17d174da2b20875bb76cc30765fceb0545632815fa84d269b3719c8a28"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d22c6fef49e9d81a0d00097de10c21177de5921a73b80cb8a325854454b13090"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e2dda14ddbe75e38f5d619c457ea77795b15c9d95a78d3f2e987b1546d1dd48"
+    sha256 cellar: :any_skip_relocation, sonoma:         "57f03b9e0f099ebb87d3caa9e111a8917824613bbfed86470c6047e4b931c70d"
+    sha256 cellar: :any_skip_relocation, ventura:        "5c3a82b92020b3570d6c3e3245e2d61c335a330489deb42e0c9b215039f967d2"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e4f6aff92f657325e6a22f9db561bd3476d23ccb2a4bebc3795672dc41ff4fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af2c59001b2f87573dc8abbbc2af25fb690b2a51d585905fe0947fbb346869c2"
   end
 
+  depends_on "cffi"
   depends_on "libsodium"
   depends_on "lxc"
+  depends_on "python-certifi"
+  depends_on "python-lxml"
+  depends_on "python-packaging"
+  depends_on "python-pytz"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -31,9 +37,6 @@ class Snapcraft < Formula
   depends_on "six"
   depends_on "snap"
   depends_on "xdelta"
-
-  uses_from_macos "libxml2" # for lxml
-  uses_from_macos "libxslt" # for lxml
 
   on_linux do
     depends_on "intltool" => :build # for python-distutils-extra
@@ -102,16 +105,6 @@ class Snapcraft < Formula
   resource "catkin-pkg" do
     url "https://files.pythonhosted.org/packages/b0/c3/c2f0de6be573b2209e229f7c65e54123f1a49a24e2d25698e5de05148a17/catkin_pkg-0.5.2.tar.gz"
     sha256 "5d643eeafbce4890fcceaf9db197eadf2ca5a187d25593f65b6e5c57935f5da2"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/98/98/c2ff18671db109c9f10ed27f5ef610ae05b73bd876664139cf95bd1429aa/certifi-2023.7.22.tar.gz"
-    sha256 "539cc1d13202e33ca466e88b2807e29f4c13049d6d87031a3c110744495cb082"
-  end
-
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/2b/a8/050ab4f0c3d4c1b8aaa805f70e26e84d0e27004907c5b8ecc1d31815f92a/cffi-1.15.1.tar.gz"
-    sha256 "d400bfb9a37b1351253cb402671cea7e89bdecc294e8016a707f6d1d8ac934f9"
   end
 
   resource "charset-normalizer" do
@@ -220,11 +213,6 @@ class Snapcraft < Formula
     sha256 "5026853fcbf6f91d5a6b11ea7860a641fe27b36d4172c731f4aa16b900cf8464"
   end
 
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/30/39/7305428d1c4f28282a4f5bdbef24e0f905d351f34cf351ceb131f5cddf78/lxml-4.9.3.tar.gz"
-    sha256 "48628bd53a426c9eb9bc066a923acaa0878d1e86129fd5359aee99285f4eed9c"
-  end
-
   resource "macaroonbakery" do
     url "https://files.pythonhosted.org/packages/52/40/2a8bb2f507ce1a6c5b896c1b98044d74d34b07a6dd771526b4fe84e3181f/macaroonbakery-1.3.1.tar.gz"
     sha256 "23f38415341a1d04a155b4dac6730d3ad5f39b86ce07b1bb134bdda52b48b053"
@@ -248,11 +236,6 @@ class Snapcraft < Formula
   resource "overrides" do
     url "https://files.pythonhosted.org/packages/4d/27/30c865a1e62f1913a0730e667e94459ca038392b6f44d69ef7a585690337/overrides-7.4.0.tar.gz"
     sha256 "9502a3cca51f4fac40b5feca985b6703a5c1f6ad815588a7ca9e285b9dca6757"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "platformdirs" do
@@ -318,11 +301,6 @@ class Snapcraft < Formula
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/5e/32/12032aa8c673ee16707a9b6cdda2b09c0089131f35af55d443b6a9c69c1d/pytz-2023.3.tar.gz"
-    sha256 "1d8ce29db189191fb55338ee6d0387d82ab59f3d00eac103412d64e0ebd0c588"
   end
 
   resource "pyxdg" do
@@ -401,8 +379,8 @@ class Snapcraft < Formula
   end
 
   def install
-    # Workaround for Xcode 14.3
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version == 1403
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     # Allow building without git clone: https://github.com/snapcore/snapcraft/pull/4306
     inreplace "setup.py", "version=determine_version()", "version='#{version}'"

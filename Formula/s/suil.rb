@@ -12,9 +12,11 @@ class Suil < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "da4e96201ab8522bf7fa29606b0f173362b7559aa99b1ea23edee4c46f0d885a"
     sha256 arm64_ventura:  "c16352b240c86569da188787f15046383e4a19e1c29c43af837fcef3920e5e8b"
     sha256 arm64_monterey: "0c4d8b7e8560e0943ddec670ff4d3a67ee0875b5d277df4c3000c9944e6dca1f"
     sha256 arm64_big_sur:  "2182b7000767586fb9e95a79f56e8099eebdad2592a3a8d2aefe2c857a941415"
+    sha256 sonoma:         "082717615091cc3caf9a9f2619deb24c8777a00a667e725a802ff6bc3b1bc50b"
     sha256 ventura:        "9b1422b8a975aa305885b35234a38774a764b9a19163a62ce970b43af29f3a89"
     sha256 monterey:       "934191e852bb9a873c72de4049009d1572e1258e8984deb69a7270e2a4ebba5e"
     sha256 big_sur:        "e4e4e33c56f403d0d8947c9955c44e38f488a44aee173c6776c5450b360fdb69"
@@ -24,6 +26,7 @@ class Suil < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+  depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build
   depends_on "gtk+3"
   depends_on "lv2"

@@ -11,9 +11,11 @@ class Detekt < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
     sha256 cellar: :any_skip_relocation, ventura:        "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
     sha256 cellar: :any_skip_relocation, monterey:       "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
     sha256 cellar: :any_skip_relocation, big_sur:        "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"

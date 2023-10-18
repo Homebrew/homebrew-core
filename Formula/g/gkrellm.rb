@@ -11,9 +11,11 @@ class Gkrellm < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "6816f085dc6c091b9a94131eed3fb6b8b0a12dcb7ad89cb279d5dc89a15e3f94"
     sha256 arm64_ventura:  "dd870efc661b45e29ad69fc2413a3d78069763d01e0b1b7c5234df19bf3c102f"
     sha256 arm64_monterey: "3983e2437e1930f66c19ba5dfffe300ec7624aad43a3e0b4d4b49ead2ec70167"
     sha256 arm64_big_sur:  "e2722e8eef55bf785c42548a507355bd44df8c6df7dcc40a8c2f5b40f8c2c290"
+    sha256 sonoma:         "caca1f881e66e407d6042369a2195856b9002960fab1135fb350437f17f7649a"
     sha256 ventura:        "a2ce7b7c4e41372864b7de15a19d649dbbdb6bcd6c8de4bf1b96264358d834fb"
     sha256 monterey:       "5871cd121aa7aa4b0bfc6af75e8e718a1e49d560f23efb2a98ad1255167143d9"
     sha256 big_sur:        "7a4eaed03a5da148716b65e02cdddb03b13c3c1bdf6f43c65cd4833be4d09166"

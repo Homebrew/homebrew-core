@@ -8,9 +8,11 @@ class Texinfo < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "c1cb88feb1a8464858f0d65a30ee80623acbe770efa7f391b3fb1e728609404d"
     sha256 arm64_ventura:  "1da60ed030da20fe03388dc0a40271783c5bcc2dfb3d50710ca431f943ef48b1"
     sha256 arm64_monterey: "d36424fb6c196b55f5acc459c393c8950b26cc71d05f15b7d5c7879ac438685b"
     sha256 arm64_big_sur:  "f5af81647753a8f2e1f5882a7ced2d5c6a6c3b55d16a7b21d35f91951bb99eec"
+    sha256 sonoma:         "d7f2725cedafc0a11ce472a390c49a5434312f0d36db11eeba163ec99e358bbf"
     sha256 ventura:        "023fb6a619944667e4c1601c260f4b5d12602af3e4a0acdab615426b3856ef66"
     sha256 monterey:       "b6b367a26527726756c1addb017425929b6fc5f344171366c607c842fa53e205"
     sha256 big_sur:        "37d2829b2d1127a25cc761de8d1ae8595720c889e24ba94695dd1786abaef626"

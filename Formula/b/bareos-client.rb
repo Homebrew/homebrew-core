@@ -11,9 +11,11 @@ class BareosClient < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "c85663b87c2069674f74daa467b427dbb0adde00ecdd23d2d5da70ce5849bc0b"
     sha256 arm64_ventura:  "e86d1ce16bc66fdf6dfe1970900f30caa047ae168010314e361c4f381992b6d0"
     sha256 arm64_monterey: "41c162660184898882572268b91b7c5d7e1e4c212fae191dff57a742d1ac153d"
     sha256 arm64_big_sur:  "844bdbffec650e13937bfe75d5320d82785f3934524fcc8467c11362814507e4"
+    sha256 sonoma:         "cafc0eedc3067e6f86d31fd7dcc555625802b3cf00422501e458973b3c778b5f"
     sha256 ventura:        "14881605ad0493cd05cfaa77c1737290e6fbeb1771810d4b0694e64a8f92a202"
     sha256 monterey:       "9e27718126d33afedb0b01634011c4a9edffcc2cb648f409699aa6484a688ffd"
     sha256 big_sur:        "69c7bc9ce269bd759fdfb1846187e1e594b9e4652c621cc5fb99c49edb5ededf"

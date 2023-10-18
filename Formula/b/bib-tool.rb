@@ -6,9 +6,11 @@ class BibTool < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256                               arm64_sonoma:   "20a1020682e98e6b692a2096aea9d9963c6294f12c810ce0aa9135ca26bf6da1"
     sha256                               arm64_ventura:  "7cb1325a01c1b3516c543d5911f0b10eeb6e68df2abe4b3541ff68242ffc356e"
     sha256                               arm64_monterey: "d9e9e76159ba4398731428fd7ab2523d9066c325b28efc7b6012b5e9784bfd95"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56f39057fc8ab04a9f3e2a05ba7ad58a01bd73b66dcd50715ea8c492afaffc7e"
+    sha256                               sonoma:         "9b04230870283c0bbb78a8abbc3c805bcb3ba5df1e713c98f57e39ace29ec4b5"
     sha256                               ventura:        "6ab04c4b9cc2400c1e0239654e1ee02487b545e497597eae58d20cdef1a9448e"
     sha256                               monterey:       "552d9e005a5e6362efac8d592fd26bfa2669651776a2ec95ee0a9dd32c6854d3"
     sha256 cellar: :any_skip_relocation, big_sur:        "e2c2aafbf6a019096510776591956f8114489eff19cb46578dc33f1ea85401d5"

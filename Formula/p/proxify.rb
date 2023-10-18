@@ -7,9 +7,11 @@ class Proxify < Formula
   head "https://github.com/projectdiscovery/proxify.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5cb50cadfb17e4cb5aac19dcbf5c02fab196ccd4a761f7d63683f21de580009"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "553399eb553d799ecb88926b2d1456f142eb249f0954b24b1b3e7c9829599247"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "553399eb553d799ecb88926b2d1456f142eb249f0954b24b1b3e7c9829599247"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "553399eb553d799ecb88926b2d1456f142eb249f0954b24b1b3e7c9829599247"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b743e3fcb50e59c27488c361d7acd9ffbcf6b85f1150ac42cf84a92527fae4f0"
     sha256 cellar: :any_skip_relocation, ventura:        "0ac4ac1f0d17c20fa320ee3f8d55458491d70a08b93b891ee0a8b993913bbe36"
     sha256 cellar: :any_skip_relocation, monterey:       "0ac4ac1f0d17c20fa320ee3f8d55458491d70a08b93b891ee0a8b993913bbe36"
     sha256 cellar: :any_skip_relocation, big_sur:        "0ac4ac1f0d17c20fa320ee3f8d55458491d70a08b93b891ee0a8b993913bbe36"

@@ -6,9 +6,11 @@ class Pcalc < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1213e5809a02adfdb8f3d9b37c9fc20f3bdc55f33f165c40205bab09fd118bad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8726e03985b7241593b16d00eafd49b008e479058d3bf984da595c3e4cc2195a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8cb160f96c00151800102a58e493b8e394bfdaea743329ca7af245502185bdf5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ba2a72db4f367a3ae6dceef1eba8eb5e9ea84586acef55d163d53503a3ffddb1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d42537f4273abcdc5edac493debde8238b833ec7110e6686692ce00128c85661"
     sha256 cellar: :any_skip_relocation, ventura:        "7929c84fa052dc93f47b5dfe37d4332ff916e2c300739b08f721e72bea265a86"
     sha256 cellar: :any_skip_relocation, monterey:       "2259c04f3360d9bb7c26693fe47651972408c21d2b18a7760ecc218d2e2a33ab"
     sha256 cellar: :any_skip_relocation, big_sur:        "bfef357df427a5d36419bee76ac2a65ce36e191c354d9d773f53b3ed6fd7058f"

@@ -7,9 +7,11 @@ class Openmotif < Formula
   revision 2
 
   bottle do
+    sha256 arm64_sonoma:   "55a73021c505f7ff8a2e8964ed56a98367acf21913ee52d9fb26a3bc32ae713e"
     sha256 arm64_ventura:  "d89a76242fafca764691044cab4fc7e5b3bf0eaa1756b07732e6645ff3642c75"
     sha256 arm64_monterey: "3942656be5f95807753f8549c98d5263cc9bd510a9b73e4bb6256dfa8928bd76"
     sha256 arm64_big_sur:  "004bb6002de4b145d78adfb0dfd3dc69de01012daa7632770329bf658cb52420"
+    sha256 sonoma:         "9bc38b13491771e81f2e8716e6d1a6e03840cde63ebd8b6d94c155859603de4a"
     sha256 ventura:        "be57abbebbed852db219a8b1052cb6dc19bc816a9bfa39c02d4f5fe563fa9be5"
     sha256 monterey:       "3d8e123bd66804492e9c029dd8cf4f5c6eee742f55558e8aeda6cc80f41021cc"
     sha256 big_sur:        "186bd2c9a8f7d69e31e4d00e206036f8128483627e1af8310b847d2e327bb413"
@@ -49,6 +51,9 @@ class Openmotif < Formula
         /(LDADD.*\n.*libExm.a)/,
         "\\1 -lX11"
     end
+
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"

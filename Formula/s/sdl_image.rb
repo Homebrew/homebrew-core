@@ -18,9 +18,11 @@ class SdlImage < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2309798338f6446f68fb9fea59df32fb2c49d4a231aa4142359a8b257910adb1"
     sha256 cellar: :any,                 arm64_ventura:  "f78f67df35a9a855ad454eb949ae9c29cbf8e46d8194d14200fdb4cbfdbc654e"
     sha256 cellar: :any,                 arm64_monterey: "d62d62d599148f2192757454c619fd4da0c348ce2569b86724fc5a6690bc3875"
     sha256 cellar: :any,                 arm64_big_sur:  "581f370aa1bc5aacca8e449936510213ece0d0aa6239609cfd2348f9b7117c82"
+    sha256 cellar: :any,                 sonoma:         "8b6cce734fce986f63c6935b4b55f322c0352733682646bcf728af252b39df3e"
     sha256 cellar: :any,                 ventura:        "4a428361fb16f0234036e6d34dcdebd12c60a44c4ef298ade17e962ffaaf331b"
     sha256 cellar: :any,                 monterey:       "dbc80abd8e87a602aaa4c2b5fca7cb6819dcc05d667313cc5ef63cf762439923"
     sha256 cellar: :any,                 big_sur:        "1d5d05a09f10fe88be79a45a4ad4e062949be49f98ab54b30674df945258c079"

@@ -13,9 +13,11 @@ class Mftrace < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3df982fe966773ce40405baf24c5742bf88e9260df0391e073964431d55de492"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcc7091b7e3aab969e797cbb583d8d8349856433c9452c818c1cc338b53537d9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b7d41129a1f83e1c9e84ad20e706ebd3d93e6c7b9801bd90e866d0e07d8234"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24bae79ec700220fea014de05a63df51c061ecf8817e737c24a00c1fd2b3f6ea"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cfe23181c61d4a380aa1b789462f9a9669c6d8967ca1ec8445931074800ae4c0"
     sha256 cellar: :any_skip_relocation, ventura:        "dc53be3197cdb6ee63607d4d9d3e94220953e85ba05c5e698156087382d557de"
     sha256 cellar: :any_skip_relocation, monterey:       "bae6d024e848e8f7c7a18f8b6d86359f652b7715daa1a11bcdcb6c4e03b5e0b7"
     sha256 cellar: :any_skip_relocation, big_sur:        "57483c84e1722e4ec6e606c24336a615bd8710c3735bbb1c32e3a3afa64b3b22"

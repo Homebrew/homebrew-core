@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/29.0.0.Final/wildfly-29.0.0.Final.tar.gz"
-  sha256 "8916d63a32bb4a7cbd9ac63dabe4ddd34acf04feec75c1e407e6eebfa78c37f0"
+  url "https://github.com/wildfly/wildfly/releases/download/29.0.1.Final/wildfly-29.0.1.Final.tar.gz"
+  sha256 "af974eed6f095f49c250ddbc121050fa5c1bf9a1575f880eff9418898aef4269"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,12 +11,14 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "a7091f7be4607ca80cefbb695b964b835e2268252636be441e5729a0ffe75a77"
-    sha256 cellar: :any, arm64_monterey: "a7091f7be4607ca80cefbb695b964b835e2268252636be441e5729a0ffe75a77"
-    sha256 cellar: :any, arm64_big_sur:  "a7091f7be4607ca80cefbb695b964b835e2268252636be441e5729a0ffe75a77"
-    sha256 cellar: :any, ventura:        "8ca733567f1dd93d4071dd40d8849865db948e2bbe3fc85f272a8cf9e32aac47"
-    sha256 cellar: :any, monterey:       "8ca733567f1dd93d4071dd40d8849865db948e2bbe3fc85f272a8cf9e32aac47"
-    sha256 cellar: :any, big_sur:        "8ca733567f1dd93d4071dd40d8849865db948e2bbe3fc85f272a8cf9e32aac47"
+    sha256 cellar: :any, arm64_sonoma:   "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
+    sha256 cellar: :any, arm64_ventura:  "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
+    sha256 cellar: :any, arm64_monterey: "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
+    sha256 cellar: :any, arm64_big_sur:  "9cab7370edc5fcb4844e658ac38ec11ef8d9c99c43dc4e8b9983499e50fc4dd6"
+    sha256 cellar: :any, sonoma:         "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"
+    sha256 cellar: :any, ventura:        "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"
+    sha256 cellar: :any, monterey:       "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"
+    sha256 cellar: :any, big_sur:        "6814dc8c437460bd9cf02b420c81a4ac37576e7751cdd296a21100e92910167d"
   end
 
   # Installs a pre-built `libartemis-native-64.so` file with linkage to libaio.so.1

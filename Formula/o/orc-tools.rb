@@ -11,9 +11,11 @@ class OrcTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"
+    sha256 cellar: :any_skip_relocation, sonoma:         "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"
     sha256 cellar: :any_skip_relocation, ventura:        "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"
     sha256 cellar: :any_skip_relocation, monterey:       "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"
     sha256 cellar: :any_skip_relocation, big_sur:        "79b2bb4ecd0d9d21f8b809399e1b2ca9fa414c8664f4bdb2586a166123867431"

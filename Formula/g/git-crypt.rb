@@ -12,9 +12,11 @@ class GitCrypt < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "7f7d947bee0409a0ad8f6fd0a023900cf6bc8fc8c507cd39c290b606e2f4b5b4"
     sha256 cellar: :any,                 arm64_ventura:  "0fa83aa6dc1b794075e1a959c27ba858024f234c52d390c048a7b01538c089a0"
     sha256 cellar: :any,                 arm64_monterey: "e062f956b5b18899552b3389177be8f69f7cc41c4aee5688b40c2e4249ec9b98"
     sha256 cellar: :any,                 arm64_big_sur:  "f33b245d7f7948d3af259bb7faacdf37a83931e73e6f0e7e28f826b49fbff1c3"
+    sha256 cellar: :any,                 sonoma:         "cf81ded20bc606b7c6cbf55b778c73bfd56ac71a9cd2e6d04cf2312cf52f940c"
     sha256 cellar: :any,                 ventura:        "02d70c5e710b98eb4a9d1e95fd5265bff5b09841df7aa629f9576596d1ddcae9"
     sha256 cellar: :any,                 monterey:       "9a63b27a7544ebd2eba62ec5b744e8e278fd239451cba5dc6e876e5cdb59f581"
     sha256 cellar: :any,                 big_sur:        "d70c2f3e01239cf5294762cfcafecfe70d977c395da50bedd45f990d5bcc1b23"

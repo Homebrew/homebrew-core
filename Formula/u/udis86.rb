@@ -12,9 +12,11 @@ class Udis86 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0a1f4f4ba4fd2a3187075c2390eab0ac8ea0e3aa49d74e6ca74752269cd383b6"
     sha256 cellar: :any,                 arm64_ventura:  "4b94655d1de023c07b206dc196d082d727fb4d912b712e4c43ace873236ec5ed"
     sha256 cellar: :any,                 arm64_monterey: "d21c7de8ded29dbf2218802883f3a2e702e338722345b06aeab3a5146b81b29e"
     sha256 cellar: :any,                 arm64_big_sur:  "97a5c453ede751fa70387f5c66f3c618bdc421d29ed1da6ec6e002b0efd7705f"
+    sha256 cellar: :any,                 sonoma:         "15f7586105f9b0b33dd462d435f94cc746461efa2a74be5f77461b6cf91171c6"
     sha256 cellar: :any,                 ventura:        "366578e443141baec010770da4ae054d44d271491c6a93263d2d82b28d4f0c8b"
     sha256 cellar: :any,                 monterey:       "d3b5ae26039dad3f35b3ead709fb8ee9be23ccaeb619d0b009830e7d94e151db"
     sha256 cellar: :any,                 big_sur:        "d34571cf019e170edc18b80d678db9d27d1cbbeab7e4c1ba9e667868a1d3dd43"

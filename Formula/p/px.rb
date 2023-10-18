@@ -4,21 +4,22 @@ class Px < Formula
   desc "Ps and top for human beings (px / ptop)"
   homepage "https://github.com/walles/px"
   url "https://github.com/walles/px.git",
-      tag:      "3.3.1",
-      revision: "74162d39a483599686d8d002f89657d5d6fb452f"
+      tag:      "3.4.0",
+      revision: "18dd82c9cbfb85b50f835e120b10d71a20c35de3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0537c8e90f41b5ebbdc27a32b9f0aedda74a7f96822e2ae904031a86b924ff37"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e3885d71f00bcf5c1860efd6e42f395e43048daf9f190864f511c92abfbc9d9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0d89830877ea97aac7a53de9e188b2d53e8646a2d06211193cc95eb99775ddf"
-    sha256 cellar: :any_skip_relocation, ventura:        "28bae00c3fa433d437bb43d78d68d59c9e605edb28bd08445d80aae84eee3401"
-    sha256 cellar: :any_skip_relocation, monterey:       "d16c70a1e8b35ff38c5eb465e904db7a72b1d0c913d8618a18fbdc118fc4acb1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "82dba60a8a8f212928320d5a11245b848eb86d7358361665b65ac8425c4bd3d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d28d919bba7bfe9e7ef3ec42774fe64fabb50c0f6eeafd52793226fcb581428d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfcb28d46e0816d17d3fc09744f3fca508999b65ffa4b5879c8a848c6d7c2252"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d2c7660ba144d10cdd70fbe6f07b5dd01549ff005fd0ccb861975b3e2652b7cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e464ea6b8396cd2a2c98af8849e22f88b5f7885f172f12f062dfc8ac7ea296c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "45f85b81dd4e268809da649c477384d7a425213171edebb31936c7d2e4e4ceea"
+    sha256 cellar: :any_skip_relocation, ventura:        "97c5ddc551cb80b01e12a60fdb200e3a5cde7d4a284f6459cc18a7b899278674"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ad47086635ca8dd852039464760a56dd8010d64d5f9806df898ddfe723f5ccc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5de4904594c2181a4ced17e80fbdc341a79bc45ba68cbfcb9e81d7b860235a8d"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "lsof"

@@ -1,10 +1,9 @@
 class Never < Formula
   desc "Statically typed, embedded functional programming language"
   homepage "https://never-lang.readthedocs.io/"
-  url "https://github.com/never-lang/never/archive/v2.1.8.tar.gz"
-  sha256 "3c03f8632c27456cd6bbcd238525cdfdc41197a26e1a4ff6ac0ef2cf01f4159b"
+  url "https://github.com/never-lang/never/archive/v2.3.9.tar.gz"
+  sha256 "9ca3ea42738570f128708404e2f7aad35ef2b8b4b178d64508430c675713e41f"
   license "MIT"
-  revision 1
   head "https://github.com/never-lang/never.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,15 @@ class Never < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00a7deb123f322baf99db81fb91976bc33fa7b8a7caa156dd418022e3e9d1467"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e65bdb33bc931bd228cf68d7af2f69da95f06b5d8c72a5f8acdeeedd7f57a76"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b905f6979c6ec036a74152d97e91f781f172605191ba4d44bd6dfc15ec541850"
-    sha256 cellar: :any_skip_relocation, ventura:        "5164b7637fc16dbc4ed53ec87ea713ef484b53f1b856ccd02b5d80659a3d147d"
-    sha256 cellar: :any_skip_relocation, monterey:       "14ea02dd081e33a0b890e056e233678f5df727f8c27c04bb09a71690bc12f395"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bbf2f7aa7d819529ef54afd73a0e06b3f4fd828444d11d0a966450b12cdc0c34"
-    sha256 cellar: :any_skip_relocation, catalina:       "1ee5c77bd6eda59076c0c33e38b3b0ef75b27350b0a4f2947923b9a0a177022e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7d23bf87c23cbaa07bf607416d7d6da8d2a217046ab6858e4108cbdb9f1baff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de0e6c32586534fa999011920ccdcbeb91429e16a1f032e9702be8c87556fed3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4c74cff8a5b42c144b8936658171abc0ef544be17dd62a6552552de7f7ba781"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "94c676366e00825d3eab442451d7a9235af9df474e3431f775920607dddee761"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe69dd034727e31b1d680ec12ab8fe6e6d6faff7c47a66f43b6ffd3d5e6e458c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "abbbe090dd2542052901dd60991fe207952aa1916e0fb936a4ac099140f5a565"
+    sha256 cellar: :any_skip_relocation, ventura:        "9fbcc22654686fcfebff4d485b2e763bf2555672854796a9338b821bf2a998fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "704cf0ced4f7c9526b337dc2dfdcab520956603fbc5edb3859f042d93460b2dc"
+    sha256 cellar: :any_skip_relocation, big_sur:        "df908438891a84cc6833cf1f7d4a5e8515a9c24a787cf15a39175202c01b86f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3732a0e925be723674dea91079efea95b0df1863dade024d110b32214707d651"
   end
 
   depends_on "bison" => :build

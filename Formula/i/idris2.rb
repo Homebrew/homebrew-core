@@ -4,17 +4,17 @@ class Idris2 < Formula
   url "https://github.com/idris-lang/Idris2/archive/v0.6.0.tar.gz"
   sha256 "7f5597652ed26abc2d2a6ed4220ec28fafdab773cfae0062a8dfafe7d133e633"
   license "BSD-3-Clause"
+  revision 2
   head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a49f693f52ad42da0ee3f35a9a10e1dcd5f32685fd5451deeaecb23f9ed36f12"
-    sha256 cellar: :any,                 arm64_monterey: "3b82a59689104dda8e87e8199ebc9c0bb432515007cc0d366612edea5808aa33"
-    sha256 cellar: :any,                 arm64_big_sur:  "8bdd7743b96d8c5b770f734e49813eed9d5637382dc734156408795c9e2afe69"
-    sha256 cellar: :any,                 ventura:        "49c4997459befc0a8e895736ac068e216e905b79d71633fd42251606031febd5"
-    sha256 cellar: :any,                 monterey:       "d905ded56aaa8c99d992c3e84e7e02d9d5f9c77089143abce7ddd4d8f8f1f4b2"
-    sha256 cellar: :any,                 big_sur:        "6f4a6e589b386f30801c0cf36ee61cfc35017ded177bcae84235c2562058417c"
-    sha256 cellar: :any,                 catalina:       "ff005be1e9e4fafc1a20f04f51aa4d72ecc918df190b2dac6b2b341bd3e455ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ed08bd3734a40d1ecebc329afdddc7165d894dc043966fcc7e03ea354347194"
+    sha256 cellar: :any,                 arm64_sonoma:   "096ddbfbfccdbee8242d04157372aff355c2b36635700af0ef8e1e69ea69f946"
+    sha256 cellar: :any,                 arm64_ventura:  "02908db1c3731c1319cd0c0236d99c903963b9e9332d8557f6ba2acbe826378c"
+    sha256 cellar: :any,                 arm64_monterey: "31c73af3381e2a3574c69f45108a242bb9d778b01800684fc69b51284d2fa11f"
+    sha256 cellar: :any,                 sonoma:         "9dc963bc486b967c3bbbd1b9209f7f08595b97dc957a6d70899cb4dc303e5495"
+    sha256 cellar: :any,                 ventura:        "30e55e2cb668abbef2c4a56db77b6c70002e9d68888a4961dcae23761379c12b"
+    sha256 cellar: :any,                 monterey:       "a18ad57d7c9c279744f20a833f4f0af478d39628bdfd466357314976799dfb38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb5499e2beb0f08d067d587744647f4b85f443a07268b8dab1aaaa67c87755b1"
   end
 
   depends_on "gmp" => :build
@@ -30,8 +30,8 @@ class Idris2 < Formula
 
     resource "chezscheme" do
       url "https://github.com/racket/ChezScheme.git",
-          tag:      "racket-v8.6",
-          revision: "9383dda64db9f430a95bb5cf014af2afdc71fb0c"
+          tag:      "racket-v8.9",
+          revision: "baa880391bdb6b1e24cd9bb2020c6865a0fa065a"
     end
   end
 

@@ -6,9 +6,11 @@ class Bzip3 < Formula
   license "LGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f7888c2995a326738ce5c4c64d8b1a474f91a51eb142766944d38650eb8e9411"
     sha256 cellar: :any,                 arm64_ventura:  "2ea8b7e5c22220aa1a619d8965980f9de2e1797db4a5661b5e02e72aaa79b3f8"
     sha256 cellar: :any,                 arm64_monterey: "d3385e01ee63a9276ff6e97d45dc915302975033200e2b8982c4e9ecae86c925"
     sha256 cellar: :any,                 arm64_big_sur:  "97823e4f334ac360abe4d586082bd41e849d12456a289e726b8c3dee67ab31ba"
+    sha256 cellar: :any,                 sonoma:         "1a648a430becbe99e2eea26cd84f53ac8a4a21681698ff8c8c248dfeb0c481cd"
     sha256 cellar: :any,                 ventura:        "3def923fa3d96d2572e06f14955c27ed0ee01be0feaca282d2a419247c54156e"
     sha256 cellar: :any,                 monterey:       "eaf38150ede60fa2b1a05e940721398bc8cbd21505c1731986b826472ceef9a6"
     sha256 cellar: :any,                 big_sur:        "91948d9ac97c90b0fb18c690f14fe19eb26dfa7dc61e0bdb4b3e04870e2dfc9a"

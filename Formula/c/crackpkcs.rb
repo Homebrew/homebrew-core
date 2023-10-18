@@ -6,9 +6,11 @@ class Crackpkcs < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0b89c0ab5d87df237985c9b1c638457eda5e1fb3d3ce2beda99c4b8ee7f0d1b0"
     sha256 cellar: :any,                 arm64_ventura:  "941c264ba6fed6fb691c2bae290d4a47bf68b62d8fbbbf3cd3f5767ad6b437c7"
     sha256 cellar: :any,                 arm64_monterey: "531a0ea5e420e1a5d8a33efc3f3f027bed2125c1bb00aea565bd2bdde220d677"
     sha256 cellar: :any,                 arm64_big_sur:  "c78cddbd0a61219de5e403a5cf43c710a5a50141ccb3c66767823f0fb8941a70"
+    sha256 cellar: :any,                 sonoma:         "6ac6965acf31cbce243630ac232c61e3b23d14325d4445a8b89a85e3e5a0fe1c"
     sha256 cellar: :any,                 ventura:        "8042cedd03a5382d67488238ddcce502b6a38cc2a3f2e101f9f8ad819051d4d8"
     sha256 cellar: :any,                 monterey:       "cf977d20a83190062068fb6c57d631761af2f8a1cf8985de088abc61db757384"
     sha256 cellar: :any,                 big_sur:        "6616b50b8bdc80f28a69184fe91d3c191c39f8259f539cab29009c65a79d2a99"

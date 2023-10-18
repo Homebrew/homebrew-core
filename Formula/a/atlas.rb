@@ -1,19 +1,21 @@
 class Atlas < Formula
   desc "Database toolkit"
   homepage "https://atlasgo.io/"
-  url "https://github.com/ariga/atlas/archive/v0.13.1.tar.gz"
-  sha256 "fcdb846dc9dea0af26da638557cf47de1d027c30fb75cf82692e2f3f604f77e9"
+  # Upstream may not mark patch releases as latest on GitHub; it is fine to ship them.
+  # See https://github.com/ariga/atlas/issues/1090#issuecomment-1225258408
+  url "https://github.com/ariga/atlas/archive/refs/tags/v0.14.2.tar.gz"
+  sha256 "5f63d50fb2fb4c66cdfef10afcf3b7d4d3fa72e3474006a579ae58b1df7b772e"
   license "Apache-2.0"
   head "https://github.com/ariga/atlas.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8aac14483751b63373c8c8b1f35f4d45d102837d52e2c4888c266bbee73a7319"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8a7f249b8883fb268664955bb6a4f2689f8e6c425bd7fbe5fcf835e4c6dc3840"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95f410cd9a45e210f5a02395c6eb77b3238a0af9e89cfcd4b4921c32a9ba8b96"
-    sha256 cellar: :any_skip_relocation, ventura:        "91563044591fd75d0442625ef9230615856f287ec6905e5cfa8c0d55b03dc240"
-    sha256 cellar: :any_skip_relocation, monterey:       "8bd921c5188d714ef341e09541796dcbda715be55b7a18e8ade5149871f14800"
-    sha256 cellar: :any_skip_relocation, big_sur:        "380fc70c187d43f5477546f089d9b3f2272d238d14c63a0a0e73b88f18c1f05a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28e66b7905e9eae2d9e7c0ebb946b134765a634050b45295519053dbabc2d467"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7be3f8b96c14b9d2c19a5f41e27f2cb95f24b49adc38d9c26b5659e6f31ed41a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "70d216febeadf6fef05e89a6e8eccc79b0adbb4811282db25848b1d8ee7ce110"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e28336a5f2a0e75185d8dadac842324d7119e221ca77badd4089fdc1b9ab73d1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8c69a468c6a7062f2dd1a119e5e5763786be9895a0f163948621bd043bb0d02e"
+    sha256 cellar: :any_skip_relocation, ventura:        "3e3f87cd13c46d7b032933bc715a40f3d599a1c2cf4be341471d623098ab60ca"
+    sha256 cellar: :any_skip_relocation, monterey:       "ddae8ac16f8cef5c2b10b367c78956f01aa6da669664e1f0bd8db793951c0a30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bc6300acf12592aedb4f710716270edf96d28e74cb8b50e53caf2888de80427"
   end
 
   depends_on "go" => :build

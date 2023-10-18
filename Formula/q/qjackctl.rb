@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.11/qjackctl-0.9.11.tar.gz"
-  sha256 "9ebe21b883f0b8d00ba9d52f81efa22c198c6f53d6cc605561d2e967589190f7"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.12/qjackctl-0.9.12.tar.gz"
+  sha256 "08ac61980820e1aa9b7e728e04d8ca1d463b50861e3b572c6b46127fb9836540"
   license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/qjackctl/code.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "baa20bc782384ad46dced4133608eb010e0e6f322cead96d71ab7ee6583f6e75"
-    sha256 arm64_monterey: "038074404a2edef22d820152355e4449ef63def322496bd692058507c521edbe"
-    sha256 arm64_big_sur:  "2d4e75a5685e061cd1913d3289b548c82c39f51f516b373e7449bc4193c31778"
-    sha256 ventura:        "ff578eaeeada8418a8f24703e64c0c8fba134f5d56505f741b21beb1d1078d33"
-    sha256 monterey:       "50709a8c680c4651cd2e954c31d6df761a457274a63197200c30f44b0994c0a6"
-    sha256 big_sur:        "5d77bf148b6805bfa6b96f0f4636805fc43c3476dd8b3e14e85e8b0d6f2a205b"
-    sha256 x86_64_linux:   "884c720004b7d11206d5c50bddf697c21b9b8c0fc3b47b0c5a8796e2a15582da"
+    sha256 arm64_ventura:  "77a62497e3b98b6f5de4f71a19446ad1b7f7fe4ffa319777e553e3eaea2cc3d7"
+    sha256 arm64_monterey: "5f0e0fecdaef3fda61739f1a58ef7f508829092fc4cedc5ebbe34f708d9460de"
+    sha256 arm64_big_sur:  "f65afa15dec149b2a0f7faf3c9f1903d8a832382f0c7aaced0d31a7ad12f4769"
+    sha256 ventura:        "89d072b5c72578d0d1c0077ebcb6eb317a7105c61e149ab7d744f155f4bdadc1"
+    sha256 monterey:       "07c874746f3209637a7e50e377c49441e6809cadafd8c9c81027c44a55b797f8"
+    sha256 big_sur:        "68bb4d82aed4f5912fdb14be4d0ba63555e89c65675dc8a25fd1e52c44e1c273"
+    sha256 x86_64_linux:   "26f28872e134da8aae759c859edc3f6d66cc667fe59a5253025a01dd90e0cfe9"
   end
 
   depends_on "cmake" => :build

@@ -1,41 +1,57 @@
 class Sambamba < Formula
   desc "Tools for working with SAM/BAM data"
   homepage "https://lomereiter.github.io/sambamba/"
-  url "https://github.com/biod/sambamba/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "6992c5c29f7917e404dd2b32fff4e75e3655c27129053e5fa01cfabe1f4d071f"
+  url "https://github.com/biod/sambamba/archive/refs/tags/v1.0.1.tar.gz"
+  sha256 "955a51a00be9122aa9b0c27796874bfdda85de58aa0181148ef63548ea5192b0"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "65fec6529bf575d9b2b9862176e7473bede61ae4b9f62d1a774c92b178ce191c"
-    sha256 cellar: :any,                 arm64_monterey: "95c29568fd32c390b9f7fb3b987571de33bec7b7c69f10ff361b2e2db3c16ae9"
-    sha256 cellar: :any,                 arm64_big_sur:  "1184fa77484b25973406fcb32f502c2e9ee59aacb696264e4f5cc6288bcb0047"
-    sha256 cellar: :any,                 ventura:        "c3a31963af0c4fb3ecbac0ba82b713f9846015f3102cbec71ef36d656467746f"
-    sha256 cellar: :any,                 monterey:       "5a87b0561b1c39d09c5fcdb194c72761da5caed1f7179e4951b09ec36446200f"
-    sha256 cellar: :any,                 big_sur:        "75c2ecf2e3d05a749cbf6b9cbab7ecb393eeea5b4d89cb678b4502beab45c1b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "babf0d1ef2aede94f2e48c3def6d1fa50f8450f2d2002f23394858169a4d3014"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ec988d75fd0cb7ceb2c2ba1ce9e4081e70004caca8ac99793f1d0452a2afe32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad59fcbbff179f5b753d40baf1c9e1e1b9e24feef3275d38e409d3199e3e9d55"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fc71f03090dc0b8a09e1309f436ac38bd4eb6963e6a057e37bf8503323864cce"
+    sha256 cellar: :any_skip_relocation, ventura:        "40d87797c5a61358da3981c7a1e798fe72b6c1047407b4d8a0f37c21d7b056f2"
+    sha256 cellar: :any_skip_relocation, monterey:       "4ba6feddd3eeafa845c0f66dc6aea389f554c09a8a0c3609644fa44d028e5563"
+    sha256 cellar: :any_skip_relocation, big_sur:        "da17c4589ffb5d927025ce617fafa051c6690665643f5c5544b319882b3bf298"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1981702ab5c074bebeb8054d69f81b4d6df4daea2907026efae832baa8d362ae"
   end
 
   depends_on "ldc" => :build
   depends_on "lz4"
+
   uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
-  resource "homebrew-testdata" do
-    url "https://raw.githubusercontent.com/biod/sambamba/f898046c5b9c1a97156ef041e61ac3c42955a716/test/ex1_header.sam"
-    sha256 "63c39c2e31718237a980c178b404b6b9a634a66e83230b8584e30454a315cc5e"
-  end
+  # remove `-flto=full` flag
+  patch :DATA
 
   def install
-    # Disable unsupported 80-bit custom floats on ARM
-    inreplace "BioD/bio/std/hts/thirdparty/msgpack.d", "version = NonX86;", ""
     system "make", "release"
     bin.install "bin/sambamba-#{version}" => "sambamba"
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://raw.githubusercontent.com/biod/sambamba/f898046c5b9c1a97156ef041e61ac3c42955a716/test/ex1_header.sam"
+      sha256 "63c39c2e31718237a980c178b404b6b9a634a66e83230b8584e30454a315cc5e"
+    end
+
     resource("homebrew-testdata").stage testpath
     system "#{bin}/sambamba", "view", "-S", "ex1_header.sam", "-f", "bam", "-o", "ex1_header.bam"
     system "#{bin}/sambamba", "sort", "-t2", "-n", "ex1_header.bam", "-o", "ex1_header.sorted.bam", "-m", "200K"
     assert_predicate testpath/"ex1_header.sorted.bam", :exist?
   end
 end
+
+__END__
+diff --git a/Makefile b/Makefile
+index 57bbc55..1faa80d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -41,7 +41,6 @@ endif
+
+ BIOD_PATH=./BioD:./BioD/contrib/msgpack-d/src
+ DFLAGS      = -wi -I. -I$(BIOD_PATH) -g -J.
+-LDFLAGS     = -L=-flto=full
+
+ # DLIBS       = $(LIBRARY_PATH)/libphobos2-ldc.a $(LIBRARY_PATH)/libdruntime-ldc.a
+ # DLIBS_DEBUG = $(LIBRARY_PATH)/libphobos2-ldc-debug.a $(LIBRARY_PATH)/libdruntime-ldc-debug.a

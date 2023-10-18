@@ -12,9 +12,11 @@ class Cntlm < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sonoma:   "d0c3faca50823ec43395e72762071b26b1fe3860b7fa855f3f12080fb66025e3"
     sha256 arm64_ventura:  "f4674d812c8b17f3e78bea4dfd0bccf3149de7c0be14f9027d2f07724f3eaf32"
     sha256 arm64_monterey: "ec776bb3b8bd91670fdf97e67fefc1ae8c2a4f2901cbb2b007622d22b8e697d7"
     sha256 arm64_big_sur:  "edfcd9088709ea81afc22ec95e7fc9e3c2707dfbcf25582955af0d6288dc4d11"
+    sha256 sonoma:         "d0bdc1e0168ffef33d215c83d0af2e4164c9930c6b5a4ea5abe3b1504707c24e"
     sha256 ventura:        "3bb0d9bd593c362c6303a22d404efc85a9ffcc648110808b3271654574326284"
     sha256 monterey:       "473e65aea1b1536ccbd7390fa121cf0273f47c0184b08bf0398d28aa0e128e92"
     sha256 big_sur:        "fccbf3803f9aff9aa6b0bb9b8f0e17c28b80e1b85ef0d712082744bdd417eda9"

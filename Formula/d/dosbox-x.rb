@@ -1,26 +1,31 @@
 class DosboxX < Formula
   desc "DOSBox with accurate emulation and wide testing"
   homepage "https://dosbox-x.com/"
-  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2023.05.01.tar.gz"
-  sha256 "0aa75b873978aec41ecfee62bb103d8a17fe3566a3ebf5415245cee0dd032ebb"
+  url "https://github.com/joncampbell123/dosbox-x/archive/refs/tags/dosbox-x-v2023.10.06.tar.gz"
+  sha256 "65f756e29f9c9b898fdbd22b0cb9b3b24c6e3becb5dcda588aa20a3fde9539a5"
   license "GPL-2.0-or-later"
   version_scheme 1
   head "https://github.com/joncampbell123/dosbox-x.git", branch: "master"
 
+  # We check multiple releases because upstream sometimes creates releases with
+  # a `dosbox-x-windows-` tag prefix and we've historically only used releases
+  # with the `dosbox-x-` tag prefix. If upstream stops creating `...windows-`
+  # releases in the future (or they are versions that are also appropriate for
+  # the formula), we can update this to us the `GithubLatest` strategy.
   livecheck do
-    url "https://github.com/joncampbell123/dosbox-x/releases?q=prerelease%3Afalse"
-    regex(%r{href=["']?[^"' >]*?/tag/dosbox-x[._-]v?(\d+(?:\.\d+)+)["' >]}i)
-    strategy :page_match
+    url :stable
+    regex(/^dosbox-x[._-]v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases
   end
 
   bottle do
-    sha256 arm64_ventura:  "89dae5ac74ff447c36d42c31853f4e508ba2b29fc298922731b3a323eae4cf2d"
-    sha256 arm64_monterey: "28fe74aaed1dc8e5e6821dbb0824fb9169cd8a3988f5eae3f964af96d09ea1ce"
-    sha256 arm64_big_sur:  "d47e4223e48dcb353844fe1248c9f8fd87fed18effdf9a503ac6f90c165104c6"
-    sha256 ventura:        "9fee80e8182e9bf33964199007aa18e9350a7641b72f738448f5f2dffad3c72d"
-    sha256 monterey:       "bd64240e9131f534bf6c9cbf9773d644036870b5ea0a34898eec7dbec2918b28"
-    sha256 big_sur:        "a351f7daf2be8a72c1976cd050c38519c0227c7807d6282622e552b06bc6aceb"
-    sha256 x86_64_linux:   "271467270b225ed90b3883c583b7e2d2e5e68aa86ae6c5173e00e5d16f567f9d"
+    sha256 arm64_sonoma:   "5d62865c88ef4fb50cba6c57bff513894bb3f030245cc1aa06e748113cfba27f"
+    sha256 arm64_ventura:  "89d237442159c3b04037ea05163933ebcfe4eba76053f36357ee71b2c032c22b"
+    sha256 arm64_monterey: "a318f15ca4ddbb5f70234ea43e62e41f277a8fa3f72994a04022326c5b85ed4f"
+    sha256 sonoma:         "4155241a567c1ab6b2b274e9376c47f0a32c7b5178c5816e6c9b02a0b52f5c64"
+    sha256 ventura:        "ca8134d14440c01c9437238fccd839fcc856630cba0903a0b3fbf8388b9fd383"
+    sha256 monterey:       "e0dafed0d01b3c42feb7459248ae4ce4bfb01c9c2ecc156f49b4e720e500ab32"
+    sha256 x86_64_linux:   "dd48874cc427f766b6e17d609f0d1fa7e86ea373b0b68648bd85c2f23139dfe1"
   end
 
   depends_on "autoconf" => :build

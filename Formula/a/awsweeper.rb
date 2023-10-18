@@ -7,9 +7,11 @@ class Awsweeper < Formula
   head "https://github.com/jckuester/awsweeper.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5010b86841f22dddef64df08c14003a9f8b67be8799a2fd2c25f123b4d87404"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6aaf2bf93c063a5ab9d409f70d77ad32d5c5b8d42f3b9d2b167e83817de89baa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dabe2797d6b3a7f40fa31dff1fc8bc7f7c94918f024f6f866c9fedb43d8ce485"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b4b48419aaa4619449078a64b28ed9bde4b3bb1c05cf096d6852fa92596f2260"
+    sha256 cellar: :any_skip_relocation, sonoma:         "483afd6a7be152d00165c0608892c710ac465e1437fb8fd555e260b06693dc99"
     sha256 cellar: :any_skip_relocation, ventura:        "f45b885d958f4b7752e02dc778e64d88a604021bfb0635a80444ff07c78f2e95"
     sha256 cellar: :any_skip_relocation, monterey:       "54bc928c085313ad7b2cd353bbf4b7e49df992527526348ee0eb01437f9ca87b"
     sha256 cellar: :any_skip_relocation, big_sur:        "1855fe15c7d95a0dddf4487692bf75d6dc234c3ecd25457dffaeab3a2312ece8"

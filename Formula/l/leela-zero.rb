@@ -9,9 +9,11 @@ class LeelaZero < Formula
   revision 4
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5abeab6d5315cbe33f1f4d44fa16ed4cb6da71db45cdfb5102c5f9116fc99543"
     sha256 cellar: :any,                 arm64_ventura:  "ddbffea78b40a3c37948bfd51e86087298d06147234e11afd2415b7d90d0f3dc"
     sha256 cellar: :any,                 arm64_monterey: "f734ef107e6d5c16523ae1bc807b892ddae7b692c9c538288d698dc36d57c47c"
     sha256 cellar: :any,                 arm64_big_sur:  "0c6c2bf6d9dd92e6637fe431089c9efcdc4a672a75c010848482b59ab8a08b52"
+    sha256 cellar: :any,                 sonoma:         "b94aa3130f7c33fd700f6860433e4e6398a375183e6aa5d4ce55beea7c581f9c"
     sha256 cellar: :any,                 ventura:        "fec16c9e60dfabf87969cbc54fdc234d352d71501048110039b4ce9a34d9a35c"
     sha256 cellar: :any,                 monterey:       "7301489a06ca98bf2c214b3266a37089dee980bd11409125ca8a59aac1730839"
     sha256 cellar: :any,                 big_sur:        "de294e82925db4e06a028b29b04aba9bd9724a7924a2b062ab2a766ef4a77c5f"

@@ -6,9 +6,11 @@ class Swtpm < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 arm64_sonoma:   "20e13841f168cb9aef6fc6f22f6179087fc4d68bff065b2c15863fe2f6cfce26"
     sha256 arm64_ventura:  "6bf7f54c1532d4a14a2f4b210aeca4cb4749b642e39637cce1b749b5b324500d"
     sha256 arm64_monterey: "dd61348ec16bc6a6479a0d1520af5c48312a964dd10fa90d1f85ad578da433a7"
     sha256 arm64_big_sur:  "d5c938d7e41d4ff9e1eaabe10536e7cc1b0493660d0bd1b80479e3e14f9f7b76"
+    sha256 sonoma:         "41ff4352e11dca25d43789db11a887490107351f559f5d42f5d486465b4597ea"
     sha256 ventura:        "c023e0cc4da956913cd6cc945846c3c514eac0111b801b5f8f332bcd850a3277"
     sha256 monterey:       "b106e386bcc25ef4f3f3157c5227d1d8ddd07d3da66a817699b987c8c166fcc1"
     sha256 big_sur:        "1c199f5dd2b71c10663900633c6f990cb8b94e59e8bb0020dc8bc18361ee3bdd"

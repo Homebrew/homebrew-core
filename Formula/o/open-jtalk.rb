@@ -5,9 +5,11 @@ class OpenJtalk < Formula
   sha256 "20fdc6aeb6c757866034abc175820573db43e4284707c866fcd02c8ec18de71f"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01962b472c100d6d7e9e3b908f31bed428eabf103cdd8c0a64d5611b59bccb58"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "481210a86e81dd0e1deee82d4e046025d9b1cb273352b75744404f7bc30c9400"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a6fb63e85e6e7e5b3e6bc4071fe38e9bca7f3f820deb6838a4a6b700529b02c5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c0e84db4a3e1d2a336eb2da7f1060845f35ac1db68be727e524dcbfdb2f785ad"
+    sha256 cellar: :any_skip_relocation, sonoma:         "083c7ea85b750c1479190d22ccd418d55753705653536132294e185c756246fa"
     sha256 cellar: :any_skip_relocation, ventura:        "54f06b56bf45958a2df00f97459427d4afc13cfc9017936c7f26b0c33635b5ed"
     sha256 cellar: :any_skip_relocation, monterey:       "6d2bd635abd20f62e50e9d39be4d2b1c50f1bb2a94d87bc2ab396d4f0afba310"
     sha256 cellar: :any_skip_relocation, big_sur:        "b68172f2ccf166ea5e1b46c1908714386cfb24dcafa374a1ab172faa4844cc9a"

@@ -9,9 +9,11 @@ class Amp < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74097d45b7ef924dc90774e815cb23079176494860f4844944f5f6ebe2884be7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d19e2cc1f1bdc9cf5372a8af26514dcd2bce4945d15bb983c2f42925fe2172e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ae421ef5b240a2fa442897dc594c237a77b7f72de3d8566cb3e99776552b62bc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "82e8807dab0c43b84aaf807c0e458214e70705333f55a67b31ead8eb78d4dd5b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "abe1b665c1912b8c4b1ef306c4d4cbd270641c616b48d243388ebadf4b6ebb14"
     sha256 cellar: :any_skip_relocation, ventura:        "667e2486099549c5d67c2d22e03619b957c196cf3b9d07c3fcec00590698f7ee"
     sha256 cellar: :any_skip_relocation, monterey:       "b6b628ccf34ed9277b22f908d57ea12ffca9f4f71af25be554548e20e7e55783"
     sha256 cellar: :any_skip_relocation, big_sur:        "a0813560d9c8739aee6559aae7c0166ce425db267dec97139007ba0a2e62caff"

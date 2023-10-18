@@ -1,23 +1,29 @@
 class Findomain < Formula
   desc "Cross-platform subdomain enumerator"
   homepage "https://github.com/Findomain/Findomain"
-  url "https://github.com/Findomain/Findomain/archive/9.0.0.tar.gz"
-  sha256 "98cdb137ea96acfcc4739718d9abedc9982a01b367e921cefae8516271d9739e"
+  url "https://github.com/Findomain/Findomain/archive/9.0.2.tar.gz"
+  sha256 "1c98f5634ed19ce36a232f8a955098ae84c2d04dfe20bfcc0f10e6e335b8a562"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96b2e4125431fa71e008bc43d370d51fc51d3c2b6a80cd472f17943d2d200ab8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "10e4d264840f439eddce66479b7e099d1980e41edfc4b6f7f1182b670742bb76"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c35ac1ee2fe4008570a80c8423a154f2a61849d336f139941a13df75be9bb1a7"
-    sha256 cellar: :any_skip_relocation, ventura:        "68c6287585b115f52826b576f6934b1d436afdc125dd576c223932e2bdfecf45"
-    sha256 cellar: :any_skip_relocation, monterey:       "5bebd8fd71b41e19fa550fbfff028b79387f95457a0abefe35eb7e04e8c06635"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5017da137332c1d485437a7f1256e3c3e13a1ee266735eeee43288db3d6f74e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fcc7a3fe3746ff274ff41d6b5ea4d0bb20fd0ee750fdc118108796706488267"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f45cad3732dfb8f286e9be640a5546ccb5555809a991e9d49969c20d9e089d7f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e93d310aeab978fcb802f7dd7c42546ff8d17f358b7c21d9fe33a066e8658139"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "741ccdabe2c7c68e357fcb4e15f69996c880a79ef242f3d1a2457e141fedf5f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "150a3ca1de07e6b74d227e93161958741f9de9801b4305be1349024ec2303bf5"
+    sha256 cellar: :any_skip_relocation, ventura:        "0a9152e5041e328aa0ffac534d9669f75bfc5a8f43649d6f097018cbcdb8c0d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "1486cbba1a7c495af67292ca74760e389e129da7df3cd4de919c863594d9cfdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5267e52927c004cfb03e9dc049d3a9319607d8bce688e8871a0abca3436e191"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "openssl@3"
 
   def install
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
   end
 

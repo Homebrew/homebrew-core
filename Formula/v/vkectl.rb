@@ -7,9 +7,11 @@ class Vkectl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e97c5fc11ed6e59b18406768e61e59a5d07197cbccf05877fdb5c533e89481b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "42ef174bc73b1d72b1ac07339f103b636da4131b11ce155936314f4df7ccea7d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dde1dccb53289861944edd98bd291ff3e307d4f3ee9f8c3fa0a5b54e9f5b957d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "93da7d4e85a216bb6a4167023c27d5ed0c50acdf82912d3283142b4a410f4216"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5648074c8c8b10e5bb97672917aaf76f3c18d20213c08f4ebd12d62073af46f9"
     sha256 cellar: :any_skip_relocation, ventura:        "cf2334adc68f3d83cd581d03ec214a8be3e951a80da6e474de37f6915d415d45"
     sha256 cellar: :any_skip_relocation, monterey:       "b15fdb3760570404c00443899dbf5215a9d0a89cb8d23f6eb16d866e0e1b7f5a"
     sha256 cellar: :any_skip_relocation, big_sur:        "a613ea0176b98d6ff76168412fd78fba623cc85b719c23d57301fe2b403eed00"

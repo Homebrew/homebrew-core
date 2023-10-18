@@ -6,9 +6,11 @@ class Xclogparser < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "686aafb3fa3c08a69239fa6bda9110f195d0b3f31cc925b8b28395448bda22ba"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4563ff5ac2c03cb10b0bc33b41b3d97a56c99bf0a3c0511924d5ef18374602c3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb83245ca0057d737291cc85e863341cfe4fdfcadbb5863bd9d462e748b38599"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b422ad12e5b7a6113460778c5e1f78bd728d926b8e0a3bd37697d82f15a34e51"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3bcd38a9ec68e071e668784f404502a221d6053c2243e5a7e3b5bbd1b81db755"
     sha256 cellar: :any_skip_relocation, ventura:        "668b6a84f964e11a7f51a136e4343de59c2636a8d5d1e78fffc43ea522984ba7"
     sha256 cellar: :any_skip_relocation, monterey:       "e9fffc983c4c0b6657e064e512b18bafb20a56c98a2d3305ad8fff34e7120c97"
     sha256 cellar: :any_skip_relocation, big_sur:        "de504bfd1d8d5ec7b84f7755461187d9718fe9b814fc6d781f566fa7c6968496"

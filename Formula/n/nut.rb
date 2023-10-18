@@ -22,9 +22,11 @@ class Nut < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "f542034c790c6af69e0628e517b2e58f78f6f9c0462f9c6873e237355d30fe99"
     sha256 arm64_ventura:  "2076a6fec70930a198b1ffc95372b783a953d893ed2531a704b8146014f6dda6"
     sha256 arm64_monterey: "95970abbffadbffea2a7135b6650179c35fdf6896188c8e4e2b426052521f506"
     sha256 arm64_big_sur:  "28d8de023cedfb15015a87d4bf8616ccff59b61c00918e652e82e55f4740bffc"
+    sha256 sonoma:         "4e2d4a44f34e4f8f05222edb39b0516f568c35ded7d0ecde048dcec2a150e3dd"
     sha256 ventura:        "191e4df438c669eed832fcdce481e3a527d835699431b757ed4dd29c81ae19ce"
     sha256 monterey:       "aa98d42f442ac810c3bb34341eefffa7893e5993934c57f4a95a43e9ac3fc001"
     sha256 big_sur:        "d41f1ed095ccbf5efc17b1710d8f222bb0f0b7cf343e411eae2cc58f3e3d26fc"

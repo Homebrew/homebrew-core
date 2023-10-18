@@ -6,9 +6,11 @@ class WrenCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "228ccca95d81d073708b4b53278b5fa8a2d4a070c4a0c613cf3eb7181d26ba64"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b957b7b11199a05f30c2b5fcaea97cdb2cc2ac212b3e6633e51e2f4b5820a53"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "72841b4f7f8562ee72899224e0c1d04c72047be6f86ae00df7aed6c3370320e4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2f527af8074dda364da8571385473dcaee9b3034d30cd1407ef6a4057e0e4a0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "26e8aa2bdb4bd752760649c2bdb0be3446a6ef032dde08e12be8be9148f0cdcc"
     sha256 cellar: :any_skip_relocation, ventura:        "2ed8a9779e0eb400fb4ae0c6aa4db564e0ba996b449b267ea054d8220438a756"
     sha256 cellar: :any_skip_relocation, monterey:       "c4abf9f5a795361333ee735c25c0c72754b69c974f1a910af64414ff7912f398"
     sha256 cellar: :any_skip_relocation, big_sur:        "1eb3fa798b1204360be58481e36921299678ac6da63ab4f30009b2f452fc6baa"

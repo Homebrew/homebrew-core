@@ -8,9 +8,11 @@ class Wordgrinder < Formula
   head "https://github.com/davidgiven/wordgrinder.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "01e1ab04fb507afd5e62ddfee96e629ae7405671a3a6ad107eca9f30771b76b8"
     sha256 cellar: :any,                 arm64_ventura:  "b89498bd5c54678e5460ccf146084abdde90853f465f17775657298fe1ba5c91"
     sha256 cellar: :any,                 arm64_monterey: "3eb4bf8cff526d9a6e6c9e285ba2a63879eb157a6ba091dff6be7ad49da749b3"
     sha256 cellar: :any,                 arm64_big_sur:  "370093b3705f72a5d6b87bacd2e64e229f3d6ac82e52e92fe147c037d65f210b"
+    sha256 cellar: :any,                 sonoma:         "47819e0bc05f370758760d534a0f3e5012ad02abad4ec78427f4191439888211"
     sha256 cellar: :any,                 ventura:        "1a575a0eff9cd74e4a48a4ede1694349892f5a07c089d9e5bd1be74560eaf5ac"
     sha256 cellar: :any,                 monterey:       "2ab17d2541132790b1b134a5d33e5e9178ce96b7afeadf28819a9694f87712da"
     sha256 cellar: :any,                 big_sur:        "d2cb8d569e0a7a02abae8deb32adf8a564042cfd6cddaeef4bc1dc16ab05e53b"

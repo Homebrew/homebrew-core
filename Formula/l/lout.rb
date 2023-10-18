@@ -6,9 +6,11 @@ class Lout < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "4edae1bf190124d695e8b51a589f10988041736ae8c9d8d80e91fae07a85b2b1"
     sha256 arm64_ventura:  "8c410ce3f37c6f9c3bdb3242221be764c0088527fb04e0d2162e7cf6d3da7d47"
     sha256 arm64_monterey: "4f441eb3dae5b3177b2fa97c45560052388a01ef190d7a4a5e6de0d10fe3c20a"
     sha256 arm64_big_sur:  "8a88cbdcd832cd802454a7895e9ddee449ce5c221237e85ea8352b11b2907593"
+    sha256 sonoma:         "9755f791a687acbfd6c5512da4a6c97c5fc3c12129be199b326a56a087840d14"
     sha256 ventura:        "688f5d95ead102ea669a7c795f60d4ce4b6f461581f3ed52ef5d0d98b23884d0"
     sha256 monterey:       "b0d5caf6b3f0f11c78b0ca20e07371be67e417119c8801e406819c6b191bcb89"
     sha256 big_sur:        "6f854396e27fcde9548e2134aa5ee807050d2575134a80c0fc8250312399e736"

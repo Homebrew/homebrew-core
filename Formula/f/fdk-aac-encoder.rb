@@ -6,9 +6,11 @@ class FdkAacEncoder < Formula
   license "Zlib"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5652901e7e0a800f56163f53996bbcf80d935c9860776a6b25a5d583693b6487"
     sha256 cellar: :any,                 arm64_ventura:  "53ead014ba7ed33292482be014d74bc631fc64a9027f7ae6a5858b66e51cef24"
     sha256 cellar: :any,                 arm64_monterey: "df8bf96255c43057c312a4062aa386d1dc136c0dd86094c7d9cd067120b57ee4"
     sha256 cellar: :any,                 arm64_big_sur:  "66c2be632e6ba93f7fd30d43ff968edfed911d104e14d8a43b86b52cf8d78719"
+    sha256 cellar: :any,                 sonoma:         "2f1d12162f91eca79c3daac8853f9bb493214683ad37ff27b440f8a33b3a41df"
     sha256 cellar: :any,                 ventura:        "cfaf04fdeffda1f429b28ee0dd84914768f4339007a14999415aae8eea232051"
     sha256 cellar: :any,                 monterey:       "02f940f3b2a982e8f727cb9a449623777e33de70d41ad43423462aafe6db0ad0"
     sha256 cellar: :any,                 big_sur:        "aab1624f88d3b7b0b0c3ae2e772ee86efd4b6707468a78d43459a598920eb053"

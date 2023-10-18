@@ -10,9 +10,11 @@ class Dvanalyzer < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd458167da95107a9a0e3c31bf676a44d1fa64789f92d9ed2c7aeeea8cdef306"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "499a358163cb7361ca01a66f258e5544f7facf0d6394d3608fc06c2d42aedf71"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2a5505972404a52e27d0b958ca01f6d0b4776b9698e158edb3408a08f57b9627"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c3394dede8aedd03611a44ab7f0e9c0cf65de9343eea185575234571da63b76"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fb85daa7321c24dd1467de0ba27fa74de80c65ba80495c277d2ee1a2d302061d"
     sha256 cellar: :any_skip_relocation, ventura:        "056655cdb3b17dd0ea0aceede196aa68533a91a361ea5db0e532f92715d1a767"
     sha256 cellar: :any_skip_relocation, monterey:       "3b6827ba646ecac89cfb7437785df9586bfe1df4a4129b418fb7fb58ba2d6078"
     sha256 cellar: :any_skip_relocation, big_sur:        "c82268f8073ce66058329a7f3e17a8dffba0d811f82c1eb33a6a45144693bf17"

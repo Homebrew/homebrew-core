@@ -10,7 +10,7 @@ class Golo < Formula
     sha256 cellar: :any_skip_relocation, all: "069c041fccb8a95fd9ea3c7a9c2105b384433a0e724d5b48812aa37d0d5c9f2d"
   end
 
-  deprecate! date: "2023-01-01", because: :repo_archived
+  disable! date: "2023-10-16", because: :repo_archived
 
   depends_on "openjdk@11"
 

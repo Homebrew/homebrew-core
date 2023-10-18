@@ -10,18 +10,18 @@ class Ccm < Formula
   head "https://github.com/riptano/ccm.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "caa73c15f42b4bbde8b8c8b4a8e63bc73caec21fba17f4691ed872a4ee9772a4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8f1195eed8bd7612ed15b923ae39ff629a43902e6b954e313d5bc8bb2bc3f56"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fbca70057fa9839396627d7780da959a3d017c435e9017e4a908b1a0832466aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "00666fc11e3498143856e368a3d0b3e78ac6e797402b601962a108254c069b8b"
-    sha256 cellar: :any_skip_relocation, monterey:       "5965d7c0684c03296b7f466a00c1cd9c0c2a5d5639aa97ea6cd9fb571e334123"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a18b40aee5ee0a8870a62ccedf5c8b5c2c55dc41ac907df7ff0843fc6b47fd38"
-    sha256 cellar: :any_skip_relocation, catalina:       "d9f1096165bae0521103449c5c1586f945d628433d3884afaf14d23e56c25e0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3e9f1a5872ef6102a0f2be3e44a4badd1fe2f6dbe2ddd49ce59650a80ff93c0"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c4b776344544f21c1ed435bb6fbe9204b1ceff6bcd8a55153bdef9fa1e7a7c96"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be900b95dd8a12fc425d2c9a23b4a1e4d81fea39100373be42323a0d52981995"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3724c35c53d050b014872b32999b494e78bf2e37125d74af77d2c06e87349c28"
+    sha256 cellar: :any_skip_relocation, sonoma:         "77994bbe83114d1d54aae4a85afc4ffe5a653643a2a482ea9bc5ebb5ef46d222"
+    sha256 cellar: :any_skip_relocation, ventura:        "87b39b4e470135d8aff191c9d9296cb46bcef172a7047f7d97e50a3b344b885d"
+    sha256 cellar: :any_skip_relocation, monterey:       "22e13ceb8aa99807bcdc58a69fe92b5ee701a0d2abdb1e5e03904a99a8f6fcd4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed9334e015be0e1bf2997b2908b20536fcdf68da63e5ef3125dfd270fc66feb8"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 

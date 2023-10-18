@@ -6,9 +6,11 @@ class Mkclean < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d518850ce61f5e54380d36c14e6192ec43b52cc83fec9802a08e557d98a02b7"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "33ee8ae207d85761440d0bfb65995068d7de526dda7f41c7828f4853eb499bd4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6d88364bba58d17c5a2dcee261628dcaa7f488c65e59ba2d94470bdedf7a4315"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cbb79d68f3b6f25830b76a374782b1cee440c6112280393a718f0950a561ecc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3115df87b40715857fe4c36e533b64064b5c6be389da5781cb056aa85452ec3c"
     sha256 cellar: :any_skip_relocation, ventura:        "e0d048659cefd8fbf91df37f8afe2a5ddbfa1563eadf0669edc4b8e287853b6f"
     sha256 cellar: :any_skip_relocation, monterey:       "6406bf244beccc28185413a3409dbc788c494017f237231320bf42efa54ce4db"
     sha256 cellar: :any_skip_relocation, big_sur:        "c840bc41e467e5e5da4a58843280ea53238cbc0574a1954904423fccf6a23350"

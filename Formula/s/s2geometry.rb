@@ -4,7 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/v0.10.0.tar.gz"
   sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   livecheck do
     url :homepage
@@ -12,13 +12,15 @@ class S2geometry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7c3d433e915ffd03e92c73b1d3be5e1cbf127041c6cedb761ea266831a9d0d57"
-    sha256 cellar: :any,                 arm64_monterey: "f5017d82e3624b783074ffc704819fb3c278ccce7b4f7749cba5f18c80de01d1"
-    sha256 cellar: :any,                 arm64_big_sur:  "3b4b5686c10ebddf04b5faa31520c8f80f91e0457596cad877b8ca123b5b2411"
-    sha256 cellar: :any,                 ventura:        "c8521cc65e3e8de4ecd1080a7e6186f03e90696bdd09176effc21ef5af1cc4d2"
-    sha256 cellar: :any,                 monterey:       "4a166d13c69aa0089127fd0c4b9a49f11007f85437649f4a0466c75113af0c79"
-    sha256 cellar: :any,                 big_sur:        "ec151db9a713cf396de417583f4e2c72e77a200852d0bad3dfc76dedfa54baed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e929ca8b220797e1dac8396b1da10dac728f022d421072e43ef76e94583f73c"
+    sha256 cellar: :any,                 arm64_sonoma:   "80e9962267439af1de9f48231bf5fd2843f09825c62498f50bbd66290f3d3f9e"
+    sha256 cellar: :any,                 arm64_ventura:  "97ede51316899c6f4f34dfe092c3b8ccec4276bb3b637c53c92e8b5be0fe45df"
+    sha256 cellar: :any,                 arm64_monterey: "839e1ee4dbbf7bac0eef6584f509f01d3a2e311c1311b6a3b0665060b931ce56"
+    sha256 cellar: :any,                 arm64_big_sur:  "261c1a2494e5a665d7412774939f9de44b13ec1c383471ca19dc670c23ed331c"
+    sha256 cellar: :any,                 sonoma:         "11af3c270a33a4e54c50686bee8a518eebcf2d1beff675a761ca66888d633c19"
+    sha256 cellar: :any,                 ventura:        "41574127892178f975b9288302a173d95531aa1660d3603ea097a8447b331a67"
+    sha256 cellar: :any,                 monterey:       "c32c79613a93dddf1c44c1453d670cded5fb9a046388e7627f637d5bf19adc00"
+    sha256 cellar: :any,                 big_sur:        "a132c68316515afc343b9edd8047786d53260ffc98569aa334a532885c74ba5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bc799fb810424ce3052a520c01f7ac7245c343efef46becb68ea383b1328e3d"
   end
 
   depends_on "cmake" => :build

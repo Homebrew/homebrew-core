@@ -11,9 +11,11 @@ class Fastjar < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc54e682bbb9eed396f0cd21f3ee472ff5473e49932cabd827a224ed01961e68"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0499cae7fac86fbe57a98cbceffb53e2ff047cdadbcca9a103083a0cc6e9a20"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c5fa05b957bd369862d66cefb2cfe2ec5fdb86bf6ea3bcde2b8f95c1d872a293"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d9bb50e8b725164441e747625b381631edf82e0040babda6f187466295f80e3f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c44006f54e184a7e71c094a93027ce855a2f352c2217b7aab2f9a2732dc4e6ea"
     sha256 cellar: :any_skip_relocation, ventura:        "9581595d1660096f047ee3c601481f6877a209c4cfd9fcfb9860fbfd79adad60"
     sha256 cellar: :any_skip_relocation, monterey:       "06ceeffa38b10f099a521d5ea3ac4dd52d6d0d5740c3fc64f6b4e8509a842cef"
     sha256 cellar: :any_skip_relocation, big_sur:        "1cbf953373b3d48accd872aa603fa66fb3b96e1ec33d4a17dfe6da2f97ad5cbb"

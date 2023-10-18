@@ -7,9 +7,11 @@ class SwitchLanPlay < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8281272397493ebd6fad9f2f53d61c62bd0302c1d3e898a0002874ab6c4ffce4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4caf1d51243835a1c8816372f07bce843840f38f0a8ceaad42dbd19c15fe9c5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f119af26760223542641ba4596c31ae3b4418b6ed955a2d5198fdc15aa6d23d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ae86854d36264397768367d7ce69466967e303b5047828a6720c6574101a24b8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4a07c9571a9c914a4b32b9133cd9e167cf59b5828dde79458762aec6560685e8"
     sha256 cellar: :any_skip_relocation, ventura:        "a27b8f98ef87fb078982323e661eb8c2368cb21dac8263c9590e805a7cb84679"
     sha256 cellar: :any_skip_relocation, monterey:       "5913dc50feffc96b3c7a1a6e76df7f4701d6ec8051a3ce2c8cd67c73e10785a9"
     sha256 cellar: :any_skip_relocation, big_sur:        "520620d6ae69e98a169edda5ed47b0ebb496a843eedacda867b1eb52b14c007e"

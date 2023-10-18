@@ -6,9 +6,11 @@ class TerragruntAtlantisConfig < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91b06cf528e282590138c8391910c85f029da68de8917823fb8a0d3f554e34be"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "522b60c0f4aed84b153f78547d3a53d6ea6f55aa7a9f1e1f8dd9acfd33f311b7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "522b60c0f4aed84b153f78547d3a53d6ea6f55aa7a9f1e1f8dd9acfd33f311b7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "522b60c0f4aed84b153f78547d3a53d6ea6f55aa7a9f1e1f8dd9acfd33f311b7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "748349dca0e70df49047488ece171b96534577d4a1c19d17a9b98866b4b70cd0"
     sha256 cellar: :any_skip_relocation, ventura:        "518af1cbfce0795429d38b4e810bcb75466c9f5143d26a237565048ab4f44f20"
     sha256 cellar: :any_skip_relocation, monterey:       "518af1cbfce0795429d38b4e810bcb75466c9f5143d26a237565048ab4f44f20"
     sha256 cellar: :any_skip_relocation, big_sur:        "518af1cbfce0795429d38b4e810bcb75466c9f5143d26a237565048ab4f44f20"

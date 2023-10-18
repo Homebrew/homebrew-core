@@ -7,13 +7,17 @@ class Kubectx < Formula
   head "https://github.com/ahmetb/kubectx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "41069e2e7ae9d4d36a5a4ec659641239d02d60ad8102c140126a2bae0c46c29e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "605e0eab94d6af055cc25cc91c6bda597d360e55fb7b8cd0d6d2aa678a991782"
   end
 
   depends_on "kubernetes-cli"
 
   def install
     bin.install "kubectx", "kubens"
+
+    ln_s bin/"kubectx", bin/"kubectl-ctx"
+    ln_s bin/"kubens", bin/"kubectl-ns"
 
     %w[kubectx kubens].each do |cmd|
       bash_completion.install "completion/#{cmd}.bash" => cmd.to_s

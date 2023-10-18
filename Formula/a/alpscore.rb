@@ -1,20 +1,21 @@
 class Alpscore < Formula
   desc "Applications and libraries for physics simulations"
   homepage "https://alpscore.org"
-  url "https://github.com/ALPSCore/ALPSCore/archive/v2.2.0.tar.gz"
-  sha256 "f7bc9c8f806fb0ad4d38cb6604a10d56ab159ca63aed6530c1f84ecaf40adc61"
+  url "https://github.com/ALPSCore/ALPSCore/archive/v2.3.1.tar.gz"
+  sha256 "384f25cd543ded1ac99fe8238db97a5d90d24e1bf83ca8085f494acdd12ed86c"
   license "GPL-2.0-only"
-  revision 3
   head "https://github.com/ALPSCore/ALPSCore.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "88c6e64b6e8ca7f7354ec0b65c281c82d9fd7f7efe35966411fc3151ec539b3c"
-    sha256 cellar: :any,                 arm64_monterey: "9e4266bcf31a8c7af05d8f582d23c773ab814ba033251bb221000b0de00c4b90"
-    sha256 cellar: :any,                 arm64_big_sur:  "d05d9821803c3f2db25b613b77ed4e271c25f7cd8696b39bf474ea477eff4aa1"
-    sha256 cellar: :any,                 ventura:        "f1645afda2a5b5d554c12f8156dd84ab32ef21a0aa112463a82a3694e2b0ca95"
-    sha256 cellar: :any,                 monterey:       "1b80a39cdcb57578928c6a4fc88218160236e947299b281acfc12f8678f3061d"
-    sha256 cellar: :any,                 big_sur:        "311a9f813a4e9f6147de06a0975c6c18eaec990ece62326de19e53ff40dbb435"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cad3a9b4d34851a8b32ccde1aff2ff675de151e5af7a06dc831284be0c3fe2f6"
+    sha256 cellar: :any,                 arm64_sonoma:   "aef5c5bfae1874fde2ec165976bd8bb9d9843ea5c6869d450ebf30f108d35bdb"
+    sha256 cellar: :any,                 arm64_ventura:  "e34b2a4bd898d1db42632434afd1439e71f56e834760888b1765c5ee99ff8c19"
+    sha256 cellar: :any,                 arm64_monterey: "1a3d2fc86adcd59f3c27947e7e31f8ca1e560a5b24929e7d5afc7d17a3e5b5e3"
+    sha256 cellar: :any,                 arm64_big_sur:  "d49c1218dbc5937dd219f56756ab75d274b43e37bce1c63d07441f399391beb6"
+    sha256 cellar: :any,                 sonoma:         "e55aed9a454d8c9637fbb9db8a5f858aaf58fefbbb7f29e94877917576e4a0ee"
+    sha256 cellar: :any,                 ventura:        "0fc15615066580361a0956a6160028c1a67d4ef998d7c1bacfd2ccab98fd168e"
+    sha256 cellar: :any,                 monterey:       "5193c9aaafd61add135a872dd9623137427d0baa6598789cf682bcbfa6bd8e76"
+    sha256 cellar: :any,                 big_sur:        "c874985418a753e947fe350a1389621669c2ddfa67890d7d32d14540d05ef20c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6159afbf12d22d9d08a30e69a785d9bb77e595145937857e5e8c3ceb273582d"
   end
 
   depends_on "cmake" => :build

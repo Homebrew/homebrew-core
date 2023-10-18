@@ -1,18 +1,18 @@
 class LibpahoMqtt < Formula
   desc "Eclipse Paho C client library for MQTT"
   homepage "https://eclipse.github.io/paho.mqtt.c/"
-  url "https://github.com/eclipse/paho.mqtt.c/archive/refs/tags/v1.3.12.tar.gz"
-  sha256 "6a70a664ed3bbcc1eafdc45a5dc11f3ad70c9bac12a54c2f8cef15c0e7d0a93b"
+  url "https://github.com/eclipse/paho.mqtt.c/archive/refs/tags/v1.3.13.tar.gz"
+  sha256 "47c77e95609812da82feee30db435c3b7c720d4fd3147d466ead126e657b6d9c"
   license "EPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1b1949c46f45c38beac0417ebc1d81c431a5ed725ca620eea6cfdc8a0c03990e"
-    sha256 cellar: :any,                 arm64_monterey: "617f7bd6f68f83473ffdb893623600f8206d8db03df74e8797ece00861de2d64"
-    sha256 cellar: :any,                 arm64_big_sur:  "b7fe29b30b2e02016aa06329badbd7953a80abe9c974c26658b1fb8b9b35ad6d"
-    sha256 cellar: :any,                 ventura:        "f9ecee90f911fc2f3209ac17130f214e583e32a0a87268b485cc2ee5acfb174b"
-    sha256 cellar: :any,                 monterey:       "67f3cdaf51cb4c730facc65931f8245bb253bf560f8a444d83dfcbe976532973"
-    sha256 cellar: :any,                 big_sur:        "fa05a2643fe2956e4a838777f34df44f8ef72d096438229c9d6c49351c2e9c9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ea31b35020c2ce8c4a3257ee8a36fbe873649f1ee8d421d5eadd22c992e9702"
+    sha256 cellar: :any,                 arm64_sonoma:   "eaad10a2d0f97a601e347085e12cf9572336692cbf4ccef95573111f51e7ccd3"
+    sha256 cellar: :any,                 arm64_ventura:  "75bdc2716d718fb0a4f1b6589ac334af3d72117e85a0a752097e8ee8e3e637f9"
+    sha256 cellar: :any,                 arm64_monterey: "644685fbe4cbff5008f74fc5542fa7980f7f564c59eedc9ef13adcb6f12016b7"
+    sha256 cellar: :any,                 sonoma:         "7d089a4232f1be9061ff010eb1b660a685328bc13c1720c390bb5a24fec40321"
+    sha256 cellar: :any,                 ventura:        "741449fe5d789ee28bb74078fad939d61514ee55618ac89dc000fa16a1da3e37"
+    sha256 cellar: :any,                 monterey:       "7c809ed5d5f48cfa66d0d3b48c3cd311e9eeff8ede4a794666c7d4082afec217"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c447f230fbd5a5762b9e04baccd4b47303d12bc5cabb8a30cdd9da15fce37a0a"
   end
 
   depends_on "cmake" => :build

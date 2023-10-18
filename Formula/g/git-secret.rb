@@ -10,9 +10,11 @@ class GitSecret < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3229d4fb0a2237d1d4594b7e65706f68bc0d434e7d5e6d2b7ba445b1c6155c55"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8486273b279e327dbc528a12e760f5cdd8753e8b8bc45a2a1ab54eaeb6873f8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8486273b279e327dbc528a12e760f5cdd8753e8b8bc45a2a1ab54eaeb6873f8c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8486273b279e327dbc528a12e760f5cdd8753e8b8bc45a2a1ab54eaeb6873f8c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5291bc2835a8fe2986e6dfd7e96ac1632ded49599b46fb7c79868d2406f08812"
     sha256 cellar: :any_skip_relocation, ventura:        "973f4fddf023508c20a21b6d4cdc303c24d7bdd8d912c7ba90beee9d71aae329"
     sha256 cellar: :any_skip_relocation, monterey:       "973f4fddf023508c20a21b6d4cdc303c24d7bdd8d912c7ba90beee9d71aae329"
     sha256 cellar: :any_skip_relocation, big_sur:        "973f4fddf023508c20a21b6d4cdc303c24d7bdd8d912c7ba90beee9d71aae329"

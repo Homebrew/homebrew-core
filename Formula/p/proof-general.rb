@@ -8,9 +8,11 @@ class ProofGeneral < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0c27f7ce047eac700c1aa07cf9a723b54f4bb0d2f62ee2375bde197a5434af9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b87a94e0c06c19d5d57aedd9a628b69a22d559cfd331f563dcb93c02b5f0a402"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b87a94e0c06c19d5d57aedd9a628b69a22d559cfd331f563dcb93c02b5f0a402"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b87a94e0c06c19d5d57aedd9a628b69a22d559cfd331f563dcb93c02b5f0a402"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4c7ea3668b2b0df4de8eb60962f128fdbb26fbf1c7f72511c67a707c3d0c833c"
     sha256 cellar: :any_skip_relocation, ventura:        "e0f721f16c2c5e2ffa6b7ef00595ab6bdbdeda815f00a04ca30d2df2cc474e8b"
     sha256 cellar: :any_skip_relocation, monterey:       "e0f721f16c2c5e2ffa6b7ef00595ab6bdbdeda815f00a04ca30d2df2cc474e8b"
     sha256 cellar: :any_skip_relocation, big_sur:        "e0f721f16c2c5e2ffa6b7ef00595ab6bdbdeda815f00a04ca30d2df2cc474e8b"

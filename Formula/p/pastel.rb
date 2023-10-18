@@ -8,9 +8,11 @@ class Pastel < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afa5aa6251200dc5beb9fe18c2c792a3d6db3d034d966ffcf6e93739726fb0a3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c1b18789ed1303a84264ce7f255e29ad1e7dfaa823606bd268266544c02f843"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6b4511db651e18bb5b23ca8343a0f7026ce70dc7417b9d64826b52b0ad6828eb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3b17baa2192e94615665aea818fe9b4ee202770e1ba66ea7b8a9e5889e278f38"
+    sha256 cellar: :any_skip_relocation, sonoma:         "89af4ebffd595f33dcbcf8a4227b04123982dbd79cdbeacf731df79ba0fb037a"
     sha256 cellar: :any_skip_relocation, ventura:        "c48281221eb773d7118183bf0fdbf23f078337b97eee1b11626d4353ac9afecd"
     sha256 cellar: :any_skip_relocation, monterey:       "3be2c4518d6cb3cda28aced6aa248ff97502ebbf856bae991d9016c950cecd21"
     sha256 cellar: :any_skip_relocation, big_sur:        "a1966d65a627a20680c20cc54fee52280c695a0314cc53c655b6e9aefb5180d4"

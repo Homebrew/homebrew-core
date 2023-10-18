@@ -6,9 +6,11 @@ class Fw < Formula
   license "WTFPL"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2b9d3a5075a1e89d1bf3a5967986183c688fb1b9655b33aa12abe55c92440026"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "13c029efb1090dd4fcf1a15087e35ffddcfd53833066cf3024ac07a7fccf73da"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b6f7ccf8695f125669af21a167f04682de8b06bc59ed0449f25f014747777d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "682e2015dae56e1b1d8bd901d4b22797e8957fba1f43644b9a1c2d3dbaaaaa2f"
+    sha256 cellar: :any,                 sonoma:         "4773c645a9044d7fe673f25cbe2f99f934870a0ec928b8def9fa1a5d16cd9a28"
     sha256 cellar: :any_skip_relocation, ventura:        "324e0456a01ae8991c19c03be19ac8522bd382583bc1d541c7a3e36710a3e127"
     sha256 cellar: :any_skip_relocation, monterey:       "46cc3b2ed9cf8ba4ba031e2fddbe5692be73ef1033e1792987edbdc07644adf0"
     sha256 cellar: :any_skip_relocation, big_sur:        "ea5da33052b73031a05f00e3e357f15824f5e2e39251b1cc65af4118f893f449"

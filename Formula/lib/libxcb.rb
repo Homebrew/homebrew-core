@@ -1,19 +1,20 @@
 class Libxcb < Formula
   desc "X.Org: Interface to the X Window System protocol"
   homepage "https://www.x.org/"
-  url "https://xcb.freedesktop.org/dist/libxcb-1.15.tar.gz"
-  sha256 "1cb65df8543a69ec0555ac696123ee386321dfac1964a3da39976c9a05ad724d"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libxcb-1.16.tar.xz"
+  sha256 "4348566aa0fbf196db5e0a576321c65966189210cb51328ea2bb2be39c711d71"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "cf7a5932142b247a4af6b7681ac44b74e16081806e651640e3ae460df08d71a7"
-    sha256 cellar: :any,                 arm64_monterey: "8a0df37f2087ac271ae9780b2db056b4a75f2090a535ac7c9560944d295962db"
-    sha256 cellar: :any,                 arm64_big_sur:  "42b2a0a1eee03d44c137195a485153f4a185bac30f64c5fffe28576fc8bbc611"
-    sha256 cellar: :any,                 ventura:        "9db0c9b29509ebae89d9592d3afe997f12949b3e96ea13661cf2080552aecf59"
-    sha256 cellar: :any,                 monterey:       "668eb7405f2bc6e32007e3c4ee40adb88c1e26db47c3389aa8719bd4b5c7f8f1"
-    sha256 cellar: :any,                 big_sur:        "ba2af806eddb9db3f65ab2c462d749fbadd03dd30d1ee6c5493ee466855dcae2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37069aebf6799c5799d31ea9b6a25549726260b583cc6657bc858f4cd32c2f55"
+    sha256 cellar: :any,                 arm64_sonoma:   "36a383a0da6652d303796914f373ef3d974e7a8b4fb91de6a790dc3b1b37c719"
+    sha256 cellar: :any,                 arm64_ventura:  "9d83f7db1397e0afdd378af99d7da6bce33932df317d069452d9290ee621c895"
+    sha256 cellar: :any,                 arm64_monterey: "218d18008b39f761e9a77f8ff3f12162a6c8a86967cd55a71484fbc150c4053a"
+    sha256 cellar: :any,                 arm64_big_sur:  "8640d6a1d1631651f91df5c2ddf3e683e8d95eec58f5da34838076fa5aa93ca2"
+    sha256 cellar: :any,                 sonoma:         "51cab02db56d162ea34e7ac278a1adf846aaf8b5b219c6160c4ad7173636be56"
+    sha256 cellar: :any,                 ventura:        "a647b59bc0edc97b407fb24ae0b407c15192253ff974a1215edbe472c2bb638c"
+    sha256 cellar: :any,                 monterey:       "a8a235d90ceb77fe7cde801a86cab42c4b2566da1dc3ec9976ca65d45a4eaeb3"
+    sha256 cellar: :any,                 big_sur:        "f0f3b01121bf2779d73b04d2b9c1f2bb851083f1d2ae191d5670cdd72335ccf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b9097b6fb09f58424307e917bd212568c009f9ff0ac8264433f94f6bc2392b5"
   end
 
   depends_on "pkg-config" => :build
@@ -21,10 +22,6 @@ class Libxcb < Formula
   depends_on "xcb-proto" => :build
   depends_on "libxau"
   depends_on "libxdmcp"
-
-  # Drop libpthread-stubs on macOS
-  # remove in next release
-  patch :DATA
 
   def install
     python3 = "python3.11"
@@ -100,18 +97,3 @@ class Libxcb < Formula
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index 2503d4b..0c36685 100755
---- a/configure
-+++ b/configure
-@@ -20662,7 +20662,7 @@ printf "%s\n" "yes" >&6; }
- fi
- NEEDED="xau >= 0.99.2"
- case $host_os in
--linux*) ;;
-+linux*|darwin*) ;;
-      *) NEEDED="$NEEDED pthread-stubs" ;;
- esac
- 

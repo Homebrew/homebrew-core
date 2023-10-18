@@ -8,7 +8,7 @@ class Asciiquarium < Formula
   url "https://robobunny.com/projects/asciiquarium/asciiquarium_1.1.tar.gz"
   sha256 "1b08c6613525e75e87546f4e8984ab3b33f1e922080268c749f1777d56c9d361"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://robobunny.com/projects/asciiquarium/"
@@ -16,14 +16,13 @@ class Asciiquarium < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "eaeef5f718e5346acce2ce6680d3970a3d8e7e7f6ee0ea0a4a58ca0e4b2d0c60"
-    sha256 cellar: :any,                 arm64_monterey: "bffaf8931358ce91194a050df4d70785d1675ae86a13abf16039a6633961e59c"
-    sha256 cellar: :any,                 arm64_big_sur:  "054f9401007de6e17d4ed642bb4c38490fcbf72713e6357b0269ee0f3e538e36"
-    sha256 cellar: :any,                 ventura:        "4d723f7505af54bf515aa127a673d5a700e1f04573214826b43f7fb323c7c816"
-    sha256 cellar: :any,                 monterey:       "6dd99c8969cd14a6ab694d9fc3df4ce29bd6b262aefc04af71714e26e081577b"
-    sha256 cellar: :any,                 big_sur:        "3328f27bbb4cecfb62236e12fcac7f0f101c21d3843533d9d687f1d8892ebe73"
-    sha256 cellar: :any,                 catalina:       "20b7a67f26033299553cbcc66e01f75510ee16f384d670a92546c282349865b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c6e8ffdf5b6f3578234c833129b28cdefe9055980c391ca069aa9d69c85f7dd"
+    sha256 cellar: :any,                 arm64_sonoma:   "0c6038b3b3d941069ce1d329a6641d29ef3e2d84ca391809836ae9c527f55478"
+    sha256 cellar: :any,                 arm64_ventura:  "b8062a7862f2dbc72be6734d7ea25b06e3acad719d8c44bed08059be02ae71d8"
+    sha256 cellar: :any,                 arm64_monterey: "e197deaee9423e203938370adb0c252c92372b1e7e196a6b33477c2c1cc29ccf"
+    sha256 cellar: :any,                 sonoma:         "081c78955c7ed4975d4bc660153b306675f3517a661f84c79f25fe823bfda7b3"
+    sha256 cellar: :any,                 ventura:        "e7cae33ae78d065af614e683c8d43e50053609a53936d5fb91af9a80b2daa87d"
+    sha256 cellar: :any,                 monterey:       "49a2c910973ea1e73abb2f350f3c2bbb932a009790c78b41f87538195bd59546"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32a89a8d26c5fa6243a92d0b1bce5a8be721da358c461c6a4a9f2f932bc4274b"
   end
 
   depends_on "ncurses"

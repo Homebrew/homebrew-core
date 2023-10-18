@@ -25,9 +25,11 @@ class Getdns < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f8db532094127a5756d5ee9aa4ac55efe191eda4f5407a95aef2c59ec2e8f32e"
     sha256 cellar: :any,                 arm64_ventura:  "c2f1f059c36f76d0e32acfee307bc6f02a8bb91f850f666704dfe503b79e6035"
     sha256 cellar: :any,                 arm64_monterey: "78497b3d08f57ad15ff67fc0834e7d087b2660fa81863f4f5dd4c7e208de5db8"
     sha256 cellar: :any,                 arm64_big_sur:  "546421d61bf0ed25dddf21496983fd8e93031e4665eeff8fe6badff4fec8c7b4"
+    sha256 cellar: :any,                 sonoma:         "7ff99fef869239665dfe345afdccdde0198977b5f50c1705d35c4c40f4b3bfcc"
     sha256 cellar: :any,                 ventura:        "118a3e9288aa2b65bb29d034d97c25813ec762d3edd9ccaed34d38df05e8356b"
     sha256 cellar: :any,                 monterey:       "9a2d1783c4dfe96711732586d68105f9e4d4eca95baefe335bf63f17e04740f9"
     sha256 cellar: :any,                 big_sur:        "1e8c18958a4bcf70bbcaa0a9014c28176fbb02b7ca477033f2315e8535c39b6d"

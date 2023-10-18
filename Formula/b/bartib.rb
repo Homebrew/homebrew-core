@@ -7,9 +7,11 @@ class Bartib < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f38a9a43cc5af35c029d5a930310fe09c6b9f68805c91e101d8a3ab747c411b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "15996d83f968c926df74e66a89e377a37a14382edda4c1afa477e48b8b45372a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "eef66c3c27b46728a1d67621d9346c9598bde8c8c55c03dd67f5bc10c50252c9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1141518c093053f6b5bbad3ca09abc2c38838e3d221db77057475f6cf39b0a07"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1ebf113e831bcc941606ca2684909c8a0e015bbd1e662aa8e7502e7ffa1701e7"
     sha256 cellar: :any_skip_relocation, ventura:        "41d9f2157bc293eb594fa43ce44971e7928e8f1872b06e95f091717b14275d86"
     sha256 cellar: :any_skip_relocation, monterey:       "f0c1cc58be69351e85e2a3f1dfcbd2432a2bf346c7aad5ff84fd3b50af8ca969"
     sha256 cellar: :any_skip_relocation, big_sur:        "f3581eeeebeebf1061930980b9230b8db484b70e83d6784922eb349a5c351504"

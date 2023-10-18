@@ -7,9 +7,11 @@ class DockerCredentialHelper < Formula
   head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6439ce15817d83c212dadfb69e541861ff71a30ab2c01f7d945c0add0463dcec"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6faa784b7567dbc8767b1a1c9d665b1d5505f31bad34fb88f8471d2e4449931b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e86ebc76ce73bd8c6a3ef02d1dbd9f78b015c65720379c9689b3c94313707eab"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bcb1addba2a3c67dac8e03ef5df5ff0f2c8374da76ab8e347cccf06e30604b3c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ac02d80b1c773da5cea6d7309968bc8ebb171abada070486b745d90f2b853620"
     sha256 cellar: :any_skip_relocation, ventura:        "014b0ce7a94ae0d7cb6693c2f9b934ea9204be731a15457c34305ef84e2e3617"
     sha256 cellar: :any_skip_relocation, monterey:       "c0e7ada5c8cd6e20073c15435fd24206a8abf2076962e7b2b4604dd904006135"
     sha256 cellar: :any_skip_relocation, big_sur:        "9bc5da0549e3347a5aea7727c88c0248ec4950da778d703d8bbf3357a5437e31"

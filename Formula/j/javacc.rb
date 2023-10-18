@@ -13,9 +13,11 @@ class Javacc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e389b7d8c52452baf20f274fc0fe69d1e81e1bb429f31a24b363f71e2989a5e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "96d07fbe2fbd9654a855f797c80c103fa172fddac617bc80e9e3e7129d4c128b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "39a6299488da65b55988b26892e9f92ff478f998d23b6ba330e989f43a458946"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d664966eabcf84e469bea9750318fa01cef4c90493c4d2aa63c4c374c0e2f906"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fe2ff8799d24cbcf7a30ce423fe1c9197bd4d6ec8b9c0882160033e322a738c5"
     sha256 cellar: :any_skip_relocation, ventura:        "ee01609b156af2e5bfff30bef4e46e8bc792e127c9b11cfe4af83483fffae792"
     sha256 cellar: :any_skip_relocation, monterey:       "936c4ab601e2e4275d3ec7d12ae23ea4fa531ed869af73432fd5b851d97334f2"
     sha256 cellar: :any_skip_relocation, big_sur:        "9841265e02bc93d2a445148c06c3863f555cdefc0014111826b37ad4078f778d"

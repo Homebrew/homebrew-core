@@ -8,9 +8,11 @@ class AptDater < Formula
   version_scheme 1
 
   bottle do
+    sha256 arm64_sonoma:   "0cbe2caeff1b45c9ac4785ff89a0cd070d6b8d69a5a4e4c31ebbd63b1b5a1e67"
     sha256 arm64_ventura:  "1e0c235813ee8af790fad21875c7a0ed0a367bdc07b268c28932e01dacbe5289"
     sha256 arm64_monterey: "2253ecce6880052d48b9f02ef422d43b7b7197218a84001935da0bec8c92ddad"
     sha256 arm64_big_sur:  "ae020a711348a85409b5fa30467b329b1e009c006029809da302e9dc89bbee40"
+    sha256 sonoma:         "37fa8000e61823ae775209c2bc33c865a6a0c11cf250078fd2e338ee9057cb54"
     sha256 ventura:        "5189385c850b95b97c41a6fae9f09825f8f812e1603c174c73cc9d86d0954ece"
     sha256 monterey:       "19f6c2ffd1f4257b99c1b181061c5d0c8f1f56f6dfa638903ec5c8e6444b9e5f"
     sha256 big_sur:        "cf4a97e076ce5f8820c9a1dc787c5e751b350cc223d17ec0ba6007d6e8d97484"

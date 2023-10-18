@@ -7,9 +7,11 @@ class Jsonpp < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8abe179d20a4dfc3ced5d5f13d51480f284ee6bc1229025d643d22516321c2ce"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef3e05f55a21df7fe9b26309694de0a4678e3d6ada76dcad471687eb1a75ed99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cfd08d7ebb70b60ae0c00f7d260f9c441112b28475e9411b12457f5190513018"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3837bd3507a7ab6565e04c1d9b1d551d62be51f14233ba92405ca21d4d0e4633"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f984da385f225f15b03895f559483a34550ceb288da12b7187dca663014be424"
     sha256 cellar: :any_skip_relocation, ventura:        "113145c638ca1c14c22b8de4161f040df61b8502893b9849f4f84ec4ca54500f"
     sha256 cellar: :any_skip_relocation, monterey:       "e884870ae68df0759df35eaeaee0dddeff2f4746c709201c88efaf285dd9a45c"
     sha256 cellar: :any_skip_relocation, big_sur:        "3711ce93b4d3874fbfe7967755b587f5787534dbdc12ab6f36eea6a41b54b712"

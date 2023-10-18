@@ -12,8 +12,16 @@ class Luarocks < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "86bc3a1641c84a2554d393406f56aa448a5478f9f5f911ac7f2572045765e416"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
+    sha256 cellar: :any_skip_relocation, sonoma:         "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
+    sha256 cellar: :any_skip_relocation, ventura:        "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
+    sha256 cellar: :any_skip_relocation, monterey:       "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
+    sha256 cellar: :any_skip_relocation, big_sur:        "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
   end
 
   depends_on "lua@5.3" => :test
@@ -41,6 +49,7 @@ class Luarocks < Formula
       loader
     ].map { |file| share/"lua"/luaversion/"luarocks/#{file}.lua" }
     inreplace inreplace_files, "/usr/local", HOMEBREW_PREFIX
+    generate_completions_from_executable(bin/"luarocks", "completion")
   end
 
   def caveats

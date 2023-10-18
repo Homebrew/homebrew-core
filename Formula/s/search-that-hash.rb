@@ -6,25 +6,24 @@ class SearchThatHash < Formula
   url "https://files.pythonhosted.org/packages/5e/b9/a304a92ba77a9e18b3023b66634e71cded5285cef7e3b56d3c1874e9d84e/search-that-hash-0.2.8.tar.gz"
   sha256 "384498abbb9a611aa173b20d06b135e013674670fecc01b34d456bfe536e0bca"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 5
   head "https://github.com/HashPals/Search-That-Hash.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87894a37b2473a840dc5451a3eee35981c758c47cc9fae0386161ddcc407ca50"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c9f0d095962eb615b1c13ff30e713717dd6907df4d199c5754ace5cee6ec11b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea45ebc25ba83cc6959d27420bb4bb85db8a7da9506b5e5a40959be7d297e3fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f0521896b50b670be25e091162998f9e42f51a6d82d8a08de1c6668dffc31f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "3fd17af241e42b84241de245b3cb33e9bc1d1d98568be0a8a8ef2b1bc9138aac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "41f37b2d2b6cac9f93897862543bf30269b58933665044cd681510b32abedf4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7102357d78a185724e37f05057e63b4fe21600cf79b723f6f50e78f82c45381d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b25381bd10e14d7917c3f2bbab3980a1f7f72099707d7d744eb62e8d024e10bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae90c75c17d956eadd66b252b7bb9f33040e53f02eb0fbd70ddb11ef6f670a0d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5317b871172f096f343b76f3e6a06258cce071d966eacdbc4bbc047e10a21f83"
+    sha256 cellar: :any_skip_relocation, sonoma:         "58bd1839febaeea2c4ebe4f9bd05b6e3acf64eb9a975c2d9f0b7796d473f21fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "e20a8f1bd727a7e9efadf65bc272de4c2aa7327f5fd9b2a830a8470384287127"
+    sha256 cellar: :any_skip_relocation, monterey:       "7e1e8314a6cb890a95882f447877d06b118468a61fc61ec25bfc13f0ac4d17bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4256e77830cd8047d537556d481d05d3df51890095e67e239973967d9fb32d32"
   end
 
   depends_on "name-that-hash"
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-typing-extensions"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -32,8 +31,8 @@ class SearchThatHash < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "cloudscraper" do
@@ -67,8 +66,8 @@ class SearchThatHash < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/4f/13/28e88033cab976721512e7741000fb0635fa078045e530a91abb25aea0c0/pyparsing-3.1.0.tar.gz"
-    sha256 "edb662d6fe322d6e990b1594b5feaeadf806803359e3d4d42f11e295e588f0ea"
+    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
+    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
   end
 
   resource "requests" do
@@ -87,12 +86,12 @@ class SearchThatHash < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install

@@ -7,19 +7,23 @@ class Googletest < Formula
   head "https://github.com/google/googletest.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15a5ec3a239e915d9ffa09883788291300a8b28c99c6a542f73b0aaae7f7594b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "43c6ca8b292fdaad1a8595d7feb628b81f1bd0dc75c13f87375ba870bde7bfad"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb8c62a85c6cd68a5a08ff2a57c4ddc4311eebf3f02b749a8dbc92bc29f72c54"
-    sha256 cellar: :any_skip_relocation, ventura:        "125c69b7bc9513a2ba5d11734f8c02d4b0a4ac9afd36e6cdb34cfd02cf2c3750"
-    sha256 cellar: :any_skip_relocation, monterey:       "e7c803b5bbdced9795b38315652dc5fe0fef945e0cd14eadc9c96acb201c91f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "82bc4dfc2b1148b9ba6ae010859521465bd61cfc90722536f7cdc16121425f7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed04c3d4046ec562ed7ff57fe6f58f1e359ac08959849e6656668e7f29a6bbde"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54da06f38b6d3249c84b52b2da8fb6dbd1dd107d2a13b6b8a3d3d940253719f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d403b2674150b89edac42559c20e9f578f2a9bee497ad669a50b32ee28a534d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "115017b85183ca9378ecce82eee8cb18f0796c348eee6fce94db2be9674bafe4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8a4d7e9f9d4168c6f37ebf77f9b35d6053cbe958661efc558ebd755b93600bf9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "df2342cf8f73db950345b67e2b857e9e46b57e6b1f341329a30622588f08b5ff"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ad31b4bd6cd7dd49035daf80ce0a44da474e08eb0219d5e96bea3096ea457b0"
+    sha256 cellar: :any_skip_relocation, monterey:       "355a12ac8f19144f1ce72fb70ff3af5f84db07c7ca0dd4d24d8a949f2d3f555f"
+    sha256 cellar: :any_skip_relocation, big_sur:        "b066751100985e0d98294e3f62ef06e6ffbaaf540dd35e801bc49de8fa3ec88a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e909135b2c392247376ea875a6e0b35c3476c34a8975a3e5f78a8c93a1ecc253"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+      "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
@@ -30,15 +34,30 @@ class Googletest < Formula
 
   test do
     (testpath/"test.cpp").write <<~EOS
+      #include <string>
+      #include <string_view>
+      #include <vector>
       #include <gtest/gtest.h>
       #include <gtest/gtest-death-test.h>
+      #include "gmock/gmock.h"
 
       TEST(Simple, Boolean)
       {
         ASSERT_TRUE(true);
       }
+      TEST(Simple, Cpp17StringView)
+      {
+        const char* c = "test";
+        std::string s{c};
+        std::string_view sv{s};
+        std::vector<std::string_view> vsv{sv};
+        EXPECT_EQ(sv, s);
+        EXPECT_EQ(sv, s.c_str());
+        EXPECT_EQ(sv, "test");
+        EXPECT_THAT(vsv, testing::ElementsAre("test"));
+      }
     EOS
-    system ENV.cxx, "test.cpp", "-std=c++14", "-L#{lib}", "-lgtest", "-lgtest_main", "-pthread", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++17", "-L#{lib}", "-lgtest", "-lgtest_main", "-pthread", "-o", "test"
     system "./test"
   end
 end

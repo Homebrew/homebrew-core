@@ -9,9 +9,11 @@ class IconNamingUtils < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4875c2788c7c77a35e9af5ecda0d4ba48ec06668ed12acd5b95b77860a8e25ca"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d9b0891567661143495e9cb87f7811d66a7e980e26d403fdbd3485590f9bbf7"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0d9b0891567661143495e9cb87f7811d66a7e980e26d403fdbd3485590f9bbf7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b212434c2f761da7a71beffe6984969eda3f0b97853ad70a2c4b9318efb35f06"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4875c2788c7c77a35e9af5ecda0d4ba48ec06668ed12acd5b95b77860a8e25ca"
     sha256 cellar: :any_skip_relocation, ventura:        "0d9b0891567661143495e9cb87f7811d66a7e980e26d403fdbd3485590f9bbf7"
     sha256 cellar: :any_skip_relocation, monterey:       "0d9b0891567661143495e9cb87f7811d66a7e980e26d403fdbd3485590f9bbf7"
     sha256 cellar: :any_skip_relocation, big_sur:        "f5f035a7553f25b130f64662cfea9fe25d8db0b7697f7f61e6ad52be8b8f24c5"

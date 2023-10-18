@@ -14,9 +14,11 @@ class Yaz < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b30ede96a31ef363a1e4d2e8cdb5b844a5484d08aad12f3801e3315c0409fc14"
     sha256 cellar: :any,                 arm64_ventura:  "5dbb63de0d67f15fdfcff25147b3509b473776b06a0c9ca900a04fa3126083be"
     sha256 cellar: :any,                 arm64_monterey: "259dbc67e9ab37dd225a2ce7606386ad5965cfb4f4aea23b7b74181dfcb9eada"
     sha256 cellar: :any,                 arm64_big_sur:  "ca4e44d1099e84555de5025954533d588eaaea51677c5c8c865bb2c11e5e542a"
+    sha256 cellar: :any,                 sonoma:         "1b1470348fadfe00b46df74d5d3b006e889736a1b418aaeda942865c31a16257"
     sha256 cellar: :any,                 ventura:        "2d2ea4097b54057d5fddfec177d9bc61a2b9101d9d189caba5084048c4e1aea1"
     sha256 cellar: :any,                 monterey:       "205f35ed6f999edd61ed575183b103ac8dff9dac0e49a560215b51eeb784594e"
     sha256 cellar: :any,                 big_sur:        "036c02f8aa3efa9715d8e948781a41b67d5c937530bd57649650f7e9b952a253"

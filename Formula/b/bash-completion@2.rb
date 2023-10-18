@@ -11,9 +11,11 @@ class BashCompletionAT2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee66fe7130ad0d99daf6a83e79f4734f36cc763bbc9cbeec1ac4020f072a29e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4551dd2b4efcc64fe37febc7471365cba49648a46437972aeb57bb3ca0a3b08"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c4551dd2b4efcc64fe37febc7471365cba49648a46437972aeb57bb3ca0a3b08"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "336f04248a6da8c65291ef74c35430f843ae10b5c29d092ab463803fa14b2014"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c61f7680e5a4cfb61a54c100b095f6f7b969d15b36e753aafd08d48c5703db1d"
     sha256 cellar: :any_skip_relocation, ventura:        "606996545b7e56cb10c51052b0dc811d3c3e4c2246e4cf2c2fdfe78a97b0113d"
     sha256 cellar: :any_skip_relocation, monterey:       "606996545b7e56cb10c51052b0dc811d3c3e4c2246e4cf2c2fdfe78a97b0113d"
     sha256 cellar: :any_skip_relocation, big_sur:        "27ccf1267d18fcd3e6018ec80363d003d07f750182bdef61150371532100bfc9"

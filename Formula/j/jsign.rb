@@ -7,9 +7,11 @@ class Jsign < Formula
   head "https://github.com/ebourg/jsign.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67e85c4ba9ad0a084c568deb11c2eadcaaa143699824bceca3466ce56723cdbc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3c8696ed5589fe3b66b01b6c049ab9f49a3e81fe0fd3efe671e4187e30824ca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2274a1daceded682726c51bb0e55567ff59c1ce526a9494b37c0cf668a1b559a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6271342afec98071599b74af7c900bc6bb200da69d0d149b5a71b7e845d70e0c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2aa17dfd04c712b81e2384fd16222e48f5518c983fbea60c1eca97edc49deaa9"
     sha256 cellar: :any_skip_relocation, ventura:        "69fe2bb7930593d71f86377523387a05cbde3b45e56204e9f862f234c4bf7fe3"
     sha256 cellar: :any_skip_relocation, monterey:       "5b6a5ba3eeff3b9ae4e8ae8b916da3cb71e606f07ae9fef2f53f43d2982ddb88"
     sha256 cellar: :any_skip_relocation, big_sur:        "cf37117fca040abbadb8d4d534eaf29d843e80deabcb9ad254a6f8dbc6ca874f"

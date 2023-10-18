@@ -7,9 +7,11 @@ class Dockerize < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5468824588ace6ce0e2d500813f703f016d2bee99dece371628b3e4c1c309d4d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d84f7628bdcc0d8ddc3795f4930ec4ed4e0ad9083237c210051aa3a3977ee1d8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d84f7628bdcc0d8ddc3795f4930ec4ed4e0ad9083237c210051aa3a3977ee1d8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d84f7628bdcc0d8ddc3795f4930ec4ed4e0ad9083237c210051aa3a3977ee1d8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "72658f8dd65dc1cccd95ebacf8faab54102219c3f2442667f61c96d6f677a908"
     sha256 cellar: :any_skip_relocation, ventura:        "c5a2631a56dd18dbc987d75db932c1cb6a9825acd4799178cb59ffd7ee67c37e"
     sha256 cellar: :any_skip_relocation, monterey:       "c5a2631a56dd18dbc987d75db932c1cb6a9825acd4799178cb59ffd7ee67c37e"
     sha256 cellar: :any_skip_relocation, big_sur:        "c5a2631a56dd18dbc987d75db932c1cb6a9825acd4799178cb59ffd7ee67c37e"

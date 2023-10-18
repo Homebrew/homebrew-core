@@ -1,19 +1,19 @@
 class Gocloc < Formula
   desc "Little fast LoC counter"
   homepage "https://github.com/hhatto/gocloc"
-  url "https://github.com/hhatto/gocloc/archive/v0.5.1.tar.gz"
-  sha256 "ca79858ebcc6b463992ec8b86d927d1713a0bb6f4f8546a4f7750a156829dcd9"
+  url "https://github.com/hhatto/gocloc/archive/v0.5.2.tar.gz"
+  sha256 "c8f95201bc6042767de7059cfd6a2a37799b3bf909ec61029baffe0f6ccc509d"
   license "MIT"
   head "https://github.com/hhatto/gocloc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc663abeb85582ffd4fa48e2ff7b398b9087d1351f83f549ac72d67b5db12945"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc663abeb85582ffd4fa48e2ff7b398b9087d1351f83f549ac72d67b5db12945"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc663abeb85582ffd4fa48e2ff7b398b9087d1351f83f549ac72d67b5db12945"
-    sha256 cellar: :any_skip_relocation, ventura:        "21fa97d6b4b718d29bd17495203d9d18852958dd566047c789e9c3687bf0db69"
-    sha256 cellar: :any_skip_relocation, monterey:       "21fa97d6b4b718d29bd17495203d9d18852958dd566047c789e9c3687bf0db69"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21fa97d6b4b718d29bd17495203d9d18852958dd566047c789e9c3687bf0db69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "356afb4d5253c8c03cfec3e645a4b0b587a6a76e9f5d9b69c4ab7f3abfdf32ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d6658082d193feb28911a88898be12e99dad08122b8e4a7361c9bda70758b9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d6658082d193feb28911a88898be12e99dad08122b8e4a7361c9bda70758b9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d6658082d193feb28911a88898be12e99dad08122b8e4a7361c9bda70758b9d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b7879e256399be4c19ea6973d142153c69cc16ec1da1ddda118806337baf774f"
+    sha256 cellar: :any_skip_relocation, ventura:        "b7879e256399be4c19ea6973d142153c69cc16ec1da1ddda118806337baf774f"
+    sha256 cellar: :any_skip_relocation, monterey:       "b7879e256399be4c19ea6973d142153c69cc16ec1da1ddda118806337baf774f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea39420e5d5b63e1eef76ebe1240c5bd69efc689f35c262355d6ca03d3735368"
   end
 
   depends_on "go" => :build

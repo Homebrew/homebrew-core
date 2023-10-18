@@ -4,16 +4,18 @@ class GitSeries < Formula
   url "https://github.com/git-series/git-series/archive/0.9.1.tar.gz"
   sha256 "c0362e19d3fa168a7cb0e260fcdecfe070853b163c9f2dfd2ad8213289bc7e5f"
   license "MIT"
-  revision 9
+  revision 10
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1568eef8c171318e5252a2b70cf6c73593cdde9771aad628a4e488f959c549e4"
-    sha256 cellar: :any,                 arm64_monterey: "bc86ff7a61825bfdce2a6526b1c4f093b925015b237431c55a01c81b5689fff8"
-    sha256 cellar: :any,                 arm64_big_sur:  "10dc8abee745d6a0c5050d664c4f215e843eead39c63cd7f8b0b0ea50891a42f"
-    sha256 cellar: :any,                 ventura:        "d9aa7c268d33b8b1dd161bed8b5d3d2634bfc29198f84832642cf6c520342d51"
-    sha256 cellar: :any,                 monterey:       "ea19bae915f274db6c6cda126037cd5360a562f14e479787c7b29bf0e878fe20"
-    sha256 cellar: :any,                 big_sur:        "67f0a92d24fdf4611d3dcaa2a63d47f678f9ff8b4b99a13c47544c713c9654b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b14ff0d2da9a97e00e16d8bc216eea5e81675fa3ce956c4461167ac761d6193"
+    sha256 cellar: :any,                 arm64_sonoma:   "b4cb77bc3e8a626bc8a490b3f43e079fe7c474ad8b0df429af8f6bc72d8507da"
+    sha256 cellar: :any,                 arm64_ventura:  "09bac8a166e42326111fd8473ae3c7a9ff6291989d8a275856773ca85482ec7a"
+    sha256 cellar: :any,                 arm64_monterey: "b864619ca53b4b446f46d18f871fc10559aa566e54818ffd982c4b4aa26f9cc8"
+    sha256 cellar: :any,                 arm64_big_sur:  "ac2992338ed769e8228cb1a78aa76b0d00e9ba48d81f0d3ae8c20ce86b4a0ea9"
+    sha256 cellar: :any,                 sonoma:         "ff61b72a799758cec2cfd9a656a88589b5f319cafce6ccff27900695371a48b5"
+    sha256 cellar: :any,                 ventura:        "e2eb3577da8e480f59a8288f3ffb1135360772651b538413bdbb20f7ce7831ae"
+    sha256 cellar: :any,                 monterey:       "8fc34ddc950682131191a0b1c7e5dabfb6a66b4d50e115cf1d73313999e52e90"
+    sha256 cellar: :any,                 big_sur:        "3874b2b34b9e86b75a71862e4d029117ecb46ce56fa359bfd7d033cbcd6c10d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f574fa247ed592c41e75a5ebb4b0946442de12a6c23be915ac0915f89e889797"
   end
 
   depends_on "pkg-config" => :build

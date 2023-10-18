@@ -7,9 +7,11 @@ class Logstalgia < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "03cd4bf0c812e179ab85cbe74a7e20bcbf32060a07fe556cae40ee6f50d140b1"
     sha256 arm64_ventura:  "9b001377cd185e70644b8428ce26297a7c4ae96112a54823bb081904ea879c5d"
     sha256 arm64_monterey: "c9f234fcec4d06c0e9c65d26071f4408baa98f3faaf27e39782464d020cba296"
     sha256 arm64_big_sur:  "2daf20ebefabb9a3e4574e1669ac4e4d07e2cc94175c3c2d0344f608f4d640a2"
+    sha256 sonoma:         "4f59eb197c72ce63469fe355a9e3fc7a9b8c750efd9eb7f2f2335bb9b69ba446"
     sha256 ventura:        "d974776b03bfaf4523e459f9e4e9441cf29eef373930f770e574a84c17e70911"
     sha256 monterey:       "40d4ae599af8f864d33af1043f10fa51a61fd56be16cbb15dec46d9b0927741a"
     sha256 big_sur:        "87e55b99f349681141a8f23263d83e233b69f75b75eb9e8288ce767955fd80e0"

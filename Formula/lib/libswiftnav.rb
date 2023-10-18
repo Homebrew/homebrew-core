@@ -11,9 +11,11 @@ class Libswiftnav < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0596c6cfaf45b62cd39b4fc4fc7f01b8b786914471e1b534be2f54c7f64921b1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e3b556518c6860f34af3d1a2e4e1c3c134d089f6b86b53f8317fa8eff9f99b6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "df259cd788dc4c271a2ae2296c17286163528eeb04cee8412fe450cf4a1549d8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a25d1d7bab6a7c1fe2b53c6b22cd330abc8013a0c82764c96284e924dd9ef375"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2d1816993437aea825dad690affb239660bed9a4e61b04536bc7cf6758c5a5e1"
     sha256 cellar: :any_skip_relocation, ventura:        "b9f845cbb35711aabf115910c838fbc2c5fedef78728ae695e28e5c038425885"
     sha256 cellar: :any_skip_relocation, monterey:       "b5e458c0d632aa814f63697a4a1fdd2a96d519f3846c9a5f7e04964df7cad26d"
     sha256 cellar: :any_skip_relocation, big_sur:        "39097a000739be8211214f46f80bb94709d3cc2784f7b4930d1b74107aeb87fc"

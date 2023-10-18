@@ -12,9 +12,11 @@ class Libmspub < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fd2bb38bdffffa662ebebce65306c5d4944eaab0a8278385d54d37de0a5b15cf"
     sha256 cellar: :any,                 arm64_ventura:  "f53ba0f603ff82e1be6edf58ea68ddc5cf15618ecc9425bf7d25686600ffaa6e"
     sha256 cellar: :any,                 arm64_monterey: "d3f278ac26e5f228b769821daf271faf2ad535eddace9459cc0931daabd2adff"
     sha256 cellar: :any,                 arm64_big_sur:  "7eb5fddbb726a0d7f26fe9617651d47cf4ac9808c3210dcc42379841a618a5a5"
+    sha256 cellar: :any,                 sonoma:         "cf2dbb53b96683355b136ddbbcadb093cfd14bd9da35dab1d8611d45ad205dd5"
     sha256 cellar: :any,                 ventura:        "3e127402489dc095a2b0716a21ac188f22c4cfc7bcd1a19724a123cc0bd1559b"
     sha256 cellar: :any,                 monterey:       "f5f6346fb4dae4e768dec30a28a8cefd01b45e3d029b3074dca1f5022f28136f"
     sha256 cellar: :any,                 big_sur:        "9245461f9a2f04aa3216a72fa1d2de594bf4a979b83a90d0b88fa72658b67647"

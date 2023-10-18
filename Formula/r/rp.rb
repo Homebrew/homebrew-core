@@ -7,9 +7,11 @@ class Rp < Formula
   head "https://github.com/0vercl0k/rp.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c05472e61dd44e140b2be7b893f67ecaedd2961e8cf2b20427ccc9a8eafd0449"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdd40e9a4e27e956fa2be3591ced32e8b0022c5c487f4c5cb20437db094eb36d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3d5f2862e0a53666572c7b03e80b3c652440f063b435d616f135bdfb0462ccdd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5e983fea67e1c46a4aa86b9bdb193c07519bfa94f137a975b106088011d200f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "560e4493b90ca5052681c002b52abd0ac1bf3784e46f05c3db3795395a1b6e1e"
     sha256 cellar: :any_skip_relocation, ventura:        "55eb4dce3cd61ded9718afecbab81d156a4d1d85786d7f10223a8492286233ce"
     sha256 cellar: :any_skip_relocation, monterey:       "3f71e97c714faef8b03f0d1f2e8b787a6db8cb20a8853de18498d351e22c19a1"
     sha256 cellar: :any_skip_relocation, big_sur:        "bb1a502f06dd14112dd034e6f81a7e3c398d36700b084c9bf1069a432f2ed6b2"

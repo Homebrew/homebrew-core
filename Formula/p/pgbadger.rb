@@ -1,19 +1,21 @@
 class Pgbadger < Formula
   desc "Log analyzer for PostgreSQL"
   homepage "https://pgbadger.darold.net/"
-  url "https://github.com/darold/pgbadger/archive/v12.1.tar.gz"
-  sha256 "4c2e43b93b72383bfc9a123d5fcda4f74147c1184e1d74c06498973b4b91629e"
+  url "https://github.com/darold/pgbadger/archive/refs/tags/v12.2.tar.gz"
+  sha256 "86677cb11d0fbcd80ed984c253318cf4b5f2e9ae11211c4b40606cf4536fb4b3"
   license "PostgreSQL"
   head "https://github.com/darold/pgbadger.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b76042d0c7d6aea2eef0c828d84fe5603c3157ab46425c75fcced5cef211c5e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b76042d0c7d6aea2eef0c828d84fe5603c3157ab46425c75fcced5cef211c5e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "529f6d56a5cc31782c9722a32d7613c66c156efa76bb8cc4717430b8d96ab9e0"
-    sha256 cellar: :any_skip_relocation, ventura:        "140c8a00b3973c25393cc55c034b9b9411ad9a1b835f5515ec9d9d7c87468b0e"
-    sha256 cellar: :any_skip_relocation, monterey:       "140c8a00b3973c25393cc55c034b9b9411ad9a1b835f5515ec9d9d7c87468b0e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8bfc5717772bd45d444fbe83bd0c39d17849d7f9271790c1f75cd8891063acdb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae3029f8cb34f69c3086db58e6c24f8326cb99ec88ee9b788a0099a67d9800d0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43fdc11961083b2fe26404ec3cf1db0f385bed9d7790c507309d9102fd65cbae"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43fdc11961083b2fe26404ec3cf1db0f385bed9d7790c507309d9102fd65cbae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43fdc11961083b2fe26404ec3cf1db0f385bed9d7790c507309d9102fd65cbae"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2ef944f78b90a0325f1ab62b6754e28bb5178ad6eae0daaf5d3c028265419b44"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d9a26125895ff45d1f63e31cd90d0b92fb598c92fdf3b3d38ab7dfc7e95f4c9"
+    sha256 cellar: :any_skip_relocation, ventura:        "1d9a26125895ff45d1f63e31cd90d0b92fb598c92fdf3b3d38ab7dfc7e95f4c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d9a26125895ff45d1f63e31cd90d0b92fb598c92fdf3b3d38ab7dfc7e95f4c9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "deb782255ba028c3ce3909bbf492f891cac710b248364473a9230fc9752fa345"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21b8b6e6d51f3154cb2ade19831c0317b5d274b5c0506b8a875e8cef9864fb04"
   end
 
   def install

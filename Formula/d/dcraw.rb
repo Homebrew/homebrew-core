@@ -12,9 +12,11 @@ class Dcraw < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "031ab39857064c76f12dd142d9d95aab39f43b0474049c846c82fe3b024876c8"
     sha256 cellar: :any,                 arm64_ventura:  "5c293d628459ac1405a5d558d975f2e655e6a59626a4a634fd6496b094a7589c"
     sha256 cellar: :any,                 arm64_monterey: "3335474ee80fb8359df924187d878380b76ee055ca0ade45f1b8872cf71b1614"
     sha256 cellar: :any,                 arm64_big_sur:  "fcf8d42c26fe0f0c75b9247286ab8dc90cca127b4946dc5755cfd44d5afd66a5"
+    sha256 cellar: :any,                 sonoma:         "9021dfd0fd80939f8cf06808522ac0bc3a4ab8daece0489c782ac798946a5e6a"
     sha256 cellar: :any,                 ventura:        "2ece1b23d5c77ada535e6e4ae803b9d8060296838cfe92818c191b1e49dceba8"
     sha256 cellar: :any,                 monterey:       "82b85b19458214ddae5f12e22a13e160b5a771d1111020d559a3b19bfed3798f"
     sha256 cellar: :any,                 big_sur:        "baf800fb4217afc09f8fc06f3512780898018e72e8862be65f016ea1b89fb91d"

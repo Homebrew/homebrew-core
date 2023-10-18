@@ -3,6 +3,7 @@ class Unnethack < Formula
   homepage "https://unnethack.wordpress.com/"
   url "https://github.com/UnNetHack/UnNetHack/archive/5.3.2.tar.gz"
   sha256 "a32a2c0e758eb91842033d53d43f718f3bc719a346e993d9b23bac06f0ac9004"
+  license "NGPL"
   head "https://github.com/UnNetHack/UnNetHack.git", branch: "master"
 
   livecheck do
@@ -11,9 +12,11 @@ class Unnethack < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "1c6320df0cd991aeb79ab344592d38726b9844cf5427c15b8a24d3195f2864b7"
     sha256 arm64_ventura:  "dce7d673a3f638fe97b4757fe3d78cb61b5fbdd1fec8b1f536e1295179195e91"
     sha256 arm64_monterey: "05c4befbdb39343bd07d991ea4d3b048215098aea8af4239e0c6ecef27deb330"
     sha256 arm64_big_sur:  "5b4386eee78f20075e693b6ad437df496c8c914518161d8901991c1c4a6ee1f9"
+    sha256 sonoma:         "c3a805f2af26f6941d60c7366f6c4f05fe67851fbe61c30fc2f73d05963b07a9"
     sha256 ventura:        "25c86b07ec5d9a182bf5a55a607bf232297585269d68ba7c6abcdd71eea6b8fa"
     sha256 monterey:       "c93c7e1e75f40ea747049d51072aefee9604e92c2643921aaa251ca35a08b2fc"
     sha256 big_sur:        "45d58053580ccdf9b65510768136206b71453b3457f23240a6dc592f817a6145"
@@ -37,6 +40,12 @@ class Unnethack < Formula
   patch do
     url "https://github.com/UnNetHack/UnNetHack/commit/04f0a3a850a94eb8837ddcef31303968240d1c31.patch?full_index=1"
     sha256 "5285dc2e57b378bc77c01879399e2af248ef967977ed50e0c13a80b1993a7081"
+  end
+
+  # Fix implicit `ioctl` function declaration. Remove with the next release.
+  patch do
+    url "https://github.com/UnNetHack/UnNetHack/commit/33a3bb6539452875a88efbf6da0148a1cccc00c1.patch?full_index=1"
+    sha256 "07e1bb472c4f20957dafc6cfc49fcfd3178a5e04fcebf93a4fc7922ec8c0a963"
   end
 
   def install

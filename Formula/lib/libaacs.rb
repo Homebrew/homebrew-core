@@ -12,9 +12,11 @@ class Libaacs < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7299a85edecb49ec7e77d70dbda59f4ef4d4879f7c7c28f01b7ccfe213675c2b"
     sha256 cellar: :any,                 arm64_ventura:  "17fb11e42e6b614543f8bdb7f79ab5ed918a5d2fac7442b9abc46c0bcbab3712"
     sha256 cellar: :any,                 arm64_monterey: "821c6fed1af02d4446d3e376bf8eda6ef671e9623ff1332b5d299a60ef1f2dbc"
     sha256 cellar: :any,                 arm64_big_sur:  "9205c7991ff5459dea68e115f5b09d95a937e06798c8ab536b07f554057c4261"
+    sha256 cellar: :any,                 sonoma:         "8a98b41aa3b27875fc6bde0468647b2dfa0e5dce93e36539db11e587058e7ba4"
     sha256 cellar: :any,                 ventura:        "4f0ca503d8c661f8a4dfc42f288ee0e6238207caa4b112d86b244bb59fcbbb4e"
     sha256 cellar: :any,                 monterey:       "32d350f3eb0294166767cf9f6f4f65c48e4619a635c8450bea42330d071e74ed"
     sha256 cellar: :any,                 big_sur:        "cb432910cc4b313478eeb21e71035f82310189f54090723c9bc4167dc25ada9e"

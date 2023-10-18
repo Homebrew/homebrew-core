@@ -7,9 +7,11 @@ class Libglademm < Formula
   revision 11
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "154a270d0792968035238a71546fe03574493de9ed86273981ae684da1cb3ad9"
     sha256 cellar: :any,                 arm64_ventura:  "3712c292d749cfb8a09008c92428e8dbcdcd76ef1882b47538b11af66f9166ea"
     sha256 cellar: :any,                 arm64_monterey: "bfe629fb08bbc12ac147778cf23f23f8f6ce84b7cbd32a9755a89e2ea42b63b9"
     sha256 cellar: :any,                 arm64_big_sur:  "8311ed9bcd9aa094070b749de1cd62d84645b9dfcbe38fee0cb0c0063c64031a"
+    sha256 cellar: :any,                 sonoma:         "b6f5319e9de90c885069d6a70839f12c8b69d5eb387046dc7418341a8362fba1"
     sha256 cellar: :any,                 ventura:        "38c330cae7c6c7f5392d264ec434cfb40ef67a297bd09ad9f09351e207d47575"
     sha256 cellar: :any,                 monterey:       "3e78628204bd2fc1714644a5690dfe1f507dc91c9256792605ac21628ad1a0a0"
     sha256 cellar: :any,                 big_sur:        "5fc582a1ef83d407db91fe1bc3a41560dca9fe4d4be84b1e74f8d6ef531f213c"
@@ -18,7 +20,7 @@ class Libglademm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8f4617457fab3adb4da5975e67aa9809d3e83882ca899a60139f316129f4757"
   end
 
-  deprecate! date: "2022-09-18", because: :unmaintained
+  disable! date: "2023-10-03", because: :unmaintained
 
   depends_on "pkg-config" => [:build, :test]
   depends_on "gtkmm"

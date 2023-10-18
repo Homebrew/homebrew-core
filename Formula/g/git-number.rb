@@ -15,6 +15,18 @@ class GitNumber < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "e8bca68db296e388c3290a4c805720e710e74b38482db38cebc1d3c78c96b924"
   end
 
+  # Necessary for next patch
+  patch do
+    url "https://github.com/holygeek/git-number/commit/743d06416f097da4f39f4be7883aa755c8a2edfb.patch?full_index=1"
+    sha256 "88544a6312df728e83dd7c421be57427a155742e51363903c48a707b8e29ade7"
+  end
+
+  # Fixes fatal: transport 'file' not allowed, remove with next release
+  patch do
+    url "https://github.com/holygeek/git-number/commit/e699e92394fa6a4ecbc4d7235925e9080a61aaa2.patch?full_index=1"
+    sha256 "92d77a6c06fd579e79ab95c9c2d1d461d0f4e0a7fc28217dbb24aeae60d0bec9"
+  end
+
   def install
     system "make", "test"
     system "make", "prefix=#{prefix}", "install"

@@ -6,9 +6,11 @@ class Jellyfish < Formula
   license any_of: ["BSD-3-Clause", "GPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f684c546aded8b84b1ef0bf20e87dd88c2dd0a6bd8f6298d3c62c73b0c825d6b"
     sha256 cellar: :any,                 arm64_ventura:  "9e0526e92d9b87bb9c26732174f0aa7b700db587e965941bd79d1bfc761a8b3e"
     sha256 cellar: :any,                 arm64_monterey: "3368a53a61d961a9169a4156a60d8023aee069084c108d67e8b81d12c01e5106"
     sha256 cellar: :any,                 arm64_big_sur:  "15ceae21239d0a1f851e878d20889ef5539b121222153829b3b1e2dcb6cc2548"
+    sha256 cellar: :any,                 sonoma:         "8ef9e9c705140f0f1888e63640547298b925d94bd49e5ff724c6a7e54c836840"
     sha256 cellar: :any,                 ventura:        "d1331785c605eee45bfa7053ad06da959b624d2af91c5a032da5350b0c1820f2"
     sha256 cellar: :any,                 monterey:       "00ffb57295d4f3362c58fc69bb017c183efbb7a7533a57d49cbf2dd83ca4d5cb"
     sha256 cellar: :any,                 big_sur:        "04b22121bce09df2e3cee997d3973a12e9f58e9b5e928465502eb4e83d429352"

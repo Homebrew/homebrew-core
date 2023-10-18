@@ -6,9 +6,11 @@ class Leptonica < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "457cedb4639b87cff6b170181e565c1f135977978bc1ea64733d56b549039ffd"
     sha256 cellar: :any,                 arm64_ventura:  "296fb19d6f6a934416ecc0f65789a0016ae1a500ac38bd67de50664d32da62e3"
     sha256 cellar: :any,                 arm64_monterey: "b644e4e2378628b56a2a73b321c5b24296d6fc405caa611f473faa3df7de7e15"
     sha256 cellar: :any,                 arm64_big_sur:  "8595af74ef54be9ac4ceeac23ccc90d924611fe95704e2beb159e17b317bb0ec"
+    sha256 cellar: :any,                 sonoma:         "043c3d7b9eaead2deb28afe59c26b030b4680c718c208da319cbdab80d8f2dc8"
     sha256 cellar: :any,                 ventura:        "88df9cb03f737d381155e43acb70057b9542f6d77163288e11fb0fab8c8ed897"
     sha256 cellar: :any,                 monterey:       "68605d71c607a9fb5167f7a3d1e5701478f133162cfaed8b4fd6efb0e0116f23"
     sha256 cellar: :any,                 big_sur:        "e3c2af5c8374bf1f24e8c1ad2e96656a4b0476e405325855554e5e35d1c7651d"

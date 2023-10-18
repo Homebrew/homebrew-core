@@ -6,9 +6,11 @@ class Libshumate < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "24d4ae35ccff5cd8a4af3708c4fd943fb0d3af574100260df191076751f7b27c"
     sha256 cellar: :any, arm64_ventura:  "8ace2302e532deed3abef6820cba7e7368ad91e16f81365c61c5154f9a631df6"
     sha256 cellar: :any, arm64_monterey: "dcfbdf45f68987722fda392b4493bcc0d7ed8022946b95d330ca1080f81f34a8"
     sha256 cellar: :any, arm64_big_sur:  "00e3700063d70bbdba9e6c1eebedbdf655af0d46ab84d381a682a35fe65af287"
+    sha256 cellar: :any, sonoma:         "fec2fae2b3fbd5a7033d1af381c0951973f8cf4033dbef943c020b591c5b8883"
     sha256 cellar: :any, ventura:        "9df2b472770fad1ff4bdbd16769f2643a42136540c6e65a685d78be0ed63a601"
     sha256 cellar: :any, monterey:       "bbf3f722b9e61d2acbc25d6084deae711fe9d8edc3fa0ed24d4a45831e418402"
     sha256 cellar: :any, big_sur:        "8fba9a912519736b61d1c098fe599162e5160fbd2d16aa168abb4b03478f74da"

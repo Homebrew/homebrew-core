@@ -1,19 +1,19 @@
 class Janet < Formula
   desc "Dynamic language and bytecode vm"
   homepage "https://janet-lang.org"
-  url "https://github.com/janet-lang/janet/archive/v1.30.0.tar.gz"
-  sha256 "64a8a923f5c5065047c91cce9c27ed0a60899ad5810b2c6f590bc5e24a4e834b"
+  url "https://github.com/janet-lang/janet/archive/v1.32.1.tar.gz"
+  sha256 "ac74444f1b545830c34738fe9ebb58c865ea4b819b0b0c3124315c646d9ce4cb"
   license "MIT"
   head "https://github.com/janet-lang/janet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3e3d0eff453af14a7ad4ca3458b8c880b13aeecf2446811eb8e2fb14a045d0f8"
-    sha256 cellar: :any,                 arm64_monterey: "c86ae02ac99c9569057d4753404f885ed6baebdb1140db6ab8762f79fb9dc915"
-    sha256 cellar: :any,                 arm64_big_sur:  "f86f7e5cb0aa966e009e834fd6753fe1cc37ec1d91b326719e6ee93b675e215d"
-    sha256 cellar: :any,                 ventura:        "4a55b330bf7eee1ad8193e651086c5a44f09ca7902c10ea76d0bf4d143566be5"
-    sha256 cellar: :any,                 monterey:       "857f0aa9a60e3629a997ee7d56e21ee0f4267ac47750ffe840b325068d69be8b"
-    sha256 cellar: :any,                 big_sur:        "f70a11045958567e165c4916e21848bc030ae247e17eccfd30d2c74ad56709d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0777c4eaaf9e45251934954259fbb4dfb16eaca4e909755ebce384dcf7684cf3"
+    sha256 cellar: :any,                 arm64_sonoma:   "624cbfb4dafbb08f23bb449d8bd8a5d136227a300bafaa521c217af2f29f958d"
+    sha256 cellar: :any,                 arm64_ventura:  "b2edd659bfd06f71e647f119f931d47ad975d216237117182673bda957152733"
+    sha256 cellar: :any,                 arm64_monterey: "144b3949f59732ac7f925f4b5fb15b21c0249d877038123f300c5554a282636f"
+    sha256 cellar: :any,                 sonoma:         "ada9508c4b53d3f32b1ae042d8911aed69a22fe7176d122d50ae4f8e14ed1011"
+    sha256 cellar: :any,                 ventura:        "ff73769a3155bf38baf72ad317d2e64daace7a2eaa66565aed5aeb4efbc50b90"
+    sha256 cellar: :any,                 monterey:       "f6c99c3b75c0e797e40817ff26637823c3fed6a698300ebb52bcb4376cec42b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78e1de2388b03c24c37c0bd925972179227f87805727f8339048b160bb5ee09a"
   end
 
   depends_on "meson" => :build

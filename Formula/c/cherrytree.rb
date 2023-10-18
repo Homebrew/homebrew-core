@@ -1,8 +1,8 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_1.0.0.tar.xz"
-  sha256 "e1101f725a41487e2c848a94b110843aece5269b66447aa8c32f2cfe60eba538"
+  url "https://www.giuspen.com/software/cherrytree_1.0.2.tar.xz"
+  sha256 "bc1ce491890e345513df2a93a804f75803966f28e9aacc6bdc825155a32a3123"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,19 +11,18 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "186d0d63cada8df2e9f03a2990b90be233fc88624159f0a6c7f75d36d0282b61"
-    sha256 arm64_monterey: "5961724a9e89d3c85fc64664ec374ed420b054402ffa3052f1a1daf961bf456f"
-    sha256 arm64_big_sur:  "d5ab9e21cb7d98fd940e5cc7434ecfe85270da153f32f27ff1eaac5755229d3e"
-    sha256 ventura:        "cd7a946723bb8080fe5ec7718736f738cc93df0a9e41e198c5d78558f518aadc"
-    sha256 monterey:       "bb15af3d4f2da014038b51cb9fd113bf15eb25f664c098ba5cf79a432f95c0a6"
-    sha256 big_sur:        "22228fd42cb5a820f50d956e1545aa84c6628969c5e23cd4e55e76449613db56"
-    sha256 x86_64_linux:   "d8d7dddc180ccd609c1593b0595717f694f4457498476a936367425f54f2f026"
+    sha256 arm64_sonoma:   "e17739a0b2be2e2122c9f69f6a3a7208f5a22bf7f0ffebafa25a1581754f59c0"
+    sha256 arm64_ventura:  "0a4407bd1c5617a963543152d9080df36148860831570ad2bd95fc2dc8049dc4"
+    sha256 arm64_monterey: "4d82bfcb42527d8d84745ce89e173ead8f4b6adccee6cd049fbb548f878b7f46"
+    sha256 sonoma:         "5908f2797869a21acad1ae38ad119119d400a7e0c6dac97ff973a88d3b220bcf"
+    sha256 ventura:        "fbdd21135120eb956f03d82e477e3c13e2afbac24b601079cebe2da17f1cb435"
+    sha256 monterey:       "7051ad849901cfeb0b51253593cc915b3f5286767381e2560ffdac4742b1400f"
+    sha256 x86_64_linux:   "c09b53fc030b633d8df715cc4ff0975fc30af7f0d4b10ef2ebf037f010775b84"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "adwaita-icon-theme"
   depends_on "fmt"
   depends_on "gspell"
@@ -34,6 +33,7 @@ class Cherrytree < Formula
   depends_on "uchardet"
   depends_on "vte3"
 
+  uses_from_macos "python" => :build
   uses_from_macos "curl"
 
   fails_with gcc: "5" # Needs std::optional

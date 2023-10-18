@@ -9,17 +9,18 @@ class Gitless < Formula
   revision 15
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92af893762bdaeb9beb85a420e9879ed7b1f7a5c225095f09fa76d58539e516b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "92af893762bdaeb9beb85a420e9879ed7b1f7a5c225095f09fa76d58539e516b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92af893762bdaeb9beb85a420e9879ed7b1f7a5c225095f09fa76d58539e516b"
-    sha256 cellar: :any_skip_relocation, ventura:        "912c28be8b280548781a70e2e9163da6babe27a88a1b6161a0faf0dc542e4520"
-    sha256 cellar: :any_skip_relocation, monterey:       "912c28be8b280548781a70e2e9163da6babe27a88a1b6161a0faf0dc542e4520"
-    sha256 cellar: :any_skip_relocation, big_sur:        "912c28be8b280548781a70e2e9163da6babe27a88a1b6161a0faf0dc542e4520"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d61d102ab034af619f46ce7bb64f2e80d28f4e520264628b9aec8b106b009896"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e00093cad0660bbd440fe65de3fe978cc0fcec755f8f7e00310f4d50e4feb6e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89ab6b361d6108a99e745371c590abd5a492c237e57c4ee7231309aac3a96c72"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6bd73ce67cd684058940020b372a1723bf4d04e741544e46e99c09b1ebcb5163"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dbdd190a67d25ae05923921365a8cd6525c4fca899c1ac8df84bb5cf87ef4428"
+    sha256 cellar: :any_skip_relocation, ventura:        "4dfd58d6ab1713999d958b1037eab1da812c12de343117c02ef1613c7a8dbcce"
+    sha256 cellar: :any_skip_relocation, monterey:       "7979a219aa9dcb41b5615735dda7fba9571dd824eb40a1a5f2bf2183b65ba48b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c6e14dd5f2b31c0158a7077ef71d8affab39c178a58fbebdf77db105f917d23"
   end
 
   depends_on "pygit2"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "libffi"

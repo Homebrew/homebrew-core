@@ -9,17 +9,18 @@ class Tern < Formula
   head "https://github.com/tern-tools/tern.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0334278b654dc7a4dc2e1afbc300f9ff825d54b1d791bc2f076fefe720041828"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9730e9770740879d8269bc431429e3ff712f930d116c8111117ee6986db89e7c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0a126825339228d61a0535f70ec1208878b70b4adcaf9a57c1b40712489347a"
-    sha256 cellar: :any_skip_relocation, ventura:        "f2c033584f56f8bd7549b597a8338cf9ae14f7a8abfec3d8173e1a5cf4536654"
-    sha256 cellar: :any_skip_relocation, monterey:       "f133a6da1ff3234e31ff7f372155e9993ac038a51982162d35996e3ba6972054"
-    sha256 cellar: :any_skip_relocation, big_sur:        "686426b7af0f024dc8e643ec846e0a8b5eeff65c4fdcd0c466e402dd35ad0db8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b636aadce34e9bd22fbaae0c129ab725a879aca6c9189df973be5bffe052adae"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0c7cb882c93601c87eb373b1b608d637595358bf5bca6cd81192f6ff8a31e01e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad030d000abf7024ba4f1391fc97e7918e239cbd0268ffbb1d93fcd734a026e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2cc0fedf712e6e6f58bd75ffc27b2a637807691487aa4a3529c0f827f9128a4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4bc0bb3d2e80abf4df451dccdb742bdc92ff5d2e366113acfaf5e98b1171e5ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf4d46dec898ab4982137044d3ae12b991a69b09bf127b6fa6adf1f05fc9170b"
+    sha256 cellar: :any_skip_relocation, monterey:       "ea5569daf58e91d7aa4fdc74a58bcc377c4dbaa7b943026f3f45ab1095573e9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ef2568a5170a78a86c9f9eb487e2d0af66872434d311c9d02bbe7fc7bcdfeea"
   end
 
   depends_on "python-certifi"
+  depends_on "python-packaging"
   depends_on "python@3.11"
   depends_on "pyyaml"
 
@@ -85,11 +86,6 @@ class Tern < Formula
   resource "packageurl-python" do
     url "https://files.pythonhosted.org/packages/91/c7/47a411700a121acc05fe78642b019afe320592078e58c182537c7c65006f/packageurl-python-0.11.1.tar.gz"
     sha256 "bbcc53d2cb5920c815c1626c75992f319bfc450b73893fa7bd8aac5869aa49fe"
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/b9/6c/7c6658d258d7971c5eb0d9b69fa9265879ec9a9158031206d47800ae2213/packaging-23.1.tar.gz"
-    sha256 "a392980d2b6cffa644431898be54b0045151319d1e7ec34f0cfed48767dd334f"
   end
 
   resource "pbr" do

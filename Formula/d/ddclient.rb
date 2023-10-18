@@ -14,9 +14,11 @@ class Ddclient < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83767a9b969effc64f9c079b499a0cdb3b7c59c149423a70f6d7ad35150d94f5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "83767a9b969effc64f9c079b499a0cdb3b7c59c149423a70f6d7ad35150d94f5"
     sha256 cellar: :any_skip_relocation, ventura:        "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
     sha256 cellar: :any_skip_relocation, monterey:       "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"
     sha256 cellar: :any_skip_relocation, big_sur:        "4d7b4313f149190585d9acdb4f0cc0c4457d7cf907c0b78c3d6351fa72d1a6e8"

@@ -8,9 +8,11 @@ class PegMarkdown < Formula
   head "https://github.com/jgm/peg-markdown.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a98a5d30c50275c60315ca49c9a5e9f8db427bf8e14dd76eed44f5d59af8b354"
     sha256 cellar: :any,                 arm64_ventura:  "b86b3203ed481c4afb9bcbd489a4803b3f1fd204c27bbed16dc42e45e16790fb"
     sha256 cellar: :any,                 arm64_monterey: "93a7ee730c2fb9c01ab25be02028ff8b25907d2a1693de10f07864b861f3be13"
     sha256 cellar: :any,                 arm64_big_sur:  "25d1eb833b0688d0b2db0667f105d27e50d6a46a14ea57be5aa5ef50c7127f62"
+    sha256 cellar: :any,                 sonoma:         "caead381de3c5b6a910a4316968f88da93d6dda290efb0c8b77595a54082e724"
     sha256 cellar: :any,                 ventura:        "9a7b88b03ac9871d36d6072135cddb6fce38933ffbbf6836a6a9d9265bc0aaa2"
     sha256 cellar: :any,                 monterey:       "9f10d8b70ae2e5fc012c2baf976a2235c9501be317dde74b17648052dd801388"
     sha256 cellar: :any,                 big_sur:        "efefd2a49548d4abdfc97bdc12295b1f6dac5b1832f21d9b6f147cc7a3c27176"

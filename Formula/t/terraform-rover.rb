@@ -8,9 +8,11 @@ class TerraformRover < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "190f1c6618d6c0ce1b895f0337e312d2db36c4c0e9020b97384b6ac7140eaae3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1818e26e098b7c82f51fae7441e753503c7e4a75276d251febef3d4857f0c6d1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "565e31665caca943d71cc52d6c7b59b688fa54f02455091f7c6770bae0742a4a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a438136c2b7532ebda2f4d03b932e447b15c9f30ca81eabac463578ed4b72ad9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d54c14df4cf66eb0b4fd5fae9a343a819e26a592d4dca3e8a28ff273e0a9d67d"
     sha256 cellar: :any_skip_relocation, ventura:        "4931a68ebe6dae34d3d55d53dacfadcb42467f09dd4716459dbb4ab37dc74984"
     sha256 cellar: :any_skip_relocation, monterey:       "a68c002a32b05deaa61a950e2fbf62ea55ba2cdd5836314e0014c9f8cea09e10"
     sha256 cellar: :any_skip_relocation, big_sur:        "b5e72acca059507deef119a07073f60d8a4183fdb59393412fd2353b4eb6d41d"

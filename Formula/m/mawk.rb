@@ -11,9 +11,11 @@ class Mawk < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8988c4e73c8ba31ea773acd9958508ec09e2a44f517a6e93e037877456134fcf"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5f700ec35697d139a1ed525c1e55cc6f533a370f02da1724ac9b534cc4d1d99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9e542b00264b74657560c2cd994a2af6e2912eda04cf5422e184f1013ddc6628"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "516c670e8f56f9fae87172afec424e40af35bdbdedc1d7ae628bac371655b6d4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c9ee5ebb503f67a256e6b3a46279084b12160d6a8f08acbc64ab71a44dea3324"
     sha256 cellar: :any_skip_relocation, ventura:        "eea76f9612943c3dccc713dda011dd35b81ecbc3e8f35b814b90299e326f6a37"
     sha256 cellar: :any_skip_relocation, monterey:       "5ce969f1120a9dbb428f9b8ee2e65135a394ba051a8fda9198370c12c6b51104"
     sha256 cellar: :any_skip_relocation, big_sur:        "580bf56500f1e5d238edb848a82226832f650b123dd0b0f960b11d04bb8a55f7"

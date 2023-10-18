@@ -1,18 +1,20 @@
 class Liqoctl < Formula
   desc "Is a CLI tool to install and manage Liqo-enabled clusters"
   homepage "https://liqo.io"
-  url "https://github.com/liqotech/liqo/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "ea350df8e650bab3c4b9250edbb9e97233f96b4e8e7291655b5993d0fbbfba7c"
+  url "https://github.com/liqotech/liqo/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "a733fad8d1d4ddfb80be59dbe638aceaaa74395da3825aa315228de58583e362"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "043d3133d552127d6a13ad12a4750195c7c0b8401eace8d32b1728c563085d37"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "043d3133d552127d6a13ad12a4750195c7c0b8401eace8d32b1728c563085d37"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "043d3133d552127d6a13ad12a4750195c7c0b8401eace8d32b1728c563085d37"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b93138456257acf9c0692945215b8b11712ad33be9f16c30c054d0dff5d2ad7"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b93138456257acf9c0692945215b8b11712ad33be9f16c30c054d0dff5d2ad7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "7b93138456257acf9c0692945215b8b11712ad33be9f16c30c054d0dff5d2ad7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d330ee67d99972adabf8e08cbb95f48abf8657bc7692558ce9247733c481c2d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dddbb1efc3378142de8d59ef90562a5aa51807e64056377d2e9d1ac59c44fe75"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dddbb1efc3378142de8d59ef90562a5aa51807e64056377d2e9d1ac59c44fe75"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dddbb1efc3378142de8d59ef90562a5aa51807e64056377d2e9d1ac59c44fe75"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dddbb1efc3378142de8d59ef90562a5aa51807e64056377d2e9d1ac59c44fe75"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c43f1c43c2644f567b5cdf11bfc834cd221ee7485a73de9f3ad9658936adec06"
+    sha256 cellar: :any_skip_relocation, ventura:        "c43f1c43c2644f567b5cdf11bfc834cd221ee7485a73de9f3ad9658936adec06"
+    sha256 cellar: :any_skip_relocation, monterey:       "c43f1c43c2644f567b5cdf11bfc834cd221ee7485a73de9f3ad9658936adec06"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c43f1c43c2644f567b5cdf11bfc834cd221ee7485a73de9f3ad9658936adec06"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf4d8a841b4dab7c297af977063e61f5e6637c27ebfe25699da54e3df5b58157"
   end
 
   depends_on "go" => :build

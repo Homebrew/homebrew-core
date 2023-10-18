@@ -1,8 +1,8 @@
 class IpinfoCli < Formula
   desc "Official CLI for the IPinfo IP Address API"
   homepage "https://ipinfo.io/"
-  url "https://github.com/ipinfo/cli/archive/ipinfo-3.0.1.tar.gz"
-  sha256 "93d494510e903c032b9081ce84df3d97ec765d7e297b2b7bc7633606f520adaf"
+  url "https://github.com/ipinfo/cli/archive/refs/tags/ipinfo-3.1.2.tar.gz"
+  sha256 "ac3bb31071ab7a68b09429dbe878ea88085dd9ff1729909b33f129d0a6e2b429"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class IpinfoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "246d9b3e442b37d51b48eeaaf875ad18ac101b72745a7896354e879714564356"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "25d3d00fec025d292fdf19a8afe7970cb4994b2f7ad922d4baa4afa10d2d8b0b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a2830c6fbc96497b162ee64a5a7fd7e32fa0e247090978f4d5cf412d23b1dd1"
-    sha256 cellar: :any_skip_relocation, ventura:        "c4a99325bb43655f6c231a42844a73b622f6ddffde4a573f1eaa9d8516479240"
-    sha256 cellar: :any_skip_relocation, monterey:       "57e0ee5f555cbee5653fdbcea3dc392c5028f31644b72327f07ebdad79f91b4b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "64d840f6e6bcb5a626b353f002025738960e0019126747af6342197437387582"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c923f1d92ae959ad41a1901ca4395ecee9df2e0af1913fd1b02b898863c8714"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "349ac2924978d0c131180a5fcb512340355e8b2fd82fb19cf69e9507acc7f526"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "187ab871825515467e9bc7b36f11ab57a3713050a99e0ea1473c3d2bcefba74b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dfee52c914dd93f4eceb74d83d6f945787a5933f93578c4583ef53fa764e8c77"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4cc6119e04bee88f54902562e5be1b8e7eb045cc7eb1a63f6f1e7b266e76bb9f"
+    sha256 cellar: :any_skip_relocation, ventura:        "f63a01b188e94ac1d408cf6b1f66b0a009bd643e8f5bca11c12126f2ccca3a9e"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f048c9190d475fdea23fc5b9cab27526e3aa935e587490f467119c00b9c1ecd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0daf34f0b2604660740b560dc6a020f08c5822edab6fa57f208ba2b7a358e28b"
   end
 
   depends_on "go" => :build

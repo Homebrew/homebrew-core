@@ -7,9 +7,11 @@ class Openhmd < Formula
   head "https://github.com/OpenHMD/OpenHMD.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f234246a30572beddda70313054bf10e58a96ee842bbeded6e1d1017febc0c02"
     sha256 cellar: :any,                 arm64_ventura:  "6b2e1d6170301fe50af6c5b9bee467a9c18f346cf2ff630338fd410bfbf992ff"
     sha256 cellar: :any,                 arm64_monterey: "536ae72b1f5e8dea9417cd010b787e4dfa94ece6c8fa3da651186f6e2ceb2d8c"
     sha256 cellar: :any,                 arm64_big_sur:  "19e9b946bbefe306dc41aa803e5cb48aec3ab62bf334b8975e660f4a3644c0c7"
+    sha256 cellar: :any,                 sonoma:         "2ecd76892befd509fe79dbf294e309a7ff5ae1333abef885dc984b5a4ef0a486"
     sha256 cellar: :any,                 ventura:        "3f960a5ab5e3466341ac6fcf533c317e37183338d770ca5b63f8aec92f48cd1b"
     sha256 cellar: :any,                 monterey:       "5e04fd446926530d2a5349d07d0354c4943c75b73220319ec38d27db42bb281e"
     sha256 cellar: :any,                 big_sur:        "875f651a4d9b710ce00e899928b2b9dab6f26cbfee670135566821e524d5337a"

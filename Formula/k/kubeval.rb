@@ -8,9 +8,11 @@ class Kubeval < Formula
   head "https://github.com/instrumenta/kubeval.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e54797aba1cf7170e6b5ff8d0bb2584f38cb9b06bfeee5d20066e80be5e4f03e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b431a6bc542f5d5fa271e5a246d91ac1b08a1c72bbfad9170d2bf4987c10868"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6e5974f57b949750e5b87e0d8b4cd7e12c566e29bdbd00d86cb9d132ee8e50d6"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "33bc6b830f27fdace62339ec2d3ac3ff01424c868e573f1d290d2f469c4986e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3055bd5d0907fad4c1ac5a4860ad52a4d765692f28ad363318ca496ab4a0628e"
     sha256 cellar: :any_skip_relocation, ventura:        "567e2a64ddc319bbf181fd2578489be371810321339892ce786b9196edd924f5"
     sha256 cellar: :any_skip_relocation, monterey:       "01c06b669351b172306258e588e035c21d84a0385a611c7174ceee0b2809a411"
     sha256 cellar: :any_skip_relocation, big_sur:        "542fae8921857d0adf7424fde1c08d2f4894989770515fa24591d93bd8334c65"
@@ -19,7 +21,7 @@ class Kubeval < Formula
   end
 
   # https://github.com/instrumenta/kubeval/commit/fe0a7c22b93b92adfdc57d07b92d5231fd0b3e0e
-  deprecate! date: "2022-12-07", because: :unmaintained
+  disable! date: "2023-10-17", because: :unmaintained
 
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build

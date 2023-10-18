@@ -1,19 +1,21 @@
 class Mlpack < Formula
   desc "Scalable C++ machine learning library"
   homepage "https://www.mlpack.org"
-  url "https://mlpack.org/files/mlpack-4.2.0.tar.gz"
-  sha256 "f780df984a71029e62eeecdd145fb95deb71b133cefc7840de0ec706d116dd60"
+  url "https://mlpack.org/files/mlpack-4.2.1.tar.gz"
+  sha256 "2d2b8d61dc2e3179e0b6fefd5c217c57aa168c4d0b9c6868ddb94f6395a80dd5"
   license all_of: ["BSD-3-Clause", "MPL-2.0", "BSL-1.0", "MIT"]
   head "https://github.com/mlpack/mlpack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6b7bb9296ce668c681abc7b124a3f7e43db04ac518fc734174a6182d3000a02e"
-    sha256 cellar: :any,                 arm64_monterey: "61f246b70bc7a71ce08f401a4c45ea0c0fb367ad24434886dd366f2d5164b792"
-    sha256 cellar: :any,                 arm64_big_sur:  "815a02a35f0a843d1c74e1146dcff088bcc6843460d738312a42dc8770c6c045"
-    sha256 cellar: :any,                 ventura:        "afa0360aaef101846a80b27118abbbf82828859b2c71cece4ee33c0ef6059c15"
-    sha256 cellar: :any,                 monterey:       "750e0468a64dbf22163db8a346215e07cd4e7fc26e6fe7ed08413d3110d2e56d"
-    sha256 cellar: :any,                 big_sur:        "6879303fb18f5f69f5c6ed3c4c524b6a31998b3ac4521ad96cbf9179d7a49af3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71fa55c6229435c86fb2fcdc73c4e84f4ddd2c5c4d8e052a84421ebee0e3425b"
+    sha256 cellar: :any,                 arm64_sonoma:   "2e8a7f13d5e89f237abc2b513132fd4583d7ade51a74d4a27332ab18d23c9648"
+    sha256 cellar: :any,                 arm64_ventura:  "077600d242430882c33eadd1650c007751da07d04cb7f851de9d1882691f164e"
+    sha256 cellar: :any,                 arm64_monterey: "924a161c34217e7a3d5d0dcbf150b4180e10f0a8e65aeda1c63c2f54ffbf0c73"
+    sha256 cellar: :any,                 arm64_big_sur:  "3b8e764e6b4e77cd77964267b4614860c8ef917bd4cc6e92ddf3c68bae4bf5de"
+    sha256 cellar: :any,                 sonoma:         "4f8a4c60dd80cf8e7e8732dca1fa05a6e553d9126dd892e561a57ddd71677483"
+    sha256 cellar: :any,                 ventura:        "abf2efa2216abb77be8716c9f16733e4271ad3ad5a8b331801bcbe9ff185bbcf"
+    sha256 cellar: :any,                 monterey:       "52f27dccecaf95dc59b3372e3a26d4140852e902cec5ed925f84be08338c9cbc"
+    sha256 cellar: :any,                 big_sur:        "c085f0272837d4ae0da9cafce1341504ae3931c939dc9bfcbee9f42e93863e2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "606fb38ed22b4b1dc7e5952709d258fe68083f2989768fe8ee0a53d132933fc5"
   end
 
   depends_on "cmake" => :build

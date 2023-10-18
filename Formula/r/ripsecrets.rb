@@ -1,21 +1,21 @@
 class Ripsecrets < Formula
   desc "Prevent committing secret keys into your source code"
   homepage "https://github.com/sirwart/ripsecrets"
-  url "https://github.com/sirwart/ripsecrets/archive/v0.1.5.tar.gz"
-  sha256 "1e3d36b3892d241dfd5e9abd86ddb47f22e6837b89cf9ee44989d6c1271dda2b"
+  url "https://github.com/sirwart/ripsecrets/archive/v0.1.7.tar.gz"
+  sha256 "12e1dfcd217bba34f74fd639d1a8de7dcf93ff2ae69398e093dfd794811db3ca"
   license "MIT"
   head "https://github.com/sirwart/ripsecrets.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "875a7077129c2c6e616546710c84ce9d0600bea2d5175968df4979ec0bb0353b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b5f6de692f2b9894e71c816eb109a14941c34ada55bac9ccc4b9091e05138b1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc03d9085c82a004ee252cd92ad9ab2a334538b7dc9a28532e275f38a8d9c462"
-    sha256 cellar: :any_skip_relocation, ventura:        "dd27d00c1e0fe8c14388b4a45b112c22e15ef21cc0755698ce24da4392122f58"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba619b6c9b0dddc4a985118e52e68606e38d1f26d59bd6a31c3a352345fa89cb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d80f09f4d00ba3b12b3c7c1219f9249ea2d10c5641bec3eb3cbc96971ec4b019"
-    sha256 cellar: :any_skip_relocation, catalina:       "e82297cfa8311cd174c61ef61250db3dd5de6f4d5bd7098f7af2440fd7dffc13"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd2c8ef43fa011717bc5654bb257bb45b1d27321bd3dcdf170d4338ad5c80a0a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b415b9920dbb68c100df02345b2db0cf022d4cd2d613ce0bc8e9605c8024d3c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8cd8cb33cd39e9fbd569d78216b9a22f72dec7eeabbcfc14b38b96b63b23ade"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d8356fc7e86f2b176eb1c7ea5b8c104d0f68ae6b96b0b4f6431fd94151c4c58"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d5dc8e5a51ebb4de784a6b095996df4441de7689ab3fb91949225619ceb7b7ec"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7f472b1057e9af8f8c95e64e66578b8ab86699644e772f5b11b6aee11c33cc3c"
+    sha256 cellar: :any_skip_relocation, ventura:        "4855d68e9b91f38a55e452bdd73c77dcfa55c542039204ea313b7fb54b803f16"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a280b78f13e1a6046ec946d115405897683e76499c43824b4f9b79bd4cf90d6"
+    sha256 cellar: :any_skip_relocation, big_sur:        "04e94ca4ed4cfdfa7352728a4eb895b84c055a6d7998ff5c2d81a83b2d6bceb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a8f45e8832d729204966a87b224c5c89e9d571d21f7df763c9e28c8117fee15"
   end
 
   depends_on "rust" => :build

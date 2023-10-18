@@ -7,9 +7,11 @@ class AgePluginYubikey < Formula
   head "https://github.com/str4d/age-plugin-yubikey.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea6a1f744b844e3828aee47de421d39dc45fd9225bf8639cf4a7611c5b7fd6f1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d483db38ef81bf77825584d6139b4044cad17e677e82ab3170511dee1e9253ab"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "04110190fbb7ad74a007b3f8e3529ef1ca7c0ef945dc206b88094494f4448f6c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7549e635e0904242a089b71a0d60c212385d2ff5140286d9e5731b7a5c8bd34f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8d40886e241aca0f55869bbbc9402982ace3a4e32c8088060fd9007e56bcec5f"
     sha256 cellar: :any_skip_relocation, ventura:        "bce97e22834bb8bcb69dac6e0b3935b7289ff527f67adc8ff4a44c663c48d330"
     sha256 cellar: :any_skip_relocation, monterey:       "4c172585c6d95ffa9f134db3c8f739a2e52696123334e2b4e093be188162fe06"
     sha256 cellar: :any_skip_relocation, big_sur:        "b306b141a739daa466bd6fc5806897eb4a2f2a4f11ef9b4ba20cf82738ac35ca"

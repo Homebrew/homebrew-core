@@ -16,9 +16,11 @@ class Liblzf < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "628f22496ad7f2c4bc212c7732cbc07b01b3fd697e12adb3ec64867a00c35079"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "adadf4ce163424818b3b0ff1d983494d271f1b7124f5310a8f7b51cc32cb4dcf"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a929d667239b01aae65391c9bdb50b8979cf00746728274801dfcb69e7dba54b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e321946e647108f4f478e84270ef6a49463e18d412fc94a4bc260c5009bd2dba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9719e891f819df8bc4e846087b87ac0eb36ebaa9a9829d02ce8d9927f957786e"
     sha256 cellar: :any_skip_relocation, ventura:        "0dbb4a635931edee6c07fb09133f60a9a6fda37130a066d0e9ca25cf69e91e64"
     sha256 cellar: :any_skip_relocation, monterey:       "c0a3c8f9311082eb797c848798f98da622a9ec648669298090fa7ef5cdec6b52"
     sha256 cellar: :any_skip_relocation, big_sur:        "1eb80ac962ecb5b94ba1ed3dc86d2baa8a13f231d113a77428879e0a8423ebaf"

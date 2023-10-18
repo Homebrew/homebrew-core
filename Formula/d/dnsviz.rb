@@ -9,13 +9,14 @@ class Dnsviz < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5a71a6c91593a90b9ecd76dbfc27afba76500620aaddee7ff88fab78e71b119d"
-    sha256 cellar: :any,                 arm64_monterey: "55b1e30f09a738d831a92555eed6630b694248088e9089deef27d973d114f304"
-    sha256 cellar: :any,                 arm64_big_sur:  "254dc87f29c57a1594c6a3d4ca4fbf8a2e52c9967a6ab970a4c3aef775cd1f31"
-    sha256 cellar: :any,                 ventura:        "77ff1faa9c59f7347af9dfb37d3a6c6cf22c1f0d8b9612ac0858525cc7a981a8"
-    sha256 cellar: :any,                 monterey:       "5bca7af88657cc2d05a7764417a230fd8bdb3d65885333a16f6d897f6d333af4"
-    sha256 cellar: :any,                 big_sur:        "17c5b7efc2b3bce906a472478b509b882317e357e61e2c60b710c318aaf5014c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "546e26d786634c81029b5ded89d12ecd07b75bb8b7f7f594c43c596f9829c057"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0b2d231557e130b430bd55610569b407e8cdafab9787a0d9b859c4498cf7abab"
+    sha256 cellar: :any,                 arm64_ventura:  "11ad04a03d99a9398fdda075d4e6752dfe37f5d9d85e1ae236f6e695fe13c6c5"
+    sha256 cellar: :any,                 arm64_monterey: "d620d3a8288a84d366393b33036aeab7172529224950e0be2930497ed5acc396"
+    sha256 cellar: :any,                 sonoma:         "fb6f201c85ebf633b19204faeea3f370cd1b6676cfa9e0ea229e495267558436"
+    sha256 cellar: :any,                 ventura:        "c03ca736dbd690592014dd12f0c20d99ddd3590b7884cc3f503f6c40a760f08c"
+    sha256 cellar: :any,                 monterey:       "58c06880a4722d5d2c06074fdca5a6b53f894c7295a5749d4af35d199b73da9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f666d4d7d5a8dfde2e23999de713ca4931129ebfbb5658a1ee8279c4bd2306a"
   end
 
   depends_on "pkg-config" => :build
@@ -23,7 +24,7 @@ class Dnsviz < Formula
   depends_on "bind" => :test
   depends_on "graphviz"
   depends_on "openssl@3"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   on_linux do
     # Fix build error of m2crypto, see https://github.com/crocs-muni/roca/issues/1#issuecomment-336893096
@@ -31,18 +32,18 @@ class Dnsviz < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/99/fb/e7cd35bba24295ad41abfdff30f6b4c271fd6ac70d20132fa503c3e768e0/dnspython-2.2.1.tar.gz"
-    sha256 "0f7569a4a6ff151958b64304071d370daa3243d15941a7beedf0c9fe5105603e"
+    url "https://files.pythonhosted.org/packages/65/2d/372a20e52a87b2ba0160997575809806111a72e18aa92738daccceb8d2b9/dnspython-2.4.2.tar.gz"
+    sha256 "8dcfae8c7460a2f84b4072e26f1c9f4101ca20c071649cb7c34e8b6a93d58984"
   end
 
   resource "M2Crypto" do
-    url "https://files.pythonhosted.org/packages/2c/52/c35ec79dd97a8ecf6b2bbd651df528abb47705def774a4a15b99977274e8/M2Crypto-0.38.0.tar.gz"
-    sha256 "99f2260a30901c949a8dc6d5f82cd5312ffb8abc92e76633baf231bbbcb2decb"
+    url "https://files.pythonhosted.org/packages/16/49/bfeaf55da3378292e40e93319717bb4334400e86c00a57fc52677f11fb65/M2Crypto-0.39.0.tar.gz"
+    sha256 "24c0f471358b8b19ad4c8aa9da12e868030b65c1fdb3279d006df60c9501338a"
   end
 
   resource "pygraphviz" do
-    url "https://files.pythonhosted.org/packages/ee/7e/7366c082f959db7ee18a16fc38dc594158ede65ca789bef87751ed5130c7/pygraphviz-1.10.zip"
-    sha256 "457e093a888128903251a266a8cc16b4ba93f3f6334b3ebfed92c7471a74d867"
+    url "https://files.pythonhosted.org/packages/19/db/cc09516573e79a35ac73f437bdcf27893939923d1d06b439897ffc7f3217/pygraphviz-1.11.zip"
+    sha256 "a97eb5ced266f45053ebb1f2c6c6d29091690503e3a5c14be7f908b37b06f2d4"
   end
 
   def install

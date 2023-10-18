@@ -7,9 +7,11 @@ class Jerm < Formula
   sha256 "8a63e34a2c6a95a67110a7a39db401f7af75c5c142d86d3ba300a7b19cbcf0e9"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96b7c79c29b63fe4f2819bb547c97c77d870aedc601d90e5e92a6b6657d89b45"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e46c7e764bb5fe86fb48dda5fe2b9f03624357f726c93399f5752ff5f6ee60b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c94b2dab39c4117d7099e34eb303fb3477247163b37d19b7601348cb7917d315"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3aeeab223b7e4375ecd06ff91d422d7e00981501f09ad448b7c99f74bdc571d0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5d1ca7129e6eb221c5a83ab2a5f631be2d9acf0a7aa1897fd1f481924373497e"
     sha256 cellar: :any_skip_relocation, ventura:        "d577776b3f4fe4763f65dd44608660703ba446404125d5f645f16c727251898c"
     sha256 cellar: :any_skip_relocation, monterey:       "7d90c12f4c72c6d13fb1f5eac37ddf2c1f92db2781b16c666e84fa90e3a58a7c"
     sha256 cellar: :any_skip_relocation, big_sur:        "15802029e8244b41d39836347f57e0f7020b06a7a8463ffece0b418a28b28050"

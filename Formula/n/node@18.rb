@@ -1,8 +1,8 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.17.1/node-v18.17.1.tar.xz"
-  sha256 "f215cf03d0f00f07ac0b674c6819f804c1542e16f152da04980022aeccf5e65a"
+  url "https://nodejs.org/dist/v18.18.2/node-v18.18.2.tar.xz"
+  sha256 "7249e2f0af943ec38599504f4b2a2bd31fb938787291b6ccca6c8badf01e3b56"
   license "MIT"
 
   livecheck do
@@ -11,23 +11,25 @@ class NodeAT18 < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "185d3f71f84b24165f518c9ee3bcbd5d0457951bae12af74340811d671c34a55"
-    sha256 arm64_monterey: "0c50985537d8534d2cf6d03b3f1b136af26509eb40642de0a12283a3eabd1913"
-    sha256 arm64_big_sur:  "ce0463963f4bb2f16634a881103619cc2851d8a0dab70c2c0c144785db0236da"
-    sha256 ventura:        "43edb704dd237d7281ced7214602cfb7fc2720d694b5c24a5cee9a4c072cabd5"
-    sha256 monterey:       "73a671832ca9465a4a8d0aace96d3e22693b3a8219bfee97886dd6cf8cfba2ee"
-    sha256 big_sur:        "08fc32978056f62ce407d53deb3dd5780e2fc32906cd9a571841151fcec107eb"
-    sha256 x86_64_linux:   "cdc96c1fe757f519d184b1f652faf5adea1b71f092c57a0eea4e12c3dff92b91"
+    rebuild 1
+    sha256 arm64_sonoma:   "b75d54bf46f0b18d5335f75951e793c5801cf460b61c22dceb402d1fc4dd104a"
+    sha256 arm64_ventura:  "b272f1316a03553ea3906f82267f65231a4be3c6de61d732fbc7603120c45593"
+    sha256 arm64_monterey: "9802ec37e7f98967ddc380b347189339ec62912ff0b21bd0dc6e141e65155231"
+    sha256 sonoma:         "a3545cb021ff3fd71267a2123bc84703cc3f4ad1a447417c01b547b1471846c9"
+    sha256 ventura:        "f0d51675eafeab5892d5bee4527e0ce4849362e53013cb3af479711cb1ecfc67"
+    sha256 monterey:       "a99dcbaf8a9089eaa127f5737a675b5b56549ed87ece995f8aa83f37da1c2791"
+    sha256 x86_64_linux:   "129a7225b0ea5808e8c877a0c54f95d67c81b31b7ec0a50c18be9f482bf59748"
   end
 
   keg_only :versioned_formula
 
   # https://nodejs.org/en/about/releases/
   # disable! date: "2025-04-30", because: :unsupported
-  deprecate! date: "2023-10-18", because: :unsupported
+  deprecate! date: "2023-12-18", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
@@ -51,11 +53,14 @@ class NodeAT18 < Formula
 
   fails_with gcc: "5"
 
+  # Support Python 3.12
+  patch :DATA
+
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
 
     # make sure subprocesses spawned by make are using our Python 3
-    ENV["PYTHON"] = which("python3.11")
+    ENV["PYTHON"] = which("python3.12")
 
     args = %W[
       --prefix=#{prefix}
@@ -116,3 +121,27 @@ class NodeAT18 < Formula
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end
 end
+
+
+__END__
+diff --git a/configure b/configure
+index fefb313c..711a3014 100755
+--- a/configure
++++ b/configure
+@@ -4,6 +4,7 @@
+ # Note that the mix of single and double quotes is intentional,
+ # as is the fact that the ] goes on a new line.
+ _=[ 'exec' '/bin/sh' '-c' '''
++command -v python3.12 >/dev/null && exec python3.12 "$0" "$@"
+ command -v python3.11 >/dev/null && exec python3.11 "$0" "$@"
+ command -v python3.10 >/dev/null && exec python3.10 "$0" "$@"
+ command -v python3.9 >/dev/null && exec python3.9 "$0" "$@"
+@@ -23,7 +24,7 @@ except ImportError:
+   from distutils.spawn import find_executable as which
+
+ print('Node.js configure: Found Python {}.{}.{}...'.format(*sys.version_info))
+-acceptable_pythons = ((3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
++acceptable_pythons = ((3, 12), (3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
+ if sys.version_info[:2] in acceptable_pythons:
+   import configure
+ else:

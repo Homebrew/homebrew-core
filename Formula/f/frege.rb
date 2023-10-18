@@ -8,23 +8,17 @@ class Frege < Formula
 
   # The jar file versions in the GitHub release assets are often different
   # than the tag version, so we can't identify the latest version from the tag
-  # alone. This `strategy` block fetches the separate asset list HTML for the
-  # "latest" release and matches versions in the jar filenames.
+  # alone.
   livecheck do
-    url "https://github.com/Frege/frege/releases/latest"
-    regex(/href=.*?frege[._-]?(\d+(?:\.\d+)+)\.jar/i)
-    strategy :header_match do |headers, regex|
-      next if headers["location"].blank?
+    url :stable
+    regex(/^frege[._-]?v?(\d+(?:\.\d+)+)\.jar$/i)
+    strategy :github_latest do |json, regex|
+      json["assets"]&.map do |asset|
+        match = asset["name"]&.match(regex)
+        next if match.blank?
 
-      # Identify the latest tag from the response's `location` header
-      latest_tag = File.basename(headers["location"])
-      next if latest_tag.blank?
-
-      # Fetch the assets list HTML for the latest tag and match within it
-      assets_page = Homebrew::Livecheck::Strategy.page_content(
-        @url.sub(%r{/releases/?.+}, "/releases/expanded_assets/#{latest_tag}"),
-      )
-      assets_page[:content]&.scan(regex)&.map { |match| match[0] }
+        match[1]
+      end
     end
   end
 

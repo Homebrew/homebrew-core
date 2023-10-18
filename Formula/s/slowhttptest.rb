@@ -8,9 +8,11 @@ class Slowhttptest < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "69e91887b20b8954627ba289b3eb711567f93a75582cc9df504d11036cf97a10"
     sha256 cellar: :any,                 arm64_ventura:  "68f9552d0393f75f8530f7e2100e7325178dff70197e0db2df7037f4396bc55f"
     sha256 cellar: :any,                 arm64_monterey: "f44686a2cd459960a69bba155aadf7d83e1bd550d894b349dc6f457a7232c13d"
     sha256 cellar: :any,                 arm64_big_sur:  "d7ac9431e1ae5708175dcd3f8cfbb96189a78621eed8ac99bd06b9b8b6ba22b7"
+    sha256 cellar: :any,                 sonoma:         "4ff751d6c6b99c9d2d6786468bfd53e524883d21b6bdb0a1add1ed8c89690176"
     sha256 cellar: :any,                 ventura:        "a4a82aed233b8a3e14f2e6870a5460edd7f5645f6b8c60033355b1ef6fe4e800"
     sha256 cellar: :any,                 monterey:       "85676dfbf81eddac78cb31816f86f8667e6726398ef68be3d2b490f3e78028bc"
     sha256 cellar: :any,                 big_sur:        "1818300aa4c7c76e0eb05f100009faf97a07fe43133a7f66e09abefb61a5c229"

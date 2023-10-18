@@ -1,8 +1,8 @@
 class Libuninameslist < Formula
   desc "Library of Unicode names and annotation data"
   homepage "https://github.com/fontforge/libuninameslist"
-  url "https://github.com/fontforge/libuninameslist/releases/download/20221022/libuninameslist-dist-20221022.tar.gz"
-  sha256 "92c833936d653b2f205fb5e7ac82818311824dabdc7abdc2e81f07c3a0ea39bb"
+  url "https://github.com/fontforge/libuninameslist/releases/download/20230916/libuninameslist-dist-20230916.tar.gz"
+  sha256 "3ce49721de808a389f90997e9217adac449ab23e2fbf2115b22a8664e0e0a686"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,14 +12,15 @@ class Libuninameslist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e1f92764ac97ebac5e76e2cc88414e9b4272c791159b92751b44b8b1b16f88f8"
-    sha256 cellar: :any,                 arm64_monterey: "b730c8d395fff31ba541759c101e3024b9652c05aa426ca08b41f996afa49e7f"
-    sha256 cellar: :any,                 arm64_big_sur:  "4b0214eea454a0b9be8a49a37146519750abd9a384c397a35e0fd7978007d211"
-    sha256 cellar: :any,                 ventura:        "ea76dda1784a20ed1a884903618a73c57d66c69c9d0f1b40c050362c70d787ec"
-    sha256 cellar: :any,                 monterey:       "85eef665f0db7618b40ed7710b0677c098745a4c429c5f5ef70b4647f5fa2774"
-    sha256 cellar: :any,                 big_sur:        "24cebce234e974de93316eacc50b2bb4eef5aa68463fa2d4762b5a4103d87388"
-    sha256 cellar: :any,                 catalina:       "f7228caba01e8f69cf264d19822c6ae5fecddbc8c943911ab12df5d5c0539675"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0663619ead9a7ed939f94b7eb97d1be2b7239b35ed149e71c8605efbc171ff17"
+    sha256 cellar: :any,                 arm64_sonoma:   "e6ed9ef9796b9c75ae9fc87a06086fe13438a8419cfcabe397565ba885540023"
+    sha256 cellar: :any,                 arm64_ventura:  "afa81dd79c2050f909702d59949de7068fd20b51aa2e1f30b157df326e4dcc65"
+    sha256 cellar: :any,                 arm64_monterey: "886013cdcb379d9e9fe6269cd532d390be6732725650faa2922fe84d4e5195d6"
+    sha256 cellar: :any,                 arm64_big_sur:  "b89a7bc2308e856ad9a6bfcf111134e0263dd70f2b9b77772bbe73ec308062da"
+    sha256 cellar: :any,                 sonoma:         "e129783b47f0afa99aeb358a86f2e23f79f9c827b9b8e5c1114ae26fba1991d5"
+    sha256 cellar: :any,                 ventura:        "a4400a00217b7703a74c880e775da585231317ccf691890c9080744c426a0453"
+    sha256 cellar: :any,                 monterey:       "91ee240ca7c52c2d568c26c67d1b0657d2d209d57b5c1bf009a0d768a7ca64cf"
+    sha256 cellar: :any,                 big_sur:        "c22d7ef613246de66324665c1b2b7493f44d34d313ed8d19115bee41fc443968"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5b8991beeec498b00b3bda0c37fa48e9f5539db72b47bebb597810f522b5422"
   end
 
   head do

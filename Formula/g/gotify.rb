@@ -7,9 +7,11 @@ class Gotify < Formula
   head "https://github.com/gotify/cli.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7fd505d7e456bca1972d7b793ee81d805ad59ba1b71b148a4d4718860cd9dcff"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "089f351450dbfda3a863d43b567bdfee951b403b29a274929431899cd216d2bc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "089f351450dbfda3a863d43b567bdfee951b403b29a274929431899cd216d2bc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "089f351450dbfda3a863d43b567bdfee951b403b29a274929431899cd216d2bc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "53941bf7ef9f64b57d74b2248bda65583f96f42202f59fd951bc6c6ca3b2678f"
     sha256 cellar: :any_skip_relocation, ventura:        "ece8f7f186f1e4116a314969b5615ca03228d1a320edf72eed4075ce133e1540"
     sha256 cellar: :any_skip_relocation, monterey:       "ece8f7f186f1e4116a314969b5615ca03228d1a320edf72eed4075ce133e1540"
     sha256 cellar: :any_skip_relocation, big_sur:        "ece8f7f186f1e4116a314969b5615ca03228d1a320edf72eed4075ce133e1540"

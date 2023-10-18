@@ -8,19 +8,20 @@ class Bilix < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c834a90812c262ef5e8709628c7aab39c57cffb8bb4aa174ab2472f36f3f1f0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "428ff190673be4231804ff8b6feea6c5964113f4c18f68039d028c4b986ffa1c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "be712c174cb6e4abf0c612bd985ac677b2944e04b0dab22c9ca1350a2fa8afae"
-    sha256 cellar: :any_skip_relocation, ventura:        "9c19911a7e5d82d7a7cbc1aa1e0727e10d934855b2d132c59ade39ee5bbd8aee"
-    sha256 cellar: :any_skip_relocation, monterey:       "35795e3c553913a41eb1e167398a6a121af70fccba64cb0183883928bc2d95ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9538e936336521be37c47c5c87a9c6907e3d7db98ce1da25a44ffcfd63bde601"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64f07450ad045573501180d1db6ce9c43348eea16aa5d3210bf68997c52b33fd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfa921627f6411356bb2a65cd98e192ff0d12134be4cb0902b522f5c4f06a90c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d1f4420a9ee64d267eac341f6ef1e0f6133086d1e39e493d82b40677f5b74b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "269ed26258e88e76e21411778bc2fcd3c14c9b56cec76dbd6b3fe46ae8f3f2f1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "49ccf77d67829942499eff1109dc8354a80931609552b36fb9933e5d45e312ac"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ecea3f5ab8fcc47c7a83dc57d789f16ce9a5ae31669c4f7d29fd74bcac3148e"
+    sha256 cellar: :any_skip_relocation, monterey:       "fdf3c5400ff91c7d6e5edf528387534f7196d74db8aa142f382661fa115a7c97"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d49c1405664981e09f2729b2387ff560a3ca36e3d6b52de15ff5e75d4f6c0f3"
   end
 
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-typing-extensions"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/af/41/cfed10bc64d774f497a86e5ede9248e1d062db675504b41c320954d99641/aiofiles-23.2.1.tar.gz"

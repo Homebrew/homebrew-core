@@ -1,19 +1,21 @@
 class Nfdump < Formula
   desc "Tools to collect and process netflow data on the command-line"
   homepage "https://github.com/phaag/nfdump"
-  url "https://github.com/phaag/nfdump/archive/v1.7.2.tar.gz"
-  sha256 "0545b792e81f5edd51a2fdfbfcc4eac7ba8087005811ab41c34bfac4d78fe926"
+  url "https://github.com/phaag/nfdump/archive/v1.7.3.tar.gz"
+  sha256 "9ea7e1ded34a81839b73e66cb62c9bc11a8070210584f9a508798d7bd6058c89"
   license "BSD-3-Clause"
   head "https://github.com/phaag/nfdump.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "bcd7a9b774976dbb97d73fb1a93b36b7c5abc8579d7a303ccd78f86bd2fa7790"
-    sha256 arm64_monterey: "40f2b32ea38db9b88c01d83ee1bcc6ff70528abd3e0097120a3396674d7e03ab"
-    sha256 arm64_big_sur:  "3e25963361c30a566a9bc39b67d69621509685a8878e91e01c442fd6cd397479"
-    sha256 ventura:        "10ef900bfcd6602875c14281ead4b3d6c7c745b775a748cfe3a9b692a3606dac"
-    sha256 monterey:       "11493b60f774efe3499cf527745f82761ee3eead78d9dc0d1af49a48ecf2bd70"
-    sha256 big_sur:        "52933a62e14d28198597e492ae63dae43e5b32ee00fbbdf4981a8356afce9cc9"
-    sha256 x86_64_linux:   "d848913d75859dd4811c2ae6e608a249a5d3872c23058113fb7ea1dfdbb64486"
+    sha256 cellar: :any,                 arm64_sonoma:   "29e9ad6c311b8b90a3c58d9fab6b77ccf9c5ed20c79be3870ab6739012b2e07c"
+    sha256 cellar: :any,                 arm64_ventura:  "50eeb03bae9b62393985bd7879eb640422a75943df16e9f023bbb0eedbe0a8ba"
+    sha256 cellar: :any,                 arm64_monterey: "fe3792a8237227e5d1b26a9fb0a175053c953270e082844a31b178bd08c1119d"
+    sha256 cellar: :any,                 arm64_big_sur:  "a0f283180241934960029478fe9215ae5b0eb2160f8b1989e9ef9750024ec858"
+    sha256 cellar: :any,                 sonoma:         "a84273e2f05bebc14f648a1f29ebb68c32cf6b757b1d5ca5c76933eb4bd509b5"
+    sha256 cellar: :any,                 ventura:        "33c9d0b402c2b4f30d8bae3206323dc9ff7f1100950c0e9867736bd38daddfa0"
+    sha256 cellar: :any,                 monterey:       "cc5a415e262adc15e207645f11d265298c9a73a22c8d441b1ae11fdd9c9fe818"
+    sha256 cellar: :any,                 big_sur:        "0db91bfdde00f9eaf26f2ab5a23f4623f808ddca50ffef180f7bdd4537187f48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b970f64f2505ff3028cea23a1015664c490606fe8e9c52eb26284e7353aba299"
   end
 
   depends_on "autoconf" => :build

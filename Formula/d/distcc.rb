@@ -13,18 +13,20 @@ class Distcc < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "8b2fbc5cf4cb8d9476da2625a957915944649cae75fb3108b0bc96a4a4566dc2"
-    sha256 arm64_monterey: "c81d6a2c9a61ef14dce35ace5f8c6178818fc31df0737340e7a132f00f0f65a4"
-    sha256 arm64_big_sur:  "65af444c16f90e930c9bfb1bbc409dc3bb448de3074fd66d6c4e838286a97de0"
-    sha256 ventura:        "df8c4c8014e106395f5bd5c442b3e001d74ebc4b5f974501f62398e1bfe7c9d7"
-    sha256 monterey:       "8f3321e99183c5839f84d1a6c49e64befa3d4c028a7e245b1943ac91c36d513e"
-    sha256 big_sur:        "beb61452ff642e970da5d457f55d7bee4667c095a531dd2f34424afebf6dca00"
-    sha256 x86_64_linux:   "de6c0c43468eff787ff1fce4f00c476df27327f798e1c483c6cd41e239fba684"
+    rebuild 1
+    sha256 arm64_sonoma:   "f5cffa740e019ecb9464d09feda348769cba918566dce0f279584e92a8b4d16a"
+    sha256 arm64_ventura:  "a05b3f4d6f2a93b71f087fac1c5e874c0eef2e01f6948d21953bf0056b2d2686"
+    sha256 arm64_monterey: "c004a1e0a47b7fe7bba7e2dd6c730f962cc2dd0f3004f948ed6eb9d0948a5cf3"
+    sha256 sonoma:         "f80d67bb32b6b555a17b6ef87e14520f3b37b4193911a1529a718d1d41f4cf68"
+    sha256 ventura:        "9235d3dc9673e104ccaf44a575d48a6a8e467e724381703fb2451c4473488787"
+    sha256 monterey:       "54f7ff487afded94b517b80b63806d285c447f9f4bf7165e7b7314b12325b0ef"
+    sha256 x86_64_linux:   "afcb3e0911ffdb494af0fb80013de9c990690812e86f77001dde497ee0966b79"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
 
   resource "libiberty" do
     url "https://ftp.debian.org/debian/pool/main/libi/libiberty/libiberty_20210106.orig.tar.xz"
@@ -38,7 +40,7 @@ class Distcc < Formula
   end
 
   def install
-    ENV["PYTHON"] = python3 = which("python3.11")
+    ENV["PYTHON"] = python3 = which("python3.12")
     site_packages = prefix/Language::Python.site_packages(python3)
 
     # While libiberty recommends that packages vendor libiberty into their own source,

@@ -11,9 +11,11 @@ class Stormssh < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "5dca4b93de64b17f18b5cc687c2b5497f809f64032a1ebbc2f74284b9eda3a9d"
     sha256 cellar: :any,                 arm64_ventura:  "1a52f812dc26af292eb286347a38a1b2d1530ff6dba1b87bdfcfc6fd5ed00576"
     sha256 cellar: :any,                 arm64_monterey: "b946e40a8b373e97d11f4f9f71e07bc4a9d550e2c44372eb8b5f44b4bec6cb02"
     sha256 cellar: :any,                 arm64_big_sur:  "730ee4ca3a5f5b6c31f8f13da068b1a930688a5b59b05aeeeb7ca3cb7f3bac9f"
+    sha256 cellar: :any,                 sonoma:         "ebba46efdcc326316cee26a5de5a61806f41c886e05a00fff9de9ffc26185b14"
     sha256 cellar: :any,                 ventura:        "66600c88a01a9afb40233fad01f83852cfb195c94b20834ffd4b4756efc9c589"
     sha256 cellar: :any,                 monterey:       "026e5179db5a2dfab9c92106cc06965503ca796aef68030390df4599f1b25037"
     sha256 cellar: :any,                 big_sur:        "1a7c8cffd920f3f01fea0b079e55c4fc40a1841b4367812f0c555e08954091ee"
@@ -21,7 +23,7 @@ class Stormssh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "df73798729fb9dd5d28e815344850f973d9d469dc270192f8b8d8070a0d3e186"
   end
 
-  deprecate! date: "2022-11-28", because: :unmaintained
+  disable! date: "2023-10-17", because: :unmaintained
 
   depends_on "rust" => :build
   depends_on "python@3.10"

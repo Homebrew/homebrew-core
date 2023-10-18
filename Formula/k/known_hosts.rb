@@ -6,9 +6,11 @@ class KnownHosts < Formula
   head "https://github.com/markmcconachie/known_hosts.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "73c6ecbb88d20e53661a6d9244a811183e100f5d4b9dc6f37329cb3b69eae2c9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3a25e4320813f741ccbd44b32856f31f3cd687239f9f409a336465e2f2bcb27"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f6f7c9c4638ffa5cff8f90e57ff9a8bbb3b2114e87d709e930e88120884859ad"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bf3e0af3ffe33fc928ada23b36fd1549b8435234480371f678cb125ecdf3cb74"
+    sha256 cellar: :any_skip_relocation, sonoma:         "145ffd5db4e97f757e35b3757b02f5cf0b6f92801e2b0299bccd26083759bc9e"
     sha256 cellar: :any_skip_relocation, ventura:        "785882a8af04336a4d06487a4b12b1ef1381b141388fa04c22e5def3ca99d0fb"
     sha256 cellar: :any_skip_relocation, monterey:       "aa8e1755201bfe310f46071a14105071fc49b39b415b128e138d7d765b3050ef"
     sha256 cellar: :any_skip_relocation, big_sur:        "9d89c5861e842476e98fe66ec06b418b328fa0c9d9827aba4d4063fc6c69eeb1"
@@ -22,7 +24,7 @@ class KnownHosts < Formula
 
   # upstream issue tracker for license
   # https://github.com/markmcconachie/known_hosts/issues/7
-  deprecate! date: "2022-12-03", because: "no license for the project"
+  disable! date: "2023-10-13", because: "no license for the project"
 
   depends_on "cmake" => :build
 

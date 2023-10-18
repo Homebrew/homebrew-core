@@ -12,9 +12,11 @@ class Cadaver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1d97d4fffb780e41d1202d716cb9c509c7883ab2da70ac59c0439fbb910a8908"
     sha256 cellar: :any,                 arm64_ventura:  "c48264ae39d915f8cdb905a8b8807d39205edc892f40163cfc07d09ed8f7be75"
     sha256 cellar: :any,                 arm64_monterey: "7b80acb805a75e568a23999803cba218418d30fcf686e81226b8922adad0d4be"
     sha256 cellar: :any,                 arm64_big_sur:  "42fd4197b8eb2bc2e6d6dc3dd0864c497c697bcc497fd4e5994f7a55880f7629"
+    sha256 cellar: :any,                 sonoma:         "e4e7e28823f9863cf1c5a140333816fc4a48ee034abd0d70b20ba9c047e9bed1"
     sha256 cellar: :any,                 ventura:        "69364af64cd35d26b327788d6a6851f3bef4adccb62a4ee2de0b2925f2fd03c9"
     sha256 cellar: :any,                 monterey:       "43eab9ac0dcb4d73e38f20d79989613b30f075af20b2496728362c82a37c82c0"
     sha256 cellar: :any,                 big_sur:        "d10e0968b5b4402e13db9871b9e26d34fd923f926e1f3d6cd89342dd9ca32fe4"

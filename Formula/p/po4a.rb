@@ -8,16 +8,17 @@ class Po4a < Formula
   url "https://github.com/mquinson/po4a/releases/download/v0.69/po4a-0.69.tar.gz"
   sha256 "7cd4aff13661665ec2d9df478757ae407683d4ecb5c2627ccf8b46729bcb9496"
   license "GPL-2.0-or-later"
+  revision 1
   head "https://github.com/mquinson/po4a.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "837f217dfce71d671aaf7fcc547e1d93724e065e05a29d62ab39a7597e7446f4"
-    sha256 cellar: :any,                 arm64_monterey: "b06c39d51e9c012149b4eddee10bdaa3e382132e47c1f8bec007d89ce7bc4498"
-    sha256 cellar: :any,                 arm64_big_sur:  "ba4f0c6a6c9f090f300a62bc873a20c46a2f93e1eb5d2dd9e171c3c31f694e76"
-    sha256 cellar: :any,                 ventura:        "030710ab847594cad08486ccdbbb63b7f4e897c463c90d09e64f742225aace32"
-    sha256 cellar: :any,                 monterey:       "0e7ffba17780c748df3ba0066b290ea1543eaea90517e50739186c2d2b8d8bc4"
-    sha256 cellar: :any,                 big_sur:        "19b5f87241de9a45d175a6b4b0283fffca288649dbb58bc122de9fbf53ba8216"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff671d887aac7235246b0b919c98e4b2cb2dae6a1aceb4f39df6e706789bb518"
+    sha256 cellar: :any,                 arm64_sonoma:   "753cd58cd335f98500d339124b9b2450836b90b1c6103c443c68afcee5431124"
+    sha256 cellar: :any,                 arm64_ventura:  "f41454c413eee73a9aadacdc0c28d3a2c72c2a115f3c15bcb901aafb9a352cfb"
+    sha256 cellar: :any,                 arm64_monterey: "4b55c5e0421f37dd40f5e729dd52e63dc4558fdda7d2a976c974442ee7146b92"
+    sha256 cellar: :any,                 sonoma:         "30981a63cd8f32008e133721cd49563af0f8e0d053e00023a7f2d85deceb592d"
+    sha256 cellar: :any,                 ventura:        "67e604417389d05067285da3afc1d99c577e5e1378a2eadd3539195a3e15c100"
+    sha256 cellar: :any,                 monterey:       "012a5578e2899e3af8c9a57b9b537d1f17dc96af6cb86c91fb99a308de517930"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70d5af935d7467916c35632972159b434b472cb7ad8a074012a9d9945d776b6b"
   end
 
   depends_on "docbook-xsl" => :build

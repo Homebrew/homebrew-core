@@ -8,9 +8,11 @@ class ProtocGenGogofaster < Formula
   head "https://github.com/gogo/protobuf.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "431013b7d133ac74d5ff547246f2bc641936067d1b10eb4b93ad015032836661"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f4e5870fa91ee6e996ce3e245e8034b5f6f4f8c6db9dd1f5c8ede89ed9fd58c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "378b53c4119a446426fbb9ef36b571f1c7bd97a4e4c97b6267b7760caa12d060"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "55f33ac4a991f8e935b7d86d9fbe73f0df950548844a2cead274b02376483990"
+    sha256 cellar: :any_skip_relocation, sonoma:         "80bf98c195f950e1e8116219cf5b2d6f06733ca37466d0a0572093b3fd9eaa8d"
     sha256 cellar: :any_skip_relocation, ventura:        "e71b696d1283ace865581017660a03b96ccca94a4c178adab8c44eecabd344b2"
     sha256 cellar: :any_skip_relocation, monterey:       "816053916d093c0d7f5d8f11e6720e5dfb01c5123a1c2bfee00625b463791e8b"
     sha256 cellar: :any_skip_relocation, big_sur:        "6fba8cafcb5492731cf7ef4916cd4dcf60863f51db329b13dd9549a1082f196b"

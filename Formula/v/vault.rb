@@ -4,28 +4,27 @@
 class Vault < Formula
   desc "Secures, stores, and tightly controls access to secrets"
   homepage "https://vaultproject.io/"
-  # NOTE: Do not bump to new release as license changed to BUSL-1.1
+  # NOTE: Do not bump to v1.15.0+ as license changed to BUSL-1.1
   # https://github.com/hashicorp/vault/pull/22290
+  # https://github.com/hashicorp/vault/pull/22357
   url "https://github.com/hashicorp/vault.git",
-      tag:      "v1.14.1",
-      revision: "bf23fe8636b04d554c0fa35a756c75c2f59026c0"
+      tag:      "v1.14.4",
+      revision: "ccdd48d1f7b95fc99fd11d67fc1c687576b338de"
   license "MPL-2.0"
   head "https://github.com/hashicorp/vault.git", branch: "main"
 
-  livecheck do
-    url "https://releases.hashicorp.com/vault/"
-    regex(%r{href=.*?v?(\d+(?:\.\d+)+)/?["' >]}i)
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "26af537dd044826cf7569c9cb4385e53c3de560518f8a521397b18695e9daa2c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "18ee0a998f38e77c9e5a6bf406fc7326c69caca580efd84b277346344e1afef2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79afeebdd21423dd875a11eb314f3c2367da14cc489284836820b97cac63bfc0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4a4eb54aca81ed892781260cba36dd75c0274c52562ed21e3e6720ebbea75ff5"
+    sha256 cellar: :any_skip_relocation, ventura:        "d21db328b2e6cd298c7dd00a9515f676294862fa8a865b1c7c86ea93d8c8e678"
+    sha256 cellar: :any_skip_relocation, monterey:       "5521823fa49b37426440fbe642e2013edabba13d841686d759d4d8f699a9c921"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4518c13f4613bb7adf425c5eabcd4a4cff94fdfe7def03201ac193f10fa7cb8"
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "905eac5b5c5b7da28ac3a6d1e184cc61751368ea23e43a0983c75ad21caf53a6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb60b4c8bb3a7e5f10cd5f310396d107e1a7a083310589179e5fc3325ebb310c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bd49c92041560ab223a54cdaca1005477f34af264073d4c9aa640e6829bcaa20"
-    sha256 cellar: :any_skip_relocation, ventura:        "b10aa980e3039cdfd50a5d359a311ad54ad90729bf36fe178754a0c6184a021e"
-    sha256 cellar: :any_skip_relocation, monterey:       "fed4837ea990f13521e1824f415f7e0d54264645539ffa8f0b1174e4d8af844e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "750f1b0ad8790ffb46aec5b0ba030b7bb766256f7d3023ee5b1449d665fcdc79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19f1b2fbd28b62341308643f68bacf7b47f3488acb3bd9b86bd97d2ad3186f82"
-  end
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
 
   depends_on "go" => :build
   depends_on "node" => :build
@@ -45,6 +44,16 @@ class Vault < Formula
     working_dir var
     log_path var/"log/vault.log"
     error_log_path var/"log/vault.log"
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new Vault releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   test do

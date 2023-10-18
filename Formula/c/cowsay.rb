@@ -8,9 +8,11 @@ class Cowsay < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af3131f0ffe81fb5e0bdf5c512ad0dd90bed3c2ccbe581cd4b89e609cbed0893"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d35c9dfb46eea22b2b53c9c0deb00d7d95b6fe3fcfeb8d9404fd269d5739790"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8d35c9dfb46eea22b2b53c9c0deb00d7d95b6fe3fcfeb8d9404fd269d5739790"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc3cb88861e89bb415d3b1be1b5314514174349bb44338551e80badc4da94542"
+    sha256 cellar: :any_skip_relocation, sonoma:         "56323541bb1881aaa1bc8c79d917be6820e4109314ae284b38ab90bb93919ae4"
     sha256 cellar: :any_skip_relocation, ventura:        "23f11aa0196e2129ac8f293ac486dbc631de8a2f7786c1bb7c9d8642144f2856"
     sha256 cellar: :any_skip_relocation, monterey:       "23f11aa0196e2129ac8f293ac486dbc631de8a2f7786c1bb7c9d8642144f2856"
     sha256 cellar: :any_skip_relocation, big_sur:        "422c58f10fc2441a62a90864d01b83176ebda627f9a8c29b34f89f4f1f86618e"

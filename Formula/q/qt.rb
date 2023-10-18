@@ -3,10 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.5/6.5.1/single/qt-everywhere-src-6.5.1.tar.xz"
-  sha256 "a2d88a6f8c3835dca52f3b7433149c3de606a96bbf024640c27657276cc7350a"
+  url "https://download.qt.io/official_releases/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.5/6.5.2/single/qt-everywhere-src-6.5.2.tar.xz"
+  sha256 "cde57be663d0f875759797298bdc37a936d517c39f2013e4e6ece5e12edeed12"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -14,7 +14,6 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   # The first-party website doesn't make version information readily available,
@@ -25,13 +24,13 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "c1fc723dbeb8b2b4df104fcf1a10653109419cfeee9f3016f9edd68ba6bedb07"
-    sha256 cellar: :any,                 arm64_monterey: "0109c8fb307b0768aa088b6d1163e25712806a8b2b8ab3695d0c8839973bbba7"
-    sha256 cellar: :any,                 arm64_big_sur:  "83298bf40b2605b6d911507ce861560039f709f6a845b47c8855af49f2e6065b"
-    sha256 cellar: :any,                 ventura:        "629cbb76ad5fca32d4d200da98bf0f8f1cd39dd570949b4ba9069ed74ccf4356"
-    sha256 cellar: :any,                 monterey:       "0c425e63eebfd5447dd200bf3225eb0ba6d005b14fccc8e295d9b2ff112d4d68"
-    sha256 cellar: :any,                 big_sur:        "18b8143094a304749f2b189f1a8d22a90254b2dae0652089dd4d1549cec73d26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "895270278802c816e92eae4c461ba095f7848e867bde074412f40d6103b632df"
+    sha256 cellar: :any,                 arm64_sonoma:   "185c5a0f3da72bf3ac2016b9783195099078679265b30e24a43332c0f19c2ddd"
+    sha256 cellar: :any,                 arm64_ventura:  "c0965033369762b42457394b2f58d70cb1ebeaf4ac3077b57d6ed8df4fe1befc"
+    sha256 cellar: :any,                 arm64_monterey: "da18d4a3e2ed7b7a45f8c156a0ff083b886e9dd0e24d923f9e99ffef65bb2c2b"
+    sha256 cellar: :any,                 sonoma:         "57d9d4b65eb023ba12bce9cb2119e0e288288cf70c525f1f7e1364872c0fc363"
+    sha256 cellar: :any,                 ventura:        "5f13f3fa6e4bee85b338f6025f222c4eb5ebb151f8cab3908c7c0f013fbbe0ae"
+    sha256 cellar: :any,                 monterey:       "59a5a1960641d51b24a2fd345fb0b7ad449f515c1967e5d233ad8d3c71916487"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba55511091d6ffab110b9abd3beeab413047f83cbd980440b529aa66bc371b8c"
   end
 
   depends_on "cmake"      => [:build, :test]
@@ -104,7 +103,6 @@ class Qt < Formula
     depends_on "nss"
     depends_on "opus"
     depends_on "pulseaudio"
-    depends_on "re2"
     depends_on "sdl2"
     depends_on "snappy"
     depends_on "systemd"
@@ -128,22 +126,11 @@ class Qt < Formula
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
   end
 
-  # Remove symlink check causing build to bail out and fail.
-  # https://gitlab.kitware.com/cmake/cmake/-/issues/23251
-  # Can be removed soon and replaced with QT_ALLOW_SYMLINK_IN_PATHS
-  # https://codereview.qt-project.org/c/qt/qtbase/+/475484
+  # build patch for qmake with xcode 15
+  # https://bugreports.qt.io/browse/QTBUG-117225
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/c363f0edf9e90598d54bc3f4f1bacf95abbda282/qt/qt_internal_check_if_path_has_symlinks.patch"
-    sha256 "1afd8bf3299949b2717265228ca953d8d9e4201ddb547f43ed84ac0d7da7a135"
-    directory "qtbase"
-  end
-
-  # Fix a Qt 6.5.1 QTabBar regression, certain tabbars are unusable because all tab items above the last selected tab
-  # is missing.
-  patch do
-    url "https://code.qt.io/cgit/qt/qtbase.git/patch/?id=9177dbd87991ff277fd77a25c3464e259d11b998"
-    sha256 "1730b675ede24d80c2e73a2f662cc73718f3060c0b8a707784d188bb11297c4e"
-    directory "qtbase"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/086e8cf/qt5/qt5-qmake-xcode15.patch"
+    sha256 "802f29c2ccb846afa219f14876d9a1d67477ff90200befc2d0c5759c5081c613"
   end
 
   def install
@@ -204,9 +191,14 @@ class Qt < Formula
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
       -DQT_FEATURE_webengine_proprietary_codecs=ON
       -DQT_FEATURE_webengine_kerberos=ON
+      -DQT_ALLOW_SYMLINK_IN_PATHS=ON
     ]
 
     if OS.mac?
+      # Fix a regression in Qt 6.5.2 w.r.t. system libpng
+      # https://bugreports.qt.io/browse/QTBUG-115357
+      cmake_args << "-DQT_FEATURE_webengine_system_libpng=OFF"
+
       cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}.0"
       config_args << "-sysroot" << MacOS.sdk_path.to_s
       # NOTE: `chromium` should be built with the latest SDK because it uses
@@ -319,7 +311,7 @@ class Qt < Formula
       set(CMAKE_AUTOUIC ON)
 
       find_package(Qt6 COMPONENTS Core Gui Widgets Sql Concurrent
-        3DCore Svg Quick3D Network NetworkAuth REQUIRED)
+        3DCore Svg Quick3D Network NetworkAuth WebEngineCore REQUIRED)
 
       add_executable(test
           main.cpp
@@ -327,13 +319,13 @@ class Qt < Formula
 
       target_link_libraries(test PRIVATE Qt6::Core Qt6::Widgets
         Qt6::Sql Qt6::Concurrent Qt6::3DCore Qt6::Svg Qt6::Quick3D
-        Qt6::Network Qt6::NetworkAuth Qt6::Gui
+        Qt6::Network Qt6::NetworkAuth Qt6::Gui Qt6::WebEngineCore
       )
     EOS
 
     (testpath/"test.pro").write <<~EOS
       QT       += core svg 3dcore network networkauth quick3d \
-        sql gui widgets
+        sql gui widgets webenginecore
       TARGET = test
       CONFIG   += console
       CONFIG   -= app_bundle
@@ -353,6 +345,7 @@ class Qt < Formula
       #include <QtSvg>
       #include <QDebug>
       #include <QVulkanInstance>
+      #include <QtWebEngineCore>
       #include <iostream>
 
       int main(int argc, char *argv[])

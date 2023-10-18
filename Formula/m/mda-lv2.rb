@@ -11,22 +11,23 @@ class MdaLv2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "6d241076e433268cb541caec4a74ee61aabaeb056717bf76cc219352895b7a08"
-    sha256 cellar: :any,                 arm64_monterey: "e780aa5e6c3d9374a120635996ee851a35191919eda1156ffdc5855bc5f927b4"
-    sha256 cellar: :any,                 arm64_big_sur:  "b57083c5363f020da2ff8f41756b63ff03800a82691c76141d3a48f5eabc2872"
-    sha256 cellar: :any,                 ventura:        "69214dc90ea0b35a252852a86d0060c496c5394e25704361f2fb4653cafed564"
-    sha256 cellar: :any,                 monterey:       "a07ff2fc6086254b1fd4d122505cea924a2501d2c45a458dbc3112b696cdfd67"
-    sha256 cellar: :any,                 big_sur:        "036d0587dc2d24728b21dcbf2b2d791aea14f12751ecb376d8517c997c863ba5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69241d7a0f0124ccae0386c423635981756703bd48d8471e0426a8572469b30a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "c2da908303e1eae13da7cc9cb09cd25664d3fd4a35d49453aa8017337cd5fb3d"
+    sha256 cellar: :any,                 arm64_ventura:  "f0e9e93e3e7d6a66b7a8a123e23e41a722443899a30351938dc98bdf5f37f4ec"
+    sha256 cellar: :any,                 arm64_monterey: "858cb75b9d207ea3a38a0f3752a1976bfd0c9f8bebb5f69581c9c5d0e1ea4252"
+    sha256 cellar: :any,                 sonoma:         "c46a62ff1bb9377ab6a6f3f919472792e9a4b133502dcfe6f5212f7258b34ad4"
+    sha256 cellar: :any,                 ventura:        "3e02aa678e179e136c89ff36a35e562d7034d5e2dbb6812f15ee024bf8deb73e"
+    sha256 cellar: :any,                 monterey:       "070fccf201ecb813049b8e852808d7f05feb5f673f11ea16f6b885d10c36ef30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "688227bd6b707a8fba9ae71751c92d1267b1a6c1a3298ffc4bf57d4d04fe596f"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "sord" => :test
   depends_on "lv2"
+
+  uses_from_macos "python" => :build
 
   def install
     system "meson", "setup", "build", *std_meson_args

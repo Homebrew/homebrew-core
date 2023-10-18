@@ -11,9 +11,11 @@ class Kettle < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "498274b3176021bcb65b0ccbc12403b8be03d086230cfe0640e760220a201fea"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1bbc81ed932e900450ca07207a502ceff327fb1bf9f08936969aa2c3cf72daa1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1bbc81ed932e900450ca07207a502ceff327fb1bf9f08936969aa2c3cf72daa1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bbc81ed932e900450ca07207a502ceff327fb1bf9f08936969aa2c3cf72daa1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "11652f7e1ec9339959859e4db051f8b316b14298e33f0bd5abc612a4aa6b4a32"
     sha256 cellar: :any_skip_relocation, ventura:        "e669d982c9d3224573ee7582d8509d37af52e2e7ac7dc65e24f7e9c12bc67667"
     sha256 cellar: :any_skip_relocation, monterey:       "e669d982c9d3224573ee7582d8509d37af52e2e7ac7dc65e24f7e9c12bc67667"
     sha256 cellar: :any_skip_relocation, big_sur:        "e669d982c9d3224573ee7582d8509d37af52e2e7ac7dc65e24f7e9c12bc67667"

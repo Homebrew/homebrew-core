@@ -1,11 +1,12 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.16.tar.gz"
-  sha256 "638db9e43e89d243ea98d10d66e76ff376131217780decd01abaffacc66d8035"
-  # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
-  # EDL-1.0 is not in the SPDX list
-  license "EPL-1.0"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.18.tar.gz"
+  sha256 "d665fe7d0032881b1371a47f34169ee4edab67903b2cd2b4c083822823f4448a"
+  # # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
+  # EDL-1.0 is pretty the same as BSD-3-Clause,
+  # see discussions in https://github.com/spdx/license-list-XML/issues/1149
+  license any_of: ["EPL-1.0", "BSD-3-Clause"]
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -13,13 +14,13 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "80b65d020c420302300986dfe0c617d298a8548b457f7f02c8d51f92cda0a0af"
-    sha256 arm64_monterey: "0e698aaa31de0269cfed65d37218ed0e90bec67484a8a3ba23e98b862ac09b51"
-    sha256 arm64_big_sur:  "73397563769ae4d1971c03a12d201ebe14cbc577dcfc8696538b566b0de00cb0"
-    sha256 ventura:        "8ee95d43a3bedcc11ac820946c1725ccfb07e0646ca02b2a20c63f07e431dab3"
-    sha256 monterey:       "356b5a180dad384498883c5fdbabb65da91204eee6d5568a33d8b236a1f8e7db"
-    sha256 big_sur:        "a61ac1bd1c5c25222a2f67e3fa3455712c3c6f966debf0ede85fe82faf9e4936"
-    sha256 x86_64_linux:   "01151bd16cc3f3ff54ca08bd0fdacb74acbdbbc5e7742a1d49ec06ce55719363"
+    sha256 arm64_sonoma:   "ed6fa66f74bb88539a0ed66d32ebf20d58d099ab6fc2131703d2cb6c26f053e1"
+    sha256 arm64_ventura:  "f7946b65c41657ea97975c9ce2a2d1e2c63f6dd2f55a5ad048fe9afdbff00d29"
+    sha256 arm64_monterey: "96990068f0968e20dbef5b553804855046bc332e66a144f792e0a668a383ce38"
+    sha256 sonoma:         "30e0c34d24332a35286dcf4737a9715370a3d62ff501fb47412ef755f72ec3a8"
+    sha256 ventura:        "be22defe47ce61833d400523b75ca6a4d8a67ccc3c56bae5114f8f3290df3f90"
+    sha256 monterey:       "4702e5a0ca4da921a85b8970f0dd9e6ed64788522f483b66fd025cd281d2ceea"
+    sha256 x86_64_linux:   "d699f5436ec14373d7c83e6ec811c2ac5ffef9595db2c48df8bbb20f1e975ae2"
   end
 
   depends_on "cmake" => :build

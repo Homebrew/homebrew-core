@@ -1,19 +1,19 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2023.08.14.00.tar.gz"
-  sha256 "ad85ff9049be423e14f339651daa6038f279cd9d0fb45d2d6c409f535f1b26f6"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2023.10.09.00.tar.gz"
+  sha256 "a677452673a9ae15eecc55585ab11db8d43f5a0d3707f4d91319ac5048665814"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "ab3286ad4da992f26644863d8c27ccfcf35c04aab17a00e05393e944a69fc230"
-    sha256 cellar: :any,                 arm64_monterey: "8f7a9ad5e0b5d2a31e000fb1118dea2d78bc3f38a23bfc223b4a6fc2738536dc"
-    sha256 cellar: :any,                 arm64_big_sur:  "5da9dde8a240eb230a745728312d99dcfa61e9107ce809c566875a2f058a9872"
-    sha256 cellar: :any,                 ventura:        "47d6777cce835040cf5c8ced731e9b2b5188643797effa198e70bf44c6d238bb"
-    sha256 cellar: :any,                 monterey:       "6b2c924adeaf6f658560bac1062b0bd8329e77a0f6dc69ce0a4d9e1e5c0f544a"
-    sha256 cellar: :any,                 big_sur:        "3541ff66c8e232fb2030ba6ff852f441ef58d97e2e197cb67a90a477d3b41156"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b75bc8549324f5d166d8e6fdf20df1c1e4e76f3c6b98a6937f1638d02ea4970"
+    sha256 cellar: :any,                 arm64_sonoma:   "5260a054fb2447401356fb3c3127f2d575ef7265e6d6d999cfb8203a0faa54d3"
+    sha256 cellar: :any,                 arm64_ventura:  "8388d98401af120c9e6a2280d9b33d769ea769dcd06c3f03863638c74c1c4e1c"
+    sha256 cellar: :any,                 arm64_monterey: "33b51156803951d031b633f49b3b1d3c90b09eb11cac68f8c359592be71f52e0"
+    sha256 cellar: :any,                 sonoma:         "e0f4229f1da9b61a0d2d57dfc6a2a320438cf676eb1f00e032668ff8505ca1f8"
+    sha256 cellar: :any,                 ventura:        "3e877246b06a0b559fb68bdc542041521b56e67a566439d5d72383bc653d8273"
+    sha256 cellar: :any,                 monterey:       "6e1f7b76f7592c30a647055c1dc455a4f087f2afb8b8ec527d79a344a788a478"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bc628f1469ab38c151aac07ab56cf2a5d4ae84754d2c663ce2e9ae9583615c1"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +32,9 @@ class Edencommon < Formula
 
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
+    inreplace buildpath.glob("eden/common/{os,utils}/test/CMakeLists.txt"),
+              /gtest_discover_tests\((.*)\)/,
+              "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 60)"
     inreplace "eden/common/utils/test/CMakeLists.txt",
               /gtest_discover_tests\((.*)\)/,
               "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 60)"
@@ -43,25 +46,16 @@ class Edencommon < Formula
 
   test do
     (testpath/"test.cc").write <<~EOS
-      #include <eden/common/utils/ProcessNameCache.h>
+      #include <eden/common/utils/ProcessInfo.h>
       #include <cstdlib>
       #include <iostream>
 
       using namespace facebook::eden;
 
-      ProcessNameCache& getProcessNameCache() {
-        static auto* pnc = new ProcessNameCache;
-        return *pnc;
-      }
-
-      ProcessNameHandle lookupProcessName(pid_t pid) {
-        return getProcessNameCache().lookup(pid);
-      }
-
       int main(int argc, char **argv) {
         if (argc <= 1) return 1;
         int pid = std::atoi(argv[1]);
-        std::cout << lookupProcessName(pid).get() << std::endl;
+        std::cout << readProcessName(pid) << std::endl;
         return 0;
       }
     EOS

@@ -11,9 +11,11 @@ class TemporalTables < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10791d24df71b6dd0247d07de374036eb28415a949647f3d1a95a755c377b190"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "25de5d67758c7f706666c46b444f41d90750c34154f37818996e7a8e587fed24"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0c598c7ce24e74d75192a0f288e6999f9469a39cdbd527200cd49f148ac6212c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bde5bd8f74dcb385b456d8b3b41cd091ec2c3c8b14bd547673e15b88fbc98d8e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "618c2558d74c2823588059829ed47cb7ffb78609d835c0749c7ae6307a96e87f"
     sha256 cellar: :any_skip_relocation, ventura:        "0f95f0a9ac21073ff6b19cb755107230557c219049d616fe06bcce3bbcdc661b"
     sha256 cellar: :any_skip_relocation, monterey:       "b927ea034755f45d616ede60bee3143b2f99eb73aed0a59b56bd678f2604e372"
     sha256 cellar: :any_skip_relocation, big_sur:        "59a11c3b8ab038ce163126367041ff0e36ccfa34feb0c2069b4ac2518fac45cc"

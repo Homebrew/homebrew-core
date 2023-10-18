@@ -11,9 +11,11 @@ class Byacc < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca47f2fe6cda1f89a13c3a3f1817c693ce5d8a2723fcdb269d78e18b1783792a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "38ce343287827cb635395e53d6335d31022e05e07cded481ace466889c003615"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9c0cda08a52207ffec61486dd83aab12002b67f0e650cd7eb9170dc3596016fa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2498ba1b3d8beb6c7c29f11763f1971707f708bd56c0dcdb2fe058f66cce3cc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d83b4520cce9e86c6845fb4aaa01fbe27cdd65b16fb8a375878f7576687671db"
     sha256 cellar: :any_skip_relocation, ventura:        "559fd17c57ee319a5f0ffa0b04b2f42ffc3a0a6dbf0e85e3a42dc9cda059218f"
     sha256 cellar: :any_skip_relocation, monterey:       "309accb76b2f5daa03813ccf640da8396bec1d0540f83a13e85ed41d6b64b4ea"
     sha256 cellar: :any_skip_relocation, big_sur:        "420f2b6d7799a77f32c8ad2cd86b5a00218ad2019e2daa07f2d8f87559d3c242"

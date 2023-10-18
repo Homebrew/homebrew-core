@@ -1,18 +1,20 @@
 class Bkt < Formula
-  desc "Utility for caching the results of shell commands"
+  desc "CLI utility for caching the output of subprocesses"
   homepage "https://www.bkt.rs"
-  url "https://github.com/dimo414/bkt/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "01ae0983eb199d2abd027e2b7b160c870d89477afdee2c5281faac4740814607"
+  url "https://github.com/dimo414/bkt/archive/refs/tags/0.7.1.tar.gz"
+  sha256 "ac36ff1015ebbec57d8b9141e88c7ad36423e6abaf35551e3ca715e173c6c835"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "565bde22f3681c85933ffbd44c18fc8735866ff6bfc8ba21b557461aca1ac5f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2417842bbd0988c6696ce3991833121ff8e65f3460180037e6e1b90722d3c327"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e95bfb0699da1275a4179f29841fdf240f3bd8eea867b7e9aa58d7b2cd65f2df"
-    sha256 cellar: :any_skip_relocation, ventura:        "17c00a7a7f2c7d2eb1d51fece94a383d7fc2afb9ed3a38b4d3a9c8040fde7751"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa79aa546022943ea1d4e62a8417215d2608f9b592cce01b044f37687c1beb26"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2bc5eafbcc4fdbe55d5e6dab094a0c6dc99966070d3aa6bb0f1ad59c34daa317"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eebf5d4b7f0a6efc825ea3317a5455765fb384eef399d321e663f44702f02567"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "90854af6ff72f2d0c4bb256fc6a8af608dcdafccf72a35af030693a9b8ba3e0e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc30464dba54c65f53cdc3439c48b3fb533fb9534c62aadff286739e3da9b8df"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "27cbb8f9a4928e7ca87ff458a2481221300da6ffbc253be3a56a47d7e35765e0"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db83f90396caad01bae1f9f51589f651f9218f914e977a0664702049e03beffa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c73da10ab36edc3b771f685bd66d11caa9c905ea096fdfa5b3742929ccdacb50"
+    sha256 cellar: :any_skip_relocation, ventura:        "2f207ee237121d3b386a665473fe66bd685781ac7be987be3d839d54aac2a81b"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa805c2d9b6b611594e1662937dc29f7ae78a92ef45964ceb78769b780371d37"
+    sha256 cellar: :any_skip_relocation, big_sur:        "c7db1c6af6bb8edadb82c5414bdc620cd9feb4210f30d1f83f217ecdbf298316"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c34524bbf630f6c5c9f7cc0d719a572fd89a1cce33aa3ca25f514b8540d9a66b"
   end
 
   depends_on "rust" => :build
@@ -23,8 +25,8 @@ class Bkt < Formula
 
   test do
     # Make sure date output is cached between runs
-    output1 = shell_output("#{bin}/bkt -- date +%s.%N")
+    output1 = shell_output("#{bin}/bkt --ttl=1m -- date +%s.%N")
     sleep(1)
-    assert_equal output1, shell_output("#{bin}/bkt -- date +%s.%N")
+    assert_equal output1, shell_output("#{bin}/bkt --ttl=1m -- date +%s.%N")
   end
 end

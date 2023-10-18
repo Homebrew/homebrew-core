@@ -9,19 +9,21 @@ class Liquidctl < Formula
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "23ef439f62a0fb2e067dbad0616022f720cc88a6806141afd682f75f255db447"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1118836d3c09a476ac87c1fa8489941b0e3495bff73c2bae4103164fbf331274"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b817482e19e1d262fd840b48664cb1fba6193ec86d24bf80c04a45839663fc6"
-    sha256 cellar: :any_skip_relocation, ventura:        "4014b0cc454ca2963590e6837609ca0b27423765aaf76e0780ddfb141e55b6d5"
-    sha256 cellar: :any_skip_relocation, monterey:       "e4f0f2b943b338e99bca2ba783e172aa876d52c80d4eb867089be8ea96741848"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ff870fdf6aa79774517d91de7d9c3e99469ccf250ef508273bf9df56bcdf21a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03ecd81baaef703520e0b01fda9f57f40f61239dc71f1906a34ffe0008630d7c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "979321cdc22895d36f1e99f0b616ce095cbc476e80f29a760a30d36d613c8891"
+    sha256 cellar: :any,                 arm64_ventura:  "0a83c13630af30ec52110168f24eedabe8946501ece728633d633e795113c7b8"
+    sha256 cellar: :any,                 arm64_monterey: "865ffd2cdd6ec5616d7a20171e98034ff31dd9e0a0d037173629a80420dfe8f4"
+    sha256 cellar: :any,                 sonoma:         "349dce496c01ec5321b4e62841c29b6b766b92e7712fbe3fc0d7303fb14e9352"
+    sha256 cellar: :any,                 ventura:        "d9d7e17d6d44d73a3c1dbdd1fb3d6ba6d7dcb3650315c08b66691d93e14579ff"
+    sha256 cellar: :any,                 monterey:       "fa04016f8f34d03141ca59c3e58c8a20de84a21d76f2461f5b7578e21f75b8e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b90daad2f98669c64866ed4d1eccc1fe5611f766fd4491111691bec3844b1923"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "hidapi"
   depends_on "libusb"
   depends_on "pillow"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   on_linux do
     depends_on "i2c-tools"
@@ -63,7 +65,7 @@ class Liquidctl < Formula
     ENV["DIST_NAME"] = "homebrew"
     ENV["DIST_PACKAGE"] = "liquidctl #{version}"
 
-    python3 = "python3.11"
+    python3 = "python3.12"
     venv = virtualenv_create(libexec, python3)
 
     resource("hidapi").stage do

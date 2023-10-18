@@ -13,9 +13,11 @@ class Cmigemo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f5e1a00386582c24b8b0659a907f9f92a52aa22a428d054969d180f43d2a340a"
     sha256 cellar: :any,                 arm64_ventura:  "4da77419c2e50f2a97340f7d6ad6a125895c46ed40900ba6c60ffb73256185c3"
     sha256 cellar: :any,                 arm64_monterey: "772f9659f6828e8404a849a9f52accab024a59e012d7b1c671a47facf7afdead"
     sha256 cellar: :any,                 arm64_big_sur:  "231afa328130c08c9ae6429cedbd5221633dca46fa478477f5ff441ec6c1ff8a"
+    sha256 cellar: :any,                 sonoma:         "98d5b0ab1db6fa4d3ce9aea1932b88cf9dd973e1130a0fe1a5803bfd69fa8012"
     sha256 cellar: :any,                 ventura:        "20da1760b82a2a4b9857dbddc20f48ea095f655df971cf06d3dcfa9abc2932d5"
     sha256 cellar: :any,                 monterey:       "19cbf239012e58e7d04dafdf6b10b52f46331f1db420343d7a51331f98b86395"
     sha256 cellar: :any,                 big_sur:        "a113cec93a42734d9751b9199f7aef92d77649d7921128f9f04d83260dd0effb"

@@ -1,28 +1,29 @@
 class Cmake < Formula
   desc "Cross-platform make"
   homepage "https://www.cmake.org/"
-  url "https://github.com/Kitware/CMake/releases/download/v3.27.3/cmake-3.27.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/cmake-3.27.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.27.3.tar.gz"
-  sha256 "66afdc0f181461b70b6fedcde9ecc4226c5cd184e7203617c83b7d8e47f49521"
+  url "https://github.com/Kitware/CMake/releases/download/v3.27.7/cmake-3.27.7.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/cmake-3.27.7.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/cmake-3.27.7.tar.gz"
+  sha256 "08f71a106036bf051f692760ef9558c0577c42ac39e96ba097e7662bd4158d8e"
   license "BSD-3-Clause"
   head "https://gitlab.kitware.com/cmake/cmake.git", branch: "master"
 
-  # The "latest" release on GitHub has been an unstable version before, so we
-  # check the Git tags instead.
+  # The "latest" release on GitHub has been an unstable version before, and
+  # there have been delays between the creation of a tag and the corresponding
+  # release, so we check the website's downloads page instead.
   livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://cmake.org/download/"
+    regex(/href=.*?cmake[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "507f07f1cde3a64ce2deb17e21ff1d4d3c078ec13b3a5735772440ea2a8be066"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29f4b6cc9de7532fd2212ecc9e396d8dc257a2e1f8efead29537c3477be6c69d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "014407f2e45ff8ee21a6806d4f007d3933fb2425280a65f7532e91dea8d6106b"
-    sha256 cellar: :any_skip_relocation, ventura:        "f7491440699525445ed6a140f55a6f25bfa1f811292f4b0eb93d7ce99a2c7fbb"
-    sha256 cellar: :any_skip_relocation, monterey:       "6335e66a62aa647a532c5a59e438cd78b23db1862073981de94171530df3a1c0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "04d0a4d9d0651de3322e0b6cccb12f37c3d9c17d9b5ce998cfbb6637a5478caa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af32bf16d57afa1f0be35ac93917d8a7d7ab6242ea88e37985bfdf03501196e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d0e8273d7d68bc7ea90ae17eb93224310651d7647ec671399543010e74a3d88"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e829c02f42d2e537e53afd0dddc71b8c6c273e1833e8397832f361f8d174851a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a348a8941dd86d6a7874e17179b899e8a6027c110bc0ba948fcf8dd5bb9c012"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ea936713b48a9aa9d9ebe475813ee7584330036daf0d46cab65ebb0b499b8561"
+    sha256 cellar: :any_skip_relocation, ventura:        "2def2d0da9593cb6cb0e1e766dc24f79ae32d0ace674cc1557dd26ddad6bea40"
+    sha256 cellar: :any_skip_relocation, monterey:       "169d7470c7f42fbd8c3cca48b2fc0eeea74002d01b9180e632f60f131b4ce7fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee1af113dc60deb4a7ecf65acdc78df51b1a4b2d505d1e56862b44a6867ddfc1"
   end
 
   uses_from_macos "ncurses"

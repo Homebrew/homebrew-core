@@ -6,9 +6,11 @@ class Psalm < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7be5c1c55842cee1ac95a18db5dacb421e7b3251519a141989384dce3f5c75c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d07c1f4b179f5e94e02abe2e01bd1312b6359160a836c1142bea57f78b027f48"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d07c1f4b179f5e94e02abe2e01bd1312b6359160a836c1142bea57f78b027f48"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d07c1f4b179f5e94e02abe2e01bd1312b6359160a836c1142bea57f78b027f48"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ce203bbc75d90b452ad1ba279e19f192adf6519178b3428a897d557b89863c41"
     sha256 cellar: :any_skip_relocation, ventura:        "77b36603304bf2336bb0741a915ce6af7fde2724663c9f8b66ed880a30234d78"
     sha256 cellar: :any_skip_relocation, monterey:       "77b36603304bf2336bb0741a915ce6af7fde2724663c9f8b66ed880a30234d78"
     sha256 cellar: :any_skip_relocation, big_sur:        "77b36603304bf2336bb0741a915ce6af7fde2724663c9f8b66ed880a30234d78"

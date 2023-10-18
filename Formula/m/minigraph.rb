@@ -11,9 +11,11 @@ class Minigraph < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ebd1016a69380b569acad159caa2809a827527b8257051269cbca508daaf01c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee16f2ce2ad02da0fc713ab8729719e5bd2bc96b375ea1e3e3723f99f1873495"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e54c9d30b5a37fdbeab942ca198c4184a0ce43060b14ed99b606aab902551dcd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d7bea2c11396264d7898bd6cf9f306efc4869a76f5299b00689c28fbf67889c8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "71de4013d4456a953a792f63b15ec4d6429773fbaba061d0a23c2c94dc80988e"
     sha256 cellar: :any_skip_relocation, ventura:        "58d39d6a61dfffa94f3b6e2724135778dc9670cfaf815e098d66f5b55177d124"
     sha256 cellar: :any_skip_relocation, monterey:       "7756134609a6075c3141796d125e57b481d538abbcb7c2fef094fb8c11de2ec6"
     sha256 cellar: :any_skip_relocation, big_sur:        "aec032083d7519d278f0571fa7d36f2fd14dcb87bd1841bf78181f6d3e5abb14"

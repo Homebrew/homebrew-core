@@ -6,9 +6,11 @@ class Wasm3 < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "680ffd68e28697616852a52512fb9f5554be62d626bead5fd48f88c1467e7c15"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c9cf7f5b53013777afa1f71208a33be93101782cd587b1b4820e6e734849260"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cb3038ca004157e4e7275ecfb3bce34d430651fda20dfe6044658bdb3c2b3afe"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71dd2cacce7a57fca4255f6aa59bea0b03449d13334a2c98ba817401dc41da95"
+    sha256 cellar: :any_skip_relocation, sonoma:         "29c820f142977e9bfd84e4b9c7b27e6bc48424f5379028bea718db0cca0d4c27"
     sha256 cellar: :any_skip_relocation, ventura:        "4e11dd228c6d8bdbd476174e43104fb3be6666f4af45dd43bab75a85c0bd4a64"
     sha256 cellar: :any_skip_relocation, monterey:       "1cf28d959d6624a6e63b26178e45df73bca24ce18647ff034fbd7ab72c46aafd"
     sha256 cellar: :any_skip_relocation, big_sur:        "e282401723657985765d781b1fc6b23ff47ca669fe12d7aba5efe4d5a5f75bab"

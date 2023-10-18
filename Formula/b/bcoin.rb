@@ -10,9 +10,11 @@ class Bcoin < Formula
 
   bottle do
     rebuild 2
+    sha256                               arm64_sonoma:   "7ce0533a06a8fbf879814bb168ac8582def5d66a73fd341caf3d265dce7fe4bf"
     sha256                               arm64_ventura:  "c3c02702652f0f567697cc614212a757d29fb3ee3d80ec9345dc7d00e10dd421"
     sha256                               arm64_monterey: "777aa63316694628e1c88cd4ad73949ac2c32b97aac6d5e196c82d2a0040c13c"
     sha256                               arm64_big_sur:  "304cc113c0dc1dec7d70745e73b816802f4f92068ece45298957ab6feb7edc7c"
+    sha256                               sonoma:         "682758b76301db696079f2cd43d8a604acbe41a6e8faec29117feb8c53fd74b9"
     sha256                               ventura:        "746e792b08dd522e81d1440c159997cf231044da8299726eb4ebadb0d497ffe7"
     sha256                               monterey:       "49abdb5b53e076417bc0c0431a8dc6aff1d3030e2e2c90625a273a1545dfc8c9"
     sha256                               big_sur:        "875527a488aec56c22828e1d314097d984d1acacd83f6533203bbd7437a6c027"

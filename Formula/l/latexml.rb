@@ -4,6 +4,7 @@ class Latexml < Formula
   url "https://dlmf.nist.gov/LaTeXML/releases/LaTeXML-0.8.7.tar.gz"
   sha256 "25da9d9440779dec0dadd4cc2d4227e8eab87437c0719877274dcfb906a4cc79"
   license :public_domain
+  revision 1
   head "https://github.com/brucemiller/LaTeXML.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Latexml < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c6eca94cb7b27ea7cb86afb4d7517168578b39f56c7acdb598d6e6f1256a5896"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f56f4e69572b60572937a5ec5579cada6e176e3f5a1beef10013c6ca8f26906"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e6e78c4005ba5bc26fcbff6c8988cc032b7fbc10221884f3c619fd3cb8b61e29"
-    sha256 cellar: :any_skip_relocation, ventura:        "4bc1f2f1b79ddf8acfeebf9844547b7b2c72026d424751a4df5ca0ac016f6551"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b79a4aeb8ad5943678c6e396b72f0b4206cbbc6e68e8dc9803e81ea4a1538f6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b6fd3ea4fcb2cde8b601e1c1feae7cfc6d5c9a2abae14b977f3214fbaf7b0ccb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf8adc97afca846429fa66739ebb725dfd98fe56770f1db54f3ef85d40d80cdf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2655c8b1e46737f53fa6283b7689b898920d69c9d3b53cb497c6726bf1200e30"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "921cf0cf594e845c8e5f70f7ab1d0c449599a985ff57d5052cb1e6635772dfd5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bc728f78d86971e660be7680bc06590dd3330d79f83ae1da0dc82fa38d53207"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bbb78aff3597a6c1571c0c5ce92ae0d6536d11686961deaa91c504c7207c329e"
+    sha256 cellar: :any_skip_relocation, ventura:        "52c91ba66099b2edf1ad82e967e68bf2146e6200acafba174d5312fff782c35f"
+    sha256 cellar: :any_skip_relocation, monterey:       "e94351026f318ec9d3cdc662e00b3d8f26dca681d94b7d7663ea6869ad5ceb80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87e7603b4d7efad69a7e4b4aa6fe500cf521913ec7dd31f3a8bd6a58904b1ec7"
   end
 
   depends_on "pkg-config" => :build

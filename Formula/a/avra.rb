@@ -6,9 +6,11 @@ class Avra < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f170628778857bc28a0cb962dc7c44904c2d4400d56e2723c3df711d05acb9d5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1534538fee5207f6bae424a84ecf108e7c0100c513a853b777b817f6baa5e89"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "875e98a908da8ed0978f4b7e3854579dc63dc821df67c924e4ce12c5cd194a0e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22a03e978b90b0c87a7a7d15f63975880a8bad314c2592bf107b7bcb3d5fe5c6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "30d659e79b1dbe58516222f50deed2673bcd6a5945b01e4b04ec66aec84df77a"
     sha256 cellar: :any_skip_relocation, ventura:        "d1df06956805a9e7e69e5a4057535dfffa974f782637f26f92a4000e7c1f0c29"
     sha256 cellar: :any_skip_relocation, monterey:       "af3758871e939781a5bb4842caf21fe8db90dd2f86e3b6b08a5ce49ac00a7f86"
     sha256 cellar: :any_skip_relocation, big_sur:        "b1b6077185e775675dfd538ee67fab94c5e24219dd8cd76b1dbc962748572513"

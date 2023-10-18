@@ -8,9 +8,11 @@ class Licensor < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71b1af76e7d61bd12f4386ea45b16998895aba60a4b3a2ed0403fc2d25b569e0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f184aff71bc45ecea1244c55c2f7f01271ac80a46942a3e60f176d0e86ec36f0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9e6fbe393ce18e98a319aedae21997dce223fc2979deb761d97ce4437f77b7e0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ad74bf60d659d3523554d44db1ab486d0eee708d13bea561afff99f167a6e46"
+    sha256 cellar: :any_skip_relocation, sonoma:         "edca5ae2dce5225627989bf5e5ac16b479e2332974ece8ce413e23c6982eb49e"
     sha256 cellar: :any_skip_relocation, ventura:        "b3f3ac98e20289e69e860ca0b4508c126dda52be3facc3810177cdaf2b82fff1"
     sha256 cellar: :any_skip_relocation, monterey:       "3603cf3a10496131f6cdff4987b18c336b9c7b34afec1e31d722d34a58aa9187"
     sha256 cellar: :any_skip_relocation, big_sur:        "167b3b40cc8af7b009ef8e9e61d886dd3bc356e3197c6672cf4d59edc0bbe6db"

@@ -2,8 +2,8 @@ class Haxe < Formula
   desc "Multi-platform programming language"
   homepage "https://haxe.org/"
   url "https://github.com/HaxeFoundation/haxe.git",
-      tag:      "4.3.1",
-      revision: "964c84c817b3a73c49ee35207983d1c8cbca6eb8"
+      tag:      "4.3.2",
+      revision: "a6ac3ae40dfe4180a9043a89404b16011cd532b3"
   license all_of: ["GPL-2.0-or-later", "MIT"]
   head "https://github.com/HaxeFoundation/haxe.git", branch: "development"
 
@@ -13,13 +13,15 @@ class Haxe < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5b61d09418723d0c1c75dd2828953d56e58f200722d95bd528c4810cf85d886f"
-    sha256 cellar: :any,                 arm64_monterey: "ea6632f240c3f0da51efe38536606725b80a450677a4e0ba7a9192297b72abe5"
-    sha256 cellar: :any,                 arm64_big_sur:  "211c87dc28b79502333c1fc840ed14d467a4a82e9e0bb784bf173d4e1b1e7723"
-    sha256 cellar: :any,                 ventura:        "593cda02dc39cfd7b1021994e620b0b52e01be3e7de9e741a4665942550fcb01"
-    sha256 cellar: :any,                 monterey:       "de0edbcf2078b34be085e5930083155143b5f6a4bac972c3c19e052617c83aeb"
-    sha256 cellar: :any,                 big_sur:        "8ed4a31c963d2cc82392ac09123513b44ce991b58ac881a95e35407b19f61c55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "acf917c13efd8a10fe7c3b4566bd7e8db74d2064b33279723b8e5ad21fbc37a6"
+    sha256 cellar: :any,                 arm64_sonoma:   "d4cb9342261d6da23f6321f63b11d668b0428532a1d25f0936c9e7b07fb99e48"
+    sha256 cellar: :any,                 arm64_ventura:  "b6f842279f7fee7682c0d6ca4a1e2326d4d64337ba9bf2b9f3da56f001c52b0e"
+    sha256 cellar: :any,                 arm64_monterey: "08b2bf152295dcc2e90912152d7438b1b0180452abc84ff85c3859752489b2f8"
+    sha256 cellar: :any,                 arm64_big_sur:  "2f643081fccb7c79e991952b44900609cc5076d77e07cf104bae07488dd37640"
+    sha256 cellar: :any,                 sonoma:         "fb00af132cefa2c363484d1ed77afa7d39e82f8cc54849d215795ce6f4cfbefc"
+    sha256 cellar: :any,                 ventura:        "08658c25399a6dadd38ac903d0cf31e05a12081ea7a0e0e88dedfa6416c869bc"
+    sha256 cellar: :any,                 monterey:       "cb45b2f8cfc86117c8d18fbba5eca9879a6ff83a362a7bc97967eb1616b955f0"
+    sha256 cellar: :any,                 big_sur:        "c0f3853e0ee9085fafe12214b22a153842eff4148cd7f7f0d86b6de6e793e3ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cdb95e09a0030fc88358dc2b4f01aab9b4fa43e7d1c74ae9f8b1d1d1f939a0a3"
   end
 
   depends_on "cmake" => :build

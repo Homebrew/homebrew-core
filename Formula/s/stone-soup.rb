@@ -6,9 +6,11 @@ class StoneSoup < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "e781a89617bc6fa0f91f31f8f667075a5228560778889c9081d3dbfe533151b5"
     sha256 arm64_ventura:  "4228564c6c264ed39799173c14522277bfefaea30ba9d09aad5c11840f26c090"
     sha256 arm64_monterey: "3e8dc08e1e0b50830ce072617766ae2c98a0370b035914a148d0cffd566f5e07"
     sha256 arm64_big_sur:  "9f6c0948dc573f602ec842e6396c0a2a577aea1966c076fedf0e482ee208ba29"
+    sha256 sonoma:         "7ce006577f42d37109cd4a647199d8df0bb7056156420d26d6b624f3b2372a2f"
     sha256 ventura:        "4737ec8e0cebccfa4e1fc6b45dc776bed95458458401d1f1c71b257d9cbfb1e6"
     sha256 monterey:       "0f18f8e878b7cb52dfe622c39669e7c08324a409d9b9b0a1afc400604a5dfdcc"
     sha256 big_sur:        "a9adf20df5a66ef15305604bd4eb6d10e136bc599993bf74f027910939c0b75c"

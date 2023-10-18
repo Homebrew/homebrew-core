@@ -1,36 +1,32 @@
 class MariadbAT1010 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.10.5/source/mariadb-10.10.5.tar.gz"
-  sha256 "91cd4d426d38af09852ebdaf00e74211775ec6cc907f74c1aee0d45cdf5d996b"
+  url "https://archive.mariadb.org/mariadb-10.10.6/source/mariadb-10.10.6.tar.gz"
+  sha256 "e1e53011979d29f0ec26e13ab8caf613481bf029520566fb96817546103938d5"
   license "GPL-2.0-only"
-  revision 1
 
-  # This uses a placeholder regex to satisfy the `PageMatch` strategy
-  # requirement. In the future, this will be updated to use a `Json` strategy
-  # and we can remove the unused regex at that time.
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
-    regex(/unused/i)
-    strategy :page_match do |page|
-      json = JSON.parse(page)
+    strategy :json do |json|
       json["releases"]&.map do |release|
         next unless release["release_number"]&.start_with?(version.major_minor)
-        next unless release["status"]&.include?("stable")
+        next if release["status"] != "stable"
 
-        release["status"].include?("stable") ? release["release_number"] : nil
+        release["release_number"]
       end
     end
   end
 
   bottle do
-    sha256 arm64_ventura:  "97759556728fc03cb71abbc1aa0859c80e47d96c4635331bc08cf0cf3fb328d0"
-    sha256 arm64_monterey: "034c8f2842e113c03aa758f32c985c4642732e7c8ce57ccdb8d18ab58a53e45d"
-    sha256 arm64_big_sur:  "a4c23313dee79e72667b161a0fddaa84b9fd9ccff05c782e1e7bc0e2ec0bbf6c"
-    sha256 ventura:        "1ca3309741437326f9c523aff04804724b8713af86107e0c82f0762a009ac45e"
-    sha256 monterey:       "7ac4498d8cfee80548d8734b93757856f4476411cfdb3fe4c4ffac25c9e9bc3d"
-    sha256 big_sur:        "94dbf7b035cd43bded54c3d05d2f8fea4cf6041c95615352753e201d7fa1d95e"
-    sha256 x86_64_linux:   "fa07351e9c78351757227ebb9dd41f88a232fb1cc374e9c2ec51179b65bfab54"
+    sha256 arm64_sonoma:   "b8b826b403dbaf25c258ae6657d4fc6501f7a5af7cb2cb712838c82012d6b810"
+    sha256 arm64_ventura:  "395118d3a58f904e2d5b19cfa4954c0626dbfeed9c76255cfca83986a3ed6c3a"
+    sha256 arm64_monterey: "d1bd7efe169303750f320b005b4c23297fbe66727e3154497f3c48351f4cfc42"
+    sha256 arm64_big_sur:  "2a7fd1b426a9f392b351ccd833d9aec27b8b4c5fe3d355dc394fe4a8787a7248"
+    sha256 sonoma:         "0c2f2459f540d39a335e62bccec7b3c5e9f102850797d712bb69cc2ae43ae828"
+    sha256 ventura:        "21353e99497360f02fea72b14869c36a59adbd13bd7262f66f11505f45eab1a7"
+    sha256 monterey:       "8d2819079bf464aa7a36cb11cf82bca51bb6cd4161813ae977047e5021539bb7"
+    sha256 big_sur:        "ede3a042cc47221714d4662ac6ae19d1aac4c35599b95e2b56f153e4d021b913"
+    sha256 x86_64_linux:   "4b9f728d2c6370a83d4fe18c6884ffddddf3d82e5fd18164c3e3ad9570b18f8e"
   end
 
   keg_only :versioned_formula
@@ -60,6 +56,17 @@ class MariadbAT1010 < Formula
   end
 
   fails_with gcc: "5"
+
+  # Fix libfmt usage.
+  # https://github.com/MariaDB/server/pull/2732
+  patch do
+    url "https://github.com/MariaDB/server/commit/f4cec369a392c8a6056207012992ad4a5639965a.patch?full_index=1"
+    sha256 "1851d5ae209c770e8fd1ba834b840be12d7b537b96c7efa3d4e7c9523f188912"
+  end
+  patch do
+    url "https://github.com/MariaDB/server/commit/cd5808eb8da13c5626d4bdeb452cef6ada29cb1d.patch?full_index=1"
+    sha256 "4d288f82f56c61278aefecba8a90d214810b754e234f40b338e8cc809e0369e9"
+  end
 
   def install
     ENV.cxx11
@@ -119,8 +126,11 @@ class MariadbAT1010 < Formula
     (prefix/"mysql-test").rmtree
     (prefix/"sql-bench").rmtree
 
-    # Link the setup script into bin
-    bin.install_symlink prefix/"scripts/mysql_install_db"
+    # Link the setup scripts into bin
+    bin.install_symlink [
+      prefix/"scripts/mariadb-install-db",
+      prefix/"scripts/mysql_install_db",
+    ]
 
     # Fix up the control script and link into bin
     inreplace "#{prefix}/support-files/mysql.server", /^(PATH=".*)(")/, "\\1:#{HOMEBREW_PREFIX}/bin\\2"

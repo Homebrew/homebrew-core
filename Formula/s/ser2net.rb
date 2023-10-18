@@ -1,8 +1,8 @@
 class Ser2net < Formula
   desc "Allow network connections to serial ports"
   homepage "https://ser2net.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.4.0.tar.gz"
-  sha256 "2abef00ee6481b072bdc290422983b2374cee1ccb5a565e9b378ce7428b074dd"
+  url "https://downloads.sourceforge.net/project/ser2net/ser2net/ser2net-4.5.0.tar.gz"
+  sha256 "6ee1b217aad026948fd17ea00c5ecf6e982de822384c4349118461ad83caa0da"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,15 @@ class Ser2net < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "b77d561beaf06fc685c8d6a27efbfc5171d7b9292571fa062b0700021b1af215"
-    sha256                               arm64_monterey: "42b8b9db1deeb895d7c0463a17dc22cbcc3ba84a36d638e089fa8114c2f4e285"
-    sha256                               arm64_big_sur:  "7582b4bfebd5fe97ce7e44b7603385e4171b695e57fab40981c9af4fbdd641e4"
-    sha256                               ventura:        "3fe735656ff4c83aba4f273c84594a97845d80004dd103cb376c2a0a87258187"
-    sha256                               monterey:       "cb4401f9150a09f94271ef4d9ed19afeb7a98d000d957f9932afe3643aba84e5"
-    sha256                               big_sur:        "2e048121a8477cd717526d5f4f07160f24a0a21b479a26e56ece3433b22ba7cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "892751ba4244666c52876133f6a6bb0c74dc792d102aa9041ebd6331a3e8dc2b"
+    sha256 arm64_sonoma:   "357956ffe1622a30a3a9b311a16c861131727f0802ff5cdf2e6398757e7e8b21"
+    sha256 arm64_ventura:  "583fbb6ffe6cc7dd58639ac1a6f5b14ba75541ef9c2ed066d5f740c84e8473d1"
+    sha256 arm64_monterey: "4b900e82626e24c157084304615a868c0ecbffa3fb8abda876833a70f98d2a36"
+    sha256 arm64_big_sur:  "3b70f3d7144922876879130b05dbf47350e00e30469d11fe50f6e6b0e8ab84ca"
+    sha256 sonoma:         "f413a08f69ae5cc26bcb780ae249485a28868a7903394286d2c6d603e896d9ce"
+    sha256 ventura:        "e41d11911d6775f88f3a09fa2f3f014469d701353f4e0d5039ca16953ca66b7a"
+    sha256 monterey:       "b910fca757159622dd5d15cffd0273218f828cc84e054b9fe35dd0e72c5e530b"
+    sha256 big_sur:        "007510adffa38bda93f2c357e8a262ab3fca31125479f0f005d6de0cac008e22"
+    sha256 x86_64_linux:   "d164194ac933f0828696ae3eaff539aea03ce8fd80f35cb1a6d51c64ccac80a7"
   end
 
   depends_on "libyaml"
@@ -46,13 +48,6 @@ class Ser2net < Formula
     ENV.append_path "PKG_CONFIG_PATH", "#{libexec}/gensio/lib/pkgconfig"
     ENV.append_path "CFLAGS", "-I#{libexec}/gensio/include"
     ENV.append_path "LDFLAGS", "-L#{libexec}/gensio/lib"
-
-    if OS.mac?
-      # Patch to fix compilation error
-      # https://sourceforge.net/p/ser2net/discussion/90083/thread/f3ae30894e/
-      # Remove with next release
-      inreplace "addsysattrs.c", "#else", "#else\n#include <gensio/gensio.h>"
-    end
 
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

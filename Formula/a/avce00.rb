@@ -11,9 +11,11 @@ class Avce00 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3cbade903948049d8a8ce0e7d367d5740fcdd72c4f1fb67a355e1d43380c3b9"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9078894641a0060c43d87875285e11baab6f2a7f24c36f109f56687b2eaf5674"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5d68b4c2b28928e6f435666ae990ecc9f6ad4b082158374c24437c7d18d6a84f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9c4e10ddc6cad4b6a7001a697b8318513a09166e70fa6831ed5fdbede1e71d47"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0ac923114152eb0f5cb0dc2a5bd77f095bb10d93ef207c0a08934f52992bfe5d"
     sha256 cellar: :any_skip_relocation, ventura:        "eb6894812ee0f45a4922522cc2c8a38c6f023dc49be73b70209908be6c373ea3"
     sha256 cellar: :any_skip_relocation, monterey:       "eea33df8503aff86d07c0e10947fa54e57c579755086838aca78da96b00d4dce"
     sha256 cellar: :any_skip_relocation, big_sur:        "1fdd45d6a401ca88019bbd58cb3afdda23dedf706c4556e87a7cc48b1a3e952a"

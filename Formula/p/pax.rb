@@ -11,9 +11,11 @@ class Pax < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47f4f096d2004842fb3da233b6ce4aaebd7689b3a78e652454859f32cab7f428"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d53b2b5ce68a30ac206d6692afd3340abbb4b017922fee78db2f9fb1455c55a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4439e9d997f1e26eb76c01c5bded88103475e8867855e2b0928eae5175e974b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e540a64c9273304c80db0069305aa90efd4151a1dfd0f9eca0afdb640636a01b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6f739558f46a72a7b5c486e9ee8e8511e5d1635fabbab8f3c18c2f60404877ce"
     sha256 cellar: :any_skip_relocation, ventura:        "1d63a2f030b177f7b13a4150dadde6c3a2c843a8a15535f7a66375029feda72e"
     sha256 cellar: :any_skip_relocation, monterey:       "d38daea0b26ae854ac1b08b4e3df4689b9ebbc7658604ea0d61fae0a3d263933"
     sha256 cellar: :any_skip_relocation, big_sur:        "3bee37a3e3c998d25eb643ba3b5883d423b2209caf40f8f950f0ea72d0413f4c"

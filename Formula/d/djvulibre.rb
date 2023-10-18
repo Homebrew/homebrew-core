@@ -11,9 +11,11 @@ class Djvulibre < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "509e80c15c07de6b03d1bf3d729537d0abb30849c55b4aac092f6d760391ad8d"
     sha256 arm64_ventura:  "03c2b8a0fd889f5286436b3b2b1b8b10ceec29ed133756d8bb64ac20f867d0bf"
     sha256 arm64_monterey: "f39559ac1a9d9e3351dcc2d77384875434a8aa7d84406d0f5214dd42e86759e5"
     sha256 arm64_big_sur:  "b2c030948a6296ea93065ac207b7d71effd08a1126abc9a8365186cf4d04bf73"
+    sha256 sonoma:         "4a6bb80e8624388a8ec2b760b43908b8dcd45dd317026f0530c8d77a133d7d3e"
     sha256 ventura:        "437c4982f64bf9f3c17d3dc6e07a204770a8028ee924f23ddd0f09af9cd4fbc4"
     sha256 monterey:       "5c208fecddc8a56aae519f38d52a06c2b6f261b094077e05b43cebc9d452f3cd"
     sha256 big_sur:        "d325152b1930974548997efcf819595fefcddd23cebaee2e22718cc3296d1957"

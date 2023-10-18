@@ -13,7 +13,7 @@ class Xcprojectlint < Formula
     sha256 cellar: :any_skip_relocation, catalina:      "e573329068894a330ee859bdc2968001d42b2d06005824ca7a099d52e2dda543"
   end
 
-  deprecate! date: "2022-12-27", because: :unmaintained
+  disable! date: "2023-10-17", because: :unmaintained
 
   depends_on xcode: ["12.0", :build]
 

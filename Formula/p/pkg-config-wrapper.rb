@@ -12,9 +12,11 @@ class PkgConfigWrapper < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff84cf136641fa9e4600cad7363ba236b6e61754febd1e1535221295ec433398"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f890aaf1aca1ef6bf208306efdecb9d0014d94814b7b8bc4630a147d159b90b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9f890aaf1aca1ef6bf208306efdecb9d0014d94814b7b8bc4630a147d159b90b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9f890aaf1aca1ef6bf208306efdecb9d0014d94814b7b8bc4630a147d159b90b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e5413553fe515154ec9f64b1aa8ce3818ae738a19c7f6b8e8e9a9996de8ca26"
     sha256 cellar: :any_skip_relocation, ventura:        "55c744422bc40db622dd94af14f64f0fce31dbfad1aabd536b0e2e6c4f8fe037"
     sha256 cellar: :any_skip_relocation, monterey:       "55c744422bc40db622dd94af14f64f0fce31dbfad1aabd536b0e2e6c4f8fe037"
     sha256 cellar: :any_skip_relocation, big_sur:        "55c744422bc40db622dd94af14f64f0fce31dbfad1aabd536b0e2e6c4f8fe037"

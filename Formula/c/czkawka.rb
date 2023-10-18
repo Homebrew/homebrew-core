@@ -1,18 +1,18 @@
 class Czkawka < Formula
   desc "Duplicate file utility"
   homepage "https://github.com/qarmin/czkawka"
-  url "https://github.com/qarmin/czkawka/archive/refs/tags/6.0.0.tar.gz"
-  sha256 "32dc1d8a55bc3ce478246830a1f81679affa85735e69aa049fd83e30271e368f"
+  url "https://github.com/qarmin/czkawka/archive/refs/tags/6.1.0.tar.gz"
+  sha256 "63e64c717a93b3d5210d6a4718833fdbf3ad7b28c9b74a243d9de3ab1ee6ad5a"
   license all_of: ["MIT", "CC-BY-4.0"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2125f4140031578713e01c1bac342abb820335b055c26e715a3fef419102f688"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0be17333e389d968109758ae3dc14ad48abda93c97c0f23f79c24ea9e8a3d465"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "76739fe606b5e23b6b56e627784e739624731b793d4f1f5a704a8e79fcbdd5ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "00af83011687eeabdc799939d1356719fb915087e771e43928004c0a3675cb87"
-    sha256 cellar: :any_skip_relocation, monterey:       "49b00193f4bdf29ab78856f35de3da1d91b3629fd0f391cde46b3e845fcff6eb"
-    sha256 cellar: :any_skip_relocation, big_sur:        "64029ce9a7db71b6d24fc1fd735f873a4efde30c9a7ee0e342536956d76efa8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4db972d5d82cf88d5d1792942119f3c64392a04363e7badcc5938ae5568faec7"
+    sha256 cellar: :any,                 arm64_sonoma:   "cbe8e037bde658f9ca5a7759bfe3b95080cda6ec6dc9aa45174d7c5078706714"
+    sha256 cellar: :any,                 arm64_ventura:  "e2b71c7b66839a1bada0efc1112f206f6540f08f6f2a34df0c34fde2bc5b9e58"
+    sha256 cellar: :any,                 arm64_monterey: "f0cc5d19ede515e22a0e0e0795f72cdc114cdec53b07f8540205f8b0b807e337"
+    sha256 cellar: :any,                 sonoma:         "3565bdc22a5826812f334e3ec2fc8e86cc38e6e0b1834e658e17d12cdef4cdf4"
+    sha256 cellar: :any,                 ventura:        "e059266e48240234b079c17e2bb2c1dd97f39abe9c3856eb1ab742e174c0d17c"
+    sha256 cellar: :any,                 monterey:       "ce5f5f266488f1aef777428e717594ebd8404a61a962ed8077dbdded68152281"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "902d6635984d301d8c34d7eb3eef5ad4b99b5f546e3749c2081f0ca7ca3c487a"
   end
 
   depends_on "rust" => :build
@@ -41,7 +41,9 @@ class Czkawka < Formula
   end
 
   test do
-    assert_match "Found 0 duplicated files in 0 groups",
-    shell_output("#{bin}/czkawka_cli dup --directories #{testpath}")
+    output = shell_output("#{bin}/czkawka_cli dup --directories #{testpath}")
+    assert_match "Not found any duplicates", output
+
+    assert_match version.to_s, shell_output("#{bin}/czkawka_cli --version")
   end
 end

@@ -5,15 +5,18 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-8.3.0.tar.xz"
   sha256 "919c9494f02ca435e1e3474990e6df8ddef9acbc9c90565e08d40b8f50445ba9"
   license "GPL-3.0-or-later"
+  revision 2
 
   bottle do
-    sha256 arm64_ventura:  "901b8521e343a0de60e1096397d117968b103ca557a1fb653e0607c91e7f93d0"
-    sha256 arm64_monterey: "5e7b9ff5089ff23909ed78dc0aca353ec16d45b0a582a279206cc477e932e77d"
-    sha256 arm64_big_sur:  "2b9fcc572fde1ce6264755a9338a90635d0dbda529ad75e56f5582ab90c11cd7"
-    sha256 ventura:        "ff96323b25844b0ebe6228f65c4d08ecffcc98e963ff462eafcf2ddab3ac582e"
-    sha256 monterey:       "9d746aee56b620cbd7a1a2a1b8964501f67d32e90d757b4dacce7bb7b61494fa"
-    sha256 big_sur:        "a620fd2a5338720ba4530b98bbf0855d2e959cb75cadce64667be133dd51fcd6"
-    sha256 x86_64_linux:   "a8d62533f922925cb8575cae56a02bfe0d06b2e448ab490cc57ac923dc87df15"
+    sha256 arm64_sonoma:   "8ae5e8c4a431f922a5aa6bf7f5e8f5232645150af909681541767acb33e6cef8"
+    sha256 arm64_ventura:  "0fde25bc570c10a6d9849c836ba3f1debc7c754deae1bcd776ea7e9822c0f826"
+    sha256 arm64_monterey: "43803af5509d210d34d002931fd788377cad1ce1e98c4661743287aa934e44d3"
+    sha256 arm64_big_sur:  "ffc066b4a4b17475943b4af0b918a55068ce285e919f8933af8d98b6999bacc3"
+    sha256 sonoma:         "122d9e2bd794827b14f46b693e1a1bdc8138866d01eb5207ed09ad99a26badfa"
+    sha256 ventura:        "f8a4358ab506f538f18b26680c02473671515330839b55f9fa7ea416c1fe674f"
+    sha256 monterey:       "3ce5276b7678a148ffc6571eeaa7c4d4feab2efb244f3eeff5ba17cce5e4ed5c"
+    sha256 big_sur:        "96d558383ae7a1c265c903e96e6c6805e3b4f9c9255532bbdae81b61a311b7d7"
+    sha256 x86_64_linux:   "f0b9501a82ba1d4aac132c4f84d2bd9a5529cd3f50172ce6e66a0c422863aed5"
   end
 
   head do
@@ -52,6 +55,8 @@ class Octave < Formula
   depends_on "qhull"
   depends_on "qrupdate"
   depends_on "qscintilla2"
+  # Stuck on qt@5
+  # https://octave.discourse.group/t/transition-octave-to-qt6/3139/15
   depends_on "qt@5"
   depends_on "rapidjson"
   depends_on "readline"

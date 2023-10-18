@@ -1,19 +1,29 @@
 class Bottom < Formula
   desc "Yet another cross-platform graphical process/system monitor"
   homepage "https://clementtsang.github.io/bottom/"
-  url "https://github.com/ClementTsang/bottom/archive/0.9.4.tar.gz"
-  sha256 "199123ef354bcabaa8a2e3b7b477b324f5b647d503a2599d08296733846eea6e"
+  url "https://github.com/ClementTsang/bottom/archive/refs/tags/0.9.6.tar.gz"
+  sha256 "202130e0d7c362d0d0cf211f6a13e31be3a02f13f998f88571e59a7735d60667"
   license "MIT"
   head "https://github.com/ClementTsang/bottom.git", branch: "master"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6d1ae0fdc270d7223157fd4bc4a85526f435f8270ea5c58133eba86a6c2d739"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2e89ac75734da0d6ee62d871fa9bf711c644dda1fab64fa39377c1be8ffdc1e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d82cc50578862e77cb82eb6e4175c2575f818a250313a3a8e50834611641b88"
-    sha256 cellar: :any_skip_relocation, ventura:        "dccc5831e06f247363b2245f7e5f546abf00a206192b652aa26f1f3f643718ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "4013f5654dd00efd5397e640c2497faa48a243150a02a1d699e0258450ce66df"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d0e3fbd4f415d15f79e298f25fd788f10d9714087090a3a291a668d50296ae7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90cc3fd16ba040803e95a14ab5dbdc92e1ba40921c8ef32d22a2fa9c8617a852"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "339ebc558e1c566eb3a94a4324a7c96af8ce9c07f21434b09e56befd17cfa1b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "230f9e676ba5fc701d5c0d12fc34f52502a702979b4eb98875c83463bc3d3112"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b155becba57f4f76d8009b4686756a5c05b914995d4fc2277f1a79dbea5728a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32282051bf83138932c9ffb44e2cfcd3a09683bc25520949ccd21cf3273f83e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d20d96b8966ea09a734964402ac336644d76b8203025078eea30d175886b777c"
+    sha256 cellar: :any_skip_relocation, ventura:        "62d753583c35328b6d5c0360bc58b0b2e148a4d09f123acf5f68754227d93712"
+    sha256 cellar: :any_skip_relocation, monterey:       "7a2edf54adea53d8210fc39a6a82103b125fc801a24111c4ca4ba6b8262c8046"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f4b7fcbb96e6a1adfe8f5e0afc177ac04f4c9114be1c16b270c240e77d30ce5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce0e8c30968637538771345087ad22e91704f314f585cc8589ff7b727a39125"
   end
 
   depends_on "rust" => :build

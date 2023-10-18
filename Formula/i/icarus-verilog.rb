@@ -14,9 +14,11 @@ class IcarusVerilog < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "16e03356975ad058efbf99a12cb1ed1a6c078aea5d7b5bb6a0035442afb0f335"
     sha256 arm64_ventura:  "0c963a73d69e2c0ad3c6813dd9d03ac4b5a880052bf9ecb28a8918adc9384b4e"
     sha256 arm64_monterey: "968e2d0ca44b96920ad0806c19101a4dbd888ae8f5d3f6ede6395b13ee84c35b"
     sha256 arm64_big_sur:  "af49151647a5194225563412267b0dacb3da1d3fe3777802f13788ebf098d50d"
+    sha256 sonoma:         "53a13ceb942f2ae0e867fc35716853f809114b157bb1e813a9a11b798666b968"
     sha256 ventura:        "f8d395f182e8788ae9720421d2c8ba5ab90fad839e0071ed871c8a8b23484d58"
     sha256 monterey:       "f6fea867f86a544671ff8d074da509d2997f545df8fa2d47cbb118aa7029fcfa"
     sha256 big_sur:        "b5c5e18bfcdadfcc54a69954b71bf4c56f6e9c223823f65c798c442c4ec61e79"

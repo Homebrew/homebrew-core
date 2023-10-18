@@ -7,9 +7,11 @@ class Xkcd < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "781fa4a629feafbf0ff10ee3c99a956ee59464ae909018b5d619946e48a23fcb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "395611b46f90c37e740d47e696f641cb2e4e9fbcd36404f29cc70e7d71fdc5dc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "a1402d9b256ef081a1667c1e26c6e53d3b8429bd1e58e831555ee27f235b3cde"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c944fe024e4943fbf35e6b0c47de882f49b67815741dfd0a3a7b008500af213c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "96e9f2ab8f605303a09f88e6daa4536e03aeefa6b258b2495b13eccedff96b4c"
     sha256 cellar: :any_skip_relocation, ventura:        "c4812ea46d75e562008a2389a93e77c04814c8de8468570d748ab46d05f4c597"
     sha256 cellar: :any_skip_relocation, monterey:       "9010a3bec1ae4b24be2bc9c6b2b335456b8f7817a56823a1d69782d4c93dbb9c"
     sha256 cellar: :any_skip_relocation, big_sur:        "c70df4015231c9955bc1d67d3a55a0d70f8486a2444051feaf5997db19893f4f"

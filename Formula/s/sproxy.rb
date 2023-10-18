@@ -12,9 +12,11 @@ class Sproxy < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd501fbd874421fd288cc4af5c4589f9eb842027c5938d84c598d0bec8a6c1f2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf109934bc851cb45e6d6a9c24caff018e3ad0d1ebf45fa45d3c27291f7bcddd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf109934bc851cb45e6d6a9c24caff018e3ad0d1ebf45fa45d3c27291f7bcddd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b8c092d79cd0096d0d626cb9df9712e213e6fb6a814969c408feb2714e04917a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "19d8287f1648316caee4f7888c57fa805c4c790c477557a11622f22aedb91905"
     sha256 cellar: :any_skip_relocation, ventura:        "ba5b54502dcbb781c47640129208bfbd794770262afbcc2909773f01f2938687"
     sha256 cellar: :any_skip_relocation, monterey:       "ba5b54502dcbb781c47640129208bfbd794770262afbcc2909773f01f2938687"
     sha256 cellar: :any_skip_relocation, big_sur:        "a0bbfcf15c625d3fc022b0d1960f05a05bbd2e0a7f21458f92dbd537cd0a614a"

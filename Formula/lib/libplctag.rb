@@ -11,9 +11,11 @@ class Libplctag < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "500dc61f82bac3f71c59435d6e6804a8b358f519301239aa62a76a12a038ed38"
     sha256 cellar: :any,                 arm64_ventura:  "80d0efaa1ec5c89b51fb4de755fac7e1fd68a3276c416c0337a5bf8214a66fc2"
     sha256 cellar: :any,                 arm64_monterey: "fce605bcc061ceb6265ef3b60831777b4f351f9c62c03a6b375c89aa507c1378"
     sha256 cellar: :any,                 arm64_big_sur:  "2e1158e168bcab9ea99596891d829af20250ced327df9bdac64a2616b68998b1"
+    sha256 cellar: :any,                 sonoma:         "110858962b88de95d0d4c9543981bd99b6d21df906b949b0310ea3f5b2a37e73"
     sha256 cellar: :any,                 ventura:        "9fd9da880501285e4b33fc882d36c690455da3f8deec3087a04abce57c4ab266"
     sha256 cellar: :any,                 monterey:       "fed973ec43b64cc2bd6f53fa9fca1e268927c5864ba7b9c75bc9d66ab0fed482"
     sha256 cellar: :any,                 big_sur:        "68d165ef19b95853000e873814bd7aed8cba65e9db573509411930228694450b"

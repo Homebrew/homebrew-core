@@ -11,9 +11,11 @@ class Xorgproto < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32a25261f78c125375872609316c2142f7b961617b7b7799b2ea11e818ced721"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32a25261f78c125375872609316c2142f7b961617b7b7799b2ea11e818ced721"
     sha256 cellar: :any_skip_relocation, ventura:        "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
     sha256 cellar: :any_skip_relocation, monterey:       "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
     sha256 cellar: :any_skip_relocation, big_sur:        "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"

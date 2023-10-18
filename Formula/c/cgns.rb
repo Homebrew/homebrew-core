@@ -12,9 +12,11 @@ class Cgns < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "4a36e9f04e131b588140deb67750c17af4872194edfb6532465b1eb7cb6489ea"
     sha256 cellar: :any,                 arm64_ventura:  "ce99c50f036019874327c95a79a224a87360b6ed94253cff8efc405fd7bff096"
     sha256 cellar: :any,                 arm64_monterey: "d4cac694928a1107b7f78561babe8ad5997914f19663dff150e6c827c602d831"
     sha256 cellar: :any,                 arm64_big_sur:  "226385007cf78e02dbe88e56718c1662f0c26692a1a15eb502721427c82b9944"
+    sha256 cellar: :any,                 sonoma:         "ce1583b6de0e9202d9e74119c2d8dfb5af07673f0b6fdd5ce3a37c9387e3bb98"
     sha256 cellar: :any,                 ventura:        "b8d92b3b67c9b85f9baf1779a70bc738d42f7cbb4586e6fc341689b1d61ee0ec"
     sha256 cellar: :any,                 monterey:       "8979f06f47c90538924a233349020b1358f6fab95d8cc2097aa56b2fc3ca1799"
     sha256 cellar: :any,                 big_sur:        "7bf1c37a0e5bbe6f9f3418b6eaaacb4ddb13e4c278438a9ca97c5bee428782a2"

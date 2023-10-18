@@ -7,9 +7,11 @@ class ScIm < Formula
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
+    sha256 arm64_sonoma:   "43ff017e6ad95b5cec3d02664f0f1bf7f67809a03fe2eaa61a94024d9510eca1"
     sha256 arm64_ventura:  "75f632db6ed4794e25cebcc46c023255be662b3aafa09e457629adb83b87e2e9"
     sha256 arm64_monterey: "a19adff4e5f065abc68995fdc338fb16d0a9cc77857eaf69724826e8d0b9f0fd"
     sha256 arm64_big_sur:  "f2f0c70eaf59e601836c64622f3dcb9f07152f1744ab1325ff97cba36e7f0b8f"
+    sha256 sonoma:         "9b471ce8f24b20459d60fb8908c3834aedbf4b38bc149f934b1c6d9a875f877f"
     sha256 ventura:        "39afae40b8fe65bb8acf478ab9eb7f58106c98b7237342055879ab2969156c8e"
     sha256 monterey:       "84fa70f78bdaff7c0f6d8ee2e5a5ebc0454114c5a582b0fbf6bffcabbccf9899"
     sha256 big_sur:        "00f0fe5c274b84d3780032f7cc96ca7a3f6173ac97e26adc53978ec36187f8d2"

@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-23.04.1.tar.gz"
-  sha256 "869e20a02e0da97bd92da20e8a9b8a04facaea387feb09c16c5f23445b4e163f"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-23.10.0.tar.gz"
+  sha256 "1c41352be0d88dc3b2413bab06f0a2e791579d61ac1e3a406c3349f5ea0fffe7"
   license "GPL-2.0-or-later"
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Wxmaxima < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "01dc9ce1e4298c83b018f327f2dce8f706144d8ae0e38afa5b9457de247bdec0"
-    sha256 arm64_monterey: "699cae9eda02efb7b714f53320a368ca0a5d82d02f20321dde020af059e67716"
-    sha256 arm64_big_sur:  "b2514504bd74cf508ae162483f122f35da37d7e47cc8e41e139fb6c73e7d2d93"
-    sha256 ventura:        "12aa5e57847bac51599e1e4d41971804bfac67fda4af027f50bbb5e9f1aba68f"
-    sha256 monterey:       "9079d6d8a42483b2330b7617b2cdda35be15dfa18288482b59718dd3769c9286"
-    sha256 big_sur:        "ad310c0fd8747e4ed8f771091e94aabf66e529fb9ec2f6fb4b0519078a3ce764"
+    sha256 arm64_sonoma:   "ca1436ac23726f58a3ec07010b6cb29eb12e430fb4b5057acb380b82a7f5cd28"
+    sha256 arm64_ventura:  "6ee1024fad8f3731a20fecd696ae95d474b462c0a90d8030ef7ad86b0e9eba30"
+    sha256 arm64_monterey: "a49d8dd60079b066600dcdd827de8a51fc76c8e3f68481d1478cb92489ee7bb9"
+    sha256 sonoma:         "cac016670e8a7c7663a1810724404d2633cae2d41d2bcc8921cd266d7f013969"
+    sha256 ventura:        "41e0f8278845f6b903531a325a7c8e78e6c026c7751deef0584908a42a664196"
+    sha256 monterey:       "a197b0e89b0990eb8ddfee8a4da412e11f1a0237a297ed234ff39190a62bac95"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +26,23 @@ class Wxmaxima < Formula
   depends_on "maxima"
   depends_on "wxwidgets"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1300
+  end
+
+  fails_with :clang do
+    build 1300
+    cause <<~EOS
+      .../src/MathParser.cpp:1239:10: error: no viable conversion from returned value
+      of type 'CellListBuilder<>' to function return type 'std::unique_ptr<Cell>'
+        return tree;
+               ^~~~
+    EOS
+  end
+
   def install
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1300)
+
     system "cmake", "-S", ".", "-B", "build-wxm", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build-wxm"
     system "cmake", "--install", "build-wxm"

@@ -1,18 +1,18 @@
 class ElixirLs < Formula
   desc "Language Server and Debugger for Elixir"
   homepage "https://elixir-lsp.github.io/elixir-ls"
-  url "https://github.com/elixir-lsp/elixir-ls/archive/refs/tags/v0.15.1.tar.gz"
-  sha256 "d90b3b8506678ae7e63d99c82b61987b58d178358c6b6a794be31d8ac5cb1829"
+  url "https://github.com/elixir-lsp/elixir-ls/archive/refs/tags/v0.17.1.tar.gz"
+  sha256 "5fcbbb8a35448f12086ada4942cdb2f10338a5c95b0fa2b8471b5cbdf257812e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d1fd8c983a047fca29546a7725f092fdabaeabaf542628f5f48c62b68d0c7e4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fcb844ed781cf4b71ac8524f8993a4e0dcbf4eeedc2c29ae9c9bb28d7bea3060"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "edfddee1cd52646faa7ca534c8fc05e401a513a6a8ec3a626630065789c2f4c1"
-    sha256 cellar: :any_skip_relocation, ventura:        "6560cf7ba71aba8da81f19fe95b6041b234b7f54f7d6d425526f282f36554045"
-    sha256 cellar: :any_skip_relocation, monterey:       "6b519b4a35f590ef8a67067f29e90151a6be241136bb2f1e560219becc65870f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e63f328956c2c230df0b01cfa513b62ffc93a44606ae1a2f92f1a96892d9518b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8630fd5a54ebe49c3a5df42c576dc919b80729b493db374bcbdfd104f3e7b8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8a8aa1474647e30e5e1ec2f4c007881f3d6f6937e929a9a13d6a12ee75a72607"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54589f156f0cd73a7e9138cb22118ccd97eb70e98bf4cf4889e75d36d25434dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6b3f18dd14e39009c3346ea4392f010fd587cc880db513aab9e586d11425b0a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "441e5bcce12575597b33c54848f3ab9daf99bcfd79a3868c62c8b6d459d9e80e"
+    sha256 cellar: :any_skip_relocation, ventura:        "1d85fabfa9c6e16e9460aaf639ded792e188e4b18d54e51babb709b4028c2cee"
+    sha256 cellar: :any_skip_relocation, monterey:       "d471fa3d718c462f482531f729fe6e0bdc6d0e5060737c74db58ec24b3d6b30b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3584eca7260ebfd081fd2563ba5e84d6cc3fe52f097960e36e4c04827d152feb"
   end
 
   depends_on "elixir"

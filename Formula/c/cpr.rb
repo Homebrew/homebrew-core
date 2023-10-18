@@ -1,19 +1,19 @@
 class Cpr < Formula
   desc "C++ Requests, a spiritual port of Python Requests"
   homepage "https://docs.libcpr.org/"
-  url "https://github.com/libcpr/cpr/archive/1.10.4.tar.gz"
-  sha256 "88462d059cd3df22c4d39ae04483ed50dfd2c808b3effddb65ac3b9aa60b542d"
+  url "https://github.com/libcpr/cpr/archive/1.10.5.tar.gz"
+  sha256 "c8590568996cea918d7cf7ec6845d954b9b95ab2c4980b365f582a665dea08d8"
   license "MIT"
   head "https://github.com/libcpr/cpr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "f52db0627a16d81f7a3c583403d8a483829380eb0fb43ba5aa02facd61197af9"
-    sha256 cellar: :any,                 arm64_monterey: "dba0fa6a2756d6f72eabd0a6c94d14f531b44160968806ef63d594ad3b0f8b52"
-    sha256 cellar: :any,                 arm64_big_sur:  "dbb3e0c82cb8e5c8b635281b4dd7ddc8ae43a05b9bfec945226c4e009940731a"
-    sha256 cellar: :any,                 ventura:        "1a4c07b4ebfef58ca98089dda3a3859afe1ccdfaecde0a9a80b5094f7643cea6"
-    sha256 cellar: :any,                 monterey:       "623ee04a2a672e1ff1cfd94ae1f5f791f3c790f6a322b05f363c0b3014b40d81"
-    sha256 cellar: :any,                 big_sur:        "b42dd113f236f40bb4bb7dadb86ce35b1831cf288ac732122f20c16bf570cb5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a40a748f7a33446daa2c780f1e69286830d6f2f3d7e2e1bf647eb7f158525880"
+    sha256 cellar: :any,                 arm64_sonoma:   "bfef5a915c30a90886b9ad075ed61c8c84654c5f04011363d7ad72663877c529"
+    sha256 cellar: :any,                 arm64_ventura:  "08e9fc350ee4025479697f3f147277ff44c5383c1417df9e4119f5ed2993ef4f"
+    sha256 cellar: :any,                 arm64_monterey: "7e81fa0e233c1ca7436de8a2986546855da6e82644b251236dd08a706eaf3a44"
+    sha256 cellar: :any,                 sonoma:         "32cb1fbdbd64c5e9594b8ace3cb7919f20a0474dfd9e83bcf67f52eed7e43fec"
+    sha256 cellar: :any,                 ventura:        "b646edcb9ee136607aaf911521a28aa4916b0b9eb8e5ea8f3bc2faa655c64406"
+    sha256 cellar: :any,                 monterey:       "99b0acc646c669aceb3d53729da033a3ab4263e69d65e267e778a825e5f8600d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5238ed4fc1a27b5b501e68ba01255e01fadd98398e67c709ee0c72e58c144aa"
   end
 
   depends_on "cmake" => :build

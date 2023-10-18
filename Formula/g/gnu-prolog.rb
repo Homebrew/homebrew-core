@@ -11,8 +11,10 @@ class GnuProlog < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce33996a42c4d43c19084bd12fa5e6121d9b1650db96f6dd36bd1c54d85e47a1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2743f08c397b6ae19c11270477b61afd7f5dc598aaaaab5146b4d5a08fd9289b"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "417bfc3b0df319fa7b0b4ec3f262a5cdb3cbf8a10750c0850d9427afc3c408ac"
+    sha256 cellar: :any_skip_relocation, sonoma:         "558af85d62bad07b91aeb3e7f05d8395c47e9f65d1e9aa6576a741d2ae30e992"
     sha256 cellar: :any_skip_relocation, ventura:        "02ee6b13fa27046dd98fb661dfa19671ae2ee5f724a4616a6556af48e851d08c"
     sha256 cellar: :any_skip_relocation, monterey:       "5e2d325ed9824cdf9283341f009ac01655616d8d61fe9c4b08b21f190a445611"
     sha256 cellar: :any_skip_relocation, big_sur:        "d0a8099131295fb00e49b1921a544e5cf0564593f52a35cccdae8fe239785c2c"

@@ -1,20 +1,24 @@
 class Qemu < Formula
   desc "Emulator for x86 and PowerPC"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-8.0.4.tar.xz"
-  sha256 "81c817dda38af958be5bef1a6cf55b658bb2d3fb87c1e6a571de6b7b2c44516c"
+  url "https://download.qemu.org/qemu-8.1.2.tar.xz"
+  sha256 "541526a764576eb494d2ff5ec46aeb253e62ea29035d1c23c0a8af4e6cd4f087"
   license "GPL-2.0-only"
   head "https://git.qemu.org/git/qemu.git", branch: "master"
 
+  livecheck do
+    url "https://www.qemu.org/download/"
+    regex(/href=.*?qemu[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "73592702d0a676fa2cc69cd456ff580531f7d01fbca2c55bb41dc3f87056efa6"
-    sha256 arm64_monterey: "7ba1a94939013650572a5b0209361a88f09b6c2cea85bbb49189c2e03130e8fa"
-    sha256 arm64_big_sur:  "004779f306010db64d7f425e5ac36d79349254ec29a876698dc128fb32c3bc3d"
-    sha256 ventura:        "aa42ac6a578522165be5af659401e5bee74bfabd3cfce59a4fe700054a395ae9"
-    sha256 monterey:       "055d8c18ffc723c3acd30fd16a34aec77fb032f5fcb5945e465d14927eacf57e"
-    sha256 big_sur:        "7842258ec38cee5487c8d406e76c38c3d84652d7fe0d763cedbbec5c2d286eeb"
-    sha256 x86_64_linux:   "149e2654c430f68861f6e84925d65e150de0c24155d4580885a34904a5fe87ce"
+    sha256 arm64_sonoma:   "5b1609f934fb3540a857a0ead8bd5c427258cae61bda0acdd61405eb8a1486f0"
+    sha256 arm64_ventura:  "a56c3c313287630810c23cac126f96102cebf1af819d38d1ec21a47bce1a7b0b"
+    sha256 arm64_monterey: "ce153e0b82293fecda857c3862341af96ec9526350163f7aab02dadef9ced578"
+    sha256 sonoma:         "82d75ff431672ffe48618a98985b49a71026632d75321ba03dd01b5ee79b3ea0"
+    sha256 ventura:        "13febcec2b4579cfbd4755debd7d6016f949844d72c121fc6ef07ae91e189dfc"
+    sha256 monterey:       "979dccabf7529fb80b5dd2dfaae81a2f1c73b7d34b3757d9b910d0d53704b015"
+    sha256 x86_64_linux:   "f58d827362062492626c328a7725aad6d50d431019d74f3433c4582e15c4e526"
   end
 
   depends_on "libtool" => :build
@@ -24,6 +28,7 @@ class Qemu < Formula
   depends_on "spice-protocol" => :build
 
   depends_on "capstone"
+  depends_on "dtc"
   depends_on "glib"
   depends_on "gnutls"
   depends_on "jpeg-turbo"
@@ -68,6 +73,7 @@ class Qemu < Formula
       --enable-slirp
       --enable-capstone
       --enable-curses
+      --enable-fdt=system
       --enable-libssh
       --enable-vde
       --enable-virtfs
@@ -95,36 +101,23 @@ class Qemu < Formula
 
   test do
     expected = build.stable? ? version.to_s : "QEMU Project"
-    assert_match expected, shell_output("#{bin}/qemu-system-aarch64 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-alpha --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-arm --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-cris --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-hppa --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-i386 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-m68k --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-microblaze --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-microblazeel --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-mips --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-mips64 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-mips64el --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-mipsel --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-nios2 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-or1k --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-ppc --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-ppc64 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-riscv32 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-riscv64 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-rx --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-s390x --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-sh4 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-sh4eb --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-sparc --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-sparc64 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-tricore --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-x86_64 --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-xtensa --version")
-    assert_match expected, shell_output("#{bin}/qemu-system-xtensaeb --version")
+    archs = %w[
+      aarch64 alpha arm cris hppa i386 m68k microblaze microblazeel mips
+      mips64 mips64el mipsel nios2 or1k ppc ppc64 riscv32 riscv64 rx
+      s390x sh4 sh4eb sparc sparc64 tricore x86_64 xtensa xtensaeb
+    ]
+    archs.each do |guest_arch|
+      assert_match expected, shell_output("#{bin}/qemu-system-#{guest_arch} --version")
+    end
+
     resource("homebrew-test-image").stage testpath
     assert_match "file format: raw", shell_output("#{bin}/qemu-img info FLOPPY.img")
+
+    # On macOS, verify that we haven't clobbered the signature on the qemu-system-x86_64 binary
+    if OS.mac?
+      output = shell_output("codesign --verify --verbose #{bin}/qemu-system-x86_64 2>&1")
+      assert_match "valid on disk", output
+      assert_match "satisfies its Designated Requirement", output
+    end
   end
 end

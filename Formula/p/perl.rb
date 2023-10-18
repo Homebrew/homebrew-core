@@ -5,16 +5,8 @@ class Perl < Formula
   head "https://github.com/perl/perl5.git", branch: "blead"
 
   stable do
-    url "https://www.cpan.org/src/5.0/perl-5.36.1.tar.xz"
-    sha256 "bd91217ea8a8c8b81f21ebbb6cefdf0d13ae532013f944cdece2cd51aef4b6a7"
-
-    # Apply upstream commit to remove nsl from libswanted:
-    # https://github.com/Perl/perl5/commit/7e19816aa8661ce0e984742e2df11dd20dcdff18
-    # Remove with next tagged release that includes the change.
-    patch do
-      url "https://github.com/Perl/perl5/commit/7e19816aa8661ce0e984742e2df11dd20dcdff18.patch?full_index=1"
-      sha256 "03f64cf62b9b519cefdf76a120a6e505cf9dc4add863b9ad795862c071b05613"
-    end
+    url "https://www.cpan.org/src/5.0/perl-5.38.0.tar.xz"
+    sha256 "eca551caec3bc549a4e590c0015003790bdd1a604ffe19cc78ee631d51f7072e"
   end
 
   livecheck do
@@ -23,13 +15,13 @@ class Perl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "95806fc97a4d19f592e9fc265e2a79a3183463306c41b665cea9f69d0d748d41"
-    sha256 arm64_monterey: "4ab6b71b6068bf7efa35d9ec0c175b2de73917b9fe3bc2e47c25f4975c102c06"
-    sha256 arm64_big_sur:  "6046f055d4e8c188726e73a5c6961618d6796c41b0f5b8ccbf874618fe546342"
-    sha256 ventura:        "12a8c480c692775bf24c4ba802103982299e899c9d949ec4bc288ecab661a42d"
-    sha256 monterey:       "624ccf8b182aabb60ec7bf1ded9177e4085253c53eab3cdecb30b694efc5ca97"
-    sha256 big_sur:        "61baac39c1834ec0f7a026d639b6008eaf893090ebb57f947068e143e29ee556"
-    sha256 x86_64_linux:   "db9590fceed0e461c2d01977d0d314f3d1696147dd1489c775e9ca415e2aee9a"
+    sha256 arm64_sonoma:   "d745ab0b23a4393bba2df3a83f45aca492ac4dbd725fbbd70f6da0630b04f3f3"
+    sha256 arm64_ventura:  "a65fe1094e63104d7127c8d01b738bd22b17832137c81377740787d6386f7f92"
+    sha256 arm64_monterey: "f0e0898c09cc63eb1d5385e101f3eb54253bddd85ebd8324044f027b443f1bef"
+    sha256 sonoma:         "48c8d0446bd490a120355cac31a749392e460d4d8f1e69032ded567d5cf8c961"
+    sha256 ventura:        "db18bcd07056234dce8a2ae8772f7e1decc78bcc2cbaaf578e3b6017ba83bd72"
+    sha256 monterey:       "7acc87e52835adff7a89be9bd826c50839d591d881e0b6e935a416b179c38aa1"
+    sha256 x86_64_linux:   "a2976adfb7e88f694ff6f570d47cf34b961a3c259fea71d720a8ad8fedd56266"
   end
 
   depends_on "berkeley-db"

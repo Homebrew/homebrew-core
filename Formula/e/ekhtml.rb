@@ -6,9 +6,11 @@ class Ekhtml < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a55dabeba03f720c3012f0ab26dedd80104e268d64831ac4eebe29f642d83e0c"
     sha256 cellar: :any,                 arm64_ventura:  "58b661aa5f68e984f1fda1ccf0dd9dd9a9ab0f445c9069d96893d558e441dac8"
     sha256 cellar: :any,                 arm64_monterey: "b438d00a18912a1940d38e03386c8589e62083534e0f72608e7a5824418f8109"
     sha256 cellar: :any,                 arm64_big_sur:  "b8f8bd224e339d7aa4e95a94c23fcb93cae06533927256465c7c7719fef46c76"
+    sha256 cellar: :any,                 sonoma:         "075d049a35c03208bf88b4ebdd0326160d598ac105dc0277c733ae1df369bc1c"
     sha256 cellar: :any,                 ventura:        "3d1bdcc582ab80b004131b68622139a924f0dd4c1ee7a8f8fa3284d5736e4222"
     sha256 cellar: :any,                 monterey:       "252e39e34ceaa9454a21a16db39556a06ae13701f31671ec8354c86be76107c0"
     sha256 cellar: :any,                 big_sur:        "238ffdbf0c5a207667215d75c4a05f9b32af2ad6d9f53f256977c56623088d11"

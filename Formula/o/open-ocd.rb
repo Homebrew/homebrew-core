@@ -4,6 +4,7 @@ class OpenOcd < Formula
   url "https://downloads.sourceforge.net/project/openocd/openocd/0.12.0/openocd-0.12.0.tar.bz2"
   sha256 "af254788be98861f2bd9103fe6e60a774ec96a8c374744eef9197f6043075afa"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,14 +12,15 @@ class OpenOcd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "c611d6b6c9e57cb090035cb957b452df65f7cbc631efad899fb7ab41e1ea32e1"
-    sha256 arm64_monterey: "7b08b217ff97444f3b1543efe5d94f5b48dcdd74ea501426d894490e76f06405"
-    sha256 arm64_big_sur:  "7cdba4d5b4ac53b160be03c26f96f8f8d1d4963ff2abaac7c219bc9fee03b50a"
-    sha256 ventura:        "f55c5f34b7842ba9529b93f83997e1e6abac12ca77cd67bb76df8029894473a5"
-    sha256 monterey:       "5fe0d9ced9ebdac6350e56e4ef5594f4080ce2c81054fb0b5fb55eca99c75f24"
-    sha256 big_sur:        "fb7fef372618e8b59b07016c380b727d61103ee67ad5b68811bcbcc1516b3a6d"
-    sha256 x86_64_linux:   "0b26fad3eda406a9cb72f04943b43015371b8f224fc624347fd9616f2604ad9e"
+    sha256 arm64_sonoma:   "e1a4ef8fa11556dab2833bd52a179e3160a7f077816c7eed9ebe903d19509885"
+    sha256 arm64_ventura:  "2af95c6cc37afdc18ec4fad86060a994e8fb79def599b0f0e2dab8472b4c0f0a"
+    sha256 arm64_monterey: "29b4d09a5999e066c06aad94032162d13a020aa52a1d64b6b57114cab9ad4d2a"
+    sha256 arm64_big_sur:  "8999e49e8e2c65a70f998e45d1ead00a9621adac26ffe93dfbf9cd712f714e51"
+    sha256 sonoma:         "e757c2d3988325ebc500d2226f2e81f56a7ff73a4e1e435487c0d14f3a5e31a3"
+    sha256 ventura:        "daa9924f73a731d961f1df6f2b7795324253cbfe73bf8e68f6d823d0753268c3"
+    sha256 monterey:       "73a336499271b64f2cab04242346b9c4cd9314d3583a3992d3f6e8df2ac9573f"
+    sha256 big_sur:        "1803ee897c13d4aefbdf87e845e06b5b4f0c2adeb6bfd11c24ed6ef1997af454"
+    sha256 x86_64_linux:   "d912d763421e62bcd0a860b392e48f0d4ceda88c3020394ed054b90ad78f4466"
   end
 
   head do

@@ -2,19 +2,17 @@ class Purescript < Formula
   desc "Strongly typed programming language that compiles to JavaScript"
   homepage "https://www.purescript.org/"
   # TODO: Try to switch `ghc@9.2` to `ghc` when purescript.cabal allows base>=4.17
-  url "https://hackage.haskell.org/package/purescript-0.15.10/purescript-0.15.10.tar.gz"
-  sha256 "c12dff938d66cbcd184eaa5fee127679342f14d6243d8195969ed48b26d4ea22"
+  url "https://hackage.haskell.org/package/purescript-0.15.12/purescript-0.15.12.tar.gz"
+  sha256 "1f3724689e4a4bb8c89fbc9bd0ccdd28ccb49c36730b19547bb39f791ea65467"
   license "BSD-3-Clause"
   head "https://github.com/purescript/purescript.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "045428ed6c0d93e46a79fa3fa540cffe4af94de79d667cdef5390043b8ea881e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed75c825e3acb3845dae944270e4382026e789b09e86912a0e9ee79fea1e51b8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a70b85c4fee0dda2b9eeda7758ea0bf04feb8dbca29d7abf7063fffa192f6a7d"
-    sha256 cellar: :any_skip_relocation, ventura:        "855a89536c33efb70c635ff5a466611ef0abf260a9a4b955814ccfb52396244b"
-    sha256 cellar: :any_skip_relocation, monterey:       "291ddd60ce776ae02fa046d3f12db72320fce60855b21efb6aafc04d43c34a70"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5cecc078307e465933e940450de69acf7f0decca77a97499dd1f723972135f78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c6574c035c301287d56c71a6f60bb5bc3780f4256c75457b0d93711ff9c7157"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "005dc62acebf292c4f7e023580c429ebcc61615129bf76ca54db740a6a69305a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "054334032e489ad163a10fdbd86ff76dddcbab0307d9082a42105d83d073bda6"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae452361dffe0903c1405b029526acdba1ec68aeb5d5c8f3ed993b764ed73a2c"
+    sha256 cellar: :any_skip_relocation, monterey:       "be87b2b30dd76027f7f37721980641ee6193f772300e48c826fce3f0f330c921"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e56e4829b4145abd71ee74592460efc2e1b55f212d88af96a96b8a60171f63d8"
   end
 
   depends_on "ghc@9.2" => :build

@@ -6,9 +6,11 @@ class Mp3val < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef2fd722be9a2d08c7d180ed19f6be46bc2944392f996b607ecacdd10ef1b0b2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e063b1b72dc1265814eeac66793a4778a389aa0d0b5eaf1fe459e934195f8c6e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "75d055d4fb5b3abc7ded7ad8e99011fc2e84cf0d8c24c01f1512941b17d3f02d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d5718fcb9967416eb3e3cf3e9a186e98bade6be099c57583b0d9dcc0fa43103"
+    sha256 cellar: :any_skip_relocation, sonoma:         "15fc504bc8eac0681a75c0dee18eb114313d8393b11bc3ab412d68240fa51cc1"
     sha256 cellar: :any_skip_relocation, ventura:        "2e853ffc3b232162f4efc76f4b166684f7433dbb0548ed424154527ae81b4289"
     sha256 cellar: :any_skip_relocation, monterey:       "981e3b3fbb87bd417e50d947bb994049508ce850ffd432c9d3ae0306cf3e6182"
     sha256 cellar: :any_skip_relocation, big_sur:        "671ef59185d212e89c19dda72da09ef7a37e3055f4d42d188079f29122c641dc"

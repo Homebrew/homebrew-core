@@ -11,9 +11,11 @@ class John < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "301d009f0b0ebe220d69e495ffb686c01ebc0448732427302431cdd8a6207684"
     sha256 arm64_ventura:  "a80fb6428f4645134c126624c4516244aae4dee1b8eccfa024c0b0a16ba61bb5"
     sha256 arm64_monterey: "eb3f2d751c1721126e5c5e578ab5863d88ac5fce9f7c5633b123d000acca61d9"
     sha256 arm64_big_sur:  "f1f00939ed4d4fcabc3b210e44187c526dca2be9f7ee9b565ea6140eb193b14f"
+    sha256 sonoma:         "22469be25e31978d6cdb1f1970888f9d06d07fa3e1dda53c63433e382149284b"
     sha256 ventura:        "fde757ed8282c062e218b7ec9533b5bc224b71cb85101ab668bf9d9975b7c16d"
     sha256 monterey:       "acc402354e39d5bfb59c7e354dbe411cf93ea39ce7e2db26f422b3d4b0d2ec93"
     sha256 big_sur:        "30a16098075a63a195abd36e2c55c83e5d0bce98476230436bc7a4590b6a523b"

@@ -12,9 +12,11 @@ class OpenkimModels < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ca3243c57f7b498ea49744ea96163e585158aff2d69fe10523598a986b302e0b"
     sha256 cellar: :any,                 arm64_ventura:  "458fc81fd6c2a1b3e0599f4ac40c1d40d7168f32407ec6f3c34db3b4215daa63"
     sha256 cellar: :any,                 arm64_monterey: "58cbde998d51cce50b663b5b5aa11cbf9e4f5c6709a01e8b4987b09702ac27e7"
     sha256 cellar: :any,                 arm64_big_sur:  "d6a0d32d4b8294e21121821eae9cb1c09b8c931f50216336b2b58fc16339655f"
+    sha256 cellar: :any,                 sonoma:         "ac768544fe9309e2850baac18955339bf1f1ddc6a2139811342613aad3aee00d"
     sha256 cellar: :any,                 ventura:        "acf39b7ad37d761a964977286b954a7bee4d3e8d587e5c5bea6ae697765c5269"
     sha256 cellar: :any,                 monterey:       "be743d4bb17d99cabec6bd66e5ca8b486ba4c98722a4a6d8ff5e473e5ee0c6fb"
     sha256 cellar: :any,                 big_sur:        "0000ba2923c829367dc9e2b39c88935785aa18e5b536ab5237d61e9057bf5729"

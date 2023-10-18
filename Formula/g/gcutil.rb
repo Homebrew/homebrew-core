@@ -11,7 +11,7 @@ class Gcutil < Formula
 
   # deprecate in favor of gcloud compute
   # ref, https://cloud.google.com/compute/docs/gcloud-compute/transition-gcloud-gcutil
-  deprecate! date: "2022-07-09", because: :unmaintained
+  disable! date: "2023-08-29", because: :unmaintained
 
   def install
     libexec.install "gcutil", "lib"

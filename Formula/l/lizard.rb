@@ -13,9 +13,11 @@ class Lizard < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "476ceb4a73d3142140462bc343d0efd3730580b26108977c304c39dee0142989"
     sha256 cellar: :any,                 arm64_ventura:  "6fcf6c0c2243f9fa4a9f06ebb9b28c2fcf5aaed5916bc3ab6be36024e3096556"
     sha256 cellar: :any,                 arm64_monterey: "870168a41711bd2dac174484f576c7573b422e9b9a9ba20a4f761b262747966f"
     sha256 cellar: :any,                 arm64_big_sur:  "25adf9383bbad3ab6c4f51e38ea46ebe4fc636cc347c8625b2fbd65e89a3144d"
+    sha256 cellar: :any,                 sonoma:         "3e4a171bf7b68f9d77098a84121fd2d8adf2432c4bc9cb2201ad128cd0456e1d"
     sha256 cellar: :any,                 ventura:        "75bd1c568655f58d515f452ee69c5b615e3d65c7f9eadba2581a4df5bd2e7d3c"
     sha256 cellar: :any,                 monterey:       "463d92f46e8fbdd327b99b8322c2dbb24ff2d08635f44a2706665066741658d9"
     sha256 cellar: :any,                 big_sur:        "3ddb2ae111832e46648ef4b0bf73bb890f96afd6cdb5dedc847857162163079e"

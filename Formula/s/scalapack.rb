@@ -12,14 +12,14 @@ class Scalapack < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "29ba1d098896c7724994f1c43eb6796390759a184220419ebcef8c5600f871be"
-    sha256 cellar: :any,                 arm64_monterey: "a0cd4b382932d32799b88c4e7f99488414d7feb86ff5fbb1a22fa6b1980c84ea"
-    sha256 cellar: :any,                 arm64_big_sur:  "564ea01e76cc0dcd9a74de0f9e9edece929059d972a7954ca139a55d0150c920"
-    sha256 cellar: :any,                 ventura:        "20f2a5d450de5f8d745fc6d7c675f19bb70ee4c66ba18a4d4782418e1d0ed389"
-    sha256 cellar: :any,                 monterey:       "388e65a24aa3813825a03601f2d8ca839f00b40c0b082ecf8207e30b9bc9d481"
-    sha256 cellar: :any,                 big_sur:        "db51a021b6af840cafb460e91c766312e01f646834a48c36e0e566f95f89b8d3"
-    sha256 cellar: :any,                 catalina:       "c829bc139bd4db1d81e578e25df05119f503210bfb52391a45c97bf534891c94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d36d901de11e7a625fcb7c48c043c100a7d7fa640d61c96a41daa932e7140681"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "384fa978e53d02b1a25071e9cc0d89cd47a7d8881b735a946e947dca95590f25"
+    sha256 cellar: :any,                 arm64_ventura:  "82500bf38af074441e92db1599b2594959d811b0bcee284c8cc36f92120525b4"
+    sha256 cellar: :any,                 arm64_monterey: "4096375cb8f2af6801d1d0bbab6465b4e057e6c685ecf5e57f9f4fac8ea3166d"
+    sha256 cellar: :any,                 sonoma:         "30b66a1c884bc106b96b9e82cde6d8b1c026f24307e8d5aeddb8bf4e3f91eff1"
+    sha256 cellar: :any,                 ventura:        "5e64fada8dd814c16f4a2c620e8f1dc0b784519fc697ab1df907cc906aab6c8e"
+    sha256 cellar: :any,                 monterey:       "168b5c717d4f360d03990e104b18d32f16e1da9cf1b2e5b6ee88fff8a0a5b33d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f792514fdcdf56ca86e9b562b3a3f5e2fef3b2e84ea2648a68d0cda1cd60653"
   end
 
   depends_on "cmake" => :build
@@ -36,6 +36,9 @@ class Scalapack < Formula
   patch :DATA
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     mkdir "build" do
       blas = "-L#{Formula["openblas"].opt_lib} -lopenblas"
       system "cmake", "..", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON",

@@ -6,9 +6,11 @@ class Openfortivpn < Formula
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    sha256 arm64_sonoma:   "87b67b968c81b6fcd6348c81de7d04f565dec841ea73e1d34f701feed95c000a"
     sha256 arm64_ventura:  "bb5a5b6b5ab6973248fc31e515dd0c5aacd6b561da97147fad765147bad00cc2"
     sha256 arm64_monterey: "f9156532189d835e4f553e9a3a0f972b2a6d291f989e9081c60212d89b386d27"
     sha256 arm64_big_sur:  "bdb736636517a29186dbec1df79a6f052121b67a6303506a6c06f141844f3c2a"
+    sha256 sonoma:         "d745264742fdff6e41467df1b18408f8e03a00433a3fbe1e976a05a34b92288e"
     sha256 ventura:        "762b9c5121cac1f784cc5c13de3bafda6d2f0051b617c922a1c6e6ac8c0d596d"
     sha256 monterey:       "144c5ac14ba1feb3830233863ab58b22483bc305aee92f6a8c8273a9480a814e"
     sha256 big_sur:        "709394e33207ebbe85a3d2d38e3957908d85c7eabc229e8038d32cc17478d328"

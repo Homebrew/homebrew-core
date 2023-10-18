@@ -7,10 +7,20 @@ class Yara < Formula
   revision 1
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
+  # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
+  # but are labeled as "pre-release" on GitHub, so it's necessary to use the
+  # `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "89b72648e12c3afc9c59b8f20f604f8237d372727de03113724303bb43a434ee"
     sha256 cellar: :any,                 arm64_ventura:  "ef3e280e87b7607f3eea94508e8fa9a628009f60676fccdce22340809a70cb36"
     sha256 cellar: :any,                 arm64_monterey: "3ca150ac17fc10bed27eff89094ec9ebd2e70abed402fc091874f8677e7abff2"
     sha256 cellar: :any,                 arm64_big_sur:  "02ba0c77f44d762e4fb0fa670549be58a67269eb0af48aa8155e40b8361d40c4"
+    sha256 cellar: :any,                 sonoma:         "8745ef9320f293665d2ff588652195fd95bf644a2bf25c4f2218e82636f526c7"
     sha256 cellar: :any,                 ventura:        "41bb56c91fb8eaf533d7e8786d95aee23c94f71ae95ef9a241e0e5b87497cba7"
     sha256 cellar: :any,                 monterey:       "5a1ac4f8d742aa6046755a14a08b57a7c4c1aa1ee2f27127ec45a7aef05ffde6"
     sha256 cellar: :any,                 big_sur:        "26ede9206b84edfb30d9c0554211e3c683722bd0bb917b639f7a05f652a51104"

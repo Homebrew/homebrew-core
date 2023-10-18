@@ -11,9 +11,11 @@ class Cfengine < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "2a9889b513ec33c49aa38362d2bb35d2da9ad09a1b58d90c1b4c21cc839151a4"
     sha256 arm64_ventura:  "015b04d8465581173060924e86777a960531ccff34dee65d3b6758ca076841f2"
     sha256 arm64_monterey: "3ebb2118a1c6e42c8641249b14d5f3febbd08b67dccf608f169fa6cad71f5e48"
     sha256 arm64_big_sur:  "420ef43f40fc4f871ec83902e1c4388c4fe32499de45982de41f3e08b488ebd9"
+    sha256 sonoma:         "62a2c79b8e4b6720f5b85ffe94014cb94a93ee9843e99231b53c94aeae9c159a"
     sha256 ventura:        "c3a086085d47322e84e5c6ddc50a8bb82767f4609c5caea9ae0a906f99c13286"
     sha256 monterey:       "42eed03205b9d617c4e9d2f9181faee1bc9c854799bc4f380a33f0c4b0a07b69"
     sha256 big_sur:        "f0cb272965fc3727754d71b4544f29ed432fef2efea743f29e0e273ed03af4ed"

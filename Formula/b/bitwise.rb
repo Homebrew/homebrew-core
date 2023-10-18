@@ -6,9 +6,11 @@ class Bitwise < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "923c4828ff104f940038b9d6969759b08d90a3d2c89cb1c0e31b913a2d38769e"
     sha256 cellar: :any,                 arm64_ventura:  "85b482536f160a726ccf996c7653763a19c43b5b4926c8da4af4bb0b01ff63ca"
     sha256 cellar: :any,                 arm64_monterey: "7b2980226d0d6d231bf41898bbadd6c18a838bee766aa62dfff1c451d8c0357a"
     sha256 cellar: :any,                 arm64_big_sur:  "92f12631e0740195ad3cf87b0a320288d6d27523651568575d3dedb4a02a0705"
+    sha256 cellar: :any,                 sonoma:         "66b9022c3207ba8c0b9b9b3a530dfd1403d9fc3ed4c5e991ee01d7d3aafb3635"
     sha256 cellar: :any,                 ventura:        "7b67229824c3f0e7b1ff3f3e1cfbf11f8f0b8f6dec64a75e010e81f1e8e32fce"
     sha256 cellar: :any,                 monterey:       "5f880e578cbd7558572c25c9f5c66a674e0e0547f1bc7e8cee33e4869bb39228"
     sha256 cellar: :any,                 big_sur:        "560ee93626732de20fa8d5ca16058c92f26383a497e8218029ecbe377cda5602"

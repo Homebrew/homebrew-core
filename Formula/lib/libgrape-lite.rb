@@ -1,18 +1,20 @@
 class LibgrapeLite < Formula
   desc "C++ library for parallel graph processing"
   homepage "https://github.com/alibaba/libgrape-lite"
-  url "https://github.com/alibaba/libgrape-lite/archive/refs/tags/v0.3.2.tar.gz"
-  sha256 "e0701a389f615eb169faf0272ad4aa0679b8e7b06f94a4732c8232d2f40fc0ae"
+  url "https://github.com/alibaba/libgrape-lite/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "4d7c08560d56fde4a407566fea5ea348cf8ea7df5dbcc3285dcbfe6d9e5d6ff7"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5437b82e7cbc55ec1394e21b8cecb11c7d5149b9205afdaee7765bded95e0d5c"
-    sha256 cellar: :any,                 arm64_monterey: "9ca019ceb41ef6b447df677376bf396c8fcb49b1bd75a4c69994492c1487e0fa"
-    sha256 cellar: :any,                 arm64_big_sur:  "7eead4cc06b4f89b45cd365e98577e6f13985569f7781484d3b3a759969df6d5"
-    sha256 cellar: :any,                 ventura:        "73510a5810bf7c2c54af3f8b1188051e4651739d584a0b03136d4e80ee84a869"
-    sha256 cellar: :any,                 monterey:       "078f61025dd058c4e0fcd83449142abfa1c624459878bd15c6a8c2f8cec08313"
-    sha256 cellar: :any,                 big_sur:        "a83c2f7d28fd6efc4846641070514f0fe13e1e6af4320dcc247c343323e304a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6a99920810c692f8420e82009a38c7ec32b316e38bb1a38e42a85f033a27a3a"
+    sha256 cellar: :any,                 arm64_sonoma:   "169a84d962028247357fb70d3fd9a00eef09d04043bfc599c547b29545204dc6"
+    sha256 cellar: :any,                 arm64_ventura:  "fb65f947aab53a0b99aecdfe1eb27d7b3ebd3bf2deaae44983106d79be23324a"
+    sha256 cellar: :any,                 arm64_monterey: "669d5c4c46c62ca376f7d88d6ccd8ca1af65e4c5c496c22d59239dcc64aa7bb7"
+    sha256 cellar: :any,                 arm64_big_sur:  "e39c3c95ebf47c8a91ad1f4ec55e150f0fb983a0749b1c918fabb67cb7782b59"
+    sha256 cellar: :any,                 sonoma:         "2d3b960d3911a6a179bee03366ac528a70409ebda55a15fafbc2fd39e173030a"
+    sha256 cellar: :any,                 ventura:        "56fc6ce45234cdeebabf4e0e533cdf410fcb67f118635b030a774b5c1d80435f"
+    sha256 cellar: :any,                 monterey:       "5df9681434c5b8db7a4f10bc80d34154362a6e14eb8659166b857c04b11f188c"
+    sha256 cellar: :any,                 big_sur:        "dca697a6f0ffe5241d9e87cc361e3155351524e8087b105ceb383002a3abf364"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4daa1bec1b6d6e493964783687cc05609cfa2e6e97279450134de32672eae244"
   end
 
   depends_on "cmake" => :build

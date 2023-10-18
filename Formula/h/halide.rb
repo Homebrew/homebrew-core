@@ -1,9 +1,11 @@
 class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
+  # TODO: Check if we can use unversioned `llvm` at version bump.
   url "https://github.com/halide/Halide/archive/v16.0.0.tar.gz"
   sha256 "a0cccee762681ea697124b8172dd65595856d0fa5bd4d1af7933046b4a085b04"
   license "MIT"
+  revision 1
   head "https://github.com/halide/Halide.git", branch: "main"
 
   livecheck do
@@ -12,21 +14,21 @@ class Halide < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1dc8e72c88d4765ca1a4c4fa0aa587be9d4791c252cb570374e902a2f402086e"
-    sha256 cellar: :any,                 arm64_monterey: "d81f24d816d895b0f10755771bfee33a0c03ac895fc1e2a7399849c794eccb37"
-    sha256 cellar: :any,                 arm64_big_sur:  "f356585914ef921814333752a006d9e4033163372aa50c65929c6645a344431e"
-    sha256 cellar: :any,                 ventura:        "0f5126b08161572979ed23b87a1ce7623ee0971dd7a57f44acaebc76578936a0"
-    sha256 cellar: :any,                 monterey:       "95166cdc80500c57799c052f255065b7fb8499c25f5f7a732587c7b8da1563da"
-    sha256 cellar: :any,                 big_sur:        "727ee7167d0f2026de4f7ce5654a601e71485c56573cc766593a748b71849b70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ff3882c4b82e3a44a92670c8579b6817447ae304efb6d27c176684e04e9200b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_ventura:  "9c225bdb3cb4289b5bb121934519e09d08673d20edb675597fc98624612c5539"
+    sha256 cellar: :any,                 arm64_monterey: "778bbca758d3945f263f9bc18781d4a54f49e3ab8dbc67e0913aa902b04972af"
+    sha256 cellar: :any,                 sonoma:         "cfc7bf242ade7297dbd59128746629c3058f0078eb504f62513c52922124734e"
+    sha256 cellar: :any,                 ventura:        "83b5ff39ff7172243c85d146faf5e8f689d5eb11d3d32e807417c867526559b1"
+    sha256 cellar: :any,                 monterey:       "39caeadda09ef26ba1956eb243b65e42d8880090b7c2f1ad0133e02a3d5885bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "233c56cd195d0183d4d70fac3fa9f846fc5b5c53a37415758302958f1b07de0f"
   end
 
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "llvm"
-  depends_on "python@3.11"
+  depends_on "llvm@16"
+  depends_on "python@3.12"
 
   fails_with :gcc do
     version "6"
@@ -34,7 +36,7 @@ class Halide < Formula
   end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install

@@ -12,9 +12,11 @@ class Renameutils < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "9f28d9eb889603714cc5473541918196f60aab1e053791993ae53afd14c27926"
     sha256 cellar: :any, arm64_ventura:  "38109c05cfb9f8fcca3aeff270ad845937c1dd8677a74ea7fec3d717a3c722c9"
     sha256 cellar: :any, arm64_monterey: "a6570746ef47eed43cbde686b8ebf162559a9ada031bab821064c5e0754135a8"
     sha256 cellar: :any, arm64_big_sur:  "0ea05fad50a7a43df09d3bbb652140e5037e91320ff9e549a9ad0cf41dfaa958"
+    sha256 cellar: :any, sonoma:         "48bec726e452ee15d1d8e15ee14afb00ad95bf023fb94f38726fff6a1a7302fa"
     sha256 cellar: :any, ventura:        "75072c6cbce5f3a83176da9790df986e4d4dea99c6fc7c52f4b8d942c31c1026"
     sha256 cellar: :any, monterey:       "93a4fb65fd3bba13cd797f0c374981b8dde01ee25a0b0637f6e4448b655457e4"
     sha256 cellar: :any, big_sur:        "503b84eed8791b4a924e61fdfb0ea53cb6d349fe8a55c43ab7582c1e2a0985ba"

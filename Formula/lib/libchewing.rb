@@ -7,9 +7,11 @@ class Libchewing < Formula
 
   bottle do
     rebuild 1
+    sha256               arm64_sonoma:   "48023d90acffd84b8102a12fe0d6873d70cf810f7801c68d1f916700b9758d52"
     sha256               arm64_ventura:  "4f426db91a724d687c30bc4d2ff08b82395d9ed12570462ac803d95697c29c2b"
     sha256               arm64_monterey: "799235390947ec3798bf57595ea1bbc3bc1e73a430646e7a8c0608abf781ee5f"
     sha256 cellar: :any, arm64_big_sur:  "1424757d5ef5bb08e8fe1949a9b53cf40af8aab8806b7dd22f2aa5e15d57d7ab"
+    sha256               sonoma:         "7438c641d8ccbe7957cdad7e9ceea414cf9954a08a13f3d39deb47fc168da392"
     sha256               ventura:        "b3002094b9b7a3d7d3a8d3c221cb006e770f73aab8d6af934390a4f0f489fd45"
     sha256               monterey:       "6a4a53dec4940719c9a80c606e0da10adf46aea09ec09f13f1559d7a2be8d632"
     sha256 cellar: :any, big_sur:        "e1d6473e63dc121157f7afd61991b57335bac48f4d842262ac7c43e5b637b7eb"

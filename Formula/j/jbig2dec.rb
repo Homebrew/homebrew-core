@@ -1,21 +1,20 @@
 class Jbig2dec < Formula
   desc "JBIG2 decoder and library (for monochrome documents)"
   homepage "https://github.com/ArtifexSoftware/jbig2dec"
-  url "https://github.com/ArtifexSoftware/jbig2dec/archive/refs/tags/0.19.tar.gz"
-  sha256 "e81b787ad0b147a437a52d9ce7de1a8f429655e8aa030383b6b2dd8919373717"
+  url "https://github.com/ArtifexSoftware/jbig2dec/archive/refs/tags/0.20.tar.gz"
+  sha256 "a9705369a6633aba532693450ec802c562397e1b824662de809ede92f67aff21"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "fd976897a71bad7195c7a248a9d12183dfb93c5e42f2a82cce542987cf3c4fec"
-    sha256 cellar: :any,                 arm64_monterey: "e15376f42a9d9372fffaaf07d739458a0af5870b2ddb2f5ce91e4d88b865daf2"
-    sha256 cellar: :any,                 arm64_big_sur:  "696d6862655e2919c4a6b1455923c2c26b3b9da7968aa2a6f6c0b544d10556f0"
-    sha256 cellar: :any,                 ventura:        "bd449679c84d98abb9925714c102337b64ef17634c2276c639921f09ee8f432a"
-    sha256 cellar: :any,                 monterey:       "e1aed32e74617b0638751e69489b38dbcabd584f23961390a818bb85b412ffcd"
-    sha256 cellar: :any,                 big_sur:        "44aa9639d58ac2e176c37538c3fe652e077bcbf82264b756b4ba9db041e9273c"
-    sha256 cellar: :any,                 catalina:       "7e70d2b2472b4116d1f98b7518f124067dbfa8e4d3d73b552af38440e7770bdd"
-    sha256 cellar: :any,                 mojave:         "d02d163a886d1f3a9e1af50418ed2f19f66981b44a58f3228b3580f585929ee4"
-    sha256 cellar: :any,                 high_sierra:    "8ec515805d2fab8f4db3b27afba0363428f341bb16fbda7d2708ef44fffc5285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5653cc9180b808ea6a60c11e6ef8fc76695e87ae47d5d1c6e6ed40070546f414"
+    sha256 cellar: :any,                 arm64_sonoma:   "30f0053c48d777cdbf482bcffeb449fe173e3471e344c97bc129b8fe2f883629"
+    sha256 cellar: :any,                 arm64_ventura:  "973a40cc673a331249be09ddef83537889f45f8934925c36e9b17e73cb852c40"
+    sha256 cellar: :any,                 arm64_monterey: "7e52f5520ff0970c61fea2293db287b162b4de29c69f5032ae17a2cdab8fed22"
+    sha256 cellar: :any,                 arm64_big_sur:  "8830470637ded079e4de807b63d8970b2e1020451b781f42a5dc0a6da7742479"
+    sha256 cellar: :any,                 sonoma:         "8017bcda4a2d530aad05946e2196907a8fd52992aa3043001764adea0e2cf58b"
+    sha256 cellar: :any,                 ventura:        "daab35fae8429496d00b301717837f656c4e166a3f384d8ccc0a2e1ae69f6c30"
+    sha256 cellar: :any,                 monterey:       "907cf171d3bf5816be1036330bd09b93df351fde2ea414f99c388668e2637222"
+    sha256 cellar: :any,                 big_sur:        "e2a6dc6113dda3fb85111dcc72c6f89fbac0800260cf4110956b3c984f74530e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb3732eb4744293f9354ab856ea2f9b350897fa5408ae9c07330ba454f3ec95c"
   end
 
   depends_on "autoconf" => :build

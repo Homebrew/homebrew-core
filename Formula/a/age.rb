@@ -7,9 +7,11 @@ class Age < Formula
   head "https://github.com/FiloSottile/age.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb6ae25bd119151a8d3449a170c0893a515ab89646bac0889d45ed849ddaab67"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8c3818aeeb7eea70eb6b5bc3ea0cce27362a859b198fb74a00db98c6580785b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ac5bba583073cc0b27cfc6d4429ba0f35b0f19713db12c053fefd81f37596024"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "54ea15cf68dcc78e96564825785b348d4f84c76042742b1ddf3cb3db2eb3c0fc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e7bc0bcbc06642ab6b2489df76bee825a6b967f080c8d8c2046639dcaf7dc6ce"
     sha256 cellar: :any_skip_relocation, ventura:        "93bbcd6f694b2cc9a35ade57d2a9b39059bc6afd27528bd3dacd01bebd901ef9"
     sha256 cellar: :any_skip_relocation, monterey:       "8f7a53819cbc634ab0f496ef6d8b2ae9cf9ceacabfd2e195c3277c5161aedcfc"
     sha256 cellar: :any_skip_relocation, big_sur:        "bdfdb069c08d9c8062bd1f6b951000ee9fdcd8fe57e50a4e522ee508931569df"

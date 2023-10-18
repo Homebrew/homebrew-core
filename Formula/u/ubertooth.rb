@@ -8,8 +8,10 @@ class Ubertooth < Formula
   head "https://github.com/greatscottgadgets/ubertooth.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c8d773cb01afc9a71bcf1ba55f370d88da7fd34ba48f318d1d3c61ff18e0d35a"
     sha256 cellar: :any,                 arm64_monterey: "2fc607947bb5299bb3a4ae6e598db9d9f381bea18763c0b1375bb65217467ed0"
     sha256 cellar: :any,                 arm64_big_sur:  "bc55cb49599e7d93d33472d76f0a77d189baa107849aacf6d50802fa90124e52"
+    sha256 cellar: :any,                 sonoma:         "4b28821ae71ac8a5bb32fffa5ff8ae0e0a86c31e5868c7f05bd43bd92757d389"
     sha256 cellar: :any,                 ventura:        "cd8c21417d48b3a3fd7cee5a1548605a9475c7f862d736a5e7df415ad013cab8"
     sha256 cellar: :any,                 monterey:       "64ad84dd474973f5f9a95e984c8960accfdb97fc5c6f8f149b5b73527fe27dab"
     sha256 cellar: :any,                 big_sur:        "50379a3b1a31430683af82115ce1c4a77097c23d5b42cfc72d7df9bcb4f408a6"

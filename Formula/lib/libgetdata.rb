@@ -7,9 +7,11 @@ class Libgetdata < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b27b52a5f22dee5ee8c81f983b8a1f828b93b9d137c68abe5ada2f05df3d9bbf"
     sha256 cellar: :any,                 arm64_ventura:  "917a20050ad2954e99688f9fd7306a5b6dd9da6f41d38085535620de42fdebc4"
     sha256 cellar: :any,                 arm64_monterey: "4e167251c910442b10cd6c7da9c7dd0f3ded3926669c87d618f2330e8c76af82"
     sha256 cellar: :any,                 arm64_big_sur:  "e8a11d9e2b1ab217a0984ba6dffd8f7bf721df6d1846f9d7ec07c3fa9816c808"
+    sha256 cellar: :any,                 sonoma:         "03547f21dc767e6053b49fbcc507766f0ed99bdf293f58158bc5340c45453ab1"
     sha256 cellar: :any,                 ventura:        "b8cb912d3b3dbee12c5377ee4f7da7a7a0895a872f3dce088df009a40ce54f9a"
     sha256 cellar: :any,                 monterey:       "3050afede9476adb4b8af36a097218742decd02873eb20a9dc8e3876a1c6b085"
     sha256 cellar: :any,                 big_sur:        "8d192c117f205049f5547300b397c792d35d8d5f95854043563d02ca144b1a11"

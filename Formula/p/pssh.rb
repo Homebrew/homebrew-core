@@ -9,18 +9,17 @@ class Pssh < Formula
   revision 6
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "485a041e54166f986f97aaa0d6e06d36c3cef6246fe1074a3772f8e8a8190d3a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "485a041e54166f986f97aaa0d6e06d36c3cef6246fe1074a3772f8e8a8190d3a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "485a041e54166f986f97aaa0d6e06d36c3cef6246fe1074a3772f8e8a8190d3a"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3afbad672d7e15d741a1efeb98b8f77a75ae88ad1168534df18e1d1dc2feee5"
-    sha256 cellar: :any_skip_relocation, monterey:       "e3afbad672d7e15d741a1efeb98b8f77a75ae88ad1168534df18e1d1dc2feee5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e3afbad672d7e15d741a1efeb98b8f77a75ae88ad1168534df18e1d1dc2feee5"
-    sha256 cellar: :any_skip_relocation, catalina:       "e3afbad672d7e15d741a1efeb98b8f77a75ae88ad1168534df18e1d1dc2feee5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a604a7445ae519d1529349c4ad8f93c1fbb73c4cf1015ce0ba2019e4ceead273"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f367b98f66b6d05ce4fcb46388c79a3cbd016840870aff8dc412e7ea4b3bb31a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0253ba558377b22aae2cf1cc774e98544be21d702989478a7704d56a96951db3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5bc40072f88d065fd6588b147013018a85572795097a0fb3ca33c0941584efb3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "66cfac130a30d248c233c887fae175a245c5be23357590e1aa5c74ddaf977da8"
+    sha256 cellar: :any_skip_relocation, ventura:        "def7728cf1b68516eaf4ff3b42bf812d2672908eecb823465ca4e202c9fc4b49"
+    sha256 cellar: :any_skip_relocation, monterey:       "aef713bc80ad4926e370adefbd3c41734def5b5b6d6c9ecb84fcca4389d7b46a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cd7a5fa0e49dfa41b01e00f61d343828e9ce9a1b540ecc99a47d65d8c980930"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   conflicts_with "putty", because: "both install `pscp` binaries"
 

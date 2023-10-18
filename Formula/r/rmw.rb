@@ -12,9 +12,11 @@ class Rmw < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "192bcd5660dbe13af7e1d3362237d9a4c27ae80ab7f176a23aa3dea3f2dea362"
     sha256 arm64_ventura:  "54b07240896ade22480fe64bbb2eda5327c518ffaef594f934609b55dc97fe79"
     sha256 arm64_monterey: "5fead6bcc25069aac02b5227efeb3a01d1c53742e2d6427204a8b7991ba19613"
     sha256 arm64_big_sur:  "d19a1d0c5634dd8ee234ffbfc680026ce7117a8cbe751aadb38e7ec0463f243e"
+    sha256 sonoma:         "dd7a43c42d76439dc993c7d1cb3b6ebee9269fcca056f2ee7e29cfd84294c5b7"
     sha256 ventura:        "99514dcb65578f1cfbda839fb10319c1b9babdbbfccfbc742e426f6192ca8a05"
     sha256 monterey:       "1cf338232502a0f45b172f5ba00836ad3f429a1aaa30d150fe187d7c12bb1ad0"
     sha256 big_sur:        "856626a1bed49ede59542a94607b33ba8841bdcf710ef21c4181a51d8daf8e15"

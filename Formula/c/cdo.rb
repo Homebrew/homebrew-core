@@ -11,9 +11,11 @@ class Cdo < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5e175f37dcbf11d0270cb4ab30c769a026dad190a64da36baa062d331e0d52d2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ee063b2b16728c7f3aec6822663bd948c12aa04c88eedf72923b69ac28ac646"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bf27b3f73669012dced5d979f0fa0da10668104b06b1ab51c77b3b4b3098d945"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13c7779e2597e7b4bcc1bef46033df537e3160e6313a317b0383ee88883afe9e"
+    sha256 cellar: :any,                 sonoma:         "c93c1e8128dd7bad4e3ec892cc0444277ba221acc5e2cd705bdce9db7f1972a8"
     sha256 cellar: :any_skip_relocation, ventura:        "2b7464bb058d3a5058eed98112470936b31c4dedca6faaaf3a55ba13ec21be46"
     sha256 cellar: :any_skip_relocation, monterey:       "cd875d8ba47f2017144f2efa4a5208ba7b10f8392c3aded5ce573105a13ec13d"
     sha256 cellar: :any_skip_relocation, big_sur:        "4b6fc23e090613eb2242c22695d1aaecbba8ba898e44f3c0b29ae2b07de68de4"

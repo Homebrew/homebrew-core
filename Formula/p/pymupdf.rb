@@ -6,9 +6,11 @@ class Pymupdf < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5405de418b086d7cb1cad6c9099d8172a3709f5a9e7556a7c79e0bb7460215b3"
     sha256 cellar: :any,                 arm64_ventura:  "e344a0f43c186b16265d59eb060279cab06f6616ec1bf6012acc2136fabcd94a"
     sha256 cellar: :any,                 arm64_monterey: "88e71210e6af9f6c5da4c75c01e498ae9ed4204b1432497ae309130c71054697"
     sha256 cellar: :any,                 arm64_big_sur:  "1ed8350b7ed5247b64d7921a612fc8958801445aec5446372ea25648418329f4"
+    sha256 cellar: :any,                 sonoma:         "81f016fbec0e67c89c40b5a5d8f1e1087850e1202a5bca52cb8b4d264b18ded0"
     sha256 cellar: :any,                 ventura:        "e1fef6b977cf7f6ca6cee0fb0507e87b036b314e087461dba32e0624595d2972"
     sha256 cellar: :any,                 monterey:       "c8e3e20c9c919adbe51131e9e54a2fa04a3a37bdd0e22a664d207bdc96042807"
     sha256 cellar: :any,                 big_sur:        "b08f15abb4d746f6482da519605be8779651d9d89daf49da28e83ebf2e79ffbe"

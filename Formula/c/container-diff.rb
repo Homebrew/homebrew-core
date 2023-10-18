@@ -6,9 +6,11 @@ class ContainerDiff < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3761dd22a5f11ec3d1947359b6f5926311047f510e6321c669d7de74713efc79"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0701c2558a655c78d45640ef027c31d09a2f173fdcfffebfb8829a569d0d1200"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9df5a58421447c581cf17ec7b7ccd2f131156004bf9b7adb87f4fe6a6fd54bec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e41a2030963aa17e984e444844f065e21f3db400500602dd9fb70c15fab6efd3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f60bfc6e0ed435c6ae15109102a676965e2af954c0380412879b5827e657aa22"
     sha256 cellar: :any_skip_relocation, ventura:        "937a84ed7417bff521a353527870112b88c88525a59619b093c5dc49ab56597c"
     sha256 cellar: :any_skip_relocation, monterey:       "0eea29192581a1dea12c189c7e8fc9a2a339cc721c12306676fffcb330f34bce"
     sha256 cellar: :any_skip_relocation, big_sur:        "339c0ec5e9dbe0b5255a3ca87c316cc159741bb7b6ae43189a9d20af8fb5a63e"

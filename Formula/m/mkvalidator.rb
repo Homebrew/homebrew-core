@@ -11,9 +11,11 @@ class Mkvalidator < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b9b3070f946ba91f4789020f92b61a92c0a07956f63e9e4fb6b5b51858172f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b92708846e9acdc1e65588e3404f835f91ef55c272d2d28e37893b519a30c156"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2d72352ffb6de0c6ce0a925ca48e8e3276a99b4c15e503360a46dfc19f4b12dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "132951513f0022d9a2f8e0b0f81a5d76668b292873df6d6c67b81c4cd304ac31"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9f1bc038c9c6fbeff3e20e668d00f9f7786ce288939c53992ac62596a13fc7ba"
     sha256 cellar: :any_skip_relocation, ventura:        "121279d1be5fc110bd686a6c1648ffc7325065140086e57473d96b2a09c5b456"
     sha256 cellar: :any_skip_relocation, monterey:       "3ecaed3130b7884171aac431fffd4b6be19ad322cc990a4659a26407ffb799fd"
     sha256 cellar: :any_skip_relocation, big_sur:        "cef2881fd23f1e0b7c465080379f8564b00da6db94cf28f5da272ec19f565014"

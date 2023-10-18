@@ -1,22 +1,21 @@
 class Capstone < Formula
   desc "Multi-platform, multi-architecture disassembly framework"
   homepage "https://www.capstone-engine.org/"
-  url "https://github.com/capstone-engine/capstone/archive/4.0.2.tar.gz"
-  sha256 "7c81d798022f81e7507f1a60d6817f63aa76e489aa4e7055255f21a22f5e526a"
+  url "https://github.com/capstone-engine/capstone/archive/refs/tags/5.0.1.tar.gz"
+  sha256 "2b9c66915923fdc42e0e32e2a9d7d83d3534a45bb235e163a70047951890c01a"
   license "BSD-3-Clause"
   head "https://github.com/capstone-engine/capstone.git", branch: "next"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "4a7f3c31862791da2c3e9436880a84953ad61a7764fbac208fb6b6999ee139dc"
-    sha256 cellar: :any,                 arm64_monterey: "53b534ac0a71300d7e005cb7552a2778ff6d0e3bcaaa6417303c0c86112a6884"
-    sha256 cellar: :any,                 arm64_big_sur:  "5c2d67aeb32a36c76d1918ec10de347971b385fc73b3025c97639467dc5302e2"
-    sha256 cellar: :any,                 ventura:        "b617967c6e67a7be0d466fb6df8f8777a23a6bf73fe712220d656ea5d2ce527a"
-    sha256 cellar: :any,                 monterey:       "dda60f389b39dc6b777940428feccee4a0b50db91629d152a5e62a95c3915d38"
-    sha256 cellar: :any,                 big_sur:        "21dd5b41e81b165e0419901103aa46ab8afee2be5453b2076c8f7a5b94fdf211"
-    sha256 cellar: :any,                 catalina:       "b434ee96e9d7c413e289340b280705a6c3b9929cf1859de865d88bc012c34396"
-    sha256 cellar: :any,                 mojave:         "c90885740ef54af155c2a0151dc85f728a3aa7ca304a45510e5524ac7fecb7fc"
-    sha256 cellar: :any,                 high_sierra:    "c6d974a3c237fc36bfea2042d95551f2be7197d37fc0df6c7b9ea2179cd01084"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93d5e7b14aeacb27c38fa2164800458ea4e8deee2d0da2df8e042c616a63a199"
+    sha256 cellar: :any,                 arm64_sonoma:   "667f0e0d8960724b71c950ccc7769e747269b828c9e1c90009dc5708d285a941"
+    sha256 cellar: :any,                 arm64_ventura:  "1f30bfa8d92451f670c2952ebcb12ac1e44bde8ec15c5f9d420f82515ca31e9c"
+    sha256 cellar: :any,                 arm64_monterey: "e6c0c2d4f68213085774d4388e29bfac941dd1adc6a4f1e8111ed418daf8adac"
+    sha256 cellar: :any,                 arm64_big_sur:  "18c441a2412c0f1c772d9a728032f3513aa7e36a195a48069827e056ce362f0b"
+    sha256 cellar: :any,                 sonoma:         "b200830411feaa4f9d9af25a9b9b3ef9521cebf85404456a4d746011e1311ad3"
+    sha256 cellar: :any,                 ventura:        "b23198ddafc42cdb420f125d5eb36e27fe12d67d243ad63eafb1c805993f9136"
+    sha256 cellar: :any,                 monterey:       "7469382171ed7d25d2e8206c7dc358cd054ea30f2d4f0bcc3ef0c9e8cedef57b"
+    sha256 cellar: :any,                 big_sur:        "35f66655a1798dc2d0e03f770022ae8b5ff8530a421802fbe8e72815c49e6708"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b81dd8d867b60146e089ecf20f30efb80646a18856e7596616585f141661f9c"
   end
 
   def install

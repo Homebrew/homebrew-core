@@ -13,9 +13,11 @@ class Openiked < Formula
   end
 
   bottle do
+    sha256                               arm64_sonoma:   "57b8a369a3ad9ec3ade09614b43d0218ea3d77315269942ec4a36dcc0c2a27b5"
     sha256                               arm64_ventura:  "1506a1268e445795d9391cbb4076543537f58ea6283e9b984e7208a0d757a123"
     sha256                               arm64_monterey: "febbe8eb3444ad1b3f87022fab852b9e8d3c258b7f7a1dc7d8318061090d1979"
     sha256                               arm64_big_sur:  "bd3fa710e1533a58ff15552c940b076322b35549678d8831417fe6bde33f7bb2"
+    sha256                               sonoma:         "b69bb3e77d05b98bacede61a3105cdc5391108703bb44b416ad1513f45560b39"
     sha256                               ventura:        "cfb9dd8d2162af79efbba3acd06bd0b69a7e23359abdc7994b3fe438952e4329"
     sha256                               monterey:       "60ab7c8c3c95cce68a4671f675896b42a5a838147ce54fef8906c7c7491e006b"
     sha256                               big_sur:        "fda3e94e6c5f0b929b8643fd42da2755be8d1bd39873dd71d13aebae245be7bd"

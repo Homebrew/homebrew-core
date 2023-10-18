@@ -7,9 +7,11 @@ class GnuShogi < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 arm64_sonoma:   "0702ff59b956256f5452b9581f38659d15820e201f91fa571eb97f814118fea1"
     sha256 arm64_ventura:  "f9146b1d94cf4b8376d8c71330f3aea6cad33ebf9af54f9d2e423750ac0b688f"
     sha256 arm64_monterey: "00b93fd4eaba3beab5e1824a8a6bf62b446f8767ca26c80c3c2ed5f12ac6e3d9"
     sha256 arm64_big_sur:  "106fee874d8adf30ee887dcf7aa6149cd469c3e629861d105a278a9a66318aea"
+    sha256 sonoma:         "3de4c1a91390acada222f333b503c0fb14d8cbadcefcb468e3fef30adb9a9288"
     sha256 ventura:        "ef6c5d508b5a76bc305290ee3e644c2823691b168752feab79f3a4ce79379fb8"
     sha256 monterey:       "c07b78082a29a7db9d4d19fa81f61e7dd89c0f1f184e946e2012fa2fc4bed9d0"
     sha256 big_sur:        "70258434181a6f40b0c3cddb7e2a5f0119bf953bff5dbd3e795533f558a104ea"

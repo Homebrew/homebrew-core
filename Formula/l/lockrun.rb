@@ -7,9 +7,11 @@ class Lockrun < Formula
   license :public_domain
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60567111dd2a82dc49b2c4687b16cf29a21543d68f533e2ec8b34e4f1da2bd77"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "faddfa34e58f779eb9881ab52b8623f41a875b6198a40a6588e7048c42d210a3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "64cb6e7d6280221f945c12e4489844d66757705911ff807932073c91a06e60fd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "62c427c531d8c221639c456a7d57723bb8b1c832b4738b4173400988b5c9c54a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7dcc0b0790ef1ff21ab7cf7e17273007c575335c4c954265a6c3d98fc732f621"
     sha256 cellar: :any_skip_relocation, ventura:        "f6898ae5b1113480d59d39f49709a50759290b7ac0ce53545cf9d63cbf602d45"
     sha256 cellar: :any_skip_relocation, monterey:       "3aaf8d6393b298b453118399d2134c5833e32d3f22e21dda03cac778e10fa373"
     sha256 cellar: :any_skip_relocation, big_sur:        "e1c592ed7a2bef68c8e35b119bf3f3b60654461bbb15b59d6ed29e026c6298d2"

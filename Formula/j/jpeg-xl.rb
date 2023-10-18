@@ -4,6 +4,7 @@ class JpegXl < Formula
   url "https://github.com/libjxl/libjxl/archive/v0.8.2.tar.gz"
   sha256 "c70916fb3ed43784eb840f82f05d390053a558e2da106e40863919238fa7b420"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,16 @@ class JpegXl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6186d463dd4c1258cb327cee90d39a0884937fc6ce98599c2ef5f1058b404972"
-    sha256 cellar: :any,                 arm64_monterey: "bfd594f0d4fcd5de4dd1209c98b899db5a76819ecfe48cf57f309d770c231924"
-    sha256 cellar: :any,                 arm64_big_sur:  "fb0e98c304281d7867dca160bba5da3cff752d1f76e72ddbd1b68b3844f01999"
-    sha256 cellar: :any,                 ventura:        "0c71a9132f1b13e868823b6c11f12fb8d13d81a8c3e5d8d7ce0e70d166669f0a"
-    sha256 cellar: :any,                 monterey:       "f539acb334ca29d693b9885f9359d25b2dd50bda142af25b163b2c2f6da588ce"
-    sha256 cellar: :any,                 big_sur:        "d049131b513c305652f382ecb91ec073ffb4cd8366b6427dc7dcd0f4f491ce63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30b0fe8238e9d8b5d99fc371b3a1c3ed9c51b9760a3381611cff9fde23900033"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "3fe93ccc4ec136f0ec9a426b83cca576c1004f36787336bd14602e77a4ded4af"
+    sha256 cellar: :any,                 arm64_ventura:  "f4b1a2518dfff2af63cb8a05f7d0ba1bebdddd9a34aaca2b651b54aa913118ce"
+    sha256 cellar: :any,                 arm64_monterey: "5a3afec55510d752d97618852d4e0cfa591fe43ed55e0c3ff328739baeca2b65"
+    sha256 cellar: :any,                 arm64_big_sur:  "dfb413003b3ecd2f703b7298362b3cfcb3228e8ee5c71861d6e7c40a85c21fda"
+    sha256 cellar: :any,                 sonoma:         "1093ba2170cf9fe8da1d29beed93bd1fbd196de886a5d5b8827a9c4e256f5312"
+    sha256 cellar: :any,                 ventura:        "8691c33bbe7aada85c86e7ceabc4397ba1f6aab683ebf8af3bb46082a4ae80d4"
+    sha256 cellar: :any,                 monterey:       "fcc3f2f348f9945953ca444067f333a146542ec0ff3e8898a9e5daa48aef5b82"
+    sha256 cellar: :any,                 big_sur:        "b96951a962f8b82fa3db3680e8f8a03e922ae72e932ecba87d5bbf12a6a48ee1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b30d5b5c7be91d1155dd4b1cd74e2e2836c461ae0f578d4391553e36d63b1c3"
   end
 
   depends_on "asciidoc" => :build
@@ -70,6 +74,7 @@ class JpegXl < Formula
                     "-DJPEGXL_VERSION=#{version}",
                     "-DJPEGXL_ENABLE_MANPAGES=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DPython_EXECUTABLE=#{Formula["asciidoc"].libexec/"bin/python"}",
                     "-DPython3_EXECUTABLE=#{Formula["asciidoc"].libexec/"bin/python3"}",
                     *std_cmake_args
     system "cmake", "--build", "build"

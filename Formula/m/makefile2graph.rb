@@ -7,9 +7,11 @@ class Makefile2graph < Formula
   head "https://github.com/lindenb/makefile2graph.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19431085aae2ceefa936a5a426a0d56d30ffd2f1385723741dd8b0fba4d7b624"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d99f194c17cf570aac2bf56cea06e6bfb319e8fbaeba1ec5c536fa04c38bedfc"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "96deab75f00bf9fa63e78af5b6623816b3a390c32adc0c4667099f3879938883"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5eb90095c4579d7d8616732bec7f266164f7b5f7665ef15fd3272720a4577cae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "48a8a10a83e44b435b6d27db946fdae90dc9c1a8d92e62814b6bd5bb4bb1ecbd"
     sha256 cellar: :any_skip_relocation, ventura:        "9474d06d702c8a26fbe45928416150354d8510dcbeb948b3e3dfc937612197b8"
     sha256 cellar: :any_skip_relocation, monterey:       "6010cadf93231ec03033a5248ad53ff57b099915ec8a72aa847a9a80a401257f"
     sha256 cellar: :any_skip_relocation, big_sur:        "7018264b838135807ab0a5e062a6315cf20b8de88b8dcff3f71afa03251eb8a2"

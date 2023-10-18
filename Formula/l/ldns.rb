@@ -14,23 +14,25 @@ class Ldns < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "91cefcb3326fd36c21f26f0f905543bb75626ef382eda949c892a8bd8ebfb659"
-    sha256 cellar: :any,                 arm64_monterey: "1bf12612f2a1fa6837f4360c3965f0cb568c920f28ce3e5c2d783e31ff480800"
-    sha256 cellar: :any,                 arm64_big_sur:  "9fde4555b1801467eb72663a602b265e423fa85d12fd5ad878fc242852e08e60"
-    sha256 cellar: :any,                 ventura:        "08d75bc74a4667defb24c4ed92bd13da55317e836592c2e5851ea7132424551f"
-    sha256 cellar: :any,                 monterey:       "a6443e00af46421f902df8ce0e4cebb6d01a48d4532275d5321e4fa547b41c3f"
-    sha256 cellar: :any,                 big_sur:        "74adc13f57040a1f3ee99f147e57f457abc54b9c3c68071cc0f6e4f4784419cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6401729572e7c28d1d691e47a8bbcd7cfb88b9e1a2e1a2df0e6a3ec066286ff"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "716f3b03d4364ba0f0a395171c145b704f8ad0739e174a5c73a4423e8f7c8d51"
+    sha256 cellar: :any,                 arm64_ventura:  "27be30c5d63b1dc9d03c7dee714380ce4f8dfaec2ad3952224b85aa1dba22505"
+    sha256 cellar: :any,                 arm64_monterey: "b5af9a98dedc6b4861b8506d516e351fedeb17b4643f1da2feeb5da4392d4426"
+    sha256 cellar: :any,                 sonoma:         "60022d90fbf3c4c4c8e33d23eacf14066c5c5d9ec0ca522a5f02c44972f2efb1"
+    sha256 cellar: :any,                 ventura:        "7a534bf6bebe3780ef463aeba00aaf9e32becbe880343ef71b5a20f99c8a93c9"
+    sha256 cellar: :any,                 monterey:       "64d0687086091f591eceb9a81473016ea26f7aa7f5e94322154159de537d24f7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d5164fde8111e360025df90d3bcd0cf0fb8b735fc5c9c5a854504d63ed928c3"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "swig" => :build
   depends_on "openssl@3"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   conflicts_with "drill", because: "both install a `drill` binary"
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
     args = *std_configure_args + %W[
       --with-drill
       --with-examples

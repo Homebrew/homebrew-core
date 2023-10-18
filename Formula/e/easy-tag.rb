@@ -8,9 +8,11 @@ class EasyTag < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "75ad62d58aff7e29d22b9da39515f3c7685cc644ffd7805f63deabb25d769e6a"
     sha256 arm64_ventura:  "2842fbc4cf1533ae7f7734797839ef1658526719b4050a4293f9cbe57af6b88d"
     sha256 arm64_monterey: "62610eeb362c3239309e9559cf01632f86c4c3b55b119aec1c4b8f79fbd5ce9d"
     sha256 arm64_big_sur:  "b9e4f4fb767f1bcacaa1fa4f527814681d92ce47d7d091f22e3bb506f7e4c3f7"
+    sha256 sonoma:         "a0f488a8f3897c8770fe4144a425cbb724c94208060794665b4751215110de33"
     sha256 ventura:        "d79741edf9f1f7351596ee388e1fc4b80f0e817f66b1f63303ae7c33e99dfbb6"
     sha256 monterey:       "e07457b1fe81c61d43908dae2964dba03e56631e4788f1546c194079c7be2ddb"
     sha256 big_sur:        "51c76274e95501746d8f92476e2d9d9fe4163b00f2750ba9e703e8b4e8c0f670"

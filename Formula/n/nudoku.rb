@@ -8,9 +8,11 @@ class Nudoku < Formula
   head "https://github.com/jubalh/nudoku.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "bb2b871aec0bd81cab3758b17adeb6c372fc788e0ac03b194b14b4265734151b"
     sha256 arm64_ventura:  "7af32212d5adb183528f350950913d31cb9de5644c1d8af158eef5b68bfc00de"
     sha256 arm64_monterey: "b1bf18647b1f42eb7dce94d90649f314d99be5575fbc417c103a94cc9282b3b5"
     sha256 arm64_big_sur:  "6350cd17943ce3a889f193d13ca662ffdc19eef6bfa38dc5e0f97b7a193e48b9"
+    sha256 sonoma:         "606257ef1db3e5489c3e3dd79da80eae055bf6b8cdc43c2ebd9a2175f791b49e"
     sha256 ventura:        "414db0599466260fc27e629e4f325d9bc33e6fb30f37cb99c07bcf3b450d99c8"
     sha256 monterey:       "8f296f4c8b2f0352e5ed7c492536c38f26c604c82c9a604559e17b75e9038685"
     sha256 big_sur:        "83449b550966a303d2095e8232d98d629abccced9f104442ca7d24ec102e1d3d"

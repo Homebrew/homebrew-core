@@ -1,18 +1,20 @@
 class Ttdl < Formula
   desc "Terminal Todo List Manager"
   homepage "https://github.com/VladimirMarkelov/ttdl"
-  url "https://github.com/VladimirMarkelov/ttdl/archive/refs/tags/v4.0.0.tar.gz"
-  sha256 "9384a1a85745ee75a8a09a8b5dbf6ffe9c46dee493d8b4fc0309b0625aff5786"
+  url "https://github.com/VladimirMarkelov/ttdl/archive/refs/tags/v4.1.0.tar.gz"
+  sha256 "2372e084a3245cdc5d33ca4862668be278e0ee0b25a1481ced94df803c1db669"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2832d0bb4d9fb9898c3a511a6ee1971f3a3e9e073c1243964406acc31890b95c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff1de6634b8fe6dd59f6f8b16e90a09695573f17cbe5dec43047f81b7ccc6c86"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a0fb172b12056efa574ab3e6bec79ef51dee5242fbc4e01a023243e923645972"
-    sha256 cellar: :any_skip_relocation, ventura:        "d5f79fbf5ad5e932bc4552e6d0093d1b5cba29bdcc389b21310deac7dfb85dcc"
-    sha256 cellar: :any_skip_relocation, monterey:       "57e992431482fbb6f3a174dc89e42234612e6054fee1fa3f02d95e920c93f637"
-    sha256 cellar: :any_skip_relocation, big_sur:        "98d3f4d040ebc9fa1bbefe781c1759496bd4583bdeea79569328ca9c7504bafb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b610649b9e34e236c2a7e8b62cd3d1693e8fdb7f7af85f4a22e381e775c83db3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dc874d2d132748fa5e5b7c7bf550af6213cb4bdf7618e1ff1fadea398ab8e76"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2e744ab0ae37a082284d6d1ec67a38c325944c0cdc5d8d14542ff3af1c90268"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5b057f58ddf918597a532d9dd43dc44b1f3662a8214f5454818c76a07ba29dd"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2e28c275803c2e8b00b8e8bbd2295e41006753d270451f9af084e242ba86fbf5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "45811805a327e52006e64220630ec92c648c0766153c4cc17b4ae0dcb51bfaf8"
+    sha256 cellar: :any_skip_relocation, ventura:        "0a554e82a0bd43e71119423d72f9676888a0061e696e966f7135b20cc2b4ba16"
+    sha256 cellar: :any_skip_relocation, monterey:       "71075b21ab661ab7073e7a0378876d2ba2d89bd656d3ebfa64006a7215a94d55"
+    sha256 cellar: :any_skip_relocation, big_sur:        "f81944414501f5de8b4f6a7d3df8513155500dbcdcfbf767ca99bf685fadee3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfa2f9172bcbbe449aa454f2b42947c50a221cd02cc0c5addb179efd8d7d3b0a"
   end
 
   depends_on "rust" => :build

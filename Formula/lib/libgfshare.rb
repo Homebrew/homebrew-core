@@ -5,9 +5,11 @@ class Libgfshare < Formula
   sha256 "86f602860133c828356b7cf7b8c319ba9b27adf70a624fe32275ba1ed268331f"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "661368852f131d75f48672074dd635d04c95f30f61f1adae25c26db2cdc45dcc"
     sha256 cellar: :any,                 arm64_ventura:  "ff95631a45cf14842a1cb98a7496022a886360fad2d4a9bae3154ebd6113726a"
     sha256 cellar: :any,                 arm64_monterey: "0890a2e8ac99ea0497d467e1ab82bb8fe7a34d0f5cd75c01897f15b12ac65211"
     sha256 cellar: :any,                 arm64_big_sur:  "d8fc2d9c78a69fc3fe30913aeaa6f1dbeea7091d78d50bd6e6fafcf4dc6dc212"
+    sha256 cellar: :any,                 sonoma:         "a8a4279f842d2809488dc30fe2ba7509412d0304e2d6f32e125ac80bf683f5cc"
     sha256 cellar: :any,                 ventura:        "72816d2d02cec8f669f242e020e7b2980d9f16f51d8e388b57d77c5257a2775d"
     sha256 cellar: :any,                 monterey:       "72af5816492ac0696211008f72b896eee5485c0227964c7eae8caadba28212d4"
     sha256 cellar: :any,                 big_sur:        "619b6bee51163d432b903899d6d86223824e055124ead1856bc6c4399fef4fca"

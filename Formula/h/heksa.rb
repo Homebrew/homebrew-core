@@ -8,9 +8,11 @@ class Heksa < Formula
   head "https://github.com/raspi/heksa.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2e5970a9ac9da77a4e75733b5afe87fdba4704007b938e35855714c204ab9d8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "89b15d07d2e29580a0ee9b2f71fc60f36b71e2e7bfb8c460e24fcc5f005bd9e8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f4cab211255c75ce7044df346f1b85d3a548c2a760be570a10fcc970a3aec5fb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de0c36cdc7215c90ea71792580f298717eeffc2b8d6e7a556cd55e4a9c6fd43e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c646a1b7289f4b96e1172ff6bec29fac49fe66a414f93886182f1d67399d37a8"
     sha256 cellar: :any_skip_relocation, ventura:        "3bff648f15075466f5e8ddfa77e7092428b6d294091c8f95dabf53e6688a97f6"
     sha256 cellar: :any_skip_relocation, monterey:       "2c40667b5945ee8ce31d17eef4edb72b05d2238bf6a19210885d29471218eb1a"
     sha256 cellar: :any_skip_relocation, big_sur:        "f58fd184f70cb5601d2da5737aff2add348d98eeb7724460dbdbebef04bd9ea6"

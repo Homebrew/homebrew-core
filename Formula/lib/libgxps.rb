@@ -13,9 +13,11 @@ class Libgxps < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "0bc7f03e4357779ac617e6750d70daff18da2a7da889387acdfe75891bcfce0e"
     sha256 cellar: :any, arm64_ventura:  "07d90913277ea1e2a74c547c02173058afa2588ede3e9236ff7f334c894a7b6a"
     sha256 cellar: :any, arm64_monterey: "50c2d473739fb423b1145baaf06f7585ee9a64e5021806bff07cb1f772c1f8f1"
     sha256 cellar: :any, arm64_big_sur:  "2dc505d1715d95510c25f98507f755490c8277324cd8b9ef008c5e8f7783488f"
+    sha256 cellar: :any, sonoma:         "c97166ce8e20af3056cae52203f19b07b98f702dc2fec8f076f96dfd8bbc2c88"
     sha256 cellar: :any, ventura:        "d23e0dfb5092636567f86a31839a04fc0831253eb73dc0863929c9c71d648be2"
     sha256 cellar: :any, monterey:       "e523554e0a7faa5c8f0a4ff842f4b462d9cb24411d3f855cb4f7e4eaded44fe2"
     sha256 cellar: :any, big_sur:        "187f95bca68a60db5155a911033be4eab80537598f5dd788a3edbbb7303fe5a5"

@@ -8,9 +8,11 @@ class Pixz < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b563d62f32ca6b6382d1ed936be2bde9d83259081ff18b709ef4537d3aaa83b5"
     sha256 cellar: :any,                 arm64_ventura:  "8b8196d1d48f4104e40bd0963e7ffa5eca16e4499b746802fb55ff528e2fad25"
     sha256 cellar: :any,                 arm64_monterey: "c4b1e3fe61fa37f1e6854d8adc032e18d16093b17060a97cd81f421bf9b1c9fc"
     sha256 cellar: :any,                 arm64_big_sur:  "7a61cbb0485e22375ce03a81089da37f34aac406a14447856e7f81b7240a1b86"
+    sha256 cellar: :any,                 sonoma:         "b584017019900bd6e4e8d1040b74b54095c2d17e3ade4b08dbd963a03ce44917"
     sha256 cellar: :any,                 ventura:        "b76e0ef617047c5db1d634e87630904018c01d89468576c50fced29b08887f85"
     sha256 cellar: :any,                 monterey:       "e106250f6eee640ca6061f55ff2339539c2047325d878478bd7e5c5acf354d08"
     sha256 cellar: :any,                 big_sur:        "088fd95bfc5540586369b0adb35f6f37009b1f30d4b29de58342828202b8317e"

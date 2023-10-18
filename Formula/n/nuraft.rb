@@ -6,9 +6,11 @@ class Nuraft < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "c920e4db840519a912a09fdc910ea3460c629d7b86094117cef833a921789b48"
     sha256 cellar: :any,                 arm64_ventura:  "17cdd2860bbcd32bfa028c1706c02da066a796b0f1abfca96c76bdbcb05ca012"
     sha256 cellar: :any,                 arm64_monterey: "5d024f15a5a6644bb74b7293ab5939376e9115102c3dcf466d9ef209496a27c4"
     sha256 cellar: :any,                 arm64_big_sur:  "46efae0c6123d49ce9cf3f9f4798b4a556bf55e1cf7fbb1aaa12ce6b458613b8"
+    sha256 cellar: :any,                 sonoma:         "40cbb00d86e4ae30fd5f3c351f05339e8b0f0f70f8c579e346113853126c0d17"
     sha256 cellar: :any,                 ventura:        "e38d6cbd1be543fc3ee42ce4573309c0f058c83d8151519f9ce9272c4edd82f3"
     sha256 cellar: :any,                 monterey:       "81250cae0a2c2ef68e88b1ab3e0f394d6ad803f257e23cac33ce07c7f4bfbe93"
     sha256 cellar: :any,                 big_sur:        "668d54563b382c1160246452e6cf54fd6832c238e33731613d6537418f474b0a"

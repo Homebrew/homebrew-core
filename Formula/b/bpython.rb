@@ -6,23 +6,22 @@ class Bpython < Formula
   url "https://files.pythonhosted.org/packages/cf/76/54e0964e2974becb673baca69417b6c6293e930d4ebcf2a2a68c1fe9704a/bpython-0.24.tar.gz"
   sha256 "98736ffd7a8c48fd2bfb53d898a475f4241bde0b672125706af04d9d08fd3dbd"
   license "MIT"
-  revision 1
+  revision 3
   head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c5791f2b34555110075d1ce3c0508cd40f28d8385ba7853aa4a11797456d08b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de0dafac43c67e84a1ea97ddc4c05ac81e4d5122a3a0f698b25c75d4ff7ddb9b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "565a7d8863386aad6c98f6c6b6294e9a518faefdd11c050f9114d185687cb8ed"
-    sha256 cellar: :any_skip_relocation, ventura:        "ca022095c4ea8656604bac324f20cf6cfd67e3b1588dea56ce528914dea5263f"
-    sha256 cellar: :any_skip_relocation, monterey:       "e00f55fb2e54b52489dcafc4a7ef42da5810cc79043da5a91f43fe0c805ce669"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77121ad02c20f00ff670545a66c53897ee62529260adf2fa915b58e664686947"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7b1651c5d412d662c88998518c2ea59eb5bb557b7dee65d7e17a9d15d464971"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "017bfd24c25e0df5fd21862f36fba230e5ed709dba05ee9e82b0c3f852edff68"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "251a84d93420a97f23178c545aabe6865d0844110f583f4a9bb41ad9b5e8dba6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dabc48c6b5c56709d2690854ae34effe61566fba1455b2190c115cc6a2b6d875"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3bdd48284538a714df46cba3c10314d0eb1bcbb9645b198b976345a0bf7ac931"
+    sha256 cellar: :any_skip_relocation, ventura:        "5a42aa0f43bf441f2ecf3ed279886e075704f638015a29731b5d6255df0dece7"
+    sha256 cellar: :any_skip_relocation, monterey:       "ccb7aa00e599c13f7313946c965c9def5ff3770ee0cc75315e5edabf2da3bf9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc3670811e300f190b8a8d85a2be735b6dab58b5d4b4be6147ad7a5f3f2a869e"
   end
 
   depends_on "pygments"
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "blessed" do
@@ -31,23 +30,23 @@ class Bpython < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "curtsies" do
-    url "https://files.pythonhosted.org/packages/4e/43/838c06297741002403835436bba88c38d0a42ed9ce3e39a61de73e4cb4d0/curtsies-0.4.1.tar.gz"
-    sha256 "62d10f349c553845306556a7f2663ce96b098d8c5bbc40daec7a6eedde1622b0"
+    url "https://files.pythonhosted.org/packages/53/d2/ea91db929b5dcded637382235f9f1b7d06ef64b7f2af7fe1be1369e1f0d2/curtsies-0.4.2.tar.gz"
+    sha256 "6ebe33215bd7c92851a506049c720cca4cf5c192c1665c1d7a98a04c4702760e"
   end
 
   resource "cwcwidth" do
-    url "https://files.pythonhosted.org/packages/c6/6c/fe4a10bd3de2a3ecdcb53e8ad90ec9fddc846342e5e39e6446c692637414/cwcwidth-0.1.8.tar.gz"
-    sha256 "5adc034b7c90e6a8586bd046bcbf6004e35e16b0d7e31de395513a50d729bbf6"
+    url "https://files.pythonhosted.org/packages/95/e3/275e359662052888bbb262b947d3f157aaf685aaeef4efc8393e4f36d8aa/cwcwidth-0.1.9.tar.gz"
+    sha256 "f19d11a0148d4a8cacd064c96e93bca8ce3415a186ae8204038f45e108db76b8"
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/1e/1e/632e55a04d732c8184201238d911207682b119c35cecbb9a573a6c566731/greenlet-2.0.2.tar.gz"
-    sha256 "e7c8dc13af7db097bed64a051d2dd49e9f0af495c26995c00a9ee842690d34c0"
+    url "https://files.pythonhosted.org/packages/b6/02/47dbd5e1c9782e6d3f58187fa10789e308403f3fc3a490b3646b2bff6d9f/greenlet-3.0.0.tar.gz"
+    sha256 "19834e3f91f485442adc1ee440171ec5d9a4840a1f7bd5ed97833544719ce10b"
   end
 
   resource "idna" do
@@ -66,17 +65,20 @@ class Bpython < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
+    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
-    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+    url "https://files.pythonhosted.org/packages/cb/ee/20850e9f388d8b52b481726d41234f67bc89a85eeade6e2d6e2965be04ba/wcwidth-0.2.8.tar.gz"
+    sha256 "8705c569999ffbb4f6a87c6d1b80f324bd6db952f5eb0b95bc07517f4c1813d4"
+  end
+
+  def python3
+    which("python3.12")
   end
 
   def install
-    python3 = "python3.11"
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     venv.pip_install buildpath

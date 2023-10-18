@@ -7,9 +7,11 @@ class Pinfo < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "8cd30c690fd15b9a98a0c7ebf41c7529d6c1fd06467290d228eb585d5de04d9e"
     sha256 arm64_ventura:  "40d137796340727ecdbb3d1c82a2fe46852cd944eec6cc30d18fe2b8a11e1e97"
     sha256 arm64_monterey: "64b61bdd18dca5533f6bee2239e0c0eb8740b324697c58e03249c840b66d87d9"
     sha256 arm64_big_sur:  "2592140c0bf2f8e5889f3e2020e163d097b6256bde001139dd88b778f7a985a6"
+    sha256 sonoma:         "8c1ed7c9caa2cb4c5bd596b7ef1ff34b71769a1cacd84994934d85ecda801295"
     sha256 ventura:        "d58cfe18f25ef00cf2ccf976de9be9d7ce169f67370710aa596d82c0b1722396"
     sha256 monterey:       "46b86e8f4ff8565977416468316300d749bc65850d5c6fb6afc4b5d8cbcf9162"
     sha256 big_sur:        "9d4ae5da430d85f09f2ef7a2b5292976c3db781f80fd1b249e9d0caa05f74c4e"

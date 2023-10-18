@@ -6,9 +6,11 @@ class Rolldice < Formula
   license "GPL-2.0-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d805d84d6f2e3083c040c4e3c650009d34516e949c351e1d85a5906faa2c017"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "adeb468985368ac97a5e5e16a8276ca39a7c87f9615dbab892298e74d3d0f018"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2fa79795244358b512e08fddb6cc86a27029ce8f14038130ab7fc33b84724f43"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1feb7522fecad653acb8a6d91152475486f1fa0f19107df1086c7674074a6870"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b241b74db5c976f271a7e32ce87054d1c74ac488e258bd0b152ccd173e544412"
     sha256 cellar: :any_skip_relocation, ventura:        "3f3fa0150cb26cb71c0df08c79226e1258e738eb6c3f965a491d3e649dbf2b4f"
     sha256 cellar: :any_skip_relocation, monterey:       "66ee3760def3920ddbeb564ed32f772fe12538c5db6124c7ebd56ef1a82eed97"
     sha256 cellar: :any_skip_relocation, big_sur:        "65289049d189acb12af84edb62fb1fb5b0e8faa55931176aa4430d4442e28cdb"
@@ -22,6 +24,13 @@ class Rolldice < Formula
 
   on_linux do
     depends_on "readline"
+  end
+
+  # Submitted upstream at https://github.com/sstrickl/rolldice/pull/25
+  # Remove if merged and included in a tagged release
+  patch do
+    url "https://github.com/sstrickl/rolldice/commit/5e53bade81d0fc972857889c1b690dcd830b439b.patch?full_index=1"
+    sha256 "133214dcc8c8d8e4620205273c6c932cc0674e11717bf4b2fa432a205e825cc5"
   end
 
   def install

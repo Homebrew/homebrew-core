@@ -6,9 +6,11 @@ class Gobo < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b446b9e9a0589618cfe849f251df510d77a5f169f71bcf0798ea6d771713fea8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca5892fdebe4452e551a8ffa6e09a27c1ecb45582870518b8895ad75890f989b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e533b348ea2064b407e0c4da4375334a284ff9a4327f86b18a400202ab3632b5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30ef413627040ba2d8a1f5f1b4248aff968dca12c171278e7a615df5c843240f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "db2204d18d5988c89e3ce3b6bb8c1e9ce81366e00352666ccef0731f93e9af67"
     sha256 cellar: :any_skip_relocation, ventura:        "559002ba3854a7e01f0b1d72bf0a2321b219a67dbed0154e0d446085c193a50b"
     sha256 cellar: :any_skip_relocation, monterey:       "930a459b40e131dc3076dc1f4aafaa3e58dcc7173134e7f162145040ee4bfd68"
     sha256 cellar: :any_skip_relocation, big_sur:        "a26f0cf33aebe2dca17fc9ad9b1741530e789d9ab4e289245fe8886fcddf65ef"

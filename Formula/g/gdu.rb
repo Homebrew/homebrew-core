@@ -7,9 +7,11 @@ class Gdu < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8a302548e25843ccb7e4e4440a0fc974d07406e37f009e64f1ae832440494fe"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ddc42b8da31e35f87c722fe3c1912e338b15e4af553e1d0bb1d8ac7a4dd600e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "7ddc42b8da31e35f87c722fe3c1912e338b15e4af553e1d0bb1d8ac7a4dd600e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7ddc42b8da31e35f87c722fe3c1912e338b15e4af553e1d0bb1d8ac7a4dd600e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "25d3f8681835c5a7f154aaa0f3a575e0b20cc6437583cffbcfaf15e042ed79c0"
     sha256 cellar: :any_skip_relocation, ventura:        "aa1ba23f987df2ec8403887234196d7d548819f4725935e4333ed9802d6bacae"
     sha256 cellar: :any_skip_relocation, monterey:       "aa1ba23f987df2ec8403887234196d7d548819f4725935e4333ed9802d6bacae"
     sha256 cellar: :any_skip_relocation, big_sur:        "aa1ba23f987df2ec8403887234196d7d548819f4725935e4333ed9802d6bacae"

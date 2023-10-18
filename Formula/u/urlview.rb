@@ -2,7 +2,7 @@ class Urlview < Formula
   desc "URL extractor/launcher"
   homepage "https://packages.debian.org/sid/misc/urlview"
   url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9.orig.tar.gz"
-  version "0.9-23"
+  version "0.9-24"
   sha256 "746ff540ccf601645f500ee7743f443caf987d6380e61e5249fc15f7a455ed42"
   license "GPL-2.0-or-later"
 
@@ -15,14 +15,15 @@ class Urlview < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e61de906c2ad7b7303b2b69b2c3cc33ac29d77b22c5ad79a8eca704339d0fd5d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79e803c2e3dd3e77fa2c7792f7ca846e2c9fa9b614540792c9fb8bac3bb03b34"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4bd54ce3f197e6a1dbeada8a9e6927a3ca00b8c304b4389879a2cb15dd4db17a"
-    sha256 cellar: :any_skip_relocation, ventura:        "52ce80dc709a61c1c64cff409b1f14edd802bc60954834d498762a51aa463fe8"
-    sha256 cellar: :any_skip_relocation, monterey:       "c906ca088635e62fba1979b6f3a5767edf0f0649929b31900ab9513ccbbc6cc3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4ba2615a1ea02924d894084fdba9be8a6bc219dbfa852276fbcd330ad9c118ef"
-    sha256 cellar: :any_skip_relocation, catalina:       "640e2ef08bf6e065c52b0f90832774049b9e9cd4cdeede8912ad8656c9c851af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6c16bac2771c3d20aecf067223c0562ec22ed824880f64d1260023364e73d0d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7573ee9d9ec6ad057e1942b86cdc5f87d1200edfa87671394efd95fef009908"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bd9f4ace151dc3bdd13ab54546319f4c3453a4d4255fd0acad4b720a683fc6e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b567514b30c1ee47b2ccd0d37913b753fe12b5f8171a50df6a27f084cee86764"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bf235ca8f0965c5f2ed2fed715ba1ef442edf015e815804d88a5f4ee9c6810e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b2b0b467e190129c65fdbf47e5d71d5f78d80fd438f9587ee0ccd8f9dc752b1f"
+    sha256 cellar: :any_skip_relocation, ventura:        "f23b48aa03b4a6bbbff88712b5ae0b854d384aba75782ba4d9c9729f150d3653"
+    sha256 cellar: :any_skip_relocation, monterey:       "758abed3f78263e758f923d939501ad1a020f6a13a2f517f96114686cd235141"
+    sha256 cellar: :any_skip_relocation, big_sur:        "4f33d54be1cd6b13f0f164bed70ef1aae7785d981a05eb2465baf11fa85fdb5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6adb97eddda5ed91facdbc759340569c66ce895d603120b17e6b271f03348f1e"
   end
 
   uses_from_macos "ncurses"
@@ -32,18 +33,23 @@ class Urlview < Formula
   end
 
   patch do
-    url "https://deb.debian.org/debian/pool/main/u/urlview/urlview_0.9-23.diff.gz"
-    sha256 "32dcff6d032ae23f100a42cb7b23573338033b5e0613b20813324ddb417ce86f"
+    url "http://ftp.debian.org/debian/pool/main/u/urlview/urlview_0.9-24.debian.tar.xz"
+    sha256 "2dd710baa5af98f5dc32ffedfa051220a83cb8b1d7250e75966d7658cf2e2228"
+    apply "patches/debian.patch",
+          "patches/Fix-warning-about-implicit-declaration-of-function.patch",
+          "patches/invoke-AM_INIT_AUTOMAKE-with-foreign.patch",
+          "patches/Link-against-libncursesw-setlocale-LC_ALL.patch",
+          "patches/Allow-dumping-URLs-to-stdout.patch"
   end
 
   def install
+    man1.mkpath
+
     url_handler = OS.mac? ? "open" : etc/"urlview/url_handler.sh"
     inreplace "urlview.man", "/etc/urlview/url_handler.sh", url_handler
     inreplace "urlview.c",
       '#define DEFAULT_COMMAND "/etc/urlview/url_handler.sh %s"',
       %Q(#define DEFAULT_COMMAND "#{url_handler} %s")
-
-    man1.mkpath
 
     unless OS.mac?
       touch("NEWS") # autoreconf will fail if this file does not exist
@@ -54,7 +60,9 @@ class Urlview < Formula
       (etc/"urlview").install "url_handler.sh"
     end
 
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}",
+    system "./configure", "--disable-dependency-tracking",
+                          "--prefix=#{prefix}",
+                          "--mandir=#{man}",
                           "--sysconfdir=#{etc}"
     system "make", "install"
   end

@@ -7,9 +7,11 @@ class Gptfdisk < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2dda92a3ecdab96ed973a073efe01cf1a4d8b58c272d85000d1caeab0bf69811"
     sha256 cellar: :any,                 arm64_ventura:  "44695b26f0c6573bef6f0e5406d57364f4a146963a7fc70ffda70785ba5d81a8"
     sha256 cellar: :any,                 arm64_monterey: "c441169bd2c41b16caa519843b2b8dc4a827842483d335b5c02b1b5bffd92766"
     sha256 cellar: :any,                 arm64_big_sur:  "1e5f4146ffa1a68c58f24792e12c54abd60f5fefef34cb2554b3e36837ea6c0a"
+    sha256 cellar: :any,                 sonoma:         "75d96447c6cbb8c1c09d5863bfd2bba12a38db5b114aba3334b0e5dfcb0d6ece"
     sha256 cellar: :any,                 ventura:        "f0ae2fa9ab790995bccdcdbc1c71f50ef64dbb2b292175b58a1f5427fa55a0ab"
     sha256 cellar: :any,                 monterey:       "97dbd19ad14e804d46a12b60d9f75490f7074403609cd9645e69ec1e970c5cc3"
     sha256 cellar: :any,                 big_sur:        "9f36a4ef4536d2692770ef30a4e2eb13e1ab29142d3431fafda1167cbc4ad1a6"

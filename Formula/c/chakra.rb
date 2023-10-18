@@ -14,9 +14,10 @@ class Chakra < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
   depends_on arch: :x86_64 # https://github.com/chakra-core/ChakraCore/issues/6860
   depends_on "icu4c"
+
+  uses_from_macos "python" => :build
 
   on_linux do
     # Currently requires Clang, but fails with LLVM 16.

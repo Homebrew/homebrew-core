@@ -13,9 +13,11 @@ class Ldapvi < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1a498cb6fd5153f82c0cfd2a9133dcaf68c280f3da4fa641abdcde5d0d2c4311"
     sha256 cellar: :any,                 arm64_ventura:  "a3ad41b60a3da8e819b1abec997f49b3912addab32ffde4c5e12b7b747c5e86f"
     sha256 cellar: :any,                 arm64_monterey: "63919baa17c57b8a12fa108dbfe0f4c8dbf3c591be3b8fad01f0750cca17be95"
     sha256 cellar: :any,                 arm64_big_sur:  "5489222c138f0e9d354ab8aa153d30baa870a2c15410bb18a134a396563c1645"
+    sha256 cellar: :any,                 sonoma:         "fbb82855e629c75015862b1f4210a318181b11e0b964ebc6b3355d77437c9965"
     sha256 cellar: :any,                 ventura:        "2f876c4180027df3eb3f619f62a72b46969292b348f8c8944d3adb99117746ea"
     sha256 cellar: :any,                 monterey:       "d0a155ea5d43cf0f5917acd48cccd30383cab9b9dd7754eeca465da2b15da8dc"
     sha256 cellar: :any,                 big_sur:        "e7738f50126f4a4b5890215ddb63e85d246729a31e1cd8a260e7dfc45251db9d"
@@ -44,8 +46,8 @@ class Ldapvi < Formula
   end
 
   def install
-    # Workaround for Xcode 14.3.
-    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     # Fix compilation with clang by changing `return` to `return 0`.
     inreplace "ldapvi.c", "if (lstat(sasl, &st) == -1) return;",

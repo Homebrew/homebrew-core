@@ -12,9 +12,11 @@ class DnscryptProxy < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47bd1911bc58efc2b21929d2805ea2b8f59b055b79d852bb3fbeb7c80ec21bd8"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "288115da2b5dbd3ba90f2d6479dbd1697a6ca13da9bdac901866edd44cea8f99"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "288115da2b5dbd3ba90f2d6479dbd1697a6ca13da9bdac901866edd44cea8f99"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "288115da2b5dbd3ba90f2d6479dbd1697a6ca13da9bdac901866edd44cea8f99"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6bd9b2789f4ce963a4abcd06e2333b1d5350437c0278b8cb25bf8eb8444e534e"
     sha256 cellar: :any_skip_relocation, ventura:        "d520dcc7b0c3183221fbda50ed0847ff0a1fd10f2dbde120ce45e8ab4799585f"
     sha256 cellar: :any_skip_relocation, monterey:       "d520dcc7b0c3183221fbda50ed0847ff0a1fd10f2dbde120ce45e8ab4799585f"
     sha256 cellar: :any_skip_relocation, big_sur:        "d520dcc7b0c3183221fbda50ed0847ff0a1fd10f2dbde120ce45e8ab4799585f"

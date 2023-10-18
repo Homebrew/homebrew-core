@@ -13,9 +13,11 @@ class GnupgPkcs11Scd < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b109d8b331ed54697a9c26bf3af0e2ba6ac6611bc3fa43797c725f2005e4fefa"
     sha256 cellar: :any,                 arm64_ventura:  "637d2da5209f612c115bfebe4cf6d3e5d1941c4498c077461091672ade772b45"
     sha256 cellar: :any,                 arm64_monterey: "3c669ce77d7e6e31b830b1eaaab48b00ffda6d0c95151acf532b8f73407e9e04"
     sha256 cellar: :any,                 arm64_big_sur:  "32861ea6eb6c72179d05684171a4ca32ce177d62deb4e1abeb7f47f7656fb54f"
+    sha256 cellar: :any,                 sonoma:         "ae9fcd61be5bafa086ed506880b470ff50040c3c278e3e64ea455f52dae8dc28"
     sha256 cellar: :any,                 ventura:        "7883e6d5438dfecc6ec1e3d10b7afd8927f15cf8bad9760105cb2f2ec8606047"
     sha256 cellar: :any,                 monterey:       "47c89528a70ed380c30748379e4a996e3081371e3140ae694ab98ac679e66a1f"
     sha256 cellar: :any,                 big_sur:        "51530e19934fdb181f1f21f9c453cf234381bcaad2ea0626a77a5865ac68878c"

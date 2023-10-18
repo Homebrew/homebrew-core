@@ -11,9 +11,11 @@ class Ascii2binary < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fa4789ecc58d9510294d6ceb7e88865abecf9b50237def8dde810cea6a9a8477"
     sha256 cellar: :any,                 arm64_ventura:  "ab0651840367c796ed21eeceb7b6299338c7b0b42fe2fad395f3494da144470d"
     sha256 cellar: :any,                 arm64_monterey: "f0c93f44f94301da7726208ebff6c51c83b751827518a92c7347c0312bafabcc"
     sha256 cellar: :any,                 arm64_big_sur:  "c205cd2ae106cbbd23999f85812a51bbd0c6453caa761be24082cec7c721fc7f"
+    sha256 cellar: :any,                 sonoma:         "d9430468703535a3bf50d32fdd39b90b140e493d662e002cdf1a11869b5bfdde"
     sha256 cellar: :any,                 ventura:        "ea844e5cb1c4dd10ee070ed633f9052cd6762addc0f556ad4433a97ead7f4be5"
     sha256 cellar: :any,                 monterey:       "3a8a279dfc5c852ab3fa081cd61eeb49ced7a94f3b3fb5fa0b9b747211cb2b51"
     sha256 cellar: :any,                 big_sur:        "8b85d75f6bdcf06c7ab2cd68f6f276532aeed3b258dfa7c370c913a5cf1e4e70"

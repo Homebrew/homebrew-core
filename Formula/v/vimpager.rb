@@ -6,9 +6,11 @@ class Vimpager < Formula
   head "https://github.com/rkitover/vimpager.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b414a1f47556bd96038f4314fdcc4a5794c7064990e2b464c951717043c7c0c0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd379bf4e911d29607becd56bc99a4d3c0c5fafaa5bcf422c7df37e5dc9ec2bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2b9ce26d12c155adb0c9e2524b67b7e8e0a41fb75ee524999ec0818ca619659"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "356c5407fc0656ac0b4ae4a7a3e62f1992525a120a7a1d0b6fdd514561d5381d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4f8a31227e01c9e95ee0fee475942de77686f3ea1b24fdb6fe518c5f4fc551b7"
     sha256 cellar: :any_skip_relocation, ventura:        "c37538249a0c974631d1b6b09d7dcb434a7cca9a9453d2c273ac23c0196932d1"
     sha256 cellar: :any_skip_relocation, monterey:       "37620c6662f65c8314c749c26260bafff4645b80877e9f152783d063dcae9283"
     sha256 cellar: :any_skip_relocation, big_sur:        "9ead831c50c50e1b95b18695737936bc907c9241867d3700c87120c8af09aea7"

@@ -13,9 +13,11 @@ class Glm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "530954e416065df681a2828b4df2b1c5f1cedc02a4473627ea305927f0c56635"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "43539a6af68c678e1d8aef0489f4eff77bf05dda37954c3e727c64bc3c14fa26"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f3fb20151677b15dfe14e1213ffb9339c497e6168dfc00415c2b89bf91d35c79"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4835a0d6b85dd518d3b47830bbae5f45521f4588bd02d3f690f792a6960b9492"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4f47eadac98f421b50dc7097ee18f25f865d50d4c1c53d474e11972bdf92454b"
     sha256 cellar: :any_skip_relocation, ventura:        "336127e65536ea9d1823084ec8b336b65618a2e7eda8da4d2d88a29f3646170f"
     sha256 cellar: :any_skip_relocation, monterey:       "b5c3ab27388c4c90f518af0889da3a0a65174d370b7efdd74d52411ce5725e75"
     sha256 cellar: :any_skip_relocation, big_sur:        "0533418aa7813363241f157a547604acc2c097790a6ddaff2967ede127e8225b"

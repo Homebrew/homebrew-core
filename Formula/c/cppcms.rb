@@ -13,19 +13,20 @@ class Cppcms < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1e231383932392067c2f82db565e7c89fdf262257dc18ae3c7069b661b7e37ad"
-    sha256 cellar: :any,                 arm64_monterey: "fbe7cecff46a4e2bc8f799354a4fe510d195721e56c769f077a0573e54d71739"
-    sha256 cellar: :any,                 arm64_big_sur:  "4bd9653322f70e9300800e2b221af694d228667967a6ee8df6069bc3496344af"
-    sha256 cellar: :any,                 ventura:        "ae8964621f8e24d7494a9f7370dbbf4369a36e3dc0533632e101a6eb37adf4e1"
-    sha256 cellar: :any,                 monterey:       "295e57a50103781f5f6d9d00f0693f8fa23802068fd53ee1fa0964bb1c9e556a"
-    sha256 cellar: :any,                 big_sur:        "91451434afc317d71cee36e03047d170f453efcf4bcd61487750b353da4bb303"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3abf8511c89ef7221ef752f3bc3bca222b89babd25605b33dae88d1584a0050b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "685b90ed09888777bc4de5cc805780a843875f6703b8ea9c1e6bdcd89fbb19ba"
+    sha256 cellar: :any,                 arm64_ventura:  "f68675a3347dfe88a996f0ad925f35f62552d23765c7a0edd512d836cce06b43"
+    sha256 cellar: :any,                 arm64_monterey: "4c70578f35d994cf48783db520a152ce49a5c0cd877e37632a2254a2a9bdbe7e"
+    sha256 cellar: :any,                 sonoma:         "e05d50189df26fab05f6fddc95c3f0a0f8355dc0e049a9b8a47c94d5557274bd"
+    sha256 cellar: :any,                 ventura:        "0e14603d5eef7838b03cbf3dd59cb61ffb284150dd3a21a1bbcfc3493a1456d6"
+    sha256 cellar: :any,                 monterey:       "500746081d5faad30d230618d3a71b97d8332ed6476752bdbf1e3e81b44e262c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b87fe3b52ead0794e23882355a33ffae08c1dd340d0b3710cb769e1dba7edb8"
   end
 
   depends_on "cmake" => :build
   depends_on "openssl@3"
   depends_on "pcre"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     ENV.cxx11

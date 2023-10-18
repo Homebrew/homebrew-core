@@ -19,7 +19,7 @@ class Sphinx < Formula
   end
 
   # Ref: https://github.com/sphinxsearch/sphinx#sphinx
-  deprecate! date: "2022-08-15", because: "is using unsupported v2 and source for v3 is not publicly available"
+  disable! date: "2023-08-29", because: "is using unsupported v2 and source for v3 is not publicly available"
 
   depends_on "mysql@5.7"
   depends_on "openssl@1.1"

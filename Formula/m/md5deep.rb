@@ -8,9 +8,11 @@ class Md5deep < Formula
   head "https://github.com/jessek/hashdeep.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e4229518a382d9eb9d0b5fe87118a0f4a532c33b535791db257432502ac9e31"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "34dc60be87a6f4d9306468492222ea35455aa08359603f2e1bffa3ae221405de"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1b64f262b089ff96008078a6dc0f84cce93deec0740b3476279931d982bc9636"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d910e7454fa350663a1955628c254b7acf813dd7b3aaec162a7be2c002197f0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7741049d40f5fc9989fa69e8a55dd1c1f75c75155a89a0a0f90575afdcf9b2c3"
     sha256 cellar: :any_skip_relocation, ventura:        "46f9ea31605459d954b815bc85db4d2c5b5a7c96e81aaeac63ab0eaa2954faeb"
     sha256 cellar: :any_skip_relocation, monterey:       "58e0dfb42b8a8b0d89745dc0446ee660754f3350c776702384edceb1fe14b8b6"
     sha256 cellar: :any_skip_relocation, big_sur:        "d53f71333428c98de807b2ed6be18fcfd62d473d9994e19db7c7a8db390cac95"

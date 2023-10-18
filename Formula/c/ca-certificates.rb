@@ -1,8 +1,8 @@
 class CaCertificates < Formula
   desc "Mozilla CA certificate store"
   homepage "https://curl.se/docs/caextract.html"
-  url "https://curl.se/ca/cacert-2023-05-30.pem"
-  sha256 "5fadcae90aa4ae041150f8e2d26c37d980522cdb49f923fc1e1b5eb8d74e71ad"
+  url "https://curl.se/ca/cacert-2023-08-22.pem"
+  sha256 "23c2469e2a568362a62eecf1b49ed90a15621e6fa30e29947ded3436422de9b9"
   license "MPL-2.0"
 
   livecheck do
@@ -11,13 +11,15 @@ class CaCertificates < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f664c0f185677a82689ada2a4e35c555e48885e6c2fb5e2dfcc82d9fb79cf870"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f664c0f185677a82689ada2a4e35c555e48885e6c2fb5e2dfcc82d9fb79cf870"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f664c0f185677a82689ada2a4e35c555e48885e6c2fb5e2dfcc82d9fb79cf870"
-    sha256 cellar: :any_skip_relocation, ventura:        "f664c0f185677a82689ada2a4e35c555e48885e6c2fb5e2dfcc82d9fb79cf870"
-    sha256 cellar: :any_skip_relocation, monterey:       "f664c0f185677a82689ada2a4e35c555e48885e6c2fb5e2dfcc82d9fb79cf870"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f664c0f185677a82689ada2a4e35c555e48885e6c2fb5e2dfcc82d9fb79cf870"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0632385c19e025d8398c5ef2a7c817938506a7b70d48cb9ddc36cb202dee2d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, ventura:        "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, monterey:       "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a331e92e7a759571296581f029e5cc2ec7cee70cd92dc0b5f8eb76095f94a21a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68805f32523ea598c61d118e1a41cceb4589fe6e8c265133dcf70d6b1ae05883"
   end
 
   def install

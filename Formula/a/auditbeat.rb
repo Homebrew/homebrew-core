@@ -2,24 +2,25 @@ class Auditbeat < Formula
   desc "Lightweight Shipper for Audit Data"
   homepage "https://www.elastic.co/products/beats/auditbeat"
   url "https://github.com/elastic/beats.git",
-      tag:      "v8.9.0",
-      revision: "dd50d49baeb99e0d21a31adb621908a7f0091046"
+      tag:      "v8.10.4",
+      revision: "10b198c985eb95c16405b979c63847881a199aba"
   license "Apache-2.0"
   head "https://github.com/elastic/beats.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f45c412d3f5d336dca85ff11ee6f4a55834791183c6fdb43136bb8bee9dc1f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "91e93afa18c76786ebe63f0ee085f29bbaca9bd2edc50047940cad05e874a6ac"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a347751bba84d6bad2a6c5a80bd49aeaa582f151bec3be89fdcd11651fede7ed"
-    sha256 cellar: :any_skip_relocation, ventura:        "290b284ff96d7a77f19b47e602a95e5bddf5ca4522e6f70ae77528b6922ae170"
-    sha256 cellar: :any_skip_relocation, monterey:       "f4d1c5bf3ff54a1160ff6a1090cc0e0431dd09ed35c33ccf24064e2be9271457"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1463e906f419370415645f3a5ab7fb1a48cbe3ca8c21e5d99351e65f1599f419"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "009abeefd0acceb311097d40030c896567bd8be35021b0d06f26df6488e7ae91"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c74c49b360ceac95f10cd332942441fdb022cf67e1fe6483187dafb053be953"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5c1d670d90b90a31ec7ef62be6e045530a48bd22838adbf9e744ac1f05ed005"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7780b3bbf8bf16197012b15404399e6499db08880d9a2113eb0249d2f910d3b2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "11c2c66e1cd3c23a60a3a6c805d9ca46f1472e8bd9edcdeecac8ccfbcea2d896"
+    sha256 cellar: :any_skip_relocation, ventura:        "da34b9ed4093509832cdf58cf122714e550fd546f3b12e4d68843ec77d5c31ed"
+    sha256 cellar: :any_skip_relocation, monterey:       "ede7cb329a9ba608eac7c5d82fa22887b5591c51cff63880b6e40f11057317f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fd52da0416170d9c2e8b8f51143ee7e0820540947c1d074140350e01a3fd09e"
   end
 
   depends_on "go" => :build
   depends_on "mage" => :build
-  depends_on "python@3.11" => :build
+
+  uses_from_macos "python" => :build
 
   def install
     # remove non open source files

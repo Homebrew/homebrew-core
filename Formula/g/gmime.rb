@@ -1,18 +1,20 @@
 class Gmime < Formula
   desc "MIME mail utilities"
   homepage "https://github.com/jstedfast/gmime"
-  url "https://github.com/jstedfast/gmime/releases/download/3.2.13/gmime-3.2.13.tar.xz"
-  sha256 "2e10a54d4821daf8b16c019ad5d567e0fb8e766f8ffe5fec3d4c6a37373d6406"
+  url "https://github.com/jstedfast/gmime/releases/download/3.2.14/gmime-3.2.14.tar.xz"
+  sha256 "a5eb3dd675f72e545c8bc1cd12107e4aad2eaec1905eb7b4013cdb1fbe5e2317"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256                               arm64_ventura:  "35dc9d92ec33ec3d84b118fe2bbc0ec55d639fc0c26ca1f288db2041b8cc66f5"
-    sha256                               arm64_monterey: "f27bc95fba280b579a93fda869ecb738e84593cf02e4fb689f668ef3b8668b40"
-    sha256                               arm64_big_sur:  "616305d3cdeb697de0139126e9f85138bed8beab38b79f6aa982b7b846be23cb"
-    sha256                               ventura:        "b3543eda3347b28808d6881d6b175d25192484563ffc5877a4ba5f82a26046da"
-    sha256                               monterey:       "9a2055499bf7a18b01bfa67d3637ca0a376a0353a52a984a1864ff0890280a27"
-    sha256                               big_sur:        "26ba4775f26d0549b57240711b9d446dacd825b52a11b0e1ff1c77410f2fe36c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "343edd8abff04d84cba81782ee2c447da2be52b2187581d25e989fe107c65b26"
+    sha256                               arm64_sonoma:   "3880f919eab39bb7fe31f52fb1c9485c9100eeea67b6858768e9d91596566f8c"
+    sha256                               arm64_ventura:  "044c983cc0bcac0afd5c682d7e3335725fff4d516cd63f313d179475e82c4f69"
+    sha256                               arm64_monterey: "f3180a7361908b78af5f77b13ac0272aba1fa2fcfc3c2828a0e54e66d4d74c89"
+    sha256                               arm64_big_sur:  "e787c7dee3b75cebf54f1d4853beb65b13eb03aab28bfdfd2b807262eac842cb"
+    sha256                               sonoma:         "05d877f223b9f599d2aede217ed2662313c7a704a758c854c52e0c7ba9adc5d8"
+    sha256                               ventura:        "b6f4a0108ef544fd29c78042d1f0f5f9201ba053e0273a67b95ba853db8e7ae3"
+    sha256                               monterey:       "fb2bf3bc747fe38b596f3613a70878b6931ce1fede9388ba78a35a7b9b4f9542"
+    sha256                               big_sur:        "267d9303bc727c3a12bdad0ca161aed3cba93feb2696524f2a59f0079609d31c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d0c31d8ef46929e72b0e7450a19beafef6ff50e7e07896d2182a495bb0a8320"
   end
 
   head do

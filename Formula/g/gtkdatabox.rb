@@ -6,9 +6,11 @@ class Gtkdatabox < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f4828cb2a7e45bd157bc9a675f5f05eb0de78f257c19619284329d6b263e00df"
     sha256 cellar: :any,                 arm64_ventura:  "b2ebe0189a75ed8bc48c6eee421cd63b42fc0a7792a78c3783ae1ba2acaa4ad2"
     sha256 cellar: :any,                 arm64_monterey: "af11118be54316daf2c684ab1ed515c1150e151bc58ae7d59e4c9afcb40c5180"
     sha256 cellar: :any,                 arm64_big_sur:  "23e28de98208139a408ecdca12fbe9a7008bbbbca2929a4cc7a85b29bf57edf6"
+    sha256 cellar: :any,                 sonoma:         "fad620ac552152fcdade182178d29cc660d766a00ff2f252650caf1f2c7588fd"
     sha256 cellar: :any,                 ventura:        "91b73d901896ec24e2297a1290de34bb3699784fda2f28796bc8a7c8c95e5983"
     sha256 cellar: :any,                 monterey:       "f123f4e93272456caacfad30ae63252ea51001a0f5b2838f147c337ee6e2bf92"
     sha256 cellar: :any,                 big_sur:        "534fd2192131f7d6a3b07e75bc02e1f184996f3bcadc01ef396cad541946f518"

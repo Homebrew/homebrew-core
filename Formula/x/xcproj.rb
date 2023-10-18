@@ -6,6 +6,7 @@ class Xcproj < Formula
   head "https://github.com/0xced/xcproj.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee550d8dc738e61612b6d058f201e736c54cb45f451c4767775067f68fc7ee7f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2aa49c796bf690ccae0869b3a1f0d58b733499a67972461b52bdf5c307e096be"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3aa6cbe2067d6430fd54edb655b431e1e066f8e98f98b7001a09272082b5376c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a3a9073db30a288af4d7fd2aa2adbc91f93ea6bc8cc9e7e85e0cf4d12dac3716"
@@ -21,7 +22,7 @@ class Xcproj < Formula
 
   # upstream issue tracker for license
   # https://github.com/0xced/xcproj/issues/6
-  deprecate! date: "2022-12-03", because: "no license for the project"
+  disable! date: "2023-09-25", because: "no license for the project"
 
   depends_on :macos
   depends_on :xcode

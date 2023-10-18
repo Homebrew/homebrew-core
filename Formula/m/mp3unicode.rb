@@ -12,9 +12,11 @@ class Mp3unicode < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "eb5436a0aedcfc316d8504fc65d4ddb2e9123aa035b31661ae8e5e98f77f530f"
     sha256 cellar: :any,                 arm64_ventura:  "c9cab3295e2f0715c8427c98d17f8dc4384fe50c30cde51046623de82a32739c"
     sha256 cellar: :any,                 arm64_monterey: "e2f6b5eef63cc1163c65a34fe790a49d41293a35c5f693fd853f982b423141fb"
     sha256 cellar: :any,                 arm64_big_sur:  "a8e60d07b3170593185a88afd02c48bbef315ddcbae9cbfa0ef52541eea5348e"
+    sha256 cellar: :any,                 sonoma:         "c8fdebcc428ee42d6efcc5c0721c5ea19b1c4cb8ad72344782b082e5adc6ab0a"
     sha256 cellar: :any,                 ventura:        "95f4eb839973efac6f9dfb751f278ef372b16c5a4aa40c54e5668aaaa0a92762"
     sha256 cellar: :any,                 monterey:       "01066562450ecbd024f9b326cdb22041a4e52205cef900bb6c8107f67253d422"
     sha256 cellar: :any,                 big_sur:        "ae87c394bcab69fca57f9bb99e03716fc5073319934fb32cf0e45cf948be9a68"

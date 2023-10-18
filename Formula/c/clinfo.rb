@@ -14,6 +14,7 @@ class Clinfo < Formula
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdab44766ca458a88c221ea4f7449b186b9fd748db904f7eefde045fb6443fb0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c1497f49082ece2d52fae1bfc65c5317e7c76a6b2d8272f95fcb69f6068a4a6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "50df43e65bf588c3d98290b5a6a1dfa8b51ef24bc8684201880026fa68364a3a"
     sha256 cellar: :any_skip_relocation, ventura:        "2315c5f2eb3c44d67eed92f81680c2b0baef3d4a9d1e95a230b0e8a1664eecfb"
     sha256 cellar: :any_skip_relocation, monterey:       "f1d18a57e2dd034e082d5df7b51ace021b656d6ea8539462a63ed11d8c2157b4"
     sha256 cellar: :any_skip_relocation, big_sur:        "86e27c2acbdf720693e142d25e82f1ccd76a4445d9ed2e25901382735b28d6c6"

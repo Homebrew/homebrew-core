@@ -8,9 +8,11 @@ class Planck < Formula
   head "https://github.com/planck-repl/planck.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "9cda80839b8479be4fd8448ff98327aeeaaf014837570b7d54127d46f1e18c2d"
     sha256 cellar: :any,                 arm64_ventura:  "c731aea9cb0275695b209bb5084210afd6a0e9a5e67c8e9efec9a13a1b2e9518"
     sha256 cellar: :any,                 arm64_monterey: "1f4b0e70f38857049b419ccff92ac1a14f021789f781e29d9e289d8efd260cde"
     sha256 cellar: :any,                 arm64_big_sur:  "31ce144c77bacf764cda0691e55d5e252de259b8e06a47a09230f7bb90f8b87f"
+    sha256 cellar: :any,                 sonoma:         "a7fc27c30776c4f22e85730bcb22ad18fa88b9cb077bd4fdb362c1be034e3ee1"
     sha256 cellar: :any,                 ventura:        "c45d560dfe371e1da07165c220cd0df5cd271049d1767301f21b44a3f1cd0c6e"
     sha256 cellar: :any,                 monterey:       "6cfca8f70816b1fda8316c2fbc2c78c781968890e31ee1c3afc358dc5dc4fdc4"
     sha256 cellar: :any,                 big_sur:        "a5846446249d8101ac5fd2b92bd2af291d908be3f0437b469ed1435fcb878d02"

@@ -7,9 +7,11 @@ class Dory < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "445dc72e8fd5886e5378277044e12edabcdd9136857bbc7b259ef76a5d4941cd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "801315212e458f3a16eba1e62acbe37a7ddec7fe6542b1546a0b01e4d33d8f27"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "801315212e458f3a16eba1e62acbe37a7ddec7fe6542b1546a0b01e4d33d8f27"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "801315212e458f3a16eba1e62acbe37a7ddec7fe6542b1546a0b01e4d33d8f27"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2ab9300321c48cb22e9fb417d9f80b08def6219a4fc0fd1ea834e7ca43e50aee"
     sha256 cellar: :any_skip_relocation, ventura:        "dc275970eb94ef3bba02bd5bf12241e26e4a35f415fa9de16710d9fe80b978bc"
     sha256 cellar: :any_skip_relocation, monterey:       "dc275970eb94ef3bba02bd5bf12241e26e4a35f415fa9de16710d9fe80b978bc"
     sha256 cellar: :any_skip_relocation, big_sur:        "dc275970eb94ef3bba02bd5bf12241e26e4a35f415fa9de16710d9fe80b978bc"

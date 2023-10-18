@@ -7,9 +7,11 @@ class LuckyCommit < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c56571170906e43a64028e57c3d74309068be8ddc139a8ec41a099fffef7c31a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9239980fc34cabd2235d8e85dd01bdaff518aa92010c6a010fc3721cb943825"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4142ce5e2266e26e3be3e3347f973a3c742231db25a1144cd97466a1d752128f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "987b631a1b4de35cde6109496d78f678df348a0e7bcd5d68a08e0ec4ffd90735"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fab07b3bd0bb22fb4d1bddeb041101a0aebf39966162254e7e87766c98cdb2b4"
     sha256 cellar: :any_skip_relocation, ventura:        "cda52467ebd9050c3dd693ea0a561ac183ea70ced7a636ca2c250bcffaa7e7a4"
     sha256 cellar: :any_skip_relocation, monterey:       "6534761e0409ee6b0feddbe9b0d7d6157a9d3ec4452a17c93dfbcb54b4635f2c"
     sha256 cellar: :any_skip_relocation, big_sur:        "668950e5f06bc9802221ab922acc18f56c512cd9d947ccfd0675348d620140e2"

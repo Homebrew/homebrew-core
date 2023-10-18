@@ -7,9 +7,11 @@ class ReginaRexx < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "d5c5ba7129bbe4bff8d1123c1fe9854cf4f2131a49386a2f266bbd13f4777d4c"
     sha256 arm64_ventura:  "6808d74238b1b6ced2548b2f75b609a31ab765e7eefe76bdae1b3e03e1da15d3"
     sha256 arm64_monterey: "0b69b4673a59541d876b72172c6fca840366877557d30517e94cb67f51119739"
     sha256 arm64_big_sur:  "13dfb9942fd4833175a11ae4fe2796c74638ac8dd5e7e3a63777cd935f54fadc"
+    sha256 sonoma:         "07edfe346553107d858ccf5b2c85f361fa6d194bdfe1f4ecd29e68061e16abeb"
     sha256 ventura:        "b3c98aeb0520d525e2a1396c4fb8ecdace97bf77b916c1a218d61ae2db739ad3"
     sha256 monterey:       "3b4d201a4818ddf001577fd1086e3e727817fdf9a9602706a5f9f54fb7f40140"
     sha256 big_sur:        "688343997f1e418eac2c9d0b5142c0befedc3f74ebc6bd2472c2e10c825eaadc"

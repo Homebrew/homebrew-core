@@ -7,9 +7,11 @@ class Rush < Formula
   license "GPL-3.0"
 
   bottle do
+    sha256 arm64_sonoma:   "48ef750e54b922ed60f74ee23787bfa0fb2e009c8c8ec81096d68f89fb33029a"
     sha256 arm64_ventura:  "edac738221df3600f641718d8ef503d74b91f8b1d70152908d8f4e8543ea1f3f"
     sha256 arm64_monterey: "c40ad559ccaebe83031cb3118bdcc2ade53433fd9d733a3e750a8593e44c54d4"
     sha256 arm64_big_sur:  "c3031fa858e73ad07c42be20c11c97f8b8b46c52f3ae9c695fa5191751db7784"
+    sha256 sonoma:         "2bb156e3b97f42b174028632dcfc71704a1eeeff83aee2ada55ba6c4ba83947c"
     sha256 ventura:        "3285a1b79c8401fda37feed9166fe87cf7ef93e2e210e178c77a75ae203b855a"
     sha256 monterey:       "5833155618b0bf4e4a0e2ee646a7f8585c4ef541f5548911d4eb09af38131327"
     sha256 big_sur:        "b9fe9b70c28fb4bbe8427f1465cd9b99deabdbf10de7260801f95d1181f8e8b2"

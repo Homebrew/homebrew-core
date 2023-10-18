@@ -11,9 +11,11 @@ class Scip < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "49e507d74c748efd6069db58e0620eb1d54ae97d4e3dde1bdc0e296ff524f3a1"
     sha256 cellar: :any,                 arm64_ventura:  "3c209afa96be0e7b9ac5b0d4b115b16770e01e55a55bdd2305f9831a380215b7"
     sha256 cellar: :any,                 arm64_monterey: "cc885d3bcc74accb49984c5c1bdf1d0144ccd7676ee06cb153e378cfff097a5c"
     sha256 cellar: :any,                 arm64_big_sur:  "12d0cfcab902363893467134ffa7abe7c8168b0b0739cbf047a15d7898e224aa"
+    sha256 cellar: :any,                 sonoma:         "8013c3e54c1d764a86e5b6aee0415c5a813d1e487cbbe64d15eb3f097e10188a"
     sha256 cellar: :any,                 ventura:        "7405d4bdec7fb54b5874c3c9505001796d60db122a72b191765bcfef55603d2a"
     sha256 cellar: :any,                 monterey:       "ff92caa47afaef81e505b13e5a5deb5520cecad8796a32fb97414b52d88940d1"
     sha256 cellar: :any,                 big_sur:        "845f3088c6c5779cdfffd362d5df2e699ba9f94b9d2b0447e025223c4c1ef39d"

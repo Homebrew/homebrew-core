@@ -3,18 +3,18 @@ class Ns3 < Formula
 
   desc "Discrete-event network simulator"
   homepage "https://www.nsnam.org/"
-  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.39/ns-3-dev-ns-3.39.tar.gz"
-  sha256 "99be388a851fb5fa01f25c814fafef3d3d989d9a932f04374bf7bcc31cf72924"
+  url "https://gitlab.com/nsnam/ns-3-dev/-/archive/ns-3.40/ns-3-dev-ns-3.40.tar.gz"
+  sha256 "1ace4a73b83ce6d087f104c5d58f749bf5ba4f18b5c3c5fd2b18f2cbaf735dca"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "425aa33224b1e9489e519ba617b14d89ade0f1f773d48f295628778a10f94417"
-    sha256 cellar: :any,                 arm64_monterey: "a39ccabec24aa09e65a29cf07eef4ba7afe714dac5fe9c408306839745f9bab0"
-    sha256 cellar: :any,                 arm64_big_sur:  "c8c0d0b83542f2b0556bc5d35b010792090b1fbd2ddbfc9f1f64bc488cb8d6d1"
-    sha256 cellar: :any,                 ventura:        "8dc7444cc41497a4ff9f875b6b75d3b9bd7e897313c7e4583aed724a38b13f29"
-    sha256 cellar: :any,                 monterey:       "f1355a3e689c8097dd70377c500295d47c45ed435fd3077821e57f43949b9489"
-    sha256 cellar: :any,                 big_sur:        "b75eabe4098d7b7ef12a88cfae762a7a464d21524e56ec359068398342b83a4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "026abf308e4d4d0b1604e2fefd322972e07d3494d2693f132bc5585c7cdd479a"
+    sha256 cellar: :any,                 arm64_sonoma:   "81e518bfce152223d84d7c46a775660b7226e012f6560b437dd3bee62e6feadf"
+    sha256 cellar: :any,                 arm64_ventura:  "24d505ccf11483beaacea36eeea74fbea0e10734965a723a548a5f0a350bacb1"
+    sha256 cellar: :any,                 arm64_monterey: "95dc9e6e818df8ca655d3621ff2e42f1e0625d464105f70868c0e0cfde42688b"
+    sha256 cellar: :any,                 sonoma:         "438e1d4ba03e332bb9fe3f48a14a810ac32b48270615137f2fcb16a016ccd2c6"
+    sha256 cellar: :any,                 ventura:        "3dd9eebcec0e8d4e8417a8a8a655c653dfcaf52c4edb2542a2318939d29a27c4"
+    sha256 cellar: :any,                 monterey:       "2ad19888711cfafc2007e8abb7855c940ab04b1b45b7cf739665b4607d354e0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08a791dc36a19c0ac67363fe0d84a9292ec46cd7e80b175466a8959ce482486e"
   end
 
   depends_on "boost" => :build

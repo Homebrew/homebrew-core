@@ -12,9 +12,11 @@ class Vice < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "6ff7a6caca0e75485180870115086cff4b4239f945d569900d1c1a13f95c950b"
     sha256 arm64_ventura:  "d0bf3eb28be9043f9116bed994770b9ddbcbda019f817d9f66d35f209baba8cd"
     sha256 arm64_monterey: "90ac62deeed56227098a874eee92465bf5af63d87da03047e0d3a05fe951d46f"
     sha256 arm64_big_sur:  "02279db7f16355ccfedda4ec76e9286d4062507c5bfb4d66e20d7fea13b9ce03"
+    sha256 sonoma:         "a65a9ee0f675497ba24dc31d02d4c318558c24f1b4e4140128031142ff472f57"
     sha256 ventura:        "faa7d0090d54fc2deff55e8142b67ccf2549955884b414b9bc3d21c9eec4feb2"
     sha256 monterey:       "83eeb86d3252e8459bb677998a2ad2c6c78eec3d0524cea06585c1ff0120bfcc"
     sha256 big_sur:        "178230a6fa6f45cf9961387f61be1d17c4496dc45c87c578fb524ad64fc55128"

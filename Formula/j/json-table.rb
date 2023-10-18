@@ -7,9 +7,11 @@ class JsonTable < Formula
   head "https://github.com/micha/json-table.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a11c671903d3c7095c3c9f650e1162afd2f6ccc189c8109162886182d8fd68f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e92d06b25f370ab9811406799e31be9e8f775e88ae9a9417940f4e8a54940c3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b90e09e62cd09817662e86c0c9854cd7a6e02b128dec008eeaa24d6c89482f11"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "23e482349f2641ceb4b17f3c05bba8dcbef599a2d3b7eba981dbcce14989e157"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2c3cdf120fa2be2558c5e2b2fefb059ca2fbe676522bf59c595f5cecd75b1af4"
     sha256 cellar: :any_skip_relocation, ventura:        "1f355223e0eacbec654b62e3df5525aed0bf8b5fea393e7ccba4bb48d02d8453"
     sha256 cellar: :any_skip_relocation, monterey:       "91ed4ccbdeaf3571036d17d31f6a093e867fc8ec6f1c254c7f79342fcb3ab7cb"
     sha256 cellar: :any_skip_relocation, big_sur:        "56d0c75307c1bfff97077e37070ee7a0532b09614226e5716e7d6a5ad2e2b113"

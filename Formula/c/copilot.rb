@@ -4,8 +4,8 @@ class Copilot < Formula
   desc "CLI tool for Amazon ECS and AWS Fargate"
   homepage "https://aws.github.io/copilot-cli/"
   url "https://github.com/aws/copilot-cli.git",
-      tag:      "v1.29.1",
-      revision: "123b8afbae354008a87b786723da002ff84303e1"
+      tag:      "v1.31.0",
+      revision: "b9acdb8655411597b65bff9afaea2baeeeb0b6e5"
   license "Apache-2.0"
   head "https://github.com/aws/copilot-cli.git", branch: "mainline"
 
@@ -15,13 +15,13 @@ class Copilot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ce761e3913e031b870fc6d0cdf12fe8b6d90a7f09c742185fc3d9e5269cc1048"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2a04b0bfe30ca1282739d273280d451438a6456215637b9e6be85489af6fe450"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f327284a7f2e0716c2ce1bd3ff0c2cc2be7a831f5c1637efbd49abea4803482b"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb345b2789e458752ce7031415608a87fe744b13873f8a0cb6508f674c9e78ed"
-    sha256 cellar: :any_skip_relocation, monterey:       "7e2bf36f6dfde40c334f61e7a3f6d63ccd989876f4495bf70a9e50e042afa008"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3562af38b2243541d0a1aecedc2e81ebb938a994e79b18be3271f503fc4ac882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a39c85f7f0f58a483e38e7ac8d47f78c7500f1bb24fc784708d6fe9cd46a1890"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "83dbfa2d003fbe30682c4846039b36c15b89db18513c16e352872870654030d6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14e48c20bca7949472dc56ad16a9545f411e3b20af5b45abcdaac13333670f9b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fd60e655bc0c1233db4afcdbb1d8361fbfb47caf9ce153e02b289fc7195ae4f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "04db87ba87b3dd0942fddb5112a6cb836189a8e5d0666b8e42b9609228c662c8"
+    sha256 cellar: :any_skip_relocation, ventura:        "7676dbc5ffe9766fb0d0b1ba51168e93da1e1727954426752b2a30caa8ae32c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "99fb5e3fbb7511f1483774ac4c4a3d99efe6b08f0d6c342b02fbddd45ca65266"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c23d7d412991be7ff17ca7c4b719c742f9dbdb1340d7dd79c027e15465491415"
   end
 
   depends_on "go" => :build

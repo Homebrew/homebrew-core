@@ -6,8 +6,10 @@ class Smali < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "909b027559fa670c4e04e24e5d8f0c16ca7c0791826c709a9e1923d3c8a7d7c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ae90cfbf519caf36fa5c2ee2c9059a41d9f39ab1652c5d883e9267552bbe699"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa384e0623d92232575207c1d393204e05254206e9309b9160be038f698bcb11"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e8b11c842896662bb8fcd75c2bd5b9eddb7d57f123de420b5467d297ed7a638a"
     sha256 cellar: :any_skip_relocation, ventura:        "10511aa8c74d96534e7deae36557349840023576c5c1800085de856a46597fbc"
     sha256 cellar: :any_skip_relocation, monterey:       "1de39f5a3d88ebb0cfc415c165f2c431c6c64ae9075eeecd8c1616cf7e63ee2c"
     sha256 cellar: :any_skip_relocation, big_sur:        "508115afcebb6b4fe2b6491652cc386633144cb48669fd4624eb60542fa43fd8"

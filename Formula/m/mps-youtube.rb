@@ -10,9 +10,11 @@ class MpsYoutube < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71e781a593e259f5de0ab1f26553a0b6879d859ec2fc719213e44c4fa840ed16"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "34b87b2545d398fbda0fa4d275a171a952f4d7c9cf62b0ab1c3b2920b0cf446f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "34b87b2545d398fbda0fa4d275a171a952f4d7c9cf62b0ab1c3b2920b0cf446f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34b87b2545d398fbda0fa4d275a171a952f4d7c9cf62b0ab1c3b2920b0cf446f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5f2dc0ba04fb7cfca027c2dfb2c25f59b6ac79457b090aabc38e068e747d6d9b"
     sha256 cellar: :any_skip_relocation, ventura:        "17af74c4e50533a28f381707209239aca41abb4cd5af1653dbe6bf40ba008fcd"
     sha256 cellar: :any_skip_relocation, monterey:       "17af74c4e50533a28f381707209239aca41abb4cd5af1653dbe6bf40ba008fcd"
     sha256 cellar: :any_skip_relocation, big_sur:        "17af74c4e50533a28f381707209239aca41abb4cd5af1653dbe6bf40ba008fcd"
@@ -27,7 +29,7 @@ class MpsYoutube < Formula
     sha256 "364f1d1312c89582d97dc7225cf6858cde27cb11dfd64a9c2bab1a2f32133b1e"
   end
 
-  resource "youtube_dl" do
+  resource "youtube-dl" do
     url "https://files.pythonhosted.org/packages/51/80/d3938814a40163d3598f8a1ced6abd02d591d9bb38e66b3229aebe1e2cd0/youtube_dl-2020.5.3.tar.gz"
     sha256 "e7a400a61e35b7cb010296864953c992122db4b0d6c9c6e2630f3e0b9a655043"
   end
@@ -35,7 +37,7 @@ class MpsYoutube < Formula
   def install
     venv = virtualenv_create(libexec, "python3.11")
 
-    %w[youtube_dl pafy].each do |r|
+    %w[youtube-dl pafy].each do |r|
       venv.pip_install resource(r)
     end
 

@@ -7,9 +7,11 @@ class Pick < Formula
   head "https://github.com/mptre/pick.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf2e439d81bbe3a7cc2fadf74c2b22835087deb28ece7b39a05312372e551d86"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "baf0de992329c39e5c0ed64680c7fc8438e460ccb4a261e15a987e8afac5859e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3978f455a6bf9cba97b215e8a71a4f314eb48bfd0a920ef307e46c5c3bf3e186"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "032d06aa754000e281f773bb857266efc79e1762e8f689617778a19e17505688"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bd88176ee4fec77b374b9f9ba8d948409232bc2c88d0ae4f140409ee0e79c92a"
     sha256 cellar: :any_skip_relocation, ventura:        "7d8ae03b4a23f8bbfba46552fac1bac70eb1d2bc80177660ce21ef4974438954"
     sha256 cellar: :any_skip_relocation, monterey:       "d9bfbabddcd3e479420308af573f56ac530386d110c95044a65e64f4ef7c8f28"
     sha256 cellar: :any_skip_relocation, big_sur:        "c8da7b41b502c8c72b90fd41bf1570e840198fa6678cc5efca8a1c26a8d5557f"

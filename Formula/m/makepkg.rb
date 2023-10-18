@@ -9,9 +9,11 @@ class Makepkg < Formula
   head "https://gitlab.archlinux.org/pacman/pacman.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "652c820c1c6b0093ce01b9be7e39e1b386168192159d51ee77e19892fe01e33b"
     sha256 arm64_ventura:  "011744cbb816a05814602965407c8ac925a9be34a6171fe42e31c6666a8493b2"
     sha256 arm64_monterey: "4a4742a7f5f753516099e046b0b1c3b879f89831c354e944dc585ba1a9a9c349"
     sha256 arm64_big_sur:  "6552ccbd2e4f17df87f76c47279cf0559c2337ec468a082c29cc0b4234d6db87"
+    sha256 sonoma:         "9dcee565e573ddac637a0b14c9d78528b59e5d61b966daec44a9b9a8f0a667f0"
     sha256 ventura:        "5e85ee58f8aa02dee02ea59a2f4541bfb09e58eec62738e530a523645b1a9361"
     sha256 monterey:       "32e5c652bea73bee42c11336be0470b85158283379e98f36f67495ad471baa73"
     sha256 big_sur:        "08dd5419b09e11c7229e6ae578b44aec8697e4c9d421e35836d8bda115f6a1e5"

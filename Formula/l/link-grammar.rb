@@ -7,13 +7,14 @@ class LinkGrammar < Formula
   head "https://github.com/opencog/link-grammar.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "68780a19c3e1cdf5b93773774607a747d73b77914118cc3eb9a443bca81423e6"
-    sha256 arm64_monterey: "4645310867d66555678ea8036cf34559064ab28a63bc1527a8e99645133a8a69"
-    sha256 arm64_big_sur:  "627549f901d893ae19650a1b0091f5f548327a65749f7b53cd5d82e94ed5f3bf"
-    sha256 ventura:        "9d719498637426049045d2ac4a1532d3fc90a63ccc9da91b0cd9c4a472db1342"
-    sha256 monterey:       "a530e218f0513110ace858a69961edd3d824eb8f03a97af63bcd99467c6439eb"
-    sha256 big_sur:        "ddfb36df0a1b30aae66e1b432d3b47259b2514b3859b7c5cedcd5148cce95927"
-    sha256 x86_64_linux:   "48caf023fc83b14aede9e5958e30419182a5d34be5553b78bc257188af903ae6"
+    rebuild 1
+    sha256 arm64_sonoma:   "984690d6c9df434555f86e810edd3648e09241fc3745d54e2853d524ac1111c5"
+    sha256 arm64_ventura:  "092fe1345bb4946aac0738abba267ba5b95e359119bbb920e122376f0c19980b"
+    sha256 arm64_monterey: "b4c6e1bcc929eda6c2f942928c991ec51814c8e3b09d4c8e7e06f6f16983c467"
+    sha256 sonoma:         "58a7f8eaeb7fbdfce2794c9cb6e3315c1907aae0e651a53ec986c7cddd9cda0e"
+    sha256 ventura:        "82dd35020c0673860a013bd652cd77bcfc7818b59e4ae31dc62acb8a4bcb7328"
+    sha256 monterey:       "632cc70a9a47502c3f71e757fae753698df4165b774eef2a0a0c89b27c8baa83"
+    sha256 x86_64_linux:   "56716e1742272dbb0503f12007b3eef50c3db003be55fb4b28ca78fe2a54bb93"
   end
 
   depends_on "ant" => :build
@@ -22,7 +23,7 @@ class LinkGrammar < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "swig" => :build
 
   uses_from_macos "flex" => :build
@@ -36,8 +37,8 @@ class LinkGrammar < Formula
   end
 
   def install
-    # Workaround for Xcode 14.3.
-    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     ENV["PYTHON_LIBS"] = "-undefined dynamic_lookup"
     inreplace "bindings/python/Makefile.am", "$(PYTHON_LDFLAGS) -module -no-undefined",
@@ -47,7 +48,7 @@ class LinkGrammar < Formula
 
     # Work around error due to install using detected path inside Python formula.
     # install: .../site-packages/linkgrammar.pth: Operation not permitted
-    site_packages = prefix/Language::Python.site_packages("python3.11")
+    site_packages = prefix/Language::Python.site_packages("python3.12")
     system "make", "install", "pythondir=#{site_packages}",
                               "pyexecdir=#{site_packages}"
   end

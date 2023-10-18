@@ -8,9 +8,11 @@ class Osmfilter < Formula
   head "https://gitlab.com/osm-c-tools/osmctools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "864446d5bf53f85f504188be4f59c5f1fc1b902a647a1666de49bf467fa0fd0a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "06e67f6d61cc209499475b010c4bfe2375d5e3dcb4429e89485d6b03454322c6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "daf330073a0fdad514305d1a2af9333705cc946c3bc8e52da4856ae2d0bba094"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b37db3c9ebe77673bbd83fb7d2e6c215760450987df2ded64044eccf6f34d3b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9c1a36fc64e71d69d5b8f118f195dba1d0ca2ad34e43db54c5ba157eb46f74a"
     sha256 cellar: :any_skip_relocation, ventura:        "b89f9122cd15cd5da3e03fac3b4a1c33ecd2efb325f98918c7e9e494b3bf130b"
     sha256 cellar: :any_skip_relocation, monterey:       "806b9fb45a9369e43e4b7f6903cc9a3b98b55c385e7e8828e6aaef556e31b620"
     sha256 cellar: :any_skip_relocation, big_sur:        "5647d8f3a704bd126e2b5f24237febb50989798b425147baf1d1ce1a08fbdaaa"

@@ -8,8 +8,10 @@ class GnomeRecipes < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:  "f56acfdd1c9d668ab51fe01132a627d5d4d2ccf783424c517ea3c3d2a86ac401"
     sha256 arm64_ventura: "7428b63c0372196f449fca8bd2c39eaa5fe8ee9c40b1d5ad7e54af040ccc495e"
     sha256 arm64_big_sur: "a2feeebf2f5d464b1f888d59d30e713be65bb4f19def590684b5eeeaa11efe94"
+    sha256 sonoma:        "1c19f965d29db63d50e3b02fa8cdd7fe7e529c51dfc57209db328e874457b42a"
     sha256 ventura:       "87af4fbd41d71170dfd659353c2caab957c9a3c36d84a0b4c6f79694c4bab07d"
     sha256 monterey:      "8a9ff369bae0b3acbbf48ee50e7ac5a8ec5a1340aeb5b81a6cf5edc3fb5f571c"
     sha256 big_sur:       "105a21c96546f36b1b419dd4c75fd2e7b8104734292133fd21f1380b426043d2"

@@ -1,8 +1,8 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.33.0/ldc-1.33.0-src.tar.gz"
-  sha256 "834c1b08c5f5b3a98f9efbaf8632f0d377d17dac1c1710e483c9ee684658c3a8"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.35.0/ldc-1.35.0-src.tar.gz"
+  sha256 "6e296993706c76c093e609139aa0b3f8704355fa0f3756f6758d78d44226dfa0"
   license "BSD-3-Clause"
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
@@ -12,20 +12,17 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "c89abebd18910da363ea18e32e2e690978d41526bc9bb876b0d0c540ee89653b"
-    sha256                               arm64_monterey: "1f57e82c7358bf8bf063dd6d2d7b889b3adde0febd63e62bf9098629cd2619e8"
-    sha256                               arm64_big_sur:  "ecf2139c8c8aa887d69bb2ae5ee6acccadbc52fd3c8c89d6df8b85d94e0f49c3"
-    sha256                               ventura:        "a79b2cda7452b384aec12e282532532c5c380553ee2370486194f87d324055c3"
-    sha256                               monterey:       "ac6333035c2e2487148aced8971ecb9d6421d7c9c3716f6258403bfca260bcdf"
-    sha256                               big_sur:        "4d341c808881e983dd17fb7b40bd801d3dad31db1ea9a1a7fd9816778320765e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df04315a552a2290e20a5f1dc8bd5eefe7e89aa7e82791a8caa347217ed74ed1"
+    sha256                               arm64_ventura:  "61a80e7ce250c8fd2753f99a0ae8dc6f08e37e1ba7370acd4529e545ad5bd6a7"
+    sha256                               arm64_monterey: "d8050f0b00b323157701942def9367ddf959993807a019fd1dfb294c0e823cbc"
+    sha256                               ventura:        "2475db77771ad577dba5009020d923eb847a0646c54b94b1386f0816c849b61e"
+    sha256                               monterey:       "d4f10edfad963f9f2faed2d34b366ae19691b702bbced262194e3fe4bac09536"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5b5aa12699b0c8e640f73c1175924a60cd55b4bf4faa4e60480791e0a59d787"
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
-  # TODO: Check if the latest `llvm` can be used:
-  #   https://github.com/ldc-developers/ldc/blob/v#{version}/cmake/Modules/FindLLVM.cmake
+  # llvm@16 build failure report, https://github.com/ldc-developers/ldc/issues/4478
   depends_on "llvm@15"
 
   uses_from_macos "libxml2" => :build

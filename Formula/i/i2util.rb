@@ -12,9 +12,11 @@ class I2util < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "52d210671de538ef15aab122ceba167767ec35486a094adec7d286bb0a0cf515"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "17d5e12958f6a8bbb119feb21e88c381862116578af66f4b6b8e6bb6f7ce256f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b81238983a3407032564f7a7242a8ed42b62ac4193a07d6c62a03e2afdfd6445"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "df33b627a3f7c69eb99d4ebb107a8ffabe49a16341ec845de5de3de7c868806b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3352f75e937c413f0dcfa6475adef55849e2b9ffdfe653d55b0bc452ce1d23b8"
     sha256 cellar: :any_skip_relocation, ventura:        "2f474b97d35ce2c1eb1814278a4c39f8bc7d9ed32f5e27942646ff5ac486bc7c"
     sha256 cellar: :any_skip_relocation, monterey:       "d5a60fa5cf61312c0a4b9f9307b94d09cbbe87addad19e9214ac3c2a5bd867f4"
     sha256 cellar: :any_skip_relocation, big_sur:        "9f721b6a003be8ebc978c69619126625075dfdc013eaadc4ffc67192bd62a1a7"

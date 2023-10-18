@@ -1,10 +1,9 @@
 class Libgit2 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/v1.6.4.tar.gz"
-  sha256 "d25866a4ee275a64f65be2d9a663680a5cf1ed87b7ee4c534997562c828e500d"
+  url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "17d2b292f21be3892b704dddff29327b3564f96099a1c53b00edc23160c71327"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
-  revision 1
   head "https://github.com/libgit2/libgit2.git", branch: "main"
 
   livecheck do
@@ -13,13 +12,15 @@ class Libgit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2397abb72e01e08acec420aa55b787459fbf678ffdd13d4d9f4728eda818f800"
-    sha256 cellar: :any,                 arm64_monterey: "ac8d4365e5934eefa014be623fa5a93f52b5106221f1a71f8ed31ce36ad18cd6"
-    sha256 cellar: :any,                 arm64_big_sur:  "0e835df6e63b9368ecf71f757df0bc71f87e6488b833757136f4bbe98a74ca5f"
-    sha256 cellar: :any,                 ventura:        "d0942b923c027438c776298fe388e595d8bbf87daf3db1aa82e2927ffef2785d"
-    sha256 cellar: :any,                 monterey:       "d9a5acf3df857605f5dd7814760062a0bca3f5877eb67786c5f6d3e8a8081c26"
-    sha256 cellar: :any,                 big_sur:        "5e897e058041e1c9b947883c750911f90727f851545d8dd92c2e20eac3d34cf2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f6702df8184a73fed8ea3568ece9d96bc3bc1a8faef13c457bbf1be5f014210"
+    sha256 cellar: :any,                 arm64_sonoma:   "e7808384d248d257885634dc41f584319c02a310946d35672a70c5b0368cd66a"
+    sha256 cellar: :any,                 arm64_ventura:  "d1de8934d2ee512544fa5d941329c516d64b3c3aad437fef7825a18401c70be9"
+    sha256 cellar: :any,                 arm64_monterey: "e45bbf04a950adbd0dbb1bde55572ec384cd0c0635653326d88009c04ec46107"
+    sha256 cellar: :any,                 arm64_big_sur:  "bfb4012117dc4d21de49cd707ca108b77f873fdcd17452abb344dfe82de1ffc9"
+    sha256 cellar: :any,                 sonoma:         "9ea90f75a7fcd0182e8370fc8eaa43fc82d202fc1766b0c54521b95a035e4e26"
+    sha256 cellar: :any,                 ventura:        "fdf652b3f275218544cd2da03d0afe894eb8484f276a80432cd2bcb1c294dc23"
+    sha256 cellar: :any,                 monterey:       "a78523160ada0495659001ed56782abaac2659933e48fe8302e1d3ddfceec6ce"
+    sha256 cellar: :any,                 big_sur:        "6026fc1aeb900f24d33bf1fbda44a8a3ce2d84dc14511a8e8af8a3ee312a67a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19126e03d88fc4d91b97c11bc090a9a87180e3dbf6d2ad0d721c5cc4410330d7"
   end
 
   depends_on "cmake" => :build

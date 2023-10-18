@@ -4,16 +4,16 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/v7.2.24.1.tar.gz"
   sha256 "561b18fc2a7ae45c37c5d0390443b37f4585549f09cd7765d856456be24e5dbc"
   license "GPL-2.0-or-later"
-  revision 14
+  revision 16
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb72c10c47b346809f3b7892640db72b3a1ad6b7018246d280347b97d329768e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "62d95fcd05a50ea982082c728b79d238ec698f5f80d3676dc50962252e999a74"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c20579989f0c30efb7fab038c4db2a001c5b775c14c77b59548b252e7f656404"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf06a50e44f78af087315543f11453c8d49c3292703bdcb9f2607aefea401838"
-    sha256 cellar: :any_skip_relocation, monterey:       "89ce6777c2393c99377aa38d7547da1f133ba0691627f4a7ed12a17a7c2153c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77574786c5bef2a6cc9fcbe412eac66fcf07fc2af49acb46b47b71d895f1c2a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47491bdd49e4bb4e73e10c96d06aa3ac00f28895497669af948dbaf0c6dcef33"
+    sha256 cellar: :any,                 arm64_sonoma:   "227d9c3807dd77e231d61636683f51b656b04966b5e36bc137c58df35d52230e"
+    sha256 cellar: :any,                 arm64_ventura:  "c1aeadaa563133053a09851b9423dd09a4d79eaa1e28f65ebdff21847f1d7f0e"
+    sha256 cellar: :any,                 arm64_monterey: "e63785c74d313bc1c4c8c92eb01bb9ec64f12914849d53b94f12f18a8b2e1c47"
+    sha256 cellar: :any,                 sonoma:         "cc075bf773ee919b496a3b6884c85c9ee21bb156ee5aae49ccdec2926884b531"
+    sha256 cellar: :any,                 ventura:        "e37f57b03832b091538d658e5e87bc2274f12bb80c4e834a7b108171372e34ca"
+    sha256 cellar: :any,                 monterey:       "8545109b7ddb2a27847df476137b24c66830d869fc869811b6b0934edd5dd2bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b66d17be67cc0dd12fd6f412664f4db59d891f4460890ba6fc7e8d08e36a6a0"
   end
 
   depends_on "pkg-config" => :build

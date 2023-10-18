@@ -13,9 +13,11 @@ class Languagetool < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74238f26f888f1513dbd0ba07ae8b3cf439b9a37ea81e62acaba4591885373ad"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d07d52b4f44349f74f7cdb77964972d583e4cf7bd27baa2af6e125ca7d74aca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cd21adb77a1f11206ae2428e6d9856d5d8907fc15547b6b1b05a4e9ebbb0ec1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "501c2ed3ed592818a1359b77a8ebd382d65d4bf8983063f001174afe695b752c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bfc0614d09c75a137046b230c9ab90a16db90308f5a99b54a5be79bdc3f1e84e"
     sha256 cellar: :any_skip_relocation, ventura:        "8a468159d1b3b14432ff0cd83a46b4011e268612a45ea58ef90acc6b41e6f741"
     sha256 cellar: :any_skip_relocation, monterey:       "fa7ec4174d93c00084936ae45ca32f6a541ba224a71e22b8646a94ad3a1eb18b"
     sha256 cellar: :any_skip_relocation, big_sur:        "0bc2df167adf00bd1e129786563a966bf51887846b74dbcbd8e5016a6088821f"

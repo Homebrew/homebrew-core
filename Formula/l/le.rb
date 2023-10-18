@@ -11,9 +11,11 @@ class Le < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "edfcd9c9eb3db9ca955cf89fdc062ea3fcbc146468fcfbc41dc5903ad50ce4a5"
     sha256 arm64_ventura:  "95468ba644bd4a29069f7f58a73b43565ce4b1938d6f8abfe71f867375c26844"
     sha256 arm64_monterey: "75bbbb7067c4bbd3eb4e262e694ee0293f83558a0b1393f43ecaab4659b50891"
     sha256 arm64_big_sur:  "0ccb086bab740c6761a159f82e0cadb1ed09e7fc702afd148a6055615d3478a8"
+    sha256 sonoma:         "a390f3638590d77c06fdab55ac6795616bbdc950c23c33d101c544736a46f74e"
     sha256 ventura:        "dbd85e597501a053d50b15d5a2be4d2627a4c2b78bfa6d520d9fb0cd87320c79"
     sha256 monterey:       "3a776a4b3b24e8a3bac7d1669aecde9790e5bea72c116422af0c5795997c94d5"
     sha256 big_sur:        "5e783b96b482837243218a8c69f0bf5be7a7afa3ed19cb9950fc88342dd65e5a"

@@ -1,29 +1,40 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  url "https://github.com/kbknapp/cargo-outdated/archive/v0.13.1.tar.gz"
+  # TODO: check if we can use unversioned `libgit2` at version bump.
+  # See comments below for details.
+  url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.13.1.tar.gz"
   sha256 "571910b0c44f0bcf0b6e5c24184247e4603f474c7bde5f0eaa1203ce802b4a4a"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "a091b1d33b8993cccaadd3226b18e47123387abf7926d0077c457942e70b7dfe"
-    sha256 cellar: :any,                 arm64_monterey: "20e674b341efba24dd8c4d8e5b35e138d348f5f62d0a0883ef348f44f540ef54"
-    sha256 cellar: :any,                 arm64_big_sur:  "2b811bb18b558bbe8290c62f9b3c8de03305a8ef80f4361f7f98aa8ba6f27546"
-    sha256 cellar: :any,                 ventura:        "488b9c21900f86bce7ec670eb513bd1a567e3d5fec37cfa2532a8bf6912f2c5e"
-    sha256 cellar: :any,                 monterey:       "6682da0e97842b793ec175289492b8e53c9943d0fc5cc34a8de99f29d2db3e47"
-    sha256 cellar: :any,                 big_sur:        "3c990f4910559e35b00487de1ed368f14f047c6ce9d18597fe2bedcd224da740"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f869e828ca53e03d6b976af8bd71cba0c5b558713b80b8bf5703f2b0049048d2"
+    sha256 cellar: :any,                 arm64_sonoma:   "3c30a8c7f4381740c44b92cffa654aec291389550915bd58c96056855bed77d1"
+    sha256 cellar: :any,                 arm64_ventura:  "aa2214131cf25fd2d538428aa6619335604545a082b0437c2860f8e9b87e59cf"
+    sha256 cellar: :any,                 arm64_monterey: "d5dd9bf61bcd2564a2902d52325780c01de19ee03e458d403aca3f223e9ad857"
+    sha256 cellar: :any,                 arm64_big_sur:  "3b00d458873a9e22f1992ba05e5e670fd4517b4463eafe42ff6c412ac67c2b14"
+    sha256 cellar: :any,                 sonoma:         "d791d0d28e14c2665b3ea80fc2fc3d0a28f4bb30173c637d9e543aab2b8d7d23"
+    sha256 cellar: :any,                 ventura:        "0f3c8226b69b412c10d7176527c9dd40ff4d0781fef709283c3171db3a1563b9"
+    sha256 cellar: :any,                 monterey:       "9a72734928b3551faeae251b6955b4dc060dac4e3bed37af7554db570aab5b36"
+    sha256 cellar: :any,                 big_sur:        "b53fbcad34125c6f15de105c15c76eef98c1751a6ddf3d66ac983ff921ec81f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2a7c074738a25b95854fd998ac0231b76862c38d889b975eef94b42347e0c66"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  depends_on "libgit2"
+  # To check for `libgit2` version:
+  # 1. Search for `libgit2-sys` version at https://github.com/kbknapp/cargo-outdated/blob/v#{version}/Cargo.lock
+  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
+  #    - Migrate to the corresponding `libgit2` formula.
+  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
+  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
+  depends_on "libgit2@1.6"
   depends_on "openssl@3"
 
   def install
+    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     system "cargo", "install", *std_cargo_args
@@ -41,9 +52,9 @@ class CargoOutdated < Formula
     # Show that we can use a different toolchain than the one provided by the `rust` formula.
     # https://github.com/Homebrew/homebrew-core/pull/134074#pullrequestreview-1484979359
     ENV["RUSTUP_INIT_SKIP_PATH_CHECK"] = "yes"
-    system "#{Formula["rustup-init"].bin}/rustup-init", "-y", "--no-modify-path"
+    rustup_init = Formula["rustup-init"].bin/"rustup-init"
+    system rustup_init, "-y", "--profile", "minimal", "--default-toolchain", "beta", "--no-modify-path"
     ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
-    system "rustup", "default", "beta"
 
     crate = testpath/"demo-crate"
     mkdir crate do
@@ -67,7 +78,7 @@ class CargoOutdated < Formula
     end
 
     [
-      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2@1.6"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|

@@ -12,9 +12,11 @@ class SpawnFcgi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2d8ec10284cf94e07007659f9c2a9dc3382156c112c7a2ff2d2be94389a1dcb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "56eaf8799a8a03bec6c678f53cf48aa3b9828a473479150a67a2a58399cc3613"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9efa91b0b383106235bc16d9fad9852f33233eb6b81891109b60733ec40ec71c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "89bc1faf59756165a4a27cd43fdbac4c5d81ba5e12613fc1152c181a60f5c0df"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8ea7022db50099998cfcee6056a57f79314e35d55cd9bce30c79a6473a0c546e"
     sha256 cellar: :any_skip_relocation, ventura:        "16b2c04a3bca92100db5fe04d56741257daccd7f91737526af4ac45c5805167b"
     sha256 cellar: :any_skip_relocation, monterey:       "d45cd6391796628d9bc7e6c6259150d763f9ab1dcef898f1901359b6e1844f8e"
     sha256 cellar: :any_skip_relocation, big_sur:        "23c10df486a01421d25bf7ffa44e42f4cc0c14a4fe4c81b6de1eaaf498bcabd1"

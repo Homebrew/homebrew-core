@@ -12,9 +12,11 @@ class Openttd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "bd4184dc82bbf2dd4cfa53c082557d5c04ab2e76a2693c8060ae7e15e5ac4e52"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "32f2e7021a484af00d0d5884864d35d83d0f8a67831ca2ba02966b0970bf43c2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48610f296bb2633b043e2a623e8503ed59b67867469c502a4a0c3d5b34561c79"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea285a23cd2736976db458c96132be25391bef4c563285e5653371674c002e54"
+    sha256 cellar: :any,                 sonoma:         "b564120c6877236bd47a9b5fcba68670b839ee60889b1861d40a32b7021d271f"
     sha256 cellar: :any_skip_relocation, ventura:        "35830f4068b0bd0b789162ca0c85c16d67b17605ed6a7d714f6b11a1a4deefe2"
     sha256 cellar: :any_skip_relocation, monterey:       "4a45055d7982167909e1e97e1e1858330b16c06489a02b825e6a525227ed76e3"
     sha256 cellar: :any_skip_relocation, big_sur:        "4f23a6a378b56e2c4116ffc0246ce322a5bbe45c254451a67566e5b8f034cac9"

@@ -4,6 +4,7 @@ class KitchenSync < Formula
   url "https://github.com/willbryant/kitchen_sync/archive/v2.18.tar.gz"
   sha256 "088908d9a2cd5155245cf7bf8823859b0cf7e8901c5f97843c863f8e344fdc5b"
   license "MIT"
+  revision 1
   head "https://github.com/willbryant/kitchen_sync.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,15 @@ class KitchenSync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "da1ff72fa652658d29972c4590c9920d25dd02b2aca5446d8cdac0d978101970"
-    sha256 cellar: :any,                 arm64_monterey: "bd788d9b4bbf2cc1d858cb70fc32f2854ee953e9870b5c93c77271f50a6cf2d0"
-    sha256 cellar: :any,                 arm64_big_sur:  "11da7841ee23266a175f6f301da1b53cc7c17cae9ea7b27c78e8338e8b7ec40f"
-    sha256 cellar: :any,                 ventura:        "a6f43868f715d5852c23e39ada1fad15ad2ee23aa5f25861bd861accd5097da1"
-    sha256 cellar: :any,                 monterey:       "4e677bd8bc05191b5cc7441f41d1fadf3ef509bd662708aef438396d3025d2da"
-    sha256 cellar: :any,                 big_sur:        "47e297ac9e1f0593912c5add644866577122d121f97fa509da2c4dd266147ecf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88f0c80cc34eab39f9effac63c33bb154e257b2a3ad3ef65be1553adf170fb26"
+    sha256 cellar: :any,                 arm64_sonoma:   "c863227af9560bcf1e41955e1ad4484512da86d086d4e1cf1350cd4e5d40b1e3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c8c1afad3013a4233757efafbfd32cc8e8d6b94068e884996c03f0dad52f9d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "44bdde825d8375a6c6d7c7a0bf834d06695cdaf436c85750ccfc79f21f7369fb"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a786e565cb1b1770511a217878a5dd3728f36335ee9e862afff6d83c05e3228c"
+    sha256 cellar: :any,                 sonoma:         "b4c172159119eaaf09a31daf3763464951b60e27453148983b4455fcbe5f4bc6"
+    sha256 cellar: :any_skip_relocation, ventura:        "83052f69c05a9b25d7c46ea2c6696948d20f28b5202368fbc4c6712d4a66a495"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b4b73b92a02c79ef17eb8b60e426a7e550cddd0f45292588e84ef8856af0645"
+    sha256 cellar: :any_skip_relocation, big_sur:        "9ba2d74630f9db7e8b0dba3f3b2e0e863d275b8786d0aa499ae6004d2f117209"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e70d05c091e1028e66d5b07762034f2e8aa6d85c07ee4255a275e793255bf716"
   end
 
   depends_on "cmake" => :build

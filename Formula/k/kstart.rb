@@ -10,9 +10,11 @@ class Kstart < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7ca3f10529d5a1651d1e2d0a5a2940720825e35f996cb46b52ad543f7f63328"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9e3c45b4365b8c742dd32f9117cc04f297136162ce1a533c0d6d5c6ed96182b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "95e851996c1269e8e1bff896243972ccfb236db690f448aad6b2369b84f366de"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dd2e41cf3cd5cf097f960909259741728d215c4d2ed563a4657a4c209d94bb11"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dfbf8bcdaf53103406b72504c67972378e7ca86cf5731e3911ade0c481ee9556"
     sha256 cellar: :any_skip_relocation, ventura:        "fc55d53dc7331b351749f1bfd22268e8c035b8997d3c7408d422dfb898f2265a"
     sha256 cellar: :any_skip_relocation, monterey:       "69dc607481b782c4e341764acacd28362ce93a64c4769ab9bbaa70f9b9e827f5"
     sha256 cellar: :any_skip_relocation, big_sur:        "d34ef88ac1505c9590dd1848fd62688af3fdfef8fae4975025cae75684879c99"

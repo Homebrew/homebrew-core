@@ -1,25 +1,27 @@
 class Metashell < Formula
   desc "Metaprogramming shell for C++ templates"
   homepage "http://metashell.org"
-  url "https://github.com/metashell/metashell/archive/v4.0.0.tar.gz"
-  sha256 "02a88204fe36428cc6c74453059e8c399759d4306e8156d0920aefa4c07efc64"
-  license "GPL-3.0"
+  url "https://github.com/metashell/metashell/archive/v5.0.0.tar.gz"
+  sha256 "028e37be072ec4e85d18ead234a208d07225cf335c0bb1c98d4d4c3e30c71f0e"
+  license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "72ac6ed1ef416a844bd9794ef1810bebb3bd24397e7ed4f1aac754e8842b0600"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c7cbb01fe420183e802a5a974d5eea39f38333469674f8128d74db49376a726"
-    sha256 cellar: :any_skip_relocation, monterey:       "473cc7a5c1ea7ef3bdd0e196022fc3f8941424f0cd6e80af44ecfe64c92d4952"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a1fc773f5452ccb165e28e9ec0a79616c14ababc66ed3614a213bc86bbfcda84"
-    sha256 cellar: :any_skip_relocation, catalina:       "792f1b46b5f17933b21ec7adb62cf0b6add03ef94e8a73e5e691e12e9aa85049"
-    sha256 cellar: :any_skip_relocation, mojave:         "4629398ca4b1bf5cf7779b8d5c9e6f066ea5e96f66063c265f0b13e106a0cba0"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "05387acf4adf651aaa011d02f5a08ddf49725a550440cc7eb496c1112166852b"
-    sha256 cellar: :any_skip_relocation, sierra:         "14fc35b7b932170333d8260b8bda881844ffc68870aeb1a120ebd74072ef900c"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "209c4c475fa58cb42a2e98bd34c11a983463465ce4ee5470474177d6740fb2e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1e3a47564c136eedecb087617ebf7b7b9da158d0eef5497cfd04b5ffa74d814"
+    sha256 cellar: :any,                 arm64_sonoma:   "109c76fa2e8da1b4bdddd8368c4c3e8328477658a44064bdd77da42f60e48bf6"
+    sha256 cellar: :any,                 arm64_ventura:  "2cc250a4e2c795206aed7e6e3c29bd58fd7c48adbb406ac9ad6076249c783537"
+    sha256 cellar: :any,                 arm64_monterey: "7cbd8c82695aad556936488bcfcf3bacf33866d2d75401ff31eaf5cd60920997"
+    sha256 cellar: :any,                 arm64_big_sur:  "287f647cf8550653078479c27d4e985a456e68ef24491a3de01175e92234e55a"
+    sha256 cellar: :any,                 sonoma:         "6ee5ee0f262ea927bd82f2860399ae5e3c751ecdd6ef8399a601f6dcb8db3c37"
+    sha256 cellar: :any,                 ventura:        "f196e01be3cba5fde64a8114afbd1c4adf6c6ef5a44fc5e7f848cf7f7797d086"
+    sha256 cellar: :any,                 monterey:       "5573b01681807008a818cdab233292aaeb7db1bf93694cade04410dd60dc39d1"
+    sha256 cellar: :any,                 big_sur:        "e2f9bdc3e9b406683dc706aa08d10efa38e5cebe033268f324341872c62ec390"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "069823ccd40ab1274639474bf62285dd7c92cac8afa0006a51cada9a28bd1a12"
   end
 
   depends_on "cmake" => :build
+  depends_on "python@3.11" => :build
 
+  uses_from_macos "libedit"
+  uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
   on_linux do
@@ -27,18 +29,18 @@ class Metashell < Formula
   end
 
   def install
-    ENV.cxx11
-
     # Build internal Clang
-    mkdir "3rd/templight/build" do
-      system "cmake", "../llvm", "-DLLVM_ENABLE_TERMINFO=OFF", *std_cmake_args
-      system "make", "templight"
-    end
+    system "cmake", "-S", "3rd/templight/llvm",
+                    "-B", "3rd/templight/build",
+                    "-DLLVM_ENABLE_TERMINFO=OFF",
+                    "-DLLVM_ENABLE_PROJECTS=clang",
+                    *std_cmake_args
+    system "cmake", "--build", "3rd/templight/build"
+    system "cmake", "--install", "3rd/templight/build"
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

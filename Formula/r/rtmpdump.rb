@@ -3,10 +3,10 @@ class Rtmpdump < Formula
   homepage "https://rtmpdump.mplayerhq.hu/"
   url "https://deb.debian.org/debian/pool/main/r/rtmpdump/rtmpdump_2.4+20151223.gitfa8646d.1.orig.tar.gz"
   mirror "http://deb.debian.org/debian/pool/main/r/rtmpdump/rtmpdump_2.4+20151223.gitfa8646d.1.orig.tar.gz"
-  version "2.4+20151223"
+  version "2.4-20151223"
   sha256 "5c032f5c8cc2937eb55a81a94effdfed3b0a0304b6376147b86f951e225e3ab5"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 2
+  revision 3
   head "https://git.ffmpeg.org/rtmpdump.git", branch: "master"
 
   livecheck do
@@ -15,13 +15,15 @@ class Rtmpdump < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "572f37c44c4f32aa13dcd2bbf4770ec3e95ac469301044e61b1e36504c272f4e"
-    sha256 cellar: :any,                 arm64_monterey: "9485c20cdb3af897739b7f96d1277b067f8942ec56319d63723f553c9bba83b2"
-    sha256 cellar: :any,                 arm64_big_sur:  "296c88c93a14ef83e9423e17c6a68ab4433b40f52c298a638fad8b04d8a47d00"
-    sha256 cellar: :any,                 ventura:        "d55211ce185ffec9901ae510de102b69e210e2b978e0cef81e0ea4e7de9f8266"
-    sha256 cellar: :any,                 monterey:       "92ff849dd16c09569ede4c04e8cab4679366c4d3fabe47dc97733ae89aee24bb"
-    sha256 cellar: :any,                 big_sur:        "898c06791665ad0c74e4b7ba99451b47402b3a22c02f98166ffb7d2258d77a35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d051297b563e80fbcff1a9006ae9fa0ce66280716322fa58a669298d73407e6f"
+    sha256 cellar: :any,                 arm64_sonoma:   "fc5748b95d47c39bb4d633090cc0a7b5fe90bda5ef163fa5b8809272c9bf4618"
+    sha256 cellar: :any,                 arm64_ventura:  "1dec5a57d0173f54cb1f38efb6bfbd0bc416bdb298289ebaac1dce3a41bdd6fb"
+    sha256 cellar: :any,                 arm64_monterey: "5151b4682fa17d931e6383dd06b584d822df647fd454b22ddf498525606cff39"
+    sha256 cellar: :any,                 arm64_big_sur:  "b548e2d6b53bc0d03bdc73fb01a175c8ef2338f80a3ca0c1963af625f0baa523"
+    sha256 cellar: :any,                 sonoma:         "5d019561203c8b1c1c1e69c48b3987d531c55fa806bd83f0a462b6b7da732f48"
+    sha256 cellar: :any,                 ventura:        "b27c24194ded10a47b93a379efae8ead4b04a6d3e8e34bc3a70942380b1ed68b"
+    sha256 cellar: :any,                 monterey:       "b942d0dee2c95a00b3fd080c50d1f0d715448ae3147bbb18cf5adb758cb63798"
+    sha256 cellar: :any,                 big_sur:        "794073edbf7402af7750b21fbcb44c5df038d6d3606450bd6a453dc92b6b3b09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ab7f054fd0b01975be1893437235c61e2761ed9fb54e7880a854ca37809d57e"
   end
 
   depends_on "openssl@3"

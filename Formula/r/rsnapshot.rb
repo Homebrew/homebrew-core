@@ -7,9 +7,11 @@ class Rsnapshot < Formula
   head "https://github.com/rsnapshot/rsnapshot.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ffe1eafe7c869b14ade9f1befcb45e41eea2ed44e82fb4ad03181e5753c90ee"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb30e80a6c1393883b9cfb841bbbd36aa9dcbfc37bfe785d5a7cf70f8e22a281"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bb30e80a6c1393883b9cfb841bbbd36aa9dcbfc37bfe785d5a7cf70f8e22a281"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bb30e80a6c1393883b9cfb841bbbd36aa9dcbfc37bfe785d5a7cf70f8e22a281"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6807c58f2cf0d19782c9647f532674c3b70f130b1dccba7741a0dafe141a0f83"
     sha256 cellar: :any_skip_relocation, ventura:        "4e1c7b09d6afb52057774ba26f8f8c6b3831ca785583ad3909df990f4f84ada6"
     sha256 cellar: :any_skip_relocation, monterey:       "4e1c7b09d6afb52057774ba26f8f8c6b3831ca785583ad3909df990f4f84ada6"
     sha256 cellar: :any_skip_relocation, big_sur:        "4e1c7b09d6afb52057774ba26f8f8c6b3831ca785583ad3909df990f4f84ada6"

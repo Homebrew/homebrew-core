@@ -8,13 +8,16 @@ class Networkit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6a641907f704a372b44eeb3016fa6f633b48593f8cccdf70245a4fc0a8a0b2ee"
-    sha256 cellar: :any,                 arm64_monterey: "e8c3a17455f14617cf8cf83a8cdd4c1eb97cdf92c495e16aaf43bb05d3c84875"
-    sha256 cellar: :any,                 arm64_big_sur:  "f551e7a38d6578c04e3024c55f47dfe0c355ba0e23f2b203cf2c7475037bfa16"
-    sha256 cellar: :any,                 ventura:        "5df948fc0e43eb9c6a363250a7a5bfefffab863a83d3f1ae7c164d7d6365e836"
-    sha256 cellar: :any,                 monterey:       "ff2a389f6edeec2770801b7a1896e4bbe76d9365d9d15ece252a968dd1d8269b"
-    sha256 cellar: :any,                 big_sur:        "5fe27b2ffa7ecb1ba75b6562b241a9fb9c79827531a08a91fa04e77aa689095e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9080b4e857eced5cf4f15d10d22a9069612f1fbea8a72e99ea7978f484fd5e92"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "373572010294de60707d78c79dac5a1de76ec7f5a31b5b73097e10f4bb271af3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "728f021d0fbf6fe3237db7ba75b3cc637fe38b0db5d4bcf1f8c88f4fc0461dfd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "23470b1cb591899116c01c966304451024bcea4ed7ba8f13ae4bbe1986ec00c1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fcb9af0f8f137c35009fe9ac19c25c165adc7e123653a221c00b6f780cb4ac7a"
+    sha256 cellar: :any,                 sonoma:         "7c54e33533baae65e91d5adb57ed732f5e675e8d6d1fe25edb7a6f93c74915dc"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d3e07e85b55cda32842c7eae2d7752a59618a3fbcb2fe11231bf9c392cc641b"
+    sha256 cellar: :any_skip_relocation, monterey:       "b6ce1a8d4694d1e3434fc23e0a99d605bd777f151b2e7c8da56b5312ce3e7130"
+    sha256 cellar: :any_skip_relocation, big_sur:        "45397cfad06aeb74e92fd34c773772d5fa14ecf9aa32d23b79643e31e1ae33a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c288ca970f924b07fb6619e453ebb54f013b4665f5f6d90b797af2026e134161"
   end
 
   depends_on "cmake" => :build
@@ -28,7 +31,7 @@ class Networkit < Formula
   depends_on "scipy"
 
   def python3
-    "python3.11"
+    which("python3.11")
   end
 
   def install
@@ -43,7 +46,7 @@ class Networkit < Formula
                                              "--external-tlx=#{Formula["tlx"].opt_prefix}",
                                              "--rpath=#{loader_path};#{extra_rpath}"
 
-    system python3, *Language::Python.setup_install_args(prefix, python3)
+    system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   test do

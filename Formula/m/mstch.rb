@@ -7,9 +7,11 @@ class Mstch < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f20877158629504b39573ded1a2dd06de78cd1de916eb10fdfadaddee5dca44"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "de4dc750e2737a8745de171858fc53741ee2625540f3ed64516f5afd9a8abc6f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "16e5ebc65aa83659f1ae24aedc277490f3423336de6081092a16c54d541d535d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "091a9f16feb7f238f196e7e184fd67d175d06d5f40b6237ae5fe89e9cfb25f40"
+    sha256 cellar: :any_skip_relocation, sonoma:         "10610321f7b5fa161cf8f8f7eb9e85cd1844c4a7b5ec282d25f9d42e8d973ded"
     sha256 cellar: :any_skip_relocation, ventura:        "c7077d9fab11fe2dd54f86d558faafdeea1d053bf93a52cff6702a0e07e2a407"
     sha256 cellar: :any_skip_relocation, monterey:       "54d4bc0f632f178d01ade96cd1baad2e928ef3fe47cf016b4a9bceb2696d3dbe"
     sha256 cellar: :any_skip_relocation, big_sur:        "94803b150e7503fdb744b8eb8ab27b9e22b0a3e1720f63233268044fe25514ee"

@@ -12,9 +12,11 @@ class Flowgrind < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f60d8edcde8a31eeafca3c30b0b1af02ce4a769166d751af254b313e3543bd2a"
     sha256 cellar: :any,                 arm64_ventura:  "82a2b71ee222c44ffe3f34d8732e6feb29b8ccb4261551c64ee74705bcb4ae5a"
     sha256 cellar: :any,                 arm64_monterey: "7a6a9d6cf73f3654f250518d52970c29d71d95480d17d85ae6f3b605e3ed9cd8"
     sha256 cellar: :any,                 arm64_big_sur:  "79be377bc6cfdc96c5f8bb42d97b91b51e81818894e68151496344b21515bce9"
+    sha256 cellar: :any,                 sonoma:         "571c9241cf37667375cf5ea4b58daf92998635567f7a1a1754ffabe3e9415ed9"
     sha256 cellar: :any,                 ventura:        "bc919ff7842921cc2def6e3e755f383d847f0632355b14ecfa1bf20e46652a7a"
     sha256 cellar: :any,                 monterey:       "56cb3352c2793c2e4b74983de804a3d5ceed6fd9ab177c6e2f05a8856e07eb2d"
     sha256 cellar: :any,                 big_sur:        "148b960d7dea68adf8e076e53af487d83184fd2e71bc225cefb01f253ae282a3"

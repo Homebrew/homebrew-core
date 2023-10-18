@@ -7,9 +7,11 @@ class Busted < Formula
   head "https://github.com/lunarmodules/busted.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a28188f4263382669b0fe05dbd436442f033336304d74420f03708ee0274d478"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c786f9112dbb02465796371299f4bca901abd098cb53e09a9ec32b49ba413449"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1206262092a4f062485f69c3f6089ca83860d690c3ad0106c5fb66dcee5fe3fd"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1add1b2ed97a73461df8dab0e780fc330353ae79c418f08a2679d881911dc0ca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "48b47c0a308a67e7af702ff6307137f9e02ba39e0866692270a0574682d49d5d"
     sha256 cellar: :any_skip_relocation, ventura:        "f0e7507ca4eea417efb556d1c9f41f3032ca2b64fcf7d7e85fe984b7d453a3f5"
     sha256 cellar: :any_skip_relocation, monterey:       "e2a1c8e26fa76b9de341e1494ee290dba46f8a060a3c7a3d83b4823b2d755abc"
     sha256 cellar: :any_skip_relocation, big_sur:        "fef0e53feb7b809d09cda5fae2b28cbb4e0b61533682a1310e1a2218d3a7d46b"

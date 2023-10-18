@@ -1,20 +1,21 @@
 class Qthreads < Formula
   desc "Lightweight locality-aware user-level threading runtime"
-  homepage "https://github.com/Qthreads/qthreads"
-  url "https://github.com/Qthreads/qthreads/archive/refs/tags/1.18.tar.gz"
-  sha256 "c2d1ba85533dc980ff61e422c9b7531417e8884c3a1a701d59229c0e6956594c"
+  homepage "https://www.sandia.gov/qthreads/"
+  url "https://github.com/sandialabs/qthreads/archive/refs/tags/1.19.tar.gz"
+  sha256 "2790382991c0755d752354b189aa019076c80ebed7f4c5c045d14bd57c9eb7ac"
   license "BSD-3-Clause"
-  head "https://github.com/Qthreads/qthreads.git", branch: "main"
+  head "https://github.com/sandialabs/qthreads.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "5d9d7bd839e5ea29c6e9907907d153388c37f6011242c241ca650f19a6b75e73"
-    sha256 cellar: :any,                 arm64_monterey: "20e1c3bfd839efc644db0d69c98d0d58a9fce71b4a2830d054d4792d5180fc92"
-    sha256 cellar: :any,                 arm64_big_sur:  "a584249b31c678d1a723e3c2dc78ce455a76275baef8e9d3c59e5d624f0f5369"
-    sha256 cellar: :any,                 ventura:        "847863371988e92cc7e6d1290db352f9dcdf7847c5baeca4fe18bf02d403be57"
-    sha256 cellar: :any,                 monterey:       "b60ec614ce7bd7cfc835a084e1aa371efa7bbf3790f84f8942e5933f4b77fd27"
-    sha256 cellar: :any,                 big_sur:        "0523493be01de6b4e4159ac430693ce59919d3970349643b8b9278bbe1fe6054"
-    sha256 cellar: :any,                 catalina:       "c4f9b57d8bd7fb1536aa668317d3fc5cff24ca3db5d78a8d52f26f80431277fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "083a3510caf257af5108d87e1d23cc036c5e65e3263487d68ee1afb41d6fa6bf"
+    sha256 cellar: :any,                 arm64_sonoma:   "3e6aa2e908bdd99012e105a838839c1d3f5e42b6ffb6d2418331317412a5a20b"
+    sha256 cellar: :any,                 arm64_ventura:  "33ab2dcf7b44c16fd51b202fcf036284c42b8b43d227e253c8124db7651d04f8"
+    sha256 cellar: :any,                 arm64_monterey: "b56492f664bce061890d3ea8bce840759225fa6f3be04ae8a7c8dc13c6ff84f7"
+    sha256 cellar: :any,                 arm64_big_sur:  "d644d6ce04ded6dc63ad7155bf4bc72ea29ffbdb9e58295ef2fb3d6860b91a9a"
+    sha256 cellar: :any,                 sonoma:         "5fc777c6d6e5f0a292b76d93b659c40a4de2251bf1b79ad0860699002e4bd2f5"
+    sha256 cellar: :any,                 ventura:        "811a8680f91d8d9a2e28a0fb3a65c6b0ba8af40e6a5c7ff326f91b95553ae0c7"
+    sha256 cellar: :any,                 monterey:       "0b17b1bcf5c89afc9ec761261f34689dc2d40e0eacfb7ab11c28debc7444ac77"
+    sha256 cellar: :any,                 big_sur:        "b28f76f53caeeff2a109e45c9f1f846f7248ab6939db37e4aaef01745860bb85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0f6d389a938d52561df8bafae07584d964af38e587f824a9c7f32e5d4f43462"
   end
 
   depends_on "autoconf" => :build

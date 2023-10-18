@@ -1,21 +1,20 @@
 class Gettext < Formula
   desc "GNU internationalization (i18n) and localization (l10n) library"
   homepage "https://www.gnu.org/software/gettext/"
-  url "https://ftp.gnu.org/gnu/gettext/gettext-0.21.1.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gettext/gettext-0.21.1.tar.gz"
-  mirror "http://ftp.gnu.org/gnu/gettext/gettext-0.21.1.tar.gz"
-  sha256 "e8c3650e1d8cee875c4f355642382c1df83058bd5a11ee8555c0cf276d646d45"
+  url "https://ftp.gnu.org/gnu/gettext/gettext-0.22.3.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gettext/gettext-0.22.3.tar.gz"
+  mirror "http://ftp.gnu.org/gnu/gettext/gettext-0.22.3.tar.gz"
+  sha256 "839a260b2314ba66274dae7d245ec19fce190a3aa67869bf31354cb558df42c7"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "28c5b06e66800aa2d460336d001379e35e664310d12638de35a1b0f2b9a44913"
-    sha256 arm64_monterey: "356b52e24b883af3ef092d13b6727b76e0137154c2c9eb42fe7c272bb7d3edec"
-    sha256 arm64_big_sur:  "90da957f7b8ad3d47fff7045a684060168e0433631921463fbbff09b5dc4b772"
-    sha256 ventura:        "fd7e48065cf73e37dfdf4c5cb789a14b93cf58ac06060814a60c94b87d8f26e6"
-    sha256 monterey:       "9318777367eae475e9ea226d2bcbd19ef8281d1dd2af3a92c20c00246677145b"
-    sha256 big_sur:        "95086fa8b1b6a913ca7ef3a7c7c49e147823c26ba239003f9140cfe1252587ba"
-    sha256 catalina:       "aba2b94f406a9d8784bb08f9763440297c645a7ea99f4c4dbfeccb325053322a"
-    sha256 x86_64_linux:   "991579fa170ca491fd6332844b570095978961a9764e57f00180002d471cf3b8"
+    sha256 arm64_sonoma:   "287240f844318fe88193b706d6e07121b2cc7cfb3b5e2f47e21ee6970ffceb09"
+    sha256 arm64_ventura:  "9bf5b0ea5fb893fe294c2c5f9195026e082e84e4dce24c81b544f62d9d85dd02"
+    sha256 arm64_monterey: "29b5bf933d4cc986e2f7b580d11aee8b755f5fab5621bd955dd3ca6867922e10"
+    sha256 sonoma:         "1853891cc14ff16ab102dd75b8ee313975bfdb17c03737975ca61b5a05159e5a"
+    sha256 ventura:        "6971461fbd5d738e7f5609ced872ff87b88a4425c7ba42450871abe743178574"
+    sha256 monterey:       "3600ef54a17fc9782a367a70d60a3996eae4613075ba05e8943cb1e5190d35fc"
+    sha256 x86_64_linux:   "173e5e5fac30885db41e894d9b46798e3023b1543f2d855eaaf77e99e6ed3ddd"
   end
 
   uses_from_macos "libxml2"
@@ -47,6 +46,7 @@ class Gettext < Formula
     else
       "--with-libxml2-prefix=#{Formula["libxml2"].opt_prefix}"
     end
+
     system "./configure", *std_configure_args, *args
     system "make"
     ENV.deparallelize # install doesn't support multiple make jobs

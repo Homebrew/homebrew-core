@@ -13,9 +13,11 @@ class DcosCli < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "566aeb81f1c506438c9f5b503f775c540dfef7a4aa5e728e710e50a2e0c10993"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cf3b69223bb06a5b08f8f48eb320a2b45ef2fcf8e3f63c2e5fb49881872b7bb"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4b7c3e8a7a0d91d84fd13cad41079bd7d718928b1acbaede6f7c5fc0f419b1bc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f86f45ed4b5244b46a83cb5bf5bc5ac869dfbae3af926f175bee78a0ebd9b47a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d67f61c89ee09f845b39d1d44fdc61eac503144bf0da039bbd50fff50722c66"
     sha256 cellar: :any_skip_relocation, ventura:        "f467b1082fdb605f19a24bfa1b316f06a81e5f1c9dfdb2f522582e7d3c30ee65"
     sha256 cellar: :any_skip_relocation, monterey:       "26c6a023e4d2cf388c41f684d52f3d427f57d0a6eacd54a286c5f7c56efb7957"
     sha256 cellar: :any_skip_relocation, big_sur:        "1391a435f38b3a70514d0ef7f0a20f19a2d7027e64cad5c1b413730a89aaec4f"

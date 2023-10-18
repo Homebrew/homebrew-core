@@ -6,9 +6,11 @@ class Freeling < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "f6c73b22c6f39bf934cb3302d3e85c4199cb46aa99dcebcc605db14c745c09ca"
     sha256 cellar: :any,                 arm64_ventura:  "ac2822ac4f5c777cc7bef01ac5b57e1c77ba193817f8e1d1d57b19fbb25a77ce"
     sha256 cellar: :any,                 arm64_monterey: "c2788cb4af12d5fa65c214cb1d0af80b747fb83cc51cb5d788fb6f1462bfc80f"
     sha256 cellar: :any,                 arm64_big_sur:  "ca7bc8d5219f6bac9051a19e9404fd5452876260c9dd16b96e0f10c80f6b90a4"
+    sha256 cellar: :any,                 sonoma:         "0480051aa02568d956e4583f16c5be11f3695ef7c81eff0609d4c6e45ed854b0"
     sha256 cellar: :any,                 ventura:        "321c4a350ec1b843723b2ff0cea9b4633a4c33b73f3aa7080b5831abecfc245a"
     sha256 cellar: :any,                 monterey:       "42ce7757ef606fae613b6db9a1c66af4e7270b23002785dac583abcccad87aa7"
     sha256 cellar: :any,                 big_sur:        "47ebbfe29be84a737912f9aba05df90520b2fa76730f90f295991603c20d79ce"

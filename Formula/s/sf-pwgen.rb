@@ -7,9 +7,11 @@ class SfPwgen < Formula
   head "https://github.com/anders/pwgen.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38d7fb2634658ff623e2a50d1b8b180ca70f05438d3f4a239ed7fd365b789158"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "83a40b37e9b699a826dbce9aa41bba8139766d5020d85b2db736e14106a7fcd8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "18c119ad50fcbce8f68e38f4ed3726c03b34b1df46e9b9ecfd510650cec5d62c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f425de9f8e3e82e24a4c10143e54006c96e6063a19fb64643ec0b3ce279cdaa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "76ee29b2b3a28c90a818780c4eadc30c054aead4485a718283e93112bea42c61"
     sha256 cellar: :any_skip_relocation, ventura:        "bb798ef11bc8e1332a175ba210829ed204521942c7269286ed2abb8ab1451f35"
     sha256 cellar: :any_skip_relocation, monterey:       "e2b26cb28d13762f2160eafa1efcec67aa058bfaffc52265b6c546987cf371dd"
     sha256 cellar: :any_skip_relocation, big_sur:        "bcf403285094f1c803d9f8884aff19225ea5d7ab45329d6efc232f468e43b4c2"

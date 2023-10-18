@@ -1,19 +1,20 @@
 class Corral < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/corral"
-  url "https://github.com/ponylang/corral/archive/0.7.0.tar.gz"
-  sha256 "871de010677666fbe39a22e387e261f2b501af0c69f47bf98b40495162f443e5"
+  url "https://github.com/ponylang/corral/archive/0.8.0.tar.gz"
+  sha256 "496fb8cf8d533f3e9eaa64098c32499ba3c94eb51b1f52dd550948e8c612c1b6"
   license "BSD-2-Clause"
   head "https://github.com/ponylang/corral.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "08b240c9a36bb553b8697392964287e6d74f5a72130ce4e9ef4169231c9296ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc0e848c7e2d50bce82b7d972e938b6830b7f086ea34c8add0a7dffcaff7dace"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "480e8bc1a131f893a29b5c00db1be653da668bd982455eb8652de5dd04efcca0"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa41d7e2f0b025cbe41c905eb692161034ac56aa5a672b9327a9db75928a22ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "81874157b1e52b3b1a2ec1ebcc367f436d771619a3f41f0ac1646fbaa915f1e7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d675a204fa4b237e2996c71ee3849559e46369fb728cd37ff1efb537e750aa5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29e9b75c76c14dfe35a46dbe0d2b02c7d32259f344b8001fd35843723c7c9dc0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa762ed2c4b29e9cf3d3837853851145a408b0f65d61b7c2a28feb32949dd4ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6427abe5672af55ede5b6b42e320874284307cf073a98f00ae14acfca966457"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "20735dd0b9efdf70328b5dae305ef88d8aae8a424bcf02c65cffdbc8471fcb4c"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6ac6521e84685f8419cb5deba01a108cd8c161363311cd47cb8c6331454b0f6"
+    sha256 cellar: :any_skip_relocation, ventura:        "5497cc1358c2c777b188181e39e0faa3e6279b9c14645d83a3f10b91be16a01d"
+    sha256 cellar: :any_skip_relocation, monterey:       "0a349ed1bdb20d6f8247400d6b6c2d45d00d6c61e2d4d35c94b668f81fea37f4"
+    sha256 cellar: :any_skip_relocation, big_sur:        "642ab90fc5f2dedfb91e76e0f976e10d80b8fe08ebb69418286e6dbea5630618"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf2657c67be0a4847531019017b23519216b8b0dca5c4aa4d73315e2b6ed976d"
   end
 
   depends_on "ponyc"

@@ -11,9 +11,11 @@ class Dnsmasq < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "cac6ed802f57c2b5564b0e74a86c3dd3dba2cfc0872a6338f94e6d7ea896b85e"
     sha256 arm64_ventura:  "490265bd8d3e8392380fff3b0fbb4caf65f918366b5cf8c613372d21844860aa"
     sha256 arm64_monterey: "550f2bc4e841dff11350365deccd14a2ae3977b4a21b499ef25da1658c9aaa9f"
     sha256 arm64_big_sur:  "6c07ed0ee4e4da7f96b3019a99314db35594950a7e74e00268a1d9653c5f3d63"
+    sha256 sonoma:         "37c231e1034adfe524fd59764ece9fc6cda5852be288485c4c02ac3380168e11"
     sha256 ventura:        "1c6667316c0c59f169539b20268526dbd809f1e1d4ff1ff4152230745c958213"
     sha256 monterey:       "8d208dd2b6b2571b6fe00abc4cea2e3da949ec722c587a7a373c88e6ea385108"
     sha256 big_sur:        "1790d62200547a99955d7b0cb8925b13343e3b3fd15ee551ebb4d1b1772088df"
@@ -42,8 +44,8 @@ class Dnsmasq < Formula
     ENV.append_to_cflags "-D__APPLE_USE_RFC_3542"
 
     inreplace "Makefile" do |s|
-      s.change_make_var! "CFLAGS", ENV.cflags
-      s.change_make_var! "LDFLAGS", ENV.ldflags
+      s.change_make_var! "CFLAGS", ENV.cflags || ""
+      s.change_make_var! "LDFLAGS", ENV.ldflags || ""
     end
 
     system "make", "install", "PREFIX=#{prefix}"

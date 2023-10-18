@@ -7,9 +7,11 @@ class Mbelib < Formula
   head "https://github.com/szechyjs/mbelib.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "cd9b0cc3c21687f175d3f4aee0229bd9b7aafe34eba6360f26f0619296a0acfe"
     sha256 cellar: :any,                 arm64_ventura:  "5efa031e17f6e6fbfa06cb1bab625af8721ec46b287044fa5cbb0e0567417a80"
     sha256 cellar: :any,                 arm64_monterey: "4a189fcd966e9a57fb11df30a7e136d98bd7b2e989d01af3731117475e2afc94"
     sha256 cellar: :any,                 arm64_big_sur:  "053dd044423318deba18dbccbbd1d85efec94b507dd5646beb7b6c3d32064010"
+    sha256 cellar: :any,                 sonoma:         "2a453c236a4520b7dfc9e50e9fec24fdd2167c31b94b25ac1004b108c212ad14"
     sha256 cellar: :any,                 ventura:        "81eca52ffaa4828961e274c2c00ff39574ed1f9fddbc2d55fbea56068d2882e5"
     sha256 cellar: :any,                 monterey:       "925321b8a121e7cae27ec3736d1035d27d9945255ea9113f430c5dd15e7d4b7e"
     sha256 cellar: :any,                 big_sur:        "508ed0ed1f9603c7c3e50accea0e201d391f673b63a4acb71574827fddcbb1ef"

@@ -8,9 +8,11 @@ class Dtrx < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1736cb60f34a0ab94077e3a6981d03d9a533fcdf67cec3b047579b87a606b2db"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f5c7f156466e498729c08b514d71653924a8e80608c25d834d6c19af38d6be3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6afd2b7089bcc4778cdcc0785ee5aeec4bfa7e3f1f325823185873e993ba7cac"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "783fe0f14c66dc81c9accfc0bcd704c8a85c458f7d05a69e232f33e9b4394797"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8fded854c8e5a0b8d88aecb86d19f2ddda36cdce49150fedcf6e3d4d491f0bc4"
     sha256 cellar: :any_skip_relocation, ventura:        "174026128d9cffc6f70bf3bf8fd8a791eca1d1840cf8d39fc586219962786954"
     sha256 cellar: :any_skip_relocation, monterey:       "4be0c1b639312098dbab1cd7031d7e13c4586bcf99040676fdb0a902ced1d29f"
     sha256 cellar: :any_skip_relocation, big_sur:        "7c539cceb534dfaea15540170888aeee11c57159a56214baa7cbceb1a51282f3"

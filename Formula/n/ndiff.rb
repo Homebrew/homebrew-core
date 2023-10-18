@@ -11,9 +11,11 @@ class Ndiff < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b4c46a18f21ebab95fba30b75734e9cc3e9e392909961e8901e43624faf2f74"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "731436f80a687a2e5d2a2d2a53bd338164bbcf828cd01297e14683caf4c93e22"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "731436f80a687a2e5d2a2d2a53bd338164bbcf828cd01297e14683caf4c93e22"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7c14877b300c9a36d4047b883e773397f819f60718b9e13d17ca4359b317541"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4b4c46a18f21ebab95fba30b75734e9cc3e9e392909961e8901e43624faf2f74"
     sha256 cellar: :any_skip_relocation, ventura:        "731436f80a687a2e5d2a2d2a53bd338164bbcf828cd01297e14683caf4c93e22"
     sha256 cellar: :any_skip_relocation, monterey:       "731436f80a687a2e5d2a2d2a53bd338164bbcf828cd01297e14683caf4c93e22"
     sha256 cellar: :any_skip_relocation, big_sur:        "409ac74964648efd98d55c7b07ffcb90066e23b08a50b495b4e43183fd3a9aef"

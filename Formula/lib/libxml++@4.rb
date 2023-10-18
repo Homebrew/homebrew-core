@@ -11,9 +11,11 @@ class LibxmlxxAT4 < Formula
   end
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "7a85951fa97206c2e375e1ecdb66d599394c2bbb918139545bedc616062ed581"
     sha256 cellar: :any, arm64_ventura:  "11d8ea93f58e2b7eae642c6d633471db6152bbfcc8485d72bc101c9db814bd47"
     sha256 cellar: :any, arm64_monterey: "663148c59e702e0103bd896f97df7b7ebf9cecef24595c04d26533e939dbdac7"
     sha256 cellar: :any, arm64_big_sur:  "5a06b967b5dc6dc281ea42119ba403b61adad112847c9917a98d4a6c2a1731a5"
+    sha256 cellar: :any, sonoma:         "b6cb7d8218b294f7d4d8f6ce15ade33cfea93c3ed1c048a4fda9d8608c170ffc"
     sha256 cellar: :any, ventura:        "ee8ddb64c2ab91b24b3c1704bd73773634452e4ecd49322292525b65582b9ccb"
     sha256 cellar: :any, monterey:       "915a2709f55796d55ccd6eccc35054532d2836f46ed9afd796289f66ee3ce9ff"
     sha256 cellar: :any, big_sur:        "4305e6cfae1d419e675b50bbb134195ce663f6bfc3c41e4d6c3ab0d4b73a9d58"

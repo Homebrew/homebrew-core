@@ -3,33 +3,29 @@ class ShallowBackup < Formula
 
   desc "Git-integrated backup tool for macOS and Linux devs"
   homepage "https://github.com/alichtman/shallow-backup"
-  url "https://files.pythonhosted.org/packages/96/d7/c59ad086eabfc1b2984e32cc2615368f9ab0b375b8fc5a7a63e5ca81c017/shallow-backup-5.3.tar.gz"
-  sha256 "0af200e5c2d1887e9209bfd970a6835d1d304cc22183569613f378f00848cfe1"
+  url "https://files.pythonhosted.org/packages/18/70/15a97aee274d59896c4224b216cd6cd843c9cfd62153788b93a0016681db/shallow-backup-6.2.tar.gz"
+  sha256 "bb732fa1dee15a1ac27dc9621c4f1f8d1c70f3b88d10b99224ea49106f26e58b"
   license "MIT"
-  revision 1
   head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "866b78717b9ffad60bc6b4db59a602ecc873d244a8ecefde769d46b679bed271"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f95a7fce6f6e5f17430b5377edb84ac14e3973c3473096bb4c86fb0a76b46e30"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "301950ee66f45630727896a443a0ed8e2f8cc6865fc6d60d4aa805fc28540ebe"
-    sha256 cellar: :any_skip_relocation, ventura:        "f490674bfb6dec97ee4f2f96d31395d4faefb0ab2ece996dc11f6f7f917a8b2a"
-    sha256 cellar: :any_skip_relocation, monterey:       "f0a0cc0e31b8e61b9db30abf4ec5f36bafff02881fb143cb32e2e73b89d62d97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2d0517b9b05aef720398b74f9ed802431b7c7ec994b3f525509f5dc1e778ce3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09a694e3e79b3dc9f2b6486cc0f8a45d20d72fa5a02c04a6979e3abd4428a555"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6323c331fde0709972405da8dba445fc1ebc9fedd9eb850e5864c9c962cafbb7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5737468b8573c79ce1dae2a0a9758f9808df17d00c2929cdd7be4e062bef2776"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dafd1efc8a37d50370447be62d36927ae78422e71a37cb437b2d6de75aa26749"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9656e600c96cafa1ae6068925cec2447d1244c2ee10d51f647fb7a0932cbc15e"
+    sha256 cellar: :any_skip_relocation, ventura:        "1431d9a037f1ad8c0bbf12e2914f86947a7df7b8410e19d6e82db1d021fd1793"
+    sha256 cellar: :any_skip_relocation, monterey:       "c8730bb45533cd547d2e0b65dae755f68eab43ac4694d1305999149b81d520cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03906b132ad93bc094c3b0e8adecdfa80aa6bd7f07af5dfec92b31767d98cd3e"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-click"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/25/ae/92e9968ad23205389ec6bd82e2d4fca3817f1cdef34e10aa8d529ef8b1d7/blessed-1.20.0.tar.gz"
     sha256 "2cdd67f8746e048f00df47a2880f4d6acbcdb399031b604e34ba8f71d5787680"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
   end
 
   resource "colorama" do
@@ -43,8 +39,8 @@ class ShallowBackup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/87/56/6dcdfde2f3a747988d1693100224fb88fc1d3bbcb3f18377b2a3ef53a70a/GitPython-3.1.32.tar.gz"
-    sha256 "8d9b8cb1e80b9735e8717c9362079d3ce4c6e5ddeebedd0361b228c3a67a62f6"
+    url "https://files.pythonhosted.org/packages/c6/33/5e633d3a8b3dbec3696415960ed30f6718ed04ef423ce0fbc6512a92fa9a/GitPython-3.1.37.tar.gz"
+    sha256 "f9b9ddc0761c125d5780eab2d64be4873fc6817c2899cbcb34b02344bdc7bc54"
   end
 
   resource "inquirer" do
@@ -63,17 +59,29 @@ class ShallowBackup < Formula
   end
 
   resource "smmap" do
-    url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
-    sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
+    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
+    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
-    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+    url "https://files.pythonhosted.org/packages/cb/ee/20850e9f388d8b52b481726d41234f67bc89a85eeade6e2d6e2965be04ba/wcwidth-0.2.8.tar.gz"
+    sha256 "8705c569999ffbb4f6a87c6d1b80f324bd6db952f5eb0b95bc07517f4c1813d4"
   end
 
   def install
     virtualenv_install_with_resources
+
+    # Patch `python-editor` to support 3.12
+    # https://github.com/fmoo/python-editor/pull/39
+    inreplace libexec/Language::Python.site_packages("python3.12")/"editor.py",
+      "from distutils.spawn import find_executable",
+      "from shutil import which as find_executable"
+
+    generate_completions_from_executable(
+      bin/"shallow-backup",
+      shells:                 [:fish, :zsh],
+      shell_parameter_format: :click,
+    )
   end
 
   test do
@@ -87,6 +95,6 @@ class ShallowBackup < Formula
     assert_predicate testpath/".config/shallow-backup.conf", :exist?
 
     # Checks if the test file is in the config
-    assert_match "test.svg", shell_output("#{bin}/shallow-backup -show")
+    assert_match "test.svg", shell_output("#{bin}/shallow-backup --show")
   end
 end

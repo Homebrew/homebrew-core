@@ -6,9 +6,11 @@ class Souffle < Formula
   license "UPL-1.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b6adfb16936f7dfd4fcf85e7bf171f5e18832705914687d3eeda85031d6ba623"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c0cc4fef22fd9d69ce94cbc39d3b4c29818f9202a1df2ae361e4e2786c1934f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ad8e61f58dedd5eebccd1a7512f77f15b832e060d46373bec4ed563320da20fb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "660b4427e40bef8305b9883c2a6287d5a04772a59c888d0017c0d1ea33e20cb5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bd32107c3e61b2f93d6a1faec23de8f1a7e31479ba3a7f353153b7a2afc8ca52"
     sha256 cellar: :any_skip_relocation, ventura:        "f85ce27bdf76085ff1e8828202809dfd6d1d304578fc26e4b2d283105808dd17"
     sha256 cellar: :any_skip_relocation, monterey:       "274a7e2b76855cd451a66fca1b16e68cad6497d127c1f00d8a2254bae4c1ff53"
     sha256 cellar: :any_skip_relocation, big_sur:        "421864326246cf50896f7fe863944c9b0aa26d8cb2fb11a6f987f158adf897ca"

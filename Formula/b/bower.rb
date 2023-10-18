@@ -8,9 +8,11 @@ class Bower < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a7cf654c72c83b4a8174d3f7032d23973f2ea006af124d89b22572112c391f0"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f83f0b7576c438668ad19edcfab2606901bcd5f9092cf62c45b70d8b4778235"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f83f0b7576c438668ad19edcfab2606901bcd5f9092cf62c45b70d8b4778235"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4f83f0b7576c438668ad19edcfab2606901bcd5f9092cf62c45b70d8b4778235"
+    sha256 cellar: :any_skip_relocation, sonoma:         "838735f8ef3d7b581bc7380ef13c7f0cb14b04d556ef5d5f97137670b6292234"
     sha256 cellar: :any_skip_relocation, ventura:        "f155eb229286bef7f21e55ada513c525913b38cc8db1d86a3b47fc7ee9a1f1fe"
     sha256 cellar: :any_skip_relocation, monterey:       "f155eb229286bef7f21e55ada513c525913b38cc8db1d86a3b47fc7ee9a1f1fe"
     sha256 cellar: :any_skip_relocation, big_sur:        "f155eb229286bef7f21e55ada513c525913b38cc8db1d86a3b47fc7ee9a1f1fe"

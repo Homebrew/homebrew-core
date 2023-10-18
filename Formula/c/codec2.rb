@@ -20,9 +20,11 @@ class Codec2 < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ffb282985d9999fa657f2b7975abb94b565728ccb48e35dd91b731f5836bc9fe"
     sha256 cellar: :any,                 arm64_ventura:  "011a69e95c4b665d2d1581d2c357d5cb0eb68c69ff5b6923035d5aeaab50d495"
     sha256 cellar: :any,                 arm64_monterey: "49b0ee03a567601d41a18395e125cd93722d7dfc5431839b2abc55b463c1d509"
     sha256 cellar: :any,                 arm64_big_sur:  "52df3ab6255b2191b5666056a05f058b5cae3a739b18917bd33e1187fcb0916d"
+    sha256 cellar: :any,                 sonoma:         "7b47833fb368ab52135288ccc77a4ba01f66a8c92fd396e473be77a151ae2ee4"
     sha256 cellar: :any,                 ventura:        "8731a4ab8dc22a3713b9fdbe5ef39e86fa9cf7b3da039d64806e8332fa9fbed8"
     sha256 cellar: :any,                 monterey:       "f2352930bb0c8ef374521c8137dabc2104b3318560fb6c5fade441766a32d515"
     sha256 cellar: :any,                 big_sur:        "612d1193fd4999926f62174fe2efcccbd695f4e2ef0af50b707c145607a042e9"

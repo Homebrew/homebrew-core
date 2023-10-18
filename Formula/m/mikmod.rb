@@ -11,9 +11,11 @@ class Mikmod < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "53f85a6c2fe72833a023b9063a4ae9ddbe732eaabe50111b6c7313678ce1ceb3"
     sha256 arm64_ventura:  "158ed43b20cb69fe213ad8635f53437e164dde2148cf67f39ec37f209d1bc631"
     sha256 arm64_monterey: "bb54632a522875765adad5cab06af5329387f9ae1c5c7e96097ad7bc01e10526"
     sha256 arm64_big_sur:  "db291715ff28e243fcd0c1a5933bb5dc3c4bdf93368df9f66654d45e0003ea8c"
+    sha256 sonoma:         "96bfdb403f3bffd9fedf783f9340a32819886b1a3499cb1e85aecf66377f072b"
     sha256 ventura:        "f0ec85236694fd008c2ef6113545a182a53f7b551f6800e587ac0dd485c4436e"
     sha256 monterey:       "e6722e94ac1051373437dd424178a21f821f1275c5fcc41547959549383364fc"
     sha256 big_sur:        "d36db8a1221871140e8053654f1dd7fd6433f7fa50e15b42b239137ede527cb8"

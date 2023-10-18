@@ -5,7 +5,7 @@ class MoltenVk < Formula
 
   stable do
     url "https://github.com/KhronosGroup/MoltenVK/archive/v1.2.5.tar.gz"
-    sha256 "b4468aee1abf7dcc79dc12a817b1eb3b8fcef9e44f547f32ea1fdcd7a9d2c8ba"
+    sha256 "946d8f0e7ae3b47774b03a610d3a3e7e4bcbef3e667e1362325936839035a115"
 
     # MoltenVK depends on very specific revisions of its dependencies.
     # For each resource the path to the file describing the expected
@@ -59,12 +59,13 @@ class MoltenVk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_ventura:  "31f2396be9fc6e5db1f2a9a513af59f523554ebd085030d090425a3f6c43898b"
-    sha256 cellar: :any, arm64_monterey: "94797a8a513c8d89e08bcaf6126ffb153b23271aea049ffb6b6157673d9faa45"
-    sha256 cellar: :any, arm64_big_sur:  "99e0ac79032a91bfdf0b9f9203dc127410e0e31bf89ec90f2b1811cb79f33939"
-    sha256 cellar: :any, ventura:        "94c450f2eecf1966fee321368d0862a33bdb520a9beec81b7724a267eb2b7928"
-    sha256 cellar: :any, monterey:       "b2b0e10e0f5378b13982d9fd96737b6865bbcb71a6b8f08f4083935de912e78c"
-    sha256 cellar: :any, big_sur:        "efe6e68a86fba95408616a6233c5f92186ba9bea8734580d4aa6ed7a8c79142a"
+    rebuild 2
+    sha256 cellar: :any, arm64_sonoma:   "cb64aaca23442ef76396685ee627c347c470508b5ae14d330cff0b1d3fe5d2b0"
+    sha256 cellar: :any, arm64_ventura:  "53169b315382e572a8bca2cefdea1c5e8a8cb93581ea03dec28a78b4db537469"
+    sha256 cellar: :any, arm64_monterey: "6d28331ffcbc313c72d3920b7ef98ade26964bb3e384af7a5c09af79334c51d7"
+    sha256 cellar: :any, sonoma:         "204899c69fd4853a3592276465557dd7b1006ad0e291ad882afcb3fb5f7a649d"
+    sha256 cellar: :any, ventura:        "f3759809b962eb662fd2412b59d3a11c0d716509fd7ac828a372971d7f755d36"
+    sha256 cellar: :any, monterey:       "1fd7400e91b992b596f7d95eb9f3ec58474e8e317d43a46f0cc7af7992ca738f"
   end
 
   head do
@@ -134,6 +135,17 @@ class MoltenVk < Formula
                "-derivedDataPath", "External/build",
                "SYMROOT=External/build", "OBJROOT=External/build",
                "build"
+
+    if DevelopmentTools.clang_build_version >= 1500
+      # Required to build xcframeworks with Xcode 15
+      # https://github.com/KhronosGroup/MoltenVK/issues/2028
+      xcodebuild "-create-xcframework", "-output", "./External/build/Release/SPIRVCross.xcframework",
+                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libSPIRVCross.a"
+      xcodebuild "-create-xcframework", "-output", "./External/build/Release/SPIRVTools.xcframework",
+                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libSPIRVTools.a"
+      xcodebuild "-create-xcframework", "-output", "./External/build/Release/glslang.xcframework",
+                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libglslang.a"
+    end
 
     # Build MoltenVK Package
     xcodebuild "ARCHS=#{Hardware::CPU.arch}", "ONLY_ACTIVE_ARCH=YES",

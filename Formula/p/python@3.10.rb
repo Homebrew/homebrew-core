@@ -1,10 +1,9 @@
 class PythonAT310 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.10.12/Python-3.10.12.tgz"
-  sha256 "a43cd383f3999a6f4a7db2062b2fc9594fefa73e175b3aedafa295a51a7bb65c"
+  url "https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz"
+  sha256 "698ec55234c1363bd813b460ed53b0f108877c7a133d48bde9a50a1eb57b7e65"
   license "Python-2.0"
-  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,14 +11,15 @@ class PythonAT310 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_ventura:  "6216eae8dd6d350750c7c0b9ee4ec65669fe3c27134ee76b03152b6c308ba726"
-    sha256 arm64_monterey: "3a7d1c6de5f9a9d1929fa7781c5bd089a5c1d6e6cf0e735b9160985cdb37cb1d"
-    sha256 arm64_big_sur:  "0a3ec3ec972b3b2aaa05c4867df8d7eb13d08f0fa4b65257babe82a9206de152"
-    sha256 ventura:        "14efaf053c14b41a0d5991f7ae97be3f3e63e7025791dcac9680f0d93b80e2a4"
-    sha256 monterey:       "17ac211cd24ab5cc72d86bbd6be10a82054619503f7129f058b00118e0a0f815"
-    sha256 big_sur:        "27679a6dab4dfde23f6a552b2a21534adae92a3c25ca04ee66825fd0e454ffea"
-    sha256 x86_64_linux:   "7c2155d34bf4c48014012461daad6656b79ee3cd8c616e96b8aef98d0dd053e7"
+    sha256 arm64_sonoma:   "4022412af2de471a1571451edb4c680bec2defebd275f5333ab4d70295371a56"
+    sha256 arm64_ventura:  "60593d3c09d70f23df21a6d65cc9963aabfcb3147429face6186484b080a919c"
+    sha256 arm64_monterey: "7fc0469c841a17ebac205249a3bfd765a524a04b5913593318185654510b15c0"
+    sha256 arm64_big_sur:  "a503401978226c926bf2d33cbc526230d799b2e664589d7c8c44b08021836cc0"
+    sha256 sonoma:         "7a14f34cf67ac16e10af8b8c9a17f591e3146be91b6942dc9ec605773cb62e90"
+    sha256 ventura:        "0c09cdc5a91d619fcbd6476d292e7c50e1dd2aa4688fcd10cf71296c2c358ccb"
+    sha256 monterey:       "ea70bc5afb9e5e7866ad523601f055f5bd25a11bcd0d98c2d5036f744edec487"
+    sha256 big_sur:        "8d39bc92b4ce0acb1cd00927dbfbf183ad60d5d72e948541406c8ddd07aa6e40"
+    sha256 x86_64_linux:   "1e97eaf87510102205656317a9f14af2f2b30d2ee8190e707d56c297d10aeba1"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -62,13 +62,13 @@ class PythonAT310 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/dc/98/5f896af066c128669229ff1aa81553ac14cfb3e5e74b6b44594132b8540e/setuptools-68.0.0.tar.gz"
-    sha256 "baf1fdb41c6da4cd2eae722e135500da913332ab3f2f5c7d33af9b492acb5235"
+    url "https://files.pythonhosted.org/packages/19/20/d8dd9d8becaf3e2d6fdc17cc41870d5ada5ceda518996cf5968c2ca71bd8/setuptools-68.1.2.tar.gz"
+    sha256 "3d4dfa6d95f1b101d695a6160a7626e15583af71a5f52176efa5d39a054d475d"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/ec/34/903929e15b2657335b2ce8723d92fc804d3569b7ac0f1f8877ed1a7b2024/wheel-0.41.0.tar.gz"
-    sha256 "55a0f0a5a84869bce5ba775abfd9c462e3a6b1b7b7ec69d72c0b83d673a5114d"
+    url "https://files.pythonhosted.org/packages/a4/99/78c4f3bd50619d772168bec6a0f34379b02c19c9cced0ed833ecd021fd0d/wheel-0.41.2.tar.gz"
+    sha256 "0c5ac5ff2afb79ac23ab82bab027a0be7b5dbcf2e54dc50efe4bf507de1f7985"
   end
 
   # Modify default sysconfig to match the brew install layout.

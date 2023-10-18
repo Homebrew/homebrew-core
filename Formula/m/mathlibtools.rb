@@ -6,24 +6,25 @@ class Mathlibtools < Formula
   url "https://files.pythonhosted.org/packages/ae/6a/815d7f65dc853973b13be082fefe797074e633407ef1262a62bc0be84203/mathlibtools-1.3.2.tar.gz"
   sha256 "9a49f4cb7355fda72792a5738bcc5df927b1e102efc719adfbe16db199a0ac6b"
   license "Apache-2.0"
-  revision 4
+  revision 5
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a25f019e862b3e6e7641bb6f7fc9320ea2eef954cf881cc33e0d19e3827ff0ba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0fd3dabb719b055ffaf59e3b53c9f28fa527314e71aaf72db63b2f947c7cacc5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "135c77099038ed709910b28f5be2f267da26a9fb9dab9d436998cd7096d1e50b"
-    sha256 cellar: :any_skip_relocation, ventura:        "f42e8288df761e0e1360397a7de2d17c417cfff4e64a6d583869cf4cccc9741b"
-    sha256 cellar: :any_skip_relocation, monterey:       "43defdec11705a24c6c29fa843ff6ab0b1b240594e241a7583addd21ac847e83"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aab4f9cbeed580cadcf86f5e9cd046cebf9c5778a808855f73f080135b479622"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ac87d7fc4e285e0cd2ec7d5d0b5a2e1e15edc25e83833c197743ad79e1f8314"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57c2931eff802f64303699075e2f006e690b31e05bc5061223bcb5ba0c2452b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44d405f28d4bfa0a39127d6d35a835e3a613e85471c9e1cde23a1abc88c25b4a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "32684d76ad5deb3b4eb2a4792bc1f7c77c91e6d4e0ea8d7c51c38cd510b2eb8c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "14702ce98273d278c09a64772942b4a38352af32a053e31ff7a69ceb90b33947"
+    sha256 cellar: :any_skip_relocation, ventura:        "aeb648de8748caed8fe6660fc58ead760b27bcdcef0c658c23d1dccca6818047"
+    sha256 cellar: :any_skip_relocation, monterey:       "001b6d2d75fcac91969eea01ee88e0e4f8e15e27c91628b3215f46663f177d94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e2d8173639de9bb78347e67fa5b12781503ada3dbf93392b75533441edfdffb"
   end
 
-  depends_on "lean" => :test
+  deprecate! date: "2023-09-04", because: :repo_archived
+
   depends_on "cffi"
   depends_on "python-certifi"
   depends_on "python-cryptography"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -38,8 +39,8 @@ class Mathlibtools < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "deprecated" do
@@ -53,8 +54,8 @@ class Mathlibtools < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/87/56/6dcdfde2f3a747988d1693100224fb88fc1d3bbcb3f18377b2a3ef53a70a/GitPython-3.1.32.tar.gz"
-    sha256 "8d9b8cb1e80b9735e8717c9362079d3ce4c6e5ddeebedd0361b228c3a67a62f6"
+    url "https://files.pythonhosted.org/packages/8d/1e/33389155dfe8cebbaa0c5b5ed0d3bd82c5e70064be00b2b3ee938da8b5d2/GitPython-3.1.33.tar.gz"
+    sha256 "13aaa3dff88a23afec2d00eb3da3f2e040e2282e41de484c5791669b31146084"
   end
 
   resource "idna" do
@@ -73,8 +74,8 @@ class Mathlibtools < Formula
   end
 
   resource "pygithub" do
-    url "https://files.pythonhosted.org/packages/92/90/11de38774314242ddfb5637a7cf9c80937c7e898699b8e63b407c212513e/PyGithub-1.59.0.tar.gz"
-    sha256 "6e05ff49bac3caa7d1d6177a10c6e55a3e20c85b92424cc198571fd0cf786690"
+    url "https://files.pythonhosted.org/packages/fb/30/203d3420960853e399de3b85d6613cea1cf17c1cf7fc9716f7ee7e17e0fc/PyGithub-1.59.1.tar.gz"
+    sha256 "c44e3a121c15bf9d3a5cc98d94c9a047a5132a9b01d22264627f58ade9ddc217"
   end
 
   resource "pyjwt" do
@@ -108,8 +109,8 @@ class Mathlibtools < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/3d/78/81191f56abb7d3d56963337dbdff6aa4f55805c8afd8bad64b0a34199e9b/tqdm-4.65.0.tar.gz"
-    sha256 "1871fb68a86b8fb3b59ca4cdd3dcccbc7e6d613eeed31f4c332531977b89beb5"
+    url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
+    sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
   end
 
   resource "urllib3" do
@@ -127,9 +128,6 @@ class Mathlibtools < Formula
   end
 
   test do
-    system bin/"leanproject", "new", "my_project"
-    project_toml = testpath/"my_project/leanpkg.toml"
-    assert_predicate project_toml, :exist?, "leanpkg.toml should have been created"
-    assert_includes project_toml.read, "my_project"
+    assert_equal "Could not find a leanpkg.toml\n", shell_output("#{bin}/leanproject build 2>&1", 255)
   end
 end

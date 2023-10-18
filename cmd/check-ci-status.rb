@@ -5,13 +5,15 @@ require "cli/parser"
 module Homebrew
   def self.check_ci_status_args
     Homebrew::CLI::Parser.new do
-      usage_banner <<~EOS
-        `check-ci-status` <pull-request-number>
-
-        Check the status of CI tests. Used to determine whether a long-timeout label can be removed.
+      description <<~EOS
+        Check the status of CI tests. Used to determine whether tests can be
+        cancelled, or whether a long-timeout label can be removed.
       EOS
 
-      named_args number: 1
+      switch "--cancel", description: "Determine whether tests can be cancelled."
+      switch "--long-timeout-label", description: "Determine whether a long-timeout label can be removed."
+
+      named_args :pull_request_number, number: 1
 
       hide_from_man_page!
     end
@@ -29,6 +31,8 @@ module Homebrew
                     status
                     workflowRun {
                       event
+                      databaseId
+                      createdAt
                       workflow {
                         name
                       }
@@ -52,7 +56,10 @@ module Homebrew
   GRAPHQL
   ALLOWABLE_REMAINING_MACOS_RUNNERS = 1
 
-  def self.allow_long_timeout_label_removal?(pull_request)
+  def self.get_workflow_run_status(pull_request)
+    @status_cache ||= {}
+    return @status_cache[pull_request] if @status_cache.include? pull_request
+
     owner, name = ENV.fetch("GITHUB_REPOSITORY").split("/")
     variables = {
       owner: owner,
@@ -64,19 +71,46 @@ module Homebrew
     response = GitHub::API.open_graphql(GRAPHQL_WORKFLOW_RUN_QUERY, variables: variables, scopes: ["repo"].freeze)
     commit_node = response.dig("repository", "pullRequest", "commits", "nodes", 0)
     check_suite_nodes = commit_node.dig("commit", "checkSuites", "nodes")
-    ci_node = check_suite_nodes.find do |node|
+    ci_nodes = check_suite_nodes.select do |node|
       workflow_run = node.fetch("workflowRun")
       next false if workflow_run.blank?
 
       workflow_run.fetch("event") == "pull_request" && workflow_run.dig("workflow", "name") == "CI"
     end
-    return false if ci_node.blank?
-
-    status = ci_node.fetch("status")
-    odebug "CI status: #{status}"
-    return true if status == "COMPLETED"
+    # There can be multiple CI nodes when a PR is closed and reopened.
+    # Make sure we use the latest one in this case.
+    ci_node = ci_nodes.max_by { |node| DateTime.parse(node.dig("workflowRun", "createdAt")) }
+    return [nil, nil] if ci_node.blank?
 
     check_run_nodes = ci_node.dig("checkRuns", "nodes")
+
+    @status_cache[pull_request] = [ci_node, check_run_nodes]
+    [ci_node, check_run_nodes]
+  end
+
+  def self.run_id_if_cancellable(pull_request)
+    ci_node, = get_workflow_run_status(pull_request)
+    return if ci_node.nil?
+
+    # Possible values: COMPLETED, IN_PROGRESS, PENDING, QUEUED, REQUESTED, WAITING
+    # https://docs.github.com/en/graphql/reference/enums#checkstatusstateb
+    ci_status = ci_node.fetch("status")
+    odebug "CI status: #{ci_status}"
+    return if ci_status == "COMPLETED"
+
+    ci_run_id = ci_node.dig("workflowRun", "databaseId")
+    odebug "CI run ID: #{ci_run_id}"
+    ci_run_id
+  end
+
+  def self.allow_long_timeout_label_removal?(pull_request)
+    ci_node, check_run_nodes = get_workflow_run_status(pull_request)
+    return false if ci_node.nil?
+
+    ci_status = ci_node.fetch("status")
+    odebug "CI status: #{ci_status}"
+    return true if ci_status == "COMPLETED"
+
     # The `test_deps` job is still waiting to be processed.
     return false if check_run_nodes.none? { |node| node.fetch("name").end_with?("(deps)") }
 
@@ -94,11 +128,29 @@ module Homebrew
   def self.check_ci_status
     args = check_ci_status_args.parse
     pr = args.named.first.to_i
-    allow_removal = allow_long_timeout_label_removal?(pr)
+
+    if !args.cancel? && !args.long_timeout_label?
+      raise UsageError, "At least one of `--cancel` and `--long-timeout-label` is needed."
+    end
+
+    outputs = {}
+
+    if args.cancel?
+      run_id = run_id_if_cancellable(pr)
+      outputs["cancellable-run-id"] = run_id.to_json
+    end
+
+    if args.long_timeout_label?
+      allow_removal = allow_long_timeout_label_removal?(pr)
+      outputs["allow-long-timeout-label-removal"] = allow_removal
+    end
 
     github_output = ENV.fetch("GITHUB_OUTPUT")
     File.open(github_output, "a") do |f|
-      f.puts("allow-long-timeout-label-removal=#{allow_removal}")
+      outputs.each do |key, value|
+        odebug "#{key}: #{value}"
+        f.puts "#{key}=#{value}"
+      end
     end
   end
 end

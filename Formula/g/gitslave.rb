@@ -6,9 +6,11 @@ class Gitslave < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6f454af3b08f47b018ca54327b09c82ddc2706217cfd5d7164f4b58f73d244f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "86605c88a291edff807e0cdefaf09421c1ad00f9a292393ecaa2035173f13ef5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86605c88a291edff807e0cdefaf09421c1ad00f9a292393ecaa2035173f13ef5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8d2048c8edb96fe0dd49b8cd52aa1139f63fb275523022cd2c4e7a6ab45a496a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a6f454af3b08f47b018ca54327b09c82ddc2706217cfd5d7164f4b58f73d244f"
     sha256 cellar: :any_skip_relocation, ventura:        "9ccd093a0733d354b484b5fb5245315c8507c512a0f96dc51d90d36c09779d34"
     sha256 cellar: :any_skip_relocation, monterey:       "86605c88a291edff807e0cdefaf09421c1ad00f9a292393ecaa2035173f13ef5"
     sha256 cellar: :any_skip_relocation, big_sur:        "9975ca2bcb400d61bb8a456c951d9a069cff60f90efa440f211916fbc32bb5b0"

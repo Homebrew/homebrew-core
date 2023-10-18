@@ -6,11 +6,6 @@ class Hashpump < Formula
   license "MIT"
   revision 7
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "ee4e8e386dbf585e9672aabb460e44e0a3ba40486d71443200912c1e39e95ad5"
     sha256 cellar: :any,                 arm64_monterey: "63cf0b6889738999549fbaec92d5a6659c7e67243e6c1d8c6de327a625aec770"
@@ -20,6 +15,8 @@ class Hashpump < Formula
     sha256 cellar: :any,                 big_sur:        "680680ea8ab91083953e359b7fb74bd8195e4d9c94fdb3c351741d90983f72c8"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "542fd495cbe83aed52b7766926946f923d1e395f46cb4245b6ac6387cbeb0276"
   end
+
+  deprecate! date: "2023-10-02", because: :repo_removed
 
   depends_on "openssl@3"
   depends_on "python@3.11"

@@ -7,9 +7,11 @@ class Cppi < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60bcb5a1dba625e152384d1dfbcebbec2bfc552a6744a42ac8c9131a50d22f51"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "95ef8763f3cea6d0b2e699b1a7a0fcfbc8a60e568ee6d2587927b591b772940f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bbc7be8b21e6ba9f0f4eec49b22f43f5900af2628c8437c5b14e235169a8c22d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "00d594375b23e688f18b3abe9f6b892c23a83c5ecc4e8d27ce8a414c3f2070d6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a7bda8ab50226a4110e0d025d6ce5ae5b1a6ad85a1111f8a0f58442af264ad86"
     sha256 cellar: :any_skip_relocation, ventura:        "eeed7bf193f6800050418eca626511ba5e3c76fb4ebd4f11ad67e93f1924b569"
     sha256 cellar: :any_skip_relocation, monterey:       "d1f346b4ed988e78ec44e4019b64c182bb660290d3cafdb65ab005321a554bec"
     sha256 cellar: :any_skip_relocation, big_sur:        "831418bd1a4c710184c6efb0b4a0476077f876cceedb9245dcf994ac7322e91b"

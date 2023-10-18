@@ -1,8 +1,8 @@
 class Hdf5AT110 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.10/src/hdf5-1.10.10.tar.bz2"
-  sha256 "56bbf9577aea4f07d7ac400b59f169ab23e5887c306a63dd5cf18b49f521d28c"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.10/hdf5-1.10.11/src/hdf5-1.10.11.tar.bz2"
+  sha256 "0afc77da5c46217709475bbefbca91c0cb6f1ea628ccd8c36196cf6c5a4de304"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Hdf5AT110 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "1c31665b4e29c000cb2a7a8d51c419eedf0bebd58b0d82fe3201931d50b4c9b9"
-    sha256 cellar: :any,                 arm64_monterey: "16fd8ed8e1ecea75ca0e008dc26b440d89f2e2c613a884adbb1d9f5045586bc1"
-    sha256 cellar: :any,                 arm64_big_sur:  "d5f2614162252b0ace675a83ad5616e6df6e114b02360fd30a148e74fa70c33a"
-    sha256 cellar: :any,                 ventura:        "e991fd4c2b5e6ab7ad64a88a5b6607dd67b26fb7de559bda0c05c6a65dc367c2"
-    sha256 cellar: :any,                 monterey:       "bdb7eefe3aebfb8f7a52eee200edba78a75c74653426924904a60c082a8e38da"
-    sha256 cellar: :any,                 big_sur:        "d2530f8e2d5fa6208be6c5d6d2447c7494a83aac17df571dbf94f8bafe7a6799"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c54a44fcdc0056728bc16d0b10e871547ff304fba1be123238fc8e9203930adb"
+    sha256 cellar: :any,                 arm64_sonoma:   "b85adcde660662f9ed6f4c9740e1c97a8ec2a1b4be7ff3185142801ce7083a5c"
+    sha256 cellar: :any,                 arm64_ventura:  "7c8e8deff03df6d11099246b2ab71ed2decdcdbbc395e4803b0a12fb5d0ec672"
+    sha256 cellar: :any,                 arm64_monterey: "06e03e5b27f560906f80721de89c681a56f138f239f04a71142efdb14c180e4c"
+    sha256 cellar: :any,                 sonoma:         "83e1a3357f24fe7de568be6fb299907031ed32e888c4dfc56d57f0c213d7772f"
+    sha256 cellar: :any,                 ventura:        "f420a1f3da8697f61b51c2006e5e7e5bfad27922dab09fedce4695250b35bcc7"
+    sha256 cellar: :any,                 monterey:       "c1c4e6a9a6e42f6e267d44d3a7734ca21eede859a9021156511a99faf0ceacfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "706516f685fc2d8a3d2c1e6565b36cbc885445f2c0f901a2bd735f3229151590"
   end
 
   keg_only :versioned_formula
@@ -31,6 +31,10 @@ class Hdf5AT110 < Formula
   uses_from_macos "zlib"
 
   def install
+    # Work around incompatibility with new linker (FB13194355)
+    # https://github.com/HDFGroup/hdf5/issues/3571
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
               "${libdir}/libhdf5.settings",
               "#{pkgshare}/libhdf5.settings"

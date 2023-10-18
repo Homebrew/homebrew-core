@@ -8,7 +8,9 @@ class Rdup < Formula
   head "https://github.com/miekg/rdup.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:  "3ba90e1c52ae2a5027b1f1e1b8b5ba7eaebc70f2282d3b22925cd266d3835539"
     sha256 cellar: :any,                 arm64_big_sur: "d46e7dd067e403544b2a287f92efe1d1ddcaa224f084e79f65878d4ef676a474"
+    sha256 cellar: :any,                 sonoma:        "1944356599ca769cc9aafcf2d5d23b1e15455c3b0a9a42ea146391f8bc39a605"
     sha256 cellar: :any,                 big_sur:       "72d7f3ffd694f739534d795c9e317e025037482956f810b312b5e483d8907213"
     sha256 cellar: :any,                 catalina:      "cf02c3004b312a3d90c6e47227f35e39319736270be76d7e4b0705568a21abec"
     sha256 cellar: :any,                 mojave:        "fb091d60536b72e20dc5e1448d9876e7b2eaefd16d40f2bfbf7bba48059af348"

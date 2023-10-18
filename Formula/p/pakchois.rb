@@ -12,9 +12,11 @@ class Pakchois < Formula
 
   bottle do
     rebuild 3
+    sha256                               arm64_sonoma:   "c5e557c4172e6800ca80178acedc0a6029c4870ceb37ed56d6a3944f32a271ee"
     sha256                               arm64_ventura:  "d8467830fd424d6fea0a0f0ff82949262d55d4221fa2a2d630b0679d374c803f"
     sha256                               arm64_monterey: "fb701bf9c363b4e09f285fa9c6f60aba921a93f826c37afd5fcc54b0bc5e4ed1"
     sha256 cellar: :any,                 arm64_big_sur:  "86e77a851ff2c0de31cf5e4f2587711b7b1bcc742fb878df1ce69fde836fd864"
+    sha256                               sonoma:         "95aae319e6a66c11f7f6826ded41ac0b2b45e4768319267321866118d828289c"
     sha256                               ventura:        "b6a9c3707dd02ec65d927974bd8534be159b2dd977f14df74907eadb0165e953"
     sha256                               monterey:       "f53bdb6cb2f47b0ed2e1df5f2c80f9568c3b2c55463de2cfdfe742da945364c0"
     sha256 cellar: :any,                 big_sur:        "fd91b09bb010ac37483a910b0431c6082903ee843a15f4cc767bde57ce0b7267"

@@ -1,19 +1,21 @@
 class Tere < Formula
   desc "Terminal file explorer"
   homepage "https://github.com/mgunyho/tere"
-  url "https://github.com/mgunyho/tere/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "84195f45b738fb7c805d7b348185658d0dc58aa26e7f92fcad9578bc7bd694bf"
+  url "https://github.com/mgunyho/tere/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "d7f657371ffbd469c4d8855c2a2734c20b53ae632fe3cbf9bb7cab94bd726326"
   license "EUPL-1.2"
   head "https://github.com/mgunyho/tere.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3127d3aad6b0d14f520883ffbbd76094f12379a3eb90a3014cfb5df3dadc0b14"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb69192a655ecdc6584b90910eba6508dc14ee6a5910b0fda2868810dc27b7c8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7a1c85a9135fc5f1a2d9287390eeb6b47ef9657b99020387c03d7586f3408c8f"
-    sha256 cellar: :any_skip_relocation, ventura:        "c61a055f643e9b45a3ea810a75d950baa0e9b7cf3f3770dff9190864420e90be"
-    sha256 cellar: :any_skip_relocation, monterey:       "35241180534467310032cd931e4ab56080e551b8fe3a8cac105e0dec0af08222"
-    sha256 cellar: :any_skip_relocation, big_sur:        "26c58eac7b1b9e1ea976dfd7fdd33a1afe94aacc82586e65c8e3f103a8595b73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa494fe8026952a11252edf6191b3e4a1bf6ed19b43a50b64e25a119f85713c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54719b8dfd7e1d8d4f4c9b5169efeed05410bf4359b0262218032ded09275807"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3142df42bb6de9d0cedcd83a22703ce70a69edb1d4950092673c4cabf04b5f2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a3335ebce1d748e862505d8282bc7aa7d2434585b0e89546dfd8c56a3436797"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "92748578aa9afe0aba87e7f936ca4c342e8fdd78ec00f69a663abb930029e9c3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1198b8f3118291e0eadaff8e960f1d850050efcae412959118f404a945ea2bcc"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c873d05896d3ac5491cbd8b484c2dbe2ac3633ff3840e1b025f4618c283501c"
+    sha256 cellar: :any_skip_relocation, monterey:       "70e741a94ea5290b0e53fcdc3d8ce860d153180b3a311905ad31eea4a8f247f1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "0ed3318ae636e59024e9e39c5e0851e50268265f17afe2f58b3f0ea21fd25df5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78577c35467981482de8bfb2157be8d4d1c83bccad0574edae40c658cd784cfc"
   end
 
   depends_on "rust" => :build

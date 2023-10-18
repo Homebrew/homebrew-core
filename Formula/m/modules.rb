@@ -11,9 +11,11 @@ class Modules < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "509d576c153b78125c2f4988bc482d59ef1bad12394e0cb64e2070a813ce20a6"
     sha256 cellar: :any,                 arm64_ventura:  "539114dd953441f82633f0f5ce201719c7d5ffda9613ec94702997a08e774e84"
     sha256 cellar: :any,                 arm64_monterey: "82afee11869c89ee190f3fc6980f2c3acb543f4020ef49389f444948f8ae3146"
     sha256 cellar: :any,                 arm64_big_sur:  "1943734262bd565d5a170208a3aa3a14945342a440043e63051ddf66e1597a91"
+    sha256 cellar: :any,                 sonoma:         "ba6c725b7f84705d62147530ce740518229e98975806b390794aeb01d32f2fd9"
     sha256 cellar: :any,                 ventura:        "343d1394d56a919042afad951b2e43c18687d6b0132844e2d5ac07269211b3e0"
     sha256 cellar: :any,                 monterey:       "fe91df353c52b0456323d366f55fb9d6eda624b868439bcf28407453412b1b6f"
     sha256 cellar: :any,                 big_sur:        "cfc7cf47d087751ed1fe11735ad56ae11d0cf61f64bea4d39ba12c3fca74046a"

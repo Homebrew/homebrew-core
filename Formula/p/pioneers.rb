@@ -5,9 +5,11 @@ class Pioneers < Formula
   sha256 "9a358d88548e3866e14c46c2707f66c98f8040a7857d47965e1ed9805aeb631d"
 
   bottle do
+    sha256 arm64_sonoma:   "a38fc24e98822d7572e2b6425728501e150286f497add378a15b3cb4daae68b7"
     sha256 arm64_ventura:  "df9880ff99449ca709eefd610061a0195de270ebac6fac9f6d1941db6a6dd2f9"
     sha256 arm64_monterey: "3742eced28912e519fc675ba5ccbff4ad9e324e73994e785b9aceb78fe61f6f4"
     sha256 arm64_big_sur:  "ef6e9c03dcc0c5d86ae0b08805352937c74d4ccaadbe4ac9aead56b5f7e0c7bb"
+    sha256 sonoma:         "1e3af731db800544cabfbc3ada5b83727fbdf11e86989c3f37596e26a0b9876c"
     sha256 ventura:        "6d5c825e0a32001fe6fe04bcf44466a3545f80cffb4fbd1d2855523bf2483228"
     sha256 monterey:       "0e14d946b05d63aba6c15ad997bb4bc2998fe33c7293c14aec0763e8cfa89a99"
     sha256 big_sur:        "b9297939922709fc05a78ee98b24091678bf4e434bea4abfc14b089fde6e9728"

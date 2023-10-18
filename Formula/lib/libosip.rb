@@ -12,9 +12,11 @@ class Libosip < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ae8d66cfe67d8dc40a0299db6cfb154cbc28c8c6a7af0229d4577e70e7d54ca5"
     sha256 cellar: :any,                 arm64_ventura:  "34fbd0c4413173a442968eec773e3a9b5f60a9a08b48af2f3e2d9d4ee21e6dab"
     sha256 cellar: :any,                 arm64_monterey: "2bcc9aaabdfd1b5afe6a05a3cd694f91b3dae3a23189f450cbe028a9416a28dc"
     sha256 cellar: :any,                 arm64_big_sur:  "97a6519a92630d395d060289ebd2959d91302d84efa15d72aa9f37f9293ce7fa"
+    sha256 cellar: :any,                 sonoma:         "d867ac12d12785e834dea9f2dd560ed2e660227dfadcd080359b2c14637cc2ab"
     sha256 cellar: :any,                 ventura:        "c7fca9a24a759d0716ef0293fdff8361cdadab5963e7d3f36fbc4405b49e27a1"
     sha256 cellar: :any,                 monterey:       "208378ce5567b92f8d1fcf79a9e07bea8313c90da24f7e14b4d5a5c9f9a3c9ab"
     sha256 cellar: :any,                 big_sur:        "947aa52f8073bc404457457f25c121066c6bb6af9ebeb42b3c50e4168b3cbac6"

@@ -6,9 +6,11 @@ class Libxmp < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "94c26999911fa5ebc6f479d16379a978991b4e9d27a32ae32ffe1009204e5bbd"
     sha256 cellar: :any,                 arm64_ventura:  "029903dce869ca4f3f82fb7b01a8b0212e295cd196492054e91406f33854a2e6"
     sha256 cellar: :any,                 arm64_monterey: "9c57ab8f4034df4437ab073dcee4620619ec871bafef40056211040cf4a5b39e"
     sha256 cellar: :any,                 arm64_big_sur:  "dae1b586020c2313cb250cbae91dcf6d1c7460ba41140651a6adbcf36c4d5b5b"
+    sha256 cellar: :any,                 sonoma:         "93ba8ff0aad9a3eb3593c800a5b5f035c6ae88345226a455f7eb0bf8e509d1aa"
     sha256 cellar: :any,                 ventura:        "a91c6641aeb8c38f4ad918552e2d800b11a71c079547e5fa4aaa191b2c90cb1b"
     sha256 cellar: :any,                 monterey:       "86f47ba5a880837e146fcceff8f84e871f036819c113b37bfee14030c4f14705"
     sha256 cellar: :any,                 big_sur:        "2f5fbbafd7ab69435770417e3f4a8733278a9c1c5ffef54917ac0959e12b244a"

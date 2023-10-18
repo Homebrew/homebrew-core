@@ -1,8 +1,8 @@
 class OpenlibertyMicroprofile4 < Formula
   desc "Lightweight open framework for Java (Micro Profile 4)"
   homepage "https://openliberty.io"
-  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/23.0.0.7/openliberty-microProfile4-23.0.0.7.zip"
-  sha256 "6322091cd7520161d8d2850a46020a5a6a7a181e5d65fec6acfd72d7c7b60d0a"
+  url "https://public.dhe.ibm.com/ibmdl/export/pub/software/openliberty/runtime/release/23.0.0.10/openliberty-microProfile4-23.0.0.10.zip"
+  sha256 "ae5789b56d0b5103ccef8160ef4e7a22182ce1d5bbd5813896ba8d57330bdabf"
   license "EPL-1.0"
 
   livecheck do
@@ -11,13 +11,7 @@ class OpenlibertyMicroprofile4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17e81fa4fc801ba6388707b825244858d607edfb30cdf3574b5aa25c1b7d6dbc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17e81fa4fc801ba6388707b825244858d607edfb30cdf3574b5aa25c1b7d6dbc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "17e81fa4fc801ba6388707b825244858d607edfb30cdf3574b5aa25c1b7d6dbc"
-    sha256 cellar: :any_skip_relocation, ventura:        "17e81fa4fc801ba6388707b825244858d607edfb30cdf3574b5aa25c1b7d6dbc"
-    sha256 cellar: :any_skip_relocation, monterey:       "17e81fa4fc801ba6388707b825244858d607edfb30cdf3574b5aa25c1b7d6dbc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "17e81fa4fc801ba6388707b825244858d607edfb30cdf3574b5aa25c1b7d6dbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e475a724d008e3d3dc56c2521309be3700813dbb17fef56d450f2fa28da61077"
+    sha256 cellar: :any_skip_relocation, all: "e904ac500f59956a12f0a9683b2c71b97429fa6c9e2bedd1920db458d85757fb"
   end
 
   depends_on "openjdk"

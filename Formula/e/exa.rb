@@ -4,7 +4,7 @@ class Exa < Formula
   url "https://github.com/ogham/exa/archive/v0.10.1.tar.gz"
   sha256 "ff0fa0bfc4edef8bdbbb3cabe6fdbd5481a71abbbcc2159f402dea515353ae7c"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/ogham/exa.git", branch: "master"
 
   livecheck do
@@ -13,14 +13,20 @@ class Exa < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "eae98c987e68e0940cb5f261b8d2fb98fe8f4f7b2d3fcf463c9b38494edeb351"
-    sha256 cellar: :any,                 arm64_monterey: "4b57d8ffd16277cd825f13b629a8e6c75e9bebce9bec3432a36c375715b37b3a"
-    sha256 cellar: :any,                 arm64_big_sur:  "7fd0284ff0a703050e5099619285060b6a0c6d687e291fd36e339a3e9182ae9a"
-    sha256 cellar: :any,                 ventura:        "f38dc756d78e6cf42fdac94f2763642f112128d1ac5d8717dd72ba0c56b495da"
-    sha256 cellar: :any,                 monterey:       "5021c8d446048e11b4bedc2836d91ed3d11f5a29e6d88085eb43921be26c1934"
-    sha256 cellar: :any,                 big_sur:        "ebb304f59ba398ab7376e5dd59e7d48dd9937c01ef8d9cbb44e9a70424fce2b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb7c0012074288ebd3331dd75c57c5e8957b7a8719fdc027597365f0ef379e53"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "d99ebf95ff1080b152f3ea15631987f6203cbffb9766f5585cf3ca5695626936"
+    sha256 cellar: :any,                 arm64_ventura:  "1fbc96b6cc8e79125e95d083250528237b558c80e84b658f1936d933d64d1b50"
+    sha256 cellar: :any,                 arm64_monterey: "eeeb2902af9bf5465d036b8fdab6288d5764d0d9b940e88de54bc196b39f699b"
+    sha256 cellar: :any,                 arm64_big_sur:  "bc4619504bbc74c4372db9708b683821f81da86fa9a105d29120557ef5366bdb"
+    sha256 cellar: :any,                 sonoma:         "38b5085d73558d8a088a8052dc9b4a49ffa8b477ca250fdc8ec344042d2b9ae3"
+    sha256 cellar: :any,                 ventura:        "d6737d9f4980f0e085314e3494ebc03ac433baf1fffd936faac33e0a2af7c5c6"
+    sha256 cellar: :any,                 monterey:       "fe91256952b78220dfe0f26c7b73e81533d0d2c1bc9440383c4db39be0581cd9"
+    sha256 cellar: :any,                 big_sur:        "0e311b4464335682e78e141bebf3d44b4428aa4a96c2b49c354b6d0cfbe4a24a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d05214f3c9390661f6b3357c3053fbab35f547a31a1a4e6cb9e8340dc655eb1"
   end
+
+  # https://github.com/ogham/exa/commit/fb05c421ae98e076989eb6e8b1bcf42c07c1d0fe
+  deprecate! date: "2023-09-05", because: :unmaintained
 
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build

@@ -10,9 +10,11 @@ class OpenBabel < Formula
 
   bottle do
     rebuild 1
+    sha256                               arm64_sonoma:   "1044343f7917db7d84d2009d7914bc780ca77d4ffc65e02566dd880efc00f3b9"
     sha256                               arm64_ventura:  "9f5f17dab6ecc4ef0a26c15d34fa3a07e15690459ac36372b0cb9e6a7a9d3173"
     sha256                               arm64_monterey: "b8c4d0d18ffe49772d39f86e9a204262c3e32fef92aa29b38b76d36b61e0cade"
     sha256                               arm64_big_sur:  "89817f17e6d1b7fa33a3a7c9321c2fe529f546fa6cbf59c014de0cf2ca279736"
+    sha256                               sonoma:         "83c055be7c2f4a744c0d99af11833d406f5b5b0402d0b0cfefa90e5cdd92927f"
     sha256                               ventura:        "c8baf6ace5ea1d8700dc74642ebaf1f6a33fe172fcc8e016490688c4c4c66908"
     sha256                               monterey:       "d7a93ad5a24deefcbd87ebcc094a9fe41024e938f54428f2d148da057e3dd7c3"
     sha256                               big_sur:        "f4e76d3d62eabd132f5d177c62bd0c6ecc65bdb89b37d06661f66903d1726eb8"

@@ -6,6 +6,7 @@ class Hyperscan < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any,                 sonoma:       "2019ecd836e8e16a4b4a1e2605297900ee9d5e6ca8fce4c2cee056ea8c00934d"
     sha256 cellar: :any,                 ventura:      "a5866b950b8b18122c144b6b6ff2ca64705861d59917a1762bef1faff1cc7b8a"
     sha256 cellar: :any,                 monterey:     "d67efe0abd515b90c2fe9e10694c99f62e708ac507395aa232bbb54eac0470b6"
     sha256 cellar: :any,                 big_sur:      "f000309c80201f6a1ced867c4d36d45a51ea980cd3ee116e853cf03625efcc77"

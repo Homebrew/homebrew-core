@@ -3,17 +3,19 @@ class Gd < Formula
   homepage "https://libgd.github.io/"
   url "https://github.com/libgd/libgd/releases/download/gd-2.3.3/libgd-2.3.3.tar.xz"
   sha256 "3fe822ece20796060af63b7c60acb151e5844204d289da0ce08f8fdf131e5a61"
-  license :cannot_represent
-  revision 5
+  license "GD"
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "3e23180f273c11082a722aad683c929c3cb27acede6b5274c0ddcede895287a0"
-    sha256 cellar: :any,                 arm64_monterey: "1aea67a3b927c0955a10126c92ed167932098eb47c991e485fad3c3add358519"
-    sha256 cellar: :any,                 arm64_big_sur:  "4a65d1f0fed5462bd621cfde772689fc4ca18ce7ae610f4c0fe69860217c256c"
-    sha256 cellar: :any,                 ventura:        "86166efda1448a1dbc605d11751ed2194858db85ac14eaf2071d94ebbe11ecb1"
-    sha256 cellar: :any,                 monterey:       "08514ca3262da9bf44c5f332713fc20f2e14a7ea22ae6e853829b06da09480c7"
-    sha256 cellar: :any,                 big_sur:        "14ebdc0e93c087250ee130dc67de4082f26cd74428dddc047cfa834cc750230e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb25e79ae81750ac775514100a9f0d404438f8499cdc8b6b60b3d3f2b5411a4a"
+    sha256 cellar: :any,                 arm64_sonoma:   "e278f6f79e6ac00c5f0f14bc8980197c89426eab2ba90d8fc1e82da777fb8378"
+    sha256 cellar: :any,                 arm64_ventura:  "3f868f36cc47f91ea2a896c4b6ea62fab9b3ef94d7765f34234b277ee46788af"
+    sha256 cellar: :any,                 arm64_monterey: "98906db0b5efdd3a46296035df0ec9a99ebfbf5d6c6d76d7af5e2862152a6c97"
+    sha256 cellar: :any,                 arm64_big_sur:  "1751a4ef467688acf597319f376dc0e69074c96d613ba22c381157dfeec85073"
+    sha256 cellar: :any,                 sonoma:         "7bc1099e53432209a4c5da106c8105e0f8e95728a6cc77438e2761c8b6fcf05b"
+    sha256 cellar: :any,                 ventura:        "4a75b4a92fbe6e26a47104496b6bfbaeffa73ac76d4290e68e81603de5b0f41f"
+    sha256 cellar: :any,                 monterey:       "4921f275ca5a840aaa215939f80dbb4adef8a13b2bcd43608428518d4730cad4"
+    sha256 cellar: :any,                 big_sur:        "f398c94388423665c26840a86d073ba43da0b519ea3b114c58d14e50edbdd47d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da124ea2c614748107f9683ed08afa140d98a5d429332137f4f6ce17460360ec"
   end
 
   head do

@@ -7,9 +7,11 @@ class Stlink < Formula
   head "https://github.com/stlink-org/stlink.git", branch: "develop"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0fbf4050373180e7d9510579c77d836b48033b9b06e89a34156b777b38e5dd58"
     sha256 cellar: :any,                 arm64_ventura:  "37bc6182a2709fbcd5046be4c1cb93936475f12d2ee42983e9f7802ed89bc97c"
     sha256 cellar: :any,                 arm64_monterey: "2ea4763e208c5566d0ec1848a6d91c440fe745287aa7a5617af635fea7707af0"
     sha256 cellar: :any,                 arm64_big_sur:  "79683924dac821a1744cf32a96c3296eecd1668b5f2f64dbdcf570f32480459f"
+    sha256 cellar: :any,                 sonoma:         "53e58898f8926563bbf42ea5eb8cb9611a5f1afe937b9daefa54b53e3bc0a5b9"
     sha256 cellar: :any,                 ventura:        "4aff6679ab6726e3d7a397a17de9de8972d233971907811f2113c94a4a7c7560"
     sha256 cellar: :any,                 monterey:       "32411be4437ac85b5b9feb0fc38306af2dfc1f895ad4661c2187eb70a8420b0f"
     sha256 cellar: :any,                 big_sur:        "9ea7be4ae1c0b91ceeb40c6df9d07ad6a5660be80043895bcf29acc47988d10d"

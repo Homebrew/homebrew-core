@@ -10,9 +10,11 @@ class Fobis < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb6b8391538d007deff154f1ba61133fef780c47bb4ce5950f488678204a82ab"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef3655ae24dbc9c1db4ca7310e0085019c8363f6cd3fe6244825ddf704e88727"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "48907a8772aaea92593c15fa496441b3e70fc6cd9ccbc6c33939ebb59da1afdc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34bd55f9d976e63024d4db2f340be2807b0d10a52b1a6d33ae1af305a65123be"
+    sha256 cellar: :any_skip_relocation, sonoma:         "086e21cc8fad72ee1c6e6797853a38a078bd39561cd824614a5ab6e71577d2e4"
     sha256 cellar: :any_skip_relocation, ventura:        "6979ae67c338a57331c033d7532e2f55919a15c5ba43263c5bf618b9e5ea8819"
     sha256 cellar: :any_skip_relocation, monterey:       "ad700a8e305dae8552c63fe769290b5aede0bb026df206d5f035429f5bccc651"
     sha256 cellar: :any_skip_relocation, big_sur:        "0f30368491b20eb5a23162c69263500c829812a9fbd53fd3f2163d3d1818089e"

@@ -6,9 +6,11 @@ class Ntbtls < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0cb72cd0e8f862f16eeca69cb74e56baaf34484cce7c3413e93fa30faebed126"
     sha256 cellar: :any,                 arm64_ventura:  "c361757ae25b2090cf20c61a99c63b378870a18004cbf28211d394cab769120f"
     sha256 cellar: :any,                 arm64_monterey: "533b91778c5105e65f9f31a698f284da5e853d21474f29c966946820dda4af95"
     sha256 cellar: :any,                 arm64_big_sur:  "9963405e4fd797d2e79fcc738a33573790f1db54ea2c8ce3b4dd59d42899a1df"
+    sha256 cellar: :any,                 sonoma:         "3e0ef11b45a024d7eee332da3878eca442778a5b8a7c0bc483eafc91f06976f3"
     sha256 cellar: :any,                 ventura:        "9cac627498dff2c256bb9e70a7a61da8b6ae8cafd13422e0874d6150b25c7411"
     sha256 cellar: :any,                 monterey:       "91cce326c5f72642930b47410266423fe57ddb13bda3a0e0e87b4dfa5f4fc728"
     sha256 cellar: :any,                 big_sur:        "de89772e4a075616997d20c7506c2f1a1136da23729e36c12c1efdc1535fea87"

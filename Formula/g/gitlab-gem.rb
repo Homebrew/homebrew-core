@@ -6,9 +6,11 @@ class GitlabGem < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7985faeadb47c3590bd5cd64f316ae8718211f2702ceaffd0da3b4a2a2cecdc1"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b163e735208a52ae23a48b72b21e838062e834e112aa0e215e0aca85ca8d52c4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7985faeadb47c3590bd5cd64f316ae8718211f2702ceaffd0da3b4a2a2cecdc1"
     sha256 cellar: :any_skip_relocation, ventura:        "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
     sha256 cellar: :any_skip_relocation, monterey:       "86b43558c3f09fc837044a34807dcf485098351a237f81394b52dfa4467416b9"
     sha256 cellar: :any_skip_relocation, big_sur:        "b163e735208a52ae23a48b72b21e838062e834e112aa0e215e0aca85ca8d52c4"

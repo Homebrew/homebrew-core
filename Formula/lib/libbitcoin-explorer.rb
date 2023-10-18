@@ -1,19 +1,21 @@
 class LibbitcoinExplorer < Formula
   desc "Bitcoin command-line tool"
   homepage "https://github.com/libbitcoin/libbitcoin-explorer"
-  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.6.0.tar.gz"
-  sha256 "e1b3fa2723465f7366a6e8c55e14df53106e90b82cc977db638c78f9bc5c47db"
+  url "https://github.com/libbitcoin/libbitcoin-explorer/archive/v3.8.0.tar.gz"
+  sha256 "c10993ab4846e98ec4618ca2d2aab31669dc091fa2feb17d421eb96b9c35c340"
   license "AGPL-3.0"
-  revision 8
+  revision 1
 
   bottle do
-    sha256 arm64_monterey: "62e23a9ef97269830f43711bcb1353c20d3cf008ef46404427cc444fc664e433"
-    sha256 arm64_big_sur:  "a0dda43b536b42b220adffe2e130153fd6dcd9e55e939944db56bbdd9f4e03f1"
-    sha256 ventura:        "d97b68ea600b0de8ac10b43f09e539f447303490f649e1f244462595e2f7aa3c"
-    sha256 monterey:       "38d66c27871444b32587e4b79b3d858c4c1387aaf8af47340ac52fc0833bc52b"
-    sha256 big_sur:        "2370fd0d2fb7f276fdea60408724b4211941a7ffce6ca8b4f49b54224d92821c"
-    sha256 catalina:       "b6f18b3e70c53e1c9f22e68154ddd92936856e569f36b55bd1fd65f5b6b6f1fa"
-    sha256 x86_64_linux:   "964095ad75127b2959585f9ca2ec4fc694b329c023831afb1e08d876a68bc9f4"
+    sha256 arm64_sonoma:   "a77f5daa4276b5b3de16eda7f1a7cdb493c41b3ee3b41d98465879f89fc0656f"
+    sha256 arm64_ventura:  "d5fc065a4adae41bad1efcbafa5d52f0711af9c796dedbf10d4bd1d1146e474f"
+    sha256 arm64_monterey: "a4d4bcb767aece7188b6c8243981dc73bb94ae38e76723c99673360e05fd231e"
+    sha256 arm64_big_sur:  "054bb3bee90b894445e989211340eb082b5f271ab1d30916a09f7ca909fa4462"
+    sha256 sonoma:         "3c85de2b08a5f8eaf28734763f9b931fa92d8e2c34ce91bdaf0db3e217797328"
+    sha256 ventura:        "3f5070a099083f4777bec5f31c73f9440f1dcdceca65b4e38f830c38aaddb008"
+    sha256 monterey:       "480e13a7e581d74e31cfa6be2902765ec7b6bc9fda794c20125fc1652274addd"
+    sha256 big_sur:        "50676d0d3790be0a842e3bb07545dd6bad666c5b8bb3f8acbe8ea5e685d21ab4"
+    sha256 x86_64_linux:   "4f51230a63c0edc7078d666f53dcaee6e8e4b97a4475cded4f4e1705869f3cc6"
   end
 
   depends_on "autoconf" => :build

@@ -10,9 +10,11 @@ class Libdsk < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "62fd1abb55819c5aa90237ab176a63bd793bb3e9dccfa0fa3330f54af7143936"
     sha256 cellar: :any,                 arm64_ventura:  "0d6d4b1f77fe027a7053571ac8b9f8bfa73cee2b52a7a570bb32946cd8aa9378"
     sha256 cellar: :any,                 arm64_monterey: "dfa9c65fe5cf50e095ed995a55c6145b3eb6702ce4a76a7e54369fff2da6ab97"
     sha256                               arm64_big_sur:  "2804cbad27cb5d942cac8be6682bc7da39f7a4c122b6f79d1e3ee58aaaea0a0b"
+    sha256 cellar: :any,                 sonoma:         "f7c4ba9cdda25aad01ed0fc3831154673f3200cc2120613b3cc51ae313e4fa8f"
     sha256 cellar: :any,                 ventura:        "b78356c6b3bd08315fc58341697e69b71f2954c05155af065e39661be175482d"
     sha256 cellar: :any,                 monterey:       "3b7bf97955aa16d16ba35554bc7a171785ad16ab692c977f2ed690298866d686"
     sha256                               big_sur:        "19a28a828ba163c5bbb988cfc22e5c0a4d7a7c1f6e9cd479323c345e2175c017"

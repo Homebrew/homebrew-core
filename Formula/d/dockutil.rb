@@ -5,14 +5,13 @@ class Dockutil < Formula
   sha256 "6dbbc1467caaab977bf4c9f2d106ceadfedd954b6a4848c54c925aff81159a65"
   license "Apache-2.0"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, all: "f5f87d9e286c2b294bb157ac9f87baa2720fff044c7a92c0b80b9cb82db8a87e"
   end
+
+  # https://github.com/kcrawford/dockutil/pull/131
+  # https://github.com/Homebrew/homebrew-core/pull/97394
+  deprecate! date: "2023-09-03", because: :does_not_build
 
   depends_on :macos
 

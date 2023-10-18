@@ -1,7 +1,7 @@
 class MariadbConnectorOdbc < Formula
   desc "Database driver using the industry standard ODBC API"
   homepage "https://mariadb.org/download/?tab=connector&prod=connector-odbc"
-  url "https://downloads.mariadb.com/Connectors/odbc/connector-odbc-3.1.19/mariadb-connector-odbc-3.1.19-src.tar.gz"
+  url "https://archive.mariadb.org/connector-odbc-3.1.19/mariadb-connector-odbc-3.1.19-src.tar.gz"
   mirror "https://fossies.org/linux/misc/mariadb-connector-odbc-3.1.19-src.tar.gz/"
   sha256 "26420dac7d6d630fc34fb2fe77fdc9fc2a7e8e896d274d3c052db9ecd06bd48f"
   license "LGPL-2.1-or-later"
@@ -9,15 +9,20 @@ class MariadbConnectorOdbc < Formula
   livecheck do
     url "https://downloads.mariadb.org/rest-api/connector-odbc/all-releases/?olderReleases=false"
     strategy :json do |json|
-      json["releases"]&.select { |release| release["status"] == "stable" }
-                      &.map { |release| release["release_number"] }
+      json["releases"]&.map do |release|
+        next if release["status"] != "stable"
+
+        release["release_number"]
+      end
     end
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2c4d4d2bfb49a00109b9fea2a8ffffcddb45084deeebfe0b87ce635b2bd9384e"
     sha256 cellar: :any,                 arm64_ventura:  "584f054978da3cfb641a9504c4eb4ca19463f9a23c16b81714b210900dead39d"
     sha256 cellar: :any,                 arm64_monterey: "21ef52b7656d91d41439996035a56aaaeb6650453bcbfd5a6e97c8020e8f03d3"
     sha256 cellar: :any,                 arm64_big_sur:  "1476558de12837abd0307c1b55e920c421330d2a6b546260d00c86837ee1a3c6"
+    sha256 cellar: :any,                 sonoma:         "4d499e0c0fd2f174a02267689f54f4a372fe28c67a51e6a2449490ea0d5b1353"
     sha256 cellar: :any,                 ventura:        "8bed3cbed522f3c18755aba7ea46a872f73643c4f88d43fcc8f5992a0751f13c"
     sha256 cellar: :any,                 monterey:       "1f7b12bf36787f8335ea55a5f3a10bd0dce9bb402adb23be9a6db164ba4cd977"
     sha256 cellar: :any,                 big_sur:        "44a4dc52e2610f658964f73e69c3093dde7b39fdc51086ce2a4799741044142b"

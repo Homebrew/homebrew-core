@@ -7,9 +7,11 @@ class Dura < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0eec39a4d6a29b38fdd44900472c4932ffec202c85b3657399fe9f0c6a390ca3"
     sha256 cellar: :any,                 arm64_ventura:  "9afb3146b424af7ac38eb1054ba8ed6f6f918c4eeb3a1ebce44696b9c59af8c1"
     sha256 cellar: :any,                 arm64_monterey: "fedf4c54dd1cc680b6dbdf2534b69d9b8e256e067636b0fcbb531ea0b5cb8476"
     sha256 cellar: :any,                 arm64_big_sur:  "6e9e81ec0f29a48921d55bb3168648fbef695dc3d1a242c6aa851bfdf3575dca"
+    sha256 cellar: :any,                 sonoma:         "3affeb2e58b7d362dedc72f72d05423425f29227a64d7d7dde4c8a36a73274e9"
     sha256 cellar: :any,                 ventura:        "d4ef7d4344c67c86442066f7b09e11e5224b93c607dfbea0e91d08eea9f8d38b"
     sha256 cellar: :any,                 monterey:       "189cbc09ab1621aa501666194c27b9616a9b0674ace36ac981896a02816bbc25"
     sha256 cellar: :any,                 big_sur:        "c01130844f54014c8ad174037da08ac04ec826811c89e917c388662d61f92bd2"

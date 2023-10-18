@@ -6,9 +6,11 @@ class BaculaFd < Formula
   license "AGPL-3.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    sha256                               arm64_sonoma:   "4545cd51a096acd747f52d5d15054fc230cef04fea23d50c5b6972503df88174"
     sha256                               arm64_ventura:  "093e3cd13f2eeff54913fff81ea84b986e4a110a4dc3119ec3ec881118741962"
     sha256                               arm64_monterey: "4da12b7a80a085cfa3e3482e368d26d6fef56bcf4685628d337bc24eff0b7d04"
     sha256                               arm64_big_sur:  "1599974c658fe5281094ea70ba72b7301f7c126a22030e03979bd663a7d3ae2b"
+    sha256                               sonoma:         "20b60ef933d208dcc971cf3a4bb713e403c70197de4280ccbc5038cc867d8e7e"
     sha256                               ventura:        "d7c37368083463ab0fe57c87bb19d077d2accf43a52a7e1cf30653af0550c7b4"
     sha256                               monterey:       "9cbd1a22e2baa7a9097989457b8cf6fe6523bb357381e141a925a093f6b2947c"
     sha256                               big_sur:        "a7a941908b02a880f867a0b95990e4725ac7401a0b64aa171ce749ccb590a6bc"

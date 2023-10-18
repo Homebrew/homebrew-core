@@ -7,9 +7,11 @@ class Citus < Formula
   head "https://github.com/citusdata/citus.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "bb1523040c2714dd707e78ae1d50a43d6527c9c1347699b860ea744a7d07b302"
     sha256 cellar: :any,                 arm64_ventura:  "f4bf486699a5729f4d0c2006001f4449f60d343256550be6017d9ba2c34ff374"
     sha256 cellar: :any,                 arm64_monterey: "eeb9601a50b0eef99e8bf5b5e7e8e8ad5dd9a2ff205e6e39a7d7a056cf9f7f89"
     sha256 cellar: :any,                 arm64_big_sur:  "e1d3d86a47cbdb1d3899f78cdfa58b11932ebdeecf77e7243ce5f87c8073b99f"
+    sha256 cellar: :any,                 sonoma:         "12c5d78d573922cb565183cde30d8365543710debea30d52036d76845fc2434b"
     sha256 cellar: :any,                 ventura:        "47b61e4cc15726dac930df244271c94c96c000b8855ac360e51cbf3df0d00938"
     sha256 cellar: :any,                 monterey:       "55aedab8c64a790da451bba0e878aa04de3213b89a2399ddef69bb94cfe3e824"
     sha256 cellar: :any,                 big_sur:        "2f117d6aa7e6daaa46239f2654c3f477fa64cae2e2be6fabba91e4741210eb21"

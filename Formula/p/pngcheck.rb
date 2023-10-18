@@ -11,9 +11,11 @@ class Pngcheck < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd889a6e98aced57897687ed9c5235a5b6d617bb7a4e92c8c81f0d68c5b8662c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bf9bb55a086b248952b1c262fe8f97dbd69b59fa01009775003867a2a891262"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "25f8462c7bd187f4fca2429f6844652ba6f1cc18143028fdf3fdb2ca98afd8aa"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a009523aaa8a5c8eb879fda99829ce1007b682b2caa2413af78112aa94ee741c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "931e18b72a84155a469606157602d4863b6287a5ce2e95b3acf1e9460962a51c"
     sha256 cellar: :any_skip_relocation, ventura:        "37dda1d112b78ff92c0af09a33a582645d3648019501f44ce3f76989b801777f"
     sha256 cellar: :any_skip_relocation, monterey:       "c5d47d9ee6ecfe6704d146c78531ad34c42e62a43a0bbfd0adc01e6a570d5a65"
     sha256 cellar: :any_skip_relocation, big_sur:        "8a025005cde9e8423606279cea498d921810f2334fe17a7bf23a1eba6ee54aef"

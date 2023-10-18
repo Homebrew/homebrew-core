@@ -8,9 +8,11 @@ class Fmdiff < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c310e5be827c54caeb3806dc3cadc5c07854376c4e00a1e47302a80da5eef94"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "edb8bfe9b90e82db787a068b452976814e41ee0cd1be7672f1439b45dee8cd43"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d55ab53b4e1f2ffb241d5b26422e2fb33dcaf8cbfdb287e0c21044ad450e0084"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a49b1ebc974dfdea7865f1a4177f57fd85b64a138ab6273cd825e3739c9517cf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f67773f7436a81123f47ccf93c3a0c19329ce461a7ff72244846f531442140a9"
     sha256 cellar: :any_skip_relocation, ventura:        "8502adf0d116a2b6d467a77af41b9e1f957ea51c87b37ea744e72bd3b89e3e67"
     sha256 cellar: :any_skip_relocation, monterey:       "c8b64bcf072b5404481a44740af5613c49174eb58aa3fb9838d2483d5c6c6a57"
     sha256 cellar: :any_skip_relocation, big_sur:        "bf75678c84061a3bdcf2c0865bfa87c4453007abf21b3dad875f737ae48922b6"

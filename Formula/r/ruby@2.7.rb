@@ -7,9 +7,11 @@ class RubyAT27 < Formula
   revision 1
 
   bottle do
+    sha256 arm64_sonoma:   "1145b53a7a873516f3408712c8ac546d0f36242c929d8a586d5209bbd136134e"
     sha256 arm64_ventura:  "3b37017d8a6c722b6ce8b44361d7893a8458c8696e84f393df01be87e4d67faa"
     sha256 arm64_monterey: "732ed82a82fed5ceb49de4cd4be5c5c6f4151d02c157df689cbdb1eae668b0f5"
     sha256 arm64_big_sur:  "7d0763386880e2a4edb83e80151592d9ea074a87cd7091406798c74d3a6b7bea"
+    sha256 sonoma:         "196867c803513c9676084c43be6a9348a73a0babfc741dfa6fd50817930e6141"
     sha256 ventura:        "34b05f1fce9e839d2039ff581f40f195ae590f803e2b8c5cbdd564130b775716"
     sha256 monterey:       "f10c957f760ae1b34d12629ad26c958556f9bc84ad0da848f3077a522b0ede5f"
     sha256 big_sur:        "695d5eaf8dee2c506365e15030a1d139e161c640d455c1eea5ae5d433a0d76de"

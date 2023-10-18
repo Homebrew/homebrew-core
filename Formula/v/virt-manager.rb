@@ -10,13 +10,11 @@ class VirtManager < Formula
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aaf4c46bc1c840f14004355b82f0b55105e443f6dd7fa04e853b911758c621f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6197f8319ad569eb3b3e165a069c111e2e26f3b9a609470e5ed7819648c46870"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f8013875f83f7f43c770b735c1fd63516d6f961ddf571fb178b156862005bf1"
-    sha256 cellar: :any_skip_relocation, ventura:        "5e043c848d97233b688f2bd71bbc39554803712f66afb2f73b573cf2c73c52da"
-    sha256 cellar: :any_skip_relocation, monterey:       "cb36e93827672834f252726220cd275e4a5f5bc07e57775b9743ac0cb298597a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1e74a69f4a3de1277655fe2e1902fc45db4882c6abd71a732a572b3ad68b9f62"
+    rebuild 6
+    sha256 cellar: :any, arm64_ventura:  "a75d570b617fb75b03f40b684fe319ce9c8aaf09d30bb3f320b47253c7cad572"
+    sha256 cellar: :any, arm64_monterey: "6b295f52f38a006101871fc80a36bffa007e18b163c761f9a4c8cccd5f54cafb"
+    sha256 cellar: :any, ventura:        "925399764789c23fdeadd145ef0ba625e150977f81527a069fa6be65c978f321"
+    sha256 cellar: :any, monterey:       "6710fe9edcfdf3a64d5dfca1055d00836d8aeeacd33e35b8dab687bbb458fb08"
   end
 
   depends_on "docutils" => :build
@@ -42,8 +40,8 @@ class VirtManager < Formula
   # Resources are for Python `libvirt-python` and `requests` packages
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "idna" do
@@ -52,8 +50,8 @@ class VirtManager < Formula
   end
 
   resource "libvirt-python" do
-    url "https://files.pythonhosted.org/packages/bb/1a/d1cf7c8b988cfbbfcc3d6fb1e4e2216690ff64453d3488c9c9e1dfa1e8e2/libvirt-python-9.6.0.tar.gz"
-    sha256 "53422d8e3110139655c3d9c2ff2602b238f8a39b7bf61a92a620119b45550a99"
+    url "https://files.pythonhosted.org/packages/90/63/722b08934531bf0842295b0532d2b2120d30774ed6b04ec44dff85a26db6/libvirt-python-9.8.0.tar.gz"
+    sha256 "4069ecb226eab1b810728ef62a9c993a592b2258b0ff489937addd560020a5f1"
   end
 
   resource "requests" do
@@ -61,7 +59,7 @@ class VirtManager < Formula
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
-  # requests require "urllib3>=1.21.1,<3"
+  # requests require "urllib3>=1.21.1,<1.27"
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/e2/7d/539e6f0cf9f0b95b71dd701a56dae89f768cd39fd8ce0096af3546aeb5a3/urllib3-1.26.16.tar.gz"
     sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"

@@ -20,7 +20,7 @@ class Terraforming < Formula
 
   # Upstream declared project "no longer actively maintained" on 2021-12-11.
   # https://github.com/dtan4/terraforming#project-status-2021-12-11-no-longer-actively-maintained
-  deprecate! date: "2022-08-16", because: :unmaintained
+  disable! date: "2023-08-29", because: :unmaintained
 
   on_linux do
     depends_on "ruby@2.7"

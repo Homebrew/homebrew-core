@@ -6,9 +6,11 @@ class Pk < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df016243a24085cb085bd78cb4e2a0c0a58f0f017a94a09f5b9f7555e6739745"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ca0e954622b756edff41bb508288566a7a950c3a30e83ba0d8013289599afa0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "123a225b6c4a6208cb0b6847bae1cf60ce8934dccbfb1c5c9eb7ed5d055f6c0a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "410e868c6d09c373aba677fe256bea9dd1e3a09d867c009e0afba66c6c671c8e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "827832f8c2cedee3e1c6f4e954a8d601a6da16bdbc6d629f96aa1434a5a0286b"
     sha256 cellar: :any_skip_relocation, ventura:        "abd231d946e68bfa108184889fd1685c060908ffdfe2c09c203918f340160181"
     sha256 cellar: :any_skip_relocation, monterey:       "21e1d9edcb574d9c010e7bbb08bb4430eeccac5e89f85029a6e247a586117c1f"
     sha256 cellar: :any_skip_relocation, big_sur:        "37e03d0ccea4bda2a3616ba39950d8c685e0a49775ed61abfd4b25649e4d2a25"

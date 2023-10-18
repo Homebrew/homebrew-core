@@ -21,9 +21,11 @@ class Rav1e < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "dfe3ff3ca91287de6b3763196855e56535399c88d5939b82602c5ea8043ac65a"
     sha256 cellar: :any,                 arm64_ventura:  "3a0e10c10070252c551cdb863000fdfd08b3f39f73f6834f8ba468245bfd7407"
     sha256 cellar: :any,                 arm64_monterey: "68d4cfaeb084772d0a204f9ea0349d13a08045e0c9bc8a3b1d863c4013e67b17"
     sha256 cellar: :any,                 arm64_big_sur:  "53745f5c67bf84dfa288eeb3f1e4fdd55a513c797cd6571c01470c32197482b6"
+    sha256 cellar: :any,                 sonoma:         "5379729bb8ddad65b0a8f9deb6980bda29ed6a48647a26a99bfcb20cf73f9e41"
     sha256 cellar: :any,                 ventura:        "67a6ce79473a844710bb6b3992cb3298da921c9689c3e09be2ad09177c5100db"
     sha256 cellar: :any,                 monterey:       "671e5164de0012dcf4e365a21fff14445116fe6832a78235bc7da0763fda94a6"
     sha256 cellar: :any,                 big_sur:        "726efa39a001b22ba36d9edf08e6251d19b4741bb24d6bd10e73f40688b96cd5"

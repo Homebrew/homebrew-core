@@ -7,9 +7,11 @@ class Cliclick < Formula
   head "https://github.com/BlueM/cliclick.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c0d008172484bc0a36ea4582ff2e462396620bd2d180a02427585aec66f48e5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4abfe0f72c6ab0473639cfd9a523927384f4d5de04c034e4c343db8f7f97291a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f06719b325bfd00c2aa4af5d8f4017c1d84b85228b191955d63a0d064ffd219a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7a5cbf3668f3cc8ef45be0f90d2de0bb5803abaf750d0ca77d1f19464e81e22"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cc2e503d5ee81ceb4c7aab8878587ec9510074bb1706cb68d49379e574ed3136"
     sha256 cellar: :any_skip_relocation, ventura:        "2f0979882eaa7e88c3da7c8c77522a2c36eb4f587b52a8dea60459156d7bbe39"
     sha256 cellar: :any_skip_relocation, monterey:       "021849385e2be5067946b18bb27d5fdad68d82d40d776f4e6ef98abe45379d68"
     sha256 cellar: :any_skip_relocation, big_sur:        "2a52d08ab8c32e39912191316022fbc11e264b41cebe15ce6276e1a73d801011"

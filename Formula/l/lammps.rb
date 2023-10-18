@@ -27,9 +27,11 @@ class Lammps < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "04a5e51b736d9c7da3d7b4481de8eb0eca994b1ae6f2f5ac439a98deaa2729d9"
     sha256 cellar: :any,                 arm64_ventura:  "877334c3c2e323d9b303b33362f2530300b6fc544554c4ee669baf82c63f6f88"
     sha256 cellar: :any,                 arm64_monterey: "c933f52880ce1266ad20c116f649004c1c77099526294361d08f8d9c56857c53"
     sha256 cellar: :any,                 arm64_big_sur:  "cb127179c2abf7367caaae74393ca65bfa14c93fa380618be8d89ca43bf76951"
+    sha256 cellar: :any,                 sonoma:         "1b91a2564baa547b75a438cda30d969007a9ff12820c5bf94e9eb6b545efc245"
     sha256 cellar: :any,                 ventura:        "4f5075a501550f23a7c4f158decc3bad66f1b71566e5a09b95305ee363eac21e"
     sha256 cellar: :any,                 monterey:       "aa236a65cfdcb84d14c918597da7b5a1da6a079d8c7419cac67beab90cf21dd8"
     sha256 cellar: :any,                 big_sur:        "95addd6e149c5274e677b0d24d336ec5126ab7ec939318da5064311e5cb5608f"

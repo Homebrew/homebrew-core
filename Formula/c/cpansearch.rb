@@ -8,9 +8,11 @@ class Cpansearch < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "6f99905d8bca0790ecf1d11a25cc00e5057f9a552afc1a051530dc9a6271c93c"
     sha256 cellar: :any,                 arm64_ventura:  "559728aeba9f49230296c122a6082e18f188b17b689b015ae87bc3169f07dea3"
     sha256 cellar: :any,                 arm64_monterey: "2a3b8377204fbffa071e4b8493e1c6bd5bf08df9d86d3e447470b55c34304277"
     sha256 cellar: :any,                 arm64_big_sur:  "60c7266ff4239e5a4e1eb31a8831ebe6f3fbaec4d177986dc1e1a8c58f31d335"
+    sha256 cellar: :any,                 sonoma:         "1ef7dbcf248244b629d880236d70c50aa950baa10aeb7e5995ebf41a176dd023"
     sha256 cellar: :any,                 ventura:        "0d363d18d2a5b5a87bac3560266b5af9d3654dd20aedee7fd3b61ab3929beb48"
     sha256 cellar: :any,                 monterey:       "2ef810c08831dc48837d8b3cb0ddcfd13769d8f17397bb62e10f84ce90c2fad1"
     sha256 cellar: :any,                 big_sur:        "facb5cfb7e61d1fecba7f3185230c405abcdcf213dc779749fef25c47e72be63"

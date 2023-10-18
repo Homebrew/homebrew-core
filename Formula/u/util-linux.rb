@@ -1,8 +1,8 @@
 class UtilLinux < Formula
   desc "Collection of Linux utilities"
   homepage "https://github.com/util-linux/util-linux"
-  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.1.tar.xz"
-  sha256 "890ae8ff810247bd19e274df76e8371d202cda01ad277681b0ea88eeaa00286b"
+  url "https://mirrors.edge.kernel.org/pub/linux/utils/util-linux/v2.39/util-linux-2.39.2.tar.xz"
+  sha256 "87abdfaa8e490f8be6dde976f7c80b9b5ff9f301e1b67e3899e1f05a59a1531f"
   license all_of: [
     "BSD-3-Clause",
     "BSD-4-Clause-UC",
@@ -24,13 +24,15 @@ class UtilLinux < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "787858de2dbf1a9e70b34cb214a1e2bcea78956d66ec48fc2269d4dc298d5cc0"
-    sha256 arm64_monterey: "3dc196981c4f5a365dce73b2bdc2db63ac8d3c4c346668fde95b18ce4fb1e6b1"
-    sha256 arm64_big_sur:  "ac346347e235e1794febabacbb3ee532050ed03ffbf0283c46547ee0ba08d003"
-    sha256 ventura:        "469c8797e9e9fd36e797513005c4ff5e79ed64b35a2eedacb2df995e8d3c0a93"
-    sha256 monterey:       "cf96a78ccd4bdfcbaca3d6eb34eddcf28a73b4196705e5748c5271480fe2e4b6"
-    sha256 big_sur:        "f38b58e76ce1975773a2b2c076813d8ab60b8219d28b5c426c592ce85a8d42e2"
-    sha256 x86_64_linux:   "3e38d81b856507fb126b26eaba4d20459dbe06993e26e798786954de730052ab"
+    sha256 arm64_sonoma:   "a40499918175d7917ebc46d32cf6bfa9ab7f0cffc1190d0505dd8de69be1e1e7"
+    sha256 arm64_ventura:  "7f404730ebcdb1d661efc780d220f25dfef1ae595991809987397e57b223c82b"
+    sha256 arm64_monterey: "6ef2a1dca2a120bb981f10c99324fc9d6dbe5a423e8c2070a166d0e1eeb77709"
+    sha256 arm64_big_sur:  "672d4028bd8523cd01bb4ef71b235683e3880d698b3ce9b33c2de60f6ec9f9e5"
+    sha256 sonoma:         "b5305a847a723bdfd55d3937a86e865ea62e3360ccbfc05fcedb89c128c16b42"
+    sha256 ventura:        "f1bd7e4fc3e806211d72a5ea07bbf4ed53bbd7cf07c3499de7ab17ea32137f98"
+    sha256 monterey:       "568f6e7c70c468c3d2e12cbde331ea8820f0e1e0cc5892587d8a88ff08f4db35"
+    sha256 big_sur:        "42948dc1d845e1e3e60f7f58194b114efb9f09775053349f1eb4de4e01902473"
+    sha256 x86_64_linux:   "4a7afa9a7913aaf22e5611c74fe313b51829b8c58161aa0578b8b7c11edc794e"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"

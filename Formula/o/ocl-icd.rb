@@ -7,9 +7,11 @@ class OclIcd < Formula
   head "https://github.com/OCL-dev/ocl-icd.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "df3cb16228261aa527b898620e55f267201a7a46a0841f36e573136810531a07"
     sha256 cellar: :any,                 arm64_ventura:  "8fc901e1e752f1902b2121429848130015c185950ba6d95493799e16f4682657"
     sha256 cellar: :any,                 arm64_monterey: "02b44e5ee419f3b8b41a022cb18686b8228e9d7f25dc2e577ecbc0416dad3826"
     sha256 cellar: :any,                 arm64_big_sur:  "9c235f1e589eb8bf190044f779cd4dfea39933ad6204d04425e169decacda436"
+    sha256 cellar: :any,                 sonoma:         "d81c26148b1fd2d1af2eb1e194db88a9d8d11c7979fb5e80e0e1b32772e3700a"
     sha256 cellar: :any,                 ventura:        "a94ce49fa8125e0280560433f7e6dd73fbed00275f63d7ee1128de8c90b02397"
     sha256 cellar: :any,                 monterey:       "d7f1221c1e6e98a8f83f6e9a73a52156a10d41335ed4cfab2452c4af9fb8442b"
     sha256 cellar: :any,                 big_sur:        "c2bcc480d4d10eb4b38ebec517ae32b936e272f9c559e6f8e17a2c7efc916dfb"

@@ -7,9 +7,11 @@ class Gtksourceviewmm < Formula
   revision 12
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "73d0225ed243ebac279710392bb6f286d709f9934b3f44ca691e7dc591a35e4e"
     sha256 cellar: :any,                 arm64_ventura:  "420a7b698a8d7c40b3c30f4720c0c065e3ee71cda8542a517ae8aea3a3cbccbd"
     sha256 cellar: :any,                 arm64_monterey: "2735fdddc92f3280188428fc9fa83431a700c376bcae4424bca10005dd440c76"
     sha256 cellar: :any,                 arm64_big_sur:  "2b73a79e4c0df491e43dcc3def52858679c0d0ff699c3bb8a003014a7940408b"
+    sha256 cellar: :any,                 sonoma:         "7b9bd3d4532700ded7178c931719fd142c0aebae9b5ab81ddde830969ae29a61"
     sha256 cellar: :any,                 ventura:        "32ba822ec6c84be6a8848adbddfa727fae43613c710a07b9e64a2e5c579ea7f6"
     sha256 cellar: :any,                 monterey:       "337b822adee8ddec4bb8f9f045f10cdb5e624c35fd1bf58aaaa1ab860af3cd73"
     sha256 cellar: :any,                 big_sur:        "cb0781be44de07c6b920d97337eeca3650d9ffc03d99cb0ac0e9da7cf2769b0c"

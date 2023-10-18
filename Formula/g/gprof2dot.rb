@@ -9,19 +9,18 @@ class Gprof2dot < Formula
   head "https://github.com/jrfonseca/gprof2dot.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54d2c550983bcbc7d974c926f90f95a9d339db13551790772149aa94b5b1d47e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "68791ba75d96fce85372e3fc54cd25576b38a6fbea077032096b7f297c3b26e7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5b50a7ebf952acaf260fabef9c6a8e2dd64cd2fa5b0c8f526b126eed6036aa91"
-    sha256 cellar: :any_skip_relocation, ventura:        "baeaf28578b2f2c920fc45bddd496c797aba212eebd07ffdc3e70be04d423455"
-    sha256 cellar: :any_skip_relocation, monterey:       "dabb15b4183ef5c1094a36f8efe73f9c3e722aee48b749b9c0b7e37e396031c2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a5eb84239ac7fb8d99effac8c63952dafccd7458173dc29222d5df693b3cf50a"
-    sha256 cellar: :any_skip_relocation, catalina:       "da12fce96bf11d5c06a5c93ae9b1ca4faa317997dd588951166377a114e0328e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd505c606eed32d550e8ac628f596aec1d88cb6c09ea7dbe95a712164d6e3f09"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d81d5d7e30f6fe2443386056a21f0682f7d4173ee08114bca0dcfa16fbf00d56"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b29fa6f9e3716b2a344d34f766e38dffe4bd8f7d03bef04eac1559164fe7b271"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bec1b03d7f2bf9352e6626c27d1d7921f79a83a1eecccc770f433a1ea6637aeb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bb0b813127a6b986e3f0a3ea3f568f47d2fdb92c8b0e2328076a0b8f3a86d495"
+    sha256 cellar: :any_skip_relocation, ventura:        "287e26046fca0f033cbca837b6009c03d7bff89c77d8f6502910f73cc5d10f84"
+    sha256 cellar: :any_skip_relocation, monterey:       "6cda88439199685a35d2950409f818eb1ac6f73184b87e5e036900a4444cdcb7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66111cc1fda2c7add502c5927e0eb4c30927a9be529358baef86dc43be83e83a"
   end
 
   depends_on "graphviz"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   on_linux do
     depends_on "libx11"

@@ -8,9 +8,11 @@ class Liquidprompt < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"
     sha256 cellar: :any_skip_relocation, ventura:        "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"
     sha256 cellar: :any_skip_relocation, monterey:       "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"
     sha256 cellar: :any_skip_relocation, big_sur:        "f0fedfbfa90aeb2eb693a83409f6b3a4bf4b51052143b61a90fd37f543baeeb5"

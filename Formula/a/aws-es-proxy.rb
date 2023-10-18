@@ -6,9 +6,11 @@ class AwsEsProxy < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b120ad6ea167aba79f5bf38cb52a67efc6611adcb8fbae3b75207e1a04f9ea64"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2b1415650725652e3282217d2c09464410645b225f954101259df3827b4a135"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b2b1415650725652e3282217d2c09464410645b225f954101259df3827b4a135"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b2b1415650725652e3282217d2c09464410645b225f954101259df3827b4a135"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7ea23d1d458a4ef45083c46678463884d07f2dd0fdfc47296698a9ee41d5cc35"
     sha256 cellar: :any_skip_relocation, ventura:        "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
     sha256 cellar: :any_skip_relocation, monterey:       "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"
     sha256 cellar: :any_skip_relocation, big_sur:        "ca006b5fff25e619563f739d83881a461d0c763c9501d144b355da1940075468"

@@ -11,9 +11,11 @@ class FetchCrl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7677617f4cba5505e09c4ba9200801b8633cf95a56f6c242ce137ae217a5c967"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7677617f4cba5505e09c4ba9200801b8633cf95a56f6c242ce137ae217a5c967"
     sha256 cellar: :any_skip_relocation, ventura:        "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
     sha256 cellar: :any_skip_relocation, monterey:       "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"
     sha256 cellar: :any_skip_relocation, big_sur:        "cefc451865fffbb827a6c2cb4603960bd672a69dca19b512811912bbb6cdc83a"

@@ -7,9 +7,11 @@ class Hcxtools < Formula
   head "https://github.com/ZerBea/hcxtools.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "1ee5f01a672fe46b02e774eec136bf2a5c161d3336e4f38cb2b07f38b0438acf"
     sha256 cellar: :any,                 arm64_ventura:  "bc2799060b91b448c1b3240593920e0aeb83e5e466d260ad9661fdd8bbe5a31e"
     sha256 cellar: :any,                 arm64_monterey: "6a1f47f177a3c7c722be5cb42401bfac6b5d3b7c11641c2b37f2a1a6d8e9e559"
     sha256 cellar: :any,                 arm64_big_sur:  "da64ee096b4f490237955607bacb1a72cc3df188400759a2c817c28ea462cbbe"
+    sha256 cellar: :any,                 sonoma:         "0228df978c220b451bd89072e18ac71895fec4776b3f3bdf031af10cfdfdc631"
     sha256 cellar: :any,                 ventura:        "6ea7825bd2d2425ae36eb8bd5e884391f84a63f172fe30c9610707673f75b964"
     sha256 cellar: :any,                 monterey:       "28af85ebf8fa2b147d203b42a336ae8c64c1009fd8e70c3194c23a8b921184ef"
     sha256 cellar: :any,                 big_sur:        "4be6dc30604bba139024e5ac1cba60c258316e2ae2552ab4f3df57d99a7447f4"

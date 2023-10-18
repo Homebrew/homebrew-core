@@ -12,9 +12,11 @@ class Scheme48 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "e0657af21f8db5bff943e21c608082e06d68161b2025354af2c6cee675a7f1fb"
     sha256 arm64_ventura:  "cc137fe1119517b408d4c7d7667663be60379276926b784615e39a0895f297ee"
     sha256 arm64_monterey: "c20ad35da984e79e5a9fda348b2c1f9eea887926bd5a5078c9a489e7e93b9204"
     sha256 arm64_big_sur:  "5a2ff16cfe2c0cad8648b4057552a19f3389408d3e90b884c0b4d4f3c4116d30"
+    sha256 sonoma:         "b28de7ec2a5c09b39cb5dc14d3d572968f9a53d3aced77401879a76c1106c4bf"
     sha256 ventura:        "12112675043f26739fdbefb483030cee2917a8672955f4ac605ad7a07a35300d"
     sha256 monterey:       "4856f33cf05dadebca3d0114e9784a48e6864244653adfdc81fde92f6f90e0f4"
     sha256 big_sur:        "c11d8062b6115384d18f174cd7f5ce5fef434b3ed35b914b85a7c9df041cc450"

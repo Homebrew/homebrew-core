@@ -6,9 +6,11 @@ class Goffice < Formula
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
+    sha256 arm64_sonoma:   "6407f88e8474f59ce4871d4e4639d0c6864ebaca7fd06b2a9cd56e2d0e491757"
     sha256 arm64_ventura:  "b4fba5dd3adb45ec2bbd704602870bebdb56498f8e32a0d9cc73695e56d70539"
     sha256 arm64_monterey: "d65b7f9ed3f4f20f40db33f6a5e0524a7bb4eefbf7aa64cf2bd6d16ee36a10fe"
     sha256 arm64_big_sur:  "0aa63ad148cb4aae4c65266661a83918c908e20215370f370a83539b76013925"
+    sha256 sonoma:         "b731c3e928f0148ca59d4c1076962458f0495df4f6d7e982680e9dbebba1f509"
     sha256 ventura:        "64237ea971207b9ed98c30df3fd174e43655c961e3fda8f477c694046906d6eb"
     sha256 monterey:       "e504938af2973d98cfed4e9a402ba7abafbfa9a1d93cb5deebda0af512bc70db"
     sha256 big_sur:        "b4b6abb961eb7cc3485f517d1ea196104b0bddfdaa6dee3f258f906584f6e434"

@@ -1,10 +1,11 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u372-ga.tar.gz"
-  version "1.8.0+372"
-  sha256 "3235a744b51896beb1e8b738412982ebc06e2affb9d50ae3371203d9a46504da"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u382-ga.tar.gz"
+  version "1.8.0-382"
+  sha256 "a000ec82e594ccfe46ac1a4aa3d7399532aa53875042f22f16eae9367c4b20eb"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -15,10 +16,10 @@ class OpenjdkAT8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "eb1e1ff913b7002c99bd8110c80a2d011c9ad521bddcefff38b5b79f45a5ae7e"
-    sha256 cellar: :any,                 monterey:     "3cfce9f0954818817deba5edcad32a0551365b175ea4eb4bef1668988ee01928"
-    sha256 cellar: :any,                 big_sur:      "005cca2c8c38f9cb9fb573a9c3f5153586a5635279030e044db20df6e54e0178"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6e4bbbcb75992e822fec593eaf3d2bbdc647ca50b1451b1a6ef37cbd949311e9"
+    sha256 cellar: :any,                 ventura:      "ace452ef3b9f4c56bde6ff41c6784e0f866661df99e17aabaf68d85bcc53b03a"
+    sha256 cellar: :any,                 monterey:     "41202240ac3c899dea34407fd6678a4cc00426528371a8bcefe7660445599693"
+    sha256 cellar: :any,                 big_sur:      "17fb977f50c91f0bd61ce995473dab0fdb954687f59ac7d27427186f06c622aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "db2a5e233fb3194a8eac218c137cd81dfb38dd6d7a1b6bf87568864cda195a15"
   end
 
   keg_only :versioned_formula
@@ -62,7 +63,7 @@ class OpenjdkAT8 < Formula
   end
 
   def install
-    _, _, update = version.to_s.rpartition("+")
+    _, _, update = version.to_s.rpartition("-")
     boot_jdk = buildpath/"boot-jdk"
     resource("boot-jdk").stage boot_jdk
     java_options = ENV.delete("_JAVA_OPTIONS")

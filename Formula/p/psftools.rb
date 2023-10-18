@@ -18,9 +18,11 @@ class Psftools < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7b3c2ecfcbac182eeb598a944eb04ae8506330cd0ae1b058a96679f52dad028b"
     sha256 cellar: :any,                 arm64_ventura:  "6d1a0f368538d9943d29048cc34f0db13a9df55d2c100f831dd2a66f987fa32d"
     sha256 cellar: :any,                 arm64_monterey: "1142f7422c522acca28091e7e522e384d00ea96148a74ac67bef674c59f44325"
     sha256 cellar: :any,                 arm64_big_sur:  "474daee5c218ce90013ce498fa84dc5486bfdd1ff736535a87bd618fa72f3da9"
+    sha256 cellar: :any,                 sonoma:         "782668ee44ce5af9aecca5d3333653b27970ee7599677ca66a23ad73765e7bdb"
     sha256 cellar: :any,                 ventura:        "99749cecc8e45fe27e56b6d7ab1a8fa17e2486566a065b62f850779d166ae625"
     sha256 cellar: :any,                 monterey:       "cdb289bf8f4b4e86d1145bfbea21cf5ec091c758cfa1f3902fa636a934dbc55b"
     sha256 cellar: :any,                 big_sur:        "42056401c680e3a2372f2b16c78936b6e06c1cb3f8125f1a7c0fff8d23372de9"

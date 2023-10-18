@@ -12,9 +12,11 @@ class Darkice < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "af910d1b4f053b52d0be917a698954a5903bebeaaaf7015b62fdce29ea4b4749"
     sha256 cellar: :any,                 arm64_ventura:  "d0db564fd3fad3478ae882b45007229aa010fa374fde2543fbcd453357a964a9"
     sha256 cellar: :any,                 arm64_monterey: "0c114d7e19e2a1fea948adbf40be5566dea4d9a21888448aa48cad337e1aefa7"
     sha256 cellar: :any,                 arm64_big_sur:  "74ea8b8e64aa084b45b2c0f54cf77617960a4de2e3ab14601375e4242fc74f0c"
+    sha256 cellar: :any,                 sonoma:         "3cceeffac938178db89da3fdccc54454d405b0ea875d360d41f6ced8be5a7e36"
     sha256 cellar: :any,                 ventura:        "a63714cf7139435583c9d7ee8f1f2f3627d386063beb6cd0767b47d28f721b02"
     sha256 cellar: :any,                 monterey:       "a07e77aa24879c67883e75d3fb73b7003d98fc59d6b9f5da24d64789727e1ea1"
     sha256 cellar: :any,                 big_sur:        "7bccd99a386891b98e1085300243152a8bd82fdaa0fe20d9b83448460711d2c8"

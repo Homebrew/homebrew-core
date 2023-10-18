@@ -10,6 +10,7 @@ class Clblas < Formula
     sha256 cellar: :any,                 arm64_ventura:  "ddd0d6b3d160284e87fee5d6cbb6585632cd24842c1f26954205acb665e3c74a"
     sha256 cellar: :any,                 arm64_monterey: "ec2838495fac090d05c5eb2e2f5cb8fd3640bb238fc068459900e50cc7f28674"
     sha256 cellar: :any,                 arm64_big_sur:  "8ade8c33c4231863fb5ebda26cd90cd1e1b5f30193c9b7bb113939e2c588c9e9"
+    sha256 cellar: :any,                 sonoma:         "07b22046dd5a9005ac31e41f688afd50aea6284d716ec67ab304d587d0f40f9e"
     sha256 cellar: :any,                 ventura:        "d8bc99eb36031d7e6f662b40b2d8ef98a1d60fe414959c2ec5f23c590ebcf353"
     sha256 cellar: :any,                 monterey:       "2be6e0730bf2740496eb4b90b90077ce65185ab8fc1c0714edb8ea834904a8ec"
     sha256 cellar: :any,                 big_sur:        "3f4f8ceae96d4b24049e7b81e89f7bc5785bcd7968bf5378fb54cafd259b6d92"

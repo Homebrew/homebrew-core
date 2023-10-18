@@ -15,9 +15,11 @@ class Corsixth < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "dc5be055f3a6901ec011bb20c320319b94565db108afc4d8abf9e28961181a97"
     sha256 arm64_ventura:  "035e6944e7e1abc531de4c0cb8388926df696d453145e5bf9568b209ad6467e4"
     sha256 arm64_monterey: "5ae127cb3138c8c4ca20c177b1b3a38ccc47d03d53a7c6d4758b7c75c2bd3e2c"
     sha256 arm64_big_sur:  "a48d409e22e0b093779f66531d7535f298befa7c2d24699ad82e2f63d954662a"
+    sha256 sonoma:         "6c0165ed1cbd9d072a0d0adc353e56d5ae4ce7b657dbdf6a606a2e7904b8c7c6"
     sha256 ventura:        "5fc3aae89e7848b74fe5f6e1198a1dfbbc51a9b4cfe7498081fb40ec4460beb6"
     sha256 monterey:       "2b262036861f56996d28a71db429143fe6a27fbff344ef6603d71ec683600a9c"
     sha256 big_sur:        "25aad27558005508dfbb2f866c9757834842e340109589c37cc75ee12d895094"

@@ -7,9 +7,11 @@ class MecabJumandic < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ebf13ddcc0af473110b91b1ef375fd0e002d1d5069f90010760ea0c9477cc80"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "f033d5c87f53c348ad60a9de9e2f332248cc06d7c7bdfb32736ff86f2a9e080f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f033d5c87f53c348ad60a9de9e2f332248cc06d7c7bdfb32736ff86f2a9e080f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "467204e1c6b94ca425c3e18e5d1ac6d88965119dcea7403504790f592d762f1c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ebf13ddcc0af473110b91b1ef375fd0e002d1d5069f90010760ea0c9477cc80"
     sha256 cellar: :any_skip_relocation, ventura:        "f033d5c87f53c348ad60a9de9e2f332248cc06d7c7bdfb32736ff86f2a9e080f"
     sha256 cellar: :any_skip_relocation, monterey:       "f033d5c87f53c348ad60a9de9e2f332248cc06d7c7bdfb32736ff86f2a9e080f"
     sha256 cellar: :any_skip_relocation, big_sur:        "6da8172f0b7ac280bce9b4cbd35f1d7c0346c16e9470df605d6527a62fb30b7c"

@@ -21,9 +21,11 @@ class HttpLoad < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "185664add7e628ad4614228aef6bf0b18356077ddd71abf3eae39ae12a2e2d03"
     sha256 cellar: :any,                 arm64_ventura:  "4349eea05cac8aef36a6243f8051208cddfda24966252b1ca079c3a89855b913"
     sha256 cellar: :any,                 arm64_monterey: "b4a5b7e79f524a59d414c14ff40ea8ad5a0871a6c98606e721c8f83320cdd230"
     sha256 cellar: :any,                 arm64_big_sur:  "f8ad486c4e8c9eb7f5204584c74de6e366e3e2ab1452682dc9904badec75e4d5"
+    sha256 cellar: :any,                 sonoma:         "27129e350fa06c4e302145c55a83a0b41f4ab96ebf371de001151d537929ccb8"
     sha256 cellar: :any,                 ventura:        "a6416934e52f12730249f9175afefb89dda92f939aa880961b48613561eeb124"
     sha256 cellar: :any,                 monterey:       "03949d76fa9a565a4e52e3219a097eef0453bb082a77674a16a66e407f6bba24"
     sha256 cellar: :any,                 big_sur:        "04650d6cbf5dce7109ed1ce45a1bad45ae6d2706d3b5dd2baf411b198a3c5e27"

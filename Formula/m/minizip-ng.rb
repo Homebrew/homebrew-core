@@ -7,9 +7,11 @@ class MinizipNg < Formula
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "dev"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8046b407f24414c492cc767f4da4869c5bd1d28226895ddc79b6eca09941d266"
     sha256 cellar: :any,                 arm64_ventura:  "e484205371faa8b30f0509e38cc1347e70e94d99f9e865ef91479cad893e5ba3"
     sha256 cellar: :any,                 arm64_monterey: "550ac0a95b97f5804ab42b3b58ad9d2607ece88f7fabf814da5b8b37bedfd4e5"
     sha256 cellar: :any,                 arm64_big_sur:  "62c51c16e85d601aee766b170086ade14aa5e52558a60961307e119b3061cfb5"
+    sha256 cellar: :any,                 sonoma:         "3e2c7eb06ca80e8d84a440618fdc9abdf613facf074d746df8f32b2385dbb3bc"
     sha256 cellar: :any,                 ventura:        "53d10a56a333757da78113d470b41399f56801924ddd1b3931a45a25796e04eb"
     sha256 cellar: :any,                 monterey:       "e4d99c38740b4b1b6a6e88d1716216ae80b9fc0d4789913dde7a2d0c047b9399"
     sha256 cellar: :any,                 big_sur:        "dd08374028fcb1670712821f20d109cb416a6929f4327b1bbe4f962a06d6c3ad"

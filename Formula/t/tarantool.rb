@@ -1,10 +1,9 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-2.11.0.tar.gz"
-  sha256 "4506e7208cd20f3c1858d14b9b40fe388083592faac5c79ec30aa751e095f1f2"
+  url "https://download.tarantool.org/tarantool/src/tarantool-2.11.1.tar.gz"
+  sha256 "246f5835270db614dc22f72232db2cb74e11d6e60be832019670a99d8f7c7e5e"
   license "BSD-2-Clause"
-  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -14,13 +13,15 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9573662f5901674abfee4a9e6a55c814f87f81977d48d99834e8b904e177f94e"
-    sha256 cellar: :any,                 arm64_monterey: "39b89da13f08b294352a0bd0a54a8de1d6991ab7c53931b372d6ebc0eeb9847e"
-    sha256 cellar: :any,                 arm64_big_sur:  "e6609006b16d4846f5d050a892c4cfad6f774c6991ce11c90823ccc4f553ed83"
-    sha256 cellar: :any,                 ventura:        "5891fb6baa4c38b332e754a675246b31cbf5462b33b748e5e597834cbf821fe1"
-    sha256 cellar: :any,                 monterey:       "cf076349a68ac9f4281d6c3a1aae4778304e88750081fab85c61000912185f90"
-    sha256 cellar: :any,                 big_sur:        "f942215edd1bd3290894d2d193adbdc7ac76c391440c1c78b2ae6f130012ef2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "137380a34ba96428d88498ba7b66adcffd92de550ef3854c2154e6b2c618b50f"
+    sha256 cellar: :any,                 arm64_sonoma:   "a16d33440eefc4a94d38b7f0e8622d99370549d54bfa8e25aa5e3aa6ee5d8436"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c223efcf5587c70703ccfc95e11ab3c863a24ce7eb93fc1b1c6d6467ae95a66"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f94996a2259418dd71e5f6e7be722fbadfd85d6a6f0e7285b257401f68e1da2d"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d8873b0f47fcd8986c9db418e909faa241970dcd7ff82d03554f620865522c0"
+    sha256 cellar: :any,                 sonoma:         "1bf3d80210621f85f6d8b765a061c289b36f3c802345794addcd1e80767d7169"
+    sha256 cellar: :any_skip_relocation, ventura:        "68d1967d680933858b05a7af7bb913017255739c5eca43d4316feace46f98915"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c5bf4852c0c7e69104c079eac495969b9110d397ae96c818b706522709b15de"
+    sha256 cellar: :any_skip_relocation, big_sur:        "dc2045f59e5e3a4efcca156a2cdb07fbe2429c341e959cc016083f98545f6f0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e437ff56194edc627df68e2e628cffb3ddea46a05b64afb0ad9b144c4ce67e85"
   end
 
   depends_on "cmake" => :build

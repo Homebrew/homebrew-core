@@ -10,9 +10,11 @@ class Dynamips < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3db4b7a6d2140635eae5d91a96810fbbef58144dcad5f7ed77743f930df696d3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "106e42f80c14fe08866951b8e1d5032f98fe3d8a57c497856d09aa0657a7120b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "ea736c8b0b31f481066a64f07a154e5bd8b556be4cd259c1a0e0d8da509da3be"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e685176d9affeeacddcf08b39f639a998c0dde4027ad6131d43bf013b99cefc6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6be2e4c5d8e2aa875a346df429bd6b513d5c0c8d49f84c4fe29615226fb75d71"
     sha256 cellar: :any_skip_relocation, ventura:        "df2f66c85bba8ebe55a40adca313d3007fd78a11e31101cbf56095c261ba419a"
     sha256 cellar: :any_skip_relocation, monterey:       "34cd5717a4449d9d69c7741ccf492a010c8b6fcaae137b3e84869ed0426b0be3"
     sha256 cellar: :any_skip_relocation, big_sur:        "537b49bfac716211677ac7da74d5c78d111da724c80b3811976f281eb57237f4"

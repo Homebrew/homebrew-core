@@ -39,7 +39,7 @@ class Midgard2 < Formula
 
   # Doesn't build with libgda 6+
   # Last release on 2012-09-26. Last commit on 2015-07-15.
-  deprecate! date: "2023-01-22", because: :unmaintained
+  disable! date: "2023-10-10", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "dbus-glib"

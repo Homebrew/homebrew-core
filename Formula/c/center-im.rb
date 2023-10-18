@@ -14,9 +14,11 @@ class CenterIm < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "d75f8b87c2bcd20519e83e938faccbc543fd1501b7c606d6ebb629a725ed9d63"
     sha256 arm64_ventura:  "06ea3b5f68d56428232fe118e9acd8991bc874339e4a871cc353090f8fd35279"
     sha256 arm64_monterey: "1a7055bb3ef5921a9a7879b1d5a6b1c1e208e10e74775118aa266e60fdc1b0b4"
     sha256 arm64_big_sur:  "da6277844c78cbc85d849be46094d4a67e3ab57cc6bf41d2cb5332a36db0ca7c"
+    sha256 sonoma:         "6e36cf572c5c13d94fbbc516f9ae591c03103fabfbbf4c3cb2587cfbd6021909"
     sha256 ventura:        "eaac6faf7415659261e938587b564ee5190fe7df96ef1a7b9cd7e946a21a5c63"
     sha256 monterey:       "5647b6358b2c0c1b95fef613b5dd9818a584b2e127bbd85ee1dd329b698c4ebc"
     sha256 big_sur:        "d8b97d13db945bc0a2fe883bfa8394c70496f1cdd4bc8624c3fdf43dab824ccd"
@@ -39,8 +41,9 @@ class CenterIm < Formula
   end
 
   def install
-    # Workaround for Xcode 14.3
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version == 1403
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Uses `auto` as a variable name.
     ENV.append "CXXFLAGS", "-std=gnu++03"
 

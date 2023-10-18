@@ -13,9 +13,11 @@ class Libvncserver < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "7c3d95ce451303d3e11655c9a0f050e8804a73a2f4cb1ae5549846fa6b4b7c31"
     sha256 cellar: :any,                 arm64_ventura:  "5212065cfd69a225a5daa89fe45a7677d2a2716970f69d7015b4206b6b90b633"
     sha256 cellar: :any,                 arm64_monterey: "44455a6842335f99c4722e9fb89da75c1ce7af49778ee66bb08670e3ece665ab"
     sha256 cellar: :any,                 arm64_big_sur:  "fb8f83791e2207e227b625710686602862a6fd9cd8ca88940e6c21a63fdd9435"
+    sha256 cellar: :any,                 sonoma:         "cc50311b539c8f12e2572644be531a6ea89fed8bf8bd185d678a59d45b39f7ff"
     sha256 cellar: :any,                 ventura:        "fce52496a16dacb10b307481ce5faff96613aa9329cb63850f7f05be37909d79"
     sha256 cellar: :any,                 monterey:       "35af138621f6415eec78d4e2e6e2f8bc5f74dd22bf38cb0f3c34fd2bd32c84df"
     sha256 cellar: :any,                 big_sur:        "2f83240c0b85bdcf83c84cc6ba18ab00c8eb097520eea08133df3ab1d3c91ad9"

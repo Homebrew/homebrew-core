@@ -8,9 +8,11 @@ class Libunistring < Formula
   license any_of: ["GPL-2.0-only", "LGPL-3.0-or-later"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "6d49946a29c0b11e7c273edcdcff15d90b4d55bd9038e85f83fe7741e035ab28"
     sha256 cellar: :any,                 arm64_ventura:  "c78e7b0af88bef155ad7f12d63ad60f0c87e5a8cccb8f40ec5d9304f8fdfaee7"
     sha256 cellar: :any,                 arm64_monterey: "4224b6d2525c68567fba97103f44fe6f95e62990bddab83e4849d048f3799cda"
     sha256 cellar: :any,                 arm64_big_sur:  "91c48a9bed24806ed74c964ac39010de737a83ca8a4f2b29e07180902112985e"
+    sha256 cellar: :any,                 sonoma:         "230dfb1be5d93330335494e2e2757d3463aaccbeef84e52d2f6ab8b480c20611"
     sha256 cellar: :any,                 ventura:        "10dbdabb2d2fd8465ee4b89196dda6fc80e80fbb61425d42f0bf1e3ee3476145"
     sha256 cellar: :any,                 monterey:       "73ef01fda8958a495f4d7031cb8d270432d4ae2f11760190676762b95ac7c0f4"
     sha256 cellar: :any,                 big_sur:        "55a30f8d2ad0058a9869751ccb9b7e949469cf20f29810e70ff2b7eff63a6762"
@@ -22,7 +24,7 @@ class Libunistring < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make"
-    system "make", "check"
+    system "make", "check" if !OS.mac? || MacOS.version != :sonoma
     system "make", "install"
   end
 

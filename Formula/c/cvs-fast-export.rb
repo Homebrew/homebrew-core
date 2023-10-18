@@ -1,8 +1,8 @@
 class CvsFastExport < Formula
   desc "Export an RCS or CVS history as a fast-import stream"
   homepage "http://www.catb.org/~esr/cvs-fast-export/"
-  url "http://www.catb.org/~esr/cvs-fast-export/cvs-fast-export-1.60.tar.gz"
-  sha256 "40b301617da7dbbadc69af548acaebd9522d82d4cfbf96566ce739b4ad5517cc"
+  url "http://www.catb.org/~esr/cvs-fast-export/cvs-fast-export-1.61.tar.gz"
+  sha256 "e221fc54ac559625592b0678d2b18c6f77c7d67c5305d313e48701cdda759a3c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,15 @@ class CvsFastExport < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b8d0dbd7a85889d3ca299b2b098c3a4e08569f97e397ed2d2baba4eff2b5c7e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fec5ccf5b4aa1884860c7edf02e6cae2a22b000f8867583dc6905327dab2ccb9"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d7eae20d8cbf1ddd0b7a74baeb95c82fb12859ac363ed2b310a7e13ae9ca908"
-    sha256 cellar: :any_skip_relocation, ventura:        "2754cf0b2a42e0b97d66de41e215df7071cbde53f9b834ac9a551a4909762589"
-    sha256 cellar: :any_skip_relocation, monterey:       "3126ed9071ab791e7c8f2ca7d1782af00253fa3642d91a5846c581fa15a85dc7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "800f1507561fd1610bd960ced127820426d0df18a070fa70a8653b4b7e137e09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac1b6314630fe4c565e5091890266b2b28714d2c5e5ad1f879a7c8c6bacfb6a0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1299b8af0d24783c8a2c6b8ef91459766ac5366e253772ecd5d99b29adf2f21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c50ee95a291372ba86ae9b699be52eb05021d07e94879d706aa5d62ca836d9c2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "80124aa55bd3aa14da8072520df95e8653f1a93ace0253a5c3b9770d1554d4e1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0ea9df44b6032934177f2257d8ef4e237351a9ea40c80caaf53d12223dca662"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a26519a709ecc1d9b545ed74c75e64b5c1929cc502d04fba0b0616c1c53317b4"
+    sha256 cellar: :any_skip_relocation, ventura:        "324a3468d896d92df266477b24394a52562199e76373f989b91e5dd9ec07b9c7"
+    sha256 cellar: :any_skip_relocation, monterey:       "18ce15d7e398b6bd8634dcc4eb74b13aef8e18409759a5bca413e429bda2bb7e"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1103ec399ffbfbed891e202e726a2a08ecd95acd75578b42ce6b4d8850931309"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "337b2c77ae1298e449fdab4050a5cefd5b774f3f214da1110010100d410efb54"
   end
 
   head do
@@ -35,8 +37,8 @@ class CvsFastExport < Formula
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    # Workaround for Xcode 14.3.
-    ENV.append_to_cflags "-Wno-implicit-function-declaration"
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     system "make", "install", "prefix=#{prefix}"
   end

@@ -1,19 +1,19 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau-lang.org"
-  url "https://github.com/Roblox/luau/archive/0.590.tar.gz"
-  sha256 "942286e616edad6177f6a24a0b3bd92a8158bba9a578eb26cdee34e280f3d1ef"
+  url "https://github.com/Roblox/luau/archive/refs/tags/0.599.tar.gz"
+  sha256 "d540602a441bc16eed753a8f86d7623b45d693b84a57ce3bd2df990f2e568efa"
   license "MIT"
   head "https://github.com/Roblox/luau.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5da859d712648a31ca6db2297a6e742d21d918350d527f97c3468782474c3fb6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "96edaac44ec61b67c7723d5758c934125f2c8029ef3f64e60b9f88e22be8a772"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8692981b9e22421a17c6f3f66819b7b44dbee4d6edeab13191222dc1e68de6b4"
-    sha256 cellar: :any_skip_relocation, ventura:        "db68d677111dc3da2ad8b2913e936629e43a7b223f8130b6b1def45b89c66cc6"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae86406b219e3280b6b3783c47b808c9f7c865523f1891b9b0394b707637b350"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b8c1b79f7df65273b225661bf060a4703768cbcdd8621cfed562cd8eb0e74cb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93c93eb8e01204d2b1071c6f5273e36a86f215d0eb18ed066cc44be06074de87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18f4894965bd626b2dbfb7c64dfebb2f9b4e352671453e566e5e117cac52a6d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "704d4b4cbc88dda61f3edef845c9a1434373a228ca23f07c78ef26b78bc7abfd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae8baa3d42c1ec366ac663619017cf2bb6b568af8c59048c01f7ac24a343aec4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b95647546cdf1c5aedb4a22cccab7344b366c9f111ef470da5b49888a6f8c7a1"
+    sha256 cellar: :any_skip_relocation, ventura:        "f9d61567335cb75a6c6ee41659a98519c90e918d6591a74504ed22ffaa3f89ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "3acf4adb25be4f25f5c974fb2d58ea6d051837ae84de37be061b98bef209049f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19784be24563a33502269e4be496aa6854e20ac058f288f54fd0252ed360a34a"
   end
 
   depends_on "cmake" => :build
@@ -23,7 +23,13 @@ class Luau < Formula
   def install
     system "cmake", "-S", ".", "-B", "build", "-DLUAU_BUILD_TESTS=OFF", *std_cmake_args
     system "cmake", "--build", "build"
-    bin.install "build/luau", "build/luau-analyze"
+    bin.install %w[
+      build/luau
+      build/luau-analyze
+      build/luau-ast
+      build/luau-compile
+      build/luau-reduce
+    ]
   end
 
   test do

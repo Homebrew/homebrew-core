@@ -1,8 +1,8 @@
 class Sqliteodbc < Formula
   desc "ODBC driver for SQLite"
   homepage "https://ch-werner.homepage.t-online.de/sqliteodbc/"
-  url "https://ch-werner.homepage.t-online.de/sqliteodbc/sqliteodbc-0.9998.tar.gz"
-  sha256 "fabcbec73f98d1a34911636c02c29fc64147d27516b142e8e132c68c05a6065b"
+  url "https://ch-werner.homepage.t-online.de/sqliteodbc/sqliteodbc-0.9999.tar.gz"
+  sha256 "a8ac240e80ff2354a0e0e9ab4d3b567192ae4f3bf5d29244478663a316024732"
   license "TCL"
 
   livecheck do
@@ -11,16 +11,16 @@ class Sqliteodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "e7b517422475c70e7177c1d8cdb3e02dead73d2ce0e1987097074c9695f95959"
-    sha256 cellar: :any,                 arm64_monterey: "8df10001bbf7daf13bd5b3d65f75edc7ea2b2dc6989873de14b957ad9bf7a4b1"
-    sha256 cellar: :any,                 arm64_big_sur:  "1024f38c091e42d18128dbfba82ee5a9a41e46670383f714df325303bda5b415"
-    sha256 cellar: :any,                 ventura:        "b0089b13a9504698398c2bb0be71754e00dd5f9325aec64be85800a0d5e3f6b2"
-    sha256 cellar: :any,                 monterey:       "df3e249a7780ffe6178fd754655a6313c4526c9f6eb06cf169c5776a669d749b"
-    sha256 cellar: :any,                 big_sur:        "5f98876aef9733997e750451ee0e3db30cc2bd1f371aa690f08d7e4038f11958"
-    sha256 cellar: :any,                 catalina:       "d0105cc73d44561e636923adb520710cdd7e0db835c6b31f151fe8a66a1b4fcc"
-    sha256 cellar: :any,                 mojave:         "6499af774d13212bf19dfdbd14c18feadf516a5d6afbd2ebe7718d99db1723eb"
-    sha256 cellar: :any,                 high_sierra:    "6220e24f32b5b26c5c983c9f9fb1aaa6aba7c13cad44a7500ecb72c7d7723a80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f77f39a029206cffd13e303b4aec9705b413d3c8f4d3c1844d8e1634a48de82"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "74332bf097cda85c750aeb46f0ad5eca86974607780573e7a7310dd4dfd119a9"
+    sha256 cellar: :any,                 arm64_ventura:  "55af98413216d502d0cfbd87681c8961eef96515a8df22819234b4b2f600c906"
+    sha256 cellar: :any,                 arm64_monterey: "ba182ccbe7cbd3de486f7ac7647605076f63567b7f9565bf0c8bf019413d758c"
+    sha256 cellar: :any,                 arm64_big_sur:  "ea5c59632a50b4fbc760444c295c9a39e79de33457a6c719f8c86395b6bebcdd"
+    sha256 cellar: :any,                 sonoma:         "91fd1bd9655bbd3687367959ffe08c8cd76456029530c786c5e6ff70cc2d4c89"
+    sha256 cellar: :any,                 ventura:        "e5561ee6daba6e6aabfe05104fc6059133e274e94d06cd01c4721819ef376418"
+    sha256 cellar: :any,                 monterey:       "449760d73e087195df2f145e10b0876651a1a5029dc854364e1b199d9b2608fe"
+    sha256 cellar: :any,                 big_sur:        "09adb1cab236efb140cb5e61d53f3fa0c6377e35192a5536de67dfb4d3315085"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e889ae35df729577817bade6dd9c445e549a017f9154dcc0cf2b48fdbff7659"
   end
 
   depends_on "sqlite"

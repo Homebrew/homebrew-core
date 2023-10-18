@@ -7,9 +7,11 @@ class Eg < Formula
   head "https://github.com/davep/eg.git", branch: "master"
 
   bottle do
+    sha256                               arm64_sonoma:   "76e0f0b7dadc29420b7a83e10425eda231ba773ee90485838605b87d3934d964"
     sha256                               arm64_ventura:  "be6bd513bea9e8468a72127b84cb49d0ab0dc1d061c9fa42e799613ebb007357"
     sha256                               arm64_monterey: "e2612dfd6d458297a3c8b0b405ff7663150c28f5a7665e3b69158d61da5e80be"
     sha256                               arm64_big_sur:  "0f83d25f62f00b9a2e5170e8c33c1744476a193c54f174c6070d03ac80b18eaa"
+    sha256                               sonoma:         "c82715ba3e91d77768529faebc425026682ba44bd272a10d41dd8a5245e6291e"
     sha256                               ventura:        "7934ccf9ab53a286897f8bf177884685ab0ea5ca2db8918428643b3bb8f54067"
     sha256                               monterey:       "038f9c8d57195f049357e2baa6b001f04bd6946e697f89a932530db05e3e52c8"
     sha256                               big_sur:        "cde213a2d4559ebbe2b3c964735e39bb4389eff052105d789f72cbabf9c4189d"

@@ -14,9 +14,11 @@ class Pike < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "70b0fbdddedbb800cb84877cc859c3f877809937e372ce220d7b01d0526948c7"
     sha256 arm64_ventura:  "6e208572c05918a3f7b848e774ca2399c513e1f5f016f3c6c6af4d28f1000080"
     sha256 arm64_monterey: "92ed5696e91b3f72bdc57a1558857113d166deb19688442518f3c26f9e2e435a"
     sha256 arm64_big_sur:  "55028a48c997c3e6399e3ce633da298bacc06ae82dd1ab261c98f172b53a0a56"
+    sha256 sonoma:         "1d092bdeb415eb24ee82bcf2fa2fc8aef38c9c5150bfbbacc95227fd9c8abca9"
     sha256 ventura:        "f5a49dab05cd49eb2ccd647db2d3542a6247e50b3eaa45b91d009cf09f9e727e"
     sha256 monterey:       "5c353c23f7cd2ef2439d32016731c8f690c735cdd3bddbb090d8d53d4f9dda95"
     sha256 big_sur:        "4643553b9b42d673a76e20e7b5250713f31e854b4214ac1b5343a3e20547fbe2"
@@ -49,8 +51,9 @@ class Pike < Formula
     ENV.append "CFLAGS", "-m64"
     ENV.deparallelize
 
-    # Workaround for https://git.lysator.liu.se/pikelang/pike/-/issues/10058
-    ENV.append "CFLAGS", "-Wno-implicit-function-declaration"
+    # Fix compile with newer Clang
+    # https://git.lysator.liu.se/pikelang/pike/-/issues/10058
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     # Use GNU sed on macOS to avoid this build failure:
     # sed: RE error: illegal byte sequence

@@ -8,6 +8,7 @@ class VueCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "60789f77d6fca847d594f2b3251826a0a68d2ff9f79605281cfd92d96e95857d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f3ffde156f1616113d4f4f4f899964e96ba0787a4fe21b50f73f973d416fbe5"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "44b550780fa0274fd769599d39e267e47f1ae8e3508ca935afd739c389d75a17"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "44b550780fa0274fd769599d39e267e47f1ae8e3508ca935afd739c389d75a17"

@@ -12,9 +12,11 @@ class Hspell < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "86f6240fcd352f4fe5579be572c0e50fb679b689b2e37e9c04c46ca485f8e6de"
     sha256 arm64_ventura:  "2fcc00698fda6279a021ece352de8c8c7597cabec4ae896416db031215e2dcbb"
     sha256 arm64_monterey: "743ad6762f4452a62702961c030950a6d70d36877140dd8728ce45f8d06411c3"
     sha256 arm64_big_sur:  "421fdc3ab5d0ebde258ce7bdb235d2b50144966a27a74cbbe5c607dff0984c7f"
+    sha256 sonoma:         "3b4967b8ce06e657e8c28d706c3c30975708453f8459b3171797d28e01be103c"
     sha256 ventura:        "8409b8e239d65f3109f29b1a5317c30c88fb468e1591d1a056c303afd3a95edd"
     sha256 monterey:       "21abb651324e2e46eae76ae915efe203f198a7a74f7c9144b3d21060fc5a2dfd"
     sha256 big_sur:        "426c87d91350f33392c862296b5d1b0081bc953adae5c04a9769ebb2a626213f"

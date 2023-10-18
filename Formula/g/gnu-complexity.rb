@@ -7,9 +7,11 @@ class GnuComplexity < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "8e32f6384e57c2e21cce940fc39b2be2257b0a200367a48f85aee626988a9863"
     sha256 cellar: :any,                 arm64_ventura:  "c61d3b1a378d7debac6a79e092b3828b68b455d0b555edcb02129b34945947b1"
     sha256 cellar: :any,                 arm64_monterey: "d88523c95f66d61eab621059d46a31cae7da8964042c28499e49def45ddb6d40"
     sha256 cellar: :any,                 arm64_big_sur:  "7561dae8dcc2422a456727c8fc7b9e8e2719fca7934f26118c32bb455f376ef5"
+    sha256 cellar: :any,                 sonoma:         "0b3ec86fc33aa631f44dd91525ff27e9b2c992e43acbf0ef1a1e71b4a78763be"
     sha256 cellar: :any,                 ventura:        "4bef537bbe2199465336c8f1dcbd0c862564eb13cf2680d53671075cd6bda92e"
     sha256 cellar: :any,                 monterey:       "288719f321641b768497edfae38f1ac88499b5274ce8ada8ea1c5cd30239078c"
     sha256 cellar: :any,                 big_sur:        "82574a778a6b6ba218cd98fbd173bb7c15f4253fd871349abf8c1c322cbe99c7"

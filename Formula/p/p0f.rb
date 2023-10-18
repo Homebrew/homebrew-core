@@ -12,9 +12,11 @@ class P0f < Formula
 
   bottle do
     rebuild 3
+    sha256 arm64_sonoma:   "01187398fc42a36aabac534edad37e933c4f9a5731f2c1d7eb2c1d90a6745236"
     sha256 arm64_ventura:  "8a29bf28d9c094a0cf189897703653246509a2c5af95e949c910d98837d48687"
     sha256 arm64_monterey: "ef6f6ea7ee52b7abc9bca1c816b53b81e1449cb4eacd27f2789c39bfb0ef74a8"
     sha256 arm64_big_sur:  "eb601352fdce0ac1b49dfbaa31f91f102768aad81ea907839cd424836edc541b"
+    sha256 sonoma:         "c4fba5904bdf5abf0a304bbb5cc86a4d7075251f61b7b75e5d6daa11be8fb2fc"
     sha256 ventura:        "648f67e2bd6d531bcd310bd22966573f7d725f134b75f7bb1504a682981648a9"
     sha256 monterey:       "2d2addb10494350f34a5bf1125bd88e83d8245def1d90ebb1286b469e944880e"
     sha256 big_sur:        "1e5a460d94d43563f06e9eff624e8ec6bba232de496320fb6dd281333b06f045"

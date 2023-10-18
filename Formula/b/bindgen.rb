@@ -1,18 +1,20 @@
 class Bindgen < Formula
   desc "Automatically generates Rust FFI bindings to C (and some C++) libraries"
   homepage "https://rust-lang.github.io/rust-bindgen/"
-  url "https://github.com/rust-lang/rust-bindgen/archive/refs/tags/v0.66.1.tar.gz"
-  sha256 "adedec96f2a00ce835a7c31656e09d6aae6ef55df9ca3d8d65d995f8f2542388"
+  url "https://github.com/rust-lang/rust-bindgen/archive/refs/tags/v0.68.1.tar.gz"
+  sha256 "6a577026184a6f7a99b48f46f2074c83d272d3aadf91c7b94a4c6c34e6acd445"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e314054f6b8dde2a61c23da989b1326be0837c0dfa5d9beb3cdfbb0f776fec62"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57bbc2f94c859311e7cc50c39705c5c3742ae147fd5faa35bfdf33cbc5244f3f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "85624edeb85739ad89ee0491cdc3c1e682b097443dafffe28e9ff48969730d4a"
-    sha256 cellar: :any_skip_relocation, ventura:        "b0e37f547dc0a121244eb71d200c0771551c09285f23174fe65c96306bd2869d"
-    sha256 cellar: :any_skip_relocation, monterey:       "c224c1f9347367bfeeb7ff56d7b6e90238276cb8385c1c4922d5d0df055e91b3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "476dc1854e0834c3d900a1932ad2d0c0d637220c5180aa065881a0a5bbc018f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a816fca8364e5092f0adea7dc6e3bdf041eff2099880267925a81f4d119739e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc7bc08848387fb06e71502200feb95f6a3f4dd1847c45123eadf12b6f5a0c85"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5996f7fb53fbde590c90d36026987f9504d875afb1d9363a980a68761abf5be2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "45b8464a7e35f7924117201e091e0b684a388f54ea87db31fa0377da2f79a4f1"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c6f6d163f499e8afc2ee1dd3aa0a675583dbfb9aba9e4475fc8bf18ca775f9e9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "475a67777319788b70637d0fb73e93c002b8dc3d24ccecba68054b4801ea5081"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b5f70804e69b8132148caeae0c51ddf2810e2aee0c98e7015494c056308fd5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "7db30fe971452311f660f2daf029901416fb474b0ef68ff8deed59a3390d143b"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e7db690c94974c33dd3fd1ccb5d9666789aa2c8fd9d669624c557d59915f1a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80b77c4f67575fb6669885070548d7a703223d6022bc51a1698515186ef50bf3"
   end
 
   depends_on "rust" => :build

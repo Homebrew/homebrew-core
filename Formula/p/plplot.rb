@@ -6,9 +6,11 @@ class Plplot < Formula
   revision 4
 
   bottle do
+    sha256 arm64_sonoma:   "38f8a5391d8b19cb448e226be25d6f6b8ccadbfb24fe27ed4cf701dfbc8b54aa"
     sha256 arm64_ventura:  "486576902b6d2b2e587234bfdaecfc7ee5a58b3f50bf8d622ead6eee8952c091"
     sha256 arm64_monterey: "c9a7891722c17ce0ac1243e1400583ff61250a3ede6a1d232c2a6c9aa4a98178"
     sha256 arm64_big_sur:  "148662ac1efb63325a193e069fb65bed3ccee4c0288613d819c4f821ec3d8ba8"
+    sha256 sonoma:         "14d2949c2de92effaa6a67d3fabfc070ffb9f51746e3cb91044960d0540181de"
     sha256 ventura:        "4e805b3ba1621186f2fae3e8d2f117915fdfbac9aaaf90678f0676f51956f584"
     sha256 monterey:       "a2da58214519cf354a3e0e6d5e40b3d2b3e7e0fc654701e8d0fe0520b95f7c9d"
     sha256 big_sur:        "840dc348629f2e2c23697475587ccc48822c4ad710b5497319340de6d3c6e401"

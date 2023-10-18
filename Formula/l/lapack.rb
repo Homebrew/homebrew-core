@@ -7,9 +7,11 @@ class Lapack < Formula
   head "https://github.com/Reference-LAPACK/lapack.git", branch: "master"
 
   bottle do
+    sha256                               arm64_sonoma:   "939edf8fa10adf5140f91e6208a23a6466ea113d94eb4cec666dc3128ecf66bc"
     sha256 cellar: :any,                 arm64_ventura:  "f70b3ce19cf4a9fb328f71caba7b40bacbddda80e9ad196401bcb3e0cd9e4ad7"
     sha256 cellar: :any,                 arm64_monterey: "c9e7171ba3cc0159086737a3905e7403c81bcd3ad6cc506e955e00ac730eb302"
     sha256 cellar: :any,                 arm64_big_sur:  "c814d96489b94449715fdab61925f859092e7d4103ec35d42bf46652628e9a52"
+    sha256 cellar: :any,                 sonoma:         "bad04b8e7d6f291c1c7d68d916b73aeb5b294963a15ba4524f444015b0a47054"
     sha256 cellar: :any,                 ventura:        "7f59f3c3bb3d76b6f44d28bfb0abc7c13970c473b5f53f810acd58060c6a71df"
     sha256 cellar: :any,                 monterey:       "f0ac2a70102bc54a9f617678161653d7d261966b6a9ec68d22a805f0d3f66658"
     sha256 cellar: :any,                 big_sur:        "a98f6ed1c5cba50e0887b9599da3c881e83198965afd471f9532effd0dc9491a"

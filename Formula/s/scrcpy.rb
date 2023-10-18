@@ -6,9 +6,11 @@ class Scrcpy < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 arm64_sonoma:   "36f6a0df559b1b77143b2eb1ef6829767cef798095aad2e68a6711f9436bb936"
     sha256 arm64_ventura:  "8fd1ae7b9d4241048a218f99475f29fac9650d3de7ff527a68524975fe1b47d9"
     sha256 arm64_monterey: "6a2d920d0763d1fac9facd4d59bc43273eeea22e867c2ac73a4a7d8f1ce6be43"
     sha256 arm64_big_sur:  "4c1b82c9e96fe9199c70b89ba1a6cc8da1796d1b206e3844d885e8d1d51d0e35"
+    sha256 sonoma:         "e5d8b7938fa3aa8d01b6b241d05faf432e4e357410b0648799499b22cb35544d"
     sha256 ventura:        "28cfa8ce0b627b22a52bba40b140d5db462f6325d02a964206f4302f02af784e"
     sha256 monterey:       "aeac2ec3ab6cb3b6a5bec2c59601893f4cead77c76f7cbad4d6116a3b61d4601"
     sha256 big_sur:        "269024b209605443de8393a698a9e6d528f4bc8fb72a605749894d53f0def49f"

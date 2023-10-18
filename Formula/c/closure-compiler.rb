@@ -11,9 +11,11 @@ class ClosureCompiler < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"
     sha256 cellar: :any_skip_relocation, ventura:        "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"
     sha256 cellar: :any_skip_relocation, monterey:       "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"
     sha256 cellar: :any_skip_relocation, big_sur:        "c664fa2caf7edcdd94bca7f618998e7c94d3a96c693ebf1eaa8dccfaa3622029"

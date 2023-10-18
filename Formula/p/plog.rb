@@ -1,18 +1,12 @@
 class Plog < Formula
   desc "Portable, simple and extensible C++ logging library"
   homepage "https://github.com/SergiusTheBest/plog"
-  url "https://github.com/SergiusTheBest/plog/archive/refs/tags/1.1.9.tar.gz"
-  sha256 "058315b9ec9611b659337d4333519ab4783fad3f2f23b1cc7bb84d977ea38055"
+  url "https://github.com/SergiusTheBest/plog/archive/refs/tags/1.1.10.tar.gz"
+  sha256 "55a090fc2b46ab44d0dde562a91fe5fc15445a3caedfaedda89fe3925da4705a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9493fc71b411fffb88f8541aa19209ea9a75df89f71370cd1655144fbef8ab78"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9493fc71b411fffb88f8541aa19209ea9a75df89f71370cd1655144fbef8ab78"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9493fc71b411fffb88f8541aa19209ea9a75df89f71370cd1655144fbef8ab78"
-    sha256 cellar: :any_skip_relocation, ventura:        "9493fc71b411fffb88f8541aa19209ea9a75df89f71370cd1655144fbef8ab78"
-    sha256 cellar: :any_skip_relocation, monterey:       "9493fc71b411fffb88f8541aa19209ea9a75df89f71370cd1655144fbef8ab78"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9493fc71b411fffb88f8541aa19209ea9a75df89f71370cd1655144fbef8ab78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "add968eb36e5f301923bc3d3cf3ff85c502137840b5a5016b167722a9ac7df30"
+    sha256 cellar: :any_skip_relocation, all: "ee9e1fc1f2fb038c2432470cd3fda51be3fb90638f48a90f69fea2139053f48d"
   end
 
   depends_on "cmake" => [:build, :test]

@@ -8,6 +8,7 @@ class SqlLanguageServer < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "66b0a9c98add7626efa6573768206b0bad41577b67bb28060e477dbcdde1f0f3"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a63e7d173e1c5354c92882c33f7fe031c2e1edfec6c9538f3b9a36cb4f0444b8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "99b6e7f27dfbdfa08fc3b7f97c20c1f9b9b95e307e754e0d5b904da5eeff2e9d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5753d4c1eebff055fbab64a447ff938b6c6743f73f0cd5fce96e13c526d7e1ac"

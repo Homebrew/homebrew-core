@@ -13,9 +13,11 @@ class Hatari < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "1e95435661ddda4b7f973cd1c66d855f8fa692330d9e8e0206bb1fdd718d6de0"
     sha256 cellar: :any,                 arm64_ventura:  "e07bbcf4adbb8d5d79cf789d689d4fedc1ddebe9863ed8339825e3e904565177"
     sha256 cellar: :any,                 arm64_monterey: "667e12e353a24d45995f336f687a23b44d6bfc6deca23f84e966e32e1e978571"
     sha256 cellar: :any,                 arm64_big_sur:  "b193a4d9e107c34a4a07a1aeef77786953e8d328ee085ca242342a6d107312fe"
+    sha256 cellar: :any,                 sonoma:         "bb9575a1a4f8c60efb77eccb016866330dcfc804d9f251fefb7c22a8bf6897a3"
     sha256 cellar: :any,                 ventura:        "4e343b2fc064affbd0d39b6f4d7460d71d9b18eaedf3c9b76b7ff6a0e7547bc0"
     sha256 cellar: :any,                 monterey:       "a3257660008936e85dbcc3227ddeb5014c39aa04e0a08e5f1ef5214abfd4c0e6"
     sha256 cellar: :any,                 big_sur:        "44257d9e4a6cf65ce62aec936a36dbcabee429d66341376f0749454e14c7d247"

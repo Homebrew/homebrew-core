@@ -11,9 +11,11 @@ class Rzip < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2632e94c5b807679406f19003c336b49ff755acd982d507ab3c2098e1fe91afb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "419e465f3f605dff8d3eda647491f8d3651ed51a8b14eb5c524b507517c6c422"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9a049590a86adc0c8c02acf6a869a37a45a47e4e455bf2b2ee2c0bd15128ab43"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "16c1e072a6f596e4bda1fb3bd99a743cdb1ef6c0ec552f1ea33224f24fb28047"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2ebf6bc4b628a0e1908346d0c30198aca1dccfbb2edbaf7e645e60d0a3d508a0"
     sha256 cellar: :any_skip_relocation, ventura:        "2fb5e7883c1aaf26f31da1deba72b7067dbc7e2c55da34b7803f9c33c5b1e327"
     sha256 cellar: :any_skip_relocation, monterey:       "b705bc4228ad82a8eca44fcbe8d0b7d30cb562b32de113de647ee33f30df9470"
     sha256 cellar: :any_skip_relocation, big_sur:        "544443eda6593899f3358c6e7f5bce878ff590f357151b587b3c83785745492e"

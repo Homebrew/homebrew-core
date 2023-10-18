@@ -8,9 +8,11 @@ class Jpegrescan < Formula
   head "https://github.com/kud/jpegrescan.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aaf688d3c8d50fc17fbe0f5a8ca91c700785478bc47e063535216822b9ec8593"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7431fe05859f4cd0b88e7aa736e9b455a99fb06f09503f16e32ba84538227863"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aaf688d3c8d50fc17fbe0f5a8ca91c700785478bc47e063535216822b9ec8593"
     sha256 cellar: :any_skip_relocation, ventura:        "7431fe05859f4cd0b88e7aa736e9b455a99fb06f09503f16e32ba84538227863"
     sha256 cellar: :any_skip_relocation, monterey:       "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"
     sha256 cellar: :any_skip_relocation, big_sur:        "b7e337050c5026743c9ef33c6b49423de22348cbac8f28f2a49f4635a52232d5"

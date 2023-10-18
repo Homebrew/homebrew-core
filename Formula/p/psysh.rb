@@ -1,18 +1,18 @@
 class Psysh < Formula
   desc "Runtime developer console, interactive debugger and REPL for PHP"
   homepage "https://psysh.org/"
-  url "https://github.com/bobthecow/psysh/releases/download/v0.11.20/psysh-v0.11.20.tar.gz"
-  sha256 "d5dd3bfea13aa9a9ac981924baec4863d620602ef080fdb540373922ef4472fe"
+  url "https://github.com/bobthecow/psysh/releases/download/v0.11.22/psysh-v0.11.22.tar.gz"
+  sha256 "2db70222b2eae83bda07a7799490708a2934033418cf8b191ef295dc46b533ca"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c29b92967878aa521f7513a54ee50dc8e4f9e4e5733abfcf07750498c826b587"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c29b92967878aa521f7513a54ee50dc8e4f9e4e5733abfcf07750498c826b587"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c29b92967878aa521f7513a54ee50dc8e4f9e4e5733abfcf07750498c826b587"
-    sha256 cellar: :any_skip_relocation, ventura:        "4871a3c19623488cceb6f35599fd1d6249c882b455c8f7eccae9dd2c0cbcccc4"
-    sha256 cellar: :any_skip_relocation, monterey:       "4871a3c19623488cceb6f35599fd1d6249c882b455c8f7eccae9dd2c0cbcccc4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4871a3c19623488cceb6f35599fd1d6249c882b455c8f7eccae9dd2c0cbcccc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4697b4b2f3ef1ddcf3435a6313dac67d3a8b678160fad68589428c66e3e465d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9395f9f2debae156a41d6913eae3c23fc5f9ce2b200a9d787cfd5088d2c217b4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9395f9f2debae156a41d6913eae3c23fc5f9ce2b200a9d787cfd5088d2c217b4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9395f9f2debae156a41d6913eae3c23fc5f9ce2b200a9d787cfd5088d2c217b4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "75b40ec5e86d782a9342c7a96c4c53742dc0966a65c193ea4ab53c3349f089ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "75b40ec5e86d782a9342c7a96c4c53742dc0966a65c193ea4ab53c3349f089ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "75b40ec5e86d782a9342c7a96c4c53742dc0966a65c193ea4ab53c3349f089ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9395f9f2debae156a41d6913eae3c23fc5f9ce2b200a9d787cfd5088d2c217b4"
   end
 
   depends_on "php"

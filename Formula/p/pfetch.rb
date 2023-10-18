@@ -7,9 +7,11 @@ class Pfetch < Formula
   head "https://github.com/dylanaraps/pfetch.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0771fb68c047893a0b59514f822c42d3371b23734a48c62c88b151a0e386e776"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a91953275ab9b2daa26d9ffe6d6f60b5ca3ce5d556223d24c1020aa9e8285ec"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1a91953275ab9b2daa26d9ffe6d6f60b5ca3ce5d556223d24c1020aa9e8285ec"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d3d84a024e20f9a85803389150748894f9a9dab94593af5c0ee3967a82ebe55a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "242f869092c11236c0d848cc064eb0815ffcee95c090eb01ae40afa65bf7fdc4"
     sha256 cellar: :any_skip_relocation, ventura:        "7dfa1cdbfc450e489c88d72808c87de7930ebc2cbc5da51c2be784eeba7076c3"
     sha256 cellar: :any_skip_relocation, monterey:       "7dfa1cdbfc450e489c88d72808c87de7930ebc2cbc5da51c2be784eeba7076c3"
     sha256 cellar: :any_skip_relocation, big_sur:        "3e5ceb26959ab4f137221f87eefe0ba1912695cce887b30f2e4894c699d86261"

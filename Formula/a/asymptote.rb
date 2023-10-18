@@ -12,9 +12,11 @@ class Asymptote < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "447ce3ab213559cc9bb80c8abfc54c79b695aedf849cfbf37c30714c0729d229"
     sha256 arm64_ventura:  "c12ac4a610d83f3dcca34f349e85b7aa21c9d3d090a98bfc3f98541df182fd71"
     sha256 arm64_monterey: "3db950622ff0f9af9e90f212bb5d432dc8cc436a5678a2ffc0558692c2077d97"
     sha256 arm64_big_sur:  "b3ff44aa5d3df47a1066e98b704aac227f399a6539cd3ea8a2d6cb1eee1372ff"
+    sha256 sonoma:         "9105ff1301a3a190573b4be749fcccba6688665b9dee83931b375ea98631d660"
     sha256 ventura:        "dc5a647b7e543ef4eae17b0b7a819be71bf5e893fdf01571b1d2e9d1c6c4560d"
     sha256 monterey:       "881a3aaa436253109c3321d7ec72182478c5dd2f7cdfcac3dd4fd15d416d7bef"
     sha256 big_sur:        "f6206db672499eb6381f93fa308db358f6d157fb17f5c2e0662263eb570014d0"

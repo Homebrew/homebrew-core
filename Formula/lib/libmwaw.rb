@@ -6,9 +6,11 @@ class Libmwaw < Formula
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "952e2d7978c0a53b42c6c3bcef9faf03e878069664710baed01bbf696527f329"
     sha256 cellar: :any,                 arm64_ventura:  "14c3ef9b89eabb6d8f579cd6b4fc6b10aff80157395e25f5f4032c365e35814c"
     sha256 cellar: :any,                 arm64_monterey: "22010af06baf85faaa647b36eab334caa1f097cbe8f66d60c77bb745ce70bcd9"
     sha256 cellar: :any,                 arm64_big_sur:  "02d9d169c112c585d2c8cfaaf1406a66bb6bb5a5bd909a2e842e9e5f5b6c6aee"
+    sha256 cellar: :any,                 sonoma:         "dc6f6c368344f42ba9566f294e8126a6327febfe0fdb247af4e5aff2488deb98"
     sha256 cellar: :any,                 ventura:        "b62fd5d2f18f6f8248baef2454e48bedeb6a595b4e9eeed40f90fcf6c22722a0"
     sha256 cellar: :any,                 monterey:       "79ed34d639601c2afd3bcf9c573635f5f43826623a82fc931d64ada62fd632fd"
     sha256 cellar: :any,                 big_sur:        "9830e2b0688157862cc7c2345fce55ae60955c3cca0c143fef2ab582a5d6d348"

@@ -10,9 +10,11 @@ class Netris < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "311ecb7d3b6ba50544169823f78960a2da39290fed321d2f0328fd0b4da72359"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d1b2e0308a1ac7d02f0d76d91c805c32241191fc396d2a95e22b9456370e8af"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "325a86274ce6276ebecbf44fd386861b02ca96a8aa982da845c21ba0932aca00"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a7b88fa79c440ed0dc4c971eb32197e9f88b34afbf50cd6d9e8929f2e03d7866"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6b25332165118d1aa8dac47a118bffd50346bbae5fced003ac1e9c150edeefc4"
     sha256 cellar: :any_skip_relocation, ventura:        "73bf7b8515f9b4c10fd3f8dc686b6d29e614319a28fad0048b1ea3e99ea0d7c9"
     sha256 cellar: :any_skip_relocation, monterey:       "1cd2c848c2e5da61c99c8c2930c77f21e58aeb91fdf97c678392bdb34ca252ba"
     sha256 cellar: :any_skip_relocation, big_sur:        "9f7c51618024abd332dafe7c9075896fdfefbd80819a4b0c42bf493637947bd2"

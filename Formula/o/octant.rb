@@ -11,6 +11,7 @@ class Octant < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a67de7df80e394aab071351c5daed2bebc29e9e62e98564f6cbdd5d82d177395"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d15cb0eed642b761f16c0b15af9cd2840abccdd01a9b396b2fc562285bf882c0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "788d92a1207ad2adc9c6646feba0dd95fb0fc676bd847d712655b7cf90649a5e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "051bd42c57e7e0b2bee8654780c4e933d8573c5be2fa9d2b56cc2dad887a731b"

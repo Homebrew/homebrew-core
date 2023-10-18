@@ -1,10 +1,10 @@
 class Uuu < Formula
   desc "Universal Update Utility, mfgtools 3.0. NXP I.MX Chip image deploy tools"
-  homepage "https://github.com/NXPmicro/mfgtools"
-  url "https://github.com/NXPmicro/mfgtools/releases/download/uuu_1.5.21/uuu_source-1.5.21.tar.gz"
-  sha256 "e89d3665af499ab71360d948176cf64619b082f8272a994d1fbfc000e67c0f14"
+  homepage "https://github.com/nxp-imx/mfgtools"
+  url "https://github.com/nxp-imx/mfgtools/releases/download/uuu_1.5.125/uuu_source-uuu_1.5.125.tar.gz"
+  sha256 "085d7f6308ee6b77dfb131fac40704575525adf6da45cdc446c00a0b29e4c21a"
   license "BSD-3-Clause"
-  head "https://github.com/NXPmicro/mfgtools.git", branch: "master"
+  head "https://github.com/nxp-imx/mfgtools.git", branch: "master"
 
   livecheck do
     url :stable
@@ -13,13 +13,13 @@ class Uuu < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "e13a2b32c07ba4a37b105ba11005ef441af6ab12c9f14c35f639eba205a282dd"
-    sha256 arm64_monterey: "764c2c55a738f4c735f08796bd806769b5c04f22d63d4fbc954436ca8f528aa4"
-    sha256 arm64_big_sur:  "0e139f269042a96f3dec0fdcba77901288aa0076156f29c409ad82d1ad0a4dd1"
-    sha256 ventura:        "8aa2876a1425782f0f2f0416f608d50e40ee0dd7364a1de00e1e0a713af930dd"
-    sha256 monterey:       "3cb5096a3e79451f8295bf2d48f294073673e3559becbdd923858f4da7c10337"
-    sha256 big_sur:        "e9ce4cccfce96d7e18d358fbbf4acfa346d95ff79f28a78f6a18f835ffef196c"
-    sha256 x86_64_linux:   "7ab6929cdcdf23fd790d5acd4637917e2498b2c776af76fcaec6ec2903d87444"
+    sha256 arm64_sonoma:   "842f691b7008044ea148fe7eef2523c9ba7b3605b180afae67a3f7e999917dc6"
+    sha256 arm64_ventura:  "0ba2aebd7f7f39b0d9df102ce95051c4adab45a4833a2eeef82d05559ca24371"
+    sha256 arm64_monterey: "11fd2b6a778f22dd94a65c726dcd1bf0c3c67ee54588ad56145bbee562e717af"
+    sha256 sonoma:         "af7f755a7bfaf7806fe495f0dac19c0d5d0f6da710367218ea4ac6aa2adf5feb"
+    sha256 ventura:        "7025c7bf54ac4d3226df3d89de5f59ad2a5d66017b5d6f00b82298bbc1ef08a9"
+    sha256 monterey:       "bc28bec39757b22282a1ae4434135250b2a28bde0c27f3617f407d321151faa9"
+    sha256 x86_64_linux:   "5fd35e71f42c6723b10763e61957955946379f9e7da4092ca4207a6f7c9c5064"
   end
 
   depends_on "cmake" => :build

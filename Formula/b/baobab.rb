@@ -6,9 +6,11 @@ class Baobab < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "a5d6c7ebfccd8f6514a40d2e149d7b5692bc27481334db64d4f2945adf9f5cf7"
     sha256 arm64_ventura:  "51ceb0c963e73eed95c217497c225c1567a96bd0c351bb8fdd8f0f340096f637"
     sha256 arm64_monterey: "6415103c8d7a5abb1cd0d3964b7e0e4adb2b648952c5a765de3406625de2c0ca"
     sha256 arm64_big_sur:  "e344b2469eed54edaea7e2e643d7018075cf212d3d715b991dbdb5d87ae6ae63"
+    sha256 sonoma:         "92bf656bf85d83c84276f83d53d1fa5060b72e8157a63e6111ad4be88905e0e9"
     sha256 ventura:        "b3ab0b152bbb0e004e9bb4e297494f530b8a6e4aceb68ed1fde9fb46e058b18e"
     sha256 monterey:       "7045d114d65ca8b07f7534fff54959329a147803051a8772d17ad8e192a179b5"
     sha256 big_sur:        "91f456b18cbb84f6dd510bb3faf7593ff2c735b361b9a26fa3611d5cc9c01a1e"

@@ -1,19 +1,19 @@
 class Broot < Formula
   desc "New way to see and navigate directory trees"
   homepage "https://dystroy.org/broot/"
-  url "https://github.com/Canop/broot/archive/v1.24.2.tar.gz"
-  sha256 "cf223710bd75362d37312ef50b4966d57a79b36e3e645f940fd34569075f3974"
+  url "https://github.com/Canop/broot/archive/v1.26.1.tar.gz"
+  sha256 "1cd2e98a9afe8a8d8bed08beaa98bdef0eed0de5d99e38599a59ea0f50d68ac5"
   license "MIT"
   head "https://github.com/Canop/broot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dfc73f730b12fa0ede62bc2fc8cf0a6430e37b1383f6169b264e9eb5f884d589"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2791b66ddfbd10dad4ca1eb83ae7ab2f423964311ce329a832129c087f0293ca"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bfef35eed802ac73ea98c84d936abf71b3012f837af7359e97283f1f061594ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "026067bd98825cf0e2f4ded96e868e5f19621de0893875456146705d9fb02a8b"
-    sha256 cellar: :any_skip_relocation, monterey:       "283ebaa802e050746633c9994d62a68f06ff89683c3ce5e9a87c9a7bbb864064"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0519b72ec5895438107be4ebd7fdb171de9a42acac6da315c00c3bc5c2c32ded"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a059a28f5b2ffd3c368e022872183ab4d4a8463a7825082d9af39cd0b989d53"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71d6f6dcf15827e1ab0c340b57fb288c4085f196a44119cf7ef424c55aec1ae2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f528572e6f6b0860acb07872614f7d6b6434db5b329e446eb1a61f995650406f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5e3260f0e9797d5cc0ade4633dfc5107e299abe2d1c62e169f79c6a3f22cef1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "158b9c505ac40576fd91eb1eca841cbe68f13ede507b6af116825b83a26eb7d6"
+    sha256 cellar: :any_skip_relocation, ventura:        "72872508d3580bd2cf87aebd99acfc4d8ac156bb8fe52e634ed1bf72adf2578c"
+    sha256 cellar: :any_skip_relocation, monterey:       "a912db70fc624b2331d896c0df84b63604f3da52a06b64c421d80c3ea2369e8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b4e94729224a86173425b1b4acb19995c8bf97acc82b6cdfb9f652be61759db"
   end
 
   depends_on "rust" => :build
@@ -27,7 +27,7 @@ class Broot < Formula
 
     # Replace man page "#version" and "#date" based on logic in release.sh
     inreplace "man/page" do |s|
-      s.gsub! "#version", version
+      s.gsub! "#version", version.to_s
       s.gsub! "#date", time.strftime("%Y/%m/%d")
     end
     man1.install "man/page" => "broot.1"

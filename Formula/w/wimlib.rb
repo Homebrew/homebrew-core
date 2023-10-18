@@ -1,8 +1,8 @@
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
-  url "https://wimlib.net/downloads/wimlib-1.14.1.tar.gz"
-  sha256 "494a15375616f2e0e9ab050245c3dc3286def21ac2002dc064bcc2b187636f42"
+  url "https://wimlib.net/downloads/wimlib-1.14.3.tar.gz"
+  sha256 "1128c6c7916d2f22da80341f84d87d77c620de6500fbb23a741fa79bd08cd1ef"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,15 @@ class Wimlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "841882a76e18e4731cfba4592d16d35eb6173063bac3a5d1e2cece5d1a4b5ca1"
-    sha256 cellar: :any,                 arm64_monterey: "bd79bb9e7b6e4f6721817a6c8c33fe9563fa30b5b0650fd1feaf9e1477809cd2"
-    sha256 cellar: :any,                 arm64_big_sur:  "84f6e147e074c2d478cedbfc4dd9c706e27fc0a43b7ff45b71b7dc4437aa9e69"
-    sha256 cellar: :any,                 ventura:        "73395f19e288ca45703bf504ce6721400dd8caf1c5501ebf986c51010e0b4bcb"
-    sha256 cellar: :any,                 monterey:       "735d1e54e2537931c3d62660a50abdc285e05f097be755401845dec4eaa703dd"
-    sha256 cellar: :any,                 big_sur:        "803288085554fe3fee7766363ba5299708b558585a83f3da18a75c28f306a496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a73c1255e395c7e073ad3192a2552a9738c7ac353d1b130d57a347a1abb356d"
+    sha256 cellar: :any,                 arm64_sonoma:   "f5984adc28077cc93b22414f1ca76b93869a57b69919c37af25d300b6279f1b4"
+    sha256 cellar: :any,                 arm64_ventura:  "b87e344985107b0ae1ac3955e4e70c17f9a88239ceb097f11a7813896e10b76d"
+    sha256 cellar: :any,                 arm64_monterey: "2cd14e22f6dba153fde1fa8801527e25718e242cf22f9d85805ba4f20e1874e2"
+    sha256 cellar: :any,                 arm64_big_sur:  "765c802a6cca1c15272759ffa3ecc1c72603c2e22c2fd5aa6bf8bd0852ede6e2"
+    sha256 cellar: :any,                 sonoma:         "2e082bd22d649b16ed2d73b3e6724d86cc2360391e6421d4eb7bdcf1f24b7c3e"
+    sha256 cellar: :any,                 ventura:        "7294142cc77f27cf8e85bdd6b14224bb51d25614dc998308b75ddea51a26439d"
+    sha256 cellar: :any,                 monterey:       "8f20ed1089f5e899933a0f658dbb3c1d3b504d6d78a78d9afa7b971b9aafa776"
+    sha256 cellar: :any,                 big_sur:        "421aa263f99e18307286e6a48fe36b4e21318f2b9065042c0e2e021d7ab00d1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dfde6bc50cf2fb295eca9bdadfd81359a8606926f51b2441ef73c8bbfca0404"
   end
 
   depends_on "pkg-config" => :build
@@ -27,16 +29,12 @@ class Wimlib < Formula
 
   def install
     # fuse requires librt, unavailable on OSX
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
+    args = %w[
       --disable-silent-rules
-      --prefix=#{prefix}
       --without-fuse
       --without-ntfs-3g
     ]
-
-    system "./configure", *args
+    system "./configure", *std_configure_args, *args
     system "make", "install"
   end
 

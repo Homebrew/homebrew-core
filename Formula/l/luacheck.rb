@@ -7,9 +7,11 @@ class Luacheck < Formula
   head "https://github.com/lunarmodules/luacheck.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3df280acd7599498b6725a39e37789436688884941259e415b61a3e784da7436"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6e0ed26ec229c27e88566004cd49d9f6b21d17e356d3e0acc8ce74324d842d6"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "12f62002bd4aed8cf19a0f1f1a46211bc0ffe0e589c8b7db53abcb10a8415594"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3998530e4c43b096971256853c6fb48e42ed5ae94f7c4fd1cbe3d58e5bc2699d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d58656cb34f854f31006b703eed163bcaea5a90745dca12e691d83784fa9061f"
     sha256 cellar: :any_skip_relocation, ventura:        "349998dddeb7ab02db71faf48239245f0462b40ef0f0d2f17abc6b11e246635f"
     sha256 cellar: :any_skip_relocation, monterey:       "327ee4e07efa6495183e462554ba02973caa0669d0f718b121f718bf65223d82"
     sha256 cellar: :any_skip_relocation, big_sur:        "3837335c3e9bf8cfd33c2d3d4572b35385b0a7191a9240a6a7ad365bf9e54163"

@@ -6,27 +6,27 @@ class Httpie < Formula
   url "https://github.com/httpie/cli/archive/refs/tags/3.2.2.tar.gz"
   sha256 "01b4407202fac3cc68c73a8ff1f4a81a759d9575fabfad855772c29365fe18e6"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/httpie/cli.git", branch: "master"
 
   bottle do
     rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad6c60de07befbb3c1b87cad3f1032468830cba7886f319bfc85b002a782a7b2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b1e782c6824b44e97cb2f7c941f9b89eed6bd5ab208d74e9e3e97c554bca5a42"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c135c3c2784bb3cb989908a41e54d55d3122a764445211f15b3ff4c14903623d"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae9d268bd8a3f16e8bd05c99177821c5d3b0b71bb15b3f1d2abd904e5576ada3"
-    sha256 cellar: :any_skip_relocation, monterey:       "adcb363b996c5a3335559070c43a3a1c7ef153913756a461a1cb94a789373b47"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e009834aab9dfdf9279914245b3519bbbd5ed2cbf93eec703747e1b8ddc51e02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3d66026d7c87e9f5347934a96d9f4717987f098765ea04436765e81b691ab68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a39f00d3d0f4a936c2a877beafefb1bc57a56874a8c5b844d4689f94a8ba9ab"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b56f66d1c6c66e9a679bdfafc0ce527b76d29621aca6088d0ee3c5b6b8a2af3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b5b31809ca6ad7a37fee1ca01de9fcdc71bdcf5d2b3e51f3db07b4737ca7aaf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8b41c36b685859edf7f58a2c7f38ae13897e053fc900a5941481aa89539b4400"
+    sha256 cellar: :any_skip_relocation, ventura:        "8063badc74e4f3fb0918c6a2112abe433dfbd62da76adfbbae2b94cbd11c2552"
+    sha256 cellar: :any_skip_relocation, monterey:       "27e34547dbe290f16b715c9245dbb486dabd86ecae1d4c3ad5667bfb0575e7f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89bb9271d71c53311b4266724b4da0426255729a699b9a7c5f7f4a59264e0542"
   end
 
   depends_on "pygments"
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/2a/53/cf0a48de1bdcf6ff6e1c9a023f5f523dfe303e4024f216feac64b6eb7f67/charset-normalizer-3.2.0.tar.gz"
-    sha256 "3bb3d25a8e6c0aedd251753a79ae98a093c7e7b471faa3aa9a93a81431987ace"
+    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
+    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
   end
 
   resource "defusedxml" do
@@ -70,13 +70,13 @@ class Httpie < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/e3/12/67d0098eb77005f5e068de639e6f4cfb8f24e6fcb0fd2037df0e1d538fee/rich-13.4.2.tar.gz"
-    sha256 "d653d6bccede5844304c605d5aac802c7cf9621efd700b46c7ec2b51ea914898"
+    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
+    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/31/ab/46bec149bbd71a4467a3063ac22f4486ecd2ceb70ae8c70d5d8e4c2a7946/urllib3-2.0.4.tar.gz"
-    sha256 "8d22f86aae8ef5e410d4f539fde9ce6b2113a001bb4d189e0aed70642d602b11"
+    url "https://files.pythonhosted.org/packages/8b/00/db794bb94bf09cadb4ecd031c4295dd4e3536db4da958e20331d95f1edb7/urllib3-2.0.6.tar.gz"
+    sha256 "b19e1a85d206b56d7df1d5e683df4a7725252a964e3993648dd0fb5a1c157564"
   end
 
   def install
@@ -99,7 +99,7 @@ class Httpie < Formula
     assert_match version.to_s, shell_output("#{bin}/https --version")
     assert_match version.to_s, shell_output("#{bin}/http --version")
 
-    raw_url = "https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/httpie.rb"
+    raw_url = "https://raw.githubusercontent.com/Homebrew/homebrew-core/HEAD/Formula/h/httpie.rb"
     assert_match "PYTHONPATH", shell_output("#{bin}/http --ignore-stdin #{raw_url}")
   end
 end

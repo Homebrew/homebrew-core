@@ -1,40 +1,49 @@
 class SbomTool < Formula
   desc "Scalable and enterprise ready tool to create SBOMs for any variety of artifacts"
   homepage "https://github.com/microsoft/sbom-tool"
-  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "7b22eeae2241427b28df70d03b39b318599a47785d846c9ef29a2f4657d21290"
+  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "aa7548ff0720a375984b25cddac4a8e252f85b9523a7a357ab20c3d282a5bb92"
   license "MIT"
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
+  # Upstream uses GitHub releases to indicate that a version is released
+  # (there's also sometimes a notable gap between when a version is tagged and
+  # and the release is created), so the `GithubLatest` strategy is necessary.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, ventura:      "50d1385d899e90a2aa57b398ed0537a0d34cbfbd5a82fbe65405c342d9bd7e56"
-    sha256 cellar: :any_skip_relocation, monterey:     "50d1385d899e90a2aa57b398ed0537a0d34cbfbd5a82fbe65405c342d9bd7e56"
-    sha256 cellar: :any_skip_relocation, big_sur:      "50d1385d899e90a2aa57b398ed0537a0d34cbfbd5a82fbe65405c342d9bd7e56"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "6fc10976256bf74d5703df0d7ae6d5e94ec110dde7a64b0fda92b0238686f39e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8a51b520982ed9854d57b2d8fc7107b271c9844c74c111ce18d9aa037bbb8e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8a51b520982ed9854d57b2d8fc7107b271c9844c74c111ce18d9aa037bbb8e1"
+    sha256 cellar: :any_skip_relocation, ventura:        "bbb07e840d9d97ba07aceddcf346bf02222b098bfaf56a9c3c9df15cd361e5f3"
+    sha256 cellar: :any_skip_relocation, monterey:       "bbb07e840d9d97ba07aceddcf346bf02222b098bfaf56a9c3c9df15cd361e5f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6be797b74091c3a50ed591ab57b7a723381d9b299245b1368d35cc54f29371f"
   end
 
   depends_on "dotnet" => :build
-  # currently does not support arm build
-  # upstream issue, https://github.com/microsoft/sbom-tool/issues/223
-  depends_on arch: :x86_64
 
   uses_from_macos "icu4c" => :test
   uses_from_macos "zlib"
 
+  # patch to use mono.unix to support arm builds
+  # upstream PR ref, https://github.com/microsoft/sbom-tool/pull/409
+  patch do
+    url "https://github.com/microsoft/sbom-tool/commit/dd411c551220fbb579e58c4464b284d2a6781080.patch?full_index=1"
+    sha256 "d99878256a1ce470d0f424c86215ab07c5381cc29ee83c90129166899057a6fb"
+  end
+
   def install
     bin.mkdir
 
+    dotnet_version = Formula["dotnet"].version.to_s
+    inreplace "./global.json", "7.0.400", dotnet_version
+
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"
 
-    # the architecture is hardcoded to x64 for macOS due to to an issue with
-    # the inclusion of dynamic libraries for the self-contained executable, for
-    # details see: https://github.com/microsoft/sbom-tool/issues/223#issuecomment-1644578606
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
-    arch = if OS.mac? || Hardware::CPU.intel?
-      "x64"
-    else
-      Hardware::CPU.arch.to_s
-    end
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
 
     args = %W[
       --configuration Release

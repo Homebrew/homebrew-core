@@ -6,9 +6,11 @@ class Gaze < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df2807922eaf5decd4f5dca7b979e7c83ab039c82dfdd6e94899656512341b2c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e5652b24e3da96ec9085d07c4b776b8fa8ebb6315bf5ce8c98361200d1f71b4"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "1e5652b24e3da96ec9085d07c4b776b8fa8ebb6315bf5ce8c98361200d1f71b4"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e5652b24e3da96ec9085d07c4b776b8fa8ebb6315bf5ce8c98361200d1f71b4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "65d1da1399d000e7565b3fb49c7015a094f8bf7f840711857e189852b3f64d18"
     sha256 cellar: :any_skip_relocation, ventura:        "883b90c8117e35667b597728ceb2d23106ab6021fcd920055d85e6230dc74539"
     sha256 cellar: :any_skip_relocation, monterey:       "883b90c8117e35667b597728ceb2d23106ab6021fcd920055d85e6230dc74539"
     sha256 cellar: :any_skip_relocation, big_sur:        "883b90c8117e35667b597728ceb2d23106ab6021fcd920055d85e6230dc74539"

@@ -1,22 +1,20 @@
 class Shelltestrunner < Formula
   desc "Portable command-line tool for testing command-line programs"
   homepage "https://github.com/simonmichael/shelltestrunner"
-  url "https://hackage.haskell.org/package/shelltestrunner-1.9/shelltestrunner-1.9.tar.gz"
-  sha256 "cbc4358d447e32babe4572cda0d530c648cc4c67805f9f88002999c717feb3a8"
+  url "https://hackage.haskell.org/package/shelltestrunner-1.10/shelltestrunner-1.10.tar.gz"
+  sha256 "07bd3365fbbde9b4c80a3139792c30c1b1929736175fc207b4af1285bb97cbb0"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3eac3b0a43294eace66fd737fc7aacfc3cc363b1748e53b21cee80897cefc4a5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a8727bdd254b5af7101182d68e536f23421e6a08d880c4adf4ac949daed5628"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "58f03249e05d5808baff4da11f784b37bd818f35c3243855bdc467562526ff76"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e42d023a03505d850b8b9d3bd7b9448d8c9711d604242015053438aedcea9fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "bebde8731a6adaa4322920451c277f820335aeb161783cbbbdf345e0b6e584ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e42bf02d5f462aca20fe7a9b80ba6e2431b15940b81f5304ff1611665a29bac0"
-    sha256 cellar: :any_skip_relocation, catalina:       "d425959bf27c059fb22a6e2f916f839645c0e79f180903b2c99c189ba52f4d96"
-    sha256 cellar: :any_skip_relocation, mojave:         "15ccce4fe40fe20c6f9c97442fb37079a6925351f725d4e6840541004375520c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "380d1768a50c99b9ececeea2044324a869ccb4248609ccee61adc5f6c34ef363"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14e0822f1871ee0db643fdffff2dd6a9caae2093f9b14035c2303a1666917263"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "582cff21d33d8c6b12327c308028ab04c6bdf522e9dabc44768bce82f044034d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70426f971815a9fc20296d6cc1cf37e4ec61eb474022c6adb36c4689ac352ea9"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "56a6a6ae7b4be0f2c3f44ff4e7890e56b2f361aff31952f507c65b115f10c421"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d1c8e59712ca832d1f567b8efe61ba73237281c196a904a70950a1d2cae2cd0e"
+    sha256 cellar: :any_skip_relocation, ventura:        "68c4638e21a18a585339ec9bcdced418388d7763f003d430e77a4307643b7e3d"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed90af2f8aeba0417ae92c8aa1021b73f5ceaabe2b10f3161a0821439a00eead"
+    sha256 cellar: :any_skip_relocation, big_sur:        "6f5766183b65e74e68caf0e5c2f507537458cfc1df434495c26828dcc1486dee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "681f54b3d05958b695d5d9551d339c864f84a18639f8497a6923550df3bda337"
   end
 
   depends_on "cabal-install" => :build

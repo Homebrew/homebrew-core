@@ -1,24 +1,25 @@
 class Yosys < Formula
   desc "Framework for Verilog RTL synthesis"
   homepage "https://yosyshq.net/yosys/"
-  url "https://github.com/YosysHQ/yosys/archive/yosys-0.32.tar.gz"
-  sha256 "07b168491fa103a57231483a80f8e03545d0c957672e96b73d4eb9c8c8c43930"
+  url "https://github.com/YosysHQ/yosys/archive/refs/tags/yosys-0.34.tar.gz"
+  sha256 "57897bc3fe5fdc940e9f3f3ae03b84f5f8e9149b6f26d3699f7ecb9f31a41ae0"
   license "ISC"
   head "https://github.com/YosysHQ/yosys.git", branch: "master"
 
   bottle do
-    sha256 arm64_ventura:  "ed7f7b449b42f49d7e2b18372dd9aea4de47fc800dc9433bc80014feb11b5f4e"
-    sha256 arm64_monterey: "0e9d3904135b0e40e4819901bbb22d5b700de1779ae8db2fd5bdd9d4364a13c8"
-    sha256 arm64_big_sur:  "f5298c9467e596907908af2a874f8a4c31d99587407ef89116d2ed0cbcb34b32"
-    sha256 ventura:        "0288f6a7977ac822f00c8675f65f0c02f613790912d047c3d57b2457b5811632"
-    sha256 monterey:       "1e95b72c5a446311d7b962c63b415fb17680dcdd5d99acc968f4071b48f5fdbe"
-    sha256 big_sur:        "21a6ce060f38728124bb3dcb22d632ecf0eaf2b3c909b88dcf5c37baefda13e0"
-    sha256 x86_64_linux:   "93333c25d0c6328d452744d3bfb1b9d5a5a1888d1669f9870d695f0406b879f7"
+    rebuild 1
+    sha256 arm64_sonoma:   "ae5c6a6569ed651c60c8d39fecbd6f87535bdec397fa7883ec3f54326f85a1b2"
+    sha256 arm64_ventura:  "5c0f1f469ee7060608fff395c485d30971f81e478f6736bf2c6e520bf349fcae"
+    sha256 arm64_monterey: "5ff765a5a5fa35d66f46a4a75a708d8ed087c4d9d1e7bede6565ce8ce07bf1c3"
+    sha256 sonoma:         "e99435951d0fc65133ac237cbaa122ca19d4f890d5948b4d201ae8dec7e5fba9"
+    sha256 ventura:        "d947c530b8e6a556f8b10a2c36a90d30fc62e1db7b3aa9b8b7938b571a54915a"
+    sha256 monterey:       "83acf34c15d2906d8acc79a14b9c8de24c209799cef4693accd944b18562a639"
+    sha256 x86_64_linux:   "34c5f194e5024b48e68819b16acfa69c2791fce96a0542fbc842a4fede2c8c87"
   end
 
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "readline"
 
   uses_from_macos "flex"

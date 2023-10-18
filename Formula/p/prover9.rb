@@ -12,9 +12,11 @@ class Prover9 < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92508ef60be4768b9567c677c4aae881f04ef84de98d2bbff299739f906198ba"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4ab7e6152098318be4a839b1fa2c6e50dc6868ef6b08c8d34d2175aac1736fe"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f864bc7f43cde5bf0e7f5b69e26879833b53e5d1c3a8b9404c16062cbe7ca14"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d5bf0492b97661c22bc8077463c7f577971e1a6f2db5a70f0bb86337c8de02f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "928f8946fa76129d2d394caeb5a0b75dd574ad485ba5fa39c408eb6c602a5c27"
     sha256 cellar: :any_skip_relocation, ventura:        "605c09fc8888af3a28e2b8de5b41fdb41ca19a8eb2d4f2f7f7e47187eae6ac4c"
     sha256 cellar: :any_skip_relocation, monterey:       "eb0ab8deaf0e9866c6fb241877767f99ca7b4d7d8b5268a0c6ce7ef9fb0cfbd3"
     sha256 cellar: :any_skip_relocation, big_sur:        "a81af1adbb27059709ec9bd9afd30e7819fbd750ea18736c079640058e9ca5b0"

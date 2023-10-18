@@ -7,9 +7,11 @@ class Roundup < Formula
   head "https://github.com/bmizerany/roundup.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4764f6f0e4d46c9937069ed6a6df52b64b6c49515b2e893145a7bd8ab1c85bcc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5406062d942983953655e151bcd83de2766b5507f16343095cbdcefe3e4ceee"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "c5406062d942983953655e151bcd83de2766b5507f16343095cbdcefe3e4ceee"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "686cc922ad95b85a419eea991cb2320b9971b38233131934ca95cb5467d9e264"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4764f6f0e4d46c9937069ed6a6df52b64b6c49515b2e893145a7bd8ab1c85bcc"
     sha256 cellar: :any_skip_relocation, ventura:        "c5406062d942983953655e151bcd83de2766b5507f16343095cbdcefe3e4ceee"
     sha256 cellar: :any_skip_relocation, monterey:       "c5406062d942983953655e151bcd83de2766b5507f16343095cbdcefe3e4ceee"
     sha256 cellar: :any_skip_relocation, big_sur:        "4a2445d10704dfbc5e90afd6414b919b78cd116d645cd1a72e69200c976c92cc"

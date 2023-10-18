@@ -6,9 +6,11 @@ class Naga < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c49ba4967205f60079ad869d397bc75e1dd4130b86595dfd06a45836febccdb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d32ce728cc5082fb81b509ee4d2aacdf3f3b3e5c99653493412afca4f4558559"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "060c060175d76dd77c768ec1fd07fe74fc01e404e4f4a6b8be3a75cead596abb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5598664fc7fd64d0f76d0291bbe79c209a65fd8142d6cbf7f7164531d538b9c5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "61f379c8bd1babc088d64e3c1f64b6f480aff5f911e0b7619495614143a32f69"
     sha256 cellar: :any_skip_relocation, ventura:        "b1a38c76c5088aab68b817aea8d249a40f2aec9101606494d42182826528561b"
     sha256 cellar: :any_skip_relocation, monterey:       "6b013d2185f67b684ab4f49db162fdb32bba2dc6914d9855c6f7fbb4bd5603f9"
     sha256 cellar: :any_skip_relocation, big_sur:        "58d4a48fe33e676993449a2cdf332f74b6858681bc5519374d6e7a8842df9434"

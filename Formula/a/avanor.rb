@@ -6,9 +6,11 @@ class Avanor < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    sha256 arm64_sonoma:   "f230abf456ef3e8f748a444f6c4909ae3d94553e6fc7dee79a871d1b7639e9a7"
     sha256 arm64_ventura:  "ccc57d4f9e6be0a45d01a7498cd8f4503810d6f754847ca561e0404f705ad5b7"
     sha256 arm64_monterey: "44a7864d851ed2f13f69d2db72dab4f8622dd7e52e03933f54c4f1c625deb6e6"
     sha256 arm64_big_sur:  "6c2ae364f9e7c7ce1f3876a4ce9acb53489e9a17221646f004895ccd239e4646"
+    sha256 sonoma:         "4bad762a39191e5bb9fa549ad6e9357c68031a1a0f0603585eb4d339956ac052"
     sha256 ventura:        "068723dfb7c9ce0a1c77337ed71fa3966a9bde3abd5af431d9fe80bbc6eebb5d"
     sha256 monterey:       "31f93f42adc5936fa370279095f656b270e0ffb3fe79f3fa163cab67d6fa3bb7"
     sha256 big_sur:        "fe8fbd3aed29fc9c50753000036d9c13b5e8732f687d71b061d954e83517d403"

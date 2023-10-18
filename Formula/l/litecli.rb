@@ -9,19 +9,20 @@ class Litecli < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2618c03ff17b69f184b999495b951fc26bb4a9652c3961f1055ecbc4dea086f6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "613988a3efa691f02653b6b87f7065f2feb8fd431da44b9e4885299fbbc3689c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1bc5767abe4c184c34cefa19b898209751a00b8e6f14456827e7cab2a23102b3"
-    sha256 cellar: :any_skip_relocation, ventura:        "14dd2e29b9744a192eb3b27fa8b2ad7cd1555139069016f8618740b30e8d2e15"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f63b90f072ba5c92210a46179bb9d578bc3261add44ac8c6793f432b0ab346e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bde83959ec036f1cd351d6f525d2444d60dcb65521d131310a54a3158dfed950"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45312ee667d44cd0696f50815f5541fb1a2caa7d137bd6e889e050243c8803af"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9d8120a0c223ed04fc592f39991e1b0b4077b7a7f2e642ed2b41ad9a10b5acd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df4cd8db25541f000d2494b4c80ed9bc6c9ea4c7ca7703adfeed0052c04e1c80"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "539beb394d90813f46c276d3a6f6bb5823c81abd2667d04914b25685fd4ba75c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "adead673456887368c5bae8ae51c891cdcf160121a4f1f39b5aedbf5b58bdf6e"
+    sha256 cellar: :any_skip_relocation, ventura:        "c5c2e6be60117017aaef78a11b8f1019d3ebcadbcfe828738c8adee9fac34e38"
+    sha256 cellar: :any_skip_relocation, monterey:       "5602bf3f603fe7eac404de507cc43fbc7992e1d820f63dbb974dfbaa3f747b15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d5d857309e176624bc7f82b211b0529c13c26fac792d6cfec91ec2cf8c9fdc"
   end
 
   depends_on "pygments"
+  depends_on "python-click"
   depends_on "python-tabulate"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "sqlite"
@@ -29,11 +30,6 @@ class Litecli < Formula
   resource "cli-helpers" do
     url "https://files.pythonhosted.org/packages/27/01/6aaa4fc415274ac77372b4d259c234b9f5bfc8d78144c3fda1f3019d4690/cli_helpers-2.3.0.tar.gz"
     sha256 "e7174d003a2b58fd3e31a73fbbc45d5aa513de62cbd42d437f78b9658bd5f967"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
-    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "configobj" do

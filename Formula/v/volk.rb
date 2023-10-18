@@ -8,20 +8,21 @@ class Volk < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "52ff9a4b5c47a0dc1f19db0058c4fafcc26b8163f28bbbf1b926efd782e5ab02"
-    sha256 arm64_monterey: "ff09e450bf0ae32fcd0562397c9a45839450f32f96d3559da7fafb61a3cb03c8"
-    sha256 arm64_big_sur:  "f38aebc5c6ad1163e5ebc1791ccebfe5c269a1319aa06676bc5d295cfe01dd4d"
-    sha256 ventura:        "79fcfa93cd4f681fe8af9e515e264608162cef5d8498fede1829bb6616e6878d"
-    sha256 monterey:       "435296319b6a65ae72d6a5dd24e1df94552ca2ee3d6985c433b0be9cb42604fe"
-    sha256 big_sur:        "943932be7a0e7fb6cc7d146ead74a6069cf014d4a30dca8167520ae7cb5d82d4"
-    sha256 x86_64_linux:   "1432bc5c4b8ed803de9b2171a26ed1e5bb7735d6e8f137bed5e689c7888320d2"
+    rebuild 1
+    sha256 arm64_sonoma:   "c0a5c2ee515d15917cefb2b026ad6839c56beb4662dba097a9516d12d3d900ee"
+    sha256 arm64_ventura:  "e16a8fe2ea0edc034efba5d123a5f6ead3ad7e2b1d7073f5bb8ee5b4e3c0b978"
+    sha256 arm64_monterey: "feeefe367288110e433ba776918c72c73e50b8b3c6360e7bbb9a476fde417703"
+    sha256 sonoma:         "16d5b6931dfb847ff8981acda1dbac48c91f6a528f2fe4fd93070d3bfea1ca43"
+    sha256 ventura:        "b9cb846aa9f83f5b9ff363d73ff101f52bb46dc4ab9e4167616e7eb028537eab"
+    sha256 monterey:       "88e5cb768c82195b32ad3115b9ba35590aaff351823c713736380cb40f71f788"
+    sha256 x86_64_linux:   "a53ab9928c3785f01ce2138c1d534b6478414a8822edbc9323d9294ce83abd18"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "orc"
   depends_on "pygments"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   on_intel do
     depends_on "cpu_features"
@@ -40,7 +41,7 @@ class Volk < Formula
   end
 
   def install
-    python = "python3.11"
+    python = "python3.12"
 
     # Set up Mako
     venv_root = libexec/"venv"
@@ -71,7 +72,7 @@ class Volk < Formula
   end
 
   test do
-    system "volk_modtool", "--help"
-    system "volk_profile", "--iter", "10"
+    system "#{bin}/volk_modtool", "--help"
+    system "#{bin}/volk_profile", "--iter", "10"
   end
 end

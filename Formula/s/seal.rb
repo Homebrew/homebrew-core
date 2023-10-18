@@ -6,9 +6,11 @@ class Seal < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "71cd829e65b350f05f5bc83a14b1c1050afab6c7976baa9bf14623a8e0386d60"
     sha256 cellar: :any,                 arm64_ventura:  "be6bc6562cd94e6cdaaaf9fea4678a9d203891103136b54ebebd207f925e1518"
     sha256 cellar: :any,                 arm64_monterey: "815a7f97fc5c9ac4f1dff9aefcfa9d8dc2de686db9986895cfdd03e67c532365"
     sha256 cellar: :any,                 arm64_big_sur:  "47554e0e49d403571cb2a8dd1556173684c9137bb1795041ab7ffbcf01f8c2ea"
+    sha256 cellar: :any,                 sonoma:         "c547ee832fc5e1c7970aaf5d38b50ad4c527ff246965bb4b046faac577a6b3ff"
     sha256 cellar: :any,                 ventura:        "4913771595a3039b887b499c9a5432c6ec83a4e6bb53e426ab10451258cdfa5c"
     sha256 cellar: :any,                 monterey:       "1b4df4b2882c98e5577e0cbfe992ada1125250070e9343459c0451524d2f2831"
     sha256 cellar: :any,                 big_sur:        "01a9f4a313feac9bf415099ac09c9e3647bbf3304006ce06f871cf589c7e0588"

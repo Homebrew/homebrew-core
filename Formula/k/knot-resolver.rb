@@ -1,9 +1,10 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.6.0.tar.xz"
-  sha256 "0c82ae937b685dc477fb3176098e3dc106c898b7cd83553e5bc54dccb83c80d7"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.0.tar.xz"
+  sha256 "383ef6db1cccabd2dd788ea9385f05e98a2bafdfeb7f0eda57ff9d572f4fad71"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
+  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,15 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "5ca10e63c6082ebbd34e44e53f955022ee86f41f76171bc3f0442b75bc11df79"
-    sha256 arm64_monterey: "a7cf2a04f6eb227f6cb40a2b020a181df5e8c0e079a2639e17a61fe88d71ba47"
-    sha256 arm64_big_sur:  "de3ab727f527992c33269355569cf16bcd2c106d8df028d78b5088a1cf90669f"
-    sha256 ventura:        "1b3af6eb07c55fe1024092a11cb8026328c35e77e4b623a4c1b9656438624c50"
-    sha256 monterey:       "1d2600e90bdecc21f41ce437920fdaf111ad8992fbcff1ba16788d8fb395fe87"
-    sha256 big_sur:        "077ab810b11de8686206f95b1164c86cf519ad93e5fc5e65259ee7de2bb3ac83"
-    sha256 x86_64_linux:   "3b70cd4bce30b89bb79e609f0dfa06b31095f640be7ea3039f07c9a5e715d054"
+    sha256 arm64_sonoma:   "9db269775fc6ce2266790e19280a3330e781ec5afa3119bc4081e174a1c82a4c"
+    sha256 arm64_ventura:  "b129c87a2134aa0ae49e0df544714fa17f0b66053cde08067e4ae29441201d80"
+    sha256 arm64_monterey: "521d2e624647b10d9af77dae70f38e1c53201f107e4fea1a978a18198d01f478"
+    sha256 arm64_big_sur:  "1de3b05f43d3b6087fceaf189fd78e2c384505af6715632be3c632b23fc22964"
+    sha256 sonoma:         "7ab4f5f95f5e174d1cbe7ee9a29475188d0883e4c8a1e6da2ded5b95bc6b74d0"
+    sha256 ventura:        "58dec4665c73538d7ea34b9e6f237374994818ac80391454994cb6338a8ab391"
+    sha256 monterey:       "b5fa46c74e301df115e00cc638df6cad41d2c8b38911f9f24373e05c2780738c"
+    sha256 big_sur:        "40776a6aa32b7fd5e43c47c836200e417c02ea99bda9bcc5416aa8bf597b314c"
+    sha256 x86_64_linux:   "6a90e05c7193d7849a00dc4cf96cde98cb0b4f9060500ad037a4931585948a79"
   end
 
   depends_on "meson" => :build

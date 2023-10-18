@@ -1,19 +1,20 @@
 class Pgrok < Formula
   desc "Poor man's ngrok, multi-tenant HTTP/TCP reverse tunnel solution"
   homepage "https://github.com/pgrok/pgrok"
-  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.3.4.tar.gz"
-  sha256 "2da14eeae3d9678bffd27ca5cf3900bf2c041628cbccae939137d73f0522d747"
+  url "https://github.com/pgrok/pgrok/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "c1e9b3b506b39c5a1e6d9d31e78ba28c1c62ff698ceab8ba5f30881bfd8af6ad"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66564038a342b958d0e2cc33f782143adc32bf66e6f477e557bb44f3e74247fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66564038a342b958d0e2cc33f782143adc32bf66e6f477e557bb44f3e74247fd"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66564038a342b958d0e2cc33f782143adc32bf66e6f477e557bb44f3e74247fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "25451b9a83eead335118ccae92df6d61756ae4bae062adbe32761b32b63d8c01"
-    sha256 cellar: :any_skip_relocation, monterey:       "25451b9a83eead335118ccae92df6d61756ae4bae062adbe32761b32b63d8c01"
-    sha256 cellar: :any_skip_relocation, big_sur:        "25451b9a83eead335118ccae92df6d61756ae4bae062adbe32761b32b63d8c01"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcad13368725d8de10094f7dc9ac73231447095d2aa6e0412ef11bd1b8f30677"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f3c04a70e800411cafa8a6d0bf1fc6c71ba981fa5cb0765d1002f21b8aa82ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8165af1dc7d72e1c72eb642feb20e1da01911a8e5c027d5af113207e9144ae2e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f43696d9e60b6dff2bb3f93309fa67e5618143035759a92b02dc80875cb918e7"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ef5d9be8ee4f399660c507eca7647606b3d6b2bb2f3bbe54c9167deda458792d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4cc88748f7cd6039f277cc17f9e6dd3d7dbc516c8584661a447e0153ba4341f1"
+    sha256 cellar: :any_skip_relocation, ventura:        "a0df041caadeec0edd908855e60e69ddeba089a85b8167eb235b230098c9c30f"
+    sha256 cellar: :any_skip_relocation, monterey:       "2b2ef4dd3b91082a88bb0d9dd86479ce26b846c5e60647f2a1ef7ba40b179f79"
+    sha256 cellar: :any_skip_relocation, big_sur:        "1c31fb7b354524f3801b871d7b737b2d7adf1cbf6b1abd1e1551b02c0b713fb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fb845940a156201b9071a241b9bc193c4753e654065e8e96a40aeccfc688cc7"
   end
 
   depends_on "go" => :build
@@ -26,7 +27,7 @@ class Pgrok < Formula
       -X main.date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/pgrok"
+    system "go", "build", *std_go_args(ldflags: ldflags), "./pgrok/cli"
 
     etc.install "pgrok.example.yml"
   end

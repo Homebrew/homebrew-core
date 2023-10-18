@@ -13,9 +13,11 @@ class Gtksourceview3 < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "c1d2a6e3bc9451208389d72640a2c7cfbe8c2332a160a086e3ecad76e66a499a"
     sha256 arm64_ventura:  "846bfed76c27fea9b7e441542ab1934d0c2e102958061c151b8a1896a692f70d"
     sha256 arm64_monterey: "3bffd877e4f14e8ddfc09a213f14be337e4a2efc3f230bdeb25a5ed915b3f75d"
     sha256 arm64_big_sur:  "920ee02f85863c74d7c151cde00f0a8dbd18c66e825a50c7d8f36f3af9da06b6"
+    sha256 sonoma:         "6f82dd4947686a5e8a8148fa4dc28eaba0ec70f05275c744c357faa3ced0b09a"
     sha256 ventura:        "71b20ca2f56e1509a261ae1191837de36f2a78bb8852d7ad2164553b3429b44d"
     sha256 monterey:       "bce68f417d64947e6bbf996bd0682be7a5d3e7e413c25bb77c0686f9e47036bd"
     sha256 big_sur:        "2dc6c71c803b006967ee4154912c7f6e050c5c8c8f68a113335e66f48fe32277"

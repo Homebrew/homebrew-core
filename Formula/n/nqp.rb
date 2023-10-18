@@ -1,8 +1,8 @@
 class Nqp < Formula
   desc "Lightweight Raku-like environment for virtual machines"
   homepage "https://github.com/Raku/nqp"
-  url "https://github.com/Raku/nqp/releases/download/2023.06/nqp-2023.06.tar.gz"
-  sha256 "ddcb92f29180699ebaf0a7faa46ad4ac902f9c8826d7476d9c6f71176cadd7d3"
+  url "https://github.com/Raku/nqp/releases/download/2023.09/nqp-2023.09.tar.gz"
+  sha256 "45f36c0db1658dc0064e23d450cd6d9e8ff01528bc16a8d83e1472707066d968"
   license "Artistic-2.0"
 
   livecheck do
@@ -11,13 +11,15 @@ class Nqp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "6de4c501b2f9d51c26743c5e8dc277cb1d3be1bf833fd2d8edb626c7dc8b7043"
-    sha256 arm64_monterey: "4718040cae7912e40176beedddb95e865f30e979e57d08796ee1299330eb7b99"
-    sha256 arm64_big_sur:  "083187e3b032bfbf440f79586a3cc56ee13660acef3c974dfdbe7c597a0cd0ef"
-    sha256 ventura:        "474ef34e4698ef872bf33a095829f77b3ce77d032bfca3c34c531313ee79e62d"
-    sha256 monterey:       "4ce6f856be4697992bee7688dfebe10a74fcb6e68d3dcc6db9e611735694f71b"
-    sha256 big_sur:        "c7940d2f4c989cecf2dca1a366582821fbd253c8c60ea3788602edaa90e810cc"
-    sha256 x86_64_linux:   "0bf1a53bd5bc89d14cd2c9f8a4841c102bbdb3c2a6d5f21e87ba6d8396a8bbd8"
+    sha256 arm64_sonoma:   "f0b4f93967dac5df5a8bba9b732ecd4a52072e1168085d97fd8431740189d354"
+    sha256 arm64_ventura:  "4c74d4066cd71549096ac3191cc78089bef18b9746e88772854e6f4c4a0ec42d"
+    sha256 arm64_monterey: "fb1cb67c385021efeff8a7e8e04d158a92b58c48191cbcf4c2d58de4dfeeb5c2"
+    sha256 arm64_big_sur:  "1f8169acc8229f93f89e0b6373b5169c6b6078caaecc6ead52af834b22b765b9"
+    sha256 sonoma:         "04260e11e92459bfb03d708df3914c8d47aedb38b4a09fec3c5b1729327c5578"
+    sha256 ventura:        "3c72516a1dc5e97f3c41dd1ed1146238b38aa3b8efb5bb9450117d5cd65cd6ea"
+    sha256 monterey:       "7507b6265bb772c5f6197b6a5227c861613f544ddac8cf604db2fea465a1ea38"
+    sha256 big_sur:        "066b60abb9b75059eddd1ef3a5cdb0d14a5f407f27cd3d458b382de69bf91d19"
+    sha256 x86_64_linux:   "8312446b7eec93894f6d915985aa2eb8e9c97bcbdbc947a541dc2ef6c699b70f"
   end
 
   depends_on "libtommath"

@@ -1,6 +1,4 @@
 class Aws2Wrap < Formula
-  include Language::Python::Virtualenv
-
   desc "Script to export current AWS SSO credentials or run a sub-process with them"
   homepage "https://github.com/linaro-its/aws2-wrap"
   url "https://files.pythonhosted.org/packages/db/07/db4c98b4d44ee824ad21563910d198f0da2561a6c7cfeaef1b954979c5c6/aws2-wrap-1.3.1.tar.gz"
@@ -8,24 +6,26 @@ class Aws2Wrap < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b674a21c0c093399bb3504de8754e55bf91f6048d09fbee714e6149b5e9592ed"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "afe746e339b4a0035b736be16c901ecce4cd3559db5c228bdebb37003df6bce5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "010f352e8abd3811461df22ce194c88d8af2d69815b9aacacc5eff6dec5b1204"
-    sha256 cellar: :any_skip_relocation, ventura:        "3a16f4a02da618252eb33ca6d15c7f80128155e23774ccdd17ad14f67f833666"
-    sha256 cellar: :any_skip_relocation, monterey:       "67da428ede437becefb978d6c57f798e9e6d0e9751e88c2a8f66ee012955d432"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2edae4d6d8b898ad8057b266256491615ac0832d09fed2209ca30acfebe9aa15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e0c88329279ed6319346d0363bada116a907de02f65c56e4ebe4c8774c0995c"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "793be218f866d4a783f0ca49b32515c3be383e94c2f95386ae07338e6ace0de4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2500d4adce97d108fc21ed3f927a19a666781d136bbf85228c77c8c40bf36a10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6007a99818a879b786fae8a01954cf4353e92c3a7fbc16f062f0139380baf26"
+    sha256 cellar: :any_skip_relocation, sonoma:         "01279c6812af7aca180c3a6e4e3df527d662437ce04ecb87e0db5cac17d93ef4"
+    sha256 cellar: :any_skip_relocation, ventura:        "73eecd11ab6bb700c0622592ba1401da33a0c3ddf597ad3c906fcceb91dd3460"
+    sha256 cellar: :any_skip_relocation, monterey:       "6da87f5f87544ddd1cbfd54d563ebe8b201b45596068ca3d30825231008a578b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81966dff8907d3f9deef2f78a96119cd6bf4be9db9dd03ee414b542d542b5daf"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-setuptools" => :build
+  depends_on "python-psutil"
+  depends_on "python@3.12"
 
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
-    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
+  def python3
+    which("python3.12")
   end
 
   def install
-    virtualenv_install_with_resources
+    system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   test do

@@ -21,9 +21,11 @@ class Standardese < Formula
   end
 
   bottle do
+    sha256                               arm64_sonoma:   "c7a184bf6c96a6a2f3d9b555de0a3e7653bd25ff1b9ce854fecf84a3bb1bd3e2"
     sha256                               arm64_ventura:  "d70779cd237b4c18330977418d41349f2e19c708b9928a675816d8f7ae855179"
     sha256                               arm64_monterey: "db40d8808507f679b37aed32cfcac9bd451098f70574a2448deadd0269f69cd3"
     sha256                               arm64_big_sur:  "dcb784cdd4d1ef8dc56735500dc7d936d5d3080012f43165a44e4bc78885f3a7"
+    sha256                               sonoma:         "b12640133365198013c139bef9b587e52c7cde0ec15eabb7e56293d609fd3068"
     sha256                               ventura:        "02a1b1c16993c683b59baaa2082016ecd6c6c3aa2b9c65db04350e7a3fdcf9be"
     sha256                               monterey:       "e49513abcbee20979a5353149428067e3b6094c79c58d87bbad1a903df93379f"
     sha256                               big_sur:        "59f7d73ae05fb94512ac40e7d864f63862c7cc9b4366cd7ccb42c02a3c7cf753"

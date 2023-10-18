@@ -6,19 +6,23 @@ class Trailscraper < Formula
   url "https://files.pythonhosted.org/packages/bc/9b/f425ff02c84a16e434526d3ffe7abfc50589f46a5efe9b02cfd09bec698e/trailscraper-0.8.1.tar.gz"
   sha256 "fe0f7970554a7100be6a4dc6ecce0ce0f4a5a3337a689e7035df7ac3c37ec21a"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/flosell/trailscraper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9e66ebb373a566bd0ba72e945245a6c4ab05236b509cf7170e8aa65bbb7fee0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a98eb9f9bcd1605ed0a50e5129e50e52a27ae2003b4045f1adab0e6e91d47ce8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea1caa6f8c28b1f272fe6ce234f74625f71174998b4f5671d11d3964cd26d52f"
-    sha256 cellar: :any_skip_relocation, ventura:        "5bb42af07983d50f5c8d5bab7b1b0f9602365221c6d16f8cff518a3ad6d94129"
-    sha256 cellar: :any_skip_relocation, monterey:       "4969c624af360265353808133fb25715e012d6b4c9e957903caba4972c6e8ac0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "849b319c01e99fdc14bffd06b3610a4d053c5885b523303fe925e58055c86dd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23ab1666ebdbfdc0d6bce107d6f774f26a232f31a713524aa643264fb7ca0474"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d257437c306f6df1d77e12307cb561942789dbdfed653e751c9df0d7530022b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8fb40bee7a7d7d4ea912a27e544645b4ac17cf43ff2759ba47ff88cc912d042d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "326b7627898abea4ea777962bb8689651cf3836a0181565514242b93fc4b244a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "36e5937f8858d291dde7e13136a20699a1e7e7c9e101cc7d69d731d35eb1bb90"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca549b50ed83e560c48e5d51e5e60d589b535290de9dacdfcca0afa65951812d"
+    sha256 cellar: :any_skip_relocation, monterey:       "ecab884a855c262b2636a3c1722b99022db495e4f4710b816a97fc8d9d18a5cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb058299f04c89b18614c8e1b8bb5cb496414960f75c7b3aaa639705360a0bd2"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-pytz"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "boto3" do
@@ -27,8 +31,8 @@ class Trailscraper < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/05/42/7fa8a5090a7381cfdea10f3bad3fea3c867e248caca1f8ee2e6722568db0/botocore-1.29.59.tar.gz"
-    sha256 "bc75d41c5eecf624a2f9875483135aa78088a50c8d29847793f92756697cfed5"
+    url "https://files.pythonhosted.org/packages/3d/f6/d35a27c73dc1053abdfe8524d1e488073fccb51e43c88da61b8fe29522e3/botocore-1.29.165.tar.gz"
+    sha256 "988b948be685006b43c4bbd8f5c0cb93e77c66deb70561994e0c5b31b5a67210"
   end
 
   resource "click" do
@@ -51,29 +55,19 @@ class Trailscraper < Formula
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
-  resource "pytz" do
-    url "https://files.pythonhosted.org/packages/03/3e/dc5c793b62c60d0ca0b7e58f1fdd84d5aaa9f8df23e7589b39cc9ce20a03/pytz-2022.7.1.tar.gz"
-    sha256 "01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0"
-  end
-
-  resource "pytz-deprecation-shim" do
-    url "https://files.pythonhosted.org/packages/94/f0/909f94fea74759654390a3e1a9e4e185b6cd9aa810e533e3586f39da3097/pytz_deprecation_shim-0.1.0.post0.tar.gz"
-    sha256 "af097bae1b616dde5c5744441e2ddc69e74dfdcb0c263129610d85b87445a59d"
-  end
-
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/27/b5/92d404279fd5f4f0a17235211bb0f5ae7a0d9afb7f439086ec247441ed28/regex-2022.10.31.tar.gz"
-    sha256 "a3a98921da9a1bf8457aeee6a551948a83601689e5ecdd736894ea9bbec77e83"
+    url "https://files.pythonhosted.org/packages/6b/38/49d968981b5ec35dbc0f742f8219acab179fc1567d9c22444152f950cf0d/regex-2023.10.3.tar.gz"
+    sha256 "3fef4f844d2290ee0ba57addcec17eec9e3df73f10a2748485dfd6a3a188cc0f"
   end
 
-  resource "ruamel.yaml" do
+  resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/46/a9/6ed24832095b692a8cecc323230ce2ec3480015fbfa4b79941bd41b23a3c/ruamel.yaml-0.17.21.tar.gz"
     sha256 "8b7ce697a2f212752a35c1ac414471dc16c424c9573be4926b56ff3f5d23b7af"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/e1/eb/e57c93d5cd5edf8c1d124c831ef916601540db70acd96fa21fe60cef1365/s3transfer-0.6.0.tar.gz"
-    sha256 "2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"
+    url "https://files.pythonhosted.org/packages/5a/47/d676353674e651910085e3537866f093d2b9e9699e95e89d960e78df9ecf/s3transfer-0.6.2.tar.gz"
+    sha256 "cab66d3380cca3e70939ef2255d01cd8aece6a4907a9528740f668c4b0611861"
   end
 
   resource "toolz" do
@@ -81,19 +75,14 @@ class Trailscraper < Formula
     sha256 "88c570861c440ee3f2f6037c4654613228ff40c93a6c25e0eba70d17282c6194"
   end
 
-  resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/5b/30/b7abfb11be6642d26de1c1840d25e8d90333513350ad0ebc03101d55e13b/tzdata-2022.7.tar.gz"
-    sha256 "fe5f866eddd8b96e9fcba978f8e503c909b19ea7efda11e52e39494bad3a7bfa"
-  end
-
   resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/7d/b9/164d5f510e0547ae92280d0ca4a90407a15625901afbb9f57a19d9acd9eb/tzlocal-4.2.tar.gz"
-    sha256 "ee5842fa3a795f023514ac2d801c4a81d1743bbe642e3940143326b3a00addd7"
+    url "https://files.pythonhosted.org/packages/b2/e2/adf17c75bab9b33e7f392b063468d50e513b2921bbae7343eb3728e0bc0a/tzlocal-5.1.tar.gz"
+    sha256 "a5ccb2365b295ed964e0a98ad076fe10c495591e75505d34f154d60a7f1ed722"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/c5/52/fe421fb7364aa738b3506a2d99e4f3a56e079c0a798e9f4fa5e14c60922f/urllib3-1.26.14.tar.gz"
-    sha256 "076907bf8fd355cde77728471316625a4d2f7e713c125f51953bb5b3eecf4f72"
+    url "https://files.pythonhosted.org/packages/dd/19/9e5c8b813a8bddbfb035fa2b0c29077836ae7c4def1a55ae4632167b3511/urllib3-1.26.17.tar.gz"
+    sha256 "24d6a242c28d29af46c3fae832c36db3bbebcc533dd1bb549172cd739c82df21"
   end
 
   def install

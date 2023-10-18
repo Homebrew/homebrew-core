@@ -4,23 +4,33 @@ class ServiceWeaver < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/ServiceWeaver/weaver/archive/refs/tags/v0.19.0.tar.gz"
-    sha256 "92fdd1e5776eb304d7b2bdbaa315bdd5f8ec4f22460d1a6c4cb97022fbe072cf"
+    url "https://github.com/ServiceWeaver/weaver/archive/refs/tags/v0.22.0.tar.gz"
+    sha256 "d3a5354377ac4b72f577659ae21ba4e984f11fb594e999a5a6c1c398414dd0cf"
 
     resource "weaver-gke" do
-      url "https://github.com/ServiceWeaver/weaver-gke/archive/refs/tags/v0.19.0.tar.gz"
-      sha256 "f37c59f59bc7d18dbf9c1ac46e750153ffc138b449c9df39c30d93fcb1194396"
+      url "https://github.com/ServiceWeaver/weaver-gke/archive/refs/tags/v0.21.0.tar.gz"
+      sha256 "3741f827ddd8e4f1c84410a5b11647781510078cb6271064892468fc32f751f1"
     end
   end
 
+  # Upstream only creates releases for x.x.0 but said that we should use the
+  # latest tagged version, regardless of whether there is a GitHub release.
+  # With that in mind, we check the Git tags and ignore whether the version is
+  # the "latest" release on GitHub.
+  # See: https://github.com/ServiceWeaver/weaver/issues/603#issuecomment-1722048623
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef458ab0fed152717a3737c6e6ebedc76f646057e34717585f3a1279859139e6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "486b9aa197c292e8795a60cd8c380c66a8a216226e99d76f0b80ab308bf37a84"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83ba39e73d74ecfa90c790e498616910e94fab17f7a90429f650f71ee5e2cf81"
-    sha256 cellar: :any_skip_relocation, ventura:        "7c2f930a207c4a761177d56e33a787e65d5b17bdafc159084c65e2bb49843b4b"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c12e53f8b33771aff01b3167c90aeff82335bbd0c44ab6ab05648ff21086e0b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "234ca4e62ee5184e26ddc0010c9ecc16d744ffa7db400886bc38cba839acb9d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0532ab3d52be57d47a838f781ca1214b6b214e0be88469bbcbba7ff49d46fac7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9428d4052c247f9251e57a354803b2c5d224be8110b8b620d9b5e4d6025b836"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35192abfd1938ead2e4ee5a647ec18955cf3c78d437f06eb2306702edd7e5a5a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb2769873ba7a600b6bd6eb5d7236dfad725c3c30ffc6bef57b9e16f08bba4bd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2d46234029379b0cc02bb3f1b3239b626457ebb3ee3fa2d264c568348c6598bd"
+    sha256 cellar: :any_skip_relocation, ventura:        "d289e1f0a45cb34222240469fcaa7524cd679ec66993c170fbf38d6ee9450115"
+    sha256 cellar: :any_skip_relocation, monterey:       "8910c99b095b4b8d686af1a11ae63a4a068c70a315836c47e62570732e9e9249"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e82ff16ddf003255f60b9f1d221192b76ce3338fa67864e8cb96d70c634366a"
   end
 
   head do

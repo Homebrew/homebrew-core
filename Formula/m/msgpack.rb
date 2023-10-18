@@ -12,9 +12,11 @@ class Msgpack < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "fdb7af2f6aadfd3bd0ddad1ffa04f916aa5b4503380eb929922565a3a5c28e94"
     sha256 cellar: :any,                 arm64_ventura:  "e41b85a88da3012d8a7819799333410558cca1ef59663fda84718be0856002e6"
     sha256 cellar: :any,                 arm64_monterey: "1d14abff9537f4d85dee74c10ce6f73fafa8e8719c5be05bfda9a836cbe732ad"
     sha256 cellar: :any,                 arm64_big_sur:  "f3842a4dd94cf91e0259f5cf95e325314c664fe5b68b0a15d1a45739096b62e9"
+    sha256 cellar: :any,                 sonoma:         "993bc7864b3c7053285bf5aa62b5d29269c2e9c1fdf0846831787557025a126b"
     sha256 cellar: :any,                 ventura:        "7abad795d8f0b89d7927db89147ba2a5273e04cdfdcda30d9bc402fef4352ce6"
     sha256 cellar: :any,                 monterey:       "7b02d0690b3ca73cacf020eb6de303370b7d6def89b9769f0bd18222722e4903"
     sha256 cellar: :any,                 big_sur:        "e422e0f9f84e2fa558e75e5145abcba59ef61c72dacdf757eb185694a58c08a7"

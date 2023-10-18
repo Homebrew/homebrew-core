@@ -4,6 +4,7 @@ class GitInteractiveRebaseTool < Formula
   url "https://github.com/MitMaro/git-interactive-rebase-tool/archive/2.3.0.tar.gz"
   sha256 "4af63703b3504370ef298693abc5061fe5bf215536e6d45952afda33a92f8101"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,15 @@ class GitInteractiveRebaseTool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fd3d07fa97db3fa78fa3692d55639319d37c215f87dd2602df938059eb57919"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95392c47907085f0970c680ee9413c427bff5fb5ab2355c50d1f5cb71f50e963"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cd8e36d75be1cb00efa1837df471e4ac970a60e5667bf3cdcd714c0cdb961b41"
-    sha256 cellar: :any_skip_relocation, ventura:        "f972a3c5408ec3ba45bf072209e5a2c974c0c219be595dd074a5c4363ce2f735"
-    sha256 cellar: :any_skip_relocation, monterey:       "9f9e1b520e626632725b75e254ee43c7778f9eab9c462e400a2e872378134e7d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "060a6d4d3ad11c25721d86e4ae00729b8a8019ea8d8e9b6edadbcf3e993e6cc5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa8408b90bbd094f1e96cac2af2c01ddafccc49ad89cbf4b714457a26b70a9bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ed399366f8adb76ce2f58488ccd962a8ef16447f6290b5f229f4c9dc3daf883"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c2a767bc773ffcbc636fbd55af0aeaf23bd69b07111413161f2a574c5224cbb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "828c794f3ee0e7e402a83ce15a897327d9760cd78156a5cce665f1e545dd2020"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "529cdbf5aa5ddda0b1aeb19d09fc506e5d605167b12930ba24374b9543db8eab"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b6bd256d7ab001da82c749b08cbd793ed902d3ca8cb09f2e9665e27b3c619572"
+    sha256 cellar: :any_skip_relocation, ventura:        "9e609bed5b3c38e26f9b1c15f5ebd6d033f26cba28cf60462efd828ce6e27944"
+    sha256 cellar: :any_skip_relocation, monterey:       "4bae4961c755dd4995ac74a33099d9fd47b0ac24a25d0702959d6f4f953049d1"
+    sha256 cellar: :any_skip_relocation, big_sur:        "3c3252f9714a5b51fb5f7237087dd3e9a0029ab63fd03c0a1d3f6e41829356da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36d0dd310b6ed752543b98dc359f904606306099b719667099cfd6fe85eb84c4"
   end
 
   depends_on "pkg-config" => :build

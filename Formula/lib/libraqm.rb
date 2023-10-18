@@ -6,9 +6,11 @@ class Libraqm < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any, arm64_sonoma:   "9b5a391bb26536281881edbf59e39ab0fe746ee19551d931c8b4c0168ce1033c"
     sha256 cellar: :any, arm64_ventura:  "ac95b8239c3e26dfd2cba18417d279cf5fe39cf1e3b02e01930e324fa4334174"
     sha256 cellar: :any, arm64_monterey: "d9099efce8323f9b653b9277a98a392aea1cb850ca69988aa17616cd44fc5741"
     sha256 cellar: :any, arm64_big_sur:  "1df9106df6fbcc29f5ec9dd66790a04c9d34480a42b4c43ae868ff72a3e312ed"
+    sha256 cellar: :any, sonoma:         "860fe5236ee6417c25794bbe427b77815b585920c9f1ef9173342ca692311cbb"
     sha256 cellar: :any, ventura:        "0f1d8cb37227f292b974a59b065a0c5d52869a85a5aa8f2dcd3c1466a32030e7"
     sha256 cellar: :any, monterey:       "2e263d71e11d6e370a8e162d4abd2b086bbecb522d26935f8045dc3943cb85d4"
     sha256 cellar: :any, big_sur:        "8726ac6422de7578e09239f921548c394c0c5005d8b3a2931d4d202187fe9281"

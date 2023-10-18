@@ -20,9 +20,11 @@ class Lilypond < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "d698ecf03bc15380ee769dd8a96e68c373a1d53419ab842b1997c107e33db42a"
     sha256 arm64_ventura:  "b973ba76a36b81950caa232b10148e2c0d43e62f0def6677e6b19aa40da15552"
     sha256 arm64_monterey: "5732abb8072a696dda9cbfb272f7d8c5ad6f332ebfb7a7eaa70ef1936b0fe5b7"
     sha256 arm64_big_sur:  "b95ab74431437c46a3f382c4811feb154071f2959dd19dcde23329c51f8fbb54"
+    sha256 sonoma:         "03f73e78be237b1dcc9ce76a43f08c94fb5549b81de90e41e00168c66f7be548"
     sha256 ventura:        "6849dd72a19388dd6df520c49ffc340b0fdccecea03bf8157ff41c59be8e0ce1"
     sha256 monterey:       "408f15cc55d732483e7ed346914689557ca38a9190b1815b8ee6da3ef65a32a1"
     sha256 big_sur:        "a5412b0836cbcce70f3dcfd6cf0923f65d10e215ce98fc4db20a70028b257ea4"

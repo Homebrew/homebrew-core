@@ -11,9 +11,11 @@ class Lwtools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7b4e5836ac330914f881b78ee808d29d774a4e74f9ebde9e9496dffddb86652"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4ce5ef71e65ca3c1d0e2252d7ef6a233a3d1a70b1e52ed146e5665f27f66e53"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b9473fcd088c13b368abf13544b24c2ac747c040592ff072e40e09a737f349fc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c3b52a20e37bb1d72d7985c55951bfceb4b7289d1123bb2e29d3fc115fcd53b7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2c042ecdcb303c0b72b2cfba05120b38d3e95966a9b6e16a9ec10f9c2b0aa49d"
     sha256 cellar: :any_skip_relocation, ventura:        "568d53de7606741d3d0f75580f69f3dc036f9e4a7ddadf6162267b231d3af14f"
     sha256 cellar: :any_skip_relocation, monterey:       "da8a43d1caa07c524d0fc0bbb1ee0adaf2bd3522b67fe82b3c96747d7a03e952"
     sha256 cellar: :any_skip_relocation, big_sur:        "03aaf64336da89a0986ba412935a2fafd59c5078562ea08263856e36d10f1f42"

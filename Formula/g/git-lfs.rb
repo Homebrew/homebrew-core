@@ -6,9 +6,11 @@ class GitLfs < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "edfabd4cb7b327ace7e9fce0cc011e1cf3ea759d4b2c731a99618c809d99d2d4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fb45479f699c517bcc3dc2cc4f983edf6f29fdb4c2919774620033f9261d18f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4fb45479f699c517bcc3dc2cc4f983edf6f29fdb4c2919774620033f9261d18f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4fb45479f699c517bcc3dc2cc4f983edf6f29fdb4c2919774620033f9261d18f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "02e9090a355f72e466114221b0cd55d8c3a475a146d1d935145179d6a28de3c7"
     sha256 cellar: :any_skip_relocation, ventura:        "c1a2458c826860845f30ab65505d679f8752fad0c920f3ae7401af5bfa8f5491"
     sha256 cellar: :any_skip_relocation, monterey:       "c1a2458c826860845f30ab65505d679f8752fad0c920f3ae7401af5bfa8f5491"
     sha256 cellar: :any_skip_relocation, big_sur:        "c1a2458c826860845f30ab65505d679f8752fad0c920f3ae7401af5bfa8f5491"

@@ -8,20 +8,22 @@ class Mycli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "27b5792812b88a9a3e706e8a5951a83a4db14770c6afa664d5cfcbf4369eb591"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd5408630fea5d0f2d2804a225851f28eb5f95ba594ef38ae67bcbff752b8801"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f71c0f0cd6c27b10d6249e5aedacb2a6d4f696a4b4fc9b2cf9108b9aaf324aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "f09ad4f6423cffdafac55d6c3ff25c8f387152d16956a1c210897e97e944d0d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "47f73a701750081458d59cdd243c68d4914c25f3e43787bd24ef2fa02a92cfd9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0a6f4d0e2701d65a9f5c312900f2b5e4c7d00bab9e8234e41a791a0ab7203279"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52a42f6feb4b9742a0a15964267fd0a3f52db1919195b52e80e29518c69a7fae"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b912e5f834281a7956503d856e84c015bd3221d5359e203e7d6b4f430f30fd66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d866d3e248bbe263c8ea578bd60bf5bc165aa1e7f7b2619fa06bf073511131e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "46120e195909bfa13de1cd443508d1f60918cb68e6204960e0f14e1ce94d4cdd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bb4628dc32cd4dc299e21cf633e5c357746854266175abbec6bc8bf27e62fb80"
+    sha256 cellar: :any_skip_relocation, ventura:        "5d603932c673eafac54101a33bc71673f7e2749fe6c05eed41811ff8c78cb4fb"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd5b2ae8a3d96f4e8772cfb8b3d73a8aeca7f75fcd189001fe6a51477ca598f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cea85758a2715c1689703e146aa5e0ba7274e0b4e456c77fe785af6dd12c4184"
   end
 
   depends_on "cffi"
   depends_on "pygments"
+  depends_on "python-click"
   depends_on "python-cryptography"
   depends_on "python-tabulate"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "libffi"
@@ -29,11 +31,6 @@ class Mycli < Formula
   resource "cli-helpers" do
     url "https://files.pythonhosted.org/packages/27/01/6aaa4fc415274ac77372b4d259c234b9f5bfc8d78144c3fda1f3019d4690/cli_helpers-2.3.0.tar.gz"
     sha256 "e7174d003a2b58fd3e31a73fbbc45d5aa513de62cbd42d437f78b9658bd5f967"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/72/bd/fedc277e7351917b6c4e0ac751853a97af261278a4c7808babafa8ef2120/click-8.1.6.tar.gz"
-    sha256 "48ee849951919527a045bfe3bf7baa8a959c423134e1a5b98c05c20ba75a1cbd"
   end
 
   resource "configobj" do
@@ -62,8 +59,8 @@ class Mycli < Formula
   end
 
   resource "sqlglot" do
-    url "https://files.pythonhosted.org/packages/76/2c/4cc0fdcf9c19be4dacceb9c513fa65a11e3f0e1905d7b7c8c72e10b1c4d8/sqlglot-17.11.0.tar.gz"
-    sha256 "28a922a05274f03969632ee1a1e37d57fe6a2da30d8ff14090f42e567d30863d"
+    url "https://files.pythonhosted.org/packages/c1/b1/c0bda67234171f4d88ee936f4a7810275fceded0ed974dac893ebc0d4bd2/sqlglot-18.14.0.tar.gz"
+    sha256 "e2b2f16598830e8acd5ffbe55e19c2e45af7e27596692c3214cf4cc1be82027b"
   end
 
   resource "sqlparse" do
@@ -72,8 +69,8 @@ class Mycli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/5e/5f/1e4bd82a9cc1f17b2c2361a2d876d4c38973a997003ba5eb400e8a932b6c/wcwidth-0.2.6.tar.gz"
-    sha256 "a5220780a404dbe3353789870978e472cfe477761f06ee55077256e509b156d0"
+    url "https://files.pythonhosted.org/packages/cb/ee/20850e9f388d8b52b481726d41234f67bc89a85eeade6e2d6e2965be04ba/wcwidth-0.2.8.tar.gz"
+    sha256 "8705c569999ffbb4f6a87c6d1b80f324bd6db952f5eb0b95bc07517f4c1813d4"
   end
 
   def install

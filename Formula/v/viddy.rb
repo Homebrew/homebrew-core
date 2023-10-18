@@ -1,20 +1,19 @@
 class Viddy < Formula
   desc "Modern watch command"
   homepage "https://github.com/sachaos/viddy"
-  url "https://github.com/sachaos/viddy/archive/refs/tags/v0.3.6.tar.gz"
-  sha256 "ce000cf3fbea3f4d6ade7bf464a91d4f3fa2f3b3a7abc8a09de1e83ac400b9af"
+  url "https://github.com/sachaos/viddy/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "b64cca44ef6367397498faae92296fc005156e6e5a7518b6f64ac2bc912044d0"
   license "MIT"
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62a7447fa383b03f9ad6e003fda62d6d9f781ac3d427ae4159febb7a05053ec7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1c846602958e6024387f06f8f0880dda5d88b602d7f4110c2e229c22acc95be"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c22a18c5c21fb1c5ce0ebf14061f927bdd5921e4529be58e2355a2240a8e4567"
-    sha256 cellar: :any_skip_relocation, ventura:        "045456f1f1340b2599c2511ae1aa637365afaaff032154152825694a002f76a1"
-    sha256 cellar: :any_skip_relocation, monterey:       "33e1f39e65d3c7738ca59a003b50edae7f2193edd6419f57e64572b1c3c7b7fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "69648be7ff74b5f2d18bff1402670d3d73fcc12be3aba9c7ff3e0b9cce99a257"
-    sha256 cellar: :any_skip_relocation, catalina:       "c76670a6fd66fa6047fedc76d8c79d65e268a744ab68e0bfcd273358462c43bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1af22bf94ca5359083881ff25aa23f6c0dfbd5e7d55eac7030591b244500fbb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "77e5567367add7bad2e3aefbe7230676e4d8af3abe15249470bb1d3da2bb80de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f550e755090099bbd12d4493f7af1425d6523a5f566e173762199bdac87d974"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "08ff40650c144632d75ae7b28f3c0408d2c6908ac9c618f4a117a653a2c6ead7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bc71aba8a25994cf2914ece7a04c50c66d93e56a815e5bc6606382ce448b197c"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae8636093e3ca11a0a33d8ba3d0cb7ed6193c1180aa35fed97044e502fba92ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "03efb53e5b82a1dc6bf0744dd262cd9161e0c54bb46a8078ed6d049b8bd642a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c40816ab0aa685145f5a8994fbf18115212c233dd17d7efe1ba433b8e425d57e"
   end
 
   depends_on "go" => :build

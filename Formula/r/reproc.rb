@@ -8,9 +8,11 @@ class Reproc < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "e7aca98eeff95f6259484895122624c5da886a1512e0892ddf150d8660dc97f8"
     sha256 cellar: :any,                 arm64_ventura:  "92dfc69a9bdaf3fe24d6a0e9614991fb7d76555b11744ff1a486fa153c4af70b"
     sha256 cellar: :any,                 arm64_monterey: "1d50813532d791a9709b50e885a5624d1df39fb9c37661472859c3a26670a2a6"
     sha256 cellar: :any,                 arm64_big_sur:  "38e7d2580d04f3d0929c6e60ef97cf19da2dd084f920d26a6a11e10c811de7ae"
+    sha256 cellar: :any,                 sonoma:         "15c6d5090ce4e0d546924e85c658a2509d87ea690b907b454a9bb9f39b1f70e1"
     sha256 cellar: :any,                 ventura:        "bd24d6a297d490c2f97bf9e81ef43ca13da3a431268a4601ba103e1d25802578"
     sha256 cellar: :any,                 monterey:       "46ee83678708da249ff86807ae8d1c325a1f45c433adf4b2a9b2fe978406f133"
     sha256 cellar: :any,                 big_sur:        "eca3bef688c4b569bdfc5553518d9e5fb943d03d4d3e84ac8efb7fc4dd780db8"

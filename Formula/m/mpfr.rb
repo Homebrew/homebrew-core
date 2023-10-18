@@ -49,9 +49,11 @@ class Mpfr < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "63730a94b38dc3e6abe0a3cffa3eff707b7f0b5ecc8eb3b039af9aa8d1e2dec3"
     sha256 cellar: :any,                 arm64_ventura:  "43db595106704b53119e8d45c2a28a157b78c488bd31144490338cacf5180232"
     sha256 cellar: :any,                 arm64_monterey: "a914ea0e50fac5f8120a2dfba9bc49d23ad81c9270f7332de3cbadb81c86ae70"
     sha256 cellar: :any,                 arm64_big_sur:  "7b3a7b20653a16f26c7bf810b7fb72985dc098695657f1634fe87784dc0bedd5"
+    sha256 cellar: :any,                 sonoma:         "e8d325b996e919f1eef949105a75891afe8f45292966901e354ce71e0da05c31"
     sha256 cellar: :any,                 ventura:        "18a11c948c4c7a783165b75d31c90c5cbc58b8ebe61ad268ffe3bf92ec2ac21d"
     sha256 cellar: :any,                 monterey:       "d6879fb531aac96a5898ee13d929d6a01d394a63906de0b2a24c1a5f67d067f5"
     sha256 cellar: :any,                 big_sur:        "1d0680b952c9789665a1deb684382d781db88fa081e53029b4e6013fbbc9f01f"

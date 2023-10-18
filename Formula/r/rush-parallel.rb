@@ -1,18 +1,20 @@
 class RushParallel < Formula
   desc "Cross-platform command-line tool for executing jobs in parallel"
   homepage "https://github.com/shenwei356/rush"
-  url "https://github.com/shenwei356/rush/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "3f2901313ee279818e6230b432d48b0bb0e1a681ca83740f7e67975ad8b95dd6"
+  url "https://github.com/shenwei356/rush/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "bc60ba4653298a904679df2ca80c49f1f580c6aa238951d00bf13a9e30807d3f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0341186dd90a55589dc401216afbe40913f3112ab94d6c4d9c1495d99cb84dd6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f10bab20218ca91a20f7b7d4a289abee8522d5cc85ae88183fe8e85b27a03c17"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ea91cdd222d0bf25c6dba7f67e544d2c1e9fc13fc313ce8e59d06b52e838024e"
-    sha256 cellar: :any_skip_relocation, ventura:        "c4f91f1dcf5a639e422ac42f3c23fbe8b0bd7c1228123bb4f848e1942eaa8482"
-    sha256 cellar: :any_skip_relocation, monterey:       "f82c1a66aaa1ae0723c14bfa3f598fcb0bbed3f7984e36648c63460226d34109"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1900017baaf28aa3f39b99c19d38442b80d35cfeef12b87a788b8953212a9a53"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "648aa2077757ce3fb989e9c2a0d429861817cbe2e6c3746e3f9243ab15c9fbf4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "86332e0514290bcc65281e1af389304458404bcb2a10b6196492c664c07ebc3f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5cbdc1c37c4be7adf095b9563decc377277187d7edec2795334a8e3f7fe01fe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "899841a1daa64609c5f317f75b4c4a9ac3bc67fd1551baa7ceb9cd916b9bc794"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d1a58653893f6e243a7debca6d1ba1ea391be9dbdb5a83e27d01c19ed41bd1c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1b2b43d84db9f25f4ceadc2781a235e54441df35334a32895b2e257bf16ad472"
+    sha256 cellar: :any_skip_relocation, ventura:        "67e529988d61acc691d983a99a99e6808594259186c05ec38c072af3cdcb33bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4422022d18f3910037c980d74535cd0b5fd49344018a369b3548259b1377788"
+    sha256 cellar: :any_skip_relocation, big_sur:        "34c84caff2c8b54062f72bce223b5680f07c2ad0af1fb533fd3a553440073143"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dd362dea1ff8fd0db3d9a4c36cb12f86e77f5deccefad7a194199b065b49122"
   end
 
   depends_on "go" => :build

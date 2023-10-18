@@ -1,19 +1,21 @@
 class Coreutils < Formula
   desc "GNU File, Shell, and Text utilities"
   homepage "https://www.gnu.org/software/coreutils"
-  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.3.tar.xz"
-  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.3.tar.xz"
-  sha256 "adbcfcfe899235b71e8768dcf07cd532520b7f54f9a8064843f8d199a904bbaa"
+  url "https://ftp.gnu.org/gnu/coreutils/coreutils-9.4.tar.xz"
+  mirror "https://ftpmirror.gnu.org/coreutils/coreutils-9.4.tar.xz"
+  sha256 "ea613a4cf44612326e917201bbbcdfbd301de21ffc3b59b6e5c07e040b275e52"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_ventura:  "cbc188426bc245864378bb96620243cfade681ebb64beb9149717bcb04a55b0a"
-    sha256 arm64_monterey: "2db183003c663554e8280280f64294f30d8d7819b1378914173236c2634aacc9"
-    sha256 arm64_big_sur:  "4a20d93169207bcb131c5cf8deebca08e75be30c042c7c13487a986d61bf3f16"
-    sha256 ventura:        "5461d665ee6121b4f9c42e17ac6441f77c5db156d3f7a6a6eab095773a2457f9"
-    sha256 monterey:       "a199c4d7b252b74fdcfb48dc9d9e39cfdbe3b88a9a2da0ce59dfb67d482b46a4"
-    sha256 big_sur:        "9786f8f2ae9fd345b401d089887d099c8145590934ca84d9850a3755be0b32a5"
-    sha256 x86_64_linux:   "376674abab0d5c19e3f3db5481a2604adac227f89036c4d58d62fc23f59076ab"
+    sha256 arm64_sonoma:   "a37cf7152382ee80a7e4f6cb318929c4dd213d8367607e0b6dbf56762883ec29"
+    sha256 arm64_ventura:  "3707a17440f54975e547469c1309b2f260ef4bfc5c2c53ddc22998ae3a7fbe19"
+    sha256 arm64_monterey: "e4e7b23c4426f5e7902cabb6a2eae635e78460ebb16a8473a25f519955302c5a"
+    sha256 arm64_big_sur:  "37fc8c6586e633c1a8277bc0ecb9893b7d170709f0fc1e7e36bbb00abd14fcc7"
+    sha256 sonoma:         "c1be62140384a011c75ba6395c6bae84f07d655624014f415354375e1dd0173a"
+    sha256 ventura:        "5f03b30eff5c9cd0bc74bb429059f9b9d7af4edb8e6b80b52228b0bf35d53197"
+    sha256 monterey:       "ec46f14061242a7439e7fbb1e328b3e1dccfec465425aaf25aa4b4fe5363f95b"
+    sha256 big_sur:        "6504082e9752f7a37fd9d02b5f31a5fe68342526f31a774ce7cda90dc189c97f"
+    sha256 x86_64_linux:   "362b7fcf429b62749f37056d1c8de07dfd6a7a5445eb6eec8f1f64a07a87c1d5"
   end
 
   head do

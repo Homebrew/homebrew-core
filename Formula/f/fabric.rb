@@ -3,19 +3,21 @@ class Fabric < Formula
 
   desc "Library and command-line tool for SSH"
   homepage "https://www.fabfile.org/"
-  url "https://files.pythonhosted.org/packages/34/6a/8e8734a47dad3cf6cbf4ba8631340814cd374ea58452133a62714dc6338b/fabric-3.2.1.tar.gz"
-  sha256 "81293d7e2b509d37e51bb49a0151191455f5a7ea11ebaa158bdee995b844c668"
+  url "https://files.pythonhosted.org/packages/0d/3f/337f278b70ba339c618a490f6b8033b7006c583bd197a897f12fbc468c51/fabric-3.2.2.tar.gz"
+  sha256 "8783ca42e3b0076f08b26901aac6b9d9b1f19c410074e7accfab902c184ff4a3"
   license "BSD-2-Clause"
   head "https://github.com/fabric/fabric.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2a44e63aebb1059c09035289bf10f9edd127816c14f28778c20334046249ffad"
-    sha256 cellar: :any,                 arm64_monterey: "4d984a18c6bd0fc5050f92016435c32ef95630cc663e44f8e99524ff0b9e042b"
-    sha256 cellar: :any,                 arm64_big_sur:  "cf95c2e016afaa6178c22431463e95bfd90286de3fdb886b880f728b3387474e"
-    sha256 cellar: :any,                 ventura:        "ed088d699657b0700077a847af3c1a026204ff6b32b36dbce4586905604c80f4"
-    sha256 cellar: :any,                 monterey:       "88c5649231e8bacc40ee02833f03b161384bb4518aa9d49f9c449a3dfb6f25aa"
-    sha256 cellar: :any,                 big_sur:        "5a9773a10bd322e0364d27a0c359c839f33977a083e94fdad3021ca0d987cd2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48eebd617e0242ce94e829b4cca34875849a75aac7abc258038c72112e443ba9"
+    sha256 cellar: :any,                 arm64_sonoma:   "a3092e230cf9521c17147347fba5b79f732a0cc014c36aadb2bcc35510d5d958"
+    sha256 cellar: :any,                 arm64_ventura:  "80521f790edd96a98f5dc165f54251db414f0aa26cbe9f6befd3af485548b34f"
+    sha256 cellar: :any,                 arm64_monterey: "e5c877a7e2f8d3481ea133141d43c40e8ba060c0dd25e4285b0ee04f032b9330"
+    sha256 cellar: :any,                 arm64_big_sur:  "1886e1e7b192390c298446765f102fef6cc161d882e4766d9cada677b8978858"
+    sha256 cellar: :any,                 sonoma:         "eeffb809b0a3453d8f1457a0b40993524713096ee011b9b568bdab0ef36a29f4"
+    sha256 cellar: :any,                 ventura:        "10ad520172e0ef0b55f3be8f85518a91cc9565938cc2b2ea146994a9def5279a"
+    sha256 cellar: :any,                 monterey:       "d2a7d513578c76afa64546e96c79a105f6eca58ff4932f88eff91e2bd667feb5"
+    sha256 cellar: :any,                 big_sur:        "13a77afe7812e1bb0bb78b178f47552b40ccddaf5ce61fc1f0331b3ac6353691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5520a143a3975b19283527502efba0d9b48642939ee7f0ac6737f3af32035768"
   end
 
   depends_on "rust" => :build # for bcrypt

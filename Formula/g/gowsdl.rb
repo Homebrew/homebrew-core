@@ -8,9 +8,11 @@ class Gowsdl < Formula
   head "https://github.com/hooklift/gowsdl.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff97f048a29ed347f7473201f2a5a94a36ed36a039b0f9ef523b781801e1a626"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4aa45e1319557557ca74011ec372ffa4d404a3d4199d0b2c7ae78480b68cf266"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0391c1e4a9fdbd2f14d5daff2789d490802da3b4a09a227d021dcb1a58b2f92a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1e00fdcd6cf4d9f6b4d8df22fbd7622ec946b4188944e4f5fb04aed3c29878f4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "69a10be90d1bc0b93c2280ffd4a4db3613b21dc9d60b893f67b01d6364bb959b"
     sha256 cellar: :any_skip_relocation, ventura:        "03fd4af0ea805054cf29bc1156533b8540de308889d827459da3809f65cb6335"
     sha256 cellar: :any_skip_relocation, monterey:       "c810ea3ef7b3a12aeb84b71b71c0c67f6853857cd6fd778c65b9bb0b9fad157e"
     sha256 cellar: :any_skip_relocation, big_sur:        "311386c63c7c7ffda0e89c0cf753b5ce53745909e492b2866f75c157c97e48a8"

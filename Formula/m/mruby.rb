@@ -7,9 +7,11 @@ class Mruby < Formula
   head "https://github.com/mruby/mruby.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "17cc1286769fd1c809d9458beae569ca1dcfd5c1c98315f80e70cb798df7da47"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "2acba472ff63497a1ece0d2dcd12ca60c425a21476b4fa2e3a0c76908f8f080c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2cbdd00ccffce8e1a59e9a56ea62fba258772cc8e1688bbcde58b40f95fe579f"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d79dd3f3888b4df3248b7d6292597dd282884c33793ba5bc561f1a36eef08534"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a6460e3819ae349e72c8a8e1d3a4f610f8085db0bd87636bdfd8fa56496fc93d"
     sha256 cellar: :any_skip_relocation, ventura:        "0b1d2434d7488888c52ba9b8bab89c0b2d98afd4d7a213114feae7710c45dcf9"
     sha256 cellar: :any_skip_relocation, monterey:       "242af9158824d0036e0d0823c1315ef3b87a104e8880185f6be2f1859290246e"
     sha256 cellar: :any_skip_relocation, big_sur:        "cd7069da7bfc7a0e9ee9ef651cf07f4985d7b3bd80fb309c0eaa02222327d961"

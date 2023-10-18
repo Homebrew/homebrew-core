@@ -6,9 +6,11 @@ class Gsmartcontrol < Formula
   license any_of: ["GPL-2.0", "GPL-3.0"]
 
   bottle do
+    sha256 arm64_sonoma:   "cbf93d1b7f8c9a39750dc89dea1133a0e05affb187c993e6d4fdee0c6c63a34a"
     sha256 arm64_ventura:  "a9c97ad97e0deeb962afc68892bfb742c20d4f41ef1d13f2e5caa9770fd40d9e"
     sha256 arm64_monterey: "1e638dd71d7ddc505c114a12ee172019e76b5ea5e887d3dd699029da4f575d64"
     sha256 arm64_big_sur:  "8ec9da219ebbd29a27c12d64733f54c978772403eced3eff0e716fcd2a27b142"
+    sha256 sonoma:         "82ec73af8738d641c8388ec56c5376b073342b5a2617a3499ef9e2d0488fcaec"
     sha256 ventura:        "3e1cfccc7e5ead1137e51930832d1c899cf4dbc8aec4603f2518cd949d84aaff"
     sha256 monterey:       "9d91be56a57124bd9ccaa72fe221c6d84cb9a718b01d48b5619f0671e3aa0a78"
     sha256 big_sur:        "9113d814ff679e418fa8df8805149a8194e7235662093bc8509229ecb739d240"

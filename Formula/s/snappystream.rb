@@ -8,9 +8,11 @@ class Snappystream < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c1c594c5ebf0ae7e7341f7fb3cf380546b397dcc3755bf784e5b6061341646a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f548979a18dc5f812f008e189bcc86ce1db4d12297eed756f70f2cebb0ad8db"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "4f0621fed569c3f1f467fb5b89a1727d02dd9f069eac22dd662750764a34ad40"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4723ca8cfbd115326740f631b84db163cba902c1233c98e0b413a4250c228692"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9f50710b7ea9951c7c3e4a7c17ad090a4219e7527148997c96fa126eb70933e2"
     sha256 cellar: :any_skip_relocation, ventura:        "95271f76e12095cab04b34d0fc977a63ebae368837061cd034be543d1eed6733"
     sha256 cellar: :any_skip_relocation, monterey:       "1c5ef41496ec66bddc4e850801c848886a096637917b178b5486f7b04e246fe3"
     sha256 cellar: :any_skip_relocation, big_sur:        "0259933ab01a0edf8162f901820728e9f36e0244e6dc34aa8de64caf95247bcb"

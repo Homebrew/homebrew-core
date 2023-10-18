@@ -3,20 +3,21 @@ class RuffLsp < Formula
 
   desc "Language Server Protocol implementation for Ruff"
   homepage "https://github.com/astral-sh/ruff-lsp"
-  url "https://github.com/astral-sh/ruff-lsp/archive/refs/tags/v0.0.35.tar.gz"
-  sha256 "49e2ce87b266c162056e65f121457f193956a6299360a87e45de623b5f697a09"
+  url "https://files.pythonhosted.org/packages/0a/f5/ece4de09458e38d81e124936fecd74ca8b97f6ef02eaccac4fa39e56df86/ruff_lsp-0.0.41.tar.gz"
+  sha256 "76d235279e067995971ddfc840fa4950d479adb793cb511fc5a75c362beec0d6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e6d958e83118ba75b9bcce40615f0bfab778a7af306ecc7499ce62722208015d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "338884417c6175e2ec556661ad72b3afa6d6bb47187398c197961a3f70f44794"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee11619b033915e4a472bd17c05e119d3beffabbe7be4b386e216d9e54d4733d"
-    sha256 cellar: :any_skip_relocation, ventura:        "0b2f0620f7625e4bff86140aa9216ad923ec8f244200caa11e3c2bc2c7342088"
-    sha256 cellar: :any_skip_relocation, monterey:       "bcf8667fa668cf1f954c28634d0d58e7365277d0ec64f8b56f8bc4801717ee32"
-    sha256 cellar: :any_skip_relocation, big_sur:        "21705992cc225f284d5f01502f9ca105f0bf65670890c0da1aa634e40a94e560"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78b62008ccb994e459d8bd1a5a45131038837ba7326d60cf460411c0dc561091"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b5282d9a08e529a5fa3b053800a2181236ab58602029efa35139327ab86cfff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a37c5dc84cffc8592737cf44e3c93eec2479655f3cf05d477779931121aa73b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "58aa939a9c075a45d4d10cb888c03f98f5c5d8fdee4b93c580ecf4a239c40a85"
+    sha256 cellar: :any_skip_relocation, sonoma:         "16787a8f74a1f2f9a3610a5a7de28de5005aee0e98154bffbf3db8391a7c2f61"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d3412c0e79faeaa527cf867e8305fb0f716319e1ddd1bc656f5928d0dcc9111"
+    sha256 cellar: :any_skip_relocation, monterey:       "5ea1909d178f5a649a8a718b610e585b4199f9cfde35c5f44dc204b0f6952f51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e730763b27531c6ebce3a9cbe566b879cc9e50114aa94767378fd6fae1e8934c"
   end
 
+  depends_on "python-packaging"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "ruff"
@@ -32,13 +33,13 @@ class RuffLsp < Formula
   end
 
   resource "lsprotocol" do
-    url "https://files.pythonhosted.org/packages/f3/70/4e0e841e35ac450ca7f994020887c05aeb4d0cd25e8d53901f448dd43acb/lsprotocol-2023.0.0a2.tar.gz"
-    sha256 "80aae7e39171b49025876a524937c10be2eb986f4be700ca22ee7d186b8488aa"
+    url "https://files.pythonhosted.org/packages/22/a1/4df53bbe3663de65ad90c6bbc2e6e8779b61fba1e13ee9a21a0f2f7db8f9/lsprotocol-2023.0.0b1.tar.gz"
+    sha256 "f7a2d4655cbd5639f373ddd1789807450c543341fa0a32b064ad30dbb9f510d4"
   end
 
   resource "pygls" do
-    url "https://files.pythonhosted.org/packages/bb/c4/fc9c817ba0f1ad0fdbe1686bc8211a0dc2390ab11cf7780e9eeed718594b/pygls-1.0.2.tar.gz"
-    sha256 "888ed63d1f650b4fc64d603d73d37545386ec533c0caac921aed80f80ea946a4"
+    url "https://files.pythonhosted.org/packages/b2/02/cedb2febde8ff53ec21d299159027dc8a9423118f2d3ab7151441a79e972/pygls-1.1.1.tar.gz"
+    sha256 "b1b4ddd6f800a5573f61f0ec2cd3bc7a859d171f48142b46e1de35a1357c00fe"
   end
 
   resource "typeguard" do

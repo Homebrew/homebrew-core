@@ -1,18 +1,18 @@
 class Difftastic < Formula
   desc "Diff that understands syntax"
   homepage "https://github.com/Wilfred/difftastic"
-  url "https://github.com/Wilfred/difftastic/archive/refs/tags/0.50.0.tar.gz"
-  sha256 "20693882580d40a70173fb851aed5d92360040d9b06a821f4b4ffbbc2bf2326a"
+  url "https://github.com/Wilfred/difftastic/archive/refs/tags/0.52.0.tar.gz"
+  sha256 "6d7136be4172ef7b1c4d9af50a54a620beae57670a71622fe91e55090be97065"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66c6cf0e3d3f0f59db86e48f7f98d3d8860b8b012899dd6e9b68a6889ec50c8f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2e92d1e755d0633b473cb2734f263bcd22cb85f073c6e9772497b3edcf623fc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b39b6cbed98c69b048a357f34d32ac7d866b22ea2c271853e746cbfc9341f159"
-    sha256 cellar: :any_skip_relocation, ventura:        "bb5c11bc8aa2601caeb1c8f54dbde4c0cb18c05c6ee39ff610de2d129d31f083"
-    sha256 cellar: :any_skip_relocation, monterey:       "0b7b87fb45f6dddc96045237ed42bd1d4ea567829e1cf3072ffc2d457f87fb24"
-    sha256 cellar: :any_skip_relocation, big_sur:        "006981edf31a711a050d530203b2d24b5f2fdb07d68f272cceeb5f6ff190b267"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "739a2500df578ab403727ffeb5996624d3884162a4c56264a92fbc2c0778c355"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ec0abdfd067cc0607190cc6e72cfea22aff3b443762c3bdca1e4c36b8448b37"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea658e624fa21f53c824d946ec7a1056f59def8239608608e6103ea7d1b33dd4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f75219eaf917a342e25c6d62e4ae340a03e2c271e27112a597fbd1824cf2780e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7787c0f7e00999f847376faa19e5d4b297669357109114859e508a2ed7f4589b"
+    sha256 cellar: :any_skip_relocation, ventura:        "c7e8d4162c09477922e50f1596c40275cbd96ec476e8fc92e632c853211b655d"
+    sha256 cellar: :any_skip_relocation, monterey:       "a9d3e08fc01ae495b33f085f79fa678d7d4057dd5413d6cef7205ff33c6aad42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "710d56f4d1fad41ad639bde3e653408b76340b2cc17056dc366df2b89c40ba4a"
   end
 
   depends_on "rust" => :build

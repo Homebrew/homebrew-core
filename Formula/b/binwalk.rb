@@ -14,9 +14,11 @@ class Binwalk < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "71ff03d196f6cb547869fd0e95e8e61a354f34d901e9353e5c334b15ca2a6104"
     sha256 cellar: :any,                 arm64_ventura:  "4f7bf49bcdc180a94d923859aaae9bb975531e3f66c0946fa0e8560d76e9705d"
     sha256 cellar: :any,                 arm64_monterey: "50bc5ac7368e8f0423f374afe062b6e9f36a20a6a288991b129340185a67e6c9"
     sha256 cellar: :any,                 arm64_big_sur:  "d5e7979beefcf75ed418a517ec05ddabccc02712790eac38f3b82c118abd3aac"
+    sha256 cellar: :any,                 sonoma:         "cb9fba219457ebe9000f42987d9a0fb5fd24502e5b53c742122945ec95bce18d"
     sha256 cellar: :any,                 ventura:        "097c35817c67fb96ab78e91be7f316f931e356ab8b06d27d340e567d25769dc7"
     sha256 cellar: :any,                 monterey:       "3835d5d50f13e1bbf7e960b5bd6c354ece0ba0cda79599c956b9d860e668896c"
     sha256 cellar: :any,                 big_sur:        "db580e80796365ee95126a20ba213c360f5bd170c6cdf68d7598860979229566"

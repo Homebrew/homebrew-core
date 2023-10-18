@@ -7,9 +7,11 @@ class Epeg < Formula
   head "https://github.com/mattes/epeg.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a75e74989ce84ab632a526be0e13096687ad08b7204139d3dae623435446dbb9"
     sha256 cellar: :any,                 arm64_ventura:  "dc12942fff332ba2c9848f81f18fc7841f6eaacf577fa5fbdd1614dd0ca2d830"
     sha256 cellar: :any,                 arm64_monterey: "1f3486392ac95bb6bf814dc349c22e0fc7dcbe5152db567862545fc3d1ead791"
     sha256 cellar: :any,                 arm64_big_sur:  "8846517d51a4753177fb10b45bf3e2998952203ae8c4c6f7fa320d852f870e94"
+    sha256 cellar: :any,                 sonoma:         "8b9e05f577cb02c5b9e0e38826b3e0d4f7ebcdf4c0a2a79f8a024c809174af36"
     sha256 cellar: :any,                 ventura:        "2b416c133f210e7dfe26b7aa956b5bbc13a1549d229b5b35a6961f1ce93abaea"
     sha256 cellar: :any,                 monterey:       "0cbf899c73a395d1a7dcc165231cf0153cfefffd59b3cab5920b13fcf82821b9"
     sha256 cellar: :any,                 big_sur:        "17c7e940618bf68ed137078379b02217676fbda4131688cfee6a4e970715174d"

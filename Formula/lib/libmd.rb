@@ -11,9 +11,11 @@ class Libmd < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "98337df7be937bfe745b53b62522cf81160032f945d744d879713a729acc8ab6"
     sha256 cellar: :any,                 arm64_ventura:  "02f452242f49ca67f98dff20e769e290db1d99c6d5874c067dafd8be7bfa0a92"
     sha256 cellar: :any,                 arm64_monterey: "fc0d8c70408cacab6b3b1f2567582ab2281fd308d7e2ce704042705dabe40241"
     sha256 cellar: :any,                 arm64_big_sur:  "bfd3a5595f509f3ebb3970c0c2a0e3b08569573ca1f406a8047565d26fb652dd"
+    sha256 cellar: :any,                 sonoma:         "92750c60e0d59b9f5e9fd48f80031c957ae8d2f833dca196f1dfa9a36504cf05"
     sha256 cellar: :any,                 ventura:        "e81790c66cb480c6b411fca1e2adfded0e5c20ab12ec02e57e450bdb589539c3"
     sha256 cellar: :any,                 monterey:       "36a5e1ef679b99d090814f2fde15e9fb45d73afa26fc5ef75618c4ff85bf48dd"
     sha256 cellar: :any,                 big_sur:        "603212a43a289d57d2b541a3775d9a2c036b3813f2ca68640651b659f8dda490"

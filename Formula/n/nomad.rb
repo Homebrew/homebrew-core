@@ -1,32 +1,43 @@
 class Nomad < Formula
   desc "Distributed, Highly Available, Datacenter-Aware Scheduler"
   homepage "https://www.nomadproject.io"
-  # NOTE: Do not bump to new release as license changed to BUSL-1.1
+  # NOTE: Do not bump to v1.7.0+ as license changed to BUSL-1.1
   # https://github.com/hashicorp/nomad/pull/18187
-  url "https://github.com/hashicorp/nomad/archive/v1.6.1.tar.gz"
-  sha256 "dabd35cf10d7c632fc3dc337d53dca1875d803db6f2dd49c79e99f61bbab5d57"
+  # https://github.com/hashicorp/nomad/pull/18218
+  url "https://github.com/hashicorp/nomad/archive/v1.6.2.tar.gz"
+  sha256 "8f6f0c2759654b10f64a185ee35c33f221fe662a6a2ba800f7339d955bbec8e5"
   license "MPL-2.0"
   head "https://github.com/hashicorp/nomad.git", branch: "main"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57af75515a8706b2bf7229d144870f017890bf41f11dd908af028e18dabc75a3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed444abdde4adcbf77a5c91ebbe57cd40de9f9275b57772b7a5d2abc42c3ba1e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e85355b125037326086493552b1af5c8b6079b92e5ab272d38949ee756315ca4"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d1502e3b25a243f1aafb47d3d251271691f53e672f9561a17c67fafc9282741"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5ff7924f9708395e40faaf842996971fe0383c3e2addbdc2b5ed32bc28f4d8f7"
+    sha256 cellar: :any_skip_relocation, ventura:        "40c38a4e90bbcad4b67ea3f0402968fb48bd4e4e8a27fc888bb686470559e3dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e093b904787ccdcd37af3f127c16fbb2482c77bc1f9de77bf4c0df5b3bce4cd"
+    sha256 cellar: :any_skip_relocation, big_sur:        "2e247a13f25c6bf03e21e21567484dab364337864661b3a0728879527974ca20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23763707912294f817844f4442751351ff8a294748f8d46ca81f29d7187e926d"
   end
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "05e9e88091d2766beada1163b4f5bede072787d00edb6fd4b27a7bfc2eb723fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0edd1d6f041a1e8520cbdd2f37cdd1ed3a6e0223f2b7dd31f2bdabb86a946286"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f09ff7f9ee24bd854ad955c37b7241e78ee423f0cd793123a2d85e33cb6fefe7"
-    sha256 cellar: :any_skip_relocation, ventura:        "a22abb6fa37f7fab52bee17687ba5a4b4223bbac3dffe394a12a6551e924d760"
-    sha256 cellar: :any_skip_relocation, monterey:       "8ff17826263534d060850399ff80224c78b22eb01c81548d1a2699989ee66cfe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "708fe9cca291483c8c95d5db2bd21636a55d4eda1a43a26a198ac56eb78a7d23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8028cc7cb9e1806352a7b74916278445d8b95be0217d941378856a9e5a389823"
-  end
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "-tags", "ui"
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new nomad releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   service do

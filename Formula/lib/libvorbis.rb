@@ -13,9 +13,11 @@ class Libvorbis < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "f71115c28f65e1a87ae0dbe695421ecacfcddcaa6f91a3e0a23493da73560de5"
     sha256 cellar: :any,                 arm64_ventura:  "941871c7cfee1e15b60191e1c70296554871bc36e4fc8104ffc8919bb767f555"
     sha256 cellar: :any,                 arm64_monterey: "08fc2566eda5d6fc2204c822bac51383a59c4536bae539b77cfe8c7f247f7517"
     sha256 cellar: :any,                 arm64_big_sur:  "37bcbe572118f7cc87daa488ef3d67c5cbd38e9e12e2e2b408df286f9b2fdc37"
+    sha256 cellar: :any,                 sonoma:         "94aafb164cf8490d1d7c1cbe32695995c592c63a8cafe8621e793819079d7f46"
     sha256 cellar: :any,                 ventura:        "4e1a3b6ba6e8f790974930a7ceda16a3fb0b50d544021f6e39d1b38392e98512"
     sha256 cellar: :any,                 monterey:       "bd3125f7734f888f4ae9065f0b41a2baa281064686068f6c4189044d2408d0a8"
     sha256 cellar: :any,                 big_sur:        "6401378d08490ed76f4894b7e0812ef5cfbade699331dc07b7e88ad5438f7a78"
@@ -23,7 +25,7 @@ class Libvorbis < Formula
   end
 
   head do
-    url "https://gitlab.xiph.org/xiph/vorbis.git"
+    url "https://gitlab.xiph.org/xiph/vorbis.git", branch: "master"
 
     depends_on "autoconf" => :build
     depends_on "automake" => :build
@@ -40,6 +42,7 @@ class Libvorbis < Formula
 
   def install
     system "./autogen.sh" if build.head?
+    inreplace "configure", " -force_cpusubtype_ALL", ""
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
     system "make", "install"

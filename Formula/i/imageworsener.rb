@@ -11,9 +11,11 @@ class Imageworsener < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "5b595eed5b2b5cd87dd3f6cf4585b3a0709ec9a4e7fddc64a54f29056133fee1"
     sha256 cellar: :any,                 arm64_ventura:  "14a343a159b3410196cc3ed40b0e674b4bed5f8ee7b2760b49b1317e1a09811a"
     sha256 cellar: :any,                 arm64_monterey: "0d8c2dab98fa032f871df63f93ae33d4d1a989fe7c97f185d976d976f243134a"
     sha256 cellar: :any,                 arm64_big_sur:  "50063cbefef7614047703983639adaee5836d68c02f673aed62c38fea1c4418d"
+    sha256 cellar: :any,                 sonoma:         "dad022cb391e42d43f72c3e7f3b2e2fb3bfb28b2c933d29790c8c863086c4518"
     sha256 cellar: :any,                 ventura:        "d360400241b1bf7a2199e04034e96da619f19c0473c17bf7637555fdaab73421"
     sha256 cellar: :any,                 monterey:       "443be530e6d93e197026cf8ec457817446c38c94d84b39a3ca76e7a2282225ae"
     sha256 cellar: :any,                 big_sur:        "7ce254b5dfb0dcd52e39b682cfd21ea665601cd14e9a2a5ab0c923e185ad5261"

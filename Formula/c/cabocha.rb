@@ -11,6 +11,7 @@ class Cabocha < Formula
     sha256 arm64_ventura:  "50e7ebda3eb0424fd7e9f7654ecf854c8f3dff2673e257225013f3d3085e7967"
     sha256 arm64_monterey: "c61f5a8df81d52575b991108e2683c27d94a4dcd62cd50d4396cb65234453b22"
     sha256 arm64_big_sur:  "6db92d4bc14b2b1045601758c9ad2d528fda7ce0029316a2b296c63c4953c54d"
+    sha256 sonoma:         "c878b08aec360a527c8a78d449889abfc8b122e59589a9b21cba4826f213daa7"
     sha256 ventura:        "f4f6ff225aba6446a3d140dc258f66c55dd8b7077297fae888054c6e10d21c0d"
     sha256 monterey:       "7002f27098ec51a1832a5a39e1f8d55eb7d11b7fe37ce005ff0dfe7bb1be9e59"
     sha256 big_sur:        "1dd5c1474946aaab675326323c8f7e3d101687b50d5542464558f54a8c477cc8"
@@ -27,8 +28,8 @@ class Cabocha < Formula
     ENV["LIBS"] = "-liconv" if OS.mac?
 
     inreplace "Makefile.in" do |s|
-      s.change_make_var! "CFLAGS", ENV.cflags
-      s.change_make_var! "CXXFLAGS", ENV.cflags
+      s.change_make_var! "CFLAGS", ENV.cflags || ""
+      s.change_make_var! "CXXFLAGS", ENV.cflags || ""
     end
 
     args = %W[

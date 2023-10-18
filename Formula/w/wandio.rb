@@ -1,9 +1,9 @@
 class Wandio < Formula
   desc "Transparently read from and write to zip, bzip2, lzma or zstd archives"
   homepage "https://github.com/LibtraceTeam/wandio"
-  url "https://github.com/LibtraceTeam/wandio/archive/refs/tags/4.2.5-1.tar.gz"
-  version "4.2.5"
-  sha256 "349d2ac8f3c889a241ff6a85d47b36269de8352b761da8ff9cfa6940244066e2"
+  url "https://github.com/LibtraceTeam/wandio/archive/refs/tags/4.2.6-1.tar.gz"
+  version "4.2.6"
+  sha256 "f035d4d6beadf7a7e5619fb73db5a84d338008b5f4d6b1b8843619547248ec73"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -15,13 +15,15 @@ class Wandio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "420c0f7905421d2291795c2148e495a0a0dd9dbf9634d42be0e2938b2a8801a6"
-    sha256 cellar: :any,                 arm64_monterey: "01d44b20c09f399e419508c2136c58c6baf41708b86f0f90efb6959c2b8cb8d3"
-    sha256 cellar: :any,                 arm64_big_sur:  "0b4c435704cbe614f434e7186a34dda5d8231e66c7e278d38d15c3b3ea7d3a10"
-    sha256 cellar: :any,                 ventura:        "c378f4220cfad85721d03f2e71fada85eb062b02464f14c964b53b07bb3a9f8a"
-    sha256 cellar: :any,                 monterey:       "267f7e45ce3dacb7b49500c335544133d04481b1ec59b540896f5132fb603820"
-    sha256 cellar: :any,                 big_sur:        "8cb66a137b8a81357ae188ebfd2478bf0220ba428b0f0de8c2e45a32cdb43aa4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cb83f00594d9d8a7ac2b718249a3a89d429bddfad5a5ec4d99c27f39157735b"
+    sha256 cellar: :any,                 arm64_sonoma:   "3653ed92c97fe1d0574bb854a16e54fce8c25740a75aaf6989bc065fbfe5477b"
+    sha256 cellar: :any,                 arm64_ventura:  "ad3894a632efe3456a375e96358f0f1719a57856d8bce53d4d7f13095a3b62f8"
+    sha256 cellar: :any,                 arm64_monterey: "755dd52c90ec7a3db4b475f24ebe60805b0d1ca1812cc65a2764e12bdbbcba54"
+    sha256 cellar: :any,                 arm64_big_sur:  "036e3e338d06911199aee8d98a813cdfb89e5cf462193a7073f881e81bbe81aa"
+    sha256 cellar: :any,                 sonoma:         "e4169552ae06821d31de301c7a2eec3d7bb733c72684386044e403521c4d531a"
+    sha256 cellar: :any,                 ventura:        "3309dcd938ca538d3d9f35added3121069cee9f269fe95a153e0d0739a6cbe6d"
+    sha256 cellar: :any,                 monterey:       "cb8eae9bae43a9cb8e6a39aa0a130170a0c41e5451fde7071aba2bc858ce5bd8"
+    sha256 cellar: :any,                 big_sur:        "e1f3714ad297b93d897a9e291793e458084f380b253e7082f612dc35990464a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac5e2d66c128660db66748acbc77d1623cc500b3e140a253e2fb9c9f4f86c79d"
   end
 
   depends_on "autoconf" => :build

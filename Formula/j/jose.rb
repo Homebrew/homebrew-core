@@ -7,9 +7,11 @@ class Jose < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any, arm64_sonoma:   "adda1dfde7c89bfb9132329d5bba620f48c16a2fd76bfc9826bf05245a841b28"
     sha256 cellar: :any, arm64_ventura:  "21f4ddb24fe7718c027343713fb09aab4cbcf6d4c096f6e3fe8e09bd2e459344"
     sha256 cellar: :any, arm64_monterey: "551e1333f5bac04c13a4a2cf957ea2da84fb8c9d34a6ea18f8a661b9307bbb08"
     sha256 cellar: :any, arm64_big_sur:  "16e0db736b62521077a5ab096d43f0fd2aec7ea89a3f4839f71814582c268308"
+    sha256 cellar: :any, sonoma:         "7c1c722d6030aa2c02c8662865f0afd19488468098c211dcdbd501d1ff2dd141"
     sha256 cellar: :any, ventura:        "f0ac20b30d42d9ddd0ef62458059475c50b236ce8d163d7ff26ad33eeffa8ee9"
     sha256 cellar: :any, monterey:       "7ef2c4173e81fbc601be37ac515d41b5240fa69ad2a252c67c9fe13d22530f51"
     sha256 cellar: :any, big_sur:        "3dac5c9fd2153330aebae3f18438eb9833ab8b524ca1e524828c5ef398d252a0"

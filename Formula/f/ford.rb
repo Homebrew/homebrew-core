@@ -3,27 +3,26 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/7f/19/60e91b8fb3fba9ab3a3fc21d69e90e328349492eecaefa15e589e3aed843/FORD-6.2.5.tar.gz"
-  sha256 "5fc8570804244feebbf6ae7102f8fd7e5b4c9f41e4c2173ba7558e49e1df3ab6"
+  url "https://files.pythonhosted.org/packages/4a/7a/6f9d884cc034122170efb8b34b814619ba5e59568e6366564f01b85ebf81/FORD-7.0.0.tar.gz"
+  sha256 "4822a4f9c707cfedb955fb18a09a0ef380c8c1ac2a103f8cb4494219dfa546a5"
   license "GPL-3.0-or-later"
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8948ca52f3af0b56e558b409e482b4677a586d7c9bd52951b5cc517ce94d578b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b728acd2e5faff1e19e8a3ed27a93a5c8d74cb9f50499e432d2b2448a8b941a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9a04cc0ba94e82dc320f8f2aaab1f90ee09984ec7cb1b7513267387990484daa"
-    sha256 cellar: :any_skip_relocation, ventura:        "c069a3f2ba3f9f00e1d562ec2b9dc3c363fad14badc0fbfe129c3875ce602334"
-    sha256 cellar: :any_skip_relocation, monterey:       "52d1f4ef76fca496c73599dade40d4fd97d2f0f223320fe511bccd2ccb439c23"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f94d3c0f8b7f6626a2e232617ba906748d7ca1fea1245bcb803f1bfd4afc2bc1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "893e1dc1a61555955610fba040b79d4ddc5b851fd9622663dc38173e02dfe2e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1823a19d47e1764f7f514a6a066b82fbf993ac6dff153b13f9b89b13559babd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c222e067e96f8a40f7bf0d374f2264eb6d575764479bf38e896451e40eae0bf4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ca73edbd777f863181c4640929c0bf5f2ca3d822dca9ba92208f3963c778c10"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f19900fb8523f4041ffbb47d7d0357a4f7acf0d19ecc85ca0ae5ef0326edd0b6"
+    sha256 cellar: :any_skip_relocation, ventura:        "42f719ee35c2d74ba3b4f85cac1144689de50ba42c4083c557564f53431c1f41"
+    sha256 cellar: :any_skip_relocation, monterey:       "3b3f340c540305e8910a799d2e73b3198c316dda1a39c499bb006f4765ef0851"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "322bfe669755be8144f14bde607ab1e2d09f57a4dfd20b9ec5f24fd416b487cb"
   end
 
   depends_on "graphviz"
   depends_on "pygments"
+  depends_on "python-markdown"
+  depends_on "python-markupsafe"
   depends_on "python@3.11"
-
-  uses_from_macos "libxml2"
-  uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
@@ -40,19 +39,24 @@ class Ford < Formula
     sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
   end
 
-  resource "markdown" do
-    url "https://files.pythonhosted.org/packages/9d/80/cc67bfb7deb973d5ae662ee6454d2dafaa8f7c106feafd0d1572666ebde5/Markdown-3.4.3.tar.gz"
-    sha256 "8bf101198e004dc93e84a12a7395e31aac6a9c9942848ae1d99b9d72cf9b3520"
-  end
-
   resource "markdown-include" do
     url "https://files.pythonhosted.org/packages/5d/9c/7f53ad33ec7b7243910f8a5c3335c895fb070dc21b2e38b5a38d6a966c0c/markdown-include-0.7.2.tar.gz"
     sha256 "84070d0244367f99bdf9bbdd49ff7b9f51517bbee7582ad7aa8ff363e30d8157"
   end
 
-  resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
-    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
+    sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
+  resource "pcpp" do
+    url "https://files.pythonhosted.org/packages/41/07/876153f611f2c610bdb8f706a5ab560d888c938ea9ea65ed18c374a9014a/pcpp-1.30.tar.gz"
+    sha256 "5af9fbce55f136d7931ae915fae03c34030a3b36c496e72d9636cedc8e2543a1"
   end
 
   resource "python-markdown-math" do
@@ -60,9 +64,14 @@ class Ford < Formula
     sha256 "8564212af679fc18d53f38681f16080fcd3d186073f23825c7ce86fadd3e3635"
   end
 
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
+    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
+  end
+
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/47/9e/780779233a615777fbdf75a4dee2af7a345f4bf74b42d4a5f836800b9d91/soupsieve-2.4.1.tar.gz"
-    sha256 "89d12b2d5dfcd2c9e8c22326da9d9aa9cb3dfab0a83a024f05704076ee8d35ea"
+    url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
+    sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
   end
 
   resource "toposort" do
@@ -83,7 +92,10 @@ class Ford < Formula
 
   test do
     (testpath/"test-project.md").write <<~EOS
-      project_dir: ./src
+      project: Example Project
+      summary: This is a short example project
+          that demonstrates many of Ford's features
+      src_dir: ./src
       output_dir: ./doc
       project_github: https://github.com/cmacmackin/futility
       project_website: https://github.com
@@ -92,11 +104,26 @@ class Ford < Formula
       author_description: I program stuff in Fortran.
       github: https://github.com/cmacmackin
       email: john.doe@example.com
+      fpp_extensions: fpp
+      preprocess: false
+      macro: HAS_DECREMENT
       predocmark: >
       docmark_alt: #
       predocmark_alt: <
-      macro: TEST
-             LOGIC=.true.
+      display: public
+              protected
+      source: false
+      graph: true
+      search: true
+      extra_mods: json_module: http://jacobwilliams.github.io/json-fortran/
+                  futility: http://cmacmackin.github.io
+      license: by-nc
+      extra_filetypes: sh #
+      max_frontpage_items: 4
+      exclude: src/excluded_file.f90
+      exclude_dir: src/excluded_directory
+      page_dir: pages
+      ---
 
       This is a project which I wrote. This file will provide the documents. I'm
       writing the body of the text here. It contains an overall description of the

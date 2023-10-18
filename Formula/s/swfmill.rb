@@ -11,9 +11,11 @@ class Swfmill < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "a9e8c77577b790f0e88eec48aa1e8091c7df0708731aab2d5b61f5379c4ee0ee"
     sha256 cellar: :any,                 arm64_ventura:  "0963f879f2401a1174f2d1536a1dbbec0cfea0ca85978943f5f00e9d98c7b62e"
     sha256 cellar: :any,                 arm64_monterey: "dde3958952f7a8f233e56a4a623f133ba07fd8f5fb06d5832d013f4e0ef59ffe"
     sha256 cellar: :any,                 arm64_big_sur:  "be6e61f096ab129607f537e0bc37fd87214f01cfbfa097ab4bfb348614ffa83c"
+    sha256 cellar: :any,                 sonoma:         "487a0df7be0d3813ba9a5ab1ac4e4b6208549168b8981695498124574ca39a5d"
     sha256 cellar: :any,                 ventura:        "68a4a9c1038067e60dffeaac7b18e40ab2c623cb8dda217b7f91a9a06436b3c3"
     sha256 cellar: :any,                 monterey:       "1409bea1e846cda18e4206dc39027d195acb9fe0cae14f9a49842b945ba4befc"
     sha256 cellar: :any,                 big_sur:        "61d884a0d8fda68458267311da138851688cf5574f3d17152f7227c120653115"

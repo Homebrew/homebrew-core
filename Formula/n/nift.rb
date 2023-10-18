@@ -6,9 +6,11 @@ class Nift < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "911fcaa5ca14991a2be91da4f9a24139b93ffd74b59886879ce7971d4306b1f6"
     sha256 cellar: :any,                 arm64_ventura:  "d1b70f0c8408fdd4989de5ab087f6352985d4c623bd96ad09d13779616a7ff80"
     sha256 cellar: :any,                 arm64_monterey: "7dcd8dc27176f7d428e6335ffc00e0f009495fbc375eb9981598a443390d80f6"
     sha256 cellar: :any,                 arm64_big_sur:  "cbc8c0ee3c71696a7d5cd901548fe0bdbff0f5847e880ef00f506ec1a2a2223b"
+    sha256 cellar: :any,                 sonoma:         "149d5601d49767fde9f778a010c2cf34d6e8e51907af4773503b8de82fdc5f70"
     sha256 cellar: :any,                 ventura:        "714bd5ce882aba69388a0eef41e445b69066f747da8202a13f10ebf9bf89788a"
     sha256 cellar: :any,                 monterey:       "831d084f21c27d6aeb6128959ffee655d83d6077fa69faba662606a880f5445b"
     sha256 cellar: :any,                 big_sur:        "096b99ab5e0f03b26e2605c2d2b4b335aa0d3924b332c91c64661298363560a8"

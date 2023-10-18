@@ -1,8 +1,8 @@
 class HaskellLanguageServer < Formula
   desc "Integration point for ghcide and haskell-ide-engine. One IDE to rule them all"
   homepage "https://github.com/haskell/haskell-language-server"
-  url "https://github.com/haskell/haskell-language-server/archive/2.0.0.1.tar.gz"
-  sha256 "58825b40fdbcffb8ad8690ec95c3ec82dfc5ba63cd19f2e50f1ea4dca10b2ea9"
+  url "https://github.com/haskell/haskell-language-server/archive/2.3.0.0.tar.gz"
+  sha256 "cb8248aacac0ad02cf3f9d9904c54cd5527c08e47b91cf032ace732d910198a4"
   license "Apache-2.0"
   head "https://github.com/haskell/haskell-language-server.git", branch: "master"
 
@@ -14,19 +14,19 @@ class HaskellLanguageServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf2cd5e4e2e230a72f1ed4726f809837c6ab89ce8dff72608f63c6acf368c43d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c0b22b6c1fe428f9f541255dbb5bbb23514fb7624ca8ed89c98ea6357256c3fc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fe7f813e4b659decf7f3769ecc59e9f0c35fed5a01277b1c37be81dbfc96e255"
-    sha256 cellar: :any_skip_relocation, ventura:        "5585a7dfb743475288c61625a584eed80ab8599975e493f5586837ea32c1661f"
-    sha256 cellar: :any_skip_relocation, monterey:       "4489ae877767347e0890bb83719b2f8f4806e5515b85fe156d30df369c5a7eda"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9489fc8325a325141a4573d512183014371f4f2aff24642824489222999a3450"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87668b646813ed9ddfa55b16f617499dffafc86f5387f89b7e5bc43ac79ea1fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cc04b56cba776c34ddc5c48cf236e6a7cc063f2f330aeb829e5092d4a8895406"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8af483f4392243161ac93aa6e504d39bf7ba483499cde44dec397a0ac9c43907"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "031856696444c232e96935594abc301fc461c4e9448283fca22f3ae035a04250"
+    sha256 cellar: :any_skip_relocation, sonoma:         "60702c57f0f6f173e0276ea63c0d0718cf2a064c602ca2bd12b00b05c267de97"
+    sha256 cellar: :any_skip_relocation, ventura:        "2268d111aa7564175e4a70fa31332e189a8c4949a947f59785b903d184a1118c"
+    sha256 cellar: :any_skip_relocation, monterey:       "0580a430f6229674af31aa50ae000a7450e2e88366f6fa0c42adc7f9467fe28a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4205a8a08e6861126453ddcecc63527a4a7614767a953c69b68fc31d7cde2f1a"
   end
 
   depends_on "cabal-install" => [:build, :test]
   depends_on "ghc" => [:build, :test]
-  depends_on "ghc@8.10" => [:build, :test]
   depends_on "ghc@9.2" => [:build, :test]
+  depends_on "ghc@9.4" => [:build, :test]
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
@@ -38,6 +38,8 @@ class HaskellLanguageServer < Formula
   end
 
   def install
+    # Fixes https://github.com/Homebrew/homebrew-core/pull/141617#issuecomment-1748282534
+    inreplace "cabal.project", "stm-hamt < 1.2.0.10,", ""
     system "cabal", "v2-update"
 
     ghcs.each do |ghc|

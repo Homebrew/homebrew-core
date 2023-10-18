@@ -6,9 +6,11 @@ class Partio < Formula
   license "BSD-3-Clause"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bdb5893e1cb79d880ecc42a921bfcd0b0821be4898c94712ab68ad215e89f373"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "935ec96e13375384ce6b263dbf4acf0f918b2a24ce5144ebf87c668061ff95ca"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "f98279b3c17a945d3028122d6664521f59b063a139ef6c1feb983b959abfc8f1"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2a4e859dfd6003ac3a7394f58628d20313e359383b74f4ee19a6139edcfd743b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "822604e204480d169f70d39be55c997c893a011c844eac7b62090b8d3ef190d7"
     sha256 cellar: :any_skip_relocation, ventura:        "9f253e0b3b64df16adec10d8e8114043ed9beb885609f4cb012facfb7d12932d"
     sha256 cellar: :any_skip_relocation, monterey:       "d8dfa662b7ebcba6544e5f57cd660eaefd4b7c53c00ac51e673a32b76afcece8"
     sha256 cellar: :any_skip_relocation, big_sur:        "e381afdcd2f65b39010690255b077479de6f43e3463eb139a2532c92d1b8440c"

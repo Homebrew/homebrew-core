@@ -7,9 +7,11 @@ class Clipper < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb860fc6db9dbad5c62e2501ec592f25f4d1adad41e28557ecf85467c9bd1373"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d029ac8ca30a76a9e4825071d1f082a9b1f1d922846f8c6b131381e065b8245c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "cbcfb891555f7d4da43b749781f5e3b28ff1cd693c446f91d4300bbe49f52e7d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a114dd1e41872b63ca5ced700ee503aa4eb87f0add568e3dc1ad9e10cca9459b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6804f1f1044b14f798fe8acb3222658f87bb37a53f7114585f6d38ce9dcdfe84"
     sha256 cellar: :any_skip_relocation, ventura:        "861c78501ae9ef8bd85c6305b4c5c9dbd62810a07b6b30e3020d953c4b55ee9f"
     sha256 cellar: :any_skip_relocation, monterey:       "c38aa99876034b161cf484ef0d28e62bd01ff20f51322d9aab883733167d8dca"
     sha256 cellar: :any_skip_relocation, big_sur:        "3322412e9d0979650ad863bf42ba473c4eaabf06f48ef6d1053cf3fbc89dfc8a"

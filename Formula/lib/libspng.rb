@@ -6,9 +6,11 @@ class Libspng < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "172505ff5448c82fbdb5572865635db579c938aa58af45385606be5b949ff87e"
     sha256 cellar: :any,                 arm64_ventura:  "75bd64679f3a4c3983c71dddde8346ed9e792f999e28fe8d5f3bf0b08b905e43"
     sha256 cellar: :any,                 arm64_monterey: "5379a4c948c514c3800c321df890d709ee4e6e0676c4efd786231507fc9ffeb2"
     sha256 cellar: :any,                 arm64_big_sur:  "ce086dec03a0d2fdb36c033db18393be5e789a0f8586594f624d39ddd263d9f7"
+    sha256 cellar: :any,                 sonoma:         "40fbad3037a97c742a4e7c51db7903767e5b6c439f2344230d9091367e8ff63e"
     sha256 cellar: :any,                 ventura:        "c76aaaf78c156d1ff0af19e0219c159a2da0e3134c3fb936057b566f6e10e9d5"
     sha256 cellar: :any,                 monterey:       "fdcbf11ea62d2dcbb6aaa56dd9f7f1b162c592de5a7301c09976ebb2113e217e"
     sha256 cellar: :any,                 big_sur:        "2f1bee0c91bf53b0289d067a93dfe45896f8f979914486c08e264571b82e2d91"

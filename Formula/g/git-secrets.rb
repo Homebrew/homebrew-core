@@ -7,9 +7,11 @@ class GitSecrets < Formula
   head "https://github.com/awslabs/git-secrets.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "320ae81c1010cd7556cbaf858cda5183e0efd02829849563e578839c6da10d6d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e9de924f892439c26efd7c99bf498edb0425f2ca2ed1b2f6a41894f22a45e362"
+    sha256 cellar: :any_skip_relocation, sonoma:         "320ae81c1010cd7556cbaf858cda5183e0efd02829849563e578839c6da10d6d"
     sha256 cellar: :any_skip_relocation, ventura:        "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
     sha256 cellar: :any_skip_relocation, monterey:       "3514dfa1af5dfeacdee08546d64f3d60766318d386af8ff7f9a0057314fe7d33"
     sha256 cellar: :any_skip_relocation, big_sur:        "847ce4314909e69c8c5e30d67599c1b7892ceb27016a1b4636a4b92a9996bb97"

@@ -7,6 +7,7 @@ class Xlearn < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 sonoma:       "7ec1cd645264843122f75e157e366c1cc0ef84be1b8a4a0d3705d9e04619d256"
     sha256 cellar: :any,                 ventura:      "c0ecafbd0f8f1103d6a01ff267bb86a11ad8515a4421acda57ff9b2c0d33250a"
     sha256 cellar: :any,                 monterey:     "36bbe9dd0cc0deb15f9bca3a0f8db3da4e57cf4c62f3cfb2138b5bb88f7f4587"
     sha256 cellar: :any,                 big_sur:      "a28e91b107a782fe4bfa9894ba647a36ed7669f25978bc0cec1ce25627d19b6d"

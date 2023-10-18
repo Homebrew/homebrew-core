@@ -14,9 +14,11 @@ class Olsrd < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6c4e30770465a800d9d40fbf7098db2cbcffb15c511fdff67f9e6efda615122"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5855775631424ec0e2b51d6f3a08a83e595865c4f3090c24756d77a36f2d088b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "595f6879e8ea37977d87ce63927c7e731dde41717b070cec7faa8426e1c43109"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "46f59369b499e8dd35c9ae619ce0b893e0324778500a08007ece6c1329d19cdd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e3a78a11535c74218df2662750962b39aab888ecd39e5c57571befaf0a608b5d"
     sha256 cellar: :any_skip_relocation, ventura:        "b8950dc67c22e934018c5898834001cfa8345f2828acee9fea14ce7b7131dc4f"
     sha256 cellar: :any_skip_relocation, monterey:       "a995c9cac2e2cb70a3235322c39fb259e634c932b45f0a64499c347003a03489"
     sha256 cellar: :any_skip_relocation, big_sur:        "5e94afd5a8ed394b3fae056b10af1575c6a4383500978c7afe0b1ee375c8b4bb"

@@ -7,9 +7,11 @@ class Libgtop < Formula
 
   bottle do
     rebuild 2
+    sha256 arm64_sonoma:   "70be94bdf1f981d45870143f0d93cca108a8c2a21da4530433edb0c0191d0829"
     sha256 arm64_ventura:  "7ec6391d407997898f52778846034783e0d1f8fd88c3c5dce7e31fa7a7c9214a"
     sha256 arm64_monterey: "efd17d53f38b17e4dbce28b8ce2b47cb3f832010107b44800f16f109eca55929"
     sha256 arm64_big_sur:  "1b03ee2aee7281a673eff7004f5141e4077e0dfbd2e1ce31a9590fb1f3fc221c"
+    sha256 sonoma:         "337d36977c59d423acfbf3fd0bc258069f50b80eb4a3f537ae006e5cc42cf948"
     sha256 ventura:        "ead43b0acfd3e16e8075e97d6e20809103058a8e56d0558353eb6da6b9487d62"
     sha256 monterey:       "96b3327e8a7cce44d856f6a2968512ad75a121901378ef5bdff0530999dd42c2"
     sha256 big_sur:        "e749a43ebcc150fba221570873bb6df8765eedd1719ad7080dbbb84b809b477d"

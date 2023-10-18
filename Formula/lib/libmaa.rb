@@ -13,9 +13,11 @@ class Libmaa < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c53e58fdc89c230cdaa5017dfe739bb644561adb83c4f5ada91a9a24577a5ab6"
     sha256 cellar: :any,                 arm64_ventura:  "25c0b4572fe7bf62814749448134d94f4dce1933a3881fe147469a14948243cd"
     sha256 cellar: :any,                 arm64_monterey: "d880dd810a8e28a38d62d420f7e0afd55d8135c19497794697690411b1b42ccd"
     sha256 cellar: :any,                 arm64_big_sur:  "39eb7101638dba1cd91aad7b7f33c281cb8b9709ed0bf3709b61a2315cf9f786"
+    sha256 cellar: :any,                 sonoma:         "3cf143f53d435c35246322394d93fa4dbd456b61f2aadb0f5462c254069acd59"
     sha256 cellar: :any,                 ventura:        "52c5ad403f403c0e6bd38ba1dcc1f5fa2f0c4b06cfc06870da085f1ad1ee7c77"
     sha256 cellar: :any,                 monterey:       "3bd13aae044ffb89036034c9ce275a1ff79b265276c39161fbfbb2e7b30a0879"
     sha256 cellar: :any,                 big_sur:        "65222587a532a2412f342564d09e0dc134c84501803c75b450fa591f1c6fc029"

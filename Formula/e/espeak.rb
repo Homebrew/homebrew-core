@@ -13,9 +13,11 @@ class Espeak < Formula
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "d36a7fc671b9d843dd352df7969883226346c0393a92878ec5c5692e70afcd49"
     sha256 arm64_ventura:  "d2ded3f1dd697a128defd54554a3ebee69a2ed566734449b755fbf649a76e885"
     sha256 arm64_monterey: "03f0966e004a09d71f4607a458cd168a5b055eb110487158f723f602eb20e91b"
     sha256 arm64_big_sur:  "0bd59ad014f2deeb623f5128f44e48a06f34106e3c46d228452595e44b6cdf17"
+    sha256 sonoma:         "ec64d2aee34ce3390d2828eea71bf20c5a66df66e9e58de7b0ca5d5826c6c4ad"
     sha256 ventura:        "5e9fbcc6b6987dd44fd14bfb5e6ff7e4a39ad42c3b5f18b4625c0352f97a12e5"
     sha256 monterey:       "aae3368a900e67099b2f4916af1266cbadae620c129f5cc2aeee959342e213ca"
     sha256 big_sur:        "c8d5f5fd950e7f47f48affb043ba950694c6480d7a12231eb1f2606ab4e05dbe"

@@ -8,6 +8,7 @@ class Fq < Formula
 
   bottle do
     rebuild 1
+    sha256 sonoma:       "eb9b15284089358379211dacdf2ce810d92c27f9a344a3acff7768dc15ef7110"
     sha256 ventura:      "f0e6202567699912b509c9ec544c9b193eb86001879e8fe3d4f449e02f3f5a4b"
     sha256 monterey:     "60be8da7fc7c0e9909d92c225815e220c697e498f1b62b4206d1bf2a72b58be1"
     sha256 big_sur:      "0953c716b652e678dd83c6aadc9b42b5d2699c1d9ed234e4387a3bbaad4f09ad"

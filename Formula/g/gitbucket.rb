@@ -6,9 +6,11 @@ class Gitbucket < Formula
   license "Apache-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf311b3c11eb5aa696796227264dfa8a796a52a5bb2c4373493a3aa420a2aa61"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "5eda39fbee0512a3e34ccb30eb23f6ddbfe6ced65e665a7cbfdb02846b489011"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5eda39fbee0512a3e34ccb30eb23f6ddbfe6ced65e665a7cbfdb02846b489011"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5eda39fbee0512a3e34ccb30eb23f6ddbfe6ced65e665a7cbfdb02846b489011"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cf311b3c11eb5aa696796227264dfa8a796a52a5bb2c4373493a3aa420a2aa61"
     sha256 cellar: :any_skip_relocation, ventura:        "5eda39fbee0512a3e34ccb30eb23f6ddbfe6ced65e665a7cbfdb02846b489011"
     sha256 cellar: :any_skip_relocation, monterey:       "5eda39fbee0512a3e34ccb30eb23f6ddbfe6ced65e665a7cbfdb02846b489011"
     sha256 cellar: :any_skip_relocation, big_sur:        "5eda39fbee0512a3e34ccb30eb23f6ddbfe6ced65e665a7cbfdb02846b489011"

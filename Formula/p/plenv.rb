@@ -7,9 +7,11 @@ class Plenv < Formula
   head "https://github.com/tokuhirom/plenv.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f269a34269c43edc721fe59d7d6bed6740c27544de3b7936290a52644957d2da"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b7e0d4973dfe5c197b36672d2d07f355d90b831b36189208c021770bfa1465d"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9b7e0d4973dfe5c197b36672d2d07f355d90b831b36189208c021770bfa1465d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8003aaa1404beacb1ef33010bbf1ed82abb2436e9a3764a6d5f2cac83aa085ba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b31005f49894bcd4160911f841489e89a44f7d4e6f610d96573c9e58d35d97fe"
     sha256 cellar: :any_skip_relocation, ventura:        "3cb9ef92ada0b01f97c1ccd746cd976673b8b21b0672995dbdf5fc0205aa0795"
     sha256 cellar: :any_skip_relocation, monterey:       "3cb9ef92ada0b01f97c1ccd746cd976673b8b21b0672995dbdf5fc0205aa0795"
     sha256 cellar: :any_skip_relocation, big_sur:        "ae532487be7748372f5e4af1f5f5543ea98c2821ae63a28b85fe5a47c17734a2"

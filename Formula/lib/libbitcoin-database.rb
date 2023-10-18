@@ -1,20 +1,21 @@
 class LibbitcoinDatabase < Formula
   desc "Bitcoin High Performance Blockchain Database"
   homepage "https://github.com/libbitcoin/libbitcoin-database"
-  url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.6.0.tar.gz"
-  sha256 "d65b35745091b93feed61c5665b5a07b404b578e2582640e93c1a01f6b746f5a"
+  url "https://github.com/libbitcoin/libbitcoin-database/archive/v3.8.0.tar.gz"
+  sha256 "37dba4c01515fba82be125d604bbe55dbdcc69e41d41f8cf6fbaddaaab68c038"
   license "AGPL-3.0"
-  revision 2
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "9f3a1b14cec14874e96aa73c538552536c758eedf762336d445bed0e2e1a1c49"
-    sha256 cellar: :any,                 arm64_monterey: "085dd23364eb6643233052da9c14e3e8cbfa99d22588c2febc0335cb99f26eab"
-    sha256 cellar: :any,                 arm64_big_sur:  "8cfc5dcf5ad3e74e38f2887b2d2fffcca747981096a5ddacafbe3fe882f371e1"
-    sha256 cellar: :any,                 ventura:        "487a2131b39e783252329f3c8c38c0cf97b74688cad7d65a2d0c1e4d58a878d8"
-    sha256 cellar: :any,                 monterey:       "d280b0babbd6de733c4850196c62b48096a6eb8e9c0fc14fd750614d4bbcc6e9"
-    sha256 cellar: :any,                 big_sur:        "bfdabb34fb0d87a5e04dad70a325dd9bbab3c184cfe0657a43c6aa8ebdc6a6a8"
-    sha256 cellar: :any,                 catalina:       "eb6c6550f0e853c7c175c550654e7a095bb5306da305969902d888b5c412bc21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "552bedf49b5667b5d3d79486021d114623c7e9df0a6d9d84d3d9c0e019e5d8fe"
+    sha256 cellar: :any,                 arm64_sonoma:   "7d1a6883674ad006e2233445adc8c47ef8505acdb097ce666bb91e83b4e38e1c"
+    sha256                               arm64_ventura:  "d5aaf977086d6ae540c4726ce77eed25538d1bcba722d34d69dfefa42a531600"
+    sha256                               arm64_monterey: "f238610033ae744928597b0719dd7eb2347e5470ebd23c81638cac3d9368799a"
+    sha256                               arm64_big_sur:  "ffb0d03c1e8a283039a15e3ca8f5d4dcac8b394146658803e512960f655d9f87"
+    sha256 cellar: :any,                 sonoma:         "81f2ed2a08808be901616743e9ab7b9b22969af3fe2e038b08502c48b2dc4d49"
+    sha256                               ventura:        "cdd90d1627d1371f7c4fcd5c31419ca884ce5b39ce139180a285a206415f0da5"
+    sha256                               monterey:       "df0d64f7244474c78af515e30944fd727b3c2565e8a2aae7d2db32e8b06b7dbe"
+    sha256                               big_sur:        "035abb92965ca29b24b7ebaace65626c803e8c7a5771debfbb011d5460de6a73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f2ceee2a4bc6ac4b0b67af2b97916eb79e0ed1aeee66a4a8695beee59e44a50"
   end
 
   depends_on "autoconf" => :build
@@ -23,7 +24,7 @@ class LibbitcoinDatabase < Formula
   depends_on "pkg-config" => :build
   # https://github.com/libbitcoin/libbitcoin-system/issues/1234
   depends_on "boost@1.76"
-  depends_on "libbitcoin"
+  depends_on "libbitcoin-system"
 
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libbitcoin"].opt_libexec/"lib/pkgconfig"
@@ -52,7 +53,7 @@ class LibbitcoinDatabase < Formula
     EOS
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
                     "-I#{boost.include}",
-                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin",
+                    "-L#{Formula["libbitcoin"].opt_lib}", "-lbitcoin-system",
                     "-L#{lib}", "-lbitcoin-database",
                     "-L#{boost.lib}", "-lboost_system"
     system "./test"

@@ -1,8 +1,8 @@
 class Flix < Formula
   desc "Statically typed functional, imperative, and logic programming language"
   homepage "https://flix.dev/"
-  url "https://github.com/flix/flix/archive/refs/tags/v0.39.0.tar.gz"
-  sha256 "7d073816b7db1e67ce7d374e898b3c1f859a4c73d0b768a9af0beaaaa2f087ab"
+  url "https://github.com/flix/flix/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "77161350c30e543d86779ad8cfdfcede221fca2f61d46d24a0a66073f94a319a"
   license "Apache-2.0"
   head "https://github.com/flix/flix.git", branch: "master"
 
@@ -12,13 +12,15 @@ class Flix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "187a0cac52a19077a327ccbaa51c27b857d5ca1e4bfab260a80c5e07467c22df"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dd0f9da98c0ee50ac3d1fab3bfec1a54b5de3454accb57e6f4f30cf70494938"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "467c5359f86cb0c9a4fc00878a8788dfb80de5f1b32a3d0e9bef2a7e561697b9"
-    sha256 cellar: :any_skip_relocation, ventura:        "082ec97c91884c3bc84472cd8483aac7785e1e5d5da657ddcda3cc15b77c4122"
-    sha256 cellar: :any_skip_relocation, monterey:       "5d670cf3b47a1366e8b9af3a501a626471c733969f559da4cc089780b6016f4e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0faa9f4641d784655f001366e3cd4cebee5015103c435895bf33adc0b6b0385c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cd9de02e2bb8d678b8a4691170ffdb55be9e359b214ce9c6fb12f3a9c3fbe66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "02fd0624254e2467f5c3f88a390ab595d8548b6bdf3ceafbc513c41ecace79dc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d1ced5d3a9d4279c2b98691c6a393f35a0488f7229681b78e8e9c4aba2b83fe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb9a02b24b2604d0d5791c586e93f2fc2e11396bfbb54b5b986c05bf5333203a"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8dd3a1782761ca19750bcddcf121751e70495aecfed443d12aa5d54ead3b3240"
+    sha256 cellar: :any_skip_relocation, sonoma:         "374bb0e5288e13fb103bcff9cdd928129c7feb8831081edf96b0372fddf11a12"
+    sha256 cellar: :any_skip_relocation, ventura:        "2d5af7fd44678f04a14eddc8b0a3c60808922a3d3b246943afd5c0828c35b097"
+    sha256 cellar: :any_skip_relocation, monterey:       "207de2c6477a3d934d4ff92410eedcc884e129644d905bcd60e025adcfb5eead"
+    sha256 cellar: :any_skip_relocation, big_sur:        "7c09a50fe4010015c9cef1e53b2a2396680c2cde62740b123d6839a6597c7dce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50a62677dba8d980954da45cd3822141a2d042ef6b6ee6ae5e7f921a8a6ec1a3"
   end
 
   depends_on "gradle" => :build
@@ -33,7 +35,7 @@ class Flix < Formula
 
   test do
     system bin/"flix", "init"
-    assert_match "Hello World!", shell_output("#{bin/"flix"} run")
-    assert_match "Running 1 tests...", shell_output("#{bin/"flix"} test")
+    assert_match "Hello World!", shell_output("#{bin}/flix run")
+    assert_match "Running 1 tests...", shell_output("#{bin}/flix test 2>&1")
   end
 end

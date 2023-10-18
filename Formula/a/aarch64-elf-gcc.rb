@@ -11,9 +11,11 @@ class Aarch64ElfGcc < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "2651ce90da8c630cc8a85469509215e1bec3a2feb6f8826abd3aa995a83607cb"
     sha256 arm64_ventura:  "52fbab7e246024b0ab64be29079ab0d9acc2293963a9d8cb236260afc4df9179"
     sha256 arm64_monterey: "1edf222b87033c0ba5e5e5eb6a37a4a02cfdd2eaebb16fd59d530672d9743b8f"
     sha256 arm64_big_sur:  "335fd71e860fbed870ada71c893e520901530ba04743de7d57fe321c901efd27"
+    sha256 sonoma:         "cbf7d116b12da8d69d177ff004c415dbbd0684b6991c64217af89618dcbc40f2"
     sha256 ventura:        "3f0f2a063e451533e86db1ffcebf5cbee33348e684ed4ca03c2f6154377496ed"
     sha256 monterey:       "b9c9ec0616f365523345ec8317f2a53f2a0de2069f83082d96e0bfe801adcca4"
     sha256 big_sur:        "60f1e4b14e7b7c5e85f6fe0aa7cb9e63ad102993f6e9b3f75eaf4018067058ea"

@@ -7,9 +7,11 @@ class NatsStreamingServer < Formula
   head "https://github.com/nats-io/nats-streaming-server.git", branch: "main"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "794476c9fcc154867095a3cfb3facb42ac2a12f615e198d226f6da1797819510"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc2ea921b0bd734bb63a655cc2aea6f130d1f500362f5c9ff12e375a9184f715"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "dc2ea921b0bd734bb63a655cc2aea6f130d1f500362f5c9ff12e375a9184f715"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "dc2ea921b0bd734bb63a655cc2aea6f130d1f500362f5c9ff12e375a9184f715"
+    sha256 cellar: :any_skip_relocation, sonoma:         "274e7fa83c50e61a08b10c75991ade94cc5d9b6132ad263d52cf42932b6cce67"
     sha256 cellar: :any_skip_relocation, ventura:        "bf18f46843325128b0ef0f5bb3451840d738a79fb85ad5242eee66587e4ae48e"
     sha256 cellar: :any_skip_relocation, monterey:       "bf18f46843325128b0ef0f5bb3451840d738a79fb85ad5242eee66587e4ae48e"
     sha256 cellar: :any_skip_relocation, big_sur:        "bf18f46843325128b0ef0f5bb3451840d738a79fb85ad5242eee66587e4ae48e"

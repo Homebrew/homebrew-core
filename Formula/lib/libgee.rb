@@ -6,9 +6,11 @@ class Libgee < Formula
   license "LGPL-2.1"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "101f70ccbc7358b45e29cdf31cba5941089dda1ea52ed1158ce442afec8175ba"
     sha256 cellar: :any,                 arm64_ventura:  "17b6833c15dcc5a55942ab6efcb13aec78855da1f7caadeb813bdbaf86936990"
     sha256 cellar: :any,                 arm64_monterey: "f4d10b610efe36fcda4140bf67fd793928ab78ee1e1504d3ea41b568ad7de726"
     sha256 cellar: :any,                 arm64_big_sur:  "e68e6466bdb5bd784e482f38187977b844eebde81dc73bff222172d7a2f4a80a"
+    sha256 cellar: :any,                 sonoma:         "ca981251c8491963f8af017b9d09abda3f29fa7b621f7032e50a3090efeec4f1"
     sha256 cellar: :any,                 ventura:        "776df5810ebd490091f65aefe8b4f2157fd70670aeb09b940466cfddf09b292d"
     sha256 cellar: :any,                 monterey:       "a7b8c8955ee24c3ec80eeb037ea5f8dafde3fd8070c3db61a45c271530b78e5d"
     sha256 cellar: :any,                 big_sur:        "b9c9f8e2f261e7694ce63061bbf46264392493615cc470b243720a4ae2c7d6ae"

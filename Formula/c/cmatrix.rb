@@ -6,9 +6,11 @@ class Cmatrix < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "094d50d50af7e5365fffbd5b1f1ac6b9879d4250cd39477f45c40b136c0a6404"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f50d6041ffb188ea575444bb3df18ba70d321c92e37ff40baab7ecc944dc297"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "5c7aa22beeabe078fe1e0f9a3cac02a1b8b895750a9f311ee621891b276d7012"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7df6894acc7156eefd61ac4cdfd5332b3e4165436d29cdc102ea03f03fb183ad"
+    sha256 cellar: :any_skip_relocation, sonoma:         "68d9ab783759a41f8c263c9b1d63e77056978571e738018a45ce1e3f7d9a48d7"
     sha256 cellar: :any_skip_relocation, ventura:        "1a281dff3f4e52cbc909ec3d56da455b5ac56bd918cd652ea9e3d2ee27fe6509"
     sha256 cellar: :any_skip_relocation, monterey:       "6e3f0b2e04f4f87f62b138124b750591e5012fb3f5ebea8558371a11d7630724"
     sha256 cellar: :any_skip_relocation, big_sur:        "745b7d4d2da66a0c4d159909cb16b0b6a29647a96ac6ae74fcf3b993fd730e6c"

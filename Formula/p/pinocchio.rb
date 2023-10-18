@@ -12,9 +12,11 @@ class Pinocchio < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "0ecbf9a816ee133a5a52f21aa79422ca3f97e1424a09ce3d540645f181cf6031"
     sha256 cellar: :any,                 arm64_ventura:  "17438d1a1a62a985b37da67a5b239dd9fd36e5d784d4dcb05df07ed4dd0636fa"
     sha256 cellar: :any,                 arm64_monterey: "bb765bc71e766c50bfd8a8fd3f1ed7c4f85a63f34c2fe2d145b06e9c36547295"
     sha256 cellar: :any,                 arm64_big_sur:  "4e30be51dada386ba8d3beeed1e7e3e52fbc480e23346a6c6667964ac5af9643"
+    sha256 cellar: :any,                 sonoma:         "ac5fab93e9f216ffcbac573f9d540b683ddffe315aff54aa70956f00e8a8b40a"
     sha256 cellar: :any,                 ventura:        "2db0a491c86c36fb7b76785bad436cd9dc0d8b2259b4b97bd181ab8bcc1e368d"
     sha256 cellar: :any,                 monterey:       "bb4040ee5e150f47477e83b50c04560ae25261a6824489064653d160e874c82e"
     sha256 cellar: :any,                 big_sur:        "54988b7d293941778115dfd93d579c8a7a86f9adf38bb4267a9a10130773f287"

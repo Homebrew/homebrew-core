@@ -34,8 +34,9 @@ class Gwenhywfar < Formula
   fails_with gcc: "5"
 
   def install
-    # Workaround for Xcode 14.3.
-    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version == 1403
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     inreplace "gwenhywfar-config.in.in", "@PKG_CONFIG@", "pkg-config"
     # Fix `-flat_namespace` flag on Big Sur and later.
     system "autoreconf", "--force", "--install", "--verbose"

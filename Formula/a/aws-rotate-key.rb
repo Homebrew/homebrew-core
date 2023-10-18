@@ -7,9 +7,11 @@ class AwsRotateKey < Formula
   head "https://github.com/stefansundin/aws-rotate-key.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d5ab392e8975870ea050c63fbdcd74cb42c285c878e33a4a2b900b85bf2a8037"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "efacf5c9c3a2359f9d034d3b8efe725d68b26d597f39c5eed8ee2ab131b7d338"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "efacf5c9c3a2359f9d034d3b8efe725d68b26d597f39c5eed8ee2ab131b7d338"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "efacf5c9c3a2359f9d034d3b8efe725d68b26d597f39c5eed8ee2ab131b7d338"
+    sha256 cellar: :any_skip_relocation, sonoma:         "de399b54239a560a3e3b7f6fe6935b979d07d1e4c05dffbdcccd29a54de264de"
     sha256 cellar: :any_skip_relocation, ventura:        "442c81368bbd9de1d7ed039d571b871a1476eff719c3abb271013a24f11bd8d3"
     sha256 cellar: :any_skip_relocation, monterey:       "442c81368bbd9de1d7ed039d571b871a1476eff719c3abb271013a24f11bd8d3"
     sha256 cellar: :any_skip_relocation, big_sur:        "442c81368bbd9de1d7ed039d571b871a1476eff719c3abb271013a24f11bd8d3"

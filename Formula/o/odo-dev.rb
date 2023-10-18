@@ -2,8 +2,8 @@ class OdoDev < Formula
   desc "Developer-focused CLI for Kubernetes and OpenShift"
   homepage "https://odo.dev"
   url "https://github.com/redhat-developer/odo.git",
-      tag:      "v3.13.0",
-      revision: "0d1cf6e3656348ed7996d33e0a0109e37097d62f"
+      tag:      "v3.15.0",
+      revision: "10b5e8a8f5011703a8cb62b4001eead5ae58cf45"
   license "Apache-2.0"
   head "https://github.com/redhat-developer/odo.git", branch: "main"
 
@@ -16,19 +16,22 @@ class OdoDev < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f8119de72fe1f0ecf9978ad52c6b4984a55e3a60f0e169773ab1f6f16e8b5ec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a6d2da041915ea029108b76c68308de46fac43981a729c76c346f64a41bc4ba"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c4e048b34cf0d23a148f8b49949c1384f86c2da0fc9547a935c456239851839f"
-    sha256 cellar: :any_skip_relocation, ventura:        "75faed9f0695b57284bfd41258a007b01d8e3a8a05224f53b939f9361f06e912"
-    sha256 cellar: :any_skip_relocation, monterey:       "92358b23a5ac9688bab898595969f58634c7cf92b3d983a93729f14ffc2585c8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "689e91520adfc47172ce826a636a74048b14aad5f1c2535facabbf037745a985"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10ad0d964982afb6700b082f73a8a5fd5bfc5c96ebfbf3571ff9311e1c176d3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c672d0069308c1021b684553cff3478d6a335240b90918a0821618739321a709"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "525b18a5939bfecc93f7a12d377c1f0f1af1b212ed730f206320a2df119e87b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce5cd354eb624a92e8190aa6ca61e9d24c91138e7e6ae6e9220f2790a032d689"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a48ad8fde2769145ad4d4c60304efb7796aa66dba65a13c7f750e8717c2cc995"
+    sha256 cellar: :any_skip_relocation, ventura:        "964c60a044e232330130dc4b9f793f571dde674d6d38c96b08b9af97f63e490f"
+    sha256 cellar: :any_skip_relocation, monterey:       "164c403bacadbed169f696d62c4273737ae01ec6f42410dc57e83b9720bb68f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fee6ebc1a8c640152fe665029fac051c07c554d8221d766c006510815a34bebd"
   end
 
   depends_on "go" => :build
   conflicts_with "odo", because: "odo also ships 'odo' binary"
 
   def install
+    # Replace `-dirty` suffix in `--version` output with `-Homebrew`.
+    inreplace "Makefile", "--dirty", "--dirty=-Homebrew"
+
     system "make", "bin"
     bin.install "odo"
   end
@@ -42,7 +45,7 @@ class OdoDev < Formula
 
     # test version
     version_output = shell_output("#{bin}/odo version --client 2>&1").strip
-    assert_match(/odo v#{version} \([a-f0-9]{9}\)/, version_output)
+    assert_match(/odo v#{version} \([a-f0-9]{9}-Homebrew\)/, version_output)
 
     # try to create a new component
     system bin/"odo", "init", "--devfile", "nodejs", "--name", "test", "--devfile-registry", "StagingRegistry"

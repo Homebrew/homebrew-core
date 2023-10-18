@@ -8,9 +8,11 @@ class ThePlatinumSearcher < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a410fe6377573632c20334478aa337d0c4c39660402881d31d356b6ce055e05d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d34acea6e7a4f0bfff85c75756c119ad978a11e72e2901f15e40a107cd1a8564"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "920eca3416a24f405f47f9422797e405768da23008de8ec12f3beb292e8b6be2"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0f3097b2d88f4b8479ecb3e3439f6688656fc1c5e20f18a4c300edf9ea953874"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8651447550ab494a2cd70ebd3339f3d3d705606b2683f12dcb9722de69ff2d55"
     sha256 cellar: :any_skip_relocation, ventura:        "f2f494e7c9a055b112241f2a9d30b260f6aec006382337941c7bb6ea23c5ef74"
     sha256 cellar: :any_skip_relocation, monterey:       "b9f8d4628e265fe8cee61b17d40a0695316940d4805d84ee98de11abc6dc54fa"
     sha256 cellar: :any_skip_relocation, big_sur:        "63cc973af4c1fc612acb86c7a928f1680f84db7edfae52f374b95925c00761dc"

@@ -1,20 +1,18 @@
 class Flac123 < Formula
   desc "Command-line program for playing FLAC audio files"
-  homepage "https://flac-tools.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/flac-tools/flac123/flac123-0.0.12-release.tar.gz"
-  sha256 "1976efd54a918eadd3cb10b34c77cee009e21ae56274148afa01edf32654e47d"
-  license "GPL-2.0"
-  revision 1
+  homepage "https://github.com/flac123/flac123"
+  url "https://github.com/flac123/flac123/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "c09676dce51383ce4fe7a553e67f4369918cf40ee6d922e585e50c11bce9e227"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7dbcf8228ae81f22b3163fa6ce76d5fc4ac68fe49f19a7921e5e3904bc09c28c"
-    sha256 cellar: :any,                 arm64_monterey: "a03e7e7519e8fd6299a6597654a47cee49794cd72e96fce5016172a1dedf9105"
-    sha256 cellar: :any,                 arm64_big_sur:  "97ea9fd6161053506401386e9a0b3e81a52e4e8a9d95ffbb4b89cc31cf4c6445"
-    sha256 cellar: :any,                 ventura:        "26e03d55d64e8964a0cf83380e1e1dea1cd091fd4c2895dc32e24edf361472b2"
-    sha256 cellar: :any,                 monterey:       "f486d727f47c8560903a411ec7959e5b35beaec7e21402ecf034a2c1a7a04c3e"
-    sha256 cellar: :any,                 big_sur:        "9e93af1f7c8db883b9e29e054803a6abb3a2e09e20dd062a7dc1dc27eedcc836"
-    sha256 cellar: :any,                 catalina:       "740df479667cf418850fd824be8bde16c26b6e14152f1891a7566d65cef4647d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea0d5a9fbd3ee85227c1a0d45d8c80b4c20cece5cf8ae73284150016cbeadd83"
+    sha256 cellar: :any,                 arm64_sonoma:   "a1c6d6d2d1d764ba31918fb6f0c50756771a04ee3868944484f5bbdd05775ecf"
+    sha256 cellar: :any,                 arm64_ventura:  "8a3a466680bff98485b1be1f5ec2be0d68522debbec2206d08b122981af0abfb"
+    sha256 cellar: :any,                 arm64_monterey: "3b98b988e1528c56b970fa9984663916ea59173ca4b6fd09979be8832abe5ab0"
+    sha256 cellar: :any,                 sonoma:         "3a1075db8609cf8bdd5e676898f7723800590d24d06fb2cbcd20bb15ec4efa81"
+    sha256 cellar: :any,                 ventura:        "92b75dfcc6ab5d40cc211bb857c8c1fa1b769173ab8c0a3e2064298ae177a872"
+    sha256 cellar: :any,                 monterey:       "ae9674662b893127e538689b04c7cb2904e7199997fd679444eeb471ba69901c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20f164d6d0294b5ca226c8a5e9b8fec7e0c7a517cc4ab38c282585c53600d0d0"
   end
 
   depends_on "autoconf" => :build

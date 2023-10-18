@@ -6,20 +6,23 @@ class ProtobufAT21 < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "d0909077ab9abd27d47a7990c7bcea6622805421de263ff5a5366beef171bf74"
-    sha256 cellar: :any,                 arm64_monterey: "4f147f89429d04ac3ed6c2c8265b0c1915e00fe220e54725e6b0619de22bb4b7"
-    sha256 cellar: :any,                 arm64_big_sur:  "8f82f5c9e0fd457a11bbd8d5932a7beab5b816d1dd295ccf2a700f845b29e015"
-    sha256 cellar: :any,                 ventura:        "3f04c152bc512c647617a667557ba211f3cbabb49a0029c04214488ce52840c6"
-    sha256 cellar: :any,                 monterey:       "d273a25298c6bb40374e7741ef20047d62b975fbb55840aa88b63f6d0e687e3d"
-    sha256 cellar: :any,                 big_sur:        "76f714caba9825918e0456538f14b8945f7a595b71e205a662ae9ce4f3515dbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57404e662da5768d45c06790cd227171205fcc0e1f775d4e1f2a91cad8ec45cc"
+    rebuild 1
+    sha256                               arm64_sonoma:   "a9748ddd1ceaa9670b07011f80fee63a09eddb22bf41c28e4780942811de55e1"
+    sha256                               arm64_ventura:  "38d7e22f6eeb5711e73a917949d5701a9913fe0cc5e036c59d176961cc37c433"
+    sha256                               arm64_monterey: "11eb50321b17b8bfa15f618945b9f03b17fd59329ecac86b62da767861e817d3"
+    sha256                               sonoma:         "db10eb0bea925a2068cd3503c70efb88a245f70c8d1dc8b2538d8aea22ef1f74"
+    sha256                               ventura:        "6934b79a6d5af37d89aeca6f469089b54b7d273eeeb2d8a6e8025768e291fd12"
+    sha256                               monterey:       "57042ccf089f7f1a21f00820143bc3a82e019805d74e39d8698590b83c42ecc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9edf2df67dac587fe512ab278913f7d7183dcdf926035f1bef622ad36dfb63e3"
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
+  depends_on "python@3.12" => [:build, :test]
   uses_from_macos "zlib"
 
   def pythons

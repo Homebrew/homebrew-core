@@ -6,9 +6,11 @@ class Dtach < Formula
   license "GPL-2.0"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "936dc52943de4d68d3acba73b5537df04e30ee6ed0e75148d7ed4270469c8675"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f1ef3983dedfabc3580bf8348e913f58a25f858f3a5937664dd70014f0fa1a0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e25159bbd5055fc22962d923496e78c3e49ff919243593e16960734002c38dcc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e90da47e413ace287b5144813af99ee9f2bb8cac8c435189557db29aa597c681"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c780cda9b47c04079b652c9de889c797125979197880a5551b5ac0127a165b16"
     sha256 cellar: :any_skip_relocation, ventura:        "8197e8606d40305873646270d38aae3973190340c46d0e47c66a38cc91bc1824"
     sha256 cellar: :any_skip_relocation, monterey:       "2a7c1c3b1d3ed2f0461ff94f0ec8574b4b2baf68e83048cf1f7b26c31ca76826"
     sha256 cellar: :any_skip_relocation, big_sur:        "2037a41545a48ffd293c55deb33a675a6d304df1f25c46e6f9b85969e0968d78"

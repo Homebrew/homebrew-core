@@ -13,9 +13,11 @@ class Rcm < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b5aa9414359e08d20bee9c048616d9d7e0dca08491423378b6aec8e570ce674"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7b5aa9414359e08d20bee9c048616d9d7e0dca08491423378b6aec8e570ce674"
     sha256 cellar: :any_skip_relocation, ventura:        "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
     sha256 cellar: :any_skip_relocation, monterey:       "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"
     sha256 cellar: :any_skip_relocation, big_sur:        "71cd9064bce03baa3db0f2cf099d4e103d910508ef14306a32b0f75877a5c2b0"

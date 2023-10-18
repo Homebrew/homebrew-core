@@ -1,8 +1,8 @@
 class Libdnet < Formula
   desc "Portable low-level networking library"
   homepage "https://github.com/ofalk/libdnet"
-  url "https://github.com/ofalk/libdnet/archive/libdnet-1.16.4.tar.gz"
-  sha256 "7df1f0a3db9cf03b48cf50ab273fd6a20c1be99eb9344b9663fe3fd9ed9dab65"
+  url "https://github.com/ofalk/libdnet/archive/libdnet-1.17.0.tar.gz"
+  sha256 "6be1ed0763151ede4c9665a403f1c9d974b2ffab2eacdb26b22078e461aae1dc"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Libdnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2b4e6240f02055231150af7fff3fc0cd6ef978a5dd3e781bad9fe8c659a8ad43"
-    sha256 cellar: :any,                 arm64_monterey: "1e64aebcc8dfdd50b1e14caef6ea9949b74146c59dbf771b1c5a14cc57ce8d8a"
-    sha256 cellar: :any,                 arm64_big_sur:  "6d4fea190da54068b6a233e215bbad8ce34ad63be02ad25d3438fa1579e5e4bf"
-    sha256 cellar: :any,                 ventura:        "ae71f5ddf8b8be40d02780276f2518747ed7f9587dae74d5ffdf4489d5cafc45"
-    sha256 cellar: :any,                 monterey:       "08ebc0f4899e74aef420bce8d4c6aab333a4920957763cbcfd20100a6759a6cd"
-    sha256 cellar: :any,                 big_sur:        "0d67a4d1892a14efca8a1b6205de86939d2b3cb900633c2419c0a3d13a90cf36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e916f0d7b6cc35892197e9c7ed48e4f7c87a70c23147f6f7c1f1dd848d8ceca7"
+    sha256 cellar: :any,                 arm64_sonoma:   "df49ba85298b074c807b238f6bd0e4b5a01a383dc5bc176108974e29223f6708"
+    sha256 cellar: :any,                 arm64_ventura:  "cc486dc6c49d8e3d794134820b5b6978993461e28fe458f4f95d950aca498c10"
+    sha256 cellar: :any,                 arm64_monterey: "dbcaa077c1f422f752f65153081a114ad332627c0a16e58da85d7050d4b9e934"
+    sha256 cellar: :any,                 sonoma:         "aa95e2440ac4a1d22e6be37414c8382fa120b247d692479f7169222255cebcec"
+    sha256 cellar: :any,                 ventura:        "c5899247c77b22c56e8962e33803c5678a6f30316a134c752d61e072f77d0eb5"
+    sha256 cellar: :any,                 monterey:       "de2ccbc4f813008d10f83dd8646119bedac9125ab810ea7261998ede27f7e5a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6456598bf880230b79a65d1ba7133e9e594ac547495182afc6e1c70a51770529"
   end
 
   depends_on "autoconf" => :build

@@ -6,9 +6,11 @@ class EnpassCli < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e319fd53dd6c249bafcd11dcbf4f34f319ef339f6005d28d42615003e3ceb97f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "67158376301a2f3e721a54503975bd0e7c80cd41d19cd6f6ed4e958a4d5519e2"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "3886bf0f30fd5016e681694bf4bb97b3574faeae9bf9ac7739897a33719b2420"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8c56d9ddabab190cfaecdc750ed9012995cea8031e4a03388048b99b6e62ab1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a386e0725eaaa0b2834fa65f6734a61ba1638d2a65e15118b3e414a01d5fb672"
     sha256 cellar: :any_skip_relocation, ventura:        "595299a62c2019cc33106f208551d214e0e8021e796110bed6fb53c9c3c18136"
     sha256 cellar: :any_skip_relocation, monterey:       "4cacf3c72f633df99482e9735717dd6328526ff7b6f3f87f818bc90c7698ac8b"
     sha256 cellar: :any_skip_relocation, big_sur:        "a9f4ae75f92797bb83b3e7d3ddb8d4d7716fee9ea43d688edcb7099d7d176c70"

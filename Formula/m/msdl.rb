@@ -12,9 +12,11 @@ class Msdl < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "081c8df653ff58f6f08ae5758481e4fa94f4786f2465def703e93009f6ae91bd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a22fd7fd9ae5684a10a7646d42a1397b700a31db017be4a40e95ad37ce2d02b"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "2bbb7be167030b97337113482fe1007cf0f48a9fbc343f590b19c9964827e71e"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5afd80d5dc62ee3c7a65fe5214d2fe51d89f8eda7ae9bb358bab102f5dd65e6a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d1e540f838d6ed599d61c07efebd39d83021dfc9cc1eff67bc401a0fc924204b"
     sha256 cellar: :any_skip_relocation, ventura:        "f2dceb8e2a874043888797e3ad8693aa41babf5c080afe531169ee2fff4e180a"
     sha256 cellar: :any_skip_relocation, monterey:       "f41e17e53c1b292088d9f3160bbba5241b5e467e372c4ae860277038a4daf3e6"
     sha256 cellar: :any_skip_relocation, big_sur:        "a8703e042137fa27ddbda861bc9e04cea40edb5d3d3c6b4a90f5e850ee01326a"

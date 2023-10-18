@@ -21,7 +21,7 @@ class Cedille < Formula
   # We have various patches, inreplaces, and workarounds to get current release to build.
   # Stable uses stackage resolver lts-12.26 (ghc-8.4.4) while HEAD uses lts-13.25 (ghc-8.6.5).
   # Last release on 2019-12-13
-  deprecate! date: "2023-02-13", because: :unmaintained
+  disable! date: "2023-09-06", because: :unmaintained
 
   depends_on "haskell-stack" => :build
   depends_on "ghc@8.10"

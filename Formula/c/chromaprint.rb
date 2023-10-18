@@ -7,9 +7,11 @@ class Chromaprint < Formula
   revision 1
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "052ef41914f72d70ffd4bf09080bb9fabee04fa3831d040da2b1807434555c97"
     sha256 cellar: :any,                 arm64_ventura:  "9df7a9b08cf6557f60d607c26c2fec7644ed9c1ebb0291113930b02e2ca8c33c"
     sha256 cellar: :any,                 arm64_monterey: "d4479962c7c30dbc07c8d4639639198e8de0015f35ce7e3ac47c5e87e492333f"
     sha256 cellar: :any,                 arm64_big_sur:  "8ce15ae4efe13275af05b62e83fbcde65644d7baee3dd4ae37fae7007396b80c"
+    sha256 cellar: :any,                 sonoma:         "7aff1d8a3015c00f77013efba51891b6f636e3958aab7cb26804beb12c5b0073"
     sha256 cellar: :any,                 ventura:        "f3457e6b097e705e87d4c54ec7335c59365b7b307830ede26123810ae51eb0ba"
     sha256 cellar: :any,                 monterey:       "86d59168bfd57c19029084ea626953a99976361f4d0aadcdc6d51fbda8b8ca6b"
     sha256 cellar: :any,                 big_sur:        "f9df429a357d408b65f6e1e5effc720005bb75bc10e069891acbba25430b755d"

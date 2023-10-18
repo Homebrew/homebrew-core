@@ -6,9 +6,11 @@ class PowermanDockerize < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ebb68f8d4e6be6dcfe52f81c0742d9064ab3d2de324b42131c5093aec71cf40f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "22a49e6780e8e00a054aaa35c6749d21095d374eac84c5c773ff549b38adae4a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "22a49e6780e8e00a054aaa35c6749d21095d374eac84c5c773ff549b38adae4a"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "22a49e6780e8e00a054aaa35c6749d21095d374eac84c5c773ff549b38adae4a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4849868b3b65e767fe10d224cb1198eb1348aebdca5a58a8128cf3b706133490"
     sha256 cellar: :any_skip_relocation, ventura:        "8ab1eff297eb25f14338b89b7bd198978b3541e619203fa92ef2450b0045e098"
     sha256 cellar: :any_skip_relocation, monterey:       "8ab1eff297eb25f14338b89b7bd198978b3541e619203fa92ef2450b0045e098"
     sha256 cellar: :any_skip_relocation, big_sur:        "8ab1eff297eb25f14338b89b7bd198978b3541e619203fa92ef2450b0045e098"

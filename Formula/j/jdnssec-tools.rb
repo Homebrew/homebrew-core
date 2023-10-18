@@ -12,9 +12,11 @@ class JdnssecTools < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"
     sha256 cellar: :any_skip_relocation, ventura:        "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"
     sha256 cellar: :any_skip_relocation, monterey:       "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"
     sha256 cellar: :any_skip_relocation, big_sur:        "9cdfb19fee503d97618bc2987e71eb669405fe7bee91f5e911721300319a6b28"

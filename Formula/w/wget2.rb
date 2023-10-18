@@ -1,18 +1,23 @@
 class Wget2 < Formula
   desc "Successor of GNU Wget, a file and recursive website downloader"
   homepage "https://gitlab.com/gnuwget/wget2"
-  url "https://gitlab.com/gnuwget/wget2/uploads/83752270de83e103306576e67a1c7c80/wget2-2.0.1.tar.gz"
-  sha256 "0bb7fa03697bb5b8d05e1b5e15b863440826eb845874c4ffb5e32330f9845db1"
+  url "https://ftp.gnu.org/gnu/wget/wget2-2.1.0.tar.gz"
+  sha256 "a05dc5191c6bad9313fd6db2777a78f5527ba4774f665d5d69f5a7461b49e2e7"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?wget2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 arm64_ventura:  "fa4432f5f7ce4d83c9fe0a9e89b45f5c9f53c78915538081f8316232f16d363a"
-    sha256 arm64_monterey: "1d39d7e9074e73dd041b3c87e7461c39a9a077239cd6209b2b5cfe6ccfdb1b6e"
-    sha256 arm64_big_sur:  "11191e2efde22f9e98b6f3eb2e1640e720d795b0af23651d65ae4e542eb3a4f7"
-    sha256 ventura:        "b0a0dd524e72ca51c58433fd4f5371b1c7b9ad42a00709a29e9a1c6232f2813a"
-    sha256 monterey:       "e1e86a64b8229d64fc73a56cee68e281ea3f93465d1b22f2653704fed0e3f683"
-    sha256 big_sur:        "95703ee9f7a7c55fd50b3fbe4e77321d1db04ff77dfbae5f080099fa54b672eb"
-    sha256 x86_64_linux:   "7e240a02462644bc2da043b1c90332b62702115338b41eb55463b47620e3df4f"
+    sha256 arm64_sonoma:   "ef2a63a1dbdcbf6740e35e5f3eae82a1f42576a8efae930cb32f8f63917e7b85"
+    sha256 arm64_ventura:  "32529d4489f2d1b1b8e13c7ad927e3b59a41ce85dee1e97b0b2dea000f7a7975"
+    sha256 arm64_monterey: "cad93ddee2849136995c9cd0b445d0e100fcb28883b5a8636ebf30e125a524b9"
+    sha256 sonoma:         "919cd8a3394efb64eeb4f5e5299f660cd28fd5f7a548d45ac83fa9a7a17329f5"
+    sha256 ventura:        "135ee4db00d16eef5936f577333761dedca0587c3e178a37c03e38e09d83d41d"
+    sha256 monterey:       "781261bcd9d702f5dfa8af0ed877ed5b6e0b149ca4457b2ee7e451c577dc8ccb"
+    sha256 x86_64_linux:   "e88b3e5451829851b61086d3a3962ed71e14ec41264bcefdaf474f4782c1f427"
   end
 
   depends_on "doxygen" => :build

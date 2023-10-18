@@ -1,24 +1,25 @@
 class GopassJsonapi < Formula
   desc "Gopass Browser Bindings"
   homepage "https://github.com/gopasspw/gopass-jsonapi"
-  url "https://github.com/gopasspw/gopass-jsonapi/releases/download/v1.15.5/gopass-jsonapi-1.15.5.tar.gz"
-  sha256 "62d8df839014bad51d1b791837bc8348f7fdcafab0d04f0b7bf2b5d6f0dfc789"
+  url "https://github.com/gopasspw/gopass-jsonapi/archive/refs/tags/v1.15.8.tar.gz"
+  sha256 "753b1628ab379dea0cd4b599939fb46b11fdc46af76d049e7addc46477bf593c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2144d6478f58e8a2f3445d0df39b113d010e13d34d5e3ac2d7577e9df0d2e678"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "24e6056d727c53c72f9a99cc4777060cb98401f94210834f55fcb5ed8206fa91"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9b16dcd697d2f3f46a427b44fb3a8e16c159e9260f1c406be48c1d7c5ab5e3ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "184be6e31a1a355e872bc8148da6ceae2495957f4c0bd149cada086e8c5da34b"
-    sha256 cellar: :any_skip_relocation, monterey:       "9830a062979eb88c428c5aa5375bb20d2a5b0f7cc4d9935c1c3fb7574fbb0318"
-    sha256 cellar: :any_skip_relocation, big_sur:        "65626fee34841070b540c0cfb328b5d4531a463a7c11983febc96a065d9fb604"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b433230cf2363e07e50d496b804607cd72c9ba2cd3ad54de1174b4c989467e9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "62dc045602e90ae00c3451db8d9131ccf6f7f13da4969c712818a0104a51d924"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4fae49704230de1561bcba05b9ce45882cc5b65bbf56bfc913485b290309ff9a"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7ab7bd88ead1fabc6ceca36bea95aa0e03ccd0ace0233a4a724d53c97aa15a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb12bce8c366340839affc183e71f72193805beb94c0568bc7a42f44641b9bd9"
+    sha256 cellar: :any_skip_relocation, big_sur:        "a742f55cef8cd630b24fa2a93f3945543c57c7f1918b102fa31ed5bbe8851fd7"
   end
 
   depends_on "go" => :build
   depends_on "gopass"
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags)
   end
 
   test do

@@ -1,9 +1,8 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.14/hdf5-1.14.1/src/hdf5-1.14.1-2.tar.bz2"
-  version "1.14.1"
-  sha256 "06ca141d1a3c312b5d7cc4826a12737293ae131031748861689f6a2ec8219dbd"
+  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.14/hdf5-1.14.2/src/hdf5-1.14.2.tar.bz2"
+  sha256 "ea3c5e257ef322af5e77fc1e52ead3ad6bf3bb4ac06480dd17ee3900d7a24cfb"
   license "BSD-3-Clause"
   version_scheme 1
 
@@ -16,13 +15,15 @@ class Hdf5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "7c35ff76ffa9e03f4d15d425b36dedcbc170bed76ca0c952c0c7417905e74d3e"
-    sha256 cellar: :any,                 arm64_monterey: "0837642c582c884d599e431a54753a30a3677b8593db7ef3839c17c9aa81a7d3"
-    sha256 cellar: :any,                 arm64_big_sur:  "b73d496f32da12d8f040ba9f411e87a0199bd84fa9a7330a803fba8bdf6beda9"
-    sha256 cellar: :any,                 ventura:        "2b9e98f21f33db5b7faa4fdf0697d1a1346c63bbcb60f4f73fc1788be2b16408"
-    sha256 cellar: :any,                 monterey:       "cf923612b266c346a32d4034cbebaed3de947fa8aae9519754dd0e9e4e3e9c7a"
-    sha256 cellar: :any,                 big_sur:        "936cfbf0a008863e9fc75381954bdc15e6fb64bca06d6456344716125d5f2c34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef4c0eb89d59d77e5d9aae54c6e583c1466f7da8fc0e39987f454dd0190f0b73"
+    sha256 cellar: :any,                 arm64_sonoma:   "0fca5aa27e81901cae50eddb31961ff6ac3d5ef0bd1a4f9992691f771eb6c8f3"
+    sha256                               arm64_ventura:  "d7937cb86dc74c3b6eacf7ee2d142f547092899f09f6ba03497ef3370e86be09"
+    sha256                               arm64_monterey: "fce8da58007c0dad59640e772ded2a6b58055601bdaaa0eae0db384271732ac6"
+    sha256                               arm64_big_sur:  "4a6818c1d1c1843bae91b70109ea0dd53f9b40d4c727a69a5dee1300a7affd83"
+    sha256 cellar: :any,                 sonoma:         "4b2f2167c61ed56a39e7cda8b4487475f7ac8995c316a2daeeea672a704ad305"
+    sha256                               ventura:        "8931c55bf346db757d5ecd23a2954678f8f499a6610e9e07e5efe03a96f2cd40"
+    sha256                               monterey:       "2dd05b4133847587c17f8e314a9a2faaec824df85806054f112bd44ffecd5b82"
+    sha256                               big_sur:        "0f1e5e49b137a5a5a719c56c3ff08cc30d6575ec8d4b76ae7f8936d65763ff7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37d555a1dda054baa2cac22e32e53d85413efca211e490c94a1880547a705911"
   end
 
   depends_on "autoconf" => :build
@@ -36,6 +37,10 @@ class Hdf5 < Formula
   conflicts_with "hdf5-mpi", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
   def install
+    # Work around incompatibility with new linker (FB13194355)
+    # https://github.com/HDFGroup/hdf5/issues/3571
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
     inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
               "${libdir}/libhdf5.settings",
               "#{pkgshare}/libhdf5.settings"

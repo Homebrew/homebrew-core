@@ -13,9 +13,11 @@ class Stp < Formula
   end
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "2ec3f56f211575a5fd5790b8adf782993496f0f97a7e2b5a0ec0471781edae40"
     sha256 cellar: :any,                 arm64_ventura:  "11f98021c059c0b510d2a7d0245037832b3b3a7348a43b15f19a849d5a11e9d6"
     sha256 cellar: :any,                 arm64_monterey: "6daedfc806728ad067500b9cce8aae26b76c2026317b90f6aeb9cdadd3979f95"
     sha256 cellar: :any,                 arm64_big_sur:  "cd1329b5f9035e9add08a7cbd12b5ed644cd49dfbb9c5468377ef423cebedd93"
+    sha256 cellar: :any,                 sonoma:         "84e00fa0ffb5360181a6f5526b87ab4b837ad21f6d443676b3c920692d7592cd"
     sha256 cellar: :any,                 ventura:        "bd2c430c8ab7bc3bedff913245869da6c3b6715cdb6329ea077a497c67301f01"
     sha256 cellar: :any,                 monterey:       "f17957b6ca37ee88003ea4d66b98b409d0c2bb39116089858742fe5496082060"
     sha256 cellar: :any,                 big_sur:        "8f4b0d7f28d70fd02d5b7afef3d1efec1b0313e3477c96274c7e7aab35757cb4"

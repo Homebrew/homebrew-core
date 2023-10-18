@@ -13,9 +13,11 @@ class OneMl < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "207e335ea41c537930e2683266f8995d50faa3619d9ae8ed5de3b671aafcbfdb"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "64459d8c45af5876e383b215b4e717ae48d897a33c0dd456bf8ba33cb383a4a8"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "368f5935a15438e05e77d4293c36e2922b552b890e16819848de0c0d67a63856"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f160c6c8c3c5f2bdaa67f5b6a478718d622defd245d2c2cc292f3bb9eb7c9de1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "27b7971ea9c937351fb074cd81ca3f3434aa1f3816e90a54399fbbd2ffb3484a"
     sha256 cellar: :any_skip_relocation, ventura:        "ca2bfa6656aa76e091ffa4b6b8cf56701931658911e2d84f010d6b98860ad6b3"
     sha256 cellar: :any_skip_relocation, monterey:       "e7bfeee525cb93ea0115f8d68e3f2efb1392394bf0811869d1db7f54bc9bd783"
     sha256 cellar: :any_skip_relocation, big_sur:        "bc39abea38a72c696d33bc62d13f21c2ed32cd45ee8a6ab66f78d2a9b654961e"

@@ -8,9 +8,11 @@ class Geoip < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "8654c865535c713142b5c4ac3dffc246a0651c06b60111983c043fcad880da3e"
     sha256 cellar: :any,                 arm64_ventura:  "40ef31c663a905f3786b8e410f651ee97cc0ae805d7c22d52c20b9c518ba12ba"
     sha256 cellar: :any,                 arm64_monterey: "c2ae63b815cc930a90d57c78a1d7a51a57085d67aa20431db716982353a950b2"
     sha256 cellar: :any,                 arm64_big_sur:  "fd8787e3b88f91d97504992874d3fd358c6865e03fc19c5123b8e7f1a691f0dd"
+    sha256 cellar: :any,                 sonoma:         "882a5b16b7c412deb991c2719b2c0b046b37afe618ea575f821baffb56667b9c"
     sha256 cellar: :any,                 ventura:        "8fea8cddc3695facc75949f58d6c6b71763cc85be37cfe812f58591234e6f0e6"
     sha256 cellar: :any,                 monterey:       "f441710caf103a53272a50e4720f1885f858986c6306fcc4a078ef8d193cca59"
     sha256 cellar: :any,                 big_sur:        "a3bcb8d9c69277cb943fa30f00715325ee1c4f0c3e9aeb58e0c4a288f6705313"

@@ -1,15 +1,17 @@
 class MariadbAT103 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.3.39/source/mariadb-10.3.39.tar.gz"
+  url "https://archive.mariadb.org/mariadb-10.3.39/source/mariadb-10.3.39.tar.gz"
   sha256 "18bd51c847565af4da18748b052ab9bcbb569ab6e6766ca8da7dcca1f941f876"
   license "GPL-2.0-only"
 
   bottle do
     rebuild 1
+    sha256 arm64_sonoma:   "21a23ab05ca1eb330f3048fbb31702e4e990915dccefa902c6c72df33d828cc5"
     sha256 arm64_ventura:  "77eaf32d21e17300b3a3b11590a4ed1861b3d3267936bbfe258d4275fd8cfb9b"
     sha256 arm64_monterey: "bc11e66921738b0b77b602e876996cf41a0d927c46a72d7dcbd5a095174ff515"
     sha256 arm64_big_sur:  "9e4d0cd0ed3d195e4fa3367688d7bc8e527121790b6879efb1498ccceac67a48"
+    sha256 sonoma:         "7c67843cb334d786288e8b7384504ff65588b5b27e13bca113aca60dd1632c52"
     sha256 ventura:        "15fc82772ae37361c538e4202fe3a8f5d9425805222cd332dcba00da3021747a"
     sha256 monterey:       "14a19472312798a7ee55c4a970f2cce41d72af5999cd0170c2537cc1f846bec3"
     sha256 big_sur:        "9cf8aba1bf6cd89bc999bbfea106bd303c13b260eeb9999c9bf3bc6be8664994"

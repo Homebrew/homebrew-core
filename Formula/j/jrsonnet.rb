@@ -13,9 +13,11 @@ class Jrsonnet < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8612efbafac8310f5542bc1a928c064853db67955dfd30c7678afa8d21ef9fbc"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d0249acf621ed487cffb828cc63c2210749a30de553f0f0cb48c9b00a15c545"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "662dbf19789e9f681e4c325d2814b1e77ef88174e6b9083d6793192bd5ac1523"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "66be41438ed1da22c922c59d3da10a1852b89491898881c2bcd25c114abd4852"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b149496a8055b9dffca8be4eb576f62af266ac219c7010603924fca8ddd06f79"
     sha256 cellar: :any_skip_relocation, ventura:        "9fc6a73c2b9c251038f317bef54054b598620d687872ccae2da6cad585ecb14d"
     sha256 cellar: :any_skip_relocation, monterey:       "89080991d6ec832d7fa2d868a4323e08921291a01100797a7343790b3ab30088"
     sha256 cellar: :any_skip_relocation, big_sur:        "8e96db079868f110cd8b9fc4b29a1340bd5539ab1740928d8c2a8d8a7c34b25e"

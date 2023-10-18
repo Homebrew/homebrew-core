@@ -9,17 +9,18 @@ class LiterateGit < Formula
   revision 13
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "31e0c7b5e24fa754a3a9c093101535e64af4a5e00618fdfe4eea06afcca8ad2e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "268a50887b3929b544fed71277bd93e65c8285fed93d3d81d70b30391fae72d6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e2f80196bf354dc363f82bfacc81bb8872deee508d1f8b2b3fec34d7d64e3c7a"
-    sha256 cellar: :any_skip_relocation, ventura:        "c4270a2bc1b79e32660ad64483746ef2c734a898edd98453976a468903b2c93f"
-    sha256 cellar: :any_skip_relocation, monterey:       "68117dad13005e6bbb6ec4b3e6759137d5a6c2cc9a1a3dc2081cdf4a39b6c637"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9127986e4e878f5711f623f7198d10718e916528ebf81d2d8f70cf901e209fbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfdb32662011363420758133f66f4837af84e07ebdae57cf9416057eb66bf815"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0cd32e71d7baa8294ba9e5a96d1f2d4a9b8636400edc318ca4304a211eae1214"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baa5a9e80ba8baa757e8789707f2e5887e033b6f07bfd1527958da5f371ebaa0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2489e45f80607cd254a45ad5305354bcd9b4d75ca0b240741b5d708ccbfdff2c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "16409a7fbafec31f497b8c040e5545a7c2c8fab4b89b6c5b5571552c1e8d08b3"
+    sha256 cellar: :any_skip_relocation, ventura:        "7e98af7191191c34a8a097b17835b381125727c9b30e1f38f88266a7d37c482a"
+    sha256 cellar: :any_skip_relocation, monterey:       "979a60d584834894bd7721bdc284f6e8908fcff77ce19aec6f681d43b86f41d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "141ab2bcfbcedbd95944f7e4ff94b27ec174cf8fd771a20c57c6d4b97a1361ea"
   end
 
   depends_on "pygit2"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   on_linux do
     depends_on "pkg-config" => :build

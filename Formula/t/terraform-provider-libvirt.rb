@@ -1,25 +1,25 @@
 class TerraformProviderLibvirt < Formula
   desc "Terraform provisioning with Linux KVM using libvirt"
   homepage "https://github.com/dmacvicar/terraform-provider-libvirt"
-  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/v0.7.1.tar.gz"
-  sha256 "a540d3f5fc6afc7ee7759d03a43f85df7af2263fdfa6d73a8014fb4f5c480fa5"
+  url "https://github.com/dmacvicar/terraform-provider-libvirt/archive/v0.7.4.tar.gz"
+  sha256 "050437a9681bebe686ebad7ae1a6b0004238302a5775169f47403cc79392741f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "335b225a4a6dd7fd48fc292ae3829ad26f01365f271a9b4c7d965bdc1c1233fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a99d4558f10f6d9a24860ba42908e0fd6e5704c6218477d1ccb20268c25d199"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d0fe876c72f0393c1afa0419c0153b1cc42fb8d76340413b447e6feb12c2c82c"
-    sha256 cellar: :any_skip_relocation, ventura:        "90e16f849bb32ed97d4558e7748fdf825602211f2abf25248f34521460f4e258"
-    sha256 cellar: :any_skip_relocation, monterey:       "53ee35a68dee46b5d4130c8bd40fd7aa980f6567935f837c31e5fc2ee3e7ed87"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5f342b2c06761eb27b0fde6a3a81a7a26563e72020df3296547fe04dd48dc0c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5d4e59ee77616ee37b6821d033bfef567d930e06162cec6c1525a72a87a3f2c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "90548fa91fc56460e4cae6098316b93c8974b8fad6f16b75ff6bee73e69a9de3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6d8267f576d037d634ff965a68f6df32711bc925917d6e73bcaca6bb65589e1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a2df226c41bc52e85ca841ee43307cfce5bb65c338a65052b8383f0e8bf90d3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "53dfeae3c4517a1547ad0ce5b406721798c3175d923c302a30197b4d0670f15f"
+    sha256 cellar: :any_skip_relocation, ventura:        "9ec67c174a7791c9dd0687386af384303606e9057f1a01578c06b7a461093890"
+    sha256 cellar: :any_skip_relocation, monterey:       "4c23174db4b57b2ab0a3c50b2e77f4b848701c5392e4509b62a0d26f7e9333d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51e0f7463a1a18e5061c3dbd03c5367c720eb6e50698481f99da290881d13ec5"
   end
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
 
   depends_on "libvirt"
-  depends_on "terraform"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}")

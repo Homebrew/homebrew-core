@@ -12,9 +12,11 @@ class Gopls < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "66a539f6c9e0929bc583ee8e9f398722287685e5f4e6143f29624c12c1ccc28e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a70553eebb2218b4062c6b452eb7a5168e33224eaa396e847c45abb1825fbf5e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "be814087f6076a7dfe35dd081c0ba4f19f7ea8f0afb02e6ca67e6d6903b379c7"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c8e143169671f2de627e2eafb1aeaa01fd2f968b3c4d3f3a099203bb1bfeaa02"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dfce79d6bcd3367feadd17044f1bdfb43e8bee2d359bf8ea178ed4eb0e6c182d"
     sha256 cellar: :any_skip_relocation, ventura:        "387c68defd0858cd6a1b10faa3ffe257c07690de0839613d7e28da2371c7cb6c"
     sha256 cellar: :any_skip_relocation, monterey:       "b23844b76ed2804c6d3542b674d4de76d2efc1fc8f15866f34254e888382933d"
     sha256 cellar: :any_skip_relocation, big_sur:        "e6ee2673f9a1fdb85b7992d2dd8bd06f3dc1b924159eedc87099c11fcfa27265"

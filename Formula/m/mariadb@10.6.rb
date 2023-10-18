@@ -1,21 +1,16 @@
 class MariadbAT106 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://downloads.mariadb.com/MariaDB/mariadb-10.6.15/source/mariadb-10.6.15.tar.gz"
+  url "https://archive.mariadb.org/mariadb-10.6.15/source/mariadb-10.6.15.tar.gz"
   sha256 "b2f6bdba17ead4d91c4d254fafc34a728ac6b027dd1d7178bc26758dce694335"
   license "GPL-2.0-only"
 
-  # This uses a placeholder regex to satisfy the `PageMatch` strategy
-  # requirement. In the future, this will be updated to use a `Json` strategy
-  # and we can remove the unused regex at that time.
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
-    regex(/unused/i)
-    strategy :page_match do |page|
-      json = JSON.parse(page)
+    strategy :json do |json|
       json["releases"]&.map do |release|
         next unless release["release_number"]&.start_with?(version.major_minor)
-        next unless release["status"]&.include?("stable")
+        next if release["status"] != "stable"
 
         release["release_number"]
       end
@@ -23,9 +18,11 @@ class MariadbAT106 < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "fc08339c424612ac31095b558e8e9183b7ae96002978697ff73bd7b4ff32e2c8"
     sha256 arm64_ventura:  "22ec94bbc067f0d7e73b48f753ce7956eb6319fcceeb6c501e6f9f9a1cc924e2"
     sha256 arm64_monterey: "c506cba757b65545f6abe0fca3ffe55af36641f22a5cb60bdd7f1fe22c29b8e6"
     sha256 arm64_big_sur:  "4cc0367b7fd5c0d19ded36a75175c43673ee654167a142bc5c1eced86b89c135"
+    sha256 sonoma:         "c4609b76091ba2b29e244bb51ebc88fc49cd056e43a895c7884027e4491e36af"
     sha256 ventura:        "5988ea3e711d350123e412d3c81776527bfc070cc60c17cc20d1540b01e66be5"
     sha256 monterey:       "68fda77447d84bf7c4d31405a07fb5387b97f606bfe53a43fa230eedafa0326e"
     sha256 big_sur:        "f10268b56a2c11ad6b117ffddedddf5658ae8731a354cf2173476aa48c0e2f0a"

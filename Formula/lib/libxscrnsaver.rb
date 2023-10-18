@@ -6,9 +6,11 @@ class Libxscrnsaver < Formula
   license "MIT"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "b2b4a894b7f7ee7f077af223b68814ab6c4a4e8d41de227642fbd373de36e0f7"
     sha256 cellar: :any,                 arm64_ventura:  "0a1e6445b137a59fcb7b2abf72065758997cfefcd36e8ba8f9875e52bb01fd3c"
     sha256 cellar: :any,                 arm64_monterey: "c04b841bd76e8d06c9b37ae51c091ee1724d7b72df939cc8361bbe0441d4166e"
     sha256 cellar: :any,                 arm64_big_sur:  "75b9fc38234ddaf88aaad59f366053812401497beebca2bbea4d69afcf228083"
+    sha256 cellar: :any,                 sonoma:         "7f3bc86175531a13ab81be6d014a90ea1e63b4c2ae5ce1a0216c9d994b664edc"
     sha256 cellar: :any,                 ventura:        "2ddac267bc14039812c5c7af3af9732d5919ed7b9a873dc5589613f69c106b0a"
     sha256 cellar: :any,                 monterey:       "28b52ebe202f8695e20fbb36d7a66cbbd9d22a4cffa3339a4903247707a18cf1"
     sha256 cellar: :any,                 big_sur:        "a2a6fb8407b5aaebe67b79704c480a1466f3473929291d2416fb36b187a7b552"

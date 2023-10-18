@@ -1,20 +1,17 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/brpc/1.6.0/apache-brpc-1.6.0-src.tar.gz"
-  sha256 "06ff4adebc720bf1529b03ade872cbd41c6ed69971e6e0d210d57d7b72856bd4"
+  url "https://dlcdn.apache.org/brpc/1.6.1/apache-brpc-1.6.1-src.tar.gz"
+  sha256 "7bea77e2f28d33480bf2c6dfe171077e0b51d5d56fcc5d7a1dd7cc5702620e4c"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "416efe5f9ad82c73e8e014765b9a86013602d12614093a616a7fe65a9b6b4ab3"
-    sha256 cellar: :any,                 arm64_monterey: "7d548498fe23338a9b037bb7acb16737435ae5ad4f33de8f1044ab91dfb8d9dc"
-    sha256 cellar: :any,                 arm64_big_sur:  "67a025037aa2fabd36b5a4aec29c022a3ec7fff9a47e90152a0ba27e3619d786"
-    sha256 cellar: :any,                 ventura:        "1cc8d7c34068d97ee7d5aca3fb6d7174cc563c7b66b80a35b17b1fcbd358736b"
-    sha256 cellar: :any,                 monterey:       "e08fdd6ae58eb71138754e7e4ebdd594bac9b7a9572e0c7e071024340d539e68"
-    sha256 cellar: :any,                 big_sur:        "eaff28b5d66368f73e6d559e8e6af03c9ffafe1c6ce5b0fcaac5775a755df6fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79e57115da4a1f549c4f5d919754cf5693536fd199c30d1747f6b5059032477f"
+    sha256 cellar: :any,                 arm64_ventura:  "0694f50284159f02ea36fa531b8e6aec9aa0405395f71b7446b01d341289a31c"
+    sha256 cellar: :any,                 arm64_monterey: "75ef2dea505e6346555de1072c9a4097d2083db9e132f288c2019eb79c3442d3"
+    sha256 cellar: :any,                 ventura:        "9da00fce05ce3d5bed17ba53e7b7d31a82682b15548258c6ba3ebfa5e821b0e6"
+    sha256 cellar: :any,                 monterey:       "b897f1411027a4abcc69cf7e8d536c00136b20e377046c756c7e202d267d64e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84e5c646dab222a86bde6e4a14e3cd8c8314a968cb05255af113afe8a6faaffb"
   end
 
   depends_on "cmake" => :build
