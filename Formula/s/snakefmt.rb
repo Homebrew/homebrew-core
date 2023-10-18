@@ -6,6 +6,7 @@ class Snakefmt < Formula
   url "https://files.pythonhosted.org/packages/40/bd/86b3e22ada4ced9529739b6ec7004c3f5b3cadf31c83bb4ce3e9650b5a2e/snakefmt-0.8.5.tar.gz"
   sha256 "5aa5182dbbbeb84d477dd0f5a9eeeba41bac1f185cfd4897a0b005d4af59ba71"
   license "MIT"
+  revision 1
   head "https://github.com/snakemake/snakefmt.git", branch: "master"
 
   bottle do
@@ -20,12 +21,12 @@ class Snakefmt < Formula
 
   depends_on "black"
   depends_on "python-toml"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
     virtualenv_install_with_resources
 
-    site_packages = Language::Python.site_packages("python3.11")
+    site_packages = Language::Python.site_packages("python3.12")
     black = Formula["black"].opt_libexec
     (libexec/site_packages/"homebrew-black.pth").write black/site_packages
   end
