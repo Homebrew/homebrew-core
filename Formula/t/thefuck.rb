@@ -22,7 +22,8 @@ class Thefuck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa50d5f202ecb6c751b1f8da9c2e943992bfc182bb6dfaa8b4ffdb46514e0225"
   end
 
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
   depends_on "six"
 
   resource "colorama" do
