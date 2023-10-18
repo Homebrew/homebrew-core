@@ -1,8 +1,8 @@
 class SbomTool < Formula
   desc "Scalable and enterprise ready tool to create SBOMs for any variety of artifacts"
   homepage "https://github.com/microsoft/sbom-tool"
-  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "aa7548ff0720a375984b25cddac4a8e252f85b9523a7a357ab20c3d282a5bb92"
+  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "f7487309131645d48c9b30e60913fa0ff1bda6d8c0657a6a508acd4564822d21"
   license "MIT"
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
@@ -27,18 +27,12 @@ class SbomTool < Formula
   uses_from_macos "icu4c" => :test
   uses_from_macos "zlib"
 
-  # patch to use mono.unix to support arm builds
-  # upstream PR ref, https://github.com/microsoft/sbom-tool/pull/409
-  patch do
-    url "https://github.com/microsoft/sbom-tool/commit/dd411c551220fbb579e58c4464b284d2a6781080.patch?full_index=1"
-    sha256 "d99878256a1ce470d0f424c86215ab07c5381cc29ee83c90129166899057a6fb"
-  end
-
   def install
     bin.mkdir
 
     dotnet_version = Formula["dotnet"].version.to_s
-    inreplace "./global.json", "7.0.400", dotnet_version
+    inreplace "./global.json", "8.0.100-rc.2.23502.2", dotnet_version
+    inreplace "./Directory.Build.props", "net6.0;net8.0", "net6.0;net7.0"
 
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "true"
 
@@ -57,6 +51,7 @@ class SbomTool < Formula
       -p:IncludeAllContentForSelfExtract=true
       -p:DebugType=None
       -p:DebugSymbols=false
+      -p:TargetFrameworks=net7.0
     ]
 
     system "dotnet", "publish", "src/Microsoft.Sbom.Tool/Microsoft.Sbom.Tool.csproj", *args
