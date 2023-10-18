@@ -6,6 +6,7 @@ class Yamllint < Formula
   url "https://files.pythonhosted.org/packages/29/50/fd0b7b1e1f36327521909236df2d6795baebc30b4a0cb943531ff6734eb7/yamllint-1.32.0.tar.gz"
   sha256 "d01dde008c65de5b235188ab3110bebc59d18e5c65fc8a58267cd211cd9df34a"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
@@ -20,12 +21,12 @@ class Yamllint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fdb5f2a3b54744ed76215cb4f1aeb491194b244dfb16b2a929b97e7a03de7a0"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
 
   resource "pathspec" do
-    url "https://files.pythonhosted.org/packages/95/60/d93628975242cc515ab2b8f5b2fc831d8be2eff32f5a1be4776d49305d13/pathspec-0.11.1.tar.gz"
-    sha256 "2798de800fa92780e33acca925945e9a19a133b715067cf165b8866c15a31687"
+    url "https://files.pythonhosted.org/packages/a0/2a/bd167cdf116d4f3539caaa4c332752aac0b3a0cc0174cdb302ee68933e81/pathspec-0.11.2.tar.gz"
+    sha256 "e0d8d0ac2f12da61956eb2306b69f9469b42f4deb0f3cb6ed47b9cce9996ced3"
   end
 
   def install
