@@ -6,7 +6,7 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/12/ae/4c403b94984adaa3859a829d1b99e2bd8cf65c06c6cb950111467d4cbb39/nbdime-3.2.1.tar.gz"
   sha256 "31409a30f848ffc6b32540697e82d5a0a1b84dcc32716ca74e78bcc4b457c453"
   license "BSD-3-Clause"
-  revision 5
+  revision 6
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0279eea8459630f6cc1725d85ea08046c6cbe61d2e0eb2528888e375393a7628"
@@ -21,7 +21,7 @@ class Nbdime < Formula
   depends_on "rust" => :build # for rpds-py
   depends_on "jupyterlab" # only to provide jupyter-server and nbconvert
   depends_on "python-certifi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -66,7 +66,7 @@ class Nbdime < Formula
   end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
