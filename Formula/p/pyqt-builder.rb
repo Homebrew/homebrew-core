@@ -4,6 +4,7 @@ class PyqtBuilder < Formula
   url "https://files.pythonhosted.org/packages/21/e9/5ee4d76d3f4c566b090924e36da067748db948a5faeff4142d149a4d5a15/PyQt-builder-1.15.3.tar.gz"
   sha256 "5b33e99edcb77d4a63a38605f4457a04cff4e254c771ed529ebc9589906ccdb1"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
+  revision 1
   head "https://www.riverbankcomputing.com/hg/PyQt-builder", using: :hg
 
   bottle do
@@ -16,11 +17,11 @@ class PyqtBuilder < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "67a555c0f6971097fbeb140dc5bd01d16f576bf78d70b0e55d73a269e3366809"
   end
 
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "sip"
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
