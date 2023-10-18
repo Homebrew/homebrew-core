@@ -1,8 +1,8 @@
 class Ospray < Formula
   desc "Ray-tracing-based rendering engine for high-fidelity visualization"
   homepage "https://www.ospray.org/"
-  url "https://github.com/ospray/ospray/archive/refs/tags/v2.12.0.tar.gz"
-  sha256 "268b16952b2dd44da2a1e40d2065c960bc2442dd09b63ace8b65d3408f596301"
+  url "https://github.com/ospray/ospray/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "d8d8e632d77171c810c0f38f8d5c8387470ca19b75f5b80ad4d3d12007280288"
   license "Apache-2.0"
   head "https://github.com/ospray/ospray.git", branch: "master"
 
@@ -25,24 +25,16 @@ class Ospray < Formula
   depends_on "cmake" => :build
   depends_on "embree"
   depends_on "ispc"
-  depends_on macos: :mojave # Needs embree bottle built with SSE4.2.
   depends_on "tbb"
 
   resource "rkcommon" do
-    url "https://github.com/ospray/rkcommon/archive/refs/tags/v1.11.0.tar.gz"
-    sha256 "9cfeedaccdefbdcf23c465cb1e6c02057100c4a1a573672dc6cfea5348cedfdd"
+    url "https://github.com/ospray/rkcommon/archive/refs/tags/v1.12.0.tar.gz"
+    sha256 "6abb901073811cdbcbe336772e1fcb458d78cab5ad8d5d61de2b57ab83581e80"
   end
 
   resource "openvkl" do
-    url "https://github.com/openvkl/openvkl/archive/refs/tags/v1.3.2.tar.gz"
-    sha256 "7704736566bf17497a3e51c067bd575316895fda96eccc682dae4aac7fb07b28"
-
-    # Fix CMake install location.
-    # Remove when https://github.com/openvkl/openvkl/pull/18 is merged.
-    patch do
-      url "https://github.com/openvkl/openvkl/commit/67fcc3f8c34cf1fc7983b1acc4752eb9e2cfe769.patch?full_index=1"
-      sha256 "f68aa633772153ec13c597de2328e1a3f2d64e0bcfd15dc374378d0e1b1383ee"
-    end
+    url "https://github.com/openvkl/openvkl/archive/refs/tags/v2.0.0.tar.gz"
+    sha256 "469c3fba254c4fcdd84f8a9763d2e1aaa496dc123b5a9d467cc0a561e284c4e6"
   end
 
   def install
