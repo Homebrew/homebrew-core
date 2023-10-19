@@ -12,6 +12,6 @@ class Pciutils < Formula
   end
 
   test do
-    assert_match "lspci version", shell_output("#{bin}/lspci --version")
+    assert_match "lspci version", shell_output("#{sbin}/lspci --version")
   end
 end
