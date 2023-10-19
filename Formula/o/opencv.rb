@@ -35,6 +35,7 @@ class Opencv < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "openexr"
+  depends_on "openjdk"
   depends_on "openjpeg"
   depends_on "openvino"
   depends_on "protobuf"
@@ -66,6 +67,8 @@ class Opencv < Formula
   def install
     resource("contrib").stage buildpath/"opencv_contrib"
 
+    ENV["JAVA_HOME"] = Language::Java.java_home
+
     # Avoid Accelerate.framework
     ENV["OpenBLAS_HOME"] = Formula["openblas"].opt_prefix
 
@@ -92,7 +95,7 @@ class Opencv < Formula
       -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
-      -DBUILD_opencv_java=OFF
+      -DBUILD_JAVA=ON
       -DBUILD_opencv_text=ON
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
@@ -172,5 +175,18 @@ class Opencv < Formula
 
     output = shell_output("#{python3} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
+
+    (testpath/"Test.java").write <<~EOS
+      import org.opencv.core.Core;
+
+      public class Test {
+        public static void main(String[] args) {
+          System.out.print(Core.VERSION);
+        }
+      }
+    EOS
+
+    output = shell_output("#{Formula["openjdk"].opt_bin}/java -cp #{share}/java/opencv#{version.major}/opencv-#{version.to_s.delete "."}.jar Test.java")
+    assert_equal output.strip, version.to_s
   end
 end
