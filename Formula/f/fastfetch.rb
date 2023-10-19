@@ -32,6 +32,7 @@ class Fastfetch < Formula
     depends_on "libxrandr" => :build
     depends_on "mesa" => :build
     depends_on "opencl-icd-loader" => :build
+    depends_on "pciutils" => :build
     depends_on "pulseaudio" => :build
     depends_on "rpm" => :build
     depends_on "wayland" => :build
