@@ -6,7 +6,7 @@ class Ansible < Formula
   url "https://files.pythonhosted.org/packages/37/6e/53718ca07b7c46ac4777f9d1b13480cbe0b04f6a686c8436029f00ce25be/ansible-8.5.0.tar.gz"
   sha256 "327c509bdaf5cdb2489d85c09d2c107e9432f9874c8bb5c0702a731160915f2d"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
@@ -30,7 +30,7 @@ class Ansible < Formula
   depends_on "python-markupsafe"
   depends_on "python-packaging"
   depends_on "python-pytz"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -501,17 +501,14 @@ class Ansible < Formula
     sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
   end
 
+  def python3
+    "python3.12"
+  end
+
   def install
-    venv = virtualenv_create(libexec, "python3.11")
-    # Install all of the resources declared on the formula into the virtualenv.
-    resources.each do |r|
-      # ansible-core provides all ansible binaries
-      if r.name == "ansible-core"
-        venv.pip_install_and_link r
-      else
-        venv.pip_install r
-      end
-    end
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources.reject { |r| r.name == "ansible-core" }
+    venv.pip_install_and_link resource("ansible-core")
     venv.pip_install_and_link buildpath
 
     resource("ansible-core").stage do
@@ -531,7 +528,7 @@ class Ansible < Formula
     EOS
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
-      " ansible_python_interpreter=#{Formula["python@3.11"].opt_bin}/python3.11",
+      " ansible_python_interpreter=#{which(python3)}",
       "\n",
     ].join
     system bin/"ansible-playbook", testpath/"playbook.yml", "-i", testpath/"hosts.ini"
