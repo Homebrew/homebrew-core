@@ -13,6 +13,23 @@ class Csvlens < Formula
   end
 
   test do
-    assert_match "csvlens #{version}", shell_output("#{bin}/csvlens --version")
+    require "pty"
+    (testpath/"test.csv").write <<~EOS
+      a,b
+      1,2
+    EOS
+
+    expected = "────────────────────────ab───┬────────────┬───────1│1    2    │││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││││───┴────────────┴───────"
+    expected += String(testpath/"test.csv")[0, 24]
+
+    PTY.spawn(bin/"csvlens", testpath/"test.csv") do |r, w, _pid|
+      r.winsize = [80, 24]
+      sleep 1
+      w.write "q"
+
+      # remove ANSI escape sequences
+      output = r.read.gsub(/\e\[[?0-9;]*[a-zA-Z]/, "")
+      assert_equal expected, output
+    end
   end
 end
