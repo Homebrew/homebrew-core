@@ -6,7 +6,7 @@ class Molecule < Formula
   url "https://files.pythonhosted.org/packages/e6/60/cc687cbccfb3543b17ba5d404007f7e43edcb7fa3c780b4f9ec1cadee83f/molecule-6.0.2.tar.gz"
   sha256 "b919353f799746de60b16a27575627783e39c268fdf2f2aa0372f0162c7b5478"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "b93233a3ca9a340faacd1576218557ebdcf8cdfef86f893e823a7786cd3d6c9f"
@@ -23,7 +23,7 @@ class Molecule < Formula
   depends_on "pygments"
   depends_on "python-cryptography"
   depends_on "python-packaging"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 
