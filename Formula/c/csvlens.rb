@@ -13,6 +13,7 @@ class Csvlens < Formula
   end
 
   test do
+<<<<<<< HEAD
     require "pty"
     (testpath/"test.csv").write <<~EOS
       a,b
