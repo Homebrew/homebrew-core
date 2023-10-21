@@ -35,7 +35,15 @@ class GitCola < Formula
   end
 
   def install
+    python = Formula["python@3.11"].opt_bin / "python3"
+    ENV["PYTHON3"] = python
+    ENV["PYTHON"] = python
+
     virtualenv_install_with_resources
+    if OS.mac?
+      system "make", "git-cola.app"
+      prefix.install "git-cola.app"
+    end
   end
 
   test do
