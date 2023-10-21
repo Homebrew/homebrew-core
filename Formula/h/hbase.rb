@@ -8,15 +8,13 @@ class Hbase < Formula
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 arm64_sonoma:   "8817a041256c7ad95c209f22fd077dc9c1310021aea1aa9b292cd565d1224195"
-    sha256 arm64_ventura:  "6400435842e8f2edf816b9af23f4ab9c00b5639f859cf5ef3a5cc68e26b30123"
-    sha256 arm64_monterey: "c32b8a50722f8b35055fe7c2d62ff956cf770532d113afe18838038569fd1c4f"
-    sha256 arm64_big_sur:  "5fdb6328e82f98cc6173dece2d4b34cd0e2d79bf05098885ef80d2ffff570275"
-    sha256 sonoma:         "62998cc9ee781d8e9ad3409fc66104050003cef132f45a29f429e019b3b0f81b"
-    sha256 ventura:        "390a07e142a55cbb2d78a3926e77f6f70bc8b558a90a593539f42e6c0d7ed300"
-    sha256 monterey:       "fe466790727db6fc4fd1a422f2590c0f00f6398d0bd75f9c229d8fddef704ddd"
-    sha256 big_sur:        "39a385d2b54c451a95b4bc6fe6c79a8aa76fbf6c34430206e7d6b0c3d02a182a"
-    sha256 x86_64_linux:   "34cf7f2964351131831637df7425c3d785a383a0c3772f32ddff4bae98dede85"
+    sha256 arm64_sonoma:   "dd0310fd4a7885e7850101d0cb4005cb6bdf0fb5ccdd19fc8890bffcdc8e2bb6"
+    sha256 arm64_ventura:  "2d1be422aac1fa39bd1b55f0ed29507821e38fe113212d3a2a4aa479e307180e"
+    sha256 arm64_monterey: "8b2ce102cad596f6881ab57753eb37fbb0b51b0cbda47e549631ad354fb3270c"
+    sha256 sonoma:         "7523bd40bfca8059e083df0d78ac768572005162451957f9306246d0ee9919be"
+    sha256 ventura:        "1e21f33e50262c0750ec5c7bbed3bce45eecbd527d019b5976023799c9298d7d"
+    sha256 monterey:       "abecb040b1693d75e5d2f02372deeabcb3d735cbf2d6e337ba3afb41281283ae"
+    sha256 x86_64_linux:   "ed1da4dcc04831d09e39746e9d9ae4a1194dd6b74aafbd957b8cda84bdebc823"
   end
 
   depends_on "ant" => :build
