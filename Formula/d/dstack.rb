@@ -613,12 +613,12 @@ class Dstack < Formula
   test do
     system "git", "init", "--initial-branch=main"
 
-    expected = "No default project is configured"
-    output = shell_output("#{bin}/dstack init 2>&1", 1).chomp
+    expected = "No default project, specify project name"
+    output = shell_output("#{bin}/dstack init 2>&1", 1)
     assert_match expected, output
 
-    expected = "No default project is configured"
-    output = shell_output("#{bin}/dstack tags add -a #{testpath} 2>&1 brewtest", 1).chomp
+    expected = "No default project, specify project name"
+    output = shell_output("#{bin}/dstack tags add -a #{testpath} 2>&1 brewtest", 1)
     assert_match expected, output
 
     assert_match version.to_s, shell_output("#{bin}/dstack --version")
