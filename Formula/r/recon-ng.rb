@@ -22,7 +22,7 @@ class ReconNg < Formula
   depends_on "python-certifi"
   depends_on "python-lxml"
   depends_on "python-pytz"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 
@@ -166,7 +166,7 @@ class ReconNg < Formula
 
   def install
     libexec.install Dir["*"]
-    venv = virtualenv_create(libexec, "python3.11")
+    venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources
 
     # Replace shebang with virtualenv python
