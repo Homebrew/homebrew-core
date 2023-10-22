@@ -27,7 +27,7 @@ class LlvmAT13 < Formula
   # We intentionally use Make instead of Ninja.
   # See: Homebrew/homebrew-core/issues/35513
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
 
   uses_from_macos "python" => :test
   uses_from_macos "libedit"
@@ -50,7 +50,7 @@ class LlvmAT13 < Formula
   patch :DATA
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
 
     # The clang bindings need a little help finding our libclang.
     inreplace "clang/bindings/python/clang/cindex.py",
