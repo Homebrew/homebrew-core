@@ -33,6 +33,9 @@ class Sslyze < Formula
     end
   end
 
+  # upstream openssl issue report, https://github.com/nabla-c0d3/nassl/issues/114
+  deprecate! date: "2023-10-22", because: "Use deprecated OpenSSL 1.1.1"
+
   depends_on "pyinvoke" => :build
   depends_on "rust" => :build # for cryptography
   depends_on "openssl@1.1"
