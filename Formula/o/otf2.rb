@@ -25,7 +25,7 @@ class Otf2 < Formula
   depends_on "sphinx-doc" => :build
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -41,7 +41,7 @@ class Otf2 < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3.11")
+    ENV["PYTHON"] = which("python3.12")
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
     system "./configure", *std_configure_args, "--disable-silent-rules"
