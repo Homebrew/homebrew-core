@@ -23,7 +23,13 @@ class Nnn < Formula
   depends_on "readline"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    args = %w[
+      O_EMOJI=1
+      O_NERD=1
+      O_ICONS=1
+    ]
+
+    system "make", "install", "PREFIX=#{prefix}", *args
 
     bash_completion.install "misc/auto-completion/bash/nnn-completion.bash"
     zsh_completion.install "misc/auto-completion/zsh/_nnn"
