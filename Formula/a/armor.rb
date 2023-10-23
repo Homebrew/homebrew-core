@@ -1,7 +1,7 @@
 class Armor < Formula
   desc "Uncomplicated, modern HTTP server"
   homepage "https://github.com/labstack/armor"
-  url "https://github.com/labstack/armor/archive/v0.4.14.tar.gz"
+  url "https://github.com/labstack/armor/archive/refs/tags/v0.4.14.tar.gz"
   sha256 "bcaee0eaa1ef29ef439d5235b955516871c88d67c3ec5191e3421f65e364e4b8"
   license "MIT"
   head "https://github.com/labstack/armor.git", branch: "master"
