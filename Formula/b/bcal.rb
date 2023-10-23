@@ -1,7 +1,7 @@
 class Bcal < Formula
   desc "Storage conversion and expression calculator"
   homepage "https://github.com/jarun/bcal"
-  url "https://github.com/jarun/bcal/archive/v2.4.tar.gz"
+  url "https://github.com/jarun/bcal/archive/refs/tags/v2.4.tar.gz"
   sha256 "141f39d866f62274b2262164baaac6202f60749862c84c2e6ed231f6d03ee8df"
   license "GPL-3.0-or-later"
 
