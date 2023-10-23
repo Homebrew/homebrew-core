@@ -1,7 +1,7 @@
 class Blackbox < Formula
   desc "Safely store secrets in Git/Mercurial/Subversion"
   homepage "https://github.com/StackExchange/blackbox"
-  url "https://github.com/StackExchange/blackbox/archive/v1.20220610.tar.gz"
+  url "https://github.com/StackExchange/blackbox/archive/refs/tags/v1.20220610.tar.gz"
   sha256 "f1efcca6680159f244eb44fdb78e92b521760b875fa5a36e4c433b93ed0f87c1"
   license "MIT"
   version_scheme 1
