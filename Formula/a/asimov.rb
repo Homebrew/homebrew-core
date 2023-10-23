@@ -1,7 +1,7 @@
 class Asimov < Formula
   desc "Automatically exclude development dependencies from Time Machine backups"
   homepage "https://github.com/stevegrunwell/asimov"
-  url "https://github.com/stevegrunwell/asimov/archive/v0.3.0.tar.gz"
+  url "https://github.com/stevegrunwell/asimov/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "77a0ef09c86d9d6ff146547902c749c43bc054f331a12ecb9992db9673469fab"
   license "MIT"
   head "https://github.com/stevegrunwell/asimov.git", branch: "develop"
