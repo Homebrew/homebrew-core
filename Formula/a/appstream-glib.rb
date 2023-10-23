@@ -1,7 +1,7 @@
 class AppstreamGlib < Formula
   desc "Helper library for reading and writing AppStream metadata"
   homepage "https://github.com/hughsie/appstream-glib"
-  url "https://github.com/hughsie/appstream-glib/archive/appstream_glib_0_8_2.tar.gz"
+  url "https://github.com/hughsie/appstream-glib/archive/refs/tags/appstream_glib_0_8_2.tar.gz"
   sha256 "83907d3b2c13029c72dfd11191762ef19f4031ac05c758297914cf0eb04bc641"
   license "LGPL-2.1-or-later"
 
