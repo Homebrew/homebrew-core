@@ -1,7 +1,7 @@
 class Antibody < Formula
   desc "Shell plugin manager"
   homepage "https://getantibody.github.io/"
-  url "https://github.com/getantibody/antibody/archive/v6.1.1.tar.gz"
+  url "https://github.com/getantibody/antibody/archive/refs/tags/v6.1.1.tar.gz"
   sha256 "87bced5fba8cf5d587ea803d33dda72e8bcbd4e4c9991a9b40b2de4babbfc24f"
   license "MIT"
 
