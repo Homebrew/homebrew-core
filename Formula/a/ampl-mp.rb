@@ -1,7 +1,7 @@
 class AmplMp < Formula
   desc "Open-source library for mathematical programming"
   homepage "https://www.ampl.com/"
-  url "https://github.com/ampl/mp/archive/3.1.0.tar.gz"
+  url "https://github.com/ampl/mp/archive/refs/tags/3.1.0.tar.gz"
   sha256 "587c1a88f4c8f57bef95b58a8586956145417c8039f59b1758365ccc5a309ae9"
   license "MIT"
   revision 3
@@ -29,7 +29,7 @@ class AmplMp < Formula
   depends_on "cmake" => :build
 
   resource "miniampl" do
-    url "https://github.com/dpo/miniampl/archive/v1.0.tar.gz"
+    url "https://github.com/dpo/miniampl/archive/refs/tags/v1.0.tar.gz"
     sha256 "b836dbf1208426f4bd93d6d79d632c6f5619054279ac33453825e036a915c675"
   end
 
