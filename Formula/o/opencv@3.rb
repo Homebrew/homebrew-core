@@ -8,15 +8,14 @@ class OpencvAT3 < Formula
   revision 10
 
   bottle do
-    sha256 arm64_sonoma:   "e0644d0bf41b7937e68d64c2e3fed4fcd133d2a158c7c46f83d730ec91278a36"
-    sha256 arm64_ventura:  "ba188e3c706ef89108f9cdb6db3431df48a57cec911e509bf08f659ea04ffc50"
-    sha256 arm64_monterey: "2b43c5baa5a0a736c528996432e6760686fd577838793ce3a59f4b6842ff7a58"
-    sha256 arm64_big_sur:  "aeae24c516413cad8f3aad18b79a714c6fab778a9ae6f5984862cbbe07cb10a4"
-    sha256 sonoma:         "413f8f6114ebd5dd0af6a06fbc3a7395aaf068411faee4a582e9406a61e34880"
-    sha256 ventura:        "ef372b5e6bb730c085b64cc87fe70c298e245bcadaa03fba1e455de524e1b69d"
-    sha256 monterey:       "ac214b488450d231214ca239c3e5b364f94666daf24c643bedd507ca63347bfd"
-    sha256 big_sur:        "b4ede37ae35dfd9e1ece7d711d7c01dc8ecafcc71e541370828e42a8d83824fb"
-    sha256 x86_64_linux:   "418e78eefef39bb1bf0c3fa367818d207b385bf8e692f4925ca5a5ba7130d090"
+    rebuild 1
+    sha256 arm64_sonoma:   "72b4e851a55ddebee6d4b0fa5edc5b852a58102187d48da142a6adc6a976fc4c"
+    sha256 arm64_ventura:  "a29c6b97d0e8e146cd774e3954b6bf23281acc342a63b4296e21288bf881818d"
+    sha256 arm64_monterey: "1d2c4b5995a738bb53507d97f3584e94980f1d7959b1a8f30e6e0f1183a088cf"
+    sha256 sonoma:         "c314e86b1b29c9fd0bf1de6e5a483b9f581ea1deef817bf49bfc351f86f8a677"
+    sha256 ventura:        "7589d933020594c96a761b33255c5222697a8d2215b6ed2e67d0ea331a37e115"
+    sha256 monterey:       "deeb8893cab2517c6c0f41e53cbf296bdc8fab32cb85284b5741243e3925f784"
+    sha256 x86_64_linux:   "f482ebdd705a93bbe968952fccb679bf679598aaa4ca186e6183c989c4a7fe4e"
   end
 
   keg_only :versioned_formula
