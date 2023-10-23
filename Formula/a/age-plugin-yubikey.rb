@@ -1,7 +1,7 @@
 class AgePluginYubikey < Formula
   desc "Plugin for encrypting files with age and PIV tokens such as YubiKeys"
   homepage "https://github.com/str4d/age-plugin-yubikey"
-  url "https://github.com/str4d/age-plugin-yubikey/archive/v0.4.0.tar.gz"
+  url "https://github.com/str4d/age-plugin-yubikey/archive/refs/tags/v0.4.0.tar.gz"
   sha256 "721c2fd08fe8b7228ea43398475b954a8f0bc259b3a152f6f3b0dc66022df55e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/str4d/age-plugin-yubikey.git", branch: "main"
