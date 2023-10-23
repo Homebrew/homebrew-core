@@ -1,7 +1,7 @@
 class Awsweeper < Formula
   desc "CLI tool for cleaning your AWS account"
   homepage "https://github.com/jckuester/awsweeper/"
-  url "https://github.com/jckuester/awsweeper/archive/v0.12.0.tar.gz"
+  url "https://github.com/jckuester/awsweeper/archive/refs/tags/v0.12.0.tar.gz"
   sha256 "43468e1af20dab757da449b07330f7b16cbb9f77e130782f88f30a7744385c5e"
   license "MPL-2.0"
   head "https://github.com/jckuester/awsweeper.git", branch: "master"
