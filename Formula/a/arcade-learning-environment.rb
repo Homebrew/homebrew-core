@@ -3,7 +3,7 @@ class ArcadeLearningEnvironment < Formula
 
   desc "Platform for AI research"
   homepage "https://github.com/mgbellemare/Arcade-Learning-Environment"
-  url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/v0.8.1.tar.gz"
+  url "https://github.com/mgbellemare/Arcade-Learning-Environment/archive/refs/tags/v0.8.1.tar.gz"
   sha256 "28960616cd89c18925ced7bbdeec01ab0b2ebd2d8ce5b7c88930e97381b4c3b5"
   license "GPL-2.0-only"
   head "https://github.com/mgbellemare/Arcade-Learning-Environment.git", branch: "master"
