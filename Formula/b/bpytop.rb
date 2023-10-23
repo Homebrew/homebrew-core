@@ -4,7 +4,7 @@ class Bpytop < Formula
 
   desc "Linux/OSX/FreeBSD resource monitor"
   homepage "https://github.com/aristocratos/bpytop"
-  url "https://github.com/aristocratos/bpytop/archive/v1.0.68.tar.gz"
+  url "https://github.com/aristocratos/bpytop/archive/refs/tags/v1.0.68.tar.gz"
   sha256 "3a936f8899efb66246e82bbcab33249bf94aabcefbe410e56f045a1ce3c9949f"
   license "Apache-2.0"
 
