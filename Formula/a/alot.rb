@@ -3,7 +3,7 @@ class Alot < Formula
 
   desc "Text mode MUA using notmuch mail"
   homepage "https://github.com/pazz/alot"
-  url "https://github.com/pazz/alot/archive/0.10.tar.gz"
+  url "https://github.com/pazz/alot/archive/refs/tags/0.10.tar.gz"
   sha256 "71f382aa751fb90fde1a06a0a4ba43628ee6aa6d41b5cd53c8701fd7c5ab6e6e"
   license "GPL-3.0-only"
   revision 2
