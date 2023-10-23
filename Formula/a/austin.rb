@@ -1,7 +1,7 @@
 class Austin < Formula
   desc "Python frame stack sampler for CPython"
   homepage "https://github.com/P403n1x87/austin"
-  url "https://github.com/P403n1x87/austin/archive/v3.6.0.tar.gz"
+  url "https://github.com/P403n1x87/austin/archive/refs/tags/v3.6.0.tar.gz"
   sha256 "c29bcd84ff0060efbb282c3f36666de9049dcdb4ae57e26a844d8f4219f3b6f4"
   license "GPL-3.0-or-later"
   head "https://github.com/P403n1x87/austin.git", branch: "master"
