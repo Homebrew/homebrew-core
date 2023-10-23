@@ -1,7 +1,7 @@
 class Beanstalkd < Formula
   desc "Generic work queue originally designed to reduce web latency"
   homepage "https://beanstalkd.github.io/"
-  url "https://github.com/beanstalkd/beanstalkd/archive/v1.13.tar.gz"
+  url "https://github.com/beanstalkd/beanstalkd/archive/refs/tags/v1.13.tar.gz"
   sha256 "26292dcdc0a7011d2f8ad968612f2cd8b2ef07687224876015399ae85e9e5263"
   license "MIT"
 
