@@ -1,7 +1,7 @@
 class Autodiff < Formula
   desc "Automatic differentiation made easier for C++"
   homepage "https://autodiff.github.io"
-  url "https://github.com/autodiff/autodiff/archive/v1.0.3.tar.gz"
+  url "https://github.com/autodiff/autodiff/archive/refs/tags/v1.0.3.tar.gz"
   sha256 "21b57ce60864857913cacb856c3973ae10f7539b6bb00bcc04f85b2f00db0ce2"
   license "MIT"
   head "https://github.com/autodiff/autodiff.git", branch: "main"
