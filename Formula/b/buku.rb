@@ -3,7 +3,7 @@ class Buku < Formula
 
   desc "Powerful command-line bookmark manager"
   homepage "https://github.com/jarun/buku"
-  url "https://github.com/jarun/buku/archive/v4.8.tar.gz"
+  url "https://github.com/jarun/buku/archive/refs/tags/v4.8.tar.gz"
   sha256 "a0b94210e80e9f9f359e5308323837d41781cf8dba497341099d5c59e27fa52c"
   license "GPL-3.0-or-later"
   revision 1
