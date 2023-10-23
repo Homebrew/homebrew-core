@@ -1,7 +1,7 @@
 class Afflib < Formula
   desc "Advanced Forensic Format"
   homepage "https://github.com/sshock/AFFLIBv3"
-  url "https://github.com/sshock/AFFLIBv3/archive/v3.7.20.tar.gz"
+  url "https://github.com/sshock/AFFLIBv3/archive/refs/tags/v3.7.20.tar.gz"
   sha256 "7264d705ff53185f0847c69abdfce072779c0b907257e087a6372c7608108f65"
   license all_of: [
     "BSD-4-Clause", # AFFLIB 2.0a14 and before
