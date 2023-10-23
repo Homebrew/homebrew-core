@@ -1,7 +1,7 @@
 class AbiComplianceChecker < Formula
   desc "Tool for checking backward API/ABI compatibility of a C/C++ library"
   homepage "https://lvc.github.io/abi-compliance-checker/"
-  url "https://github.com/lvc/abi-compliance-checker/archive/2.3.tar.gz"
+  url "https://github.com/lvc/abi-compliance-checker/archive/refs/tags/2.3.tar.gz"
   sha256 "b1e32a484211ec05d7f265ab4d2c1c52dcdb610708cb3f74d8aaeb7fe9685d64"
   license "LGPL-2.1-or-later"
   head "https://github.com/lvc/abi-compliance-checker.git", branch: "master"
