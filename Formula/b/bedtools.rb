@@ -1,7 +1,7 @@
 class Bedtools < Formula
   desc "Tools for genome arithmetic (set theory on the genome)"
   homepage "https://github.com/arq5x/bedtools2"
-  url "https://github.com/arq5x/bedtools2/archive/v2.31.0.tar.gz"
+  url "https://github.com/arq5x/bedtools2/archive/refs/tags/v2.31.0.tar.gz"
   sha256 "8a88e9433cad4cfc4269d45acbc820c41a333a965b59ce42d81d925422d1a026"
   license "MIT"
 
