@@ -1,7 +1,7 @@
 class Amp < Formula
   desc "Text editor for your terminal"
   homepage "https://amp.rs"
-  url "https://github.com/jmacdonald/amp/archive/0.6.2.tar.gz"
+  url "https://github.com/jmacdonald/amp/archive/refs/tags/0.6.2.tar.gz"
   sha256 "9279efcecdb743b8987fbedf281f569d84eaf42a0eee556c3447f3dc9c9dfe3b"
   license "GPL-3.0-or-later"
   revision 2
