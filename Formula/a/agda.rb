@@ -8,7 +8,7 @@ class Agda < Formula
     sha256 "5b2cbc719157fadcf32f9a8d1915c360c5a5328c34745f15a7c49d71b6f5ef4b"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/v1.7.3.tar.gz"
+      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v1.7.3.tar.gz"
       sha256 "91c42323fdc94d032a8c98ea9249d9d77e7ba3b51749fe85f18536dbbe603437"
     end
   end
