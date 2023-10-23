@@ -1,7 +1,7 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://bup.github.io/"
-  url "https://github.com/bup/bup/archive/0.33.2.tar.gz"
+  url "https://github.com/bup/bup/archive/refs/tags/0.33.2.tar.gz"
   sha256 "d806548695c2f35be893c1eacec05a61060a1cbfe2efa4e008c44f85ee7eadd8"
   license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
   head "https://github.com/bup/bup.git", branch: "master"
