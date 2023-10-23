@@ -3,7 +3,7 @@ require "language/node"
 class Bcoin < Formula
   desc "Javascript bitcoin library for node.js and browsers"
   homepage "https://bcoin.io"
-  url "https://github.com/bcoin-org/bcoin/archive/v2.2.0.tar.gz"
+  url "https://github.com/bcoin-org/bcoin/archive/refs/tags/v2.2.0.tar.gz"
   sha256 "fa1a78a73bef5837b7ff10d18ffdb47c0e42ad068512987037a01e8fad980432"
   license "MIT"
   head "https://github.com/bcoin-org/bcoin.git", branch: "master"
