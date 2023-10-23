@@ -1,7 +1,7 @@
 class Bnfc < Formula
   desc "BNF Converter"
   homepage "https://bnfc.digitalgrammars.com/"
-  url "https://github.com/BNFC/bnfc/archive/v2.9.5.tar.gz"
+  url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.5.tar.gz"
   sha256 "32a6293b95e10cf1192f348ec79f3c125b52a56350caa4f67087feb3642eef77"
   license "BSD-3-Clause"
   head "https://github.com/BNFC/bnfc.git", branch: "master"
