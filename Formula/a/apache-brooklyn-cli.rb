@@ -1,7 +1,7 @@
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/rel/apache-brooklyn-1.0.0.tar.gz"
+  url "https://github.com/apache/brooklyn-client/archive/refs/tags/rel/apache-brooklyn-1.0.0.tar.gz"
   sha256 "9eb52ac3cd76adf219b66eb8b5a7899c86e25736294bca666a5b4e24d34e911b"
   license "Apache-2.0"
 
