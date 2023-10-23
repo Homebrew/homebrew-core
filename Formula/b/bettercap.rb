@@ -1,7 +1,7 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/v2.32.0.tar.gz"
+  url "https://github.com/bettercap/bettercap/archive/refs/tags/v2.32.0.tar.gz"
   sha256 "ea28d4d533776a328a54723a74101d1720016ffe7d434bf1d7ab222adb397ac6"
   license "GPL-3.0-only"
   head "https://github.com/bettercap/bettercap.git", branch: "master"
