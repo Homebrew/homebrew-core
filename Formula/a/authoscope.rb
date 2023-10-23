@@ -1,7 +1,7 @@
 class Authoscope < Formula
   desc "Scriptable network authentication cracker"
   homepage "https://github.com/kpcyrd/authoscope"
-  url "https://github.com/kpcyrd/authoscope/archive/v0.8.1.tar.gz"
+  url "https://github.com/kpcyrd/authoscope/archive/refs/tags/v0.8.1.tar.gz"
   sha256 "fd70d3d86421ac791362bf8d1063a1d5cd4f5410b0b8f5871c42cb48c8cc411a"
   license "GPL-3.0-or-later"
 
