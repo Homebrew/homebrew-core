@@ -29,6 +29,7 @@ class QtAT5 < Formula
   depends_on "python@3.10" => :build
   depends_on xcode: :build
   depends_on "freetype"
+  depends_on "gettext"
   depends_on "glib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
