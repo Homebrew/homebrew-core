@@ -322,6 +322,7 @@ class Php < Formula
 
   service do
     run [opt_sbin/"php-fpm", "--nodaemonize"]
+    environment_variables PATH: std_service_path_env
     run_type :immediate
     keep_alive true
     error_log_path var/"log/php-fpm.log"
