@@ -1,5 +1,5 @@
-class AmazeChain < Formula
-  desc "AmazeChain(AMC) is an implementation of public blockchain (execution client), on the efficiency frontier, written in Go."
+class Amazechain < Formula
+  desc "AmazeChain(AMC) is an Ethereum-compatible blockchain(execution client), written in Go."
   homepage "https://github.com/WeAreAmaze/amc"
   url "https://github.com/WeAreAmaze/amc/archive/refs/tags/v0.1.0.tar.gz"
   sha256 "7c7974f116dffa7835ecbfa690694d918076f327408d03093b590cbed8c1209a"
