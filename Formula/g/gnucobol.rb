@@ -1,4 +1,4 @@
-class GnuCobol < Formula
+class Gnucobol < Formula
   desc "COBOL85-202x compiler supporting lots of dialect specific extensions"
   homepage "https://www.gnu.org/software/gnucobol/"
   url "https://ftp.gnu.org/gnu/gnucobol/gnucobol-3.2.tar.xz"
