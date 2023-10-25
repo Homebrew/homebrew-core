@@ -3,10 +3,9 @@ class Zurl < Formula
 
   desc "HTTP and WebSocket client worker with ZeroMQ interface"
   homepage "https://github.com/fanout/zurl"
-  url "https://github.com/fanout/zurl/releases/download/v1.11.1/zurl-1.11.1.tar.bz2"
-  sha256 "39948523ffbd0167bc8ba7d433b38577156e970fe9f3baa98f2aed269241d70c"
+  url "https://github.com/fanout/zurl/releases/download/v1.12.0/zurl-1.12.0.tar.bz2"
+  sha256 "46d13ac60509a1566a4e3ad3eaed5262adf86eb5601ff892dba49affb0b63750"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "d61f6c9edd6c3dde53d2d27e60601facce836bdee497c72335143695da6ebfc3"
@@ -20,8 +19,8 @@ class Zurl < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :test
-  depends_on "qt@5"
+  depends_on "python@3.12" => :test
+  depends_on "qt"
   depends_on "zeromq"
 
   uses_from_macos "curl"
@@ -33,18 +32,20 @@ class Zurl < Formula
   fails_with gcc: "5"
 
   resource "pyzmq" do
-    url "https://files.pythonhosted.org/packages/46/0d/b06cf99a64d4187632f4ac9ddf6be99cd35de06fe72d75140496a8e0eef5/pyzmq-24.0.1.tar.gz"
-    sha256 "216f5d7dbb67166759e59b0479bca82b8acf9bed6015b526b8eb10143fb08e77"
+    url "https://files.pythonhosted.org/packages/3f/7c/69d31a75a3fe9bbab349de7935badac61396f22baf4ab53179a8d940d58e/pyzmq-25.1.1.tar.gz"
+    sha256 "259c22485b71abacdfa8bf79720cd7bcf4b9d128b30ea554f01ae71fdbfdaa23"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    system "./configure", "--qtselect=6",
+                          "--prefix=#{prefix}",
+                          "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
     system "make"
     system "make", "install"
   end
 
   test do
-    python3 = "python3.11"
+    python3 = "python3.12"
 
     conffile = testpath/"zurl.conf"
     ipcfile = testpath/"zurl-req"
