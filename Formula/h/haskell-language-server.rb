@@ -27,6 +27,7 @@ class HaskellLanguageServer < Formula
   depends_on "ghc" => [:build, :test]
   depends_on "ghc@9.2" => [:build, :test]
   depends_on "ghc@9.4" => [:build, :test]
+  depends_on "ghc@9.6" => [:build, :test]
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
