@@ -1,10 +1,8 @@
 class MysqlAT80 < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  # TODO: Check if we can use unversioned `protobuf` at version bump
-  # https://bugs.mysql.com/bug.php?id=111469
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.34.tar.gz"
-  sha256 "0b881a19bcef732cd4dbbfc8dfeb84eff61f5dfe0d9788d015d699733e0adf1f"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.35.tar.gz"
+  sha256 "41253c3a99cefcf6d806040c6687692eb0c37b4c7aae5882417dfb9c5d3ce4ce"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -34,7 +32,7 @@ class MysqlAT80 < Formula
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf@21" # https://bugs.mysql.com/bug.php?id=111469
+  depends_on "protobuf"
   depends_on "zlib" # Zlib 1.2.12+
   depends_on "zstd"
 
