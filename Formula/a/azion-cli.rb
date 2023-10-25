@@ -1,4 +1,4 @@
-class AzionCli < Formula
+class Azion < Formula
   desc "CLI for the Azion service"
   homepage "https://github.com/aziontech/azion-cli"
   url "https://github.com/aziontech/azion-cli/archive/refs/tags/1.5.1.tar.gz"
