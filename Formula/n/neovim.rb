@@ -71,7 +71,6 @@ class Neovim < Formula
 
   depends_on "cmake" => :build
   depends_on "lpeg" => :build # needed at runtime in 0.10.0
-  depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libtermkey"
   depends_on "libuv"
