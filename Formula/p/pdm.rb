@@ -22,7 +22,7 @@ class Pdm < Formula
   depends_on "python-certifi"
   depends_on "python-packaging"
   depends_on "python-pyproject-hooks"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "virtualenv"
 
   resource "blinker" do
@@ -128,7 +128,7 @@ class Pdm < Formula
   def install
     virtualenv_install_with_resources
 
-    site_packages = Language::Python.site_packages("python3.11")
+    site_packages = Language::Python.site_packages("python3.12")
     paths = %w[virtualenv].map { |p| Formula[p].opt_libexec/site_packages }
     (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
 
