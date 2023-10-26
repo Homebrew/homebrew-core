@@ -1,8 +1,8 @@
 class Vc < Formula
   desc "SIMD Vector Classes for C++"
   homepage "https://github.com/VcDevel/Vc"
-  url "https://github.com/VcDevel/Vc/releases/download/1.4.2/Vc-1.4.2.tar.gz"
-  sha256 "50d3f151e40b0718666935aa71d299d6370fafa67411f0a9e249fbce3e6e3952"
+  url "https://github.com/VcDevel/Vc/archive/refs/tags/1.4.4.tar.gz"
+  sha256 "5933108196be44c41613884cd56305df320263981fe6a49e648aebb3354d57f3"
   license "BSD-3-Clause"
 
   bottle do
@@ -22,10 +22,9 @@ class Vc < Formula
   depends_on "cmake" => :build
 
   def install
-    mkdir "build" do
-      system "cmake", "..", "-DBUILD_TESTING=OFF", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_TESTING=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
