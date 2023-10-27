@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
-  url "https://github.com/v8/v8/archive/refs/tags/11.7.439.16.tar.gz"
-  sha256 "df073b032cafab5124a166771b5d66f6afaa8412c4d5863d2ba8d52c253ced33"
+  url "https://github.com/v8/v8/archive/refs/tags/11.9.169.6.tar.gz"
+  sha256 "e74668eb4fd26269915e3736dd1a5ce6269c545e4a49ec09f1f6932593f6b675"
   license "BSD-3-Clause"
 
   livecheck do
@@ -50,20 +50,20 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#64
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#74
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "811d332bd90551342c5cbd39e133aa276022d7f8"
+        revision: "991530ce394efb58fcd848195469022fa17ae126"
   end
 
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "147f65333c38ddd1ebf554e89965c243c8ce50b3"
+        revision: "29ac73db520575590c3aceb0a6f1f58dda8934f6"
   end
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "afe0125ef9e10b400d9ec145aa18fca932369346"
+        revision: "b3ac98b5aa5333fa8b1059b5bf19885923dfe050"
   end
 
   resource "v8/third_party/googletest/src" do
@@ -73,7 +73,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "de4ce0071eb47ed54cbda54869001210cf3a8ae5"
+        revision: "985b9a6f70e13f3db741fed121e4dcc3046ad494"
   end
 
   resource "v8/third_party/jinja2" do
@@ -88,12 +88,12 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "526382e41c9c5275dc329db4328b54e4f344a204"
+        revision: "3f0af7f1d5ca6bb9d247f40b861346627c3032a1"
   end
 
   resource "v8/third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "583dc6d1b3a0dd44579718699e37cad2f0c41a26"
+        revision: "7207ed23d56aa19796ffd08b8203f7af7f3b5f29"
   end
 
   def install
