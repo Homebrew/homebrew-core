@@ -4,7 +4,6 @@ class CrunchyCli < Formula
   url "https://github.com/crunchy-labs/crunchy-cli/archive/refs/tags/v3.0.3.tar.gz"
   sha256 "9ee633b0de18b3cc2b6246c596b6b752a888e56203b8bc59db10dd7a8e4fa70a"
   license "MIT"
-
   head "https://github.com/crunchy-labs/crunchy-cli.git", branch: "master"
 
   depends_on "pkg-config" => :build
