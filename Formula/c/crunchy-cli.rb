@@ -7,13 +7,10 @@ class CrunchyCli < Formula
 
   head "https://github.com/crunchy-labs/crunchy-cli.git", branch: "master"
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "ffmpeg"
   depends_on "openssl@3"
-
-  on_linux do
-    depends_on "pkg-config" => :build
-  end
 
   def install
     system "cargo", "install", "--no-default-features", "--features", "openssl-tls", *std_cargo_args
