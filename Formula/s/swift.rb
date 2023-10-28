@@ -4,10 +4,9 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/refs/tags/swift-5.8.1-RELEASE.tar.gz"
-  sha256 "f65381a9dfea4579323e5aff04d4224f2d8f505fcc6e3e83022e734d4f54575f"
+  url "https://github.com/apple/swift/archive/refs/tags/swift-5.9.1-RELEASE.tar.gz"
+  sha256 "d63c9743fa1d35c8c6203745955375fd69c710897de96d1c6245d2c9e42fbb49"
   license "Apache-2.0"
-  revision 1
 
   # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
   # created several days before the version is officially released.
