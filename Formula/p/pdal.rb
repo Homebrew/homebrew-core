@@ -1,8 +1,8 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.5.6/PDAL-2.5.6-src.tar.bz2"
-  sha256 "7c7c4570ef518942299479cc4077e0c657ec5b5174daf465415de947a1d3eb99"
+  url "https://github.com/PDAL/PDAL/releases/download/2.6.0/PDAL-2.6.0-src.tar.bz2"
+  sha256 "ec50e60544673a72f4300d90df1e70f1cd28055780b789319185590b63e3f688"
   license "BSD-3-Clause"
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
