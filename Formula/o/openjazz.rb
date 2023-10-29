@@ -22,7 +22,8 @@ class Openjazz < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "libmodplug"
-  depends_on "sdl12-compat"
+  depends_on "sdl2"
+  depends_on "sdl2_net"
 
   uses_from_macos "zlib"
 
