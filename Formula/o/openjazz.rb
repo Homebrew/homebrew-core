@@ -40,7 +40,6 @@ class Openjazz < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-
     # Default game lookup path is the OpenJazz binary's location
     (bin/"OpenJazz").write <<~EOS
       #!/bin/sh
