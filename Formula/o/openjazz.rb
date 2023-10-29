@@ -20,8 +20,6 @@ class Openjazz < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :build
-  depends_on "libmodplug"
   depends_on "sdl2"
   depends_on "sdl2_net"
 
