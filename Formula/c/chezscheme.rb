@@ -13,7 +13,6 @@ class Chezscheme < Formula
   end
 
   depends_on "libx11" => :build
-  depends_on arch: :x86_64 # https://github.com/cisco/ChezScheme/issues/544
   depends_on "xterm"
   uses_from_macos "ncurses"
 
