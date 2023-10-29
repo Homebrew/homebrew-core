@@ -36,6 +36,7 @@ class Openjazz < Formula
   end
 
   def install
+    inreplace "ext/psmplug/stdafx.h", "#include <malloc.h>", ""
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
