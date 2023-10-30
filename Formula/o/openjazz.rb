@@ -37,7 +37,7 @@ class Openjazz < Formula
   def install
     # see https://github.com/AlisterT/openjazz/pull/100, can be removed once merged
     inreplace "ext/psmplug/stdafx.h", "#include <malloc.h>", ""
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DDATAPATH=#{pkgshare}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
