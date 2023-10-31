@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.1/mysql-boost-8.1.0.tar.gz"
-  sha256 "cb19648bc8719b9f6979924bfea806b278bd26b8d67740e5742c6f363f142188"
+  homepage "https://dev.mysql.com/doc/refman/8.2/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.2/mysql-boost-8.2.0.tar.gz"
+  sha256 "9a6fe88c889dfb54a8ee203a3aaa2af4d21c97fbaf171dadaf5956714552010e"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -37,10 +37,6 @@ class MysqlClient < Formula
   uses_from_macos "libedit"
 
   fails_with gcc: "5"
-
-  # Fix for "Cannot find system zlib libraries" even though they are installed.
-  # https://bugs.mysql.com/bug.php?id=110745
-  patch :DATA
 
   def install
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
@@ -79,26 +75,3 @@ class MysqlClient < Formula
   end
 end
 
-__END__
-diff --git a/cmake/zlib.cmake b/cmake/zlib.cmake
-index 460d87a..36fbd60 100644
---- a/cmake/zlib.cmake
-+++ b/cmake/zlib.cmake
-@@ -50,7 +50,7 @@ FUNCTION(FIND_ZLIB_VERSION ZLIB_INCLUDE_DIR)
-   MESSAGE(STATUS "ZLIB_INCLUDE_DIR ${ZLIB_INCLUDE_DIR}")
- ENDFUNCTION(FIND_ZLIB_VERSION)
-
--FUNCTION(FIND_SYSTEM_ZLIB)
-+MACRO(FIND_SYSTEM_ZLIB)
-   FIND_PACKAGE(ZLIB)
-   IF(ZLIB_FOUND)
-     ADD_LIBRARY(zlib_interface INTERFACE)
-@@ -61,7 +61,7 @@ FUNCTION(FIND_SYSTEM_ZLIB)
-         ${ZLIB_INCLUDE_DIR})
-     ENDIF()
-   ENDIF()
--ENDFUNCTION(FIND_SYSTEM_ZLIB)
-+ENDMACRO(FIND_SYSTEM_ZLIB)
-
- MACRO (RESET_ZLIB_VARIABLES)
-   # Reset whatever FIND_PACKAGE may have left behind.
