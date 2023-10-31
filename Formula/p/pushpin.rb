@@ -1,10 +1,27 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
-  url "https://github.com/fastly/pushpin/releases/download/v1.37.0/pushpin-1.37.0.tar.bz2"
-  sha256 "5fe5042f34a7955113cea3946c5127e3e182df446d8704d6a26d13cde74e960f"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/fastly/pushpin.git", branch: "main"
+
+  stable do
+    url "https://github.com/fastly/pushpin/releases/download/v1.37.0/pushpin-1.37.0.tar.bz2"
+    sha256 "5fe5042f34a7955113cea3946c5127e3e182df446d8704d6a26d13cde74e960f"
+
+    # Necessary for next patch
+    patch do
+      url "https://github.com/fastly/pushpin/commit/9efeaa77687df23f3bfd74cd3849857fc9cffdbe.patch?full_index=1"
+      sha256 "c3d74aee57da5122f9458d8b248ecdc096ebfec15aea870c7ae205c93331a3b9"
+    end
+
+    # QT6 compatibility
+    # Remove in next release
+    patch do
+      url "https://github.com/fastly/pushpin/commit/aa2a75e2a893cefb7b83f3bc59f8d947ecfb65c5.patch?full_index=1"
+      sha256 "891e55dc4bc55c5819d409e305fb9b5f5c0e887130ae2173eb092a59f5d7c67e"
+    end
+  end
 
   bottle do
     sha256 ventura:      "a14bd996772ffd8d662690864e7412135fd3fa50df4d953694969d02280971ea"
@@ -18,7 +35,7 @@ class Pushpin < Formula
   depends_on "condure"
   depends_on "mongrel2"
   depends_on "python@3.11"
-  depends_on "qt@5"
+  depends_on "qt"
   depends_on "zeromq"
   depends_on "zurl"
 
