@@ -15,6 +15,8 @@ class Iipsrv < Formula
   depends_on "webp"
 
   def install
+    # Temporary fix for clang16
+    inreplace "configure", "TIFFGetVersion()", "int a"
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     sbin.install "src/iipsrv.fcgi" => "iipsrv"
