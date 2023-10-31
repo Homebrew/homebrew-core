@@ -26,7 +26,7 @@ class Iipsrv < Formula
   service do
     run [opt_sbin/"iipsrv", "--bind", "0.0.0.0:9000"]
     environment_variables LOGFILE: "/dev/stdout"
-    log_path "#{var}/log/iipsrv.log"
+    log_path var/"log/iipsrv.log"
     keep_alive crashed: true
   end
 
