@@ -5,8 +5,8 @@ class JpegTurbo < Formula
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
 
   stable do
-    url "https://downloads.sourceforge.net/project/libjpeg-turbo/3.0.0/libjpeg-turbo-3.0.0.tar.gz"
-    sha256 "c77c65fcce3d33417b2e90432e7a0eb05f59a7fff884022a9d931775d583bfaa"
+    url "https://downloads.sourceforge.net/project/libjpeg-turbo/3.0.1/libjpeg-turbo-3.0.1.tar.gz"
+    sha256 "22429507714ae147b3acacd299e82099fce5d9f456882fc28e252e4579ba2a75"
 
     # Patch to fix regression test concurrency issue. Remove in next release.
     patch do
