@@ -8,19 +8,21 @@ class Dxpy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d10ea17051121668e2347e79de71692508ea3dc9c1bf70f3dfec636e4a573bf1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6cf91877682d90104cf15457ee1726679c11b5af1c2664ed0023b09f437a919"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "afdc76300121c6e04930fc7fd571c16c566103271d88904200e9b38a714bd3e6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b0500eb41125642324d7ec603422abe4c8d34b785d0217c7986f0abdeb8e6ec2"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b2c30aca292b335bc638b50f62851d20bc39d4600568cd4f7881880f718c78d"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe75b6f0d9df8977b8643fd3652fe4a7d2fb6e4852281fe1ad35ad6ea580755e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1eb855800abe193b29b44c64bea541b1d7515cb390c9612e0468bb4798a02549"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20a4422c3279fb81c620e10da1d652d343829e72ef6b394935a598f38aa4f0f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c60bd10efa6981b1e1cf127255e4032a72ccaa7838ecd80a177fd4efc70457fd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9e8f6d11746c3bef16ac6a3085c33eaac70a7abcf27d0d7754e165a5f8184d0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ec0bfe89f104c4ef83e0bb63fd734644335a359b39aa41c277c7159c597f8966"
+    sha256 cellar: :any_skip_relocation, ventura:        "748788a87632770c34ae5ae90c250778724941e0f8d672b2ddbd6047ab15ae06"
+    sha256 cellar: :any_skip_relocation, monterey:       "906bc30cef1442fcf79c1e204e9ebbfa9bbf6d77d126177647f397eb28c80a0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6297a1083cde18f56ce79578d9cd2e424a7992c17093357202af08ff1513847"
   end
 
   depends_on "cffi"
   depends_on "python-argcomplete"
   depends_on "python-certifi"
   depends_on "python-cryptography"
+  depends_on "python-psutil"
   depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "six"
@@ -39,11 +41,6 @@ class Dxpy < Formula
   resource "idna" do
     url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
-  end
-
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2d/01/beb7331fc6c8d1c49dd051e3611379bfe379e915c808e1301506027fce9d/psutil-5.9.6.tar.gz"
-    sha256 "e4b92ddcd7dd4cdd3f900180ea1e104932c7bce234fb88976e2a3b296441225a"
   end
 
   resource "python-dateutil" do

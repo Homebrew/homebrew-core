@@ -1,8 +1,8 @@
 class QtUnixodbc < Formula
   desc "Qt SQL Database Driver"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.5/6.5.2/submodules/qtbase-everywhere-src-6.5.2.tar.xz"
-  sha256 "3db4c729b4d80a9d8fda8dd77128406353baff4755ca619177eda4cddae71269"
+  url "https://download.qt.io/official_releases/qt/6.6/6.6.0/submodules/qtbase-everywhere-src-6.6.0.tar.xz"
+  sha256 "039d53312acb5897a9054bd38c9ccbdab72500b71fdccdb3f4f0844b0dd39e0e"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -10,13 +10,13 @@ class QtUnixodbc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2710c15d7d3b086824fc2619ec6a973220e46aff57c0af7a92ae9bf531bb00c5"
-    sha256 cellar: :any,                 arm64_ventura:  "cbf80f44be4fde7b71e79183611a7fbddd52e735fa8a897c610cb1757f07cfcd"
-    sha256 cellar: :any,                 arm64_monterey: "129fb25bc2825bf11f51c8bfd7d1090d482f01f7bb58da6f61e7b32ba34ef010"
-    sha256 cellar: :any,                 sonoma:         "cea5ac3c34d0db7cb7c692a747fd7d5461eeb6ee65ef0b44dd72d25ad2a5565b"
-    sha256 cellar: :any,                 ventura:        "8613dafb39df09f12e2aafdaaade656abfac4e785c1174c682b966850927e280"
-    sha256 cellar: :any,                 monterey:       "fc555f094509d67428dbd28e77911d6b4888424e926462c9dca10bd065251a8f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a30d5ecc4451c802320c0afddbc8380bdfc5cffecb640c457f9987636b9c89be"
+    sha256 cellar: :any,                 arm64_sonoma:   "055885ae44911e2c1ba530850940a4f40459aa549dccc289f4b90edb5ec670d5"
+    sha256 cellar: :any,                 arm64_ventura:  "c2230401552fcc0da243fa036a5c6d80795a4e87f45cd6ec052decf2ee2973db"
+    sha256 cellar: :any,                 arm64_monterey: "6f48ebb03fcde6064aa5d4a09d05eb9ca94ad51bbdf621f76b254a70c5b7d09b"
+    sha256 cellar: :any,                 sonoma:         "938ba020a77541d5695fd2edb9c92812563cc3d833fdccfb27bda58f6aad0ef0"
+    sha256 cellar: :any,                 ventura:        "ec32270b02ced8dda119d0f84a5c1dc6bd3d1ab94d2655ddde1e58c769c6c06f"
+    sha256 cellar: :any,                 monterey:       "7640b0fdfdbdb484651e0dc3d06b61c3d8d58d991aaa90b1697d1eef25be2ff8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3444e36fb47a5ad1fb74a395f3afd60e5220282c70dac807969a30eb86d5df4"
   end
 
   depends_on "cmake" => [:build, :test]

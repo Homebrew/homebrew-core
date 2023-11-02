@@ -1,24 +1,26 @@
 class Micromamba < Formula
   desc "Fast Cross-Platform Package Manager"
   homepage "https://github.com/mamba-org/mamba"
-  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.5.2.tar.gz"
-  sha256 "abb692e4b249d1e781e90c887d24eae0c97f80a74e04bdf722bc1aceff68765f"
+  url "https://github.com/mamba-org/mamba/archive/refs/tags/micromamba-1.5.3.tar.gz"
+  sha256 "f13e6e31279a8b526af63d53216cb6582fe0e4989d084260c24b0ab35de58dce"
   license "BSD-3-Clause"
   head "https://github.com/mamba-org/mamba.git", branch: "main"
 
   livecheck do
     url :stable
-    regex(/^micromamba[._-]v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_latest do |json, regex|
+      json["name"]&.scan(regex)&.map { |match| match[0] }
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8f0ae39d544d02cc25cc37546756826eebf6fec2b581da6d25100ecb0b44a7a9"
-    sha256 cellar: :any,                 arm64_ventura:  "b3d8c600ce5d12178dfb104caa5ab8bd7701649644e0de7fe1aa6aea249826ef"
-    sha256 cellar: :any,                 arm64_monterey: "f888448b47973e5c8a61dbc1cc0c10652c65b88a79e72bc16a90c08fc9ee9482"
-    sha256 cellar: :any,                 sonoma:         "97b6c5b02bb277d332cb0982ec7c61cef13a2f15123e137d7b83d434b8a8da8b"
-    sha256 cellar: :any,                 ventura:        "93b061450c7e90405ec274b5f7c0093694e295d972f17b036bd7153451bc0b85"
-    sha256 cellar: :any,                 monterey:       "246445073a5d43ea7f73a8b69d3150fdb2d934546c39da0a2b5077c0fa5358b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70624305b57fb363e334c35c0639bb7ad2b25d242edfd675f35d275807891326"
+    sha256 cellar: :any,                 arm64_sonoma:   "77afa79e9475e043ef929309f67aa5dd5afcdb398d37e95ba5b5f6ade38517d2"
+    sha256 cellar: :any,                 arm64_ventura:  "f65094c542be593ddac08150b03fe0002d826e92ef7ecd9386390dba3eb60b1a"
+    sha256 cellar: :any,                 arm64_monterey: "c7d47cec7fd32d8c74e64b60d97736ecb9f7aaed27a14875658382140aeff410"
+    sha256 cellar: :any,                 sonoma:         "5e5ae19517b95c0260929f829281989b3e84ffe24e111624ab76d55fc99cc953"
+    sha256 cellar: :any,                 ventura:        "063e337a6ac7ce2dee74849d3ba0aa30ab3066f5ef2d37b830f5f002a0991049"
+    sha256 cellar: :any,                 monterey:       "8936706a3609d035276869df46b7efb3ecdfc3b168121e22897c94672b65279c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f97380ba2cd21fee2ebfeefb48d646cc2436fb8c9e29ab95ec99ed34037cc40e"
   end
 
   depends_on "cli11" => :build

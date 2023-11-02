@@ -8,13 +8,14 @@ class Dvc < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a4e61ac4181735d0cafdc1bec480bbfa81d517ed9fbe2aa6d9dc4bd21e952296"
-    sha256 cellar: :any,                 arm64_ventura:  "64a5a962417262824b7872492220ca31bdf2e0eab8d9863eb4b052efe263b13d"
-    sha256 cellar: :any,                 arm64_monterey: "46545314d4fc9757472907bd6f8d9f293910b7608502840a867c6dfe492b4f8f"
-    sha256 cellar: :any,                 sonoma:         "a4fa547185dabbb8028b185e9c9029429b0fcecba18eeef60bcb7cbe7f08d60c"
-    sha256 cellar: :any,                 ventura:        "643ce745e07f9c479143c429f93555963f352cddf78b16b8cf8c814761871e15"
-    sha256 cellar: :any,                 monterey:       "6be2dc4dd5394b5f637835eb66c4da2e28a629ba193e9cfb4b1880336144b36e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c30f9495f88fc6e1c709ca0b75b3421265e9239643052f6b236580e8095a511"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "5f37d9eb6de7314a7c06d10c054e73598cc546632ee22ba3afc6d02cea11a014"
+    sha256 cellar: :any,                 arm64_ventura:  "c9b479aadf0e1fc5c5ba33687acf5d4c4adee2ca84436079c7717c45095ee41d"
+    sha256 cellar: :any,                 arm64_monterey: "59fee631d2241f7524954ea8de1dd380425a3e52b01eae37d29efd716c24a2a9"
+    sha256 cellar: :any,                 sonoma:         "138350245632a9c063919d8e057c069a867d989f8070f8f18bb0e68e6de49a86"
+    sha256 cellar: :any,                 ventura:        "66ffc7488c23739b97880d318d8492853b12df80d4213479f8b0430187887d2d"
+    sha256 cellar: :any,                 monterey:       "0ae1270ff791d77e999ad8c7f4b6dd0a9e5a16dc9f5f809f03193eb1785e07a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c974e6a091e2da8a9ba1ffd58ba2f4e0d2e6093d76099d26e03ed530b1634ddf"
   end
 
   depends_on "openjdk" => :build # for hydra-core
@@ -28,8 +29,11 @@ class Dvc < Formula
   depends_on "pygments"
   depends_on "python-argcomplete"
   depends_on "python-certifi"
+  depends_on "python-click"
   depends_on "python-cryptography"
   depends_on "python-packaging"
+  depends_on "python-psutil"
+  depends_on "python-pyparsing"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
@@ -177,11 +181,6 @@ class Dvc < Formula
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/6d/b3/aa417b4e3ace24067f243e45cceaffc12dba6b8bd50c229b43b3b163768b/charset-normalizer-3.3.1.tar.gz"
     sha256 "d9137a876020661972ca6eec0766d81aef8a5627df628b664b234b73396e727e"
-  end
-
-  resource "click" do
-    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
-    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "click-didyoumean" do
@@ -564,11 +563,6 @@ class Dvc < Formula
     sha256 "04505ade687dc26dc4284b1ad19a83be2f2afe83e7a828ace0c72f3a1df72aac"
   end
 
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2d/01/beb7331fc6c8d1c49dd051e3611379bfe379e915c808e1301506027fce9d/psutil-5.9.6.tar.gz"
-    sha256 "e4b92ddcd7dd4cdd3f900180ea1e104932c7bce234fb88976e2a3b296441225a"
-  end
-
   resource "pyasn1" do
     url "https://files.pythonhosted.org/packages/61/ef/945a8bcda7895717c8ba4688c08a11ef6454f32b8e5cb6e352a9004ee89d/pyasn1-0.5.0.tar.gz"
     sha256 "97b7290ca68e62a832558ec3976f15cbf911bf5d7c7039d8b861c2a0ece69fde"
@@ -617,11 +611,6 @@ class Dvc < Formula
   resource "pyopenssl" do
     url "https://files.pythonhosted.org/packages/bf/a0/e667c3c43b65a188cc3041fa00c50655315b93be45182b2c94d185a2610e/pyOpenSSL-23.3.0.tar.gz"
     sha256 "6b2cba5cc46e822750ec3e5a81ee12819850b11303630d575e98108a079c2b12"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
-    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
   end
 
   resource "python-dateutil" do

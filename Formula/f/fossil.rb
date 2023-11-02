@@ -1,8 +1,8 @@
 class Fossil < Formula
   desc "Distributed software configuration management"
   homepage "https://www.fossil-scm.org/home/"
-  url "https://fossil-scm.org/home/tarball/version-2.22/fossil-src-2.22.tar.gz"
-  sha256 "b90c40beb75308b0eba46b5add6e54a7a9e65ac90ce86ec8d78ae2a4bb8bae60"
+  url "https://fossil-scm.org/home/tarball/version-2.23/fossil-src-2.23.tar.gz"
+  sha256 "a94aec2609331cd6890c6725b55aea43041011863f3d84fdc380415af75233e4"
   license "BSD-2-Clause"
   head "https://www.fossil-scm.org/", using: :fossil
 
@@ -12,15 +12,13 @@ class Fossil < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b9867dc0b641c8fc86cd173a76db3e95080ea8d01b38efcfaab88c3a44f8b672"
-    sha256 cellar: :any,                 arm64_ventura:  "b94ce3001a82290ee588c9499343db618813a6adafd6b8c43db2b450235940b9"
-    sha256 cellar: :any,                 arm64_monterey: "63c03e0f8f94c3fd55cf749efd9a2285232c9565f46bfc5e2a6196778be08eb0"
-    sha256 cellar: :any,                 arm64_big_sur:  "1b7f99cf2957c1d81fea04817297f0bd5e61c6f82508a750a9b020dd7ed8ca33"
-    sha256 cellar: :any,                 sonoma:         "597adb1707b522c79fb3a36160180b70cb3a93c5231aff234a59690d0922529c"
-    sha256 cellar: :any,                 ventura:        "ef4f5d8a5288586ed014f6b9c74b25b7314fe831dfb81023e2c4a44562217ed4"
-    sha256 cellar: :any,                 monterey:       "0b86c60fe15c069e91af5c67eefedbbfbb1933b75efef5ee567bdfc29f856e90"
-    sha256 cellar: :any,                 big_sur:        "a5614d61bfb0a2ab2cfc52f09d2eb6fbd5378ab4e02c5b5b71bfc533844cf83d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96e5942acbd93788b9cc50b221d66b266b3f6d2532eeedfdcf4cb4c795f976d4"
+    sha256 cellar: :any,                 arm64_sonoma:   "fbcd49e68ac1907e98977b8855fcb098da31e4ec2b8f55609684cfbce37d42aa"
+    sha256 cellar: :any,                 arm64_ventura:  "6b7f660012148fbcaae115e04859bbda356d2fac607e0138a55beb7d5a431266"
+    sha256 cellar: :any,                 arm64_monterey: "f02bef90494315f4aae22eeeb70295c362044032a87ffd290bb0128c7c3297bb"
+    sha256 cellar: :any,                 sonoma:         "24a732cb4dd9fc85fad2017e9a92fb91724d8cb3b9025216710b205796e64b7b"
+    sha256 cellar: :any,                 ventura:        "e9153babff57ebba943b2b240721b7813f704d139987b6f0c8419ac9f0f88080"
+    sha256 cellar: :any,                 monterey:       "961b173165092cbda09160b090b1643eb06ddd4f763fbc068455ff5d5a0bea0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb2c9310b6f2c788691259c7c29ff0e31f824e8f76e19e4b3ddf01eb31d51530"
   end
 
   depends_on "openssl@3"

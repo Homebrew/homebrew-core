@@ -3,18 +3,18 @@ class Dstack < Formula
 
   desc "ML workflow orchestration system designed for reproducibility and collaboration"
   homepage "https://dstack.ai/"
-  url "https://files.pythonhosted.org/packages/e9/58/b39a2096533742decd41b1995b2e587a3b68aa4ef814b305ce715ffa3e99/dstack-0.12.1.tar.gz"
-  sha256 "ce5f2703f100e6bebf6dafc0abee22dbfc9a0c18d194735895275e5179db5a0b"
+  url "https://files.pythonhosted.org/packages/7f/e5/11db2db797c88fb559231e8f7cf9c4301ede56d86eb473b24bdf036bb4ba/dstack-0.12.2.tar.gz"
+  sha256 "12761d062ae6b0c3eb7e0e343e2c97aabe26c0cd5eb42dc20bae9efde5f3756a"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "be2d605606e5d1b97ed67a4eca98a67514b2649019e431768b2c3542945593f3"
-    sha256 cellar: :any,                 arm64_ventura:  "1a36cff310f7a7199bab75b38fea72cdbc4cc1c1e94a632259ba784ab397bd08"
-    sha256 cellar: :any,                 arm64_monterey: "c6a0422784f3c768872e8acc8221acf9f9013a0cc486614e5e79547586c6e9ec"
-    sha256 cellar: :any,                 sonoma:         "8a107f59c7d3d396cbacd125205ff74eb46860f54ae4ab7984c1f0d750b4b3f7"
-    sha256 cellar: :any,                 ventura:        "94a086c110156dd0ced66c14279924e46949bd357c7e4a73296b98b0b3726d52"
-    sha256 cellar: :any,                 monterey:       "18e001e83c2dd86c488f0087cb4ec70bd38999307133d1e8a0ea3d5e94f8e1fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d13b8c51c26e734c7b8bff7bbe62391df322cdd1ab809d85f304c4652ebb1545"
+    sha256 cellar: :any,                 arm64_sonoma:   "386d7cee8903a2ee66bfea4d8c155537db45a4721974cfd64da3dd1305424b7c"
+    sha256 cellar: :any,                 arm64_ventura:  "88262e7780d4d0999dde87a62eead942a643756e29ac4f5997c5e637b3fd15c5"
+    sha256 cellar: :any,                 arm64_monterey: "ba2981b0d712dba23190933aa061d52e717ddf6f8022e5df1fe54e79e836c332"
+    sha256 cellar: :any,                 sonoma:         "b41b2d64500637878fa363440a37ad268b1e7e62f9839c2e45b01bd6decd569e"
+    sha256 cellar: :any,                 ventura:        "a25754aab0107db825e432d3382c5bd165fbd71766896cd831c178af0bec4176"
+    sha256 cellar: :any,                 monterey:       "a2e0dae3fe34c0165241b2c19f02a3e0045dad7037ad877ccbccf280001eb4f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b29f15697873aaa793635c4310d6432c4e40b0e5c960a03db002a9a85adefc2"
   end
 
   # `pkg-config` and `rust` are for bcrypt.
@@ -185,13 +185,13 @@ class Dstack < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/97/a1/d30d1f8e5b6a32222e2c8d0c01b976b91ca382ac7c70ed7df8f3d4cd7660/boto3-1.28.73.tar.gz"
-    sha256 "a61cf96f7e196b1450afdf4856b7ea0e58080752e687b0011157be96934489be"
+    url "https://files.pythonhosted.org/packages/f5/5e/ffef00d40054c479d8bc02f4d9cd32321f591933d33493dfabd799843b76/boto3-1.28.74.tar.gz"
+    sha256 "c4d89ff98cf53e1e74ed8c1c1bb13a7bd7d909e1c0d9ad25792ccfe2cb1575bc"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/35/82/09f64a0a79554b26b301a7cd1ee4ec75ae9658e315f593fa4fd35b154d76/botocore-1.31.73.tar.gz"
-    sha256 "5334c22d5a3f4643931896137c57b2496fef005b039d87d8740e7a28eb31519d"
+    url "https://files.pythonhosted.org/packages/56/5c/560069600c436b384202a74558b6b6143fc7a62d87dfab0c10b8bbbebc0a/botocore-1.31.74.tar.gz"
+    sha256 "2549ca7dc0f9227d8692a56a133c1346642efb38736c7c3f1330724d937ad6ec"
   end
 
   resource "cachetools" do
@@ -225,8 +225,8 @@ class Dstack < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/6c/93/59c180bd2d637ad8ff58bacd3187abdd1af3a76d26d34a2544cec93dbfcc/filelock-3.13.0.tar.gz"
-    sha256 "63c6052c82a1a24c873a549fbd39a26982e8f35a3016da231ead11a5be9dad44"
+    url "https://files.pythonhosted.org/packages/70/70/41905c80dcfe71b22fb06827b8eae65781783d4a14194bce79d16a013263/filelock-3.13.1.tar.gz"
+    sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
   end
 
   resource "frozenlist" do
@@ -255,8 +255,8 @@ class Dstack < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/03/75/7a04c88700a6c186bb7e9979c1b2b15d1944bf66453b778ea69e4efcccb6/google-api-python-client-2.105.0.tar.gz"
-    sha256 "0a8b32cfc2d9b3c1868ae6faef7ee1ab9c89a6cec30be709ea9c97f9a3e5902d"
+    url "https://files.pythonhosted.org/packages/72/eb/4ad7d8685f89f2435ce0c4d3eed42e3c72423708de056ce46009e5207a56/google-api-python-client-2.106.0.tar.gz"
+    sha256 "f6a3862be2f6e5e0536d7bd47b5af3f24ac0b9147c76c830cafb3329d71d5724"
   end
 
   resource "google-auth" do
@@ -324,19 +324,24 @@ class Dstack < Formula
     sha256 "8a64866a97f6304a7179873a465d6eee97b7a24ec6cfd78e0f575e96b821240b"
   end
 
+  resource "gpuhunt" do
+    url "https://files.pythonhosted.org/packages/7c/7d/b478171aea317ba020e3f3e0041d483d45de998105df74fe2dcde5fdb28d/gpuhunt-0.0.1rc3.tar.gz"
+    sha256 "6b20de0484877d919b6cb526312b17f1ae3bcfeb57e73edef9cc022bbef086c8"
+  end
+
   resource "grpc-google-iam-v1" do
     url "https://files.pythonhosted.org/packages/40/92/aee864f03f47c672a31d128e49981b01ca629d81541dcc9904c652dbab5b/grpc-google-iam-v1-0.12.6.tar.gz"
     sha256 "2bc4b8fdf22115a65d751c9317329322602c39b7c86a289c9b72d228d960ef5f"
   end
 
   resource "grpcio" do
-    url "https://files.pythonhosted.org/packages/38/98/ca2cb5a81e0e2f3e3a00ebf91338fd3278ea0673e156a7ff2de30fe17113/grpcio-1.59.0.tar.gz"
-    sha256 "acf70a63cf09dd494000007b798aff88a436e1c03b394995ce450be437b8e54f"
+    url "https://files.pythonhosted.org/packages/93/95/7c72028fe9fc46748fb769b13a1e0923acbb79095cd5124b8bac0cebd38c/grpcio-1.59.2.tar.gz"
+    sha256 "d8f9cd4ad1be90b0cf350a2f04a38a36e44a026cac1e036ac593dc48efe91d52"
   end
 
   resource "grpcio-status" do
-    url "https://files.pythonhosted.org/packages/d0/68/f39a9cd301685538228ea7aa2a77788cb1c4a0c2e7025404b56f6c6a24a4/grpcio-status-1.59.0.tar.gz"
-    sha256 "f93b9c33e0a26162ef8431bfcffcc3e1fb217ccd8d7b5b3061b6e9f813e698b5"
+    url "https://files.pythonhosted.org/packages/67/96/52302451221fb838d77bc3d5645bf69412fcdcf1951b8ba604a80125bdb4/grpcio-status-1.59.2.tar.gz"
+    sha256 "a2c2b146e66b73ba80d021ab34fce5db4dd9be67ca4566cda40d36b185ce54f4"
   end
 
   resource "h11" do

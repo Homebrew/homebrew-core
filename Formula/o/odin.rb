@@ -2,23 +2,23 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2023-10",
-      revision: "2cca00505601f0b0e76719d366a037cdb4cf794c"
-  version "2023-10"
+      tag:      "dev-2023-11",
+      revision: "ef5eb4b612eed1a51186b9182a5e61b79ce36d06"
+  version "2023-11"
   license "BSD-3-Clause"
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3eb79e06a3d1ed4f51f83d0933296d5ed26b63e2bb4a35e3296a76a382be925c"
-    sha256 cellar: :any,                 arm64_ventura:  "9316a3d0a33841edfc1828d61a304de9ee19a27b0ac9ebf956f2483631aa636c"
-    sha256 cellar: :any,                 arm64_monterey: "a4a91b1745449fc0049a702c4e892a0a31fba313de62a8e204eb123b655eb3fb"
-    sha256 cellar: :any,                 sonoma:         "5070b5a4c3ad5721cc7ef57b0a49af73c5fc290a6c6261a3e0e64911e8f140a9"
-    sha256 cellar: :any,                 ventura:        "4401ec13fac3cde945739638bc58cb8c99780442db2fa2f8c17b1e4cc5dabc59"
-    sha256 cellar: :any,                 monterey:       "a0cafc8faeb7220b720c81648807f9e2cecc6a6d498b80e48a7e88c7594e4ec0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2b1a29c12eefc435eea5f08f925df165c9925314ea20b93d44dc7c61295ef15"
+    sha256 cellar: :any,                 arm64_sonoma:   "93af45610d8f48a5c225c0bd2fe07078adfba2b2e133407fb4deaf80c4769d43"
+    sha256 cellar: :any,                 arm64_ventura:  "3b820845c78c05f16012ecdcb4cf0615351b695d7dce8164fe0bdda09a5a7195"
+    sha256 cellar: :any,                 arm64_monterey: "5940427a8ada6d66bd784b6fd68b31ac492f20db432d5d324f77283a1b7d16af"
+    sha256 cellar: :any,                 sonoma:         "f339debbe7d65f0cac2f4aa105c9e58d20a07a9f47f774e870f54d9d0c41dc56"
+    sha256 cellar: :any,                 ventura:        "b898c58bee3f81be43ec1507ce7fcf2ea80a084f11987283d3f45a8830ae63a9"
+    sha256 cellar: :any,                 monterey:       "48fe72b2c15418683a8c38f6e06fbf7a7a0e849d656c975604ac8865ca3a338e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb56380bb076af6ccad3851127cc330870a4dfc45b9574cdba5979ff382cc3ea"
   end
 
-  depends_on "llvm@14"
+  depends_on "llvm"
 
   fails_with gcc: "5" # LLVM is built with GCC
 

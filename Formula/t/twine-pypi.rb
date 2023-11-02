@@ -10,18 +10,19 @@ class TwinePypi < Formula
   head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "ef2b80a806c734e800e0e0edd3c55b445c8a30011296aa0ede9108b012124a6a"
-    sha256 cellar: :any,                 arm64_ventura:  "f0c05638258edb8ae0bb3b062a4e79face4e7ed62cb6d9ca43ad03f3f7c46d85"
-    sha256 cellar: :any,                 arm64_monterey: "93cd209cde5f396a421c1b891981e8c65c40755bf4c3b577d8856d8c0c6e86bd"
-    sha256 cellar: :any,                 sonoma:         "af9454e5a04dc506924fe1d99b150fda3cd23da73de571b5d820e0c4db695495"
-    sha256 cellar: :any,                 ventura:        "37f9168b8efb604d7edb8d54b68696c3934de3eeac27cb6118b0849aba2cded3"
-    sha256 cellar: :any,                 monterey:       "be49ac5622974fc3156f834b977b5e14e667678a207416f35266433cb5fcb386"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c8704077951e7b5088f1cdf12f432e497f8c8f3febf6b4ba7d24f9aa8433c4a"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "9ef55b50588bb2f409831c5b4a75cf5ac6d0a06236bf2bfc4acf070cb36a3ae8"
+    sha256 cellar: :any,                 arm64_ventura:  "ec2e0f2be508c6488f3084b67283acb8ac4a29a5ad66ff6caa682228b9e9058e"
+    sha256 cellar: :any,                 arm64_monterey: "4b7e3d5df27e1573284e8a1c8393d9391b4788c39e27cc238b7b58cd386920f1"
+    sha256 cellar: :any,                 sonoma:         "c152f703bbe5da5b6d6cc49a8dfee0e611488f35bfbeca72ff6eacb34920dd3f"
+    sha256 cellar: :any,                 ventura:        "b9f506c710bd9cd77b30eb0cd28d8d97fb7cb4ed06d4d3d34165f9cbc4fbd5ea"
+    sha256 cellar: :any,                 monterey:       "d3a18f9eecd1f78834fdfb657a9979dda430356b73eba3e6885d774fa75e29e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fab619fe2a9bad1527d757047316895787dfc33481cbb3ddfe8a59d16dade22"
   end
 
   depends_on "rust" => :build
   depends_on "docutils"
+  depends_on "keyring"
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python@3.12"
@@ -37,21 +38,6 @@ class TwinePypi < Formula
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/44/ae06b446b8d8263d712a211e959212083a5eda2bf36d57ca7415e03f6f36/importlib_metadata-6.8.0.tar.gz"
-    sha256 "dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743"
-  end
-
-  resource "jaraco-classes" do
-    url "https://files.pythonhosted.org/packages/8b/de/d0a466824ce8b53c474bb29344e6d6113023eb2c3793d1c58c0908588bfa/jaraco.classes-3.3.0.tar.gz"
-    sha256 "c063dd08e89217cee02c8d5e5ec560f2c8ce6cdc2fcdc2e68f7b2e5547ed3621"
-  end
-
-  resource "keyring" do
-    url "https://files.pythonhosted.org/packages/14/c5/7a2a66489c66ee29562300ddc5be63636f70b4025a74df71466e62d929b1/keyring-24.2.0.tar.gz"
-    sha256 "ca0746a19ec421219f4d713f848fa297a661a8a8c1504867e55bfb5e09091509"
-  end
-
   resource "markdown-it-py" do
     url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
     sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
@@ -60,11 +46,6 @@ class TwinePypi < Formula
   resource "mdurl" do
     url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
-  end
-
-  resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/2d/73/3557e45746fcaded71125c0a1c0f87616e8258c78391f0c365bf97bbfc99/more-itertools-10.1.0.tar.gz"
-    sha256 "626c369fa0eb37bac0291bce8259b332fd59ac792fa5497b59837309cd5b114a"
   end
 
   resource "nh3" do
@@ -107,13 +88,13 @@ class TwinePypi < Formula
     sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
-  end
-
   def install
     virtualenv_install_with_resources
+
+    site_packages = Language::Python.site_packages("python3.12")
+    paths = %w[keyring].map { |p| Formula[p].opt_libexec/site_packages }
+    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
+
     pkgshare.install "tests/fixtures/twine-1.5.0-py2.py3-none-any.whl"
   end
 

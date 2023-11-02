@@ -137,6 +137,11 @@ class PipAudit < Formula
   end
 
   test do
-    assert_match "No known vulnerabilities found", shell_output("#{bin}/pip-audit --progress-spinner=off 2>&1")
+    test_file = testpath/"requirements.txt"
+    test_file.write <<~EOS
+      six==1.16.0
+    EOS
+    output = shell_output("#{bin}/pip-audit --requirement #{test_file} --no-deps --progress-spinner=off 2>&1")
+    assert_match "No known vulnerabilities found", output
   end
 end

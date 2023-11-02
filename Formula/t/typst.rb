@@ -13,20 +13,25 @@ class Typst < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0810332b6602e2e90ea27e4934f93177bb74bbf7798bfcec18ce3643b43d9a2a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8eea02cbdcdd8abc6822420375a610975db1b7719f48e29874905d08f5e376d9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd21d78c8fea6c190e8d54a2b5cb9cfcb45a69040a83dfcc7d438d8d62397a5a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e444a067bdc71f69320fe2271517d10d1d2a5b7bfbb7f6dbb5cc05b742e145b1"
-    sha256 cellar: :any_skip_relocation, ventura:        "34efbdfdcaa8e5a391affe54e82429ccec7de4bc394947a752d87584b2546f52"
-    sha256 cellar: :any_skip_relocation, monterey:       "d0d00132fa3746e3face2142a783415530704652e09680a3d5a12d78e5c00233"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "620b130636039c817c77e543e3640a735e59f51ccfd7708fb91b4a55acef0050"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f93127694ce17a62ce774396147e2e9291c5b18f58444841d54329e122aee843"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ccc09f1dfe0d390ca9eaf828b0fc646aa8786c3e760852dfb0c6ad089c5159b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfe6f8479a8c0d805eb17fd0241ec18a3bb0d9af7144e5b0f3371d3a1091dd8e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "34a5123cab4c88ae36adb3c4398312a6e24794968796378741ffca70834f7d64"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f04fceb272bf64d2a0c15b5361958e8dfa01eb73a0f1f3ea463e11c747d5d73"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0586e2944cf447a1b03fc8b50c3e497b5931cbe6aaedb3f35c66cbd3a9bd6f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ae77996084d5770fa69bf4a78d44691901c49bb92d1d6c1d8e3f1d6dd2ccfe5"
   end
 
   depends_on "rust" => :build
 
   def install
     ENV["TYPST_VERSION"] = version.to_s
+    ENV["GEN_ARTIFACTS"] = "artifacts"
     system "cargo", "install", *std_cargo_args(path: "crates/typst-cli")
+    bash_completion.install "crates/typst-cli/artifacts/typst.bash" => "typst"
+    fish_completion.install "crates/typst-cli/artifacts/typst.fish"
+    zsh_completion.install "crates/typst-cli/artifacts/_typst"
   end
 
   test do

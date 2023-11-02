@@ -1,8 +1,8 @@
 class ChainBench < Formula
   desc "Software supply chain auditing tool based on CIS benchmark"
   homepage "https://github.com/aquasecurity/chain-bench"
-  url "https://github.com/aquasecurity/chain-bench/archive/refs/tags/v0.1.8.tar.gz"
-  sha256 "e1080490aa70620de9545ab361e0516fe69e61d8bab47a016d0dfac4123a353c"
+  url "https://github.com/aquasecurity/chain-bench/archive/refs/tags/v0.1.9.tar.gz"
+  sha256 "debeff7a47acbe86f74b5cfdb970cb4843a547f3b363f56b3b45b89762dd5e60"
   license "Apache-2.0"
   head "https://github.com/aquasecurity/chain-bench.git", branch: "main"
 
@@ -15,13 +15,13 @@ class ChainBench < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d7050abfe7d09c162a6a2b53325cffdfcb1345b8a9f1f63f4475a59a43ea885a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d31556ec7fd0332b2e585c7c8d2228727aeaf937853aedbc1f41a1b494fdcd07"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "893fbb9ee133f6e9d84f7de36e45ba887128ee4192f06b28e3944f90ed19d691"
-    sha256 cellar: :any_skip_relocation, sonoma:         "904a256edda978524279d1b5bc32ea74a7303983c374252c07b76b19e85b612f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a231cde832b749d27980418bffb8398e0ccb7099f1ceb9cdb657fcec24951c10"
-    sha256 cellar: :any_skip_relocation, monterey:       "d94601127ee6516a0004c388e5779848136c84b20e485f46267b7270b32afce5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ac6ccaf7d6204e3f6b2e22f46dea5f5bdbe500937c25e33857d5f68c6e7603"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "97cef43a8c089b898d15249f3ffb9276fc93008cadd96815ee5b430bb400b262"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df209c79574b5d0d913f488757e1afa4a49567cf86b1a3f8cfc6a478cd153f75"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4668949ef3e0e9129f10514f9dc180ceaa7fc041819f8167136a150b51cdafeb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c3ace2a4675efbf65228b0a416eb178891a5959bfc56917f4bb977132ead703f"
+    sha256 cellar: :any_skip_relocation, ventura:        "5d303f2016c65a2bb8b50a968b4dbe3e0476364659fb3566a0b1312d2fa8ea4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "6ee4aa1f7393a4b5a1351d9742073aea62f0a391f8a0b65e7c2f6cab03025359"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c10109a55d5bcaacd7ba652406fa29ccb3b26ccdf0d6bdf1633af8426ff5de4"
   end
 
   depends_on "go" => :build

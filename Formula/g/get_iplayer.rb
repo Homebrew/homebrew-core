@@ -1,19 +1,19 @@
 class GetIplayer < Formula
   desc "Utility for downloading TV and radio programmes from BBC iPlayer"
   homepage "https://github.com/get-iplayer/get_iplayer"
-  url "https://github.com/get-iplayer/get_iplayer/archive/refs/tags/v3.33.tar.gz"
-  sha256 "7759dde37810a60631e603c4b56ecb5d7c5b6365dd837b2199895adf25c1c75d"
+  url "https://github.com/get-iplayer/get_iplayer/archive/refs/tags/v3.34.tar.gz"
+  sha256 "72128a0edd731c1b1d932108b3c47c74f93e17ca99915f5c769767344f339be8"
   license "GPL-3.0-or-later"
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a57cad2518582d4858cdd3a5439d64d54751dfed1774eaf417ac165fed5a1470"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a57cad2518582d4858cdd3a5439d64d54751dfed1774eaf417ac165fed5a1470"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a57cad2518582d4858cdd3a5439d64d54751dfed1774eaf417ac165fed5a1470"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3d288363f19cda392a9e6cea335d5f9e55040568b3beeb72b70b6ae6a171fa91"
-    sha256 cellar: :any_skip_relocation, ventura:        "3d288363f19cda392a9e6cea335d5f9e55040568b3beeb72b70b6ae6a171fa91"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d288363f19cda392a9e6cea335d5f9e55040568b3beeb72b70b6ae6a171fa91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7a82e46361e52dec706149d84b049599efbcb7c1c1f004b2fd98a729fba42f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c9f710e3f91e8eed1a3275bf31b771cf1bcacdc6a930264fdc652c3a23b1f8b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c9f710e3f91e8eed1a3275bf31b771cf1bcacdc6a930264fdc652c3a23b1f8b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c9f710e3f91e8eed1a3275bf31b771cf1bcacdc6a930264fdc652c3a23b1f8b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8534571e1eebf7697550193f6dc5f008410e1159b04d064fce372dc89fad3e56"
+    sha256 cellar: :any_skip_relocation, ventura:        "8534571e1eebf7697550193f6dc5f008410e1159b04d064fce372dc89fad3e56"
+    sha256 cellar: :any_skip_relocation, monterey:       "8534571e1eebf7697550193f6dc5f008410e1159b04d064fce372dc89fad3e56"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e4f14639275bffd595ddb40e15e3fbc9d3dfac54ce8d85178799f0a88dca690"
   end
 
   depends_on "atomicparsley"

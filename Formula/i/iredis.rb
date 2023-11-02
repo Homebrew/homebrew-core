@@ -3,20 +3,19 @@ class Iredis < Formula
 
   desc "Terminal Client for Redis with AutoCompletion and Syntax Highlighting"
   homepage "https://iredis.xbin.io/"
-  url "https://files.pythonhosted.org/packages/33/30/bf585c76653873b74b9bfebf1fdb22aee4e6959f37e68d8a883684a7ec95/iredis-1.13.2.tar.gz"
-  sha256 "7645fe5e153c12e231f68e58067bcc678dce2a61ee572bb0992dbe7159b85302"
+  url "https://files.pythonhosted.org/packages/e1/f9/c302b8bdfcc55159e32999a4d6d9eb252ed91333a7ca7b34bd9e61d240ef/iredis-1.14.0.tar.gz"
+  sha256 "821336ab54e4cea7169ac51bd94f3daa45a3b9843b1adee1bf2ea3dd3230f184"
   license "BSD-3-Clause"
   head "https://github.com/laixintao/iredis.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fade1399e18b59908d295ec1b759fc8169e81df014e578586986643c064bf67c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5a50008cee2da87dcafd7afb3c172809250a6b1b4ad81099cf385f7638f7513"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6847a48c56af908f0e493dc2491a85a02b970b33384021a0326c358dec4bc741"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6de51b264bade34980d373af935010c68fb05fee83ee988c1fa073d83c765cff"
-    sha256 cellar: :any_skip_relocation, ventura:        "e6b3885e4698d3637c19438fdbedaa7e0b074e002255812b79686d71b69597f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ef581c30dfaaa29ab5f20c92766e803e908f83458d483821f9ebd2fb1610c1f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b873556fa5ad46f33e10d99ba08ce768c59f11b1683ae3bb90ef95a73234d2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "95806457e261a0bf0d0e0733f673e3f4bcb6d2a31685bff9012c2a4b2ca81b54"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b53b1ffc79ab111d1e4c03b94c210ea5b70f9a2b12c79830e954125279f1b3d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "18afbf2e671f312b45c4701de9b790f9cec1d40da9eab5b75feacf0bf7c8596c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "13874777bc71f50e19085bee4d2d8ad1cd7638c53b309ddd26affa10b955b1d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "ffb85fe6512412b1dfc851ef84be87550db0ac4c8d5b56a11042ef6ba63a1bba"
+    sha256 cellar: :any_skip_relocation, monterey:       "441411950c48bf5acd47576a3a0b9defcb5e50ecae00cd6f7442b4adcb9bc094"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4221795dc09e00f1218592ce357c677400174500eda35a1da441296ccbc812d"
   end
 
   depends_on "pygments"
@@ -27,8 +26,8 @@ class Iredis < Formula
   depends_on "six"
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/27/6f/be940c8b1f1d69daceeb0032fee6c34d7bd70e3e649ccac0951500b4720e/click-7.1.2.tar.gz"
-    sha256 "d2b5255c7c6349bc1bd1e59e08cd12acbbd63ce649f2588755783aa94dfb6b1a"
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "configobj" do
@@ -62,8 +61,8 @@ class Iredis < Formula
   end
 
   resource "redis" do
-    url "https://files.pythonhosted.org/packages/73/88/63d802c2b18dd9eaa5b846cbf18917c6b2882f20efda398cc16a7500b02c/redis-4.6.0.tar.gz"
-    sha256 "585dc516b9eb042a619ef0a39c3d7d55fe81bdb4df09a52c9cdde0d07bf1aa7d"
+    url "https://files.pythonhosted.org/packages/4a/4c/3c3b766f4ecbb3f0bec91ef342ee98d179e040c25b6ecc99e510c2570f2a/redis-5.0.1.tar.gz"
+    sha256 "0dab495cd5753069d3bc650a0dde8a8f9edde16fc5691b689a566eda58100d0f"
   end
 
   resource "wcwidth" do

@@ -1,19 +1,19 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/martinvonz/jj"
-  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "f4dc3eec0f7f6b902073ff5ae559945a32ea4af0ec8b3513527e9cca2fea7b9b"
+  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "bac30443ca362b3854f1478866f86e2f640ae4993d7581867c129ff9006f0759"
   license "Apache-2.0"
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1b957a8826c1e40cd5a9e15639b552a4e99d35d6f0560b2e051904d4864a89dc"
-    sha256 cellar: :any,                 arm64_ventura:  "8ed3e11ead2ef3b66418e00d6bf364204b5558ed7c420e77caf6ce04cb61b494"
-    sha256 cellar: :any,                 arm64_monterey: "5b5341b389bc731a89d8ec65830ebb7bb18ac96e3c7e7669ffd0cb9540fbb025"
-    sha256 cellar: :any,                 sonoma:         "62757f35e6d047eb3b6fd0a4c502454c69d0a142d0c12790f7e62b40dfba8d51"
-    sha256 cellar: :any,                 ventura:        "01a7f95c788f1259348b0430afb3171978e126bb6cf403521ddb49c4b6046ee8"
-    sha256 cellar: :any,                 monterey:       "fc909b0a96f3146a339aedc3a2b8f195d6bff93694f387397a0eb9de69489906"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0a65d968ea3cd4c70f782bc2c396a461548d8e5b17cfa525dac83d76841235d"
+    sha256 cellar: :any,                 arm64_sonoma:   "14f49fa000f4cabaf68ff81c6ce7e5b175950fbc74494918fa7998613ada8d81"
+    sha256 cellar: :any,                 arm64_ventura:  "e00b7fb1077b5d77e63a308dc0b3fb8eecf62a9fa74a5d34f42ac6b5a4537b11"
+    sha256 cellar: :any,                 arm64_monterey: "bc02e5edde88b774262280469490a68a8ef0c7d6cee43428b42513a1ed547e6b"
+    sha256 cellar: :any,                 sonoma:         "09613140bcbd047804d60dce04505ab48192a10d39cfff01ce2a905ebca7fbb6"
+    sha256 cellar: :any,                 ventura:        "b30359fa0f249755488d391d51b1f12c769585b1e6a6e0abd3add8a3f1c75099"
+    sha256 cellar: :any,                 monterey:       "cd3f5caa459f22e841507f8c814384f75f84a82417a3958534478f066c9bd160"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f76f42431be36c15dce1b3655ffe76a2d51afca909f7013d2c3f277c24151967"
   end
 
   depends_on "rust" => :build

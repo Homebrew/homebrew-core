@@ -8,26 +8,25 @@ class Gyb < Formula
   head "https://github.com/GAM-team/got-your-back.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e394300c5f11dc1811fd6d1f8197055435a2893e5b55f5b84fadf028fe33e5ff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c28b0920c8e2d2c26edd760902d662cea7708e5f6f4c8ee9cd1d1ce7b04bd4c1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "001a4038949c0db3815fdef012f3d9282cac27e1085eadfeb455c8445a06f4b7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ad52a4ba434da5f7109e103b43e61ba3f2f2d86ee0023540148e0a29c10f7b04"
-    sha256 cellar: :any_skip_relocation, ventura:        "e583328505a608f6cbe29ca609e1c286eb1ab8b55d86530e626c07b059bd3685"
-    sha256 cellar: :any_skip_relocation, monterey:       "8546705fc38278d5816e899613e9b21b74883ffc64892e5ce8e389f93e4b9ae5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61a2c08143b51304d9b29d3940b654a0026bb0ebd89222d6b0f1e14469d3d296"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0de1c0d58863814d51f6e56f8253e5e044a304d435051a853ceb4f0fce1244a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "246a2e0b5dd5ce49774d9cc547f7ba8537fb16d2e691c7ccb0d4e80126b6fcff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4d2b75ee4466a1caaf0eea04bd38c4f36d0d728200e290afce416eeb85af201"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d8ed62c5ef3773db3afa6e49d61fcbfecbdb8232054fc29110f5493a0ca6b2d"
+    sha256 cellar: :any_skip_relocation, ventura:        "9f379471a1f3abcef240b672b371d2f5f3d9e891098777a105b8483982fb4251"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c343a8d90c541a7bbcbe29fca69f63aef31ca89f20935148d9c855dac930ec7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4193f2faf779ad3fdaedfd9b3df1247fd486b3d48a983aca2364ce77cf069202"
   end
 
+  depends_on "pyinstaller" => :build
+  depends_on "python-certifi" => :build
+  depends_on "python-pyparsing" => :build
   depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => :build
   depends_on "rust" => :build # for cryptography
-  depends_on "python-certifi"
-  depends_on "python@3.12"
-  depends_on "six"
+  depends_on "six" => :build
 
-  resource "altgraph" do
-    url "https://files.pythonhosted.org/packages/5a/13/a7cfa43856a7b8e4894848ec8f71cd9e1ac461e51802391a3e2101c60ed6/altgraph-0.17.3.tar.gz"
-    sha256 "ad33358114df7c9416cdb8fa1eaa5852166c505118717021c6a8c7c7abbd03dd"
-  end
+  uses_from_macos "zlib"
 
   resource "cachetools" do
     url "https://files.pythonhosted.org/packages/9d/8b/8e2ebf5ee26c21504de5ea2fb29cc6ae612b35fd05f959cdb641feb94ec4/cachetools-5.3.1.tar.gz"
@@ -79,11 +78,6 @@ class Gyb < Formula
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
-  resource "macholib" do
-    url "https://files.pythonhosted.org/packages/46/92/bffe4576b383f20995ffb15edccf1c97d2e39f9a8c72136836407f099277/macholib-1.16.2.tar.gz"
-    sha256 "557bbfa1bb255c20e9abafe7ed6cd8046b48d9525db2f9b77d3122a63a2a8bf8"
-  end
-
   resource "oauthlib" do
     url "https://files.pythonhosted.org/packages/6d/fa/fbf4001037904031639e6bfbfc02badfc7e12f137a8afa254df6c4c8a670/oauthlib-3.2.2.tar.gz"
     sha256 "9859c40929662bec5d64f34d01c99e093149682a3f38915dc0655d5a633dd918"
@@ -102,21 +96,6 @@ class Gyb < Formula
   resource "pyasn1-modules" do
     url "https://files.pythonhosted.org/packages/3b/e4/7dec823b1b5603c5b3c51e942d5d9e65efd6ff946e713a325ed4146d070f/pyasn1_modules-0.3.0.tar.gz"
     sha256 "5bd01446b736eb9d31512a30d46c1ac3395d676c6f3cafa4c03eb54b9925631c"
-  end
-
-  resource "pyinstaller" do
-    url "https://files.pythonhosted.org/packages/4d/15/ce35ef1f748eab0ee51a12fc2ac256958a1eb7720c106f40f198ace1fb71/pyinstaller-5.13.0.tar.gz"
-    sha256 "5e446df41255e815017d96318e39f65a3eb807e74a796c7e7ff7f13b6366a2e9"
-  end
-
-  resource "pyinstaller-hooks-contrib" do
-    url "https://files.pythonhosted.org/packages/c7/1e/d1884f4f59a89ac7c9c6eafb3fb454c6b92187805caa0847a7f4bcc87798/pyinstaller-hooks-contrib-2023.6.tar.gz"
-    sha256 "596a72009d8692b043e0acbf5e1b476d93149900142ba01845dded91a0770cb5"
-  end
-
-  resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
-    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
   end
 
   resource "requests" do
@@ -144,14 +123,20 @@ class Gyb < Formula
     sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
   end
 
+  def python3
+    "python3.12"
+  end
+
   def install
-    print buildpath
     # change user config location from default of executable own path
     inreplace "gyb.py", "default=getProgPath()",
                         "default='#{pkgetc}'"
-    venv = virtualenv_create(buildpath, "python3")
+    venv = virtualenv_create(buildpath, python3)
     venv.pip_install resources
-    system buildpath/"bin/python3", "-m", "PyInstaller", "gyb.spec"
+
+    ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python3)
+    pyinstaller = Formula["pyinstaller"].opt_bin/"pyinstaller"
+    system pyinstaller, "gyb.spec"
     bin.install "dist/gyb"
   end
 

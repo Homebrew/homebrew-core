@@ -10,15 +10,17 @@ class Awsume < Formula
   head "https://github.com/trek10inc/awsume.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6fa592f87d6ccbcb83a9efdcd639c9800281dd927e39bb7539ba3b5f6c0f6e2e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "272f78dfde38ca43714ea5559e93b693a0f6273712deb1487c4cf32b48b4a8b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7669aeff98d3b1ef062c325aadf018918e5b8e9441d3ee610790c18af26dfd59"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9b55a8b742d27019a36b36c609bce6a865249d204f3ffe587c37838f7a667bcb"
-    sha256 cellar: :any_skip_relocation, ventura:        "eb94536a788a691b5548f8d05f923a9a0a1ce0f21f07a99291bbb6ea8399d501"
-    sha256 cellar: :any_skip_relocation, monterey:       "7637cd5ec6b867798bc2986ec6dcca8824d66852ca89917e0a8f2236d135f737"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba6912a0dfb6ea0172fbab32c1ac094892b08067bd768e82e8fe93147767a390"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a81ac39e8c197e5ed36534cfc23f573e40775aa824f0bd450f8e381441cf95ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "300eeaf0ad9e1ca207ee6d464d9c0b640a45f93fd32257909d98c2f87d599407"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3fb70bd9e57d6b27c746c731b60ce4dcc6639ddf253d5fb615f4c74e58c1d315"
+    sha256 cellar: :any_skip_relocation, sonoma:         "939613eb6cb25804176e03e4c4e169c55d9f8f1beeba6fb5bc082df7c9446a63"
+    sha256 cellar: :any_skip_relocation, ventura:        "e2784202d8aad654b710cd1b3e4e2641bb1afe218d064c4939f92037fda7e080"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3025b59faeaae4254f48523e8c3fb436b2013fd6d1192f606020cefe2e94f14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d20e0464b529558106606be9e9460c4adfeade68f7d0a5464c2a9ebaad7fe915"
   end
 
+  depends_on "python-psutil"
   depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
@@ -48,11 +50,6 @@ class Awsume < Formula
   resource "pluggy" do
     url "https://files.pythonhosted.org/packages/36/51/04defc761583568cae5fd533abda3d40164cbdcf22dee5b7126ffef68a40/pluggy-1.3.0.tar.gz"
     sha256 "cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"
-  end
-
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2d/01/beb7331fc6c8d1c49dd051e3611379bfe379e915c808e1301506027fce9d/psutil-5.9.6.tar.gz"
-    sha256 "e4b92ddcd7dd4cdd3f900180ea1e104932c7bce234fb88976e2a3b296441225a"
   end
 
   resource "python-dateutil" do

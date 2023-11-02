@@ -4,8 +4,8 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.0.tar.xz"
-  sha256 "cd1525aa169afa0e60044b23f31c23523a339023754878a4210d74abd98c72ed"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.1.tar.xz"
+  sha256 "5a4824e9869494e501953c7466ab1960a7fa23d9b0b911b8a6f113094e0226cf"
   license "GPL-2.0-only"
 
   livecheck do
@@ -14,15 +14,13 @@ class Dpkg < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "d7aef8e7c76e99f8105de8778c07ac4445fedc506b7321ab514f58010f6c3b5a"
-    sha256 arm64_ventura:  "14008ccb1b1c4976ee3c39781918fa19caa0a7957929997578c221605cc02268"
-    sha256 arm64_monterey: "ca0ebecadc7bf30fe821e99de3636c32556b780af44377b38437d1b624962b5e"
-    sha256 arm64_big_sur:  "b5379920c154a7c6eabdbb1ee7e0e2e870d1b6cc86282c76d3f25b2f62dfca23"
-    sha256 sonoma:         "e63b77aa5d9bd6e6a85ee6f2a6b35c989a2d58216fd47ad8f85c4c7a32242009"
-    sha256 ventura:        "6dba5665679f0299d50234be46e1485395871db422280033f49a66314d4369e4"
-    sha256 monterey:       "a9afdac9cf96d81181e1219e877d2478fb5f52847be49f6a257ec06773f4060a"
-    sha256 big_sur:        "d0f8d123d0adb1849a1732d5181f8a2b4ba67e15b0e03d3af2aea8ec0d7c38c4"
-    sha256 x86_64_linux:   "171149f70dd6e2c3223eced613a74777db1b3c88c515ef984724ff348606bbcc"
+    sha256 arm64_sonoma:   "e51d08d69536ea1bc5fbd8ec04338da752ee249ede04af3a1d759de4c7543381"
+    sha256 arm64_ventura:  "6dd86cafe993086276b7ffad16ca172958ffc222dcb7d35f9363763953a16be3"
+    sha256 arm64_monterey: "31a9d97546ec8452b0d1d3e26abc4c55c8f25b28e71ed144273116b0ed4c288d"
+    sha256 sonoma:         "f1dc3c654d74a92f3f69d67738d4140366c2bd8d03f9df54a53fb5fdfa040391"
+    sha256 ventura:        "8b60150336c053efbd2cb17cdd5150dd387a7985b35adc28d7d088b624dce21f"
+    sha256 monterey:       "4325b35b60b223353bff743135cf7e52e11e6d583a5ca73087fbf4177b888edf"
+    sha256 x86_64_linux:   "d7f561115b3a7923277eb39a8441e9684a7c96b4fc8ba375130f9164fd177321"
   end
 
   depends_on "pkg-config" => :build

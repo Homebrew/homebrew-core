@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://www.jenkins.io/"
-  url "https://get.jenkins.io/war/2.429/jenkins.war"
-  sha256 "1dc21a394e6450bae158e5415396b8dc50fb80e60321b8abee5d460b0f214241"
+  url "https://get.jenkins.io/war/2.430/jenkins.war"
+  sha256 "8f603a9120dd481c9d3986c6624731869a3731ad560e7d0fdaebe0722efdc365"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Jenkins < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6f434c9afe8625e4cd3ddcdbb6f349b37230b1f1301cacd4759ebb175d16f8f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f434c9afe8625e4cd3ddcdbb6f349b37230b1f1301cacd4759ebb175d16f8f4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f434c9afe8625e4cd3ddcdbb6f349b37230b1f1301cacd4759ebb175d16f8f4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f434c9afe8625e4cd3ddcdbb6f349b37230b1f1301cacd4759ebb175d16f8f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "6f434c9afe8625e4cd3ddcdbb6f349b37230b1f1301cacd4759ebb175d16f8f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f434c9afe8625e4cd3ddcdbb6f349b37230b1f1301cacd4759ebb175d16f8f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd83cdd10912960fd4bb5f0c147c8ad70b195fc3936775a6eb330585637253a3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc254070a2f3328b3bce683ff85e471c1bd09a610fea77582068d00f2f20eedb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc254070a2f3328b3bce683ff85e471c1bd09a610fea77582068d00f2f20eedb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc254070a2f3328b3bce683ff85e471c1bd09a610fea77582068d00f2f20eedb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fc254070a2f3328b3bce683ff85e471c1bd09a610fea77582068d00f2f20eedb"
+    sha256 cellar: :any_skip_relocation, ventura:        "fc254070a2f3328b3bce683ff85e471c1bd09a610fea77582068d00f2f20eedb"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc254070a2f3328b3bce683ff85e471c1bd09a610fea77582068d00f2f20eedb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "293b7f032bdb6a7646f186ff273cd36334e7f61275d9de83392587b5555270eb"
   end
 
   head do

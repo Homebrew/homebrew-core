@@ -1,19 +1,19 @@
 class Gator < Formula
   desc "CLI Utility for Open Policy Agent Gatekeeper"
   homepage "https://open-policy-agent.github.io/gatekeeper/website/docs/gator"
-  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.13.3.tar.gz"
-  sha256 "db40b5cccaab5d8ac91716bf54e7a505928a04ecf2deb1946cd9b9975c02fa54"
+  url "https://github.com/open-policy-agent/gatekeeper/archive/refs/tags/v3.14.0.tar.gz"
+  sha256 "85fd4da39be9b852f6be8ae519d091151e4991f8ba7c7870d705f396086e8038"
   license "Apache-2.0"
   head "https://github.com/open-policy-agent/gatekeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a369536a84d08472675977d79b1b197ca5befb4dfc33f81ed94916620b2f7911"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "662ea2e0f60d7c3ddbf6a6c064ca30040dfa5c212db01ea831ef221f7a13f65f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fab4e6f9c07662a317a45082f823103f1ed98e10cba456b6863c3dd1a04de3f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cd5315f482b35e3d81c31a056d9ec923de4ac1efec450e4592f04fa90353b8a9"
-    sha256 cellar: :any_skip_relocation, ventura:        "596ca973adcdaa3afbfc637b289d9a3ac30895527f12d6f86d5aba9439bfd8c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "e4f198c677729d23188bcd18decd196a31ac7cabb9927da31e63eb44d8120f3e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2642114ed618195285e3357231e03a89fcdc7c34301d1dee42cb6f9778bfa16"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "210d5d9c058ab95264e15d5d8118ce162f431cfe2a22b1465f35e3ab534300ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6099abd536bcc0bb30bbb786f49a2d0d49b8c021b30aeb84a43d125318f0468e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0753648970e44a60cbaec8c5e43b0429f7cd6738add0736759542997fbca4042"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6263055d6e7f1dbf006a9660183cf6c44050f4746ea1c0683da9a143ed6b5b5c"
+    sha256 cellar: :any_skip_relocation, ventura:        "068fbcec6f54bb97f9b30cd68a8afeceb832a57e8bc80402962bf78d84056f7b"
+    sha256 cellar: :any_skip_relocation, monterey:       "122ad23dc34e7fcf4085d2ae997d48c789b463fad7997cf7550438019cdae4d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14dfb35ce4809a8ad54577da7942bf9f0b0ee5048d745252da99a1fc73eff5cb"
   end
 
   depends_on "go" => :build

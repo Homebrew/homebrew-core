@@ -10,22 +10,26 @@ class Snakemake < Formula
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "31807bfb70ae47836976de047e86fde419feb48f63fbfeede66007b64aa0768a"
-    sha256 cellar: :any,                 arm64_ventura:  "e17ea8260a388eeddfefb0f042928dc92901489de2afda615b9e41d5989ec205"
-    sha256 cellar: :any,                 arm64_monterey: "b53bc10727e05966bcc47b2a3b4a56283a26f4f2a6160fc3efec1e5ac04b7dc7"
-    sha256 cellar: :any,                 sonoma:         "abb5c7365b6774c90e4183c9ad5083484240ed1844fc565e636f71f4b5b4dac6"
-    sha256 cellar: :any,                 ventura:        "02498aeeae05e952f084f600ce7aade9a58b54e422d8657230716495531edd44"
-    sha256 cellar: :any,                 monterey:       "e2d597729f026f8c95d92977146d1d4ca57882f80b1587b17161f65dfe194984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f47587d206db80eb3a13691071addb9c326b9009c0da23025d20049c78414e2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "89e59d373f78deae6594012fc0b25c9ee375f98da6e05eb10007a167ecb72a37"
+    sha256 cellar: :any,                 arm64_ventura:  "79782972bddd3170819d3d3b00e61dacc775ba38759655c3e74a47afc680c000"
+    sha256 cellar: :any,                 arm64_monterey: "a2a11ce1ef91f03afd7151b112d801c6582079ab7e5906e078545cffd9d07331"
+    sha256 cellar: :any,                 sonoma:         "e540d3f359716a81c3ff72de80648069d539d6b5bdf87639e2d4ccf1092ea6ed"
+    sha256 cellar: :any,                 ventura:        "09361321dc39dffea98b9edeb8a57ddf1a02b1929be672730df5a4a9a39298b6"
+    sha256 cellar: :any,                 monterey:       "a1dc7c2207b28862ad68b4a87100f6892b291d99606959efe0abae63488a5dea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f97104c183d9057ab87c2210e9ecff6ac28daa40762f194895cf5472ea5daa3"
   end
 
   depends_on "rust" => :build # for rpds-py
   depends_on "cbc"
   depends_on "docutils"
   depends_on "python-certifi"
+  depends_on "python-markupsafe"
   depends_on "python-packaging"
+  depends_on "python-psutil"
+  depends_on "python-setuptools"
   depends_on "python-tabulate"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
 
   resource "appdirs" do
@@ -108,11 +112,6 @@ class Snakemake < Formula
     sha256 "e4b98344bb94ee2e3e6c4519a97d001656009f9cb2b7f2baf15b3c205770011d"
   end
 
-  resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
-  end
-
   resource "nbformat" do
     url "https://files.pythonhosted.org/packages/54/d8/31dceef56952da6ea2c43405a83c9759a22a86cb530197988cfa8599b178/nbformat-5.9.2.tar.gz"
     sha256 "5f98b5ba1997dff175e77e0c17d5c10a96eaed2cbd1de3533d1fc35d5e111192"
@@ -126,11 +125,6 @@ class Snakemake < Formula
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/d3/e3/aa14d6b2c379fbb005993514988d956f1b9fdccd9cbe78ec0dbe5fb79bf5/platformdirs-3.11.0.tar.gz"
     sha256 "cf8ee52a3afdb965072dcc652433e0c7e3e40cf5ea1477cd4b3b1d2eb75495b3"
-  end
-
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/2d/01/beb7331fc6c8d1c49dd051e3611379bfe379e915c808e1301506027fce9d/psutil-5.9.6.tar.gz"
-    sha256 "e4b92ddcd7dd4cdd3f900180ea1e104932c7bce234fb88976e2a3b296441225a"
   end
 
   resource "pulp" do

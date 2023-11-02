@@ -4,16 +4,17 @@ class GitExtras < Formula
   url "https://github.com/tj/git-extras/archive/refs/tags/7.1.0.tar.gz"
   sha256 "e5c855361d2f1ec1be6ee601247153d9c8c04a221949b6ec3903b32fa736f542"
   license "MIT"
-  head "https://github.com/tj/git-extras.git", branch: "master"
+  head "https://github.com/tj/git-extras.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6490784e1856994d585dfc937e3866bfc45f124ae724eaebc727bbe8a173740d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6490784e1856994d585dfc937e3866bfc45f124ae724eaebc727bbe8a173740d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6490784e1856994d585dfc937e3866bfc45f124ae724eaebc727bbe8a173740d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6490784e1856994d585dfc937e3866bfc45f124ae724eaebc727bbe8a173740d"
-    sha256 cellar: :any_skip_relocation, ventura:        "6490784e1856994d585dfc937e3866bfc45f124ae724eaebc727bbe8a173740d"
-    sha256 cellar: :any_skip_relocation, monterey:       "6490784e1856994d585dfc937e3866bfc45f124ae724eaebc727bbe8a173740d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5f7ae4a6652f41107a9e038ccaeef053ca6074a81c3213e7381c6b6d5a05970"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "056792c05a926101be794b3bba82fe69e29fc4425b90b9d35e626f661905aa34"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "056792c05a926101be794b3bba82fe69e29fc4425b90b9d35e626f661905aa34"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "056792c05a926101be794b3bba82fe69e29fc4425b90b9d35e626f661905aa34"
+    sha256 cellar: :any_skip_relocation, sonoma:         "056792c05a926101be794b3bba82fe69e29fc4425b90b9d35e626f661905aa34"
+    sha256 cellar: :any_skip_relocation, ventura:        "056792c05a926101be794b3bba82fe69e29fc4425b90b9d35e626f661905aa34"
+    sha256 cellar: :any_skip_relocation, monterey:       "056792c05a926101be794b3bba82fe69e29fc4425b90b9d35e626f661905aa34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d2fe250aa7a848dc82c8fb443db5767c70abbc9ec45de4c0c0e938c620c5319"
   end
 
   on_linux do

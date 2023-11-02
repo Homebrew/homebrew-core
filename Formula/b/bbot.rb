@@ -8,13 +8,14 @@ class Bbot < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0b2c7e081961d3fb00a3a1595173af6863805f12e4013b78551ff7faed8582a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ec39cdee7c40b25b96f892914f6ac633aea1a0eed7918b048e404d3d30adde5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "11b3b65b4292693bceeb19094a32e5ab144400a772de37955e0685aa935ad502"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e5d123502c9b8a2cb469bb7e28ba03ebb36c5e27151e30b3ad945d1ea75acb5c"
-    sha256 cellar: :any_skip_relocation, ventura:        "c1a5126551f9ef0f3ac2aef1832526a9a966097094411bda253c646cf714c1b0"
-    sha256 cellar: :any_skip_relocation, monterey:       "19fe8ed8fbfbc7194b4724ef9302f1f54aca1417217224436759b2597bdeef5d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d9e637bbe44133b7f48ea3c3d70f95c253590ebebcc9282546e4aa64fd8ee8b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3a56987b669e6068ea8acdc45dd5ea2b5ad275180617d2352474d8ee35c664e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d96877f6146b8c80088e884f41cf2ce730f76cad5fb8de08d63c656286c3012d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5897a606da08dd8966c3c51134a5fe63db45547b49e0442ca68fc0f39e517201"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0c656a0cd863d388327170d20bdceee5de0418be2bd8eb8095a0ad7908d9d9f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "591fae6b7cb02455f22ce2ac78fcb4cdce37fba4d65d6f9309aa743f205f3fad"
+    sha256 cellar: :any_skip_relocation, monterey:       "228145de59560458afc20dbcf1b18ed10eead1e905bb122f7f64487d297dc4cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "199be3487cc3edd566a0d4e2bdcc946fd4a028fcaf118a1b51d33c60a1d56463"
   end
 
   depends_on "openjdk" => :build # for omegaconf
@@ -24,7 +25,10 @@ class Bbot < Formula
   depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python-lxml"
+  depends_on "python-markupsafe"
   depends_on "python-packaging"
+  depends_on "python-psutil"
+  depends_on "python-tabulate"
   depends_on "python-typing-extensions"
   depends_on "python@3.11"
   depends_on "pyyaml"
@@ -145,11 +149,6 @@ class Bbot < Formula
     sha256 "6aed02de03cba24efabcd600b30540140634fc06cfa603822d508d5361e9f799"
   end
 
-  resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
-  end
-
   resource "omegaconf" do
     url "https://files.pythonhosted.org/packages/09/48/6388f1bb9da707110532cb70ec4d2822858ddfb44f1cdf1233c20a80ea4b/omegaconf-2.3.0.tar.gz"
     sha256 "d5d4b6d29955cc50ad50c46dc269bcd92c6e00f5f90d23ab5fee7bfca4ba4cc7"
@@ -163,11 +162,6 @@ class Bbot < Formula
   resource "pexpect" do
     url "https://files.pythonhosted.org/packages/e5/9b/ff402e0e930e70467a7178abb7c128709a30dfb22d8777c043e501bc1b10/pexpect-4.8.0.tar.gz"
     sha256 "fc65a43959d153d0114afe13997d439c22823a27cefceb5ff35c2178c6784c0c"
-  end
-
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
-    sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
   end
 
   resource "ptyprocess" do
@@ -223,11 +217,6 @@ class Bbot < Formula
   resource "soupsieve" do
     url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
     sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
-  end
-
-  resource "tabulate" do
-    url "https://files.pythonhosted.org/packages/7a/53/afac341569b3fd558bf2b5428e925e2eb8753ad9627c1f9188104c6e0c4a/tabulate-0.8.10.tar.gz"
-    sha256 "6c57f3f3dd7ac2782770155f3adb2db0b1a269637e42f27599925e64b114f519"
   end
 
   resource "tldextract" do

@@ -1,8 +1,8 @@
 class R < Formula
   desc "Software environment for statistical computing"
   homepage "https://www.r-project.org/"
-  url "https://cran.r-project.org/src/base/R-4/R-4.3.1.tar.gz"
-  sha256 "8dd0bf24f1023c6f618c3b317383d291b4a494f40d73b983ac22ffea99e4ba99"
+  url "https://cran.r-project.org/src/base/R-4/R-4.3.2.tar.gz"
+  sha256 "b3f5760ac2eee8026a3f0eefcb25b47723d978038eee8e844762094c860c452a"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class R < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0999a611bd86ed0aab4dc647463346ff6e7c1916389368969f90028c59a40513"
-    sha256 arm64_ventura:  "03572aa09e9d6e8ed06dde44121aae8fe6a28940c3c62d9e054ab17e688de796"
-    sha256 arm64_monterey: "38f64327801c7477652fdcb0e5d2d2445aa64702e6f88385a8326ee74da98185"
-    sha256 arm64_big_sur:  "b3400b4a83c742dc67a830ff89da9ca69a78a95b232d6adbd873ed8ce1e0dcab"
-    sha256 sonoma:         "84a86886203e06c08569df347c493acb1ababf34edf7323b1bb6158a1ec02786"
-    sha256 ventura:        "371c52d60ab6b05a465117bb46caf5a30d215fbb06dec5102a52b3c87cdaf02c"
-    sha256 monterey:       "29874a13f3db112cf2522b143b8bacf062df7faebfc0823b70a31840cc56536f"
-    sha256 big_sur:        "542e95192e5357723d75072f67700d48ee139f7bcaf58fea769e4ea158cd313e"
-    sha256 x86_64_linux:   "84e5cc4ff05da320cc75260a8c38f8171822a410261c1b6ef51b92b80d1513dd"
+    sha256 arm64_sonoma:   "5e72cf6ad678038f3a01aa55d7e640855728071e54e82648e8cac3863c006437"
+    sha256 arm64_ventura:  "58d2729b70a6537bc2191cf4c4b95867f8c0de4e9bb2e7baa00dd76a0948330c"
+    sha256 arm64_monterey: "8e83a3fed9bceef1b3c140984f0852747c1d90a209032eaf3922897e56516fc4"
+    sha256 sonoma:         "48009269cf6f93004e5c6433da75316b25dfdfe5561ad59f04f6b8b46b256881"
+    sha256 ventura:        "1b47766c3367fad6b1bd7ae05858968e030c7e242446df25feebde7b4c0468ce"
+    sha256 monterey:       "97e01487e996edd9ee0bf3f373c78b526d9d2b182d34a19e955e74749c0a4b93"
+    sha256 x86_64_linux:   "141ad55d48a390f04d3143a688bb53f0e1cd0012b5dc861bcb476794dcd23285"
   end
 
   depends_on "pkg-config" => :build

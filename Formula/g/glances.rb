@@ -8,27 +8,23 @@ class Glances < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f990cb650f3a4a294d7d0f8022755f0aabff3154d19b0539973ea207b455467a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "76260a2465b79b559c37a24265456c6a5e7bf6c1d323b0b96486e4f1b4d4d6cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0c5d536676c493ff24390d049870c0c7e0537376d342fa4fa7b6a5546da770ca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3a30ca2c4102c5440face5b108ee1dcae9d1f2f5f74528bb5d0e72b31de49362"
-    sha256 cellar: :any_skip_relocation, ventura:        "29bfa409dd6bee74012aee885b2f79353439b0828fab15d536042b2414f45fb4"
-    sha256 cellar: :any_skip_relocation, monterey:       "ecc476bd72ee7dc845f08b2c278c09a1722826ff00ce96b7d143ab962849ed55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d31446620d0a4d632a8f1fb1da6c43220e81fca2a4b782e5903787782fb6c7d"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8975199729672566e15b0ec095cc88b048dcb5eafd1f116debc5c75cd218d404"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f897e7e780bffb144439713351420078a7e4c8a1c3dc2eb9bf9ec1bcac044440"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8e903fffdf03b3e9fb57478a575f3e7ef2ba60b7b291da23c86b86db25da610"
+    sha256 cellar: :any_skip_relocation, sonoma:         "354ecf359f2ba52e90068961d8db04797ac4a513f5bd88277fe8364ff23bb795"
+    sha256 cellar: :any_skip_relocation, ventura:        "dde228e56d2bd9634e1d80a2f7d786dab00a056aecc1fbe75e24a8213c5f88b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "0600c2432101a001cd67bfe4b7ee0aded6b149f39a314fb9bcd3c3536d600ebf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75b17c5577dc5a51614d2abd4c612ce9a692c3295fe98561f3f2786197c2d1d1"
   end
 
   depends_on "python-packaging"
+  depends_on "python-psutil"
   depends_on "python@3.12"
 
   resource "defusedxml" do
     url "https://files.pythonhosted.org/packages/0f/d5/c66da9b79e5bdb124974bfe172b4daf3c984ebd9c2a06e2b8a4dc7331c72/defusedxml-0.7.1.tar.gz"
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
-  end
-
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/d6/0f/96b7309212a926c1448366e9ce69b081ea79d63265bde33f11cc9cfc2c07/psutil-5.9.5.tar.gz"
-    sha256 "5410638e4df39c54d957fc51ce03048acd8e6d60abc0f5107af51e5fb566eb3c"
   end
 
   resource "ujson" do

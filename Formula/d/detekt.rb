@@ -1,8 +1,8 @@
 class Detekt < Formula
   desc "Static code analysis for Kotlin"
   homepage "https://github.com/detekt/detekt"
-  url "https://github.com/detekt/detekt/releases/download/v1.23.1/detekt-cli-1.23.1-all.jar"
-  sha256 "089c15405ec5563adba285d09ceccff047ebc7888b8bbc3a386bbc6c6744d788"
+  url "https://github.com/detekt/detekt/releases/download/v1.23.3/detekt-cli-1.23.3-all.jar"
+  sha256 "2e6f73f1707b05d07b8a48b2272b95b55f1eaa53ee73198c34d0bdd04f7daa90"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class Detekt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, ventura:        "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, monterey:       "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1eeea827ea295112b149ed51f0a954d25f29c4b06696be6517db3cac1175134a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d212935e52e998855e8093b00010af6fd223ac5be0b59c04f3e7420e77176259"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fbd39855c01cea206ab8ae3c0e4ec540705ad88c8c53049c83e823fe4ac4603"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fbd39855c01cea206ab8ae3c0e4ec540705ad88c8c53049c83e823fe4ac4603"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4fbd39855c01cea206ab8ae3c0e4ec540705ad88c8c53049c83e823fe4ac4603"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4fbd39855c01cea206ab8ae3c0e4ec540705ad88c8c53049c83e823fe4ac4603"
+    sha256 cellar: :any_skip_relocation, ventura:        "4fbd39855c01cea206ab8ae3c0e4ec540705ad88c8c53049c83e823fe4ac4603"
+    sha256 cellar: :any_skip_relocation, monterey:       "4fbd39855c01cea206ab8ae3c0e4ec540705ad88c8c53049c83e823fe4ac4603"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "247ca743cee104509459e3525f01b9ce6d40c5a279cd2044aba532efae4beb44"
   end
 
   depends_on "openjdk@17"

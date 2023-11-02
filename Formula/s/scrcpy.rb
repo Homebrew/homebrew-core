@@ -1,20 +1,18 @@
 class Scrcpy < Formula
   desc "Display and control your Android device"
   homepage "https://github.com/Genymobile/scrcpy"
-  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "6f3d055159cb125eabe940a901bef8a69e14e2c25f0e47554f846e7f26a36c4d"
+  url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.2.tar.gz"
+  sha256 "9c96ce84129e6a4c15da8b907e4576c945732e666fcc52cf94ff402b9dd10c2c"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_sonoma:   "36f6a0df559b1b77143b2eb1ef6829767cef798095aad2e68a6711f9436bb936"
-    sha256 arm64_ventura:  "8fd1ae7b9d4241048a218f99475f29fac9650d3de7ff527a68524975fe1b47d9"
-    sha256 arm64_monterey: "6a2d920d0763d1fac9facd4d59bc43273eeea22e867c2ac73a4a7d8f1ce6be43"
-    sha256 arm64_big_sur:  "4c1b82c9e96fe9199c70b89ba1a6cc8da1796d1b206e3844d885e8d1d51d0e35"
-    sha256 sonoma:         "e5d8b7938fa3aa8d01b6b241d05faf432e4e357410b0648799499b22cb35544d"
-    sha256 ventura:        "28cfa8ce0b627b22a52bba40b140d5db462f6325d02a964206f4302f02af784e"
-    sha256 monterey:       "aeac2ec3ab6cb3b6a5bec2c59601893f4cead77c76f7cbad4d6116a3b61d4601"
-    sha256 big_sur:        "269024b209605443de8393a698a9e6d528f4bc8fb72a605749894d53f0def49f"
-    sha256 x86_64_linux:   "f3d222c2d5df53ccfb7af83d4a96fd1acb89c5c07456f91344205411062e9a51"
+    sha256 arm64_sonoma:   "73212d81ed72e2dc05f1e5701b5c17c225577784f4f661c131583dca7407f0b7"
+    sha256 arm64_ventura:  "289b84db363109e5f5e323746faaf6eec406b1ca15b763f6fe71b1f50b0383d6"
+    sha256 arm64_monterey: "ecdb0f7a3561d941173fbb8b3f192f25fcfb2ecb83192fcf9ac52badc886eeaa"
+    sha256 sonoma:         "79fc5596e771c94c3be6a9157ce39e9d2d29e97e3a03c35235c8944384fabbe1"
+    sha256 ventura:        "59c590414183162b069c5d539307ce9404c1e86dd93f47406924e908238cedc4"
+    sha256 monterey:       "4a2337591843767fd63056089b55b80c8e4c8afd052d2d8d90fe767332992fe9"
+    sha256 x86_64_linux:   "8563d61ddc10a510ebe575e02fcec61be8c77482cd9b5e2ed10f4c507f362c3b"
   end
 
   depends_on "meson" => :build
@@ -27,8 +25,8 @@ class Scrcpy < Formula
   fails_with gcc: "5"
 
   resource "prebuilt-server" do
-    url "https://github.com/Genymobile/scrcpy/releases/download/v2.1.1/scrcpy-server-v2.1.1"
-    sha256 "9558db6c56743a1dc03b38f59801fb40e91cc891f8fc0c89e5b0b067761f148e"
+    url "https://github.com/Genymobile/scrcpy/releases/download/v2.2/scrcpy-server-v2.2"
+    sha256 "c85c4aa84305efb69115cd497a120ebdd10258993b4cf123a8245b3d99d49874"
   end
 
   def install
@@ -36,13 +34,10 @@ class Scrcpy < Formula
     r.fetch
     cp r.cached_download, buildpath/"prebuilt-server.jar"
 
-    mkdir "build" do
-      system "meson", *std_meson_args,
-                      "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
-                      ".."
-
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
+                                      *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def caveats
@@ -55,6 +50,8 @@ class Scrcpy < Formula
   end
 
   test do
+    assert_equal version, resource("prebuilt-server").version, "`prebuilt-server` resource needs updating!"
+
     fakeadb = (testpath/"fakeadb.sh")
 
     # When running, scrcpy calls adb five times:

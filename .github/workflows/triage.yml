@@ -201,7 +201,7 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/.+/(agda|arangodb|aws-sdk-cpp|boost|brotli|c-ares|deno|dotnet|emscripten|envoy|freetype|gcc|ghc|glib|graph-tool|harfbuzz|libnghttp2|libtensorflow|llvm|mame|metashell|nghttp2|node|numpy|nwchem|openblas|p11-kit|pango|ponyc|pytorch|rav1e|rust|suite-sparse|swift|texlive|qt|v8|verilator|vtk|xz|zstd)(@[0-9]+)?.rb
+              path: Formula/.+/(agda|arangodb|aws-sdk-cpp|boost|brotli|c-ares|deno|dotnet|emscripten|envoy|freetype|gcc|ghc|glib|graph-tool|harfbuzz|icu4c|libnghttp2|libtensorflow|llvm|mame|metashell|nghttp2|node|numpy|nwchem|openblas|p11-kit|pango|ponyc|pytorch|rav1e|rust|suite-sparse|swift|texlive|qt|v8|verilator|vtk|xz|zstd)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
@@ -213,7 +213,7 @@ jobs:
               keep_if_no_match: true
 
             - label: CI-linux-self-hosted
-              path: Formula/.+/(alsa-lib|brotli|cups|dart-sdk|dbus|envoy|freetype|gdbm|glib|glslang|gmp|gtk4|gzip|harfbuzz|hdf5|json-c|krb5|libarchive|libedit|libnghttp2|libsndfile|libssh2|libtiff|libva|libx11|libxcrypt|libxml2|libxrandr|llvm|minizip|nghttp2|nss|open-mpi|openexr|p11-kit|pygments|python@3.11|systemd|qt(@5)?|unbound|utf8cpp|util-linux|webp|xz|zlib|zstd).rb
+              path: Formula/.+/(alsa-lib|brotli|cups|dart-sdk|dbus|envoy|freetype|gdbm|glib|glslang|gmp|gtk4|gzip|harfbuzz|hdf5|icu4c|json-c|krb5|libarchive|libedit|libnghttp2|libsndfile|libssh2|libtiff|libva|libx11|libxcrypt|libxml2|libxrandr|llvm|minizip|nghttp2|nss|open-mpi|openexr|p11-kit|pygments|python@3.11|systemd|qt(@5)?|unbound|utf8cpp|util-linux|webp|xz|zlib|zstd).rb
               keep_if_no_match: true
 
             - label: large-bottle-upload

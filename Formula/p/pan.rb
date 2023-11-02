@@ -1,18 +1,19 @@
 class Pan < Formula
   desc "Usenet newsreader that's good at both text and binaries"
   homepage "https://pan.rebelbase.com"
-  url "https://gitlab.gnome.org/GNOME/pan/-/archive/v0.154/pan-v0.154.tar.bz2"
-  sha256 "440317954df7217689100df3dfb68865770f5aed1b8ed2b45432d771bb80a8c9"
+  url "https://gitlab.gnome.org/GNOME/pan/-/archive/v0.155/pan-v0.155.tar.bz2"
+  sha256 "3624ac3171fa8089825ce55b62b053db4f86d592f717c4d874c48ce0e885dff2"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 arm64_sonoma:   "e4fcb1f5c2789fcceec936f1b5c02912ddae3f25c83352fbf07ebeb4736fc624"
-    sha256 arm64_ventura:  "30f5b64944c582e5270b3c4d3410317cc531198b3fc6732278f0bcad59ba14dd"
-    sha256 arm64_monterey: "c7f0b331a69759c3caaa49daeb52bbbdf08715cb8b666eaaba19f567a980e90d"
-    sha256 sonoma:         "23e2a06deabd0b066ed75763aa6e5ee683d9ebd751b424ffb63cdcd63efd61c1"
-    sha256 ventura:        "8dfdf0bcc1f5f1e22db31dcfdc33172b44d7fca653ed0a19eae9c36b0af7ac1d"
-    sha256 monterey:       "180f252594529865e2aea62980dae9eb7dcc93b64883b3992c76e4921890ee97"
-    sha256 x86_64_linux:   "7dcaa54b1e8306a5318357449e1022ef21684efddab8417490bd566c59ae60a2"
+    rebuild 1
+    sha256 arm64_sonoma:   "4ca4f98c9d8b4b1fb18019135f6a71cbd332e926d0460f3b788998a50ac3fde7"
+    sha256 arm64_ventura:  "b67ea740c7a1d737d8d9bc20928e45d95d943f7ffee9d4a5af46ac57eedc4930"
+    sha256 arm64_monterey: "ccba3ea41228197e3c59b93a1fff7c07a386e80a6c556148882cf45bdd0fd4d7"
+    sha256 sonoma:         "5b291b7dc052238e8eee4b1b4e5f82b40c84a93c342cabcb94b76a41bed10a74"
+    sha256 ventura:        "122648c9eb00130a90f204a1fad3a25ffc9cc2a64044e60bcdcf6c8883474178"
+    sha256 monterey:       "d0dfa5ffd7fb269ca5709d2234c524fe9eb59f7d22f413dc943034621e1c27ee"
+    sha256 x86_64_linux:   "acca0e04ffd203e54e8aad6d04a56c7c41bb621c60887a08de00c8a92071aa6f"
   end
 
   depends_on "autoconf" => :build
@@ -36,8 +37,6 @@ class Pan < Formula
     # use brew name for gtk3 version of tool update-icon-cache
     inreplace "pan/icons/Makefile.am", "gtk-update-icon-cache", "gtk3-update-icon-cache"
 
-    # fix libiconv linking https://gitlab.gnome.org/GNOME/pan/-/issues/171
-    ENV.append "LDFLAGS", "-liconv" if OS.mac?
     ENV.append "CXXFLAGS", "-std=c++11"
 
     system "NOCONFIGURE=1 ./autogen.sh"

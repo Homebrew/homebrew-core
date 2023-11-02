@@ -1,18 +1,18 @@
 class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
-  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.12/sile-0.14.12.tar.xz"
-  sha256 "8b2c4d8b8636cda791e8751ffc8556d4cee60745a1336cb13aa0e46f5a009078"
+  url "https://github.com/sile-typesetter/sile/releases/download/v0.14.13/sile-0.14.13.tar.xz"
+  sha256 "3d4f587da9e6cabe27010310bbfba70504900af576872a348bc951d0c9ee15c0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f32691b9d1ad89498c864f8fc4cfa3c88a4f7210afeadee1843433e5c5e48b66"
-    sha256 cellar: :any,                 arm64_ventura:  "3db09098337804f370aa6e4150f4d436010dec06daf65e26a0f3c1c845143186"
-    sha256 cellar: :any,                 arm64_monterey: "f67e1047a5b0cf7b9b0026480be2a6327d90a3f0d745ad5c65c67385530f9b0a"
-    sha256 cellar: :any,                 sonoma:         "66e12f0d7819b5b3aca482aa6462da994e2cf969c3916a387d1662893a18301a"
-    sha256 cellar: :any,                 ventura:        "ced2a31899ad2f73b4bac89e0bd80731f8273f236eb224ef9f10de593df11fbe"
-    sha256 cellar: :any,                 monterey:       "fe84a797acd1564e0114030b5a8f6f3ec4a2dcdff75f1fcb36c3be4d3ef302b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cba5651c9c18183df406bda942d641603591ba5dc2a555aa9d95b4914ecb27c8"
+    sha256 cellar: :any,                 arm64_sonoma:   "eeb15cdf10649d97cd9f70bc1ee902dd1ed54d043e4d803ccb0f8deea0195c9d"
+    sha256 cellar: :any,                 arm64_ventura:  "3233d650d06781436020ab6af7248bf076585ccd491870a3ce6277a28961eccc"
+    sha256 cellar: :any,                 arm64_monterey: "30e9b001eb8d260cf989b6d7e9ccc27536f090ec54bc7bd429e7042f8172db2b"
+    sha256 cellar: :any,                 sonoma:         "454d3b234f83f49934c8fdb27d15d7669191fdd4217c0f672a79cbebee7da9ae"
+    sha256 cellar: :any,                 ventura:        "757c4e6c4edf3e1ecedaf8a3243af245c8f299daaa21ceeacddba060bc24974c"
+    sha256 cellar: :any,                 monterey:       "112023c0f6de2450a3c3871d376f896dba00aa60411b89020dd8cdceb4513b80"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99f08b565174d5283378d0d7203d2319d1e5a1242cf524f4ef3070d56e4be5ac"
   end
 
   head do

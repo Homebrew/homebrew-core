@@ -3,16 +3,16 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/0f/7d/3fedc48fcb71bef9d5c7013edff6aaf6d30a4ae9f8f74c851eedfffafaf3/locust-2.18.0.tar.gz"
-  sha256 "f8d668c2c33518c705664bc869791d58fc98ba8f1aadbf2335be36e4e681feae"
+  url "https://files.pythonhosted.org/packages/cb/d4/02c49e14da81cf93bc3b133cf64131bfff174f163d593c6fc5efa95d89f6/locust-2.18.1.tar.gz"
+  sha256 "503985a240f8f8098636c9493689caca2cc923b83f241393bb2c92bde5801278"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb705322fbaf4599bdf5d19543a72333914d1520b3838875ca34c86badcac40e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "52539dee07da62cdc650426cbc7e946481f7334ab6d207af0c375c6d7e2cd969"
-    sha256 cellar: :any_skip_relocation, ventura:        "b22188b20bab4b2a177d5ef6171c24f209465ba220df40341c087a41cdfdd449"
-    sha256 cellar: :any_skip_relocation, monterey:       "bfa75074d20db0041bce7e54e9d6e27a6f29dd95a262f0d97b306b010d0e13da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abf00b50f8a78e9a5a1c0f063a52a0634684dccace7a33cfd50dc61a3e9f6a05"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb227fb8cd9f93b9891ce4d10dd8ffb9d2c1a619ddbec22f7d2800d8a3b4cd9d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "777c9563b37a5e9f82ab4c03b0ebaae400f81c113f778bd5f5617b92393dfb1f"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ecfb5efa9bf22866046f56350b317a365a380750141b7ed43135c42978072d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "f0a3b919d3d910e393e4775e8a4af86748b8da66340373822a7518b7eb4196e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03ce4c2500eb8be527951fdf5cd09420f8506cba9add0069443b54b0c7ddb064"
   end
 
   depends_on "python-certifi"
@@ -34,8 +34,8 @@ class Locust < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/6d/b3/aa417b4e3ace24067f243e45cceaffc12dba6b8bd50c229b43b3b163768b/charset-normalizer-3.3.1.tar.gz"
-    sha256 "d9137a876020661972ca6eec0766d81aef8a5627df628b664b234b73396e727e"
+    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
+    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
   resource "configargparse" do

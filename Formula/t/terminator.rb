@@ -8,28 +8,24 @@ class Terminator < Formula
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "052165795930397e5a73e38488a3c4e1dc8093c47d9e5b15cf89fbde85fcde78"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9a457a8648e9c7854e507a0ff0c3fdb8556c97d7aba7d99c58bb8996ca5993c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed8774631ad42ddc984ef7740a5640863fdaa48f9f3e6fab2e8c60be130212f2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9db11ee4db1c49a67cf236d6b8dc1e3a5431a131ecd1f95c29e3e564aa1135bf"
-    sha256 cellar: :any_skip_relocation, ventura:        "f8b5279a4e1c1496fcbf930f823454aef287852c8bc2cb85a5df817cf812fa39"
-    sha256 cellar: :any_skip_relocation, monterey:       "289a434c46d119b40e412ff507248fa84b622aeafa4018e17741107b878f6c2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d4a92242883f7649493fb09721cb1c336c09871ea7abeba66ad69627aa04785"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2dff737de0e39a66a68516b65d361919e9054ae1847eb43a6558869007081afd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d2ada86b47390bce284bf46657f6915fe329f3e999c37726bc631774adfe221"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e30f676dabd280e0768ea3518875ab97250fda781466e1979e9e609d001b9e3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b3d91d55179719584da179fff6ce4a0b0e40f128d579a5369fa17c2014ebe45b"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c4642834e09878bea7ed5b707021d6619b172cce55df492f511a42eb9921338"
+    sha256 cellar: :any_skip_relocation, monterey:       "954aec79973199ab4f95dd705ec369e52424445476c71bc91c07917ad366655c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e39dc4193694eede7839f8d3f6909b7fcd379e560a305e33d06cc35d2d7dbbe4"
   end
 
   depends_on "pygobject3"
+  depends_on "python-psutil"
   depends_on "python@3.12"
   depends_on "six"
   depends_on "vte3"
 
   on_linux do
     depends_on "gettext" => :build
-  end
-
-  resource "psutil" do
-    url "https://files.pythonhosted.org/packages/3d/7d/d05864a69e452f003c0d77e728e155a89a2a26b09e64860ddd70ad64fb26/psutil-5.9.4.tar.gz"
-    sha256 "3d7f9739eb435d4b1338944abe23f49584bde5395f27487d2ee25ad9a8774a62"
   end
 
   resource "configobj" do

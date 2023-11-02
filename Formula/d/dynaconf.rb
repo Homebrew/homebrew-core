@@ -3,19 +3,18 @@ class Dynaconf < Formula
 
   desc "Configuration Management for Python"
   homepage "https://www.dynaconf.com/"
-  url "https://files.pythonhosted.org/packages/f3/11/a1cbc9bd1c07a5ef8254c969aa9f5549c8bc6bb38bbd369b2020df554bd1/dynaconf-3.2.3.tar.gz"
-  sha256 "8a37ba3b16df64cb1db383eaad9c733aece218413be0fad5d785f7a907612106"
+  url "https://files.pythonhosted.org/packages/fc/24/23ffca4bfb74ee9ddc0a3b1fbae401a6ee3c02700ec457ddceffffce1ad9/dynaconf-3.2.4.tar.gz"
+  sha256 "2e6adebaa587f4df9241a16a4bec3fda521154d26b15f3258fde753a592831b6"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e742f84c74b5a55b6c35dacc3ba4a9bbfbf6d22bbf69ca71c1545ca95bd166e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1542a2c33afc8b7f5bf82d0567bcbc8f05d96c05f628964912a28d2619f9b57"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6526aa5bbf021af9e9a8ea6d63746ae3c5eb9928134f26839af971d6e463202e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2a5bfd7e2d30d238b3412fd6c65803825fb4b9fdbef90a87ec1315ec4d207e45"
-    sha256 cellar: :any_skip_relocation, ventura:        "ce8922ab39f253878c3a56efcbc99bf7556ebdf14083c62f78f422253d1a5ac7"
-    sha256 cellar: :any_skip_relocation, monterey:       "04685ffff7af1f56a105879cedf1ed38e005c6d1deb06e7fdd86a75cd2662481"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f008dcc13b8e488c34982a01f6786e439f358a22e8989e3744459b5467c07f1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "427833190e822ce48bb7dd7bb5513d58a387ba9e3f38b73a7965ec8de843a375"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98ff845033e109c5424ed14809d8ed664953f07e3e0958665152fa6f773c5a94"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93ba7f5b76b04be94ffcb6b419bb24d619a4813ccbd591566839e4c19815290e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ff9196a08cc0340627ae7b1524b85aaea0a8d4ebb32c4c71a9bc1a1a07e7d2bf"
+    sha256 cellar: :any_skip_relocation, ventura:        "2d36216d5efc117e1da3941d08cd65bd50578e412a5c14bbe57b18ff7c37ef8d"
+    sha256 cellar: :any_skip_relocation, monterey:       "c3b7f445e12dcfd435598f6997619fee447dacdc16d2cc29d75b4f3d341609df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "819b86fe3d17778b1073b71bb368e15833dde49820f098b898c3275c4351cb4a"
   end
 
   depends_on "python@3.12"

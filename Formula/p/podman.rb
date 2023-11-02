@@ -2,23 +2,24 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v4.7.1",
-      revision: "ef83eeb9c7482826672f3efa12db3d61c88df6c4"
+      tag:      "v4.7.2",
+      revision: "750b4c3a7c31f6573350f0b3f1b787f26e0fe1e3"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a548b5f3abc24639883e76aa90de3f282c8342ac1a241083fa950826dcdfa934"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ea874ca28fdbae4a7b4fd72f71b15e54553c17f0d2be893f5a2345ae4a8367"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d88ad41bf88b194d5bfbe3d201f1b4078b78913a88ead7707c180dcba0b85fdd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "affb2838ad3776e42d459296d631950eb7ee3cac29b76b652af1944c1744974f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a97f0162b8fb99acc0c5bd4f5a2750c58ea6d28cba3befe5168cb3deef211c2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "56619db93a15222acd702b85af15b2bce56110df562860c39f12f328a4e3ff27"
-    sha256                               x86_64_linux:   "c9af55e59926c616850f5bf7b2fa02ff09aeef281cbcbc333a5eab8d26f6b30e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "172534d9bb9aa9864f5bdec1a2e9f427379c27838596f0b2c966fa3a82883e93"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "892183e73b72d2e09776ad2dc7fefaa3b412ebca0f6e05c1fe04833592af6f64"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15ec062d724716c65e82d6e5fb49ad20393626c336cfb050f90f70d12d515dcd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ecc7ee5a6a9739f57e7e1c3e72bf5519b333b1bceea21621a34d2c731f9b0794"
+    sha256 cellar: :any_skip_relocation, ventura:        "e024891a40a70bec9684c2f42d0d749dc929e7a2d4c0a3dbe85326692a9faf5b"
+    sha256 cellar: :any_skip_relocation, monterey:       "c54980450b663a45f2aaec1cdac39a99b6a68b610eb488f8c3d21a7aa18ad3ce"
+    sha256                               x86_64_linux:   "a3af8a1ac3a3e5cbd4138e070aa27bd338e1e36c045b388384b68f5e5aedb27e"
   end
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
+  uses_from_macos "python" => :build
 
   on_macos do
     depends_on "make" => :build

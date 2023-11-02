@@ -11,6 +11,9 @@
   "aiven-client": {
     "exclude_packages": ["certifi"]
   },
+  "adb-enhanced": {
+    "exclude_packages": ["psutil"]
+  },
   "all-repos": {
     "exclude_packages": ["packaging"]
   },
@@ -104,7 +107,7 @@
     "exclude_packages": ["six"]
   },
   "awsume": {
-    "exclude_packages": ["six", "PyYAML"]
+    "exclude_packages": ["psutil", "pyyaml", "six"]
   },
   "b2-tools": {
     "exclude_packages": [
@@ -122,8 +125,8 @@
   },
   "bbot": {
     "exclude_packages": [
-      "certifi", "cffi", "cryptography", "docutils", "lxml", "packaging",
-      "pycparser", "pyyaml", "six", "typing-extensions"
+      "certifi", "cffi", "cryptography", "docutils", "lxml", "markupsafe", "packaging",
+      "psutil", "pycparser", "pyyaml", "six", "tabulate", "typing-extensions"
     ]
   },
   "beancount": {
@@ -353,14 +356,14 @@
   "dvc": {
     "package_name": "dvc[all]",
     "exclude_packages": [
-      "argcomplete", "certifi", "cffi", "cryptography", "numpy", "packaging",
-      "protobuf", "pyarrow", "pycparser", "pygit2", "Pygments",
+      "argcomplete", "certifi", "cffi", "click", "cryptography", "numpy", "packaging",
+      "protobuf", "psutil", "pyarrow", "pycparser", "pygit2", "Pygments", "pyparsing",
       "PyYAML", "six", "tabulate", "typing-extensions"
     ]
   },
   "dxpy": {
     "exclude_packages": [
-      "argcomplete", "certifi", "cffi", "cryptography", "pycparser", "six"
+      "argcomplete", "certifi", "cffi", "cryptography", "psutil", "pycparser", "six"
     ]
   },
   "enex2notion": {
@@ -457,7 +460,7 @@
     "exclude_packages": ["six"]
   },
   "glances": {
-    "exclude_packages": ["packaging"]
+    "exclude_packages": ["packaging", "psutil"]
   },
   "goolabs": {
     "exclude_packages": ["certifi", "click", "six"]
@@ -475,7 +478,7 @@
     "exclude_packages": ["certifi"]
   },
   "gyb": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "pyinstaller", "pyparsing"]
   },
   "hatch": {
     "exclude_packages": [
@@ -675,6 +678,9 @@
   "nbdime": {
     "exclude_packages": ["certifi", "jupyter-server", "nbconvert", "pyyaml", "six"]
   },
+  "neovim-remote": {
+    "exclude_packages": ["psutil"]
+  },
   "nicotine-plus": {
     "exclude_packages": ["pycairo", "PyGObject"]
   },
@@ -838,6 +844,21 @@
   "pyspelling": {
     "exclude_packages": ["lxml", "markdown", "PyYAML", "six"]
   },
+  "python@3.8": {
+    "extra_packages": ["setuptools", "pip", "wheel"]
+  },
+  "python@3.9": {
+    "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
+  },
+  "python@3.10": {
+    "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
+  },
+  "python@3.11": {
+    "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
+  },
+  "python@3.12": {
+    "extra_packages": ["flit-core", "setuptools", "pip", "wheel"]
+  },
   "python-build": {
     "exclude_packages": ["packaging", "pyproject-hooks"]
   },
@@ -985,7 +1006,9 @@
     "exclude_packages": ["black", "toml"]
   },
   "snakemake": {
-    "exclude_packages": ["certifi", "tabulate", "PyYAML", "docutils", "packaging"]
+    "exclude_packages": [
+      "certifi", "docutils", "markupsafe", "packaging", "psutil", "pyyaml", "tabulate"
+    ]
   },
   "snapcraft": {
     "exclude_packages": [
@@ -1030,6 +1053,9 @@
   },
   "tarsnapper": {
     "exclude_packages": ["six", "PyYAML"]
+  },
+  "terminator": {
+    "exclude_packages": ["psutil"]
   },
   "termius": {
     "package_name": "termius",
@@ -1095,7 +1121,7 @@
     "exclude_packages": ["certifi", "click", "six"]
   },
   "twine-pypi": {
-    "exclude_packages": ["certifi", "docutils", "Pygments", "six"]
+    "exclude_packages": ["certifi", "docutils", "keyring", "Pygments", "six"]
   },
   "twtxt": {
     "exclude_packages": ["click", "six"]

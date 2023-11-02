@@ -4,6 +4,7 @@ class Apt < Formula
   url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.7.6.tar.xz"
   sha256 "8683f54eff0bf54e51e025b348bd0774d0fd437799616f48512956cf15c05f67"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/a/apt/"
@@ -11,7 +12,7 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "305f24a9ba4b19273441ce88de08c2a0aa07b94272c8f2e886827b093119963f"
+    sha256 x86_64_linux: "67ae498d7ae4d596cd3b9f370ce94ac692d868895daf242c143d50716c0af95e"
   end
 
   depends_on "cmake" => :build

@@ -3,19 +3,19 @@ require "language/node"
 class ContentfulCli < Formula
   desc "Contentful command-line tools"
   homepage "https://github.com/contentful/contentful-cli"
-  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-3.1.4.tgz"
-  sha256 "4fb2dff98bf8a050cd79b737ab0e6679be085516f642d398b2fe81ae0f423576"
+  url "https://registry.npmjs.org/contentful-cli/-/contentful-cli-3.1.8.tgz"
+  sha256 "19ca155985e4673830156824e0deab07236291dcddabcca6562e93e26d44ae2e"
   license "MIT"
   head "https://github.com/contentful/contentful-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a113396ca7008d65b633cbce64b24fb69b9f82e99804f65eba68dc67dcba16b3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a113396ca7008d65b633cbce64b24fb69b9f82e99804f65eba68dc67dcba16b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a113396ca7008d65b633cbce64b24fb69b9f82e99804f65eba68dc67dcba16b3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a35941c43208956d9cf53bc825f0b4a32ec297e8a2c1d75072b276c980fec498"
-    sha256 cellar: :any_skip_relocation, ventura:        "a35941c43208956d9cf53bc825f0b4a32ec297e8a2c1d75072b276c980fec498"
-    sha256 cellar: :any_skip_relocation, monterey:       "a35941c43208956d9cf53bc825f0b4a32ec297e8a2c1d75072b276c980fec498"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a113396ca7008d65b633cbce64b24fb69b9f82e99804f65eba68dc67dcba16b3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d278e1490bb52fe8cfa3557f15c2c3b267d24b5eb4c92bfeaba8205c77202bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d278e1490bb52fe8cfa3557f15c2c3b267d24b5eb4c92bfeaba8205c77202bf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d278e1490bb52fe8cfa3557f15c2c3b267d24b5eb4c92bfeaba8205c77202bf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "129262ee3ac8856f8809572ba32a54160197a1bc78403ef13f3df61b9cff3a90"
+    sha256 cellar: :any_skip_relocation, ventura:        "129262ee3ac8856f8809572ba32a54160197a1bc78403ef13f3df61b9cff3a90"
+    sha256 cellar: :any_skip_relocation, monterey:       "129262ee3ac8856f8809572ba32a54160197a1bc78403ef13f3df61b9cff3a90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d278e1490bb52fe8cfa3557f15c2c3b267d24b5eb4c92bfeaba8205c77202bf"
   end
 
   depends_on "node"
