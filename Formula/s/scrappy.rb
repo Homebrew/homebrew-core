@@ -19,7 +19,6 @@ class Scrappy < Formula
 
   def install
     pythons.each do |python|
-      # Install the requirements from the requirements.txt file
       system python, "-m", "pip", "install", "-r", "requirements.txt"
     end
   end
