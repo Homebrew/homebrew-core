@@ -2,7 +2,7 @@ class Scrappy < Formula
   desc "Python utility for scraping manuals, documents, and other sensitive PDFs"
   homepage "https://github.com/RoseSecurity/ScrapPY"
   url "https://github.com/RoseSecurity/ScrapPY/archive/refs/tags/0.1.0.tar.gz"
-  sha256 "db8b1fcf0318aad469cb41989d9455fa7c4d088800b9830e4f0a7f0c8bb5684e"
+  sha256 "716d4e798b99286ca007903760ad0a70a40960b3fedc62e6bcdd739784a1a0c7"
   license "Apache-2.0"
   head "https://github.com/RoseSecurity/ScrapPY.git", branch: "main"
 
