@@ -19,13 +19,14 @@ class Scrappy < Formula
 
   def install
     pythons.each do |python|
-      system python, "-m", "pip", "install", "-r", "requirements.txt"
+      system python, "-m", "pip", "install", "-r", "requirements.txt", "--prefix=#{libexec}"
     end
+    bin.install "ScrapPY.py"
   end
 
   test do
-    system "python3", "ScrapPY.py", "-h"
-    output = shell_output("python3 ScrapPY.py -h")
+    system "#{bin}/ScrapPY.py", "-h"
+    output = shell_output("#{bin}/ScrapPY.py -h")
     assert_match "usage", output
   end
 end
