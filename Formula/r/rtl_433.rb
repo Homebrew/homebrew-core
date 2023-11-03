@@ -5,19 +5,17 @@ class Rtl433 < Formula
       tag:      "22.11",
       revision: "c3c58d81e72ec3d80af480a7c2ef7995ef66147f"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/merbanan/rtl_433.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7684fa053b5caabcd9081e7e6eb290c64f923fb06ab4d6741b89b38bac0f8ecc"
-    sha256 cellar: :any,                 arm64_ventura:  "a2567ae5b1e95bbe323493563c57f9214c01d2ed23aa3fddca341386bdb22869"
-    sha256 cellar: :any,                 arm64_monterey: "29bf211dc690fec048e76155bb10a518e7319d4dc1ebbbd191a915f07fdbf943"
-    sha256 cellar: :any,                 arm64_big_sur:  "e89d9e40b7b637abe061f1d302105efc08e403fb5d24b682660fde4d1890bd18"
-    sha256 cellar: :any,                 sonoma:         "1811c552052064cfd67bd70f75a31bdf30cf90d6163af821de27da0f13512202"
-    sha256 cellar: :any,                 ventura:        "bae66790200f8ba134f7f80984f5a6a4b0c5e8677db0dfe903854cfe3cc25e63"
-    sha256 cellar: :any,                 monterey:       "21302023e56d72a5ab3c85cad90d17d6d9cf5827a2afdbb69991b37c778d7d38"
-    sha256 cellar: :any,                 big_sur:        "ac70a060db70e27692b7e480d1dab3e8f5f52dbde2d681f7c49c7211c81bed9f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "692e370f6028edeb4ad904df1404e28e33d450925a8510a35f7b2f71501472f0"
+    sha256 cellar: :any,                 arm64_sonoma:   "7e2d3ca4bd584899032e7a8fd1be121e0ea2b6568c3fb836734fad011f1d851a"
+    sha256 cellar: :any,                 arm64_ventura:  "05b29053924008c6e7340fa5cba1c2b85fea2c1d5519fca6873a1c87aa28ba52"
+    sha256 cellar: :any,                 arm64_monterey: "ad98368da38d15d4788a2b71c659935c32bc1302a2a758ce0a613d568591841f"
+    sha256 cellar: :any,                 sonoma:         "780df13e28fe12ee535493e778425a536510183e46a885bd2caebd911b326046"
+    sha256 cellar: :any,                 ventura:        "150d0bc219d0cb5ebd545c8d29ea8a60483d20d126cd27b2e01a56a71e502620"
+    sha256 cellar: :any,                 monterey:       "86c2f53d0e571dc4cae49357409a05869281cc895ac6521629e9765969f7a81b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a625e5879cff419e3cceddf801248084fbbdd55820786d5f82ea17bf6fcaf87"
   end
 
   depends_on "cmake" => :build

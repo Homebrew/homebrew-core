@@ -5,18 +5,16 @@ class Dump1090Mutability < Formula
   version "1.15_20180310-4a16df3-dfsg"
   sha256 "778f389508eccbce6c90d7f56cd01568fad2aaa5618cb5e7c41640a2473905a6"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "02a0fd32e9d19fe91d1df08b1ea0b311533f46a56f8c0b2bf9cf4f8293600296"
-    sha256 cellar: :any,                 arm64_ventura:  "264596f4b4085ca767c42e98ceb6f12897b91e961e6bac9e7b834df858391726"
-    sha256 cellar: :any,                 arm64_monterey: "47002545c1e0305470816a74c5bdc9d98127ad82a87de30e3f7c366155a3b010"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7f37b0cc23e3fadcb4e69c80a6284c18e332954b1e46503e4aae57583658134"
-    sha256 cellar: :any,                 sonoma:         "2366624d988b940d91f3b3fce6367a06a12267a8e7077930ec9cda9ca43c9012"
-    sha256 cellar: :any,                 ventura:        "05efbb740c3b713a085e32dfa0ac941f99bb8c18e4bd8e0f7b37f95cd2b42cbd"
-    sha256 cellar: :any,                 monterey:       "57309c2c362d501df09fc6f6f5a021b00a8ca623f20affe69825e9fd1782e5ea"
-    sha256 cellar: :any,                 big_sur:        "1fc00f125fcd58e210f4e4e080ae0966f1c93746558fbed23f37c6238584a21f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91b264594df660ffeac7430f48dd75d40bc92d7797c1bee0528172d08fd8e410"
+    sha256 cellar: :any,                 arm64_sonoma:   "c863983e0887b80d3fe870bf1057a4c89b757b0e075ca0e16aa8e6888092b166"
+    sha256 cellar: :any,                 arm64_ventura:  "9dbc8cdd6f70fefd16bbe1bc7c3f59782be72f7ce4a6bda9c4b84c3ab8b43f85"
+    sha256 cellar: :any,                 arm64_monterey: "b841e0643b0d5375504aee7804708a086be5e2bfd70440748a480075ca2a3d0f"
+    sha256 cellar: :any,                 sonoma:         "dfa939d83d0805b8a8e879e7729bf7c4b4aee822900a0d8ba85c1e9beaa29f84"
+    sha256 cellar: :any,                 ventura:        "1963d24c7a8f25f75b5f6e1b5df758ee45788741dc06133f3955f25384a73853"
+    sha256 cellar: :any,                 monterey:       "f9fc1c4262df129059dc9a85a7896b860ab89ff78da432a46308d2b7853f421f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1c63b7264770ce7014b898bb909777a4bae80a1615c2f119b66d945ff846204"
   end
 
   depends_on "pkg-config" => :build
