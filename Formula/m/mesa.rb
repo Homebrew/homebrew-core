@@ -4,17 +4,27 @@ class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
   license "MIT"
-  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   stable do
-    # TODO: Check if we can use unversioned `llvm` at version bump.
-    url "https://mesa.freedesktop.org/archive/mesa-22.3.6.tar.xz"
-    sha256 "4ec8ec65dbdb1ee9444dba72970890128a19543a58cf05931bd6f54f124e117f"
+    url "https://mesa.freedesktop.org/archive/mesa-23.2.1.tar.xz"
+    sha256 "64de0616fc2d801f929ab1ac2a4f16b3e2783c4309a724c8a259b20df8bbc1cc"
 
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/f0a40cf7d70ee5a25639b91d9a8088749a2dd04e/mesa/fix-build-on-macOS.patch"
       sha256 "a9b646e48d4e4228c3e06d8ca28f65e01e59afede91f58d4bd5a9c42a66b338d"
+    end
+
+    # patch to disable dri2 interface: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/21859
+    patch do
+      url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/6cb68a2bd8e19baa1ca45d5a75610baa35641c1e.diff"
+      sha256 "5592da6668091691f307a5d9a1d87541e4e8282655244b78584c8c02eb6c2bfe"
+    end
+
+    # patch to add more libdrm stubs: https://gitlab.freedesktop.org/mesa/mesa/-/issues/8634
+    patch do
+      url "https://gitlab.freedesktop.org/robclark/mesa/-/commit/44734d1fe98ef47019fe2c56d867d1645c526e4e.diff"
+      sha256 "5d5b9ffaf1891019c7cfdce812cacc6418ba80da8c35bacfea3e96237798dbb7"
     end
   end
 
@@ -45,6 +55,7 @@ class Mesa < Formula
   depends_on "libxext"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "llvm"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
@@ -64,7 +75,6 @@ class Mesa < Formula
     depends_on "libxshmfence"
     depends_on "libxv"
     depends_on "libxxf86vm"
-    depends_on "llvm@15" # TODO: Change to `uses_from_macos` when this is unversioned.
     depends_on "lm-sensors"
     depends_on "wayland"
     depends_on "wayland-protocols"
@@ -78,8 +88,8 @@ class Mesa < Formula
   end
 
   resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/95/7e/68018b70268fb4a2a605e2be44ab7b4dd7ce7808adae6c5ef32e34f4b55a/MarkupSafe-2.1.2.tar.gz"
-    sha256 "abcabc8c2b26036d62d4c746381a6f7cf60aafcc653198ad678306986b09450d"
+    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
+    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
   end
 
   resource "glxgears.c" do
