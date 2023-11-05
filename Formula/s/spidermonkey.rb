@@ -1,11 +1,10 @@
 class Spidermonkey < Formula
   desc "JavaScript-C Engine"
   homepage "https://spidermonkey.dev"
-  url "https://archive.mozilla.org/pub/firefox/releases/91.13.0esr/source/firefox-91.13.0esr.source.tar.xz"
-  version "91.13.0"
-  sha256 "53be2bcde0b5ee3ec106bd8ba06b8ae95e7d489c484e881dfbe5360e4c920762"
+  url "https://archive.mozilla.org/pub/firefox/releases/115.4.0esr/source/firefox-115.4.0esr.source.tar.xz"
+  version "115.4.0"
+  sha256 "c31fdbf3a31b09f91b39fe45e084599a25f9644d3a615f263ac10189cd42ae59"
   license "MPL-2.0"
-  revision 3
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
