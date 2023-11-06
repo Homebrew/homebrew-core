@@ -37,8 +37,12 @@ class Libpqxx < Formula
   test do
     (testpath/"test.cpp").write <<~EOS
       #include <pqxx/pqxx>
+      #include <cassert>
       int main(int argc, char** argv) {
         pqxx::connection con;
+        pqxx::transaction tx{con};
+        auto it = tx.stream<int>("SELECT member FROM pg_catalog.pg_auth_members");
+        assert(it.begin() != it.end());
         return 0;
       }
     EOS
