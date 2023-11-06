@@ -2,8 +2,8 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.5.1",
-      revision: "038e308d423f0b8ed6545ae6dbf492dabf63440a"
+      tag:      "release/4.5.2",
+      revision: "583379c90251c70b76a905914b4d6483a2890973"
   license "Apache-2.0"
 
   bottle do
@@ -16,33 +16,30 @@ class Carrot2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ead48aad206f091a6bf53c0b467e8127a50240ee3d4a6e01c9784299a03695fa"
   end
 
-  depends_on "gradle@7" => :build
+  depends_on "gradle" => :build
+  # failed to build with node@20, https://github.com/carrot2/carrot2/issues/202
   depends_on "node@18" => :build
   depends_on "yarn" => :build
   depends_on "openjdk"
+
+  # build for patch for node18 and yarn, remove in next release
+  patch do
+    url "https://github.com/carrot2/carrot2/commit/b8ad381aa8d9fc7ed7308e8658bae6ce764ddb4a.patch?full_index=1"
+    sha256 "1c3abed0b00bbb666999a8ae81c7d33dc010835e6f4398ef59176b505637c694"
+  end
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
     inreplace "gradle/validation/check-environment.gradle",
       /expectedGradleVersion = '[^']+'/,
-      "expectedGradleVersion = '#{Formula["gradle@7"].version}'"
+      "expectedGradleVersion = '#{Formula["gradle"].version}'"
 
     # Use yarn and node from Homebrew
     inreplace "gradle/node/yarn-projects.gradle", "download = true", "download = false"
-    inreplace "build.gradle" do |s|
-      s.gsub! "node: '16.13.0'", "node: '#{Formula["node@18"].version}'"
-      s.gsub! "yarn: '1.22.15'", "yarn: '#{Formula["yarn"].version}'"
+    inreplace "versions.toml" do |s|
+      s.gsub! "node = \"18.18.2\"", "node = \"#{Formula["node@18"].version}\""
+      s.gsub! "yarn = \"1.22.19\"", "yarn = \"#{Formula["yarn"].version}\""
     end
-
-    # Fix `jflex` dependency resolution.
-    jflex_regex = /^de\.jflex:jflex=(.*?)\r?$/
-    jflex_version = (buildpath/"versions.props").read
-                                                .lines
-                                                .grep(jflex_regex)
-                                                .first[jflex_regex, 1]
-    inreplace "gradle/jflex.gradle",
-      'jflex "de.jflex:jflex"',
-      "jflex \"de.jflex:jflex:#{jflex_version}\""
 
     system "gradle", "assemble", "--no-daemon"
 
