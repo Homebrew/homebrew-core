@@ -26,7 +26,7 @@ class Awscli < Formula
   depends_on "docutils"
   depends_on "openssl@3"
   depends_on "pycparser"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "mandoc"
@@ -87,7 +87,7 @@ class Awscli < Formula
   end
 
   def python3
-    which("python3.11")
+    which("python3.12")
   end
 
   def install
