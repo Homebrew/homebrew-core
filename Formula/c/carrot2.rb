@@ -2,8 +2,8 @@ class Carrot2 < Formula
   desc "Search results clustering engine"
   homepage "https://search.carrot2.org/"
   url "https://github.com/carrot2/carrot2.git",
-      tag:      "release/4.5.1",
-      revision: "038e308d423f0b8ed6545ae6dbf492dabf63440a"
+      tag:      "release/4.5.2",
+      revision: "583379c90251c70b76a905914b4d6483a2890973"
   license "Apache-2.0"
 
   bottle do
@@ -16,17 +16,12 @@ class Carrot2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ead48aad206f091a6bf53c0b467e8127a50240ee3d4a6e01c9784299a03695fa"
   end
 
-  depends_on "gradle@7" => :build
-  depends_on "node@18" => :build
+  depends_on "gradle" => :build
+  depends_on "node" => :build
   depends_on "yarn" => :build
   depends_on "openjdk"
 
   def install
-    # Make possible to build the formula with the latest available in Homebrew gradle
-    inreplace "gradle/validation/check-environment.gradle",
-      /expectedGradleVersion = '[^']+'/,
-      "expectedGradleVersion = '#{Formula["gradle@7"].version}'"
-
     # Use yarn and node from Homebrew
     inreplace "gradle/node/yarn-projects.gradle", "download = true", "download = false"
     inreplace "build.gradle" do |s|
