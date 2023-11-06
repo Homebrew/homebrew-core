@@ -23,7 +23,13 @@ class Afsctool < Formula
   depends_on "pkg-config" => :build
   depends_on :macos
 
+  resource "lzfse" do
+    url "https://github.com/lzfse/lzfse.git",
+      revision: "e634ca58b4821d9f3d560cdc6df5dec02ffc93fd"
+  end
+
   def install
+    (buildpath/"src/private/lzfse").install resource("lzfse")
     system "cmake", ".", *std_cmake_args
     system "cmake", "--build", "."
     bin.install "afsctool"
@@ -32,11 +38,19 @@ class Afsctool < Formula
 
   test do
     path = testpath/"foo"
-    path.write "some text here."
-    system "#{bin}/afsctool", "-c", path
-    system "#{bin}/afsctool", "-v", path
+    sample = "A"*1024*1024
+    path.write sample
+    original_size = File.stat(path).blocks
 
-    system "#{bin}/zfsctool", "-c", path
-    system "#{bin}/zfsctool", "-v", path
+    test_options = [[], ["-T", "LZFSE"]]
+    test_options.each do |x|
+      system "#{bin}/afsctool", "-c", *x, path
+      system "#{bin}/afsctool", "-v", path
+      raise "Did not compress" unless File.stat(path).blocks.between?(1, 10)
+
+      system "#{bin}/afsctool", "-d", path
+      raise "Did not decompress" if File.stat(path).blocks != original_size
+      raise "Data corruption" if path.read != sample
+    end
   end
 end
