@@ -5,8 +5,8 @@ class CabalInstall < Formula
   head "https://github.com/haskell/cabal.git", branch: "3.10"
 
   stable do
-    url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0.tar.gz"
-    sha256 "995de368555449230e0762b259377ed720798717f4dd26a4fa711e8e41c7838d"
+    url "https://downloads.haskell.org/~cabal/cabal-install-3.10.2.0/cabal-install-3.10.2.0.tar.gz"
+    sha256 "b6deefa9fd0f8e6af1022f7f552b1214b562ee31cea6ab344c3fb12194645140"
 
     # Use Hackage metadata revision to support GHC 9.6.
     # TODO: Remove this resource on next release along with corresponding install logic
