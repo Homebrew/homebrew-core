@@ -1,8 +1,8 @@
 class Faad2 < Formula
   desc "ISO AAC audio decoder"
   homepage "https://sourceforge.net/projects/faac/"
-  url "https://github.com/knik0/faad2/archive/refs/tags/2.10.1.tar.gz"
-  sha256 "4c16c71295ca0cbf7c3dfe98eb11d8fa8d0ac3042e41604cfd6cc11a408cf264"
+  url "https://github.com/knik0/faad2/archive/refs/tags/2.11.0.tar.gz"
+  sha256 "720c1dc404439e0a9117aa144dc7ead56f1658adf4badbb39f959d6ad8eed489"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -18,17 +18,19 @@ class Faad2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "300156e7a30d3e2b449f78f6671d1769f559a659241a55d9f074c8026193ab99"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
 
   def install
-    system "./bootstrap"
-    system "./configure", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    assert_match "infile.mp4", shell_output("#{bin}/faad -h", 1)
+    output = shell_output("#{bin}/faad -h", 1)
+    assert_match "infile.mp4", output
+    assert_match version.to_s, output
   end
 end
