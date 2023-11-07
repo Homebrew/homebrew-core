@@ -33,8 +33,7 @@ class Scrappy < Formula
   end
 
   def install
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources
+    virtualenv_install_with_resources
   end
 
   test do
