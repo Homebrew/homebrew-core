@@ -1,19 +1,10 @@
 class JpegTurbo < Formula
   desc "JPEG image codec that aids compression and decompression"
   homepage "https://www.libjpeg-turbo.org/"
+  url "https://downloads.sourceforge.net/project/libjpeg-turbo/3.0.1/libjpeg-turbo-3.0.1.tar.gz"
+  sha256 "22429507714ae147b3acacd299e82099fce5d9f456882fc28e252e4579ba2a75"
   license "IJG"
   head "https://github.com/libjpeg-turbo/libjpeg-turbo.git", branch: "main"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/libjpeg-turbo/3.0.0/libjpeg-turbo-3.0.0.tar.gz"
-    sha256 "c77c65fcce3d33417b2e90432e7a0eb05f59a7fff884022a9d931775d583bfaa"
-
-    # Patch to fix regression test concurrency issue. Remove in next release.
-    patch do
-      url "https://github.com/libjpeg-turbo/libjpeg-turbo/commit/035ea386d1b6a99a8a1e2ab57cc1fc903569136c.patch?full_index=1"
-      sha256 "7389d29c16be16ae23e40f6ac31e78ca366550644ab96810f1e21bece71919bb"
-    end
-  end
 
   # Versions with a 90+ patch are unstable (e.g., 2.1.90 corresponds to
   # 3.0 beta1) and this regex should only match the stable versions.
@@ -50,8 +41,6 @@ class JpegTurbo < Formula
 
   def install
     args = ["-DWITH_JPEG8=1", "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}"]
-    # https://github.com/libjpeg-turbo/libjpeg-turbo/issues/709
-    args << "-DFLOATTEST12=" if Hardware::CPU.arm? && MacOS.version >= :ventura
     args += std_cmake_args.reject { |arg| arg["CMAKE_INSTALL_LIBDIR"].present? }
 
     system "cmake", "-S", ".", "-B", "build", *args
