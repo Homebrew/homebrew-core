@@ -6,6 +6,8 @@ class Sqlite < Formula
   sha256 "6d422b6f62c4de2ca80d61860e3a3fb693554d2f75bb1aaca743ccc4d6f609f0"
   license "blessing"
 
+  option "with-universal2", "Builds with Universal2 support on macOS"
+
   livecheck do
     url :homepage
     regex(%r{href=.*?releaselog/v?(\d+(?:[._]\d+)+)\.html}i)
@@ -33,7 +35,7 @@ class Sqlite < Formula
   def install
     # Default value of MAX_VARIABLE_NUMBER is 999 which is too low for many
     # applications. Set to 250000 (Same value used in Debian and Ubuntu).
-    ENV.append "CPPFLAGS", %w[
+    cpp_flags = %w[
       -DSQLITE_ENABLE_API_ARMOR=1
       -DSQLITE_ENABLE_COLUMN_METADATA=1
       -DSQLITE_ENABLE_DBSTAT_VTAB=1
@@ -47,7 +49,16 @@ class Sqlite < Formula
       -DSQLITE_ENABLE_UNLOCK_NOTIFY=1
       -DSQLITE_MAX_VARIABLE_NUMBER=250000
       -DSQLITE_USE_URI=1
-    ].join(" ")
+    ]
+
+    if OS.mac? and build.with? "universal2"
+      cpp_flags << "-arch"
+      cpp_flags << "arm64"
+      cpp_flags << "-arch"
+      cpp_flags << "x86_64"
+    end
+
+    ENV.append "CPPFLAGS", cpp_flags.join(" ")
 
     args = %W[
       --prefix=#{prefix}
