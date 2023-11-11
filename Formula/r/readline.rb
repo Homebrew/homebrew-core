@@ -17,6 +17,8 @@ class Readline < Formula
     end
   end
 
+  option "with-universal2", "Build with Universal2 support"
+
   # We're not using `url :stable` here because we need `url` to be a string
   # when we use it in the `strategy` block.
   livecheck do
@@ -73,6 +75,10 @@ class Readline < Formula
   uses_from_macos "ncurses"
 
   def install
+    if build.with? "universal2"
+      ENV.append "CFLAGS", "-arch arm64 -arch x86_64"
+    end
+
     system "./configure", "--prefix=#{prefix}", "--with-curses"
     # FIXME: Setting `SHLIB_LIBS` should not be needed, but, on Linux,
     #        many dependents expect readline to link with ncurses and
