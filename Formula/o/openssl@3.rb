@@ -10,6 +10,8 @@ class OpensslAT3 < Formula
   sha256 "840af5366ab9b522bde525826be3ef0fb0af81c6a9ebd84caa600fea1731eee3"
   license "Apache-2.0"
 
+  option "with-universal2", "Builds Universal2 binary (ARM64 and Intel64)"
+
   livecheck do
     url "https://www.openssl.org/source/"
     regex(/href=.*?openssl[._-]v?(\d+(?:\.\d+)+)\.t/i)
@@ -105,11 +107,53 @@ class OpensslAT3 < Formula
     end
 
     openssldir.mkpath
+
+
+    # This provides Universal2 support in a less-then-elegant way, it does so by first compiling
+    # and installing the opposing architecture, then moves the library out-of-the-way (by rename)
+    # then builds and installs the correct arch (normal path ends here) then moves that lib out of
+    # the way via rename, then finally uses lipo to combine them
+    if build.with? "universal2" and OS.mac?
+      fat_tmp_path = File.join(buildpath, "fat_binaries")
+
+      FileUtils.mkpath fat_tmp_path
+
+      if Hardware::CPU.arm?
+        alternate_arch_args = %W[darwin64-x86_64-cc enable-ec_nistp_64_gcc_128 no-asm]
+        this_arch = :x86_64
+      elsif Hardware::CPU.intel?
+        alternate_arch_args = %W[darwin64-arm64-cc enable-ec_nistp_64_gcc_128]
+        this_arch = :arm64
+      else
+        fail "Cannot build Universal2, current architecture #{Hardware::CPU.arch} is not Intel (#{Hardware::CPU::INTEL_ARCHS}) or ARM (#{Hardware::CPU::ARM_ARCHS}"
+      end
+
+      system "perl", "./Configure", *(configure_args + alternate_arch_args)
+      system "make"
+      system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
+      #system "make", "test"
+
+      move_fat_binaries(fat_tmp_path, this_arch)
+    end
+
     system "perl", "./Configure", *(configure_args + arch_args)
     system "make"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
-    system "make", "test"
+    #system "make", "test"
+
+    if build.with? "universal2" and OS.mac?
+      move_fat_binaries(fat_tmp_path, Hardware::CPU.arch)
+
+      @all_libraries.each do |final_lib, fat_libs|
+        FileUtils.rm final_lib
+        system "lipo", "-create", *fat_libs, "-output", File.join(self.lib, final_lib)
+      end
+
+      system "make", "test"
+    end
+
   end
+
 
   def openssldir
     etc/"openssl@3"
@@ -144,5 +188,25 @@ class OpensslAT3 < Formula
       checksum = f.read(100).split("=").last.strip
       assert_equal checksum, expected_checksum
     end
+  end
+
+  private
+
+  def move_fat_binaries(tmp_dir, arch)
+    @all_libraries ||= {}
+
+    libraries_generated = Dir.glob(["*.dylib", "*.a", ".so"], base: self.lib)
+
+    libraries_generated.each do |single_lib|
+      lib_full_path = File.join(self.lib, single_lib)
+      base_name = File.basename(lib_full_path)
+      extension = File.extname(lib_full_path)
+      fat_library = File.join(tmp_dir, "#{base_name}.#{arch}#{extension}")
+      FileUtils.cp(lib_full_path, fat_library)
+      @all_libraries[single_lib] ||= []
+      @all_libraries[single_lib] << fat_library
+    end
+
+    @all_libraries
   end
 end
