@@ -274,6 +274,9 @@
   "credstash": {
     "exclude_packages": ["cffi", "cryptography", "pycparser", "six"]
   },
+  "crudini": {
+    "exclude_packages": ["six"]
+  },
   "cruft": {
     "exclude_packages": ["cookiecutter", "six", "typing-extensions"]
   },
