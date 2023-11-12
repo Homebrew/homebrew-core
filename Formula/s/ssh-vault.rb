@@ -1,8 +1,8 @@
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
-  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/0.12.10.tar.gz"
-  sha256 "8dd05033aed9a00cb30ab2b454b5709987799e187f298b5817c8f2c8e37ecaf6"
+  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/0.12.11.tar.gz"
+  sha256 "242e80ee70311f05871353b2d8f4b2c9a568bc0789321c4c6dd2c51e8c13633f"
   license "BSD-3-Clause"
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "master"
 
@@ -18,18 +18,29 @@ class SshVault < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "51e41cb587b634237268bf413e3e8b57925c1a55002598a343f9c7bdd41d7354"
   end
 
-  depends_on "go" => :build
+  depends_on "pkg-config" => :build
+  depends_on "rust" => :build
+  depends_on "openssl@3"
 
   def install
-    ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "cmd/ssh-vault/main.go"
+    # Ensure that the `openssl` crate picks up the intended library.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
-    output = pipe_output("#{bin}/ssh-vault -u new create", "hi")
-    fingerprint = output.split("\n").first.split(";").last
-    cmd = "#{bin}/ssh-vault -k https://ssh-keys.online/key/#{fingerprint} view"
-    output = pipe_output(cmd, output, 0)
-    assert_equal "hi", output.chomp
+    output = pipe_output("#{bin}/ssh-vault create -u new", "hi")
+    assert_match "Copy and paste this command to share the vault with others", output
+    assert_match "echo \"SSH-VAULT;", output
+
+    expected = if OS.mac?
+      "Error: No vault provided"
+    else
+      "Error: Not a valid SSH-VAULT file"
+    end
+    output = shell_output("#{bin}/ssh-vault view -k https://ssh-keys.online/key/xxx 2>&1", 1)
+    assert_match expected, output
   end
 end
