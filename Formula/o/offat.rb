@@ -5,6 +5,7 @@ class Offat < Formula
     homepage "https://owasp.org/OFFAT"
     url "https://files.pythonhosted.org/packages/09/a7/e1df6444ff14b3db8eedc29dd295567e38379f03ac865d5f3f68b97c82b8/offat-0.11.0.tar.gz"
     sha256 "022ac20698d04710502bdba0bbf57bd0206e844c484bc89f1844d9cd37da377b"
+    license "MIT"
   
     depends_on "python@3.12"
   
