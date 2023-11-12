@@ -9,8 +9,8 @@ class Offat < Formula
     depends_on "python@3.12"
   
     resource "aiohttp" do
-      url "https://files.pythonhosted.org/packages/fd/01/f180d31923751fd20185c96938994823f00918ee5ac7b058edc005382406/aiohttp-3.8.6.tar.gz"
-      sha256 "b0cf2a4501bff9330a8a5248b4ce951851e415bdcce9dc158e76cfd55e15085c"
+      url "https://files.pythonhosted.org/packages/2f/d2/1e9a33d15b85b0ea0d4029e3fdca0979e9b864314b965a4d3f0882e5dede/aiohttp-3.9.0b1.tar.gz"
+      sha256 "d6e120b08ac168825239c64e0a850a108edb9cd17be247e25bced9b07a14a403"
     end
   
     resource "aiosignal" do
