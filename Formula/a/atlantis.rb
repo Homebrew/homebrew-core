@@ -22,7 +22,8 @@ class Atlantis < Formula
   end
 
   depends_on "go" => :build
-  depends_on "terraform"
+  # Waiting for https://github.com/runatlantis/atlantis/issues/3741
+  depends_on "opentofu"
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
