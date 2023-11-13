@@ -26,6 +26,7 @@ class Glib < Formula
   depends_on "pcre2"
 
   uses_from_macos "libffi", since: :catalina
+  uses_from_macos "python", since: :catalina
 
   on_macos do
     depends_on "gettext"
