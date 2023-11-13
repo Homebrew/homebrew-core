@@ -3,8 +3,8 @@ class Mentat < Formula
 
   desc "Coding assistant that leverages GPT-4 to write code"
   homepage "https://www.mentat.ai"
-  url "https://files.pythonhosted.org/packages/09/96/d2bd94212d6a8724da1c1a06ccb35c91a30b9d62715346e1a7e0d14b2f07/mentat-0.1.20.tar.gz"
-  sha256 "b24b142dd9ff1cb5858b1a517dea4af38d610d16113abc27b0f48e3fb6d4b264"
+  url "https://files.pythonhosted.org/packages/26/30/1177da2f865c1a41148659a0d3f3177c87c7b378ae3ad1a01a7bb1be3671/mentat-0.1.21.tar.gz"
+  sha256 "ad29f88a4ac13b2925cbf2ac22c35752b526245401a8330b261004c522a35603"
   license "Apache-2.0"
   head "https://github.com/AbanteAI/mentat.git", branch: "main"
 
@@ -28,8 +28,8 @@ class Mentat < Formula
   depends_on "six"
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/c4/50/a717a133bda2efc27efbf8a65398c925b6d0605213da0db6929627ccb758/aiohttp-3.9.0b0.tar.gz"
-    sha256 "cecc64fd7bae6debdf43437e3c83183c40d4f4d86486946f412c113960598eee"
+    url "https://files.pythonhosted.org/packages/fd/01/f180d31923751fd20185c96938994823f00918ee5ac7b058edc005382406/aiohttp-3.8.6.tar.gz"
+    sha256 "b0cf2a4501bff9330a8a5248b4ce951851e415bdcce9dc158e76cfd55e15085c"
   end
 
   resource "aiosignal" do
@@ -148,13 +148,13 @@ class Mentat < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
-    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
+    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
+    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/a6/ad/428bc4ff924e66365c96994873e09a17bb5e8a1228be6e8d185bc2a11de9/wcwidth-0.2.9.tar.gz"
-    sha256 "a675d1a4a2d24ef67096a04b85b02deeecd8e226f57b5e3a72dbb9ed99d27da8"
+    url "https://files.pythonhosted.org/packages/2e/1c/21f2379555bba50b54e5a965d9274602fe2bada4778343d5385840f7ac34/wcwidth-0.2.10.tar.gz"
+    sha256 "390c7454101092a6a5e43baad8f83de615463af459201709556b6e4b1c861f97"
   end
 
   resource "yarl" do
