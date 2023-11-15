@@ -27,7 +27,7 @@ class Pytouhou < Formula
   depends_on "libepoxy"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "sdl2"
   depends_on "sdl2_image"
   depends_on "sdl2_mixer"
@@ -38,7 +38,7 @@ class Pytouhou < Formula
   patch :p0, :DATA
 
   def install
-    python = "python3.11"
+    python = "python3.12"
     ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages(python)
 
     # hg can't determine revision number (no .hg on the stage)
