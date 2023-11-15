@@ -1,5 +1,5 @@
 class Zshmusic < Formula
-  desc "A cli tool to control Apple Music"
+  desc "Cli tool to control Apple Music using zsh scripting and applescripts"
   homepage "https://github.com/codingMustache/zshMusic"
   url "https://github.com/codingMustache/zshMusic/archive/refs/tags/v1.2.tar.gz"
   sha256 "1f5db297ccc97d8672928c21a4164ea0d0839c8b2b0ed54f763335aea25bb49e"
