@@ -3,8 +3,8 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/22/9e/f99bd1d5aa61a7f82a1db6b463c59f1ca63d50ecb460d167c8be4f329da9/dvc-3.29.0.tar.gz"
-  sha256 "9a4d44b9a0d21c2670016c6ce333b42631a72ae580c49bdde51fa756b644e645"
+  url "https://files.pythonhosted.org/packages/f4/9f/b98bbd473af5f4621352adc5847d0b1f838e746d8a9a0d2fdba741bf1e32/dvc-3.30.0.tar.gz"
+  sha256 "36d177529b9b90eb771390c16f04b421af50ee91dc6c683575cf06fd5c0ac95d"
   license "Apache-2.0"
 
   bottle do
@@ -248,8 +248,8 @@ class Dvc < Formula
   end
 
   resource "dvc-data" do
-    url "https://files.pythonhosted.org/packages/6f/a1/fe414be00c8ea1b83ebac0ca4ca04c860c7c90e7fbf1faa71427754b5fb6/dvc-data-2.20.0.tar.gz"
-    sha256 "9b907905f901fcad3279db99f639bf88bf21c9fcd2df9f44565ceb316b977a5a"
+    url "https://files.pythonhosted.org/packages/09/96/28dbca0030b7c276bd34130033b246ac52662b2d21a6fabb77d33f24bde9/dvc-data-2.21.2.tar.gz"
+    sha256 "a4894b0e7d285ed63e906b47a4a971c7ba8e17f9c1f8b6de0bbab47f0b71dfd0"
   end
 
   resource "dvc-gdrive" do
@@ -373,8 +373,8 @@ class Dvc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/7a/c5/898280fd3b9ccdb4ec23263846ec0c998cb0c09826a91eb2a8eee007bc98/google-api-python-client-2.107.0.tar.gz"
-    sha256 "ef6d4c1a17fe9ec0894fc6d4f61e751c4b859fb33f2ab5b881ceb0b80ba442ba"
+    url "https://files.pythonhosted.org/packages/f9/26/6e4218cda2e15e7b2120acf68c470f49ec7c811bc82c09b4befa5c66386e/google-api-python-client-2.108.0.tar.gz"
+    sha256 "6396efca83185fb205c0abdbc1c2ee57b40475578c6af37f6d0e30a639aade99"
   end
 
   resource "google-auth" do
@@ -578,13 +578,13 @@ class Dvc < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/44/07/39d2b5c652a2cfdda6dd4d33a2eae345782f3d5c6e2f7a92c92d5da52b33/pydantic-2.5.0.tar.gz"
-    sha256 "69bd6fb62d2d04b7055f59a396993486a2ee586c43a0b89231ce0000de07627c"
+    url "https://files.pythonhosted.org/packages/0b/6c/cebf0e87ee0f2496584e04079592f33610f1f9aaf3684cb3105f03969e2b/pydantic-2.5.1.tar.gz"
+    sha256 "0b8be5413c06aadfbe56f6dc1d45c9ed25fd43264414c571135c97dd77c2bedb"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/a8/f2/0be79498e0f645fff8cd58c0013f4d03e17a54047e703efb30a200a4a9b2/pydantic_core-2.14.1.tar.gz"
-    sha256 "0d82a6ee815388a362885186e431fac84c7a06623bc136f508e9f88261d8cadb"
+    url "https://files.pythonhosted.org/packages/4c/ee/b3479b31f47226bae5d9033761971bec215774a6078ce08e8618d6381470/pydantic_core-2.14.3.tar.gz"
+    sha256 "3ad083df8fe342d4d8d00cc1d3c1a23f0dc84fce416eb301e69f1ddbbe124d3f"
   end
 
   resource "pydot" do
@@ -628,8 +628,8 @@ class Dvc < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
-    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
+    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
+    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
   end
 
   resource "rsa" do
@@ -698,8 +698,8 @@ class Dvc < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/9b/93/93f12cdd3b9da81e94f2435d01fe6b3e9edc7704a25d4ad260ce7906ca62/tomlkit-0.12.2.tar.gz"
-    sha256 "df32fab589a81f0d7dc525a4267b6d7a64ee99619cbd1eeb0fae32c1dd426977"
+    url "https://files.pythonhosted.org/packages/df/fc/1201a374b9484f034da4ec84215b7b9f80ed1d1ea989d4c02167afaa4400/tomlkit-0.12.3.tar.gz"
+    sha256 "75baf5012d06501f07bee5bf8e801b9f343e7aac5a92581f20f80ce632e6b5a4"
   end
 
   resource "tqdm" do
