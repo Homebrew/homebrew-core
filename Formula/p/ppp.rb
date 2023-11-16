@@ -27,6 +27,6 @@ class Ppp < Formula
   end
 
   test do
-    system "pppd", "--version"
+    system bin/"pppd", "--version"
   end
 end
