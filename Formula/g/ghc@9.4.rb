@@ -1,8 +1,8 @@
 class GhcAT94 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/9.4.7/ghc-9.4.7-src.tar.xz"
-  sha256 "06775a52b4d13ac09edc6dabc299fd11e59d8886bbcae450af367baee2684c8f"
+  url "https://downloads.haskell.org/~ghc/9.4.8/ghc-9.4.8-src.tar.xz"
+  sha256 "0bf407eb67fe3e3c24b0f4c8dea8cb63e07f63ca0f76cf2058565143507ab85e"
   # We build bundled copies of libffi and GMP so GHC inherits the licenses
   license all_of: [
     "BSD-3-Clause",
@@ -29,7 +29,7 @@ class GhcAT94 < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "sphinx-doc" => :build
   depends_on "xz" => :build
 
@@ -49,22 +49,22 @@ class GhcAT94 < Formula
   resource "binary" do
     on_macos do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-apple-darwin.tar.xz"
-        sha256 "b060ad093e0d86573e01b3d1fd622d4892f8d8925cbb7d75a67a01d2a4f27f18"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-aarch64-apple-darwin.tar.xz"
+        sha256 "34db9b19571905b08ca1e444b46490e7c19cb73a0fe778696fa6ec02ff8d3c4b"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-apple-darwin.tar.xz"
-        sha256 "6c46f5003f29d09802d572a7c5fabf6c1f91714a474967a5415b15df77fdcd90"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-x86_64-apple-darwin.tar.xz"
+        sha256 "eb78361feaf4277f627cbdc4b849849d09d175d0d878d28433719b7482db27f5"
       end
     end
     on_linux do
       on_arm do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-aarch64-deb10-linux.tar.xz"
-        sha256 "29c0735ada90cdbf7e4a227dee08f18d74e33ec05d7c681e4ef95b8aa13104b3"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-aarch64-deb10-linux.tar.xz"
+        sha256 "645433359d8ad9e7b286f85ef5111db1b787ee3712c24c5dfde7c62769aa59a4"
       end
       on_intel do
-        url "https://downloads.haskell.org/~ghc/9.2.5/ghc-9.2.5-x86_64-ubuntu20.04-linux.tar.xz"
-        sha256 "be1ca5b2864880d7c3623c51f2c2ca773e380624929bf0be8cfadbdb7f4b7154"
+        url "https://downloads.haskell.org/~ghc/9.2.8/ghc-9.2.8-x86_64-ubuntu20.04-linux.tar.xz"
+        sha256 "6e4adc184a53ca9d9dd8c11c6611d0643fdc3b76550ae769e378d9edb2bda745"
       end
     end
   end
@@ -72,24 +72,24 @@ class GhcAT94 < Formula
   resource "cabal-install" do
     on_macos do
       on_arm do
-        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-aarch64-darwin.tar.xz"
-        sha256 "fdabdc4dca42688a97f2b837165af42fcfd4c111d42ddb0d4df7bbebd5c8750e"
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.2.0/cabal-install-3.10.2.0-aarch64-darwin.tar.xz"
+        sha256 "d2bd336d7397cf4b76f3bb0d80dea24ca0fa047903e39c8305b136e855269d7b"
       end
       on_intel do
-        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-darwin.tar.xz"
-        sha256 "893a316bd634cbcd08861306efdee86f66ec634f9562a8c59dc616f7e2e14ffa"
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.2.0/cabal-install-3.10.2.0-x86_64-darwin.tar.xz"
+        sha256 "cd64f2a8f476d0f320945105303c982448ca1379ff54b8625b79fb982b551d90"
       end
     end
     on_linux do
       on_intel do
-        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.1.0/cabal-install-3.10.1.0-x86_64-linux-deb10.tar.xz"
-        sha256 "9c89f7150a6d09e653ca7d08d22922be2d9f750d0314d9a0a7e2103fac021fac"
+        url "https://downloads.haskell.org/~cabal/cabal-install-3.10.2.0/cabal-install-3.10.2.0-x86_64-linux-deb11.tar.xz"
+        sha256 "9ca5625c89e8fcada02edced5048c3a3db0254e2bef1eb792d549d633222b108"
       end
     end
   end
 
   # Backport fix for building docs with sphinx-doc 7.
-  # TODO: Remove patch if fix is backported to 9.2.
+  # TODO: Remove patch if fix is backported to 9.4.
   # Ref: https://gitlab.haskell.org/ghc/ghc/-/merge_requests/10520
   patch do
     url "https://gitlab.haskell.org/ghc/ghc/-/commit/70526f5bd8886126f49833ef20604a2c6477780a.diff"
@@ -99,7 +99,7 @@ class GhcAT94 < Formula
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
-    ENV["PYTHON"] = which("python3.11")
+    ENV["PYTHON"] = which("python3.12")
     # Work around `ENV["CC"]` no longer being used unless set to absolute path.
     # Caused by https://gitlab.haskell.org/ghc/ghc/-/commit/6be2c5a7e9187fc14d51e1ec32ca235143bb0d8b
     # Issue ref: https://gitlab.haskell.org/ghc/ghc/-/issues/22175
