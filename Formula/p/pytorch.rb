@@ -4,8 +4,8 @@ class Pytorch < Formula
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
   url "https://github.com/pytorch/pytorch.git",
-      tag:      "v2.1.0",
-      revision: "7bcf7da3a268b435777fe87c7794c382f444e86d"
+      tag:      "v2.1.1",
+      revision: "4c55dc50355d5e923642c59ad2a23d6ad54711e7"
   license "BSD-3-Clause"
   revision 1
 
@@ -45,8 +45,8 @@ class Pytorch < Formula
   conflicts_with "fmt", because: "both install `include/fmt/args.h` headers"
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d5/71/bb1326535231229dd69a9dd2e338f6f54b2d57bd88fc4a52285c0ab8a5f6/filelock-3.12.4.tar.gz"
-    sha256 "2e6f249f1f3654291606e046b09f1fd5eac39b360664c27f5aad072012f8bcbd"
+    url "https://files.pythonhosted.org/packages/70/70/41905c80dcfe71b22fb06827b8eae65781783d4a14194bce79d16a013263/filelock-3.13.1.tar.gz"
+    sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
   end
 
   resource "Jinja2" do
