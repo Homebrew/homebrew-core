@@ -17,7 +17,7 @@ class Lima < Formula
   end
 
   depends_on "go" => :build
-  depends_on "qemu"
+  depends_on "qemu" if MacOS.version < :ventura
 
   def install
     system "make", "VERSION=#{version}", "clean", "all"
