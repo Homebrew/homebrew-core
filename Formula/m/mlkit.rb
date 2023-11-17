@@ -1,8 +1,8 @@
 class Mlkit < Formula
   desc "Compiler for the Standard ML programming language"
   homepage "https://melsman.github.io/mlkit"
-  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.5.tar.gz"
-  sha256 "59ad0b34ba511b8fe10a83bb5dd92e76588b97e551071a61a9d76ad13a9934b8"
+  url "https://github.com/melsman/mlkit/archive/refs/tags/v4.7.6.tar.gz"
+  sha256 "73be8b0fc6c22157d1c7b21a0080f4b71e73612efd2138e2472eec0291b9f2f2"
   license "GPL-2.0-or-later"
   head "https://github.com/melsman/mlkit.git", branch: "master"
 
@@ -44,14 +44,17 @@ class Mlkit < Formula
   end
 
   test do
-    (testpath/"test.sml").write <<~EOS
+    test_file = testpath/"test.sml"
+    test_file.write <<~EOS
       fun f(x) = x + 2
       val a = [1,2,3,10]
       val b = List.foldl (op +) 0 (List.map f a)
       val res = if b = 24 then "OK" else "ERR"
       val () = print ("Result: " ^ res ^ "\\n")
     EOS
-    system "#{bin}/mlkit", "-o", "test", "test.sml"
+    system "#{bin}/mlkit", "-o", "test", test_file
     assert_equal "Result: OK\n", shell_output("./test")
+
+    assert_match version.to_s, shell_output("#{bin}/mlkit --version")
   end
 end
