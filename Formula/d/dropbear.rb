@@ -32,6 +32,11 @@ class Dropbear < Formula
 
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
+  
+  on_macos do
+    # standard password crypts don't work on macOS
+    patch :DATA
+  end
 
   on_linux do
     depends_on "linux-pam"
@@ -60,3 +65,12 @@ class Dropbear < Formula
     assert_predicate testfile, :exist?
   end
 end
+__END__
+diff --git a/localoptions.h b/localoptions.h
+new file mode 100644
+index 0000000..555f926
+--- /dev/null
++++ b/localoptions.h
+@@ -0,0 +1,2 @@
++#define DROPBEAR_SVR_PAM_AUTH 1
++#define DROPBEAR_SVR_PASSWORD_AUTH 0
