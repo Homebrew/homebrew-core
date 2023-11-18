@@ -25,7 +25,7 @@ class Unisonlang < Formula
 
   depends_on "ghc@9.2" => :build # GHC 9.4 PR: https://github.com/unisonweb/unison/pull/4009
   depends_on "haskell-stack" => :build
-  depends_on "node@18" => :build
+  depends_on "node" => :build
 
   uses_from_macos "python" => :build
   uses_from_macos "xz" => :build
