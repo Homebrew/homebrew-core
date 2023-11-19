@@ -2,7 +2,7 @@ class Gitea < Formula
   desc "Painless self-hosted all-in-one software development service"
   homepage "https://about.gitea.com/"
   url "https://dl.gitea.com/gitea/1.21/gitea-src-1.21.tar.gz"
-  sha256 "3dcfb87153a6ca1468369d763bf69892f7795a33563938f7cb2fb0a6a4951bda"
+  sha256 "5fc06a5147d779a583fafb7c860ca998352e6f6392f9e3218e96076e11f62a21"
   license "MIT"
   head "https://github.com/go-gitea/gitea.git", branch: "main"
 
@@ -35,8 +35,12 @@ class Gitea < Formula
     bin.install "gitea"
   end
 
+  def post_install
+    (var/"gitea/custom").mkpath
+  end
+
   service do
-    run [opt_bin/"gitea", "web"]
+    run [opt_bin/"gitea", "web", "--work-path", var/"gitea", "--config", etc/"gitea.ini"]
     keep_alive true
     working_dir opt_libexec
     log_path var/"log/gitea.log"
