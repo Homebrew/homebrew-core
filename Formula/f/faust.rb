@@ -2,10 +2,9 @@ class Faust < Formula
   desc "Functional programming language for real time signal processing"
   homepage "https://faust.grame.fr"
   # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/grame-cncm/faust/releases/download/2.68.1/faust-2.68.1.tar.gz"
-  sha256 "d4ee30e2444bed55b593c6c70ec4e330b71260819d4011b37d8c9b9c061e810f"
+  url "https://github.com/grame-cncm/faust/releases/download/2.69.3/faust-2.69.3.tar.gz"
+  sha256 "169a2f1e8a95e159c78c734c1c5dd818bf5c95b3b002a7efd9f6bb8589357062"
   license "GPL-2.0-or-later"
-  revision 1
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
