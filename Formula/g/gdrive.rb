@@ -22,6 +22,8 @@ class Gdrive < Formula
 
   depends_on "go" => :build
 
+  conflicts_with "gdrive-cli", because: "gdrive-cli also ships a gdrive binary"
+
   patch do
     url "https://github.com/prasmussen/gdrive/commit/faa6fc3dc104236900caa75eb22e9ed2e5ecad42.patch?full_index=1"
     sha256 "ee7ebe604698aaeeb677c60d973d5bd6c3aca0a5fb86f6f925c375a90fea6b95"
