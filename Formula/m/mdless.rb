@@ -1,8 +1,8 @@
 class Mdless < Formula
   desc "Provides a formatted and highlighted view of Markdown files in Terminal"
   homepage "https://github.com/ttscoff/mdless"
-  url "https://github.com/ttscoff/mdless/archive/refs/tags/1.0.37.tar.gz"
-  sha256 "9bd58b26f681a275cccbb11d877fcb53a72622ae7150b15e0e3257e5bf179973"
+  url "https://github.com/ttscoff/mdless/archive/refs/tags/2.0.3.tar.gz"
+  sha256 "094cf5e0efad99729d5710c213be120d7812395b3fc3af1d3c5ba9c0bef3aedb"
   license "MIT"
 
   bottle do
