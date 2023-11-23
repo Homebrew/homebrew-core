@@ -21,6 +21,12 @@ class PhpCsFixer < Formula
   end
 
   test do
+    php_version = `php -v | tac | tail -n 1 | cut -d " " -f 2 | cut -c 1-3`.chomp
+    if php_version.eql?("8.3")
+      # FIXME: When php-cs-fixer will support php >= 8.3
+      ENV["PHP_CS_FIXER_IGNORE_ENV"] = "1"
+    end
+
     (testpath/"test.php").write <<~EOS
       <?php $this->foo(   'homebrew rox'   );
     EOS
