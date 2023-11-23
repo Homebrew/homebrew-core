@@ -2,11 +2,10 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.2.12.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.2.12.tar.xz"
-  sha256 "e1526e400bce9f9f9f774603cfac6b72b5e8f89fa66971ebc3cc4e5964083132"
+  url "https://www.php.net/distributions/php-8.2.13.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.2.13.tar.xz"
+  sha256 "2629bba10117bf78912068a230c68a8fd09b7740267bd8ebd3cfce91515d454b"
   license "PHP-3.01"
-  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -67,6 +66,13 @@ class Php < Formula
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
+  end
+
+  # Fix build failure with libxml >= 2.12
+  # To be removed when PHP 8.2.14 is released.
+  patch do
+    url "https://github.com/php/php-src/commit/8a95e616b91ac0eeedba90a61e36e652919763f2.patch?full_index=1"
+    sha256 "b71de4d0d08d5bb2308d7866d82e46444a52e107bd6937c3f2927dbd35ebde30"
   end
 
   def install
