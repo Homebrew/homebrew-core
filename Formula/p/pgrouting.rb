@@ -1,8 +1,8 @@
 class Pgrouting < Formula
   desc "Provides geospatial routing for PostGIS/PostgreSQL database"
   homepage "https://pgrouting.org/"
-  url "https://github.com/pgRouting/pgrouting/releases/download/v3.5.1/pgrouting-3.5.1.tar.gz"
-  sha256 "fb0d9ef3247a95166e172412734fda9746233912601a4891cbcf02fe87764140"
+  url "https://github.com/pgRouting/pgrouting/releases/download/v3.6.0/pgrouting-3.6.0.tar.gz"
+  sha256 "16b838685b9384e84da03b4ac391b50b930d934c5b2c4b7406f3472183ad0c79"
   license "GPL-2.0-or-later"
   head "https://github.com/pgRouting/pgrouting.git", branch: "main"
 
@@ -26,10 +26,10 @@ class Pgrouting < Formula
   depends_on "cgal"
   depends_on "gmp"
   depends_on "postgis"
-  depends_on "postgresql@14"
+  depends_on "postgresql@16"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@16"]
   end
 
   def install
