@@ -37,7 +37,7 @@
   },
   "ansible-lint": {
     "exclude_packages": [
-      "ansible-core", "black", "certifi", "pygments", "pyyaml", "yamllint"
+      "ansible-core", "black", "filelock", "pygments", "pyyaml", "requests", "rich", "yamllint"
     ]
   },
   "ansible@2.9": {
