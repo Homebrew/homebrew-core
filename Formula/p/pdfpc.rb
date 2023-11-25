@@ -1,10 +1,10 @@
 class Pdfpc < Formula
   desc "Presenter console with multi-monitor support for PDF files"
   homepage "https://pdfpc.github.io/"
-  url "https://github.com/pdfpc/pdfpc/archive/refs/tags/v4.4.1.tar.gz"
-  sha256 "4adb42fd1844a7e2ab44709dd043ade618c87f2aaec03db64f7ed659e8d3ddad"
+  url "https://github.com/pdfpc/pdfpc/archive/refs/tags/v4.6.0.tar.gz"
+  sha256 "3b1a393f36a1b0ddc29a3d5111d8707f25fb2dd2d93b0401ff1c66fa95f50294"
   license "GPL-3.0-or-later"
-  revision 2
+  head "https://github.com/pdfpc/pdfpc.git", branch: "master"
 
   bottle do
     sha256 arm64_sonoma:   "4b76c88f065350a748304511382c62d9418dbbcea2baaeddbd749a1a7e27322e"
@@ -18,34 +18,33 @@ class Pdfpc < Formula
     sha256 x86_64_linux:   "aa2f690eacb00966ce31538971a580c18fabbefd1c222ddc69918c83a396e561"
   end
 
-  head do
-    url "https://github.com/pdfpc/pdfpc.git", branch: "master"
-
-    depends_on "discount"
-    depends_on "json-glib"
-    depends_on "libsoup@2"
-    depends_on "qrencode"
-
-    on_linux do
-      depends_on "webkitgtk"
-    end
-  end
-
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "vala" => :build
+  depends_on "discount"
   depends_on "gstreamer"
   depends_on "gtk+3"
+  depends_on "json-glib"
   depends_on "libgee"
   depends_on "librsvg"
+  depends_on "libsoup"
   depends_on "poppler"
+  depends_on "qrencode"
+
+  on_linux do
+    depends_on "webkitgtk"
+  end
+
+  patch :DATA
 
   def install
-    # NOTE: You can avoid the `libsoup@2` dependency by passing `-DREST=OFF`.
+    # Build with `-DREST=OFF` as it requires libsoup@2
     # https://github.com/pdfpc/pdfpc/blob/3310efbf87b5457cbff49076447fcf5f822c2269/src/CMakeLists.txt#L38-L40
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
                     "-DMDVIEW=#{OS.linux?}", # Needs webkitgtk
-                    "-DMOVIES=ON"
+                    "-DMOVIES=ON",
+                    "-DREST=OFF"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -57,3 +56,34 @@ class Pdfpc < Formula
     system bin/"pdfpc", "--version"
   end
 end
+
+__END__
+diff --git a/src/classes/drawings/drawing_commands.vala b/src/classes/drawings/drawing_commands.vala
+index 77e56e6..66a906a 100644
+--- a/src/classes/drawings/drawing_commands.vala
++++ b/src/classes/drawings/drawing_commands.vala
+@@ -54,8 +54,8 @@ namespace pdfpc {
+         }
+
+         public void clear() {
+-            this.drawing_commands = new List<DrawingCommand>();
+-            this.redo_commands = new List<DrawingCommand>();
++            this.drawing_commands = new List<DrawingCommand?>();
++            this.redo_commands = new List<DrawingCommand?>();
+         }
+
+         public void add_line(bool is_eraser,
+@@ -70,7 +70,7 @@ namespace pdfpc {
+
+             // After adding a new line you can no longer redo the old
+             // path.
+-            this.redo_commands = new List<DrawingCommand>(); // clear
++            this.redo_commands = new List<DrawingCommand?>(); // clear
+
+             bool new_path = true;
+             double epsilon = 1e-4; // Less than 0.1 pixel for a 1000x1000 img
+@@ -171,4 +171,3 @@ namespace pdfpc {
+         }
+     }
+ }
+-
