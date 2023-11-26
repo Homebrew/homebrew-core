@@ -1,8 +1,8 @@
 class Kcgi < Formula
   desc "Minimal CGI and FastCGI library for C/C++"
   homepage "https://kristaps.bsd.lv/kcgi/"
-  url "https://kristaps.bsd.lv/kcgi/snapshots/kcgi-0.13.1.tgz"
-  sha256 "3246ee78a091b496f7040c5f29fb9e45a7aa2873f4d8d77a30b6437f07db4d49"
+  url "https://kristaps.bsd.lv/kcgi/snapshots/kcgi-0.13.2.tgz"
+  sha256 "63015ad94418749a9ee402b91d686bb26e9ea108c4994e7b91713c95952b2175"
   license "ISC"
 
   livecheck do
