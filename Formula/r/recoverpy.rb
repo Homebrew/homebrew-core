@@ -3,8 +3,8 @@ class Recoverpy < Formula
 
   desc "TUI to recover overwritten or deleted data"
   homepage "https://github.com/PabloLec/recoverpy"
-  url "https://files.pythonhosted.org/packages/65/3a/f43cdbc2d947b68b7ebf988c32b2f74ede8ea2c1836b2e0e4056ffb81b82/recoverpy-2.1.3.tar.gz"
-  sha256 "df042db227fa9e04b9f9acf31eee51ee739d9f0a57d440ab2bfcf524c328ca07"
+  url "https://files.pythonhosted.org/packages/92/2f/4987a14315c2a4d105a456e4a8c86867be51bd174479b7a67742b0de6eea/recoverpy-2.1.4.tar.gz"
+  sha256 "42ebbb7d9decd08dcd7a22026bd0a5c5579a91ff966139c19568a2f7b15320c3"
   license "GPL-3.0-or-later"
   head "https://github.com/PabloLec/recoverpy.git", branch: "main"
 
@@ -43,13 +43,13 @@ class Recoverpy < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
-    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
+    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
+    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/01/22/99db4365d3f883c73d02135a1f312f146a59d18cf72e6462aed014339897/textual-0.40.0.tar.gz"
-    sha256 "0fd014f9fab7f6d88167c82f90e115b118b3016b8597281d14c9257967f7812e"
+    url "https://files.pythonhosted.org/packages/00/62/697cdf35a02a3a6e567d6fcd5dcd0a0aa250070fd6a596581212fe20950b/textual-0.42.0.tar.gz"
+    sha256 "0e06630a3c68a04a3215ced71dcfb14d888adce1ae241be1bb01155a25d9f0bf"
   end
 
   resource "uc-micro-py" do
