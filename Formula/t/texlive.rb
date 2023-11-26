@@ -191,6 +191,11 @@ class Texlive < Formula
     sha256 "51220fcaf9f66a639b69d251d7b0757bf4202f4f9debd45bdd341a6aca62fe4e"
   end
 
+  resource "Test::Fatal" do
+    url "https://cpan.metacpan.org/authors/id/R/RJ/RJBS/Test-Fatal-0.017.tar.gz"
+    sha256 "37dfffdafb84b762efe96b02fb2aa41f37026c73e6b83590db76229697f3c4a6"
+  end
+
   resource "OLE::Storage_Lite" do
     url "https://cpan.metacpan.org/authors/id/J/JM/JMCNAMARA/OLE-Storage_Lite-0.20.tar.gz"
     sha256 "ab18a6171c0e08ea934eea14a0ab4f3a8909975dda9da42124922eb41e84f8ba"
