@@ -948,6 +948,9 @@
   "python-requests-oauthlib": {
     "exclude_packages": ["oauthlib", "requests"]
   },
+  "python-beautifulsoup4": {
+    "exclude_packages": ["soupsieve"]
+  },
   "python-mako": {
     "exclude_packages": ["markupsafe"]
   },
