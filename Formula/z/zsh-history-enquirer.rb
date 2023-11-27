@@ -7,6 +7,7 @@ class ZshHistoryEnquirer < Formula
   sha256 "d2b673fdb0621bbbbae1529f42ff0c3184fa8e4f4befbc6bd9fa4b2d95ca4b5f"
   license "MIT"
 
+  depends_on :macos
   depends_on "node"
   uses_from_macos "expect" => :test
 
