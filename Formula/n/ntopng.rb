@@ -2,11 +2,10 @@ class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
   license "GPL-3.0-only"
-  revision 4
 
   stable do
-    url "https://github.com/ntop/ntopng/archive/refs/tags/5.2.1.tar.gz"
-    sha256 "67404ccd87202864d2c3c44426e60cb59cc2e87d746c704b27e6a63d61ec7644"
+    url "https://github.com/ntop/ntopng/archive/refs/tags/6.0.tar.gz"
+    sha256 "937e3dea081f68cb8d85e0a925f5277f6a358d65ba45e90e215f0fc36d2401ac"
 
     depends_on "ndpi"
   end
