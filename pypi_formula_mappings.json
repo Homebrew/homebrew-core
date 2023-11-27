@@ -966,6 +966,9 @@
   "python-prompt-toolkit": {
     "exclude_packages": ["wcwidth"]
   },
+  "python-pyaxmlparser": {
+    "exclude_packages": ["asn1crypto", "click", "lxml"]
+  },
   "python-requests": {
     "exclude_packages": ["certifi", "charset-normalizer", "idna", "urllib3"]
   },
