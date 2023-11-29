@@ -1,10 +1,9 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.5.6/PDAL-2.5.6-src.tar.bz2"
-  sha256 "7c7c4570ef518942299479cc4077e0c657ec5b5174daf465415de947a1d3eb99"
+  url "https://github.com/PDAL/PDAL/releases/download/2.6.1/PDAL-2.6.1-src.tar.bz2"
+  sha256 "e421361fe5e1ea63204a3b5c8b654388edbb0fb15c09d24469741e84211ef9d2"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
   # The upstream GitHub repository sometimes creates tags that only include a
@@ -38,8 +37,21 @@ class Pdal < Formula
 
   fails_with gcc: "5" # gdal is compiled with GCC
 
+  # fix for https://github.com/PDAL/PDAL/issues/4255, remove in next release
+  patch do
+    url "https://github.com/PDAL/PDAL/commit/4957980a0b842e502001638c2f15e40b0e2e9aa7.patch?full_index=1"
+    sha256 "aa30d3bca2a6e8875e64e03bc29b38c27e4e16ebf8d39a76c2ae42f7380e2d3a"
+  end
+
+  # fix for https://github.com/PDAL/PDAL/issues/4258, remove in next release
+  patch do
+    url "https://github.com/PDAL/PDAL/commit/c0a7d60205fe9599f2ea05e65f45ab5a955c5f6f.patch?full_index=1"
+    sha256 "c76639200ca88f1d731d07f4520bfb029efdf3e97c7eb80bd86033caeb5dc95b"
+  end
+
   def install
     system "cmake", ".", *std_cmake_args,
+                         "-DWITH_BACKTRACE=FALSE",
                          "-DWITH_LASZIP=TRUE",
                          "-DBUILD_PLUGIN_GREYHOUND=ON",
                          "-DBUILD_PLUGIN_ICEBRIDGE=ON",
