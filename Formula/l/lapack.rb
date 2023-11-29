@@ -2,7 +2,7 @@ class Lapack < Formula
   desc "Linear Algebra PACKage"
   homepage "https://www.netlib.org/lapack/"
   url "https://github.com/Reference-LAPACK/lapack/archive/refs/tags/v3.12.0.tar.gz"
-  sha256 "af3c3fe01dd739e98ad3f455260c77128707c3d994879e45800ab377b6e49fad"
+  sha256 "eac9570f8e0ad6f30ce4b963f4f033f0f643e7c3912fc9ee6cd99120675ad48b"
   license "BSD-3-Clause"
   head "https://github.com/Reference-LAPACK/lapack.git", branch: "master"
 
