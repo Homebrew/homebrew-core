@@ -31,6 +31,12 @@ class Dronedb < Formula
   end
 
   def install
+    # fix for finding PDAL 2.6.x, reported upstream: https://github.com/DroneDB/DroneDB/issues/383
+    inreplace "cmake/FindPDAL.cmake" do |s|
+      s.gsub! "# Find PDAL", "find_package(PDAL CONFIG)"
+      s.gsub! "SET(PDAL_LIBRARIES ${PDAL_CPP_LIBRARY} ${PDAL_UTIL_LIBRARY})", "SET(PDAL_LIBRARIES pdalcpp)"
+    end
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
