@@ -19,6 +19,10 @@ class Truffle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ab14a38e62ada678dfff3ade0d31ad5d66f922c2a5851444259622e2248ca5a"
   end
 
+  # Truffle Suite is being sunset. See:
+  # https://consensys.io/blog/consensys-announces-the-sunset-of-truffle-and-ganache-and-new-hardhat
+  deprecate! date: "2023-11-30", because: :unmaintained
+
   depends_on "node"
 
   def install
