@@ -26,6 +26,10 @@ class Taskell < Formula
   uses_from_macos "zlib"
 
   def install
+    # prevent `invalid byte sequence` issue on sonoma builds
+    # see issue, https://github.com/smallhadroncollider/taskell/issues/114
+    ENV["LANG"] = "en_US.UTF-8"
+
     # Work around build failure from Brick v1 API.
     # src/Taskell.hs:64:13: error:
     #     Not in scope: 'Brick.continue'
