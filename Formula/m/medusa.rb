@@ -19,7 +19,9 @@ class Medusa < Formula
   end
 
   depends_on "go" => :build
-  depends_on "truffle" => :test
+  # hardhat only support LTS node versions
+  # https://hardhat.org/hardhat-runner/docs/reference/stability-guarantees#node.js-versions-support
+  depends_on "node@20" => :test
   depends_on "crytic-compile"
 
   conflicts_with "bash-completion", because: "both install `medusa` bash completion"
@@ -30,7 +32,15 @@ class Medusa < Formula
   end
 
   test do
-    system "truffle", "init"
+    ENV.prepend_path "PATH", Formula["node@20"].bin
+
+    # created with `npx hardhat init`
+    (testpath/"hardhat.config.js").write <<~EOS
+      /** @type import('hardhat/config').HardhatUserConfig */
+      module.exports = {
+        solidity: "0.8.19",
+      };
+    EOS
 
     (testpath/"contracts/test.sol").write <<~EOS
       pragma solidity ^0.8.0;
@@ -43,6 +53,9 @@ class Medusa < Formula
         }
       }
     EOS
+
+    system "npm", "init", "-y"
+    system "npm", "install", "hardhat"
 
     fuzz_output = shell_output("#{bin}/medusa fuzz --target #{testpath} --assertion-mode --test-limit 100")
     assert_match(/PASSED.*assert_true/, fuzz_output)
