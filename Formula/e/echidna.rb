@@ -24,7 +24,9 @@ class Echidna < Formula
   depends_on "ghc@9.2" => :build
   depends_on "haskell-stack" => :build
 
-  depends_on "truffle" => :test
+  # hardhat only support LTS node versions
+  # https://hardhat.org/hardhat-runner/docs/reference/stability-guarantees#node.js-versions-support
+  depends_on "node@20" => :test
 
   depends_on "crytic-compile"
   depends_on "libff"
@@ -56,12 +58,15 @@ class Echidna < Formula
   end
 
   test do
-    system "truffle", "init"
+    ENV.prepend_path "PATH", Formula["node@20"].bin
 
-    # echidna does not appear to work with 'shanghai' EVM targets yet, which became the
-    # default in solc 0.8.20 / truffle 5.9.1
-    # Use an explicit 'paris' EVM target meanwhile, which was the previous default
-    inreplace "truffle-config.js", %r{//\s*evmVersion:.*$}, "evmVersion: 'paris'"
+    # created with `npx hardhat init`
+    (testpath/"hardhat.config.js").write <<~EOS
+      /** @type import('hardhat/config').HardhatUserConfig */
+      module.exports = {
+        solidity: "0.8.19",
+      };
+    EOS
 
     (testpath/"contracts/test.sol").write <<~EOS
       pragma solidity ^0.8.0;
@@ -74,6 +79,9 @@ class Echidna < Formula
         }
       }
     EOS
+
+    system "npm", "init", "-y"
+    system "npm", "install", "hardhat"
 
     assert_match("echidna_true: passing",
                  shell_output("#{bin}/echidna --format text --contract True #{testpath}"))
