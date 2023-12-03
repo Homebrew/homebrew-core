@@ -1,9 +1,16 @@
 class Librest < Formula
   desc "Library to access RESTful web services"
   homepage "https://wiki.gnome.org/Projects/Librest"
-  url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
-  sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
-  revision 4
+  url "https://download.gnome.org/sources/rest/0.9/rest-0.9.1.tar.xz"
+  sha256 "9266a5c10ece383e193dfb7ffb07b509cc1f51521ab8dad76af96ed14212c2e3"
+  license "LGPL-2.1-or-later"
+
+  # librest doesn't use GNOME's "even-numbered minor is stable" version scheme,
+  # so we override the default regex from the `Gnome` strategy.
+  livecheck do
+    url :stable
+    regex(/rest[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1
@@ -20,22 +27,28 @@ class Librest < Formula
   end
 
   depends_on "gobject-introspection" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "glib"
-  depends_on "libsoup@2"
+  depends_on "json-glib"
+  depends_on "libsoup@2" # libsoup 3 issue: https://gitlab.gnome.org/GNOME/recipes/-/issues/155
 
   def install
+    args = std_meson_args + %w[
+      -Dexamples=false
+      -Dgtk_doc=false
+      -Dtests=false
+      -Dsoup2=true
+    ]
+
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["libsoup@2"].opt_lib/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
 
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--without-gnome",
-                          "--without-ca-certificates",
-                          "--enable-introspection=yes"
-    system "make", "install"
+    system "meson", "setup", "build", *args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -57,11 +70,11 @@ class Librest < Formula
       -I#{libsoup.opt_include}/libsoup-2.4
       -I#{glib.opt_include}/glib-2.0
       -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/rest-0.7
+      -I#{include}/rest-1.0
       -L#{libsoup.opt_lib}
       -L#{glib.opt_lib}
       -L#{lib}
-      -lrest-0.7
+      -lrest-1.0
       -lgobject-2.0
     ]
     system ENV.cc, "test.c", "-o", "test", *flags
