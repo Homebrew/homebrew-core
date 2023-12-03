@@ -475,7 +475,7 @@
     "exclude_packages": ["lxml", "MarkupSafe", "pygments"]
   },
   "gdbgui": {
-    "exclude_packages": ["six"]
+    "exclude_packages": ["Brotli", "click", "markupsafe", "pygments", "six"]
   },
   "ggshield": {
     "exclude_packages": [
