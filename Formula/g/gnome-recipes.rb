@@ -5,7 +5,7 @@ class GnomeRecipes < Formula
   url "https://gitlab.gnome.org/GNOME/recipes.git",
       tag:      "2.0.4",
       revision: "d5e9733c49ea4f99e72c065c05ee1a35ef65e67d"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sonoma:   "3b9c974d968a76db7c9b4c7b331f80a4c18f4ae239def0e0a14cabbc8b9a1f15"
@@ -61,6 +61,9 @@ class GnomeRecipes < Formula
                 "-Wl,-rpath,${libdir} -L${libdir}"
     end
 
+    # update to use librest 1.0 ABI
+    inreplace "meson.build", "dependency('rest-0.7'),", "dependency('rest-1.0'),"
+    inreplace "src/gr-shopping-list-exporter.c", "<rest/oauth2-proxy.h>", "<rest/rest-oauth2-proxy.h>"
     # BSD tar does not support the required options
     inreplace "src/gr-recipe-store.c", "argv[0] = \"tar\";", "argv[0] = \"gtar\";"
     # stop meson_post_install.py from doing what needs to be done in the post_install step
