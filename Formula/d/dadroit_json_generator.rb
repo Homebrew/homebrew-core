@@ -3,7 +3,7 @@ class DadroitJsonGenerator < Formula
   homepage "https://github.com/DadroitOrganization/Generator"
   url "https://github.com/DadroitOrganization/Generator/archive/refs/tags/Release_Version_1.0.0.352.tar.gz"
   sha256 "2ef4e55bb00d5a61dad40bc050de7b8d56611e777f9db10c3e9997d5a2ade156"
-
+  license "GPL-3.0-or-later"
   # Dependency on Free Pascal Compiler
   depends_on "fpc" => :build
 
