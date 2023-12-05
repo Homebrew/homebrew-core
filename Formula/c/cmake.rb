@@ -32,13 +32,10 @@ class Cmake < Formula
     depends_on "openssl@3"
   end
 
-  # The completions were removed because of problems with system bash
-
-  # The `with-qt` GUI option was removed due to circular dependencies if
-  # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
-  # For the GUI application please instead use `brew install --cask cmake`.
-
   def install
+    # The `with-qt` GUI option was removed due to circular dependencies if
+    # CMake is built with Qt support and Qt is built with MySQL support as MySQL uses CMake.
+    # For the GUI application please instead use `brew install --cask cmake`.
     args = %W[
       --prefix=#{prefix}
       --no-system-libs
@@ -55,8 +52,8 @@ class Cmake < Formula
       ]
     end
 
+    # The completions were removed because of problems with system bash
     system "./bootstrap", *args, "--", *std_cmake_args,
-                                       "-DCMake_INSTALL_BASH_COMP_DIR=#{bash_completion}",
                                        "-DCMake_INSTALL_EMACS_DIR=#{elisp}",
                                        "-DCMake_BUILD_LTO=ON"
     system "make"
