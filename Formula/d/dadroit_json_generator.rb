@@ -1,5 +1,5 @@
 class DadroitJsonGenerator < Formula
-  desc "High-performance tool for generating nested sample JSON data using custom templates"
+  desc "High-performance tool for generating nested JSON data using custom templates"
   homepage "https://github.com/DadroitOrganization/Generator"
   url "https://github.com/DadroitOrganization/Generator/archive/refs/tags/Release_Version_1.0.0.352.tar.gz"
   sha256 "2ef4e55bb00d5a61dad40bc050de7b8d56611e777f9db10c3e9997d5a2ade156"
