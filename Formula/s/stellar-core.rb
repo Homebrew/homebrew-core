@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v19.14.0",
-      revision: "5664eff4e76ca6a277883d4085711dc3fa7c318a"
+      tag:      "v20.0.0",
+      revision: "6177299100b114aa108584053414371f38aebf53"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -24,6 +24,7 @@ class StellarCore < Formula
   depends_on "libtool" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
@@ -38,6 +39,12 @@ class StellarCore < Formula
   fails_with :gcc do
     version "7"
     cause "Requires C++17 filesystem"
+  end
+
+  # checksum build patch, upstream PR ref, https://github.com/stellar/stellar-core/pull/4082
+  patch do
+    url "https://github.com/stellar/stellar-core/commit/2b0430c7045d6b47b9765c51501bba4203884901.patch?full_index=1"
+    sha256 "a5b785304cf5cae6a0db0617f6f1b6c9cc3aac959b2674172498a33e96de16ff"
   end
 
   def install
