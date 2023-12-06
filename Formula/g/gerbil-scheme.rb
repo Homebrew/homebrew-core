@@ -40,7 +40,6 @@ class GerbilScheme < Formula
   def install
     system "./configure", *std_configure_args,
                           "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
-                          "--enable-leveldb",
                           "--enable-libxml",
                           "--enable-libyaml",
                           "--enable-lmdb"
