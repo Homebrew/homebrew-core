@@ -38,9 +38,7 @@ class Fish < Formula
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
-                    "-Dextra_functionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_functions.d",
-                    "-Dextra_completionsdir=#{HOMEBREW_PREFIX}/share/fish/vendor_completions.d",
-                    "-Dextra_confdir=#{HOMEBREW_PREFIX}/share/fish/vendor_conf.d"
+                    "-DCMAKE_INSTALL_DATADIR=share"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
