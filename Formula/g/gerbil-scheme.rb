@@ -39,9 +39,7 @@ class GerbilScheme < Formula
 
   def install
     system "./configure", *std_configure_args,
-                          "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
-                          "--enable-libyaml",
-                          "--enable-lmdb"
+                          "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}"
     system "make"
     system "make", "install"
 
