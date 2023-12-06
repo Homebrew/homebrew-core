@@ -47,8 +47,7 @@ class GerbilScheme < Formula
     system "make"
     system "make", "install"
 
-      mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
-    end
+    mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
   end
 
   test do
