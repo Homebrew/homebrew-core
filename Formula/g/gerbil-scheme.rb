@@ -38,15 +38,14 @@ class GerbilScheme < Formula
   end
 
   def install
-    cd "src" do
-      system "./configure", "--prefix=#{prefix}",
-                            "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
-                            "--enable-leveldb",
-                            "--enable-libxml",
-                            "--enable-libyaml",
-                            "--enable-lmdb"
-      system "./build.sh"
-      system "./install"
+    system "./configure", *std_configure_args,
+                          "--with-gambit=#{Formula["gambit-scheme"].opt_prefix}",
+                          "--enable-leveldb",
+                          "--enable-libxml",
+                          "--enable-libyaml",
+                          "--enable-lmdb"
+    system "make"
+    system "make", "install"
 
       mv "#{share}/emacs/site-lisp/gerbil", "#{share}/emacs/site-lisp/gerbil-scheme"
     end
