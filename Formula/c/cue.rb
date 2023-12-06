@@ -43,7 +43,7 @@ class Cue < Formula
     expected = <<~EOS
       max: invalid value 5 (out of bound >10):
           ./check.cue:2:16
-          ./ranges.yml:5:7
+          ./ranges.yml:5:6
     EOS
 
     assert_equal expected, shell_output(bin/"cue vet ranges.yml check.cue 2>&1", 1)
