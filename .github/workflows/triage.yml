@@ -203,7 +203,7 @@ jobs:
               content: system "swift", "build"
 
             - label: long build
-              path: Formula/.+/(agda|aom|apache-pulsar|arangodb|aws-sdk-cpp|boost|brotli|c-ares|deno|dotnet|dvc|emscripten|envoy|freetype|gcc|ghc|glib|graph-tool|gstreamer|harfbuzz|hwloc|icu4c|libgcrypt|librist|libnghttp2|libomp|libtensorflow|llvm|mame|metashell|mlkit|mpfr|nghttp2|node|numpy|nwchem|openblas|p11-kit|pango|ponyc|python-setuptools|pytorch|rav1e|rust|shared-mime-info|suite-sparse|swift|texlive|qt|readline|root|souffle|v8|verilator|vtk|xz|zstd)(@[0-9]+)?.rb
+              path: Formula/.+/(agda|aom|apache-pulsar|arangodb|aws-sdk-cpp|boost|brotli|c-ares|deno|dotnet|dvc|emscripten|envoy|freetype|gcc|ghc|glib|graph-tool|gstreamer|harfbuzz|hwloc|icu4c|libgcrypt|librist|libnghttp2|libomp|libtensorflow|llvm|mame|metashell|mlkit|mpfr|nghttp2|node|numpy|nwchem|openblas|p11-kit|pango|ponyc|python-setuptools|pytorch|rav1e|rust|shared-mime-info|suite-sparse|swift|texlive|qt|readline|root|souffle|v8|verilator|vtk|xz|z3|zstd)(@[0-9]+)?.rb
               keep_if_no_match: true
 
             - label: CI-build-dependents-from-source
