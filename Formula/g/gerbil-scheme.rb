@@ -1,7 +1,9 @@
 class GerbilScheme < Formula
   desc "Opinionated dialect of Scheme designed for Systems Programming"
   homepage "https://cons.io"
-  url "https://github.com/vyzo/gerbil/archive/refs/tags/v0.18.1.tar.gz"
+  url "https://github.com/vyzo/gerbil.git",
+        tag:         "v0.18.1",
+        revision: "23c30a6062cd7e63f9d85300ce01585bb9035d2d"
   sha256 "3ce56daa5e8f36f08370b5a4485f54fb6e6e9b892b95d8b9904f70ad17bd4d6e"
   license any_of: ["LGPL-2.1-or-later", "Apache-2.0"]
 
