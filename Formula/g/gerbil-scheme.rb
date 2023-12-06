@@ -7,7 +7,7 @@ class GerbilScheme < Formula
   license any_of: ["LGPL-2.1-or-later", "Apache-2.0"]
 
   livecheck do
-    url "https://github.com/vyzo/gerbil.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
