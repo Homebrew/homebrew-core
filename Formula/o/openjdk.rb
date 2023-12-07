@@ -162,10 +162,48 @@ class Openjdk < Formula
         }
       }
     EOS
-
     system bin/"javac", "HelloWorld.java"
-
     assert_match "Hello, world!", shell_output("#{bin}/java HelloWorld")
+
+    # Ref: https://github.com/Homebrew/homebrew-core/issues/150824
+    (testpath/"MenuTest.java").write <<~EOS
+      import java.awt.Robot;
+      import java.awt.event.InputEvent;
+      import javax.swing.*;
+
+      public class MenuTest {
+        public static void main(String[] args) {
+          if (System.getProperty("os.name").contains("Mac")) {
+            System.setProperty("apple.laf.useScreenMenuBar", "true");
+          }
+          JFrame frame = new JFrame("Test Frame");
+          JMenuBar menuBar = new JMenuBar();
+          JMenu menu = new JMenu("Test");
+          menuBar.add(menu);
+          frame.setJMenuBar(menuBar);
+          frame.setSize(200, 200);
+          frame.setVisible(true);
+
+          // Simulate mouse click to bring frame to foreground
+          try {
+            Robot robot = new Robot();
+            robot.mouseMove(frame.getX() + 100, frame.getY() + 5);
+            robot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
+            robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
+          } catch (Exception ex) {
+            System.out.println("Issue simulating mouse click");
+          }
+
+          // Close frame after 2 seconds
+          new Timer(2000, (e) -> {
+            frame.setVisible(false);
+            frame.dispose();
+            System.out.println("Done");
+          }).start();
+        }
+      }
+    EOS
+    assert_equal "Done\n", shell_output("#{bin}/java MenuTest.java")
   end
 end
 
