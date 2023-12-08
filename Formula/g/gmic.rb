@@ -21,7 +21,9 @@ class Gmic < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9edc05ea79a6f3de3a35514d70acefd427262d2fbbe76849cb3633cde3e96702"
   end
 
+  depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cimg"
   depends_on "fftw"
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -31,41 +33,18 @@ class Gmic < Formula
   uses_from_macos "curl"
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "bash-completion"
-  end
-
-  # Use .dylibs instead of .so on macOS
-  patch do
-    on_macos do
-      url "https://raw.githubusercontent.com/macports/macports-ports/a859c5929c929548f5156f5cab13a2f341982e72/science/gmic/files/patch-src-Makefile.diff"
-      sha256 "5b4914a05135f6c137bb5980d0c3bf8d94405f03d4e12b6ee38bd0e0e004a358"
-      directory "src"
-    end
-  end
-
   def install
-    # The Makefile is not safe to run in parallel.
-    # Issue ref: https://github.com/dtschump/gmic/issues/406
-    ENV.deparallelize
-
-    # Use PLUGINDIR to avoid trying to create "/plug-ins" on Linux without GIMP.
-    # Disable X11 by using the values from Makefile when "/usr/X11" doesn't exist.
-    args = %W[
-      PLUGINDIR=#{buildpath}/plug-ins
-      USR=#{prefix}
-      X11_CFLAGS=-Dcimg_display=0
-      X11_LIBS=-lpthread
-      SOVERSION=#{version}
+    args = %w[
+      -DENABLE_FFMPEG=OFF
+      -DENABLE_GRAPHICSMAGICK=OFF
+      -DENABLE_X=OFF
+      -DUSE_SYSTEM_CIMG=ON
     ]
-    system "make", "lib", "cli_shared", *args
-    system "make", "install", *args, "PREFIX=#{prefix}"
-    lib.install "src/libgmic.a"
+    args << "-DENABLE_DYNAMIC_LINKING=ON" if OS.linux?
 
-    # Need gmic binary to build completions
-    ENV.prepend_path "PATH", bin
-    system "make", "bashcompletion", *args
-    bash_completion.install "resources/gmic_bashcompletion.sh" => "gmic"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
