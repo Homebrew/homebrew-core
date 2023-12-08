@@ -37,7 +37,8 @@ class Swift < Formula
   # This is mostly community sourced, so may be not necessarily be accurate.
   depends_on xcode: ["13.0", :build]
 
-  depends_on "python@3.11"
+  depends_on :linux
+  depends_on "python@3.11" # NOTE: Testing Python version detection
 
   # HACK: this should not be a test dependency but is due to a limitation with fails_with
   uses_from_macos "llvm" => [:build, :test]
@@ -224,6 +225,7 @@ class Swift < Formula
   end
 
   def install
+    python3 = which("python3.11")
     workspace = buildpath.parent
     build = workspace/"build"
 
@@ -354,8 +356,9 @@ class Swift < Formula
         --install-swiftsyntax
         --install-swiftdocc
         --install-sourcekit-lsp
+        --llvm-cmake-options=-DCROSS_TOOLCHAIN_FLAGS_LLVM_NATIVE=-DPython3_EXECUTABLE=#{python3}
       ]
-      extra_cmake_options = []
+      extra_cmake_options = ["-DPython3_EXECUTABLE=#{python3}"]
 
       if OS.mac?
         args += %W[
