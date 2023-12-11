@@ -1,5 +1,5 @@
 class RsAggregate < Formula
-  desc "Aggregate IPv4 and/or IPv6 prefixes into their minimal representation."
+  desc "Aggregate IPv4 and/or IPv6 prefixes into their minimal representation"
   homepage "https://github.com/ktims/rs-aggregate"
   url "https://github.com/ktims/rs-aggregate/archive/refs/tags/v0.3.1.tar.gz"
   sha256 "8c2bbf84d095d7351461fe482b62233801f24c0df1dcb25807db8553065193f2"
