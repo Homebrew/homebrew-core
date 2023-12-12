@@ -3,7 +3,7 @@ class GitlabRunner < Formula
   homepage "https://gitlab.com/gitlab-org/gitlab-runner"
   url "https://gitlab.com/gitlab-org/gitlab-runner.git",
       tag:      "v16.6.1",
-      revision: "07a32dccbbfeb5aa5b42d922d9495685890ac27d"
+      revision: "f5da3c5adf55e55004e0dae2a2e1476f8407c087"
   license "MIT"
   head "https://gitlab.com/gitlab-org/gitlab-runner.git", branch: "main"
 
