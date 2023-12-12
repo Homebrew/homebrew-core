@@ -1,8 +1,8 @@
 class PythonHatchling < Formula
   desc "Modern, extensible Python build backend"
   homepage "https://github.com/pypa/hatch/tree/master/backend"
-  url "https://files.pythonhosted.org/packages/e3/57/87da2c5adc173950ebe9f1acce4d5f2cd0a960783992fd4879a899a0b637/hatchling-1.18.0.tar.gz"
-  sha256 "50e99c3110ce0afc3f7bdbadff1c71c17758e476731c27607940cfa6686489ca"
+  url "https://files.pythonhosted.org/packages/c8/36/34c6802005a8b23c732fb759c709d2b55f8e3e4b28cf149a571838fc8231/hatchling-1.19.0.tar.gz"
+  sha256 "0857c175c74e0d229cc26793aae753afce454fe0eeda1bf8317fb7372a405d82"
   license "MIT"
 
   bottle do
@@ -24,8 +24,8 @@ class PythonHatchling < Formula
   depends_on "python-trove-classifiers"
 
   resource "editables" do
-    url "https://files.pythonhosted.org/packages/01/b0/a2a87db4b6cb8e7d57004b6836faa634e0747e3e39ded126cdbe5a33ba36/editables-0.3.tar.gz"
-    sha256 "167524e377358ed1f1374e61c268f0d7a4bf7dbd046c656f7b410cde16161b1a"
+    url "https://files.pythonhosted.org/packages/37/4a/986d35164e2033ddfb44515168a281a7986e260d344cf369c3f52d4c3275/editables-0.5.tar.gz"
+    sha256 "309627d9b5c4adc0e668d8c6fa7bac1ba7c8c5d415c2d27f60f081f8e80d1de2"
   end
 
   def pythons

@@ -954,6 +954,9 @@
     "exclude_packages": ["cffi", "pycparser", "typing-extensions"],
     "extra_packages": ["semantic-version", "setuptools-rust"]
   },
+  "python-hatchling": {
+    "exclude_packages": ["packaging", "pathspec", "pluggy", "trove-classifiers"]
+  },
   "python-jinja": {
     "package_name": "jinja2",
     "exclude_packages": ["markupsafe"]
