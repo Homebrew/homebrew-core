@@ -1,25 +1,14 @@
 class DadroitJsonGenerator < Formula
-  desc "High-performance tool for generating nested JSON data using custom templates"
+  desc "High-performance tool for generating nested sample JSON data using custom templates"
   homepage "https://github.com/DadroitOrganization/Generator"
-  url "https://github.com/DadroitOrganization/Generator/archive/refs/tags/Release_Version_1.0.0.352.tar.gz"
-  sha256 "2ef4e55bb00d5a61dad40bc050de7b8d56611e777f9db10c3e9997d5a2ade156"
-  license "GPL-3.0-or-later"
+  url "https://github.com/DadroitOrganization/Generator/releases/download/Release_Version_1.0.0.370/JSONGeneratorCLI-Homebrew.zip"
+  sha256 "72b030cb5e9aecc871f34758bd5c5a899adfe1f5498041a6a44a225a3580b88d"
+
   # Dependency on Free Pascal Compiler
   depends_on "fpc" => :build
 
   def install
-    # Cloning the mORMot2 repository, required for building the tool
-    system "git", "clone", "https://github.com/synopse/mORMot2.git", "mORMot2"
-    Dir.chdir("mORMot2") do
-      # Checkout a specific commit known to be compatible
-      system "git", "checkout", "3409c5387300038cacacc5f0d957ecf4b10f2b8d"
-      # Compiling the source code with specified unit paths
-      system "fpc", "-Fu./src/", "-Fu./src/app", "-Fu./src/core", "-Fu./src/crypt", 
-             "-Fu./src/db", "-Fu./src/ddd", "-Fu./src/lib", "-Fu./src/misc", 
-             "-Fu./src/net", "-Fu./src/orm", "-Fu./src/rest", "-Fu./src/soa", 
-             "-Fu./src/tools", "-Fu./src/script", "../JSONGeneratorCLI.pas"
-    end
-    # Installing the compiled executable
+    system "make"
     # You can use the tool by running this command, followed by the path to the template json file
     bin.install "JSONGeneratorCLI"
   end
@@ -29,7 +18,7 @@ class DadroitJsonGenerator < Formula
     (testpath/"sample.json").write <<~EOS
       {
           "Name": "$FirstName",
-          "Value": {"X": 1, "Y": 2},
+          "Value": {"X": 1, "Y": 2},wind
           "Books": {"$Random": ["B1", "B2", "B3"]},
           "Age": {"$Random": {"$Min": 10, "$Max": 20}}
       }
