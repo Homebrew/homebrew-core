@@ -26,11 +26,16 @@ class Bazel < Formula
   conflicts_with "bazelisk", because: "Bazelisk replaces the bazel binary"
 
   def install
+    # Work around Sonoma build failure in com_google_absl.
+    # TODO: Try removing in the next release.
+    host_copt = []
+    host_copt << "--host_copt=-Wno-deprecated-builtins" if DevelopmentTools.clang_build_version >= 1500
+
     ENV["EMBED_LABEL"] = "#{version}-homebrew"
     # Force Bazel ./compile.sh to put its temporary files in the buildpath
     ENV["BAZEL_WRKDIR"] = buildpath/"work"
     # Force Bazel to use openjdk@11
-    ENV["EXTRA_BAZEL_ARGS"] = "--host_javabase=@local_jdk//:jdk"
+    ENV["EXTRA_BAZEL_ARGS"] = (["--host_javabase=@local_jdk//:jdk"] + host_copt).join(" ")
     ENV["JAVA_HOME"] = Language::Java.java_home("11")
     # Force Bazel to use Homebrew python
     ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
@@ -54,6 +59,7 @@ class Bazel < Formula
       system "./output/bazel", "--output_user_root",
                                buildpath/"output_user_root",
                                "build",
+                               *host_copt,
                                "scripts:bash_completion",
                                "scripts:fish_completion"
 
@@ -66,6 +72,19 @@ class Bazel < Formula
       zsh_completion.install "scripts/zsh_completion/_bazel"
       fish_completion.install "bazel-bin/scripts/bazel.fish"
     end
+    return if OS.mac?
+
+    # Hack to avoid binary patching bazel-real and corrupting the appended zip data.
+    # FIXME: Should try to handle in brew rather than bypassing via archived file.
+    # Ref: https://github.com/Homebrew/homebrew-core/issues/157068
+    system "tar", "-C", "#{libexec}/bin", "-cf", "#{libexec}/bin/bazel-real.tar", "bazel-real"
+  end
+
+  # Also part of hack to avoid binary patching bazel-real
+  def post_install
+    return if OS.mac?
+
+    quiet_system "tar", "-C", "#{libexec}/bin", "-xf", "#{libexec}/bin/bazel-real.tar"
   end
 
   test do
