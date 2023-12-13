@@ -24,7 +24,7 @@ class Lesspipe < Formula
   def caveats
     <<~EOS
       add the following to your shell profile e.g. ~/.profile or ~/.zshrc:
-        export LESSOPEN="|#{HOMEBREW_PREFIX}/bin/lesspipe.sh %s"
+        export LESSOPEN="|$HOMEBREW_PREFIX/bin/lesspipe.sh %s"
     EOS
   end
 
