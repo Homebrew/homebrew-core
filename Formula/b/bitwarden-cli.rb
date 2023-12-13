@@ -1,6 +1,5 @@
-require "language/node"
-
 class BitwardenCli < Formula
+  require "language/node"
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
   url "https://registry.npmjs.org/@bitwarden/cli/-/cli-2023.12.0.tgz"
@@ -17,13 +16,21 @@ class BitwardenCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f46a258f8bebbef5b3f0620646c2c347e02f992e6b5fc584a01c2f8aa31ce3cc"
   end
 
-  depends_on "node"
-
+  depends_on "node" => :test
+  
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir[libexec/"bin/*"]
 
     generate_completions_from_executable(bin/"bw", "completion", shell_parameter_format: :arg, shells: [:zsh])
+  end
+
+ 
+  def caveats
+    <<~EOS
+      Bitwarden cli requires a Node installation to function. You can install one with:
+        brew install node
+    EOS
   end
 
   test do
