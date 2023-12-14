@@ -13,8 +13,8 @@
 class Ocaml < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-5.1/ocaml-5.1.0.tar.xz"
-  sha256 "6ce8db393aafc264e5af731c68fbeb20920ab6ae84d5bf93511965b7423351ab"
+  url "https://caml.inria.fr/pub/distrib/ocaml-5.1/ocaml-5.1.1.tar.xz"
+  sha256 "8d7e98bfda3be940602b7a39dcf912a2d2fdeab791ed40e62a09a4cd67ddeef1"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
   head "https://github.com/ocaml/ocaml.git", branch: "trunk"
 
