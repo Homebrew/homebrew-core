@@ -24,9 +24,8 @@ class Hdf5 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45a3ba08b9c14d54fa5afbfe214e8397af81e50e1b3a2b5bf8d97cc5e88b898f"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :test
   depends_on "gcc" # for gfortran
   depends_on "libaec"
 
@@ -43,32 +42,18 @@ class Hdf5 < Formula
               "settingsdir=$(libdir)",
               "settingsdir=#{pkgshare}"
 
-    system "autoreconf", "--force", "--install", "--verbose"
-
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-build-mode=production
-      --enable-fortran
-      --enable-cxx
-      --prefix=#{prefix}
-      --with-szlib=#{Formula["libaec"].opt_prefix}
-    ]
-    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
-
-    system "./configure", *args
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
 
     # Avoid shims in settings file
     inreplace_files = %w[
-      src/H5build_settings.c
-      src/libhdf5.settings
-      src/Makefile
+      build/src/H5build_settings.c
+      build/src/libhdf5.settings
     ]
 
-    inreplace inreplace_files, Superenv.shims_path/ENV.cxx, ENV.cxx
     inreplace inreplace_files, Superenv.shims_path/ENV.cc, ENV.cc
 
-    system "make", "install"
+    system "cmake", "--install", "build"
   end
 
   test do
