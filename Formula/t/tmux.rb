@@ -92,6 +92,8 @@ class Tmux < Formula
     <<~EOS
       Example configuration has been installed to:
         #{opt_pkgshare}
+      You might need to kill existing tmux servers as a result of this upgrade:
+        'tmux kill-server'
     EOS
   end
 
