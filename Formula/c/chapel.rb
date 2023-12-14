@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.32.0/chapel-1.32.0.tar.gz"
-  sha256 "9fb139756ebb63ab722856273457673fc7368b26d9a9483333650510506c0a96"
+  url "https://github.com/chapel-lang/chapel/releases/download/1.33.0/chapel-1.33.0.tar.gz" 
+  sha256 "9dfd9bbab3eb1acf10242db909ccf17c1b07634452ca6ba8b238e69788d82883"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
@@ -19,7 +19,7 @@ class Chapel < Formula
   depends_on "cmake"
   depends_on "gmp"
   depends_on "llvm@15"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
   fails_with gcc: "5"
@@ -30,7 +30,7 @@ class Chapel < Formula
 
   def install
     # Always detect Python used as dependency rather than needing aliased Python formula
-    python = "python3.11"
+    python = "python3.12"
     # It should be noted that this will expand to: 'for cmd in python3.11 python3 python python2; do'
     # in our find-python.sh script.
     inreplace "util/config/find-python.sh", /^(for cmd in )(python3 )/, "\\1#{python} \\2"
