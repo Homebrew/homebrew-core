@@ -21,11 +21,23 @@ class Embulk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "f18e539ca70420cd3cc6fb7f7b24cc1d761ecb9cf7af7121d576a0727a17586f"
   end
 
-  depends_on "openjdk@8"
+  # Only Java 8 is officially supported and guaranteed to be compatible with
+  # plugins. However `openjdk@8` does not support Apple Silicon so we use one
+  # of the latest of Java versions (11 or 17) upstream plans to test.
+  #
+  # Ref: https://www.embulk.org/#quick-start
+  # Ref: https://github.com/embulk/embulk/issues/1595
+  on_arm do
+    depends_on "openjdk@17"
+  end
+  on_intel do
+    depends_on "openjdk@8"
+  end
 
   def install
     libexec.install "embulk-#{version}.jar"
-    bin.write_jar_script libexec/"embulk-#{version}.jar", "embulk", java_version: "1.8"
+    java_version = Hardware::CPU.arm? ? "17" : "1.8"
+    bin.write_jar_script libexec/"embulk-#{version}.jar", "embulk", java_version: java_version
   end
 
   test do
