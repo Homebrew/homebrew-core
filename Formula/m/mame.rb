@@ -31,7 +31,7 @@ class Mame < Formula
   depends_on "asio" => :build
   depends_on "glm" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "rapidjson" => :build
   depends_on "sphinx-doc" => :build
   depends_on "flac"
@@ -50,20 +50,24 @@ class Mame < Formula
 
   on_linux do
     depends_on "pulseaudio"
-    depends_on "qt@5"
+    depends_on "qt"
     depends_on "sdl2_ttf"
   end
 
   fails_with gcc: "5"
   fails_with gcc: "6"
 
+  patch :DATA
+
   def install
+    ENV["QT_HOME"] = Formula["qt"].opt_prefix if OS.linux?
+
     # Cut sdl2-config's invalid option.
     inreplace "scripts/src/osd/sdl.lua", "--static", ""
 
     # Use bundled lua instead of latest version.
     # https://github.com/mamedev/mame/issues/5349
-    system "make", "PYTHON_EXECUTABLE=#{Formula["python@3.11"].opt_bin}/python3.11",
+    system "make", "PYTHON_EXECUTABLE=#{which("python3.12")}",
                    "USE_LIBSDL=1",
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
@@ -95,3 +99,25 @@ class Mame < Formula
     system "#{bin}/mame", "-validate"
   end
 end
+
+__END__
+diff --git a/scripts/src/osd/modules.lua b/scripts/src/osd/modules.lua
+index f779912deb2..38a9f0ce76f 100644
+--- a/scripts/src/osd/modules.lua
++++ b/scripts/src/osd/modules.lua
+@@ -382,8 +382,13 @@ function qtdebuggerbuild()
+ 				if (MOCTST=='') then
+ 					MOCTST = backtick(_OPTIONS["QT_HOME"] .. "/libexec/moc --version 2>/dev/null")
+ 					if (MOCTST=='') then
+-						print("Qt's Meta Object Compiler (moc) wasn't found!")
+-						os.exit(1)
++						local qt_host_libexecs = backtick(_OPTIONS["QT_HOME"] .. "/bin/qmake -query QT_HOST_LIBEXECS")
++						MOCTST = backtick(qt_host_libexecs .. "/moc --version 2>/dev/null")
++						if (MOCTST=='') then
++							print("Qt's Meta Object Compiler (moc) wasn't found!")
++							os.exit(1)
++						end
++						MOC = qt_host_libexecs .. "/moc"
+ 					else
+ 						MOC = _OPTIONS["QT_HOME"] .. "/libexec/moc"
+ 					end
