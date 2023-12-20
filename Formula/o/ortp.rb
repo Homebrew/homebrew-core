@@ -4,8 +4,8 @@ class Ortp < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.2.112/ortp-5.2.112.tar.bz2"
-    sha256 "710a28c361a863132a2b8dc1577213132524d71df0acab7768d974ba0e9ab2e3"
+    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.0/ortp-5.3.0.tar.bz2"
+    sha256 "7e8ab74665c93672f778d1ba9c11d8ff8b582195c3b8bf16465d61d1efe06417"
 
     depends_on "mbedtls@2"
 
@@ -13,8 +13,8 @@ class Ortp < Formula
     # https://github.com/BelledonneCommunications/bctoolbox
     resource "bctoolbox" do
       # Don't forget to change both instances of the version in the URL.
-      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.2.112/bctoolbox-5.2.112.tar.bz2"
-      sha256 "458a7eef09951d97f35946b640ab25d6345ebe215413d5d76ef276b8e23a9a7e"
+      url "https://gitlab.linphone.org/BC/public/bctoolbox/-/archive/5.3.0/bctoolbox-5.3.0.tar.bz2"
+      sha256 "7bf02fc5e54a2e29775c22437bed492935cb87a872962721e854c8dee115bd8a"
     end
   end
 
@@ -73,6 +73,8 @@ class Ortp < Formula
   end
 
   test do
+    assert_equal version, resource("bctoolbox").version, "`bctoolbox` resource needs updating!"
+
     (testpath/"test.c").write <<~EOS
       #include "ortp/logging.h"
       #include "ortp/rtpsession.h"
