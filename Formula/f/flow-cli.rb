@@ -1,8 +1,8 @@
 class FlowCli < Formula
   desc "Command-line interface that provides utilities for building Flow applications"
   homepage "https://onflow.org"
-  url "https://github.com/onflow/flow-cli/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "34a0d9d59e8f815b94b6f928665c082f130b14398614b0f87c416f834933b006"
+  url "https://github.com/onflow/flow-cli/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "3d6c84d67d76e1e68380919c4f6b27bfafa177cd22416da85c662d0da28fc229"
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git", branch: "master"
 
