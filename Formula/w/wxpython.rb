@@ -1,4 +1,6 @@
 class Wxpython < Formula
+  include Language::Python::Virtualenv
+
   desc "Python bindings for wxWidgets"
   homepage "https://www.wxpython.org/"
   url "https://files.pythonhosted.org/packages/aa/64/d749e767a8ce7bdc3d533334e03bb1106fc4e4803d16f931fada9007ee13/wxPython-4.2.1.tar.gz"
@@ -17,29 +19,40 @@ class Wxpython < Formula
     sha256               x86_64_linux:   "2b0a727845e44862bd0f74d23e0c1e2e8c91959e32d85aebff3ead82a0a10fb5"
   end
 
-  # FIXME: Build is currently broken with Doxygen 1.9.7+.
-  # FIXME: depends_on "doxygen" => :build
-  depends_on "bison" => :build # for `doxygen` resource
-  depends_on "cmake" => :build # for `doxygen` resource
+  depends_on "doxygen" => :build
   depends_on "sip" => :build
   depends_on "numpy"
   depends_on "pillow"
   depends_on "python@3.11"
   depends_on "six"
   depends_on "wxwidgets"
-  uses_from_macos "flex" => :build, since: :big_sur # for `doxygen` resource
 
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "gtk+3"
   end
 
-  # Build is broken with Doxygen 1.9.7+.
-  # TODO: Try to use Homebrew `doxygen` at next release.
-  resource "doxygen" do
-    url "https://doxygen.nl/files/doxygen-1.9.6.src.tar.gz"
-    mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.9.6/doxygen-1.9.6.src.tar.gz"
-    sha256 "297f8ba484265ed3ebd3ff3fe7734eb349a77e4f95c8be52ed9977f51dea49df"
+  # TODO: Try to remove resources and switch back to `depends_on "sip" => :build`
+  # in the next release. Current release hits issues building with sip >= 6.7.12.
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
+  resource "ply" do
+    url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
+    sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
+  end
+
+  resource "sip" do
+    url "https://files.pythonhosted.org/packages/ce/8c/f66d1c45946e73a46f258b9628fe974ba8cc46c41b4750a59be192981695/sip-6.7.11.tar.gz"
+    sha256 "f0dc3287a0b172e5664931c87847750d47e4fdcda4fe362b514af8edd655b469"
+  end
+
+  # Backport fix for doxygen 1.9.7+. Remove in the next release.
+  patch do
+    url "https://github.com/wxWidgets/Phoenix/commit/0b21230ee21e5e5d0212871b96a6d2fefd281038.patch?full_index=1"
+    sha256 "befd2a9594a2fa41f926edf412476479f2f311b4088c4738a867c5e7ca6c0f82"
   end
 
   def python
@@ -47,17 +60,11 @@ class Wxpython < Formula
   end
 
   def install
-    odie "Check if `doxygen` resource can be removed!" if build.bottle? && version > "4.2.1"
-    # TODO: Try removing the block below at the next release.
-    resource("doxygen").stage do
-      system "cmake", "-S", ".", "-B", "build",
-                      "-DPYTHON_EXECUTABLE=#{which(python)}",
-                      *std_cmake_args(install_prefix: buildpath/".brew_home")
-      system "cmake", "--build", "build"
-      system "cmake", "--install", "build"
-    end
+    # venv = virtualenv_create(buildpath/"venv", python)
+    # venv.pip_install resources
+    # ENV.append_path "PATH", buildpath/"venv/bin"
 
-    ENV["DOXYGEN"] = buildpath/".brew_home/bin/doxygen" # Formula["doxygen"].opt_bin/"doxygen"
+    ENV["DOXYGEN"] = Formula["doxygen"].opt_bin/"doxygen"
     system python, "-u", "build.py", "dox", "touch", "etg", "sip", "build_py",
                    "--release",
                    "--use_syswx",
