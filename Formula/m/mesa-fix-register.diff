@@ -1,0 +1,15 @@
+diff --git a/meson.build b/meson.build
+index fbb0b29..cdccbc8 100644
+--- a/meson.build
++++ b/meson.build
+@@ -52,6 +52,10 @@ c_cpp_args = []
+ c_args = []
+ cpp_args = []
+ 
++if host_machine.system() == 'darwin'
++    c_cpp_args += '-Wno-register'
++endif
++
+ with_moltenvk_dir = get_option('moltenvk-dir')
+ with_vulkan_icd_dir = get_option('vulkan-icd-dir')
+ with_tests = get_option('build-tests')
