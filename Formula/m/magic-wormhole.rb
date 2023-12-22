@@ -153,6 +153,9 @@ class MagicWormhole < Formula
     ENV["SODIUM_INSTALL"] = "system"
     virtualenv_install_with_resources
     man1.install "docs/wormhole.1"
+    bash_completion.install "wormhole_complete.bash"=> "wormhole.bash"
+    fish_completion.install "wormhole_complete.fish" => "wormhole.fish"
+    zsh_completion.install "wormhole_complete.zsh" => "_wormhole"
   end
 
   test do
