@@ -304,11 +304,16 @@ class Php < Formula
   end
 
   def caveats
+    # Adapt FilesMatch to macOS default case-insenstive filesystems
+    match = "\\.php$"
+    on_macos do
+      match = "(?i)" + match
+    end
     <<~EOS
       To enable PHP in Apache add the following to httpd.conf and restart Apache:
           LoadModule php_module #{opt_lib}/httpd/modules/libphp.so
 
-          <FilesMatch \\.php$>
+          <FilesMatch "#{match}">
               SetHandler application/x-httpd-php
           </FilesMatch>
 
