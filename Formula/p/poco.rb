@@ -1,8 +1,8 @@
 class Poco < Formula
   desc "C++ class libraries for building network and internet-based applications"
   homepage "https://pocoproject.org/"
-  url "https://pocoproject.org/releases/poco-1.12.5p2/poco-1.12.5p2-all.tar.gz"
-  sha256 "4bdf352deef1dcc39260c1b43604236f5759dbdd9c695fffac23488f502f95a2"
+  url "https://pocoproject.org/releases/poco-1.13.0/poco-1.13.0-all.tar.gz"
+  sha256 "e3bdebe701a6fe0977254a09e5f9f0d1e8d5be5deb93259596e3118e9a8d4704"
   license "BSL-1.0"
   head "https://github.com/pocoproject/poco.git", branch: "master"
 
