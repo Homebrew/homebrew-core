@@ -38,6 +38,12 @@ class Httpd < Formula
     # fix default user/group when running as root
     inreplace "docs/conf/httpd.conf.in", /(User|Group) daemon/, "\\1 _www"
 
+    # adapt protection of .ht* files to macOS' case-insenstive file systems
+    if OS.mac?
+      inreplace "docs/conf/httpd.conf.in",
+        "<Files \".ht*\">", "<Files ~ \"(?i)^\\.ht\">"
+    end
+
     # use Slackware-FHS layout as it's closest to what we want.
     # these values cannot be passed directly to configure, unfortunately.
     inreplace "config.layout" do |s|
