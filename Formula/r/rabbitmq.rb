@@ -58,7 +58,16 @@ class Rabbitmq < Formula
 
   def caveats
     <<~EOS
-      Management Plugin enabled by default at http://localhost:15672
+      Management UI is enabled by default at http://localhost:15672.
+
+      To enable all feature flags, run
+
+      rabbitmqctl enable_feature_flag all
+
+      Enabling all feature flags is a requirement for upgrading to certain feature releases, see [1][2].
+
+      1. https://rabbitmq.com/upgrade.html
+      2. https://rabbitmq.com/feature-flags.html
     EOS
   end
 
