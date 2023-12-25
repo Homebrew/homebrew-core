@@ -38,6 +38,7 @@ class Caddy < Formula
     keep_alive true
     error_log_path var/"log/caddy.log"
     log_path var/"log/caddy.log"
+    environment_variables HOME: "#{HOMEBREW_PREFIX}"
   end
 
   test do
