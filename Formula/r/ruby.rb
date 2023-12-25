@@ -2,18 +2,17 @@ class Ruby < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
   license "Ruby"
-  revision 1
 
   stable do
-    url "https://cache.ruby-lang.org/pub/ruby/3.2/ruby-3.2.2.tar.gz"
-    sha256 "96c57558871a6748de5bc9f274e93f4b5aad06cd8f37befa0e8d94e7b8a423bc"
+    url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.0.tar.gz"
+    sha256 "96518814d9832bece92a85415a819d4893b307db5921ae1f0f751a9a89a56b7d"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-3.4.10.tgz"
-      sha256 "55f1c67fa2ae96c9751b81afad5c0f2b3792c5b19cbba6d54d8df9fd821460d3"
+      url "https://rubygems.org/rubygems/rubygems-3.5.3.tgz"
+      sha256 "f3115ee8080992f257c0161b811e07b012f20175ed89349fb1ac98977ddc5c9c"
     end
   end
 
@@ -37,18 +36,15 @@ class Ruby < Formula
   head do
     url "https://github.com/ruby/ruby.git", branch: "master"
     depends_on "autoconf" => :build
-    depends_on "bison" => :build
   end
 
   keg_only :provided_by_macos
 
   depends_on "autoconf" => :build
-  depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
   depends_on "openssl@3"
-  depends_on "readline"
 
   uses_from_macos "gperf"
   uses_from_macos "libffi"
@@ -74,7 +70,7 @@ class Ruby < Formula
 
     system "./autogen.sh" if build.head?
 
-    paths = %w[libyaml openssl@3 readline].map { |f| Formula[f].opt_prefix }
+    paths = %w[libyaml openssl@3].map { |f| Formula[f].opt_prefix }
     args = %W[
       --prefix=#{prefix}
       --enable-shared
@@ -251,6 +247,7 @@ class Ruby < Formula
     hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
     assert_equal "hello\n", hello_text
     ENV["GEM_HOME"] = testpath
+    system "#{bin}/gem", "install", "bundler" # https://medium.com/@0xcolby/debugging-a-bundler-loaderror-6e3035200435
     system "#{bin}/gem", "install", "json"
 
     (testpath/"Gemfile").write <<~EOS
