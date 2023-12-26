@@ -1,8 +1,8 @@
 class MesaGlu < Formula
   desc "Mesa OpenGL Utility library"
   homepage "https://cgit.freedesktop.org/mesa/glu"
-  url "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.2.tar.xz"
-  sha256 "6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4"
+  url "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.3.tar.xz"
+  sha256 "bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f"
   license any_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "MIT", "SGI-B-2.0"]
 
   livecheck do
