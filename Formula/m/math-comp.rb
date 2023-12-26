@@ -1,8 +1,8 @@
 class MathComp < Formula
   desc "Mathematical Components for the Coq proof assistant"
   homepage "https://math-comp.github.io/math-comp/"
-  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-1.18.0.tar.gz"
-  sha256 "7623544e912dcee643fda4b4c89e07fc011a515fd60e976462b6cc29cd5f2d1e"
+  url "https://github.com/math-comp/math-comp/archive/refs/tags/mathcomp-2.1.0.tar.gz"
+  sha256 "ca000eb4cbd80f9088fd5f6a6745eebf9be3c0d7430fa3fde10a790b99466d26"
   license "CECILL-B"
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
