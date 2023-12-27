@@ -1,21 +1,19 @@
 class Sdb < Formula
   desc "Ondisk/memory hashtable based on CDB"
   homepage "https://github.com/radareorg/sdb"
-  url "https://github.com/radareorg/sdb/archive/refs/tags/1.9.6.tar.gz"
-  sha256 "da7ee00ed239f68dbb6a8fad165911ccbe332c6c664a5896cbd867fc9209c934"
+  url "https://github.com/radareorg/sdb/archive/refs/tags/1.9.8.tar.gz"
+  sha256 "c519f10a56a0ab6a151b4e0f2f097b6c2af4709c5259463de50a94e8b7eea6a1"
   license "MIT"
   head "https://github.com/radareorg/sdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dcbca1dbb80c50ebbb646436add082beb9a968dfbcc36618018f6dbe7299f562"
-    sha256 cellar: :any,                 arm64_ventura:  "d2939cb0acdbf0be6a9ad82f1a5585967ead14eab2b9b0ad0fcf2b808cf84811"
-    sha256 cellar: :any,                 arm64_monterey: "94907d3f9db6fee04ddbd257199239eb67c1d02f8861c644e39bb074e82ec9f6"
-    sha256 cellar: :any,                 arm64_big_sur:  "07ecd9203fc1f6cd203738869734c82c5b85414347bbfff89cce08536d0b85fa"
-    sha256 cellar: :any,                 sonoma:         "56eecaa28ed9116709c5d1cc5e373fdd5f9e547ad5dc78b1981c2c52175f7f29"
-    sha256 cellar: :any,                 ventura:        "c0cdb33f226529e86954095cc6c211a51ca55fdb5c3d4f1d1f07ad066a922263"
-    sha256 cellar: :any,                 monterey:       "ea30adaba77c49d81d0d3f6f81597ee70407bd8de0ac291a33d6b9e3aeecf557"
-    sha256 cellar: :any,                 big_sur:        "dbbee831f313753b1c7d4e6fa2a2a3485e59391584975d30a77094b661536aa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfe7f6c1e471fb4c9d1347a968912b6ef1b56c1ce56b2929121f96dc5378488f"
+    sha256 cellar: :any,                 arm64_sonoma:   "46b13d892361f3f266dcc879f3b1356b80411d22e255be8d8be8b25dc110da2c"
+    sha256 cellar: :any,                 arm64_ventura:  "d26fdbe65f6fb61bae60ceeec8702602cfac3cb80551e2409eaad63a1baf5c40"
+    sha256 cellar: :any,                 arm64_monterey: "d9cc13db6eb2ed5ed2bb1c0e15fdc16c073ab7d3035e627159d5b848845116bf"
+    sha256 cellar: :any,                 sonoma:         "6cc22ba3df57f2b7370402324898032c9fa6055fe21947bb6c3beaa570ca5afd"
+    sha256 cellar: :any,                 ventura:        "b163afa2f7945d652f0a4ae77fb4c1cfaa46bfad8b71e9f27b7f1718d19c7dd0"
+    sha256 cellar: :any,                 monterey:       "d072e4bc318c08ee307a1740db311273e9ccc468076bd5217c91ada01c7a0fca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f55490faa3255e320eefbcdbe11a9000db050dd2ccc26a42c35117a6e085045"
   end
 
   depends_on "meson" => :build
@@ -23,13 +21,6 @@ class Sdb < Formula
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
   depends_on "glib"
-
-  # patch build to fix version.h not found
-  # remove in next release
-  patch do
-    url "https://github.com/radareorg/sdb/commit/3bc55289a73bddbd63a11d993c949f57e8a7f7cc.patch?full_index=1"
-    sha256 "d272212a0308a4e8f45f1413c67fb027409d885f3e97166e1a896c7d6b772c4b"
-  end
 
   def install
     system "meson", *std_meson_args, "build"

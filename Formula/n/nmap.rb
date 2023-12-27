@@ -15,6 +15,17 @@ class Nmap < Formula
       url "https://github.com/nmap/nmap/commit/b9263f056ab3acd666d25af84d399410560d48ac.patch?full_index=1"
       sha256 "088d426dc168b78ee4e0450d6b357deef13e0e896b8988164ba2bb8fd8b8767c"
     end
+
+    # Backport pcre2 support. Remove in next release.
+    patch :DATA # https://github.com/nmap/nmap/commit/85f38cb858065d4b0e384730258494e8639887db
+    patch do
+      url "https://github.com/nmap/nmap/commit/828ab48764b82d0226e860c73c5dac5b11f77385.patch?full_index=1"
+      sha256 "3b5febc6c10acc59bff1c43e252d221b9c9be0cd4d866294f91f40a5d008eff0"
+    end
+    patch do
+      url "https://github.com/nmap/nmap/commit/d131a096a869195be36ef7d4fa36739373346cb2.patch?full_index=1"
+      sha256 "5acbcae9f3ef33b9fe38005c0b3c0df4154fb2ae6e0bc38a915f45d473f71c66"
+    end
   end
 
   livecheck do
@@ -23,16 +34,14 @@ class Nmap < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "a2e968804393cf5dadff37cdf5c9fa3e6a1b0c1454ed93ed54807e76cb95072a"
-    sha256 arm64_ventura:  "aa642e107f9b1fb16d729c695610cc8aa6812d67c3509f3fb5d1edb1a34dfa00"
-    sha256 arm64_monterey: "6a5c8706843e47e4f7628ae22f8c944ff64a597e11bea98b1c098551d33d10a1"
-    sha256 arm64_big_sur:  "afde313363e967039eea3c63362dfe38b30372a24283a19fb8fd5db254e722c4"
-    sha256 sonoma:         "525e002a6320e185cc4fa1d34b80d3e6988d171e0b856fa801df23d70f204d3e"
-    sha256 ventura:        "631de555fe12ba7e1bd5ab64bffa7230b1a199be1ceb2f4f55b41e86447a9f65"
-    sha256 monterey:       "9b434cc856194b8ea128ddd9ef20a5aa4e2bad768d6332a68a9daef7a5d95236"
-    sha256 big_sur:        "62a6dfc9eb7b925bd2cbeb65be00f80f59ba109351ff70215cb5b652c92f32e7"
-    sha256 x86_64_linux:   "118dd698850f64fb06e40ac242dc5f88b921871f60b0306ffad253c78ca49e5a"
+    rebuild 3
+    sha256 arm64_sonoma:   "1b9eeffa4054c551cb3ec8836b7bb36cde79dc29fe1b124364a4904e9d8fd7be"
+    sha256 arm64_ventura:  "f23fb19dd6412e024c52d587dcc1b956bf84a165f3eaa51ea9b984d951a7908e"
+    sha256 arm64_monterey: "adc1672fa419d6959ddd06e4e35ada9965c06e4abc216815d48995e3a02c2210"
+    sha256 sonoma:         "8e41e303c5e6ebe78c8d3a513a10f84c3a1a8b19196645d7eaaf87d062b33c34"
+    sha256 ventura:        "8addf2970437c64bc4b1c2ba51095ea91a7d8e5e37f3f4f6e84a1e4cfa3a501c"
+    sha256 monterey:       "ac3af3e67012cd71f560d58ac58ce41404e88a5a87f1680829a3f04278cca083"
+    sha256 x86_64_linux:   "4766fbde7d94d190beaca72cee513fa5628909a26547a7734c0a27ffe33436f4"
   end
 
   depends_on "liblinear"
@@ -40,7 +49,7 @@ class Nmap < Formula
   # Check supported Lua version at https://github.com/nmap/nmap/tree/master/liblua.
   depends_on "lua"
   depends_on "openssl@3"
-  depends_on "pcre"
+  depends_on "pcre2"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
@@ -60,7 +69,7 @@ class Nmap < Formula
 
     args = %W[
       --with-liblua=#{Formula["lua"].opt_prefix}
-      --with-libpcre=#{Formula["pcre"].opt_prefix}
+      --with-libpcre=#{Formula["pcre2"].opt_prefix}
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-libpcap=#{libpcap_path}
       --without-nmap-update
@@ -94,3 +103,58 @@ class Nmap < Formula
     system bin/"nmap", "-p80,443", "google.com"
   end
 end
+
+__END__
+diff --git a/configure b/configure
+index d1d2f19e0d..30a455492e 100755
+--- a/configure
++++ b/configure
+@@ -754,7 +754,6 @@ infodir
+ docdir
+ oldincludedir
+ includedir
+-runstatedir
+ localstatedir
+ sharedstatedir
+ sysconfdir
+@@ -853,7 +852,6 @@ datadir='${datarootdir}'
+ sysconfdir='${prefix}/etc'
+ sharedstatedir='${prefix}/com'
+ localstatedir='${prefix}/var'
+-runstatedir='${localstatedir}/run'
+ includedir='${prefix}/include'
+ oldincludedir='/usr/include'
+ docdir='${datarootdir}/doc/${PACKAGE}'
+@@ -1106,15 +1104,6 @@ do
+   | -silent | --silent | --silen | --sile | --sil)
+     silent=yes ;;
+ 
+-  -runstatedir | --runstatedir | --runstatedi | --runstated \
+-  | --runstate | --runstat | --runsta | --runst | --runs \
+-  | --run | --ru | --r)
+-    ac_prev=runstatedir ;;
+-  -runstatedir=* | --runstatedir=* | --runstatedi=* | --runstated=* \
+-  | --runstate=* | --runstat=* | --runsta=* | --runst=* | --runs=* \
+-  | --run=* | --ru=* | --r=*)
+-    runstatedir=$ac_optarg ;;
+-
+   -sbindir | --sbindir | --sbindi | --sbind | --sbin | --sbi | --sb)
+     ac_prev=sbindir ;;
+   -sbindir=* | --sbindir=* | --sbindi=* | --sbind=* | --sbin=* \
+@@ -1252,7 +1241,7 @@ fi
+ for ac_var in	exec_prefix prefix bindir sbindir libexecdir datarootdir \
+ 		datadir sysconfdir sharedstatedir localstatedir includedir \
+ 		oldincludedir docdir infodir htmldir dvidir pdfdir psdir \
+-		libdir localedir mandir runstatedir
++		libdir localedir mandir
+ do
+   eval ac_val=\$$ac_var
+   # Remove trailing slashes.
+@@ -1405,7 +1394,6 @@ Fine tuning of the installation directories:
+   --sysconfdir=DIR        read-only single-machine data [PREFIX/etc]
+   --sharedstatedir=DIR    modifiable architecture-independent data [PREFIX/com]
+   --localstatedir=DIR     modifiable single-machine data [PREFIX/var]
+-  --runstatedir=DIR       modifiable per-process data [LOCALSTATEDIR/run]
+   --libdir=DIR            object code libraries [EPREFIX/lib]
+   --includedir=DIR        C header files [PREFIX/include]
+   --oldincludedir=DIR     C header files for non-gcc [/usr/include]

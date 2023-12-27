@@ -29,7 +29,7 @@ class Pdfgrep < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libgcrypt"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://gitlab.com/pdfgrep/pdfgrep/-/issues/58
   depends_on "poppler"
 
   fails_with gcc: "5"

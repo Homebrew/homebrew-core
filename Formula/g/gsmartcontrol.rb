@@ -18,7 +18,7 @@ class Gsmartcontrol < Formula
 
   depends_on "pkg-config" => :build
   depends_on "gtkmm3"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://github.com/ashaduri/gsmartcontrol/issues/40
   depends_on "smartmontools"
 
   def install

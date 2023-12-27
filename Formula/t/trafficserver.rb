@@ -28,7 +28,7 @@ class Trafficserver < Formula
   depends_on "hwloc"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
   depends_on "openssl@3"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://github.com/apache/trafficserver/issues/8780
   depends_on "yaml-cpp"
 
   on_macos do

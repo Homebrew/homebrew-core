@@ -33,7 +33,7 @@ class Snort < Formula
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit"
   depends_on "openssl@3"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://github.com/snort3/snort3/issues/254
   depends_on "xz" # for lzma.h
 
   uses_from_macos "zlib"

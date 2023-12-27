@@ -28,7 +28,7 @@ class Freeswitch < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
-  depends_on "ffmpeg@5"
+  depends_on "ffmpeg@5" # FFmpeg 6 issue: https://github.com/signalwire/freeswitch/issues/2202
   depends_on "jpeg-turbo"
   depends_on "ldns"
   depends_on "libpq"
@@ -37,7 +37,7 @@ class Freeswitch < Formula
   depends_on "lua"
   depends_on "openssl@3"
   depends_on "opus"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 PR: https://github.com/signalwire/freeswitch/pull/2299
   depends_on "sofia-sip"
   depends_on "speex"
   depends_on "speexdsp"

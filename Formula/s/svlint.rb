@@ -1,19 +1,19 @@
 class Svlint < Formula
   desc "SystemVerilog linter"
   homepage "https://github.com/dalance/svlint"
-  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.1.tar.gz"
-  sha256 "c3b14f248c7ecad5a565cb357f0e5f02cd0d2c8d551e0f7e3b39b624d47ee9c1"
+  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.2.tar.gz"
+  sha256 "ce7a3686f4f4ad4a1a24f9107f1622bdca63aca17b1fd9b2869f58ae8820e886"
   license "MIT"
   head "https://github.com/dalance/svlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "180136e14366c7312fe90b8a75636b48b5064ca66ef30165c0855bdbb7ec5dcb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87d6fd56b02f67508d6a9171548994ae11222cb39438b49b1a3368eb6b58ffdf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c67f971a91e76a5fd273a453bebe3350e74fa7f06f44a27ec03df681bdecd106"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0d9352041549c9a1c44517abcd80c131b8090174f59b80e17cdfecfaa68668c4"
-    sha256 cellar: :any_skip_relocation, ventura:        "feffc8305f663365b0a07338655abc8160c743fd551a7cee7abbd7cb0d08f2a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "623f2ee3d2ef5d98c706bc660bae42ffdf092acd8dcc3f2a5a90e13051961c7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dc787fe7b36d997b50b66716e6e384055abe51adcbd6c77c07037860c1bf4cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2af311529fb86404a4d0a5b23f9505c0dc30c664e38b12acd8b563af7af5e646"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11da3082805a986aef5ffe32c6b07a9920da64fc0930c3f60f9e94d9624857dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9444d1011c268fbcc21c834d556b6ba266d37664d14a75580ac12066d76f2e6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "91329decac58548cc43aa35016e30a20fc2e64c93209c5effe573883bd84f8ae"
+    sha256 cellar: :any_skip_relocation, ventura:        "285130beff04e82b3641420e7d1b3ef9e0374d1b246690eba109525a5a720b85"
+    sha256 cellar: :any_skip_relocation, monterey:       "604038e6f9ce4c1c176dad4a3045d29f99c34faa7f069764f8f4691587660927"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47f05a3e8e2102d37e9e4830dfa3ad79a5562d6a910104b873bfcb7c873b4d34"
   end
 
   depends_on "rust" => :build

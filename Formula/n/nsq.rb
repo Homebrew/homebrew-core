@@ -1,24 +1,19 @@
 class Nsq < Formula
   desc "Realtime distributed messaging platform"
   homepage "https://nsq.io/"
-  url "https://github.com/nsqio/nsq/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "5fd252be4e9bf5bc0962e5b67ef5ec840895e73b1748fd0c1610fa4950cb9ee1"
+  url "https://github.com/nsqio/nsq/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "c6289e295aaa40c8d9651de76e66bc9f23e7f5c40b1cc051ea5901965093e1f0"
   license "MIT"
   head "https://github.com/nsqio/nsq.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a1903a6029d6185d08416c0f41c387f6b64cc43bcb386935f599b6d1254cacb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f11a6e46b208fe586f460fa203c303f1a84a7e73dff8dafb205b3cb15d3216c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "00f88216761ea1bed39c94c68c67acf66fccc895e0b212e44867b86be41bfe40"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "30543659d3c5990aa86f08346feea09adc2c7f5a388418f0c8eaff486cf388ec"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0187444010332af7b6cebc4e659dbc3cb16be6c582d1926e5fd26007fe7bd38f"
-    sha256 cellar: :any_skip_relocation, ventura:        "fbbef797a7843dd61b15e48188c6ef1c2edf6b6705a256c4f47946b7e5bc65e2"
-    sha256 cellar: :any_skip_relocation, monterey:       "269501de2272e478c383ad7d71cee76c20c5191ff1f5cb25a69bf51364f5a980"
-    sha256 cellar: :any_skip_relocation, big_sur:        "daaf9729cff4ae0e02895d2c1fd398c592ee89f25b195be732c71a4b33f4a617"
-    sha256 cellar: :any_skip_relocation, catalina:       "533d1087999114a2a426dd589f4417d2b8cdb5a11b399a6004bca83f572aeb50"
-    sha256 cellar: :any_skip_relocation, mojave:         "154ac16069cd16a07ae6ca9ae2e432b26f52b2f2e79b5041322cbd726f3d7462"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53915ff129d853cb2b5622889c938a7fd5ce073b90b8bdea4dc503d84b336e15"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "996305c886d786e601f5252e6a0d95845bb2160bf9f2a5c5fb27bf801f302d01"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "708b357c95856ee8d0598beb7db172ebdef492f6754cb7cbdd09db30772d6d46"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7c87bebb10695f7411a2662c959cac3a4da39febcc2fd6b10b7600ca2325520"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0ec31e900f313d0c2b7a7a71a12e6264f43346cb53ce66bea885386dc3d301b9"
+    sha256 cellar: :any_skip_relocation, ventura:        "1c7e5d999245a576a73ff684c2540c8c2dd0f4dd7e6f0e1d045f97b9099dde0b"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d2ae14197604c4964dd5341720da2ec45cf31437eb7d3db811b6ca84e578174"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5635d83fc8df021e37cbe8058e509361bc5323ef663f713fdc82d84f1844e597"
   end
 
   depends_on "go" => :build
