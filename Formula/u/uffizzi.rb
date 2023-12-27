@@ -1,8 +1,8 @@
 class Uffizzi < Formula
   desc "Self-serve developer platforms in minutes, not months with k8s virtual clusters"
   homepage "https://uffizzi.com"
-  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.3.4.tar.gz"
-  sha256 "170849b4054e45b6a4c0fd8343f05e55817c8f10b6190d7f0d3edf1ae994629e"
+  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.3.tar.gz"
+  sha256 "bdeb15e30760c5e12d404b616dd92d1efa6cbbf6b73ae3c6a0dea8abcabafb6b"
   license "Apache-2.0"
 
   livecheck do
