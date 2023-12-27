@@ -6,6 +6,14 @@ class Virtctl < Formula
   license "Apache-2.0"
   head "https://github.com/kubevirt/kubevirt.git", branch: "main"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7244a06f5b58dccd1a50f7ef1a40faaad9c0c154252db70e4e449c8daf080db5"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cc4947eeb652f5c698f9da5c8f16bfc8e2f79d0e48d5d0f9f01dfe773beee84"
