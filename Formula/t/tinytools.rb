@@ -7,6 +7,7 @@ class Tinytools < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc@9.6" => :build
+  depends_on "pkg-config" => :build
   uses_from_macos "icu4c"
 
   def install
