@@ -6,8 +6,6 @@ class Geni < Formula
   sha256 "8d6300cd75461a98348695d0bdff6084941b3409c9b79031423272185bdbf6bf"
   license "MIT"
 
-  depends_on "rust" => :build
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ad7ad690664de5ede52468694a5e275f29ed4d036579a116c2fee4538978481c"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad7ad690664de5ede52468694a5e275f29ed4d036579a116c2fee4538978481c"
@@ -17,6 +15,8 @@ class Geni < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "ad7ad690664de5ede52468694a5e275f29ed4d036579a116c2fee4538978481c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ac93af2d1f2713090db5144ffbbd2971f993e1235446ce9e42722b0a4bdacd9"
   end
+
+  depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
