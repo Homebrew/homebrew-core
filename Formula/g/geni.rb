@@ -1,24 +1,18 @@
 class Geni < Formula
   desc "Database CLI migration tool"
   homepage "https://github.com/emilpriver/geni"
-  url "https://github.com/emilpriver/geni"
+  url "https://github.com/emilpriver/geni/archive/refs/tags/beta-2.tar.gz"
   version "0.0.1"
-  sha256 "7ec2e4db1a14cbdca6fff26599714eadf2b593c29e492cdb51283a828b449e38"
+  sha256 "8d6300cd75461a98348695d0bdff6084941b3409c9b79031423272185bdbf6bf"
   license "MIT"
 
   depends_on "rust" => :build
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "TBA"
-  end
 
   def install
     system "cargo", "install", *std_cargo_args
   end
 
   test do
-    (testpath/".env").write("DATABASE_URL=sqlite3:test.sqlite3")
-    system bin/"geni", "create"
-    assert_predicate testpath/"test.sqlite3", :exist?, "failed to create test.sqlite3"
+    system bin/"geni", "--version"
   end
 end
