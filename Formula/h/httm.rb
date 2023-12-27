@@ -19,8 +19,17 @@ class Httm < Formula
   depends_on "rust" => :build
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", "--features", "xattrs", "--features", "acls", *std_cargo_args
     man1.install "httm.1"
+    
+    bin.install "scripts/ounce.bash" => ounce
+    bin.install "scripts/bowie.bash" => bowie
+    bin.install "scripts/nicotine.bash" => nicotine
+    bin.install "scripts/equine.bash" => equine
+
+    doc.install "README.md"
+    doc.install "LICENSE"
+    doc.install "third_party/LICENSES_THIRD_PARTY.html"
   end
 
   test do
