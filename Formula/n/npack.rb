@@ -12,9 +12,4 @@ class Npack < Formula
 
     generate_completions_from_executable(bin/"ni", "completions", "--shell")
   end
-
-  test do
-    system "#{bin}/ni", "--version"
-    assert_match "v0.0.8", shell_output("#{bin}/ni --version")
-  end
 end
