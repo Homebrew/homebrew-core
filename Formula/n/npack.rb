@@ -12,4 +12,8 @@ class Npack < Formula
 
     generate_completions_from_executable(bin/"ni", "completions", "--shell")
   end
+
+  test do
+    system "false"
+  end
 end
