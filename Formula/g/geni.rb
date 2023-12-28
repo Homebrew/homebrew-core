@@ -12,7 +12,8 @@ class Geni < Formula
   end
 
   test do
-    system bin/"DATABASE_URL=sqlite3://test.sqlite3", "geni", "create"
-    assert_predicate testpath/"test.sqlite3", :exist?, "failed to create test.sqlite3"
+    ENV["DATABASE_URL"] = "sqlite3://test.sqlite"
+    system bin/"geni", "create"
+    assert_predicate testpath/"test.sqlite", :exist?, "failed to create test.sqlite"
   end
 end
