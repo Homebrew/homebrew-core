@@ -29,7 +29,7 @@ class Odin < Formula
     args = []
     args << "ODIN_VERSION=dev-#{version}" unless build.head?
     system "make", "release", *args
-    libexec.install "odin", "core", "shared"
+    libexec.install "odin", "core", "shared", "vendor"
     (bin/"odin").write <<~EOS
       #!/bin/bash
       export PATH="#{llvm.opt_bin}:$PATH"
