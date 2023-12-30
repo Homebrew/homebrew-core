@@ -12,6 +12,12 @@ class Cln < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
+
+    # https://bz-attachments.freebsd.org/attachment.cgi?id=153154&action=diff&format=raw&headers=1
+    patch do
+      url "https://gist.githubusercontent.com/iMichka/f8ac0fbca70198416bf6d3f8ffcb8757/raw/89a4d3e4e04743dde7c89761a5afcbc7de2b482c/cln.patch"
+      sha256 "6d8e84a2ed1bee3e99a94b257e8638b202f743e909065e4e37957773fda6d2f4"
+    end
   end
 
   livecheck do
@@ -56,3 +62,4 @@ class Cln < Formula
     assert_match "3.14159", shell_output("#{bin}/pi 6")
   end
 end
+
