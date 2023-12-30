@@ -1,8 +1,8 @@
 class FabricInstaller < Formula
   desc "Installer for Fabric for the vanilla launcher"
   homepage "https://fabricmc.net/"
-  url "https://maven.fabricmc.net/net/fabricmc/fabric-installer/0.11.2/fabric-installer-0.11.2.jar"
-  sha256 "c6ad5bef1bb12b5a7227be3ee540c2c906afdf4ac8114b78e0aca0b146005c27"
+  url "https://maven.fabricmc.net/net/fabricmc/fabric-installer/1.0.0/fabric-installer-1.0.0.jar"
+  sha256 "7d7e5b1d3a7f8e2081069898e95dc71d84bb3a5c79cb235c034895173cfd347b"
   license "Apache-2.0"
 
   # The first-party download page (https://fabricmc.net/use/) uses JavaScript
