@@ -1,8 +1,8 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/refs/tags/v0.6.tar.gz"
-  sha256 "d4f8155b665a8b338a60f97bd652bb04a1b41f5c32750e13dbf48664a942d93a"
+  url "https://github.com/cucumber/cucumber-cpp/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "a531b317c29957e00bcc41dcac3ef76af751a04ba67db1a164a810907ef79c7e"
   license "MIT"
 
   bottle do
