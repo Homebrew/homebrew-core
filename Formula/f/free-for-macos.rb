@@ -6,7 +6,7 @@ class FreeForMacos < Formula
   license "MIT"
 
   depends_on "cmake" => :build
-  
+
   def install
     cflags = %q(-O2 -Wall -std=c99 -D_FREE_VERSION="\"${VER}\"")
 
@@ -18,6 +18,6 @@ class FreeForMacos < Formula
   end
 
   test do
-    system "free", "-V"
+    system "free", "-v"
   end
 end
