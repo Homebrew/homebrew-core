@@ -62,4 +62,3 @@ class Cln < Formula
     assert_match "3.14159", shell_output("#{bin}/pi 6")
   end
 end
-
