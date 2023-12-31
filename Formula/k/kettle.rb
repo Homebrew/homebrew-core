@@ -1,12 +1,12 @@
 class Kettle < Formula
   desc "Pentaho Data Integration software"
-  homepage "https://www.hitachivantara.com/en-us/products/data-management-analytics.html"
+  homepage "https://www.hitachivantara.com/en-us/products/pentaho-plus-platform/data-integration-analytics.html"
   url "https://privatefilesbucket-community-edition.s3.us-west-2.amazonaws.com/9.4.0.0-343/ce/client-tools/pdi-ce-9.4.0.0-343.zip"
   sha256 "e6804fae1a9aa66b92e781e9b2e835d72d56a6adc53dc03e429a847991a334e8"
   license "Apache-2.0"
 
   livecheck do
-    url "https://www.hitachivantara.com/en-us/products/pentaho-platform/data-integration-analytics/pentaho-community-edition.html"
+    url "https://www.hitachivantara.com/en-us/products/pentaho-plus-platform/data-integration-analytics/pentaho-community-edition.html"
     regex(/href=.*?pdi-ce[._-]v?(\d+(?:\.\d+)+(?:-\d+)?)\.(?:t|zip)/i)
   end
 

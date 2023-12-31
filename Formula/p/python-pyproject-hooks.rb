@@ -6,18 +6,17 @@ class PythonPyprojectHooks < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6f282a8e6bd721a18897d7355aecc1d6f1087c445bb1c2c658fbafa04d2077b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c54b53ac44715ff074a81b1afa7ceb7114f24bd07427b496761a686013c6683d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e63ccd1b78ed328f99c35dc7654d3e9112f3d0eabde0cc782fbfa6d1e9535da7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a41be89116731094472050d1c5bb7a2c06c30b3ba8f964647a4a97186799e0b0"
-    sha256 cellar: :any_skip_relocation, ventura:        "f087a754975d6bbcb2f85b33db8a7e437db6968ba89f3588357c1b0fcb19279f"
-    sha256 cellar: :any_skip_relocation, monterey:       "6ce7b02d798459b1f83c6e73f3ac9fb43488d8d59217d6c6ec53c869d58adc91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f45932d3a84a402643f819b459e9f82ad1c8eb2a9d8f76df9682429fcfb735bd"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61e5327de2af629625fed3f9d0b2340786d1a372b74d2b5803e080da3123f347"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60239bff0688beb914501b874481c53ead651abac6b6629261271949e13ed5d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "85a994d72e4d01ccde769b4a8da7d3a4735a02b65ff0101ea824f493a2dd6446"
+    sha256 cellar: :any_skip_relocation, sonoma:         "067867c22a0c41616a106e5a9a0f53ee8a62d5578b7fa1ad8aaf75f34b99e0a0"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c7d01b37e60cde69d05e57489f7ebbd6694ac929a9e5d83eaebb06d8470a9d4"
+    sha256 cellar: :any_skip_relocation, monterey:       "9ddf35918db3eb7b220acdc59679568ff1f92d6148dbfecaa864653c95926bd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d0a9fd09059057b4a13f99c1f300955fc8258068263391bda702119f1becb64"
   end
 
   depends_on "python-flit-core" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 

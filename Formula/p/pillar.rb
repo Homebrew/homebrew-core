@@ -16,6 +16,11 @@ class Pillar < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "4b7faa8f2febab2a7b0b5e035f08ba4b7bad74574806d5dfc15fdeef735589ef"
   end
 
+  # Last release on 2016-08-16
+  # Also, build uses deprecated sbt.version==0.13.11 and is not compatible with newer version.
+  # Ref: https://github.com/comeara/pillar/blob/master/project/build.properties
+  deprecate! date: "2023-12-15", because: :unmaintained
+
   depends_on "sbt" => :build
   depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"

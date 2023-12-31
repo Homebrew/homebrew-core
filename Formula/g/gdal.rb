@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.8.1/gdal-3.8.1.tar.gz"
-  sha256 "75b0019c8f47bb5f1c2be2182340fc2f45ab1c684204c2aa4971d6127d819f2d"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.8.2/gdal-3.8.2.tar.gz"
+  sha256 "e914690d2694671d75bab15b451a42c2f115d7267a5b600eb361e94b58a089d6"
   license "MIT"
   revision 1
 
@@ -12,14 +12,13 @@ class Gdal < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "518edb92567ac216f93b380bbf94387e3a8497231e263fb23c09603d84d62c92"
-    sha256 arm64_ventura:  "4e0ad9caaf3a2760537bfc6c4b89c2e1e4255c5d9d7387416d7ce61f4a03a767"
-    sha256 arm64_monterey: "40d485f4a9f69e526c60249ddd3407751e4b32fbb261e74f8c658d0c3577147a"
-    sha256 sonoma:         "87bbbf629efbfd6eb44d37a37c5d3a207246faa389a588b8ae917e339e0c3866"
-    sha256 ventura:        "794c718629f2a5eb4dff8f682268c5e3ca2d6ff4918e2bbe9084a4c8cdb46bfa"
-    sha256 monterey:       "188cb364b82b691e9a253c045f7c1ef4c1ad19638771232b8f801e97e6ebeb33"
-    sha256 x86_64_linux:   "0bcc39ac75158b4738c82c95d579ff69f0f85eb99277799c7a198fb19edf13d8"
+    sha256 arm64_sonoma:   "e2dc8fd062eff839c879fd205acfb27568eb13d0cc8804110028f6cfa83e7a82"
+    sha256 arm64_ventura:  "1dc579fe8bd03d20758c22f54a5ae0c9c10efc4cfd53c699925d027bead43c3f"
+    sha256 arm64_monterey: "94e0319c94a09a533617f1555adfd9ee8ad76795d956638e98df7a012c43696a"
+    sha256 sonoma:         "f67a73432471149e88121cb7bf8cb9bf75014720b346023002d64d2eb501734e"
+    sha256 ventura:        "7298e241cf8476a7a6d15f5c58b37a17b40448c88ed699744d84801566384cbf"
+    sha256 monterey:       "49ec5ad62d89e26ed88d9413d8f54864f40ae91712a070ffb238506a5109c763"
+    sha256 x86_64_linux:   "ea590003df5a20d85d02635b54e262ce57b34bc3ae3c4e07c19c2d9bc5a1f329"
   end
 
   head do
@@ -27,9 +26,10 @@ class Gdal < Formula
     depends_on "doxygen" => :build
   end
 
-  depends_on "boost" => :build  # for `libkml`
+  depends_on "boost" => :build # for `libkml`
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "swig" => :build
   depends_on "apache-arrow"
   depends_on "cfitsio"
@@ -106,7 +106,7 @@ class Gdal < Formula
     ]
 
     # JavaVM.framework in SDK causing Java bindings to be built
-    args << "-DBUILD_JAVA_BINDINGS=OFF" if MacOS.version <= :catalina
+    args << "-DBUILD_JAVA_BINDINGS=OFF" if OS.mac? && MacOS.version <= :catalina
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

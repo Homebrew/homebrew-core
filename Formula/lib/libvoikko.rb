@@ -24,8 +24,9 @@ class Libvoikko < Formula
 
   depends_on "foma" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "hfstospell"
+
+  uses_from_macos "python" => :build
 
   resource "voikko-fi" do
     url "https://www.puimula.org/voikko-sources/voikko-fi/voikko-fi-2.5.tar.gz"
@@ -33,11 +34,9 @@ class Libvoikko < Formula
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-dictionary-path=#{HOMEBREW_PREFIX}/lib/voikko"
+    system "./configure", "--disable-silent-rules",
+                          "--with-dictionary-path=#{HOMEBREW_PREFIX}/lib/voikko",
+                          *std_configure_args
     system "make", "install"
 
     resource("voikko-fi").stage do

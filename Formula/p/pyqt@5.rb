@@ -6,18 +6,18 @@ class PyqtAT5 < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d6669361745e9102a636347aee93a854d65f5a3823d97499c57021948a6bbfb4"
-    sha256 cellar: :any,                 arm64_ventura:  "ba75381ca90419e1caca9aea1f49356a1716beeb6762c032ec9e6f7aa19f3cd8"
-    sha256 cellar: :any,                 arm64_monterey: "272a159c4a8e2652203df1b79936623631fff2136adba1c2eddb1a66239acbbe"
-    sha256 cellar: :any,                 sonoma:         "97ec53f240ba671451919bd6b75aef4b3070b4de17a898dc31c3b445e1c2af9f"
-    sha256 cellar: :any,                 ventura:        "e38fde9c5940c4c8aa0e466a613bc62c6f4da83033363ff69e5a68b8ac4f9136"
-    sha256 cellar: :any,                 monterey:       "b2f8be04556ee826dcdb9f27eed73114d9f9d50fe111d26e404d3bd3109ccff0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f9bba8c73a7383f8d53d0f61a35fdd816f6351352e1e4fa77e03568d73f83e2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "3da5c54495ce9042e1b352ed4513592254d98ba9cb16b15f1498b6fef3e93d2b"
+    sha256 cellar: :any,                 arm64_ventura:  "3a250bfc1d10ec950f943d761ad3231ac5ad7083fc01792b49acef7018fb5833"
+    sha256 cellar: :any,                 arm64_monterey: "f58271870651be4d6dfba3307a7fc18c891d8e77fbd47b75fd7506af95e58a6a"
+    sha256 cellar: :any,                 sonoma:         "966eb1956598a286e0b77285b2c521cb4f13ddff71ee8353708b938c12724330"
+    sha256 cellar: :any,                 ventura:        "3404e592b797fadf9919fbce477a6ac86afc2bd289d0e49b27b948aa3b54c61b"
+    sha256 cellar: :any,                 monterey:       "d58de049040f43ba64c26313ebc7430baff0ee149824a99860c5aa5e026197b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8a91fb71e099e85a26ae81d534e5fe123762c23153ebbfe581a2d011005a836"
   end
 
   depends_on "pyqt-builder"      => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10"       => [:build, :test]
   depends_on "python@3.11"       => [:build, :test]
   depends_on "python@3.12"       => [:build, :test]
   depends_on "sip"               => :build

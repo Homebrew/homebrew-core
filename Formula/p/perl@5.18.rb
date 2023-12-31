@@ -26,7 +26,7 @@ class PerlAT518 < Formula
   disable! date: "2023-08-29", because: :deprecated_upstream
 
   def install
-    ENV.deparallelize if MacOS.version >= :catalina
+    ENV.deparallelize if OS.mac? && MacOS.version >= :catalina
 
     args = %W[
       -des

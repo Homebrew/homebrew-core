@@ -1,18 +1,18 @@
 class TrzszGo < Formula
   desc "Simple file transfer tools, similar to lrzsz (rz/sz), and compatible with tmux"
   homepage "https://trzsz.github.io"
-  url "https://github.com/trzsz/trzsz-go/archive/refs/tags/v1.1.6.tar.gz"
-  sha256 "df407875150a602d4869d9ac8d1ece690fe4cae5a95bc481fc546085ff8969c8"
+  url "https://github.com/trzsz/trzsz-go/archive/refs/tags/v1.1.7.tar.gz"
+  sha256 "ad9f47591d1b2cd6c76e44cf0bcac55906bdff9305d38ad1040bb77529ee3781"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae5cde44dd16ad283759cc92c50db7fb458a54c4bce5998b27a768b255a2cefb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ac5472fe12111d09946a68d790b617cc34c758d884b7606a978c1a18aca4db5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cad3bbab81af7cb65b9ababc1a4bc7db66bb93613b84c7bf5573eef18279e728"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ebb4eb191484aa39833e600b64e567dcb2753111600210367ef46d4994066ad"
-    sha256 cellar: :any_skip_relocation, ventura:        "7ec1965b9ca7d492ee785c848ccc8fea6d9b7b4784899445aa01510f7b82314e"
-    sha256 cellar: :any_skip_relocation, monterey:       "b00298ec9d6ae445b1708367b754e02f6678305cbec74e6448eccd3719b17b23"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c9246f990ec95610c33250d658e75ce2ef6bb792ce158044a696c61b4b5c4f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "997b1867fc4bd9ec37e436715a38cf085d16cd14357b44eca4da6f9af94488e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "feb6b19dd1dd7dd9cbd7427cd7992a83e9cf0e8fa3c95a4de9b5ff3de4c05993"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9d0aa11c74a499534f9b617a8808aac63fd9f4023f1f34983c4e986f0880ce3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4433f7c399f58d636a34dbbe1d9d165122c2d9bd98ca03b40bac64ec5e57d9d2"
+    sha256 cellar: :any_skip_relocation, ventura:        "d0253209f25ad7b54612e275f6726aa7d861df75b057784688d108fec61777bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "c8176abf23c3ae731d80582d2e9ced343d80df5788df78fcd0de318501c005ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d647300179eaedf2b8dd2946df99f41996fad11a4330a4ef3bcba19380a702aa"
   end
 
   depends_on "go" => :build

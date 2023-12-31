@@ -20,8 +20,6 @@ class Fmt < Formula
 
   depends_on "cmake" => :build
 
-  conflicts_with "pytorch", because: "both install `include/fmt/args.h` headers"
-
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
     system "cmake", "--build", "build"

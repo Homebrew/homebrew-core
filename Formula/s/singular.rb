@@ -36,13 +36,14 @@ class Singular < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5dcd2bcf2277672f6dfe5f3995bb555cba8bc37540c491a705735a369b431d80"
-    sha256 arm64_ventura:  "469a76bf8f01ff690fc4290c4b456f407ace84c968a252627edf77c66522c877"
-    sha256 arm64_monterey: "ae5e4ecd9378024c216c69e7d3bfbf028ceef4fc8d409bc643db922a448e0e0b"
-    sha256 sonoma:         "eb040af9b5e694cf452f0aee16220aff53c1bfa08b5fcc1d37ec1e764b3d49e2"
-    sha256 ventura:        "98ee73ec75ae51ca5ce7fad3f0543f76d888fe813a6482405398836257ecd15f"
-    sha256 monterey:       "acd3dba476eb547106f2c669c8e9026481669ddc7c62e1f16b79472cdee7c57c"
-    sha256 x86_64_linux:   "79590d0fa4ede6f7e78ff879c6a09f26216815c1d5e38f3fe5ed93a352ff2d0f"
+    rebuild 1
+    sha256 arm64_sonoma:   "f0bddb5da1c198e218dcd79b585cf0398770f9decbf5b2ac454721ecb0f5d015"
+    sha256 arm64_ventura:  "e4a22b79e5ccf17a46e0ce271cdf61ba32d7459e8f6d24a0e256af3dfc5957e2"
+    sha256 arm64_monterey: "098334fdfc30955cb547398be691c51e4946ab5ebdfc904f08313ce77a1aefc7"
+    sha256 sonoma:         "7ed4d7303a1267240d6361547b46f98219b153032c47667c60e500eeb4d90b2d"
+    sha256 ventura:        "b8be00bbe12c3807b700663611d8a566cb87b1cd6f807e67bf49ec2df92e40e3"
+    sha256 monterey:       "b6b9a45728e90034875d3cfd1bdaf39bd2081e00d84bead8f920ae19047b23f4"
+    sha256 x86_64_linux:   "64c5c20f4a2d54099bb692ec0a7af371fbd19b81ecd197c7dc0ac5167d0dfb7e"
   end
 
   head do
@@ -56,22 +57,13 @@ class Singular < Formula
   depends_on "gmp"
   depends_on "mpfr"
   depends_on "ntl"
-  depends_on "python@3.11"
-
-  on_macos do
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
+  depends_on "python@3.12"
 
   def install
-    # Run autogen on macOS so that -flat_namespace flag is not used.
-    system "./autogen.sh" if build.head? || OS.mac?
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./autogen.sh" if build.head?
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--with-python=#{which("python3.11")}",
+                          "--with-python=#{which("python3.12")}",
                           "CXXFLAGS=-std=c++11"
     system "make", "install"
   end

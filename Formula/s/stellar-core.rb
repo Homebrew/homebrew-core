@@ -7,6 +7,14 @@ class StellarCore < Formula
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "9c02b5f80dc1e5bc67c5345cb9e41d950a72ff5dd95e87dc1a692ae739aaf6ad"
     sha256 cellar: :any,                 arm64_ventura:  "3d743c3c190d286146b4641686a962dc6bae910ba556ced19aa16e4f876866f7"

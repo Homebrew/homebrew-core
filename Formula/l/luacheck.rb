@@ -1,21 +1,19 @@
 class Luacheck < Formula
   desc "Tool for linting and static analysis of Lua code"
   homepage "https://luacheck.readthedocs.io/"
-  url "https://github.com/lunarmodules/luacheck/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "6ef4276498c4bb4ec527c3f942e35ff5c71fdd8c88ed0619a83a1c967d135c81"
+  url "https://github.com/lunarmodules/luacheck/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "a3ae089f3939b9fba4dd91c8c6f206e088cc4b21b49f1b6c7a5cc7345a09dc19"
   license "MIT"
   head "https://github.com/lunarmodules/luacheck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3df280acd7599498b6725a39e37789436688884941259e415b61a3e784da7436"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6e0ed26ec229c27e88566004cd49d9f6b21d17e356d3e0acc8ce74324d842d6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "12f62002bd4aed8cf19a0f1f1a46211bc0ffe0e589c8b7db53abcb10a8415594"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3998530e4c43b096971256853c6fb48e42ed5ae94f7c4fd1cbe3d58e5bc2699d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d58656cb34f854f31006b703eed163bcaea5a90745dca12e691d83784fa9061f"
-    sha256 cellar: :any_skip_relocation, ventura:        "349998dddeb7ab02db71faf48239245f0462b40ef0f0d2f17abc6b11e246635f"
-    sha256 cellar: :any_skip_relocation, monterey:       "327ee4e07efa6495183e462554ba02973caa0669d0f718b121f718bf65223d82"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3837335c3e9bf8cfd33c2d3d4572b35385b0a7191a9240a6a7ad365bf9e54163"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc597af58be9d43cfdbfedce8dc3f7bdc205d6365550e45f6653de00546e84b8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c96fa4a0daef81ca905bb59f523a13ac979fdd226ef673380f3fd39856e9203"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de17c1971b8c16c61a98157320e57e0056065c9deaba3dec6a5d6a87a1f6c832"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "23dbc638f15505467c476d4d1a5150a647a4a23fd77979951bc47fd860aa41d7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0027715fc55ede184ae4cc5ca132a79d7ee8f01cbcd9bb3966c863afc3ec2d3c"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c5aaf00c4d0f17bc5fb0b1bbbabaea0d5891f5798307b35821a625f90512d69"
+    sha256 cellar: :any_skip_relocation, monterey:       "f770224bfcbf6fff0569370be5cc37adda4738e7756f26667be5b8b219afa1ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8de5748f2be12e02d00ae5757eee046f96041880982153e79e681be5bccde5fc"
   end
 
   depends_on "luarocks" => :build

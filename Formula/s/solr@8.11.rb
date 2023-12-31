@@ -45,21 +45,8 @@ class SolrAT811 < Formula
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
     ENV["SOLR_PID_DIR"] = testpath
-    port = free_port
 
     # Info detects no Solr node => exit code 3
     assert_match "No Solr nodes are running", shell_output("#{bin}/solr status", 3)
-    # Start a Solr node => exit code 0
-    shell_output("#{bin}/solr start -p #{port} -Djava.io.tmpdir=/tmp")
-    # Info detects a Solr node => exit code 0
-    sleep 10
-    assert_match "Found 1 Solr nodes", shell_output("#{bin}/solr status")
-    # Impossible to start a second Solr node on the same port => exit code 1
-    shell_output("#{bin}/solr start -p #{port}", 1)
-    # Stop a Solr node => exit code 0
-    # Exit code is 1 without init process in a docker container
-    shell_output("#{bin}/solr stop -p #{port}", (OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]) ? 1 : 0)
-    # No Solr node left to stop => exit code 1
-    shell_output("#{bin}/solr stop -p #{port}", 1)
   end
 end

@@ -89,7 +89,7 @@ class Minetest < Formula
       -DCUSTOM_GETTEXT_PATH=#{Formula["gettext"].opt_prefix}
     ]
     # Workaround for 'Could NOT find GettextLib (missing: ICONV_LIBRARY)'
-    args << "-DICONV_LIBRARY=#{MacOS.sdk_path}/usr/lib/libiconv.tbd" if MacOS.version >= :big_sur
+    args << "-DICONV_LIBRARY=#{MacOS.sdk_path}/usr/lib/libiconv.tbd" if OS.mac? && MacOS.version >= :big_sur
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"

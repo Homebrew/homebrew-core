@@ -40,12 +40,13 @@ class Yaws < Formula
   skip_clean "lib/yaws/examples/include"
 
   def install
-    # Ensure pam headers are found on Xcode-only installs
-    extra_args = %W[
-      --with-extrainclude=#{MacOS.sdk_path}/usr/include/security
-    ]
-    if OS.linux?
-      extra_args = %W[
+    extra_args = if OS.mac?
+      # Ensure pam headers are found on Xcode-only installs
+      %W[
+        --with-extrainclude=#{MacOS.sdk_path}/usr/include/security
+      ]
+    else
+      %W[
         --with-extrainclude=#{Formula["linux-pam"].opt_include}/security
       ]
     end

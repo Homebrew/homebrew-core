@@ -20,7 +20,7 @@ class Klee < Formula
   depends_on "cmake" => :build
   depends_on "python-setuptools" => :build
   depends_on "gperftools"
-  depends_on "llvm@14"
+  depends_on "llvm@14" # LLVM 16 PR: https://github.com/klee/klee/pull/1664
   depends_on "python-tabulate"
   depends_on "python@3.12"
   depends_on "sqlite"

@@ -1,8 +1,8 @@
 class Mpc < Formula
   desc "Command-line music player client for mpd"
   homepage "https://www.musicpd.org/clients/mpc/"
-  url "https://www.musicpd.org/download/mpc/0/mpc-0.34.tar.xz"
-  sha256 "691e3f3654bc10d022bb0310234d0bc2d8c075a698f09924d9ebed8f506fda20"
+  url "https://www.musicpd.org/download/mpc/0/mpc-0.35.tar.xz"
+  sha256 "382959c3bfa2765b5346232438650491b822a16607ff5699178aa1386e3878d4"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,16 +11,13 @@ class Mpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "7c07c8e62ef3b5881f078681988b2455a76258c33ad2e718d286203821692f7d"
-    sha256 cellar: :any, arm64_ventura:  "5d5d6c6a78d3afb42b97965b9d5b2ad6e6e6e176ae11e10d81a17814971f8400"
-    sha256 cellar: :any, arm64_monterey: "ab7dca71a458e5df0f35443eb3bcee79318dc8e81d1e6994b3c0fec457c516bd"
-    sha256 cellar: :any, arm64_big_sur:  "18b5ad4dc2effa515f23fca972e6793caa382398122538054992b5d2fd8e7855"
-    sha256 cellar: :any, sonoma:         "4590fb9950b3ed776467a72623c1b650ab8dcbfc7dfd67a3c16aec1406cb11ac"
-    sha256 cellar: :any, ventura:        "3a84f54a0d401bcc5a3c67aba6dd32feef7e5248a74a441f02d1611601fd0ed0"
-    sha256 cellar: :any, monterey:       "37c0df291c472821d14b459e08d3e9a65971f049869b9f7dc9a14b5c436005de"
-    sha256 cellar: :any, big_sur:        "040a5ce6e08581306ab2aa274e79860390ccb3f0099b7bc8fe132f9a24ba5956"
-    sha256 cellar: :any, catalina:       "1bcbaf7a78216c6ff9482c1b7d7e5df30ebf5c1137e8b35c22996c1e2dc0dbf3"
-    sha256               x86_64_linux:   "518acb382cf9a16a5fad35023892db930b732d9329a6ffe3e0751c7b7bcb6e3c"
+    sha256 cellar: :any,                 arm64_sonoma:   "f1e59f68f047fc8dd086e5e794345af28749a3d2b83e5d922c1245a6f32a1c36"
+    sha256 cellar: :any,                 arm64_ventura:  "331071de8326f5a6fa77df9ccd4c0631935df430e87842561f2879c7c313c06d"
+    sha256 cellar: :any,                 arm64_monterey: "cf09306f0bc1483fc89e9eaadf2804a451c679d1d2c5df6c22093de692edf3db"
+    sha256 cellar: :any,                 sonoma:         "1dd3c6edc2ac8b09944f66a93a0cd3bad09afda8c0ae03cd6880a4aa62996789"
+    sha256 cellar: :any,                 ventura:        "ff84bbc1db8188aa75c9af29d4c0fb3c46f501c806db958493d84bcf2ee6a9d3"
+    sha256 cellar: :any,                 monterey:       "d3ca1dc058c82ba52016809f097666105535f5346a91b0c3b1092300e6831214"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9195f0deda2f2ec4a6a9863275299136388eccfab23b6d46d682eca7e773591"
   end
 
   depends_on "meson" => :build

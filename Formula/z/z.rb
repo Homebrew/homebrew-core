@@ -3,8 +3,8 @@ class Z < Formula
   homepage "https://github.com/rupa/z"
   # Please don't update this formula to 1.11.
   # https://github.com/rupa/z/issues/205
-  url "https://github.com/rupa/z/archive/refs/tags/v1.9.tar.gz"
-  sha256 "e2860e4f65770e02297ca4ca08ec1ee623a658bd9cc1acddbbe5ad22e1de70a7"
+  url "https://github.com/rupa/z/archive/refs/tags/v1.12.tar.gz"
+  sha256 "7d8695f2f5af6805f0db231e6ed571899b8b375936a8bfca81a522b7082b574e"
   license "WTFPL"
   version_scheme 1
   head "https://github.com/rupa/z.git", branch: "master"
@@ -15,17 +15,13 @@ class Z < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d8097801069f296d2f7b870783e5d81833c7d09be7a34df756516ce05df0886c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c269df17bf038e3dddaf71a2fed2dcef583e5b3f0869fce963e3cae0b3524c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c269df17bf038e3dddaf71a2fed2dcef583e5b3f0869fce963e3cae0b3524c4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7709d155cd48933c2d72b4de368972a8925c45100da27739f1a41121c9882abf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10d7cfc9e4ab4d08cb84697b3759a8a4c02447cb5671cb0d793a88cbb50e52e5"
-    sha256 cellar: :any_skip_relocation, ventura:        "b430e19a35c4b0e3d887777d20f67c315c246c2dcfbb0ca8bd7799412d4d9b25"
-    sha256 cellar: :any_skip_relocation, monterey:       "b430e19a35c4b0e3d887777d20f67c315c246c2dcfbb0ca8bd7799412d4d9b25"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3f9c920ff5f5e5d8e0f298e94ecb18d62c2605451c67a5d5ba8a2a318dbd1b6c"
-    sha256 cellar: :any_skip_relocation, catalina:       "3f9c920ff5f5e5d8e0f298e94ecb18d62c2605451c67a5d5ba8a2a318dbd1b6c"
-    sha256 cellar: :any_skip_relocation, mojave:         "3f9c920ff5f5e5d8e0f298e94ecb18d62c2605451c67a5d5ba8a2a318dbd1b6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7709d155cd48933c2d72b4de368972a8925c45100da27739f1a41121c9882abf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0b418e43748f1185408f2e948df304a58d662ee0ec41489ba5b603f56e24bbb6"
+    sha256 cellar: :any_skip_relocation, ventura:        "0b418e43748f1185408f2e948df304a58d662ee0ec41489ba5b603f56e24bbb6"
+    sha256 cellar: :any_skip_relocation, monterey:       "0b418e43748f1185408f2e948df304a58d662ee0ec41489ba5b603f56e24bbb6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a753b2821b5ad33c549efc1a6f857b33e6b9db2ece6ef10f03a6811c8690544f"
   end
 
   def install

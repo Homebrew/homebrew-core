@@ -53,7 +53,7 @@ class HaskellLanguageServer < Formula
   end
 
   def caveats
-    ghc_versions = ghcs.map(&:version).map(&:to_s).join(", ")
+    ghc_versions = ghcs.map { |ghc| ghc.version.to_s }.join(", ")
 
     <<~EOS
       #{name} is built for GHC versions #{ghc_versions}.

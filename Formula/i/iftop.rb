@@ -2,16 +2,16 @@
 # package, and upstream has not had any movement in a long time.
 class Iftop < Formula
   desc "Display an interface's bandwidth usage"
-  homepage "https://www.ex-parrot.com/~pdw/iftop/"
-  url "https://www.ex-parrot.com/pdw/iftop/download/iftop-1.0pre4.tar.gz"
+  homepage "https://pdw.ex-parrot.com/iftop/"
+  url "https://pdw.ex-parrot.com/iftop/download/iftop-1.0pre4.tar.gz"
   sha256 "f733eeea371a7577f8fe353d86dd88d16f5b2a2e702bd96f5ffb2c197d9b4f97"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   # We have to allow the regex to match prerelease versions (e.g., 1.0pre4)
   # until there's a new stable version. The newest version was released on
   # 2014-01-19, so it could be a while.
   livecheck do
-    url "https://www.ex-parrot.com/pdw/iftop/download/"
+    url "https://pdw.ex-parrot.com/iftop/download/"
     regex(/href=.*?iftop[._-]v?(\d+(?:\.\d+)+(?:pre\d+)?)\.t/i)
   end
 
@@ -33,7 +33,7 @@ class Iftop < Formula
   end
 
   head do
-    url "https://code.blinkace.com/pdw/iftop.git"
+    url "https://code.blinkace.com/pdw/iftop.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
   end
@@ -42,6 +42,10 @@ class Iftop < Formula
   uses_from_macos "ncurses"
 
   def install
+    # Work around failure from GCC 10+ using default of `-fno-common`
+    # (resolves "multiple definition of `...'" errors)
+    ENV.append_to_cflags "-fcommon" if OS.linux?
+
     system "./bootstrap" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",

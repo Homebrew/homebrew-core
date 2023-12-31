@@ -28,6 +28,13 @@ class Creduce < Formula
       url "https://github.com/csmith-project/creduce/commit/8d56bee3e1d2577fc8afd2ecc03b1323d6873404.patch?full_index=1"
       sha256 "d846e2a04c211f2da9a87194181e3644324c933ec48a7327a940e4f4b692cbae"
     end
+
+    # Port to LLVM 16.0
+    # Remove with the next release
+    patch do
+      url "https://github.com/csmith-project/creduce/commit/8ab9a69caf13ce24172737e8bfd09de51a1ecb6a.patch?full_index=1"
+      sha256 "fb5dfed2f0255ea524f0c0074a5b162ae2acbcabb9ff1f31adf45ca025dd4419"
+    end
   end
 
   livecheck do
@@ -36,19 +43,18 @@ class Creduce < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "86f827dbec5d9cd7c0441524da51406b3053f9eb4473fe5f261ffb92de6758f7"
-    sha256 cellar: :any,                 arm64_ventura:  "7237b5dcaa9b242dbf6d802b899055e27464968a8c260843836e266def749f28"
-    sha256 cellar: :any,                 arm64_monterey: "1cea9260c4c9bb7163c3e0892ac5a43d42fe3061bfa3b1d4cf8c27c921b6aa45"
-    sha256 cellar: :any,                 arm64_big_sur:  "01a3f3bf670aa664211b14c98095d555d3a1eaddeae77a4b97beb9244fa73c66"
-    sha256 cellar: :any,                 sonoma:         "866a2058a1604832fc533fab192d35370036aefc12a91f2af833652f5942a6d5"
-    sha256 cellar: :any,                 ventura:        "08f96b6e80c46641a5131c7c2ec1cda64f7837888b2679eff86d33bb5a03382c"
-    sha256 cellar: :any,                 monterey:       "66ab9b7fc1131261676c4993d5a15f324a095016b536592180e30d641aafb257"
-    sha256 cellar: :any,                 big_sur:        "8bdeb52e5688a4cefac68a1c42f8785ff5ac246bb1f11a42b766f9bacf499905"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4cd8463c7ec4aa2ca405acc8bccb0f7cefed61ea77693fe27d30f1a9160eddf"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "27b403d9535a97881c5656bfabd1d4c5c6edb860254ac41639976baf75974209"
+    sha256 cellar: :any,                 arm64_ventura:  "c2ccddd68a8744ef7f6162077ed45e9e7e02121b5c486a946a5aeb0e3bec590e"
+    sha256 cellar: :any,                 arm64_monterey: "53e4617c1868c9d26c840570168315143d56807da30f81193a2d2dc0ac26aec6"
+    sha256 cellar: :any,                 sonoma:         "e6a866446fcf3a71ceb219a956daea190a4679afb8da9d2a8a66e32fa38d7f8a"
+    sha256 cellar: :any,                 ventura:        "e4c45db2c535040e462a4e733057ffb20e7b2a480f890620b6bce082bee93867"
+    sha256 cellar: :any,                 monterey:       "13c7946bf394639b9ee3f00adfe3ee218f556da42d37567a960e7936b858e69b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b86d9791a96c85e1eb9753c8acf09820b3969ba0623c77085b0b0b4f248e495e"
   end
 
   depends_on "astyle"
-  depends_on "llvm@15"
+  depends_on "llvm@16" # LLVM 17: https://github.com/csmith-project/creduce/pull/264
 
   uses_from_macos "flex" => :build
   uses_from_macos "perl"

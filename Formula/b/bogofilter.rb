@@ -5,25 +5,22 @@ class Bogofilter < Formula
   sha256 "3248a1373bff552c500834adbea4b6caee04224516ae581fb25a4c6a6dee89ea"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ec8c71278efaa065520dea52242c08b71132b778e7d7fdd265d492ce6323a14b"
-    sha256 cellar: :any,                 arm64_ventura:  "3beb85ddc53ce9d24e4e3b413ef5d1f054f5aa79608351d6c2f73d230c26f37f"
-    sha256 cellar: :any,                 arm64_monterey: "25e3974a7aa8d9dcc2c3e95b85e7a4e9abba388adf54470dcfd705d29ba3c6d1"
-    sha256 cellar: :any,                 arm64_big_sur:  "2206ad532a38d489deb48bb9cafec00c9b98a09f621f7f208f95cc36387dafb4"
-    sha256 cellar: :any,                 sonoma:         "b956b71c09062080cf7e34849acccd44c6fc37f89529d847742831c325b5c179"
-    sha256 cellar: :any,                 ventura:        "565a7ff34275e08445e326d292e53d1a24483c62e95e7f81c9ba1374c5a1f46e"
-    sha256 cellar: :any,                 monterey:       "89d4f31cd57d801d99a68950682b746c490b481891bfb904f173270f13fc751f"
-    sha256 cellar: :any,                 big_sur:        "d6ad409edcabed2d32cc945c36151b3a0ae17258d9430f3192b912f1dd1050e8"
-    sha256 cellar: :any,                 catalina:       "2f2d4c414683f922e687d054e71619a0455560aac2522484132099fbddcc6a77"
-    sha256 cellar: :any,                 mojave:         "d7df5e0d29f4fcbc9eafc129ddfd993dc785ee3a4bf79b70b0dce9b5f31f7be4"
-    sha256 cellar: :any,                 high_sierra:    "c7998fa1651590e6aaf27f8fe014a7b0e305a48a02de4cdcb9ba53f1c84bd1e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a74a36fca55ff920b663466e33ed22a127726da33b90f26b45abcc084074f33"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99c59d02b18ed1ef58f8c21ebc774ed67be9c694fc0807702c7e675daaad74da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fea13db3d925728149dcfb2349e1b1d9d720f96805f0302ba60f6896005163b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1c8c1bdc849bd6b97a1ef962222e0c0f856da11e2f174eb4d7e9d587d971b0ea"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f74ffa505ef0bddb0dd6ee98b6a555fb4db02c0634789c3a29113a0ca01e50c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "5177e2c0e637368f36783396144f66a4e4fbd7f4620e4a5a870ee5208feeba5a"
+    sha256 cellar: :any_skip_relocation, monterey:       "7ba6d67f7e248ea1d7b89ce21480ba2145c2906f22e6db749f4fe68fe16f0406"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99ebd115fee3156d79ae0958b1326c7689e9af5092d5ef3e9adc915cbdff96f3"
   end
 
-  depends_on "berkeley-db"
+  uses_from_macos "sqlite"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules",
+                          "--with-database=sqlite3",
+                          *std_configure_args
     system "make", "install"
   end
 

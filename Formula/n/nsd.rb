@@ -1,10 +1,9 @@
 class Nsd < Formula
   desc "Name server daemon"
   homepage "https://www.nlnetlabs.nl/projects/nsd/"
-  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.7.0.tar.gz"
-  sha256 "8faca44e299ad2915fa000887ab1632631ea68709c62ce35f110bfe721ecf214"
+  url "https://www.nlnetlabs.nl/downloads/nsd/nsd-4.8.0.tar.gz"
+  sha256 "820da4e384721915f4bcaf7f2bed98519da563c6e4c130c742c724760ec02a0a"
   license "BSD-3-Clause"
-  revision 1
 
   # We check the GitHub repo tags instead of
   # https://www.nlnetlabs.nl/downloads/nsd/ since the first-party site has a
@@ -15,15 +14,13 @@ class Nsd < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "ff51f5201d782f2efcd4e039afc434cf6594905834f43a36320093a2fd5482c7"
-    sha256 arm64_ventura:  "09aa50e0ff6b9dcbc6457acce3242fa0f259534e45f45df1962f3a55a2f84b54"
-    sha256 arm64_monterey: "aa66c94672a6831ba5845d0d9fe73021fe9ea21e1403d1f194222fbabd60c91e"
-    sha256 arm64_big_sur:  "7d1a23581b87a516f4adab974626ceeed458342a2177c6870686160c8edc7efa"
-    sha256 sonoma:         "aea4cc65e0c7088ec82417cc81e55fa3e925a7785fef8b11209441669e677453"
-    sha256 ventura:        "0f2566019b7601c94d0f21ab7854025eb5c1f5c843bcf429c72fb7501d4f62fa"
-    sha256 monterey:       "39d73cf7533e96c0c1434baa1f59211e4be2b4ceeb176fa04b44e05b66206dca"
-    sha256 big_sur:        "1f146848df2780720ea966f52f6f48e3c428c5400ce0cec2216b76b9166f50c7"
-    sha256 x86_64_linux:   "cdb25f1576f8f2e074781348b7754d039943e472cf72c464f7497d8b4ef41281"
+    sha256 arm64_sonoma:   "b471a5015e4b27bea0f0f05ac55534dbebd56b6390f169751a963df06d756960"
+    sha256 arm64_ventura:  "1d9db44a381d856e39862fe8e521a8191eb2347a8d0eda2f13fec17b5c70ddfa"
+    sha256 arm64_monterey: "64959feba62df07130bfa5ac95c77fbfa2199b017374587bbe8bd876f54c9028"
+    sha256 sonoma:         "92e7032e9c943d2212e9b0ec7b16fe0c46465b481b4277bf742caa58d08b32a1"
+    sha256 ventura:        "269c979574d6182c0c58e87ce28d8d19999efcdb6a498728c79aad322b0e4510"
+    sha256 monterey:       "64569a1e65533a18fb72ed2cc8e75c9f5733976c4753a83f669428cccfc0bfa5"
+    sha256 x86_64_linux:   "1a5be43de15d68aa8aadf387dc4f6b5584911346b02fc982232a3f611f52f7f7"
   end
 
   depends_on "libevent"

@@ -7,6 +7,7 @@ class Lm4tools < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "13fcc858d9be77a53c1d7a541d3c314c1b98e03b48c2391850912f6dba3d6c85"
+    sha256 cellar: :any,                 arm64_ventura:  "fe9a6bc3e16b5d44eb6eb84c108c47b2b6a766b0160326627596c339697ac862"
     sha256 cellar: :any,                 arm64_monterey: "ebc1bb78c1f8f5db4ecefbebed152042612d512d92e3339836410bfcbe3888a4"
     sha256 cellar: :any,                 arm64_big_sur:  "62a47721a948ccb49f1429fd8649daf1e894e90dacbd45566564b8cbac749a9c"
     sha256 cellar: :any,                 sonoma:         "e0ba1978e09cb4307a5caf782622db027b1e2af93f929c3b9a73b0ed8d3fed32"

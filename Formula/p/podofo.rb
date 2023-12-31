@@ -1,8 +1,8 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://github.com/podofo/podofo"
-  url "https://github.com/podofo/podofo/archive/refs/tags/0.10.2.tar.gz"
-  sha256 "565168132e8fbfcdbad4ea4c5567bcc57ebbffb4528f6273baf3f490a3cf7563"
+  url "https://github.com/podofo/podofo/archive/refs/tags/0.10.3.tar.gz"
+  sha256 "4be2232643f9e9dd7fbb02894d5a0394c3ca2826aab179654c2cc751074825ec"
   license all_of: ["LGPL-2.0-only", "GPL-2.0-only"]
   head "https://github.com/podofo/podofo.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Podofo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d5d6f4bd6103e2ea02056675f2a70db604979a89ad5b5a1b67b7f0fedd5f3e45"
-    sha256 cellar: :any,                 arm64_ventura:  "d02a757b88f6293d253fa0efea2acb74a976317c77ff2027ad240e06432734d4"
-    sha256 cellar: :any,                 arm64_monterey: "78fda71ee4e0ec571577d525ef4d3ae1d46a5ebd6549ffbcc5e305fbbda208a0"
-    sha256 cellar: :any,                 sonoma:         "f6427587aab5819f70feac5cfb2c9ff633ab2b5da417e855bd14e75bee7d2fe4"
-    sha256 cellar: :any,                 ventura:        "07fc4b06987a91e68901677b673e5aecf29747c440f52da9a046f6d4ef522b5b"
-    sha256 cellar: :any,                 monterey:       "ccbd31dfb68217561d643890975edbe8b7f195f79baa2b6edfd4e4929be9b224"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38b2fb776f88ec5afcea1b48a0f59d74e88cfb5fe25f2da60db8097f07ab1771"
+    sha256 cellar: :any,                 arm64_sonoma:   "18c42f4e349c7831ad1c88da9bcb6a3186bae96592a58bcc9564dfddeaa47a66"
+    sha256 cellar: :any,                 arm64_ventura:  "8aa327cf0a9521152589c4f35e8c24d17ca81e6e9a0409a124c81ceae1adf36d"
+    sha256 cellar: :any,                 arm64_monterey: "32eb565b522ee3d479f1f63e9c8734f0055723f15c0d40d1e5742a0e8c37deb3"
+    sha256 cellar: :any,                 sonoma:         "6bc07e073418fdea964f84b51620d13c29a2b15891f8a2b66f7edad55270c9db"
+    sha256 cellar: :any,                 ventura:        "eb9faea265097f17b3304901c77eb6c062dcf29a9e8de96423bca460ddb085f1"
+    sha256 cellar: :any,                 monterey:       "121f760c5d73c7b343d4f6a828f8c9dc436991c167fb6ed2f7d40821f35913ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33fbbf5d0eba0905261b5cc12483dbd14f1c87a7b6b6fee90b3d3352bba3723f"
   end
 
   depends_on "cmake" => :build

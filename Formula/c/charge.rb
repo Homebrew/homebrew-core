@@ -23,6 +23,10 @@ class Charge < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "624762292729f409a6f737af99495aff8c24340d4b9b6e93c8e155dfa12cff6e"
   end
 
+  # Does not work with supported Node versions
+  # Last release on 2020-03-12
+  deprecate! date: "2023-12-07", because: :unmaintained
+
   depends_on "node"
 
   def install

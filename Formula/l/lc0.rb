@@ -43,11 +43,11 @@ class Lc0 < Formula
   def install
     args = ["-Dgtest=false"]
 
-    # Disable metal backend for older macOS
-    # Ref https://github.com/LeelaChessZero/lc0/issues/1814
-    args << "-Dmetal=disabled" if MacOS.version <= :big_sur
-
-    if OS.linux?
+    if OS.mac?
+      # Disable metal backend for older macOS
+      # Ref https://github.com/LeelaChessZero/lc0/issues/1814
+      args << "-Dmetal=disabled" if MacOS.version <= :big_sur
+    else
       args << "-Dopenblas_include=#{Formula["openblas"].opt_include}"
       args << "-Dopenblas_libdirs=#{Formula["openblas"].opt_lib}"
     end

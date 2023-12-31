@@ -7,17 +7,17 @@ class PythonClick < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0e62cf041fda39feca60cb2593233d173b3a8cd5f09bd94ad22d451cbe9f5ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90501f4d3df8b062cf60613e1901ef2e20e9273634823b763d3575e84c60d5f5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f46c3348f3ec3fb5181f2e084f32d74f346c7eedd554bc82c8b7b3a8e766af63"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6c794b80c0fd7e7f95955b44ae0e247a92dad15cb1865b181cc3ffa6053ecf5a"
-    sha256 cellar: :any_skip_relocation, ventura:        "f208aec0db9aa55c2c308ea70979233940398dabb28e7f38406d3d3a509ba917"
-    sha256 cellar: :any_skip_relocation, monterey:       "a9cb822853ccbcb1f674edb8aee74db4d1dcfa092ddd9c0c7ae950e7cff4993f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6eec539f70e2be29f892e88838a2a572dbc83c05b1cbdbe3f9cf90ed670a0a1f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a9616d5700618565f2b45aef5c9f584f0554e2969d2e816b8329f34fc5dda4f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "915a140a3c2126c1460fc9622167833507974db34bf31722f927b2c5de1e46e9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3dfb5ea44536ff9548d319458175d09d2ea00d2e30a6c3334451bafc5a9e2d18"
+    sha256 cellar: :any_skip_relocation, sonoma:         "15c23a9e99dab264ef016da4e6cfc21a04cc5c798a1c24b3ea7bd026da49206c"
+    sha256 cellar: :any_skip_relocation, ventura:        "97cfd6630e2b2daf72f30b0836cd9470d716bebd96df00287f578b0dacf4e824"
+    sha256 cellar: :any_skip_relocation, monterey:       "37423c8f3a5c7737cc3122aba01e2264a9dd21d4b8d9b393e09eacd4785af72d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37d6ca499d6e79885703db935da9aa98639fdb858260013c25de39776632e67c"
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 

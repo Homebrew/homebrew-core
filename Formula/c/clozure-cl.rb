@@ -19,7 +19,9 @@ class ClozureCl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d407dd6707dfcdf729e567c7a8099ad3d8b9e355ee9c9960a49b2bdab2ceab36"
   end
 
+  # https://github.com/Clozure/ccl/issues/11
   depends_on xcode: :build
+  depends_on arch: :x86_64
   depends_on macos: :catalina # The GNU assembler frontend which ships macOS 10.14 is incompatible with clozure-ccl: https://github.com/Clozure/ccl/issues/271
 
   on_linux do

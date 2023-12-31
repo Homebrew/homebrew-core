@@ -61,8 +61,8 @@ class Imposm3 < Formula
 
     assert_match version.to_s, shell_output("#{bin}/imposm version").chomp
 
-    system "osmium", "cat", testpath/"sample.osm.xml", "-o", "sample.osm.pbf"
-    system "imposm", "import", "-read", testpath/"sample.osm.pbf", "-mapping", testpath/"mapping.yml",
+    system bin/"osmium", "cat", testpath/"sample.osm.xml", "-o", "sample.osm.pbf"
+    system bin/"imposm", "import", "-read", testpath/"sample.osm.pbf", "-mapping", testpath/"mapping.yml",
             "-cachedir", testpath/"cache"
 
     assert_predicate testpath/"cache/coords/LOG", :exist?

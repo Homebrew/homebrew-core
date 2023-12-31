@@ -2,8 +2,8 @@ class Libsass < Formula
   desc "C implementation of a Sass compiler"
   homepage "https://github.com/sass/libsass"
   url "https://github.com/sass/libsass.git",
-      tag:      "3.6.5",
-      revision: "f6afdbb9288d20d1257122e71d88e53348a53af3"
+      tag:      "3.6.6",
+      revision: "7037f03fabeb2b18b5efa84403f5a6d7a990f460"
   license "MIT"
   head "https://github.com/sass/libsass.git", branch: "master"
 
@@ -13,17 +13,13 @@ class Libsass < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ec29becb40ed31ac934140b10cdc4aa9fe3731039c29c32fe1b400a50eb2b7fa"
-    sha256 cellar: :any,                 arm64_ventura:  "d31f8559377771a63d27ce86a6eb9f102c55f380d3b8401edc4e6ca59c6c5832"
-    sha256 cellar: :any,                 arm64_monterey: "2117b0fa30facdc407537232daa889995d87ce5f4988163017f62ed56580b32b"
-    sha256 cellar: :any,                 arm64_big_sur:  "22ecfef684130e0eb31c60574970b5549d4d17eca862304b4603f2ced11e01cb"
-    sha256 cellar: :any,                 sonoma:         "63496ec7fbd91b1057f88a45b796a3063105746477e8d9afcfcedf0512afad45"
-    sha256 cellar: :any,                 ventura:        "b9eb743791b262ad3159b5d21305f6c2b1a0bba936094900241696100744c705"
-    sha256 cellar: :any,                 monterey:       "072b22e5429cc1e86436667ccd5ea3353c10162f3523ede8534b7ba58e6b5d11"
-    sha256 cellar: :any,                 big_sur:        "6b898ecf23182d8510c20cc39f983ff1d032d05f782a860a8bf4f7268144bc8a"
-    sha256 cellar: :any,                 catalina:       "d3ed514cda1f654bba381f40cefeae9af3dc72b9299a3b55afe08165811eacd6"
-    sha256 cellar: :any,                 mojave:         "3300df2def4e03dc12a86fca52cd7555c8ce42320cfaf2d143d27129cd4e8bd7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af3237dcac2845cc667ade463821e1ffed5048419786c99133e10f868b6a33ed"
+    sha256 cellar: :any,                 arm64_sonoma:   "a5262b92c5ef6c48e579002e9705e33a4e69c47ba9004ac9b13843506f314e8f"
+    sha256 cellar: :any,                 arm64_ventura:  "f16e4b941d9f7b15af8126904348ff2c82a486a08c358827518a35a341b9954e"
+    sha256 cellar: :any,                 arm64_monterey: "0a025c9fa92be85ae22f55df1e2c0cdd4536ef648fd4343a5c20077557276241"
+    sha256 cellar: :any,                 sonoma:         "cf3dc9646ee1c1de9fbb48df62623c02267d77ca3fda6c78a9acc7b893387ec9"
+    sha256 cellar: :any,                 ventura:        "aa2acc65e1a7804b8df89f73a9c649b30487a4c0a42e08b45a184a4f727c9c86"
+    sha256 cellar: :any,                 monterey:       "ed5dd1003cce5b3d47138cb192f4018482e381e6b18d4b63a980fb2400bf737c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "091841d5a1c742f6574ef14d6bb952d54409c7fcbc2085222a11b18eee0e38ba"
   end
 
   depends_on "autoconf" => :build

@@ -1,10 +1,9 @@
 class Efl < Formula
   desc "Enlightenment Foundation Libraries"
   homepage "https://www.enlightenment.org"
-  url "https://download.enlightenment.org/rel/libs/efl/efl-1.26.3.tar.xz"
-  sha256 "d9f83aa0fd9334f44deeb4e4952dc0e5144683afac786feebce6030951617d15"
+  url "https://download.enlightenment.org/rel/libs/efl/efl-1.27.0.tar.xz"
+  sha256 "3dfb99fbcc268c0bc797e2f83e8c503ef9de66284f40b381bb597a08185c00f4"
   license all_of: ["GPL-2.0-only", "LGPL-2.1-only", "BSD-2-Clause", "FTL", "zlib-acknowledgement"]
-  revision 5
 
   livecheck do
     url "https://download.enlightenment.org/rel/libs/efl/"
@@ -12,15 +11,13 @@ class Efl < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a1aa4b1b0b107f43ce197d0b6393cace14e5621d716a3df0f878437e7e329d9e"
-    sha256 arm64_ventura:  "2b653b7a4bfdead4b6567f9633dc1d0ec851e2678920236ad57463eea369f9a4"
-    sha256 arm64_monterey: "a7144e491351f8475a5dfe051112f150df09ff410bcc963b182aef50106a2381"
-    sha256 arm64_big_sur:  "b444bced3c8b20c19df34893a3760c9e3f8bcf9a2fa84fd912111c07645df52b"
-    sha256 sonoma:         "d6c8329b6dd3903a7934845ef24ee75a5f5ceaa7950a56464e260315f535f514"
-    sha256 ventura:        "de13653096d6456aff03cc84c8c728db8214ba25b97f92967005b3ae071469d9"
-    sha256 monterey:       "9daaffaab0f55f68f13594599e7738ae7a36e351b903e133ad76ec64fe52024a"
-    sha256 big_sur:        "3b8df4569420168d8b8055f2edfbfb91da6c85807bf4c8b87895a17ab43f2354"
-    sha256 x86_64_linux:   "3b909487cffe75b106ae5ce4741dd4be864852831609536404a47c7e181a6a84"
+    sha256 arm64_sonoma:   "6d15f7f09291ed56ba192bd80c7fda195154865485893579db152e113999bf4e"
+    sha256 arm64_ventura:  "6bc9494f01ea7397644b6c77085e634dc48c5f557ef82d3fb598671cd66a9984"
+    sha256 arm64_monterey: "7c5a8ca44000ef1f51c60d165baaaee3d12ffe75fc6eb317e8f7be590a46e5a7"
+    sha256 sonoma:         "904885617ad5f8629101266eb5ceb70634192e3933d4577f7126fc2c2dd14df9"
+    sha256 ventura:        "32d3ab7c6f32f5291c394022051146fc8fb980afaa1226a2602436d3e2df5c78"
+    sha256 monterey:       "b48ff5fc791cad44d0276a5910d10a216daaa7e2d5db286517000f1e3b6801e4"
+    sha256 x86_64_linux:   "1d265348e67f8f8691f74219ba1b7b03a6ad1fcc8b99663225cca5a49b3d5ecc"
   end
 
   depends_on "meson" => :build

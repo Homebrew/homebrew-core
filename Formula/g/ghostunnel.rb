@@ -1,20 +1,19 @@
 class Ghostunnel < Formula
   desc "Simple SSL/TLS proxy with mutual authentication"
   homepage "https://github.com/ghostunnel/ghostunnel"
-  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.7.1.tar.gz"
-  sha256 "b4eced76660e5e4bcdead3a3026608d500576fac574e49371cf9de8c98041b71"
+  url "https://github.com/ghostunnel/ghostunnel/archive/refs/tags/v1.7.2.tar.gz"
+  sha256 "4a573d31001067235a2fc0470316b419d3397418bd8f09a5b8cf9c93c23b7433"
   license "Apache-2.0"
   head "https://github.com/ghostunnel/ghostunnel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b91fc4f97fdd37a4193dc2a9128ec8758d1b11667d84d8bac2dffd341fe2f629"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6456eea77410787d8fe28c7f9cae2ae8624fbaffc2fba2e06d11dda74b3bc9c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b66f6e2fec5210fe2189461b3732ff558386fcc98d0850442a5df862bdec0910"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d37b5c7e36c2192474cbc43bcc966af03534f8c8ab7da0ab192aae4e3650d8f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "efe149902e6da262722e1d6206e252165eb46d317e98b346a95cb73e55a2c73d"
-    sha256 cellar: :any_skip_relocation, ventura:        "9fd269914394018868615f572f955d0d0cf733565ef51715ce8c33e0806b440c"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ff079fa2a391da1c5e3cae5b8a117fb8d6db3ab0e0998961cd2253339eb9f2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1a675c369ce55275aaa2905e42b1b2ef2f14d1bbc0fb08ca681b442caded0e7b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "474880279a3686ee6c3c1fc2f2f0386b02750841e864a95a911868faab35abca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b8f1961e2052037da00f2fe782d73d68546e49bdd9b06c529751805197cfd62"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d6d336fe33d290ab7a2b0d678f1ff81299ba3388e5ff839473bc7aa053535b0c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f77ce157e19aea9f6e8c19a23692b780e0553a3535bebdf8d5fc26ea1f607af7"
+    sha256 cellar: :any_skip_relocation, ventura:        "b5e4581471e20563f6d8eca52bd0906999d59eda01529c363fb30bdb95f8f4cd"
+    sha256 cellar: :any_skip_relocation, monterey:       "e5c4f0f685182f28cca485a60bdb39c910915f68c3524c48c6be4f63a7e06470"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccebe6328b522bff12b1b4d53ebd84afde3173c30496ce3c5f089ca4bf40e145"
   end
 
   depends_on "go" => :build

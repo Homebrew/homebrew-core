@@ -4,10 +4,10 @@ class Byobu < Formula
   url "https://launchpad.net/byobu/trunk/5.133/+download/byobu_5.133.orig.tar.gz"
   sha256 "4d8ea48f8c059e56f7174df89b04a08c32286bae5a21562c5c6f61be6dab7563"
   license "GPL-3.0-only"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "03b4147cf768eb8069102dbae06173cb819552e3ec9c3b1dab31b03ce052a27b"
+    sha256 cellar: :any_skip_relocation, all: "307888338bac3600b1805eda416940ee4c78089b70abc1dc21d49c69d8ad94fb"
   end
 
   head do

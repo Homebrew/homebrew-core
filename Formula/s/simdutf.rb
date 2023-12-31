@@ -21,14 +21,15 @@ class Simdutf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
   depends_on "icu4c"
   depends_on macos: :catalina
 
+  uses_from_macos "python" => :build
+
   def install
-    args = %w[
+    args = %W[
+      -DPython3_EXECUTABLE=#{which("python3")}
       -DSIMDUTF_BENCHMARKS=ON
-      -DBUILD_TESTING=ON
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

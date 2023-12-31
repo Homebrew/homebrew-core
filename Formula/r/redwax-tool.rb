@@ -5,6 +5,11 @@ class RedwaxTool < Formula
   sha256 "b431fda3e77de8570c99d5d2143a5877142a3163058591b786318a8704fb7648"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://redwax.eu/dist/rt/"
+    regex(/href=.*?redwax-tool[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "4ac1a6f0dd8dadda8eebe912a3c129638bce436884d73fbd2cf662bec6a643aa"
     sha256 cellar: :any,                 arm64_ventura:  "105c908e535de44878aa6651df14682c4a7f3f0b884f1de4d6073ae76f4ad411"

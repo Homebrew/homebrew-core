@@ -3,19 +3,18 @@ class YtDlp < Formula
 
   desc "Fork of youtube-dl with additional features and fixes"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/93/f0/8d894dd24447945269d123f6a061520103fb790211c6846418c6ee1065ff/yt-dlp-2023.11.16.tar.gz"
-  sha256 "f0ccdaf12e08b15902601a4671c7ab12906d7b11de3ae75fa6506811c24ec5da"
+  url "https://files.pythonhosted.org/packages/a9/a7/d8536993aed7569c5221f532e3ba01b09d5bdc893df3ef4e5b05d01582c4/yt-dlp-2023.12.30.tar.gz"
+  sha256 "a11862e57721b0a0f0883dfeb5a4d79ba213a2d4c45e1880e9fd70f8e6570c38"
   license "Unlicense"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0e492c0fe0dd6fc6b898cc9acb50b3f345da3dd38d2cb63b21196ab130b05e2f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f0559dd8febc7ca17981fb4ad38ffd914b9b65b822abf9b5083af687e0350ed5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0879a05b4aca935a0f625cd0e57f1d387682cba91cef7da8a96fb57956b9243d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f011cc8e8ad166232e9757df213142649110ed6395ea3435a86e1059ef36b049"
-    sha256 cellar: :any_skip_relocation, ventura:        "a96c137da6c44ba246e4326858de8e7253f30477d9276d937c06744185ffbc6a"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f79c097a0022dbcbfa3c7204b42e78ea08da0e516197da9fab7774d4458c7d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19935f8171eec54b837b902ba123db6df12ad4f981e76cfeecf43a237fd4b337"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d33fd0ab9779c1f81744dd13ff8ffc5dc1b8a0c5031465c4018df3ebb07ecb0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37e71124a9046d067fd285d5392d9b0a6dc0d523d11d7670fd04bc66bab485b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd64c615671def55988d5b706e90570c48d1ed64b5b677bcff2e163b8d229d4c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "73021ddbf4773ad16bed9e12684ccf4be97ab2b16161d4c894ceb0af95c54e18"
+    sha256 cellar: :any_skip_relocation, ventura:        "97010489db6966283c84e983fbe771d663b412c63914c4112845216053613a1c"
+    sha256 cellar: :any_skip_relocation, monterey:       "6233262e187f4cd803af849972d9606a8243d055524629a9b768001c5e9457e7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da2b313f112ffb787fd90c64aee98a6e6f568e16975f89112cfe4bf641e32004"
   end
 
   head do
@@ -34,13 +33,13 @@ class YtDlp < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/14/c9/09d5df04c9f29ae1b49d0e34c9934646b53bb2131a55e8ed2a0d447c7c53/pycryptodomex-3.19.0.tar.gz"
-    sha256 "af83a554b3f077564229865c45af0791be008ac6469ef0098152139e6bd4b5b6"
+    url "https://files.pythonhosted.org/packages/3f/13/84f2aea851d75e12e7f32ccc11a00f1defc3d285b4ed710e5d049f31c5a6/pycryptodomex-3.19.1.tar.gz"
+    sha256 "0b7154aff2272962355f8941fd514104a88cb29db2d8f43a29af900d6398eb1c"
   end
 
   resource "requests" do

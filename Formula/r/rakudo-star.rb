@@ -1,18 +1,18 @@
 class RakudoStar < Formula
   desc "Rakudo compiler and commonly used packages"
   homepage "https://rakudo.org/"
-  url "https://github.com/rakudo/star/releases/download/2023.11/rakudo-star-2023.11.tar.gz"
-  sha256 "336f7d29f002d2511215b36d6afef31378874ce794e7ea774651f553179219f5"
+  url "https://github.com/rakudo/star/releases/download/2023.12/rakudo-star-2023.12.tar.gz"
+  sha256 "defb8d96ba80cbdca7af071c04720ff3d6e27400dc8b28acd2450d9b1bcc4e97"
   license "Artistic-2.0"
 
   bottle do
-    sha256 arm64_sonoma:   "932aacf2e6bf1bf1b3ce76a68a495d54d7e35e311386c69ced7ce73cfb9947fe"
-    sha256 arm64_ventura:  "7074ebc45efcafa5125815707004ffcfc2339fcc75f92e5285d69a26b80e2af8"
-    sha256 arm64_monterey: "fe264d8e449feadf851c7d29d250a0437ee9a9ee4ab9b90da0f2eefd6b79a95f"
-    sha256 sonoma:         "822616f005b8f33ac16cbfbb305e533fa27063e8db2d24d5ec9d5413492b1758"
-    sha256 ventura:        "6ed4c9cdaf9f2e7d08feb3fc4185ddc7cd5f50915ae212988718892a4b2202a9"
-    sha256 monterey:       "c6e4e22474191685aedfb195fcf6f25278c53d30a4773e8e21ded0f3066cd4d5"
-    sha256 x86_64_linux:   "32e6c4cad20309ea434b22213f1664f3e6ff1c49cb2971fc6c4fcab5e306b704"
+    sha256 arm64_sonoma:   "04b924153872afa7864342dc00091677b9ba5ca6d49245b81e4f724c342a6cf1"
+    sha256 arm64_ventura:  "0fe85cbedaaa4c343e0dadef9dc36290d94610e04e92ee295ff7891132e578c9"
+    sha256 arm64_monterey: "b62ac3a589c76685f33f7defa0dad2501bb77193e2b0e718ff805dcaa388820f"
+    sha256 sonoma:         "2a49c4eccb1489cfe426aafdd3f8d3c0eb8f0d0afc6faecbe1322f3f8b001519"
+    sha256 ventura:        "cd0d4ca2e0b4c3f846abf1b83db493f02ef4a6e70aeb676941a4205a1164d29c"
+    sha256 monterey:       "4a6aa4b0c7b01eeb1f44b2e3823c61feaa1c40569f0d103ac4306ad086b474de"
+    sha256 x86_64_linux:   "7c6c20610691a9b88ebe4c300266776a409feda7f517231c0225219fb6b751c7"
   end
 
   depends_on "bash" => :build
@@ -28,7 +28,7 @@ class RakudoStar < Formula
   conflicts_with "rakudo"
 
   def install
-    if MacOS.version < :catalina
+    if !OS.mac? || MacOS.version < :catalina
       libffi = Formula["libffi"]
       ENV.remove "CPPFLAGS", "-I#{libffi.include}"
       ENV.prepend "CPPFLAGS", "-I#{libffi.lib}/libffi-#{libffi.version}/include"

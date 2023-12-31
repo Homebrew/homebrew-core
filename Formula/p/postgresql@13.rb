@@ -52,7 +52,7 @@ class PostgresqlAT13 < Formula
   patch :DATA
 
   def install
-    ENV.delete "PKG_CONFIG_LIBDIR" if MacOS.version == :catalina
+    ENV.delete "PKG_CONFIG_LIBDIR" if OS.mac? && version == :catalina
     ENV.prepend "LDFLAGS", "-L#{Formula["openssl@3"].opt_lib} -L#{Formula["readline"].opt_lib}"
     ENV.prepend "CPPFLAGS", "-I#{Formula["openssl@3"].opt_include} -I#{Formula["readline"].opt_include}"
 
@@ -84,7 +84,7 @@ class PostgresqlAT13 < Formula
 
     # PostgreSQL by default uses xcodebuild internally to determine this,
     # which does not work on CLT-only installs.
-    args << "PG_SYSROOT=#{MacOS.sdk_path}" if MacOS.sdk_root_needed?
+    args << "PG_SYSROOT=#{MacOS.sdk_path}" if OS.mac? && MacOS.sdk_root_needed?
 
     system "./configure", *args
 

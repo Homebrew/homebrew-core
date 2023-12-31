@@ -22,7 +22,7 @@ class Eatmemory < Formula
   test do
     # test version match
     out = shell_output "#{bin}/eatmemory -?"
-    version_escaped = version.to_s.gsub(/\./, '\.')
+    version_escaped = version.to_s.gsub(".", '\.')
     assert_match %r{^eatmemory #{version_escaped} - https://github.com/julman99/eatmemory\n.*}, out
 
     # test for expected output

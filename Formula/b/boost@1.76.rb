@@ -20,6 +20,8 @@ class BoostAT176 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2023-12-14", because: :versioned_formula
+
   depends_on "icu4c"
 
   uses_from_macos "bzip2"

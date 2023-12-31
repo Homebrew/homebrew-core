@@ -2,8 +2,8 @@ class Kubent < Formula
   desc "Easily check your clusters for use of deprecated APIs"
   homepage "https://github.com/doitintl/kube-no-trouble"
   url "https://github.com/doitintl/kube-no-trouble.git",
-      tag:      "0.7.0",
-      revision: "d1bb4e5fd6550b533b2013671aa8419d923ee042"
+      tag:      "0.7.1",
+      revision: "1ed4bfb4bd271f88731d245131edec931956cf74"
   license "MIT"
   head "https://github.com/doitintl/kube-no-trouble.git", branch: "master"
 
@@ -13,15 +13,13 @@ class Kubent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "214848972f43b1cca085cb5a8e794dcef31ac5fe6609320e419d20db282ed0a2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b253c116737aa11ffe96165128063e0cfd361ebb4b83cecadd4e58cb4a67971a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5cddd6fee8427d67e9261d1cc5cac91245c2564bc20375a7b53a2106b610e921"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24cc7e7c89661ff0f22472460e3f00af8943c823f36df5efd070e24dc5cafaf2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "389b209ca28356e1638ccb01f5fb0b06e9b64dde341eb45b061c5f0caba818ad"
-    sha256 cellar: :any_skip_relocation, ventura:        "e43bb284c4c03fc17bb739a5cf85e5961cfe490e025044b4777fa383921840e8"
-    sha256 cellar: :any_skip_relocation, monterey:       "51299269284628a9ea395e29c88a464ec4721da7148e1b269dbea1c18356b557"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c00f175140366cdacd8f3595c6470ed0b967fda98a09ffa0eb51988a4a2a9331"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee4f92a7de119b79f18b88aed128a6ca80847a6f1f0837b69c992469ec40b43b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e03c84dc5347e7931047215f1224fb92d0e3913e1c80a067cb52ba746cd8a5d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c876f3965a17662b390875b14c8b464f1130da38be9b1c5a6e84ef653fb34750"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ccadcc2821aeab6bb28856b4705a66e42f41c59ad1c42b1dd1b9884d4a3bc70"
+    sha256 cellar: :any_skip_relocation, sonoma:         "758d8945d7f8d95067b0c981479368761f3ad68d983f752354db018a7e09417d"
+    sha256 cellar: :any_skip_relocation, ventura:        "a428e8130b5dce422a6e0bf9700b12adde7f4996074375b05d27ed07a9b6fdea"
+    sha256 cellar: :any_skip_relocation, monterey:       "900174c819d9c4f1937d25d9c16a524a314a432021dc9b5a5b9b331af7dad7f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1eeca187c6f80307613e5fb077c5da060747df9c407f7c6f33b17513135552b7"
   end
 
   depends_on "go" => :build

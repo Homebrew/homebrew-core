@@ -1,20 +1,18 @@
 class Symengine < Formula
   desc "Fast symbolic manipulation library written in C++"
   homepage "https://sympy.org"
-  # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/symengine/symengine/releases/download/v0.11.1/symengine-0.11.1.tar.gz"
-  sha256 "217b39955dc19f920c6f54c057fdc89e8e155ddee8f0e3c3cacc67b3e3850b64"
+  url "https://github.com/symengine/symengine/releases/download/v0.11.2/symengine-0.11.2.tar.gz"
+  sha256 "f6972acd6a65354f6414e69460d2e175729470632bdac05919bc2f7f32e48cbd"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fe11b29c50b5ac1d28bef924361dffeb2de8b09da2247ba123819ca2552a5760"
-    sha256 cellar: :any,                 arm64_ventura:  "efc0ff53a082ca117aa7d0d819564cc9021ba84fac02d39588e01be1661c9170"
-    sha256 cellar: :any,                 arm64_monterey: "e05322d032bdc1c0ae174674565285ada017a481a3cf81981e6e7c0b520fe179"
-    sha256 cellar: :any,                 sonoma:         "24fe7172403cd00a3e32f819a6c7c3601a36c0c1b69e248e520cb7dc68d578a9"
-    sha256 cellar: :any,                 ventura:        "3e9d869cb1d90555aca46f2cc1c5b20208ce6c3561f3eceb37e8bb3852316447"
-    sha256 cellar: :any,                 monterey:       "efa17ff396750bea4f9ccfb9bb9a40e80f539209efc4b008897635f4ae2507e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46c51c1ac6419fb5966a192f83f4d85ca01725e8044a7c16fb4df84b6322f70f"
+    sha256 cellar: :any,                 arm64_sonoma:   "e19eca46111227cab7806c4a7b408a07230a1148afc05004e761c4b564d806d7"
+    sha256 cellar: :any,                 arm64_ventura:  "490dcf93e8704e3126995834b16431892ff946dd6c164059b5cafd800fdd344a"
+    sha256 cellar: :any,                 arm64_monterey: "2fec206eec63cbe5cdb9e4e94ae23adf17e320aaeda1a7f65b3ad1e147e60b0e"
+    sha256 cellar: :any,                 sonoma:         "e3dc3e24c7c722fd8fada1a856134df934f55f12311c782759353c673cc797ea"
+    sha256 cellar: :any,                 ventura:        "bbf4516e06744a99504a9e1d5335c1d175d8bbe3828299618ee0c7eae8fb0da6"
+    sha256 cellar: :any,                 monterey:       "6d1b8080812a5c93ad6d2144afa86d2c863eb8e151ea4151338a321fc6241d61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6324f6ebd3228690258d256d9068ece631dd09283f976d64d911b639f504db3a"
   end
 
   depends_on "cereal" => :build
@@ -22,7 +20,7 @@ class Symengine < Formula
   depends_on "flint"
   depends_on "gmp"
   depends_on "libmpc"
-  depends_on "llvm@16"
+  depends_on "llvm"
   depends_on "mpfr"
 
   fails_with gcc: "5"
@@ -34,13 +32,6 @@ class Symengine < Formula
   patch do
     url "https://gitweb.gentoo.org/repo/gentoo.git/plain/sci-libs/symengine/files/symengine-0.8.1-fix_llvm.patch?id=83ab9587be9f89e667506b861208d613a2f016e5"
     sha256 "c654ea7c4ee44c689433e87f71c7ae78e6c04968e7dfe89be5e4ba4c8c53713b"
-  end
-
-  # fix flint 3 compatibility
-  # https://github.com/symengine/symengine/pull/1985, remove in next release
-  patch do
-    url "https://github.com/symengine/symengine/commit/9b2526ffee85ebb2b3011513ae544aec1b54d623.patch?full_index=1"
-    sha256 "8232c3cd757e8f9eecf296bc8e8353830c604d89e368b12de0c45715a7fa660d"
   end
 
   def install

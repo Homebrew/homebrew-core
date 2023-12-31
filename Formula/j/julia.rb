@@ -61,7 +61,6 @@ class Julia < Formula
       prefix=#{prefix}
       sysconfdir=#{etc}
       LOCALBASE=#{HOMEBREW_PREFIX}
-      MACOSX_VERSION_MIN=#{MacOS.version}
       PYTHON=python3
       USE_BINARYBUILDER=0
       USE_SYSTEM_BLAS=1
@@ -88,6 +87,8 @@ class Julia < Formula
       LIBLAPACKNAME=libopenblas
       USE_BLAS64=0
     ]
+
+    args << "MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
 
     # Set MARCH and JULIA_CPU_TARGET to ensure Julia works on machines we distribute to.
     # Values adapted from https://github.com/JuliaCI/julia-buildbot/blob/master/master/inventory.py
@@ -192,8 +193,7 @@ class Julia < Formula
     # This also checks that these libraries can be loaded even when
     # the symlinks are broken (e.g. by version bumps).
     libs = (lib/"julia").glob(shared_library("*"))
-                        .map(&:basename)
-                        .map(&:to_s)
+                        .map { |library| library.basename.to_s }
                         .reject do |name|
                           name.start_with?("sys", "libjulia-internal", "libccalltest")
                         end

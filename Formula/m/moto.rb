@@ -3,18 +3,18 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/f0/9d/32031dee4457a6c6ef0b8c4ad18a170ca471c20cb83313c13bb896e09ead/moto-4.2.11.tar.gz"
-  sha256 "2da62d52eaa765dfe2762c920f0a88a58f3a09e04581c91db967d92faec848f1"
+  url "https://files.pythonhosted.org/packages/0f/4d/2671039ebc3ecbb15342ffc8d3d600fa8fa6225663698b12459df48819b0/moto-4.2.12.tar.gz"
+  sha256 "7c4d37f47becb4a0526b64df54484e988c10fde26861fc3b5c065bc78800cb59"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b046c70a0320bbe3ea8f66cc1404f5a1e33bf98d4abd59768b3c54f818847771"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dfdbee4e2091c3c662d7ecd865e5738ced560fef9ac7bfdfcfadfbaf42e4ec01"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8aa595e9b1fb0a92f02a6e0f33ab95878b4415e5f82d7486be3ae04c998061fc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "23f29a3ad6b0c70f5d599bc5ecabfeb8391984521b717b87a8d6f6ce5b8bce2d"
-    sha256 cellar: :any_skip_relocation, ventura:        "892d0c4099c871ea872bb06b661a026fe0c81006fda1a899af4c5ea11989edec"
-    sha256 cellar: :any_skip_relocation, monterey:       "5905774422131bda9446ac43c7d218f43da7ebd1b7cd9db82e1e5db25f549eb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c06a003bb2ac41871588339e0f75bce264500f4a60afcc539be1621dbae835f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7abab081869989e7e81286aa3c404703d15b63f3fefa38a028d593d71e8fd78c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a27007a42ab51c5fdcd95a988f1a4a7c31cf2c24ad95ec783f800e3699850833"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "14d142bcb86a7ea1d853238ea429e8f9f41fb30848e946bc59dc3f2d832b9cd8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "956e4470aaeca798ad8e6458dd7860885dcc958c7a187f0eb418cea670fbfff6"
+    sha256 cellar: :any_skip_relocation, ventura:        "1d003c6d7372c9cbd0ddba6d4b4328817fe5b5840fc3dec12f6d5f38c5a56224"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ac0928722f5b0e5e1b8b7e163a4d9ebfba56c3c749b7d10e5e37ad1da49a155"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c243b874cff4932af5eba6c6ef3b96fe72673c359261105652bfaa247dad8aa"
   end
 
   depends_on "cffi"
@@ -47,8 +47,8 @@ class Moto < Formula
   end
 
   resource "docker" do
-    url "https://files.pythonhosted.org/packages/f0/73/f7c9a14e88e769f38cb7fb45aa88dfd795faa8e18aea11bababf6e068d5e/docker-6.1.3.tar.gz"
-    sha256 "aa6d17830045ba5ef0168d5eaa34d37beeb113948c413affe1d5991fc11f9a20"
+    url "https://files.pythonhosted.org/packages/25/14/7d40f8f64ceca63c741ee5b5611ead4fb8d3bcaf3e6ab57d2ab0f01712bc/docker-7.0.0.tar.gz"
+    sha256 "323736fb92cd9418fc5e7133bc953e11a9da04f4483f828b527db553f1e7e5a3"
   end
 
   resource "ecdsa" do
@@ -97,8 +97,8 @@ class Moto < Formula
   end
 
   resource "lazy-object-proxy" do
-    url "https://files.pythonhosted.org/packages/20/c0/8bab72a73607d186edad50d0168ca85bd2743cfc55560c9d721a94654b20/lazy-object-proxy-1.9.0.tar.gz"
-    sha256 "659fb5809fa4629b8a1ac5106f669cfc7bef26fbb389dda53b3e010d1ac4ebae"
+    url "https://files.pythonhosted.org/packages/2c/f0/f02e2d150d581a294efded4020094a371bbab42423fe78625ac18854d89b/lazy-object-proxy-1.10.0.tar.gz"
+    sha256 "78247b6d45f43a52ef35c25b5581459e85117225408a4128a3daf8bf9648ac69"
   end
 
   resource "multipart" do
@@ -122,8 +122,8 @@ class Moto < Formula
   end
 
   resource "py-partiql-parser" do
-    url "https://files.pythonhosted.org/packages/28/14/4a9104fa74cd08e2ba499a7b7c6f372e3ef974d52155b181802f04ad4860/py-partiql-parser-0.4.2.tar.gz"
-    sha256 "9c99d545be7897c6bfa97a107f6cfbcd92e359d394e4f3b95430e6409e8dd1e1"
+    url "https://files.pythonhosted.org/packages/e9/80/47fab55e0c82c447ed2b5b484f4ae6a6c306365f16c4fd578fda56c93468/py-partiql-parser-0.5.0.tar.gz"
+    sha256 "427a662e87d51a0a50150fc8b75c9ebb4a52d49129684856c40c88b8c8e027e4"
   end
 
   resource "pyasn1" do
@@ -159,11 +159,6 @@ class Moto < Formula
   resource "sshpubkeys" do
     url "https://files.pythonhosted.org/packages/a3/b9/e5b76b4089007dcbe9a7e71b1976d3c0f27e7110a95a13daf9620856c220/sshpubkeys-3.3.1.tar.gz"
     sha256 "3020ed4f8c846849299370fbe98ff4157b0ccc1accec105e07cfa9ae4bb55064"
-  end
-
-  resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/cb/eb/19eadbb717ef032749853ef5eb1c28e9ca974711e28bccd4815913ba5546/websocket-client-1.6.4.tar.gz"
-    sha256 "b3324019b3c28572086c4a319f91d1dcd44e6e11cd340232978c684a7650d0df"
   end
 
   resource "werkzeug" do

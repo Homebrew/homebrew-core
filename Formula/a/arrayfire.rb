@@ -66,7 +66,7 @@ class Arrayfire < Formula
     cp pkgshare/"examples/helloworld/helloworld.cpp", testpath/"test.cpp"
     system ENV.cxx, "-std=c++11", "test.cpp", "-L#{lib}", "-laf", "-lafcpu", "-o", "test"
     # OpenCL does not work in CI.
-    return if Hardware::CPU.arm? && MacOS.version >= :monterey && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
+    return if Hardware::CPU.arm? && OS.mac? && MacOS.version >= :monterey && ENV["HOMEBREW_GITHUB_ACTIONS"].present?
 
     assert_match "ArrayFire v#{version}", shell_output("./test")
   end

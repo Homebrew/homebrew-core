@@ -1,20 +1,18 @@
 class Ncspot < Formula
   desc "Cross-platform ncurses Spotify client written in Rust"
   homepage "https://github.com/hrkfdn/ncspot"
-  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v0.13.4.tar.gz"
-  sha256 "ca2cd3ca21d7ed0410f3327cf3c1b6db990dfbb5bd2ef0d15f3fb0a1b5fe6ee9"
+  url "https://github.com/hrkfdn/ncspot/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "516663b62b9536cb18e6d8eb69470a5b6560f2890e010e8a3d2e8cfc65df9497"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8a16541082cfede78dc8598fe43067ce672abe8eddca3231d829d936a1c227fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf80dd4275133ea765c63d1c010dca30edcf1c88c2ffa3781ffdc57885c73fa6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "22269bdae3fbc24cbc00958acbd816d070cfbefe7f30adc30ac9ba272e17a0c8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da8df063e75c7340d8e717cc91127c042ebcb7a6cd345d2150252fb6e0532b90"
-    sha256 cellar: :any,                 sonoma:         "70dd57e385f24cd4352a0a0f193bb86da715de77c2b5ebdc05c7a757c77f7b9f"
-    sha256 cellar: :any_skip_relocation, ventura:        "91bab1360f3899c49ff721b76c0b552dc03aa919a37f10b3087769bdc7a1ae0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "4fc223f0349d2203b779f0b5447221a90f44e75278189a1218616a0d331aad2c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "effc9974650f1e2271d2204af2b67ef0ee48b179185068d24e782fc43539c6c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6977a7adf5a02a37b710b883a13f7a4accdba3d87aafb1bd9888fdf30d06a1df"
+    sha256 cellar: :any,                 arm64_sonoma:   "9a79b08c98281b24328007c41a8dc017f8e2f2ae817c46b4b034d1fb88c89089"
+    sha256 cellar: :any,                 arm64_ventura:  "d70b8892fdac34914070401ca35119f9320ae38ca8b9a59344c82cd542987a5a"
+    sha256 cellar: :any,                 arm64_monterey: "d7317dddb669a5c449d3e88d3bacf2bf1ec15c67774f37e2c08f95e576a03973"
+    sha256 cellar: :any,                 sonoma:         "a9bffb6e0b6716331b42f88169ea70a83df809693a5f4160b129612d7c4e11bb"
+    sha256 cellar: :any,                 ventura:        "9cde5088801cf98dc9c67347413047d053811544f8f9d4614a81f42ec1937e83"
+    sha256 cellar: :any,                 monterey:       "2d4ac309c37df67f096044d1e4834a55f29a200088468e35aef460fe6f1bdab3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19ba63cdc9a47fb4faa2bb3a18c678289eacd4cc89349e29cadbe457926f8967"
   end
 
   depends_on "rust" => :build
@@ -32,7 +30,7 @@ class Ncspot < Formula
   end
 
   def install
-    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed
+    ENV["COREAUDIO_SDK_PATH"] = MacOS.sdk_path_if_needed if OS.mac?
     system "cargo", "install", "--no-default-features",
                                "--features", "portaudio_backend,cursive/pancurses-backend,share_clipboard",
                                *std_cargo_args

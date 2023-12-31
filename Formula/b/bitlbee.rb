@@ -1,13 +1,10 @@
 class Bitlbee < Formula
   desc "IRC to other chat networks gateway"
   homepage "https://www.bitlbee.org/"
+  url "https://get.bitlbee.org/src/bitlbee-3.6.tar.gz"
+  sha256 "9f15de46f29b46bf1e39fc50bdf4515e71b17f551f3955094c5da792d962107e"
   license "GPL-2.0"
   head "https://github.com/bitlbee/bitlbee.git", branch: "master"
-
-  stable do
-    url "https://get.bitlbee.org/src/bitlbee-3.6.tar.gz"
-    sha256 "9f15de46f29b46bf1e39fc50bdf4515e71b17f551f3955094c5da792d962107e"
-  end
 
   livecheck do
     url "https://get.bitlbee.org/src/"

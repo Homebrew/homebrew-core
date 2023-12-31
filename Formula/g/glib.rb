@@ -3,19 +3,18 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.78/glib-2.78.1.tar.xz"
-  sha256 "915bc3d0f8507d650ead3832e2f8fb670fce59aac4d7754a7dab6f1e6fed78b2"
+  url "https://download.gnome.org/sources/glib/2.78/glib-2.78.3.tar.xz"
+  sha256 "609801dd373796e515972bf95fc0b2daa44545481ee2f465c4f204d224b2bc21"
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "b48fbc4e70e328762e187e2fb0ca2071f5d9d381849ef8d1d468c3f415539a4c"
-    sha256 arm64_ventura:  "7fa9d409588453eee205a2a42da01ef8ed4fc51ecadbe42f195848c14c5cf7d7"
-    sha256 arm64_monterey: "e95b5946f2165e6889f39a656b72cc6c11f2f0e30b01a1fe061fb7d7d38b958c"
-    sha256 sonoma:         "705507d1521a8c3e3b99d0187377fe4d84fd9c4610131fa787bf47341234654d"
-    sha256 ventura:        "c97eb37fbd9bb7c98e507444c11e3b690427015496eed511f7e0bfab1c5fd793"
-    sha256 monterey:       "b4315a16b9f0c2f752cd0f22508a3e89303425d95340165bcf29734ffa7cbcf4"
-    sha256 x86_64_linux:   "d63653a4fe0abbc95c808131dd0de762713936e645386035d3a556c57dbc8eaf"
+    sha256 arm64_sonoma:   "0508a3adb74773f5cc36db72a52b206250f58e3a63038b4d839912a672f705a3"
+    sha256 arm64_ventura:  "25043e7acd81017477a6125097802b9482026786037ef9ed40fcffca5ca3fcc9"
+    sha256 arm64_monterey: "459ebb452eeab56e6e4343a89e9b077ebfce48d2cfb27ec9646d360ec0ee754e"
+    sha256 sonoma:         "740a493df231d3dfe99c09fa27a8ad415fff7650640ae56de6249caa5d452eaf"
+    sha256 ventura:        "b152fe3051632e427e1ee58e68c5627ae5291d038120765a870ffb4978109020"
+    sha256 monterey:       "ce7245d82b2dd64a41c0f95ccea14a197412f2d5c479dbd0e17e0d7d7e300f67"
+    sha256 x86_64_linux:   "8657e856d1ea8610a23fccaf0cfa94b3a3271986c54101b69d5734ad1f9b0807"
   end
 
   depends_on "gettext" => :build
@@ -84,16 +83,16 @@ class Glib < Formula
         s.gsub! "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include",
                 "Cflags: -I${includedir}/glib-2.0 -I${libdir}/glib-2.0/include -I#{gettext}/include"
       end
-    end
 
-    if MacOS.version < :catalina
-      # `pkg-config --print-requires-private gobject-2.0` includes libffi,
-      # but that package is keg-only so it needs to look for the pkgconfig file
-      # in libffi's opt path.
-      libffi = Formula["libffi"].opt_prefix
-      inreplace lib/"pkgconfig/gobject-2.0.pc" do |s|
-        s.gsub! "Requires.private: libffi",
-                "Requires.private: #{libffi}/lib/pkgconfig/libffi.pc"
+      if MacOS.version < :catalina
+        # `pkg-config --print-requires-private gobject-2.0` includes libffi,
+        # but that package is keg-only so it needs to look for the pkgconfig file
+        # in libffi's opt path.
+        libffi = Formula["libffi"].opt_prefix
+        inreplace lib/"pkgconfig/gobject-2.0.pc" do |s|
+          s.gsub! "Requires.private: libffi",
+                  "Requires.private: #{libffi}/lib/pkgconfig/libffi.pc"
+        end
       end
     end
 

@@ -1,8 +1,8 @@
 class PythonAT312 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.12.0/Python-3.12.0.tgz"
-  sha256 "51412956d24a1ef7c97f1cb5f70e185c13e3de1f50d131c0aac6338080687afb"
+  url "https://www.python.org/ftp/python/3.12.1/Python-3.12.1.tgz"
+  sha256 "d01ec6a33bc10009b09c17da95cc2759af5a580a7316b3a446eb4190e13f97b2"
   license "Python-2.0"
 
   livecheck do
@@ -11,14 +11,13 @@ class PythonAT312 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "84d0ff323d52b4d2a905cd8163dc0e69746e53f4f1db3c883374c64abc2237d8"
-    sha256 arm64_ventura:  "af08d7f69c5944fa5ef56bd791f1f162cb9435f870108e2fdbd6cbd335c276d4"
-    sha256 arm64_monterey: "1b80d028071d82c62a4eafc1d7a7c6565a6323cc5d44d22e67faab551b6154f5"
-    sha256 sonoma:         "bb924bd0cc0c46008389961c77efdbf32914327feceb4983bdaf476114fec4eb"
-    sha256 ventura:        "bb2ff3ad5b25c6981ff89a691bb15f63ff4c978c2bc668f157fadd93fe740baf"
-    sha256 monterey:       "b9824e28bee85f91ddde4a66773e67aadf5f6b066593cdb6506e5b689919e480"
-    sha256 x86_64_linux:   "fccbf4142b8927c8f24ec0004316034c582e99d5348d04a4e2fc77f0175dfd3b"
+    sha256 arm64_sonoma:   "cb1129c121cf124512dde5a7002d9aa10b671c5cb6c86402392f2c6c2bfe26e9"
+    sha256 arm64_ventura:  "6295e2dc67b5f8232e6985bc6a0a1e8c73068587426a6158d31b5edfaf71cc63"
+    sha256 arm64_monterey: "559eb35830598d4012014d4adc7132172a44e00d4208002041bb2642a9fb1985"
+    sha256 sonoma:         "3b6e3038669e718c63d4d323a0dfc165a7271461994d7dc7eb467e2cdf89519f"
+    sha256 ventura:        "3469949af656f884f5d49e21550c74815cd653aab9f9f27f55f1e07ff754bfa4"
+    sha256 monterey:       "5523fc39cc0ffb7850ed566aef6b04c1f2e0886f6baa7119d334225dc0163f00"
+    sha256 x86_64_linux:   "719f8a93546953005ad6212199a9c2b0a2bed37fa3c5334752ecdc2d6f829cd1"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -58,18 +57,18 @@ class PythonAT312 < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ef/cc/93f7213b2ab5ed383f98ce8020e632ef256b406b8569606c3f160ed8e1c9/setuptools-68.2.2.tar.gz"
-    sha256 "4ac1475276d2f1c48684874089fefcd83bd7162ddaafb81fac866ba0db282a87"
+    url "https://files.pythonhosted.org/packages/4b/d9/d0cf66484b7e28a9c42db7e3929caed46f8b80478cd8c9bd38b7be059150/setuptools-69.0.2.tar.gz"
+    sha256 "735896e78a4742605974de002ac60562d286fa8051a7e2299445e8e8fbb01aa6"
   end
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/ba/19/e63fb4e0d20e48bd2167bb7e857abc0e21679e24805ba921a224df8977c0/pip-23.2.1.tar.gz"
-    sha256 "fb0bd5435b3200c602b5bf61d2d43c2f13c02e29c1707567ae7fbc514eb9faf2"
+    url "https://files.pythonhosted.org/packages/1f/7f/4da15e07ccd11c84c1ccc8f6e24288d5e76c99441bf80e315b33542db951/pip-23.3.1.tar.gz"
+    sha256 "1fcaa041308d01f14575f6d0d2ea4b75a3e2871fe4f9c694976f908768e14174"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/a4/99/78c4f3bd50619d772168bec6a0f34379b02c19c9cced0ed833ecd021fd0d/wheel-0.41.2.tar.gz"
-    sha256 "0c5ac5ff2afb79ac23ab82bab027a0be7b5dbcf2e54dc50efe4bf507de1f7985"
+    url "https://files.pythonhosted.org/packages/b0/b4/bc2baae3970c282fae6c2cb8e0f179923dceb7eaffb0e76170628f9af97b/wheel-0.42.0.tar.gz"
+    sha256 "c45be39f7882c9d34243236f2d63cbd58039e360f85d0913425fbd7ceea617a8"
   end
 
   # Modify default sysconfig to match the brew install layout.
@@ -78,12 +77,6 @@ class PythonAT312 < Formula
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/6d2fba8de3159182025237d373a6f4f78b8bd203/python/3.11-sysconfig.diff"
     sha256 "8bfe417c815da4ca2c0a2457ce7ef81bc9dae310e20e4fb36235901ea4be1658"
-  end
-
-  # Fix build with newer editline
-  patch do
-    url "https://github.com/Bo98/cpython/commit/42e00d754d162ab7ab633d78f5541297161b4c15.patch?full_index=1"
-    sha256 "1025eb881eb831d88f0bcf3579d256f08c613d19ece907ed148859bb8d92703c"
   end
 
   def lib_cellar
@@ -140,19 +133,6 @@ class PythonAT312 < Formula
       --with-readline=editline
     ]
 
-    if OS.mac?
-      # Enabling LTO on Linux makes libpython3.*.a unusable for anyone whose GCC
-      # install does not match the one in CI _exactly_ (major and minor version).
-      # https://github.com/orgs/Homebrew/discussions/3734
-      args << "--with-lto"
-      args << "--enable-framework=#{frameworks}"
-      args << "--with-dtrace"
-      args << "--with-dbmliborder=ndbm"
-    else
-      args << "--enable-shared"
-      args << "--with-dbmliborder=bdb"
-    end
-
     # Python re-uses flags when building native modules.
     # Since we don't want native modules prioritizing the brew
     # include path, we move them to [C|LD]FLAGS_NODIST.
@@ -164,14 +144,28 @@ class PythonAT312 < Formula
     ldflags_nodist = ["-L#{HOMEBREW_PREFIX}/lib", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib"]
     cppflags       = ["-I#{HOMEBREW_PREFIX}/include"]
 
-    if MacOS.sdk_path_if_needed
-      # Help Python's build system (setuptools/pip) to build things on SDK-based systems
-      # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
-      cflags  << "-isysroot #{MacOS.sdk_path}"
-      ldflags << "-isysroot #{MacOS.sdk_path}"
+    if OS.mac?
+      if MacOS.sdk_path_if_needed
+        # Help Python's build system (setuptools/pip) to build things on SDK-based systems
+        # The setup.py looks at "-isysroot" to get the sysroot (and not at --sysroot)
+        cflags  << "-isysroot #{MacOS.sdk_path}"
+        ldflags << "-isysroot #{MacOS.sdk_path}"
+      end
+
+      # Enabling LTO on Linux makes libpython3.*.a unusable for anyone whose GCC
+      # install does not match the one in CI _exactly_ (major and minßor version).
+      # https://github.com/orgs/Homebrew/discussions/3734
+      args << "--with-lto"
+      args << "--enable-framework=#{frameworks}"
+      args << "--with-dtrace"
+      args << "--with-dbmliborder=ndbm"
+
+      # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
+      args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
+    else
+      args << "--enable-shared"
+      args << "--with-dbmliborder=bdb"
     end
-    # Avoid linking to libgcc https://mail.python.org/pipermail/python-dev/2012-February/116205.html
-    args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
 
     # Resolve HOMEBREW_PREFIX in our sysconfig modification.
     inreplace "Lib/sysconfig.py", "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX

@@ -56,8 +56,17 @@ class Gromacs < Formula
       -DGMX_VERSION_STRING_OF_FORK=#{tap.user}
       -DGMX_INSTALL_LEGACY_API=ON
     ]
+
     # Force SSE2/SSE4.1 for compatibility when building Intel bottles
-    args << "-DGMX_SIMD=#{MacOS.version.requires_sse41? ? "SSE4.1" : "SSE2"}" if Hardware::CPU.intel? && build.bottle?
+    if Hardware::CPU.intel?
+      gmx_simd = if OS.mac? && MacOS.version.requires_sse4?
+        "SSE4.1"
+      else
+        "SSE2"
+      end
+      args << "-DGMX_SIMD=#{gmx_simd}"
+    end
+
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

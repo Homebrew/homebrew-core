@@ -36,7 +36,7 @@ class Plotutils < Formula
     inreplace "libplot/z_write.c", "png_ptr->jmpbuf", "png_jmpbuf (png_ptr)"
 
     # Avoid `-flat_namespace` flag.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
 
     args = %W[
       --disable-debug

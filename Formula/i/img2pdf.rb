@@ -6,15 +6,16 @@ class Img2pdf < Formula
   url "https://files.pythonhosted.org/packages/36/92/6ac4d61951ba507b499f674c90dfa7b48fa776b56f6f068507f8751c03f1/img2pdf-0.5.1.tar.gz"
   sha256 "73847e47242f4b5bd113c70049e03e03212936c2727cd2a8bf564229a67d0b95"
   license "LGPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8f54e7b8928dce6d4644f6184955572789432c1572c59e708b63d904b2dc8421"
-    sha256 cellar: :any,                 arm64_ventura:  "d398f46e1214935b45cb6518e10992fb29cd97d3adc7de54feae7b101cc84a63"
-    sha256 cellar: :any,                 arm64_monterey: "df91b380e73c7337f7bc503fcee69659d30b8932e4502a276189b5890813a653"
-    sha256 cellar: :any,                 sonoma:         "6154675daaaf2b8b5eb1083e5d7b71c8d8fb7acc9f03f58d64d27b3697963654"
-    sha256 cellar: :any,                 ventura:        "806a59e0f70e1407d8a6d3de0a5934e09ab1a2aa6f527dec26f5b382f26a1d53"
-    sha256 cellar: :any,                 monterey:       "1c43195c36c1835f3591e9d1cbec90f8c804562b3a76752abd172b98a67c697c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ce080bb9a37bc6ad9e2acf94d5af39db30bb2ad75a2c0b5144ba6a90104d93f"
+    sha256 cellar: :any,                 arm64_sonoma:   "5cf6fe368cb747f5a59ef5d497b5bfda7d999cdb136f5d8a7d6a87355dcc78ba"
+    sha256 cellar: :any,                 arm64_ventura:  "477a3a5df8e05cc52dd82f19de887ebbc1786561ab8d4b82a8d5da44564443cb"
+    sha256 cellar: :any,                 arm64_monterey: "b76dcb24356ed2d304a5fb40061b9a6045cb0fa5b9b5622d5c6f5a7900e749fd"
+    sha256 cellar: :any,                 sonoma:         "28ec3b3b256b8d91f305bef63efc5b541254416f2bc3b02080e14105e175ccc9"
+    sha256 cellar: :any,                 ventura:        "cb2de4afdf6f787845774ac03f044373106a0cf5398fa522679b1050d9c69424"
+    sha256 cellar: :any,                 monterey:       "f722068d35a42b0a794b58603efe738452bc40005fa0fec35f6bd3a91cb55750"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f51551d67b6158fada6dd0b76bc56ba2e84a2908382c440c4923a63887aaa78"
   end
 
   depends_on "pillow"
@@ -29,8 +30,8 @@ class Img2pdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/38/e8/c7642da0b774d42a259bdb450aba0d34aee65bf3f6641c7a7f3c83ac7297/pikepdf-8.7.1.tar.gz"
-    sha256 "69d69a93d07027e351996ef8232f26bba762d415206414e0ae3814be0aee0f7a"
+    url "https://files.pythonhosted.org/packages/5b/1e/522532f009bd0ef8948b2b5e059dca57ea884b5a77651cc7e5fb16439087/pikepdf-8.10.1.tar.gz"
+    sha256 "0ed9c0f2908e05e8fdeab14ad73d25924da90f57d3485f3a01acfac6078396af"
   end
 
   resource "wrapt" do

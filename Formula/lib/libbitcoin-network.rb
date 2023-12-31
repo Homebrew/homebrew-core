@@ -18,6 +18,10 @@ class LibbitcoinNetwork < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "56adc9c14bfac95a6b2169fd0d190164ed77a405f2bdb1a89eb5929842748fb8"
   end
 
+  # About 2 years since request for release with support for recent `boost`.
+  # Ref: https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  deprecate! date: "2023-12-14", because: "uses deprecated `boost@1.76`"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

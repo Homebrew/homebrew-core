@@ -4,6 +4,7 @@ class Gismo < Formula
   url "https://github.com/gismo/gismo/archive/refs/tags/v21.12.0.tar.gz"
   sha256 "4001b4c49661ca8b71baf915e773341e115d154077bef218433a3c1d72ee4f0c"
   license "MPL-2.0"
+  head "https://github.com/gismo/gismo.git", branch: "stable"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "c8c82fbd61b63c8a3a8be5ee5a6e4449f4e683569f4562ed6a84a12ba3148b6c"
@@ -15,10 +16,6 @@ class Gismo < Formula
     sha256 cellar: :any,                 monterey:       "1e62c2393cddcbea345d697fc2edc4f89b5e84ea0937d9833ee0b0995c855402"
     sha256 cellar: :any,                 big_sur:        "b866e490fa3a9f742caab85f3bb290c7c678f6a976be51f70855797066ab8cf4"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc809b43a86065f48c301531493a3553f042c3990c6e2edabac31ed30bb54db8"
-  end
-
-  head do
-    url "https://github.com/gismo/gismo.git", branch: "stable"
   end
 
   depends_on "cmake" => :build

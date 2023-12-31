@@ -5,22 +5,26 @@ class X8664ElfBinutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.41.tar.bz2"
   sha256 "a4c4bec052f7b8370024e60389e194377f3f48b56618418ea51067f67aaab30b"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     formula "binutils"
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a1a00c2e9ec4d85070b8609d42dd1b681423b209fab40f3c0fe70795f9702d3b"
-    sha256 arm64_ventura:  "0b215aa3c7eb7e02560ad78336948f5b785f82f1e44f51d01a064381b268620b"
-    sha256 arm64_monterey: "bb3ceda65be93daf1843c193b7ad7bd7f21cfdcffb7c3345c1533ccc2afd9442"
-    sha256 arm64_big_sur:  "85b7813f719f4be660c3e53faa7951473dd61661c80513ef6569783e0539b05f"
-    sha256 sonoma:         "640fd6f21ccd52ce89207103794967d281f036a7762a174097e7871b026127a0"
-    sha256 ventura:        "fe80fac828ea3708ed487e8164a2f5ae1b1dd6de3287f7e5640b2d683fa956e0"
-    sha256 monterey:       "1c7143c88fced456c2a57a1d002464546e24da925492ad08084c20c39c5df8a0"
-    sha256 big_sur:        "c4bdc39b6a3af918b61c2f60264174444d66aa9392bdd75cc433ed0166055399"
-    sha256 x86_64_linux:   "0fc5cae1e9dd2f3d4a50f3dc5fc85c5788f1301489cdeb21dacf8006921e7638"
+    sha256 arm64_sonoma:   "cf8c0e3ae45ac7cf79dd98607d5e782d129d9ac4bc46a4aeecb96eaa4d8cf4b2"
+    sha256 arm64_ventura:  "730603cd47d8652f91f2e2496525057e22cb9db673b492260003ce8dd3239d0d"
+    sha256 arm64_monterey: "dda1077b1462f69230b6f87613bcb48edd139b116a911973bfa587e75a807cd0"
+    sha256 sonoma:         "1ed94d2ac0a812327a7955dafeeb98ae86dad7ffebbcbcb9c7f868bf2ecbe1e6"
+    sha256 ventura:        "04298966651f9a912db27019f23b5dac9e8ace157f7bc54cd45d6fb8ac929f44"
+    sha256 monterey:       "cb79fc69d9f52670c90f7ec9ee0e31088576d7766764ec1174531155b1c97119"
+    sha256 x86_64_linux:   "0f39facf2333ff7b057ce2953567a067fe5425122fae9b4ebed30e5224b30fa8"
   end
+
+  depends_on "pkg-config" => :build
+  depends_on "zstd"
+
+  uses_from_macos "zlib"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -33,6 +37,8 @@ class X8664ElfBinutils < Formula
                           "--prefix=#{prefix}",
                           "--libdir=#{lib}/#{target}",
                           "--infodir=#{info}/#{target}",
+                          "--with-system-zlib",
+                          "--with-zstd",
                           "--disable-nls"
     system "make"
     system "make", "install"

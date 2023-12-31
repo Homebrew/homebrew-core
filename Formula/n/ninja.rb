@@ -24,7 +24,7 @@ class Ninja < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "96fe0b239b3add346f8e4e2ea7e0713018f49f03e684e80706fcf4cba7b24fcb"
   end
 
-  uses_from_macos "python" => [:build, :test]
+  uses_from_macos "python" => [:build, :test], since: :catalina
 
   # Fix `source code cannot contain null bytes` for Python 3.11.4+
   # https://github.com/ninja-build/ninja/pull/2311

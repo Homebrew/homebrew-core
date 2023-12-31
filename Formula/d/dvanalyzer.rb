@@ -46,7 +46,7 @@ class Dvanalyzer < Formula
     end
 
     cd "AVPS_DV_Analyzer/Project/GNU/CLI" do
-      system "./configure",  "--disable-debug", "--enable-staticlibs", "--prefix=#{prefix}"
+      system "./configure", "--disable-debug", "--enable-staticlibs", "--prefix=#{prefix}"
       system "make", "install"
     end
   end

@@ -3,22 +3,21 @@ class Pter < Formula
 
   desc "Your console and graphical UI to manage your todo.txt file(s)"
   homepage "https://vonshednob.cc/pter/"
-  url "https://files.pythonhosted.org/packages/9a/51/804f61e32b6ac5c4e84bcb9c72e748e49cb96940abb97bc823fb747f69b4/pter-3.11.2.tar.gz"
-  sha256 "563bab0ba753da631c968fd0e7de8b203873d70f5205ffcac34ae74ae63322d9"
+  url "https://files.pythonhosted.org/packages/50/b5/316afd6d72266535f854b5e9de3d62e8e14d1989259a7003520b2cf341ed/pter-3.12.0.tar.gz"
+  sha256 "933550d5e4cff8b63509fcbd7e9499c607ebdb9571a0a1d9a5805356bdb7b7fc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "adfed4610d4f20bde1b2b30ea487ddeb090baa2fcdb7912c34b12572353917b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e59a2b5a3ea6ec1cd0cd7667feaa7f2f2edb1e7390ffd110f60e95326379e79"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aba2d0a05dea6640baaf5d2b15ca3dc3f9163aec1bc97cd0f8bca24a8ba5b347"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f3ed2c98b19ebb7354a524fa61b0241964eef372723109899540f9b887a68e12"
-    sha256 cellar: :any_skip_relocation, ventura:        "881e5e83d9a4bb7ac648b9040bb57bba8727c2686d39e9abcd3c4b56c1c13379"
-    sha256 cellar: :any_skip_relocation, monterey:       "18819a0716a8429dda5800b92497b9a803bd68c91d66d98118adcd5ab9f559ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efd38a2e3495e1892471312829f1c4f2e5f00e12ebc4af4585b8056e406bc4e6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43abe511cdec6f5e91e82ec2005a91ccf9e0e2be3c9fad622bd288aa76c32bec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7a76138493bed1fed390c612644c2bb3b5f46144626a70a9f81643fb01b62d1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0bb60401a6083a099057cc99cd2cf66a490aaf626003f768b24bd26153735b8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6cdb8afc583d113a479ee7518d7d34f91ff80c50311ff1829f534d77c8807315"
+    sha256 cellar: :any_skip_relocation, ventura:        "f6cc90d3a759924a87279653e3af71fb78af1f2bac720846e7a8b49bf3f7585a"
+    sha256 cellar: :any_skip_relocation, monterey:       "f14f7c1b0f170a3974f5bb375152d525953bdda591e8c83c1e435679e4fdb0cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ff2a517c16367d798a10da7fb0e5953599c9e491e62ec01a9a88a1291f86dd9"
   end
 
-  # upstream py3.12 support issue, https://github.com/vonshednob/pter/issues/30
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "cursedspace" do
     url "https://files.pythonhosted.org/packages/cd/3b/72657c9e867dd5034814dcea21b1128a70a1b8427e48c7de8b3b9ea3dd93/cursedspace-1.5.2.tar.gz"

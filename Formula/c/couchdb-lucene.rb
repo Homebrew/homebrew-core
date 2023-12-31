@@ -20,6 +20,8 @@ class CouchdbLucene < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d08b00d0ef852160eb6f5fef96f8cc9387b2fa4c29a792cfe9a13ccdf2d690b"
   end
 
+  deprecate! date: "2023-12-13", because: :repo_archived
+
   depends_on "maven" => :build
   depends_on "couchdb"
   depends_on "openjdk"

@@ -1,15 +1,18 @@
 class Karchive < Formula
   desc "Reading, creating, and manipulating file archives"
   homepage "https://api.kde.org/frameworks/karchive/html/index.html"
-  url "https://download.kde.org/stable/frameworks/5.112/karchive-5.112.0.tar.xz"
-  sha256 "27d697a52a5016c16081c6a414b390d96350450d6eeb889d1f463358eeebfd67"
   license all_of: [
     "BSD-2-Clause",
     "LGPL-2.0-only",
     "LGPL-2.0-or-later",
     any_of: ["LGPL-2.0-only", "LGPL-3.0-only"],
   ]
-  head "https://invent.kde.org/frameworks/karchive.git", branch: "master"
+
+  stable do
+    url "https://download.kde.org/stable/frameworks/5.113/karchive-5.113.0.tar.xz"
+    sha256 "2da489460198e4c9aabe4734793c97290ecf08f789160fae639ef40a0bba430d"
+    depends_on "qt@5"
+  end
 
   livecheck do
     url "https://download.kde.org/stable/frameworks/"
@@ -17,21 +20,25 @@ class Karchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ef1a59d9161f912d6f92b01fd330712abb7122c3a989372d17f61bdd10e8a63a"
-    sha256 cellar: :any,                 arm64_ventura:  "0f2041942942186f5fa6f0423e1749e3c29e4372c448f7eb1e9357bcae5c3fe3"
-    sha256 cellar: :any,                 arm64_monterey: "8180e09dc6228d69ce6bf084c8d17d4ae10e65573709b4ba738c186b20ecc1a5"
-    sha256 cellar: :any,                 sonoma:         "19b29d70a0bc1f3e973c785a60b768118663e149c386286be3821d207d877a24"
-    sha256 cellar: :any,                 ventura:        "38536694ffee8b0a138ccaae8bb56ae45a01ac59222b35cf77001fee5f45e9e7"
-    sha256 cellar: :any,                 monterey:       "61a85424b952882d0ad6f7beadcf4524ad6478c931d29fa39b3016fed511cad6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "beb39142f0f7e7898a17c355b44f52b15dff3a74ff6caf14a1b99365c0dd5e44"
+    sha256 cellar: :any,                 arm64_sonoma:   "34c4931a94461a10bc2630405df20ce2a170a098b4fad8df74d288f4fb95f6f6"
+    sha256 cellar: :any,                 arm64_ventura:  "e0c810e268ad0ac4e229e7cd517289a9e045fb7fc40914cc46bb81de34069390"
+    sha256 cellar: :any,                 arm64_monterey: "0d3b6d46bddd0bfcb984c4db7fa10bb08fb97ac8005b67bc96c802ab742ce443"
+    sha256 cellar: :any,                 sonoma:         "2021c923455526fe9e838cdee16d41595d2e986aee06e7732c1bca7403e1ba56"
+    sha256 cellar: :any,                 ventura:        "6ec4474b8608ae49272652b78e2fe633cc0430ef7d4ea2c7c07dab52e7b54c2f"
+    sha256 cellar: :any,                 monterey:       "e7e46377e212e823ca64a44c588117be41ed6278d3356b7bad5db1d2f12c7fce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5f996a7fbee468ac5683b09da5eb1f1e01b56101cbc7b2a29c0047c357aa477"
+  end
+
+  head do
+    url "https://invent.kde.org/frameworks/karchive.git", branch: "master"
+    depends_on "qt"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "doxygen" => :build
   depends_on "extra-cmake-modules" => [:build, :test]
-  depends_on "graphviz" => :build
+  depends_on "pkg-config" => :build
 
-  depends_on "qt@5"
   depends_on "xz"
   depends_on "zstd"
 
@@ -41,13 +48,7 @@ class Karchive < Formula
   fails_with gcc: "5"
 
   def install
-    args = std_cmake_args + %w[
-      -S .
-      -B build
-      -DBUILD_QCH=ON
-    ]
-
-    system "cmake", *args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_QCH=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 

@@ -1,10 +1,9 @@
 class Fltk < Formula
   desc "Cross-platform C++ GUI toolkit"
   homepage "https://www.fltk.org/"
-  url "https://www.fltk.org/pub/fltk/1.3.8/fltk-1.3.8-source.tar.gz"
-  sha256 "f3c1102b07eb0e7a50538f9fc9037c18387165bc70d4b626e94ab725b9d4d1bf"
+  url "https://www.fltk.org/pub/fltk/1.3.9/fltk-1.3.9-source.tar.gz"
+  sha256 "d736b0445c50d607432c03d5ba5e82f3fba2660b10bc1618db8e077a42d9511b"
   license "LGPL-2.0-only" => { with: "FLTK-exception" }
-  revision 1
 
   livecheck do
     url "https://www.fltk.org/software.php"
@@ -12,16 +11,13 @@ class Fltk < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "18647efbd061f3b6d60fdd5cf815c95530b518cb8022ea0e468f5595935b4c18"
-    sha256 arm64_ventura:  "629a76ecd1a0cab83c01e1bf5488d85515f0115c0a1f638b0aa25dbc9f3146cd"
-    sha256 arm64_monterey: "0a4162f4f01767c76acabf13f888dc9a585b3ff72df88545704fad68ce578954"
-    sha256 arm64_big_sur:  "c5e80b820d74af67cdd25a7125b423bbe259930d35507aaabd56b82ebaca0048"
-    sha256 sonoma:         "cb72a7cd0d7bca744aa5d36dee5ffc118c20312721a3789efcd69cb120c5a153"
-    sha256 ventura:        "cce07824ab505a5acc47b5a3db22c3906ca88ab494216dcbba14be7a66e9b51f"
-    sha256 monterey:       "4e35b5a5e6f0c0ef134630be137142aecc42a73ce8d9ee1c1df8c7a478dacb7d"
-    sha256 big_sur:        "604d0e1beb8fb68b0dcf12b83a2209f34c7d0f9d3fc47c3b9b34222c93faa593"
-    sha256 catalina:       "ef38aabd458e85e3cbfb7bfbe1ca96949baad75397a1a4fbb25cdf299a713dfe"
-    sha256 x86_64_linux:   "310ccd7518b730389ca3d5162faa9866fc68d023f84c2c24147c7551b990dc9b"
+    sha256 arm64_sonoma:   "91c7ccb23fdc7ee40d62179d011655dcf4101a524d15378a8eab10b6cdd2479f"
+    sha256 arm64_ventura:  "c5b71477f972a83b169634cda2e0dd9ad1cc7a050c4fc9e7e67e2ef67f9a30dc"
+    sha256 arm64_monterey: "ce76c6264a6b286c50effde7467af19277f3aa6687ea3defb5a73f0152753652"
+    sha256 sonoma:         "b9bb01de6143df249171a3222ac987e5f767e87a917cbde3a94b5f63e481314c"
+    sha256 ventura:        "d3445b029cec2eec979b6b64478c388759c1950cf69d3b0b8ce89aa3711d954f"
+    sha256 monterey:       "f974455eeeebd4968b82146f20259634e5eea0e3f66f93a568cb0526bbadea9e"
+    sha256 x86_64_linux:   "140c36c48ef05474e89989556e188b4993d89a770fd74ad6166f640d5be40872"
   end
 
   head do

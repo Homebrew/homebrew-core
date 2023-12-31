@@ -36,7 +36,7 @@ class Pioneers < Formula
 
     # GNU ld-only options
     inreplace Dir["configure{,.ac}"] do |s|
-      s.gsub!(/ -Wl,--as-needed/, "")
+      s.gsub!(" -Wl,--as-needed", "")
       s.gsub!(/ -Wl,-z,(relro|now)/, "")
     end
 

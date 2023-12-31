@@ -1,20 +1,19 @@
 class S3cmd < Formula
   desc "Command-line tool for the Amazon S3 service"
   homepage "https://s3tools.org/s3cmd"
-  url "https://files.pythonhosted.org/packages/97/10/5ae9b5c69d0482dda2927c67a4db26a3e9e064964577a81be9239a419b3f/s3cmd-2.3.0.tar.gz"
-  sha256 "15330776e7ff993d8ae0ac213bf896f210719e9b91445f5f7626a8fa7e74e30b"
+  url "https://files.pythonhosted.org/packages/b3/9c/ad4cd51328bd7a058bfda6739bc061c63ee3531ad2fbc6e672518a1eed01/s3cmd-2.4.0.tar.gz"
+  sha256 "6b567521be1c151323f2059c8feec85ded96b6f184ff80535837fea33798b40b"
   license "GPL-2.0-or-later"
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "91f0b659fb4a85efc0bbd865a694278147af5bc37960f446ceffece363cf02f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e42ed9a9004c1034c99562b50c7b08db318e640604dc386c67d390733e0adba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f065b2850f549fa8302ee14ecb274a86a3bc2873f3d50cddf9021406ef2d7241"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1f687476bcd81667ec31fc887f73e56f95a9cbaf358384a3ae913898ca97bead"
-    sha256 cellar: :any_skip_relocation, ventura:        "6e0f36edd2ac0d1ca6c8ce7446119ff860f0f4b93c811e57348cba71b555a644"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e598cd94e433bc7e8547567759a72217566a040e3755a0e9279a51699d89f9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdd7df90fc77cc7d971ce8da3d0295b80174948e8e5f6b4548a1294c19c78c42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ba98097521dc3a454edba2847b2e49cab73954e17ef711698085b399ab855b3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "edd6fb636450b1f945071700ed8b57df1648930ce8e7f9647a2e7ea89233a87e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d81fcaafd0e92dcf2bd34dd0946751430f73d8033b91eb97889a21c8a61494c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0e3a127172f90bebda2e5f9fb4b1ee441c1e16a40f8bd4c0e19a772452fb4f32"
+    sha256 cellar: :any_skip_relocation, ventura:        "2b2021a272fa4f350b5112f7f76767511a035077e4de4075201c5c25b19ff995"
+    sha256 cellar: :any_skip_relocation, monterey:       "d589604b97b005e6fb95d2ab17477e56a4b4326e74549ea1d95b4d7607ce74dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5a2c7e35db07eb0e7aa1444d793074183d2078d07c4b4feaea989c7091489c6"
   end
 
   depends_on "python-setuptools" => :build

@@ -28,7 +28,7 @@ class AzureCli < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
-  depends_on "python@3.11"
+  depends_on "python@3.11" # Python 3.12 issue: https://github.com/Azure/azure-cli/issues/27673
 
   uses_from_macos "libffi"
 

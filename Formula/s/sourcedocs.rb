@@ -32,7 +32,7 @@ class Sourcedocs < Formula
     # The following test has been disabled on Mojave until that issue is resolved
     # - https://github.com/Homebrew/homebrew/pull/50211
     # - https://github.com/Homebrew/homebrew-core/pull/32548
-    if MacOS.version < "10.14"
+    if OS.mac? && MacOS.version < "10.14"
       mkdir "foo" do
         system "swift", "package", "init"
         system "swift", "build", "--disable-sandbox"

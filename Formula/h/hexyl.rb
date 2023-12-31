@@ -1,21 +1,19 @@
 class Hexyl < Formula
   desc "Command-line hex viewer"
   homepage "https://github.com/sharkdp/hexyl"
-  url "https://github.com/sharkdp/hexyl/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "a4b3009aa7210f7d80f91d6b01543d1544586c4509247f01e028f1a56781056d"
+  url "https://github.com/sharkdp/hexyl/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "5205fa1a483c66997f5a7179cdd1a277ebb5e0a743bb269a962d20b29dd735f8"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sharkdp/hexyl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24b78a507119069ffea77bea1ba2fd3b001e688bbf4b6354f9ba39eb68f7bc3b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b93fa28a29a7a0c2805eeb8edb4376fb603164271afb86a4c4e4c49b709e86b1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be47c1fb56bedd308995fd3237810cdffe0c7a3082511ec2c26945691ff88027"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8e11d55f97ce14bd95816ab657a5c3c03d3c3d3787ebbe3383cb0926035d64ef"
-    sha256 cellar: :any_skip_relocation, sonoma:         "88478226a05e029721562361d688979feac5f04f96819566c87a85d3f3052d3f"
-    sha256 cellar: :any_skip_relocation, ventura:        "80eceabf20efb94166dd01b6a7806704c37503d3e73e99e600f41559ce968538"
-    sha256 cellar: :any_skip_relocation, monterey:       "7cea9f2c4578595bfb9fbc0774144ef21d1840eaddde29961dba1d936d0f323a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3558dae5138227ee363ccd715fa73a22c9a9bb21804f1d43f84877cf652889f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bb38b2d67aaf522cf2b002eee87af133b0760ede5f18082dbf7013c0e4d52b6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47840f2ffb16fcb2d4a78556a79c00e2cd18d5cbe723c358eaa92b1edf5e7a72"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb8d7ef2f04405b08e996f6a44d5fe934bf762da6406fadef831be353fc7eac9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa4f47a4a455618ec36efd674ce9f34139161d19d013ecf62de726af8fa7cfd1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3e639fa05686f3707032fe01755a2e9a1ef17b3ece0574681f784112981e834d"
+    sha256 cellar: :any_skip_relocation, ventura:        "ffa62bb30bf6d67ca78143753ed9ef5f52dae96bee8f86f331f704ee3c89b153"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b42c01944d81f20cc9e880aecdecd2231f8449907c87fbead6364746a35a6f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9017bafc48b6087ec8b236e3f62906d75ac882d6a5207058e50016048047a6d"
   end
 
   depends_on "pandoc" => :build

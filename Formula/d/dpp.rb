@@ -7,13 +7,14 @@ class Dpp < Formula
   license "BSL-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8200b30a5c22f48a57b405e8ce590e290cffd8f07fbc502b6bb18ecc358bb2f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2ecf24bc0fcff5d4096990f971d4e983bc35d359d312e89123da7d886d14123"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db600cf00396d5916f3ef95dfa5a110fabf4aa1b002104ca00c0a3eb844b3954"
-    sha256 cellar: :any_skip_relocation, ventura:        "b9cad2da102dbb1911107e26b89c57259aa9ea3dee09049e3dcbceb87dc8f7b1"
-    sha256 cellar: :any_skip_relocation, monterey:       "b586c87b08bc7168af973c9ab28f3b61cce69ad71b3274b5032959a0cdb099a9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fefa9a0975985b6a9a7b5df27279df35382f44b091ead310ac898bb0fabc515a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b01ee202e3bf70bb66304fc20566d2140a565daeb65a6f4386babc2fcb065990"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7969f210787e31cf942b1f00f2146e876631d93aff67dc03feb17611640d252d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af3e31ce2aad958fdf07894e5004dbca6b4b0a12ecc54afab388d53021a58816"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b3fe563032fb43cb4c924feb9c81b718047a80f1ea8aecb057203786098e66"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6f340275745bf2313d40b8a68273f885bfcc7c6ca90e313ce26ada3a9db8629d"
+    sha256 cellar: :any_skip_relocation, ventura:        "f309a79d35c6143155f8f4bc19a82d1851520121a80ba8e5c3a83baa9a9e09c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "bc1e96e9d138f332a1a24d3ba39cdfa444b7a9d834e3df558a401492f8765b20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a73c14e28ff376415c7550e127afcdf1b0ed55503c45f3dfcc0a44ee3b068bb"
   end
 
   depends_on "dtools" => :build
@@ -41,7 +42,7 @@ class Dpp < Formula
   def install
     resources.each do |r|
       r.stage buildpath/"dub-packages"/r.name
-      system "dub", "add-local", buildpath/"dub-packages"/r.name, r.version
+      system "dub", "add-local", buildpath/"dub-packages"/r.name, r.version.to_s
     end
 
     if OS.mac?

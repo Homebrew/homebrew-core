@@ -6,17 +6,17 @@ class Pwntools < Formula
   url "https://files.pythonhosted.org/packages/3c/80/18fad749ce87aea82f37b81e5306b21c2f3493b9a3ee01a5b728f9fbfa74/pwntools-4.11.1.tar.gz"
   sha256 "ee19e35fbdb5b7463329c27be51fad11f508e84f5bc4c617504b48e7a18364fd"
   license "MIT"
+  revision 1
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "e7c75f2ec2140ff5b644e3cc0211abd5fc9c6a645a19f1cd3cab3379731dfba5"
-    sha256 cellar: :any,                 arm64_ventura:  "8b39d5cf83e835db9265717f8d9549877384c06130cfb8139c24c14cee20342f"
-    sha256 cellar: :any,                 arm64_monterey: "f838fbf305692a744137b04c5d602f6a44b8f12e35bdbca91a0c1e0e854b2527"
-    sha256 cellar: :any,                 sonoma:         "c3e636c140608b937571a0deb6c6f60930f609ca5681cc303a5bdda34c1684dd"
-    sha256 cellar: :any,                 ventura:        "8dd9187b03d648b8fe00fece4340dc1d170ae515a17837ca41757b1a257d19d4"
-    sha256 cellar: :any,                 monterey:       "caf8b626881ddbb3c18821ae1c79e7f6086abaaded95c676e18333bdad942668"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75294547b521de1c95d14f94bc9c67f99c2b044dd0249b7d207f55241a96000c"
+    sha256 cellar: :any,                 arm64_sonoma:   "c9707f3e0fcfc8a3ad36de332d730df402a6b1ed1acf6df79f6fa32f598dd0f6"
+    sha256 cellar: :any,                 arm64_ventura:  "16ba572a1921b92ed576d0a27835a8d20c81546f75f24f83525fbce7f54b4493"
+    sha256 cellar: :any,                 arm64_monterey: "ba8d6f44d912d2050c8f4dec6c03635b95b9a6897afa7f54e4c8678cc8a2fc4a"
+    sha256 cellar: :any,                 sonoma:         "083dc32a9c1f25ca7edb25742a64102169cae45e3f32e6e1f451fc35a09c6708"
+    sha256 cellar: :any,                 ventura:        "4c70d753f39861907a4a4b6691dccd87ce3bf6cefe329278a011c4c1f82090f1"
+    sha256 cellar: :any,                 monterey:       "0769d7f922344bc54544ba33fc4761e41d0802817815f813a4c5036da4c46c48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a9598b02986b21789542f8072632c489e94afd99986002aa11fcf5648df7a04"
   end
 
   depends_on "rust" => :build # for bcrypt
@@ -40,8 +40,8 @@ class Pwntools < Formula
   conflicts_with "moreutils", because: "both install an `errno` executable"
 
   resource "bcrypt" do
-    url "https://files.pythonhosted.org/packages/8c/ae/3af7d006aacf513975fd1948a6b4d6f8b4a307f8a244e1a3d3774b297aad/bcrypt-4.0.1.tar.gz"
-    sha256 "27d375903ac8261cfe4047f6709d16f7d18d39b1ec92aaf72af989552a650ebd"
+    url "https://files.pythonhosted.org/packages/72/07/6a6f2047a9dc9d012b7b977e4041d37d078b76b44b7ee4daf331c1e6fb35/bcrypt-4.1.2.tar.gz"
+    sha256 "33313a1200a3ae90b75587ceac502b048b840fc69e7f7a0905b5f87fac7a1258"
   end
 
   resource "capstone" do
@@ -60,8 +60,8 @@ class Pwntools < Formula
   end
 
   resource "paramiko" do
-    url "https://files.pythonhosted.org/packages/44/03/158ae1dcb950bd96f04038502238159e116fafb27addf5df1ba35068f2d6/paramiko-3.3.1.tar.gz"
-    sha256 "6a3777a961ac86dbef375c5f5b8d50014a1a96d0fd7f054a43bc880134b0ff77"
+    url "https://files.pythonhosted.org/packages/cc/af/11996c4df4f9caff87997ad2d3fd8825078c277d6a928446d2b6cf249889/paramiko-3.4.0.tar.gz"
+    sha256 "aac08f26a31dc4dffd92821527d1682d99d52f9ef6851968114a8728f3c274d3"
   end
 
   resource "plumbum" do

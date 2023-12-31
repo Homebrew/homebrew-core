@@ -1,8 +1,8 @@
 class OpenapiGenerator < Formula
   desc "Generate clients, server & docs from an OpenAPI spec (v2, v3)"
   homepage "https://openapi-generator.tech/"
-  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/7.1.0/openapi-generator-cli-7.1.0.jar"
-  sha256 "85fab7a4d80a9e1e65c5824bcd375c39ad294af07490609529c8e78a7bda673a"
+  url "https://search.maven.org/remotecontent?filepath=org/openapitools/openapi-generator-cli/7.2.0/openapi-generator-cli-7.2.0.jar"
+  sha256 "1cf0c80de12c0fdc8594289c19e414b402108ef10b8dd0bfda1953151341ab5d"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,7 @@ class OpenapiGenerator < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ee3a68227c47e35513428021bed8ebc4869387909310db99e247932bf20aa4a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ee3a68227c47e35513428021bed8ebc4869387909310db99e247932bf20aa4a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0ee3a68227c47e35513428021bed8ebc4869387909310db99e247932bf20aa4a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ee3a68227c47e35513428021bed8ebc4869387909310db99e247932bf20aa4a"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ee3a68227c47e35513428021bed8ebc4869387909310db99e247932bf20aa4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ee3a68227c47e35513428021bed8ebc4869387909310db99e247932bf20aa4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b553a12e8b41e87d041cec6adb90dfcd0619c7af145fcf4486070a37cc4e00e8"
+    sha256 cellar: :any_skip_relocation, all: "18670cfcb51e06d3f7bf3db2414a0b0698222d17e65a5368814013b76f031979"
   end
 
   head do

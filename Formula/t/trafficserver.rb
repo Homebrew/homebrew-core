@@ -28,7 +28,7 @@ class Trafficserver < Formula
   depends_on "hwloc"
   depends_on macos: :mojave # `error: call to unavailable member function 'value': introduced in macOS 10.14`
   depends_on "openssl@3"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://github.com/apache/trafficserver/issues/8780
   depends_on "yaml-cpp"
 
   on_macos do
@@ -49,7 +49,7 @@ class Trafficserver < Formula
   def install
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
     # is not set then it's forced to 10.4, which breaks compile on Mojave.
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
 
     args = %W[
       --prefix=#{prefix}

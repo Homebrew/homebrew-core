@@ -7,19 +7,19 @@ class Maturin < Formula
   head "https://github.com/PyO3/maturin.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64ec4a89818ab95ba00f13a23997ac689cb9e7ce4ff48b708f680e5fc9ab7dd8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3b54ab4b2ab9f96eb1cf5be316ff10de2363db05f815573d084c9b14dba1058"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "90b9305c1207a4ec2f2a482410b6524bed93d2a972c840a2fc18bbb172a54e1b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d0384fc15d842cc847746e821385faaaf402d95ade060d219eb84c7544899039"
-    sha256 cellar: :any_skip_relocation, ventura:        "4ff77a7e28cb5e129f9dd7ebe23edbd60cac9f98391092ef6a2254ca8d560fa3"
-    sha256 cellar: :any_skip_relocation, monterey:       "00fe92b56cf5f9fd6011a0951a206c9c18a6e377b80494d4add129c38bdcc31a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e710b982773b61be38c52093d0bfc6d5917853140fcead1e5a6e8bd66571902"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e99124d51a6ec4a4bb9db9c9ed752166f96db5e13beec91af73bafb37b7c6eec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "576c43778a992886d46910731d00ce0d54779176dd0dbee4a95461fb40e8e985"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfac9cf098214222e1d3f24b0e4dbc674d1610fe6c3ca79f1a79ae60389daf3f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eabe4489bbd9c1d574ca969563de83acf78ce86453dbd26398ae5b212d2a2c1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "523d98a90b38d5a2db36afee0ff93f174e03d4ac29fa90a1f5c152fc8cfc2338"
+    sha256 cellar: :any_skip_relocation, monterey:       "0057b0c38bc8b148c73b0ca18e03a7d68df5241013149fba7913e1b0bde7eef7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "029bc761cc6ab426e05a0348b7e30661eff5d8449235dffe7342c0bb9141b3a1"
   end
 
   depends_on "python-flit-core" => :build
   depends_on "python-setuptools" => :build
   depends_on "python-typing-extensions" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "rust"

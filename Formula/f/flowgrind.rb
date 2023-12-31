@@ -4,6 +4,7 @@ class Flowgrind < Formula
   url "https://github.com/flowgrind/flowgrind/releases/download/flowgrind-0.8.2/flowgrind-0.8.2.tar.bz2"
   sha256 "432c4d15cb62d5d8d0b3509034bfb42380a02e3f0b75d16b7619a1ede07ac4f1"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,16 +13,13 @@ class Flowgrind < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f60d8edcde8a31eeafca3c30b0b1af02ce4a769166d751af254b313e3543bd2a"
-    sha256 cellar: :any,                 arm64_ventura:  "82a2b71ee222c44ffe3f34d8732e6feb29b8ccb4261551c64ee74705bcb4ae5a"
-    sha256 cellar: :any,                 arm64_monterey: "7a6a9d6cf73f3654f250518d52970c29d71d95480d17d85ae6f3b605e3ed9cd8"
-    sha256 cellar: :any,                 arm64_big_sur:  "79be377bc6cfdc96c5f8bb42d97b91b51e81818894e68151496344b21515bce9"
-    sha256 cellar: :any,                 sonoma:         "571c9241cf37667375cf5ea4b58daf92998635567f7a1a1754ffabe3e9415ed9"
-    sha256 cellar: :any,                 ventura:        "bc919ff7842921cc2def6e3e755f383d847f0632355b14ecfa1bf20e46652a7a"
-    sha256 cellar: :any,                 monterey:       "56cb3352c2793c2e4b74983de804a3d5ceed6fd9ab177c6e2f05a8856e07eb2d"
-    sha256 cellar: :any,                 big_sur:        "148b960d7dea68adf8e076e53af487d83184fd2e71bc225cefb01f253ae282a3"
-    sha256 cellar: :any,                 catalina:       "7c70ce687e46d8445f2e8c440924bdc2f54f8557ec073eaa605b598871b6b1f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c46119269a79cc4b4432ce84f5fe06c104a3617c59f8cd026a19666d01ed4f36"
+    sha256 cellar: :any,                 arm64_sonoma:   "9d67573534b44e82d9e3b6cb7dd4f01f8262b186b881451f7e93345c48da3e26"
+    sha256 cellar: :any,                 arm64_ventura:  "32ae737968e3ec8f7ff3050fdaa05997f577449240eebcce04c167ed2d8ee8ca"
+    sha256 cellar: :any,                 arm64_monterey: "a3b2153eabe2aa604c8f76f65f024519aaa92ae3de4c9370ac51eb2aa1df503c"
+    sha256 cellar: :any,                 sonoma:         "225e6711feb00d2a0d4de72c90159bc6c3fd5431395bb701b3306788c7c262ac"
+    sha256 cellar: :any,                 ventura:        "23d78af4f75a7f5b38fd0a9ae386b0aed5fb3a402b2eebeabb0adb2ac2612807"
+    sha256 cellar: :any,                 monterey:       "9f9ceddf04bb8ea8fdc22217b47a3ee2a52c4cb1125e32840d4cceaabe9503ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79a7c1035ff844d84e19db85437fcb71458dbb11da7daca67aad5290d6a2d28d"
   end
 
   head do

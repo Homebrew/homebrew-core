@@ -6,13 +6,14 @@ class Lowdown < Formula
   license "ISC"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "255c337ab676dffb3ef9b340b4d068e24b6b872f0f8c7f8f97849ce75ca8a4bb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4f1b67c96014feb0f6491d5082d455e6d35efda11153235f9ed2e8cdc05e2b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "80ac7b1a9025db2dfbeab480863f5a4f078e9915825eae09443138ef5f164251"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17472061e49483d9c4e756a57ded3ffa838a3222ce507f78aaf28a8c0374db66"
-    sha256 cellar: :any_skip_relocation, ventura:        "48ae3bf827b706dc7db75d2203a636eb6bbdfd7a6172a7c851a34db93c67629b"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb6ec656e57b50f3b7486fd31bd08f5b227b7eb4c11c18b48c2572feb705510d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f28e7aa9a05b850a201e2c9869d0f970314ca095b0d72a1f32c3fb95502e8c0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "9064bbd0e8bdcd10df4f8a1d3f8bdcd27a6224b82731e847983039ca51d3e499"
+    sha256 cellar: :any,                 arm64_ventura:  "dd24024c11c3428f24dd59166bd50fc789f3772bdd6bf9240f2fdf78b06a8ba2"
+    sha256 cellar: :any,                 arm64_monterey: "a4bce83c1f08f75c32fcf579793df1a50394d864b33021ecf70db2e4411a2efe"
+    sha256 cellar: :any,                 sonoma:         "2f0b741ea7d64e05661184e180eed830debd898f51ec19a64b566476c8267743"
+    sha256 cellar: :any,                 ventura:        "d31e6f38b70f15eac77f125317f07ec82d77130093e6519d651bfd37bf4a9293"
+    sha256 cellar: :any,                 monterey:       "dae8c835158aed0264c27acc70ce419adfa26854b997700335ce89444d47c58b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c31000c8f9ff4b60b2ba703ea57231d11bfe0ad774eba558aac98c2a7aaee474"
   end
 
   def install
@@ -26,7 +27,7 @@ class Lowdown < Formula
 
     system "./configure", *configure_args
     system "make"
-    system "make", "install"
+    system "make", "install", "install_libs"
   end
 
   test do

@@ -1,19 +1,19 @@
 class Nfpm < Formula
   desc "Simple deb and rpm packager"
   homepage "https://nfpm.goreleaser.com/"
-  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.34.0.tar.gz"
-  sha256 "0ab290538866352d8b13a18f211dfabe6af1bf02addec87b234ee580ace70e65"
+  url "https://github.com/goreleaser/nfpm/archive/refs/tags/v2.35.1.tar.gz"
+  sha256 "bbd4cfe503c78ee1be15d82e29cec52ab62ac88e18ac934dfb6ecee404d6fe13"
   license "MIT"
   head "https://github.com/goreleaser/nfpm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb3994f57fb0f710b404dbe85e18cd8432a7c853cc8004f5d009ebeef6287812"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f787f2709f341646f369c505b2a2e48f60a26dd9a3dc0b8660c26121ee9c27b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d614b910d1a2d0dc2ab23cce967fce8decb1c2c70009f4090c893b3e6a212801"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bbdb9d4c99a9c34429b5c34c2b1df7064c22b3fcb086bf66142483ff29e04cae"
-    sha256 cellar: :any_skip_relocation, ventura:        "7aad7ebe8f5c72f374fc03dc6fe5b0488a6c6986ddfa2a225d389d7b96f77458"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe2fce66116bb7fac5704ca39742ed2f9c0ccab592ba13d340916af5001f32eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a19a17bcc59aa98dc14a4b129308f83f7a0f200f4eff9af3e095a9c1733a2035"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5e9bbc9c7def1776d587192a4f6be150e943e0c6891b7795dfad814e8bfd5b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c36ed549f681f70fdfe13213564f2a4aa133860ed84b9b482765be64040b101"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b5a0d33b8d2fe58a738a63aa0915e801d1d38cd260835a468cb67eedf1bc45d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "31effe258d3bc6fd6071ab37904ae7d9f49f6ff8bde293a6a2f5bcad67590d59"
+    sha256 cellar: :any_skip_relocation, ventura:        "96bdd0fda1b14b6bc86d2c29d0c8fe3b9c8f0fff473175410b919e6864d6050a"
+    sha256 cellar: :any_skip_relocation, monterey:       "15681a555b37b20a752012a39f15744951374677626498629a777d2749efe334"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f1d7d4e7ef6a580c13e3cd5c5b26dc4bb6afd09ebdb16834a778efca473832a"
   end
 
   depends_on "go" => :build

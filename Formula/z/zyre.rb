@@ -7,6 +7,7 @@ class Zyre < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "11ad219ac17051fbf7f1799a4dc8c371ab861a925639953c42a6879433210a38"
+    sha256 cellar: :any,                 arm64_ventura:  "1bb9b571c0bc0c5026e0fc411f34f3dd3669c9366e83c7a10ccb64ad039b013e"
     sha256 cellar: :any,                 arm64_monterey: "97e9c9802ff4f1e0b329da1cbe426647bc55af13990e27e03e80dbd13e4a4838"
     sha256 cellar: :any,                 arm64_big_sur:  "3b1d36e1f9441e338916cbc75e8701386fbeaa4c23a231061c4d6d08bc35a3f1"
     sha256 cellar: :any,                 sonoma:         "5c6bb1deeeaa92251d717d7243e579f912073e0057b1880f793b1def41cd6b7c"

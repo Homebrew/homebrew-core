@@ -9,6 +9,7 @@ class Ubertooth < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "c8d773cb01afc9a71bcf1ba55f370d88da7fd34ba48f318d1d3c61ff18e0d35a"
+    sha256 cellar: :any,                 arm64_ventura:  "b34510a1d4e958346f4091110fcb555cdd7127857ae92aaf09f7cdfb364c1b08"
     sha256 cellar: :any,                 arm64_monterey: "2fc607947bb5299bb3a4ae6e598db9d9f381bea18763c0b1375bb65217467ed0"
     sha256 cellar: :any,                 arm64_big_sur:  "bc55cb49599e7d93d33472d76f0a77d189baa107849aacf6d50802fa90124e52"
     sha256 cellar: :any,                 sonoma:         "4b28821ae71ac8a5bb32fffa5ff8ae0e0a86c31e5868c7f05bd43bd92757d389"

@@ -1,31 +1,24 @@
 class Lsof < Formula
   desc "Utility to list open files"
   homepage "https://github.com/lsof-org/lsof"
-  url "https://github.com/lsof-org/lsof/archive/refs/tags/4.99.0.tar.gz"
-  sha256 "27fca13b6a3682114a489205a89d05d92f1c755e282be1f3590db15b16b2ed06"
+  url "https://github.com/lsof-org/lsof/archive/refs/tags/4.99.3.tar.gz"
+  sha256 "b9c56468b927d9691ab168c0b1e9f8f1f835694a35ff898c549d383bd8d09bd4"
   license "lsof"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a283d7620cf6abbf47985a4303eacd1b802f176762afdc9e5dcc3d157ab4eb5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5ac764fc32b8ae7e66cbfa60d55d66e75d5ab6c92b95a63499a2dee8d5aeab06"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b99f7fea72c46c93f3a78be27181f77c13672be9ee4220a070a7da0caaf12ac"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ebc72026b680c2419acbabbb5d87563852af08604192b9d171466960ad4ad518"
-    sha256 cellar: :any_skip_relocation, ventura:        "562132d5ba00c3cf726c4f3c45f478201dd9c436815bf83945a5905c0e45bce7"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a90ccc7f96bf216cdc4701310338e57714b631e37057ee2061f8ef3d4fc85ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b86358f2141c7a4edf4ce28af7abec22985e429a8463e842fc02a43b99e834d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16ebd7a5811316080caab9d8c4a78edaca53b03a99cbf5f097374276ec765cad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7dfd73c75338d29b2ca1200367012c71ff4c0f60aa209f646f18f37b467928bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5133599dd0cef604aa86392ce6127abb0a25b27502b6de91df7a194fa5fb7b6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ea99d238b7d54109b44bb497170ac2b7f137c8a44e93d5b683e1f46013ea707f"
+    sha256 cellar: :any_skip_relocation, ventura:        "da2c7415df80ffc5bed01cb5e89c60018da1ce5723daf110fb0ae08df56df32c"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e9f173fd9e746145c3d9a00c6a233a0c3b17a7c3d079ddf831d739924df99f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f1de8814554f973dc04ccfde44d4b685b35957984566d4ae82d8f8dce58e22d"
   end
 
   keg_only :provided_by_macos
 
   on_linux do
     depends_on "libtirpc"
-
-    # fix argument mismatch for gethostnm
-    # upstream PR ref, https://github.com/lsof-org/lsof/pull/298
-    patch do
-      url "https://github.com/lsof-org/lsof/commit/5aebb5fd63372ddf6cb3fdc84b3b6afe67e738f2.patch?full_index=1"
-      sha256 "3878a9360cb426a1c2b3902beb585017d2991fd1e498f770a59a8aa6eb0e6cf3"
-    end
   end
 
   def install

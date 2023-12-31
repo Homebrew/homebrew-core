@@ -42,11 +42,12 @@ class Djbdns < Formula
     (buildpath/"conf-home").write prefix
     (buildpath/"conf-ld").write "gcc"
 
-    if MacOS.sdk_path_if_needed
-      (buildpath/"conf-cc").write "gcc -O2 -include #{MacOS.sdk_path}/usr/include/errno.h"
+    usr = if OS.mac? && MacOS.sdk_path_if_needed
+      "#{MacOS.sdk_path}/usr"
     else
-      (buildpath/"conf-cc").write "gcc -O2 -include /usr/include/errno.h"
+      "/usr"
     end
+    (buildpath/"conf-cc").write "gcc -O2 -include #{usr}/include/errno.h"
 
     bin.mkpath
     (prefix/"etc").mkpath # Otherwise "file does not exist"

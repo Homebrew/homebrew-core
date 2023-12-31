@@ -6,15 +6,14 @@ class Miniserve < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a06d3bbd083265b43492611113c428a15663352a8c699fc98e4eca985ca1ee3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f1e8c5fcef4ffa4c4dab44897542c4d9eef5adb9934402e29ddfb31585a7c19"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5683a1a1d809cbb4451a658e455f53a7fd46f4618210319924fee7847c143e01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "59dbf3c56ca993da67b46e546e57b0dd122de3fd52582523ef11b9680cc91856"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1a5ad2c68cc235dea886014a7a5c20f9db349e955ef21f7864f0df14ef56df72"
-    sha256 cellar: :any_skip_relocation, ventura:        "bc95fff0bd91a853a0403e38bfc498f3fa5ae94e03a592d3692df3035170567c"
-    sha256 cellar: :any_skip_relocation, monterey:       "8733c71e2feb2472a0cab6a5f1e3bd8eefca951d80938778abfc3e7760b0f24c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d4609872ffc2855603525af721bdf24b99a3319a02119aa9e80c792d0bf78383"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "174134cc5de910a9840a7b080e773760579c6a92af6519daeb37f7a8173123f6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "10eaf772ec667da85603faae3841fd1c97f8abd71c69e36f8437713df106a472"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "266db94d57f71db517a095c477b11f7b1edb2422b25449cbaef3be4b8b28ebb1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02244c2ca9c29060a039135a197186072aab8e19e9d6cc3c5d7583637afa0078"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f9f51d601be25ef87759d99b22f932ad3140f9eaf3cffb73ab6d51e3a266bc6f"
+    sha256 cellar: :any_skip_relocation, ventura:        "7de15afe3f05768643bd4fe97c311b354814f6fd2d2193b008d22e7224248ad0"
+    sha256 cellar: :any_skip_relocation, monterey:       "e970a5810f2493527b9a7ff8b436ab2419773cf0acb5a7886ce4d4276ab8edcf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6bc5dad231955be58d5f78e97ea27bd63679bc50da763124bb1415c8770c23b"
   end
 
   depends_on "rust" => :build
@@ -23,6 +22,7 @@ class Miniserve < Formula
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"miniserve", "--print-completions")
+    (man1/"miniserve.1").write Utils.safe_popen_read(bin/"miniserve", "--print-manpage")
   end
 
   test do

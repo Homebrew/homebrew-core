@@ -24,7 +24,8 @@ class Classads < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "21874caebbec12fa4ee41c6f4830146dc725dfec2658b8c08eb02dc7d2585583"
   end
 
-  depends_on "pcre"
+  # PCRE2 commit ref: https://github.com/htcondor/htcondor/commit/b7d84f79384dec9c500611afed87d71d77148176
+  depends_on "pcre" # PCRE2 needs new release. Upstream fix in HTCondor requires new CMake build system.
 
   on_macos do
     depends_on "autoconf" => :build
@@ -33,7 +34,7 @@ class Classads < Formula
   end
 
   # Allow compilation on ARM, where finite() is not available.
-  # Reported by email on 2022-11-10
+  # Different fix upstream: https://github.com/htcondor/htcondor/commit/ae841558fcffa4cad12f019975292ad27b917f47
   patch :DATA
 
   def install

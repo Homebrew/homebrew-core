@@ -1,8 +1,8 @@
 class Xray < Formula
   desc "Platform for building proxies to bypass network restrictions"
   homepage "https://xtls.github.io/"
-  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v1.8.4.tar.gz"
-  sha256 "89f73107abba9bd438111edfe921603ddb3c2b631b2716fbdc6be78552f0d322"
+  url "https://github.com/XTLS/Xray-core/archive/refs/tags/v1.8.6.tar.gz"
+  sha256 "d828296c9f29f9e59a61ab73d44f072ab2a30fe979679e39aea43b33ddb7d6bf"
   license all_of: ["MPL-2.0", "CC-BY-SA-4.0"]
   head "https://github.com/XTLS/Xray-core.git", branch: "main"
 
@@ -12,15 +12,13 @@ class Xray < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c45b0f75590bbf231508f07dd6e21c603206ea595589c41bf70b841232e3d2e6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88c6074eeafa8f89e58c51bbd7325faaab9bce2003e6856958bb33f0ed570fc3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b6a3e15ea99c4ac4701d3ea08c3681325c11572f3dd7f8039ea8c0b9ddf7d27"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4d7d5700cd773731f28f11ed293ee53e1cfa694f72290ae1dad86508f01af94d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1f23bfab85e5ba639a2cd2f949b8ff9b4141cc0a800c32c0f3004d80db932c79"
-    sha256 cellar: :any_skip_relocation, ventura:        "ff889d4a2cdc1b94111ce29437236ee1b3621897ee963922b34d5fb19c5bfe95"
-    sha256 cellar: :any_skip_relocation, monterey:       "188d740801ee78460ddc0f6fe17f067b8c9c5b15bd03866a757bb160907ea6ed"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0237fb0565cb82e311288d24f149731ffb9e8e2fd9fbdb238ea05e7c967eccb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48e5ec5166a75795baa3ae51bcf6d94eec65f3585cd2214b2c0b7c79b28e477c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "067ca1d7c4c56340daedd7cc0a05c266f7ff5c25051327d039d3adf17d3f47b9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a64e8beb3b11d4940e9add0c300808f15724687cb5748d74b5555c4bbcc1ba70"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12d3b6ee47cdc55d08b4fa9d00f4311242302c360fd81787fc6c53640567df30"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1304e8695d57415c3bfedd9c453cc1fb56779eb24957621b5a757fe6227c4b73"
+    sha256 cellar: :any_skip_relocation, ventura:        "4997b512ef5cf0c1d8c9ee9097a1bd1e94dfc99e0296b69a41fe943450a1eed9"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f48c67aaef77b31792dc66d12c96ab82bb2ac9ca5b84d7e8a2883cccbc94233"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a57347c5ed836f10707118c0b5ab39f5e54d7e83ad528e5355770791982cab5c"
   end
 
   depends_on "go" => :build

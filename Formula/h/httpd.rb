@@ -47,13 +47,14 @@ class Httpd < Formula
       s.gsub! "${datadir}/icons",   "#{pkgshare}/icons"
     end
 
-    libxml2 = "#{MacOS.sdk_path_if_needed}/usr"
-    libxml2 = Formula["libxml2"].opt_prefix if OS.linux?
-    zlib = if OS.mac?
-      "#{MacOS.sdk_path_if_needed}/usr"
+    if OS.mac?
+      libxml2 = "#{MacOS.sdk_path_if_needed}/usr"
+      zlib = "#{MacOS.sdk_path_if_needed}/usr"
     else
-      Formula["zlib"].opt_prefix
+      libxml2 = Formula["libxml2"].opt_prefix
+      zlib = Formula["zlib"].opt_prefix
     end
+
     system "./configure", "--enable-layout=Slackware-FHS",
                           "--prefix=#{prefix}",
                           "--sbindir=#{bin}",

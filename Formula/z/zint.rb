@@ -1,8 +1,8 @@
 class Zint < Formula
   desc "Barcode encoding library supporting over 50 symbologies"
   homepage "https://www.zint.org.uk/"
-  url "https://downloads.sourceforge.net/project/zint/zint/2.12.0/zint-2.12.0-src.tar.gz"
-  sha256 "bf0a221b798abce65f48b003c0a23fa2fb184f5d35abd0eacc67d091aa9ac4bf"
+  url "https://downloads.sourceforge.net/project/zint/zint/2.13.0/zint-2.13.0-src.tar.gz"
+  sha256 "0e957cf17c3eeb4ad619b2890d666d12a5c7adc7e7c39c207739b0f4f5c65fa2"
   license "GPL-3.0-or-later"
   head "https://git.code.sf.net/p/zint/code.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Zint < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b1b3b176a641cb49f6db10ea871b851dbbc105d4ac719bab2af08f050531c42f"
-    sha256 cellar: :any,                 arm64_ventura:  "d89c9e5f12e807affc8246832cf6fc09b9142686f1e2b98a094056c7e18393e7"
-    sha256 cellar: :any,                 arm64_monterey: "10a1e211d546ef3e6399a3bb9792463581eeb5d4173367ee10bba468d96557ef"
-    sha256 cellar: :any,                 arm64_big_sur:  "b652ea342bec05e42f8a6c57b34e0832d2b0398be2c4a516f92afb5ba9c5da84"
-    sha256 cellar: :any,                 sonoma:         "d628b76306e8d2629c2689afa88561bb259ff5ceb30e71e48218dc3564ea31c9"
-    sha256 cellar: :any,                 ventura:        "6762ce448cfe022f44e0e11e508d988a135df4ab67ae07f3a02b16e104098912"
-    sha256 cellar: :any,                 monterey:       "3c55cabca38ac6e88e80d829590932059e2712c89518929da281526f10e5cb27"
-    sha256 cellar: :any,                 big_sur:        "2c3ffef826c78424b147a0cc40c62b4161b6a5470de6794caacbdb02460d3fef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ee703a2ed639d7bcc32ac6d4c46e749585fd24b51f53126db3e09fbcf23076c"
+    sha256 cellar: :any,                 arm64_sonoma:   "6fa2b89bbdb82d0a6beb39c37a3e449c16ef001d061afa494c88a214fd8202b9"
+    sha256 cellar: :any,                 arm64_ventura:  "84bd1d082df48a9534db60ec62c89125078019740ca2c5e19f099e8d69b86e81"
+    sha256 cellar: :any,                 arm64_monterey: "3007752c499d7ec86f7ead26a836e244416e47fecdfa89e77b03e88259a1f550"
+    sha256 cellar: :any,                 sonoma:         "0fb9b4f458c89f1f724f5db0878054a7f437251cd206ba9dbbf0524e2e20d354"
+    sha256 cellar: :any,                 ventura:        "2e8d222257114885ee73d6f52a47631e6127c377c673fdfa68e7c38502d55a45"
+    sha256 cellar: :any,                 monterey:       "6b897319d57452f86775c339d286d1f0be09734eaf548e1b92964a1b2e2465c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "327b6d35b49ace62afa69f3e57d79d14ffb288d8a59bd79a678395ff83c68fec"
   end
 
   depends_on "cmake" => :build

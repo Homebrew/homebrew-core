@@ -8,25 +8,26 @@ class Ppsspp < Formula
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "47743b26e05da06f873cfc04140c7b06fa05e4d2878b177bbce19695e9990693"
-    sha256 cellar: :any,                 arm64_ventura:  "477f6c0718844fe2bee283824073b18fff2c7f4c0deecafb4a1a852f4402ab1a"
-    sha256 cellar: :any,                 arm64_monterey: "b74129bc74e529fe429de60955418b48bf11478d06c42435b88b103cd0de7143"
-    sha256 cellar: :any,                 sonoma:         "22bfd4e83895801d990cc5d54245437dfcc3d9b90cd457c3390623965fbdb290"
-    sha256 cellar: :any,                 ventura:        "17545beac5230b6d3e25496b70bce39df3b1fe0c9117055f90d40dff044c0256"
-    sha256 cellar: :any,                 monterey:       "644a686a432655322b4a3bbf528519849e2110ea91600164996caadfc0830e03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5777f180bccc80ae3d8707f70d97c026def886899528bb52c15e7f67c90da634"
+    rebuild 1
+    sha256 cellar: :any, arm64_sonoma:   "80337bcb1b699f7c2822631f52900c7a649e67f39a9871a7f36cdf3f42b4eabf"
+    sha256 cellar: :any, arm64_ventura:  "32ee9583c47c723f6e6a7a5a6f1279a642c883402346ee67bad02981f42cf446"
+    sha256 cellar: :any, arm64_monterey: "b0060b9aed24cfafbb86105a7aee37a60f2fb0666741c6a4f5dc73d6b18faf89"
+    sha256 cellar: :any, sonoma:         "c28609ec92daaf908066ea62972fb1b60ad8f639fe5e5a6aa62b5a41987f5ad2"
+    sha256 cellar: :any, ventura:        "41400e20be77c61aeaa1a3f05e4660333d9e6dab9d065d386aa28a06bdfe06d1"
+    sha256 cellar: :any, monterey:       "96c7e13afc89d4ae874fe4fa10bc7bd367854b40449eccfe6436019804e4bb19"
+    sha256               x86_64_linux:   "8f0c561bcf2016ffee38645ed3826f06822494ea9644ca82f5a874f4dff0cbf1"
   end
 
   depends_on "cmake" => :build
   depends_on "nasm" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "libzip"
   depends_on "miniupnpc"
   depends_on "sdl2"
   depends_on "snappy"
   depends_on "zstd"
 
+  uses_from_macos "python" => :build, since: :catalina
   uses_from_macos "zlib"
 
   on_macos do
@@ -63,32 +64,31 @@ class Ppsspp < Formula
     (vulkan_frameworks/"libMoltenVK.dylib").unlink
     vulkan_frameworks.install_symlink Formula["molten-vk"].opt_lib/"libMoltenVK.dylib"
 
-    mkdir "build" do
-      args = std_cmake_args + %w[
-        -DUSE_SYSTEM_LIBZIP=ON
-        -DUSE_SYSTEM_SNAPPY=ON
-        -DUSE_SYSTEM_LIBSDL2=ON
-        -DUSE_SYSTEM_LIBPNG=ON
-        -DUSE_SYSTEM_ZSTD=ON
-        -DUSE_SYSTEM_MINIUPNPC=ON
-        -DUSE_WAYLAND_WSI=OFF
-      ]
+    args = %w[
+      -DUSE_SYSTEM_LIBZIP=ON
+      -DUSE_SYSTEM_SNAPPY=ON
+      -DUSE_SYSTEM_LIBSDL2=ON
+      -DUSE_SYSTEM_LIBPNG=ON
+      -DUSE_SYSTEM_ZSTD=ON
+      -DUSE_SYSTEM_MINIUPNPC=ON
+      -DUSE_WAYLAND_WSI=OFF
+    ]
 
-      system "cmake", "..", *args
-      system "make"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
 
-      if OS.mac?
-        prefix.install "PPSSPPSDL.app"
-        bin.write_exec_script "#{prefix}/PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"
-        mv "#{bin}/PPSSPPSDL", "#{bin}/ppsspp"
+    if OS.mac?
+      prefix.install "build/PPSSPPSDL.app"
+      bin.write_exec_script prefix/"PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"
 
-        # Replace app bundles with symlinks to allow dependencies to be updated
-        app_frameworks = prefix/"PPSSPPSDL.app/Contents/Frameworks"
-        ln_sf (Formula["molten-vk"].opt_lib/"libMoltenVK.dylib").relative_path_from(app_frameworks), app_frameworks
-      else
-        bin.install "PPSSPPSDL" => "ppsspp"
-      end
+      # Replace app bundles with symlinks to allow dependencies to be updated
+      app_frameworks = prefix/"PPSSPPSDL.app/Contents/Frameworks"
+      ln_sf (Formula["molten-vk"].opt_lib/"libMoltenVK.dylib").relative_path_from(app_frameworks), app_frameworks
+    else
+      system "cmake", "--install", "build"
     end
+
+    bin.install_symlink "PPSSPPSDL" => "ppsspp"
   end
 
   test do

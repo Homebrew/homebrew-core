@@ -2,18 +2,19 @@ class Aom < Formula
   desc "Codec library for encoding and decoding AV1 video streams"
   homepage "https://aomedia.googlesource.com/aom"
   url "https://aomedia.googlesource.com/aom.git",
-      tag:      "v3.7.1",
-      revision: "aca387522ccc0a1775716923d5489dd2d4b1e628"
+      tag:      "v3.8.0",
+      revision: "b681eac83963950afc7be55df56c22fa5210aaa2"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "946483b81ee33bc693032645a9a2154e3fcdbbec24de90013412ac830572a5ec"
-    sha256 cellar: :any,                 arm64_ventura:  "bf89d707f510cebaa7c1870b428e27133b22625d7439f370c549114754335283"
-    sha256 cellar: :any,                 arm64_monterey: "914c864fc1447186de3a91927b8b377d085978f12dd64cc854ae13baafd61ec5"
-    sha256 cellar: :any,                 sonoma:         "6608175780bcc0054d2e21a806b87dccb5a82d16758f579a0952ae8cf382093a"
-    sha256 cellar: :any,                 ventura:        "64f087cda597045332186b63709ccbb5493410ece64a394a1f7c280bdd52960d"
-    sha256 cellar: :any,                 monterey:       "6d1f884b00adc0f0211389cbd833646f7f63aa601cf3bc08b2897ba646ce8dcf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a3902c4050abd55fbe5a296724577a41a50b0684e41fdd6e30a7fdfbe4749dd"
+    sha256 cellar: :any,                 arm64_sonoma:   "01f8e59744fa29cae72a1e0772ce380a5d9d66e5bdbaf81292494291d9569216"
+    sha256 cellar: :any,                 arm64_ventura:  "f37d0d91a32ddc56289b0cd6634e652b9a1fa35b5ff89a0ab16c7efce4920ec9"
+    sha256 cellar: :any,                 arm64_monterey: "e418f6594bf193d011347d2469168f1e8ff253a0ae899b40a7c2947bfa036925"
+    sha256 cellar: :any,                 sonoma:         "f813e7d7f925eccbbf429c1122db2600faecdf0314eed94736388992448c9abd"
+    sha256 cellar: :any,                 ventura:        "182c0a4a1d2652113072287becd4b1c5d87fd67958bd8cf600049b23d66d072e"
+    sha256 cellar: :any,                 monterey:       "0692b9f3cdd421e7aae051f571ccaae5f78c05fd6e8a1fc2b09c49c7fa9a6c52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "156f20d4404ee11bb294bb48ea553ba866a5bf8fb674b86f1376fc88470e5117"
   end
 
   depends_on "cmake" => :build
@@ -45,7 +46,6 @@ class Aom < Formula
       "-DENABLE_TESTS=off",
       "-DENABLE_TOOLS=off",
       "-DBUILD_SHARED_LIBS=on",
-      "-DCONFIG_TUNE_BUTTERAUGLI=1",
       "-DCONFIG_TUNE_VMAF=1",
     ]
 

@@ -3,19 +3,19 @@ class Toot < Formula
 
   desc "Mastodon CLI & TUI"
   homepage "https://toot.bezdomni.net/"
-  url "https://files.pythonhosted.org/packages/f9/ec/5648267071f8289d85ffc61f7aabb71ed9a1bc4aabba267c1e4ccd5b0248/toot-0.39.0.tar.gz"
-  sha256 "b359d47713de1440eea606a577e89c1fd63bba3a7797edad2fddc48447660819"
+  url "https://files.pythonhosted.org/packages/29/97/0236003166ad1e148964104e7d6346a99b687f105bfba84e855043e1dafc/toot-0.40.2.tar.gz"
+  sha256 "4c4468e30609cb899a15ef33ce3b06dbd0f45f5a1a93e8e3a49c87140d176922"
   license "GPL-3.0-only"
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9781bef6cc67c4c07fc2664f6550fd29fe808f2579bd939b68e9d35f13ef9514"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7954eb724882c83744e101c7d4925544e3bb9f9ff4f32cad02ef89d66a9bf3c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "307b8da5b5b7b3d14f274de37e8a34cfdc1404c68694c4a7de19fbd1d9e3f2fa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a9aba46aa68102f18343dd12a6c9a66cb29b4f8d588b50977d4d380301b3a0d8"
-    sha256 cellar: :any_skip_relocation, ventura:        "55422a9de73c27f9cd9312579156894963b755b1efac746d6f2ef1d8c2740bf6"
-    sha256 cellar: :any_skip_relocation, monterey:       "02f5c31c0db42f96088f07de0061856947723faad79c672be4de555707459497"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa41ae17acfbf8faba57faf581149f191009f2a5ee70d7e77722e6bc7aa4fb49"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "15f983c5ee70eb0d3f6a4c88befa7283fad96ca646d565595fc9ed758c9a63d2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48a24699f657b2be605e7e8bf57f086aba80bb50ef856146d57f7517628d2aff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3255626ebfecc798e9dd9c1276f7575e8847b90e58f2f0d314e664661476d6b0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b691b5d638a70bdef966dd4f60fbf4788c320a7b90470c3a20f79c44183fa47f"
+    sha256 cellar: :any_skip_relocation, ventura:        "050afc886b5208e35eeddc9c659bbc32f95fa99249e67978c52fe224876df691"
+    sha256 cellar: :any_skip_relocation, monterey:       "cd0e9e6b65c9b416353618acd65ae46fb333b27e087f59991b4e8f5a61d07d25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32fad6324e4963700d0c1ccaa5e03637c62b2e14af8c5191c32e4191dadf14c6"
   end
 
   depends_on "python-certifi"
@@ -31,9 +31,14 @@ class Toot < Formula
     sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "requests" do
@@ -57,8 +62,8 @@ class Toot < Formula
   end
 
   resource "urwid" do
-    url "https://files.pythonhosted.org/packages/81/f4/fa6da5de99e11e60d826567609eaa815146f835285a26f6c0f61e6015e2c/urwid-2.2.3.tar.gz"
-    sha256 "e4516d55dcee6bd012b3e72a10c75f2866c63a740f0ec4e1ada05c1e1cc02e34"
+    url "https://files.pythonhosted.org/packages/97/52/0f9b7a2414ec1fea3aff598adffb9865782d95906fd79b42daec99af4043/urwid-2.3.4.tar.gz"
+    sha256 "18b9f84cc80a4fcda55ea29f0ea260d31f8c1c721ff6a0396a396020e6667738"
   end
 
   resource "wcwidth" do
@@ -71,7 +76,7 @@ class Toot < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/toot")
-    assert_match "You are not logged in to any accounts", shell_output("#{bin}/toot auth")
+    assert_match version.to_s, shell_output("#{bin}/toot --version")
+    assert_equal "You are not logged in to any accounts", shell_output("#{bin}/toot auth").chomp
   end
 end

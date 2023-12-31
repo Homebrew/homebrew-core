@@ -14,11 +14,12 @@ class Payara < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "62f66e1b0070d56b25d7917bae9109296be0ed78731974f85f9a0a6e4514a209"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "41672c6e17f64a43421e35ba4ceb182272cfa8bfbdb0b9a2edfa26cbff837342"
   end
 
   depends_on :macos # The test fails on Linux.
-  depends_on "openjdk@11"
+  depends_on "openjdk"
 
   conflicts_with "glassfish", because: "both install the same scripts"
 
@@ -31,7 +32,7 @@ class Payara < Formula
 
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env("11"))
+    bin.env_script_all_files(libexec/"bin", Language::Java.java_home_env)
   end
 
   def caveats

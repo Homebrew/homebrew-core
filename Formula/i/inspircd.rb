@@ -1,10 +1,9 @@
 class Inspircd < Formula
   desc "Modular C++ Internet Relay Chat daemon"
   homepage "https://www.inspircd.org/"
-  url "https://github.com/inspircd/inspircd/archive/refs/tags/v3.16.1.tar.gz"
-  sha256 "cee0eca7b0c91ac0665199fdfb8ed4edb436a08b8b850b35e19da607c102aec0"
+  url "https://github.com/inspircd/inspircd/archive/refs/tags/v3.17.0.tar.gz"
+  sha256 "181de90130e11a26ec107fcb6b74005cbce3051b89b500347e416054e29c3166"
   license "GPL-2.0-only"
-  revision 2
 
   livecheck do
     url "https://github.com/inspircd/inspircd.git"
@@ -12,15 +11,13 @@ class Inspircd < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "ea647f96059a9bf7fe84792bc2793aa15d6820e91add968a0a1c20ea74c2ae09"
-    sha256 arm64_ventura:  "92d5e017500e6aa117228cbc4a32ce4be5b149a9535fab37b47229c0e028cee3"
-    sha256 arm64_monterey: "e7d563fe892eca1b101690339da51f461f5de735d866112e7093c6710ad4953b"
-    sha256 arm64_big_sur:  "d10b1d9cf2f7057e046458a66970a6ab0839e000a84e8a0ab7064801b12ac388"
-    sha256 sonoma:         "aba86654e26ed359d6c7a4a48dbde1f25f4a5cecdc75d732e2d49cbdf323c314"
-    sha256 ventura:        "d5e96be099e170d176ca0c242da8b3cd669f692e4034c48a75eb23301c5a2601"
-    sha256 monterey:       "fcad290de03fc60f5f3adf9a5bb6d50ea7c7f600282e57d24a85fffa1643370d"
-    sha256 big_sur:        "506584211e07943fb2cd4c2c0d91dfe6200d72dbfbd3cfc44041bbbb34d0ee77"
-    sha256 x86_64_linux:   "c021d34c17eb6e26c488deffc704ccba01508312ddad7e6f24b93acdade1129a"
+    sha256 arm64_sonoma:   "765ec9c1d774f6e55096e6341342b8e5b361c25a6931437ecaee293d659b60b9"
+    sha256 arm64_ventura:  "f9bcdb65e4317b03bf88af82c2f6702ed40a645e189c13cd73f844825ed8f982"
+    sha256 arm64_monterey: "b6e7232234ca5082e64ef39cf1bf89d7ff54d9f756eb37cde8b0275890a059f5"
+    sha256 sonoma:         "522d9d2dcc7306151e3fc0d54b8dd65ebd602a5eb0f166feb397adc3d8678b25"
+    sha256 ventura:        "1b5051200899dc7b8b52fc6f21d03b642a69b043f7f20d374e449dce46d29ea6"
+    sha256 monterey:       "ea88c8c2914778202b8f2f3cdb18bd29b7a4c06dcafd958e2bc2af00a400c513"
+    sha256 x86_64_linux:   "6e16e1cce59a398ed56dc26c73096748fb014c7c90f473c22b67e994e9462c0c"
   end
 
   depends_on "pkg-config" => :build

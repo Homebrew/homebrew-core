@@ -7,20 +7,20 @@ class Pygobject3 < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "67f1311909ef73e7979b64a22d4093685567a8659c8d42c42c82919095364094"
-    sha256 cellar: :any, arm64_ventura:  "b8ba69e7aad0ccffbb266e2c29731e5140cc3fdb920c4b847689a4e76539e056"
-    sha256 cellar: :any, arm64_monterey: "0d2b091dfc7910c3d225431f3cc950ce393cb3486b10e7e50fa7079e39d2b290"
-    sha256 cellar: :any, sonoma:         "cc4a132bdefae49e8147d8db3ffeb86c82c528bce2ffd51e652d913f0a376b0c"
-    sha256 cellar: :any, ventura:        "f61d07a303cef9e600301d80452c5ba4b3f782d6d9fc34578749439bbeee601b"
-    sha256 cellar: :any, monterey:       "14baa25fcb45daffc6419668ac6b8eb0fb22c52c11e74264e19bcb5c0dbfe061"
-    sha256               x86_64_linux:   "934fa9922746ffdc10718b45cbc28c084dd631565d5e64b982a47731a1ce712f"
+    rebuild 1
+    sha256 cellar: :any, arm64_sonoma:   "41a80edf2b4820d8a53fd04049ab6d0347848f5279fc55f1881a3c1865cb9096"
+    sha256 cellar: :any, arm64_ventura:  "1bfbb1c565ce50261d061a19922e8040d0d95302880b739c898d5b94f8084273"
+    sha256 cellar: :any, arm64_monterey: "c1872fab2ffe26c098f69aa0dae3ec4e34e7f31173c696a1a270c07b2a30ee34"
+    sha256 cellar: :any, sonoma:         "cc331748f1c83f064f60349b01a5b6bbc2c6d2b078d08e3ad0ac8c9883d7f219"
+    sha256 cellar: :any, ventura:        "057e32400d8669586a289e5386efff4a4eefcd118fb2af5b7f62a210b3c2fe88"
+    sha256 cellar: :any, monterey:       "472d2dbb1e702f90c192700034c139132238de95150670ba6a8b997b20af1766"
+    sha256               x86_64_linux:   "534231a0b12461b68c099f2445f380432f2bb5dfb56841340e18d0aff01fff69"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "gobject-introspection"

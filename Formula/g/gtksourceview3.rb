@@ -22,23 +22,24 @@ class Gtksourceview3 < Formula
   end
 
   depends_on "gobject-introspection" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
-  depends_on "gettext"
   depends_on "gtk+3"
 
   on_macos do
-    depends_on "autoconf@2.69" => :build # avoid `gtk-doc` dependency
+    depends_on "autoconf" => :build
     depends_on "automake" => :build
+    depends_on "gtk-doc" => :build
     depends_on "libtool" => :build
+    depends_on "gettext"
   end
 
   def install
     system "autoreconf", "--verbose", "--install", "--force" if OS.mac?
-    system "./configure", "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
                           "--enable-vala=yes",
-                          "--enable-introspection=yes",
-                          "--prefix=#{prefix}"
+                          "--enable-introspection=yes"
     system "make", "install"
   end
 
@@ -52,59 +53,7 @@ class Gtksourceview3 < Formula
       }
     EOS
     ENV.libxml2
-    atk = Formula["atk"]
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    gtkx3 = Formula["gtk+3"]
-    harfbuzz = Formula["harfbuzz"]
-    libepoxy = Formula["libepoxy"]
-    libpng = Formula["libpng"]
-    pango = Formula["pango"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{atk.opt_include}/atk-1.0
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gtkx3.opt_include}/gtk-3.0
-      -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/gtksourceview-3.0
-      -I#{libepoxy.opt_include}
-      -I#{libpng.opt_include}/libpng16
-      -I#{pango.opt_include}/pango-1.0
-      -I#{pixman.opt_include}/pixman-1
-      -D_REENTRANT
-      -L#{atk.opt_lib}
-      -L#{cairo.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{gtkx3.opt_lib}
-      -L#{lib}
-      -L#{pango.opt_lib}
-      -latk-1.0
-      -lcairo
-      -lcairo-gobject
-      -lgdk-3
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lgtk-3
-      -lgtksourceview-3.0
-      -lpango-1.0
-      -lpangocairo-1.0
-    ]
-    flags << "-lintl" if OS.mac?
+    flags = shell_output("pkg-config --cflags --libs gtksourceview-3.0").strip.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

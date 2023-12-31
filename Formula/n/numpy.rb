@@ -7,20 +7,19 @@ class Numpy < Formula
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "59af7bc320b4d6d3652387d6bd82427b71f15982f6d11d6c82b5043e4cc11fcb"
-    sha256 cellar: :any,                 arm64_ventura:  "e260547f705e28ba65f77404b5a9c9c0db3b840e5aa3597bc4f28283da810dac"
-    sha256 cellar: :any,                 arm64_monterey: "abc0899cc61f0d10231156b93a10965093dd27aaec050e8eb8cb9f9552933a07"
-    sha256 cellar: :any,                 sonoma:         "eaec11a16b2971a7d7501af8328ebd62a64183f6a3b23f8f31b64392f3ea5d0a"
-    sha256 cellar: :any,                 ventura:        "3e485bbb751d7d04a80d257b7c3a5179763df96c3c4f713b858baf55b94a8593"
-    sha256 cellar: :any,                 monterey:       "6119201c3bc3d614118bab056231353223cf921d3507c24f7011c1f60250a18a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1704539203b85d71127dcac8764ca0505f2c75f12a671b343dbad3fedca8195"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "11bc5c6da12546b8bb991103e46ac32a3814a8c0476ba969e3df5d7fe81d37f7"
+    sha256 cellar: :any,                 arm64_ventura:  "01702f2f857e3cc998ae40bff238b4ffe1a9ccd016df4b5b29cf553068d84f52"
+    sha256 cellar: :any,                 arm64_monterey: "ae264192e83431c837544c3ae1d4465e43b69af31835ca6b33a40d0248038129"
+    sha256 cellar: :any,                 sonoma:         "ae3ffe77db87552bc4ce103201423bcdf76d78e292adae85af2175ec363dd7fd"
+    sha256 cellar: :any,                 ventura:        "0870dcf584ccd1fe4c94436cd60186a93c9096f73529610b985b7b143411f177"
+    sha256 cellar: :any,                 monterey:       "5ac8788d861e2908516c77d57b61806578c72fbb212006014178e2e92e19b99f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a44bc16fb7cade85ed4466d685cfd8262a9ebc16392c95c1d8aa245aeeb7eedf"
   end
 
   depends_on "gcc" => :build # for gfortran
   depends_on "libcython" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "openblas"

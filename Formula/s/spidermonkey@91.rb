@@ -16,6 +16,9 @@ class SpidermonkeyAT91 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "174f3e9cc9c2bc69f9c6be9a7e0a1346f2f59955bedfbe2c6279de467f0b472c"
   end
 
+  # Has been EOL since 2022-09-20
+  deprecate! date: "2024-02-22", because: :unsupported
+
   depends_on "autoconf@2.13" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build

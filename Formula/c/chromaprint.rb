@@ -7,33 +7,42 @@ class Chromaprint < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "052ef41914f72d70ffd4bf09080bb9fabee04fa3831d040da2b1807434555c97"
-    sha256 cellar: :any,                 arm64_ventura:  "9df7a9b08cf6557f60d607c26c2fec7644ed9c1ebb0291113930b02e2ca8c33c"
-    sha256 cellar: :any,                 arm64_monterey: "d4479962c7c30dbc07c8d4639639198e8de0015f35ce7e3ac47c5e87e492333f"
-    sha256 cellar: :any,                 arm64_big_sur:  "8ce15ae4efe13275af05b62e83fbcde65644d7baee3dd4ae37fae7007396b80c"
-    sha256 cellar: :any,                 sonoma:         "7aff1d8a3015c00f77013efba51891b6f636e3958aab7cb26804beb12c5b0073"
-    sha256 cellar: :any,                 ventura:        "f3457e6b097e705e87d4c54ec7335c59365b7b307830ede26123810ae51eb0ba"
-    sha256 cellar: :any,                 monterey:       "86d59168bfd57c19029084ea626953a99976361f4d0aadcdc6d51fbda8b8ca6b"
-    sha256 cellar: :any,                 big_sur:        "f9df429a357d408b65f6e1e5effc720005bb75bc10e069891acbba25430b755d"
-    sha256 cellar: :any,                 catalina:       "935e7dbb82458a6dd276b3265d8df41390c6aa236cbdf4ef4287662961f5d97d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aecf570ed20d986f95f0071c52c0cca65eb96ef6d308a60d83529b1f16984682"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "aa386d4b1b6e459cbc3278df211e69afc968335b0fa47879376ded5f1d319666"
+    sha256 cellar: :any,                 arm64_ventura:  "5817ff57c800830742cc5e219ebbbefc8ff8d3d2a1a485a6697a5cf846616387"
+    sha256 cellar: :any,                 arm64_monterey: "768762a92999548af504757a15a26491141d22f76fd097be3e5843c9f4daa2fe"
+    sha256 cellar: :any,                 sonoma:         "f50a89f5bd62d29d48851b936bf5c305ad48458fe2205e852210b22131bdec52"
+    sha256 cellar: :any,                 ventura:        "223831c28408d05ff1e514f49684c35e31e02737ce3036ad86e57454b0d3da8e"
+    sha256 cellar: :any,                 monterey:       "2985d28cf2f578ab3a0d76d5d0dbe594d0f2d5ca7a9a433cf32d47ae25d8483f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b83c08025debf7cbed075ea7be46b89ff26658c291bd3621d8732f7713c3034"
   end
 
   depends_on "cmake" => :build
-  depends_on "ffmpeg@4"
+  depends_on "ffmpeg"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
-  def install
-    args = %W[
-      -DBUILD_TOOLS=ON
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-    ]
+  # Backport support for FFmpeg 5+. Remove in the next release
+  patch do
+    url "https://github.com/acoustid/chromaprint/commit/584960fbf785f899d757ccf67222e3cf3f95a963.patch?full_index=1"
+    sha256 "b9db11db3589c5f4a2999c1a782bd41f614d438f18a6ed3b5167165d0863f9c2"
+  end
+  patch do
+    url "https://github.com/acoustid/chromaprint/commit/8ccad6937177b1b92e40ab8f4447ea27bac009a7.patch?full_index=1"
+    sha256 "47c9cc257c6e5d46840e9b64ba5f1bcee2705eac3d7f5b23ca0fb4aefc6b8189"
+  end
+  patch do
+    url "https://github.com/acoustid/chromaprint/commit/aa67c95b9e486884a6d3ee8b0c91207d8c2b0551.patch?full_index=1"
+    sha256 "f90f5f13a95f1d086dbf98cd3da072d1754299987ee1734a6d62fcda2139b55d"
+  end
 
-    mkdir "build" do
-      system "cmake", "..", *args, *std_cmake_args
-      system "make", "install"
-    end
+  def install
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DBUILD_TOOLS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

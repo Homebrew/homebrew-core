@@ -22,9 +22,9 @@ class NodeAT20 < Formula
 
   keg_only :versioned_formula
 
-  # https://nodejs.org/en/about/releases/
+  # https://github.com/nodejs/release#release-schedule
   # disable! date: "2026-04-30", because: :unsupported
-  deprecate! date: "2024-10-22", because: :unsupported
+  deprecate! date: "2025-10-28", because: :unsupported
 
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build
@@ -90,7 +90,7 @@ class NodeAT20 < Formula
     # terminate called after throwing an instance of 'std::out_of_range'
     # Pre-Catalina macOS also can't build with LTO
     # LTO is unpleasant if you have to build from source.
-    args << "--enable-lto" if MacOS.version >= :catalina && build.bottle?
+    args << "--enable-lto" if OS.mac? && MacOS.version >= :catalina && build.bottle?
 
     system "./configure", *args
     system "make", "install"

@@ -1,13 +1,12 @@
 class LibcapNg < Formula
   desc "Library for Linux that makes using posix capabilities easy"
   homepage "https://people.redhat.com/sgrubb/libcap-ng"
-  url "https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.8.3.tar.gz"
-  sha256 "bed6f6848e22bb2f83b5f764b2aef0ed393054e803a8e3a8711cb2a39e6b492d"
+  url "https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.8.4.tar.gz"
+  sha256 "68581d3b38e7553cb6f6ddf7813b1fc99e52856f21421f7b477ce5abd2605a8a"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "06cf74b413be1eae87983a59d42aec2e241b044130069cc2c7375e1272372e1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "22a6f560a4595f9a1eb06d80fc979e6de253ad89f7f0bcbe5133e94c3ebd7e0c"
   end
 
   head do

@@ -84,8 +84,10 @@ class GraphTool < Formula
       --with-boost-libdir=#{Formula["boost"].opt_lib}
       --with-boost-coroutine=boost_coroutine-mt
     ]
-    args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
-    args << "PYTHON_LIBS=-undefined dynamic_lookup" if OS.mac?
+    if OS.mac?
+      args << "--with-expat=#{MacOS.sdk_path}/usr" if MacOS.sdk_path_if_needed
+      args << "PYTHON_LIBS=-undefined dynamic_lookup"
+    end
 
     system "./configure", *std_configure_args, *args
     system "make", "install"

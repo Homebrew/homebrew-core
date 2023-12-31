@@ -11,6 +11,10 @@ class Drake < Formula
     sha256 cellar: :any_skip_relocation, all: "98db9a4ae8a9345944f0b5388a35036c9a2384137f7a7db044ebc59cb5ebc117"
   end
 
+  # Last release on 2016-04-15
+  # No response to https://github.com/Factual/drake/issues/227 on project status
+  deprecate! date: "2023-12-15", because: :unmaintained
+
   depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   depends_on "openjdk@8"
 

@@ -10,6 +10,7 @@ class Zpaq < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1964b6de47419cc4c995b2f4796afa755213b15efc752b7dadb154bf880599e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c2b429eb50442110fb5fa144e72fc23848d876eefd491ca2c04967e8789b21f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "fe862e92dd0fc348e0a93891fb863075443841d64aaee4ee5ac56b36ad49e3dc"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "743d0714aa93446980dbb496709e64415234c335c8399e55054d1f85ac6b074a"
     sha256 cellar: :any_skip_relocation, sonoma:         "b4b5c39591e177215ccd6c9ab1c7a406fe87c6861504c64356c65106108db082"

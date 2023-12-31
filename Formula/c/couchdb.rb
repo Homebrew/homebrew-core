@@ -22,6 +22,13 @@ class Couchdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cc21bd0a47af081af2aa8a03a0f67d029f8e79f18a137dfaee422601a5c21c0"
   end
 
+  # Can undeprecate if:
+  # * QuickJS support is added: https://github.com/apache/couchdb/issues/4448
+  # * Spidermonkey 115 support is added
+  #
+  # Issue ref: https://github.com/apache/couchdb/issues/4825
+  deprecate! date: "2024-02-22", because: "uses deprecated `spidermonkey@91`"
+
   depends_on "autoconf" => :build
   depends_on "autoconf-archive" => :build
   depends_on "automake" => :build

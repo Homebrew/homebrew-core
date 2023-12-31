@@ -450,7 +450,7 @@ class Swift < Formula
     module_cache.mkdir
 
     # Temporary hack while macOS 13 SDK prebuilding is disabled.
-    if MacOS.version == :ventura
+    if OS.mac? && MacOS.version == :ventura
       ENV.remove_macosxsdk
       ENV["SDKROOT"] = "/Library/Developer/CommandLineTools/SDKs/MacOSX12.sdk"
     end

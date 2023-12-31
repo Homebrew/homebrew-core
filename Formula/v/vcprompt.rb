@@ -25,14 +25,13 @@ class Vcprompt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "96c7865a3e44409abbf55dd2cccaff06555f9460b89c07ce958a86d534e28487"
   end
 
-  # Check if `autoconf` works when updating to the next release
-  depends_on "autoconf@2.69" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "sqlite"
 
   def install
-    system "autoconf"
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args
     system "make", "PREFIX=#{prefix}",
                    "MANDIR=#{man1}",
                    "install"

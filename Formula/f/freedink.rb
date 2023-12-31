@@ -8,6 +8,7 @@ class Freedink < Formula
   bottle do
     rebuild 1
     sha256 arm64_sonoma:   "78a162584ff38dcffdf1485d08a0e29a556f0eada9831fefef6f7dc14755d222"
+    sha256 arm64_ventura:  "c3ac13edb0efd994c52954b8a4512c0254f6fbe0874f4bae8416949dc18f2026"
     sha256 arm64_monterey: "3c0d3f2a3362647f774125622db2f836a1f209a5bccfe66a8a7901e357d9434f"
     sha256 arm64_big_sur:  "3d3c10351e92122890d83f912bafe794fa40a673783fa5d99b1bdfcdcd53f0cb"
     sha256 sonoma:         "ae2e232491d307434f8ae51a6f7f373a14da5a08947af29a873988065921b974"

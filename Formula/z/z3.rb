@@ -1,20 +1,10 @@
 class Z3 < Formula
   desc "High-performance theorem prover"
   homepage "https://github.com/Z3Prover/z3"
+  url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.12.4.tar.gz"
+  sha256 "25e9b18d04ee22f1d872dfe0daaf4c39034744525214e34fedd206e25140e96e"
   license "MIT"
   head "https://github.com/Z3Prover/z3.git", branch: "master"
-
-  stable do
-    url "https://github.com/Z3Prover/z3/archive/refs/tags/z3-4.12.3.tar.gz"
-    sha256 "61670733eb7a74eeca13033244cbec2c4098dca24a6fa3df0e7ae12ee8f33d9c"
-
-    # build patch to use built-in `importlib.resources` avail in py3.9+
-    # upstream PR ref, https://github.com/Z3Prover/z3/pull/7042
-    patch do
-      url "https://github.com/Z3Prover/z3/commit/03ae6d86cb4db88c71d6b245e29400e9a44cb59f.patch?full_index=1"
-      sha256 "bc574bf4a6de35a41e396f42b3e82f2f563bcd017acb536a86958a1e44b0fb9a"
-    end
-  end
 
   livecheck do
     url :stable
@@ -23,13 +13,13 @@ class Z3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c4d6e0a9b71a57802fb548d03592481c0d67e373f79ce23c76869b57a1f9c9d4"
-    sha256 cellar: :any,                 arm64_ventura:  "484665bf9ad7b8eb858adfe9ae3340f48e9aeea8b44d45ded9ab51a4e50d9405"
-    sha256 cellar: :any,                 arm64_monterey: "b271a212e4388ef73a37799a4e90a4b5b03232bbda65887ec6f05e8730b8e74e"
-    sha256 cellar: :any,                 sonoma:         "fb63aa21ad0dc59176294c4bf1f525968e2aad21ab6d6da3dd7bb54cdbc41ea8"
-    sha256 cellar: :any,                 ventura:        "1b613299520702b4b80999165909607c97c8b612d280b109f979dd4c1ecc671a"
-    sha256 cellar: :any,                 monterey:       "d72efca19ebe3a17a6035fbd26fb47d215f74d77ff5c6c1cb9ce3969386a2c42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e2c8e3996f03ad8383905b81628760de7f583929bf5f256e87689a3cd0d0b94"
+    sha256 cellar: :any,                 arm64_sonoma:   "db95e813c6ff08c47f749d56fad0d38c41c1448ef3f4ffd6ac4ba91c3c412385"
+    sha256 cellar: :any,                 arm64_ventura:  "9f14c5c0e58889d84b2d579461845aa1f49e6a73d65bea9c67c476531e8689ab"
+    sha256 cellar: :any,                 arm64_monterey: "2c325370cc4ece9be02d1c48d12178335ba609b71d83446b5860a1c5855dbe1e"
+    sha256 cellar: :any,                 sonoma:         "5f1b2fc65d3290ca3550f48e2987688f576d23f61425861a298bea67cb028264"
+    sha256 cellar: :any,                 ventura:        "0fab3d037ce7eac020c2949e0271e104551abcf5b8642777c01cebcee403fef3"
+    sha256 cellar: :any,                 monterey:       "340d0697307b063d6ac5ba6698cd30d7258e6dce3ec27849984ff117f76de812"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05cbdff592f59ea560c47160c4c89fba7d66342a30607c6403dc72c398903b5e"
   end
 
   depends_on "cmake" => :build

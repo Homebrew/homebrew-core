@@ -123,7 +123,7 @@ class GhcAT96 < Formula
 
       ENV.prepend_path "PATH", binary/"bin"
       # Build uses sed -r option, which is not available in Catalina shipped sed.
-      ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if MacOS.version <= :catalina
+      ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac? && MacOS.version <= :catalina
     end
 
     resource("cabal-install").stage { (binary/"bin").install "cabal" }

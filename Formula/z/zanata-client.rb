@@ -16,7 +16,7 @@ class ZanataClient < Formula
     sha256 cellar: :any_skip_relocation, all: "4e9a444168ef8759f044a71501e69d0d5f5d8e22dd29038bc8f784751341aa8d"
   end
 
-  depends_on "openjdk@8"
+  depends_on "openjdk@8" # https://github.com/Homebrew/homebrew-core/issues/33480
 
   def install
     libexec.install Dir["*"]

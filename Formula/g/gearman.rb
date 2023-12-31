@@ -31,7 +31,7 @@ class Gearman < Formula
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
     # encountered when trying to detect boost regex in configure
-    if MacOS.version == :high_sierra
+    if OS.mac? && MacOS.version == :high_sierra
       ENV.delete("HOMEBREW_SDKROOT")
       ENV.delete("SDKROOT")
     end

@@ -4,6 +4,7 @@ class Apt < Formula
   url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.7.7.tar.xz"
   sha256 "d3b3f3b7014f6e561b86c059b89040d0c742cbabc576593c6efaa0dd7b24de77"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/a/apt/"
@@ -11,8 +12,10 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "39d0e98d2bb8b59bda5ba6220f42f250898c321025e3b435ce3bb4ea14ea4549"
+    sha256 x86_64_linux: "14d4d5ecdf45d73d4726b71877d7ba8a81c5e01a6b90f7384c102f7f8b52ed2d"
   end
+
+  keg_only "not linked to prevent conflicts with system apt"
 
   depends_on "cmake" => :build
   depends_on "docbook" => :build
@@ -23,7 +26,7 @@ class Apt < Formula
   depends_on "po4a" => :build
   depends_on "w3m" => :build
 
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL-3.0 restrictions
   depends_on "bzip2"
   depends_on "dpkg"
   depends_on "gettext"
@@ -34,10 +37,6 @@ class Apt < Formula
   depends_on "perl"
   depends_on "xxhash"
   depends_on "zlib"
-
-  on_linux do
-    keg_only "not linked to prevent conflicts with system apt"
-  end
 
   fails_with gcc: "5"
 
@@ -133,7 +132,7 @@ class Apt < Formula
     system "cmake", "-S", ".", "-B", "build",
                     "-DDPKG_DATADIR=#{Formula["dpkg"].opt_libexec}/share/dpkg",
                     "-DDOCBOOK_XSL=#{Formula["docbook-xsl"].opt_prefix}/docbook-xsl",
-                    "-DBERKELEY_INCLUDE_DIRS=#{Formula["berkeley-db"].opt_include}",
+                    "-DBERKELEY_INCLUDE_DIRS=#{Formula["berkeley-db@5"].opt_include}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

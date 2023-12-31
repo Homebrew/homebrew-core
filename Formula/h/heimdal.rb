@@ -13,32 +13,31 @@ class Heimdal < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8b480f9df4e9202f563a2d9946ff32ee8f32396ddbc203c426d6571444b943d4"
-    sha256 arm64_ventura:  "3cc28db88f119ee29956332ee3bb187c3aa7b8248ff1a455a85575568bf0118f"
-    sha256 arm64_monterey: "e9afb91c49a8763636ee2ba0e278dc41137cd0ebe94d7b33893d9ee4cebb0277"
-    sha256 arm64_big_sur:  "0919ca038055abca1ed8454d85b394dd0448c7a8822605bdec25e67d3f620de8"
-    sha256 sonoma:         "71b25e02df1ba68d4c27654415424ed02d7d87a56b5bfc84922593f7cbad0ff0"
-    sha256 ventura:        "13c389d268721a6b423b6c0aea6e5d9a97b5037171cc72452f59e78ae961e453"
-    sha256 monterey:       "bea74d1460429c73745f8d2459fda3788d628fa5a819185e6d41cc93b55b37d9"
-    sha256 big_sur:        "e14aaa2d7953fae00c33ea0fb8faf17f87b35a0ca9158436b7bb327e7a23dc02"
-    sha256 x86_64_linux:   "399e2dc4b8832a8c28b967f5bb24cb9809c5bbcc60b816f1c5c23c0853c32bae"
+    rebuild 1
+    sha256 arm64_sonoma:   "33521852182643bef11ec36f2b8a135fb1726156216b8aa7ade41f7d0f54896a"
+    sha256 arm64_ventura:  "2dfde5f498579296c4b696ee625832f25a8c199be4101a84513f2ea32bd20b96"
+    sha256 arm64_monterey: "789b56750fdced7cb966215496bbc9645c3379b36b7fd033ddac213480a54b42"
+    sha256 sonoma:         "fa1f05f6585b701568b83b2b8fd17dcae9202cad5d1bafde3ead076c9a9b0544"
+    sha256 ventura:        "aef11fca0e5edd30a40482958ad3ef0ed6cba88cb450403d6c7ec7a20b88593f"
+    sha256 monterey:       "225d96d3d691885770a75f327457b0a6480cdbebba506e96deb669bbbbf26bf6"
+    sha256 x86_64_linux:   "50b84d04c9adf4ea658519cdc158a68aa264300bdaf290675010529d6d72e6ac"
   end
 
   keg_only "conflicts with Kerberos"
 
   depends_on "bison" => :build
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL incompatibility
   depends_on "flex"
   depends_on "lmdb"
   depends_on "openldap"
   depends_on "openssl@3"
 
+  uses_from_macos "perl" => :build
+  uses_from_macos "python" => :build
   uses_from_macos "libxcrypt"
-  uses_from_macos "perl"
 
   on_linux do
     depends_on "pkg-config" => :build
-    depends_on "python@3.11" => :build
   end
 
   resource "JSON" do
@@ -47,36 +46,34 @@ class Heimdal < Formula
   end
 
   def install
-    ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
+    ENV.prepend_create_path "PERL5LIB", buildpath/"perl5/lib/perl5"
 
     resource("JSON").stage do
-      system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}"
+      system "perl", "Makefile.PL", "INSTALL_BASE=#{buildpath}/perl5"
       system "make"
       system "make", "install"
     end
 
-    ENV.append "LDFLAGS", "-L#{Formula["berkeley-db"].opt_lib}"
+    ENV.append "LDFLAGS", "-L#{Formula["berkeley-db@5"].opt_lib}"
     ENV.append "LDFLAGS", "-L#{Formula["lmdb"].opt_lib}"
     ENV.append "CFLAGS", "-I#{Formula["lmdb"].opt_include}"
 
     args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
       --without-x
       --enable-static=no
       --enable-pthread-support
       --disable-afs-support
       --disable-ndbm-db
       --disable-heimdal-documentation
+      --disable-silent-rules
       --with-openldap=#{Formula["openldap"].opt_prefix}
       --with-openssl=#{Formula["openssl@3"].opt_prefix}
       --with-hcrypto-default-backend=ossl
       --with-berkeley-db
-      --with-berkeley-db-include=#{Formula["berkeley-db"].opt_include}
+      --with-berkeley-db-include=#{Formula["berkeley-db@5"].opt_include}
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

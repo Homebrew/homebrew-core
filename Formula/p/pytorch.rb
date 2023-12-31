@@ -3,11 +3,9 @@ class Pytorch < Formula
 
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
-  url "https://github.com/pytorch/pytorch.git",
-      tag:      "v2.1.0",
-      revision: "7bcf7da3a268b435777fe87c7794c382f444e86d"
+  url "https://github.com/pytorch/pytorch/releases/download/v2.1.2/pytorch-v2.1.2.tar.gz"
+  sha256 "85effbcce037bffa290aea775c9a4bad5f769cb229583450c40055501ee1acd7"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -15,13 +13,13 @@ class Pytorch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2673d638d0cac286ae5613deef32d2da9ba63275776f8211e58975578b50934d"
-    sha256 cellar: :any,                 arm64_ventura:  "677e8a8d53d18009e426991c91084abc5d6bd95472f04e81d3f89bd973a938e7"
-    sha256 cellar: :any,                 arm64_monterey: "ffd3d3449e95ade737e45158b21ebb6578013f762085918eb15a6255ba7338ad"
-    sha256 cellar: :any,                 sonoma:         "b4c09c8d1f71c7ebe8fc02493b4671dc77904a5faca18914338f53ec824b58c9"
-    sha256 cellar: :any,                 ventura:        "52306dbc78c7cba778ab2da899c5739cb5595de90117057f7bff069170e0b0bf"
-    sha256 cellar: :any,                 monterey:       "fa196a022d59f43f5f4565c472a28417f4fc18a87e0ce9c2a05c6e8078553564"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3442f68d930f32128bfd495052650233a6aa4682383a67fd8bf821d5d0d5fc1a"
+    sha256 cellar: :any,                 arm64_sonoma:   "3b79d89656fc777cfa460fbd40b09a2ddfe21b640e4303a94b1b24827cd83e59"
+    sha256 cellar: :any,                 arm64_ventura:  "3129d0ce0efd548db5ab330c2a1289d8e0f7cd4fd271b43601a487e283775ded"
+    sha256 cellar: :any,                 arm64_monterey: "954d33258bc02d4c2372aa4c870ed3de605e3040ebaa3fbd86079ca0548f4811"
+    sha256 cellar: :any,                 sonoma:         "b3ce62639d92a479e0ad7f19d3624a049dfafb292a58bdee7122ba65ae4d871a"
+    sha256 cellar: :any,                 ventura:        "7c54cdba347cdb15dcee5abada6b68065160f6a8c19a8f23052957dc1619222e"
+    sha256 cellar: :any,                 monterey:       "7bb1edf65c33f0642855e26a017d0d98e7c71655b92eccc79838536f12d9ed1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8812cf061f0ec26410ae3ddf592734e0a0672fbc324d0748e65025559c6a9630"
   end
 
   depends_on "cmake" => :build
@@ -35,33 +33,16 @@ class Pytorch < Formula
   depends_on "openblas"
   depends_on "protobuf"
   depends_on "pybind11"
+  depends_on "python-filelock"
+  depends_on "python-jinja"
+  depends_on "python-networkx"
+  depends_on "python-sympy"
   depends_on "python-typing-extensions"
   depends_on "pyyaml"
+  depends_on "sleef"
 
   on_macos do
     depends_on "libomp"
-  end
-
-  conflicts_with "fmt", because: "both install `include/fmt/args.h` headers"
-
-  resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d5/71/bb1326535231229dd69a9dd2e338f6f54b2d57bd88fc4a52285c0ab8a5f6/filelock-3.12.4.tar.gz"
-    sha256 "2e6f249f1f3654291606e046b09f1fd5eac39b360664c27f5aad072012f8bcbd"
-  end
-
-  resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
-  end
-
-  resource "mpmath" do
-    url "https://files.pythonhosted.org/packages/e0/47/dd32fa426cc72114383ac549964eecb20ecfd886d1e5ccf5340b55b02f57/mpmath-1.3.0.tar.gz"
-    sha256 "7a28eb2a9774d00c7bc92411c19a89209d5da7c4c9a9e227be8330a23a25b91f"
-  end
-
-  resource "networkx" do
-    url "https://files.pythonhosted.org/packages/fd/a1/47b974da1a73f063c158a1f4cc33ed0abf7c04f98a19050e80c533c31f0c/networkx-3.1.tar.gz"
-    sha256 "de346335408f84de0eada6ff9fafafff9bcda11f0a0dfaa931133debb146ab61"
   end
 
   resource "opt-einsum" do
@@ -69,51 +50,38 @@ class Pytorch < Formula
     sha256 "59f6475f77bbc37dcf7cd748519c0ec60722e91e63ca114e68821c0c54a46549"
   end
 
-  resource "sympy" do
-    url "https://files.pythonhosted.org/packages/e5/57/3485a1a3dff51bfd691962768b14310dae452431754bfc091250be50dd29/sympy-1.12.tar.gz"
-    sha256 "ebf595c8dac3e0fdc4152c51878b498396ec7f30e7a914d6071e674d49420fb8"
-  end
-
   def install
-    python_exe = Formula["python@3.11"].opt_libexec/"bin/python"
-    args = %W[
-      -GNinja
-      -DBLAS=OpenBLAS
-      -DBUILD_CUSTOM_PROTOBUF=OFF
-      -DBUILD_PYTHON=ON
-      -DCMAKE_CXX_COMPILER=#{ENV.cxx}
-      -DCMAKE_C_COMPILER=#{ENV.cc}
-      -DPYTHON_EXECUTABLE=#{python_exe}
-      -DUSE_CUDA=OFF
-      -DUSE_DISTRIBUTED=ON
-      -DUSE_METAL=OFF
-      -DUSE_MKLDNN=OFF
-      -DUSE_NNPACK=OFF
-      -DUSE_OPENMP=ON
-      -DUSE_SYSTEM_EIGEN_INSTALL=ON
-      -DUSE_SYSTEM_PYBIND11=ON
-    ]
-    args << "-DUSE_MPS=ON" if OS.mac?
+    python3 = "python3.11"
 
-    ENV["LDFLAGS"] = "-L#{buildpath}/build/lib"
-
-    # Update references to shared libraries
-    inreplace "torch/__init__.py" do |s|
-      s.sub!(/here = os.path.abspath\(__file__\)/, "here = \"#{lib}\"")
-      s.sub!(/get_file_path\('torch', 'bin', 'torch_shm_manager'\)/, "\"#{bin}/torch_shm_manager\"")
-    end
-
-    inreplace "torch/utils/cpp_extension.py", "_TORCH_PATH = os.path.dirname(os.path.dirname(_HERE))",
-                                              "_TORCH_PATH = \"#{opt_prefix}\""
-
-    system "cmake", "-B", "build", "-S", ".", *std_cmake_args, *args
+    ENV["ATEN_NO_TEST"] = "ON"
+    ENV["BLAS"] = "OpenBLAS"
+    ENV["BUILD_CUSTOM_PROTOBUF"] = "OFF"
+    ENV["BUILD_PYTHON"] = "ON"
+    ENV["BUILD_TEST"] = "OFF"
+    ENV["PYTHON_EXECUTABLE"] = which(python3)
+    ENV["USE_CUDA"] = "OFF"
+    ENV["USE_DISTRIBUTED"] = "ON"
+    ENV["USE_METAL"] = "OFF"
+    ENV["USE_MKLDNN"] = "OFF"
+    ENV["USE_NNPACK"] = "OFF"
+    ENV["USE_OPENMP"] = "ON"
+    ENV["USE_SYSTEM_EIGEN_INSTALL"] = "ON"
+    ENV["USE_SYSTEM_PYBIND11"] = "ON"
+    ENV["USE_SYSTEM_SLEEF"] = "ON"
+    ENV["USE_MPS"] = "ON" if OS.mac?
 
     # Avoid references to Homebrew shims
-    inreplace "build/caffe2/core/macros.h", Superenv.shims_path/ENV.cxx, ENV.cxx
+    inreplace "caffe2/core/macros.h.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
-    venv = virtualenv_create(libexec, "python3.11")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
     venv.pip_install_and_link(buildpath, build_isolation: false)
+
+    # Expose C++ API
+    torch = libexec/Language::Python.site_packages(python3)/"torch"
+    include.install_symlink (torch/"include").children
+    lib.install_symlink (torch/"lib").children
+    (share/"cmake").install_symlink (torch/"share/cmake").children
   end
 
   test do

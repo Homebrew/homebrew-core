@@ -46,7 +46,7 @@ class Ice < Formula
     ]
 
     # Fails with Xcode < 12.5
-    inreplace "cpp/include/Ice/Object.h", /^#.+"-Wdeprecated-copy-dtor"+/, "" if MacOS.version <= :catalina
+    inreplace "cpp/include/Ice/Object.h", /^#.+"-Wdeprecated-copy-dtor"+/, "" if OS.mac? && MacOS.version <= :catalina
 
     system "make", "install", *args
 

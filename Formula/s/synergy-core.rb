@@ -31,15 +31,14 @@ class SynergyCore < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "3195be9b2fa3cc164cfa8104fc2a41b51dd8ff1a1173148518320371b4c411e3"
-    sha256                               arm64_ventura:  "334248b42a57a1e655f2f4aab7772ea3b7b77ae438cfe42623e84f7583b9174d"
-    sha256                               arm64_monterey: "b55b45badf37a0c6ff570dc9bc84c684b42bd4966eea299602c6308c0d3c568b"
-    sha256                               arm64_big_sur:  "c8870bbda127a4b699803c45a3de12f823937c5d553219b77fc5a738bb1ec942"
-    sha256                               sonoma:         "b0a2d58bf66e485c10cb37d81b5ddd364ccdc36345e8ddef3ee04afd64b8d29d"
-    sha256                               ventura:        "a379d665374e700ec3447de68d9f51adc413d2df2b853ebb89d65ea4a83846ba"
-    sha256                               monterey:       "f0711f93ccc9180ed973f6c7168b95bc55aa91e2d45116c91e5cf97733802018"
-    sha256                               big_sur:        "05274d4b236f2d4e4e0037f3a9738ce1f297e88c5af4983db3efc098e46f0893"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f9f6c071c90a720430c7a827ccc6f8bea9c244bf9a71e2f94ad746b6b49892"
+    rebuild 1
+    sha256                               arm64_sonoma:   "8e21d500ed1567182b5b123a76f6e576a39b09c773ede9612cd11626e57a13fd"
+    sha256                               arm64_ventura:  "4b21f477ede4756031bcebf1acb32542d0602c12afd1b2087774ea4cf6ad0bcd"
+    sha256                               arm64_monterey: "101739d8739aa9b5de4d17f7ce4fc1f4922928c155b740fc3391e9b57838418e"
+    sha256                               sonoma:         "b8481a8fc33f66b7819ea6aa2fd00683db248742b4e271f55352371e1d1c9de3"
+    sha256                               ventura:        "e4ccf938d38c07196b39c59f71feb422c1a950ce1dea9b5577aac062580a87f1"
+    sha256                               monterey:       "7e18aa9801410561452da1503ee9e0a7b987086ff4f2603bb4bce7bf9c4fc4f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b80be1af6d257aea32a7c8533fd7e7254832f6c05a2e706633e39a81e096a6b"
   end
 
   depends_on "cmake" => :build
@@ -64,6 +63,11 @@ class SynergyCore < Formula
     inreplace "CMakeLists.txt",
               "set (SYNERGY_BUNDLE_DIR ${CMAKE_BINARY_DIR}/bundle)",
               "set (SYNERGY_BUNDLE_DIR ${CMAKE_INSTALL_PREFIX}/bundle)"
+
+    # Disable macdeployqt to prevent copying dylibs
+    inreplace "src/gui/CMakeLists.txt",
+              /"execute_process\(COMMAND \${MACDEPLOYQT_EXECUTABLE}.*\)"\)$/,
+              '"MESSAGE (\\"Skipping macdeployqt in Homebrew\\")")'
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DBUILD_TESTS:BOOL=OFF", "-DCMAKE_INSTALL_DO_STRIP=1",

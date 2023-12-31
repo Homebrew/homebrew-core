@@ -158,15 +158,12 @@ class LlvmAT8 < Formula
       -DLIBOMP_INSTALL_ALIASES=OFF
     ]
 
-    if MacOS.version >= :catalina
-      args << "-DFFI_INCLUDE_DIR=#{MacOS.sdk_path}/usr/include/ffi"
-      args << "-DFFI_LIBRARY_DIR=#{MacOS.sdk_path}/usr/lib"
-    else
-      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
-      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
-    end
-
     if OS.mac?
+      if MacOS.version >= :catalina
+        args << "-DFFI_INCLUDE_DIR=#{MacOS.sdk_path}/usr/include/ffi"
+        args << "-DFFI_LIBRARY_DIR=#{MacOS.sdk_path}/usr/lib"
+      end
+
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON" if MacOS.version <= :mojave
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=ON"
       args << "-DLLVM_ENABLE_LIBCXX=ON"
@@ -174,9 +171,10 @@ class LlvmAT8 < Formula
 
       sdk = MacOS.sdk_path_if_needed
       args << "-DDEFAULT_SYSROOT=#{sdk}" if sdk
-    end
+    else
+      args << "-DFFI_INCLUDE_DIR=#{Formula["libffi"].opt_include}"
+      args << "-DFFI_LIBRARY_DIR=#{Formula["libffi"].opt_lib}"
 
-    if OS.linux?
       args << "-DLLVM_BUILD_EXTERNAL_COMPILER_RT=ON"
       args << "-DLLVM_CREATE_XCODE_TOOLCHAIN=OFF"
       args << "-DLLVM_ENABLE_LIBCXX=OFF"
@@ -311,7 +309,7 @@ class LlvmAT8 < Formula
     assert_equal "Hello World!", shell_output("./test").chomp
 
     # Testing Command Line Tools
-    if MacOS::CLT.installed?
+    if OS.mac? && MacOS::CLT.installed?
       toolchain_path = "/Library/Developer/CommandLineTools"
       sdk_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk"
       system "#{bin}/clang++", "-v",
@@ -327,7 +325,7 @@ class LlvmAT8 < Formula
     end
 
     # Testing Xcode
-    if MacOS::Xcode.installed?
+    if OS.mac? && MacOS::Xcode.installed?
       system "#{bin}/clang++", "-v",
              "-isysroot", MacOS.sdk_path,
              "-isystem", "#{MacOS::Xcode.toolchain_path}/usr/include/c++/v1",

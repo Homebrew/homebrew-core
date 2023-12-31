@@ -1,8 +1,8 @@
 class Scummvm < Formula
   desc "Graphic adventure game interpreter"
   homepage "https://www.scummvm.org/"
-  url "https://downloads.scummvm.org/frs/scummvm/2.7.1/scummvm-2.7.1.tar.xz"
-  sha256 "d6bbf62e33154759a609d59f3034d71652ecdb64ed5c800156718ab1f1d5d063"
+  url "https://downloads.scummvm.org/frs/scummvm/2.8.0/scummvm-2.8.0.tar.xz"
+  sha256 "d6e9fbee06a924706635dea225dfd560ff6770f35aa99d59570a3eb883795a72"
   license "GPL-3.0-or-later"
   head "https://github.com/scummvm/scummvm.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Scummvm < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "3ed9b5e02f861702e7efd6d7bb12f710fed710b4b16c5c27af47e1cd1afdc19d"
-    sha256 arm64_ventura:  "6e72919f378fc00fa734fdcbc032ec9dd6a526d832afcbad2dc2508309e8a0c5"
-    sha256 arm64_monterey: "e0dbf93235c69abcdc74739a86c993a1cda5af2178b9b10e570fc9c39c277738"
-    sha256 arm64_big_sur:  "cfefac96fcf8ea55b34727b1e1246e847c423459eaa06449f1f17068079af7c6"
-    sha256 sonoma:         "197a8e066eabc690161f74ae2b793b3e78c59958d7514c0652ab3dd5423e7e73"
-    sha256 ventura:        "bc4d8eef158398d33c5b69fd4bf74b781414aaf383c1ac318a522716c89c978a"
-    sha256 monterey:       "718314462b5ab77647835511ab5c5c951d96aff71df6dabfd5969c5c826b8c5d"
-    sha256 big_sur:        "217f483d0b009c406c3cf07c917d086214cc6ce818d1215caa4626ede53b074e"
-    sha256 x86_64_linux:   "71f71a1bd138c5b4e97a8db656ec662af5259fd93f49b14617a31d66c18b6135"
+    sha256 arm64_sonoma:   "ce7088b67e74a857ef8d7752569f60a1411d1bea5077339a821ff6f8f87a4ae6"
+    sha256 arm64_ventura:  "c3aa391c44e9b0c4c1443c3dbdb9bf2049537dcb127ca3f2fa546bbafb77f2c9"
+    sha256 arm64_monterey: "d56db8b5ea54d9d9e2f292152de94df96164d6ca8fe98f991a27ad19098b2f44"
+    sha256 sonoma:         "c5a826a1eda1db58f6088e18810128342e157d9385d80d26c39002d8287154e2"
+    sha256 ventura:        "84fb49c0e4acba4878704b148fe3b7263fe7191a7b25bd93b2987e45274589da"
+    sha256 monterey:       "cbf5137b5f6b45198db19a26dfbf0cd6957a30b92afd410ebc51f2bcfc4e7ea4"
+    sha256 x86_64_linux:   "65be731207ab3c1d76d260572e0cb4a4e077781c607cdd58835a1553ef9c8ba7"
   end
 
   depends_on "a52dec"

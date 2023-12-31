@@ -2,10 +2,10 @@ class Rethinkdb < Formula
   desc "Open-source database for the realtime web"
   homepage "https://rethinkdb.com/"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.3.tgz"
-  sha256 "c3788c7a270fbb49e3da45787b6be500763c190fb059e39b7def9454f9a4674f"
+  # upstream issue report, https://github.com/rethinkdb/rethinkdb/issues/7142
+  url "https://download.rethinkdb.com/repository/raw/dist/rethinkdb-2.4.4.tgz"
+  sha256 "5091237602b62830db2cb3daaca6ab34632323741e6710c2f0de4d84f442711f"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/rethinkdb/rethinkdb.git", branch: "next"
 
   livecheck do
@@ -14,15 +14,13 @@ class Rethinkdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2f7ff9fdebc5e0742ca015d5d918d7ccb49fcc7266a2b10a5f5cb8647e8affc0"
-    sha256 cellar: :any,                 arm64_ventura:  "ac93c27bbe23258d83f6c1898523e5854288cbdb791f6e56eee209d0d971d19f"
-    sha256 cellar: :any,                 arm64_monterey: "1f148716b53dc578b1c8b7f038a6eebe1cf90cb0c6c89f471fb3d5a124b88f3d"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a2c3b1ad26019faf4d38dfac453d903c53aadf09c3afe01883875044b19d097"
-    sha256 cellar: :any,                 sonoma:         "03aafd3404f695448953caa49746921950bb72bf437ffdb4fd6a1369827ca922"
-    sha256 cellar: :any,                 ventura:        "b2468e75a2aecb02655945f06506777f77caa5e885cef5aa7bec84374e1cb59c"
-    sha256 cellar: :any,                 monterey:       "5af7b252bfb89953457377aaa4e2c6436d5dcdc92cc1bb0b9ccc48ae935c72af"
-    sha256 cellar: :any,                 big_sur:        "86ddd338419a615b2cfae24713003aa6ac38d4fc49d98f436d7bc3f89e9c6552"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa1206df51e0b22eaf0afbdd862e61fe7966990f951bfd77bf3afe47b53b6b09"
+    sha256 cellar: :any,                 arm64_sonoma:   "12c05ba1583bb06660d8630fab1a5d3335bc43fddd5827c2b34ff01660dfbbd2"
+    sha256 cellar: :any,                 arm64_ventura:  "799cd7b1efe7da9dd0933b42e5bebd71dbd354be745ae898cdb1f3f5504885e8"
+    sha256 cellar: :any,                 arm64_monterey: "a59635dab2420df9cbd170c6e6d09f2a3f7b3de354546aa474cd43362ea037c8"
+    sha256 cellar: :any,                 sonoma:         "6762f17cd6a78747bf7c944fe6ccd37957c34f783ac1dae8ce7b1381776de3b9"
+    sha256 cellar: :any,                 ventura:        "4eb3cb16e0f103c3aaf761c948d7743ad142c6f08071b3663c7bb6336cd41708"
+    sha256 cellar: :any,                 monterey:       "931ed3a24d911f5548561327055106ef6a65434632d7b0c57bbb6a25c27ef975"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "728c63d067ecd2ef2f0df719c1334e74a5f97486526af5ad947ea552b0e9492a"
   end
 
   depends_on "boost" => :build

@@ -1,8 +1,8 @@
 class Wxmaxima < Formula
   desc "Cross platform GUI for Maxima"
   homepage "https://wxmaxima-developers.github.io/wxmaxima/"
-  url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-23.11.0.tar.gz"
-  sha256 "f2fdd6386d89d461c29b9cff054e7118e98714123dbaf084a2e954c2a450cc4d"
+  url "https://github.com/wxMaxima-developers/wxmaxima/archive/refs/tags/Version-23.12.0.tar.gz"
+  sha256 "abec636e96474adf6451e81728b16afaa83ed1a70b86a695fa083ecec65aaae1"
   license "GPL-2.0-or-later"
   head "https://github.com/wxMaxima-developers/wxmaxima.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Wxmaxima < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "1928ded22b27a7947f666bdc117c3f08451f446686dff6998bd82355bdce5c75"
-    sha256 arm64_ventura:  "acbac767d5e4c4e3a9f45105c2ca066577c533f3275aada35ca7660e3ebfd15a"
-    sha256 arm64_monterey: "1c3d23fdd30b3efdfd733d6638f22ae214317c007ca8f0c6c4d4f17e3d21b0fd"
-    sha256 sonoma:         "bec378e3765f6af196754b4354ed6bfe1135a3293fcbf77747716f4edcdcc1a9"
-    sha256 ventura:        "b57cde6ec9c481277bf6d4f69f7a01742166152bf3a9b41d06f926d8e147e54b"
-    sha256 monterey:       "620b4b0ad780363754a67b5e26ae74d481cf515ddfde6fdc800a2082846d6564"
+    sha256 arm64_sonoma:   "3389d145b4c41a69ee6154a5b89ccf1b33938046c6a3c4c7b62891d16e6c0ec2"
+    sha256 arm64_ventura:  "e475bc0bb93506345dfd5646d478c73ddc9f9b12b7178c2b8f329cb59d579739"
+    sha256 arm64_monterey: "96a47686631c9d0d54d66e53ba2bd2b639607b0ef90e472eb661809ce3e6cfcc"
+    sha256 sonoma:         "93beca1e64db35b18695d9b95f39faf8da5d735b917ee91517d99b1694a38b8b"
+    sha256 ventura:        "8d3c0085ade32975df48151021395acbdcb356d4fa664937fc2fa9367711948b"
+    sha256 monterey:       "8f005c78e73f559b4b4ecab2ad72d11cd8812f695aa71282c3365f3089f298e3"
   end
 
   depends_on "cmake" => :build
@@ -43,6 +43,9 @@ class Wxmaxima < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1300)
 
+    # Disable CMake fixup_bundle to prevent copying dylibs
+    inreplace "src/CMakeLists.txt", "fixup_bundle(", "# \\0"
+
     system "cmake", "-S", ".", "-B", "build-wxm", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build-wxm"
     system "cmake", "--install", "build-wxm"
@@ -50,8 +53,7 @@ class Wxmaxima < Formula
 
     return unless OS.mac?
 
-    prefix.install "build-wxm/src/wxMaxima.app"
-    bin.write_exec_script prefix/"wxMaxima.app/Contents/MacOS/wxmaxima"
+    bin.write_exec_script prefix/"wxmaxima.app/Contents/MacOS/wxmaxima"
   end
 
   def caveats

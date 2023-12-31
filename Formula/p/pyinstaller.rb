@@ -3,19 +3,19 @@ class Pyinstaller < Formula
 
   desc "Bundle a Python application and all its dependencies"
   homepage "https://pyinstaller.org/"
-  url "https://files.pythonhosted.org/packages/dd/c8/7bbbb6bb4130f96f7bc32064c13f115546fce07a3aacae75c3b4142256bd/pyinstaller-6.2.0.tar.gz"
-  sha256 "1ce77043929bf525be38289d78feecde0fcf15506215eda6500176a8715c5047"
+  url "https://files.pythonhosted.org/packages/5c/b5/79e53c645c3f458cde165493ed71c1cac478fce67f204ad6ecca48b47440/pyinstaller-6.3.0.tar.gz"
+  sha256 "914d4c96cc99472e37ac552fdd82fbbe09e67bb592d0717fcffaa99ea74273df"
   license "GPL-2.0-or-later"
   head "https://github.com/pyinstaller/pyinstaller.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8fd38fdf957c31d53f62b96911ce72f23a7d9da4d99dfc5aa163587c8b365dca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "222121eca136d0c20b0d3ecca77bf165ea47de57d71d2eb1cade313f23e2b2b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "71bb7c7bdabdde373b427b8237f7241f661eda42b5849d8bce626898c51ead90"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d3383fe3a776b4e51f7afaac6b7a0f508964b7ec4eab6241a0a4d07de5299ceb"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae8c0536ec8acc718783559153a5204c75b1ea79fc2992e22eb1a82cec724c0d"
-    sha256 cellar: :any_skip_relocation, monterey:       "98e4bc2bcb0e001e58f1b5fefe246a3e83b74aee5ba758ae5b0181b325bd5b14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6baff14e2b46f83b0de86e00bf03539e235023334e3887404b8b82997a30c157"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b72481dddaba2d38a5ca2e7753005e3232ef497688efc84d888f2a4178391a9f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5daadc7ee35fa7d6e06d3c990157a4595bea858ba84022d6a5a02efbb06aa9ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "619de43f2e36ffad2f08f2a5482bf4f824c5ce54d1288d612cd6de6a8dd47b76"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aa8908395a2a9572f2241193cbbe288d9a03beb93a978869f85bf0eca8ff09d9"
+    sha256 cellar: :any_skip_relocation, ventura:        "cc56875b9364235bf1d6832ba441d6142824ef5e9834688f81a7fb6be2c5483b"
+    sha256 cellar: :any_skip_relocation, monterey:       "9bdc002d04aed1e558da92d0aa48227196298bca3681fbc69d21f950d29a009e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f1dee79bfa5d925799ecab74aa8d7a691c261f65998f6ddb7368704eff1ebde"
   end
 
   depends_on "python-packaging"

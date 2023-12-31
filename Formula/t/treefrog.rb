@@ -1,8 +1,8 @@
 class Treefrog < Formula
   desc "High-speed C++ MVC Framework for Web Application"
   homepage "https://www.treefrogframework.org/"
-  url "https://github.com/treefrogframework/treefrog-framework/archive/refs/tags/v2.7.1.tar.gz"
-  sha256 "c7d2cb55a8796d7d0710af62068471dfb606fc5fdcdbaf7c91ec4b2c31a63a26"
+  url "https://github.com/treefrogframework/treefrog-framework/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "6b47b6c0d522118b5b765c596dff14c9ea09141da3a1992e7dae44717d579c8d"
   license "BSD-3-Clause"
   head "https://github.com/treefrogframework/treefrog-framework.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Treefrog < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "40a0e96c8c25fe038d5227ec2e45788a371439201cbe8c33c17f1d3e4822155a"
-    sha256 arm64_ventura:  "24ff7d1885a2facb2ebab3e44e57a46204e9da4f3081a68a7c06d3c56a11d458"
-    sha256 arm64_monterey: "8689db039ecb5c5e995633167686066bf5b8c647eb2c5aa09aca37f2f6a5f816"
-    sha256 arm64_big_sur:  "8e22e6d22821a946a7dee1998e9c2454ab2d1328c9fd4034573cf686d87cc18c"
-    sha256 sonoma:         "e6f45d86d559bde8f06e4c5f8c625b6e09c4fa87a44bc64593035fcea0310145"
-    sha256 ventura:        "61374c291147748e5d05cd4d260e2943eb5062343233958de37548e74dd2ba7a"
-    sha256 monterey:       "e4dc9e48620c52d7c897c5ea2d0a8895e75d7c3aa7e91a6f42fd9ef4eb307ae6"
-    sha256 big_sur:        "61761bf0d4017491a07436d5270a8a97427ac378a52ca4cd1c6ec6304042332b"
-    sha256 x86_64_linux:   "f5c91db15d91d8f992c7c59f6c890e50d6664e6ae87ce4390e862b266248ddd6"
+    sha256 arm64_sonoma:   "8d74c3b3c574825db5507194470b49e10576cd09dfc81fce059f7137c6d7b7fa"
+    sha256 arm64_ventura:  "35f0d759c93b7c666428ab2748cea06e63b8cf81d2b5e3938494dd5a0aea2dba"
+    sha256 arm64_monterey: "f0a4bd60e23c9dec41d52e13201dba5bef0099a6a1db80af731985450f9aec0c"
+    sha256 sonoma:         "ee5f637c550b2fe5e62b92290c09a59919b148970711022fa50c39eb43097ddb"
+    sha256 ventura:        "30dc4592c46bf9fc0fd2b6adc6e7294be173d9e4f0c6ff5957a6d2dd0ffaea0e"
+    sha256 monterey:       "9c6f5813b236e1a22c9c4191defd4096cb4da8cd12f5d56e8c4459900ba1308a"
+    sha256 x86_64_linux:   "77f22a1dff3eb4e8a8a7c258ff64450a772f4df4ebfb9976dfb9221cf604aff9"
   end
 
   depends_on "cmake" => :build

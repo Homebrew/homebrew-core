@@ -3,18 +3,18 @@ require "language/node"
 class Monika < Formula
   desc "Synthetic monitoring made easy"
   homepage "https://monika.hyperjump.tech"
-  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.16.0.tgz"
-  sha256 "d64c6b59abfe0d9363d26ff8597f40b70813c105545e08080f040a38e2142831"
+  url "https://registry.npmjs.org/@hyperjumptech/monika/-/monika-1.16.3.tgz"
+  sha256 "b4dbe5017d383a60eeeba315a9c6c34dc2a8eb7fe6c8f734d3ddaa74f828ae0d"
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "b0e2926f119299ed9da165d3717872963845e90126d2d9449dbcb11ea5eda37e"
-    sha256                               arm64_ventura:  "5dd1239bb23d5d31d83ba864646d7e92424fabc0c81faf5873207db0ec8af14d"
-    sha256                               arm64_monterey: "58c57042cbe8cc79964e6c11caf5a118363491a2ae40574bf74eeb85c18ee332"
-    sha256                               sonoma:         "b33ab82b80bc5fe6f281142f80916508c198cdc971afb0d0405eb2602ba16a66"
-    sha256                               ventura:        "0836a5d40157eea7d546d7d57a75b9838a546a28237a72cc5f0cbf47fb86bae6"
-    sha256                               monterey:       "366a09fa3232531ea1a8e684b548615a1137e08976179f409ceae54cfaddd207"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe2cf96d0fff0ab3c6f01757fb1ce7c8ae9526e65c17bc51362f649e79a43f72"
+    sha256                               arm64_sonoma:   "c4919faefafbd2b7df056f3673dacdf93e624d548c91c134d33d04b9382cdd06"
+    sha256                               arm64_ventura:  "854daaf87bec7c922af97e770448d30f5fd14cd8efb3326d45f6d2e22cd87098"
+    sha256                               arm64_monterey: "9049d218069d2110f0ecc742da813156d805ab301359cd306fe8be0701b23177"
+    sha256                               sonoma:         "f0db8abf6065eae2b5c60e73986e18a33c4f37a380d1ac20080a7a317528325e"
+    sha256                               ventura:        "b4480ab5f66fbfbfb1c9bd52eedd50669a41ca66e1e396a11b9d18b72e8f9351"
+    sha256                               monterey:       "981caa86fb4185eddc6052f88d55f9fa4013f280f61475febaf1e5e2ec742bc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4786e3bc865e1794cbf6015389edfdeeb2f56492c2dfa07cae6d83610264995a"
   end
 
   depends_on "node"

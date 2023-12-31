@@ -101,7 +101,7 @@ class Pidgin < Formula
       ]
     end
 
-    ENV["ac_cv_func_perl_run"] = "yes" if MacOS.version == :high_sierra
+    ENV["ac_cv_func_perl_run"] = "yes" if OS.mac? && MacOS.version == :high_sierra
 
     # patch pidgin to read plugins and allow them to live in separate formulae which can
     # all install their symlinks into these directories. See:

@@ -1,8 +1,8 @@
 class Clipboard < Formula
   desc "Cut, copy, and paste anything, anywhere, all from the terminal"
   homepage "https://getclipboard.app"
-  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.8.3.tar.gz"
-  sha256 "d2f13e66e4b45d2084e2f88b992b36f07faf649fa1a1c5e0acfca303270a988c"
+  url "https://github.com/Slackadays/Clipboard/archive/refs/tags/0.9.0.1.tar.gz"
+  sha256 "187eba2a2c72d32d35ff750b947f1c812e33f9af538a6fc1b781e18a5e912d45"
   license "GPL-3.0-or-later"
   head "https://github.com/Slackadays/Clipboard.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Clipboard < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3ceb1fd987454a8ca12058e4df6b0b6191857698b684ad035b9157ef49a20224"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11c4d713d7a8c6119bc6af8212fe5309ad4a9001308bf27fd32a03ba2d4a2609"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0dd723482463f8f1ec8e1ec50d993f93dbc1d7f8715548259cdefc55c560781b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ac19981c43e58d203785145b81c3dcf007be2d86cc4e7db903ea1a8f3dec018e"
-    sha256 cellar: :any_skip_relocation, ventura:        "d6920fde5b919fe1e528fc29e522bcd8ec30e7e6c1f2ea80b5c2c0d6ba235743"
-    sha256 cellar: :any_skip_relocation, monterey:       "15bd629250c9395796087df7736201b0e1e37e2239efba67dbf16473cd20d24d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20afa6b83e9c37ca88f061787f5d19dbff0ac8362ab0a3a2de60b26192bdc70c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00ca5ce7fccc8f29a81b39db0150b57344a7d37da5b40c6f8f267ddbcaf92b66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "08730cbffe1c790373c6f0573d895035c24fc0a256c2d65c3800e2873e0e7e91"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e280365f64e4fedd36eac66de93af0073ffb20a897cc8a6474306db999f0067"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cd91836fb23f4a06eed6772a3e7e34166b7834a326408356f9ce80967c10a2d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "bc007fe7e6742aaa547e7f78a58d0f15d5ba1805b8c6aee32b45cccd29e3de7a"
+    sha256 cellar: :any_skip_relocation, monterey:       "93a7fe327bcbfa11a18d4c2319480f986ba40a534dc7ff5fd33385f66262f500"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50d05d5800c227a9807a3751b80adf7d881559f13907b24e3c769f1df202b9a1"
   end
 
   depends_on "cmake" => :build

@@ -24,7 +24,7 @@ module Homebrew
     dictionary_mirror = "https://ftpmirror.gnu.org/aspell/dict"
     languages = {}
 
-    index_output, = curl_output("#{dictionary_url}/0index.html")
+    index_output, = Utils::Curl.curl_output("#{dictionary_url}/0index.html")
     index_output.split("<tr><td>").each do |line|
       next unless line.start_with?("<a ")
 

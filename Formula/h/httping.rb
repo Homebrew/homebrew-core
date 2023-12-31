@@ -5,6 +5,14 @@ class Httping < Formula
   sha256 "37da3c89b917611d2ff81e2f6c9e9de39d160ef0ca2cb6ffec0bebcb9b45ef5d"
   license "GPL-3.0-only"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     rebuild 1
     sha256 cellar: :any,                 arm64_sonoma:   "f23584840d9dcfe8b4b7feefd73ac8fab046f59d67289ac23f3c85669dcdd2f3"

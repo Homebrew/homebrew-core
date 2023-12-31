@@ -1,8 +1,8 @@
 class Gmssl < Formula
   desc "Toolkit for Chinese national cryptographic standards"
   homepage "https://github.com/guanzhi/GmSSL"
-  url "https://github.com/guanzhi/GmSSL/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "a3cdf5df87b07df33cb9e30c35de658fd0c06d5909d4428f4abd181d02567cde"
+  url "https://github.com/guanzhi/GmSSL/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "23ed2ce74e408fc4c80289d2b499c7c5eec8373fefaf3827a53cb4c134dd5263"
   license "Apache-2.0"
   head "https://github.com/guanzhi/GmSSL.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Gmssl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0642b033fb10cbdc78325dfdfac602a85f07801c2d76331578a84be62e917913"
-    sha256 cellar: :any,                 arm64_ventura:  "3901189ad99d6383777117a33b8cac4cbdcb96874dd7df8c620b305aa4c05f16"
-    sha256 cellar: :any,                 arm64_monterey: "0adabc2e2e7d41fff55c5ac4a24676001a2df3b59f71e0ffb22da34997206c1d"
-    sha256 cellar: :any,                 arm64_big_sur:  "637d92fb7828aa336a56bd87e97a4a12944fa115b4b1d36f918cc919313df60d"
-    sha256 cellar: :any,                 sonoma:         "3fe3de850f878baa72987eb4f0ab4a64375d23cbc941fa363960c39d82315094"
-    sha256 cellar: :any,                 ventura:        "0ac11a28a67f0b54e914a0077c663546d5487e24543ee344a5c8f53b2e2b4736"
-    sha256 cellar: :any,                 monterey:       "334078972e49393d539b5ed1a376835cac1e83188871ad7583ce530a3aab4062"
-    sha256 cellar: :any,                 big_sur:        "50bb11e538f4f5e59c7d89f7543cddb744d81aa780ec5887e8585070958f2a33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "118622ab1fe804ebe6207c89e52aa460fca02994ca3127913fe4563cc8a8ff44"
+    sha256 cellar: :any,                 arm64_sonoma:   "33e55c6a9023a0e8a7868b466131f94078ad80547ce2ce5d97b64d1a5df4890b"
+    sha256 cellar: :any,                 arm64_ventura:  "9114f6d41defc40bb2b10fc627f22090485a7f6094d27cf872c7166078eae3fd"
+    sha256 cellar: :any,                 arm64_monterey: "ec6a86111951bfcf6072e771e7ee82880aefe5d9dae3d58ed229cc3064e6a0fa"
+    sha256 cellar: :any,                 sonoma:         "7455eb22baeafa0ad277b44ba5a04f60fdbfc87e9140562bdf6231b747c17083"
+    sha256 cellar: :any,                 ventura:        "ab4cced1064fee652a7f88d0fd34d2658ed53e0bd657ec1cf82905651a4c4977"
+    sha256 cellar: :any,                 monterey:       "748de4b6cfb67d0e170f69355f6ab82bfb3709fc2e744b48bb173f66a11fdb29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "623f545c3d4d999cba1a76c2ac9960008aefa519965b1b86b431505617eee727"
   end
 
   depends_on "cmake" => :build

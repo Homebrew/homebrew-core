@@ -2,6 +2,7 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.10.1.tar.gz"
@@ -19,19 +20,19 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d0fad5008525016040cc2524c659ef879c13bacce0b128141c0c38412abec631"
-    sha256 cellar: :any,                 arm64_ventura:  "272884755a9fd53935217a9504ff67ff9a16dc2f5c83664741ee8ba12ee42c17"
-    sha256 cellar: :any,                 arm64_monterey: "5f7bdd1fd85d7b8e5ef7a53cc4d377f8a494eed77ab29c54c691897d2607c691"
-    sha256 cellar: :any,                 sonoma:         "afb987ebfa5b871ce171e9da41c0155c8a96b79b3a1d337be12b6f37fdb39507"
-    sha256 cellar: :any,                 ventura:        "7786501b6ca8e2c6bb3fc21b4559c4f072c5775d22ece18cea9293944c2efceb"
-    sha256 cellar: :any,                 monterey:       "caa588a8117e9636cae7ec606fa164ab791f3ea0b72df58fe1569c645fcbbd2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "745dae4a655f168b4f7b12398878a59893c322bca7de8e0da5caccd43fff5f45"
+    sha256 cellar: :any,                 arm64_sonoma:   "957e953d1b0928aa1f2c7f27f49abff08854f23ed4b9424d6602bf33ac9a67a2"
+    sha256 cellar: :any,                 arm64_ventura:  "9d05895702b12e75cef2419a7272e236ad046d3b91f37a1585c01b8826171746"
+    sha256 cellar: :any,                 arm64_monterey: "a017f472076f634d7223bce01ed06ce0a5a8bbc181cc9cd9547a736771057d1c"
+    sha256 cellar: :any,                 sonoma:         "43716436fff8c53ddc30aed5cf44f9b5b69013fa4382ae812073582d2c1ff9b6"
+    sha256 cellar: :any,                 ventura:        "718df9a8955e684c25780e609c0ce37d7e809bdb0220ddc0aa3bb2ec74b42a26"
+    sha256 cellar: :any,                 monterey:       "176834c934ce39d9044f4b93734f6929e414734524791c2a537c1c87c6839586"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ade603e34ffae9f9714dd5d108a2d790f31f5be554eb18564a167b8f14224d"
   end
 
   head do
     url "https://github.com/crystal-lang/crystal.git", branch: "master"
 
-    uses_from_macos "libffi"  # for the interpreter
+    uses_from_macos "libffi" # for the interpreter
 
     resource "shards" do
       url "https://github.com/crystal-lang/shards.git", branch: "master"
@@ -42,7 +43,7 @@ class Crystal < Formula
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "llvm@15"
+  depends_on "llvm"
   depends_on "openssl@3" # std uses it but it's not linked
   depends_on "pcre2"
   depends_on "pkg-config" # @[Link] will use pkg-config if available
@@ -92,7 +93,7 @@ class Crystal < Formula
     ENV.append_path "PATH", "boot/bin"
     ENV["LLVM_CONFIG"] = llvm.opt_bin/"llvm-config"
     ENV["CRYSTAL_LIBRARY_PATH"] = ENV["HOMEBREW_LIBRARY_PATHS"]
-    ENV.append_path "CRYSTAL_LIBRARY_PATH", MacOS.sdk_path_if_needed/"usr/lib" if MacOS.sdk_path_if_needed
+    ENV.append_path "CRYSTAL_LIBRARY_PATH", MacOS.sdk_path_if_needed/"usr/lib" if OS.mac? && MacOS.sdk_path_if_needed
     non_keg_only_runtime_deps.each do |dep|
       # Our just built `crystal` won't link with some dependents (e.g. `bdw-gc`, `libevent`)
       # unless they're explicitly added to `CRYSTAL_LIBRARY_PATH`. The keg-only dependencies

@@ -37,7 +37,7 @@ class Zeromq < Formula
 
   def install
     # Work around "error: no member named 'signbit' in the global namespace"
-    if MacOS.version == :high_sierra
+    if OS.mac? && MacOS.version == :high_sierra
       ENV.delete("HOMEBREW_SDKROOT")
       ENV.delete("SDKROOT")
     end

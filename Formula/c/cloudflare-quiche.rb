@@ -2,19 +2,19 @@ class CloudflareQuiche < Formula
   desc "Savoury implementation of the QUIC transport protocol and HTTP/3"
   homepage "https://docs.quic.tech/quiche/"
   url "https://github.com/cloudflare/quiche.git",
-      tag:      "0.19.0",
-      revision: "af368e9287ea975d184f9f66df52dbf109adf0e4"
+      tag:      "0.20.0",
+      revision: "5b1e3d286411e2cc411f8dc6d6ff1ee40f1bd026"
   license "BSD-2-Clause"
   head "https://github.com/cloudflare/quiche.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "053fef23de7d106851a54c53f945f89807968479bb87547a5fa8cd857d7d56a9"
-    sha256 cellar: :any,                 arm64_ventura:  "9c1c55a258ca0eff04c447d82d1b4c8ee924273ebc445aa14a4d335fce5fd533"
-    sha256 cellar: :any,                 arm64_monterey: "023545e9d025d59b29295dcdaad06e6f0b01c803e9e98d721dd12e9c79c0573f"
-    sha256 cellar: :any,                 sonoma:         "880bff4e132788f598b8722b8c30666b081b8a252bae7faf1d8454c1aa124d00"
-    sha256 cellar: :any,                 ventura:        "48067808a1d32458d8340c6e961c01c0c50c70fa5dd147ae6e219fd46517b40d"
-    sha256 cellar: :any,                 monterey:       "6c7a64ee008b75bef7668ed73aa8e893611eb5947751ccb83638fa0e2ea8c898"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c91660ce7c61fc3f137204e4629201dd3ff5ef9d14d5e29c22c54836bc04814c"
+    sha256 cellar: :any,                 arm64_sonoma:   "8f281f0d96925b21b9bd751a96cfa3fb4d1e5c25325c49251d6ea2fd58f6488b"
+    sha256 cellar: :any,                 arm64_ventura:  "02da14a6cacb951eb5a62e37adef6e4c9e2f3a3716a2526f6d7cc9afa11d52f5"
+    sha256 cellar: :any,                 arm64_monterey: "398ebcf2aba174360de935d27f7ea3828b86016cddbf41e1631e3f8b4df309d4"
+    sha256 cellar: :any,                 sonoma:         "85edce1d91484e8432bd0b93c4003e64b2b8444499a3c62b24c88b3d17889d6f"
+    sha256 cellar: :any,                 ventura:        "0efef5015d1a5e1ff00db312e0d69ff5e265d1b305d1654b215ef999de613bd6"
+    sha256 cellar: :any,                 monterey:       "44716d9a61c3dc30d6a6348b5a40b8bb1797637c8763a7cde6b0de60ff57d69b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37005d35150baf9bcf71cdf1d3d2cdd7e1de45fc631fc18c3b0be69385160c9b"
   end
 
   depends_on "cmake" => :build

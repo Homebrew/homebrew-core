@@ -3,19 +3,19 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/de/15/173e6b736075d070afe53877e7b198fa9e064d827f85495044ba89e0d09d/vunnel-0.17.10.tar.gz"
-  sha256 "21c4e1cb314718fde407e0a244342280c0abff7008c6c3decf0218c15e93b0bf"
+  url "https://files.pythonhosted.org/packages/fa/db/1b11c41a1afa30ca30b0b73d9a287e268dbc0189fa8a67af0e9ccd68ddf0/vunnel-0.17.11.tar.gz"
+  sha256 "17a7812741bcfa5ca49c2dd43f2b67a4e56640641820eea4a9ff8141f274d9be"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "582dccb93d7e759eb6db077cf58df162007a5dd1d74bab3f3b01f221b3bd5ad3"
-    sha256 cellar: :any,                 arm64_ventura:  "98e65dd089ac65e12b245ef85fdbdb88e0e1dacd5522cc6e95f7262899010f72"
-    sha256 cellar: :any,                 arm64_monterey: "d2de74382f12febe18b9322d649c99c1b7d8c2dbcb9ecd443c195984745c900f"
-    sha256 cellar: :any,                 sonoma:         "dabc263bbf841245beec9093bb125409a59c1948640d4b82aca5971b0815364a"
-    sha256 cellar: :any,                 ventura:        "b8e99ac481da1be3a85889fc64424c2e9a3dde4dd6d8ce6dc54366cafacefcd6"
-    sha256 cellar: :any,                 monterey:       "bd21f1d92835d8d59e633506e5c9e309871bc6f46c739732753132eac18c4d3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ae1082d64fd76151e67f911c6c952fa42062582050d81f34a35a15823339c0c"
+    sha256 cellar: :any,                 arm64_sonoma:   "8bd4270e7b78500ea38d5ff61fcee3f318665e6470aba71dd0b6cd0aafb80495"
+    sha256 cellar: :any,                 arm64_ventura:  "46d687dc51baaf4a519dfa04472919d631ec12f063e186e3e2e4b945760f3b33"
+    sha256 cellar: :any,                 arm64_monterey: "488d0d0b118f2a5513b628859db58c86172cbc931edac25b94b16743469b3f9e"
+    sha256 cellar: :any,                 sonoma:         "ce8384f091f02d13f8d8df47772e4e0e0479f025fe58b8b3aacb81ecf5b5862a"
+    sha256 cellar: :any,                 ventura:        "abec7fc635ad43fbd60d2aff72b74ea33f59f0ed01d045c40012bb1de9b2b784"
+    sha256 cellar: :any,                 monterey:       "e3160b24e3a4a7359bec2303b98954c6669ba0d6575e3b65da0beebb46360885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b2da4061c3c9596cdbaae77f71f7aa56d2ccc2628faf1470879cb1770757dc7"
   end
 
   depends_on "rust" => :build
@@ -43,8 +43,8 @@ class Vunnel < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
-    sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
+    url "https://files.pythonhosted.org/packages/1f/b0/e4e3850d43f5429f9e53404056d705117fbb8a4d9e755425e762a9f68317/colorlog-6.8.0.tar.gz"
+    sha256 "fbb6fdf9d5685f2517f388fb29bb27d54e8654dd31f58bc2a3b217e967a95ca6"
   end
 
   resource "cvss" do
@@ -78,8 +78,8 @@ class Vunnel < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/44/ae06b446b8d8263d712a211e959212083a5eda2bf36d57ca7415e03f6f36/importlib_metadata-6.8.0.tar.gz"
-    sha256 "dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743"
+    url "https://files.pythonhosted.org/packages/ee/eb/58c2ab27ee628ad801f56d4017fe62afab0293116f6d0b08f1d5bd46e06f/importlib_metadata-6.11.0.tar.gz"
+    sha256 "1231cf92d825c9e03cfc4da076a16de6422c863558229ea0b22b675657463443"
   end
 
   resource "iniconfig" do

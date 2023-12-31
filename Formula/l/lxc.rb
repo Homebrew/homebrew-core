@@ -1,19 +1,19 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://ubuntu.com/lxd"
-  url "https://github.com/canonical/lxd/releases/download/lxd-5.19/lxd-5.19.tar.gz"
-  sha256 "4edc371e8c7e19fa08f1d1362a96761d44db94e3c5054b3adc8051235f250223"
-  license "Apache-2.0"
+  url "https://github.com/canonical/lxd/releases/download/lxd-5.20/lxd-5.20.tar.gz"
+  sha256 "2f958b757f4cde64d0f3578da0bda9ee5965a3a70ec0956eddf8287d1290167f"
+  license "AGPL-3.0-only"
   head "https://github.com/canonical/lxd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "30bbdcfa31e4ad77d72a8e5f5487d05a1e9c89ecd8074bc8afce4eb52fae8940"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1a4c74e234ebf5c6e161a7a7883c632afafe74b98118cbec9af2b02154b0dec"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "869df5ab05da79dbd6ed189423c119824d0fe760fc33e23fcb4fbc8206a5ef98"
-    sha256 cellar: :any_skip_relocation, sonoma:         "acaea9d42ac41835ac665ed1f8e859921374a8a7b391880c69e5b9a234c5b615"
-    sha256 cellar: :any_skip_relocation, ventura:        "776895f060e9bffd3d88d5d33784dd91f7c3c9b9d3d96751f94c93918f62b194"
-    sha256 cellar: :any_skip_relocation, monterey:       "da3f538c4e4c4ed19f4f682cdfa31ded58e668e37cc8b3d1da2e182db335d0e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b18251f5e267dbb4d1799c8a3b73904ab5d3c2d0371e1ec6453cd82a3d90b2a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e10ab2346013418452a0eb4a50c6661a01c04b5cc0aa97777edf684905403b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d970c509b68e783b01e5868dd585525ba71b636babb65de235475ddd0415da2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b26e1abd26ab8b7ba072656275c78592e6dabc9b1bb170f1999391e89b6aa6f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ae57e6c31a239517fe0128f52aa490cad45046b5d626d7b231ef363dae21325c"
+    sha256 cellar: :any_skip_relocation, ventura:        "e6d52d83bb02d954f3eb43a45ed4c6508239e3f2e580046f0ca5f4ca13aa267c"
+    sha256 cellar: :any_skip_relocation, monterey:       "31f51b62feb447187a4376e60025577de645cf6dea0dacdaf2da4a84196a3b95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "913f81933e9335307564cd33d66b7aa4968654f6626c1b2df2be30e1c2dec191"
   end
 
   depends_on "go" => :build

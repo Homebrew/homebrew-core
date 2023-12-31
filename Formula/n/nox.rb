@@ -21,7 +21,6 @@ class Nox < Formula
   depends_on "python-argcomplete"
   depends_on "python-packaging"
   depends_on "python@3.12"
-  depends_on "six"
   depends_on "virtualenv"
 
   resource "colorlog" do

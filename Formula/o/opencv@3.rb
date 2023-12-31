@@ -2,21 +2,18 @@ class OpencvAT3 < Formula
   desc "Open source computer vision library"
   homepage "https://opencv.org/"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://github.com/opencv/opencv/archive/refs/tags/3.4.16.tar.gz"
-  sha256 "5e37b791b2fe42ed39b52d9955920b951ee42d5da95f79fbc9765a08ef733399"
+  url "https://github.com/opencv/opencv/archive/refs/tags/3.4.20.tar.gz"
+  sha256 "b9eda448a08ba7b10bfd5bd45697056569ebdf7a02070947e1c1f3e8e69280cd"
   license "BSD-3-Clause"
-  revision 10
 
   bottle do
-    sha256 arm64_sonoma:   "e0644d0bf41b7937e68d64c2e3fed4fcd133d2a158c7c46f83d730ec91278a36"
-    sha256 arm64_ventura:  "ba188e3c706ef89108f9cdb6db3431df48a57cec911e509bf08f659ea04ffc50"
-    sha256 arm64_monterey: "2b43c5baa5a0a736c528996432e6760686fd577838793ce3a59f4b6842ff7a58"
-    sha256 arm64_big_sur:  "aeae24c516413cad8f3aad18b79a714c6fab778a9ae6f5984862cbbe07cb10a4"
-    sha256 sonoma:         "413f8f6114ebd5dd0af6a06fbc3a7395aaf068411faee4a582e9406a61e34880"
-    sha256 ventura:        "ef372b5e6bb730c085b64cc87fe70c298e245bcadaa03fba1e455de524e1b69d"
-    sha256 monterey:       "ac214b488450d231214ca239c3e5b364f94666daf24c643bedd507ca63347bfd"
-    sha256 big_sur:        "b4ede37ae35dfd9e1ece7d711d7c01dc8ecafcc71e541370828e42a8d83824fb"
-    sha256 x86_64_linux:   "418e78eefef39bb1bf0c3fa367818d207b385bf8e692f4925ca5a5ba7130d090"
+    sha256 arm64_sonoma:   "4cc2b2c1de1cb869d251fb5fb74538e2eab7d63b0588f84a70494126e5ff8500"
+    sha256 arm64_ventura:  "e41c77e2b2bc44d9fd5c7a6999db47e7063f70ae4e878c31bd2f0cee49ed55fd"
+    sha256 arm64_monterey: "5420a7536c02498251ce0bc2315d5d7d4ba66c207ac27b418e68ac4e59fde8e3"
+    sha256 sonoma:         "e9da7e9b03a5bc2b782a263561a1e465538fb0ae6d53ee1903b03b23ca7bd1ba"
+    sha256 ventura:        "4efcfe32624a7f94d1541d8f8939afc0979226e0e5b6ed5e79e647bf8f16ae54"
+    sha256 monterey:       "513823481211ab8fb937f27b9ba23e1bcd8524a22f6283cb3fd51de6c1202997"
+    sha256 x86_64_linux:   "76ab86b278b87ab1df04d85d7dc1af660aedadce4d380b553860fbd22afe2ce8"
   end
 
   keg_only :versioned_formula
@@ -26,6 +23,7 @@ class OpencvAT3 < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "ceres-solver"
   depends_on "eigen"
   depends_on "ffmpeg@4"
@@ -37,38 +35,19 @@ class OpencvAT3 < Formula
   depends_on "numpy"
   depends_on "openexr"
   depends_on "protobuf@21"
-  depends_on "python@3.10"
+  depends_on "python@3.12"
   depends_on "tbb"
   depends_on "webp"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 
   resource "contrib" do
-    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/3.4.16.tar.gz"
-    sha256 "92b4f6ab8107e9de387bafc3c7658263e5c6be68554d6086b37a2cb168e332c5"
-  end
-
-  # tbb 2021 support. Backport of
-  # https://github.com/opencv/opencv/pull/19384
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/ec823c01d3275b13b527e4860ae542fac11da24c/opencv%403/tbb2021.patch"
-    sha256 "a125f962ea07f0656869cbd97433f0e465013effc13c97a414752e0d25ed9a7d"
-  end
-
-  # allow cmake to find OpenEXR 3+.
-  patch do
-    url "https://github.com/opencv/opencv/commit/f43fec7ee674d9fc65be21119066c3e67c856357.patch?full_index=1"
-    sha256 "b46e4e9dc93878bccd2351c79795426797d27f54a4720d51f805c118770e6f4a"
-  end
-
-  # Fix build against lapack 3.10.0, https://github.com/opencv/opencv/pull/21114
-  patch do
-    url "https://github.com/opencv/opencv/commit/54c180092d2ca02e0460eac7176cab23890fc11e.patch?full_index=1"
-    sha256 "66fd79afe33ddd4d6bb2002d56ca43029a68ab5c6ce9fd7d5ca34843bc5db902"
+    url "https://github.com/opencv/opencv_contrib/archive/refs/tags/3.4.20.tar.gz"
+    sha256 "b0bb3fa7ae4ac00926b83d4d95c6500c2f7af542f8ec78d0f01b2961a690d5dc"
   end
 
   def python3
-    "python3.10"
+    "python3.12"
   end
 
   def install
@@ -120,7 +99,7 @@ class OpencvAT3 < Formula
 
     if Hardware::CPU.intel? && build.bottle?
       args << "-DENABLE_AVX=OFF" << "-DENABLE_AVX2=OFF"
-      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" unless MacOS.version.requires_sse42?
+      args << "-DENABLE_SSE41=OFF" << "-DENABLE_SSE42=OFF" if !OS.mac? || !MacOS.version.requires_sse42?
     end
 
     system "cmake", "-S", ".", "-B", "build_shared", *args
@@ -147,9 +126,8 @@ class OpencvAT3 < Formula
     system ENV.cxx, "test.cpp", "-I#{include}", "-L#{lib}", "-o", "test"
     assert_equal shell_output("./test").strip, version.to_s
 
-    python = Formula["python@3.10"].opt_bin/python3
-    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python)
-    output = shell_output("#{python} -c 'import cv2; print(cv2.__version__)'")
+    ENV["PYTHONPATH"] = prefix/Language::Python.site_packages(python3)
+    output = shell_output("#{python3} -c 'import cv2; print(cv2.__version__)'")
     assert_equal version.to_s, output.chomp
   end
 end

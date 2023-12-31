@@ -1,33 +1,23 @@
 class Sha3sum < Formula
   desc "Keccak, SHA-3, SHAKE, and RawSHAKE checksum utilities"
   homepage "https://codeberg.org/maandree/sha3sum"
-  url "https://codeberg.org/maandree/sha3sum/archive/1.2.3.tar.gz"
-  sha256 "507140ec7d558db70861057d7099819201a866b4c5824f80963e62c10a0081b4"
+  url "https://codeberg.org/maandree/sha3sum/archive/1.2.3.1.tar.gz"
+  sha256 "0271f3b6ac5566b73b18d12ef61e3662b98d25abed7c5da5f0eea12961f260dd"
   license "ISC"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "23d23dc51f9f2201e0b4e68cdca0e077919f5cc4f69a83b2ab793fd74b8f66b7"
-    sha256 cellar: :any,                 arm64_ventura:  "01fb95cb06d33d483f8387411d26a4866742c42de5b444a55c380b4c4297c948"
-    sha256 cellar: :any,                 arm64_monterey: "a738b5d0e3688dc6e767ab227c3247ac954b3c6cb240c6892514985958948d8e"
-    sha256 cellar: :any,                 arm64_big_sur:  "92642722fa0246448839ae7d939a9b5eacb4a9e1f521aac9562a180008796957"
-    sha256 cellar: :any,                 sonoma:         "ae6152e281a25c2820291dc9f678177921eda611d7159a0520992009ef32291a"
-    sha256 cellar: :any,                 ventura:        "6743f62f9ecb8cfd51f8dd9d7fca0dcb1faf32e19ee6cee1733f03d9a8eb7696"
-    sha256 cellar: :any,                 monterey:       "730874ff1bc6bee968903fa68140b9be5750417f6c916e98f6197b6a803d3f62"
-    sha256 cellar: :any,                 big_sur:        "40824202d1f6b8d5df16d160006316ba8bd0b9b2bd1078b1dfa0342cf40faf42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "591606153c9e455795cca217bd8a6254c32ec7e4453d48f9952ce68344447c25"
+    sha256 cellar: :any,                 arm64_sonoma:   "e4dbe2302deb987ebcd26bddf14d1af291e1d9fbe148d91ad712d46415d0edef"
+    sha256 cellar: :any,                 arm64_ventura:  "d3831179596af0f1204aa7705ff943bc7244ea400d7bc1b31d2ecaa1628198c4"
+    sha256 cellar: :any,                 arm64_monterey: "f4ec5850831c39ab0e385fcec01c35bce4594f0993ba93a4fa70c3b490ca5cf9"
+    sha256 cellar: :any,                 sonoma:         "49e18e7f3e6ec476b8eabb2c938f4e3b7975e552952532238542e8a27631b7e3"
+    sha256 cellar: :any,                 ventura:        "9ec92a81602647b0ee6a48f3c1a64d8e33ab8e8365edbab919067f9def58facd"
+    sha256 cellar: :any,                 monterey:       "2ea5eadc0bd1ff2ab10c7fc30787082271a9620d1e05993aea05cad7e6c8dd85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddcb3ee8b45d13748d000f36cfe5ead89a45cecf098c7adc43a1a7917f94d75f"
   end
 
   depends_on "libkeccak"
 
-  on_macos do
-    depends_on "gnu-sed" => :build
-  end
-
   def install
-    # Makefile requires GNU sed as of version 1.2.3
-    # See https://codeberg.org/maandree/sha3sum/issues/1
-    ENV.prepend_path "PATH", Formula["gnu-sed"].libexec/"gnubin" if OS.mac?
-
     # GNU make builtin rules specify link flags in the wrong order
     # See https://codeberg.org/maandree/sha3sum/issues/2
     system "make", "--no-builtin-rules", "install", "PREFIX=#{prefix}"

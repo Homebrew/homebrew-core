@@ -56,8 +56,6 @@ class Mandoc < Formula
       "MANM_EQN=eqn",
       "MANM_TBL=tbl",
 
-      "OSNAME='Mac OS X #{MacOS.version}'", # Bottom corner signature line.
-
       # Not quite sure what to do here. The default ("/usr/share", etc.) needs
       # sudoer privileges, or will error. So just brew's manpages for now?
       "MANPATH_DEFAULT=#{HOMEBREW_PREFIX}/share/man",
@@ -68,6 +66,13 @@ class Mandoc < Formula
       "HOMEBREWDIR=#{HOMEBREW_CELLAR}", # ? See configure.local.example, NEWS.
       "BUILD_CGI=1",
     ]
+
+    # Bottom corner signature line.
+    localconfig << if OS.mac?
+      "OSNAME='macOS #{MacOS.version}'"
+    else
+      "OSNAME='Linux'"
+    end
 
     File.rename("cgi.h.example", "cgi.h") # For man.cgi
 

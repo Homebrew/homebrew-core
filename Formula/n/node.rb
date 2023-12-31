@@ -1,8 +1,8 @@
 class Node < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v21.3.0/node-v21.3.0.tar.xz"
-  sha256 "ab4172ec827f770c6c3b4b6f30824104137eda474848e84d55ed55b341e67725"
+  url "https://nodejs.org/dist/v21.5.0/node-v21.5.0.tar.xz"
+  sha256 "afd7d4713573cd814f7e4df320de8d5c8e147b4101bc9fbbe2a6d52eb5f8b072"
   license "MIT"
   head "https://github.com/nodejs/node.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c2238b6df588092e3c42c2bfe1d0912b7032b74c57d414dae8cd5bbae5a1fda8"
-    sha256 arm64_ventura:  "0f5c06de547ca6433015c3e15ebe4c05a5f1e0fa1a3d9685f9e35e8440985794"
-    sha256 arm64_monterey: "ee321ef56b943b27fe4559ad0f91c6e6110fe7017131baa5251bb367319eaa33"
-    sha256 sonoma:         "5e1d674e8141d5fd3889122f1b9c77dde318ba59435f80888dc74eeee0e615bf"
-    sha256 ventura:        "86d5af5e933db0714696bc58b6ee6a13fc700083ac329356d298ad3957d7c888"
-    sha256 monterey:       "b1a8f1c4a2c94a1ebfc223fcf9e1105e08835b2cea7b0d230b7cab47c65cdaa9"
-    sha256 x86_64_linux:   "2e74946ef520bd0b79c231f8795c949be5f811b37219d2ccd0404fcf985db3e7"
+    sha256 arm64_sonoma:   "1d358e09d583fed34f7002947cbf2486a9c6cc60bf73260a5fb3794c66c45d66"
+    sha256 arm64_ventura:  "5b98300819adaf9a3edec64ce4db59302afc7645913e2acad7ac84a0f101127a"
+    sha256 arm64_monterey: "8f1d99746e233ae23968b48656a7b40fede2beb5d8962b9b118daad14e4a2821"
+    sha256 sonoma:         "8fa2dc7519c0dc76c501ed69b25d7ad9b024bc474969d5916197ee81121fd571"
+    sha256 ventura:        "c3b6aee0aa799502006498c3859939a402410611c4f65cfc70027105e29bfd8a"
+    sha256 monterey:       "f915f68888b7e79e2959b1b635d8d75202a2c87a45602612a55f90fcb56069a7"
+    sha256 x86_64_linux:   "f23a1007a8efae8ebbeb98aeb809f5d14d505689482e468a4603b18016c56f2e"
   end
 
   depends_on "pkg-config" => :build
@@ -51,21 +51,6 @@ class Node < Formula
   resource "npm" do
     url "https://registry.npmjs.org/npm/-/npm-10.2.4.tgz"
     sha256 "36b548120f75f26408d04ff163cd4a699916f1c4b72ebeeab0bbaf054009eb5b"
-  end
-
-  # Fixes `return binding.writeFileUtf8( Error: ENOENT: no such file or directory`.
-  # Remove both patches when upstream releases a new version after they're merged.
-  # https://github.com/nodejs/node/issues/50989
-  # https://github.com/nodejs/node/pull/50990
-
-  patch do
-    url "https://github.com/nodejs/node/commit/c3236428e02b00a416858e9f76ce287923595266.patch?full_index=1"
-    sha256 "067f59bb4d769b775a35968d00e6d26adc34bd12ae899ab1bcdb2b2e478b6f8e"
-  end
-
-  patch do
-    url "https://github.com/nodejs/node/commit/aaa4edda7d2e16a284f893c9cb49459b1271e4d5.patch?full_index=1"
-    sha256 "16fab63b15d4ad2a9ab0cf0516d108d789a7b58fe14fecf5277aceeb3b56ac2f"
   end
 
   def install
@@ -108,7 +93,7 @@ class Node < Formula
     # terminate called after throwing an instance of 'std::out_of_range'
     # Pre-Catalina macOS also can't build with LTO
     # LTO is unpleasant if you have to build from source.
-    args << "--enable-lto" if MacOS.version >= :catalina && build.bottle?
+    args << "--enable-lto" if OS.mac? && MacOS.version >= :catalina && build.bottle?
 
     system "./configure", *args
     system "make", "install"

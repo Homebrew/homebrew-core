@@ -1,39 +1,31 @@
 class ArgusClients < Formula
   desc "Audit Record Generation and Utilization System clients"
   homepage "https://openargus.org"
-  url "https://qosient.com/argus/src/argus-clients-3.0.8.2.tar.gz"
-  sha256 "32073a60ddd56ea8407a4d1b134448ff4bcdba0ee7399160c2f801a0aa913bb1"
-  revision 4
-
-  livecheck do
-    url "https://openargus.org/getting-argus"
-    regex(/href=.*?argus-clients[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  url "https://github.com/openargus/clients/archive/refs/tags/v3.0.8.4.tar.gz"
+  sha256 "1e71e1ec84a311af4ac6c6c9e7a3231e10591e215b84d7e0841735b11db3127a"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bbd65b29c0ebfde03358e5878c52e993af6280a24562b424cead54ff88ce47e9"
-    sha256 cellar: :any,                 arm64_ventura:  "99613002c84306c9f1e7484fac652dc73c6250ddd6b6a2dcca87c72c360c5dfc"
-    sha256 cellar: :any,                 arm64_monterey: "5ba432fb7867e00b2bc6c092640f77b737a83bf39dfecc6b2c6915fa650b1c0b"
-    sha256 cellar: :any,                 arm64_big_sur:  "399217b0dc94900b41013e73be7ac85cccf52d9046d42d960f0461d07657739c"
-    sha256 cellar: :any,                 sonoma:         "eb2dafb544637e0fc92f2323724e847994f2c659373bcf9dcca4470fedc18e9c"
-    sha256 cellar: :any,                 ventura:        "565845067061784fa312f5ce682a31635e6c8f2d0c28fe797e755321d5b06ea6"
-    sha256 cellar: :any,                 monterey:       "53205c437e2a8f661c55de6b46e63ecd81b7d5cb3d72dff69d9a2da4876a3299"
-    sha256 cellar: :any,                 big_sur:        "8f1f7bfced13b9a62c6455be898a72e545f60d6f3c42a7ca9809bb8723ca4042"
-    sha256 cellar: :any,                 catalina:       "579d10c6b410d1fe18fb653c6413a30ea04f8826f441094bcb944244e9dfdfd5"
-    sha256 cellar: :any,                 mojave:         "ed00932e81d23c0a2cb872190088994a190967f4bbe8dc08e9f04212e6ede2e0"
-    sha256 cellar: :any,                 high_sierra:    "3c231bbc8dccff67f8eadb490bb128bbf063e9200993d53d0306e1730ea0bc5e"
-    sha256 cellar: :any,                 sierra:         "edfae9718df8bd3d4fe6225cca8170513638b1581234fffa8deaa5f9e228593d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "702918f2a17809ddbff6f9c7161a3b58bdc63209ab8f8a13ab29f7b546cb0c7d"
+    sha256 cellar: :any,                 arm64_sonoma:   "b0587f8a46452c38ec031e8702f2187cbf691da6967f2d9201d26cd20a231b65"
+    sha256 cellar: :any,                 arm64_ventura:  "6851559033bb84f190d0e81c9449f69b5ba38c1e0683f4f3811595934334054d"
+    sha256 cellar: :any,                 arm64_monterey: "ef5843ccd0c438284b0c21fa0d70ccac9ab8d06f8ee1eba59752027476bf55e9"
+    sha256 cellar: :any,                 sonoma:         "ae69489900b4e3f9292a1e1f2f33ac21070b0e7c3f3abf161eae9f0693d4acbd"
+    sha256 cellar: :any,                 ventura:        "34584bff62553297be082fc641dc4547ce5078d0d062271a19a5e596fe389883"
+    sha256 cellar: :any,                 monterey:       "cd5dd677729938a48bec1da1d3a12ca26269a107a5bdac2b76d47968d453d58a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9810d90c908373e299c23598590268144b3cc35c15ecf5e73fb8dcc300af4411"
   end
 
-  depends_on "geoip"
   depends_on "readline"
   depends_on "rrdtool"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  on_linux do
+    depends_on "libtirpc"
+  end
+
   def install
+    ENV.append_to_cflags "-I#{Formula["libtirpc"].opt_include}/tirpc" if OS.linux?
     ENV.append "CFLAGS", "-std=gnu89"
     system "./configure", "--prefix=#{prefix}"
     system "make"

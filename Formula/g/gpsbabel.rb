@@ -4,6 +4,7 @@ class Gpsbabel < Formula
   url "https://github.com/GPSBabel/gpsbabel/archive/refs/tags/gpsbabel_1_9_0.tar.gz"
   sha256 "7801d30553bbc25d0b0e8186f2f5a1ec41397e51a26b92cc8ad1aeaa77c9beb6"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,13 @@ class Gpsbabel < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "67f736d8b27fd6ed2273e0448d0984d1972e78daf10af9ffbd57f2e81a871050"
-    sha256 cellar: :any,                 arm64_ventura:  "2ce694f25190c74129462218a6d8d3142fd12189196269bb9d2093d7e9e62020"
-    sha256 cellar: :any,                 arm64_monterey: "2b7232b9ccc6f1a7bff33b658ecb6c719fb60305bbbda64660f5797815452dc6"
-    sha256                               sonoma:         "6509d1d01a002e03a802213ca29bf49758b3e8ce2c2e7e3cef5e02a576cfafd1"
-    sha256                               ventura:        "854131ea37991a40b5a21c2f5aa4c82824152b1569d9f891a2ecf48265bc3bea"
-    sha256                               monterey:       "d0be365943bccb275a108e728bf273a702147e42d2ccf5de3b5cc0a9416321f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e9584f4908a0568a9bc289039b3b4dbecd3dae3f4df38e1f7cccab2b8c6f3b8"
+    sha256 cellar: :any,                 arm64_sonoma:   "ad979a6934703acb06ab64021d66dd94c3a2fa3805e8878dcd755383bd881323"
+    sha256 cellar: :any,                 arm64_ventura:  "40696e53a377f887e7a5e5ae3a67d5d8148bbe9e0b303299b9e9e51f22bbccb1"
+    sha256 cellar: :any,                 arm64_monterey: "366f727d7d5902c15efbd064cb1143440ad215f3c6e0c1e5fde1fbcb884637c2"
+    sha256                               sonoma:         "02fb44289edae0dcc93b2209be3f05654086fb403869630fb53ae22cea8a2e08"
+    sha256                               ventura:        "8bfb20e244b7a35d31d1109a278e1786f980c4dbcd546d1e0624f64e5295e02d"
+    sha256                               monterey:       "9703c21cee29577b79c60d074f62ac98a24710a810c20bc5bf3e15627e0940dc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c8cdc10690f1eba7e5277758863341f80f628423ec5da6e78f8ea62f286cfe1"
   end
 
   depends_on "cmake" => :build

@@ -1,20 +1,18 @@
 class Felinks < Formula
   desc "Text mode browser and Gemini, NNTP, FTP, Gopher, Finger, and BitTorrent client"
   homepage "https://github.com/rkd77/elinks#readme"
-  url "https://github.com/rkd77/elinks/releases/download/v0.16.1.1/elinks-0.16.1.1.tar.xz"
-  sha256 "303c6f830b98658dcb813b68432ecde27d3857ccf1e765109fb6b0edb89f5095"
+  url "https://github.com/rkd77/elinks/releases/download/v0.17.0/elinks-0.17.0.tar.xz"
+  sha256 "58c73a6694dbb7ccf4e22cee362cf14f1a20c09aaa4273343e8b7df9378b330e"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0e794f362b151091ef2beb0d6d036e8ff4162c5bd55e7ff81fcfdf2f945f303a"
-    sha256 cellar: :any,                 arm64_ventura:  "a6115add8e76c8dacc68deb68ca62f97a491d42eec37c325555e4b928cf9f571"
-    sha256 cellar: :any,                 arm64_monterey: "7022a233634adae1b93d4e6d8796dff37666ae11a6cd01d1e2fca859090822aa"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7d6126a3fb6fa700cefc46ba323b94bcc93ad479a59e7dc41deedbad3c35130"
-    sha256 cellar: :any,                 sonoma:         "a393aea6f4c041bda068591010c66329321689bd978f32d680e38a543dbe1a54"
-    sha256 cellar: :any,                 ventura:        "0834b3a35b8f5a8c1760f0d63cc2bf3bd2ae49c9c8da68320df8486e0c34a34e"
-    sha256 cellar: :any,                 monterey:       "830cc73a8e8dfad7aaae3271636f1646d60292b0e42ee398d59944d20e61add2"
-    sha256 cellar: :any,                 big_sur:        "2e48a8a05c023118d94094dfa8e3c0065fe51746e54fa16cb182a88be269ff90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3f9f998591f4be38178e2fc160a43192e5b369c16628269f281a2e66bf76a59"
+    sha256 cellar: :any,                 arm64_sonoma:   "57f61582dadfbd450b6c904a1c660e880ea35c5cfab75ef7dab2b6d471d60161"
+    sha256 cellar: :any,                 arm64_ventura:  "d30b4c6241c1486776e59e9c9b11c250ae41acbc3295c8d0edcde1722f46948e"
+    sha256 cellar: :any,                 arm64_monterey: "3ac7aee0b13a45548e6c122f5f6b0cdb71f072ce515ea21d295285b7983529a3"
+    sha256 cellar: :any,                 sonoma:         "f4eb30889668acca94dc26e9f1a307bb4c21825d6e62ab72cfb6b7969038cc51"
+    sha256 cellar: :any,                 ventura:        "6d581731eaa6d41d08621adfa248966fb89e1c01b68c9216d8e1eb0ddf68d476"
+    sha256 cellar: :any,                 monterey:       "76063ebe01b0b5bc44895113075afa877f7e7b443d18ac00e6127df62d0f8d4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec20a05e457d72c74f13e12ce329f14f349488ee543e5e68fe2a1443acde547f"
   end
 
   head do

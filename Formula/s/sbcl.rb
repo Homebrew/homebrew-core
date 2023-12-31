@@ -1,8 +1,8 @@
 class Sbcl < Formula
   desc "Steel Bank Common Lisp system"
   homepage "http://www.sbcl.org/"
-  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.3.10/sbcl-2.3.10-source.tar.bz2"
-  sha256 "358033315d07e4c5a6c838ee7f22cfc4d49e94848eb71ec1389d494bc32dd2ab"
+  url "https://downloads.sourceforge.net/project/sbcl/sbcl/2.4.0/sbcl-2.4.0-source.tar.bz2"
+  sha256 "83d8b74f08d2254c59b9790bc1f669e09099457b884720ececbf45f4b46d1776"
   license all_of: [:public_domain, "MIT", "Xerox", "BSD-3-Clause"]
   head "https://git.code.sf.net/p/sbcl/sbcl.git", branch: "master"
 
@@ -11,13 +11,13 @@ class Sbcl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7e4a0c94caa220dbadc37becbb9045726f0f6cf51a1ab3a6fb297dc750bf4583"
-    sha256 cellar: :any,                 arm64_ventura:  "6a635e73c0428c20e1e2c0965087ea68652b53b56ac7c7d8ce694d79aec08996"
-    sha256 cellar: :any,                 arm64_monterey: "910a294d74dd3a6ad32a507d5056b613e6944935d5f7641393f9699121d9da81"
-    sha256 cellar: :any,                 sonoma:         "adacbea69f4db7ab032448956123c649cf1f6a2d4a8026ffd6e35de328af93a4"
-    sha256 cellar: :any,                 ventura:        "bd96771f52e555fcd2837369ae73196328223039c3b51df0b398ee47e6681e2a"
-    sha256 cellar: :any,                 monterey:       "f7f76808f4f27202b6e2d0173afb814fa839fe23b825eec63f95731276f71e75"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcf5fd31d100f1e8b9bd03413119266110a8b9ab08d6653f856f0ee2a964ebf7"
+    sha256 cellar: :any,                 arm64_sonoma:   "9141e306cab44c7345b6e08f35718856ea94fccac4cbef138f3f27104b9781ce"
+    sha256 cellar: :any,                 arm64_ventura:  "1c53179c5d36187ff56b77a7824f3f2b0f31a4d90e8885826e6b08583b1fbfac"
+    sha256 cellar: :any,                 arm64_monterey: "4247329dd8d9c12b0f14578b48bcd35f47ee2af39d6d5356327922c75894b78d"
+    sha256 cellar: :any,                 sonoma:         "7845f98c6929acf932d4f265b01b9605d8378557d72b88f1ce220ef2b86652a4"
+    sha256 cellar: :any,                 ventura:        "00c0c007592f3371b9d3b86f8451f1d174e9937524e284ddf2985d4310a7c227"
+    sha256 cellar: :any,                 monterey:       "84598fec6a247e5c1d38c8c35808fbce4f2170f96a0a56bfc79b00d8d3d55ed5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9f035ea9d95766d4222de7799969f4f31bdd642ecb03bdfb56179e45ab53f1d"
   end
 
   depends_on "ecl" => :build
@@ -42,7 +42,7 @@ class Sbcl < Formula
       "--with-sb-thread",
     ]
 
-    ENV["SBCL_MACOSX_VERSION_MIN"] = MacOS.version.to_s
+    ENV["SBCL_MACOSX_VERSION_MIN"] = MacOS.version.to_s if OS.mac?
     system "./make.sh", *args
 
     ENV["INSTALL_ROOT"] = prefix

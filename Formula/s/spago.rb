@@ -13,6 +13,7 @@ class Spago < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d5eab4b1fb90ac9d885b97b5babd968405a5d5de9e868646f9a999eda30ea46"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1c516a357d01efcef8d2dc263ca4785c24b3e48559974925e8dfd985a672bf3"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "9ff1f1056aefbd2ea4e1ebc0a4415aefab0a21f09e0c90e6ddc0b5e732d75c79"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0765e9b2ba05a82406efa85966071307b4021c95f6c5ad824a73f2911063856"
     sha256 cellar: :any_skip_relocation, sonoma:         "8ae60344eaff53522d7e77d7962acccbfece42817364786718412edc50d2cadf"

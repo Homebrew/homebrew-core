@@ -3,19 +3,19 @@ class Ldeep < Formula
 
   desc "LDAP enumeration utility"
   homepage "https://github.com/franc-pentest/ldeep"
-  url "https://files.pythonhosted.org/packages/f3/86/1db4969a381b4fcfee4586caf51e2d7bbff9f5cf939bd221289660cd8172/ldeep-1.0.49.tar.gz"
-  sha256 "9ce09e4dd50da456423f64765397d5a1c480d0887825abd0bd0080cff96f99fd"
+  url "https://files.pythonhosted.org/packages/8f/7c/f62d3b31a9675e71712432a7423cd0d783689a50b830bd14f9265434b432/ldeep-1.0.51.tar.gz"
+  sha256 "ff372876aea6afbdb145218d6dabd600bb61bd5ae19b38b6dc40f8874bf72344"
   license "MIT"
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "525166f172e6ca2d4cd7e44366078da5a026790e1d831e2a3ce42353f9fea131"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e0f151e303ca28d6ef925727f9d83785a22430c072cbd80d98374edea9562a8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "00dcec023e436dcead8595548e19f15b75016151c7ff75e2546eae7b89d0eb9b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a81a8f9e045cf7b37a26243feba2ee5ed3c9e97362e0f69d523fe576c5e7b203"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4ea4757add135bdac3d5e9244db2e78758a36b41c2c6d9dfa3592ebdeb2feb1"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8f9cbaa804985854be38d04b8a4f0867b39de415694817a8a25c8f7c8f7b3ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b546a3f0a9c906c064ccbe5903ea48f2a9ccf7c01380a15dae204bc94a657b5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9047f57ba6e9ed52d5db5c353598e38a429c31d1c9fd2ab1502ab2955ae0fa3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7ac816f45d22e64e736cd022a7f72397087ae7b623703476dd4b4b899045dcf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5627d3817da70faacc21bec3bebec7506833d4852f499fdb71a65c2cc8c2dff"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d0072154b2b9ccb19959fedafd5d1eded74cd76473017bc1d94986144ff34a5f"
+    sha256 cellar: :any_skip_relocation, ventura:        "624e09d349a2222d44e8c3457bdab237fbc8f48809a9368d3ca594a51a39c314"
+    sha256 cellar: :any_skip_relocation, monterey:       "95c01ec1a30482a70eef94d395748467582cd2396628a2ef1a22d4aba530970b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9ddd9657a84b5e83bc2d2025174e31771d584e3d00e57d3c8cf3f38ea95c549"
   end
 
   depends_on "cffi"
@@ -75,8 +75,8 @@ class Ldeep < Formula
   end
 
   resource "termcolor" do
-    url "https://files.pythonhosted.org/packages/b8/85/147a0529b4e80b6b9d021ca8db3a820fcac53ec7374b87073d004aaf444c/termcolor-2.3.0.tar.gz"
-    sha256 "b5b08f68937f138fe92f6c089b99f1e2da0ae56c52b78bf7075fd95420fd9a5a"
+    url "https://files.pythonhosted.org/packages/10/56/d7d66a84f96d804155f6ff2873d065368b25a07222a6fd51c4f24ef6d764/termcolor-2.4.0.tar.gz"
+    sha256 "aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"
   end
 
   resource "tqdm" do

@@ -7,6 +7,7 @@ class Smali < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "909b027559fa670c4e04e24e5d8f0c16ca7c0791826c709a9e1923d3c8a7d7c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a156600b701a8ec390c3cc6f8348c5fdc87a4f4168ca1b9fa85729437d1a7c6a"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0ae90cfbf519caf36fa5c2ee2c9059a41d9f39ab1652c5d883e9267552bbe699"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fa384e0623d92232575207c1d393204e05254206e9309b9160be038f698bcb11"
     sha256 cellar: :any_skip_relocation, sonoma:         "e8b11c842896662bb8fcd75c2bd5b9eddb7d57f123de420b5467d297ed7a638a"
@@ -17,6 +18,8 @@ class Smali < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "44fc500be24c9cc38b5c7031cf600019083c5385e18bd067eeacb1424061d0c9"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a674a05a86c284a8f15d82c01e73af0e1802b755659c6417d79157ff2108f82f"
   end
+
+  deprecate! date: "2023-12-14", because: "uses deprecated `gradle@6` to build"
 
   depends_on "gradle@6" => :build
   depends_on "openjdk"

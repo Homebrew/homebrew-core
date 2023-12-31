@@ -7,18 +7,11 @@ class Jmeter < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "057e07995bc4c4085510a2f53f0b1b673ebdb215db18d8c6497248b5b5855874"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "057e07995bc4c4085510a2f53f0b1b673ebdb215db18d8c6497248b5b5855874"
-    sha256 cellar: :any_skip_relocation, ventura:        "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
-    sha256 cellar: :any_skip_relocation, monterey:       "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f63ab326b37c6c29d7ccdc0d115e2a3a7db0fb959f25af01067eb13c4b10d1d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30e671f75a56f645115bb3f5c91968afcfbb89643565737a1c18d79928c9bf83"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "82538b33f8d2aaf6977e41abc33c91ba3a9ed27e88ceb163e1b2888a3a5f72c8"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   resource "jmeter-plugins-manager" do
     url "https://search.maven.org/remotecontent?filepath=kg/apc/jmeter-plugins-manager/1.9/jmeter-plugins-manager-1.9.jar"
@@ -30,7 +23,7 @@ class Jmeter < Formula
     rm_f Dir["bin/*.bat"]
     prefix.install_metafiles
     libexec.install Dir["*"]
-    (bin/"jmeter").write_env_script libexec/"bin/jmeter", JAVA_HOME: Formula["openjdk@17"].opt_prefix
+    (bin/"jmeter").write_env_script libexec/"bin/jmeter", JAVA_HOME: Formula["openjdk"].opt_prefix
 
     resource("jmeter-plugins-manager").stage do
       (libexec/"lib/ext").install Dir["*"]

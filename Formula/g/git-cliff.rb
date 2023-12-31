@@ -6,13 +6,14 @@ class GitCliff < Formula
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7763105faf1d1e8c135a5270ee3785f4ced1285cbd03174dfe2f6485ee7b61f4"
-    sha256 cellar: :any,                 arm64_ventura:  "e20b7dbc635f860a3e8f02b5d76bb1915b964791876e426358c28a30f56d0a1a"
-    sha256 cellar: :any,                 arm64_monterey: "150ebcb6afbc4f77db10e58df1f21a1cc378c2640581d01ff6b73504324f575d"
-    sha256 cellar: :any,                 sonoma:         "76fe09d233cca43759946fecc1fda079cc62e540ef670a1997d3c6e7df9e6256"
-    sha256 cellar: :any,                 ventura:        "258e5f7e4cbdc91dba2b7177ce5f2b532eced6378ee16a5fe40743233a1901dc"
-    sha256 cellar: :any,                 monterey:       "845954b8c8191a10c4892afef729f6681c675410736e858d90feb9f0b3cc57aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bf03df8f277405c695c632bbc2745cac390d7ca8923c6c5bcb19fe71533002d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "860c578c40f61ace2cb91a18012ba7a8af7806be08f338cdb591e1d52b82ca06"
+    sha256 cellar: :any,                 arm64_ventura:  "0ad0eb3b0662c90820d45c3f06d47ea959551cae96cf7d71bfc0ebb0611d5fe3"
+    sha256 cellar: :any,                 arm64_monterey: "a08586ac6cfb1901d89209b487ab4b5eb66e54bdafc334e5e29e087ed6159240"
+    sha256 cellar: :any,                 sonoma:         "1be7a2a7465f9f230232afd4a4bb0dfb20d1bcc96489a43561918b3b1889f6db"
+    sha256 cellar: :any,                 ventura:        "d7efd7a6d669949a91bf05ac86870ab016cc607b0b77c2fd8818f67ddf0d5be9"
+    sha256 cellar: :any,                 monterey:       "71f9dca3327915bc870260a7fc210f6e0660bbba2ab04324bd69cb2f36a16239"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b3ebdabc943fee8f4ec71ec08edcf5a5922d5f248f1db286c499c9d219bbaa7"
   end
 
   depends_on "pkg-config" => :build
@@ -24,11 +25,21 @@ class GitCliff < Formula
 
     system "cargo", "install", *std_cargo_args(path: "git-cliff")
 
+    # Setup buildpath for completions and manpage generation
     ENV["OUT_DIR"] = buildpath
+
+    # Generate completions
     system bin/"git-cliff-completions"
-    bash_completion.install "git-cliff.bash"
+    bash_completion.install "git-cliff.bash" => "git-cliff"
     fish_completion.install "git-cliff.fish"
     zsh_completion.install "_git-cliff"
+
+    # generate manpage
+    system bin/"git-cliff-mangen"
+    man1.install "git-cliff.1"
+
+    # no need to ship `git-cliff-completions` and `git-cliff-mangen` binaries
+    rm [bin/"git-cliff-completions", bin/"git-cliff-mangen"]
   end
 
   test do

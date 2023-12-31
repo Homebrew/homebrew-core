@@ -1,26 +1,22 @@
 class Autoconf < Formula
   desc "Automatic configure script builder"
   homepage "https://www.gnu.org/software/autoconf"
-  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.71.tar.gz"
-  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.71.tar.gz"
-  sha256 "431075ad0bf529ef13cb41e9042c542381103e80015686222b8a9d4abef42a1c"
+  url "https://ftp.gnu.org/gnu/autoconf/autoconf-2.72.tar.gz"
+  mirror "https://ftpmirror.gnu.org/autoconf/autoconf-2.72.tar.gz"
+  sha256 "afb181a76e1ee72832f6581c0eddf8df032b83e2e0239ef79ebedc4467d92d6e"
   license all_of: [
     "GPL-3.0-or-later",
     "GPL-3.0-or-later" => { with: "Autoconf-exception-3.0" },
   ]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1f283e7df08b15468f8c02ac670824df9721d63567e382fea5f88b75f5e1092"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3d366c98b0da7a0a4f352eef49af9d612ac7aea4ffe420d49ff12bd90007415"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a3d366c98b0da7a0a4f352eef49af9d612ac7aea4ffe420d49ff12bd90007415"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6279cc6294da77a87b2e08783f39a97e8678bde9b3e2899685879cabee6d2945"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a474f30e4ba1946cf73d08aa5e6cab7f093cd1dfb36a698104f3593e07e4f17d"
-    sha256 cellar: :any_skip_relocation, ventura:        "e4f6fbea9807075da1452887f2ce0468e42ea14587ba3e6dd5e7a9929f399d18"
-    sha256 cellar: :any_skip_relocation, monterey:       "de8f4aa4123d307ad8bb11b1c685538224dc39939085fd00af928c5099c4202d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0aa64f171bac19ce6ac0c0ca697f30658db78cf175550dfde3dbda907b7f2500"
-    sha256 cellar: :any_skip_relocation, catalina:       "258a94bef23057c52818adf64d682af20bc6e09b46eac135047e2b87fc8206c7"
-    sha256 cellar: :any_skip_relocation, mojave:         "e94578bf4b4832baef1c9bbb40cb4da5fdbd9c66be5ed8d070f78be5f0cca618"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f9a73292e64f19ec504459ee7f8b7f11f1e472d18252499705a9fc289c43f85"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb39057e87dd9cb940bee15ff5b5172952a0350e59b14a6f55b8006a07813186"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb39057e87dd9cb940bee15ff5b5172952a0350e59b14a6f55b8006a07813186"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb39057e87dd9cb940bee15ff5b5172952a0350e59b14a6f55b8006a07813186"
+    sha256 cellar: :any_skip_relocation, sonoma:         "12368e33b89d221550ba9e261b0c6ece0b0e89250fb4c95169d09081e0ebb2dd"
+    sha256 cellar: :any_skip_relocation, ventura:        "12368e33b89d221550ba9e261b0c6ece0b0e89250fb4c95169d09081e0ebb2dd"
+    sha256 cellar: :any_skip_relocation, monterey:       "12368e33b89d221550ba9e261b0c6ece0b0e89250fb4c95169d09081e0ebb2dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d760774b6bcad93822e666a8a2ee8557f674eba7f784b9ab9e397313378474b8"
   end
 
   depends_on "m4"

@@ -1,21 +1,19 @@
 class Sgn < Formula
   desc "Shikata ga nai (仕方がない) encoder ported into go with several improvements"
   homepage "https://github.com/EgeBalci/sgn"
-  url "https://github.com/EgeBalci/sgn/archive/refs/tags/2.0.tar.gz"
-  sha256 "b894e4cb396a5bb118a4081db9c54938e4ca903f67a998e7de8ec2763f2fcf53"
+  url "https://github.com/EgeBalci/sgn/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "a4ae48aa14dcf27ac8ed6850fb87fa97049062aa3152065c50a20effc0b98234"
   license "MIT"
   head "https://github.com/EgeBalci/sgn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "959b57c87632494b1438e0c97731885b5372966ccf28a7a41cccd843ceff9f7b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f5990b3ec44deda15b1feb6da75576080e00d5bfdfc9d23147c18940a09c8af"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32c9256c57f43403fca7b8a9b7c868f62151456a93be910f5060eb74a49b2140"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8bb448c1d065c6bfe6edcb0887c73c3789efb99acdec649dc097dda60ba08351"
-    sha256 cellar: :any_skip_relocation, ventura:        "faea6873e40ca31b5c5d825fab69f30ca7b702c32c4c932bb173654142634b69"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae6a45a60edc4e1d155427dedfa9c4d9baa653ca53278ad0021540751aaac83b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "65251c7362ce98f1aa9484aa23f67e78d6b7fb665c0117c2358ceec2009f029a"
-    sha256 cellar: :any_skip_relocation, catalina:       "35ee722f342c3522588f1c5e3c9b5661ad7c5a44166ad3ee8283d2f8103201ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "392e46d698ec3b250eee575d40f727669e1de5a5e621245c916d61c72ea918ff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a1949bca90a05d5d299414a24d43cb1b86e874ef5270cac5055e1a27aa166937"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02d73bd9e582463b76013e58e14e6471077cb58a907bf9e3f4f2d5cf1732b41b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "946513aabdcb213bb452905a1db946d32982c48958cb24558b054d21604e88c3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a81bd09fdfed445e9ac2af2f253f4e1c8a2741de93ae9b4336d283c0bd7ca51a"
+    sha256 cellar: :any_skip_relocation, ventura:        "8545f154839509d12b1b1d2ee97c80022dee9e65b4c0b7a37acdaca4d4c92710"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa6dee4c2559d222be6fec668790792b5278c6929ac95241867d1daec0310334"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa3cf0a77f56361c1eefc36970949dd1fd3efb8db049af4ac4e4afbe8bd7f993"
   end
 
   depends_on "go" => :build
@@ -26,6 +24,7 @@ class Sgn < Formula
   end
 
   test do
-    assert_match "All done ＼(＾O＾)／", shell_output("#{bin}/sgn -o #{testpath}/sgn.out #{test_fixtures("mach/a.out")}")
+    output = shell_output("#{bin}/sgn -i #{test_fixtures("mach/a.out")} -o #{testpath}/sgn.out")
+    assert_match "All done ＼(＾O＾)／", output
   end
 end

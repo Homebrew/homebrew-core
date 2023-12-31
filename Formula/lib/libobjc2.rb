@@ -10,14 +10,13 @@ class Libobjc2 < Formula
   end
 
   depends_on "cmake" => :build
+  # While libobjc2 is built with clang, it does not use any LLVM runtime libraries.
+  depends_on "llvm" => [:build, :test]
   depends_on "pkg-config" => :test
   # Clang explicitly forbids building Mach-O binaries of libobjc2.
   # https://reviews.llvm.org/D46052
   # macOS provides an equivalent Objective-C runtime.
   depends_on :linux
-
-  # While libobjc2 is built with clang, it does not use any LLVM runtime libraries.
-  uses_from_macos "llvm" => [:build, :test]
 
   # Clang must be used on Linux because GCC Objective-C support is insufficient.
   fails_with :gcc

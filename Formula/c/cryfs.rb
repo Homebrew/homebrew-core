@@ -7,13 +7,10 @@ class Cryfs < Formula
   sha256 "6caca6276ce5aec40bf321fd0911b0af7bcffc44c3cb82ff5c5af944d6f75a45"
   license "LGPL-3.0"
   revision 1
+  head "https://github.com/cryfs/cryfs.git", branch: "develop"
 
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "1e657aab36b3f1d1820d8f3edd6943382dd804d0357fc1a7e89efdf43cec4980"
-  end
-
-  head do
-    url "https://github.com/cryfs/cryfs.git", branch: "develop"
   end
 
   depends_on "cmake" => :build

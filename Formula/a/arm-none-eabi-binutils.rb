@@ -5,22 +5,26 @@ class ArmNoneEabiBinutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.41.tar.bz2"
   sha256 "a4c4bec052f7b8370024e60389e194377f3f48b56618418ea51067f67aaab30b"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     formula "binutils"
   end
 
   bottle do
-    sha256 arm64_sonoma:   "055ed65b63489380ea6c8145c086d60c9dca0d951ff0d4f2568c57fa4f75d93f"
-    sha256 arm64_ventura:  "19b97c0c5ba06d42d8dab51ca0af3e9c94f61a05270bff7338c65bb0ef247c57"
-    sha256 arm64_monterey: "1f9dd28a479392d5e667f9711420f2a99a9de55fd64ec4df34cb9cbb89a23409"
-    sha256 arm64_big_sur:  "7805614e7fdb88b69cfe06a7ebc4438c24e5ed801f3e484093a1e4e2a5f28447"
-    sha256 sonoma:         "4a28c60ed07d043b8f04681e46726ca80146bb821fd3823767c55a4ebe19b883"
-    sha256 ventura:        "22cff9b8e59fa3b843f000588060fcb50870711578aa1258931a223f4ebacf0b"
-    sha256 monterey:       "5579dbbc1307fe765889e12652392eacfc0099fc90b0c7ec5e3806564bcd3cf5"
-    sha256 big_sur:        "d092d61e81ca06993226fbe1cd59023263440a5ae6e7e8aa01f1446118be19c7"
-    sha256 x86_64_linux:   "fb6707492d6eceb4aa31bdfac836971bdb57667968a3361c1e71c583e3361e9d"
+    sha256 arm64_sonoma:   "a5ca2ee90a23fcc0e5ca0be2556a7dd24f18708db36fe1bd88c4b6a03e12964d"
+    sha256 arm64_ventura:  "08a81e4145ffb484c64eba406e46cce4ef7a9af239950dc9d7af8e620743ed34"
+    sha256 arm64_monterey: "eb81cd47a50665b14188ede745dac4b1473fc0d3dac3465e5f679ae3704b6f8a"
+    sha256 sonoma:         "88e43bd750b5378c2fb29c5c4d0e18897617d6a3a33932f0a0f9c6975718eb8d"
+    sha256 ventura:        "d2582d466f0d3a87dbc07b98d4ac25c1f0bdf84330c92dca0069d636a1ecdd76"
+    sha256 monterey:       "d2e7f96d10ac013e7eade322be3240d816786596ea820cc58c08679b0836ad5a"
+    sha256 x86_64_linux:   "1b26208378337642d8a87e763d4861371e4d537cd4f5f0d12822b0a162e96d23"
   end
+
+  depends_on "pkg-config" => :build
+  depends_on "zstd"
+
+  uses_from_macos "zlib"
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -32,6 +36,8 @@ class ArmNoneEabiBinutils < Formula
            "--prefix=#{prefix}",
            "--libdir=#{lib}/#{target}",
            "--infodir=#{info}/#{target}",
+           "--with-system-zlib",
+           "--with-zstd",
            "--disable-nls"
     system "make"
     system "make", "install"

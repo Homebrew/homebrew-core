@@ -52,7 +52,9 @@ class Fontconfig < Formula
       ~/Library/Fonts
     ]
 
-    font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max if MacOS.version >= :sierra
+    if OS.mac? && MacOS.version >= :sierra
+      font_dirs << Dir["/System/Library/Assets{,V2}/com_apple_MobileAsset_Font*"].max
+    end
 
     system "autoreconf", "-iv" if build.head?
     ENV["UUID_CFLAGS"] = "-I#{Formula["util-linux"].include}" if OS.linux?

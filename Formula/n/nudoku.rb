@@ -1,22 +1,19 @@
 class Nudoku < Formula
   desc "Ncurses based sudoku game"
   homepage "https://jubalh.github.io/nudoku/"
-  url "https://github.com/jubalh/nudoku/archive/refs/tags/2.1.0.tar.gz"
-  sha256 "eeff7f3adea5bfe7b88bf7683d68e9a597aabd1442d1621f21760c746400b924"
+  url "https://github.com/jubalh/nudoku/archive/refs/tags/3.0.0.tar.gz"
+  sha256 "56c9f8d70ca350411dccfdc5a0e2dc39aaa83da08f87ad874f7f4b7fb64b3541"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/jubalh/nudoku.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "bb2b871aec0bd81cab3758b17adeb6c372fc788e0ac03b194b14b4265734151b"
-    sha256 arm64_ventura:  "7af32212d5adb183528f350950913d31cb9de5644c1d8af158eef5b68bfc00de"
-    sha256 arm64_monterey: "b1bf18647b1f42eb7dce94d90649f314d99be5575fbc417c103a94cc9282b3b5"
-    sha256 arm64_big_sur:  "6350cd17943ce3a889f193d13ca662ffdc19eef6bfa38dc5e0f97b7a193e48b9"
-    sha256 sonoma:         "606257ef1db3e5489c3e3dd79da80eae055bf6b8cdc43c2ebd9a2175f791b49e"
-    sha256 ventura:        "414db0599466260fc27e629e4f325d9bc33e6fb30f37cb99c07bcf3b450d99c8"
-    sha256 monterey:       "8f296f4c8b2f0352e5ed7c492536c38f26c604c82c9a604559e17b75e9038685"
-    sha256 big_sur:        "83449b550966a303d2095e8232d98d629abccced9f104442ca7d24ec102e1d3d"
-    sha256 x86_64_linux:   "ae2f2e43eb521a04f347c59288bb2a9c68bfa8e95d2e06fa33e53e5dac693c56"
+    sha256 arm64_sonoma:   "85ce667fde814b7ca2b8c3144c1a81947c899e9f091bf90805cf77bdec0f4c9c"
+    sha256 arm64_ventura:  "df24e16774377f98521d6bc623460dbe8a1340afdf08486f27c060b3911b37ed"
+    sha256 arm64_monterey: "aaba4315a0bcaa31e2fbb6f667e49a04e80078bd43dec4b5c706f30f5954c054"
+    sha256 sonoma:         "b557d8370bc5be84244ba9ec0ece988b92f83110bf58e2f4a68208da3bfb5013"
+    sha256 ventura:        "e2a099b569c0f32ec86d4827962661af24c6e739fa33e416e46b6065744ecea6"
+    sha256 monterey:       "b1f68424a9e2847b7e420ca03caa73fc523f64203d6619da8a17da1aa89cfbc8"
+    sha256 x86_64_linux:   "dafd045886518df5e1eda43914636403c31a5e48a4c090a08df33bbab8573730"
   end
 
   depends_on "autoconf" => :build

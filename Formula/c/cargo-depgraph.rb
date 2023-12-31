@@ -1,8 +1,8 @@
 class CargoDepgraph < Formula
   desc "Creates dependency graphs for cargo projects"
   homepage "https://sr.ht/~jplatte/cargo-depgraph/"
-  url "https://git.sr.ht/~jplatte/cargo-depgraph/archive/v1.5.0.tar.gz"
-  sha256 "6826402ec9b8f2e942954ae0cfe9848cc4d2aa3d98ff89bee05bdeed787d66bb"
+  url "https://git.sr.ht/~jplatte/cargo-depgraph/archive/v1.6.0.tar.gz"
+  sha256 "79f7425bc37c59fc4b083bdc35f43d29c2078b427ec6bb30565a4c04841ce364"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class CargoDepgraph < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4be7bd761790bf6659ff39e751e1d5483239ca6fb88fa75f6c7224b0b4e3f15c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a85fe08115630edfbf6ca9e45fb992dad14764216b5a7a95d6a6618043c35e0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ccfb07e2c8f69244373ca5260b7d8ec5a412ff0028136756e8b4ede03a55f6f4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6f6c261795d2024686bb9e5a4fb2a66a87cfc03568fabf13569d656838caa0ef"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e66c0f1cacdd423f395150856db53ad913b4921a7a961265a64a0c1feb6c1872"
-    sha256 cellar: :any_skip_relocation, ventura:        "93a09afedffc4580f76060a16599508730f77b56ecc4ebab6442ba16b6e93b1d"
-    sha256 cellar: :any_skip_relocation, monterey:       "51bdc864ae900348f1a5cf5609fb30d35d754d9e8626da25a70e06737b6983f1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "eac46431eac8ddec19b2f6de50bd359e018ffd8eedcb2abfc9d350c3ce74dc12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "25545f8c3c417ba66ee53eab0be6751601e46c7ee287a265ca6b50f0d0b28782"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "060ce6579e0acf883ca67a613d5f33375205e56afa48a28876d81d9d653d275e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "694d37c938b1aea59687cda71bea7a8fba0656b191b716a3e8d58a71c2fec02f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12ed5d4719fecb87d5a71f1bb8f82d574c3b5ba77d990430874aa49a33b9cdae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b1f53651402919895849ba1d0a98940b941a1b35acbb75c1f8371ebdff55e8c7"
+    sha256 cellar: :any_skip_relocation, ventura:        "2e44d01ca28d59eb203a1cc88f7f5037d755438880164a4c918062e453ed9898"
+    sha256 cellar: :any_skip_relocation, monterey:       "8e01617fefdb9893ecf0ab91f8568ca65657e49aee84f48afd47957c8d7bd223"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df3185c78ab12934b6ebf2d15a4bbf0eb110774fbae01d4e10a2133ac8ba0039"
   end
 
   depends_on "rust" => :build

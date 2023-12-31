@@ -12,21 +12,19 @@ class Libprelude < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "80eaecbb9d1323b3c766133a31c157d4f830e291bcf06f0b586dd8295d2c912b"
-    sha256 arm64_ventura:  "32e03fdba4310694968c2beec37537cf829facf69e33548d5d666fd5c30d4ecd"
-    sha256 arm64_monterey: "a9d22dc757e6c4672df087a6ab6ea363b3753b2b297acb8f83dfef0119aa6c99"
-    sha256 arm64_big_sur:  "2b494a106f8dd361fccec2e69db0b2995c7105e7c790bd499130c3d20f942032"
-    sha256 sonoma:         "0dc0e26d4fd6bc490ed2572f84509c811c0e88e8489050fd123a897d51b06313"
-    sha256 ventura:        "ef9c689da45844fc022be700d0953ef80b064ac4fa3477cf21bb694c63f9a30a"
-    sha256 monterey:       "389a5f1872cab31a3e5bf6c0326d8a4cd6b6ed6102cd6acdd78ca9a1ab075e48"
-    sha256 big_sur:        "9f4124b03a938186d9972cc6dfba1cac05003175982486b3dae19fcf74ab3841"
-    sha256 catalina:       "655716591d9872a412572f680b7b80d2c7cae625d1d58420d2e757307d8a616f"
-    sha256 x86_64_linux:   "1eae16d58ad46e6a6d8e1e6ca08e27a4fd609620622ca49dba416778bbe73edb"
+    rebuild 2
+    sha256 arm64_sonoma:   "2ab78aeb01f7a0d2d369ccc3c91e8c14e0e4b192545a222272e7577ded59d56c"
+    sha256 arm64_ventura:  "b036b329b9cd3385fdc29af3504dc3cfe66874dd48e3143816d2809b8be86517"
+    sha256 arm64_monterey: "1cbcd9a92e12218283d47970e23e4619c8480018dc5e2f503b5b2b02e689e262"
+    sha256 sonoma:         "f3a949405b38d7738f8d94dae6fb90b1561702192e666db623f2c8228d52a320"
+    sha256 ventura:        "3a2c08553d695bea452ef9fba367c05eb6eac05a9225083a45c3dd8126c942c8"
+    sha256 monterey:       "9cf654ae4238290e9cd8c16e34b41a48dbbfd0d4e1cff034cb69361849f7848e"
+    sha256 x86_64_linux:   "52bd631b4ad679cd32f6f8c46d6e3471d800af3e32d4672009bb05733935766d"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => [:build, :test]
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => [:build, :test]
   depends_on "gnutls"
   depends_on "libgpg-error"
   depends_on "libtool"
@@ -39,21 +37,10 @@ class Libprelude < Formula
   end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
-    # Use the stdlib distutils to work around python bindings install failure:
-    # TEST FAILED: .../lib/python3.11/site-packages/ does NOT support .pth files
-    # bad install directory or PYTHONPATH
-    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
-
-    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
-    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
-    inreplace "bindings/python/Makefile.in",
-              "--prefix @prefix@",
-              "\\0 --install-lib=#{prefix/Language::Python.site_packages(python3)}"
-
     ENV["HAVE_CXX"] = "yes"
     args = %W[
       --disable-silent-rules
@@ -63,13 +50,18 @@ class Libprelude < Formula
       --without-perl
       --without-swig
       --without-python2
-      --with-python3=#{python3}
+      --without-python3
       --with-libgnutls-prefix=#{Formula["gnutls"].opt_prefix}
     ]
 
     system "./configure", *std_configure_args, *args
     system "make"
     system "make", "install"
+
+    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
+    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
+    # This is done by manually install python bindings.
+    system python3, "-m", "pip", "install", *std_pip_args, "./bindings/python"
   end
 
   test do

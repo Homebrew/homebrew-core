@@ -871,6 +871,7 @@ env:
     meilisearch
     melody
     memcached
+    mesa
     meson
     metabase
     micro

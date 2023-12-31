@@ -63,7 +63,6 @@ class Abyss < Formula
 
   def install
     python3 = "python3.12"
-    ENV.delete("HOMEBREW_SDKROOT") if MacOS.version >= :mojave && MacOS::CLT.installed?
 
     (buildpath/"btllib").install resource("btllib")
     cd "btllib" do

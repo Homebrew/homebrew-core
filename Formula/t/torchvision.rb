@@ -3,10 +3,9 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "79b30b082237e3ead21e74587cedf4a4d832f977cf7dfeccfb65f67988b12ceb"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.16.2.tar.gz"
+  sha256 "8c1f2951e98d8ada6e5a468f179af4be9f56d2ebc3ab057af873da61669806d7"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -14,13 +13,13 @@ class Torchvision < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "580e45e7db2767939add1ab63e9c11eae8bebe25c6cbd7be80ffb89f189f2ea0"
-    sha256 cellar: :any,                 arm64_ventura:  "9dd4898e77a2840016c29813a36ac706331bcb8101d23d5075f11d2c4b3802ca"
-    sha256 cellar: :any,                 arm64_monterey: "6aecaf41d391502eabcd5e7fa1d8cd9e553d7683b9442d8ad4d27df00e33a747"
-    sha256 cellar: :any,                 sonoma:         "ab5fa399c82f24a98fc0f422557fb73dc73327a379c35542c50d3fde89619f95"
-    sha256 cellar: :any,                 ventura:        "6fc769801465390a70ab540aa5f43e01467c5e4ec16e004eae5cfa5b1e770b08"
-    sha256 cellar: :any,                 monterey:       "3b649ca648bb8e94ef2f17398e54a91ea324909c537cf6e74d8d986009cb60e9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "056a74c8bdd35b92ff4d1ed95e29a0b1bdda016693e896cf9a86fff5a40afb14"
+    sha256 cellar: :any,                 arm64_sonoma:   "1e240407b3ae5af0441b830577a760fe095fe8e73437b14e0ad4ab8181fe4153"
+    sha256 cellar: :any,                 arm64_ventura:  "7f5c9379595203b619601689848b51704a516ae851c6377cf46d941901fd1ac8"
+    sha256 cellar: :any,                 arm64_monterey: "73fe45f6e3cb41dea8c25a8996517c932feedc0d87944827d9862607f5d24f2e"
+    sha256 cellar: :any,                 sonoma:         "7ffd47bddfdb84f99fea247e8054987ef03766955a4966dc853c3b80710755c2"
+    sha256 cellar: :any,                 ventura:        "2a962449139b58ea6626dde69bbf9d7f2bc608758b57a762cf7662c3dc378e5b"
+    sha256 cellar: :any,                 monterey:       "97dc4bfa2fe8eeab1aff2503953ae90bcde0cb8150b1ff9067053c4c47986d5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1620502dd695ae6a66f5ca87df5306368d91400339ba311afae4b5975d6207b"
   end
 
   depends_on "cmake" => :build

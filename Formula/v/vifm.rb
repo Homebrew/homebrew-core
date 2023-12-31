@@ -19,9 +19,7 @@ class Vifm < Formula
 
   depends_on "ncurses"
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff" => :build
-  end
+  uses_from_macos "mandoc" => :build
 
   def install
     system "./configure", "--disable-dependency-tracking",

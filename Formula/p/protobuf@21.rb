@@ -6,21 +6,20 @@ class ProtobufAT21 < Formula
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "a9748ddd1ceaa9670b07011f80fee63a09eddb22bf41c28e4780942811de55e1"
-    sha256                               arm64_ventura:  "38d7e22f6eeb5711e73a917949d5701a9913fe0cc5e036c59d176961cc37c433"
-    sha256                               arm64_monterey: "11eb50321b17b8bfa15f618945b9f03b17fd59329ecac86b62da767861e817d3"
-    sha256                               sonoma:         "db10eb0bea925a2068cd3503c70efb88a245f70c8d1dc8b2538d8aea22ef1f74"
-    sha256                               ventura:        "6934b79a6d5af37d89aeca6f469089b54b7d273eeeb2d8a6e8025768e291fd12"
-    sha256                               monterey:       "57042ccf089f7f1a21f00820143bc3a82e019805d74e39d8698590b83c42ecc3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9edf2df67dac587fe512ab278913f7d7183dcdf926035f1bef622ad36dfb63e3"
+    rebuild 2
+    sha256                               arm64_sonoma:   "bc82f299ae0fffa1e5b4e93ec3dd39f0330bb06a8dfdebbb953479de3b25eb00"
+    sha256                               arm64_ventura:  "a91538d1878eab72aaa22230709c372f41322377b297c6e01caf188e4e81e378"
+    sha256                               arm64_monterey: "ffa13baa9584681115c2b3b0e7f6d56b6e72144aaa13bd9d924ffc0c88bbde87"
+    sha256                               sonoma:         "7ed1bf5fadc538bfbe3be0aa42bfb07673c17473ebb44df48f2c12bcafeeeafc"
+    sha256                               ventura:        "9b685e87a6ee34e84780544c5573a22c91ee3599f59101eb6a740e65d62f205b"
+    sha256                               monterey:       "83eb3a71bf22ea6876506e12697bda4db2fe0140ec4a343ddbeed8109c696fc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4c906d41417f83d39e308e347f6d6c041f79ff7d63d0c7405127ee7186b9477"
   end
 
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   uses_from_macos "zlib"

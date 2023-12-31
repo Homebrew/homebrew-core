@@ -3,13 +3,13 @@ class Recoverpy < Formula
 
   desc "TUI to recover overwritten or deleted data"
   homepage "https://github.com/PabloLec/recoverpy"
-  url "https://files.pythonhosted.org/packages/65/3a/f43cdbc2d947b68b7ebf988c32b2f74ede8ea2c1836b2e0e4056ffb81b82/recoverpy-2.1.3.tar.gz"
-  sha256 "df042db227fa9e04b9f9acf31eee51ee739d9f0a57d440ab2bfcf524c328ca07"
+  url "https://files.pythonhosted.org/packages/88/67/7ef7dc81c4be47620adc83b232b7a0ffd992ec312e087bc1f633a0961b1a/recoverpy-2.1.5.tar.gz"
+  sha256 "9a2a831e9945585a54ce968d877dc81983d8228cc2b5c2fbacfff5480d09a393"
   license "GPL-3.0-or-later"
   head "https://github.com/PabloLec/recoverpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "55424916e6929e9203c6557e2c47e73fa7621a23b4610c0785b4b76a75192605"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "ffd3e7f98f355a93f02e4d7aee90124cfa556bb5a970d84bd0505ca83b7207a7"
   end
 
   depends_on :linux
@@ -18,8 +18,8 @@ class Recoverpy < Formula
   depends_on "python@3.12"
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/44/ae06b446b8d8263d712a211e959212083a5eda2bf36d57ca7415e03f6f36/importlib_metadata-6.8.0.tar.gz"
-    sha256 "dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743"
+    url "https://files.pythonhosted.org/packages/db/5a/392426ddb5edfebfcb232ab7a47e4a827aa1d5b5267a5c20c448615feaa9/importlib_metadata-7.0.0.tar.gz"
+    sha256 "7fc841f8b8332803464e5dc1c63a2e59121f46ca186c0e2e182e80bf8c1319f7"
   end
 
   resource "linkify-it-py" do
@@ -43,13 +43,13 @@ class Recoverpy < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
-    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
+    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
+    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/01/22/99db4365d3f883c73d02135a1f312f146a59d18cf72e6462aed014339897/textual-0.40.0.tar.gz"
-    sha256 "0fd014f9fab7f6d88167c82f90e115b118b3016b8597281d14c9257967f7812e"
+    url "https://files.pythonhosted.org/packages/b4/a9/52c9df627286193fd4fd90f779cf53a2eb332bf0ceb8df2f154add9c1f7b/textual-0.45.1.tar.gz"
+    sha256 "1a6f80fb87e40a0490cf9a16526f5418a790d9c032a2983b0c7edd1c8abf39f3"
   end
 
   resource "uc-micro-py" do
@@ -67,7 +67,8 @@ class Recoverpy < Formula
   end
 
   test do
-    pid = fork { exec "#{bin}/recoverpy" }
+    pid = fork { exec bin/"recoverpy" }
+    sleep 2
   ensure
     Process.kill("TERM", pid)
   end

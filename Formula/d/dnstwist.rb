@@ -9,17 +9,17 @@ class Dnstwist < Formula
   revision 2
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71c98bbf2d934c339a1889124ec49956190ea6d3aa4316c9f959676dea5a12c5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bab97482c1738bf42d03186c0916de7f0e94312ae60d69d4ff2b9df05c58b8d9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "619435d79945e9a697750b51a20cc80ca4876fcddc3fc4e7094186c11db0a957"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1ddbb7dd839edb676e5b7ca18d1742dfe27622150445027cfe11d25376640fef"
-    sha256 cellar: :any_skip_relocation, ventura:        "1bb11c62d9ea11c11037b53a5cd05a80cc2fa23fce4bb346fa9ac265dc4dc44e"
-    sha256 cellar: :any_skip_relocation, monterey:       "17d9879ce0ba9aed7551cd42fe6f71076de99705912bcb159f5ef73f2610321a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77ba4f70557bc242ae2aee081ea502f4cb82fd6e98a2a58d0a2b5f70b8bdecf5"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "8f25f1968f02bf9ba817d57edf9dee0ba1eaa8dea19762d34091c4337c72bf92"
+    sha256 cellar: :any,                 arm64_ventura:  "e3b4d2584e9adbc3b096667e61a93c2e6be92eb3ef1d9f54fc13453c03233c59"
+    sha256 cellar: :any,                 arm64_monterey: "54ae96d12e851b265da475cc3da2d6dbda229d65f4765740bcba4a4cf6200a57"
+    sha256 cellar: :any,                 sonoma:         "1737a636c987c078f771e9f36becf52f3c49a0e0ff61117db3ea6afca82514d6"
+    sha256 cellar: :any,                 ventura:        "3f317d9166d7b214915659f41f25bf9414319fcb97a598a1550892b08803afca"
+    sha256 cellar: :any,                 monterey:       "98747f25ab52c5c6b564e78857436212fb5972f68f0a623511d2ec954336dd14"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "673e8b6641548953b815f2bb74c0b6949ccaa60b07d8e1b28c7cc5067ff11468"
   end
 
-  depends_on "geoip"
+  depends_on "libmaxminddb"
   depends_on "python-certifi"
   depends_on "python@3.12"
   depends_on "ssdeep"
@@ -111,7 +111,8 @@ class Dnstwist < Formula
   end
 
   def install
-    ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi"
+    ENV["MAXMINDDB_USE_SYSTEM_LIBMAXMINDDB"] = "1"
+    ENV.append "CPPFLAGS", "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi" if OS.mac?
 
     venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources

@@ -5,22 +5,24 @@ class X8664LinuxGnuBinutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.41.tar.bz2"
   sha256 "a4c4bec052f7b8370024e60389e194377f3f48b56618418ea51067f67aaab30b"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     formula "binutils"
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b6f479357bd9cd1cf8470a4104baaa7e80c88d2f70c4fc7277ad1507f91e8072"
-    sha256 arm64_ventura:  "9e6a5eca124acb249ec7c309c901901b8ce3e01b7abb830394e949c7e35eae54"
-    sha256 arm64_monterey: "529b09dd895cd252ccc89e70873dceb9b48d9fb5cd49e6a750dc1617f6ee9135"
-    sha256 arm64_big_sur:  "2ce56322498fd2f0f37c372e402e3f89b91f851c4ebcc48d3c527dca862d5050"
-    sha256 sonoma:         "e150f82fdd5df5ec9e81042b8597783562611f9a11a18a1e5430229fe219880c"
-    sha256 ventura:        "8d1e84b29b0cb2cb3f879a0440a329e9a4d82d13d9e03db294830957112b187d"
-    sha256 monterey:       "26a415990e39704f59dd2edcb32d9272c0268088e513e7866050d591f46ba59b"
-    sha256 big_sur:        "5ace1f5fe636ae8a44cb68fc9d59cdc0189d1aa34059748f32b7615aad87e4b2"
-    sha256 x86_64_linux:   "a682430e349878636cd02f87248927839741d839688d2f970fce750a8d0fa371"
+    sha256 arm64_sonoma:   "3cd0c7a5f5fb6e96baf72fec05459d7d9a82356ef525919e9d9d8ade86dcf439"
+    sha256 arm64_ventura:  "83a24a3694f214f14c4eb14aadec6dc5474ae223250aae017d1ab700dd85dec9"
+    sha256 arm64_monterey: "76e3f03e0e8aa2e5870e50bb44db5ae421eb4b06a613c7089854f2c809f111a8"
+    sha256 sonoma:         "3fb1044820d8c040369fd00af874c596e0ce998c663644b62a89c2901df785a4"
+    sha256 ventura:        "6f1ced88939c73d3efac3c54d62c909ea6815f2cd4535bdf795f972111260a89"
+    sha256 monterey:       "5137c06f3a8aa83c028d452d168c67870a1c615d5be0b61b5d9275d8cc219019"
+    sha256 x86_64_linux:   "f75b96e6fae1c757c2d5d2f819677ea9c8af3e1e40cc844bdb9f1f98505bf870"
   end
+
+  depends_on "pkg-config" => :build
+  depends_on "zstd"
 
   uses_from_macos "zlib"
 
@@ -56,6 +58,7 @@ class X8664LinuxGnuBinutils < Formula
                           "--enable-ld=yes",
                           "--enable-interwork",
                           "--with-system-zlib",
+                          "--with-zstd",
                           "--disable-nls",
                           "--disable-gprofng" # Fails to build on Linux
     system "make"

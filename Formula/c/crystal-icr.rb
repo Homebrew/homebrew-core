@@ -4,18 +4,16 @@ class CrystalIcr < Formula
   url "https://github.com/crystal-community/icr/archive/refs/tags/v0.9.0.tar.gz"
   sha256 "2530293e94b60d69919a79b49e83270f1462058499ad37a762233df8d6e5992c"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 arm64_sonoma:   "c20524531eb331ee159bcb097d64ef72e9f3a22964ce5c8f21b9eff74734da3b"
-    sha256 arm64_ventura:  "edde5bd51d5bb2b03570b20e45ebc53ce09832920f75a3e50cbac956f661c215"
-    sha256 arm64_monterey: "bc8b1981630d79dc3e135ad87f1ddedee260a92c1a5a19b31fc681fe2b596ad4"
-    sha256 arm64_big_sur:  "13ef5cc2c563f77416cb551e301c9819e3948f736828fe87129f8a24bfebe399"
-    sha256 sonoma:         "fde1cf609f157925e76e67d4fb7e9730d9c06e820df68d52cd7c68932893683d"
-    sha256 ventura:        "72683ff057900f8a0a07858f0b1087674c535897c4e6f43faadd4675f658e4af"
-    sha256 monterey:       "10adec2a41f666a46c7e1095b95f8d3016dbf11f4087a1e222b69f3f18658041"
-    sha256 big_sur:        "7e4e298588d34c599657ef4d62d2fe4e44e5ec80a982b656eba12b2d7c8e416a"
-    sha256 x86_64_linux:   "d348dfeedacb2bb47173d3435fabe2862281d072bbe706ba00ef7a92e79520d1"
+    sha256 arm64_sonoma:   "b9e39b78791f3c162778961e2f5e94cf5c607c5a0e644738f0a8834953e610cc"
+    sha256 arm64_ventura:  "3e306b04a87cc2ff6ac4519e60af5bbf898eff764670a4fb7a32ce18fa356c58"
+    sha256 arm64_monterey: "ac908c4ff46211bce0b3fd185d692331ce01c330fd1f0f17f3c38cc2232d4c44"
+    sha256 sonoma:         "150def9ae7b020da97e8f7480c96b5ef180c61c49d4e283f2d90d33938f66660"
+    sha256 ventura:        "0696f4b5e1f24bd249db3c0e1599bf0d5d6370f6403404f4bc92c0ae9d5248b9"
+    sha256 monterey:       "36938daa0cefeedd1d7e6a50fa94d2e970a181e4a9f01f42a169bca8e72eef8c"
+    sha256 x86_64_linux:   "5e1918682e133a6980b4a0e9284ef4aa60cbd6253da43bf06cf73ae96ceab4eb"
   end
 
   depends_on "crystal"

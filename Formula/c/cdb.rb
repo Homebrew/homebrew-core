@@ -12,9 +12,11 @@ class Cdb < Formula
 
   bottle do
     rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a7bad3e2c174916e5e286dcf7e7d576a9996f8f199cf001b91d8232e0719c46"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7516272a59a2e3f387bd50b183a2238d9c5333b788cd1f3484ca15ca3c198c8c"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "6641aee9a21258f66441e250aa172ea092731be3ead3ae1b85393188d16dd61d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9136d67f3a62785add35b9b205169b9ace86da2c86edf4fe1c16cb833465bf5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "18e027480cd5c20f0bda1d96fbb527596dda5f724f910a8d5062daf16dc7defb"
     sha256 cellar: :any_skip_relocation, ventura:        "88b43291068dbbea67161b415370ea6d09c0663ab3ec8eb052ff02bb8df9bec4"
     sha256 cellar: :any_skip_relocation, monterey:       "6417a2118fe06cb58aaa4a1d8181e9192c6598b4b8712ee2e3fdba0537996aaa"
     sha256 cellar: :any_skip_relocation, big_sur:        "9684789ff31a9f66e863c5ddce337ddc056fbea3f2d321d5752a6ec00a3d88c1"
@@ -35,6 +37,8 @@ class Cdb < Formula
 
   def install
     inreplace "conf-home", "/usr/local", prefix
+    # Fix compile with newer Clang
+    inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration"
     system "make", "setup"
   end
 

@@ -8,6 +8,7 @@ class Shc < Formula
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c0e1db3eca184dfad518ba0f0ab5a1d4c66f34aca3097f44610a5471882ca311"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d30b347144b581af9b318135d285030075c9e00df94728b8e1430b7fa69606f1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "e84ca021ebfbeaa652c74a9e07b3eddfc390c4193f64effdd93d835958d7e90c"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fd153e413029832fb17b013fb15d43aab1e1e22b618d58c768a049ac31e0759c"
     sha256 cellar: :any_skip_relocation, sonoma:         "986e78b01d80d0b0299147bc07ae137cfae98ccf26468cac072e60d1aab25460"

@@ -1,13 +1,13 @@
 class Systemd < Formula
   desc "System and service manager"
   homepage "https://wiki.freedesktop.org/www/Software/systemd/"
-  url "https://github.com/systemd/systemd-stable/archive/refs/tags/v254.7.tar.gz"
-  sha256 "9d7b4b21d2db3b16286b9ec6657ba86bd797388c532bdc63862826f6d39fe8cb"
+  url "https://github.com/systemd/systemd-stable/archive/refs/tags/v255.2.tar.gz"
+  sha256 "ba7354a742dc9a8bb7dbeaa40cbf7cf2ca84f506d5b7ae5ab8d14c8eecb7aca0"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
-    sha256 x86_64_linux: "1751d7cfe046edf604d0c6bf25991ae0f6931d0449b0702dedb2b1959ca52da5"
+    sha256 x86_64_linux: "89d33b0f0ea54853f3c39c65088fe00248cb9fa53db5809b3b17936299207e09"
   end
 
   depends_on "coreutils" => :build
@@ -29,14 +29,13 @@ class Systemd < Formula
   depends_on "expat"
   depends_on "glib"
   depends_on "libcap"
+  depends_on "libxcrypt"
   depends_on :linux
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "util-linux" # for libmount
   depends_on "xz"
   depends_on "zstd"
-
-  uses_from_macos "libxcrypt"
 
   resource "docbook" do
     url "https://downloads.sourceforge.net/docbook/docbook-xsl/1.79.1/docbook-xsl-1.79.1.tar.bz2"

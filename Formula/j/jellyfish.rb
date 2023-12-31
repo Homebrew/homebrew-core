@@ -1,22 +1,18 @@
 class Jellyfish < Formula
   desc "Fast, memory-efficient counting of DNA k-mers"
-  homepage "http://www.genome.umd.edu/jellyfish.html"
-  url "https://github.com/gmarcais/Jellyfish/releases/download/v2.3.0/jellyfish-2.3.0.tar.gz"
-  sha256 "e195b7cf7ba42a90e5e112c0ed27894cd7ac864476dc5fb45ab169f5b930ea5a"
+  homepage "https://github.com/gmarcais/Jellyfish"
+  url "https://github.com/gmarcais/Jellyfish/releases/download/v2.3.1/jellyfish-2.3.1.tar.gz"
+  sha256 "ee032b57257948ca0f0610883099267572c91a635eecbd88ae5d8974c2430fcd"
   license any_of: ["BSD-3-Clause", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f684c546aded8b84b1ef0bf20e87dd88c2dd0a6bd8f6298d3c62c73b0c825d6b"
-    sha256 cellar: :any,                 arm64_ventura:  "9e0526e92d9b87bb9c26732174f0aa7b700db587e965941bd79d1bfc761a8b3e"
-    sha256 cellar: :any,                 arm64_monterey: "3368a53a61d961a9169a4156a60d8023aee069084c108d67e8b81d12c01e5106"
-    sha256 cellar: :any,                 arm64_big_sur:  "15ceae21239d0a1f851e878d20889ef5539b121222153829b3b1e2dcb6cc2548"
-    sha256 cellar: :any,                 sonoma:         "8ef9e9c705140f0f1888e63640547298b925d94bd49e5ff724c6a7e54c836840"
-    sha256 cellar: :any,                 ventura:        "d1331785c605eee45bfa7053ad06da959b624d2af91c5a032da5350b0c1820f2"
-    sha256 cellar: :any,                 monterey:       "00ffb57295d4f3362c58fc69bb017c183efbb7a7533a57d49cbf2dd83ca4d5cb"
-    sha256 cellar: :any,                 big_sur:        "04b22121bce09df2e3cee997d3973a12e9f58e9b5e928465502eb4e83d429352"
-    sha256 cellar: :any,                 catalina:       "0ce228d3b386be6f7e10bed1186abfc74544658e092defaa4a7001a06c7f0eed"
-    sha256 cellar: :any,                 mojave:         "78083728d3d3d1cba0ec71786d1f633c4a626c1b64432ce46f84dacfb0a714d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e1922bf36c12b1d56d19e1ead6bd461000bd7ed19a8ac5cfd4398f2bbd54e61"
+    sha256 cellar: :any,                 arm64_sonoma:   "0417631105929539a2126368a9bc8128eaa1f97ad30819bfc9a9cb72e5313e28"
+    sha256 cellar: :any,                 arm64_ventura:  "12d4462803ed8c86dde8eb3079fa40f0e921605f484317b2fdbb9ea01ba381c1"
+    sha256 cellar: :any,                 arm64_monterey: "e348f51e3326d59d9944bcf7778c876d83aa4e6a5173a8f967e8284751bb5b31"
+    sha256 cellar: :any,                 sonoma:         "5cea64914e0780caa84ed59a40def3e32711715e5459f4a49b29e9bdcdf374c4"
+    sha256 cellar: :any,                 ventura:        "55f9ba9cc23d3f238d711973cad51e2db5e9805f2abb9b2c2016ecb183dfd55c"
+    sha256 cellar: :any,                 monterey:       "ef1f0988a3d81bc9fe2179887d4b49b585f98fdaa130567626c594b3dc92c012"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "105fae95b5a56dea674d9e6f97e6dadde81372f86b3c3dc8303548460dfb376e"
   end
 
   depends_on "pkg-config" => :build

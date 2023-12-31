@@ -101,11 +101,12 @@ class MoltenVk < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
   depends_on xcode: ["11.7", :build]
   # Requires IOSurface/IOSurfaceRef.h.
   depends_on macos: :sierra
   depends_on :macos # Linux does not have a Metal implementation. Not implied by the line above.
+
+  uses_from_macos "python" => :build, since: :catalina
 
   def install
     resources.each do |res|

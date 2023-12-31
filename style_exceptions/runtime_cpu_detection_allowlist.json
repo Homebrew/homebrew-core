@@ -10,5 +10,6 @@
   "openblas",
   "opencv",
   "open-mpi",
-  "qt"
+  "qt",
+  "vc"
 ]

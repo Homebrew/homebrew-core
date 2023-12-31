@@ -16,6 +16,10 @@ class LibbitcoinServer < Formula
     sha256 x86_64_linux:   "f6962cd5d1c1b6d33e3ecd3f2a7f680ad6a985f2defc221db20fdad01d0e0553"
   end
 
+  # About 2 years since request for release with support for recent `boost`.
+  # Ref: https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  deprecate! date: "2023-12-14", because: "uses deprecated `boost@1.76`"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

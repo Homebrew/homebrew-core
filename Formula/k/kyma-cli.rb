@@ -1,19 +1,28 @@
 class KymaCli < Formula
   desc "Kyma command-line interface"
   homepage "https://kyma-project.io"
-  url "https://github.com/kyma-project/cli/archive/refs/tags/2.20.0.tar.gz"
-  sha256 "5ed969498f7f642ae8ce57fd25185a87775fb45494164058d4478ff769ca8505"
+  url "https://github.com/kyma-project/cli/archive/refs/tags/2.20.1.tar.gz"
+  sha256 "f9ed216465b3b3124efb299c9a0f444a6294eed65243a08d5c0765048a05d0f0"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/kyma-project/cli.git", branch: "main"
 
+  # Upstream appears to use GitHub releases to indicate that a version is
+  # released and they sometimes re-tag versions before that point, so it's
+  # necessary to check release versions instead of tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5cc638df3b7008776bc77a4dc6b46e368697be922af77195c2601d066cfae2f4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11abd267e73b20c662804416a3707948e1a1b6f979d3d91f31bc6df1ceba460f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ce50019bbd8b3099fd94ef6c97a524c0fcc5c0328a48ad0a74d35f4d4af8186"
-    sha256 cellar: :any_skip_relocation, sonoma:         "971c12b21a51520b895ff468760cdf0431a39bb53e520ecc7bde02f01e79c066"
-    sha256 cellar: :any_skip_relocation, ventura:        "0fddec4713b0d58f79a0d5b947153db011b8726604712446d32fa3235d5427d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "f58d044c3afe11a8743230d67328d53e771f77442ba1d7ae28d3c5f37a015ee9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f823cf5dd202c9564e9613f8824a17904831890c034824f27282608a2f10559"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "164e3106f527508298d3f8b9e1e61593752bb8c53d0d4eb513b0db8069e08333"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf76df40c3ec1a891527d73fcff5368c31fce2dfabdf8d3056e3d305448d6af0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f5caaffad48fd69848b2c5479f42bcf10e314412f767e6ab6ae4e5a13b5dad0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "27205f4d2c9eaf90c5c4c5cb6403629b9b3c6625c43da064e6a970d79ed4327d"
+    sha256 cellar: :any_skip_relocation, ventura:        "763aa28e48a43c22bf03dfa6bc216ffd7f955bee58f166bf1c2a51517e98fc5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "93d1c66643aa781e70244c89fc72116fd7a9b24ca6f239877d8e313ba7af5e53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7fc307b6fedf51d116f99d9d060efafc77258ec12903ec9a00ab5e28fcb5a09"
   end
 
   depends_on "go" => :build

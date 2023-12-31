@@ -5,20 +5,22 @@ class Binutils < Formula
   mirror "https://ftpmirror.gnu.org/binutils/binutils-2.41.tar.bz2"
   sha256 "a4c4bec052f7b8370024e60389e194377f3f48b56618418ea51067f67aaab30b"
   license all_of: ["GPL-2.0-or-later", "GPL-3.0-or-later", "LGPL-2.0-or-later", "LGPL-3.0-only"]
+  revision 1
 
   bottle do
-    sha256                               arm64_sonoma:   "f98e4acb81431b57e3c253950988f7812a79331e516491090a1d5f6a1b942be2"
-    sha256                               arm64_ventura:  "dd11d10f267c8196dbb674ac48097f1dd985f17044da871d5107285840ef0389"
-    sha256                               arm64_monterey: "44ac008047f579b2a2edbd5c5eafa845c6cf03b4a9ccf599e8244ebf45c44439"
-    sha256                               arm64_big_sur:  "af0a54bbc41ba01f9aa5ef2e9445df7c420541d22abc128a4b4fd0828cefe89b"
-    sha256                               sonoma:         "b48590d03751409c6499ef0d18575343eb2f43dde058dc39a6f9edbac9c5b4f3"
-    sha256                               ventura:        "a8fd0d420a9a610164e0a548aa0e36fafea2c272f0d16a923e4e5f9ac50f77ec"
-    sha256                               monterey:       "cbec0ebe80a44a74156c8ee85375d0b9c38170947a3456e1819cc90993279e9d"
-    sha256                               big_sur:        "5cb102e7ee7289e2f9b1e87ab7e1322718624e1e27f6641568943250fa65c797"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b91a59270365b124e3d73d14d75c9085f156f9b521b94387793b91cff1f98c3"
+    sha256                               arm64_sonoma:   "7a166675c290aace1279c989cc124864d94f37dcfc80689e50f109eea7da78be"
+    sha256                               arm64_ventura:  "4a3eaa83c0f31868d2268122a13cb805f89b4b14a65fbf2d35558eeeb960d040"
+    sha256                               arm64_monterey: "0fc9e683eecf173585c23fbf096010e28b06bd88c6e2eff9e9d9f4154c48e4e5"
+    sha256                               sonoma:         "c5d6ca6fcba7d2e507f4c3115983b73de80c5558e5c2afd83411333b7585c044"
+    sha256                               ventura:        "f23fd169d4598b0ced42b1f8b91573ef5ca64dd3df8919e94521b3037be626cc"
+    sha256                               monterey:       "77d558422dc8f2d2c517c9256282fba322a55946dfee68775e0063079c745511"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff5d14a01dbfc4e423713561d02e704b90577eb32feb7ee276b1a4065eb05a47"
   end
 
   keg_only "it shadows the host toolchain"
+
+  depends_on "pkg-config" => :build
+  depends_on "zstd"
 
   uses_from_macos "bison" => :build
   uses_from_macos "zlib"
@@ -47,6 +49,7 @@ class Binutils < Formula
       "--enable-plugins",
       "--enable-targets=all",
       "--with-system-zlib",
+      "--with-zstd",
       "--disable-nls",
     ]
     system "./configure", *args

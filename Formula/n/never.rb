@@ -30,7 +30,8 @@ class Never < Formula
   uses_from_macos "libffi"
 
   def install
-    ENV.append_to_cflags "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi"
+    ENV.append_to_cflags "-I#{MacOS.sdk_path_if_needed}/usr/include/ffi" if OS.mac?
+
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"

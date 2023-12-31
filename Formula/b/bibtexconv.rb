@@ -1,19 +1,19 @@
 class Bibtexconv < Formula
   desc "BibTeX file converter"
   homepage "https://github.com/dreibh/bibtexconv"
-  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-1.3.5.tar.gz"
-  sha256 "e59fbe23589d66270032904ea48ca058cb63fdb77a6e956cfa181173a697127b"
+  url "https://github.com/dreibh/bibtexconv/archive/refs/tags/bibtexconv-1.3.6.tar.gz"
+  sha256 "09450e05693ac230b9f9b9a9486bb1ae5bb2f9aafd072d2b830b9f2d2d69382d"
   license "GPL-3.0-or-later"
   head "https://github.com/dreibh/bibtexconv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "67b5d947b9c1c40260774a2fffd74b7a01d4c22c5fe6b193d954dc9959fdfea0"
-    sha256 cellar: :any,                 arm64_ventura:  "1b1e350438a1fe6c66262200b9097c2937b521b6387252108e0560f2194af50a"
-    sha256 cellar: :any,                 arm64_monterey: "342ea2746d149a01a53c65506a9b50ce18bb447743f741f9d3bd4c9782822266"
-    sha256 cellar: :any,                 sonoma:         "c21102dab4b0815b3f8396b889e0e6e98ed4a1dc48040d964d512e5097736fe8"
-    sha256 cellar: :any,                 ventura:        "3827de0dc585f8a8cc8976504e5b56cb15d039a4f3c9e02615cd4648939cc709"
-    sha256 cellar: :any,                 monterey:       "337326885c7c4a872f4252ddbaf706cef0152c5546e498a743a921f73a600440"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7f7c7dd0da2f02362cfc65e05cbf840e99f89692fa78a0ade3ff14b840125f0"
+    sha256 cellar: :any,                 arm64_sonoma:   "836e88ffc37dbb3193b6eb4a1cbc284dbe378944e440efa34757e89b5fc2deff"
+    sha256 cellar: :any,                 arm64_ventura:  "beccc84ee1c503d869596529b071b5f14d04e12a2a01b1c75fb43b59d939938b"
+    sha256 cellar: :any,                 arm64_monterey: "7bd84bec4c08c2e4b60288cca3de0ecd4442c9d71ea03a7892b1960757f46ccd"
+    sha256 cellar: :any,                 sonoma:         "b97e64f3767297d3d8595d1f37b1c8e0c79f8b179bc878a50b4f40a75260a0d2"
+    sha256 cellar: :any,                 ventura:        "648e71420b87d35737527d8feb4de06dc429467bf832b58c2696b060ed4f677d"
+    sha256 cellar: :any,                 monterey:       "aaeb22d4747969ea619d841c4b426a664b7a5c697eb70aab22848c82cdb16d03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "827e1b69a16fe6a72b86a289cf2c2d261f767ecef353d7e6b7b672c9a9766774"
   end
 
   depends_on "bison" => :build

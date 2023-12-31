@@ -47,15 +47,15 @@ class VorbisTools < Formula
   end
 
   def install
-    # Prevent linkage with Homebrew Curl on macOS because of `using: :homebrew_curl` above.
     if OS.mac?
+      # Prevent linkage with Homebrew Curl on macOS because of `using: :homebrew_curl` above.
       ENV.remove "HOMEBREW_DEPENDENCIES", "curl"
       ENV.remove "HOMEBREW_INCLUDE_PATHS", Formula["curl"].opt_include
       ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["curl"].opt_lib
-    end
 
-    # Workaround for Xcode 14 ld.
-    system "autoreconf", "--force", "--install", "--verbose" if MacOS.version >= :monterey
+      # Workaround for Xcode 14 ld.
+      system "autoreconf", "--force", "--install", "--verbose" if MacOS.version >= :monterey
+    end
 
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403

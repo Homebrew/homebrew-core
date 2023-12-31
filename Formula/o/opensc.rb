@@ -1,8 +1,8 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.23.0/opensc-0.23.0.tar.gz"
-  sha256 "a4844a6ea03a522ecf35e49659716dacb6be03f7c010a1a583aaf3eb915ed2e0"
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.24.0/opensc-0.24.0.tar.gz"
+  sha256 "24d03c69287291da32a30c4c38a304ad827f56cb85d83619e1f5403ab6480ef8"
   license "LGPL-2.1-or-later"
   head "https://github.com/OpenSC/OpenSC.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Opensc < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f5d02711cf34e2ff0cf7555c847393c081748bc8332be543445667565a2a6295"
-    sha256 arm64_ventura:  "ed81cd1b4ee92927ea5a489e09a34878c81a924082e101071658e105cf858638"
-    sha256 arm64_monterey: "53e0966e77ab894831dc960cedd4efe50bad79d288866877242a476121158969"
-    sha256 arm64_big_sur:  "031be42a1b8ea5874e2ae9fea4ca3e2070fe99dd544356c98ea260de4ff4d564"
-    sha256 sonoma:         "f0c2463b9a9e5a119c19f446b30b8d969080cde4e826e3d363cb0e0fb22ab7e8"
-    sha256 ventura:        "cb74b08610f26136891fc4f039712c29138d2b347b19bf9cbb3b2659b153e2a8"
-    sha256 monterey:       "ee4912d3e4173f004b7bf0df0a5ab7293bfa6e36cbe1d5a19b59eac5f1ab5637"
-    sha256 big_sur:        "e00651f78485c68d4f435363466a44827f332adcb20ee16fff6f2f17b8fc13e4"
-    sha256 x86_64_linux:   "152fb46a04da9f6e492ed3b9c1e0b4672e02fdc6cd98d4f177f646abe3d77ff2"
+    sha256 arm64_sonoma:   "91646fb6d80e62b93a2ada4ae6500bdcbcd95dfa5d718a51402a27fbdacf8aff"
+    sha256 arm64_ventura:  "a00b1a47ce1629d2c253348b2d39dc399a277209196c121808db2b3d97c4ea5c"
+    sha256 arm64_monterey: "fa6108bbf434e44f9bbadf853961e40d1242cf43ac20659af66401101fd6fe3a"
+    sha256 sonoma:         "ee7ab2472705d24b6f3130b3754d3328aedb1a80291023e8e1a352f3f1cbd6e8"
+    sha256 ventura:        "c69caffb4dfe0771b13a8b7e956e616340b425c844da55d5d318241679eac6ca"
+    sha256 monterey:       "12308a47721171ae81b1cdfc7de312bc04be771730a2c583b719c4477afc7030"
+    sha256 x86_64_linux:   "798f2c806bf1206902b54b02eb2595f411263e89abd5e889e0d66dcc9199fc26"
   end
 
   depends_on "autoconf" => :build

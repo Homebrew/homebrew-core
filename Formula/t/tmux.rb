@@ -68,12 +68,16 @@ class Tmux < Formula
       --sysconfdir=#{etc}
     ]
 
-    # tmux finds the `tmux-256color` terminfo provided by our ncurses
-    # and uses that as the default `TERM`, but this causes issues for
-    # tools that link with the very old ncurses provided by macOS.
-    # https://github.com/Homebrew/homebrew-core/issues/102748
-    args << "--with-TERM=screen-256color" if OS.mac?
-    args << "--enable-utf8proc" if MacOS.version >= :high_sierra || OS.linux?
+    if OS.mac?
+      # tmux finds the `tmux-256color` terminfo provided by our ncurses
+      # and uses that as the default `TERM`, but this causes issues for
+      # tools that link with the very old ncurses provided by macOS.
+      # https://github.com/Homebrew/homebrew-core/issues/102748
+      args << "--with-TERM=screen-256color"
+      args << "--enable-utf8proc" if MacOS.version >= :high_sierra
+    else
+      args << "--enable-utf8proc"
+    end
 
     ENV.append "LDFLAGS", "-lresolv"
     system "./configure", *args

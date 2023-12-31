@@ -3,18 +3,18 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/46/54/8772217490f0a428d57b625ad146dc3a61dc3a02d485b85e722df76f315a/esphome-2023.11.6.tar.gz"
-  sha256 "957f35509d9dd20de7157f4a55b001d3888aeb93993e5a1f126bca6a7b51e499"
+  url "https://files.pythonhosted.org/packages/0e/09/bd5d6f86b16180a9e3a982946b7dbfea4e3b623584f3d7b2c8351f72ec24/esphome-2023.12.5.tar.gz"
+  sha256 "08f2c14e157ecfbe34837c6cfa8af306e99ae00d3a9cfeda7145713ff98f16ad"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a7a54d2ee5f7e9388a45e70ef5ce7a97c334815e97a5a8755bb8dac21e292af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec9036bc7e8837d3ed4e1036583218ea830084d5ed1187d9de2ce4d54b8f3a0d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1df9f59ef57b78bd902b22adab9a2d529a312d01d85f16a45d12286c4a05c3b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fddb5ba9e1959605321ccf8d8d4e7a9e91628bdb016768da377e272efabbda7f"
-    sha256 cellar: :any_skip_relocation, ventura:        "1520176d837d7fdbfa919226ec8babf9ff50778de2bf8ae77f51362ad572d7c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "1ed4b65711c758843913e2ac377c9420a522515f56ab537a71ecf2b301d27a7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c5c2bc344e3d89816ea4f176f27acf4b3f081e19319b7e7400d7cc5d2e7f71c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "411d5d7cc82d5061e964add673d2cb9b569f5ff84befb9682435147484bf9f98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c884f5bf141e95fcd8ceec19f9726fa9c1e411a50417788b9355a23759c67f32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "db6a2a761d5b615a8856969262b71ccfda7f85c6e10b15b5aeb31c953c107a2d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4827de7bdb31cb9b7d8369cf4d008e86578b28fd7cd81972797d1faf8f50cd6f"
+    sha256 cellar: :any_skip_relocation, ventura:        "a2ccfe7f9fa1f4558f26ee6d2ac2148a918afdfeb344e458baec7a01f07ff7a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "bc934fa1382d01523ea5a5fd5ba253cbcd5ac25c278dd62603539ae70b973d30"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c43df8b97c31f49b4f78c8dfff79c9b8063e888ddc3aacd1ac2c436e580d8b88"
   end
 
   depends_on "cffi"
@@ -31,23 +31,28 @@ class Esphome < Formula
   depends_on "six"
 
   resource "aioesphomeapi" do
-    url "https://files.pythonhosted.org/packages/bc/1d/ba53dc52bbc2694b30efd3c7d394d34f1f1908d10eb01d7fcdbe48fd0194/aioesphomeapi-18.5.2.tar.gz"
-    sha256 "2e74647f2c2ff88c714313b51f2b07097bbfd7f04fcc17c8a8bcb0d7a6a887e2"
+    url "https://files.pythonhosted.org/packages/49/65/312734ba2682aead9ab77fde23675aa03310b0e7cc7c65ade61836509cc2/aioesphomeapi-21.0.1.tar.gz"
+    sha256 "f292c759dc1f3258905fe31284d39bcb926045677f41a1a1b3bf95ca438621c7"
+  end
+
+  resource "aiohappyeyeballs" do
+    url "https://files.pythonhosted.org/packages/5c/bf/891e9ad17e95f28c57d252f057f93dfb9f7f370688ec4c556ef445a45302/aiohappyeyeballs-2.3.1.tar.gz"
+    sha256 "ff2148f2a64b8cea9c8f6bd94dbf813adb30a8f6bc516e6ecc25bca8be2930f8"
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/47/10/49d7e3b7cbe95ff602f47a5821c1c4bec27b146e5621dc516ca519070ac0/bitarray-2.8.3.tar.gz"
-    sha256 "e15587b2bdf18d32eb3ba25f5f5a51bedd0dc06b3112a4c53dab5e7753bc6588"
+    url "https://files.pythonhosted.org/packages/ab/70/5a08324266a222ab9d8282b18a1cd07535c686531f29142b9f10f16a65f2/bitarray-2.9.1.tar.gz"
+    sha256 "912efbeed6d8b155c8e8c37464f79d75b1de58936c0f29ffb599ce95af5563f2"
   end
 
   resource "bitstring" do
-    url "https://files.pythonhosted.org/packages/c1/f6/30459981d5c8f04b6b4c1d8f006e36ffe4be2bff060ba9291c3503356dd3/bitstring-4.1.3.tar.gz"
-    sha256 "1b47c84644a961ba8503db2bba8a5965ab53e81474becdf0a18383b5b5f3f795"
+    url "https://files.pythonhosted.org/packages/7f/07/0fd502a29127b968bada3d1824a8af997546d2b9ff73f00e800b3d9888cb/bitstring-4.1.4.tar.gz"
+    sha256 "94f3f1c45383ebe8fd4a359424ffeb75c2f290760ae8fcac421b44f89ac85213"
   end
 
   resource "chacha20poly1305-reuseable" do
-    url "https://files.pythonhosted.org/packages/5c/79/07cc45f8a6321927793195bee1fb18ae75cf8c76f29466bee07ef3f257f0/chacha20poly1305_reuseable-0.11.0.tar.gz"
-    sha256 "c0c41359ada2e967f81ad000d2a1ba0b1d5fb7dcd010b2f12d20a87ecf1e59ab"
+    url "https://files.pythonhosted.org/packages/fc/41/ae11c16381bb210ccb12c4d07c0030452d8e4d888d46e227d1a596026f09/chacha20poly1305_reuseable-0.12.0.tar.gz"
+    sha256 "238a1d5af6473a8ed249e6ddad327190b3567a673ad54766c9cb2da5c78a4c9b"
   end
 
   resource "ecdsa" do
@@ -96,8 +101,8 @@ class Esphome < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/48/64/679260ca0c3742e2236c693dc6c34fb8b153c14c21d2aa2077c5a01924d6/tornado-6.3.3.tar.gz"
-    sha256 "e7d8db41c0181c80d76c982aacc442c0783a2c54d6400fe028954201a2e032fe"
+    url "https://files.pythonhosted.org/packages/bd/a2/ea124343e3b8dd7712561fe56c4f92eda26865f5e1040b289203729186f2/tornado-6.4.tar.gz"
+    sha256 "72291fa6e6bc84e626589f1c29d90a5a6d593ef5ae68052ee2ef000dfd273dee"
   end
 
   resource "tzdata" do
@@ -111,13 +116,13 @@ class Esphome < Formula
   end
 
   resource "voluptuous" do
-    url "https://files.pythonhosted.org/packages/72/0c/0ed7352eeb7bd3d53d2c0ae87fa1e222170f53815b8df7d9cdce7ffedec0/voluptuous-0.13.1.tar.gz"
-    sha256 "e8d31c20601d6773cb14d4c0f42aee29c6821bbd1018039aac7ac5605b489723"
+    url "https://files.pythonhosted.org/packages/d8/33/98b8032d580525c04e0691f4df9a74b0cfb327661823e32fe6d00bed55a4/voluptuous-0.14.1.tar.gz"
+    sha256 "7b6e5f7553ce02461cce17fedb0e3603195496eb260ece9aca86cc4cc6625218"
   end
 
   resource "zeroconf" do
-    url "https://files.pythonhosted.org/packages/db/47/85eafb277f6ef78e1a1895cc72f0035dfa6a5e51396134eb9ce21564c72f/zeroconf-0.123.0.tar.gz"
-    sha256 "c50f24c9a7a6c7ba4bb301defad03a9d85dffb3ee280953de44eee9f432f2550"
+    url "https://files.pythonhosted.org/packages/ee/8a/09b72c5740030c71167bec119eb7baf006ea2dbec3e29d26be0def248c94/zeroconf-0.130.0.tar.gz"
+    sha256 "db96a3033bc2ece2c75d873796e82530e092e250d03d07dd530828cf84ae16f0"
   end
 
   def install

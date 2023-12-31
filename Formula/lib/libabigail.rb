@@ -19,9 +19,8 @@ class Libabigail < Formula
 
   depends_on "pkg-config" => :build
   depends_on "elfutils"
+  depends_on "libxml2"
   depends_on :linux
-
-  uses_from_macos "libxml2"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?

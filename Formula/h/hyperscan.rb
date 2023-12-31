@@ -1,6 +1,6 @@
 class Hyperscan < Formula
   desc "High-performance regular expression matching library"
-  homepage "https://www.hyperscan.io/"
+  homepage "https://www.intel.com/content/www/us/en/developer/articles/technical/introduction-to-hyperscan.html"
   url "https://github.com/intel/hyperscan/archive/refs/tags/v5.4.2.tar.gz"
   sha256 "32b0f24b3113bbc46b6bfaa05cf7cf45840b6b59333d078cc1f624e4c40b2b99"
   license "BSD-3-Clause"
@@ -16,15 +16,19 @@ class Hyperscan < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "ragel" => :build
   # Only supports x86 instructions and will fail to build on ARM.
   # See https://github.com/intel/hyperscan/issues/197
   depends_on arch: :x86_64
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://github.com/intel/hyperscan/issues/397
+
+  uses_from_macos "python" => :build
 
   def install
-    args = ["-DBUILD_STATIC_AND_SHARED=ON"]
+    args = %W[
+      -DBUILD_STATIC_AND_SHARED=ON
+      -DPYTHON_EXECUTABLE=#{which("python3") || which("python")}
+    ]
 
     # Linux CI cannot guarantee AVX2 support needed to build fat runtime.
     args << "-DFAT_RUNTIME=OFF" if OS.linux?

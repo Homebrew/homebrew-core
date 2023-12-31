@@ -31,7 +31,7 @@ class Ecl < Formula
   def install
     ENV.deparallelize
 
-    libffi_prefix = if MacOS.version >= :catalina
+    libffi_prefix = if OS.mac? && MacOS.version >= :catalina
       MacOS.sdk_path
     else
       Formula["libffi"].opt_prefix

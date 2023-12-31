@@ -148,7 +148,7 @@ class Mailcatcher < Formula
   end
 
   def install
-    if MacOS.version >= :mojave && MacOS::CLT.installed?
+    if OS.mac? && MacOS.version >= :mojave && MacOS::CLT.installed?
       ENV["SDKROOT"] = ENV["HOMEBREW_SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
     end
 

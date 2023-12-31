@@ -27,7 +27,14 @@ class Embree < Formula
       -DEMBREE_ISPC_SUPPORT=ON
       -DEMBREE_TUTORIALS=OFF
     ]
-    args << "-DEMBREE_MAX_ISA=#{MacOS.version.requires_sse42? ? "SSE4.2" : "SSE2"}" if Hardware::CPU.intel?
+    if Hardware::CPU.intel?
+      max_isa = if OS.mac? && MacOS.version.requires_sse4?
+        "SSE4.2"
+      else
+        "SSE2"
+      end
+      args << "-DEMBREE_MAX_ISA=#{max_isa}"
+    end
 
     mkdir "build" do
       system "cmake", *args, ".."

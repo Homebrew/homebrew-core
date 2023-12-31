@@ -1,20 +1,18 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.10/racket-minimal-8.10-src.tgz"
-  sha256 "9353739a489880f90fe3653ed3c2e38dbdc5114ece337944697b0b1f6f61bde0"
+  url "https://mirror.racket-lang.org/installers/8.11.1/racket-minimal-8.11.1-src.tgz"
+  sha256 "1f55fd6e1430f7239a1126cae3eb6f7855956f813230d18b2ae930280a39f3cc"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 arm64_sonoma:   "7113d2033b213accb4680da8b309c24d1e6a756b1c5670e139f077b1ae957c9d"
-    sha256 arm64_ventura:  "cea1af4de3e74fbee75b3b95f1f37883118f88b088ead31b5f5c924b6bdd130d"
-    sha256 arm64_monterey: "c633be11e598f579656445128082a6cfd8c00d166e644d952eb3c1e7ed70da4c"
-    sha256 arm64_big_sur:  "04735ab34c59cdf2f401e70718812ac157686912105135061ebdd3d0a985f829"
-    sha256 sonoma:         "4f129e28df0cca68b561b40df58aa6559d6c2f6c9643524ef01db101e59c1bb3"
-    sha256 ventura:        "1b757c2e8208c5622636625b04e853d8dec84da20c43944f1c61ed4d6b4e5c3e"
-    sha256 monterey:       "4c3a14e521d3229c34ca9dce4c0d600d0651c7e67b32ca48acb14590963da966"
-    sha256 big_sur:        "729eca5613020c1bf6ceb19311cc601aeace343771d5b9cb9593870314baff4d"
-    sha256 x86_64_linux:   "b3ba24168e281895a9b5a71f5d1e21e4e074036819014ccbee31b4168e91910f"
+    sha256 arm64_sonoma:   "668ef627261e748cca81850ce0cfff82e95a06195bdff8a5a83b97b827bc9b0d"
+    sha256 arm64_ventura:  "823097e0c7d9df7fc6a5aa462b821d241a2aa1372ec2ea88b676e95f5a64ffba"
+    sha256 arm64_monterey: "3a49b8d0fdb8b4a0106070121d88eb2e4ec5dc7f9a67b82a481642954a5d96ff"
+    sha256 sonoma:         "a3f0c2f3c0315725d82ebc001124cfb708c146a271da02e150bc059c8f894253"
+    sha256 ventura:        "d4b8e69b02f398bcf49442459857c4d9d910293f5049de17a1c1ea336efa89b9"
+    sha256 monterey:       "4227a89759a5f44192cd2660c8c108ba79de0ac0663a466fc6a8ef6911cb91c1"
+    sha256 x86_64_linux:   "4ae85d638753f279823276adb714ef82b8b998a02aeca8fe3a1779ee9d2ee42f"
   end
 
   deprecate! date: "2023-10-24", because: "uses deprecated `openssl@1.1`"

@@ -1,18 +1,18 @@
 class PythonPsutil < Formula
   desc "Cross-platform lib for process and system monitoring in Python"
   homepage "https://github.com/giampaolo/psutil"
-  url "https://files.pythonhosted.org/packages/2d/01/beb7331fc6c8d1c49dd051e3611379bfe379e915c808e1301506027fce9d/psutil-5.9.6.tar.gz"
-  sha256 "e4b92ddcd7dd4cdd3f900180ea1e104932c7bce234fb88976e2a3b296441225a"
+  url "https://files.pythonhosted.org/packages/a0/d0/c9ae661a302931735237791f04cb7086ac244377f78692ba3b3eae3a9619/psutil-5.9.7.tar.gz"
+  sha256 "3f02134e82cfb5d089fddf20bb2e03fd5cd52395321d1c8458a9e58500ff417c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "114d14ffb0b20e313a6e536bf49fdf1a2b221174e410119a6e42a987bf688abf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d99f051f6e255e307f7a6edd0ade3f886302ad66c0c23d3591bed33f9e57fde5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c14dda0268b873f53e06d993c8501c550ba8773f1254deba4a76430320ebee3b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "302989eabf141199ac81b115cf5d78cb8c43aa6e8e54a0701536c1a4601217c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "e8ce5f3331fa824d492b51d0df1d243a169af54bd4cbd74b90c0cc0c884e3790"
-    sha256 cellar: :any_skip_relocation, monterey:       "24e1f3ca80013ecb60721174d0229c179d1cad4f3937e60c22306800d0885327"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cb95f593edd62967537b3a2cfa2d123c8dc613500b8e41774535eb59643bd28"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "557fb8ab221e002a6900878e126d44de629aecab3a85a311bf20a960d949e908"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61c174e3f63ea586370baa91f23e321febef03b0bd9815fd1a229f0d3c749ac9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "73beed3597a9cae9aa60d760f4e10f3623f14a22d26a4e678e44126945eaa899"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f91c41b98684b687468c144b6777d948c96a2a4c41dfbee2b40f58237790c9ca"
+    sha256 cellar: :any_skip_relocation, ventura:        "bc62aa8a096c90fd4d2add78ec5b0ae5844991021cd3190f5c3e29fd75463463"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4a4a47eb4bac444c1012a16a69b87a9eec09b63319b0eee8dec1e38ad71952a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b346a8937f133825f7672049d818f09365485abd57a95748e6d00b9d38e099f"
   end
 
   depends_on "python-setuptools" => :build

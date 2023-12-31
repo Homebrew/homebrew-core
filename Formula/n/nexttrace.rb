@@ -1,8 +1,8 @@
 class Nexttrace < Formula
   desc "Open source visual route tracking CLI tool"
   homepage "https://nxtrace.github.io/NTrace-core/"
-  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.2.7.tar.gz"
-  sha256 "68cffa061b6ca67359f45d797ba0c604d8ea728d98bc9cf13be8dc487de86907"
+  url "https://github.com/nxtrace/NTrace-core/archive/refs/tags/v1.2.8.tar.gz"
+  sha256 "39c1f0f5c0ec7c94b6b476c1ec64e3ab2971c5444ffe6318b2e233c2a5d2e924"
   license "GPL-3.0-only"
   head "https://github.com/nxtrace/NTrace-core.git", branch: "main"
 
@@ -14,13 +14,13 @@ class Nexttrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d45a3cdb54727b6ded71a2481866b488556442c90a5395d6e3803fe94ca9a35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0afbe18417c5f7f862d63b8fc646af69bbf89afaa917529809103e3f598df5c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "00879fb16b7efd82d26c4a4eee291ce9fa12e79b8d8dfeb7bb677dd8a097c21b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "98ae6d72cc6c59ab7c99b5f76a11669696953a3de0b53b0a80ba9de031dbd435"
-    sha256 cellar: :any_skip_relocation, ventura:        "a1f29eab1dff0497216c09b02c0249c33f31f202d12270b4b5e6d7a62ec3e25d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d62bdcc226a3cfbb45ed6e4236ad7c0de0b60aabcc68e6ee8bb3dad8db456bd4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ef6874b7e6703f94b71321db8f5580044407ab13265dffc04651e65a6c258df"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63fe7bda5b7e6ca55cf9d8edf216f6a9958c54f9a8fd375f8955b520984d2627"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "83357e107d95566ae244873cae7ea6f8e559820e1fd11e984ceebe1d0f985c25"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0b673449d2c8ccb7f9ef25087a26fdf4ab97c7706f23756e568d924cd4c965c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4552e9e177dd985ed2cb6236ef9d15a37337bef57a7d10d83b619b5b2870a22f"
+    sha256 cellar: :any_skip_relocation, ventura:        "099999f34e35fa29eba8455b6b737a38ff3ebd42198a78e92a043f6728f87148"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec604d702a7cb2b4f4dedb20ba94a119873eacae03323acff78a28f8f0cc393d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b47400c61551ea7b3aef4f79b75d3e8626f3102b98d2dc27441fd177e7985de3"
   end
 
   depends_on "go" => :build

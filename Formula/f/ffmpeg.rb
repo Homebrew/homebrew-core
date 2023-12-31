@@ -1,23 +1,12 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
+  url "https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.xz"
+  sha256 "8684f4b00f94b85461884c3719382f1261f0d9eb3d59640a1f4ac0873616f968"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
-
-  stable do
-    url "https://ffmpeg.org/releases/ffmpeg-6.0.tar.xz"
-    sha256 "57be87c22d9b49c112b6d24bc67d42508660e6b718b3db89c44e47e289137082"
-
-    # Fix for binutils, remove with `stable` block on next release
-    # https://www.linuxquestions.org/questions/slackware-14/regression-on-current-with-ffmpeg-4175727691/
-    patch do
-      url "https://github.com/FFmpeg/FFmpeg/commit/effadce6c756247ea8bae32dc13bb3e6f464f0eb.patch?full_index=1"
-      sha256 "9800c708313da78d537b61cfb750762bb8ad006ca9335b1724dbbca5669f5b24"
-    end
-  end
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -25,14 +14,13 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "42d52253402650e0213379f160c55d84b65dd00f6399f164df05f114c74ebcc4"
-    sha256 arm64_ventura:  "b24e520a37513ec46162a1c291af1344ff25a4ff9107065a487714758f4e0ea4"
-    sha256 arm64_monterey: "42405b8904eb0a1dda935b538a076b6e30b9a736a54f43471b99bb86f3e4e364"
-    sha256 sonoma:         "f03703c198cdc39583129e38d57abd3e19aa541e551fefcacfdfe7a566ed6776"
-    sha256 ventura:        "58ebcf43e522105745c3d406e01ce8a65007996544198a6691c0011cb90152e1"
-    sha256 monterey:       "541c4febd795e1bbb8d76087f58b9a83f8ef8cc65020050530d582b45956ceb9"
-    sha256 x86_64_linux:   "e970046eb88d3e8ad157063599ed3284fa2ed8b8289f58fa1d96e0bd1798f9d4"
+    sha256 arm64_sonoma:   "b5153b06d18a6748e2333b0a1446704d31be752450f4d9ffbab41e880ff8df02"
+    sha256 arm64_ventura:  "b2e175d6b6ef58ab0e6e227ca857b65371f8e7df746dcdaf4e9f3ae4a7033419"
+    sha256 arm64_monterey: "b4dee1bdb54c908ffa0372c4b6a38f378a6154a0c5666940505beedd92da26bd"
+    sha256 sonoma:         "722dccd925e2912b97af33671e210ac3f8c1db57b6b97e4dbb8cc9b3e4a28f42"
+    sha256 ventura:        "8050a8b9c0bd86a9a59734157f3c6d95fed766a54a996851c973b5b545c10e96"
+    sha256 monterey:       "04993a3e270d5e3ce3a34772192a712486b891e9483ba40d3a7d572f7c2e27b3"
+    sha256 x86_64_linux:   "5b9536aa939955afa875003133b06c5ecf8a9d93a611b885c335727ac9883d9e"
   end
 
   depends_on "pkg-config" => :build
@@ -43,6 +31,7 @@ class Ffmpeg < Formula
   depends_on "freetype"
   depends_on "frei0r"
   depends_on "gnutls"
+  depends_on "harfbuzz"
   depends_on "jpeg-xl"
   depends_on "lame"
   depends_on "libass"
@@ -114,6 +103,7 @@ class Ffmpeg < Formula
       --enable-libaribb24
       --enable-libbluray
       --enable-libdav1d
+      --enable-libharfbuzz
       --enable-libjxl
       --enable-libmp3lame
       --enable-libopus

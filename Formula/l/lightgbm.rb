@@ -2,20 +2,18 @@ class Lightgbm < Formula
   desc "Fast, distributed, high performance gradient boosting framework"
   homepage "https://github.com/microsoft/LightGBM"
   url "https://github.com/microsoft/LightGBM.git",
-      tag:      "v4.1.0",
-      revision: "501ce1cb63e39c67ceb93a063662f3d9867e044c"
+      tag:      "v4.2.0",
+      revision: "0a9a6bbf6d96cb01c3fdc7ace6b13da828857c82"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0a09d820579b06354d4ec35ec1182a1156e9a27d3b0790a9e655b06f4bfbbb51"
-    sha256 cellar: :any,                 arm64_ventura:  "0010391af6b282c9669b7cd3bca7864733c00016009eb957130967fea279b2bc"
-    sha256 cellar: :any,                 arm64_monterey: "7a80dbccdcca058e93f29d2c72c68f0935ee2cce7aec1682390990565ad37259"
-    sha256 cellar: :any,                 arm64_big_sur:  "e3e5bf298df53c0bfdd06dc2f060a902af2f4a580405d85866adb5cc6b790965"
-    sha256 cellar: :any,                 sonoma:         "c3b3c0657347d6f0f6903110b8e933b429326c13fb4dc63372cb016ca766387e"
-    sha256 cellar: :any,                 ventura:        "a64217c8391e55d64eb0ffc224a8743c647656040eeb06e8f00e31f28f91ae0d"
-    sha256 cellar: :any,                 monterey:       "40b1201fb46110abfe4507ef4979a3b014e675c67f0d737bae32d8986868cbfc"
-    sha256 cellar: :any,                 big_sur:        "226ffcf3c5f0c21f8ba1fe865fb207ec07e47fde82b1df25184a99cb27b447c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45b75a9a8690a5406be254cfea07b4f3887d366e45a345f18aeb9ae7dc8553e1"
+    sha256 cellar: :any,                 arm64_sonoma:   "719bfcf008e3565603a47e7d6af96e6b3e7d984e68ced7bdafd6e87eee05144b"
+    sha256 cellar: :any,                 arm64_ventura:  "d97f5439fdc5664237e7c531fe7aeb0c8c6e0d614e214051b97a0d53c419e004"
+    sha256 cellar: :any,                 arm64_monterey: "cd1ed66be1efdb2599f96dbe1fa5fc0317f7e8ed05c397b7eb0d9683a1c363b5"
+    sha256 cellar: :any,                 sonoma:         "39fdcde3c989ab43cfa4e639f7f81e3c58d025a070736e19c3a46f1fd76aec7e"
+    sha256 cellar: :any,                 ventura:        "e5ae080a13efa292896ae9248f958908be33cf095ad2f7c255258d1d1d462383"
+    sha256 cellar: :any,                 monterey:       "54f72af175b30a96bc11e86303ce89d312f21ccb841f312ca6b019589384cbee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38d19596bcca94dd784cb3dac3f3beb3768ea4e989fba070898191405c4f1189"
   end
 
   depends_on "cmake" => :build

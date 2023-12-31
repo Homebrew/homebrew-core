@@ -29,7 +29,7 @@ class Libgdata < Formula
   depends_on "gtk+3"
   depends_on "json-glib"
   depends_on "liboauth"
-  depends_on "libsoup@2"
+  depends_on "libsoup@2" # libsoup 3 PR: https://gitlab.gnome.org/GNOME/libgdata/-/merge_requests/49
   uses_from_macos "curl"
   uses_from_macos "libxml2"
 

@@ -12,10 +12,14 @@ class Gpsim < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma: "fa23f8c80ac0345a2f22b8ea0ba306c915947df7eac7ace8cbd14e1eff4a6b9c"
-    sha256 cellar: :any,                 sonoma:       "2981d50ca8314999f1aed8b224da83e52b74d013fc6dd3c5ff9d14fa98fe482c"
-    sha256 cellar: :any,                 monterey:     "82ed0708bc543e6a067d5b23647de05de60c2abf4c4851adcb9c7f58d2f60b43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ed7b77aad09ad8845ef7b7f7481c8d480e65f69eb92715b0045d9c8d80ac5c27"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "888ef0d3830e09344fe6f4851d2df34a9793dc3de9178e1d2dc99451fa612fde"
+    sha256 cellar: :any,                 arm64_ventura:  "fcfd3aa9b7bbfd39292005f97e046513efb63f5f35723ed28d846fe63969c596"
+    sha256 cellar: :any,                 arm64_monterey: "7d7bdb973048a0accf1f87f5773883e80cb98a3e80ec3e6a2ae2240f06b4f8d9"
+    sha256 cellar: :any,                 sonoma:         "e04f087424cabf6638050b7a4a477184ab1814a8d08116f6fe4bd997fb98e174"
+    sha256 cellar: :any,                 ventura:        "21b9949b633afe932ca30e23cc291a8a6d760cb38413f1728b4f8e7b1349f10c"
+    sha256 cellar: :any,                 monterey:       "cd3488cd018dfaefdd5b4e253b6e6879c9a75ef1e6c377dc7928daf20825c882"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "062b82cfd0c548f5935b7f09f455d56a0fcc9693f044c553dc161233d89add2a"
   end
 
   depends_on "gputils" => :build
@@ -24,6 +28,9 @@ class Gpsim < Formula
   depends_on "glib"
   depends_on "popt"
   depends_on "readline"
+
+  # https://sourceforge.net/p/gpsim/bugs/289/
+  patch :DATA
 
   def install
     system "./configure", "--disable-gui",
@@ -37,3 +44,27 @@ class Gpsim < Formula
     system "#{bin}/gpsim", "--version"
   end
 end
+
+__END__
+Index: program_files.cc
+===================================================================
+--- a/src/program_files.cc  (revision 2623)
++++ b/src/program_files.cc  (working copy)
+@@ -85,8 +85,7 @@
+   * ProgramFileTypeList
+   * Singleton class to manage the many (as of now three) file types.
+   */
+-ProgramFileTypeList * ProgramFileTypeList::s_ProgramFileTypeList =
+-  new ProgramFileTypeList();
++ProgramFileTypeList * ProgramFileTypeList::s_ProgramFileTypeList = nullptr;
+ // We will instantiate g_HexFileType and g_CodFileType here to be sure
+ // they are instantiated after s_ProgramFileTypeList. The objects will
+ // move should the PIC code moved to its own external module.
+@@ -97,6 +96,8 @@
+ 
+ ProgramFileTypeList &ProgramFileTypeList::GetList()
+ {
++  if (!s_ProgramFileTypeList)
++      s_ProgramFileTypeList = new ProgramFileTypeList();
+   return *s_ProgramFileTypeList;
+ }

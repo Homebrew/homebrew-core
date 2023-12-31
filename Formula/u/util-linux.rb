@@ -48,6 +48,7 @@ class UtilLinux < Formula
 
     conflicts_with "bash-completion", because: "both install `mount`, `rfkill`, and `rtcwake` completions"
     conflicts_with "flock", because: "both install `flock` binaries"
+    conflicts_with "ossp-uuid", because: "both install `uuid.3` file"
     conflicts_with "rename", because: "both install `rename` binaries"
   end
 

@@ -1,18 +1,18 @@
 class Lesspipe < Formula
   desc "Input filter for the pager less"
   homepage "https://www-zeuthen.desy.de/~friebel/unix/lesspipe.html"
-  url "https://github.com/wofr06/lesspipe/archive/refs/tags/v2.10.tar.gz"
-  sha256 "ad1589592ff46f7738eb1ba2ecc911b003a6afe9376656e9f6ec920d354a58df"
+  url "https://github.com/wofr06/lesspipe/archive/refs/tags/v2.11.tar.gz"
+  sha256 "8e8eebf80f8a249c49b31e775728f4d3062f0a97ff7ef7363ccba522f51ffa3c"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ea6587cc89eacae552c8af912852ac059d2cbada2c8727c019fcd500d5803c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ea6587cc89eacae552c8af912852ac059d2cbada2c8727c019fcd500d5803c0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ea6587cc89eacae552c8af912852ac059d2cbada2c8727c019fcd500d5803c0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2ea6587cc89eacae552c8af912852ac059d2cbada2c8727c019fcd500d5803c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ea6587cc89eacae552c8af912852ac059d2cbada2c8727c019fcd500d5803c0"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ea6587cc89eacae552c8af912852ac059d2cbada2c8727c019fcd500d5803c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aaa424099a56c5a8dfd5e48cbe56bb773425b965d5384fef92d40645a69dc293"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ff0fe23926dc0e7bdb4aa7b9ba15ae4526a34408485a6961dff10e28c851441"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ff0fe23926dc0e7bdb4aa7b9ba15ae4526a34408485a6961dff10e28c851441"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ff0fe23926dc0e7bdb4aa7b9ba15ae4526a34408485a6961dff10e28c851441"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9ff0fe23926dc0e7bdb4aa7b9ba15ae4526a34408485a6961dff10e28c851441"
+    sha256 cellar: :any_skip_relocation, ventura:        "9ff0fe23926dc0e7bdb4aa7b9ba15ae4526a34408485a6961dff10e28c851441"
+    sha256 cellar: :any_skip_relocation, monterey:       "9ff0fe23926dc0e7bdb4aa7b9ba15ae4526a34408485a6961dff10e28c851441"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd1aa232c8507c9ab1e20628bc7f51cbe7e653c8921e078c04141acb1659c78a"
   end
 
   def install

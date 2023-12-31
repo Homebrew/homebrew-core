@@ -1,49 +1,56 @@
 class Pdfpc < Formula
   desc "Presenter console with multi-monitor support for PDF files"
   homepage "https://pdfpc.github.io/"
-  url "https://github.com/pdfpc/pdfpc/archive/refs/tags/v4.4.1.tar.gz"
-  sha256 "4adb42fd1844a7e2ab44709dd043ade618c87f2aaec03db64f7ed659e8d3ddad"
   license "GPL-3.0-or-later"
-  revision 3
+  head "https://github.com/pdfpc/pdfpc.git", branch: "master"
 
-  bottle do
-    sha256 arm64_sonoma:   "0fa98a189234582e235215997734a148ef5f4b6f96a0279e5212426eaca55a05"
-    sha256 arm64_ventura:  "e35ae948acccf50487a29318c6f1d204eefc15f0545115a4f957753723b2035c"
-    sha256 arm64_monterey: "5830c312af0de512390b27bcc880da91b1909195a33be690dd9f4f595469cfe8"
-    sha256 sonoma:         "dd22b140aec750615ee25dbad00cf8974154ff897d4097ee270f743b929e8f13"
-    sha256 ventura:        "6f042b935bb90f53a418fe117d894c95468ab193e7e10bd81756ff7907e537c0"
-    sha256 monterey:       "4c8be94abad2dec957196e7cf229c99f56bd790bde5fcf284bd61487dc9384e2"
-    sha256 x86_64_linux:   "581f359bbbeca6405785b33d0d9d7f3b33e59184b76f89db2f29ec79b1faaf48"
+  stable do
+    url "https://github.com/pdfpc/pdfpc/archive/refs/tags/v4.6.0.tar.gz"
+    sha256 "3b1a393f36a1b0ddc29a3d5111d8707f25fb2dd2d93b0401ff1c66fa95f50294"
+
+    # Backport fix for Vala 0.56.7+. Remove in the next release.
+    patch do
+      url "https://github.com/pdfpc/pdfpc/commit/18beaecbbcc066e0d4c889b3aa3ecaa7351f7768.patch?full_index=1"
+      sha256 "894a0cca9525a045f4bd28b54963bd0ad8b1752907f1ad4d8b4f7d9fdd4880c3"
+    end
   end
 
-  head do
-    url "https://github.com/pdfpc/pdfpc.git", branch: "master"
-
-    depends_on "discount"
-    depends_on "json-glib"
-    depends_on "libsoup@2"
-    depends_on "qrencode"
-
-    on_linux do
-      depends_on "webkitgtk"
-    end
+  bottle do
+    sha256 arm64_sonoma:   "37e68010fd59d6d822bc592edfefe7829e6308a3be011e04710e81289e45787a"
+    sha256 arm64_ventura:  "fd6970c02ca367a6050696a949c2ccfc08cbb4cef034dbe189d57f66b2fc6dd3"
+    sha256 arm64_monterey: "746f25f24ee4224d84988f30a3b146f54f11b1423a2baaea9d128b07f7459862"
+    sha256 sonoma:         "6f694849557954ac891ca62a7cd3951e7fb370ecec600490bc26040dc01bd723"
+    sha256 ventura:        "5609c58c83e0f2da72bbecb2279b63b53fcc05991cd2f0220fb2b6c248611bb2"
+    sha256 monterey:       "34a795721a3934b8417c867c468d7d7fb5400486e0fc5e1f89aeabce60dc7ed4"
+    sha256 x86_64_linux:   "e516f2299f19c3e6ab4f200e4fcef85508655fe7890331e741a7303f9bc1a528"
   end
 
   depends_on "cmake" => :build
   depends_on "vala" => :build
+  depends_on "discount"
   depends_on "gstreamer"
   depends_on "gtk+3"
+  depends_on "json-glib"
   depends_on "libgee"
   depends_on "librsvg"
   depends_on "poppler"
 
+  on_linux do
+    depends_on "webkitgtk"
+  end
+
   def install
-    # NOTE: You can avoid the `libsoup@2` dependency by passing `-DREST=OFF`.
-    # https://github.com/pdfpc/pdfpc/blob/3310efbf87b5457cbff49076447fcf5f822c2269/src/CMakeLists.txt#L38-L40
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+    # Upstream currently uses webkit2gtk-4.0 (API for GTK 3 and libsoup 2)
+    # but we only provide webkit2gtk-4.1 (API for GTK 3 and libsoup 3).
+    # Issue ref: https://github.com/pdfpc/pdfpc/issues/671
+    inreplace "src/CMakeLists.txt", "webkit2gtk-4.0", "webkit2gtk-4.1"
+
+    system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_INSTALL_SYSCONFDIR=#{etc}",
                     "-DMDVIEW=#{OS.linux?}", # Needs webkitgtk
-                    "-DMOVIES=ON"
+                    "-DMOVIES=ON",
+                    "-DREST=OFF",
+                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

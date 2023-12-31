@@ -1,8 +1,8 @@
 class Dnscontrol < Formula
   desc "Synchronize your DNS to multiple providers from a simple DSL"
   homepage "https://dnscontrol.org/"
-  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.7.2.tar.gz"
-  sha256 "c2a9bc46b8f88c12184a03d685f8cb826f0639a8c93546941485a656208a3891"
+  url "https://github.com/StackExchange/dnscontrol/archive/refs/tags/v4.7.3.tar.gz"
+  sha256 "4d60ffb84b62005156b8b28d4c212a675946eb7bee557856517822e5bf2c1539"
   license "MIT"
   version_scheme 1
 
@@ -15,13 +15,14 @@ class Dnscontrol < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2b1dba9d65b87e67c08692bde8829f9e089c0b8534cd7e3a741227fcbacc524"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "345cb359fca0e273264d82e4c200340cd238275f0329105b65004e7038ffa09d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e30eff5275d0b841ff315b34e1a2cf18e772e0dc07a908d95eaaa2523c3eb43a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "453bd4fd58c70bc2696c829ea9bdb92a6ef1558c54ad23d27e769ccb348792aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "8972805a05a7c2a1fc32608260c76010785826fea91dc9f5784bd3c3b74b9361"
-    sha256 cellar: :any_skip_relocation, monterey:       "59ed73f7495aeed4998acfaffb7920a0cdbd6d868a332f531f3fac0f57554d25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "073f03abd17228e47e6db6bbb2f029ee8367d142633a2b94add38f52656e7183"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f41c25392a050a62cc2d0af19a2c8d7c90966ccdf605358ccd3be53b95010f05"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80546bcef8bc13be64bc73b3f9197945f2a1712dc7046e82b7f658dffce2b7e2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "639928c687cb93e1fd0d45d66b001ef044099f52496dc46e72a4fce4694289ef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "652f38207eb14ab1287aa01e78fde52681bca8c46c2890708f9ea3e0b601bef5"
+    sha256 cellar: :any_skip_relocation, ventura:        "518e58c5020311038291905f68c30c00254386bed898a28d57afcf8d0642f095"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c9e442bd767a870599f531b3afa6018df476308b40bbce0d54847f7d6f12d39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "229976458a0240634e4bce06850b85d02c524ea56fd65344da421da97e0e3aed"
   end
 
   depends_on "go" => :build
@@ -34,6 +35,12 @@ class Dnscontrol < Formula
       -X main.BuildTime=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags: go_ldflags)
+
+    generate_completions_from_executable(bin/"dnscontrol", "shell-completion", shells: [:bash, :zsh])
+  end
+
+  def caveats
+    "dnscontrol bash completion depends on the bash-completion package."
   end
 
   test do

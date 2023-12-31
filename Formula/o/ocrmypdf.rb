@@ -3,18 +3,18 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/c4/cb/204cd70630becd846b07fe2efeea3630d760471aa584808f20118e7b523d/ocrmypdf-15.4.4.tar.gz"
-  sha256 "4696c81cc5b5d64f31ccfe685d10baeb69b42bb0974acddf292d8cf9d97605c3"
+  url "https://files.pythonhosted.org/packages/a9/e4/7c86016d069b6f2d458abc5f4432cc9aa77abd2dba31e9e12dd23405018b/ocrmypdf-16.0.2.tar.gz"
+  sha256 "22aff9a734430aef1259fcad3697324b02a0147c2566b3df03d45a1d4401a0cc"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "99e1fffff8725998d384ccdf9cdbeb7c47f400f7c7aa1657854fead43b80c1ed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df393dcc1d893f5264b19a36f810a93efd880dafb8d359f03bbb696eebcf1035"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae7e17e5bfc8f01f39f85eecf22a93ff25eef017362d49ea1cd301a6edde20af"
-    sha256 cellar: :any_skip_relocation, sonoma:         "95d771738271867f3a6f039589acebd5a6ebffc4df14e4041bffaf838a79208a"
-    sha256 cellar: :any_skip_relocation, ventura:        "ea1ed3fe7898c3dafd9ff6d946c862528cc79617df95c0627bbe51d686802732"
-    sha256 cellar: :any_skip_relocation, monterey:       "f9ed37c05fd2b4ac63f1e5007506a3e96c5916e7ad3893dbf81fabc023f73c17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ce3fab25bad9ec9cb8ad803235d9e92d9bd0947cfe438c69d36fad817974b17"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ec770369823d24da8662ab5d34c53342734c3ae66c6276264ce6c98bf7c2e31"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ffcfd471f089fa696ee8ec99ba09176b119427dfe0a0c0f682ba6b50e86eb97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dde266cc3c914f4c10b321b3fac2f493d0f5ae7e9f848c279233f41282c071f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ef7c59ad57fc49ab4a22a41d391d11a29c3c55cd90023e13ca109fbdf970d62d"
+    sha256 cellar: :any_skip_relocation, ventura:        "a8e80df67407b2f7fb01f9d52f27b100f0f439cfd610ba916221eba33d7474b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "acde21ec6be40b11a628ddb8de18ee7a8e45d05197f42099e5af9547764100ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4895b0058961cbcfdf63ee64193cfeeae66a41df210bd8dc50bca1b8d9a7589"
   end
 
   depends_on "cffi"
@@ -70,28 +70,13 @@ class Ocrmypdf < Formula
     sha256 "cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"
   end
 
-  resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/d8/cf/efb86961f9aed4f95556a15034ee66b1315de6752290c33634120ff4fcd1/reportlab-4.0.7.tar.gz"
-    sha256 "967c77f00efd918cc231cf8b6d8f4e477dc973b5c16557e3bd18dfaeb5a70234"
-  end
-
   resource "rich" do
     url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
     sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
-    resource("reportlab").stage do
-      (Pathname.pwd/"local-setup.cfg").write <<~EOS
-        [FREETYPE_PATHS]
-        lib=#{Formula["freetype"].opt_lib}
-        inc=#{Formula["freetype"].opt_include}
-      EOS
-      venv.pip_install Pathname.pwd
-    end
-    venv.pip_install resources.reject { |r| r.name == "reportlab" }
-    venv.pip_install_and_link buildpath
+    virtualenv_install_with_resources
 
     site_packages = Language::Python.site_packages("python3.12")
     paths = %w[img2pdf].map { |p| Formula[p].opt_libexec/site_packages }
@@ -102,8 +87,8 @@ class Ocrmypdf < Formula
   end
 
   test do
-    system "#{bin}/ocrmypdf", "-f", "-q", "--deskew",
-                              test_fixtures("test.pdf"), "ocr.pdf"
+    system bin/"ocrmypdf", "-f", "-q", "--deskew",
+                           test_fixtures("test.pdf"), "ocr.pdf"
     assert_predicate testpath/"ocr.pdf", :exist?
   end
 end

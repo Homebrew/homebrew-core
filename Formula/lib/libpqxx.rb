@@ -18,19 +18,19 @@ class Libpqxx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "xmlto" => :build
   depends_on "libpq"
   depends_on macos: :catalina # requires std::filesystem
+
+  uses_from_macos "python" => :build, since: :catalina
 
   fails_with gcc: "5" # for C++17
 
   def install
     ENV.append "CXXFLAGS", "-std=c++17"
-    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
     ENV["PG_CONFIG"] = Formula["libpq"].opt_bin/"pg_config"
 
-    system "./configure", "--prefix=#{prefix}", "--enable-shared"
+    system "./configure", "--disable-silent-rules", "--enable-shared", *std_configure_args
     system "make", "install"
   end
 

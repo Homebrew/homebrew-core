@@ -87,7 +87,7 @@ class Litecli < Formula
     # remove ANSI colors
     output.gsub!(/\e\[([;\d]+)?m/, "")
     # normalize line endings
-    output.gsub!(/\r\n/, "\n")
+    output.gsub!("\r\n", "\n")
 
     expected = <<~EOS
       name

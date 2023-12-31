@@ -29,7 +29,11 @@ class Pkcrack < Formula
   def install
     # Fix "fatal error: 'malloc.h' file not found"
     # Reported 18 Sep 2017 to conrad AT unix-ag DOT uni-kl DOT de
-    ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc"
+    if OS.mac?
+      ENV.prepend "CPPFLAGS", "-I#{MacOS.sdk_path}/usr/include/malloc"
+    else
+      ENV.prepend "CPPFLAGS", "-I/usr/include/malloc"
+    end
 
     system "make", "-C", "src/"
     bin.install Dir["src/*"].select { |f| File.executable? f }

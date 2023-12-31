@@ -19,12 +19,20 @@ class Clblas < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
+
+  uses_from_macos "python" => :build
 
   on_linux do
     depends_on "opencl-headers" => [:build, :test]
     depends_on "opencl-icd-loader"
     depends_on "pocl"
+  end
+
+  # Fix missing stdlib.h includes.
+  # PR ref: https://github.com/clMathLibraries/clBLAS/pull/360
+  patch do
+    url "https://github.com/clMathLibraries/clBLAS/commit/68ce5f0b824d7cf9d71b09bb235cf219defcc7b4.patch?full_index=1"
+    sha256 "df5dc87e9ae543a043608cf790d01b985627b5b6355356c860cfd45a47ba2c36"
   end
 
   def install
@@ -33,6 +41,7 @@ class Clblas < Formula
                     "-DBUILD_KTEST=OFF",
                     "-DBUILD_TEST=OFF",
                     "-DCMAKE_MACOSX_RPATH:BOOL=ON",
+                    "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
                     "-DSUFFIX_LIB:STRING="
     system "make", "install"
     pkgshare.install "src/samples/example_srot.c"

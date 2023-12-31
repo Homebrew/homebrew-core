@@ -4,10 +4,9 @@ class Mavsdk < Formula
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
-      tag:      "v1.4.17",
-      revision: "34b0c051f70b7018e3d98c2fe0e78677d4c3af14"
+      tag:      "v1.4.18",
+      revision: "b87a21d9044b9385e570fe0dd3389b74a3d52c2d"
   license "BSD-3-Clause"
-  revision 5
 
   livecheck do
     url :stable
@@ -15,17 +14,19 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ecc3e805f3ff0cdff8473bf14cf6f47095b7f41e286d91e38fbd76dd3815795a"
-    sha256 cellar: :any,                 arm64_ventura:  "b3d3ea8d6a47ade7e8bb019a1f9e5c4930a577d2c7207e49d0b2cef7e16466a5"
-    sha256 cellar: :any,                 arm64_monterey: "f8d3de213a24237e15e496af9d41b94ff5d084c169b1e478e53f06f2b48b62f4"
-    sha256 cellar: :any,                 sonoma:         "ebcffe259c38017b60e2612230767ff0b31c4963d10e6c9e65447ed8bd961871"
-    sha256 cellar: :any,                 ventura:        "c47a4c8bd59b914977aa9d6a6d1cfcc6e93bab528db380a201ce4e3aed28c954"
-    sha256 cellar: :any,                 monterey:       "fb6c174fa4d15ab87b8e0dde664ebe3b8c00ee9c66c44c0abc83b2edea1473e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e94e7943122ba006b89c1267954181c98f0c56f18b81ff86ccbc92968b633132"
+    sha256 cellar: :any,                 arm64_sonoma:   "cd85b2e6284ade4c7689c89b01551ccaf70244909fb7e6bc893aec32181003a6"
+    sha256 cellar: :any,                 arm64_ventura:  "419aabe8e33fe67e480e227706dd00d62c74eab97d06808ac7bccfce90179cff"
+    sha256 cellar: :any,                 arm64_monterey: "3134880e0d6314ce7f0d10c0c696bae539826c9b0100f213f64a56c14cdeeff7"
+    sha256 cellar: :any,                 sonoma:         "f75347fa5ebedde64c18471d93ef0d06f3ab3a62de4ac656d5d00d6aa1c6d025"
+    sha256 cellar: :any,                 ventura:        "5bd182008c8ce7b169d14d9422ee8642cac6685e607e64c5784924a228999a7b"
+    sha256 cellar: :any,                 monterey:       "300ccc67efe47a0ac0c33495628945f9cfe57216bc4aacb48949178654584c62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b058aa89c8584ef9b14557ec3000343f26fe5f39830e0364c702e1c4b6a7ac77"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
+  # `future` issue ref: https://github.com/PythonCharmers/python-future/issues/625
+  # `pymavlink` PR ref to remove `future`: https://github.com/ArduPilot/pymavlink/pull/830
+  depends_on "python@3.11" => :build # Python 3.12 blocked by imp usage in `future` used by pymavlink
   depends_on "six" => :build
   depends_on "abseil"
   depends_on "c-ares"

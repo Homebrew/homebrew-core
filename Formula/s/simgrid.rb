@@ -13,20 +13,22 @@ class Simgrid < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0d7e04a36480444650abf5d0b766c50e94304a66fd3026188ee84ca0f28db83d"
-    sha256 arm64_ventura:  "e5b7d59b5edcd954b19453a9ef0afe07ef08810af6a041c26381acbbee9b619b"
-    sha256 arm64_monterey: "da3663b588128a0c2f0a891e1820f3dc5a9bdddae2d62dc76a299a1fa7ddb956"
-    sha256 sonoma:         "241eb81037a6200074c2912c4553b030bab62577a9a144683d8021a50c0a9fb5"
-    sha256 ventura:        "b884f297125ca2bcb20e57c39336a3eb4c0e86cee54dc3c4ec38c8409bab93bd"
-    sha256 monterey:       "ada9e26cffee590c1070288f3c719ee69a9910ace07f6bab9e11024ed66494b3"
-    sha256 x86_64_linux:   "4805d5ddc4e2b49c90a3f00d7582d5057b5bff3144f89f5a7a2cee26721a82cd"
+    rebuild 1
+    sha256 arm64_sonoma:   "53be27a1bf81c8631b9b26b04f67fbff07bc41ef9bb1a167b15d97f17ec3a78e"
+    sha256 arm64_ventura:  "1bbf0f021ef5d6e60fdd58e1b855af1ec3a782cf85dd8eca2e9d78124ad67af3"
+    sha256 arm64_monterey: "c2943e6a95147389818afa4e9029e7b4301b9681eece29ca36c0ba09ef1ccbe6"
+    sha256 sonoma:         "9b5e29b74dd9b97b26c3e4b59727b35998c061e5df831e868d3d2f54df8717f5"
+    sha256 ventura:        "74f22942dd5067cddf7abf38de8c8caa6f908a097264c087753a2da7375686be"
+    sha256 monterey:       "ef0b2ae3c3307270a97f52086497e815230e822770c03a212f89644c0b0b27d3"
+    sha256 x86_64_linux:   "b3ac1bc8b73f25eda91af0734a122ffe9e74f0ba5c8d5197c4b23af3c3c7663e"
   end
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "boost"
   depends_on "graphviz"
-  depends_on "python@3.11"
+
+  uses_from_macos "python", since: :catalina
 
   fails_with gcc: "5"
 
@@ -39,6 +41,7 @@ class Simgrid < Formula
     ENV.append "LDFLAGS", "-L#{Formula["graphviz"].opt_lib}"
 
     system "cmake", "-S", ".", "-B", "build",
+                    "-DPython3_EXECUTABLE=#{which("python3")}",
                     "-Denable_debug=on",
                     "-Denable_compile_optimizations=off",
                     "-Denable_fortran=off",
@@ -46,7 +49,7 @@ class Simgrid < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    rewrite_shebang detected_python_shebang, *bin.children
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), *bin.children
   end
 
   test do

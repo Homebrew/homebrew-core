@@ -17,9 +17,8 @@ class Libunwind < Formula
   keg_only "libunwind conflicts with LLVM"
 
   depends_on :linux
-
-  uses_from_macos "xz"
-  uses_from_macos "zlib"
+  depends_on "xz"
+  depends_on "zlib"
 
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules"

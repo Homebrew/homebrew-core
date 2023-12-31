@@ -40,10 +40,14 @@ class PkgConfig < Formula
       #{HOMEBREW_PREFIX}/share/pkgconfig
     ]
     pc_path << if OS.mac?
+      system_include_path = "#{MacOS.sdk_path_if_needed}/usr/include"
+
       pc_path << "/usr/local/lib/pkgconfig"
       pc_path << "/usr/lib/pkgconfig"
       "#{HOMEBREW_LIBRARY}/Homebrew/os/mac/pkgconfig/#{MacOS.version}"
     else
+      system_include_path = "/usr/include"
+
       "#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"
     end
 
@@ -54,7 +58,7 @@ class PkgConfig < Formula
                           "--disable-host-tool",
                           "--with-internal-glib",
                           "--with-pc-path=#{pc_path}",
-                          "--with-system-include-path=#{MacOS.sdk_path_if_needed}/usr/include"
+                          "--with-system-include-path=#{system_include_path}"
     system "make"
     system "make", "install"
   end

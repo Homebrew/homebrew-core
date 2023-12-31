@@ -61,7 +61,7 @@ class Cpr < Formula
       -L#{lib}
       -lcpr
     ]
-    args << "-I#{Formula["curl"].opt_include}" if MacOS.version <= :big_sur
+    args << "-I#{Formula["curl"].opt_include}" if !OS.mac? || MacOS.version <= :big_sur
 
     system ENV.cxx, "test.cpp", "-std=c++17", *args, "-o", testpath/"test"
     assert_match "200", shell_output("./test")

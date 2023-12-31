@@ -1,20 +1,18 @@
 class Wazero < Formula
   desc "Zero dependency WebAssembly runtime"
   homepage "https://wazero.io"
-  url "https://github.com/tetratelabs/wazero/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "d9695533ba0c1e297439feeafd701c0e4e24c916f82c1b933d323fc8392f1960"
+  url "https://github.com/tetratelabs/wazero/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "10c79ae33c927f6e9003b054a7768b7bf20f1470b9984a62969428448cba3abf"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d61a4513667f6ffb78f1d09c09f1a8159dbf9fb442a97a763c79bde00b0cecb8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b4f5d7217e7c3e599819db9e949fc0f40f02e83b40f5482343723b57305bf80"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b12ba712fae63f2b6cd0138a7b59f393a3cccc2fbbc81df5e8026247dd63005"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d39edf868cd19d989edb86ee1bfc8fd4ff06626804ebdd762118d481cf4a276f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5bf4b794ac8ae78c5f48ecc2148823dfb2bd4344b0d87bcf79838e889d93eda1"
-    sha256 cellar: :any_skip_relocation, ventura:        "cc9df301383a777ade973977ae96d006278aeeeade365cfc1ea301fa73a7c458"
-    sha256 cellar: :any_skip_relocation, monterey:       "4e56c5aec7e2e254956d73cb5b76b8abefa79f5fa897332b78768e15d651570e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "54c1f92ad65ab327f4e6124e1749d57b828c48d322f8c66ce19087aeccdf2ab2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a043345c1a66b6d209747831b541f335ef314d7a10f5d485daf3a1896430c03"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d957b85035512488340e3d3f71dbd35b7f89044778815d504cce1d0b7f8891a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a269ea061ce6d047a78fa6a59fda006b75f8d4aaa79c10d640fd8facd7b31aca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "756efe6b1bfdf37801a2ed2057e78dbb634e19cfa7b666ebfecc1d4b19531928"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e00e514342ec508bce1ade36cb8aa24ceff500f247f1aa46d47c637a56fd8e06"
+    sha256 cellar: :any_skip_relocation, ventura:        "24841a4a0d4f6b10ef1e5e57edac75acc8cf43d1f74914fcf8e9468d02baf2a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "eefc8f2836feb5aa28ec5faf5b02ed325205c819e79c7de32d072d8cd1fd9041"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff173fe459488cef0e99b47ed6f21e386334b4c8b355560afbbc3f57272b336a"
   end
 
   depends_on "go" => :build

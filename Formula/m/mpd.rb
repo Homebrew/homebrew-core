@@ -1,19 +1,19 @@
 class Mpd < Formula
   desc "Music Player Daemon"
   homepage "https://web.archive.org/web/20230506090801/https://www.musicpd.org/"
-  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.14.tar.gz"
-  sha256 "3547237437368962c8a8bdec088a369a94ef66f7afc22f6fc0d643c1406bd533"
+  url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
+  sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
   license "GPL-2.0-or-later"
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "367b98185a3776ebba3dc4940be453761ad8833420a9eeac58bb7628dec44551"
-    sha256 cellar: :any, arm64_ventura:  "c899b3d2b1b813a7d9bec3d3722272a852f68d22f0467608b351d64ac8d23a94"
-    sha256 cellar: :any, arm64_monterey: "26a65973bf58b0302d4a62cdc0f287e92ed3fde3f76ee0a6ec2cc908738463dc"
-    sha256 cellar: :any, sonoma:         "4634cbe7c2aa2776dd7685f5428cd0be4d8eb71596ed56cf0e36681bc608d9e2"
-    sha256 cellar: :any, ventura:        "30f5fff398061e4799a46ef0c34f780621671cad90262b38ee86932bbfd26c21"
-    sha256 cellar: :any, monterey:       "ce48447f1ae44e638efbe8d3752788a90d517f8a5e5cdd4b83514404c5e19d94"
-    sha256               x86_64_linux:   "7affc1bf59ff418623d336b07aaa29ed02a5d5f980004f7033bb7200a4ddbdd7"
+    sha256 cellar: :any, arm64_sonoma:   "df45d06c7bdfca6f0b2de9a94d263b9bf3663261e974ddd00de59ebfc015b748"
+    sha256 cellar: :any, arm64_ventura:  "6f382a43aec7b3e37df10523767b4587c39780d2e678a8993509589a51b6cdf0"
+    sha256 cellar: :any, arm64_monterey: "ca580c92ef352276fa03fb21c351e4a0acdb81e07c14cfa0bce749844a76d217"
+    sha256 cellar: :any, sonoma:         "cc3366cdb87bce9124c77de68caffbfdbac3c200f78f17a89aecbeec4f1fca6c"
+    sha256 cellar: :any, ventura:        "17bf268a7afcc94013f20c47214d14bae447b04c3926f8248e796180e423ef49"
+    sha256 cellar: :any, monterey:       "1adb0fd1c7042d4ef42174d3d87a23c9cfd28f4e0d6e4e7f729cf358bc1fba5a"
+    sha256               x86_64_linux:   "7772d2be44ebd5cfe8ac6484f11bd6532592677d7af9ea872340ec739043955f"
   end
 
   depends_on "boost" => :build

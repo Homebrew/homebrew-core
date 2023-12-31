@@ -12,15 +12,14 @@ class Scotch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "23b3b9b92f27ad091c481a696a54bbc6188ce0cc196476c6032c82ca67d1bee2"
-    sha256 cellar: :any,                 arm64_ventura:  "4e955eb59faa64c6eaac17ac90a5f81f5964c07cc30043220402fca109dbdae7"
-    sha256 cellar: :any,                 arm64_monterey: "f7ff675ff26315f13cd6791fd0c360bf330a8c7ab4f17053cc3dc056be235925"
-    sha256 cellar: :any,                 arm64_big_sur:  "d4ba89fe8aa9288e63f51e21700bb47761f52430ee8ebe84651b8e4cb7f2a7ea"
-    sha256 cellar: :any,                 sonoma:         "00c08c6aaad6f98b2698c45aee2b24fda9dfa85ff96c7c8d3ff0928a5f95b394"
-    sha256 cellar: :any,                 ventura:        "8c8f68140b68c8c1753a57cec616275db2606d9b04e378ac0e7178c3b830380a"
-    sha256 cellar: :any,                 monterey:       "78eb8974aa3dcc0a19a39465e6d2e3528169e7f7ae103cd0384015f52c13af8a"
-    sha256 cellar: :any,                 big_sur:        "84cebae59eb1307765ad6314e6557e01d4300980cdc94b18b6f31711e8702699"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fb598235fa27e3dd3169df39cddfa434a592fd0750eea410100b875e8b148ad"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "f6bce88b78f49b9f33c68675efa69e49379df081679c5135f7347602e764da10"
+    sha256 cellar: :any,                 arm64_ventura:  "cbf36bbffe46bb98b7b101c53f35238994abeb78535c8a4e98b1dc9d38529928"
+    sha256 cellar: :any,                 arm64_monterey: "156ee83b684825108b5b6a4b1368d6681e5035365b55cec3632a6c77b066d330"
+    sha256 cellar: :any,                 sonoma:         "3e45a16d9ff91376af5027bb7b5ca361464cc90c363aa3e9c6afdd7dde6d61ee"
+    sha256 cellar: :any,                 ventura:        "3c2a33c230cef7dbe330e18402b3290a53d6a49b56c783f273997aa4c49f18e5"
+    sha256 cellar: :any,                 monterey:       "ea1481ca62aea2b1179db614db867ba0bfcec8615fc1b3f3ccf48b9d5b553248"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33b79e44801a0b931873eb74d46ad381514eb656d66a0122c408cd0ed97c2d5f"
   end
 
   depends_on "bison" => :build
@@ -61,7 +60,7 @@ class Scotch < Formula
         ln_sf "Make.inc/Makefile.inc.#{makefile_inc_suffix}.shlib", "Makefile.inc"
       end
 
-      system "make", "scotch", "ptscotch"
+      system "make", "scotch", "ptscotch", "esmumps", "ptesmumps"
       system "make", "prefix=#{prefix}", "install"
 
       pkgshare.install "check/test_strat_seq.c"

@@ -51,6 +51,8 @@
   ["poppler", "poppler-qt5"],
   ["protoc-gen-gogo", "protoc-gen-gogofaster"],
   ["python-tk@3.10", "python@3.10"],
+  ["python-gdbm@3.11", "python-tk@3.11", "python@3.11"],
+  ["python-gdbm@3.12", "python-tk@3.12", "python@3.12"],
   ["python-tk@3.9", "python@3.9"],
   ["qt", "qt-libiodbc", "qt-mariadb", "qt-mysql", "qt-percona-server", "qt-postgresql", "qt-unixodbc"],
   ["qwt", "qwt-qt5"],

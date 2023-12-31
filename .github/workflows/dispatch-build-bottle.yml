@@ -153,7 +153,7 @@ jobs:
           test-bot: false
 
       - name: Download bottles from GitHub Actions
-        uses: actions/download-artifact@main
+        uses: actions/download-artifact@v3
         with:
           name: bottles
           path: ~/bottles/

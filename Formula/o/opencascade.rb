@@ -16,7 +16,7 @@ class Opencascade < Formula
     url "https://git.dev.opencascade.org/repos/occt.git"
     regex(/^v?(\d+(?:[._]\d+)+(?:p\d+)?)$/i)
     strategy :git do |tags, regex|
-      tags.map { |tag| tag[regex, 1]&.gsub("_", ".") }.compact
+      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }.compact
     end
   end
 
@@ -82,7 +82,7 @@ class Opencascade < Formula
     output = shell_output("#{bin}/DRAWEXE -b -c \"pload ALL\"")
 
     # Discard the first line ("DRAW is running in batch mode"), and check that the second line is "1"
-    assert_equal "1", output.split(/\n/, 2)[1].chomp
+    assert_equal "1", output.split("\n", 2)[1].chomp
 
     # Make sure hardcoded library name references in our CMake config files are valid.
     # https://github.com/Homebrew/homebrew-core/issues/129111

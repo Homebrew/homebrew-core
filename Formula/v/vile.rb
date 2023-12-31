@@ -28,10 +28,6 @@ class Vile < Formula
   uses_from_macos "ncurses"
   uses_from_macos "perl"
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff" => :build
-  end
-
   def install
     system "./configure", *std_configure_args,
                           "--disable-imake",

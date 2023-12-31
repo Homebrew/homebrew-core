@@ -13,6 +13,7 @@ class Ssed < Formula
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "251f3589265ca2c3ba81c304cedc7280c2bb6e4de6075476c1a8c3e6856243bd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f4f4e4d6f660a23dd9322b6b3f1334f854f967f9b9cafd04c1aee5a0137c305f"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "0177eab6f33edfd99c8471ccc15826b000dbea9d582194971fbd268f83f21e7d"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2b6c860af3e99b067b867a53b1b7135918cf1ff10e27b744a4157c2134b866f5"
     sha256 cellar: :any_skip_relocation, sonoma:         "d45c601fb322a9a211e9870b402d33d91096518f4337a0c762e484fb9ec057e8"

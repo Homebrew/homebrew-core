@@ -68,8 +68,11 @@ class Fpc < Formula
     end
 
     # Help fpc find the startup files (crt1.o and friends)
-    sdk = MacOS.sdk_path_if_needed
-    args = sdk ? %W[OPT="-XR#{sdk}"] : []
+    args = if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
+      %W[OPT="-XR#{sdk}"]
+    else
+      []
+    end
 
     system "make", "build", "PP=#{fpc_compiler}", *args
     system "make", "install", "PP=#{fpc_compiler}", "PREFIX=#{prefix}"

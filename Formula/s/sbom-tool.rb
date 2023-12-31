@@ -1,18 +1,18 @@
 class SbomTool < Formula
   desc "Scalable and enterprise ready tool to create SBOMs for any variety of artifacts"
   homepage "https://github.com/microsoft/sbom-tool"
-  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "2ee856c667d14f2b6a7f4081b330a8d9e9b0af18923aebacc88ed092736d7bd6"
+  url "https://github.com/microsoft/sbom-tool/archive/refs/tags/v2.2.1.tar.gz"
+  sha256 "6c5e59a930b1aa728a38289a5fcd7a513f7cb8858e0c6a35a5909449a887b10f"
   license "MIT"
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "417e819cd53ff31758904737aa81b97d0f7cb878ec2e80b252565bfe957753a0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8daa09c8de09315e51aaa0f5a0f12e79ea8aa9dc9e8f40ede2c1bde23b0b7023"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2d20c1d826d5defeabc4bd50fbe283f955273a71d513c60e1ef60199de64215"
-    sha256 cellar: :any_skip_relocation, ventura:        "89bfb2c1c1dab4ae1415044ba517a14f332d972b3757e5acb553f96d44699548"
-    sha256 cellar: :any_skip_relocation, monterey:       "feeddfa1702f211d8032be29b88cb967f4e591353ab3e6532aece9e718d0b2d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75e6de33fc2565f445539b9023f1c427770802835db1d4c8ead23d6023478157"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79d54bf454dee111a6c12aa3f067c98e61b25a917e985b06f86fc74c9b507754"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b950b45daad39f0ad154e2dda513691181263a92eff263218a61ef82a6c71888"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c3cd18df46acb5d3e62c0095492cc2acdd2197933cee62e77a8faa32a04505c"
+    sha256 cellar: :any_skip_relocation, ventura:        "855a2efae43fa405bd377cfa592567e0f1604b286595729a100ccc91bf20a0a0"
+    sha256 cellar: :any_skip_relocation, monterey:       "5ba33bdfcf5ab4448b1f1086bbef5fcaf9c9f3cb5b7c7ca09a5f4df818d34b29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d9a5796b91e73007dabeacecadee881d0111bc15d82ab294041bf9cdeb2e867"
   end
 
   depends_on "dotnet"

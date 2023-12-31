@@ -1,8 +1,8 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission/releases/download/4.0.4/transmission-4.0.4.tar.xz"
-  sha256 "15f7b4318fdfbffb19aa8d9a6b0fd89348e6ef1e86baa21a0806ffd1893bd5a6"
+  url "https://github.com/transmission/transmission/releases/download/4.0.5/transmission-4.0.5.tar.xz"
+  sha256 "fd68ff114a479200043c30c7e69dba4c1932f7af36ca4c5b5d2edcb5866e6357"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
@@ -11,15 +11,13 @@ class TransmissionCli < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a5e0adc342e7c70559adbecd5f68eb5c946876d2d53a11c09cad662fe90e3178"
-    sha256 arm64_ventura:  "2d18e18ebe86099c28f54e52b65298dee08c2b15e27e5da55d9fc22d48d8fb5c"
-    sha256 arm64_monterey: "c091904f20f6900a2d7a5d6961ed8f0395df55fc6850a37fdd613df687ac866a"
-    sha256 arm64_big_sur:  "0ee9fffb0688c0c17032d523ea259bc1f764ca8a76c7f45c74264a9c0a2fa892"
-    sha256 sonoma:         "5304b0435041fd298637af0a125ce27e258ea40179f073fc99d951e4d5ee9e34"
-    sha256 ventura:        "4119abd510ecb09ae2bb8d6f219a9bfd184646828311ab0e0376faf6c1881185"
-    sha256 monterey:       "6385516eca0968a00d70e0260a474255d30ea7b27dac220f57d1e1e31703bdf4"
-    sha256 big_sur:        "bdcae7f5ce8d74ae62e0416b391b554a8ba437d3bc376be3edb501164706905b"
-    sha256 x86_64_linux:   "842279283b40e40d5878b346808a263eb1e6ab180abd5b4afd7fedc9e6300ba4"
+    sha256 arm64_sonoma:   "b5e9657b1b68418730b83241402e4cd920e1435d486c0e808112604144abfb89"
+    sha256 arm64_ventura:  "486256bd49bb056fdfed7be6410250b944422a851caf5e0c23c6b0222beceeac"
+    sha256 arm64_monterey: "25a97b33cea73fe451481caf4e230624c4c426d36bdd7289e5055182c8c6333f"
+    sha256 sonoma:         "8e2546700b358f34d1a29783fb4eb860bf996a9393acecad9d5fb30ce8d618b9"
+    sha256 ventura:        "57be8ac8a7e8fa483ab0ad0c8eee13304ccfdbe9c2614061faa1f23cf7a23ca3"
+    sha256 monterey:       "bf81a29ab61299f7b1706bb6491d2896412b64b6f02217fdaa88c54769b8b002"
+    sha256 x86_64_linux:   "452e7344e8cebd8278636938b78bbb303acafb6ff5aa6f4f0c9f12db20c2b9c8"
   end
 
   depends_on "cmake" => :build

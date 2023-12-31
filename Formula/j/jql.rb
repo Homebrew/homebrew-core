@@ -1,19 +1,19 @@
 class Jql < Formula
   desc "JSON query language CLI tool"
   homepage "https://github.com/yamafaktory/jql"
-  url "https://github.com/yamafaktory/jql/archive/refs/tags/jql-v7.1.0.tar.gz"
-  sha256 "5616bd031b94c9b632f928563fa78c96f7e22998ed39a8676821f6c8a95ed710"
+  url "https://github.com/yamafaktory/jql/archive/refs/tags/jql-v7.1.2.tar.gz"
+  sha256 "88846ec9ca9eb075c44790581402eab93f0fa21df6f3255e1f13e3214911193b"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yamafaktory/jql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4faf64916dfe8b0df3a07c5c634b69c2b5f0513f652bea6912b49c1614356af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a183b08525599335a2220e1d42a2986152dbcf7ada8bf5c9bccf3598b265d24b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db73bf1d403b419238aa59ccfe5191bc2e30a581f7f27fd41edc809bc3531147"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1d717c6d6dba5dbc7407eff8098744d7986e76d962f4a390e68d6e5619c349be"
-    sha256 cellar: :any_skip_relocation, ventura:        "94e8aefd8d1b7bd74ebc2a0bf00166a29aa1f6f8c99aa1b5bfb65be84ad61fbb"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b9a249ff9abf1d59e4b9ac55f113be8ab3565b16ae6ad9629c4d9a9b2d69413"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67cdaa14f33087de1da3e2a6581acdca439bc511acc7c5a7a30d89a8454ccd30"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fdf7728b5d681d0dfa32dadc018b5b9fbdef4e6ef42e4a257f85ba6a3cf10da5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cdb760162614a55c85c59ef41d78f131dc4c8df407d208cac75d938d7fe5a7df"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2415e328da22182ed0af581f9ac6a68d5e0a67ddffb52783a98e1f563ebbdf79"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b556af3a19ad37153bdacbd408826ba06922561127bc84a173a68cd27abb82ba"
+    sha256 cellar: :any_skip_relocation, ventura:        "611e9eacb22d9167de150e8e103909bc72a9c037cc34745a652e7d5c1f925c39"
+    sha256 cellar: :any_skip_relocation, monterey:       "eaa361798c1d1fa590cf779c59cf26242dfccf5c8b1ae5102cd876b9d0ac1db3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61012f7601c78e854bd9455e40c265f36da9d7697571a4e6aab530404eda3846"
   end
 
   depends_on "rust" => :build

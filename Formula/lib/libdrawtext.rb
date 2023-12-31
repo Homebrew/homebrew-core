@@ -33,7 +33,12 @@ class Libdrawtext < Formula
   end
 
   test do
-    ext = (MacOS.version >= :high_sierra) ? "otf" : "ttf"
+    ext = if OS.mac? && MacOS.version >= :high_sierra
+      "otf"
+    else
+      "ttf"
+    end
+
     cp "/System/Library/Fonts/LastResort.#{ext}", testpath
     system bin/"font2glyphmap", "LastResort.#{ext}"
     bytes = File.read("LastResort_s12.glyphmap").bytes.to_a[0..12]

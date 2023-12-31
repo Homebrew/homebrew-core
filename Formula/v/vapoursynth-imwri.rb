@@ -4,21 +4,18 @@ class VapoursynthImwri < Formula
   url "https://github.com/vapoursynth/vs-imwri/archive/refs/tags/R2.tar.gz"
   sha256 "f4d2965d32877005d0709bd8339828f951885a0cb51e0c006d123ede0b74307b"
   license "LGPL-2.1-or-later"
+  revision 1
   version_scheme 1
   head "https://github.com/vapoursynth/vs-imwri.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:   "f013e51c95200a2f3024baabba1ffd1a94655750247e1b5531a7516d7c544c1f"
-    sha256 cellar: :any, arm64_ventura:  "5f9055a5a4e55cdbf1f103b09f6c4b77a7544fe15e27fdf64af23ac7e74cc60d"
-    sha256 cellar: :any, arm64_monterey: "7ac213c90b5bdddce15d0e72b3f790560c9dcc3cd411874daa81bfe5164ddf67"
-    sha256 cellar: :any, arm64_big_sur:  "a3bf24671c674731b767334263fc0a8ae86d8aca14d3c9e0f3e0425bed7e5e3a"
-    sha256 cellar: :any, sonoma:         "b5d4ff065b7f04f6320184ad2a0a76f5d31a7a65423b89bdad7da6c3e9b7f6f1"
-    sha256 cellar: :any, ventura:        "4594a357ab6099a587e746b28c54f38cc62aa02b1e42b7c26007edc2d6047e9d"
-    sha256 cellar: :any, monterey:       "9f7a746dc9d06d744b246ab6486cb01dfc0862a239945c9da43f3fc2fd35a281"
-    sha256 cellar: :any, big_sur:        "6e695d666d479b69bff01083f0a3ac68e79f055c26cc30ef5253dfaff7d6ac78"
-    sha256 cellar: :any, catalina:       "83f865c98f2b83384a2714589824beddabe0f1180fc028fd529e01c1ba873655"
-    sha256               x86_64_linux:   "b06f11cf0fe16bc8447d1d66a9c56c2fa19ec9900bed475f4330500fec591d6c"
+    sha256 cellar: :any, arm64_sonoma:   "c4084f311c842c5f446e6ae6607b8dc376846059214170ce2b71eea14ec594aa"
+    sha256 cellar: :any, arm64_ventura:  "6455b43165b08648bf8fe0ed4b3ad768e40064229b453ea6ee20ba2a6c2c4062"
+    sha256 cellar: :any, arm64_monterey: "980ce869ee1e94b7070352ed72f5156afac59eea2a35426f7316a584f58a7a93"
+    sha256 cellar: :any, sonoma:         "d342a83a4f966b388e17429302530c94269e6d51f597a22c85405047078bda2d"
+    sha256 cellar: :any, ventura:        "30191e100adb12d68249787bbbc4cb5471a5f6a45879641599c72aaf75d923a3"
+    sha256 cellar: :any, monterey:       "2bcafef5efb598bf38a30ebb84b6343fbb10aa56e659fdc16f09a5a102a5ee67"
+    sha256               x86_64_linux:   "ba39999734846bede76c7e49e48dff0dc1b4f8555d178fa747cfbbe412fc4ef8"
   end
 
   depends_on "meson" => :build

@@ -1,8 +1,8 @@
 class Legitify < Formula
   desc "Tool to detect/remediate misconfig and security risks of GitHub/GitLab assets"
   homepage "https://legitify.dev/"
-  url "https://github.com/Legit-Labs/legitify/archive/refs/tags/v1.0.5.tar.gz"
-  sha256 "5716e6abbb83b0ccc607226cf45e4764944ed2858af4914718ad88dfc4783101"
+  url "https://github.com/Legit-Labs/legitify/archive/refs/tags/v1.0.7.tar.gz"
+  sha256 "7f3d59141207d97579a4fbf6d787b1c522b840c2b2be79bac3e056829577040c"
   license "Apache-2.0"
   head "https://github.com/Legit-Labs/legitify.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Legitify < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df8c22b8d56a4c7974c4e36eab3f57ed4fabde603b76633c38ff6b999b3b3f92"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f20638f7027fc05db12f6debc81b5445e65e5c20b67ea8dc5115701754151a60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86a737e0d77de8cb3645b2735c3ea02ac684dcdb6072edc29178f44cc5ab0bd1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bdc2980c5ca8bef8d979b4d351f963967e13dcd4ea550424c8e7c95a7183c755"
-    sha256 cellar: :any_skip_relocation, ventura:        "7a43549aa276c495e23ad58f33a0bf62611f7d98206e7171a7b08296623e8ba5"
-    sha256 cellar: :any_skip_relocation, monterey:       "db7d674b271a0d24e6fee3bc0f195729775fdd518dbc8bbc1356f0f9d6d6237f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d12ea1bd6803e790bc3bb607c847faad4ae71cbd8406a7a4ce39df5bf2a0220f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9853a395e30e5ed056d9f30d64452e4026a2eae8f51db98da5b8d68195d460d8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e43b34ba67e265b342fa55ae7787792aa43a60163f672ba31c1e6008272c5ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0215d3c767b73d7cf74ef2c6a4fa5d03a906ef55adcef722831f974db6509938"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5478047035e1fdcdd8b46c92dc2ef4760e581a94d8e9d26b41ab13520c39f57c"
+    sha256 cellar: :any_skip_relocation, ventura:        "2d412ed0d61edb40cff321d85c3fa01a55ffc9c517b0dabb9cbd4aaede76ab02"
+    sha256 cellar: :any_skip_relocation, monterey:       "03865b37838a0d833a5c9a3c942b36b86e4ff6a929a28958fc4821a849fc3063"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b82c509695a08a9b4ae3c277084c878f8c5b7adb26ff650009a4142895166a1"
   end
 
   depends_on "go" => :build

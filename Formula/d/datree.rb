@@ -6,11 +6,6 @@ class Datree < Formula
   license "Apache-2.0"
   head "https://github.com/datreeio/datree.git", branch: "main"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "275cf0f3c28393d717867f2d22a04bf626d1b819bec4e49e90e8f93ebf32da9e"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "313779ac5a9953737346a6b4ffd0f33b1992a406bf065f92db9cb3658e64de77"
@@ -20,6 +15,9 @@ class Datree < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "7ceb9370ceecf72744d60f1705df1bf65514f5a17ee3eed4b582587c66a3e10f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a786ae16a4d3a8ae959cdc9f6571df8e528822389f852c5ddaacb9c27995492"
   end
+
+  # project is deprecated per https://github.com/datreeio/datree/pull/964
+  deprecate! date: "2023-12-22", because: :unmaintained
 
   depends_on "go" => :build
 
@@ -43,6 +41,9 @@ class Datree < Formula
             port: 80
             targetPort: 9376
     EOS
+
+    # Set to work in the offline mode
+    system bin/"datree", "config", "set", "offline", "local"
 
     assert_match "k8s schema validation error: For field (root): Additional property apiversion is not allowed",
       shell_output("#{bin}/datree test #{testpath}/invalidK8sSchema.yaml --no-record 2>&1", 2)

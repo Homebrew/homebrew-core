@@ -28,9 +28,12 @@ class Miruo < Formula
   def install
     # https://github.com/KLab/miruo/pull/19
     inreplace "miruo.h", "#include<stdlib.h>", "#include<stdlib.h>\n#include<ctype.h>"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--with-libpcap=#{MacOS.sdk_path}/usr"
+    args = [
+      "--prefix=#{prefix}",
+      "--disable-dependency-tracking",
+    ]
+    args << "--with-libpcap=#{MacOS.sdk_path}/usr" if OS.mac?
+    system "./configure", *args
     system "make", "install"
   end
 

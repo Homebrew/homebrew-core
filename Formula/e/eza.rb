@@ -1,18 +1,18 @@
 class Eza < Formula
   desc "Modern, maintained replacement for ls"
   homepage "https://github.com/eza-community/eza"
-  url "https://github.com/eza-community/eza/archive/refs/tags/v0.16.2.tar.gz"
-  sha256 "4eef35467095f6006eb5c0431e6cafa514a885f571dcf9fef7c7d5952e90688f"
+  url "https://github.com/eza-community/eza/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "c5be22fbf8979d796509873327703353c243acbf42cb42b22b86be56cc11682c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7c0592f4087076eeb69356bdb68d7505ec4f444c21324049e4c8eb1f2545c4e8"
-    sha256 cellar: :any,                 arm64_ventura:  "f32e9d39956539afb7a1a7dbea8e6eee942e14e9c8b4714f262e7afb3ee4d3f4"
-    sha256 cellar: :any,                 arm64_monterey: "2c7434a5d1b3f4b86d0a9c03d0342f50bdc2eb80ac879ee4b0a7905c750eb5a7"
-    sha256 cellar: :any,                 sonoma:         "d439704e390b259f1b8fee731bd765bc149850e43b0903801021e90f244ae6e1"
-    sha256 cellar: :any,                 ventura:        "8df11642564ae81fe2425b302b53e0409c5b7ba60572739d6a7a95466d008632"
-    sha256 cellar: :any,                 monterey:       "7fc228197f720ecc4ac994a0e79e7bba84c2a0e97f732efdd8550c3f56178cd8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00b0746b3655bb621d458ec2eca2a4bbe8e1ad75531276c66b48b4e40af7d30c"
+    sha256 cellar: :any,                 arm64_sonoma:   "555623c618982b7e9cad3b6d60afa6fbba6b1f7134fff2e1ea8e16a4a8fcd059"
+    sha256 cellar: :any,                 arm64_ventura:  "d325faf93de785c1df4650e8a90f13a6468c7ca232f72ffcd7132fd6230baa6c"
+    sha256 cellar: :any,                 arm64_monterey: "7d1ad64e5812237474940dffb2678e41067e08dd4815cc4223dfcc94a7e75845"
+    sha256 cellar: :any,                 sonoma:         "78f6c65a72079eab258c35b3efcf760dc8af5266091a41be66cc58b51a1a4393"
+    sha256 cellar: :any,                 ventura:        "cf462f550837c07accf9a2f580769fb74899a0cd7f663d5f28114ec7c7d94552"
+    sha256 cellar: :any,                 monterey:       "6d75b6a7a347a2e8386c30ee7b31494ce07e9c138ec0630f602cfe8a08df0df1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "517f9099417fc8f11b7dd541d24a6dc3a7d3ac25b96c040fd0363952a2b08a87"
   end
 
   depends_on "pandoc" => :build

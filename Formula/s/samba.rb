@@ -61,7 +61,7 @@ class Samba < Formula
 
   def install
     # avoid `perl module "Parse::Yapp::Driver" not found` error on macOS 10.xx (not required on 11)
-    if MacOS.version < :big_sur
+    if !OS.mac? || MacOS.version < :big_sur
       ENV.prepend_create_path "PERL5LIB", buildpath/"lib/perl5"
       ENV.prepend_path "PATH", buildpath/"bin"
       resource("Parse::Yapp").stage do

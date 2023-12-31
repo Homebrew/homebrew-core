@@ -29,12 +29,17 @@ class Siege < Formula
   def install
     # To avoid unnecessary warning due to hardcoded path, create the folder first
     (prefix/"etc").mkdir
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}",
-                          "--localstatedir=#{var}",
-                          "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
-                          "--with-zlib=#{MacOS.sdk_path_if_needed}/usr"
+
+    args = [
+      "--disable-dependency-tracking",
+      "--prefix=#{prefix}",
+      "--mandir=#{man}",
+      "--localstatedir=#{var}",
+      "--with-ssl=#{Formula["openssl@3"].opt_prefix}",
+    ]
+    args << "--with-zlib=#{MacOS.sdk_path_if_needed}/usr" if OS.mac?
+
+    system "./configure", *args
     system "make", "install"
   end
 

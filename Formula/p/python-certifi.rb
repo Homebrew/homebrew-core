@@ -6,17 +6,17 @@ class PythonCertifi < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e725d4eeae81cf1f8dde8dab4ada86315a2d760c2995f8efd48d5c5e264992eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f79fb464210d1710ee1308d49b29c31e126e7189561cf9ab149afc4f9a6e9b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bd46de953e2fff760eada1af1ee10f4f326350f8e660e653c3d15cbe86ef72d6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "734371a47c764f08745539dd4babc08e2967db2dc80e822daccf0fe807a6c04f"
-    sha256 cellar: :any_skip_relocation, ventura:        "9cf049e969e6f8a424079355957e1dba1a0eedff05dec96c9448d3c060dd9eba"
-    sha256 cellar: :any_skip_relocation, monterey:       "6519586d0da1f82c1179883c6dc37081c4dad9a1205e3e0dbcfee55aac7f8cf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0814e1eb9d0cd05170c07fa532d9406587748bccd6397b1074d573f7adc182d9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "907b42dc137066943c4c3b0a44adc7a8cbc73be3464324b153cfe4e08655987c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "747a885c9fd8935a23942e7e148f76029365fb4223f1d4ed138859cb3f1eba0c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c149eb678ea932c0307bdb3fc9feb0e7ee94515dd92e960dca2ccb632d4b4e5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cd1635c8dc3a28333e9d107c8605d2381203409d8d016f96e5020065c659a438"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c0ef13bda23ce00c75e91f153ebb27005fa687151e0cd2c7cf4798329892b2b"
+    sha256 cellar: :any_skip_relocation, monterey:       "4cd160dd762709bcc0d7efe05e1b18fbb6367c218ef373754d64bb6e5dc0f56e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27f860b70fe796a17a9d6bbbe170759bd3118e56636d56e930f984e1c44d2dbf"
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "ca-certificates"

@@ -23,7 +23,9 @@ class Fobis < Formula
 
   depends_on "gcc" # for gfortran
   depends_on "graphviz"
-  depends_on "python@3.11"
+  # Issue ref: https://github.com/szaghi/FoBiS/issues/129
+  # `future` issue ref: https://github.com/PythonCharmers/python-future/issues/625
+  depends_on "python@3.11" # Python 3.12 blocked by imp usage in `future`
 
   resource "configparser" do
     url "https://files.pythonhosted.org/packages/4b/c0/3a47084aca7a940ed1334f89ed2e67bcb42168c4f40c486e267fe71e7aa0/configparser-5.3.0.tar.gz"

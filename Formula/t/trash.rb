@@ -8,9 +8,11 @@ class Trash < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "90cffd3d151720b768c48a8874f7b8dfaaf6f7a9e9000ffe23cfa3f9e4aa6b76"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "60186a8823abc9dd734475e3f787edd7c2d6a2254fff25b7289de2db15447099"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "541af91d1cb128aa743460a529a3dcab5bac63b61ccde0a60d73aee23ab7d5c0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11c0c85ec692ea6d4a125070f0a6ca576aff991608a6c9632b984cbf983e2481"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c26e06202022f708790f22f4477b65e3337d611c42e9a814ada1526bda03d923"
     sha256 cellar: :any_skip_relocation, ventura:        "539093ca74c72ed8be974fd9042b14f55cde0ef2c1fadbedc7343099a394593e"
     sha256 cellar: :any_skip_relocation, monterey:       "09b8ac7ade28ca59bd578b90680ece838a507b90b35e44d06a16f4d8ab9ae6e6"
     sha256 cellar: :any_skip_relocation, big_sur:        "403ba52ce97d38535e1d127ca227afd4ea2d0e0c8b414118dbc5376c9ed8f094"
@@ -25,6 +27,9 @@ class Trash < Formula
   conflicts_with "trash-cli", because: "both install a `trash` binary"
 
   def install
+    # https://github.com/ali-rantakari/trash/issues/43
+    inreplace "Makefile", "-force_cpusubtype_ALL", ""
+
     system "make"
     system "make", "docs"
     bin.install "trash"

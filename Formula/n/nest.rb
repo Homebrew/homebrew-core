@@ -32,8 +32,12 @@ class Nest < Formula
 
   def install
     # Help FindReadline find macOS system ncurses library
-    sdk = MacOS.sdk_path_if_needed
-    args = sdk ? ["-DNCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.tbd"] : []
+
+    args = if OS.mac? && (sdk = MacOS.sdk_path_if_needed)
+      ["-DNCURSES_LIBRARY=#{sdk}/usr/lib/libncurses.tbd"]
+    else
+      []
+    end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"

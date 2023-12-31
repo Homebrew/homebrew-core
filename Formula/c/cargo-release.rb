@@ -3,34 +3,28 @@ class CargoRelease < Formula
   homepage "https://github.com/crate-ci/cargo-release"
   # TODO: check if we can use unversioned `libgit2` at version bump.
   # See comments below for details.
-  url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "fbde90b749180128e2d4171b5d411a1895819e911bcf560264808dc610d0c5ff"
+  url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v0.25.1.tar.gz"
+  sha256 "acb4b54cb60097459ec74f4b7f74d2623f45cc4172b16ef0fdd9a7fc4b4625a2"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/crate-ci/cargo-release.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3675b6cb9832967d904ce2e195ed69233c4a8d176e72357129dde3729e7c15e2"
-    sha256 cellar: :any,                 arm64_ventura:  "a5e01d7f5fd0aaff1155c0403393f383cc2a330f0abd297afe2955dd78f7b081"
-    sha256 cellar: :any,                 arm64_monterey: "e62931f5d0cf2b56dd2add8dc3075e402a5190b885f03d9b4aae8e7d7c579020"
-    sha256 cellar: :any,                 sonoma:         "15eed0a3d9fad9271b48558d4d5d2fb76075b4b073b0685d45ae115d109fa9a6"
-    sha256 cellar: :any,                 ventura:        "6ca0b76f7ad7c09d1e9d685004091e429f5eb15e150cae14b8a5f762a438d21e"
-    sha256 cellar: :any,                 monterey:       "4dc173985bd5c7b6f17309d7647f993ba861f1ebf5b3127f3bbb31fbc6a46521"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed58418c8fbe39b5a20fb8af5db686569248f8cffd5e95c7993e78c3e37a6d35"
+    sha256 cellar: :any,                 arm64_sonoma:   "7eb5f1c1491b3125e3eb3a3e7e87ddefa0b67b4a6fb8555736512e2a822b975d"
+    sha256 cellar: :any,                 arm64_ventura:  "88ee3599561d71740b74d2abfe8136b9305b47df49ee9f6e042c3738bf63fd8d"
+    sha256 cellar: :any,                 arm64_monterey: "7c50d0b9b804273b2fbc1b40b1f49b8765b8c010508cd29834a179bea49f2152"
+    sha256 cellar: :any,                 sonoma:         "006a6677b113164ca2b3a9fd35270525bc62271129110ee32942827c0f2e2376"
+    sha256 cellar: :any,                 ventura:        "d931db16d036f65525efa3f7e3a7fa317beb4dcd8eabfece4cc5bff4d43b228b"
+    sha256 cellar: :any,                 monterey:       "3020f72b031cc7f7364be026b04ba5a052205254038dd0ea385322a61b2a6e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eba2b046095f377ebf655178865235c3574a91949095d211fcab7ccdc65f09c2"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  # To check for `libgit2` version:
-  # 1. Search for `libgit2-sys` version at https://github.com/crate-ci/cargo-release/blob/v#{version}/Cargo.lock
-  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
-  #    - Migrate to the corresponding `libgit2` formula.
-  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
-  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
-  depends_on "libgit2@1.6"
+  depends_on "libgit2"
 
   def install
-    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     system "cargo", "install", "--no-default-features", *std_cargo_args
   end
@@ -57,7 +51,7 @@ class CargoRelease < Formula
     end
 
     [
-      Formula["libgit2@1.6"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
     ].each do |library|
       assert check_binary_linkage(bin/"cargo-release", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

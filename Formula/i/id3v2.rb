@@ -24,15 +24,14 @@ class Id3v2 < Formula
 
   depends_on "id3lib"
 
+  uses_from_macos "mandoc" => :build
   uses_from_macos "zlib"
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff" => :build
-  end
-
   def install
-    # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
-    # Remove after migration to 18.04.
+    # mandoc is only available since Ventura, but nroff is available for older macOS
+    inreplace "Makefile", "nroff ", "mandoc " if !OS.mac? || MacOS.version >= :ventura
+
+    # Fix linker flag order on Linux
     inreplace "Makefile", "-lz -lid3", "-lid3 -lz"
 
     # tarball includes a prebuilt Linux binary, which will get installed

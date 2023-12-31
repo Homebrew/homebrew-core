@@ -64,7 +64,7 @@ class Pcre < Formula
     ]
 
     # JIT not currently supported for Apple Silicon or OS older than sierra
-    args << "--enable-jit" if MacOS.version >= :sierra && !Hardware::CPU.arm?
+    args << "--enable-jit" if OS.mac? && MacOS.version >= :sierra && !Hardware::CPU.arm?
 
     system "./autogen.sh" if build.head?
     system "./configure", *args

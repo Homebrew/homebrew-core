@@ -17,15 +17,14 @@ class GnustepBase < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b76b082fcf22e4af76a6e12a007164d8251281b243d80b6945ad912281690e47"
-    sha256 cellar: :any,                 arm64_ventura:  "f7b268cf13fbe24b2471b778c42c38c2000e05d08113e7a7aa28d34385a85a26"
-    sha256 cellar: :any,                 arm64_monterey: "ef39d1e12dcce4df899511dbc8bef26420873c8ff067a645e2f3771d4ffba68c"
-    sha256 cellar: :any,                 arm64_big_sur:  "80743312a107c370f518900583f95c359599b8a164cd995b8ec5694a8835be98"
-    sha256 cellar: :any,                 sonoma:         "2afea5e0c3cd2d34dda38e08d1f71f981465d7d142be47fc6b6c9dc56f637987"
-    sha256 cellar: :any,                 ventura:        "b2af7e946b32130040a310ba179cc18b4e71a084928585e165077556edd3fe48"
-    sha256 cellar: :any,                 monterey:       "9f1293102d1932e18e70d2fb7c49d2b768a98f94c9c9147b4384a61bbf0a90a6"
-    sha256 cellar: :any,                 big_sur:        "c5635161e124a5bad33bb9acfc47abc3bc66b3a32d0f571296e468ffe73f92f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "403e69d3d5ab1ed07a7e36e6254af6420c5fed69d386faa033ffa51a2c41939b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "273c97c299a8d34bf80b954842dd6de55d0ee7a266bb695a56263bd30635c72d"
+    sha256 cellar: :any,                 arm64_ventura:  "ff0405fbcd2a5e29820f8aac1cf935ad8c5be93748b6bfd5877297547730561a"
+    sha256 cellar: :any,                 arm64_monterey: "fbc3b491c2c32046aeefd0edfc35c9404b33fb15f9273870cab2ee1f8838ed34"
+    sha256 cellar: :any,                 sonoma:         "8e710f26da4ef956b00ed4866241417fb564e043d961ae27e96afb4fce1056e0"
+    sha256 cellar: :any,                 ventura:        "2476f8486238e778203cce03eda32586e86ee9b83467963dbd19ea508b44fae0"
+    sha256 cellar: :any,                 monterey:       "72669da078dd6a7b10336e57c22ccd6fb7a2310bbd11cb93a1105c7e81c6fbe3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ccc5dba4ab5903e9ddb6472edc04a38903032779f6fbc1b5702e9e7547cae44"
   end
 
   depends_on "gnustep-make" => :build
@@ -33,14 +32,14 @@ class GnustepBase < Formula
   depends_on "gmp"
   depends_on "gnutls"
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "icu4c", since: :monterey
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
 
   on_linux do
-    # Needs to be built with Clang for Objective-C, but fails with LLVM 16.
-    depends_on "llvm@15" => :build
     depends_on "libobjc2"
+    fails_with :gcc
   end
 
   # Fix build with new libxml2.
@@ -55,7 +54,6 @@ class GnustepBase < Formula
     ENV["GNUSTEP_MAKEFILES"] = if OS.mac?
       Formula["gnustep-make"].opt_prefix/"Library/GNUstep/Makefiles"
     else
-      ENV.clang # To use `llvm@15` clang
       Formula["gnustep-make"].share/"GNUstep/Makefiles"
     end
 

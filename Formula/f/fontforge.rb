@@ -7,21 +7,20 @@ class Fontforge < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "3a8746ad31bb550eacee6c68a26b5117892127d3bc1accea97232b522632a4a0"
-    sha256 arm64_ventura:  "864cdef006295be1c065314cc6caad3f9ebbdb3c0f6c6c832649d92af7327d44"
-    sha256 arm64_monterey: "941de4b89e7cedda2477e4c0024c8ab3e1e200117c516a5c76a6cf129d61bc9c"
-    sha256 arm64_big_sur:  "7d48ebc8e93c097808422cda06e15e580629afeb7e02475d916b635f93f1d581"
-    sha256 sonoma:         "f657225f4580a4ca44676736a3c3de7e2dbe48fea7e4dff49b16884dca9bc090"
-    sha256 ventura:        "1b7d154062de6f9134800d2c422288243a67f6e9c32921b173fb3dfe49a235b4"
-    sha256 monterey:       "a698046927fda5202622adf5c7f2c1f0d3b040fca05b82629f125156fa53ce62"
-    sha256 big_sur:        "2f92236bf0eb3b88a2d567767b3bf1da6e77442b570483b1f2ccefc98cbfdd5c"
-    sha256 x86_64_linux:   "02d40377c37e0af482f856c6a2c225e1c73a48109d8006b2b6fbe4d1a0de3a3c"
+    rebuild 2
+    sha256 arm64_sonoma:   "c469b0719fd1508209c51f63b9b6ec7cbcec1e1a5ccef291b7f3cce07fc29eb1"
+    sha256 arm64_ventura:  "74a6767564dce1cff1d76a09205f8e3ad898e102de8f6cdfbc175c1574c9adc0"
+    sha256 arm64_monterey: "3c7e39a9784914c5a11bd9950913494d2da29d85ea3a46b7c0fd2c11d438302a"
+    sha256 sonoma:         "920a7a9f4c5e6da5107e718a4d6b81b9a120baf8dcc8c5c26d22b8b9310cd761"
+    sha256 ventura:        "25e4c95dffa16736af0f10dbe502512c3def848dc6ab3d30e4f7c850298d1e08"
+    sha256 monterey:       "c063d659309fb9232cc6cbd3fcad9cc8866592cbd586fa0bfb06459eed56df96"
+    sha256 x86_64_linux:   "0e9d06b7cede17c0c86db0d9b8ef929afae412fa8f84ad12363a387db304fe20"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "cairo"
   depends_on "fontconfig"
   depends_on "freetype"
@@ -35,7 +34,7 @@ class Fontforge < Formula
   depends_on "libtool"
   depends_on "libuninameslist"
   depends_on "pango"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "readline"
   depends_on "woff2"
 
@@ -78,7 +77,7 @@ class Fontforge < Formula
       sha256 "6a22acf6be4ab9e5c5a3373dc878030b4b8dc4652323395388abe43679ceba81"
     end
 
-    python = Formula["python@3.11"].opt_bin/"python3.11"
+    python = Formula["python@3.12"].opt_bin/"python3.12"
     system bin/"fontforge", "-version"
     system bin/"fontforge", "-lang=py", "-c", "import fontforge; fontforge.font()"
     system python, "-c", "import fontforge; fontforge.font()"

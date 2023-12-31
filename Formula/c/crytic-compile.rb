@@ -43,7 +43,7 @@ class CryticCompile < Formula
     end
 
     resource("testdata").stage do
-      system bin/"crytic-compile", "variable-0.8.0.sol-0.8.15-compact.zip", \
+      system bin/"crytic-compile", "variable-0.8.0.sol-0.8.15-compact.zip",
              "--export-format=solc", "--export-dir=#{testpath}/export"
     end
 

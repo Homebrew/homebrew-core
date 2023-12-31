@@ -1,18 +1,10 @@
 class Globe < Formula
   desc "Prints ASCII graphic of currently-lit side of the Earth"
-  homepage "https://www.acme.com/software/globe/"
-  url "https://www.acme.com/software/globe/globe_14Aug2014.tar.gz"
+  homepage "https://web.archive.org/web/20230605040209/https://www.acme.com/software/globe/"
+  url "https://web.archive.org/web/20230605040209/https://www.acme.com/software/globe/globe_14Aug2014.tar.gz"
   version "0.0.20140814"
   sha256 "5507a4caaf3e3318fd895ab1f8edfa5887c9f64547cad70cff3249350caa6c86"
   license "BSD-2-Clause"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?globe[._-](\d{1,2}\w+\d{2,4})\.t/i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| Date.parse(match.first)&.strftime("0.0.%Y%m%d") }
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a2871805874a01d7197dcfec9a4bee19ec0b66717f8c06329ebf1777b684019"
@@ -30,6 +22,11 @@ class Globe < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "11acded7be5d1ba22260d039e3daf4fdc4cac49ebcd234c879da655a1532c22f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45f34a09b90224f8c3026702be8b9eb682417c8efca350ae807faa2484b603da"
   end
+
+  # Upstream uses weak ciphers which modern OpenSSL rejects,
+  # so fetching and livechecking no longer work.
+  # Last release on 2014-08-13
+  deprecate! date: "2023-12-06", because: :unmaintained
 
   def install
     bin.mkpath

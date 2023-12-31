@@ -1,8 +1,8 @@
 class Shapelib < Formula
   desc "Library for reading and writing ArcView Shapefiles"
   homepage "http://shapelib.maptools.org/"
-  url "https://download.osgeo.org/shapelib/shapelib-1.5.0.tar.gz"
-  sha256 "1fc0a480982caef9e7b9423070b47750ba34cd0ba82668f2e638fab1d07adae1"
+  url "https://download.osgeo.org/shapelib/shapelib-1.6.0.tar.gz"
+  sha256 "19528b24377241705637320c367943031ad5088665d1fb0e1eaa52a71264a6c4"
   license any_of: ["LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -11,19 +11,13 @@ class Shapelib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e167aaedc6212abb1fada4f0001cb5991f82b4fd07f213526e3cac7341f09c8a"
-    sha256 cellar: :any,                 arm64_ventura:  "1c693a38da6fa7633ca03d6e2cf5e7bb5d32cf9d606bb1a4592bdccacc3b2456"
-    sha256 cellar: :any,                 arm64_monterey: "26b130368d9849bc2931523dcf1ea7985a88d52acc2709ce570f3503f2ebad44"
-    sha256 cellar: :any,                 arm64_big_sur:  "3f95046988d245291a4fb9973051b5c006500ba3ab0bf2842ae330c18936bdca"
-    sha256 cellar: :any,                 sonoma:         "4e802f52c0dbd1e13af9d5c67be73b9ad2f54fea1863fe18eb1db85a22dd7ecf"
-    sha256 cellar: :any,                 ventura:        "07d4c243a8c75a0a26c7f6ec87476d49cb9876e7dc963254181c75c3d54ff2d9"
-    sha256 cellar: :any,                 monterey:       "6a14fe3a6e76220a19e356c3b3c9bd64be88e7fe69a013d088c9ef78f31a83b2"
-    sha256 cellar: :any,                 big_sur:        "dfae7491c46ca8ed8b587dd6dfa885b4ec6db8520095b1f1ae44becd28ca76d2"
-    sha256 cellar: :any,                 catalina:       "9800e87eaeeca3eca0d59c3bca555c0211df96f021735251964981ac2b16bd90"
-    sha256 cellar: :any,                 mojave:         "90f9b9b0ccadf93be027e515be356d0b92f4dfb33979f11df9fc7570c3249d0e"
-    sha256 cellar: :any,                 high_sierra:    "f1242aaf566b272f69331d16441171b12d0b4cef8396b56e0a8246fe7618ca68"
-    sha256 cellar: :any,                 sierra:         "0add799fff38395de6300f1b18102270bd269b5dc37714e7cac1873849b2ced7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "673654f2eff65bcd6e03e420cd507b6b45ec5e8dd3419e86c78928b51fe05fe2"
+    sha256 cellar: :any,                 arm64_sonoma:   "5b0c88571a0eaa6eeefc6f37d629adbb02a718287c51ab9ec471684981b07083"
+    sha256 cellar: :any,                 arm64_ventura:  "b90efa06081050c807e8a96deae77f0441e0614416c6ecf3560b4fc540a0a419"
+    sha256 cellar: :any,                 arm64_monterey: "d9c38d3a68e182bb70a7b8bc4c61e9add34fcea08548ecd191ee85042551bdf3"
+    sha256 cellar: :any,                 sonoma:         "580aa6a9fce667c5d9c23082cbe5627e7ad2d24f0f3eee6a410c80b8688dd137"
+    sha256 cellar: :any,                 ventura:        "3a9f385280df8f4dd02492ca5cba775ae567c1700693f9a044c43d209b91b167"
+    sha256 cellar: :any,                 monterey:       "426466c5396bb8a1cd4ebbe91e0685daf1ef084f74817194aa0b64f9d44b916e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2976aa3a0d58c936e57e265d26f49892470e4bab5f9cd8dcdf2e11ed003d7877"
   end
 
   depends_on "cmake" => :build

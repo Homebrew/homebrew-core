@@ -28,7 +28,7 @@ class AwsElasticbeanstalk < Formula
   depends_on "python-cryptography"
   depends_on "python-dateutil"
   depends_on "python-packaging"
-  depends_on "python@3.11"
+  depends_on "python@3.11" # Python 3.12 blocked by https://github.com/datafolklabs/cement/issues/386
   depends_on "pyyaml"
   depends_on "six"
 

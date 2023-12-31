@@ -1,18 +1,18 @@
 class Libzim < Formula
   desc "Reference implementation of the ZIM specification"
   homepage "https://github.com/openzim/libzim"
-  url "https://github.com/openzim/libzim/archive/refs/tags/9.0.0.tar.gz"
-  sha256 "681f0419d421be05ffd14dbab65c42103ebffb86deceed70b8bd6f9b0590ecd6"
+  url "https://github.com/openzim/libzim/archive/refs/tags/9.1.0.tar.gz"
+  sha256 "faf19a35882415212d46a51aab45692ccfa1e2e36beb7261eec1ec53e29b9e6a"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "05556b0dd7e15025d7f0ee32b9a77e974ee03970a5ba2eedb1a976be1cf568b8"
-    sha256 cellar: :any, arm64_ventura:  "7384f32beed27dd8b60109003d61ac6b355380784f73c4a56232c5f7fccc2acd"
-    sha256 cellar: :any, arm64_monterey: "7f87d54a0c70c681527780059f59be67864f09c7d3652ef83227117a78462e9c"
-    sha256 cellar: :any, sonoma:         "11157004064b95c8af93dff1ccafbeda934c4cb6c55020a3f9810d81fde4a166"
-    sha256 cellar: :any, ventura:        "80455360ada79773869ca22b4860d8fc6252ed0487fa24d8908ae9c5ef30b3f0"
-    sha256 cellar: :any, monterey:       "f2061b18ad748166d32a3e101f3e52df2bfd86647fe7b4e3fb8da77e255943e1"
-    sha256               x86_64_linux:   "3a3e0b3464b95a4bfdee53add4abebed77501629cf68d85a90a63730461e1ca7"
+    sha256 cellar: :any, arm64_sonoma:   "c044656013242d1a0113bb99af94305f328d3675cbdefccde51c3ea440a2f3be"
+    sha256 cellar: :any, arm64_ventura:  "4451337bb81d513d647f6297d49d3551cdaa24c4f7f05ff89433bc7a46c3a62a"
+    sha256 cellar: :any, arm64_monterey: "4c6172d801427f39807539ed00173b5ca7c936f438c61d344ca9d25536bf767f"
+    sha256 cellar: :any, sonoma:         "25a65da161d1d1c11bf1fb91f33edb4888451d33476294d39f21d233809c0442"
+    sha256 cellar: :any, ventura:        "64df96b15ce8b9f875cb75ed4261918960634012feeef530cb35b8d8405eb2b3"
+    sha256 cellar: :any, monterey:       "d5c067d177639bd733919e34b467fe56a8fa1129f38ab0e45bfa51eb1028f5c6"
+    sha256               x86_64_linux:   "198ea2e2391fe6942cdcb1928a75ca08546acfce2b286e78d70a0848bff120f9"
   end
 
   depends_on "meson" => :build

@@ -3,19 +3,18 @@ class TerraformLocal < Formula
 
   desc "CLI wrapper to deploy your Terraform applications directly to LocalStack"
   homepage "https://localstack.cloud/"
-  url "https://files.pythonhosted.org/packages/aa/f7/69c2981d89c0e074bf15272304fe6843ffcb266cfe044b32f36e23a6e628/terraform-local-0.16.0.tar.gz"
-  sha256 "3193213c54275d5a2407d01763778a876e45a04daaa48c4a698a64807d757a1e"
+  url "https://files.pythonhosted.org/packages/83/0c/98a28e341fae1fbef63d136fdbb2da11ca47bcdb5f086aa670c67ba253f8/terraform-local-0.16.1.tar.gz"
+  sha256 "943c823186164bacfc1857d413b784c7bff3f02f33c6c0d58cf679109101897e"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4787ee0fd67f0a48555fe8f57f967958b7ba21e01c0a6c85a041682e05e895e7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "83b87457938333dad2ec3b84d48dad8f83f80af81fbc9ed496e1fbc1dc3c86d7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2db5173c4077797ae8d3675e4a6a324d16a4c4e4a97074483e4ebd1ec0745ce8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "351a8bc6364ff11b9b23043011d15f34637eacbe383cd16db74ef2b25da68bb3"
-    sha256 cellar: :any_skip_relocation, ventura:        "463318200f3932921761be0205850b3c155a0709b6d7def039d83cf42b16ec42"
-    sha256 cellar: :any_skip_relocation, monterey:       "ff0de69dc965fab6da50871c25de7971cdc554672a4d5fc008c4a78bbed5203f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58cdb69108e7faa75be90a199fce526d274e55de43945c6bb90a8f840ca024d2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7b2db4d52a38ad39e322e1b7bceb62dce4f92d41856c97833c8cb31f189ddb1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa108ef5ebc42c2061e48a07048265beffa3f76d90b9b3a3750f4add34e65752"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ddc7d9c22ee0aa143ea026a86b8da2709509b7b1e46ffdb67065cd38946b2cd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "70da163302d60c9bd89ca14af1d0b46845e4c97c47dce3f12d7280bcd59bd3c6"
+    sha256 cellar: :any_skip_relocation, ventura:        "e426a74f619051ebc50304d090c52b59cbeba0806473e801c8aff732b88f6809"
+    sha256 cellar: :any_skip_relocation, monterey:       "001f2fa251019745bb5fcfef39da584785c20b69099dc64f20577d223e509d4e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d3c41d5cba4b2db64ed71a4835657fd6173a5a84603a183abb2406fdb8129df"
   end
 
   depends_on "localstack"
@@ -24,13 +23,13 @@ class TerraformLocal < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/de/a5/4ae1555dd922da0543172241849a795a9dc6385e0bd8a0d8acd8765d10d6/boto3-1.29.2.tar.gz"
-    sha256 "f3024bba9ac980007ba7b5f28a9734d111fb5466e2426ac76c5edbd6dedd8db2"
+    url "https://files.pythonhosted.org/packages/e5/86/3c386c17fcd9edbd612b1bbeaee85eaa21dd8d85c347de097aba30fc8cb6/boto3-1.33.12.tar.gz"
+    sha256 "2225edaea2fa17274f62707c12d9f7803c998af7089fe8a1ec8e4f1ebf47677e"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/63/5b/b78ac001e26069a2348b7edc131cbd2aa526ffa496a603df8ed3231ae36d/botocore-1.32.2.tar.gz"
-    sha256 "0e231524e9b72169fe0b8d9310f47072c245fb712778e0669f53f264f0e49536"
+    url "https://files.pythonhosted.org/packages/ef/dc/b4b0b8b6ccdcf5880f7381a197397fbc6121e562fd2411e97fc4b4052997/botocore-1.33.12.tar.gz"
+    sha256 "067c94fa88583c04ae897d48a11d2be09f280363b8e794b82d78d631d3a3e910"
   end
 
   resource "jmespath" do
@@ -54,8 +53,8 @@ class TerraformLocal < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/3f/ff/5fd9375f3fe467263cff9cad9746fd4c4e1399440ea9563091c958ff90b5/s3transfer-0.7.0.tar.gz"
-    sha256 "fd3889a66f5fe17299fe75b82eae6cf722554edca744ca5d5fe308b104883d2e"
+    url "https://files.pythonhosted.org/packages/5f/cc/7e3b8305e22d7dcb383d4e1a30126cfac3d54aea2bbd2dfd147e2eff4988/s3transfer-0.8.2.tar.gz"
+    sha256 "368ac6876a9e9ed91f6bc86581e319be08188dc60d50e0d56308ed5765446283"
   end
 
   resource "urllib3" do

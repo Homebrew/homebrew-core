@@ -2,8 +2,8 @@ class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
   url "https://github.com/signalwire/freeswitch.git",
-      tag:      "v1.10.10",
-      revision: "4cb05e7f4a23645ec387f3b5391194128be7d193"
+      tag:      "v1.10.11",
+      revision: "f24064f7c9c2b939226712d3f498c17931386589"
   license "MPL-1.1"
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
 
@@ -13,15 +13,13 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "e4a906aff158a1ce0c2846fb9c403dfbf924068d18918ff26e75b8db9ca6784f"
-    sha256 arm64_ventura:  "188df30b2e5b0559226b8d6c36185ce207a3c345578df4bf50c3acf4f99d3071"
-    sha256 arm64_monterey: "41bc376f644e01d2c907b04af886b78b9eba6697615671bf1bb46af803262c24"
-    sha256 arm64_big_sur:  "90faf1e2987ae4f50e59130759ae8c8a3c07881c09afee88628b269864bec425"
-    sha256 sonoma:         "f07ff108354a69a2a493df2a292b2ba9c327b79d22235f9f6b7c0351f3bd4d01"
-    sha256 ventura:        "9460206e602d15b653c581903be36302e66c7eefd3cabc67aa4d752017a9b3f5"
-    sha256 monterey:       "1d161324780b7f4d6ec1a2860121b9b7c1f328c5375b01a2992801bee80b2cf1"
-    sha256 big_sur:        "58d5cb82b74f1b352f4be6de30aeaf05838f9f7ca449d903798fddac5f6f0fd1"
-    sha256 x86_64_linux:   "10396295998cec74fd4c305098d7381bfbad58a83574809ef85a66964158589a"
+    sha256 arm64_sonoma:   "5f5a55112d7509527b58ec43f411b2b49404c75326a5f07bf30df2ff64174eee"
+    sha256 arm64_ventura:  "95c01107a57d819adf1c81676524ec20df183f73a472a98d59a6185de4ecd778"
+    sha256 arm64_monterey: "27969c912231d980949199c808802862eabe8436d333c6e230a4b8e4ae96d06f"
+    sha256 sonoma:         "9246ede909150a14667313303dac648c61d92eebcc1fcd8c99140b70ce7a2d46"
+    sha256 ventura:        "b6db797dd08da428b05dbf46a9e6024a4db4c472458c64542f239bc1f1c539ac"
+    sha256 monterey:       "741226120d276d65dccff276f22e870a86a437656b01e5855e3f7444f4333c51"
+    sha256 x86_64_linux:   "6ee86164192248603b7d411a44fdd6bb9392f9bf30361905a1f81049684f2300"
   end
 
   depends_on "autoconf" => :build
@@ -30,7 +28,7 @@ class Freeswitch < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "yasm" => :build
-  depends_on "ffmpeg@5"
+  depends_on "ffmpeg@5" # FFmpeg 6 issue: https://github.com/signalwire/freeswitch/issues/2202
   depends_on "jpeg-turbo"
   depends_on "ldns"
   depends_on "libpq"
@@ -39,7 +37,7 @@ class Freeswitch < Formula
   depends_on "lua"
   depends_on "openssl@3"
   depends_on "opus"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 PR: https://github.com/signalwire/freeswitch/pull/2299
   depends_on "sofia-sip"
   depends_on "speex"
   depends_on "speexdsp"

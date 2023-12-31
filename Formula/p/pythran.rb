@@ -26,8 +26,7 @@ class Pythran < Formula
   depends_on "numpy"
   depends_on "openblas"
   depends_on "python-ply"
-  depends_on "python-setuptools"
-  depends_on "six"
+  depends_on "python-setuptools" # for `distutils`
 
   resource "beniget" do
     url "https://files.pythonhosted.org/packages/14/e7/50cbac38f77eca8efd39516be6651fdb9f3c4c0fab8cf2cf05f612578737/beniget-0.4.1.tar.gz"

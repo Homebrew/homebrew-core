@@ -6,18 +6,18 @@ class MesonPython < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37c75fdb3518c8a4135277f559b2f07bb9412c1d716c021dc881788eedb1ff34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "169a4cb0f1bad11010bedb9f5e1e850ad6139a002adc4fdc817166be3e725171"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a7ed3c4aaa02596a64ff81e61103430289e86dfb28a22bb779de97210244a80"
-    sha256 cellar: :any_skip_relocation, sonoma:         "87c6d96b1853d619df476c79fd587ce1417dd88583284e1413841c03adbd770b"
-    sha256 cellar: :any_skip_relocation, ventura:        "19f02d977f3c967333551e5dc530ad085718c9891c408df295da67e67cc7abd9"
-    sha256 cellar: :any_skip_relocation, monterey:       "88d4388ebf27b9ca03580d365dd13fbba741d8bf4f65671b250a524c0c47e64f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "733bb899ea2139bab6a9b830304012b5ea78ab57fb096b460923c8eb867186b7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e0808f63a54ccefa7fc8d6a0b448f50539dc1c43766fd51ff21a670c816556b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "379571d4e7b31ea43feb22dcebc7e7a045e407f279dde449544b554606493c08"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37668cdcae637d0053cb0312200ab42eb51a8951c36ac0f0bdab4e4eac817c11"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9b0d50dd856c12acbc7b2d82409f2a970b4077e084e1add520347aeb21683213"
+    sha256 cellar: :any_skip_relocation, ventura:        "7f196195e9bafffb20d757c8e9028ce6b762ea2f1817f8da544435d4332662d5"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a1d762498a9dd66d56b1e2924843bf43dcfcc3683ad86be3c3be5e5080af0c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "544afea0d36e1841c4e13c851d3b189e78e42e6624b864435f71a2f1fa7bd753"
   end
 
   depends_on "python-flit-core" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "meson"

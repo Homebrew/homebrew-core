@@ -10,7 +10,7 @@ class Ledit < Formula
     url :stable
     regex(/^ledit[._-]v?(\d+(?:[.-]\d+)+)$/i)
     strategy :git do |tags, regex|
-      tags.map { |tag| tag[regex, 1]&.gsub("-", ".") }.compact
+      tags.map { |tag| tag[regex, 1]&.tr("-", ".") }.compact
     end
   end
 

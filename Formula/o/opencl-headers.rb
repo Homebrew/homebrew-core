@@ -1,21 +1,19 @@
 class OpenclHeaders < Formula
   desc "C language header files for the OpenCL API"
   homepage "https://www.khronos.org/registry/OpenCL/"
-  url "https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2023.04.17.tar.gz"
-  sha256 "0ce992f4167f958f68a37918dec6325be18f848dee29a4521c633aae3304915d"
+  url "https://github.com/KhronosGroup/OpenCL-Headers/archive/refs/tags/v2023.12.14.tar.gz"
+  sha256 "407d5e109a70ec1b6cd3380ce357c21e3d3651a91caae6d0d8e1719c69a1791d"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/OpenCL-Headers.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de984134741d637abd45f816b195d03e771e74e38d9cca8e70e65e54d03afaac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8bc77ea328329b357d2782a4a7f540bf6cfc8b63d308652b1c0ca0c06d0ce29"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d8bc77ea328329b357d2782a4a7f540bf6cfc8b63d308652b1c0ca0c06d0ce29"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d8bc77ea328329b357d2782a4a7f540bf6cfc8b63d308652b1c0ca0c06d0ce29"
-    sha256 cellar: :any_skip_relocation, sonoma:         "de984134741d637abd45f816b195d03e771e74e38d9cca8e70e65e54d03afaac"
-    sha256 cellar: :any_skip_relocation, ventura:        "d8bc77ea328329b357d2782a4a7f540bf6cfc8b63d308652b1c0ca0c06d0ce29"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8bc77ea328329b357d2782a4a7f540bf6cfc8b63d308652b1c0ca0c06d0ce29"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d8bc77ea328329b357d2782a4a7f540bf6cfc8b63d308652b1c0ca0c06d0ce29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4ebc91efd80fdd10af86d228a281056bd00cb709739b0269db06c77002ea6e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eec5d5ce283e821e64a8b12f1f48b8ea80237190d100c457afdb6e194b3632b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eec5d5ce283e821e64a8b12f1f48b8ea80237190d100c457afdb6e194b3632b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eec5d5ce283e821e64a8b12f1f48b8ea80237190d100c457afdb6e194b3632b8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eec5d5ce283e821e64a8b12f1f48b8ea80237190d100c457afdb6e194b3632b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "eec5d5ce283e821e64a8b12f1f48b8ea80237190d100c457afdb6e194b3632b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "eec5d5ce283e821e64a8b12f1f48b8ea80237190d100c457afdb6e194b3632b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e3cef650c99495f130b2279c12560445f73e8ec66690f37a9fa796e830e7c3b"
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenCL.framework"

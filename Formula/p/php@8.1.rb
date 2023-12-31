@@ -2,9 +2,9 @@ class PhpAT81 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.1.26.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.1.26.tar.xz"
-  sha256 "17f87133596449327451ad4b8d9911bfaea59ff5109f3a6f2bb679f967a8ea0f"
+  url "https://www.php.net/distributions/php-8.1.27.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.1.27.tar.xz"
+  sha256 "479e65c3f05714d4aace1370e617d78e49e996ec7a7579a5be47535be61f0658"
   license "PHP-3.01"
 
   livecheck do
@@ -13,13 +13,13 @@ class PhpAT81 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5f26a51cbefb8706a6dfde279762fc623120eecf9b605911ed5d2df82a39ed3b"
-    sha256 arm64_ventura:  "6296f529ef3672cd1b41199623e44252881adf613b43e46610ee40f87c62e2d1"
-    sha256 arm64_monterey: "b2564108a20591eefcd48f1ea2c7de5f2423d78d4f6bc5ca50765b443ff7dbec"
-    sha256 sonoma:         "66f63f1525a012d3ccb3f5dd79f7b3bb8b376cfa45ace1d6ec166ee7f3d8cf57"
-    sha256 ventura:        "a35092205c6ef656fe41ae509cb37a7abb8f02fc6373ca814efeac689756b94b"
-    sha256 monterey:       "cfd486bb808dbabf8bf87d25e35691331da1493e3e2a21fd932e75bb6b156575"
-    sha256 x86_64_linux:   "d97939e8aed3d339176ad0daa94e3bcdce74b7b0660b984d29ec8867afb5f26b"
+    sha256 arm64_sonoma:   "a2cbfc5894b81207ae2d8950209b48dfa843015091f7a3a31dac2b4422e56492"
+    sha256 arm64_ventura:  "a448f07ad14b288d4a82d40af0ed8e19f0a1b663497746a4234d0ac770b37d8e"
+    sha256 arm64_monterey: "e7d08f45a3809c8c5414993f7739592e9841a614017241c2c45d62b5a51c0333"
+    sha256 sonoma:         "d49eb32ab08a39b8c8228f4af3de097170c30ae29a39e576bcb88d139614f7d0"
+    sha256 ventura:        "9f510d487872ab8f6468787ed5a3950ed40f29d71bb360eb333f11728681dbe3"
+    sha256 monterey:       "e476bcecd33fe0222ed7d7b3f967599669632f5a52605cf71dadc0d90b32d538"
+    sha256 x86_64_linux:   "f252f4113f97ac3ecc2f312da2fc73ccfeaab71f7edee665c7d1d09e2aef477f"
   end
 
   keg_only :versioned_formula
@@ -65,13 +65,6 @@ class PhpAT81 < Formula
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
-  end
-
-  # Fix build failure with libxml >= 2.12
-  # To be removed when PHP 8.1.27 is released.
-  patch do
-    url "https://github.com/php/php-src/commit/6a76e5d0a2dcf46b4ab74cc3ffcbfeb860c4fdb3.patch?full_index=1"
-    sha256 "9960993a3b6759b8461fc6a181cc4dfdf93eb5da0453037b0b78dfecdeff2c4f"
   end
 
   def install
@@ -326,7 +319,6 @@ class PhpAT81 < Formula
     EOS
   end
 
-  plist_options manual: "php-fpm"
   service do
     run [opt_sbin/"php-fpm", "--nodaemonize"]
     run_type :immediate

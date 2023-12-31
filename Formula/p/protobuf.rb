@@ -11,18 +11,18 @@ class Protobuf < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "6e19f8133d388f868b407a7eb9574fa3ec1a80a3831f4e367977e475a07bf280"
-    sha256                               arm64_ventura:  "71951995260eca6b9474e468372d13be43cc172b579ec48422d3f0a991b3f752"
-    sha256                               arm64_monterey: "3615e7f2f90ffc582edec2319a0fc09a65d13464cd794dcc8194abce6dca53e1"
-    sha256                               sonoma:         "4053a1e8a6be1520a17193bc7761849d583f7176f7efdd37252568ea7e0051c2"
-    sha256                               ventura:        "d518fa7501f1696b517b17732a874a93565dd775d538c1feff03a6b9c8c7dba2"
-    sha256                               monterey:       "ab0a5867b35eeafd4b045795ed2432aa3a04c6f33659d97a33758f52a274176f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "103b44b7ab5af979e5289e98b729f5e57161c7e81d19837bc25cf5df79100890"
+    rebuild 1
+    sha256                               arm64_sonoma:   "76050775316e70aef31157c84acd3399e3336dcfd8e7b40cd451967be3c8fbf3"
+    sha256                               arm64_ventura:  "c03a24f1a4b5672dfaa522f9dfc632c3e43e4f03d8be781b4bd37e86cc5495c6"
+    sha256                               arm64_monterey: "71f5c80f21248a0f044598193c25625cfa268c80cebd2134c04a9f441b9941f2"
+    sha256                               sonoma:         "6c70bf31a1fdaec5f812e48b9bae5127ec530656bf452d9896e3f9afcb52a49b"
+    sha256                               ventura:        "49998369eb1cf1de551aea13d12f90c316a5b1b159f5a32c90ee2330d4cb6bfb"
+    sha256                               monterey:       "df583c67be77ec4bf2ec60ce8d9a5424f0feafc4068fe3626319e2dd0c87d71f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c66dab524eb7c75b18727a610c60e8c5d2ddea1c47675bce3d57b0365a8bd7e"
   end
 
   depends_on "cmake" => :build
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "abseil"

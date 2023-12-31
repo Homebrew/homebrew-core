@@ -1,20 +1,10 @@
 class Ehco < Formula
   desc "Network relay tool and a typo :)"
   homepage "https://github.com/Ehco1996/ehco"
+  url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "9d91dcc122578cf814574ed88d5c8517c74a2574e8af72d9d02f79376fcdb4bf"
   license "GPL-3.0-only"
-  revision 1
   head "https://github.com/Ehco1996/ehco.git", branch: "master"
-
-  stable do
-    url "https://github.com/Ehco1996/ehco/archive/refs/tags/v1.1.2.tar.gz"
-    sha256 "064f80a267e22206033c62f5cd61b01172cd7cac532679669474e22993c4884b"
-
-    # go@1.20 build patch, remove in next release
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/cb97010/ehco/1.1.2-go-1.20-build.patch"
-      sha256 "47444d6fba83b0f1e02bd42cdc32842f3134ae2a92c029184fd2daa099b25f07"
-    end
-  end
 
   livecheck do
     url :stable
@@ -22,18 +12,16 @@ class Ehco < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce87be268da3599a4b465c714c53bdd48c16175eb0ed116c362d43d42070b5d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "160dad33d85042932828946aa471dedf9b4e7b7ecc3bb7373028cc41b20e137b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4a07a01a296fea82d902512cfba70c690dd78316c651498a4f547d9970aa0f6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cf3a460190a6e3a371e2438b652291d87813a3ad330b921fa75c2d572c1805d8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0116095188ec9eaa269a42074efe4cac03e1dee04f1223284996b5468b9d815a"
-    sha256 cellar: :any_skip_relocation, ventura:        "cfe40d06528a0a3de3fcf2104798bd16bf1c983336388ad55fa768242656703b"
-    sha256 cellar: :any_skip_relocation, monterey:       "07d03ba1e3d42a0d642eb5ae5d1542e4182fb65dbefa19aed3282fae4698ce99"
-    sha256 cellar: :any_skip_relocation, big_sur:        "50868b237dec60e966853112729055bbbd905e76a24e2775a4db4ba783137c7d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3569c5b299625b6d80c20fc187a0e48b109a307addda8dd3729e0f82ad519ceb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9decf4e78c060a0156bb071babb128f10bf1bd7add555a8bf6f06cc8b40b0d48"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a403caf4895fb1f5e645fc920edde5981dbcb731b66e4412e0bb3e52d824d1e7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dac01d2b5b027c31038a355f25ee831977e4a8f8409772dfd81994e7952952d7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "001e18c6e8ae69e854d9755345d165fd0f8712781d7935644bb0dbbe5e334685"
+    sha256 cellar: :any_skip_relocation, ventura:        "b621065178b625674903224b535d36e9565323b8d4dedd36efb587c4e59d93c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "83c8687ac92f19074e8d9ed41addea02c067b52f72d8a381fe27f375c21cf7d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "800a0d68efe206a9af19616db9376a4ef594821efc915619149f7703d4391e5b"
   end
 
-  depends_on "go@1.20" => :build
+  depends_on "go" => :build
 
   uses_from_macos "netcat" => :test
 

@@ -80,16 +80,21 @@ class ArgyllCms < Formula
     inreplace "Jamtop" do |s|
       openssl = Formula["openssl@3"]
       libname = shared_library("lib$(lcase)")
+      usr = if OS.mac?
+        "#{MacOS.sdk_path_if_needed}/usr"
+      else
+        "/usr"
+      end
 
       # These two inreplaces make sure all Homebrew and SDK libraries can be found by the Jamfile
       s.gsub! "[ GLOB /usr/include$(subd) : $(lcase).h $(lcase)lib.h ]",
               "[ GLOB #{openssl.opt_include}$(subd) : $(lcase).h $(lcase)lib.h ] || " \
               "[ GLOB #{HOMEBREW_PREFIX}/include$(subd) : $(lcase).h $(lcase)lib.h ] || " \
-              "[ GLOB #{MacOS.sdk_path_if_needed}/usr/include$(subd) : $(lcase).h $(lcase)lib.h ]"
+              "[ GLOB #{usr}/include$(subd) : $(lcase).h $(lcase)lib.h ]"
       s.gsub! "[ GLOB /usr/lib : lib$(lcase).so ]",
               "[ GLOB #{openssl.opt_lib} : #{libname} ] || " \
               "[ GLOB #{HOMEBREW_PREFIX}/lib : #{libname} ] || " \
-              "[ GLOB #{MacOS.sdk_path_if_needed}/usr/lib : #{libname} lib$(lcase).tbd ]"
+              "[ GLOB #{usr}/lib : #{libname} lib$(lcase).tbd ]"
 
       # These two inreplaces make sure the X11 headers can be found on Linux.
       s.gsub! "/usr/X11R6/include", HOMEBREW_PREFIX/"include"

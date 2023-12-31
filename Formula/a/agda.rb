@@ -2,25 +2,26 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
+  revision 1
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.4.1/Agda-2.6.4.1.tar.gz"
     sha256 "23248a9b3c50c81ea4751518a66f2a6144617b6a5a9202686b54e33bc9cbd080"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v1.7.3.tar.gz"
-      sha256 "91c42323fdc94d032a8c98ea9249d9d77e7ba3b51749fe85f18536dbbe603437"
+      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.0.tar.gz"
+      sha256 "14eecb83d62495f701e1eb03ffba59a2f767491f728a8ab8c8bb9243331399d8"
     end
   end
 
   bottle do
-    sha256 arm64_sonoma:   "e6df94447d223319f9b13d3c29e9ab186aef007c86b57daca0607c1d4adf4719"
-    sha256 arm64_ventura:  "acfe3e03fb89b8c9fba5f374a9f7f3eccbdf3be4472cdd668e75c9cc38051976"
-    sha256 arm64_monterey: "7218d0a4c0b76dfb956bb87735a2316dc1ba10b55b3c55cbe80504a1d2649a7e"
-    sha256 sonoma:         "1624b14e85eb64b05c6b3f9d17d832ae0e4f73954bdee85e490e56782027ff95"
-    sha256 ventura:        "3febb1a2ada619f3c7baa8a216669d6a532c5b26700adf75e43a318bd938453d"
-    sha256 monterey:       "d3a983938af150655f177995a0cde8aec2511130eac257c8bf30c021978039c5"
-    sha256 x86_64_linux:   "860cf238bf36d94633882101e060a6490f44e1526ca1c316ede49854c584169c"
+    sha256 arm64_sonoma:   "d34f57113a77435c5bae85b608e304d68d95089a4f36c21fa134885fd7bf8c41"
+    sha256 arm64_ventura:  "15fe03b6e47eaa38f9acb16f43e7bbc7186f1423535ab66898f913b772c93e65"
+    sha256 arm64_monterey: "9ad4c648661ec80e6fb04fdeaec88d35ee7f1f3f5bc252cb523119cad8f998f3"
+    sha256 sonoma:         "71b7f500a7b69791eb74ca9f2d048d64447348e5072dc428294ad4472b4785a9"
+    sha256 ventura:        "a866adfb675290d73ff99e594b5d05587a4bb1fab2215943a7205905c79ffbad"
+    sha256 monterey:       "5a14b043ee49a96e4922111138626e72ea7bc3d8b830291321807ec5399b4ea5"
+    sha256 x86_64_linux:   "618c97dd8d1d7eaa9b3269875666939cb35f990ea11e4542faf31f4dddf9b3c6"
   end
 
   head do
@@ -50,7 +51,9 @@ class Agda < Formula
       system "cabal", "v2-update"
       system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
       system "./GenerateEverything"
-      system bin/"agda", "-i", ".", "-i", "src", "--html", "--vim", "README.agda"
+      cd "doc" do
+        system bin/"agda", "-i", "..", "--html", "--vim", "README.agda"
+      end
     end
 
     # Clean up references to Homebrew shims

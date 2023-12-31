@@ -1,8 +1,8 @@
 class Tinycdb < Formula
   desc "Create and read constant databases"
   homepage "https://www.corpit.ru/mjt/tinycdb.html"
-  url "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.80.tar.gz"
-  sha256 "c321b905e902c2ca99a3ff8a8dddfd8823247fe1edec8a4bb85f83869c639fb8"
+  url "https://www.corpit.ru/mjt/tinycdb/tinycdb-0.81.tar.gz"
+  sha256 "469de2d445bf54880f652f4b6dc95c7cdf6f5502c35524a45b2122d70d47ebc2"
   license :public_domain
 
   livecheck do
@@ -11,15 +11,13 @@ class Tinycdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "778e0ec0b2937521a4b28d1b56d79c6294dc45edb170d99ba3cffe1daf686be8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a735eb5b05238cb09e844baeba7f57f3274a8e397b42ec99f44fdde2d885142"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "edb94ab010ccac6bac74f9ad88aea2fe52c337d87a43f9daaad99255e651dcf6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "da65daf01c78e36e7c14f2b4a0d8f9b1c701c9bafff107b5bf64f44aabd1a7bb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b0d9367595ba64cdadc23a8798a05c570cd9424869600e342d08d09d511771a8"
-    sha256 cellar: :any_skip_relocation, ventura:        "e006bdc12484c3aca16620ea38529db4f79e184188f3fbe61f983595bc1c5d2f"
-    sha256 cellar: :any_skip_relocation, monterey:       "40cabfaada50c310515d55096afb6d3ce13e4828d4c2ab182ee3073f0f7d55c8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b1964b3b7c3f6a651e96038496216d999171500feb6d1a68c33bf4ce0a7be2e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d052ecc7e8be7d542a1492e5f51597ef4b17093bead485a619aaa9a28c3e626"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "84a0722cb1e3e74c5771ddf3e58ec4c6181baac4705e9d8c824b5c1a943b7b29"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b56128230eae3a7c00d7673e75878e87b17c29a1a417934f8f70e20d7672adff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3c14e7e96bf04a5732dbe8f3004368a95cfcfb5e8f9cc3efad43b8d4eb39982"
+    sha256 cellar: :any_skip_relocation, sonoma:         "244ae0d966d0d1ccd93c3a9c23983865a89cf4da0859a87fc84021ca56ad55b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "d15dfde4eaf2332e3a362020c1a46eebc4aadb429bb08650f094c26d49e39601"
+    sha256 cellar: :any_skip_relocation, monterey:       "90dcf17edde006c16827865c1448fcb9a6c0bf1eee39eca0be8e41253fc0031d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d208e49ab4a661837a4490712ad50e7cbca6b240cbf9e91b4d8989d113707cfe"
   end
 
   def install

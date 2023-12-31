@@ -1,19 +1,19 @@
 class Luau < Formula
   desc "Fast, safe, gradually typed embeddable scripting language derived from Lua"
   homepage "https://luau-lang.org"
-  url "https://github.com/luau-lang/luau/archive/refs/tags/0.604.tar.gz"
-  sha256 "1ca48bd8a7ff1bb981afdafe5badd1ff457459c88bbc7db808497e0974f1b9d4"
+  url "https://github.com/luau-lang/luau/archive/refs/tags/0.607.tar.gz"
+  sha256 "519409d7dbb43da13390131a90c831cb0f2ab9c25e337acf15508313a339bf36"
   license "MIT"
   head "https://github.com/luau-lang/luau.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec2c5ac784b444ff2d723443908bac5a5a2767dd615068ea5d16136da5868048"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "166abf29f9071f47dc2ac369827e6d4447abd287fdc6c2d755da5b19c1b31d2c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d01f7605e32dc862879eca4e363c4497ad4672e6b514fdf72744ca9ce8f75df"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b341010b980315b51748d4332df2f58708ee6e5747c9fe5fb1a1dbdff52fe86f"
-    sha256 cellar: :any_skip_relocation, ventura:        "005fc9ca1d7fa28499ae6d12e4c2ebf275f618a770ddad644d2ab7480e4ea4e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9767b757dbb76dbdad4a24c903b01529f9f672647dd19d43dfdcffd75549422"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6d4df4cd32073129bdcab25ee96fbe7774969af20e0ca8389c2b2f1775e5578"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "51eda54562f57b4afe503feb38c67067c09bae6e2a21c767fb15813ba5ff1232"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bd122c3ac373f968f08b6925b2d6e3ab46137b996a8e546d56c2af3011b2a40"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5526bd0763f2c12b61d249db16da84f897df3653adb51733b9d19b920710f653"
+    sha256 cellar: :any_skip_relocation, sonoma:         "15663b4c770cbd078070a4108268de84ebca4854d2cdde97ac7090e83ac25401"
+    sha256 cellar: :any_skip_relocation, ventura:        "b1c9df13a573110c1c7ad829786653f955066cc8c28aea3771e66801cd76d6b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "dceed664a68cdb08ec4ca645e826d1bc6e0a6d96ca6b2019e5a686da8649330d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11a81533b379357893759ac038b911677bd0ef22cb6244870fd81263d01a2665"
   end
 
   depends_on "cmake" => :build

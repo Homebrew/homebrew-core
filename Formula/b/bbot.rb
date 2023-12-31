@@ -8,13 +8,14 @@ class Bbot < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7bb9b083f2c8f30a70da8a5109d786a6dc7782a716e44213ebf4148b83c0f9b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03b922b5a79d762f55a038c3186a9d51a6482df24e3e049eace86732137c1481"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "885f9374449cadc0d3ddc368aefab3b2bbf0ed8c01766f121fca0387b49a876a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d97c546d0b876e900e5c52747d5f9a95819daa7343e037549e37b16d16fec906"
-    sha256 cellar: :any_skip_relocation, ventura:        "a4c672a3159f93d72416eff50d3982f37f5a8d5258003ca2dfbc8aa59399c2c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa05468319ed75e3f863560769c28bcaf143278dcca3aabd240c7e073045295a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cfc1a231be07da642395d911ba306c49111e455212e53807a34c3a9e53ccb88"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5bb84ab1fc6aa40b70f7966354b63acde0f524d50acaa880cbd929a84d7cac1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb6fa25d07ca64d858bffa73378ad176c0311f90ba0c383dd38f0a358940acf4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fba8c9e6006f8048a64ade69c038b9f1effbc40ad7beb3dbcddda34710acbb6a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c6ca7272842668351f5006e16880504cc248e2bca5a3f9797603d6cee8aff0e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "884315b59e0e71d597d502b39a5e9e01129e3c3a89c1975aa51c8d74dcf8f07e"
+    sha256 cellar: :any_skip_relocation, monterey:       "7a70bcf5530ea46bf9bfd4ee3364fb1d17d1a8788a3ca8154e59fa6f7b901bd5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e7b9e8e56149ea611b3aac8937cad02fc8790e6a9d9bb9b66938308289bfa99"
   end
 
   depends_on "openjdk" => :build # for omegaconf
@@ -27,9 +28,10 @@ class Bbot < Formula
   depends_on "python-markupsafe"
   depends_on "python-packaging"
   depends_on "python-psutil"
+  depends_on "python-setuptools"
   depends_on "python-tabulate"
   depends_on "python-typing-extensions"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
 

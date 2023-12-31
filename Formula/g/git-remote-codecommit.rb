@@ -10,15 +10,18 @@ class GitRemoteCodecommit < Formula
   head "https://github.com/aws/git-remote-codecommit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3084e88a86952977eda57eaec5c67cc922eae58d3f811f8f2b2a4c8921a4f42"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d4632f0f3653dcbe896bfb3ccf72427bcfccb7ee0b165a766f55081920222ab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e280cf2e2a9366a7dfe229a9523be9e0857cd71174d8aeb5d7a4a8b276ee05ac"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3b86f8792be295dbd044110e31dc8762c476e47068e6f5943d1397c5caeb4c7d"
-    sha256 cellar: :any_skip_relocation, ventura:        "9724ed02c830ea73ad8dbd6fd06796808d324a83bee2f10223b5b03fafe06337"
-    sha256 cellar: :any_skip_relocation, monterey:       "d304f2d5bec2bde699e672a0afac100fb6835f1df5a86cf256d0be615e20e4ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12a218dbf61c8daf3fa70cf75f75f64c2d275b7bbb7e2a35e3671ebb105f059c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d8ba20dcd9f55de970c25529a95bb3473258876b3516b187322418615f27883b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2c9b27f956a030046be35f93002359c8eaf8c92c1408487ecd5286312e93280"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a810bab4bcbe5fbd32da4ac3453d5f9098a94adef37ad7c0640d456ed32e60f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1af35d3a2e017ef480b2cfcee9330223dafefa5b6209097dcc25b3145d1f08e3"
+    sha256 cellar: :any_skip_relocation, ventura:        "15e2a407d36c1731c42aec5acd172ab4cf217fa7d9a7272106bdd799a972bcc6"
+    sha256 cellar: :any_skip_relocation, monterey:       "ebe4e3256b7758ff8473ecdb4287eb4422fef1bcef2154adcc9fb455a1cc4860"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0c1687232860b04ae552af8b6da12096f022917ed22a246177bf834d2a25d10"
   end
 
+  depends_on "python-dateutil"
+  depends_on "python-urllib3"
   depends_on "python@3.12"
   depends_on "six"
 
@@ -30,16 +33,6 @@ class GitRemoteCodecommit < Formula
   resource "jmespath" do
     url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
     sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
-  end
-
-  resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
-    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
   def install

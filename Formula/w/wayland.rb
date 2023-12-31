@@ -19,11 +19,10 @@ class Wayland < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "expat"
+  depends_on "libffi"
+  depends_on "libxml2"
   depends_on :linux
-
-  uses_from_macos "expat"
-  uses_from_macos "libffi"
-  uses_from_macos "libxml2"
 
   def install
     mkdir "build" do

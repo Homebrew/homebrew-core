@@ -22,6 +22,8 @@ class AutoconfAT213 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cccd5c06cf43a458be6dd0f07af79a3d63411aa6e3c350df0aae1e9a0b6b795"
   end
 
+  deprecate! date: "2024-02-22", because: :unsupported
+
   uses_from_macos "m4"
 
   def install

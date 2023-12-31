@@ -1,10 +1,9 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.19.x/rpm-4.19.0.tar.bz2"
-  sha256 "b30916dc148cbeab077797e9fc365702931e3a9a7eacf70add84153b549b3f77"
+  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.19.x/rpm-4.19.1.tar.bz2"
+  sha256 "4de4dcd82f2a46cf48a83810fe94ebda3d4719b45d547ed908b43752a7581df1"
   license "GPL-2.0-only"
-  revision 1
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
 
@@ -16,8 +15,7 @@ class Rpm < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 x86_64_linux: "c39d73788d7aec2606c007f143e5bb980f7f1433bb91be5d62bbdde754d1a362"
+    sha256 x86_64_linux: "84a6f8905a17d3797cd84a3d38874b951c7c00418fba684a6763022dc0119b8e"
   end
 
   depends_on "cmake" => :build

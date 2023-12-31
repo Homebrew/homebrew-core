@@ -7,18 +7,17 @@ class CpuFeatures < Formula
   head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "ce5c30e2f2fb534de048b4cab44164aa10ff0edc78fc2a1f980bd66dd0efd840"
-    sha256 cellar: :any,                 ventura:      "330ff6e1dd7b1ba7d437ae26c190cef2c16a378dfde46c91c9c9f467c8ce6f02"
-    sha256 cellar: :any,                 monterey:     "005e2f8cd05493e50e9633a328f67bff007013632ff113b0e61c4274c8a921e3"
-    sha256 cellar: :any,                 big_sur:      "3eadb78e89e4aa6ad69a691495c45ad80a89308f56fdac9f33b24fa5114bb13b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "509a559426e4580b555e02fe7c38737012faf590477cc44845b11d714f5da8c3"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "ce0a600098af980c41651295e62323e64312fc784b58894d8dda0c8ee3af7257"
+    sha256 cellar: :any,                 arm64_ventura:  "a553042b0852ac60b9ffa9d84f1651316a2425a8eeb8c7e031850ef7d1d4b142"
+    sha256 cellar: :any,                 arm64_monterey: "3b46124865d45cc7f9521e220bfa6d812fe2c72db6cb11cd5b100ae78bf7eefc"
+    sha256 cellar: :any,                 sonoma:         "4c6fdef575b3acac228f0b880dd7d1154dffbafac08df0bafd82d1630ab8b722"
+    sha256 cellar: :any,                 ventura:        "3598175140e64a33064ae94b81e3ef252051313acc4344a7e7ff42fc891a3c79"
+    sha256 cellar: :any,                 monterey:       "750715774bcd3306efac26b9b5173c9126b8a25613e7fc54100cf5814ef7cdcd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d728f5f093b6666edcba57a77aa36e9f9dc6949634fd9a1e76f55ec5abadd4a8"
   end
 
   depends_on "cmake" => :build
-
-  on_macos do
-    depends_on arch: :x86_64 # https://github.com/google/cpu_features#whats-supported
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
@@ -37,11 +36,18 @@ class CpuFeatures < Formula
   test do
     output = shell_output(bin/"list_cpu_features")
     assert_match(/^arch\s*:/, output)
-    assert_match(/^brand\s*:/, output)
-    assert_match(/^family\s*:/, output)
-    assert_match(/^model\s*:/, output)
-    assert_match(/^stepping\s*:/, output)
-    assert_match(/^uarch\s*:/, output)
+    if Hardware::CPU.arm?
+      assert_match(/^implementer\s*:/, output)
+      assert_match(/^variant\s*:/, output)
+      assert_match(/^part\s*:/, output)
+      assert_match(/^revision\s*:/, output)
+    else
+      assert_match(/^brand\s*:/, output)
+      assert_match(/^family\s*:/, output)
+      assert_match(/^model\s*:/, output)
+      assert_match(/^stepping\s*:/, output)
+      assert_match(/^uarch\s*:/, output)
+    end
     assert_match(/^flags\s*:/, output)
   end
 end

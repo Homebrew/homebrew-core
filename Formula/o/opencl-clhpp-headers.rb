@@ -1,13 +1,13 @@
 class OpenclClhppHeaders < Formula
   desc "C++ language header files for the OpenCL API"
   homepage "https://www.khronos.org/registry/OpenCL/"
-  url "https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2023.04.17.tar.gz"
-  sha256 "179243843c620ef6f78b52937aaaa0a742c6ff415f9aaefe3c20225ee283b357"
+  url "https://github.com/KhronosGroup/OpenCL-CLHPP/archive/refs/tags/v2023.12.14.tar.gz"
+  sha256 "9106700634e79cfa0935ebd67197f64689ced24c42da702acf18fa8435bd8a82"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/OpenCL-CLHPP.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2e9201e4a39a35c727407e1851a1c528426b26b8fabafbcc3918006d9e69983c"
+    sha256 cellar: :any_skip_relocation, all: "ebb31ad41d3d2c76883d852c13368211784630179b694f1498e2dfe13dac579b"
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenCL.framework"

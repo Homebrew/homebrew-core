@@ -1,39 +1,26 @@
 class Sonic < Formula
   desc "Fast, lightweight & schema-less search backend"
   homepage "https://github.com/valeriansaliou/sonic"
-  url "https://github.com/valeriansaliou/sonic/archive/refs/tags/v1.4.3.tar.gz"
-  sha256 "ae2c584d0c4d73d16e2a98c9a7b7d0a71ff72ab7db29210854c730d30d739942"
+  url "https://github.com/valeriansaliou/sonic/archive/refs/tags/v1.4.8.tar.gz"
+  sha256 "703b3d979f3cb72ed6c1f3535c2a4c4851107972eda3cd34a88542724f537181"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3c75c06c21554ad85957c23ba115672de7c4bcdbc334d0281c889434feb1f3a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c980840c9ba2a3d159c622417c26333b995c608ab1c7116f9f1135cdc1d4096"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3fcf6038d479fb20eead6df10213bade4b43a02f2f8892160fd7a090a604e07f"
-    sha256 cellar: :any_skip_relocation, ventura:        "e049843eedc189512c1baa1923b820f326c87fee5056d352951ecb5deece8c8f"
-    sha256 cellar: :any_skip_relocation, monterey:       "6de1aaf83f17590f20c0759dc83903acdce24cc3bd651831906409bebd471d97"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a449ef361f6d39ed236810c94bfab3717c6496cbb4987b27b19372b1be6bc639"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eee3f6c1232c6eaea8eb38994b733f75ee579daf0226fdfa638580647d794bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c75ce6f8389d69e5a0efab866be05145b06615ca35e35268e0d7bc78335fc4a8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1bc99dbcd2262ba06b582ae26f3aef36652c1c61e1c98262f7520585b3730ff3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2fdf796638a103a809318b252359108821f17e9fb2c8f75d88d19820321541fa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d76808c045782af3e01b67ea1bb1def19a835ae542535260ae642a7e7b693fd0"
+    sha256 cellar: :any_skip_relocation, ventura:        "79556244b4f4da38f9481116bc28e023709f2d3ff326ed51c2fd63e37dfff602"
+    sha256 cellar: :any_skip_relocation, monterey:       "538f90545efe6392d352c1a293e6bfc2093a73b7b796c41a439d07d7a858b3df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abeccf0b9b9070be03f746f9a4da886a7b5cb2286e64ca95a03033873f28fa5b"
   end
 
-  # Use `llvm@15` to work around build failure with Clang 16 described in
-  # https://github.com/rust-lang/rust-bindgen/issues/2312.
-  # TODO: Switch back to `uses_from_macos "llvm" => :build` when `bindgen` is
-  # updated to 0.62.0 or newer. There is a check in the `install` method.
-  depends_on "llvm@15" => :build
   depends_on "rust" => :build
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "netcat" => :test
 
   def install
-    bindgen_version = Version.new(
-      (buildpath/"Cargo.lock").read
-                              .match(/name = "bindgen"\nversion = "(.*)"/)[1],
-    )
-    if bindgen_version >= "0.62.0"
-      odie "`bindgen` crate is updated to 0.62.0 or newer! Please remove " \
-           'this check and try switching to `uses_from_macos "llvm" => :build`.'
-    end
-
     system "cargo", "install", *std_cargo_args
     inreplace "config.cfg", "./", var/"sonic/"
     etc.install "config.cfg" => "sonic.cfg"

@@ -32,9 +32,9 @@ class Nspr < Formula
         --enable-strip
         --with-pthreads
         --enable-ipv6
-        --enable-macos-target=#{MacOS.version}
         --enable-64bit
       ]
+      args << "--enable-macos-target=#{MacOS.version}" if OS.mac?
       system "./configure", *args
 
       if OS.mac?

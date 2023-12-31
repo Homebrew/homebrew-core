@@ -8,27 +8,18 @@ class Fairymax < Formula
   head "http://hgm.nubati.net/git/fairymax.git", branch: "master"
 
   bottle do
-    sha256                               arm64_sonoma:   "dbe25665b869d96a6ec6e6f17ee01fc785fbeee35b8dfada3568403f8fc6c9e5"
-    sha256                               arm64_ventura:  "16510c0f87a8895135e6b4bcbbbef25a2d525abcdc98d09aa3a792de04d08e40"
-    sha256                               arm64_monterey: "85ed95611bf8ffcdec73d5d5f3f3372b4e72d73a0c4eed0dcf3183b2ec94743d"
-    sha256                               arm64_big_sur:  "77d45d92cbfb8e3318ba17fe95aa3fdd24fa4f7e7cfdffdd7aaa8a29d5f837ec"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6bc3b7992436bb3f77507d834a929e1e9db61842576515ccc420d8b229bef69e"
-    sha256                               ventura:        "14ec7cb6c5ef741a66e8c3253c529a5b67155d77d0dd9f8840a614654f536641"
-    sha256                               monterey:       "2f0f4b0871f97165e8a76bd696b71cb721cfa60eaf8dc6d3195fe3b7e85464b2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "497488cd10ab4c0e87e6fc38cfa250b275e1ceea07ac7694b4ae37996da32c9d"
-    sha256 cellar: :any_skip_relocation, catalina:       "8dad1d34ed2ce478abebc9ac986bbf5d7d0bf7af5f8326839da735d8fb3d11c6"
-    sha256 cellar: :any_skip_relocation, mojave:         "5c4d837d9726fd83661fac0703cda7829f2c81e48f69ac98016915f97dad15cf"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "7da2c1f0d3c9f8cdfd5729c22b16bb3a0c81e0189988e4afe43ccaa69518beda"
-    sha256                               x86_64_linux:   "52e93b116c8cd56ff7fb4d7f3a9661a924be044489c5b66bad3d17b4419819c2"
+    rebuild 1
+    sha256 arm64_sonoma:   "699b0ba8c10d2452add0b265cc336b835d61e4a2bc0ce00365519d8c3591e52c"
+    sha256 arm64_ventura:  "7a431f623e9a7ffc4fe331a5ebe118265a9c0ade9222124516586591e0644286"
+    sha256 arm64_monterey: "eb095e180e6f94ac2fa743df555fc7a8310f17034880868a8bc5605da3b0c681"
+    sha256 sonoma:         "3ee1f7a3b2c6f44bdabd314a88e6c7a4b1556a743700d9c35fb593a928e5c3aa"
+    sha256 ventura:        "bbf8bfbf45b9a08f721360217552ed277cb612f0878231b6dfc3b50dd84d6b43"
+    sha256 monterey:       "ee474cd1bc1cdbfe55d9a4d2495bf43e8ea91675d23f6d86b583198b6ddfc026"
+    sha256 x86_64_linux:   "7c129786c14d2eb245f90af3300ed059040a8057f5318302f024863516b05b43"
   end
 
   def install
-    system "make", "all",
-                   "INI_F=#{pkgshare}/fmax.ini",
-                   "INI_Q=#{pkgshare}/qmax.ini"
-    bin.install "fairymax", "shamax", "maxqi"
-    pkgshare.install Dir["data/*.ini"]
-    man6.install "fairymax.6.gz"
+    system "make", "install", "prefix=#{prefix}", "CC=#{ENV.cc}"
   end
 
   test do
@@ -36,6 +27,6 @@ class Fairymax < Formula
       hint
       quit
     EOS
-    system "#{bin}/fairymax < test"
+    refute_match(/piece-description file .* not found/, shell_output("#{bin}/fairymax < test"))
   end
 end

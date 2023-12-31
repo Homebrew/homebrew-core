@@ -59,13 +59,16 @@ class Openrct2 < Formula
     (buildpath/"data/object").install resource("objects")
 
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}",
-                            "-DWITH_TESTS=OFF",
-                            "-DDOWNLOAD_TITLE_SEQUENCES=OFF",
-                            "-DDOWNLOAD_OBJECTS=OFF",
-                            "-DMACOS_USE_DEPENDENCIES=OFF",
-                            "-DDISABLE_DISCORD_RPC=ON"
+      cmake_args = [
+        "-DWITH_TESTS=OFF",
+        "-DDOWNLOAD_TITLE_SEQUENCES=OFF",
+        "-DDOWNLOAD_OBJECTS=OFF",
+        "-DMACOS_USE_DEPENDENCIES=OFF",
+        "-DDISABLE_DISCORD_RPC=ON",
+      ]
+      cmake_args << "-DCMAKE_OSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
+      system "cmake", "..", *std_cmake_args, *cmake_args
+
       system "make", "install"
     end
 

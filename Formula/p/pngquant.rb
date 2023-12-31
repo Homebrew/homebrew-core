@@ -1,26 +1,32 @@
 class Pngquant < Formula
   desc "PNG image optimizing utility"
   homepage "https://pngquant.org/"
-  url "https://pngquant.org/pngquant-2.18.0-src.tar.gz"
-  sha256 "e72194b52b36f040deaec49a1ddd5dcd8d4feecc3a5fe6c5e9589a9707b233d4"
+  url "https://static.crates.io/crates/pngquant/pngquant-3.0.3.crate"
+  sha256 "68a12bdd8825f9989f4ee9a6ab0b42727dae57728b939ef63453366697a07232"
   license :cannot_represent
-  head "https://github.com/kornelski/pngquant.git", branch: "master"
+  head "https://github.com/kornelski/pngquant.git", branch: "main"
 
   livecheck do
-    url "https://pngquant.org/releases.html"
-    regex(%r{href=.*?/pngquant[._-]v?(\d+(?:\.\d+)+)-src\.t}i)
+    url "https://crates.io/api/v1/crates/pngquant/versions"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :json do |json|
+      json["versions"]&.map do |version|
+        next if version["yanked"] == true
+        next if (match = version["num"]&.match(regex)).blank?
+
+        match[1]
+      end
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b195142b5fad75f621e4103fd147a8008d88d62dbc79cea5681d055ff0520e2f"
-    sha256 cellar: :any,                 arm64_ventura:  "55fab88e60676f665814df9e581bdf08fc702c017710b5014b62b71918cc5c5a"
-    sha256 cellar: :any,                 arm64_monterey: "2a9880d5f9082fefeaa293e839b4c4c13cf667727f25a051fdaed81d893fd343"
-    sha256 cellar: :any,                 arm64_big_sur:  "0ac3705e4b0be4c8fddcf74651060c9f8c4a06cf606cf29487f4c7b1cb54e92c"
-    sha256 cellar: :any,                 sonoma:         "abe2eeddc6224a9433f6f5dfc08b6e09cc4e0e65cd58496eb6eb7ad1dca5336c"
-    sha256 cellar: :any,                 ventura:        "4d2a131a292a55106feb2513cada8dcbd1b8028ddc59d7bb95a189b2ce51fd6e"
-    sha256 cellar: :any,                 monterey:       "fc3d3fd03d19f8ff9dcf2832262cd093bb3716f2362c17e5587930b5f3b974b5"
-    sha256 cellar: :any,                 big_sur:        "04f276c7261989d2c5af611cc8ee54e4bd6fe50b7e1f4d5df870564ce7b7f612"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d482fb76dc638ad8271269b95af411697e9d1f1ac21abc3f19ceace8af285ea8"
+    sha256 cellar: :any,                 arm64_sonoma:   "d3e16afa75e8c67f0bd33265a5b41bc386b3556c03f005665dfea57a8ce5be00"
+    sha256 cellar: :any,                 arm64_ventura:  "8a1da7e0f02ac09b8d76e4d61303d68a00c06de630878d39a440652b441c087d"
+    sha256 cellar: :any,                 arm64_monterey: "132f62c08f87aadc9243de4d6ac887050b61231ed175cabe9d753186be1b7151"
+    sha256 cellar: :any,                 sonoma:         "6e973dbeded39f7b02bcf90cd3e6a271a8a4323cc35a0e0670a162b8037d9166"
+    sha256 cellar: :any,                 ventura:        "c290edbea7b632f3cae66a0b9f1c5f67942d398290a2b439d2518d4a86a1b568"
+    sha256 cellar: :any,                 monterey:       "c691267cf2d7a281d2bf23ddb745bfbba974cc0e8133e4b023e244d937c8ee41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5044118575aca60f3b593f1bce3a975976ba4bddf2b2f7105c1d6a7e8dd0514"
   end
 
   depends_on "pkg-config" => :build
@@ -29,7 +35,8 @@ class Pngquant < Formula
   depends_on "little-cms2"
 
   def install
-    system "make", "install", "PREFIX=#{prefix}"
+    system "tar", "--strip-components", "1", "-xzvf", "pngquant-#{version}.crate"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do

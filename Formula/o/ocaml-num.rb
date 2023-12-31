@@ -1,19 +1,18 @@
 class OcamlNum < Formula
   desc "OCaml legacy Num library for arbitrary-precision arithmetic"
   homepage "https://github.com/ocaml/num"
-  url "https://github.com/ocaml/num/archive/refs/tags/v1.4.tar.gz"
-  sha256 "015088b68e717b04c07997920e33c53219711dfaf36d1196d02313f48ea00f24"
+  url "https://github.com/ocaml/num/archive/refs/tags/v1.5.tar.gz"
+  sha256 "7ae07c8f5601e2dfc5008a62dcaf2719912ae596a19365c5d7bdf2230515959a"
   license "LGPL-2.1"
-  revision 4
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4f55c47b06e334594da2c757e4c2dc82affc09672796172648185d8cdd8aaf31"
-    sha256 cellar: :any,                 arm64_ventura:  "6522c296cac6b00245d89993e69ce05f529ba348cac150d33ab4cdb1e2cd9ce4"
-    sha256 cellar: :any,                 arm64_monterey: "2adae92ec142eb1aefa496b08ddc3632b3b0a57e3d44c5f561465039f6d29b43"
-    sha256 cellar: :any,                 sonoma:         "c59ad39d07225b342bd493c1d4531082e2798f160bc33663487981a6b265bb5b"
-    sha256 cellar: :any,                 ventura:        "9fa9786f28eb04e77dd3960bdf8e4674714b95d436183e9638cc646be0a19c8c"
-    sha256 cellar: :any,                 monterey:       "137b0fb7b9dbc961eee2a9449e4fcdf6a7e631cb77be7e8aa5448d366ef001e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "320ed8b1cb2b9e3018fe2c524a8781936b62b55ec2de65e732c0a1c08117936f"
+    sha256 cellar: :any,                 arm64_sonoma:   "6a837fdd87b83bdb4db4602fc9942dad50624c7d99481f41b99716bf592aee85"
+    sha256 cellar: :any,                 arm64_ventura:  "231cfed2d688c19e41a1ae0c82905ccb3959cc6fbc86d2217ca9deb6a8288266"
+    sha256 cellar: :any,                 arm64_monterey: "4d375fd5288c5f44f4ff65e5c85eb1e92b887af71db96b2e3f63a80399993a0d"
+    sha256 cellar: :any,                 sonoma:         "f2b874ac0a07256fa90b68eadf30afa7f47fd93ce401ba2427811d9d8260d5e3"
+    sha256 cellar: :any,                 ventura:        "9ee4141f058d0fe4d54ebb82fa0e9775cc7710ee54beec33ffea4167e92b4f3e"
+    sha256 cellar: :any,                 monterey:       "12dfa8ad705078f598817b0da7318ecd976c96d711c10fb77cce6c280c12bf77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e0e5e92a00aefb0ee4682437417fd5ee86e02671738c9b476820573f13f44e7"
   end
 
   depends_on "ocaml-findlib" => :build

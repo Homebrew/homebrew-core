@@ -1,20 +1,19 @@
 class ArxivLatexCleaner < Formula
   desc "Clean LaTeX code to submit to arXiv"
   homepage "https://github.com/google-research/arxiv-latex-cleaner"
-  url "https://files.pythonhosted.org/packages/ba/75/626014f47d51aad0e6ef39a051ba7fe24a4e4f8b0bf23750909615d62864/arxiv_latex_cleaner-1.0.1.tar.gz"
-  sha256 "d9fae07f82f8ad19704ff58fe4e1ed7fc668cc28ea6238c13bf5d687c988d79c"
+  url "https://files.pythonhosted.org/packages/2f/e0/cae39e287d000b1b23b2610b9ebdf9954054abbd4ea2525a649497921157/arxiv_latex_cleaner-1.0.2.tar.gz"
+  sha256 "abe151234a42fa3b97bd7e3e52c6f790397fa1c97506b1dd3e0dcf56d466f93d"
   license "Apache-2.0"
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a432863ab41703801ef90ab1895a866f065570f895230e7588b61e9e26833a9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d32c09ccbfda6e83f7160d0db1063948cdc8fd0e72f92a0c9271e284f99b0c75"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6130fd9978b322dbf181a3eeb371742f685e2738a3ad5873ec755868c5f8e47"
-    sha256 cellar: :any_skip_relocation, sonoma:         "831ae869581b5545d0d5d952274f2b45b72701991e31793999d1a4a1da2d24a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "2339b9c7c4ca1706147eb12dc4a63ec58291cee0e2abd4e109d39cc464e8a4b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "d8b899b4b517c390f0f192441e0dc138f4588dd878702820b52a1578a4cb92de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6369444304a56f816fbc7d50e403bbddacfcaa37e87249f083b3f11e9898f9eb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c51d6b5e448e6939e40f4cb9ea6ac1af06ce2938ec11c6b69278542b55b82a8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "40bf2ecdbbf8cad2902d41d44435c3548c2156e5bb7b2a0185be6a5e12ec54b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f8eac26415bd91edab1dc37457f74695a4359e95551eccf3a20145696e37a4e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "232b0c24ad9152ca00343ffc90568906250fab354abd07a01f6712ff4c1edf39"
+    sha256 cellar: :any_skip_relocation, ventura:        "0aa3e80e4f2949e43e7595cff86bbe613adcb17069ff7de4a1f31219d61b1cbc"
+    sha256 cellar: :any_skip_relocation, monterey:       "0ccedb396bf5705e33c15072f7dea652d5a11726d33186ce7ae680d628619328"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb9abd94331a9adda204ed7708cbfd1b8dffa9d973d5c5d7e37b892b1857fc3d"
   end
 
   depends_on "python-setuptools" => :build

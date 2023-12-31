@@ -1,6 +1,8 @@
 class SpirvTools < Formula
   desc "API and commands for processing SPIR-V modules"
   homepage "https://github.com/KhronosGroup/SPIRV-Tools"
+  # TODO: Change `-DPYTHON_EXECUTABLE` to `-DPython3_EXECUTABLE` in next release.
+  # Ref: https://github.com/KhronosGroup/SPIRV-Tools/commit/a63ac9f73d29cd27cdb6e3388d98d1d934e512bb
   url "https://github.com/KhronosGroup/SPIRV-Tools/archive/refs/tags/v2023.2.tar.gz"
   sha256 "7416cc8a98a10c32bacc36a39930b0c5b2a484963df5d68f388ed7ffee1faad3"
   license "Apache-2.0"
@@ -18,19 +20,8 @@ class SpirvTools < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
 
-  resource "re2" do
-    # revision number could be found in ./DEPS
-    url "https://github.com/google/re2.git",
-        revision: "b059ae85c83ca6b1f29dba20e92e4acb85cb5b29"
-  end
-
-  resource "effcee" do
-    # revision number could be found in ./DEPS
-    url "https://github.com/google/effcee.git",
-        revision: "66edefd2bb641de8a2f46b476de21f227fc03a28"
-  end
+  uses_from_macos "python" => :build, since: :catalina
 
   resource "spirv-headers" do
     # revision number could be found in ./DEPS
@@ -39,18 +30,17 @@ class SpirvTools < Formula
   end
 
   def install
-    resources.each do |res|
-      (buildpath/"external"/res.name).install res
-    end
+    (buildpath/"external/spirv-headers").install resource("spirv-headers")
 
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                            "-DBUILD_SHARED_LIBS=ON",
-                            "-DSPIRV_SKIP_TESTS=ON",
-                            "-DSPIRV_TOOLS_BUILD_STATIC=OFF"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
+                    "-DSPIRV_SKIP_TESTS=ON",
+                    "-DSPIRV_TOOLS_BUILD_STATIC=OFF",
+                    *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     (libexec/"examples").install "examples/cpp-interface/main.cpp"
   end

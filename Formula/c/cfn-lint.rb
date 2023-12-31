@@ -3,18 +3,18 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/d7/c5/96dcb6bff4348b8928c0c62a4fa6d732fda8fe3324ca6d1c36058230e74b/cfn-lint-0.83.4.tar.gz"
-  sha256 "fe386419ec2c92ffd795a9d1e1bea8131c9c8fae90e7a823f43da2fff82e9af7"
+  url "https://files.pythonhosted.org/packages/33/d1/1c7b533be15aa06caca86035f97e7666a3faa2453be683bf0ecf8e34a851/cfn-lint-0.83.7.tar.gz"
+  sha256 "a6456de27b4fa6927fc5505b1efacc7c6d03676be14b2add4803c73dd97692ae"
   license "MIT-0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3c41c9410d2c04ebf11625546e37ded17f08252b9c3468b67725b73b9d0f5bfc"
-    sha256 cellar: :any,                 arm64_ventura:  "724f5a0b56ef363762d06c57596dd33b551d3a91215ec4d7ea55cd6c361a7dcf"
-    sha256 cellar: :any,                 arm64_monterey: "2a9be90d67f60cfb494ab686046a38569001f328f76a2c412651b7952175fb69"
-    sha256 cellar: :any,                 sonoma:         "9fff97c027e868f387754f6c82893caf3e4e0f02ad22165c0da1692f93d9d72d"
-    sha256 cellar: :any,                 ventura:        "98b68b94b1b2a05fa52893c6a909b331370854b6fa877f46579661422445c563"
-    sha256 cellar: :any,                 monterey:       "9663926f2af4c18d739b52c96320f63698bd9088fe2d5473872717702df779f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc86acc3c1e7dcd54c3f5ba3d112d7dbca7a56273939142ddd9a1b01ab8a5238"
+    sha256 cellar: :any,                 arm64_sonoma:   "7e28c9ff011ea095f752720f9e4e10b02d44f8b92651859ece6305fd20385cec"
+    sha256 cellar: :any,                 arm64_ventura:  "9b993d6b375be03d15a29e9901605219a559d411f95f2cd13de5162f0002580c"
+    sha256 cellar: :any,                 arm64_monterey: "72b472ebee244df7ebb8ad743b0392ff356874457f1370ba00b8d187acc5e309"
+    sha256 cellar: :any,                 sonoma:         "f8f08f41da48d1471ec727e9ae4cbaa3794b623187114c567cc027fa3b9895cc"
+    sha256 cellar: :any,                 ventura:        "cf55241591cd68f3046c791bd28d8f0273d3274e2df03cb59c49130d60e1832b"
+    sha256 cellar: :any,                 monterey:       "6c7ca21b69f4f7ca1175ac67311f5eb70d789c1c6fcdae6779fa80d788c73974"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95c5edae3f5860dc2907ce63e5293f8faa69a08fc1748fe159ca6d72f0d4049c"
   end
 
   depends_on "rust" => :build
@@ -35,18 +35,18 @@ class CfnLint < Formula
   end
 
   resource "aws-sam-translator" do
-    url "https://files.pythonhosted.org/packages/26/a3/a6238f1fbc6b8b612dca5207b7692cd92e8260c79a3e8314f654e35d528e/aws-sam-translator-1.81.0.tar.gz"
-    sha256 "a5e268673d4d17cd1609f823fa9779aaf0103c47971a03a4eab6414b08c702fa"
+    url "https://files.pythonhosted.org/packages/d2/9d/25709acfd440ba2e8b7518a67745fbeb7df8a8ed0d30c538bead9d371d98/aws-sam-translator-1.82.0.tar.gz"
+    sha256 "f78e58194461635aef6255d04e82a9b690e331ca9fd669d1401bf7f9a93ae49f"
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/b1/e0/3cf846e1c39489f8250cd032514e0c1821d326a00002e06b94252c9f526c/boto3-1.33.6.tar.gz"
-    sha256 "4f62fc1c7f3ea2d22917aa0aa07b86f119abd90bed3d815e4b52fb3d84773e15"
+    url "https://files.pythonhosted.org/packages/5c/ac/96b1c5ab6bdbccb0e6a634a6523b262c56baa3f7af229ab8dc73a993f7d7/boto3-1.34.6.tar.gz"
+    sha256 "ae47b84db94fc3b8e635c6d1b93da85a5fdca961b212260e5dbf5166435fe7b0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/04/6c/540ecba244f342206d72e7d22328f2ceea33f3f8bac89c8fac463c15e4aa/botocore-1.33.6.tar.gz"
-    sha256 "938056bab831829f90e09ecd70dd6b295afd52b1482f5582ee7a11d8243d9661"
+    url "https://files.pythonhosted.org/packages/ca/1d/2d418bc66460db3f3afeefc17286c0d447de90a87782030eeb58527f8ffa/botocore-1.34.6.tar.gz"
+    sha256 "bfe587f48e154a3a836f85af165116b7d5dba9b3b746ce0b94e6d2ed1e06c206"
   end
 
   resource "jmespath" do
@@ -90,18 +90,18 @@ class CfnLint < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/b7/41/3c8108f79fb7da2d2b17f35744232af4ffcd9e764ebe1e3fd4b26669b325/pydantic-2.5.2.tar.gz"
-    sha256 "ff177ba64c6faf73d7afa2e8cad38fd456c0dbe01c9954e71038001cd15a6edd"
+    url "https://files.pythonhosted.org/packages/aa/3f/56142232152145ecbee663d70a19a45d078180633321efb3847d2562b490/pydantic-2.5.3.tar.gz"
+    sha256 "b3ef57c62535b0941697cce638c08900d87fcb67e29cfa99e8a68f747f393f7a"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/64/26/cffb93fe9c6b5a91c497f37fae14a4b073ecbc47fc36a9979c7aa888b245/pydantic_core-2.14.5.tar.gz"
-    sha256 "6d30226dfc816dd0fdf120cae611dd2215117e4f9b124af8c60ab9093b6e8e71"
+    url "https://files.pythonhosted.org/packages/b2/7d/8304d8471cfe4288f95a3065ebda56f9790d087edc356ad5bd83c89e2d79/pydantic_core-2.14.6.tar.gz"
+    sha256 "1fd0c1d395372843fba13a51c28e3bb9d59bd7aebfeb17358ffaaa1e4dbbe948"
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/80/ce/e99def6196f53af8de12a9c36968de32f80b7871084d677d0dfcd2762d0b/referencing-0.31.1.tar.gz"
-    sha256 "81a1471c68c9d5e3831c30ad1dd9815c45b558e596653db751a2bfdd17b3b9ec"
+    url "https://files.pythonhosted.org/packages/96/71/0aabc36753b7f4ad18cbc3c97dea9d6a4f204cbba7b8e9804313366e1c8f/referencing-0.32.0.tar.gz"
+    sha256 "689e64fe121843dcfd57b71933318ef1f91188ffb45367332700a86ac8fd6161"
   end
 
   resource "regex" do
@@ -110,13 +110,13 @@ class CfnLint < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/48/0b/f42f99419c5150c2741fe28bf97674d928d46ee17f46f2bc5be031cce0bc/rpds_py-0.13.2.tar.gz"
-    sha256 "f8eae66a1304de7368932b42d801c67969fd090ddb1a7a24f27b435ed4bed68f"
+    url "https://files.pythonhosted.org/packages/a9/27/92d18887228969196cd80943e3fb94520925462aa660fb491e4e2da93e56/rpds_py-0.15.2.tar.gz"
+    sha256 "373b76eeb79e8c14f6d82cb1d4d5293f9e4059baec6c1b16dca7ad13b6131b39"
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/5f/cc/7e3b8305e22d7dcb383d4e1a30126cfac3d54aea2bbd2dfd147e2eff4988/s3transfer-0.8.2.tar.gz"
-    sha256 "368ac6876a9e9ed91f6bc86581e319be08188dc60d50e0d56308ed5765446283"
+    url "https://files.pythonhosted.org/packages/a0/b5/4c570b08cb85fdcc65037b5229e00412583bb38d974efecb7ec3495f40ba/s3transfer-0.10.0.tar.gz"
+    sha256 "d0c8bbf672d5eebbe4e57945e23b972d963f07d82f661cabf678a5c88831595b"
   end
 
   resource "sarif-om" do

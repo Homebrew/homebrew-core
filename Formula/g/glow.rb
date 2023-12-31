@@ -6,21 +6,22 @@ class Glow < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "449f5b994db7ce089cfde32c5ad801e2cd3cfc5f58df216dcd0c29528032e151"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c0d7b294dd4a8a12bca0eb53c9dec78c43a98c28436bd949074ba22b6a55380"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c0d7b294dd4a8a12bca0eb53c9dec78c43a98c28436bd949074ba22b6a55380"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3c0d7b294dd4a8a12bca0eb53c9dec78c43a98c28436bd949074ba22b6a55380"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1a1cedcd1c2995dd5b06efef2593df89d043be97acbe0edaa9dff149bf9939e2"
-    sha256 cellar: :any_skip_relocation, ventura:        "b6552b824d49b18f65dda0a80364c88952e6ec64513ce3fdcff8fb748acccbbe"
-    sha256 cellar: :any_skip_relocation, monterey:       "b6552b824d49b18f65dda0a80364c88952e6ec64513ce3fdcff8fb748acccbbe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b6552b824d49b18f65dda0a80364c88952e6ec64513ce3fdcff8fb748acccbbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc5970c0f0ab674039f840c12fdb5e3764bf90c879831e6038bdb6c55ba12382"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4486241aaf23f7ebb97e03b0a8adbb989024dff5fbb4ab1c99c223d6ff262e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59753a888910c13add586fc3de3abbb157813818b6aebabc2c43bfc34b4b8184"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f441f6021458b282da2ccdfb720826ed604f7f8dbf2849540a39397281cbb95"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b7be74a04e794af12071f494b9e2ee896f3e5f21707ac9c1859a9e32591a40e7"
+    sha256 cellar: :any_skip_relocation, ventura:        "3865595d8a6d7054675868edfe7decec77b208a79ed74e5af690a6f995324351"
+    sha256 cellar: :any_skip_relocation, monterey:       "12f8ce65f74a79ece88015233caf2fc95ec5b0fd630606e0f422da3be306bf01"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8f47e194373a7a04485809904de89acca935fd9116cbcb807c7c5245f9478bb"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
+
+    generate_completions_from_executable(bin/"glow", "completion")
   end
 
   test do

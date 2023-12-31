@@ -1,21 +1,19 @@
 class OpenclIcdLoader < Formula
   desc "OpenCL Installable Client Driver (ICD) Loader"
   homepage "https://www.khronos.org/registry/OpenCL/"
-  url "https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/refs/tags/v2023.04.17.tar.gz"
-  sha256 "173bdc4f321d550b6578ad2aafc2832f25fbb36041f095e6221025f74134b876"
+  url "https://github.com/KhronosGroup/OpenCL-ICD-Loader/archive/refs/tags/v2023.12.14.tar.gz"
+  sha256 "af8df96f1e1030329e8d4892ba3aa761b923838d4c689ef52d97822ab0bd8917"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/OpenCL-ICD-Loader.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "03e31391a1d1891d9781ad51a4796adbbcfd2b4bd4ba691a3166c2391e18a2eb"
-    sha256 cellar: :any,                 arm64_ventura:  "70649fdb781ddc422081204849419bdcb28cd7ed44ff7a676938690028a90435"
-    sha256 cellar: :any,                 arm64_monterey: "83849eb94958bbc677f36d9c25d4d726f8250670fe04bb8281805fb3cda6c0b5"
-    sha256 cellar: :any,                 arm64_big_sur:  "c957def164ce93872beb07e0ed347fb1d84641172db8fee3da512e04e759039c"
-    sha256 cellar: :any,                 sonoma:         "91f8e09bb1f604cbd26bef94a3ac7ef2aa55c49f4b9839ae80822743cebb8890"
-    sha256 cellar: :any,                 ventura:        "cb670002a1bb0c9cd2802bcbd7c4a433dbcfc183991ebd52f7a02e0c32d95a20"
-    sha256 cellar: :any,                 monterey:       "59f53963c7f6f0451abb1e65d97bf49304d1ef6dd05dd5192781aedd53f33f04"
-    sha256 cellar: :any,                 big_sur:        "e8f020c775ad82a447c9e07182aa9a3619fe1c67cd53053dcb66cae3c9e2f51a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3cf98dad47d2f96e9ec3bd6cf2e1e41ef10259ef4de754c2927ce560b85ae16"
+    sha256 cellar: :any,                 arm64_sonoma:   "785d86639b5e173c1e54998c9af87ce6556814da2b19fb1574e1ab52d881bf18"
+    sha256 cellar: :any,                 arm64_ventura:  "c273e98ce374d8d0628e91dfaabeec8ba0ff114c030173d868df3c7175a5f03b"
+    sha256 cellar: :any,                 arm64_monterey: "a31fd776a5d9948f51e38b406274b4351ef0e9f4e005172472c7675b3e11b0a6"
+    sha256 cellar: :any,                 sonoma:         "d3f967cefe76cbc8d6cff828a12f34695553baee5a270f7d0e42de281364b74b"
+    sha256 cellar: :any,                 ventura:        "559af3eefe68983128cb17d3e2960e0625603bcf6819da7c0c7797e5d757f3dd"
+    sha256 cellar: :any,                 monterey:       "4db247d8bf4b69cb87f9dce24477a360ef6a53106142de25e025cf1051409639"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b99bd58c9d2527d4cab97efa0ff7955d0bac962fbab09a2afdbb4eab6b3ca151"
   end
 
   keg_only :shadowed_by_macos, "macOS provides OpenCL.framework"

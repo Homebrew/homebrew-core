@@ -16,6 +16,10 @@ class LibbitcoinExplorer < Formula
     sha256 x86_64_linux:   "847b8b76af5d255821ff814d26846bbeb2b1d86bd2c47a3a5ce98314e701843c"
   end
 
+  # About 2 years since request for release with support for recent `boost`.
+  # Ref: https://github.com/libbitcoin/libbitcoin-system/issues/1234
+  deprecate! date: "2023-12-14", because: "uses deprecated `boost@1.76`"
+
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build

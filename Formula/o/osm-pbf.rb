@@ -1,32 +1,35 @@
 class OsmPbf < Formula
   desc "Tools related to PBF (an alternative to XML format)"
   homepage "https://wiki.openstreetmap.org/wiki/PBF_Format"
-  # TODO: Check if we can use unversioned `protobuf` at version bump
   url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.5.0.tar.gz"
   sha256 "2abf3126729793732c3380763999cc365e51bffda369a008213879a3cd90476c"
   license "LGPL-3.0-or-later"
   revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a016039787dcf8a02818ee5acb42d34afacf68c2f7e21fa5a20a74d7b417e352"
-    sha256 cellar: :any,                 arm64_ventura:  "76cb439da420f4f46f3c05790353b1bd5c6fb41f1660be72c20debaefb8f21c4"
-    sha256 cellar: :any,                 arm64_monterey: "2686e5c465cae1bf9dcfe5b566300ce59333a308a2001f46081d216304f8d30b"
-    sha256 cellar: :any,                 arm64_big_sur:  "c1a4fd86fc7b23fe2534bd50d1c17d8c929081f4861970bef9c91771a1fd85fe"
-    sha256 cellar: :any,                 sonoma:         "40127f7c824dd71b63ad09ad5bed6803e402f118dddd40dbc3664977f4a6f67f"
-    sha256 cellar: :any,                 ventura:        "6999adc180bc02399df196b0d130f9e084d3ef8a8f604210e71157eef0cce1f1"
-    sha256 cellar: :any,                 monterey:       "e838c398a9a89da23a363c48432999a1a7e9a696af1cae28f43df55eeb92eeb7"
-    sha256 cellar: :any,                 big_sur:        "be7f0cf8535457feecb3dec2cfc76bf74f88de4efa73a77c1c5114c25ac4309b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "167796ef8b8d49e257eb7909e314b4156b2b9865f44a2b23bd1c7b0cbea5fc3f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "69f34c69bcd270ae89cfa9a37e3dc63cc576f25832de71f1d85e09a91c47b74b"
+    sha256 cellar: :any,                 arm64_ventura:  "99b03549fff7d28e0a35a1151dc96eebd60860a510fff1cb5a9c2c9889b633f2"
+    sha256 cellar: :any,                 arm64_monterey: "f5926acb0bcc766a4429b2025fa9b06e9f733c4692b4c1156cfaab0216daf0a0"
+    sha256 cellar: :any,                 sonoma:         "d6b873eb49d8b84c702ebf0df89799d7e6d245bc94ac31fd3f5921fcfdb325a7"
+    sha256 cellar: :any,                 ventura:        "0289b857240b19a3830b43cd21f32b8cd884d79cd9ea29f7e53ec11a638e0b8a"
+    sha256 cellar: :any,                 monterey:       "34e920db76c1400c893e3ff63e045e42d60165be93fd936a5b031ca4e62d31c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5641ca48a5aab011da6a3a676c5137cc3471e33fa1aabb5ef27b569f8701e5b2"
   end
 
   depends_on "cmake" => :build
-  depends_on "protobuf@21"
+  depends_on "protobuf"
 
   uses_from_macos "zlib"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    # Work around build failure with Protobuf 22+ which needs C++14/C++17
+    # Issue ref: https://github.com/openstreetmap/OSM-binary/issues/76
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     pkgshare.install "resources/sample.pbf"
   end
 

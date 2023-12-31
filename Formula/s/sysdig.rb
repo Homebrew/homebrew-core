@@ -21,13 +21,14 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "5bfd914de485ef9ddd790b78520c2a285e0873811c75b53458701fb090c87737"
-    sha256                               arm64_ventura:  "1db818a95c01d217444759a37bc7c2c9f3875eb478257505a141eade0cb5b923"
-    sha256                               arm64_monterey: "38c1f371e44ba32cd744ce2ae22936fea15aa3e49fb028959b130fd557beed23"
-    sha256                               sonoma:         "978f52e06e75245868d21bb5bc9e017365d11221a9899a156f13c9c0ebfda1d3"
-    sha256                               ventura:        "45a6aa1a851cfcef68ae5718a7850b5cc207776c0f2276e8fb7a5bac812a998e"
-    sha256                               monterey:       "ba2268668c04d728d52520ccf29509c0da88bb1a53d24f32113943d69779c02b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a53a77d15ae08e5eb60c4901090f9d4bd3504ad688ec06672d8c5d4094defd4f"
+    rebuild 1
+    sha256                               arm64_sonoma:   "9fdebb54f96cd4bd29f45937a5a9f232a26b6543ee7ee9cb260e80d9b017636d"
+    sha256                               arm64_ventura:  "7eb5a00f69db2616ce28cc2db5bb80702ab46e856d236a89484aa4903d9ecb76"
+    sha256                               arm64_monterey: "f848eb52a209df2d96af2f0206a347aa5b999c8eea8c6bfee0e8931618a4c26d"
+    sha256                               sonoma:         "2d0d99816a41a803335ce0b9870e51ee87066c1921b734b566227a0d6f09707b"
+    sha256                               ventura:        "a963b4b3a5a5e66a035f90aba739597b0a1d7c85f6272e1483becd4a08c48a96"
+    sha256                               monterey:       "83259c87a0301887c90d820cf5f3116dc9ea48cfe158b500a037547761be215f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28701b5822511efc784666d2e03d279877d2f0f051d7f74c737c69839d8d04b8"
   end
 
   head do
@@ -56,10 +57,10 @@ class Sysdig < Formula
     depends_on "libb64" => :build
     depends_on "abseil"
     depends_on "elfutils"
-    depends_on "grpc@1.54"
+    depends_on "grpc"
     depends_on "jq"
     depends_on "openssl@3"
-    depends_on "protobuf@21"
+    depends_on "protobuf"
     depends_on "zstd"
   end
 
@@ -87,7 +88,6 @@ class Sysdig < Formula
       -DBUILD_LIBSCAP_EXAMPLES=OFF
       -DDIR_ETC=#{etc}
       -DFALCOSECURITY_LIBS_SOURCE_DIR=#{buildpath}/falcosecurity-libs
-      -DCMAKE_CXX_FLAGS=-std=c++17
     ]
 
     # `USE_BUNDLED_*=OFF` flags are implied by `USE_BUNDLED_DEPS=OFF`, but let's be explicit.

@@ -1,22 +1,29 @@
 class Ocm < Formula
   desc "CLI for the Red Hat OpenShift Cluster Manager"
   homepage "https://www.openshift.com/"
-  url "https://github.com/openshift-online/ocm-cli/archive/refs/tags/v0.1.70.tar.gz"
-  sha256 "f4693db628fb63009133cf97ad48c7aaae764e381006a7e239a13597722ef02c"
+  url "https://github.com/openshift-online/ocm-cli/archive/refs/tags/v0.1.72.tar.gz"
+  sha256 "c1fd5e0fdb8470dc28e596dc29845e3b7e03d02ab336d961ef3101337ee4093c"
   license "Apache-2.0"
   head "https://github.com/openshift-online/ocm-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "373cfbab7d313213da941346c7ed267adaf6181a9c739e1fdf15b24163631a21"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5cbdc425f362bf32e9fe2186f721b65c99dc6803b06e1d6d6677c9f82ac5c67b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "392c3f00b337b613b1e09bae294830331f29d2dc250a0f3693957072f09c09f1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e575e6ec613cac80d763b87c64156958d5c2f73ca1553467f8f09117f05c94ac"
-    sha256 cellar: :any_skip_relocation, ventura:        "3916ab83c510c88b540044c15b30c1fb9019ed4f82602002937abd46db489ccb"
-    sha256 cellar: :any_skip_relocation, monterey:       "d5a95b2e09282a3660cf732c55b3ddda17044abdb4f7c2689066d61653eec3d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b386d6d5baefb2c5cdbc68695be5121e6224ce927a1e8ab10ea581beec5ae527"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ef219d053057e2a308e13f25b3bb23f26bc7956e1db422533947d4471f52b2a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "31f05076e1f80f5c5eea017d63c1b29effe9d925aee7d3d8e9debeb120bf1096"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8acf5e29de28c4196f9d6e1eefe574f3327bff13fbde835dfc34fe4ee28478b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "94e00690641a547328f461af1947b546b00e499ed215a7c81768f9a246519173"
+    sha256 cellar: :any_skip_relocation, ventura:        "b7fe2b4066d4bb1b038a07c550cd940d016e4defc9296ed69c4e0232498a8a47"
+    sha256 cellar: :any_skip_relocation, monterey:       "df60f06125db5611df5c928804cdd11c99a62a9b78bf9aaa88ba5c238b5e23de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542d127f88f916f382344e63d23d9894f2fb88b74464a652375a35289c8b7f83"
   end
 
   depends_on "go" => :build
+
+  # update to build with go1.21
+  # upstream PR ref, https://github.com/openshift-online/ocm-cli/pull/587
+  patch do
+    url "https://github.com/openshift-online/ocm-cli/commit/0bfd59a5728ece351e60ab34e0fbade747472feb.patch?full_index=1"
+    sha256 "cc5016d6c98b7b995bb331ccf6c68f393e06bdf17536e9b92ca8c18c0a7494c9"
+  end
 
   def install
     system "go", "build", *std_go_args, "./cmd/ocm"

@@ -4,6 +4,7 @@ class Jack < Formula
   url "https://github.com/jackaudio/jack2/archive/refs/tags/v1.9.22.tar.gz"
   sha256 "1e42b9fc4ad7db7befd414d45ab2f8a159c0b30fcd6eee452be662298766a849"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,22 +12,20 @@ class Jack < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5761fd56f7cc48e05c214ecec68347acbd526922d1ca19c77b842a5b3150420f"
-    sha256 arm64_ventura:  "de407106387c805a6117edb7e10646accf5cc25abed05b310475709b07d403c3"
-    sha256 arm64_monterey: "44c6dfc147a7e6f5677e6f5a94ce46fe4ec87db6953c2893eb5bdc6082623eca"
-    sha256 arm64_big_sur:  "5b71efa702af44215537e74f2f792a7f9a02253a10350a91a0043735de24d6ac"
-    sha256 sonoma:         "eb2a76f2fea911a0a7938f97ffd0666f3a5f03939f8ceb785108ec8f413cea2e"
-    sha256 ventura:        "2f54c142f838c5ce1f248d44b5efb32cf52092c8e232b2848965c68a2c5a6066"
-    sha256 monterey:       "59251197992e250453273d7cf62da7a4b11b730382686e3e5bb8349c9d7c8ce5"
-    sha256 big_sur:        "df787dac8716e347bd2e336ac604042333e2ccff75cbe665412fb39fbb0f9cfc"
-    sha256 x86_64_linux:   "7e201f19d5920e21582995edffb59667edefa7ac50ee3016cbd4fc4d872b548e"
+    sha256 arm64_sonoma:   "39affd1f135d3745a22bf4907e46509cdb4b1b3a8e654e23179e1a1ad92193bc"
+    sha256 arm64_ventura:  "6210ae0eeab831aa965d6d737f22b7476224d1cd1daa1105cee116dd37a3627a"
+    sha256 arm64_monterey: "e9ff1f4cef83787cd63bb788cd2c1818b64798d85c7081ed3b2ba42a8f40b149"
+    sha256 sonoma:         "15b133b0d5b27e9a1e054fec07cd8c0c3e4972ace51ca2d6ec9b57b8ee4c5c85"
+    sha256 ventura:        "6d6e8934386e7609ad4ab4af7ba321ffc0bf8673f93b2d2deca7fb3bc3207688"
+    sha256 monterey:       "5079ca572c21ee6acc9574a0db44938e2c6099242d38a3cbd39bc4e4bc643c08"
+    sha256 x86_64_linux:   "1632a4f4ebdf3e82dd5186dd71dd498a83bf47f4ef610b319d22bb201727e463"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "berkeley-db"
+  depends_on "berkeley-db@5" # keep berkeley-db < 6 to avoid AGPL-3.0 restrictions
   depends_on "libsamplerate"
 
   uses_from_macos "python" => :build

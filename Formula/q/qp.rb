@@ -32,7 +32,7 @@ class Qp < Formula
 
     resource("csp-js").stage { cp_r "index.js", buildpath/"src/csp.js" }
 
-    system "qjsc",  "-o", "#{bin}/qp",
+    system "qjsc", "-o", "#{bin}/qp",
                           "-fno-proxy",
                           "-fno-eval",
                           "-fno-string-normalize",

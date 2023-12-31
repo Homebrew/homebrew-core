@@ -7,13 +7,14 @@ class Kwctl < Formula
   head "https://github.com/kubewarden/kwctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3533fc941cc2693cea9ddc0e3326eef09c193ab5dbe8b3e8a0729a3b87ad9e98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "218bf600a52af8f42f181a130f2f9529d564b819143fb02235920944fcafc4ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2b3f7d45767a1d070f7a6791ce9c21fb66b995074f431027bf1819177822d90"
-    sha256 cellar: :any_skip_relocation, sonoma:         "203b79d3977b2d7534ee03d5137bca4a76509a96e6b5482c308828eceb483ab6"
-    sha256 cellar: :any_skip_relocation, ventura:        "6082fa69234725fd16171fcef80117e5e25e2309bac1b07b0023c72a12386806"
-    sha256 cellar: :any_skip_relocation, monterey:       "d9ba9ff519f676f42300739589b9df090850e3d600ae2378c686ad06e3ba7c8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eab8770ac621d98b2b1d3b04d4d5d024d04c186a653499602e19bf0551c16735"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18e8c00318b2982ba6bd0a34874a2387a9b3378a29eefe5365c9a4d67ec48724"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51170e33f9bc4fdda4ad01b076259736808e32673d677c429924c901c15156d8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "96d95faab71620ba1ec16af9724a0d2a33873f96d6ede5ed7f6a7ead83dbbf9f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4eba4e4e081b9add8aa343f9479a96aec2e9279b3927c19140041fb3fd762094"
+    sha256 cellar: :any_skip_relocation, ventura:        "fbfaccc6da2ad37098c100cd7697de0fe5582054476924bd190e4d6e8a6bf91a"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa88d3369b6c39bc9e2315f8f7d8ee7de0aa72a2bb27915f10d7fa83c512e953"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65b735e074f89a085fc50ad3c8f62818f5e9935036d805c6fdedbd5ff94ce4dc"
   end
 
   depends_on "rust" => :build
@@ -24,12 +25,14 @@ class Kwctl < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"kwctl", "completions", "--shell")
   end
 
   test do
     test_policy = "ghcr.io/kubewarden/policies/safe-labels:v0.1.7"
     assert_equal "kwctl #{version}", shell_output("#{bin}/kwctl --version").strip.split("\n")[0]
-    system "#{bin}/kwctl", "pull", test_policy
+    system bin/"kwctl", "pull", test_policy
     assert_match test_policy, shell_output("#{bin}/kwctl policies")
 
     (testpath/"ingress.json").write <<~EOS

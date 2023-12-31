@@ -1,23 +1,36 @@
 class Adplug < Formula
   desc "Free, hardware independent AdLib sound player library"
   homepage "https://adplug.github.io"
-  url "https://github.com/adplug/adplug/releases/download/adplug-2.3.3/adplug-2.3.3.tar.bz2"
-  sha256 "a0f3c1b18fb49dea7ac3e8f820e091a663afa5410d3443612bf416cff29fa928"
-  license "LGPL-2.1"
+  license "LGPL-2.1-or-later"
+
+  stable do
+    url "https://github.com/adplug/adplug/releases/download/adplug-2.3.3/adplug-2.3.3.tar.bz2"
+    sha256 "a0f3c1b18fb49dea7ac3e8f820e091a663afa5410d3443612bf416cff29fa928"
+
+    # Fix -flat_namespace being used on Big Sur and later.
+    patch do
+      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
+      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    end
+  end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9279ed164adb8828ea78aa011cc7593e531f6b7b47f60598a8e8b3dff9d6279b"
-    sha256 cellar: :any,                 arm64_ventura:  "ceef9a9003823371b81c35be731a9104352636f1840f5da471ddbc6da36f19b4"
-    sha256 cellar: :any,                 arm64_monterey: "0ec6a15a91e9fd25a3ccb7cd84b17c7e2ef5c7c1d7d942332de2489ea28dc86f"
-    sha256 cellar: :any,                 arm64_big_sur:  "4b28021b120d5e58c7227934d09744833b0406fdd02107c8032f112e4cf4f520"
-    sha256 cellar: :any,                 sonoma:         "aa0e3f8db40d036fe86a5ea254ed1990aac4bc1b1a655cdd9206693e97b9a17d"
-    sha256 cellar: :any,                 ventura:        "65a3660a9050cdb356c9cf16b39fb3e305ebbae343793cf67cc7502ec6180fec"
-    sha256 cellar: :any,                 monterey:       "690c9c37d9fc89f2a85d98f41af9e28e4ca24c618390d1d9120f88882f36f19f"
-    sha256 cellar: :any,                 big_sur:        "a26ee4d452a1ac114bd4ed0b208741f5282fccbcb9a1f82f0b3f8aa309e18fcf"
-    sha256 cellar: :any,                 catalina:       "1698e0290de585761d85501881c22826662a4e1a04d5818a1a45d00a98f306ef"
-    sha256 cellar: :any,                 mojave:         "9dc95d2cd84290b55285581c4214234afe13c009be2a67f3ceeb5de39ffe0729"
-    sha256 cellar: :any,                 high_sierra:    "d9be8ef57f38e700c36e0f00563f5d31256112e1d2a870a97c3ac4d75ae138f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dd7290f9bbac079019cee98d1e303f863db604c58c6b942ed8dfd4df364c88f"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "514028f94c34051f59df4b74c32ff78fc84b64d0fa18d0c5b4f8b43ef62a4283"
+    sha256 cellar: :any,                 arm64_ventura:  "88af10e2c8f0262b54a4ce6f71ba1903e13abbeafad1ffd2d6612f44c140e7fb"
+    sha256 cellar: :any,                 arm64_monterey: "daa3f1233e27cf292d303d51e3c6e3bdc423645ba71469ef9107af0df3f4f56a"
+    sha256 cellar: :any,                 sonoma:         "4762b417de9a58d94b75282382f471279b5dc20996bbf8df2b400c01af3c62e0"
+    sha256 cellar: :any,                 ventura:        "3e2445d7a6e2abc018a5e9dabaa17fc4b96653dca6c034522f732e7b7a8c3808"
+    sha256 cellar: :any,                 monterey:       "f5219a73107c5f947afd837afe02f23a1cafcc4611efae7a393f11239f252509"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec7b64b6c3b963b8fb6fc6a330cd7ef305af5f76246c8415fa67f4cf7e273a12"
+  end
+
+  head do
+    url "https://github.com/adplug/adplug.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -32,13 +45,8 @@ class Adplug < Formula
     sha256 "2af9bfc390f545bc7f51b834e46eb0b989833b11058e812200d485a5591c5877"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-  end
-
   def install
+    system "autoreconf", "-ivf" if build.head?
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

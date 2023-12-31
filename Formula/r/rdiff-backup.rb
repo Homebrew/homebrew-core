@@ -1,19 +1,19 @@
 class RdiffBackup < Formula
   desc "Reverse differential backup tool, over a network or locally"
   homepage "https://rdiff-backup.net/"
-  url "https://files.pythonhosted.org/packages/ac/6a/6122e5f9a08f8b195cbc9d89e153e27e6a068e44de4a7e6494754a15e028/rdiff-backup-2.4.0.tar.gz"
-  sha256 "1721ab8ae1f1e163117d776d52daf2ee53cb9b7e96ec749ee2bd5572ccf55935"
+  url "https://files.pythonhosted.org/packages/e9/9b/487229306904a54c33f485161105bb3f0a6c87951c90a54efdc0fc04a1c9/rdiff-backup-2.2.6.tar.gz"
+  sha256 "d0778357266bc6513bb7f75a4570b29b24b2760348bbf607babfc3a6f09458cf"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "0c0078f8d979ea77e3c762d180527f21cf802fd6b374e7600ec2f3ce0642ddff"
-    sha256 cellar: :any,                 arm64_ventura:  "c8cbb2ba92cd4444c7984ba20f9ea396946d56ca92b76ac7472164199d94ed6a"
-    sha256 cellar: :any,                 arm64_monterey: "6189ac0853ecd011f4cabd5200a4a66cbf11e7ecf651dd1ca6b184b25cb249ae"
-    sha256 cellar: :any,                 sonoma:         "15d9fafa877e2ce4ef11928cc7a2b102fcf2d5386dd83f4fef273f0a6e4510c2"
-    sha256 cellar: :any,                 ventura:        "a4795c66b33328a5e213e36171c589f2e182bf1023f2d446d77a63d59b894854"
-    sha256 cellar: :any,                 monterey:       "c038930bc65163511da5add62466b0273b6646ae66e3a2dacefd44688bd0c1f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8f2f55b588b003b97ef53214961864fd4e01fe2892fc494f1e34b3e7b8de7c2"
+    sha256 cellar: :any,                 arm64_sonoma:   "5a3e78508afa86281241a6ef7071837543e9f4ea84003b997aacfac3371efc37"
+    sha256 cellar: :any,                 arm64_ventura:  "175c28ada56c7248912bcfe94af746f4961431188b7dfebc104b83da48099513"
+    sha256 cellar: :any,                 arm64_monterey: "a769a38c3536633c0476ebb300658f0d480cd43aea3b4d27ec0f65c8a9d23be8"
+    sha256 cellar: :any,                 sonoma:         "ad0a5f045bd9216d039a0c908556a8a6fdd4df3365b1a7de020e22e86a89f271"
+    sha256 cellar: :any,                 ventura:        "fde749d182eed068dd48d955f9e7d135066d082b2ba669c1e4504d975917be0f"
+    sha256 cellar: :any,                 monterey:       "b74a24cc7a9504ce1c46326a5851ae6836342bf6563becabb13cf64cf9360dfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35f310b6fa334659767acb53075486db2ecb75ad84f0f134b296c6b6af30ee46"
   end
 
   depends_on "python-setuptools" => :build

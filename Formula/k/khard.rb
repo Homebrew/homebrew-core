@@ -8,13 +8,14 @@ class Khard < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34687e03a06151c017e73d961efefe20f32b1cc111c83f92f9cc05b92e663321"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cfba89e9af7781723d35bd502771df176d4e391fc9b1a03b50c5c1c1b2e858d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ed61a1b027bea298598d3a628a5a4d8d5b0ae1bf6f126506480239f89b2fde2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0d715c9003cca7ae2bb78cefcd5a65bf1a5fbb5b9e91ce5660149f329c6e6594"
-    sha256 cellar: :any_skip_relocation, ventura:        "4690b2ca3cec83fe1d435e8e52ae0285e8eb871eacd0cf6f1660bd19e8fc4dc8"
-    sha256 cellar: :any_skip_relocation, monterey:       "861363612fe66fb88ffc4b6065f2cf1677481db51b340202275702c06e21da8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c229765e86f1a6fb152037e5a408a81a46452f10e6fcdd23509b993d4ad6143"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2917beb079285a6f3bede8e7d44b86440dcbdf711cb77dc2bf0858bec9f1c2a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59b6ea21530efd399923ece9be38c6aeef1793bb8633f2c6b03015995d2d6e57"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7be1e53f3cb4aee2e0359efc5821a9e683ce8100772a25e259a8378a9da7f29f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "06fca3c40eacb62ad2142a7000b28c11a40c22dab3bbbe57d57ca81342cab94b"
+    sha256 cellar: :any_skip_relocation, ventura:        "ab1eb2c745719256485cde000fcb9c41ecb6dda623f516880c2bd099c681e1f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "ea41dc293f6e0ed1799b80982182a044b46a211448905089d35c3944064f4ca9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eae31cb732921bc49b9422121c7ec8f3f11093cc203af20ec75f7721c4e41505"
   end
 
   depends_on "python-dateutil"
@@ -29,11 +30,6 @@ class Khard < Formula
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/cb/87/17d4c6d634c044ab08b11c0cd2a8a136d103713d438f8792d7be2c5148fb/configobj-5.0.8.tar.gz"
     sha256 "6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97"
-  end
-
-  resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
   resource "ruamel-yaml" do

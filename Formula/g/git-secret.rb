@@ -1,13 +1,10 @@
 class GitSecret < Formula
   desc "Bash-tool to store the private data inside a git repo"
   homepage "https://sobolevn.me/git-secret"
+  url "https://github.com/sobolevn/git-secret/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "1cba04a59c8109389079b479c1bf5719b595e799680e10d35ce9aa091cb752af"
   license "MIT"
   head "https://github.com/sobolevn/git-secret.git", branch: "master"
-
-  stable do
-    url "https://github.com/sobolevn/git-secret/archive/refs/tags/v0.5.0.tar.gz"
-    sha256 "1cba04a59c8109389079b479c1bf5719b595e799680e10d35ce9aa091cb752af"
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3229d4fb0a2237d1d4594b7e65706f68bc0d434e7d5e6d2b7ba445b1c6155c55"

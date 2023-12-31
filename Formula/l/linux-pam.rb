@@ -17,8 +17,6 @@ class LinuxPam < Formula
   depends_on "libxcrypt"
   depends_on :linux
 
-  uses_from_macos "libxcrypt"
-
   skip_clean :la
 
   def install

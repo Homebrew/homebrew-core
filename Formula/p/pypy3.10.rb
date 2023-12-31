@@ -1,8 +1,8 @@
 class Pypy310 < Formula
   desc "Implementation of Python 3 in Python"
   homepage "https://pypy.org/"
-  url "https://downloads.python.org/pypy/pypy3.10-v7.3.13-src.tar.bz2"
-  sha256 "4ac1733c19d014d3193c804e7f40ffccbf6924bcaaee1b6089b82b9bf9353a6d"
+  url "https://downloads.python.org/pypy/pypy3.10-v7.3.14-src.tar.bz2"
+  sha256 "a3481af466103fa13740db4e27780e0423dcf8626b3340f60d3d3c28fbc11ae0"
   license "MIT"
   head "https://foss.heptapod.net/pypy/pypy", using: :hg, branch: "py3.10"
 
@@ -12,13 +12,13 @@ class Pypy310 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "82ff0d22599bbf07dfb7546c5887dbe5afcac126521ae71097921272f043355c"
-    sha256 cellar: :any,                 arm64_ventura:  "e71004f94415dc2985c95bb8f1a0b9b9ba3fbf7ff805546f24ac39ddf250c60f"
-    sha256 cellar: :any,                 arm64_monterey: "ae317e5136d996242da542a9294c403abf9d442b7af3f055a72a6b49fef97fb1"
-    sha256 cellar: :any,                 sonoma:         "608ad6cf037d3bc5e38c6c1ea0076414f05fd71c7cd493cefa631175269ad87b"
-    sha256 cellar: :any,                 ventura:        "df239c85d864cedfd0bda09cc9dc346fba571f682eb863ea8f069deeb83af343"
-    sha256 cellar: :any,                 monterey:       "c91904344c75dddeb77a2c2230526a6f5d2865216f6b3b573f1d54e8efe5fb7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dd6897c538151dbca8233cb9af76286f8587a8b49a52cf28a604b1c94e2ac64"
+    sha256 cellar: :any,                 arm64_sonoma:   "f8d2be5d50c438f4dcbdbf5d7ba1962f769ce6b8613b0cf69669e2bc792d6a1b"
+    sha256 cellar: :any,                 arm64_ventura:  "e662ae4397e45a605d62b3bbb3969dfb793d3338270a7b89b93b578925255ada"
+    sha256 cellar: :any,                 arm64_monterey: "ad82539eede40306a8449273aa731d9dd72bde200ba8ba9ffaa0cc9a785be95d"
+    sha256 cellar: :any,                 sonoma:         "00a7aa56b225404e114e9d7343226b300fc7aae9dc761edb9a191f895c3b327f"
+    sha256 cellar: :any,                 ventura:        "613d4fb4ac0f0be1a44e7f004a9a04d5f1952eb2bf9b277f3cb0ab8045e75b31"
+    sha256 cellar: :any,                 monterey:       "d9c16f1eb117fc65ba3200da9bbe9c5e3a7bb403243c11c8a7d11acba64277a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d2487fffd130f4589bee3e0bd666c163c7a63349d568e3dcd4c8f8bf110102b"
   end
 
   depends_on "pkg-config" => :build
@@ -43,9 +43,10 @@ class Pypy310 < Formula
     sha256 "09980778aa734c3037a47997f28d6db5ab18bdf2af0e49f719bfc53967fd2e82"
   end
 
+  # always pull the latest pip, https://pypi.org/project/pip/#files
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/ba/19/e63fb4e0d20e48bd2167bb7e857abc0e21679e24805ba921a224df8977c0/pip-23.2.1.tar.gz"
-    sha256 "fb0bd5435b3200c602b5bf61d2d43c2f13c02e29c1707567ae7fbc514eb9faf2"
+    url "https://files.pythonhosted.org/packages/b7/06/6b1ad0ae8f97d7a0d6f6ad640db10780578999e647a9593512ceb6f06469/pip-23.3.2.tar.gz"
+    sha256 "7fd9972f96db22c8077a1ee2691b172c8089b17a5652a44494a9ecb0d78f9149"
   end
 
   # Build fixes:

@@ -1,19 +1,18 @@
 class Aws2Wrap < Formula
   desc "Script to export current AWS SSO credentials or run a sub-process with them"
   homepage "https://github.com/linaro-its/aws2-wrap"
-  url "https://files.pythonhosted.org/packages/db/07/db4c98b4d44ee824ad21563910d198f0da2561a6c7cfeaef1b954979c5c6/aws2-wrap-1.3.1.tar.gz"
-  sha256 "cfaee18e42f538208537c259a020263a856923520d06097e66f0e41ef404cae7"
+  url "https://files.pythonhosted.org/packages/6d/c7/8afdf4d0c7c6e2072c73a0150f9789445af33381a611d33333f4c9bf1ef6/aws2-wrap-1.4.0.tar.gz"
+  sha256 "77613ae13423a6407e79760bdd35843ddd128612672a0ad3a934ecade76aa7fc"
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "793be218f866d4a783f0ca49b32515c3be383e94c2f95386ae07338e6ace0de4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2500d4adce97d108fc21ed3f927a19a666781d136bbf85228c77c8c40bf36a10"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6007a99818a879b786fae8a01954cf4353e92c3a7fbc16f062f0139380baf26"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01279c6812af7aca180c3a6e4e3df527d662437ce04ecb87e0db5cac17d93ef4"
-    sha256 cellar: :any_skip_relocation, ventura:        "73eecd11ab6bb700c0622592ba1401da33a0c3ddf597ad3c906fcceb91dd3460"
-    sha256 cellar: :any_skip_relocation, monterey:       "6da87f5f87544ddd1cbfd54d563ebe8b201b45596068ca3d30825231008a578b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81966dff8907d3f9deef2f78a96119cd6bf4be9db9dd03ee414b542d542b5daf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8b374bd5ca1b8074e9d54b6361f7544fe6319b73fcf8588cb140e9f82bf3741"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d12dc6608b564e80e84c4b664e3ae256af137e3123af9fff94dadc64a4d4a48"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3dd477a77f4f55fc138334f8abba465d7dd28da79c540622ccc5349741e5e1b6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98c3104dceb89ef1d80d98de8a3a44b5fab873a43aefd3cce46393f178939e72"
+    sha256 cellar: :any_skip_relocation, ventura:        "55e41f9bcb2c8c2bd198e7c8ce7f9148c4c1dd158ae9f25e1d425acfc92d5edc"
+    sha256 cellar: :any_skip_relocation, monterey:       "74824c7473fe292a9dec7c2a7aa56c918fb1b431e17dc849bd4a5dc191031ab1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "afb70ff1309f1eef3bbadfaf1a893005c441c5fea2ca7b689c02b1b4b7ed522c"
   end
 
   depends_on "python-setuptools" => :build

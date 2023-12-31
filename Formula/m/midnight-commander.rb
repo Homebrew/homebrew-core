@@ -52,7 +52,7 @@ class MidnightCommander < Formula
 
     # Fix compilation bug on macOS 10.13 by pretending we don't have utimensat()
     # https://github.com/MidnightCommander/mc/pull/130
-    ENV["ac_cv_func_utimensat"] = "no" if MacOS.version >= :high_sierra
+    ENV["ac_cv_func_utimensat"] = "no" if OS.mac? && MacOS.version >= :high_sierra
     system "./autogen.sh" if build.head?
     system "./configure", *args
     system "make", "install"

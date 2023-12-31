@@ -1,10 +1,10 @@
 class RailsCompletion < Formula
   desc "Bash completion for Rails"
   homepage "https://github.com/mernen/completion-ruby"
-  url "https://github.com/mernen/completion-ruby.git",
-      revision: "f3e4345042b0cc48317e45b673dfd3d23904b9a7"
-  version "2"
+  url "https://github.com/mernen/completion-ruby/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "ee8b84d7ac7444a7388e58a406af56dc0b690a57faa7bcfa4c10671deb788991"
   license "MIT"
+  version_scheme 1
   head "https://github.com/mernen/completion-ruby.git", branch: "main"
 
   livecheck do
@@ -12,7 +12,7 @@ class RailsCompletion < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e52f96f415b50192094012cd4678e96b1c5e119c133224d4302e0bf2f6acea0e"
+    sha256 cellar: :any_skip_relocation, all: "a2222449142bac98c98a0c6cc546589de26126b3e2a72776a88f7e2554569e0d"
   end
 
   def install

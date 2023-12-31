@@ -10,15 +10,14 @@ class Termius < Formula
   head "https://github.com/termius/termius-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "69d938e866fc4c831902672187500ccbc4e82dc68f815843774bf5399d8c3187"
-    sha256 cellar: :any,                 arm64_ventura:  "3b8b1add7406fd53ed6841289642eb611077a1494b9637b59242fd2990316ccd"
-    sha256 cellar: :any,                 arm64_monterey: "f1232f80e5401956c3a8486315cd9adb9b2cfbd1a30979421b9d2537c284688d"
-    sha256 cellar: :any,                 arm64_big_sur:  "af2ba00ad36e578b0f0454bd659f1e8efbbfbaf88b2375031bb0746bd4980565"
-    sha256 cellar: :any,                 sonoma:         "7b19613ee7ffe6fdfcc02d8518849c39fccb767cbce3249e6c24baa321f7c1b8"
-    sha256 cellar: :any,                 ventura:        "6fef17c9b1ced8ad4333c93b9a115f399b32052378d0901040ec8aa20ac41102"
-    sha256 cellar: :any,                 monterey:       "ae2c4980e751c027df0f879a9ab39d6921dbf69981260f0d382ba88bd7881c95"
-    sha256 cellar: :any,                 big_sur:        "db41c6dbedd8750c8c172a52e2331288f7c67c43d183c17a1de9fbb2a2034b97"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78c02ee947dcb9f2012e38c3e66cebd877eee1d726e1c41b5268e5c4b5d66d05"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "4760e31686c77fbadd1fcbaabfdf61441ed0777e44bfb26fbe588c0d9b19aded"
+    sha256 cellar: :any,                 arm64_ventura:  "86f852e5ac7df5da9c1eeb83fdc4a4a43715fdd2ef5efe941093f50fdd739255"
+    sha256 cellar: :any,                 arm64_monterey: "16f3a8216e44b16f50b079739c58421dd3aa7a938b08238f210eed2cd5419c55"
+    sha256 cellar: :any,                 sonoma:         "59739c679adc05c00e6657561bc8c9869e692dca958dea52d228fd64a4601b72"
+    sha256 cellar: :any,                 ventura:        "d79a9e201624d64ea39ad06a09dbaa641cb48923abb663bbe6c04bc179197507"
+    sha256 cellar: :any,                 monterey:       "99670995d56d724007d314eedf4f1b477a64ca8426b38e7eda184d957135f8c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa42f95512647fc2f86bea61898971a06a36a94a06504d1350be629d036a4c80"
   end
 
   # https://github.com/termius/termius-cli/issues/197#issuecomment-1399394041
@@ -26,10 +25,9 @@ class Termius < Formula
   deprecate! date: "2023-01-25", because: :unmaintained
 
   depends_on "rust" => :build
+  depends_on "libyaml"
   depends_on "openssl@3"
   depends_on "python@3.10"
-  depends_on "pyyaml"
-  depends_on "six"
 
   uses_from_macos "libffi"
 
@@ -152,9 +150,19 @@ class Termius < Formula
     sha256 "105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/60/f3/26ff3767f099b73e0efa138a9998da67890793bfa475d8278f84a30fec77/requests-2.27.1.tar.gz"
     sha256 "68d7c56fd5a8999887728ef304a6d12edc7be74f1cfa47714fc8b414525c9a61"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "stevedore" do

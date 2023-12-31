@@ -3,26 +3,20 @@ class GoogleJavaFormat < Formula
 
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/releases/download/v1.18.1/google-java-format-1.18.1-all-deps.jar"
-  sha256 "bed3bad433f7df427700648f24b798db3c338d6dcb2cc5c08bc542b55610f910"
+  url "https://github.com/google/google-java-format/releases/download/v1.19.1/google-java-format-1.19.1-all-deps.jar"
+  sha256 "7df34e51f87829bf267dcd03c25fe54943028432d85bf1138bd0acc75988b5e3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98fcafe5cd9189474aaf6d719e314089ef2682d2f03714b0dbb97bc36c1a3b69"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98fcafe5cd9189474aaf6d719e314089ef2682d2f03714b0dbb97bc36c1a3b69"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "98fcafe5cd9189474aaf6d719e314089ef2682d2f03714b0dbb97bc36c1a3b69"
-    sha256 cellar: :any_skip_relocation, sonoma:         "98fcafe5cd9189474aaf6d719e314089ef2682d2f03714b0dbb97bc36c1a3b69"
-    sha256 cellar: :any_skip_relocation, ventura:        "98fcafe5cd9189474aaf6d719e314089ef2682d2f03714b0dbb97bc36c1a3b69"
-    sha256 cellar: :any_skip_relocation, monterey:       "98fcafe5cd9189474aaf6d719e314089ef2682d2f03714b0dbb97bc36c1a3b69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a0271c8c3ca90b3acc81f376b1d01227631a450fe87e6189db32fa46c6275c9"
+    sha256 cellar: :any_skip_relocation, all: "2e5c9f35ae85ec8523290c509fa3bcba59b219192d35c7b2d42e37c31329537c"
   end
 
   depends_on "openjdk"
   depends_on "python@3.12"
 
   resource "google-java-format-diff" do
-    url "https://raw.githubusercontent.com/google/google-java-format/v1.18.1/scripts/google-java-format-diff.py"
-    sha256 "4c46a4ed6c39c2f7cbf2bc7755eefd7eaeb0a3db740ed1386053df822f15782b"
+    url "https://raw.githubusercontent.com/google/google-java-format/v1.19.1/scripts/google-java-format-diff.py"
+    sha256 "aa9621c0f0859e1112231a7d44ce8d21854f6915ca643a0d53a119f4d1aa8488"
   end
 
   def install

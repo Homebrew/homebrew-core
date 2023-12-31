@@ -5,7 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-8.4.0.tar.xz"
   sha256 "6f9ad73a3ee4291b6341d6c0f5e5c85d6e0310376e4991b959a6d340b3ffa8a8"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -15,13 +15,13 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "2ee32381463e457a0c142f54609a08bdc6490b01cb7276a874525999f45ea062"
-    sha256 arm64_ventura:  "096a337f9aaeddd28014491532b7b1e133102f48311655a1786f2b42bb2343f2"
-    sha256 arm64_monterey: "6dd55426ce52a60b2ba4d4712c339016d208f58e9905970de105e023979eb05f"
-    sha256 sonoma:         "d2ea2ebc4e15fa2a713ac949606dd26c17d18b250ef5222236cb40c1dc157976"
-    sha256 ventura:        "87894c5858ae329ebed4d211077df4c4873853e766f9fe6fa861188fbd84ec44"
-    sha256 monterey:       "6694cf774f71b100d801ddb28a7dafff3ccfe3b964049106cf9abd65b3fb0b20"
-    sha256 x86_64_linux:   "f97f91336e3c75ff3009876bc86273c9b3db4e7be70da9eda2c089ce512c668b"
+    sha256 arm64_sonoma:   "8513ee411d2d48fcb610c69daac8cf22bd1b51e535a3267016f4e2a609d9365a"
+    sha256 arm64_ventura:  "eace73dde75e6ad9ecb8418bc56cd3f91034938e57151e049943adbf68c885ec"
+    sha256 arm64_monterey: "f3ab089400763ebe16928ee90e4fc0738e65f4f57d0562b3ec5078ba6bb5d4c9"
+    sha256 sonoma:         "17a730fd9c5672555c00e9ead6de6066fe18ff508e5ebfeb362b2b241986e936"
+    sha256 ventura:        "8a262dc5d4dc7396b440370e24f99c9d048793f7c0076e25889e0caa4930d015"
+    sha256 monterey:       "8a7c7eb5b939cfc9f87bf6f3afb759b48c88fc8751009455e5d9f232b032c3d9"
+    sha256 x86_64_linux:   "4e603d72e3a2127b7b239c581f2338ac56f05b37e5210f675e77fbcadee7a437"
   end
 
   head do

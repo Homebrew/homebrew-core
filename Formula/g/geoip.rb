@@ -21,6 +21,9 @@ class Geoip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb045793a66f36a2737a3bdc3c8513c5822702778c223123dceceff61e847080"
   end
 
+  # EOL and repo archived on 2022-05-31. Superseded by `libmaxminddb`.
+  deprecate! date: "2023-12-12", because: :repo_archived
+
   resource "database" do
     url "https://src.fedoraproject.org/lookaside/pkgs/GeoIP/GeoIP.dat.gz/4bc1e8280fe2db0adc3fe48663b8926e/GeoIP.dat.gz"
     sha256 "7fd7e4829aaaae2677a7975eeecd170134195e5b7e6fc7d30bf3caf34db41bcd"

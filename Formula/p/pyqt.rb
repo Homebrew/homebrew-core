@@ -1,23 +1,22 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/17/dc/969e2da415597b328e6a73dc233f9bb4f2b312889180e9bbe48470c957e7/PyQt6-6.6.0.tar.gz"
-  sha256 "d41512d66044c2df9c5f515a56a922170d68a37b3406ffddc8b4adc57181b576"
+  url "https://files.pythonhosted.org/packages/8c/2b/6fe0409501798abc780a70cab48c39599742ab5a8168e682107eaab78fca/PyQt6-6.6.1.tar.gz"
+  sha256 "9f158aa29d205142c56f0f35d07784b8df0be28378d20a97bcda8bd64ffd0379"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e15e9c9d405c816f8dc9bd862a8ecc9dee4ba4f57b0882edaff11e4e74895d72"
-    sha256 cellar: :any,                 arm64_ventura:  "52f349519b170e2bb4bac148a5d67ebd7b15efb1f9c25db603a9a7da179e9ba3"
-    sha256 cellar: :any,                 arm64_monterey: "c4e06fddd93773e8af74597f333ac7f5aa4afd98f5d64ef29883c0789892edf6"
-    sha256 cellar: :any,                 sonoma:         "eef2eb805bec8ce79597d38a8532e564b9a13d6875c3cf5de3711bb0dd2fab1f"
-    sha256 cellar: :any,                 ventura:        "6a34516da70d5dd9d1e22416728d0c3b169dbb488272c55a16cc725ee3401120"
-    sha256 cellar: :any,                 monterey:       "7d47fee83fb6bf7f4211beb50a6649fba62671eb6ed68fd0ddcbc6d67cf34bdd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b592d9a2083c87b232c4f4751a725610a3700ae0c42cc410201ba409951220d3"
+    sha256 cellar: :any,                 arm64_sonoma:   "ff17ae68092a601ba87f7b832338dd901211a835d27476080aa36446bd99b9bf"
+    sha256 cellar: :any,                 arm64_ventura:  "3a96021b25dd3b62fbf3f13030803b1a9efb5915b89a1ea036840d52236017ab"
+    sha256 cellar: :any,                 arm64_monterey: "83dd5e597599c9b9252a8af3b2c4cd1b7dcada2f98c74ad8595c76662bc4c927"
+    sha256 cellar: :any,                 sonoma:         "b073875b968656e535ecbfe82d97c8e82df547dcd53fba0ed9505ff7a4f4f118"
+    sha256 cellar: :any,                 ventura:        "c27efc9841aa96dd3d7e210af69ad5ed289ec14f3ac0acf094c3d41d36058ae3"
+    sha256 cellar: :any,                 monterey:       "aec2292f8f4801700d2277fd7d6d2d8c440627a222e9218200edfdaf121ec261"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65595d4529b06a6d1079f1671181b75b0df15b21255059798f69baba46ce2342"
   end
 
   depends_on "pyqt-builder" => :build
-  depends_on "sip"          => :build
-
+  depends_on "sip" => :build
   depends_on "python@3.12"
   depends_on "qt"
 

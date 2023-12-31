@@ -12,13 +12,14 @@ class Mpich < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "94e8c25c5a1e3cc52e879fd2c0424cffbbfebcfca385b05e7533b0eb8c00f377"
-    sha256 cellar: :any,                 arm64_monterey: "f9d1f4b8265e752100f68ec24a1aa43b2059db11e4076ec1bc002c55a653e5f2"
-    sha256 cellar: :any,                 arm64_big_sur:  "ef3cccd0f4d28077063514870b2eecab742735a4a90948c429c334ae646d2dd0"
-    sha256 cellar: :any,                 ventura:        "2256a222b91ab3951fc62b5166006b2c29d31165a762417cffdaf8c1718833be"
-    sha256 cellar: :any,                 monterey:       "54dacf4a4cc94dd66d44573b677313f8b59ba69526c95dc40be560155b45100a"
-    sha256 cellar: :any,                 big_sur:        "a5017cd76fd00791965426990a8a817a0de034c9c4ecf29f718e3b93fe5b8668"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e8f6700fbc550d259fd8cbbffbd2a70a532bfa3076b762abb72f18bc9d90f6a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "6aa8a509d54ef4827d4cd258bbc9124c2704be17a5973504463326237a25af95"
+    sha256 cellar: :any,                 arm64_ventura:  "b972d6d595f8ed86fd6929cd267bad10b3362dcc3f33c380a339b7cdc1f14921"
+    sha256 cellar: :any,                 arm64_monterey: "53569ffa8b78d5cfcb91bb794d8c8e94f8145631770a34bab28587aeae7ab4c7"
+    sha256 cellar: :any,                 sonoma:         "4263af224aba8836cccec29cde4d9426396fd9b308ded336c9fa738eb5446c68"
+    sha256 cellar: :any,                 ventura:        "70b9707dcd44698dc7bc4b83a547e7599df970d59679a639f60c876311865e47"
+    sha256 cellar: :any,                 monterey:       "4e3a757b6e4b4177977fea5355452e0d524ad8125c41612f3cf9e4a65cc3981d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80e7c6938e6ef87172ec467ce095135ea2a97c7c76ec962fc3b6986e29f7b9b3"
   end
 
   head do
@@ -55,22 +56,18 @@ class Mpich < Formula
 
     args = %W[
       --disable-dependency-tracking
+      --disable-silent-rules
       --enable-fast=all,O3
       --enable-g=dbg
       --enable-romio
       --enable-shared
+      --with-hwloc=#{Formula["hwloc"].opt_prefix}
       --with-pm=hydra
-      F77=gfortran
-      FC=gfortran
-      FCFLAGS=-fallow-argument-mismatch
-      --disable-silent-rules
       --prefix=#{prefix}
       --mandir=#{man}
+      F77=gfortran
+      FC=gfortran
     ]
-
-    # Flag for compatibility with GCC 10
-    # https://lists.mpich.org/pipermail/discuss/2020-January/005863.html
-    args << "FFLAGS=-fallow-argument-mismatch"
 
     if OS.linux?
       # Use libfabric https://lists.mpich.org/pipermail/discuss/2021-January/006092.html

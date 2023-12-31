@@ -2,8 +2,8 @@ class Devspace < Formula
   desc "CLI helps develop/deploy/debug apps with Docker and k8s"
   homepage "https://devspace.sh/"
   url "https://github.com/loft-sh/devspace.git",
-      tag:      "v6.3.6",
-      revision: "79fa51df13f2a84691e9716e91aafdbbcaa74e42"
+      tag:      "v6.3.7",
+      revision: "a722e450b316ba5747f98d3d7aa2b37bc0aacac9"
   license "Apache-2.0"
   head "https://github.com/loft-sh/devspace.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Devspace < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b312443a5a3f07fe42da012ed61bdfa2bb78256a10ea4a063093342440c99d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19c7167745fa7d0978d2655f506167ac728f1c72adc72fe5de3ad644a06aab56"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ebce778e91666c19fe9af28483f4c4b007f66204053ea3688a01237ab623016"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5cc98175df0cc8b424fc6a7215324964568abce62971ab2510d67b1712bc7e00"
-    sha256 cellar: :any_skip_relocation, ventura:        "bc484c1537e8ff8a9757ff9cbb57f2e71fddf5e675ed0bafaf157a1dd9489f91"
-    sha256 cellar: :any_skip_relocation, monterey:       "eaae69831b0386f390d5fdd5b0a106b5cb4cffd5bc687d9054cdb5d5da2c96a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff0055fc53a908bc0c6917ac8eb8789d4cb3dfe36bd28341d5f017db3b6553e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24e4467ccb001add0c2e038d663a7d1c48c928586dd9c057c4f2e8247a32286a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d8ae0e30d59edc207d5518bb0048e46f94d7420b7b6aa511d1c06452460953e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d29a775ddb8a4d30df5df6747b8fb99ded764fd4aff4e52f9f417c84ec39ad02"
+    sha256 cellar: :any_skip_relocation, sonoma:         "522f8781dfc79a5010e3d439a339356414a1670c4a13a78bddbcfbbfe6b8fa05"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae83b2bfea4677bf63b7e5f2119bb4d2a135344ae7e44d1f1075e138da1e531a"
+    sha256 cellar: :any_skip_relocation, monterey:       "7387cff9a166a69aef9a69b29174c94a822ed7cad46b032aee824e2f6e059a44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20e347ff25fead961c1fa582e98a656f0b89ef88a811d6035e6913c884707c81"
   end
 
   depends_on "go" => :build

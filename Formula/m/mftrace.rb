@@ -12,16 +12,14 @@ class Mftrace < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3df982fe966773ce40405baf24c5742bf88e9260df0391e073964431d55de492"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fcc7091b7e3aab969e797cbb583d8d8349856433c9452c818c1cc338b53537d9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b7d41129a1f83e1c9e84ad20e706ebd3d93e6c7b9801bd90e866d0e07d8234"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "24bae79ec700220fea014de05a63df51c061ecf8817e737c24a00c1fd2b3f6ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cfe23181c61d4a380aa1b789462f9a9669c6d8967ca1ec8445931074800ae4c0"
-    sha256 cellar: :any_skip_relocation, ventura:        "dc53be3197cdb6ee63607d4d9d3e94220953e85ba05c5e698156087382d557de"
-    sha256 cellar: :any_skip_relocation, monterey:       "bae6d024e848e8f7c7a18f8b6d86359f652b7715daa1a11bcdcb6c4e03b5e0b7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "57483c84e1722e4ec6e606c24336a615bd8710c3735bbb1c32e3a3afa64b3b22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45f198472e3e64f2ce72fc9425338c791110ac33f1cecde0c77f584b0373fd7e"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a906b08512e28d71e50c76bb84b53db1c71d2f43c957e00e38db6c1e9f2dfee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ae8504b1637da59af9f36632ede565a793746d717beafe22bd14f8899230beb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75f64689a0d6f61dfa34a97cea05389342fe6de596f6fb36d3f848410b459b16"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2a053eb653951c8bf3ecf4539526a7798d894558a30eb91b32761669e3f61df7"
+    sha256 cellar: :any_skip_relocation, ventura:        "7aa7e6d90841ad5db57dbcb179ce8602e368034585748330ff20971a29b5c27f"
+    sha256 cellar: :any_skip_relocation, monterey:       "86f9134f95fd1b9ecdafe9744bb005f1b6ea12b4daf429b11683ecec0f1f167a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "410afadfc63167456f16b734a9cd0add724b6f7b37c6657e91fe709dee20976d"
   end
 
   head do
@@ -31,7 +29,7 @@ class Mftrace < Formula
 
   depends_on "fontforge"
   depends_on "potrace"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "t1utils"
 
   # Fixed in https://github.com/hanwen/mftrace/pull/14
@@ -41,7 +39,7 @@ class Mftrace < Formula
   end
 
   def install
-    ENV["PYTHON"] = which("python3.11")
+    ENV["PYTHON"] = which("python3.12")
     buildpath.install resource("manpage") if build.stable?
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args

@@ -20,8 +20,8 @@ class Batik < Formula
   end
 
   test do
-    font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
     font_path = if OS.mac?
+      font_name = (MacOS.version >= :catalina) ? "Arial Unicode.ttf" : "Arial.ttf"
       "/Library/Fonts/#{font_name}"
     else
       "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"

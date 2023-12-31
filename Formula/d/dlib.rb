@@ -27,9 +27,7 @@ class Dlib < Formula
   depends_on "openblas"
 
   def install
-    ENV.cxx11
-
-    args = std_cmake_args + %W[
+    args = %W[
       -DDLIB_USE_BLAS=ON
       -DDLIB_USE_LAPACK=ON
       -Dcblas_lib=#{Formula["openblas"].opt_lib/shared_library("libopenblas")}
@@ -40,10 +38,10 @@ class Dlib < Formula
 
     if Hardware::CPU.intel?
       args << "-DUSE_SSE2_INSTRUCTIONS=ON"
-      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if MacOS.version.requires_sse4?
+      args << "-DUSE_SSE4_INSTRUCTIONS=ON" if OS.mac? && MacOS.version.requires_sse4?
     end
 
-    system "cmake", "-S", "dlib", "-B", "build", *args
+    system "cmake", "-S", "dlib", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

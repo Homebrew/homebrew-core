@@ -1,22 +1,19 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
   homepage "https://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/refs/tags/3.3.8.tar.gz"
-  sha256 "f30f42e05f11e5fc62483e513b0488d5bceeab7d9c5da0ffe2252ad81816c713"
+  url "https://github.com/glfw/glfw/archive/refs/tags/3.3.9.tar.gz"
+  sha256 "a7e7faef424fcb5f83d8faecf9d697a338da7f7a906fc1afbc0e1879ef31bd53"
   license "Zlib"
   head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0593fc85be8f9773f2f63fdfef7be0dab4d084ecb9ab8954e09bf3e376ed5e6b"
-    sha256 cellar: :any,                 arm64_ventura:  "3a55abbf4c07fdbc162a913d3ac189d015f39cc81f6b45c1d89cf7d7132f2696"
-    sha256 cellar: :any,                 arm64_monterey: "d979c217a8fc5751683d81a282adba61ed04cb7f6849fec877ca6c91738b2f29"
-    sha256 cellar: :any,                 arm64_big_sur:  "6cbdaf38af57b2184d5d5fd9100008ebf7ca38920e36c0047b0d10214c806c8c"
-    sha256 cellar: :any,                 sonoma:         "14106accaa35b00ac225309ef8fa85a115001293308dc73ab452d3c41555a639"
-    sha256 cellar: :any,                 ventura:        "966162dcdcc2ab70c7d821bce51d5fec9c52b6333d686a3c45a3461464744edd"
-    sha256 cellar: :any,                 monterey:       "38ebd6a36fb6197a334f7bafa907470c87d4f1e9a8b12f0901204ce366c896a0"
-    sha256 cellar: :any,                 big_sur:        "9fdc214eeb24662a4d7ac08a049d5dc0a48b7dbd31de40e1ee1530e343a9cf2a"
-    sha256 cellar: :any,                 catalina:       "7fa08baa7a8e14084d1b2d7a593529c3d38b47fad444af9212b2f37fad83fde5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "348b005f5bacae71410ff4ec043a1079edc349e0926332f1a80cb8834079bdfc"
+    sha256 cellar: :any,                 arm64_sonoma:   "a57c82ca524c088bfe769b0c82a117723b808d0c6f12ed58142623c7d49c885b"
+    sha256 cellar: :any,                 arm64_ventura:  "b8be90143734ec60dba41c54002de776d88cef22f9cbd6bbbb5ff62c2a157247"
+    sha256 cellar: :any,                 arm64_monterey: "0977c638c0f0e778e98ef26708100dd3615976090f6a24b7601ea0f8f5710d26"
+    sha256 cellar: :any,                 sonoma:         "3f7b8f7cb5504c67686430ace522917ffdcd23133bc507d5b626ab11cf7b06fb"
+    sha256 cellar: :any,                 ventura:        "df455405d14c30aa1f5db93eab3084e011bb113bd6a241a44f996d72e9570184"
+    sha256 cellar: :any,                 monterey:       "26ece97f71aa7e287e532307d4d54baf569f9a25704cb67cd18e9b5f5e07d3f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e95b38b2877d6f826767c69c3bd841187665af7cf9f8a5a225215db44669d72a"
   end
 
   depends_on "cmake" => :build

@@ -33,7 +33,7 @@ class Fossil < Formula
       "--disable-fusefs",
     ]
 
-    args << if MacOS.sdk_path_if_needed
+    args << if OS.mac? && MacOS.sdk_path_if_needed
       "--with-tcl=#{MacOS.sdk_path}/System/Library/Frameworks/Tcl.framework"
     else
       "--with-tcl-stubs"

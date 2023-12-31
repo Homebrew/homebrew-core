@@ -79,8 +79,9 @@ class JohnJumbo < Formula
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_EXEC='\"#{share}/john\"'"
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_HOME='\"#{share}/john\"'"
 
-    # Apple's M1 chip has no support for SSE 4.1.
-    ENV.append "CFLAGS", "-mno-sse4.1" if Hardware::CPU.intel? && !MacOS.version.requires_sse4?
+    if build.bottle? && Hardware::CPU.intel? && (!OS.mac? || !MacOS.version.requires_sse4?)
+      ENV.append "CFLAGS", "-mno-sse4.1"
+    end
 
     ENV["OPENSSL_LIBS"] = "-L#{Formula["openssl@3"].opt_lib}"
     ENV["OPENSSL_CFLAGS"] = "-I#{Formula["openssl@3"].opt_include}"

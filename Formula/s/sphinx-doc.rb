@@ -3,22 +3,20 @@ class SphinxDoc < Formula
 
   desc "Tool to create intelligent and beautiful documentation"
   homepage "https://www.sphinx-doc.org/"
-  # TODO: Remove `python-setuptools` dependency when babel has a new release with upstream commit.
-  # Ref: https://github.com/python-babel/babel/commit/bf7b2ca3dbb2953166e33d24c1dc800a4f7c97a8
   url "https://files.pythonhosted.org/packages/73/8e/6e51da4b26665b4b92b1944ea18b2d9c825e753e19180cc5bdc818d0ed3b/sphinx-7.2.6.tar.gz"
   sha256 "9a5160e1ea90688d5963ba09a2dcd8bdd526620edbb65c328728f1b2228d5ab5"
   license "BSD-2-Clause"
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2171ba9ede008e512555c413a5e381c120874c257be6d7a359b6034918289afd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1fd2654b3c221c3a8eb60ee6de80f244e257e4b38ab2a0920b839e754e3526cc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d5b3c72f428e2ead5e470ebc5ebed8d793277a9602b16741a66a77d681229e0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "019a933ef7744730b2893184dbf31dd3cd8e6143d353cbf3ad5607b2b81f8256"
-    sha256 cellar: :any_skip_relocation, ventura:        "1521a640ea8f77b09938e50d831936fd8ac4e05baf01804b42a94f1b8d886679"
-    sha256 cellar: :any_skip_relocation, monterey:       "d7f2d33fa1d4993009e9846ddb27c6062e93b5ef7186d6762aad2878516b256b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8318354364f8c1c6dd874dba5ceacdbab9892012d9cdb608e02b2ab30e2d92b"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "177956d656c65fd2707922c6b38ee42876a1e18b62de2010ce86d0c5255e85d2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bee3a179f2884143b5e4ee9807ce09614b09b154d8aefb76e18d7fabe844836e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cebe319d67591959def7e226ccf5ec544b768cad38b711faa49a0dbd62d36e88"
+    sha256 cellar: :any_skip_relocation, sonoma:         "145eaab366a5a5e4eaaba8f012e52243633e2140bd122f8737463bca6a31ed3f"
+    sha256 cellar: :any_skip_relocation, ventura:        "aee421b1cae0313d14739c347c6b2fa624dd1f160ddfd1ac6dfac31e9bd2d7a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "93c2da5439e176aa9241ada1bde6c75eec86c1ad0683f8b833da8572a426e333"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89cfdcdccfd43fa3db4209ebbdb068b70a9a0c4e013f5f7fe8c53ebefbd22bef"
   end
 
   keg_only <<~EOS
@@ -31,7 +29,6 @@ class SphinxDoc < Formula
   depends_on "python-jinja"
   depends_on "python-packaging"
   depends_on "python-requests"
-  depends_on "python-setuptools" # for babel
   depends_on "python-tabulate"
   depends_on "python@3.12"
 
@@ -41,8 +38,8 @@ class SphinxDoc < Formula
   end
 
   resource "babel" do
-    url "https://files.pythonhosted.org/packages/aa/6c/737d2345d86741eeb594381394016b9c74c1253b4cbe274bb1e7b5e2138e/Babel-2.13.1.tar.gz"
-    sha256 "33e0952d7dd6374af8dbf6768cc4ddf3ccfefc244f9986d4074704f2fbd18900"
+    url "https://files.pythonhosted.org/packages/e2/80/cfbe44a9085d112e983282ee7ca4c00429bc4d1ce86ee5f4e60259ddff7f/Babel-2.14.0.tar.gz"
+    sha256 "6919867db036398ba21eb5c7a0f6b28ab8cbc3ae7a73a44ebe34ae74a4e7d363"
   end
 
   resource "imagesize" do

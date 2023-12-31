@@ -1,19 +1,19 @@
 class Pandoc < Formula
   desc "Swiss-army knife of markup format conversion"
   homepage "https://pandoc.org/"
-  url "https://github.com/jgm/pandoc/archive/refs/tags/3.1.9.tar.gz"
-  sha256 "cf41392889f1cee2a593b52fd9abfcb6996a70bd7640db3c10ad915ce716c2a3"
+  url "https://github.com/jgm/pandoc/archive/refs/tags/3.1.11.tar.gz"
+  sha256 "41d58aca9db2d0e3e27958f596a4cba23776ae38b0b29df5500e2bbd7fb833a9"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/pandoc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "881cebbe75b9f13288d7c5b1102a963d4878e726412618b470dc59242e2d5d6d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1d60cea6bf23227fe1ff472199e418176aa5194e82ed7c786b926321f277794"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7421f707a90a00359e605dfc504d46b089b5f5dcabe3f4a9f806837137333a76"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b76ae1e043456eb6d7674ecd91493ca748448d6fbb7a9db5e27aeadda8513714"
-    sha256 cellar: :any_skip_relocation, ventura:        "b083b7f198ee76651c74d2e5966fc574816c93a709f0a32e064120095fd1ae33"
-    sha256 cellar: :any_skip_relocation, monterey:       "2a16a24ff78bbd6d6fb1edeb0a9bcb6942d3ce6850a606f8737560ee8c8d4ad4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dc523534694f7f16b43dbffac43daaf0d9c21c3c62d0c7e5c72b27c2a75b76a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7cb0e06452ef6b1b4055b562253d9193ca19cdaa8427373c41423ff6fea9813"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "068f7bbab56a583e18fbf131d25fb8e5e852393f75f59b372dee804226925bbf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4eec917bc84a9b6a2d2359996b841750022e3984ff370fa4da9676a19c4c5545"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4ac2c34aa9c5ff2e3f67704113146303702e7eb44b1256a7bbd95d8e04392b24"
+    sha256 cellar: :any_skip_relocation, ventura:        "709626f8446da8334086ffd3a7f9c89d2123da47d5ebbc5a64a1c6ad75a46522"
+    sha256 cellar: :any_skip_relocation, monterey:       "eec62355fe71b32e3c45d57405a39685d3e5bb0c53fb899692ce8c8da55548a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "352bc0503bd788c9af1519db15dd00eeb8bb2dd2d0953139b8b7fee8023ba1d6"
   end
 
   depends_on "cabal-install" => :build
@@ -27,7 +27,7 @@ class Pandoc < Formula
     system "cabal", "v2-install", *std_cabal_v2_args, "pandoc-cli"
     generate_completions_from_executable(bin/"pandoc", "--bash-completion",
                                          shells: [:bash], shell_parameter_format: :none)
-    man1.install "man/pandoc.1"
+    man1.install "pandoc-cli/man/pandoc.1"
   end
 
   test do

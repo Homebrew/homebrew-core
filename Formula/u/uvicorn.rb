@@ -3,19 +3,19 @@ class Uvicorn < Formula
 
   desc "ASGI web server"
   homepage "https://www.uvicorn.org/"
-  url "https://files.pythonhosted.org/packages/e5/84/d43ce8fe6b31a316ef0ed04ea0d58cab981bdf7f17f8423491fa8b4f50b6/uvicorn-0.24.0.post1.tar.gz"
-  sha256 "09c8e5a79dc466bdf28dead50093957db184de356fcdc48697bad3bde4c2588e"
+  url "https://files.pythonhosted.org/packages/ec/54/0eb4441bf38c70f6ed1886dddb2e29d1650026041d19e49fc373e332fa60/uvicorn-0.25.0.tar.gz"
+  sha256 "6dddbad1d7ee0f5140aba5ec138ddc9612c5109399903828b4874c9937f009c2"
   license "BSD-3-Clause"
   head "https://github.com/encode/uvicorn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "da0f41b31630fb3dc107179b4615cfa64176860d9c778cd3ebd98db04cf25ddf"
-    sha256 cellar: :any,                 arm64_ventura:  "90d460055897edcd34b3ed7ded1f482685305585c4de6faca8cac005717be839"
-    sha256 cellar: :any,                 arm64_monterey: "0269e78f8ea51c9f1ec2cd80228ecd24b3c444a6eed1ca6ed0c3ad9ad451274b"
-    sha256 cellar: :any,                 sonoma:         "4cd6a386f8896ad345073b4190bde5e9d3069211c28a3dbcaf8a242cb58b6cda"
-    sha256 cellar: :any,                 ventura:        "2c2ba699350abc5b4d1c9627910adab701c32c5dd713c48423438717908946d6"
-    sha256 cellar: :any,                 monterey:       "53a204cf20d6b613c7d6258611f825c41ac1a34ce2599e6951c263717b62b71d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8acc9ddfa61efe5494a8cf6f4d89c0a4eeb565baa844c6f68c9e4f261e8c827"
+    sha256 cellar: :any,                 arm64_sonoma:   "f904687dadb36bf567080123d757d5ef1892bdbf94ed17ddbeb0e703a7ea19d1"
+    sha256 cellar: :any,                 arm64_ventura:  "6ad2258a0a52a80655ce24c855d92d2158d76161c0e81cadb8662e9090a8b33f"
+    sha256 cellar: :any,                 arm64_monterey: "264647542cbda9a5e7308bfab27c91a949241c6f47e2cb6fcc6c21eed79c9972"
+    sha256 cellar: :any,                 sonoma:         "5724331c17d3bd340aa89ac1a76c7178c28471f6fdc350186a99f7745d4e15cb"
+    sha256 cellar: :any,                 ventura:        "9bbeab6c8fc6a2388a65f740d32ffd07cc82f1c8c68985f813acd85ddfccf589"
+    sha256 cellar: :any,                 monterey:       "c2618f958f4d8eb5e738674c5598cbaddb87a353c1f8dae774f354b259b613df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6a4f66a55709d8907e4f41fa0f1d7a8d92270c490baa96f4fd0abc8bc8b6070"
   end
 
   depends_on "rust" => :build
@@ -24,8 +24,8 @@ class Uvicorn < Formula
   depends_on "pyyaml"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/74/17/5075225ee1abbb93cd7fc30a2d343c6a3f5f71cf388f14768a7a38256581/anyio-4.0.0.tar.gz"
-    sha256 "f7ed51751b2c2add651e5747c891b47e26d2a21be5d32d9311dfe9692f3e5d7a"
+    url "https://files.pythonhosted.org/packages/2d/b8/7333d87d5f03247215d86a86362fd3e324111788c6cdd8d2e6196a6ba833/anyio-4.2.0.tar.gz"
+    sha256 "e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f"
   end
 
   resource "h11" do
@@ -39,8 +39,8 @@ class Uvicorn < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "python-dotenv" do

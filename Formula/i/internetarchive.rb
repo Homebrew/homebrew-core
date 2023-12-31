@@ -3,19 +3,18 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/7a/6a/ce5deecc9a65709e48367bf949874551fee5f4f595141b7fd0d4426b0d95/internetarchive-3.5.0.tar.gz"
-  sha256 "2a9625e1dcbe431e5b898402273a4345bf5cb46012599cbe92e664ffdc36e881"
+  url "https://files.pythonhosted.org/packages/c0/e2/9d665fe3a65119894f4f1eb64404b0f53d4542ea841af271a834b444b1a4/internetarchive-3.6.0.tar.gz"
+  sha256 "86c011e23751f5dff1d5cc6e3bc610b2eca3331d5e502c1cd34c2021068b6bbd"
   license "AGPL-3.0-or-later"
-  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b63ea2dc2e3833bcbc2cdff29707455af4a10d0a97ce20a099d161a587d32a0a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a96eed814b3ac1b04f2af5bdfc1bee92317ed3b849482ff2197102777b23da07"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50c37b13dbacb7d499299f983ddff6e54eb8339d5a2ee528ddf4880dd61aeb50"
-    sha256 cellar: :any_skip_relocation, sonoma:         "58029b191bb4b4260680d624d52dba6eae9ae9afa7e925e437ba41189e0babbf"
-    sha256 cellar: :any_skip_relocation, ventura:        "30bdb5f7cdb6fa269923fb4df46eb61c2b8efa49ee4a4d606bbef67a00175c94"
-    sha256 cellar: :any_skip_relocation, monterey:       "acadb0ed0d4dbaa4914d66fd3f4b84bddf75b022bf8aaa5f70be70835edf20a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23a5d702aab58e696f355d143d1df051cc43dd20b95d257ede56c0776036d87f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c742ea32a7ac3b12772f004da92a1a7ff3df25f2194813f1692ed8a73471bd8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54cc8b0c628bb8a271f9b8daf9b8ee804fa02ca0fe811696efcd0518cee90b11"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7301ac265785e01bd02de3f3a24113c82eda4eaa0f6f54e77e43036b3c447337"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32e38f1deb47b5b1559566990b0731bd2992b851cece4f4d27c0f73702f37bca"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd90d154618ef197758a9f6631a09f3ec5e6a3bc0f45647d6e9283e3addcada0"
+    sha256 cellar: :any_skip_relocation, monterey:       "2caa8f81d5a764c95005959d494e1020e1274009f80f358cbc3e76ea00dd37de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8712a439e02d7ee39bdd9221f6e608dd24128dffa5cb592814380f72f5bae54e"
   end
 
   depends_on "python-certifi"
@@ -23,8 +22,8 @@ class Internetarchive < Formula
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
-    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
+    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
+    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
   resource "contextlib2" do
@@ -38,8 +37,8 @@ class Internetarchive < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "jsonpatch" do
@@ -68,8 +67,8 @@ class Internetarchive < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
-    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
+    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
+    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
   end
 
   def install

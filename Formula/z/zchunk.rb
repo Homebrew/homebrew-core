@@ -1,19 +1,19 @@
 class Zchunk < Formula
   desc "Compressed file format for efficient deltas"
   homepage "https://github.com/zchunk/zchunk"
-  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.3.2.tar.gz"
-  sha256 "4d923d32af7db33f3c0a6655b258e857a2ca564912cf85ddce14e9b1b7d495bf"
+  url "https://github.com/zchunk/zchunk/archive/refs/tags/1.4.0.tar.gz"
+  sha256 "6def0481935006052774e034a22c18a1b668b8c93510188673138312003890eb"
   license "BSD-2-Clause"
   head "https://github.com/zchunk/zchunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "60cb58ec52cfe85e491151078212316420be58c7ace22bb63afc46594ed5d192"
-    sha256 cellar: :any, arm64_ventura:  "3a1e70c83423d0d4ede8afaebd5f86304973060616bdb8e26d2573d8c1e5cc68"
-    sha256 cellar: :any, arm64_monterey: "ba3dd413abe47ce61cee4d42cc2b7b097208499e033ade1d77f1c43ebc8c9d36"
-    sha256 cellar: :any, sonoma:         "ecb704bea46a2a94309a8166005c54fd13bf25860ddb50f9b022cdb978c4956f"
-    sha256 cellar: :any, ventura:        "fb88c5e25e7ea3362d4fa63d4779e4edbe2dd4b1974a4357092c78c6ee043bcb"
-    sha256 cellar: :any, monterey:       "b73bf740eb26ea3fa177a9368974ddf58a197d9a6989dafba20e2485ccacff8f"
-    sha256               x86_64_linux:   "5ec84154d0d544b011eb244e6f45a4bc74bf9f3e12eeb327287cfd91da1b140e"
+    sha256 cellar: :any, arm64_sonoma:   "4b8d09fb872cdd7e740982a9e1e765c70b993e586512018a585211946d3a7a24"
+    sha256 cellar: :any, arm64_ventura:  "d6866cd3eb34f506fe9c359103a20df2c3222670f13826b1683d65dc0122044b"
+    sha256 cellar: :any, arm64_monterey: "090d2064ae2e53c60451a67b4668382c6bdb3fa3a8c057e6ce5435771e90b4b4"
+    sha256 cellar: :any, sonoma:         "5d8ea3878c25c1adaf8313fbc165a2b0899be58e9e987139cf549c10c2535a21"
+    sha256 cellar: :any, ventura:        "2ed8820304fd30bdd834731914903e03cfc7faf8628bc01043b1a4056efd76e9"
+    sha256 cellar: :any, monterey:       "31ef62e3d9c9320b3c86674266408d8f54a68f2ff619cf0ca63425a445a3029c"
+    sha256               x86_64_linux:   "85b5b0ba7e45d7adb12c8adac25ac50eb3091dfc59a44d9c782c188ca46def38"
   end
 
   depends_on "meson" => :build

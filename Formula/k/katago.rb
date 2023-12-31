@@ -1,8 +1,8 @@
 class Katago < Formula
   desc "Neural Network Go engine with no human-provided knowledge"
   homepage "https://github.com/lightvector/KataGo"
-  url "https://github.com/lightvector/KataGo/archive/refs/tags/v1.13.2.tar.gz"
-  sha256 "f1a5659ff6dcec246f11bd250dcb41f1879dbbd41d4e909ae030954acfebde41"
+  url "https://github.com/lightvector/KataGo/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "d0cb8dbd89aa8c49d5477a2d7dede1981812b709dd49bfd089e1db56200c9ede"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Katago < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "66ad7cd538016f47d077627bf9cd4db9ba362cef88a4fa6304501e34d6f059e0"
-    sha256 cellar: :any,                 arm64_ventura:  "24d76ed00bbf64d167a83c12001ac835b65103c5e85b6ebf8a5b93e5a8bf3512"
-    sha256 cellar: :any,                 arm64_monterey: "2db7357727a48db58e70fe62264a800144a511c9ec4aef38f85a81c804937eb6"
-    sha256 cellar: :any,                 arm64_big_sur:  "f011b1579df3f2a73501a0b1d6888d2e97f0a9e50582715a653a208ad8c79ecf"
-    sha256 cellar: :any,                 sonoma:         "e5dcd05b32cb92128568665459ef926a43937979dc3fe0a0b57621ffce118ce5"
-    sha256 cellar: :any,                 ventura:        "31d20fb5161a16e7c114674c1c1045195bd7b5e632fb46b079d98af3f86b6597"
-    sha256 cellar: :any,                 monterey:       "483f40c2adc32e78206f3b013db29e07e6d019f2f49d10f01473f4c870c03adb"
-    sha256 cellar: :any,                 big_sur:        "1a3b82f3237a766a84238b4d7c3bf4b3fa43fdbfe84fd6c805231cb477dab377"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "722843df08f4988959d58447af7f899580caf952883a7db029107cee349d932a"
+    sha256 cellar: :any,                 arm64_sonoma:   "2db17fe4a7e4faf7b848fe8be9bedb05dccafe6202d574c159f9d43de9aa2f78"
+    sha256 cellar: :any,                 arm64_ventura:  "110dd79c63c3b612b446f5dbb149301581867a4c0b8024bf4894cc2fce2cd5c5"
+    sha256 cellar: :any,                 arm64_monterey: "815c9a37762eb15788c8e7ad6b7da86a0ff63c9137967b07876d6ea313621982"
+    sha256 cellar: :any,                 sonoma:         "69351321bb32aa67da12b70e438c1bbacdc02e516f01610a07df1c89739d285a"
+    sha256 cellar: :any,                 ventura:        "64a1e1d62f824b8015843d52de8272eae02a696c10f8d2f7dac18fd815ba8244"
+    sha256 cellar: :any,                 monterey:       "28da9e121ab022105b61f776be0c002853c0e170c60f3991dc65d90b8db3eb5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b8ecc133a5f941cd3b84ee0d2d124d3fb628e595ccbd9a9ecfc4046adaec920"
   end
 
   depends_on "cmake" => :build

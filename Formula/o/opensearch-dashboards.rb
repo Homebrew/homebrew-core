@@ -4,18 +4,18 @@ class OpensearchDashboards < Formula
   desc "Open source visualization dashboards for OpenSearch"
   homepage "https://opensearch.org/docs/dashboards/index/"
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "2.9.0",
-      revision: "1f82eda3935dc5b648cb31587662c84cb43f3801"
+      tag:      "2.11.1",
+      revision: "989d8f41f37cca3275bf3fedc5c2057a717d1d64"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f192b7a34e44485cfec8f401efdd6d97853b466d0da8044bfb0efcd4d5ab4e54"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f32056afbdc16c8365757c4bcd8043503fbe265114ba54002dbd74efd6a8eee9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f32056afbdc16c8365757c4bcd8043503fbe265114ba54002dbd74efd6a8eee9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6119a106c09b8b770922def5c0faef6d2573110b03cc8252d5e7678abce2ca13"
-    sha256 cellar: :any_skip_relocation, ventura:        "32657df0541e5ffeb77f7282ec4f8299ee4a675dd8f72581c918e5def4e21ddb"
-    sha256 cellar: :any_skip_relocation, monterey:       "32657df0541e5ffeb77f7282ec4f8299ee4a675dd8f72581c918e5def4e21ddb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e586f12c14391805663b4b6577c8fd0df7326d9b436a90ed00c3c60f44b34d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8bdde418d6d2a987082017523ad90e35a3ffcbddb2c0a4abf4a8f28ee7a3f059"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ffcf0ad031fc6a51ce63d1d7488eb7c3f96b93ae30db0d275826b5bbec70842e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ffcf0ad031fc6a51ce63d1d7488eb7c3f96b93ae30db0d275826b5bbec70842e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "62e69c1485674a02db748e089a5f317d0c22b174e183cae666f0318a5d10c483"
+    sha256 cellar: :any_skip_relocation, ventura:        "6eef37dd3bd5cf30c28293b7f6f0adaa56fc0f62268a87be894ab4e1c743ff57"
+    sha256 cellar: :any_skip_relocation, monterey:       "6eef37dd3bd5cf30c28293b7f6f0adaa56fc0f62268a87be894ab4e1c743ff57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "427310df8b07936c2f79576e66375a7b8a2c21d06317454a92efd465131660ac"
   end
 
   # Match deprecation date of `node@18`.

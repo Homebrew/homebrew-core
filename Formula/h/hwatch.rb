@@ -33,6 +33,7 @@ class Hwatch < Formula
       pid = fork do
         system bin/"hwatch", "--interval", "1", "date"
       end
+      sleep 2
     ensure
       Process.kill("TERM", pid)
     end

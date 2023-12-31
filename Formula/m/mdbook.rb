@@ -7,19 +7,22 @@ class Mdbook < Formula
   head "https://github.com/rust-lang/mdBook.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00c87e99119f54d2bc401fc473e2ed17ae65bab6ce005960d972214e247796b2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad59336b0cdb94bdd5073434b82a5f88554d8e760fc0fd1a2b8182f1632e576a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "389ed0bde872789fe597278cc4987c773802ae2c9859c35da11fb2a5ba41b9bb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "34a450ebc7f114b9e28f63e231408f7d7b98f3ac65f56faf62f32ed85a5173dc"
-    sha256 cellar: :any_skip_relocation, ventura:        "93b304c632d611c36d1b1cad97b8c44c03d180759b0986709a8bdb244aff6e93"
-    sha256 cellar: :any_skip_relocation, monterey:       "3806f8aed567b354818c3ab6e236ac34762aa5f9737904257333aa8873b63a28"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2099133ad2ad72e281860a79330762ff9e36c22f948e7df9892495df2f103fc"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ad2369a8313b13afacca721208899ffa33be89364cb0138c47502b4699bccba9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09f5c08e3758e768d1dba879f5ef59a9a800bd0f81ff0dfc23e907d683394c05"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e48bd313234baa67f3c8a46919cd499ca783aff8c2ae8103afe6c9419fcd8adb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7e6ae64daa4d94670214deba17c5b0df45306430711318934fa11df05f563e6b"
+    sha256 cellar: :any_skip_relocation, ventura:        "0eebe5ce5661128f522903cbdf9ccb8d4eb78ba5076a655600645a58b99db04e"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d18289c2b6354eedc453ad3cbdb15dd581d2054c2b829d671c533b50df3c189"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "841a8ebbf04b130910e1300ce4715eab72de475428424e15888daa467e0d87ae"
   end
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"mdbook", "completions")
   end
 
   test do

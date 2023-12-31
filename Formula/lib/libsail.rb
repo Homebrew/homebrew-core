@@ -4,15 +4,16 @@ class Libsail < Formula
   url "https://github.com/HappySeaFox/sail/archive/refs/tags/v0.9.0.tar.gz"
   sha256 "892738e0f56fed8c6387e1045bba2bfbf1b095024a495845d4879edb310cd1a7"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "65920d269a4808976c62a633c44842392a14782f40f7c8d2ae13cf3690aca4d6"
-    sha256 arm64_ventura:  "72e3d594e8f0969372ea6185a49e067cd3d7413d7e57f8c56bf1ee56111f93df"
-    sha256 arm64_monterey: "2460273c0459e5c506ae0fe2549b3773e524cda54e52ea0dda76c69726b9b329"
-    sha256 sonoma:         "61db1c9ae86851397c187f5eff9c2220c70202c82d1192b7a969b8fb2c2fdd9a"
-    sha256 ventura:        "07b58b25676f108676432feb75dfb10b8d1be3a518452058dab8f3bbf630ec43"
-    sha256 monterey:       "f4431c1af8d6e5cd39340766bf48f94558bc65b8c2fb9a8fd1af9e62af261b24"
-    sha256 x86_64_linux:   "5078ea7828d61766f094b081970e4127c9fed853f13bfed8b34895921977da36"
+    sha256 arm64_sonoma:   "0310e1610e101b1a6ffe17a0338f503068152e96051663bf4e1ee7be63141258"
+    sha256 arm64_ventura:  "d4c4494897180daf43f715450d8ea159e59360c97cc6bd1cf818d215b1d2a011"
+    sha256 arm64_monterey: "60c470960b45f008fdb202d2bf572c531255c797bc87b06a67acadc8173d65e6"
+    sha256 sonoma:         "6962b2f4bd8b32712e99f32da4397ee71347535f63f157942e739620ed0fecee"
+    sha256 ventura:        "8a3c6ab38e7ef4a3410387a268cb3d807a23465e02578bf6fe18ba7fc0445793"
+    sha256 monterey:       "5e8863c9085da955b57c8233931c3c0604efe2998cb9d77b1429962d4bd8e817"
+    sha256 x86_64_linux:   "c0cee20889e40120f790541f0dd096ac94ba02f4245454b3a31712454e33ea65"
   end
 
   depends_on "cmake"      => :build

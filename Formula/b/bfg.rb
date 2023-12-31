@@ -6,8 +6,8 @@ class Bfg < Formula
   license "GPL-3.0-or-later"
 
   livecheck do
-    url "https://github.com/rtyley/bfg-repo-cleaner.git"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://search.maven.org/remotecontent?filepath=com/madgag/bfg/maven-metadata.xml"
+    regex(%r{<version>v?(\d+(?:\.\d+)+)</version>}i)
   end
 
   bottle do

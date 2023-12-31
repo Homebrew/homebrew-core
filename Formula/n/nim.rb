@@ -1,10 +1,9 @@
 class Nim < Formula
   desc "Statically typed compiled systems programming language"
   homepage "https://nim-lang.org/"
-  url "https://nim-lang.org/download/nim-2.0.0.tar.xz"
-  sha256 "bd6101d840036fb78e93a69df6cf3f9fd0c21cd754b695ff84a3b4add8ed0af7"
+  url "https://nim-lang.org/download/nim-2.0.2.tar.xz"
+  sha256 "64f51d3bf56de9d0ee79e2ca6a9ce94454af9a63a141a6969ce8c59a60b82ccf"
   license "MIT"
-  revision 1
   head "https://github.com/nim-lang/Nim.git", branch: "devel"
 
   livecheck do
@@ -13,15 +12,13 @@ class Nim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "083178f68bcc5c3385a54763583bd77cf898c2eb4fd4916213777ddf11ee5ced"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fa727208bc8516c1ceb20e97e22f1a50778c0d18a3af2e15ed3b02fdea802fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5ca3ffeed48e550e054b884725b944384886f33e2ff2306f313fdebe6675abe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6c6b719a85143914667bd94fa1668bf686eec8b9a7108d27ea0799c4a128ff7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4cac812f3857c46c24efef1e9357bed8596b4029e332ec7c9c6910437c0a80f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "8d2ec4fadd66ca1e3759085601a13b8cef5d711352531ed8fbe7d9bcf5542564"
-    sha256 cellar: :any_skip_relocation, monterey:       "f414b4a3b42193367b565b90d039ea8e1c3676f25be558f0aef5d6efe4dfb9cc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abf94332c36c652b8b5e78ef62f11033dec8b12f2c1025df8ca4384fd1ff7752"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19a3b3e6b6e4379f21eb7ff18d8a49e9f601ceaaaa276dafbc4afb3fae715f8f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d46e5355c8cfcb673980f51c789db1a05a5492031d23e85f5590516f1360e9bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "70c3d63ebee38e1f1cdf84fe330b8d4edfb64c8164ba384e38c7118db72b90e7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0aff52dd1c93f227c5e32b0fe1db93067b79dfbc7561bbe18588ad712626c9a7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "789fa390369a17637c717beec449fb8dc8ea0fbc92c568fd73e1ca17b29a414f"
+    sha256 cellar: :any_skip_relocation, ventura:        "859b3555ff4f30f204fbd7795434414696a2f5fbbdb13847f3479670dacd578d"
+    sha256 cellar: :any_skip_relocation, monterey:       "651beee61a1fe9e6ed554baa391bda2e7913c147266426e5bbce6a5fb9f50184"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bd8649dc02e0a4522ac07b0c3f6a988e0923c279ba57327ed6938ae6a9db351"
   end
 
   depends_on "help2man" => :build

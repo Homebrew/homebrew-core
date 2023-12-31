@@ -3,19 +3,19 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/8c/90/bc859704c1e0a6c959c382cdc7a1ec7488e6ae28e1bd4902aef177e1fdd7/streamlink-6.4.2.tar.gz"
-  sha256 "b5fb719f4251a692c88788a1d46e2cd0fa2231960c52b281cb8210871c722e76"
+  url "https://files.pythonhosted.org/packages/c7/eb/bd99f3ce5d9cf720d267d6f7219e12042ab95ed89abd093d97073a3f190e/streamlink-6.5.0.tar.gz"
+  sha256 "8f4d61593bcce10f8d5e84ca956aac4fa639c0a349e7df379834373a883966ed"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8506f003b7c9fa1bd3adaede50675e4e77dfd7f6a1e1d899aa9898c58e053bd5"
-    sha256 cellar: :any,                 arm64_ventura:  "3352be168b9fb7c3366d09b203a107383b8aa0c07dd35b689327a9d3e2d5908e"
-    sha256 cellar: :any,                 arm64_monterey: "eaddd3b5fe2a484e2433e61bbc92f8226f6c6d6a0c55afd90c4c507c55e41746"
-    sha256 cellar: :any,                 sonoma:         "5816d1859ca7efc2de8a7a0fc9bf930c8976518eba5e4928e862c85a0a41222c"
-    sha256 cellar: :any,                 ventura:        "d00bb25c6c0070c2261551bbebada45bbbff84944fd58241a3fd8f153c15d11e"
-    sha256 cellar: :any,                 monterey:       "d64a9e102e46e81a198d07663354f1a73b31f314cb9bb50482b93821ec013fe8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "870a9361bd170f0dc164b6c75f655287397db562ab52d341a737e24a37eafd9d"
+    sha256 cellar: :any,                 arm64_sonoma:   "25e8924ff45ffb08dfb40cde4610c7abf630ea92531f8b637e165380c37494a9"
+    sha256 cellar: :any,                 arm64_ventura:  "11b92da3435f16ef3e9a53be197fc244a2e60fb049ed7933f6a5b26dc03e9073"
+    sha256 cellar: :any,                 arm64_monterey: "4761ffa7ec52048c595ad2391c6d631549c1faccfd92dd65770cac21f6d9cd3c"
+    sha256 cellar: :any,                 sonoma:         "3e5706fc44494da4cf3af910f1c822f48451d8d61edf0c1726aae28e5cc5a58d"
+    sha256 cellar: :any,                 ventura:        "5b61b71f298f8244034a668a794ba2a7d02ef5df72f0c2e6d3a0ecec67dba771"
+    sha256 cellar: :any,                 monterey:       "11aabcfadebf5885a228e06061762e0dcc2c66c19be2d3d4ffb3b28eea787671"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c03b1a60c5054ff00271f85346deeb5b12e51f2a9bf375720a384a0aecfa0d9d"
   end
 
   depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
@@ -67,8 +67,8 @@ class Streamlink < Formula
   end
 
   resource "pycountry" do
-    url "https://files.pythonhosted.org/packages/33/24/033604d30f6cf82d661c0f9dfc2c71d52cafc2de516616f80d3b0600cb7c/pycountry-22.3.5.tar.gz"
-    sha256 "b2163a246c585894d808f18783e19137cb70a0c18fb36748dc01fc6f109c1646"
+    url "https://files.pythonhosted.org/packages/08/4a/137f422423b9c85148183691da65c5c843a209b7fc0c33a5144489366f53/pycountry-23.12.11.tar.gz"
+    sha256 "00569d82eaefbc6a490a311bfa84a9c571cff9ddbf8b0a4f4e7b4f868b4ad925"
   end
 
   resource "pycryptodome" do
@@ -97,8 +97,8 @@ class Streamlink < Formula
   end
 
   resource "trio" do
-    url "https://files.pythonhosted.org/packages/81/5d/f14b7dd618408613a4c0a6b4e88902fe97bc07ff136921d6c935859036de/trio-0.23.1.tar.gz"
-    sha256 "16f89f7dcc8f7b9dcdec1fcd863e0c039af6d0f9a22f8dfd56f75d75ec73fd48"
+    url "https://files.pythonhosted.org/packages/c7/9a/39e0a59d762f4c72cec458f263ee2265e29f883421062f64fd8e01f69013/trio-0.23.2.tar.gz"
+    sha256 "da1d35b9a2b17eb32cae2e763b16551f9aa6703634735024e32f325c9285069e"
   end
 
   resource "trio-websocket" do
@@ -112,8 +112,8 @@ class Streamlink < Formula
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/cb/eb/19eadbb717ef032749853ef5eb1c28e9ca974711e28bccd4815913ba5546/websocket-client-1.6.4.tar.gz"
-    sha256 "b3324019b3c28572086c4a319f91d1dcd44e6e11cd340232978c684a7650d0df"
+    url "https://files.pythonhosted.org/packages/20/07/2a94288afc0f6c9434d6709c5320ee21eaedb2f463ede25ed9cf6feff330/websocket-client-1.7.0.tar.gz"
+    sha256 "10e511ea3a8c744631d3bd77e61eb17ed09304c413ad42cf6ddfa4c7787e8fe6"
   end
 
   resource "wsproto" do

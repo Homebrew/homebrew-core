@@ -1,35 +1,56 @@
 class Prr < Formula
   desc "Mailing list style code reviews for github"
   homepage "https://github.com/danobi/prr"
-  url "https://github.com/danobi/prr/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "c713aa543e1c2987430ff0fbfa3892a543d02bb24549ebf7127c06b55f6b14f1"
+  url "https://github.com/danobi/prr/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "7ad7a14f6bd6edd253afb75a95b244a7a578c66099121441547295fc096f199a"
   license "GPL-2.0-only"
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9c4090b1619a36b5a561d6c35edb9015eb1b11dfc6304cc653d5273dc9386963"
-    sha256 cellar: :any,                 arm64_ventura:  "6c5d48e1b9fa46864bac608f1e91a6d34e1515f8b4f8b6f74050cd1dbc411f64"
-    sha256 cellar: :any,                 arm64_monterey: "2969893f0070442a91452b2d32f12c48142b82c75cbadfc7f68ba45b42476878"
-    sha256 cellar: :any,                 sonoma:         "f3ba4f65de66424fb0ca8f07660a711ba8c7bd072f284db877a5d5657fc64f1c"
-    sha256 cellar: :any,                 ventura:        "2d98039e5a7fe041c8bd0eb4d7c8e536492bdc97016a51deb426c76fa3a3012a"
-    sha256 cellar: :any,                 monterey:       "0ec7fda34a0494a898244d1889f017e01ba9838378d5f86334a9b61e6efd31f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16ae6f73a6aca6e0e26cb46c26ef9b0459fec89958d2a7a4b71c8aa2b2fed512"
+    sha256 cellar: :any,                 arm64_sonoma:   "5aaf380e9ffdd9452fd1c72c109d61529ee0f1ab146d14bec45d14a8659b99be"
+    sha256 cellar: :any,                 arm64_ventura:  "354917419eb2535e1bee4db2255b5591bcbb1c0b33dc49d0ff16d1e5b0cf5237"
+    sha256 cellar: :any,                 arm64_monterey: "4a134879bbf6a70bad4beafd27d27b5cc435c6b8d0d984d467cdb5a0abe60011"
+    sha256 cellar: :any,                 sonoma:         "74ba628b42b1581d8482c9ec4f3c5286c58a020aa678d3c3e2f24c274503af15"
+    sha256 cellar: :any,                 ventura:        "00155dac3ff7f68c8248523ae2a38dbc4ad9fc078ef2b0b5057595b45cea472a"
+    sha256 cellar: :any,                 monterey:       "3a4c2d836f857f12dfffcba7dfe641cef5b5c439f6f84bca30168b808d0e5365"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6d571fc884e4190deabcb21ff287bdc5279ba428604637085800233c10acd98"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   uses_from_macos "zlib"
 
-  on_linux do
-    depends_on "pkg-config" => :build
+  def install
+    # Ensure the declared `openssl@3` dependency will be picked up.
+    # https://docs.rs/openssl/latest/openssl/#manual
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    system "cargo", "install", *std_cargo_args
   end
 
-  def install
-    system "cargo", "install", *std_cargo_args
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
   end
 
   test do
     assert_match "Failed to read config", shell_output("#{bin}/prr get Homebrew/homebrew-core/6 2>&1", 1)
+
+    [
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+    ].each do |library|
+      assert check_binary_linkage(bin/"prr", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   end
 end

@@ -7,16 +7,16 @@ class Cffi < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "68b4851eb6de67bcfaf57a2d08c4a412f5e645f15300efa4cb42dc1be2094d21"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68986a32110045f2d6c27b69fe2f03ffb3cc7753ba40fa965dc9ee9c3862387e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e130c7cffc0f6e39be2c730dfcf67d48c1e9dc55d43d8822d9441c62f0c2e661"
-    sha256 cellar: :any_skip_relocation, sonoma:         "76f2b60ba93496474a243f5a365b9a0040b25f0e5ecb2ff9b3f1eb210b54f814"
-    sha256 cellar: :any_skip_relocation, ventura:        "e9a3a49b93e4ad95fddb3668b0f48efb0e14edf9f6c95c6acaadd0534964d0f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "db7a676d820849c018e6103a68eac47695c584eb802ffdded0055b88ba6d3675"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d014e7fedeb7161b5f6ca55d47bff9c7e3fe4798f76cb6a891d9e2b073917dee"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ffe080b9d696ac03d1229276be008dea6f403d395b3c2b3ca9bffa78e50e2f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4e33d746c4e8ee49df366aae6c6c8f3f58fe917bc3b7d4363d9b684ac8e7a0db"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1496498ac52787b4ef0bcb1293febd7ba5cad07a4b4ab2c088c9e67ae1085d69"
+    sha256 cellar: :any_skip_relocation, sonoma:         "825ca5c9bf25ca28db6cd0d7ddb088cb66aa86dc69f85e24775e2ed526ebd9ac"
+    sha256 cellar: :any_skip_relocation, ventura:        "0bd893c328706682088abca867d52c40b8a9e162e65c5f067647cf3fe4171821"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc90dcf157fd659a2b41970f945754c21eb98647ee83259f2e64bbc3bd41e1cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75989e551855be635a6ee550fd5ef2f02738ed44fee5eef0393e688e5489d007"
   end
 
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "pycparser"

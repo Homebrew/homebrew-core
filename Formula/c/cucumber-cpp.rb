@@ -1,22 +1,18 @@
 class CucumberCpp < Formula
   desc "Support for writing Cucumber step definitions in C++"
   homepage "https://cucumber.io"
-  url "https://github.com/cucumber/cucumber-cpp/archive/refs/tags/v0.5.tar.gz"
-  sha256 "9e1b5546187290b265e43f47f67d4ce7bf817ae86ee2bc5fb338115b533f8438"
+  url "https://github.com/cucumber/cucumber-cpp/archive/refs/tags/v0.6.tar.gz"
+  sha256 "d4f8155b665a8b338a60f97bd652bb04a1b41f5c32750e13dbf48664a942d93a"
   license "MIT"
-  revision 9
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e87212f6030783f55ba38528ffda7715ae31a02c154c50d10430ea5123e4abca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d540f6ce4b8341c81108b6982fb397ca81ddcdd198f42f2272cde4c663a2c2cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3555ced3da78df86ea2167719051e71050ae478872f5440d4d1f23204f3efb7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b26e8188eba3e33e66af2fee3f89fcfd491575d1a7279dd122dcbf3c97947b9b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f5d1c61654144668ef342b8814419bfcd3070644f9d9ca0009b971f09ce555a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "b904ae5c64aad86e153669a30bbda4f2d47047599e02a7487c6f68acb4b1606c"
-    sha256 cellar: :any_skip_relocation, monterey:       "84d4a28b5728185faa0c082cc158481fa7636a69010958ea34ffbeae85210301"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1fb0eea94924ccd3bdab9cb11e9647d11c650f0c8c769517e74d3bdb169fb44b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff0facd9e406ff16390aafc6d412f0a88ce26507b7829aca0aee8e77b7ec95e8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08ed8ef1c3b721d385eae4267c2af54ae1117fd8271bf91c9f671cb482f5b7a8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ac3ab97c6baf4543b358259c8f17654d2d0c977c5a4c374ae325d2ca78c7b5a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c567b4e99c1f34f5ab6ef8bfe3dfe59a7f4b1849b3969a667032c60904ef221"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eeb3a31c4dbd91b2a44f4bd0c2885c3e0b6800847953b80a1e79eb015be55374"
+    sha256 cellar: :any_skip_relocation, ventura:        "4531fdd346511c18ae83cfaed4e897773657e8bad863629249ac98af73505512"
+    sha256 cellar: :any_skip_relocation, monterey:       "09e8aaf01c142cf7f56b6a55eaffa08a88b1f161800b569edd66b29005d2a678"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77b6491da0c2c4baf8bf080358135c4139cac035e7ee083c4575b11d4000f721"
   end
 
   depends_on "cmake" => :build
@@ -24,17 +20,17 @@ class CucumberCpp < Formula
   depends_on "boost"
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DCUKE_DISABLE_GTEST=on
       -DCUKE_DISABLE_CPPSPEC=on
       -DCUKE_DISABLE_FUNCTIONAL=on
       -DCUKE_DISABLE_BOOST_TEST=on
-      -DCMAKE_CXX_STANDARD=11
+      -DCMAKE_CXX_STANDARD=17
     ]
 
-    system "cmake", ".", *args
-    system "cmake", "--build", "."
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

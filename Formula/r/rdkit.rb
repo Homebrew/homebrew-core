@@ -10,7 +10,7 @@ class Rdkit < Formula
     url :stable
     regex(/^Release[._-](\d+(?:[._]\d+)+)$/i)
     strategy :git do |tags|
-      tags.map { |tag| tag[regex, 1]&.gsub("_", ".") }.compact
+      tags.map { |tag| tag[regex, 1]&.tr("_", ".") }.compact
     end
   end
 

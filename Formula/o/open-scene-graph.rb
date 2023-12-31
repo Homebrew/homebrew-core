@@ -48,7 +48,7 @@ class OpenSceneGraph < Formula
     # Fix "fatal error: 'os/availability.h' file not found" on 10.11 and
     # "error: expected function body after function declarator" on 10.12
     # Requires the CLT to be the active developer directory if Xcode is installed
-    ENV["SDKROOT"] = MacOS.sdk_path if MacOS.version <= :sierra
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version <= :sierra
 
     args = std_cmake_args + %w[
       -DBUILD_DOCUMENTATION=ON

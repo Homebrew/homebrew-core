@@ -2,20 +2,19 @@ class Datasette < Formula
   include Language::Python::Virtualenv
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/44/69/2c4e85d5409ca9d162a51312d284676eb7ba4293aff6c3d427523fef116d/datasette-0.64.5.tar.gz"
-  sha256 "df917896f181ce57e26c6b3b78ff7fdfdc46c322c46673b2276fae1d8e7f19e2"
+  url "https://files.pythonhosted.org/packages/c8/7d/667e3bfceef9e428e38117b8d9704f502395fddc1effb7ef760b2dd0c4e6/datasette-0.64.6.tar.gz"
+  sha256 "85ca3aabca64fd9560052042aec27d3b32a1f85303853da3550434866d0fa539"
   license "Apache-2.0"
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a22ed5570133bc8893433953c0b411b0f7d77d5d6de171832494a21069299331"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f804998d90b945c39e1d9d1597937033dbd285fc8d3165dd00f87b8fb7863f87"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "98697a74f3781fcdec9a183d0cdfda1d3ae8f3754e79c4cf2fab8c85ea647aba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fe9465d0a251bd364182fd0bc1ee235a6ae558ebaec28350112e5aed7a2962e2"
-    sha256 cellar: :any_skip_relocation, ventura:        "15f5e0c931bbf92ceb4d9247236bd2483b261a439f7ae08148ff2399e3c3405a"
-    sha256 cellar: :any_skip_relocation, monterey:       "2256e32c0b6ac276b2749510abf7d25a7cc1943ccb569e031ceb28395f7ca454"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c1df409389a482e8a4fb9a0fb720cacfd4423216929b238b11b852aa516b4d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "008c1337e9fa824845072a352b6ddce2e629207f8f17237b16d8bb99e3fc7c17"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1bbfa65a4cd46f769ec8670122738663eb7ffd89a1ec8c268e604e8d8ded32f3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7d14c33232c703e2e9c17025226dc9c7a68f53dfc5eb28a73c1de2a7dc675e0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1e9c65787da35dccdc3d6f66988846ad76e62b5801d35b6a16e9b88e718957a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "c53c26fbd0308ef8e23889b2797a680b5bde3a9ebdfe471fa79683f40d34e3d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "82c69a3b02cf3e912cb687a98b0d0f3c31be4a2b69ddf8c9e89472f6ac3c1fd0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04e0673b9a5c0ad39244a208270c1d9357b503338f6bbfa48b166cac94b5f8c0"
   end
 
   depends_on "python-certifi"
@@ -31,6 +30,11 @@ class Datasette < Formula
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/af/41/cfed10bc64d774f497a86e5ede9248e1d062db675504b41c320954d99641/aiofiles-23.2.1.tar.gz"
     sha256 "84ec2218d8419404abcb9f0c02df3f34c6e0a68ed41072acfb1cef5cbc29051a"
+  end
+
+  resource "anyio" do
+    url "https://files.pythonhosted.org/packages/2d/b8/7333d87d5f03247215d86a86362fd3e324111788c6cdd8d2e6196a6ba833/anyio-4.2.0.tar.gz"
+    sha256 "e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f"
   end
 
   resource "asgi-csrf" do
@@ -49,18 +53,23 @@ class Datasette < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/23/b6/d71729dc09e5a5b361b655ae18e85fbf97e5e27a076c4f9b4606b4eb0340/httpcore-0.18.0.tar.gz"
-    sha256 "13b5e5cd1dca1a6636a6aaea212b19f4f85cd88c366a2b82304181b769aab3c9"
+    url "https://files.pythonhosted.org/packages/18/56/78a38490b834fa0942cbe6d39bd8a7fd76316e8940319305a98d2b320366/httpcore-1.0.2.tar.gz"
+    sha256 "9fc092e4799b26174648e54b74ed5f683132a464e95643b226e00c2ed2fa6535"
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/a5/24/dbc981590a8b72ddd5f954fbddb1da010ae844a1cde904bca3c9380ccb1d/httpx-0.25.0.tar.gz"
-    sha256 "47ecda285389cb32bb2691cc6e069e3ab0205956f681c5b2ad2325719751d875"
+    url "https://files.pythonhosted.org/packages/bd/26/2dc654950920f499bd062a211071925533f821ccdca04fa0c2fd914d5d06/httpx-0.26.0.tar.gz"
+    sha256 "451b55c30d5185ea6b23c2c793abf9bb237d2a7dfb901ced6ff69ad37ec1dfaf"
   end
 
   resource "hupper" do
     url "https://files.pythonhosted.org/packages/42/3d/70bef845298bb4746b94418efde81bcfe0fad479169c2e9649f95630bfa7/hupper-1.12.tar.gz"
     sha256 "18b1653d9832c9f8e7d3401986c7e7af2ae6783616be0bc406bfe0b14134a5c6"
+  end
+
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "itsdangerous" do
@@ -84,8 +93,8 @@ class Datasette < Formula
   end
 
   resource "pint" do
-    url "https://files.pythonhosted.org/packages/2c/4b/f06c9975298765c64ac9ca6f36be072e65e1437a03a472f5fabc5327ef4e/Pint-0.22.tar.gz"
-    sha256 "2d139f6abbcf3016cad7d3cec05707fe908ac4f99cf59aedfd6ee667b7a64433"
+    url "https://files.pythonhosted.org/packages/02/41/002d020f140db35d971f4bdd73407d69fdf56c5ba5fcccc10776e27d3a6c/Pint-0.23.tar.gz"
+    sha256 "e1509b91606dbc52527c600a4ef74ffac12fff70688aff20e9072409346ec9b4"
   end
 
   resource "pluggy" do
@@ -96,6 +105,11 @@ class Datasette < Formula
   resource "python-multipart" do
     url "https://files.pythonhosted.org/packages/2d/23/abcfad10c3348cb6358400f8adbc21b523bbc6c954494fd0974428068672/python_multipart-0.0.6.tar.gz"
     sha256 "e9925a80bb668529f1b67c7fdb0a5dacdd7cbfc6fb0bff3ea443fe22bdd62132"
+  end
+
+  resource "sniffio" do
+    url "https://files.pythonhosted.org/packages/cd/50/d49c388cae4ec10e8109b1b833fd265511840706808576df3ada99ecb0ac/sniffio-1.3.0.tar.gz"
+    sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
   end
 
   def install

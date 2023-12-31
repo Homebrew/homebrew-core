@@ -7,6 +7,7 @@ class Libprotoident < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "f79ee7ff4e6f80d27d5137297a908e5d03ef51b4acffb080725e869a6e56ce09"
+    sha256 cellar: :any,                 arm64_ventura:  "ea8e7da575aeec817cab4748e0f27b304ffef04656bf8925a7fe0e43c446bfb8"
     sha256 cellar: :any,                 arm64_monterey: "8ace9b58b751f6fdb761ff949f271c239143232e72e259619ce7053f2de430d7"
     sha256 cellar: :any,                 arm64_big_sur:  "2fc5f6991116f9d63e327f05905affc40219b75a60eee637f2d6f5dc4f59d6e1"
     sha256 cellar: :any,                 sonoma:         "27514db399bbf3a0ac9466eab131d61a39c05dff2d9a3a6f7df0e66a6e3d82a1"

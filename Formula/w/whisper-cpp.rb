@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggerganov/whisper.cpp"
-  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "ccf17e3283bcde3d09d333889528f3494e196f8a173d5023fec068a0dfae8f76"
+  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "be9c4d5d4b5f28f02e36f28e602b7d2dcfd734dd1c834ddae91ae8db601e951f"
   license "MIT"
   head "https://github.com/ggerganov/whisper.cpp.git", branch: "master"
 
@@ -12,13 +12,13 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a22020c7bce3aec87e6a54e6410e04527ff7fb24822d8b3da6e6766a222012fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aaa114a46d06ee8cdaefbe42083bf8a5da6f9b44c46158db9096a2c8a67f4fe3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "103ba7e7a10c73084d1c47b3786f63004b25a00bb0803c032d3e9764b478b469"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3739a49588b069452cc595ca742a6965787982a2395252d7c338003f4c207f06"
-    sha256 cellar: :any_skip_relocation, ventura:        "668a3a2a2fae6b60ee177549141e93fbb9c68ba7f6f6c86bc7f34bc0796fcb5b"
-    sha256 cellar: :any_skip_relocation, monterey:       "4d423c77786c83c7f382a2af98ea75b20f16475090d835b62837cd19d735d4e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcc97f4a4b353332f6a8c87a6c4276b91eaf21b0e134ae7b096b28ed18a9ba51"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4f251448c98efb0b88003e8e3b4b93611e4353908ffcc8fc1a7637e22c0b6ed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc964f3b003ea43f3177e48d7f87ef68cfd326ef0016ad74646791a62e6a66ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e839aaba75ab65c73ef1b8f9d42661d6f79c53a222f2fefb04bfb1acc768eeef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ca56bc64924c25e7363e9739fcf6252185b62f4e759e641de87d84fea578cab9"
+    sha256 cellar: :any_skip_relocation, ventura:        "1ceb65d163ce533d3ca017ac129054554e5fbe71d9f48baac49a489dd4b74eee"
+    sha256 cellar: :any_skip_relocation, monterey:       "537a883322a52426b1429480064758615d72655ee5fbebf35552e08dec6406e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34ffbf5e6c7a972d7482e1ef24e93d87022903f341f8450a279b42589c0052be"
   end
 
   def install

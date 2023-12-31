@@ -56,7 +56,6 @@ class Pinot < Formula
     sleep 40
 
     assert_match("HTTP/1.1 200 OK", shell_output("curl -i http://localhost:#{controller_port} 2>&1"))
-
   ensure
     Process.kill "TERM", controller_pid
     Process.wait controller_pid

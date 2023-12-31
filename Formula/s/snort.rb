@@ -1,9 +1,9 @@
 class Snort < Formula
   desc "Flexible Network Intrusion Detection System"
   homepage "https://www.snort.org"
-  url "https://github.com/snort3/snort3/archive/refs/tags/3.1.76.0.tar.gz"
-  mirror "https://fossies.org/linux/misc/snort3-3.1.76.0.tar.gz"
-  sha256 "5586199be8b7a7c6a1b73e0af2e2e004db8417b8282668b10583071e35c9c7a9"
+  url "https://github.com/snort3/snort3/archive/refs/tags/3.1.77.0.tar.gz"
+  mirror "https://fossies.org/linux/misc/snort3-3.1.77.0.tar.gz"
+  sha256 "cb98c0d15caa7c84da24995e8521f42f4e86a860b9748418154d8649b6a0db2d"
   license "GPL-2.0-only"
   head "https://github.com/snort3/snort3.git", branch: "master"
 
@@ -16,11 +16,11 @@ class Snort < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6382a1ce05d144ea808eac9ba0d4ef4b07bf25df79f05713e183b36484c80cfb"
-    sha256 cellar: :any,                 arm64_monterey: "08f82c6bdb6fbd77a8e3dd4388a441f621858975fbd40bd298a2b993df35c0c0"
-    sha256 cellar: :any,                 ventura:        "6d3ed72c89ddeb7f1760f5dbc031cec4acea9118e044a8a5bd569ba4f314ca09"
-    sha256 cellar: :any,                 monterey:       "e288bfc58198ebdbefd1e30633c5bf1e92030284245817e65943067a1aad0bc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d048ff2cfeb3601ff447c8a40549d8a59277cc45b90efeb1b2acfedc2deaabc4"
+    sha256 cellar: :any,                 arm64_ventura:  "5dc881625cd83e2ddb7d7692c641ec347571ba38d0154f98b4bac9462f6a3731"
+    sha256 cellar: :any,                 arm64_monterey: "32c08e8eb99def263e245d8f4a99586de5dc835f9a2543b4128d199623baf9a3"
+    sha256 cellar: :any,                 ventura:        "6b7bc6506597f40e3445fc6f73e98756da04ebb708b703f40bc7d7d3da0c71a6"
+    sha256 cellar: :any,                 monterey:       "fd0eafd41788d9f74570f7353129adf12eced702f37f9cd9095b48aebaf83742"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbc389fb619640d66c23b89d7da5ec311ddb21b7d0ee602a00bbe3eb9601aa87"
   end
 
   depends_on "cmake" => :build
@@ -33,7 +33,7 @@ class Snort < Formula
   depends_on "libpcap" # macOS version segfaults
   depends_on "luajit"
   depends_on "openssl@3"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://github.com/snort3/snort3/issues/254
   depends_on "xz" # for lzma.h
 
   uses_from_macos "zlib"

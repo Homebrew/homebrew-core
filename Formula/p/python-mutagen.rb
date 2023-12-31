@@ -7,17 +7,17 @@ class PythonMutagen < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4ca7b524e87bbd317ff54527d11230e660719f03f04af086177611badba69ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a80f0c2864bdf226caa75187fe7119314b642e569fbf16a9d1c949bbbc551caf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "612f566eec75785bf93158d27c3fbaabe6d50a0bc31cc00d334592c07fb5706b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b3feea8f29301649f4c0c036ec50319280e36bc6811ab16d1b9e41021ae7d89d"
-    sha256 cellar: :any_skip_relocation, ventura:        "d07660c0bb928ce8d594d88a5d5560cb8bb91fcdc363f1cd423235f3d5c787ee"
-    sha256 cellar: :any_skip_relocation, monterey:       "4d4aa9c8e1f00a6783546df150d6c728ff703896126c1cee44a55a5956e39314"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed9b410dd58731e2633a5ef5ae88ee0680e5af16a0dbaff038057a62dab490c6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c25945066d4cee64f3f07e0ee27efee57561c28e615082710a51c747d783b40d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1784d4b134151cfce667ced82387a5b849015883f43433899da2ba5e40868b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7249d577993d8359e12dfc0e5c6f40e990e82a9984eb46430d77a185f64951d9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "48895044a628393894de0e2ea2200618ded8bf481fd17c89fdaefd220774eead"
+    sha256 cellar: :any_skip_relocation, ventura:        "88301d2f14b5d11f8eba199461a10281b2fffda2d68095208f202ea530b7cb76"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb331104be1b280fe2dfbcb74208331fa14ff53e36422ea523999929862fbf7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e640c921f3ea814eecd2e8690d4f3f467836d9034ced68251699ea76c192de4b"
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 

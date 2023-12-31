@@ -1,8 +1,8 @@
 class Dwarfutils < Formula
   desc "Dump and produce DWARF debug information in ELF objects"
   homepage "https://www.prevanders.net/dwarf.html"
-  url "https://www.prevanders.net/libdwarf-0.8.0.tar.xz"
-  sha256 "771814a66b5aadacd8381b22d8a03b9e197bd35c202d27e19fb990e9b6d27b17"
+  url "https://www.prevanders.net/libdwarf-0.9.0.tar.xz"
+  sha256 "d3cad80a337276a7581bb90ebcddbd743484a99a959157c066dd30f7535db59b"
   license all_of: ["BSD-2-Clause", "LGPL-2.1-or-later", "GPL-2.0-or-later"]
   version_scheme 1
 
@@ -12,15 +12,13 @@ class Dwarfutils < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "121bcbdda0126ff38186c3ab490416b6066250175421afee0e7d37ab2c352a9b"
-    sha256 arm64_ventura:  "c16d31a5057999735bad0fe90d36c6f42d1c473fd9b66ef49f6d08e804d55887"
-    sha256 arm64_monterey: "77e820749843db37302e66cc01585cf520884ada4563bf2de678b96f6a53cea5"
-    sha256 arm64_big_sur:  "1059900fed3ececa484812fd069fb6a93da59ab3cb4405693b6933bcd81e5d40"
-    sha256 sonoma:         "31202697e568e029402f5446bed73ee059a85fb18a98023f7d3a2bb5ef9645f3"
-    sha256 ventura:        "e0739ebdafb60bb0ade434c660348e9fdc0e61288ec7899fb781b0ded7258230"
-    sha256 monterey:       "a5f8d16f48e507da6a7a1dbc63ab6bed8586056f33bd71463d10714a0caa0008"
-    sha256 big_sur:        "3f95dd583de22ea6f88d68f7f759cd81aad5bf8a942d0e108eaf8f2472f2969c"
-    sha256 x86_64_linux:   "c586d665fc496ee9c7a9376ccc7a8d481879010a31e28f6f5f7af0585de85f57"
+    sha256 arm64_sonoma:   "10372cff3bdf11c9349355050e6006cd5bf33e1257070561f8f1dc8198f3c37a"
+    sha256 arm64_ventura:  "e64a73405bdbc6642d740c74347413092c520cc9150e7c84ebffd0f518624c55"
+    sha256 arm64_monterey: "50423838539f2d7fc8284307a88d0c626fd36e8917a08928f4ab929bc9dc12a2"
+    sha256 sonoma:         "5d2d5135249e39545c53e1438eef947d3efe813872867fde72406144d0bb0f6f"
+    sha256 ventura:        "43c0fedc66aacb1cadf795d31e34097c0887640f135f9576aa5bcf4f4aa7bcc6"
+    sha256 monterey:       "ad99d32892ff13431f2c01dc8816aefffdc9a1d3df15d0e763438c957669aa55"
+    sha256 x86_64_linux:   "001b01971a0e92f60e2e5c39cec3aff2e6c21bc0d1f02636287706c315df8fa8"
   end
 
   head do

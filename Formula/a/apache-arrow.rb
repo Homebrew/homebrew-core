@@ -1,25 +1,25 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-14.0.1/apache-arrow-14.0.1.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-14.0.1/apache-arrow-14.0.1.tar.gz"
-  sha256 "5c70eafb1011f9d124bafb328afe54f62cc5b9280b7080e1e3d668f78c0e407e"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-14.0.2/apache-arrow-14.0.2.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-14.0.2/apache-arrow-14.0.2.tar.gz"
+  sha256 "1304dedb41896008b89fe0738c71a95d9b81752efc77fa70f264cb1da15d9bc2"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/apache/arrow.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "6ac14a1a1b5be3d5ba95103936cc2e1830f17972dfa1d4b5179067d616d8aa34"
-    sha256 cellar: :any, arm64_ventura:  "b77aa80bf977f0949f6279d4d01151f66d71b8b6451fb64c8b416fe3a19bfb3d"
-    sha256 cellar: :any, arm64_monterey: "24d57fe7a8ffa30ea5a96d09d3ee9386e196b174e7f59295ef0e3e17408b40cc"
-    sha256 cellar: :any, sonoma:         "ff533359f689f2f864558bf1f24cc4bd65ca1b84584fa9ab719070c3be89bd02"
-    sha256 cellar: :any, ventura:        "ec67b1bc8c3de8611d3576103b94e5e51e8094348c092a51dadab4f239fec615"
-    sha256 cellar: :any, monterey:       "e83675dfa9f4003cb51f08fe1b92d4ea1d1af62fdedf2bdb79c957f2db9cd7a4"
-    sha256               x86_64_linux:   "1bd40320f7c5ef048351817c7bdcd22c684c2ba7824f1cd1dce71c3211df769a"
+    sha256 cellar: :any, arm64_sonoma:   "ba7357fcece3d3917c9275a8ac72b5b5caf34981dcc11f75b5ba7f13bff48754"
+    sha256 cellar: :any, arm64_ventura:  "8363efa515cba66d2226fc36f6fd1bb2e5f47cab1af9a95e1f19600d970cd56f"
+    sha256 cellar: :any, arm64_monterey: "48e586221f27f85ea77d9ab1eea6754267fd92c602986d4d1792f8150312674c"
+    sha256 cellar: :any, sonoma:         "b315d021f598a99c999b43b3940acaf8857f10fb55a7cc281080b5996c23516b"
+    sha256 cellar: :any, ventura:        "b17cdb969de15019121d54949644883a143e1f633505a4f2a6eb8aa3fc081a2b"
+    sha256 cellar: :any, monterey:       "7a39e0f96230367d3b5139a1c2e4015cf29ea8f9054e4c22939684595612ef6f"
+    sha256               x86_64_linux:   "751618dcd8c2e5fc9bc5de8b927c5488e2ed291f9f5d5a37aaa467bd1089d617"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "ninja" => :build
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
   depends_on "bzip2"
@@ -69,6 +69,7 @@ class ApacheArrow < Formula
       -DARROW_WITH_UTF8PROC=ON
       -DARROW_INSTALL_NAME_RPATH=OFF
       -DPARQUET_BUILD_EXECUTABLES=ON
+      -GNinja
     ]
 
     args << "-DARROW_MIMALLOC=ON" unless Hardware::CPU.arm?

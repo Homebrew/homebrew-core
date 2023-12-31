@@ -7,17 +7,17 @@ class PythonTabulate < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ca82727ef78f7d331376f9efbf41cc30be2cb360e152b6a0d2c5598db587af8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb7b857656008430de487cd7857be570b1be30c3d9f9b424f018427225c1f72a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fda06e4337f59b0dcadb2ba7a9dcceb20fe4af6d0b94aa3db4266e8968a51a39"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cc39a57ecdfca7b246ee977e1d5d6cbd89f9380a3ed9b6b2a92e26da931f1188"
-    sha256 cellar: :any_skip_relocation, ventura:        "ec65515d9973b2d2a1a5769693758e7a7a5fa229547e000ee1f680e056d03bd4"
-    sha256 cellar: :any_skip_relocation, monterey:       "ce09838138626262d49f419571b95f5463ed77f7755e59b07bcec48f2ccf753b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bbde18d6b5f051024d82ea01797c4d851c143837092d248f3dbc49c76f4eac5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6192893380cdad98357611640c0093ba73dc447b2625f75952cb77e24621b8f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25317d4c2280da78334544b12f43a750e461bd639e377cdbc8db79fc5cf2af1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "530188e12213873fd771c261b559e48b0cd26b42e20c1324ec6b64ab426028ce"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a781d2bbbd0f8233087ba16954243be1c84a45138c2d0e1619c68635ea834abd"
+    sha256 cellar: :any_skip_relocation, ventura:        "16f57ba4cdec4823690d6f1e100627c8ee8401df5ed257c39d034514b601aa12"
+    sha256 cellar: :any_skip_relocation, monterey:       "4999cd9fd9e1ae46b802a439ab1f91cd9b2e18226e782206b7d37361849d627d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a2594750f8c12674c7932cf82e2b2e40b0aef5d91da0cf8fb4906ea8cd173e2"
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test] # FIXME: should be runtime dependency
 

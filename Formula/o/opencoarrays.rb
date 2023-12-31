@@ -4,17 +4,17 @@ class Opencoarrays < Formula
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.1/OpenCoarrays-2.10.1.tar.gz"
   sha256 "b04b8fa724e7e4e5addbab68d81d701414e713ab915bafdf1597ec5dd9590cd4"
   license "BSD-3-Clause"
-  revision 3
+  revision 5
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ed611d58f8b731abca64c0af5ea8b32004958163ccc38f07aa9e7af4809fe74e"
-    sha256 cellar: :any,                 arm64_ventura:  "62770dc7c4372e3916dc2954b9e7789522a30814d4a5ba6a668464cf8aac1451"
-    sha256 cellar: :any,                 arm64_monterey: "9a0f57befe2f8d8693ee381f47af080af71dc31d599536ec412066d2ada892f2"
-    sha256 cellar: :any,                 sonoma:         "3d6f991d961cb8cd57e420a660c1629809f02eef20cf531e1e5a1d5ef7ff0597"
-    sha256 cellar: :any,                 ventura:        "b07e075bed22a99fba5e1863af072e3578368c431e8481eae607dc2f6c5daf1c"
-    sha256 cellar: :any,                 monterey:       "959f6396ba12770f50e41861fb779e9fee5ce00f4a60d9dfaa527998fc4dad3d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a149104f5a43c6759953519389650bcdf306ffe69be0db351cf7af8a482aeee8"
+    sha256 cellar: :any,                 arm64_sonoma:   "50b0aa18dae7c0a861896370b53e9f74057c8390717224bc95293de31a3ad797"
+    sha256 cellar: :any,                 arm64_ventura:  "33fd74fb80bd13d0107d49f4e4daa39892f88426fe114ff47d81e0efd6f5f7cb"
+    sha256 cellar: :any,                 arm64_monterey: "0dd1070bc400a07c8719663795fbf284e37a70914c8f98a484d943e9b2ac27c9"
+    sha256 cellar: :any,                 sonoma:         "fbac2a13b31651cea83ac1d245093fdf99cc64b284e1e25315405431da89ca13"
+    sha256 cellar: :any,                 ventura:        "b51e97d0aca458d1dc0ed461e1cb8a872754f1459895a09f63b8ed50277f83f2"
+    sha256 cellar: :any,                 monterey:       "61918bffe69b86ec47cd24828c68a18e8408319180ac86aa5c2c2eff58a72cdd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f3c68e7fd4a890bdc319edb796b1270837bc63845362cf1ad77123e7f6783d1"
   end
 
   depends_on "cmake" => :build
@@ -22,11 +22,9 @@ class Opencoarrays < Formula
   depends_on "open-mpi"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

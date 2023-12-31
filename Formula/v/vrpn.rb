@@ -24,10 +24,13 @@ class Vrpn < Formula
 
   def install
     mkdir "build" do
-      system "cmake", "..", *std_cmake_args,
-                            "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}",
-                            "-DVRPN_BUILD_CLIENTS:BOOL=OFF",
-                            "-DVRPN_BUILD_JAVA:BOOL=OFF"
+      cmake_args = [
+        "-DVRPN_BUILD_CLIENTS:BOOL=OFF",
+        "-DVRPN_BUILD_JAVA:BOOL=OFF",
+      ]
+      cmake_args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path}" if OS.mac?
+
+      system "cmake", "..", *std_cmake_args, *cmake_args
       system "make", "install"
     end
   end

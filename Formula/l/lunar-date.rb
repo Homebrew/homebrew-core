@@ -6,15 +6,16 @@ class LunarDate < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:  "97f9d852239c52563215dcc32f17208dcdfc5c35abfa95ca71c04f7cb58257e9"
-    sha256 arm64_ventura: "19aff5df6a94c6367cefb6e970257d1533c6db1d7159f2ae8c1e0ec295ac9cbb"
-    sha256 arm64_big_sur: "17475cd85977801b5ea3cb71e51329ed3ac322eb97c6109fd8c9d9addc44f07e"
-    sha256 sonoma:        "9c788ea241de587d7c95023e558ca0bebc3366068287adb1de46d4ca1a5dcefb"
-    sha256 ventura:       "f8990a85edb14b45e4819764856acd9dbb78960fc03557e40aacebdd23e8f1fb"
-    sha256 monterey:      "fab352d50cf04dbb5f4048a7b2af595070bc0b45d0cfd0b5b9a23f39a875e523"
-    sha256 big_sur:       "70f91a1f90710f781fdb99875b6e35d7b54f6be0b9e084ebab3ad6bd5b3a41a9"
-    sha256 catalina:      "d1b8c963d4e48947c6d10aa04e18bd3775d117da648193c04f8207e77a606c62"
-    sha256 x86_64_linux:  "0fd076e291a5801cc977b8adc505e9cc279302bbedd4a62ba69166698c2166a6"
+    sha256 arm64_sonoma:   "97f9d852239c52563215dcc32f17208dcdfc5c35abfa95ca71c04f7cb58257e9"
+    sha256 arm64_ventura:  "19aff5df6a94c6367cefb6e970257d1533c6db1d7159f2ae8c1e0ec295ac9cbb"
+    sha256 arm64_monterey: "01779a26cab511a07b5c288ada2ced6acedf252b1b58425f406068fc20e9aec7"
+    sha256 arm64_big_sur:  "17475cd85977801b5ea3cb71e51329ed3ac322eb97c6109fd8c9d9addc44f07e"
+    sha256 sonoma:         "9c788ea241de587d7c95023e558ca0bebc3366068287adb1de46d4ca1a5dcefb"
+    sha256 ventura:        "f8990a85edb14b45e4819764856acd9dbb78960fc03557e40aacebdd23e8f1fb"
+    sha256 monterey:       "fab352d50cf04dbb5f4048a7b2af595070bc0b45d0cfd0b5b9a23f39a875e523"
+    sha256 big_sur:        "70f91a1f90710f781fdb99875b6e35d7b54f6be0b9e084ebab3ad6bd5b3a41a9"
+    sha256 catalina:       "d1b8c963d4e48947c6d10aa04e18bd3775d117da648193c04f8207e77a606c62"
+    sha256 x86_64_linux:   "0fd076e291a5801cc977b8adc505e9cc279302bbedd4a62ba69166698c2166a6"
   end
 
   depends_on "meson" => :build

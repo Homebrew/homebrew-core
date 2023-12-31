@@ -12,38 +12,41 @@ class Aubio < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "8c23c7633064df0072287f6bf5178bd44dac868efd2224e28f85f0408d1445ec"
-    sha256 cellar: :any,                 arm64_ventura:  "1eee72e6668994865c26b6e3ae4cdde3dd8c275448e5940c36b251db5cc66bc1"
-    sha256 cellar: :any,                 arm64_monterey: "f61587af7daa4baca8780ffc61dcc4cc72f03d0a9d0567f7153d27960746f28b"
-    sha256 cellar: :any,                 arm64_big_sur:  "aa410dbe37a4beb13ad47982da915eb678f621090cb6cf2c96c5e36b534a3bb7"
-    sha256 cellar: :any,                 sonoma:         "02cae2513ca092204e792bcee49057f214aad446ea951bdcd9f1673bcf23fa80"
-    sha256 cellar: :any,                 ventura:        "32087ed3e3f47b5a1b7d38efc99f91b215eafb28dd989bdbca98dbdd45f75939"
-    sha256 cellar: :any,                 monterey:       "86ec0b11858d37483abeac3750d7af632dd2b719f8043cdd6341c6654e4290d3"
-    sha256 cellar: :any,                 big_sur:        "7e012835534713c23613399d0e92fdafa1736f584d877e3952b5c128e3d7792c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e37dbcb7d229175fc7aeee247c94bcedd30fd02d61d0ee5a3a60aca35b54dc6c"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "ab73e13683ffe8f16420f3840b812d526aaa5cd8c504db046016326bc82eaf90"
+    sha256 cellar: :any,                 arm64_ventura:  "830a71f3bab206de19e3b1b7a60ceecfb85e1c5215c265f70efe1c0ad1bebfc5"
+    sha256 cellar: :any,                 arm64_monterey: "5b25c1f944296cf89d576a90bd691381dc3030020b1d0845985803754b85936d"
+    sha256 cellar: :any,                 sonoma:         "d7f0930c4d82642f232ed8db39018134251bc1abd32729c7feeb491ca41848e4"
+    sha256 cellar: :any,                 ventura:        "c2b2d098bc08de758990f533bdd892615adeb3fc83c980b66500f9b5144e7cc3"
+    sha256 cellar: :any,                 monterey:       "211264da83fe13e14a91869011e6fe79f1b63cb7110bd3d8f214178fe6b51def"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80790bb2aefbfdbaf13ecfa873325f22ebbe7d5bf8bea8a921696ce91494ae89"
   end
 
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "libsndfile"
   depends_on "numpy"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   resource "homebrew-aiff" do
     url "https://archive.org/download/TestAifAiffFile/02DayIsDone.aif"
     sha256 "bca81e8d13f3f6526cd54110ec1196afd5bda6c93b16a7ba5023e474901e050d"
   end
 
-  # Fix build with Python 3.11 using Fedora patch. Failure is due to old waf 2.0.14.
+  # Fix build with Python 3.12 using Fedora patch. Failure is due to old waf 2.0.14.
   # Remove on next release as HEAD has newer waf.
   patch do
     url "https://src.fedoraproject.org/rpms/aubio/raw/29fb7e383b5465f4704b1cdc7db27df716e1b45c/f/aubio-python39.patch"
     sha256 "2f9cb8913b1c4840588df2f437f702c329b4de4e46eff4dcf68aff4b5024a358"
   end
+  patch do
+    url "https://src.fedoraproject.org/rpms/aubio/raw/454ac411d2af0ebcf63cdb1bacd8f229817c27c9/f/aubio-imp-removed.patch"
+    sha256 "0ff5cbb3cdcebbced7432366c3eb0f742db48e864b48bf845c0d3240136c5cdb"
+  end
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install

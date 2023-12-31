@@ -1,20 +1,18 @@
 class G3log < Formula
   desc "Asynchronous, 'crash safe', logger that is easy to use"
   homepage "https://github.com/KjellKod/g3log"
-  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.3.tar.gz"
-  sha256 "a27dc3ff0d962cc6e0b4e60890b4904e664b0df16393d27e14c878d7de09b505"
+  url "https://github.com/KjellKod/g3log/archive/refs/tags/2.4.tar.gz"
+  sha256 "a240673f6dda17a8d4d5768b6741534e6863e6c4d786c3678e4fe687eb115902"
   license "Unlicense"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7562dd9f048d54837b751d40e29737e77b99fedc15922c6999b04aba0b175f55"
-    sha256 cellar: :any,                 arm64_ventura:  "481356063707027c8828318bfb9fd8d899ac1dc70e08a8d93d4346d5e8470a5d"
-    sha256 cellar: :any,                 arm64_monterey: "ed9d36cbea6b0901495480e5a651a1fb5993cb6a76a711db0a242c1ff6b4345c"
-    sha256 cellar: :any,                 arm64_big_sur:  "f536658de8315f431fa77fd6127951ca420dab5d199b93eb0bbc5cf9fdb7914c"
-    sha256 cellar: :any,                 sonoma:         "daef87e1f1d6ac92581760d036f6e2e264a4d3b0c39e956d0679693b2c8336cb"
-    sha256 cellar: :any,                 ventura:        "521f94740ba0ad93b5a3ef701651d481b9f6f2892cc0cb15529e1790dc008fd2"
-    sha256 cellar: :any,                 monterey:       "b24e6270f4485efcd456edc7b1d7d22827881bfecc04c55c291d164910e55352"
-    sha256 cellar: :any,                 big_sur:        "9ec2adbd30a14edcce9089f2668b8aee7d118eeebf84a42462758197f07dd926"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4eaf7bd46646807c7ffff39ecdb391c342b76eaf9abf4f1b6f79c376510682e"
+    sha256 cellar: :any,                 arm64_sonoma:   "a589b330c4106cffafba1661ea1a436733cb9f7a9d37974cdf309b1198fec252"
+    sha256 cellar: :any,                 arm64_ventura:  "2d3e3a65e75427ffe6846fcd9acfdd8234ee92fb0560d90a2413d91baf65d7be"
+    sha256 cellar: :any,                 arm64_monterey: "f255d677369efba5b267a8baa59c50b8c9153ad26bba7d35cf8b2f0cf107e220"
+    sha256 cellar: :any,                 sonoma:         "6701a7bdd417bcbc97447829c27a36c25cf3ab88ee85788843dd6faad3a4cf3c"
+    sha256 cellar: :any,                 ventura:        "919b1a44a27f6279ffa7fb0608c95635f2389b5a97f580dd986d081540662eab"
+    sha256 cellar: :any,                 monterey:       "949427dd34f74189bab5b3a0625ea5512900a49d8246c1b128b8ba6fe6d0de82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc9801161cf10b1499b9f7ce1f7dc76a0b91455a7a104eb2ef3479e593fbc8a4"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +24,7 @@ class G3log < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS.gsub(/TESTDIR/, testpath)
+    (testpath/"test.cpp").write <<~EOS.gsub("TESTDIR", testpath)
       #include <g3log/g3log.hpp>
       #include <g3log/logworker.hpp>
       int main()

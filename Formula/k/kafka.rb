@@ -1,9 +1,9 @@
 class Kafka < Formula
   desc "Open-source distributed event streaming platform"
   homepage "https://kafka.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=kafka/3.6.0/kafka_2.13-3.6.0.tgz"
-  mirror "https://archive.apache.org/dist/kafka/3.6.0/kafka_2.13-3.6.0.tgz"
-  sha256 "e10af3f30d720d183d604a299b5e1b33c896e19eb672e601949d8c6dcc951489"
+  url "https://www.apache.org/dyn/closer.lua?path=kafka/3.6.1/kafka_2.13-3.6.1.tgz"
+  mirror "https://archive.apache.org/dist/kafka/3.6.1/kafka_2.13-3.6.1.tgz"
+  sha256 "e3db568c7f8fccc7f981ea7b0944268ae9310592c73ee0eb579ebfdbfcf2d3ca"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class Kafka < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
-    sha256 cellar: :any_skip_relocation, sonoma:         "087ff27b7e84531b1b3b755c75a175665dacfbd6e8a23487309c27a085342a4e"
-    sha256 cellar: :any_skip_relocation, ventura:        "087ff27b7e84531b1b3b755c75a175665dacfbd6e8a23487309c27a085342a4e"
-    sha256 cellar: :any_skip_relocation, monterey:       "087ff27b7e84531b1b3b755c75a175665dacfbd6e8a23487309c27a085342a4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "970e301ed683c2cce91dda8be192bc3fea09ef011617aceb5efce3f8c8e1d508"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7879b057d5684a4eb05bd2b772ee0c867e4cda89f5bcac050686a50bba3e16b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7879b057d5684a4eb05bd2b772ee0c867e4cda89f5bcac050686a50bba3e16b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7879b057d5684a4eb05bd2b772ee0c867e4cda89f5bcac050686a50bba3e16b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b2b11192671b8164029d0f6399e6b185f72505a95a5802078554b27d7fdaba2b"
+    sha256 cellar: :any_skip_relocation, ventura:        "b2b11192671b8164029d0f6399e6b185f72505a95a5802078554b27d7fdaba2b"
+    sha256 cellar: :any_skip_relocation, monterey:       "b2b11192671b8164029d0f6399e6b185f72505a95a5802078554b27d7fdaba2b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7879b057d5684a4eb05bd2b772ee0c867e4cda89f5bcac050686a50bba3e16b"
   end
 
   depends_on "openjdk"

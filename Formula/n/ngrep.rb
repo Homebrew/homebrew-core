@@ -26,7 +26,11 @@ class Ngrep < Formula
   uses_from_macos "libpcap"
 
   def install
-    sdk = MacOS.sdk_path_if_needed ? MacOS.sdk_path : ""
+    sdk = if OS.mac? && MacOS.sdk_path_if_needed
+      MacOS.sdk_path
+    else
+      ""
+    end
 
     args = [
       "--enable-ipv6",

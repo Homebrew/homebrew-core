@@ -7,32 +7,29 @@ class Lfe < Formula
   head "https://github.com/lfe/lfe.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a08b7c460271d852391b0e05f3120eef5d164fe49b3158e3abb2db3e54b405fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eee736be5916d8a36d610f7d6724b5f419069701d17a9614967ce9b977be0855"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14500dfdc57799e893c55fb89ba426e2c089f3018d6b31824882fbd9a2bc0403"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1a34b8c05b2b42c6d4af7425b142b98aa5dee03204500d9490887bef64c8c101"
-    sha256 cellar: :any_skip_relocation, sonoma:         "246902b4b7e429bacb635b801496572619e0106428fd25625a107a302d3c42a5"
-    sha256 cellar: :any_skip_relocation, ventura:        "ff23c0bfe71e64e9801b67ec5937c42f6f72caf2d63a2cdd238d66a29e5ed874"
-    sha256 cellar: :any_skip_relocation, monterey:       "83b88dca9519b0f56734db46a8354585be5edeab1fcd1c493d4fbdfad893a166"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5fcc533ba32c6ba3a449348a681de3fe0c1afdfb6e33cef7dbfa4b67f19b2f93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2c08286e6ed51a3d9b1aa57eb4bde3fcb1456bec294f014e94953c02e7c7737"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee9f9e71d6b6ad08e1c00dffe5f411ed4c293246ab439a457cbece5ee2a3c192"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ac6d09a3b2e2eb1e369f13d53b6daab1eeeeca7227f556324485e32a002824f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac4ac85ef98ee19bcbc3173ba555486e23554e41a093cf8d9def3ab4d08d53d2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d1a1f42c2f229dc83cefd70b886c16e29a0f24fb5799bdd1cea766f95e491da1"
+    sha256 cellar: :any_skip_relocation, ventura:        "9faa77cc11b8bbcf46a828b2bca83b31595c9d64e9c3fee7cb5a6e01d111ff0a"
+    sha256 cellar: :any_skip_relocation, monterey:       "153a3cf9b8c57c9bbb1bd7195d3db285fc6f684f9c60b384bf5ccde9316ceb66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fb02a7e3ab5ea5b1844a8872c47cfb07b804a54b2acea792b3917f8bef28221"
   end
 
   depends_on "emacs" => :build
-  depends_on "erlang@25"
+  depends_on "erlang"
 
   def install
     system "make"
     system "make", "MANINSTDIR=#{man}", "install-man"
     system "make", "emacs"
 
-    libexec.install "ebin"
+    libexec.install "bin", "ebin"
+    bin.install_symlink (libexec/"bin").children
     pkgshare.install "dev", "examples", "test"
     doc.install Pathname.glob("doc/*.txt")
     elisp.install Pathname.glob("emacs/*.elc")
-
-    prefix.install "bin"
-    bin.env_script_all_files libexec/"bin", PATH: "#{Formula["erlang@25"].opt_bin}:${PATH}"
   end
 
   test do

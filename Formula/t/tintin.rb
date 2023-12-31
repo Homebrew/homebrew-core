@@ -23,7 +23,7 @@ class Tintin < Formula
   end
 
   depends_on "gnutls"
-  depends_on "pcre"
+  depends_on "pcre" # PCRE2 issue: https://github.com/scandum/tintin/issues/163
 
   def install
     # find Homebrew's libpcre

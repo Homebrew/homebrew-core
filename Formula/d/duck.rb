@@ -117,17 +117,17 @@ class Duck < Formula
       end
     end
 
-    # Set MACOSX_DEPLOYMENT_TARGET to avoid linker errors when building rococoa.
-    xcconfig = buildpath/"Overrides.xcconfig"
-    xcconfig.write <<~EOS
-      OTHER_LDFLAGS = -headerpad_max_install_names
-      VALID_ARCHS=#{Hardware::CPU.arch}
-      MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
-    EOS
-    ENV["XCODE_XCCONFIG_FILE"] = xcconfig
-
     resource("rococoa").stage do
       next unless OS.mac?
+
+      # Set MACOSX_DEPLOYMENT_TARGET to avoid linker errors when building rococoa.
+      xcconfig = buildpath/"Overrides.xcconfig"
+      xcconfig.write <<~EOS
+        OTHER_LDFLAGS = -headerpad_max_install_names
+        VALID_ARCHS=#{Hardware::CPU.arch}
+        MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}
+      EOS
+      ENV["XCODE_XCCONFIG_FILE"] = xcconfig
 
       cd "rococoa/rococoa-core" do
         xcodebuild "VALID_ARCHS=#{Hardware::CPU.arch}", "-project", "rococoa.xcodeproj"

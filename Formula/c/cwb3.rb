@@ -1,10 +1,13 @@
 class Cwb3 < Formula
   desc "Tools for managing and querying large text corpora with linguistic annotations"
   homepage "https://cwb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5/source/cwb-3.5.0-src.tar.gz"
-  sha256 "20bbd00b7c830389ce384fe70124bc0f55ea7f3d70afc3a159e6530d51b24059"
   license "GPL-2.0-or-later"
-  head "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
+
+  stable do
+    url "https://downloads.sourceforge.net/project/cwb/cwb/cwb-3.5/source/cwb-3.5.0-src.tar.gz"
+    sha256 "20bbd00b7c830389ce384fe70124bc0f55ea7f3d70afc3a159e6530d51b24059"
+    depends_on "pcre"
+  end
 
   livecheck do
     url "https://sourceforge.net/projects/cwb/rss?path=/cwb"
@@ -24,15 +27,22 @@ class Cwb3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "36c736d9eee76fc6c3db520901f42677e8dfc1ea390b319264c4e0d75b612ccc"
   end
 
+  head do
+    url "svn://svn.code.sf.net/p/cwb/code/cwb/trunk"
+    depends_on "pcre2"
+  end
+
   depends_on "pkg-config" => :build
-  depends_on "gettext"
   depends_on "glib"
-  depends_on "pcre"
   depends_on "readline"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   resource("tutorial_data") do
     url "https://cwb.sourceforge.io/files/encoding_tutorial_data.zip"
@@ -55,7 +65,8 @@ class Cwb3 < Formula
     # Avoid rebuilds when dependencies are bumped.
     inreplace bin/"cwb-config" do |s|
       s.gsub! Formula["glib"].prefix.realpath, Formula["glib"].opt_prefix
-      s.gsub! Formula["pcre"].prefix.realpath, Formula["pcre"].opt_prefix
+      pcre = build.head? ? "pcre2" : "pcre"
+      s.gsub! Formula[pcre].prefix.realpath, Formula[pcre].opt_prefix
     end
   end
 

@@ -176,7 +176,7 @@ class Imapsync < Formula
     end
 
     # Big Sur has a sufficiently new Module::Build
-    build_pl.shift if MacOS.version >= :big_sur
+    build_pl.shift if OS.mac? && MacOS.version >= :big_sur
 
     build_pl.each do |name|
       resource(name).stage do

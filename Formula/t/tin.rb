@@ -1,8 +1,8 @@
 class Tin < Formula
   desc "Threaded, NNTP-, and spool-based UseNet newsreader"
   homepage "http://www.tin.org"
-  url "https://www.nic.funet.fi/pub/unix/news/tin/v2.6/tin-2.6.2.tar.xz"
-  sha256 "91df3cc009017ac0fcc6bb8b625784a0a006f921fb0fd5b87229f74edb1d068c"
+  url "https://www.nic.funet.fi/pub/unix/news/tin/v2.6/tin-2.6.3.tar.xz"
+  sha256 "bf7ae8cfdc6ab6bc5aced4f08cf13687d8d6f9fa4be1690dfda5d123188d2217"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,16 +11,13 @@ class Tin < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "687c2f91d9bf2b90386c01811ba6e97736b5afd8cb9373bf789334a40846306e"
-    sha256                               arm64_ventura:  "279325cdda955514a69d824ce8a10a5d93e2118561133fa8b1adc5a3c847e4c6"
-    sha256                               arm64_monterey: "20081eeca41e91c2cd9d23313fc97180e92f19f6f375dce9dc7a361298e5f709"
-    sha256                               arm64_big_sur:  "e7d9f551293c92c6a2726856204303eb18e122e24693bbf1b4efb93a51c2c8b5"
-    sha256                               sonoma:         "8dab062de767a83b9fcc9b827aee083ca8da0e708c0497866389ffa8df64ab3f"
-    sha256                               ventura:        "bd598a16a48913db70e0ee74bf976b9ad62a7e5219046fdf587d6578f768cfbf"
-    sha256                               monterey:       "7b2fab82e93e8a5a769cb83a781ba4e95b14b623d40c14b93d160c8075a280f5"
-    sha256                               big_sur:        "26d6c3893d0db776c0ed9d03a9436739137fa1b9c006b19449702066fe11e0e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "386f648f9235e7ddfa23de2e0e5a6e6cf7af4c4045ca316037819b002640adbb"
+    sha256                               arm64_sonoma:   "9b40007fa88eb76e74741528e34dc7418d27a7f0b14138998f6e886f7dd75125"
+    sha256                               arm64_ventura:  "c355639ee07efc5e91c2a83bef8f43d1b1065b71ae275c34141cc52e36a17e9d"
+    sha256                               arm64_monterey: "feb75a463cbc2f5773e421daa639681b62fec4070bddc9471bfc43773dee1339"
+    sha256                               sonoma:         "c48a6ac3dd5f0225cba6caf19d7628e982ea92db0e2b5f500ac84e98f30563d2"
+    sha256                               ventura:        "520261f163f2bc6b7165f86a8527d2148d65e3db7938306ae2842c8db775a2b0"
+    sha256                               monterey:       "c0a4f84da414866ea207c136f06517895e91337c513f8163aa22faa972a9cc0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "adc0899e6ec8ca68f5a7a8957dd26c64541bea25a155f208df11aee482a35b29"
   end
 
   depends_on "pcre2"

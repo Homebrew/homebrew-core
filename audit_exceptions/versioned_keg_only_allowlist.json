@@ -16,6 +16,7 @@
   "glibmm@2.66",
   "gnupg@1.4",
   "libsigc++@2",
+  "libxml++@3",
   "libxml++@4",
   "libxml++@5",
   "linux-headers@5.15",

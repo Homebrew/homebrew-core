@@ -7,17 +7,17 @@ class PythonPycurl < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a0a91bf7dc83a150d0374bfff26973da20c190dda21df2a5acda1b7b13cf4e54"
-    sha256 cellar: :any,                 arm64_ventura:  "012ce20c9890fee19de85bbcbace869cb3759a368ae5ea10f76b09291cc9e4a3"
-    sha256 cellar: :any,                 arm64_monterey: "59ad8758dcde881473ee0c6beae3e7492aca5cb316449ad1d00a27f14c2a668b"
-    sha256 cellar: :any,                 sonoma:         "2f532d0968235ef9505e5b66625ae8e44207d3b1608a9d4bcb32f703a37979f9"
-    sha256 cellar: :any,                 ventura:        "757ae70355c60c0d1b62a3f6a41c1fd7692cd01b1793761465025025114e5d91"
-    sha256 cellar: :any,                 monterey:       "6c7e641d0618c56fb64377a5c8c51e828ef3d983edf220f487961eb2103b0131"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67741a50449eb6773eb30936396976d057db0047e9f1e93c8b37748a67386f8d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "ac515c6b2154b523a86de9a6ee580ade298c825bd735c73eb922857bc8fe04a3"
+    sha256 cellar: :any,                 arm64_ventura:  "f42e236a9c6a848a8a9b6fab97c245a2070f14bc46c004beb693c8a0b6fd0e8f"
+    sha256 cellar: :any,                 arm64_monterey: "48893fdcbb66ff23eb72049784a568e52a3452348ab19d5563a3f6b2bf0bfbb2"
+    sha256 cellar: :any,                 sonoma:         "7fb9a02d61098ddd50349f8a3ac4729e01b4c95bad8870faa38a295eabf99d45"
+    sha256 cellar: :any,                 ventura:        "aee44a44793eb38112a643cdcdeb77fc004819cb8b068121f4c5ff85b144e965"
+    sha256 cellar: :any,                 monterey:       "d7cdf45e7ee9f65eefadbd9efafd0499e8c973c2931a7b07058f0fb133ff3eda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c9ed88f96d7fa65a7f6b287d3313824bd73a5910b4f8613304deb6bcdd95c39"
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "curl"

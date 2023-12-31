@@ -1,8 +1,8 @@
 class Uftp < Formula
   desc "Secure, reliable, efficient multicast file transfer program"
   homepage "https://uftp-multicast.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-5.0.2.tar.gz"
-  sha256 "57c12a6ae59942535fb5e620381aedeb17d50009ee71f236427ce237a46c0b14"
+  url "https://downloads.sourceforge.net/project/uftp-multicast/source-tar/uftp-5.0.3.tar.gz"
+  sha256 "cb8668c19b1f10bc63a16ffa893e205dc3ec86361037d477d8003260ebc40080"
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -11,13 +11,13 @@ class Uftp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "790ea90d88cab0ffbbc9447962a70801172bccb2c7d9d0ec2cc3c976b9bcbef6"
-    sha256 cellar: :any,                 arm64_ventura:  "5ee235c6c2eb1e75971de8c50eb83c7fb9cd185d26f435f53d1e55935c7e5f68"
-    sha256 cellar: :any,                 arm64_monterey: "d54e3948833367dd48ac946b703db270e9167f1ebcb6ada6fc5d94759476573d"
-    sha256 cellar: :any,                 sonoma:         "5fd1aac29f9aa402b255ce42a1de67f3b89820bafe09521a0bfdc2fda01861b3"
-    sha256 cellar: :any,                 ventura:        "39c360adf415fc99b299fa8f9c03bf2728ecfa02ba831661744944b559f61eb4"
-    sha256 cellar: :any,                 monterey:       "84ef21780e33b5b4fb251c6220e5c691f68d0026fb92f49c9e9b2508dcc86838"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4e8fc19904371e7b7a4635792a10c009cfcab627631a76969a14bac81f05ce9"
+    sha256 cellar: :any,                 arm64_sonoma:   "24937667b9315c47cc2ddda94564cda1e1d96cc023c38ecf73be04d14ce3f451"
+    sha256 cellar: :any,                 arm64_ventura:  "2b988c5f0d11e5c32152fcdd31b760f5d76ad87518e17b08bef428de1637c68f"
+    sha256 cellar: :any,                 arm64_monterey: "7d5a837843772eb893e746c3cba51dc03fcd976ebfef1ffd51823a6e880e5bcb"
+    sha256 cellar: :any,                 sonoma:         "767d6bb0732fc7caf62d2a83cefd46e505ab1f26a1fe37fd74121716bae96945"
+    sha256 cellar: :any,                 ventura:        "427b1ac8f16271a483e972b4a1ef5721d7bf0f200a9d4e49f42151dab276273a"
+    sha256 cellar: :any,                 monterey:       "1ae379b34875e8a2deab485dbfc9716606ecba8f34267f979eb10e36ca474745"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd8ee6610e199b5cd9fbc20357597205bce8d7a9c92937e45ab0287ee11aa3fc"
   end
 
   depends_on "openssl@3"

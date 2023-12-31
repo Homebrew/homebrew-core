@@ -1,19 +1,18 @@
 class MuRepo < Formula
   desc "Tool to work with multiple git repositories"
   homepage "https://github.com/fabioz/mu-repo"
-  url "https://files.pythonhosted.org/packages/fc/3f/46e5e7a3445a46197335e769bc3bf7933b94f2fe7207cc636c15fb98ba70/mu_repo-1.8.2.tar.gz"
-  sha256 "1394e8fa05eb23efb5b1cf54660470aba6f443a35719082595d8a8b9d39b3592"
+  url "https://files.pythonhosted.org/packages/0d/3d/ddf28cf3beafadb5b3ea45ab882530c1d993b4fc10c0c61d82c8da624f3d/mu_repo-1.9.0.tar.gz"
+  sha256 "f557e46e35a6dd8e1a8735c2a74ea1e60e9280040abc22a472e88eff0d23c5ca"
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c748c62da7e9983b7a3a1ee64cb134d206ce74d2ca8b8145752435e63a266ea7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9a44cf755ab0df3eb8514d0eb57455d54638506e8fd24e2185255aaa6246fd28"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "79d62e4af4026aaf23d8442840746da1a71b76bc35d3fb6de67cbac0beca7f4a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2215863f307d1d2d3bc095737064344c92a6dff1d26a8da3db967dfa57b653e3"
-    sha256 cellar: :any_skip_relocation, ventura:        "ad5fc9fc60840940996bcf49dce4eeba966546e0bf67c59e41195b85f030f1dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc77f5c90c78bb093ffe620fb66858a0678f047ba56657deeae049b4933cdfe6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ac9b567238f2724f02f1961984261e1fb811c1067832252ffc889fb110ad1c8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f0b6830f332704ebb1e93443ce89744b4dee1da86466bad429e058b57c5f5ef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2fc6827e214839353355f7bb1bd0e299dc441cfb740f823a51225706020cb21"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d0299f79f9cfe5b09a8f42f1895417b7df7e759da16f5bd8bd08ead24263c8b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9fe1e06c13e2e2458429074c943bc532b0b779aa50824cc041882b56ebd1d2b1"
+    sha256 cellar: :any_skip_relocation, ventura:        "b1e6d72356bb09dfb97434197ab27115732f18f2867ec81670d30260c5fa2f72"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed579d012be18de44d5586a5fac9bca71f036519f08b3269ea0b5aa540ba39a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c06644e358dba26e24c06d2aa07a41117c7becfc86ddefaed2f2df6120922a8d"
   end
 
   depends_on "python-setuptools" => :build

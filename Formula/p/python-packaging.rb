@@ -7,17 +7,17 @@ class PythonPackaging < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dfda93727397ae34cdfc34a8cb2b589dd45859330fe747eac056a3e8156ac4e7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abddebc5027f9113b74b85bfe98002f2c5a1e23ed8591baa9929a79731879df6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "515e29a3276468695d603cd72a52f2b312a723a1488f4f928907ec8b31f09bb3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0bc571d7e1db858b53652511e48141ce301d9e05b560d1a7834fb97e347e4d20"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2894ca5fa9e799bbbd7bb52b7e5e1321a1c5f66f7500786189b4b6a5487f390"
-    sha256 cellar: :any_skip_relocation, monterey:       "3f0e773b68464a8972506ba245763e3344ecfc3d60d0e19d078d0e741f29ed46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62d837e1e916680d71e2f453315dea5c0798b1adfd2b469f0e70ad94734faeae"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc68dd6b701f0c370b1d538bfa3394d0d5dfffa5973880e834040c008b7fbe1e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd248202a9d29dba96e3de77d14770fe1483fecec60ca12f7eac4ea18a0cf7a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ef8094a159ea9edbdbfb8f9399f76675a6a8df0ce04dc4eee6993d71032a679"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a090d7705a4cbdbfab9cd06d45628e14fcf6c5011f2a4497fa8940e59b0dbf92"
+    sha256 cellar: :any_skip_relocation, ventura:        "a61d5e78c02f66997b4f39f0cca91a47227754654a53a01280b872fb074ae789"
+    sha256 cellar: :any_skip_relocation, monterey:       "0fd9263a51f3b31ee2e60b3b03df1b7dec6f2b2cd55d3835f0600ca39d6c3a26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cf08b1acd67850b3f3ce886fe9194f9a2ebaf7eb9747012abd68eeb522067c9"
   end
 
   depends_on "python-flit-core" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 

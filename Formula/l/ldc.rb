@@ -1,10 +1,20 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
-  url "https://github.com/ldc-developers/ldc/releases/download/v1.35.0/ldc-1.35.0-src.tar.gz"
-  sha256 "6e296993706c76c093e609139aa0b3f8704355fa0f3756f6758d78d44226dfa0"
   license "BSD-3-Clause"
-  head "https://github.com/ldc-developers/ldc.git", branch: "master"
+
+  stable do
+    url "https://github.com/ldc-developers/ldc/releases/download/v1.35.0/ldc-1.35.0-src.tar.gz"
+    sha256 "6e296993706c76c093e609139aa0b3f8704355fa0f3756f6758d78d44226dfa0"
+
+    depends_on "llvm@16"
+
+    # Backport fix for LTO on macOS Sonoma
+    patch do
+      url "https://github.com/ldc-developers/ldc/commit/93b9babe8087a9e1ba3a6a76233175d96e1d2f3f.patch?full_index=1"
+      sha256 "8756248cb9bb77595325bc46df10fb42fbd940d86611dd8413abb27de6e177cd"
+    end
+  end
 
   livecheck do
     url :stable
@@ -12,18 +22,24 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256                               arm64_ventura:  "61a80e7ce250c8fd2753f99a0ae8dc6f08e37e1ba7370acd4529e545ad5bd6a7"
-    sha256                               arm64_monterey: "d8050f0b00b323157701942def9367ddf959993807a019fd1dfb294c0e823cbc"
-    sha256                               ventura:        "2475db77771ad577dba5009020d923eb847a0646c54b94b1386f0816c849b61e"
-    sha256                               monterey:       "d4f10edfad963f9f2faed2d34b366ae19691b702bbced262194e3fe4bac09536"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5b5aa12699b0c8e640f73c1175924a60cd55b4bf4faa4e60480791e0a59d787"
+    rebuild 1
+    sha256                               arm64_sonoma:   "6f107abd9d2fe3c2c056eb0c784014f0f9d83474abf137661ec700708f408309"
+    sha256                               arm64_ventura:  "4fde56c174bf5706918a8cf3098ac9b32e11b0ce5458ef22f449466d9c0218e2"
+    sha256                               arm64_monterey: "28e791054c88ff221eada86e604fe089c9747a4987f2a1943bc20dadd4ea4510"
+    sha256                               sonoma:         "847f42c946e7a3b5bcfc2716aaebc4cac7b73acc0cf37a9d2f4ec7b6ea4d8472"
+    sha256                               ventura:        "9bc86ab038f3294c7f6e4de85b7949a2c25ec5a5d0f692835a7932c4b5b52559"
+    sha256                               monterey:       "6e90f8c288e6c595192af337be6f85718fdc76260dac544cc4802d724790486b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1599f85e8b89bdf1f7d15c8dd8480e4889087e0ae7f9901d81272ac53ae8bce"
+  end
+
+  head do
+    url "https://github.com/ldc-developers/ldc.git", branch: "master"
+    depends_on "llvm"
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
-  # llvm@16 build failure report, https://github.com/ldc-developers/ldc/issues/4478
-  depends_on "llvm@15"
 
   uses_from_macos "libxml2" => :build
 
@@ -60,6 +76,9 @@ class Ldc < Formula
     ENV.cxx11
     # Fix ldc-bootstrap/bin/ldmd2: error while loading shared libraries: libxml2.so.2
     ENV.prepend_path "LD_LIBRARY_PATH", Formula["libxml2"].opt_lib if OS.linux?
+    # Work around LLVM 16+ build failure due to missing -lzstd when linking lldELF
+    # Issue ref: https://github.com/ldc-developers/ldc/issues/4478
+    inreplace "CMakeLists.txt", " -llldELF ", " -llldELF -lzstd "
 
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
 

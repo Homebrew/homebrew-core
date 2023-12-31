@@ -1,21 +1,19 @@
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.8.3/ccache-4.8.3.tar.xz"
-  sha256 "e47374c810b248cfca3665ee1d86c7c763ffd68d9944bc422d9c1872611f2b11"
+  url "https://github.com/ccache/ccache/releases/download/v4.9/ccache-4.9.tar.xz"
+  sha256 "1ebc72324e3ab52af0b562bf54189d108e85eef6478d6304a345a3c2dc4018e0"
   license "GPL-3.0-or-later"
   head "https://github.com/ccache/ccache.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b9e31cd96e0ed3288cae78824d32a201b9e37e785b2b534f3b09faec2e2ccd6d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "371bd659fedf0bceefc9ef96c603dbd97b8693b6cd5a834809c1002cc686aba3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "19cb0b1f655853869ddeed86f8e43c16c573c787edc631b22e4ddcecd70a9184"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6a32003a33a5af8012f6a1fec179e749fa34161c218e51ca652cf2314b7f942"
-    sha256 cellar: :any,                 sonoma:         "c5ff1168bed9f2ed61ffb1bb4fccb01975c9df681b92ad7e6e6695379bc23cea"
-    sha256 cellar: :any_skip_relocation, ventura:        "1df6f46e991a75509275fb6122e280b00f54b57a878bdbc544dbbb25882b4e28"
-    sha256 cellar: :any_skip_relocation, monterey:       "da2b6f9797ac54a361840266486209e8b774660ae725a007fd1e9b8a2a4c71f9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "194ab3578dacafde140ce31f8f519d85d9c9198c023b1dd9f47e32bb1f4b6bb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1fc69c8fdb2a4323d0d01b9296f2c834872cbd200ec9e20b972252b6ccc109a7"
+    sha256 cellar: :any,                 arm64_sonoma:   "32e0fbe3dfb4ea83d7e83cc627572a61dbd1c2564fb86245d44055654d1ac46d"
+    sha256 cellar: :any,                 arm64_ventura:  "8eec8948f9c7cb88af735be4a189c7156acdbac02b48c0e43ec76b575f9e35cb"
+    sha256 cellar: :any,                 arm64_monterey: "509e0c692ee384979396ae89b861db5782ad5d7c18f43e236bfaf173f9280b70"
+    sha256 cellar: :any,                 sonoma:         "1e721a38ceeff1b5bb9d9f7e25ad63a6d82547da6d1a5ef943941dc5f30436c4"
+    sha256 cellar: :any,                 ventura:        "31dc37b131e29c93776e7237c56a0667541b897286eec430b2b8318e730d84ca"
+    sha256 cellar: :any,                 monterey:       "0c861be304655a757248eaafffb414dcd00692b5a6131ed57879dc84fc2c30b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19b042bcc383f07d388fff83dfd5b303d8b98ab98a83d1ccc4c8b4da01e6cdee"
   end
 
   depends_on "asciidoctor" => :build

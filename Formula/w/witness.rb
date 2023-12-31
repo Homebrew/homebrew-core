@@ -1,8 +1,8 @@
 class Witness < Formula
   desc "Automates, normalizes, and verifies software artifact provenance"
   homepage "https://witness.dev"
-  url "https://github.com/in-toto/witness/archive/refs/tags/v0.1.14.tar.gz"
-  sha256 "03bb27c4f751aa259f02993fecef08ff3a295018165a886d640a8951eb3fcd02"
+  url "https://github.com/in-toto/witness/archive/refs/tags/v0.2.0.tar.gz"
+  sha256 "352c263752059e6c87e0a3975d9d826642c27778de8134ee1224adf8eaf7d56b"
   license "Apache-2.0"
   head "https://github.com/in-toto/witness.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Witness < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b758e2bab3db9871bd6bc186045abcf32cd8f689decfd50ecc4fea2b433478d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c314219273d42f35194a7d40e905a21787dd3feb4149c7412e29b15a3dbfc952"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8a4fe9e62c16c76256f12f05477b6b82f66eaa9da065a9d3599669db025e186"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5ed0c481715c5233d93d7dbebc8ca8a7005077238ede5048cfcc50804b4063a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "57bf1552e03713d867f6e4236f503eb1f1a2c2ce8a2c79e2f03876206e886aa4"
-    sha256 cellar: :any_skip_relocation, monterey:       "6d97f1b975e0eae9e7a8cba3725acfe83c2fb60f66642235df237bed1d0ebc4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b4089dc36268b905a34f751bd4227a7767f5a4da2c4d3c2a176729db3e9bad7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fa699c53161cf44ac6317673fa5b37a2ace5f4573f8f134e369f7495f5a5949"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58b5e53ffe55cbc1588bf643429f91809f2a0540a072e41b8747cd99f56edc93"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "30f96b945e3dde43087d361dc024286ffdbead9972203920c25d0704b96bb237"
+    sha256 cellar: :any_skip_relocation, sonoma:         "81d7f42a972255895ed51ebef42a49c58e34d3317c1134e4a5af112404854369"
+    sha256 cellar: :any_skip_relocation, ventura:        "8169b9b180b1fdbd853b71d6abc91448407fdfe878835f80cdc92f43ffeed4b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "be2ec4b23316811cd69311d4ecba9e5516fe9dbc3c3aa11197550c2587444c21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bce8b0607674c19f2b84ca420cd60485a285397ae46be68c29fb1c7eec68e3ec"
   end
 
   depends_on "go" => :build
@@ -26,7 +26,7 @@ class Witness < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/testifysec/witness/cmd.Version=#{version}
+      -X github.com/in-toto/witness/cmd.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags: ldflags)
 

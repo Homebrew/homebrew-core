@@ -1,8 +1,8 @@
 class Opentofu < Formula
   desc "Drop-in replacement for Terraform. Infrastructure as Code Tool"
   homepage "https://opentofu.org/"
-  url "https://github.com/opentofu/opentofu/archive/refs/tags/v1.6.0-beta2.tar.gz"
-  sha256 "d533354f9bdef81acd4620bc6662d6810f4bbe2b32936b6c32acd35d59f6307c"
+  url "https://github.com/opentofu/opentofu/archive/refs/tags/v1.6.0-rc1.tar.gz"
+  sha256 "39a0d341ac64c129b6d0d6a9d1707f78d3252606cdee036826e592b95b663f3d"
   license "MPL-2.0"
   head "https://github.com/opentofu/opentofu.git", branch: "main"
 
@@ -15,13 +15,13 @@ class Opentofu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "872afa2fe54405471b9ef8db43d3986da19074b0f6357d0a8eb3d4c940ac2992"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3debffc1a0d6f09a65393f35eb12303bf6ec494e5e1bcf65957fd73ec6e61cc4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3586c20dcb19d1f5b310f09b61a8f1696068447488235ea97beae9d3dd8e1b6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "016a2bedd74680f7fc0c568f4663ae1214a7cb77770ec672ff7c3c978e452eb7"
-    sha256 cellar: :any_skip_relocation, ventura:        "ce0f7e69bc1b26f95183d962f3d6133c76a157786f1554f8cab309df859134f2"
-    sha256 cellar: :any_skip_relocation, monterey:       "f87dc0d19ff5aa58f7999bd1293f7464bc5b04077c717567929b35df2c29642f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "028506691cb8bb18b770358c3dfeb663612362c61df1ba2fb2decb58bfa6859b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "591c1c2404914662080a562884d073b7841651524896edcd62d30bc0c82f06bd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "597b6eeecd1a97a859c2b410820f30ea8d8e2ce9c322bdf1ee3908339bc61a69"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5dba6037893c721cda03900a935d4eec5bac497e155235b63ff32811543635c5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b8f49aa192c8503d55369677901665643bde9e8b74fbb859ad1e881475a1bd80"
+    sha256 cellar: :any_skip_relocation, ventura:        "b8eb42f6b730789d3286c89c4185e503af56479aba11ba1de632241fab2a8b78"
+    sha256 cellar: :any_skip_relocation, monterey:       "3112e19f86cb112347115ebeaa5e9cfa8599dc3334787f91089f8836f976a0ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60ac227240b201914e69c25001791b1c4f7ca520c5050eafe3c294e0b4c2b26b"
   end
 
   depends_on "go" => :build
@@ -31,7 +31,8 @@ class Opentofu < Formula
   fails_with gcc: "5"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"tofu", ldflags: "-s -w"), "./cmd/tofu"
+    ldflags = "-s -w -X github.com/opentofu/opentofu/version.dev=no"
+    system "go", "build", *std_go_args(output: bin/"tofu", ldflags: ldflags), "./cmd/tofu"
   end
 
   test do

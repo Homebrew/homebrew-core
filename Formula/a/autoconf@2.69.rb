@@ -25,6 +25,8 @@ class AutoconfAT269 < Formula
 
   keg_only :versioned_formula
 
+  deprecate! date: "2023-12-14", because: :versioned_formula
+
   depends_on "m4"
   uses_from_macos "perl"
 

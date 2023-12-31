@@ -1,27 +1,24 @@
 class Modsecurity < Formula
   desc "Libmodsecurity is one component of the ModSecurity v3 project"
   homepage "https://github.com/SpiderLabs/ModSecurity"
-  url "https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.10/modsecurity-v3.0.10.tar.gz"
-  sha256 "d5d459f7c2e57a69a405f3222d8e285de419a594b0ea8829058709962227ead0"
+  url "https://github.com/SpiderLabs/ModSecurity/releases/download/v3.0.11/modsecurity-v3.0.11.tar.gz"
+  sha256 "070f46c779d30785b95eb1316b46e2e4e6f90fd94a96aaca4bd54cd94738b692"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ac3799e40cde1c8e7f94d9dd87e9cacf4fd9e8a490c98ca7ec9da0b18da47a68"
-    sha256 cellar: :any,                 arm64_ventura:  "74daa8baf155a510aacaddebd4167c30cf505cafe362ec6a20d32275643fef10"
-    sha256 cellar: :any,                 arm64_monterey: "a64c4749d95e04cdc07464c83552825bde05f70386fa0c2fb4e43d39afeccb5f"
-    sha256 cellar: :any,                 arm64_big_sur:  "a43c52792a2b656c82996afefb8248b77cf26a950d00ab4376e1d0084ce3f2a4"
-    sha256 cellar: :any,                 sonoma:         "52afd9aacd985288ae37e88d69473596a4682e438f0b4b85e4a2964c690b069f"
-    sha256 cellar: :any,                 ventura:        "cb90defa1cdf7988987e463594ff42d56294233c4e15a4dd8fdaf4e1cbf1bbad"
-    sha256 cellar: :any,                 monterey:       "4ba84464d43d3eda060ce94864ea6fe6cafaf6ffa365295fce20d6673285ecf3"
-    sha256 cellar: :any,                 big_sur:        "ecf3b809af81c2a7c8dc5a3067a1b0d9da346d0455567f52c0642a2de23a1a9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "444547afdca675abe0c154f9aaa1bdc5fa7b384f95c24e78e3d032062754cd5a"
+    sha256 cellar: :any,                 arm64_sonoma:   "e266b488284dd9b9d8aab365b810c17606a23fbf5f86b6701b69385a13437894"
+    sha256 cellar: :any,                 arm64_ventura:  "b8bde9a47b7654a849392967f8ec11725f35b639084c72a026abbb83e1cc6637"
+    sha256 cellar: :any,                 arm64_monterey: "17ef83d3a930642bcfc0e879a1a58397dfa8018dc76deb41e92f541f13358f82"
+    sha256 cellar: :any,                 sonoma:         "d4fd30d5fa2d6d405e30e512cb08d0f6c361bf5b2ac05b11d3adbdca80ef5e07"
+    sha256 cellar: :any,                 ventura:        "c3a5263cc77cf9ebd0222f46dbd7276e210412d7e3a18b6ac71b29562cc74ec1"
+    sha256 cellar: :any,                 monterey:       "bb033e230355f7167d8d2399c779612dd7b0eabd9c4f2a54278d24e68196f15e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5d93203ccd8dc1006de010d2a8bc6a4c41485041377828f354ec0b137d4f0e6"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "geoip"
   depends_on "libmaxminddb"
   depends_on "lua"
   depends_on "pcre2"
@@ -30,11 +27,18 @@ class Modsecurity < Formula
   uses_from_macos "curl", since: :monterey
   uses_from_macos "libxml2"
 
+  # Use ArchLinux patch to fix build with libxml2 2.12.
+  # TODO: Check if fixed in future libxml2 release.
+  # Issue ref: https://github.com/SpiderLabs/ModSecurity/issues/3023
+  patch do
+    url "https://gitlab.archlinux.org/archlinux/packaging/packages/libmodsecurity/-/raw/5c78cfaaeb00c842731c52851341884c74bdc9b2/libxml-includes.patch"
+    sha256 "7ee0adbe5b164ca512c49e51e30ffd41e29244156a695e619dcf1d0387e69aef"
+  end
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
 
-    libxml2 = "#{MacOS.sdk_path_if_needed}/usr"
-    libxml2 = Formula["libxml2"].opt_prefix if OS.linux?
+    libxml2 = OS.mac? ? "#{MacOS.sdk_path_if_needed}/usr" : Formula["libxml2"].opt_prefix
 
     args = [
       "--disable-debug-logs",
@@ -44,6 +48,7 @@ class Modsecurity < Formula
       "--with-lua=#{Formula["lua"].opt_prefix}",
       "--with-pcre2=#{Formula["pcre2"].opt_prefix}",
       "--with-yajl=#{Formula["yajl"].opt_prefix}",
+      "--without-geoip",
     ]
 
     system "./configure", *args, *std_configure_args, "--disable-silent-rules"

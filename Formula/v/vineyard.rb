@@ -3,24 +3,24 @@ class Vineyard < Formula
 
   desc "In-memory immutable data manager. (Project under CNCF)"
   homepage "https://v6d.io"
-  url "https://github.com/v6d-io/v6d/releases/download/v0.18.2/v6d-0.18.2.tar.gz"
-  sha256 "1255ca4ebeb5da34e33cb82a8d5530a5fc6b5fcebfb52d1b085058b2eab4a53c"
+  url "https://github.com/v6d-io/v6d/releases/download/v0.19.3/v6d-0.19.3.tar.gz"
+  sha256 "8e9e1b8919936e647b747d191d93f8485134eeee5d217f19272c0b600c806a55"
   license "Apache-2.0"
-  revision 3
 
   bottle do
-    sha256                               arm64_sonoma:   "f02de5281f928f585379e6c855246023659df8a9013351c310ec12e8968bbc67"
-    sha256                               arm64_ventura:  "85b89cc23d7c57be6c0fccf1e03ba9b669040a1a3c60e1d50eff0d30e2af7f32"
-    sha256                               arm64_monterey: "ced00127e9e7c8808e842dbcfe29df49040bb0bbaca3cbdb52490c557e7a93e0"
-    sha256                               sonoma:         "915c3620b457e8abcb5dc382813f825613fb9dbea43174670f56cc2b43b2cefc"
-    sha256                               ventura:        "b7996346fce45cb2493ae08f3f242312d281122675e1ec3d6285cff4b47c9ceb"
-    sha256                               monterey:       "77a0e412c2e916c83dcc08a333255f6c77a1714eda5207a53d4c6e6b0e9a2aee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6962835483cf7d3b7c28626e6af890d310c91fd546925ab0fd0dcf700e8f320e"
+    sha256                               arm64_sonoma:   "cc8f7a44a87918151c09b7d376b1a135d4f37580774d0a6f02c4738cff3ff443"
+    sha256                               arm64_ventura:  "0b80308049b3fedea0359fcc6b2420488573e064d33e93f2b2046c96452dd3aa"
+    sha256                               arm64_monterey: "88a99021ca7762729d9e55c0865edc5fb076a84fd25ea85e9651d8981f391950"
+    sha256                               sonoma:         "15a9a3fa4cf070941636ff6cfe72f2b1978d1ad4eeeb2285054a25a798394f67"
+    sha256                               ventura:        "195a66309dcbe15c73dcc72cb56338d84fa2f7a15955d8d4b901b2def6e05036"
+    sha256                               monterey:       "c17722fdc5d39f98805aa33e6ce0acf59497167c934c2c2f3628128ea57005e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f40a6b94d89ac7d2c5264c7509754da4dfc81d550014f45edcf86cc134af5967"
   end
 
   depends_on "cmake" => [:build, :test]
   depends_on "llvm" => [:build, :test]
-  depends_on "python@3.11" => :build
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => :build
   depends_on "apache-arrow"
   depends_on "boost"
   depends_on "etcd"
@@ -38,7 +38,7 @@ class Vineyard < Formula
   fails_with gcc: "5"
 
   def install
-    python = "python3.11"
+    python = "python3.12"
     # LLVM is keg-only.
     ENV.prepend_path "PYTHONPATH", Formula["llvm"].opt_prefix/Language::Python.site_packages(python)
 

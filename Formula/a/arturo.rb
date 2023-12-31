@@ -6,22 +6,34 @@ class Arturo < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_ventura:  "701164bed099b947aa49f4a43859d67c0a74d1f3bf2082f467a7da1538424cf3"
-    sha256 cellar: :any,                 arm64_monterey: "10f339f02e6380d50b60a189badac2df81c704df5ddd460e74b3ff1b373f5882"
-    sha256 cellar: :any,                 arm64_big_sur:  "b10aa1682766a87b5e59f4b325c79a1d1d92581cd233e5d9c8aaa92f776b4f52"
-    sha256 cellar: :any,                 ventura:        "ac693db23392af435651910c80e9ab061fa25d2ee89407e01e6306d8b0ca888d"
-    sha256 cellar: :any,                 monterey:       "6dc64bc30895c26e36f84857596a2429f3a3f4d8813e34390da09b97ac7d6d23"
-    sha256 cellar: :any,                 big_sur:        "bafd65e868556efe9167913ba7274a91b06b44b4dc33ecd7ce06c74781ca6eda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53abb703d9ef8eb1301fc054b851b564b4133f4936b63ddf23805c120fa5cdc5"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "a5ec87e6b0b78f8f9c7488ee60fba66fa32b820ad0beb17a2a2ad609cf0db4ef"
+    sha256 cellar: :any,                 arm64_ventura:  "18491874794e510a5ceab9f85b056dd5338869c63d6590bd8d2e5e5eb451e081"
+    sha256 cellar: :any,                 arm64_monterey: "97ada88c358d6b8fee6731bc2fb5a2b6f869ff0d9798b831801aa16096db0e40"
+    sha256 cellar: :any,                 sonoma:         "080ae8f329e1f5434ff565a2731066510251e94be46b3dbc88ce81d7fa131395"
+    sha256 cellar: :any,                 ventura:        "bfd55cd5a7c527f3ee97be03d31019f19bcc42e8827eff660a3e0225fc010601"
+    sha256 cellar: :any,                 monterey:       "a131b4cca2eb06a0077955ad754e0cf2e028b6edcb8d59f671d3863f4d0c9e09"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58f4a8c2fa4c22f00887c45852b4fe5326d1df941f484f5884bf5cab6df1c81a"
   end
 
-  depends_on "nim" => :build
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "mysql"
+
+  # TODO: switch to `depends_on "nim" => :build` in the next release
+  resource "nim" do
+    url "https://nim-lang.org/download/nim-1.6.14.tar.xz"
+    sha256 "d070d2f28ae2400df7fe4a49eceb9f45cd539906b107481856a0af7a8fa82dc9"
+  end
 
   def install
+    (buildpath/"nim").install resource("nim")
+    cd "nim" do
+      system "./build.sh"
+      system "./bin/nim", "c", "-d:release", "koch"
+      system "./koch", "boot", "-d:release", "-d:useLinenoise"
+    end
+    ENV.prepend_path "PATH", buildpath/"nim/bin"
+
     inreplace "build.nims", /ROOT_DIR\s*=\s*r"\{getHomeDir\(\)\}.arturo".fmt/, "ROOT_DIR=\"#{prefix}\""
 
     # Work around issues with Xcode 14.3

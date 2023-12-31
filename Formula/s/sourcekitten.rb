@@ -30,7 +30,7 @@ class Sourcekitten < Formula
 
   test do
     system "#{bin}/sourcekitten", "version"
-    return if MacOS::Xcode.version < 14
+    return if OS.mac? && MacOS::Xcode.version < 14
 
     ENV["IN_PROCESS_SOURCEKIT"] = "YES"
     system "#{bin}/sourcekitten", "syntax", "--text", "import Foundation // Hello World"
@@ -43,7 +43,7 @@ index 8ed333c5..cbad6d26 100644
 +++ b/Makefile
 @@ -8,13 +8,6 @@ XCODEFLAGS=-workspace 'SourceKitten.xcworkspace' \
  	OTHER_LDFLAGS=-Wl,-headerpad_max_install_names
- 
+
  SWIFT_BUILD_FLAGS=--configuration release
 -UNAME=$(shell uname)
 -ifeq ($(UNAME), Darwin)
@@ -52,5 +52,5 @@ index 8ed333c5..cbad6d26 100644
 -SWIFT_BUILD_FLAGS+= -Xswiftc -static-stdlib
 -endif
 -endif
- 
+
  SOURCEKITTEN_EXECUTABLE=$(shell swift build $(SWIFT_BUILD_FLAGS) --show-bin-path)/sourcekitten

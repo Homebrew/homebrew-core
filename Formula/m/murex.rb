@@ -1,19 +1,19 @@
 class Murex < Formula
   desc "Bash-like shell designed for greater command-line productivity and safer scripts"
   homepage "https://murex.rocks"
-  url "https://github.com/lmorg/murex/archive/refs/tags/v5.2.7610.tar.gz"
-  sha256 "6f90460dd31e1f882189a697488522eae6005c748b3194c403acfd617fe4041b"
+  url "https://github.com/lmorg/murex/archive/refs/tags/v5.3.5000.tar.gz"
+  sha256 "01dd4cac5d71692c0bb3724c543f6a2a45259f0199249335f94511f3509d7ebf"
   license "GPL-2.0-only"
   head "https://github.com/lmorg/murex.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48865b87d2661c2b2903831d0a290a835f8fe4615273c650364d6d57021b6bfa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5f88e83e9211e0d7dd3ad38e52fc134643c7bd67b679f2f03a05cfa001b7623d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ccf9d69d26f9794501cb84e87706cb9ed2f5756d57e16219813f35ac4d08674c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c51ae48e56e226a5d38a4b9b7e9882ae165844a34b97dbef86927258df032eb2"
-    sha256 cellar: :any_skip_relocation, ventura:        "3409c6c4ab7b91a2c60d63c29acea76c5e273993ea5d3a74afcbe689b0ab621f"
-    sha256 cellar: :any_skip_relocation, monterey:       "afdf491857c607e4fd40189510f723b0aa2aa805637939b8656d0a5bce6bb132"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6beb3095f1f012d9489ff6f67595e190fdbbe2d0ce6132bb46b3b6f9724635a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ab6a033269152793750e1c733c96b22cb74d96212f50974d35edad53b352b48"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e9b4e03822a51f1b6da0e2e0c88000165944fe57f27222e8719377bbf399c9de"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7cdaa7821102e2950838e4ca04955d1951902b772abbe0266f1be7e698e111a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "db94ae4219ac39b8d3017a08e27c4756bb0d8aac362ed8aa9146a85d6b5b4683"
+    sha256 cellar: :any_skip_relocation, ventura:        "21bb6ab3a3d6a39c7734b04473ddd8941fad2a54293d8c236f12a2da4f9fc89f"
+    sha256 cellar: :any_skip_relocation, monterey:       "46a0996431bae0d0421db91a07f564f6863289f8f3bd213231be84a9fee4e237"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a24b3c0c983cb341e8c27aa3e728a17305eaac006a6be41e1fe427659d9fc58"
   end
 
   depends_on "go" => :build
@@ -23,7 +23,7 @@ class Murex < Formula
   end
 
   test do
-    system "#{bin}/murex", "--run-tests"
     assert_equal "homebrew", shell_output("#{bin}/murex -c 'echo homebrew'").chomp
+    assert_match version.to_s, shell_output("#{bin}/murex -version")
   end
 end

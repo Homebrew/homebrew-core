@@ -39,7 +39,7 @@ class Doxymacs < Formula
     # Fix undefined symbol errors for _xmlCheckVersion, etc.
     # This prevents a mismatch between /usr/bin/xml2-config and the SDK headers,
     # which would cause the build system not to pass the LDFLAGS for libxml2.
-    ENV.prepend_path "PATH", "#{MacOS.sdk_path}/usr/bin"
+    ENV.prepend_path "PATH", "#{MacOS.sdk_path}/usr/bin" if OS.mac?
 
     system "./bootstrap" if build.head?
     system "./configure", "--prefix=#{prefix}",

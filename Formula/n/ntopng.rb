@@ -12,13 +12,14 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "7ca16f7e7c6b052dcce8135e96f6897a266585860188e42b5ab0df8dcf87743a"
-    sha256 arm64_ventura:  "0ccce8c1d3457391ddee1a71b21c012a285d7bff835a778c4f4f3c4df2697b3e"
-    sha256 arm64_monterey: "2080dbfa548589be9c22240b2881b973e3d8afc8c0c228b96a7e7080aa36ba96"
-    sha256 sonoma:         "90037bc24820f23f7c0b7234dc0ec7dece571e154a3fb4f7ea65f33e8b716d62"
-    sha256 ventura:        "cd0f47b21571491328d72250c13b7d57b92775982d012a19be8ddad3e769a469"
-    sha256 monterey:       "ac774dcf2b187764277cbcdb916fe5f12b0563a62144cbdf95ae5449c3fcadea"
-    sha256 x86_64_linux:   "2d3ab6177d447935c6781da442eb484a02b3f29e926b9702519d26ad0578233f"
+    rebuild 1
+    sha256 arm64_sonoma:   "22aa615bc3607d08835f5e21bd7c07ad130975df8222c0dab4d557025035285f"
+    sha256 arm64_ventura:  "2114c42413822e68116991e5eed93a11a620dade59ede7aabf9ca7c3c7e94c8b"
+    sha256 arm64_monterey: "b8bc6f21ca6eb18aec9eb65e3ada8099720735116122dc5ab5f8936e0c948ba1"
+    sha256 sonoma:         "bc284a78ea29d1c59494a2410be22be19b5a5fc2f08955806a0c73f05ee220b4"
+    sha256 ventura:        "2c8492211356d9d5186ea91d2598464deab097f42927fc4e117f68124c4adba8"
+    sha256 monterey:       "f900ac4856717b8393cfa7cb0101f1c7c519d0f3f757a6654dcfaf55307816a9"
+    sha256 x86_64_linux:   "ea5b0422b3e22d713cee0560ec401c048b52ec6a5538e10fc62515c5a322395b"
   end
 
   head do
@@ -36,7 +37,6 @@ class Ntopng < Formula
   depends_on "libtool" => :build
   depends_on "lua" => :build
   depends_on "pkg-config" => :build
-  depends_on "geoip"
   depends_on "json-c"
   depends_on "libmaxminddb"
   depends_on "libsodium"

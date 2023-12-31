@@ -1,8 +1,8 @@
 class Gsoap < Formula
   desc "SOAP stub and skeleton compiler for C and C++"
   homepage "https://www.genivia.com/products.html"
-  url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.131.zip"
-  sha256 "e5e1a4ea25fea56ebd62d7b94a089c29e9394b6394ad362762297b7cb31622df"
+  url "https://downloads.sourceforge.net/project/gsoap2/gsoap_2.8.132.zip"
+  sha256 "d6eb5d0d2c31532746f4dc9fa1ce95d4553414e918059eac23cf081d88c2aeee"
   # Parts of the software are alternatively licensed under gSOAP-1.3b, but this
   # license is considered non-free by Debian and Fedora due to section 3.2:
   #
@@ -19,15 +19,13 @@ class Gsoap < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "3dd2385be7ac75fdd8ac50995243257b7bc6b8e4c8985fc0bd36d5bf3ec0729b"
-    sha256 arm64_ventura:  "9ac0f66db9bd33a7eed96547fa8275cc21a685d74d5069a40405cf7fab3d52df"
-    sha256 arm64_monterey: "d5329ebeff63cf601e7f974232f549c2031696746555852941ef1ed511d4a74f"
-    sha256 arm64_big_sur:  "f9aa3578ba6ac20fcf465e8f58b75d8eba8090e85ad151e04e40c233f28217c5"
-    sha256 sonoma:         "2b5fc7c437a1f32336049c595b9d93e15aa07b1be5475d8dea08b62cdd376b43"
-    sha256 ventura:        "60be3bf339b397baaa7561947c1f2fb61faef03885f87ec952fd338e57671293"
-    sha256 monterey:       "a749d76663f5324f19f7b502da23d0b077f214af83f98e7e8762b1f37d47032b"
-    sha256 big_sur:        "3f4aff27e5c11914cb9fe52fd5f676989e3bbd1f6bdf634055cbeb3141a7fb98"
-    sha256 x86_64_linux:   "82e2d1e4f7f2a11c77143093d4222ff06a8811836b5bd08140c946c5861e91f8"
+    sha256 arm64_sonoma:   "8acc579430f4ded53206fc1414c04a59ad072081d8c2aa2a79c905206c38c224"
+    sha256 arm64_ventura:  "dea0d3df2a060f3f72df1217350d3ab4cea035efdc94aa64e6670c95f737915f"
+    sha256 arm64_monterey: "7768a71815d15ef467fc084b84aecbb671170beabcc6ed420869d1824547a02e"
+    sha256 sonoma:         "b51a5d29696e56ece31300dcc23c03170f0329d7a3b653f9bc703102c0d3f319"
+    sha256 ventura:        "0cac3c55e200fc04bf422f1379bf4664fc137a8142e7d10fcbdec516cafd9bd9"
+    sha256 monterey:       "205338069dabccf5ccdd8d3938fa7934cfd7ad3fcf7de3697f5367b53b52678b"
+    sha256 x86_64_linux:   "7e6a34ddac15c9cbeed7cf0147c81033b2cf9a96bb997255efc311ebbb4381c5"
   end
 
   depends_on "autoconf" => :build

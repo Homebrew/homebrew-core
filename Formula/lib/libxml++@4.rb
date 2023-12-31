@@ -1,6 +1,6 @@
 class LibxmlxxAT4 < Formula
   desc "C++ wrapper for libxml"
-  homepage "https://libxmlplusplus.sourceforge.net/"
+  homepage "https://libxmlplusplus.github.io/libxmlplusplus/"
   url "https://download.gnome.org/sources/libxml++/4.0/libxml++-4.0.2.tar.xz"
   sha256 "933aed23e933694d62434a56c8439e654ed84848323e990dee7880fb819d33bf"
   license "LGPL-2.1-or-later"
@@ -33,12 +33,9 @@ class LibxmlxxAT4 < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

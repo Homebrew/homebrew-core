@@ -7,17 +7,17 @@ class PythonToml < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6049ee6f1f4a5fc61182b749b5c941495257c6330d4d2f7e2677dddeabee7138"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04b902eca4c4ef2d390d91f3f5897bc7ed039ff6f282255f2692ab4b80ed1947"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8cc37e45b92018ea82f224341844d1fec3e3d213ecd3b809fbff60157527ae1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0163ac068c1c7e50e390f3fe6a10a2ca4eb89dd7a32b6c57934505a9e5a3e7e0"
-    sha256 cellar: :any_skip_relocation, ventura:        "8b085cd82b0daf659a675ef5a8bb1d364f5fb70691c072d62b466bc2d1578190"
-    sha256 cellar: :any_skip_relocation, monterey:       "5730e7676ccd19b5e903e60bf84ecb78c85e7407112dec8e6f74c079a93e11be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "202bc7b0d3efe28ae4fe8675bd96a41cf3c0f666ad54bd269902954393fc05d3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57b140924ebf038fc6be631b0e726811e175a6751e0eaef531bcb575563e6953"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6378bb124b086911f75827191b113b008cbb943b1ce70c17980227ea691faa3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c84849d0cf0e493c73d2a6ed4559822da97f756867c27bb09479f53c7414ae15"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1d148c21c6298c705fc41679ad75845eebd59cc7fd48b0d97b061aa7df74252d"
+    sha256 cellar: :any_skip_relocation, ventura:        "f8d1c6987cf0aa91142fa595e705192208f69914bb0a0129e0850a73f00ae6a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "d291249e24e8b26d9266e5f24614da31ea450f99dfc861ad90b3fe924fd31a1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1661e6b18ca6c7ac081e4ba72170c4ff13d53bc228455494e80cef7b4d7789a"
   end
 
   depends_on "python-setuptools" => :build
-  depends_on "python@3.10" => [:build, :test]
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 

@@ -10,19 +10,20 @@ class Gptline < Formula
   head "https://github.com/gnachman/gptline.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "41715d222a8823732b4af7306d5914e570a56e0c3b6ee5030c2a91363c5e8612"
-    sha256 cellar: :any,                 arm64_ventura:  "3dc80b4cdd457093f6340ad718faa00cd5559c825e9314e8d4afd0ba1d86e486"
-    sha256 cellar: :any,                 arm64_monterey: "dcff91d88b03aec13c4bc09a040c45bf0b642d1ca2d2535cff1c0ff5d8a870f7"
-    sha256 cellar: :any,                 sonoma:         "81f00084f7fd95f3f6844aee67597e2b0992aafee6b0ac5aec9301d9d54631d2"
-    sha256 cellar: :any,                 ventura:        "f48ad674eab374c6865896bcc768ab82edddd59a7ae670a09b175f9d6802d96e"
-    sha256 cellar: :any,                 monterey:       "03aacbe88a18d3628598be95dfef20be37fc2ecb1c6688ec652a152327c4d6f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73a8795fabb790261902fdc1316faf6610a6cce36ef65191cc6fff2557f4c980"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "77cd2da5a66e587575b4e4798efa12083ad9af2b65f000041681f873479243b9"
+    sha256 cellar: :any,                 arm64_ventura:  "62ae540fd0b4c7a3dd84f105d66bda806debbd32c889698265a182ddf7f98252"
+    sha256 cellar: :any,                 arm64_monterey: "e0d3aa68631307dc303877d92ff9739d0e52c691338f0615e01671f64367322d"
+    sha256 cellar: :any,                 sonoma:         "d86eff74fa40c6829f39fdeb9e61241f646f321654b14759d692bd0a3bd7468c"
+    sha256 cellar: :any,                 ventura:        "1d990986e2b552ccd8bfb97bc70f37c20888399b26ce7e1d4df81a0a0aff9a13"
+    sha256 cellar: :any,                 monterey:       "5181366e7e1434553c44279525b7166a3020ef93f198b6c42be214a773eb967c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67f62350be2fdf9469c6450bab049911d9da32d380f362191c474e6ba72acc98"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build # for tiktoken
   depends_on "jpeg-turbo"
+  depends_on "pillow"
   depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python-click"
@@ -37,8 +38,8 @@ class Gptline < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/28/99/2dfd53fd55ce9838e6ff2d4dac20ce58263798bd1a0dbe18b3a9af3fcfce/anyio-3.7.1.tar.gz"
-    sha256 "44a3c9aba0f5defa43261a8b3efb97891f2bd7d804e0e1f56419befa1adfc780"
+    url "https://files.pythonhosted.org/packages/6e/57/075e07fb01ae2b740289ec9daec670f60c06f62d04b23a68077fd5d73fab/anyio-4.1.0.tar.gz"
+    sha256 "5a0bec7085176715be77df87fc66d6c9d70626bd752fcc85f57cdbee5b3760da"
   end
 
   resource "beautifulsoup4" do
@@ -72,8 +73,8 @@ class Gptline < Formula
   end
 
   resource "feedparser" do
-    url "https://files.pythonhosted.org/packages/63/9a/824e3c036dec4f0adb4e7c36dcf4cbffc9ee317a4985218cb1663c7ab4ad/feedparser-6.0.10.tar.gz"
-    sha256 "27da485f4637ce7163cdeab13a80312b93b7d0c1b775bef4a47629a3110bca51"
+    url "https://files.pythonhosted.org/packages/ff/aa/7af346ebeb42a76bf108027fe7f3328bb4e57a3a96e53e21fd9ef9dd6dd0/feedparser-6.0.11.tar.gz"
+    sha256 "c9d0407b64c6f2a065d0ebb292c2b35c01050cc0dc33757461aaabdc4c4184d5"
   end
 
   resource "filelock" do
@@ -97,13 +98,13 @@ class Gptline < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/1c/fe/c0523094193929a68b288e0ae3eb865725f1ee9faca0f21693a86e96c943/httpx-0.25.1.tar.gz"
-    sha256 "ffd96d5cf901e63863d9f1b4b6807861dbea4d301613415d9e6e57ead15fc5d0"
+    url "https://files.pythonhosted.org/packages/8c/23/911d93a022979d3ea295f659fbe7edb07b3f4561a477e83b3a6d0e0c914e/httpx-0.25.2.tar.gz"
+    sha256 "8b8fcaa0c8ea7b05edd69a094e63a2094c4efcb48129fb757361bc423c0ad9e8"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "jieba3k" do
@@ -127,28 +128,23 @@ class Gptline < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/16/eb/f3a73450c663d083927ab43a085dbbfe052ff8ece324865324d607c94b76/openai-1.3.3.tar.gz"
-    sha256 "7917e363087107d9c9aa867be62fd80884ff7be553ec0a4836749fe6e6c02eca"
-  end
-
-  resource "pillow" do
-    url "https://files.pythonhosted.org/packages/80/d7/c4b258c9098b469c4a4e77b0a99b5f4fd21e359c2e486c977d231f52fc71/Pillow-10.1.0.tar.gz"
-    sha256 "e6bf8de6c36ed96c86ea3b6e1d5273c53f46ef518a062464cd7ef5dd2cf92e38"
+    url "https://files.pythonhosted.org/packages/d4/9b/fb08008a5b7cee252ac103b3ed27db29f7dd3b727cc2859224ce06af72d3/openai-1.3.9.tar.gz"
+    sha256 "6f638d96bc89b4394be1d7b37d312f70a055df1a471c92d4c4b2ae3a70c98cb3"
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/d9/7b/7d88d94427e1e179e0a62818e68335cf969af5ca38033c0ca02237ab6ee7/prompt_toolkit-3.0.41.tar.gz"
-    sha256 "941367d97fc815548822aa26c2a269fdc4eb21e9ec05fc5d447cf09bad5d75f0"
+    url "https://files.pythonhosted.org/packages/cc/c6/25b6a3d5cd295304de1e32c9edbcf319a52e965b339629d37d42bb7126ca/prompt_toolkit-3.0.43.tar.gz"
+    sha256 "3527b7af26106cbc65a040bcc84839a3566ec1b051bb0bfe953631e704b0ff7d"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/0b/6c/cebf0e87ee0f2496584e04079592f33610f1f9aaf3684cb3105f03969e2b/pydantic-2.5.1.tar.gz"
-    sha256 "0b8be5413c06aadfbe56f6dc1d45c9ed25fd43264414c571135c97dd77c2bedb"
+    url "https://files.pythonhosted.org/packages/b7/41/3c8108f79fb7da2d2b17f35744232af4ffcd9e764ebe1e3fd4b26669b325/pydantic-2.5.2.tar.gz"
+    sha256 "ff177ba64c6faf73d7afa2e8cad38fd456c0dbe01c9954e71038001cd15a6edd"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/4c/ee/b3479b31f47226bae5d9033761971bec215774a6078ce08e8618d6381470/pydantic_core-2.14.3.tar.gz"
-    sha256 "3ad083df8fe342d4d8d00cc1d3c1a23f0dc84fce416eb301e69f1ddbbe124d3f"
+    url "https://files.pythonhosted.org/packages/64/26/cffb93fe9c6b5a91c497f37fae14a4b073ecbc47fc36a9979c7aa888b245/pydantic_core-2.14.5.tar.gz"
+    sha256 "6d30226dfc816dd0fdf120cae611dd2215117e4f9b124af8c60ab9093b6e8e71"
   end
 
   resource "python-dateutil" do
@@ -192,8 +188,8 @@ class Gptline < Formula
   end
 
   resource "tiktoken" do
-    url "https://files.pythonhosted.org/packages/bd/ef/91777d3310589c55da4bf0fafa10fdc8ddefa30aa7dfa67b2fc8825bc1f1/tiktoken-0.5.1.tar.gz"
-    sha256 "27e773564232004f4f810fd1f85236673ec3a56ed7f1206fc9ed8670ebedb97a"
+    url "https://files.pythonhosted.org/packages/a7/e8/0dc09862a2a7dddbd8578dbde80cff77a2efec8ecf476eaeab1dc75dffac/tiktoken-0.5.2.tar.gz"
+    sha256 "f54c581f134a8ea96ce2023ab221d4d4d81ab614efa0b2fbce926387deb56c80"
   end
 
   resource "tinysegmenter" do
@@ -212,8 +208,8 @@ class Gptline < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/1f/7a/8b94bb016069caa12fc9f587b28080ac33b4fbb8ca369b98bc0a4828543e/typing_extensions-4.8.0.tar.gz"
-    sha256 "df8e4339e9cb77357558cbdbceca33c303714cf861d1eef15e1070055ae8b7ef"
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   resource "urllib3" do
@@ -222,8 +218,8 @@ class Gptline < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2e/1c/21f2379555bba50b54e5a965d9274602fe2bada4778343d5385840f7ac34/wcwidth-0.2.10.tar.gz"
-    sha256 "390c7454101092a6a5e43baad8f83de615463af459201709556b6e4b1c861f97"
+    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
+    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
   end
 
   def install

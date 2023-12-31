@@ -13,14 +13,14 @@ class Ledger < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "248d392147c9c0cb22291b9d10335e67d43afeebfadf0f10eae92d20d54896ed"
-    sha256 cellar: :any,                 arm64_ventura:  "b259e7568ab75cf1cca681ce03daaa42a2a05dd70ccebcf1679dddc9ba3b36e0"
-    sha256 cellar: :any,                 arm64_monterey: "84027e5700a4aa84bea85cffbb6ca795450cd960d91fa8e23b73787db5f9066d"
-    sha256 cellar: :any,                 sonoma:         "9316cefc41ff3ce69b5f230c91446b0edf9d095a686fafea94e01d3d95c89824"
-    sha256 cellar: :any,                 ventura:        "4f6e8d4df6fbe4a53a494eb171df343cc8133359a0fbf7eb046833b8a42717f9"
-    sha256 cellar: :any,                 monterey:       "81dc67ce324583144d371b57225b4dac01a0c5ad6a90cb814399683822f33b0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37d312f365a2895f89532e50a7caf129e06dd614d4c094ffba45ae2e5fe1db87"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "fa7df3860b42147ac835c5faa41ff67600f8a31b44d716f4958ea531a53e40c3"
+    sha256 cellar: :any,                 arm64_ventura:  "0911e597f1426301d7a517ec505cbf4463fefd6c0124c83c260ea0b5397bc358"
+    sha256 cellar: :any,                 arm64_monterey: "5a51cb8029ef70278bf3cc451a393137d1ff68d9ccd68d474fe0c2668f4b5956"
+    sha256 cellar: :any,                 sonoma:         "866700f0afce17f4cd9728e961a10e7b6fd476d21f0f04c5e8a23628a719fff8"
+    sha256 cellar: :any,                 ventura:        "58c1575a6aa8ba019694ed1bd9564919a1b17e8b6efe87224c30321d6444e4e7"
+    sha256 cellar: :any,                 monterey:       "a676cc9ba6e83f68b70daec6790bc3f054ec69a311636643c97dbf89bffe2060"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec5cdfab0d02fa9a06335b3804a97d61895fcd85d187d4b760de796225b40e52"
   end
 
   depends_on "cmake" => :build
@@ -31,10 +31,18 @@ class Ledger < Formula
   depends_on "mpfr"
   depends_on "python@3.12"
 
+  uses_from_macos "mandoc" => :build
   uses_from_macos "libedit"
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff" => :build
+  # Support building with mandoc
+  # Remove with v3.4.x
+  patch do
+    url "https://github.com/ledger/ledger/commit/f40cee6c3af4c9cec05adf520fc7077a45060434.patch?full_index=1"
+    sha256 "d5be89dbadff7e564a750c10cdb04b83e875452071a2115dd70aae6e7a8ee76c"
+  end
+  patch do
+    url "https://github.com/ledger/ledger/commit/14b90d8d952b40e0a474223e7f74a1e6505d5450.patch?full_index=1"
+    sha256 "d250557e385163e3ad3002117ebe985af040d915aab49ae1ea342db82398aeda"
   end
 
   def install

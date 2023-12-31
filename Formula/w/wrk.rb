@@ -34,7 +34,7 @@ class Wrk < Formula
 
   def install
     ENV.deparallelize
-    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s
+    ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
     ENV.append_to_cflags "-I#{Formula["luajit"].opt_include}/luajit-2.1"
     args = %W[
       WITH_LUAJIT=#{Formula["luajit"].opt_prefix}

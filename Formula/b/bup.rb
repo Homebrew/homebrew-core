@@ -1,20 +1,19 @@
 class Bup < Formula
   desc "Backup tool"
   homepage "https://bup.github.io/"
-  url "https://github.com/bup/bup/archive/refs/tags/0.33.2.tar.gz"
-  sha256 "d806548695c2f35be893c1eacec05a61060a1cbfe2efa4e008c44f85ee7eadd8"
+  url "https://github.com/bup/bup/archive/refs/tags/0.33.3.tar.gz"
+  sha256 "0aa6e98352c939180e82bbb0a647afd8d1b3d5eda6771b65e694099f6b956ac5"
   license all_of: ["BSD-2-Clause", "LGPL-2.0-only"]
   head "https://github.com/bup/bup.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "c06dfa40708ec8158912d6a2481ce6cfa39e829396b063f7c9569df6e6829dad"
-    sha256 cellar: :any,                 arm64_ventura:  "755c4ac3f23e711c306b88bd5b03cdcfab1e73e41c90d9a6685d79dab634fd2b"
-    sha256 cellar: :any,                 arm64_monterey: "49effff9f3e42a0792da444b5c77443f76427e468c7a5bfe590d6e55763a82f4"
-    sha256 cellar: :any,                 sonoma:         "1c547df49d99f8236584da0e156d3d67f18b0e591cc7ac51804d1c978aeba2ab"
-    sha256 cellar: :any,                 ventura:        "96bf06e4122558f11037fe1440f379281a95481167b00dc107cfc0d16dc22214"
-    sha256 cellar: :any,                 monterey:       "e8c288adf042f124d177e962666c338a9bed36d1b15bc84971ccccae4de87fe4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82cac0e032e3274d89d678c1d339fe90b4a43d805d16a120579d41855dd29de7"
+    sha256 cellar: :any,                 arm64_sonoma:   "fa4f5c208efca04606934745fe35d2776b479f6035fa9841eca924d5e900ecb2"
+    sha256 cellar: :any,                 arm64_ventura:  "12d0542f3f0f72d356d58de92c9afa701ff0006ae233bf7ae6c11085ce70552a"
+    sha256 cellar: :any,                 arm64_monterey: "9a6c3234293a20c544e7b1ea1f79ef68f63b0bf164def7165d946511cf6f67e6"
+    sha256 cellar: :any,                 sonoma:         "be8a5f5f68a9d9d69c8fb473dc662953974ee9d1fa1aa454bd009502347ead4b"
+    sha256 cellar: :any,                 ventura:        "68679c2a19db87c9b9e9334dd9903ecb75156d4372cfe16300444d8accbcf992"
+    sha256 cellar: :any,                 monterey:       "984f9e6c5bdff86478d40bc0edc91332d606710430e5ca49005411b2a949f9b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a37bc1c9cd680141e67a6e73b31490256b6722d567f67afe1e84e556d36cfa06"
   end
 
   depends_on "pandoc" => :build

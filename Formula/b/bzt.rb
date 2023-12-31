@@ -3,20 +3,19 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/14/4c/165bae628e701289998b003d723d0648df19fe6975020b0113a686a26454/bzt-1.16.26.tar.gz"
-  sha256 "279fdedd7db45c8bcaaca2867884203e5dc5f7ba9f5eee1022c69d59ad053166"
+  url "https://files.pythonhosted.org/packages/9f/34/80029e0f5d0c9dc598fb805891f1740620bd6125b9ee2aae70c1612e3558/bzt-1.16.27.tar.gz"
+  sha256 "e37a5534417de651817c2c7f6701a133d486e4d660026e88729e35bac757a9c8"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c768e5454629ecad0eb0db65b9cd9a5c7ddfa9dd990cf2ba502233f8b30f442"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b26e654f1522ba82350b120e47adf53de9a015b45dfdf0ff104b0988dec65e4f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1955603a13ad804224028f77d7c3cdd7400ee077bac0b1efa47bfcf441401cf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a7d41da392d69b76de7babccd7d1694fa64c074c2cbd687a2dba1527874161de"
-    sha256 cellar: :any_skip_relocation, ventura:        "454186c220c3518f91c608ec021fc55c8789c340465d2bd011305495344cb123"
-    sha256 cellar: :any_skip_relocation, monterey:       "867538f4e350af849490a1f73f7e61ba7a44b989ce9b9f881b5125e0e28ca974"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e05a8b6a2f1d063499f81bbb0aa4c2c6de1b400f0f4a986ca18b88c882319c01"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd061d3492903c5526cdcb740651fd5f33d973614dc4ea621d201ecaa1d3a435"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46641159c1795a8df35c19d64810d17ba9c7f7d769e9df3889a107bffb4cdb58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c033a5123b878858dc586c41f5194590bc22460847312f17ee30b6ccebe2a4c6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "66d315a18afc93687aa364a00e3f582fd445c846af752036e7dea7ecb3b0780f"
+    sha256 cellar: :any_skip_relocation, ventura:        "6594af6fa92b430f2f4f9ecdd524f4c9d21d8849f8555d80e4a9348a9594bf58"
+    sha256 cellar: :any_skip_relocation, monterey:       "99725d320b70f34ef20887488f97654aa345b60829f3b3a40c15932239825c88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd114701fe7b26cbf3fb4ac7bf4e3f37b47636bb6c70b1440419ed6525aaa45a"
   end
 
   depends_on "cmake" => :build
@@ -40,8 +39,8 @@ class Bzt < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/71/80/68f3bd93240efd92e9397947301efb76461db48c5ac80be2423ffa9c20a3/aiohttp-3.9.0.tar.gz"
-    sha256 "09f23292d29135025e19e8ff4f0a68df078fe4ee013bca0105b2e803989de92d"
+    url "https://files.pythonhosted.org/packages/54/07/9467d3f8dae29b14f423b414d9e67512a76743c5bb7686fb05fe10c9cc3e/aiohttp-3.9.1.tar.gz"
+    sha256 "8fc49a87ac269d4529da45871e2ffb6874e87779c3d0e2ccd813c0899221239d"
   end
 
   resource "aiosignal" do
@@ -70,8 +69,8 @@ class Bzt < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
-    sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
+    url "https://files.pythonhosted.org/packages/1f/b0/e4e3850d43f5429f9e53404056d705117fbb8a4d9e755425e762a9f68317/colorlog-6.8.0.tar.gz"
+    sha256 "fbb6fdf9d5685f2517f388fb29bb27d54e8654dd31f58bc2a3b217e967a95ca6"
   end
 
   resource "cssselect" do
@@ -105,13 +104,13 @@ class Bzt < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/0c/84/e58c665f4ebb03d2fbeb28b51afb0743f846db18a5b594ed8b8973676ddf/humanize-4.8.0.tar.gz"
-    sha256 "9783373bf1eec713a770ecaa7c2d7a7902c98398009dfa3d8a2df91eec9311e8"
+    url "https://files.pythonhosted.org/packages/76/21/7a0b24fae849562397efd79da58e62437243ae0fd0f6c09c6bc26225b75c/humanize-4.9.0.tar.gz"
+    sha256 "582a265c931c683a7e9b8ed9559089dea7edcf6cc95be39a3cbc2c5d5ac2bcfa"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "influxdb" do
@@ -145,8 +144,8 @@ class Bzt < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/d9/7b/7d88d94427e1e179e0a62818e68335cf969af5ca38033c0ca02237ab6ee7/prompt_toolkit-3.0.41.tar.gz"
-    sha256 "941367d97fc815548822aa26c2a269fdc4eb21e9ec05fc5d447cf09bad5d75f0"
+    url "https://files.pythonhosted.org/packages/cc/c6/25b6a3d5cd295304de1e32c9edbcf319a52e965b339629d37d42bb7126ca/prompt_toolkit-3.0.43.tar.gz"
+    sha256 "3527b7af26106cbc65a040bcc84839a3566ec1b051bb0bfe953631e704b0ff7d"
   end
 
   resource "python-dateutil" do
@@ -200,18 +199,18 @@ class Bzt < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2e/1c/21f2379555bba50b54e5a965d9274602fe2bada4778343d5385840f7ac34/wcwidth-0.2.10.tar.gz"
-    sha256 "390c7454101092a6a5e43baad8f83de615463af459201709556b6e4b1c861f97"
+    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
+    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
   end
 
   resource "websocket-client" do
-    url "https://files.pythonhosted.org/packages/cb/eb/19eadbb717ef032749853ef5eb1c28e9ca974711e28bccd4815913ba5546/websocket-client-1.6.4.tar.gz"
-    sha256 "b3324019b3c28572086c4a319f91d1dcd44e6e11cd340232978c684a7650d0df"
+    url "https://files.pythonhosted.org/packages/20/07/2a94288afc0f6c9434d6709c5320ee21eaedb2f463ede25ed9cf6feff330/websocket-client-1.7.0.tar.gz"
+    sha256 "10e511ea3a8c744631d3bd77e61eb17ed09304c413ad42cf6ddfa4c7787e8fe6"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/fb/d0/0b4c18a0b85c20233b0c3bc33f792aefd7f12a5832b4da77419949ff6fd9/wheel-0.41.3.tar.gz"
-    sha256 "4d4987ce51a49370ea65c0bfd2234e8ce80a12780820d9dc462597a6e60d0841"
+    url "https://files.pythonhosted.org/packages/b0/b4/bc2baae3970c282fae6c2cb8e0f179923dceb7eaffb0e76170628f9af97b/wheel-0.42.0.tar.gz"
+    sha256 "c45be39f7882c9d34243236f2d63cbd58039e360f85d0913425fbd7ceea617a8"
   end
 
   resource "wsproto" do
@@ -220,8 +219,8 @@ class Bzt < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/5f/3f/04b3c5e57844fb9c034b09c5cb6d2b43de5d64a093c30529fd233e16cf09/yarl-1.9.2.tar.gz"
-    sha256 "04ab9d4b9f587c06d801c2abfe9317b77cdf996c65a90d5e84ecc45010823571"
+    url "https://files.pythonhosted.org/packages/e0/ad/bedcdccbcbf91363fd425a948994f3340924145c2bc8ccb296f4a1e52c28/yarl-1.9.4.tar.gz"
+    sha256 "566db86717cf8080b99b58b083b773a908ae40f06681e87e589a976faf8246bf"
   end
 
   def install

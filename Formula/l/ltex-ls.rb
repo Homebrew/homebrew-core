@@ -7,20 +7,18 @@ class LtexLs < Formula
   head "https://github.com/valentjn/ltex-ls.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a362ef0e89ef70637fe32d297181dbaf0ea3c56deb5d429f820af1241948325"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b244f07079c6aaab1a65f648d6ee13266fb1164f7f82f6003a9284e9976d2cb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "11567aa4c9ea7b6d0516329dc5d527cd1f212b1869a0473456c8a2ec0a902907"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cb3a024aedddbde888b77821f76b8c48e4a2648358f669a16881dde500315094"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e0fe4a9a3435337d2fa3ffa5659c1a60b7c75f8a7992e50a9ea358b2b29f69a0"
-    sha256 cellar: :any_skip_relocation, ventura:        "baa9c3e2989c2664dc853b71bf1b3ccad9b78add83dc44f7bbb6ea9983278c67"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e837641af16e424a784e9392f1df5fff22984fd561666e060c6bb4131c9cd0a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d69b0d4ba11e0c48d1d7719b126f6240ec15765077cd84be560010bc88b355e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4adccf31620d7eab220663889b631f5b33e52ab7c1e96d1b91dafd732b450baa"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5143777305e63064baf476660aa4f04193481555ec4f6064d7ab162609fae83"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8451d3df1c2c862e0891378804e1b141ebcd796c956d95eb48a5f2da65d790f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "05ad45e1d55eff3ad2c3bcbd33b820b75d1c2591b13084a4b0a8fee9618dcbfe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cc962f2d453e6c73bf0f1212d5c238d5ef19d30fc744d6f785f68ae51ce02a70"
+    sha256 cellar: :any_skip_relocation, ventura:        "be324e4cc1e537cca541f829854e5cc0ccbf6b4e62f31c3e1c5cf870acb7133c"
+    sha256 cellar: :any_skip_relocation, monterey:       "6895ed3a2824794a968d4887408673d84d21de3d877c428c2eac6e3ddcd575aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ecb068a51e5bc4b26f0d64cd60feccf026f6c7b006c34e7a459cd901b1d05ed"
   end
 
   depends_on "maven" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "openjdk"
 
   def install
@@ -28,11 +26,11 @@ class LtexLs < Formula
     # Reported upstream at https://github.com/valentjn/ltex-ls/issues/244.
     inreplace "pom.xml", "<arg>-Werror</arg>", ""
 
-    ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
-    ENV["JAVA_HOME"] = Formula["openjdk"].opt_prefix
+    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
+    ENV["JAVA_HOME"] = Language::Java.java_home
     ENV["TMPDIR"] = buildpath
 
-    system "python3.11", "-u", "tools/createCompletionLists.py"
+    system "python3.12", "-u", "tools/createCompletionLists.py"
 
     system "mvn", "-B", "-e", "-DskipTests", "package"
 

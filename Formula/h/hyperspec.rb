@@ -9,7 +9,7 @@ class Hyperspec < Formula
     url :homepage
     regex(/href=.*?HyperSpec[._-]v?(\d+(?:[.-]\d+)+)\.t/i)
     strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| match&.first&.gsub("-", ".") }
+      page.scan(regex).map { |match| match&.first&.tr("-", ".") }
     end
   end
 

@@ -65,8 +65,11 @@ class Fragroute < Formula
       --with-libdnet=#{Formula["libdnet"].opt_prefix}
     ]
 
-    args << "--with-libpcap=#{MacOS.sdk_path}/usr" if !MacOS::CLT.installed? || MacOS.version != :sierra
-    args << "--with-libpcap=#{Formula["libpcap"].opt_prefix}" unless OS.mac?
+    if OS.mac? && (!MacOS::CLT.installed? || MacOS.version != :sierra)
+      args << "--with-libpcap=#{MacOS.sdk_path}/usr"
+    elsif OS.linux?
+      args << "--with-libpcap=#{Formula["libpcap"].opt_prefix}"
+    end
 
     system "./configure", *args
     system "make", "install"

@@ -3,19 +3,19 @@ class Uhdm < Formula
 
   desc "Universal Hardware Data Model, modeling of the SystemVerilog Object Model"
   homepage "https://github.com/chipsalliance/UHDM"
-  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.81.tar.gz"
-  sha256 "12a766f236f58f5ef30da4ccad45c3a67561e7a39dc3734baced5efee7e4dc7d"
+  url "https://github.com/chipsalliance/UHDM/archive/refs/tags/v1.82.tar.gz"
+  sha256 "f33d62a1ae0381389b4bc89f639e127bb04557bfdd2f8ff4f57e2f7b5df2e80f"
   license "Apache-2.0"
   head "https://github.com/chipsalliance/UHDM.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "461c8ca7f20e0529b9d1dfb6dc1d282cdcebb146472c179fcbec682fc9ddadfa"
-    sha256 cellar: :any,                 arm64_ventura:  "a659925eaf9c4ac02a2850824ba59952b85e085846f28cc0135a6468d6e741ee"
-    sha256 cellar: :any,                 arm64_monterey: "b8578441c0db641a1127f9d30cb9d682382ff60a861c98e9cd6cfd94d9e0e9ca"
-    sha256 cellar: :any,                 sonoma:         "1e050bcc61568c13896389b44dd7f951c7414506f953d1a19dff0e4e718a6853"
-    sha256 cellar: :any,                 ventura:        "6a91cdc76c4868c9769989133c4f11fed3eb91442f0fe7fd7127c1259b64fda5"
-    sha256 cellar: :any,                 monterey:       "7295477a32179a3e88a7de0421798c013d6e8c0c890d30e3deaef58ec6416d8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "76de6b6d1b94b0a69663f406c928c644dc37d89fd0a0809b3cfa4baaec4d2d28"
+    sha256 cellar: :any,                 arm64_sonoma:   "ef26fa19f53a248c21c5a9ef23f47865af6bbf0d29356bd2e8af7ae6f9867813"
+    sha256 cellar: :any,                 arm64_ventura:  "351b19ab20b0b8c6b48e976451392b38864eeb88ab1722a203adcb79e6bb5688"
+    sha256 cellar: :any,                 arm64_monterey: "cd7371086a821e2910f420e40242e23f24b0b2c57ef7dc0c54e3342cdd4b321e"
+    sha256 cellar: :any,                 sonoma:         "1e0ea2811865d3518a6d78e4e56aa49fc50d59d95c9bc19cb924707a9cf1c1f2"
+    sha256 cellar: :any,                 ventura:        "9729f7de02c7a7658ff5c1270da549d05ee0dc022124dee6747e7aa7b931d992"
+    sha256 cellar: :any,                 monterey:       "84e2f70f4a1ceb4d8554ad8477de1c810e10e0099ee9c942456fa86a03d2c34a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad4491d2d2d707d42e35c6f767031bbf3959b9176b9206cd2ff64d886b31dc85"
   end
 
   depends_on "cmake" => :build

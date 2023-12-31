@@ -11,21 +11,22 @@ class Gpgme < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "56ee3e87783f3d5783b26ba855c744559d5a4ce6ff0899b3e489bffdaa370f41"
-    sha256 cellar: :any,                 arm64_ventura:  "0e1048e120c39e3c2af3737a218203e5cd141d704f3b333f582e8d7273c3f5be"
-    sha256 cellar: :any,                 arm64_monterey: "3ac0f229a561d097e29e0fd2e71417ced8ce5c5a85d8b61c99099e1dcbfdbe3c"
-    sha256 cellar: :any,                 sonoma:         "2eb534cb5adaa9f44fcdc43fc3fe22e964277e04daaac3366ac5b1ff19826fd4"
-    sha256 cellar: :any,                 ventura:        "b28537f38f9ba61ab5d0e530fb067ae23e48c9a5eea4418b5b11fdc64858116d"
-    sha256 cellar: :any,                 monterey:       "f4c9120e205b8d023bcd1e019446b080ea1c89d759b9fb5724351d7fadc95166"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c164a32c1038b62a9e9d9fe968ba55828970f829435b46e89757c81f30152d8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "4b49bf5ea7e69c0c9cb5f13ca94398eb1a30a00e53d5193adb56f0aac5626ec3"
+    sha256 cellar: :any,                 arm64_ventura:  "2e549053a2c930e434bdef847fe2e819aef1e5ff7bb09ff9e5e803473f36effe"
+    sha256 cellar: :any,                 arm64_monterey: "4836f5e1527f50d698845d99ae67a92e28e302d8d0383d527c930d0e5e157cbc"
+    sha256 cellar: :any,                 sonoma:         "442157cb14484e7a8a4a0e83e6ff9f63841f48199d3eaac71ba80a282d41cc29"
+    sha256 cellar: :any,                 ventura:        "92aaa37de9c8f4376aa5a8bc21427f968bcf6cb8b971fe1dce805ad1bf31a2fc"
+    sha256 cellar: :any,                 monterey:       "47ca2ef9ba26f00419c1494b4213c5555fc7bb6dcad1689f481cc6ccbcd1eeda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7e1abe69918c83216b4394e4723eb37e19bfb7911fad6c359ea759e573726c8"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.12" => [:build, :test]
   depends_on "swig" => :build
   depends_on "gnupg"
   depends_on "libassuan"
   depends_on "libgpg-error"
-  depends_on "python-setuptools"
 
   def python3
     "python3.12"
@@ -41,22 +42,17 @@ class Gpgme < Formula
     # error: 'auto' not allowed in lambda parameter
     ENV.append "CXXFLAGS", "-std=c++14"
 
-    site_packages = prefix/Language::Python.site_packages(python3)
-    ENV.append_path "PYTHONPATH", site_packages
-    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
-    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
+    # Use pip over executing setup.py, which installs a deprecated egg distribution
+    # https://dev.gnupg.org/T6784
     inreplace "lang/python/Makefile.in",
-              /^\s*install\s*\\\n\s*--prefix "\$\(DESTDIR\)\$\(prefix\)"/,
-              "\\0 --install-lib=#{site_packages}"
+              /^\s*\$\$PYTHON setup\.py\s*\\/,
+              "$$PYTHON -m pip install --use-pep517 #{std_pip_args.join(" ")} . && : \\"
 
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
                           "--enable-static"
     system "make"
     system "make", "install"
-
-    # Rename the `easy-install.pth` file to avoid `brew link` conflicts.
-    site_packages.install site_packages/"easy-install.pth" => "homebrew-gpgme-#{version}.pth"
 
     # avoid triggering mandatory rebuilds of software that hard-codes this path
     inreplace bin/"gpgme-config", prefix, opt_prefix

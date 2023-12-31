@@ -3,11 +3,11 @@ class Semgrep < Formula
 
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
-  url "https://github.com/returntocorp/semgrep.git",
-      tag:      "v1.52.0",
-      revision: "d25045282758915ac787aa25725e6cab9917bd9e"
+  url "https://github.com/semgrep/semgrep.git",
+      tag:      "v1.54.1",
+      revision: "be4f768cc56a8790acc6269d24db8ad59fee380d"
   license "LGPL-2.1-only"
-  head "https://github.com/returntocorp/semgrep.git", branch: "develop"
+  head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
   livecheck do
     url :stable
@@ -15,13 +15,13 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b6bb3d213dba940e6a21093678712a4578ef9362464891df0ab8973960a8ba7a"
-    sha256 cellar: :any, arm64_ventura:  "b56f491b14130661841cb6ecb02d199db5647e4fe32078f7a0eef116920da84e"
-    sha256 cellar: :any, arm64_monterey: "9993d62d7e3dae68bf1bcbca4e08896e7423cfc3564204c73ad627333195d092"
-    sha256 cellar: :any, sonoma:         "6967a0b382fe72ee3a7479a266375643e7284c04a0055f3050d6cda4aefad4f8"
-    sha256 cellar: :any, ventura:        "383504334d7fbdb31ec1497801778affa02e48e5eb5f431e5e68a9406f785df0"
-    sha256 cellar: :any, monterey:       "56f64f3f6609c6e4173128a2291a7158a8d70590eca45a10e659450fa768727f"
-    sha256               x86_64_linux:   "08f54b001283757c9bf7964c99a41358a24224dbe07b1512f52cb01364b0c2e9"
+    sha256 cellar: :any, arm64_sonoma:   "3728dc2f90ad61f766bb14ba91719e1037fdf0d56fb81f0b9743a797c162058f"
+    sha256 cellar: :any, arm64_ventura:  "9684ca158548890b57533248cd87a909992573403cd81500484cf4ddd6c3c1d8"
+    sha256 cellar: :any, arm64_monterey: "1470f884f9f9345bdf80153d25c9fa782cca318011ba988fc53850cd66f11ce3"
+    sha256 cellar: :any, sonoma:         "68384fc418971d018bca84fba158b60d5f68082a840243a229b34b5d3f833c4a"
+    sha256 cellar: :any, ventura:        "9874984170a2b1ee9a9106f18c471c7dc80177bce9d3dc04ae86e068ae24b526"
+    sha256 cellar: :any, monterey:       "cafd3989e0300c340a287f92f130131bbba9121e01fe43ae3f52f8f6d0a50ccf"
+    sha256               x86_64_linux:   "868c8bc5211f8ecbbbcb2a993e04b3f7e210b737c06a8f8e00f2e7b6876c076c"
   end
 
   depends_on "autoconf" => :build
@@ -83,6 +83,11 @@ class Semgrep < Formula
     sha256 "1bb3032db185915b62d7c6209c5a8792be6a32ab2fedacc84e01b52c51aa3e69"
   end
 
+  resource "exceptiongroup" do
+    url "https://files.pythonhosted.org/packages/8e/1c/beef724eaf5b01bb44b6338c8c3494eff7cab376fab4904cfbbc3585dc79/exceptiongroup-1.2.0.tar.gz"
+    sha256 "91f5c769735f051a4290d52edd0858999b57e5876e9f85937691bd4c9fa3ed68"
+  end
+
   resource "face" do
     url "https://files.pythonhosted.org/packages/d7/bc/4d0f6c1e095eb977782edd94245f84b69c6f8df152480c78ab310e895098/face-22.0.0.tar.gz"
     sha256 "d5d692f90bc8f5987b636e47e36384b9bbda499aaf0a77aa0b0bbe834c76923d"
@@ -124,8 +129,8 @@ class Semgrep < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/80/ce/e99def6196f53af8de12a9c36968de32f80b7871084d677d0dfcd2762d0b/referencing-0.31.1.tar.gz"
-    sha256 "81a1471c68c9d5e3831c30ad1dd9815c45b558e596653db751a2bfdd17b3b9ec"
+    url "https://files.pythonhosted.org/packages/96/71/0aabc36753b7f4ad18cbc3c97dea9d6a4f204cbba7b8e9804313366e1c8f/referencing-0.32.0.tar.gz"
+    sha256 "689e64fe121843dcfd57b71933318ef1f91188ffb45367332700a86ac8fd6161"
   end
 
   resource "requests" do
@@ -139,8 +144,8 @@ class Semgrep < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/48/0b/f42f99419c5150c2741fe28bf97674d928d46ee17f46f2bc5be031cce0bc/rpds_py-0.13.2.tar.gz"
-    sha256 "f8eae66a1304de7368932b42d801c67969fd090ddb1a7a24f27b435ed4bed68f"
+    url "https://files.pythonhosted.org/packages/a9/27/92d18887228969196cd80943e3fb94520925462aa660fb491e4e2da93e56/rpds_py-0.15.2.tar.gz"
+    sha256 "373b76eeb79e8c14f6d82cb1d4d5293f9e4059baec6c1b16dca7ad13b6131b39"
   end
 
   resource "ruamel-yaml" do
@@ -159,8 +164,8 @@ class Semgrep < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/0c/39/64487bf07df2ed854cc06078c27c0d0abc59bd27b32232876e403c333a08/urllib3-1.26.18.tar.gz"
-    sha256 "f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"
+    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
+    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
   end
 
   resource "wcmatch" do

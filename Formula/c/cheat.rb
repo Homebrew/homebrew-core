@@ -1,21 +1,18 @@
 class Cheat < Formula
   desc "Create and view interactive cheat sheets for *nix commands"
   homepage "https://github.com/cheat/cheat"
-  url "https://github.com/cheat/cheat/archive/refs/tags/4.4.0.tar.gz"
-  sha256 "8694d75896dcb1dfb91ed95ec37f7fe409ad2bde76e66f80b20be24ee92ae3ec"
+  url "https://github.com/cheat/cheat/archive/refs/tags/4.4.2.tar.gz"
+  sha256 "6968ffdebb7c2a8390dea45f97884af3c623cda6c2d36c4c04443ed2454da431"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9de82afae0fba66a49571b3a4a6ff88cc77ba8feed47466ecda34cb6d5e351da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c725e96c8dd02d2525aff37625c0b787768bcab5ffe9e05c002e143a7d0d9646"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7d95be6359e9b73ae4d1ee5c86b1dc87b05af881b77162761e300016b6303e5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9bf0464892442dcdf7830c4267e306f4022fc058c201a677f564b006d77555ef"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7c6c469b325b5052ca76fd2fa16e4da5484f5504cd63d43d8164a371d020df26"
-    sha256 cellar: :any_skip_relocation, ventura:        "e21f97c913467e985671ec962c1c9e289c50756dd30979200beef199d9e5c14d"
-    sha256 cellar: :any_skip_relocation, monterey:       "43de4fe510193020cf309c6025ac272a1481f28d5a466b311eba7c4d65402682"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b7bf297d1e132c1a0a33523455c6519d5ed2b003b391526fef7698179a7ef674"
-    sha256 cellar: :any_skip_relocation, catalina:       "5b4d72129ec6e3e688f767458e4d3b01fb5a0189bb72f1655a13b669d11c2fc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "646d9ab56e05a3e005e0ec99ba51255c1535527746c47980206550a5c3f17aa0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6dd5285d4e42b1976c4f0f334801393e2e4773162923cd55452f802321e2f711"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e21ab004b1cb5980cc44bca0f53b15c2faa6eafce6ddc9eca8111686fd1cd7f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1474e66acfad304ccfaac31485a8d157f9f46715abee290f762101012b75edfd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5ba6469c2d181e3d0003a62b82013a1e062e83fcede817b03c3b0fe396b296fa"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf46ed2b17ac40f8c9fbadb38654b9ed601f825e9256975e0903fbecce3f432f"
+    sha256 cellar: :any_skip_relocation, monterey:       "72b7aad552bca469ac25da221432e8cf1fdb066082d3b9772f831faf6b7e566d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "029acbb363f0d93fa5560e631262cff46147940c960283aecb0256ca7919e163"
   end
 
   depends_on "go" => :build

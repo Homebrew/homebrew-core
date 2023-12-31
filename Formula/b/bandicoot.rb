@@ -1,17 +1,17 @@
 class Bandicoot < Formula
   desc "C++ library for GPU accelerated linear algebra"
   homepage "https://coot.sourceforge.io/"
-  url "https://gitlab.com/conradsnicta/bandicoot-code/-/archive/1.11.1/bandicoot-code-1.11.1.tar.bz2"
-  sha256 "0cee402c824683886a692117fea2a0221561408b6a9e15b8155a43d92d6b1394"
+  url "https://gitlab.com/conradsnicta/bandicoot-code/-/archive/1.12.2/bandicoot-code-1.12.2.tar.bz2"
+  sha256 "a72716138ecb1ffb4174d5192d0c9eb9106ba92aeb41c7033a8928ccbfa386df"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "66416acf5dee54c86d5f767315699876df97d810d336ee32f757b131088d4c04"
-    sha256 cellar: :any,                 arm64_monterey: "ef2c316437025325f2a72ab43bd230dc786e163c2189bf6c57a0d0a058baa6c8"
-    sha256 cellar: :any,                 sonoma:         "38916439add816ce4cbd1c75aef4281518408d9eb64cd85952977eadc9cf7f89"
-    sha256 cellar: :any,                 ventura:        "4cabe1c952d91d673c47f459a92f268a72e53c8565a0ac0dda90f901922e5d4b"
-    sha256 cellar: :any,                 monterey:       "12fe566295676c3e3743e706b6a39565f3bd1fa3ec43db122f2f3a97028f6d7e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0be9866cacd911a2ecf25c1c25deb9c05559791423e524da96b574eda4507f2a"
+    sha256 cellar: :any,                 arm64_ventura:  "2ee8ca16edb2e0bc2971c533fab1fb9a3eba26cc47b65439b1d6a07a5f7c11c5"
+    sha256 cellar: :any,                 arm64_monterey: "1fa012ec3c55e998918f241ec7d7fc927ec29262d35c7c38df0958c1cc1d63da"
+    sha256 cellar: :any,                 sonoma:         "d9c479d10e565b53cc7ef542323b793c67beb348f92e5d5451538d412f33c4ce"
+    sha256 cellar: :any,                 ventura:        "d5c0d8328d2769e7e3c3f883b0fc5d653dda2cc59b26c77cde31989e630524f4"
+    sha256 cellar: :any,                 monterey:       "0b295acc094c675d62851f76e0d9a3bf3c44bcbdc17bed01a8753517061d7988"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "510b8108ff91e1c0fe1a5ae6e6ad78e9676c4732754f2d80207c0899f7bee82d"
   end
 
   depends_on "cmake" => :build
