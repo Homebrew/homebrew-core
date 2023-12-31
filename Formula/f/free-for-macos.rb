@@ -6,6 +6,7 @@ class FreeForMacos < Formula
   license "MIT"
 
   depends_on "cmake" => :build
+
   depends_on :macos
 
   def install
