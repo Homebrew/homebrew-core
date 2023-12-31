@@ -6,6 +6,7 @@ class FreeForMacos < Formula
   license "MIT"
 
   depends_on "cmake" => :build
+  depends_on :macos
 
   def install
     cflags = %q(-O2 -Wall -std=c99 -D_FREE_VERSION="\"${VER}\"")
