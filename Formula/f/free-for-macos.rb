@@ -18,6 +18,6 @@ class FreeForMacos < Formula
   end
 
   test do
-    system "free", "-v"
+    system "#{bin}/free", "-v"
   end
 end
