@@ -1,10 +1,9 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
   homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2023.09.04.00/proxygen-v2023.09.04.00.tar.gz"
-  sha256 "e4db076db908b003a23ac139b6c433d8c34daa77cbdea33fd5a77bf9889dcdb2"
+  url "https://github.com/facebook/proxygen/releases/download/v2024.01.01.00/proxygen-v2024.01.01.00.tar.gz"
+  sha256 "0192d675deab4c82cc539a7e4691fd6801879fea6d0134eb437ede47daa0b64a"
   license "BSD-3-Clause"
-  revision 4
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
@@ -24,6 +23,7 @@ class Proxygen < Formula
   depends_on "folly"
   depends_on "gflags"
   depends_on "libsodium"
+  depends_on "mvfst"
   depends_on "openssl@3"
   depends_on "wangle"
   depends_on "zstd"
