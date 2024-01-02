@@ -5,8 +5,8 @@ class Jvgrep < Formula
   head "https://github.com/mattn/jvgrep.git", branch: "master"
 
   stable do
-    url "https://github.com/mattn/jvgrep/archive/refs/tags/v5.8.10.tar.gz"
-    sha256 "93b253a75a505bf0f58b23428b0aaa4bed842fe0060e282793066ee88d7672c9"
+    url "https://github.com/mattn/jvgrep/archive/refs/tags/v5.8.11.tar.gz"
+    sha256 "d4940007e4744e0f23e00bf9e957715d99ce6d57c8c7e19889d6980c189fe52a"
 
     # upstream PR, https://github.com/mattn/jvgrep/pull/81
     patch do
