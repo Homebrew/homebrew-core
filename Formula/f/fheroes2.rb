@@ -1,5 +1,5 @@
 class Fheroes2 < Formula
-  desc "Free Heroes of Might and Magic II is a recreation of HoMM2 game engine"
+  desc "fheroes2 is a recreation of Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
   url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.10.tar.gz"
   sha256 "f0bc60973bbdc3c333563a5f53252d6e3edd4ea8c4f91729e0480ff0e6a403a2"
