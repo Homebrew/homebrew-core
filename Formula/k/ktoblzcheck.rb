@@ -1,10 +1,9 @@
 class Ktoblzcheck < Formula
   desc "Library for German banks"
   homepage "https://ktoblzcheck.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.53.tar.gz"
-  sha256 "18b9118556fe83240f468f770641d2578f4ff613cdcf0a209fb73079ccb70c55"
+  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.55.tar.gz"
+  sha256 "3c3c6e2727c11b05596b2c09c4f7ff543f5b5167f27220f9d1a8dbcd2e594e7d"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
