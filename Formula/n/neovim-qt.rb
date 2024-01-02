@@ -45,7 +45,7 @@ class NeovimQt < Formula
     testfile = testpath/"test.txt"
     testserver = testpath/"nvim.sock"
 
-    testcommand = ":s/Vim/Neovim/g<CR>"
+    testcommand = ":%s/Vim/Neovim/g<CR>"
     testinput = "Hello World from Vim!!"
     testexpected = "Hello World from Neovim!!"
     testfile.write(testinput)

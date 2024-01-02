@@ -4,8 +4,8 @@ class Neovim < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.9.4.tar.gz"
-    sha256 "148356027ee8d586adebb6513a94d76accc79da9597109ace5c445b09d383093"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.9.5.tar.gz"
+    sha256 "fe74369fc30a32ec7a086b1013acd0eacd674e7570eb1acc520a66180c9e9719"
 
     # Remove when `mpack` resource is removed.
     depends_on "luarocks" => :build
