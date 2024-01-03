@@ -1,7 +1,3 @@
-# typed: true
-# frozen_string_literal: true
-
-# DadroitJsonGenerator: Generates nested JSON data using custom templates.
 class DadroitJsonGenerator < Formula
   desc "Generate nested JSON sample data using custom templates"
   homepage "https://github.com/DadroitOrganization/Generator"
