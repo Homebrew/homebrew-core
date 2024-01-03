@@ -43,6 +43,14 @@ class Mise < Formula
 
   def caveats
     <<~EOS
+      If you have previously used rtx, your configuration and data have been migrated.
+        - Configuration: Moved from $XDG_CONFIG/rtx to $XDG_CONFIG/mise
+        - Data: Moved from $XDG_DATA/rtx to $XDG_DATA/mise
+
+      You should update your tooling to reflect the new paths.
+
+      For additional intructions, please see https://github.com/jdx/mise/****.
+
       If you are using fish shell, mise will be activated for you automatically.
     EOS
   end
