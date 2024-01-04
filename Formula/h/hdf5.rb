@@ -43,16 +43,16 @@ class Hdf5 < Formula
               "settingsdir=#{pkgshare}"
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
-    system "cmake", "--build", "build"
 
     # Avoid shims in settings file
     inreplace_files = %w[
-      build/src/H5build_settings.c
+      build/src/H5build_settings.cmake.c.in
       build/src/libhdf5.settings
     ]
 
     inreplace inreplace_files, Superenv.shims_path/ENV.cc, ENV.cc
 
+    system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
 
