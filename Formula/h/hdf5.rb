@@ -46,7 +46,7 @@ class Hdf5 < Formula
 
     # Avoid shims in settings file
     inreplace_files = %w[
-      build/src/H5build_settings.cmake.c.in
+      build/src/H5build_settings.c
       build/src/libhdf5.settings
     ]
 
