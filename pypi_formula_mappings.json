@@ -787,7 +787,12 @@
     ]
   },
   "openstackclient": {
-    "extra_packages": ["python-designateclient", "python-heatclient", "python-octaviaclient"],
+    "extra_packages": [
+      "python-barbicanclient", "python-ceilometerclient", "python-cinderclient",
+      "python-cloudkittyclient", "python-dateutil", "python-designateclient", "python-fuelclient",
+      "python-glanceclient", "python-heatclient", "python-keystoneclient", "python-magnumclient",
+      "python-manilaclient", "python-mistralclient", "python-monascaclient", "python-muranoclient",
+      "python-neutronclient", "python-novaclient", "python-saharaclient","python-senlinclient", "python-swiftclient", "python-troveclient"],
     "exclude_packages": [
       "certifi", "cffi", "cryptography", "packaging", "pycparser", "pyparsing",
       "PyYAML", "six", "pytz"
