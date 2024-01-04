@@ -48,6 +48,8 @@ class Hdf5 < Formula
     inreplace_files = %w[
       build/src/H5build_settings.c
       build/src/libhdf5.settings
+      build/CMakeFiles/h5cc
+      build/CMakeFiles/h5hlcc
     ]
 
     inreplace inreplace_files, Superenv.shims_path/ENV.cc, ENV.cc
