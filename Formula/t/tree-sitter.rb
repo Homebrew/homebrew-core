@@ -6,6 +6,7 @@ class TreeSitter < Formula
   url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.20.8.tar.gz"
   sha256 "6181ede0b7470bfca37e293e7d5dc1d16469b9485d13f13a605baec4a8b1f791"
   license "MIT"
+  revision 1
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
   bottle do
@@ -20,11 +21,35 @@ class TreeSitter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d413c47e7b8641aae812d19b39c3f927088e450eabde992f3d7cc32de7d29aa9"
   end
 
-  depends_on "emscripten" => [:build, :test]
   depends_on "node" => [:build, :test]
   depends_on "rust" => :build
 
+  uses_from_macos "python" => :build
+  uses_from_macos "xz" => :build
+  uses_from_macos "zlib"
+
+  on_macos do
+    on_intel do
+      depends_on "gdbm"
+    end
+  end
+
+  # Use the latest tag if possible
+  resource "emsdk" do
+    url "https://github.com/emscripten-core/emsdk/archive/refs/tags/3.1.51.tar.gz"
+    sha256 "6edeb200c28505db64a1a9f14373ecc3ba3151cebf3d8314895e603561bc61c2"
+  end
+
   def install
+    # Use the version of `emscripten` found in
+    # https://github.com/tree-sitter/tree-sitter/blob/v#{version}/cli/emscripten-version
+    resource("emsdk").stage libexec/"emsdk"
+    cd libexec/"emsdk" do
+      system "./emsdk", "install", "3.1.29"
+      system "./emsdk", "activate", "3.1.29"
+    end
+
+    ENV.prepend_path "PATH", libexec/"emsdk/upstream/emscripten"
     system "make", "AMALGAMATED=1"
     system "make", "install", "PREFIX=#{prefix}"
 
@@ -43,9 +68,15 @@ class TreeSitter < Formula
     %w[tree-sitter.js tree-sitter-web.d.ts tree-sitter.wasm package.json].each do |file|
       (lib/"binding_web").install "lib/binding_web/#{file}"
     end
+
+    # Remove x86_64 only binary
+    node_modules = libexec/"emsdk/upstream/emscripten/node_modules"
+    (node_modules/"google-closure-compiler-osx/compiler").unlink if Hardware::CPU.arm?
   end
 
   test do
+    ENV.prepend_path "PATH", libexec/"emsdk/upstream/emscripten"
+
     # a trivial tree-sitter test
     assert_equal "tree-sitter #{version}", shell_output("#{bin}/tree-sitter --version").strip
 
