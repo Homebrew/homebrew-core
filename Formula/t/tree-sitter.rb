@@ -20,7 +20,7 @@ class TreeSitter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d413c47e7b8641aae812d19b39c3f927088e450eabde992f3d7cc32de7d29aa9"
   end
 
-  depends_on "emscripten" => [:build, :test]
+  depends_on "emscripten@3.1.29" => [:build, :test]
   depends_on "node" => [:build, :test]
   depends_on "rust" => :build
 
