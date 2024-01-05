@@ -1,10 +1,19 @@
 class Fizz < Formula
   desc "C++14 implementation of the TLS-1.3 standard"
   homepage "https://github.com/facebookincubator/fizz"
-  url "https://github.com/facebookincubator/fizz/releases/download/v2023.12.04.00/fizz-v2023.12.04.00.tar.gz"
-  sha256 "5336426e6ce3b90f77eabec1e19637d35505534e74ef46f455b39d50f7bbff49"
   license "BSD-3-Clause"
   head "https://github.com/facebookincubator/fizz.git", branch: "main"
+
+  stable do
+    url "https://github.com/facebookincubator/fizz/releases/download/v2024.01.01.00/fizz-v2024.01.01.00.tar.gz"
+    sha256 "7afc155e4b45c673b4b6f24d2f6e30480368b4ec88995b313adf3ef860f6f368"
+
+    # Remove this on next release, already merged in head: fixes missing include of OpenSSLFactory
+    patch do
+      url "https://github.com/facebookincubator/fizz/commit/34920f9801b5e3cc8564a9cbdb5ed2a036521747.patch?full_index=1"
+      sha256 "028879eb9c2f78be739856538ca60c756f78c5799132869686243a99eb9afba8"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "7ce82a3f5a2e8b94c5fd9a699d0a4ed5009840366896a5ab11203d10273545cb"
