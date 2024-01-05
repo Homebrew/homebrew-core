@@ -4,7 +4,7 @@ class Lasso < Formula
   url "https://dev.entrouvert.org/releases/lasso/lasso-2.8.2.tar.gz"
   sha256 "6a1831bfdbf8f424c7508aba47b045d51341ec0fde9122f38b0b86b096ef533e"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   livecheck do
     url :homepage
@@ -36,16 +36,18 @@ class Lasso < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     ENV["PYTHON"] = "python3"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
+    system "./configure", "--disable-silent-rules",
                           "--disable-java",
                           "--disable-perl",
                           "--disable-php5",
                           "--disable-php7",
                           "--disable-python",
-                          "--prefix=#{prefix}",
-                          "--with-pkg-config=#{ENV["PKG_CONFIG_PATH"]}"
+                          "--with-pkg-config=#{ENV["PKG_CONFIG_PATH"]}",
+                          *std_configure_args
     system "make", "install"
   end
 
