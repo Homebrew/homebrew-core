@@ -9,7 +9,7 @@ class OpenvscodeServer < Formula
   depends_on "yarn" => :build
 
   def install
-    system "yarn", "global", "add", "node-gyp"
+    system "yarn", "add", "-D", "node-gyp"
     system "yarn", "install"
     system "yarn", "server:init"
     bin.install_symlink "#{libexec}/out/server-main.js" => "openvscode-server"
