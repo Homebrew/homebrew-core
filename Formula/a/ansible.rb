@@ -47,8 +47,8 @@ class Ansible < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/6f/3f/1dc35ba302137a4b00d17a42a47859c9e133ea2af56a285418e6c22be05d/ansible-core-2.16.1.tar.gz"
-    sha256 "4fd1b3c86237507c67113f6770d2470f87477cd88244938d100a2d0fc37bf986"
+    url "https://files.pythonhosted.org/packages/66/5f/3098fac361ca16fc42ac30a2da09939286afd9af289f156ac9fbe87595e9/ansible-core-2.16.2.tar.gz"
+    sha256 "e4ab559e7e525b1c6f99084fca873bb014775d5ecbe845b7c07b8e9d6c9c048b"
   end
 
   resource "apache-libcloud" do
