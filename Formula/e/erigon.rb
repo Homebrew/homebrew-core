@@ -1,8 +1,8 @@
 class Erigon < Formula
   desc "Implementation of Ethereum (execution client), on the efficiency frontier"
   homepage "https://github.com/ledgerwatch/erigon"
-  url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.55.1.tar.gz"
-  sha256 "2e340bb5504f565bb9fe8c4d246dea50bd54bfcf6a91e9196aeb4fbda722ae9e"
+  url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.56.0.tar.gz"
+  sha256 "2ab09633c8e1b1f64378b92375c8febee321e9589419eced5751c988248b5142"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
   head "https://github.com/ledgerwatch/erigon.git", branch: "devel"
 
@@ -21,8 +21,8 @@ class Erigon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d66f64987e1828b5098e40d6ec7e4fe4ece0240059d2151abca6f9959f6c88aa"
   end
 
-  depends_on "gcc" => :build
   depends_on "go" => :build
+  depends_on "gcc"
 
   conflicts_with "ethereum", because: "both install `evm` binaries"
 
