@@ -42,7 +42,12 @@ class Hdf5 < Formula
               "settingsdir=$(libdir)",
               "settingsdir=#{pkgshare}"
 
-    system "cmake", "-S", ".", "-B", "build", "-DHDF5_BUILD_FORTRAN:BOOL=ON", "-DHDF5_BUILD_CPP_LIB:BOOL=ON", *std_cmake_args
+    system "cmake", 
+      "-S", ".", 
+      "-B", "build", 
+      "-DHDF5_BUILD_FORTRAN:BOOL=ON", 
+      "-DHDF5_BUILD_CPP_LIB:BOOL=ON", 
+      *std_cmake_args
 
     # Avoid shims in settings file
     inreplace_files = %w[
