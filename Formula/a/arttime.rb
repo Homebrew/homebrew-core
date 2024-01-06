@@ -31,6 +31,16 @@ class Arttime < Formula
     system "./install.sh", "--noupdaterc", "--prefix", prefix, "--zcompdir", zsh_completion
   end
 
+  def caveats
+    on_macos do
+      <<~EOS
+        Notification settings on macOS are not fully in control of an application.
+        To check if you have desired notification settings, open following link:
+          https://github.com/poetaman/arttime/issues/11
+      EOS
+    end
+  end
+
   test do
     # arttime is a GUI application
     system bin/"arttime", "--version"
