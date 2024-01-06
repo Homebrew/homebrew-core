@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.ai/"
   url "https://github.com/jmorganca/ollama.git",
-      tag:      "v0.1.15",
-      revision: "d9e60f634bf420ef41fe5388b32cfda3ceb2c898"
+      tag:      "v0.1.17",
+      revision: "6b5bdfa6c9321405174ad443f21c2e41db36a867"
   license "MIT"
   head "https://github.com/jmorganca/ollama.git", branch: "main"
 
@@ -27,10 +27,16 @@ class Ollama < Formula
 
   depends_on "cmake" => :build
   depends_on "go" => :build
+  # currently linux fails with `cuBLAS not found`
+  # expected to be fixed with https://github.com/jmorganca/ollama/pull/1552
+  depends_on :macos
 
   def install
-    # Fix build on big sur by setting SDKROOT
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :big_sur
+    # Fix build on ventura by setting SDKROOT
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :ventura
+    # Fix "ollama --version"
+    inreplace "version/version.go", /var Version string = "[\d.]+"/, "var Version string = \"#{version}\""
+
     system "go", "generate", "./..."
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end
