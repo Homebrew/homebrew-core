@@ -45,7 +45,7 @@ class Pytouhou < Formula
     inreplace "setup.py", /(version)=.+,$/, "\\1='#{version}',"
 
     ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python)
-    system python, *Language::Python.setup_install_args(libexec, python)
+    system python, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."
 
     # Set default game path to pkgshare
     inreplace libexec/"bin/pytouhou", /('path'): '\.'/, "\\1: '#{pkgshare}/game'"
