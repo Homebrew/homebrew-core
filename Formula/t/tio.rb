@@ -7,15 +7,14 @@ class Tio < Formula
   head "https://github.com/tio/tio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8b5af18879b92601b2d54f48016cc38547d84ea924568ecda5bb28b00fc43187"
-    sha256 cellar: :any,                 arm64_ventura:  "d88d8a16795a32de17b89d3c996321ab617a5eaa142d2ba28e479895c59ae435"
-    sha256 cellar: :any,                 arm64_monterey: "dbafc0da143fdbbf7c6d3de7b87027448e7224a951c27268fe1400d5b8fad0b9"
-    sha256 cellar: :any,                 arm64_big_sur:  "56f3900c997c905216b20a75ebdd9169eea400532a82e40cbbfd6ddefe5d59a8"
-    sha256 cellar: :any,                 sonoma:         "1a0eac5a04f3628bddfa1a35579597ba59462f6bcede5b728740b38679bb6535"
-    sha256 cellar: :any,                 ventura:        "53b6076a88662668a22dfa0b914ac4c05bd568dd707f7f078df4c7f238db2fa2"
-    sha256 cellar: :any,                 monterey:       "07d407983719b49255f611569ffc6de78c244446f658120845021137075119e8"
-    sha256 cellar: :any,                 big_sur:        "afbc51bc418883782e5b23914b7351f78afde46d2086378f0317052dcc748e83"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a696f56d7f0b1676b547743ef45737d135c1f853cd8784366eb9b4a89c8ca7f7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "a1b8ce961777af94d3361b9c4aec4a2d9f57add524fd40b5afa021785ef9b64b"
+    sha256 cellar: :any,                 arm64_ventura:  "a9d5b2c34c78cc35ef3b94694ec57e2fced21f5a3325c176db5f40c8c5612af0"
+    sha256 cellar: :any,                 arm64_monterey: "d1a647be1a31d1ea4f14a0c0019c715608292a5671f8fa174089da53e86eebef"
+    sha256 cellar: :any,                 sonoma:         "e0514e02a258a737cd6a46695dc20a53f7dade098b2741cd2f87c498b022744f"
+    sha256 cellar: :any,                 ventura:        "3762abfb40e59e97bcf8f057a859d070bcb3cabd99c31e1c24123346b80caa5f"
+    sha256 cellar: :any,                 monterey:       "5a485facc09cc08332ee5a16222611b337d975bfec04d96714e4a3a9f51509a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84db12554c4370bd7f752b935a660bee6dc8a66fd75dce0ac2f0c63217ae97a2"
   end
 
   depends_on "meson" => :build
