@@ -17,6 +17,6 @@ class Xdev < Formula
   end
 
   test do
-    system "#{bin}/xdev" "-h"
+    system "#{bin}/xdev", "-h"
   end
 end
