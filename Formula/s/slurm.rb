@@ -20,15 +20,12 @@ class Slurm < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-
   uses_from_macos "ncurses"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
