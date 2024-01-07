@@ -19,4 +19,4 @@ class Xdev < Formula
   test do
     system "#{bin}/xdev" "-h"
   end
-end 
+end
