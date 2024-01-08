@@ -3,8 +3,8 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/1f/73/adcadf79ec2a08b18e798906fddc63a25459656cc9ee58ef92c52ba153b5/vunnel-0.18.0.tar.gz"
-  sha256 "9f5ba5003b60d2068a6b3aacd61c6d335fe4b6be6260ba74f6d5ad81d77835d2"
+  url "https://files.pythonhosted.org/packages/ea/a5/6e5a3deae99cc0b29ae7ef1cf9ddfc767a644dab26eb2593f8236c172e8e/vunnel-0.18.1.tar.gz"
+  sha256 "dbacb4c6555f4298d4c2a381fb0d66d774809474cb41c0fe358e60d4c3d4d67a"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
@@ -122,6 +122,11 @@ class Vunnel < Formula
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
+  resource "ruff" do
+    url "https://files.pythonhosted.org/packages/b3/a3/a9a504171d286bbe10c7e5cd09110250c01ebca7acede4352211d5372a0e/ruff-0.1.11.tar.gz"
+    sha256 "f9d4d88cb6eeb4dfe20f9f0519bd2eaba8119bde87c3d5065c541dbae2b5a2cb"
+  end
+
   resource "sqlalchemy" do
     url "https://files.pythonhosted.org/packages/c8/56/5a8dcb01ef7b68904f2a3224343d4ab3674b5cc8f48f7cefb0701bc75ab8/SQLAlchemy-1.4.51.tar.gz"
     sha256 "e7908c2025eb18394e32d65dd02d2e37e17d733cdbe7d78231c2b6d7eb20cdb9"
@@ -143,8 +148,8 @@ class Vunnel < Formula
   end
 
   resource "xsdata" do
-    url "https://files.pythonhosted.org/packages/95/0a/0c02e977b5de947535dd974f785c5600287df2c9bc6e5a70f67c46e6370d/xsdata-23.8.tar.gz"
-    sha256 "55f03d4c88236f047266affe550ba0dd19476adfce6a01f3e0aefac7c8078e56"
+    url "https://files.pythonhosted.org/packages/74/be/57b774ff97dc081eef7d4ba6eae00e558d0f19e477f33c047fa2720aac47/xsdata-24.1.tar.gz"
+    sha256 "e36fc8b4624bbbaf2d34d0857c6d78ede99ec1d3240cc7dd50546177fbb52442"
   end
 
   resource "xxhash" do
