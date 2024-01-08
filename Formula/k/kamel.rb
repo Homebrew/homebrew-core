@@ -1,8 +1,8 @@
 class Kamel < Formula
   desc "Apache Camel K CLI"
   homepage "https://camel.apache.org/"
-  url "https://github.com/apache/camel-k/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "1d192ae85d57a0b6a5ee81c17b8fc3bcd0503b028104d1b1cd1c204f5eea9ceb"
+  url "https://github.com/apache/camel-k/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "f0d493352032c356836bd65851e8f801373e4c1564c1c4eb6430370669cc6a01"
   license "Apache-2.0"
   head "https://github.com/apache/camel-k.git", branch: "main"
 
@@ -44,7 +44,9 @@ class Kamel < Formula
     assert_match version.to_s, version_output
 
     run_output = shell_output("echo $(#{bin}/kamel run 2>&1)")
-    assert_match "Error: run expects at least 1 argument, received 0", run_output
+    assert_match "Error: " \
+                 "invalid configuration: " \
+                 "no configuration has been provided, try setting KUBERNETES_MASTER environment variable", run_output
 
     reset_output = shell_output("echo $(#{bin}/kamel reset 2>&1)")
     assert_match "Error: cannot get command client: invalid configuration", reset_output
