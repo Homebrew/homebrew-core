@@ -1,4 +1,4 @@
-class EndProc < Formula
+class Endproc < Formula
   desc "Well formatted command line tool to view your running proccesses with their PIDS and ports and also kill the process if you want to ."
   homepage "https://github.com/ikotun-dev/port.shield"
   url "https://github.com/ikotun-dev/port.shield/archive/refs/tags/v1.1.0.zip"
