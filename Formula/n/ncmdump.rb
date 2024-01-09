@@ -20,7 +20,21 @@ class Ncmdump < Formula
     bin.install "ncmdump"
   end
 
+  resource("test_input") do
+    url "https://github.com/taurusxin/ncmdump/raw/main/test/test.ncm"
+    sha256 "a1586bbbbad95019eee566411de58a57c3a3bd7c86d97f2c3c82427efce8964b"
+  end
+
+  resource("test_expect") do
+    url "https://github.com/taurusxin/ncmdump/raw/main/test/expect.bin"
+    sha256 "6e0de7017c996718a8931bc3ec8061f27ed73bee10efe6b458c10191a1c2aac2"
+  end
+  
   test do
-    system "#{bin}/ncmdump", "-h"
+    resource("test_input").stage testpath
+    resource("test_expect").stage testpath
+    system "#{bin}/ncmdump", "#{testpath}/test.ncm"
+    assert_predicate testpath/"test.flac", :exist?
+    assert_equal File.read("test.flac"), File.read("expect.bin")
   end
 end
