@@ -1,24 +1,10 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
+  url "https://github.com/fastly/pushpin/releases/download/v1.38.0/pushpin-1.38.0.tar.bz2"
+  sha256 "3dc0d7927aa3233f9e6f06a91454ab250224ce01694f7d65c406b0fc92987495"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/fastly/pushpin.git", branch: "main"
-
-  stable do
-    url "https://github.com/fastly/pushpin/releases/download/v1.37.0/pushpin-1.37.0.tar.bz2"
-    sha256 "5fe5042f34a7955113cea3946c5127e3e182df446d8704d6a26d13cde74e960f"
-
-    # Backport support for Qt6. Remove in the next release.
-    patch do
-      url "https://github.com/fastly/pushpin/commit/9efeaa77687df23f3bfd74cd3849857fc9cffdbe.patch?full_index=1"
-      sha256 "c3d74aee57da5122f9458d8b248ecdc096ebfec15aea870c7ae205c93331a3b9"
-    end
-    patch do
-      url "https://github.com/fastly/pushpin/commit/aa2a75e2a893cefb7b83f3bc59f8d947ecfb65c5.patch?full_index=1"
-      sha256 "891e55dc4bc55c5819d409e305fb9b5f5c0e887130ae2173eb092a59f5d7c67e"
-    end
-  end
 
   bottle do
     sha256 sonoma:       "c01c689ca8623864c1ddb7ce3aa36a5a5f625da28dcb7c6db41457d12fd7927a"
