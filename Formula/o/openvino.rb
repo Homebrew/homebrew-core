@@ -1,11 +1,12 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
+  version "2023.3.0"
   homepage "https://docs.openvino.ai"
   url "https://github.com/openvinotoolkit/openvino/archive/ceeafaf64f346c6f14a67c612e131da5c27ef620.tar.gz"
   sha256 "7e3dff6e1bc77b990c9d2fb231aa16c335208ca6191cd068febd8c4423265e33"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
-
+  
   livecheck do
     url :stable
     regex(/^(\d+(?:\.\d+)+)$/i)
