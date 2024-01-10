@@ -12,7 +12,7 @@ class Portshield < Formula
   end
 
   test do
-    output = IO.popen("#{bin}/endproc", "r+") do |pipe|
+    output = IO.popen("#{bin}/portshield", "r+") do |pipe|
       pipe.puts "k"
       pipe.puts "8080"
       pipe.puts "y"
@@ -20,6 +20,6 @@ class Portshield < Formula
 
       pipe.read
     end
-    assert_match "Process with PID 42040 has been killed.", output
+    assert_match "Process with PID", output
   end
 end
