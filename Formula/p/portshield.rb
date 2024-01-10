@@ -1,4 +1,4 @@
-class PortShield < Formula
+class Portshield < Formula
   desc "Close opened ports (running processes) easily from CLI"
   homepage "https://github.com/ikotun-dev/port.shield"
   url "https://github.com/ikotun-dev/port.shield/archive/refs/tags/v1.1.1.tar.gz"
@@ -8,10 +8,10 @@ class PortShield < Formula
   depends_on "python@3.11"
 
   def install
-    bin.install "main.py" => "port.shield"
+    bin.install "main.py" => "portshield"
   end
 
   test do
-    assert_match "Usage:", shell_output("#{bin}/port.shield --help")
+    assert_match "Usage:", shell_output("#{bin}/portshield --help")
   end
 end
