@@ -120,6 +120,13 @@ class PostgresqlAT16 < Formula
   end
 
   def post_install
+    if linked? && !(HOMEBREW_PREFIX/"bin/psql").exist?
+      (libexec/"bin").each_child do |f|
+        ln_sf f, bin/f.basename
+        ln_sf bin/f.basename, HOMEBREW_PREFIX/"bin"/f.basename
+      end
+    end
+
     (var/"log").mkpath
     postgresql_datadir.mkpath
 
@@ -148,8 +155,9 @@ class PostgresqlAT16 < Formula
       For more details, read:
         https://www.postgresql.org/docs/#{version.major}/app-initdb.html
 
-      Commands have been installed with the suffix "-#{version.major}".
-      To use these commands with their normal names, you can modify your PATH:
+      Commands have been installed with the suffix "-#{version.major}" to support linking multiple
+      PostgreSQL versions. Commands with their normal names may be available if a single
+      PostgreSQL is installed. To guarantee normal names, you can update your PATH:
         PATH="#{opt_libexec}/bin:$PATH"
     EOS
   end
