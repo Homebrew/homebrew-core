@@ -29,7 +29,7 @@ class Zls < Formula
     else Hardware.oldest_cpu
     end
 
-    args = %W[--prefix #{prefix} -Doptimize=ReleaseFast]
+    args = %W[--prefix #{prefix} -Doptimize=ReleaseSafe]
     args << "-Dcpu=#{cpu}" if build.bottle?
 
     system "zig", "build", *args
