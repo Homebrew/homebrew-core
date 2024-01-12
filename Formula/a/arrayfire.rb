@@ -4,6 +4,7 @@ class Arrayfire < Formula
   url "https://github.com/arrayfire/arrayfire/releases/download/v3.9.0/arrayfire-full-3.9.0.tar.bz2"
   sha256 "8356c52bf3b5243e28297f4b56822191355216f002f3e301d83c9310a4b22348"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "650969590a44f7c5d1d5000989953878a03e4549e18ca3a0321b376b1176a8cb"
@@ -40,14 +41,20 @@ class Arrayfire < Formula
       rpath(source: lib, target: HOMEBREW_PREFIX/"lib"),
     ]
 
-    # Our compiler shims strip `-Werror`, which breaks upstream detection of linker features.
-    # https://github.com/arrayfire/arrayfire/blob/715e21fcd6e989793d01c5781908f221720e7d48/src/backend/opencl/CMakeLists.txt#L598
-    inreplace "src/backend/opencl/CMakeLists.txt", "if(group_flags)", "if(FALSE)" if OS.mac?
+    if OS.mac?
+      # Our compiler shims strip `-Werror`, which breaks upstream detection of linker features.
+      # https://github.com/arrayfire/arrayfire/blob/715e21fcd6e989793d01c5781908f221720e7d48/src/backend/opencl/CMakeLists.txt#L598
+      inreplace "src/backend/opencl/CMakeLists.txt", "if(group_flags)", "if(FALSE)"
+    else
+      # Work around missing include for climits header
+      # Issue ref: https://github.com/arrayfire/arrayfire/issues/3543
+      ENV.append "CXXFLAGS", "-include climits"
+    end
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DAF_BUILD_CUDA=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
-                    "-DCMAKE_CXX_STANDARD=17",
+                    "-DCMAKE_CXX_STANDARD=14",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
