@@ -32,7 +32,6 @@ class Ffmpeg < Formula
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "frei0r"
-  depends_on "gnutls"
   depends_on "harfbuzz"
   depends_on "jpeg-xl"
   depends_on "lame"
@@ -47,6 +46,7 @@ class Ffmpeg < Formula
   depends_on "libvpx"
   depends_on "opencore-amr"
   depends_on "openjpeg"
+  depends_on "openssl@3"
   depends_on "openvino"
   depends_on "opus"
   depends_on "rav1e"
@@ -101,7 +101,6 @@ class Ffmpeg < Formula
       --host-cflags=#{ENV.cflags}
       --host-ldflags=#{ENV.ldflags}
       --enable-ffplay
-      --enable-gnutls
       --enable-gpl
       --enable-libaom
       --enable-libaribb24
@@ -142,6 +141,7 @@ class Ffmpeg < Formula
       --enable-libsoxr
       --enable-libzmq
       --enable-libzimg
+      --enable-openssl
       --disable-libjack
       --disable-indev=jack
     ]
