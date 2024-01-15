@@ -1,8 +1,8 @@
 class Cloudlist < Formula
   desc "Tool for listing assets from multiple cloud providers"
   homepage "https://github.com/projectdiscovery/cloudlist"
-  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "e7f6e981d20c95a34eb5b858ac554f39003b01f5a50d37980be4bf87e98c7712"
+  url "https://github.com/projectdiscovery/cloudlist/archive/refs/tags/v1.0.5.tar.gz"
+  sha256 "1eb366a2cd8a5594905a8a504b951d5289cf1bc0f9231eaa5e8328bb299c1892"
   license "MIT"
   head "https://github.com/projectdiscovery/cloudlist.git", branch: "main"
 
@@ -17,6 +17,13 @@ class Cloudlist < Formula
   end
 
   depends_on "go" => :build
+
+  # go1.21 build patch
+  # upstream PR ref, https://github.com/projectdiscovery/cloudlist/pull/474
+  patch do
+    url "https://github.com/projectdiscovery/cloudlist/commit/864bfae2b712a8d393e4cc1ec9ea65b443b19756.patch?full_index=1"
+    sha256 "9bca9f30d5404f1d1999fc1a5d5ec93b1213fe577aab923401ca9ca6e46c95ee"
+  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/cloudlist"
