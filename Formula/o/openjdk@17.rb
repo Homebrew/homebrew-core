@@ -1,8 +1,8 @@
 class OpenjdkAT17 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.9-ga.tar.gz"
-  sha256 "365c6b7d506f25e2249cac7658ada8b72b8652ceb15bbc8316de3e6fe8ea0976"
+  url "https://github.com/openjdk/jdk17u/archive/refs/tags/jdk-17.0.10-ga.tar.gz"
+  sha256 "fac2539384ba8d86cdcf3553e69aaf4001a3cec1134bbf6f5f04f64f0acbc055"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -50,12 +50,13 @@ class OpenjdkAT17 < Formula
 
   fails_with gcc: "5"
 
-  # From https://jdk.java.net/archive/
+  # ARM64: https://www.azul.com/downloads/?version=java-17-lts&package=jdk
+  # Intel: https://jdk.java.net/archive/
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-aarch64_bin.tar.gz"
-        sha256 "602d7de72526368bb3f80d95c4427696ea639d2e0cc40455f53ff0bbb18c27c8"
+        url "https://cdn.azul.com/zulu/bin/zulu17.46.19-ca-jdk17.0.9-macosx_aarch64.tar.gz"
+        sha256 "d6837676e55b97772b6512e253fdaf8ab282bb216c0f8366b6c5905cd02b5056"
       end
       on_intel do
         url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_macos-x64_bin.tar.gz"
@@ -64,8 +65,8 @@ class OpenjdkAT17 < Formula
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-aarch64_bin.tar.gz"
-        sha256 "13bfd976acf8803f862e82c7113fb0e9311ca5458b1decaef8a09ffd91119fa4"
+        url "https://cdn.azul.com/zulu/bin/zulu17.46.19-ca-jdk17.0.9-linux_aarch64.tar.gz"
+        sha256 "90062201e7911696a449431a61dc0a55cd10cda516a9f2db54c410633a79302a"
       end
       on_intel do
         url "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_linux-x64_bin.tar.gz"
