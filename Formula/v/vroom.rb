@@ -2,8 +2,8 @@ class Vroom < Formula
   desc "Vehicle Routing Open-Source Optimization Machine"
   homepage "http://vroom-project.org/"
   url "https://github.com/VROOM-Project/vroom.git",
-      tag:      "v1.13.0",
-      revision: "c87a87c4053b01396fb1011f665910c696e27c91"
+      tag:      "v1.14.0",
+      revision: "1fd711bc8c20326dd8e9538e2c7e4cb1ebd67bdb"
   license "BSD-2-Clause"
 
   bottle do
@@ -26,11 +26,17 @@ class Vroom < Formula
 
   fails_with gcc: "5"
 
-  def install
-    # fixes https://github.com/VROOM-Project/vroom/issues/997 , remove in version > 1.13.0
-    inreplace "src/main.cpp", "throw cxxopts::OptionException", "throw cxxopts::exceptions::parsing"
-    inreplace "src/main.cpp", "catch (const cxxopts::OptionException", "catch (const cxxopts::exceptions::exception"
+  # remove jthread usage, upstream PR ref, https://github.com/VROOM-Project/vroom/pull/1065
+  patch do
+    url "https://github.com/VROOM-Project/vroom/commit/0cd72771fb79840a2a0ff64a58f0c18830665119.patch?full_index=1"
+    sha256 "b271c6a7f27c17fbc5eb47c7b80bd697e29af8f631a4e27d68d00f9b08e9e9f9"
+  end
+  patch do
+    url "https://github.com/VROOM-Project/vroom/commit/1f631e5b84a4dd38289dd2ed01988ada2162f82c.patch?full_index=1"
+    sha256 "65631ea4e4ecd7f73052fca34383a09756ec30f98390640d06d4a76b477861af"
+  end
 
+  def install
     # Use brewed dependencies instead of vendored dependencies
     cd "include" do
       rm_rf ["cxxopts", "rapidjson"]
