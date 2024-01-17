@@ -1,7 +1,8 @@
 class Bfgminer < Formula
   desc "Modular CPU/GPU/ASIC/FPGA miner written in C"
   homepage "http://bfgminer.org"
-  url "http://bfgminer.org/files/latest/bfgminer-5.5.0.txz"
+  # download link issue report, https://github.com/luke-jr/bfgminer/issues/855
+  url "https://web.archive.org/web/20190824104403/http://bfgminer.org/files/latest/bfgminer-5.5.0.txz"
   sha256 "ac254da9a40db375cb25cacdd2f84f95ffd7f442e31d2b9a7f357a48d32cc681"
   license "GPL-3.0-or-later"
   head "https://github.com/luke-jr/bfgminer.git", branch: "bfgminer"
