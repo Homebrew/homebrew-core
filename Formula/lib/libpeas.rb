@@ -1,10 +1,9 @@
 class Libpeas < Formula
   desc "GObject plugin library"
   homepage "https://wiki.gnome.org/Projects/Libpeas"
-  url "https://download.gnome.org/sources/libpeas/1.36/libpeas-1.36.0.tar.xz"
-  sha256 "297cb9c2cccd8e8617623d1a3e8415b4530b8e5a893e3527bbfd1edd13237b4c"
+  url "https://download.gnome.org/sources/libpeas/2.0/libpeas-2.0.1.tar.xz"
+  sha256 "9ddc1d51f38663da4df52163051b7b2cea3a242cfaee9f5a7e140f0784c8aa77"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "249a30363c03546d15f68df7d8c3f0fe102effb6bac4b5ee3af6c1c57266eef5"
@@ -32,11 +31,10 @@ class Libpeas < Formula
     inreplace "meson.build", "'python3-embed'", "'python-#{pyver}-embed'"
 
     args = %w[
+      -Dgjs=true
       -Dpython3=true
       -Dintrospection=true
       -Dvapi=true
-      -Dwidgetry=true
-      -Ddemos=false
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
