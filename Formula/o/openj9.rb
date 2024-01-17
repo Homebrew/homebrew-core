@@ -2,8 +2,8 @@ class Openj9 < Formula
   desc "High performance, scalable, Java virtual machine"
   homepage "https://www.eclipse.org/openj9/"
   url "https://github.com/eclipse-openj9/openj9.git",
-      tag:      "openj9-0.40.0",
-      revision: "d12d10c9ea2de2cf363095e609536ffe451bd25f"
+      tag:      "openj9-0.42.0",
+      revision: "874af12ee223ef0ceca48c2b52ec9931e4cacf45"
   license any_of: [
     "EPL-2.0",
     "Apache-2.0",
@@ -64,34 +64,34 @@ class Openj9 < Formula
   end
 
   # From https://github.com/eclipse-openj9/openj9/blob/openj9-#{version}/doc/build-instructions/
-  # We use JDK 20 to bootstrap.
+  # We use JDK 21 to bootstrap.
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://github.com/AdoptOpenJDK/semeru20-binaries/releases/download/jdk-20.0.2%2B9_openj9-0.40.0/ibm-semeru-open-jdk_aarch64_mac_20.0.2_9_openj9-0.40.0.tar.gz"
-        sha256 "e9c7df3897877350b577d80a47cbc9a7b4589419ca0c2df7c185a20bca8423dd"
+        url "https://github.com/AdoptOpenJDK/semeru21-binaries/releases/download/jdk-21.0.1%2B12_openj9-0.42.0/ibm-semeru-open-jdk_aarch64_mac_21.0.1_12_openj9-0.42.0.tar.gz"
+        sha256 "def95faa925d691d1d2ac1a3b5971b534b3f5b7af532424713bb66575bc49ea0"
       end
       on_intel do
-        url "https://github.com/AdoptOpenJDK/semeru20-binaries/releases/download/jdk-20.0.2%2B9_openj9-0.40.0/ibm-semeru-open-jdk_x64_mac_20.0.2_9_openj9-0.40.0.tar.gz"
-        sha256 "ece0d6e2a5cd07b2e0e05a6361026c73838cfd14556c0aeb7f9367a13d19de38"
+        url "https://github.com/AdoptOpenJDK/semeru21-binaries/releases/download/jdk-21.0.1%2B12_openj9-0.42.0/ibm-semeru-open-jdk_x64_mac_21.0.1_12_openj9-0.42.0.tar.gz"
+        sha256 "6ea3a8c1ddb22dea74530e145b3c1b96e94aa044a584bd9bfa4f5fff2cc21f73"
       end
     end
     on_linux do
-      url "https://github.com/AdoptOpenJDK/semeru20-binaries/releases/download/jdk-20.0.2%2B9_openj9-0.40.0/ibm-semeru-open-jdk_x64_linux_20.0.2_9_openj9-0.40.0.tar.gz"
-      sha256 "925b555050eb3ad9bcb444c4713f5bb221025ba9c309e95235d4b2e060c84ee0"
+      url "https://github.com/AdoptOpenJDK/semeru21-binaries/releases/download/jdk-21.0.1%2B12_openj9-0.42.0/ibm-semeru-open-jdk_x64_linux_21.0.1_12_openj9-0.42.0.tar.gz"
+      sha256 "ad575bc4b1fa9e9fa56661444b6153abfa147ec155845afa054472fa6357f026"
     end
   end
 
   resource "omr" do
     url "https://github.com/eclipse-openj9/openj9-omr.git",
-        tag:      "openj9-0.40.0",
-        revision: "e80bff83b7fda8875071d89de7c73184d847085d"
+        tag:      "openj9-0.42.0",
+        revision: "11700e64f9ba0de02e42481e4c1fb63aaa347b1b"
   end
 
   resource "openj9-openjdk-jdk" do
-    url "https://github.com/ibmruntimes/openj9-openjdk-jdk20.git",
-        tag:      "openj9-0.40.0",
-        revision: "19eb54abdace78d5009138c6e27457dfe2df6cf1"
+    url "https://github.com/ibmruntimes/openj9-openjdk-jdk21.git",
+        tag:      "openj9-0.42.0",
+        revision: "cb91cd755e3a0c7832e4f84eae258a8d19de4ec9"
   end
 
   def install
