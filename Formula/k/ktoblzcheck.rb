@@ -1,10 +1,9 @@
 class Ktoblzcheck < Formula
   desc "Library for German banks"
   homepage "https://ktoblzcheck.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.53.tar.gz"
-  sha256 "18b9118556fe83240f468f770641d2578f4ff613cdcf0a209fb73079ccb70c55"
+  url "https://downloads.sourceforge.net/project/ktoblzcheck/ktoblzcheck-1.57.tar.gz"
+  sha256 "4c3b782e5d8e31e219c3e2ece0c6e84a93929ae0b2f36080d4c183a644d05672"
   license "LGPL-2.1-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -26,9 +25,25 @@ class Ktoblzcheck < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11"
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12"
+
+  resource "openpyxl" do
+    url "https://files.pythonhosted.org/packages/42/e8/af028681d493814ca9c2ff8106fc62a4a32e4e0ae14602c2a98fc7b741c8/openpyxl-3.1.2.tar.gz"
+    sha256 "a6f5977418eff3b2d5500d54d9db50c8277a368436f4e4f8ddb1be3422870184"
+  end
+
+  def python3
+    "python3.12"
+  end
 
   def install
+    ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python3)
+
+    resource("openpyxl").stage do
+      system python3, "-m", "pip", "install", *std_pip_args(prefix: buildpath), "."
+    end
+
     # Work around to help Python bindings find shared library on macOS.
     # OSError: dlopen(ktoblzcheck, 0x0006): tried: 'ktoblzcheck' (no such file), ...
     # OSError: dlopen(libktoblzcheck.so.1, 0x0006): tried: 'libktoblzcheck.so.1' (no such file), ...
@@ -42,6 +57,6 @@ class Ktoblzcheck < Formula
   test do
     assert_match "Ok", shell_output("#{bin}/ktoblzcheck --outformat=oneline 10000000 123456789")
     assert_match "unknown", shell_output("#{bin}/ktoblzcheck --outformat=oneline 12345678 100000000", 3)
-    system "python3.11", "-c", "import ktoblzcheck"
+    system python3, "-c", "import ktoblzcheck"
   end
 end
