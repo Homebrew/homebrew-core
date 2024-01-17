@@ -5,8 +5,8 @@ class Stanc3 < Formula
   # TODO: Update `ocaml@4` dependency to `ocaml` on next release as OCaml 4.14 PR
   # also adds support for OCaml 5: https://github.com/stan-dev/stanc3/pull/1366
   url "https://github.com/stan-dev/stanc3.git",
-      tag:      "v2.32.2",
-      revision: "bcbf83c52c76018ce4a6cd86233de1601ddf9422"
+      tag:      "v2.34.0",
+      revision: "59ad5d0bff5694639ad995ea7dc143c0aee30c5d"
   license "BSD-3-Clause"
 
   bottle do
