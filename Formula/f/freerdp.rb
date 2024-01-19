@@ -1,8 +1,8 @@
 class Freerdp < Formula
   desc "X11 implementation of the Remote Desktop Protocol (RDP)"
   homepage "https://www.freerdp.com/"
-  url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/2.11.2.tar.gz"
-  sha256 "674b5600bc2ae3e16e5b5a811c7d5b0daaff6198601ba278bd15b4cb9b281044"
+  url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.2.0.tar.gz"
+  sha256 "03251e25cc3c8dc688bd9276ce7dc6590058122b192e6c3a15574cb93fc83591"
   license "Apache-2.0"
 
   bottle do
@@ -24,6 +24,8 @@ class Freerdp < Formula
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "cjson"
+  depends_on "ffmpeg"
   depends_on "jpeg-turbo"
   depends_on "libusb"
   depends_on "libx11"
@@ -36,23 +38,29 @@ class Freerdp < Formula
   depends_on "libxrender"
   depends_on "libxv"
   depends_on "openssl@3"
+  depends_on "pkcs11-helper"
+  depends_on "sdl2"
+  depends_on "sdl2_image"
+  depends_on "sdl2_ttf"
 
   uses_from_macos "cups"
 
   on_linux do
     depends_on "alsa-lib"
-    depends_on "ffmpeg"
     depends_on "glib"
     depends_on "systemd"
     depends_on "wayland"
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DWITH_X11=ON",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DWITH_JPEG=ON",
-                    "-DCMAKE_INSTALL_NAME_DIR=#{lib}"
+    args = %W[
+      -DWITH_X11=ON
+      -DBUILD_SHARED_LIBS=ON
+      -DWITH_JPEG=ON
+      -DCMAKE_INSTALL_NAME_DIR=#{lib}
+      -DWITH_MANPAGES=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
