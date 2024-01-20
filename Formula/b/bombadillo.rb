@@ -16,6 +16,8 @@ class Bombadillo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8512c76f2d7a4ed9535fad9ed424f0e0da8a39240bbd90448c3e37600b13d650"
   end
 
+  deprecate! date: "2024-01-19", because: :repo_removed
+
   depends_on "go" => :build
 
   def install
