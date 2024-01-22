@@ -5,6 +5,7 @@ class Re2 < Formula
   version "20231101"
   sha256 "4e6593ac3c71de1c0f322735bc8b0492a72f66ffccfad76e259fa21c41d27d8a"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/google/re2.git", branch: "main"
 
   # The `strategy` block below is used to massage upstream tags into the
