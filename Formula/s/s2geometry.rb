@@ -4,7 +4,7 @@ class S2geometry < Formula
   url "https://github.com/google/s2geometry/archive/refs/tags/v0.10.0.tar.gz"
   sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
   license "Apache-2.0"
-  revision 5
+  revision 6
 
   livecheck do
     url :homepage
