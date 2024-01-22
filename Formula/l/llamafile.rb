@@ -20,10 +20,8 @@ class Llamafile < Formula
   end
 
   def install
-    ENV.prepend_path "PATH", pwd
-
-    # Call `make` as `gmake` to use GNU `make` on OSX
-    ENV.prepend_path "PATH", Formula["make"].libexec/"gnubin" if OS.mac?
+    # Use GNU `make`
+    ENV.prepend_path "PATH", Formula["make"].libexec/"gnubin"
 
     system make
     system make, "install", "PREFIX=#{prefix}"
