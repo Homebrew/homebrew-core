@@ -6,6 +6,8 @@ class Hledger < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/simonmichael/hledger.git", branch: "master"
 
+  revision 1
+
   # A new version is sometimes present on Hackage before it's officially
   # released on the upstream homepage, so we check the first-party download
   # page instead.
@@ -33,6 +35,8 @@ class Hledger < Formula
   def install
     system "stack", "update"
     system "stack", "install", "--system-ghc", "--no-install-ghc", "--skip-ghc-check", "--local-bin-path=#{bin}"
+    bin.install "bin/hledger-bar" => "hledger-bar"
+    bin.install "bin/hledger-simplebal" => "hledger-simplebal"
     man1.install Dir["hledger*/*.1"]
     info.install Dir["hledger*/*.info"]
     bash_completion.install "hledger/shell-completion/hledger-completion.bash" => "hledger"
@@ -42,5 +46,20 @@ class Hledger < Formula
     system bin/"hledger", "test"
     system bin/"hledger-ui", "--version"
     system bin/"hledger-web", "--test"
+
+    # shared test file
+    (testpath/"test.journal").write <<~JOURNAL
+      2024-01-01 Test transaction
+        expenses:food     3 USD
+        assets:bank
+    JOURNAL
+    test_file_arg = "-f #{(testpath/"test.journal")}"
+    
+    bar_test_command = "1 --count food #{test_file_arg}"
+    # direct invocation
+    assert_match "2024-01 +", shell_output("#{bin}/hledger-bar #{bar_test_command}")
+    # invocation through main executable
+    assert_match "2024-01 +", shell_output("#{bin}/hledger bar -- #{bar_test_command}")
+    assert_match "3", shell_output("#{bin}/hledger-simplebal #{test_file_arg} expenses:food")
   end
 end
