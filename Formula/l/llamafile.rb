@@ -8,13 +8,11 @@ class Llamafile < Formula
 
   depends_on "make"
 
-  # Commented out to test perms from clean: https://github.com/Homebrew/homebrew-core/pull/160198#discussion_r1461425767
-  # skip_clean "bin/llamafile",
-  #            "bin/llamafile-convert",
-  #            "bin/llamafile-perplexity",
-  #            "bin/llamafile-quantize",
-  #            "bin/llava-quantize",
-  #            "bin/zipalign"
+  skip_clean "bin/llamafile",
+             "bin/llamafile-perplexity",
+             "bin/llamafile-quantize",
+             "bin/llava-quantize",
+             "bin/zipalign"
 
   resource("mistral.gguf") do
     url "https://huggingface.co/TheBloke/Mistral-7B-Instruct-v0.1-GGUF/resolve/main/mistral-7b-instruct-v0.1.Q4_K_M.gguf"
@@ -29,18 +27,6 @@ class Llamafile < Formula
 
     system make
     system make, "install", "PREFIX=#{prefix}"
-
-    # Commented out to test default perms. refs: https://github.com/Homebrew/homebrew-core/pull/160198#discussion_r1461424910
-    # %w[
-    #   llamafile
-    #   llamafile-convert
-    #   llamafile-perplexity
-    #   llamafile-quantize
-    #   llava-quantize
-    #   zipalign
-    # ].each do |bin_file|
-    #   chmod "+x", "#{bin}/#{bin_file}"
-    # end
   end
 
   test do
