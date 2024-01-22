@@ -6,7 +6,7 @@ class Torchvision < Formula
   url "https://github.com/pytorch/vision/archive/refs/tags/v0.16.2.tar.gz"
   sha256 "8c1f2951e98d8ada6e5a468f179af4be9f56d2ebc3ab057af873da61669806d7"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
