@@ -4,9 +4,8 @@ class Hledger < Formula
   url "https://github.com/simonmichael/hledger/archive/refs/tags/1.32.2.tar.gz"
   sha256 "62220064622af4b3d8e373e3ba4f913c6011f2d7a4139d529eb88b2a1dac702b"
   license "GPL-3.0-or-later"
-  head "https://github.com/simonmichael/hledger.git", branch: "master"
-
   revision 1
+  head "https://github.com/simonmichael/hledger.git", branch: "master"
 
   # A new version is sometimes present on Hackage before it's officially
   # released on the upstream homepage, so we check the first-party download
@@ -53,8 +52,8 @@ class Hledger < Formula
         expenses:food     3 USD
         assets:bank
     JOURNAL
-    test_file_arg = "-f #{(testpath/"test.journal")}"
-    
+    test_file_arg = "-f #{testpath/"test.journal"}"
+
     bar_test_command = "1 --count food #{test_file_arg}"
     # direct invocation
     assert_match "2024-01 +", shell_output("#{bin}/hledger-bar #{bar_test_command}")
