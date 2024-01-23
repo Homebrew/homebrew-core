@@ -29,7 +29,6 @@ class Gnutls < Formula
   depends_on "libunistring"
   depends_on "nettle"
   depends_on "p11-kit"
-  depends_on "unbound"
 
   uses_from_macos "zlib"
 
