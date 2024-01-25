@@ -59,6 +59,7 @@ class Freerdp < Formula
       -DWITH_JPEG=ON
       -DCMAKE_INSTALL_NAME_DIR=#{lib}
       -DWITH_MANPAGES=OFF
+      -DWITH_WEBVIEW=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
