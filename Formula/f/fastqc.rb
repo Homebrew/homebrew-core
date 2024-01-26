@@ -4,6 +4,7 @@ class Fastqc < Formula
   url "https://www.bioinformatics.babraham.ac.uk/projects/fastqc/fastqc_v0.12.1.zip"
   sha256 "5f4dba8780231a25a6b8e11ab2c238601920c9704caa5458d9de559575d58aa7"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.bioinformatics.babraham.ac.uk/projects/download.html"
