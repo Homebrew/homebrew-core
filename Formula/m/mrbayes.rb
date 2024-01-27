@@ -55,6 +55,13 @@ class Mrbayes < Formula
   end
 
   test do
+    # # OpenCL is not supported on virtualized arm64 macOS
+    # usebeagle = if OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
+    #   "no"
+    # else
+    #   "yes"
+    # end
+
     cp doc/"examples/primates.nex", testpath
     cmd = "mcmc ngen = 5000; sump; sumt;"
     cmd = "set usebeagle=yes beagledevice=cpu;" + cmd
