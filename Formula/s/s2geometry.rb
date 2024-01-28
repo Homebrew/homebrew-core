@@ -1,10 +1,9 @@
 class S2geometry < Formula
   desc "Computational geometry and spatial indexing on the sphere"
   homepage "https://github.com/google/s2geometry"
-  url "https://github.com/google/s2geometry/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
+  url "https://github.com/google/s2geometry/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "7a132735fa24ba95d391b4f5003bbf6e4c4090ed8f60d984111ed3205f83c915"
   license "Apache-2.0"
-  revision 5
 
   livecheck do
     url :homepage
@@ -31,22 +30,23 @@ class S2geometry < Formula
   fails_with gcc: "5" # C++17
 
   def install
-    # Abseil is built with C++17 and s2geometry needs to use the same C++ standard.
-    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
-
-    args = std_cmake_args + %W[
+    args = %W[
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DBUILD_TESTS=OFF
       -DWITH_GFLAGS=1
       -DWITH_GLOG=1
+      -DCMAKE_CXX_STANDARD=17
+      -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
     ]
 
-    system "cmake", "-S", ".", "-B", "build/shared", *args
+    system "cmake", "-S", ".", "-B", "build/shared", *args, *std_cmake_args
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
 
     system "cmake", "-S", ".", "-B", "build/static", *args,
                     "-DBUILD_SHARED_LIBS=OFF",
-                    "-DOPENSSL_USE_STATIC_LIBS=TRUE"
+                    "-DOPENSSL_USE_STATIC_LIBS=TRUE",
+                    *std_cmake_args
     system "cmake", "--build", "build/static"
     lib.install "build/static/libs2.a"
   end
