@@ -25,6 +25,7 @@ class Cataclysm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "14498eae0539dcfee7034f2975d7889b62c50c0684082954c0695fa4293db7dd"
   end
 
+  depends_on "dylibbundler" => :build
   depends_on "pkg-config" => :build
   depends_on "gettext"
   depends_on "libogg"
