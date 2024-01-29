@@ -59,7 +59,7 @@ class JpegXl < Formula
                     "-DJPEGXL_FORCE_SYSTEM_LCMS2=ON",
                     "-DJPEGXL_FORCE_SYSTEM_HWY=ON",
                     "-DJPEGXL_ENABLE_JNI=OFF",
-                    "-DJPEGXL_ENABLE_JPEGLI=OFF",
+                    "-DJPEGXL_ENABLE_JPEGLI=ON",
                     "-DJPEGXL_ENABLE_SKCMS=OFF",
                     "-DJPEGXL_VERSION=#{version}",
                     "-DJPEGXL_ENABLE_MANPAGES=ON",
