@@ -39,9 +39,6 @@ class Freerdp < Formula
   depends_on "libxv"
   depends_on "openssl@3"
   depends_on "pkcs11-helper"
-  depends_on "sdl2"
-  depends_on "sdl2_image"
-  depends_on "sdl2_ttf"
 
   uses_from_macos "cups"
 
@@ -61,6 +58,7 @@ class Freerdp < Formula
       -DCMAKE_INSTALL_NAME_DIR=#{lib}
       -DWITH_MANPAGES=OFF
       -DWITH_WEBVIEW=OFF
+      -DWITH_CLIENT_SDL=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
