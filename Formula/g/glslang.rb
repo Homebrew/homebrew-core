@@ -26,6 +26,13 @@ class Glslang < Formula
   depends_on "spirv-tools"
   uses_from_macos "python" => :build
 
+  # Fix SPIRV-Tools-opt dependency which breaks cmake files used by other projects
+  # Remove when released: https://github.com/KhronosGroup/glslang/pull/3487
+  patch do
+    url "https://github.com/KhronosGroup/glslang/commit/f72a347e88737aee4977df709af322302decce20.patch?full_index=1"
+    sha256 "7bb8e737792a534fbc65485688132318e4d29a507ec37667c5254b7afb7d2146"
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_EXTERNAL=OFF",
