@@ -48,6 +48,7 @@ class Freerdp < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "glib"
+    depends_on "libfuse"
     depends_on "systemd"
     depends_on "wayland"
   end
