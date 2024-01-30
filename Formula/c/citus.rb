@@ -2,6 +2,7 @@ class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/citusdata/citus.git", branch: "main"
 
   stable do
