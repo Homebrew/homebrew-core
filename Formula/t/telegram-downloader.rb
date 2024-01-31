@@ -16,7 +16,7 @@ class TelegramDownloader < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa81ca8dbcced32dfdcbaf82d8198298ff1fe1fbd974b5eb88bbfe68950423f2"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.19" => :build
 
   def install
     ldflags = %W[
