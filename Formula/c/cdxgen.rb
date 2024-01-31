@@ -3,8 +3,8 @@ require "language/node"
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/CycloneDX/cdxgen"
-  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.0.1.tgz"
-  sha256 "0ee388427faed465ccd6e120f1d7456cf5a71ccc25486f97fafeff4008374a30"
+  url "https://registry.npmjs.org/@cyclonedx/cdxgen/-/cdxgen-10.0.2.tgz"
+  sha256 "2572e8aa8e8317c12b447f44fec399eba59d85886096d5ccc9f57d05dcb77119"
   license "Apache-2.0"
 
   bottle do
@@ -33,6 +33,9 @@ class Cdxgen < Formula
 
       rm f
     end
+
+    # remove universal binaries for OSX Intel platforms
+    (node_modules/"@cyclonedx/cdxgen-plugins-bin/plugins/osquery").rmtree if OS.mac? && Hardware::CPU.intel?
   end
 
   test do
