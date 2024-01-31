@@ -1,5 +1,5 @@
 class Ksail < Formula
-  desc "A CLI tool for provisioning GitOps enabled K8s clusters in docker."
+  desc "CLI tool for provisioning GitOps enabled K8s clusters in docker"
   homepage "https://github.com/devantler/ksail"
   url "https://github.com/devantler/ksail/releases/download/v1.2.7/ksail.tar.gz"
   sha256 "63bb7b256a46dffaec25c0c803f0332f037f44ffa10e94664761b98839d7d66f"
