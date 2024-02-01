@@ -2,9 +2,9 @@ class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
   url "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git",
-      tag:      "v0.16.2-gitlab.23",
-      revision: "c57b3d7e5613393b5102d295e4ceeccaf80a5105"
-  version "0.16.2-gitlab.23"
+      tag:      "v0.16.2-gitlab.24",
+      revision: "38385069d7f23410d434dc35a3c209b7a8beb0c3"
+  version "0.16.2-gitlab.24"
   license "Apache-2.0"
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "master"
 
