@@ -1,8 +1,9 @@
 class Bork < Formula
   desc "Bash-Operated Reconciling Kludge"
   homepage "https://bork.sh/"
-  url "https://github.com/borksh/bork/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "5eaca1ebd984121df008b93c43ac259a455db7ccf13da1b1465d704e1faab563"
+  url "https://github.com/borksh/bork"
+  version "0.14.0"
+  sha256 "0fa915a0bcf97c7e6fbfd8175455166f219e0fcc68aa5334b0422da79a08301c"
   license "Apache-2.0"
   head "https://github.com/borksh/bork.git", branch: "main"
 
