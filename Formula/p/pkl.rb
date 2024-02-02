@@ -31,6 +31,6 @@ class Pkl < Formula
   end
 
   test do
-    assert_equal "1\n", pipe_output("#{bin}/pkl eval -x bar", "bar = 1")
+    assert_equal "1", pipe_output("pkl eval -x bar -", "bar = 1")
   end
 end
