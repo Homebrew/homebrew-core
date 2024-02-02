@@ -11,14 +11,13 @@ class Byobu < Formula
 
   head do
     url "https://github.com/dustinkirkland/byobu.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
   end
 
   depends_on "gettext"
   depends_on "newt"
   depends_on "tmux"
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   on_macos do
     depends_on "coreutils"
@@ -27,10 +26,8 @@ class Byobu < Formula
   conflicts_with "ctail", because: "both install `ctail` binaries"
 
   def install
-    if build.head?
-      cp "./debian/changelog", "./ChangeLog"
-      system "autoreconf", "--force", "--install", "--verbose"
-    end
+    cp "./debian/changelog", "./ChangeLog"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args
     system "make", "install"
 
