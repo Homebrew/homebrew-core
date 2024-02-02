@@ -2,10 +2,9 @@ class Halide < Formula
   desc "Language for fast, portable data-parallel computation"
   homepage "https://halide-lang.org"
   # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://github.com/halide/Halide/archive/refs/tags/v16.0.0.tar.gz"
-  sha256 "a0cccee762681ea697124b8172dd65595856d0fa5bd4d1af7933046b4a085b04"
+  url "https://github.com/halide/Halide/archive/refs/tags/v17.0.0.tar.gz"
+  sha256 "7e5a526b4074887b528d25b0265ddfa92c0a6d8bfdfbbba536313ecddf352da3"
   license "MIT"
-  revision 1
   head "https://github.com/halide/Halide.git", branch: "main"
 
   livecheck do
