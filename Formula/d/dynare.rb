@@ -1,30 +1,9 @@
 class Dynare < Formula
   desc "Platform for economic models, particularly DSGE and OLG models"
   homepage "https://www.dynare.org/"
+  url "https://www.dynare.org/release/source/dynare-6.0.tar.xz"
+  sha256 "52460046d44776d936986f52649f9e48966b07e414a864d83531d43e568ab682"
   license "GPL-3.0-or-later"
-  revision 1
-
-  # Remove when patch is no longer needed.
-  stable do
-    url "https://www.dynare.org/release/source/dynare-5.5.tar.xz"
-    sha256 "11deae32997e79e500a9802c6408067749485ea7ef3c08bbf24141f2b0e00326"
-
-    on_arm do
-      # Needed since we patch a `Makefile.am` below.
-      depends_on "autoconf" => :build
-      depends_on "automake" => :build
-      depends_on "bison" => :build
-      depends_on "flex" => :build
-
-      # Fixes a build error on ARM.
-      # Remove the `Hardware::CPU.arm?` in the `autoreconf` call below when this is removed.
-      patch do
-        url "https://git.dynare.org/Dynare/preprocessor/-/commit/e0c3cb72b7337a5eecd32a77183af9f1609a86ef.diff"
-        sha256 "4fe156dce78fba9ec280bceff66f263c3a9dbcd230cc5bac96b5a59c14c7554f"
-        directory "preprocessor"
-      end
-    end
-  end
 
   livecheck do
     url "https://www.dynare.org/download/"
@@ -96,8 +75,6 @@ class Dynare < Formula
     # Prevent superenv from adding `-stdlib=libc++` to compiler invocations.
     ENV.remove "HOMEBREW_CCCFG", "g"
 
-    # Remove `Hardware::CPU.arm?` when the patch is no longer needed.
-    system "autoreconf", "--force", "--install", "--verbose" if build.head? || Hardware::CPU.arm?
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
                           "--disable-doc",
