@@ -1,8 +1,8 @@
 class Pioneer < Formula
   desc "Game of lonely space adventure"
   homepage "https://pioneerspacesim.net/"
-  url "https://github.com/pioneerspacesim/pioneer/archive/refs/tags/20230203.tar.gz"
-  sha256 "80eea94e0f7e4d8e6a0c4629bdfb89201f82aae2f59ee7a1f7a487eeeccf27c7"
+  url "https://github.com/pioneerspacesim/pioneer/archive/refs/tags/20240203.tar.gz"
+  sha256 "f4ec9706ebb346c9795271dc087209336f18df086f9a6b8830a29541eb803466"
   license "GPL-3.0-only"
   head "https://github.com/pioneerspacesim/pioneer.git", branch: "master"
 
@@ -34,10 +34,9 @@ class Pioneer < Formula
   def install
     ENV.cxx11
 
-    # Set PROJECT_VERSION to be the date of release, not the build date
-    inreplace "CMakeLists.txt", "string(TIMESTAMP PROJECT_VERSION \"%Y%m%d\")", "set(PROJECT_VERSION #{version})"
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
