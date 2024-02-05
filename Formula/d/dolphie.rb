@@ -3,8 +3,8 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/dd/e2/7a61b7c1a6d25e97e3512474332d26782601c06071d0259ea92061125620/dolphie-3.3.1.tar.gz"
-  sha256 "0ba7b50764a751f501095a3b87e33ed4271ef24e1255f786ee91bc13c908a02a"
+  url "https://files.pythonhosted.org/packages/e8/31/b2dbd18f79f9cf3f2defa2aa80b1d6cca85342ffa04f9de1cdb8c6685af6/dolphie-4.0.0.tar.gz"
+  sha256 "e472da921d35ef13a52eda103fcf4c06d091090f3f25287146526277076676fd"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -29,8 +29,8 @@ class Dolphie < Formula
   depends_on "sqlparse"
 
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/8d/fd/73bb30ec2b3cd952fe139a79a40ce5f5fd0280dd2cc1de94c93ea6a714d2/linkify-it-py-2.0.2.tar.gz"
-    sha256 "19f3060727842c254c808e99d465c80c49d2c7306788140987a1a7a29b0d6ad2"
+    url "https://files.pythonhosted.org/packages/2a/ae/bb56c6828e4797ba5a4821eec7c43b8bf40f69cda4d4f5f8c8a2810ec96a/linkify-it-py-2.0.3.tar.gz"
+    sha256 "68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"
   end
 
   resource "markdown-it-py" do
@@ -69,8 +69,8 @@ class Dolphie < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/24/51/57eb835afc9569d32b5979ecbf3bf73f8ece8700ebffab3bac7ff29f92e4/textual-0.47.1.tar.gz"
-    sha256 "4b82e317884bb1092f693f474c319ceb068b5a0b128b121f1aa53a2d48b4b80c"
+    url "https://files.pythonhosted.org/packages/a8/c4/b19c89d2ad42c0be92aa773bb86bc4e028f30166edd032c49f148c0bc652/textual-0.48.2.tar.gz"
+    sha256 "e092dffa5311f3381cb5f51d56c506143f5c1ee3b1c67f57bb1929cfa73fee07"
   end
 
   resource "textual-autocomplete" do
