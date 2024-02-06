@@ -3,8 +3,8 @@ class OciCli < Formula
 
   desc "Oracle Cloud Infrastructure CLI"
   homepage "https://docs.cloud.oracle.com/iaas/Content/API/Concepts/cliconcepts.htm"
-  url "https://files.pythonhosted.org/packages/e1/53/30e3f0c197b6ecb93ec174fba27ae4840031f3621d0a5f06c20cc9cfa166/oci-cli-3.37.7.tar.gz"
-  sha256 "8d8987837ec8538d9bb14776625e0c24809c7e06b2f6450820d50f6194ee29d8"
+  url "https://files.pythonhosted.org/packages/4f/04/c37b5a4ac3270878d6f1b996c92203f8bc02f5c44c283f61c43a922f93a4/oci-cli-3.37.8.tar.gz"
+  sha256 "e74476fa4a26e7a73c5621aa1d952d000a814a498dca5a1a18b4de035241e7f2"
   license any_of: ["UPL-1.0", "Apache-2.0"]
   head "https://github.com/oracle/oci-cli.git", branch: "master"
 
@@ -18,6 +18,8 @@ class OciCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "405d5aadc5fbce22781af845ff359f76033bceba70aa3d3f390f7e2d1ace1010"
   end
 
+  depends_on "cmake" => :build
+  depends_on "rust" => :build
   depends_on "cffi"
   depends_on "python-certifi"
   depends_on "python-click"
@@ -43,8 +45,8 @@ class OciCli < Formula
   end
 
   resource "oci" do
-    url "https://files.pythonhosted.org/packages/4d/3c/5d9b6626f50f988cd6dece2c3b1b6155acd52a3a71b2e36118bdaa2ca32b/oci-2.120.0.tar.gz"
-    sha256 "e5ba9700db2e0572f13897d28aef8944b9bf38faffc1b68fcfa154bcaefc5af1"
+    url "https://files.pythonhosted.org/packages/e1/ef/09d9172d7a26c95d11c4d11c1c8b6856455865797d41c1be60c94a8f9e4e/oci-2.121.0.tar.gz"
+    sha256 "d040678906867babf16976fa2db5b761dee62a297ddef87ed1101b51488b82ea"
   end
 
   resource "prompt-toolkit" do
@@ -63,8 +65,8 @@ class OciCli < Formula
   end
 
   resource "terminaltables" do
-    url "https://files.pythonhosted.org/packages/9b/c4/4a21174f32f8a7e1104798c445dacdc1d4df86f2f26722767034e4de4bff/terminaltables-3.1.0.tar.gz"
-    sha256 "f3eb0eb92e3833972ac36796293ca0906e998dc3be91fbe1f8615b331b853b81"
+    url "https://files.pythonhosted.org/packages/f5/fc/0b73d782f5ab7feba8d007573a3773c58255f223c5940a7b7085f02153c3/terminaltables-3.1.10.tar.gz"
+    sha256 "ba6eca5cb5ba02bba4c9f4f985af80c54ec3dccf94cfcd190154386255e47543"
   end
 
   resource "types-python-dateutil" do
