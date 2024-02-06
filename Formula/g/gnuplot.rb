@@ -39,6 +39,11 @@ class Gnuplot < Formula
 
   fails_with gcc: "5"
 
+  resource "user-manual" do
+    url "https://netix.dl.sourceforge.net/project/gnuplot/gnuplot/6.0.0/Gnuplot6.pdf"
+    sha256 "af0f0351195eb31c5cc6d16a2713e8cdbf7ed97bc3d248a8ccbdf5236dc1413c"
+  end
+
   def install
     args = %W[
       --disable-silent-rules
@@ -81,6 +86,8 @@ class Gnuplot < Formula
     ENV.deparallelize # or else emacs tries to edit the same file with two threads
     system "make"
     system "make", "install"
+
+    doc.install resource("user-manual")
   end
 
   test do
