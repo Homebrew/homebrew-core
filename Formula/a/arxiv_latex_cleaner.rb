@@ -22,7 +22,6 @@ class ArxivLatexCleaner < Formula
   depends_on "python-regex"
   depends_on "python@3.12"
   depends_on "pyyaml"
-  depends_on "six"
 
   def python3
     "python3.12"
