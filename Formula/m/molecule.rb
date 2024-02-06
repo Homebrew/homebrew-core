@@ -25,7 +25,6 @@ class Molecule < Formula
   depends_on "python-packaging"
   depends_on "python@3.12"
   depends_on "pyyaml"
-  depends_on "six"
 
   uses_from_macos "libffi"
 
