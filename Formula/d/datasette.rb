@@ -25,7 +25,6 @@ class Datasette < Formula
   depends_on "python-typing-extensions"
   depends_on "python@3.12"
   depends_on "pyyaml"
-  depends_on "six"
   depends_on "uvicorn"
 
   resource "aiofiles" do
