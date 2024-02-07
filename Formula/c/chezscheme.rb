@@ -1,8 +1,8 @@
 class Chezscheme < Formula
   desc "Implementation of the Chez Scheme language"
   homepage "https://cisco.github.io/ChezScheme/"
-  url "https://github.com/cisco/ChezScheme/releases/download/v9.6.4/csv9.6.4.tar.gz"
-  sha256 "f5827682fa259c47975ffe078785fb561e4a5c54f764331ef66c32132843685d"
+  url "https://github.com/cisco/ChezScheme/releases/download/v10.0.0/csv10.0.0.tar.gz"
+  sha256 "d37199012b5ed1985c4069d6a87ff18e5e1f5a2df27e402991faf45dc4f2232c"
   license "Apache-2.0"
 
   bottle do
@@ -13,7 +13,6 @@ class Chezscheme < Formula
   end
 
   depends_on "libx11" => :build
-  depends_on arch: :x86_64 # https://github.com/cisco/ChezScheme/issues/544
   depends_on "xterm"
   uses_from_macos "ncurses"
 
