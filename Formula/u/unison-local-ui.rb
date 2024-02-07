@@ -12,10 +12,10 @@ class UnisonLocalUi < Formula
     system "npm", "run", "ui-core-install"
     system "npm", "run", "build"
     (pkgshare/"ui").install Dir["dist/unisonLocal/*"]
-    system "find", prefix
   end
 
   test do
+    system "find", prefix
     assert_predicate opt_share/"ui"/"index.html", :exist?
   end
 end
