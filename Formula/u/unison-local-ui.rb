@@ -17,6 +17,6 @@ class UnisonLocalUi < Formula
   test do
     system "find", prefix
     system "find", opt_prefix
-    assert_predicate opt_share/"ui"/"index.html", :exist?
+    assert_predicate pkgshare/"ui"/"index.html", :exist?
   end
 end
