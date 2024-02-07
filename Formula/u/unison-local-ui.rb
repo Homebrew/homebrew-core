@@ -12,6 +12,7 @@ class UnisonLocalUi < Formula
     system "npm", "run", "ui-core-install"
     system "npm", "run", "build"
     (pkgshare/"ui").install Dir["dist/unisonLocal/*"]
+    system "find", prefix
   end
 
   test do
