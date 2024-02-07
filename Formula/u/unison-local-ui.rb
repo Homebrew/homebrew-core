@@ -10,6 +10,7 @@ class UnisonLocalUi < Formula
   def install
     system "npm", "ci"
     system "npm", "run", "ui-core-install"
+    system "softwareupdate", "--agree-to-license", "--install-rosetta" if Hardware::CPU.arm? && OS.mac?
     system "npm", "run", "build"
     (pkgshare/"ui").install Dir["dist/unisonLocal/*"]
   end
