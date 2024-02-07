@@ -3,10 +3,9 @@ class Pytorch < Formula
 
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
-  url "https://github.com/pytorch/pytorch/releases/download/v2.1.2/pytorch-v2.1.2.tar.gz"
-  sha256 "85effbcce037bffa290aea775c9a4bad5f769cb229583450c40055501ee1acd7"
+  url "https://github.com/pytorch/pytorch/releases/download/v2.2.0/pytorch-v2.2.0.tar.gz"
+  sha256 "e12d18c3dbb12d7ae2f61f5ab9a21023e3dd179d67ed87279ef96600b9ac08c5"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -25,7 +24,8 @@ class Pytorch < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "python@3.11" => [:build, :test]
+  depends_on "python-setuptools" => :build
+  depends_on "python@3.12" => [:build, :test]
   depends_on xcode: :build
   depends_on "eigen"
   depends_on "libuv"
@@ -52,7 +52,7 @@ class Pytorch < Formula
   end
 
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
 
     ENV["ATEN_NO_TEST"] = "ON"
     ENV["BLAS"] = "OpenBLAS"
@@ -75,7 +75,14 @@ class Pytorch < Formula
     inreplace "caffe2/core/macros.h.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
     venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources
+    venv.pip_install resources.reject { |r| r.name == "opt-einsum" }
+    resource("opt-einsum").stage do
+      # Workaround versioneer script broken on 3.12
+      # https://github.com/dgasmith/opt_einsum/issues/221
+      inreplace "setup.py", "cmdclass=versioneer.get_cmdclass(),", ""
+      inreplace "setup.py", "version=versioneer.get_version(),", "version='#{version}',"
+      venv.pip_install_and_link Pathname.pwd
+    end
     venv.pip_install_and_link(buildpath, build_isolation: false)
 
     # Expose C++ API
