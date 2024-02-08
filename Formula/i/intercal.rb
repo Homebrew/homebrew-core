@@ -1,13 +1,14 @@
 class Intercal < Formula
   desc "Esoteric, parody programming language"
   homepage "http://catb.org/~esr/intercal/"
-  url "http://catb.org/~esr/intercal/intercal-0.31.tar.gz"
-  sha256 "93d842b81ecdc82b352beb463fbf688749b0c04445388a999667e1958bba4ffc"
-  license "GPL-2.0"
+  url "http://catb.org/~esr/intercal/intercal-0.32.tar.gz"
+  sha256 "a3c1e0a7ac591f78b7f5af42fdc6ae7d2a02981b7862c0320d3537beb54dfd78"
+  license "GPL-2.0-or-later"
 
-  # The latest version tags in the Git repository are `0.31` (2019-06-12) and
-  # `0.30` (2015-04-02) but there are older versions like `1.27` (2010-08-25)
-  # and `1.26` (2010-08-25). These two older 1.x releases are wrongly treated
+  # The latest version tags in the Git repository are `0.31` (2024-02-08)
+  # `0.31` (2019-06-12) and `0.30` (2015-04-02) but there are
+  # older versions like `1.27` (2010-08-25) and `1.26` (2010-08-25).
+  # These two older 1.x releases are wrongly treated
   # as newer but the GitLab project doesn't do releases, so we can only
   # reference the tags. We work around this by restricting matching to 0.x
   # releases for now. If the major version reaches 1.x in the future, this
@@ -36,8 +37,9 @@ class Intercal < Formula
     depends_on "automake" => :build
   end
 
-  uses_from_macos "bison" => :build
-  uses_from_macos "flex" => :build
+  depends_on "bison" => :build
+  depends_on "flex" => :build
+  depends_on :linux # macos build issue report, https://gitlab.com/esr/intercal/-/issues/5
 
   def install
     if build.head?
@@ -45,9 +47,10 @@ class Intercal < Formula
         system "./regenerate-build-system.sh"
       end
     end
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+
+    system "./configure", *std_configure_args
     system "make", "install"
+
     (etc/"intercal").install Dir["etc/*"]
     pkgshare.install "pit"
   end
@@ -55,6 +58,7 @@ class Intercal < Formula
   test do
     (testpath/"lib").mkpath
     (testpath/"test").mkpath
+
     cp pkgshare/"pit/beer.i", "test"
     cd "test" do
       system bin/"ick", "beer.i"
