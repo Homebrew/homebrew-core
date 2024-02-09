@@ -4,6 +4,7 @@ class DockerBuildx < Formula
   url "https://github.com/docker/buildx/archive/refs/tags/v0.12.1.tar.gz"
   sha256 "9cc176ed55e7c423c23de35bd31df3b449261f1b90765c17f003bd4de86a6aa4"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/docker/buildx.git", branch: "master"
 
   bottle do
@@ -27,6 +28,8 @@ class DockerBuildx < Formula
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/buildx"
 
+    (lib/"docker/cli-plugins").install_symlink bin/"docker-buildx"
+
     doc.install Dir["docs/reference/*.md"]
 
     generate_completions_from_executable(bin/"docker-buildx", "completion")
@@ -34,9 +37,10 @@ class DockerBuildx < Formula
 
   def caveats
     <<~EOS
-      docker-buildx is a Docker plugin. For Docker to find this plugin, symlink it:
-        mkdir -p ~/.docker/cli-plugins
-        ln -sfn #{opt_bin}/docker-buildx ~/.docker/cli-plugins/docker-buildx
+      docker-buildx is a Docker plugin. For Docker to find the plugin, add "cliPluginsExtraDirs" to ~/.docker/config.json:
+        "cliPluginsExtraDirs": [
+            "#{HOMEBREW_PREFIX}/lib/docker/cli-plugins"
+        ]
     EOS
   end
 
