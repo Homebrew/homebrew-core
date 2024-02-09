@@ -11,7 +11,11 @@ class FlightSql < Formula
   depends_on "ninja" => :build
   depends_on "openssl@3" => :build
   depends_on xcode: :build
-  depends_on :macos
+  depends_on "python@3.11" => :test
+
+  def pythons
+    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("python@") }
+  end
 
   def install
     mkdir "build"
@@ -23,6 +27,35 @@ class FlightSql < Formula
   end
 
   test do
-    assert_equal "Flight SQL Server CLI: v1.1.19", shell_output("#{bin}/flight_sql --version").strip
+    port = free_port
+    (testpath/"test_requirements.txt").write <<~EOS
+      pyarrow==15.0.0
+      adbc-driver-flightsql==0.9.0
+      adbc-driver-manager==0.9.0
+    EOS
+    (testpath/"test.py").write <<~EOS
+      from adbc_driver_flightsql import dbapi as flight_sql
+      with flight_sql.connect(uri="grpc://localhost:#{port}",
+                              db_kwargs={"username": "flight_username",
+                                         "password": "test"
+                                        }
+                             ) as conn:
+          with conn.cursor() as cur:
+              cur.execute("SELECT 123 AS x")
+              x = cur.fetch_arrow_table()
+              print(x)
+    EOS
+    pid = fork { exec bin/"flight_sql", "-D", "/tmp/test.db", "-P", "test", "-R", port.to_s, "-Q" }
+    sleep 10
+    begin
+      pythons.each do |python|
+        python_exe = python.opt_libexec/"bin/python"
+        system python_exe, "-m", "pip", "install", *std_pip_args, "--requirements", "test_requirements.txt"
+        system python_exe, "test.py"
+      end
+    ensure
+      Process.kill 9, pid
+      Process.wait pid
+    end
   end
 end
