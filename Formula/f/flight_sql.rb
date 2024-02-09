@@ -50,7 +50,7 @@ class FlightSql < Formula
     begin
       pythons.each do |python|
         python_exe = python.opt_libexec/"bin/python"
-        system python_exe, "-m", "pip", "install", *std_pip_args, "--requirements", "test_requirements.txt"
+        system python_exe, "-m", "pip", "install", *std_pip_args, "--requirement", "test_requirements.txt"
         system python_exe, "test.py"
       end
     ensure
