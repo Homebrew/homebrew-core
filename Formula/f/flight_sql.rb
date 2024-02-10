@@ -11,6 +11,7 @@ class FlightSql < Formula
   depends_on "ninja" => :build
   depends_on "openssl@3" => :build
   depends_on xcode: :build
+  depends_on "cython" => :test
   depends_on "python@3.11" => :test
 
   def pythons
@@ -50,7 +51,6 @@ class FlightSql < Formula
     begin
       pythons.each do |python|
         python_exe = python.opt_libexec/"bin/python"
-        system python_exe, "-m", "pip", "install", *std_pip_args, "cython"
         system python_exe, "-m", "pip", "install", *std_pip_args, "--requirement", "test_requirements.txt"
         system python_exe, "test.py"
       end
