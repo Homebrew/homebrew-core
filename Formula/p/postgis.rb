@@ -1,10 +1,9 @@
 class Postgis < Formula
   desc "Adds support for geographic objects to PostgreSQL"
   homepage "https://postgis.net/"
-  url "https://download.osgeo.org/postgis/source/postgis-3.3.4.tar.gz"
-  sha256 "9d41eaef70e811a4fe2f4a431d144c0c57ce17c2c1a3c938ddaf4e5a3813b0d8"
+  url "https://download.osgeo.org/postgis/source/postgis-3.4.2.tar.gz"
+  sha256 "c8c874c00ba4a984a87030af6bf9544821502060ad473d5c96f1d4d0835c5892"
   license "GPL-2.0-or-later"
-  revision 2
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -36,7 +35,7 @@ class Postgis < Formula
   depends_on "icu4c"
   depends_on "json-c" # for GeoJSON and raster handling
   depends_on "pcre2"
-  depends_on "postgresql@14"
+  depends_on "postgresql@16"
   depends_on "proj"
   depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
@@ -44,7 +43,7 @@ class Postgis < Formula
   fails_with gcc: "5" # C++17
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@16"]
   end
 
   def install
@@ -65,6 +64,8 @@ class Postgis < Formula
       # makes it nigh impossible to tell the buildsystem where our keg-only
       # gettext installations are.
       "--disable-nls",
+      # see: https://trac.osgeo.org/postgis/ticket/5372
+      "--without-topology",
     ]
 
     system "./autogen.sh" if build.head?
@@ -74,7 +75,7 @@ class Postgis < Formula
     inreplace %w[configure utils/Makefile.in] do |s|
       s.gsub! "build-aux", "config"
     end
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
 
     # Install to a staging directory to circumvent the hardcoded install paths
@@ -86,18 +87,19 @@ class Postgis < Formula
     # the version of postgresql used to build postgis.  Since we copy these
     # files into the postgis keg and symlink them to HOMEBREW_PREFIX, postgis
     # only needs to be rebuilt when there is a new major version of postgresql.
-    postgresql_prefix = postgresql.prefix.realpath
-    postgresql_stage_path = File.join("stage", postgresql_prefix)
-    bin.install (buildpath/postgresql_stage_path/"bin").children
+    postgresql_stage_path = File.join("stage", postgresql.prefix.realpath)
     doc.install (buildpath/postgresql_stage_path/"share/doc").children
 
-    stage_path = File.join("stage", HOMEBREW_PREFIX)
-    lib.install (buildpath/stage_path/"lib").children
-    share.install (buildpath/stage_path/"share").children
+    postgresql_opt_stage_path = File.join("stage", postgresql.prefix)
+    lib.install (buildpath/postgresql_opt_stage_path/"lib").children
+    share.install (buildpath/postgresql_opt_stage_path/"share").children
+
+    postgis_stage_path = File.join("stage", prefix)
+    bin.install (buildpath/postgis_stage_path/"bin").children
+    man1.install (buildpath/postgis_stage_path/"share/man/man1").children
 
     # Extension scripts
     bin.install %w[
-      utils/create_undef.pl
       utils/create_upgrade.pl
       utils/postgis_restore.pl
       utils/profile_intersects.pl
