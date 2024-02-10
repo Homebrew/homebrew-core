@@ -1,4 +1,6 @@
 class FlightSql < Formula
+  include Language::Python::Virtualenv
+
   desc "Apache Arrow Flight SQL Server - with DuckDB and SQLite back-ends"
   homepage "https://arrow.apache.org/docs/format/FlightSql.html"
   url "https://github.com/voltrondata/flight-sql-server-example.git",
@@ -11,12 +13,10 @@ class FlightSql < Formula
   depends_on "ninja" => :build
   depends_on "openssl@3" => :build
   depends_on xcode: :build
-  depends_on "cython" => :test
+  depends_on "libcython" => :test
+  depends_on "python-packaging" => :test
+  depends_on "python-setuptools" => :test
   depends_on "python@3.11" => :test
-
-  def pythons
-    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("python@") }
-  end
 
   def install
     mkdir "build"
@@ -28,13 +28,25 @@ class FlightSql < Formula
   end
 
   test do
-    port = free_port
-    (testpath/"test_requirements.txt").write <<~EOS
+    python3 = "python3.11"
+
+    reqfile = testpath/"test_requirements.txt"
+
+    reqfile.write <<~EOS
       pyarrow==15.0.0
       adbc-driver-flightsql==0.9.0
       adbc-driver-manager==0.9.0
     EOS
-    (testpath/"test.py").write <<~EOS
+
+    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages(python3)
+    venv = virtualenv_create(testpath/"vendor", python3)
+    venv.pip_install(reqfile, build_isolation: false)
+
+    port = free_port
+
+    runfile = testpath/"test.py"
+
+    runfile.write <<~EOS
       from adbc_driver_flightsql import dbapi as flight_sql
       with flight_sql.connect(uri="grpc://localhost:#{port}",
                               db_kwargs={"username": "flight_username",
@@ -49,11 +61,7 @@ class FlightSql < Formula
     pid = fork { exec bin/"flight_sql", "-D", "/tmp/test.db", "-P", "test", "-R", port.to_s, "-Q" }
     sleep 10
     begin
-      pythons.each do |python|
-        python_exe = python.opt_libexec/"bin/python"
-        system python_exe, "-m", "pip", "install", *std_pip_args, "--requirement", "test_requirements.txt"
-        system python_exe, "test.py"
-      end
+      system testpath/"vendor/bin/#{python3}", runfile
     ensure
       Process.kill 9, pid
       Process.wait pid
