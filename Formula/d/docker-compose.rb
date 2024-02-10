@@ -4,6 +4,7 @@ class DockerCompose < Formula
   url "https://github.com/docker/compose/archive/refs/tags/v2.24.7.tar.gz"
   sha256 "f671c42b2189372e2128a0abf218c04cc92693ef8960c3d26aab60bf7ca4febf"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/docker/compose.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
@@ -32,13 +33,16 @@ class DockerCompose < Formula
       -X github.com/docker/compose/v2/internal.Version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd"
+
+    (lib/"docker/cli-plugins").install_symlink bin/"docker-compose"
   end
 
   def caveats
     <<~EOS
-      Compose is now a Docker plugin. For Docker to find this plugin, symlink it:
-        mkdir -p ~/.docker/cli-plugins
-        ln -sfn #{opt_bin}/docker-compose ~/.docker/cli-plugins/docker-compose
+      Compose is a Docker plugin. For Docker to find the plugin, add "cliPluginsExtraDirs" to ~/.docker/config.json:
+        "cliPluginsExtraDirs": [
+            "#{HOMEBREW_PREFIX}/lib/docker/cli-plugins"
+        ]
     EOS
   end
 
