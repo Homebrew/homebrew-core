@@ -32,17 +32,21 @@ class Libsndfile < Formula
   uses_from_macos "python" => :build, since: :catalina
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DBUILD_PROGRAMS=ON",
-                    "-DENABLE_PACKAGE_CONFIG=ON",
-                    "-DINSTALL_PKGCONFIG_MODULE=ON",
-                    "-DBUILD_EXAMPLES=OFF",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
-                    *std_cmake_args
+    args = %W[
+      -DBUILD_PROGRAMS=ON
+      -DENABLE_PACKAGE_CONFIG=ON
+      -DINSTALL_PKGCONFIG_MODULE=ON
+      -DBUILD_EXAMPLES=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DPYTHON_EXECUTABLE=#{which("python3")}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF", *args
+    system "cmake", "--build", "static"
+    lib.install "static/libsndfile.a"
   end
 
   test do
