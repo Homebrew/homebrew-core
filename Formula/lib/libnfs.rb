@@ -1,8 +1,8 @@
 class Libnfs < Formula
   desc "C client library for NFS"
   homepage "https://github.com/sahlberg/libnfs"
-  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-5.0.2.tar.gz"
-  sha256 "637e56643b19da9fba98f06847788c4dad308b723156a64748041035dcdf9bd3"
+  url "https://github.com/sahlberg/libnfs/archive/refs/tags/libnfs-5.0.3.tar.gz"
+  sha256 "d945cb4f4c8f82ee1f3640893a168810f794a28e1010bb007ec5add345e9df3e"
   license "LGPL-2.1-or-later"
 
   bottle do
