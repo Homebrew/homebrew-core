@@ -55,8 +55,18 @@ class SpatialiteGui < Formula
     ENV.prepend "LDFLAGS", "-L#{sqlite.opt_lib} -lsqlite3"
     ENV.prepend "CFLAGS", "-I#{sqlite.opt_include}"
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--with-wxconfig=#{Formula["wxwidgets"].opt_bin}/wx-config"
+    system "./configure", "--with-wxconfig=#{Formula["wxwidgets"].opt_bin}/wx-config",
+                          *std_configure_args
     system "make", "install"
+  end
+
+  test do
+    pid = fork do
+      system bin/"spatialite_gui"
+    end
+
+    sleep 10
+  ensure
+    Process.kill("HUP", pid)
   end
 end
