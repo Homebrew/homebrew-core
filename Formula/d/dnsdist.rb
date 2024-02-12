@@ -4,6 +4,7 @@ class Dnsdist < Formula
   url "https://downloads.powerdns.com/releases/dnsdist-1.9.0.tar.bz2"
   sha256 "16bab15cad9245571806398a8e4a5dc32a92b6bb60e617c12fe958c945889c7c"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
