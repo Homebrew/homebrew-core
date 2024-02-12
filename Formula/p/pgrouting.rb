@@ -26,10 +26,10 @@ class Pgrouting < Formula
   depends_on "cgal"
   depends_on "gmp"
   depends_on "postgis"
-  depends_on "postgresql@14"
+  depends_on "postgresql@16"
 
   def postgresql
-    Formula["postgresql@14"]
+    Formula["postgresql@16"]
   end
 
   def install
@@ -40,9 +40,9 @@ class Pgrouting < Formula
       system "make", "install", "DESTDIR=#{buildpath}/stage"
     end
 
-    stage_path = File.join("stage", HOMEBREW_PREFIX)
-    lib.install (buildpath/stage_path/"lib").children
-    share.install (buildpath/stage_path/"share").children
+    postgresql_opt_stage_path = File.join("stage", postgresql.prefix)
+    lib.install (buildpath/postgresql_opt_stage_path/"lib").children
+    share.install (buildpath/postgresql_opt_stage_path/"share").children
   end
 
   test do
