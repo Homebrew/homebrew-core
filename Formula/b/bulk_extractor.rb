@@ -4,6 +4,7 @@ class BulkExtractor < Formula
   url "https://github.com/simsong/bulk_extractor/releases/download/v2.1.0/bulk_extractor-2.1.0.tar.gz"
   sha256 "2ac7911e6cec65be851a538ca2b4ba8a43c560d70449af5da6e593a865f26c9b"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
