@@ -3,7 +3,7 @@ class NewnodeHelper < Formula
   homepage "https://www.newnode.com/newnode-vpn"
   url "https://github.com/clostra/newnode.git",
     tag: "2.1.4", revision: "c42a04ded55cfdff857878f4d9234950e530bb00"
-  license ""
+  license "GPL-2.0-only"
 
   depends_on xcode: ["9.3", :build]
   depends_on "automake"
