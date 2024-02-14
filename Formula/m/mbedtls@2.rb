@@ -23,6 +23,10 @@ class MbedtlsAT2 < Formula
 
   keg_only :versioned_formula
 
+  # see https://github.com/Mbed-TLS/mbedtls/releases/tag/v2.28.7,
+  # v2 will be supported with bug-fixes and security fixes until end of 2024.
+  disable! date: "2024-12-31", because: :deprecated_upstream
+
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
 
