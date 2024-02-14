@@ -1,8 +1,8 @@
 class Virtuoso < Formula
   desc "High-performance object-relational SQL database"
   homepage "https://virtuoso.openlinksw.com/wiki/main/"
-  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.11/virtuoso-opensource-7.2.11.tar.gz"
-  sha256 "a15175be0e03887e20a776a0b21064fc2fae79beb2796d89bed5a91bf22b6256"
+  url "https://github.com/openlink/virtuoso-opensource/releases/download/v7.2.12/virtuoso-opensource-7.2.12.tar.gz"
+  sha256 "7d37681540f1b56a8ee9506a9ff767a5840063778f9b74dbf42afa43870661a3"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
@@ -25,7 +25,9 @@ class Virtuoso < Formula
 
   # If gawk isn't found, make fails deep into the process.
   depends_on "gawk" => :build
-  depends_on "openssl@3"
+  # Check OpenSSL support at:
+  # https://github.com/openlink/virtuoso-opensource/blob/develop/7/configure.ac
+  depends_on "openssl@3.0"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
