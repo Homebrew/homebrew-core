@@ -13,16 +13,15 @@ class NewnodeHelper < Formula
   depends_on "wget"
 
   def install
-    system "git", "clone", "--recurse-submodules", "https://github.com/clostra/newnode.git"
-    system "cd newnode && ./build.sh"
-    bin.install "newnode/client" => "newnode-helper"
+    system "./build.sh"
+    bin.install "client" => "newnode-helper"
     path = (var/"newnode-helper")
     path.mkpath
     path.chmod 0775
   end
 
   service do
-    run [opt_bin/"newnode-helper", "-p", "8006", "-v"]
+    run [opt_bin/"newnode-helper", "-p", "8006"]
     keep_alive true
     working_dir var/"newnode-helper"
     log_path var/"log/newnode-helper.log"
