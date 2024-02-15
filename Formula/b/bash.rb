@@ -96,6 +96,9 @@ class Bash < Formula
     sha256 x86_64_linux:   "04c187e2ae30da9c201a53b703eacbad8da84dd2d6ac77bff56113b277f99df0"
   end
 
+  # https://github.com/Homebrew/homebrew-core/issues/158667
+  depends_on "ncurses"
+
   def install
     # When built with SSH_SOURCE_BASHRC, bash will source ~/.bashrc when
     # it's non-interactively from sshd.  This allows the user to set
@@ -105,7 +108,7 @@ class Bash < Formula
     # Homebrew's bash instead of /bin/bash.
     ENV.append_to_cflags "-DSSH_SOURCE_BASHRC"
 
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", "--prefix=#{prefix}", "--with-curses"
     system "make", "install"
   end
 
