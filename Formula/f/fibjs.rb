@@ -1,8 +1,8 @@
 class Fibjs < Formula
   desc "JavaScript on Fiber"
   homepage "https://fibjs.org/"
-  url "https://github.com/fibjs/fibjs/releases/download/v0.36.0/fullsrc.zip"
-  sha256 "50b77694c36bc3836be7494807f973e4abe902ea53d8ddd0689978c9be736df7"
+  url "https://github.com/fibjs/fibjs/releases/download/v0.37.0/fullsrc.zip"
+  sha256 "51908a22a5ddbdb2c772c2cf08ba61cee96d89a4da0f678014423b86690478fd"
   license "GPL-3.0-only"
   head "https://github.com/fibjs/fibjs.git", branch: "master"
 
@@ -41,10 +41,10 @@ class Fibjs < Formula
     # the build script breaks when CI is set by Homebrew
     with_env(CI: nil) do
       system "./build", "clean"
-      system "./build", "release", "-j#{ENV.make_jobs}"
+      system "./build", "release", "dev", "-j#{ENV.make_jobs}"
     end
 
-    arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     bin.install "bin/#{OS.kernel_name}_#{arch}_release/fibjs"
   end
 
