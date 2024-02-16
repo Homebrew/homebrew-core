@@ -1,27 +1,10 @@
 class Sleef < Formula
   desc "SIMD library for evaluating elementary functions"
   homepage "https://sleef.org"
+  url "https://github.com/shibatch/sleef/archive/refs/tags/3.6.tar.gz"
+  sha256 "de4f3d992cf2183a872cd397f517c1defcd3ee6cafa2ce5fa36963bd7e562446"
   license "BSL-1.0"
   head "https://github.com/shibatch/sleef.git", branch: "master"
-
-  stable do
-    url "https://github.com/shibatch/sleef/archive/refs/tags/3.5.1.tar.gz"
-    sha256 "415ee9b1bcc5816989d3d4d92afd0cd3f9ee89cbd5a33eb008e69751e40438ab"
-
-    # Fix CMake detection of Apple Silicon (arm64).
-    # Remove in the next release.
-    patch do
-      url "https://github.com/shibatch/sleef/commit/7ce51c447a88e35ad0440a906659920b577984c0.patch?full_index=1"
-      sha256 "0056eda409a757602db714bcf9273d525d2421d423f096b0042c85f782ee8af9"
-    end
-
-    # Fix build/include/sleef.h:6:2: error: unterminated conditional directive.
-    # Remove in the next release.
-    patch do
-      url "https://github.com/shibatch/sleef/commit/d7f7e84a58243c7ccbbd57d91e282725d302091d.patch?full_index=1"
-      sha256 "cf61c4440be028aee934578f7ccf98930bfbec892a7ead1c62dd287dbd658a3c"
-    end
-  end
 
   bottle do
     rebuild 2
