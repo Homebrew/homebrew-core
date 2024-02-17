@@ -1,8 +1,8 @@
 class Glog < Formula
   desc "Application-level logging library"
   homepage "https://github.com/google/glog"
-  url "https://github.com/google/glog/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "8a83bf982f37bb70825df71a9709fa90ea9f4447fb3c099e1d720a439d88bad6"
+  url "https://github.com/google/glog/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "375106b5976231b92e66879c1a92ce062923b9ae573c42b56ba28b112ee4cc11"
   license "BSD-3-Clause"
   head "https://github.com/google/glog.git", branch: "master"
 
@@ -19,7 +19,7 @@ class Glog < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "04695a6df86ea26cadda86975bc9ad9c1ec112e8325e2bbc5f25939b42698463"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "gflags"
 
   def install
@@ -29,7 +29,21 @@ class Glog < Formula
   end
 
   test do
-    (testpath/"test.cpp").write <<~EOS
+    (testpath/"CMakeLists.txt").write <<~EOS
+      cmake_minimum_required(VERSION 3.16)
+      project(glog_test)
+
+      set(CMAKE_CXX_STANDARD 11)
+      set(CMAKE_CXX_STANDARD_REQUIRED True)
+
+      find_package(glog REQUIRED)
+
+      add_executable(glog_test main.cpp)
+
+      target_link_libraries(glog_test glog::glog)
+    EOS
+
+    (testpath/"main.cpp").write <<~EOS
       #include <glog/logging.h>
       #include <iostream>
       #include <memory>
@@ -39,10 +53,9 @@ class Glog < Formula
         LOG(INFO) << "test";
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}", "-L#{lib}",
-                    "-lglog", "-I#{Formula["gflags"].opt_lib}",
-                    "-L#{Formula["gflags"].opt_lib}", "-lgflags",
-                    "-o", "test"
-    system "./test"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build", "--target", "glog_test"
+    system "./build/glog_test"
   end
 end
