@@ -19,6 +19,7 @@ class Avrdude < Formula
   depends_on "cmake" => :build
   depends_on "hidapi"
   depends_on "libftdi"
+  depends_on "libserialport"
   depends_on "libusb"
   depends_on "libusb-compat"
 
