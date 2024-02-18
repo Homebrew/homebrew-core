@@ -6,6 +6,7 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.21.5/v6d-0.21.5.tar.gz"
   sha256 "c434f61e71fb5e414add093b302375f27084dc03800e026019199db984183036"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256                               arm64_sonoma:   "d37ee947097930934cd340ec3f2884e4f093d52d76bb92012f42d373c7ca1ac5"
