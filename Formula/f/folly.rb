@@ -4,6 +4,7 @@ class Folly < Formula
   url "https://github.com/facebook/folly/archive/refs/tags/v2024.05.02.00.tar.gz"
   sha256 "c220c556b69ddd91fd83aa2682c7c60470d23d9157e27c803e27f795aac0da9c"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/folly.git", branch: "main"
 
   bottle do
@@ -45,6 +46,11 @@ class Folly < Formula
   end
 
   fails_with gcc: "5"
+
+  # Workaround to support `glog` 0.7+. Similar to AUR patch.
+  # Ref: https://github.com/facebook/folly/issues/2149
+  # Ref: https://aur.archlinux.org/cgit/aur.git/tree/fix-cmake-find-glog.patch?h=folly
+  patch :DATA
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
@@ -89,3 +95,35 @@ class Folly < Formula
     system "./test"
   end
 end
+
+__END__
+diff --git a/CMake/folly-config.cmake.in b/CMake/folly-config.cmake.in
+index 0b96f0a10..f1fdca527 100644
+--- a/CMake/folly-config.cmake.in
++++ b/CMake/folly-config.cmake.in
+@@ -30,6 +30,7 @@ set(FOLLY_LIBRARIES Folly::folly)
+
+ # Find folly's dependencies
+ find_dependency(fmt)
++find_dependency(glog CONFIG)
+
+ set(Boost_USE_STATIC_LIBS "@FOLLY_BOOST_LINK_STATIC@")
+ find_dependency(Boost 1.51.0 MODULE
+diff --git a/CMake/folly-deps.cmake b/CMake/folly-deps.cmake
+index c72273a73..67dd74109 100644
+--- a/CMake/folly-deps.cmake
++++ b/CMake/folly-deps.cmake
+@@ -61,10 +61,9 @@ if(LIBGFLAGS_FOUND)
+   set(FOLLY_LIBGFLAGS_INCLUDE ${LIBGFLAGS_INCLUDE_DIR})
+ endif()
+
+-find_package(Glog MODULE)
+-set(FOLLY_HAVE_LIBGLOG ${GLOG_FOUND})
+-list(APPEND FOLLY_LINK_LIBRARIES ${GLOG_LIBRARY})
+-list(APPEND FOLLY_INCLUDE_DIRECTORIES ${GLOG_INCLUDE_DIR})
++find_package(glog CONFIG REQUIRED)
++set(FOLLY_HAVE_LIBGLOG TRUE)
++list(APPEND FOLLY_LINK_LIBRARIES glog::glog)
+
+ find_package(LibEvent MODULE REQUIRED)
+ list(APPEND FOLLY_LINK_LIBRARIES ${LIBEVENT_LIB})
