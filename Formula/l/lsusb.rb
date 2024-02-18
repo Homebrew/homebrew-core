@@ -1,8 +1,8 @@
 class Lsusb < Formula
   desc "List USB devices, just like the Linux lsusb command"
   homepage "https://github.com/jlhonora/lsusb"
-  url "https://github.com/jlhonora/lsusb/releases/download/1.0/lsusb-1.0.tar.gz"
-  sha256 "68cfa4a820360ecf3bbd2a24a58f287d41f66c62ada99468c36d5bf33f9a3b94"
+  url "https://github.com/LanikSJ/lsusb/archive/refs/tags/1.1.4.tar.gz"
+  sha256 "14eb90962515c4f63aacc56750d0d221e57a5bb7cf12577193de6bc261e70be6"
   license "MIT"
 
   bottle do
