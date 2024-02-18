@@ -1,9 +1,19 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.8.3/gdal-3.8.3.tar.gz"
-  sha256 "f7a30387a8239e9da26200f787a02136df2ee6473e86b36d05ad682761a049ea"
   license "MIT"
+  revision 2
+
+  stable do
+    url "https://github.com/OSGeo/gdal/releases/download/v3.8.3/gdal-3.8.3.tar.gz"
+    sha256 "f7a30387a8239e9da26200f787a02136df2ee6473e86b36d05ad682761a049ea"
+
+    # remove with next release
+    patch do
+      url "https://github.com/OSGeo/gdal/commit/ca2eb4130750b0e6365f738a5f8ff77081f5c5bb.patch?full_index=1"
+      sha256 "5d6ae9c555a8e01a25176a17e66602752ee5e9b158c76be82f14b937b179e433"
+    end
+  end
 
   livecheck do
     url "https://download.osgeo.org/gdal/CURRENT/"
@@ -11,13 +21,14 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "326e28420f603c4cb45c9426330829cb9a3bfd554abe6a07bad4851bf79fb683"
-    sha256 arm64_ventura:  "6845105b6a84ef035035593ef557ddaf7928128e654fb0043a83bc8909f59ed8"
-    sha256 arm64_monterey: "d8c88fcd57d6bf6edeea32a1b305212544fc6ddefb5fa44ee5f3d55d214fb4c9"
-    sha256 sonoma:         "aff263b6363db76c76206e401d1e98cb8aab0fcd8a183d5ee8496b7c4c74f45d"
-    sha256 ventura:        "9dc5347129169f74270b044ca35c62aac5978ad8229a23e4d17245e809954666"
-    sha256 monterey:       "0e575ccb614d07fe2a28298ceff3e4f5c3f5eb6a2659445bc4646a5f40ef1f86"
-    sha256 x86_64_linux:   "dd938028348abd2a783c441213a48c35a204258cf1fcc64f4ce5f5af46a24867"
+    rebuild 1
+    sha256 arm64_sonoma:   "c98dfbefb77289cf75d2091b448a2de2810640bd7a663e85dc41c834e0ad282a"
+    sha256 arm64_ventura:  "e1efa8c18dafa24a1012700fefc3b7e7466d801fd826391399a1f220b2863630"
+    sha256 arm64_monterey: "2b01adbc04ee00c33bbf43a501993db159471c951590cc91c601c11c87deb310"
+    sha256 sonoma:         "234f8c0f6c8024b1d03e5a2cb9601131baad82225294b1e20e414ddcd0704e5e"
+    sha256 ventura:        "f927cf631d27668aa7ffa35cb7904cbbb2df5dd5a5afa51923f0028b638a62f2"
+    sha256 monterey:       "d12f2d441f2c8c6d997d5c87169975cacfa5e368e4d2c6e100c788fc3c93219c"
+    sha256 x86_64_linux:   "963ab123a7d5e9c3bd06b7f3c7c245ef650f485b9551a55cb1158e9bdfbdfce2"
   end
 
   head do

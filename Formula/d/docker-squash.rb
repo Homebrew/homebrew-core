@@ -3,20 +3,18 @@ class DockerSquash < Formula
 
   desc "Docker image squashing tool"
   homepage "https://github.com/goldmann/docker-squash"
-  url "https://files.pythonhosted.org/packages/6c/0b/3684b7e34c46045dda03b34be50392c689b23fa8788a0c0f7daf98db35d8/docker-squash-1.1.0.tar.gz"
-  sha256 "819a87bf44c575c76d8d8f15544363a7a81ca2b176d424b67b39cd2cd9acc89e"
+  url "https://files.pythonhosted.org/packages/3c/83/c0a3cee67e2af20c7c337fd7cd49b49c9a741e785e7a4c631404a03b7a00/docker-squash-1.2.0.tar.gz"
+  sha256 "33120a217fa9804530d1cf8091aacc5abf9020c6bc51c5108ae80ff8625782df"
   license "MIT"
-  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ac52014f3d83c378a31a3c58cf59b8387330d28c137cfe1ec830242ed45b97d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d4ad94d4f688c6529334d9c51ab2cd0f6fa5a08e2153e598ba501b6a018572a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1480d96020bc81c89d9c0debd7f657705e0e163c341b01f05c82fc18a222c971"
-    sha256 cellar: :any_skip_relocation, sonoma:         "92bba4b3f7679da5006d08deef5a70a1c6de4195cdb0c5599bb1ca36f702bc14"
-    sha256 cellar: :any_skip_relocation, ventura:        "2220c67e0d9f9eb3d3c231e6e63fd5e743a5c022c28683ae73498ec41206d4ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "50e6359f9e5f4d7d0437c23d9b3b889ce406643227e0f93e5049038699861c05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "853f1a721b943c0a8b4ca3b34abcd40fa07f2bea56dd0b02c063e91fa3d78106"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "22f2ed6cf69770cf124f4b34ae6acab072980f20a64ddde0dd2bcefc160d8064"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2a1c315673a73ce47fbdaad1d2cad7cbc315bdaa13bdd97def6173d6f30987c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f1b45e5e2a61c4d05b1ca2de15cc104f4308f3f592a2fc762e053720d606f1f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dcaf0e8241a2835a833aceaa6e51847fa6883b900cb507d3bf824737f4f4c0c1"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a7161ecc2b61741ef0a463cfe042adae1e7b73f10b7c0a6d69876dd4c14bb08"
+    sha256 cellar: :any_skip_relocation, monterey:       "7a72386b0f310c257b4b6bcdcdaf8af33a0e8c648407d0da945d7ba2f53a8d47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e663b2866d6c5fb9f6a4ac4f907cf482ee457e7181b3e076d1aba479f476e9cc"
   end
 
   depends_on "python-certifi"
@@ -44,14 +42,8 @@ class DockerSquash < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
-  end
-
-  # Replace distutils with packaging
-  patch do
-    url "https://github.com/goldmann/docker-squash/commit/4a7fc2c3a2175d868ff60eefdbab53240a7641d5.patch?full_index=1"
-    sha256 "33314b9d900b74e904c9ce7f0a358b70bc985703db01e1b9ac525f271ef62d15"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   def install

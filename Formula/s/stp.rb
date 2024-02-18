@@ -4,7 +4,7 @@ class Stp < Formula
   url "https://github.com/stp/stp/archive/refs/tags/2.3.3.tar.gz"
   sha256 "ea6115c0fc11312c797a4b7c4db8734afcfce4908d078f386616189e01b4fffa"
   license "MIT"
-  revision 8
+  revision 9
   head "https://github.com/stp/stp.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,13 @@ class Stp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b12c4a9145e67c68639ad6ab9600a56fff075d819163eadb8422c600761bf3ac"
-    sha256 cellar: :any,                 arm64_ventura:  "6aadc8b0307425e991331316a590a32e2a58bfdff299fb88cc816dc8a5fa2e71"
-    sha256 cellar: :any,                 arm64_monterey: "09a0b186febb6588ad2aef0c8d7be05ba1fcbb23a5f3cca900d57670d903ff0e"
-    sha256 cellar: :any,                 sonoma:         "ccd8462d42b78b656a59cf50009e0a5ff684cbadb1782b6bd86f1d75fe5048d1"
-    sha256 cellar: :any,                 ventura:        "ae42c8fc7e9a2cf3b87acab72c51236dcbdf49398ce6cf5b2226912ccd910161"
-    sha256 cellar: :any,                 monterey:       "26bf5d1472e541b4d6971531544e268b804c75c4b87d4bef0b5c525c063d7d24"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d64345bfcdf48933e9199c07aa9363cdccc1c5e118776bf1d2d7b3395dce0ee4"
+    sha256 cellar: :any,                 arm64_sonoma:   "af259bce456b7f1f1269ee4eb197595f548b2244121b515e65b6ddec73afb3f7"
+    sha256 cellar: :any,                 arm64_ventura:  "0b6f933623aa208cd85648200e096e2f198aa29a7ea239d9aa518957886555be"
+    sha256 cellar: :any,                 arm64_monterey: "e86254768238af80a8b296360899c0cefd6998a874bfe023af2e611849437efc"
+    sha256 cellar: :any,                 sonoma:         "b6df750106655bc6a56bdce7bde676fdb1520cc95bad5c268659094d4cfa06e4"
+    sha256 cellar: :any,                 ventura:        "0163fc3b8fdf0abc81a956684c54de143d1e91b908dac9c4190783f52be48872"
+    sha256 cellar: :any,                 monterey:       "24ca98b6832488b7e7530fd5031c4556983c6ca9982d340ab1d646a6f249e39b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c13b033b4156a4d75e6692682f041ec1d39d52ec4ff5d920e5b47b99a4d5ce1d"
   end
 
   # stp refuses to build with system bison and flex

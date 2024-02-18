@@ -1,9 +1,10 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/topgrade-rs/topgrade"
-  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v13.0.0.tar.gz"
-  sha256 "6d83af871b6ce108dd4773c81835734d306b41425c41c533095ca5a82324b049"
+  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v14.0.1.tar.gz"
+  sha256 "e4262fae2c89efe889b5a3533dc25d35dd3fbaf373091170f20bcc852017e8be"
   license "GPL-3.0-or-later"
+  head "https://github.com/topgrade-rs/topgrade.git", branch: "main"
 
   livecheck do
     url :stable
@@ -11,32 +12,27 @@ class Topgrade < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "420ebd0679aed63ca88c7b5517f31b648679b3eae25f8c9667d5ea2adce93483"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "081243133015cebb27d53f521d93520146f534da493f1fec29c9780d3601f6a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb1477ce33fbd4310c989c19a1bc7427f26456eb1b6f1c09e04d1272aabe8560"
-    sha256 cellar: :any_skip_relocation, sonoma:         "634bc2068940441f295f194512de26a8ad87bdff6ad55d5419a989410644aaea"
-    sha256 cellar: :any_skip_relocation, ventura:        "585115c736d82d4144f66095db93a86ae715954fe87c88a59f98b0b6c8856668"
-    sha256 cellar: :any_skip_relocation, monterey:       "16e5f63b04f2dac8fec521a97569f3e792e903e2e7865dcd4dbb0099bfce8351"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "199cd9900cddea4f2fffa622988b841d1ff492e00aad3d75fc7f699845ce1d7a"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d693db20df557cf47859b48086cca890367bb11d561fd1d7560af82848ecb2b2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c4f647aa7ea5585e9f56f85c30865d36b7f175eb178f6c32b552475b041820ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2c4bf6236c4818587e71ec9444ad7a5535adb80bfe32e6af99614225958faf2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "daefb7ddde3929d87e0e1f4dfccc670dbb889bd7b1c5227634f66508102de2d0"
+    sha256 cellar: :any_skip_relocation, ventura:        "1a200942d918ef3ce0f977d6e5c9d7b0b4481be871d68e3858838b2e881f9f96"
+    sha256 cellar: :any_skip_relocation, monterey:       "330d758b5747aed37f03b40335a5722e0852f769d17033785eb7be8f761c2180"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab782c5b706304dd871ea68c8dac3924be709cbbcaa79fa3260c70a01be87758"
   end
 
   depends_on "rust" => :build
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    generate_completions_from_executable(bin/"topgrade", "--gen-completion")
+    (man1/"topgrade.1").write Utils.safe_popen_read(bin/"topgrade", "--gen-manpage")
   end
 
   test do
-    # Configuration path details: https://github.com/r-darwish/topgrade/blob/HEAD/README.md#configuration-path
-    # Sample config file: https://github.com/r-darwish/topgrade/blob/HEAD/config.example.toml
-    (testpath/"Library/Preferences/topgrade.toml").write <<~EOS
-      # Additional git repositories to pull
-      #git_repos = [
-      #    "~/src/*/",
-      #    "~/.config/something"
-      #]
-    EOS
-
+    ENV["TOPGRADE_SKIP_BRKC_NOTIFY"] = "true"
     assert_match version.to_s, shell_output("#{bin}/topgrade --version")
 
     output = shell_output("#{bin}/topgrade -n --only brew_formula")

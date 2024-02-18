@@ -3,18 +3,18 @@ class SyslogNg < Formula
 
   desc "Log daemon with advanced processing pipeline and a wide range of I/O methods"
   homepage "https://www.syslog-ng.com"
-  url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.5.0/syslog-ng-4.5.0.tar.gz"
-  sha256 "08828ed200436c3ca4c98e5b74885440661c1036965e219aa9261b31a24fa144"
+  url "https://github.com/syslog-ng/syslog-ng/releases/download/syslog-ng-4.6.0/syslog-ng-4.6.0.tar.gz"
+  sha256 "b69e3360dfb96a754a4e1cbead4daef37128b1152a23572356db4ab64a475d4f"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
-    sha256 arm64_sonoma:   "57fef7bbe4d00d32ed0f11c3ac47754d8634f613dbb604a0a6a50709342d60dd"
-    sha256 arm64_ventura:  "ca7b97622919ed44c650400160162d0289020746abe76988f939df520374f955"
-    sha256 arm64_monterey: "8edf70a324372940cdfc299674f9e5022c5f20ef331bb8465812b6fed0a0ce92"
-    sha256 sonoma:         "aeb0c36d3eeb17b092a0e2ea9bf03978e58cb3465ce77326f2de9378bfc6058d"
-    sha256 ventura:        "e6a4506628a8e69ed74b12b2017ca74a5d7c224013328b52a0219e3d21f96a60"
-    sha256 monterey:       "522261af306fb091db704430a2f6807e7c51be75b4ad5763206de817836c933b"
-    sha256 x86_64_linux:   "d8d85ad7330e5a5cf0398fd1a62c998dcb7503b1f17f671aa3b89b3971e448ad"
+    sha256 arm64_sonoma:   "19578e6b6f382c326b6fb8c4d3cd09ec7f55a78e90ae4776fbbfdec81833c8ca"
+    sha256 arm64_ventura:  "a0c705a7b53386f97cf4e71c7fd392f5875c9363a9d0e58621e24c36f1191106"
+    sha256 arm64_monterey: "c366d1c99deddbe312e6ca672744a2382e894c72c7c6ca0fd0ede33579486b7c"
+    sha256 sonoma:         "f616a82c15c8a71cb7c6d1201a5e25c84c3971f7637560768656b6129b4871d9"
+    sha256 ventura:        "e3d562b92be1e943d4ac7d6c8560db27fba6e14e2393475a8de5815de99eaa2b"
+    sha256 monterey:       "6412eb3a4676aa8160be43e759fbfafb7097d3429ec33aea4de1884e4d09fb97"
+    sha256 x86_64_linux:   "c88bbb6dfd93353e59b09b286082c6af3b56527d80da7adab87c487c4d6ced89"
   end
 
   depends_on "autoconf" => :build
@@ -38,14 +38,6 @@ class SyslogNg < Formula
   depends_on "riemann-client"
 
   uses_from_macos "curl"
-
-  # Clang c++ compilation fixes.
-  # Remove when merged and released: https://github.com/syslog-ng/syslog-ng/pull/4739
-  # See also: https://github.com/Homebrew/homebrew-core/pull/156185#issuecomment-1837419001
-  patch do
-    url "https://github.com/syslog-ng/syslog-ng/commit/27db599781eaf07ed6a93d96564df4e126dd1518.patch?full_index=1"
-    sha256 "1f78793bb456d7ee7656116b2238ded280cf42ebb4b37b65de20cb26ba753041"
-  end
 
   def install
     # In file included from /Library/Developer/CommandLineTools/SDKs/MacOSX14.sdk/usr/include/c++/v1/compare:157:

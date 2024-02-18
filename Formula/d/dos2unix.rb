@@ -1,9 +1,9 @@
 class Dos2unix < Formula
   desc "Convert text between DOS, UNIX, and Mac formats"
   homepage "https://waterlan.home.xs4all.nl/dos2unix.html"
-  url "https://waterlan.home.xs4all.nl/dos2unix/dos2unix-7.5.1.tar.gz"
-  mirror "https://fossies.org/linux/misc/dos2unix-7.5.1.tar.gz"
-  sha256 "da07788bb2e029b0d63f6471d166f68528acd8da2cf14823a188e8a9d5c1fc15"
+  url "https://waterlan.home.xs4all.nl/dos2unix/dos2unix-7.5.2.tar.gz"
+  mirror "https://fossies.org/linux/misc/dos2unix-7.5.2.tar.gz"
+  sha256 "264742446608442eb48f96c20af6da303cb3a92b364e72cb7e24f88239c4bf3a"
   license "BSD-2-Clause"
 
   livecheck do
@@ -12,15 +12,13 @@ class Dos2unix < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b2ea129fb75887bc152ad6801b0cbfa0cf65439075af4959b03244cebe7c3a7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "406e8d43a00635ebe673a875a9220616d4888c057731c423a0e5d0dd7ebf6a78"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f64a6b8c31eff382d9653939c06fcf98cdc3ce8b86cfeaa881b9513754c9342"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "28054af1e3dcb5d9ff47ff348700f34004eebd21f1ed8b0257089bf15dc04a18"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6f64745a518064fda421dbb87af16b2c6af6c09ebb446d23c17448ba5eed1e48"
-    sha256 cellar: :any_skip_relocation, ventura:        "9b50d2ac2d3ea8416554ce29ab5e59d95d85b392f60ece56aeee56599e32c5cd"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a0b95a44c42d867a424e9656ea9b417a61e6b6ab3db963318316cbcb3e88ff5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b8d0cf82af0f55d324fe4521083d31ba15913e031d3837f656038dfb18ae47d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "545462d042d0dab3d7e1d512e5509637c3caa7658ff4fe0d8876df129321b4e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34b49544a0f299d1b2b0c391927b7c07201274a2c8bf682c0991ced19209501d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e739f5c6536d3fc4fa9a8922197379137322925c4476ee28f52e8e02875f61b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49bf57eaaa0a8fca72406d02a7b3b7d50107736cea3c3c01036543387b9668fc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "599b519868373bb9ee6258f31375f016b3f44242771bf5553ab52d3a2f9177c9"
+    sha256 cellar: :any_skip_relocation, ventura:        "8e7421cfd610a505a2f653dfb064f6fd51a910e4a31b8ec615cc549f579796bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b0355a4247caca8cbf8cfd8fe7b6aee2db4e749184ab656b407f6c8b7c637eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "228436301f23d4b7b80cf0bfcf1f75d7cff50fd3134baf1c2f2d2b25538fa178"
   end
 
   def install

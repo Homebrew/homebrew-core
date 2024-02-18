@@ -1,8 +1,8 @@
 class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.83.0/boost-1.83.0.tar.xz"
-  sha256 "c5a0688e1f0c05f354bbd0b32244d36085d9ffc9f932e8a18983a9908096f614"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.84.0/boost-1.84.0.tar.xz"
+  sha256 "2e64e5d79a738d0fa6fb546c6e5c2bd28f88d268a2a080546f74e5ff98f29d0e"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -15,14 +15,13 @@ class Boost < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "6b756f347001abeab4d06117f818d6c786c69b43f1169807af626bce7357ccb1"
-    sha256 cellar: :any,                 arm64_ventura:  "b0d919557c04b0141596b9936e231eefeb5b80ea0e9cefeb40cbe1937404fb60"
-    sha256 cellar: :any,                 arm64_monterey: "a38751ff7e50f5e9b340ea6028f6c7f1ac80e131e261c108394b7f7c53fbd3c1"
-    sha256 cellar: :any,                 sonoma:         "16f3b4ef9fc39f10c000061ff2817843cd44d41722c7bf5a8e72c5293d73d771"
-    sha256 cellar: :any,                 ventura:        "61da54543473024c5d585d9f5dd8d725db5c08646bd94d2c034d2f505b69345a"
-    sha256 cellar: :any,                 monterey:       "b954ded2e6de1c7c2d91f0abf566fdb8ac0352d094f9a0517f1047f227b4152a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17ebadc40acbb098b0401925c791c0e26584c23953cbf164137d9664fdd8df63"
+    sha256 cellar: :any,                 arm64_sonoma:   "e3661208930c23ae720a1ec345863747117864f1a5cbc239e4941962914331b5"
+    sha256 cellar: :any,                 arm64_ventura:  "a21b17403a8bf3e8f554f6efeb1162ba5893333750af95922b6f81c17e3444f0"
+    sha256 cellar: :any,                 arm64_monterey: "05363952d5026af7e63184e5cc6f27280dcb2f3eb9a500e2e17e791baadd907e"
+    sha256 cellar: :any,                 sonoma:         "345f64368780bbc92e1ac0a9307e6cebfcf4dbee58f93fad49cc1ae66585eca7"
+    sha256 cellar: :any,                 ventura:        "0e6dc6d7ee9e302e94849db4e03240e86c1e274be9e21b3f40f38c8882f039b4"
+    sha256 cellar: :any,                 monterey:       "022cc5c1f9e7eb894b3ece1d03b276f2eecde08da0a782903fcc84523effe643"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e376faa3651c3e207c21dd9cd52b5c0e075a44526e71703a6a3d246d3cc6734b"
   end
 
   depends_on "icu4c"
@@ -31,10 +30,6 @@ class Boost < Formula
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
-
-  # fix for https://github.com/boostorg/process/issues/342
-  # should eventually be in boost 1.84
-  patch :DATA
 
   def install
     # Force boost to compile with the desired compiler
@@ -139,28 +134,3 @@ class Boost < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/libs/process/include/boost/process/detail/posix/handles.hpp b/libs/process/include/boost/process/detail/posix/handles.hpp
-index cd9e1ce5..304e77b1 100644
---- a/libs/process/include/boost/process/detail/posix/handles.hpp
-+++ b/libs/process/include/boost/process/detail/posix/handles.hpp
-@@ -33,7 +33,7 @@ inline std::vector<native_handle_type> get_handles(std::error_code & ec)
-     else
-         ec.clear();
-
--    auto my_fd = ::dirfd(dir.get());
-+    auto my_fd = dirfd(dir.get());
-
-     struct ::dirent * ent_p;
-
-@@ -117,7 +117,7 @@ struct limit_handles_ : handler_base_ext
-             return;
-         }
-
--        auto my_fd = ::dirfd(dir);
-+        auto my_fd = dirfd(dir);
-         struct ::dirent * ent_p;
-
-         while ((ent_p = readdir(dir)) != nullptr)
-

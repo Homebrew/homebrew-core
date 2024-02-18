@@ -2,20 +2,19 @@ class Ppsspp < Formula
   desc "PlayStation Portable emulator"
   homepage "https://ppsspp.org/"
   url "https://github.com/hrydgard/ppsspp.git",
-      tag:      "v1.16.6",
-      revision: "ba0ce344937d17e177ec8656ab957f6b82facdda"
+      tag:      "v1.17",
+      revision: "493122a2fcf9ff538e242fe2844f019b53afd483"
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
   head "https://github.com/hrydgard/ppsspp.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:   "80337bcb1b699f7c2822631f52900c7a649e67f39a9871a7f36cdf3f42b4eabf"
-    sha256 cellar: :any, arm64_ventura:  "32ee9583c47c723f6e6a7a5a6f1279a642c883402346ee67bad02981f42cf446"
-    sha256 cellar: :any, arm64_monterey: "b0060b9aed24cfafbb86105a7aee37a60f2fb0666741c6a4f5dc73d6b18faf89"
-    sha256 cellar: :any, sonoma:         "c28609ec92daaf908066ea62972fb1b60ad8f639fe5e5a6aa62b5a41987f5ad2"
-    sha256 cellar: :any, ventura:        "41400e20be77c61aeaa1a3f05e4660333d9e6dab9d065d386aa28a06bdfe06d1"
-    sha256 cellar: :any, monterey:       "96c7e13afc89d4ae874fe4fa10bc7bd367854b40449eccfe6436019804e4bb19"
-    sha256               x86_64_linux:   "8f0c561bcf2016ffee38645ed3826f06822494ea9644ca82f5a874f4dff0cbf1"
+    sha256 cellar: :any, arm64_sonoma:   "9aa60289422d31414be45713e58bbe932d80ef568bc428ac5fa8ecf7e81c3bc5"
+    sha256 cellar: :any, arm64_ventura:  "2e87fc4605ca5277f688688b5b981fe4cf8a19ad69f21aae2f577f2f8d4adbf7"
+    sha256 cellar: :any, arm64_monterey: "1e2dc1b161d90db21e372c6728feea371c8e84da25912a72e71e8216c2b2143c"
+    sha256 cellar: :any, sonoma:         "0dcf6f463affe0b38ca1c6d8646d845a7ea626183026e510250df44f47e2b118"
+    sha256 cellar: :any, ventura:        "1a64578255cf526f0d168f25bf20c299fd63f5f73e6bda519395501861bcf047"
+    sha256 cellar: :any, monterey:       "714794e98db09fd481a00876980793b2554774ec2370a3cb8e01fabb1450aecf"
+    sha256               x86_64_linux:   "14c28b32c66b2f4dfb52f53caa6cb222a2a94933085333c3fbbf3d81a5f11038"
   end
 
   depends_on "cmake" => :build

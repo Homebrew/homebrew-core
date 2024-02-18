@@ -7,6 +7,11 @@ class Xrick < Formula
   sha256 "aa8542120bec97a730258027a294bd16196eb8b3d66134483d085f698588fc2b"
   revision 1
 
+  livecheck do
+    url "http://www.bigorno.net/xrick/download.html"
+    regex(/href=.*?xrick[._-]v?(\d+(?:\.\d+)*)\.t/i)
+  end
+
   bottle do
     sha256 arm64_sonoma:   "093532f812611be4dd077c07c1b1cf56af346ee21dd5db5dc606a324ca905df3"
     sha256 arm64_ventura:  "2258cda0738068cd11a61450268da7eab0063a0f56b2c6444c1da26aee99c8c5"

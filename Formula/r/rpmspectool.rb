@@ -13,7 +13,6 @@ class Rpmspectool < Formula
 
   depends_on :linux
   depends_on "python-pycurl"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "rpm"
 

@@ -1,18 +1,18 @@
 class Xctesthtmlreport < Formula
   desc "Xcode-like HTML report for Unit and UI Tests"
   homepage "https://github.com/XCTestHTMLReport/XCTestHTMLReport"
-  url "https://github.com/XCTestHTMLReport/XCTestHTMLReport/archive/refs/tags/2.4.1.tar.gz"
-  sha256 "a27aa4bfa5ea3a96890d65df017dd5d69aca93d635c46df3ebfa245b9d1b7b90"
+  url "https://github.com/XCTestHTMLReport/XCTestHTMLReport/archive/refs/tags/2.4.2.tar.gz"
+  sha256 "ab98463c3981eb8ebc0e1b90773d483f39b6af12e06b30598d1e143edf800807"
   license "MIT"
   head "https://github.com/XCTestHTMLReport/XCTestHTMLReport.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9231402a6c75bd56b2264b9ce904c92f8c7ca65071c12e8323ffab98199aafca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c72ec799a6540e7110ebfa8faeddff9e7ffabe691e525a599b5e7e933488df55"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a695179ba21b5c1d562fc66b25b6dbaae8a43865cb4d436ffa222046466b1e01"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a960216604448aa01a76e18e90a74dce186978e49d1f91e5594fc75104b3cf0f"
-    sha256 cellar: :any_skip_relocation, ventura:        "cdfd4bc8cb92496621467f74da74ad8bbff1d5ab1b92631d030a4efe849a8304"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c49c8918e26d5b582f623b3de61e3d563aa8c83b9bb2c1dcc7d2290f2f7a790"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6567ac13495718497de773f0cdc4b23fc9b6f71be36f088c8b51e2196721c6bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8075a0c4d00ec74e0985bfd52871e27f5f49e4b2fabed49d943f6c69a4a5bf96"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6456acd9d4f7b9381667e7a589b83f8c4842b9a6a43b75b36b474032f9fb7e2d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7b4172c6329aa1f2971ed5df462f83562f946a14e14a6a3d960bac183052f66d"
+    sha256 cellar: :any_skip_relocation, ventura:        "a39d9324b6efb72c3d01deb7d2471bff2d8c1d2316947d5363cf46b50f3cc087"
+    sha256 cellar: :any_skip_relocation, monterey:       "56bacc01abafd9838909ed7dd40fad2428010eadd98729589751f4130f74d972"
   end
 
   depends_on :macos

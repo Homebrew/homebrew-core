@@ -23,7 +23,7 @@ class Anttweakbar < Formula
   # From https://sourceforge.net/projects/anttweakbar/:
   # "The project is not maintained anymore but feel free to download
   # and modify the source code to fit your needs or fix issues."
-  deprecate! date: "2023-02-14", because: :unmaintained
+  disable! date: "2024-02-12", because: :unmaintained
 
   on_linux do
     depends_on "libxcursor"

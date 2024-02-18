@@ -1,21 +1,19 @@
 class Shush < Formula
   desc "Encrypt and decrypt secrets using the AWS Key Management Service"
   homepage "https://github.com/realestate-com-au/shush"
-  url "https://github.com/realestate-com-au/shush/archive/refs/tags/v1.5.4.tar.gz"
-  sha256 "9b4c4f24fbdee1e761e67984d85c51bcb656db7e3e03406200d40ade765417a7"
+  url "https://github.com/realestate-com-au/shush/archive/refs/tags/v1.5.5.tar.gz"
+  sha256 "b759401d94b2ebcc4a5561e28e1c533f3bd19aaa75eb0a48efc53c71f864e11b"
   license "MIT"
   head "https://github.com/realestate-com-au/shush.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c46078895f5556b7aba5a75e7dde373928f56f2415e824ffbb54b9a519e436ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95d7c795431217ecbe5a637818006a421fe5af863114a79753d1255dfb872430"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95d7c795431217ecbe5a637818006a421fe5af863114a79753d1255dfb872430"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "95d7c795431217ecbe5a637818006a421fe5af863114a79753d1255dfb872430"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e46a6de2d1adbc55e9b530797c89859cf2c2d1c0d286e2aaacf36004038ee25"
-    sha256 cellar: :any_skip_relocation, ventura:        "6381063d60b49716cb67d4c0daad0526e349efd58c84c99e7396b00458f46a47"
-    sha256 cellar: :any_skip_relocation, monterey:       "6381063d60b49716cb67d4c0daad0526e349efd58c84c99e7396b00458f46a47"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6381063d60b49716cb67d4c0daad0526e349efd58c84c99e7396b00458f46a47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd461e6fd682fb787771b7fbdf5b55ab7dfb8a24d2a027251dbc034c6381a1f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4eddd05ead07c7e5aba121ce9f52d9ebde508f13582e309b2cc94f9e7594775"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "235bbae46feb07e98354987aa2b7139dc0124af9f6420bd8427218468239649f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d895bc3945dc850cbabfed017e8fe0bdaad6ac2db22e0eef6b61e28dac59a45"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2d4aa70631bb78c9080f8a8e459318d832e1fdac632be672beddc5bd3d9e40e2"
+    sha256 cellar: :any_skip_relocation, ventura:        "ae3d5f78a927f8694bd6e64e286129991d8984302c75411275b0909f8215d839"
+    sha256 cellar: :any_skip_relocation, monterey:       "b889d1067edc8deb05de429b3847505421c19e715243295dd7653a282cb0d61d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "949283b0dcf3f30c9838df02fef553efad86906bb540b0ff601bc0a07b10e2a1"
   end
 
   depends_on "go" => :build

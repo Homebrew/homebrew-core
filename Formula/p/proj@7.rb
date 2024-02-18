@@ -21,7 +21,7 @@ class ProjAT7 < Formula
   keg_only :versioned_formula
 
   # https://github.com/OSGeo/PROJ/issues/3067
-  deprecate! date: "2023-02-09", because: :versioned_formula
+  disable! date: "2024-02-12", because: :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "libtiff"

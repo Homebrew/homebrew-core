@@ -1,9 +1,10 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2023_09_4.tar.gz"
-  sha256 "abacae431bbc5882b87cc8629b7ddc02757204e854aa45b6157ec2bf45d623ef"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2023_09_5.tar.gz"
+  sha256 "0b1ddf2bf822879e0863caf8efb794154e0a424108f2c1333ac94381c01fd688"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -15,13 +16,13 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "535bb6868e735a0147e4f3a77acd3802daad3a7bc8d0e86a634e5b371ded1c69"
-    sha256 cellar: :any,                 arm64_ventura:  "15f070d4838f682844ee462dad9feae5768264f767292d2ee5e1c976597ac053"
-    sha256 cellar: :any,                 arm64_monterey: "2d8d7e4adfad6636e82f90fc8b94eb5b46b14eb6b6856d937ee3afdc02daa699"
-    sha256 cellar: :any,                 sonoma:         "2f4365b7693d080e19fce99a06ce0a29ec1c57b82ae2d6580ce2c333d5c6a4b2"
-    sha256 cellar: :any,                 ventura:        "36fbed556bc6c3447793399a5e1451433b70a2f1549e90dcdcdfc4d01bddfd55"
-    sha256 cellar: :any,                 monterey:       "9a8afdad3517684776d7d5d150fbe640500a26d6230e876480f748a206d01d3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb507f66b1affa0bb07eb995683013d00961f62c8da7fd29c12fcf7ec1baa58e"
+    sha256 cellar: :any,                 arm64_sonoma:   "019f1533e0db26ab44e88f204afef1f57d3a50663989ffdbf90fc1773cb262f0"
+    sha256 cellar: :any,                 arm64_ventura:  "36f19182a29c05389a9b8b1bcad8994ca2f4fad75af42af3827e669f55ab25dd"
+    sha256 cellar: :any,                 arm64_monterey: "a922a326bd0b1a8d7136812d1aa3bcb31860504f4ac42424dac0e48d71979126"
+    sha256 cellar: :any,                 sonoma:         "ede3c538aa9d788a7fd29cdd8573cc896a08c434f15520e7dd3d7bb89f0704eb"
+    sha256 cellar: :any,                 ventura:        "47428647fa32437062850507d40cf164f3b136a6a933e293c39ed62ee8a06148"
+    sha256 cellar: :any,                 monterey:       "0452ffac33cf33901d13f0d2b9e9467209591edec9c70001534a4a82a1ee6345"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b65fac0c69e5f8b540600535422dfe110a5f767187b24f58ab2d8d80335042ef"
   end
 
   depends_on "cmake" => :build
@@ -32,7 +33,7 @@ class Rdkit < Formula
   depends_on "eigen"
   depends_on "freetype"
   depends_on "numpy"
-  depends_on "postgresql@16"
+  depends_on "postgresql@14"
   depends_on "py3cairo"
   depends_on "python@3.12"
 
@@ -47,7 +48,8 @@ class Rdkit < Formula
   end
 
   def postgresql
-    Formula["postgresql@16"]
+    deps.map(&:to_formula)
+        .find { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
@@ -111,10 +113,29 @@ class Rdkit < Formula
   end
 
   test do
+    # Test Python module
     system python_executable, "-c", "import rdkit"
     (testpath/"test.py").write <<~EOS
       from rdkit import Chem ; print(Chem.MolToSmiles(Chem.MolFromSmiles('C1=CC=CN=C1')))
     EOS
     assert_match "c1ccncc1", shell_output("#{python_executable} test.py 2>&1")
+
+    # Test PostgreSQL extension
+    ENV["LC_ALL"] = "C"
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
+    port = free_port
+
+    system pg_ctl, "initdb", "-D", testpath/"test"
+    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+
+      port = #{port}
+    EOS
+    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    begin
+      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"rdkit\";", "postgres"
+    ensure
+      system pg_ctl, "stop", "-D", testpath/"test"
+    end
   end
 end

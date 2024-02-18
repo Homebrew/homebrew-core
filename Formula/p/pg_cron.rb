@@ -4,22 +4,26 @@ class PgCron < Formula
   url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.6.2.tar.gz"
   sha256 "9f4eb3193733c6fa93a6591406659aac54b82c24a5d91ffaf4ec243f717d94a0"
   license "PostgreSQL"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "46319669501a68f85486f03718757c445232a2cda06fe4052c72f06305952a93"
-    sha256 cellar: :any,                 arm64_ventura:  "a4b25202758f71ad9ccb2b79959cc9b7c360c8a397063c823b76b65214a22387"
-    sha256 cellar: :any,                 arm64_monterey: "24ccd07d3b6fa08211e39698f2cc8e964fd8b3785df6ff8eb491947055d40d78"
-    sha256 cellar: :any,                 sonoma:         "a0bc2b517f51094f790ae767c91aa673f54d9a47637ae52c845a1783a695b4fc"
-    sha256 cellar: :any,                 ventura:        "08d8db4d45809be10db49e8cddfec6ed2d09b3a3f0158f86f4c02f3df070210e"
-    sha256 cellar: :any,                 monterey:       "517cbf786d644a14d59dbc8ea8db6021a442ae2d3735592c3cb3a9ef28a899c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce8abe1eb67c86d1380d0c44dd7ff20c4498226ef6e43ab95d4b15ab06a5309f"
+    sha256 cellar: :any,                 arm64_sonoma:   "ab537999d98dd7cb8183f1dd8ac5a2a1c0b6b144e917d0088c4df624bb49d019"
+    sha256 cellar: :any,                 arm64_ventura:  "81aed28f89bb77a7420e7f7ac35f3d4a461a5fbd04c9a34f72959a2b6b4d358b"
+    sha256 cellar: :any,                 arm64_monterey: "89476a9d9f99446bfc07ec141f1d7b0c57e35c4e9d3f520bd094267d77994315"
+    sha256 cellar: :any,                 sonoma:         "11fa040c59567059cdee5c972986770498c8eabdc5a88a99406fcf0b6ca9eb73"
+    sha256 cellar: :any,                 ventura:        "5ac4c0b346031905988a1509f685c67cab56e481aef1ebe272850edff8e67966"
+    sha256 cellar: :any,                 monterey:       "37c5e41876212c485e99e882e7bc9fa62d5cc968a7579691d66d434b668fb66b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18e321a8163c1614a8cc93c66382525a3b71e996225001707971ebb918cbc3aa"
   end
 
-  depends_on "postgresql@16"
+  depends_on "postgresql@14"
+
+  on_macos do
+    depends_on "gettext" # for libintl
+  end
 
   def postgresql
-    Formula["postgresql@16"]
+    Formula["postgresql@14"]
   end
 
   def install
@@ -27,15 +31,15 @@ class PgCron < Formula
     # Issue ref: https://github.com/citusdata/pg_cron/issues/269
     ENV["PG_LDFLAGS"] = "-lintl" if OS.mac?
 
-    system "make", "install", "PG_CONFIG=#{postgresql.opt_libexec}/bin/pg_config",
+    system "make", "install", "PG_CONFIG=#{postgresql.opt_bin}/pg_config",
                               "pkglibdir=#{lib/postgresql.name}",
                               "datadir=#{share/postgresql.name}"
   end
 
   test do
     ENV["LC_ALL"] = "C"
-    pg_ctl = postgresql.opt_libexec/"bin/pg_ctl"
-    psql = postgresql.opt_libexec/"bin/psql"
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
     port = free_port
 
     system pg_ctl, "initdb", "-D", testpath/"test"

@@ -1,10 +1,10 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.6.tgz"
-  mirror "http://fresh-center.net/linux/misc/openldap-2.6.6.tgz"
-  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.6.tgz"
-  sha256 "082e998cf542984d43634442dbe11da860759e510907152ea579bdc42fe39ea0"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.7.tgz"
+  mirror "http://fresh-center.net/linux/misc/openldap-2.6.7.tgz"
+  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.7.tgz"
+  sha256 "cd775f625c944ed78a3da18a03b03b08eea73c8aabc97b41bb336e9a10954930"
   license "OLDAP-2.8"
 
   livecheck do
@@ -13,14 +13,13 @@ class Openldap < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "fab501c48e2f9e64bbf906ff017ca61f432555425135d16ebd0c69c0de2b6b2b"
-    sha256 arm64_ventura:  "3225031ce7d791f4a83eaf1acc44c5e5f1dc6da7abe9882f4c4b06b6fa2c7a58"
-    sha256 arm64_monterey: "6af7058f3fa120b38b6a3fe203569a0f9c2ec0696bebc21c8b1ff310793d0371"
-    sha256 sonoma:         "534ee0d0dc9cd6fa1658a6ca14ebf7e11bdca8fb4d765823f0441a3d667a1828"
-    sha256 ventura:        "bf5b152fc307a19c274a527403d74eb03428dc0a184ff5f2b28301e8fbabfeb4"
-    sha256 monterey:       "64744bbdd854d2716f1a8ed694b9f9b4b4d95650c7bf007b387a28a5239634bd"
-    sha256 x86_64_linux:   "167e6a9b406c74a9d805aff8b97f5873fcb91396b4ba10980370ab03472f6950"
+    sha256 arm64_sonoma:   "586762c2bc4dc3ac9c5959009af103ca4d46309c073de7b9da33ad8ec6767e01"
+    sha256 arm64_ventura:  "0bb2ff7967bb92f0dd7de90360eb1544931f44559acdaf8499255f3e971a1a1f"
+    sha256 arm64_monterey: "3b129f7922a3942d2044d74333cb138d81c3d424254dfdfd5fcbbe4a0f5200f0"
+    sha256 sonoma:         "93641ee79dc64412d56d7cd363b8b7f574713a36c4378ae87dd7afb564428fc3"
+    sha256 ventura:        "82787c552d0b75a406efb2739ecb42666b1aefeeecf297cf3ce923b6a9ad2aaa"
+    sha256 monterey:       "53db644f20f3a1bae71ddecc65366c461b9e64a8816e1b75f81e3c3573055470"
+    sha256 x86_64_linux:   "f251004321722f41e9d53b49539c24a7116d8f297969822134e2cdb06c696089"
   end
 
   keg_only :provided_by_macos

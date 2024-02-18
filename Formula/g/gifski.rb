@@ -1,19 +1,18 @@
 class Gifski < Formula
   desc "Highest-quality GIF encoder based on pngquant"
   homepage "https://gif.ski/"
-  url "https://github.com/ImageOptim/gifski/archive/refs/tags/1.31.1.tar.gz"
-  sha256 "5d06fc2eeefb4abc8ce4e2a7722178e177837c561561fc1019d1438ba85999b5"
+  url "https://github.com/ImageOptim/gifski/archive/refs/tags/1.14.4.tar.gz"
+  sha256 "7d6b1400833c31f6a24aac3a1b5d44c466e07f98af6d6c17487a7c8c6f4aa519"
   license "AGPL-3.0-only"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f1765df5d4f7af4ee09dd401806a31d959a8d7cac3abb60aa80e7b6e4f538516"
-    sha256 cellar: :any,                 arm64_ventura:  "b60eb2f5ee2c5503b06581e9653259e292147e650b22bba577f488b20cb262e0"
-    sha256 cellar: :any,                 arm64_monterey: "3278e6a28dd4faf9aeb6eacf275beaecbaa139880a9fc8a91dd198c3e668f657"
-    sha256 cellar: :any,                 sonoma:         "3643f65e11741d688f099210bd2a68930b98d8ff5cb3b8aeea4a67d560bf9d8d"
-    sha256 cellar: :any,                 ventura:        "42983d2adcc25875f469d04b255b9b63579ad6038bbea31a81c9bf93601b1a92"
-    sha256 cellar: :any,                 monterey:       "80a3b483c1af00bdf8cd271e17f0449091c7ab480aef555c79e181dca5e1ec41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b26b067e6b6ea9c69083a2fcb12f80ef8434f6ed52452a33e000d2e6c97ab263"
+    sha256 cellar: :any,                 arm64_sonoma:   "4cd9f0178e0bf227c0e702c48fe108790922ffec6d87c40cb59add10f3e8aa2f"
+    sha256 cellar: :any,                 arm64_ventura:  "bad32d338e851e3c2bd459b3c26b0e31fb7830d76211f0accdda70449547c2f7"
+    sha256 cellar: :any,                 arm64_monterey: "051d96c3a000fa79be32741cbb194bd89ad08424fcd2dabf66598f33e782e2db"
+    sha256 cellar: :any,                 sonoma:         "324ecf6366f9046fee2befad79d2a3bde580c1e342a52b8e2b367a561c4d35ba"
+    sha256 cellar: :any,                 ventura:        "ae41654b042eb827c70227142dae889cf6d9e6773cb79f89331e9c21206a1b97"
+    sha256 cellar: :any,                 monterey:       "5a8cc680c54eeaaddf0fb0526df1ab5a2deacf8a9c9f223dabbefeed2ce80ae3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc43456bf605740c39789127a737a9509e6a2629dca26c5ee6b73f3f4924705e"
   end
 
   depends_on "pkg-config" => :build
@@ -23,13 +22,6 @@ class Gifski < Formula
   uses_from_macos "llvm" => :build
 
   fails_with gcc: "5" # rubberband is built with GCC
-
-  # Update ffmpeg-next to build against ffmpeg 6.1
-  # upstream PR ref, https://github.com/ImageOptim/gifski/pull/318
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/692a55565d0206accee1ba34c3c0bc68e1fc3585/gifski/1.31.1-ffmpeg-6.1.patch"
-    sha256 "2d5e6f8749c7b02d7128f2dc57f9875e33099695340ac854927eab60e556370e"
-  end
 
   def install
     system "cargo", "install", "--features", "video", *std_cargo_args

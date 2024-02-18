@@ -12,15 +12,14 @@ class Tarsnap < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "53d60c8374dd95fe8f5b49f11694b8c92a62239f19f20d15e74dea24b820b570"
-    sha256 cellar: :any,                 arm64_ventura:  "0e022219045b24e6d876bf97f8a092a82449932410ba7ebfa58d860dd92608ff"
-    sha256 cellar: :any,                 arm64_monterey: "8c765adcc21196986e44b11c168521f40ca7a6e6a9c1432bfa0e92933b28e920"
-    sha256 cellar: :any,                 arm64_big_sur:  "d99d8d2ea8f5b689fda5ab16779f19ccb66ac245743a0b3a968e853113e8d3ae"
-    sha256 cellar: :any,                 sonoma:         "40d84bac47bb80fbabc2674ada045f31dca0c3165b1c1ff6bc294073fddbd6f5"
-    sha256 cellar: :any,                 ventura:        "d00d96a1ac3b3135985a30b282018fd3ca039532fd4fea10dce88149f0d904c7"
-    sha256 cellar: :any,                 monterey:       "77f225c14c952a1c5786d80fa284936fb35fbea06ea90522b39a39b8f1d8cd14"
-    sha256 cellar: :any,                 big_sur:        "a81400622c552d684b783e239cdd3f3cdc139d2a1e65ef41eed1685efe89d95d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "511945c57b370981aeab675422da88d71b63a2442e7b55b6d9a7a4071e2668f8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b6625d85533017b32de38a4691da1c7784917f77db503cf64ca960f912665168"
+    sha256 cellar: :any,                 arm64_ventura:  "b9efb41f22d2bfc464a999b1008d98638c4c98960c41436253a6bae8f3b0bae9"
+    sha256 cellar: :any,                 arm64_monterey: "b46cd4c9c74a74f0eda24f0b3128c174e6feb8c25258a71c3585063bfaea7ae1"
+    sha256 cellar: :any,                 sonoma:         "587aa5a6354166253aac40af29637dfcf15a453e02a8c51d7099f7303db59167"
+    sha256 cellar: :any,                 ventura:        "77b98ad1864065a20bb42234dc3d48a0fd1e1f4d3e03e945d2b6afacdcde459a"
+    sha256 cellar: :any,                 monterey:       "9a557a13fa81c228758cef671dccd14d5d37e84672a4c83e38c2deeb4b28df6b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7587b23f9faee15f4d9c7e4a89b4d38913dbc80d297b490f3738ad52ec60798a"
   end
 
   head do
@@ -36,6 +35,12 @@ class Tarsnap < Formula
 
   on_linux do
     depends_on "e2fsprogs" => :build
+  end
+
+  # Needed for tarsnap 1.0.40; should not be needed for 1.0.41 or higher
+  patch do
+    url "https://github.com/Tarsnap/tarsnap/commit/4af6d8350ab53d0f1f3104ce3d9072c2d5f9ef7a.patch?full_index=1"
+    sha256 "4136b5643e25f7d5e454c014b3c13d7ad015a02e796c5c91b3e4eeca28c1556e"
   end
 
   def install

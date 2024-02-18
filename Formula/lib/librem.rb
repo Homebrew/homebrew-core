@@ -17,7 +17,7 @@ class Librem < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17184b4ef23c26a8786392aabc829373e154f51915961761fc57a13140d76206"
   end
 
-  deprecate! date: "2023-03-22", because: :repo_archived
+  disable! date: "2024-02-15", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "libre"

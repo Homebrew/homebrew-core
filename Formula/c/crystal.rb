@@ -19,13 +19,14 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0a32574a37a4d799b102517c9b5d9f7b6a1be526d474bb5e023d25edccdba96a"
-    sha256 cellar: :any,                 arm64_ventura:  "478c12cc7e999c6c9819e577beffa68dec3bd51684344166848fdbb0c34abef4"
-    sha256 cellar: :any,                 arm64_monterey: "95b4c4fda21f08e864e25a62c1bceffd7f8c146418026d85465d5680b57c7387"
-    sha256 cellar: :any,                 sonoma:         "f604ad601933fde22706611eae5c17d2a8e8ae8bcb4c6c83604e135f46b89867"
-    sha256 cellar: :any,                 ventura:        "68f635a76678075088eea4531fbddf0dd83d380d6b9e66c8ffdd159b1650db55"
-    sha256 cellar: :any,                 monterey:       "201e352a2ee477a256d71f820150025d12586d39219a24723f739833578d94c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8298f939a39e46fef1b713844dbddf3434dbf2cd28f1991d4476089f3b3711c2"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "32caa5e278075c34b514b68694828018e380e1746336a174984c2b9bc4fa1ce2"
+    sha256 cellar: :any,                 arm64_ventura:  "e9332f79820e6cf5dee04acb569f3ce8de0ef799aa775e6fa504a959a1bbb2d0"
+    sha256 cellar: :any,                 arm64_monterey: "e41c766b2dbb65e4b0e50b350a7442c698d8f19965afba6f8af42cfd2ca8690e"
+    sha256 cellar: :any,                 sonoma:         "cfead86e8edcb31d52ae2221462c557a13bc5c596427c8b945614cfef4c7cb71"
+    sha256 cellar: :any,                 ventura:        "2aacb7a12c6631955c727c6b0f0ec144d55c9c7d047d7da505ff47e65abbf6df"
+    sha256 cellar: :any,                 monterey:       "591547968d88597a6345310a3ca40f6d04a295611d88e72e8b9d4535a71962fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cd83187e66d3f0f9c9d2c0bf4f6591330428a6e070f11f87cf6671449ffbed4"
   end
 
   head do
@@ -110,6 +111,7 @@ class Crystal < Formula
     release_flags = ["release=true", "FLAGS=--no-debug"]
     crystal_build_opts = release_flags + [
       "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_path}",
+      "CRYSTAL_CONFIG_LIBRARY_RPATH=#{config_library_path}",
       "CRYSTAL_CONFIG_PATH=#{config_path}",
       "interpreter=true",
     ]

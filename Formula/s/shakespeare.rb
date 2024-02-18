@@ -22,7 +22,7 @@ class Shakespeare < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c707f7d358ecf5a97415d8be7fd4d2d46bb04e7e3ce5926a6ad659dc28d7102"
   end
 
-  deprecate! date: "2023-01-19", because: :unmaintained
+  disable! date: "2024-01-21", because: :unmaintained
 
   depends_on "flex"
 

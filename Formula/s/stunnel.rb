@@ -1,8 +1,8 @@
 class Stunnel < Formula
   desc "SSL tunneling program"
   homepage "https://www.stunnel.org/"
-  url "https://www.stunnel.org/downloads/stunnel-5.71.tar.gz"
-  sha256 "f023aae837c2d32deb920831a5ee1081e11c78a5d57340f8e6f0829f031017f5"
+  url "https://www.stunnel.org/downloads/stunnel-5.72.tar.gz"
+  sha256 "3d532941281ae353319735144e4adb9ae489a10b7e309c58a48157f08f42e949"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Stunnel < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d5e2aa362868c487ba5669305dc7b0f4ef4ddcc093cde5f4274862ba85f790d9"
-    sha256 cellar: :any,                 arm64_ventura:  "0881a96a5678a80467c2b6b298cd350c7928cb0d20727f4690546c79503d6907"
-    sha256 cellar: :any,                 arm64_monterey: "4043ea42a70b6498bd5ff8a90dbb695f1e244c760d29a724318ce32adce12414"
-    sha256 cellar: :any,                 arm64_big_sur:  "b50815761e7c64635fd2c97a4aa13a467bec622ff47916fa5df2e85b69df8ad9"
-    sha256 cellar: :any,                 sonoma:         "55709104b448aa0ddb5a3915dd1de58b430f4e4204aaf3773a0721c29cddc75d"
-    sha256 cellar: :any,                 ventura:        "c928f970421ab4bfcc7272fb77adb13dc903e6292d4708bef20fe8854c8d3b31"
-    sha256 cellar: :any,                 monterey:       "b3b390f32bd0c433d23eb4597a46435549ecd0afd62299e6006a91de20bf98db"
-    sha256 cellar: :any,                 big_sur:        "bb589c337cae66dd6096fb6fa094ef8b17fbb31482ead130b1b341daf1ea044f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c9d632f01a97ce53042d0bfbf3407d880b629069080a7d7d59cd6ed99d11a20"
+    sha256 cellar: :any,                 arm64_sonoma:   "b9355c18b5c774c0ebf38f7a72501d9ddd91aa9fb065a202cf8322897fc2f0ba"
+    sha256 cellar: :any,                 arm64_ventura:  "6b8e8e41541437ede07271765721ad5c8ce63c41f00f1add95419a0b69b5d357"
+    sha256 cellar: :any,                 arm64_monterey: "8e38c743381aa8118f34460c37e0bccf766da04aa6beb32965eda09a0be41d91"
+    sha256 cellar: :any,                 sonoma:         "abbd7ba512fcbde3086d934910f8f1c851ea8b6d6d32d21fc1a4e80f4af962d7"
+    sha256 cellar: :any,                 ventura:        "7d3b72c95f02663b5f0e51a2e19eff17b335bd5e474fb917f0b8574e7848c50c"
+    sha256 cellar: :any,                 monterey:       "14e5adc675a656d7553ffcb537d38d1b6758382b33cebeb4ef57c7e0203755a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d725f644fbe330bf2938b8f243f0553b806bcb754ceff5248049adb5b8cc211"
   end
 
   depends_on "openssl@3"

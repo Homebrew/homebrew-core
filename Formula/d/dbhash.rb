@@ -1,9 +1,9 @@
 class Dbhash < Formula
   desc "Computes the SHA1 hash of schema and content of a SQLite database"
   homepage "https://www.sqlite.org/dbhash.html"
-  url "https://www.sqlite.org/2024/sqlite-src-3450000.zip"
-  version "3.45.0"
-  sha256 "14dc2db487e8563ce286a38949042cb1e87ca66d872d5ea43c76391004941fe2"
+  url "https://www.sqlite.org/2024/sqlite-src-3450100.zip"
+  version "3.45.1"
+  sha256 "7f7b14a68edbcd4a57df3a8c4dbd56d2d3546a6e7cdd50de40ceb03af33d34ba"
   license "blessing"
 
   livecheck do
@@ -11,13 +11,13 @@ class Dbhash < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2616bebbff56ffe64e97233f0a1c8aa76490a8212588fb93939a040f119087ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "245f98b8cec43e4c9d844010cb88563ff9e73bbee454096ee5395d1ea43d0822"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d683b487d7463327b99bc801080b5966cab175654bcf029f98b919ea96488db"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ca1cb111d0bad338816e42a42ee8e6e7c58d1db5434e69c8b9bef3f676893e40"
-    sha256 cellar: :any_skip_relocation, ventura:        "5a63b75ef332b937cf81db49300049ae81b7192685a4abd353e448f5417c1ad9"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ae40b9b3a5a4fb95fb63fa4b3560d13bb310bb6de00807bac977ca0d448e8da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3c246751492635fa5d05a22072f520259d7598ed84179c8116ee3835cd28bd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db2c55520905614b6569e57db5511002d54a2d88cfdb2358c83bbd82a0745b26"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d2480346436f610b673af0dcf7690faf737938a1fe810b546b59a74046d269ca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d9eea5fd853cb9481cbe1f841fc3b9f86af3a3023f5a5fd982640709ff39d5f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b6cf4a090f86034500a200c54679de84bb21316ebdcadb7e6b3251bd7d16052d"
+    sha256 cellar: :any_skip_relocation, ventura:        "da5b541419f1a8aa97057c4b2aa2622032594b57158de5d6e8862578226920bc"
+    sha256 cellar: :any_skip_relocation, monterey:       "0efae6c9cb9fe978ca3cee4f0aad482f33837139ac8f9316c559f66607e6eb0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ef43e886867c701bc6e3b9d2339f482750431405912f6e3e706400c49e701f6"
   end
 
   uses_from_macos "tcl-tk" => :build

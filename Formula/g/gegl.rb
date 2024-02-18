@@ -1,8 +1,8 @@
 class Gegl < Formula
   desc "Graph based image processing framework"
   homepage "https://www.gegl.org/"
-  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.46.tar.xz"
-  sha256 "d0b3b2481bc8774c5f3d0a487611910166d18eef823a859fb91e781ab7b1e892"
+  url "https://download.gimp.org/pub/gegl/0.4/gegl-0.4.48.tar.xz"
+  sha256 "418c26d94be8805d7d98f6de0c6825ca26bd74fcacb6c188da47533d9ee28247"
   license all_of: ["LGPL-3.0-or-later", "GPL-3.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://gitlab.gnome.org/GNOME/gegl.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Gegl < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "1af4fac0e4faedecc925fd8467e9739fd37c4ca0ebe0a96f270214263ae7fba3"
-    sha256 arm64_ventura:  "70e73227ab3babf88c3b92a755c4077eac31e59cf894eb2ba56d7b85ce8da046"
-    sha256 arm64_monterey: "8e05cf9e7284b79287d42375a3ad0deb0297062082fb7535aa17022399fb65cd"
-    sha256 arm64_big_sur:  "0676101111c243167d9826e3d0d2b1ce896469459e8210530b804d2603218253"
-    sha256 sonoma:         "b1c46a61a0611568aaa45213a95e486383cf973660642712af89eaaa003d7936"
-    sha256 ventura:        "004b97b7d7b24739a87565265dadb12dfa06c35ab23b6fa2447d4aa4a4307432"
-    sha256 monterey:       "c9528587fa729a1205b6fa8e255832c31078fb1048e615e71542420bc5be2e36"
-    sha256 big_sur:        "d3b1dc1229ce6306c8ae0c88fd2f1a17c832ce071c9375750025f577d4892a46"
-    sha256 x86_64_linux:   "886706bdf73a47733567e36d8d10abbf3627278be026dcc7e66f44b4f1e444df"
+    sha256 arm64_sonoma:   "181d5c65f56537c5ba402862e6d2e63d83a02f4e02b5b2bc07482cdfba10ada6"
+    sha256 arm64_ventura:  "3ec4319427d9749b83a3dc282465dfe99ca49e91d041ea04ba8b664a7524481b"
+    sha256 arm64_monterey: "9eb503e902a884dcc7b9c436183a38080d49093705aeaf852bb468824b590e9b"
+    sha256 sonoma:         "bfdeaeaaadabb0a02589256a47ecf8a112bf50a6b4391be319a6b1108db2955e"
+    sha256 ventura:        "9e35612d5ba6b7b14aeb6dae97fc6ab3ebd298c68d77cd416426a3ce1c4c6ff3"
+    sha256 monterey:       "6ef9068062d0a3d937cc9ecd6dde04d916f535501ed9309d688fca2133920625"
+    sha256 x86_64_linux:   "4411ccbe1d5e15a856bec20d3da20a381f97a0ec6950fd906475f7bc26b64bb5"
   end
 
   depends_on "gobject-introspection" => :build

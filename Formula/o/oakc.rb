@@ -6,11 +6,6 @@ class Oakc < Formula
   license "Apache-2.0"
   head "https://github.com/adam-mcdaniel/oakc.git", branch: "develop"
 
-  livecheck do
-    url "https://crates.io/api/v1/crates/oakc/versions"
-    regex(/"num":\s*"(\d+(?:\.\d+)+)"/i)
-  end
-
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7dda2bb361b0d013dae148630eb1c19a884bec2f3cec498681777f1355a4963"

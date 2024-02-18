@@ -8,22 +8,19 @@ class Chatblade < Formula
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b1e5c55df2d45257c2da3aef2756c7bfad6c35d581e43e49e6abf747a3c72340"
-    sha256 cellar: :any,                 arm64_ventura:  "fc1b317b109be39aa0b7a18c379e72ff68326eea56c2bf4506822cbb3610dade"
-    sha256 cellar: :any,                 arm64_monterey: "4fdec3fdce45375e1080a444ae8f7edbd2d8de03f37c802b6332734c84fa8d43"
-    sha256 cellar: :any,                 sonoma:         "b1d158dc9bc4cb5587315e59b7cfee84eb6cf69f846afb80c1a40ec8258d5c08"
-    sha256 cellar: :any,                 ventura:        "d018ebb185042a9ed2c0027746d613c36af12315594fa303a9c8b7de52840f56"
-    sha256 cellar: :any,                 monterey:       "be0dc0976841e15d6439c7bd206c559092b55fea05db91a06808fa1b44dde585"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50a5764d6710d44b7980397f7670f711d7d5bc16bbbeabe325834418bec76105"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "be27083726d2326f739edce6d6f8dec7c6b8fea64695a2d0675ab516e87444e3"
+    sha256 cellar: :any,                 arm64_ventura:  "f2b269717d433fa38927440831007e96638f905735b3cb5cfca4df54eba15d6a"
+    sha256 cellar: :any,                 arm64_monterey: "946e077d99871cbf9d35d7c501cd2761948e3aab9df7a24a0aed7b6d1a951349"
+    sha256 cellar: :any,                 sonoma:         "021a9695495ba5fc5ea9f01f0896017667f5c4be9ab6800e81c5a382abbb1699"
+    sha256 cellar: :any,                 ventura:        "13ee9d9c02ec73fde17b43ccbc64546b588f39e61028df2b35852b90cc7dbb6c"
+    sha256 cellar: :any,                 monterey:       "24633ee88f491ae4ae460acf70660c75c538e09be036ccbe0afdfd040cb812f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f573e3a6390cf62dab8b6f9a2dc01fdcde65e871de0475d524f2a0d1f9931edb"
   end
 
   depends_on "rust" => :build
-  depends_on "pygments"
   depends_on "python-certifi"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/67/fe/8c7b275824c6d2cd17c93ee85d0ee81c090285b6d52f4876ccc47cf9c3c4/annotated_types-0.6.0.tar.gz"
@@ -95,6 +92,16 @@ class Chatblade < Formula
     sha256 "0f8682dbdd2f67f8e1edddcbffcc29f60a6182b4901c367fc8c1c40d30bb0a82"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "regex" do
     url "https://files.pythonhosted.org/packages/6b/38/49d968981b5ec35dbc0f742f8219acab179fc1567d9c22444152f950cf0d/regex-2023.10.3.tar.gz"
     sha256 "3fef4f844d2290ee0ba57addcec17eec9e3df73f10a2748485dfd6a3a188cc0f"
@@ -123,6 +130,11 @@ class Chatblade < Formula
   resource "tqdm" do
     url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
     sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   resource "urllib3" do

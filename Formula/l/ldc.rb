@@ -4,6 +4,7 @@ class Ldc < Formula
   url "https://github.com/ldc-developers/ldc/releases/download/v1.36.0/ldc-1.36.0-src.tar.gz"
   sha256 "a00c79073123a887c17f446c7782a49556a3512a3d35ab676b7d53ae1bb8d6ef"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Ldc < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "707f8d47e36ecc8c2c617f22890a62ef3d93f558a562cabfb3921f25d886832a"
-    sha256                               arm64_ventura:  "0a405044071166231e8a8bf170a9ef46219356e39201be14777ecb78e3fe1795"
-    sha256                               arm64_monterey: "116928c0acf77786e578fd6aeeaf046950e17369e01994090c7e9726b138c3b8"
-    sha256                               sonoma:         "61c543e1d598bc2a066a09959db409223a51a547506a5aecaa738961fb5d4a2e"
-    sha256                               ventura:        "87e332586ec67c20248606d00867affae0066be8a5454947a1cd9df08d9821e1"
-    sha256                               monterey:       "05ce4741765dde73b1e82c46292efb80d6a16ef504c9ca356ba7042a63753fad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce022d1b33c2db8c03ae7352d3a154daf11bc48306576a90c5427a59883bf3d0"
+    sha256                               arm64_sonoma:   "a702c014b40a7ae93e5aa3d40d53fe48a7967c04ca0039fbdb935d259790153f"
+    sha256                               arm64_ventura:  "ad0c37af554a276e470c09b626b00b2a716406f27a3e6b9979d3ef4348c36b9d"
+    sha256                               arm64_monterey: "34c09ba60abe8ef72796c710cbd2e6205fe42e5540c7ff213264f86a1fe3ca65"
+    sha256                               sonoma:         "a28a1d85609f977f1cf4c579f50c819034c027b63c202773130dd79f829d5876"
+    sha256                               ventura:        "e2cea208a0e283ac522b81cb82e8871c207928f08b9d943c43560b6e6c8ce187"
+    sha256                               monterey:       "32631d3cbc2403b2f00a0ed1821baf90db46785992ec891591ead9ce8df02c3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d60cc5db0c1b94d4d7c758ff01b2202566060e3c5388ddc086188bccc18c4774"
   end
 
   depends_on "cmake" => :build

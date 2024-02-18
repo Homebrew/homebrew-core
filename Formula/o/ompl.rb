@@ -4,7 +4,7 @@ class Ompl < Formula
   url "https://github.com/ompl/ompl/archive/refs/tags/1.6.0.tar.gz"
   sha256 "f03daa95d2bbf1c21e91a38786242c245f4740f16aa9e9adbf7c7e0236e3c625"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
   head "https://github.com/ompl/ompl.git", branch: "main"
 
   # We check the first-party download page because the "latest" GitHub release
@@ -15,13 +15,13 @@ class Ompl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a09917c91429a3f0617e5b556e114a0e55e927467dbea407a1214ca230f95479"
-    sha256 cellar: :any,                 arm64_ventura:  "b359522cb2aa7364331493dbb63c0f155e1f3788861577cdbe78d40b0fd619aa"
-    sha256 cellar: :any,                 arm64_monterey: "863f2322e9db3e3f065b5d102ba0c0fa68c45f7be97ecacf07335e55a2882139"
-    sha256 cellar: :any,                 sonoma:         "fcc8806e0fffebb8407290128dcc55cea76171f55a567bac566e3ac6006b5913"
-    sha256 cellar: :any,                 ventura:        "e688f03ca6de7cb397c1fe96ad4e37a4eaa365fb9d4322b71205b674a92da3a3"
-    sha256 cellar: :any,                 monterey:       "cd8be6859d0105df8c8ee2d6ff87653ea034c4e07470a4c5d85432678ba54f2b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51141a585e759f13151d135f15098c17753898798a16d327ab0246395c15f637"
+    sha256 cellar: :any,                 arm64_sonoma:   "d9f4852f5de265f2a351b6ff01c0d05ddbd6a07f64ad2d19740ff1d527db60ef"
+    sha256 cellar: :any,                 arm64_ventura:  "386a395702cb33a1b36199a7c129f96beed786df8b69af4d208db15eb5c23033"
+    sha256 cellar: :any,                 arm64_monterey: "0599b6337a982419818b476e7eaf323e2eb128cae82e72cc1f3b296d59d6276a"
+    sha256 cellar: :any,                 sonoma:         "f0e9d80171808e0871f7fc3d1a2751f9a2ced8c420588c7f977e816df5e68c99"
+    sha256 cellar: :any,                 ventura:        "7599fcdff298949b167a1ff909f0b7fbbdd0031322941b3d17201cb0b1fadaff"
+    sha256 cellar: :any,                 monterey:       "5b677f83e756ee5ef7efcbc4cd978c9107f2c9e22b02d347cdc07413098e3e3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d3bd0c771cb40f051ca251ecca0a4ae8798fc1ef48825e541c21ba33bfb61f9"
   end
 
   depends_on "cmake" => :build

@@ -6,6 +6,7 @@ class Uhd < Formula
       tag:      "v4.6.0.0",
       revision: "50fa3baa2e11ea3b30d5a7e397558e9ae76d8b00"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
+  revision 1
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
   livecheck do
@@ -14,13 +15,13 @@ class Uhd < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "9d9bbe423f7b7c2c71b8dc073586963771bdbfb035a6cb4e11becfc1c76ae5fc"
-    sha256                               arm64_ventura:  "685c06d0059ccdd6622a987e545b873cbac2952fd1fb2eacfa83d84b69f316bd"
-    sha256                               arm64_monterey: "87de0479c5439eb3b7dbfff6bd64ce0beec486f4c45c159f5fe07dd98f0550c1"
-    sha256                               sonoma:         "0c563f267209c1334f1900606135ec3dd3f1eb1cfebfe2b6d38fed71a6faeed3"
-    sha256                               ventura:        "b99b93a93aa37c95bfbb7f013bc0dcd7d15023c837420ef69a34a03be50ae5ef"
-    sha256                               monterey:       "fe0d306684277144020498f84a77f0666bec521e4b61ae9ee0e4969d87ea9c1a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e314b2e94684bb8ef793fa8b64de52d56d038f495c1db7166649c06521b10bf"
+    sha256                               arm64_sonoma:   "92f1f1ff47699ab512a6158c0fe90fe423e515fdcc8b747deff7bb2cda90149e"
+    sha256                               arm64_ventura:  "71fa408d611b35d62f354d2d8196679bad014c7884ec87ce7b864f620a1cc28f"
+    sha256                               arm64_monterey: "e588c168d382f2339579c614a1838c645c05d194965e912320d75c44249d7b8f"
+    sha256                               sonoma:         "cc32eff1fce1d2a0c2165fd4b1a7be2b3a8bbc585e65e26de6fa7a2c2db54763"
+    sha256                               ventura:        "d9e7d7bb61e9978653285012ad1fd3a2e25c5c854245562c23b4345c1084e228"
+    sha256                               monterey:       "7d268ccfdac3a005cd21af9502c770f3d88c6eaa2f3913abbd21e77c96adb090"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "feff805f30c5468050fc1b4ec9793a8f5301822ae3dd1c1daf8b59500ad9bc05"
   end
 
   depends_on "cmake" => :build

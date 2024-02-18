@@ -9,18 +9,18 @@ class Shodan < Formula
   head "https://github.com/achillean/shodan-python.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0372b361db583aca209b0c5dba898ec2521eab8c5690a5982396b37224d9d4b2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e77fe9d1898ba8f7923abf5789de20d67852f1f1ef67ad0e5135f115fb2d329"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff6a2f59ad698918955a97d355253f5363d9c708605f4ed719dd404ab9a7c2e9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5399e6b6f7b854b55f295249cdb096481bd0133270dbe71e153d6306efd94188"
-    sha256 cellar: :any_skip_relocation, ventura:        "bad7bd84229092f03c85d945052f4c7e0ef8fc473b947ee15d4aeba766bbd193"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f6fb27361a99e49b2adf891f2742640691e4145cd4e6147d44de803b850c676"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "989c2df9d45c1f05fcef1b0a199c9b4fa4802e831c397f03af434f59c027121c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa89d062aca4483c2d46d1c1c7acf61527686c517bdbf1f4378937600efe796e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc10708faae2b7b260c456a2fe45f5974058e9c4ad0c83b73911d6544bdfc5d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e06570611c096f0136cf413b78f4db80cf6319376a842db648c4d90ecd34e58"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ddc1ce6d620c6e2a6a2e279892ee6fb39db6df7743e98d142b7e194c2028a65"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd61b12917a0bd0a98b3f0a1ee40a4fcb1820a19f9ef644789a7396b74eb12b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "02e922ddd3c05cbb1d9ecb134dbc3286287270994a49c6d60529f77b20e03370"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bca3963ec7606ea2f2b86f242d7d97ce74a254ad0a9d77c605746f4031d1194"
   end
 
   depends_on "python-certifi"
   depends_on "python-click"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "six"
 
@@ -74,7 +74,15 @@ class Shodan < Formula
     sha256 "de810bf328c6a4550f4ffd6b0b34972aeb7ffcf40f3d285a0413734f9b63a929"
   end
 
+  # Drop setuptools dep
+  # https://github.com/achillean/shodan-python/pull/209
+  patch do
+    url "https://github.com/achillean/shodan-python/commit/a99fbf53139bad62fe5ba8f41ac130d5212cbf71.patch?full_index=1"
+    sha256 "3f674707548497ea79c760697e4cd44afe0e0df4433b3b49af8ea3637903acd7"
+  end
+
   def install
+    ENV["PIP_USE_PEP517"] = "1"
     virtualenv_install_with_resources
   end
 

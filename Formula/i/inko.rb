@@ -1,20 +1,19 @@
 class Inko < Formula
   desc "Safe and concurrent object-oriented programming language"
   homepage "https://inko-lang.org/"
-  url "https://releases.inko-lang.org/0.13.2.tar.gz"
-  sha256 "3f188a4a2242c61624081d757b66281ba0f0cfb193ebb590f1470f1f6400f773"
+  url "https://releases.inko-lang.org/0.14.0.tar.gz"
+  sha256 "4e2c82911d6026f76c42ccc164dc45b1b5e331db2e9557460d9319d682668e65"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/inko-lang/inko.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5a644c49be988a9c4728b5ad0e0f78d9a94fcaaacc331fca97096aa5ef5eb006"
-    sha256 cellar: :any,                 arm64_ventura:  "d7db49e295226d3c2eaaa22dfddb70ce4a5fc4d6cad6a67bfc62bc61de097ecc"
-    sha256 cellar: :any,                 arm64_monterey: "3fd8156828c7c22b46e6b0379ef4b3d1a9d7e8494557c7df1f7373f6af827865"
-    sha256 cellar: :any,                 sonoma:         "f75c6d1aa1cb492ef0def2e3a5260bccf57e53821c513fff43d74b460482cbcf"
-    sha256 cellar: :any,                 ventura:        "5be42c531af1e8bf4dcb4ef3b3001c68e947ed46f9f295d3a896c70af21d3262"
-    sha256 cellar: :any,                 monterey:       "907805b569a11e207c79f2e381446dbe83af025689cb90af2d2f3351cb83b6fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff65cc72be87c8fdba4ce8c074498e4811e9946ee0ccf65abdb53ec043d4d9e9"
+    sha256 cellar: :any,                 arm64_sonoma:   "f6ff66fdfb3aac69263c32a8a29d13e9d28a80ae33807f34460e55d8c1b228c6"
+    sha256 cellar: :any,                 arm64_ventura:  "be59d916d29d85bb8bc4474eb1c7d42a56236835c3c21b0e36fb9e9df0a25e6e"
+    sha256 cellar: :any,                 arm64_monterey: "9522c1f89b997dedaa3167ce4dbfa4a2d8c660acddecd32a99a515922e851b52"
+    sha256 cellar: :any,                 sonoma:         "8e32d823ce9712ae2d5a2b9cbe0c9b727223098b3e66b003da087032be9f6818"
+    sha256 cellar: :any,                 ventura:        "178865db1e2b60b4085a2465e8a3879794030a6d22c99b58c95e4bdf5418ef1b"
+    sha256 cellar: :any,                 monterey:       "6ef924939c42d7bb2ec4e0d65cf293147a593f829619928d2580b419ec19b26c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14a02c119990d6a17062290439ac74e6667b41dcb90b18cd90b36d2a09715e10"
   end
 
   depends_on "coreutils" => :build

@@ -1,19 +1,19 @@
 class Xh < Formula
   desc "Friendly and fast tool for sending HTTP requests"
   homepage "https://github.com/ducaale/xh"
-  url "https://github.com/ducaale/xh/archive/refs/tags/v0.20.1.tar.gz"
-  sha256 "3d4f5ac1c7ead00891c85a569df452d583d3c10df61f6ceb3fb58b5fef2ffdbc"
+  url "https://github.com/ducaale/xh/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "7e6b91a46bbbfee3907bf06d224a2e66a92b8f3e3950de43de5f06ce3beaacec"
   license "MIT"
   head "https://github.com/ducaale/xh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92d71d05097951df03a994a8022394f3deeb63d397101085aa759e3e7a958d4d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dcfa968041b517731372d15fc4f1b47b4d26a18f84ab9cabf0110bf0b989a532"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6aa752350bd95021ffa696cb26369b7b5e361c78f680075bdf858f48134c3771"
-    sha256 cellar: :any_skip_relocation, sonoma:         "25d3876ba3f120eaf8fb286d95ce8ac2ed81c2aa0af86057786076e0291dfd42"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d3e6f509336d47609aebdc1c4ee3e4111f724f27b4dda916699beed0b8c925b"
-    sha256 cellar: :any_skip_relocation, monterey:       "040bbb374e87f2b0d08a1109792996a7ed7ed818452f583cf57870748216c147"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "84b5e70199066b8dc4d38d36c89266a68f7055d51e2e1801e6997920bf610fda"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9611df49e93f108493f2aca24a19d5b5c5357b6acc5bc8bb51f30618518be7c3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3688db71dc5ef7f97b58fe7ab25482b1cc21c57da17b27d5bdf225c137e1f0f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d03e54a4022c1d22d3559b2f953547af7544fda43f6c91475d28fc32e5ef647"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bf75a392f42f4cd251d807da262dfd93e7870dcd82dcb76fbc8322cc39161064"
+    sha256 cellar: :any_skip_relocation, ventura:        "4b75106daf535ff91fd8426cd3140c1c560d535a36471a4fb9cb46aea5e119e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "f90c91f5508eb30d0edd95d46adc9425a4fbd7d793e1d019f975c6e42b8dc42e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79beda507556d86e3841cc0b7b8901dfb5aad9af2ae7384b1b118e03233eb8b5"
   end
 
   depends_on "rust" => :build

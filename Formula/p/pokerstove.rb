@@ -4,15 +4,16 @@ class Pokerstove < Formula
   url "https://github.com/andrewprock/pokerstove/archive/refs/tags/v1.1.tar.gz"
   sha256 "ee263f579846b95df51cf3a4b6beeb2ea5ea0450ce7f1c8d87ed6dd77b377220"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "abb1d6f96017e472394a6af2852b0c9469cfab61958ee90953848e8049a569bf"
-    sha256 cellar: :any,                 arm64_ventura:  "fc842f452161572ed767fc68264d8bdb2bf6e22c49fac17ddc76ac2e6f2e4e80"
-    sha256 cellar: :any,                 arm64_monterey: "a0f2e8d16940a094e5206dadeb619a8be65232b7fac6c32d8bdae74ec9faca5f"
-    sha256 cellar: :any,                 sonoma:         "ff0b8674ac91f4e6b5e7abd6059d7d1ebdd6d56d11c32701cbf61eeca1a027d1"
-    sha256 cellar: :any,                 ventura:        "3fcd1fe53808add41cfc2628fb4e3d4b1f4e95f72d2fe2414e305a7e704aeea9"
-    sha256 cellar: :any,                 monterey:       "13c612e544191e25d14de05895ea140efd639112d9a3e13f922662d7a5ab5275"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4092c63b1302da7aafbd72a4d644c4c52a7bdf36347a623bb8068bd47532c0bc"
+    sha256 cellar: :any,                 arm64_sonoma:   "64a75f730a1aae1b5e41d543e4e295489ccc2cbef633268cb8821f74c6cd6800"
+    sha256 cellar: :any,                 arm64_ventura:  "4388bac6e2aad2d458afc347f80b67974d440def978d8b456a8e7c1cd383a29c"
+    sha256 cellar: :any,                 arm64_monterey: "de4b660e6ac230ab2f1fb1fa143f04ae2e7f76d14a186e589190cffdd70821f3"
+    sha256 cellar: :any,                 sonoma:         "7d80774d774db577c4f75e8aa4276775354a211af0d289e82ab7037a3a275d3d"
+    sha256 cellar: :any,                 ventura:        "600cc77c4148d999f0ce6f5b1d8d890916ce44c0b7625fa08526598cd85e2a34"
+    sha256 cellar: :any,                 monterey:       "461a960a3563f8ef7bfcd8b5f95baacda71a9430fc70f01b3ecda861796df92c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "036395c5a067f0bedb07155ba3c575ec3167155cd94e81e0142ab5ed8340c187"
   end
 
   depends_on "cmake" => :build

@@ -4,17 +4,17 @@ class Osm2pgrouting < Formula
   url "https://github.com/pgRouting/osm2pgrouting/archive/refs/tags/v2.3.8.tar.gz"
   sha256 "e3a58bcacf0c8811e0dcf3cf3791a4a7cc5ea2a901276133eacf227b30fd8355"
   license "GPL-2.0-or-later"
-  revision 9
+  revision 10
   head "https://github.com/pgRouting/osm2pgrouting.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8beb5585b265e918aab7e5f259cd46c7c5b6f5049a57e56a98c18458d40c13dc"
-    sha256 cellar: :any,                 arm64_ventura:  "f6d776f603d5e2e5e68272578d6cf68f06ce5408572456a96088eb4403e6f25d"
-    sha256 cellar: :any,                 arm64_monterey: "c078ff4f90935b8257115d867d705097203d80a161236ad4829692aa42f6b76f"
-    sha256 cellar: :any,                 sonoma:         "94721e5a22ecd53b3bdd0ebf2fac40d5f32768ba80b7a99330713ec02f49d519"
-    sha256 cellar: :any,                 ventura:        "2764caf99063bd903c298d6fcb9a15e405877fb265692dd63834c5659ff02757"
-    sha256 cellar: :any,                 monterey:       "1981b891faee2dccc0586bc9b78e30ba16fe6895e98e88b4c45134d8d5f637eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d02ca7cedb9b090b998330671b9a3052bf4aeff6b34040c74c38a843629a32a1"
+    sha256 cellar: :any,                 arm64_sonoma:   "27696e4d49a2a92ab504b6c5a71cfb23973c60746b365a33c628f6d5defa5757"
+    sha256 cellar: :any,                 arm64_ventura:  "cbbde7712058faed30bf9fc5dd3075d993822a27d3e10405d8b61de677722e39"
+    sha256 cellar: :any,                 arm64_monterey: "d31b762f57c7a4af4af62219b9baff45d9b85f5aad4056eb20c1f218e90c65ab"
+    sha256 cellar: :any,                 sonoma:         "56e85bbdcc8e2bdc5a45223345abc9262c7b037abf14ee499a1f97e9b4fb5937"
+    sha256 cellar: :any,                 ventura:        "67877596e13484b268234ea4010ae8864bbd9a54957e0a7fb5b4c2a01c295151"
+    sha256 cellar: :any,                 monterey:       "4ec67139eaaa4662fbf22135d6bacc76c2189c820e3d5c80fa02f5f37a0ea6e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f10bd66530448a056f5349607e9b299dfb3a4403714f8f791a0ea91d7df7227"
   end
 
   depends_on "cmake" => :build

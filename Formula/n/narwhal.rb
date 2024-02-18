@@ -11,7 +11,7 @@ class Narwhal < Formula
   end
 
   # GitHub repo's description has appended [deprecated]
-  deprecate! date: "2023-02-16", because: :deprecated_upstream
+  disable! date: "2024-02-15", because: :deprecated_upstream
 
   conflicts_with "spidermonkey", because: "both install a js binary"
   conflicts_with "elixir-build", because: "both install `json` binaries"

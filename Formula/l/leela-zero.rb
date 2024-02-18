@@ -6,16 +6,16 @@ class LeelaZero < Formula
       tag:      "v0.17",
       revision: "3f297889563bcbec671982c655996ccff63fa253"
   license "GPL-3.0-or-later"
-  revision 5
+  revision 6
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d93abf4cb2757bb14d2928fec5b20bc59941e06ad1868cc8cdf2ef0ad6eadefe"
-    sha256 cellar: :any,                 arm64_ventura:  "c455894993c09adadcbb9cc4a66c2970a92f93ada6d84222229abb88f32021b7"
-    sha256 cellar: :any,                 arm64_monterey: "fdf249e8db820b74ddaf91c67b5e33ce4750018e6cc800bc992767ca6ed770be"
-    sha256 cellar: :any,                 sonoma:         "cd4dd646da4db0f6bca6afbf354227338b1f587ca9c6819f492e78ef86148376"
-    sha256 cellar: :any,                 ventura:        "7fd7cf4d42962a2295ed80ef78ef32a3eaeab780f7380c2baee93c3989105ad0"
-    sha256 cellar: :any,                 monterey:       "f612c6accdaa4f51400e69f30491e83432ed2aeccce5b57fde7d04d2b5f2e458"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4555abb468d6a04c55dae0916929c494b7f371e7dbe74394be7e830dc882ee05"
+    sha256 cellar: :any,                 arm64_sonoma:   "4f4956ccec1b85d940dc51c3cff6ca243f5684490b7f44f5d65263d6ea965a30"
+    sha256 cellar: :any,                 arm64_ventura:  "1ec17a7b79425e00c7213878e04ed3af8eb826bf441be5a862459a02a5dbf110"
+    sha256 cellar: :any,                 arm64_monterey: "9a2f5da8ea704a711ae8192758a61af7958b7342d4e9e46d74558e1d8593f63d"
+    sha256 cellar: :any,                 sonoma:         "e465db7030e99d3c357544aeaf9fa45615e12ee939532c925d1badc444f2e6b7"
+    sha256 cellar: :any,                 ventura:        "b83f1b99f4c1361ae1104b59205cc927b3b0be09b070a08400ca86852c9cb03f"
+    sha256 cellar: :any,                 monterey:       "42584c147e4925d5e46d115c723146feb09cc16f4b8177ddfc0cde58e3cf9ebd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff4fabe6cafc541960ff787819a42bfa73d2dcbcfea590938fc0164487668978"
   end
 
   depends_on "cmake" => :build

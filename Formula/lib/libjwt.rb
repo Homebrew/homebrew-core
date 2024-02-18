@@ -1,8 +1,8 @@
 class Libjwt < Formula
   desc "JSON Web Token C library"
   homepage "https://github.com/benmcollins/libjwt"
-  url "https://github.com/benmcollins/libjwt/releases/download/v1.15.3/libjwt-1.15.3.tar.gz"
-  sha256 "6775095bcd417d375faddc1f17cdd7706ad8aa9b9b02404990c4b0ee218ee379"
+  url "https://github.com/benmcollins/libjwt/releases/download/v1.17.0/libjwt-1.17.0.tar.bz2"
+  sha256 "b8b257da9b64ba9075fce3a3f670ae02dee7fc95ab7009a2e1ad60905e3f8d48"
   license "MPL-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d2b237051d358030cdf195713480d338c07a312f5748dd5ce7e1ce80310bedfa"
-    sha256 cellar: :any,                 arm64_ventura:  "f0dab7b04493c0e5153fc17a0b672dd323321c9bdb49ec9daaa512c4bb432e98"
-    sha256 cellar: :any,                 arm64_monterey: "42d06ded1180f824db3a490a5c343941a2703931361bec1bf49b5d2a35d8bbb8"
-    sha256 cellar: :any,                 arm64_big_sur:  "4cfaf8c62ff186564b62a8498d3c39866ad17f0710e9ea4a97002fedea1a2c93"
-    sha256 cellar: :any,                 sonoma:         "bf15ba6f56d80765e8d01b6d4e30aad45cbb93bc94b8a74cd2ad14e599fd8825"
-    sha256 cellar: :any,                 ventura:        "3f2d008733adee0ef2a972b8bc0ed4871826eb53c3c43074f7e31a9451bf48d7"
-    sha256 cellar: :any,                 monterey:       "e7eb0838d2020ec1ad60092c67396054ce2b9db5fba1eb6ea1b15c255dd41fd8"
-    sha256 cellar: :any,                 big_sur:        "97357f9ffb6e1e8c16eb2cec37e9657d70a67a014be3ce727533a65607d54227"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d71ab6776202034f9e1e9323e520762af18d901c572105d231665a3df34a837"
+    sha256 cellar: :any,                 arm64_sonoma:   "d529c193f8a33bd5fa79321c8aba7fd6f474cb0353b54b54c2cdc6ed92fa543f"
+    sha256 cellar: :any,                 arm64_ventura:  "66bad1a8957b19388528dbcaa5761afaa5760cff5782c2de52a2a739468e265c"
+    sha256 cellar: :any,                 arm64_monterey: "9567d7b2b04866173df2a33fd6109409a44194e0500fe867068c3280da2a97cb"
+    sha256 cellar: :any,                 sonoma:         "a2c3941e80d85fdd0cf2e4d324d5fcc171e1c018491c6c9c95d92f4c622d86ea"
+    sha256 cellar: :any,                 ventura:        "d01f570cfd764f3c3c442275b6e6480b8362bef77053fcc31e9f654813b82979"
+    sha256 cellar: :any,                 monterey:       "b07b3eb345222f0a73cb6e3c0361c4d016e40b5275e04e29c841c7a4e11e340a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96c9f7e64468ff49779273c29f12751d0d292dffe78c3fd9f00c3ea4b51d7e39"
   end
 
   head do

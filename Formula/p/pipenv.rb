@@ -3,18 +3,18 @@ class Pipenv < Formula
 
   desc "Python dependency management tool"
   homepage "https://github.com/pypa/pipenv"
-  url "https://files.pythonhosted.org/packages/7d/ce/68f8b53ebd58fb895062384f1fa7820de24a6aaa4e6a701cdaca6acdfb11/pipenv-2023.11.17.tar.gz"
-  sha256 "408f2f1219e9bfe28f26a3511817e2a792eeafddc621f12a856fbd5ceca7bdf1"
+  url "https://files.pythonhosted.org/packages/a6/26/5cdf9f0c6eb835074c3e43dde2880bfa739daa23fa534a5dd65848af5913/pipenv-2023.12.1.tar.gz"
+  sha256 "4aea73e23944e464ad2b849328e780ad121c5336e1c24a7ac15aa493c41c2341"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c6e70cc23f65a16be8ab8784ecd8758b4964463d26be4fbe18e00c95f727a265"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d47fdee4f700fb56f4c1814290846729aad893ed1cc0db9ff4493b47d5b67c2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6a258cdbcbd6a6ad8e23e2225a31d6fe14ac0e15e970b645101a52dc9c1b378"
-    sha256 cellar: :any_skip_relocation, sonoma:         "59efdfcd185f0768bd260b06234f19c5872bcea6bfc3b2b1480a8dec772b982b"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe716d98bec39e00ad407186ffc1c3e612199638c1b225fc5d7746d71bc028fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "01703b441ff8cbfe5b4baad8667fc2b18b46bcc011df67d1ea094d513f2829ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "531afd85d90adbd37551927ca7e7e494886ab1bbeb8ee840c9ba5f564153fea9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d30d2b5eb4d230a6fb2accb076b53af6ee1a6816f92df41a74efc08b62aea13c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ce0cf201547b6982108929eca74cc82a074dcd88f94ab0fdd3f1078074fdffe"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e56a0056fb62896bf6a35a05884b0732d16f90c63893e6bebaf507e0f03f1876"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a1fe87c478c5acf8e10932bcf83e0d04c74866acdbea642c94af06943836055d"
+    sha256 cellar: :any_skip_relocation, ventura:        "97993ccf189c2c38417eccd1ca8008b24e0b58e3fa1a6a4ff0566b4adde62bf8"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e542eb02a44905c0127196dea12a7096f70584b0d3d760cbf04b30512906af6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5fd351c948333e6ba72b61c841166c96f3fb7faa411ecbf2e73dd9e9f2e44f1"
   end
 
   depends_on "python-certifi"
@@ -36,8 +36,8 @@ class Pipenv < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/62/d1/7feaaacb1a3faeba96c06e6c5091f90695cc0f94b7e8e1a3a3fe2b33ff9a/platformdirs-4.1.0.tar.gz"
-    sha256 "906d548203468492d432bcb294d4bc2fff751bf84971fbb2c10918cc206ee420"
+    url "https://files.pythonhosted.org/packages/96/dc/c1d911bf5bb0fdc58cc05010e9f3efe3b67970cef779ba7fbc3183b987a8/platformdirs-4.2.0.tar.gz"
+    sha256 "ef0cc731df711022c174543cb70a9b5bd22e5a9337c8624ef2c2ceb8ddad8768"
   end
 
   resource "setuptools" do

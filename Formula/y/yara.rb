@@ -1,10 +1,9 @@
 class Yara < Formula
   desc "Malware identification and classification tool"
   homepage "https://github.com/VirusTotal/yara/"
-  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.3.2.tar.gz"
-  sha256 "a9587a813dc00ac8cdcfd6646d7f1c172f730cda8046ce849dfea7d3f6600b15"
+  url "https://github.com/VirusTotal/yara/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "f6db34bd102703bf56cc2878ddfb249c3fb2e09c9194d3adb78c3ab79282c827"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/VirusTotal/yara.git", branch: "master"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
@@ -16,15 +15,13 @@ class Yara < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "89b72648e12c3afc9c59b8f20f604f8237d372727de03113724303bb43a434ee"
-    sha256 cellar: :any,                 arm64_ventura:  "ef3e280e87b7607f3eea94508e8fa9a628009f60676fccdce22340809a70cb36"
-    sha256 cellar: :any,                 arm64_monterey: "3ca150ac17fc10bed27eff89094ec9ebd2e70abed402fc091874f8677e7abff2"
-    sha256 cellar: :any,                 arm64_big_sur:  "02ba0c77f44d762e4fb0fa670549be58a67269eb0af48aa8155e40b8361d40c4"
-    sha256 cellar: :any,                 sonoma:         "8745ef9320f293665d2ff588652195fd95bf644a2bf25c4f2218e82636f526c7"
-    sha256 cellar: :any,                 ventura:        "41bb56c91fb8eaf533d7e8786d95aee23c94f71ae95ef9a241e0e5b87497cba7"
-    sha256 cellar: :any,                 monterey:       "5a1ac4f8d742aa6046755a14a08b57a7c4c1aa1ee2f27127ec45a7aef05ffde6"
-    sha256 cellar: :any,                 big_sur:        "26ede9206b84edfb30d9c0554211e3c683722bd0bb917b639f7a05f652a51104"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "05503944946a647cf21c2c92a9ceaa9e6559e5050773b89146de5c8aaa847105"
+    sha256 cellar: :any,                 arm64_sonoma:   "b13a73e826bce48da23cfc245bfff2b2a4d456cb76e4e583d702cb7353699ee2"
+    sha256 cellar: :any,                 arm64_ventura:  "7bd5586da65739e9e5e07dfa181a6a243c2c2b7eb927b8e48fdb3c6ba65f11ca"
+    sha256 cellar: :any,                 arm64_monterey: "a89c513a54088a968595147f28538a9921682898f134a5fee6b3bfa2ac0ee380"
+    sha256 cellar: :any,                 sonoma:         "41d5063a832e0fcd85ec29110fc5dd3724535ea7d7944010c912d2436ab708a0"
+    sha256 cellar: :any,                 ventura:        "4309b879b81ae2688194c83af41e1cfa3cb0b652d05b84979bee549236e1194c"
+    sha256 cellar: :any,                 monterey:       "a986b7f22831fc2235f862815ad25b77d86c27219959480d8c3f8112de4cd860"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75fd896e3e79de104037bc68baa81446a09260043b4bf9eeae9afbf6e40eb670"
   end
 
   depends_on "autoconf" => :build

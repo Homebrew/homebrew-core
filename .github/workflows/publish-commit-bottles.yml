@@ -242,7 +242,9 @@ jobs:
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
     permissions:
-      contents: read
+      id-token: write # for `generate build provenance`
+      contents: write # for `generate build provenance`
+      packages: write # for `generate build provenance`
       actions: read # for `brew pr-pull`
       pull-requests: write # for `gh pr edit|review`
       repository-projects: write # for `gh pr edit`
@@ -316,12 +318,18 @@ jobs:
             --workflows=tests.yml \
             --committer="$BREWTESTBOT_NAME_EMAIL" \
             --root-url="https://ghcr.io/v2/homebrew/core" \
+            --retain-bottle-dir \
             ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}} \
             ${{inputs.message && '--message="$INPUT_MESSAGE"' || ''}} \
             "$PR"
 
           echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
+      - name: generate build provenance
+        uses: github-early-access/generate-build-provenance@main
+        with:
+          subject-path: '${{steps.pr-pull.outputs.bottle_path}}/*.tar.gz'
+  
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:

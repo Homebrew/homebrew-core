@@ -1,8 +1,8 @@
 class Bazel < Formula
   desc "Google's own build tool"
   homepage "https://bazel.build/"
-  url "https://github.com/bazelbuild/bazel/releases/download/6.4.0/bazel-6.4.0-dist.zip"
-  sha256 "bd88ff602c8bbb29ee82ba2a6b12ad092d51ec668c6577f9628f18e48ff4e51e"
+  url "https://github.com/bazelbuild/bazel/releases/download/7.0.2/bazel-7.0.2-dist.zip"
+  sha256 "dea2b90575d43ef3e41c402f64c2481844ecbf0b40f8548b75a204a4d504e035"
   license "Apache-2.0"
 
   livecheck do
@@ -11,10 +11,12 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ba56c9868ae6f0b5910a4dc8522f8fc98c6a6fec887a68a42168fe1e38c8e0f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d49a181a6e74237f0c51e3c3aac26819a7a3704ae7f5480bf02d9ea65fe011a"
-    sha256 cellar: :any_skip_relocation, ventura:        "804ba30bdade903068d46b4f5be633794d7ba8ca8c4cf3e144c923278065aba4"
-    sha256 cellar: :any_skip_relocation, monterey:       "fab28ab6036b3fe49f2edc1845deeefbad5185538e72d22c94e80e7d6202da29"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dabf0e6eab916c01e2a9264a6c32a566df53f58a44a8ef665ed6f849dc496ef7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dabf0e6eab916c01e2a9264a6c32a566df53f58a44a8ef665ed6f849dc496ef7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "552da03ecda450d46f27f74c87454cf79140d281a5a0466d30044fc9b8b44281"
+    sha256 cellar: :any_skip_relocation, sonoma:         "aab5f163fb5514fe91aedd32b54dab6959cfe6559ef93b880929c0cf4bc52089"
+    sha256 cellar: :any_skip_relocation, ventura:        "aab5f163fb5514fe91aedd32b54dab6959cfe6559ef93b880929c0cf4bc52089"
+    sha256 cellar: :any_skip_relocation, monterey:       "ed0f0ed911a8b7d7a731633bc8860bd04d424bc07c6560aab6a67be95214851a"
   end
 
   depends_on "python@3.12" => :build
@@ -36,16 +38,13 @@ class Bazel < Formula
     ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
 
     # Bazel clears environment variables other than PATH during build, which
-    # breaks Homebrew shim scripts. We don't see this issue on macOS since
-    # the build uses a Bazel-specific wrapper for clang rather than the shim;
-    # specifically, it uses `external/local_config_cc/wrapped_clang`.
+    # breaks Homebrew's shim scripts that need HOMEBREW_* variables.
+    # Bazel's build also resolves the realpath of executables like `cc`,
+    # which breaks Homebrew's shim scripts that expect symlink paths.
     #
-    # The workaround here is to disable the Linux shim for C/C++ compilers.
-    # Remove this when a way to retain HOMEBREW_* variables is found.
-    if OS.linux?
-      ENV["CC"] = "/usr/bin/cc"
-      ENV["CXX"] = "/usr/bin/c++"
-    end
+    # The workaround here is to disable the shim for C/C++ compilers.
+    ENV["CC"] = "/usr/bin/cc"
+    ENV["CXX"] = "/usr/bin/c++" if OS.linux?
 
     (buildpath/"sources").install buildpath.children
 

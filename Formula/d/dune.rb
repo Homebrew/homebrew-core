@@ -1,19 +1,19 @@
 class Dune < Formula
   desc "Composable build system for OCaml"
   homepage "https://dune.build/"
-  url "https://github.com/ocaml/dune/releases/download/3.13.0/dune-3.13.0.tbz"
-  sha256 "f1801257e01c846bd71017ec5d4b2b75fd31b20a0d5979b933b37cc8453678de"
+  url "https://github.com/ocaml/dune/releases/download/3.14.0/dune-3.14.0.tbz"
+  sha256 "f4d09d89162621fdff424c253fa50c4920d2179fb5b3d1debab7bbe97c68b2fc"
   license "MIT"
   head "https://github.com/ocaml/dune.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b458649af1b6c01b71782ee3a7a2d065dc01586dc1cbf5a817f98be283a74f9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "059f1ae53be074c9f7b2d64e7cfb917fa6dcd31c98fa4ae791099b7c9e3d3541"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "22a10ae02e2cea62a1aa7aff708642bc72cd6878f391153ce6437e5bd15bfb6a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a49030c6d638e63464b6f963f5cd18ae5f2043228092a321949710f2c7d66fd8"
-    sha256 cellar: :any_skip_relocation, ventura:        "0201e4de84d2fbe1ef22209d50ce1667a3a19ddb63f677a4293c4dde4e75c90f"
-    sha256 cellar: :any_skip_relocation, monterey:       "a5479ae9a52df8cebdcc7a54ab3206c459de195ec243048697f7ddca399c5ad1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "386fe347f81df10c5d628bade06530445158c876ed9fedb8435cdf8528cb8c40"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "916570039b1a2498f2d30039e489c6e15313625ae608ab0db06cc457a22cebc4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b2a66afaadb6c68d0422e255fa39a1b3106c3cdb440d372ecc9e6a3fe1195f2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d44a1077183b5224cbddbb377c085937813f2169b394de80af7666a7a51de157"
+    sha256 cellar: :any_skip_relocation, sonoma:         "57d2d85d0f7ee80ce3df2af17c133f09da3ace273a5b2b3bb4685138dc34f963"
+    sha256 cellar: :any_skip_relocation, ventura:        "76b2cd1b11ba8b01a0fe4f070160b751a190d5a4a4f75de3f527913e9ec735f0"
+    sha256 cellar: :any_skip_relocation, monterey:       "004b33d11c7fd81d192839aec5ac25bb8046f9c4d2705fa8c24cf07c4e7accc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8af8e31d48302cff49bd936dca52195b6b1c91ff6b19f7c4a846f3ccdf5846ff"
   end
 
   depends_on "ocaml" => [:build, :test]

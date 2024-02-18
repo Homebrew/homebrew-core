@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/8.2/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.2/mysql-boost-8.2.0.tar.gz"
-  sha256 "9a6fe88c889dfb54a8ee203a3aaa2af4d21c97fbaf171dadaf5956714552010e"
+  homepage "https://dev.mysql.com/doc/refman/8.3/en/"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.3/mysql-boost-8.3.0.tar.gz"
+  sha256 "f0a73556b8a417bc4dc6d2d78909080512beb891930cd93d0740d22207be285b"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -10,13 +10,13 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "3f1573753d2b4886ac49417031bae3f6ba6dd42f737c3abaa0abdccb2d351894"
-    sha256 arm64_ventura:  "dbcb826ebc8fd2bda4e25c1ab1787348ff1c64f98f1372079dd410276e5ceb2a"
-    sha256 arm64_monterey: "1497501969ebe84479320e8c04f50a1c355bd0308d9d03ed111b4a38eab3fb06"
-    sha256 sonoma:         "61346247d687aa1e6c86d63e195e0cc240a83132173a747295b37b33b54e646c"
-    sha256 ventura:        "01c2730e6c623e4a7b15db55ec7db70e85956a558f56809809eb320734c8c74e"
-    sha256 monterey:       "098e016430975ee9e142f3d26c4f03f02e750f84c7e8f9a7bbec3b9dad1cd236"
-    sha256 x86_64_linux:   "fd19a7a5711362f13fb1c10ff7c01d15b048103cc911a5302796c0c5ab9a0369"
+    sha256 arm64_sonoma:   "26d634762424b716b062db2f0aea99069ed49c4d23a87eb25228a60d0a5bc91e"
+    sha256 arm64_ventura:  "0e78b5b70727e5bb9a490e808a446a57a99df5d0fe74012b9be664e8236be69b"
+    sha256 arm64_monterey: "5e07b7a43e907a34419300aec04bf76c0a8052b8d4efb938a02f8facc371a743"
+    sha256 sonoma:         "db91051fc4112fc3b312d99c3cc003c56b263d7c0c52e527621bb3a86bb70ae7"
+    sha256 ventura:        "7a346ad55b7f7530c1b60d5d8852f7418299e50e7a774af4d04695f292fd9e6b"
+    sha256 monterey:       "8fbccabc53d77cbacb46d80ffa13a81dd9b8719a5b19e23704c1c91f906abe92"
+    sha256 x86_64_linux:   "17b4319a7f67222566227fe45687482683832672cd6657dd523f577e1e7ae00d"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
@@ -62,10 +62,6 @@ class MysqlClient < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # Fix bad linker flags in `mysql_config`.
-    # https://bugs.mysql.com/bug.php?id=111011
-    inreplace bin/"mysql_config", "-lzlib", "-lz"
   end
 
   test do

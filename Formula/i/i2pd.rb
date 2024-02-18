@@ -4,15 +4,16 @@ class I2pd < Formula
   url "https://github.com/PurpleI2P/i2pd/archive/refs/tags/2.50.2.tar.gz"
   sha256 "ae2ec4732c38fda71b4b48ce83624dd8b2e05083f2c94a03d20cafb616f63ca5"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3678ffdef84a9c956a2841cc5732b09d2005ae62f08d9f6e43f6e53c4d3d8e58"
-    sha256 cellar: :any,                 arm64_ventura:  "7c6a1fd119debdb361779bf04d4c981b702fec3126ddd03bd0f8183c7a9089b2"
-    sha256 cellar: :any,                 arm64_monterey: "89ad015e1a8e019aec377e9b38f46040c59f06c36d8748ecb458b679ba2ab1bf"
-    sha256 cellar: :any,                 sonoma:         "10319fa2d92f8af3027e3344ea2b1b3726fe19b6105da46c363ef107bda36433"
-    sha256 cellar: :any,                 ventura:        "7aa7cc2ac848fca094bf07ee07a1d4d4ffec8117837bab5f40c11cca9240bbc7"
-    sha256 cellar: :any,                 monterey:       "ae259d78c28e4c9eba57362761281fd4890ad248f98ea4b1405b7a3277ae4c80"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1398396e532c39b6077e614373723225dc30e2f040c9a1e9def5670be5b9aae"
+    sha256 cellar: :any,                 arm64_sonoma:   "9aed2654ae1637f7fbad14d15934b0b2d6b493754757b8e23fe874b41e3a5e54"
+    sha256 cellar: :any,                 arm64_ventura:  "12ae507e36270f6a462438ed280fcd9d80a307960c4c60757f5d6f0cdc54cc42"
+    sha256 cellar: :any,                 arm64_monterey: "cec83c1cbbf0b254aefb3144b2149de2bba4350b9ab52faea5902a5dfac3c730"
+    sha256 cellar: :any,                 sonoma:         "cf42a80b575916054c67944a595af7c5d3b12485aa157acb955ee41c070735bf"
+    sha256 cellar: :any,                 ventura:        "5f3c01c424667d5a7ba5abb06fc56bfaeb2ce29791a2e843fe52defa93c13bc7"
+    sha256 cellar: :any,                 monterey:       "011718a59238f9909be43e638de8ff8873e7d246ada30c7ee6ff9e375995a251"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a685392ff70e6e08ccbe5b6cc5f41570ae40ad12b097292261b96e9f350ea9e"
   end
 
   depends_on "boost"

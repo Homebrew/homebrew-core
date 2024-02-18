@@ -20,7 +20,7 @@ class Hdf5AT18 < Formula
 
   # 1.8.23 is the last release for 1.8.x
   # https://github.com/HDFGroup/hdf5#release-schedule
-  deprecate! date: "2023-02-11", because: :unsupported
+  disable! date: "2024-02-15", because: :unsupported
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

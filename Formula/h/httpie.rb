@@ -10,16 +10,16 @@ class Httpie < Formula
   head "https://github.com/httpie/cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ae4a2c5109376610ce7113a92898c9a72e2a377fa8207742b43edad54fab845"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d363d506c5db2190ed9b47b564dd210cf4b46a6acf429964ba83b4da2f382256"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60c21496e1e58d581aaff12364c87ab65ad5d967f8ecdee20143c1e5997d1fd7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "11b1c55aa654dda7d95036225c127c757f3f6a04f6ba0fa1d4b930d6f2258069"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b9dbfab1797b996b5e8b60cab04485b534c6c8f3d44ddc66b8c2f892742c4fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "53e4a10d50f1178ff1cbb8d8064bb913f98294962e698611a72bdb62cfd0378c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21b503294e029136dd6aec1d942e7dc3e7481d969630ae093e4df3be8f812d82"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7b7fd3bb0a1a7395e5a354da93c8a32542ed9be389d7c36160943313a9f09f1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4bc4ee0404b8329417f3e181b8123f5fad97dc4b798f4382f89c592086446fed"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec5b7a345d3956d2a1b942e92c47eaec888533eeb7670feb5d89f37f9a52d4e6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "86dce0667f668caba805363925b4a4e5a36ce6cfae95b95227c890bca4897e0c"
+    sha256 cellar: :any_skip_relocation, ventura:        "6051ddf61b0cca5d7250aeb5cb2086db927e04288ae6ce95db1d3bf8c7e9e91e"
+    sha256 cellar: :any_skip_relocation, monterey:       "5815cb95e16180093937987c215882368f3bd9f76a4c15d4a3eeae1d956a50c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00ac00e57e2bb4595b281b8cb128015afc74df43fa0a79e39b47088a5ab7934a"
   end
 
-  depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
@@ -49,8 +49,13 @@ class Httpie < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/4a/15/bd620f7a6eb9aa5112c4ef93e7031bcd071e0611763d8e17706ef8ba65e0/multidict-6.0.4.tar.gz"
-    sha256 "3666906492efb76453c0e7b97f2cf459b0682e7402c0489a95484965dbc1da49"
+    url "https://files.pythonhosted.org/packages/f9/79/722ca999a3a09a63b35aac12ec27dfa8e5bb3a38b0f857f7a1a209a88836/multidict-6.0.5.tar.gz"
+    sha256 "f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   resource "pysocks" do
@@ -74,13 +79,13 @@ class Httpie < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
-    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   def install

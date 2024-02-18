@@ -27,7 +27,7 @@ class Textql < Formula
   # Ref: https://github.com/dinedal/textql/issues/131
   # Ref: https://github.com/dinedal/textql/issues/139
   # Last release on 2015-12-16
-  deprecate! date: "2023-01-21", because: "depends on `glide` to build"
+  disable! date: "2024-01-21", because: "depends on `glide` to build"
 
   depends_on "glide" => :build
   depends_on "go" => :build

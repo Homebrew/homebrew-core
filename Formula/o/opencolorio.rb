@@ -1,19 +1,19 @@
 class Opencolorio < Formula
   desc "Color management solution geared towards motion picture production"
   homepage "https://opencolorio.org/"
-  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.3.1.tar.gz"
-  sha256 "7196e979a0449ce28afd46a78383476f3b8fc1cc1d3a417192be439ede83437b"
+  url "https://github.com/AcademySoftwareFoundation/OpenColorIO/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "6bbf4e7fa4ea2f743a238cb22aff44890425771a2f57f62cece1574e46ceec2f"
   license "BSD-3-Clause"
   head "https://github.com/AcademySoftwareFoundation/OpenColorIO.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8db69f0e0ada2620378e51662bc354e7d8945581cd7b834041c6cc7f7b98efb0"
-    sha256 cellar: :any,                 arm64_ventura:  "8e320fd85149a34410212a7185e1f5eef88fe4bbd06c9c46a52bb4c874927961"
-    sha256 cellar: :any,                 arm64_monterey: "5d7373a09f160aa2add924d60b192e4eaa133ae701254b7e73a78ebc5661e599"
-    sha256 cellar: :any,                 sonoma:         "7a3581a0ac83f353d591f72353f164b6362e3d8dd14688aad98329a308bd6f0a"
-    sha256 cellar: :any,                 ventura:        "1ece7fc2a9704c19850f5198891822c7355a18762f4a4a1e418f29be50027126"
-    sha256 cellar: :any,                 monterey:       "ebbf0fa7efc34488dd6d2493bf6fa7a10b9ef669858acd0f8352ab9355aec657"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bbf20c67aabcdeb4f4786f2fdd3a4a5c7326d584b0dff9355a3540e873e242a"
+    sha256 cellar: :any,                 arm64_sonoma:   "0db0e5ebd3e423f988a351de2677cde0a027ab10212dd6535263e16900530f69"
+    sha256 cellar: :any,                 arm64_ventura:  "0a35033f31e6aa593f141238895b3fe383527f662592e106a76e175d919d0815"
+    sha256 cellar: :any,                 arm64_monterey: "68193cb0f8b28037f26bfcf1ade5e1ffcc757da8dd9d4782a47307e2f5183e5f"
+    sha256 cellar: :any,                 sonoma:         "583e1b16d1981250865d052511160b254ce71485b82107da6896e4642c254d76"
+    sha256 cellar: :any,                 ventura:        "1841a51311fce945dff91344b05fad32c1ca2e2e96a094ebc6b60b5cc74d0d2a"
+    sha256 cellar: :any,                 monterey:       "3f97660a1b3dff405779ed4480475da7c5389c345f35c4d5837f08fe53c4a725"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd944816b1ccf312cd3471d87f0cee4fe2d85712a661d1bf13fa10be77d6a3b8"
   end
 
   depends_on "cmake" => :build
@@ -32,9 +32,6 @@ class Opencolorio < Formula
   def python3
     "python3.12"
   end
-
-  # upstream issue report, https://github.com/AcademySoftwareFoundation/OpenColorIO/issues/1920
-  patch :DATA
 
   def install
     args = %W[
@@ -71,18 +68,3 @@ class Opencolorio < Formula
     system python3, "-c", "import PyOpenColorIO as OCIO; print(OCIO.GetCurrentConfig())"
   end
 end
-
-__END__
-diff --git a/src/OpenColorIO/ConfigUtils.cpp b/src/OpenColorIO/ConfigUtils.cpp
-index 2e77472..b4228ff 100644
---- a/src/OpenColorIO/ConfigUtils.cpp
-+++ b/src/OpenColorIO/ConfigUtils.cpp
-@@ -3,7 +3,7 @@
-
- #include "ConfigUtils.h"
- #include "MathUtils.h"
--#include "pystring/pystring.h"
-+#include "pystring.h"
- #include "utils/StringUtils.h"
-
- namespace OCIO_NAMESPACE

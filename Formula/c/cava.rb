@@ -1,19 +1,19 @@
 class Cava < Formula
   desc "Console-based Audio Visualizer for ALSA"
   homepage "https://github.com/karlstav/cava"
-  url "https://github.com/karlstav/cava/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "1e40c93cb476ada538c131cb68ab1b56ce214d75b834508cbe76a57ae1ea153f"
+  url "https://github.com/karlstav/cava/archive/refs/tags/0.10.1.tar.gz"
+  sha256 "a3a60814326fa34b54e93ce0b1e66460d55f1007e576c5152fd47024d9ceaff9"
   license "MIT"
   head "https://github.com/karlstav/cava.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "08b5bb86ede6893122a35fb2472a4b4ab3fb80005bc9c2a97745449c2b7633e4"
-    sha256 cellar: :any, arm64_ventura:  "df91bfd8b1dcc5d5e521bede9fa006104b7985dbb8b5ca0cb0a5327c5834b70a"
-    sha256 cellar: :any, arm64_monterey: "f37d8d2a65017e67fad3ac2cb57088535fef50d3cae30c168a7c7856dc814dca"
-    sha256 cellar: :any, sonoma:         "c3d974e0487f23a5f610be9db4a4052a681cb163aab9dd78d9ca067837604e90"
-    sha256 cellar: :any, ventura:        "aa13c8b6f1719538c8d51d009bcca5ec4e20bcf8703fb58f53e43f4b0fb0bc7d"
-    sha256 cellar: :any, monterey:       "3c24c072df8b5d4f975287e9494a897d69d0f3c35395b575a79eee97b88c76ac"
-    sha256               x86_64_linux:   "05ff4b4cec34f8edafd52c4ca8796bfecc946aa9f2e68e92b39dc3525dd3b821"
+    sha256 cellar: :any, arm64_sonoma:   "f74b0fcad6a503613d9e8fa7e39864fcbd5b29edc7573e490bd804a193df558a"
+    sha256 cellar: :any, arm64_ventura:  "b9572317b554c1a29c4fbe8b9631f4202d54ef246489f3b97dada007c1db07dc"
+    sha256 cellar: :any, arm64_monterey: "033d4e6bd3af308e2eb2f676781098cd68a73b8bd3cfe16ac18cac02f99942c8"
+    sha256 cellar: :any, sonoma:         "3eddff336e77820a53ef1d4073b0a286a4cce40afa6aa19fa1a3e120d2767cb8"
+    sha256 cellar: :any, ventura:        "470ac5040c44a1148926ce37717f054a478882d6b80dafdc16cee0432c65402d"
+    sha256 cellar: :any, monterey:       "8e05dc874b5893de5995ab17654011e5d29b464d1610f64e64fa236a9571ce5c"
+    sha256               x86_64_linux:   "983610bdfc5e0df084528e43480c3dc5f23bb77e4fb8b8ab0f7b5984a1a99a95"
   end
 
   depends_on "autoconf" => :build

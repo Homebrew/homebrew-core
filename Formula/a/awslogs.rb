@@ -10,29 +10,29 @@ class Awslogs < Formula
   head "https://github.com/jorgebastida/awslogs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca809cd4df271013f3fc169597973c36a2da8aaad1acd013a0030aab9d5a5868"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c9ec5106527c47e249a8173243e6f551edc449bcd6bb1f29c5d06e9a0b39e35"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c35238fd41e03a2adb0a739c86ec556bcd16028ac71c8e89c6dc1823efb0544e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "373433c6c3d27903d791c8ef5b32ba533047bba9e048ac7f77d6cca9407cb7d6"
-    sha256 cellar: :any_skip_relocation, ventura:        "e0b25a41734af4ea468933040f13ee3fc605c5f95f52ca9fbc981e6e8a5b53dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "f223d7f6fb309960d54dcc5f701125dc94103b256f9d17a73bdca6d8ff875117"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6ebd0d7259d98e9f120fd2f4d1b0377b4c9e2a1bcd97e40cc24c0fd06795faf0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e021456151564d1ebe59b8d2f3e4a67257e2806784e7d804acbbcc033a5e8a8f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1b6b5f96e8ce0e0194f998531f07e28a2f314419049acc4d35eb448b37a0b45"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d7eb7e982ca4c90b3ea9aacdab09a07b215965e326194afb7cd0a156bf090c4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9ede8888de167ea7a9f6d98587fb5bbc6547548b1dce6da18282289acf1e4689"
+    sha256 cellar: :any_skip_relocation, ventura:        "77bf52ea7d2e213cdbd5d5ae6cd7ad0eac6612fdf2e3d2fd9ef5b49e2ef09e41"
+    sha256 cellar: :any_skip_relocation, monterey:       "8f397f7c1836625f505b7042c58088d14b179db9e8fbbab0d94e0f04de7cd0cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee0b387e8de3b1a0707db87950131e8d84664f997906e40a80a92e8b2f797b5f"
   end
 
-  depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "six"
 
   uses_from_macos "zlib"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/1b/2f/4ccd05e765a9aa3222125da37ceced40b4133094069c4d011ca7ae37681f/boto3-1.28.65.tar.gz"
-    sha256 "9d52a1605657aeb5b19b09cfc01d9a92f88a616a5daf5479a59656d6341ea6b3"
+    url "https://files.pythonhosted.org/packages/50/a0/f332de5bc770ddbcbddc244a9ced5476ac2d105a14fbd867c62f702a73ee/boto3-1.34.34.tar.gz"
+    sha256 "b2f321e20966f021ec800b7f2c01287a3dd04fc5965acdfbaa9c505a24ca45d1"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/42/30/e5e2126eca77baedbf51e48241c898d99784d272bcf2fb47f5a10360e555/botocore-1.31.65.tar.gz"
-    sha256 "90716c6f1af97e5c2f516e9a3379767ebdddcc6cbed79b026fa5038ce4e5e43e"
+    url "https://files.pythonhosted.org/packages/18/58/b38387dda6dae1db663c716f7184a728941367d039830a073a30c3a28d3c/botocore-1.34.34.tar.gz"
+    sha256 "54093dc97372bb7683f5c61a279aa8240408abf3b2cc494ae82a9a90c1b784b5"
   end
 
   resource "jmespath" do
@@ -46,13 +46,13 @@ class Awslogs < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/3f/ff/5fd9375f3fe467263cff9cad9746fd4c4e1399440ea9563091c958ff90b5/s3transfer-0.7.0.tar.gz"
-    sha256 "fd3889a66f5fe17299fe75b82eae6cf722554edca744ca5d5fe308b104883d2e"
+    url "https://files.pythonhosted.org/packages/a0/b5/4c570b08cb85fdcc65037b5229e00412583bb38d974efecb7ec3495f40ba/s3transfer-0.10.0.tar.gz"
+    sha256 "d0c8bbf672d5eebbe4e57945e23b972d963f07d82f661cabf678a5c88831595b"
   end
 
   resource "termcolor" do
-    url "https://files.pythonhosted.org/packages/b8/85/147a0529b4e80b6b9d021ca8db3a820fcac53ec7374b87073d004aaf444c/termcolor-2.3.0.tar.gz"
-    sha256 "b5b08f68937f138fe92f6c089b99f1e2da0ae56c52b78bf7075fd95420fd9a5a"
+    url "https://files.pythonhosted.org/packages/10/56/d7d66a84f96d804155f6ff2873d065368b25a07222a6fd51c4f24ef6d764/termcolor-2.4.0.tar.gz"
+    sha256 "aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"
   end
 
   resource "urllib3" do
@@ -60,9 +60,16 @@ class Awslogs < Formula
     sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
-  def install
-    inreplace "setup.py", ">=3.5.*", ">=3.5"
+  # Drop setuptools dep
+  # https://github.com/jorgebastida/awslogs/pull/399
+  patch do
+    url "https://github.com/jorgebastida/awslogs/commit/fd3f785a10ecc8db340813d689a89a1d891fa855.patch?full_index=1"
+    sha256 "9660da99d71fcc038a63f72fe0a3acf3901131973ec387a7190647dcf4278304"
+  end
 
+  def install
+    ENV["PIP_USE_PEP517"] = "1"
+    inreplace "setup.py", ">=3.5.*", ">=3.5"
     virtualenv_install_with_resources
   end
 

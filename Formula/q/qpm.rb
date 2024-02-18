@@ -18,7 +18,7 @@ class Qpm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e13ae0e904094958943d4cf9b8bcb3c2b7059f48b616a2ee5b061e1c1aaa5a54"
   end
 
-  deprecate! date: "2023-02-03", because: :repo_archived
+  disable! date: "2024-02-01", because: :repo_archived
 
   depends_on "go" => :build
 

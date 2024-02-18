@@ -1,10 +1,9 @@
 class KnotResolver < Formula
   desc "Minimalistic, caching, DNSSEC-validating DNS resolver"
   homepage "https://www.knot-resolver.cz"
-  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.0.tar.xz"
-  sha256 "383ef6db1cccabd2dd788ea9385f05e98a2bafdfeb7f0eda57ff9d572f4fad71"
+  url "https://secure.nic.cz/files/knot-resolver/knot-resolver-5.7.1.tar.xz"
+  sha256 "da14b415c61d53747a991f12d6209367ef826a13dc6bf4eeaf5d88760294c3a2"
   license all_of: ["CC0-1.0", "GPL-3.0-or-later", "LGPL-2.1-or-later", "MIT"]
-  revision 1
   head "https://gitlab.labs.nic.cz/knot/knot-resolver.git", branch: "master"
 
   livecheck do
@@ -13,15 +12,13 @@ class KnotResolver < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "9db269775fc6ce2266790e19280a3330e781ec5afa3119bc4081e174a1c82a4c"
-    sha256 arm64_ventura:  "b129c87a2134aa0ae49e0df544714fa17f0b66053cde08067e4ae29441201d80"
-    sha256 arm64_monterey: "521d2e624647b10d9af77dae70f38e1c53201f107e4fea1a978a18198d01f478"
-    sha256 arm64_big_sur:  "1de3b05f43d3b6087fceaf189fd78e2c384505af6715632be3c632b23fc22964"
-    sha256 sonoma:         "7ab4f5f95f5e174d1cbe7ee9a29475188d0883e4c8a1e6da2ded5b95bc6b74d0"
-    sha256 ventura:        "58dec4665c73538d7ea34b9e6f237374994818ac80391454994cb6338a8ab391"
-    sha256 monterey:       "b5fa46c74e301df115e00cc638df6cad41d2c8b38911f9f24373e05c2780738c"
-    sha256 big_sur:        "40776a6aa32b7fd5e43c47c836200e417c02ea99bda9bcc5416aa8bf597b314c"
-    sha256 x86_64_linux:   "6a90e05c7193d7849a00dc4cf96cde98cb0b4f9060500ad037a4931585948a79"
+    sha256 arm64_sonoma:   "f5b50cd761834cdfe16e03717dcbdd08e56dd46f7cc8247cb17dd3ba8dfe2b41"
+    sha256 arm64_ventura:  "4e703c18bffa0042f49681079126eb44291d0f40294501a8513c0c354ce2e754"
+    sha256 arm64_monterey: "45db8c6cd8cab7f6689b30958647b38c8c74dcf9d3be104b67ae12654d9f3b21"
+    sha256 sonoma:         "48c8d2533a57a71ad7d5e6ac41256eec3f7f352c88bbe4b1f95fac7b83c8cc0e"
+    sha256 ventura:        "42f8f4799f7cbd270f9a8e080e9b36c5ba9f1689e1646367fd69ccd2e6239c7e"
+    sha256 monterey:       "4b735a8f787d82128743c1f5c65c61d06576a11a6cfe6c49901682ae34fcdbc4"
+    sha256 x86_64_linux:   "0971d3c13d39522ff6b651b0db22346a4875fcf2407b1295339df1b9f8ed009e"
   end
 
   depends_on "meson" => :build

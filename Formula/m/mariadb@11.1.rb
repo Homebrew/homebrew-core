@@ -1,8 +1,8 @@
 class MariadbAT111 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.1.3/source/mariadb-11.1.3.tar.gz"
-  sha256 "ad3aa6ae478179275ecb28e3ed8a578f2004f084e14409727c0bf04975ace36c"
+  url "https://archive.mariadb.org/mariadb-11.1.4/source/mariadb-11.1.4.tar.gz"
+  sha256 "8f6473368a67b1a615f7a5c3af151b78744af058c3e406a9b4d3b8eb4055f97b"
   license "GPL-2.0-only"
 
   livecheck do
@@ -18,13 +18,13 @@ class MariadbAT111 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f91c085c6ceaa86f76e69400bfe5362d99a5875a7cef010e037ebc2744b876f5"
-    sha256 arm64_ventura:  "6ccfe222bb7f69eb3bd85ec2e50a58edc485b137d62a58118366526123ae12e3"
-    sha256 arm64_monterey: "b3ac8f19039d1c609de1dbfd6938fbbf29cbe916b9e3fb31bf4bd7f2071026c3"
-    sha256 sonoma:         "7163105f34b0d4a22f70af1b13c75b7a8f82b2c26fee416b199dde878c22e990"
-    sha256 ventura:        "6bec926e903ff1ab2186097cabcb4bdc351c61231ac0f1e01f8dc59fd6178a39"
-    sha256 monterey:       "4943afba58294805b504d0a2b3f9b32185f81d718f05dbe177694d5c82373b95"
-    sha256 x86_64_linux:   "00eb14889e8b9fab0a03f61b6d7113c7b9fbcc28a033d5a06ec6c8d1d6ef74af"
+    sha256 arm64_sonoma:   "9fc232aad9f5744ef2b3a7584c81b055a5d637e3b1544e14d98c3f334a49f220"
+    sha256 arm64_ventura:  "dfe74e54d2e4abf9ea69d66be9818f1f61365bd6f6714d5138b462b02377ecee"
+    sha256 arm64_monterey: "85b8c2cb234c082a0023ca0e7f2f9df989b3d6c33ed43512b6360bdf5f0f6e16"
+    sha256 sonoma:         "7e7a3fc254a4d0a504ad480d1f895a10cc375460f2f8cc3ed616a129408332e6"
+    sha256 ventura:        "be964464d91daaab681c1532d0aa56bb976b99d91c0bb53f142f86d202b776a4"
+    sha256 monterey:       "ae08ec841844c884b0cf72730f3cf83a4cc41e7ae8b9a95e4412e0f14fca6d61"
+    sha256 x86_64_linux:   "db50015bb42d562051d9d8664f7f9c9abbb20f07d7e39b477ad4ff6dbb6c300c"
   end
 
   keg_only :versioned_formula
@@ -54,6 +54,13 @@ class MariadbAT111 < Formula
   end
 
   fails_with gcc: "5"
+
+  # upstream patch ref, https://github.com/MariaDB/server/pull/3064
+  # remove when it got merged and released
+  patch do
+    url "https://github.com/MariaDB/server/commit/3624a36aed0346380255b141cb8a59998aaca4ee.patch?full_index=1"
+    sha256 "c9d0aa64b34c43ac9e3077d74c18532125c459d9d867ade69ce283d27b595b22"
+  end
 
   def install
     ENV.cxx11

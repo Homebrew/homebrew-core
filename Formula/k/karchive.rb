@@ -9,8 +9,8 @@ class Karchive < Formula
   ]
 
   stable do
-    url "https://download.kde.org/stable/frameworks/5.114/karchive-5.114.0.tar.xz"
-    sha256 "aa413081eff657576944e2b20df298add063b2a9e99d8b0ec9c8dbac7e60af04"
+    url "https://download.kde.org/stable/frameworks/5.115/karchive-5.115.0.tar.xz"
+    sha256 "e89951c58beca1f9802b9a3a8b8b2beff9b534d2de433ad7947258dd27d6b475"
     depends_on "qt@5"
   end
 
@@ -20,13 +20,13 @@ class Karchive < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e58e82837b69a353805dfb32784980f22c4e97cb249fb4f732beca9828801e71"
-    sha256 cellar: :any,                 arm64_ventura:  "a7b12ad651e2c265dfa1592378c536cdd04b170e62f3d0f42c226155cacc88e9"
-    sha256 cellar: :any,                 arm64_monterey: "6cd3bc877dcfd48b80d92b17a283e8d928a87d2289c9cdcd532574b775f87840"
-    sha256 cellar: :any,                 sonoma:         "f41f4d3b028ba8c0ff8d51fe2ae2fa4129b3e57f906c1bd4a9833cf14dad46fc"
-    sha256 cellar: :any,                 ventura:        "dd5a68e643539052ca4272b4d83aabbf004e0e89477b742e3d587904d98f1b9a"
-    sha256 cellar: :any,                 monterey:       "dc215b768fb40047decab0d2c2b47789a95e1ee8ee495203af325be21aa9bb1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90d4a4257fa7c79f925a0a89a07fec8fce18212cbe446edfec937101ea9df126"
+    sha256 cellar: :any,                 arm64_sonoma:   "06ff3d8ab813b89a23d09ac19cf2ec0c4b28926312ae16517dcc913b12491ff8"
+    sha256 cellar: :any,                 arm64_ventura:  "61ed11fee5d6f3c182316c86d92b09dca40990d8c57d09697a16130a437ba0ad"
+    sha256 cellar: :any,                 arm64_monterey: "ef90a556aed83c4c12180bb8c181fa003effdb6370a7f10d5014e75a15d07b6c"
+    sha256 cellar: :any,                 sonoma:         "8c920762159f58083550387e9a5a6d2f6937da929abfb34b7c8d2f93799ea23d"
+    sha256 cellar: :any,                 ventura:        "582d372caed1fcc6e7ed1eadbcf834428b0392168a068edc93aaf56b58ba7b0e"
+    sha256 cellar: :any,                 monterey:       "1bf15111ec97b3f04d18e056371a2207f1d04755a11f20bcb413dcdcff6b2a9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85386f99944fb030743db5b0e2042dc1aa4b62d57f6ff2122022af1134f9c755"
   end
 
   head do

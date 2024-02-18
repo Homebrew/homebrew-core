@@ -1,19 +1,19 @@
 class Autorestic < Formula
   desc "High level CLI utility for restic"
   homepage "https://autorestic.vercel.app/"
-  url "https://github.com/cupcakearmy/autorestic/archive/refs/tags/v1.7.10.tar.gz"
-  sha256 "6cea71c718f824a38c1018982649882d46aa612538ecb8259b3c2e538f473efb"
+  url "https://github.com/cupcakearmy/autorestic/archive/refs/tags/v1.7.11.tar.gz"
+  sha256 "e5ff0cce5b225de06fb3a9fcbf36ad17ef3fa01ff9f9b8d581c821308171c3b2"
   license "Apache-2.0"
   head "https://github.com/cupcakearmy/autorestic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d425620af7be7a8e74a2d09912d433b7463d2e9f60ac39e00cd0fcb252182ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9dfdc9f18e3777b631a10b31e2135baaf83df897c4ade8e5916ddec875087c0e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "82b1b90c8ba8b92aaecd9ec0b0f12c1c1ce2c63990e7ff799bee1a6e7697993f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5742b9f173b02a3381324f78bd50cbe5e81412a032f9ba59f7ea69c6dcde9583"
-    sha256 cellar: :any_skip_relocation, ventura:        "a9bbbc055837c2a41c58e7c84a9b174d533f6b4dcf5417f1d67438746c764b3c"
-    sha256 cellar: :any_skip_relocation, monterey:       "092a09e3eb7421bcae7d9fb8d688c66e821e2a60d4442e31cc20e314bb33fcad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cddeca26fffd3fcbaa3f7d8b2a59336afeb4fb4623c08faba33b1c13b06c8c78"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b14254b069022062ee452312c7ffe63f394282aac13a2659a5f9cdb078cfa06b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16ba076129c9a7b44ea54dfed40950ee04cf58ab9d40b86eb3a7ae27b703e8a4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19e5fc6e05161600edb7155793f98b332307f1c12b709f9b83668f19f51b0036"
+    sha256 cellar: :any_skip_relocation, sonoma:         "52e186bbd9165f7222210a47d35aaeeac6b614931adcc32ffd5a8f9f30b7cf47"
+    sha256 cellar: :any_skip_relocation, ventura:        "62b70ec11e677c3ec278db88eba44c9f99bc6a0bd11cc032d8437a7478856688"
+    sha256 cellar: :any_skip_relocation, monterey:       "a594666a8ab78a1eb9a10019121b2467b774b44f8e4955061d3dc66bda652ac3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34df12edbfd6d392c6d6cfa171e3df8bd3b814f8df8ed5c613af88d9b27a8062"
   end
 
   depends_on "go" => :build

@@ -1,11 +1,11 @@
 class Zlib < Formula
   desc "General-purpose lossless data-compression library"
   homepage "https://zlib.net/"
-  url "https://zlib.net/zlib-1.3.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.3/zlib-1.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/zlib-1.3.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/zlib-1.3.tar.gz"
-  sha256 "ff0ba4c292013dbc27530b3a81e1f9a813cd39de01ca5e0f8bf355702efa593e"
+  url "https://zlib.net/zlib-1.3.1.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.3.1/zlib-1.3.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/zlib-1.3.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/zlib-1.3.1.tar.gz"
+  sha256 "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"
   license "Zlib"
   head "https://github.com/madler/zlib.git", branch: "develop"
 
@@ -15,15 +15,13 @@ class Zlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1914dfb0224186123c1393562b4b02a87158f204733364830ebcb6a5a371017d"
-    sha256 cellar: :any,                 arm64_ventura:  "1a62f85701ec1e370610f0b05bac3793ff643167798c9230c2f4da0ad16748d6"
-    sha256 cellar: :any,                 arm64_monterey: "553a8a0911ecaef651508369151c62eb784b32b93b0ede90a168ad6b7499c69f"
-    sha256 cellar: :any,                 arm64_big_sur:  "dc0d3b902f78f0af490b3eea17cbff5904b8b7e4313fa7b6455a2c8a8d84f5e0"
-    sha256 cellar: :any,                 sonoma:         "e66dd421a51a0a548d3434ddce13ebae0f667ba8244ee8139db4695db95c655e"
-    sha256 cellar: :any,                 ventura:        "983d1ad2ba678e1089302581e9fc10e1476558bd3c4eb13fa8cbea1d779829ad"
-    sha256 cellar: :any,                 monterey:       "c719eb9fe669b6c50882270c92439b78e8015b778ed5f5f2fc14daeafec163ed"
-    sha256 cellar: :any,                 big_sur:        "0e52add34c684273341a075fd241b28df1098511f1086612261eb8c2078d802c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a47a3b5c8ee68010ab374a3d395e7a39a2d08f4f0096386c884c04a6d2e9df1d"
+    sha256 cellar: :any,                 arm64_sonoma:   "f867540472a59ab3fb1201625df546593e5fae2e98948c4c16c6154b0468b682"
+    sha256 cellar: :any,                 arm64_ventura:  "9033eedbd240076116fea9fa181882e75edee7fe0c5d2e3850258a185c52792f"
+    sha256 cellar: :any,                 arm64_monterey: "ebf10e203575beb64d6a8637ec2dc31774fa3141cfccab8ae7039f88b9efa7f6"
+    sha256 cellar: :any,                 sonoma:         "217f4245cd1da65a3388f512530089f526cd63a38d49ee5f29a90576dfeb3bb7"
+    sha256 cellar: :any,                 ventura:        "6012d7831245716d8507da3d1eb14ad274f8aa0b71b59275fe6bbbd6cebd787f"
+    sha256 cellar: :any,                 monterey:       "56bbfa3d7bd6a5ccf17ffa53ab926e67f24e74bd64b4740b56fd96c312e37c44"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38f2469db2ce63b70855a98e5ee27b5b5a92874e52542cbdc0b230bba1e7195f"
   end
 
   keg_only :provided_by_macos

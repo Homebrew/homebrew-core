@@ -1,9 +1,9 @@
 class Clamav < Formula
   desc "Anti-virus software"
   homepage "https://www.clamav.net/"
-  url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.2.1/clamav-1.2.1.tar.gz"
-  mirror "https://www.clamav.net/downloads/production/clamav-1.2.1.tar.gz"
-  sha256 "9a14fe870cbb8f5f79f668b789dca0f25cc6be22abe32f4f7d3677e4ee3935b0"
+  url "https://github.com/Cisco-Talos/clamav/releases/download/clamav-1.3.0/clamav-1.3.0.tar.gz"
+  mirror "https://www.clamav.net/downloads/production/clamav-1.3.0.tar.gz"
+  sha256 "0a86a6496320d91576037b33101119af6fd8d5b91060cd316a3a9c229e9604aa"
   license "GPL-2.0-or-later"
   head "https://github.com/Cisco-Talos/clamav.git", branch: "main"
 
@@ -13,13 +13,13 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "733a315cf867ef7fe2447eb2c52b8ab0394872e0de1daab072ebc32f3a3bd3af"
-    sha256 arm64_ventura:  "a2851d8fb5c97dd1709d2c0e743a8ea7c971625459f2ab0f6d7ba3c95976dc12"
-    sha256 arm64_monterey: "8cd7b582471f44ee3c567aaba308c6ba759b072d59c1d559dbb26cf8622e5007"
-    sha256 sonoma:         "8d1562e43666c2d324ba3661cfa3cdce1bee0ffbb70b3863f48c7db2a03ba765"
-    sha256 ventura:        "7596c6df69321e87696100b367439b8251857e8c4aaa6699b04b3fbe0f6b1d80"
-    sha256 monterey:       "6cb2b97f77ae97cf801772facd7ed1cbef1e9230fd1f0223f6fa2510484947c0"
-    sha256 x86_64_linux:   "9dadd78ac5c5f0b96894a186e3a461e5571466d78467271aa9a961de3d87f9a8"
+    sha256 arm64_sonoma:   "b82c02d3b3965d924e4d28bbddeff6aea8f365beae15f052a0ea23b7dd6e019c"
+    sha256 arm64_ventura:  "8c001b2b1ac6b1622c59d26da75ddd50f5ac71ac21289dfc472b2b8f2ce2d545"
+    sha256 arm64_monterey: "1827315b489bf48a99803f01dab47aa87a74e65ec8bff66371bef561386be864"
+    sha256 sonoma:         "ec610703603d1393ff95574e5548d8047046c90921bcf4545af0eca171c2bb4e"
+    sha256 ventura:        "78e0a282d0c42ccf8afc0f70e7462fccc02f66ec21d76e47589c459b51eda3a8"
+    sha256 monterey:       "0429d15a691d8c05c934d8db1cc089264111a607589c04f9cfd802b244f2f790"
+    sha256 x86_64_linux:   "4a15884a204451842473338b46e6f9141a64415a9819b4822194cd39e1cd6c49"
   end
 
   depends_on "cmake" => :build

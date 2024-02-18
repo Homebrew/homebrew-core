@@ -1,8 +1,8 @@
 class Sccache < Formula
   desc "Used as a compiler wrapper and avoids compilation when possible"
   homepage "https://github.com/mozilla/sccache"
-  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.7.5.tar.gz"
-  sha256 "19034b64ff223f852256869b3e3fa901059ee90de2e4085bf2bfb5690b430325"
+  url "https://github.com/mozilla/sccache/archive/refs/tags/v0.7.7.tar.gz"
+  sha256 "a5f5dacbc8232d566239fa023ce5fbc803ad56af2910fa1558b6e08e68e067e0"
   license "Apache-2.0"
   head "https://github.com/mozilla/sccache.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Sccache < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27b8a9c47ac56b0701cac96e877a4f832ed2a4c0260fef29f3007ee17bdcf0de"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac1bc8460e9de4539cf763ed1eba323a223e12041290f84ccdd10419e332833c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "08028f418edccedca4dc62e23bbd6e75e5e5dda9afa304501cd9233f2e273060"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3f6ce7c9fb4b4637248da0effa39edf350cf9c4e514b54c104d8bdf23b15b77a"
-    sha256 cellar: :any_skip_relocation, ventura:        "232aaa6586d388a0998647aece194e0a7d17d65d49c321098ab1859ce6e9acc2"
-    sha256 cellar: :any_skip_relocation, monterey:       "fbf71131278a91c6700aa3fb7da6911c5242ee14f7365dd37b500612f8755674"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c8cb2d03239c2afccb72e1780aadc8c1ec517af521fab935adef6759b4b7322"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e26f13535c0ff4044041315e4e89c9e4828c1366527d8c035aa78c73639ae1a4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf5802c47fa646cf04b6e5835b2c8a2379ed8debcda7eb9dfca3afaf71b59b34"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93c3f1e9799e4ec1576eb6851edabfff98374feb4494a8232a4b980264ac224b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6e7ababf956a09307afdbb068ac2e5d769566262126b219b488a3549d609dd0c"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b365d27698b863fac3fcf3602e379cb9c2b9bcf94d950ebf39edb60560402e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "95281542a91854819a1521e69190c1ef28596ebc7d6cdb67f18c5e70e9d74873"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a2390836364399aa36a0897881f1ccf9bd099ab784600765a8e54a2c343191f"
   end
 
   depends_on "rust" => :build

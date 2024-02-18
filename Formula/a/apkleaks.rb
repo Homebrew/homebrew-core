@@ -8,20 +8,19 @@ class Apkleaks < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c43bdd892cd83f9c27958b30655f419d2b8af1f9fcaf4ce529471b19e5f0980"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "df4aee641334907e439140a7640c8aee046bc4f15a23d206625d2afa0dba954f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "efb05e2117c82deddabaa566c4b05cfd0fd6fda68b7b62109737524cf6664a7d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a8153cb2b92fbfafe4c332a0bdebd102aac565f481d0c24816b68b39d9a95bf7"
-    sha256 cellar: :any_skip_relocation, ventura:        "4db43c5527230b6b7602b4e488ac99a42d1785fbe0e06e7818445e651e2232b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ea73b3e545b925eff2a45766a5d3fae48905ecf0418aa456a7ec3a2ad25442c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e452964c171dd29cdb50651872aef32cf2981a110149b34b795022991c98fa4"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa1c9b88288fa187b5fed5349a5f9ad3c3c72c6897aaf75dfa6d81e41c745ff5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d65e0943945ca4f38d19544667e9cf5b4e671a20cbe52215fcb8d60e391a189"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "46a59fefc84fe6045b1eafef9f8b9d902a2aad63833147c3c9057ba363007d95"
+    sha256 cellar: :any_skip_relocation, sonoma:         "93f8b7983670c50972f582ae49e4d075435e8d1dd1cb179cc5f76c4da6ff6350"
+    sha256 cellar: :any_skip_relocation, ventura:        "08c53e1cec50331e0a9cb38c61a092612a92d786b610389bb67be7c8ff26e712"
+    sha256 cellar: :any_skip_relocation, monterey:       "c5e9fda0f4401fbbe8773f2f242df3be152ce2607529abd71af22ad5cd4de982"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49a00fdfa4d66c7740f24705018d49b4a835722a92cac8b4b633df91b860de6c"
   end
 
   depends_on "jadx"
   depends_on "python-click"
   depends_on "python-lxml"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
 
   resource "asn1crypto" do
@@ -30,11 +29,19 @@ class Apkleaks < Formula
   end
 
   resource "pyaxmlparser" do
-    url "https://files.pythonhosted.org/packages/58/7f/327c19329f535c332451b5f1f906bff5f952fe3070d00376b75e67052f35/pyaxmlparser-0.3.28.tar.gz"
-    sha256 "c482826380fd84ce1a6386183861f2a6728017241a230c13d521e3e7737e803e"
+    url "https://files.pythonhosted.org/packages/e3/7c/fae519a8eb4e91587b2b4bf9b1ff738451984687a2cfff778df71b74727d/pyaxmlparser-0.3.30.tar.gz"
+    sha256 "ce301723fa7f05b3c2869f18f7af9e75abfbda362dc77789f668bb80287c9b3b"
+  end
+
+  # Drop distutils/setuptools
+  # https://github.com/dwisiswant0/apkleaks/pull/81
+  patch do
+    url "https://github.com/dwisiswant0/apkleaks/commit/fc8871ac605447db1456cb1189fa79e673f71e1b.patch?full_index=1"
+    sha256 "5c0eda68fbba60b9ecb8471f7a3ec92c2cb34988ca98188daad3af572bb09b83"
   end
 
   def install
+    ENV["PIP_USE_PEP517"] = "1"
     virtualenv_install_with_resources
   end
 

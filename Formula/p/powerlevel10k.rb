@@ -1,21 +1,19 @@
 class Powerlevel10k < Formula
   desc "Theme for zsh"
   homepage "https://github.com/romkatv/powerlevel10k"
-  url "https://github.com/romkatv/powerlevel10k/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "ac3395e572b5d5b77813009fd206762268fc73b9d305c2a99f4f26ad6fecf024"
+  url "https://github.com/romkatv/powerlevel10k/archive/refs/tags/v1.20.0.tar.gz"
+  sha256 "d8187d44b697b3a37a8c4896678b4380e717cbf2850179529358348780a2d3d7"
   license "MIT"
   head "https://github.com/romkatv/powerlevel10k.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d18aa0edf6740bb6d86a30a62ac74b56da45dc75dad4b46981a4eff7d0f9bc73"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d18aa0edf6740bb6d86a30a62ac74b56da45dc75dad4b46981a4eff7d0f9bc73"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "095088b4efba21b9e37c2eb532cc5e6744b3d2138cf83707f54d456e78950ac0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f3242dd77782bb643a0fe198e1fc253669914041e9d41446e292a0a7ac3b6e92"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b33d65ad5a8317162c078412494997179650a6e758ccf72ee2c1be5d1fae78df"
-    sha256 cellar: :any_skip_relocation, ventura:        "b33d65ad5a8317162c078412494997179650a6e758ccf72ee2c1be5d1fae78df"
-    sha256 cellar: :any_skip_relocation, monterey:       "41fd63880caa4e827972b094030772e91ab943945b2dc2555f1fd861e42a4c2d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcd2b21e16c87f97b6689c7fe25214955ecb1adbd13fbb83d39352bebe276fa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ffa9d63360e6be1874b0e2b401cb72750df6aa903da20125852405d91b5d5b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53d306e0deb9f0ec13c023b1d1b4def2fb96e7280f33a967fa5b0ce1637c47fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53d306e0deb9f0ec13c023b1d1b4def2fb96e7280f33a967fa5b0ce1637c47fa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7c1892abfa0b69d3f198c51bcec09e83591dbbbc22ce51f337b065c6bc2e370"
+    sha256 cellar: :any_skip_relocation, sonoma:         "df58ced2ccb576d8da9b0f3e5d6986c22414365354872cd2c9e620f2a8ce65e4"
+    sha256 cellar: :any_skip_relocation, ventura:        "df58ced2ccb576d8da9b0f3e5d6986c22414365354872cd2c9e620f2a8ce65e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "bef10fff91d174c71544f0a1b0d0a1790131fe959cdd1bd4e9d1bcea682f1767"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20bde83ee0e3a59d86aaca90273b6a88819264d47892cb23c66b47ab5230c22a"
   end
 
   uses_from_macos "zsh" => :test

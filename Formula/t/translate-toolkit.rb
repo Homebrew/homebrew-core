@@ -1,19 +1,19 @@
 class TranslateToolkit < Formula
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/78/03/246848a23799a5a7b1b4e5a242ee923b45cec4da64ef34677d8799fcae55/translate-toolkit-3.12.1.tar.gz"
-  sha256 "69e4c68f0e60a259b6176aa173bfeb0de6eba1c2adbfb0aa95a279ba4be26525"
+  url "https://files.pythonhosted.org/packages/32/40/2776a3356a0902cd3962031f0d4d6eae04c6f17ca1ded575435182094ceb/translate-toolkit-3.12.2.tar.gz"
+  sha256 "acee42b816f7796809b9b4768693664f6bd19fb96eae3d8dfec0932fa8761706"
   license "GPL-2.0-or-later"
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e09d1199d511d39bdd95047434ae1e2f1969929dbb104504ba06aadfb7f69a8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1148519fdba2438a254ffbc87a0a19458337a6892dacfb773bc29e350c3aacd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "26274da3a650bf42d873ba92789febf1bd3b9813f9771cbe49946f4d702bf422"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a71b9e6bb837faa200cfe38588336349e214b6d68e973f51f21822a571fd0910"
-    sha256 cellar: :any_skip_relocation, ventura:        "1029718e4c72c077294dc157870433061c667a4d87f94529291a1281ac38333b"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c64ad91042857eb79b25d974151a37d71e037e619181bd99808326e60bb8179"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "087fb8bbf28b4046e59373fd82dfc91d085f7c86d27c3e1de50075fe7c68ca73"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4554fca7cc3fc003796fa7744e0d14b184dfdf9e0854d24c4d01c7a01de9f211"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a44310bbc9553a8fd356ed1dc9ee356b0cc6a648e14b1086620bfd57772445bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "356c5298bc02276599af20b8c479485e30f7bd1308c09100499c7384f900f251"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6c52dab54c8aaf38ce91a12d6a45675797d9816d59e4491a99f98ce8bed2cdf"
+    sha256 cellar: :any_skip_relocation, ventura:        "c574e02b353a9053580442b2cdd8cf46c1f1526c0059e9c792109fb4e9cb05e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "ad920621b4ae445fe83f422116443b11530da56d85a24d5f681c5b09fdeb4517"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "010eb219237ed6d5693ef2b6abf9d26430a75b35787942a8ac4fb1d2180a8771"
   end
 
   depends_on "python-setuptools" => :build

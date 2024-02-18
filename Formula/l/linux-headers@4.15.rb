@@ -14,7 +14,7 @@ class LinuxHeadersAT415 < Formula
   # Linux kernel 4.15 is EOL with final release on 2018-04-19.
   # It is still used in Ubuntu 18.04 LTS but we don't track Ubuntu's versions
   # and we skipped to Ubuntu 22.04 LTS for Linux bottling.
-  deprecate! date: "2023-02-12", because: :deprecated_upstream
+  disable! date: "2024-02-16", because: :deprecated_upstream
 
   depends_on :linux
 

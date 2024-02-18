@@ -4,16 +4,16 @@ class Mapcrafter < Formula
   url "https://github.com/mapcrafter/mapcrafter/archive/refs/tags/v.2.4.tar.gz"
   sha256 "f3b698d34c02c2da0c4d2b7f4e251bcba058d0d1e4479c0418eeba264d1c8dae"
   license "GPL-3.0"
-  revision 9
+  revision 10
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ac7eef67debaadc5962317b020c729af5f5598e5f7ac6818e47cb38814248739"
-    sha256 cellar: :any,                 arm64_ventura:  "eab67b9a569b873e0caf36097acd63f26536b0e5277816e2546fd94b6e6cfbd6"
-    sha256 cellar: :any,                 arm64_monterey: "7283b931a4ed1861d6cf179a8363f5a9559e72bdcfa6d104988abe7a41c8b89a"
-    sha256 cellar: :any,                 sonoma:         "86d70b83d4bb841e7036f8de5ce82147ee35f025cb28212b619b3b6b20f2c79c"
-    sha256 cellar: :any,                 ventura:        "bb7a1e2f790a248680fa80ced4bcaa3de40cf0c03ab5ad9cfa4b45de926aa8e7"
-    sha256 cellar: :any,                 monterey:       "81bbded934bc26e4de2db7b7cfa4d44bf1a893a7c80bf911e4ecd8c55a5e6bca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7ed13bf91340907ab2f3728a80f4d9109d884cc1b4925e3a71df2baeefc9232"
+    sha256 cellar: :any,                 arm64_sonoma:   "e2f94fcaa7b91042cb6ab1252f58bcd9edc1e46e07ffc08c792a35af72c15acb"
+    sha256 cellar: :any,                 arm64_ventura:  "9d707ef1c4a74e52d82215e9efeb1f1a09c1965957c757b8e8b82052eed9c9e8"
+    sha256 cellar: :any,                 arm64_monterey: "fe6d50dbd9cc83ba9cfb13c096f9b41caf17c9f2be8782ae594ce5121413d649"
+    sha256 cellar: :any,                 sonoma:         "e5bd9ce74f32e318e75081ff765886535989734d35fa8b955a54a06f4aea55cf"
+    sha256 cellar: :any,                 ventura:        "19c03724a9d64a9447cef9117145e8790975cb7889873146c1e1d8efc8c19ffb"
+    sha256 cellar: :any,                 monterey:       "2b27c6005892c49ae36bf09470787a96203e193be537be62e7e52f69d20afe4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56521c291750a553f8cfe637ad8399d598443de08a0ac98081ad798dd127eb12"
   end
 
   depends_on "cmake" => :build

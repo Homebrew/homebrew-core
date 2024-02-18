@@ -1,24 +1,29 @@
 class Hcloud < Formula
   desc "Command-line interface for Hetzner Cloud"
   homepage "https://github.com/hetznercloud/cli"
-  url "https://github.com/hetznercloud/cli/archive/refs/tags/v1.41.1.tar.gz"
-  sha256 "900e308cf1156b7707c2a1ad17feec1a7f3059225ba8a9728743aa9393d697db"
+  url "https://github.com/hetznercloud/cli/archive/refs/tags/v1.42.0.tar.gz"
+  sha256 "b99ec2b89d1485c3b14d6db2966cc355c9173ca98fe29754216b70f72317d8ad"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d42468103bbc558582b3d4816802acb65b68e0ee26aca2cd67772309d978b54b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4bfdf8d93fafb8f0fc09c8af4af29e8b33fb9a659c57c59d58ce6bec36e76bc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3df331ec16f6515519a1d98a556837235ae5ac1733a25a7e5b4039c1783816ad"
-    sha256 cellar: :any_skip_relocation, sonoma:         "541eb4e5b58f5ff9c8f70dd00dd143e9069a43f01291a50eaa7d33df328762c4"
-    sha256 cellar: :any_skip_relocation, ventura:        "bbc9ad4d0b291e2590ea384933bf5b48129da649314cd6abbcf8715eab5c40c6"
-    sha256 cellar: :any_skip_relocation, monterey:       "02bb4c95a4de4948d3345715700c820a4bec92860044f50d92789358cce3353b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ed1075cdbe96317f8624ddff44a315b3cb78527fd74ed85e196af3a4dd08e07"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f9d30816361b29c44ea8168d072a60827af6d37c854b4b35db973ab7300a2fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "56050ac5a686d19e8cea446e33352941fbbfc93796dd2a935aaafd665199edb1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2ea6032b0f670bd811a9b0dedb1d7c4ebe0427d1fee8651a88c256b687bda80"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d49b568974dc325394a8fa12234f43a3cf1c3c0d7ffb886408addda8b43d9498"
+    sha256 cellar: :any_skip_relocation, ventura:        "7fa5e5e2764da50140e6b47da4d8edccca8df58f232db781d4512af922fa5771"
+    sha256 cellar: :any_skip_relocation, monterey:       "958678b32c5c8bb45fcc137003384ad5ed5604209c51a1a75aa9f406ada9a4ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "421344088abb8db10447221b51eef0abc77acf688d0d860eba0c1597c8463e1d"
   end
 
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/hetznercloud/cli/internal/version.Version=v#{version}"
+    ldflags = %W[
+      -s -w
+      -X github.com/hetznercloud/cli/internal/version.version=v#{version}
+      -X github.com/hetznercloud/cli/internal/version.versionPrerelease=
+    ]
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/hcloud"
 
     generate_completions_from_executable(bin/"hcloud", "completion")

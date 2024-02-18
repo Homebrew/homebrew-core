@@ -2,21 +2,19 @@ class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/x-motemen/ghq"
   url "https://github.com/x-motemen/ghq.git",
-      tag:      "v1.4.2",
-      revision: "7163e61e2309a039241ad40b4a25bea35671ea6f"
+      tag:      "v1.5.0",
+      revision: "5ace929f73e78dd279c6227458b2e9683e8af6a3"
   license "MIT"
   head "https://github.com/x-motemen/ghq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7adb9158c20355550e353fbe48924b3335a5a1350b19e2b021e616d19e7ba1e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e702934dc97273c2a9a1b7ac060f20e43a91732aee6742b5e2ead5b7c132c89"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "792212f45639cb1dc0494b4e455913f110269340ab5dc3a8257fd227390148e6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "13cc0b246fbad82aa2fef5ade81f1c252e51a2888818838e68b3be9806ea2594"
-    sha256 cellar: :any_skip_relocation, sonoma:         "94fc7e7343b273369619548652add7adafc82a6e4b082193bc7ac949abcc057b"
-    sha256 cellar: :any_skip_relocation, ventura:        "61407be63f9d0db462fd1456cfce468c1762ba9fcad6bf506330298a8666d869"
-    sha256 cellar: :any_skip_relocation, monterey:       "b258e7996cec0b9ebb261af589f6b1790efda297e79a95769595fb61969567e2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c241efa1354f37c1316e76b435d515a243847cce4a35221525bbd25914368607"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e06b6d57e4ec9e8eee837fb161636c4b887a6bf68b474433e5114161d528bba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19227d3c56dce847f3e0135a235d44d56e4b01f246aaebe83f9f3dd5fa03576a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6d787f51ecb3db678a8461f8f34cd533204d890325d421f0a813e18ee70fe37"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bfb60a3ba4b4d3bf073044b84fc9c255e9477b9f02a82c1aaa90ff8804dbd502"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d5c599d32f5bea89c4b0b2dcbf523bfc1f5c269b6e2091c370d76235c0fc447a"
+    sha256 cellar: :any_skip_relocation, ventura:        "b5f961556625ae239b08935a038e11873e516f841f5acdba2e97fbf9ae2533b1"
+    sha256 cellar: :any_skip_relocation, monterey:       "091b5db5b3cd665ca9206829cbaf72119e30753a9e73d57c8ec313161b070351"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "315b093517cd382d987944dbb4419e2b1187b5c55c94574458d0899b5b2b51c8"
   end
 
   depends_on "go" => :build

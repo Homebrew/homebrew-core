@@ -18,6 +18,8 @@ class Fabio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee9395e3877ab2abdaa6dddba8405241ca30ce5c0ae56eada5b01e15cdb37382"
   end
 
+  deprecate! date: "2024-02-04", because: "depends on soon to be deprecated consul"
+
   depends_on "go" => :build
   depends_on "consul"
 

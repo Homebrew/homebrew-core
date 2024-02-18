@@ -1,19 +1,19 @@
 class Faudio < Formula
   desc "Accuracy-focused XAudio reimplementation for open platforms"
   homepage "https://fna-xna.github.io/"
-  url "https://github.com/FNA-XNA/FAudio/archive/refs/tags/24.01.tar.gz"
-  sha256 "28839f2f962180e0f8e0d3cb10061758f3cab7ea7eb92a8ba62ae6d0077e9fb6"
+  url "https://github.com/FNA-XNA/FAudio/archive/refs/tags/24.02.tar.gz"
+  sha256 "a7ab24c5aba32eba217505d5c3be25eee691e000b650c437c090f545be4fd668"
   license "Zlib"
   head "https://github.com/FNA-XNA/FAudio.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e908483ba1333b43d07d1d0774e0b6efbf96b45cdcc6e3b30ac2dabea406ea5e"
-    sha256 cellar: :any,                 arm64_ventura:  "09c0b6c7cf8b495a3f01054c3ae38e5d575170369c424cffc5655cc78fca99c2"
-    sha256 cellar: :any,                 arm64_monterey: "459d8e1faa466ce7f8432a03458e72b47825b9051000f8fe1f4d3d87de84fc1e"
-    sha256 cellar: :any,                 sonoma:         "04836a8433d1daaf35d18f894b13b2d6e2ec6505e64edb0a64355d6ed837f364"
-    sha256 cellar: :any,                 ventura:        "8d70ede21ce90096d3cbc21e8691f78c402ec495f8a7fecb0500939f1fd185d7"
-    sha256 cellar: :any,                 monterey:       "baaa5375da30dbce38c023a14e473d754b9702167788362a4b13054ffdbf39e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d01f953d9cd856a5bef7afc593ba7d0aa78dc5bbe3942b69b4a3806968c66d38"
+    sha256 cellar: :any,                 arm64_sonoma:   "fe8a5ba0dc37434855f661696d3de11038f674035e79ea92595049fbd78a182c"
+    sha256 cellar: :any,                 arm64_ventura:  "a168f259c58c080925f27ac7c0efd53568812e2b36aaee7f0ead27baf867c80e"
+    sha256 cellar: :any,                 arm64_monterey: "a745f24d16cbb034e6563eebd3dbbff631eee9dc0439bed90c1879c7e8aabf29"
+    sha256 cellar: :any,                 sonoma:         "73bf4989b1d450f3f674c9fde88e9ec7deebbc40ec3f81d12609c58c8963be57"
+    sha256 cellar: :any,                 ventura:        "088c7810c4ac6e7e10019205c93b3b1b9c001aa4094bb62cd45de6a93e9516b1"
+    sha256 cellar: :any,                 monterey:       "36c305b0b01bc648e9675c08fd423b3775c4fbe3bfb795e557b6beb74c655ffa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33f82ff850c9e74ec2c7ad3592400249476bef186238a4afc97f4c46556053a5"
   end
 
   depends_on "cmake" => :build

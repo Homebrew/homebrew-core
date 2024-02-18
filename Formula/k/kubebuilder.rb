@@ -2,19 +2,19 @@ class Kubebuilder < Formula
   desc "SDK for building Kubernetes APIs using CRDs"
   homepage "https://github.com/kubernetes-sigs/kubebuilder"
   url "https://github.com/kubernetes-sigs/kubebuilder.git",
-      tag:      "v3.13.0",
-      revision: "c8a7cc58eeb56586c019cf8845dad37286d077ff"
+      tag:      "v3.14.0",
+      revision: "11053630918ac421cb6eb6f0a3225e2a2ad49535"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kubebuilder.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6e4f618a714f09092a1af8a6a724c4cb54f99e9cc9fef4e67282638bfa51c71"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1afdd07e2110da4239322024a413fc5380c67fcb97c134632bb75d1ab37818df"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4feb623b22741ad976d921c8d4086b0f0cb47615b5af9ee251f4ad11520c52d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "301207c578ffeb9c9595362b17866c3775622344d0a43cb881ef1e27cbc1b5c1"
-    sha256 cellar: :any_skip_relocation, ventura:        "d601a8461a38fa2b0f2d11adfda86b7a00d65c6c4f2a65e4919dcc0ff47233b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "1e240f8133f0bf58ea99fb91a11af6d72f8ce44f4257680ef58cee8ea85f74eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "911ff097be92d1fd34fc6f04aee5a06786e71c88f919b6e492fbd9e31a1bac4e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "168a9dc40ec48b37f101b2816f591cedfed87b8c89a89edc743a31fcd1090755"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d803646014bab2958dfa8db954bf0acd50fb3dcae1462247d07009dd48f89cc5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8fe3acaf6e8227ce2a71cf52aa50da3f0540e7406cb7e834d4083320f7bc9673"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e2dc00af9eb27a19329778ce34e97dd6d0bd33fb873b0650ba2b76bcc6f33a82"
+    sha256 cellar: :any_skip_relocation, ventura:        "ea6fb03192306098f7a60b6b5fe8e6808d6708f83a9a35ae0a98033605179c9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "ad28fcf1d3d37f425458135dee7f06fd96a5841fabaaa988da6bef7f221210f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55e401f56c613da42292140eda4794347ba26969a9e4750b5cc8de4bc1f67b45"
   end
 
   depends_on "go"

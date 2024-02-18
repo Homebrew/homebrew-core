@@ -1,9 +1,9 @@
 class MidnightCommander < Formula
   desc "Terminal-based visual file manager"
   homepage "https://www.midnight-commander.org/"
-  url "https://www.midnight-commander.org/downloads/mc-4.8.30.tar.xz"
-  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.30.tar.xz"
-  sha256 "5ebc3cb2144b970c5149fda556c4ad50b78780494696cdf2d14a53204c95c7df"
+  url "https://www.midnight-commander.org/downloads/mc-4.8.31.tar.xz"
+  mirror "https://ftp.osuosl.org/pub/midnightcommander/mc-4.8.31.tar.xz"
+  sha256 "24191cf8667675b8e31fc4a9d18a0a65bdc0598c2c5c4ea092494cd13ab4ab1a"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,15 +12,13 @@ class MidnightCommander < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "4c0bfce930eb62095fd5275b107d113416157d42a69fd30f9213534f26f62fc1"
-    sha256 arm64_ventura:  "6c9997cc0e3abe409b02fc2f5b834e5c805d4c01bace1b1e8930dbf5bda9974d"
-    sha256 arm64_monterey: "e87079b81d73cb205be44d7b37761d004dae2edb14d62fe3791e34a2ac27fd38"
-    sha256 arm64_big_sur:  "b63985ce7b866b053613f2847d2b68f3145d8807d6e9ca49bb08757676f4c627"
-    sha256 sonoma:         "29c0e3f694160431f32f0847662af4264454fe98131472b6f8331c43f3bb57dc"
-    sha256 ventura:        "83f00b049d08761da7b730ab73cf05acfbb03c2982b17abdbd59d810c3a6aab5"
-    sha256 monterey:       "5f996907eea175493f1a42d8bf88e6eb3f0ef3d2d456b1c3480b2a8092adc8e2"
-    sha256 big_sur:        "a9fa1931be3b67b41358cb328304781010fd8d5984c5337a13749aafe8b1f2f0"
-    sha256 x86_64_linux:   "f901b34e155fff6a4cb2acc7e011ec2ad88d03d3129b8db7815db432eb0a8b0a"
+    sha256 arm64_sonoma:   "a4c54152c514b16f70f8e58ba842d89a6e07c6a2b6f14083a851fac291dc4c6d"
+    sha256 arm64_ventura:  "90131c6ef144b944c2d09ad8c59b4f4e4f249746669888404b8f8d50ed837181"
+    sha256 arm64_monterey: "1b306039471c2b6c8bb20ac30138baaaedc4315497fdf3945d61fcbbbe98dd0d"
+    sha256 sonoma:         "116dbf378bfbeb72b75a850be84f93f190f6f249477cea7c8f6bf54343d03d7b"
+    sha256 ventura:        "2ad785a7f7277a49c18c4f45cf0b48572998c7d97db71e0d4e628737c5f3fb9a"
+    sha256 monterey:       "5b7d18b46b938edb816c7560df7c4b356e8ab01558472d4f12f0e11c836e16e5"
+    sha256 x86_64_linux:   "7a72a393d6610429cb35fd17266c06df529e049c7548481f0e68db85c55e492e"
   end
 
   head do

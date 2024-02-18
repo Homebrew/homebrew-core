@@ -1,8 +1,8 @@
 class Gping < Formula
   desc "Ping, but with a graph"
   homepage "https://github.com/orf/gping"
-  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.16.0.tar.gz"
-  sha256 "2e9642dbcb2ba69c4cfe0a1cd9218fbffca741c776c7dc864c0d6dc5550330ab"
+  url "https://github.com/orf/gping/archive/refs/tags/gping-v1.16.1.tar.gz"
+  sha256 "557dad6e54b5dd23f88224ea7914776b7636672f237d9cbbea59972235ca89a8"
   license "MIT"
   head "https://github.com/orf/gping.git", branch: "master"
 
@@ -16,13 +16,13 @@ class Gping < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9dbd8442a51c5cead4e5860ef752808404d79e113efbbe428baa2bb26c1d9072"
-    sha256 cellar: :any,                 arm64_ventura:  "662b2b5a3eeabe9e5f03a60675556f03f35c1f6d6242b63fca37744c789316a1"
-    sha256 cellar: :any,                 arm64_monterey: "e895a077fd09ae61270fca27d264acbb8000dbc6c20abbf4b4c2e09d06f8ec2d"
-    sha256 cellar: :any,                 sonoma:         "ce90adc71b5bac59f65668472846841b69fafcb445f13c05df0d17d97b66e595"
-    sha256 cellar: :any,                 ventura:        "b3f63d77d22a5d4c4c5a38b12acb5b4f2766cea08f1756e1a2cd2d6aa5b76796"
-    sha256 cellar: :any,                 monterey:       "bc2a79d096c8194968d37fac8d64acb448eae54a1d86ea7350b16d3da7d98721"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a09a6fe89f84883605331b3e073392c84fbf7a3366408f9584a42f27a6ebf085"
+    sha256 cellar: :any,                 arm64_sonoma:   "6c0b8a00018562a56428730081d2149b75e5d70683f112f258c3dd09287e240a"
+    sha256 cellar: :any,                 arm64_ventura:  "2f32084a6efef9a3a037b0c9d82299a2258256f6b9b665bbb73fdc8b211b0fd6"
+    sha256 cellar: :any,                 arm64_monterey: "4668f27d28670807e0e7e39552f7a20e53d1a093e891ad8948b3a0747f1ef81f"
+    sha256 cellar: :any,                 sonoma:         "7d74bf93f8f90500e1e7c9af1cf1f0543dc45f2bd11e3c489a743359874c1859"
+    sha256 cellar: :any,                 ventura:        "7efd96965712edc3ebe8a5208758a072d322a1e07b0347838a2400c955111a26"
+    sha256 cellar: :any,                 monterey:       "352d66ee19e9a3c4fb133687c331c38fb1a3636bf243d0f1ad348a16065274df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a20f09bff83e703cff8bec5adda1a0d8b2e75cb2bda8a182fea048bf55bb1ef"
   end
 
   depends_on "pkg-config" => :build

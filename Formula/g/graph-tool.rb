@@ -6,6 +6,7 @@ class GraphTool < Formula
   url "https://downloads.skewed.de/graph-tool/graph-tool-2.59.tar.bz2"
   sha256 "cde479c0a7254b72f6e795d03b0273b0a7d81611a6a3364ba649c2c85c99acae"
   license "LGPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -13,13 +14,13 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "1c84932cf6da53e4cc7ddb3a519d62840567311576c71956891a6d86781fde11"
-    sha256                               arm64_ventura:  "b1ce0cc0e617a2947612470c1b602ae2bb02e1746b8c8fcd7349a72322c76519"
-    sha256                               arm64_monterey: "d893261a553505109b09e099eaa8e24df689487d647ea8af1ddd06801d76ec5c"
-    sha256                               sonoma:         "5cee7a8f9c59072c1b957e5f4086b01d7b7e1f5b693b20ef3b36af6b73f81a8b"
-    sha256                               ventura:        "6046234a569b4145377825a5d8b6f445af87fff41c6d57d1656de58514a310c5"
-    sha256                               monterey:       "3cbbde0126d3b4513deb2288f00e54fe8d1fece97c1a2e7582281931ad26703b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e16e0e6b99ce9032611444d44769956f1b90dd2b14a8a2ea2fa25e9215c944d7"
+    sha256                               arm64_sonoma:   "ff0c95605ed9a02c48b44ccf428faf8d3619a748b18572dc3b6a9fb9dcea68d6"
+    sha256                               arm64_ventura:  "a7219f22ef4158f40933f7912b8a0ad48ca533c3770c158df99b14b1fe1c8a06"
+    sha256                               arm64_monterey: "bdff17b1254a14480a828b09d2732643c3e12ae4e11abfebff6709d153917568"
+    sha256                               sonoma:         "bb266340fdc1fd0728adeb90aeff3241e0118e54907b0335c249bd4473d23cfc"
+    sha256                               ventura:        "17970cc956fd334c366335d4f532a8f54d1f0479ffc387a55ff3d5d6414ee376"
+    sha256                               monterey:       "294e8fa876ac401ba644d09a32b9bf80002a85a9c593e3c4907724350c8e97a6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1aa7a3df8ea24382ab5e04662b77be08fdb82ef9c75f53c04fa95ea2a8772dac"
   end
 
   depends_on "autoconf" => :build

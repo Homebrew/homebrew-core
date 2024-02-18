@@ -4,7 +4,7 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/refs/tags/v9.8.tar.gz"
   sha256 "85e10e7acf0a9d9a3b891b9b108f76e252849418c6230daea94ac429af8a4ea4"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/google/or-tools.git", branch: "stable"
 
   livecheck do
@@ -13,13 +13,13 @@ class OrTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c9d929f66914073437b2916cd629b100533bcbb6762858c9e822d60b132e3277"
-    sha256 cellar: :any,                 arm64_ventura:  "2178c626c083b07c754e6f33fd99f1be4867e0c5eba7257fa0cdcedea0f87ad5"
-    sha256 cellar: :any,                 arm64_monterey: "c887293d618f430f374d2b1cdf46ab93817f12fedda855bb370caa8e795e8a43"
-    sha256 cellar: :any,                 sonoma:         "b518b5485f5e725b050fcec7c3a6c92c851b8f333aa1d8c22dad7b41a024b4f9"
-    sha256 cellar: :any,                 ventura:        "4ba7ff96be196dd6f91ade4dd76f40709ed60055acd84f20c89365ed423a4dde"
-    sha256 cellar: :any,                 monterey:       "6fc7e67726e682cdd840683764d327fd0ad3247074ea4685c53acc794328aad3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b968071b9cc2ec0fd6bfa7d3990dd2933bd2a5633886f81d881629c242c1a15a"
+    sha256 cellar: :any,                 arm64_sonoma:   "9e9644ac8bfc378d3aa48ac29969fa2b9f6c09939ca007b949e14022d39e9c9a"
+    sha256 cellar: :any,                 arm64_ventura:  "947840ee31cd91495481cf5a4a12225d469f48e86d1eee2c25e0fdfcc32c423a"
+    sha256 cellar: :any,                 arm64_monterey: "5af0d9aea159a06df82a07d981ecaa2f7e026aaf287f271a5ca12e6f11f3bac8"
+    sha256 cellar: :any,                 sonoma:         "197a7573181ed9e3cd5b2a1672704238a828bf9748354895dd92f06c04fd2e0b"
+    sha256 cellar: :any,                 ventura:        "564b785cdd5a3a876230073d3af3ec766e546f73e2b8863673ef9820acbbeb2b"
+    sha256 cellar: :any,                 monterey:       "d909fc95db966cad4ef24d222c3a6254239e91d8c9f2f9321da5f13d68565dde"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd90d60424be3ee0c9729241f00e878318ae60348d2fcde92e6052fbdd2dd1a2"
   end
 
   depends_on "cmake" => :build

@@ -8,22 +8,18 @@ class Copier < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8b80d5daef67247121d549a5d805ff28fe86ad05cec508b547fc4461365cfcf6"
-    sha256 cellar: :any,                 arm64_ventura:  "47f60f34e70e7e1b1088e425939022013118008c5db782bb110ba2ea1c863e09"
-    sha256 cellar: :any,                 arm64_monterey: "3a083cb9eb816eb2f0ccba25718c5316fe774a0caab6da89a3c486d5ee091222"
-    sha256 cellar: :any,                 sonoma:         "a3a17de828b81ba0584d6301cb6cdf24884ba7ce4384f0116e288f8213a50ff5"
-    sha256 cellar: :any,                 ventura:        "6678c474961f6540f225c1d5241f03eec7c167dc096a34a7f4d8590cd4425536"
-    sha256 cellar: :any,                 monterey:       "8c2f8589d6550f95b917f3df59fc0b17bccd3537fdbe67fe859c3dee7dd42bde"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21b1544193934296458ebc7e25fb4a9eb51b3e24c6ef2d93a79fab22ccb25694"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "64707e10dbf462f8de913bb046fcc5de460c3d58e8ea91d464e600febcd81161"
+    sha256 cellar: :any,                 arm64_ventura:  "43ebc04124e3deb57707c32dbcd655be0768484151afb4ca176c52f26628e2a3"
+    sha256 cellar: :any,                 arm64_monterey: "909cf4a7215ca95a9cdb4360607f0f70f7fc38021e1a4828f76279f49ac1c89b"
+    sha256 cellar: :any,                 sonoma:         "38015a264f74d78aa9c10b80a685248f19cd16ceeb61a6911b150ba11c13594b"
+    sha256 cellar: :any,                 ventura:        "f3c3d2cc002cae336a0afaa19fddb7997801465672a931eba8d5128aa8d0c8f4"
+    sha256 cellar: :any,                 monterey:       "0e70d8626273174cafe5909457fe6668656962a3bdbf0b884195289b11dc8f24"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "719e5440658e402a79b4cc1b363f33b61e979bd97ade2cc1e77b06cf261d1c57"
   end
 
-  depends_on "rust" => :build
-  depends_on "pygments"
-  depends_on "python-markupsafe"
-  depends_on "python-packaging"
-  depends_on "python-typing-extensions"
+  depends_on "rust" => :build # for pydantic
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
   resource "annotated-types" do
     url "https://files.pythonhosted.org/packages/67/fe/8c7b275824c6d2cd17c93ee85d0ee81c090285b6d52f4876ccc47cf9c3c4/annotated_types-0.6.0.tar.gz"
@@ -41,8 +37,8 @@ class Copier < Formula
   end
 
   resource "dunamai" do
-    url "https://files.pythonhosted.org/packages/1d/03/338fba56a6c76ea6d99ca0b7af3098292c2dd6597ed656daa6ae26a07a77/dunamai-1.19.0.tar.gz"
-    sha256 "6ad99ae34f7cd290550a2ef1305d2e0292e6e6b5b1b830dfc07ceb7fd35fec09"
+    url "https://files.pythonhosted.org/packages/79/92/288901fe54e995673551f177f067d476df3596ba56c6d5e77143c3a0fda2/dunamai-1.19.1.tar.gz"
+    sha256 "c8112efec15cd1a8e0384d5d6f3be97a01bf7bc45b54069533856aaaa33a9b9e"
   end
 
   resource "funcy" do
@@ -58,6 +54,16 @@ class Copier < Formula
   resource "jinja2-ansible-filters" do
     url "https://files.pythonhosted.org/packages/1a/27/fa186af4b246eb869ffca8ffa42d92b05abaec08c99329e74d88b2c46ec7/jinja2-ansible-filters-1.3.2.tar.gz"
     sha256 "07c10cf44d7073f4f01102ca12d9a2dc31b41d47e4c61ed92ef6a6d2669b356b"
+  end
+
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
   end
 
   resource "pathspec" do
@@ -76,13 +82,23 @@ class Copier < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/aa/3f/56142232152145ecbee663d70a19a45d078180633321efb3847d2562b490/pydantic-2.5.3.tar.gz"
-    sha256 "b3ef57c62535b0941697cce638c08900d87fcb67e29cfa99e8a68f747f393f7a"
+    url "https://files.pythonhosted.org/packages/73/27/a17cc261bb974e929aa3b3365577e43c1c71c3dcd8669250613a7135cb8f/pydantic-2.6.1.tar.gz"
+    sha256 "4fd5c182a2488dc63e6d32737ff19937888001e2a6d86e94b3f233104a5d1fa9"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/b2/7d/8304d8471cfe4288f95a3065ebda56f9790d087edc356ad5bd83c89e2d79/pydantic_core-2.14.6.tar.gz"
-    sha256 "1fd0c1d395372843fba13a51c28e3bb9d59bd7aebfeb17358ffaaa1e4dbbe948"
+    url "https://files.pythonhosted.org/packages/0d/72/64550ef171432f97d046118a9869ad774925c2f442589d5f6164b8288e85/pydantic_core-2.16.2.tar.gz"
+    sha256 "0ba503850d8b8dcc18391f10de896ae51d37fe5fe43dbfb6a35c5c5cad271a06"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "pyyaml-include" do
@@ -93,6 +109,11 @@ class Copier < Formula
   resource "questionary" do
     url "https://files.pythonhosted.org/packages/84/d0/d73525aeba800df7030ac187d09c59dc40df1c878b4fab8669bdc805535d/questionary-2.0.1.tar.gz"
     sha256 "bcce898bf3dbb446ff62830c86c5c6fb9a22a54146f0f5597d3da43b10d8fc8b"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   resource "wcwidth" do

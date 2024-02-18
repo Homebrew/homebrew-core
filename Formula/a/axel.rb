@@ -1,22 +1,18 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/axel-download-accelerator/axel"
-  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.11/axel-2.17.11.tar.xz"
-  sha256 "580b2c18692482fd7f1e2b2819159484311ffc50f6d18924dceb80fd41d4ccf9"
+  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.13/axel-2.17.13.tar.xz"
+  sha256 "6af9c0238ca4fb850baa17878de0361868e3ff6d9302298d83c6d26931c28723"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:   "506a03df5c2b55501f4dc0170a89f84f4ad194dac1beee5f2d95e92a5e129174"
-    sha256 cellar: :any, arm64_ventura:  "3f196f17b1043e0a5531749fa1e21a87d350fa70e3cf846efb6d7115c979be33"
-    sha256 cellar: :any, arm64_monterey: "fc825bed920a30d02258383bdf1f14badc453adbf9cce3c8e628e221efbf7db5"
-    sha256 cellar: :any, arm64_big_sur:  "a1815f9d311241ce68c81b0f21daad17ab08f3c0fad600b9116f457a3ae5262f"
-    sha256 cellar: :any, sonoma:         "25c6412c87e4a3640fd84a36292f25b9e13b648cd1bc7f7c6ee9e02f2c36e84b"
-    sha256 cellar: :any, ventura:        "bb1aa80792b4fa114433ca1f3f92163ed16e8e467e352c32c502193d7a70e2a7"
-    sha256 cellar: :any, monterey:       "348ee3ec9805d19c50eb3fe8ffae5ddef7c3f123bdd75612dcd9c05c5311ec0a"
-    sha256 cellar: :any, big_sur:        "42d32e7d0d52b145d2965bb88b158f82c232688413d4bd34498e3f25b25b8da7"
-    sha256 cellar: :any, catalina:       "4e9cdfa03a735c0e169f482ab16af3296cbcbd7585eb7134b2de93aa335b7328"
-    sha256               x86_64_linux:   "9cb9766adfe1f050725b01426fd2b499f7a970e7a15406b7fc02e5e4b7b030d2"
+    sha256 cellar: :any, arm64_sonoma:   "a095f3c098776c43761c65679a2ecc60bd0b04af9c1a94ffd99844ac69661c69"
+    sha256 cellar: :any, arm64_ventura:  "ed71aadbb789bd4086726b793259d58b98fcb2c69e6c3a81f5e40f63344a7acf"
+    sha256 cellar: :any, arm64_monterey: "d0af2765b6dd17d34e15686bee72c1c7e1a5508944d648a32b2f69c0658f0e26"
+    sha256 cellar: :any, sonoma:         "54bd28d46c91a2d5f5b33d15fd4a53ce0ea8233bbf7d3169916dae6ecbcb20b8"
+    sha256 cellar: :any, ventura:        "a88772cfeaef859f51518aacaac3a886944787294ab729acf7197ac7561ff8ab"
+    sha256 cellar: :any, monterey:       "c8b6cf0e29ee3469bc13dc2a92f8a18d758aee32cc1e153163919f46aaf5e1cc"
+    sha256               x86_64_linux:   "5ee8ef570387c5ea1c14b0dbf4dbdac3bb202b9bc522e9a5d3f5030b15c7791e"
   end
 
   head do
@@ -26,11 +22,7 @@ class Axel < Formula
     depends_on "autoconf-archive" => :build
     depends_on "automake" => :build
     depends_on "gawk" => :build
-
-    resource "txt2man" do
-      url "https://github.com/mvertes/txt2man/archive/refs/tags/txt2man-1.7.1.tar.gz"
-      sha256 "4d9b1bfa2b7a5265b4e5cb3aebc1078323b029aa961b6836d8f96aba6a9e434d"
-    end
+    depends_on "txt2man" => :build
   end
 
   depends_on "pkg-config" => :build
@@ -38,11 +30,7 @@ class Axel < Formula
   depends_on "openssl@3"
 
   def install
-    if build.head?
-      resource("txt2man").stage { (buildpath/"txt2man").install "txt2man" }
-      ENV.prepend_path "PATH", buildpath/"txt2man"
-      system "autoreconf", "--force", "--install", "--verbose"
-    end
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
                           "--sysconfdir=#{etc}"

@@ -3,8 +3,8 @@ class Clarinet < Formula
   homepage "https://github.com/hirosystems/clarinet"
   # pull from git tag to get submodules
   url "https://github.com/hirosystems/clarinet.git",
-      tag:      "v2.1.0",
-      revision: "28259ef891536fe5ad068a213f55a7131070709a"
+      tag:      "v2.2.1",
+      revision: "4bfe97652081691dd3a23a87def00ac241aebccc"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/clarinet.git", branch: "main"
 
@@ -14,13 +14,13 @@ class Clarinet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53a880d7655379c18733ef019314c34ab6d3a716f394d8f35c411afb977e9732"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "124a00deff7726afbe57971b87c429412772e6e096c6d4c5cacf1b140cbd46c3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e9494cd0fa6f64cf1c88ba52fac3976c35b254a4f460313a30aa8dbe83fd084"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f9a175c5640ae31c8e9ee1b6234f4313da91b799fee04b6b1a6027494989d027"
-    sha256 cellar: :any_skip_relocation, ventura:        "b8843fe82a5e6eabe0f31fa94d83041b6ee87d2909f7ff9b06acc151e3b312f9"
-    sha256 cellar: :any_skip_relocation, monterey:       "8fb6c513a8f75834c2942e1cc2d07267b7b87be1bfde72ca8505c255a89ca4c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11f2b85f57a508273cf8cf435e3be30215f2acf4d3c1de620be242d855f60b96"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45701a169c217fe4e51973d6e37f71d8adce54021069c19e335ef131d0c4c420"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f797d30a4c1664e4121bb6517560c8785d7b42cb0f99da823fd8a63f0fff0363"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "64dc4cd12b6a8d1500d4f6374983c758aa584c4f5b51c937f6323fae9ee1afc3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "329762031e6e183592a307657d49e80cf495fec8d5b4ab3e950f69aa96952fda"
+    sha256 cellar: :any_skip_relocation, ventura:        "036b4600c4134480c7c565c8c28252e5a4e48e355a3a7d2b336d1414c114d1a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "70624ed0e4a4b4b640ab060a8492f0407bdf415f7052ce21304251693d8910f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d76f9ab7024b9204e47ac07de26e43805d5fe2d17f1f0ead0f53810fa1861b4"
   end
 
   depends_on "rust" => :build

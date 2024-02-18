@@ -5,6 +5,7 @@ class OperatorSdk < Formula
       tag:      "v1.33.0",
       revision: "542966812906456a8d67cf7284fc6410b104e118"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/operator-framework/operator-sdk.git", branch: "master"
 
   livecheck do
@@ -13,16 +14,17 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08bec6a42baaf146bd580273529b575c534caa10681b91c3a2185d1cee95817e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "93aada0823fd349a42b138b7aa347511af1642ebd82f9287b366f80de5425ba9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33ec046b6f4c16cafc46a615e57c2febd61d986592bc15cc876162f73a6ea637"
-    sha256 cellar: :any_skip_relocation, sonoma:         "923a526edabc339931f16181c511f42cca454143d166e6a04c3c4a39aa4702a5"
-    sha256 cellar: :any_skip_relocation, ventura:        "b6670b0de16cf9569897f8aec66bca3ef73d5fcb5d8eab1a9880befa3abc8c4d"
-    sha256 cellar: :any_skip_relocation, monterey:       "5daf8bb5d05cc376be6b6ce6421fdd92b608537bb6a79a175891a2d2eb54ca40"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a1e03597383084ce8f01d276d922bc96b01fd3865abb1801f71d8e016d06ebbb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "08b3d9df0a06e1d2b1f842ed024a71099aad0601d5ce2c78df0d2d3e008f0df5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85ea3675b65ca697028fe0d057cf0e1101d4e23dc754534f69762c290571f3c9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dfb8c8d9fa2b873cdcf61102e5722965c22c6ae31b8070e5faf1992455216b2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cab850875014cd719382f21cd4525a056e13f9f4c3c25f7a987182577ca21e38"
+    sha256 cellar: :any_skip_relocation, ventura:        "0781599387c96b14a8a6c3ac5bfb6ab7c6a80234524d6627c12ae616b9185ed4"
+    sha256 cellar: :any_skip_relocation, monterey:       "ddca03df191a7830a8cfd915f62299d684263a2fecf0b9346906ece45706bab3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4ac2b9bd38500aaa85e4b675d011c4bfebb2879e765b3e17fe351bc9de3b9d9"
   end
 
-  depends_on "go"
+  # use "go" again when https://github.com/operator-framework/operator-sdk/issues/6644 is resolved and released
+  depends_on "go@1.21"
 
   def install
     ENV["GOBIN"] = bin
@@ -32,6 +34,8 @@ class OperatorSdk < Formula
   end
 
   test do
+    ENV.prepend_path "PATH", Formula["go@1.21"].bin
+
     if build.stable?
       version_output = shell_output("#{bin}/operator-sdk version")
       assert_match "version: \"v#{version}\"", version_output

@@ -1,20 +1,18 @@
 class Xkbcomp < Formula
   desc "XKB keyboard description compiler"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/app/xkbcomp-1.4.6.tar.xz"
-  sha256 "fa50d611ef41e034487af7bd8d8c718df53dd18002f591cca16b0384afc58e98"
+  url "https://www.x.org/releases/individual/app/xkbcomp-1.4.7.tar.xz"
+  sha256 "0a288114e5f44e31987042c79aecff1ffad53a8154b8ec971c24a69a80f81f77"
   license all_of: ["HPND", "MIT-open-group"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "79c49e5e0cf0b34e2406df87d5d859b956383f8c96438cce3667d4e3c6cbd634"
-    sha256 cellar: :any,                 arm64_ventura:  "f8b766cdedfc9f611c2ca97b916f6e5d6880cfff6b6a990839c33cad8cb26ba9"
-    sha256 cellar: :any,                 arm64_monterey: "89dc191e89a7775a9517539ec3e3b7aa309e084976d80ace8525b049b63ee9e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "bff3f733c2eaba11bb0f8f0ffbbd5767785beb4d6b0c852ce5c3ab37b8d6f515"
-    sha256 cellar: :any,                 sonoma:         "db884f05b2526c504fbc336106539da87b4317503ae051041b70f8f93eda0bda"
-    sha256 cellar: :any,                 ventura:        "6ca5ba3842a7f37e3b86a2cd1646b422c2c3b4f85e08500f16ee9304819d2c88"
-    sha256 cellar: :any,                 monterey:       "21d1c0ce944cc6d65f7c497e79499b07c5a27d9fafcb301f2150fa7be32dc223"
-    sha256 cellar: :any,                 big_sur:        "01c848065f03e59bc681d657f6e0aff3d5b0d6218498a69054b4b55aa391db37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad4064d27f8fee9aded27cef9436e3bd6497f8976f44a689c3838e31459f91cc"
+    sha256 cellar: :any,                 arm64_sonoma:   "21f807d7ff040f4f919aa8b785e84589013a24e492618fb2f68867a20b83ff85"
+    sha256 cellar: :any,                 arm64_ventura:  "fac529997c4a64e907d0bbfa31c5d7b4223bcb978f139de89a5a57d904280279"
+    sha256 cellar: :any,                 arm64_monterey: "8005d7a24f88589b10d4b305668a0daf00c3262096cf2824b33b9ee2b820cb57"
+    sha256 cellar: :any,                 sonoma:         "748bc8b2b4367a4a2a429939d866cad1d3f2c39827d817dcc8005677decfdec4"
+    sha256 cellar: :any,                 ventura:        "64d4dd5de94b681390d9488addba6c89d1d2cfdc64fc84d3daa7c308868bf3d7"
+    sha256 cellar: :any,                 monterey:       "4bf88bfe3df2a85e6a4e16cb61b92f7a1e91b4e7b1f526014912fc789de34205"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6be95ca9ca5cb1c2afaa4e0d2cf31d75f5daa5e543a824c3c9cb9f6d895c25e2"
   end
 
   depends_on "pkg-config" => :build

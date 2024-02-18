@@ -1,19 +1,19 @@
 class Kiota < Formula
   desc "OpenAPI based HTTP Client code generator"
   homepage "https://aka.ms/kiota/docs"
-  url "https://github.com/microsoft/kiota/archive/refs/tags/v1.10.1.tar.gz"
-  sha256 "f0daa8124c764592e0758449b0e141fe2414cc224a8a804bfef625b8b76efc14"
+  url "https://github.com/microsoft/kiota/archive/refs/tags/v1.11.1.tar.gz"
+  sha256 "cab39c2bffd20db3c8f31653ba1f0cb9fa3be785f38ff62422be76a34030dee6"
   license "MIT"
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc3f04c1bd8d84da43df2aba29fdf77c4700c938e229af30ae387a00a7034429"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f55e922ff7b6fce268e1822b30a07234f00b2235cc257728ef0833ac897e97cb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d92aaf2908137aa6b6e3c5b694049d64d5fe1c71812cba9636bb823a9873f766"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3c94cf03da2bead4a8975f711e3c9c8e1cd08006822aa72e396dba67e02a0811"
-    sha256 cellar: :any_skip_relocation, ventura:        "6019e94760933c0dc93b44140e3b1fcbac8764236f08236df1c39b4da466f29f"
-    sha256 cellar: :any_skip_relocation, monterey:       "bc01624cb067e609eaaed61d5db339961bc63b2dee3a2e84ff7dd9695719501f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c460c54f63144332732ebc14bee7df1e891ab8e7fccb5795b2a2daa6d5b8debc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b6d3834ef9059ec491aa9ac378b0bf4917167c88b0d4296061cdc5c06bd6a799"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c2e623027cd4168564aab495ea0bcedf87b932b0c158dceaa2bd517e60a30db"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1fda10609af91d6a2b002826836ca5c0d5573ab9d6de9ec258e1127fc6259e10"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5eaa149956c37d895ad1d655726c08117ad0ece152d30027c5f929d8c5ed12c0"
+    sha256 cellar: :any_skip_relocation, ventura:        "845ca55139c474e03109361fcb87b5a67eac1d4ef05bc147c0b59891ce8afb4e"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec703101371a665c8e625ba124ba3d15ade91e10eb144060b07f02987090cb27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "827b2e9eaf626071c263ba62d7a5ceb14a79d613561844b31b9a152b58e3e2db"
   end
 
   depends_on "dotnet"

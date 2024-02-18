@@ -1,18 +1,18 @@
 class Calc < Formula
   desc "Arbitrary precision calculator"
   homepage "http://www.isthe.com/chongo/tech/comp/calc/"
-  url "https://downloads.sourceforge.net/project/calc/calc/2.15.0.4/calc-2.15.0.4.tar.bz2"
-  sha256 "35ce2940ddf4f5f14b8b1f08eb053d4abcade2d3b3d5842f2f5b468e1ea3d1e9"
+  url "https://downloads.sourceforge.net/project/calc/calc/2.15.0.6/calc-2.15.0.6.tar.bz2"
+  sha256 "89db710d005979ba93b312e85c2be4d1cb77379433454f988de2157e4d99e2a6"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "7c3a8c90d10e337f3f5fd77863b994139e79f27263a6e9dab831ea2d695e5e4e"
-    sha256 arm64_ventura:  "b33dceb9c9103598a29b48cb0f7f63e476c6305f3fdeb9058a596c2cb34c78b1"
-    sha256 arm64_monterey: "8703947c61d75f663edb9eb3878b419acf7883dd8b9e7a24c926d1a709cd731b"
-    sha256 sonoma:         "e7e6f59e0eb242bf5541c2b6be8c66011524c03f7a6126318f2d22a96a8f9c5f"
-    sha256 ventura:        "10dfb232fca04543b32eedba6c96b5fcf24cd84f4d960212a38b35c068622bdf"
-    sha256 monterey:       "7eae117605ecdecb92277e0df5e97f1a5babd4aa505afe11e3d2bd2b2ff6d6e0"
-    sha256 x86_64_linux:   "fd05947f905a94ac32bbe0029948562b6579fd231f18804a4b771df20d39ff8c"
+    sha256 arm64_sonoma:   "22d788ba36c9992c64c5d3021376e578d8cb49b95a77d5a1e617a9325fbd9880"
+    sha256 arm64_ventura:  "6cb0cf9c7a057b49ee46d89bbb098deda5ac694dfb02946478d5b5b9008aa556"
+    sha256 arm64_monterey: "7032440463f684f7b23b2776469cbc882ed2df38d759cec19fe693ca01cea5aa"
+    sha256 sonoma:         "05bce6618fd62a00a62573164eb5fdc3a9bc9db2dbadfe4a066a8d03955ee239"
+    sha256 ventura:        "35f76c8c0c97a8dfa90e724562081676162deeb632682b8b972d3b6ee987dc65"
+    sha256 monterey:       "429309b1fb0eb91b69cf7222d4cb8afe4b6c022b6b2d97d0b1e80fac2129a38a"
+    sha256 x86_64_linux:   "601f372082c0c9a30f6668340886cc6e637676dd17ee5667f6ad14a98c2630a5"
   end
 
   depends_on "readline"

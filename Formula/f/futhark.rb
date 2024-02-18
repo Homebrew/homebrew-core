@@ -2,19 +2,19 @@ class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
   # TODO: Try to switch `ghc@9.4` to `ghc` when futhark.cabal allows base>=4.17
-  url "https://github.com/diku-dk/futhark/archive/refs/tags/v0.25.12.tar.gz"
-  sha256 "06abd3fb0b119857bc64de3f13ae6e99886b269058821f1a2007b79c63384b0f"
+  url "https://github.com/diku-dk/futhark/archive/refs/tags/v0.25.13.tar.gz"
+  sha256 "ecaac86d3e8cfcf0a2dbc2d1bc5c853f78be13b3b1c2f3a3bd3d49c2c44093f7"
   license "ISC"
   head "https://github.com/diku-dk/futhark.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "94c554a1fca6f57f34d94750047ee8682cf1e8ecbe77d8110a982b77173fa974"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89fc40016a2c5e6b318e47cdd7d4f7157483616067e03756c4ac45922ba60ca2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bacf7c64de83c5516b4904f115c1ef8a1369f3e6ad05715096b844e3594419fd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ad39fc736c68737ba2a1e983c30d47c0f706486394c6fe959e54ae09c725ccac"
-    sha256 cellar: :any_skip_relocation, ventura:        "ff637da2d1b0a7cdeba1e15dffcb9be2e785be000485914230217e85b269be97"
-    sha256 cellar: :any_skip_relocation, monterey:       "beca1518790304713ac99810d09072e9b91d28ee5f38b8afcdb51fe4eb461ca0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "370a9715bed81739dd0d8fa6d0ac03c47a2d50874cf1ea30bbabe5cc92fa7a0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f0cf6d9209899993fb51ce5dcd1f987e42117c4b9de345bad1b1e07b9d751a6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ef087c5d43c8b5788ed9a4355d8f4bda1a226af27c18c26d82632dbbbdef7fd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b21b54dc27e6bd564ef8c8e19e084c2339e6800289500817c2347e537c27e91a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c25059a3fe33170fa5139659ee9493515bdc9522dc66bbdea06596ce84d244b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "0c27e2b75134304f71056d6e3593044f670b6ee18954af6d03dcd607000fb940"
+    sha256 cellar: :any_skip_relocation, monterey:       "477acad0100406e5a7cedb6fc9780581f513373bc74bbbd34d212f5299923cdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea8eaaaa696d2d9af81326a3e256a9037d38d000444bdedaf577f4fdd1fb3978"
   end
 
   depends_on "cabal-install" => :build

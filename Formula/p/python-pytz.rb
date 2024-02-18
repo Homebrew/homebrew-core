@@ -1,20 +1,18 @@
 class PythonPytz < Formula
   desc "Python library for cross platform timezone"
   homepage "https://pythonhosted.org/pytz/"
-  url "https://files.pythonhosted.org/packages/69/4f/7bf883f12ad496ecc9514cd9e267b29a68b3e9629661a2bbc24f80eff168/pytz-2023.3.post1.tar.gz"
-  sha256 "7b4fddbeb94a1eba4b557da24f19fdf9db575192544270a9101d8509f9f43d7b"
+  url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
+  sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
   license "MIT"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11328db7e868519911f0928f622295e370713395f31943e7e701ac9b88ef8b00"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9b1f848bc5affb5fd1b9206ca3297cb3da0051a0dfef4ab183a7c2ac81b0660"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ceb5bb725d1ea82385c951f3658788322aa2cfeadaba147e9bb7a5ab0ba3c247"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d2b255dc677e970a8f73331fc1cc6c943f9674a2550a51986fa53db015eb14b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "40d9a011d8bcab7597d5e15ff7a1afbac71554d3e91b139c5303e3228929f3b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "da2747c24c8287f690440009c462158a3772fa71766471a6ad5aab4d815bacba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a283d9fddcb286c359e6d7a749b5ffe2cbbae773df8c47f44f0df45ec0dabae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "567cc73e994830e94890bfe3766932251f4d05bf42d4089ae9995dad495a0874"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad6f3af5f008f193bc4cbda15ef3eee58c4cef3fced6d9719349d20813b4d7f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c2266de346f79838cc149c2f8cb5ae7aa4b75a106883d9cdc776da4037949a6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9da7ce182fdf5e01ae8d78d03d1a1152b3877044f9c9731463babe5c6d45108b"
+    sha256 cellar: :any_skip_relocation, ventura:        "0035a2871673bf0f1dc510dd821d5b8c8eabdd7bdcc0436d6e6c69299bd62e70"
+    sha256 cellar: :any_skip_relocation, monterey:       "57f90b7c222a8f39d133d7dcb67349ef45246cadb2be05899a46d8f5b345d9de"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e90e84f24431767d4dd3691b486ca2ffdb3f32a10cd6f89802a0eea587f7533e"
   end
 
   depends_on "python-setuptools" => :build

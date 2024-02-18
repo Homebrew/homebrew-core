@@ -2,21 +2,22 @@ class Duckdb < Formula
   desc "Embeddable SQL OLAP Database Management System"
   homepage "https://www.duckdb.org"
   url "https://github.com/duckdb/duckdb.git",
-      tag:      "v0.9.2",
-      revision: "3c695d7ba94d95d9facee48d395f46ed0bd72b46"
+      tag:      "v0.10.0",
+      revision: "20b1486d1192f9fbd2328d1122b5afe5f1747fce"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9dacf6c11b9daaaca5bb3620bf17a189ae155a1c2473954a81ce9a68a7cf75b9"
-    sha256 cellar: :any,                 arm64_ventura:  "4bd0994bacdb745f6faf055decc1abf3c3fbc66e7c9955298d6bb0cb8fbe730b"
-    sha256 cellar: :any,                 arm64_monterey: "776435a9c411fed2b471ab9a778a9a39691b6563e50357aa5c3d3864e103463d"
-    sha256 cellar: :any,                 sonoma:         "52230fa3d6f6b0963c0d06c41a8e8f56f774f0a7282cc9ec51469fefef7aa2d6"
-    sha256 cellar: :any,                 ventura:        "dcc39782aff5214ae3c42e8b342bf7a8b4aa30eaa5700edce46b0159937ec0cf"
-    sha256 cellar: :any,                 monterey:       "4a144cfc8abe54ddb6e73c70862b321ad35472cd85967bd8033e0485a1b7b7c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6bd88b58993a528dbfc819f92f011a0e68f24e293ced4d449738866c806acdf"
+    sha256 cellar: :any,                 arm64_sonoma:   "646fe14caca4b1583df74fc4a0823abd23ab07744b22cda1eb06362142c16775"
+    sha256 cellar: :any,                 arm64_ventura:  "e029245236b3c6b1d019bf026666ff2ec4e906c8b67dd92e0d83a9749f91b974"
+    sha256 cellar: :any,                 arm64_monterey: "6086064341bd2665b449a5c95f44d4807fa87ab565dab7277b55537e10045b3d"
+    sha256 cellar: :any,                 sonoma:         "408b13291b72fe123045a2b4e3de10f492e529ab52f2a07d3eac027860aebcf3"
+    sha256 cellar: :any,                 ventura:        "964b743f0cf86c56a24bb169cf18e74eefc66464f6fd16f7c078a1ab262597e5"
+    sha256 cellar: :any,                 monterey:       "52017e33636689b14f311b59b413141ca141ff081f1d839d49047d68df547348"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33ba9b83c69fce14cc96fda85e06211dad9420d2b2661b00fd57846e8a5aaa3b"
   end
 
   depends_on "cmake" => :build
+  uses_from_macos "python" => :build
 
   def install
     mkdir "build"

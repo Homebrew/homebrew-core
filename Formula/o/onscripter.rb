@@ -17,7 +17,7 @@ class Onscripter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "06626f8dbf7167cd8e5f8e9a9e6986d7d0988f1c89ba6889bec1cc191f4852c5"
   end
 
-  deprecate! date: "2023-02-05", because: "uses deprecated `sdl_image`, `sdl_mixer`, and `sdl_ttf`"
+  disable! date: "2024-02-07", because: "uses deprecated `sdl_image`, `sdl_mixer`, and `sdl_ttf`"
 
   depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"

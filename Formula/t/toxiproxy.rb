@@ -31,8 +31,6 @@ class Toxiproxy < Formula
   end
 
   test do
-    require "webrick"
-
     assert_match version.to_s, shell_output(bin/"toxiproxy-server --version")
     assert_match version.to_s, shell_output(bin/"toxiproxy-cli --version")
 
@@ -40,22 +38,29 @@ class Toxiproxy < Formula
     fork { system bin/"toxiproxy-server", "--port", proxy_port.to_s }
 
     upstream_port = free_port
-    server = WEBrick::HTTPServer.new Port: upstream_port
-    server.mount_proc("/") { |_req, res| res.body = "Hello Homebrew" }
 
-    Thread.new { server.start }
-    sleep(3)
-
-    begin
-      listen_port = free_port
-      system bin/"toxiproxy-cli", "--host", "127.0.0.1:#{proxy_port}", "create",
-                                  "--listen", "127.0.0.1:#{listen_port}",
-                                  "--upstream", "127.0.0.1:#{upstream_port}",
-                                  "hello-homebrew"
-
-      assert_equal "Hello Homebrew", shell_output("curl -s http://127.0.0.1:#{listen_port}/")
-    ensure
-      server.shutdown
+    fork do
+      server = TCPServer.new(upstream_port)
+      body = "Hello Homebrew"
+      loop do
+        socket = server.accept
+        socket.write "HTTP/1.1 200 OK\r\n" \
+                     "Content-Type: text/plain; charset=utf-8\r\n" \
+                     "Content-Length: #{body.bytesize}\r\n" \
+                     "\r\n"
+        socket.write body
+        # Don't close the socket here; toxiproxy expects to close the connection
+      end
     end
+
+    sleep 3
+
+    listen_port = free_port
+    system bin/"toxiproxy-cli", "--host", "127.0.0.1:#{proxy_port}", "create",
+                                "--listen", "127.0.0.1:#{listen_port}",
+                                "--upstream", "127.0.0.1:#{upstream_port}",
+                                "hello-homebrew"
+
+    assert_equal "Hello Homebrew", shell_output("curl -s http://127.0.0.1:#{listen_port}/")
   end
 end

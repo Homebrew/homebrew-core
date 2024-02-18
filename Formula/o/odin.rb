@@ -2,20 +2,20 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2024-01",
-      revision: "5961d4b31680aa4fc628b85fb49b6f936b3b925f"
-  version "2024-01"
+      tag:      "dev-2024-02",
+      revision: "539cec7496c128a0f8bb10794a1d3d0d043705f0"
+  version "2024-02"
   license "BSD-3-Clause"
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fd0320d335b9fab66455ef2c1bfefc63f7f4a710b7a3e8b25163bca257c2b62d"
-    sha256 cellar: :any,                 arm64_ventura:  "b3346c07f1e418b222b218def0206ecf8b125a175a0c141e88afbfac69fdcce1"
-    sha256 cellar: :any,                 arm64_monterey: "4b9f9d5c971d8570a9916ede6a208b620e7bdb82ec066448d25b008e3e80a192"
-    sha256 cellar: :any,                 sonoma:         "0c6ebc9b69d2fb0ac0a0d5d37dc14d52ddab36b46df9371c9d21463068477ffd"
-    sha256 cellar: :any,                 ventura:        "42e83bcb31c8f22dc7cad97ee746cf74a2f0ae08944a9d18fb177ad7586f8408"
-    sha256 cellar: :any,                 monterey:       "80818f3d18f24ff53f1f302c1dc06ab844d04d9e6b99b1864f94cd82805d7436"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7f9b6d2e5294dbc2df41586d4ac33862c069cda57c737f69c2dc9026be813ee"
+    sha256 cellar: :any,                 arm64_sonoma:   "1c97bb6ee8fc71d77ca344f88934319c7776fb181a0d670bcd02a4abd87c8db0"
+    sha256 cellar: :any,                 arm64_ventura:  "3897e5d89b6cbbf7a1af85d1c826636851d5e12a62009a46e6f741a59afdcd26"
+    sha256 cellar: :any,                 arm64_monterey: "eec5672d096a0dcb9d7c2330a3d511ba584d85c64bda0721792a3b3fd9770d07"
+    sha256 cellar: :any,                 sonoma:         "dc5767f7b34d00e952f6dafb07cd7e20a461397a10e7a5407179f34b97fe5adb"
+    sha256 cellar: :any,                 ventura:        "e2a5b6d02c81c2e84807e1500f1ba05d27ea8ed2f5e3012ed01e1cb7420ee964"
+    sha256 cellar: :any,                 monterey:       "12719f71ceb5b435adf6532522c1a9c1711844161ca9fc835f8ddfec5ccbf3b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43f62fc9cca1fad774659c6da3ce6a9ea23304318b88970e2509386b30e0d436"
   end
 
   depends_on "llvm"
@@ -29,7 +29,7 @@ class Odin < Formula
     args = []
     args << "ODIN_VERSION=dev-#{version}" unless build.head?
     system "make", "release", *args
-    libexec.install "odin", "core", "shared"
+    libexec.install "odin", "core", "shared", "base"
     (bin/"odin").write <<~EOS
       #!/bin/bash
       export PATH="#{llvm.opt_bin}:$PATH"

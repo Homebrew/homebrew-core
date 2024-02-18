@@ -1,8 +1,8 @@
 class BtrfsProgs < Formula
   desc "Userspace utilities to manage btrfs filesystems"
   homepage "https://btrfs.readthedocs.io/en/latest/"
-  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.6.3.tar.xz"
-  sha256 "f41ce53f6673ff551ee4a3fe7dc9601e5a0dde6b6d09177d1fab62718abc6d9a"
+  url "https://mirrors.edge.kernel.org/pub/linux/kernel/people/kdave/btrfs-progs/btrfs-progs-v6.7.1.tar.xz"
+  sha256 "24dc7b974f0a57ba0eca80f97440b840dfa85b0f1cb2c01bdfd97659a480b200"
   license all_of: [
     "GPL-2.0-only",
     "LGPL-2.1-or-later", # libbtrfsutil
@@ -14,7 +14,7 @@ class BtrfsProgs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "fb803308b6f6b1586423b2420feba1f1be3dbfd385339cc8ac37da54bd60aa9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f2d8b944c8c96c9583733d1de9a405155948016224e763b9c5b59bbb9cbeff0e"
   end
 
   depends_on "pkg-config" => :build
@@ -62,10 +62,10 @@ end
 
 __END__
 diff --git a/Documentation/conf.py b/Documentation/conf.py
-index 0bff1bd..3c08545 100644
+index 014352a..c7a629c 100644
 --- a/Documentation/conf.py
 +++ b/Documentation/conf.py
-@@ -29,10 +29,6 @@ templates_path = ['_templates']
+@@ -33,10 +33,6 @@ templates_path = ['_templates']
  # This pattern also affects html_static_path and html_extra_path.
  exclude_patterns = ['_build']
 
@@ -76,9 +76,12 @@ index 0bff1bd..3c08545 100644
  # Add any paths that contain custom static files (such as style sheets) here,
  # relative to this directory. They are copied after the builtin static files,
  # so a file named "default.css" will overwrite the builtin "default.css".
-@@ -71,5 +67,3 @@ man_pages = [
-     ('mkfs.btrfs', 'mkfs.btrfs', 'create a btrfs filesystem', '', 8),
+@@ -76,8 +72,6 @@ man_pages = [
      ('btrfs-man5', 'btrfs', 'topics about the BTRFS filesystem (mount options, supported file attributes and other)', '', 5),
  ]
--
+
 -extensions = [ 'sphinx_rtd_theme' ]
+-
+ # Cross reference with document and label
+ # Syntax: :docref`Title <rawdocname:label>`
+ # Backends: html, man, others

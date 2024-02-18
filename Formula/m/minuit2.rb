@@ -1,8 +1,8 @@
 class Minuit2 < Formula
   desc "Physics analysis tool for function minimization"
   homepage "https://root.cern.ch/doc/master/Minuit2Page.html"
-  url "https://root.cern.ch/download/root_v6.30.02.source.tar.gz"
-  sha256 "7965a456d1ad1ee0d5fe4769bf5a8fec291af684ed93db0f3080a9c362435183"
+  url "https://root.cern.ch/download/root_v6.30.04.source.tar.gz"
+  sha256 "2b4180b698f39cc65d91084d833a884515b325bc5f673c8e39abe818b025d8cc"
   license "LGPL-2.1-or-later"
   head "https://github.com/root-project/root.git", branch: "master"
 
@@ -11,23 +11,16 @@ class Minuit2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "46a6c3ab833507b369ddaa8f01a17675f6be756a80397ad7352941dcc4fd715e"
-    sha256 cellar: :any,                 arm64_ventura:  "647a86580b40ceceb93ef633a11f48827b8ff5ff6b0a0f3fc10a019dbcd38731"
-    sha256 cellar: :any,                 arm64_monterey: "e047993fecb18867605f023cdac53f4b4e389d79e71ce67b75fdf5d66fd04c3e"
-    sha256 cellar: :any,                 sonoma:         "7c1c22861e9f17a9145ccd5b73f176f57096c3715d7b53fbcee882388423208e"
-    sha256 cellar: :any,                 ventura:        "12c9da2afbca594f7bc41f8fcb4917135ccd885e38a560351b65ee2911254c47"
-    sha256 cellar: :any,                 monterey:       "f292777a6f6a7a89f1d5d677a21cdfaab6623b616a03960fd901b1c23154190e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "202f11a06135d0b0b556135238ba974282a939a15c6814c071c230ff03639b8e"
+    sha256 cellar: :any,                 arm64_sonoma:   "cf247eb89f805fc1819e541aea98cabd26abdaa0d3d9be7aefd45c038f0a9f2d"
+    sha256 cellar: :any,                 arm64_ventura:  "a47309a7890d35acfe63fd66c9cb3faffe7e47402bdc4675587e45cd4e320d0d"
+    sha256 cellar: :any,                 arm64_monterey: "549665458616030d29ac3774ece0785a2f2bed085d19ccf49779257545a5166b"
+    sha256 cellar: :any,                 sonoma:         "55d14e525611ec8c2ae24eeede50bfbed5fa992d7c480cd592f0fee9131507fa"
+    sha256 cellar: :any,                 ventura:        "0f3542fa69d03f41235bf65a478b1e356885d9cecf559cf57e50f7773ceca240"
+    sha256 cellar: :any,                 monterey:       "2765ca09ce8db3b99e9988e1d7b941c76134ad685faeafee3a4a288a9ea23f4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "735dfbb932f8fd00502f60e2ba6f004e3e4489c613873ccd639b429dfa2a5bb7"
   end
 
   depends_on "cmake" => :build
-
-  # Fix VERSION_FILE path for standalone mode
-  # Remove in next release
-  patch do
-    url "https://github.com/root-project/root/commit/25731a7b0731a65f6a949dd249b098fdd612095d.patch?full_index=1"
-    sha256 "058daafb2103b43b9d7775f895f16992050ba339083e844124c551ce9133b0a3"
-  end
 
   def install
     system "cmake", "-S", "math/minuit2", "-B", "build/shared", *std_cmake_args,

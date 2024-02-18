@@ -3,18 +3,18 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://ansible-lint.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/25/0d/018503d5d24b12f4b1e90e0dc961c406ca98a4c92cfea49306b83664878c/ansible-lint-6.22.2.tar.gz"
-  sha256 "2f409fe98efada61da9f8ab7cdf34a5b67de43e1338cee0619f5d51f4f8b15dd"
+  url "https://files.pythonhosted.org/packages/46/05/936267106fc4864488a2b6eea5980c05975a0cf97190b1b8a9d791ec268d/ansible-lint-24.2.0.tar.gz"
+  sha256 "6bc5d6273f33711ec6d370dfe5fdbe97a64b4c36c2a7a19a249401326eb03616"
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ed86a670518f556fda0aa498d33df966b9563d86ecc5d6bb8a226391dfaf4a39"
-    sha256 cellar: :any,                 arm64_ventura:  "2d24bd6d645cffff18cd1fdb77745298dc9b8cbf9710bed0a45a03128e9357d5"
-    sha256 cellar: :any,                 arm64_monterey: "c1869a72b04e7e98a8d22fd4ec249459284afb48da3ba899fc89e8c3d59669d0"
-    sha256 cellar: :any,                 sonoma:         "321c9cdfb0702265ecef3c9c52c71a7d72944efd0c983b20ad46661ca4b66ded"
-    sha256 cellar: :any,                 ventura:        "5ee5ce61397f29e63bd442c185ed3f008a3e1394eec2595b934466f2031fc83c"
-    sha256 cellar: :any,                 monterey:       "aeb8ca17626235e560f4fe2f1cc03ba96001a2dccdabb9bbf532255e22140d93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37e358d89b4681c2b4c1195ea0bb648f18c018ea5730bd88ae39541bd002dfab"
+    sha256 cellar: :any,                 arm64_sonoma:   "8f88110d5370878a6181c96b3f432624007c6ed9c70d4e16c984407c76eb7e42"
+    sha256 cellar: :any,                 arm64_ventura:  "909490fb8c54ed92fc18526db96a9446aafbd9cebabe0549df487edfaf0661dd"
+    sha256 cellar: :any,                 arm64_monterey: "909d7ac4824c064d889c34958f92e0b2fe893bb00698cec5ea02b91acd49d053"
+    sha256 cellar: :any,                 sonoma:         "f122729372e01de1de44f86cd6f5bf4af18a83562d486e93e60ea614dd63068c"
+    sha256 cellar: :any,                 ventura:        "57a2dc1d729e3dfc21402d0ed777c89c094448375f898f802e28cd3af95f243a"
+    sha256 cellar: :any,                 monterey:       "f22a04b633dcab75599dcc1d3e3214d5fa4630d1756eb28574d873b21110340b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8568d93afdaafc124e7041a00ae33149e91fe90b0e33ac5d6188e8370c2085e3"
   end
 
   depends_on "pkg-config" => :build
@@ -48,8 +48,8 @@ class AnsibleLint < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/44/cd/1d325d358d856da96a7c6cfc2af486b70587dc4c70594aa2a9e6c2d279ad/jsonschema-4.21.0.tar.gz"
-    sha256 "3ba18e27f7491ea4a1b22edce00fb820eec968d397feb3f9cb61d5894bb38167"
+    url "https://files.pythonhosted.org/packages/4d/c5/3f6165d3df419ea7b0990b3abed4ff348946a826caf0e7c990b65ff7b9be/jsonschema-4.21.1.tar.gz"
+    sha256 "85727c00279f5fa6bedbe6238d2aa6403bedd8b4864ab11207d07df3cc1b2ee5"
   end
 
   resource "jsonschema-specifications" do
@@ -68,8 +68,8 @@ class AnsibleLint < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/81/ce/910573eca7b1a1c6358b0dc0774ce1eeb81f4c98d4ee371f1c85f22040a1/referencing-0.32.1.tar.gz"
-    sha256 "3c57da0513e9563eb7e203ebe9bb3a1b509b042016433bd1e45a2853466c3dd3"
+    url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
+    sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
   end
 
   resource "rich" do
@@ -83,8 +83,8 @@ class AnsibleLint < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/82/43/fa976e03a4a9ae406904489119cd7dd4509752ca692b2e0a19491ca1782c/ruamel.yaml-0.18.5.tar.gz"
-    sha256 "61917e3a35a569c1133a8f772e1226961bf5a1198bea7e23f06a0841dea1ab0e"
+    url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
+    sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
   end
 
   resource "ruamel-yaml-clib" do

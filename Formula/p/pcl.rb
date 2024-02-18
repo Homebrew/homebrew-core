@@ -4,16 +4,17 @@ class Pcl < Formula
   url "https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.14.0.tar.gz"
   sha256 "de297b929eafcb93747f12f98a196efddf3d55e4edf1b6729018b436d5be594d"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/PointCloudLibrary/pcl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a37ecee5931532417ef687506ee58522e65f8f9f23287d47f4a238bccce42042"
-    sha256 cellar: :any,                 arm64_ventura:  "d1fb316f242b4989f2a65fe94f42c23145e1b3552c6e0f4eda64559998128cbd"
-    sha256 cellar: :any,                 arm64_monterey: "b6c07560e333078ebe7a62e5faef3b1b96c3c6154d042639f79e99eaba381c46"
-    sha256 cellar: :any,                 sonoma:         "ee0ef1da384e282bc770af19f56ecb0684c5a52c5edf2725d9fe21e9699dada2"
-    sha256 cellar: :any,                 ventura:        "66c8fdebff5c21b9b7d1752c267867ed0bd65b4639a7256f66f0c499b00f35ca"
-    sha256 cellar: :any,                 monterey:       "5a13fd68e4d002c4229ae28269f44e534b39d24ffbac347d87a17cec40c04f2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fb0e5b6753eacc087eed1739de76c41dd6c44bfb01b31556b6d61071d56db5b"
+    sha256 cellar: :any,                 arm64_sonoma:   "78799a6e06969f8edbe70e3331f7711627f801578809dfaa6f999bfe3f5e986e"
+    sha256 cellar: :any,                 arm64_ventura:  "420239cbdd0a451a60f0dd1083ed2f03537a84a13db57ca88cc8f32d075cf9bb"
+    sha256 cellar: :any,                 arm64_monterey: "496bdd1f48d19cf2dc7f333cabef303437d59d0453bcc0ad74ccdcef396a7f92"
+    sha256 cellar: :any,                 sonoma:         "6e3a1ebe2c8111ad101979031676132fd340de263f695e3790e3785476bb7dab"
+    sha256 cellar: :any,                 ventura:        "845ddc0cc3838c4e792405253b5e3e4460c5def4a0cb5766b6c821770df0df8b"
+    sha256 cellar: :any,                 monterey:       "4cd16b29e5aafef0ec8deec936044a03b66b79a5200783dfbe8027760fc6f534"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23a00fb69eceaaf5840453066d19d8f5d4f22aedbeaeb2fc0a2e016c523c924f"
   end
 
   depends_on "cmake" => [:build, :test]

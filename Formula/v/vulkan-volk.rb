@@ -4,6 +4,7 @@ class VulkanVolk < Formula
   url "https://github.com/zeux/volk/archive/refs/tags/vulkan-sdk-1.3.275.0.tar.gz"
   sha256 "b68d24e139190e49e5eafd72894f6e85c80472b8745bddc6ef91d6bf339df813"
   license "MIT"
+  revision 2
   head "https://github.com/zeux/volk.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class VulkanVolk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "161ad19977eb49bac1f489db2c9b684340878964d2b547fdd7bbbf6f7cd4bb92"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eec66cc2869627fd012877dc99c4d7d66866f6a4538efd3b604f0947649ac72a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9606929890dfd4f837b0291a66c59c00a63d89b6752e08235d0d4463396df326"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f20c4450ebd2831dc50a8868e3718bd2ada3df000121b223a33da1fbba0495d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "d42ec3e1f6b66ac9650e5b88ba8bf0c1abd18a46935fafda792f11f89c87b095"
-    sha256 cellar: :any_skip_relocation, monterey:       "70b7770ed0f9576beb786b4215e0bf0b8e112a376e9e13520aed0dbb7e0e0a17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3d2af0bbff192c954b16e22ab8b711062c1aa3c1cc3ee37be941043c9bf1f31"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "235bab913c770c9e20656c0590f06190d2d85b6b5d49ddd11b2d6ea19320ce7c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97699b468ff1e9cfc3a79aedddfd5976607f520fe4f1454dbc950178a552476a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "acf51d17740fe46d159ba00a32a818db6b08ec4442f4a0b362c729447504f6ca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8afd99e6578a1e55a2d3eed34c07abc56db866393edd27b40ba52cb0420a5a2f"
+    sha256 cellar: :any_skip_relocation, ventura:        "48af8d3d969195c3633258b220ad8a2bac2108ec279b2b4da9e22372d1ef5050"
+    sha256 cellar: :any_skip_relocation, monterey:       "faf60710db7c02db94ffa0f56f9e27a4ecf50edbe46deb0af87a36d738518e1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "092e5cc8b832136b0afd09a9f82bd6fa62fb2b18cc64ad9487824d86ac31f072"
   end
 
   depends_on "cmake" => :build

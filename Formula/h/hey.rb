@@ -28,6 +28,6 @@ class Hey < Formula
 
   test do
     output = "[200]	200 responses"
-    assert_match output.to_s, shell_output("#{bin}/hey https://google.com")
+    assert_match output.to_s, shell_output("#{bin}/hey https://example.com")
   end
 end

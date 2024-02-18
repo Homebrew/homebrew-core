@@ -3,8 +3,8 @@ class Snapcraft < Formula
 
   desc "Package any app for every Linux desktop, server, cloud or device"
   homepage "https://snapcraft.io/"
-  url "https://github.com/snapcore/snapcraft/archive/refs/tags/8.0.1.tar.gz"
-  sha256 "21c63a4002533c1af6e9a22c0d95e5d4f4fabb754c93edb7c3c6f5ee6cf04363"
+  url "https://github.com/snapcore/snapcraft/archive/refs/tags/8.0.2.tar.gz"
+  sha256 "a2e4302c4a722e93c9f95d8fc6c3c6303546afd573cf1eb9d7ea6ea078923381"
   license "GPL-3.0-only"
 
   livecheck do
@@ -13,13 +13,14 @@ class Snapcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db4b3d5bb985422223a2faf3d923ef01f8fb3a50859f93d8b2d28fd2f2818825"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aeaf90b819b54a200c1b28f6c71ff40b646437ce7db902b9766f6e79878983ae"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5c246be09042da211019d5377c4be9673142d284bd77d3e52771e85d35df403"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a241ad48aba7b4131ebf6be9b406421193f67dac207d8df82f107e0fdaeb6d68"
-    sha256 cellar: :any_skip_relocation, ventura:        "9163633a8588f25a46c7177ccdca3b8fd58dddfee9e2c5360c2ffda6d714a149"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c3f011e573852a4509c07528dcc883db53658b20c3488748dccf0a3c7f7d424"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0290a58e622c19cac23b6881283f431a1e116fced658a7205ec3a9987d8aaa5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eb9e225d9ad3dcd206d6d6d7af6618afc08c220feb926837261329f4b8f98d94"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a32145b428401fde3986934be018c158558e4ff61b7f3f276a3e4166308d7687"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "48ed7ca26c56c72c257b1226106e5330f2f2b52706771b2c10a305ad46206d75"
+    sha256 cellar: :any_skip_relocation, sonoma:         "192146537bbc7547b0eb6c79b1201f9511e1afa2fd4123f6e28ac03da8738af4"
+    sha256 cellar: :any_skip_relocation, ventura:        "11b4e7bd8b2b816a3fd7d65fc199bfe66b25a0e43a8682d89a12edbd7c007450"
+    sha256 cellar: :any_skip_relocation, monterey:       "02b2c82095732130c5c8f9e984d6cf8ff47f3da255784d6f45d8b0512dc8e397"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e651ba0f849457f2492b82fdee3ab09a5e6c0bbb5088e3374d27caf3cc9d59ed"
   end
 
   depends_on "cffi"
@@ -184,8 +185,8 @@ class Snapcraft < Formula
   end
 
   resource "lazr-restfulclient" do
-    url "https://files.pythonhosted.org/packages/88/e2/6b8b83d69aa06ae515a969320a8b8e371afa42b4226c03159641fc773c55/lazr.restfulclient-0.14.5.tar.gz"
-    sha256 "0751717c7e74db1987e9a77335707d4d7d97cf04b1ad0898b822f12333d6887c"
+    url "https://files.pythonhosted.org/packages/ea/a3/45d80620a048c6f5d1acecbc244f00e65989914bca370a9179e3612aeec8/lazr.restfulclient-0.14.6.tar.gz"
+    sha256 "43f12a1d3948463b1462038c47b429dcb5e42e0ba7f2e16511b02ba5d2adffdb"
   end
 
   resource "lazr-uri" do

@@ -16,6 +16,9 @@ class Cherrybomb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c267814c22eb06a91e7029572694a158b1de67d986e76ebd36973b42f4e840a1"
   end
 
+  # https://github.com/blst-security/cherrybomb/issues/156
+  deprecate! date: "2024-02-13", because: "service is no longer available"
+
   depends_on "rust" => :build
 
   def install

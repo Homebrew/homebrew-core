@@ -1,20 +1,18 @@
 class Cmark < Formula
   desc "Strongly specified, highly compatible implementation of Markdown"
   homepage "https://commonmark.org/"
-  url "https://github.com/commonmark/cmark/archive/refs/tags/0.30.3.tar.gz"
-  sha256 "85e9fb515531cc2c9ae176d693f9871774830cf1f323a6758fb187a5148d7b16"
+  url "https://github.com/commonmark/cmark/archive/refs/tags/0.31.0.tar.gz"
+  sha256 "bbcb8f8c03b5af33fcfcf11a74e9499f20a9043200b8552f78a6e8ba76e04d11"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7dcb443171d173b527a6ca2de5c12df5121fc76902d51df4073e3a5413c4d42d"
-    sha256 cellar: :any,                 arm64_ventura:  "0b22613ee9aa75990bdb4bbbfc6166ef8d176b17c8caf7bbad25ed0738841a7b"
-    sha256 cellar: :any,                 arm64_monterey: "739ea11aa0a356b621c49661721ceb371e3c5ea56c244328bd10aae74a0f95a4"
-    sha256 cellar: :any,                 arm64_big_sur:  "162ade26201f90662fc6305a83c72ae2a550ddc4326ccf453d5ab1fd85879c25"
-    sha256 cellar: :any,                 sonoma:         "3cf663a9d6067969d66712400e20a9def27b24bfcfd7e6c73b7c529807e8a74f"
-    sha256 cellar: :any,                 ventura:        "ea945f37fb8de82dffc9ba85f6592b564036228e7ee2ba49951bc639b51266c6"
-    sha256 cellar: :any,                 monterey:       "43e230aa0745cc9362d1f2f7c1d85424005690242c725117d3a88be8b88d31c2"
-    sha256 cellar: :any,                 big_sur:        "cef92df088c591e3b123ad841a0773fd75c4961d59f701b5e6d27902ecde14af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f35b1d16c83135d09f2f022a0e4f5a25479feea6411c5115bd8dddfc866f4d1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4ea74bf32d393287c5efac6401072e8241cfce64a97a20d67cfa7e2f0d1a586"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8337934ba90a866085ec8433b86d6802d69c2d0115b45ca55656d0bf5c98c055"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2493eaf0e346a4286b5f5866f0ea63c8098d86638fc455f35969ce7c19988bde"
+    sha256 cellar: :any_skip_relocation, sonoma:         "35925232054def92408d9f694490005b63673865528d256ebe73e260da9e0207"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd40f7fc5214eff940489cf72bda5c1c6ed9db239d7d2b24afa7f3d6e83860f7"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a29d2a407e7dcfcbf4396faae79317eb484f24ebe44eea8f91bf26c0a490a89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "555b5f5813ffb3b901f431d85b17a398ccd6d72e0b06bb2ceff50b6cbbfd4421"
   end
 
   depends_on "cmake" => :build

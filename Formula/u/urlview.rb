@@ -11,7 +11,7 @@ class Urlview < Formula
   # we identify patch versions as well.
   livecheck do
     url "https://deb.debian.org/debian/pool/main/u/urlview/"
-    regex(/href=.*?urlview[._-]v?(\d+(?:[.-]\d+)+)/i)
+    regex(/href=.*?urlview[._-]v?(\d+(?:\.\d+)*[a-z]?(?:-\d+(?:\.\d+)*)?)/i)
   end
 
   bottle do

@@ -3,19 +3,19 @@ class Atlas < Formula
   homepage "https://atlasgo.io/"
   # Upstream may not mark patch releases as latest on GitHub; it is fine to ship them.
   # See https://github.com/ariga/atlas/issues/1090#issuecomment-1225258408
-  url "https://github.com/ariga/atlas/archive/refs/tags/v0.18.0.tar.gz"
-  sha256 "2d7a889380caeafbc318e25bc67a8acd8921a0d345a9ef0fa590a59c64a676bb"
+  url "https://github.com/ariga/atlas/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "e3f8a366ca7836af457798c025be4119f40ddbef13a38fb399510cd01fc8491c"
   license "Apache-2.0"
   head "https://github.com/ariga/atlas.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12623d29cdfe440d9fe700be560935a812a97b9f165a83577d3cbb5c2912bed2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9bde547af0f335c7e4ef4ebc844f49f2e91e1fe303c3dfeb37a2bf4f577a356"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "21da01e75ffb6580f853ce1cb9fc24a55256fee79649139fb8d63d743126777a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "363056e328449d95df041a6d273f0e58309ba48cf70233b5828cc22b65678151"
-    sha256 cellar: :any_skip_relocation, ventura:        "cee5f49d1eb9eec1a07f79765d3f1589a6c777ffe8c43b3d8365e8e04b9be5e5"
-    sha256 cellar: :any_skip_relocation, monterey:       "e50afb5c2e8fc13d251072e155692e7ef8adfa2bd01c8715bd4a429a5069faa9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df7a7bc1d6dd7d074e99e07201fd7a28b2ed19bd850d9a92fe138f863e3a0c99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8936ad0e85e9ea913cda03e544e1fca607124f394cc9edff8f523c501b9258b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7108c1328ada4b9bc6a874bdb673be620199242d651e21d1276b02a577e971b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d1ac05344abc34226e83c0a41c42e3cf4c35979bee75b070a8012a256cd4279"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e8121fb70f01a8d0fe4f81192eacb2fa00081ca434979cdf4a21e1c101d8abb4"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe48f8a58fb384da778638d41267e4ac7d61afed980647106e0c043305f31b02"
+    sha256 cellar: :any_skip_relocation, monterey:       "1a3a3db3fe44b9956041fc5ce1f79cf4c661c80ea8ec34c951713be43108707a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc3754fc8b667c793db2a4a75d3bbe6a725857e2c50a3569b5f3c92854609a43"
   end
 
   depends_on "go" => :build

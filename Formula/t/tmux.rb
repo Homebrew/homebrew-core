@@ -1,22 +1,9 @@
 class Tmux < Formula
   desc "Terminal multiplexer"
   homepage "https://tmux.github.io/"
+  url "https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz"
+  sha256 "551ab8dea0bf505c0ad6b7bb35ef567cdde0ccb84357df142c254f35a23e19aa"
   license "ISC"
-  revision 3
-
-  stable do
-    # Remove `stable` block in next release.
-    url "https://github.com/tmux/tmux/releases/download/3.3a/tmux-3.3a.tar.gz"
-    sha256 "e4fd347843bd0772c4f48d6dde625b0b109b7a380ff15db21e97c11a4dcdf93f"
-
-    # Patch for CVE-2022-47016. Remove in next release.
-    # Upstream commit does not apply to 3.3a, so we use Nix's patch.
-    # https://github.com/NixOS/nixpkgs/pull/213041
-    patch do
-      url "https://raw.githubusercontent.com/NixOS/nixpkgs/2821a121dc2acf2fe07d9636ee35ff61807087ea/pkgs/tools/misc/tmux/CVE-2022-47016.patch"
-      sha256 "c1284aace9231e736ace52333ec91726d3dfda58d3a3404b67c6f40bf5ed28a4"
-    end
-  end
 
   livecheck do
     url :stable
@@ -25,13 +12,13 @@ class Tmux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2cbeabc833f6195d4dc8c2f01f17f5ae3303a72c769567b6cd57a850ed2e1713"
-    sha256 cellar: :any,                 arm64_ventura:  "e93de471a812083476ed413a5ffbe64fbd5597c120c6d00d0c68ba47b74dd1bf"
-    sha256 cellar: :any,                 arm64_monterey: "f1da3204877186c49a899e17948e86a03ae827b743f8cb6d7e574d7348bcb0bc"
-    sha256 cellar: :any,                 sonoma:         "f84a10a56a5c48c1efce9f83656551e4527c198c8847516099fae838ee319468"
-    sha256 cellar: :any,                 ventura:        "0737f0e22e3e533d3c59968bb55e48b920721a56ec4720568d133312c4643a7b"
-    sha256 cellar: :any,                 monterey:       "c106e345ad90b3c64c65a5ed60f30a50baafaaa906d8042220beb78177c4a053"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43d9d8c0cc2221508fe522a40660ca829a5a0406093ed2b6ddb8012196cbfabe"
+    sha256 cellar: :any,                 arm64_sonoma:   "a08171578c7d4d7b119762def24287f8a3f9b233c0967e837e0d98e7ad25d9c3"
+    sha256 cellar: :any,                 arm64_ventura:  "a1c3e1f58e9ad9a5f1f811c8b71a78acbbcdf96ffb6b04141ed0b343b6ca8844"
+    sha256 cellar: :any,                 arm64_monterey: "9e3a38bbdf781413bfbb092ca0c54ee5b4d5602cbdfe76194ecaedd30f9747f4"
+    sha256 cellar: :any,                 sonoma:         "4f25fb0148c79d3710a7c1366ad05de469f6a2695ef3b3c0ea64a8ffe7228f9e"
+    sha256 cellar: :any,                 ventura:        "258a4e1d8c6398f126abfd9e01725be4518233280c6f93b9b77bba75963426ca"
+    sha256 cellar: :any,                 monterey:       "277f1642992f9cf1923bf47fbefdd50ea39bf2bb0f7171b9429d84fe77a7a296"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3842883605afca7b6470f042f6c81a6e5c27cc5dff6b95806cad91ee30dbe32e"
   end
 
   head do
@@ -40,13 +27,13 @@ class Tmux < Formula
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
-
-    uses_from_macos "bison" => :build
   end
 
   depends_on "pkg-config" => :build
   depends_on "libevent"
   depends_on "ncurses"
+
+  uses_from_macos "bison" => :build # for yacc
 
   # Old versions of macOS libc disagree with utf8proc character widths.
   # https://github.com/tmux/tmux/issues/2223

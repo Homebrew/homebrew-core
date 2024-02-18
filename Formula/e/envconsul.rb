@@ -18,6 +18,8 @@ class Envconsul < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c9a3eef22e1fb333f855e770754d15df7c5e996ed7a387d465f1daf0bfb2b2d"
   end
 
+  deprecate! date: "2024-02-05", because: "depends on soon to be deprecated consul"
+
   depends_on "go" => :build
   depends_on "consul" => :test
 

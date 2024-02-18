@@ -1,20 +1,18 @@
 class DuoUnix < Formula
   desc "Two-factor authentication for SSH"
   homepage "https://www.duosecurity.com/docs/duounix"
-  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.0.2.tar.gz"
-  sha256 "0a2ccaa8e2fef3cca00cfdf9e1310df4ec1253aa7720e37bc0a824a5c2f1433d"
+  url "https://github.com/duosecurity/duo_unix/archive/refs/tags/duo_unix-2.0.3.tar.gz"
+  sha256 "40ddbaf65ed40295c8d0fe12bd3d03adac1a4e3e35e921adfc3bfe6222bb23c7"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "dc1aedccb7db8b50dc31d81d13df16ead485d8a46f0ae0d6ab8ff20d468fdbf9"
-    sha256 arm64_ventura:  "9a6bbfe6c75da709bdf0afe6018f2e6395ac27727b5672db37b9bf6a56b98222"
-    sha256 arm64_monterey: "a56165902f8088823615fe8e7e8a3e1675bc2f06e2d1e5033f60406c6d072768"
-    sha256 arm64_big_sur:  "798f6731f3545946c7fbc89822f34ba8f5e969a11ba98b396b9be4cd66952276"
-    sha256 sonoma:         "f14e7a48123f94753b80fe0b4e1b3017f1782745b789ef2ef09f5d764f9b1dc4"
-    sha256 ventura:        "d8fcb91bf99c57dbaac23d2018989fe732dae914ac3ef4e5a5a74fbd347f18d2"
-    sha256 monterey:       "f6b1fdcb60764a5bc05e540693ca61f5ceb46dd6c9cce219e7a4bbaca47148b0"
-    sha256 big_sur:        "5101c623cdda9d871dde50690614087b2494461f4c249c1f8e9194665afa4bf3"
-    sha256 x86_64_linux:   "73dcc6c177ec868d564a3c73f241c58e85ef4754852d2bcc6e6086d8ad6b6cb7"
+    sha256 arm64_sonoma:   "fc0b173a69d84964d44d9616ad725119dbbcb5a359473e7f8339bc3795fc0c6d"
+    sha256 arm64_ventura:  "e3406c6617c72b424477d186ef26d93848b43cad42c20eef95127be81baf9a21"
+    sha256 arm64_monterey: "e98d79b5654f368ec202c873ea2d9e4af78aee88cbafbab2376bc4d1391ccdc5"
+    sha256 sonoma:         "7de4955e9f11895d1b4e6a28dfc114336c2d04a4624365f1ddba1a9d2cb51b89"
+    sha256 ventura:        "ce5454947eb551248e26ecf6943c7a3afd396566b7ba2a46b7a23501ef913d55"
+    sha256 monterey:       "9157772cb2846e60155cfe25cf99c0611cad9fa2095d9b6f1dfa499b78d58d6f"
+    sha256 x86_64_linux:   "1eef942f8266c30780c182b349ca27dcf69ea31fa3eeab16a9767bfe597aad77"
   end
 
   depends_on "autoconf" => :build

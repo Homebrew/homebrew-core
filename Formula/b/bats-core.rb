@@ -5,6 +5,11 @@ class BatsCore < Formula
   sha256 "a1a9f7875aa4b6a9480ca384d5865f1ccf1b0b1faead6b47aa47d79709a5c5fd"
   license "MIT"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "5de6006c7921a5dc26bc935254577d9e0bac2f48047371c1d2d00ee3eb273b4c"
   end

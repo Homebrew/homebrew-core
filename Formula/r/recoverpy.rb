@@ -3,13 +3,13 @@ class Recoverpy < Formula
 
   desc "TUI to recover overwritten or deleted data"
   homepage "https://github.com/PabloLec/recoverpy"
-  url "https://files.pythonhosted.org/packages/88/67/7ef7dc81c4be47620adc83b232b7a0ffd992ec312e087bc1f633a0961b1a/recoverpy-2.1.5.tar.gz"
-  sha256 "9a2a831e9945585a54ce968d877dc81983d8228cc2b5c2fbacfff5480d09a393"
+  url "https://files.pythonhosted.org/packages/86/bd/9613e994031ad1af3408db0ed5973562461178de8d85920f202e3d4bcf93/recoverpy-2.1.6.tar.gz"
+  sha256 "3b6f1eb510e46c85fa7631628f708b430f682ee308dbe0b07ca0f03b488be1fc"
   license "GPL-3.0-or-later"
   head "https://github.com/PabloLec/recoverpy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ffd3e7f98f355a93f02e4d7aee90124cfa556bb5a970d84bd0505ca83b7207a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "a115db07f42385106c98ea8d00d422334f6e9338143a8fb916473c6ab6b84e52"
   end
 
   depends_on :linux
@@ -17,14 +17,9 @@ class Recoverpy < Formula
   depends_on "python-typing-extensions"
   depends_on "python@3.12"
 
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/db/5a/392426ddb5edfebfcb232ab7a47e4a827aa1d5b5267a5c20c448615feaa9/importlib_metadata-7.0.0.tar.gz"
-    sha256 "7fc841f8b8332803464e5dc1c63a2e59121f46ca186c0e2e182e80bf8c1319f7"
-  end
-
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/8d/fd/73bb30ec2b3cd952fe139a79a40ce5f5fd0280dd2cc1de94c93ea6a714d2/linkify-it-py-2.0.2.tar.gz"
-    sha256 "19f3060727842c254c808e99d465c80c49d2c7306788140987a1a7a29b0d6ad2"
+    url "https://files.pythonhosted.org/packages/2a/ae/bb56c6828e4797ba5a4821eec7c43b8bf40f69cda4d4f5f8c8a2810ec96a/linkify-it-py-2.0.3.tar.gz"
+    sha256 "68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"
   end
 
   resource "markdown-it-py" do
@@ -48,18 +43,13 @@ class Recoverpy < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/b4/a9/52c9df627286193fd4fd90f779cf53a2eb332bf0ceb8df2f154add9c1f7b/textual-0.45.1.tar.gz"
-    sha256 "1a6f80fb87e40a0490cf9a16526f5418a790d9c032a2983b0c7edd1c8abf39f3"
+    url "https://files.pythonhosted.org/packages/64/b3/d33af0cacb5d8838e65b9d591ce5e47a063e1a0eba736568f3c222aa004f/textual-0.51.0.tar.gz"
+    sha256 "ca3d58c00a360ef1988a9be2dbb34d8a8526f2b9fe40c2ed7ac6687875422efd"
   end
 
   resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/75/db/241444fe6df6970a4c18d227193cad77fab7cec55d98e296099147de017f/uc-micro-py-1.0.2.tar.gz"
-    sha256 "30ae2ac9c49f39ac6dce743bd187fcd2b574b16ca095fa74cd9396795c954c54"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
+    url "https://files.pythonhosted.org/packages/91/7a/146a99696aee0609e3712f2b44c6274566bc368dfe8375191278045186b8/uc-micro-py-1.0.3.tar.gz"
+    sha256 "d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a"
   end
 
   def install

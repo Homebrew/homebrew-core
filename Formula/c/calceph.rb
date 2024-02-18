@@ -1,8 +1,8 @@
 class Calceph < Formula
   desc "C library to access the binary planetary ephemeris files"
   homepage "https://www.imcce.fr/inpop/calceph"
-  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-3.5.4.tar.gz"
-  sha256 "c9a834e823cf376de6c0f826458b5f19555ed45dfd26880781e61a91849925b5"
+  url "https://www.imcce.fr/content/medias/recherche/equipes/asd/calceph/calceph-3.5.5.tar.gz"
+  sha256 "f7acf529a9267793126d7fdbdf79d4d26ae33274c99d09a9fc9d6191a3c72aca"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Calceph < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d72af932e194c54a0ca4975e10b21398efa0aa66f69a0c7653524b3f28bae99a"
-    sha256 cellar: :any,                 arm64_ventura:  "018c39035a43148383b9d2cecdac6a19dfd03c04137e26a312df60f54de26ccf"
-    sha256 cellar: :any,                 arm64_monterey: "1d37496767c622b31e8a5556d422edd0761235696fea9d0ea0344e94fefd3c2d"
-    sha256 cellar: :any,                 sonoma:         "f109ecf75bdc9e60e71c9c27ab1e60db2cb1e2dd28bcfa903910249acfe0955b"
-    sha256 cellar: :any,                 ventura:        "6e3ffc023094c5c73fb3adb958571d0d17b468e762ce35cd202c7ffab91311a2"
-    sha256 cellar: :any,                 monterey:       "15b10df9a3c51e21357934c7d469afc163fd362075070bf5882aa0c521f7f34f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba6e76b7b38156fecb8ed3d497f64d0c6f582d2eef46420e9c4d3235dce0f192"
+    sha256 cellar: :any,                 arm64_sonoma:   "6caee108ddd6a6510998c572929ffd950f76040c267788098b8a117ec0197fc6"
+    sha256 cellar: :any,                 arm64_ventura:  "f003f9a8037eace25bc98d659a3afb8776669278da4f1928a5976965c8035ab3"
+    sha256 cellar: :any,                 arm64_monterey: "cd5dbd77c1e6989284f95239c1327cdef01bedb1706bc756544518b003a3f27e"
+    sha256 cellar: :any,                 sonoma:         "f55f8ccf745f4815d92a193b699d296f7c0a14b860048f482b50b9454739f738"
+    sha256 cellar: :any,                 ventura:        "cf5a9ff7639306750dc9996946ab150dee3d08c967a64e463c25a3959ee334bf"
+    sha256 cellar: :any,                 monterey:       "080c50596ddb83e1741018175e8219419f57bddfc2a72201d7285b5a1b58d0a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d889b6e08767bd3c7353cfc85d075e5c6bb181ca33220b64809cae1c303be09"
   end
 
   depends_on "gcc" # for gfortran

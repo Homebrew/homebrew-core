@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.32.2.tar.gz"
-  sha256 "62220064622af4b3d8e373e3ba4f913c6011f2d7a4139d529eb88b2a1dac702b"
+  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.32.3.tar.gz"
+  sha256 "92b6818302532d31ad1c915157d180186b3ffbc09f5a17484423e784f0209d14"
   license "GPL-3.0-or-later"
   revision 1
   head "https://github.com/simonmichael/hledger.git", branch: "master"
@@ -16,13 +16,13 @@ class Hledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1639e58ddd35e7489fd8df8eff5deb06920bcc23a99a7d06c6258c6d50afe95"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36bc31f963239d865c6de047670b0b6246d2ca97ef42044e9ceb9a905bf6bc3f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e6eb187ececdd03fc2abb97e425aa37052f47dc38eac5784d032dbf523f8e355"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ed3f44ff0f9422d89e7a7f22825d89744cfa210c1cdf2d325402c7d20ae17ebe"
-    sha256 cellar: :any_skip_relocation, ventura:        "038e6c4bfc385173fddc90eea7df427da72f38179da66ba0e03ecc61a3dd97f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "26c8d34ecc115a403fde67609c8c2e9c3c9f56f01ee30b16e7dd85334b7b6766"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "86b8580ee3b344f7f45eb22a67cafc877c2dd0f6bfa70963adc957d442a7bca3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "496f91ff5ef16d1fbfae98d0369f6363631da2eb5c0e165b240d46d6a5f65d63"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7262df9e64ff01ce5fcc639d132ef0a13e4465219db7ee4ab8f91a33f125b781"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e30857e98674787298fdf45849e39a01387a7e0d6948c5909f08e6316cf8d814"
+    sha256 cellar: :any_skip_relocation, sonoma:         "514f0670b3a5d724a6943e856a4e9edabf1b1e6ca3698391fc93ce70a10e2b9f"
+    sha256 cellar: :any_skip_relocation, ventura:        "1ddee10327031f26db964d86d344be95d47f080fd5fe04d133130a767c09f7da"
+    sha256 cellar: :any_skip_relocation, monterey:       "9883fe5f9b63d3f2db6b25972e7a74049133ecb836eae38c7fb243d357757ced"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f509b19fac7f5a556b0240efb50590bbeef0a04d75a379be2960b8b7bdaef80"
   end
 
   depends_on "ghc@9.6" => :build

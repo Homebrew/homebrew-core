@@ -4,16 +4,16 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/refs/tags/v6.13.1.tar.gz"
   sha256 "d3792b61bc2a7ae6682b6d87e09b5d45e325cb08c55038a01e58288ddc3d58d8"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256                               arm64_sonoma:   "5f77ea121a8cad5f99c6daff6bbaded977e2fb13162ebc57857a960e34c1eefa"
-    sha256                               arm64_ventura:  "11071cc93829cc7aa3a3f24f391e50e5d4a1f49cd83188dc5e9647b6f98bb6bf"
-    sha256                               arm64_monterey: "8c6086339404f3247dc194efec8377f94172186e0753815fec3754fe64f6a5a0"
-    sha256                               sonoma:         "bb4dfe3cf76a97faa410727c66d428953fbb93f1afc3dd593c3f6695622365f8"
-    sha256                               ventura:        "bda0b2cefd9c80038e40a2af53d4dc5f313ba966ebddb88c134af1ef73dd302f"
-    sha256                               monterey:       "0693a91c0fcf837eedccbb9240a2469a5676d7313d6f46abbad60ecedbe15599"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe738bc59a94ad2ec66e3372e8ba1c85ab5b827a82e8196f68f317c07742293c"
+    sha256                               arm64_sonoma:   "92a1e1472a83abd6b83007dd6a3d7b4514d833aaab447495889f484bfa904e88"
+    sha256                               arm64_ventura:  "f7707244487d30886bde0d26b07aa9b789d4cc4f8992351e5e3b4c84b999e709"
+    sha256                               arm64_monterey: "027f346e433241969067494ae0b746a27b8ebbf62568e4b99160718b25d5310d"
+    sha256                               sonoma:         "1ac1b8cf587e4bafdf92c182faa45f9ade3a657f65810742f04cb75ca42feb65"
+    sha256                               ventura:        "d234878f0b625c4b8f3da1bcac92a91f29dd80235e81a52fe485466e2d53306a"
+    sha256                               monterey:       "18678581a549e1e74fed53d5e4ddf76429d859eb4efea35973d5523d3fed17bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01a32775382aedc46a0bd140e48e46bcdc928b77b662bcefba3ea0077c167e5a"
   end
 
   depends_on "cmake" => :build

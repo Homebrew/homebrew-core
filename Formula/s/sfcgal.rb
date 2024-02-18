@@ -4,15 +4,16 @@ class Sfcgal < Formula
   url "https://gitlab.com/sfcgal/SFCGAL/-/archive/v1.5.1/SFCGAL-v1.5.1.tar.gz"
   sha256 "ea5d1662fada7de715ad564dc810c3059024ed81ae393f5352489f706fdfa3b1"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4f1c614cd999a7295cb88640c695d8eaf83517f79dce924629a85fd47c827f76"
-    sha256 cellar: :any,                 arm64_ventura:  "3d2d521b724bec59ffed0036514c72554d828717863ff97fbd084a911d711188"
-    sha256 cellar: :any,                 arm64_monterey: "58fd30ef73d9392a9c607d3fde7e3b4ecc6df2549ccbba65231865e86b3e8d3b"
-    sha256 cellar: :any,                 sonoma:         "3ec852763d9340d72cb12bede2d437a15f0ceff4cdbbf81f25a6f6c461e3b141"
-    sha256 cellar: :any,                 ventura:        "b37a971fe87d1c73c7bbd8dfff0da8dadd070c00caa5774bc0cc61dd873122e0"
-    sha256 cellar: :any,                 monterey:       "c2d59ba70d6043c99589b9d91c40b8bea011bea5b8013fc0102fa331fc9c693a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43538286e5e61e1ce3d55b7e15dca68fe8b011cfbb4ca377f7a6091514487d8a"
+    sha256 cellar: :any,                 arm64_sonoma:   "1e231f2da7b5607dcb1becb61d1a1ad325204a9237c1f3bb75e2957702bfcc1f"
+    sha256 cellar: :any,                 arm64_ventura:  "0ebb2eb96864826e1c0746e88ff4c9eb201a2a8ea722a1a1efc0f003176b92de"
+    sha256 cellar: :any,                 arm64_monterey: "78d3c2da9e4158cfa53b4d4afe9a502d5242915ebaa9159cc797b631185022d6"
+    sha256 cellar: :any,                 sonoma:         "582092143e0f1ad9a2367e4834fcd69fbf080aec1de7686ffec9b004f95babc3"
+    sha256 cellar: :any,                 ventura:        "aaba53cbe22214cafb54c712fbf57880148a4b78def27333a9197c4babf951f1"
+    sha256 cellar: :any,                 monterey:       "3c97cb18901905c043e1c1f815f2c49f99303ba8d91acf9546fe267ca71fe467"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19055419c3024400502c06a0d02880a8a670847413062a9533b2493c04f70309"
   end
 
   depends_on "cmake" => :build

@@ -30,7 +30,7 @@ class Postgraphile < Formula
     ENV["LC_ALL"] = "C"
     assert_match "postgraphile", shell_output("#{bin}/postgraphile --help")
 
-    pg_bin = Formula["postgresql@16"].opt_libexec/"bin"
+    pg_bin = Formula["postgresql@16"].opt_bin
     system "#{pg_bin}/initdb", "-D", testpath/"test"
     pid = fork do
       exec("#{pg_bin}/postgres", "-D", testpath/"test")

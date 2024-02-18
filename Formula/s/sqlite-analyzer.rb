@@ -1,9 +1,9 @@
 class SqliteAnalyzer < Formula
   desc "Analyze how space is allocated inside an SQLite file"
   homepage "https://www.sqlite.org/"
-  url "https://www.sqlite.org/2024/sqlite-src-3450000.zip"
-  version "3.45.0"
-  sha256 "14dc2db487e8563ce286a38949042cb1e87ca66d872d5ea43c76391004941fe2"
+  url "https://www.sqlite.org/2024/sqlite-src-3450100.zip"
+  version "3.45.1"
+  sha256 "7f7b14a68edbcd4a57df3a8c4dbd56d2d3546a6e7cdd50de40ceb03af33d34ba"
   license "blessing"
 
   livecheck do
@@ -11,13 +11,13 @@ class SqliteAnalyzer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3eb9a9aae9016b500046c60aeb0e1af984c8a913c9840afe121e22b4112d0eb6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e87550fcc3d3f7c9fe2af6dfb0ef67d99d5991b3f298f1a1e3c54a8fc3b4ca6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "41585836fce4975d38061aadaa5e496c3dfa9074a9d9c29c0a891c976056e0aa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5f0ffb54412dd9bc2735362536e77b3cd728c5d169ddf6250defb6ffafbca47a"
-    sha256 cellar: :any_skip_relocation, ventura:        "556a8e0143066475294a03c7175d7857ae908743838a60a54652fddcfe23defd"
-    sha256 cellar: :any_skip_relocation, monterey:       "87f9d92b0420b3f93cef9eea3122fb7cb365268f0efecb1589aabe847e35a575"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c811aa7d751a775c39dddf8e2fc73e2ee3359c4f1516c7a3fc445aba2a7a9108"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d943aea8a7a13b1f1e128ae81378281734983cdc5b3c1492dcb3c2993958625"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ff57a396a5f9627fc914bff7ae1b8482c5351e711061923650d9fc77ce4db44"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "605f45110f7a9259adaf3fb99679f7b08db7ee3adcb6394b9094ba2f278d36c3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "93f91740e4a8fa2864b527626ca91c800cc6875c86ea49032246d805fa3cba86"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c5234a2ac236ae8895836d48c528f1dd9b5e49834db447fbaa5da0df849c8f1"
+    sha256 cellar: :any_skip_relocation, monterey:       "c9e09006a9b27994ef2346828d5761f0345d146fed7e89c42398fc692083f89b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "924ed707565f79e5ec5c7358e6761862c736f39e0bb5c870e41ae99a538bdbdf"
   end
 
   uses_from_macos "sqlite" => :test

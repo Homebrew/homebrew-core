@@ -1,8 +1,8 @@
 class Tarantool < Formula
   desc "In-memory database and Lua application server"
   homepage "https://tarantool.org/"
-  url "https://download.tarantool.org/tarantool/src/tarantool-3.0.0.tar.gz"
-  sha256 "41dee7d752839e47b55dafeca424937e15be2d72d5a002ccc3b7f23dc8dbee3f"
+  url "https://download.tarantool.org/tarantool/src/tarantool-3.0.1.tar.gz"
+  sha256 "3d7dafee29353887afeecaf49927c540ec70a1eb6299d1bc02b5ac616b3e2c06"
   license "BSD-2-Clause"
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
@@ -13,13 +13,13 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "07c8259c2ec1f4a340bfffedf83aa823c6b37320d17880247bb5ffcb2ca3e284"
-    sha256 cellar: :any,                 arm64_ventura:  "29f7a1301f5e9707f643d81ffc4eebc67ffd58c754e458551f776a69d599cd3b"
-    sha256 cellar: :any,                 arm64_monterey: "4bf8b5bf77dd837c97e16f07aabebbd13deab256edc4d02f64a118b79b4f8119"
-    sha256 cellar: :any,                 sonoma:         "723a44cfcb7b2c51379b0b38ac660a621ea7a4c869d4bad83fed586419f1a53e"
-    sha256 cellar: :any,                 ventura:        "545aafdbbd8d93a279e46e5276420e6fd1ca15000c14e455f4e37d048c54bc15"
-    sha256 cellar: :any,                 monterey:       "10cf7a1014b46116ae3944cac854a7af0a05d3474a5e2b3dddb0f927fafae1fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffefe3c7ea87d04417975b89222d1d620459ef4880ca781b6e8ff2703053373b"
+    sha256 cellar: :any,                 arm64_sonoma:   "9007a953e7c4f613ab5e368c9e5efbbdd7b97082fb685096a1f8000c7524f478"
+    sha256 cellar: :any,                 arm64_ventura:  "f09b2a66fd71c84bdb02d359e6ce1767b2fc0c08d1f433a47ed35e1044720048"
+    sha256 cellar: :any,                 arm64_monterey: "e424456b6e351465c819566c9cb09c0352503a13c9e897ef6e08eb9df6d9cb88"
+    sha256 cellar: :any,                 sonoma:         "dde06372a7ba540b649b33aeb2bfcef091b0341c5b684770f55e3c15ef762885"
+    sha256 cellar: :any,                 ventura:        "7946131b84dd17618c07843d4a1dc7fda19751b713ae5761121ff36bc328848f"
+    sha256 cellar: :any,                 monterey:       "33fee58496e626c90d2e90c8127ba15068ff5d8b40a132aa501c27b02fbf809b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc66066322ec19228ffed75c8a2672c3a9bc2555df9dd175dceb0a2f3fb96bbb"
   end
 
   depends_on "cmake" => :build

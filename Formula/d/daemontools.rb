@@ -4,7 +4,7 @@ class Daemontools < Formula
   url "https://cr.yp.to/daemontools/daemontools-0.76.tar.gz"
   sha256 "a55535012b2be7a52dcd9eccabb9a198b13be50d0384143bd3b32b8710df4c1f"
   license :public_domain
-  revision 1
+  revision 2
 
   livecheck do
     url "https://cr.yp.to/daemontools/install.html"
@@ -12,18 +12,13 @@ class Daemontools < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "771d3e822aa923db2aa1a42e3b3e0e0531986addfe27186a2fd8350302a4dcbd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3e38b536653bd1b7e2e8d0e98dca15f9085205d3eeed09d8d1787afe468a08b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f66a2fccba83ee8fe623c06d8b53dfb241cdeffd4af6ccdd8ac499c5b3191a2a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4970abde6563bd8fa9cae9478b81d241ce0ad0c4d1504aa84269c55ccb45a499"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e92589e4a0951e3e2d57f8a43c9270a20937a415593d01e8d5a447f0ecac6763"
-    sha256 cellar: :any_skip_relocation, ventura:        "73a2cd834d4b1ef90c48199eaaaba09f077d153252b1d383a4a619a211b1eab7"
-    sha256 cellar: :any_skip_relocation, monterey:       "23c7f34339a55c30a0e32c45b200030e766eeae0fc7cc873de70bae175849123"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2de015542410e14eb8e17bb9affc37f19fc81e7005e4bec60ecd64c13629b02a"
-    sha256 cellar: :any_skip_relocation, catalina:       "0a39db96c9e2926beea8224ca844264d4ddec3b6561d5dfc019f3ecfd7cc86fe"
-    sha256 cellar: :any_skip_relocation, mojave:         "6516ee63288eab3eab3ee418ce070d711f483a5f6ebc147cb7039a9404bbaa0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d33be57d88799bbac35d167147869dbc93786d165d608a6e3286ff769af6343"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4d55eb82da586265d67f9fdb355715ee396417a002ed2e121d40b51ac3d0863"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "991fcc92f0c958384e3f434fab21761059a51fa58cac8c345ce61cfc98972863"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c9a82746468fb2b1eaea00ff04d1202099d6a0af27dc7e6287f1745a44028e9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6835770574462a78160eb7c9d9139b18a493804b5984409a549b394eb90c5fe5"
+    sha256 cellar: :any_skip_relocation, ventura:        "265702ded875f506c1e35e56c8620cb108fce3dd6ed2b5809e792e15c26a0509"
+    sha256 cellar: :any_skip_relocation, monterey:       "e57d6d6f618a545f245c2465038d63946310aa08e887eda8526dd154aff9db21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b6e2a4ebdbbc3105db2cc0425d85d782a5f0cccd10def1e0a7c63c05e13c2b1"
   end
 
   # Fix build failure due to missing #include <errno.h> on Linux.
@@ -43,6 +38,7 @@ class Daemontools < Formula
     cd "daemontools-#{version}" do
       inreplace ["package/run", "src/svscanboot.sh"] do |s|
         s.gsub! "/service", "#{etc}/service"
+        s.gsub! "/command", bin.to_s
       end
 
       # Work around build error from root requirement: "Oops. Your getgroups() returned 0,

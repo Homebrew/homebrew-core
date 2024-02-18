@@ -20,6 +20,12 @@ class Urlfinder < Formula
 
   depends_on "go" => :build
 
+  # upstream PR ref, https://github.com/pingc0y/URLFinder/pull/96
+  patch do
+    url "https://github.com/pingc0y/URLFinder/commit/cd4b141bd92448ed4b27a1db65b05075e40e8200.patch?full_index=1"
+    sha256 "e08f45c1a103125dfbaec04305f26140fe6766aa137b7a5fbe899d18efdb1064"
+  end
+
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end

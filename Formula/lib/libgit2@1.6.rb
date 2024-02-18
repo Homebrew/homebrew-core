@@ -1,8 +1,8 @@
 class Libgit2AT16 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.6.4.tar.gz"
-  sha256 "d25866a4ee275a64f65be2d9a663680a5cf1ed87b7ee4c534997562c828e500d"
+  url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.6.5.tar.gz"
+  sha256 "0f09dd49e409913c94df00eeb5b54f8b597905071b454c7f614f8c6e1ddb8d75"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
   head "https://github.com/libgit2/libgit2.git", branch: "maint/v1.6"
 
@@ -12,15 +12,13 @@ class Libgit2AT16 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f37d15235b47d5787cdea964f00a402ed64a7bedd24e5192f56eb55d18d86bf6"
-    sha256 cellar: :any,                 arm64_ventura:  "d2b76777e0b8bf572537ff560539d6ad082c737851a148d71635ab899dbe6ead"
-    sha256 cellar: :any,                 arm64_monterey: "54dccd4b043d3915d6e484a6c7d1c91f7bee5cb817a88e2904518227f21c9224"
-    sha256 cellar: :any,                 arm64_big_sur:  "06c83654a4ba91a1c2e1f55e1f57265ca54e8e0cd2c5e69dd1177bde611ea33f"
-    sha256 cellar: :any,                 sonoma:         "3286f966145301f7a6626e815b7276a248ed5c5ef7345fc140e44d1686e6af2c"
-    sha256 cellar: :any,                 ventura:        "c8b88ce5ff326fcde8456badbeca7cb79ad691616fe2cd3bb72bebf858b3bede"
-    sha256 cellar: :any,                 monterey:       "30ed081df2702afb0195df083872d31047281018ffd9673aefc1c1e69aaa520c"
-    sha256 cellar: :any,                 big_sur:        "e227aa3abda0ff012daf47518843b49567daa0f23338872ada0253bae5368d30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "faba71e6669662f6e2ce0e49c1c42776735496b844f2aaac61d14626a388152f"
+    sha256 cellar: :any,                 arm64_sonoma:   "83f4ee26d02fbfda076cdebe727390dd4db92ec8cb3791115212f43d6047eeed"
+    sha256 cellar: :any,                 arm64_ventura:  "fdd0c3045a62a5abd4668b43bb384e4586cb79520bfc89c53f96af6cbf86b362"
+    sha256 cellar: :any,                 arm64_monterey: "735c54cafdf705104f516c73f808c7b58e746402c5e5fd7d9de991b26b0ee3a1"
+    sha256 cellar: :any,                 sonoma:         "6ab0d20d176740e61ef21cf5e583ca1642953d74c278af0668a761f646d10b3b"
+    sha256 cellar: :any,                 ventura:        "331e0768ad6bb277c1d84901c83e851e8ab5af7a791a61ac8b962cb938df20c3"
+    sha256 cellar: :any,                 monterey:       "d4ac0449a3342561c75ffa40d92cdc4e3fd4bcef7deff58827e59b584149bd65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bccdefbeb5fcbf1ad61fbd89ea1ac463a4b66421287723d72386d5f6ed81cf50"
   end
 
   keg_only :versioned_formula

@@ -5,6 +5,11 @@ class Libresample < Formula
   sha256 "20222a84e3b4246c36b8a0b74834bb5674026ffdb8b9093a76aaf01560ad4815"
   license "LGPL-2.1"
 
+  livecheck do
+    url "https://deb.debian.org/debian/pool/main/libr/libresample/"
+    regex(/href=.*?libresample[._-]v?(\d+(?:\.\d+)+)\.orig\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f8fad6a20232a3f3bd9e1ee90d9242c283c325d2c118ca6b051eb79ab5adbea"

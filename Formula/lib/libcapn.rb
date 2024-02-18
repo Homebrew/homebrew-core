@@ -29,7 +29,7 @@ class Libcapn < Formula
     sha256 x86_64_linux:   "b819d3930cd72d61c972faf2ff4bd789eb1ef46757d88b1e02f3ab8bfb6edade"
   end
 
-  deprecate! date: "2023-01-30", because: :repo_archived
+  disable! date: "2024-02-01", because: :repo_archived
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build

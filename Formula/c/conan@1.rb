@@ -3,10 +3,9 @@ class ConanAT1 < Formula
 
   desc "Distributed, open source, package manager for C/C++"
   homepage "https://conan.io"
-  url "https://files.pythonhosted.org/packages/a3/69/3826240f1bce5717052f89de3439b0561109f34860d249e45a2b038c6464/conan-1.62.0.tar.gz"
-  sha256 "aa308d84e64bdad523e84631f0c0e5c7efba376bcbc3e18b8784e5cb4e7197dc"
+  url "https://files.pythonhosted.org/packages/83/ff/6c76fd241d8fccd794f24d8bb62e7c9919ccfd043d0a26502da8c13017ab/conan-1.63.0.tar.gz"
+  sha256 "4e2b8da8a68d18bc85e3f7512f72c2326a4806c352c5bd8affae667119de3704"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://github.com/conan-io/conan.git"
@@ -14,13 +13,13 @@ class ConanAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45c2b1da4880c4e83c76a7045a754534ad765da8e58b7e54da951a06db99f45c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca6ca14033fc71dbca4ad4f28fa3f372b9c788eecfd843dfaae877c054b53735"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c5420425568df8f39ab93cec0cc500147ea09749cccf416b79df580c0301216"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cda4b8abf8e49074ade20bd81eb506ce652ddac64e72fafc1312df7ed2f20fd2"
-    sha256 cellar: :any_skip_relocation, ventura:        "aa1ff61d6d0f50a570ba2a64a03ea0990d0bd09c7dd9f0bd9d59e300a0a2b5a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "957549d02c2c751d5243942be1a9abb62488ad3385c71b1c20f259d212cbded6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66c631e7ae5e50a5be8935e466b5000e146ef585bbd75f50b26ce871b749761a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d0b8bb1de5eb1e0e82104ad294b1e5afdfdc1906ba7c7d6b41043282dae75333"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5a2437752e4c0518af6ba69c690b1420f2a50fc2229a245b89b71dd6e7606ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae5d26556dac4e60011c0c7c46e109a600056b7223d12ac8f0288e26689dbadd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9bec012504201101fa710cdacd9da026b7122f495400397f820e2f17540aad0"
+    sha256 cellar: :any_skip_relocation, ventura:        "ba4c342730c4022179a5510a8709fb2172df0afe236a83ad7964f0967839de47"
+    sha256 cellar: :any_skip_relocation, monterey:       "dc8f7a4f62cb1398ec5178b9ffa7b1f7aced5a6a50f32130abe018955bb05ed7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfeed77553eaf99f8ce1311c4c5567b9e9c0d6849ffc047ef9c56f51c84fa09a"
   end
 
   keg_only :versioned_formula
@@ -49,8 +48,8 @@ class ConanAT1 < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
-    sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
+    url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"
+    sha256 "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8"
   end
 
   resource "fasteners" do
@@ -69,8 +68,8 @@ class ConanAT1 < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
   resource "node-semver" do
@@ -104,8 +103,8 @@ class ConanAT1 < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
-    sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
+    url "https://files.pythonhosted.org/packages/ea/85/3ce0f9f7d3f596e7ea57f4e5ce8c18cb44e4a9daa58ddb46ee0d13d6bff8/tqdm-4.66.2.tar.gz"
+    sha256 "6cd52cdf0fef0e0f543299cfc96fec90d7b8a7e88745f411ec33eb44d5ed3531"
   end
 
   resource "urllib3" do

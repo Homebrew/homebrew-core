@@ -1,21 +1,20 @@
 class Sip < Formula
-  include Language::Python::Virtualenv
-
   desc "Tool to create Python bindings for C and C++ libraries"
-  homepage "https://www.riverbankcomputing.com/software/sip/intro"
-  url "https://files.pythonhosted.org/packages/b1/42/d47a0f4e1b1213ba7319b046a2e543b5d7f79964852cae262f35ca30a50c/sip-6.8.1.tar.gz"
-  sha256 "3002df415e168ac3ffe393942dbc7131cb82ade50000e1526f46a88ade26f598"
+  # upstream page 404 report, https://github.com/Python-SIP/sip/issues/7
+  homepage "https://python-sip.readthedocs.io/en/latest/"
+  url "https://files.pythonhosted.org/packages/99/85/261c41cc709f65d5b87669f42e502d05cc544c24884121bc594ab0329d8e/sip-6.8.3.tar.gz"
+  sha256 "888547b018bb24c36aded519e93d3e513d4c6aa0ba55b7cc1affbd45cf10762c"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
   head "https://www.riverbankcomputing.com/hg/sip", using: :hg
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f14d24030406bc957a956ab56ea6a1729d0164a78ca17cee84b386cdf8f5f84"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "596e836c25f6a44c9abe30b92734baf0f3ebffdac0e933db0666cf8cba9b10d5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbef16f6a5066b616cb44956fa664d81f0c6d2019d5d24935e5d39e5c1734df1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8b7f0601e829369b6c716807e3a661db410ac9c0ad6f1f19b2c94ae3e0141ca0"
-    sha256 cellar: :any_skip_relocation, ventura:        "3db6ec3214ffee9299c6deac4e4351547c7f046e856535f4f45419f9a54506a2"
-    sha256 cellar: :any_skip_relocation, monterey:       "f23948049fb077c867e06249832a70ca7cc1307a5fdd7db7c99fb62a0bd88564"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92a2007dbea1afe34cfd7afb2d076e6ff27bc7ca69a2f4253f19406573485e00"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c72ef903a6273a299314786f62bb0dd7514c671e815e03f1986637e50b389fa3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1215a87c1cd9ebf7a19c58591a4947d7e01669ea188cf38169ec6f84d2563616"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "161ac2919ec3990d7462fffbabc623301b02db130ddcdbf11f44b6ff84f8b976"
+    sha256 cellar: :any_skip_relocation, sonoma:         "abedf2f58e97a6bd15b937cad168225e7f56b5998ed5898307d4021ba3a51638"
+    sha256 cellar: :any_skip_relocation, ventura:        "0b83c01077f716d62be770898c1d718e81285f2969e3998d9675e70061110e83"
+    sha256 cellar: :any_skip_relocation, monterey:       "6c34630d0ec9a45a2a5270079d2aa6ce1a930bb4e0dd20a0e5b812f45d098e9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12eb797765c96258bc8e1bff5bb62689d9ee3fed08419ca8d4312a3c86d811e6"
   end
 
   depends_on "python@3.11" => [:build, :test]

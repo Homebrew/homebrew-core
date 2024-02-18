@@ -1,8 +1,8 @@
 class Makedepend < Formula
   desc "Creates dependencies in makefiles"
   homepage "https://x.org/"
-  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.8.tar.xz"
-  sha256 "bfb26f8025189b2a01286ce6daacc2af8fe647440b40bb741dd5c397572cba5b"
+  url "https://xorg.freedesktop.org/releases/individual/util/makedepend-1.0.9.tar.xz"
+  sha256 "92d0deb659fff6d8ddbc1d27fc4ca8ceb2b6dbe15d73f0a04edc09f1c5782dd4"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Makedepend < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "114c1c0c95e80973539b7dc0ab8b1d982f678eb7276d7973908cec9215bb9ea3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e14418de0a98957bcce5796f8952e41e1409f4b13125a80cb133056b7d8a4acc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "66b45de376ee39540d5c05b58e79b4027a5bc038eb6c42785eb6527220261f1e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8ea9ff3be2137147d46691a4a7d25411c73121f53d4dadd5041759899b17a389"
-    sha256 cellar: :any_skip_relocation, sonoma:         "da75d22d6170f14497d139d4c63147e1f60e0e50c53a15f5cd07b9035512572b"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe25334cf2b74dc002395e9cfd76e95445f4496b2870287dbac688f04389224d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d31ab18614d72efef3aab19db9e81a6b353064a389cd49404a72ee10f7949a45"
-    sha256 cellar: :any_skip_relocation, big_sur:        "88938e80fd01b90be05a3bfde77946d8392bc9a065a69d22e0723d7db18d329c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9b80b1ecd86eb7852026c657475fb738407db7ced7c015ea74300685dbfbd98"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "065db2cad1fdc8a5da5cb54ff2ed60820fa3db8c5d0a643b99e46769ca1d89c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90aefc577a198b25cdd9d0ac5e873b3d33741416db9dcdcc3277664af8c07fad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "25e7994da9aa7cc77c32388b041bb3dabd5885dbfc0e9d88e890289ec71853ae"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c6874f996ef7a5687bf1f83a0f1697c0e8360b4dda635b18be0926411dfabb7a"
+    sha256 cellar: :any_skip_relocation, ventura:        "9b32d643af15de0c40854c16e50b5f6c5972825156d58b5fc03433cc1c4b63c8"
+    sha256 cellar: :any_skip_relocation, monterey:       "febb3e4989051d186f36914a7df4ce155d52784a5a9d702a8c81ef6cc34d0e6c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3513c65618644fc944f76db3cb1975f843d82eaf6198d58770c23ee145c1efed"
   end
 
   depends_on "pkg-config" => :build

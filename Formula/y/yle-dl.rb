@@ -1,19 +1,19 @@
 class YleDl < Formula
   desc "Download Yle videos from the command-line"
   homepage "https://aajanki.github.io/yle-dl/index-en.html"
-  url "https://files.pythonhosted.org/packages/30/0b/9aa68156e76a4b32681bdb89bdd360120d6445f6d92e604c5a5e73f23066/yle_dl-20231214.tar.gz"
-  sha256 "cc0591e2d4450c34f2f17c2069de1ab74669a735979f256b32501bf771ee8f32"
+  url "https://files.pythonhosted.org/packages/5c/ba/ae9008b208cfc78f8de4b32ea98d4107d6bf940e5062f8985f70dd18b086/yle_dl-20240130.tar.gz"
+  sha256 "fe871fe3d63c232183f52d234f3e54afa2cffa8aa697a94197d2d3947b19e37d"
   license "GPL-3.0-or-later"
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "31d5df8b2be107854c934b0fc78febd9d45d6f6f6eefd37a2a903f0dbba433b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "79db770d7c4211866f92bc58721ad8ed33a29038f09933f468aaadcf97895c66"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ab8507aa6c939f8134965e5b3dc9a75c8e8c3fb13b91459ecb5a98ec39ba0898"
-    sha256 cellar: :any_skip_relocation, sonoma:         "12c2d24e69a4e5db745a89920f1438fd96f7431c76c3ad3edd3d73e5fb3a29a0"
-    sha256 cellar: :any_skip_relocation, ventura:        "1a2b16e2442322471c335210a2b28ca5ac14711d14f58fa8fce5595e794025ff"
-    sha256 cellar: :any_skip_relocation, monterey:       "226732048cd6f68fb8e6991b5fce534f90488caf65e1fdc75dff05d208645417"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff9e5c8398f293f4363a0a20bd146c3ed5bd32693d04095e311e0ef04724ef91"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5e658ddd73cb19f6b64001113f25b44cad9b0a3202e4f80960057ac1989293e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "10f5886900a8de7f2b2687b9f4667e59cee0b5c97e7f6bc1d80671083138ffd0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "00d490998e01c565ba104033e5078d8f2662121b059be10b34e2e1250d1733c7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3ace467ab97f097780a62c727851de7ab553dc202d864466ec8fb0e8d2e5f764"
+    sha256 cellar: :any_skip_relocation, ventura:        "f7943694c6e3e351f5e1b396332ce49c29173598cc255c4eb3efd480f03765a2"
+    sha256 cellar: :any_skip_relocation, monterey:       "e6fee0f7f0b821b876191a09097416922b97d94664f0ad472ccac00716d60900"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7feb6a3e7c0a7f32a91bb7ecd8ad8337b39bd9824dde2962d35f90ebda124057"
   end
 
   depends_on "python-flit-core" => :build

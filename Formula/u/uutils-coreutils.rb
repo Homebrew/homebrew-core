@@ -1,19 +1,19 @@
 class UutilsCoreutils < Formula
   desc "Cross-platform Rust rewrite of the GNU coreutils"
   homepage "https://github.com/uutils/coreutils"
-  url "https://github.com/uutils/coreutils/archive/refs/tags/0.0.23.tar.gz"
-  sha256 "cb10a4790e80900345db9a4a929d36ab0d6bb0a81cd3427730300cbae5be9178"
+  url "https://github.com/uutils/coreutils/archive/refs/tags/0.0.24.tar.gz"
+  sha256 "57c9083695e35712ddafc3cd8c579481ba5976107f357a6b5f1b1d813181dc36"
   license "MIT"
   head "https://github.com/uutils/coreutils.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c21c54c390e33d18ed11da609fb254d90931dbb616bf33f69503a7f34c502b25"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a85b17e313184c628139bfc2742b7019e5e5273661abd48141f4bfd2fa7c868c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4d2a17724a16d13678497f691387abd9e4dd26d0d6f70867d0f10282fa6b56a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "171fe1ab2ba97f3135049bcca932bbe4ea60f87095c5157103e87e1da01c7de4"
-    sha256 cellar: :any_skip_relocation, ventura:        "38e67fe68447e0188f29ae2c87bb1faec8e956d69b7578ef31fb292802609565"
-    sha256 cellar: :any_skip_relocation, monterey:       "68dcdeabf9fb887af11cc35fc6e68bf33b61d1eb749a9254689c6f6b3fa58eb4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "21194076ba62dfa0bb1f6fdd59df5f2043283db8a5639f8bfea41860056b4a1e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2168112f262abd285613c64ea470b2f1d84e4cc6549fb574dc726ac0ea43fdee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74900a9e061d1e5940ef97f5fdf7de26c39ca3ba6cc078519ad71a55059c0901"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf206b3d77eaf5d8142921b99458ed22be8d87473a7ff9e36f8413756db86b3e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6f1d1a27a1edeb91e674d65f5ed8367fa8ce3a6bcb77df36a61b0a17b4585d5"
+    sha256 cellar: :any_skip_relocation, ventura:        "dfd32cabc53debbd0ca594164eb20082f0d2dd93d35ab274c05c52d37e5ff4fe"
+    sha256 cellar: :any_skip_relocation, monterey:       "e6593f361742e0be67d71cebb0a5f1eb133ebb887df44d0b94d817913672375c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "039eab8b279a0325fb5bba1d6df056e8d56582b9b66898425db5e0f71509f5de"
   end
 
   depends_on "make" => :build

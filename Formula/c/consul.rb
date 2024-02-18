@@ -26,6 +26,9 @@ class Consul < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "27d8f2e7148d80ec16fdc26b3a75e4c46f2f1d5227944f5c79de76d6a21b8d97"
   end
 
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2024-02-15", because: "will change its license to BUSL on the next release"
+
   depends_on "go" => :build
 
   def install
@@ -38,6 +41,16 @@ class Consul < Formula
     error_log_path var/"log/consul.log"
     log_path var/"log/consul.log"
     working_dir var
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new Consul releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   test do

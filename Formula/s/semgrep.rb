@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.57.0",
-      revision: "057f6c15b70446466c7f15fb958fda14c7066574"
+      tag:      "v1.61.1",
+      revision: "b414e6b491c4af4254125e5e4df72767fdd7f0ef"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -15,13 +15,13 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b3ebfcde409d8a0653049be3eb36feaeed189e4eb12bb7b25eb49e8189775fcc"
-    sha256 cellar: :any, arm64_ventura:  "867350e3e1c674c8e9546462dac8ca30150e994e924ac0c115e6c860365f7a91"
-    sha256 cellar: :any, arm64_monterey: "221f0f93a6206548833a29958ac5dbd9c560722d365ea10f446b7acf3b52414e"
-    sha256 cellar: :any, sonoma:         "2e6d90b129309139450a090e270873a24c717a648e0dd99030db6d983978ad79"
-    sha256 cellar: :any, ventura:        "b6f8f6038f516ab587e1a4ce7332beff90182ee47bdf2a8e4d21e38ba397a655"
-    sha256 cellar: :any, monterey:       "b37c560c038472b908d3845670a0f2507ae75ef7ca06f4ad088185241bcc2c8b"
-    sha256               x86_64_linux:   "aba2e8942659568f77ebd444ce6391e0fd9fbda6783a11e9fea55c78d3c288a5"
+    sha256 cellar: :any,                 arm64_sonoma:   "a16d4fd5e330c4b905c38224f5a6b8dc52e81467f552e753a13333be4c0b2e89"
+    sha256 cellar: :any,                 arm64_ventura:  "3805c513eb91492e7e1639decd3a0d44df20528ae3dc7464ba45c5559732c274"
+    sha256 cellar: :any,                 arm64_monterey: "041457c53f835f37098965aa940b5c257bd2aa2dfc736631218695df438e5cee"
+    sha256 cellar: :any,                 sonoma:         "17c815f963a23ec59e4653fc1bfc852ac80c6622c59875ec611b32f404e05ea3"
+    sha256 cellar: :any,                 ventura:        "377d5cf7f368d71ddf666333f783cd0ba28cabbde501e6b6417746b710844007"
+    sha256 cellar: :any,                 monterey:       "a09ee643c5d27237536d079bcb9a0388e22f76df2acfd888d950c5af5a93d0d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "630ae02f249d722950a9296fb76fb0c07b349a47e04152480436ea0012637f4f"
   end
 
   depends_on "autoconf" => :build
@@ -45,6 +45,7 @@ class Semgrep < Formula
   depends_on "tree-sitter"
 
   uses_from_macos "rsync" => :build
+  uses_from_macos "curl"
 
   fails_with gcc: "5"
 
@@ -104,8 +105,8 @@ class Semgrep < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/44/cd/1d325d358d856da96a7c6cfc2af486b70587dc4c70594aa2a9e6c2d279ad/jsonschema-4.21.0.tar.gz"
-    sha256 "3ba18e27f7491ea4a1b22edce00fb820eec968d397feb3f9cb61d5894bb38167"
+    url "https://files.pythonhosted.org/packages/4d/c5/3f6165d3df419ea7b0990b3abed4ff348946a826caf0e7c990b65ff7b9be/jsonschema-4.21.1.tar.gz"
+    sha256 "85727c00279f5fa6bedbe6238d2aa6403bedd8b4864ab11207d07df3cc1b2ee5"
   end
 
   resource "jsonschema-specifications" do
@@ -124,13 +125,13 @@ class Semgrep < Formula
   end
 
   resource "peewee" do
-    url "https://files.pythonhosted.org/packages/6a/30/a727bb1420076b3c14b60911d111f0fc0449d31a1123a1ad18878a7a4e40/peewee-3.17.0.tar.gz"
-    sha256 "3a56967f28a43ca7a4287f4803752aeeb1a57a08dee2e839b99868181dfb5df8"
+    url "https://files.pythonhosted.org/packages/8d/a5/89cdbc4a7f6d7a0624c120be102db770ee717aa371066581e3daf2beb96f/peewee-3.17.1.tar.gz"
+    sha256 "e009ac4227c4fdc0058a56e822ad5987684f0a1fbb20fed577200785102581c3"
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/81/ce/910573eca7b1a1c6358b0dc0774ce1eeb81f4c98d4ee371f1c85f22040a1/referencing-0.32.1.tar.gz"
-    sha256 "3c57da0513e9563eb7e203ebe9bb3a1b509b042016433bd1e45a2853466c3dd3"
+    url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
+    sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
   end
 
   resource "requests" do
@@ -144,8 +145,8 @@ class Semgrep < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/b7/0a/e3bdcc977e6db3bf32a3f42172f583adfa7c3604091a03d512333e0161fe/rpds_py-0.17.1.tar.gz"
-    sha256 "0210b2668f24c078307260bf88bdac9d6f1093635df5123789bfee4d8d7fc8e7"
+    url "https://files.pythonhosted.org/packages/55/ba/ce7b9f0fc5323f20ffdf85f682e51bee8dc03e9b54503939ebb63d1d0d5e/rpds_py-0.18.0.tar.gz"
+    sha256 "42821446ee7a76f5d9f71f9e33a4fb2ffd724bb3e7f93386150b61a43115788d"
   end
 
   resource "ruamel-yaml" do
@@ -164,8 +165,8 @@ class Semgrep < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   resource "wcmatch" do

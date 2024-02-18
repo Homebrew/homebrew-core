@@ -3,19 +3,18 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/f8/3a/1d4e51bbd57da9a0cb70d9c73997cb012aec25ce8b52fcf18e3c5ad60d1e/moto-4.2.13.tar.gz"
-  sha256 "01aef6a489a725c8d725bd3dc6f70ff1bedaee3e2641752e4b471ff0ede4b4d7"
+  url "https://files.pythonhosted.org/packages/ee/04/5e9916f9d4306d3e1d372e1f216b1e3806836e4f7cc991b286cb4f05ed53/moto-5.0.1.tar.gz"
+  sha256 "62b9798aef9028432194cebb7a671f4064257bb3be662d9c1b83b94411b694bb"
   license "Apache-2.0"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f5a2a4b73436a25b093cfc48883b98a55a6a3769068bd6a666245068404c2f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5209d144b39108fe7eaf454fe343009640bd6080bfdf407cb1fb53c0f5f92160"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "85e66a2b7fa067be0570aec98a7453102b89b596fa873d08ae758ef580f02c7a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f626c5b32bdff7fb71860c80c13c670cfecbbdad42a6ceb9f8bea6e0faf2b36b"
-    sha256 cellar: :any_skip_relocation, ventura:        "645b8448821cdb3d12031bbbf23d160fc730526eef91764341896e6bdfe6db43"
-    sha256 cellar: :any_skip_relocation, monterey:       "5ba2051786fa3bc91918f408169aa818af924a06c1e42573c58d90f031bf997d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1599885b4c22cdb07d211b646fd438f5399b2cea1422a116d0195c652d6893f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70032f6238e7cabd3590cbffc7439ee51f7fbe2e79a0b09329f0f12e9eafa95c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b85365ddf44b26a243227f158ed26a57fb1b099789a1b583082e489bbb86352"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce12ea6f6fa17694af905e27d5887162fa61af52ba6bf4057493dc421f90414a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0028e638423c5c8fa22b4c1cd6a8d02f724a0a394b7dd3540add4e579e98726e"
+    sha256 cellar: :any_skip_relocation, ventura:        "35e658fa44c480b86f197ef1cb1201be8b5737abfc6629e0cdf3e0b4a1a29bf0"
+    sha256 cellar: :any_skip_relocation, monterey:       "53f04b5104075cac89462ab1e4c4c8aa3f7a02957d74310302f6d1c7b7726033"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7531c706ba37263cde9b2b44f9dadf92e21ac48056cd106225dfa0c4afd89a8e"
   end
 
   depends_on "cffi"
@@ -58,8 +57,8 @@ class Moto < Formula
   end
 
   resource "flask" do
-    url "https://files.pythonhosted.org/packages/d8/09/c1a7354d3925a3c6c8cfdebf4245bae67d633ffda1ba415add06ffc839c5/flask-3.0.0.tar.gz"
-    sha256 "cfadcdb638b609361d29ec22360d6070a77d7463dcb3ab08d2c2f2f168845f58"
+    url "https://files.pythonhosted.org/packages/3f/e0/a89e8120faea1edbfca1a9b171cff7f2bf62ec860bbafcb2c2387c0317be/flask-3.0.2.tar.gz"
+    sha256 "822c03f4b799204250a7ee84b1eddc40665395333973dfb9deebfe425fefcb7d"
   end
 
   resource "flask-cors" do
@@ -123,8 +122,8 @@ class Moto < Formula
   end
 
   resource "py-partiql-parser" do
-    url "https://files.pythonhosted.org/packages/e9/80/47fab55e0c82c447ed2b5b484f4ae6a6c306365f16c4fd578fda56c93468/py-partiql-parser-0.5.0.tar.gz"
-    sha256 "427a662e87d51a0a50150fc8b75c9ebb4a52d49129684856c40c88b8c8e027e4"
+    url "https://files.pythonhosted.org/packages/7e/43/fb1b0afb1c869c0865ddb8bc1659dd50f451205c7eb20b2d45f7673a2de4/py-partiql-parser-0.5.1.tar.gz"
+    sha256 "aeac8f46529d8651bbae88a1a6c14dc3aa38ebc4bc6bd1eb975044c0564246c6"
   end
 
   resource "pyasn1" do

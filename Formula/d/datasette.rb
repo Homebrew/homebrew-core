@@ -5,27 +5,22 @@ class Datasette < Formula
   url "https://files.pythonhosted.org/packages/c8/7d/667e3bfceef9e428e38117b8d9704f502395fddc1effb7ef760b2dd0c4e6/datasette-0.64.6.tar.gz"
   sha256 "85ca3aabca64fd9560052042aec27d3b32a1f85303853da3550434866d0fa539"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "549bde599a5c10378ecccdc707bea2074d0424ea65f811343193f6c8b6d3a54b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51400d561d76bdafcb5ba337a1057b0d6d4d3c44149a5d91c10b8932073c358b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6565806e4c24c59b3fd612ba5fbfe29465d54ca21b3fb5f76713c4af6ef8f8bf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ae790d8a286837553c7e4ef7543f3f188b888e60c524ae3860fcdd3cf7f0dc89"
-    sha256 cellar: :any_skip_relocation, ventura:        "c6651180b094cd749414cea257e285f43d304d39462a0ea69c75a0255a6d7bc8"
-    sha256 cellar: :any_skip_relocation, monterey:       "52a896b7c03ea47ca349c5035aae966bbdfe8ad89c2cbbdb4f6cf9ac78269acd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32617b474bb4f6a9b3fb9a7f3abdd089e52eef2a6e7297e119384690eb16cfb0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "cede1d07d653c11beede218e5129807110cfe4f7d4e8c700b4963aa9e7a7c784"
+    sha256 cellar: :any,                 arm64_ventura:  "af3b5f12c68c440f792dc7301975bc84075853e607fba8e358c20005f744cff9"
+    sha256 cellar: :any,                 arm64_monterey: "3021428cdde5737bfa7cfeb83edaa0af5bddc2baa1da947d2c44de2183619d45"
+    sha256 cellar: :any,                 sonoma:         "bcc2cc4a2937918141220663f945a64eaaac58fa48ba1bcb393024bde6faa113"
+    sha256 cellar: :any,                 ventura:        "2113fa30c5dfe3446c661e347cfd9a707e9b1c678286c3213b7a1a926ddc138f"
+    sha256 cellar: :any,                 monterey:       "184ed7bbcd4cb0161f0bc7a56b31cb2f2230fcfc2354944c0a37030252cb324d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61f03a92165f42e6dd19b97b46b370e3b9aaa16d3a078c9fcf8b0be3ec94f9d1"
   end
 
   depends_on "python-certifi"
-  depends_on "python-click"
-  depends_on "python-markupsafe"
-  depends_on "python-setuptools"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
   depends_on "uvicorn"
 
   resource "aiofiles" do
@@ -48,6 +43,11 @@ class Datasette < Formula
     sha256 "9e0ce3aa93a819ba5b45120216b23878cf6e8525eb3848653452b4192b92afed"
   end
 
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
   resource "click-default-group" do
     url "https://files.pythonhosted.org/packages/1d/ce/edb087fb53de63dad3b36408ca30368f438738098e668b78c87f93cd41df/click_default_group-1.2.4.tar.gz"
     sha256 "eb3f3c99ec0d456ca6cd2a7f08f7d4e91771bef51b01bdd9580cc6450fe1251e"
@@ -64,8 +64,8 @@ class Datasette < Formula
   end
 
   resource "hupper" do
-    url "https://files.pythonhosted.org/packages/42/3d/70bef845298bb4746b94418efde81bcfe0fad479169c2e9649f95630bfa7/hupper-1.12.tar.gz"
-    sha256 "18b1653d9832c9f8e7d3401986c7e7af2ae6783616be0bc406bfe0b14134a5c6"
+    url "https://files.pythonhosted.org/packages/bd/e6/bb064537288eee2be97f3e0fcad8e7242bc5bbe9664ae57c7d29b3fa18c2/hupper-1.12.1.tar.gz"
+    sha256 "06bf54170ff4ecf4c84ad5f188dee3901173ab449c2608ad05b9bfd6b13e32eb"
   end
 
   resource "idna" do
@@ -88,6 +88,11 @@ class Datasette < Formula
     sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+  end
+
   resource "mergedeep" do
     url "https://files.pythonhosted.org/packages/3a/41/580bb4006e3ed0361b8151a01d324fb03f420815446c7def45d02f74c270/mergedeep-1.3.4.tar.gz"
     sha256 "0096d52e9dad9939c3d975a774666af186eda617e6ca84df4c94dec30004f2a8"
@@ -99,23 +104,38 @@ class Datasette < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/36/51/04defc761583568cae5fd533abda3d40164cbdcf22dee5b7126ffef68a40/pluggy-1.3.0.tar.gz"
-    sha256 "cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"
+    url "https://files.pythonhosted.org/packages/54/c6/43f9d44d92aed815e781ca25ba8c174257e27253a94630d21be8725a2b59/pluggy-1.4.0.tar.gz"
+    sha256 "8c85c2876142a764e5b7548e7d9a0e0ddb46f5185161049a79b7e974454223be"
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/2d/23/abcfad10c3348cb6358400f8adbc21b523bbc6c954494fd0974428068672/python_multipart-0.0.6.tar.gz"
-    sha256 "e9925a80bb668529f1b67c7fdb0a5dacdd7cbfc6fb0bff3ea443fe22bdd62132"
+    url "https://files.pythonhosted.org/packages/5c/0f/9c55ac6c84c0336e22a26fa84ca6c51d58d7ac3a2d78b0dfa8748826c883/python_multipart-0.0.9.tar.gz"
+    sha256 "03f54688c663f1b7977105f021043b0793151e4cb1c1a9d4a11fc13d622c4026"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
-    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "sniffio" do
     url "https://files.pythonhosted.org/packages/cd/50/d49c388cae4ec10e8109b1b833fd265511840706808576df3ada99ecb0ac/sniffio-1.3.0.tar.gz"
     sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   def install

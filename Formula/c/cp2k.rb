@@ -11,25 +11,26 @@ class Cp2k < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "afa1c6cdff4809dacea068dac134b2e8e861382d477f110e9bbdd4cc99513acb"
-    sha256 cellar: :any, arm64_ventura:  "7bdd89ca6bb7254483dd6bdc185ca3fb524fbd544d61f8d183509b82f41fab80"
-    sha256 cellar: :any, arm64_monterey: "cdbcdef206ab2a266eee36142264696fa1ce6e0ecd97a600522d2a54713bbfb9"
-    sha256 cellar: :any, sonoma:         "72dcb6262d54fbde7d84104581388ddb54f164c7328479bea63aa085b9f98a18"
-    sha256 cellar: :any, ventura:        "4d47f258b198986b4fda6643e1291ee146ea7ad57a3804f6be7853e7cabbed95"
-    sha256 cellar: :any, monterey:       "06535d5670667a3254e14b3c1b2865f12d57d1962a19e84db4216c0d53a4800d"
-    sha256               x86_64_linux:   "16055b3ba5722c5c73e2404970afb806bf4b72ae932f4e113320211a499ad0c2"
+    rebuild 1
+    sha256 arm64_sonoma:   "fc9760f1c03934d4b87c768b02195129e13babc78a174059ff4987b204dd0d98"
+    sha256 arm64_ventura:  "384e8884db6ec442a2fa0e57fcd3d44ea6004c516969b6dd82930d4c56b90ace"
+    sha256 arm64_monterey: "612fc3597eb8a74da99da978cbb97e8e67a4a33fd75c419a671782ab974663cd"
+    sha256 sonoma:         "65df5da13054e5c7e4023eaec235f0d16dbf339f1a5826150fa90e93798e9560"
+    sha256 ventura:        "a75d0ceac451e6ef213300f2f0179bdec7b0b889a3555f9fc70dcc47aeb1aee0"
+    sha256 monterey:       "d0fbe428294198e0eeaa64778c9ba08db0cd18cdd8b67e9bfacb1a5fe32102ea"
+    sha256 x86_64_linux:   "a2bd232db7d2a02767c8630db162127abbfc9b4467111d9b04ffb58dcee7d9c1"
   end
 
-  depends_on "python@3.12" => :build
+  depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "gcc" # for gfortran
   depends_on "libxc"
   depends_on "open-mpi"
+  depends_on "openblas"
   depends_on "scalapack"
 
-  on_linux do
-    depends_on "openblas"
-  end
+  uses_from_macos "python" => :build
 
   fails_with :clang # needs OpenMP support
 
@@ -40,93 +41,55 @@ class Cp2k < Formula
 
   def install
     resource("libint").stage do
-      ENV.append "FCFLAGS", "-fPIE" if OS.linux?
-      system "./configure", "--prefix=#{libexec}", "--enable-fortran"
+      system "./configure", "--enable-fortran", "--with-pic", *std_configure_args(prefix: libexec)
       system "make"
       ENV.deparallelize { system "make", "install" }
+      ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     end
 
-    arch = "local"
-    if OS.mac?
-      arch = "Darwin-gfortran"
+    # TODO: Remove dbcsr build along with corresponding CMAKE_PREFIX_PATH
+    # and add -DCP2K_BUILD_DBCSR=ON once `cp2k` build supports this option.
+    system "cmake", "-S", "exts/dbcsr", "-B", "build_psmp/dbcsr",
+                    "-DWITH_EXAMPLES=OFF",
+                    *std_cmake_args(install_prefix: libexec)
+    system "cmake", "--build", "build_psmp/dbcsr"
+    system "cmake", "--install", "build_psmp/dbcsr"
+    # Need to build another copy for non-MPI variant.
+    system "cmake", "-S", "exts/dbcsr", "-B", "build_ssmp/dbcsr",
+                    "-DUSE_MPI=OFF",
+                    "-DWITH_EXAMPLES=OFF",
+                    *std_cmake_args(install_prefix: buildpath/"dbcsr")
+    system "cmake", "--build", "build_ssmp/dbcsr"
+    system "cmake", "--install", "build_ssmp/dbcsr"
 
-      libs = %W[
-        -L#{Formula["fftw"].opt_lib}
-        -lfftw3
-      ]
+    # Avoid trying to access /proc/self/statm on macOS
+    ENV.append "FFLAGS", "-D__NO_STATM_ACCESS" if OS.mac?
 
-      ENV["LIBXC_INCLUDE_DIR"] = Formula["libxc"].opt_include
-      ENV["LIBXC_LIB_DIR"] = Formula["libxc"].opt_lib
-      ENV["LIBINT_INCLUDE_DIR"] = libexec/"include"
-      ENV["LIBINT_LIB_DIR"] = libexec/"lib"
+    # Set -lstdc++ to allow gfortran to link libint
+    cp2k_cmake_args = %w[
+      -DCMAKE_SHARED_LINKER_FLAGS=-lstdc++
+      -DCP2K_BLAS_VENDOR=OpenBLAS
+      -DCP2K_USE_LIBINT2=ON
+      -DCP2K_USE_LIBXC=ON
+    ] + std_cmake_args
 
-      # CP2K configuration is done through editing of arch files
-      inreplace Dir["arch/Darwin-gfortran.*"].to_a.each do |s|
-        s.gsub!(/DFLAGS *=/, "DFLAGS = -D__FFTW3")
-        s.gsub!(/FCFLAGS *=/, "FCFLAGS = -I#{Formula["fftw"].opt_include}")
-        s.gsub!(/LIBS *=/, "LIBS = #{libs.join(" ")}")
-      end
+    system "cmake", "-S", ".", "-B", "build_psmp/cp2k",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DCMAKE_PREFIX_PATH=#{libexec}",
+                    *cp2k_cmake_args
+    system "cmake", "--build", "build_psmp/cp2k"
+    system "cmake", "--install", "build_psmp/cp2k"
 
-      # MPI versions link to scalapack
-      inreplace Dir["arch/Darwin-gfortran.p*"].to_a,
-                /LIBS *=/, "LIBS = -L#{Formula["scalapack"].opt_lib}"
-
-      # OpenMP versions link to specific fftw3 library
-      inreplace Dir["arch/Darwin-gfortran.*smp"].to_a,
-                "-lfftw3", "-lfftw3 -lfftw3_threads"
-    else
-      args = %W[
-        -j #{ENV.make_jobs}
-        --mpi-mode=openmpi
-        --math-mode=openblas
-        --with-gcc=system
-        --with-intel=no
-        --with-cmake=no
-        --with-openmpi=#{Formula["open-mpi"].opt_prefix}
-        --with-mpich=no
-        --with-intelmpi=no
-        --with-libxc=#{Formula["libxc"].opt_prefix}
-        --with-libint=#{libexec}
-        --with-fftw=#{Formula["fftw"].opt_prefix}
-        --with-acml=no
-        --with-mkl=no
-        --with-openblas=#{Formula["openblas"].opt_prefix}
-        --with-scalapack=#{Formula["scalapack"].opt_prefix}
-        --with-libxsmm=no
-        --with-elpa=no
-        --with-ptscotch=no
-        --with-superlu=no
-        --with-pexsi=no
-        --with-quip=no
-        --with-plumed=no
-        --with-sirius=no
-        --with-gsl=no
-        --with-libvdwxc=no
-        --with-spglib=no
-        --with-hdf5=no
-        --with-spfft=no
-        --with-spla=no
-        --with-cosma=no
-        --with-libvori=no
-        --with-libgrpp=no
-      ]
-      args << "--target-cpu=generic" if build.bottle?
-
-      cd "tools/toolchain" do
-        # Need OpenBLAS source to get proc arch info in scripts/get_openblas_arch.sh
-        Formula["openblas"].stable.stage Pathname.pwd/"build/OpenBLAS"
-
-        system "./install_cp2k_toolchain.sh", *args
-        (buildpath/"arch").install (Pathname.pwd/"install/arch").children
-      end
-    end
-
-    # Now we build
-    %w[ssmp psmp].each do |exe|
-      system "make", "ARCH=#{arch}", "VERSION=#{exe}"
-      bin.install "exe/#{arch}/cp2k.#{exe}"
-      bin.install "exe/#{arch}/cp2k_shell.#{exe}"
-    end
+    # Only build the main executable for non-MPI variant as libs conflict.
+    # Can consider shipping MPI and non-MPI variants as separate formulae
+    # or removing one variant depending on usage.
+    system "cmake", "-S", ".", "-B", "build_ssmp/cp2k",
+                    "-DBUILD_SHARED_LIBS=OFF",
+                    "-DCMAKE_PREFIX_PATH=#{buildpath}/dbcsr;#{libexec}",
+                    "-DCP2K_USE_MPI=OFF",
+                    *cp2k_cmake_args
+    system "cmake", "--build", "build_ssmp/cp2k", "--target", "cp2k-bin"
+    bin.install Dir["build_ssmp/cp2k/bin/*.ssmp"]
 
     (pkgshare/"tests").install "tests/Fist/water.inp"
   end

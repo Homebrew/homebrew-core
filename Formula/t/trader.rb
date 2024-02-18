@@ -1,8 +1,8 @@
 class Trader < Formula
   desc "Star Traders"
   homepage "https://www.zap.org.au/projects/trader/"
-  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.19.tar.xz"
-  sha256 "eefc52f9e6ed7e86cf5fefdc17a8cd7b4a218a36b41468bb0edf7bc7d34cc9c2"
+  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.20.tar.xz"
+  sha256 "bad368c471d7f4c371fbe8f5da24872f9e3ad609ddb7dad0e015c960c88b3aa9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Trader < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c7a60ffeab56ec45489867eba1ac1ee37d707be5210d6ff033620d70e43fde62"
-    sha256 arm64_ventura:  "cb1c36d5766e3e574084c4411a3427fac06c3a464c418fe0f375a9d75434370f"
-    sha256 arm64_monterey: "3c15678c9f693132e4f7238da4fe8233edb1717f53442e534389341ac1ddb62c"
-    sha256 sonoma:         "cf2515f579a4c567fad7be68ed6b02cd93626fc97c8bd0ee5a75eaf63303c835"
-    sha256 ventura:        "da85848b2faffad4756a5744f2095366db2f8b4258d20d8b4e93dd5bdd4e81bb"
-    sha256 monterey:       "b8eab4dfad300ff86e2c7950b20237858e91a4035fcc18f3bbc9687234c185ad"
-    sha256 x86_64_linux:   "b678b848acf6644ed3e56c6e9fd0d009b41e1606343eba85219f817dd92cbafc"
+    sha256 arm64_sonoma:   "6ae36dfc033af6586d9b339653b74796de0bfca17e12e94a8ad74848ceef2b8c"
+    sha256 arm64_ventura:  "38906420c79cc92198a4b560f8d4ab6862c8379b608cb833d0798c9b2cb2126e"
+    sha256 arm64_monterey: "659237e8c041b9122c2792770c8e320ed6678782e214d2c65c2fb0febeb89427"
+    sha256 sonoma:         "cf2f81124457ed2d2e149befd2a4ae5565b4bbbeee4489065f5728a7258e9c1d"
+    sha256 ventura:        "eb2510848f86e058d2e71cece3b1c8907266da2b9a92b1e76161c45e180af9e8"
+    sha256 monterey:       "89dec91679b5a775aa0d89ea0c9af16569b69dec9903b99998b9d7421564863c"
+    sha256 x86_64_linux:   "39db68dcc4e59eb947e208f403ae5f1f3a8abbefe5b530339b2bd860768288b8"
   end
 
   depends_on "pkg-config" => :build

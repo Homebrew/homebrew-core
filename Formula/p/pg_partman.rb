@@ -4,25 +4,26 @@ class PgPartman < Formula
   url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v5.0.1.tar.gz"
   sha256 "75b541733a9659a6c90dbd40fccb904a630a32880a6e3044d0c4c5f4c8a65525"
   license "PostgreSQL"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2d729a6cf7ad10cf391030757a9a0dd05347792830826319d51b680bf94a3b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcbf1e27f798752c6e5955d1e822341e1c9593e7fce2e97ca2e84e8b13b320b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6896bc779c8a394aeaa9157db815288627d651c71c1712aca78859013e774461"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cb09ddcf56bc40a73ba71065a836a7b851bb2b1c7d9d809ca1ae98f5f429a057"
-    sha256 cellar: :any_skip_relocation, ventura:        "f7f03498b38c41f540028a9cb703a7eb8eadc31a50e32e6594a0bc313eb379cc"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed17fb0c97c4a1bf3ed43298f1aaf2df779dc020a26066f8d42682170840cca0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56f22aa2166c3662412f4e04b41abe48f3d6a9272c786e689493989676cc9a4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4cfcffd4b2c6d30cfc4b32e5e740b0b3bb593f85b9279684272b6134f501cc10"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1086562e9d3015c962f564893e75623ce23144fc990213c366e18ed2e6b696f3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49ffc07df2bf1110cae58a294e52dd4dd166c8bd211cd76bb879ac8db5cdc164"
+    sha256 cellar: :any_skip_relocation, sonoma:         "79700e8048dcbbd7af6aa59eb11f437eebf44b76b8318138133083103bdb50eb"
+    sha256 cellar: :any_skip_relocation, ventura:        "4f1fa43846df7c3a3792ecbda98c32ad146fb53b56dfec2e830a0662d0cb205c"
+    sha256 cellar: :any_skip_relocation, monterey:       "03d035cdbd172f29e7546a9e8bf27500d4fc1d951d65efd24939e965b2709977"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c036aeda88c24a0935c4d062434e5fffdf3d966d0fc963735db806db01c5060"
   end
 
-  depends_on "postgresql@16"
+  depends_on "postgresql@14"
 
   def postgresql
-    Formula["postgresql@16"]
+    Formula["postgresql@14"]
   end
 
   def install
-    ENV["PG_CONFIG"] = postgresql.opt_libexec/"bin/pg_config"
+    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
 
     system "make"
     system "make", "install", "bindir=#{bin}",
@@ -33,8 +34,8 @@ class PgPartman < Formula
 
   test do
     ENV["LC_ALL"] = "C"
-    pg_ctl = postgresql.opt_libexec/"bin/pg_ctl"
-    psql = postgresql.opt_libexec/"bin/psql"
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
     port = free_port
 
     system pg_ctl, "initdb", "-D", testpath/"test"

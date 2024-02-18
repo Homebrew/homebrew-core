@@ -6,6 +6,14 @@ class LibgeditGtksourceview < Formula
   license "LGPL-2.1-only"
   head "https://github.com/gedit-technology/libgedit-gtksourceview.git", branch: "main"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 arm64_sonoma:   "e72a85aa5b87ec2d2850ec41a7d3158e7c9986658eee1c5537aa4955e753941a"
     sha256 arm64_ventura:  "6a84792b3059fc936cac45e119797837c714330baa198adf86ecbc09585cc6df"

@@ -1,18 +1,18 @@
 class Quantlib < Formula
   desc "Library for quantitative finance"
   homepage "https://www.quantlib.org/"
-  url "https://github.com/lballabio/QuantLib/releases/download/v1.32/QuantLib-1.32.tar.gz"
-  sha256 "ef2d374ef8c320572dd4b32946da368b2dcdac41e2b87e3e9538a894efe5a6ca"
+  url "https://github.com/lballabio/QuantLib/releases/download/v1.33/QuantLib-1.33.tar.gz"
+  sha256 "4810d789261eb36423c7d277266a6ee3b28a3c05af1ee0d45544ca2e0e8312bd"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "00e7c92ddd3c1bbd86321e9982e9c474865cd08515eeda23a8b2c0e70e4a10a1"
-    sha256 cellar: :any,                 arm64_ventura:  "fae7d0ee8aa344b6c4a82256c5725eeecc69a3342a400e82e459e698ec6676c7"
-    sha256 cellar: :any,                 arm64_monterey: "056d023996adadfdaa01f07ccdde6ae57f4f8cf556477fbc2470d4e0b5304bed"
-    sha256 cellar: :any,                 sonoma:         "9c08362bbf4c681e04d048e92efffc0b8c8f2756ee8b966208d78d31ff8241ed"
-    sha256 cellar: :any,                 ventura:        "c344d2dbe642667d0a776f562c5e700aba8f615881819f1b69d4106d477e7b07"
-    sha256 cellar: :any,                 monterey:       "528266e04f4e0aa721b97cdb465a38c4945737a8e7fd8a83187d112fb02d9b64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7a53b71097e292036267b228d8c4c492a02e4fb41aa0818b4d5a9b5bccfc167"
+    sha256 cellar: :any,                 arm64_sonoma:   "594605a8f4e973252d0f53f6d9d33598efa11ce6d9108323a126266c7d6cbfc0"
+    sha256 cellar: :any,                 arm64_ventura:  "a474e677d3a78d5870c705dcd8a5ed0a083c57f3c88e143416a1e33ffaba290b"
+    sha256 cellar: :any,                 arm64_monterey: "0c8e0a0755ff1c76ed84981061c307a85448af220daa93397cbc7dea578ebf9e"
+    sha256 cellar: :any,                 sonoma:         "d4cdcb6bc4c17bff866923f9b69096de6aba922f44b8c80b9a4481aa02f57c03"
+    sha256 cellar: :any,                 ventura:        "a4e70dd5ff438d67dac31b693f9bdb9c119fe97dc76ead78bea797488aea0bc0"
+    sha256 cellar: :any,                 monterey:       "30de014fd03ed2404f251a0c67c23ce1924aa40fcd04cfd39e1a077f9e9069e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d4f40dd90fcfd9f708edd19725874580c6dac43a03ec5c60f0929c68a4a555"
   end
 
   head do

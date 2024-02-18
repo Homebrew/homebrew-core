@@ -1,32 +1,28 @@
 class Sng < Formula
   desc "Enable lossless editing of PNGs via a textual representation"
   homepage "https://sng.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/sng/sng-1.1.0.tar.gz"
-  sha256 "119c55870c1d1bdc65f7de9dbc62929ccb0c301c2fb79f77df63f5d477f34619"
+  url "https://downloads.sourceforge.net/project/sng/sng-1.1.1.tar.xz"
+  sha256 "c9bdfb80f5a17db1aab9337baed64a8ebea5c0ddf82915c6887b8cfb87ece61e"
   license "Zlib"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "403f1bb234797d0d76a197a4151aa4a1ecf534a40a23126408b7a458a7754b2f"
-    sha256 arm64_ventura:  "6e6f0d6e03e0b52db9b6e4a802df9d6341840223af2b1b7e295bc743adf5253d"
-    sha256 arm64_monterey: "ca4f0ca6bb0e526a3726748f0b324d1d1aae3f017c8e74de1680ef932b511d15"
-    sha256 arm64_big_sur:  "441c39690c079231af81a27fce72a0f0ea7cf982c9e48e320160ccc7304486a0"
-    sha256 sonoma:         "8cc8e0a88f0c54ea56ee98c7a13e57297e9810e55c9fc48531aebf7ef09faec9"
-    sha256 ventura:        "379346351f679ec6fce2a3546bcccd48cbc31f885fb0e0be6405e019b3f7fe2d"
-    sha256 monterey:       "6f1323983fee9df6d97091c41c7f6df1b5ced3980a0a8bb72e1553db6d3a2656"
-    sha256 big_sur:        "f0e4ce732890622d796d3ab7d5c2d078f9ad327e5d64bdf9d7625b15d7a38281"
-    sha256 catalina:       "070137e810c2ea02cdb3727ef7fc0da31065762ed6fee972a33d8690fc43e051"
-    sha256 mojave:         "de4c08894b82e37ff3fc07fd0ade38ede24bcf241757f0b6392ab2f4a5f87d67"
-    sha256 x86_64_linux:   "be14ddf01908c6812e41c87ca5210adde91fe356e46704a380259b587b9741a3"
+    sha256 cellar: :any,                 arm64_sonoma:   "da333412a3df6fc42a56de17352007250eed4c7240fe3fd245dc195c450fc711"
+    sha256 cellar: :any,                 arm64_ventura:  "f6519f1b91d2139e045d7d0b116033d25c7630ff33c852074eeed4ad12b2a633"
+    sha256 cellar: :any,                 arm64_monterey: "fb8a1cd97e77f84a4eddbd2c474bec4a442cd228fee2dacbd8d2f6de0f068c5e"
+    sha256 cellar: :any,                 sonoma:         "168b65eff4e5fbca14f90676b704bbd0d114ca78fe82cf23ab5f03328af62fa4"
+    sha256 cellar: :any,                 ventura:        "c3851e3ff4ae5a5dfe206f10604cb9406731d612fb55a7940b7e1e1b92492115"
+    sha256 cellar: :any,                 monterey:       "596299bbce0f5c721dda34ec3e542291009850dfbc9b765ca8d33e4483926265"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d22fe6d563b5cbc5b8addbe26239cae3ba3fda6c0f1799fac4587af971a8a41b"
   end
 
   depends_on "libpng"
   depends_on "xorgrgb"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--with-rgbtxt=#{Formula["xorgrgb"].share}/X11/rgb.txt"
-    system "make", "install"
+    # Fix RGBTXT ref to use Homebrew share path
+    inreplace "Makefile", "/usr/share/X11/rgb.txt", "#{HOMEBREW_PREFIX}/share/X11/rgb.txt"
+
+    system "make", "install", "DESTDIR=#{prefix}", "prefix=/", "CC=#{ENV.cc}"
   end
 
   test do

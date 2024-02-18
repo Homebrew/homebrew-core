@@ -19,7 +19,7 @@ class Libming < Formula
   end
 
   # upstream release request, https://github.com/libming/libming/issues/180
-  deprecate! date: "2023-02-06", because: :unmaintained
+  disable! date: "2024-02-07", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

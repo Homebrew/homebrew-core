@@ -113,7 +113,6 @@
   "libsasl2": "cyrus-sasl",
   "libtorch": "pytorch",
   "libxml++3": "libxml++@3",
-  "linux-headers": "linux-headers@4.4",
   "llama": "walk",
   "lua51": "lua@5.1",
   "mat": "mat2",

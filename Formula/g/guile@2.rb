@@ -22,7 +22,7 @@ class GuileAT2 < Formula
 
   # Original deprecation date: 2020-04-07
   # Temporarily undeprecated from 2022-07-29 to 2023-02-13
-  deprecate! date: "2023-02-13", because: :versioned_formula
+  disable! date: "2024-02-01", because: :versioned_formula
 
   depends_on "gnu-sed" => :build
   depends_on "bdw-gc"

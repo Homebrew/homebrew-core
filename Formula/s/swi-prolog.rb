@@ -1,19 +1,10 @@
 class SwiProlog < Formula
   desc "ISO/Edinburgh-style Prolog interpreter"
   homepage "https://www.swi-prolog.org/"
+  url "https://www.swi-prolog.org/download/stable/src/swipl-9.2.1.tar.gz"
+  sha256 "77e8884d8330e1f6c91667400ea8721640f47c214061d3476ac469e9ad63eeee"
   license "BSD-2-Clause"
   head "https://github.com/SWI-Prolog/swipl-devel.git", branch: "master"
-
-  stable do
-    url "https://www.swi-prolog.org/download/stable/src/swipl-9.0.4.tar.gz"
-    sha256 "feb2815a51d34fa81cb34e8149830405935a7e1d1c1950461239750baa8b49f0"
-
-    # Backport fix to build on Sonoma
-    patch do
-      url "https://github.com/SWI-Prolog/swipl-devel/commit/1e51805f04ea9cb13cf01e5b7a483c03d253b24c.patch?full_index=1"
-      sha256 "628b65b3e4a49c8dda4b97824ad05359c48bd27e7e4ddbf914e3da57ef7c87ee"
-    end
-  end
 
   livecheck do
     url "https://www.swi-prolog.org/download/stable/src/"
@@ -21,14 +12,13 @@ class SwiProlog < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "c586362f4fe7bacc7de100e46c8a16831ad565d383443fba6b415967f6caade9"
-    sha256 arm64_ventura:  "3fc7572f82e10db175c038325dc3b46b490574967df55061715699162d5901b9"
-    sha256 arm64_monterey: "57d49f4c57aba588338fa17522a5f6abc6f7ac6cc784750ab4aa2890bb97facc"
-    sha256 sonoma:         "ab1f7f6233e16dd476ffb50ef5d6340a51a4d03549a5b01663fc0696d717fca7"
-    sha256 ventura:        "33447d4e07c9c03bd3d804e33e29cc608532e6541a21bca93c10c2e0f1f4e215"
-    sha256 monterey:       "fbb3c93fe141f5b54e7d2dd9a743330b14ad51ba154485767cf5c8848971ad56"
-    sha256 x86_64_linux:   "9b22644cc92919fb6c704410fd944191d2af73b9f2afbc028ed18b72a708fb3d"
+    sha256 arm64_sonoma:   "e7a390d639f31f99c466602c07ab910f3f503656107d1501cf5272848ec501c8"
+    sha256 arm64_ventura:  "7359353389945db44ca7e55c22815270e722afe6965451efeb5bbd7f77ce60ee"
+    sha256 arm64_monterey: "1fccde5c05a6f69bdabab32b129c2086ed74f8c4eeae5c7184cc1b9d636ac087"
+    sha256 sonoma:         "a1a782da2b320ab79c096214d0df9373e64e63a5753d14bfc24b95b3d3636362"
+    sha256 ventura:        "67a05106b8e2c44ec3650928dd3ebfcddc83a809676d57eb9a215f2aa493c5db"
+    sha256 monterey:       "f643185d485ae2e6d87b7021665209bdd6b2004d5631cc637b830e3c83d0a6f1"
+    sha256 x86_64_linux:   "5f13f952f39a1fdc4d5149d1506d8fd2f95ec08ba73cd420afb4b845f997620f"
   end
 
   depends_on "cmake" => :build

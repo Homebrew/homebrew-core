@@ -39,7 +39,7 @@ class Audiofile < Formula
     depends_on "libtool" => :build
   end
 
-  deprecate! date: "2023-02-14", because: :unmaintained
+  disable! date: "2024-02-15", because: :unmaintained
 
   on_linux do
     depends_on "alsa-lib"

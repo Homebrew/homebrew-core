@@ -26,7 +26,6 @@ class Libvirt < Formula
   depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gnu-sed"

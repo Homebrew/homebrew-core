@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/refs/tags/4.9.0.tar.gz"
   sha256 "ddf76f9dffd322c7c3cb1f721d0887f62d747b82059342213138dc190f28bc6c"
   license "Apache-2.0"
-  revision 1
+  revision 3
 
   livecheck do
     url :stable
@@ -13,13 +13,13 @@ class Opencv < Formula
 
   bottle do
     rebuild 1
-    sha256 arm64_sonoma:   "f12e9bbe791fd1a2fa24b6231c7ab6c943281f12bdd275a2bd9c8355ad37fe77"
-    sha256 arm64_ventura:  "c458c1ee3e7e2c1ae86e86cc64c6dd9058bcc52b1bac4d5bb9f50a5ed52846b8"
-    sha256 arm64_monterey: "f038110a202fa0cbf7bdccd0d96b0560d1dd779165317952e248ff8953a59943"
-    sha256 sonoma:         "288bd245741f2d8e8aeb45238cd56067945409e519dc13d375500b2b04f7e28e"
-    sha256 ventura:        "20491000824618ebd2d4dd075ba2133935a3a267e68f5eecc215aceae9d9cc69"
-    sha256 monterey:       "dfd6d5fe05ddbe5ccc93a43629c280e3dc14b27173da02a19108dea91f0aab7a"
-    sha256 x86_64_linux:   "fb9b65fc5fd23ca53af2d36bb9401c9fb4810bc771f3793f4938aa3a529166be"
+    sha256 arm64_sonoma:   "23b52b7eae72e228f4ceae31780ede90ac49084a51d36d5475f8b92597a1a895"
+    sha256 arm64_ventura:  "28e92ebdcbda5293d3838c566fa7cade2f473836cd216ab7d3afbd3922aeae25"
+    sha256 arm64_monterey: "f2ddde5f2ddff6aded6ab03c0a2bad19b57ce68f199a5ecb063c7560db7477f0"
+    sha256 sonoma:         "d0e3b64bcd085462c6e07bc4ff0795e38950adc7fc49d5c25f5ad0ee66591f1a"
+    sha256 ventura:        "eafc62749e42fc9e26ced73e2bfc19d5ee8ab528a3b4c8e0aa45669dd8bbb3f3"
+    sha256 monterey:       "728274319d4babb4b75c3891d87e84e2f7057f0faba2300014b59a43ea2c6dbf"
+    sha256 x86_64_linux:   "19443b8d5cabd9d7e722fc35cbe051c35e21d4a7b67162af065cb9b1504ca7b0"
   end
 
   depends_on "cmake" => :build
@@ -77,7 +77,7 @@ class Opencv < Formula
     libdirs.each { |l| (buildpath/"3rdparty"/l).rmtree }
 
     args = %W[
-      -DCMAKE_CXX_STANDARD=11
+      -DCMAKE_CXX_STANDARD=17
       -DCMAKE_OSX_DEPLOYMENT_TARGET=
       -DBUILD_JASPER=OFF
       -DBUILD_JPEG=OFF
@@ -171,7 +171,7 @@ class Opencv < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=c++11", "test.cpp", "-I#{include}/opencv4", "-o", "test"
+    system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}/opencv4", "-o", "test"
     assert_equal shell_output("./test").strip, version.to_s
 
     output = shell_output("#{python3} -c 'import cv2; print(cv2.__version__)'")

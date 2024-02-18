@@ -1,8 +1,8 @@
 class WasmMicroRuntime < Formula
   desc "WebAssembly Micro Runtime (WAMR)"
   homepage "https://github.com/bytecodealliance/wasm-micro-runtime"
-  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-1.3.0.tar.gz"
-  sha256 "a224090e6b1c29b272d5393deeba6db67348a921f08f7a00864606330cf46187"
+  url "https://github.com/bytecodealliance/wasm-micro-runtime/archive/refs/tags/WAMR-1.3.2.tar.gz"
+  sha256 "58961ba387ed66ace2dd903597f1670a42b8154a409757ae6f06f43fe867a98c"
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/bytecodealliance/wasm-micro-runtime.git", branch: "main"
 
@@ -12,13 +12,13 @@ class WasmMicroRuntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a8b2165fb209001e71aedb2c742f3d35fe55c7164b947100991d360ff6dc778b"
-    sha256 cellar: :any,                 arm64_ventura:  "c0506009278c37458ddef80e95d416a16935a8f3adc2086f683d7095fd300041"
-    sha256 cellar: :any,                 arm64_monterey: "dddc9fcef4cc1fed880e4872223fb81cc21ddbf2a909461b7174f7d6e9d9b16e"
-    sha256 cellar: :any,                 sonoma:         "5248b2aba82e132604118d1c5b0de13724ef276d65aac6ecc55efebf2956018d"
-    sha256 cellar: :any,                 ventura:        "157fed389e5c6f8fb4c124a85ed882375ad41ccfed6ebb671ed5b3722ce6eef0"
-    sha256 cellar: :any,                 monterey:       "2cdde73802a41d9e6a28c6c5b59a6f4129d573cf9d00f3bcbbc2efed22aba627"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ec4e522017b62feca6eab61bc7c353fd6e84e9ad322e1d72eebc3dcd4550e8e"
+    sha256 cellar: :any,                 arm64_sonoma:   "0defcf0bd94fae2d08fa4a55873bc3438c9c08395bb8768c489797149e3ad43e"
+    sha256 cellar: :any,                 arm64_ventura:  "cad8653b3128ba41e476333767d864911e7e25fe8977141945fbbaeb3d244c43"
+    sha256 cellar: :any,                 arm64_monterey: "f70382e866a788da1f03546d811ca150f592477e50ddfff17120a1dfca7634f4"
+    sha256 cellar: :any,                 sonoma:         "a12a70315267fdc1b9480266b8f125b43eacc579fc8c9674b5c2faa6dd37d1ad"
+    sha256 cellar: :any,                 ventura:        "0a732498686ddbc841c4d3502593ea06572ca3abe175e4a18c72a0255abaef09"
+    sha256 cellar: :any,                 monterey:       "75fb4257f43dd46490f5f6477bc454256ff03c1243400ae542a7913bd1ba610b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1b14188ce0eee8259ce5574c55a207adfd0c981dcd1546e79d98a2b93ce499f"
   end
 
   depends_on "cmake" => :build

@@ -4,15 +4,16 @@ class Gearman < Formula
   url "https://github.com/gearman/gearmand/releases/download/1.1.21/gearmand-1.1.21.tar.gz"
   sha256 "2688b83e48f26fdcd4fbaef2413ff1a76c9ecb067d1621d0e0986196efecd308"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b004f8a7a32009a63fac5a3f9a70d7a90249509cf439f977bedbe853cd6578c7"
-    sha256 cellar: :any,                 arm64_ventura:  "c2aba68a9785c5c0c8bee4dd96521aa502dc16a7217c6dfde7a8ce1fc51c3cda"
-    sha256 cellar: :any,                 arm64_monterey: "7219be98ad0e371285a285151221769fb1dc3eab1f7f5478aa856bfbca6e145f"
-    sha256 cellar: :any,                 sonoma:         "8ab0bb48ee52dfbc4a51aba1924d99f00eebe1e71660dcc5e3b3f2b0eb72ee28"
-    sha256 cellar: :any,                 ventura:        "779969df911562d4547e4fb59187b34286383b0709d6dfa0557012a7a53d4526"
-    sha256 cellar: :any,                 monterey:       "f648ee691c4386c668a72676306293182d1b39c68d70fce5b5b851e53ba3f195"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d983fee09de276991f93eaf17ce8aac836b77fed67868f2249ab1c33ff668ba"
+    sha256 cellar: :any,                 arm64_sonoma:   "f37a97052a0c768f6474c07ee6dc636720099622645e1c3c7ba0f4c9c8f6b4bc"
+    sha256 cellar: :any,                 arm64_ventura:  "479948561c6e4e081bb53d3bd3128b9ab52b7455d4a4848a421328b2dc2baa25"
+    sha256 cellar: :any,                 arm64_monterey: "9c5707a987732d2186688e7a394cd365d4b95b2fcb65243ee978a9dca6030961"
+    sha256 cellar: :any,                 sonoma:         "912859d0ae86ffacf41772d91f5d1ed426ed0cf8c19e7a6c961696502b0ff6d5"
+    sha256 cellar: :any,                 ventura:        "5bdc353fd35e643166441a9a4f1421b048f8b8a47939fcb1bfd61600870b7619"
+    sha256 cellar: :any,                 monterey:       "73bde1653a0fd68c2e6e978a3a9ba70c2066c152dcb75364d984a53e61c9fbe2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a58ca217f1d747007d9796533836368b7cb598541b412a33336f86e072af0472"
   end
 
   depends_on "pkg-config" => :build
@@ -63,6 +64,7 @@ class Gearman < Formula
     ]
 
     ENV.append_to_cflags "-DHAVE_HTONLL"
+    ENV.append "CXXFLAGS", "-std=c++14"
 
     (var/"log").mkpath
     system "./configure", *args

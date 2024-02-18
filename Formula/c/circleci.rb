@@ -3,19 +3,19 @@ class Circleci < Formula
   homepage "https://circleci.com/docs/2.0/local-cli/"
   # Updates should be pushed no more frequently than once per week.
   url "https://github.com/CircleCI-Public/circleci-cli.git",
-      tag:      "v0.1.29936",
-      revision: "c2d98ee5341feda1e3914adf443f5559c8459719"
+      tag:      "v0.1.30163",
+      revision: "16acd3544085eabc1a54d4f10dd20787e8577f59"
   license "MIT"
   head "https://github.com/CircleCI-Public/circleci-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d485f94b89423957ae11d2af600ab0c16562e9c83e2c90da965d23a3dc04dda"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5e105bdfc8f4842d41cf87155200ed114c101800af113b8d3099056e477c7b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4d43550ea15d593e5d0559116d8a815e305b65f7e68d8dfa14df207e0353c33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ce1f71cf34c2df2caa821177d1429fb8c37056ed0d14b269ede5e755b93b1139"
-    sha256 cellar: :any_skip_relocation, ventura:        "c299c51cf37a26a1d0ba14f058cd7eae28380a1938fc727a9f66e5848c651348"
-    sha256 cellar: :any_skip_relocation, monterey:       "6d699d91183c43f15a5fbfd3ed5373cc31e0b4580014252d18eeafeff60596f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca7db746b5853d9d548d104812b9ae56b09cc0cf9997848732f446b9be72ff5a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b897f67b0c8d4380f3bfe1a71cf1edd45449b0901b66ad1113ef7b6930181638"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e2214ac4fec893714d447350a9082114cda1659f2f7b6353b430eed056582cf9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bfae77c7db8ba47ea72ace6c572dbe2e252e64654747246a22223c9ef8581611"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c07107406cc943175d877ce4e177d8a160fcbb8f5837013226bbe67dca81b97f"
+    sha256 cellar: :any_skip_relocation, ventura:        "4417c2bf85966f05eb95ded6bac1d01c4291a43711c70b23e8a6e22df461197f"
+    sha256 cellar: :any_skip_relocation, monterey:       "b5afa41a599037acacf63b0a4f2a17c3bcce544c37be8d1d8945258620e31001"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8daa6ab0fa89275bf7ac369849325aa516a27d6509458fd3e495f0503fafe25f"
   end
 
   depends_on "go" => :build

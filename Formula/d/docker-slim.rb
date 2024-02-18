@@ -1,8 +1,8 @@
 class DockerSlim < Formula
   desc "Minify and secure Docker images"
   homepage "https://slimtoolkit.org/"
-  url "https://github.com/slimtoolkit/slim/archive/refs/tags/1.40.9.tar.gz"
-  sha256 "568103eac3c20be02c3dfb8d26723f9cf284f6a03fbbae52fe775765a7886c96"
+  url "https://github.com/slimtoolkit/slim/archive/refs/tags/1.40.11.tar.gz"
+  sha256 "82652e5ff331f64083b98e1c24cfe4210103df469fc22fd89635a37f6580d9d4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class DockerSlim < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5aa10841c5a89a3e85b1f491a89e12e558fcbe05bf9f4a99d07bc4015c100820"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a006476cb56d430906f49442ad229099e02dccba26fc0d9643ceaf981cf592b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "95a44df6e057eb093dff99b262891873a49f4bc8292989c2e0ca4ed9c2e451f3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "094d55fdd922f713e9f6b3436bd142bfaabfb9c7fe6d6d7a84e1e0846d21295f"
-    sha256 cellar: :any_skip_relocation, ventura:        "9ab93179894b3b6926acf81ebec46963b6edfcf21bab58e5c880694b3cadc001"
-    sha256 cellar: :any_skip_relocation, monterey:       "5abca7da0685967b9904e13ccd327b6d855c1d725d74b116564b2f407cda4d07"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2660b945e66b49c8f38feb0d3957eb279bc9adc7ec865b931d28537a89a5b6f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "855bfe260abb098215f7c1e776e37b00ae1e63f9e633c67675632d94bc1be5e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c40b91f83138ae4309ca53a6b400847f3a1d27918711861e2b77d2f3bdf95fd8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a6f07c033f409f6ec63e16b0094a7b9d4d8565d8a76857f190434db9fa00b11"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7b4aabd09784a08f074d2d2957142b6e9cb85d7197b3705d74bd30d9c9f01952"
+    sha256 cellar: :any_skip_relocation, ventura:        "3fa3ca92496b509abb16b694d85a85f4c57e9b6c924529f68b43019605310aa0"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e8b4817f06c7777232ce31e349e9f6b8dbc7532cd6977e0f87a8b97816d07fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d65a744e5c8e376327fa9db30894b0bbc99b2a21603b91a938f0ac2eace45217"
   end
 
   depends_on "go" => :build

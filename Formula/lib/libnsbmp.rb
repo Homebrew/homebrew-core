@@ -5,6 +5,11 @@ class Libnsbmp < Formula
   sha256 "5407a7682a122baaaa5a15b505290e2d37df54c13c5edef4b09d12c862d82293"
   license "MIT"
 
+  livecheck do
+    url :homepage
+    regex(/href=.*?libnsbmp[._-]v?(\d+(?:\.\d+)+)[._-]src\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "9a29a254a2f286b15219fa8e1b95858569fe653728184fa20b83130eb67d5f23"
     sha256 cellar: :any,                 arm64_ventura:  "52b3d890d4ed6f2a9763b7848ca24955059fdeb61b1f097dc230e343f44547c6"

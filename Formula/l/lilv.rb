@@ -1,8 +1,8 @@
 class Lilv < Formula
   desc "C library to use LV2 plugins"
   homepage "https://drobilla.net/software/lilv.html"
-  url "https://download.drobilla.net/lilv-0.24.22.tar.xz"
-  sha256 "76f949d0e59fc83363409b5ec5e15c1046fb7dd6589d3c1b920cec1fd29f9ff3"
+  url "https://download.drobilla.net/lilv-0.24.24.tar.xz"
+  sha256 "6bb6be9f88504176d0642f12de809b2b9e2dc55621a68adb8c7edb99aefabb4f"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,13 @@ class Lilv < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "1b8203d7c931f9064faa83022df410109f4352934b318d6fddbfc2e3edb85d88"
-    sha256 cellar: :any, arm64_ventura:  "017ff7d5d960ebbbe6a03982ba057cb84f94e2df60f31bec4b1d2c2e892bd226"
-    sha256 cellar: :any, arm64_monterey: "d17c452cb9a592873023398769e6fa754d7772b0e2ddbcb0191831758b66d879"
-    sha256 cellar: :any, sonoma:         "1c59a079d05bc0f30e3b0d8de0d2904adb01dbe768a53ece38942e7150753518"
-    sha256 cellar: :any, ventura:        "e0ac89371ce3fe639a9bfc3e82fe5f1f3e1025ceddfc887f2e514c5b73f6811b"
-    sha256 cellar: :any, monterey:       "3b04d0b3ab3e16c5b3e66a0e97f42c6a5f875c8fb1831cf5dc46fd145eb2958a"
-    sha256               x86_64_linux:   "2e87acde2db22b7eb83ecbeef00fdc571750a1df9b2e5ae1d98c752a82bbdb0f"
+    sha256 cellar: :any, arm64_sonoma:   "b3e4a931c7922733020f34d6b8b25cd9bd85e3f1d1adb70a475d67a79842e2db"
+    sha256 cellar: :any, arm64_ventura:  "665a4b7a3fc791aae11b805098ae65e324b32f1ff3b00821fbc8223b8f684fc0"
+    sha256 cellar: :any, arm64_monterey: "6cc370093e1fe66b35ab7e42a6f3265b8641facce33b09becb9bff4259ed1c9e"
+    sha256 cellar: :any, sonoma:         "980d3580ee9ad524dbf0a5ace961c08e7070047d3ee5c5549e9aad4494f74939"
+    sha256 cellar: :any, ventura:        "b41c1eb6a90af9f924b48b4f7326ef3ac9e9ddae5b3c18f2ab94563d5f04da62"
+    sha256 cellar: :any, monterey:       "477f88914c2c32edf0f460f69f5232055315bb5efeae20a3836290e06c3ebfd7"
+    sha256               x86_64_linux:   "d37711f96389dbb6e78631ae3a67b6d6e41d672452b523f2aa77eafa6ee39fb6"
   end
 
   depends_on "meson" => :build

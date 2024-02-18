@@ -6,16 +6,17 @@ class Bzt < Formula
   url "https://files.pythonhosted.org/packages/9f/34/80029e0f5d0c9dc598fb805891f1740620bd6125b9ee2aae70c1612e3558/bzt-1.16.27.tar.gz"
   sha256 "e37a5534417de651817c2c7f6701a133d486e4d660026e88729e35bac757a9c8"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd061d3492903c5526cdcb740651fd5f33d973614dc4ea621d201ecaa1d3a435"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "46641159c1795a8df35c19d64810d17ba9c7f7d769e9df3889a107bffb4cdb58"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c033a5123b878858dc586c41f5194590bc22460847312f17ee30b6ccebe2a4c6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "66d315a18afc93687aa364a00e3f582fd445c846af752036e7dea7ecb3b0780f"
-    sha256 cellar: :any_skip_relocation, ventura:        "6594af6fa92b430f2f4f9ecdd524f4c9d21d8849f8555d80e4a9348a9594bf58"
-    sha256 cellar: :any_skip_relocation, monterey:       "99725d320b70f34ef20887488f97654aa345b60829f3b3a40c15932239825c88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd114701fe7b26cbf3fb4ac7bf4e3f37b47636bb6c70b1440419ed6525aaa45a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "93a0dc5ef663e3a3488dc31829f3e1b1664b91f0de17ba8489725909e586fa70"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0695f7c4bf3cab24d401bc0b705e3dbca4a1f1972591759dc079094efbad69c5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf62b8dbd716049b3249c1eb761393ac525f4204bf68e936bba66cf0745d3b96"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ec8d894cdd97f5f8e6db7d4b3f5a38ec95d075bd339795b6220f77395bc7a00e"
+    sha256 cellar: :any_skip_relocation, ventura:        "cc6e8f3a3c4d941145ba8f67ea881ddd5cd6a530f20b32a0681e6fafd0381b82"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb90cbdb377ee902a5bc0c61de15ef7523576d356c766a5c2ee3db86cc54987d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f4ad56378ed37ec8e0313ffcec8afa8805e91108204a1b26452388ac5277107"
   end
 
   depends_on "cmake" => :build
@@ -39,8 +40,8 @@ class Bzt < Formula
   end
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/54/07/9467d3f8dae29b14f423b414d9e67512a76743c5bb7686fb05fe10c9cc3e/aiohttp-3.9.1.tar.gz"
-    sha256 "8fc49a87ac269d4529da45871e2ffb6874e87779c3d0e2ccd813c0899221239d"
+    url "https://files.pythonhosted.org/packages/18/93/1f005bbe044471a0444a82cdd7356f5120b9cf94fe2c50c0cdbf28f1258b/aiohttp-3.9.3.tar.gz"
+    sha256 "90842933e5d1ff760fae6caca4b2b3edba53ba8f4b71e95dacf2818a2aca06f7"
   end
 
   resource "aiosignal" do
@@ -54,8 +55,8 @@ class Bzt < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
-    sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
+    url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
+    sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
   end
 
   resource "bidict" do
@@ -69,8 +70,8 @@ class Bzt < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/1f/b0/e4e3850d43f5429f9e53404056d705117fbb8a4d9e755425e762a9f68317/colorlog-6.8.0.tar.gz"
-    sha256 "fbb6fdf9d5685f2517f388fb29bb27d54e8654dd31f58bc2a3b217e967a95ca6"
+    url "https://files.pythonhosted.org/packages/db/38/2992ff192eaa7dd5a793f8b6570d6bbe887c4fbbf7e72702eb0a693a01c8/colorlog-6.8.2.tar.gz"
+    sha256 "3e3e079a41feb5a1b64f978b5ea4f46040a94f11f0e8bbb8261e3dbbeca64d44"
   end
 
   resource "cssselect" do
@@ -79,13 +80,13 @@ class Bzt < Formula
   end
 
   resource "dill" do
-    url "https://files.pythonhosted.org/packages/c4/31/54dd222e02311c2dbc9e680d37cbd50f4494ce1ee9b04c69980e4ec26f38/dill-0.3.7.tar.gz"
-    sha256 "cc1c8b182eb3013e24bd475ff2e9295af86c1a38eb1aff128dac8962a9ce3c03"
+    url "https://files.pythonhosted.org/packages/17/4d/ac7ffa80c69ea1df30a8aa11b3578692a5118e7cd1aa157e3ef73b092d15/dill-0.3.8.tar.gz"
+    sha256 "3ebe3c479ad625c4553aca177444d89b486b1d84982eeacded644afc0cf797ca"
   end
 
   resource "frozenlist" do
-    url "https://files.pythonhosted.org/packages/8c/1f/49c96ccc87127682ba900b092863ef7c20302a2144b3185412a08480ca22/frozenlist-1.4.0.tar.gz"
-    sha256 "09163bdf0b2907454042edb19f887c6d33806adc71fbd54afc14908bfdc22251"
+    url "https://files.pythonhosted.org/packages/cf/3d/2102257e7acad73efc4a0c306ad3953f68c504c16982bbdfee3ad75d8085/frozenlist-1.4.1.tar.gz"
+    sha256 "c037a86e8513059a2613aaba4d817bb90b9d9b6b69aace3ce9c877e8c8ed402b"
   end
 
   resource "fuzzyset2" do
@@ -134,8 +135,8 @@ class Bzt < Formula
   end
 
   resource "multiprocess" do
-    url "https://files.pythonhosted.org/packages/68/e0/a77ca96e772e13c828fa52f3ad370d413bef194aeaf78b7c6611870ad815/multiprocess-0.70.15.tar.gz"
-    sha256 "f20eed3036c0ef477b07a4177cf7c1ba520d9a2677870a4f47fe026f0cd6787e"
+    url "https://files.pythonhosted.org/packages/b5/ae/04f39c5d0d0def03247c2893d6f2b83c136bf3320a2154d7b8858f2ba72d/multiprocess-0.70.16.tar.gz"
+    sha256 "161af703d4652a0e1410be6abccecde4a7ddffd19341be0a7011b94aeb171ac1"
   end
 
   resource "progressbar33" do
@@ -154,13 +155,13 @@ class Bzt < Formula
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/c4/5c/4fa0bf79eb1a433d1e9b69430b3ac818837283c642640658f12949620813/python-engineio-4.8.0.tar.gz"
-    sha256 "2a32585d8fecd0118264fe0c39788670456ca9aa466d7c026d995cfff68af164"
+    url "https://files.pythonhosted.org/packages/e2/24/4a69dd119d10e31c4439f910a2a0f71b540b9f835ab60efa1f0f7bcae0c7/python-engineio-4.8.2.tar.gz"
+    sha256 "f8609e3afdda318fdc336b4ba2de8dd397bb8f9b8a1b43e56c27330e32c2e34c"
   end
 
   resource "python-socketio" do
-    url "https://files.pythonhosted.org/packages/02/2c/24999038d26680110d6dac5305f4d1550c0ef2c9945adbff89ca16720d0c/python-socketio-5.10.0.tar.gz"
-    sha256 "01c616946fa9f67ed5cc3d1568e1c4940acfc64aeeb9ff621a53e80cabeb748a"
+    url "https://files.pythonhosted.org/packages/7a/e1/2817819a5635a099fda9fc758c51dc2f07996d6928d744639afcf5c5ddbb/python-socketio-5.11.0.tar.gz"
+    sha256 "b03186e04b942088781f6286c13604a853e5e35ed59158c51ff7af22fa032e6f"
   end
 
   resource "pyvirtualdisplay" do
@@ -169,8 +170,8 @@ class Bzt < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/8b/f3/bf5e82eca3b88853a5fe596bf8c94fb6f2775dc1b55b7bfee9de21afab03/rapidfuzz-3.5.2.tar.gz"
-    sha256 "9e9b395743e12c36a3167a3a9fd1b4e11d92fb0aa21ec98017ee6df639ed385e"
+    url "https://files.pythonhosted.org/packages/d4/f4/039e35e99c967100d73616ec08d4c02325f67e0d5c32a6d5a49a7f620942/rapidfuzz-3.6.1.tar.gz"
+    sha256 "35660bee3ce1204872574fa041c7ad7ec5175b3053a4cb6e181463fc07013de7"
   end
 
   resource "requests" do
@@ -199,8 +200,8 @@ class Bzt < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
-    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   resource "websocket-client" do

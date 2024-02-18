@@ -1,28 +1,27 @@
 class Zydis < Formula
   desc "Fast and lightweight x86/x86_64 disassembler library"
   homepage "https://zydis.re"
+  # pull from git tag to get submodules
   url "https://github.com/zyantific/zydis.git",
-      tag:      "v4.0.0",
-      revision: "1ba75aeefae37094c7be8eba07ff81d4fe0f1f20"
+      tag:      "v4.1.0",
+      revision: "569320ad3c4856da13b9dbf1f0d9e20bda63870e"
   license "MIT"
   head "https://github.com/zyantific/zydis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a9b9409fa72390de45dd9df63e39402f7ae0a70ae7c4c600f08de8302a0d9ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b70bb8aec9d6f049046a37de51972c220408f747dde8881bddde7006f54d4371"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "151c4579826dace15babff8ee96994a477927c84dcf0345064c4af5e6f796fd1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "cfda85213ebb2135914d60fb36c82f401ee463f8adb6142a6e5d8a930724f3f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "fef2143f964ad8a5ffba4e7ba1c1905060bb312f94a7832042ab54c98c0936a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "a22ba879337f31e0f67b0938567b80e6c84c6db2fdfb4b6024399029862bebe5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6bfc2b206264de685d541f6f83c735d2dc1e98bf854884415b07e7cc23eba8c9"
-    sha256 cellar: :any_skip_relocation, catalina:       "01e219ba0e015f596bcd44ebec6a1b9311b3db6108db23ab9329ffb32bde08b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70750d47ee38a79417d6a490ac7ee63c7e66911f29d185698e7467ab730da8bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2f7f72365b14908bbdfdf6b97cc058250e587f7edca69a75d3d63ac113f1933e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db12deb4305fb8967c2900ba080d5a02c7a57c8aaac3dee595b301115dc81276"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b9f1a1d12f1cf6db4a24835b7b2b4ba069d4003471b71615b5e56c5740cd325"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a0f44abbde404047f49cc7c6d558c21040100f104952af5dbd6587badcaf9072"
+    sha256 cellar: :any_skip_relocation, ventura:        "27de11023e425dd95749c1188ba14213706ef99907086ce405582ed3189871e8"
+    sha256 cellar: :any_skip_relocation, monterey:       "55fe031082cf04e183669954faa236dcc5561aa1cca00852362652432f40e68d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f300c27bd81d350987eb65ed20958866564e7d410018bff4b99978cd375b259"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DZYDIS_BUILD_TESTS=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

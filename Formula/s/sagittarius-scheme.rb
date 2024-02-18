@@ -1,20 +1,18 @@
 class SagittariusScheme < Formula
   desc "Free Scheme implementation supporting R6RS and R7RS"
   homepage "https://bitbucket.org/ktakashi/sagittarius-scheme/wiki/Home"
-  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.10.tar.gz"
-  sha256 "17619a6985670c01980e541904685d3c33bc95b795827fad6ba2d22b42f4ccd0"
+  url "https://bitbucket.org/ktakashi/sagittarius-scheme/downloads/sagittarius-0.9.11.tar.gz"
+  sha256 "b3ec4c1bcc46e78539e621e2afbf522e5f6d43c042d4235c2c3c597ef453cb66"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "18151ac0cc7cda96639e32a35c50289690a9758967705e7521ceb99ee126a120"
-    sha256 cellar: :any,                 arm64_ventura:  "c0ffae70fb0e611921b9088b1026edca07b5a7d686d0923a7ec6c68cb45bdaa0"
-    sha256 cellar: :any,                 arm64_monterey: "1ca41e363532263fb213e11674f7cc4746e9d575a81c690cd3dba23f84361b2c"
-    sha256 cellar: :any,                 arm64_big_sur:  "2b725bb0bebccb87c02fb7463cd6878b2f1aa195b39d45c115a95cd069493e74"
-    sha256 cellar: :any,                 sonoma:         "6bb68bdda54da1e5ebed9d792aeec9bd618493930d1992bafd5b347c17ec79f6"
-    sha256 cellar: :any,                 ventura:        "9f986220bfe49cf16d2287f1280c257fa4628c7319fcbc3ad6101a4d7a99be59"
-    sha256 cellar: :any,                 monterey:       "46709f04e267eeb207bc91100467962b41619cf3fa0591bf58da04f76ee0fed1"
-    sha256 cellar: :any,                 big_sur:        "16034beee5e17d474a10bfad137ed058d8ff7d850b8a66706e3b24fc3ea03489"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af3739934aa6f4a28836a6cd8fb2e80a7a47de62ceca4e83029e1f709a08a8c1"
+    sha256 cellar: :any,                 arm64_sonoma:   "7f1cb7d370b52c2227c80a7f62b37840f8ea8df7599c7c8d50eea067e2ddf59e"
+    sha256 cellar: :any,                 arm64_ventura:  "90beda0fadc72cd8b29fd89ede86a2949d301a30fec49b379137e469d62128cc"
+    sha256 cellar: :any,                 arm64_monterey: "2105b18cd2da34618619f9208e7580e4962d926e171039d9e69fe392a6f087ff"
+    sha256 cellar: :any,                 sonoma:         "1dedfcc2e538adbf418bc960d5c1cfc06869f94d53c18aadc0947a5dd37520b8"
+    sha256 cellar: :any,                 ventura:        "841e434e3f497b5f0995f647743569f902874f373b81bbbe04faa52a35c22dfe"
+    sha256 cellar: :any,                 monterey:       "70c2204bbd2f27882c20a3d448cf4f66d93676d2ea6289be4afe92b1d5465af9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d14d120ab7276dccad71129c24ccac4760dc929e801e471f7d3d439801972bdb"
   end
 
   depends_on "cmake" => :build

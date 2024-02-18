@@ -2,10 +2,9 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated every 50 releases on multiples of 50
-  url "https://github.com/vim/vim/archive/refs/tags/v9.1.0.tar.gz"
-  sha256 "ddb435f6e386c53799a3025bdc5a3533beac735a0ee596cb27ada97366a1c725"
+  url "https://github.com/vim/vim/archive/refs/tags/v9.1.0100.tar.gz"
+  sha256 "b2fe9e2849eded2bf15603c032bcd7a4f375a743be686330b7fa8e598c416766"
   license "Vim"
-  revision 1
   head "https://github.com/vim/vim.git", branch: "master"
 
   # The Vim repository contains thousands of tags and the `Git` strategy isn't
@@ -18,13 +17,13 @@ class Vim < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0506b6a7de4b97804085e2205a30ebcdc685700fb7666efa5ff2485302ce4bc5"
-    sha256 arm64_ventura:  "458aa35d0e85c63e375b73d0073b998b65bc593f444b323154e89a923b6bb6ac"
-    sha256 arm64_monterey: "64b2880b609d84cfec5d163193cfeb8708bad4165a6d7d5f7bd0141a10f32d9e"
-    sha256 sonoma:         "adea12021e4a5c53bdaf12b6dcc0150a106c8534d500fc6e1b2bd86dcf803da1"
-    sha256 ventura:        "146a360b2dcb37d1dd6a965d5d8e0506369827a424ca00500497d1298f525253"
-    sha256 monterey:       "976a199b796554dc806c69a974cc977ef406c8f78e72980860b18005428e2b36"
-    sha256 x86_64_linux:   "07930aeb9c79f6dc5fa03b3dc3d8a9161425ef7b3667c2f96127cb5eb0693041"
+    sha256 arm64_sonoma:   "28fb07081aeaefa1864747ed178a513e828be1fb675f05bb17e5d6d906e2c780"
+    sha256 arm64_ventura:  "623813f161c1b71dce847ac9d6ace8dd828ae01e7eb485e58601447e170bcdd2"
+    sha256 arm64_monterey: "719be799ad7c9311a6e46ed612d4bc84b8a32ae374e3588ddc505b65a22708a5"
+    sha256 sonoma:         "1e445120cc5de83923593ebddedbdec362f4e2847c2a86a50e1f088af0686346"
+    sha256 ventura:        "3b7c700ce9c544bdbf0f0b94d3d55e50c0ec265d27d6c5cd8025732a947b00dd"
+    sha256 monterey:       "c3d114a5f900e40993fce185b1185e37e8643c80764a36dd0becef97683d030c"
+    sha256 x86_64_linux:   "1567bc1a19316eb93136b5cfa74ae7da5594703449046ee3d52120609e8e1a8b"
   end
 
   depends_on "gettext"

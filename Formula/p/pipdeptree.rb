@@ -1,18 +1,18 @@
 class Pipdeptree < Formula
   desc "CLI to display dependency tree of the installed Python packages"
   homepage "https://github.com/tox-dev/pipdeptree"
-  url "https://files.pythonhosted.org/packages/6a/ad/108aa2c69632c929d83d2f23a9621b08649a284540829d228bc394d6b0f1/pipdeptree-2.13.2.tar.gz"
-  sha256 "1237791977ef61602dc967b287167c1a6b058501afbc145a04e835c622355e6f"
+  url "https://files.pythonhosted.org/packages/c9/3e/4457ce966a3307286597666fd1527631c66780a5ade3dcbffbea97108060/pipdeptree-2.14.0.tar.gz"
+  sha256 "3296195250e00d37638f2cce70495e3345645b4bbecc1c38ac39339f1511d9b5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18c060dcdf02adc9421bfd7fb3ed12030c8bb315f2b6f9a7dfb442633b95b759"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf5fc40397ec9cadd7b64fc9e7e7493816ec70173af56705728856c7a0fc03d0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c0aa2ec350e8acb51ad44ce0af1dd604d43016dea92dc789f74b9ea4b75c3f3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1b12470082c181dd80de1842839ff023dfe50de089e04987f15eb5e12d8ebd71"
-    sha256 cellar: :any_skip_relocation, ventura:        "e0214165bb730b8c740bb360d12495acc9fc512d1712d7bc4fa7d2b88c40ce64"
-    sha256 cellar: :any_skip_relocation, monterey:       "ff85fd9a5673d890b1645047332ca7bcfb8bf8f7e6476415c3bfc7546ba6c444"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bfc512f19cfa63370dfeacd87f76b01634b93dedfa08c7e798791cd59b288f5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d3ff54da88d0100efbe3142eb52d38f5b62644c1b2f081f14d7cf9007fa4566"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc54e8b6fd7210905d5b3d982e5e99135571da6628a93ec6c2f808967ba2fcda"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52d98eed44f7d1196cda0eb9a2ad1647a9cc1926e60f5c6324d1b9d8f63fa005"
+    sha256 cellar: :any_skip_relocation, sonoma:         "573ffcdab87ce11932a7186ac42ff56dac278aee65151c21bed438df569bb501"
+    sha256 cellar: :any_skip_relocation, ventura:        "ef8e6545a03d85116bd9f05116bade24154c8c6024c2f0fa18acc635d2e85fb9"
+    sha256 cellar: :any_skip_relocation, monterey:       "5dd23053f1ca7ea3bdc00fa6af94beb44e12c4b628030431a20b900a9ec242b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "527e352eca9fe96f6f98b32dfc9414e490c065bebddf2f9d6ac4b6aa52d241c9"
   end
 
   depends_on "python-hatch-vcs" => :build

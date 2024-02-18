@@ -1,18 +1,18 @@
 class Docfx < Formula
   desc "Tools for building and publishing API documentation for .NET projects"
   homepage "https://dotnet.github.io/docfx/"
-  url "https://github.com/dotnet/docfx/archive/refs/tags/v2.75.1.tar.gz"
-  sha256 "e6a6be19be556abce791ba1729cf47e84befa9f13b9134609651b51da9c67107"
+  url "https://github.com/dotnet/docfx/archive/refs/tags/v2.75.2.tar.gz"
+  sha256 "4ec0ea2198bf399f1cc6db807cc2aadf6e1cdc42ed2f2e3a77ec6d21b4f9efe0"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c71421a361c63ccc3ec17ad67bf2dac46080347cbe73376ed0e07c5ed96f8dd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7b96f46e3f70eae0a6c145a7288a0aa509e60949f5e2f5df14eb02dd951afbc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "65032440d80e2f37293cc6c17a647037bec3262abca02c5225eb3b7183d392bd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "678677adcd77c89cccc1fd2a31f6905e42bceda5d5f2ed68ba4dc4ef1f18fa2e"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e318f49be00fc7b22ca1fce83868fab3b8e7d9aa94f4cd44b5a29febf871fbc"
-    sha256 cellar: :any_skip_relocation, monterey:       "a49ab86026a572d7ed3d7ed34cb48cd391ba5b87a3e0530062606cae2872c4f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f45993ce736ab9b0afc19e87ef89b4efbf5b4b550a96226d81736ed9ab28f008"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f2224fee59e01fbe37d0e0e78fae3ae7e82091266cd566ab21cb983763d8714"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f211cff6f1e975297e55a23ee671f3af34626faa28ae637f6e601be7a1f15259"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "50eee8dcfdf3986dba32a5bfec115d12b7598f3107b67d3195b6ab3805a39a3f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "49fe6899ef113b0e4982bfa8e84ac9e46e4460bc86cc4843bfac4803fd801ada"
+    sha256 cellar: :any_skip_relocation, ventura:        "928fe973fb355aa1adc6dfb9736b69fa08cf0519eae165692e2b5b7da8de7f5b"
+    sha256 cellar: :any_skip_relocation, monterey:       "50e97fa027500232ebcdf2235d52aaab261f5d5e455a6db70cff3c17c5167471"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f70bf4213580e7d2e60dc614eb4700d67646aac926c9fbb01409b709c56eca7"
   end
 
   depends_on "dotnet"

@@ -9,20 +9,19 @@ class Breezy < Formula
   revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9427827db136c5fd40e219bcc9cfab8f9c4f5e077c1595be5b8c5b4466987cad"
-    sha256 cellar: :any,                 arm64_ventura:  "90aba3a3c9fb57a16bd13f944c34886e174b352d57cf6f049e38a5ea23fb374c"
-    sha256 cellar: :any,                 arm64_monterey: "943762d09e40b920b68962c517ecafe45a9cefeea38cd0b87dd58f8f111ea01e"
-    sha256 cellar: :any,                 sonoma:         "1d2b1d867b38241129e22647cc9386c6a4dcdc58f4c83ade9af9025db189c1b8"
-    sha256 cellar: :any,                 ventura:        "e27e1614e2ed1ae542aed9f9d8326ffac2251a82f816bef58301fe259cfd7752"
-    sha256 cellar: :any,                 monterey:       "a6a4a4903ffc2ef65c065d3f34972f6c52df4dee444cf500252b657960fcf807"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "954725f22384ec46df3f0678214ab689b92be900f8e79d16248b298153f05c19"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "90330d2d1674f6f993f6c317ef00d2220d4348c78a979c210279d9455e05e32d"
+    sha256 cellar: :any,                 arm64_ventura:  "c779f1942367e1f623e845f4507e60fa2670e5c51d789565abdca9467942d73c"
+    sha256 cellar: :any,                 arm64_monterey: "a177a4f939500231e515851cb56f4b84415f1981e4ac428e12a28f3a5949c995"
+    sha256 cellar: :any,                 sonoma:         "822a00973e0ccb307ce080f4c769ce4e99e7ef2edddcdb69d0ea3ce5e36804f7"
+    sha256 cellar: :any,                 ventura:        "0a550ee727aeb7e49b8e121d27fdc8760db2a4758be921a379ef8e35e1032906"
+    sha256 cellar: :any,                 monterey:       "33d05889f4fe0f0ed1f0c28ed48d875872f680a8311741b3aaea46d7f85c60d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27075f632fbe9d96477e142e0df72238f145072b604dc4cfbd99c6a4f21f2fa1"
   end
 
   depends_on "gettext" => :build
   depends_on "rust" => :build
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
   uses_from_macos "openssl"
 
   resource "configobj" do
@@ -48,6 +47,16 @@ class Breezy < Formula
   resource "patiencediff" do
     url "https://files.pythonhosted.org/packages/57/9f/0973293d232696ae191cef7c4e8eb1ebbdb7728c48662ebf04c26fd576e4/patiencediff-0.2.14.tar.gz"
     sha256 "a604d5727f996f0fd9de4534b143d3e803ec4f1b18e40cd78e91ab48a289a95f"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do

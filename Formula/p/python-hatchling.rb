@@ -1,18 +1,18 @@
 class PythonHatchling < Formula
   desc "Modern, extensible Python build backend"
   homepage "https://github.com/pypa/hatch/tree/master/backend"
-  url "https://files.pythonhosted.org/packages/fd/4a/8196e79c0d6e5eb10436dd2fcccc889a76af6ecf9bc35f87408159497d4d/hatchling-1.21.0.tar.gz"
-  sha256 "5c086772357a50723b825fd5da5278ac7e3697cdf7797d07541a6c90b6ff754c"
+  url "https://files.pythonhosted.org/packages/d8/a1/7dd1caa87c0b15c04c6291e25112e5d082cce02ee87f221a8be1d594f857/hatchling-1.21.1.tar.gz"
+  sha256 "bba440453a224e7d4478457fa2e8d8c3633765bafa02975a6b53b9bf917980bc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e79f1a78b3d9f6d7814edbe5140fcb53bb9076bdc7b15cd89d4131e8b16d4183"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36f35fa8ed3ea9075ff3d195f07a5a44d985bc4eb57e34d76c5ea1599d4a887e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44de9ab53cb29aef26197c2d61d6b845813e25869d1f0c3534bb409820ee2d8d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "652b620d635b8aa3c5280b112c60ec4d47f578a4e09215c48f9238a1d6b4e09a"
-    sha256 cellar: :any_skip_relocation, ventura:        "06ac5463be01f286c47969dc69bbfe481291e8eb085e7dc206dac8410dd46b00"
-    sha256 cellar: :any_skip_relocation, monterey:       "1750d678b19280556b2a5c0b24728c8a891f41bbfeafbbef8ade3869853f9a6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9110811d88d09b7534a15e6a0e937f43b3ed36a5823aa2f8c54ba7082409790"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c48ba86bc1cd276e2bf96e2bf40ad46e1b4ad0a23e4f7b6703e763b58b27d321"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ac726dde71e495a1aea4ef973d66c989c999549f6f24acf7e107bc7022abe25"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "adc7d962cd743ba056a4510859fb3a49e88a067d727dff73e5df275acf9958af"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2a906195dfbc08e72a3a915da14312871113d33a61c7a3b00879e249b398b484"
+    sha256 cellar: :any_skip_relocation, ventura:        "e3d21e601d7cdd9389be74d743b8f7ed50b53e07d137512d18a30672fd918011"
+    sha256 cellar: :any_skip_relocation, monterey:       "7392d7610709d14ef76189becebaffcfacdcd2e6a64992949e3bf6877c1df837"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "673bfaff48d0d31b8a014374bb678fa0f2b4c9b6a4c37cf6e5e2b51c5840d77f"
   end
 
   depends_on "python-flit-core" => :build
@@ -40,13 +40,13 @@ class PythonHatchling < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/36/51/04defc761583568cae5fd533abda3d40164cbdcf22dee5b7126ffef68a40/pluggy-1.3.0.tar.gz"
-    sha256 "cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"
+    url "https://files.pythonhosted.org/packages/54/c6/43f9d44d92aed815e781ca25ba8c174257e27253a94630d21be8725a2b59/pluggy-1.4.0.tar.gz"
+    sha256 "8c85c2876142a764e5b7548e7d9a0e0ddb46f5185161049a79b7e974454223be"
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/3d/14/fe9a127564317f1670d1dd2e2e74b9e09fc157563aa2ffbe7d113d004c7a/trove-classifiers-2023.11.29.tar.gz"
-    sha256 "ff8f7fd82c7932113b46e7ef6742c70091cc63640c8c65db00d91f2e940b9514"
+    url "https://files.pythonhosted.org/packages/44/e4/9de7cda4a03a996758fbdb7ddacc071b4c62fdcd645e0a1192a22e8c55c0/trove-classifiers-2024.1.8.tar.gz"
+    sha256 "6e36caf430ff6485c4b57a4c6b364a13f6a898d16b9417c6c37467e59c14b05a"
   end
 
   def pythons

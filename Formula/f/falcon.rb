@@ -21,7 +21,7 @@ class Falcon < Formula
   end
 
   # Last release on 2010-12-31. Depends on deprecated `mysql@5.7`.
-  deprecate! date: "2023-10-01", because: :unmaintained
+  disable! date: "2024-01-23", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "mysql@5.7" => :build

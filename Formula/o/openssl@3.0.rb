@@ -1,9 +1,9 @@
 class OpensslAT30 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.0.12.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.12.tar.gz"
-  sha256 "f93c9e8edde5e9166119de31755fc87b4aa34863662f67ddfcba14d0b6b69b61"
+  url "https://www.openssl.org/source/openssl-3.0.13.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.0.13.tar.gz"
+  sha256 "88525753f79d3bec27d2fa7c66aa0b92b3aa9498dafd93d7cfa4b3780cdae313"
   license "Apache-2.0"
 
   livecheck do
@@ -12,13 +12,13 @@ class OpensslAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "92f6d0388a5853790b95677eb4336ffbfa1f5cf5b7104f4d58353fb1810bb06a"
-    sha256 arm64_ventura:  "0754457ae61dd8abca455f71e3336731285e835cddd3c62fd8435e96d65eb3c5"
-    sha256 arm64_monterey: "d09b4b4a34cf8b862b96394725983cecd4b4ceec64722eaeed53addbb3a29cc6"
-    sha256 sonoma:         "4460ec16c1a8d84ceb74369945bae74beb8d44b1e27a7d87514f28729b0ebdae"
-    sha256 ventura:        "9c0229b8cfc4d23fdaad79ee051bbed5eb509222837506c99cbaf520dab667b0"
-    sha256 monterey:       "0410e299f6a4e18aeb7a8417e199dd9ece83deac98a25945c0dd81a9295b19be"
-    sha256 x86_64_linux:   "410ac96c03f299a2a69e798a4548ba9eb6d17f86eb6178ded1708b2ee116f005"
+    sha256 arm64_sonoma:   "739fa204f539dcc3e8c3f071f1ade08507b86d5bee3bba3bc7d14e81a3b72884"
+    sha256 arm64_ventura:  "8f642837641918e4bde5659913c35575790015d036b827f225da387dada87e2b"
+    sha256 arm64_monterey: "d06a6235c4d9505dfa3f3d904d9bd004f4156a832dd63f239e9d8f0c9d6af762"
+    sha256 sonoma:         "94afa44b2e9c52d279228784daa3ceb69ed1133ab0540c5647c0f36eb713a0d3"
+    sha256 ventura:        "b22a1f742cbb67cf6639a03eaf6b6de0228c51fdec4e4d707a2aab8debe6a221"
+    sha256 monterey:       "257f44a4e1c85a4e916f2bcef3d992089f4069caf4d95f2b5a39c5f143f9c7cc"
+    sha256 x86_64_linux:   "e348eb201546c9a49f48036759e07c4b3e15b4c0afa34e28410ce1966c35449e"
   end
 
   keg_only :versioned_formula

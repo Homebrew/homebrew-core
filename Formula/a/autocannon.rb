@@ -3,12 +3,12 @@ require "language/node"
 class Autocannon < Formula
   desc "Fast HTTP/1.1 benchmarking tool written in Node.js"
   homepage "https://github.com/mcollina/autocannon"
-  url "https://registry.npmjs.org/autocannon/-/autocannon-7.14.0.tgz"
-  sha256 "28758141ed3476dfbea824e3f8b84bf89c917619dfebfcfd25979e20cea61672"
+  url "https://registry.npmjs.org/autocannon/-/autocannon-7.15.0.tgz"
+  sha256 "ee0a600a1cc7f04003ea5fc1b1b3b6ce00eace6fee5218908e9f383715ae79bb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "06b9f21e1f6f803d43241584b676e7aee3e55cac0c2456bec157eceb4d60a2ca"
+    sha256 cellar: :any_skip_relocation, all: "0c7a7bf16826e0b08b168b93a5d73fc798bf1e5e02ab8b7dffa05d3bd767c207"
   end
 
   depends_on "node"

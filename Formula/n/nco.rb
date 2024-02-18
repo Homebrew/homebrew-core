@@ -1,18 +1,18 @@
 class Nco < Formula
   desc "Command-line operators for netCDF and HDF files"
   homepage "https://nco.sourceforge.net/"
-  url "https://github.com/nco/nco/archive/refs/tags/5.1.9.tar.gz"
-  sha256 "9cd90345c1e3860a690b53fd6c08b721d631a646d169431927884c99841c34e9"
+  url "https://github.com/nco/nco/archive/refs/tags/5.2.0.tar.gz"
+  sha256 "f96d41accbdd6a6fcbace61472b381490dff060c5db0983262809eae8b2cc7a1"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eb15500151c5d2e34915623aae8295aec91ea693fa0d8124581bd7059e99f63a"
-    sha256 cellar: :any,                 arm64_ventura:  "aef8e520e579d650a23f9789f7354abb32f687579588d5d6538f0d8f3362d6c8"
-    sha256 cellar: :any,                 arm64_monterey: "0561b9a65269e8a773cb215a1afb88bbade100b9763b7a30911acf8e09ee45b3"
-    sha256 cellar: :any,                 sonoma:         "416b332e1d68d15db81c6e31616d75d3f02f2cd518ff8d62ccd663ebf3d54a0a"
-    sha256 cellar: :any,                 ventura:        "ab0827f308ae99e56759ee87ec8ccd63a1a1519c1642514392505caf0c642dcd"
-    sha256 cellar: :any,                 monterey:       "9515af06a5567c884c23f7a9a6948d0258cc403f94e79e607c16579f04a5bd5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5326e9502690bb85790125af28c794a82233b36962dfeb9cfe264fd2b8bfcdce"
+    sha256 cellar: :any,                 arm64_sonoma:   "1b81e25e563727b85887a3350d05155483c2c0f8f437a1ba3a6ccc379621bb28"
+    sha256 cellar: :any,                 arm64_ventura:  "e02db6f08a99d328324e87e1d27c02b88cb74fbe46b44456ac599627204dbb64"
+    sha256 cellar: :any,                 arm64_monterey: "3526108bc218a73b52b2b097ad8a9ba8db40628647849390a3fff0c22559ffe6"
+    sha256 cellar: :any,                 sonoma:         "7f7ab8736013020c2563fe4e780c55fc75d8d9aea67ca0d19d6174500a2d2b67"
+    sha256 cellar: :any,                 ventura:        "8daa6d309e6c3a82696fd100e8366df990c4019f72ab9bc4ad31e3e1d87f3f83"
+    sha256 cellar: :any,                 monterey:       "509491116cb05b1db498f83bd855bee590f507f03213d6283cba24dee822db63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a3abca2b7533744b6e3be1a971eaba716949b0e2564f8f2cb5bc1697b8c1b98"
   end
 
   head do

@@ -1,30 +1,27 @@
 class Tinyxml2 < Formula
   desc "Improved tinyxml (in memory efficiency and size)"
-  homepage "http://grinninglizard.com/tinyxml2"
-  url "https://github.com/leethomason/tinyxml2/archive/refs/tags/9.0.0.tar.gz"
-  sha256 "cc2f1417c308b1f6acc54f88eb70771a0bf65f76282ce5c40e54cfe52952702c"
+  homepage "https://leethomason.github.io/tinyxml2/"
+  url "https://github.com/leethomason/tinyxml2/archive/refs/tags/10.0.0.tar.gz"
+  sha256 "3bdf15128ba16686e69bce256cc468e76c7b94ff2c7f391cc5ec09e40bff3839"
   license "Zlib"
   head "https://github.com/leethomason/tinyxml2.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7d602df7f06b6f2d54ed4c7801891c31485a236a5c126e07154d6270709a10db"
-    sha256 cellar: :any,                 arm64_ventura:  "effd8b312b04bfdfd2eb016bac6b84107a3e97c0a7edd5ccbe61ef6df23ff81e"
-    sha256 cellar: :any,                 arm64_monterey: "f9a491c1cd89ac354cd60cb58ec8b919894d3178d43554a1bf5ecb037bb0f3e5"
-    sha256 cellar: :any,                 arm64_big_sur:  "a5c5e7ea6dcc446b1f7d38441ac4a226afa14b3e5e5eb890d3105edf54f91db6"
-    sha256 cellar: :any,                 sonoma:         "ae7017e004adbbef0caff07c8679350d3059829db856ea054eb7560a046206f8"
-    sha256 cellar: :any,                 ventura:        "fec107e0db5c5926746bf43723fd99a616307ba8dfeb70d99ab9e2c4050cc186"
-    sha256 cellar: :any,                 monterey:       "24e501c8045b7546c9b030d1f9fbc53f06988112decc418f61ff1c460e2cedec"
-    sha256 cellar: :any,                 big_sur:        "4df58f65bc6629e1884225503622e07f26e52a9690e24a6e959dd1304b11dbb8"
-    sha256 cellar: :any,                 catalina:       "d09e9f6a1833923fea9528a056c663cb5e05b71afacc1fcec7b9b6fbeb30772f"
-    sha256 cellar: :any,                 mojave:         "84db2d094fa220b2269cd97bed3fb50edfd23061f6ab9dece09a82562e73a975"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff49aa9a2ab33353cab7cf34aee1013b3ba5a925b49dbccf9f7eee915affe02f"
+    sha256 cellar: :any,                 arm64_sonoma:   "06a3ca5d84a41d897f5d303d2484f343ba516531a0efb596a1b4bbfe0743024c"
+    sha256 cellar: :any,                 arm64_ventura:  "21ff74d7f6c4c49c53b68a0740a570dbd3867ec9d77c5f025b4a87813f19abe5"
+    sha256 cellar: :any,                 arm64_monterey: "47b57551b8a816d40ee5c0f63e9293b8a9cf29f4c14dcb3bfb972715a24612bf"
+    sha256 cellar: :any,                 sonoma:         "73eb82df5d628a8ace54ff37ec4e46d5afdaf7815a6d3008c298857d6e928d82"
+    sha256 cellar: :any,                 ventura:        "6e21df3cebd2648c87b89d4476189d68faab14ec314e151262facc3a90bb7ccb"
+    sha256 cellar: :any,                 monterey:       "ede0c2a39f7278272a57040f653cee188899ecc26360cc1063227846e8ba566d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e75dbe5e041fef9e70a8770ada43b74cd327d1806f4fac459665d967af937e6c"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args, "-Dtinyxml2_SHARED_LIBS=ON"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-Dtinyxml2_SHARED_LIBS=ON"
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

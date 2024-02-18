@@ -1,21 +1,19 @@
 class Ddrescue < Formula
   desc "GNU data recovery tool"
   homepage "https://www.gnu.org/software/ddrescue/ddrescue.html"
-  url "https://ftp.gnu.org/gnu/ddrescue/ddrescue-1.27.tar.lz"
-  mirror "https://ftpmirror.gnu.org/ddrescue/ddrescue-1.27.tar.lz"
-  sha256 "38c80c98c5a44f15e53663e4510097fd68d6ec20758efdf3a925037c183232eb"
+  url "https://ftp.gnu.org/gnu/ddrescue/ddrescue-1.28.tar.lz"
+  mirror "https://ftpmirror.gnu.org/ddrescue/ddrescue-1.28.tar.lz"
+  sha256 "6626c07a7ca1cc1d03cad0958522c5279b156222d32c342e81117cfefaeb10c1"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f2925686cdea37910494256e583cf01d613f90bb51506dd2b7d29074cd09f40"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37b18de8baf95b6bb38e322de59f191e2c50bb0bb0d16c8632e7da177bdad91c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "22b84e87b78d58f79c6178b6cc737f22aeb0a92cbe353c1cc156e201e093a242"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e8802e7d817f7362a6b17f8eb491b2eb67bd02b4f6234400eb399765f52fa985"
-    sha256 cellar: :any_skip_relocation, sonoma:         "313ee83e1e621dcd5d094dc0d9930a5bdb7446538e340002f74b93859a5a4060"
-    sha256 cellar: :any_skip_relocation, ventura:        "dfd7d7ccc834e7a36aea13c9d3c9f16c0623acdae03e9d2c9a12ec1cb8b61baf"
-    sha256 cellar: :any_skip_relocation, monterey:       "219b2c7be21bd51e52223a3810d820c5d0faf51d0956003bce0181020c7bf98c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "94f75c1743efdf6e58d538c8f2ebf324eda5c8e3b23ba5551df89d46bab11c55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44cba29aabb794d58f2f3d553f39866dec2821057a7a683ce892ddbb9325c721"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "66bc1164eadaa4c7c96e26c87aaa8fdf2a2e9b22cae76895f79c65000bbf6fb3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "677aa1abaed0f26eab73b60d098e20c32aa8dd653c8d75ec94415f35544f158c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9108e368d2922faeaf63696575756fd87a4b8f63a135699c165945f3b9408c41"
+    sha256 cellar: :any_skip_relocation, sonoma:         "24645508dc58415a562fa9aa72484241515e506376acf6ace8d462dee32f150a"
+    sha256 cellar: :any_skip_relocation, ventura:        "46a5a2d6dfb1ff7ce67eaf565246c25c6c72cfda699f1aa7c9764618e9eeab88"
+    sha256 cellar: :any_skip_relocation, monterey:       "3602fabe3df19327b7fbd5dbe917d291703c9cc356f44970bb758d144692436f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9dff8d471979a163e9d9fe265a46559147694a5914aff1441e7b88ff8d2b7f0"
   end
 
   def install

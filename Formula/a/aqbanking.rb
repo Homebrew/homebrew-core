@@ -12,9 +12,11 @@ class Aqbanking < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "40c5e3e65530d65705cf5652d443e980595c39c7f2767e4b3719c8339ca26c6e"
     sha256 arm64_ventura:  "b9a8f344467a7d69267d994da860fade6dda407510eed4398db47f2fd3206408"
     sha256 arm64_monterey: "fcbf229d4ea7dcde5d788e088e4ff30d6f2a1a62ab2498f2e0c2913b0cda32b5"
     sha256 arm64_big_sur:  "60da3b01e9cfeef3b9d47673d8353afec5bdfa87fec21c3df9635c41492861fd"
+    sha256 sonoma:         "27737d104556c605d174dcb3400f04ebeb8093481090e1d14ce457a2f600cbab"
     sha256 ventura:        "c912b990acd3cc02ead0f7619bce81e9feb78f41caa1654b4778569b3050ba2e"
     sha256 monterey:       "b989a7cb5bf36df5b829828f8452a3661d5d370d02bdce63b266fbf10ef38601"
     sha256 big_sur:        "9ab40d81b08b2d798d3dc69a6c7557bb72e07a0891338c92bb972457c0998549"

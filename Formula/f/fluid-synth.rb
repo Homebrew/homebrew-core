@@ -7,13 +7,14 @@ class FluidSynth < Formula
   head "https://github.com/FluidSynth/fluidsynth.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a80c924499b6343ada666c6d93d0f3ad947d61919bace2219bc3bff05618f0a6"
-    sha256 cellar: :any,                 arm64_ventura:  "3ac1d1b35699efd38f3d43b3f2da6e4a411aca4fc5d30f045b76c5d72803f128"
-    sha256 cellar: :any,                 arm64_monterey: "7347ccc2946b6f196d992e3a70ff91be2e20e5774f8ebca43a342975d73fbe1e"
-    sha256 cellar: :any,                 sonoma:         "782f61271704cec16479e82873e9cafc209d9fd03974cc3772585e5fd6333757"
-    sha256 cellar: :any,                 ventura:        "4f08beba8c524daabee69fbf7d66491d3fda03e950da7edbad833ee1035b4d6d"
-    sha256 cellar: :any,                 monterey:       "c8b6db1f82fbe79764c7317890b06cdfa722b126bf40f5849b089c8bb5f53949"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eff062bfebf16739b60acbb1a6300841fc8657a0ccf26f51ebca5bb93af6542c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "eb5b92efe4db87de731240de9e564a366147833ea6be304cef69ffe6aa3883f6"
+    sha256 cellar: :any,                 arm64_ventura:  "3056b2d1d3c5e7aeac387d932842c26725a1d7e164e6e9b96437c2d7d7f35942"
+    sha256 cellar: :any,                 arm64_monterey: "c0cc616c2b5c697bee492f1c381afe537c5ed333105a8e78dd79c71dafb06172"
+    sha256 cellar: :any,                 sonoma:         "2d81640079d0881771c927a3940a7696af4a7ca7d195dcb11720fc670b5b4fa5"
+    sha256 cellar: :any,                 ventura:        "47162296f6ab760740525f63627c39c2a60a20a77b6c53a4739b2628c169a3aa"
+    sha256 cellar: :any,                 monterey:       "ebe07a9607d56956128d0fdb27ca832c4f43e8104ba9670169775b8ecd091e89"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b181d4d1881d63d6ce88f4cc82b835545fde6e06dbf582cc1b91330bdff50f57"
   end
 
   depends_on "cmake" => :build
@@ -39,44 +40,45 @@ class FluidSynth < Formula
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-Denable-alsa=#{OS.linux?}",
-                    "-Denable-aufile=ON",
-                    "-Denable-coverage=OFF",
-                    "-Denable-coreaudio=#{OS.mac?}",
-                    "-Denable-coremidi=#{OS.mac?}",
-                    "-Denable-dart=OFF",
-                    "-Denable-dbus=OFF",
-                    "-Denable-dsound=OFF",
-                    "-Denable-floats=OFF",
-                    "-Denable-fpe-check=OFF",
-                    "-Denable-framework=OFF",
-                    "-Denable-ipv6=ON",
-                    "-Denable-jack=#{OS.linux?}",
-                    "-Denable-ladspa=OFF",
-                    "-Denable-lash=OFF",
-                    "-Denable-libinstpatch=OFF",
-                    "-Denable-libsndfile=ON",
-                    "-Denable-midishare=OFF",
-                    "-Denable-network=ON",
-                    "-Denable-opensles=OFF",
-                    "-Denable-oboe=OFF",
-                    "-Denable-openmp=OFF",
-                    "-Denable-oss=OFF",
-                    "-Denable-pipewire=OFF",
-                    "-Denable-portaudio=ON",
-                    "-Denable-profiling=OFF",
-                    "-Denable-pulseaudio=OFF",
-                    "-Denable-readline=ON",
-                    "-Denable-sdl2=OFF",
-                    "-Denable-systemd=#{OS.linux?}",
-                    "-Denable-trap-on-fpe=OFF",
-                    "-Denable-threads=ON",
-                    "-Denable-ubsan=OFF",
-                    "-Denable-wasapi=OFF",
-                    "-Denable-waveout=OFF",
-                    "-Denable-winmidi=OFF",
-                    *std_cmake_args
+    args = %W[
+      -Denable-alsa=#{OS.linux?}
+      -Denable-aufile=ON
+      -Denable-coverage=OFF
+      -Denable-coreaudio=#{OS.mac?}
+      -Denable-coremidi=#{OS.mac?}
+      -Denable-dart=OFF
+      -Denable-dbus=OFF
+      -Denable-dsound=OFF
+      -Denable-floats=OFF
+      -Denable-fpe-check=OFF
+      -Denable-framework=OFF
+      -Denable-ipv6=ON
+      -Denable-jack=#{OS.linux?}
+      -Denable-ladspa=OFF
+      -Denable-lash=OFF
+      -Denable-libinstpatch=OFF
+      -Denable-libsndfile=ON
+      -Denable-midishare=OFF
+      -Denable-network=ON
+      -Denable-opensles=OFF
+      -Denable-oboe=OFF
+      -Denable-openmp=OFF
+      -Denable-oss=OFF
+      -Denable-pipewire=OFF
+      -Denable-portaudio=ON
+      -Denable-profiling=OFF
+      -Denable-pulseaudio=OFF
+      -Denable-readline=ON
+      -Denable-sdl2=OFF
+      -Denable-systemd=#{OS.linux?}
+      -Denable-trap-on-fpe=OFF
+      -Denable-threads=ON
+      -Denable-ubsan=OFF
+      -Denable-wasapi=OFF
+      -Denable-waveout=OFF
+      -Denable-winmidi=OFF
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
 
     # On macOS, readline is keg-only so use the absolute path to its pc file
     # uses_from_macos "readline" produces another error
@@ -89,8 +91,11 @@ class FluidSynth < Formula
 
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
     pkgshare.install "sf2"
+
+    system "cmake", "-S", ".", "-B", "static", *args, *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF"
+    system "cmake", "--build", "static"
+    lib.install "static/src/libfluidsynth.a"
   end
 
   test do

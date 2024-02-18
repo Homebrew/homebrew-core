@@ -1,20 +1,19 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/brpc/1.7.0/apache-brpc-1.7.0-src.tar.gz"
-  sha256 "767fa5d70118ce7dda89edb958da5c873bac7d2e21753892765e0e4ffe4a9854"
+  url "https://dlcdn.apache.org/brpc/1.8.0/apache-brpc-1.8.0-src.tar.gz"
+  sha256 "fa640c55c2770aaf0e80ddb3a9bef423d1f377129662367133d46efb005955b2"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f4bce25aba8fa6a143a9aa46f0bad75eb9a603f08f70f7b434961520c88a6991"
-    sha256 cellar: :any,                 arm64_ventura:  "307d0b8c7ad1db29dd8a1a52540c039848f386b8acbbc087140e6e96ff6d49cf"
-    sha256 cellar: :any,                 arm64_monterey: "637cbab632fb6d603910b8bb043ebb45cf9926cee44bc1939ec1f31b1ad7ad2d"
-    sha256 cellar: :any,                 sonoma:         "26e244e4e57e55f60099945af92a73564dfa88b9b72c0ac567a2e5b7d8f9dc2d"
-    sha256 cellar: :any,                 ventura:        "fe48323b0ae2afd87bd232f967e86caf6037d0fee594882f0dfa4f0868ac0176"
-    sha256 cellar: :any,                 monterey:       "0daded2c313247e5fcafc36857bc7fc712fe6726373e517e36c7fb6580b4eefa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1333e52457be795ac541ff21e8671a586fbb4664a7ab98fc59934befcfebd19f"
+    sha256 cellar: :any,                 arm64_sonoma:   "6de038c2039d9696686b8ae0c4537b542e5a99b0e63b1d24101c6ecc07eadb87"
+    sha256 cellar: :any,                 arm64_ventura:  "84411de2a816ca7677f8c007a4921170bbd734c734b8c078e37678c142d7581e"
+    sha256 cellar: :any,                 arm64_monterey: "78daf50f94516aaee1561bad22d029897b7f9177abeec628d75f5d3df5e2cf00"
+    sha256 cellar: :any,                 sonoma:         "7749290e638894259a3cc283f6533a12862732f40f4633228ddd4ff3ace925e3"
+    sha256 cellar: :any,                 ventura:        "59fb019ffbd6ffdf3ea9a9240d3d824856fa5598a253f2f166b5e9eb2fbf9c29"
+    sha256 cellar: :any,                 monterey:       "a4c72f4aef9371c7364600712c21b5c68d2e1197f5c9ef5237025f7c1160bf57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2177ee46bbea06ee6b738ee9109b472cc3a4124d411fed290f879645a56314f2"
   end
 
   depends_on "cmake" => :build

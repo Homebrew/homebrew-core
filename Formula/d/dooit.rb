@@ -3,19 +3,19 @@ class Dooit < Formula
 
   desc "TUI todo manager"
   homepage "https://github.com/kraanzu/dooit"
-  url "https://files.pythonhosted.org/packages/56/86/8c99cbaa2da2573af9e8a8c263ea135e29fab3ce3acacdd5b314cd57efec/dooit-2.1.1.tar.gz"
-  sha256 "1c75fb2a421aad8cd19646f334aadcd1caacfb895bdf55e4feb7e638337815eb"
+  url "https://files.pythonhosted.org/packages/eb/f3/3d12b29b9ec6302197b215890fe9b0263f3f78f148270513ae4eb7b89f77/dooit-2.2.0.tar.gz"
+  sha256 "3fbd83bcb4fa373314c8f8ebf304360a67d062a2624c20ac2947a4f3ee5caf4f"
   license "MIT"
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3036099f9bc506fb06d95671a0f52bfc220657f88668c9444a257ffaedd20f91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "176e0e48976e929b50ff1aac249de228b422d2ff68b8cacfb81250437798a4de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2a1cd2f3f51f3487c913eac49ad26147c965735b998292f513d7ec6212f1691"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4c3f0cfd62ee06f6265a4082da5c3d1bf9b0f4bfa4d88ecf726d93345cd496b2"
-    sha256 cellar: :any_skip_relocation, ventura:        "87d68f48deced7def5ba9bbf70917acd14ed2a7f02b230053881706df5788ac0"
-    sha256 cellar: :any_skip_relocation, monterey:       "54b8dd25ecdf0cb055bbcfcabfa22ace5a4d0cf815be288e7020f84dd1f13571"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da85b37ed0d8cb621674f9997bf1a10bb5055d57e930fa9d28f1ac0d85b04f02"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3dc21ba56ab8c4fed99b89d7b27994772bb82a8ece0d1e732e94d1110e926e7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3e2003df0a2e4f9cb4e433efca501c1dff69a330ceb4aada779ef26e4d98206"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3f38be7eb4b91ef75d2f1205f85aad8ba3843ecd2a947d662a98dbcfb528362"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a308dd8fc66776cce51e5ce81911185d5bdb9cf6651cccf55a06e6e557cab9aa"
+    sha256 cellar: :any_skip_relocation, ventura:        "6f641154f8aa1236f5a1f2df51cbbd7b84c18c1dd9d1c6fe3c48d3d093cded73"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c1db167d13cf0c0bc2ac86c893de5acc5bab74e6e910e132acb0ac092763cf1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2a7760a4c131601b2d80978b126de97689bc4896163d9750cbc739a900aabe6"
   end
 
   depends_on "cmake" => :build

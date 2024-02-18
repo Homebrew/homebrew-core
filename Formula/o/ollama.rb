@@ -1,11 +1,11 @@
 class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
-  homepage "https://ollama.ai/"
-  url "https://github.com/jmorganca/ollama.git",
-      tag:      "v0.1.20",
-      revision: "ab6be852c77064d7abeffb0b03c096aab90e95fe"
+  homepage "https://ollama.com/"
+  url "https://github.com/ollama/ollama.git",
+      tag:      "v0.1.25",
+      revision: "42e77e2a699ab0eb2f27fe8cde6f4b7f6eef225a"
   license "MIT"
-  head "https://github.com/jmorganca/ollama.git", branch: "main"
+  head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -16,13 +16,13 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ceac3a49102235e324362afe4a3ec9c49666cf81dedb8c3c30b7c1e97cee901"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "824e438cc298c10444a991d82954c17dea9a489dcc763677d9262a2bfe45dacb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f7c716267c651562e5697c23c3dcdae7e795a376f5ba2a8fc9e91c14d5eef467"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5f97d08255f3be637580ac45e390261209dac9db5cc1586a884c08ae086293d8"
-    sha256 cellar: :any_skip_relocation, ventura:        "df788135e61f89e50d2e4d476c4a6c396dcef3cae06857a2250ea9af2ede1642"
-    sha256 cellar: :any_skip_relocation, monterey:       "a03ebe0e3bdd41eb2d0e6289b0a9770c68f5c422c52b6597bddb0adb94708876"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9179cd31b74c02002a5d3edc0998185e2f0908186e76d52395ad7c86808938d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a823c3f2bacfc81d4db5a2857aff8be28b8952b3939fcd97fd10af42b636fde2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30f6a34651593fa20511286efcb3d93bdc23a99ad0fb957463a7fb8f959237ff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be18fb9eb72aff0da8fdeb407c32bc4e9eaa34aad99469a7861f8dec65f1b720"
+    sha256 cellar: :any_skip_relocation, sonoma:         "003b02169dc413f8028f0b883ed60f95a0dad839642d260713b1c6481ecb8731"
+    sha256 cellar: :any_skip_relocation, ventura:        "c35fcd836ccbaf5b25dbd7f51c0ffab237ccb05b3143feac87ebab66eb1a8675"
+    sha256 cellar: :any_skip_relocation, monterey:       "727f24825512a0b18fc4d5b736674e0e8f8cc5652f536e61cc3cb78b6de4c80d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb979e4aab78c109f735a375ab131cc92e1cbb140b7e4cc7d45da14e96a3fc5b"
   end
 
   depends_on "cmake" => :build

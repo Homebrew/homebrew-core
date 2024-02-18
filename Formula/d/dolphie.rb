@@ -3,18 +3,18 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/dd/e2/7a61b7c1a6d25e97e3512474332d26782601c06071d0259ea92061125620/dolphie-3.3.1.tar.gz"
-  sha256 "0ba7b50764a751f501095a3b87e33ed4271ef24e1255f786ee91bc13c908a02a"
+  url "https://files.pythonhosted.org/packages/ab/37/61ae4b07e2107c70f6756279932d82a4c243b2c8ab21b680687deeffce56/dolphie-4.2.2.tar.gz"
+  sha256 "f8727d86e885cc51d66b7afef747b43ad30000f9d7b22d232de928a667ca4c3a"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "029c68586ee231cdd5af4998840ed012de214e914c30695a557d91573c4fc35e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81cba858788aa4406cf966ccfe2b9e7328cc5c6654816b3f60b1c5593070c23d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d62bb5902822f7a170749b2fbd45f4af14d5d774c8c132f017f39fcca0e66c5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8e6489ebb443cd9f5d296e6fc5b687c5937ac9cb16060e44eb2b539fdb51fb9d"
-    sha256 cellar: :any_skip_relocation, ventura:        "389206dc118305aba39ae10854e4b54c6b649bc77713659b6086aa7aa4895d78"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a0f2628873c96bec287dd00030abda4d19c6969e7d30310e227cddbca2039c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67ee09f7099f7d257a27409e9840f53e2dccce98d1e8250b7a98ee0b3127a0d9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5deb0e1b35e78f4a966614f91cd0a87ed97481c5c45fe0553faacc194eea996"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39a0bb660f49bdf3f112a3775e88aaed8474520fd0057127d95b759389e0d3f4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d880f1a279541082baff966c44a6ef62db6c2f56bfa13b463ff87ddaa91cd351"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1de7a773065f61b481bd51b091f4baa94180fd8d919f6145baf8a4f58a8344ae"
+    sha256 cellar: :any_skip_relocation, ventura:        "a07f5a384b143de7897bc3acdad8ac1f19e58858a2a8e53c9b448c692a37923c"
+    sha256 cellar: :any_skip_relocation, monterey:       "1dd81ce8d85d7e99e72dcd3821f1119b380ebbb86c164820eccb9437323c2f11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7afb0ad0e7b56bd610348bbfdae363e666ec9a2eb8b3f53b77354e504946bb7"
   end
 
   depends_on "cffi"
@@ -29,8 +29,8 @@ class Dolphie < Formula
   depends_on "sqlparse"
 
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/8d/fd/73bb30ec2b3cd952fe139a79a40ce5f5fd0280dd2cc1de94c93ea6a714d2/linkify-it-py-2.0.2.tar.gz"
-    sha256 "19f3060727842c254c808e99d465c80c49d2c7306788140987a1a7a29b0d6ad2"
+    url "https://files.pythonhosted.org/packages/2a/ae/bb56c6828e4797ba5a4821eec7c43b8bf40f69cda4d4f5f8c8a2810ec96a/linkify-it-py-2.0.3.tar.gz"
+    sha256 "68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"
   end
 
   resource "markdown-it-py" do
@@ -69,8 +69,8 @@ class Dolphie < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/24/51/57eb835afc9569d32b5979ecbf3bf73f8ece8700ebffab3bac7ff29f92e4/textual-0.47.1.tar.gz"
-    sha256 "4b82e317884bb1092f693f474c319ceb068b5a0b128b121f1aa53a2d48b4b80c"
+    url "https://files.pythonhosted.org/packages/8f/d3/b97d99dbcf86d4a1d8a51d5ab021e8cc5831703ea34abaeba30e354addce/textual-0.49.0.tar.gz"
+    sha256 "a66f981bde8f64c5cbb524d029946136d85602e82b595f4f5793f7bdc2e965b7"
   end
 
   resource "textual-autocomplete" do
@@ -79,8 +79,8 @@ class Dolphie < Formula
   end
 
   resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/75/db/241444fe6df6970a4c18d227193cad77fab7cec55d98e296099147de017f/uc-micro-py-1.0.2.tar.gz"
-    sha256 "30ae2ac9c49f39ac6dce743bd187fcd2b574b16ca095fa74cd9396795c954c54"
+    url "https://files.pythonhosted.org/packages/91/7a/146a99696aee0609e3712f2b44c6274566bc368dfe8375191278045186b8/uc-micro-py-1.0.3.tar.gz"
+    sha256 "d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a"
   end
 
   def install

@@ -4,18 +4,17 @@ class Pcb2gcode < Formula
   url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "96f1b1b4fd58e86f152b691202a15593815949dc9250fab9ab02f2346f5c2c52"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "419f56f545fef6c657ba66b44dfc4a6bd5809a4eb5bf5adf818fdf8c4259d829"
-    sha256 cellar: :any,                 arm64_ventura:  "524e436fd4770d16fb870a59cc1edfa096d7270bfb4c2476d4048b34185a2bca"
-    sha256 cellar: :any,                 arm64_monterey: "dd374ee932d974d59f26e38a887db0d579570889bb54527bde075a843fd41393"
-    sha256 cellar: :any,                 sonoma:         "cde6955320ec6da6a34156daf803b9dfa272bf7edd1e0d01858a98abf5e74a27"
-    sha256 cellar: :any,                 ventura:        "48b9b683160f5bf4f84f6d5bab7ee32aad6bad95193692ed41a7476b74fd7e48"
-    sha256 cellar: :any,                 monterey:       "c675dd3695e13f352e54b7f63190aa5ba012f33490ea333260b403475379fac9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7725fe41da2b8d4960737e8b45e6194f0782fb368592869d5ac78558d62e950"
+    sha256 cellar: :any,                 arm64_sonoma:   "0bf71b4828f76f21c9ab6c3c779004d0f4fdb9db5c023aebac525a2607837daf"
+    sha256 cellar: :any,                 arm64_ventura:  "e1465733383fca18362c1072e9bab0e162447d0c4c95dcf752395c0d4ab50ae7"
+    sha256 cellar: :any,                 arm64_monterey: "3cca9f5f4400dd4a70928a59d3d6ef19ed20e7fe36769e4af090d97bd2f63d27"
+    sha256 cellar: :any,                 sonoma:         "3c9ad610072d6ec9e720d1139132516163e965476fb78138e50cc9f36459ed7c"
+    sha256 cellar: :any,                 ventura:        "224d2694ba92974aabbf60e147826ad7160cd024186276517980a427c9f1fd91"
+    sha256 cellar: :any,                 monterey:       "1cfd344f332c5375e78728141db6097c2db5f42469edf1dba5fb6dfc20fa0feb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0293994b093ffc006b64ab0b124727e86606bc0461d5b9c0de4d5dbd831f40cc"
   end
 
   depends_on "autoconf" => :build

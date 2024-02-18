@@ -3,18 +3,18 @@ require "language/node"
 class MarkdownlintCli < Formula
   desc "CLI for Node.js style checker and lint tool for Markdown files"
   homepage "https://github.com/igorshubovych/markdownlint-cli"
-  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.38.0.tgz"
-  sha256 "2c8d61cbdf9d86b4f3eb5ac56ee231bc5aebd9c96a8f15c32354f363e0b2bebc"
+  url "https://registry.npmjs.org/markdownlint-cli/-/markdownlint-cli-0.39.0.tgz"
+  sha256 "3ac4533a0f5ea881fb0580818c0decb0b5c15627fa99aa005617866f6599e511"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e22eb556c507aad95dbb710328a9026acab0a425e74c000bbaf9ddd1447236a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e22eb556c507aad95dbb710328a9026acab0a425e74c000bbaf9ddd1447236a5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e22eb556c507aad95dbb710328a9026acab0a425e74c000bbaf9ddd1447236a5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "851cf4c999f86744624e97afac9f10d628ecfd3bd633da78345c594e19b30762"
-    sha256 cellar: :any_skip_relocation, ventura:        "851cf4c999f86744624e97afac9f10d628ecfd3bd633da78345c594e19b30762"
-    sha256 cellar: :any_skip_relocation, monterey:       "851cf4c999f86744624e97afac9f10d628ecfd3bd633da78345c594e19b30762"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e22eb556c507aad95dbb710328a9026acab0a425e74c000bbaf9ddd1447236a5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7bc1310bfbeff34386c2b309988569bc6494b333edf9bf26d027fbecc1342c2f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bc1310bfbeff34386c2b309988569bc6494b333edf9bf26d027fbecc1342c2f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bc1310bfbeff34386c2b309988569bc6494b333edf9bf26d027fbecc1342c2f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0af1b50fb5bef4a0c47e1bd233e39262586885b48bc4c5a60592c5f42c2edf9f"
+    sha256 cellar: :any_skip_relocation, ventura:        "0af1b50fb5bef4a0c47e1bd233e39262586885b48bc4c5a60592c5f42c2edf9f"
+    sha256 cellar: :any_skip_relocation, monterey:       "0af1b50fb5bef4a0c47e1bd233e39262586885b48bc4c5a60592c5f42c2edf9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bc1310bfbeff34386c2b309988569bc6494b333edf9bf26d027fbecc1342c2f"
   end
 
   depends_on "node"

@@ -102,10 +102,11 @@ class Seal < Formula
       target_link_libraries(sealexamples SEAL::seal_shared)
     EOS
 
-    system "cmake", "examples", "-DHEXL_DIR=#{lib}/cmake"
-    system "make"
+    system "cmake", "-S", "examples", "-B", "build", "-DHEXL_DIR=#{lib}/cmake"
+    system "cmake", "--build", "build", "--target", "sealexamples"
+
     # test examples 1-5 and exit
     input = "1\n2\n3\n4\n5\n0\n"
-    assert_match "Correct", pipe_output("bin/sealexamples", input)
+    assert_match "Parameter validation (success): valid", pipe_output("bin/sealexamples", input)
   end
 end

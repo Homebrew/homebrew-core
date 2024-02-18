@@ -8,8 +8,8 @@ class Ki18n < Formula
   ]
 
   stable do
-    url "https://download.kde.org/stable/frameworks/5.114/ki18n-5.114.0.tar.xz"
-    sha256 "1ba88bf8b6dcbe0136f193839a3e49354fab400c69f3b71e355e95ceb81ae0f9"
+    url "https://download.kde.org/stable/frameworks/5.115/ki18n-5.115.0.tar.xz"
+    sha256 "d4fc34762137b5f90df78294370ffb345b6932552137359d15cdd157dbd7d6fd"
     depends_on "qt@5"
   end
 
@@ -19,13 +19,13 @@ class Ki18n < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "2836654205f381bcc0a2417d9e3c7bd6fd64d2d096e0df2ebc72d102772e8207"
-    sha256 arm64_ventura:  "52b3a4e27d08c014fe3a2fed7c3c9c81129b140b9f060400061aaf60c5a8063b"
-    sha256 arm64_monterey: "44298bc7b18b0b72e832307391878138e96b22fb8021d3583e6de81df251be2f"
-    sha256 sonoma:         "7add0280b8b09d7e508efe5447843c74e6ef8c9e8c0cee0d36ec18af74fe88cd"
-    sha256 ventura:        "3117ec8e7621381f1168bb0e6f9e2623cd15d4211fa5fa03d7dc1f4453bada57"
-    sha256 monterey:       "e3ef49e6e3d279caa233464193fd58c83dabef6d969683913fecc4d0016ac014"
-    sha256 x86_64_linux:   "b3daeaa12b07becbf8257a22887e5304770b73c655f65dc821607b2f45c9e91f"
+    sha256 arm64_sonoma:   "f675a187e8fc3705e218dfb744cc5e1dfb2e05c64ae42a6a23a0116b810e13c6"
+    sha256 arm64_ventura:  "e8699f7cbcac22838fcfc9bd7dec107629226d30c07a525ead8fa79f52142f1d"
+    sha256 arm64_monterey: "ccaebb1539d77ad8713965303921511d6637d7b0ecb1b344c78b25b063b51420"
+    sha256 sonoma:         "a64c78221a4c43ddd5335df6d7e16dd5498ea271da64f9f694dd1a5abfc47f6e"
+    sha256 ventura:        "8fd24d63b3768f4f671b01f690e846f373d1e556a840caea34f7164d03b0f8ac"
+    sha256 monterey:       "d4edc373fa84d617469cc31fac3ad2c862931eff48ee287e6ab6d459b5419cb3"
+    sha256 x86_64_linux:   "3d33b503c316011aff0c1d30cc2b6070fbbba597629d0f20a1cb8ba37eee2dda"
   end
 
   head do

@@ -1,19 +1,27 @@
 class Yazi < Formula
   desc "Blazing fast terminal file manager written in Rust, based on async I/O"
   homepage "https://github.com/sxyazi/yazi"
-  url "https://github.com/sxyazi/yazi/archive/refs/tags/v0.2.1.tar.gz"
-  sha256 "c821979b1ae08e7bcf2936635bfcd25715e74f240a6c4a2dbeb4ba9ce0d8be8b"
+  url "https://github.com/sxyazi/yazi/archive/refs/tags/v0.2.3.tar.gz"
+  sha256 "61b6b0372360bbe2b720a75127bef9325b7d507d544235d6a548db01424553e9"
   license "MIT"
   head "https://github.com/sxyazi/yazi.git", branch: "main"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff93144810bb1d13ddfbbf3c5ad2776ea31670e1800ff59b92f2e8e08364f064"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "81e394de104170fc5f009c5c2d84f4a629ed8496be939ac748aa8a0c84c9b43f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9950a55995ec80b13e3ed9cd485bdb4170a8c92ee355936e9a047ef5cbbcbee"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9c757c16cbc0e50b8e1f2043762acbbf724f774e7348f69eaee9f44297d4a46a"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f3f602d29a3f48b09685307ef074905bf5292af885ba15ff21fc3b81a61b8b0"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d992f73df4543532788dced545972534eeac7d756f910c321967087f9a546e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed07ec28ff267c6cef6444478f42efd18578962749a74ca80e72979022e6ccff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7dad14105aa4656295470fbc5ccd04dbbfcd9526ed2f4841aba7284ce4252bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6273b2f7fee23884167a80c0c67dd18eb1e589aceb2f8476e1420ddc36bca95b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fefe45bc8abf233aba30aacf34196b496881b8e4ed974c46cdb529fa9aff202f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9a4e40eed941ea545ee9bf04043ca036ec4ae9ac5bef651fc81db97cccb05fd9"
+    sha256 cellar: :any_skip_relocation, ventura:        "8bdfb9d318dc36c1f55097e82a345f151329d33b492db53343812f0f8a4e94a1"
+    sha256 cellar: :any_skip_relocation, monterey:       "e64c957f1e41a08c8ebe495f800a74ad94da96fae20f3401825201f09cac8dfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1090777f639528ca1db841e46de98b39c5542f2648caeef4a7beff2965c99b14"
   end
 
   depends_on "rust" => :build
@@ -24,19 +32,7 @@ class Yazi < Formula
   end
 
   test do
-    require "pty"
-
-    PTY.spawn(bin/"yazi") do |r, w, _pid|
-      r.winsize = [80, 60]
-      sleep 1
-      w.write "quit"
-      begin
-        r.read
-      rescue Errno::EIO
-        # GNU/Linux raises EIO when read is done on closed pty
-      end
-    end
-
+    # yazi is a GUI application
     assert_match "yazi #{version}", shell_output("#{bin}/yazi --version").strip
   end
 end

@@ -3,32 +3,24 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://www.linode.com/products/cli/"
-  url "https://files.pythonhosted.org/packages/75/3c/2f35aef1484925d2e6460d3887b6aed8494aa71fafdc9b5285200f0c2f87/linode-cli-5.48.1.tar.gz"
-  sha256 "19da1832bd5c19657aabca805c3bdd2fed75a7988221ce65d0a883ff29911e4c"
+  url "https://files.pythonhosted.org/packages/a8/62/3c2d1a1c63df38533bf4ab5ed2a956168f3eedaca96fdea447bb69fc3b5c/linode-cli-5.48.2.tar.gz"
+  sha256 "5c591987ecee00aab27591591d0cb2aaf3b33baeb99c9726ed405c6e752d2b76"
   license "BSD-3-Clause"
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8491fb573ebecd41a3c7e1f2ccf1e574f2c4fd35ebcd5358a05775c9fda8038f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "640ef31b4d669895c8ab0f96767f6cd8609889011243819fe68e5244edb7860a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "015c7b29f4a1ced126d0993e037867c2523cad4d7095c0583846fdf192547eef"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9797b2767937dc640b7f308d8a560ef87010cbc0c3cb82147fb52bd2b1190827"
-    sha256 cellar: :any_skip_relocation, ventura:        "38d856110d09700fddce73420d1adc82a75df39d93d3e31b540ebb5c14ab74d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0518e40b9b49dd27a8b7480282afaa776518562c95d0c591a5c409f3e740954"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f110bbc83a6e84261157a1f7dfe94f9e56f808880088c86485eed0c1b497f65"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c9fda6c24ce5e461709247bcd9eb44f779ad0693cd45de587f46a9c037d57444"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff03cca983465ab286624616746b8d5ce7842c9d6fbff10e9f4af52661f5fc5e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5dec9c0b6f76ce6d634a372db414ed9bc9a71dc87de2f175ed55a359f12f27e2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c61c68b9d791c7a06d737a54d8dabde23f6ade5a7368d1212c9b3d6c96f02a89"
+    sha256 cellar: :any_skip_relocation, ventura:        "237fa08feca3503b312ef409b435aac2b3f47ba81d71b9ba3a057899547c2702"
+    sha256 cellar: :any_skip_relocation, monterey:       "76b34d3b932c4a928e3b3ab425bc6c86114b4b3371416651613746645ce40b52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5331440a5748c55e9bc69cfe2b405a90ba20396e6a06377f43a2d14607bf3d60"
   end
 
-  depends_on "pygments"
   depends_on "python-certifi"
-  depends_on "python-packaging"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-
-  resource "linode-api-spec" do
-    url "https://raw.githubusercontent.com/linode/linode-api-docs/refs/tags/v4.170.0/openapi.yaml"
-    sha256 "6ded7499c9ef0390326ee36ea62cec5741d720271272f1af91293081fd3c0189"
-  end
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -41,8 +33,8 @@ class LinodeCli < Formula
   end
 
   resource "linode-metadata" do
-    url "https://files.pythonhosted.org/packages/90/7d/8cfe943f15fb47643998c1ae3f331e10df66e88d9a67ccfbb295b00aad58/linode_metadata-0.1.0.tar.gz"
-    sha256 "33743f83aa9fec743556c0f101e6e8bcf15e6aa7cd9994d971e0ec22419ae11d"
+    url "https://files.pythonhosted.org/packages/90/46/8cecde538b392d96abbb85b72bf3b31479b645d2853d6e64ff8888a3c37a/linode_metadata-0.2.0.tar.gz"
+    sha256 "6877193ae74f8b798c35021167b969877d8b4b376f8fa0013c04f331d528000c"
   end
 
   resource "markdown-it-py" do
@@ -60,6 +52,21 @@ class LinodeCli < Formula
     sha256 "a21a490573d89ca69ada7cbe585adb2fca4964257f6f3a1df531f12815455d2c"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
@@ -71,32 +78,20 @@ class LinodeCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   def install
-    venv = virtualenv_create(libexec, "python3.12")
-    venv.pip_install resources.reject { |r| r.name == "linode-api-spec" }
-    buildpath.install resource("linode-api-spec")
-
-    # The bake command creates a pickled version of the linode-cli OpenAPI spec
-    system libexec/"bin/python3", "-m", "linodecli", "bake", "./openapi.yaml", "--skip-config"
-    # Distribute the pickled spec object with the module
-    cp "data-3", "linodecli"
-
-    inreplace "setup.py" do |s|
-      s.gsub! "version=version,", "version='#{version}',"
-      # Prevent setup.py from installing the bash_completion script
-      s.gsub! "data_files=get_baked_files(),", ""
-    end
-
+    # Prevent setup.py from installing the bash_completion script
+    inreplace "setup.py", "data_files=get_baked_files(),", ""
+    virtualenv_install_with_resources
     bash_completion.install "linode-cli.sh" => "linode-cli"
-
-    venv.pip_install_and_link buildpath
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/linode-cli --version")
+
     require "securerandom"
     random_token = SecureRandom.hex(32)
     with_env(

@@ -13,7 +13,7 @@ class Goofys < Formula
   end
 
   # Discussion ref: https://github.com/Homebrew/homebrew-core/pull/122082#issuecomment-1436535501
-  deprecate! date: "2023-02-20", because: :does_not_build
+  disable! date: "2024-02-12", because: :does_not_build
 
   depends_on "go" => :build
   depends_on "libfuse"

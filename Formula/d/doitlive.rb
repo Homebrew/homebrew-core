@@ -3,20 +3,19 @@ class Doitlive < Formula
 
   desc "Replay stored shell commands for live presentations"
   homepage "https://doitlive.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/2f/03/d7c78453bb5831f7ec1a40e1acb85b950a32399f85917650b4e5eada39d6/doitlive-5.0.0.tar.gz"
-  sha256 "8c0a226eccc3a5026388d0990e15f77cb9e200b386eebf58a9a604c9292630ce"
+  url "https://files.pythonhosted.org/packages/32/75/c94e4d4e7fac8606e199fad35a00b33e4252d00078f25285f91e97e546c0/doitlive-5.1.0.tar.gz"
+  sha256 "b6bcd25f9f037b7e96e34d68549306adb3e8c83f6e92c51ec2b225abc05b25c5"
   license "MIT"
-  revision 1
   head "https://github.com/sloria/doitlive.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "56fe514b5aa4b447c05c849ccd890e9bc8d7727887f8a34d2eafa4995b1dda5c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a64d223d6fcdc83a8d511c8d66b0fb0d402d3f145e4bbd97a2d27d8b60e93c97"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2f548a29fa98ba95d0d198986e57d7f9dbd2d6402ae8de82c3feb5ba9f71f00"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ef9b13c1170ab8ee8d35515abe76e630e9a3d304e829874f138e48985d353504"
-    sha256 cellar: :any_skip_relocation, ventura:        "7937ae9bb34b23b52a7d15ad344b6b3436cea0ca58cdfe892747b0225af9eb36"
-    sha256 cellar: :any_skip_relocation, monterey:       "9ada66a04d3a84fc073be7ae638217cb3764220cf098e7540ad2e12ef8388977"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b1d777ba9fd13cd5cc416912576c8dc7ccb8eb80f90963844b1aee8ec2efa14"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "febff82a0f9bb60bb3ba176a987e57d0a67a4c7eca14791a44f589d5380ede91"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99f1f51dda487b4e2a8e75f67926bc8280a823549c873b920d8084d9b0e52747"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3eee1203b3334082aa0f174903b514cafb7ab140ba028994844ab05754793dfe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "865f192f6f75a09b5aafae01ccca59605e26a06d6a3649a0694c57f68041a9be"
+    sha256 cellar: :any_skip_relocation, ventura:        "5695d506a512de41ae2df8d9b129d40856f069515b75e36f24c87ba17487a188"
+    sha256 cellar: :any_skip_relocation, monterey:       "de7fda25bc741b87a85f237ad2e79dcf79adc8818ebe360e2400dba9336e660c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "013fdc7846b78287d3b2dcd771a19c8d0890524ef0b1e6f5eca52f455a1b1aad"
   end
 
   depends_on "python-click"

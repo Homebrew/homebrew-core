@@ -16,7 +16,7 @@ class ClangFormatAT8 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "67239a4a7a0a5d4bdfc9cf67241d35f53df65be6baf0d23fbcf694369e42c0cb"
   end
 
-  deprecate! date: "2023-06-22", because: :versioned_formula
+  disable! date: "2024-01-23", because: :versioned_formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build

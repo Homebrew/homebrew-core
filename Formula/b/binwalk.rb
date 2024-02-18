@@ -15,13 +15,14 @@ class Binwalk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "46b1b92e433f1eccc60ffd7827709216295d89fe432f4306d3504f76bee9d7cb"
-    sha256 cellar: :any,                 arm64_ventura:  "fb3ae65b71ec3712d069066db3e295d266767da3ccc55a100fa7a115b42252fd"
-    sha256 cellar: :any,                 arm64_monterey: "77ce813cbdcb4be28efc6e88c1f6110313c14ad5cb86ecb79f8d5e70a9b6b7ca"
-    sha256 cellar: :any,                 sonoma:         "897918a5bc55d11807274a23d0347a6744ba07c4062a4a4b80df5cac8b2f05fb"
-    sha256 cellar: :any,                 ventura:        "02d98de992b3b565be46950793f4b92bf97eca061a9c9e9d8d370fc07106b104"
-    sha256 cellar: :any,                 monterey:       "baadf957ef0ef1c5e11acb9844d98ca912bf52d363dd1bfc1d3f3897fcd374ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0984e5e3f5c0b31708758457d94811e20801a042dc8e3b36c20279d75b1cbc54"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b11c99d9b5fe06d0262a8e0bec6fb3306d9252e7b53e0a030f9b7e4881e6a8fc"
+    sha256 cellar: :any,                 arm64_ventura:  "fde4acbed6f700d368f90140f78360bb61dafefa44e910e2d492e62a7b173496"
+    sha256 cellar: :any,                 arm64_monterey: "3a9ef464ee29362cfbdf223b3b886c63c80e194b18b2bfe9e0cb367770d26c6e"
+    sha256 cellar: :any,                 sonoma:         "d19db31d50e4eab72290b55d5d142332ef09acef9ae4317844961a91486b9b40"
+    sha256 cellar: :any,                 ventura:        "bc0e35dafe52870b7e907e9ca791f90e8f7ab23ce2aa07cbd29e5a995284d6e1"
+    sha256 cellar: :any,                 monterey:       "1073e416ac5375f4504b2897c76f6e62cc98bdb9d30f3893149457e82f633f85"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efbc1bfff4ac063ee5a86192599445eb56d3ba408df57a993730893469316f40"
   end
 
   depends_on "meson" => :build # for contourpy
@@ -35,12 +36,8 @@ class Binwalk < Formula
   depends_on "numpy"
   depends_on "p7zip"
   depends_on "pillow"
-  depends_on "python-packaging"
-  depends_on "python-psutil"
-  depends_on "python-pyparsing"
   depends_on "python@3.11" # Python 3.12 issue: https://github.com/ReFirmLabs/binwalk/issues/507
   depends_on "qhull"
-  depends_on "six"
   depends_on "ssdeep"
   depends_on "xz"
 
@@ -57,6 +54,11 @@ class Binwalk < Formula
   resource "cycler" do
     url "https://files.pythonhosted.org/packages/a9/95/a3dbbb5028f35eafb79008e7522a75244477d2838f38cbb722248dabc2a8/cycler-0.12.1.tar.gz"
     sha256 "88bb128f02ba341da8ef447245a9e138fae777f6a23943da4540077d3601eb1c"
+  end
+
+  resource "flit-core" do
+    url "https://files.pythonhosted.org/packages/c4/e6/c1ac50fe3eebb38a155155711e6e864e254ce4b6e17fe2429b4c4d5b9e80/flit_core-3.9.0.tar.gz"
+    sha256 "72ad266176c4a3fcfab5f2930d76896059851240570ce9a98733b658cb786eba"
   end
 
   resource "fonttools" do
@@ -79,14 +81,34 @@ class Binwalk < Formula
     sha256 "01a978b871b881ee76017152f1f1a0cbf6bd5f7b8ff8c96df0df1bd57d8755a1"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
+    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+  end
+
   resource "pycryptodome" do
     url "https://files.pythonhosted.org/packages/b1/38/42a8855ff1bf568c61ca6557e2203f318fb7afeadaf2eb8ecfdbde107151/pycryptodome-3.19.1.tar.gz"
     sha256 "8ae0dd1bcfada451c35f9e29a3e5db385caabc190f98e4a80ad02a61098fb776"
   end
 
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
+    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
+  end
+
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

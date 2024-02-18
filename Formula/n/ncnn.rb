@@ -4,25 +4,26 @@ class Ncnn < Formula
   url "https://github.com/Tencent/ncnn/archive/refs/tags/20240102.tar.gz"
   sha256 "0770b0b4ccbcb2b4e5f38574bb6f1086b07d48958b10f289251e0359faa1d9cc"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d75c2a159a4cc1bf1165d302e0bfcb7acc00ec12f52c8dcb67937d078442a01d"
-    sha256 cellar: :any,                 arm64_ventura:  "e7eedcc6b672d4f4ff40cba7b3984278ec06351f4c37325bdcd5502744fc7d32"
-    sha256 cellar: :any,                 arm64_monterey: "22f9bce91742fb03cd129183af65469f9df0afed7a0330b363aae81f761c135d"
-    sha256 cellar: :any,                 sonoma:         "adb02b8a3bc4ded55fda3ba649698a344fb87b04a99ec9c1dad08c4aeb732bfa"
-    sha256 cellar: :any,                 ventura:        "9146f293dd438018a14742144a5cc17c8867d81bf249501c5e37d76a8cff80a1"
-    sha256 cellar: :any,                 monterey:       "d8d7206c842938769ac837f9a1a97e631d0cc0baa03ba1d9feabd8999c58870b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efe18a3790d5d8414992641259b7cf4637f3cbddcd7c35d197a1763ed94c646a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "726378c08f413f558776cfdeadb20d0618a921060991e585b19f28e9f6cfd4dc"
+    sha256 cellar: :any,                 arm64_ventura:  "a0a5a56b1112bd5ea3ae41f17402544a6189312285026ca690f2254a47eb97d9"
+    sha256 cellar: :any,                 arm64_monterey: "74501b0548837ab941ef99b038011db6abdaf9d5d1b7a8f505d18fa7ea311068"
+    sha256 cellar: :any,                 sonoma:         "a6d1f98ac03148a4f33dade65c119d1a21a52e76f7025cc6a6438e48c64c843a"
+    sha256 cellar: :any,                 ventura:        "7c92dabdeea917681b140980c94a3f008f757a14dcce8d52039eaf2723025284"
+    sha256 cellar: :any,                 monterey:       "58749f38f09bd644778db2b3ac9173bc1af923f4b24b66422e1bc652636e5044"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe41cf25ee874cc4c7defdf965fa6c6663ff4bcbe44e5ef1ffe31fc1b5a8cf83"
   end
 
   depends_on "cmake" => :build
   depends_on "protobuf"
 
   on_macos do
-    depends_on "glslang" => :build
     depends_on "vulkan-headers" => [:build, :test]
+    depends_on "glslang"
     depends_on "libomp"
     depends_on "molten-vk"
   end

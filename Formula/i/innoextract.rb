@@ -4,7 +4,7 @@ class Innoextract < Formula
   url "https://constexpr.org/innoextract/files/innoextract-1.9.tar.gz"
   sha256 "6344a69fc1ed847d4ed3e272e0da5998948c6b828cb7af39c6321aba6cf88126"
   license "Zlib"
-  revision 6
+  revision 7
   head "https://github.com/dscharrer/innoextract.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,13 @@ class Innoextract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2123d53eec27b2f68656f72df70ca1625d0579a2d2582ef6b66664f31ac90305"
-    sha256 cellar: :any,                 arm64_ventura:  "5d3be8341c3452bc90f94b9d9e6ba45e5c4d6708d7b3c3cca81ea5ca56f69b82"
-    sha256 cellar: :any,                 arm64_monterey: "7ebe336dbca7d52211b6dcdf183bb9c241bab7efe28edc6cfa3c4fbe6ee1c365"
-    sha256 cellar: :any,                 sonoma:         "a1f1f376f09ba0910e014ab9548c98b0083502aa7fa2ec7cd0f7a91f447f413d"
-    sha256 cellar: :any,                 ventura:        "5438b13e79c2f9d37d0af1661d6f2c14fcaf0b976731bf74a8fecd9e72830cfd"
-    sha256 cellar: :any,                 monterey:       "222d556a09ccc53fa4d8e69060825c85cac9cde2c64bb6d089c7f0d439dbf0ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1bd41318171b61adac1811c3f06bc4ce8e8fedcc5c61d51723b46d78b42d603a"
+    sha256 cellar: :any,                 arm64_sonoma:   "cedb442450932b1917270127408d965d2e16518532acd2d9b2de036c3cd3afa5"
+    sha256 cellar: :any,                 arm64_ventura:  "1b50e00498c595c57fd02d5c57a1214e5953700f3f79917557c7a1db2f548c3c"
+    sha256 cellar: :any,                 arm64_monterey: "c2459718752d6f6cf36cbdd9cbe8dc86dbe83fec019d8ea0869ad167d9e84819"
+    sha256 cellar: :any,                 sonoma:         "e08b29caa2a39149ba4645a71ea920343fc601c2d2490a0596c732290e628a5e"
+    sha256 cellar: :any,                 ventura:        "2f3d4a7961a5761d4e31eb3cad34894078b5eea45b2c5b47a31f54275c1ab25f"
+    sha256 cellar: :any,                 monterey:       "9bd821f8242787c7a368ada0012ac2be987d5e812245f6ba14bd395fdd15d6d9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4b51f0663f2bd29890f309a2064c0b96365ff5e59ddf3bbafda1e08b7f053cb"
   end
 
   depends_on "cmake" => :build

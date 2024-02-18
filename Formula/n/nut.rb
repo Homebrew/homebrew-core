@@ -29,7 +29,7 @@ class Nut < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libusb-compat"
+  depends_on "libusb"
   depends_on "openssl@3"
 
   conflicts_with "rhino", because: "both install `rhino` binaries"

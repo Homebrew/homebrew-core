@@ -1,18 +1,18 @@
 class Libgsf < Formula
   desc "I/O abstraction library for dealing with structured file formats"
   homepage "https://gitlab.gnome.org/GNOME/libgsf"
-  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.51.tar.xz"
-  sha256 "f0b83251f98b0fd5592b11895910cc0e19f798110b389aba7da1cb7c474017f5"
+  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.52.tar.xz"
+  sha256 "9181c914b9fac0e05d6bcaa34c7b552fe5fc0961d3c9f8c01ccc381fb084bcf0"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 arm64_sonoma:   "5876775a2c3d1c2bfc0b6c0ccbfb450b1fb7c6bc1574fbf4319ac0345cf52101"
-    sha256 arm64_ventura:  "7497ba9538d387da4c62d7197f9e65c03d4bc53e54740263162294967e9c82b2"
-    sha256 arm64_monterey: "7921d046e4345784dc643a6d71f94b106533bbcc0784e7691e9fd57b0750a419"
-    sha256 sonoma:         "9188b16c82c96a57f13850e836e5d40a52605a3ad44651407e5ac2ce598785e6"
-    sha256 ventura:        "14648d1ed933c2f8ad25977b03c7f6e975cf89b415a7b0dd02d763902fda84ff"
-    sha256 monterey:       "36124acaaedb3101f0b4a8c8e66516891d78ba2e8da3680c30a927ad9d260418"
-    sha256 x86_64_linux:   "aa67ee36afbfe57f9760e70cbe6c8ecab479b26e4f992cd704a1aeac52377c3a"
+    sha256 arm64_sonoma:   "f57e82c2967d687328a10ab88c8316cf7ee315df438f45cf8783300c6a850024"
+    sha256 arm64_ventura:  "cfd187b4a37a683fecead4d876c6ddee733b6cfa2c2d693669f643146909c2a7"
+    sha256 arm64_monterey: "444717a56a10de924edf4b0c1011ef817fdce2792b60ddb7ab8b737a004bdcfe"
+    sha256 sonoma:         "0694ed2751960fed7e4b2600638c03bef76c5df2a984e9a6a4dff21990da6457"
+    sha256 ventura:        "ac6805d35cdacf2d2c58e84994e7ee4819ec6d63bbe2b2d57de948b250408ec7"
+    sha256 monterey:       "9354391263dac31467977f4ae0e08de9979fc5ff6845601a06b97198dfa8ac86"
+    sha256 x86_64_linux:   "831615975bae111b9a88f8f59ce99a80953a3ca72f7c655ab29ffa2fafc6c1df"
   end
 
   head do

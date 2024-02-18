@@ -1,18 +1,18 @@
 class PythonTroveClassifiers < Formula
   desc "Canonical source for classifiers on PyPI"
   homepage "https://github.com/pypa/trove-classifiers"
-  url "https://files.pythonhosted.org/packages/44/e4/9de7cda4a03a996758fbdb7ddacc071b4c62fdcd645e0a1192a22e8c55c0/trove-classifiers-2024.1.8.tar.gz"
-  sha256 "6e36caf430ff6485c4b57a4c6b364a13f6a898d16b9417c6c37467e59c14b05a"
+  url "https://files.pythonhosted.org/packages/c2/d3/2c793df6cea96eda294daa400e4b6f06cd75b7a65005eb2c84aae2d08c5c/trove-classifiers-2024.1.31.tar.gz"
+  sha256 "bfdfe60bbf64985c524416afb637ecc79c558e0beb4b7f52b0039e01044b0229"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cdc933cf7b0df167488f813ce9cbec39c9dd1f59e2a228fa21828e008e3e75df"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fff2396a4612ba16493ef427b96b0e7b14ee2dcf637b021bd17a55dd66fa66f7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a05b68616501236d01ab75e854d89943ffa2d4aef5dd733321ffbc50fc2958f1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3ebd0259c237d757589cdbdd6c89402ccbb0392341248e72a38d5fdae1b987ad"
-    sha256 cellar: :any_skip_relocation, ventura:        "291c8c7cab59bad962202ce19ff3d4a8cb5b1a0488f0624e836b49b9564b05a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "77781cd4d5945e3fac28084c6d0db5e6be68cb32104b308850893049ca612851"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2db900df8a44854ff967fd9d682e1645b262d0bbe5beee65062f964d05c80c4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c247f9f14bc569b742dce28810cc3e0a92bdb0f1492b9f03088ebc736ed143b4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aad2e29a4bea87a1760499f9c1f9de2b19cfa371f95aeb046a9bc01fbf5ce6ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9aa112ef6da1d2fe907b5fa3faa013aa3ed800681e6306cf77249e98870b82e2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "afd9e16beadd3778344a45cef727282a6140dc3bd1b1a521128b66238f752e23"
+    sha256 cellar: :any_skip_relocation, ventura:        "d1e38ae4e5b5994b99e0732f84f0928868e333816f5143e7885638ac46fa2b3f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f7ab300dcce08fb378405b6d273969e22668c7300db077a81f6de26f1c1aa58"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd29f515143efece92c750c859baa2c933a011430d7aaf65fb7d69f9bb242708"
   end
 
   depends_on "python-setuptools" => :build

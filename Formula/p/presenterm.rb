@@ -1,19 +1,19 @@
 class Presenterm < Formula
   desc "Terminal slideshow tool"
   homepage "https://github.com/mfontanini/presenterm"
-  url "https://github.com/mfontanini/presenterm/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "7514566a58715967617c681a9222d3d84ba03c15b002adab2ac8775d34ddc575"
+  url "https://github.com/mfontanini/presenterm/archive/refs/tags/v0.6.1.tar.gz"
+  sha256 "9ae89ca7f4bae9918dc9764062272b9ed9b040586c5fab4ce258b9c76ffa7478"
   license "BSD-2-Clause"
   head "https://github.com/mfontanini/presenterm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "699d6b4c9a807e0e39c5a95c5595bed0cd0db11ffeb4762d2dd6e986d485a143"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfe672d3974b166097a7c3de9aa1f05b57b35321d2a93cb4923937ea36f33736"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea869ee5dad8a352827a49322b48877705f71e6a28d401451cc205331d29f6bc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6111b37a97c4d42e3e00ccda98ec220b87a32e3b3ac46533bef6d52a0a0e9bb9"
-    sha256 cellar: :any_skip_relocation, ventura:        "82b09f03c2f420cda9cd0452d14e23eea371f5817da065cc9dccf10811448073"
-    sha256 cellar: :any_skip_relocation, monterey:       "19ca66da58f7bcd6545e7396599e80605e0584cc388b329ba2469174951b17de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "482d0a8058626e3a407dd2d02d7b810ad952b06a8774a9d6a426bfadf9bbe706"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b13c511db24c66943a692646eb5e41a39ac978b754b5fa267156edf19b375be"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "69a22c5e7ca8851afb064bc9342b1193476808e92d2c723bf064609a0c92fe3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "79f4cf0e0404d12b499a219d0d6d812d93d7dfbcabb4aa0992c3f02e5c59d08e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0e498dc1151808afedd4910733868ab2718741f3cfe878766046f69e2c160375"
+    sha256 cellar: :any_skip_relocation, ventura:        "a26a43f2329dcb792dbb78a4a874f9023616815ca83014dc969a4bfb70a82cba"
+    sha256 cellar: :any_skip_relocation, monterey:       "cb0f106b4ce1a56d74ccdfbcf9603c523a584888bb1650311e0211b4a45a2ed7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a98e545cef3b528af30dfd90b61a38a6b5dc50311a1c0903f85df3f72316f8e"
   end
 
   depends_on "rust" => :build
@@ -23,9 +23,7 @@ class Presenterm < Formula
   end
 
   test do
-    output = shell_output("#{bin}/presenterm non_exist.md 2>&1", 1)
-    assert_match "reading presentation: No such file or directory", output
-
+    # presenterm is a TUI application
     assert_match version.to_s, shell_output("#{bin}/presenterm --version")
   end
 end

@@ -1,18 +1,18 @@
 class Rswift < Formula
   desc "Get strong typed, autocompleted resources like images, fonts and segues"
   homepage "https://github.com/mac-cain13/R.swift"
-  url "https://github.com/mac-cain13/R.swift/releases/download/7.4.0/rswift-7.4.0-source.tar.gz"
-  sha256 "0f9c88a46b826d0e6bbb1e9a73edc5039013d43b78948bb286e6a879959d2a9d"
+  url "https://github.com/mac-cain13/R.swift/releases/download/7.5.0/rswift-7.5.0-source.tar.gz"
+  sha256 "4b5fa7bec4b064545ec76cfa0a312be932f78a1775a8b84cae3204a1ec93247a"
   license "MIT"
   head "https://github.com/mac-cain13/R.swift.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1bcdbc699d12c8fe89c504984a512068a27f0481d57b9b4d56a9e549f503a72c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d451507fc8e00f6bed6d156b2138c86378454b2e10ebb0c8d0c48d27a1f51a0c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6761c81018971df341d852b13ebfcf94845897352b09e0fc63e378801ba4ef2f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7d0120c82921025c1723c6cec6a67d852a1603e71b5780b77e70ae185fdd30fb"
-    sha256 cellar: :any_skip_relocation, ventura:        "c9aa20b05c383ca493bc96d793d173efa77fa267706f4243a9a79a6ad68db310"
-    sha256 cellar: :any_skip_relocation, monterey:       "c3e8ac7f82bda6f2140cb3aee08d34aecc53ae3c0c9e422b6d303fe48049c899"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "efe3eeac92249327c135ecfd20630dd807bb81ca9684fe8e3af00416a45c58e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04cbfe7cc830dd72eaac109a1433a1faed9d9eb8884633e0d58109e879dbfb88"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9220b75e377a66ad28a362b0902b5ce8101552e1fd0d05af2a2309fef84575f8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c30d107868450fe16d14363399f0854ce26981704a9badd7e343c23515a6c837"
+    sha256 cellar: :any_skip_relocation, ventura:        "cffa219eb7873ef0bb049d890df55678f556ea6f47a00b62cbf5e0f4f3339b70"
+    sha256 cellar: :any_skip_relocation, monterey:       "570563e46746c1656616d085c78736c058dd22f66891f37aa044799dd3b13ec7"
   end
 
   depends_on :macos # needs CoreGraphics, a macOS-only library

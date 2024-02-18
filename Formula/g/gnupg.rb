@@ -1,8 +1,8 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.3.tar.bz2"
-  sha256 "a271ae6d732f6f4d80c258ad9ee88dd9c94c8fdc33c3e45328c4d7c126bd219d"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.4.tar.bz2"
+  sha256 "67ebe016ca90fa7688ce67a387ebd82c6261e95897db7b23df24ff335be85bc6"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,16 +11,13 @@ class Gnupg < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "b9640de5facabd205cfb8147444a3c08bf973f86ff0802461613b74fcf68457d"
-    sha256 arm64_ventura:  "b36cece245a9b2f401fb25f5a8889e03458b76aca9f7bdaf95bac90fa067fb50"
-    sha256 arm64_monterey: "8951a873559c55131f5cf620528039653b1656fb8f428f9df4755230b7b8737c"
-    sha256 arm64_big_sur:  "51178a0ebf5071ff97acfca894ff19d2563757b06db45cc639cf565dcfa28540"
-    sha256 sonoma:         "2b0b7b726fb7a4e98dcefb331d7bebaac035037d4d00aa2b037a316d91ea591d"
-    sha256 ventura:        "92c5de78a69010ffa7c30578f08b7443bde2906d553e6e225be131e34d983ad0"
-    sha256 monterey:       "d9a628e366f7373ef3aa576f03b6cbba0671c77e3a2606796d3e6b05d6c7f447"
-    sha256 big_sur:        "0f7278b21edfbcbc9d7350f8231eead52164283de936433ff85aea4eeff26831"
-    sha256 x86_64_linux:   "806bf7a22e94d2c83bd19278a23cf7988074e86b5fd4cd0e6d1e031b9fc96fc0"
+    sha256 arm64_sonoma:   "eead9f697214f8c9245ca7cb24aecff0ca3e8f46322ddf890c89146396782bc0"
+    sha256 arm64_ventura:  "e096a8063b3cfbb76deb3afcba2ab5556a6403ca4c31bc1d1683edd3ad77fb70"
+    sha256 arm64_monterey: "8e7c0ff2b1a73454e093b384aafb71a021c31049219dd4b55fd188a6574fa51e"
+    sha256 sonoma:         "10a786c7b9f9eac5c960d303076ea31e1b62e6dd03168948ac6ee32752f97967"
+    sha256 ventura:        "5bf0ac220534eb57328b643cefc17b31d3457e5a3bc0fbad53587e86412c4caa"
+    sha256 monterey:       "6491443b90accbc12ad485d13025fc60d4d5a56e4f4d09e99fe3767f53c3d2b5"
+    sha256 x86_64_linux:   "2701069f114e5a3b6b10ce4e6a34bb6df0edcbafdc4a4a7edc69208983d9109f"
   end
 
   depends_on "pkg-config" => :build

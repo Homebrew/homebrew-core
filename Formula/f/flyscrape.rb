@@ -1,19 +1,19 @@
 class Flyscrape < Formula
   desc "Standalone and scriptable web scraper"
   homepage "https://flyscrape.com/"
-  url "https://github.com/philippta/flyscrape/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "4480c597688d63bd3a4601801f7a056f9e0723bbad199a9e52573cc7893fea85"
+  url "https://github.com/philippta/flyscrape/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "27ba02ba2b64725a197e12fce66fe26fdcac02f48644acdfc8332831cd6010bb"
   license "MPL-2.0"
   head "https://github.com/philippta/flyscrape.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4e5140a1164a152a1a461d29abcf917f88e8ca4d9cc466003025dac89354e21"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7accb464b34a73d34dec891b298804859cfd4d12436f289b5315c8109b15aac4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "beaa1f05ef26f10b337913db24531b91c065d652c1618d2b2dedf43115703687"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bd4ca616f8e9d2f391815d412e71a70c686c4fbad7869918877f83f231628227"
-    sha256 cellar: :any_skip_relocation, ventura:        "06304c3c96b25d680145c025b67a0cd2f0d414049785b38506c15f2e39b243ae"
-    sha256 cellar: :any_skip_relocation, monterey:       "30328ed449a3415ff54d1a428dd4f656a018ab378d4d4ef75435d650c7a6e4a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "338d715deb73cfb72e4d8c3d1a8a4d6f6809a91a01ce44ec8b3df96efd7826d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "21cdcf47c7a9ef03a3a3f69013a4c856cb650078ec5675368edcf5a3ee383e4d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3040f4ff57cf5c508ad78aec3ddf4f4784f017cd3174c68d177d38c453f2b30c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a27ff94c294808c6a9548e553edf1b51e79480d6d4e49c7e564f1b011cb4aa3a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "373efd6d3cb6628b2aadb33fba8441b1c3a9e5b812d7f4147d2cd31b86c2495e"
+    sha256 cellar: :any_skip_relocation, ventura:        "339e1d905c2f6fd079fa3570f2f4b429018efdeb7fac81e402e16e4f22d335a8"
+    sha256 cellar: :any_skip_relocation, monterey:       "bc75419ae9fe8da8eb6e74ad311cc95eb7be8b41e37dac4798747c1dd3bcc9ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6c6e7c19e338aaae70c2b9d03a03fe514da01e65f898e5a9457e88a37b55519"
   end
 
   depends_on "go" => :build

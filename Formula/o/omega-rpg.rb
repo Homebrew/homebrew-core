@@ -18,7 +18,7 @@ class OmegaRpg < Formula
     sha256                               x86_64_linux:   "b7da84e88747a0e8f6715fa1961aed8004845da0eaeb523a9ee35271db6f9305"
   end
 
-  deprecate! date: "2023-02-15", because: :repo_removed
+  disable! date: "2024-02-01", because: :repo_removed
 
   uses_from_macos "ncurses"
 

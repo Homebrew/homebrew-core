@@ -1,9 +1,9 @@
 class Libtrace < Formula
   desc "Library for trace processing supporting multiple inputs"
   homepage "https://github.com/LibtraceTeam/libtrace"
-  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.23-1.tar.gz"
-  version "4.0.23"
-  sha256 "e0e82af3cc2ce994dbcebf622fd0462236e43bebc0b2d0ea1647e82129af2884"
+  url "https://github.com/LibtraceTeam/libtrace/archive/refs/tags/4.0.24-1.tar.gz"
+  version "4.0.24"
+  sha256 "862aa272021e3883af6616e39882f29afa0ec33203e4b4e2abf08094b6cb0ae3"
   license all_of: ["GPL-2.0-or-later", "LGPL-3.0-or-later"]
 
   livecheck do
@@ -15,13 +15,13 @@ class Libtrace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1e105d5d6bda8a381660ba7e50c457d21f3a103985c73fda56c7224b97d1e2e4"
-    sha256 cellar: :any,                 arm64_ventura:  "7eb1bd3830663eb3828d0276f0c558c97e3e7aa650fd8a8868989adcf356b252"
-    sha256 cellar: :any,                 arm64_monterey: "14e27c9d132bb09f11707534fdc13c50ae4009610f500d9fea3ce79fd87d337e"
-    sha256 cellar: :any,                 sonoma:         "0aef814e4f7dae430fe5f4cec842b59b5c6700bfa7040682aa4685f2ad015fb9"
-    sha256 cellar: :any,                 ventura:        "6a5039e0057e411f640a59fa9aa52e1534afe88cdfe93be4b393e5adede76dce"
-    sha256 cellar: :any,                 monterey:       "cc0dd63d91a83e15f0a734092de852635bdfaa765bcdf21e07463538ef4306f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d76e2139558b72d7dc14c3d8ceb8485e165d7e8532616665709462f4e815187"
+    sha256 cellar: :any,                 arm64_sonoma:   "a7894a52accc6f049aab873a43026357744753dbe018be78e2d7eee265eb32ca"
+    sha256 cellar: :any,                 arm64_ventura:  "ddd7d612ac62a4725e405a17d7d554bc176bffbc6e5d548ed19e51642cc52987"
+    sha256 cellar: :any,                 arm64_monterey: "d0847de41f4ace8fe1ba6ab96dad6f3be6eaa09db10d51a3e46271273ee381a3"
+    sha256 cellar: :any,                 sonoma:         "5d7c31a2c8676e65bbc9dd470e296bef5174e79c288625ad0b383aeea83842ee"
+    sha256 cellar: :any,                 ventura:        "498b355a65704ff475773bf7aa6517784ce2a4b2b6e1a1ba6447ca47cb2b0441"
+    sha256 cellar: :any,                 monterey:       "fba7945bbf904bd35c2e055399b58c1df52aa262a8226541936c18870c83795e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e83968c31a6951a48cfc4af39a578a8573f6ee6b3ac933b58535d54cad9eb64"
   end
 
   depends_on "autoconf" => :build

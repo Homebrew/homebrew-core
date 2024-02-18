@@ -21,7 +21,7 @@ class Groonga < Formula
   end
 
   head do
-    url "https://github.com/groonga/groonga.git", branch: "master"
+    url "https://github.com/groonga/groonga.git", branch: "main"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build

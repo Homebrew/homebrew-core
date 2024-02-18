@@ -3,27 +3,31 @@ class AllRepos < Formula
 
   desc "Clone all your repositories and apply sweeping changes"
   homepage "https://github.com/asottile/all-repos"
-  url "https://files.pythonhosted.org/packages/9a/ea/cdabb519e8afc76df7d70b900403d4f118404c90665d4468c88101265c47/all_repos-1.26.0.tar.gz"
-  sha256 "52fd543c17064af11c06cfe344bb43eda550f5a69de2be767d5c98661a0783b2"
+  url "https://files.pythonhosted.org/packages/a6/56/29006be2546b897a5c62a3d4a7e613abf5a3533554d948b0e0af27546f1b/all_repos-1.27.0.tar.gz"
+  sha256 "96fea3e34caa004b0770501e6efb93dc49cbca05fb56c2b8b2a85d06fb3a4573"
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2abb8c0300b10d3b79d2b69a8ebfa5eef6fc4cfa445d7652093823a7866da7e0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b87c3ba274ee120a76bd94dc0ce8f0b75d98b41cc5b2d8109115dd1b74d71e1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "63fea1918cfb61ce7cfc22b9de52f7e3f59852a35ffbc51104ead621c59c4e8d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6ccde45a0c3d87518925cd85e01694ed132743134d371a3f860a1cd50dbb7d23"
-    sha256 cellar: :any_skip_relocation, ventura:        "a1806a3ee959d9c50e978cc9bfc34ce75f532a4d8b823a0239b99f47373026e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2ca72e0c967bd81375d267b93f6cd1e7681960cad3daec2c33b869b0259841a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c329e848be1382ce9c4848c5e6c1b1045058d123d5eb8e7c765705ad65836db2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2fa8c56988879e6fde4225ee508808727b0c0f7e7693478c26fea948ee64650"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09fc178a99cb173c83ef1de1eac435a6c99ac3bb5c13364212bcdce6b45219f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6479b239edd3c6fa0d4f1ee7e88fcba6e5f1433ff3a6cc6f20cb87eb73b9eb03"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9297534b052c7ad5262f439df803efffae923493ed8db714d1d75123fd44960"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c84d2dda2b192bd3f2c2b46ee7696bf03a2aad1b3500e3fdf1f1a3dc55c51e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "ff58b3a8c9be8b05175e3ba556a38dc0a8d8dfd47ace84a86ceb9b3bbf283c1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eda91965585b8feabd8c909f3a92687e647befd80901d25e8597bb08dbba6820"
   end
 
-  depends_on "python-packaging"
   depends_on "python@3.12"
 
   resource "identify" do
-    url "https://files.pythonhosted.org/packages/5f/19/f3aa63b65be4cdf23ba26984aa04cb21fa04fccfef68355919edafee025c/identify-2.5.30.tar.gz"
-    sha256 "f302a4256a15c849b91cfcdcec052a8ce914634b2f77ae87dad29cd749f2d88d"
+    url "https://files.pythonhosted.org/packages/70/40/6df30e7ec1934ad43736248bb2c2800782fba42bad2bfda91b514cf7bdea/identify-2.5.34.tar.gz"
+    sha256 "ee17bc9d499899bc9eaec1ac7bf2dc9eedd480db9d88b96d123d3b64a9d34f5d"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
   end
 
   def install

@@ -6,13 +6,14 @@ class Orbuculum < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "556cd8cbd595a45ac1c8990a2614b48b894374e96f2795bfea176297e8151d18"
-    sha256 cellar: :any, arm64_ventura:  "8c6a7c6c15b2d618e7df9fe26d6962d6e09251fb7f421c69e5ea97de8aa6e9db"
-    sha256 cellar: :any, arm64_monterey: "f947c45c58dc788c8b01e4bd6f4fa9dc6e717d7df77c08c181f0ce57dcc9f607"
-    sha256 cellar: :any, sonoma:         "eb447bef31cb0ce5f7b26e2f2bbc35e2d6019caf5d5bb9b8c8d669e11e599ea7"
-    sha256 cellar: :any, ventura:        "43d6988953f1798a89e73143f91e68d0738ee21028271c74d0200b67fdd7854f"
-    sha256 cellar: :any, monterey:       "706ebe4db79b819f884e13db2d54b32b408f4ac971ea754b5f61c7987c4f910a"
-    sha256               x86_64_linux:   "ee7af224831a8aa48cdf5980457d49e4ec80dd4664810d98442bc2039a02804e"
+    rebuild 1
+    sha256 cellar: :any, arm64_sonoma:   "460ce4bce5f532fe8534d480b717419b56bba21b7a00a3702322e2fd1f3722cc"
+    sha256 cellar: :any, arm64_ventura:  "58a8a18573c584ab9c2f1cf66acf6008dd0925b4e574fbdd2fc059594033fedd"
+    sha256 cellar: :any, arm64_monterey: "13099ad1fce7ca98c85ef6d35707e7a9963a5c6dc81ed27434acb5db65b78d7a"
+    sha256 cellar: :any, sonoma:         "739074b3d4ca04c290debcecbdeaa4d0675295dbe7703227aed06f72d300cb08"
+    sha256 cellar: :any, ventura:        "162cf2d49bbb1b1019862162cfebc5a6e68b5ceba05c20b58214de8ca714f089"
+    sha256 cellar: :any, monterey:       "075d0e0c2aa5bb76b6dbbef10bfc32061bd54b5fd0f48f9f29d4053f520f6b6c"
+    sha256               x86_64_linux:   "08a9dcd2af4ebccb6db29fd6c8cd83e7546151e35062af3ecaaddd91bd9e8cc4"
   end
 
   depends_on "meson" => :build
@@ -22,14 +23,8 @@ class Orbuculum < Formula
   depends_on "libusb"
   depends_on "sdl2"
   depends_on "zeromq"
-  uses_from_macos "ncurses"
 
-  on_macos do
-    depends_on "libelf"
-  end
-  on_linux do
-    depends_on "elfutils"
-  end
+  uses_from_macos "ncurses"
 
   def install
     system "meson", "setup", "build", *std_meson_args

@@ -6,6 +6,7 @@ class GitBranchless < Formula
   url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.8.0.tar.gz"
   sha256 "f9e13d9a3de960b32fb684a59492defd812bb0785df48facc964478f675f0355"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
 
   # Upstream appears to use GitHub releases to indicate that a version is
@@ -17,15 +18,13 @@ class GitBranchless < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "905e64741afeeb899cb6ae572b9b360ed5ff9a0942e09953d2611d91f2a2f2e4"
-    sha256 cellar: :any,                 arm64_ventura:  "d8e78bd02c94eefa05ab21b12690308e734bc05d4e44a75e27152bbb2252c0dc"
-    sha256 cellar: :any,                 arm64_monterey: "d110f230e10e5fffa85a73ba47b5cf1caedc9e9407c0fd5fc5a5d71eeefac1fd"
-    sha256 cellar: :any,                 arm64_big_sur:  "a21285b24658f3df388e02e21f159bea00576d19ef9ea58371d1bdfb476e2a23"
-    sha256 cellar: :any,                 sonoma:         "ea5746626a621330c76a072e54f7f65c5d99af3c1f1919920bb7949a94efef40"
-    sha256 cellar: :any,                 ventura:        "652de83e86696533f0d9637fc3b8a299c32d3f9e89628fac30aa70b7253b85ba"
-    sha256 cellar: :any,                 monterey:       "87ec040da2cb1e745f7e8ac3b71c11306f41b8e1d160f3499f97f10f4d9316dc"
-    sha256 cellar: :any,                 big_sur:        "e8350258ef29fd41b09ca1ff0ca3ca2beb8cd1e5a7886e33fe3db00892293ffc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c5dedce96d6ff59927b7ed0917cf038cdcfc313ad528e0c8b13a6e6c8c38ad5"
+    sha256 cellar: :any,                 arm64_sonoma:   "b110734dc1ef391fc9b2d2bc8a49976327a7692c0d584027deeadff70939de96"
+    sha256 cellar: :any,                 arm64_ventura:  "a86fc202383af0bb6290f20560bc3e1ba91cf1580bd5650d84141072953a2fdb"
+    sha256 cellar: :any,                 arm64_monterey: "de7eefce124b0427145dbf4bbff6135199480782b041dc406137f5450d2ec491"
+    sha256 cellar: :any,                 sonoma:         "c35f286464f34d3c2aec788d4fe408b8544c45fdcee2a79c67c08b2bed03b551"
+    sha256 cellar: :any,                 ventura:        "e7310a07e9c3359b36aa9d0e5906b2e19a9a5d76f8e66a32a5303c054ad278bc"
+    sha256 cellar: :any,                 monterey:       "827d307d7afe2c66823d91ff6e62acafa45be03d99b4271ce9d3208f76c099b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d7e6fa4d5b29d4b486dcf0f5f52dfe0797df36d11a2a3d8697e8cc357652da1"
   end
 
   depends_on "pkg-config" => :build
@@ -44,7 +43,7 @@ class GitBranchless < Formula
 
     system "cargo", "install", *std_cargo_args(path: "git-branchless")
 
-    system "git", "branchless", "install-man-pages", man1
+    system "git", "branchless", "install-man-pages", man
   end
 
   test do

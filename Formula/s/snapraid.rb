@@ -1,21 +1,18 @@
 class Snapraid < Formula
   desc "Backup program for disk arrays"
   homepage "https://www.snapraid.it/"
-  url "https://github.com/amadvance/snapraid/releases/download/v12.2/snapraid-12.2.tar.gz"
-  sha256 "9d30993aef7fd390369dcaf422ac35f3990e8c91f0fb26151f5b84ccb73d3e01"
+  url "https://github.com/amadvance/snapraid/releases/download/v12.3/snapraid-12.3.tar.gz"
+  sha256 "1f27aba6e5db3929474da9c472fc4a3bc51d4a83aa5385af6b09afc9f68d6d44"
   license "GPL-3.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d80bbb90ad2970651f64190f1951a98198522995a57a73ded5722707c236188"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6a12c659bfe1a8ee981eb3bfae72b2d8ba469cb411a2596d856537a1ace55788"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b915f177268a0caf218c61839f0094fbce74d1ce02a8fd91c0f5be947e0a4ac2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d61d8bd872a854145c3204dd03b15ea5975437bf6041deded16a724449374a6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3033a20666dae610790a9e120f9e18e27c1b19283cd17f76e4a38ceee3012e99"
-    sha256 cellar: :any_skip_relocation, ventura:        "38c6ec82977fd77980a5bf3883c41e1f95236223385b10aa7345504eea522e79"
-    sha256 cellar: :any_skip_relocation, monterey:       "34530bba9f9d233b699c4b618190d09e245eedad765bf790b0aee213f5c6907d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "73bb540ade6633bc5483250e534decb865ff205c7df5662a854c6edb05d181d6"
-    sha256 cellar: :any_skip_relocation, catalina:       "d3075caa16f4fc7afc551656065590b94b251268f16fa4d023594b070f0732ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "262bb8b67f06eb4d938c5fa2554a2dcd8142ef545b0a62c625e237a0fad77bcd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4da7ec06ad641c8d25b350c67fb8a100e0fe6d1a539deb8bb189244bdff8cb5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0685e224941fd715cdc9074113ed6f85e81523bd90d3b74ce7d6c67d1073e09"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3fb09589076aef618afe6cddd5f0801c9332e074cbfea5b41770b01c5d1b0230"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d0b303ac35e773f6e1f7540ea4ece7f91f7d2943ab6fd251f644998637ba01eb"
+    sha256 cellar: :any_skip_relocation, ventura:        "1a85343ba4048288a9e950883b7fa0eb5b6f0436fc90e0a0295b80fbc7b32c14"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7952a904318b1162fa61da0500fbd13930debd9dbc95818265c75768dfa5df3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e375ce8b03bd4fc70b7bf52a2b64b4ee626e0b2946845d3874cc0a3e29875bb4"
   end
 
   head do

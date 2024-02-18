@@ -1,19 +1,18 @@
 class Networkit < Formula
   desc "Performance toolkit for large-scale network analysis"
   homepage "https://networkit.github.io"
-  url "https://github.com/networkit/networkit/archive/refs/tags/10.1.tar.gz"
-  sha256 "35d11422b731f3e3f06ec05615576366be96ce26dd23aa16c8023b97f2fe9039"
+  url "https://github.com/networkit/networkit/archive/refs/tags/11.0.tar.gz"
+  sha256 "3cba54b384db4adfd88c984805647a3b74ed52168b6178cba6dd58f1cbd73120"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "51d5f50643575477d34fd784a2e3dbfdb6f67a7c4942c7a371d5ae1cb41888f9"
-    sha256 cellar: :any,                 arm64_ventura:  "81bc8ed620831f97e3b4efb0cb119a4aae38a5faa2125b214afff45068169255"
-    sha256 cellar: :any,                 arm64_monterey: "043ba6ce8f8849c9c9c24ce0328ef8b43b84d3d7e1c3dfe4e6792753184423e3"
-    sha256 cellar: :any,                 sonoma:         "2e202215dbfd0abe2e8d33661a1ddccb086d3aa48c650d9a9bf92ebebbe97969"
-    sha256 cellar: :any,                 ventura:        "06cdca4aa2b099b88161702de0020a028a53864fb187237da77508beeedb9088"
-    sha256 cellar: :any,                 monterey:       "2357291a1153c65a87cd11c5c155fa829d676e4cf4d2dc18a60f33f7b1b9cab2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a147cbbf3bdc317f42bcb876220842ff89ce29dab109cde8893e847942ee83c"
+    sha256 cellar: :any,                 arm64_sonoma:   "696603d46742a9911d64b7d7413f8b69be5d5c0454896f793f1d59b4dff024fe"
+    sha256 cellar: :any,                 arm64_ventura:  "e131660675f6a8b038384ea93d4f0d0b218a7015c5911668b9a5b9e197938126"
+    sha256 cellar: :any,                 arm64_monterey: "bf198f04659bdf0b8a3403a73b69b79c53b43bbc2148dc26fe73bc43433906bc"
+    sha256 cellar: :any,                 sonoma:         "926fee5a9850b67c9d1c5e6c93136c0cc26218727071293e38e4e2c480c2c42c"
+    sha256 cellar: :any,                 ventura:        "88db41a27b63fdf177e1cec08fdba52407a7629b8492f40b8efcc77534569dce"
+    sha256 cellar: :any,                 monterey:       "c5daee28c42b0cd1651dbf1f433ff07bd064132d45c6a4788b13d306d08c924c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bcf04f8eb69bf0c822e95750b686b28131f3fb786b71efd66b3b657d4daf82b"
   end
 
   depends_on "cmake" => :build

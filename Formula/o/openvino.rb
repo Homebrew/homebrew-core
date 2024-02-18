@@ -1,8 +1,8 @@
 class Openvino < Formula
   desc "Open Visual Inference And Optimization toolkit for AI inference"
   homepage "https://docs.openvino.ai"
-  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2023.2.0.tar.gz"
-  sha256 "419b3137a1a549fc5054edbba5b71da76cbde730e8a271769126e021477ad47b"
+  url "https://github.com/openvinotoolkit/openvino/archive/refs/tags/2023.3.0.tar.gz"
+  sha256 "27cff20ac0662f5495d2c2eec47cbe5469ab2f225aa091d223f8bfc9d32f4fc3"
   license "Apache-2.0"
   head "https://github.com/openvinotoolkit/openvino.git", branch: "master"
 
@@ -12,14 +12,13 @@ class Openvino < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "dbaa768c272a0934254ebbf863e6c63ade5141d3717727f4b88bc3a915a57b99"
-    sha256 cellar: :any,                 arm64_ventura:  "d48c2a20108f28f33a9d765aa2ce3cb8ee5312228976ea0233892f3d6c8ff4e5"
-    sha256 cellar: :any,                 arm64_monterey: "a324bc3e99dd85d1830a8fc8fb3c47af65bf1674de11bb796ee9490cd739f097"
-    sha256 cellar: :any,                 sonoma:         "309ebf4e8e62eaa304694e02f36b002588638265d7cdf80549f26f3378f632f5"
-    sha256 cellar: :any,                 ventura:        "f133c8b1fa3a50d8aa478e7151eb5f76b47b83e6b627a328c461e620f1b47273"
-    sha256 cellar: :any,                 monterey:       "20d832372096a92bc8aec5ee6264d94f20f3d81815b77357b8b5f7e67cabe12d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ae02ea2f43ca2744e0396777ec7c43a0656dd4e0e5301feae422d7c98b97797"
+    sha256 cellar: :any,                 arm64_sonoma:   "0aa85634e6098d2700f123a7938482dbc04ed8fdb9e7ed5c8126bca81c5ae7b6"
+    sha256 cellar: :any,                 arm64_ventura:  "1b4878e5aa0687c126e221c4b623757ffd9f5d285a657aefbc8f43090a20c12c"
+    sha256 cellar: :any,                 arm64_monterey: "c348ebe9b9513ca07f63386bb285e41b4764935d99e51d0424665281ecca05fd"
+    sha256 cellar: :any,                 sonoma:         "507fe65857c6227ef974646e002b36241f59acfc3de8969d184842971e56f375"
+    sha256 cellar: :any,                 ventura:        "e1db750a4f82eb41c7639b23a84b49bc540e8a298049c335a35e507c01c1efb2"
+    sha256 cellar: :any,                 monterey:       "6eac7a57c4fb2f7babc6e51dbd03d737a01038f56c5dfe81a559eb02c05cf20a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44900ffc477d5c4bca4575a96f05448c69e298a4c2a4e059295aaa25172b8389"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -42,8 +41,8 @@ class Openvino < Formula
     depends_on "opencl-icd-loader"
 
     resource "onednn_gpu" do
-      url "https://github.com/oneapi-src/oneDNN/archive/284ad4574939fa784e4ddaa1f4aa577b8eb7a017.tar.gz"
-      sha256 "16f36078339cd08b949efea1d863344cb0b742d9f5898937d07a591b0c4da517"
+      url "https://github.com/oneapi-src/oneDNN/archive/cb77937ffcf5e83b5d1cf2940c94e8b508d8f7b4.tar.gz"
+      sha256 "2ca304c033786aa5c3ec1ec6f8fc3936ae5c6874d5964b586311da11bec2ec4a"
     end
   end
 
@@ -66,18 +65,18 @@ class Openvino < Formula
   end
 
   resource "mlas" do
-    url "https://github.com/openvinotoolkit/mlas/archive/f6425b1394334822390fcd9da12788c9cd0d11da.tar.gz"
-    sha256 "707a6634d62ea5563042a67161472b4be3ffe73c9783719519abdd583b0295f4"
+    url "https://github.com/openvinotoolkit/mlas/archive/7a35e48a723944972088627be1a8b60841e8f6a5.tar.gz"
+    sha256 "b7fdd19523a88373d19fd8d5380f64c2834040fa50a6f0774acf08f3fa858daa"
   end
 
   resource "onednn_cpu" do
-    url "https://github.com/openvinotoolkit/oneDNN/archive/2ead5d4fe5993a797d9a7a4b8b5557b96f6ec90e.tar.gz"
-    sha256 "3c51d577f9e7e4cbd94ad08d267502953ec64513241dda6595b2608fafc8314c"
+    url "https://github.com/openvinotoolkit/oneDNN/archive/cb3060bbf4694e46a1359a3d4dfe70500818f72d.tar.gz"
+    sha256 "9dea3da8dab8511677db3db68ff4d9cdbfd31d8614bf04fd79a7610892bb991c"
   end
 
   resource "onnx" do
-    url "https://github.com/onnx/onnx/archive/refs/tags/v1.14.1.tar.gz"
-    sha256 "e296f8867951fa6e71417a18f2e550a730550f8829bd35e947b4df5e3e777aa1"
+    url "https://github.com/onnx/onnx/archive/refs/tags/v1.15.0.tar.gz"
+    sha256 "c757132e018dd0dd171499ef74fca88b74c5430a20781ec53da19eb7f937ef68"
   end
 
   def python3

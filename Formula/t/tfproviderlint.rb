@@ -16,7 +16,9 @@ class Tfproviderlint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d5103190a14b75826496cbe28614f49619a25d8f8492b4a1804e48e6c22bfca"
   end
 
-  depends_on "go" => [:build, :test]
+  # use "go" again when when https://github.com/bflad/tfproviderlint/pull/297 is released and released
+  depends_on "go@1.21" => :build
+  depends_on "go" => :test
 
   def install
     ldflags = %W[

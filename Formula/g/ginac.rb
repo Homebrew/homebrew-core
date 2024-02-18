@@ -12,10 +12,13 @@ class Ginac < Formula
 
   bottle do
     rebuild 1
-    sha256 cellar: :any,                 sonoma:       "20aa8a3ddee662108a4d9abcca8efbb439a42b6518621604c2cd9f2f8358d21e"
-    sha256 cellar: :any,                 ventura:      "eea2055db77984131bb8e266e1011838c5d988a990c2268ef0f0f721a75d1a1c"
-    sha256 cellar: :any,                 monterey:     "c05da698a6f66bc30300c78da3ba78ab1a9f7b83aa039b93435768f9ca74a7bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "125b63819d971c7ca2fdc1edbe2234d8acf21bc8852ee2db4d728406bd056984"
+    sha256 cellar: :any,                 arm64_sonoma:   "aacdfd913aacfa3202e10d9c37ea5bac1c64a0d80db396b5163c043d51b64f4f"
+    sha256 cellar: :any,                 arm64_ventura:  "e661fec026b0f5c59ed31cb8d24674ba15751983a2e5353b40049e51f8407d18"
+    sha256 cellar: :any,                 arm64_monterey: "4eacaea3545f31689873bc9ee681c96608bfd346f99ebcd52996a2a47a9684ec"
+    sha256 cellar: :any,                 sonoma:         "20aa8a3ddee662108a4d9abcca8efbb439a42b6518621604c2cd9f2f8358d21e"
+    sha256 cellar: :any,                 ventura:        "eea2055db77984131bb8e266e1011838c5d988a990c2268ef0f0f721a75d1a1c"
+    sha256 cellar: :any,                 monterey:       "c05da698a6f66bc30300c78da3ba78ab1a9f7b83aa039b93435768f9ca74a7bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "125b63819d971c7ca2fdc1edbe2234d8acf21bc8852ee2db4d728406bd056984"
   end
 
   depends_on "pkg-config" => :build

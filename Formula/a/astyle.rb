@@ -1,8 +1,8 @@
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "https://astyle.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.4/astyle-3.4.11.tar.bz2"
-  sha256 "15b22bc6cbc038ccd8cef3804efec02f35c6f2538b75c93bc7f76e4de98aba92"
+  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.4/astyle-3.4.12.tar.bz2"
+  sha256 "077459b29f7386f2569c142c68a5b6607680b0cbda0210209ffea6ff0f5ab60e"
   license "MIT"
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
 
@@ -12,13 +12,13 @@ class Astyle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2cdeb24df54e45dac87ab976f56c21d1c31726ce2c0f5b8733adfcffcb619b30"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1bd807af019d31235b2ffcf0b1a42f59149aaea28d22b144680c4ce2f5d236f8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a86259b8b75cf219db68e53a5c5952f49f25060310f979a535a4eca44bd20299"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1af8fbdcb7868a47653e8be8bb8a3a93897af43213979c85211354c6ed608ba9"
-    sha256 cellar: :any_skip_relocation, ventura:        "e47ee029cf04ab43709d776f1dedd81300020f36bc1fc8f6336e71f80af57d03"
-    sha256 cellar: :any_skip_relocation, monterey:       "b6f209074d36cf6770374b3226aff8f86fdd6f5b45c558f275639c8aa02f9b41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d3c7c002c2e7c25bbc7fee1657dfbbd98048c9b4b2d92947a891f1b4de6f5e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ed1c80387fabda9f2680c605f6a27c5c25819d9740a4031c7b97071c5f6563e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82a9530edb4f8d30310eceb946f16bea3bc40cb5c5476bfbaee1f0a8f83c5928"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22421f13c6275d0a1d307e48aa5ad569ce736c747d498df9b187827c5fa6b0e1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ea3ca1f0a1dcf565e3d940399e0a940c6ef9ef74c184cafbc2d5738c6dd32abc"
+    sha256 cellar: :any_skip_relocation, ventura:        "30129c2d50591249f7c7b7175060cb41a55cf785a59f6d12fe01c7298b6f482b"
+    sha256 cellar: :any_skip_relocation, monterey:       "f97cd7758ada6ebaf3816f146f1318d7a9f3555c122e17ba02c1e7796b3fcf78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a214f29f23dd152937f6cfc4289f652478d83697a609db43ed7f4459a6bb251"
   end
 
   def install

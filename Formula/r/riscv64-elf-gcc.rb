@@ -11,9 +11,11 @@ class Riscv64ElfGcc < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "df674d0488ecc229a6acf4f6dac6a60c89699fb9569515c5cec6c7d3aea2b3c3"
     sha256 arm64_ventura:  "010cebe94fb852041b6525bb26ecf18da50a2b31ecb2ceea10fa98227268840e"
     sha256 arm64_monterey: "9c4199cbf3a55f3d188ab4ec3d5db6ce928290aabc4f5f53989194b7b8572c0d"
     sha256 arm64_big_sur:  "a291ee8500e3560ac26e38fafb8308aceddcbcf1eaf65b7e8eee887878d4eccc"
+    sha256 sonoma:         "529f87bec9d1aa5ff2e47cdae009eec581acb298f0e2ac2dcc5697196d60b6ca"
     sha256 ventura:        "06f5dc90759c05d5bc014a21db08baede43cbb692432a62dfa2fe20f21497b33"
     sha256 monterey:       "73bef350abe7f078fe0d4b63f8ae5638d39e195087f42ca5ddb07ad416273b79"
     sha256 big_sur:        "4adfdb6b0912649db5994bae962666899d7dcfaa22e0def62df966d9b54d24a4"

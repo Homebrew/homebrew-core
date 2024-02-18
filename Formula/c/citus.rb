@@ -1,44 +1,36 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
+  url "https://github.com/citusdata/citus/archive/refs/tags/v12.1.2.tar.gz"
+  sha256 "61d959e8129df4613186841550ea29afb9348a7e6f871d5b5df4866777b82e24"
   license "AGPL-3.0-only"
   head "https://github.com/citusdata/citus.git", branch: "main"
 
-  stable do
-    url "https://github.com/citusdata/citus/archive/refs/tags/v12.1.0.tar.gz"
-    sha256 "cc25122ecd5717ac0b14d8cba981265d15d71cd955210971ce6f174eb0036f9a"
-
-    # Backport fix for macOS dylib suffix.
-    patch do
-      url "https://github.com/citusdata/citus/commit/0f28a69f12418d211ffba5f7ddd222fd0c47daeb.patch?full_index=1"
-      sha256 "b8a350538d75523ecc171ea8f10fc1d0a2f97bd7ac6116169d773b0b5714215e"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3feaa17bbc05d3902404413582f22f70b526f55797c357c775654f8c4e55c9b4"
-    sha256 cellar: :any,                 arm64_ventura:  "6d9282cc121e512b2cbe73e20f5047af310c9c7c8d2350026acceedced653dd2"
-    sha256 cellar: :any,                 arm64_monterey: "6098668e13f985faff1ca249be2999b13f60434a44250c3f5704994384140698"
-    sha256 cellar: :any,                 sonoma:         "002a5bd41e70330a8a7efe7c23ec7c320d7bcb1730324fb848a19e075d0a5b98"
-    sha256 cellar: :any,                 ventura:        "dff6698a79f2681322cd2dac6d7d190f45123e9a7db3addb985bd9aa61f52f02"
-    sha256 cellar: :any,                 monterey:       "50a2bf23c39566f1c65069d816b3dd23ff4c95477e9edb973c08a794db1a15eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab0339a42b57a9bbd0ef4c243ffcc78868f5f7d6c7c72e6b4fd62dc9d576e107"
+    sha256 cellar: :any,                 arm64_sonoma:   "f5543af7bc996b1cbf67aa5cec35d6946e6d2c775ec6a12e9f2acbf8e8578959"
+    sha256 cellar: :any,                 arm64_ventura:  "baffacb7246943cfe87f1c970d53cf4e99ae3bbb577769acceb6108ffa6909b5"
+    sha256 cellar: :any,                 arm64_monterey: "0fe37a14ff92c081286f7839ae98173e9105f58170432d6db526a8fdd2e1c520"
+    sha256 cellar: :any,                 sonoma:         "d964c3510ccfd8d6f9981009f6fe40d6fec1d636c1d1af52953a25702ef942ab"
+    sha256 cellar: :any,                 ventura:        "743aa322fbc40eab84ccdaf28bf61ff9d8b472bb5682421048d396bc6c8e0dfe"
+    sha256 cellar: :any,                 monterey:       "6f2aa7ac65821de64306329b75c3f8444b64c7681f0459c884e7ab22eff8a63a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "350dd049a60f29a9c462721789b00e544b464522ad161a5468263689cf5196b6"
   end
 
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "postgresql@16"
+  depends_on "postgresql@14"
   depends_on "readline"
   depends_on "zstd"
 
   uses_from_macos "curl"
 
   def postgresql
-    Formula["postgresql@16"]
+    deps.map(&:to_formula)
+        .find { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
-    ENV["PG_CONFIG"] = postgresql.opt_libexec/"bin/pg_config"
+    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
 
     system "./configure", *std_configure_args
     system "make"
@@ -51,8 +43,8 @@ class Citus < Formula
 
   test do
     ENV["LC_ALL"] = "C"
-    pg_ctl = postgresql.opt_libexec/"bin/pg_ctl"
-    psql = postgresql.opt_libexec/"bin/psql"
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
     port = free_port
 
     system pg_ctl, "initdb", "-D", testpath/"test"

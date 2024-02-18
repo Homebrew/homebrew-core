@@ -3,19 +3,18 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/19/02/9da6f88be47a0d0296821b4cca2d6e94439b000473795ffb1f4e5751aca6/locust-2.20.1.tar.gz"
-  sha256 "9ba4c8658a158aed55774ac3650ac0139fcc1dfa65fea0dabb00ea35b0d56a4e"
+  url "https://files.pythonhosted.org/packages/24/b2/cf440ab75f33d1341bc0340ed26ba8bfc755f8cad11d1d3a0b3bc33a1cd3/locust-2.23.1.tar.gz"
+  sha256 "6cc729729e5ebf5852fc9d845302cfcf0ab0132f198e68b3eb0c88b438b6a863"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "750a7d2a01e09a3f1ba7b6b42417a2723fbab529b3a0a95c75e80e565cf11cfe"
-    sha256 cellar: :any,                 arm64_ventura:  "2f4bb66d7a39c4bd40432fcc7bfa16bd676af453f5207319992144e0ad12d1ef"
-    sha256 cellar: :any,                 arm64_monterey: "7981f516c924ba0f6a133cc421bcedc575ca81348ee0cbcf76fc40dc0728c125"
-    sha256 cellar: :any,                 sonoma:         "95d3e2d0696ce61103d8b749ccd4e80acf5d780c686148cdbf0bb6082f73b58f"
-    sha256 cellar: :any,                 ventura:        "8f7728cb974993a28e4584b04c473d9dc07b473c9c467ce02087fec2d22d1daf"
-    sha256 cellar: :any,                 monterey:       "e3be859c7da6afe6643be7bfdf7ba29e0c5519ab1946ab5bed00353073f0cf42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fb824f11bfeccaae8b407f80ba96d7d606051bb7cf34f04b9381669f3d76b34"
+    sha256 cellar: :any,                 arm64_sonoma:   "3ddb04efff89d1a7a0882c96bfc18130f17824b38e50c8db27a02e9f4d97a6aa"
+    sha256 cellar: :any,                 arm64_ventura:  "1398930d26d70395fa516cf312d34695a2155b2ff26b94b82429d22dfb25290b"
+    sha256 cellar: :any,                 arm64_monterey: "d1cf9ce48fd6203aa327c0bcba3c5b4cfaa4fe0f6a32f81efa084e0de516bdcc"
+    sha256 cellar: :any,                 sonoma:         "d4b47ad169f9ec92206b0b2f675c9a600a53a686715bc690ee67b2678a1f1473"
+    sha256 cellar: :any,                 ventura:        "a6bbf50627bcfe5aa376f211dc32af5a4c3a05ddcc9ed1e98e945531eb6f0a6a"
+    sha256 cellar: :any,                 monterey:       "f20ad3b2a93c390962f4142e2975a985fd0ebbc0f4dff2f5293ba6caddb739d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "331c968a8a92452d24d5841e1ff47c53d2fdf3f6963527e5c41cf2b498acb982"
   end
 
   depends_on "python-brotli"
@@ -44,18 +43,18 @@ class Locust < Formula
   end
 
   resource "flask" do
-    url "https://files.pythonhosted.org/packages/d8/09/c1a7354d3925a3c6c8cfdebf4245bae67d633ffda1ba415add06ffc839c5/flask-3.0.0.tar.gz"
-    sha256 "cfadcdb638b609361d29ec22360d6070a77d7463dcb3ab08d2c2f2f168845f58"
-  end
-
-  resource "flask-basicauth" do
-    url "https://files.pythonhosted.org/packages/16/18/9726cac3c7cb9e5a1ac4523b3e508128136b37aadb3462c857a19318900e/Flask-BasicAuth-0.2.0.tar.gz"
-    sha256 "df5ebd489dc0914c224419da059d991eb72988a01cdd4b956d52932ce7d501ff"
+    url "https://files.pythonhosted.org/packages/3f/e0/a89e8120faea1edbfca1a9b171cff7f2bf62ec860bbafcb2c2387c0317be/flask-3.0.2.tar.gz"
+    sha256 "822c03f4b799204250a7ee84b1eddc40665395333973dfb9deebfe425fefcb7d"
   end
 
   resource "flask-cors" do
     url "https://files.pythonhosted.org/packages/c8/b0/bd7130837a921497520f62023c7ba754e441dcedf959a43e6d1fd86e5451/Flask-Cors-4.0.0.tar.gz"
     sha256 "f268522fcb2f73e2ecdde1ef45e2fd5c71cc48fe03cffb4b441c6d1b40684eb0"
+  end
+
+  resource "flask-login" do
+    url "https://files.pythonhosted.org/packages/c3/6e/2f4e13e373bb49e68c02c51ceadd22d172715a06716f9299d9df01b6ddb2/Flask-Login-0.6.3.tar.gz"
+    sha256 "5e23d14a607ef12806c699590b89d0f0e0d67baeec599d75947bf9c147330333"
   end
 
   resource "gevent" do
@@ -114,8 +113,8 @@ class Locust < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   resource "werkzeug" do

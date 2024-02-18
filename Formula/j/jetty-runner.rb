@@ -1,9 +1,9 @@
 class JettyRunner < Formula
   desc "Use Jetty without an installed distribution"
   homepage "https://eclipse.dev/jetty/"
-  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-runner/9.4.53.v20231009/jetty-runner-9.4.53.v20231009.jar"
-  version "9.4.53.v20231009"
-  sha256 "4e8f17b281cb6682675086daced3191cd826830496ee4ad8befa6d684f2a925d"
+  url "https://search.maven.org/remotecontent?filepath=org/eclipse/jetty/jetty-runner/9.4.54.v20240208/jetty-runner-9.4.54.v20240208.jar"
+  version "9.4.54.v20240208"
+  sha256 "53fd433d18f4de5e87d78fa75ce8633e1533df2284fe1e4bb9beaedd17b30650"
   license any_of: ["Apache-2.0", "EPL-1.0"]
 
   livecheck do
@@ -12,13 +12,7 @@ class JettyRunner < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3bb898cb6711d18f5193ab6af64ff3aa0ebe929c1f906ba5a45a09ff170c921e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3bb898cb6711d18f5193ab6af64ff3aa0ebe929c1f906ba5a45a09ff170c921e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bb898cb6711d18f5193ab6af64ff3aa0ebe929c1f906ba5a45a09ff170c921e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3bb898cb6711d18f5193ab6af64ff3aa0ebe929c1f906ba5a45a09ff170c921e"
-    sha256 cellar: :any_skip_relocation, ventura:        "3bb898cb6711d18f5193ab6af64ff3aa0ebe929c1f906ba5a45a09ff170c921e"
-    sha256 cellar: :any_skip_relocation, monterey:       "3bb898cb6711d18f5193ab6af64ff3aa0ebe929c1f906ba5a45a09ff170c921e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e89ca81cdc965afb1b8a79067653a87e81e5b38599cbbe582a63d844d2fc6ec"
+    sha256 cellar: :any_skip_relocation, all: "0d0f94bfaac4692da8fe92064e92d1154bad252d05e37a3e6209c96d680a8d4e"
   end
 
   depends_on "openjdk"

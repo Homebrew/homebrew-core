@@ -1,18 +1,18 @@
 class Samtools < Formula
   desc "Tools for manipulating next-generation sequencing data"
   homepage "https://www.htslib.org/"
-  url "https://github.com/samtools/samtools/releases/download/1.19/samtools-1.19.tar.bz2"
-  sha256 "fa6b3b18e20851b6f3cb55afaf3205d02fcb79dae3b849fcf52e8fc10ff08b83"
+  url "https://github.com/samtools/samtools/releases/download/1.19.2/samtools-1.19.2.tar.bz2"
+  sha256 "71f60499668e4c08e7d745fbff24c15cc8a0977abab1acd5d2bb419bdb065e96"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f7a8cd5057113b89787bb68f6dd37b6ac88cd78934c18e4fd7bff0b2ad20a355"
-    sha256 cellar: :any,                 arm64_ventura:  "0dd08e9d8a6c5bf4642c4c1994c9bfa69bee83117535664e187628c153c0151d"
-    sha256 cellar: :any,                 arm64_monterey: "9fecc118e11dee133ebe90ddf1ae9ae4cb006d9120e929e5ffcc2e9d65a2bdec"
-    sha256 cellar: :any,                 sonoma:         "9a7fb4fae73287db5c95628528e18a0b0aff72bbb796a506371034eda3210aee"
-    sha256 cellar: :any,                 ventura:        "313d820f6566c5a3eb64bc1ff45281b600216c23e736aba7f3a14ff4d399d145"
-    sha256 cellar: :any,                 monterey:       "3ef96fd41bbc4084bea6217fd674a8ca41bedd81b3ae1cbf28e8e01c81f0ed4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2653d4f163422ddece0dbd2097e8374925b27a011a06cfbebeef1237441bc334"
+    sha256 cellar: :any,                 arm64_sonoma:   "96d8291bf5b218bcbc87e61885c90d6298f1882075e090f8e34cb94a115cdd68"
+    sha256 cellar: :any,                 arm64_ventura:  "a4e4d64adf90122ddd31cae855e59ec285788ea8996ae9855270f7f9e60b4512"
+    sha256 cellar: :any,                 arm64_monterey: "d81893a1352ea09353ac3ae0330df7e3b23cb75fa649ce68ebe2f791d7444c20"
+    sha256 cellar: :any,                 sonoma:         "141687bd1b2d1379411f26e9054f3122ea04a95101e854fa44f818bba137dc24"
+    sha256 cellar: :any,                 ventura:        "f4b0a0160042f68be3861e16cd1d057b821eb4f13f3d37e1754274503d54e08a"
+    sha256 cellar: :any,                 monterey:       "80cd66bb44c7db3d91f3719effdd67f4968296f6358095b82b5cbca64c78b9f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdf0ca5b2caf6e9abd2a718478e5cb0a1d5243e4f322db5b392544d90f0cf6f4"
   end
 
   depends_on "htslib"

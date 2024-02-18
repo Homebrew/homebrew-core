@@ -1,19 +1,19 @@
 class Restic < Formula
   desc "Fast, efficient and secure backup program"
   homepage "https://restic.net/"
-  url "https://github.com/restic/restic/archive/refs/tags/v0.16.3.tar.gz"
-  sha256 "a94d6c1feb0034fcff3e8b4f2d65c0678f906fc21a1cf2d435341f69e7e7af52"
+  url "https://github.com/restic/restic/archive/refs/tags/v0.16.4.tar.gz"
+  sha256 "d736a57972bb7ee3398cf6b45f30e5455d51266f5305987534b45a4ef505f965"
   license "BSD-2-Clause"
   head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d3f43d18da36be74a021ffa96f7587cbd61b070c694228538b24dc120908b5f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d3f43d18da36be74a021ffa96f7587cbd61b070c694228538b24dc120908b5f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d3f43d18da36be74a021ffa96f7587cbd61b070c694228538b24dc120908b5f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "23bc4c4f33e7051059c5e452920254bf26b766086e6d18f94672fd8e0359027f"
-    sha256 cellar: :any_skip_relocation, ventura:        "23bc4c4f33e7051059c5e452920254bf26b766086e6d18f94672fd8e0359027f"
-    sha256 cellar: :any_skip_relocation, monterey:       "23bc4c4f33e7051059c5e452920254bf26b766086e6d18f94672fd8e0359027f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27470621ba9b169279589919990623b56619f479b7d419b0e3759a5e4ad04412"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa155e4d25c221e5192876f1d4cfaba53f7a9e2a2e0a3c9cfd1534e4c4784d5c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa155e4d25c221e5192876f1d4cfaba53f7a9e2a2e0a3c9cfd1534e4c4784d5c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa155e4d25c221e5192876f1d4cfaba53f7a9e2a2e0a3c9cfd1534e4c4784d5c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5847f5dc01de6dac2be7ebcabf85d9a86b793855c018a7e4a54617eb44ff2037"
+    sha256 cellar: :any_skip_relocation, ventura:        "5847f5dc01de6dac2be7ebcabf85d9a86b793855c018a7e4a54617eb44ff2037"
+    sha256 cellar: :any_skip_relocation, monterey:       "5847f5dc01de6dac2be7ebcabf85d9a86b793855c018a7e4a54617eb44ff2037"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "222a45805a06ee54cf489bfd56108be24ae66349c28c6a36cc57d842ad87a614"
   end
 
   depends_on "go" => :build

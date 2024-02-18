@@ -3,18 +3,18 @@ class OrganizeTool < Formula
 
   desc "File management automation tool"
   homepage "https://github.com/tfeldmann/organize"
-  url "https://files.pythonhosted.org/packages/04/66/a402f36c6c1cd4746bd395639cc888520ca09577714a3dc9714582acc388/organize_tool-3.0.1.tar.gz"
-  sha256 "32ffc7d51353633104c0b5ee2f441dd661b74ba73ff2ecd2db493d61de1976fc"
+  url "https://files.pythonhosted.org/packages/46/11/64cd44c8accd864c1f3e67a8185b60434834d50e0876a961554ceb9a64f7/organize_tool-3.1.2.tar.gz"
+  sha256 "03ef0bc8a179a31a302b65f0b2a725cc949946075dd13cd1fb72c2307dda9fbe"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b43bfdf3871ac8b102f54980c6e6daea3381733ea036742bfb38ec785c728431"
-    sha256 cellar: :any,                 arm64_ventura:  "4fe58d30fedf2abddbc5068018a5b1c77c3934f34d155d7d1cba04610c6a39f8"
-    sha256 cellar: :any,                 arm64_monterey: "6ba82bbfd0d90c8168c04c8c7aa64bdb3628dc6e3c6df2875f41ee08d8c60ef2"
-    sha256 cellar: :any,                 sonoma:         "26f4a0cddfe992098bd1d04c2d9fa5e793dedd205bcb3de8c2c0e8ab11336425"
-    sha256 cellar: :any,                 ventura:        "31538839f8718c2de96d1a052a561dbf24740feee2e47a343d80f3a683d5cc14"
-    sha256 cellar: :any,                 monterey:       "9a3e43ae37914ea61f6ab2d22187b86d216059c82b95104ce629c9be98927929"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee45a33d2727ccf30cc217e9f3d193df00c5e6e256ab260857aa5fbb77d9850"
+    sha256 cellar: :any,                 arm64_sonoma:   "77c01e4ce2849f5033c66e82c283053ed077ac811de540fccc3e77906a2bec8e"
+    sha256 cellar: :any,                 arm64_ventura:  "b7cf2c4f209b8ebf1a1b658e9628391aeebbb68fb0ccfec7ec2e1dc160a14747"
+    sha256 cellar: :any,                 arm64_monterey: "44d26e78de6a5e78bfd41ecfd20e51cc6e0635e50160837ff8455972ff290d09"
+    sha256 cellar: :any,                 sonoma:         "c50c9acf49eec667f1c71c7a55fd4b1eba03313b310f1d183b26ed4961ade0c3"
+    sha256 cellar: :any,                 ventura:        "f0c0d9ae4888fc8643e5253c7816ad716a6de90b9015f30c835b2f0d9de317d7"
+    sha256 cellar: :any,                 monterey:       "79377f5e16c1f55361ab4b563a9f38f90bb5d838859f22d758bdb62b27e1b625"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c13e3ed0408a0760bd6732ede2c7df9c0a2059386c0fcbb78e425bf99c412578"
   end
 
   depends_on "cmake" => :build
@@ -25,7 +25,6 @@ class OrganizeTool < Formula
   depends_on "python-click"
   depends_on "python-jinja"
   depends_on "python-markupsafe"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
@@ -61,18 +60,18 @@ class OrganizeTool < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/62/d1/7feaaacb1a3faeba96c06e6c5091f90695cc0f94b7e8e1a3a3fe2b33ff9a/platformdirs-4.1.0.tar.gz"
-    sha256 "906d548203468492d432bcb294d4bc2fff751bf84971fbb2c10918cc206ee420"
+    url "https://files.pythonhosted.org/packages/96/dc/c1d911bf5bb0fdc58cc05010e9f3efe3b67970cef779ba7fbc3183b987a8/platformdirs-4.2.0.tar.gz"
+    sha256 "ef0cc731df711022c174543cb70a9b5bd22e5a9337c8624ef2c2ceb8ddad8768"
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/aa/3f/56142232152145ecbee663d70a19a45d078180633321efb3847d2562b490/pydantic-2.5.3.tar.gz"
-    sha256 "b3ef57c62535b0941697cce638c08900d87fcb67e29cfa99e8a68f747f393f7a"
+    url "https://files.pythonhosted.org/packages/73/27/a17cc261bb974e929aa3b3365577e43c1c71c3dcd8669250613a7135cb8f/pydantic-2.6.1.tar.gz"
+    sha256 "4fd5c182a2488dc63e6d32737ff19937888001e2a6d86e94b3f233104a5d1fa9"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/b2/7d/8304d8471cfe4288f95a3065ebda56f9790d087edc356ad5bd83c89e2d79/pydantic_core-2.14.6.tar.gz"
-    sha256 "1fd0c1d395372843fba13a51c28e3bb9d59bd7aebfeb17358ffaaa1e4dbbe948"
+    url "https://files.pythonhosted.org/packages/0d/72/64550ef171432f97d046118a9869ad774925c2f442589d5f6164b8288e85/pydantic_core-2.16.2.tar.gz"
+    sha256 "0ba503850d8b8dcc18391f10de896ae51d37fe5fe43dbfb6a35c5c5cad271a06"
   end
 
   resource "python-dateutil" do
@@ -106,18 +105,13 @@ class OrganizeTool < Formula
   end
 
   def install
+    ENV["PIP_USE_PEP517"] = "1"
     venv = virtualenv_create(libexec, "python3.12")
-    dependencies = resources.to_set(&:name)
-    if OS.linux?
-      # `macos-tags` and its dependencies are only needed on macOS
-      # TODO: Currently requires manual check to confirm PyPI dependency tree
-      dependencies -= %w[macos-tags mdfind-wrapper xattr cffi pycparser]
-      # Same for `pyobjc-framework-cocoa` and its dependencies
-      dependencies -= %w[pyobjc-framework-cocoa pyobjc-core]
-    end
-    dependencies.each do |r|
-      venv.pip_install resource(r)
-    end
+    # `macos-tags` and `pyobjc-framework-cocoa` + dependencies are only needed on macOS
+    # TODO: Currently requires manual check to confirm PyPI dependency tree
+    skipped = %w[macos-tags mdfind-wrapper xattr cffi pycparser]
+    skipped += %w[pyobjc-framework-cocoa pyobjc-core]
+    venv.pip_install resources.reject { |r| OS.linux? && skipped.include?(r.name) }
     venv.pip_install_and_link buildpath
   end
 
