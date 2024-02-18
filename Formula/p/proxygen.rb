@@ -4,6 +4,7 @@ class Proxygen < Formula
   url "https://github.com/facebook/proxygen/releases/download/v2024.03.18.00/proxygen-v2024.03.18.00.tar.gz"
   sha256 "060277cf32309fb0c0a1a5fca772500015ffb53a3b9f31534aaa50d27e80c9d3"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/facebook/proxygen.git", branch: "main"
 
   bottle do
