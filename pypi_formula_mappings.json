@@ -261,6 +261,9 @@
   "cruft": {
     "exclude_packages": ["cookiecutter", "six", "typing-extensions"]
   },
+  "cryptography": {
+    "extra_packages": ["semantic-version", "setuptools-rust"]
+  },
   "crytic-compile": {
     "exclude_packages": ["solc-select", "toml"]
   },
@@ -854,10 +857,6 @@
   },
   "python-configobj": {
     "exclude_packages": ["six"]
-  },
-  "python-cryptography": {
-    "exclude_packages": ["cffi", "pycparser", "typing-extensions"],
-    "extra_packages": ["semantic-version", "setuptools-rust"]
   },
   "python-jinja": {
     "package_name": "jinja2",

@@ -1,4 +1,4 @@
-class PythonCryptography < Formula
+class Cryptography < Formula
   desc "Cryptographic recipes and primitives for Python"
   homepage "https://cryptography.io/en/latest/"
   url "https://files.pythonhosted.org/packages/b3/cc/988dee9e00be594cb1e20fd0eb83facda0c229fdef4cd7746742ecd44371/cryptography-42.0.3.tar.gz"
@@ -6,24 +6,23 @@ class PythonCryptography < Formula
   license any_of: ["Apache-2.0", "BSD-3-Clause"]
   head "https://github.com/pyca/cryptography.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6c1c06863d05e22b3940e36ae9e224c94296bc14cef43b74d3de6cb68a56123e"
-    sha256 cellar: :any,                 arm64_ventura:  "c9d97cd99e0073744e4fb6445f7a4f6a32e49fea109429379196e351208051df"
-    sha256 cellar: :any,                 arm64_monterey: "899b9f9aab8b4127661812d4f01c1b352000d64f483f8d0d770469ac6271d0e4"
-    sha256 cellar: :any,                 sonoma:         "1393b1525e1ad878c15cf5443e6fd86574ca5bd20398c48dd3aed72281df8464"
-    sha256 cellar: :any,                 ventura:        "98d7728a39972d016185514e329baf087ce620b992cf17461a77dfb602fb2920"
-    sha256 cellar: :any,                 monterey:       "c3d2898db37e9e78706eb7a5e73dbb54d62506e3f2fd64ecafee3fe160e91051"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f739df53aa75bbd183429f48ecdb73686a71593f15a0f379846d1d13fd0ac15b"
-  end
-
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
-  depends_on "python-typing-extensions" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "rust" => :build
-  depends_on "cffi"
   depends_on "openssl@3"
+
+  uses_from_macos "libffi"
+
+  resource "cffi" do
+    url "https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz"
+    sha256 "bcb3ef43e58665bbda2fb198698fcae6776483e0c4a631aa5647806c25e02cc0"
+  end
+
+  resource "pycparser" do
+    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
+    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
+  end
 
   resource "semantic-version" do
     url "https://files.pythonhosted.org/packages/7d/31/f2289ce78b9b473d582568c234e104d2a342fd658cc288a7553d83bb8595/semantic_version-2.10.0.tar.gz"
