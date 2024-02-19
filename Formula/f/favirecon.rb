@@ -1,18 +1,18 @@
 class Favirecon < Formula
   desc "Uses favicon.ico to improve the target recon phase"
   homepage "https://github.com/edoardottt/favirecon"
-  url "https://github.com/edoardottt/favirecon/archive/refs/tags/v0.0.6.tar.gz"
-  sha256 "d06055563247fa50b0cb6bc3523e468bb41e3a6c3de444e3a304dc681ecec851"
+  url "https://github.com/edoardottt/favirecon/archive/refs/tags/v0.0.7.tar.gz"
+  sha256 "7f1cccacb12250d4e667b82a1738d339d575fe7870c976ffbc18ffcb88d3690c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5cd6734be20dd0846ef5b052e681ab9eb41a5fd87e1dddc1abf7e044e3df7f9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33f1db7d620228b80f0c38be9be0e84139d7e3e70da414fba697df951ea7947d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ed18715d24c1cd12bb44fac53b37894662da42cc7b2d62a91563af29b508905"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c05f355cacd377614ae2a97a5c8d44b0d710a886e8622cd402c2e54a4680644f"
-    sha256 cellar: :any_skip_relocation, ventura:        "966a3083c79c04160637faffe57f2b8458b302557f834e01fbee04174aadd389"
-    sha256 cellar: :any_skip_relocation, monterey:       "710a96804601923bb1de16b8a59821ec82b810edb9ba71fd98bf26d3e1a56e72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29fad985b008a1c4eb5ab4e291112cddefcf88130dad8d30661170ad800e4f7b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2a5391be5911c775bf17e4bdeb44bf62daa8b4810e83754b4843062a73c2e51"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53801c5f9005d8fd72a140d1a77d4a31f899de8b851bac6657dcff25b11f11d5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5c50759f35661b9722fd61482a76b8e4f7e9a87cd2e8f06a707131f7fef978d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2c33c90e50eda4899354d0335402e46ae14b6f17ccdd078baf3fd375734092a3"
+    sha256 cellar: :any_skip_relocation, ventura:        "a863384d568854e26f6bf17fa04fa3dfe5cb042a08d2f62d136092efcf1baa6f"
+    sha256 cellar: :any_skip_relocation, monterey:       "1f1be1153053cdf3de43c659282dc44bc707aecadbe305a2b5a30d58a0e7bcf8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7038417a9c8c270116f590011f9375af8a62b0d1474badfbc7d3f1ac04abd9c"
   end
 
   depends_on "go" => :build

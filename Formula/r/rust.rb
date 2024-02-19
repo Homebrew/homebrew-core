@@ -4,25 +4,24 @@ class Rust < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.74.0-src.tar.gz"
-    sha256 "882b584bc321c5dcfe77cdaa69f277906b936255ef7808fcd5c7492925cf1049"
+    url "https://static.rust-lang.org/dist/rustc-1.76.0-src.tar.gz"
+    sha256 "9e5cff033a7f0d2266818982ad90e4d3e4ef8f8ee1715776c6e25073a136c021"
 
     # From https://github.com/rust-lang/rust/tree/#{version}/src/tools
     resource "cargo" do
-      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.75.0.tar.gz"
-      sha256 "d6b9512bca4b4d692a242188bfe83e1b696c44903007b7b48a56b287d01c063b"
+      url "https://github.com/rust-lang/cargo/archive/refs/tags/0.77.0.tar.gz"
+      sha256 "1c33e2feb197f848f082fdc074162328e231c2f68394e0e1d2dbbbf79c9fc3ec"
     end
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "be46d15d3fbef5ae61104a8ce81e9a8f2719563f060fc84df5348081707f6d40"
-    sha256 cellar: :any,                 arm64_ventura:  "499c4effbd4234b1819ecd4cc60c11e1f6f907727df47914c3f1f2be52eab01f"
-    sha256 cellar: :any,                 arm64_monterey: "c617de08e813aaccabc42d4e72baa7fc701a7e91716ded6f6f7a2e526ef5611f"
-    sha256 cellar: :any,                 sonoma:         "948d49f447a47930260fc01d8f305aae3152f55d764d3452027a624258c18f1e"
-    sha256 cellar: :any,                 ventura:        "980242b3fb8cd42d7fff3716ca0d71ca77aac742c2fb0e0a1bbd71c75c45e38c"
-    sha256 cellar: :any,                 monterey:       "c5bad0c271901607e341fac2f5c58d92293d710036a4d264ba290c01ea108742"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a78550a978b777daf1a786d9a7d91692c1b9ccdabde32eb96e4dc5481429926a"
+    sha256 cellar: :any,                 arm64_sonoma:   "daeab0c244dcfb2c9bceac0f9db6a3517a6b4a06804de0a37935bcd359b07468"
+    sha256 cellar: :any,                 arm64_ventura:  "077d470ff1aaa029d544cd98704c0e609f3b414f7145e64b9331d1cd0f546690"
+    sha256 cellar: :any,                 arm64_monterey: "4ae5ace7a17b60e20f39eb118096959d9a71ae6b388e1abe495608601e7127a5"
+    sha256 cellar: :any,                 sonoma:         "1de1aada2510c88922984909316f75e1ab5a47babcfd3cdc59d7aa74f23dab6b"
+    sha256 cellar: :any,                 ventura:        "d611242154cf14c66bf8b7c07fe99d7ad63461f428c516d0c3ad612c5d954567"
+    sha256 cellar: :any,                 monterey:       "0327b0f7d6537b0c5a0e35730bf02069fd06d9202167b831141a047276091dc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a374dcb5adc588582a067abd93af3c08e3b153cccf376753bce542b5efe6c85"
   end
 
   head do
@@ -48,30 +47,26 @@ class Rust < Formula
   resource "cargobootstrap" do
     on_macos do
       on_arm do
-        url "https://static.rust-lang.org/dist/2023-10-05/cargo-1.73.0-aarch64-apple-darwin.tar.xz"
-        sha256 "caa855d28ade0ecb70567d886048d392b3b90f15a7751f9733d4c189ce67bb71"
+        url "https://static.rust-lang.org/dist/2023-12-28/cargo-1.75.0-aarch64-apple-darwin.tar.xz"
+        sha256 "86320d22c192b7a531daed941bbc11d8c7d01b6490cb4b85e7aa7ff92b5baf65"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2023-10-05/cargo-1.73.0-x86_64-apple-darwin.tar.xz"
-        sha256 "94f9eb5836fe59a3ef1d1d4c99623d602b0cec48964c5676453be4205df3b28a"
+        url "https://static.rust-lang.org/dist/2023-12-28/cargo-1.75.0-x86_64-apple-darwin.tar.xz"
+        sha256 "08c594b582141bfb3113b4325f567abe1cae5d5e075b0b2b56553f8bc59486b5"
       end
     end
 
     on_linux do
       on_arm do
-        url "https://static.rust-lang.org/dist/2023-10-05/cargo-1.73.0-aarch64-unknown-linux-gnu.tar.xz"
-        sha256 "1195a1d37280802574d729cf00e0dadc63a7c9312a9ae3ef2cf99645f7be0a77"
+        url "https://static.rust-lang.org/dist/2023-12-28/cargo-1.75.0-aarch64-unknown-linux-gnu.tar.xz"
+        sha256 "cf367bccbc97ba86b4cf8a0141c9c270523e38f865dc7220b3cfdd79b67200ed"
       end
       on_intel do
-        url "https://static.rust-lang.org/dist/2023-10-05/cargo-1.73.0-x86_64-unknown-linux-gnu.tar.xz"
-        sha256 "7c3ce5738d570eaea97dd3d213ea73c8beda4f0c61e7486f95e497b7b10c4e2d"
+        url "https://static.rust-lang.org/dist/2023-12-28/cargo-1.75.0-x86_64-unknown-linux-gnu.tar.xz"
+        sha256 "6ac164e7da969a1d524f747f22792e9aa08bc7446f058314445a4f3c1d31a6bd"
       end
     end
   end
-
-  # Fixes 'could not read dir ".../codegen-backends"' on 12-arm64.
-  # See https://github.com/Homebrew/homebrew-core/pull/154526#issuecomment-1814795860
-  patch :DATA
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
@@ -200,20 +195,3 @@ class Rust < Formula
     assert missing_linkage.empty?, "Missing linkage: #{missing_linkage.join(", ")}"
   end
 end
-
-__END__
-diff --git a/src/bootstrap/compile.rs b/src/bootstrap/compile.rs
-index 292ccc5780f..7266badf501 100644
---- a/src/bootstrap/compile.rs
-+++ b/src/bootstrap/compile.rs
-@@ -546,7 +546,9 @@ fn run(self, builder: &Builder<'_>) {
-                 .join("stage0/lib/rustlib")
-                 .join(&host)
-                 .join("codegen-backends");
--            builder.cp_r(&stage0_codegen_backends, &sysroot_codegen_backends);
-+            if stage0_codegen_backends.exists() {
-+                builder.cp_r(&stage0_codegen_backends, &sysroot_codegen_backends);
-+            }
-         }
-     }
- }

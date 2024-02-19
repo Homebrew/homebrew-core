@@ -1,21 +1,18 @@
 class Libpsl < Formula
   desc "C library for the Public Suffix List"
   homepage "https://rockdaboot.github.io/libpsl"
-  url "https://github.com/rockdaboot/libpsl/releases/download/0.21.2/libpsl-0.21.2.tar.gz"
-  sha256 "e35991b6e17001afa2c0ca3b10c357650602b92596209b7492802f3768a6285f"
+  url "https://github.com/rockdaboot/libpsl/releases/download/0.21.5/libpsl-0.21.5.tar.gz"
+  sha256 "1dcc9ceae8b128f3c0b3f654decd0e1e891afc6ff81098f227ef260449dae208"
   license "MIT"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "669b3ec271b052f66ea65aad5deee3757010f90d74d4b76231333b5d4f6720de"
-    sha256 cellar: :any,                 arm64_ventura:  "54e6c05ff0b41c160db7087ee741d616c899c63a74e157e4a74007be055bc4b4"
-    sha256 cellar: :any,                 arm64_monterey: "29b19583775b9a640685e24bd453f16a3e5be86546b828561a6ecd338a662e80"
-    sha256 cellar: :any,                 arm64_big_sur:  "f6f58b4348f12016325eb53fa4e1cfd35dc558a42147c16498560c7337ef24e0"
-    sha256 cellar: :any,                 sonoma:         "c1939620d3b71cc9a6b03836e0d6c304bf4b37ab9789f5b9067319a70a79f6e9"
-    sha256 cellar: :any,                 ventura:        "cc6122f645807aaa12528f23f94a006e2cc0f826a0640ec05c1fd5549fa48f49"
-    sha256 cellar: :any,                 monterey:       "d37094a8cd209afbab03e05ce8cd0e0300639a1ac368317a2cd1f50a09edffd5"
-    sha256 cellar: :any,                 big_sur:        "ba7c45172edcb181c9865cb0f607945f8f01905aa8b01e36d83930141873f461"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9eea17163910178315e7448318bb74b70fc69eec179c44dbdbb64183b32f777d"
+    sha256 cellar: :any,                 arm64_sonoma:   "293cdc1b72ebc6aaf89753051e26507003d0cd8fd1ae7c8ba7aac4a1d428eeb8"
+    sha256 cellar: :any,                 arm64_ventura:  "a7274d418dc461859a46bdde7389717f181c243ce54a436eecd9a064b4bf7086"
+    sha256 cellar: :any,                 arm64_monterey: "6dfef8703104c82bc23ad69a8157c3285013a4564358a634152c17b64375f0dc"
+    sha256 cellar: :any,                 sonoma:         "576bb103055cd79d7876b314e32290c125c935b295ac6607eb4c16fcc97ada6d"
+    sha256 cellar: :any,                 ventura:        "ad1653690a326eb233da014de1672cf949c4eecff7fb8e21b153b3262df736d9"
+    sha256 cellar: :any,                 monterey:       "d5caba4b43e239d909eeb5b951ddad3cfeaee870faf59b37cb05236b3090cb54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "241163ff1b967310778ad589913030f8cca107d3cc287002d7db15b819166fb5"
   end
 
   depends_on "meson" => :build

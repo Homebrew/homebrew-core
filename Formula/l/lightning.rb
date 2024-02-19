@@ -7,19 +7,20 @@ class Lightning < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "099e81b84e2fc1a31b43d316df2768dfa6441e55aca90e8113fe18772c3f611e"
-    sha256 cellar: :any,                 ventura:      "05f528061480f85ae5451ad09770f5a44e60388f9cae719735640c8819e2970b"
-    sha256 cellar: :any,                 monterey:     "8ba3c1335a85fa0d61611fa0bf5aa73ae9628afb412a3e5a60f6cb847802ba30"
-    sha256 cellar: :any,                 big_sur:      "dd12b9fd6a87b5ecbca432211b26c26f3ca8fb1b032e4d61a144d38a2ca14bd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "e21fe40273d1926784788c2cbb0627611e37089a4a1ec48388fcaf4ffb77c5ba"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "6ca49f5cfa9fee14775858599b92931e40247ec418ab2a905e70081d283a0193"
+    sha256 cellar: :any,                 arm64_ventura:  "b4871a4e6037699bc9b26f377453818a78f1d5a1167d4bc1451ec855fd6e70d2"
+    sha256 cellar: :any,                 arm64_monterey: "b88f2e86b5a1658f6055b88038d20dee12312075a8c5e564110c257cabcc8496"
+    sha256 cellar: :any,                 sonoma:         "0fb798ce3c9f7fd27c6f085d8d7780b7c66860685bae784443589eb5524ce52a"
+    sha256 cellar: :any,                 ventura:        "e856a9e8628e8ac35417af45ccbfd948f9fd7e0cac62c3bb3c615de5f70bb4b5"
+    sha256 cellar: :any,                 monterey:       "6aa258f975222cd835c88a934fc1c7dca3f67343d65a36443b128559524a1149"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55ccd9e5c6224b62caf0678331de3ecf28bcf327014f4d0aed43ee05cd88264f"
   end
 
   depends_on "binutils" => :build
-  depends_on arch: :x86_64
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }, "--disable-silent-rules"
     system "make", "install"
   end
 

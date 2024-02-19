@@ -1,20 +1,18 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "https://github.com/PJK/libcbor"
-  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "e75f712215d7b7e5c89ef322a09b701f7159f028b8b48978865725f00f79875b"
+  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "89e0a83d16993ce50651a7501355453f5250e8729dfc8d4a251a78ea23bb26d7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0c9da4fa78cfceac13e472381641e2606d5e717efff4b4ab4a4a016ba4e2ba28"
-    sha256 cellar: :any,                 arm64_ventura:  "ee1e77e1e6cef7ba754d1757f7aa038e34b139466f789231b672e389a194a5fc"
-    sha256 cellar: :any,                 arm64_monterey: "57f42308a7a0da1e7c5e7093669c0b860d83832903ec1233fad60ecd8ac92aeb"
-    sha256 cellar: :any,                 arm64_big_sur:  "3f8fcacd05f809c68d133967f3485997d3864afd76c7ea8df4b00a6638cd71dd"
-    sha256 cellar: :any,                 sonoma:         "59ab799eb5a658dac80c3f7c8a2f6adfcc59d7d6413ab100191085dd27673e73"
-    sha256 cellar: :any,                 ventura:        "3c52d6c4828af57070d970dab0cfe3e174572c0eb6adf496c1cbdb54988cd97a"
-    sha256 cellar: :any,                 monterey:       "5b1cc91f67025cfe899980d227fb0d14592635746e966b19307c9fc298f514e0"
-    sha256 cellar: :any,                 big_sur:        "b748fb213e434fe650e0964d72f84275a5aac3620b336778dbdf578b5263df0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c532bdfe6b9efb37ff7cd43d1fcf2def27aefbffbea09093cecf16f95adc198"
+    sha256 cellar: :any,                 arm64_sonoma:   "173091f8ffca1b73c4c17bbe5a7a6034da4e561b9e13d6e78ca536f56e364015"
+    sha256 cellar: :any,                 arm64_ventura:  "2adc8eddfa152c381152c94e3514cbabcc1594b56db0f89ac0d63a1461254f15"
+    sha256 cellar: :any,                 arm64_monterey: "a50c96cf0fd55aff2d31a5b2115f9464b65d7f405339bbbde736413a29d67a59"
+    sha256 cellar: :any,                 sonoma:         "d7862b97499968a3bdf6ca866c806bbc81664b465c4703788ff4501e7d77269f"
+    sha256 cellar: :any,                 ventura:        "cb26f56b5ff9f67eeefcde7767e6a83263ba3736cdfcb3ed632aa2f4acb71197"
+    sha256 cellar: :any,                 monterey:       "edb0c54d2580c8ddff49ffc2cea205af83cbbddbb6baf9f9443ffdf5496b06be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f26df577970defa0194f44b476b2f91d606bce7798c15b5d98cf80038db2f67a"
   end
 
   depends_on "cmake" => :build

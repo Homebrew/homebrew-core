@@ -18,7 +18,7 @@ class PythonAnytree < Formula
   depends_on "poetry" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
-  depends_on "six" # upstream isse to drop six, https://github.com/c0fec0de/anytree/issues/249
+  depends_on "six" # upstream issue to drop six, https://github.com/c0fec0de/anytree/issues/249
 
   def pythons
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("python@") }

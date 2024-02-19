@@ -4,8 +4,8 @@ class Threadweaver < Formula
   license "LGPL-2.0-or-later"
 
   stable do
-    url "https://download.kde.org/stable/frameworks/5.113/threadweaver-5.113.0.tar.xz"
-    sha256 "f749e4225640daa4650f4b6b6a31aa4ff523b14b13885309f042ecf25a3df1f4"
+    url "https://download.kde.org/stable/frameworks/5.115/threadweaver-5.115.0.tar.xz"
+    sha256 "9fd08658f5b5bf3879217834ed392da245f16ae1199795f72423336d48d24eb8"
     depends_on "qt@5"
   end
 
@@ -15,13 +15,13 @@ class Threadweaver < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "16f83bf34b6e95b6584eb2c11c88dd31eec6d9587dea9066ad8f5388bc0e676c"
-    sha256 cellar: :any,                 arm64_ventura:  "d5807db33f8915418cc10b5594416c4bf79c6d9705d5693b66957cf26fa5a5f4"
-    sha256 cellar: :any,                 arm64_monterey: "ef521c732d2c44b9c2fceec081878d03b4665a55a4a9fdd57427a8f62e86f84d"
-    sha256 cellar: :any,                 sonoma:         "a773d1b7da2a9554790d489022b3710433066f91e97a836b4311ffaf1e9c8b7e"
-    sha256 cellar: :any,                 ventura:        "4472272e2bdaf44d0885f0dba943c1b4bead9b7ade790455fc0768b8d65b6968"
-    sha256 cellar: :any,                 monterey:       "413a520c1e1572cbbc1ad215ce839dd6800994c65c733786537a92cd773b828e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2def47067c832e87ad1d637d2aa3a0960fb74f733bb40e551780cf399864f3b8"
+    sha256 cellar: :any,                 arm64_sonoma:   "cb3989ba81b4a92fe2ac8f2a3b6d218b18431629b11d299ceed2022e413d2397"
+    sha256 cellar: :any,                 arm64_ventura:  "78790e4f019dd1745b5950cccf6043c6f7040920ba32e858634d2f2ec9f75065"
+    sha256 cellar: :any,                 arm64_monterey: "fe17fb3069894f187ec27506e12f513d13ab282ad19d04f41a06e9b9b838332b"
+    sha256 cellar: :any,                 sonoma:         "c5275182fe64258e97213d607313c57dcd9106bfcf524800a3a38abcb24e02dd"
+    sha256 cellar: :any,                 ventura:        "d19358856e9b60c789c74c27d9050fea14ad6ee9ff89bcb83711ea08a9edaa77"
+    sha256 cellar: :any,                 monterey:       "117d9807b7463ff5951ff4f99b7b85dfe6d1f9a87044962c3f0d1c3382a88ba9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0ace1ba956040585ecbe6abeed859f4dfade258917f8059073d9da0fc72f0e9"
   end
 
   head do

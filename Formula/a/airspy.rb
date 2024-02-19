@@ -3,6 +3,7 @@ class Airspy < Formula
   homepage "https://airspy.com/"
   url "https://github.com/airspy/airspyone_host/archive/refs/tags/v1.0.10.tar.gz"
   sha256 "fcca23911c9a9da71cebeffeba708c59d1d6401eec6eb2dd73cae35b8ea3c613"
+  license "GPL-2.0-or-later"
   head "https://github.com/airspy/airspyone_host.git", branch: "master"
 
   bottle do

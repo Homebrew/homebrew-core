@@ -3,12 +3,18 @@ class Brag < Formula
   homepage "https://brag.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/brag/brag/1.4.3/brag-1.4.3.tar.gz"
   sha256 "f2c8110c38805c31ad181f4737c26e766dc8ecfa2bce158197b985be892cece6"
+  license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "33072e85eec020579548bd6559d88e8ca2e192ac09c921620d3b1f1cb9349cea"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1dc1883ed39f5e1c2335a0639cfb3f67b5b7245a7a4e579996eeaa75579d688e"
   end
 
   depends_on "uudeview"
+
+  on_linux do
+    depends_on "tcl-tk"
+  end
 
   def install
     bin.install "brag"

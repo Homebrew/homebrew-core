@@ -1,17 +1,17 @@
 class Mtoc < Formula
   desc "Mach-O to PE/COFF binary converter"
   homepage "https://opensource.apple.com/"
-  url "https://github.com/apple-oss-distributions/cctools/archive/refs/tags/cctools-1009.2.tar.gz"
-  sha256 "da3b7d3a9069e9c0138416e3ec56dbb7dd165b73d108d3cee6397031d9582255"
+  url "https://github.com/apple-oss-distributions/cctools/archive/refs/tags/cctools-1009.3.tar.gz"
+  sha256 "4b92468ca792244131c821b25cb7e8d133e7508178de1b3f4992ba8f08f19dca"
   license "APSL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09f5ebd19cf69d050cdfe07449b88af12332a0f4a4ae00ffd2aca2686b7f65d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e62f8e6169d30a003ccfe37f099c16e067d0eb155ebb3493378d18230b47d525"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb34a8d6ea6ecb1d36df9a138a0940eaf9e11dfdd2fe1f7f3f196e34c0d7aa2b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cf68d8e1eeebac0d968f6602033d3e849f5e11b6e4f85cc9491057250ced9b15"
-    sha256 cellar: :any_skip_relocation, ventura:        "b80782da42c2a981fb9c373fa351d8181d1c32b365ed1115a6b9ca856c812b45"
-    sha256 cellar: :any_skip_relocation, monterey:       "8799642d1f54cb65371b1dd19dd70778aed1418678a25f636db50d2908e7e6ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64ca5eeec93a13384e7a694319f7efd66031cc3e9a516b2f824dea49cc597f93"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0954ac3e537307cee45ea244b7dcaf768f418e50c3f4dc9c95fa4ad7d59899ae"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "82477e19e4a32c11f53643cb98592079b9b249c55154aab62bc44ebf23353c16"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c24baecad18e92b737f47d25211434e984d0a4eb01d4ffcd7da81c5c70c1a5ae"
+    sha256 cellar: :any_skip_relocation, ventura:        "57dde70448e8595e9940d961fd78fdf7c0902d3cb0e88cfe39e5c60d431b90c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "d4dc48d23f9c700cbe7b56a5b7569c73b80085f817f9fa891fcb5cc7598f43bb"
   end
 
   depends_on "llvm" => :build

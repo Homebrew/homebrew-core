@@ -1,19 +1,19 @@
 class Jprq < Formula
   desc "Join Public Router, Quickly"
   homepage "https://jprq.io/"
-  url "https://github.com/azimjohn/jprq/archive/refs/tags/2.2.tar.gz"
-  sha256 "6121e0ac74512052ed00c57c363f0f0b66910618ebd8134cfa72acca05b09163"
+  url "https://github.com/azimjohn/jprq/archive/refs/tags/2.3.tar.gz"
+  sha256 "b134d981e37dae05cd3d1a5451fdf63d7ef1b8b23ec4cc99bdbcd4951bfdbf13"
   license "BSD-3-Clause"
   head "https://github.com/azimjohn/jprq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "456e989dc2308d2cf7aa857dc56b905d0f14b66ab4ac60998ecd9150d5b94b9d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f2dbc47fc7487845fb45e9d772f335f2cb5c99bd492c7c88a04cefe13e75e64"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "46d46ae2ec35cb3e24210ee7d4538d784d25cfa834b108fc5b40a0fd6bca6302"
-    sha256 cellar: :any_skip_relocation, sonoma:         "068e618feb94fe52ee7c1a8232145afb5887ef98981e3be46440565f4096ca66"
-    sha256 cellar: :any_skip_relocation, ventura:        "90da7091cc8c37b6d52fcbac5838e4c57eafad10d9bc8a79f48ad3e2421f30a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "3f25e7a3661044d1f4e0f55eb9138fb17276da16524ab007efbcb5233b68d4c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0658a3bde81ba4b7910c118c5828b8df10380a894243b34a19090eeef3144386"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2ac3c91e30779722a50d98b44dd8b29d33ce020676761b232d0100c27c8e97e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66a0567935070ced5c8a72278654c0c5dfc1980943896e61bc94530c90c36a06"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c566cb561847a5bbdcba4320d510ae68654e669c48565c8c654cf2dc012ec9cb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "15827109152237c45fb1f6fee0bb37a82a4dcbc7a45f87b07b51c68ad7d48f37"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f3bf8f6cf6e2bd8821fbc247206803ee620b30a351ee3d859833103fac4c8f5"
+    sha256 cellar: :any_skip_relocation, monterey:       "21cd98befecfacea7c5748e419c81ddb31135871cf7c6cddb8a00f6060c92136"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aefa837e3b7be3ecb446440d740fb2a84dab6a73f5382ae140971ec2d3c2f19c"
   end
 
   depends_on "go" => :build

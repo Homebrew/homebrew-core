@@ -31,14 +31,15 @@ class Emp < Formula
     (buildpath/"src/github.com/remind101/").mkpath
     ln_s buildpath, buildpath/"src/github.com/remind101/empire"
 
-    system "go", "build", "-o", bin/"emp", "./src/github.com/remind101/empire/cmd/emp"
+    system "go", "build", *std_go_args, "./src/github.com/remind101/empire/cmd/emp"
   end
 
   test do
-    require "webrick"
+    port = free_port
 
-    server = WEBrick::HTTPServer.new Port: 8035
-    server.mount_proc "/apps/foo/releases" do |_req, res|
+    # Mock an API server response to test the CLI
+    fork do
+      server = TCPServer.new(port)
       resp = {
         "created_at"  => "2015-10-12T0:00:00.00000000-00:00",
         "description" => "my awesome release",
@@ -49,17 +50,23 @@ class Emp < Formula
         },
         "version"     => 1,
       }
-      res.body = JSON.generate([resp])
+      body = JSON.generate([resp])
+
+      loop do
+        socket = server.accept
+        socket.write "HTTP/1.1 200 OK\r\n" \
+                     "Content-Type: application/json; charset=utf-8\r\n" \
+                     "Content-Length: #{body.bytesize}\r\n" \
+                     "\r\n"
+        socket.write body
+        socket.close
+      end
     end
 
-    Thread.new { server.start }
+    sleep 1
 
-    begin
-      ENV["EMPIRE_API_URL"] = "http://127.0.0.1:8035"
-      assert_match(/v1  zab  Oct 1(1|2|3)  2015  my awesome release/,
-        shell_output("#{bin}/emp releases -a foo").strip)
-    ensure
-      server.shutdown
-    end
+    ENV["EMPIRE_API_URL"] = "http://127.0.0.1:#{port}"
+    assert_match(/v1  zab  Oct 1(1|2|3)  2015  my awesome release/,
+      shell_output("#{bin}/emp releases -a foo").strip)
   end
 end

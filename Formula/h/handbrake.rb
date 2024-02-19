@@ -1,19 +1,19 @@
 class Handbrake < Formula
   desc "Open-source video transcoder available for Linux, Mac, and Windows"
   homepage "https://handbrake.fr/"
-  url "https://github.com/HandBrake/HandBrake/releases/download/1.7.2/HandBrake-1.7.2-source.tar.bz2"
-  sha256 "6a0fa23420483a2d74e58f0ad9944931d8f2e65bee63cf17333cbd9cb560ba93"
+  url "https://github.com/HandBrake/HandBrake/releases/download/1.7.3/HandBrake-1.7.3-source.tar.bz2"
+  sha256 "228681e9f361a69f1e813a112e9029d90fcf89e54172e7ff1863ce1995eae79a"
   license "GPL-2.0-only"
   head "https://github.com/HandBrake/HandBrake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89839b1bd186ae1b34026da268befdbd8276694d0bd8462275c8161ac92af982"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e97dae310a73424cfd2ae8e9231cbf09d33363134cefd92a8485d9006c984ca1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3693e80b9b776b54569d729bff2f1f9d41f830a254ea53a95b49ebfffb6dcc49"
-    sha256 cellar: :any_skip_relocation, sonoma:         "759013d94337f1a9e269ddf65be11ae036164053ef14b0836d7fa557cb7be650"
-    sha256 cellar: :any_skip_relocation, ventura:        "404ee5979562e630ebcea08f1caa698134bf69916157038c5efbb6c79e49f7d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ad1b90768d778fc41aa375b1d0b93444c82bf2f62080f7726477c64e051014b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f6d076e4b17a96e5d0979e56a32be895b222bf74985a1d687d33e40303d60f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "347873f90a91e53fa45ebbbc35e36616359c5579472b1b959c9385de469a324d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3b32cc386437c1ccb01c2ad1ec36d05534a50eba83f971d0575a0ff161bf852"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d21dca5e31bcf0fad0295ca4bc9d2e941e2dfcbeb291d0cd3f722fa401311718"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b338d003052d23a3199240f566dbe5bbd915eedab30098ce5f892952317eeffa"
+    sha256 cellar: :any_skip_relocation, ventura:        "ccec04e70d6034016ca392aac8692cf8d95621f69d4efb3adadbd01edb45d476"
+    sha256 cellar: :any_skip_relocation, monterey:       "aba4457f9045b7be4e966d8bedbf1db2d43c3d599d8a170de718c3f0b66f9ae9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99e46b6be919867b917eb6db71151c02b601712d7e4403ea60aaa22d154d2db3"
   end
 
   depends_on "autoconf" => :build
@@ -24,11 +24,11 @@ class Handbrake < Formula
   depends_on "nasm" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on xcode: ["10.3", :build]
   depends_on "yasm" => :build
 
   uses_from_macos "m4" => :build
+  uses_from_macos "python" => :build
   uses_from_macos "bzip2"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"

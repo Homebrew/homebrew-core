@@ -20,7 +20,7 @@ class Scriptcs < Formula
   end
 
   # https://github.com/scriptcs/scriptcs/issues/1323
-  deprecate! date: "2023-02-21", because: :unmaintained
+  disable! date: "2024-02-12", because: :unmaintained
 
   depends_on "mono"
 

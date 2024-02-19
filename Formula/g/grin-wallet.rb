@@ -25,11 +25,11 @@ class GrinWallet < Formula
   # https://github.com/rust-lang/rust-bindgen/issues/2312.
   # TODO: Switch back to `uses_from_macos "llvm" => :build` when `bindgen` is
   # updated to 0.62.0 or newer. There is a check in the `install` method.
-  on_system :linux, macos: :sonoma_or_newer do
-    depends_on "llvm@15" => :build # for libclang
+  on_macos do
+    depends_on "llvm@15" => :build if DevelopmentTools.clang_build_version >= 1500
   end
-
   on_linux do
+    depends_on "llvm@15" => :build # for libclang
     depends_on "pkg-config" => :build
     depends_on "openssl@3" # Uses Secure Transport on macOS
   end

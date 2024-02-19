@@ -1,8 +1,8 @@
 class Qjackctl < Formula
   desc "Simple Qt application to control the JACK sound server daemon"
   homepage "https://qjackctl.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.12/qjackctl-0.9.12.tar.gz"
-  sha256 "08ac61980820e1aa9b7e728e04d8ca1d463b50861e3b572c6b46127fb9836540"
+  url "https://downloads.sourceforge.net/project/qjackctl/qjackctl/0.9.13/qjackctl-0.9.13.tar.gz"
+  sha256 "ebbc3774b8c2db6ded3c5553939c65e095ce796750d53ee1a299c113a33564b3"
   license "GPL-2.0-or-later"
   head "https://git.code.sf.net/p/qjackctl/code.git", branch: "master"
 
@@ -12,16 +12,17 @@ class Qjackctl < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "77a62497e3b98b6f5de4f71a19446ad1b7f7fe4ffa319777e553e3eaea2cc3d7"
-    sha256 arm64_monterey: "5f0e0fecdaef3fda61739f1a58ef7f508829092fc4cedc5ebbe34f708d9460de"
-    sha256 arm64_big_sur:  "f65afa15dec149b2a0f7faf3c9f1903d8a832382f0c7aaced0d31a7ad12f4769"
-    sha256 ventura:        "89d072b5c72578d0d1c0077ebcb6eb317a7105c61e149ab7d744f155f4bdadc1"
-    sha256 monterey:       "07c874746f3209637a7e50e377c49441e6809cadafd8c9c81027c44a55b797f8"
-    sha256 big_sur:        "68bb4d82aed4f5912fdb14be4d0ba63555e89c65675dc8a25fd1e52c44e1c273"
-    sha256 x86_64_linux:   "26f28872e134da8aae759c859edc3f6d66cc667fe59a5253025a01dd90e0cfe9"
+    sha256 arm64_sonoma:   "9cff10f30ccb748d29b26363675e95a492fd4f0a2bce3ac65ed00197b2de40b5"
+    sha256 arm64_ventura:  "502b9789aec98772645b2135f1b6b7a82638a8eb6d34941430128c0b742c38d6"
+    sha256 arm64_monterey: "afa404749633aa15fcc566f15f5c136d5dc2401ebafefd899ab43485657fed9a"
+    sha256 sonoma:         "a989646c2ec15c84fd241a1a65f5246ee0d5405a020b513f33bc1f586c789230"
+    sha256 ventura:        "6272ec9559af08188886c29e4878de9c1107617fd816c0a77701554b87a7b79d"
+    sha256 monterey:       "a256b99389b94304f68f94bf2896d70f66eb5dc74027e457cc02451100241f84"
+    sha256 x86_64_linux:   "0e8f5b3601a85196443086fd4c86fb2aacd75180a44f09f51901c06a0544356d"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "jack"
   depends_on "qt"
 

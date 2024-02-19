@@ -6,15 +6,16 @@ class Nbdime < Formula
   url "https://files.pythonhosted.org/packages/97/3f/8f926f0eba7b31a3c67a224e747b0e084c643180c7a7500f879f8bf7a09e/nbdime-4.0.1.tar.gz"
   sha256 "f1a760c0b00c1ba9b4945c16ce92577f393fb51d184f351b7685ba6e8502098e"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74306467ff5e6f94c21b708d9bb013eb18d1bde2312240dcd2d993ec3b10751c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b261b74c40dcd77207b98b6538a302ec68fb2e308f9911c842628f2cdd24a12"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04cd1d5b2b66a02ebaec901fca8d27b9adcf4b9fa60f91c335faaa9af43032a1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "128ae01e650289c24844f53838849cbf9914fc26cb6567acc18cc39a721c2228"
-    sha256 cellar: :any_skip_relocation, ventura:        "004072f7a3ce7168b8bb62e46d051b6f9b4ca1be77e05af6a4d047adc194c031"
-    sha256 cellar: :any_skip_relocation, monterey:       "80629a210f677425dbfd4ac1563671ae18bc37a6a3d4b5a65445145250a51835"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07ec505a09e8fd1af0edc3f6bb45df3270c8dc87e5d4e87c2d4e201d90c6a37f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "21d0016055d4547348270893caa9c0b4a841a89cf72544e42345ff6aff673b0c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff885cc7219a54cc91a533df4d4d4d3c7b7f76a70db20cebd39ac3d4a77c116c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e260b2011fbab2c8c9d2a715183d1966621ab538817ad0904b9e1d5afd150eb3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5fffdfb50b2d789ebf3bfe65e35025b8f23ee56788cb3f379e01cb012c53f0f6"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c9000f95abdf0efe8b96f5b9ad709b81592d7d43e0c2bda590dffda6bb72600"
+    sha256 cellar: :any_skip_relocation, monterey:       "0152188c65f5d27300e5a615c958cc2109a366940a5347217674ce3abdd3f815"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f542718a523e9c19e51508e4eebca9bae913e29e069d8068af1cc8f43703342"
   end
 
   depends_on "jupyterlab" # only to provide jupyter-server and nbconvert
@@ -39,8 +40,8 @@ class Nbdime < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/0d/b2/37265877ae607a2cbf9a471f4581dbf5ed13a501b90cb4c773f9ccfff3ea/GitPython-3.1.40.tar.gz"
-    sha256 "22b126e9ffb671fdd0c129796343a02bf67bf2994b35449ffc9321aa755e18a4"
+    url "https://files.pythonhosted.org/packages/e5/c2/6e3a26945a7ff7cf2854b8825026cf3f22ac8e18285bc11b6b1ceeb8dc3f/GitPython-3.1.41.tar.gz"
+    sha256 "ed66e624884f76df22c8e16066d567aaa5a37d5b5fa19db2c6df6f7156db9048"
   end
 
   resource "jupyter-server-mathjax" do

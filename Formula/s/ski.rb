@@ -3,19 +3,12 @@ class Ski < Formula
 
   desc "Evade the deadly Yeti on your jet-powered skis"
   homepage "http://catb.org/~esr/ski/"
+  url "http://www.catb.org/~esr/ski/ski-6.15.tar.gz"
+  sha256 "aaff38e0f6a2c789f2c1281871ecc4d3f4e9b14f938a6d3bf914b4285bbdb748"
   license "BSD-2-Clause"
 
-  stable do
-    url "http://www.catb.org/~esr/ski/ski-6.14.tar.gz"
-    sha256 "7f81ab281aa6d3ff65a4558a29ad905b1774d28b2c2192b68d8723caf8764933"
-
-    # Fix AttributeError: 'str' object has no attribute 'decode'
-    # Issue ref: https://gitlab.com/esr/ski/-/issues/2
-    patch :DATA
-  end
-
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c3579d8ff81a16c59efa672da26be95e006c19debd511d532f7fc29011cf02c9"
+    sha256 cellar: :any_skip_relocation, all: "14141d2ba391efd4932d5c119c2429abb66f8ef243bc0b22fcf9b71f717be9aa"
   end
 
   head do
@@ -42,20 +35,3 @@ class Ski < Formula
     assert_match "Bye!", pipe_output("#{bin}/ski", "")
   end
 end
-
-__END__
-diff --git a/ski b/ski
-index 2fdbb7e..067fe60 100755
---- a/ski
-+++ b/ski
-@@ -489,8 +489,8 @@ if __name__ == "__main__":
-         if color:
-             colordict[ch] = curses.tparm(color, idx)
-         else:
--            colordict[ch] = ""
--    reset = (curses.tigetstr("sgr0") or "").decode("ascii")
-+            colordict[ch] = b""
-+    reset = (curses.tigetstr("sgr0") or b"").decode("ascii")
-     terrain_key = colorize(terrain_key)
-
-     print("SKI!  Version %s.  Type ? for help." % version)

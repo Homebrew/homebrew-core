@@ -1,24 +1,28 @@
 class Fmt < Formula
   desc "Open-source formatting library for C++"
   homepage "https://fmt.dev/"
-  url "https://github.com/fmtlib/fmt/archive/refs/tags/10.1.1.tar.gz"
-  sha256 "78b8c0a72b1c35e4443a7e308df52498252d1cefc2b08c9a97bc9ee6cfe61f8b"
+  url "https://github.com/fmtlib/fmt/archive/refs/tags/10.2.1.tar.gz"
+  sha256 "1250e4cc58bf06ee631567523f48848dc4596133e163f02615c97f78bab6c811"
   license "MIT"
+  revision 1
   head "https://github.com/fmtlib/fmt.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b4bd278eb5f9f8db13843573e727a0f3992064b49d46413171d7c1df6c01ae02"
-    sha256 cellar: :any,                 arm64_ventura:  "87b7f569c29b6c91acf1bb7c2022d67186e932295c8611c1b94e071a0f07b513"
-    sha256 cellar: :any,                 arm64_monterey: "25b3c5f7ff7eb92613836cf3efc9967ec31d85a4e947838833d98f3d99547c47"
-    sha256 cellar: :any,                 arm64_big_sur:  "1567673afd845b6fcbe33561ff59de3d6eef379364ef0137d5ccd79ba5a26982"
-    sha256 cellar: :any,                 sonoma:         "a2875c8d14b5f00735e850688f3c4f608c2d4ec60a75fdd8c7c03e88cc305585"
-    sha256 cellar: :any,                 ventura:        "322e606bd2b921c777ae93857515cbe4dd308aeaf59a1b130ef9856b5ff22140"
-    sha256 cellar: :any,                 monterey:       "8f03ab26e239eca36bffeaf984a779794832ece7aca7671687f694fd2468b546"
-    sha256 cellar: :any,                 big_sur:        "9a6c2cdbdd62eb546c44789bd97828216c990e251d9aded16fda1526c099191d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4b03e15d3b43614ea56c95232f4c116fc4ebaad6afbc4808cb0780a9c744563b"
+    sha256 cellar: :any,                 arm64_sonoma:   "666aae4a2019ed7957e96ed6e6d182db676a2088a7b1646bb0a1ad48809fe571"
+    sha256 cellar: :any,                 arm64_ventura:  "3316fbda0bed3dd713f2045c3fefa14fead6fe1a11c58c55262dee93a40e2bda"
+    sha256 cellar: :any,                 arm64_monterey: "80d218961620251763fcaac82ae04ce2d604ad6c86cd19ae0320c54ba7b1b0f4"
+    sha256 cellar: :any,                 sonoma:         "c193bef5f45e097a20c2b622dee0347dc76a8e1fe49de12297f5803ab2b2f977"
+    sha256 cellar: :any,                 ventura:        "772fed0ecbf537c7a55d768b380363324e815c7805dfc4322749abdc4ebdeb9e"
+    sha256 cellar: :any,                 monterey:       "5ed3d39677cf4bec72c05cd8ae62adf102b38ba82dcdea545f41f3a1dea39443"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd75f94114953993f1a36280918192dae764319c3f8e2f54e875d9f8266848f0"
   end
 
   depends_on "cmake" => :build
+
+  # Fix handling of static separator; cherry-picked from:
+  # https://github.com/fmtlib/fmt/commit/44c3fe1ebb466ab5c296e1a1a6991c7c7b51b72e
+  # Remove when included in a release.
+  patch :DATA
 
   def install
     system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=TRUE", *std_cmake_args
@@ -50,3 +54,30 @@ class Fmt < Formula
     assert_equal "The answer is 42", shell_output("./test")
   end
 end
+
+__END__
+diff --git a/include/fmt/format-inl.h b/include/fmt/format-inl.h
+index 9fc87ecf2027df0346935e7666ea80ec70e65575..872aa9802df1ffa8572a2f0d29f58bdb2b171a1a 100644
+--- a/include/fmt/format-inl.h
++++ b/include/fmt/format-inl.h
+@@ -110,7 +110,11 @@ template <typename Char> FMT_FUNC Char decimal_point_impl(locale_ref) {
+ 
+ FMT_FUNC auto write_loc(appender out, loc_value value,
+                         const format_specs<>& specs, locale_ref loc) -> bool {
+-#ifndef FMT_STATIC_THOUSANDS_SEPARATOR
++#ifdef FMT_STATIC_THOUSANDS_SEPARATOR
++  value.visit(loc_writer<>{
++      out, specs, std::string(1, FMT_STATIC_THOUSANDS_SEPARATOR), "\3", "."});
++  return true;
++#else
+   auto locale = loc.get<std::locale>();
+   // We cannot use the num_put<char> facet because it may produce output in
+   // a wrong encoding.
+@@ -119,7 +123,6 @@ FMT_FUNC auto write_loc(appender out, loc_value value,
+     return std::use_facet<facet>(locale).put(out, value, specs);
+   return facet(locale).put(out, value, specs);
+ #endif
+-  return false;
+ }
+ }  // namespace detail
+ 

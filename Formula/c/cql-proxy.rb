@@ -1,20 +1,18 @@
 class CqlProxy < Formula
   desc "DataStax cql-proxy enables Cassandra apps to use Astra DB without code changes"
   homepage "https://github.com/datastax/cql-proxy"
-  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "fa2dbae0622d1a4d04db54db4fb6ef0a1857eaea5a300a5145c529ccb4b17d66"
+  url "https://github.com/datastax/cql-proxy/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "e3b2833a983607140af9575ae82782565f7f089f7c75eae4bc4dca402824ea5d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8cc51530a2c16d3a205eb62c5a080411f1614bf820d4dd6d27ecd979ddb803d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d1c859be99b70b4ed639f01dfc01901b2aecc8fc9254866510b6a90a9dc95fc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4f83b9f47cf33db592085177094a3bd6761d771c0d36a3890f12fae0894c4e4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0c166d1573d484f603b38c8438a4c74e1080fe69cd6575ed7de17341fa3e1662"
-    sha256 cellar: :any_skip_relocation, sonoma:         "772daaf55ce951ce03126c6a26414d4289b7293b8e0cad0f60cdc03d38c99837"
-    sha256 cellar: :any_skip_relocation, ventura:        "61679d7f18fec195f74e19979327ad19c7ef3a87abbe5af41fe512f7154868f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "13d172a29157d6b9cf77aa99cfaa2b196032ea52154c6f0c5fbbf508e3c50e74"
-    sha256 cellar: :any_skip_relocation, big_sur:        "448efcea0d3b7217009df6937673d5bcee2e1bbde4d933cc9970e65086825480"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b770257cfc9817d035b33087d26e4873126268b673d285b4ca421685a66db94"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19c4b81eb2904e0e6552a9a8ee1a3c926fc8685511749d52813e14eb14d7b86a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c172223b401a06021be9b4c80f2ffa75732156a235ff34d54fc4e5f8c495f299"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b3c5a7365ca1ea44b7bffa280d87aee8e982151cbf7707f81271e6d62c402994"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2f2933fa45585718404249d04c18a19ffb66895e27459cc5a73922eaf12028af"
+    sha256 cellar: :any_skip_relocation, ventura:        "54978a67871efb862860bd14dfa36b575ae1aa1a23149097daed6572d9484b68"
+    sha256 cellar: :any_skip_relocation, monterey:       "c2f8b93cd4e8e324685850206e42d5e5e8665b46cb84bb98a792aa29cd8e693d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "710b3389f1dd78cb9ee15c3d6fc66f9c53f06944cb212042c7da824f33b4c1de"
   end
 
   depends_on "go" => :build

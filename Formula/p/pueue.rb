@@ -1,19 +1,19 @@
 class Pueue < Formula
   desc "Command-line tool for managing long-running shell commands"
   homepage "https://github.com/Nukesor/pueue"
-  url "https://github.com/Nukesor/pueue/archive/refs/tags/v3.3.2.tar.gz"
-  sha256 "5d880731b7911dcc01c84ad547d703d4d438a95a64396d3610829d0c05bb1e37"
+  url "https://github.com/Nukesor/pueue/archive/refs/tags/v3.3.3.tar.gz"
+  sha256 "ad7b760d4bed5a946acbdb6e3985d94d03944e3c0eb2221aea65da0aa001c636"
   license "MIT"
   head "https://github.com/Nukesor/pueue.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "599fe78521efc7d20d90d97ccb7b1b7ac914f531af9af5f580fd3fadcf428de9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ce5506bc5dd780da0d0f86092b2525cff4751d097d88f9772f871712fab6222"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "488520cc99bb81710fe69fe327fba8bed865d37d24866c7e96b69f1606e6671d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e1bd23f74022c1cdf6d7e827c8a25fa781cd2ecc2fe5e014841bd45c9cd475ab"
-    sha256 cellar: :any_skip_relocation, ventura:        "af0606428aec3837da6a58adccbc747f6f9819d4e767cc23802591a532664b27"
-    sha256 cellar: :any_skip_relocation, monterey:       "4023a05da6866735b9f098738943a3d6bead04b8292d1f335c2874752eec3fb1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "440eea8d399fb5f92273dee0a729282f3eebc5feb1946e94474e966f0000ee05"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70cb39cb3d9dda709496273d906ade4c862d57f5e55c42a4b5cb2b68dbb49245"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f0c98a1f0576f34f34200d887a1270bd4d45eee9a2e630462d6d4b3a60f65c6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "44dad088e1653b4709352090b8e2e531398a4af4ce9c218b71e6f80be5ebbf44"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a0a04b3c9503876970d343472f8321d757db8696e2b9d0d155a6ef961acee5e4"
+    sha256 cellar: :any_skip_relocation, ventura:        "5eabed693b44c99b08ab5033993f94c58436b61bed851261aba4831d26227dc6"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c3e2c327b667ffe382dab19f4323710310bc885366f52efc816655f0daa663e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01e2908e5d0888f8a2928ecae98dbc6dda5bf7f6969247f49f8166b911e242d6"
   end
 
   depends_on "rust" => :build

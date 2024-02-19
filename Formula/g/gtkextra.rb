@@ -19,7 +19,7 @@ class Gtkextra < Formula
   end
 
   # https://gtkextra.sourceforge.net/cms/index.php?option=com_content&view=article&id=63:new-maintainer-searched&catid=3:news
-  deprecate! date: "2023-01-18", because: :unmaintained
+  disable! date: "2024-01-21", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"

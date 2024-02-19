@@ -1,34 +1,35 @@
 class KotlinLanguageServer < Formula
   desc "Intelligent Kotlin support for any editor/IDE using the Language Server Protocol"
   homepage "https://github.com/fwcd/kotlin-language-server"
-  url "https://github.com/fwcd/kotlin-language-server/archive/refs/tags/1.3.7.tar.gz"
-  sha256 "a9144242b3892fe7f90cf800d1b6e0960f55829efd5e26cdd83c14344a53aaf7"
+  url "https://github.com/fwcd/kotlin-language-server/archive/refs/tags/1.3.9.tar.gz"
+  sha256 "4c06ce35b1686c27cc4a8b8dc0905dd3901e83de7028e0c7c0cfd2b6082e1e09"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4cd2932622fdeee42828c86bbed3dbd8f6aa576162b99c41eafe9bee59cb3a26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36996d135368803626a1a0e5058b56f09ae30e1780c92d592336e1792c8dd3d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d9d79043f438ef11f1268c1e6642ac56023d282310bb8d358932c56e6cebf510"
-    sha256 cellar: :any_skip_relocation, sonoma:         "321f735eb8702423da3758be3d2df63cedb3fb507611e5d173c637d6fca94458"
-    sha256 cellar: :any_skip_relocation, ventura:        "18afcc908fc2f5cbac4ad65b74c123259a2b6c620548e9fabf7e1abd436a1271"
-    sha256 cellar: :any_skip_relocation, monterey:       "b6affd67c7f8f636393c47bd2643e358879995f8e7ebe17307fb94de6fac1fb8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69d7eb83275d0d3047a78843e217421acf0600d58db7cebaab82f3807549765b"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa7683696d84ec4a485d4bd32ee5e8364a4230755a8a71b0b05d7070937d6843"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "448e70081f23c2db25dea9b86cab775a219afb49a2190f4b975935be85b98b39"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2cb73fd76ad3a811f76c3a464f431f33d71eaeefbd39c4e219b5c21f7869247a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c6b565d76dc26dd9df38c5623778b9612479f1e0680ffb910f6262c552c9478b"
+    sha256 cellar: :any_skip_relocation, ventura:        "f835c5f77b01d80f2f437a8cb9d2c04a283f1d9b972c447c38a1d390da146d5c"
+    sha256 cellar: :any_skip_relocation, monterey:       "451bfd4eaeec930bbad53a02cfe982422e63c6e819765f628299ac4c1aa276c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dbaf426c48685ac6d060d0eebaa2e8f0b0d5e08e52188e1fe0d8f773be96ca3"
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home("17")
+    ENV["JAVA_HOME"] = Language::Java.java_home
     #  Remove Windows files
     rm "gradlew.bat"
 
-    system "gradle", ":server:installDist", "-PjavaVersion=17"
+    system "gradle", ":server:installDist", "-PjavaVersion=#{Formula["openjdk"].version.major}"
 
     libexec.install Dir["server/build/install/server/*"]
 
     (bin/"kotlin-language-server").write_env_script libexec/"bin/kotlin-language-server",
-      Language::Java.overridable_java_home_env("17")
+      Language::Java.overridable_java_home_env
   end
 
   test do

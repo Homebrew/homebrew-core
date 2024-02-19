@@ -3,17 +3,17 @@ class ColladaDom < Formula
   homepage "https://www.khronos.org/collada/wiki/Portal:COLLADA_DOM"
   url "https://github.com/rdiankov/collada-dom/archive/refs/tags/v2.5.0.tar.gz"
   sha256 "3be672407a7aef60b64ce4b39704b32816b0b28f61ebffd4fbd02c8012901e0d"
-  revision 7
+  revision 8
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "15aa656e045954f1c843adfdcf67fb48ca3ba1bcfc05bc2a98e2a0d3b18512dc"
-    sha256 cellar: :any,                 arm64_ventura:  "55d77e055d62389e516eec15f0eccba903bdcd12bd9d1814c1683f6eec865044"
-    sha256 cellar: :any,                 arm64_monterey: "450a588e8483de8ef7995888fc41f49927ec8702dd65183949184f8a7e5dd0e4"
-    sha256 cellar: :any,                 sonoma:         "b562c6c1f54045dbf6aaa20e0132d181d567eb9f4317fe68bbb05cc21b29d9aa"
-    sha256 cellar: :any,                 ventura:        "89aa983d8b0dfa007392027d80f3a358a0e6205cc596d817983e50c5bef85cb2"
-    sha256 cellar: :any,                 monterey:       "7deaeeaf0cc73e1b657c527fa4e658d82942816fe64e676f69856308caaa7d4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "baaa30ccc9d1bf80a9cf686f1dcd35daf6dd7db3e3df090c34238bcd0eeaca59"
+    sha256 cellar: :any,                 arm64_sonoma:   "7d2f474db9960b48d1703adcc774a388d532c64255df86536b2d46e503cd7b8a"
+    sha256 cellar: :any,                 arm64_ventura:  "77a24357dafdbf988e8c0551a711d25779f40921869ca1d92c5d7487f0ee93f6"
+    sha256 cellar: :any,                 arm64_monterey: "181e093344078c8eed0f02a90cf33bffce6f1f23572fb3e81b4fd026e9c1c349"
+    sha256 cellar: :any,                 sonoma:         "ffead388a79f7436590d344693cceb7d19eefcc9900360a44978ef740bfd42f5"
+    sha256 cellar: :any,                 ventura:        "2f1c39e6d25c138cf3eea893d5828be969e4eb025ae3d9ee1d6e1163934c7111"
+    sha256 cellar: :any,                 monterey:       "b56c5b6f38708e3d85d16456e5bbadbb32781b5c768e514456a0cec34078e296"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec8917630ae6e86a00b6c4340fd9e23962991d3c2b83e0af13f86f142a0f9b8a"
   end
 
   depends_on "cmake" => :build

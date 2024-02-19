@@ -136,6 +136,20 @@ module.exports = async ({github, context, core}, formulae_detect) => {
       console.log('No CI-version-downgrade label found. Not passing --skip-stable-version-audit to brew test-bot.')
     }
 
+    if (label_names.includes('CI-checksum-change-confirmed')) {
+      console.log('CI-checksum-change-confirmed label found. Passing --skip-checksum-only-audit to brew test-bot.')
+      test_bot_formulae_args.push('--skip-checksum-only-audit')
+    } else {
+      console.log('No CI-checksum-change-confirmed label found. Not passing --skip-checksum-only-audit to brew test-bot.')
+    }
+
+    if (label_names.includes('CI-skip-revision-audit')) {
+      console.log('CI-skip-revision-audit label found. Passing --skip-revision-audit to brew test-bot.')
+      test_bot_formulae_args.push('--skip-revision-audit')
+    } else {
+      console.log('No CI-skip-revision-audit label found. Not passing --skip-revision-audit to brew test-bot.')
+    }
+
     core.setOutput('test-bot-formulae-args', test_bot_formulae_args.join(" "))
     core.setOutput('test-bot-dependents-args', test_bot_dependents_args.join(" "))
 }

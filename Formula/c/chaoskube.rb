@@ -1,19 +1,19 @@
 class Chaoskube < Formula
   desc "Periodically kills random pods in your Kubernetes cluster"
   homepage "https://github.com/linki/chaoskube"
-  url "https://github.com/linki/chaoskube/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "af0d33bda0f0d0f2be5c87f1d5e72353f815ea88ddc34575b7a71e2a146b620e"
+  url "https://github.com/linki/chaoskube/archive/refs/tags/v0.31.0.tar.gz"
+  sha256 "a50d67d18deb1bc33c6988b79bc550c0207efae0ef588c3825d77ccf6d4c78bc"
   license "MIT"
   head "https://github.com/linki/chaoskube.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3309cbf4c66214cf5a397c7ee2db73378ba00b57010d444afc3f918b6a189ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "130d75cc071506659d6c8de6d00f643c22b8efdb216d57c627f093daa4183984"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44e1cb5c2180ef441c22e085f5a23201b6273bf0354b3ba276e4e30ecda54f00"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cad91317bbc3431d50f4fba847d95a7273ee5c4b6dbc4e0a0df626c644cbf054"
-    sha256 cellar: :any_skip_relocation, ventura:        "19703e0a3c4cb750cb238bed3fac912de4be0591ee54e54f155ca5ba42e9b22c"
-    sha256 cellar: :any_skip_relocation, monterey:       "038c05095f5849cf7fd6be37eb546db3aa959de9b7100507b44e23616e8b6cc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0f65d8e6c5ec3940c1f91728295c6fb130cd6111283bfeb91247c086876a2bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a11b671429a452d3ac417749d0048af77f63d6a8b8efb6a6d2431c0da77564c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "408797ab648d83510971d1a909b9a98cc05d1b828b47f7d149271e0089582728"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca122c4a2728f7c74e4e4c537d95e64ff264f8711858082ad8c148bf69cb2c32"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2061a393b5d7cd49295da47d1247e858febe6370dceed370094afb0e60fc6314"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f8c9214f5b3cb15036cadc712eb6575d5af9665c3cb7890c47aa386f0065fe5"
+    sha256 cellar: :any_skip_relocation, monterey:       "21f153d9aa487fb719000858ac8c968314900ac7bdf685ad4b3f72fe0560b8cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f47d4bc68b0423962f0e116ac11693a2c46722e2759111fa3417d04ce5090a3f"
   end
 
   depends_on "go" => :build

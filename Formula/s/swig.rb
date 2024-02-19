@@ -1,20 +1,18 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "https://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.1.1/swig-4.1.1.tar.gz"
-  sha256 "2af08aced8fcd65cdb5cc62426768914bedc735b1c250325203716f78e39ac9b"
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.2.0/swig-4.2.0.tar.gz"
+  sha256 "261ca2d7589e260762817b912c075831572b72ff2717942f75b3e51244829c97"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "e27a061c91b485a37f144661bcfaa1c99866d299477c5014778b64c608086131"
-    sha256 arm64_ventura:  "360d6e5438f0ac5a819ce2f9a0812dd9fa4d8c6edec7ac7377d2717779e26bb6"
-    sha256 arm64_monterey: "27c89aff26a1b22f1f645298992fba5db8d70b71772509f75870eefd7382e2e8"
-    sha256 arm64_big_sur:  "d939f6eeeb6f58e3057fd311362b9e37fa969b83f6654752f5d3749898e99b69"
-    sha256 sonoma:         "8596c81c9bdd3c50f915f1cdf6cb5977646bbd0a3e9963e5b497dae7c2a01079"
-    sha256 ventura:        "f478fa16ba778eac8227fe51844909db95887153f6fbb8ee4e050dbb0c4acc8e"
-    sha256 monterey:       "7762910a737820dc734b089253c2f5bc7140673a2300acd97f0338ebc7ef6fd5"
-    sha256 big_sur:        "8133b566757d1d2295bb38d77a536258aef56b9f6b15ec3c222ff1166d596204"
-    sha256 x86_64_linux:   "debb12256fb29f493afb450dddae5d66010faf0b014f719f3c530167b1b1d7a4"
+    sha256 arm64_sonoma:   "97cdabcd467f9741ae172546500737a468445f8b7c1030b6835ff1d630c3270b"
+    sha256 arm64_ventura:  "18bffb40f30f478d6bf2e0d1e2963dca3e5d5d7fed0e2c7be10bc17aa63dfafa"
+    sha256 arm64_monterey: "af291aaee5dae8b1bf12c390176532a11d00e1238e817e2d52896fed78f5ca4c"
+    sha256 sonoma:         "24b7aab0a197c733e238565fb52bb5120d188b9d56351423ca7322e39254d17b"
+    sha256 ventura:        "da430be477a081fffeb7b57b40c009e62a94087a3b6ffe771258102032cb2c5e"
+    sha256 monterey:       "242977d3fe2ac50c7f0e00ad53d147fd36107a334842023326a5d08eaf926a99"
+    sha256 x86_64_linux:   "76566cb1026a82ec4bf61e86b4ab5f6377a3a75cffab9062f0103caa6c105202"
   end
 
   head do
@@ -29,6 +27,7 @@ class Swig < Formula
   uses_from_macos "python" => :test
 
   def install
+    ENV.append "CXXFLAGS", "-std=c++11" # Fix `nullptr` support detection.
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"

@@ -1,20 +1,21 @@
 class Xcbeautify < Formula
   desc "Little beautifier tool for xcodebuild"
-  homepage "https://github.com/tuist/xcbeautify"
-  url "https://github.com/tuist/xcbeautify.git",
-      tag:      "1.2.0",
-      revision: "bd7d6c429e8137a60426154fc517a0cb2fda2159"
+  homepage "https://github.com/cpisciotta/xcbeautify"
+  url "https://github.com/cpisciotta/xcbeautify.git",
+      tag:      "1.4.0",
+      revision: "84d24a9854e6fdcd2c91122d50a3189b072e8136"
   license "MIT"
-  head "https://github.com/tuist/xcbeautify.git", branch: "master"
+  head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa5bc88f4c2fa325cc8960afbd3593692dd05357808ab23cf75322f8a116cc1a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35ffe5cf4bcb2d2a04958ff4ccef5262addf517e8085155476946402eccc34f4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bf20740220523ed8d1e60f9c918c78dd73d2eb6ae4cb3ef906687af44c8c1a92"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2dcc30f24d43eee4fdf98a4d6ae9513951f00e1fb1738cdcae746b61f03c9972"
-    sha256 cellar: :any_skip_relocation, ventura:        "a1f0460ba85d5a0e55edb0d116aea7bd52ccca1c21f4ec7dd6a7f7ab3b5f696e"
-    sha256 cellar: :any_skip_relocation, monterey:       "31c54053550f88a56cc0ac82c3d59d3d56789ace83deab5dd1606689f88fd728"
-    sha256                               x86_64_linux:   "012d8f74cf52df29fdc81d7256d9db3a65a37666790322a77be1eadde060e74f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d385bf64fa78e606790182eb51f0fbc0b6dccce34ce20c7028d095073a42175e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b3837069522655f5f6273291cf2c9ee82511d038a244600bfe499ec07cc0a464"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d6e61c71e6a387a761c8616b10836e01cc59637c0b69165ff823626720b8e82"
+    sha256 cellar: :any_skip_relocation, sonoma:         "12ceb05ec96886a8194b6b2149d3cb410297b640d414be8b7329c868978b45e9"
+    sha256 cellar: :any_skip_relocation, ventura:        "3572b97c6271dc9fefe856018d87ffde775f1b4c07d1b810005b4170344b43f6"
+    sha256 cellar: :any_skip_relocation, monterey:       "8e8829c7ef83f6738435baf383fc72f9b78a4b241595ee58db53b3c2489744c4"
+    sha256                               x86_64_linux:   "1f52ffa3bf532545b5d292ad8380f492bc3686003c8e6915d266ab212b8d3719"
   end
 
   # needs Swift tools version 5.7.0

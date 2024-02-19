@@ -3,18 +3,18 @@ class CondaLock < Formula
 
   desc "Lightweight lockfile for conda environments"
   homepage "https://github.com/conda/conda-lock"
-  url "https://files.pythonhosted.org/packages/33/e8/f733312f9eb1725d1ad13b5e7c7169b4812dcf6fc4fe4f1cffb9bd367535/conda_lock-2.5.1.tar.gz"
-  sha256 "efa5e86b2e1e0400f75ed4eae7b67a99cc6cdf66ef00b4b00809a85446453d21"
+  url "https://files.pythonhosted.org/packages/48/27/91cf799143ad5577ab67a3237672fcfe6536980a614e0f25836ddea582fc/conda_lock-2.5.5.tar.gz"
+  sha256 "a6840f8f8ba6f9f8ece40c8b48d683f0588ccf29199f149bd94a712d58d789bc"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b167ff9ea329741d4d17c1e127d970f18c68ebd9a75fcca46a82b793c5f1ab13"
-    sha256 cellar: :any,                 arm64_ventura:  "da59910b9c0e98a056717cbe3afe62873039f03d07f393e60660b1a17fcad8cf"
-    sha256 cellar: :any,                 arm64_monterey: "01d7b7d5a10ce220f118c16af126d207434b7025eb9e346eb8fa6bb742442e34"
-    sha256 cellar: :any,                 sonoma:         "a8b2e77031e7baeb477799f003758d4f5d8d97b70a0b1d6a2b5e192caf8bb6d4"
-    sha256 cellar: :any,                 ventura:        "c231fb96c1adce5be679cf95acc2b28aba11ee72414c5e48ac84561793cad73d"
-    sha256 cellar: :any,                 monterey:       "174e24fc78137eb1dccdc305ebada112a99b7b497875b91013069965d8414c46"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c06615bd5bf7a2482a92035bfb4f4f5899a457ee2c4789c5ba1e4cf3295c6f32"
+    sha256 cellar: :any,                 arm64_sonoma:   "115dee852366ff7afb6a6b3abeb75a5ac0829608b26afd502b5061fac69211d9"
+    sha256 cellar: :any,                 arm64_ventura:  "f9ec71acd98aa33627ce13b727bdba1532b22041efd976439091dda3fe10213a"
+    sha256 cellar: :any,                 arm64_monterey: "9d289e076926d1dcf346eb27393be7f483901ea6bc7eaa3d5f0f76235f80bec2"
+    sha256 cellar: :any,                 sonoma:         "d5e5e86d44a46663085cbbb68f13e00ec610e366d998566c83329fd76bd4c67c"
+    sha256 cellar: :any,                 ventura:        "8491ad86e78f179be465f66aabfa50c1c940f2c4e0dbae0b04858f85db9535b0"
+    sha256 cellar: :any,                 monterey:       "f0e17207fbd84598375af6742807ed725ac78e2d57b00f749ab5ff95536bb653"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2e0b75eb08070205645c672fbf02c06b75b924cb8f74c79cb18dc270e423271"
   end
 
   depends_on "rust" => :build # for pydantic
@@ -40,8 +40,8 @@ class CondaLock < Formula
   end
 
   resource "cachecontrol" do
-    url "https://files.pythonhosted.org/packages/9e/65/3356cfc87bdee0cdf62d941235e936a26c205e4f1e1f2c85dbd952d7533a/cachecontrol-0.13.1.tar.gz"
-    sha256 "f012366b79d2243a6118309ce73151bf52a38d4a5dac8ea57f09bd29087e506b"
+    url "https://files.pythonhosted.org/packages/06/55/edea9d90ee57ca54d34707607d15c20f72576b96cb9f3e7fc266cb06b426/cachecontrol-0.14.0.tar.gz"
+    sha256 "7db1195b41c81f8274a7bbd97c956f44e8348265a1bc7641c37dfebc39f0c938"
   end
 
   resource "cachy" do
@@ -75,8 +75,8 @@ class CondaLock < Formula
   end
 
   resource "ensureconda" do
-    url "https://files.pythonhosted.org/packages/3c/0a/4aef140fcc59b5830e22fdfe0c2a168dfb3ab7f438029bdb2811c42283ad/ensureconda-1.4.3.tar.gz"
-    sha256 "e04ae2e2f872869df7e7da22dcca9bd7c42f839a55155dddb249bcdc9e6aae48"
+    url "https://files.pythonhosted.org/packages/6c/64/b50777efef940be697cb83c886acf54948f3cdbf6f31e1bc48c22f874cf9/ensureconda-1.4.4.tar.gz"
+    sha256 "2ee70b75f6aa67fca5b72bec514e66deb016792959763cbd48720cfe051a24a4"
   end
 
   resource "gitdb" do
@@ -85,8 +85,8 @@ class CondaLock < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/0d/b2/37265877ae607a2cbf9a471f4581dbf5ed13a501b90cb4c773f9ccfff3ea/GitPython-3.1.40.tar.gz"
-    sha256 "22b126e9ffb671fdd0c129796343a02bf67bf2994b35449ffc9321aa755e18a4"
+    url "https://files.pythonhosted.org/packages/e5/c2/6e3a26945a7ff7cf2854b8825026cf3f22ac8e18285bc11b6b1ceeb8dc3f/GitPython-3.1.41.tar.gz"
+    sha256 "ed66e624884f76df22c8e16066d567aaa5a37d5b5fa19db2c6df6f7156db9048"
   end
 
   resource "html5lib" do
@@ -95,18 +95,18 @@ class CondaLock < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
   resource "msgpack" do
@@ -125,13 +125,13 @@ class CondaLock < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/0b/6c/cebf0e87ee0f2496584e04079592f33610f1f9aaf3684cb3105f03969e2b/pydantic-2.5.1.tar.gz"
-    sha256 "0b8be5413c06aadfbe56f6dc1d45c9ed25fd43264414c571135c97dd77c2bedb"
+    url "https://files.pythonhosted.org/packages/73/27/a17cc261bb974e929aa3b3365577e43c1c71c3dcd8669250613a7135cb8f/pydantic-2.6.1.tar.gz"
+    sha256 "4fd5c182a2488dc63e6d32737ff19937888001e2a6d86e94b3f233104a5d1fa9"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/4c/ee/b3479b31f47226bae5d9033761971bec215774a6078ce08e8618d6381470/pydantic_core-2.14.3.tar.gz"
-    sha256 "3ad083df8fe342d4d8d00cc1d3c1a23f0dc84fce416eb301e69f1ddbbe124d3f"
+    url "https://files.pythonhosted.org/packages/0d/72/64550ef171432f97d046118a9869ad774925c2f442589d5f6164b8288e85/pydantic_core-2.16.2.tar.gz"
+    sha256 "0ba503850d8b8dcc18391f10de896ae51d37fe5fe43dbfb6a35c5c5cad271a06"
   end
 
   resource "pylev" do
@@ -145,13 +145,18 @@ class CondaLock < Formula
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/82/43/fa976e03a4a9ae406904489119cd7dd4509752ca692b2e0a19491ca1782c/ruamel.yaml-0.18.5.tar.gz"
-    sha256 "61917e3a35a569c1133a8f772e1226961bf5a1198bea7e23f06a0841dea1ab0e"
+    url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
+    sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
   end
 
   resource "ruamel-yaml-clib" do
     url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
     sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
+    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
   end
 
   resource "smmap" do
@@ -165,8 +170,8 @@ class CondaLock < Formula
   end
 
   resource "toolz" do
-    url "https://files.pythonhosted.org/packages/cf/05/2008534bbaa716b46a2d795d7b54b999d0f7638fbb9ed0b6e87bfa934f84/toolz-0.12.0.tar.gz"
-    sha256 "88c570861c440ee3f2f6037c4654613228ff40c93a6c25e0eba70d17282c6194"
+    url "https://files.pythonhosted.org/packages/3e/bf/5e12db234df984f6df3c7f12f1428aa680ba4e101f63f4b8b3f9e8d2e617/toolz-0.12.1.tar.gz"
+    sha256 "ecca342664893f177a13dac0e6b41cbd8ac25a358e5f215316d43e2100224f4d"
   end
 
   resource "urllib3" do

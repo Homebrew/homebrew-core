@@ -1,18 +1,18 @@
 class PythonWcwidth < Formula
   desc "Measures the displayed width of unicode strings in a terminal"
   homepage "https://wcwidth.readthedocs.io/en/latest/index.html"
-  url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
-  sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
+  url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+  sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "394094bd8fd6cc90897694b27fb3dd06a33028a21e310e7ec1b25f1e9656ba42"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87390af94aea19fcaef00228f624c16df3b23121f5c6e763bda5175c1ba5c1a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8079ddb87c418ce5878fbd15de794ea7b4aeaa6fd8bb462cadaec19e847535d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a73044626f24fa1194ea6a91c3f72ddf173795b8025169bc2f5b0abda7b32224"
-    sha256 cellar: :any_skip_relocation, ventura:        "cce0c057851d2a2fe04dbb852424bc2f38ab937ba1fa74d0be55e6847f605c0b"
-    sha256 cellar: :any_skip_relocation, monterey:       "fef02060db6eecc5ba59534210f9206696e9c5a518dcfb1544dc6a2434d85a6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "530b89f841153f0e6a6f0a5f2d81d684f75ca05fb2b81d6ea91915f45bfcc94b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a4f57808f3aed4aa3767ea8ca5ebb1f9d0b7634d78586de7ee09f463217eccd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6798d33c1a16ddc030314110051a79793f835b738b6ad00e160f02e99ab74758"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2b142a3b74b15a5d9bc613fa8022484940e8cdd4be4497e84d5bec4fa6e680e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "def722fb30cf28fb70e8a25535c07642d1ccb026a1460d5e1e34b0c76f69b30d"
+    sha256 cellar: :any_skip_relocation, ventura:        "864365d2c01df29f2dd9fa6effa69e5688116ddaa634b150c473cdc843fb0c8c"
+    sha256 cellar: :any_skip_relocation, monterey:       "d843e5d8a345055e7dd761d51a7e5adcea1b29332f627c90f418f769fb7705eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24b2abe4213907c5a51183a9f576c5a43d1f4e256a93afcab2a849a872181a2a"
   end
 
   depends_on "python-setuptools" => :build

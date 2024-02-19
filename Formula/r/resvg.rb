@@ -1,19 +1,19 @@
 class Resvg < Formula
   desc "SVG rendering tool and library"
   homepage "https://github.com/RazrFalcon/resvg"
-  url "https://github.com/RazrFalcon/resvg/archive/refs/tags/v0.37.0.tar.gz"
-  sha256 "d77997431392ec46f561f547b3788e9b17eddb8a0ae979f033e4eb6384e78bf7"
+  url "https://github.com/RazrFalcon/resvg/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "82d1cac871a60071e963749228ef8d52954bd0549d0ee2358092b8115fb4915b"
   license "MPL-2.0"
   head "https://github.com/RazrFalcon/resvg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4bfaaaae48157904fa0eb917551ee2da1075c68e5b95def175dddc63435367aa"
-    sha256 cellar: :any,                 arm64_ventura:  "aecbd71b976d7ef58912a8071a68ca21d723c324f51ef87992ead4ac130e7d2e"
-    sha256 cellar: :any,                 arm64_monterey: "6953e9c016100f42692fb8325e4e4d9dfcb8774e1f8f553912f1a51fc4dc9a48"
-    sha256 cellar: :any,                 sonoma:         "73acd01154252767ec8070b7fc0389661d3f08e752b1a8f5e62ec743ed9fe81c"
-    sha256 cellar: :any,                 ventura:        "b6c91227ee31f7dd0537119c2f752a027f69cf49bb04fd0c01ba414fbb8e747b"
-    sha256 cellar: :any,                 monterey:       "83f0c7fb5b85444886bb0e01fe9884f2e4c8fe0b6cf39e695333ac04b72f3447"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "be840b9c52e45b8d82ff8a90bc626553c10972ed9f9c532d406805ca1244862c"
+    sha256 cellar: :any,                 arm64_sonoma:   "eb56bc906fe0381a1315372fa17bf34103c58db9b0f999a3ff0255b7e858a9a3"
+    sha256 cellar: :any,                 arm64_ventura:  "3bd6f31fcb3acfeeda2bd41ca8bd18c93bd927622e603205918aaa8761427fb8"
+    sha256 cellar: :any,                 arm64_monterey: "dacc531379694c00fe2c65cef48315446527ecae1f7d03c2472c90358ffd6c94"
+    sha256 cellar: :any,                 sonoma:         "63ae752edfdbed0914905a6f75dcd096159c4f51516af8011dda526239e89667"
+    sha256 cellar: :any,                 ventura:        "8715e57d34c435dd8d96445cb199b9c2caba7a54d754c5b426a41743263f7cd6"
+    sha256 cellar: :any,                 monterey:       "47a256e8668a9a13d29ec595d3bf203cea3645e141742e2127099fec083658fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "495ca0426dba6ab2dcc74f54232438033a70e138468fe852a6fac19460a85b9b"
   end
 
   depends_on "rust" => :build

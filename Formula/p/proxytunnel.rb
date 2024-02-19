@@ -1,18 +1,18 @@
 class Proxytunnel < Formula
   desc "Create TCP tunnels through HTTPS proxies"
   homepage "https://github.com/proxytunnel/proxytunnel"
-  url "https://github.com/proxytunnel/proxytunnel/archive/refs/tags/v1.12.0.tar.gz"
-  sha256 "76091c8d6161c73ad02f25bee26396bb6aa45422156ee7b63f46128fa8b39f18"
+  url "https://github.com/proxytunnel/proxytunnel/archive/refs/tags/v1.12.1.tar.gz"
+  sha256 "acc111ba4ef47a61878eb480636941add36edb38defae22dd54288bcf036cdc4"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e857bd22e2c924556ae2b927a2c89f4b28044431b0648b14ac5010b00e1b5438"
-    sha256 cellar: :any,                 arm64_ventura:  "46e697e917ffb4e3d4edb032a036d8f70bb8a067581b37ea95db7b68a1d184f7"
-    sha256 cellar: :any,                 arm64_monterey: "e545e93818f6a629075ce9a5ddb7e9f82a8d6eb0794b8612ba4bf6ef190d6a86"
-    sha256 cellar: :any,                 sonoma:         "257795f5af166ef1fcc49c6ec480d1ab4127504a50ba719a0715f7041b7b1ce9"
-    sha256 cellar: :any,                 ventura:        "46bd33d0d92e1b8e9b594fd9363f6b3a45381f10bf5a123e6aacbf490b16dbf1"
-    sha256 cellar: :any,                 monterey:       "c33d5b1fce571f69eab9adb61e4148c1dcad40907636811d507f8ae2cc5a7f6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6733d090acc30425d89843fb1399840e5872001f9887c5b1617a301f5e0b5edd"
+    sha256 cellar: :any,                 arm64_sonoma:   "4ffbccaeaeb8b13ae2a6997da07038135ee510beb2554c35a85e0778fdee2105"
+    sha256 cellar: :any,                 arm64_ventura:  "a3f207577566a342127f43680a15d020cc16c548115c3dba2b66aa30be4e21d0"
+    sha256 cellar: :any,                 arm64_monterey: "b0592b8359a5d378efeb291b4122c42e76637cbb2a58afaa823162852e1da68d"
+    sha256 cellar: :any,                 sonoma:         "bbbe1b70632817a039559a2661900c6c60cc9a808e03f265eab1f3aa883173d7"
+    sha256 cellar: :any,                 ventura:        "bcd1893aadace3a539c8bb47cfaad53ff53af18018a076645b1b0aa4fd0f5278"
+    sha256 cellar: :any,                 monterey:       "701e72553a25dedb0d38390c1880092719ee803be183f90683f44dcdf674bcc5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2e30dc784de8bdbd892a57dbc18c9d54fc33c9aa569803c9ffc070ea5d00844"
   end
 
   depends_on "asciidoc" => :build

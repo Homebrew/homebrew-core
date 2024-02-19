@@ -1,21 +1,19 @@
 class Mailutils < Formula
   desc "Swiss Army knife of email handling"
   homepage "https://mailutils.org/"
-  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.16.tar.gz"
-  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.16.tar.gz"
-  sha256 "a034af5f02c7376da7dd3251bbc23f01001b22556450aaffe61e2bcab1b60fef"
+  url "https://ftp.gnu.org/gnu/mailutils/mailutils-3.17.tar.gz"
+  mirror "https://ftpmirror.gnu.org/mailutils/mailutils-3.17.tar.gz"
+  sha256 "403d0a8a7d923560ee189783a35cec517e9993dda985e35b7afd9c488bf6f149"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "b4aa5796ab921e067bbbe598cfa3a1374152ff5adf4921b4ce9c77f4b5115933"
-    sha256 arm64_ventura:  "eb8d93c06b4a0daec501faec524709226724cc277c11382b44d384200a7e9a94"
-    sha256 arm64_monterey: "b6a4e9be8be9e17a3a78d96c7db57f5c29c5a4f90ffa50b582b08b6213a335db"
-    sha256 arm64_big_sur:  "d32dcc7635d4faf6e1809ea0e8e1ab0891ca757c3624a304b1929fb32398fc16"
-    sha256 sonoma:         "ed0bebdfcddb9f33dd5eac985bae0aec4b3b7d45e5afe90c0f688ea9be7c6fd0"
-    sha256 ventura:        "26edcf456dce024acba59596a0bf8dcf8d8f1f36ab00834fdc2cec9ee710b31a"
-    sha256 monterey:       "903eaf1a202efc86e24e0eb6f24d82dc7e086ffa364a8f1cf168718dbdd5d437"
-    sha256 big_sur:        "fa354242b181bdc405664fe12c89c5ad11a5c789bf3adfcd83e08a8797d7b2fb"
-    sha256 x86_64_linux:   "860144077d9630d568beb1402a2a65287ab122e27017ed3a6b2493da4962cce1"
+    sha256 arm64_sonoma:   "8a0c917dde78ad9e1e53adccfeed8a1ca7c5e465bf0fdae4392bb5460b407dc8"
+    sha256 arm64_ventura:  "f2b9f4a8a2078da0008e291c8abe58f73ba89013277042fd1df9b2f72db43999"
+    sha256 arm64_monterey: "8501f9f6b87427d70f99b03cd5246e6d22ebc9390c5a8211dcdf91166c209748"
+    sha256 sonoma:         "beedafeac4b0ea238ab762c14445a2a546774e9b76a92bddbb998f2709069851"
+    sha256 ventura:        "0298c5015f79f7f89bf550ab721f89b112b78df262cf5e789a125170e1836aa6"
+    sha256 monterey:       "397d16b0b03abb041cdfe05afa402b2576922a41df4386f9c974708b700a42f3"
+    sha256 x86_64_linux:   "9359d2d38ee56d75d796ed0a002b625eaaeece2e04248cc8a1493afbe9dba009"
   end
 
   depends_on "gnutls"

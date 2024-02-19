@@ -3,21 +3,19 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/e4/25/3a42efa20f10f7bcec116ee678c36fb9a58b8cc12699be9603f1378d6f17/yubikey_manager-5.2.1.tar.gz"
-  sha256 "35c5aa83ac474fd2434c33267dc0e33d312b3969b108f885e533463af3fbe4e1"
+  url "https://files.pythonhosted.org/packages/7f/7d/a488f1c4d8847e25234902cb7230dc572bebc5ed8dbd29b5f5fa9b8889a4/yubikey_manager-5.3.0.tar.gz"
+  sha256 "5492c36a10ce6a5995b8ea1d32cf5bd60db7587201b2aa3e63e0c1da2334b8b6"
   license "BSD-2-Clause"
-  revision 1
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1114a2fa7d4ff58ebcdfbd33683bfb3e45ab21a685336d13f3dd19776d63805b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b59a868935e8f1a4f549c5f4de8ba6a3d93a428323b84d5ef141d399ceea972"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4f4a6ea15fe8a1f03e83ccdc6b69bd1322ada76c7c58f888049d56e408e273d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4ea75c8ca9f3db5aa281d07ac9f86151e753b609f45270f3dfabf1f47f0af2b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "277f46b2ce0d20761f41b0acc68eefee3038fd4969b60523f4634c6f59aaf8e9"
-    sha256 cellar: :any_skip_relocation, monterey:       "7ec58eab87a2767c03916f6160fb24206e7ef9f63d122e2d19f9cfb2e64ec199"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41bc427d193a6a18049f2fadfbfc4df774e0f503718d14ed679a35facb2a645d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5dfeb6ab1346b5f10a15af6834023a63245fe7bb11b667f6ff8906d8e269af30"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3da2d10a4db96c4682a1da99bab5888fad542373bad6d0204e8ebc1497220b97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8547034f9ede445c32de0f6a17159b8903cf6affe8d75ae3660c3ed8f29f394a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "56f8d92d910a8ef0ffa290e47bc6ee4222b53481686d93f472c95f868bf540c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "7c49ed4b8fa1d01bec1988c97dd9c375193e40563ec93a84a99982fc7077e0e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "83e20660f76c38b111ed43cf3347e879b64e2287d30557fa4eb4f283004273fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d4c0663b57930f2820e6f91802926a0c5fe3c358d0ed6ec2afb9cd384b2f1b0"
   end
 
   depends_on "swig" => :build

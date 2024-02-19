@@ -3,9 +3,9 @@ class Exiftool < Formula
   homepage "https://exiftool.org"
   # Ensure release is tagged production before submitting.
   # https://exiftool.org/history.html
-  url "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-12.70.tar.gz"
-  mirror "https://exiftool.org/Image-ExifTool-12.70.tar.gz"
-  sha256 "4cb2522445cc3e3f3bd13904c6aeaeada5fc5a5e2498d7abad2957dcb42caffe"
+  url "https://cpan.metacpan.org/authors/id/E/EX/EXIFTOOL/Image-ExifTool-12.76.tar.gz"
+  mirror "https://exiftool.org/Image-ExifTool-12.76.tar.gz"
+  sha256 "5d3430ec57aa031f7ca43170f7ed6338a66bda99ab95b9e071f1ee27555f515f"
   license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
 
   livecheck do
@@ -14,13 +14,13 @@ class Exiftool < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06999b5ba8f63ddf6c89d8e411bb43d0efc4c354d0e6402feede7b4aaa800f0f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "862bd853237dcc82585f79649e66c06194fcea90793eec0b9243b20b7236eae4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "862bd853237dcc82585f79649e66c06194fcea90793eec0b9243b20b7236eae4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "60a7df2ec24a8fd7e10291f369cdf7a569e14587fbcea759dc9e40b46214c279"
-    sha256 cellar: :any_skip_relocation, ventura:        "4ae13f4922fea01cf68d7c88b81811db0e22f0d8a43c7ec55424096d77b2ce94"
-    sha256 cellar: :any_skip_relocation, monterey:       "4ae13f4922fea01cf68d7c88b81811db0e22f0d8a43c7ec55424096d77b2ce94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17f75702df68f918106de1d3ca08726e306a627f98c015dd3f9f34aa0e5b87fd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eaefac7e07b3e99c42d2aa0a99c8e78355c6d6a874245445de60d45c846febd7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c98ed3b14a4d1c66cdb7c19b21fab826ce4c53df12e7a02a51f093f342e7c3b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c98ed3b14a4d1c66cdb7c19b21fab826ce4c53df12e7a02a51f093f342e7c3b3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d7518674545b5024eb61598e5597c0a42a3eec16bebe249c5ac00de773a45169"
+    sha256 cellar: :any_skip_relocation, ventura:        "3a9703e2864c0e897286d4bb8d77d63612ca50fcec2c61e809c19838acb60474"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a9703e2864c0e897286d4bb8d77d63612ca50fcec2c61e809c19838acb60474"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01ef54fe0dfd9c6b794a61a269cd1599b58a79851f74c4369fbb33f1737f813c"
   end
 
   uses_from_macos "perl"

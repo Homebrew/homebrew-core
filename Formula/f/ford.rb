@@ -3,20 +3,20 @@ class Ford < Formula
 
   desc "Automatic documentation generator for modern Fortran programs"
   homepage "https://github.com/Fortran-FOSS-Programmers/ford"
-  url "https://files.pythonhosted.org/packages/48/b1/4947d7fa7ff2c6649e787cab8021d4775d5633c1efa06c50700f7cade80b/FORD-7.0.3.tar.gz"
-  sha256 "45889de5bc6e8d8f65199c83f260c972495e5396b0b138e95654b8b6b49a1670"
+  url "https://files.pythonhosted.org/packages/af/44/6c9f14e5560a95fd5b77009770be7437fad4bc142e39cc34ada49e4c758a/FORD-7.0.5.tar.gz"
+  sha256 "9c6f07acc8f01534f2b14d1b08265a4f36f93d44dd872eb60adfe5c83de36307"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5dd00bf72012c671142bce586abb8dbc969c0a0def51c7a045247be28bcd9d24"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b72862ad18aa8b32d6a8427cb85077f4e8566f143aa61a350ae0e3532795de69"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d5db43c1af48d0dc3a7f7d76051080463116295eeeef9ebee71754b3998e43e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "baeb0427ce28c5f6908bfe5c5a5b9f0f6e16aee29052954deb5125137aa53406"
-    sha256 cellar: :any_skip_relocation, ventura:        "199529cac9ebcd22953a94872e2c1f61d3e62a7443557b25ab348dafb4a0287d"
-    sha256 cellar: :any_skip_relocation, monterey:       "16c45b13474c3230dee7070f114c052281bb35e91d8e8dc49030ec691169ce00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d21b465569559e889ef37a321d1f60338f205eba51d2c4ecd7646d7394f2e23c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d19b6fb9084f62ad7fcf1f9190c64cd14f80126292723a514c1cf2284c553aed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f83368d23f711b3397f973ae08080e92601109b60d3da08de78ed77c04578999"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "312c4c4bcf858f0bfb74e65c2675e60a34363f8803be4920f01819c1b4540e2b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ce51a6f1a686329f051867bda3c854658e3d22cbc686d11111eb6576c19a57d3"
+    sha256 cellar: :any_skip_relocation, ventura:        "afca2591842b472216ad900209a9a6f8a855331aef71dffc2cd1555e51db22b3"
+    sha256 cellar: :any_skip_relocation, monterey:       "8aef75e936cd1df557d4d5d4adec1b44e0bab9e26ba1264b164f8b0e95bc699d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0669a2ce27b2875c4c169e2d09e2cf2431e4fd527c88815fb2db15a52850449"
   end
 
   depends_on "graphviz"
@@ -36,8 +36,8 @@ class Ford < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
   resource "markdown-include" do
@@ -66,8 +66,8 @@ class Ford < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
-    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
+    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
+    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
   end
 
   resource "soupsieve" do

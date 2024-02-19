@@ -1,18 +1,19 @@
 class Bindgen < Formula
   desc "Automatically generates Rust FFI bindings to C (and some C++) libraries"
   homepage "https://rust-lang.github.io/rust-bindgen/"
-  url "https://github.com/rust-lang/rust-bindgen/archive/refs/tags/v0.69.1.tar.gz"
-  sha256 "c10e2806786fb75f05ef32f3f03f4cb7e37bb8e06be5a4a0e95f974fdc567d87"
+  url "https://github.com/rust-lang/rust-bindgen/archive/refs/tags/v0.69.4.tar.gz"
+  sha256 "c02ce18b95c4e5021b95b8b461e5dbe6178edffc52a5f555cbca35b910559b5e"
   license "BSD-3-Clause"
+  head "https://github.com/rust-lang/rust-bindgen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b2f91ae5ac5cc1cc501ed57b06560e92b1a49c9a4fb2d9282e462d4561a88af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ec048845fe908f93ad2fcdfb9b2743fd74f54d01454022710089d29a0f23a43"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a12b56c7799cc59fdc14ced387941bb0a16c5ea507e7b70a5851bb4bbbf50c07"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eb3a10cf1599b349740d7ef9d44531f4f924a9c38e4f6c892c20fb0ba08b3777"
-    sha256 cellar: :any_skip_relocation, ventura:        "51e960cd4288b62486904079985fefff78e0f9da8cdd7efd0e96abf9f5413d7a"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad8e603013e5bdc292dfa4041cd0ee9cfd9d5e829440ba66623fe9f4591e25fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04ace3a3a6ab513966a31ff8d507bae2ccd1f211de85dfe6a4b1caa5a8d6480d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c4fca8f842d290edf0e9156dd6d24d00440cb5a3edd5d362e52a21089cdccd4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "50e6c6a95afe1212fa5222f1e885d83945067e8b1265e645400b47b47ea5009a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "24b41f3c5b5fe92950310d8649356a1fdb1848a571c93d089ca1394131e64d35"
+    sha256 cellar: :any_skip_relocation, sonoma:         "98c8486f92706d18c36733fce0d81a15b98224cad7b8bb10cd827b82ead5ee81"
+    sha256 cellar: :any_skip_relocation, ventura:        "9cba60c9e6083651b428babc0cdf7d6ea41dc67b2c4f071c1b4c271be48e30b4"
+    sha256 cellar: :any_skip_relocation, monterey:       "57e7025e7a4fbf359b042ef7589789e1f640c5012f3ed25a8b9900052e0be9f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e6d4d9bcec59656e9b8a8d75e07e67b8eeb123079aa4bb513ceccb4c1efcb3d"
   end
 
   depends_on "rust" => :build
@@ -21,6 +22,8 @@ class Bindgen < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "bindgen-cli")
+
+    generate_completions_from_executable(bin/"bindgen", "--generate-shell-completions")
   end
 
   test do
@@ -35,5 +38,7 @@ class Bindgen < Formula
 
     output = shell_output("#{bin}/bindgen cool.h")
     assert_match "pub struct CoolStruct", output
+
+    assert_match version.to_s, shell_output("#{bin}/bindgen --version")
   end
 end

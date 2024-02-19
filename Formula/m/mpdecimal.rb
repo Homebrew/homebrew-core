@@ -1,8 +1,8 @@
 class Mpdecimal < Formula
   desc "Library for decimal floating point arithmetic"
   homepage "https://www.bytereef.org/mpdecimal/"
-  url "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-2.5.1.tar.gz"
-  sha256 "9f9cd4c041f99b5c49ffb7b59d9f12d95b683d88585608aa56a6307667b2b21f"
+  url "https://www.bytereef.org/software/mpdecimal/releases/mpdecimal-4.0.0.tar.gz"
+  sha256 "942445c3245b22730fd41a67a7c5c231d11cb1b9936b9c0f76334fb7d0b4468c"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,21 +11,20 @@ class Mpdecimal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "95079d5b0a5114d1f3ccbe5f036a4729f3731d062ea5fc9d8c61241ddc22f7e2"
-    sha256 cellar: :any,                 arm64_ventura:  "5b1c62c08b42feb6e48c461a9de4751803f3ccc76830213a517f0905178dbbef"
-    sha256 cellar: :any,                 arm64_monterey: "726e8ec0713eb452bb744fe9147771bacc2c3713a128aaee03b6ddcc78011d1a"
-    sha256 cellar: :any,                 arm64_big_sur:  "eebbc5c7e71710c848eb60b90f946aefdee1b5269c840c30b8098d6bb758500b"
-    sha256 cellar: :any,                 sonoma:         "ed879258f7aad18da455791a183f5f73bfb1d73a9969986b35db67ebbb65c431"
-    sha256 cellar: :any,                 ventura:        "91f795d74747bf8723022ac813f3f81d71fefb774116c27f936b2e32018a1926"
-    sha256 cellar: :any,                 monterey:       "73e9acc9ca851c0d7fb92fdb223bf63595c319d7c5e01049388ce7989777852c"
-    sha256 cellar: :any,                 big_sur:        "255b6226cdcfaf0d40167012593e863e73dfed2884c10e7fc3eb4018e81712df"
-    sha256 cellar: :any,                 catalina:       "1a8314428019cec85756be0ea10bc4703cd754ef78a4cb560ddcc559af616a72"
-    sha256 cellar: :any,                 mojave:         "eebb16e048219e5e3d298db0e7ff8a7bfea60d54c4cf08af76efd81647f1b38b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5d64a4dd47dc1b66887c0cecd884f0848a801cb2f684cde0f4664e709574067"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "2965eec8a30f462b3bd6a8cc2756c1645e75f4399471594e434e36e886239e2e"
+    sha256 cellar: :any,                 arm64_ventura:  "1fd72d5f4b35a3d4735efd7d934154ec8b3666267571f96d64244ad35b3ee814"
+    sha256 cellar: :any,                 arm64_monterey: "57311ecd036fae8d74c541ab5a30944a5a5cfea7abaa6b8c936b7376821edafd"
+    sha256 cellar: :any,                 sonoma:         "377dc5e30dd1292ac1666dd43a447b861ad283024f70a3e914c7e11572ae869e"
+    sha256 cellar: :any,                 ventura:        "bb1729bd410275aab1bd276f99fb22678b6ad53de2c9c474fdda854ed0ebaebd"
+    sha256 cellar: :any,                 monterey:       "266a3f517227bb9f3806b18313c3b8a33688f9659e5001751e15f1f38538dacc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca79318fa094531bd57b3f07d5b8574cd9986bac4c876043336ea4176e8c294f"
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath}"
+    ENV.append "LDXXFLAGS", "-Wl,-rpath,#{rpath}"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
   end

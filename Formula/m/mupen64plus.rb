@@ -4,7 +4,7 @@ class Mupen64plus < Formula
   url "https://github.com/mupen64plus/mupen64plus-core/releases/download/2.5/mupen64plus-bundle-src-2.5.tar.gz"
   sha256 "9c75b9d826f2d24666175f723a97369b3a6ee159b307f7cc876bbb4facdbba66"
   license "GPL-2.0-or-later"
-  revision 6
+  revision 7
 
   livecheck do
     url :stable
@@ -12,9 +12,9 @@ class Mupen64plus < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "e761a381d60f957e9bad76a0d4d9512655b748d7a422d2c660ade33c23913aed"
-    sha256 cellar: :any,                 monterey:     "a61b4851ea2497c2d35d98b4881fc4c7f1d07be2b0d986bd34bbe63e0cab59ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "902b7740000a570908ddbdc6eacea27250749f1abac551d15f554d8ec2e5f8ec"
+    sha256 cellar: :any,                 ventura:      "54d806dd6c2fd106f57b12a63ad727847a32a4bec555ec6661f4cc3e18f16c1f"
+    sha256 cellar: :any,                 monterey:     "3b1ff670ae4641fda794466ce163358f719a50f8606033a596cc779318996ebd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6c8af0100e0056e5da34db613f0f60aa6177a83cba40536b5ee97f740ce7215d"
   end
 
   depends_on "pkg-config" => :build

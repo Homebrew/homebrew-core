@@ -6,23 +6,24 @@ class Yewtube < Formula
   url "https://github.com/mps-youtube/yewtube/archive/refs/tags/v2.10.5.tar.gz"
   sha256 "8100466a5e89c84249d882e2e9ea9ff282a2d4f7f68135157cb942e6eb927b29"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f567eb1064d94997be2a8f3b93db9d4a2bb6b6b55538e5caee6ec54e6a0f479f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "982791f1fe07d1eb921f5a49e03952238bc4562a26aa123bd5ff0a0440a14f65"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "72ddc3d8bf08f3778f3142d2525efdb3cd991beb39f220eccacad68118e5b37d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4191a23ab01ebb13d6186d0d3e6d0936108a68e7bc4f655e7a85e6f4acf08e01"
-    sha256 cellar: :any_skip_relocation, ventura:        "c5c001cf45974ff040af1bf0e60bb1eb30aec15083f8249bf0b57daa383b4449"
-    sha256 cellar: :any_skip_relocation, monterey:       "999aa41253e778dfbecc92dd3d98a204719dad2224eeac9d3337833d3199de70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93eef90ec4b3bd1b219fdb4d5129490913e96e0eb5957271f961c814303cf4ff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79922cd8f1c6438c910c912a3d5f44ad89e579c4482f7839bd7479b072221e95"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a7013be3fb223421c07dd276b68c1d4cfc7cb3df6f59f8ec8fcad1c9ac7ee4d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e55492051872720cf482f7db722c50194290808a306ba75dd019356cc1153482"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e2354a96703501d113dfc0b19fe385e73d55e562e1d185c4d0fec9b38b436268"
+    sha256 cellar: :any_skip_relocation, ventura:        "a26afa14bc1cf721c14130aa0875dd5bafaa7d0647c54817d275c3beb6fde6ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "dcf888538f2ecd61bfdac9e51145595580f2eb3b6f6890169a666ea128f88965"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98f27ef81ec17723788d3a03998abfb816d67ae17310656d430ea2fe65b2ad8f"
   end
 
   depends_on "mplayer"
   depends_on "python@3.12"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/6e/57/075e07fb01ae2b740289ec9daec670f60c06f62d04b23a68077fd5d73fab/anyio-4.1.0.tar.gz"
-    sha256 "5a0bec7085176715be77df87fc66d6c9d70626bd752fcc85f57cdbee5b3760da"
+    url "https://files.pythonhosted.org/packages/2d/b8/7333d87d5f03247215d86a86362fd3e324111788c6cdd8d2e6196a6ba833/anyio-4.2.0.tar.gz"
+    sha256 "e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f"
   end
 
   resource "brotli" do
@@ -51,8 +52,8 @@ class Yewtube < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/8c/23/911d93a022979d3ea295f659fbe7edb07b3f4561a477e83b3a6d0e0c914e/httpx-0.25.2.tar.gz"
-    sha256 "8b8fcaa0c8ea7b05edd69a094e63a2094c4efcb48129fb757361bc423c0ad9e8"
+    url "https://files.pythonhosted.org/packages/bd/26/2dc654950920f499bd062a211071925533f821ccdca04fa0c2fd914d5d06/httpx-0.26.0.tar.gz"
+    sha256 "451b55c30d5185ea6b23c2c793abf9bb237d2a7dfb901ced6ff69ad37ec1dfaf"
   end
 
   resource "idna" do
@@ -66,8 +67,8 @@ class Yewtube < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/14/c9/09d5df04c9f29ae1b49d0e34c9934646b53bb2131a55e8ed2a0d447c7c53/pycryptodomex-3.19.0.tar.gz"
-    sha256 "af83a554b3f077564229865c45af0791be008ac6469ef0098152139e6bd4b5b6"
+    url "https://files.pythonhosted.org/packages/3f/13/84f2aea851d75e12e7f32ccc11a00f1defc3d285b4ed710e5d049f31c5a6/pycryptodomex-3.19.1.tar.gz"
+    sha256 "0b7154aff2272962355f8941fd514104a88cb29db2d8f43a29af900d6398eb1c"
   end
 
   resource "pylast" do
@@ -106,8 +107,8 @@ class Yewtube < Formula
   end
 
   resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/93/f0/8d894dd24447945269d123f6a061520103fb790211c6846418c6ee1065ff/yt-dlp-2023.11.16.tar.gz"
-    sha256 "f0ccdaf12e08b15902601a4671c7ab12906d7b11de3ae75fa6506811c24ec5da"
+    url "https://files.pythonhosted.org/packages/a9/a7/d8536993aed7569c5221f532e3ba01b09d5bdc893df3ef4e5b05d01582c4/yt-dlp-2023.12.30.tar.gz"
+    sha256 "a11862e57721b0a0f0883dfeb5a4d79ba213a2d4c45e1880e9fd70f8e6570c38"
   end
 
   # Fix SyntaxWarning's on python 3.12

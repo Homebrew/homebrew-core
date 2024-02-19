@@ -1,20 +1,19 @@
 class Himalaya < Formula
   desc "CLI email client written in Rust"
-  homepage "https://pimalaya.org/himalaya/"
+  homepage "https://pimalaya.org/himalaya/cli/latest/"
   url "https://github.com/soywod/himalaya/archive/refs/tags/v0.9.0.tar.gz"
   sha256 "9a5593a3a92dcce8227cea45870a88432d8df3a012636eb5461165cf599dbcbb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3ab0c354fca08ffd2904271e563515d0efe3b7e1b9d57188b673199b167dccb3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "738f75aedd57528d9db730056b4f0113a040769a166f3867abf9280b3d61c870"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "669e214ec347274c3c3307c70707018878dc5badfb225a2474bdb1222480c1a5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c2fae94407f6ed9a3219ad2b48c7ed988298447ada49c59a4afa758fc727eecf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4c0ae039e35eebee9f19987c947ad65efe169d0785aa64bdd0f7798102223c38"
-    sha256 cellar: :any_skip_relocation, ventura:        "83bb99ef9a793f8bd75e124e002d9e5f0fbda01292b69efee8b50169a57b5a7d"
-    sha256 cellar: :any_skip_relocation, monterey:       "f79d8bc1dcce9339d6629f14b7f3fe83bb2ad83981e39307e25876d68ef5e72a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "058bf1827a10ac97c86c9760da9943ca7e282328c81605568334d4c1a13053ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d7452aa05f8a359c8c0f4accba2a48a9625b98a368dd48f9c5845c066d5c112"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f39d7f7e22b4baab36d1f4c659624dce597812b171b89d421ae91d631117c638"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d23ecffec7b5be31097be6e9f1049c669ca8d490e0a740a5066aa5319d1d55a9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dde1d0e5189c39327b5d9f822cc0bfbe6052881933741ac5f11925efd8db45d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be468d9901621711cf7a45ecab8f7521216aa419a229e886ce21844315ca28c5"
+    sha256 cellar: :any_skip_relocation, ventura:        "82b5bf9621d0785b49d14362d7bf933ef163acbc9740184f60dc3b7961019737"
+    sha256 cellar: :any_skip_relocation, monterey:       "87ed060405e6243d47b0a93acae318c702b248c29041359d482b3efb0cb1e573"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "401182fcfee72d5ef3a1c42204dbd71687c3c17586bb2ac2e87fc158aa496d85"
   end
 
   depends_on "rust" => :build
@@ -26,6 +25,9 @@ class Himalaya < Formula
 
   def install
     system "cargo", "install", *std_cargo_args
+
+    system bin/"himalaya", "man", buildpath
+    man1.install Dir["*.1"]
     generate_completions_from_executable(bin/"himalaya", "completion")
   end
 

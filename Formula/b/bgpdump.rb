@@ -6,7 +6,7 @@ class Bgpdump < Formula
   license "GPL-2.0"
 
   livecheck do
-    url "https://github.com/RIPE-NCC/bgpdump.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 

@@ -1,18 +1,18 @@
 class Instaloader < Formula
   desc "Download media from Instagram"
   homepage "https://instaloader.github.io/"
-  url "https://files.pythonhosted.org/packages/aa/94/93b6130a32ebaeec7671c65b2b0cc76e657de1113aebe82c015245aaaf8a/instaloader-4.10.2.tar.gz"
-  sha256 "2ddf1b3e85977bf07141383dff5dab23b2c59ccf40a1d2d8696ad11d43bb8198"
+  url "https://files.pythonhosted.org/packages/65/2d/ffcd7916414b5bce2a497c39f015ec55e754f165a254cf3ac8ec76f3dc0e/instaloader-4.10.3.tar.gz"
+  sha256 "168065ab4bc93c1f309e4342883f5645235f2fc17d401125e5c6597d21e2c85b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4095f327b236f9c62a5d0d533381ba81cf8e99994a0270146df4f8ff7ad4c5fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f67389bf2a4677efa07b77714715ba75812c5b208b1b95356c58935707c891fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "931648118713e73d7341f412634c4a6778d383ef4485f017df5683baecba495d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "85019303273a16a5ea8df311c8fd7334e7af669e6face0e813e4fca0d20145e1"
-    sha256 cellar: :any_skip_relocation, ventura:        "c70b975a16796910e64fdde6585fa92abe043dc85c2e6bc0c93c26ed64f95838"
-    sha256 cellar: :any_skip_relocation, monterey:       "a12924882c0fef407cabb4a396aa941455efc70324288feb925d77fcebce1de7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00829fe250c78544ff06d2fffbc248e69893b9baa4ce5aceb6c7361aecf1db1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d6c434f54b809056fee9a5acadd3552b49cbd6cc62f7ad0f2e5215733f9869e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9254edfbc8fa3a2ad60a4ebd18a4584e7aa0a761e2aa240a9d0dd08758cf837"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e339cb1efb4d2542583a345d3fe6233c7b6e77f774c8f3d04204456f7b46a22a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cb3231e46e9398ec7f9a6e0ec75f06e02d30dc432c8c2c48843e0bb0f9f2f8dd"
+    sha256 cellar: :any_skip_relocation, ventura:        "dee8da1771db8dbf7eab558981cdd422edd0f90dbafa7073cd7270153b8ea93e"
+    sha256 cellar: :any_skip_relocation, monterey:       "85c9374f7f0d7967cc532142090661e1a347810e4bbcb2ab84ef9a3764bf5f9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b608a4fa79a82bba5225ba00c8a931631637efce8c4c06a6d65e0a11940ba78"
   end
 
   depends_on "python-setuptools" => :build

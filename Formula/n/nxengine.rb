@@ -20,7 +20,7 @@ class Nxengine < Formula
   end
 
   # Last release on 2014-07-15
-  deprecate! date: "2023-02-04", because: "uses deprecated `sdl_ttf`"
+  disable! date: "2024-02-07", because: "uses deprecated `sdl_ttf`"
 
   depends_on "sdl12-compat"
   depends_on "sdl_ttf"

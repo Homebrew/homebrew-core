@@ -3,26 +3,23 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/45/5d/9e9d059a0aaa2a8938411eb796a34d4c313e66d87081e99df6c7a1a4467e/cycode-1.7.0.tar.gz"
-  sha256 "cfced7e2adf0801a7fd94f4ebf7d6c8a99c21463549b4f729ec695f9d7394a14"
+  url "https://files.pythonhosted.org/packages/d8/8f/d7f1f83acbdc7e97db9da204bf2b231f3863e80d4182267b5c744f842161/cycode-1.9.0.tar.gz"
+  sha256 "77b28d8a70998a149b93365653e350b1c1a32175ff13bb1b03faf7f8c1ea3a69"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cb57c6e703638249bf8d5336092db3c639415da9828a45711a4ca19a80e1418d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9bfd794428b7edb5d425ce911fe6ad0ba917a3e1f699efbde3c16088bac3cd92"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "82b982d5f50ff42010fcb2092cbc161ab5f7a6d22efb25a556a10dacec849161"
-    sha256 cellar: :any_skip_relocation, sonoma:         "76b6d28fb14e9d27b52bfbefb5214e11faf09af18f57e03fc1875c28afe96fa8"
-    sha256 cellar: :any_skip_relocation, ventura:        "c73af503f0fae0bd61bab8c3cde5f001b94e66fff123e1f7ed538d1ff555c406"
-    sha256 cellar: :any_skip_relocation, monterey:       "b3b11abf69da95efcf8586d9e38941df83b891b13b9f3a0be5d6af8f19929962"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5754a3cdd2ced84f97af1196c4b011cc5fa957135f5b170ecc6bc0ce6f6599e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e8192782f35b3965f2941f84430482fd34d6497a5d1fc2de5eec60078f14b02"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0606791b2984f8f84e4844b63cdc403c19ac3e519fc8083d9471cfd9743a225d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fca4ac32239a7ba9f50fa0d07e1d826eee751ea4291e3033f7b7fc6e259ae1dd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "756c3a0da185d6f27c71bf7d9b864e4b68ced0950ae87e945075516df0414748"
+    sha256 cellar: :any_skip_relocation, ventura:        "9b1f54810819116bf7a0b5fe064612fae88e12fdccdfb6d400ffe3acb7938949"
+    sha256 cellar: :any_skip_relocation, monterey:       "468dcdc25e5d922d80e5b3fd74e321ce30e0cb0508099b0d55ff9741335aac57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71143c7219eba0ef77b057eb052340aed29878b9132d201f2eaa4cf104ea3f37"
   end
 
   depends_on "python-certifi"
-  depends_on "python-click"
-  depends_on "python-packaging"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/7f/c0/c601ea7811f422700ef809f167683899cdfddec5aa3f83597edf97349962/arrow-1.2.3.tar.gz"
@@ -44,6 +41,11 @@ class Cycode < Formula
     sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
@@ -55,8 +57,8 @@ class Cycode < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/0d/b2/37265877ae607a2cbf9a471f4581dbf5ed13a501b90cb4c773f9ccfff3ea/GitPython-3.1.40.tar.gz"
-    sha256 "22b126e9ffb671fdd0c129796343a02bf67bf2994b35449ffc9321aa755e18a4"
+    url "https://files.pythonhosted.org/packages/e5/c2/6e3a26945a7ff7cf2854b8825026cf3f22ac8e18285bc11b6b1ceeb8dc3f/GitPython-3.1.41.tar.gz"
+    sha256 "ed66e624884f76df22c8e16066d567aaa5a37d5b5fa19db2c6df6f7156db9048"
   end
 
   resource "idna" do
@@ -65,8 +67,13 @@ class Cycode < Formula
   end
 
   resource "marshmallow" do
-    url "https://files.pythonhosted.org/packages/e4/e0/3e49c0f91f3e8954806c1076f4eae2c95a9d3ed2546f267c683b877d327b/marshmallow-3.20.1.tar.gz"
-    sha256 "5d2371bbe42000f2b3fb5eaa065224df7d8f8597bc19a1bbfa5bfe7fba8da889"
+    url "https://files.pythonhosted.org/packages/03/81/763717b3448e5d3a3906f27ab2ffedc9a495e8077946f54b8033967d29fd/marshmallow-3.20.2.tar.gz"
+    sha256 "4c1daff273513dc5eb24b219a8035559dc573c8f322558ef85f5438ddd1236dd"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
   end
 
   resource "pathspec" do
@@ -79,9 +86,19 @@ class Cycode < Formula
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "smmap" do

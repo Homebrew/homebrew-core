@@ -21,14 +21,15 @@ class Cmocka < Formula
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args
-    args << "-DWITH_STATIC_LIB=ON" << "-DWITH_CMOCKERY_SUPPORT=ON" << "-DUNIT_TESTING=ON"
+    args = %w[
+      -DWITH_STATIC_LIB=ON
+      -DWITH_CMOCKERY_SUPPORT=ON
+      -DUNIT_TESTING=ON
+    ]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

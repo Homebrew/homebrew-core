@@ -2,7 +2,7 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   stable do
     url "https://hackage.haskell.org/package/Agda-2.6.4.1/Agda-2.6.4.1.tar.gz"
@@ -12,16 +12,21 @@ class Agda < Formula
       url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.0.tar.gz"
       sha256 "14eecb83d62495f701e1eb03ffba59a2f767491f728a8ab8c8bb9243331399d8"
     end
+
+    resource "cubical" do
+      url "https://github.com/agda/cubical/archive/refs/tags/v0.6.tar.gz"
+      sha256 "10b78aec56c4dfa24a340852153e305306e6a569c49e75d1ba7edbaaa6bba8e3"
+    end
   end
 
   bottle do
-    sha256 arm64_sonoma:   "d34f57113a77435c5bae85b608e304d68d95089a4f36c21fa134885fd7bf8c41"
-    sha256 arm64_ventura:  "15fe03b6e47eaa38f9acb16f43e7bbc7186f1423535ab66898f913b772c93e65"
-    sha256 arm64_monterey: "9ad4c648661ec80e6fb04fdeaec88d35ee7f1f3f5bc252cb523119cad8f998f3"
-    sha256 sonoma:         "71b7f500a7b69791eb74ca9f2d048d64447348e5072dc428294ad4472b4785a9"
-    sha256 ventura:        "a866adfb675290d73ff99e594b5d05587a4bb1fab2215943a7205905c79ffbad"
-    sha256 monterey:       "5a14b043ee49a96e4922111138626e72ea7bc3d8b830291321807ec5399b4ea5"
-    sha256 x86_64_linux:   "618c97dd8d1d7eaa9b3269875666939cb35f990ea11e4542faf31f4dddf9b3c6"
+    sha256 arm64_sonoma:   "2b678bfe91131906fa2e43c95757967998966271ef2770ad8e5e03bf5a1eb0b0"
+    sha256 arm64_ventura:  "b862f1ff03564076c13f590c6338326a3991acf2c3eb1fa9b5d9d20d5f99b32a"
+    sha256 arm64_monterey: "7ae4cc4f53e325c43360d3c84fe53b2b7169e0adf005edc18e0c6f20663e8d4e"
+    sha256 sonoma:         "793d4f2b0acf1ea386427691ba9b38501ceee869dea927fcf060d95bf13bd36c"
+    sha256 ventura:        "1d6d106b1ed96914186734e84865fa990e12d51bafc195ac4661b141177cbc32"
+    sha256 monterey:       "bfd05c56239a076dc1f621935e7130cd1bb4f08618b1f1285a9524495117d3dd"
+    sha256 x86_64_linux:   "e938b07e2f672d1cc545bd6dbb23434684dbbad5e291362e641ad7cc67fc575d"
   end
 
   head do
@@ -29,6 +34,10 @@ class Agda < Formula
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib.git", branch: "master"
+    end
+
+    resource "cubical" do
+      url "https://github.com/agda/cubical.git", branch: "master"
     end
   end
 
@@ -57,7 +66,16 @@ class Agda < Formula
     end
 
     # Clean up references to Homebrew shims
-    rm_rf "#{lib}/agda/dist-newstyle/cache"
+    rm_rf "#{agdalib}/dist-newstyle/cache"
+
+    # generate the cubical library's documentation files
+    cubicallib = agdalib/"cubical"
+    resource("cubical").stage cubicallib
+    cd cubicallib do
+      system "make", "gen-everythings", "listings",
+             "AGDA_BIN=#{bin/"agda"}",
+             "RUNHASKELL=#{Formula["ghc"].bin/"runhaskell"}"
+    end
   end
 
   test do
@@ -98,6 +116,20 @@ class Agda < Formula
       +-assoc (suc m) n o = cong suc (+-assoc m n o)
     EOS
 
+    cubicaltest = testpath/"CubicalTest.agda"
+    cubicaltest.write <<~EOS
+      {-# OPTIONS --cubical #-}
+      module CubicalTest where
+
+      open import Cubical.Foundations.Prelude
+      open import Cubical.Foundations.Isomorphism
+      open import Cubical.Foundations.Univalence
+      open import Cubical.Data.Int
+
+      suc-equiv : ℤ ≡ ℤ
+      suc-equiv = ua (isoToEquiv (iso sucℤ predℤ sucPred predSuc))
+    EOS
+
     iotest = testpath/"IOTest.agda"
     iotest.write <<~EOS
       module IOTest where
@@ -115,14 +147,18 @@ class Agda < Formula
     EOS
 
     # we need a test-local copy of the stdlib as the test writes to
-    # the stdlib directory
+    # the stdlib directory; the same applies to the cubical library
     resource("stdlib").stage testpath/"lib/agda"
+    resource("cubical").stage testpath/"lib/agda/cubical"
 
     # typecheck a simple module
     system bin/"agda", simpletest
 
     # typecheck a module that uses the standard library
     system bin/"agda", "-i", testpath/"lib/agda/src", stdlibtest
+
+    # typecheck a module that uses the cubical library
+    system bin/"agda", "-i", testpath/"lib/agda/cubical", cubicaltest
 
     # compile a simple module using the JS backend
     system bin/"agda", "--js", simpletest

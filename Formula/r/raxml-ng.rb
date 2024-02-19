@@ -2,20 +2,18 @@ class RaxmlNg < Formula
   desc "RAxML Next Generation: faster, easier-to-use and more flexible"
   homepage "https://sco.h-its.org/exelixis/web/software/raxml/"
   url "https://github.com/amkozlov/raxml-ng.git",
-      tag:      "1.2.0",
-      revision: "fd32e7f73c3ee44c526c7555a8d04e84b03bd51c"
+      tag:      "1.2.1",
+      revision: "af74065fa2e03d4eb3efd83881bd50926d07e234"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9a40ebe14845ed95e1c4f564210795fa3f965f260d08442364e107681b238433"
-    sha256 cellar: :any,                 arm64_ventura:  "5dd0d18757ed8322bf8672537cceeb471282fa9b04524e3fe8585c9f791afc37"
-    sha256 cellar: :any,                 arm64_monterey: "cf0cb888b93104fffe0cced735061f7cf3a88979972dec9766c6a116368e1303"
-    sha256 cellar: :any,                 arm64_big_sur:  "708f6103476f7b943910ecc3048537e44592c336e60a89c434eabed1b1794957"
-    sha256 cellar: :any,                 sonoma:         "00425570d720500796fcb2e6576fedabc1c4afe1fa0d4663cf8535220222cd5c"
-    sha256 cellar: :any,                 ventura:        "2ea060156ee247a24ba70f338eb23d8a90563624f77418e7df55dc0586a05879"
-    sha256 cellar: :any,                 monterey:       "f126aea85e829545d56f1632354e7e12de6e62bc9b72504f63a27fc938c9d40e"
-    sha256 cellar: :any,                 big_sur:        "5a5a3ab547ff228ed8a5283ed133d2bbe498eeee5bd1735264977d6ef82b7526"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e69bccbc5f0a041d07a157481e885ed3bf94b31abf8d242f9313c5aa711ea14a"
+    sha256 cellar: :any,                 arm64_sonoma:   "dcf2e94a38e1026c97cd3c6eea1cbf216a6d7209cad9b7ed67de4a1f8707fbb7"
+    sha256 cellar: :any,                 arm64_ventura:  "e2ece52151cf1a3c156da7d2dfe5298d2141792abf159fb04c399bc323aa9474"
+    sha256 cellar: :any,                 arm64_monterey: "e4b6c4593160a8ba0cbe421e9fda4df960aac50583897ce435f5295a4675396e"
+    sha256 cellar: :any,                 sonoma:         "ab64dbd6f9c0abc354924c3e5ff92d3900f1c4cde7e30ca1d18a5bc12d23f70f"
+    sha256 cellar: :any,                 ventura:        "22c88c983900ec464ca890567fa71d692ebe082600f2663117c48a583cb01678"
+    sha256 cellar: :any,                 monterey:       "c63dce9f7ba5dcb10bb58cfb09e6ea097246ec5380e20ae5159ed237af33f778"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eab1309c5fad5a6369cddfc221afce7f9c32a943778afd32c4d9f3641ac015c6"
   end
 
   depends_on "bison" => :build # fix syntax error with `parse_utree.y`

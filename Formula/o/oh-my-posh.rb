@@ -1,19 +1,19 @@
 class OhMyPosh < Formula
   desc "Prompt theme engine for any shell"
   homepage "https://ohmyposh.dev"
-  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/refs/tags/v19.3.0.tar.gz"
-  sha256 "b7aa286403d458ed41a66d7ddac4392d0eff85f2620c4def3b43c39fbd02355a"
+  url "https://github.com/JanDeDobbeleer/oh-my-posh/archive/refs/tags/v19.11.3.tar.gz"
+  sha256 "5db3024baed3d6473e0a9344fe6680dc4943815ae54b802e7940903a9ee367a1"
   license "MIT"
   head "https://github.com/JanDeDobbeleer/oh-my-posh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05515d44d13ce6964e25c1ba09498d49a0ef23a3e4e60c767a326f2a548c2695"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c2c7a93114334134c72de9040641a10c5bcbe9e288e87ad5bc9116420d44869"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4e900792c5b3691f399d87be0874eba3b63d2fadda1e0569474e83bcf38c8119"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2ba38c03042f16f67d5767f931732f45e3eaa07cfd6760a92d6d1936bb7a1433"
-    sha256 cellar: :any_skip_relocation, ventura:        "33dce8a2275c41c0e55afcecf7db682b753520e4b9ece3b47356bac92f9f653a"
-    sha256 cellar: :any_skip_relocation, monterey:       "40fddc67d55969dd3eefc9ccf63b37af24540401a0e6c6d761fae48ead972974"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19e6e464cb489798fc3a806d5ab6ec30070a6df322fd56c5eb6159bd30e7477c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9624ea0b05c42921f879346669cba49a4d08d89c6128d31b70ac84fd6feffc77"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f2002582931f4c110551e58145b493c11a7a95b01ad55d74f43f0adec948e98"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ada5241a70eee8f44778891bb4a9305faefd467dedcf76b4f00064881ca22f66"
+    sha256 cellar: :any_skip_relocation, sonoma:         "895cd8075540022299c3da4c0dacfaf540b72211604d7c79c2dc7ab0eee27e01"
+    sha256 cellar: :any_skip_relocation, ventura:        "82a37b748e254eca65fa1148778283b5b885674e655824c7db184ce326ba11da"
+    sha256 cellar: :any_skip_relocation, monterey:       "8936e99fb7f3930e7da6cbe8ca5e6da6be7c056b0dc249394b6b743400547346"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6d842ced0864a7a7fd9134efd7297c11cf3fae49182337fcabf2c0891e4b257"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Imake < Formula
   desc "Build automation system written for X11"
   homepage "https://xorg.freedesktop.org"
-  url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.9.tar.xz"
-  sha256 "72de9d278f74d95d320ec7b0d745296f582264799eab908260dbea0ce8e08f83"
+  url "https://xorg.freedesktop.org/releases/individual/util/imake-1.0.10.tar.xz"
+  sha256 "75decbcea8d7b354cf36adc9675e53c4790ee3de56a14bd87b42c8e8aad2ecf5"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,13 @@ class Imake < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "53732a9e3489221517f6fe2a461ae4d66cf82aee39b38404da060b859883a6eb"
-    sha256 arm64_ventura:  "19f7c882a366cbf93890a9ea0883dd3b22e59111f245d74a518e101f3897e731"
-    sha256 arm64_monterey: "5fb64e52f4926897796acec85b4841347a2318d068487e1a790acd901913a763"
-    sha256 sonoma:         "6e0669d2a386bb810d9cb7819578a922d9dbe0ff75478e5c65061f3dc2f0f322"
-    sha256 ventura:        "c4ee12af45a2274a2298edfc217d6e0eb31d9dc1988b65f6d0391f77999ac1bb"
-    sha256 monterey:       "e9c04522573375f197b719bdad07ba85554c9e0e835124912d9a5722db1be07c"
-    sha256 x86_64_linux:   "66ce931bda54ba4c4c584a8cb0704f70452a5b6c6944b818ad0e597f6759e18f"
+    sha256 arm64_sonoma:   "2e5e51212893abfdefa9fe94309a52728693418424af70ad64424974816d1624"
+    sha256 arm64_ventura:  "1bf5d0e8b8fc5f7030162a29d9054863f2af080a8ec62db87d8f6ce90c55d8d6"
+    sha256 arm64_monterey: "5708253a196811ca791e556e6b22582b84b8f925d15b2bccca6d13b9f049002b"
+    sha256 sonoma:         "f2362816e0e06c863938298689c9cc9b9ee34ffe2aace4369fd42774ab5a66a4"
+    sha256 ventura:        "d62ef9dabad43d8c1bf7ee4d40762bf36dab9475ddcbfaf205f67303e3b197b5"
+    sha256 monterey:       "b288cbb7cb8faf0e38bd79cae80e0a9b47eebd3e760caaae129aaa001d880fc1"
+    sha256 x86_64_linux:   "296155e61983cc533d3f5ab094d796d2ab3d992606be73da1f7a51f3920ea41e"
   end
 
   depends_on "pkg-config" => :build
@@ -26,8 +25,8 @@ class Imake < Formula
   depends_on "tradcpp"
 
   resource "xorg-cf-files" do
-    url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.6.tar.bz2"
-    sha256 "4dcf5a9dbe3c6ecb9d2dd05e629b3d373eae9ba12d13942df87107fdc1b3934d"
+    url "https://xorg.freedesktop.org/releases/individual/util/xorg-cf-files-1.0.8.tar.xz"
+    sha256 "7408955defcfab0f44d1bedd4ec0c20db61914917ad17bfc1f1c9bf56acc17b9"
   end
 
   def install

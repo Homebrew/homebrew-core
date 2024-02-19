@@ -1,8 +1,8 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://github.com/simdutf/simdutf"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v4.0.8.tar.gz"
-  sha256 "bbc1b5fdfec7d0f83c6a9d24bf90d10c2a462f30aa1ced30bed72288006a2194"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v4.0.9.tar.gz"
+  sha256 "599e6558fc8d06f8346e5f210564f8b18751c93d83bce1a40a0e6a326c57b61e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Simdutf < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "eb3ae258c5e6f44f656ef24b0efae1a7bf75b348804e7b0da1e10f57d83028c7"
-    sha256 cellar: :any, arm64_ventura:  "1bd856598d32e0301ef2e42e81e3e54f2e8d16d37b793e6f8800cf9f6c343e13"
-    sha256 cellar: :any, arm64_monterey: "4ab981a23d29ff754df6fc34c3dfc9be81e3dda0d9554c989646a6e6e9c2231e"
-    sha256 cellar: :any, sonoma:         "dc5a473ac2fac2ac52b725f68291359f1557a39e7e309b032f807b32552f050c"
-    sha256 cellar: :any, ventura:        "a1400e87f8e301308cd74e466ee77576c184432f54d2c38b50e9395b8e958caf"
-    sha256 cellar: :any, monterey:       "3e65eba6f985c2ceb0a7b7fbaf91ba693f7958cdae856a2104b3671a0da6a526"
+    sha256 cellar: :any, arm64_sonoma:   "d6a460efc256ba88e1613af84096aa0448ceaa386619d26bb83cf5ccb4c1feee"
+    sha256 cellar: :any, arm64_ventura:  "84a3dc9d1055b374bbc2d9e36583611f9f548d250dd6bde8c357003e95c3cf76"
+    sha256 cellar: :any, arm64_monterey: "b8add4a106ea999336220005448a4d91b9e943c9d75f8cc0353ef76ef029595f"
+    sha256 cellar: :any, sonoma:         "c759bbcef26f397eb1c10e53847345f5e8268651bed50570bd9845237a3a2ef8"
+    sha256 cellar: :any, ventura:        "c4122b60b5ff6632e19bb6db2647be57625db15b17da37f4570f1f5c9bca5849"
+    sha256 cellar: :any, monterey:       "f1fee085f00cae7700521138081ff07a9845308d88160ffadbc37585f5f608a9"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +28,9 @@ class Simdutf < Formula
 
   def install
     args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
       -DPython3_EXECUTABLE=#{which("python3")}
       -DSIMDUTF_BENCHMARKS=ON
     ]

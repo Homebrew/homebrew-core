@@ -6,18 +6,18 @@ class Mailcatcher < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "24d088adafb5277c5a550836dc32009bcf320de229ec44f3f5a8cab573436135"
-    sha256                               arm64_ventura:  "6c04fd2473fc24df836d8dcdab4a7534f4366ec5c5648b7b98462ec9de74d96f"
-    sha256                               arm64_monterey: "6aeff71ae28206fe39800ec8f7233a6ab39c7130688f97e3c2115bae0df5aad6"
-    sha256                               arm64_big_sur:  "825e9ac8678b8eb0e879a864fa48653ff65351eaab8ed3c816ee568dc5e7cc25"
-    sha256                               sonoma:         "46351e4e2e1418b493818975a832e42733337cb747f9fef1133cfb9b89efea29"
-    sha256                               ventura:        "9ef40b473248d0eb34206d131b135c64331c6d96d7039e99b23413b862ad89de"
-    sha256                               monterey:       "f3a391805115ae9a3dfcaabb63d59eb4bf4c4d24b78b8ffb5deddcf1a2315d11"
-    sha256                               big_sur:        "23804ac86d1dcf62f0726c656f121ac320b93a5b865267562063d2cf9afed6db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ee0bf63eb25796d9868ed5d3e0c7c07b1218e0554f406e5802d1b9de3c69625"
+    rebuild 1
+    sha256                               arm64_sonoma:   "c85d5f3a0c97e3b7b7e357d917669be97b353d905455c1c747879866280d08f7"
+    sha256                               arm64_ventura:  "fd7fa603aabb411b81c707f49b22897c787e2f86065caf2c5d61b3c6bb939e9f"
+    sha256                               arm64_monterey: "6c09858a458e3199bae7e7dba6c86fd60e9b9a893f14f97faee71a0a2763bc83"
+    sha256                               sonoma:         "b00ed7cd9a86d74ee3c82026bc15e9f26559344709aaae343ed2175070d2f3a9"
+    sha256                               ventura:        "db0aff94dc9b18f0a3e673da85c5b45a7d035433ba02837c20672e89df34fd62"
+    sha256                               monterey:       "5745336d4646f97b2fa877bfab48aa698a8dcb32ed5d12f04b452c36ec1437d4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5837b1a898a930baa899624efb0b957365c14bfebdeaed8cd3c9cb11e555986"
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libedit"
   depends_on "libyaml"
 
   uses_from_macos "xz" => :build
@@ -29,7 +29,7 @@ class Mailcatcher < Formula
 
   on_linux do
     depends_on "node" => :build
-    depends_on "ruby"
+    depends_on "ruby@3.2"
   end
 
   resource "bundler" do

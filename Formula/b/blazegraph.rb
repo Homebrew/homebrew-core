@@ -4,6 +4,7 @@ class Blazegraph < Formula
   url "https://github.com/blazegraph/database/releases/download/BLAZEGRAPH_RELEASE_2_1_5/blazegraph.jar"
   version "2.1.5"
   sha256 "fbaeae7e1b3af71f57cfc4da58b9c52a9ae40502d431c76bafa5d5570d737610"
+  license "GPL-2.0-only"
 
   livecheck do
     url :stable

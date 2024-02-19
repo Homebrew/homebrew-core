@@ -32,12 +32,12 @@ class Pioneer < Formula
   fails_with gcc: "5"
 
   def install
-    ENV.cxx11
-
     # Set PROJECT_VERSION to be the date of release, not the build date
     inreplace "CMakeLists.txt", "string(TIMESTAMP PROJECT_VERSION \"%Y%m%d\")", "set(PROJECT_VERSION #{version})"
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

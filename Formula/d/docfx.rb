@@ -1,17 +1,18 @@
 class Docfx < Formula
   desc "Tools for building and publishing API documentation for .NET projects"
   homepage "https://dotnet.github.io/docfx/"
-  url "https://github.com/dotnet/docfx/archive/refs/tags/v2.74.1.tar.gz"
-  sha256 "c77254cc4f5cbac235b728a01fd9bf3c94161535ea063494d07aec877a78b361"
+  url "https://github.com/dotnet/docfx/archive/refs/tags/v2.75.3.tar.gz"
+  sha256 "acdf37f58dcf9ea82554c641cd45914cb3813f6493504bedda1b5fb4e4390a3e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57cf514074f7df6958bd672e8b90dc3956c8c3dfcef357bb9efaf0ffbe7b9402"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fba2895d1802dbca980bda887a91405b15c1f2350710ae1ac036d474e537e7f5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f90413b7c603f3ca4028e217efc606d814d7af2675a51a195c8290a499aca1cf"
-    sha256 cellar: :any_skip_relocation, ventura:        "d48302c96f06d61aa8eb0b44748f26a24d6e50327054260326bbedefc196abc9"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a8c3f54bdc31afa2df900893cfdea08431748afe09866956eb99118645ee2b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a08d7921aecd13b024576eb0e8a59e38ce81b68ff92816a464d3a2b07e318c75"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "008812a338e393dd04e61aad7471d0a5143dc7c675bbc2aa076e68683982f40c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "41452127d5179917a1139a7dd5b63ce0e43180b16812fa77e69ab34654b624e6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "77fee16c78d260815b2b5629de6839b151ec5ec9679af949d624e7986541b8d5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be92896c4c84d470bf5fdf639dc4c471d5b7ea27bc5824e73c090288d983220f"
+    sha256 cellar: :any_skip_relocation, ventura:        "6ba4023266f8b06ec030d5610753a53d34b758e1c08fe54ccbaba9d7953c9588"
+    sha256 cellar: :any_skip_relocation, monterey:       "c61346dddcf9c7a8cf0f9a42851eb67075949371ef599bdc71c0b7ec6a7723b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfbc799a014006d5710660df9c9d5c80ea81c667c20093542690dec19ec1f01e"
   end
 
   depends_on "dotnet"

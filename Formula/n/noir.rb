@@ -1,19 +1,18 @@
 class Noir < Formula
   desc "Attack surface detector that identifies endpoints by static analysis"
   homepage "https://github.com/noir-cr/noir"
-  url "https://github.com/noir-cr/noir/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "37b0b78d4673cc2482ad346010de8b36be5f75c92724938aa6e2ec1fd1883e20"
+  url "https://github.com/noir-cr/noir/archive/refs/tags/v0.12.2.tar.gz"
+  sha256 "cb850c46aafd604a7e386886e6e378088994720a32327e0e16dae333e7ddc48b"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "65a453315181de7bdff8e9c8fb1b8eb1b35448e32c2b3705e70bbe419a8ec8a3"
-    sha256 arm64_ventura:  "d8ae269aa95daa33eb369afeb57640246613e369aac730c61c22d3ab87f890b3"
-    sha256 arm64_monterey: "811bfd0fb1b96ef9bef35de0609087fd1c405f77c9c3965c2943e5a54146cf40"
-    sha256 sonoma:         "9a41267eb4bfd6f3a6bee70dcfe917d138322348066a47cc3bdd330f71389a31"
-    sha256 ventura:        "42d1c99bc8a609d2771cd8d138159c3d8e8f96187bb98000fbaf88b193f8133d"
-    sha256 monterey:       "7ee7561d3ed30001eaa9b1987bc93d3ef4c7cf2f3aeaf315b5890b5868d03cb8"
-    sha256 x86_64_linux:   "d3cf110bcba845ad07c06bcb2d9dfc21f1f1b45ac4f2771dfb471d3f8796f16e"
+    sha256 arm64_sonoma:   "9864205ce2934b455634a41704c0fdf97a7041693037da354b5862e8ba8a568e"
+    sha256 arm64_ventura:  "7204b29a91984b6156bdf805c47656f6c1f0ae0ac20a325964c3933a0b7efe9c"
+    sha256 arm64_monterey: "eb35fd3ab6691bd60df4dbb0eafb2ad6cc4dfd11190ec5cec0c6ccb92f482f05"
+    sha256 sonoma:         "6cec1d3ea1d4674594358abb61d26026844fabe05a1d9e343d7bc5ef9c2240d0"
+    sha256 ventura:        "200a3f8f7bb6c6bdbe0953e988168bcd0716e6d26ef0732dafac2f5181b9763e"
+    sha256 monterey:       "4a86b9dba90c67a4bf4d7a26ac22d4fc5415b0fceb8d51cfd0d43e486af4ca2b"
+    sha256 x86_64_linux:   "580682738589b8f74565fdc57ecf560be4090c0f09b1a33bc8976593e1216e15"
   end
 
   depends_on "crystal"

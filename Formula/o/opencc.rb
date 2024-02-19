@@ -19,16 +19,14 @@ class Opencc < Formula
   uses_from_macos "python" => :build
 
   def install
-    ENV.cxx11
-    args = std_cmake_args + %W[
+    args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DPYTHON_EXECUTABLE=#{which("python3")}
     ]
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

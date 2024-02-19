@@ -1,9 +1,9 @@
 class Glassfish < Formula
   desc "Java EE application server"
   homepage "https://glassfish.org/"
-  url "https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.9.zip"
-  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/7.0.9/glassfish-7.0.9.zip"
-  sha256 "b9387b8769539ecbee401d1e3695416fa4d2cd92556df6e9a9e6afb94065be6b"
+  url "https://download.eclipse.org/ee4j/glassfish/glassfish-7.0.12.zip"
+  mirror "https://github.com/eclipse-ee4j/glassfish/releases/download/7.0.12/glassfish-7.0.12.zip"
+  sha256 "c294bfd9c2975f51a92e82892d0e8eb16a143c34c5a013b746f0837be07a0bf6"
   license "EPL-2.0"
 
   livecheck do
@@ -12,10 +12,10 @@ class Glassfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1d9ac39b379e1ca4b4a7020914de59751e2c15fb51ab19ac8f220bac99c15e13"
+    sha256 cellar: :any_skip_relocation, all: "e6dd05e60d479146d5525a2a4e6c33a07aaace6e68ece355080ac2f8718b7760"
   end
 
-  depends_on "openjdk@17"
+  depends_on "openjdk"
 
   conflicts_with "payara", because: "both install the same scripts"
 
@@ -26,7 +26,7 @@ class Glassfish < Formula
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
 
-    env = Language::Java.overridable_java_home_env("17")
+    env = Language::Java.overridable_java_home_env
     env["GLASSFISH_HOME"] = libexec
     bin.env_script_all_files libexec/"bin", env
 

@@ -7,14 +7,14 @@ class NeovimQt < Formula
   head "https://github.com/equalsraf/neovim-qt.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "52a15f676633a2f4d79617b4255f5045081828ffcece915774bebbb2ca756a3a"
-    sha256 cellar: :any,                 arm64_ventura:  "c573a796d1ec3aa834f86b0c665a85336ff6fdbe86ce5e63f5457da3890930c5"
-    sha256 cellar: :any,                 arm64_monterey: "60d508d9f4cc9ac36c61903f5173a4285cbec0f2158403c348b106d4b6a503d9"
-    sha256 cellar: :any,                 sonoma:         "8384fc292fc63393dd5f71d671f8a238590719b3525aa237d2c7054ae4f222c6"
-    sha256 cellar: :any,                 ventura:        "e7b4eac38d7b2abbe5e63bb3256442d0156416a7486c3eca5c4b0b520e621d6f"
-    sha256 cellar: :any,                 monterey:       "8981b8f8d8a82848ebc8f398937f9261e5f3a5a2a7709cd4e5218ecc68b62eef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "789a7dd256edc5a67ccb896034751a8ee61d9a3a5e58a04c920a3f85589e3472"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "cbc794e2861dfc0445333cd7c0015d486a2bc207fdc30c29093c3f798cd4722e"
+    sha256 cellar: :any,                 arm64_ventura:  "e53af8f8ce0d65b0b5ea14544fe07be12e5b560a07f045479c8a9db96be46fa9"
+    sha256 cellar: :any,                 arm64_monterey: "59268e9d0fce3668e5f97f820c3b3389f371b31cb61a7afd5fb5c8bfe6bf80d6"
+    sha256 cellar: :any,                 sonoma:         "8ec8250d0dcacab51744c6c96c69dba8a5a7d076f37caebed58893d2961fd098"
+    sha256 cellar: :any,                 ventura:        "f2faacba3619337ebe82f43d0183bededa813ac608ffde74a5b6db7bfe578e71"
+    sha256 cellar: :any,                 monterey:       "e7c53a22b12dc61f48db137534e077965917f548b337f9b6ad0bf6ad51b44ebc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c72d8cf5d5aca2b06de38325c2236688aded8c62ccfdc8e8c4c4a8e80abedfb9"
   end
 
   depends_on "cmake" => :build
@@ -58,8 +58,8 @@ class NeovimQt < Formula
     system "nvim", *nvim_opts, "--remote", testfile
     system "nvim", *nvim_opts, "--remote-send", testcommand
     system "nvim", *nvim_opts, "--remote-send", ":w<CR>"
-    assert_equal testexpected, testfile.read.chomp
     system "nvim", "--server", testserver, "--remote-send", ":q<CR>"
+    assert_equal testexpected, testfile.read.chomp
     Process.wait nvimqt_pid
   end
 end

@@ -20,14 +20,8 @@ class Wiggle < Formula
 
   uses_from_macos "ncurses"
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff" => :build
-  end
-
   def install
-    system "make", "OptDbg=#{ENV.cflags}", "wiggle", "wiggle.man", "test"
-    bin.install "wiggle"
-    man1.install "wiggle.1"
+    system "make", "OptDbg=#{ENV.cflags}", "PREFIX=#{prefix}", "test", "install"
   end
 
   test do

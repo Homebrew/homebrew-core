@@ -1,21 +1,19 @@
 class PlzCli < Formula
   desc "Copilot for your terminal"
   homepage "https://github.com/m1guelpf/plz-cli"
-  url "https://github.com/m1guelpf/plz-cli/archive/refs/tags/v0.1.8.tar.gz"
-  sha256 "84a8835f091b305d21f52c36a19b4f4264ee72348f576ea2dd5a4c383f84acce"
+  url "https://github.com/m1guelpf/plz-cli/archive/refs/tags/v0.1.9.tar.gz"
+  sha256 "ea6b65deb69f86e53210d2457f49a53bb73ab52282fccc5b6cae8e8c059ecb00"
   license "MIT"
   head "https://github.com/m1guelpf/plz-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38e2fc5922b76d9ec280d5001cc06eec43c4b4bc1ddb64dde0a0cc1757949ed7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "712daed5162a08666a528b6ac4a39ee38d823ad901f4ee99e7a4cf84c8347a44"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e21593300690424d358f6a89b269901fc0b0d0d0a280fd26cf946aea957ab5e6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "11f8a1dff87667615edf74528f56ba9d0154a82bfee8cf6f6d4bc48ebe6eae27"
-    sha256 cellar: :any_skip_relocation, sonoma:         "70c51c74b96d7653482248c694e80b5709adf54c87bb83467aa85980a08205c1"
-    sha256 cellar: :any_skip_relocation, ventura:        "98cdd319c98ab3f97188ea676c5dbfb6e25688421169cca9bb11d55e0d29a648"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b5e3b8d1338d44c175939695d27d071d46c59016f99428bf9125764344aefe4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "40a9e0bb5b19683781d3e192981fd718fc8053b701df5e7a9baa972919387d4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "418a5123b2bee4b8ab221598b5eedbfa3c94d48caad848617f36e43f28ae3db8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59f64a97b496d8cc7c177ad2a3ffd31d7c970b465bee348af314374a41b55443"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e728d0f2ea4149108122318610baf957e76c54ea046cb5b6cb1bec68155aad53"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e24a82b1820ee36a68fc47e7727b4022ed01e47ffdc6421471e4cbf7463898fb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "39166129ea2eb9136b48d262ab4b70a3ec523932f206c4903531c271919f9aef"
+    sha256 cellar: :any_skip_relocation, ventura:        "c7d9faf76691065577ded69403cda475780883ce581b767ce72d1d4d498e5511"
+    sha256 cellar: :any_skip_relocation, monterey:       "af063e2c326b92f311ec47ea495f96a7599b3c167b039d4dfe9c376c88c8434a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eed33ef10df03c8dfcdb9be1f4921af47c94773a972747066fecfd66e1d0d9c1"
   end
 
   depends_on "rust" => :build

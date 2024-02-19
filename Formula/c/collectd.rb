@@ -16,7 +16,7 @@ class Collectd < Formula
   end
 
   livecheck do
-    url "https://collectd.org/download.shtml"
+    url "https://www.collectd.org/download.html"
     regex(/href=.*?collectd[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

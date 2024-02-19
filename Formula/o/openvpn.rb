@@ -1,9 +1,9 @@
 class Openvpn < Formula
   desc "SSL/TLS VPN implementing OSI layer 2 or 3 secure network extension"
   homepage "https://openvpn.net/community/"
-  url "https://swupdate.openvpn.org/community/releases/openvpn-2.6.8.tar.gz"
-  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.6.8.tar.gz"
-  sha256 "5ede1565c8a6d880100f7f235317a7ee9eea83d5052db5547f13a9e76af7805d"
+  url "https://swupdate.openvpn.org/community/releases/openvpn-2.6.9.tar.gz"
+  mirror "https://build.openvpn.net/downloads/releases/openvpn-2.6.9.tar.gz"
+  sha256 "e08d147e15b4508dfcd1d6618a1f21f1495f9817a8dadc1eddf0532fa116d7e3"
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   livecheck do
@@ -12,13 +12,13 @@ class Openvpn < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "87d1d04d2a38a8843d4cc59d5ea3f9bb2d24d2fb6f2edb13bc7e5eee6e0972a8"
-    sha256 arm64_ventura:  "7d3b34f4b5b9feaf9235a27bcb5c9da3ff92fc01cf85a0358a54235cabbe41c4"
-    sha256 arm64_monterey: "15a5a841305eebf947493a63ad306caea8923a853106b268229762b7c10b5cf8"
-    sha256 sonoma:         "3e6843669acd7896896bbf9ae8b550b84e4cd0bd6e86bcd4264776e21e732513"
-    sha256 ventura:        "3419a8342f2dcca7b8a6f185e55e9c716cbab81f8e77ad2c3e7791059ef42cd5"
-    sha256 monterey:       "e5740345e1e76ce070267fdf970e7c6c3a6e7b68ba63351d79daf30981a56867"
-    sha256 x86_64_linux:   "a25b9665e36878d79e2a98820889d56c84871b073252d756c8739109d87907bb"
+    sha256 arm64_sonoma:   "de1c7075d02ee2516de9d7213bff8d638de3cb99074f14cabe9605f9e9f1e0a2"
+    sha256 arm64_ventura:  "d07d251423c07ec8f3ccde7e090fd8d37782a9fbf57c0929f94d64a24b5be9c6"
+    sha256 arm64_monterey: "287b05d24718bf36002246998c79054eb1ec5fad08bfd4cbf17e159d0fdbbf3a"
+    sha256 sonoma:         "e0e54ef5f82c6ca7e9fd8d2e79ed1d27426dc8d40e5e31fece742fc23f8faf51"
+    sha256 ventura:        "9be5ebb1d8845a54e6064b0b096f4a6f72c1b2dab7ab7b974e191876f9c9b618"
+    sha256 monterey:       "f9f4eb48313e1faa78e7a1f14ee5b2824566b7df14942a99146a66ff5cd42411"
+    sha256 x86_64_linux:   "dcec0b1b2024c92bdad31f4d4668ae915eb3b053967f9c03b76843062e28900d"
   end
 
   depends_on "pkg-config" => :build

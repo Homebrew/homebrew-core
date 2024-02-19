@@ -1,20 +1,18 @@
 class Libxkbfile < Formula
   desc "X.Org: XKB file handling routines"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libxkbfile-1.1.2.tar.xz"
-  sha256 "b8a3784fac420b201718047cfb6c2d5ee7e8b9481564c2667b4215f6616644b1"
+  url "https://www.x.org/archive/individual/lib/libxkbfile-1.1.3.tar.xz"
+  sha256 "a9b63eea997abb9ee6a8b4fbb515831c841f471af845a09de443b28003874bec"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "da91cb89e6f63f01fecc0db527ec607b6c8693c4f2300c631b3f3bc3319a9c34"
-    sha256 cellar: :any,                 arm64_ventura:  "e2cbf7af5949030dc34f0f5455a44bfef5e50c5afcbbdc1673bec74dd5b697d2"
-    sha256 cellar: :any,                 arm64_monterey: "34962587b3ec814acd64923999bf674f967df17d496a94b1f6c8f7bb64fbfe93"
-    sha256 cellar: :any,                 arm64_big_sur:  "fca001e0512c2d31aa35ab88e6982efce346f42b47a1e4dee9734862964d81ad"
-    sha256 cellar: :any,                 sonoma:         "2c09803c5b89cb4303fbc178ca9cefba951ae07dc02be79381fdeb87bfea500e"
-    sha256 cellar: :any,                 ventura:        "d53617fd18e769ab6d06447b823f7f81222240321ef17defcd0864cb46f350ef"
-    sha256 cellar: :any,                 monterey:       "6aed9a4272cfe403b8ef41e3ec0bcaf8ef0554f5a48ca8ce1463a0e08bce215a"
-    sha256 cellar: :any,                 big_sur:        "a6d7eb43abf1d93a421730d1bce87ee69bbda96ac5e178666601e17dba43b4bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3166f0fa93d14f16172692130da99c9400601f46a831bd75ca7a9e7fd8d08ba9"
+    sha256 cellar: :any,                 arm64_sonoma:   "cb79bbe025a76e58fd15adee3bf20ee3efd8103a578d2e6139358c1f9cd7a8fd"
+    sha256 cellar: :any,                 arm64_ventura:  "c5ad9490a09538b6a72372d8716a424ebbecf777c2a1ea5d448fcefe950a78c9"
+    sha256 cellar: :any,                 arm64_monterey: "6ef647b8fbac800454607ac21aac57a9264a4c5a2cb912afb34671f5c6a6ab0a"
+    sha256 cellar: :any,                 sonoma:         "0a17cc951fb5fca888c90ba27f8f9dfb9696a00984f02772d6aca1dde438abcc"
+    sha256 cellar: :any,                 ventura:        "0f9bc440b8317515984e5aefd9a1ad1f6e9c72c2882c94af5d91fb6df20f3e7c"
+    sha256 cellar: :any,                 monterey:       "182270371f7c7b1c6f7ccd0e9712c947c64d80391d12ab7561c614d89d7ae307"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5298209c95e682bf215c5335aa140c4e0249f68aa2d086f058c42f5fc5446197"
   end
 
   depends_on "pkg-config" => :build

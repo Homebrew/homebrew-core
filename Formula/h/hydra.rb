@@ -4,19 +4,17 @@ class Hydra < Formula
   url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.5.tar.gz"
   sha256 "9dd193b011fdb3c52a17b0da61a38a4148ffcad731557696819d4721d1bee76b"
   license "AGPL-3.0-only"
-  revision 2
+  revision 3
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3b5572227a5ef2ff439b5d95e41502d3aac78efc01c43ed4316fa9570acc0554"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4dd1a40a47a6d21db024a3fa9c9c538c46f2e6a19b7db8b7443977b87b8baf76"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e1d8c51d8f1768fa1b4f88b90cbdc792f59387e59562a1a9d057a2a4bcba0541"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a5b0056b050593dc17211890362fa09c1bd52d889fd142736b7b4c1114bb5e05"
-    sha256 cellar: :any,                 sonoma:         "a5cd4f90c900f58438505c2e65a0cea4a16b3c2b214c7274684473ad44fa9e51"
-    sha256 cellar: :any_skip_relocation, ventura:        "fdd37885440ef848dfc7030e67c281262b5b5b5e4139372f40a91f894b28f256"
-    sha256 cellar: :any_skip_relocation, monterey:       "073cd2c90a68bdeb9c2108e84bdb18dc1caf8c2b924f7466d868288edc6ef929"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4d411dcdc73070bdc6c01b458ba694717b8a9970a21ddcc75d4ab7c87611015c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8b19d859564f0dc079b0e81717f6d747028b0837b2cb277dd0df9d017836b0d"
+    sha256 cellar: :any,                 arm64_sonoma:   "5ad7aec614f7ac261d41ec4f660e306e65e769c56c73cdf1204e57ac44b66166"
+    sha256 cellar: :any,                 arm64_ventura:  "ff55d918b7f9a730a709012d4922c35b6b5bd221a1071403c0a058acaa976347"
+    sha256 cellar: :any,                 arm64_monterey: "99fd99189f3dbf44a50d20599ec11ff6d8d1f32ef8ca3357b16ca04008e1e50d"
+    sha256 cellar: :any,                 sonoma:         "5fb5582746b0afa585bed71fe301ae44f4fc5712529439c012d180988b9d7ff0"
+    sha256 cellar: :any,                 ventura:        "ae70b33f5e3e3b3e92ef53060e9a5279a2b0330029952163e8dd35469f4dcabf"
+    sha256 cellar: :any,                 monterey:       "a186bb6c18e2f1ae836f4e4bab5b9a94e0b8b6d7050470b700d90beb435ff92d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f86b73a438c67e1ef36971fe212ff8e51d8f915473d45e16e423570f86714fea"
   end
 
   depends_on "pkg-config" => :build

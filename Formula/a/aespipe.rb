@@ -3,6 +3,7 @@ class Aespipe < Formula
   homepage "https://loop-aes.sourceforge.net/"
   url "https://loop-aes.sourceforge.net/aespipe/aespipe-v2.4g.tar.bz2"
   sha256 "bfb97e7de161e8d7ce113b163bda1d1a8ec77d2c1afab56dcc8153d7a90187fc"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://loop-aes.sourceforge.net/aespipe/"

@@ -1,8 +1,8 @@
 class Xpdf < Formula
   desc "PDF viewer"
   homepage "https://www.xpdfreader.com/"
-  url "https://dl.xpdfreader.com/xpdf-4.04.tar.gz"
-  sha256 "63ce23fcbf76048f524c40be479ac3840d7a2cbadb6d1e0646ea77926656bade"
+  url "https://dl.xpdfreader.com/xpdf-4.05.tar.gz"
+  sha256 "92707ed5acb6584fbd73f34091fda91365654ded1f31ba72f0970022cf2a5cea"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
@@ -11,17 +11,13 @@ class Xpdf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "d51bba24f70c3d623ae1c93e6aa8c9af15b92267e1039d9c8a6470a3bb57e3b8"
-    sha256 cellar: :any,                 arm64_ventura:  "a5c23ffa6e4ee580d8c3cb9f62d42ba4c70cd1c8dea4841ac8042d275fe5d743"
-    sha256 cellar: :any,                 arm64_monterey: "fc5aad549b5099ce8f3d51227bfd419a4766c8b78138c8f894ac738dcb446a5f"
-    sha256 cellar: :any,                 arm64_big_sur:  "015fcf888d527fab0465f6623df5dfa4166f8d0231350bd9820ec5a5e8e4c478"
-    sha256 cellar: :any,                 sonoma:         "b347787b8c3933be771a6d0a37aff0f1c6c429267f082c25ab05edc1c24a04f3"
-    sha256 cellar: :any,                 ventura:        "b8b71e9659f72e21b0bba027a3d9bf0b6ef0b556f5e3fdd703495c2055d38bff"
-    sha256 cellar: :any,                 monterey:       "f90629e090df683656a1ef289e797d24b8a4a68be0c0123ef0cfb6565512e3a9"
-    sha256 cellar: :any,                 big_sur:        "2ffeda7163a03d8978f9d81203fff3a2e7ab1d868e0dfae6ef6873690dbeaa22"
-    sha256 cellar: :any,                 catalina:       "1bca9dd3f72b9af25632b95ba5fa3cb9a85fa7698a7e72b61e0cdb3ec039b105"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3aa57e1f93effd94b34991085a501b30f2329caff22885c2b9ebbf5e47b4277"
+    sha256 cellar: :any,                 arm64_sonoma:   "fa1671618f3f9efa35959abd97e504bf6e08dd435e2bbf000cf195dcfee6d01c"
+    sha256 cellar: :any,                 arm64_ventura:  "e5774761d4a6a79893e0d2af59ddbf9ac178662bcc31f4144f0eab744269f53b"
+    sha256 cellar: :any,                 arm64_monterey: "61ac5eba04cc8ab73c4f588979d0e02a76b0b5b5475a4e9e03486e980018bdf9"
+    sha256 cellar: :any,                 sonoma:         "7da20a5e9e850794d98b08ef544a69d4f856683533345bb9dfe3b1fcc421b765"
+    sha256 cellar: :any,                 ventura:        "b9003b9879cfeb6e6979859a121b59dd899e2b490a87c8e01aa4fa8ce0defcc1"
+    sha256 cellar: :any,                 monterey:       "e82e5ccffe6c04337eea25d975a84777747c190d1c1b458b9cc2cf1bb0c6f443"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3951386ab869791ccd7da42c52c7298137abd308e5ba10a3ab7c4426b330e552"
   end
 
   depends_on "cmake" => :build

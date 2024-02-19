@@ -6,17 +6,17 @@ class NeovimRemote < Formula
   url "https://files.pythonhosted.org/packages/69/50/4fe9ef6fd794929ceae73e476ac8a4ddbf3b0913fa248d834c9bb72978b7/neovim-remote-2.5.1.tar.gz"
   sha256 "4b3cc35463544c5747c895c52a0343cfdbba15d307647d7f57f1cce0c6a27d02"
   license "MIT"
+  revision 1
   head "https://github.com/mhinz/neovim-remote.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f980706b34fe571d0a79ecc93d044ed123cee711067febb1bc5648d6b3e32579"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8623a84cc3efb21f6c06bdf385f174326b18b41c02a2be1d0e584e0bb03ce75c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8728ddcde8d9f9735a95b32d70e206525a98c6d1dbbcb79d0cdff89db4eb1a33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "90bd4d9cdb03d800e8babb6dfe7b9ecc2dbba301159986d6062ac8cf74060928"
-    sha256 cellar: :any_skip_relocation, ventura:        "63ff717460bac417a09bec0d9a96c96c8df067610668795e8ace4cb43beb5073"
-    sha256 cellar: :any_skip_relocation, monterey:       "551ba8060da6e18a8fe81407c2cc039e4c8ee8d47df0453825454b3cea07bec2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cdf332a93e94684b793cc33222126d4abd8b4af6d6d97c0dd2e06c12ba35d7c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "151a27a44d43add54e313b0185bfec8a1e5bd25be55ea6e2ea4411e4b7f04d6a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e5d2b37e858f6fa406ec4cf2abc3eccb69e3b12cbf85cfa894854ccfc0e58f8a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "459ee985cb6c2bbd89adc4aeb566a79e8e3dbedcf82e8a1e9a099bfdc89d5edc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b9af83827d88c1cba23d47c33a74da5375898f4bb0d55dd67439f042b760db41"
+    sha256 cellar: :any_skip_relocation, ventura:        "61785e5c235142c13a0c48ed4b91f37aa8fb68f04e18a2733ff209d02aa4c829"
+    sha256 cellar: :any_skip_relocation, monterey:       "8e1bf47d94815141e545c7d37d3ee6945299c1080f695156d0ce2ea9545e6d87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8abc9f95b4f43f0b6961cd3e37ef56b14b6f911884b3cc6ec98038d5e6610c34"
   end
 
   depends_on "neovim"
@@ -24,8 +24,8 @@ class NeovimRemote < Formula
   depends_on "python@3.12"
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/d2/62/c657462190d198a45f37e613f910d27cfe8fed6faaeddec004d75dba6811/greenlet-3.0.2.tar.gz"
-    sha256 "1c1129bc47266d83444c85a8e990ae22688cf05fb20d7951fd2866007c2ba9bc"
+    url "https://files.pythonhosted.org/packages/17/14/3bddb1298b9a6786539ac609ba4b7c9c0842e12aa73aaa4d8d73ec8f8185/greenlet-3.0.3.tar.gz"
+    sha256 "43374442353259554ce33599da8b692d5aa96f8976d567d4badf263371fbe491"
   end
 
   resource "msgpack" do
@@ -36,6 +36,11 @@ class NeovimRemote < Formula
   resource "pynvim" do
     url "https://files.pythonhosted.org/packages/ce/17/259ab6acfb3fc85e209a649b0de1800c50f875bb946ac9df050827da8970/pynvim-0.5.0.tar.gz"
     sha256 "e80a11f6f5d194c6a47bea4135b90b55faca24da3544da7cf4a5f7ba8fb09215"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
+    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
   end
 
   def install

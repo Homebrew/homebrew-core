@@ -1,20 +1,18 @@
 class PythonMarkupsafe < Formula
   desc "Implements a XML/HTML/XHTML Markup safe string for Python"
   homepage "https://palletsprojects.com/p/markupsafe/"
-  url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-  sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
+  url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+  sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a0c3e38a2a14bce81bbfaf117499341d23b1813149ba1de77272d798556365f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e5c53893049bce152240be64418f852ca529770847865f77b1fb582b605ceaf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "467a14762ebe213e7f5b273ea3ee33bbbfb37e90ee301b6e100cec0081149e76"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d8cf12192c1315632fabf1d89cb127c135ca1fd8eb0aa917d2622a759585ad8d"
-    sha256 cellar: :any_skip_relocation, ventura:        "05442b539494886d34a22bf12a9689233c8171174d62763751a0771c2ad104c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ac87c7419b64e46c97095bed03df4c0bb1946253abbb4268c766e63be82fa1e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e7d0de888dd24db251b12331b419aeece84b54fb7749a3a2d7013cd086610f1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0cc38a7440a635c40ccf36cf389d67f496d60f29629cc8eb1e4878f3b318ee60"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ffbb4c9faab696c98e1fe915334453eddfe47e9a7436dc59bdfd80726eb32523"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b0751f5452723def54d6462068289a4ea0aa66870faec5371e7d9d5001e8e9b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4104ef590e9c8a903d826eb3e988ea5c6eae6085f68104f600431a08c6c2b752"
+    sha256 cellar: :any_skip_relocation, ventura:        "3dd6f543d51d931d436166c12381a5e93216d9b289a6b8d7d02057abeaafebc3"
+    sha256 cellar: :any_skip_relocation, monterey:       "1fb21768ac90b9fd8ca12fb4dc41ebcb5fb5fee1f2f44bdabf0c71d078bf730b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87dd38ca3981cf1336931ba3e1ace8fb0d775675629ae84d4d44f3f2b38f95c3"
   end
 
   depends_on "python-setuptools" => :build

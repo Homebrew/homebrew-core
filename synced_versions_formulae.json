@@ -13,7 +13,6 @@
   ["avro-c", "avro-cpp", "avro-tools"],
   ["aws-console", "cfn-format", "rain"],
   ["b3sum", "blake3"],
-  ["baresip", "libre"],
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
   ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
   ["cmake", "cmake-docs"],

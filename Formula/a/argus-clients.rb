@@ -3,6 +3,7 @@ class ArgusClients < Formula
   homepage "https://openargus.org"
   url "https://github.com/openargus/clients/archive/refs/tags/v3.0.8.4.tar.gz"
   sha256 "1e71e1ec84a311af4ac6c6c9e7a3231e10591e215b84d7e0841735b11db3127a"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "b0587f8a46452c38ec031e8702f2187cbf691da6967f2d9201d26cd20a231b65"

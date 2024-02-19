@@ -4,17 +4,16 @@ class OsmPbf < Formula
   url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.5.0.tar.gz"
   sha256 "2abf3126729793732c3380763999cc365e51bffda369a008213879a3cd90476c"
   license "LGPL-3.0-or-later"
-  revision 5
+  revision 7
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "69f34c69bcd270ae89cfa9a37e3dc63cc576f25832de71f1d85e09a91c47b74b"
-    sha256 cellar: :any,                 arm64_ventura:  "99b03549fff7d28e0a35a1151dc96eebd60860a510fff1cb5a9c2c9889b633f2"
-    sha256 cellar: :any,                 arm64_monterey: "f5926acb0bcc766a4429b2025fa9b06e9f733c4692b4c1156cfaab0216daf0a0"
-    sha256 cellar: :any,                 sonoma:         "d6b873eb49d8b84c702ebf0df89799d7e6d245bc94ac31fd3f5921fcfdb325a7"
-    sha256 cellar: :any,                 ventura:        "0289b857240b19a3830b43cd21f32b8cd884d79cd9ea29f7e53ec11a638e0b8a"
-    sha256 cellar: :any,                 monterey:       "34e920db76c1400c893e3ff63e045e42d60165be93fd936a5b031ca4e62d31c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5641ca48a5aab011da6a3a676c5137cc3471e33fa1aabb5ef27b569f8701e5b2"
+    sha256 cellar: :any,                 arm64_sonoma:   "905333fabb9981bb5938d258297bb99f7945b1b822fe2e7c12f0ca53f4d12654"
+    sha256 cellar: :any,                 arm64_ventura:  "79c93d64f5e7e9dace5a03d9d6c3c5333af90fdeb47d401da6d0c48ecbdeb174"
+    sha256 cellar: :any,                 arm64_monterey: "18413b4d85ce3d615ae1dfae2dbf8016048c0211d1d79e039cc7b19e04f2c2e9"
+    sha256 cellar: :any,                 sonoma:         "a8ebdf0b3cace79553773cb5674abd91acda13fcb86e237f96cf6c97dfbde450"
+    sha256 cellar: :any,                 ventura:        "9d5d04b13a47cc721dd37312da69daab6bf0ed1556484b86e70abb3e39c5c012"
+    sha256 cellar: :any,                 monterey:       "0bd3eba8a302f8dd16ce9271c0192656a579cc9eba19a06f9039e194db14f9e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23d16b76786eb8e65266a74e8a1eb222af262322a8fe8699e36635212e50d5f9"
   end
 
   depends_on "cmake" => :build

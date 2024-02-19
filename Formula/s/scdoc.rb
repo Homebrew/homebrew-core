@@ -1,21 +1,18 @@
 class Scdoc < Formula
   desc "Small man page generator"
   homepage "https://sr.ht/~sircmpwn/scdoc/"
-  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.2.tar.gz"
-  sha256 "e9ff9981b5854301789a6778ee64ef1f6d1e5f4829a9dd3e58a9a63eacc2e6f0"
+  url "https://git.sr.ht/~sircmpwn/scdoc/archive/1.11.3.tar.gz"
+  sha256 "4c5c6136540384e5455b250f768e7ca11b03fdba1a8efc2341ee0f1111e57612"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3fa698c10a02005cee73b36f7a60536b86d01612157c26ecfd977b81e1fcc0af"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29f674e2123140564de370b0ce97a9e4db540b686d35498fd428906b9efc851f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3756d77d254eb7ebc1a93df5b9cb944f5452592e13345c44c68cb4eda020a6dc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "84778bad52e889adfa4fbc311f93fc44e543d06c7ae42037575c36066c8d8bce"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f2843959addc2085491e1e8464e9ddf2c82a673b41cebab3d227ef4f6f9bab76"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7c2a3aa48298d66fe368ec51214547459764e9c8d2378dc6b278a62670bbf31"
-    sha256 cellar: :any_skip_relocation, monterey:       "ecc015fe6a7ae48aa28be734351e3c8c19a5877fd58ef5a78bb85c9a37885f16"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e071a34d0ff21793c6f4a788733a91b789ac1a4dc4cefbccd8a44ae221ddd4a0"
-    sha256 cellar: :any_skip_relocation, catalina:       "5f794bf6647ce97a62bff11d62583e2ceb85fe393af33bd5bfb4b54309c98b17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebfa3950c4e1e1ead4bc489e135bda185ee35a5841d4c7aae71db642513b7c58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6eeed5394fb071aa14153ebe3cb3eb2edb4458c1b25d91adf6a32116fe1eb16b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb0a27fea684b0a8caa7aa98c64df84c9db68c7003fffd827055449bbff373e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3206d11b5d62c3cee98c1cb2f0da0e6674261f4dccd22f7e8f833685c6c53112"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4546aace4ad6725de9e7e788533896a8600cc99495de6c86cca71b8fc8038dda"
+    sha256 cellar: :any_skip_relocation, ventura:        "01fcd247b749191d4d6154498b0d324d856a8da745f3571b643ddebe18919bc6"
+    sha256 cellar: :any_skip_relocation, monterey:       "f5c4019c594ac3e10d08e1a7f44a560d16e661a33051e0bca823521937b2e691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e73b822f530807cec33251c40cf375923318cbb1b889f8f494afc33ae34cc932"
   end
 
   def install

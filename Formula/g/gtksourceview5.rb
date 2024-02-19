@@ -31,16 +31,14 @@ class Gtksourceview5 < Formula
   depends_on "pcre2"
 
   def install
-    args = std_meson_args + %w[
+    args = %w[
       -Dintrospection=enabled
       -Dvapi=true
     ]
 
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -52,8 +50,9 @@ class Gtksourceview5 < Formula
         return 0;
       }
     EOS
-    flags = shell_output("#{Formula["pkg-config"].opt_bin}/pkg-config --cflags --libs gtksourceview-5").strip.split
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs gtksourceview-5").chomp.split
+    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
     system "./test"
   end
 end

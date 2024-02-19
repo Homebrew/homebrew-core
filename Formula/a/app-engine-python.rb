@@ -3,6 +3,7 @@ class AppEnginePython < Formula
   homepage "https://cloud.google.com/appengine/docs"
   url "https://storage.googleapis.com/appengine-sdks/featured/google_appengine_1.9.86.zip"
   sha256 "8a1d57f8819792a4c18bc337762f73f3bf207da986fd6028e3e591f24cfde9f2"
+  license "Apache-2.0"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_monterey: "8dbaba8ab465e08c0831a7d3ec23f76ac3fbe57062b976f70e2b29a3b55a9cb3"

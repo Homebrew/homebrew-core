@@ -2,19 +2,19 @@ class Flagd < Formula
   desc "Feature flag daemon with a Unix philosophy"
   homepage "https://github.com/open-feature/flagd"
   url "https://github.com/open-feature/flagd.git",
-      tag:      "flagd/v0.8.0",
-      revision: "4711aaa0ec7560a3c226955b4e1626204fe7f759"
+      tag:      "flagd/v0.8.2",
+      revision: "116ad362aaf6248c743f0d73f784fcf9fed1389c"
   license "Apache-2.0"
   head "https://github.com/open-feature/flagd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "149db7957c99d2157d91d98737efea84037bb86c6f6fd05a27f8963b7ca070c3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbc235aa6d5fe2df15716ab7d5175df4d4b47e2111161d2a4bd16cb83b59eb7d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0cdc33f81e28571a284772725ba989ac65057410baf335a13471f2454a10f854"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8fa27132b279c0f9ac56bbefbaaf67c1572ce2d1f4a73ffa95ddc588db05516b"
-    sha256 cellar: :any_skip_relocation, ventura:        "cfcc8e3de8bc0e43d6d895a0a876dce1b49ee632a05c442001ae163614d2aad4"
-    sha256 cellar: :any_skip_relocation, monterey:       "d869bf1bfacf57b66e5615fff639d99f4ea0fbfb71f2a988a3bebc41278c7701"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "250e515f9d6f1ab493c2105e9440b5cf981a4d6452692235c541483a41b44ced"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e1e740061d1681f2d4a5ace8dd61f7938dbfc2d4a912469bad12c5177651279"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af56f07028eb031233ab915f644b4420595c0600aa1fbf62c9148e47d87c41d2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "11c42eac473ad12f1c3e66c2c52592600b36fbf478c5e9f5872f8397b52346f8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3f27c114940df93c4723688697b65eea7209f1878cff71ef20cd4a021aa9131b"
+    sha256 cellar: :any_skip_relocation, ventura:        "af6e5ebbeb2ba3d888fe376400b4b00147edde6d460238c95589252976ef035c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8bb26ec43b5a1414aacb470bddced55ee262f9bf737d5b95b57193c962daaf65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "542b80f264bdd660a9ebb648661b46013d5451fc6d24a3e266080a35dec45158"
   end
 
   depends_on "go" => :build

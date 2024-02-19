@@ -1,9 +1,9 @@
 class Dcmtk < Formula
   desc "OFFIS DICOM toolkit command-line utilities"
   homepage "https://dicom.offis.de/dcmtk.php.en"
-  url "https://dicom.offis.de/download/dcmtk/dcmtk367/dcmtk-3.6.7.tar.gz"
-  sha256 "7c58298e3e8d60232ee6fc8408cfadd14463cc11a3c4ca4c59af5988c7e9710a"
-  revision 1
+  url "https://dicom.offis.de/download/dcmtk/dcmtk368/dcmtk-3.6.8.tar.gz"
+  sha256 "232076655503138debf2f624109f1799e539354f186ce4e04b27cf82a9d8720f"
+  license "BSD-3-Clause"
   head "https://git.dcmtk.org/dcmtk.git", branch: "master"
 
   livecheck do
@@ -12,15 +12,13 @@ class Dcmtk < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "98a811332c81988b99513cef2b642e24e5ace03776783c0924d0933988531cd0"
-    sha256 arm64_ventura:  "56304c047bdb463854f71556209410992b5f252fd0f0f33b1cefead035e27793"
-    sha256 arm64_monterey: "c966591af19a169366159a0627b43bcae6b5c90b8efcffa2259ffd093e8f405e"
-    sha256 arm64_big_sur:  "3f689f24e0cf1573b561e08373941648f65ecc8cffc4606b9a2777c2670e4006"
-    sha256 sonoma:         "122e4a24c5e6d1c1eb62e8550dbbd8f9055f4f4904769754840087f4779e6098"
-    sha256 ventura:        "a0874415414b69e964b2edd63b07b0fad5220b96e2eaff5ad82ef72403989047"
-    sha256 monterey:       "f0cf38165223c381b0d88d273d354ca87d5f834b415ace05e5c9bc7264fe0ab8"
-    sha256 big_sur:        "44385222676a716e78524f80ce61b155d257bee41a8853b2cbdca52f843ba941"
-    sha256 x86_64_linux:   "6ae6be2c9ffcf1a438ace27a6d22e08fe953c82ef830b198eaf6f1c2f39a365c"
+    sha256 arm64_sonoma:   "b93d4799f022356c7ae4140f27f7aa2475dc81585ec595db1ef6d682a3dad3d0"
+    sha256 arm64_ventura:  "395d941de382ca2a952d05d29ff5f9d4ff1aba7592c6fd1eb2f685f9129b34c1"
+    sha256 arm64_monterey: "0856d56363ad7e76151ca34bb0622d929ad57c61d1af154a8a110ca50218a2ed"
+    sha256 sonoma:         "2b4b9f0d6e1384949a48bb44c0ed1737268a5a71f9203889203cc524c5c59290"
+    sha256 ventura:        "71cc77981eb068711f0135ac4c8d638a8fd11f12ed432482c57ad2ad9e7f7f5f"
+    sha256 monterey:       "a43505eab9ca8ae07c7f36de7d56b00ec43cc7d9c4742beccecd5c697fbfe146"
+    sha256 x86_64_linux:   "5c3fffbfab9d12f16836c40a46b5080f633049ec2c4e43d2079a97b75e85d1bb"
   end
 
   depends_on "cmake" => :build

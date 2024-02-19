@@ -22,19 +22,15 @@ class CairommAT114 < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "cairo"
   depends_on "libpng"
   depends_on "libsigc++@2"
 
   def install
-    ENV.cxx11
-
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -48,35 +44,9 @@ class CairommAT114 < Formula
          return 0;
       }
     EOS
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    libpng = Formula["libpng"]
-    libsigcxx = Formula["libsigc++@2"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/cairomm-1.0
-      -I#{libpng.opt_include}/libpng16
-      -I#{libsigcxx.opt_include}/sigc++-2.0
-      -I#{libsigcxx.opt_lib}/sigc++-2.0/include
-      -I#{lib}/cairomm-1.0/include
-      -I#{pixman.opt_include}/pixman-1
-      -L#{cairo.opt_lib}
-      -L#{libsigcxx.opt_lib}
-      -L#{lib}
-      -lcairo
-      -lcairomm-1.0
-      -lsigc-2.0
-    ]
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs cairo cairomm-1.0").chomp.split
+    system ENV.cxx, "-std=c++11", "test.cpp", *pkg_config_cflags, "-o", "test"
     system "./test"
   end
 end

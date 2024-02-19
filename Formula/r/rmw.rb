@@ -33,11 +33,9 @@ class Rmw < Formula
   depends_on "ncurses"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Db_sanitize=none", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", "-Db_sanitize=none", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

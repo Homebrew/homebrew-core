@@ -1,9 +1,9 @@
 class OathToolkit < Formula
   desc "Tools for one-time password authentication systems"
   homepage "https://www.nongnu.org/oath-toolkit/"
-  url "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.9.tar.gz"
-  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.9.tar.gz"
-  sha256 "333ac831c8f1a6dbd7feb897339bba453ff34d3b0f4cfaa6b5a20dba55c8e985"
+  url "https://download-mirror.savannah.gnu.org/releases/oath-toolkit/oath-toolkit-2.6.11.tar.gz"
+  mirror "https://fossies.org/linux/privat/oath-toolkit-2.6.11.tar.gz"
+  sha256 "fc512a4a5b46f4c43ab0586c3189fece4d54f7e649397d6fa1e23428431e2cb4"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
@@ -12,15 +12,13 @@ class OathToolkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b661f04c79fcd38ba0becc58c5c5bc2291d3c2291f6e2906609b61d93d5a9dfa"
-    sha256 cellar: :any, arm64_ventura:  "4ba53487d4db148b93cdec180246724677658839c24f270cb743bc1254319c3c"
-    sha256 cellar: :any, arm64_monterey: "0ad47728dacdabbffd46306cf1f40f61dc54f43f568c39683e82a71e45c9f5f8"
-    sha256               arm64_big_sur:  "57f00f50aade24072074445fb8b33f9600b71d5cc3ac286db066fce8f47f12de"
-    sha256               sonoma:         "b18c8dc19455306e0e91b95026eeb0566307588ef08b713ab194cf14cd5b6b76"
-    sha256               ventura:        "b7796f8492f196b003ad73656fd7dd1597da02b5d433d24ded8e70a5d223f632"
-    sha256               monterey:       "e4ca111ca23d31e861e3cd4fb76a8f2542dd7a4cf69cd1cad36299828a0a6d48"
-    sha256 cellar: :any, big_sur:        "21f1e0df5c03224470ce39346501241f45e0195f486fbc36cfedbe3aa50871c5"
-    sha256               x86_64_linux:   "627a86bc837b0d8fa0acddfb917cc9420d2435a3ef0e5516f2a2c0d05e54b748"
+    sha256 cellar: :any, arm64_sonoma:   "5e6c673c9e2448fc86f6c8ae7830f403e4fc3195ad4d0296b8e9f66b13043ada"
+    sha256 cellar: :any, arm64_ventura:  "995299804b377b1cdf080c9b21a5cbf99f3f5f5dfaf37e0f11129a9f51da1b38"
+    sha256 cellar: :any, arm64_monterey: "95c1c32120d3958f4a257f20899fd6e0872efac1d822be4f537bd13f78773aa9"
+    sha256               sonoma:         "52ced249f4426c8ecbf58f0509f17ed3e597491de1b7c299789056965d16d44c"
+    sha256               ventura:        "c7560f0206fbac58cbda4e2e1ab324c1e5de227f71825a6527270185c41d58b3"
+    sha256               monterey:       "a71c5889889ac62f287d31a929921c82e7af9c0d2bed738d76a481dad42c4b50"
+    sha256               x86_64_linux:   "4e9227d49df3791de714e4e107034ba47b5207e7ec202d089e43c423231bfb64"
   end
 
   head do

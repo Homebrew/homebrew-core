@@ -12,7 +12,7 @@ class VertX < Formula
 
   # Upstream cannot write a test that works on formula
   # Issue ref: https://github.com/vertx-distrib/homebrew-tap/issues/4
-  deprecate! date: "2023-01-07", because: "cannot test"
+  disable! date: "2024-01-12", because: "cannot test"
 
   # Unrecognized VM option 'UseBiasedLocking' since JDK 19
   depends_on "openjdk@17"

@@ -6,19 +6,6 @@ class Pngquant < Formula
   license :cannot_represent
   head "https://github.com/kornelski/pngquant.git", branch: "main"
 
-  livecheck do
-    url "https://crates.io/api/v1/crates/pngquant/versions"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-    strategy :json do |json|
-      json["versions"]&.map do |version|
-        next if version["yanked"] == true
-        next if (match = version["num"]&.match(regex)).blank?
-
-        match[1]
-      end
-    end
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d3e16afa75e8c67f0bd33265a5b41bc386b3556c03f005665dfea57a8ce5be00"
     sha256 cellar: :any,                 arm64_ventura:  "8a1da7e0f02ac09b8d76e4d61303d68a00c06de630878d39a440652b441c087d"

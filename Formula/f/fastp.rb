@@ -13,6 +13,7 @@ class Fastp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0589cde1438c370799e468eead88bb2e537bc59ac390512c3b30161315162937"
   end
 
+  # upstream arm support issue, https://github.com/OpenGene/fastp/issues/420
   depends_on arch: :x86_64 # isa-l is not supported on ARM
   depends_on "isa-l"
   depends_on "libdeflate"

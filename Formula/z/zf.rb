@@ -1,19 +1,19 @@
 class Zf < Formula
   desc "Command-line fuzzy finder that prioritizes matches on filenames"
   homepage "https://github.com/natecraddock/zf"
-  url "https://github.com/natecraddock/zf/archive/refs/tags/0.9.0.tar.gz"
-  sha256 "a40caf5b9ed2c45a703b10d214f513cfc004489330db8202d3834ba9c824ee92"
+  url "https://github.com/natecraddock/zf/archive/refs/tags/0.9.1.tar.gz"
+  sha256 "93c29cebde61ab75014fae7dd2ff218a0b5c769ba86640f20a0d7fac25edf993"
   license "MIT"
   head "https://github.com/natecraddock/zf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4120665cb9bca22713747580d48adfb657b2806b726db52e3a998a1b4ef9661"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c36bf7a7ed944c0d80f33e80794b905d4edf32137968e0ab4bb7d64b33fbeac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2234c6a28d19a665fb20869031a8efa9c0a94ec89a04877e748c2ad3db09eb6a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "467734f42aa2fd4a220717b198a729efe5adf4149572d7ec9b4276394250996a"
-    sha256 cellar: :any_skip_relocation, ventura:        "c3d84f9460b8f04d9d7b2b622526af330b0d493dd1227c13fd80dfebe647cfd5"
-    sha256 cellar: :any_skip_relocation, monterey:       "97c640328830932d24b249dc56d456ef77b91cb660351a05c1f3d90447196229"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "034f08d75c4136d806ef51fa32e45a09b3fe4e1d7485023e2760283f75dbdbeb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f67612f23ffb1a33f2bac3bc948e2ee3eaef617920f7bd5c228cf8fbf8dfbde3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "436703a73ef1a81f8e6b3895534cbac25ffca84e67c2cb2a0fdbe4e8450d26be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "de1a6133393771f7ae18606280f037a081bfef63e071ac05673d84b7a1a13432"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a063457f461b1374916cb101139d0507cdfabe597817f7dec07d31d30aa6025a"
+    sha256 cellar: :any_skip_relocation, ventura:        "2d321fedc50de2b33f595003d8cecadeaf3f972b214a6f673edcfae72d27391c"
+    sha256 cellar: :any_skip_relocation, monterey:       "eefde17eae947cfe908b4832606f2987d5eb95cf4246f4e59a3d713c9f6157df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfdbd78a226afb851913b45ee6eb2263c856b575de430e1bd58edf874581c8ea"
   end
 
   depends_on "zig" => :build

@@ -2,18 +2,19 @@ class Whois < Formula
   desc "Lookup tool for domain names and other internet resources"
   homepage "https://github.com/rfc1036/whois"
   url "https://github.com/rfc1036/whois/archive/refs/tags/v5.5.20.tar.gz"
-  sha256 "c15d527cad54a9d681415840060581b9d349e017b582fd575ee0f3133a1deef4"
+  sha256 "e7674972682d805488198c3345be3f1faddf94656cd0d24876826cd802ddd86c"
   license "GPL-2.0-or-later"
   head "https://github.com/rfc1036/whois.git", branch: "next"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5ae075200cf83e0b4e4079ba25d80051a6206d97ded82ed348b438cdb109444c"
-    sha256 cellar: :any,                 arm64_ventura:  "9c24eb0782ae6d0a6286ee94eedf0ffe984c470fc954411d5772ca5107e80b1a"
-    sha256 cellar: :any,                 arm64_monterey: "91ae663c07442b41c71e845e34f42c5f4679526249408ec383ca361ae96053c4"
-    sha256 cellar: :any,                 sonoma:         "188313e1df8f8de939e14933e09260ae7a0fc911ea02d46fcdc65d33d901f1b7"
-    sha256 cellar: :any,                 ventura:        "d7c1533fbbc24c5384f4b0e0021b39fc5d23b8350b9b68daf6e8972a7f94f207"
-    sha256 cellar: :any,                 monterey:       "621fea4f1cf7fbd926b2a9cbcc66da53c0005961230dcda944bba6f16e33fc6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3d8639251359cf55a78bb837f5155210b2c9995f295a9d834c2d486b7262a33"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "e4b613829ec10f305db919bb8deb97e4e81beaaf938a24174ba919e27a3d09ea"
+    sha256 cellar: :any,                 arm64_ventura:  "6f62c73787d634ac2e383def5cc2e1d49eee89cec0f11009e0849a49a4341a3a"
+    sha256 cellar: :any,                 arm64_monterey: "5716217a259b17a97c3ac04127f391733c60138d3b4eef3dc146ec7a85a8946e"
+    sha256 cellar: :any,                 sonoma:         "a521658c7d6d2e4bc86f0da4136e75e5cb0968b9990b2933e3c608db2fad5b6c"
+    sha256 cellar: :any,                 ventura:        "6aa461abf75e67c6dbc9357942be2944198b5538bdcca289581747befc81ac12"
+    sha256 cellar: :any,                 monterey:       "141abaa4be9d7686c4fea76a9bd770a640e95a0bf7fdb8190c6e3fd17212f9bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64bec9845b78b07947639607b2d6d323e2da8bc8b4546da339ef6b7a308bd63f"
   end
 
   keg_only :provided_by_macos

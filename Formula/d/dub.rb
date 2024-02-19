@@ -1,27 +1,30 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/refs/tags/v1.35.0.tar.gz"
-  sha256 "7275cfbff1b8c8e2cb4a93ae98a8f4a6acdac88bbdc49e14aa66ea82a8539c94"
+  url "https://github.com/dlang/dub/archive/refs/tags/v1.36.0.tar.gz"
+  sha256 "16ac09875889af03abeeca9b60777ee51611c86b3efe5869db3331d2fd97fd2b"
   license "MIT"
   version_scheme 1
   head "https://github.com/dlang/dub.git", branch: "master"
 
+  # Upstream may not create a GitHub release for tagged versions, so we check
+  # the dlang.org package as an indicator that a version is released. The API
+  # provides the latest version (https://code.dlang.org/api/packages/dub/latest)
+  # but this is sometimes an unstable version, so we identify the latest stable
+  # version from the package's version page.
   livecheck do
-    url "https://code.dlang.org/api/packages/dub/latest"
-    strategy :json do |json|
-      json
-    end
+    url "https://code.dlang.org/packages/dub/versions"
+    regex(%r{href=.*/packages/dub/v?(\d+(?:\.\d+)+)["' >]}i)
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98dbdf3bf06f2fb09b86dd97ee41f7d84fd5a4d26f17671dab5ac35d2af653ca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4dd206f5e99ce55dcac05aa5db12fe569f294ae85c1f3aa6c7acc9b0c883422c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d540290a69dd42ed4642b7f6716961381a0582cb899dd45dc9179b09eb7b2be6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "362b1d2220eb1eea3ccc22131d668239c0a87726834689009bdda316414a0b83"
-    sha256 cellar: :any_skip_relocation, ventura:        "87a084573c7a1a978e9b49960b3dca2a5f3dd8199c0c3b304be1e4f1a2801e58"
-    sha256 cellar: :any_skip_relocation, monterey:       "79f6789133d8a066a5140ef4f8042e59134573987442780cc3835108a94870ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a5eabdc32de0b120e5767701f6f36d0b1cbf68523ac6508be5f2c2a5a6181e0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2486533fdb851821094b56a499dd8114babb5274c03c03cf7e13355469d9b13c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1908c7ce55d9a3f141cba7116312aa9bbfe60afd7935fd42b42ec34fa752cde"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "52533c8d84a78de2f2dde9f02ae69077fd7554975720d73a56758f88a1037f87"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9625976c2456eeaa47b162e87402be05f16caf570b25180bd9e27cbd57a19fce"
+    sha256 cellar: :any_skip_relocation, ventura:        "ca8f9f0874c3490107a2aafec46d4f25788bd0ab4829d9842ea989d61257faac"
+    sha256 cellar: :any_skip_relocation, monterey:       "888e3fd4c968b2c5991d98a0bdc5eedfc499c80a510149ef84f60da55acb962c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a47a4fefbd0c7201f7f66b89ee1b29c1854054e63146ae7c018ad54e8852705"
   end
 
   depends_on "ldc" => [:build, :test]

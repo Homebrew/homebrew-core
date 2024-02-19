@@ -3,20 +3,19 @@ class Doitlive < Formula
 
   desc "Replay stored shell commands for live presentations"
   homepage "https://doitlive.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/02/5a/ec8769dc1c6f81939c0f7839b885f27b62b79b67fe69fcc67f347c0dd3ff/doitlive-4.4.0.tar.gz"
-  sha256 "1b0031d6ce97778a292b247ccb762fda8212c1b935bc7da6a2be92f677a4ea60"
+  url "https://files.pythonhosted.org/packages/32/75/c94e4d4e7fac8606e199fad35a00b33e4252d00078f25285f91e97e546c0/doitlive-5.1.0.tar.gz"
+  sha256 "b6bcd25f9f037b7e96e34d68549306adb3e8c83f6e92c51ec2b225abc05b25c5"
   license "MIT"
   head "https://github.com/sloria/doitlive.git", branch: "dev"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "66ebfcf68ad68439b5fbd0ebf5c882171de15777a70ca8a996e1269832ade953"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "849e69835f4cc63d1ef5469a9aef57440f2df15b1297db323818856be8f0e201"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8aefdfca5b524bb22865302dfd3414eb6980e5ca7d4c695d93af8a56b0df9bd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c9f1f49bedcf932fc10b2605d0823fb1a7377d73a00a2bad924084ee68e06d27"
-    sha256 cellar: :any_skip_relocation, ventura:        "c8981250f6fa705048df05f9a9c9ea6d20bcc1ff8798682314f75d25cd16d68f"
-    sha256 cellar: :any_skip_relocation, monterey:       "e1323c6f6049b34d70e4f3fcc677ee0a6b94e8bd4b3ca37eb1bcc6fc0b8d08d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e4f232575f460cf2b6e1ac3064de7fb9434e2d8f8dc1c29bd680f8382994e0e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "febff82a0f9bb60bb3ba176a987e57d0a67a4c7eca14791a44f589d5380ede91"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99f1f51dda487b4e2a8e75f67926bc8280a823549c873b920d8084d9b0e52747"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3eee1203b3334082aa0f174903b514cafb7ab140ba028994844ab05754793dfe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "865f192f6f75a09b5aafae01ccca59605e26a06d6a3649a0694c57f68041a9be"
+    sha256 cellar: :any_skip_relocation, ventura:        "5695d506a512de41ae2df8d9b129d40856f069515b75e36f24c87ba17487a188"
+    sha256 cellar: :any_skip_relocation, monterey:       "de7fda25bc741b87a85f237ad2e79dcf79adc8818ebe360e2400dba9336e660c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "013fdc7846b78287d3b2dcd771a19c8d0890524ef0b1e6f5eca52f455a1b1aad"
   end
 
   depends_on "python-click"
@@ -36,13 +35,13 @@ class Doitlive < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
   resource "shellingham" do
-    url "https://files.pythonhosted.org/packages/74/31/6d2297b76389dd1b542962063675eb19bb9225421f278d9241da0c672739/shellingham-1.5.3.tar.gz"
-    sha256 "cb4a6fec583535bc6da17b647dd2330cf7ef30239e05d547d99ae3705fd0f7f8"
+    url "https://files.pythonhosted.org/packages/58/15/8b3609fd3830ef7b27b655beb4b4e9c62313a4e8da8c676e142cc210d58e/shellingham-1.5.4.tar.gz"
+    sha256 "8dbca0739d487e5bd35ab3ca4b36e11c4078f3a234bfce294b0a0291363404de"
   end
 
   def install

@@ -1,36 +1,18 @@
 class Mesa < Formula
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
+  url "https://mesa.freedesktop.org/archive/mesa-24.0.0.tar.xz"
+  sha256 "dc7e8c077bc5884df95478263b34bdebb7e88e600689cb56fb07be2b8c304c36"
   license "MIT"
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
-
-  stable do
-    url "https://mesa.freedesktop.org/archive/mesa-23.3.2.tar.xz"
-    sha256 "3cfcb81fa16f89c56abe3855d2637d396ee4e03849b659000a6b8e5f57e69adc"
-
-    # Backport macOS build fixes from HEAD.
-    # Ref: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/25992
-    on_macos do
-      patch :DATA # https://gitlab.freedesktop.org/mesa/mesa/-/commit/96d55d784cb4f047a4b58cd08330f42208641ea7
-      patch do
-        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/c8b64452c076c1768beb23280de25faf2bcbe2c8.diff"
-        sha256 "0404bf72f10c991444b22721c5a7801aa6f788d2e6efdd9884a074834e0e0b31"
-      end
-      patch do
-        url "https://gitlab.freedesktop.org/mesa/mesa/-/commit/4ef573735efc7f15d8b8700622a5865d33c34bf1.diff"
-        sha256 "df09ac99747aa0a79c4342b8233739c4b5e4eeee7bcba4473783cff299aae5e3"
-      end
-    end
-  end
-
   bottle do
-    sha256 arm64_sonoma:   "3df5efe8043511fb14c4b6ec6b97836a16a6b1925db7c27b05710ac457e04e90"
-    sha256 arm64_ventura:  "9a5d52b06d94da9a457c09fb48f56fd5e748e2cffcfa5099292fd7e2dfc8a1b9"
-    sha256 arm64_monterey: "ebb4f32f5a3ed2b180504a9bed8be184f407255d2f34eb8412d6d02d7f5c2dfa"
-    sha256 sonoma:         "bbabbf609951553264bcc1c88f1adaba0291137a4cefb42a8087d5ea320a1d47"
-    sha256 ventura:        "4adf66772c32d78142db3a652a80368c324c9165c7b8ddd4d7d3da2864bcb51b"
-    sha256 monterey:       "4a0c4f8ecfc47f9a1115d209de0a18844e212a3dd2f9c9df2f570e9b73451b6b"
-    sha256 x86_64_linux:   "680a6f5b9d3516291cfb97070756c54c08c50c0b498bc407a09e77c379ad7fff"
+    sha256 arm64_sonoma:   "f2c899b05563637a98bcb9c6676b7ecd3cf5008415fbaf4295d250f225d174e6"
+    sha256 arm64_ventura:  "c8652dc49ca60c8f0c70171f4d6fd10ffbc2a54d221a6cf5f34b980898788020"
+    sha256 arm64_monterey: "82e91ecdfa8b9bad1c2d7ffcf756210ba793f9e9c0d18f666b53ce7b9e68ab2b"
+    sha256 sonoma:         "bd7caf2c6bcf109497320fb7d8c5c7dc13e1ccfd349fb88597b15ea035bd3db2"
+    sha256 ventura:        "d4ed324d128da77fa28954a2256d6448243e10894c8f63fa6cd0cd02185f5178"
+    sha256 monterey:       "e4f1b92456108f22b8f82589cac74e888dce3568adbd9ad44300f527aaf40b36"
+    sha256 x86_64_linux:   "1f8ddff6338be0cb292615125d13c95962c30ddb6ab3436ac1d035f6c71abbd2"
   end
 
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
@@ -62,6 +44,7 @@ class Mesa < Formula
     depends_on "elfutils"
     depends_on "glslang"
     depends_on "gzip"
+    depends_on "libclc"
     depends_on "libdrm"
     depends_on "libva"
     depends_on "libvdpau"
@@ -71,6 +54,9 @@ class Mesa < Formula
     depends_on "libxv"
     depends_on "libxxf86vm"
     depends_on "lm-sensors"
+    depends_on "python-ply"
+    depends_on "spirv-llvm-translator"
+    depends_on "valgrind"
     depends_on "wayland"
     depends_on "wayland-protocols"
   end
@@ -78,8 +64,8 @@ class Mesa < Formula
   fails_with gcc: "5"
 
   resource "glxgears.c" do
-    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/caac7be425a185e191224833375413772c4aff8d/src/xdemos/glxgears.c"
-    sha256 "344a03aff01708350d90603fd6b841bccd295157670f519b459bbf3874acf847"
+    url "https://gitlab.freedesktop.org/mesa/demos/-/raw/391cafee6d43a28afaf87a269475e0ede7d97469/src/xdemos/glxgears.c"
+    sha256 "294d7b9984eb1194a110a5a5500878df8b8d7b7922ec56257e9d8d8ae5e578e6"
   end
 
   resource "gl_wrap.h" do
@@ -88,31 +74,50 @@ class Mesa < Formula
   end
 
   def install
-    args = ["-Db_ndebug=true"]
-    compile_args = []
+    args = %w[
+      -Db_ndebug=true
+      -Dosmesa=true
+    ]
+
+    if OS.mac?
+      args += %w[
+        -Dgallium-drivers=swrast
+      ]
+    end
 
     if OS.linux?
       args += %w[
-        -Dplatforms=x11,wayland
-        -Dglx=auto
         -Ddri3=enabled
-        -Dgallium-drivers=auto
-        -Dgallium-omx=disabled
         -Degl=enabled
+        -Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink
+        -Dgallium-extra-hud=true
+        -Dgallium-nine=true
+        -Dgallium-omx=disabled
+        -Dgallium-opencl=icd
+        -Dgallium-va=enabled
+        -Dgallium-vdpau=enabled
+        -Dgallium-xa=enabled
         -Dgbm=enabled
-        -Dopengl=true
         -Dgles1=enabled
         -Dgles2=enabled
-        -Dvalgrind=disabled
+        -Dglx=dri
+        -Dintel-clc=enabled
+        -Dlmsensors=enabled
+        -Dllvm=enabled
+        -Dmicrosoft-clc=disabled
+        -Dopengl=true
+        -Dplatforms=x11,wayland
+        -Dshared-glapi=enabled
         -Dtools=drm-shim,etnaviv,freedreno,glsl,nir,nouveau,lima
+        -Dvalgrind=enabled
+        -Dvideo-codecs=vc1dec,h264dec,h264enc,h265dec,h265enc
+        -Dvulkan-drivers=amd,intel,intel_hasvk,swrast,virtio
+        -Dvulkan-layers=device-select,intel-nullhw,overlay
       ]
-      # Work around fatal error: vtn_generator_ids.h: No such file or directory
-      # Issue ref: https://gitlab.freedesktop.org/mesa/mesa/-/issues/10277
-      compile_args << "--jobs=1"
     end
 
     system "meson", "setup", "build", *args, *std_meson_args
-    system "meson", "compile", "-C", "build", "--verbose", *compile_args
+    system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     inreplace lib/"pkgconfig/dri.pc" do |s|
       s.change_make_var! "dridriverdir", HOMEBREW_PREFIX/"lib/dri"
@@ -142,97 +147,3 @@ class Mesa < Formula
     system ENV.cc, "glxgears.c", "-o", "gears", *flags
   end
 end
-
-__END__
-diff --git a/src/util/libdrm.h b/src/util/libdrm.h
-index cc153cf..045d724 100644
---- a/src/util/libdrm.h
-+++ b/src/util/libdrm.h
-@@ -33,6 +33,7 @@
-
- #include <errno.h>
- #include <stdint.h>
-+#include <sys/types.h>
-
- #define DRM_NODE_PRIMARY 0
- #define DRM_NODE_CONTROL 1
-@@ -44,22 +45,79 @@
- #define DRM_BUS_PLATFORM  2
- #define DRM_BUS_HOST1X    3
-
-+typedef struct _drmPciDeviceInfo {
-+    uint16_t vendor_id;
-+    uint16_t device_id;
-+    uint16_t subvendor_id;
-+    uint16_t subdevice_id;
-+    uint8_t revision_id;
-+} drmPciDeviceInfo, *drmPciDeviceInfoPtr;
-+
-+#define DRM_PLATFORM_DEVICE_NAME_LEN 512
-+
-+typedef struct _drmPlatformBusInfo {
-+    char fullname[DRM_PLATFORM_DEVICE_NAME_LEN];
-+} drmPlatformBusInfo, *drmPlatformBusInfoPtr;
-+
-+typedef struct _drmPlatformDeviceInfo {
-+    char **compatible; /* NULL terminated list of compatible strings */
-+} drmPlatformDeviceInfo, *drmPlatformDeviceInfoPtr;
-+
-+#define DRM_HOST1X_DEVICE_NAME_LEN 512
-+
-+typedef struct _drmHost1xBusInfo {
-+    char fullname[DRM_HOST1X_DEVICE_NAME_LEN];
-+} drmHost1xBusInfo, *drmHost1xBusInfoPtr;
-+
-+typedef struct _drmPciBusInfo {
-+   uint16_t domain;
-+   uint8_t bus;
-+   uint8_t dev;
-+   uint8_t func;
-+} drmPciBusInfo, *drmPciBusInfoPtr;
-+
- typedef struct _drmDevice {
-     char **nodes; /* DRM_NODE_MAX sized array */
-     int available_nodes; /* DRM_NODE_* bitmask */
-     int bustype;
-+    union {
-+       drmPciBusInfoPtr pci;
-+       drmPlatformBusInfoPtr platform;
-+       drmHost1xBusInfoPtr host1x;
-+    } businfo;
-+    union {
-+        drmPciDeviceInfoPtr pci;
-+    } deviceinfo;
-     /* ... */
- } drmDevice, *drmDevicePtr;
-
-+static inline int
-+drmGetDevice2(int fd, uint32_t flags, drmDevicePtr *device)
-+{
-+   return -ENOENT;
-+}
-+
- static inline int
- drmGetDevices2(uint32_t flags, drmDevicePtr devices[], int max_devices)
- {
-    return -ENOENT;
- }
-
-+static inline int
-+drmGetDeviceFromDevId(dev_t dev_id, uint32_t flags, drmDevicePtr *device)
-+{
-+   return -ENOENT;
-+}
-+
-+static inline void
-+drmFreeDevice(drmDevicePtr *device) {}
-+
- static inline void
- drmFreeDevices(drmDevicePtr devices[], int count) {}
-
-+static inline char*
-+drmGetDeviceNameFromFd2(int fd) { return NULL;}
-+
- typedef struct _drmVersion {
-     int     version_major;        /**< Major version */
-     int     version_minor;        /**< Minor version */

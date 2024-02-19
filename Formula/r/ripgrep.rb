@@ -1,8 +1,8 @@
 class Ripgrep < Formula
   desc "Search tool like grep and The Silver Searcher"
   homepage "https://github.com/BurntSushi/ripgrep"
-  url "https://github.com/BurntSushi/ripgrep/archive/refs/tags/14.0.3.tar.gz"
-  sha256 "f5794364ddfda1e0411ab6cad6dd63abe3a6b421d658d9fee017540ea4c31a0e"
+  url "https://github.com/BurntSushi/ripgrep/archive/refs/tags/14.1.0.tar.gz"
+  sha256 "33c6169596a6bbfdc81415910008f26e0809422fda2d849562637996553b2ab6"
   license "Unlicense"
   head "https://github.com/BurntSushi/ripgrep.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Ripgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4993cd71e43d30dd2a664c11d662cfcb0d4a6eebba2f9569369b285e3b33a10f"
-    sha256 cellar: :any,                 arm64_ventura:  "19945856a69414ea653b53501f026fec4dcdad0ee315c8a296f9c8146593793b"
-    sha256 cellar: :any,                 arm64_monterey: "fde873893c65d85ac0b28eaad540f4b50a319f608d8c0e7b7bcc00e884bfb46a"
-    sha256 cellar: :any,                 sonoma:         "4254cdbb026bae26c4cada5459747ae2ca6af8df9f0b98350bf3a4e904015052"
-    sha256 cellar: :any,                 ventura:        "4d460d70b632a24502f826451776fbd9ee756a770e26c6911fc7853f7ec92421"
-    sha256 cellar: :any,                 monterey:       "fd21355a9f00657fd1d0aaf4676220845f0ee60fbd5641cda8fee429eab8893f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95f23f2842916cbcd5b1fc909e59fafee39439e5253f9295d1b7aec5b4953b0c"
+    sha256 cellar: :any,                 arm64_sonoma:   "22cc1f3423a7fddb550fb94bd2715ce5455076d17f2c88ef0c157749ea4b87d6"
+    sha256 cellar: :any,                 arm64_ventura:  "837aaf1b32879f1177f9599e67d73a7f474d25ad5d3ba053216b05cbf8539b2a"
+    sha256 cellar: :any,                 arm64_monterey: "9a6e788f0a35d38ed325c7880e772775fe04c61e27c3506785ce10f6095ec891"
+    sha256 cellar: :any,                 sonoma:         "35ee71e72b612f0cc7748ff0e58b4cdfeec0693c83df6f553d9be1160cc7ba74"
+    sha256 cellar: :any,                 ventura:        "42eaa5b6b69a460c31c859c44b263d651e649d6eae4478651b09e155a14faf64"
+    sha256 cellar: :any,                 monterey:       "69c2e49f5d8054e1d2efb6e77aa8f83183b6bcfd6470354da30a2bfb251edd00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf2810ab20dc5006c02d9ced344bb47f1c2e5770ae051c35f81faaa34fe48d9d"
   end
 
   depends_on "asciidoctor" => :build

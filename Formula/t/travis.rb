@@ -4,18 +4,16 @@ class Travis < Formula
   url "https://github.com/travis-ci/travis.rb/archive/refs/tags/v1.11.1.tar.gz"
   sha256 "438b30362b54ed5c8668abf4212f239ac9081ab3aeb7cb9a24a9bf4b044495c3"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c4a01bf208216d3e979382d7d8c1a73e8354cbaabbd39bb210f680d4c9d05d59"
-    sha256 cellar: :any,                 arm64_ventura:  "e9e8e09727abc98e24bdaf545d9ef09360fd81cb127846092b50b43d2c3e1b3a"
-    sha256 cellar: :any,                 arm64_monterey: "b7d1ee73323d634a7f225b3cc9b933aee4422b8443a131726da6d716e4f2b2a9"
-    sha256 cellar: :any,                 arm64_big_sur:  "8d2540127e9a316a2e567293bc9cfeaeb63275f022dd0eb4dec07321dda25b01"
-    sha256 cellar: :any,                 sonoma:         "d35acc75c44edabe74e3b76aa541d5d6567103250a6c7c0cf7bd41abaf82eec6"
-    sha256 cellar: :any,                 ventura:        "7aeace183f49a6013abc90794b05ce3085ef895a04b9610ba09eb950c77277be"
-    sha256 cellar: :any,                 monterey:       "642811990a08cc4e35765e2433f8f14b45b0f84fc46cd8e2470d76d92d78a605"
-    sha256 cellar: :any,                 big_sur:        "9738d5d44d319450e07e59d8ac47e50e60c45076bab8a873e9e1b6447b99471e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f522e0528bfe365b56f461472f766ddc861c360e858a915ed670570a41150704"
+    sha256 cellar: :any,                 arm64_sonoma:   "2f65f4d4c87f7e495738447c4611e3185daae3843c43598c7a6579813b031b23"
+    sha256 cellar: :any,                 arm64_ventura:  "97f5a55d76e5705fbd115b1245e3d3298ac5aa264ff6c11fe8d95f4edd246624"
+    sha256 cellar: :any,                 arm64_monterey: "806951224f44ededcaa6133aa5a327f25b23fcd12eca6680f686070a1c0792dc"
+    sha256 cellar: :any,                 sonoma:         "525ce73c6bf2b3eab4656b1698acebef0b8b5478d987d898e9b4116585dbbb34"
+    sha256 cellar: :any,                 ventura:        "6268c5e6afda03121560a8fe7070161a51345a116b3edb2f2c8d1c576656bf99"
+    sha256 cellar: :any,                 monterey:       "94175386e959e0bf8aaa1400dca6d198059334541a04b58d72a6dff465f2afac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b18c8115c15be6aecd5784e38cc18676fe81a6dc095ea51bf5c5fea8b3ad8648"
   end
 
   depends_on "pkg-config" => :build

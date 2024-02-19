@@ -4,14 +4,14 @@ class Sysdig < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/draios/sysdig/archive/refs/tags/0.34.1.tar.gz"
-    sha256 "840a9099b66984c6ba71bb750b9440fb51c508d06e97e20d152c4f9a5e50d757"
+    url "https://github.com/draios/sysdig/archive/refs/tags/0.35.2.tar.gz"
+    sha256 "9a9246c428964b5ce67941c0c7055044a6e590735f78d17d89c175c319b02a9f"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION found in
     # https://github.com/draios/sysdig/blob/#{version}/cmake/modules/falcosecurity-libs.cmake
     resource "falcosecurity-libs" do
-      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.13.1.tar.gz"
-      sha256 "2be42a27be3ffe6bd7e53eaa5d8358cab05a0dca821819c6e9059e51b9786219"
+      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.14.2.tar.gz"
+      sha256 "b4ae7bbf3ad031deee4a808145f9fd64b71c537406cc5a92f512823b2e52cdd5"
     end
   end
 
@@ -21,14 +21,13 @@ class Sysdig < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "9fdebb54f96cd4bd29f45937a5a9f232a26b6543ee7ee9cb260e80d9b017636d"
-    sha256                               arm64_ventura:  "7eb5a00f69db2616ce28cc2db5bb80702ab46e856d236a89484aa4903d9ecb76"
-    sha256                               arm64_monterey: "f848eb52a209df2d96af2f0206a347aa5b999c8eea8c6bfee0e8931618a4c26d"
-    sha256                               sonoma:         "2d0d99816a41a803335ce0b9870e51ee87066c1921b734b566227a0d6f09707b"
-    sha256                               ventura:        "a963b4b3a5a5e66a035f90aba739597b0a1d7c85f6272e1483becd4a08c48a96"
-    sha256                               monterey:       "83259c87a0301887c90d820cf5f3116dc9ea48cfe158b500a037547761be215f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28701b5822511efc784666d2e03d279877d2f0f051d7f74c737c69839d8d04b8"
+    sha256                               arm64_sonoma:   "6408d20fd38a5630793d744ef770e84bfd577f3cec47fd0585c2ddeecb631dd6"
+    sha256                               arm64_ventura:  "94ec353ca2c49e15bebff71723280c3ad98d3b8c4e20aeb1c0d6ba64f29290a1"
+    sha256                               arm64_monterey: "779e1eae7f09d7c811fe114c03fde6993aff1679a1e6c6181c49961590d31a06"
+    sha256                               sonoma:         "64bb44dc5d2ad6f58732e7a5414a1f84153f96f6156c34ed0d6594a916a9844b"
+    sha256                               ventura:        "5f9e06b46153dc34eb7c3aaa3c134a6a9d9deb110883eb188aff6d29b60ed3d3"
+    sha256                               monterey:       "b11ec430118e10f9e9760db198893f809f2cd3340d73579dfb3aeaccc436ceb8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a25170fa031bce92a91d2923651fc7bd001f4709bae87e933ccf9defaaaa487e"
   end
 
   head do
@@ -47,6 +46,7 @@ class Sysdig < Formula
   depends_on "luajit"
   depends_on "re2"
   depends_on "tbb"
+  depends_on "uthash"
   depends_on "yaml-cpp"
 
   uses_from_macos "curl"

@@ -7,8 +7,10 @@ class Imposm3 < Formula
   revision 2
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "bd01bca0779242489dddd99f3235cd9bcb629218ff4cc22298f720e34f3e953d"
     sha256 cellar: :any,                 arm64_monterey: "9df6c793fdb5bd2785a5059b8ac87481c0e6e2ed5b2c4b5be3518ae61e144386"
     sha256 cellar: :any,                 arm64_big_sur:  "d1677327dc941f87f5911802bb7f2f1f53421af8f3a2af0dc65570dcb0575571"
+    sha256 cellar: :any,                 sonoma:         "231181e2e0bdc9d4a7074dfe6a30b4568514f01e6872085868f1b6dd6e4ff4f1"
     sha256 cellar: :any,                 ventura:        "a864f7988711895b30f5d0f32b8cc21d9231e5af209683c0f6ca48a12d51416c"
     sha256 cellar: :any,                 monterey:       "9d581e63f4f788afaf861bac0f4e566ce1c859bfd4d6dbc9cc46baf98dc2a577"
     sha256 cellar: :any,                 big_sur:        "2c6b3899baa3daa767d6c8a96345081227786265a5d65610a9e5bb8394013505"
@@ -61,7 +63,7 @@ class Imposm3 < Formula
 
     assert_match version.to_s, shell_output("#{bin}/imposm version").chomp
 
-    system bin/"osmium", "cat", testpath/"sample.osm.xml", "-o", "sample.osm.pbf"
+    system "osmium", "cat", testpath/"sample.osm.xml", "-o", "sample.osm.pbf"
     system bin/"imposm", "import", "-read", testpath/"sample.osm.pbf", "-mapping", testpath/"mapping.yml",
             "-cachedir", testpath/"cache"
 

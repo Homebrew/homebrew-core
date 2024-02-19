@@ -1,9 +1,10 @@
 class Rdkit < Formula
   desc "Open-source chemoinformatics library"
   homepage "https://rdkit.org/"
-  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2023_09_2.tar.gz"
-  sha256 "d6ed9e0cdf231550fa850070be7ea53154d46ec6cf32a9b5fd5fec2d34a60c6b"
+  url "https://github.com/rdkit/rdkit/archive/refs/tags/Release_2023_09_5.tar.gz"
+  sha256 "0b1ddf2bf822879e0863caf8efb794154e0a424108f2c1333ac94381c01fd688"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/rdkit/rdkit.git", branch: "master"
 
   livecheck do
@@ -15,23 +16,24 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fb654841723476c33987595f6e6c3c0bd8dcdbfdae8a5e5b48cc5ebf52dfd1e3"
-    sha256 cellar: :any,                 arm64_ventura:  "4d093cb4bbb93f693b559f3322fe04d0bee3dd17a4500f3347d8fbe3cb0bb498"
-    sha256 cellar: :any,                 arm64_monterey: "f7f2c0d2ce431c4bab1b27cc560974dbe7d0000bda79730bae5a2805fd8ee8bc"
-    sha256 cellar: :any,                 sonoma:         "b0d402335613f17aff67b2c3436ab548c762271015850921cc3ad1229481c74b"
-    sha256 cellar: :any,                 ventura:        "48c52f05ba1229d3331954f28dd4e45a2f2087f117a623fa98343c554ceeee8f"
-    sha256 cellar: :any,                 monterey:       "6ddcae931988924796dd2a55574700e4363c24ad21f0ef2f5ab137984c878c3b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a86fae6fce135731f7e14162db75c876b3e7d6071c0a39ffa1a887fdfca37cba"
+    sha256 cellar: :any,                 arm64_sonoma:   "019f1533e0db26ab44e88f204afef1f57d3a50663989ffdbf90fc1773cb262f0"
+    sha256 cellar: :any,                 arm64_ventura:  "36f19182a29c05389a9b8b1bcad8994ca2f4fad75af42af3827e669f55ab25dd"
+    sha256 cellar: :any,                 arm64_monterey: "a922a326bd0b1a8d7136812d1aa3bcb31860504f4ac42424dac0e48d71979126"
+    sha256 cellar: :any,                 sonoma:         "ede3c538aa9d788a7fd29cdd8573cc896a08c434f15520e7dd3d7bb89f0704eb"
+    sha256 cellar: :any,                 ventura:        "47428647fa32437062850507d40cf164f3b136a6a933e293c39ed62ee8a06148"
+    sha256 cellar: :any,                 monterey:       "0452ffac33cf33901d13f0d2b9e9467209591edec9c70001534a4a82a1ee6345"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b65fac0c69e5f8b540600535422dfe110a5f767187b24f58ab2d8d80335042ef"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "swig" => :build
   depends_on "boost"
   depends_on "boost-python3"
   depends_on "eigen"
   depends_on "freetype"
   depends_on "numpy"
-  depends_on "postgresql@15"
+  depends_on "postgresql@14"
   depends_on "py3cairo"
   depends_on "python@3.12"
 
@@ -46,7 +48,8 @@ class Rdkit < Formula
   end
 
   def postgresql
-    Formula["postgresql@15"]
+    deps.map(&:to_formula)
+        .find { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
@@ -64,9 +67,12 @@ class Rdkit < Formula
     site_packages = Language::Python.site_packages(python_executable)
     numpy_include = Formula["numpy"].opt_prefix/site_packages/"numpy/core/include"
 
-    pg_config = postgresql.opt_bin/"pg_config"
-    postgresql_lib = Utils.safe_popen_read(pg_config, "--pkglibdir").chomp
-    postgresql_include = Utils.safe_popen_read(pg_config, "--includedir-server").chomp
+    # Prevent trying to install into pg_config-defined dirs
+    inreplace "Code/PgSQL/rdkit/CMakeLists.txt" do |s|
+      s.gsub! "set(PG_PKGLIBDIR \"${PG_PKGLIBDIR}", "set(PG_PKGLIBDIR \"#{lib/postgresql.name}"
+      s.gsub! "set(PG_EXTENSIONDIR \"${PG_SHAREDIR}", "set(PG_EXTENSIONDIR \"#{share/postgresql.name}"
+    end
+    ENV["DESTDIR"] = "/" # to force creation of non-standard PostgreSQL directories
 
     # set -DMAEPARSER and COORDGEN_FORCE_BUILD=ON to avoid conflicts with some formulae i.e. open-babel
     args = %W[
@@ -88,8 +94,7 @@ class Rdkit < Formula
       -DPYTHON_INCLUDE_DIR=#{py3include}
       -DPYTHON_EXECUTABLE=#{python_executable}
       -DPYTHON_NUMPY_INCLUDE_PATH=#{numpy_include}
-      -DPostgreSQL_LIBRARY=#{postgresql_lib}
-      -DPostgreSQL_INCLUDE_DIR=#{postgresql_include}
+      -DPostgreSQL_CONFIG=#{postgresql.bin}/pg_config
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
@@ -108,10 +113,29 @@ class Rdkit < Formula
   end
 
   test do
+    # Test Python module
     system python_executable, "-c", "import rdkit"
     (testpath/"test.py").write <<~EOS
       from rdkit import Chem ; print(Chem.MolToSmiles(Chem.MolFromSmiles('C1=CC=CN=C1')))
     EOS
     assert_match "c1ccncc1", shell_output("#{python_executable} test.py 2>&1")
+
+    # Test PostgreSQL extension
+    ENV["LC_ALL"] = "C"
+    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    psql = postgresql.opt_bin/"psql"
+    port = free_port
+
+    system pg_ctl, "initdb", "-D", testpath/"test"
+    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+
+      port = #{port}
+    EOS
+    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    begin
+      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"rdkit\";", "postgres"
+    ensure
+      system pg_ctl, "stop", "-D", testpath/"test"
+    end
   end
 end

@@ -1,18 +1,18 @@
 class Clifm < Formula
   desc "Command-line Interface File Manager"
   homepage "https://github.com/leo-arch/clifm"
-  url "https://github.com/leo-arch/clifm/archive/refs/tags/v1.15.tar.gz"
-  sha256 "6248c8352f6fb77f9dc6bc0a3f84c06c881b82c08679f93ed8c32d6c208787b4"
+  url "https://github.com/leo-arch/clifm/archive/refs/tags/v1.17.tar.gz"
+  sha256 "c6b64bbbdb4f1c7a752db004150ac3a773696624ec62d8d33204b259e810421f"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "350c6589a28e1cac903a62cabfdec54484ba79efcd27e5c8add98060f1e678a5"
-    sha256 arm64_ventura:  "36721cdfa2e2310d4eda359153ec48755346c70a8f5f12c4678e094662a0cf96"
-    sha256 arm64_monterey: "bec307fd1face3a1b024893459b9543932f80f92f2c3a2e053c0313b2735afc6"
-    sha256 sonoma:         "f5a3f9906dafaf9144575937e973bce0f9be07e6829c48e30e0c45e7612c1b90"
-    sha256 ventura:        "75c1b7c464760a8ff321e19902c6d2cdc608d29e53eecd3ea97927aa51ac12c5"
-    sha256 monterey:       "749e8a1039edabd4ed43936663e2834f4a749f3ac3f50075ec195c3801d98c8a"
-    sha256 x86_64_linux:   "3e203de5896f74905b4f6dd29ccd3154118a0a654ad93266092dc0e65722c242"
+    sha256 arm64_sonoma:   "fb3b743c7ca1d6029ad5a3fb3d02b45220422c002898e8763a8a4da39e140987"
+    sha256 arm64_ventura:  "374c7343ae15293dc66bbb995a0c84a8fb22dad58b9f883a58371ac1c0fa5578"
+    sha256 arm64_monterey: "dc45e435fff09e28fc27e7c0332eaa9e28ac81d21ec5a8b500d697bac4e64be3"
+    sha256 sonoma:         "475d8a88c0d7885623f5a5c73d4039073c817b8c175f4204fca41a0a6fc1e558"
+    sha256 ventura:        "2e43de946b15b02e5ba42023ca6eeaffb8790b4deeffc0223d188c11ebf072ce"
+    sha256 monterey:       "11faa1c3405b8dd9ccb2948224e5b58c280a36ff3bb9dccff0b1e9e2f08da05c"
+    sha256 x86_64_linux:   "5af4a9451d8190310a0e7e8444fbf54dc32b21c80cf044fe8a34a7b3c0c53e1e"
   end
 
   depends_on "cmake" => :build
@@ -38,7 +38,7 @@ class Clifm < Formula
     ENV["TERM"] = "xterm"
 
     output = shell_output("#{bin}/clifm nonexist 2>&1", 2)
-    assert_match "clifm: nonexist: No such file or directory", output
+    assert_match "clifm: 'nonexist': No such file or directory", output
     assert_match version.to_s, shell_output("#{bin}/clifm --version")
   end
 end

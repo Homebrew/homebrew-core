@@ -4,18 +4,17 @@ class HasteClient < Formula
   url "https://github.com/toptal/haste-client/archive/refs/tags/v0.3.0.tar.gz"
   sha256 "9f7e943be47408ba0b9765328794e7b87bdb2a785f1e9edb5d541d67b4a75d31"
   license "MIT"
+  revision 1
   head "https://github.com/toptal/haste-client.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74cb9e624fb2e179be56eb7f94c30bf7dcd6f70ee21877be896d5d458bdbdc21"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "867a679e7daef529fa36bd744eb7ce3326867bed1fb5588fe79b626121247232"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "867a679e7daef529fa36bd744eb7ce3326867bed1fb5588fe79b626121247232"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b0bf267cb522df7e54546c61342ab74db3610856894b4a6f4e010e70ba2c0308"
-    sha256 cellar: :any_skip_relocation, sonoma:         "74cb9e624fb2e179be56eb7f94c30bf7dcd6f70ee21877be896d5d458bdbdc21"
-    sha256 cellar: :any_skip_relocation, ventura:        "867a679e7daef529fa36bd744eb7ce3326867bed1fb5588fe79b626121247232"
-    sha256 cellar: :any_skip_relocation, monterey:       "867a679e7daef529fa36bd744eb7ce3326867bed1fb5588fe79b626121247232"
-    sha256 cellar: :any_skip_relocation, big_sur:        "867a679e7daef529fa36bd744eb7ce3326867bed1fb5588fe79b626121247232"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e8ca7f96707ff93d23f2faf3deb15bdaf7faeca5a78115823bc1c00a22e436d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19c113dd6fe207816a9c0dc7b3d16c8242d3302b2c0a0d16182508d3c50b69b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19c113dd6fe207816a9c0dc7b3d16c8242d3302b2c0a0d16182508d3c50b69b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19c113dd6fe207816a9c0dc7b3d16c8242d3302b2c0a0d16182508d3c50b69b0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "19c113dd6fe207816a9c0dc7b3d16c8242d3302b2c0a0d16182508d3c50b69b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "19c113dd6fe207816a9c0dc7b3d16c8242d3302b2c0a0d16182508d3c50b69b0"
+    sha256 cellar: :any_skip_relocation, monterey:       "19c113dd6fe207816a9c0dc7b3d16c8242d3302b2c0a0d16182508d3c50b69b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ad7b1ac323cd891c96e1b3e83192519c83761f248d8591b7eae25bf5813d939"
   end
 
   uses_from_macos "ruby", since: :high_sierra

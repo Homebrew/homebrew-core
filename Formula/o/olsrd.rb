@@ -1,8 +1,6 @@
 class Olsrd < Formula
   desc "Implementation of the optimized link state routing protocol"
-  homepage "http://www.olsr.org"
-  # olsr's website is "ill" and does not contain the latest release.
-  # https://github.com/OLSR/olsrd/issues/48
+  homepage "https://github.com/OLSR/olsrd"
   url "https://github.com/OLSR/olsrd/archive/refs/tags/v0.9.8.tar.gz"
   sha256 "ee9e524224e5d5304dcf61f1dc5485c569da09d382934ff85b233be3e24821a3"
   license "BSD-3-Clause"

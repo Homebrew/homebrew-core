@@ -1,8 +1,8 @@
 class NodeAT20 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v20.10.0/node-v20.10.0.tar.xz"
-  sha256 "32eb256eebd8cacd5574e6631e54b42be7ec8ebe25ad47a8ca685403bad15535"
+  url "https://nodejs.org/dist/v20.11.1/node-v20.11.1.tar.xz"
+  sha256 "77813edbf3f7f16d2d35d3353443dee4e61d5ee84d9e3138c7538a3c0ca5209e"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class NodeAT20 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a263ababab8a0ad1ebb1d9bad367f84a07946e61f461f260a27057ced15fafe4"
-    sha256 arm64_ventura:  "5658bac00492f8857928b71f0370801ca87e1f90077436ed864c9d5dbc6ee31e"
-    sha256 arm64_monterey: "8a0c7312c216cac28462ff223cfe756e9e1fd8eab86c9b772ee670269d5654f8"
-    sha256 sonoma:         "b1c9dd1d7f9d3b0336568be4b851b8635f562f9633a3f13ab6d0c568859e2775"
-    sha256 ventura:        "7597b64548e68cf659a451df5eab494f31560c56148cbd2506503ff544d7ea70"
-    sha256 monterey:       "0368ab30fead76269b96c7ec48c929aa878a0e4247d6737889e3fa2428aa6258"
-    sha256 x86_64_linux:   "f9214c620b471c180a7155395bda81faf72f8a36c6ec7e1552fe53a41bdef0cf"
+    sha256 arm64_sonoma:   "546191e087bf64a41f2a8817872dc1f61ad14005131b838b4a99d014c2001621"
+    sha256 arm64_ventura:  "3349950b55288f89dcbac3f8f247ebdf98d0a7663c21e74a22fae3617c9a8355"
+    sha256 arm64_monterey: "58d0d3de629859fc5889be1861888a90432dc6e43339f10e4a8d955bf0a876b7"
+    sha256 sonoma:         "762b4c6e89a150c83db71c5e7b9485f89d9b8283c17eb6edc6f1f127f718ba69"
+    sha256 ventura:        "3d90b7fcd1c12acb4670161fa082ca16671cf849fbd58eefabbc26e5427afc4e"
+    sha256 monterey:       "3579874b566c53bdbefe62163fae64082ec3ed965081d7daabbf2aad40b744a1"
+    sha256 x86_64_linux:   "cee876f12a41948f7f40c7c9e641d4edd0c7434d319c5182056cac67a2afbe6b"
   end
 
   keg_only :versioned_formula
@@ -51,9 +51,6 @@ class NodeAT20 < Formula
   end
 
   fails_with gcc: "5"
-
-  # Support Python 3.12
-  patch :DATA
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
@@ -129,26 +126,3 @@ class NodeAT20 < Formula
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end
 end
-
-__END__
-diff --git a/configure b/configure
-index fefb313c..711a3014 100755
---- a/configure
-+++ b/configure
-@@ -4,6 +4,7 @@
- # Note that the mix of single and double quotes is intentional,
- # as is the fact that the ] goes on a new line.
- _=[ 'exec' '/bin/sh' '-c' '''
-+command -v python3.12 >/dev/null && exec python3.12 "$0" "$@"
- command -v python3.11 >/dev/null && exec python3.11 "$0" "$@"
- command -v python3.10 >/dev/null && exec python3.10 "$0" "$@"
- command -v python3.9 >/dev/null && exec python3.9 "$0" "$@"
-@@ -23,7 +24,7 @@ except ImportError:
-   from distutils.spawn import find_executable as which
-
- print('Node.js configure: Found Python {}.{}.{}...'.format(*sys.version_info))
--acceptable_pythons = ((3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
-+acceptable_pythons = ((3, 12), (3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
- if sys.version_info[:2] in acceptable_pythons:
-   import configure
- else:

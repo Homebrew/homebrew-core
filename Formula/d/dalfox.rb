@@ -1,19 +1,19 @@
 class Dalfox < Formula
   desc "XSS scanner and utility focused on automation"
   homepage "https://dalfox.hahwul.com"
-  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.9.1.tar.gz"
-  sha256 "aaeac4663757b1c0a1477d78cc6c793023ac01c154ec79f6a1746db7d0cf1b2d"
+  url "https://github.com/hahwul/dalfox/archive/refs/tags/v2.9.2.tar.gz"
+  sha256 "3eef38f0767c6016cc986a446f5478bc55f7e168e9550b97f53f21729178d759"
   license "MIT"
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c00b154919eedecb66cd8e825aec5a5d80b08a97ab10e800328b7b36999ed59"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c4a62308a140d0d0c25a0de064b7cd2c881940e1b6df1e6447bdaa569b6d551"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5dd3d0940c19c2e1c744251750a67cf6d036f635676ef9be2c6755fdcbc07b84"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2753e8ac5e4350e6f93e7c5ef132ed8df5e5487584ccda66f09743ec32957e30"
-    sha256 cellar: :any_skip_relocation, ventura:        "1fac56d9d53b91fa7fe786ba9f655049279737d503827bf02b99f2473e18608d"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ed82f380fb0f891a26ef95516ff50304f87e066c43e29e0a8243f05616b3805"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f4a66a9c8ca02f7cb2e46231a5b7fc05f3b6cc7c398217bc548bb3bcac4e0a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7b54610e8ecf804a14d063efc7218a6f4cecf78bb3be4041d9e9dd9f380f25a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a99361b244b15e6eb0b1112a639916830a04ef8b0e14f7ba113582f4b5491f10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef20f79a86b55fcca0b55070ea9c509d9f363f88be93b82ffc820c270536a89e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5784c9fb20f4d7131970ed469f2cacb43619b61bbf0af2ec22e66fb4aea15765"
+    sha256 cellar: :any_skip_relocation, ventura:        "2a412d7279b39a963e83cf5ebfe812886faeff539516b37f43b720c21eaaa818"
+    sha256 cellar: :any_skip_relocation, monterey:       "a030c6c3561987278a18019be2842884acd32b8d44ff6c61339460cad3651a3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4382dcc03055ac285bd422fc1ac855079a13a023a2345ebceb39d910d03ab47a"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
-  desc "Free Heroes of Might and Magic II is a recreation of HoMM2 game engine"
+  desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.10.tar.gz"
-  sha256 "f0bc60973bbdc3c333563a5f53252d6e3edd4ea8c4f91729e0480ff0e6a403a2"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.12.tar.gz"
+  sha256 "a5b088ff4c1c6c2e05e72d755bbabde8c0cbea19debea3b5a82b5d08b16cc2be"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "4ae055248754ea7cfd5f2ba5abb172902e94cd9991dc779151a6e0c7e4f90255"
-    sha256 arm64_ventura:  "179ab463fc52fd87139e54d6b1d504aa1b416e25ed62f1febbabc6ebac3af2a5"
-    sha256 arm64_monterey: "4497d19db0de10bb71221e40285f042778f6b07f889b6cdb999948adcf6df44a"
-    sha256 sonoma:         "b627a0005b0910d6fe3586b5b9fdca642023331d3f0ece766398e3ace96fe292"
-    sha256 ventura:        "320cb4dc4d7d347904e65f69650fd456d6c8584051a79725f01654c1e7e49586"
-    sha256 monterey:       "de241fccabe4652eb5a0683a5f761d2b8fa941d6512fb145d3cec6d7f4039f3a"
-    sha256 x86_64_linux:   "260b147dd6b2ed7825830fcca85f5c4584490a110a68825de6156d8df52a77b1"
+    sha256 arm64_sonoma:   "f12fcbbb6b20aa9d75e15ff24d30efbdc074dd6e91f19c9bcc4d148b6b48e369"
+    sha256 arm64_ventura:  "e0b7835c0bae053da6efae60f81bbdcd0ef4c63913d62cdb444b94e6843d69fd"
+    sha256 arm64_monterey: "48cc1591eebccab94ea59778010d7cad73911190daf3fd84b79ea573ab0e529e"
+    sha256 sonoma:         "117376d77083e6fe0b93f673d5385d2aca325bcac3f91e7780c4cf8e4fa55910"
+    sha256 ventura:        "9309abc9efa7fd322799b24c083ec627019c3d0b4b81be5fd1be7f8a336843a3"
+    sha256 monterey:       "eed826270ddff7d393a8897ce9c988a6a5a2636963c2ff43b70f3dbc44a76a6b"
+    sha256 x86_64_linux:   "c1e601dceaa669a2e89c70cfd5584ad793a4f8a9bbfae6a0c4eb8b96623cddf6"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +32,13 @@ class Fheroes2 < Formula
   uses_from_macos "zlib"
 
   fails_with gcc: "5"
+
+  # Fixes Sonoma iconv issue `end-of-line within string`
+  # Remove in next release
+  patch do
+    url "https://github.com/ihhub/fheroes2/commit/18ab688b64bc3a978292602b27cf4542bcb07f7d.patch?full_index=1"
+    sha256 "f1f1f716c4b2ef8ec99aa336fd9526e45f95b3ecfa002d398b1ec9cd955e8000"
+  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

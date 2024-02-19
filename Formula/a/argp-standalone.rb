@@ -3,6 +3,7 @@ class ArgpStandalone < Formula
   homepage "https://www.lysator.liu.se/~nisse/misc/"
   url "https://www.lysator.liu.se/~nisse/misc/argp-standalone-1.3.tar.gz"
   sha256 "dec79694da1319acd2238ce95df57f3680fea2482096e483323fddf3d818d8be"
+  license "LGPL-2.1-or-later"
 
   livecheck do
     url :homepage

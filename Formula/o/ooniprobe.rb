@@ -11,8 +11,10 @@ class Ooniprobe < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "222e31878eea6c6b643b82422a995fceaf34de642b820efaa304e58f716db6b2"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "627a72558f5e273bc3860a9bd51360c8eba90b349fb22dd585f5593d61c9e4fa"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "65d462ea847c0edea7667daf425f7e55352f0d540c07f72e05bf041a1bc75719"
+    sha256 cellar: :any_skip_relocation, sonoma:         "83023248d0b3fb30e8276f260e9bd0abae2973fb78a1f95efa544b2147e3eaea"
     sha256 cellar: :any_skip_relocation, ventura:        "6e8a2a548ea7155695aeb2854c72e9f4a3c83d77708e4640f5131c60f46d02d5"
     sha256 cellar: :any_skip_relocation, monterey:       "c9ad268c7fc38abf83e99cf2a9c439d03b980d69c8cb56e2d257cc12c0eaac4f"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "31affd229a7f14a637c0975e7528e3230574d3f84b19e2a3006b69fc80695bbb"

@@ -16,7 +16,7 @@ class Kyua < Formula
     sha256 x86_64_linux:   "056d090e0c1c5175016cb64ac1d8cebdf86e052895afd90d663e7ee8d65757e4"
   end
 
-  deprecate! date: "2023-02-14", because: :unmaintained
+  disable! date: "2024-02-16", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "atf"

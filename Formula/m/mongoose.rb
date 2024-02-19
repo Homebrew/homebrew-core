@@ -17,8 +17,6 @@ class Mongoose < Formula
 
   depends_on "openssl@3"
 
-  conflicts_with "suite-sparse", because: "suite-sparse vendors libmongoose.dylib"
-
   def install
     # No Makefile but is an expectation upstream of binary creation
     # https://github.com/cesanta/mongoose/issues/326

@@ -1,18 +1,18 @@
 class SocketVmnet < Formula
   desc "Daemon to provide vmnet.framework support for rootless QEMU"
   homepage "https://github.com/lima-vm/socket_vmnet"
-  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.1.3.tar.gz"
-  sha256 "7c7495212fd25883ea877d54cccd33875aa8a908a91bd2a08bfe1177219a086f"
+  url "https://github.com/lima-vm/socket_vmnet/archive/refs/tags/v1.1.4.tar.gz"
+  sha256 "38ee9a3aa6e990ae35128813d6927b64f95bfb5b9e13f8ac8885ab71394499b8"
   license "Apache-2.0"
   head "https://github.com/lima-vm/socket_vmnet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f901ed4594c8248746b09230314406abe0a1c72dcd3a605e373021c04a5fcf98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "57e331d111136798213913e96b05501a7cb49af187ce9935a7de0ece824fe16b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "808d4773763b7ced602aeb58dbe9c41123053a893a9dad388d054a048de8f4b3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17cee33cc7e78ac60b9f240c3279961e4c27f82b52a1ea22c2a6dd0bc121b322"
-    sha256 cellar: :any_skip_relocation, ventura:        "069e32b9dca83f6efa6ed778284340701fd1b4377e86341d21d417ce099c2e6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "439bade17882535e25dc54076a721f9e467dde7e3b53685b867c19c1d863a959"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b3fdabd6b7f9902acebb939a7e291ea5f97f3e36aedf1e8fb3a18c0b1fc6c8eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8597587e961d4482d83739489badf3cb8c6a75402692d613c045229203c8392"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6c24f2176c97e6061015d76ad48a1c468f85b3c4198fa4f2d0e43d229a50fca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "565371131fde789b35b61c90ebfdc1f97295ac36b8732fa9ef850e02610af506"
+    sha256 cellar: :any_skip_relocation, ventura:        "29533f07316e19eb86a4a0e1986185c059344df516f8798c2056ca7128e3ea01"
+    sha256 cellar: :any_skip_relocation, monterey:       "1339b46316025f75bd1206d941c399155b0287422b8ac5e8c5bedeb84458e3d2"
   end
 
   keg_only "Homebrew's bin directory is often writable by a non-admin user"

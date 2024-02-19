@@ -1,21 +1,29 @@
 class Coder < Formula
   desc "Tool for provisioning self-hosted development environments with Terraform"
   homepage "https://coder.com"
-  url "https://github.com/coder/coder/archive/refs/tags/v2.6.0.tar.gz"
-  sha256 "595a52dc28bc6fa2892708c700584a26e2a3c08d46f0de8d1b35fbfa4f1292d5"
+  url "https://github.com/coder/coder/archive/refs/tags/v2.8.3.tar.gz"
+  sha256 "e6a4a1c3212246f745aaad6788d88c0d3a906dd383182f0538fa76238eb6e636"
   license "AGPL-3.0-only"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92d859acae9c893348a16d154c633647bd066416bc1f4632e4dfa7fc03efed3a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e701b019ac3fc647d5ce7cf641ae305d863e3db80643c8a07a3fb46a1eb47c8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4b8606484ea16cea03ee02e3fe2fc5bdbc4b6bdd0da7b64e0003a7743583f81"
-    sha256 cellar: :any_skip_relocation, sonoma:         "de056bc14ef8aaaabc7d23548d08c9108071393d6018caec35cb83c5a7221bd2"
-    sha256 cellar: :any_skip_relocation, ventura:        "29dab67c444ee74340496095c489701cbe5688dc2432e62f4662c757117d6ec4"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b130d06aa50892fbeaba2ec0bfbd7c88bfb4dd5376c21bf46b4a3c41b31bc17"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da8ad941d9d9cb88a5c5b277d7e917678b289cbd43de4e810a44f274e2e9ac6f"
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
   end
 
-  depends_on "go" => :build
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9b0250557b09c95627da1e4b0333eb44b78ca0322e07c2a17748d329fc0ce0c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3940f89cc65aabde1ac7854ea85090a6b93507c38469206cd600745141eb9f10"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc3e4be4ab22422bbff70a9e73bc280a5b98e21b68aea23d6bb27f59d97e7f48"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cf84415963c38d1fa3656d75c4f58d273ee74c4e6ce8c1c4cac4a25a1ac79d56"
+    sha256 cellar: :any_skip_relocation, ventura:        "2bedae4c2ab15107cdb017a67387651c47ea295ca3669cf9db2932591cb72086"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f567eed291c2aa6a50043a8bc39993e8a6a42a4328d56ed223cbb8ae2612a32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81db31959b0778ba74baf10401fa93b9a2db51f71fb04feff64b002253b064f7"
+  end
+
+  depends_on "go@1.21" => :build # see https://github.com/coder/coder/issues/11342
 
   def install
     ldflags = %W[

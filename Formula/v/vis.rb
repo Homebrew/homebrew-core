@@ -4,19 +4,17 @@ class Vis < Formula
   url "https://github.com/martanne/vis/archive/refs/tags/v0.8.tar.gz"
   sha256 "61b10d40f15c4db2ce16e9acf291dbb762da4cbccf0cf2a80b28d9ac998a39bd"
   license "ISC"
+  revision 1
   head "https://github.com/martanne/vis.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "d645f9d687468ef9df01b7553ba153010e0c11cf61efeed8613ed0f69d8ab8ec"
-    sha256 arm64_ventura:  "32908c8b3e0251376b5a5020fde49c276c652a71eeee6a624dea98ab61211260"
-    sha256 arm64_monterey: "4175e1489036cb6b42e68c2073e4b5626cfb2ae3fadfba52e2e32d0a7e324dc3"
-    sha256 arm64_big_sur:  "067127470533d46e86b8ef7c6aba0e203061347fa1e6a74933e0fbc833d81ff2"
-    sha256 sonoma:         "f4f517e6eef8fd53dc1a662b06a2e14dcc880d7bf0a93bc732bc4bb5497eeeab"
-    sha256 ventura:        "8311b635e107ec0cb5282cf86920bee36d5cc32219fb9b41a0b77f0980c4b745"
-    sha256 monterey:       "fc879a20d56fbe7eb9956dda54fd0f603f4d14d4a3f903462946f23fba5766a0"
-    sha256 big_sur:        "6d2d2178c60f3d091818d80c9e9c86744e946661f1dede662d3b248c2cb1a858"
-    sha256 x86_64_linux:   "98848b044f51a151d7ca4cc2ad97b8d1c33a1002c3dd3eb2ce27ef6be0fd263c"
+    sha256 arm64_sonoma:   "7ccde2ec515147e2dfa391aa9c13e02c56d9100ddaa1fe0648d0a44256baeee6"
+    sha256 arm64_ventura:  "c7bd78e7dc1d66f187844ec7261fca802f5b65157bd15a93688d0b888a07b63c"
+    sha256 arm64_monterey: "5a474c5a0f86dfa5c2deaa03ff4253606c8b6e332e506cbe5bf38c73c119e026"
+    sha256 sonoma:         "dae6e06a6083b3ec751df19b838dcf589cf5a5409e86b7dae41419f7c01f82c8"
+    sha256 ventura:        "0e2d2df60725dbb0f281e833a49f32b84ac37adfc001c9083919f866f590c90f"
+    sha256 monterey:       "537cabe01b0048f555cc62c7e7336ec5175fa3aa041f32270d6500b48e0ac007"
+    sha256 x86_64_linux:   "c1e9611e3b0342cd639047550c81622218c4ed2df4dd6094ca07ca5d8d9bd335"
   end
 
   depends_on "pkg-config" => :build
@@ -28,7 +26,7 @@ class Vis < Formula
   uses_from_macos "ncurses"
 
   def install
-    system "./configure", "--prefix=#{prefix}", "--enable-lua"
+    system "./configure", "--enable-lua", "--enable-lpeg-static=no", *std_configure_args
     system "make", "install"
 
     return unless OS.mac?

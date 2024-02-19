@@ -3,7 +3,7 @@ class DesktopFileUtils < Formula
   homepage "https://wiki.freedesktop.org/www/Software/desktop-file-utils/"
   url "https://www.freedesktop.org/software/desktop-file-utils/releases/desktop-file-utils-0.27.tar.xz"
   sha256 "a0817df39ce385b6621880407c56f1f298168c040c2032cedf88d5b76affe836"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 arm64_sonoma:   "a18a457a7c8955e7fc9750bc4e0d92d6d3f017d84872ff153cd5cc1922db20ec"
@@ -21,15 +21,13 @@ class DesktopFileUtils < Formula
   depends_on "glib"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
 
-      # fix lisp file install location
-      mkdir_p share/"emacs/site-lisp/desktop-file-utils"
-      mv share/"emacs/site-lisp/desktop-entry-mode.el", share/"emacs/site-lisp/desktop-file-utils"
-    end
+    # fix lisp file install location
+    mkdir_p share/"emacs/site-lisp/desktop-file-utils"
+    mv share/"emacs/site-lisp/desktop-entry-mode.el", share/"emacs/site-lisp/desktop-file-utils"
   end
 
   test do

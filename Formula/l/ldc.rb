@@ -1,20 +1,11 @@
 class Ldc < Formula
   desc "Portable D programming language compiler"
   homepage "https://wiki.dlang.org/LDC"
+  url "https://github.com/ldc-developers/ldc/releases/download/v1.36.0/ldc-1.36.0-src.tar.gz"
+  sha256 "a00c79073123a887c17f446c7782a49556a3512a3d35ab676b7d53ae1bb8d6ef"
   license "BSD-3-Clause"
-
-  stable do
-    url "https://github.com/ldc-developers/ldc/releases/download/v1.35.0/ldc-1.35.0-src.tar.gz"
-    sha256 "6e296993706c76c093e609139aa0b3f8704355fa0f3756f6758d78d44226dfa0"
-
-    depends_on "llvm@16"
-
-    # Backport fix for LTO on macOS Sonoma
-    patch do
-      url "https://github.com/ldc-developers/ldc/commit/93b9babe8087a9e1ba3a6a76233175d96e1d2f3f.patch?full_index=1"
-      sha256 "8756248cb9bb77595325bc46df10fb42fbd940d86611dd8413abb27de6e177cd"
-    end
-  end
+  revision 1
+  head "https://github.com/ldc-developers/ldc.git", branch: "master"
 
   livecheck do
     url :stable
@@ -22,46 +13,41 @@ class Ldc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "6f107abd9d2fe3c2c056eb0c784014f0f9d83474abf137661ec700708f408309"
-    sha256                               arm64_ventura:  "4fde56c174bf5706918a8cf3098ac9b32e11b0ce5458ef22f449466d9c0218e2"
-    sha256                               arm64_monterey: "28e791054c88ff221eada86e604fe089c9747a4987f2a1943bc20dadd4ea4510"
-    sha256                               sonoma:         "847f42c946e7a3b5bcfc2716aaebc4cac7b73acc0cf37a9d2f4ec7b6ea4d8472"
-    sha256                               ventura:        "9bc86ab038f3294c7f6e4de85b7949a2c25ec5a5d0f692835a7932c4b5b52559"
-    sha256                               monterey:       "6e90f8c288e6c595192af337be6f85718fdc76260dac544cc4802d724790486b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1599f85e8b89bdf1f7d15c8dd8480e4889087e0ae7f9901d81272ac53ae8bce"
-  end
-
-  head do
-    url "https://github.com/ldc-developers/ldc.git", branch: "master"
-    depends_on "llvm"
+    sha256                               arm64_sonoma:   "a702c014b40a7ae93e5aa3d40d53fe48a7967c04ca0039fbdb935d259790153f"
+    sha256                               arm64_ventura:  "ad0c37af554a276e470c09b626b00b2a716406f27a3e6b9979d3ef4348c36b9d"
+    sha256                               arm64_monterey: "34c09ba60abe8ef72796c710cbd2e6205fe42e5540c7ff213264f86a1fe3ca65"
+    sha256                               sonoma:         "a28a1d85609f977f1cf4c579f50c819034c027b63c202773130dd79f829d5876"
+    sha256                               ventura:        "e2cea208a0e283ac522b81cb82e8871c207928f08b9d943c43560b6e6c8ce187"
+    sha256                               monterey:       "32631d3cbc2403b2f00a0ed1821baf90db46785992ec891591ead9ce8df02c3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d60cc5db0c1b94d4d7c758ff01b2202566060e3c5388ddc086188bccc18c4774"
   end
 
   depends_on "cmake" => :build
   depends_on "libconfig" => :build
   depends_on "pkg-config" => :build
+  depends_on "llvm"
 
   uses_from_macos "libxml2" => :build
 
   resource "ldc-bootstrap" do
     on_macos do
       on_arm do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.1/ldc2-1.28.1-osx-arm64.tar.xz"
-        sha256 "9bddeb1b2c277019cf116b2572b5ee1819d9f99fe63602c869ebe42ffb813aed"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.36.0/ldc2-1.36.0-osx-arm64.tar.xz"
+        sha256 "ba8440e2b235b3584bc129de136563996db91cd0a35e10bcccf316bee3f23a98"
       end
       on_intel do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.1/ldc2-1.28.1-osx-x86_64.tar.xz"
-        sha256 "9aa43e84d94378f3865f69b08041331c688e031dd2c5f340eb1f3e30bdea626c"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.36.0/ldc2-1.36.0-osx-x86_64.tar.xz"
+        sha256 "7740fefcb32c19c23bf5ce4dea6e5412329f27ffa511c4101dd96b1f44999429"
       end
     end
     on_linux do
       on_arm do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.1/ldc2-1.28.1-linux-aarch64.tar.xz"
-        sha256 "158cf484456445d4f59364b6e74881d90ec5fe78956fc62f7f7a4db205670110"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.36.0/ldc2-1.36.0-linux-aarch64.tar.xz"
+        sha256 "11cb6c554b351a00525089659c97a0e6fc568b1814e69407600315997d1852eb"
       end
       on_intel do
-        url "https://github.com/ldc-developers/ldc/releases/download/v1.28.1/ldc2-1.28.1-linux-x86_64.tar.xz"
-        sha256 "0195172c3a18d4eaa15a06193fea295a22e21adbfbcb7037691c630f191bceb2"
+        url "https://github.com/ldc-developers/ldc/releases/download/v1.36.0/ldc2-1.36.0-linux-x86_64.tar.xz"
+        sha256 "2d418462d1c3909f5889298d97de061d023850a371ea9d418fc3fd2d4b7e8b19"
       end
     end
   end

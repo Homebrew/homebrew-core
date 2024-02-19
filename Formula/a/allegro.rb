@@ -1,8 +1,8 @@
 class Allegro < Formula
   desc "C/C++ multimedia library for cross-platform game development"
   homepage "https://liballeg.org/"
-  url "https://github.com/liballeg/allegro5/releases/download/5.2.9.0/allegro-5.2.9.0.tar.gz"
-  sha256 "e006dffe691b6d836fefd3be7a46b91fee5370581c77d66a6ce5eaf30da9ddbc"
+  url "https://github.com/liballeg/allegro5/releases/download/5.2.9.1/allegro-5.2.9.1.tar.gz"
+  sha256 "0ee3fc22ae74601ad36c70afd793ff062f0f7187eeb6e78f8a24e5bf69170d30"
   license "Zlib"
   head "https://github.com/liballeg/allegro5.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Allegro < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c7950e786cf3df37885e03a4dcaf3d629ee65cbd8c161bc136f0fea34550e53a"
-    sha256 cellar: :any,                 arm64_ventura:  "cd5a0596a4bbff5d07ac6f3062f725f8b31df587daff52613f5574000655f634"
-    sha256 cellar: :any,                 arm64_monterey: "c0a18f1f2732b4e65760550720c82dc86b81f0ded91470bd9fb075644ceda371"
-    sha256 cellar: :any,                 sonoma:         "cfacf7b33e5376d48c65b647b0ed241ae048a82cece3bbf30c43cc2a28438119"
-    sha256 cellar: :any,                 ventura:        "b39af451958761b3f916406756c48199f315cbd0e66d5ad92b42b5a50e1b4173"
-    sha256 cellar: :any,                 monterey:       "ba645c7fd58e6f6228e2b553461068daa509136749370d95d62a0f5200a7dbf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8839e691ba0a19e8c0b1220520b91bb1a1eeb3a560e7911b1784bf4085025edd"
+    sha256 cellar: :any,                 arm64_sonoma:   "b97f4ec79c8d719f8fbdc13ba2f8a22ccccffe0f2018b24a1e07da97d0f9b657"
+    sha256 cellar: :any,                 arm64_ventura:  "aa6bb7451473ddcdd561b18320ab796b8b49da42298051d4cc3296bac2bdd1a2"
+    sha256 cellar: :any,                 arm64_monterey: "519864e5f46d08950e520c5b6e78a2862870bb75c104fa39f49d23b03d3e12e7"
+    sha256 cellar: :any,                 sonoma:         "220a11469f57805a841c694e01c4380cace79d824763f87ae020f9d417478b8f"
+    sha256 cellar: :any,                 ventura:        "2f313c856da22770699bf8aa80995a5df7f07b0bf62f36166647e001ca925dfd"
+    sha256 cellar: :any,                 monterey:       "f8c47be9eb80f02a1cfdd6d2bba2a148a6794542fc3941861389dce011bcb3b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee72b21114fea150045e575b6ab3db8ab7332deb7499d25d284e776c9a367a4b"
   end
 
   depends_on "cmake" => :build

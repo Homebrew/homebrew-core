@@ -22,7 +22,7 @@ class Glide < Formula
   end
 
   # See: https://github.com/Masterminds/glide/commit/c64b14592409a83052f7735a01d203ff1bab0983
-  deprecate! date: "2023-01-21", because: :deprecated_upstream
+  disable! date: "2024-01-21", because: :deprecated_upstream
 
   depends_on "go"
 

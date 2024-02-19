@@ -21,7 +21,7 @@ class Field3d < Formula
   # Depends on deprecated `ilmbase` and upstream has been discussing
   # archiving repo in https://groups.google.com/g/field3d-dev/c/nBrVsNQ9SHo
   # Last release on 2020-03-11
-  deprecate! date: "2023-02-03", because: :unmaintained
+  disable! date: "2024-02-07", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "boost"

@@ -1,21 +1,19 @@
 class Citus < Formula
   desc "PostgreSQL-based distributed RDBMS"
   homepage "https://www.citusdata.com"
-  url "https://github.com/citusdata/citus/archive/refs/tags/v12.0.0.tar.gz"
-  sha256 "9a6adaecc28e80e03a0523d07ee14c4b848f86f48ed37f84aa8cb98f3489f632"
+  url "https://github.com/citusdata/citus/archive/refs/tags/v12.1.2.tar.gz"
+  sha256 "61d959e8129df4613186841550ea29afb9348a7e6f871d5b5df4866777b82e24"
   license "AGPL-3.0-only"
   head "https://github.com/citusdata/citus.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bb1523040c2714dd707e78ae1d50a43d6527c9c1347699b860ea744a7d07b302"
-    sha256 cellar: :any,                 arm64_ventura:  "f4bf486699a5729f4d0c2006001f4449f60d343256550be6017d9ba2c34ff374"
-    sha256 cellar: :any,                 arm64_monterey: "eeb9601a50b0eef99e8bf5b5e7e8e8ad5dd9a2ff205e6e39a7d7a056cf9f7f89"
-    sha256 cellar: :any,                 arm64_big_sur:  "e1d3d86a47cbdb1d3899f78cdfa58b11932ebdeecf77e7243ce5f87c8073b99f"
-    sha256 cellar: :any,                 sonoma:         "12c5d78d573922cb565183cde30d8365543710debea30d52036d76845fc2434b"
-    sha256 cellar: :any,                 ventura:        "47b61e4cc15726dac930df244271c94c96c000b8855ac360e51cbf3df0d00938"
-    sha256 cellar: :any,                 monterey:       "55aedab8c64a790da451bba0e878aa04de3213b89a2399ddef69bb94cfe3e824"
-    sha256 cellar: :any,                 big_sur:        "2f117d6aa7e6daaa46239f2654c3f477fa64cae2e2be6fabba91e4741210eb21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a80582e490c8d146843864627ac75b85f2fa917e671da46bd2aef9ae1676f84"
+    sha256 cellar: :any,                 arm64_sonoma:   "f5543af7bc996b1cbf67aa5cec35d6946e6d2c775ec6a12e9f2acbf8e8578959"
+    sha256 cellar: :any,                 arm64_ventura:  "baffacb7246943cfe87f1c970d53cf4e99ae3bbb577769acceb6108ffa6909b5"
+    sha256 cellar: :any,                 arm64_monterey: "0fe37a14ff92c081286f7839ae98173e9105f58170432d6db526a8fdd2e1c520"
+    sha256 cellar: :any,                 sonoma:         "d964c3510ccfd8d6f9981009f6fe40d6fec1d636c1d1af52953a25702ef942ab"
+    sha256 cellar: :any,                 ventura:        "743aa322fbc40eab84ccdaf28bf61ff9d8b472bb5682421048d396bc6c8e0dfe"
+    sha256 cellar: :any,                 monterey:       "6f2aa7ac65821de64306329b75c3f8444b64c7681f0459c884e7ab22eff8a63a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "350dd049a60f29a9c462721789b00e544b464522ad161a5468263689cf5196b6"
   end
 
   depends_on "lz4"
@@ -27,30 +25,24 @@ class Citus < Formula
   uses_from_macos "curl"
 
   def postgresql
-    Formula["postgresql@14"]
+    deps.map(&:to_formula)
+        .find { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
     ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
 
-    system "./configure"
-    # workaround for https://github.com/Homebrew/legacy-homebrew/issues/49948
-    system "make", "libpq=-L#{postgresql.opt_lib} -lpq"
-
-    # Use stage directory to prevent installing to pg_config-defined dirs,
-    # which would not be within this package's Cellar.
-    mkdir "stage"
-    system "make", "install", "DESTDIR=#{buildpath}/stage"
-
-    stage_path = File.join("stage", HOMEBREW_PREFIX)
-    lib.install (buildpath/stage_path/"lib").children
-    include.install (buildpath/stage_path/"include").children
-    share.install (buildpath/stage_path/"share").children
-
-    bin.install (buildpath/File.join("stage", postgresql.bin.realpath)).children
+    system "./configure", *std_configure_args
+    system "make"
+    # Override the hardcoded install paths set by the PGXS makefiles.
+    system "make", "install", "bindir=#{bin}",
+                              "datadir=#{share/postgresql.name}",
+                              "pkglibdir=#{lib/postgresql.name}",
+                              "pkgincludedir=#{include/postgresql.name}"
   end
 
   test do
+    ENV["LC_ALL"] = "C"
     pg_ctl = postgresql.opt_bin/"pg_ctl"
     psql = postgresql.opt_bin/"psql"
     port = free_port

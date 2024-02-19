@@ -19,6 +19,8 @@ class Heppdt2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a9fd6f6dc87942bb05ce6105a4038ce7c824c25636a0b110b33bdb9b25cb15a"
   end
 
+  deprecate! date: "2024-01-05", because: :unmaintained
+
   def install
     system "./configure", "--prefix=#{prefix}"
     system "make"

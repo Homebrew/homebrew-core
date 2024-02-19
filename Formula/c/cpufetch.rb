@@ -1,21 +1,19 @@
 class Cpufetch < Formula
   desc "CPU architecture fetching tool"
   homepage "https://github.com/Dr-Noob/cpufetch"
-  url "https://github.com/Dr-Noob/cpufetch/archive/refs/tags/v1.04.tar.gz"
-  sha256 "1505161fedd58d72b936f68b55dc9b027ef910454475c33e1061999496b30ff6"
+  url "https://github.com/Dr-Noob/cpufetch/archive/refs/tags/v1.05.tar.gz"
+  sha256 "82c8195cc535ad468fa2e61fa9648bb09d55cbcc59f76a72b66bd99fd290a7e6"
   license "GPL-2.0-only"
   head "https://github.com/Dr-Noob/cpufetch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a22a79f829c7dff316f9028a18910ca639d3934288316b096f746ea3f72c2dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cde2572678e219669893fe29e3fa5a4737968812ad1dd5fb718c62a1d2a8bed8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87694dc7eb4cadec9819fbc300d7a7999544eea4c2e7074d7e246acf268c08b5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b05a35d5cda56806832e88947600044307264463cdb5f12db13bd6c452918cd0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "797940ee020487833c4d3fa58ea9bff419c98dbdb2bd7422d75a24846ba827e1"
-    sha256 cellar: :any_skip_relocation, ventura:        "95ba5156edfbec49c499bfac6e6f8b0c370af7392b2c3b71ad33169cd637208e"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f2fc93b4f095d338247368c62ed66fa873c25eb8dfa8ec48faccb2e05550778"
-    sha256 cellar: :any_skip_relocation, big_sur:        "616c55a170525a282583cc98be969b049242adef343241ee5b77db685c309dcf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2daa19537af4c766f00eb04d92d24e142581c635fc686a50662807771c6e88ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1fd10b7b02ae3ac52263173df652214f69d518f848f8acf2fe6702ec286fd05"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bd1b608ca4be72a36e654d33800830b6d1c735bf1350bf2b62a8f5bc025eb777"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b2254b88d3cf4cbbb5fae4b9c80f2263025cec75fdfec9385dbcd2de49ea385"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ff146795e24bd3e4262df01fde1ac233d9a21aa1ff48bc085294facad4e93cb"
+    sha256 cellar: :any_skip_relocation, ventura:        "904d80b81bb1e327da03ef8d63053466ca20a25a642ff16844a7cbbfcb14353c"
+    sha256 cellar: :any_skip_relocation, monterey:       "ebc001cff3f632df7ed4674a80e6220c65c3652118dde380173c329f3d7b7552"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c427921cffbc00a2323693c14db9f4584146bb2988e7062b84340f7292df038d"
   end
 
   def install

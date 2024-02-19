@@ -5,6 +5,7 @@ class BashCompletion < Formula
   homepage "https://salsa.debian.org/debian/bash-completion"
   url "https://src.fedoraproject.org/repo/pkgs/bash-completion/bash-completion-1.3.tar.bz2/a1262659b4bbf44dc9e59d034de505ec/bash-completion-1.3.tar.bz2"
   sha256 "8ebe30579f0f3e1a521013bcdd183193605dab353d7a244ff2582fb3a36f7bec"
+  license "GPL-2.0-or-later"
   revision 3
 
   livecheck do

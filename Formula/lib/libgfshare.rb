@@ -4,6 +4,11 @@ class Libgfshare < Formula
   url "https://www.digital-scurf.org/files/libgfshare/libgfshare-2.0.0.tar.bz2"
   sha256 "86f602860133c828356b7cf7b8c319ba9b27adf70a624fe32275ba1ed268331f"
 
+  livecheck do
+    url "https://www.digital-scurf.org/files/libgfshare/"
+    regex(/href=.*?libgfshare[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "661368852f131d75f48672074dd635d04c95f30f61f1adae25c26db2cdc45dcc"
     sha256 cellar: :any,                 arm64_ventura:  "ff95631a45cf14842a1cb98a7496022a886360fad2d4a9bae3154ebd6113726a"

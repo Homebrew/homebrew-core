@@ -6,7 +6,7 @@ class ApacheBrooklynCli < Formula
   license "Apache-2.0"
 
   livecheck do
-    url "https://github.com/apache/brooklyn-client.git"
+    url :stable
     regex(%r{^(?:rel/)?apache-brooklyn[._-]v?(\d+(?:\.\d+)+)$}i)
   end
 

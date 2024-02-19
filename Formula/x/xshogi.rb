@@ -20,6 +20,8 @@ class Xshogi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c3a0fec7245f9e320b4565226493ed79e11e2e5a58a2ae9cbd569dc63fa5ffc"
   end
 
+  deprecate! date: "2023-12-31", because: :unmaintained
+
   depends_on "gnu-shogi"
   depends_on "libx11"
   depends_on "libxaw"

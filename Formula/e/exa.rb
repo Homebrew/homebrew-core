@@ -21,7 +21,7 @@ class Exa < Formula
   end
 
   # https://github.com/ogham/exa/commit/fb05c421ae98e076989eb6e8b1bcf42c07c1d0fe
-  deprecate! date: "2023-09-05", because: :unmaintained
+  disable! date: "2024-01-24", because: :unmaintained
 
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build

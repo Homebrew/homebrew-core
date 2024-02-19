@@ -7,7 +7,7 @@ class AmplMp < Formula
   revision 3
 
   livecheck do
-    url "https://github.com/ampl/mp.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 

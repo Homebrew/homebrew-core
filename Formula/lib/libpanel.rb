@@ -1,20 +1,18 @@
 class Libpanel < Formula
   desc "Dock/panel library for GTK 4"
   homepage "https://gitlab.gnome.org/GNOME/libpanel"
-  url "https://download.gnome.org/sources/libpanel/1.4/libpanel-1.4.0.tar.xz"
-  sha256 "80f143d900e8ced8ff84fa86fe34eb6b48323cb610bcfb6858ea65d8b98f152c"
+  url "https://download.gnome.org/sources/libpanel/1.4/libpanel-1.4.1.tar.xz"
+  sha256 "98410d00e734857ecdf33b9a20dd7b0fb38d8b6d31d4369bafc1c67392abb9de"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "05926ef5ac606543169695fd8f2fa066680b769093107b94d3ed709e11af87ba"
-    sha256 arm64_ventura:  "4d9038d39d8a1d26c819b826182e05a6c305f99f6af8aaff50af0e72d841b8fe"
-    sha256 arm64_monterey: "e80757383b0c9a56a79321773019108a7cf3a3975af9aef8735cc80499098e83"
-    sha256 arm64_big_sur:  "6eb6b4ecc13d19ac6faf136a9b48b23235bfc73b3a140d7d07dc14947a3e1543"
-    sha256 sonoma:         "acde7e3e5fef0e04ae67bf83870789be169885fef9d129eaceaaa25576114ddd"
-    sha256 ventura:        "60e6d7024f4494a033e6554234aff4e37183a4f7e4afac2bb883d0a9c1f00233"
-    sha256 monterey:       "d44c1ce8f287d87ae41100dda88377226bd51f257d0ea61eb4c40ea99d9d8fa8"
-    sha256 big_sur:        "2892c67c65a5e37db093ab8d4cd1859b67297dc84daf161de73bcc70b1c47eff"
-    sha256 x86_64_linux:   "257d5c5a9db1931ae98315aeaa059c98f01ba2745279815e440178b5bcbf4397"
+    sha256 arm64_sonoma:   "120b4c621c892fde5c6ca6982f110dd132183bbef076eefe6d526ec0024d1ee3"
+    sha256 arm64_ventura:  "9ec9352b07954b6f0eec5d93edb45c5d75843e48740cb45ecf2899da27029ccb"
+    sha256 arm64_monterey: "d13b7481537236142611a235349c53896b496615ddbe4f167aef28139274ff84"
+    sha256 sonoma:         "c375c1347d3f9eda58a35c04b8ed30044131a45902b237a0a775040757666a37"
+    sha256 ventura:        "a89e901c96af5e75b8a8459add6255fecb172c60ef9014b722b6170c8d280cb0"
+    sha256 monterey:       "f444f4da57f81ad818157adc7c5b5b4f8e06fff8dbeccbc73c4425502c222b0a"
+    sha256 x86_64_linux:   "d12b946e63caaef9c24b81b07e74e0a5b612337241aceba3511681b2aeb580a1"
   end
 
   depends_on "gettext" => :build

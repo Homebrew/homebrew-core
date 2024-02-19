@@ -19,7 +19,7 @@ class Einstein < Formula
   end
 
   # Last release on 2016-05-04
-  deprecate! date: "2023-02-04", because: "uses deprecated `sdl_mixer` and `sdl_ttf`"
+  disable! date: "2024-02-07", because: "uses deprecated `sdl_mixer` and `sdl_ttf`"
 
   depends_on "sdl12-compat"
   depends_on "sdl_mixer"

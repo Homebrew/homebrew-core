@@ -1,15 +1,14 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.2.0.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.2.0.tar.gz"
-  mirror "https://www.openssl.org/source/old/3.2/openssl-3.2.0.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.2/openssl-3.2.0.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.2.0.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.2/openssl-3.2.0.tar.gz"
-  sha256 "14c826f07c7e433706fb5c69fa9e25dab95684844b4c962a2cf1bf183eb4690e"
+  url "https://www.openssl.org/source/openssl-3.2.1.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.2.1.tar.gz"
+  mirror "https://www.openssl.org/source/old/3.2/openssl-3.2.1.tar.gz"
+  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.2/openssl-3.2.1.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.2.1.tar.gz"
+  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.2/openssl-3.2.1.tar.gz"
+  sha256 "83c7329fe52c850677d75e5d0b0ca245309b97e8ecbcfdc1dfdc4ab9fac35b39"
   license "Apache-2.0"
-  revision 1
 
   livecheck do
     url "https://www.openssl.org/source/"
@@ -17,13 +16,14 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6519a6ff8e3e10f921ba8ec7ac00a67afc80e346f262115956b3c826541899f5"
-    sha256 arm64_ventura:  "4bf12955cbd2ef13c0ee3fd19c6d4b3f4b04c0023ede6348eb25d7a18298f828"
-    sha256 arm64_monterey: "5d887a81125b5c133a0ddc6dd2ec782366441031c42f7df7d75cce8e126d118f"
-    sha256 sonoma:         "ca7790234e933be8d5c3a856e7fa173799c6028f02def0be4c481d0610f99823"
-    sha256 ventura:        "4133c86aed6859e2ad93a69330a2498ba8d0475d212c342790278709660789a2"
-    sha256 monterey:       "a2b585fa0f47746385432be74e274b810025ba5056b53e526142988aa77ed643"
-    sha256 x86_64_linux:   "7412ee0230d222844ed3ea22cd356c6e99b4d3c0528800b08e05f51b5e2d6992"
+    rebuild 1
+    sha256 arm64_sonoma:   "fce7bf159988bf2b0960fa3d33ea810688d422c433b6461c7020cd0c937827a6"
+    sha256 arm64_ventura:  "020785e015f7b8ef638abc5835890bf3f0273c1eecba54b2f749e82cab0ddeec"
+    sha256 arm64_monterey: "a99828f7bf992193ab24f93eb85da1d89901d2f7ba32acb6fff9506d9b030897"
+    sha256 sonoma:         "ef8211c5115fc85f01261037f8fea76cc432b92b4fb23bc87bbf41e9198fcc0f"
+    sha256 ventura:        "f3cd46e866f40f134ee02ca264456e69730c721f577af6bd6927fdb90f2807e0"
+    sha256 monterey:       "6f7645cf9afb08c84f129bf39de4974c857bfff8941587cbb08ee20b9feed8d8"
+    sha256 x86_64_linux:   "0e4d59371d274c67e9f09ce81542e2856c7496e5d1bf70d7fed707bfbdfa04c0"
   end
 
   depends_on "ca-certificates"
@@ -52,13 +52,6 @@ class OpensslAT3 < Formula
   link_overwrite "lib/libcrypto*", "lib/libssl*"
   link_overwrite "lib/pkgconfig/libcrypto.pc", "lib/pkgconfig/libssl.pc", "lib/pkgconfig/openssl.pc"
   link_overwrite "share/doc/openssl/*", "share/man/man*/*ssl"
-
-  # Fix multi-certificate PEM loading.
-  # Remove with OpenSSL 3.2.1.
-  patch do
-    url "https://github.com/openssl/openssl/commit/cafccb768be5b8f5c21852764f7b2863b6f5e204.patch?full_index=1"
-    sha256 "fd1628e55a6db01324bd4acf693316999b94de45b56c7460f92b15e65199bb6e"
-  end
 
   # SSLv2 died with 1.1.0, so no-ssl2 no longer required.
   # SSLv3 & zlib are off by default with 1.1.0 but this may not

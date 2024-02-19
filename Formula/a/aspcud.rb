@@ -24,15 +24,14 @@ class Aspcud < Formula
   depends_on "clingo"
 
   def install
-    args = std_cmake_args
-    args << "-DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo"
-    args << "-DASPCUD_CLASP_PATH=#{Formula["clingo"].opt_bin}/clasp"
+    args = %W[
+      -DASPCUD_GRINGO_PATH=#{Formula["clingo"].opt_bin}/gringo
+      -DASPCUD_CLASP_PATH=#{Formula["clingo"].opt_bin}/clasp
+    ]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

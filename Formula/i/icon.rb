@@ -1,9 +1,9 @@
 class Icon < Formula
   desc "General-purpose programming language"
   homepage "https://www.cs.arizona.edu/icon/"
-  url "https://github.com/gtownsend/icon/archive/refs/tags/v9.5.23a.tar.gz"
-  version "9.5.23a"
-  sha256 "0c2e8b70a19e476c7a5a4aaaa46160f2f6197d14d6f8e01e164b6a3fff8c210a"
+  url "https://github.com/gtownsend/icon/archive/refs/tags/v9.5.24a.tar.gz"
+  version "9.5.24a"
+  sha256 "73eaf9b1bd0d0bb21c252110e7e9e5d146ef37bef2cd72c46e023d71305fa801"
   license :public_domain
 
   livecheck do
@@ -12,15 +12,13 @@ class Icon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "24027230c77be4503fe066bac82bb9a46be0e3eea81393c03b04908ceca16fb6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ab681e8b11b84c91341c9e26a9e62bd06d46628a34ae82feb6667d60558a5e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "46c07df0ca96d6e542ca60a408033a6a2028452bab870ea9d2d2d8c491e13548"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "45f71cd63309a5a437ee540298cd1a4e4cfa0fd29b053f92adea1629a3aac410"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b7f652b5e78c90cd80915e99a241dcc69ae1c7b8e2f411f88d81174eae82bbb9"
-    sha256 cellar: :any_skip_relocation, ventura:        "44bea37decf07d99d970287f3f5362e3d7fec53bb789369b66dd9217ff454a8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "ce826fdbdec5d74f7d874f1a751744be35f0cbd0d2bdd7aca2407fed819bb2aa"
-    sha256 cellar: :any_skip_relocation, big_sur:        "27fb48cd05938d4c0952659d66768e9828126dc83c839ee795c3f446263c033f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71876d0cb174f898273ea8bce7de8bf6a3078dafa5394c1bab9c3b8912663d43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50c961d672798efd89cf786552fb5b13bb20fc5a69614557e00ce9869e7c433a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "887a3e2b038e7fcefaed54e5723e06430f5d85d39eeb0596eaee11699e8d2ee1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2368ee3c88bc2b4f8a9893e17505ae1f5b7865ad6107c476e928fdbb059d22d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5b22e92e8df2a03eb928266aadd6d14cde29e7382daa90d7baa01108fb6e2cf4"
+    sha256 cellar: :any_skip_relocation, ventura:        "a88a1dff7475114aa8ec7c0a01bb235f9aee0563b4791aa6b0d2dc41712566ca"
+    sha256 cellar: :any_skip_relocation, monterey:       "7b404b8b761701feb03fb117175158c733e180e55a27a05405ba096dc9199a9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9792ec4c98487c1b1d31e25376b2da6688d97dc2c5605e88684f043eb42e95e9"
   end
 
   def install

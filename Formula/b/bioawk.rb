@@ -3,6 +3,7 @@ class Bioawk < Formula
   homepage "https://github.com/lh3/bioawk"
   url "https://github.com/lh3/bioawk/archive/refs/tags/v1.0.tar.gz"
   sha256 "5cbef3f39b085daba45510ff450afcf943cfdfdd483a546c8a509d3075ff51b5"
+  license "HPND"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "781164882120d8b28e1cdac8b8db1f5c9a8bdedea381aedad9b35b6d185f2897"

@@ -1,23 +1,10 @@
 class Pulseaudio < Formula
   desc "Sound system for POSIX OSes"
   homepage "https://wiki.freedesktop.org/www/Software/PulseAudio/"
+  url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-17.0.tar.xz"
+  sha256 "053794d6671a3e397d849e478a80b82a63cb9d8ca296bd35b73317bb5ceb87b5"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later", "BSD-3-Clause"]
   head "https://gitlab.freedesktop.org/pulseaudio/pulseaudio.git", branch: "master"
-
-  stable do
-    url "https://www.freedesktop.org/software/pulseaudio/releases/pulseaudio-16.1.tar.xz"
-    sha256 "8eef32ce91d47979f95fd9a935e738cd7eb7463430dabc72863251751e504ae4"
-
-    # Backport fix for macOS build. Remove in the next release
-    patch do
-      url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/commit/baa3d24b760fe48d25d379b972728ea3ffa5492d.diff"
-      sha256 "af1862ed1196719ae404be9bfde4ea2d74fb512b50fd5a37445de43be00c30c1"
-    end
-    patch do
-      url "https://gitlab.freedesktop.org/pulseaudio/pulseaudio/-/commit/47a6918739cb06dafa970d0b528bed1951d95039.diff"
-      sha256 "03264a384ccc84a1c61e206ddb136cc9a6ae67e88172b08e5b4378aca74f06a5"
-    end
-  end
 
   # The regex here avoids x.99 releases, as they're pre-release versions.
   livecheck do
@@ -26,13 +13,13 @@ class Pulseaudio < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "3d6c37dff594d1bb5e351ff86e7f6194b0b51df6fa74b4450671b2e1560625e3"
-    sha256 arm64_ventura:  "b198133d973cd324073cc2ec73f900eb7bfa02e156489d9830b4c1c058ebaf11"
-    sha256 arm64_monterey: "ef12808629107095cd7c5c9a8bacd88b186a9e03ff83b8d793e118cd2d8fed5e"
-    sha256 sonoma:         "f55b6dcebc24384f4049ec999da7353af2c70829628f4ef142a892da54e28c35"
-    sha256 ventura:        "446e0a771587285b5a86d201242d5615dd4640c09674178aa2a968ffe6969469"
-    sha256 monterey:       "4eeac72411307c5524442a61b809e7ba1930c41a727a1848cc3b60a5d262bb53"
-    sha256 x86_64_linux:   "2b3c51aa1cfe4b3b96775f03289b3fda30165a601db1f9adc6b69a8f2e8c9fd9"
+    sha256 arm64_sonoma:   "aea71892ba21ebdc3e619819ddc6f641a59d87d0688b671b82352af062cf860b"
+    sha256 arm64_ventura:  "63b0ba13d5187af0e2f9bd56f638bf2f1060c60327bb78f97f094cde6756a07c"
+    sha256 arm64_monterey: "25d41b1a184588db2fdb9f39367ff6d20f6c7542f9de2e6b67b73bc4f7bd5e09"
+    sha256 sonoma:         "57c4f8e47c04145f0851d231d0c92bd43f57e59bf3416689e25b8e619a7913a3"
+    sha256 ventura:        "fd0835395b77a321e3b5a4542496c02dd0dbdd8134e700bacbfb80c46d6e14cc"
+    sha256 monterey:       "e28e0f3a10c94b089acb2a6f82fd31d19c3cd8cbd7ad180d50a794f473b9adaa"
+    sha256 x86_64_linux:   "504035dfda3bffabae42f352d0e7c0a90c6b8c1f6b925fe7e17502124d5d6529"
   end
 
   depends_on "gettext" => :build

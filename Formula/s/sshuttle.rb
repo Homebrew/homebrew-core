@@ -3,20 +3,19 @@ class Sshuttle < Formula
 
   desc "Proxy server that works as a poor man's VPN"
   homepage "https://github.com/sshuttle/sshuttle"
-  url "https://files.pythonhosted.org/packages/f1/4d/91c8bff8fabe44cd88edce0b18e874e60f1e11d4e9d37c254f2671e1a3d4/sshuttle-1.1.1.tar.gz"
-  sha256 "f5a3ed1e5ab1213c7a6df860af41f1a903ab2cafbfef71f371acdcff21e69ee6"
+  url "https://files.pythonhosted.org/packages/94/6e/f9a1fb50cd034cac1ee4efd017a9873301f75103271205a8f1c411a9fb1e/sshuttle-1.1.2.tar.gz"
+  sha256 "f1f82bc59c45745df7543f38b0fa0f1a6a34d8a9e17dd8d9e5e259f069c763d6"
   license "LGPL-2.1-or-later"
   head "https://github.com/sshuttle/sshuttle.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "deba85af358f85a3134b352ebac8c18bebc83971555c669384f64fa51c87de0f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1dbcd6db39b8015e73a3e0c61880eac8aca2e8098298308c9f4efcc56a54d652"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dff16521a17e20afdcf509f3c08dba37683b6b6f025ecbbf07445e15f810e4e1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "311da73f302215fefbce07a4cbd8dbb655416837f69d9ce2a8947c15a18cc089"
-    sha256 cellar: :any_skip_relocation, ventura:        "06c3cf2fd8ab98f82fd8ff2fb62ce8402e3fff5bfdbf0578d0552ce86caa85b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "f1d20a62e3ea7794b9de39a4126970bc2460a3e6422e1870d24d41acc9b86bc8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10ee215511c9e5d6dc9d8877715682c4d26177a642b7fcf7777a941a48edf0c3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae0a3b39536919ccdf473bb80b79258c7d0641966f74a87acefa65992d762791"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cba6bfc80686df1e1f370710691d7e0070120798cc25a3427eb44f311909fac6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ecea47bc1b5b47ac0085159e39d539059a9b8898e1c58fcf957fc25ffb456cc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6d3222e10b9143e826a49aeefc50574ec18ff661c652eadf7b83d4864ff5c9c"
+    sha256 cellar: :any_skip_relocation, ventura:        "bfc78d99dcec5c2db983a7b29dc7fc3464823cf86c9f948bf9add856d983e168"
+    sha256 cellar: :any_skip_relocation, monterey:       "6902892747688175efadebd273c346c3018cfea6cab362e7ef0a9efad08e7571"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5169accb3329a9853603e421ad9594d045f9b09bc11188b8a59f84b48215d35c"
   end
 
   depends_on "python@3.12"

@@ -1,22 +1,19 @@
 class Emacs < Formula
   desc "GNU Emacs text editor"
   homepage "https://www.gnu.org/software/emacs/"
-  url "https://ftp.gnu.org/gnu/emacs/emacs-29.1.tar.xz"
-  mirror "https://ftpmirror.gnu.org/emacs/emacs-29.1.tar.xz"
-  sha256 "d2f881a5cc231e2f5a03e86f4584b0438f83edd7598a09d24a21bd8d003e2e01"
+  url "https://ftp.gnu.org/gnu/emacs/emacs-29.2.tar.xz"
+  mirror "https://ftpmirror.gnu.org/emacs/emacs-29.2.tar.xz"
+  sha256 "7d3d2448988720bf4bf57ad77a5a08bf22df26160f90507a841ba986be2670dc"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "b962741699550a326396656d5f53a280262b24f9fdc388dcc1706e6c90e8cb4d"
-    sha256 arm64_ventura:  "e91b90491464708d29959aa00caa826051d989f6699429d583988b7aca57df6f"
-    sha256 arm64_monterey: "ec888c0f9c57f7a2c8bff9d33d4fea03237bd53f6b78e0c50cc86a31b5281690"
-    sha256 arm64_big_sur:  "f69a760f4e1a71c234314cd99c8f0773bee2e716bca904894e2e0c6d9202ca82"
-    sha256 sonoma:         "d0eaa9ab18ad860d36dd771d9ca11953000a732e4a4bdd342b87ee19bf55624d"
-    sha256 ventura:        "5b644a5ecf5531d55f884f1fa5f946bc7b21480dc38e2a2cae1e1d9211899c2d"
-    sha256 monterey:       "835b1767489be91a345f40c166ee40b189028a258ee44f5c695c9660123f17f2"
-    sha256 big_sur:        "76c45ba72d1ca34050ab4ffd5f53cc560836a37a0f0ba96b434232368b9fa382"
-    sha256 x86_64_linux:   "86ae488bbc7b6411aecb883e03774da5edc722e3fd0b07441e1b41ab3b6bd6d7"
+    sha256 arm64_sonoma:   "53ec8e721b0a8c4c8736f61914a434b0c507fd58f2e266d830401db506f96195"
+    sha256 arm64_ventura:  "9ac86c78a160bb6133eab4edbd4f3bfcf9c9b560b64a4fb5dac5a5d2188cc8b5"
+    sha256 arm64_monterey: "53641263144a1207bed238e9c9aafe96a7c62b0201edbd80369f3860dfdd2266"
+    sha256 sonoma:         "0aca3f2c6f4fd52fb25d045ca67cdc61c2c2ffaa1697c408f86295928a16d97f"
+    sha256 ventura:        "baf07e2ef477b45c69e77808b48e3b7eb7faebff0793c7de60a931cc730dd3e2"
+    sha256 monterey:       "a8f0deb61b4cef1180672641b49114f3d19e99a827faf497cb1f5e4ebb47a327"
+    sha256 x86_64_linux:   "f979fd64cd148b53fb735d37cdca3e5fc8daa186bebc74b260a5b158f82e1ae7"
   end
 
   head do

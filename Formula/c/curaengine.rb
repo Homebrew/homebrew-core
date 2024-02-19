@@ -22,7 +22,7 @@ class Curaengine < Formula
   end
 
   # Requires extensive patching to build & has minimal installs
-  deprecate! date: "2023-01-06", because: :does_not_build
+  disable! date: "2024-01-12", because: :does_not_build
 
   depends_on "cmake" => :build
 

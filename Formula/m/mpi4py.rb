@@ -7,13 +7,14 @@ class Mpi4py < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "d7f26ed77ae5882fe4b3df0f901f7faf51e290a94e5b6670819c5238ead605af"
-    sha256 cellar: :any, arm64_ventura:  "55a18c637efd4f150d0bd0e26d6c4bf291b8c5a6cf06f767c6521a11d4de923f"
-    sha256 cellar: :any, arm64_monterey: "a96bd6e4e743bb125063e7566a06944c750f91421eee383f0e074f91cc05e30b"
-    sha256 cellar: :any, sonoma:         "2a9a9eb680b3d7e5f5b23a2926f0d0d123157940547c5d1f72d4447d85253d88"
-    sha256 cellar: :any, ventura:        "cd1b35148ecec6ddb88a712cca2a77584e925780930bfd0c38bfd971ce282e90"
-    sha256 cellar: :any, monterey:       "5387c6df33cf0b059b1b827271c54ed1ce9fe7c46e57b27450bc81d016dcc4f7"
-    sha256               x86_64_linux:   "f239cce1b3d52ac7a059bb3624c84959a1c60f8479a8db858802a70097ab0f26"
+    rebuild 1
+    sha256 cellar: :any, arm64_sonoma:   "17f84b39f8d35ba4ed6922d604e599769a211690d6f1a25d185ed415af1ab524"
+    sha256 cellar: :any, arm64_ventura:  "131d931b6f5bb7a56fc04da4308efdca7415fc370c1f98efbb4ba0fc4742359f"
+    sha256 cellar: :any, arm64_monterey: "3705c65aa4f31e42af91c04233811e22a7823dc72f75735889f2a5a254438de3"
+    sha256 cellar: :any, sonoma:         "5419bda7e546158301027a7e95be0bffe62d1f8bd0bcdcb1c028600342e189c8"
+    sha256 cellar: :any, ventura:        "0f8b048146a510c545ec1c5b6563d348f1dfeaf4fdf7314a41efa7a171056bc7"
+    sha256 cellar: :any, monterey:       "a955b0e4e4379e2884f75954093675e17f8001ae2bcf2c0ee7fc0f6d7f1e9e09"
+    sha256               x86_64_linux:   "bf9015e5340ba63c8053f3266a9ead0f984723c9df9dc6a37dfed19b8cdd99d7"
   end
 
   depends_on "libcython" => :build
@@ -26,13 +27,7 @@ class Mpi4py < Formula
   end
 
   def install
-    system python3, *Language::Python.setup_install_args(libexec, python3)
-
-    system python3, "setup.py",
-                    "build", "--mpicc=mpicc -shared", "--parallel=#{ENV.make_jobs}",
-                    "install", "--prefix=#{prefix}",
-                    "--single-version-externally-managed", "--record=installed.txt",
-                    "--install-lib=#{prefix/Language::Python.site_packages(python3)}"
+    system python3, "-m", "pip", "install", *std_pip_args, "."
   end
 
   test do

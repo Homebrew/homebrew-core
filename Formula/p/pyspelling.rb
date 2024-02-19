@@ -3,19 +3,18 @@ class Pyspelling < Formula
 
   desc "Spell checker automation tool"
   homepage "https://facelessuser.github.io/pyspelling/"
-  url "https://files.pythonhosted.org/packages/cc/49/789313a50b9cf1f46389f38d90549269472093ea4f21aff9269c5ff0a41c/pyspelling-2.9.tar.gz"
-  sha256 "df74c42e6e24171b7e1a83ac62fa2e151028ac045817c4f0384791c2d6099c5c"
+  url "https://files.pythonhosted.org/packages/12/07/168a857755a29b7e41550a28cd8f527025bc62fcb36a951d8f3f2eedcdf7/pyspelling-2.10.tar.gz"
+  sha256 "acd67133c1b7cecd410e3d4489e61f2e4b1f0b6acf1ae6c48c240fbb21729c37"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4955931444a37d184aa4333aa375ba80b3c705bcab1685cf9f59b7a5e472cd61"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d8695b142445a11e36b3b88d1a9d9bfaefff0afcc687d8a9bcd528d2aa783ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ef306133073366de18475fcee2bfc1e9276a50d8d32ddf1448da175b461607e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8fb0caba189977a032fc4573462095e332fceeed462f5201b154b9a7df945234"
-    sha256 cellar: :any_skip_relocation, ventura:        "9ee5749e9ed26b61cd3a4b00caa57bcf5b5dff734fc543b7cf333dbcd17072cd"
-    sha256 cellar: :any_skip_relocation, monterey:       "f737111a0e037983820b5e3e03f2231534df40780b738acc868586cacdbc36d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b121441818a29b1ed89b1e8c2b6d9ad2b50be5ee390f3e3ecd0212ab9be4f639"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c2eca55d8f8a0772a62fb884d8af589c29b01dbe59f713c24e52f01608aa197"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1a27b892d485d6ae39458ff7a6251078299958e2497740e38f923e860eb3f9b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4346f191c20659dd54498144b4bd6884bb8ad67ca65570688982aaa24b43d1c9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9a1450ce0589d80ce769f974824897a411393549ed716400e1d94c23c3dc3e1b"
+    sha256 cellar: :any_skip_relocation, ventura:        "0522d090091cc4b4d68d9e85050f715126261766651766a9577883e2f4fa6294"
+    sha256 cellar: :any_skip_relocation, monterey:       "22bacc42b4763bb153993f71b338ad385543ce6908f3d66f46ff1176e68044c0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee6699d2fa97f4cae9f9f97c2289027ab3fe9a00ce09a84d5b7216a22b81e84"
   end
 
   depends_on "aspell" => :test

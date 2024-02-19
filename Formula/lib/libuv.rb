@@ -1,8 +1,8 @@
 class Libuv < Formula
   desc "Multi-platform support library with a focus on asynchronous I/O"
   homepage "https://libuv.org"
-  url "https://github.com/libuv/libuv/archive/refs/tags/v1.47.0.tar.gz"
-  sha256 "d50af7e6d72526db137e66fad812421c8a1cae09d146b0ec2bb9a22c5f23ba93"
+  url "https://github.com/libuv/libuv/archive/refs/tags/v1.48.0.tar.gz"
+  sha256 "8c253adb0f800926a6cbd1c6576abae0bc8eb86a4f891049b72f9e5b7dc58f33"
   license "MIT"
   head "https://github.com/libuv/libuv.git", branch: "v1.x"
 
@@ -12,13 +12,13 @@ class Libuv < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8ec04556c7b8b6a8a08c0ede32afa92d69d23b3d8e238eccf524a12e72532ce6"
-    sha256 cellar: :any,                 arm64_ventura:  "05e8c9cdb92b838680bd8e1525bdcf04b60e1829508cd185f11bc84d2389e188"
-    sha256 cellar: :any,                 arm64_monterey: "b554d60cbe799f23f6b41c0080a93dabb931b76c01cff79ace7cb921755e526e"
-    sha256 cellar: :any,                 sonoma:         "30fc2f83208f6eff71dafa647e384a8cd29b0c29f4f51fc109d9c18374eed74d"
-    sha256 cellar: :any,                 ventura:        "d512e90e778bff53c92cb261dfc0d02f535405f63d784743a67776771b4f2356"
-    sha256 cellar: :any,                 monterey:       "634c0c3d595607136e77b16ac49181879511fbfb922af65bf43e8a236f49b587"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "593f317a0edb0b7ea18f1fd4f25d9f8a374e596ffe28a375cdbd43a2e5e7c9b7"
+    sha256 cellar: :any,                 arm64_sonoma:   "803e5cefd2523e4f7fb2d70497df5df4b6bfbf3f285cfde9e9ff05f815bfb879"
+    sha256 cellar: :any,                 arm64_ventura:  "5106b72009a33f1d670f25cf5d32b6262b68e8e56f6c81ed44fe52dc51434b08"
+    sha256 cellar: :any,                 arm64_monterey: "d00a735e0a6d7d83a3e9a8194d6e98aac12b1d65a121c1b4355539fce0957593"
+    sha256 cellar: :any,                 sonoma:         "06b2dfb049b8962aab284b4e79f6c930a511a6d91e70055e3ee2ac8c53a36109"
+    sha256 cellar: :any,                 ventura:        "34884eec86c4979a89a979c513390a61b66c43cefc494f8379d7526b73032250"
+    sha256 cellar: :any,                 monterey:       "a4a9a1c0a453231b4e808ec26312c2f8da069ba085d3b748369c09298d35102d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6a002656a1f5136d4e6c5bfb22051fd5156860ad7d3e01b70db240ad76a87a6"
   end
 
   depends_on "autoconf" => :build
@@ -26,10 +26,6 @@ class Libuv < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "sphinx-doc" => :build
-
-  # Fix compile on older macOS.
-  # Remove with v1.48.
-  patch :DATA
 
   def install
     # This isn't yet handled by the make install process sadly.
@@ -63,20 +59,3 @@ class Libuv < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/src/unix/fs.c b/src/unix/fs.c
-index 891306da..9671f0dd 100644
---- a/src/unix/fs.c
-+++ b/src/unix/fs.c
-@@ -84,7 +84,9 @@
- 
- #if defined(__CYGWIN__) ||                                                    \
-     (defined(__HAIKU__) && B_HAIKU_VERSION < B_HAIKU_VERSION_1_PRE_BETA_5) || \
--    (defined(__sun) && !defined(__illumos__))
-+    (defined(__sun) && !defined(__illumos__)) ||                              \
-+    (defined(__APPLE__) && !TARGET_OS_IPHONE &&                               \
-+     MAC_OS_X_VERSION_MIN_REQUIRED < 110000)
- #define preadv(fd, bufs, nbufs, off)                                          \
-   pread(fd, (bufs)->iov_base, (bufs)->iov_len, off)
- #define pwritev(fd, bufs, nbufs, off)                                         \

@@ -1,9 +1,9 @@
 class Minizip < Formula
   desc "C library for zip/unzip via zLib"
   homepage "https://www.winimage.com/zLibDll/minizip.html"
-  url "https://zlib.net/zlib-1.3.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.3/zlib-1.3.tar.gz"
-  sha256 "ff0ba4c292013dbc27530b3a81e1f9a813cd39de01ca5e0f8bf355702efa593e"
+  url "https://zlib.net/zlib-1.3.1.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/libpng/zlib/1.3.1/zlib-1.3.1.tar.gz"
+  sha256 "9a93b2b7dfdac77ceba5a558a580e74667dd6fede4585b91eefb60f03b72df23"
   license "Zlib"
 
   livecheck do
@@ -11,15 +11,13 @@ class Minizip < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f3d9b263ad61ca60aae384f6bded9d90c9422cfb33a8327860d5032d448ddde8"
-    sha256 cellar: :any,                 arm64_ventura:  "70437e5a4551db22f4207037b2d1aa10b2dd95b08e02e0c39147bb2f30d548d3"
-    sha256 cellar: :any,                 arm64_monterey: "f08f116c85142b0110ad79e64a6897051d821c2c1c1a3c828b2c7b65d82e8036"
-    sha256 cellar: :any,                 arm64_big_sur:  "2af66a8d186a7795653328eaeeadf8d87c30fbc64a3b5bd2b90c7ddd982ca29f"
-    sha256 cellar: :any,                 sonoma:         "eb3f0bb7490dd1a6c322bcbd24a8540c0202bd025d044a48af621954efd04e03"
-    sha256 cellar: :any,                 ventura:        "f62192c0603d491535090d3344b311d8d5bb5054b47718cf7cfee019c0f36097"
-    sha256 cellar: :any,                 monterey:       "fe3e260a1c545bfc24acfeb4c07ea05630e1c2e1f27f9efdc4ac3780a85e84a0"
-    sha256 cellar: :any,                 big_sur:        "61728c27b1125d23959cc3bde477a58f3c83ab7e7e7645513e8a7492ff7c6d1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6bd092c36f2e3b911264586e02a5bea6bb8bf9f0e380764971842354449946c"
+    sha256 cellar: :any,                 arm64_sonoma:   "3bc53490be71be5fcf8c018ba2db9b061dbedf50a12c6f6fabcc9f4df003cfc5"
+    sha256 cellar: :any,                 arm64_ventura:  "d60c0678b1ac599448e1dd216aa3e44a9b9f11c00bfd7271eaa5c9e4296a3ad4"
+    sha256 cellar: :any,                 arm64_monterey: "437e23f93e1777d4b4f4d849bc6026361ba46591ba8081d8ab289a3d6dba45c3"
+    sha256 cellar: :any,                 sonoma:         "927f46afb50e1cef0f6c7024cea807025835379984c786d8a17ceef071a2367f"
+    sha256 cellar: :any,                 ventura:        "17ea4d0486f352f08d526f54149cc61351456325a2f49cd2a5e85f43a5c8180a"
+    sha256 cellar: :any,                 monterey:       "fda3b687c8bf4b06f369ec2c43e2fba4fa08d0a8d80ca46b605cf79e18ea0c50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "031048178895f72541584dabaa7b5606b9fbbbdeaf4dfcc7aeccfe0a05fcf4ee"
   end
 
   depends_on "autoconf" => :build

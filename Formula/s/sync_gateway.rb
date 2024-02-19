@@ -31,7 +31,7 @@ class SyncGateway < Formula
 
   # v3 switched to Business Source License 1.1
   # Ref: https://github.com/couchbase/sync_gateway/blob/3.0.0/LICENSE
-  deprecate! date: "2023-01-03", because: "is switching to an incompatible license"
+  disable! date: "2024-01-12", because: "is switching to an incompatible license"
 
   depends_on "gnupg" => :build
   depends_on "go" => :build

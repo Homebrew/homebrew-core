@@ -1,21 +1,19 @@
 class Blocky < Formula
   desc "Fast and lightweight DNS proxy as ad-blocker for local network"
   homepage "https://0xerr0r.github.io/blocky"
-  url "https://github.com/0xerr0r/blocky/archive/refs/tags/v0.22.tar.gz"
-  sha256 "c11a4532ad6636d120ceab844af1a846a8fc379acb03359870de1dc1f8cf7876"
+  url "https://github.com/0xerr0r/blocky/archive/refs/tags/v0.23.tar.gz"
+  sha256 "605e5ad01eb74cfcb369df73a3c07742b05d8fb9db84c172ac45c5fc514f4194"
   license "Apache-2.0"
   head "https://github.com/0xerr0r/blocky.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db79f136e1a2332ae906891ffb54ddf9f713d57b3e12420030af347268a88261"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ceb87fda46e3057ae4eea081550af696261c26877a26b0b31c9836749ae41d84"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7b2df2b8076f1e6c80ea9faa1f16acc29d6a395d1c9afe768d90cbe6fbbe663b"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c207eff57a676cadbafa8d08305d6e7bfda175375902427860c7646a86572921"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5226504d012a1d53fc47789ab2f1cff4fd87d543c6f8851c883ccbd34ff779a7"
-    sha256 cellar: :any_skip_relocation, ventura:        "f5e713ef13914171c3739626f339ba37f07fb8ff1a6af851c79229d9fb6c4e3d"
-    sha256 cellar: :any_skip_relocation, monterey:       "8ca5fb2eb707fd6a5641bc8d91e5988efe113cd86ed11c903e32d7ed27fe7508"
-    sha256 cellar: :any_skip_relocation, big_sur:        "47a60e4f8236181e987b3463a1b581fd79fff883b63174a076115ce4f283b224"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fabe0b2da8814a014a9e228980afa2c6155c53f2189c05f4a4d0e98122f89e33"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2eb1f4e78b2db719fcfeac517a801f7af02329391d7b54faf4797c1417c5e771"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a387849b12405d6f3cece731a9adde8cade791a229c96e03e904f34adc870883"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ebb265145489fceab8cc3fb8952fb16331f23966b7e775eea7fe70ce1fb3d7e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e9d844ef73646dbba5ffb8b3e3b0948b29f76e54be0c9b89454e83832ee0c10f"
+    sha256 cellar: :any_skip_relocation, ventura:        "9789e7e84d9082e5673398befb809a0b2a0e671daba981bae3da2de54a016773"
+    sha256 cellar: :any_skip_relocation, monterey:       "a23661d02af1a98b9d0840c449ce22ec11c2cc7771c2e7c273355ad328d9a7af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ece461f3aa48dfa7798a8a0878eb50ae284fafa31cacfdd42af653e76862c91"
   end
 
   depends_on "go" => :build

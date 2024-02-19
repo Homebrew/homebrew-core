@@ -1,18 +1,18 @@
 class Libmaxminddb < Formula
   desc "C library for the MaxMind DB file format"
   homepage "https://github.com/maxmind/libmaxminddb"
-  url "https://github.com/maxmind/libmaxminddb/releases/download/1.8.0/libmaxminddb-1.8.0.tar.gz"
-  sha256 "1107799f77be6aa3b9796ad0eed8ffcc334bf45f8bd18e6a984d8adf3e719c6d"
+  url "https://github.com/maxmind/libmaxminddb/releases/download/1.9.1/libmaxminddb-1.9.1.tar.gz"
+  sha256 "a80682a89d915fdf60b35d316232fb04ebf36fff27fda9bd39fe8a38d3cd3f12"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "521b1339a3633c38894496338ad49eb789b82892f214c2ed1e6dd32f2b27786a"
-    sha256 cellar: :any,                 arm64_ventura:  "9ff381c1ce80f5628cfacc236097e5dd1d1f8f13de3952188e9e7a4a139ec6d1"
-    sha256 cellar: :any,                 arm64_monterey: "d0af8f7986098c131a0db414cefe42fd62c494217e6351344c4be8c8f57f5d0e"
-    sha256 cellar: :any,                 sonoma:         "4bd992233904dc15db1433870fadaab47b3d3d88219a6c45634ca12162ebed52"
-    sha256 cellar: :any,                 ventura:        "69d73c9c8d2c591260fc9f166d9a8595d76ab2ac022036228971268a1513fe98"
-    sha256 cellar: :any,                 monterey:       "edfd191fb66d24b79f7147b85a5d3990eeb8a8ab22ccf4313b8c43fd44e0c1b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc291a23acac5c3af31dd738f7746cfcf4540735a101f36bb40285dd198b7688"
+    sha256 cellar: :any,                 arm64_sonoma:   "a68c2e3ca963ae2c2be7096905185cd6af3c8be66fd6deb97b6bd6897005846e"
+    sha256 cellar: :any,                 arm64_ventura:  "5bf964040dd9d21ac34f5b5e1ff7b7677aab0171819ea3d7104fe9ed0d76cb9c"
+    sha256 cellar: :any,                 arm64_monterey: "9839e29df83bfe1756f79dbbc33ed42fb35fac4770fb57b5b29851bafbff3b93"
+    sha256 cellar: :any,                 sonoma:         "7e6d1878c0776ef7ebee5abd47c5a6ba818ad6b69d8e52a928a6acb9b3e73ffe"
+    sha256 cellar: :any,                 ventura:        "d81a6413f69afd1273ad0edd17f0438d2c282de48f4081044476290418055340"
+    sha256 cellar: :any,                 monterey:       "07f7fefb623fdb591636dd1579606c247ff0bfd63ea4c228a713c6d3413b75a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64324c33587d79e18deed69aeb0ffb4cd7c6b2503ce03aa572c3a7ed1ca8a0fc"
   end
 
   head do

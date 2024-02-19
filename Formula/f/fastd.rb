@@ -1,12 +1,12 @@
 class Fastd < Formula
   desc "Fast and Secure Tunnelling Daemon"
-  homepage "https://github.com/NeoRaider/fastd"
-  url "https://github.com/NeoRaider/fastd.git",
+  homepage "https://github.com/neocturne/fastd"
+  url "https://github.com/neocturne/fastd.git",
       tag:      "v22",
       revision: "0f47d83eac2047d33efdab6eeaa9f81f17e3ebd1"
   license "BSD-2-Clause"
   revision 2
-  head "https://github.com/NeoRaider/fastd.git", branch: "main"
+  head "https://github.com/neocturne/fastd.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "47546d8f19b4aa18516f976cd4da96dacc190ac1d29ed97724baed9240d4e8c9"
@@ -35,16 +35,14 @@ class Fastd < Formula
 
   # remove in next release
   patch do
-    url "https://github.com/NeoRaider/fastd/commit/89abc48e60e182f8d57e924df16acf33c6670a9b.patch?full_index=1"
+    url "https://github.com/neocturne/fastd/commit/89abc48e60e182f8d57e924df16acf33c6670a9b.patch?full_index=1"
     sha256 "7bcac7dc288961a34830ef0552e1f9985f1b818aa37978b281f542a26fb059b9"
   end
 
   def install
-    mkdir "build" do
-      system "meson", "-Db_lto=true", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "-Db_lto=true", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

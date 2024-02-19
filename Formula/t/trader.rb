@@ -1,8 +1,8 @@
 class Trader < Formula
   desc "Star Traders"
   homepage "https://www.zap.org.au/projects/trader/"
-  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.18.tar.xz"
-  sha256 "3730b2fedd339adfc34c1640b309b3413b10b3d78969dcd71f07fd76b4514e85"
+  url "https://ftp.zap.org.au/pub/trader/unix/trader-7.20.tar.xz"
+  sha256 "bad368c471d7f4c371fbe8f5da24872f9e3ad609ddb7dad0e015c960c88b3aa9"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,16 +11,13 @@ class Trader < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "32b1161e6383ff95ce4c00827e6fa5feb35c094198ebf033ce70e9e8ce1b4ed6"
-    sha256 arm64_ventura:  "ab997415eaf9d18690f7b83c02f2a8567a450cbdc0eb39ec00fe2a2450eaf555"
-    sha256 arm64_monterey: "05137ae01aad4d3949ccc903bc282242ef680133326b93705c9eed49c3c31f3c"
-    sha256 arm64_big_sur:  "c7a264790db14499a985beecad69fb0bdc60ebfdcd7bc37ae89a1e93e7a66991"
-    sha256 sonoma:         "eac451f4b40314f6b410a02138072e5fe12707f85514e1a08a6e11f26cf2d15d"
-    sha256 ventura:        "2b5f6d568082f6ac113b347a89fbfafd3bce16108743a9f869d6bc0bd2e81744"
-    sha256 monterey:       "3d7d661e7693997d2dc3bbd201052336877a711f1e1591353e9460ab9e33f689"
-    sha256 big_sur:        "e33e7a915a9feb528b009426a38b23b7248af58638bc34c19401b637987d561c"
-    sha256 catalina:       "bf1590052d948213cb0c7e5fd9ba2b7a328ce09058709cc164dbc3643be6e1e2"
-    sha256 x86_64_linux:   "0d82d195c0da5d6db7eb3a095b6a5b061bdb2aa1a2a6a1b8ddfa785e67bf3bd8"
+    sha256 arm64_sonoma:   "6ae36dfc033af6586d9b339653b74796de0bfca17e12e94a8ad74848ceef2b8c"
+    sha256 arm64_ventura:  "38906420c79cc92198a4b560f8d4ab6862c8379b608cb833d0798c9b2cb2126e"
+    sha256 arm64_monterey: "659237e8c041b9122c2792770c8e320ed6678782e214d2c65c2fb0febeb89427"
+    sha256 sonoma:         "cf2f81124457ed2d2e149befd2a4ae5565b4bbbeee4489065f5728a7258e9c1d"
+    sha256 ventura:        "eb2510848f86e058d2e71cece3b1c8907266da2b9a92b1e76161c45e180af9e8"
+    sha256 monterey:       "89dec91679b5a775aa0d89ea0c9af16569b69dec9903b99998b9d7421564863c"
+    sha256 x86_64_linux:   "39db68dcc4e59eb947e208f403ae5f1f3a8abbefe5b530339b2bd860768288b8"
   end
 
   depends_on "pkg-config" => :build

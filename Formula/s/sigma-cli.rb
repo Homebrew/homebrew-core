@@ -3,19 +3,19 @@ class SigmaCli < Formula
 
   desc "CLI based on pySigma"
   homepage "https://github.com/SigmaHQ/sigma-cli"
-  url "https://files.pythonhosted.org/packages/23/c1/cab449bf8cd1541ad32617061accd4f4150ef2e906f0fe7cac9054dd91cd/sigma_cli-0.7.11.tar.gz"
-  sha256 "9337ec46b46cfdbea262a439e90df58a83319df33f4339c965cb6b7b318cd5b8"
+  url "https://files.pythonhosted.org/packages/93/d9/1f9b9129b722fe4127b3749d427ec0f2e0966858e204743c068446b532f0/sigma_cli-1.0.1.tar.gz"
+  sha256 "a65dd949dd9812a4380332bacd6cf0c229647404fa31b766fae1596b6bf5e208"
   license "LGPL-2.1-or-later"
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "daf5af77ca9f3e26d93c3ff6b5c534ea82850a8aefb007faf65e128dad2308b2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53cbc6c88e6eb69447b52d7b35c33b95589ce6bf6967024051707c8c0fe4df60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07c6756c784d29732cd15f9f12c055907f29b021d44731d23d1c4017e940b5b1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0d8c098836ece117cc354b577cc9a964bd46fdc8d80ba33ad80acf47cb91bd16"
-    sha256 cellar: :any_skip_relocation, ventura:        "57090c2680c4d7c1aeed5df9b3e8e5f25ce0727f31c8661bbd531cb467e11997"
-    sha256 cellar: :any_skip_relocation, monterey:       "4c38ba70a1e2f27bccb6c4bda0efe1d77f73f738188a22285006a5d7a6bdad20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95c50d1d1d3a64cfef8c7d8da4387c11ef313436f0d2a9c14e9cd1230f32eeaf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d72fd0d1c0db13dba204ca3a9f2eb956aa500c6a8f36ef3c239c85ae29ce151"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d49619b63c140a8045c6c4a7918fbd9eaf0c7be669d38b9913a989111580a80"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e66be3b298c28c3f77b93e1999ed3dec38a09b36e13aec0acf99ba5a55a2653"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5da929b925255c3ba95c85e52ae28093a95bc24e4e99c6e491ef9b7bd147d77a"
+    sha256 cellar: :any_skip_relocation, ventura:        "fe7fde8dd17da1c4a2fb250cb35a94a6207a863de0ac70f22e344e5979d6b7cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c7393191bd32b70680de2ab48cb52483bd3b00b96a1d8a93b4e47ee26e901ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f9fcdd578eabcee1e72623b902ffe764b955e43213c5f40f970c5fe02b3951a"
   end
 
   depends_on "python-certifi"
@@ -41,13 +41,13 @@ class SigmaCli < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/6b/f7/c240d7654ddd2d2f3f328d8468d4f1f876865f6b9038b146bec0a6737c65/packaging-22.0.tar.gz"
-    sha256 "2198ec20bd4c017b8f9717e00f0c8714076fc2fd93816750ab48e2c41de2cfd3"
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
   end
 
   resource "prettytable" do
@@ -56,13 +56,13 @@ class SigmaCli < Formula
   end
 
   resource "pysigma" do
-    url "https://files.pythonhosted.org/packages/17/06/db5dba338b198b8932f0aff42fe76d1fb989b68be8fc1e39eb5b38ac2568/pysigma-0.10.9.tar.gz"
-    sha256 "aa498c9b6daafcfd0001e6f7b78e6f9c04302b8bc18e8c486eb54197982b248d"
+    url "https://files.pythonhosted.org/packages/39/5b/0605372257fde328cba8d65c0030a2bc2a71bd2ad65fca57c03cc840b626/pysigma-0.11.3.tar.gz"
+    sha256 "ed68af1c4150fdd55d0bc1f228fb512088162530a0410f9239deca09ec06942b"
   end
 
   resource "pysigma-backend-sqlite" do
-    url "https://files.pythonhosted.org/packages/b6/13/144274ca0f2d721e79360e309b062a3a765cecdc87c03d2a893430e00454/pysigma_backend_sqlite-0.1.0.tar.gz"
-    sha256 "0ff6f8029a5e4de7d31e30916f073f23422091da5e204653ac7272483f513521"
+    url "https://files.pythonhosted.org/packages/f9/a7/44f3af755fc30d693c9c1242b8f3e52507ffaed34c4847329c3eb0ba62f3/pysigma_backend_sqlite-0.1.2.tar.gz"
+    sha256 "9a57a4f89689f980c4cd53cdfb2f8fbfc49ea301b9446f39659e9a84f688302f"
   end
 
   resource "requests" do
@@ -71,13 +71,13 @@ class SigmaCli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
-    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   def install
@@ -87,7 +87,11 @@ class SigmaCli < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/sigma version")
 
-    output = shell_output("#{bin}/sigma plugin install sqlite")
-    assert_match "Successfully installed plugin 'sqlite'", output
+    output = shell_output("#{bin}/sigma plugin list")
+    assert_match "SQLite and Zircolite backend", output
+
+    # Only show compatible plugins
+    output = shell_output("#{bin}/sigma plugin list --compatible")
+    refute_match "Datadog Cloud SIEM backend", output
   end
 end

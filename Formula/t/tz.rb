@@ -1,21 +1,19 @@
 class Tz < Formula
   desc "CLI time zone visualizer"
   homepage "https://github.com/oz/tz"
-  url "https://github.com/oz/tz/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "82fa7604f3abd3f224d0d6a52976e5de27127d41b2ef80507f3a964ea9b2ef58"
+  url "https://github.com/oz/tz/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "0672552741bd9b2e6334906c544b98fc53997e282c93265de9b332a6af7d3932"
   license "GPL-3.0-or-later"
   head "https://github.com/oz/tz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d09ca838daae5b17b86a7ac1f92404f88fc8bc3d7b0ef092c22a99be216a765c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "83aaf5ea3205df997942013f5a6c8660c41ae6da4526d16d55335e5dabdccfc0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83aaf5ea3205df997942013f5a6c8660c41ae6da4526d16d55335e5dabdccfc0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "83aaf5ea3205df997942013f5a6c8660c41ae6da4526d16d55335e5dabdccfc0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5025f5757137041f632bbce18f6c62b64b3989b77ff9f5954cfaa476df2a166a"
-    sha256 cellar: :any_skip_relocation, ventura:        "c5673576b5029313511c42bafd35fe8309cf023792222c1e25f7fd9a8656b2b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "c5673576b5029313511c42bafd35fe8309cf023792222c1e25f7fd9a8656b2b4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c5673576b5029313511c42bafd35fe8309cf023792222c1e25f7fd9a8656b2b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92db3447fdf82ca46731489658954d1fb9e28457e9ed714df9115dbed8b6b2e9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b48228ba6da3f697f5d1c227b54afb09c2193510297628dc41f50cf953e60cc1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b48228ba6da3f697f5d1c227b54afb09c2193510297628dc41f50cf953e60cc1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b48228ba6da3f697f5d1c227b54afb09c2193510297628dc41f50cf953e60cc1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dff5f96eda6ced21dba6c1f44edd28c514f57737a796374044604d81b2648f9d"
+    sha256 cellar: :any_skip_relocation, ventura:        "dff5f96eda6ced21dba6c1f44edd28c514f57737a796374044604d81b2648f9d"
+    sha256 cellar: :any_skip_relocation, monterey:       "dff5f96eda6ced21dba6c1f44edd28c514f57737a796374044604d81b2648f9d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4caee1bb71f9136facd421400ecc44ceba02b4249a7f01ce5a442fa752cb3bc"
   end
 
   depends_on "go" => :build

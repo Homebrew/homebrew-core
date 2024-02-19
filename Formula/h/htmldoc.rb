@@ -1,21 +1,19 @@
 class Htmldoc < Formula
   desc "Convert HTML to PDF or PostScript"
   homepage "https://www.msweet.org/htmldoc/"
-  url "https://github.com/michaelrsweet/htmldoc/archive/refs/tags/v1.9.17.tar.gz"
-  sha256 "438cbd4c6673a9e156ef9a4793540762e8438298063cac019a45f55ac577872e"
+  url "https://github.com/michaelrsweet/htmldoc/archive/refs/tags/v1.9.18.tar.gz"
+  sha256 "be5368912062e6604fdf2ecffe4692c4b31764dbd83578e7dd5b457e42c007b8"
   license "GPL-2.0-only"
   head "https://github.com/michaelrsweet/htmldoc.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "13806678f331d5cf443ab26e4190b6b79de0c33541cc083ee33396a9361cc71f"
-    sha256 arm64_ventura:  "9f1bcfe7faec9233c76de1a61181dc65860517a30f44a73613132722c99e91d0"
-    sha256 arm64_monterey: "b57f8f12b1cac450538e777edb612638d8e30ea0a0fc364fd4f6444687bae5d0"
-    sha256 arm64_big_sur:  "d6c5799db7ad777b686f27c853b5122f351e3e38fda05be0b491fd34ae0f308c"
-    sha256 sonoma:         "439f359bb786b9d31944c96e88a084c4d305a0dd218af2cd69724d808ea02e9b"
-    sha256 ventura:        "66a0a8386caff8134b7bae76beec4525ac4c5529b708c24718887e09bf15fbcb"
-    sha256 monterey:       "062c063380fc216608dac9f3b83bdd9c51ad7e2766d3e87ea32c6993ffaee3e9"
-    sha256 big_sur:        "5ad79f3c3a94e815b938604dedb32356181490963037d4165230c927bb5989bf"
-    sha256 x86_64_linux:   "d164474207477be359c00de33397dd7f6b609409f93d54b984885b4fee045000"
+    sha256 arm64_sonoma:   "b3daefc48f25c937c30c5a7d8dcc4b74e042ba33c24d804b4c9a5ac8f8112182"
+    sha256 arm64_ventura:  "195a8758cd0ed5bc3bd6acb57786bc44ec896a4c340429e31278ad5076730086"
+    sha256 arm64_monterey: "5bebc747c06a7a7a1126786f9b55a516dd7ba93d517639eae4f0327ace137296"
+    sha256 sonoma:         "d7cf9d6323503a41782c3abba270cff6c2065ad5241f084ac00d4b495286e92a"
+    sha256 ventura:        "ddb2695cb9af62aa13d49a8e8dbc6103f57a3eb5d02b434e083f215d0de35a3b"
+    sha256 monterey:       "eae62c45aaa7d1961d7693053f3d1997f13ae23464f9f1158afcff57c45cebe2"
+    sha256 x86_64_linux:   "415b9a4e9cc544df43b3d2de79f08bbb5ce2d2c391bdafc2ef7c9f268f509aac"
   end
 
   depends_on "pkg-config" => :build

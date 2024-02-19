@@ -1,8 +1,8 @@
 class Spack < Formula
   desc "Package manager that builds multiple versions and configurations of software"
   homepage "https://spack.io"
-  url "https://github.com/spack/spack/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "98680e52591428dc194a021e673a79bdc7799f394c1217b3fc22c89465159a84"
+  url "https://github.com/spack/spack/archive/refs/tags/v0.21.1.tar.gz"
+  sha256 "9a66bc8b59d436d5c0bd7b052c36d2177b228665ece6c9a2c339c2acb3f9103e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/spack/spack.git", branch: "develop"
 
@@ -12,13 +12,13 @@ class Spack < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "04cdbc007c91a548dcfb7c5226c6d1a0e2264e32417079ec48ea9163dc94869e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04cdbc007c91a548dcfb7c5226c6d1a0e2264e32417079ec48ea9163dc94869e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04cdbc007c91a548dcfb7c5226c6d1a0e2264e32417079ec48ea9163dc94869e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ae68694782ef6e3a5e3eb7761a840029266bb6df4e7ee71e904887152c437f8"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ae68694782ef6e3a5e3eb7761a840029266bb6df4e7ee71e904887152c437f8"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ae68694782ef6e3a5e3eb7761a840029266bb6df4e7ee71e904887152c437f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9601a37ab12ab942e35ba55a7e6810b087bc9569329c01c0508a660a4b6252d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7cd40d7e2b17ed5e63ba370cc144c715f6b80163bd05ae02002d31fc40be14a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7cd40d7e2b17ed5e63ba370cc144c715f6b80163bd05ae02002d31fc40be14a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c7cd40d7e2b17ed5e63ba370cc144c715f6b80163bd05ae02002d31fc40be14a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6c2fe154acac06b388bdce117fd0d7a5e1a75b43bcc4cf68a256978f482d37b"
+    sha256 cellar: :any_skip_relocation, ventura:        "f6c2fe154acac06b388bdce117fd0d7a5e1a75b43bcc4cf68a256978f482d37b"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6c2fe154acac06b388bdce117fd0d7a5e1a75b43bcc4cf68a256978f482d37b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c88f795a9f8679628b8d97ee37ea139c8fd5d9efabc18d777448f07c6fe8243"
   end
 
   uses_from_macos "python"

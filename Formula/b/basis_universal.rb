@@ -20,12 +20,13 @@ class BasisUniversal < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
-    system "#{bin}/basisu", test_fixtures("test.png")
+    system bin/"basisu", test_fixtures("test.png")
     assert_predicate testpath/"test.basis", :exist?
   end
 end

@@ -1,13 +1,13 @@
 class Solr < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://dlcdn.apache.org/solr/solr/9.4.0/solr-9.4.0.tgz"
-  mirror "https://archive.apache.org/dist/solr/solr/9.4.0/solr-9.4.0.tgz"
-  sha256 "5ff28fe3a9d92804d53c0072a8459bb1d0c280e212a288a9efd31f923fe1a9d4"
+  url "https://dlcdn.apache.org/solr/solr/9.5.0/solr-9.5.0.tgz"
+  mirror "https://archive.apache.org/dist/solr/solr/9.5.0/solr-9.5.0.tgz"
+  sha256 "d8538502019af1945e0b124a4613b46ca43aedcf3f20e9912c482c080407ea21"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f27ba1ed5a9d2793330d32c546c51bf1e2e942ec90e7275779cb7694e7496a75"
+    sha256 cellar: :any_skip_relocation, all: "d07d90faa6541acca43b9b9a8bf70eab407424d28267381b27fc439b6cf71cd5"
   end
 
   depends_on "openjdk"

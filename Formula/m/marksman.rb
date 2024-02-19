@@ -10,6 +10,7 @@ class Marksman < Formula
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "72a80209860d562e1e0c6d275ad9de967c3f8a2406bd985c117d7c606a073f2a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c589b508c7dedcb77330d6d08fcd77918df7f21a2d2034136993445ab55b3689"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "30b4ec073d1faa78b582e48cc999b96e3688d4a3d240b3042dcf8e06a91f9978"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4375a1640dbc3e811c871730b49b2f7d9d8accbcca5fec57a4ef08a8d6935ec6"
     sha256 cellar: :any_skip_relocation, ventura:        "87621c040156f28adad1b60acac7b0e8696fd83caaa7fe4258242804f1b0682a"
     sha256 cellar: :any_skip_relocation, monterey:       "70e10fecda6836850b0c9cdc06fc1897569735421d9d9b1702dc5191ed76d1a7"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f6d8ca3bd0313b53f1b9addf4c6c84840e9461bf16766779f09910dd58f3f0c"

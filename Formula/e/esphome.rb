@@ -3,18 +3,18 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/0e/09/bd5d6f86b16180a9e3a982946b7dbfea4e3b623584f3d7b2c8351f72ec24/esphome-2023.12.5.tar.gz"
-  sha256 "08f2c14e157ecfbe34837c6cfa8af306e99ae00d3a9cfeda7145713ff98f16ad"
+  url "https://files.pythonhosted.org/packages/0c/65/9d8a4adec1ba174f48055ad8bac4fb36542f3086ebe9503c9a321b9373f7/esphome-2023.12.9.tar.gz"
+  sha256 "88dab0187f2601593cfcd0c3405c3a0759a758d830faa76847348a8bb6063fa3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "411d5d7cc82d5061e964add673d2cb9b569f5ff84befb9682435147484bf9f98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c884f5bf141e95fcd8ceec19f9726fa9c1e411a50417788b9355a23759c67f32"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db6a2a761d5b615a8856969262b71ccfda7f85c6e10b15b5aeb31c953c107a2d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4827de7bdb31cb9b7d8369cf4d008e86578b28fd7cd81972797d1faf8f50cd6f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a2ccfe7f9fa1f4558f26ee6d2ac2148a918afdfeb344e458baec7a01f07ff7a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "bc934fa1382d01523ea5a5fd5ba253cbcd5ac25c278dd62603539ae70b973d30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c43df8b97c31f49b4f78c8dfff79c9b8063e888ddc3aacd1ac2c436e580d8b88"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06431e700d49e4d32137f8ece180cd464a159aacfa6663be10f7cdd120c07bd2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bac6f09ba733a528a0fec8ce38edc8a1ad5a1d646617cceca77e0ef9e3463041"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "368bb8cbe26e73484cdfa5c072b5dba1a1e71f9803b701a470c27c9c3e5d2016"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4b102232f04536968f1e3f074d82fccea8c23d0f2a3a7c691f46f2176ecb3003"
+    sha256 cellar: :any_skip_relocation, ventura:        "88c6487c057d09d043be663dc6aba29fb30d57ab76271a9317f84ecb1a7875f3"
+    sha256 cellar: :any_skip_relocation, monterey:       "75746aba48c66afaedbcf934c6f9e433fcdb54305eb6aa3202f10aa747e69f19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3712d1221264028ab050fce302d04afa09124eda00397facd0d2a3777bb1154b"
   end
 
   depends_on "cffi"
@@ -36,13 +36,13 @@ class Esphome < Formula
   end
 
   resource "aiohappyeyeballs" do
-    url "https://files.pythonhosted.org/packages/5c/bf/891e9ad17e95f28c57d252f057f93dfb9f7f370688ec4c556ef445a45302/aiohappyeyeballs-2.3.1.tar.gz"
-    sha256 "ff2148f2a64b8cea9c8f6bd94dbf813adb30a8f6bc516e6ecc25bca8be2930f8"
+    url "https://files.pythonhosted.org/packages/cc/83/f731ac54f82fc25984ee4d6abadf69b824dde03b629a1348f459e7b35d5a/aiohappyeyeballs-2.3.2.tar.gz"
+    sha256 "77e15a733090547a1f5369a1287ddfc944bd30df0eb8993f585259c34b405f4e"
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/ab/70/5a08324266a222ab9d8282b18a1cd07535c686531f29142b9f10f16a65f2/bitarray-2.9.1.tar.gz"
-    sha256 "912efbeed6d8b155c8e8c37464f79d75b1de58936c0f29ffb599ce95af5563f2"
+    url "https://files.pythonhosted.org/packages/c7/bf/25cf92a83e1fe4948d7935ae3c02f4c9ff9cb9c13e977fba8af11a5f642c/bitarray-2.9.2.tar.gz"
+    sha256 "a8f286a51a32323715d77755ed959f94bef13972e9a2fe71b609e40e6d27957e"
   end
 
   resource "bitstring" do
@@ -106,8 +106,8 @@ class Esphome < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/70/e5/81f99b9fced59624562ab62a33df639a11b26c582be78864b339dafa420d/tzdata-2023.3.tar.gz"
-    sha256 "11ef1e08e54acb0d4f95bdb1be05da659673de4acbd21bf9c69e94cc5e907a3a"
+    url "https://files.pythonhosted.org/packages/4d/60/acd18ca928cc20eace3497b616b6adb8ce1abc810dd4b1a22bc6bdefac92/tzdata-2023.4.tar.gz"
+    sha256 "dd54c94f294765522c77399649b4fefd95522479a664a0cec87f41bebc6148c9"
   end
 
   resource "tzlocal" do

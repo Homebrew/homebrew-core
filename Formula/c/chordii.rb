@@ -6,7 +6,7 @@ class Chordii < Formula
   license "GPL-3.0"
 
   livecheck do
-    url :stable
+    url "https://sourceforge.net/projects/chordii/rss?path=/chordii"
     regex(%r{url=.*?/chordii[._-]v?(\d+(?:\.\d+)+[a-z]?)\.t}i)
   end
 

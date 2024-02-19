@@ -3,19 +3,19 @@ class Toot < Formula
 
   desc "Mastodon CLI & TUI"
   homepage "https://toot.bezdomni.net/"
-  url "https://files.pythonhosted.org/packages/29/97/0236003166ad1e148964104e7d6346a99b687f105bfba84e855043e1dafc/toot-0.40.2.tar.gz"
-  sha256 "4c4468e30609cb899a15ef33ce3b06dbd0f45f5a1a93e8e3a49c87140d176922"
+  url "https://files.pythonhosted.org/packages/27/b3/b76c839730b30e9a2a2124ad923b461208b4c66618b82c4a477856d582cc/toot-0.41.1.tar.gz"
+  sha256 "7d251f7b6d39d2646f330c8bf2091eb82d6b76804fffdf20ab7ebb4055a63c49"
   license "GPL-3.0-only"
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "15f983c5ee70eb0d3f6a4c88befa7283fad96ca646d565595fc9ed758c9a63d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48a24699f657b2be605e7e8bf57f086aba80bb50ef856146d57f7517628d2aff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3255626ebfecc798e9dd9c1276f7575e8847b90e58f2f0d314e664661476d6b0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b691b5d638a70bdef966dd4f60fbf4788c320a7b90470c3a20f79c44183fa47f"
-    sha256 cellar: :any_skip_relocation, ventura:        "050afc886b5208e35eeddc9c659bbc32f95fa99249e67978c52fe224876df691"
-    sha256 cellar: :any_skip_relocation, monterey:       "cd0e9e6b65c9b416353618acd65ae46fb333b27e087f59991b4e8f5a61d07d25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32fad6324e4963700d0c1ccaa5e03637c62b2e14af8c5191c32e4191dadf14c6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a02b8fd4da757e99e09bc25b9d905523f5eed640132c698c97b628b1e9adda60"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbcf4deb231e7db6c71e04397dd7e7cfb0757ab64fbebab55a8579eb2922b63f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "653d795a2220a549a27635c4ea4070407d89f32252707882eedf19d7bc362f14"
+    sha256 cellar: :any_skip_relocation, sonoma:         "18fc6ac67f8676a6c20d7df7c7ffde86f58f48f696948bcd0e97ca78d6c533b8"
+    sha256 cellar: :any_skip_relocation, ventura:        "d529e6237ba0592c4671425f9d923f13e8662910ac2efff23099dc43e2dba74b"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c50f83c039abf9361067a9b750f974f90f04b624f7542a22ee08fe4a724d475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c33e35cec9cacc293440840b2f79602917d5b2d68d4cc3bccaeabffb93b101d"
   end
 
   depends_on "python-certifi"

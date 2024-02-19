@@ -4,16 +4,17 @@ class Wpscan < Formula
   url "https://github.com/wpscanteam/wpscan/archive/refs/tags/v3.8.25.tar.gz"
   sha256 "25f14d254279d3944f35f8f4638f0fcdc89dc60e28179d0d7fb64b9366e86fd8"
   license :cannot_represent # Source is public, commercial use requires a paid license
+  revision 1
   head "https://github.com/wpscanteam/wpscan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "142d9960895c8e2c003ad6356ef2e43b22db97d51a9d0cd603e415de40fb575b"
-    sha256 cellar: :any,                 arm64_ventura:  "fb80a89e966d3d6ac18107e61176f9ba84cabe60858ea3981a93d92f46d16d84"
-    sha256 cellar: :any,                 arm64_monterey: "f85d08916cbce890f2a538eab4eb3dbddbb45b0ee52f001394869eddb8c3a0dc"
-    sha256 cellar: :any,                 sonoma:         "6bda1faf1505cd39a4848ab830d708e393870993e3105cf2943df8513644b06c"
-    sha256 cellar: :any,                 ventura:        "a3ac4570fa1a9d4363f44d65d3173ec7aabc8fda5ecb75d1772df95bff555d98"
-    sha256 cellar: :any,                 monterey:       "6b6311dbc6618b6f914d7268de0ec812f1f44642e443c7e22006d82cc4d229cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f02bc3cbb730b93e44c82b257df6a327310c8a93df417736a0946a680a2c0a09"
+    sha256 cellar: :any,                 arm64_sonoma:   "2ac3cf64d75be9a626c727794b359b1300ad4057f8fe45c469bae4bf99c3318d"
+    sha256 cellar: :any,                 arm64_ventura:  "9072dee8b7026bafe0763ecba5eb41a165996e6bea37346e8ce86f7571b3374e"
+    sha256 cellar: :any,                 arm64_monterey: "d309101da666bb58ce0d7748eb68d7e309b6feb18f6fd1c912442e9c88d4c4e5"
+    sha256 cellar: :any,                 sonoma:         "3449909e7064950856b8be8963034046a3bc4fae08a211bc6c11932e49fd3f14"
+    sha256 cellar: :any,                 ventura:        "6fb0e9624ec143064675f9820cedea1416a80d9c975600827596449d32dc33e6"
+    sha256 cellar: :any,                 monterey:       "3b4d53f5db0cd6528c727be5dd698560e465641167283a28c84da1cbbe950dc4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "617ae4b86d3d72fc8a0324524c073723202dc1135828a2a60e2a286e2482e183"
   end
 
   depends_on "ruby" # Some gems require >= ruby 2.7

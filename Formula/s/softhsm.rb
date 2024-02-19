@@ -9,7 +9,7 @@ class Softhsm < Formula
   # since the aforementioned first-party URL has a tendency to lead to an
   # `execution expired` error.
   livecheck do
-    url "https://github.com/opendnssec/SoftHSMv2.git"
+    url :head
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 

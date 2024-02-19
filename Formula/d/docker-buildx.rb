@@ -1,20 +1,19 @@
 class DockerBuildx < Formula
   desc "Docker CLI plugin for extended build capabilities with BuildKit"
   homepage "https://docs.docker.com/buildx/working-with-buildx/"
-  url "https://github.com/docker/buildx.git",
-      tag:      "v0.12.0",
-      revision: "542e5d810e4a1a155684f5f3c5bd7e797632a12f"
+  url "https://github.com/docker/buildx/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "9cc176ed55e7c423c23de35bd31df3b449261f1b90765c17f003bd4de86a6aa4"
   license "Apache-2.0"
   head "https://github.com/docker/buildx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "316f90184d51579d9e80a5a38a3d93c176c8d55375215c4831a7a99db978eaa4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02f9a1eaf4bba5c814319d869c51e2f4a3735edb3efaaa6024c4a2f2d36d3447"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef0e340df516654d0a875aa8fa4aa9ba3cf5ebbf4006f0160b3af28b4d859fc2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bd2a75dc3d9a83a5d7ff486aa70a62d45aae05ff4a9dc2f9ceffd341e931efa8"
-    sha256 cellar: :any_skip_relocation, ventura:        "5f708a0a7942fe2d5f15df48d855e73d9a0728b327f347834c4ef82589fcda0d"
-    sha256 cellar: :any_skip_relocation, monterey:       "ecb3b0461d12213562d307c81ee2aa9fef5eea0730fb3174e6b29b968bf9431d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17342b7168b50bc0076f81da96da8cc93204c3974f26716fa905e767505b6ed9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6abbcb1fdf69b1bda1b4d4bddfb3c5774ca5214f5834b112285b6c91d925e5e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ff063ad2ded0882713a52fb5ada72026874140c53ece771744fa9f120fdad7c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce19013244887dfe3ebb202adb007e9c02c146fe83a8fdec42a4015d140166db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "be7748b244d1a6a6c624cc5628703c81a1a722f67e80e90e2b051ed7c6b2fff0"
+    sha256 cellar: :any_skip_relocation, ventura:        "445a345e2e5657c0abf87a8da5247f7b2e3215e5a760e32507bb13edac7922db"
+    sha256 cellar: :any_skip_relocation, monterey:       "c3dcd72e2609dcf56bb057dcf9583bae82dec934303a7aa48cce55adeb0dcdc2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b1798be0b31d54c97c5ede749f626a218989fe7e032155b84971a381e8f57c2"
   end
 
   depends_on "go" => :build
@@ -23,7 +22,7 @@ class DockerBuildx < Formula
     ldflags = %W[
       -s -w
       -X github.com/docker/buildx/version.Version=v#{version}
-      -X github.com/docker/buildx/version.Revision=#{Utils.git_head}
+      -X github.com/docker/buildx/version.Revision=#{tap.user}
     ]
 
     system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/buildx"

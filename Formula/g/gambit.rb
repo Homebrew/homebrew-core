@@ -1,8 +1,8 @@
 class Gambit < Formula
   desc "Software tools for game theory"
   homepage "http://www.gambit-project.org"
-  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.1.0.tar.gz"
-  sha256 "de3e3d561cf46aeaec135efaf23f41ddef28968d9071251ca8cb6266babece62"
+  url "https://github.com/gambitproject/gambit/archive/refs/tags/v16.1.1.tar.gz"
+  sha256 "94f9cb2fe6f423f11397fd28746c5961eefc0b2223409886a2e14909bcc54f37"
   license all_of: ["GPL-2.0-or-later", "Zlib"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Gambit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0f7167c81ed8284493c0823edd9f83a715084433e1a2f4de79c638c2a86058d9"
-    sha256 cellar: :any,                 arm64_ventura:  "5b5d2d8c2bc1e987e25ff250fe087f30e414ca72d6f30ba062f0c749e55a4403"
-    sha256 cellar: :any,                 arm64_monterey: "344c69984e404b101446cea287bcab018c52ee726bbb1d8ff6d75b2502396e87"
-    sha256 cellar: :any,                 sonoma:         "3f9eb0214ae51afbd18abe8f295207656118cdc4a85a1a0a0c35a420893f1371"
-    sha256 cellar: :any,                 ventura:        "5de50218265d69c4c8624f6be43d317e9679201c138ce40c081c1d61a7deb325"
-    sha256 cellar: :any,                 monterey:       "49117412f0e3ba6bd363db338b981c1b7b9a548dc617c92e1b7882ec43144ee4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bce95ec53af3ae5cb8dfeb5b2019d98e8398e65b9fb39a1e2918b6813ac1799"
+    sha256 cellar: :any,                 arm64_sonoma:   "b3169b385eb7487afe3e851728d7fb18a491c6edff70c3108abfea9a78a57bfe"
+    sha256 cellar: :any,                 arm64_ventura:  "1add1778235e755be58d5f9dcedd73e19639f1df9a7db8814e14f7af8d9e79bf"
+    sha256 cellar: :any,                 arm64_monterey: "c048fded4c4bf56ad82f9f0c81df73f337e1af260691c43f61a085218d1c8467"
+    sha256 cellar: :any,                 sonoma:         "492d4d539d89677485346d83aa89a3979f5052474481b8407705ced1f333fa64"
+    sha256 cellar: :any,                 ventura:        "37ee93bcbb9102b82658b9e0df9e29c554f239a50eefa3303a5605b97674172d"
+    sha256 cellar: :any,                 monterey:       "8f9f32d44d7d7ba78d9852d835d247dc5419510eb9a911b3817aacde3d01db26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bf139206bbe3ecedb5f604bd9e14d705ba50f5887d0d9db74a6d1910303e196"
   end
 
   depends_on "autoconf" => :build

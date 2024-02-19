@@ -2,26 +2,11 @@
 class Macvim < Formula
   desc "GUI for vim, made for macOS"
   homepage "https://github.com/macvim-dev/macvim"
+  url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-179.tar.gz"
+  version "9.1.0"
+  sha256 "ca515226e199cee3e59942509b9b6ae16c9cb1fc9b7e620b521807222895c710"
   license "Vim"
   head "https://github.com/macvim-dev/macvim.git", branch: "master"
-
-  stable do
-    url "https://github.com/macvim-dev/macvim/archive/refs/tags/release-178.tar.gz"
-    version "9.0.1897"
-    sha256 "ec614f8609aa61948e01c8ea57f133e29c9a3f67375dde65747ba537d8a713e6"
-
-    # Backport Python 3.12 fix. Remove in the next release.
-    patch do
-      url "https://github.com/vim/vim/commit/fa145f200966e47e11c403520374d6d37cfd1de7.patch?full_index=1"
-      sha256 "b449dbcb51e6725b5365a12f987ebe1265bdaf1665bbe3bce4566478957d796d"
-    end
-
-    # Backport Sonoma tabs fix. Remove in the next release.
-    patch do
-      url "https://github.com/macvim-dev/macvim/commit/e9167c29dbf3dd5bb80b48c6425c7b20301a8d44.patch?full_index=1"
-      sha256 "cdeff4ea17bd3f67022f17b78d6ccf9bc8a90b4b1a18b721bd3f65103bfef04e"
-    end
-  end
 
   # The stable Git tags use a `release-123` format and it's necessary to check
   # the GitHub release description to identify the Vim version from the
@@ -38,13 +23,12 @@ class Macvim < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_sonoma:   "fda1a97a800cb89b911022b87b90b3fe6380f69f8b2b1b12d0baa9a2abe9a814"
-    sha256 cellar: :any, arm64_ventura:  "0f6d8a14b823222f1b03a433bb909c661089ca395731102e6ce3ae9018b57a72"
-    sha256 cellar: :any, arm64_monterey: "a6ef419c1ce029e7b6ab1de1d32ebcd4051631770ab828a059539955edd21ddc"
-    sha256 cellar: :any, sonoma:         "b4e67cdcf670acb517aadfeefd58ead3c7d0d0e35593d19439320eed7ca217eb"
-    sha256 cellar: :any, ventura:        "e1d5098b6cf716b96232ef23846da9d0685e5600a19a664dcff63c0cca90b6b2"
-    sha256 cellar: :any, monterey:       "b2b5d66fb9821b41d978faba09af9f663c19182c074a627dfd6165117cd8c96a"
+    sha256 cellar: :any, arm64_sonoma:   "9eaf223d23e4aa92bb56ac0a86fe0ce886762933d502ff09429c352afd86d220"
+    sha256 cellar: :any, arm64_ventura:  "5e56402e67595c3386ff4747784b742daa2e5d03e13578c1469ed374a86c78e5"
+    sha256 cellar: :any, arm64_monterey: "dac8f35e0658d9e11bceeb72edf49f64446aee6d0b714ba858d765037f2f7137"
+    sha256 cellar: :any, sonoma:         "dffe6661d748d85d72e87f40d1d93ad79c8b36bd18e14456e11cdae03bb268d7"
+    sha256 cellar: :any, ventura:        "5d4f5ccd9c5957bda06658799845023ad7fb7c25b5eb0d68d7d29dbab1fadf95"
+    sha256 cellar: :any, monterey:       "9dc522874e8a075f64a7ba4753283db9655ec06f56adf8ac4482b0daedc3a5bb"
   end
 
   depends_on "gettext" => :build

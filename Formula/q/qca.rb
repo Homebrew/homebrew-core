@@ -1,10 +1,9 @@
 class Qca < Formula
   desc "Qt Cryptographic Architecture (QCA)"
   homepage "https://userbase.kde.org/QCA"
-  url "https://download.kde.org/stable/qca/2.3.7/qca-2.3.7.tar.xz"
-  sha256 "fee2343b54687d5be3e30fb33ce296ee50ac7ae5e23d7ab725f63ffdf7af3f43"
+  url "https://download.kde.org/stable/qca/2.3.8/qca-2.3.8.tar.xz"
+  sha256 "48759ca86a0202461d908ba66134380cc3bb7d20fed3c031b9fc0289796a8264"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -13,14 +12,13 @@ class Qca < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "5c9466bc6d5d8faddf2b7e198de19384f3b2d33a4e9229d8b57792117fb45a83"
-    sha256 cellar: :any,                 arm64_ventura:  "0c3bb008ccc3acdfe6bb2bbe543983214ea4a875d34b5fa7936b3957da60563a"
-    sha256 cellar: :any,                 arm64_monterey: "0271ed6992af95173cdfd7e5ac6b3baa3ee73e67413dc646451879554b6614ef"
-    sha256 cellar: :any,                 sonoma:         "077fe77362e988a54ecc7c5a254ea413ba0bf5d4f9ff7e8a9ea83d00c660c8c2"
-    sha256 cellar: :any,                 ventura:        "c08e369ba170a0bde6cb81dfe622f65bc0d581843445c8a652119ac780f141d2"
-    sha256 cellar: :any,                 monterey:       "9d068ee9bc10369c34766ccfa7b4156a1bc11fa99307c280d036ddbfcf2ca5ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45360a667dc034d30efc3f47e39319df5261ac9305b271d96f5485608fb018e6"
+    sha256 cellar: :any,                 arm64_sonoma:   "be5c81b8ea7e03cf23979ab7b8922c31213b8c4861a10178b1b092a0c3a5e952"
+    sha256 cellar: :any,                 arm64_ventura:  "4a23c095adb5b58e4455a0073beb65a01d7aed68f99ff42e896b13b3dfaf754f"
+    sha256 cellar: :any,                 arm64_monterey: "8b1b95d2db586333e330bc7945d53c74a3626787f845d280c9d6a540b0b392b3"
+    sha256 cellar: :any,                 sonoma:         "1dec33eb15212833cd68c53c1634130eb756bd084f5013c900f85d642e6737a0"
+    sha256 cellar: :any,                 ventura:        "6c2b9563d96b052a3605232e98f32480cf0e53b83a05ea6b39d9cac0020e515c"
+    sha256 cellar: :any,                 monterey:       "b0f69af4d530dca5b61712aa6744fe63830dfd2d51bf5f2b3cc6135e5807d0ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcce390bf80c101b5c5b6b77d76fabf4db52f77f4e56098e088983bf054f0659"
   end
 
   depends_on "cmake" => :build

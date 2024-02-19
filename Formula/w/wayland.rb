@@ -19,18 +19,15 @@ class Wayland < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "expat"
+  depends_on "libffi"
+  depends_on "libxml2"
   depends_on :linux
 
-  uses_from_macos "expat"
-  uses_from_macos "libffi"
-  uses_from_macos "libxml2"
-
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dtests=false", "-Ddocumentation=false", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", "-Dtests=false", "-Ddocumentation=false", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -46,6 +43,5 @@ class Wayland < Formula
     EOS
     system ENV.cc, "test.c", "-o", "test", "-I#{include}"
     system "./test"
-    assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end

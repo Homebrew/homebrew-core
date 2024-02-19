@@ -1,21 +1,19 @@
 class Avrdude < Formula
   desc "Atmel AVR MCU programmer"
   homepage "https://www.nongnu.org/avrdude/"
-  url "https://github.com/avrdudes/avrdude/archive/refs/tags/v7.2.tar.gz"
-  sha256 "beb4e0b0a07f8d47e550329ab93c345d5252350de6f833afde51b4d8bd934674"
+  url "https://github.com/avrdudes/avrdude/archive/refs/tags/v7.3.tar.gz"
+  sha256 "1c61ae67aacf8b8ccae5741f987ba4b0c48d6e320405520352a8eca8c6e2c457"
   license "GPL-2.0-or-later"
   head "https://github.com/avrdudes/avrdude.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "6e0b34dd95ea466772a92a36a3b0904337dc83c9c11cf7dd1d3dbceab796f2b6"
-    sha256 arm64_ventura:  "ef1c67093428501338afc705c0a81440cfc5c8d99d8fe2351fe85f3ca227e922"
-    sha256 arm64_monterey: "d31e478fa3320f2ea482ee2c7d57faec909e5ef2096d9853d8bef629084d2d1e"
-    sha256 arm64_big_sur:  "829d499cf793631d0f67f518056717849dfff7b307900b0882f9cab93929f204"
-    sha256 sonoma:         "3a94f321905acd1fc17b4088e7edf84a1c29a9f242d46036a769c76aeb478271"
-    sha256 ventura:        "6b43827f0b3c2c287ae61260bbc35c11cedb54a4cd29668595cac7430114312f"
-    sha256 monterey:       "f7dc255c04fcfa3edafc24e9c06ae34d02056b48a942d54cbd694fe7ea681b96"
-    sha256 big_sur:        "47de68ccf21cc64b8f79c4ef3b829d51aaa65a6df771cdb92401540adcabf619"
-    sha256 x86_64_linux:   "46e4de78eef44a5ed518a5ccc622c146449352ebe169b626cecefda53ba7dcb3"
+    sha256 arm64_sonoma:   "7e4fbdde7efdd2122c7668c7ad8997c58c6f84577cd9622677eb2c09e0db486e"
+    sha256 arm64_ventura:  "bc150a18a9b486d40092753d452d0a0fe173119bd98802ad8172db2415037b10"
+    sha256 arm64_monterey: "ac3825a0b78e9fed3a9dfe7953e12acb618d0a3d7e673619ec6bd4663841d553"
+    sha256 sonoma:         "9e6846073cf666e0a608664c59b107fe06f070556e6518c4abc686cd58088029"
+    sha256 ventura:        "10c38132dbad1e5e8e23c6ed78141c6ae6944c525ecd998be82ae1ecac3b47eb"
+    sha256 monterey:       "37df39cbb3b4add3d85cd25ed881f61915fbb86692f37068b00ccae08f2ad95e"
+    sha256 x86_64_linux:   "772d0a3a6827ee7b7784c36c69075c444163874ec2aa6848f036efac2a582825"
   end
 
   depends_on "cmake" => :build
@@ -28,6 +26,7 @@ class Avrdude < Formula
   uses_from_macos "flex" => :build
 
   on_macos do
+    # https://github.com/avrdudes/avrdude/issues/1653
     depends_on "libelf" => :build
   end
 

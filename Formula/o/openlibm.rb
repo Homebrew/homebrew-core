@@ -1,21 +1,18 @@
 class Openlibm < Formula
   desc "High quality, portable, open source libm implementation"
   homepage "https://openlibm.org"
-  url "https://github.com/JuliaMath/openlibm/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "ba8a282ecd92d0033f5656bb20dfc6ea3fb83f90ba69291ac8f7beba42dcffcf"
+  url "https://github.com/JuliaMath/openlibm/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "7244f9aa468584744e260cef740d57d10eab6e9c05f62084f8f2ba457f4b4b1d"
   license all_of: ["MIT", "ISC", "BSD-2-Clause"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "935a204e1ee089ee3745168039f830c10b240883da4a9d1f167274d01440bb46"
-    sha256 cellar: :any,                 arm64_ventura:  "e2ff5bc492cd9e69a9a9730e9b5890017dece0b65b565686391687d078e275a8"
-    sha256 cellar: :any,                 arm64_monterey: "9b05e09f90c7be45091bb34aa339fdd8ae36e9de8463ba0844bc13940a9c71f4"
-    sha256 cellar: :any,                 arm64_big_sur:  "724ef933bb44a0bd8f884ccbb4bb2013b2b89af4cd1def67a411ae914ef622fd"
-    sha256 cellar: :any,                 sonoma:         "2cd62eae529d1f27c564ec7d85ae2fb4c70cd6ea737d98e510bf3cac3757f9b7"
-    sha256 cellar: :any,                 ventura:        "6cf9238a296315347533753f4eb1125a71bf4689968deb5c59b7843b74d39b24"
-    sha256 cellar: :any,                 monterey:       "821bb85640df061c0a49c079e06e7f932916c2b47bca228f61b3ed1401f17370"
-    sha256 cellar: :any,                 big_sur:        "fbaaaaee44ecd462b9b9cf94ebcf386bca16591b6a4be7985e479db98f18f280"
-    sha256 cellar: :any,                 catalina:       "7726b400040c12f35eb13cb88dd80444d09f82dce79ef9825b0fc864952f6c39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9024f7a8469743a4ca9d4b13aa27254367ba4285447a6668f04da94b7d7971f0"
+    sha256 cellar: :any,                 arm64_sonoma:   "435f9020d1297471c2fff357cd441914bc9330830afa4a58a7794a47d3ef6098"
+    sha256 cellar: :any,                 arm64_ventura:  "1fcb943a2b0b8a013db3d157a6cafbc08d03c7cf3c554918aacd9270c2d96de9"
+    sha256 cellar: :any,                 arm64_monterey: "551a339e3d2c2e06ce625b5dc51e375e290a61801c508b351bfc690890f1fa26"
+    sha256 cellar: :any,                 sonoma:         "3330d9dba6af55a5d1fc86f471619e1999049964c91e451e1eb02f6de7920c75"
+    sha256 cellar: :any,                 ventura:        "9d88f67464be7f2b245cd9f7f47e6faca6c12288ed71e1c83dc7a0580f1d266a"
+    sha256 cellar: :any,                 monterey:       "a073965d7967121a63a63b0ab888df1b46e64e5b86e4cb0dfe1337a4eae4cda8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7efc8d98d0cbf005e186fde4b9cba73dc82921f2d31634adac1546b473fc8de"
   end
 
   def install

@@ -4,17 +4,16 @@ class Youplot < Formula
   url "https://github.com/red-data-tools/YouPlot/archive/refs/tags/v0.4.5.tar.gz"
   sha256 "aa7339139bc4ea9aa0b2279e4e8052fde673a60ad47e87d50fde06626dc2b3c3"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256                               arm64_sonoma:   "62c44866751c1a8bc34e284d3a7899c35e38a24514b8d8264f9415d2c97e4e5c"
-    sha256                               arm64_ventura:  "60e92af5e86cc5c29a923a12470c36b6c1bdbe9e3d0549ce483b45974494a090"
-    sha256                               arm64_monterey: "397cf683916a6b62eb8ac1a8ca98bb56d3ca3d9fdd725f40702d6f72c7e2bf4b"
-    sha256                               arm64_big_sur:  "6a0cc141b2dfc5bcd7a28666ca181799d5b6fbf48dca90ac64e582e7225810a2"
-    sha256                               sonoma:         "44e090b0d2699aba314daf5da89e6f64001251ea6edd5e476987d5812cc28ff1"
-    sha256                               ventura:        "13fedf180b967115571c03890214d65cfcaf8607acda2a75dea5b263c47ee3cb"
-    sha256                               monterey:       "c2d9cddf97b15b474f181f318f97a24a50e50e7e7ca71922cb97248d13935383"
-    sha256                               big_sur:        "fbc41b8190ca616ba3794aa5d75fc9121cb15e303fc2f4a7df0926bc74468ff0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c14eb0b846c089762f066aef1f2cda5093012274234b92023a331a1bf8e93bdc"
+    sha256                               arm64_sonoma:   "5790be8d29022d7574e830c5d2e1e994dc99d7c5185ac8cd0d60a49ee740e05e"
+    sha256                               arm64_ventura:  "f22e52308aed43e61afdab8fedf9313f605c14413ecfac513d185ec7107fb2c4"
+    sha256                               arm64_monterey: "bd9c61e9685720de5cde6a899580055aeab22670a5e106fbed42dbe076ce1353"
+    sha256                               sonoma:         "a9f7dc3f7f756c46f2977eedc450306c325edd0773a4b3b1a991b89420c17d17"
+    sha256                               ventura:        "88f43ecbfaffb645ba7920297024ca67f4ab52acea27c1f660d8a33c15c98485"
+    sha256                               monterey:       "5bd453f72f8a67c46f6df9989c3d26b470da4a4c659e2ff71cc783839663d824"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14c5bc2c43beccff2176c088b05202e2a34db3c0d5487a64e33486e2e5046d31"
   end
 
   uses_from_macos "ruby"

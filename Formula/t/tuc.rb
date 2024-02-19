@@ -1,19 +1,19 @@
 class Tuc < Formula
   desc "Text manipulation and cutting tool"
   homepage "https://github.com/riquito/tuc"
-  url "https://github.com/riquito/tuc/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "d5dc8f9a7739450707e3f630038fa83d97c080c7397e7afbcec44682646c497e"
+  url "https://github.com/riquito/tuc/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "bb6d16772ed0728f396d32066d391206420497a4f902071b0229790a8c844307"
   license "GPL-3.0-or-later"
   head "https://github.com/riquito/tuc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "199b4499932453f78a9815b2dec30d27c87bd969ed8a1252781466ca4edb8497"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b9c83897196b9a7ed5760db619dfe2c193184400ef45765589336cd25763762"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ea9ff126127c2c2e5220444144c4e7d84b2462b583e31c72cec3dff5fe4ab43"
-    sha256 cellar: :any_skip_relocation, sonoma:         "55fb6237c0701cd0395fe0102114cdfd7f2a4d73e26e84023d63ee0273e2b233"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b6586c6bd773195c60bd686bb85af35f6fbc21e5acdc769c3e5f46d77268d1e"
-    sha256 cellar: :any_skip_relocation, monterey:       "348692e46b6e85cf82330bfb4384244b45fd4fa2ca86ec83a3b18e635e55321c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51480c02f0bbcf0216954cf3c1bf332d5ac7da27edceee9bc5d5275e7ff8288a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "02f43fcce93fe1020c8571578b9e8b2592712bbca3aa79becc067b9ffbafd359"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b5f8b001cac3e971cd56939061222aeec9916ff57b71645c5d68fcd05a654b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2560679670ba581bc0eec3656150f6ac3577882eb549d7c33a6ac8ff1d1e2e9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9e4175a87a9dcf622e05c47df7ab97a0b9f3eb459a4e83dcb3a314cab7b4d18b"
+    sha256 cellar: :any_skip_relocation, ventura:        "8d8ff5696f93d0cfb8e07f90a484e1bce94847ecc7dd02a8de103a7dc0925188"
+    sha256 cellar: :any_skip_relocation, monterey:       "ba015c8a9e89563116c24bdb064ae9af8459d3bdf07254969d66cd88f40c50b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6871bbb0204d11a5fe0dcb85deebe1e97adc240b99491dd0a2df8ffa397b7da3"
   end
 
   depends_on "rust" => :build

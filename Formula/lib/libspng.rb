@@ -24,11 +24,10 @@ class Libspng < Formula
   uses_from_macos "zlib"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
     pkgshare.install "examples/example.c"
   end
 

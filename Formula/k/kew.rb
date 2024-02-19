@@ -1,13 +1,13 @@
 class Kew < Formula
   desc "Command-line music player"
   homepage "https://github.com/ravachol/kew"
-  url "https://github.com/ravachol/kew/archive/refs/tags/v1.11.tar.gz"
-  sha256 "824e9dacd5dfe3c95fda067c7d75f13252f342489e2c76d5cfbe0842899aaf28"
+  url "https://github.com/ravachol/kew/archive/refs/tags/v2.4.tar.gz"
+  sha256 "fb8d579a196442cd7e3d2d7c64541db0ae55ef64302ad0d21748ecc2c7020b74"
   license "GPL-2.0-only"
   head "https://github.com/ravachol/kew.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d5736353fba22acffa0b4b798b367ecc79360309a897c374f1c0c08d40e16686"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "6c23b67331942c25c4a29bcef6d62634ce46933b5cdb06784138d0487e57d98e"
   end
 
   depends_on "pkg-config" => :build
@@ -28,9 +28,12 @@ class Kew < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/kew --version")
+    (testpath/".config/kewrc").write ""
+    system bin/"kew", "path", testpath
 
     output = shell_output("#{bin}/kew song")
     assert_match "Music not found", output
+
+    assert_match version.to_s, shell_output("#{bin}/kew --version")
   end
 end

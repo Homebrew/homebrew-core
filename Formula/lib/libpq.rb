@@ -1,10 +1,9 @@
 class Libpq < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2"
-  sha256 "ce3c4d85d19b0121fe0d3f8ef1fa601f71989e86f8a66f7dc3ad546dd5564fec"
+  url "https://ftp.postgresql.org/pub/source/v16.2/postgresql-16.2.tar.bz2"
+  sha256 "446e88294dbc2c9085ab4b7061a646fa604b4bec03521d5ea671c2e5ad9b2952"
   license "PostgreSQL"
-  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -12,13 +11,13 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f0fe09ec0a29c249f03bfaebf204856813c33ab9b57c9dae0674a0291dfcb950"
-    sha256 arm64_ventura:  "d2e232c76f49c91c88d03f39a6fbd98df616399d1302c55198a698f31a7efbc8"
-    sha256 arm64_monterey: "6661fd55501ecc6680eede20312d20fb591b6df8a7211d0220b5419c173bb1fc"
-    sha256 sonoma:         "742fd801eb1bd4528ccd00c095ef74ace4013641d55f0f88db50045754572e97"
-    sha256 ventura:        "bba9c418969284bfdb7e4630c96ab1f5494250ff8ac542fd926e2c9c113b1849"
-    sha256 monterey:       "d2fb2d1b5b17bba9b15dc6127770dfb865df83d885b143668c9a167ccb80c4ce"
-    sha256 x86_64_linux:   "8493dd42f4d3edbc5f3e7b1ec7fbb2ff5efc4c61a20c28b5bf2662b0321a8376"
+    sha256 arm64_sonoma:   "7b741e015bcbdf7405c854315670ecd6467c00e3ca96313296d0b4bf4db4a70d"
+    sha256 arm64_ventura:  "f9bebf61ad6968b16251ef392daffcacadd274a4243e191c728abf62b6c673d1"
+    sha256 arm64_monterey: "d1d138f0aa5445ff1de80c96d768f2f1af8017ab1232a32d839c1be22061b44c"
+    sha256 sonoma:         "33aba502daa1767fc650485a63d671d28bde4312af561b0263582654b7d014f4"
+    sha256 ventura:        "d992fdf45b62d9bd05e9514ac16c823ed150bab698afebb4f008bdfc6e825b61"
+    sha256 monterey:       "a7b72a7f3fcbc65ff857893114205aa79ff354b47f63a492f0dfd77bdd27c282"
+    sha256 x86_64_linux:   "7a8856e34634895f82b7f041b95ebe82a7644877b00e4476f1eefd617f831bb1"
   end
 
   keg_only "conflicts with postgres formula"
@@ -35,11 +34,6 @@ class Libpq < Formula
   on_linux do
     depends_on "readline"
   end
-
-  # Fix compatibility with OpenSSL 3.2
-  # Remove once merged
-  # Ref https://www.postgresql.org/message-id/CX9SU44GH3P4.17X6ZZUJ5D40N%40neon.tech
-  patch :DATA
 
   def install
     system "./configure", "--disable-debug",
@@ -93,91 +87,3 @@ class Libpq < Formula
     assert_equal "Connection to database attempted and failed", shell_output("./libpqtest")
   end
 end
-
-__END__
-diff --git a/src/backend/libpq/be-secure-openssl.c b/src/backend/libpq/be-secure-openssl.c
-index e9c86d08df..49dca0cda9 100644
---- a/src/backend/libpq/be-secure-openssl.c
-+++ b/src/backend/libpq/be-secure-openssl.c
-@@ -844,11 +844,6 @@ be_tls_write(Port *port, void *ptr, size_t len, int *waitfor)
-  * to retry; do we need to adopt their logic for that?
-  */
-
--#ifndef HAVE_BIO_GET_DATA
--#define BIO_get_data(bio) (bio->ptr)
--#define BIO_set_data(bio, data) (bio->ptr = data)
--#endif
--
- static BIO_METHOD *my_bio_methods = NULL;
-
- static int
-@@ -858,7 +853,7 @@ my_sock_read(BIO *h, char *buf, int size)
-
- 	if (buf != NULL)
- 	{
--		res = secure_raw_read(((Port *) BIO_get_data(h)), buf, size);
-+		res = secure_raw_read(((Port *) BIO_get_app_data(h)), buf, size);
- 		BIO_clear_retry_flags(h);
- 		if (res <= 0)
- 		{
-@@ -878,7 +873,7 @@ my_sock_write(BIO *h, const char *buf, int size)
- {
- 	int			res = 0;
-
--	res = secure_raw_write(((Port *) BIO_get_data(h)), buf, size);
-+	res = secure_raw_write(((Port *) BIO_get_app_data(h)), buf, size);
- 	BIO_clear_retry_flags(h);
- 	if (res <= 0)
- 	{
-@@ -954,7 +949,7 @@ my_SSL_set_fd(Port *port, int fd)
- 		SSLerr(SSL_F_SSL_SET_FD, ERR_R_BUF_LIB);
- 		goto err;
- 	}
--	BIO_set_data(bio, port);
-+	BIO_set_app_data(bio, port);
-
- 	BIO_set_fd(bio, fd, BIO_NOCLOSE);
- 	SSL_set_bio(port->ssl, bio, bio);
-diff --git a/src/interfaces/libpq/fe-secure-openssl.c b/src/interfaces/libpq/fe-secure-openssl.c
-index 390c888c96..b730352b86 100644
---- a/src/interfaces/libpq/fe-secure-openssl.c
-+++ b/src/interfaces/libpq/fe-secure-openssl.c
-@@ -1830,11 +1830,6 @@ PQsslAttribute(PGconn *conn, const char *attribute_name)
-  * to retry; do we need to adopt their logic for that?
-  */
-
--#ifndef HAVE_BIO_GET_DATA
--#define BIO_get_data(bio) (bio->ptr)
--#define BIO_set_data(bio, data) (bio->ptr = data)
--#endif
--
- static BIO_METHOD *my_bio_methods;
-
- static int
-@@ -1842,7 +1837,7 @@ my_sock_read(BIO *h, char *buf, int size)
- {
- 	int			res;
-
--	res = pqsecure_raw_read((PGconn *) BIO_get_data(h), buf, size);
-+	res = pqsecure_raw_read((PGconn *) BIO_get_app_data(h), buf, size);
- 	BIO_clear_retry_flags(h);
- 	if (res < 0)
- 	{
-@@ -1872,7 +1867,7 @@ my_sock_write(BIO *h, const char *buf, int size)
- {
- 	int			res;
-
--	res = pqsecure_raw_write((PGconn *) BIO_get_data(h), buf, size);
-+	res = pqsecure_raw_write((PGconn *) BIO_get_app_data(h), buf, size);
- 	BIO_clear_retry_flags(h);
- 	if (res < 0)
- 	{
-@@ -1963,7 +1958,7 @@ my_SSL_set_fd(PGconn *conn, int fd)
- 		SSLerr(SSL_F_SSL_SET_FD, ERR_R_BUF_LIB);
- 		goto err;
- 	}
--	BIO_set_data(bio, conn);
-+	BIO_set_app_data(bio, conn);
-
- 	SSL_set_bio(conn->ssl, bio, bio);
- 	BIO_set_fd(bio, fd, BIO_NOCLOSE);

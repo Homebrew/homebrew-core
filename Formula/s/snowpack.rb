@@ -20,7 +20,7 @@ class Snowpack < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd5deee0b0428290e67b488012e522e2570a77aa21f71db54e04f7c5d00ec68b"
   end
 
-  deprecate! date: "2023-05-09", because: :deprecated_upstream
+  disable! date: "2024-01-10", because: :deprecated_upstream
 
   depends_on "node@18"
   depends_on "python@3.10"

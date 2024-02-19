@@ -4,10 +4,10 @@ class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   # NOTE: Use *.diff for GitLab/KDE patches to avoid their checksums changing.
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.11/single/qt-everywhere-opensource-src-5.15.11.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.11/single/qt-everywhere-opensource-src-5.15.11.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.11/single/qt-everywhere-opensource-src-5.15.11.tar.xz"
-  sha256 "7426b1eaab52ed169ce53804bdd05dfe364f761468f888a0f15a308dc1dc2951"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.12/single/qt-everywhere-opensource-src-5.15.12.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.12/single/qt-everywhere-opensource-src-5.15.12.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.12/single/qt-everywhere-opensource-src-5.15.12.tar.xz"
+  sha256 "93f2c0889ee2e9cdf30c170d353c3f829de5f29ba21c119167dee5995e48ccce"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -16,13 +16,13 @@ class QtAT5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ee532c84fea881a898959e3c72648b47096f289d257c0be6798c224ade85958b"
-    sha256 cellar: :any,                 arm64_ventura:  "873565f70ab43294a41232d351581cdab946a01642594861e027ad3ca1c30a75"
-    sha256 cellar: :any,                 arm64_monterey: "7db8c1cf0376bbdcb40e525bf22dcf0edec3cdcc754b98a425dd67b51020784d"
-    sha256 cellar: :any,                 sonoma:         "2069aeddf10173c866e95300b7a194e98b4637ad8a056ad9595c98bc1a6303b8"
-    sha256 cellar: :any,                 ventura:        "627691d0c1a2a669353f70bc4cd6a1b3c9f2e3c066ce36aa6fffa9e1eb7cd05c"
-    sha256 cellar: :any,                 monterey:       "7100c3dff9f19ffec9e3b7bca021fd2e04f6ff22a79efe1f83962d01d8e2bb32"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "075572b8e632200d5f4ef2d13aef3205b3dd4ab5ca1c88d5e475d092f2fd5afe"
+    sha256 cellar: :any,                 arm64_sonoma:   "4944d082f1f6b7066528d935c96643277d97bb89574b0df6288115a816bf1a3e"
+    sha256 cellar: :any,                 arm64_ventura:  "24220f888c0547954e2943a9aeb5da0ec8524e012d9e50768c717de36d8e415a"
+    sha256 cellar: :any,                 arm64_monterey: "d0adc0f244a1decd35ec1631397bf77da33f65b79ad6d975c7705bb602033b24"
+    sha256 cellar: :any,                 sonoma:         "12c3d40b0facd62a44033278afa6610c9e8d36ba6ec4e4b95f959e2505bb71cd"
+    sha256 cellar: :any,                 ventura:        "4e39323d9e797e907599b443299171ca52235e112b5c3ee046292826741181e1"
+    sha256 cellar: :any,                 monterey:       "f119b8a8429be9aecaea6e189f8f69df08c0c2c61b3d958d701d046ee45a8db9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbc539b707b9c15a05321faea65b16cafeb77d17ec38221909898b928ca94feb"
   end
 
   keg_only :versioned_formula
@@ -87,19 +87,13 @@ class QtAT5 < Formula
         tag:      "v5.15.16-lts",
         revision: "224806a7022eed6d5c75b486bec8715a618cb314"
 
-    # Backport Chromium changes for libxml 2.12 compatibility
-    # https://chromium.googlesource.com/chromium/src/+/871f8ae9b65ce2679b0bc0be36902d65edf0c1e4
-    on_linux do
-      patch do
-        url "https://chromium-review.googlesource.com/changes/chromium%2Fsrc~4985186/revisions/4/patch?zip&path=third_party%2Fblink%2Frenderer%2Fcore%2Fxml%2Fxslt_processor.h"
-        sha256 "61d0352bb43ab796e1702f003f119a0838e5357517ee90f71bcc5cd0ba184e36"
-        directory "src/3rdparty/chromium"
-      end
-      patch do
-        url "https://chromium-review.googlesource.com/changes/chromium%2Fsrc~4985186/revisions/4/patch?zip&path=third_party%2Fblink%2Frenderer%2Fcore%2Fxml%2Fxslt_processor_libxslt.cc"
-        sha256 "dc8cf92c07cad7da51510d2233968af4b0f408ff6857153ffa1d7387bb77f1b7"
-        directory "src/3rdparty/chromium"
-      end
+    # Fix libxml2 2.12 compatibility
+    # https://codereview.qt-project.org/c/qt/qtwebengine-chromium/+/525714
+    # Remove with 5.15.17-lts
+    patch do
+      url "https://github.com/qt/qtwebengine-chromium/commit/c98d28f2f0f23721b080c74bc1329871a529efd8.patch?full_index=1"
+      sha256 "bcb946524e203ac7b8f7a681b3288a2da7ee1c18f440cb34cbf5849f22b7d649"
+      directory "src/3rdparty"
     end
 
     # Add Python 3 support to qt-webengine-chromium.
@@ -136,6 +130,12 @@ class QtAT5 < Formula
       sha256 "9800c708313da78d537b61cfb750762bb8ad006ca9335b1724dbbca5669f5b24"
       directory "src/3rdparty/chromium/third_party/ffmpeg"
     end
+
+    # Use Gentoo's patch for ICU 74 support
+    patch do
+      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/dev-qt/qtwebengine/files/qtwebengine-6.5.3-icu74.patch?id=ba397fa71f9bc9a074d9c65b63759e0145bb9fa0"
+      sha256 "ceee91eb3161b385f54c0070f0e4800202b0674c63c40c8556cb69ac522e6999"
+    end
   end
 
   # Update catapult to a revision that supports Python 3.
@@ -145,23 +145,121 @@ class QtAT5 < Formula
   end
 
   # Fix build with Xcode 14.3.
+  # https://bugreports.qt.io/browse/QTBUG-112906
   patch do
     url "https://invent.kde.org/qt/qt/qtlocation-mapboxgl/-/commit/5a07e1967dcc925d9def47accadae991436b9686.diff"
     sha256 "4f433bb009087d3fe51e3eec3eee6e33a51fde5c37712935b9ab96a7d7571e7d"
     directory "qtlocation/src/3rdparty/mapbox-gl-native"
   end
 
-  # build patch for qmake with xcode 15
+  # Fix qmake with Xcode 15.
+  # https://bugreports.qt.io/browse/QTBUG-117225
+  # Likely can remove with 5.15.16.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/086e8cf/qt5/qt5-qmake-xcode15.patch"
     sha256 "802f29c2ccb846afa219f14876d9a1d67477ff90200befc2d0c5759c5081c613"
   end
 
-  # build patch for qtmultimedia with xcode 15
+  # Fix qtmultimedia build with Xcode 15
+  # https://bugreports.qt.io/browse/QTBUG-113782
   # https://github.com/hmaarrfk/qt-main-feedstock/blob/0758b98854a3a3b9c99cded856176e96c9b8c0c5/recipe/patches/0014-remove-usage-of-unary-operator.patch
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/3f509180/qt5/qt5-qtmultimedia-xcode15.patch"
     sha256 "887d6cb4fd115ce82323d17e69fafa606c51cef98c820b82309ab38288f21e08"
+  end
+
+  # Fix use of macOS 14 only memory_resource on macOS 13
+  # The `_cpp_lib_memory_resource` feature test macro should be sufficient but a bug in the SDK means
+  # the extra checks are required. This part of the patch will likely be fixed in a future SDK.
+  # https://bugreports.qt.io/browse/QTBUG-114316
+  # This can likely be removed in 5.15.16.
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/56a9af76a6bcecc3d12c3a65f2465c25e05f2559/aqua/qt5/files/patch-qtbase-memory_resource.diff"
+    sha256 "87967d685b08f06e91972a6d8c5e2e1ff672be9a2ba1d7d7084eba1413f641d5"
+    directory "qtbase"
+  end
+
+  # CVE-2023-24607
+  # Remove with Qt 5.15.13
+  patch do
+    url "https://download.qt.io/official_releases/qt/5.15/CVE-2023-24607-qtbase-5.15.diff"
+    sha256 "047c0aec35ec7242cab61e514f1ecca61509c7f72597b4702c9d32a4c65581c5"
+    directory "qtbase"
+  end
+
+  # CVE-2023-32573
+  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-32573-qtsvg-5.15.diff
+  # Remove with Qt 5.15.14
+  patch do
+    url "https://invent.kde.org/qt/qt/qtsvg/-/commit/5b1b4a99d6bc98c42a11b7a3f6c9f0b0f9e56f34.diff"
+    sha256 "0a978cac9954a557dde7f0c01e059a227f2e064fe6542defd78f37a9f7dd7a3d"
+    directory "qtsvg"
+  end
+
+  # CVE-2023-32762
+  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-32762-qtbase-5.15.diff
+  # Remove with Qt 5.15.14
+  patch do
+    url "https://invent.kde.org/qt/qt/qtbase/-/commit/1286cab2c0e8ae93749a71dcfd61936533a2ec50.diff"
+    sha256 "2fba1152067c60756162b7ad7a2570d55c9293dd4a53395197fd31ab770977d7"
+    directory "qtbase"
+  end
+
+  # CVE-2023-32763
+  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-32763-qtbase-5.15.diff
+  # Remove with Qt 5.15.15
+  patch do
+    url "https://invent.kde.org/qt/qt/qtbase/-/commit/deb7b7b52b6e6912ff8c78bc0217cda9e36c4bba.diff"
+    sha256 "ceafd01b3e2602140bfe8b052a5ad80ec2f3b3b21aed1e2d6f27cd50b9fb60b7"
+    directory "qtbase"
+  end
+
+  # CVE-2023-33285
+  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-33285-qtbase-5.15.diff
+  # Remove with Qt 5.15.14
+  patch do
+    url "https://invent.kde.org/qt/qt/qtbase/-/commit/21f6b720c26705ec53d61621913a0385f1aa805a.diff"
+    sha256 "d2cb352a506a30fa4f4bdf41f887139d8412dfe3dc87e8b29511bd0c990839c5"
+    directory "qtbase"
+  end
+
+  # CVE-2023-34410
+  # Original (malformed with CRLF): https://download.qt.io/official_releases/qt/5.15/CVE-2023-34410-qtbase-5.15.diff
+  # KDE patch excludes Windows-specific fixes
+  # Remove with Qt 5.15.15
+  patch do
+    url "https://invent.kde.org/qt/qt/qtbase/-/commit/2ad1884fee697e0cb2377f3844fc298207e810cc.diff"
+    sha256 "70496a602600a7133f5f10d8a7554efd7bcbe4d1998b16486da8fb82070b0138"
+    directory "qtbase"
+  end
+
+  # CVE-2023-37369
+  # Remove with Qt 5.15.15
+  patch do
+    url "https://download.qt.io/official_releases/qt/5.15/CVE-2023-37369-qtbase-5.15.diff"
+    sha256 "279c520ec96994d2b684ddd47a4672a6fdfc7ac49a9e0bdb719db1e058d9e5c0"
+    directory "qtbase"
+  end
+
+  # CVE-2023-38197
+  # Remove with Qt 5.15.15
+  patch do
+    url "https://download.qt.io/official_releases/qt/5.15/CVE-2023-38197-qtbase-5.15.diff"
+    sha256 "382c10ec8f42e2a34ac645dc4f57cd6b717abe6a3807b7d5d9312938f91ce3dc"
+    directory "qtbase"
+  end
+
+  # CVE-2023-51714
+  # Remove with Qt 5.15.17
+  patch do
+    url "https://download.qt.io/official_releases/qt/5.15/0001-CVE-2023-51714-qtbase-5.15.diff"
+    sha256 "2129058a5e24d98ee80a776c49a58c2671e06c338dffa7fc0154e82eef96c9d4"
+    directory "qtbase"
+  end
+  patch do
+    url "https://download.qt.io/official_releases/qt/5.15/0002-CVE-2023-51714-qtbase-5.15.diff"
+    sha256 "99d5d32527e767d6ab081ee090d92e0b11f27702619a4af8966b711db4f23e42"
+    directory "qtbase"
   end
 
   def install

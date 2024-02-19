@@ -2,8 +2,8 @@ class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.34-26/source/tarball/percona-server-8.0.34-26.tar.gz"
-  sha256 "c4e6977e787f960fd3bad6a7c06b7e126c46e1403ca133dd8a5da7bd4dcd6574"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.35-27/source/tarball/percona-server-8.0.35-27.tar.gz"
+  sha256 "631ad9063f1235ee793a35b602e712476628b7b0cc7135dd54856dbb58b41d45"
   license "BSD-3-Clause"
 
   livecheck do
@@ -19,13 +19,13 @@ class PerconaServer < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "ff9b415bcc15b0d2e14767809c38bd48812f807ee0caa45013e4823fb9c989ce"
-    sha256 arm64_ventura:  "7d5345cdca37d90ea61442f9a53acf8af9e84f5002135a1876f3f547b17371f2"
-    sha256 arm64_monterey: "c81ed5aa0a18161812ace90f8dd7a8c2533891fa65fa73a94d44de2b13644235"
-    sha256 sonoma:         "e80ef52d1d5d870e15740c4686899631d55342baf9d0ddc06ec869c8e2bb9b2c"
-    sha256 ventura:        "ef3278a3591722b4137dce239742b23ec869034ee999f5279fa84db215504874"
-    sha256 monterey:       "3059ba46d1b29b4a6706dc2848f501f9b53b4ae48f37e7ffa4b124c2a4dc8573"
-    sha256 x86_64_linux:   "30430d7909d8810426c7555464ba41b08ad3df4cb01a0c99e22785a1efc46af5"
+    sha256 arm64_sonoma:   "80527fb4c339618cacd0d5eb9839a4b2390749651ea5c06c4e7833de75204dec"
+    sha256 arm64_ventura:  "51dead33dd6735a5086ae19f16468b122d02d9edc1e18342f68251af994963a4"
+    sha256 arm64_monterey: "ab02df852cb1e1d53c9f58eee5562f0075158cdaf32f1e905e2681175ffd32c0"
+    sha256 sonoma:         "0db93d4ce56541a06dd17ab69cd5562cff1cb83632cd6abcb4ed05e2f9805973"
+    sha256 ventura:        "5778ce2e11d70c0a3745f0a2a807e195f8a2f77cfa14380df32b86dcd929d182"
+    sha256 monterey:       "343920375df89eb5587daf01dab7e919cf66e17a4c3e0ea55b291072917281fa"
+    sha256 x86_64_linux:   "8cd4321cf8478ba53745e7cca914cc6e191eae2ae8f3bde26572bba6e204b91f"
   end
 
   depends_on "bison" => :build

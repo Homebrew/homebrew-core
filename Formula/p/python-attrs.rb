@@ -1,18 +1,18 @@
 class PythonAttrs < Formula
   desc "Python Classes Without Boilerplate"
   homepage "https://www.attrs.org/en/stable/"
-  url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
-  sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
+  url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
+  sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6844a7561b272fb626bd4b5ae3c9dc1180910c6cbf8e79c7ebc47750c013e6bc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0684087668cab4e80124d76940cdc9310fc8d9eb56385fd0c474d562818a2a4c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9fe7531e7461371c350fd2943897683a00e81de9acf270b1de8da79635a7ab95"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c54b7d784d133ae087023faf9d880876e32a113061eb73bfaf3151148d904438"
-    sha256 cellar: :any_skip_relocation, ventura:        "11ff19ec88c748184808c3864bbc5d9fdf38f1de1b593fc6da88aaa7cfec0c2c"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7d0670d008fdc3488f98993e4e6618e1787a2d71d7d72e0bf0d42f52bd1db12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10f14767f27fd3dd603082b09f9a36a85982f468825172ec4121c25242372d40"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20be179c9701db7b77cbd35ebe44c7de25faa2d1a531e8d094e3d852538f7919"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "94ea337879d2020f1b14df562f34b807888109806ec156dd3181025f3cb7cbdb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f685bb30c970ecb58f9926970314f99299d452202acfced7994662d8fddb353"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d4d629a9c30ded8e953116c7e8ce0067396964dcb26fc83f49511a0d76da54e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "4986c5771c00cdd49390f47dac083bed556585f5ee0153fc8c7c074e90c77d38"
+    sha256 cellar: :any_skip_relocation, monterey:       "6f889272d5e697997a267923aead840fb321cb79b404ba6355befd16e6b1229a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fe413106fbd08d04704f0920b35e28af44ba63d484a854cd09a6983283a416e"
   end
 
   depends_on "python-hatch-fancy-pypi-readme" => :build

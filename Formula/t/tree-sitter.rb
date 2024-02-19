@@ -3,46 +3,33 @@ require "language/node"
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.20.8.tar.gz"
-  sha256 "6181ede0b7470bfca37e293e7d5dc1d16469b9485d13f13a605baec4a8b1f791"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.20.9.tar.gz"
+  sha256 "9b2fd489a7281e3a7e5e7cbbf3a974e5a6a115889ae65676d61b79bdae96464e"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
-  bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9c5ff6c727c1e2276f3cfbe64373bd57d8699425b533796b2413ed4e8bc1e3a1"
-    sha256 cellar: :any,                 arm64_ventura:  "80f5d110450dfa623f0ff043bfb9279a03e760aafa8b67a8f919f8371a8a4282"
-    sha256 cellar: :any,                 arm64_monterey: "d65d3a05944e834d25950b9fa1d3d79a306af2c28b209aaac043e546c0577965"
-    sha256 cellar: :any,                 arm64_big_sur:  "20c1f77800a47d9fd3f055a9b33e06f1782e5b897541b6935262efb831d29c45"
-    sha256 cellar: :any,                 sonoma:         "0415c0fdf2750387f23f713c5081dad3c928149bac6be85b4d0826f08075b4e7"
-    sha256 cellar: :any,                 ventura:        "0b96dc12579c8693392a737e0939c5956f88d9d7beddb18ee045e127d359096b"
-    sha256 cellar: :any,                 monterey:       "84af6fb8f8980273ecc06099ad359dc100a13e0535c2f5ffe5380e7e4a50baed"
-    sha256 cellar: :any,                 big_sur:        "b025e1d6e7ed804c5cf099b4a6bea0dbbf09752aef4582916678dd88f2cd0ab0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d413c47e7b8641aae812d19b39c3f927088e450eabde992f3d7cc32de7d29aa9"
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
-  depends_on "emscripten" => [:build, :test]
-  depends_on "node" => [:build, :test]
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "062befbe55cf56c8fad131a5c5c716e56c4dd6909b4f148cd6198840b1c00bbf"
+    sha256 cellar: :any,                 arm64_ventura:  "6151a7f25d123ccce15e09cc5e72836f8ee07177ce63ad51fa98def7dd145e22"
+    sha256 cellar: :any,                 arm64_monterey: "0237ac036dea1d1d64d0989777edf18f26a4a0fb3b259ec3ed7e0a6bf166fa60"
+    sha256 cellar: :any,                 sonoma:         "1f41896166871dfe5197461081a057db4a51c667550fc676c956dd102761bfb3"
+    sha256 cellar: :any,                 ventura:        "e98c3c0145cc48cea7b13f10c155e792e4bd135c814c8c093c6a5bf9c34288da"
+    sha256 cellar: :any,                 monterey:       "94cd6bf2a1e61e3c5f17c45489b3a3b4a3646e373cf6f41f31e1706f7d0f25e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c98f13c1a6a350433fbf0536f099da86c4db828d2de6296a2445c754339c7ce"
+  end
+
   depends_on "rust" => :build
+  depends_on "node" => :test
 
   def install
     system "make", "AMALGAMATED=1"
     system "make", "install", "PREFIX=#{prefix}"
-
-    # NOTE: This step needs to be done *before* `cargo install`
-    cd "lib/binding_web" do
-      system "npm", "install", *Language::Node.local_npm_install_args
-    end
-    system "script/build-wasm"
-
-    cd "cli" do
-      system "cargo", "install", *std_cargo_args
-    end
-
-    # Install the wasm module into the prefix.
-    # NOTE: This step needs to be done *after* `cargo install`.
-    %w[tree-sitter.js tree-sitter-web.d.ts tree-sitter.wasm package.json].each do |file|
-      (lib/"binding_web").install "lib/binding_web/#{file}"
-    end
+    system "cargo", "install", *std_cargo_args(path: "cli")
   end
 
   test do
@@ -79,6 +66,7 @@ class TreeSitter < Formula
     system "#{bin}/tree-sitter", "test"
 
     (testpath/"test_program.c").write <<~EOS
+      #include <stdio.h>
       #include <string.h>
       #include <tree_sitter/api.h>
       int main(int argc, char* argv[]) {
@@ -106,9 +94,5 @@ class TreeSitter < Formula
     EOS
     system ENV.cc, "test_program.c", "-L#{lib}", "-ltree-sitter", "-o", "test_program"
     assert_equal "tree creation failed", shell_output("./test_program")
-
-    # test `tree-sitter build-wasm`
-    ENV.delete "CPATH"
-    system bin/"tree-sitter", "build-wasm"
   end
 end

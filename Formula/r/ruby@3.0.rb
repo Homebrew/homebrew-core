@@ -48,7 +48,7 @@ class RubyAT30 < Formula
   end
 
   def api_version
-    Utils.safe_popen_read("#{bin}/ruby", "-e", "print Gem.ruby_api_version")
+    "3.0.0"
   end
 
   def rubygems_bindir
@@ -229,8 +229,6 @@ class RubyAT30 < Formula
   end
 
   def caveats
-    return unless latest_version_installed?
-
     <<~EOS
       By default, binaries installed by gem will be placed into:
         #{rubygems_bindir}
@@ -242,6 +240,9 @@ class RubyAT30 < Formula
   test do
     hello_text = shell_output("#{bin}/ruby -e 'puts :hello'")
     assert_equal "hello\n", hello_text
+
+    assert_equal api_version, shell_output("#{bin}/ruby -e 'print Gem.ruby_api_version'")
+
     ENV["GEM_HOME"] = testpath
     system "#{bin}/gem", "install", "json"
 

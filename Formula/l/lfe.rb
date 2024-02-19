@@ -1,20 +1,19 @@
 class Lfe < Formula
   desc "Concurrent Lisp for the Erlang VM"
   homepage "https://lfe.io/"
-  url "https://github.com/lfe/lfe/archive/refs/tags/v2.1.2.tar.gz"
-  sha256 "59743c2496f72f2ad595843311f49d09ef932ffaa5bb26075c79c368a3948f80"
+  url "https://github.com/lfe/lfe/archive/refs/tags/v2.1.4.tar.gz"
+  sha256 "450f5eb34d19f7313e5fb5c09427b4109ce08f05f48bda9cdfd8625f5b3b0633"
   license "Apache-2.0"
   head "https://github.com/lfe/lfe.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee9f9e71d6b6ad08e1c00dffe5f411ed4c293246ab439a457cbece5ee2a3c192"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ac6d09a3b2e2eb1e369f13d53b6daab1eeeeca7227f556324485e32a002824f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ac4ac85ef98ee19bcbc3173ba555486e23554e41a093cf8d9def3ab4d08d53d2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d1a1f42c2f229dc83cefd70b886c16e29a0f24fb5799bdd1cea766f95e491da1"
-    sha256 cellar: :any_skip_relocation, ventura:        "9faa77cc11b8bbcf46a828b2bca83b31595c9d64e9c3fee7cb5a6e01d111ff0a"
-    sha256 cellar: :any_skip_relocation, monterey:       "153a3cf9b8c57c9bbb1bd7195d3db285fc6f684f9c60b384bf5ccde9316ceb66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fb02a7e3ab5ea5b1844a8872c47cfb07b804a54b2acea792b3917f8bef28221"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ebf3f14f994a161e791af262debd0db7b3d2e917f8945e57b6f151102a9aa92b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "872b7bab3542a805fa0bbb5f68ee6fccc4b141f6ec07115b2a65cefcade834cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0dcaa4229222b7f9e85e84eb144c43ffa727bd9ac54ed78cb6f6251b12e53c70"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e6f1c6ded306015efa06f98f77a84b41b1a7accff76bf67b4d2e2a5371ff4ccc"
+    sha256 cellar: :any_skip_relocation, ventura:        "1977dc138db8fcc028c33a48f30a5f06eb25f5f05f1c323713ecf9271cb68448"
+    sha256 cellar: :any_skip_relocation, monterey:       "736e2c542dc47042201021e5b8181412461058dea005157c72fdac7633d9fb8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68bc39a7e43dc9b7c067f67fa0ce647cdcb63cf8125ef57ce283e114bc50cf32"
   end
 
   depends_on "emacs" => :build

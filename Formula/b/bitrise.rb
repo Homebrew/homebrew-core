@@ -1,8 +1,8 @@
 class Bitrise < Formula
   desc "Command-line automation tool"
   homepage "https://github.com/bitrise-io/bitrise"
-  url "https://github.com/bitrise-io/bitrise/archive/refs/tags/2.6.1.tar.gz"
-  sha256 "5050929400f0650bc018e044ef825dd45bb4f039c4fe4096cb164886256069e5"
+  url "https://github.com/bitrise-io/bitrise/archive/refs/tags/2.10.1.tar.gz"
+  sha256 "946d9e73dda6550941c7a9d47ac8e925e8874ae3548993629b2e5abb7092ad13"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Bitrise < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "13168bb8dc6626941be1de0a6eabf011d8b46ff915f70a07b629afd9ae4bc45c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d5a7ff246ceb723dcfe10bc9408d37e645709023f4676e8b49dc79f02729c98"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9be3271397561d6f2290fb2e77a67bb173eba2f6bb6db8c745387cd866bb9996"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3a0b929c3553eb01177ce2423626f054cac1dff5a3c3329f5996833f9b908fb9"
-    sha256 cellar: :any_skip_relocation, ventura:        "196b624503423c9ce8450e648a2fa79fd4775029ccc5afd3007884ffe4f95abc"
-    sha256 cellar: :any_skip_relocation, monterey:       "6be09066194ab1740dd4ca709b50f95d260f7293af4aebd4f99fac1c753ef170"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d94874a187f4a39e83d2e8d8b906307057910bdfe1a592f1b9590d8f3b90cc69"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "61f18a2082a809164f180ed8e2c6190dd808f020015aabb1e41606d8e2bf8676"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e80bd1980809bc29cce81804af7c1dc5baefaef378f09c8a63a75f59d2932ede"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "26034247c0d3e2fcb7fa1ac4c1da7832086c55e9f011157961f1bcd8e18a92b3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "12de9510f2b9b4b763d50e6cf603810b4f8f5becb4ff04dad3d6f387e6a1f0e4"
+    sha256 cellar: :any_skip_relocation, ventura:        "3de8402817723302f595572c4a8588f24cfdd03a659268768eeaf8515402b85b"
+    sha256 cellar: :any_skip_relocation, monterey:       "a126fbcd283aad23e56dd678bfa75330d3a19c8cfef8b682df30b65b914363b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a51dc486afd72ba79253411a796cc3de5d9af2e7259aff41458dc9cccf4bdbdd"
   end
 
   depends_on "go" => :build

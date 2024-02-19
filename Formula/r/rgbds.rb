@@ -1,8 +1,8 @@
 class Rgbds < Formula
   desc "Rednex GameBoy Development System"
   homepage "https://rgbds.gbdev.io"
-  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "fdc48f5b416fd200598320dec7ffd1207516842771a55a15e5cdd04a243b0d74"
+  url "https://github.com/gbdev/rgbds/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "ef04d24d7a79c05ffadac0c08214f59b8d8812c7d1052a585e5ab0145f093b30"
   license "MIT"
   head "https://github.com/gbdev/rgbds.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Rgbds < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eb2581f0c93074eca666c55e22a42ceb5df6312c3316b51d418648fff93622ee"
-    sha256 cellar: :any,                 arm64_ventura:  "1eec6c8d6d4f78f651b5532129e158284ce1173e1f12ac859deab109ebd0c039"
-    sha256 cellar: :any,                 arm64_monterey: "cf443f1dab35c7793eb27897a3562988605c9d1e0fdbb9ead6c02c62eb4cda7d"
-    sha256 cellar: :any,                 arm64_big_sur:  "86b0cb95d179d4a053bfbd8185edf64e3018a41fcb5707c3177ad3d0f9da4426"
-    sha256 cellar: :any,                 sonoma:         "8ead2a150a13b1c8890b726519a82a42986d1c98cf36756dd49bd0a2aa3ee2f4"
-    sha256 cellar: :any,                 ventura:        "df05b8cd3e6ca7b2830efac8b5795bcfa24857aac4912c3b6dd1437a60403a90"
-    sha256 cellar: :any,                 monterey:       "33a3577cd38998588050aa6a615a1cbf0da29878623caacafa038f97660d98fb"
-    sha256 cellar: :any,                 big_sur:        "2c96ef131dac0f73a8ebeff0cd7a30585496076bdca02dd5f0926940e5bab2f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a53081e67820c738c436eb06583ae338de9cf36d9c2e41c891c03beff017383"
+    sha256 cellar: :any,                 arm64_sonoma:   "c1c0bda09f9b4d3ff0eb38ba528aed01a4bb36c3df45d36409778f35852dda49"
+    sha256 cellar: :any,                 arm64_ventura:  "ac809ea02ad3b8f89ab89116c0e4138993b069a8e82d7512ac2dfb520506178b"
+    sha256 cellar: :any,                 arm64_monterey: "3ff99f46c769f04633aed867465af73f22321d5395c99c4f98fb3460af66f9c2"
+    sha256 cellar: :any,                 sonoma:         "6dfc174514bf7b613b7b4c678d99c7daf965f03e681870f89b7abca3334842cb"
+    sha256 cellar: :any,                 ventura:        "a0daa592ca2112053a0ca2b34437a10c1492a1a7127c17f22ef454f16fce82e7"
+    sha256 cellar: :any,                 monterey:       "db2a8ecb7d5c1bf55489604210bcd028b6b8fab8a9aeb711ec15f2f0d0cf6cf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5081091e37107f494dfa92b07d804b24df19e2d42e70eea68f6788a8ff39cfa"
   end
 
   depends_on "bison" => :build

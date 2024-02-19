@@ -60,7 +60,7 @@ about it from the introduction at
 https://docs.brew.sh/How-To-Open-a-Homebrew-Pull-Request and then proceed as
 follows:
 
-* run `brew tap homebrew/core`, if you haven't done so previously
+* run `brew tap homebrew/core --force`, if you haven't done so previously
 * run `brew edit foo` and make edits
 * leave the section `bottle do ... end` unchanged
 * test your changes using the commands listed above

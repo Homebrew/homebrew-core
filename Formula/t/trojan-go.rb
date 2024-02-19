@@ -78,8 +78,6 @@ class TrojanGo < Formula
   end
 
   test do
-    require "webrick"
-
     (testpath/"test.crt").write <<~EOS
       -----BEGIN CERTIFICATE-----
       MIIBuzCCASQCCQDC8CtpZ04+pTANBgkqhkiG9w0BAQsFADAhMQswCQYDVQQGEwJV
@@ -114,8 +112,17 @@ class TrojanGo < Formula
     EOS
 
     http_server_port = free_port
-    http_server = WEBrick::HTTPServer.new Port: http_server_port
-    Thread.new { http_server.start }
+    fork do
+      server = TCPServer.new(http_server_port)
+      loop do
+        socket = server.accept
+        socket.write "HTTP/1.1 200 OK\r\n" \
+                     "Content-Type: text/plain; charset=utf-8\r\n" \
+                     "Content-Length: 0\r\n" \
+                     "\r\n"
+        socket.close
+      end
+    end
 
     trojan_go_server_port = free_port
     (testpath/"server.yaml").write <<~EOS
@@ -149,13 +156,13 @@ class TrojanGo < Formula
 
     sleep 3
     begin
-      system "curl", "--socks5", "127.0.0.1:#{trojan_go_client_port}", "github.com"
+      output = shell_output("curl --socks5 127.0.0.1:#{trojan_go_client_port} example.com")
+      assert_match "<title>Example Domain</title>", output
     ensure
       Process.kill 9, server
       Process.wait server
       Process.kill 9, client
       Process.wait client
-      http_server.shutdown
     end
   end
 end

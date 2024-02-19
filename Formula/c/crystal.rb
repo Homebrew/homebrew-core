@@ -2,15 +2,14 @@ class Crystal < Formula
   desc "Fast and statically typed, compiled language with Ruby-like syntax"
   homepage "https://crystal-lang.org/"
   license "Apache-2.0"
-  revision 1
 
   stable do
-    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.10.1.tar.gz"
-    sha256 "f6449ffff519c86383f5e845455f3e6f6b10d6090effab09568f4c7414a8a51b"
+    url "https://github.com/crystal-lang/crystal/archive/refs/tags/1.11.2.tar.gz"
+    sha256 "9740f0f52745d399449b11a64b060216c8599ef73712615fe8956a1e8f7c5d9c"
 
     resource "shards" do
-      url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.17.3.tar.gz"
-      sha256 "6512ff51bd69057f4da4783eb6b14c29d9a88b97d35985356d1dc644a08424c7"
+      url "https://github.com/crystal-lang/shards/archive/refs/tags/v0.17.4.tar.gz"
+      sha256 "3576c7418fa9fe09636f985a0043037bb84345f88e03ddb3da78dbe96683232d"
     end
   end
 
@@ -20,13 +19,14 @@ class Crystal < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "957e953d1b0928aa1f2c7f27f49abff08854f23ed4b9424d6602bf33ac9a67a2"
-    sha256 cellar: :any,                 arm64_ventura:  "9d05895702b12e75cef2419a7272e236ad046d3b91f37a1585c01b8826171746"
-    sha256 cellar: :any,                 arm64_monterey: "a017f472076f634d7223bce01ed06ce0a5a8bbc181cc9cd9547a736771057d1c"
-    sha256 cellar: :any,                 sonoma:         "43716436fff8c53ddc30aed5cf44f9b5b69013fa4382ae812073582d2c1ff9b6"
-    sha256 cellar: :any,                 ventura:        "718df9a8955e684c25780e609c0ce37d7e809bdb0220ddc0aa3bb2ec74b42a26"
-    sha256 cellar: :any,                 monterey:       "176834c934ce39d9044f4b93734f6929e414734524791c2a537c1c87c6839586"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06ade603e34ffae9f9714dd5d108a2d790f31f5be554eb18564a167b8f14224d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "32caa5e278075c34b514b68694828018e380e1746336a174984c2b9bc4fa1ce2"
+    sha256 cellar: :any,                 arm64_ventura:  "e9332f79820e6cf5dee04acb569f3ce8de0ef799aa775e6fa504a959a1bbb2d0"
+    sha256 cellar: :any,                 arm64_monterey: "e41c766b2dbb65e4b0e50b350a7442c698d8f19965afba6f8af42cfd2ca8690e"
+    sha256 cellar: :any,                 sonoma:         "cfead86e8edcb31d52ae2221462c557a13bc5c596427c8b945614cfef4c7cb71"
+    sha256 cellar: :any,                 ventura:        "2aacb7a12c6631955c727c6b0f0ec144d55c9c7d047d7da505ff47e65abbf6df"
+    sha256 cellar: :any,                 monterey:       "591547968d88597a6345310a3ca40f6d04a295611d88e72e8b9d4535a71962fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cd83187e66d3f0f9c9d2c0bf4f6591330428a6e070f11f87cf6671449ffbed4"
   end
 
   head do
@@ -58,20 +58,20 @@ class Crystal < Formula
   #
   # See: https://github.com/Homebrew/homebrew-core/pull/81318
   resource "boot" do
-    boot_version = Version.new("1.5.1-1")
+    boot_version = Version.new("1.10.1-1")
     version boot_version
 
     on_macos do
       url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-darwin-universal.tar.gz"
       # version boot_version
-      sha256 "432c2fc992247f666db7e55fb15509441510831a72beba34affa2d76b6f2e092"
+      sha256 "e6490e6d09745483bacea43c4d8974273632526c1f98f13db5aae0a5fc2c7924"
     end
 
     on_linux do
       on_intel do
         url "https://github.com/crystal-lang/crystal/releases/download/#{boot_version.major_minor_patch}/crystal-#{boot_version}-linux-x86_64.tar.gz"
         # version boot_version
-        sha256 "a475c3d99dbe0f2d5a72d471fa25e03c124b599e47336eed746973b4b4d787bc"
+        sha256 "1742e3755d3653d1ba07c0291f10a517fa392af87130dba4497ed9d82c12348b"
       end
     end
   end
@@ -111,6 +111,7 @@ class Crystal < Formula
     release_flags = ["release=true", "FLAGS=--no-debug"]
     crystal_build_opts = release_flags + [
       "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_path}",
+      "CRYSTAL_CONFIG_LIBRARY_RPATH=#{config_library_path}",
       "CRYSTAL_CONFIG_PATH=#{config_path}",
       "interpreter=true",
     ]

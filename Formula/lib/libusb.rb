@@ -1,8 +1,8 @@
 class Libusb < Formula
   desc "Library for USB device access"
   homepage "https://libusb.info/"
-  url "https://github.com/libusb/libusb/releases/download/v1.0.26/libusb-1.0.26.tar.bz2"
-  sha256 "12ce7a61fc9854d1d2a1ffe095f7b5fac19ddba095c259e6067a46500381b5a5"
+  url "https://github.com/libusb/libusb/releases/download/v1.0.27/libusb-1.0.27.tar.bz2"
+  sha256 "ffaa41d741a8a3bee244ac8e54a72ea05bf2879663c098c82fc5757853441575"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,16 +11,13 @@ class Libusb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2ea8d73947aa32384e439424f7b55d682914aa004457a2b90db033ebab7691f6"
-    sha256 cellar: :any,                 arm64_ventura:  "ea8a4a04b5cc81eff38d0c5cdfe2fbac519ca2c7652c64371074f4abaf766a0b"
-    sha256 cellar: :any,                 arm64_monterey: "ab90516396d8dc99f96d31615bcbddfcfd2082fcc7494dabb9d22b275628e800"
-    sha256 cellar: :any,                 arm64_big_sur:  "d9121e56c7dbfad640c9f8e3c3cc621d88404dc1047a4a7b7c82fe06193bca1f"
-    sha256 cellar: :any,                 sonoma:         "e5b50e9a452dcb136bf4399d1c731841c84adcbf4530dacb5f2a13675d26aac8"
-    sha256 cellar: :any,                 ventura:        "24cdce188aa8b64168774288ccee9546cfacf30b42dbba90ad560b8abea1a639"
-    sha256 cellar: :any,                 monterey:       "e79be7d4c611f0017567172771761b1df62d140e79ffa6d2538577eb24a48e44"
-    sha256 cellar: :any,                 big_sur:        "963720057ac56afd38f8d4f801f036231f08f5cf7db36cb470814cbc1b38e49c"
-    sha256 cellar: :any,                 catalina:       "72ed40aec0356157f3d5071ecb28c481b3f3502985a320ec1848cdc8cf8483c1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cae18b6a0315f7e3d8fa8039fd18d6d20fd7f8a0dbb9399e63c95ae0c52fb9d"
+    sha256 cellar: :any,                 arm64_sonoma:   "fff3e66328455513a887dd4e8043a13a1213035f7e4a757d4fdf93f9815ffd1d"
+    sha256 cellar: :any,                 arm64_ventura:  "5d14898869c8bb7d12f6a8091b16c2db76909293b579d10b0ee846248451a765"
+    sha256 cellar: :any,                 arm64_monterey: "05c5363ff9f8a4aeaf65eb3f95fba3a4fc7f665d35a627a2d212c43fb7ad5838"
+    sha256 cellar: :any,                 sonoma:         "e49b076581da7311e8a724c409fa12a76a948e1e6805022d4e3cbca6af2c946a"
+    sha256 cellar: :any,                 ventura:        "4f8f2015115cc18610ff65a9f0f34589ebd9596b929066867bbbcac18977b689"
+    sha256 cellar: :any,                 monterey:       "e02e54902348f1918adf758a6b2f4c5d113570f4c98e9f0a38b8d3b24c50c942"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8a4b5075fbdaf5dca99d33fc5d1f21bf45832dcb3a98267737ebc3cd9e55515"
   end
 
   head do

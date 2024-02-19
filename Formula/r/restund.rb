@@ -16,7 +16,7 @@ class Restund < Formula
     sha256 x86_64_linux:   "edc5342cec41fc3fe065907f880cfaafd50dd83258a296c43b1144ed63a7b8d0"
   end
 
-  deprecate! date: "2023-01-11", because: :unmaintained
+  disable! date: "2024-01-12", because: :unmaintained
 
   depends_on "libre"
 

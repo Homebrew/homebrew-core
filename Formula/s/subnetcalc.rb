@@ -1,20 +1,19 @@
 class Subnetcalc < Formula
   desc "IPv4/IPv6 subnet calculator"
   homepage "https://www.nntb.no/~dreibh/subnetcalc/index.html"
-  url "https://github.com/dreibh/subnetcalc/archive/refs/tags/subnetcalc-2.4.23.tar.gz"
-  sha256 "cbfdcc54991cacb91adc652cb5f03b3ed975da0f574ff3f96f192c6046dc0e34"
+  url "https://github.com/dreibh/subnetcalc/archive/refs/tags/subnetcalc-2.5.1.tar.gz"
+  sha256 "c7257ca02518e863bf15042f7f88a70cae847917f333dc5dc17b7ccc6fc48000"
   license "GPL-3.0-or-later"
   head "https://github.com/dreibh/subnetcalc.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48e6ddafc3e3ec5a398c0d7fa0d2da5ce205dd5d65adf7264037a52bc1be2fdd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c23e94c5393dbff89beb8183c27617d3d60506ae2a917cfead0acbe9d359e00e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e8f04b4b36f2cce4c87c8f89ea785154a92ef34910ef6e3300b67525f78b9d9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "92b125e3c6753bc2ded7ae2d372bfd883597d916f9bdfe79a1f66e345fb814b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "3c8061b49a179ea98fe6087e9b4cda6006168bebcd1e9fa9b84bb96b1e2dc54f"
-    sha256 cellar: :any_skip_relocation, monterey:       "b72f1faf131c21d490e193d079b0dfa822de569ff815acca5cdb5722acdfa8e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1582ddde342d5e7b02f1cc26266843aeb736a1abee8a1a08af2bf567ba6ed05"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c68d8d3458b1880d69912904cf05fdac23daff520ff49d5c9b3c57dfb32c3c49"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5faea6c8efcb60fe3982b9f40d025a84665e1add0a2911eff15c6155c5d8fb2f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa4e3a5bdcbfa06cd3887dfac1ed33fe914567aabed4cf32631dce70a9d7795e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fa8ad8d4b785ae31383188aaf2f22b550042adc174b1a34f04d9f149a6ce80f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "d780d4de85adbefd23f805d9e1869795cb0ed3860ccba27276a678d30ba15ed2"
+    sha256 cellar: :any_skip_relocation, monterey:       "86da62090befa393bb27f39c47f2c7ad9bf67331690aa5137e81aec72ddfca3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49e4fdb4ac568c15b7f6c17c8618dc52f49e01f21eba1211b109fd6982b05677"
   end
 
   depends_on "cmake" => :build
@@ -33,6 +32,7 @@ class Subnetcalc < Formula
       Netmask       = 255.255.255.255
       Broadcast     = not needed on Point-to-Point links
       Wildcard Mask = 0.0.0.0
+      Hex. Address  = 01010101
       Hosts Bits    = 0
       Max. Hosts    = 1   (2^0 - 0)
       Host Range    = { 1.1.1.1 - 1.1.1.1 }

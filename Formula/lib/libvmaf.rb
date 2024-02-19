@@ -1,21 +1,18 @@
 class Libvmaf < Formula
   desc "Perceptual video quality assessment based on multi-method fusion"
   homepage "https://github.com/Netflix/vmaf"
-  url "https://github.com/Netflix/vmaf/archive/refs/tags/v2.3.1.tar.gz"
-  sha256 "8d60b1ddab043ada25ff11ced821da6e0c37fd7730dd81c24f1fc12be7293ef2"
+  url "https://github.com/Netflix/vmaf/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "7178c4833639e6b989ecae73131d02f70735fdb3fc2c7d84bc36c9c3461d93b1"
   license "BSD-2-Clause-Patent"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "230cc85a7d9f84bf4d27572b3440575976b50f9d0b55061f3ad7f6e53a68820d"
-    sha256 cellar: :any,                 arm64_ventura:  "76e8cc2dbe88b97c0ae2ee12d8c59c247c876eaa31d16c73225189bed1b37ee2"
-    sha256 cellar: :any,                 arm64_monterey: "368c900fbbcf372b6e0817f00109f6359f976d936aeeab6c9dc9e2d6dc6407b6"
-    sha256 cellar: :any,                 arm64_big_sur:  "ea7a7559df41e7370133733420f5f8afc39f7e311a5e2f847d7bc7a89df242fa"
-    sha256 cellar: :any,                 sonoma:         "c0e45e64bab728cac1eed86307cee8a91e1d83fa68a92b1d081b10cafaa8bcb5"
-    sha256 cellar: :any,                 ventura:        "a5f7a09315c5919f4e5291686500a10e0fc70f0d916609262f6ea71d0c4048d1"
-    sha256 cellar: :any,                 monterey:       "932d2e01299b5ef5f35401a366d3b5638f89fb8f90ec13135ba34605fc9be6b3"
-    sha256 cellar: :any,                 big_sur:        "c23d718b58c09463d996418473d8448864287bab59985a6fc3ee35fa157b3d0f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2033e78ac571b7705111f3c69c0ee36e33ee05b426b7b63188ee0f217d796992"
+    sha256 cellar: :any,                 arm64_sonoma:   "bdc90ebc175c1f071be4ce895051586583177c3b1029817dc1078472a3da8261"
+    sha256 cellar: :any,                 arm64_ventura:  "cc4765c5f45c5f87bcc42dba73fada9659abbf47bb9adb68bd406c26ac23380a"
+    sha256 cellar: :any,                 arm64_monterey: "2c9b931ff4d557c6f731b1e834464f96e2620e77f1b857c2ec3061bb589e42da"
+    sha256 cellar: :any,                 sonoma:         "a3ad27257fe552feb0d8ba3f2285feb7a6a772b845514e8d97bf0f9a9c0f1830"
+    sha256 cellar: :any,                 ventura:        "28589a2b48fbd851749f57be19eda359e64056f289f899b80a52224dc3a6ad71"
+    sha256 cellar: :any,                 monterey:       "bb97b9845e37e7090fecfff2e47c32c08c18ea4161da8d88134a7f7be4e07c22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cb81b38b8c402fc0c12a8a639a7208406958d27a1f8a513c706a5636903cdc4"
   end
 
   depends_on "meson" => :build

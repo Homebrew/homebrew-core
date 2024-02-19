@@ -3,19 +3,19 @@ require "language/node"
 class Pyright < Formula
   desc "Static type checker for Python"
   homepage "https://github.com/microsoft/pyright"
-  url "https://registry.npmjs.org/pyright/-/pyright-1.1.343.tgz"
-  sha256 "864ba5cda8158fc9de24410761b1e33b982351426f9b9a2619b2474a72b09064"
+  url "https://registry.npmjs.org/pyright/-/pyright-1.1.350.tgz"
+  sha256 "d3bc2b74950884c7e362df0f3728bb58c112f16f9a122d18ea177ba8c6845626"
   license "MIT"
   head "https://github.com/microsoft/pyright.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5b1c2da4fb0b73c2ec14c7030ae024ce4690cf21070905d3c24adf2f6499bd09"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b1c2da4fb0b73c2ec14c7030ae024ce4690cf21070905d3c24adf2f6499bd09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b1c2da4fb0b73c2ec14c7030ae024ce4690cf21070905d3c24adf2f6499bd09"
-    sha256 cellar: :any_skip_relocation, sonoma:         "31d1438ba312e3ec3227c65d5200f28705309ca1db45d01d7bdaca3ab07c7a30"
-    sha256 cellar: :any_skip_relocation, ventura:        "31d1438ba312e3ec3227c65d5200f28705309ca1db45d01d7bdaca3ab07c7a30"
-    sha256 cellar: :any_skip_relocation, monterey:       "31d1438ba312e3ec3227c65d5200f28705309ca1db45d01d7bdaca3ab07c7a30"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac98176e5a21216d1841816af0d2fe44662dfc429fc2ffbd2fcd5b53b9b63dcb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "814450fb038270d36dcb7957c1dfd91bc654cd80170275ea3a9b92e68a29c4a1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "814450fb038270d36dcb7957c1dfd91bc654cd80170275ea3a9b92e68a29c4a1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "814450fb038270d36dcb7957c1dfd91bc654cd80170275ea3a9b92e68a29c4a1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "967fcaf17d48418504fd41b15836795bcd474016d65d6b15a86fe1d626fadd54"
+    sha256 cellar: :any_skip_relocation, ventura:        "967fcaf17d48418504fd41b15836795bcd474016d65d6b15a86fe1d626fadd54"
+    sha256 cellar: :any_skip_relocation, monterey:       "967fcaf17d48418504fd41b15836795bcd474016d65d6b15a86fe1d626fadd54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c559ad55e01f7a291013f7bd96e510dc15a620202057b2b0ee0182b02a12fe28"
   end
 
   depends_on "node"

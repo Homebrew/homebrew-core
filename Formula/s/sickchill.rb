@@ -3,19 +3,18 @@ class Sickchill < Formula
 
   desc "Automatic Video Library Manager for TV Shows"
   homepage "https://sickchill.github.io"
-  url "https://files.pythonhosted.org/packages/b0/09/d4fb6080039b1a4a5652e00523e8475119d9b98c5682e20489965e372bdb/sickchill-2023.6.27.tar.gz"
-  sha256 "1899c3f927f43faabdacdad22b3c8e481c16e51d45f03e206a2c0b63375fdca6"
+  url "https://files.pythonhosted.org/packages/01/b8/0794ee9b739a05ecb87afa0a0c2d823afb3aac03a58a5618ec9575bd52f6/sickchill-2024.2.2.tar.gz"
+  sha256 "83bea4b934d8007c3b1ee0d6d6f980bf5a046a64da07e7534251bac7ee0f4813"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 7
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2bbd0b54cadd5932b3f860589f4925050c051940646fe0d79c3c6104241361fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68287d451a7a2e575076be43561884a5a115ce5cec6e0b298c9db8251322bc89"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59aef73dc675a0e23efa8fa40ab6c6cb9ca59c6ae902a6e1aaa79d95ec241ed7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b66ffca75850463936be59e1dab3bd451262cfe0562f6a03875bdcdacee55641"
-    sha256 cellar: :any_skip_relocation, ventura:        "bbc33a705bc87bd44e0c7b16c9c65654623c60afc7347f169ef76dfcba8af7cb"
-    sha256 cellar: :any_skip_relocation, monterey:       "18ff14923e1d474e15845208c2a0a50929a14f2da29b3f592d8e6f55456024d3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b872b99d3c5377598165e491f7cfb7e5d3251f7096cec50c42b38aee647bcada"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8829090ba012c3e2f8596a2b6de50eee22b4f048d183045f6c6235b472c706fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef8a528ff8b00dadbe88f3ffc7753eb30b4a75ccec0760aeeabc580d85668a6e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "980a9b34225c5b3b47e2ef6f5f705a54b2e720c0876352cebd67a76047bdaad6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b17681da528d17e75a97fb263265e93419717b9a727d62766d28817df5982d3e"
+    sha256 cellar: :any_skip_relocation, ventura:        "57abba6f18b4e66ff8237f6830d51fc354926a86dede0ca018295a0273d333d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "bf77b731b05e7bc2d0cb333f830a810f54b10e194d2064d66160ea75e8f68405"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e30bd242ac2e1b09baab746cd0c995f18a38a6a297d76a588d99a22172ebd35"
   end
 
   depends_on "cffi"
@@ -29,6 +28,7 @@ class Sickchill < Formula
   depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "six"
+
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
     sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
@@ -40,8 +40,8 @@ class Sickchill < Formula
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
-    sha256 "492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"
+    url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
+    sha256 "74e3d1928edc070d21748185c46e3fb33490f22f52a3addee9aee0f4f7781051"
   end
 
   resource "beekeeper-alt" do
@@ -54,9 +54,9 @@ class Sickchill < Formula
     sha256 "2a24ccda1725a51a650893d0b63260138359eaa299bb6e7a09961350a2a6e05c"
   end
 
-  resource "cacheyou" do
-    url "https://files.pythonhosted.org/packages/8e/6e/8a9d13f938789b29e89b78cfeb9d0a9e002c67272ead73060c8306b74fc8/cacheyou-23.3.tar.gz"
-    sha256 "7e408f15f4978fea2247734b308621f75f7fe169b461679519c72e8a85d61d5d"
+  resource "cachecontrol" do
+    url "https://files.pythonhosted.org/packages/9e/65/3356cfc87bdee0cdf62d941235e936a26c205e4f1e1f2c85dbd952d7533a/cachecontrol-0.13.1.tar.gz"
+    sha256 "f012366b79d2243a6118309ce73151bf52a38d4a5dac8ea57f09bd29087e506b"
   end
 
   resource "chardet" do
@@ -65,8 +65,8 @@ class Sickchill < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/6d/b3/aa417b4e3ace24067f243e45cceaffc12dba6b8bd50c229b43b3b163768b/charset-normalizer-3.3.1.tar.gz"
-    sha256 "d9137a876020661972ca6eec0766d81aef8a5627df628b664b234b73396e727e"
+    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
+    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
   resource "cinemagoer" do
@@ -100,8 +100,8 @@ class Sickchill < Formula
   end
 
   resource "dogpile-cache" do
-    url "https://files.pythonhosted.org/packages/d2/f8/f3e877361372737d83f6592d6ba2126b2018d2208472a5dcb82773694281/dogpile.cache-1.2.2.tar.gz"
-    sha256 "fd9022c0d9cbadadf20942391a95adaf296be80b42daa8e202f8de1c21f198b2"
+    url "https://files.pythonhosted.org/packages/26/31/03bb01f10fc326388c5637747aa0f63a29a740061ff187c871913b75e273/dogpile.cache-1.3.0.tar.gz"
+    sha256 "0a387f1932c071ee8fd971d2ff51f8aba1106c559439a51b8c74a207f40e215d"
   end
 
   resource "enzyme" do
@@ -120,18 +120,18 @@ class Sickchill < Formula
   end
 
   resource "greenlet" do
-    url "https://files.pythonhosted.org/packages/54/df/718c9b3e90edba70fa919bb3aaa5c3c8dabf3a8252ad1e93d33c348e5ca4/greenlet-3.0.1.tar.gz"
-    sha256 "816bd9488a94cba78d93e1abb58000e8266fa9cc2aa9ccdd6eb0696acb24005b"
+    url "https://files.pythonhosted.org/packages/17/14/3bddb1298b9a6786539ac609ba4b7c9c0842e12aa73aaa4d8d73ec8f8185/greenlet-3.0.3.tar.gz"
+    sha256 "43374442353259554ce33599da8b692d5aa96f8976d567d4badf263371fbe491"
   end
 
   resource "guessit" do
-    url "https://files.pythonhosted.org/packages/96/5f/64304acee35bac703cee51656a5caf37bd18c9490561fbff225922f41d39/guessit-3.7.1.tar.gz"
-    sha256 "2c18d982ee6db30db5d59557add0324a2b49bf3940a752947510632a2b58a3c1"
+    url "https://files.pythonhosted.org/packages/d0/07/5a88020bfe2591af2ffc75841200b2c17ff52510779510346af5477e64cd/guessit-3.8.0.tar.gz"
+    sha256 "6619fcbbf9a0510ec8c2c33744c4251cad0507b1d573d05c875de17edc5edbed"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "ifaddr" do
@@ -142,11 +142,6 @@ class Sickchill < Formula
   resource "imagesize" do
     url "https://files.pythonhosted.org/packages/a7/84/62473fb57d61e31fef6e36d64a179c8781605429fd927b5dd608c997be31/imagesize-1.4.1.tar.gz"
     sha256 "69150444affb9cb0d5cc5a92b3676f0b2fb7cd9ae39e947a5e11a36b4497cd4a"
-  end
-
-  resource "imdbpy" do
-    url "https://files.pythonhosted.org/packages/30/57/d72563c77f63efe08da5645ab92d5f1dd382f6d3460e0b0c4c4ee7847f1c/IMDbPY-2022.7.9.tar.gz"
-    sha256 "80a5edf8a87113ff22a44d00fd76d422c42cfeecd4ea820be33753b8f24bf4e6"
   end
 
   resource "ipaddress" do
@@ -165,18 +160,18 @@ class Sickchill < Formula
   end
 
   resource "mako" do
-    url "https://files.pythonhosted.org/packages/05/5f/2ba6e026d33a0e6ddc1dddf9958677f76f5f80c236bd65309d280b166d3e/Mako-1.2.4.tar.gz"
-    sha256 "d60a3903dc3bb01a18ad6a89cdbe2e4eadc69c0bc8ef1e3773ba53d44c3f7a34"
+    url "https://files.pythonhosted.org/packages/d4/1b/71434d9fa9be1ac1bc6fb5f54b9d41233be2969f16be759766208f49f072/Mako-1.3.2.tar.gz"
+    sha256 "2a0c8ad7f6274271b3bb7467dd37cf9cc6dab4bc19cb69a4ef10669402de698e"
   end
 
   resource "markdown2" do
-    url "https://files.pythonhosted.org/packages/8e/b3/64c459af88ea8c2eeb020d0edf3e36c62176e988c47e412133c37c5da5e7/markdown2-2.4.10.tar.gz"
-    sha256 "cdba126d90dc3aef6f4070ac342f974d63f415678959329cc7909f96cc235d72"
+    url "https://files.pythonhosted.org/packages/3c/e4/87a454674ac303e2ca6c25713845d2ae1b59c1a88576054cbec25aaebad1/markdown2-2.4.12.tar.gz"
+    sha256 "1bc8692696954d597778e0e25713c14ca56d87992070dedd95c17eddaf709204"
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
   resource "msgpack" do
@@ -195,8 +190,8 @@ class Sickchill < Formula
   end
 
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/02/d8/acee75603f31e27c51134a858e0dea28d321770c5eedb9d1d673eb7d3817/pbr-5.11.1.tar.gz"
-    sha256 "aefc51675b0b533d56bb5fd1c8c6c0522fe31896679882e1c4c63d5e4a0fccb3"
+    url "https://files.pythonhosted.org/packages/8d/c2/ee43b3b11bf2b40e56536183fc9f22afbb04e882720332b6276ee2454c24/pbr-6.0.0.tar.gz"
+    sha256 "d1377122a5a00e2f940ee482999518efe16d745d423a670c27773dfbc3c9a7d9"
   end
 
   resource "profilehooks" do
@@ -210,8 +205,8 @@ class Sickchill < Formula
   end
 
   resource "pygithub" do
-    url "https://files.pythonhosted.org/packages/fb/30/203d3420960853e399de3b85d6613cea1cf17c1cf7fc9716f7ee7e17e0fc/PyGithub-1.59.1.tar.gz"
-    sha256 "c44e3a121c15bf9d3a5cc98d94c9a047a5132a9b01d22264627f58ade9ddc217"
+    url "https://files.pythonhosted.org/packages/98/a8/ceb6f51d2fff91ce4a670218c2aa9bff44f05f541ba7e1ccc632c2751f5b/PyGithub-2.2.0.tar.gz"
+    sha256 "e39be7c4dc39418bdd6e3ecab5931c636170b8b21b4d26f9ecf7e6102a3b51c3"
   end
 
   resource "pyjwt" do
@@ -230,8 +225,8 @@ class Sickchill < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/bf/a0/e667c3c43b65a188cc3041fa00c50655315b93be45182b2c94d185a2610e/pyOpenSSL-23.3.0.tar.gz"
-    sha256 "6b2cba5cc46e822750ec3e5a81ee12819850b11303630d575e98108a079c2b12"
+    url "https://files.pythonhosted.org/packages/eb/81/022190e5d21344f6110064f6f52bf0c3b9da86e9e5a64fc4a884856a577d/pyOpenSSL-24.0.0.tar.gz"
+    sha256 "6aa33039a93fffa4563e655b61d11364d01264be8ccb49906101e02a334530bf"
   end
 
   resource "pysrt" do
@@ -245,8 +240,8 @@ class Sickchill < Formula
   end
 
   resource "python-slugify" do
-    url "https://files.pythonhosted.org/packages/de/63/0f60208d0d3dde1a87d30a82906fa9b00e902b57f1ae9565d780de4b41d1/python-slugify-8.0.1.tar.gz"
-    sha256 "ce0d46ddb668b3be82f4ed5e503dbc33dd815d83e2eb6824211310d3fb172a27"
+    url "https://files.pythonhosted.org/packages/c5/57/38d96fdbcc2f9b965c0a2cbb62b46908211b23dabda57502f3d8b372e4ca/python-slugify-8.0.3.tar.gz"
+    sha256 "e04cba5f1c562502a1175c84a8bc23890c54cdaf23fccaaf0bf78511508cabed"
   end
 
   resource "python-twitter" do
@@ -260,8 +255,8 @@ class Sickchill < Formula
   end
 
   resource "qbittorrent-api" do
-    url "https://files.pythonhosted.org/packages/33/ed/aaf1de8d72ac155006c9733a7d0623a30dec2e16e1e86d2f8a369bcc5e8f/qbittorrent-api-2023.10.54.tar.gz"
-    sha256 "c421c1fe93d445cd7ebe37ba22104767a1e8814b2661f044f7defb42dc28736c"
+    url "https://files.pythonhosted.org/packages/79/de/f1e129f4b4fb959c5f6ef3760f8675a41bcc93db54945250cfd702208eba/qbittorrent-api-2024.1.58.tar.gz"
+    sha256 "e89c94f66af4c5f44b07b00939c9cf73e3e91741168bf47f5b2de508a6a70260"
   end
 
   resource "rarfile" do
@@ -295,8 +290,8 @@ class Sickchill < Formula
   end
 
   resource "sqlalchemy" do
-    url "https://files.pythonhosted.org/packages/ae/e2/47f40dc06472df5a906dd8eb9fe4ee2eb1c6b109c43545708f922b406acc/SQLAlchemy-2.0.22.tar.gz"
-    sha256 "5434cc601aa17570d79e5377f5fd45ff92f9379e2abed0be5e8c2fba8d353d2b"
+    url "https://files.pythonhosted.org/packages/7b/bb/85bd8e211f54983e927c7cd9b2ad66773fbef507957156fc72e481a62681/SQLAlchemy-2.0.25.tar.gz"
+    sha256 "a2c69a7664fb2d54b8682dd774c3b54f67f84fa123cf84dda2a5f40dcaa04e08"
   end
 
   resource "stevedore" do
@@ -326,8 +321,8 @@ class Sickchill < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/48/64/679260ca0c3742e2236c693dc6c34fb8b153c14c21d2aa2077c5a01924d6/tornado-6.3.3.tar.gz"
-    sha256 "e7d8db41c0181c80d76c982aacc442c0783a2c54d6400fe028954201a2e032fe"
+    url "https://files.pythonhosted.org/packages/bd/a2/ea124343e3b8dd7712561fe56c4f92eda26865f5e1040b289203729186f2/tornado-6.4.tar.gz"
+    sha256 "72291fa6e6bc84e626589f1c29d90a5a6d593ef5ae68052ee2ef000dfd273dee"
   end
 
   resource "tus-py" do
@@ -341,18 +336,18 @@ class Sickchill < Formula
   end
 
   resource "unidecode" do
-    url "https://files.pythonhosted.org/packages/80/5d/f156f6a7254ecc0549de0eb75f786d2df724c0310b97c825383517d2c98d/Unidecode-1.3.7.tar.gz"
-    sha256 "3c90b4662aa0de0cb591884b934ead8d2225f1800d8da675a7750cbc3bd94610"
+    url "https://files.pythonhosted.org/packages/f7/89/19151076a006b9ac0dd37b1354e031f5297891ee507eb624755e58e10d3e/Unidecode-1.3.8.tar.gz"
+    sha256 "cfdb349d46ed3873ece4586b96aa75258726e2fa8ec21d6f00a591d98806c2f4"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
-    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   resource "validators" do
-    url "https://files.pythonhosted.org/packages/95/14/ed0af6865d378cfc3c504aed0d278a890cbefb2f1934bf2dbe92ecf9d6b1/validators-0.20.0.tar.gz"
-    sha256 "24148ce4e64100a2d5e267233e23e7afeb55316b47d30faae7eb6e7292bc226a"
+    url "https://files.pythonhosted.org/packages/9b/21/40a249498eee5a244a017582c06c0af01851179e2617928063a3d628bc8f/validators-0.22.0.tar.gz"
+    sha256 "77b2689b172eeeb600d9605ab86194641670cdb73b60afd577142a9397873370"
   end
 
   resource "win-inet-pton" do
@@ -361,8 +356,8 @@ class Sickchill < Formula
   end
 
   resource "wrapt" do
-    url "https://files.pythonhosted.org/packages/f8/7d/73e4e3cdb2c780e13f9d87dc10488d7566d8fd77f8d68f0e416bfbd144c7/wrapt-1.15.0.tar.gz"
-    sha256 "d06730c6aed78cee4126234cf2d071e01b44b915e725a6cb439a879ec9754a3a"
+    url "https://files.pythonhosted.org/packages/95/4c/063a912e20bcef7124e0df97282a8af3ff3e4b603ce84c481d6d7346be0a/wrapt-1.16.0.tar.gz"
+    sha256 "5f370f952971e7d17c7d1ead40e49f32345a7f7a5373571ef44d800d06b1899d"
   end
 
   resource "xmltodict" do

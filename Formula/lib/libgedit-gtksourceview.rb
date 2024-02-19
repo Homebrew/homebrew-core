@@ -1,20 +1,27 @@
 class LibgeditGtksourceview < Formula
   desc "Text editor widget for code editing"
-  homepage "https://gedit-technology.net"
-  url "https://gedit-technology.net/tarballs/libgedit-gtksourceview/libgedit-gtksourceview-299.0.4.tar.xz"
-  sha256 "7453a1cce2f6d58871644d2203ecdbbb043050886170ebea376c1cf6e27f86d8"
+  homepage "https://gedit-technology.github.io"
+  url "https://github.com/gedit-technology/libgedit-gtksourceview/releases/download/299.0.5/libgedit-gtksourceview-299.0.5.tar.xz"
+  sha256 "4bdac3c6dd885a2af8064a7265618ff8505b2324ab02fb00b0ce55e02978d3d6"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/gedit-technology/libgedit-gtksourceview.git", branch: "main"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 arm64_sonoma:   "a8e3b2020589892dc86ed28f6f7eac7f3b919425afc540308f6eef107c347804"
-    sha256 arm64_ventura:  "0eb74462ae1ca6d0186b59d697dbf575a3993182cebc4abe6bc058464893f7dd"
-    sha256 arm64_monterey: "270294063c104f7a9e6ad0a48a57f2f99ecd545ba8fa95f552ba12640412f639"
-    sha256 sonoma:         "3afd8184043d8168639aca39f777267f3f3152b13d3ffc705b9d24dbeedd66e7"
-    sha256 ventura:        "77d01231fce8196d52aa4d3394f2ed1780d5808502e78a682e7c0ec2d6ed1f30"
-    sha256 monterey:       "7b2b1a817c1d69673398f44cce5ecc86a764ee4c7c820f6fb1609b100674c500"
-    sha256 x86_64_linux:   "ed1218ce73ff70c1e1c5923a9509e3df6ddfa9a87f7c9c2e1e06728059d2b73a"
+    sha256 arm64_sonoma:   "e72a85aa5b87ec2d2850ec41a7d3158e7c9986658eee1c5537aa4955e753941a"
+    sha256 arm64_ventura:  "6a84792b3059fc936cac45e119797837c714330baa198adf86ecbc09585cc6df"
+    sha256 arm64_monterey: "7ef58b13dcd1eac1ce8c28b2198960bea396d7df32ea7cff874af54cbc2379df"
+    sha256 sonoma:         "9d89906aaab6d10aa7e874892d12e2729ff0f19c489f376ae011e57b00ca1ef6"
+    sha256 ventura:        "cb784238f49a9212ddffb8d301ff4e674355e360bd1c5c999a0c8ac782a79b81"
+    sha256 monterey:       "afef3516cff41ec6eeb76c07794941ec254d3b1b64495676ca1ec7f9f5367e9e"
+    sha256 x86_64_linux:   "704afbcba67f32813fca21c5534469f529e85e8e6567b53e3f54c2180dd374ba"
   end
 
   depends_on "gobject-introspection" => :build

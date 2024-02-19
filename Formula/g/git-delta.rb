@@ -4,18 +4,17 @@ class GitDelta < Formula
   url "https://github.com/dandavison/delta/archive/refs/tags/0.16.5.tar.gz"
   sha256 "00d4740e9da4f543f34a2a0503615f8190d307d1180dfb753b6911aa6940197f"
   license "MIT"
-  head "https://github.com/dandavison/delta.git", branch: "master"
+  head "https://github.com/dandavison/delta.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bea4e9b357ea0dbd9fb45bf30896fc23ee5e95a189ef3568779dc4f0eca30afa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "072bdd8b2424a4e874c5240c9eabc1ac2051a0b10ccc9158abc3a576b2d0b8e9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5bcdb9902178b0edfe9120cb7eeb07f9a2db90922a785d22a2433dd08756832"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b1393d58cedbee7e4586e293fbce648739dc29e4d13e0f331fd306fb40138463"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9416d48440ea5f69578420efe2c263ef2a87f263551c885a11a4e07cd86b3f0f"
-    sha256 cellar: :any_skip_relocation, ventura:        "6128b49003bcd7e1c5ddd051ccd71a49782d7790bd6e07382553a4a2dbcc0d38"
-    sha256 cellar: :any_skip_relocation, monterey:       "16b904194ec5122d690ebc81f12f1fcfc1a61594ac7b2af2364501b40ac7ad9c"
-    sha256 cellar: :any_skip_relocation, big_sur:        "abdc4f4b8c20f16126052c6c11f36355aa897758ad30b14b538dbf1de447ecb9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19bca273b8a26624a43782b6c6f16dca6eaf661480325f5f65902a7097f12813"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0bff1b5889c50ca2b54c237e6c5b7c33c3c908ec1cdbacb842733e55a9a45cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c42558c2b0336801757a74159c2e161249024a333392c4da1adf9d73dbfc1a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bc82b46b844780c928d44d01416d0866a645bf32121746e36b9ec4e8ac8c1a37"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dbf302505500a561df1c54890cc4e0727eb80026363f401450a6e8b355e17b3f"
+    sha256 cellar: :any_skip_relocation, ventura:        "33e1208799de874a4ae534e00066520d66d3f58f91e511b41901462af67b359b"
+    sha256 cellar: :any_skip_relocation, monterey:       "878fab2a087db804594602e9c773085d8b978ea9bd6d7d129785ea8dd909811b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "abf0f949bf9a26f26c61136e5d3e544d6eaf1f1ebd0a212dc5fbc737eaabd8b4"
   end
 
   depends_on "rust" => :build

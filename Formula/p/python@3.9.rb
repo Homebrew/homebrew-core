@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.18/Python-3.9.18.tar.xz"
   sha256 "01597db0132c1cf7b331eff68ae09b5a235a3c3caa9c944c29cac7d1c4c4c00a"
   license "Python-2.0"
-  revision 1
+  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,13 +12,13 @@ class PythonAT39 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6fabb475fa48b2de28b4ab02be65d6125ad2098870c84984c21d9ff91746e2d4"
-    sha256 arm64_ventura:  "2456710742927dfc075ff3f9706ea0a3eb0b9db1731005b447b4421575e97bc5"
-    sha256 arm64_monterey: "496ba426b91ae1accdbabf06e590a01eefeee308e080f6e102bd348d06d8d57d"
-    sha256 sonoma:         "52fc3ef75d1fd4b69ff6299507813b53416b4fcfe2fcf2b2d8477b1cb0ca622f"
-    sha256 ventura:        "fbedc0b0e9ea1b4d7961fc3028e816218bf91da3d384ce0661ff68a836596d25"
-    sha256 monterey:       "de53acfbbdf780703d05fa7dcac4f261fab79018dec0b0ddcace8294005fdb45"
-    sha256 x86_64_linux:   "ba05bb89e9a44af5a0a0aaaf13c72536810ea7f2e98e9e29c679fddded03ee34"
+    sha256 arm64_sonoma:   "adbbe4d4fd80b70e40cb7a233d2d5f5dda88bdc274deb153fc25b669c1d0e5f7"
+    sha256 arm64_ventura:  "33032e6cc04bbaff3072423e4185ef2b727e9822cbea27464a4e609d6db078de"
+    sha256 arm64_monterey: "644004b935343060b7d18ddc721062c1fe86e0492bcfbd617bcdecb9461b0e6c"
+    sha256 sonoma:         "3aeaef7b61779fdb88761e69c87d89ddf2bb941dc3e14b5e6fac75d9fba40d3a"
+    sha256 ventura:        "faea0427a21ce1cb5eb1a00df6f5fc6a715931eb91ba339fc8842db0c2fb3c6b"
+    sha256 monterey:       "c62d52e17adddd63c3e7e1116007e333decc942501fb61fcc4a2985bc91a39be"
+    sha256 x86_64_linux:   "d81840e11c46aebc4376c66a6780a037ecb72c3176f3c49e86f5647dcb702298"
   end
 
   # setuptools remembers the build flags python is built with and uses them to

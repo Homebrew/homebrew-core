@@ -1,23 +1,19 @@
 class RipgrepAll < Formula
   desc "Wrapper around ripgrep that adds multiple rich file types"
   homepage "https://github.com/phiresky/ripgrep-all"
-  url "https://github.com/phiresky/ripgrep-all/archive/refs/tags/v0.9.6.tar.gz"
-  sha256 "8cd7c5d13bd90ef0582168cd2bef73ca13ca6e0b1ecf24b9a5cd7cb886259023"
+  url "https://github.com/phiresky/ripgrep-all/archive/refs/tags/v0.10.6.tar.gz"
+  sha256 "06cd619ad6638be206266a77fdf11034dc2dc15d97b3a057b0d6280a17334680"
   license "AGPL-3.0"
   head "https://github.com/phiresky/ripgrep-all.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbcd8bd05ffc025823ee831730f22fb278735f1774e94ac86788c612744339d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e84c224329f6ec5448e37681f45769a9ab72c6935288db2ea36bcf284b134057"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "20bdd6f136760c89ba299a97dab08ae2393bb7ae585cf1fff2369fadb6b85bd2"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "ee9f510ddf55cddfa9c7e7299c1793a0076ba0a9a1a1141a012e31f52a78e2e0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "37f4256328cb84556a442b5223e2c7f9486009073e7616b45fafb5c09197e862"
-    sha256 cellar: :any_skip_relocation, ventura:        "efd9dc53dee198f51ca84e1c0ebc1202a49f1c78989cd13729cdb33a23b38c66"
-    sha256 cellar: :any_skip_relocation, monterey:       "37a8535f3c8c7018cf61513d94066004f4245d6df4fca2cfd8137ff3a4472614"
-    sha256 cellar: :any_skip_relocation, big_sur:        "416071978569fb7aab9af008025b98def9ed0187de27d2c69106ec92021755b8"
-    sha256 cellar: :any_skip_relocation, catalina:       "151485dced116e5a0d6bcb7d02795518b31726919ae9e93a891339a123fcf19e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "217efb369c00a588b6081bf888a6647a388a46b04618bcb118de7d28f3202973"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2036831e61b84f77ba55d1e02d9be3cde6e5d696d45bd10b4fbb17b830419a64"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6db7b666345a08fd47ab3a328b746a937d0dff8b2045d73f2f8a4589567a9ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c0d511ae4e4f4c5c4eb4d68a4a0b0eaebee100e0ff164b9dc562c5fce94e21a0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e91435c58cd5563a065f830506dc069a36bc1fae46c930b218feef20d900c8ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "73eb0bb280d911bd0ff69eb99196088f69baea927e8907af895ae17bba8da89a"
+    sha256 cellar: :any_skip_relocation, monterey:       "5daf59c3d753b18a621e779ee139bd8f57d9d624194325847c18656ecb0f55a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1339a4b63e0bcbe33b32bbcb4ec11b1cb89430673a986c05e1b2c21fb46a67bc"
   end
 
   depends_on "rust" => :build

@@ -1,8 +1,8 @@
 class Juicefs < Formula
   desc "Cloud-based, distributed POSIX file system built on top of Redis and S3"
   homepage "https://juicefs.com"
-  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "43e1df896fc4c32c8c5ef75b418bf08dd27ca0a078c7e01d2a8c17db57f2028d"
+  url "https://github.com/juicedata/juicefs/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "378dccf9e0ca90d3643b91bfb88bb353fb4101f41f9df9519d67d255fb18af58"
   license "Apache-2.0"
   head "https://github.com/juicedata/juicefs.git", branch: "main"
 
@@ -12,16 +12,17 @@ class Juicefs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6991e448bcfdd3392fc7047d7558bf60131d31851c1e2d1af620976230020a54"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b503dfb8991f02b1a0c5e6581ac15d76033da8e66bae8f826258da94c94bc32"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd9f9a2c4f883723777f15f495737037ba71e0ef45b959fb2540fc20e567d285"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e3742178f10a9a1e95b00fe61ba44af5d9da1b739d83da04769359594974b392"
-    sha256 cellar: :any_skip_relocation, ventura:        "f3dc437cad218ccd595aeddaf60b83c2df289ad842b5aaf8ad19e917e7c85028"
-    sha256 cellar: :any_skip_relocation, monterey:       "3b823e6214fe5195577a331533d638707633bd4dec1cf48ac8810dc54b36d350"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e00a8b341c88b76ab61f28da8c7892f8b50e31373c5588d6a832759f85e179a7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e8da1a491e8fd381a12f74c3143a96fda4391a95421667e8a3bb9913bab4b82"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ec77d856d4d478dae1e829120fb414dce0fd321f38e270a0cdbb29896166a150"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8ea98552a01f0f611fe8ac76af2cabc6c4ba27c76d1accf5d4fb4d5a955be35"
+    sha256 cellar: :any_skip_relocation, sonoma:         "28fdd220a08b0b4585144b9a2043cad90165bf082a5669d200cd6e84e53de517"
+    sha256 cellar: :any_skip_relocation, ventura:        "e96637f9f1e1dc2d31119470b1b0ad014d781920d79f7143fafe73d95c1ef2c2"
+    sha256 cellar: :any_skip_relocation, monterey:       "a68ce69717a2873b74766ff5129e3ae9b911ef348b4192f1e92c92bf384770a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eb55ea704a4f917c44db6eaabbac9edcf825ad9b753aa54842a5ee88c49c093"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.21" => :build # use "go" again when https://github.com/juicedata/juicefs/pull/4340 is released
 
   def install
     system "make"

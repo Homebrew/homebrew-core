@@ -1,29 +1,30 @@
 class Enchant < Formula
   desc "Spellchecker wrapping library"
   homepage "https://abiword.github.io/enchant/"
-  url "https://github.com/AbiWord/enchant/releases/download/v2.6.4/enchant-2.6.4.tar.gz"
-  sha256 "833b4d5600dbe9ac867e543aac6a7a40ad145351495ca41223d4499d3ddbbd2c"
+  url "https://github.com/AbiWord/enchant/releases/download/v2.6.7/enchant-2.6.7.tar.gz"
+  sha256 "a1c2e5b59acca000bbfb24810af4a1165733d407f2154786588e076c8cd57bfc"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "31c44ae8dbd71bd11473ab3fe00752571b8f71c98aaa64a2634b96b9944bb64c"
-    sha256 arm64_ventura:  "6604d55a5579bfd9d7fc5fc4f39e179c0c7ec96fd77ed51e6e0edd62065c134b"
-    sha256 arm64_monterey: "4cd0de1ab9692ca4ec9aac9ab20da3cb0ce40521a0b17eb9a7ce7003068da5ba"
-    sha256 sonoma:         "3d73788eedaddb7f29eb22e5f3e4ff8a672750a0ae7bada59bc5b035681d8bc8"
-    sha256 ventura:        "8cc9e53610ecd958886ea6bca5da55be57fb4f5c77cc1204a87c858232b5503a"
-    sha256 monterey:       "b24767eaec0eba782e7d9ab9ff5bfc97346907e2f42644fa6334dacab02be598"
-    sha256 x86_64_linux:   "76d546cf1890a8c358ee73dcf660d9b44747e6ab2dd42323ab165ad689ef5929"
+    sha256 arm64_sonoma:   "113c9156af9bd4697242e56df663dd9779d810047cc35f47d935a07843065503"
+    sha256 arm64_ventura:  "f2f15788ece3d2a36291b4044add67058f103f08e8494ce5bee123e412e06774"
+    sha256 arm64_monterey: "7372a47f84170384056e944f48c584fd1e5548a6206687ef83539c8cd8f3ec23"
+    sha256 sonoma:         "fc05dc68cc5d2826403cbc49aad1f56e6d2019fbf39f664e865b75f7cc4c19e3"
+    sha256 ventura:        "3a5e1d091468f5dccd9bf2a0c2973edf5d9b104df3c5cf60370c05d810bc9974"
+    sha256 monterey:       "8f69bb98696eaf9209ada35e38a078cc3355e067e4ca69f3694419054e86f8d5"
+    sha256 x86_64_linux:   "697c7c727ec9841c98ed4985dd19c9041d9d519d1838ff91555813640f8dab18"
   end
 
   depends_on "pkg-config" => :build
   depends_on "aspell"
   depends_on "glib"
 
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff" => :build
-  end
+  uses_from_macos "mandoc" => :build
 
   def install
+    # mandoc is only available since Ventura, but groff is available for older macOS
+    inreplace "src/Makefile.in", "groff ", "mandoc " if !OS.mac? || MacOS.version >= :ventura
+
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--enable-relocatable"

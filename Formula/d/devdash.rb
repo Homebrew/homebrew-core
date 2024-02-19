@@ -19,6 +19,8 @@ class Devdash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8fdb550ff66a46af75552afcc69dd71a93e08097a6e7f94b4e7bc382584c9b0"
   end
 
+  deprecate! date: "2024-01-20", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

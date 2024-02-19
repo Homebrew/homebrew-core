@@ -1,10 +1,9 @@
 class Zbar < Formula
   desc "Suite of barcodes-reading tools"
   homepage "https://github.com/mchehab/zbar"
-  url "https://linuxtv.org/downloads/zbar/zbar-0.23.90.tar.bz2"
-  sha256 "9152c8fb302b3891e1cb9cc719883d2f4ccd2483e3430783a2cf2d93bd5901ad"
+  url "https://linuxtv.org/downloads/zbar/zbar-0.23.93.tar.bz2"
+  sha256 "83be8f85fc7c288fd91f98d52fc55db7eedbddcf10a83d9221d7034636683fa0"
   license "LGPL-2.1-only"
-  revision 4
 
   livecheck do
     url :homepage
@@ -12,15 +11,13 @@ class Zbar < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "10e9b50f2750fe6c05402bea84ea136ab047e54621132101b1de4a0ea7a44447"
-    sha256 arm64_ventura:  "a556e1d3761eef86b007225b17c1e2e3bd3d8f5c0586c96b9db95261012623e5"
-    sha256 arm64_monterey: "ecb4a7174906195486f0f9badabc2e5affd732022fc9e3b832c1b7a462a3e203"
-    sha256 arm64_big_sur:  "2e7a16f085ca08bd70c1ab3b8d88683281ea51481c3f1c26402c2b59f949fa6d"
-    sha256 sonoma:         "aef3d415f2b525ed91f9037c85b2645dd52a4867900eb0b0d560ad160fbf88f4"
-    sha256 ventura:        "8349004627c6741ecc50f1e9410be7ac4149ec7ad326c2c8e6896f23986d2f70"
-    sha256 monterey:       "853aa15556c0ccd130dd35074cfd67840720583d3e8564f7c9c1fee101c5d9ac"
-    sha256 big_sur:        "3b8169dcfeaed1f704084073f93c619510c415b37454d1a0858d5bd689b89911"
-    sha256 x86_64_linux:   "ef7a2cf8345087907b68a3ba10874aca3bcc9a8f8f3bafcd30dc8df4c5255fab"
+    sha256 arm64_sonoma:   "23bfbc0c9ae6d16727058825feb8147bb7384cd4307fb6f4642ff94c9cf99c13"
+    sha256 arm64_ventura:  "6d791bf71b217d0c7558f7becd6b38fcd6d3721002dd164bf01a23a356225259"
+    sha256 arm64_monterey: "c7f601f54d7c8609406cb2e1fcbbb4abd8321b58849c64ba5622a6b8ac68a850"
+    sha256 sonoma:         "bd76b39f1dc8bf551d535759fa3f86e9de3266a26939a42bca82cf9270ce3d87"
+    sha256 ventura:        "fd8701195bca0fbbaab5c5c28b06b93f79d3efb3f60a8a45ff927c95ba8f8e29"
+    sha256 monterey:       "b262f392f862ff8f4ba5808c70f77f2b857a95f392e8d2bad9e0c670b329e519"
+    sha256 x86_64_linux:   "b3f1842dfca655978646c83cdf8e58163ee2a3e5d1a9926314b5c8102817d528"
   end
 
   head do

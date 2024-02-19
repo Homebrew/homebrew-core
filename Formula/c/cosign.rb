@@ -2,19 +2,19 @@ class Cosign < Formula
   desc "Container Signing"
   homepage "https://github.com/sigstore/cosign"
   url "https://github.com/sigstore/cosign.git",
-      tag:      "v2.2.2",
-      revision: "bf6b57bc3edf8deb7e225e4dbd2d26c0d432979b"
+      tag:      "v2.2.3",
+      revision: "493e6e29e2ac830aaf05ec210b36d0a5a60c3b32"
   license "Apache-2.0"
   head "https://github.com/sigstore/cosign.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b3984b5d8542fa94a3b212125343fc244faf05b1584abe662e0baf81c9d0e90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ac7c22305936ab569eac0ade9987801f8930f575fe24a50d5dfd0655073b615"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44ee532fe53c33366efbb259e8d8edf805aef0eb9506f063b3a08ceda6752f42"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1fbd65e53421c032af8b11b3b864e99b0acc30a84f40d3756878aef777caada5"
-    sha256 cellar: :any_skip_relocation, ventura:        "38a599c803353cbca72de244f357ac3bdd65ded479740571ac57222737824381"
-    sha256 cellar: :any_skip_relocation, monterey:       "1d5e9001610863a19d9b2a9b0849f1747b22ed1a38ae167436bfd5c8f4e9cf6a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "485a9cfb4deb357ef77ee4d4cb8fb37b3a993488a2fcb5909113f743ab161324"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "639b5a375f7ae1b12e7a7a89b18a77648ef9517ad42d16bdde762b9f8b9ef4fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "643bdc585e3a550878616b588f3bf3e28f1085d73084a3d40401d0b2de0d33bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c6873d280b4794e41e25a428a6ef7f97724e70c89e0ee60fa0a3f8be5385103"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6b67e1bdb06c8a821aefcd323ccfe5baebe54d54791d20fb888c643d8a873487"
+    sha256 cellar: :any_skip_relocation, ventura:        "502b6431886d4c79c549b8ea11cec219b32ff46637a8d77b1374294f4e1dce76"
+    sha256 cellar: :any_skip_relocation, monterey:       "cee392242fe68f01a609d8f3512a58b6a4305e00eae17dfea1f2e231918db007"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49a13d30b0a153b37a49f3e7bda862b995c4b1080bc73c922256d3e1f7b5b2ee"
   end
 
   depends_on "go" => :build

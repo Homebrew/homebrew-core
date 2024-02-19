@@ -1,11 +1,12 @@
 class Ffmpeg < Formula
   desc "Play, record, convert, and stream audio and video"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-6.1.tar.xz"
-  sha256 "488c76e57dd9b3bee901f71d5c95eaf1db4a5a31fe46a28654e837144207c270"
+  url "https://ffmpeg.org/releases/ffmpeg-6.1.1.tar.xz"
+  sha256 "8684f4b00f94b85461884c3719382f1261f0d9eb3d59640a1f4ac0873616f968"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
+  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -14,13 +15,13 @@ class Ffmpeg < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "cd94806832286331091abf2c21741fea26fcf4ff4f082f135a50f21dd340a5eb"
-    sha256 arm64_ventura:  "ed41187c8075f542baf8499b825043ac5a95552ce508f0498a668f5b5487b267"
-    sha256 arm64_monterey: "39a52c25aca80e645b055dc0e3fdd74812861c5b1fa11f0c91fdb6b86b219f3d"
-    sha256 sonoma:         "cd6060403dad099826dfc525bb87642670a4ec01fd1c0f4de7e53a9046d823d2"
-    sha256 ventura:        "9c636416cedfb1a67752a9a76e419de3d4573c0061d208d592cf23e72f12fafb"
-    sha256 monterey:       "115d4374e96593318b07dd3a0305246fb79c99905e6d6c41509dddb599d58cd5"
-    sha256 x86_64_linux:   "a1af2e3d8338ee0269d551a3f28352314f31e322669b788d8ac81eaa51e35dee"
+    sha256 arm64_sonoma:   "56f1280cb31c1958cb015d4fc8e9e813a6e4ef1bf3356e21e675758af157a96f"
+    sha256 arm64_ventura:  "ac8c0cd2a6c230f43ccae2b10471161ccafc4d1779dd237b7fb8d1b480c7e914"
+    sha256 arm64_monterey: "c3b81f61e2c7618c208c047253f1f866a403dea0dc3373f5454b600509fdd4c9"
+    sha256 sonoma:         "38af3c855780f2597f5532cce028da9165b633d707fc9aa415bf843b94ce4023"
+    sha256 ventura:        "b909984563e9089391c675937edea33f0099935b55477763065b17ab5b3c6075"
+    sha256 monterey:       "3b5705fb8736151c8c18a74d6cc55333629c83ea138b3428113a24827e427ce2"
+    sha256 x86_64_linux:   "f83ead85e924d8680b43df44a7b826abd13944ccfb09e5beda6d9a053b44a7ca"
   end
 
   depends_on "pkg-config" => :build
@@ -38,12 +39,14 @@ class Ffmpeg < Formula
   depends_on "libbluray"
   depends_on "librist"
   depends_on "libsoxr"
+  depends_on "libssh"
   depends_on "libvidstab"
   depends_on "libvmaf"
   depends_on "libvorbis"
   depends_on "libvpx"
   depends_on "opencore-amr"
   depends_on "openjpeg"
+  depends_on "openvino"
   depends_on "opus"
   depends_on "rav1e"
   depends_on "rubberband"
@@ -112,6 +115,7 @@ class Ffmpeg < Formula
       --enable-librubberband
       --enable-libsnappy
       --enable-libsrt
+      --enable-libssh
       --enable-libsvtav1
       --enable-libtesseract
       --enable-libtheora
@@ -132,6 +136,7 @@ class Ffmpeg < Formula
       --enable-libopencore-amrnb
       --enable-libopencore-amrwb
       --enable-libopenjpeg
+      --enable-libopenvino
       --enable-libspeex
       --enable-libsoxr
       --enable-libzmq

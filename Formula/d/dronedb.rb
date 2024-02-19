@@ -18,6 +18,9 @@ class Dronedb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "19c8fc899bf57bd4a80ad4f0673b4e24ef9143d903c89b274e80bf3b5c29ccc4"
   end
 
+  # does not build with pdal 2.6.0+, see https://github.com/DroneDB/DroneDB/issues/383
+  disable! date: "2024-01-19", because: :unmaintained
+
   depends_on "cmake" => :build
   depends_on "gdal"
   depends_on "libspatialite"

@@ -1,21 +1,22 @@
 class GrafanaAgent < Formula
   desc "Exporter for Prometheus Metrics, Loki Logs, and Tempo Traces"
   homepage "https://grafana.com/docs/agent/"
-  url "https://github.com/grafana/agent/archive/refs/tags/v0.38.1.tar.gz"
-  sha256 "7bb0510995257c4bb5fa92866899752093fd8d0ab63830328e93da4a6a3ffdf7"
+  url "https://github.com/grafana/agent/archive/refs/tags/v0.39.2.tar.gz"
+  sha256 "54105d08cd2db3e0116677dcf651593136a92093bfe7453a7ee7a678a64adab9"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ff6feeeb1e45f573bf07af735c53ba4ed099c29f57ed89921cd660ba6649a57"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0855af1ff7d9f37c97dacbb0d1f13bc53d2925752deeced42ed6afd5928ef07e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1cb6c1478662d7a4b9473f8e83e56106b1d402be2f0c6af6784c1cfa1bc77691"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a4f1c13ac23ad60e300b2440f6164db75d9d7426663fe66dfa650fe46581a61c"
-    sha256 cellar: :any_skip_relocation, ventura:        "c3880df32efd8d825289bebaee63a4fb90908c52bbfa99e9b953231fdc3d9164"
-    sha256 cellar: :any_skip_relocation, monterey:       "d220f9ba90ab8a06f7eecd83838630992ad4c8b49fd1b6519698be8d0ee890a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48f16c7e24cf628a64acbd72d0d8399f54d3c01cb3f95cb7cf231e172159ebdb"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aaee0a6831b0f6fa8361234342d5debdbb944db67d6b354f2887a03eee295abe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e71693fa3ff5735da5ab62aa6718710fc0b197771a6504ae30da7d92ec1873c1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "51267fd43a29f8a45148ea82ff1e0a35718dc196e7bdfcc0a098ea43494febb4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3ce280ff6549a991260ebd2e1302c20dbd207072af87db2f84ca9d1f1693305a"
+    sha256 cellar: :any_skip_relocation, ventura:        "0589e1095288feebd70677ce346372332590e54a4fc6cfaf3954a9e46c4d55ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa0b7b7c948fab33e0b8bea06ee935a2dedd509ed8531a2ee324ec19f7a5e0ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc2e97302d803e547697e7449e015267968781a05e391eaadaf679ffa772d23f"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.21" => :build # use "go" again when https://github.com/grafana/agent/pull/6139 is released
   depends_on "node" => :build
   depends_on "yarn" => :build
 

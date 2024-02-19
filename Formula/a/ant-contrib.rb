@@ -3,6 +3,7 @@ class AntContrib < Formula
   homepage "https://ant-contrib.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/ant-contrib/ant-contrib/1.0b3/ant-contrib-1.0b3-bin.tar.gz"
   sha256 "6e58c2ee65e1f4df031796d512427ea213a92ae40c5fc0b38d8ac82701f42a3c"
+  license "Apache-1.1"
 
   livecheck do
     url :stable

@@ -6,6 +6,11 @@ class Webfs < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  livecheck do
+    url "https://www.kraxel.org/releases/webfs/"
+    regex(/href=.*?webfs[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     rebuild 2
     sha256 arm64_sonoma:   "ef56fd774bdf47267b3247e82de6c75e875afdb0e1afab06169c16434dca2cc6"

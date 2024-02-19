@@ -11,9 +11,11 @@ class Jumanpp < Formula
   end
 
   bottle do
+    sha256 arm64_sonoma:   "9fa8968d1e8332287161611d534e060d383cd5e732dc56015fe681cbe38d88fd"
     sha256 arm64_ventura:  "a4f9b268938b28a53c03143114f43e12f5a158007a2d3fca46c79811daec00f8"
     sha256 arm64_monterey: "c4db4776b58c04151f749e3e4254a437abc02fb0f284a8a1eccfa02e50b6651f"
     sha256 arm64_big_sur:  "e9b65ec6cbc79b48a403d5a9c30a59eedfe9cb412be6a4d6ccf65f653e96e8d4"
+    sha256 sonoma:         "05fca93313e1b88047e24f57fcd565e2e03e0f1c21944bbeba431f118c6dbc78"
     sha256 ventura:        "6d2b11b21bafc965f703c292afee992e65b3a77089f2c05629eff5a397f83de5"
     sha256 monterey:       "1a49398ad2c6ace6827869ff87bb0b6018e4cbdf5259b79febdb761b6019be30"
     sha256 big_sur:        "9c97f442fdad1ae3ab776ef16de98876db768134d50235e9ea683579fa8a85b7"

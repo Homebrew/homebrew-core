@@ -27,12 +27,10 @@ class Mozjpeg < Formula
   depends_on "libpng"
 
   def install
-    mkdir "build" do
-      args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
-      system "cmake", "..", *args, "-DCMAKE_INSTALL_LIBDIR=#{lib}"
-      system "make"
-      system "make", "install"
-    end
+    args = std_cmake_args - %w[-DCMAKE_INSTALL_LIBDIR=lib]
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_LIBDIR=#{lib}", *args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

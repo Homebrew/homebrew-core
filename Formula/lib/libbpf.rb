@@ -12,8 +12,7 @@ class Libbpf < Formula
   depends_on "pkg-config" => :build
   depends_on "elfutils"
   depends_on :linux
-
-  uses_from_macos "zlib"
+  depends_on "zlib"
 
   def install
     system "make", "-C", "src"

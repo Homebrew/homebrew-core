@@ -1,8 +1,8 @@
 class Hledger < Formula
   desc "Easy plain text accounting with command-line, terminal and web UIs"
   homepage "https://hledger.org/"
-  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.32.1.tar.gz"
-  sha256 "73f54d82766480c8c8075552df8b5ccc7f449ee00fc710ccde51393a0317e995"
+  url "https://github.com/simonmichael/hledger/archive/refs/tags/1.32.3.tar.gz"
+  sha256 "92b6818302532d31ad1c915157d180186b3ffbc09f5a17484423e784f0209d14"
   license "GPL-3.0-or-later"
   head "https://github.com/simonmichael/hledger.git", branch: "master"
 
@@ -15,13 +15,13 @@ class Hledger < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a45dba83171691eaa8f34f19eaebba235370aa89889ce72b4a7817cd321e593"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "decb859c81e3eee4b0c87aad75ad4056e7a01f0219f046dfc8ba65eb9f953b00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1366af9ac0666e7259a5932eed1a58dc5e38a81ff30aad269ff68e3db6367a04"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5288853d71c50037a8d098f642ec7424281f68da34d7106d336f175965ca7ea1"
-    sha256 cellar: :any_skip_relocation, ventura:        "de5354dae53da583060cde5ce58301a042da507e1ddcb252f9b2a1433d4561ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0511729061f94f66bd9b2d6f649d49842b140f1cde068dbcd98d62278d86f49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fab8c1d87dcd1e4ce0f78ac070db5869f618df57f0c8f0da71a12185287e266"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "496f91ff5ef16d1fbfae98d0369f6363631da2eb5c0e165b240d46d6a5f65d63"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7262df9e64ff01ce5fcc639d132ef0a13e4465219db7ee4ab8f91a33f125b781"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e30857e98674787298fdf45849e39a01387a7e0d6948c5909f08e6316cf8d814"
+    sha256 cellar: :any_skip_relocation, sonoma:         "514f0670b3a5d724a6943e856a4e9edabf1b1e6ca3698391fc93ce70a10e2b9f"
+    sha256 cellar: :any_skip_relocation, ventura:        "1ddee10327031f26db964d86d344be95d47f080fd5fe04d133130a767c09f7da"
+    sha256 cellar: :any_skip_relocation, monterey:       "9883fe5f9b63d3f2db6b25972e7a74049133ecb836eae38c7fb243d357757ced"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f509b19fac7f5a556b0240efb50590bbeef0a04d75a379be2960b8b7bdaef80"
   end
 
   depends_on "ghc@9.6" => :build

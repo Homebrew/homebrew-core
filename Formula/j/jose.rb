@@ -1,22 +1,18 @@
 class Jose < Formula
   desc "C-language implementation of Javascript Object Signing and Encryption"
   homepage "https://github.com/latchset/jose"
-  url "https://github.com/latchset/jose/releases/download/v11/jose-11.tar.xz"
-  sha256 "e272afe7717e22790c383f3164480627a567c714ccb80c1ee96f62c9929d8225"
+  url "https://github.com/latchset/jose/releases/download/v12/jose-12.tar.xz"
+  sha256 "0ba189b483f27899867fdd886eda42dd9d17b807ffdc7819822665cb45d7e784"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:   "adda1dfde7c89bfb9132329d5bba620f48c16a2fd76bfc9826bf05245a841b28"
-    sha256 cellar: :any, arm64_ventura:  "21f4ddb24fe7718c027343713fb09aab4cbcf6d4c096f6e3fe8e09bd2e459344"
-    sha256 cellar: :any, arm64_monterey: "551e1333f5bac04c13a4a2cf957ea2da84fb8c9d34a6ea18f8a661b9307bbb08"
-    sha256 cellar: :any, arm64_big_sur:  "16e0db736b62521077a5ab096d43f0fd2aec7ea89a3f4839f71814582c268308"
-    sha256 cellar: :any, sonoma:         "7c1c722d6030aa2c02c8662865f0afd19488468098c211dcdbd501d1ff2dd141"
-    sha256 cellar: :any, ventura:        "f0ac20b30d42d9ddd0ef62458059475c50b236ce8d163d7ff26ad33eeffa8ee9"
-    sha256 cellar: :any, monterey:       "7ef2c4173e81fbc601be37ac515d41b5240fa69ad2a252c67c9fe13d22530f51"
-    sha256 cellar: :any, big_sur:        "3dac5c9fd2153330aebae3f18438eb9833ab8b524ca1e524828c5ef398d252a0"
-    sha256 cellar: :any, catalina:       "29a910cbfe5af5c12b8f007e1fe7abacc167eb6875f76e67260de54fb3911825"
-    sha256               x86_64_linux:   "dbfb98cddbd5634d5a96d6a036949fd7f664d1cd5a84ee33bf9ee934a0f88597"
+    sha256 cellar: :any, arm64_sonoma:   "5ab1d6d35f6489c7ee29f67ae59cff675657024b9456e9c0437b82d63def577a"
+    sha256 cellar: :any, arm64_ventura:  "6ed6cda62ae66cd159c81ea7fd1cf465755d3ab7494701f0aac6ace4fc3991bb"
+    sha256 cellar: :any, arm64_monterey: "139a737ba296a4d24e680decdf3daf9a1276836b22aec2493a7c9625234602a0"
+    sha256 cellar: :any, sonoma:         "c51afd0ee639305c12bc69b03b8583ff9c6e4289fb0050ecae55e6e18f57944f"
+    sha256 cellar: :any, ventura:        "88e802405401cbd382a56bd6c7b17d4d604bf76351d07bb46dea75ee11cdaf4a"
+    sha256 cellar: :any, monterey:       "cdeb4abd78ee95d1663ec47da5a54801edab0dd6f618749d7af02dfcec4cd9d3"
+    sha256               x86_64_linux:   "3b7cbdea2a9554c0f2ff87359ceb73e73ab35f2455147d98cdf7cfcbe2b7fc29"
   end
 
   depends_on "meson" => :build

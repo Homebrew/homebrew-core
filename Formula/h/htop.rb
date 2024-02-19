@@ -1,8 +1,8 @@
 class Htop < Formula
   desc "Improved top (interactive process viewer)"
   homepage "https://htop.dev/"
-  url "https://github.com/htop-dev/htop/archive/refs/tags/3.2.2.tar.gz"
-  sha256 "3829c742a835a0426db41bb039d1b976420c21ec65e93b35cd9bfd2d57f44ac8"
+  url "https://github.com/htop-dev/htop/archive/refs/tags/3.3.0.tar.gz"
+  sha256 "1e5cc328eee2bd1acff89f860e3179ea24b85df3ac483433f92a29977b14b045"
   license "GPL-2.0-or-later"
   head "https://github.com/htop-dev/htop.git", branch: "main"
 
@@ -12,15 +12,13 @@ class Htop < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fa11348878695cc969b76354c14d8f8ff60554ffa89cb71a3a258b88e222a1af"
-    sha256 cellar: :any,                 arm64_ventura:  "87daed2cfe0d478a778b09b5f29428f05b15ff081f0e70b9a2609cf479572721"
-    sha256 cellar: :any,                 arm64_monterey: "76872761874d2148c1da382b3922b25916f245ef1d05fa21f95dbc1baa5ff8d4"
-    sha256 cellar: :any,                 arm64_big_sur:  "52bdaef69f06d6808896cd8325ff6b2be3f96643660cc5475e1d45ba850a594d"
-    sha256 cellar: :any,                 sonoma:         "38726954cd1d7141bc5cbfd8893bf4bdb6ae34b87959453eb4a31a466d672c00"
-    sha256 cellar: :any,                 ventura:        "38dcedb23adca849a1e1952c4a0d3249406b625f0e2094dfc47028be7df304b2"
-    sha256 cellar: :any,                 monterey:       "078c94ade63f91b01334d300f00489592361bdfef3600c0ca7f6ad3ce2032281"
-    sha256 cellar: :any,                 big_sur:        "7620c57b8abc846f264fb7906b96f3da07da7c6d2b43bde1579c29e04c77fc64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb45255abf5f0cd1d886bb8ea68b26c60517771268cf18ac3cec875b572b1fc6"
+    sha256 cellar: :any,                 arm64_sonoma:   "a07989af65c77dbfb28b07b8faec12d3760831c360e0caa6a32a58eff0e8fd65"
+    sha256 cellar: :any,                 arm64_ventura:  "66603fe2d93294af948155b0392e6631faec086b0bcc68537d931861e9b1de39"
+    sha256 cellar: :any,                 arm64_monterey: "f8c4b4433a3fda0ee127ba558b4f7a53dff1e92ff6fb6cef3c8fbf376f1512c8"
+    sha256 cellar: :any,                 sonoma:         "5cd79199db8d7394d331dbb362dd101d12519325f78dde1af4e7c67fb9f4e5da"
+    sha256 cellar: :any,                 ventura:        "d47397e29f584bedd7d1f453af5ff42f10c3607a823fa72314b6d4f1c44cd176"
+    sha256 cellar: :any,                 monterey:       "665c48cbe7434b5850d66512008e143193cd22b69ae54788314955415b6c546d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6734208d3ea8db55123b1d1d9ac4f427c5e7ba89472193afe51543a2bb1a9a1"
   end
 
   depends_on "autoconf" => :build

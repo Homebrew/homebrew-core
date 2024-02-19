@@ -1,8 +1,8 @@
 class Minicom < Formula
   desc "Menu-driven communications program"
   homepage "https://packages.debian.org/sid/minicom"
-  url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.8.orig.tar.bz2"
-  sha256 "38cea30913a20349326ff3f1763ee1512b7b41601c24f065f365e18e9db0beba"
+  url "https://deb.debian.org/debian/pool/main/m/minicom/minicom_2.9.orig.tar.bz2"
+  sha256 "9efbb6458140e5a0de445613f0e76bcf12cbf7a9892b2f53e075c2e7beaba86c"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,17 +11,13 @@ class Minicom < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "baf34b08cbd2bfa17cd3845c604e29cf35a58766417f4bb0dc54bbe94ad0343d"
-    sha256 arm64_ventura:  "2846c9012370f9e0d674adddb25fb5ade25175bc3c09f4e3e5c458ff958bf58c"
-    sha256 arm64_monterey: "12256c7a67eeb793ee71b419a2319c80038bf20b24a583a9f09ba36dc9c5b75e"
-    sha256 arm64_big_sur:  "396aa4bed62d6a9162d061ff1b97a1c5fe25e5a890141d4f39c1849564e3521f"
-    sha256 sonoma:         "2e951a74c9002688f712e1e886b33e3c06822153ce5d166a4848110f1ce0a870"
-    sha256 ventura:        "e54b71e10799dd92bd3bf337a9a0ccab6d6fc6b3f93b119652dc05b48bad0fda"
-    sha256 monterey:       "e0b91adbcbaa88015cc339c7a9cd9b7f02c155b392229a93ece0baf48d798cff"
-    sha256 big_sur:        "ac0a7c58888a3eeb78bbc24d8a47fa707d7e3761c4b28f46527434d49e254b55"
-    sha256 catalina:       "9cee8e5839a3e19aa732307ee70246b1567ddc3a643ef39aa91b6d888301f6e5"
-    sha256 mojave:         "e2b702dec206101120ce947ca2a999c9f5fe7e8c62f95b65091146b865acb268"
-    sha256 x86_64_linux:   "7d1b0aae1f169968d42e4dea644dff5a4f18010b59b334439aa2bd276c6e913a"
+    sha256 arm64_sonoma:   "b92b70950bd1142625c5a91bb815cc6b5a6e302bac3d2deb2ba6a27346275a82"
+    sha256 arm64_ventura:  "c0027370447eb9cfb68179a1d27bbecc4a0682351b454da5dd563f0641f6d9e1"
+    sha256 arm64_monterey: "3ffb59047f0ddedd946f3396ff160438b6d7642824f5a1a63a1d2d37e3aa9c6e"
+    sha256 sonoma:         "dfaaf1a7d3ed1c5fa8478c15daf7b0a730187fb8272df248051a32e4ca734030"
+    sha256 ventura:        "afd820441655a587192dedb3e38563fd57b899efdeee1c306e785cc0ff706fb9"
+    sha256 monterey:       "37884d21fe67fb95c0b637a98d6fdd969c4a98bacda9a4724f3d32e0639d6df3"
+    sha256 x86_64_linux:   "8d7abc35dc2a14d94619c4ee3d81812e94bb9287eb23455b4f1cb686680f558d"
   end
 
   head do
@@ -64,6 +60,6 @@ class Minicom < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/minicom -v", 1)
+    assert_match version.to_s, shell_output("#{bin}/minicom -v")
   end
 end

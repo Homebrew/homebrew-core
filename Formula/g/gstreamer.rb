@@ -4,13 +4,13 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.8/gstreamer-1.22.8.tar.gz"
-    sha256 "ebe085820a32f135d9a5a3442b2cb2238d8ce1d3bc66f4d6bfbc11d0873dbecc"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.10/gstreamer-1.22.10.tar.gz"
+    sha256 "bba3a87f82d509802d96a5caf2c47982234063928870623b222f60702f1f50eb"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.8/gst-plugins-rs-gstreamer-1.22.8.tar.gz"
-      sha256 "18d8d8061c6614d1334ad7c1b817ebce253ee66986c31c50401f135e0a5280b3"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.10/gst-plugins-rs-gstreamer-1.22.10.tar.gz"
+      sha256 "ea866cdac87a57e08cf4529be5ba2870054e764b83dbfca733cd6fea1b9a3e11"
     end
   end
 
@@ -20,13 +20,13 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5d0273f589714e4cffba052b53f7effff5ecaec3afbab05797088ed1afce899f"
-    sha256 arm64_ventura:  "1c8b8477f3815ab20a2160dd174c9b02b3d787fdb679e544153c71d28ba18005"
-    sha256 arm64_monterey: "b4ac93a0cabc79623978d0f54c2df3c8fc032fd81c934e9dd94307c5b99d2bcf"
-    sha256 sonoma:         "20be77da8b9d36bed94d627066d6b398a9bb0a2cd4d63454aad3687c762674f8"
-    sha256 ventura:        "99b85eb955886605040640da4092222607dfee799c4912bcf21f923dcfacd0a1"
-    sha256 monterey:       "a624ebb208d56e386ff38dc9cd090ce0932faa7c8848e3e8647290f4755b9d82"
-    sha256 x86_64_linux:   "d593663910c5a56abe473b496ba5f7593c031246d357c3e8e1f15fef7f59dfa5"
+    sha256 arm64_sonoma:   "6cfb3e0483210434b70d6c4b2172ef14b82f40394ff677b4eef38f6424133da4"
+    sha256 arm64_ventura:  "8eb910caf6c77ffd10791638cb4d3418896de843c9d9780288225d614d824124"
+    sha256 arm64_monterey: "0ce824e9228434616a66246b04df01368dbccdc783a9b97ee379c0650af58248"
+    sha256 sonoma:         "337edca6ea2af6095de30fd4d383ee5ae10d308efe6069c10b18c84e5a27334d"
+    sha256 ventura:        "df774bf74c8c6cb2bca77f306bf82828b5a1eb2f042a011dbf020c19a8dc8904"
+    sha256 monterey:       "40cdcc128eabaf28a417adecd17c6578f702c6347323538497603597f419bbe7"
+    sha256 x86_64_linux:   "dd294b52fec65d387f0ad695ddc59d3d9047ad3d9c5dff5f82b2a42cc055c4ed"
   end
 
   head do

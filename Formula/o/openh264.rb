@@ -1,19 +1,19 @@
 class Openh264 < Formula
   desc "H.264 codec from Cisco"
   homepage "https://www.openh264.org/"
-  url "https://github.com/cisco/openh264/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "a44d1ccc348a790f9a272bba2d1c2eb9a9bbd0302e4e9b655d709e1c32f92691"
+  url "https://github.com/cisco/openh264/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "8ffbe944e74043d0d3fb53d4a2a14c94de71f58dbea6a06d0dc92369542958ea"
   license "BSD-2-Clause"
   head "https://github.com/cisco/openh264.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "79a53414d694747723a7a5ab644a7f259f2e84d341a8b0c2cc3188b2755cabf5"
-    sha256 cellar: :any,                 arm64_ventura:  "97c85fabc1c38d1a32262d63756d321b6110739464c0967543fcacb92c0210f0"
-    sha256 cellar: :any,                 arm64_monterey: "79860fa499ecca3980ba2c2fccffe20687be3fbc5894306ac37fd602f0df3793"
-    sha256 cellar: :any,                 sonoma:         "0c00c6a6dbf644f6b90a21c355f1805855f5d17818fe7b9d865b8269611136a4"
-    sha256 cellar: :any,                 ventura:        "740c0ced89df180ea45ad46a9c9d65137d097739e36400d465a653f250e292e8"
-    sha256 cellar: :any,                 monterey:       "18adc11e0b6efad17e3dc546119f90873dc5ef1ca5ae0f708e217b4ccfeb6561"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c318c6e7e68e0a784243662ffcd6f488bf702a560b4d7248d7c04f5ccd9add0"
+    sha256 cellar: :any,                 arm64_sonoma:   "850e4e3d1c3a7344d860435f26801df7fabcc17885b7df73deef72d8d18157da"
+    sha256 cellar: :any,                 arm64_ventura:  "7fa8aae80d9c726609936a0ec4f8190380b7df1dbfa14ef4e1a977f9e7d2988a"
+    sha256 cellar: :any,                 arm64_monterey: "eb334aa3e31f6893a7692c467dfb9f69120c8bc768cb20a9dc804a87cbcfcab2"
+    sha256 cellar: :any,                 sonoma:         "8de2fac44ca95e30f15a038b3cb3c7a7ca02b235d52c2828fd734175941a6fd2"
+    sha256 cellar: :any,                 ventura:        "7f7f24eff4b74e2e5780d8c764b61b73b95b0db31b91a23051ba688e5f29f9d1"
+    sha256 cellar: :any,                 monterey:       "f7588904e9eebfe583412424cd436929a145f3887c551f3a491b119faca12e9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32a021d9e81e693117f22a3b246073fca005cd120bba948dad1cc18578c96b88"
   end
 
   depends_on "nasm" => :build

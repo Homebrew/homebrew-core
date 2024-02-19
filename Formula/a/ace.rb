@@ -1,8 +1,8 @@
 class Ace < Formula
   desc "ADAPTIVE Communication Environment: OO network programming in C++"
   homepage "https://www.dre.vanderbilt.edu/~schmidt/ACE.html"
-  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_1_2/ACE+TAO-7.1.2.tar.bz2"
-  sha256 "9910d1018d73db91c89affd20c9b9fa2265aa8e5b42ea4fff30bfb4a8e7d313b"
+  url "https://github.com/DOCGroup/ACE_TAO/releases/download/ACE%2BTAO-7_1_3/ACE+TAO-7.1.3.tar.bz2"
+  sha256 "46bb2118f10fe27cb5151bf72695c6bbd67e5e840f6bd8be463ee2f5f464b279"
   license "DOC"
 
   livecheck do
@@ -14,13 +14,13 @@ class Ace < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "955af994d20b3e2eb0735fae8680941e6ec02d24dc3a41903a8ae5b87991a98b"
-    sha256 cellar: :any,                 arm64_ventura:  "a2e675bea9986d49fd636c6a66e31c1fdb2b06781c29381578f0025458f935c1"
-    sha256 cellar: :any,                 arm64_monterey: "1b04dc5c7943fd12f0d0076b26a89955ab68f065e9696d8c2d9221e942afde8d"
-    sha256 cellar: :any,                 sonoma:         "1c248c74e67f872d8c588da8e5dfac8bcabb493c05e983341f763e67e6db4368"
-    sha256 cellar: :any,                 ventura:        "f258e6f1304f9af5a132760044d7c16dce5561f31dfc6d8241ce7dce2fe86556"
-    sha256 cellar: :any,                 monterey:       "7a55e038dd4555fd0801c95ecd16d4cec8ea8ae9d285f7b1665c3a7d7e19d97f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1e6941007857e458f1bc345cb32116d47d506b14dde90fe9df2eb064ac772cc"
+    sha256 cellar: :any,                 arm64_sonoma:   "940b5990038de3613fd856dccde38cd16a29127477f0fc9771f12d2401067309"
+    sha256 cellar: :any,                 arm64_ventura:  "bf20918b3d2787ef8d008e679485cb0f5b156c3ca15fe71f93f7a2d164e365e2"
+    sha256 cellar: :any,                 arm64_monterey: "a77f87a6f5e332f25c4333831ec1843e9107ec94f6631010cceab60afa2e218f"
+    sha256 cellar: :any,                 sonoma:         "beb7eaf9114c617393b5c857c98abf4deefe203616178e3345e0eb3e3d9dff83"
+    sha256 cellar: :any,                 ventura:        "2d8ff245c4b1bbce680b1d871eee3ad1f43161d5fa6ba433e8f7ec68b6b5ed9f"
+    sha256 cellar: :any,                 monterey:       "b7f2f1233f6202517dc5e58eb8ce43eb298e0f4255f206cf9320eb89c00962d2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a405b53cd8d0c559a74f4622dba8ee1e2ce12ada59d46f741a0326297ebc7e37"
   end
 
   def install

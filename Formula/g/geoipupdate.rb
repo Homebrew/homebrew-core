@@ -1,21 +1,19 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/archive/refs/tags/v6.0.0.tar.gz"
-  sha256 "50a403fb8f94029824766b32d4bf46e67c051699f761df8c4e2c916ecca4126e"
+  url "https://github.com/maxmind/geoipupdate/archive/refs/tags/v6.1.0.tar.gz"
+  sha256 "71a5b3125bb7d5f1b78382ec37a0d3e966caea3215689531a32cddc7e4437ca6"
   license "Apache-2.0"
   head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "49f24731d597989bdb83dba886556eddb60e14735737854effbf84cc95a5e64c"
-    sha256 arm64_ventura:  "b30fe66fde524cb2ffbe297d3d1eef0750be0f3e2cb1ff5170a45fd879713bb5"
-    sha256 arm64_monterey: "3b0b019f29653493e6f7bc652a2e16a2b0c43d56bd62fc2776b6af0cb78c7475"
-    sha256 arm64_big_sur:  "4dd7d15920d63dd89f7087a46ec7f863b0e0e0a6647ea86eb1f854af224f23bb"
-    sha256 sonoma:         "28fa370720ca238a449579f78d49b76bdc419e9265b98b2201ed33d1ca5537f5"
-    sha256 ventura:        "555b5e598c98ffa42baf90f229dacfbce06b425bd14334be65e0b07d6bec0bf3"
-    sha256 monterey:       "eb9e5d40ad470e73e6003b50fd1a2c73f8c7efe45eb7c8bad575e44673a65050"
-    sha256 big_sur:        "e0d638b9b272f8a00e10c9e8e0ac87368916dbdcc3b2a7eb6a35bcae4a435f0f"
-    sha256 x86_64_linux:   "1b26a395ef487e7c9e6072c0038291121d8a125a1471a815b9015fe213de5026"
+    sha256 arm64_sonoma:   "d1dac2a8404082a26e6308a176fc63a5e99d4f41b7fdbab2921027105adbbf22"
+    sha256 arm64_ventura:  "02633e5f62313de4268a292b75ac46231bb401471acdeec4475e0d62d3e9c669"
+    sha256 arm64_monterey: "0c8eb1feaa332db207e789bdbbd8e6f430f314bcd6b7a8c908e4dbf986e97fc4"
+    sha256 sonoma:         "bd972662b519e037ac80f692490a481357a1ff126d7b92929da36bb68e57ae58"
+    sha256 ventura:        "4d44e8a2620f9c9cc1c63da3946ded217957dbaae38daff14c130e6962312cf9"
+    sha256 monterey:       "93e14ba810188833b0696ab3addb347b9813702842ba6570d1b353f4824e8725"
+    sha256 x86_64_linux:   "5f95d716dda0e8e6a5ecd867ee122325270024db97af9dd5163f7560a551940f"
   end
 
   depends_on "go" => :build

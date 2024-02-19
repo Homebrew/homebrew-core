@@ -4,7 +4,7 @@ class Mikutter < Formula
   url "https://mikutter.hachune.net/bin/mikutter-5.0.5.tar.gz", using: :homebrew_curl
   sha256 "8f8d633fedd1a05767eacbd6840c6c268dd2a47f5cf7f7a520a38c8ea869f6c2"
   license "MIT"
-  revision 1
+  revision 2
   head "git://mikutter.hachune.net/mikutter.git", branch: "develop"
 
   livecheck do
@@ -13,12 +13,13 @@ class Mikutter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "efa933b07c8da1bc27d61fc3cb4b9b71b2cc4bc95f6a70a244f699ab987360ab"
-    sha256 cellar: :any,                 arm64_ventura:  "dff587adf0fe90128d15150470496dbdc101a8539f450086d8d6698b352ccd2e"
-    sha256 cellar: :any,                 arm64_monterey: "a482b000deb96a59d010d3aad8d15e4ba2102a260b4c0dc93ea17809d04e299b"
-    sha256 cellar: :any,                 ventura:        "87552b9d9962a9e7616dd40d7a46b1c56d1e57aa9d03f00bcfe6cb5afc9cea75"
-    sha256 cellar: :any,                 monterey:       "11956d25f67beda546cc65b67f73007c5fa4f32949685cbb797e582aef4bca12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dec586b039b6103928efe885e7b5422be323b4bee589f2d0ae500fbd9db212bc"
+    sha256 cellar: :any,                 arm64_sonoma:   "2a8b97e987ca69bd4307b5f1d178c8fa3d9e44573986cd9f4f71db57ae745f03"
+    sha256 cellar: :any,                 arm64_ventura:  "6d29c706b74c20d36c19cb19c7feb0252296188cdc3587d40500338b9efbf553"
+    sha256 cellar: :any,                 arm64_monterey: "1b031235a2664e740b222d2028ee09fe148e4e5484496d0e5f920c3ec6617c7f"
+    sha256 cellar: :any,                 sonoma:         "0887758152ad30f3e6a3338bf020bc982d1849cb1b01160c35028401c369b851"
+    sha256 cellar: :any,                 ventura:        "1d2841a72ac9e1f960d122ede46ed90eca91aef4aebdc10c6d30f92a2f8933ff"
+    sha256 cellar: :any,                 monterey:       "960f81a7bb6d50e519d0ba21bb590baf9804ea2afe426ab01d89416aada3cb37"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cd97ed8b2370ba6e80ddabfb4edac05a7c4ada24b4249dc92ded90fd6c3f7b2"
   end
 
   depends_on "gobject-introspection"

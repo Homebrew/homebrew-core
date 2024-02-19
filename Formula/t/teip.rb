@@ -1,45 +1,28 @@
 class Teip < Formula
   desc 'Masking tape to help commands "do one thing well"'
   homepage "https://github.com/greymd/teip"
-  url "https://github.com/greymd/teip/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "4c39466613f39d27fa22ae2a6309ac732ea94fdbc8711ecd4149fc1ecdfbaedf"
+  url "https://github.com/greymd/teip/archive/refs/tags/v2.3.2.tar.gz"
+  sha256 "c9e45d9f5fb263a67c42907d05d8a20dd62b910175270a59decc475e66ea6031"
   license "MIT"
   head "https://github.com/greymd/teip.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b8236a3ce68ab2062bf453517e5eeee3ca58edd543db01c1065bab68913d5419"
-    sha256 cellar: :any,                 arm64_ventura:  "3318cc516cddaa7ab4a31c63edfe1db4a1e911d846c06fa47f582af4b4b36edb"
-    sha256 cellar: :any,                 arm64_monterey: "88b1bd22cd5f91736a977181d132ce58aeac3ddbad78a72fb58d50cf8b49e45a"
-    sha256 cellar: :any,                 sonoma:         "8e469e75ba52cafb414cda79b1577d6a7a0092a97cfc3a192e8546fd5695c417"
-    sha256 cellar: :any,                 ventura:        "1fa2d3d2b009360140e0990c12558ce68843793a560443aed94506b0ac6a1745"
-    sha256 cellar: :any,                 monterey:       "b4c73b82a3010e8c2307fbbf1f1cb82cecdbb417654c2be13f39b113d91ed9bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "945a2668be5d0d4d6a81dbab65a76cf8bd6ba7c12708020623cdee8b4cc24b96"
+    sha256 cellar: :any,                 arm64_sonoma:   "4df0b07d8bd0edaf62e6daac722039dc3dfb1f1e8340439e41c2631cb3eeec4c"
+    sha256 cellar: :any,                 arm64_ventura:  "939622ea9607368b299e1eb0a3c19c01320a0399f8c01fa8502d14794fc1e983"
+    sha256 cellar: :any,                 arm64_monterey: "924342e2ea29ddf0eaa9906e74c6cf03b1356d00091bf24b54788bf61136b7b4"
+    sha256 cellar: :any,                 sonoma:         "3f757977cbafda79df194a8e162bd144236fc7c4bbb7ec3c3adc389130470a3a"
+    sha256 cellar: :any,                 ventura:        "3c20de30934eb61457693d5c6747425220abcba516f541eaed678e5c21cf7278"
+    sha256 cellar: :any,                 monterey:       "700d30d9d917de84ae8f2e517a9d424a279cc3cbad82caaa360a2b78a1133047"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82477350d16f0ce242352d7d6046fb2a1a2024cd9ba064219012e5c451d9b582"
   end
 
-  # Use `llvm@15` to work around build failure with Clang 16 described in
-  # https://github.com/rust-lang/rust-bindgen/issues/2312.
-  # TODO: Switch back to `uses_from_macos "llvm" => :build` when `bindgen` is
-  # updated to 0.62.0 or newer. There is a check in the `install` method.
-  depends_on "llvm@15" => :build # for libclang
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "oniguruma"
 
+  uses_from_macos "llvm" => :build # for libclang
+
   def install
-    bindgen_version = Version.new(
-      (buildpath/"Cargo.lock").read
-                              .match(/name = "bindgen"\nversion = "(.*)"/)[1],
-    )
-    if bindgen_version >= "0.62.0"
-      odie "`bindgen` crate is updated to 0.62.0 or newer! Please remove " \
-           'this check and try switching to `uses_from_macos "llvm" => :build`.'
-    end
-
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm@15"].opt_lib
-
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
     system "cargo", "install", "--features", "oniguruma", *std_cargo_args

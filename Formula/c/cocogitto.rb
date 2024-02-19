@@ -1,18 +1,19 @@
 class Cocogitto < Formula
   desc "Conventional Commits toolbox"
-  homepage "https://github.com/cocogitto/cocogitto"
+  homepage "https://docs.cocogitto.io/"
   url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.0.1.tar.gz"
   sha256 "2a0e332b7028ffcfeb113c734b4bf506c34362730e371b03a3e4a71142099330"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d7ea6d3b6f764424fa6df493edee224abfe1a704d5338fda66f831fe95254c65"
-    sha256 cellar: :any,                 arm64_ventura:  "32d8ac11f3f832fb24072216a59a1039244232cf89c06e86badcd50706c48393"
-    sha256 cellar: :any,                 arm64_monterey: "9ddab414d42665c64449de855cb25d2fa49084216a1a8b8e69ca34f9d77ca3a4"
-    sha256 cellar: :any,                 sonoma:         "9b02e29067a5d95f0f29f414e5fa67f8aba499ac696ad585f1c652666b93684f"
-    sha256 cellar: :any,                 ventura:        "01938712cb551e03c5c107395e1b266b8f155663b61935092aed7c30b124e8bd"
-    sha256 cellar: :any,                 monterey:       "56815c69f1d5e72979ae678364003fb2d892adeae822d8b7f0cc7473be427ace"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a219c69423801fa39e9f5c390c47f8f87b63b6e5f3d20ca3b4baa07f66545dde"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "004df251f240684fe135ec9b030807c45588e8da945956211e1b89d45adaa548"
+    sha256 cellar: :any,                 arm64_ventura:  "1e0817a7d4a18f09eebe6cbc25e96e6b775ee90bba6a4838d1a42176fad7f639"
+    sha256 cellar: :any,                 arm64_monterey: "f335ea57fdb15cbe1ee1d48c12ddcd74bc17cb5e30775bfe9c1edb0e8a0ae5f2"
+    sha256 cellar: :any,                 sonoma:         "4ab5b163ff85877650b2c75bf2ae3fd810e63581afff751176bbd596dc1e43e2"
+    sha256 cellar: :any,                 ventura:        "9f78f20b0c8040290234517e747e8916be39f4b3c60052f84b2fb02f61c2d6f1"
+    sha256 cellar: :any,                 monterey:       "390221017d0052519f5a2d86e503cbbfb42f3db79c8645602d3086da8555708e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6f5148acd4d1c14f5f3ffa6ab744cde6cdc663dcc8e700303fc6b15c44ba3157"
   end
 
   depends_on "pkg-config" => :build
@@ -24,11 +25,14 @@ class Cocogitto < Formula
 
     system "cargo", "install", *std_cargo_args
     generate_completions_from_executable(bin/"cog", "generate-completions", base_name: "cog")
+
+    system bin/"cog", "generate-manpages", buildpath
+    man1.install Dir["*.1"]
   end
 
   test do
     # Check that a typical Conventional Commit is considered correct.
-    system "git", "init"
+    system "git", "init", "--initial-branch=main"
     (testpath/"some-file").write("")
     system "git", "add", "some-file"
     system "git", "config", "user.name", "'A U Thor'"

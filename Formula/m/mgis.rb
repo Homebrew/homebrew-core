@@ -4,16 +4,17 @@ class Mgis < Formula
   url "https://github.com/thelfer/MFrontGenericInterfaceSupport/archive/refs/tags/MFrontGenericInterfaceSupport-2.2.tar.gz"
   sha256 "b3776d7b3a534ca626525a42b97665f7660ae2b28ea57b3f53fd7e8538da1ceb"
   license any_of: ["LGPL-3.0-only", "CECILL-1.0"]
+  revision 1
   head "https://github.com/thelfer/MFrontGenericInterfaceSupport.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "823cb915cd07a7c459d8191d1ebd7b1b10438e7268a296a70aa388dc5f4fda94"
-    sha256 cellar: :any,                 arm64_ventura:  "e258c7893d36636b4a91aeae410dc77df6c79d00915c8575d710188d1501e635"
-    sha256 cellar: :any,                 arm64_monterey: "ac00bbb0d8a83283ec2513ca93b2d37895278279c77e5d42c99eb2da0b271cd7"
-    sha256 cellar: :any,                 sonoma:         "b597c56a7db21e6bbbbf84c507f02fde8cfeb532eeccfa8615e84f7ea962082e"
-    sha256 cellar: :any,                 ventura:        "e03a63b1568fc58caaa75111b521604eb4ab6abdd2229c78edba0fd6f42d6900"
-    sha256 cellar: :any,                 monterey:       "f3314c9c40c4f6e7f2052a0868112596ba5852564e89c00e3482cdaf5c05374d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba49e66dc0879d3d33b48dcfa404b5dda54c047b3f77e14f6540226aa8d9c8c9"
+    sha256 cellar: :any,                 arm64_sonoma:   "2bd24d25f6466447e6bde81d60d882ffe2c628afe20dba8e79bdd7cb97ec61bf"
+    sha256 cellar: :any,                 arm64_ventura:  "3e5fa82b99d16d95cc4cb14bb3693a98d8062fa40b1d5304c14c2244dd94b55a"
+    sha256 cellar: :any,                 arm64_monterey: "09af9fd2b65e9b0a7973675a5dd19432e3e06a383a7982cd20a61e08816f77b1"
+    sha256 cellar: :any,                 sonoma:         "d3cd13a7f563f1f03d93df3ba8dc5f35b07cdade9a27db2f577d28faa0577ca4"
+    sha256 cellar: :any,                 ventura:        "a824eef673ef10b82c7da248878d986f947b6fc46951a9ac3e17d5d8caf414c4"
+    sha256 cellar: :any,                 monterey:       "5a80fcac0d29d5080dd5ae89c7d5d9bef4757bf817dee35f2f1c4cd319137b95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f54728d7b513b611cbe8e023fc9de26193c7f2bf09f818e0aef03f63afbeb966"
   end
 
   depends_on "cmake" => :build

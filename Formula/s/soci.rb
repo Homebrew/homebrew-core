@@ -22,7 +22,7 @@ class Soci < Formula
   depends_on "sqlite"
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DCMAKE_CXX_STANDARD=11
       -DSOCI_TESTS:BOOL=OFF
       -DWITH_SQLITE3:BOOL=ON
@@ -33,10 +33,9 @@ class Soci < Formula
       -DWITH_POSTGRESQL:BOOL=OFF
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

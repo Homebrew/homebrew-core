@@ -3,34 +3,23 @@ class Bandit < Formula
 
   desc "Security-oriented static analyser for Python code"
   homepage "https://github.com/PyCQA/bandit"
-  url "https://files.pythonhosted.org/packages/fa/09/049dff8b2fa7fc7cf82bd28999a3c97d55727d8235d0d8b3c95ff78b16fd/bandit-1.7.6.tar.gz"
-  sha256 "72ce7bc9741374d96fb2f1c9a8960829885f1243ffde743de70a19cee353e8f3"
+  url "https://files.pythonhosted.org/packages/50/04/f9efce9197981a6b36e44433c3f7349016f92ab69ddf9f9339d2fce0720d/bandit-1.7.7.tar.gz"
+  sha256 "527906bec6088cb499aae31bc962864b4e77569e9d529ee51df3a93b4b8ab28a"
   license "Apache-2.0"
   head "https://github.com/PyCQA/bandit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eded313e5d615389b6fd9d73c84721345fcfde24050b4d3201f5b8adc56347a5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "56269035f9863f596e4f2983431a537912c373e9780da1b3cb32d1ffdd8a8580"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c5a3005d5f6527ec25d36d7b81c11420295afc2761f0b98be33d0fd4f02d262"
-    sha256 cellar: :any_skip_relocation, sonoma:         "392e7f34cd861cf5105d99eabb0a97e7aee9ca98672047235f1303620f3505f6"
-    sha256 cellar: :any_skip_relocation, ventura:        "e7d34f22444a40fc064090361b4b545b27acb15af3fc5ac8b52b0c0cf1754f9e"
-    sha256 cellar: :any_skip_relocation, monterey:       "4dfc6a17349ca17acc5503f30caa771cbf893423e70c83da7abd2feb769d57c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8671f4d7310f524b596ad7f210d3a9aa900435a44baaaa4546b0f452f84c7d15"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bed4caef90fdd2eee19df3bd93c70ecabea8ac927c29cce458850c5453e1536e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e4ff1807516e86a435fd252ed16bd93c86a9554980b71d7b6403b43c80726b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca5aa10cc3e02a4be271327a49cfd777c5e58888fd7b2a6149925c834ada4bc3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e59e0a882806c5bfbb242b75e194f2a650c01ce7ef34b92a38a2a3e5fb5ef310"
+    sha256 cellar: :any_skip_relocation, ventura:        "2cade83f48aaf252631be55e06c71506f000d69cba0d8b096c0180833af28d52"
+    sha256 cellar: :any_skip_relocation, monterey:       "fb13b18e8ef4d2a95be16755aeeed8421a9cd7b61aebeb94626585bd1289a83f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "958b3660e1d179341f41aa13417d2d53b05afe8be88c2292a15466ae7857e2d6"
   end
 
-  depends_on "pygments"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-
-  resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/19/0d/bbb5b5ee188dec84647a4664f3e11b06ade2bde568dbd489d9d64adef8ed/gitdb-4.0.11.tar.gz"
-    sha256 "bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b"
-  end
-
-  resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/0d/b2/37265877ae607a2cbf9a471f4581dbf5ed13a501b90cb4c773f9ccfff3ea/GitPython-3.1.40.tar.gz"
-    sha256 "22b126e9ffb671fdd0c129796343a02bf67bf2994b35449ffc9321aa755e18a4"
-  end
 
   resource "markdown-it-py" do
     url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
@@ -47,14 +36,19 @@ class Bandit < Formula
     sha256 "d1377122a5a00e2f940ee482999518efe16d745d423a670c27773dfbc3c9a7d9"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "rich" do
     url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
     sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
-  end
-
-  resource "smmap" do
-    url "https://files.pythonhosted.org/packages/88/04/b5bf6d21dc4041000ccba7eb17dd3055feb237e7ffc2c20d3fae3af62baa/smmap-5.0.1.tar.gz"
-    sha256 "dceeb6c0028fdb6734471eb07c0cd2aae706ccaecab45965ee83f11c8d3b1f62"
   end
 
   resource "stevedore" do

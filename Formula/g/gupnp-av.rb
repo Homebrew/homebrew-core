@@ -22,16 +22,36 @@ class GupnpAv < Formula
   depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
   depends_on "gettext"
   depends_on "glib"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+  end
+
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <libgupnp-av/gupnp-av.h>
+
+      int main(int argc, char *argv[]) {
+        GType type = gupnp_media_collection_get_type();
+
+        // Check if the type is valid
+        if (type == 0) {
+            g_print("Failed to get GType\\n");
+            return 1;
+        }
+
+        return 0;
+      }
+    EOS
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs gupnp-av-1.0 glib-2.0").chomp.split
+    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
+    system "./test"
   end
 end

@@ -2,19 +2,20 @@ class Dotdrop < Formula
   include Language::Python::Virtualenv
 
   desc "Save your dotfiles once, deploy them everywhere"
-  homepage "https://deadc0de.re/dotdrop"
+  homepage "https://github.com/deadc0de6/dotdrop"
   url "https://files.pythonhosted.org/packages/21/1c/e9dcccd0a92ea4b9c0ba821e4a5e61dabc408695476d4b736060c050f940/dotdrop-1.14.0.tar.gz"
   sha256 "677361af37aef575acd5233de3a8b1b3d8b7bcf1f3587946d089e344503aa24d"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e93c33c48d2e5c16b1cbe9aaa2314ef98a564488f8c64791d46a734a5f6b0eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "16bf8b992b191ca90932c9e6a701d28a1c363228861f758d0f34ccae3c7e7f16"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3e0aba566c568e3623a8e704cb7917637fb44fd03fb4868ed66fa77942b7d899"
-    sha256 cellar: :any_skip_relocation, sonoma:         "25b0403b984929fe77f5734018a13117ef76f910dc22367520fdfa052eafb311"
-    sha256 cellar: :any_skip_relocation, ventura:        "8cfa01048fbc86421364e42088f8463af4341cc4d9e583325c89bd55137f2775"
-    sha256 cellar: :any_skip_relocation, monterey:       "f01158ff33c887673fbf2d81d3867c8b6538f60c8bf75ad3fa10e0adb6865163"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e02d1c11f70914a8a9689d0275cf8972133405d255ff0ba2de6bfd97010a3c0d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "348e463f3bb6c7dc9e8f160397b490d47f03291581431e324b1ff5767fb497f0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0711be18ac0ed9438b0531b5307d57d6a5240b114fa6a417c964d52a393301cc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0644f399d88a723932577410d0bd4a512904c007d03ed0a3cc2df2f5e9e806ff"
+    sha256 cellar: :any_skip_relocation, sonoma:         "61f70966b46deba833e5cf9ef8e3a31e46379beb9e018711a447e1d1136f64d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "f06ffcd2c791af1d7ae2217ebd4f7998e67525795b991d334eca608c68658299"
+    sha256 cellar: :any_skip_relocation, monterey:       "01b89ae87a8dfd95f151cf410584cd4d53e82d2befe9c1729688bb1ec1c82d4f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc32229b9d211e85edf2f7f5d05ae7e4c16e1fc097e37c0b6b715bbc94f8e523"
   end
 
   depends_on "libmagic"
@@ -29,8 +30,8 @@ class Dotdrop < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"
-    sha256 "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8"
+    url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
+    sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
   end
 
   resource "docopt" do
@@ -39,13 +40,13 @@ class Dotdrop < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
   resource "python-magic" do
@@ -74,8 +75,8 @@ class Dotdrop < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
-    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
+    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
+    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
   end
 
   def install

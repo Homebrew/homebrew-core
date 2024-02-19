@@ -24,6 +24,7 @@ class Ibex < Formula
   depends_on "cmake" => :build
   depends_on "flex" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on arch: :x86_64
 
   uses_from_macos "zlib"
 

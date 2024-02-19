@@ -1,8 +1,8 @@
 class BoostMpi < Formula
   desc "C++ library for C++/MPI interoperability"
   homepage "https://www.boost.org/"
-  url "https://github.com/boostorg/boost/releases/download/boost-1.83.0/boost-1.83.0.tar.xz"
-  sha256 "c5a0688e1f0c05f354bbd0b32244d36085d9ffc9f932e8a18983a9908096f614"
+  url "https://github.com/boostorg/boost/releases/download/boost-1.84.0/boost-1.84.0.tar.xz"
+  sha256 "2e64e5d79a738d0fa6fb546c6e5c2bd28f88d268a2a080546f74e5ff98f29d0e"
   license "BSL-1.0"
   head "https://github.com/boostorg/boost.git", branch: "master"
 
@@ -11,13 +11,13 @@ class BoostMpi < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "8090a53635a6f5486864b85ce2c9431c49c56e81c80884f6c34ab2d2ddb67c0c"
-    sha256                               arm64_ventura:  "973006a9b6cef0a9f3bbb235623fb7587e08a0981f408879ff63fac27852759b"
-    sha256                               arm64_monterey: "e0563f9d725f0725f4de3ab2585610cb6a6c7995f07db61bf2247806f7739a28"
-    sha256                               sonoma:         "17c3c0b92b1c58b8b115849054af8be0756d526c3be711eeacf146843939efb7"
-    sha256                               ventura:        "b6db4c835c98a72ed81b7efd44259d48065b72fdbf5f66463d8037bdf8cd4964"
-    sha256                               monterey:       "1cf97a879e71401a5d7ab78cd2b8ac37e546bf99fca9667f44a52f1fbf6b946d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eea3a944b88e4c443fecd6ba47e5696126c8f083c1e49776f3ee04d37d36efec"
+    sha256                               arm64_sonoma:   "fd072ff97451fd88657159056a6f27762d3752bfe79cb2b92d546c2f64053bff"
+    sha256                               arm64_ventura:  "86bff781a4a867b25ba50dc7a26421fefa3689b4c539b8d699c28079fc8a1342"
+    sha256                               arm64_monterey: "608dcb668b68bf61ca0685abcb0b25868e44b6d61cd62904ccb57c53b0b62354"
+    sha256                               sonoma:         "4bd68667bea15949adae58ed9e7c7564ed4adad6f204b04b82ec6e7e23212406"
+    sha256                               ventura:        "cda4783506c6ef1c5d5b63be869262f3317cb7b91b610510ce83ffcf4bb07e23"
+    sha256                               monterey:       "fbe93244ad1220e3a6c9041b0ba60e703952721a16356bcd5f90bd50ad5e052f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2850d62327f0265946cb8e3dcbbf30066a30eec5f58ec7ecf41152b76746b379"
   end
 
   # Test with cmake to avoid issues like:
@@ -107,7 +107,8 @@ class BoostMpi < Formula
     args = ["-L#{lib}",
             "-L#{boost.lib}",
             "-lboost_mpi-mt",
-            "-lboost_serialization"]
+            "-lboost_serialization",
+            "-std=c++14"]
 
     if OS.linux?
       args << "-Wl,-rpath,#{lib}"

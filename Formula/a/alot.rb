@@ -10,13 +10,14 @@ class Alot < Formula
   head "https://github.com/pazz/alot.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3f276294305f8b3feed95adcb161802a7e976fc3a7b34f25a983fafe343f19b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19b6f9aad8624ac916f1cb622510ae2f3ce8154b8aabecb16b37d8f0f06f9fb7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0d0eea5746c75674d117b66b14eb0087701955c1afd1bbf06344b2e092bc4c77"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a31fe0d674dcc352a11edc69a97719fd64c65734f0a8531985863cd780926710"
-    sha256 cellar: :any_skip_relocation, ventura:        "9727b2d3460d945be287616dfa8409825f5bc0ef7c542af9794f0c4ee6a3d8b4"
-    sha256 cellar: :any_skip_relocation, monterey:       "b8bc209f4d604bd84890f2f7cbbb60016eaf3cfda765821f03ed64786b5296f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a68a78ee5375be349cc6bf57deb27287af479af989cc3c647cec0a5d4f78df4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23e5824e8cf26c2aa6ea651f2ff13b97696df3a6e8f561071180f571207b8c25"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e962eb1abad071cc03a0c457fdf92cc8c097046c1c178327a130f42ef78bd84b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "648e5c3b6e2d1c507f65def7ad3404ebe97aa6320af845b9dcea38009173edb9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3be080d8486d70bfb38181af2f5c3b3dfa2814dacc630264f2dfef715ce7e69b"
+    sha256 cellar: :any_skip_relocation, ventura:        "6013101a67b458eb5bd1496ecae5c072630d01d060a47d3558ad5e83abae62e6"
+    sha256 cellar: :any_skip_relocation, monterey:       "87b188971e07ea63bbf0093724e13d8f180b0e19415c01162c1549d84f38c7f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67782be14e5f590ddbc31568eaa79a96f7d5e04a6f3e25df0ff7f961b6c33c76"
   end
 
   depends_on "sphinx-doc" => :build
@@ -24,10 +25,7 @@ class Alot < Formula
   depends_on "gpgme"
   depends_on "libmagic"
   depends_on "notmuch"
-  depends_on "python-setuptools"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
@@ -74,9 +72,24 @@ class Alot < Formula
     sha256 "c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "twisted" do
     url "https://files.pythonhosted.org/packages/5b/6c/d58b1bfc47cf02bd282f32fee9bd74d834fb2a92fdedf3e56f1ddb778c18/twisted-23.8.0.tar.gz"
     sha256 "3c73360add17336a622c0d811c2a2ce29866b6e59b1125fd6509b17252098a24"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   resource "urwid" do

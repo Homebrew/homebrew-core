@@ -2,8 +2,8 @@ class Calicoctl < Formula
   desc "Calico CLI tool"
   homepage "https://www.projectcalico.org"
   url "https://github.com/projectcalico/calico.git",
-      tag:      "v3.27.0",
-      revision: "711528eeb00fd90dde38e87ecee7d1c155cab0e6"
+      tag:      "v3.27.2",
+      revision: "402c0b3815dc3f2452b1427fd23a394474ee513b"
   license "Apache-2.0"
   head "https://github.com/projectcalico/calico.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Calicoctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f35e23234b6684d5c950696d7b05bea9bb8b7445f25420342444e5bdbcd12f1b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8730f128e1b2a69c12d915ff0a8f5d095ed672aab7b9a338d00b8cae0938ec87"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "06fd03b8da327e80f5f589e5c367b0e8435021d3f5d5d81243bfbb34270e5816"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6a409c72d0721c21dc02f84aacc9e2711dd881e94d3cd6f9a52461edfda18255"
-    sha256 cellar: :any_skip_relocation, ventura:        "4827a47ac46ca906ee140f8ef555a92b78812e02661c9821de20082c887b615f"
-    sha256 cellar: :any_skip_relocation, monterey:       "c44fa0560d481a01fa6cca1670d1471e521d27059e45e5628b6993b8d67deed3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "657c0d92c4805cc96eb8f2c611cd4b0827c819d14474cc4266d57e632da14c89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0323d354c5d1ccb4f44d97897e398fe0dd91acbe9b45e4ccf8b59dd46e24f66"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbe4a2f09e7de00784a69484655e8912c03f82a0b0d273d5484733b3c5d6dbf9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b3552dc6a556565cffaf388501cbe2814eda0a3adc5adba8db56b7e23b51f18"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b6b7d31189fe8c6400c27387bd0b86b7585e841cf0480141913bcdc593671a22"
+    sha256 cellar: :any_skip_relocation, ventura:        "c9f226780f0e87484491e4633083ca5bd507d5773f2a79808cbb7983d9aaf9e4"
+    sha256 cellar: :any_skip_relocation, monterey:       "85d1260d91f2372a40ad7fa7ba8783f47c925d3862dc8b261601b0ee17e92d5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4806cb66d2d19aba82cc548e9496e3e89e78b78b8dfeb991c33dc484830f0ed1"
   end
 
   depends_on "go" => :build

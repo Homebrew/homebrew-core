@@ -1,5 +1,5 @@
 class Cherrybomb < Formula
-  desc "Tool designed to valide your spec"
+  desc "Tool designed to validate your spec"
   homepage "https://blstsecurity.com"
   url "https://github.com/blst-security/cherrybomb/archive/refs/tags/v1.0.1.tar.gz"
   sha256 "1cbea9046f2a6fb7264d82e1695661e93a759d1d536c6d1e742032e4689efe9f"
@@ -15,6 +15,9 @@ class Cherrybomb < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "790c2d511642f7d35ae2815d1d466067b3ea275f59e9ea5c4f11fcf2ff7c4cbb"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c267814c22eb06a91e7029572694a158b1de67d986e76ebd36973b42f4e840a1"
   end
+
+  # https://github.com/blst-security/cherrybomb/issues/156
+  deprecate! date: "2024-02-13", because: "service is no longer available"
 
   depends_on "rust" => :build
 

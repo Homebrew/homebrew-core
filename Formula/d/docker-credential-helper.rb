@@ -1,21 +1,19 @@
 class DockerCredentialHelper < Formula
   desc "Platform keystore credential helper for Docker"
   homepage "https://github.com/docker/docker-credential-helpers"
-  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "ca0eb4680ae171828672ea3761a2319d21aeccccbb7c7e67832fed8a91c5af56"
+  url "https://github.com/docker/docker-credential-helpers/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "c9006b2acf159d54fd00a1713422ab70914dae87270b4f44d05edab526199e20"
   license "MIT"
   head "https://github.com/docker/docker-credential-helpers.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6439ce15817d83c212dadfb69e541861ff71a30ab2c01f7d945c0add0463dcec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6faa784b7567dbc8767b1a1c9d665b1d5505f31bad34fb88f8471d2e4449931b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e86ebc76ce73bd8c6a3ef02d1dbd9f78b015c65720379c9689b3c94313707eab"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bcb1addba2a3c67dac8e03ef5df5ff0f2c8374da76ab8e347cccf06e30604b3c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ac02d80b1c773da5cea6d7309968bc8ebb171abada070486b745d90f2b853620"
-    sha256 cellar: :any_skip_relocation, ventura:        "014b0ce7a94ae0d7cb6693c2f9b934ea9204be731a15457c34305ef84e2e3617"
-    sha256 cellar: :any_skip_relocation, monterey:       "c0e7ada5c8cd6e20073c15435fd24206a8abf2076962e7b2b4604dd904006135"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9bc5da0549e3347a5aea7727c88c0248ec4950da778d703d8bbf3357a5437e31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0104e1aba1f9acd7cf0a2961e5982eab2bb6f2f0de77032334ea942e2a5327e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8342b5a488657ba7a82f5e21d83730fbf4b9571632eb4eb7eb2ce6d84500854b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c934acc1215ff0a026307333272f2b93667a6bce3b3b2b4b20418c57b77de790"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4ec0d231eada5dd08156bf48fb12d634314cd2c73abccc9256537669409d37f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e744c01c93efc2f259af48b0554db58fdeb0a962b226c86b4a71ad0a700c4795"
+    sha256 cellar: :any_skip_relocation, ventura:        "9e8b4b1c1b2325dcb894676493bcd233bc822fe8e140447a9bbae8255ceb6ca6"
+    sha256 cellar: :any_skip_relocation, monterey:       "388165e854299342a217c317c886227b8f0299acf980abb4db78da5d0cc8891c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b65cf89fe05ae692d50c5873dc9ba97609adf60f386d6bb0e4682ca34ed576df"
   end
 
   depends_on "go" => :build

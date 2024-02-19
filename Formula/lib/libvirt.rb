@@ -1,8 +1,8 @@
 class Libvirt < Formula
   desc "C virtualization API"
   homepage "https://libvirt.org/"
-  url "https://download.libvirt.org/libvirt-9.10.0.tar.xz"
-  sha256 "1060afc0e85a84c579bcdc91cfaf6d471918f97a780f04c5260a034ff7db7519"
+  url "https://download.libvirt.org/libvirt-10.0.0.tar.xz"
+  sha256 "8ba2e72ec8bdd2418554a1474c42c35704c30174b7611eaf9a16544b71bcf00a"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Libvirt < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "efa80cb8cf32cb6391e62506f289da951ef6f383693dc3c0208cf6167fb4c3f5"
-    sha256 arm64_ventura:  "168710d977d5c067a0a6de7c1d8a2744916f297e8d7a62edd384a7d09b434703"
-    sha256 arm64_monterey: "cb4e016636418b3f3d5a762d9584cb0e0567f4078e1c1bb7271eb099586fc40b"
-    sha256 sonoma:         "2887ff473639a51c043dc2cb4ac2eac26064c1f15a10bca79f350a9da90768ad"
-    sha256 ventura:        "d53894e530637c8f150c0f52b3f4d1832910db0a889dda218148f2096aa8eb7b"
-    sha256 monterey:       "373761b4094c7540eb4d52585ffe13e99a271f012a33ab8b8b638364da9cf307"
-    sha256 x86_64_linux:   "094d626d7881aeeaa0f9fda0cadf3a29528cb6311c98ddeef90b085e74abd28f"
+    sha256 arm64_sonoma:   "141965bde6c5104b5402a00f94b44fcb7458031b79584a0cb4dc4a57ce97d02a"
+    sha256 arm64_ventura:  "d7db6016ac3e91ad1d558027099c87a37e4070c38bae8bac03d5ee400cd5c692"
+    sha256 arm64_monterey: "3b032434e9c19d8748f3e6173c5c4dddaac1692f8770f4071ae2d14cb65a1b48"
+    sha256 sonoma:         "3d9911c7c77b7118b882eabca38527410a28298ba276bef02ff68509d3bc2e3c"
+    sha256 ventura:        "370a494a8abe53c04acbf92df3ab22057eb0fa1192a9d0d68406409ed12c5f97"
+    sha256 monterey:       "5790b96dbf9933a99e9e39e1441119a416da0894cc513cfc20b492500d9665ba"
+    sha256 x86_64_linux:   "a41d26c4692afe75863f095a387da1c72c510739a296c06bfe8c1c8b40f3a46b"
   end
 
   depends_on "docutils" => :build
@@ -26,7 +26,6 @@ class Libvirt < Formula
   depends_on "ninja" => :build
   depends_on "perl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
   depends_on "gettext"
   depends_on "glib"
   depends_on "gnu-sed"

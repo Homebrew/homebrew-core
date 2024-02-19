@@ -18,7 +18,7 @@ class Postgraphile < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "93aa60a1cb7e1f15b1efafc8e26b7e0474aaa6b30900bca94acd506df8ad5d1c"
   end
 
-  depends_on "postgresql@14" => :test
+  depends_on "postgresql@16" => :test
   depends_on "node"
 
   def install
@@ -27,9 +27,10 @@ class Postgraphile < Formula
   end
 
   test do
+    ENV["LC_ALL"] = "C"
     assert_match "postgraphile", shell_output("#{bin}/postgraphile --help")
 
-    pg_bin = Formula["postgresql@14"].opt_bin
+    pg_bin = Formula["postgresql@16"].opt_bin
     system "#{pg_bin}/initdb", "-D", testpath/"test"
     pid = fork do
       exec("#{pg_bin}/postgres", "-D", testpath/"test")

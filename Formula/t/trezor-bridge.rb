@@ -5,18 +5,25 @@ class TrezorBridge < Formula
       tag:      "v2.0.33",
       revision: "2680d5e6f7b02f06aefac1c2a9fef2c6052685de"
   license "LGPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "759841e8ae02dfd9e248af122d4ff1ea86fa431213b2254ca403b37fd19a7994"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0527558397468aeb0f38d77106bf49654531cdd55fc0127d64f033b9b67a3cb8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e059630a7d145f304753624e8f5de997028cfbe2fcc601f80d55d0e8f61bd0f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d220b2bec0444f0e31f013ac437f404a970f4faa494f231f45b421b48aa7e7f"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a3f7a962d8470a1630bdc814454f71276685e7dbb4e13ccf1ec3308c5cf26c0"
-    sha256 cellar: :any_skip_relocation, big_sur:        "03d3b125c3864a6522166f6450eb0f91511f8ff38283bbd8def9b63b4e7922a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16bde2e78f260089f05327efb87cd2e287bd3d4f84cd164d45f883bb10e434d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ed7f24a07138a009a6ae6f962138c0ea9bee316ebe730b534ba072140b48629"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c207cb9221f8c6ce8e813200cc98bd0cca5dd3e29e85e5ece6c74b0dce071db7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34ad3a642fda0faf46777da05d3a0deb9f691e4a0bf60a4db5da213c2b1e413a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "55eab81dca886c7fcb19eef1859d7166a3db6a4a24c1bcfae2b49829af8c45f2"
+    sha256 cellar: :any_skip_relocation, ventura:        "5f6906f339f0c85c6d048aff26fa7a87adea4e87b8e262f54dd482e7d31231fc"
+    sha256 cellar: :any_skip_relocation, monterey:       "3c19a0c1ec5d0ede24e8178c9a8e79fa7777e266ce9a941fdbdc5fc7abd4f6d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0039559d527cb2841e04cff9bb7bc59b6db17f6f74f442768af8a81776ccacd9"
   end
 
   depends_on "go" => :build
+
+  # upstream patch ref, https://github.com/trezor/trezord-go/pull/300
+  patch do
+    url "https://github.com/trezor/trezord-go/commit/318b01237604256b1a561b2fa57826aa0ebb218d.patch?full_index=1"
+    sha256 "b48d0026281814f9a6a8cac48b701db741391d285867593b4ce272e70aff229a"
+  end
 
   def install
     system "go", "build", *std_go_args(output: bin/"trezord-go", ldflags: "-s -w")

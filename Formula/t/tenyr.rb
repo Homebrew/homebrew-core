@@ -1,6 +1,6 @@
 class Tenyr < Formula
   desc "32-bit computing environment (including simulated CPU)"
-  homepage "https://tenyr.info/"
+  homepage "https://kulp.github.io/tenyr/"
   url "https://github.com/kulp/tenyr/archive/refs/tags/v0.9.9.tar.gz"
   sha256 "29010e3df8449e9210faf96ca5518d573af4ada4939fe1e7cfbc169fe9179224"
   license "MIT"

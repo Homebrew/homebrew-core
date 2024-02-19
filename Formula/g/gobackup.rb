@@ -1,19 +1,19 @@
 class Gobackup < Formula
   desc "CLI tool for backup your databases, files to cloud storages"
   homepage "https://gobackup.github.io"
-  url "https://github.com/gobackup/gobackup/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "52c7f04d5c8c099b0f8396cc084af656e024539810652d4f49e40b994f9addb9"
+  url "https://github.com/gobackup/gobackup/archive/refs/tags/v2.10.0.tar.gz"
+  sha256 "3d2b74765f95db37837e24832fd95bd2025fa72cc55fa78b015bb9af08c0f540"
   license "MIT"
   head "https://github.com/gobackup/gobackup.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "099d4f21e89ece87aeaeee31e49129f8bbacd4c78b2a1b650f35077b06f7d3c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58d4a606263fc2d1b0d705231abcd495d636c3fb54d457ebcb9c1ea050e0e1de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "53c2745ea0bf9c288367ad676f6c68417392dadef206342466cac226f10ebbd2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2ab6beaad5f9cec8fc47c9e65d1d2d18ca6c4a89675eb5fa8c45ccfe18aad2b9"
-    sha256 cellar: :any_skip_relocation, ventura:        "ace53b5e3338cca10451a113f2df4b30ae8d007088925c587f8e3dc5f955461b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7204285530ba84a6eb13b3a08673c5e4609693382e1342c869d9d66baf64c835"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c596924b51ff7ff1fe6c3227307b483fe2d6103d78c717d4754b5249b6c231b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "27d10719f838d2f52d79e79a24c8203a57c15327c06b9aecb64d0f52c7d7a571"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "55df6861392bcf55a66fcaafcf8094b36a07f9cee33bfe21003a3ba916712bf6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "50bff4a145b547497418db473012d413e9cb1cb4587f24861953cab57b3ea655"
+    sha256 cellar: :any_skip_relocation, sonoma:         "553bdd02eb66567fc4e24c14e318336c7cd34e84c743f5f2b96d167a736268e3"
+    sha256 cellar: :any_skip_relocation, ventura:        "2d0e3c081ec3ef429314dc26bf0a0cbfa83efdad276fc8db3f122a5e0ad6a17a"
+    sha256 cellar: :any_skip_relocation, monterey:       "012c87946939d7275f390cd933fcc3c853859e6445e335829b3ddbe0e114df5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aed9700ad0c89d56e6e8e44ff0f6c5b91b62b2a4dfa1f75bdc3335e339164c1e"
   end
 
   depends_on "go" => :build

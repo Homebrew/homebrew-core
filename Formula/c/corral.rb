@@ -1,21 +1,19 @@
 class Corral < Formula
   desc "Dependency manager for the Pony language"
   homepage "https://github.com/ponylang/corral"
-  url "https://github.com/ponylang/corral/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "496fb8cf8d533f3e9eaa64098c32499ba3c94eb51b1f52dd550948e8c612c1b6"
+  url "https://github.com/ponylang/corral/archive/refs/tags/0.8.1.tar.gz"
+  sha256 "a6c95833ec4bd0fcdc2ba5dd3f5ab509c0a500a086f6be8df22f28c752148dc1"
   license "BSD-2-Clause"
   head "https://github.com/ponylang/corral.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa762ed2c4b29e9cf3d3837853851145a408b0f65d61b7c2a28feb32949dd4ca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f6427abe5672af55ede5b6b42e320874284307cf073a98f00ae14acfca966457"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "20735dd0b9efdf70328b5dae305ef88d8aae8a424bcf02c65cffdbc8471fcb4c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b6ac6521e84685f8419cb5deba01a108cd8c161363311cd47cb8c6331454b0f6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "72261831a95bfe819397de8db70bcbcbe53feea297bfba0186f806b804652b72"
-    sha256 cellar: :any_skip_relocation, ventura:        "5497cc1358c2c777b188181e39e0faa3e6279b9c14645d83a3f10b91be16a01d"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a349ed1bdb20d6f8247400d6b6c2d45d00d6c61e2d4d35c94b668f81fea37f4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "642ab90fc5f2dedfb91e76e0f976e10d80b8fe08ebb69418286e6dbea5630618"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf2657c67be0a4847531019017b23519216b8b0dca5c4aa4d73315e2b6ed976d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47042034b51889ffb4e5c8e2e39bc6bee3b07913df912830e1ce7be697884de2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e777fcf9a0d25fe2c433d1585abe5364313d83d17b479fc2ceba6f70f1fec08"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "02719312b46a15d2f5adc1bb9c1f7358f65c564e5a6106d36ff69c8ca28d2089"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e3c26add1c6b56e36bbc4ae18dd54f5526bdb87a6f3a6eec0cb736448a824028"
+    sha256 cellar: :any_skip_relocation, ventura:        "9a0c150865035cd34404a2601389ce91844b4ca41e4e56b3272a6563fb0f0e5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "9402ef0ff8a3b4a3363dd5b5d025139cd5a01890ddea26ad2614abc2171286c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "441af9edd92535db5a01d1c913744be72a7c9de65150a61aa6e3d23cb61451da"
   end
 
   depends_on "ponyc"

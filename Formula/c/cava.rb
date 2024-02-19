@@ -1,21 +1,19 @@
 class Cava < Formula
   desc "Console-based Audio Visualizer for ALSA"
   homepage "https://github.com/karlstav/cava"
-  url "https://github.com/karlstav/cava/archive/refs/tags/0.9.1.tar.gz"
-  sha256 "483f571d5fba5fb8aa81511c4dcf8ce0949c7c503ec6c743c2914cd78e6faf03"
+  url "https://github.com/karlstav/cava/archive/refs/tags/0.10.1.tar.gz"
+  sha256 "a3a60814326fa34b54e93ce0b1e66460d55f1007e576c5152fd47024d9ceaff9"
   license "MIT"
   head "https://github.com/karlstav/cava.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9a46dffaab5df80aa54dde50aae4ee545455e7ebc15de0c7ba7833d68f5c1d8e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac2b96b1143b50f4e9a3a7affd3c30443782e7374aa225e87c56d68cde1d96d6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "971a6df81f5786fce43826fb1de9bddbf2cb18c887edcd8d7acb328bd2a21ae4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c72b5b7c8c00b65bfc8fc518bebcb79c7049e381fc79c95f19d4203b51727e59"
-    sha256 cellar: :any,                 sonoma:         "5fd9f94f25d1f79eea3aeff8cabb081fd079c2a66c0af0a88332aff62e4be991"
-    sha256 cellar: :any_skip_relocation, ventura:        "2b31c8273c26f2f94be048113829a2f28201c123755dd52227a892bdba7e321e"
-    sha256 cellar: :any_skip_relocation, monterey:       "8c3fe61d1f23dfccb3cdd3589326236b9a7ef583566c79f8185ac64f8dd0dad3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5cc5a84eba5949107af333fe87ed0e67450b3428e6bbbaf8a566cc9ae5e87261"
-    sha256                               x86_64_linux:   "9cca26389fd36d918e11746dabc681c8331a15aa9cfef87f7f0018ebfb19d2e6"
+    sha256 cellar: :any, arm64_sonoma:   "f74b0fcad6a503613d9e8fa7e39864fcbd5b29edc7573e490bd804a193df558a"
+    sha256 cellar: :any, arm64_ventura:  "b9572317b554c1a29c4fbe8b9631f4202d54ef246489f3b97dada007c1db07dc"
+    sha256 cellar: :any, arm64_monterey: "033d4e6bd3af308e2eb2f676781098cd68a73b8bd3cfe16ac18cac02f99942c8"
+    sha256 cellar: :any, sonoma:         "3eddff336e77820a53ef1d4073b0a286a4cce40afa6aa19fa1a3e120d2767cb8"
+    sha256 cellar: :any, ventura:        "470ac5040c44a1148926ce37717f054a478882d6b80dafdc16cee0432c65402d"
+    sha256 cellar: :any, monterey:       "8e05dc874b5893de5995ab17654011e5d29b464d1610f64e64fa236a9571ce5c"
+    sha256               x86_64_linux:   "983610bdfc5e0df084528e43480c3dc5f23bb77e4fb8b8ab0f7b5984a1a99a95"
   end
 
   depends_on "autoconf" => :build

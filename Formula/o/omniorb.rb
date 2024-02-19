@@ -1,8 +1,8 @@
 class Omniorb < Formula
   desc "IOR and naming service utilities for omniORB"
   homepage "https://omniorb.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.1/omniORB-4.3.1.tar.bz2"
-  sha256 "0f42bc3eb737cae680dafa85b3ae3958e9f56a37912c5fb6b875933f8fb7390d"
+  url "https://downloads.sourceforge.net/project/omniorb/omniORB/omniORB-4.3.2/omniORB-4.3.2.tar.bz2"
+  sha256 "1c745330d01904afd7a1ed0a5896b9a6e53ac1a4b864a48503b93c7eecbf1fa8"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
@@ -11,22 +11,21 @@ class Omniorb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b8ff967349515c81d31b1d5a566616dbb7ed8fd8788940f35e99625e8340713c"
-    sha256 cellar: :any,                 arm64_ventura:  "dc6b4f127e6f74924f29c3825373fc7d48f2a8eede75a53695e5e223d0e99a84"
-    sha256 cellar: :any,                 arm64_monterey: "a3e3ed84f529fa6717b646e23e5adf6cb9b203bbab6ab3067d74d27a9b37cc51"
-    sha256 cellar: :any,                 sonoma:         "485d98dde579d91bcf60fe200ee073d207aaca911a7ffd9560c2cae259b58f11"
-    sha256 cellar: :any,                 ventura:        "7fc3798fd9ce75606395878769a7c5509aa7bf34e2089b7cf996b309268c2d0d"
-    sha256 cellar: :any,                 monterey:       "e32e519b2a32838f57be93545434bfef818efaa4c9225443de81f2796ef41c5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "040db4e19941ff7142bb719b991c08777b4165f78ceaa922e1465d964cfd5d74"
+    sha256 cellar: :any,                 arm64_sonoma:   "8f30cde3ccdad77bf9eab6b1479eddf61b5fac1720562b583fa2f299ef611d08"
+    sha256 cellar: :any,                 arm64_ventura:  "0c95065778587f6e4b405c7db738f2a08b5aeb7fffd8e9ad0ee106e256ecebf9"
+    sha256 cellar: :any,                 arm64_monterey: "f2a6a5138718643cfd16256f7cc46040a96cab9a4daf450ed1965bceac4eebb9"
+    sha256 cellar: :any,                 sonoma:         "c5f6d4a6d03750e64208d038da5448b17d5121331f96a2b8227cd16e2854ea27"
+    sha256 cellar: :any,                 ventura:        "d637dcdb67360e997a38e45136c77874ec49239853dc0e038c6723851967051c"
+    sha256 cellar: :any,                 monterey:       "e723599e651a6da612005e20ff8081f75cd6a259c3ee000e4eb27a81624eee34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c6ed8ba241de3cc97f66834684d84262aadd78bf9f99436c7ad7a9f09255323"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.12"
 
   resource "bindings" do
-    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.1/omniORBpy-4.3.1.tar.bz2"
-    sha256 "9da34af0a0230ea0de793be73ee66dc8a87e732fec80437ea91222e272d01be2"
+    url "https://downloads.sourceforge.net/project/omniorb/omniORBpy/omniORBpy-4.3.2/omniORBpy-4.3.2.tar.bz2"
+    sha256 "cb5717d412a101baf430f598cac7d69231884dae4372d8e2adf3ddeebc5f7ebb"
   end
 
   def install

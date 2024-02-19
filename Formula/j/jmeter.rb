@@ -1,14 +1,13 @@
 class Jmeter < Formula
   desc "Load testing and performance measurement application"
   homepage "https://jmeter.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=jmeter/binaries/apache-jmeter-5.6.2.tgz"
-  mirror "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.2.tgz"
-  sha256 "08696d3b6278d272342d18609e2167ef28d2d1d5f71b592809c00bbd57cc8ef0"
+  url "https://www.apache.org/dyn/closer.lua?path=jmeter/binaries/apache-jmeter-5.6.3.tgz"
+  mirror "https://archive.apache.org/dist/jmeter/binaries/apache-jmeter-5.6.3.tgz"
+  sha256 "f68efc17fe060f698c48a6abe2599a933927486bda2924dbe14c74895318ddde"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "82538b33f8d2aaf6977e41abc33c91ba3a9ed27e88ceb163e1b2888a3a5f72c8"
+    sha256 cellar: :any_skip_relocation, all: "5107d96ba3897ce857dc916c88874fe857b6eb4b5b1a05a67a25008d38e8bf89"
   end
 
   depends_on "openjdk"

@@ -1,8 +1,8 @@
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
-  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.14.2.tar.xz"
-  sha256 "dba695b57bce15023d2ceedef82062c2b925e51f5d4cc4aef736cf13f60a468b"
+  url "https://www.freedesktop.org/software/fontconfig/release/fontconfig-2.15.0.tar.xz"
+  sha256 "63a0658d0e06e0fa886106452b58ef04f21f58202ea02a94c39de0d3335d7c0e"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Fontconfig < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "38aa7dd551f49752ca7a1303e61e4a4e4f635eec83b95dbd8084007218c0f0e4"
-    sha256 arm64_ventura:  "11cd488fc519d98142ed747300546eb65976c9a3bc973d955a934741c609b5df"
-    sha256 arm64_monterey: "2e1558c0e3cb449da701c17897cdad76b21cc4a4af619a31848b08fa0a9fb2ca"
-    sha256 arm64_big_sur:  "5fea615f3524a847df9ea7e336a615fd4c8d9d8b2fb0e89b0e684173e6a1614c"
-    sha256 sonoma:         "9735684010a6472dd89d2a7f2fc3bac78e95c9c2aba8613944d73e3da99e8ad5"
-    sha256 ventura:        "db394e8a4492db9d85b43c4afd1666b1691413fdd3815adf147aff6f92068198"
-    sha256 monterey:       "9678cbf8549fae9c149db90c810bb0465c4725adcae61dbf35e295f76ec306d2"
-    sha256 big_sur:        "337bbb8f41116814b2060eccd4b08f8df7021453b204551afad230ef9f067661"
-    sha256 x86_64_linux:   "d92379c3a5f5c62a368e3d3ccd0db43d66a99c8c4347d0852d68b433b96706e0"
+    sha256 arm64_sonoma:   "4732e8c8cd6f940fa3ace12a5a5428baaef29bdccf9bc520fa4d37a1f0bf639c"
+    sha256 arm64_ventura:  "deeb5f60979bcc3d57a201914ceba3ad83ca36139be32620f529b5d69f0d1c38"
+    sha256 arm64_monterey: "93df98ef8a2740e22c028048bfa34f2635b4265ef406462d89705f9c39df969c"
+    sha256 sonoma:         "bbf54fe755e483815ed53755d3c5afbcba1560b5ad0b4d8b0abda3403be45079"
+    sha256 ventura:        "aedf10972e0376c56d4c130d3dd51e14b61badeb2686b865eb56a2bdfb77b5b5"
+    sha256 monterey:       "470c4c7982cdffd7abf44f18a6614830112484d493e0559d406a90bea19adee9"
+    sha256 x86_64_linux:   "1cb0f103706d1199c9917ec6908d9f027eb9688faee40a46bcd32df1173c96b4"
   end
 
   head do

@@ -22,7 +22,7 @@ class HttpParser < Formula
 
   # "http-parser is not actively maintained. New projects and projects looking
   # to migrate should consider llhttp (https://github.com/nodejs/llhttp)."
-  deprecate! date: "2023-01-03", because: :repo_archived
+  disable! date: "2024-01-12", because: :repo_archived
 
   depends_on "coreutils" => :build
 

@@ -4,20 +4,21 @@ class Inspircd < Formula
   url "https://github.com/inspircd/inspircd/archive/refs/tags/v3.17.0.tar.gz"
   sha256 "181de90130e11a26ec107fcb6b74005cbce3051b89b500347e416054e29c3166"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
-    url "https://github.com/inspircd/inspircd.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
-    sha256 arm64_sonoma:   "765ec9c1d774f6e55096e6341342b8e5b361c25a6931437ecaee293d659b60b9"
-    sha256 arm64_ventura:  "f9bcdb65e4317b03bf88af82c2f6702ed40a645e189c13cd73f844825ed8f982"
-    sha256 arm64_monterey: "b6e7232234ca5082e64ef39cf1bf89d7ff54d9f756eb37cde8b0275890a059f5"
-    sha256 sonoma:         "522d9d2dcc7306151e3fc0d54b8dd65ebd602a5eb0f166feb397adc3d8678b25"
-    sha256 ventura:        "1b5051200899dc7b8b52fc6f21d03b642a69b043f7f20d374e449dce46d29ea6"
-    sha256 monterey:       "ea88c8c2914778202b8f2f3cdb18bd29b7a4c06dcafd958e2bc2af00a400c513"
-    sha256 x86_64_linux:   "6e16e1cce59a398ed56dc26c73096748fb014c7c90f473c22b67e994e9462c0c"
+    sha256 arm64_sonoma:   "f909dabd1cda182a8bffac9702d1ba9e6811cc184680c1723405c8e9c8d758ba"
+    sha256 arm64_ventura:  "1300bfd953404cc3728e3fa6e6411350bdb395ff7361dbc50e1dc3ec1fa59371"
+    sha256 arm64_monterey: "8f86230f1506baf2082fc140675d23f337303d71ce64c025ba8c6e304ce5b6d7"
+    sha256 sonoma:         "ae5c22ec9be553b0a59ad856be6a56c6091673318eef9f4bb07cfba10a4ae4bb"
+    sha256 ventura:        "ce39749fdb7a7e2a00c50009b35fdb83500676ff28634edc49d8192f11d86ce4"
+    sha256 monterey:       "b97474dd548b126d240fd87708cf749cd06e1d9ee6e155ce79b722c8a77b14fa"
+    sha256 x86_64_linux:   "335aeeb4df8b203befe37e35b80776f9679bcc36f263975a952fc2a24502ac8d"
   end
 
   depends_on "pkg-config" => :build

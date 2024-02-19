@@ -3,6 +3,7 @@ class Avimetaedit < Formula
   homepage "https://mediaarea.net/AVIMetaEdit"
   url "https://mediaarea.net/download/binary/avimetaedit/1.0.2/AVIMetaEdit_CLI_1.0.2_GNU_FromSource.tar.bz2"
   sha256 "e0b83e17460d0202a54f637cb673a0c03460704e6c2cff0c2e34222efb2c11ca"
+  license "CC0-1.0"
 
   livecheck do
     url "https://mediaarea.net/AVIMetaEdit/Download/Source"

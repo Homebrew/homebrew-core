@@ -87,6 +87,12 @@ class Scoutsuite < Formula
   resource "autocommand" do
     url "https://files.pythonhosted.org/packages/5b/18/774bddb96bc0dc0a2b8ac2d2a0e686639744378883da0fc3b96a54192d7a/autocommand-2.2.2.tar.gz"
     sha256 "878de9423c5596491167225c2a455043c3130fb5b7286ac83443d45e74955f34"
+
+    # Fix compatibility issue with setuptools 69
+    patch do
+      url "https://github.com/Lucretiel/autocommand/commit/cf98b8bc024f536565a67369a9f9a506fe67b942.patch?full_index=1"
+      sha256 "c705aa78d4fcd5fb960243d06332cef6c1a48a2c648c903dc2ac07da77ea83e7"
+    end
   end
 
   resource "azure-common" do

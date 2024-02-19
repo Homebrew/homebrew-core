@@ -1,23 +1,22 @@
 class Volk < Formula
   desc "Vector Optimized Library of Kernels"
   homepage "https://www.libvolk.org/"
-  url "https://github.com/gnuradio/volk/releases/download/v3.1.0/volk-3.1.0.tar.gz"
-  sha256 "4f5bb84f535ce86cfadc953379587bdd5a1a171d684b0a6f35adcaf2ac46fd01"
+  url "https://github.com/gnuradio/volk/releases/download/v3.1.1/volk-3.1.1.tar.gz"
+  sha256 "d8c25fad82243d69a653bb989eced8e404b12d7caec6baee16675ef9f77c27fa"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "8c5afb6748c91001cc91dad149293b0aa064ed73255de0411f533826395f4974"
-    sha256 arm64_ventura:  "f342dd05417a998c01d9623ce1b3ad152aa4d1140295df276cdded51d27be51e"
-    sha256 arm64_monterey: "5bcf5ac6a1ac0d283fb0159b69fb540bafd0dbce7bd6d40937443dbded97cb67"
-    sha256 sonoma:         "b803e52f3b1d6cda3370dfb2f13442d47039838accd56cf7e2b97da070510f89"
-    sha256 ventura:        "a1f9084ed264904da34adf0ffd1b655627e79cb25f38762b9f367a32b68cc7e5"
-    sha256 monterey:       "34923e18438de04b7682907a6ee8d5f95a5997d370d32205791cc3c8b2d64854"
-    sha256 x86_64_linux:   "3639e6f0a48fbf6f3b2b271c86768e42e4a2966e55047be42113cc8f141d1bb0"
+    sha256 arm64_sonoma:   "24284980dcc4e4ca84e69971cb9e0e76074dc254e99d154313cb1f042b4e3a41"
+    sha256 arm64_ventura:  "7860473a2423fff8b8451a72ebe073f9af9c167e466e6f1d66f7ebbb329a2d63"
+    sha256 arm64_monterey: "949f40266fb5c32228d4fefec6fe2df0b5d7860a25bf42bfef632ec57465997a"
+    sha256 sonoma:         "70ec53e6a7550a92abf9624c5bb94101be056c0e9aef3006655bf5865fb1600e"
+    sha256 ventura:        "61c6089e5722d5d401ed11306d02f527dee70843ca2d14eea04a257ab2882874"
+    sha256 monterey:       "9621aca1cb1b6c30c7cc1efd2b18b2993792d00e83b3085c41d30c463e161b1b"
+    sha256 x86_64_linux:   "479022931d91f7caa758f0933962445570eaf15153fbc90518e59b5c60c2adde"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "orc"
   depends_on "pygments"
   depends_on "python-mako"
   depends_on "python-markupsafe"
@@ -28,6 +27,12 @@ class Volk < Formula
   end
 
   fails_with gcc: "5" # https://github.com/gnuradio/volk/issues/375
+
+  # see discussions in https://github.com/gnuradio/volk/issues/745
+  patch do
+    url "https://github.com/gnuradio/volk/commit/bc59cad9dcde3865f87b71988634109bd3b6fb1c.patch?full_index=1"
+    sha256 "52476d6ee7511ead8ee396f9f1af45bcd7519a859b088418232226c770a9864a"
+  end
 
   def install
     python = "python3.12"

@@ -8,9 +8,11 @@ class IcalBuddy < Formula
   head "https://github.com/dkaluta/icalBuddy64.git", branch: "master"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5f5470ef901a02406a988f04542a69a7563b7936eaa90144aa316a10fcdc1977"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6b5931088a2e5f1df062e44902d454d0c9bfeb466c6baf49ed06a946599f3c15"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "26aa750e17161ec7755b39cc6a8ae2cfc04cbfd0c1a2feec9db67fcb21c06fbb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a04c344f77d1a6b2e137e0d7517b4d5bbe63f45079f3d1539138650af942936f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "643b31efdb5c6e5bc8338e397cc26ee9fdaebdde74e1f7835493c5065496993a"
     sha256 cellar: :any_skip_relocation, ventura:        "fa2359d74a4873041ef1774db5882be7468a4c056be5aca64ad01e3eaef604ff"
     sha256 cellar: :any_skip_relocation, monterey:       "7d0a5b87da06e38709f11885b3410c463260d753093f7525c8726b110b93aef8"
     sha256 cellar: :any_skip_relocation, big_sur:        "64163480c791a44e507091e8b73175f71aa3ce544d42fb1be7cc4f21f028fa55"
@@ -20,8 +22,16 @@ class IcalBuddy < Formula
   depends_on :macos
 
   def install
-    # Allow native builds rather than only x86_64
-    inreplace "Makefile", "-arch x86_64", ""
+    inreplace "Makefile" do |s|
+      # Allow native builds rather than only x86_64
+      s.gsub! "-arch x86_64", ""
+
+      # https://github.com/dkaluta/icalBuddy64/pull/5
+      s.gsub! "-force_cpusubtype_ALL", ""
+
+      # Keep the build date (used in manpages) reproducible
+      s.change_make_var! "CURRDATE", time.strftime("%Y-%m-%d")
+    end
 
     args = %W[
       icalBuddy
@@ -34,5 +44,11 @@ class IcalBuddy < Formula
     system "make", *args
     bin.install "icalBuddy"
     man1.install Dir["*.1"]
+  end
+
+  test do
+    # Testing of other calendar functionality requires granting calendar access
+    # to the program (or the terminal emulator).
+    assert_match "Non-lossy ASCII", shell_output("#{bin}/icalBuddy strEncodings")
   end
 end

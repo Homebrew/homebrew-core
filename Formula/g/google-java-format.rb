@@ -3,19 +3,19 @@ class GoogleJavaFormat < Formula
 
   desc "Reformats Java source code to comply with Google Java Style"
   homepage "https://github.com/google/google-java-format"
-  url "https://github.com/google/google-java-format/releases/download/v1.19.1/google-java-format-1.19.1-all-deps.jar"
-  sha256 "7df34e51f87829bf267dcd03c25fe54943028432d85bf1138bd0acc75988b5e3"
+  url "https://github.com/google/google-java-format/releases/download/v1.20.0/google-java-format-1.20.0-all-deps.jar"
+  sha256 "cc57a88cf2e018c0d724e7257af3132e7748fe01a4bc19fd3c7e83a32c848780"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "2e5c9f35ae85ec8523290c509fa3bcba59b219192d35c7b2d42e37c31329537c"
+    sha256 cellar: :any_skip_relocation, all: "302820639ed8a43e34b16c711726131f1c5a85878937c37438d2b867402bbae1"
   end
 
   depends_on "openjdk"
   depends_on "python@3.12"
 
   resource "google-java-format-diff" do
-    url "https://raw.githubusercontent.com/google/google-java-format/v1.19.1/scripts/google-java-format-diff.py"
+    url "https://raw.githubusercontent.com/google/google-java-format/v1.20.0/scripts/google-java-format-diff.py"
     sha256 "aa9621c0f0859e1112231a7d44ce8d21854f6915ca643a0d53a119f4d1aa8488"
   end
 

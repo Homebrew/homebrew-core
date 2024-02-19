@@ -1,8 +1,8 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.96.tar.xz"
-  sha256 "0a6f9852b44a58afc7b053b2d766e210f1efb3980d345f4bc9ee907594ec05a4"
+  url "https://deb.debian.org/debian/pool/main/n/nickle/nickle_2.97.tar.xz"
+  sha256 "cde788af96f4cef72da26c60cc9917b1b3d05b7a82347c92645cdfe665e84eb5"
   license "MIT"
   head "https://keithp.com/cgit/nickle.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Nickle < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5b9cbbbdfa457364a0d9e64b3f8a9998129f6f440c89b6e695bfbcf54d0f02fb"
-    sha256 arm64_ventura:  "ef242ffdba1d44360233ca3c774a9577ddfc2414e9936b0c5854b6b0ac101eaa"
-    sha256 arm64_monterey: "453bda581d5b99eb10747504c16202c1d9e8c0f7b761912c1bd08483a691c5a2"
-    sha256 sonoma:         "c5da8138c5c5acb09f08a06896854d8a8df2b42901dc449a59d3f3ec2d6cccaa"
-    sha256 ventura:        "1a9557b0a4b626b93b06207ed9d8058d3eb1f7c24b5e1f0b003d0e547af2381e"
-    sha256 monterey:       "57dabdfe873251beb2bf59243b061c1977ab1705acc7e62f0b059e43cdc41a1c"
-    sha256 x86_64_linux:   "d0f3873fa8357b0b57ca8f4252c10d856f62e6a2e6462507fa59c4f319ae5233"
+    sha256 arm64_sonoma:   "06ce54ef4e9cc8659594d9b7cbc237bc1fee359879e182065b5c37a6d4de67c1"
+    sha256 arm64_ventura:  "414a1b8ab2c399266c6d75ce56a01631497d6085af5a85b96ea9a5c8bd87e422"
+    sha256 arm64_monterey: "6542cfb65ae60b1c894450498a82c019288985d44c3c041a019c6b5e49f6a063"
+    sha256 sonoma:         "c6baac34a666025e15dd50ba7e17022fa4d2bd23eb70d85de07478d8c4b6f5ae"
+    sha256 ventura:        "8222cc7a00991cb26dc6d5ff5a6fd57f038e7345dc8dafb7c0f2e053613850ec"
+    sha256 monterey:       "6e42e825376fbef14a54303e292e81bd74536b854e77e222287a0938eb9d989c"
+    sha256 x86_64_linux:   "c7aa3dffb100431a09ce1474f5e6f0076378600f94e368ecbe6e59f1fd7adb6a"
   end
 
   depends_on "autoconf" => :build

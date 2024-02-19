@@ -15,13 +15,9 @@ class Dislocker < Formula
   depends_on "mbedtls@2"
 
   def install
-    args = std_cmake_args + %w[
-      -DCMAKE_DISABLE_FIND_PACKAGE_Ruby=TRUE
-    ]
-
-    system "cmake", *args, "."
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_DISABLE_FIND_PACKAGE_Ruby=TRUE", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

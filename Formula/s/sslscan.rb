@@ -1,19 +1,19 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/refs/tags/2.1.2.tar.gz"
-  sha256 "c218d21fdf0b57dfc7c7b110ff32d9c7e77eb8c631b670a2c0fc92a80ded294d"
+  url "https://github.com/rbsec/sslscan/archive/refs/tags/2.1.3.tar.gz"
+  sha256 "6beec9345635b41fa2c1bbc5f0854f10014e4b2b4179e9e9a3bda6bdb9e1aa41"
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "91e65ff070dca7b5773b4bdcc7ed3de0ce50d908687216ed0daa6563d8b8bc17"
-    sha256 cellar: :any,                 arm64_ventura:  "e1416f22475be6a61f667231fb8625d366475446afd8af4108df804af61c30a1"
-    sha256 cellar: :any,                 arm64_monterey: "57bb73e5c267f319e6c7bc5db646061202ee3a483c8f03b2555100e21fd2e3cc"
-    sha256 cellar: :any,                 sonoma:         "5912296ff6ad719758a1aacd0bde2bfa6e09d49bf443005afe6cac78c9b01b0b"
-    sha256 cellar: :any,                 ventura:        "7eab4640e8cb714a9f0a025537fc14e6fb135938be0afeb2f15f4da79d23e583"
-    sha256 cellar: :any,                 monterey:       "13b8c4d0624ff2d43fd5314c06211549242f0a83a31899756a9f74e8f0316d79"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71e9ea4dc9b5e68ad9d6687f15a8ef298737441c3d10913a8f459895c2f254bf"
+    sha256 cellar: :any,                 arm64_sonoma:   "8a7d694ec82b51f49b4f164f54f192d08060af88ab38cc007d8c4e2611347424"
+    sha256 cellar: :any,                 arm64_ventura:  "a4b03c80448b277021a4d90a62f9318375410939e2cb8d956f676be3f362034f"
+    sha256 cellar: :any,                 arm64_monterey: "979aa1e107478270322882433b872fe71003520fd35a60b210a1637b318eb5fe"
+    sha256 cellar: :any,                 sonoma:         "f1c9a8859cbd77d8e35964e866a069e5627919082cf8347737976c601b8e7306"
+    sha256 cellar: :any,                 ventura:        "36f26c4a2b6f599f0d56695c171d263323d77b055391ce822ab697790e19c416"
+    sha256 cellar: :any,                 monterey:       "d38672a0166591d7d1272eb74e4db30d6cdd049da9e6fb8242c9898a0c70c70e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06236460b04dc15148fd377a7cf0207daa1e02f8fef56327de118931fb3c093b"
   end
 
   depends_on "openssl@3"

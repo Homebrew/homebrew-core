@@ -1,34 +1,27 @@
 class StylishHaskell < Formula
   desc "Haskell code prettifier"
   homepage "https://github.com/haskell/stylish-haskell"
-  url "https://github.com/haskell/stylish-haskell/archive/refs/tags/v0.14.5.0.tar.gz"
-  sha256 "580af1dc2f2cc3089bb255fd0af15dfb795a9ba0d9e76b2d0ce0c9ed2bcd9f07"
+  url "https://github.com/haskell/stylish-haskell/archive/refs/tags/v0.14.6.0.tar.gz"
+  sha256 "0c0f34271670c23cc4feec7da04487a169a3cd0fde995721503bb5379755b91a"
   license "BSD-3-Clause"
   head "https://github.com/haskell/stylish-haskell.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "281a939e6a664fc7cb85c922307d4134e29522c5c87874e18c258af5ce11287f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebcb0f2e0492c9b6c43968307057cd61ca25261d6a23b9aee234dd44159375e2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "abfcbc6d42648effa6e217618b6dde78e9cbe16ffef15b21cd04846118c2b602"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b93ee0b5f1989e2d4badf31b60d2a3bb32d0e149ba77e00796a4c2e5ab7b2eb7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01d2abf664c1af4c486e62c966cb3323e0237c32e8d63edcc44416863edc7a81"
-    sha256 cellar: :any_skip_relocation, ventura:        "94a60062523ee32639defa223cf1a9635aad22ebc4671e90d673bee8f7640d46"
-    sha256 cellar: :any_skip_relocation, monterey:       "9712b2e0ad967d398abb46ea9bd4800016b96ceefb67b871aec901089e752289"
-    sha256 cellar: :any_skip_relocation, big_sur:        "4e7a9133a1ce54a317450e4a8f1a6651561968d779e29d112585c3d422faead5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6ea28db8324623c8190445021b20c95b515b48dcf84fdf9011a308de125cd45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b021fdde87163cb6d75aab1c0cecd36484309e51823a9aad8951f628d82adb98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0d2da6f59fc1a29e6a6545ae586331ca53e6418ffde85a96dc9e94e230f9ec6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "92a69d8d9bdb376f73cfc90bec09b4d009010496d8eff8ba0ddc8c88db1014f6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4ad14d6df5d417f7ca72f754950b9653c8f84f9cfc1eaf534bd769935dc328f5"
+    sha256 cellar: :any_skip_relocation, ventura:        "d88200ce18cf61fdced6097fe0cf88df5bcff75a5bf557e19ce83a9cfba64e0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7d36832ae99a50e67b3051d648826ee404bc4334d57e61b602ebb10d727c12b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1742bbfd81d2f9ae39b6f52a08144b81d02f1be07c57ccbfc741f66c10c47219"
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.6" => :build
+  depends_on "ghc" => :build
 
   def install
     system "cabal", "v2-update"
-    # Work around build failure by enabling `ghc-lib` flag
-    # lib/Language/Haskell/Stylish/GHC.hs:71:51: error:
-    #     • Couldn't match expected type 'GHC.LlvmConfig'
-    #                   with actual type 'ghc-lib-parser-9.4.3.20221104:GHC.Driver.Session.LlvmConfig'
-    # Issue ref: https://github.com/haskell/stylish-haskell/issues/405
-    system "cabal", "v2-install", *std_cabal_v2_args, "--flags=+ghc-lib"
+    system "cabal", "v2-install", *std_cabal_v2_args
   end
 
   test do

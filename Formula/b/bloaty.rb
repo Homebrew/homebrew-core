@@ -4,16 +4,16 @@ class Bloaty < Formula
   url "https://github.com/google/bloaty/releases/download/v1.1/bloaty-1.1.tar.bz2"
   sha256 "a308d8369d5812aba45982e55e7c3db2ea4780b7496a5455792fb3dcba9abd6f"
   license "Apache-2.0"
-  revision 20
+  revision 22
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6ef161dd9f7fa9dd39b78ca6cef73a219b709e25df186c55a9d74634f8708e90"
-    sha256 cellar: :any,                 arm64_ventura:  "213f2a3d7cd026a0d801f6f9d02ccd5eb955db99573c31859c6f66e8686d841d"
-    sha256 cellar: :any,                 arm64_monterey: "4c97d28a960b88cc818a756b897aae0464fcaaaa5a92200bd224c2c9dd8152c5"
-    sha256 cellar: :any,                 sonoma:         "517602112123c95a377e6eee10e9132d15c9faa1542e84fed8f3cbd8ab23cf72"
-    sha256 cellar: :any,                 ventura:        "5d0ace65a2d09a3e63a6138d083c5a4c3c6a69e8f42e157886370db9411c238a"
-    sha256 cellar: :any,                 monterey:       "4b040c2e520df5f44188d460d66d8a00122630bf26902235aed401955f8b616e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0076815ba2b562d0d60a6f634c46c780cc8d3123eb8c70b41d6352b5c9528520"
+    sha256 cellar: :any,                 arm64_sonoma:   "ef64d32b5f738c3c4256ecf5544d5529792e05726d444e986c3c62c48ce61677"
+    sha256 cellar: :any,                 arm64_ventura:  "296fd46d0f5441f158a133eed1662f3f37cab8dd30256354051e154e564b37e7"
+    sha256 cellar: :any,                 arm64_monterey: "7ddafaffa21660095b33665891e25289e836795ca435ecc4d80bd39030138d34"
+    sha256 cellar: :any,                 sonoma:         "e3475662b8dbab028c50a9e32d5ec542b10be80e4d1f24d7457d068a4886ca73"
+    sha256 cellar: :any,                 ventura:        "eecb5d1c3a62ff975fe1b12a256e2517b2150f1d4f5b9824d515152d910aff10"
+    sha256 cellar: :any,                 monterey:       "4f4aa9910f3bfec1ef355ef5696d814940a96878c119a043a15ddef0cd9d5a1f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d57de02bbe368669c6cbdaae4cb880c69fc8c2557a581db1e687605ebf320abf"
   end
 
   depends_on "cmake" => :build

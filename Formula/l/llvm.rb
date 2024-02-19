@@ -5,6 +5,7 @@ class Llvm < Formula
   sha256 "58a8818c60e6627064f312dbf46c02d9949956558340938b71cf731ad8bc0813"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
+  revision 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -13,13 +14,13 @@ class Llvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b3e6bb5f588c990a944557e21b63417f67dfd5b0d87ac080c959e6e10d571291"
-    sha256 cellar: :any,                 arm64_ventura:  "1387476c59aa0e473719b52430caa5fd2d03ca7da61d6ff70d765eab3f10a0f3"
-    sha256 cellar: :any,                 arm64_monterey: "63a54ae43df1d122642295624a759934a94f52724202f0cdad473e8a4a222b9c"
-    sha256 cellar: :any,                 sonoma:         "a2e39cf281484175d0ce2d527d7daf9a2a2bdea8f25604dcc7be97576ebfe860"
-    sha256 cellar: :any,                 ventura:        "e7d1f94464e3b862f9020d7eaf2f37ab422a0032ff597332266348868904c0f7"
-    sha256 cellar: :any,                 monterey:       "2e4f8eb20fa0d49862d80d51ad8b609e82fce56225dba27146d9912c2e5574df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53b63b3dca1fc9d119a8ddfe1e68c34815a94dd1accbe0e35ee3353887ebfd6a"
+    sha256 cellar: :any,                 arm64_sonoma:   "8d739bdfa4152d278627ff4724f240f7a946172b5d95622368e1e3768ab7e922"
+    sha256 cellar: :any,                 arm64_ventura:  "7812de82b16bc6a1e628dff0615c0a8deb24726f4397f6f9b70c1d7016f427bb"
+    sha256 cellar: :any,                 arm64_monterey: "875967ae639aa930029a689a394fe58284d81c4d2f04b5aabd604b974b12b9b9"
+    sha256 cellar: :any,                 sonoma:         "64bf45f23f2383baa228cb035caa78d659c9d5f8fc23dd1cfbec9aad7be588cc"
+    sha256 cellar: :any,                 ventura:        "ec5649a79cb861e65f5321e7f0f460477a4d5da6d79ed66802469383114eabb0"
+    sha256 cellar: :any,                 monterey:       "aef31037b4e148180198c29d1df0e2a9a70ea519b08d4705ba9c076d2000ede7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ccc6f7936a7b1ee36403822c3b301264aa37956bb5a3c21eb85c3466ef36265"
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -48,6 +49,14 @@ class Llvm < Formula
 
   # Fails at building LLDB
   fails_with gcc: "5"
+
+  # Fix arm64 misoptimisation in some cases.
+  # https://github.com/Homebrew/homebrew-core/issues/158957
+  # Remove with LLVM 18.
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/23704400c86976aaa4f421f56928484a270ac79c/llvm/17.x-arm64-opt.patch"
+    sha256 "0e312207fd9474bd26f4a283ee23d94b334d3ec8732086d30bce95f7c8dc2201"
+  end
 
   def python3
     "python3.12"

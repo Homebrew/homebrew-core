@@ -1,21 +1,19 @@
 class Jp2a < Formula
   desc "Convert JPG images to ASCII"
   homepage "https://github.com/Talinx/jp2a"
-  url "https://github.com/Talinx/jp2a/releases/download/v1.1.1/jp2a-1.1.1.tar.bz2"
-  sha256 "3b91f26f79eca4e963b1b1ae2473722a706bf642218f20bfe4ade5333aebb106"
+  url "https://github.com/Talinx/jp2a/releases/download/v1.2.0/jp2a-1.2.0.tar.bz2"
+  sha256 "bf27b42defa872a2a6b064e89b5e09bd6d822aa63e2d0f42840fabd0ce5d49bb"
   license "GPL-2.0-or-later"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6b2a2f62a520bd6dd2a94ab6406ad30ce1a2156c7aa979b6f2e2135450171e08"
-    sha256 cellar: :any,                 arm64_ventura:  "4e250080a0acfad041dd4ab5246745289b412b70bde5e5faf5a5a7772c77ac5c"
-    sha256 cellar: :any,                 arm64_monterey: "6671f5e26d2f10f2babad8e13f87e554b774e033c7c990bff7f832084af26e80"
-    sha256 cellar: :any,                 arm64_big_sur:  "4f40ed84caf4c25b97d185bcfbf0ac9a02be69b92476568627c429faa4360e63"
-    sha256 cellar: :any,                 sonoma:         "b3ce7b5864a4b3995114ff08d829aa01dc4f3187b6d4420e850ca6f4341182b5"
-    sha256 cellar: :any,                 ventura:        "cda95f11e31d42ef0489ad9b7e3a42fcd1689214b97809ba8d4117c3797e38bf"
-    sha256 cellar: :any,                 monterey:       "c3cdaa3c306dd0b8ca5ea9af175748274f651778f01126ad2e31efc8c8edcff7"
-    sha256 cellar: :any,                 big_sur:        "145e3daceb2d06c33703e0897d40838cde1236a09ca84ca25b7c2fad5682dfed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f0de0b9e6c0216bd53dd2bb7a978f29caa841cc3bdddaad9ddd8a3d7b1797b8"
+    sha256 cellar: :any,                 arm64_sonoma:   "874626298e9ec3382fec6b0959bfd2c03de419640ada27d70547012c0fee1b9b"
+    sha256 cellar: :any,                 arm64_ventura:  "cd1ddc8d78c2b8391a7fd5b69ac9357a7105a223029ca3d4a691f5a6e57f57ca"
+    sha256 cellar: :any,                 arm64_monterey: "7e104bb6a94326ac330df1daeed8424a92e9ca66d02a681c892bac0ccb20df9f"
+    sha256 cellar: :any,                 sonoma:         "06689dada11615dce0fc563c73dd91b4ff8a2c8f0b08936381392a29de81fe88"
+    sha256 cellar: :any,                 ventura:        "ec87f44c1fa6669a6ab3f0d7ac08c4746e6966416b3ae2ad2d88a9545622fe70"
+    sha256 cellar: :any,                 monterey:       "e97f337a7a7120c1a7f352e810f3e307be24a46cfdfdd957a21998fbc34d2e83"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "626b7dd604f1a12c799d2e3b73241fd874adbb5032ce853519de4fce554c4d83"
   end
 
   depends_on "jpeg-turbo"

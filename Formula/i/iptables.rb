@@ -20,10 +20,9 @@ class Iptables < Formula
   depends_on "libnetfilter_conntrack"
   depends_on "libnfnetlink"
   depends_on "libnftnl"
+  depends_on "libpcap"
   depends_on :linux
   depends_on "nftables"
-
-  uses_from_macos "libpcap"
 
   def install
     ENV.append "CFLAGS", "-I#{Formula["linux-headers@5.15"].opt_include}"

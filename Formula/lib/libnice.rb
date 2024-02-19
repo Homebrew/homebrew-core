@@ -24,7 +24,7 @@ class Libnice < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
   depends_on "gnutls"
   depends_on "gstreamer"
@@ -34,11 +34,9 @@ class Libnice < Formula
   end
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -61,24 +59,8 @@ class Libnice < Formula
       }
     EOS
 
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/nice
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{lib}
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -lnice
-    ]
-    flags << "-lintl" if OS.mac?
-    system ENV.cc, "test.c", "-o", "test", *flags
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs nice").chomp.split
+    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
     system "./test"
   end
 end

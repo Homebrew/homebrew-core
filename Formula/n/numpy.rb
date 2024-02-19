@@ -1,25 +1,31 @@
 class Numpy < Formula
   desc "Package for scientific computing with Python"
   homepage "https://www.numpy.org/"
-  url "https://files.pythonhosted.org/packages/dd/2b/205ddff2314d4eea852e31d53b8e55eb3f32b292efc3dd86bd827ab9019d/numpy-1.26.2.tar.gz"
-  sha256 "f65738447676ab5777f11e6bbbdb8ce11b785e105f690bc45966574816b6d3ea"
   license "BSD-3-Clause"
   head "https://github.com/numpy/numpy.git", branch: "main"
 
+  stable do
+    url "https://files.pythonhosted.org/packages/65/6e/09db70a523a96d25e115e71cc56a6f9031e7b8cd166c1ac8438307c14058/numpy-1.26.4.tar.gz"
+    sha256 "2a02aba9ed12e4ac4eb3ea9421c420301a0c6460d9830d74a9df87efa4912010"
+
+    depends_on "python-setuptools" => :build
+  end
+
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "11bc5c6da12546b8bb991103e46ac32a3814a8c0476ba969e3df5d7fe81d37f7"
-    sha256 cellar: :any,                 arm64_ventura:  "01702f2f857e3cc998ae40bff238b4ffe1a9ccd016df4b5b29cf553068d84f52"
-    sha256 cellar: :any,                 arm64_monterey: "ae264192e83431c837544c3ae1d4465e43b69af31835ca6b33a40d0248038129"
-    sha256 cellar: :any,                 sonoma:         "ae3ffe77db87552bc4ce103201423bcdf76d78e292adae85af2175ec363dd7fd"
-    sha256 cellar: :any,                 ventura:        "0870dcf584ccd1fe4c94436cd60186a93c9096f73529610b985b7b143411f177"
-    sha256 cellar: :any,                 monterey:       "5ac8788d861e2908516c77d57b61806578c72fbb212006014178e2e92e19b99f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a44bc16fb7cade85ed4466d685cfd8262a9ebc16392c95c1d8aa245aeeb7eedf"
+    sha256 cellar: :any,                 arm64_sonoma:   "e5a11ee6e1e4b3ead073e1ee05182f7b31d8b34a1c37902e74d2a944172d4f62"
+    sha256 cellar: :any,                 arm64_ventura:  "65231d3b52bcd472a56efe82eada5118fcf157df462b4a3dcbb2460c0c751ee0"
+    sha256 cellar: :any,                 arm64_monterey: "4c6d2747b3204fae2a75b4bd9a91e53971e6a394b7beaede5c331e34009a3072"
+    sha256 cellar: :any,                 sonoma:         "bf6f3380a7785111ac70f62c9f6bf3aa5308f2c4edd61490acc554ee3a463d26"
+    sha256 cellar: :any,                 ventura:        "a235a28c6f4b11202edd3034251372b90eae40305f0dd1db0e8d535cdc723307"
+    sha256 cellar: :any,                 monterey:       "345e466d8cd392e68e54928053c3cc737d5dbbc5966a6fd86e4e0990da241177"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5fed0cdb5f32d8df64d87ceadd4ed03c81e8320f2ba6f40b964e4a4e6a186ace"
   end
 
   depends_on "gcc" => :build # for gfortran
   depends_on "libcython" => :build
-  depends_on "python-setuptools" => :build
+  depends_on "meson" => :build
+  depends_on "meson-python" => :build
+  depends_on "ninja" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "openblas"
@@ -28,32 +34,21 @@ class Numpy < Formula
 
   def pythons
     deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .select { |f| f.name.start_with?("python@") }
         .sort_by(&:version) # so that `bin/f2py` and `bin/f2py3` use newest python
   end
 
   def install
-    openblas = Formula["openblas"]
-    ENV["ATLAS"] = "None" # avoid linking against Accelerate.framework
-    ENV["BLAS"] = ENV["LAPACK"] = openblas.opt_lib/shared_library("libopenblas")
-
-    config = <<~EOS
-      [openblas]
-      libraries = openblas
-      library_dirs = #{openblas.opt_lib}
-      include_dirs = #{openblas.opt_include}
-    EOS
-
-    Pathname("site.cfg").write config
+    ENV.prepend_path "PATH", Formula["libcython"].opt_libexec/"bin"
 
     pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      site_packages = Language::Python.site_packages(python_exe)
+      python3 = python.opt_libexec/"bin/python"
+      site_packages = Language::Python.site_packages(python3)
       ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
 
-      system python_exe, "setup.py", "build", "--fcompiler=#{Formula["gcc"].opt_bin}/gfortran",
-                                              "--parallel=#{ENV.make_jobs}"
-      system python_exe, *Language::Python.setup_install_args(prefix, python_exe)
+      system python3, "-m", "pip", "install", *std_pip_args, ".",
+                                   "-Csetup-args=-Dblas=openblas",
+                                   "-Csetup-args=-Dlapack=openblas"
     end
   end
 

@@ -1,8 +1,8 @@
 class Watchexec < Formula
   desc "Execute commands when watched files change"
-  homepage "https://github.com/watchexec/watchexec"
-  url "https://github.com/watchexec/watchexec/archive/refs/tags/v1.24.2.tar.gz"
-  sha256 "d863b77332bd56cd37a45a99ae2be50a9aa332b66b523a4a76676bd778c017d4"
+  homepage "https://watchexec.github.io/"
+  url "https://github.com/watchexec/watchexec/archive/refs/tags/v1.25.1.tar.gz"
+  sha256 "9609163c14cd49ec651562838f38b88ed2d370e354af312ddc78c2be76c08d37"
   license "Apache-2.0"
   head "https://github.com/watchexec/watchexec.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Watchexec < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f3562cca01fbb60ad0687c8e037ce07f20161d033110429e45a0c69fce761dbb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13ee1b5f0bfeb0db99a4b9d08031f21e40696ebf442ba5f2797899cf345c0477"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3c66f4445ec2bb111abda50fe9f533b52a757573f267ce523e7a7a7f22ae664"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7b6b2dd37a2d342ad7bca1cbe27344668c775c0b7d72e1c8fb6d4fb4f9b18a3d"
-    sha256 cellar: :any_skip_relocation, ventura:        "7740cc45f1513ab7212bd710ca8d86cb3bce96ab1664b7e8084135fe7f5fd4a3"
-    sha256 cellar: :any_skip_relocation, monterey:       "15fe92c3102ae65a7045818bb782dfa5bff2e3beef513970c7a19dd08dea8df1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ac223703a183ea75b536c2549f8c864545a68568c62215222caab7e7c371832"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b2099fd7fee4e1b02d2091f7eaecfd19d89758d2f12974950a97efd0b0c16b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf698bebc5452bd68db10f3a806b4bda744c02ce377f7be06e9e1adea6691a8b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b778c5d18cf834339cbd62c9c58b360c0cc6ce799bbe3ed4bf92c9041221b3e0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "69469573d5c73d7c6a526590226e9f8597bc10a71352d355e0ccc1b7ae86c2d6"
+    sha256 cellar: :any_skip_relocation, ventura:        "c674f2407b650d0a79e33b0a3cd656a58ac4c12897a3fe3144370da82b202429"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a480d1ce474dbe35fde74081485a5704da54bb129f28dbe936da9ce7051b1f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e8780192772e258808e09b0c91fb101f94be5a4c6099b18c049dfd1a7c03ac7"
   end
 
   depends_on "rust" => :build
@@ -27,6 +27,8 @@ class Watchexec < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/cli")
+
+    generate_completions_from_executable(bin/"watchexec", "--completions")
     man1.install "doc/watchexec.1"
   end
 
@@ -37,5 +39,7 @@ class Watchexec < Formula
     sleep 15
     Process.kill("TERM", o.pid)
     assert_match "saw file change", o.read
+
+    assert_match version.to_s, shell_output("#{bin}/watchexec --version")
   end
 end

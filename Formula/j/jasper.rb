@@ -1,8 +1,8 @@
 class Jasper < Formula
   desc "Library for manipulating JPEG-2000 images"
   homepage "https://ece.engr.uvic.ca/~frodo/jasper/"
-  url "https://github.com/jasper-software/jasper/releases/download/version-4.1.1/jasper-4.1.1.tar.gz"
-  sha256 "03ba86823f8798f3f60a5a34e36f3eff9e9cbd76175643a33d4aac7c0390240a"
+  url "https://github.com/jasper-software/jasper/releases/download/version-4.2.0/jasper-4.2.0.tar.gz"
+  sha256 "69f0b08a0cc281a06eaf7feed510736854bbff9af89ab1d01b77382ad57ec957"
   license "JasPer-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Jasper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dfa0d78ad1cbe3920650842419b4f10abf267eff25eda5e295ab84c2f22e5115"
-    sha256 cellar: :any,                 arm64_ventura:  "a1782bd7c31e4959504de079450ac1b640b81e0b7a457702e62582540b4a0c66"
-    sha256 cellar: :any,                 arm64_monterey: "0e2e4b38df2491a002860311c16ae61f0fa59f97a6542796283f25f82e3b806c"
-    sha256 cellar: :any,                 sonoma:         "11d4301ca1b8691d23d11c64d23e1dc230e41a0e60b9b3022f61a0c84d3e1571"
-    sha256 cellar: :any,                 ventura:        "76eaf7a4073f54defc9672c6e448e6623884f3c1416943f9f5e56a78588fb0bb"
-    sha256 cellar: :any,                 monterey:       "3e94d76d894b2373fe1884ac6ce83066a1e7d3b421822dc2e08c28ff056751c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "391f861732d76bc74573bfce2ed062bc5ce403c65a291b8351041933afaf284a"
+    sha256 cellar: :any,                 arm64_sonoma:   "1c9bcca6982067cc2fbe581808814806431f95d34e46fd2ac3588e46ddd282de"
+    sha256 cellar: :any,                 arm64_ventura:  "f165aaf6965f7896ccbb35f62b58333508965fc2dc7944e19c48ad7631f881a0"
+    sha256 cellar: :any,                 arm64_monterey: "50358acb061f2f0e270f8f947da1566a0390e39218a5db5efc5aa42a9b4f53cf"
+    sha256 cellar: :any,                 sonoma:         "3e576ec9d9307244f67d6d242983b643f84368dbe45d9f2672ebeacdebd3476f"
+    sha256 cellar: :any,                 ventura:        "a781e2eb475b8e57daac5cc1d55e518286ff8b3974b00862f2f1bc205ab47e8d"
+    sha256 cellar: :any,                 monterey:       "5ad2357330c0961287913d12c08bc2f4f7880915820c6afbacc6dd2da9ec3d41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fa11fd7427376996ed0ba4878977d1beb863314d1744a0ab79eda9eec677a87"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Carla < Formula
   desc "Audio plugin host supporting LADSPA, LV2, VST2/3, SF2 and more"
   homepage "https://kxstudio.linuxaudio.org/Applications:Carla"
-  url "https://github.com/falkTX/Carla/archive/refs/tags/v2.5.7.tar.gz"
-  sha256 "e530fb216d96788808f20bd7aaac8afdd386d84954ae610324d7ba71ffbc4277"
+  url "https://github.com/falkTX/Carla/archive/refs/tags/v2.5.8.tar.gz"
+  sha256 "4ec96d06342ff28da4b80d4a76bc08fcaa5703726f96e5174afcdc4f7fc6195d"
   license "GPL-2.0-or-later"
   head "https://github.com/falkTX/Carla.git", branch: "main"
 
@@ -12,14 +12,13 @@ class Carla < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "8b1fc019e03ccb20df662d8a812c47fe7c188b75383a401d75d8f08f46a34e7c"
-    sha256 cellar: :any,                 arm64_ventura:  "346b3100b75135bf0708a71777b064a5fffdf485f46df9d1e0f1b6eca7176966"
-    sha256 cellar: :any,                 arm64_monterey: "fa8df3a4b3b54e3c5449ca7225deba9221c88542db3631120ae0474056d992bf"
-    sha256 cellar: :any,                 sonoma:         "6cf1daeb9bd989e3bde1c85d326ec16cc1ef3b993ae6d13ce09be6441f4847dd"
-    sha256 cellar: :any,                 ventura:        "8161e588f71b39dd0e9214b12ba0fecafe6da329230ba4f5d378b05d738ab6f7"
-    sha256 cellar: :any,                 monterey:       "72cc42ad4923546fc5f17ef02d40e28a213d57ebfd5f7df5faa347afbacaf74f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "638fae24097e8ce2cda757e0df55b2b92b079a6b5f36988e0db75213821e9f48"
+    sha256 cellar: :any,                 arm64_sonoma:   "ec1291381e671d32533a89d49ac8422f0c33fb88f9ad4738798f011028c2599c"
+    sha256 cellar: :any,                 arm64_ventura:  "56f402f64745b913bc0645dbf7fa8ba50ad420b982379c06a887d764bc873a03"
+    sha256 cellar: :any,                 arm64_monterey: "929e274b0219f74c23be1c65f9cdda50e3b5f8b9ae38ffd1afc0f55d0f535213"
+    sha256 cellar: :any,                 sonoma:         "3da956c57828aff90102bb0a76f37bfdf13b1b0dd0f5f6dfaf0a951e52aa7b17"
+    sha256 cellar: :any,                 ventura:        "8f378e081f6fb5ab948a97d31741b42e6dc51cd273219239a1e24873b9cb9403"
+    sha256 cellar: :any,                 monterey:       "2640474117ea51fa88e1289ee017bf440c6c00631339ddff05b9affa91e49f88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "945471081c1fa496a673c4b0d86375612ff1198ccbe92dd799dfc93a8c2a893b"
   end
 
   depends_on "pkg-config" => :build

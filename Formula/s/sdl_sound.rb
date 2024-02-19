@@ -30,7 +30,7 @@ class SdlSound < Formula
   keg_only "it conflicts with `sdl2_sound`"
 
   # SDL 1.2 is deprecated, unsupported, and not recommended for new projects.
-  deprecate! date: "2023-02-13", because: :deprecated_upstream
+  disable! date: "2024-02-16", because: :deprecated_upstream
 
   depends_on "pkg-config" => :build
   depends_on "libogg"

@@ -1,18 +1,18 @@
 class PythonHatchFancyPypiReadme < Formula
   desc "Fancy PyPI READMEs with Hatch"
   homepage "https://github.com/hynek/hatch-fancy-pypi-readme"
-  url "https://files.pythonhosted.org/packages/85/a6/58d585eba4321bf2e7a4d1ed2af141c99d88c1afa4b751926be160f09325/hatch_fancy_pypi_readme-23.1.0.tar.gz"
-  sha256 "b1df44063094af1e8248ceacd47a92c9cf313d6b9823bf66af8a927c3960287d"
+  url "https://files.pythonhosted.org/packages/b4/c2/c9094283a07dd96c5a8f7a5f1910259d40d2e29223b95dd875a6ca13b58f/hatch_fancy_pypi_readme-24.1.0.tar.gz"
+  sha256 "44dd239f1a779b9dcf8ebc9401a611fd7f7e3e14578dcf22c265dfaf7c1514b8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4697468bfb7171cea5e7a6047fa6852882b704cc82a2ad70c4a0dd79ff893a55"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a34810e1207bf8c38eda110f66c4d5b9b07717673e1916bba6253ed13eb5d97"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c987096a84770d8456abb423c3ff62292621b1d3e705fa30f48401216a27c8d8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1e8c68f39db2b2c5b95efb0b8113f1ea20c03627b6dbdc707b1d2248b3a08178"
-    sha256 cellar: :any_skip_relocation, ventura:        "8bebaa85dbd55e254e697f7365a9d962536a421e3e98a73288e496b1ea2f89bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "7d68c0e41ffee4cc1daaf20d492d981a0dae7fa698a47525d5ab1bff5d01696d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10b807619868dbceef3076769c5ff39fc42ad37e325710f89be83e1f59029741"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4c3f8185b32c449ab58bc66a08e66b58d913e6fe79ae7d4e3b3d48ec32005c0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01526f96c3e043b95ac19bf50d61aa5ab38b1619acfc05428396884a5ec11383"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a06e94727f51fd156426583099178de403851efcddb09f77995e4eb4b3a6bd9f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ccea27f170f363bb34c4b7dd40b785c9b4fd8becc4855c7d15eeaab50f061014"
+    sha256 cellar: :any_skip_relocation, ventura:        "78cfa7cc2639eda4debe0dd9c21d2558e1430b6a444dedab70b2f6374ec0c35e"
+    sha256 cellar: :any_skip_relocation, monterey:       "88df9e35bf6f15e9324a834a363593b59b036cbb41728a64d652352dc82f87f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17b65cebd66a27b258c64ab0778f95c33bd137c55b078ab868e412389e116f58"
   end
 
   depends_on "python-hatchling" => [:build, :test]

@@ -5,6 +5,7 @@ class Bsdiff < Formula
   # "https://www.daemonology.net/bsdiff/bsdiff-4.3.tar.gz"
   url "https://deb.debian.org/debian/pool/main/b/bsdiff/bsdiff_4.3.orig.tar.gz"
   sha256 "18821588b2dc5bf159aa37d3bcb7b885d85ffd1e19f23a0c57a58723fea85f48"
+  license "BSD-2-Clause"
 
   livecheck do
     url :homepage

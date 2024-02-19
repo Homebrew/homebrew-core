@@ -9,8 +9,10 @@ class Keploy < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be1248bf4f0a1b0824b8385bf78de390a761bb1c4c576687fd1a83eeef4d2017"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "61adb55108c119cbaf60a0679b45a2bff5cce9d02e68e90b5f423fc7d0fe8f43"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "b3307c3128ee1a3d12d3c29d969af5dd27268aef707f3cc99cc69934c6b90156"
+    sha256 cellar: :any_skip_relocation, sonoma:         "06b885259fd6fc314d58b133749dbe7e2a9a7d660a304b1a298117d69d35ebc6"
     sha256 cellar: :any_skip_relocation, ventura:        "57cf7126114751fd4b4e2bdf2a12d3820181fe069220a046fd1626a8b934fc02"
     sha256 cellar: :any_skip_relocation, monterey:       "d8e8a354dfac6feedea50008b3b023e061dc4591c43ab7e1dd300913ff409c1d"
     sha256 cellar: :any_skip_relocation, big_sur:        "7736b3ff430fa17c7d38311558adb2e3f790c771cb7ad841b56793cc0798eac4"

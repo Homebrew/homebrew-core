@@ -1,20 +1,26 @@
 class Sdl2Ttf < Formula
   desc "Library for using TrueType fonts in SDL applications"
   homepage "https://github.com/libsdl-org/SDL_ttf"
-  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.20.2/SDL2_ttf-2.20.2.tar.gz"
-  sha256 "9dc71ed93487521b107a2c4a9ca6bf43fb62f6bddd5c26b055e6b91418a22053"
+  url "https://github.com/libsdl-org/SDL_ttf/releases/download/release-2.22.0/SDL2_ttf-2.22.0.tar.gz"
+  sha256 "d48cbd1ce475b9e178206bf3b72d56b66d84d44f64ac05803328396234d67723"
   license "Zlib"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eb64334ebf36c5a6a5b0668ff672b3e8001cbb7c11c90dc72a0757639faed8c7"
-    sha256 cellar: :any,                 arm64_ventura:  "5f983f0da784459c3a66961a6fd04e0effc138f97348e1c56ae7cfd212fc8e71"
-    sha256 cellar: :any,                 arm64_monterey: "385e2291198fa3abc69205bdfd94f2fafec6ccfe3feff9a099b9dfb3e1b1d538"
-    sha256 cellar: :any,                 arm64_big_sur:  "6103dbe192fad39f18e2d5a32fc29ed5753990e775aa9c06cd429a9b6eaa03fb"
-    sha256 cellar: :any,                 sonoma:         "ffee2edd76bb4c736298270945a89556e814004a858c0a6461ae955f127d3bc4"
-    sha256 cellar: :any,                 ventura:        "c7c57b3c4f57695953430d6b0644f941aaee275cc39d299aac6f34b2dad4ecc2"
-    sha256 cellar: :any,                 monterey:       "53f332eeda518a32d032ec9cb4a934cd320b5923c480e6985dc15f4e68b1cce5"
-    sha256 cellar: :any,                 big_sur:        "3c3c04cd964f3372ba28b4fd885e25a6b2f54a0e29f5db936e711691db2a72de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6dda4ea5a025a96d47ed5db5537cee2d471042437274c83c9bb97276ac1d84b"
+    sha256 cellar: :any,                 arm64_sonoma:   "244dc789ae5618ab35e6ff0508b9fb5a298e777ca5a41cbd41dc00846ab3a900"
+    sha256 cellar: :any,                 arm64_ventura:  "51fc93a32a3ae58c3467186c977782f6aee043dcfec5990311393ce78fdd293c"
+    sha256 cellar: :any,                 arm64_monterey: "7000ed898fccf6f0ce7dd6ef383a5e389edb37cef5284156eb165dfc21d8339e"
+    sha256 cellar: :any,                 sonoma:         "a84ed76722bda781c2ea2a978d6ddf8d895752e45b9dfaf9a0988d5c3e3755e8"
+    sha256 cellar: :any,                 ventura:        "8f40d557b225e0fdd5ce0a80e9fb97fbf68ac1f147f38ea333b83e651cb80e81"
+    sha256 cellar: :any,                 monterey:       "f06a7a2c359bf6a8eb4668e06b6d92374b72f3c3b0a0cc9e9fb97c11acfae87b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60ca48a32fed27ead81ba32acc20e755e6e35dd5e4ef984eacb0319ea4381cf2"
   end
 
   head do

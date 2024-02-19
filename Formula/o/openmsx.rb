@@ -13,13 +13,14 @@ class Openmsx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2fc603ee93d27464126277dc97a244707dbf534a2432781d6995bba3c4135a17"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbeab633f428ffa82660c21e981473032adafd22697143db3c16c0679ae4cf4d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "4b8801dbe18da6330df0aa221dda79f0d73e4290f79ee77267cdcaba3df83e0d"
-    sha256 cellar: :any_skip_relocation, ventura:        "7114ed2d2d4ceb881ca64f0ed05d16d7d355aa1e5aaba54c6901a6f05cba2b16"
-    sha256 cellar: :any_skip_relocation, monterey:       "149b0d1626cd2e2ae7782008f54118a13929245b79a7e74ed49d192e7aef77bc"
-    sha256 cellar: :any_skip_relocation, big_sur:        "faea2b8ed860e0ba7b62a6b74fad36916ed2dd2ec6d45dfdf4a30323aa3ce4c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd11f2af1e91fa6e4e59e952dead395775ff2858a6a65d954b696aa6539e10f5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "313d497452b11b20bfd53228bc5862f6df8134133ac441f680ff62b20404b6ee"
+    sha256 cellar: :any,                 arm64_ventura:  "a5dd401bb3451678067ba95a1ad51fef42a0456cb2c7b6eb8828de8b2692f1f4"
+    sha256 cellar: :any,                 arm64_monterey: "14de96e3de2aa91141c2c88574653e1b6de932c3a0f4769be4c54e2ed8b22b40"
+    sha256 cellar: :any,                 sonoma:         "bdf18586866bc4a721c02f0c31caa500d2a62d9a4fa2d8e1a61f24324977891b"
+    sha256 cellar: :any,                 ventura:        "58dcee68370adf283f6142d7da65aa0ba9b92ac7a3005a9699555db9c9baff7f"
+    sha256 cellar: :any,                 monterey:       "442fbca86c364459de2ff027d8e05cddd8b9d38808bc3ad3e5cf8dc61f9e563e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "146e2d23818ca92cd18f65073fd5d4a5a5afd718a676dbe476494fb289a73da9"
   end
 
   depends_on "freetype"
@@ -51,6 +52,13 @@ class Openmsx < Formula
   fails_with :gcc do
     version "7"
     cause "Requires C++20"
+  end
+
+  # https://github.com/openMSX/openMSX/pull/1542
+  # remove in version > 19.1
+  patch do
+    url "https://github.com/openMSX/openMSX/commit/78939807459c8647174d86f0bcd77ed4310e187d.patch?full_index=1"
+    sha256 "cf752e2d85a8907cc55e12f7fa9350ffad61325c2614e011face593e57a58299"
   end
 
   def install

@@ -1,20 +1,19 @@
 class Mdcat < Formula
   desc "Show markdown documents on text terminals"
   homepage "https://github.com/swsnr/mdcat"
-  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.1.0.tar.gz"
-  sha256 "96ed4b74c202514987610a69af7fc71afd3b826d0449f9326661fd5244c5d5ee"
+  url "https://github.com/swsnr/mdcat/archive/refs/tags/mdcat-2.1.1.tar.gz"
+  sha256 "d0fa8e9c7477842b6c6923e6710363050f096ea8283cb69b475071f60fc6de42"
   license "MPL-2.0"
-  revision 1
   head "https://github.com/swsnr/mdcat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9eff2b11b0fedccc888d3ac76249dfaddf063713ed24d0e9a1883a21c490640d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdd03eb1daabf38c5738bf70dcc72cb703887664d568d7f163384f407534b722"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5262117d6249c644b8882c419e07ffb5062a86b6bf5fce224dec381b61df3e2a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8f6803b4e3a19ec367070fe93215946395bfbe61ff8ca62d8767c937b1e9eccf"
-    sha256 cellar: :any_skip_relocation, ventura:        "0d22cae51336078dc7c821f2b5faa0463e7f9e684461d65a9102d19a6ea4f126"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e6708dec18697cc4be63237b931257f3dc6f66b6964d848f701ef87ba89b55f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "495dee7dd31bc5bd4b90edf85856ef19e798013e88e8ec7829dff859b82fe11b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e5839f4e7255766d5eec2b34e0327ba99f96fe004f6074e424ea2fbfee2d8ae"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6054cc96e40baeb04488688f4cd06bd5f302c165a9e5cd089e604aa8a7a368b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5185a08b8f2a2861aec6fc52dac92b2cd3321088249e67045073e334a05e59bb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "529729434f85ab7738e6377a420e51d6e1681be570ea2e82d4bf58d93a22ec8e"
+    sha256 cellar: :any_skip_relocation, ventura:        "837b9f31a6485dab6c977a727f92076a4ace165d4b51eb9c777ff39f72eecae0"
+    sha256 cellar: :any_skip_relocation, monterey:       "89ebe6b94f333697f20e802fe535bb1d8e85705b17405a5a278219d8dde45afe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92f08bb0112ce7c0291f1a9695e25080ba595cc240ba12ecddc224ba96b81cbd"
   end
 
   depends_on "asciidoctor" => :build

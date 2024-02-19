@@ -3,24 +3,28 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/5a/ab/3b039d0db1aa0890d317cead37aaf789b74e5b42020d21a1ee59a86ee906/censys-2.2.10.tar.gz"
-  sha256 "aa224da2d8984824d5a50e5d29149a32fa777a33778ae495fa48a3c2e090974f"
+  url "https://files.pythonhosted.org/packages/64/e2/60e8e2922e64ba38de3948c1ab04cdca6698920bc98d13637f77a259ea08/censys-2.2.11.tar.gz"
+  sha256 "d4e161e3085800c0f9b6ff6cc035a7727ff525135cdde62ff01e32eb371c5773"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1118bebaf68587330e4d8df1575c1621978af0e636c0b30c71b3c61c2477ce7a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "69a215a8692d11a2d58fcff69d5e24f8d06458f25386927a6dc71363f86ba8e6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e9e03c2a42821f806dd6df299e22784785c468d407fac6ea706104fd4cda5abf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "925d667fcfcbeb69b4a286a04b5957839f2f6d8377f0a22baa2dd54c9d21911a"
-    sha256 cellar: :any_skip_relocation, ventura:        "e43fd8b675ce381ecf9345f85cb189ef26b751a2fa08f903be618bdb211c3078"
-    sha256 cellar: :any_skip_relocation, monterey:       "aed35bf6de8ad81bf42458bca390c616e44bdbcdc102cd9f471f0ff8e90e6704"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d14d4226c9df9e595f9489a8cfb100930b3b39b1dd63d5a945a3637cc05561d"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "951772b327d043644e641f9d1a3c3bb3dd286960e2ea970637992a858a43603c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "acab2f851dab3bd1b361902811f8bf4a32a9ef5d1cbb2baedd3e7bc3418c046b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b766a19a76160c57684cfc9ef8eec520760eab6f1328fe86e1fc9a3fb8d3b1df"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ea1cb0de2c61940296d71f96c04635a02b9fc3f9ebaa960ac8a3030a8a81aa7"
+    sha256 cellar: :any_skip_relocation, ventura:        "113506ce4a29fb99dab9b99252c6fdf028df454b37e8fb370df566f65bdb107f"
+    sha256 cellar: :any_skip_relocation, monterey:       "0823e18ae2ef020698a59cc96b05a4f9d16d7310be97d16a2d4f3d15e1d03069"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b92a33ad7276f70154913d2407f80428e069c0e8f0a4851d4da1df607406fa6"
   end
 
-  depends_on "pygments"
-  depends_on "python-argcomplete"
   depends_on "python-certifi"
   depends_on "python@3.12"
+
+  resource "argcomplete" do
+    url "https://files.pythonhosted.org/packages/54/c9/41c4dfde7623e053cbc37ac8bc7ca03b28093748340871d4e7f1630780c4/argcomplete-3.1.1.tar.gz"
+    sha256 "6c4c563f14f01440aaffa3eae13441c5db2357b5eec639abe7c0b15334627dff"
+  end
 
   resource "backoff" do
     url "https://files.pythonhosted.org/packages/47/d7/5bbeb12c44d7c4f2fb5b56abce497eb5ed9f34d85701de869acedd602619/backoff-2.2.1.tar.gz"
@@ -47,6 +51,11 @@ class Censys < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
@@ -58,8 +67,8 @@ class Censys < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   def install

@@ -1,18 +1,18 @@
 class Tt < Formula
   desc "Command-line utility to manage Tarantool applications"
   homepage "https://github.com/tarantool/tt"
-  url "https://github.com/tarantool/tt/releases/download/v2.1.0/tt-2.1.0-complete.tar.gz"
-  sha256 "ede0cdcb19cd17b1094530b4b6d639aa2898621ec470fc15e7eb771c7547f5b2"
+  url "https://github.com/tarantool/tt/releases/download/v2.1.2/tt-2.1.2-complete.tar.gz"
+  sha256 "9bd621f0e165f59409278dddaf9a13ed8f467d42d99c75d2b3c07c4e794e405f"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "af38470566d13f9c480809fa3a4d30be290e11326ecfeebf77df1e31d9bbfa79"
-    sha256 cellar: :any,                 arm64_ventura:  "52c866b6c1764cd5d39655ca62704ce2e55a951159830f9d193976c96bc9d751"
-    sha256 cellar: :any,                 arm64_monterey: "46e4e57ad43deac9b2539386cde94e249d18f0d4f83b1a68b27889a3cdd5cf71"
-    sha256                               sonoma:         "5f887f3ab2e80ab1a41e163a875fa04e2dbf327b2ac505e9e62f63b2fdb518ee"
-    sha256                               ventura:        "0378bcf994de806589bf05598e410b08121759aacdb8ac8ea73b39d87ae73f2d"
-    sha256                               monterey:       "fd9eadd141199f13ca15e7b6a0e893755e9fd12f154faaf84391928ee35e68c5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd87b2b2c2f735ed631740ef5c4b06dff22591e7d469ee764d00c957b202a5e2"
+    sha256 cellar: :any,                 arm64_sonoma:   "846eb23fbb4298d49f9059492309d74c9c353793d1a4a0210fd083988020b052"
+    sha256 cellar: :any,                 arm64_ventura:  "e395b546bc6fa0ea02a7518b709ce747bd825729cc0165b71b9e5856980e064b"
+    sha256 cellar: :any,                 arm64_monterey: "8922950cd37f03a578ad1caa07dd8e6fb852c31bfd2aea04655aade044f01309"
+    sha256                               sonoma:         "9bc1ff032b913b0387bc0e8903799f6368f2363473d88ed63d768778818fcb35"
+    sha256                               ventura:        "f18aca23a1ef3bf5f4141957e97a5e1b0acc0470b96ed6a4a0e772da92b654e0"
+    sha256                               monterey:       "7bcfd2f0a52a98cefaf833d3cec33a36123e90ebdd8eecebd8bb0dabc05bd74f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9804ab48ebb2796c3d5f0da3c8e3d0cf3ee2201833dc5ee97fecff007778364a"
   end
 
   depends_on "go" => :build

@@ -1,8 +1,8 @@
 class Talloc < Formula
   desc "Hierarchical, reference-counted memory pool with destructors"
   homepage "https://talloc.samba.org/"
-  url "https://www.samba.org/ftp/talloc/talloc-2.4.1.tar.gz"
-  sha256 "410a547f08557007be0e88194f218868358edc0ab98c98ba8c167930db3d33f9"
+  url "https://www.samba.org/ftp/talloc/talloc-2.4.2.tar.gz"
+  sha256 "85ecf9e465e20f98f9950a52e9a411e14320bc555fa257d87697b7e7a9b1d8a6"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Talloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5383bd15455b9225886712ea256ce3d6d85f32efbc5dd77ca95014cce8db1493"
-    sha256 cellar: :any,                 arm64_ventura:  "952aa12ad0725f13b71cfaf0d42b7457d47ec4037e3b50092cdd1eb7c5b5e686"
-    sha256 cellar: :any,                 arm64_monterey: "b51c384b3070f37e6a50bf40aa3d2a755d0869033f1f2814bc3a0fa7199281ef"
-    sha256 cellar: :any,                 arm64_big_sur:  "2b73d1af4819ca1e387c3ab3f76f78809345e0fa265aef68ab19a8d824facbbe"
-    sha256 cellar: :any,                 sonoma:         "11613623a84ec2199b7af04ebf25522184344810167a2c37c854d09bc21b5233"
-    sha256 cellar: :any,                 ventura:        "978093e8517ddb0173f7b873074ab75fd7ea546e49dd569656c95c4f8e168e7a"
-    sha256 cellar: :any,                 monterey:       "51ac64aee168610e03ab61376b2ab304127faa8cd8361b33d4eff7eabfcca112"
-    sha256 cellar: :any,                 big_sur:        "a3c4522b4d6df6ad9a23280aaa22cb03f6e3b029603a04e87e26ee876ffcee9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "556a15c067dac92a37dfe597841e711c18c3e65be2e5dd0f0086f28739df31b3"
+    sha256 cellar: :any,                 arm64_sonoma:   "735391b7b483e6445dfbf14c0c45f563d57348edd6f9ba2c62d3d28cb40d73a8"
+    sha256 cellar: :any,                 arm64_ventura:  "10a6626844a9157e5b7250db70fc230920a7b216115983e50481ca2ad798277e"
+    sha256 cellar: :any,                 arm64_monterey: "4e3a718a021474b1d2fb1d726dd862436079a7af0d1e92a0119cf5eefeff6228"
+    sha256 cellar: :any,                 sonoma:         "ff79b75b2642777c53198e3a993e65e5df618a972f2d3bf4f4df8a83443a3a16"
+    sha256 cellar: :any,                 ventura:        "a9df241ae263f4f08c0ce968000e213e015633e153668e693db123c06c50b8c7"
+    sha256 cellar: :any,                 monterey:       "294d224f5f6f26b9d1a71c747cf42947242e0385235185da48178f5b95e0a380"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19b80b6e3c9e4ed4bb1ccdaf1d5270e032e99e944cd105f25cc9b295350849e0"
   end
 
   uses_from_macos "python" => :build

@@ -4,6 +4,7 @@ class Wal2json < Formula
   url "https://github.com/eulerto/wal2json/archive/refs/tags/wal2json_2_5.tar.gz"
   sha256 "b516653575541cf221b99cf3f8be9b6821f6dbcfc125675c85f35090f824f00e"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,16 +13,13 @@ class Wal2json < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ed132d86917033bf9575ea0a21b366683dba92875c7b5e1dd194984d4d391f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b8e99400a6c8d675edacff3d109e8138c291759f11425fbd4cf356004236b41"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c9dec0653716cd5dcb63a76150b399252776bfa0013dfabdfbc0a2f3e700e89"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "0e49db0bc27c9bb9355f9c9c6a032b5dd56b4e70ec03950355367c809e54088d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dfe3620a60fa64694bd5e7c44a4ee865dcb35783e6b00c3c878f739b96c06ebf"
-    sha256 cellar: :any_skip_relocation, ventura:        "cb45f856e5caf15b5a7b19f34fef94ca798af287a615d82b188d467132519d29"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c340985060a45681159a662d4fe4ff6a19fdf6735c28d2c67f9ae38a052ef20"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e961f33e907f86ced624dbbddfabc25e66007a83cc89f9e2f6c1a83e440f9e43"
-    sha256 cellar: :any_skip_relocation, catalina:       "3438e2f5355834993c39f5a9488138643be8e88ec643420647a38a83d65ac4ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6cec39726b0b3dc1f51319d2831875716e1dec9e5a50a27981f7cee77db1447"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c19c2e4de042773c6197fb1458fa47962f26f440e2275cab182ac1c09c3da014"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4059f538f33c6fe32b73fe86328431027cdbca20ddcd8ac6320fb6a15ac3f8a5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2db7dad2e349f9d37218ddcd6395f14ce6cb1ad7a7a9fe1412ba6926f4f79880"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ab113ad5939f77cc2abad6b459ae738d87e7a2f3c7562a50492abb11c9997387"
+    sha256 cellar: :any_skip_relocation, ventura:        "2cb542c88e913cf1240457c39f2ad1164d7556834db0588d751652fe10ebea94"
+    sha256 cellar: :any_skip_relocation, monterey:       "cdbea4c388aca50b56a4057e4b436a99f2292899444f3dadd1c84a1c23072d1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23770f42e994329f5ae2d1e480ce61352a156fac0fe826e341c31605142d922b"
   end
 
   depends_on "postgresql@14"
@@ -31,16 +29,13 @@ class Wal2json < Formula
   end
 
   def install
-    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
-
-    mkdir "stage"
-    system "make", "install", "USE_PGXS=1", "DESTDIR=#{buildpath}/stage"
-
-    stage_path = File.join("stage", HOMEBREW_PREFIX)
-    lib.install (buildpath/stage_path/"lib").children
+    system "make", "install", "USE_PGXS=1",
+                              "PG_CONFIG=#{postgresql.opt_bin}/pg_config",
+                              "pkglibdir=#{lib/postgresql.name}"
   end
 
   test do
+    ENV["LC_ALL"] = "C"
     pg_ctl = postgresql.opt_bin/"pg_ctl"
     port = free_port
 

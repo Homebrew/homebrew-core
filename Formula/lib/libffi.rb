@@ -1,21 +1,18 @@
 class Libffi < Formula
   desc "Portable Foreign Function Interface library"
   homepage "https://sourceware.org/libffi/"
-  url "https://github.com/libffi/libffi/releases/download/v3.4.4/libffi-3.4.4.tar.gz"
-  sha256 "d66c56ad259a82cf2a9dfc408b32bf5da52371500b84745f7fb8b645712df676"
+  url "https://github.com/libffi/libffi/releases/download/v3.4.6/libffi-3.4.6.tar.gz"
+  sha256 "b0dea9df23c863a7a50e825440f3ebffabd65df1497108e5d437747843895a4e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "35b8d6504f17f98eba5b432a0bf33936d7ca0c5ab1983cefba128621210f69ef"
-    sha256 cellar: :any,                 arm64_ventura:  "66d9dcb218283c43250b04e507b7b96f0cf18fb1017fcaf811729324d11127f7"
-    sha256 cellar: :any,                 arm64_monterey: "e7ea0921a053dc81e818c3893887e819ed26c0e231fd306e05e905b51b9ea902"
-    sha256 cellar: :any,                 arm64_big_sur:  "8d44b24963c114512934de23cc776a6190f5bcb65db8e6cc65e1b60122571747"
-    sha256 cellar: :any,                 sonoma:         "8d52eea700d32139fb1844e58af00397bf9fe0bbe297bcc9c0b7a2a769725419"
-    sha256 cellar: :any,                 ventura:        "a86ed7eb1b02a3d44cd6e75977c910466357a1715743f89be94416d000577133"
-    sha256 cellar: :any,                 monterey:       "9dd80c4c3d4451cc3216dbf1129a2bddec474aa9266b6bb5c603e0a6cce7605b"
-    sha256 cellar: :any,                 big_sur:        "b5c4e2054802f97a68b8f32d9ff2c6782f9a37223cd0a3b3d2175ecf04740a4f"
-    sha256 cellar: :any,                 catalina:       "1f53646211da139b423eb38f923bc38da1de86b7a68bfc2df5351098fe3c67e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcc9412995b5e319f64796a77b1eb8e684f1d1b6b5d7ac824f434ada692e4ff8"
+    sha256 cellar: :any,                 arm64_sonoma:   "e81237234a3e21d5222c1c8baf4017bc2f2ad7e444fbf58ad6b635fc0ace5078"
+    sha256 cellar: :any,                 arm64_ventura:  "7a6a1d1dffe41d4e9bf117440190be51c432a2a192945ed8e2e10c4bb1f95ad0"
+    sha256 cellar: :any,                 arm64_monterey: "eacdfea3b29d48dc8c3fb7578a9a59dbeb9048eca6493b8cd95605c86652e6de"
+    sha256 cellar: :any,                 sonoma:         "d783974753df1f7347d8cef16403e157f0625302848e8267626064c4f79a97d8"
+    sha256 cellar: :any,                 ventura:        "e5adecfb6ddd1a18ccb492c051adfd693eb091c4b24a58ad7b1cecb6afb0a575"
+    sha256 cellar: :any,                 monterey:       "8b3cb29277a584f1684661823c8232659b04234873430164bc80ba484c8aa8da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "798c3983a917698d5dd0c60063e7b8c1e5b4fc377d9e11d7cba010725eca1bfb"
   end
 
   head do

@@ -16,23 +16,18 @@ class Tfproviderlint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d5103190a14b75826496cbe28614f49619a25d8f8492b4a1804e48e6c22bfca"
   end
 
-  depends_on "go" => [:build, :test]
+  # use "go" again when when https://github.com/bflad/tfproviderlint/pull/297 is released and released
+  depends_on "go@1.21" => :build
+  depends_on "go" => :test
 
   def install
     ldflags = %W[
       -s -w
       -X github.com/bflad/tfproviderlint/version.Version=#{version}
+      -X github.com/bflad/tfproviderlint/version.VersionPrerelease=#{build.head? ? "dev" : ""}
     ]
 
-    ldflags << if build.head?
-      "-X github.com/bflad/tfproviderlint/version.VersionPrerelease=dev"
-    else
-      "-X github.com/bflad/tfproviderlint/version.VersionPrerelease="
-    end
-
-    output = libexec/"bin/tfproviderlint"
-    system "go", "build", *std_go_args(ldflags: ldflags.join(" "), output: output), "./cmd/tfproviderlint"
-    (bin/"tfproviderlint").write_env_script(output, PATH: "$PATH:#{Formula["go@1.17"].opt_bin}")
+    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/tfproviderlint"
   end
 
   test do

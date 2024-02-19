@@ -19,7 +19,7 @@ class Pdf2djvu < Formula
     sha256 x86_64_linux:   "e4b86532ab3e73076c00a603625c2ee778d06f07c012d5362982404a2fe68ea2"
   end
 
-  deprecate! date: "2023-02-04", because: :repo_archived
+  disable! date: "2024-02-01", because: :repo_archived
 
   depends_on "pkg-config" => :build
   depends_on "djvulibre"

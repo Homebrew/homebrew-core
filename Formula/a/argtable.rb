@@ -4,6 +4,7 @@ class Argtable < Formula
   url "https://downloads.sourceforge.net/project/argtable/argtable/argtable-2.13/argtable2-13.tar.gz"
   version "2.13"
   sha256 "8f77e8a7ced5301af6e22f47302fdbc3b1ff41f2b83c43c77ae5ca041771ddbf"
+  license "LGPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "0f2a92f017739cf52ff30229bbbb87fed5e9d818ae9655685227d5f72a94825a"

@@ -6,9 +6,11 @@ class Libscrypt < Formula
   license "BSD-2-Clause"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "78e0f597bcaeb181e0845127db7303d52a4ae34df6f6c61c2759006a45f716ab"
     sha256 cellar: :any,                 arm64_ventura:  "27b5cd1ef28e190b9f73c5c617ee652b331eab24cb25bd3129335ad1c0299f76"
     sha256 cellar: :any,                 arm64_monterey: "df9e62c90fb8530ad765f2128a892ba91904901167bb5dcb7f0e1a199b43f59f"
     sha256 cellar: :any,                 arm64_big_sur:  "6b39d428937056b1a25080c87d9af446ae1397f824d362ca6a791e683a997ed2"
+    sha256 cellar: :any,                 sonoma:         "82c9ff58481a5c6a44d7f85b083f614004371fc2572f9a8c8c07de4bee06cf0b"
     sha256 cellar: :any,                 ventura:        "ce5a3c6a6e0f0e100eb6b9d515389a371ac2bdc3f18b4aeb7f0909ce8b3b4b99"
     sha256 cellar: :any,                 monterey:       "d8e0b6fe9b5e2f14fc281fa859fb3339eb98610863cb0b39652f5cb6522205ad"
     sha256 cellar: :any,                 big_sur:        "836c0ae075b9e3b580eea4d3c1b554f861166f74657303103bb0415c34650fb8"
@@ -17,16 +19,24 @@ class Libscrypt < Formula
   end
 
   def install
+    # `-Os` leads to bugs. https://github.com/technion/libscrypt/issues/60
+    ENV.O1
+
+    args = ["PREFIX=#{prefix}"]
+    install_target = "install"
+
     if OS.mac?
-      system "make", "install-osx", "PREFIX=#{prefix}", "LDFLAGS=", "LDFLAGS_EXTRA=", "CFLAGS_EXTRA="
-      system "make", "check", "LDFLAGS=", "LDFLAGS_EXTRA=", "CFLAGS_EXTRA="
-    else
-      system "make"
-      system "make", "check"
-      lib.install "libscrypt.a", "libscrypt.so", "libscrypt.so.0"
-      include.install "libscrypt.h"
-      prefix.install "libscrypt.version"
+      args += %w[CFLAGS_EXTRA=-fstack-protector LDFLAGS= LDFLAGS_EXTRA=]
+      install_target << "-osx"
     end
+
+    system "make", "check", *args
+    system "make", install_target, *args
+    system "make", "install-static", *args
+
+    return if OS.mac?
+
+    prefix.install "libscrypt.version"
   end
 
   test do

@@ -4,17 +4,17 @@ class Mfem < Formula
   url "https://github.com/mfem/mfem/archive/refs/tags/v4.6.tar.gz"
   sha256 "250bb6aa0fd5f6a6002c072d357656241ed38acfc750e43e87d8c36a8f8a4b4f"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/mfem/mfem.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "62ff9733940e031a023deaba54716e3800d9ed9187d21e10407a15c7ea69a584"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4f1e1b59d02c77596d197c89a2871e23b0b9049791b2ea2a5b90926a4d896f34"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d029b6df96209a1fa21b25fc316375f0ab579e6f98abbbd4b51e04296d7c4669"
-    sha256 cellar: :any_skip_relocation, sonoma:         "47f92f4c919705628ebd66af6f37ca796fa29093a27220fc5343594be8f9279f"
-    sha256 cellar: :any_skip_relocation, ventura:        "969ce230ca46647d1a2ae906f22ad906ef4d9c7cb336712489defb8476de97cd"
-    sha256 cellar: :any_skip_relocation, monterey:       "9a68a845acc55b825a4fe7c26260d864e8477c35e500e9ce8ea94f9655ed9877"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "415a1c62d6854e17058a8db000ef97a62da5f0c4b5823146400391869706dce6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3949eba231c4a87fd729d1936c0dca95a913be155e4a7dbb5eb31e9dced6fc3b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fbacadc5c5a9c0302c1b68719478ed3df5e8bf5c54ab13ef450fea6168d21b31"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eef76fe0105da324c2ca10f1e6e7c539f4cd49c8f0dc6f22006214668f738445"
+    sha256 cellar: :any_skip_relocation, sonoma:         "391b5efdaa7416cc5372a6b88c38e32a3c9fa3c011f73e14771dce1e7757181f"
+    sha256 cellar: :any_skip_relocation, ventura:        "a4db139271b3d67a07d2e909ceaa067997b150f507322c1e26d2fd3b1a1114a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "d106de616a9e371d86da8686f89b9638bd61bc31ff255401d4c30e3109170bd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "001ef56bbdbbb8ce4522ca6ba972551501f1c3b95e8dad8701cc02f81abf7805"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +32,7 @@ class Mfem < Formula
     inreplace "config/config.mk.in", "@MFEM_HOST_CXX@", ENV.cxx
 
     args = [
+      "-DCMAKE_INSTALL_RPATH=#{rpath}",
       "-DMFEM_USE_MPI=YES",
       "-DMFEM_USE_METIS_5=YES",
       "-DMFEM_USE_SUITESPARSE=YES",

@@ -28,15 +28,15 @@ class OpenkimModels < Formula
   depends_on "kim-api"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -DKIM_API_MODEL_DRIVER_INSTALL_PREFIX=#{lib}/openkim-models/model-drivers
       -DKIM_API_PORTABLE_MODEL_INSTALL_PREFIX=#{lib}/openkim-models/portable-models
       -DKIM_API_SIMULATOR_MODEL_INSTALL_PREFIX=#{lib}/openkim-models/simulator-models
     ]
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

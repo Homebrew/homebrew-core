@@ -1,6 +1,6 @@
 class Duc < Formula
   desc "Suite of tools for inspecting disk usage"
-  homepage "https://duc.zevv.nl/"
+  homepage "https://github.com/zevv/duc"
   url "https://github.com/zevv/duc/releases/download/1.4.5/duc-1.4.5.tar.gz"
   sha256 "c69512ca85b443e42ffbb4026eedd5492307af612047afb9c469df923b468bfd"
   license "LGPL-3.0"
@@ -26,10 +26,8 @@ class Duc < Formula
   depends_on "tokyo-cabinet"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
+    system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--prefix=#{prefix}",
                           "--disable-x11",
                           "--enable-opengl"
     system "make", "install"
@@ -39,8 +37,8 @@ class Duc < Formula
     db_file = testpath/"duc.db"
     touch db_file
     system "dd", "if=/dev/zero", "of=test", "count=1"
-    system "#{bin}/duc", "index", "-d", db_file, "."
-    system "#{bin}/duc", "graph", "-d", db_file, "-o", "duc.png"
+    system bin/"duc", "index", "-d", db_file, "."
+    system bin/"duc", "graph", "-d", db_file, "-o", "duc.png"
     assert_predicate testpath/"duc.png", :exist?, "Failed to create duc.png!"
   end
 end

@@ -20,7 +20,7 @@ class Vkectl < Formula
   end
 
   # github.com/choleraehyq/pid@v0.0.12/pid_go1.5_amd64.s:28: expected pseudo-register; found R13
-  deprecate! date: "2023-02-14", because: "does not build with Go 1.18 or later"
+  disable! date: "2024-02-12", because: "does not build with Go 1.18 or later"
 
   # Bump to 1.18 on the next release, if possible.
   depends_on "go@1.17" => :build

@@ -6,16 +6,16 @@ class Pferd < Formula
   url "https://files.pythonhosted.org/packages/65/50/fae763bf94e3d9a25716f1a8b36481b1196bb64b5ac226286f3ad588dc81/pferd-3.5.0.tar.gz"
   sha256 "90170cb5b7b5421193ba8b73d66899fc2027f3a8f595c10ac97fc6de756df7cf"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "581432771685aea2995b2301bd9742729463147c11af66c463c74f98fe2aed3b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e21a6b3281c5e4acd379966564cbcad7cb9c876c7e82e309e4d6aa1c6f31a945"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a797aec2467997cce8447fd969bf5f8edf3b6854201f06aa35e50b6fbbb6a244"
-    sha256 cellar: :any_skip_relocation, sonoma:         "28a1e770288cae00f0d3bb5ecff35668e0c8e33618a542ed286220bfea2cb05a"
-    sha256 cellar: :any_skip_relocation, ventura:        "201786f4a6e3d0ac1c37c8fcf327e6fb81a5801c27cc11aedcbff5a82e8ab8ef"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad8bf60f21ebffff05b18b8811c0f50a89a4ca0ac23d6a01db550acc49fefa7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aadbddd02aab9380404459ea54b97a1c338e1b9de449cf62e9238dec3cd0304c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3e5a2d60a9215280f3651a3b7901323aa369d3645e407e626557157b45e217f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "898e66a3021eb4e971507f1191b4e11be6433552373d04d3a3c151f7dcd0c683"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bc4e64908ec2d63edbe8a300120a2bd3a515f7824de352aa137df209a2c83ba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f472f0de030614c09f1c54cbe6fc4969aebb8e48c9435e4257ce57dff44597aa"
+    sha256 cellar: :any_skip_relocation, ventura:        "523c0668bdc40cb7b382055b7d8a2743aca007bc33079b99bff7580775fc3496"
+    sha256 cellar: :any_skip_relocation, monterey:       "a1bab5112eea905268940ee96d117f69f6feaa1a2e216bce87a8538bc80f43b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73bd54a8aa58452302bbdb32e71614ed1c9fb82bc0309bf3f3cf9ed76e62aae1"
   end
 
   depends_on "pygments"
@@ -23,8 +23,8 @@ class Pferd < Formula
   depends_on "python@3.12"
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/71/80/68f3bd93240efd92e9397947301efb76461db48c5ac80be2423ffa9c20a3/aiohttp-3.9.0.tar.gz"
-    sha256 "09f23292d29135025e19e8ff4f0a68df078fe4ee013bca0105b2e803989de92d"
+    url "https://files.pythonhosted.org/packages/18/93/1f005bbe044471a0444a82cdd7356f5120b9cf94fe2c50c0cdbf28f1258b/aiohttp-3.9.3.tar.gz"
+    sha256 "90842933e5d1ff760fae6caca4b2b3edba53ba8f4b71e95dacf2818a2aca06f7"
   end
 
   resource "aiosignal" do
@@ -33,28 +33,23 @@ class Pferd < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
-    sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
+    url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
+    sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
   end
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
-    sha256 "492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"
+    url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
+    sha256 "74e3d1928edc070d21748185c46e3fb33490f22f52a3addee9aee0f4f7781051"
   end
 
   resource "frozenlist" do
-    url "https://files.pythonhosted.org/packages/8c/1f/49c96ccc87127682ba900b092863ef7c20302a2144b3185412a08480ca22/frozenlist-1.4.0.tar.gz"
-    sha256 "09163bdf0b2907454042edb19f887c6d33806adc71fbd54afc14908bfdc22251"
+    url "https://files.pythonhosted.org/packages/cf/3d/2102257e7acad73efc4a0c306ad3953f68c504c16982bbdfee3ad75d8085/frozenlist-1.4.1.tar.gz"
+    sha256 "c037a86e8513059a2613aaba4d817bb90b9d9b6b69aace3ce9c877e8c8ed402b"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/44/ae06b446b8d8263d712a211e959212083a5eda2bf36d57ca7415e03f6f36/importlib_metadata-6.8.0.tar.gz"
-    sha256 "dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "jaraco-classes" do
@@ -78,8 +73,8 @@ class Pferd < Formula
   end
 
   resource "more-itertools" do
-    url "https://files.pythonhosted.org/packages/2d/73/3557e45746fcaded71125c0a1c0f87616e8258c78391f0c365bf97bbfc99/more-itertools-10.1.0.tar.gz"
-    sha256 "626c369fa0eb37bac0291bce8259b332fd59ac792fa5497b59837309cd5b114a"
+    url "https://files.pythonhosted.org/packages/df/ad/7905a7fd46ffb61d976133a4f47799388209e73cbc8c1253593335da88b4/more-itertools-10.2.0.tar.gz"
+    sha256 "8fccb480c43d3e99a00087634c06dd02b0d50fbf088b380de5a41a015ec239e1"
   end
 
   resource "multidict" do
@@ -98,13 +93,8 @@ class Pferd < Formula
   end
 
   resource "yarl" do
-    url "https://files.pythonhosted.org/packages/5f/3f/04b3c5e57844fb9c034b09c5cb6d2b43de5d64a093c30529fd233e16cf09/yarl-1.9.2.tar.gz"
-    sha256 "04ab9d4b9f587c06d801c2abfe9317b77cdf996c65a90d5e84ecc45010823571"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
+    url "https://files.pythonhosted.org/packages/e0/ad/bedcdccbcbf91363fd425a948994f3340924145c2bc8ccb296f4a1e52c28/yarl-1.9.4.tar.gz"
+    sha256 "566db86717cf8080b99b58b083b773a908ae40f06681e87e589a976faf8246bf"
   end
 
   def install

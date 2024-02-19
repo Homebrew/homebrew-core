@@ -6,16 +6,16 @@ class AdrViewer < Formula
   url "https://files.pythonhosted.org/packages/a7/9d/f9fa91d28be99a47bc30abe4eef18052f1745a85cafc6971e4c2855e00c7/adr-viewer-1.3.0.tar.gz"
   sha256 "af936a6c3a3ff10d56a9e9fc970497e147ff56639f787bdf4ddc95d11f3e4ae4"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd7c760f6b3d5720772fe6722f226927a6b5b1ca7d1f4a4b5f058efa24bb14d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e791ad8f2ad9ff0e9c586d97b4a3dbfb1c969315f454f3d63e900dc2665bb5f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bdbe0e6aaba4a04d2798ebf39afdc3433c07302153d6fefe8fdc193ee69daf6b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4e28911a829f2eef391d4b319e8843a34119b91d5fefb97cd06548a774613d40"
-    sha256 cellar: :any_skip_relocation, ventura:        "20ac16155c9b2efc7fe126f8ffdcb13786effe5db0f75d74cf348b14c3a73f80"
-    sha256 cellar: :any_skip_relocation, monterey:       "0cc97504088ca3a89dace6f4875842b78bde01fcb2061c43479603294d3946d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "673ee30b217f61c2f5b56f683fc382dc0c400f0629fa72f493369d6031f4e595"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b3012fb54668eb17d5306681d9a99efa79c34a6103d4e6d5c8d2f4a5a3736d72"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43664d77279796afdeadbef4443b6c583f82d156393698ca018bd5bf89249ad2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "55b98dd660a86e2c8fc4b60572887c2ba7b726f1a188516db65994b7da3acd9d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b5c03ef785abcfb091cc863f6ab422fd8f8ca1e272632a9b79d94c4ef164c23c"
+    sha256 cellar: :any_skip_relocation, ventura:        "1bcfc044e06d95952de0cf0a8af7d61a82cc9b102cb07a9925bfda3df5305c8d"
+    sha256 cellar: :any_skip_relocation, monterey:       "febe2df12048536883a405402e8cb3f70458ec12e0e18725f50146fec0119c50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "645664afc04069b3734da2a0d2f0e78d2b867c7460a280db11629612560cc667"
   end
 
   depends_on "python@3.12"
@@ -41,8 +41,8 @@ class AdrViewer < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
   resource "markupsafe" do

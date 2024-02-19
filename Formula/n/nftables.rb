@@ -25,9 +25,8 @@ class Nftables < Formula
   depends_on "libmnl"
   depends_on "libnftnl"
   depends_on :linux
+  depends_on "ncurses"
   depends_on "readline"
-
-  uses_from_macos "ncurses"
 
   def install
     virtualenv_create(libexec, "python3.12")

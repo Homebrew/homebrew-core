@@ -6,14 +6,23 @@ class Libcouchbase < Formula
   license "Apache-2.0"
   head "https://github.com/couchbase/libcouchbase.git", branch: "master"
 
+  # github_releases is used here as there have been tags pushed for new
+  # releases but without a corresponding GitHub release
+  livecheck do
+    url :head
+    regex(/^?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases
+  end
+
   bottle do
-    sha256 arm64_sonoma:   "c27418629da8698371efa91c0cc51879d1073b347e75d56ebed0c29a0a3d5259"
-    sha256 arm64_ventura:  "60c9b6f0bc4f8e30f1646574972f32c7251bf81f5ea6fddf31fd0fe75b2c7ff1"
-    sha256 arm64_monterey: "c39ce6f6bbb8c9bdb1d8147a3e89b3a3014e6ad82e8b3b4286ce48afe25f056e"
-    sha256 sonoma:         "3a51d6ef2b9ab85cf4e59d80ebddf50c94af0b45fa42f2a5a5c8cf4d050631e7"
-    sha256 ventura:        "706a021f290769fb56226b1dfb1a1041b125f721d334308e68beaab0b4a756e0"
-    sha256 monterey:       "0e2e83f8af7be66683127974c3b5c7c2e28596d6bf69da5b416dd2fa9eb13dc2"
-    sha256 x86_64_linux:   "d8423d03c8d6274de2890d17562f472cdd054a62557eb96fe392527f05a6d431"
+    rebuild 1
+    sha256 arm64_sonoma:   "ea16c5dda4d1564ea45ab75344652563a12b311ee296caba9510fc4656dd1b44"
+    sha256 arm64_ventura:  "e772b3f61a9890735d74aa2f3055e4b2dfc2f3bcc4920b60cc151fd9a8083b3b"
+    sha256 arm64_monterey: "ae830c501ae8ca238b1ca444b91ef60dea96b41da97908b669df45217482d2d7"
+    sha256 sonoma:         "574aca48d57a765c5113b8174cde1cf14c2a03952ad935341d1ccb9326c34032"
+    sha256 ventura:        "1bcd5ede6ca3e46d67f89be8c43c2877c5ec2fd8451ff799ac2a13cdd45eeaf6"
+    sha256 monterey:       "42f9623fb7c91e0b7024f0c0c532b89ccf51add64e2c7730bd1db9a1f683bc3e"
+    sha256 x86_64_linux:   "a18cb900f1f7c73e56ce2767f2a85ba32b417faa4c3584a0c8798b1e96864c6b"
   end
 
   depends_on "cmake" => :build

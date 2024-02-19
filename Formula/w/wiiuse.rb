@@ -3,7 +3,7 @@ class Wiiuse < Formula
   homepage "https://github.com/wiiuse/wiiuse"
   url "https://github.com/wiiuse/wiiuse/archive/refs/tags/0.15.5.tar.gz"
   sha256 "d22b66eb13b92513c7736cc5e867fed40b25a0e398a70aa059711fc4f4769363"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "89b2a0507c72e01683faf6db14e7cd789ff1d190c7fbb14e5fcffd35363a7387"
@@ -22,15 +22,14 @@ class Wiiuse < Formula
   depends_on "cmake" => :build
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DBUILD_EXAMPLE=NO
       -DBUILD_EXAMPLE_SDL=NO
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

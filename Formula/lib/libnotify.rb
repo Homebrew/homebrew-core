@@ -20,17 +20,21 @@ class Libnotify < Formula
   depends_on "gtk-doc" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "gdk-pixbuf"
 
   def install
     ENV["XML_CATALOG_FILES"] = "#{etc}/xml/catalog"
 
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dgtk_doc=false", "-Dman=false", "-Dtests=false", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    args = %w[
+      -Dgtk_doc=false
+      -Dman=false
+      -Dtests=false
+    ]
+
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -42,28 +46,9 @@ class Libnotify < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{lib}
-      -lnotify
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-    ]
-    flags << "-lintl" if OS.mac?
-    system ENV.cc, "test.c", "-o", "test", *flags
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs libnotify").chomp.split
+    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
     system "./test"
   end
 end

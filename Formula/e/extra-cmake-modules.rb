@@ -5,8 +5,8 @@ class ExtraCmakeModules < Formula
   head "https://invent.kde.org/frameworks/extra-cmake-modules.git", branch: "master"
 
   stable do
-    url "https://download.kde.org/stable/frameworks/5.113/extra-cmake-modules-5.113.0.tar.xz"
-    sha256 "265e5440eebeca07351a469e617a4bf35748927bd907b00ace9c018392bb3bc4"
+    url "https://download.kde.org/stable/frameworks/5.115/extra-cmake-modules-5.115.0.tar.xz"
+    sha256 "ee3e35f6a257526b8995a086dd190528a8ef4b3854b1e457b8122701b0ce45ee"
     depends_on "qt@5" => :build
   end
 
@@ -16,13 +16,13 @@ class ExtraCmakeModules < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4995a0fd76465134be635e87d35a9e036c1738b90486042af4cffef14c7e6da4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4995a0fd76465134be635e87d35a9e036c1738b90486042af4cffef14c7e6da4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "602dc769b21b8a0872f35ad87304e353c1cf585f26b4a912d7b3c62aef4f4009"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b7ccebfd8b25a0d350e1f9e7f74f265950bf51dc0a1bff5368a145e09919e171"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7ccebfd8b25a0d350e1f9e7f74f265950bf51dc0a1bff5368a145e09919e171"
-    sha256 cellar: :any_skip_relocation, monterey:       "b7ccebfd8b25a0d350e1f9e7f74f265950bf51dc0a1bff5368a145e09919e171"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8309c356f593a839fff8d5a05b64575c4177b53e655775473bffbf55def6d770"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89767a30feaac36cfb98801aa0b2650c955087b753f3770430be6b8378bf0088"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89767a30feaac36cfb98801aa0b2650c955087b753f3770430be6b8378bf0088"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b26f18ced38eb03f3177b77c3d7a9a127ea2319b16b3c0f45dcd855cdbc1b2d7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7d5d57dfd625083e0fed42a20f942587cbb9e88f1be935d19cded8d7ce7e3175"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d5d57dfd625083e0fed42a20f942587cbb9e88f1be935d19cded8d7ce7e3175"
+    sha256 cellar: :any_skip_relocation, monterey:       "401012c2caad1080fafe510abbb22d0c1811fb964cc6996f7c196b41be415b5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1300cddb75da1ccdbffcc556096cf55214a76dd1c40cf6df2bf6fad0553bf8e2"
   end
 
   depends_on "cmake" => [:build, :test]

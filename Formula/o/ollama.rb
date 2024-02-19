@@ -1,11 +1,11 @@
 class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
-  homepage "https://ollama.ai/"
-  url "https://github.com/jmorganca/ollama.git",
-      tag:      "v0.1.15",
-      revision: "d9e60f634bf420ef41fe5388b32cfda3ceb2c898"
+  homepage "https://ollama.com/"
+  url "https://github.com/ollama/ollama.git",
+      tag:      "v0.1.25",
+      revision: "42e77e2a699ab0eb2f27fe8cde6f4b7f6eef225a"
   license "MIT"
-  head "https://github.com/jmorganca/ollama.git", branch: "main"
+  head "https://github.com/ollama/ollama.git", branch: "main"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
   # labeled as "pre-release" on GitHub before the version is released, so it's
@@ -16,21 +16,24 @@ class Ollama < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80ed768e91d53f318a6d9a6bcc6acfa06afb81bbdd20ab36df6150ee924ef4dd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "832907cbdd086133dc3d1a71cfd539f6a38be9df126d5312b866eedd0203ea78"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e67251c3447f85fe0e654327cf8032b36540b4b0c97c8dac5a7201b9aaaa0f0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4d4bc0c59838950ac4324ad8caeda627b33427bfdb284dccf7dbfa1ccfdf7676"
-    sha256 cellar: :any_skip_relocation, ventura:        "5a01b0689606dec2b464d20a52966a01affc9e5f63ec8c116a1fd4656b649f8d"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a66f2630a197e36048073e0e21b1bb40b3104390185d8dbbc73ceba194b6848"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a4ee8a23c922dd7b85b07cef09679a2728e963f6f12d725ab2d4a55aa023b93"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a823c3f2bacfc81d4db5a2857aff8be28b8952b3939fcd97fd10af42b636fde2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30f6a34651593fa20511286efcb3d93bdc23a99ad0fb957463a7fb8f959237ff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be18fb9eb72aff0da8fdeb407c32bc4e9eaa34aad99469a7861f8dec65f1b720"
+    sha256 cellar: :any_skip_relocation, sonoma:         "003b02169dc413f8028f0b883ed60f95a0dad839642d260713b1c6481ecb8731"
+    sha256 cellar: :any_skip_relocation, ventura:        "c35fcd836ccbaf5b25dbd7f51c0ffab237ccb05b3143feac87ebab66eb1a8675"
+    sha256 cellar: :any_skip_relocation, monterey:       "727f24825512a0b18fc4d5b736674e0e8f8cc5652f536e61cc3cb78b6de4c80d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb979e4aab78c109f735a375ab131cc92e1cbb140b7e4cc7d45da14e96a3fc5b"
   end
 
   depends_on "cmake" => :build
   depends_on "go" => :build
 
   def install
-    # Fix build on big sur by setting SDKROOT
-    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac? && MacOS.version == :big_sur
+    # Fix build by setting SDKROOT
+    ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
+    # Fix "ollama --version"
+    inreplace "version/version.go", /var Version string = "[\d.]+"/, "var Version string = \"#{version}\""
+
     system "go", "generate", "./..."
     system "go", "build", *std_go_args(ldflags: "-s -w")
   end

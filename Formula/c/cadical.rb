@@ -1,8 +1,8 @@
 class Cadical < Formula
   desc "Clean and efficient state-of-the-art SAT solver"
   homepage "https://fmv.jku.at/cadical/"
-  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-1.9.3.tar.gz"
-  sha256 "4ae1ecdf067e7fd853f69105f4324de65f52552ce2efb6decb170c8924c4e070"
+  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-1.9.4.tar.gz"
+  sha256 "39b16f6909adbecbe03ea1e170fc51c976135ce63d159e32706162e4eff7c4f8"
   license "MIT"
 
   livecheck do
@@ -11,16 +11,18 @@ class Cadical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "13b837a9034ff0a1ad7a0af153fab6c4a7106fc5318f2c7af6389ce8fe8c1d46"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5f271b809b40e12060400e268c0f9428df90d8295305b0439e75d574d6c0f33d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2b22034b8fdedef13debfcc725cbfd7bf1558ce74533466e1014e674a985726b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b96e0d337aa447c7e38fc365875810ffc62f814936dc3d64c98d547f5aca65bb"
-    sha256 cellar: :any_skip_relocation, ventura:        "00871826a5f2600d9e3b48106e9126f4a8d30fabce0bcc4cd7f8d8f85672d306"
-    sha256 cellar: :any_skip_relocation, monterey:       "192920c2618906fbe106392fc23cc66372176a60c38e15f9a681c2639a26dc96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bf4ff7f9cc4b6b526a0b943af72b9a21c98a11ad044bb08ee6eb473ceb30cd8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "531039129b71895c06d6c4cb9710ddec426a1b58c9d2bdde1fed8e58d3db8c93"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47ce132cd04bf93473759d84712a390c3019332021d3fa786f39e02f6c5bbc84"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba96834d0685697f44054206bac328f4655cf59e062f0516484b0f93090f72f0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5cc90d700f35537520f8974e572b206d80959af7c9bb25c6fdf873ec9b3005a1"
+    sha256 cellar: :any_skip_relocation, ventura:        "c03edc463190a12d60f730c35c73f1f1317f15dae116959b0548621b5c6ce526"
+    sha256 cellar: :any_skip_relocation, monterey:       "8156675a7ebfba7ee149cf10c1e111ec6738a34803295dc94b6368a29e570e20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da8e84424cb812c9e6b64c3998bfed60766e980c1e24aee0813d15cb558bcdb5"
   end
 
   def install
+    ENV.append_to_cflags "-fPIC" if OS.linux?
+
     system "./configure"
     chdir "build" do
       system "make"

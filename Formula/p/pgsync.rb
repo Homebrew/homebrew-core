@@ -4,17 +4,16 @@ class Pgsync < Formula
   url "https://github.com/ankane/pgsync/archive/refs/tags/v0.7.4.tar.gz"
   sha256 "0d8c0d319374f658a8aacafb15edbc074328aaec503fa92aae6032d3e1f12e60"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256                               arm64_sonoma:   "dcffe5761fc5428530f190c688049136dd2410e1b8dd686d16e06f7c687ef1f6"
-    sha256                               arm64_ventura:  "2dfb0ba78422a71258c0046a1c59e433a7c70fd98e8564494b8878624e056756"
-    sha256                               arm64_monterey: "169345dc69a037d36dac2f0d54ffd229236bd62c86c97f85f07cced38f8c7f65"
-    sha256                               arm64_big_sur:  "c3dd3f2937b118494d0002e08fd95ec0959b982396d9f3008d24f7ba05d84fec"
-    sha256                               sonoma:         "721fac721e372c58926f39b1387e90841519d664134fb2d0043ca649b454ccdf"
-    sha256                               ventura:        "c621ec145ac0bb5ba6297e2b24ee351c418e8144bc6d18c178c5a27c3e431a26"
-    sha256                               monterey:       "8f1be82ef9f91002531609773443d58aea9bfb0bd11e6979f7944680960e860e"
-    sha256                               big_sur:        "a38c199ddfda5b26938988cb5f575669e3bb0748c045ca5d49da6774988a09b2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a6884e6e6c1ed462f3d06a42a2f1c3babfe12e25b9ae784f0072420b7c00344"
+    sha256                               arm64_sonoma:   "3be5e4c0b54da4fb5bc67559ed678390d673a80d0fd0d7cc84a3869056b04735"
+    sha256                               arm64_ventura:  "390b56a83b1952e3fe7f90b401b09c85262d113864c1e96b34a505eeaca8c71d"
+    sha256                               arm64_monterey: "199400c31c4ad508359244ac88d64f255a08325b4cd1fa23a7675b1c524458c5"
+    sha256                               sonoma:         "d93d99284723f99cd8e9fb8662657e165b850555bcb2d0b7eb52a47a8c6db58a"
+    sha256                               ventura:        "752a83687459ec26d56765dc3097221411944a8064749056489a9a3df812e864"
+    sha256                               monterey:       "6a2edf7a42f8482631d31245b4a12f462f0ceefadaf486e4fe512fdc46ddf14f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8f827a09b68fe73cbc33d6f6d02adba242e8577b2adde061ead9ee7bdedc67c"
   end
 
   depends_on "libpq"

@@ -1,9 +1,10 @@
 class MesaGlu < Formula
   desc "Mesa OpenGL Utility library"
   homepage "https://cgit.freedesktop.org/mesa/glu"
-  url "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.2.tar.xz"
-  sha256 "6e7280ff585c6a1d9dfcdf2fca489251634b3377bfc33c29e4002466a38d02d4"
+  url "ftp://ftp.freedesktop.org/pub/mesa/glu/glu-9.0.3.tar.xz"
+  sha256 "bd43fe12f374b1192eb15fe20e45ff456b9bc26ab57f0eee919f96ca0f8a330f"
   license any_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "MIT", "SGI-B-2.0"]
+  head "https://gitlab.freedesktop.org/mesa/glu.git", branch: "master"
 
   livecheck do
     url :head
@@ -11,40 +12,24 @@ class MesaGlu < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9a66863d4805cf634c1d76d08bf3bfd86c80f7f734f12d360619557e6805cb41"
-    sha256 cellar: :any,                 arm64_ventura:  "8a1ee4a15d74adb93d0328abc6a03290714dd612186df3d4f5213cc5f0599fa7"
-    sha256 cellar: :any,                 arm64_monterey: "247b797f86842225f065d360e79179117971e62ef73ea8cf596aaf83cb26de37"
-    sha256 cellar: :any,                 arm64_big_sur:  "07d2c0050058be9863654a240e70e838d8d497851f1f2bc116adc423b39fd247"
-    sha256 cellar: :any,                 sonoma:         "8d1501ddbc3b57cc92d4ae1272ab266bf11343783774ccb4091e34aadbfff8ed"
-    sha256 cellar: :any,                 ventura:        "ad2f10b7574d9345e0d012d022b28c0c95cc67f269ea7247a584476302c625ac"
-    sha256 cellar: :any,                 monterey:       "f824b6be1e32a45bb94dbd71ead724e6eab26c37ef3f5b2347eaca9ed1159010"
-    sha256 cellar: :any,                 big_sur:        "3fb17496bb13be70cbe441a71f77e61162bb8b01a3464d2792e8c72b1cfd31c5"
-    sha256 cellar: :any,                 catalina:       "191fec3a0b20031d5197dadf5cd64b6e2412db945e1ae5538fd324f3d98b483b"
-    sha256 cellar: :any,                 mojave:         "ea8524776d19e7dd04be3961865efae25e775fc252c9b28585f3da502a4b3d5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bec2f7c24c06aa55e01a60af4baacec6e1bb91d2804585cafb6096f8259409df"
+    sha256 cellar: :any,                 arm64_sonoma:   "a46115bd23886619f38846580237988bfa061f33c7c1e0ff29e9663a581a7c86"
+    sha256 cellar: :any,                 arm64_ventura:  "1006d795c57a2c0dd47b6bd67bd77f28b4c72e8428574e7d97f886928eedd41c"
+    sha256 cellar: :any,                 arm64_monterey: "bba71b29396ad2355cfa1e4fa058f88971f590b32ab46d4b2aa79a4071766873"
+    sha256 cellar: :any,                 sonoma:         "f358d5011c1944797eaa8a8c892c5437484d2a74a02389edcb3772cfaff7a565"
+    sha256 cellar: :any,                 ventura:        "b4736c1784135e82aeb5295997651aeac7305709b345166ba3fd24a901339fcd"
+    sha256 cellar: :any,                 monterey:       "807e0114c95152e4a4b4a4b72f0270415aa83eb0211a43488d88c65da65e85fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23e93794ed9518e89338dcfad821b7dbd184c3d46a843b52c05548ffe5bd5f00"
   end
 
-  head do
-    url "https://gitlab.freedesktop.org/mesa/glu.git"
-
-    depends_on "automake" => :build
-  end
-
-  depends_on "libtool" => :build
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "mesa"
 
   def install
-    args = %W[
-      --prefix=#{prefix}
-      --disable-dependency-tracking
-      --disable-silent-rules
-    ]
-
-    system "./autogen.sh", *args if build.head?
-    system "./configure", *args
-    system "make"
-    system "make", "install"
+    system "meson", "setup", "build", "-Dgl_provider=gl", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

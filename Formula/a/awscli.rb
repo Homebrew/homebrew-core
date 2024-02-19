@@ -3,19 +3,19 @@ class Awscli < Formula
 
   desc "Official Amazon AWS command-line interface"
   homepage "https://aws.amazon.com/cli/"
-  url "https://github.com/aws/aws-cli/archive/refs/tags/2.15.4.tar.gz"
-  sha256 "2af0cf00f70123d253c86e5f4fad1395cbe0579c1eb5e928a26056d8eab3148b"
+  url "https://github.com/aws/aws-cli/archive/refs/tags/2.15.21.tar.gz"
+  sha256 "b57b0d8478544e2d03be53f3f34b05ca2e71c05e7fe6e7600fe2cd8dfe3156b6"
   license "Apache-2.0"
   head "https://github.com/aws/aws-cli.git", branch: "v2"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "56d26c533950e523c10ac4709a688eb02bdca9c9ba31a112a754afe109cb1cc1"
-    sha256 cellar: :any,                 arm64_ventura:  "28493b0fc3e4764430c4f0b2cac74d715b25e5c481f46c4defd6616d27ec4b0e"
-    sha256 cellar: :any,                 arm64_monterey: "2313da3845bfac070c03f85535859aed5717d49765045d81f19cadbf31c8a62c"
-    sha256 cellar: :any,                 sonoma:         "beb5affb663da4edf07e63e5f6526b255236b73d2a029314911bfac15ea9cd28"
-    sha256 cellar: :any,                 ventura:        "53698c1a5f0a46c8b22626e835af2f5fff673ae6f0dad3fb355af3ac480eea05"
-    sha256 cellar: :any,                 monterey:       "80317bc3f1b3fb8dd47b15fbe52d5b55f056578bb130ee098912e374098d6884"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed45ea88fac2ce91263647dc44cf1f1270bacf38c8c4a555a3c0679f8143db91"
+    sha256 cellar: :any,                 arm64_sonoma:   "e95d250f951676a819d8014939506c7b0fd0b1800ef2d6e80ee9ed011ab3cc29"
+    sha256 cellar: :any,                 arm64_ventura:  "4978145210a6b859300ccaa44d9a17e9b26a492bfdee9efd0edbb21b63e270c3"
+    sha256 cellar: :any,                 arm64_monterey: "2136dcc2a5b67d9bb5a4b2c237580e854d235541907ab6e4cb956bc576f07342"
+    sha256 cellar: :any,                 sonoma:         "9293d6409508761abadf67a61dd44349a9fcffc84e301c3f8ab61c7f6c01f582"
+    sha256 cellar: :any,                 ventura:        "5ef4de131a3bf5bb3f631d7f100942d2f44f7827c1b4563525f7cd1f55d813cd"
+    sha256 cellar: :any,                 monterey:       "1a1586fc6cc044c6c15cec975cd2edaedc77fbb5e4732d1e5756fcb1171b11c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1374a59d60b525fe15b5a114167b8c37b6be6ec24f304833202a86665853b99"
   end
 
   # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
@@ -82,8 +82,8 @@ class Awscli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
-    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   def python3
@@ -111,7 +111,8 @@ class Awscli < Formula
       ENV.prepend "LDFLAGS", "-L./build/temp.linux-x86_64-#{python_version}/deps/install/lib"
     end
 
-    virtualenv_install_with_resources
+    virtualenv_install_with_resources(system_site_packages: false)
+
     pkgshare.install "awscli/examples"
 
     rm bin.glob("{aws.cmd,aws_bash_completer,aws_zsh_completer.sh}")

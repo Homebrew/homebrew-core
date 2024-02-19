@@ -6,16 +6,17 @@ class Ldeep < Formula
   url "https://files.pythonhosted.org/packages/8f/7c/f62d3b31a9675e71712432a7423cd0d783689a50b830bd14f9265434b432/ldeep-1.0.51.tar.gz"
   sha256 "ff372876aea6afbdb145218d6dabd600bb61bd5ae19b38b6dc40f8874bf72344"
   license "MIT"
+  revision 1
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9047f57ba6e9ed52d5db5c353598e38a429c31d1c9fd2ab1502ab2955ae0fa3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7ac816f45d22e64e736cd022a7f72397087ae7b623703476dd4b4b899045dcf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d5627d3817da70faacc21bec3bebec7506833d4852f499fdb71a65c2cc8c2dff"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d0072154b2b9ccb19959fedafd5d1eded74cd76473017bc1d94986144ff34a5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "624e09d349a2222d44e8c3457bdab237fbc8f48809a9368d3ca594a51a39c314"
-    sha256 cellar: :any_skip_relocation, monterey:       "95c01ec1a30482a70eef94d395748467582cd2396628a2ef1a22d4aba530970b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9ddd9657a84b5e83bc2d2025174e31771d584e3d00e57d3c8cf3f38ea95c549"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "081f6d3e2e85acf1e01c3daa6a32b1346170fd23564136f30ac53a1fcf8ac19b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4668a0372643a9cad3e9be4e51ba4c2613cf4efa97244ef2a1205251ddf1c7b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "77f2c63744e54356cf008be10d3b6e420820f161e635f5a829126d506d3569ec"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0e658a522305f51ed800e851389323f0eac6e7f3a92e000aa43c6d01b1986828"
+    sha256 cellar: :any_skip_relocation, ventura:        "63c22be8d7270284a4d4676475433dce439efd6b77b3de8138666370b43306b6"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4c3064de0b0c0f43bf602b07685539b4e838e4c0b674a5f4c0cdb0cae8642ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d85c69b5735e1beb4f67ba90ab9eebea3b5e508b141f594f5e76583410fbf08"
   end
 
   depends_on "cffi"
@@ -65,13 +66,13 @@ class Ldeep < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/1a/72/acc37a491b95849b51a2cced64df62aaff6a5c82d26aca10bc99dbda025b/pycryptodome-3.19.0.tar.gz"
-    sha256 "bc35d463222cdb4dbebd35e0784155c81e161b9284e567e7e933d722e533331e"
+    url "https://files.pythonhosted.org/packages/b1/38/42a8855ff1bf568c61ca6557e2203f318fb7afeadaf2eb8ecfdbde107151/pycryptodome-3.19.1.tar.gz"
+    sha256 "8ae0dd1bcfada451c35f9e29a3e5db385caabc190f98e4a80ad02a61098fb776"
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/14/c9/09d5df04c9f29ae1b49d0e34c9934646b53bb2131a55e8ed2a0d447c7c53/pycryptodomex-3.19.0.tar.gz"
-    sha256 "af83a554b3f077564229865c45af0791be008ac6469ef0098152139e6bd4b5b6"
+    url "https://files.pythonhosted.org/packages/3f/13/84f2aea851d75e12e7f32ccc11a00f1defc3d285b4ed710e5d049f31c5a6/pycryptodomex-3.19.1.tar.gz"
+    sha256 "0b7154aff2272962355f8941fd514104a88cb29db2d8f43a29af900d6398eb1c"
   end
 
   resource "termcolor" do

@@ -1,17 +1,15 @@
 class IsaL < Formula
   desc "Intelligent Storage Acceleration Library"
   homepage "https://github.com/intel/isa-l"
-  url "https://github.com/intel/isa-l/archive/refs/tags/v2.30.0.tar.gz"
-  sha256 "bcf592c04fdfa19e723d2adf53d3e0f4efd5b956bb618fed54a1108d76a6eb56"
+  url "https://github.com/intel/isa-l/archive/refs/tags/v2.31.0.tar.gz"
+  sha256 "e218b7b2e241cfb8e8b68f54a6e5eed80968cc387c4b1af03708b54e9fb236f1"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "70023409c02c5421b2798a5458b7a77410b5bc9c8de03d44cb4e3121f974952a"
-    sha256 cellar: :any,                 ventura:      "bb6ff29b6adfa19eb203ff666cb45901799fafb92cb92729f4919b7897905ac3"
-    sha256 cellar: :any,                 monterey:     "1894e71fbaf5e4d7e10fa7168065f84993eb031ac6da348f898584b23ad8f03c"
-    sha256 cellar: :any,                 big_sur:      "ccc29db398c4450a5ae50066d9fe2ae4f3558b19ecf428a4f0fd3caef70256a6"
-    sha256 cellar: :any,                 catalina:     "75555d777f620a2a8e69d6e1349027357ebed26ae32b5452b75f46c39d87a934"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "35ef03c3141f36d0e59a8b571dc14cc242407772c7e7b06475d9194745d0898b"
+    sha256 cellar: :any,                 sonoma:       "d8acf795ec2f507feeff18c519b0404efb75f0ce62a0c2bb4beeba7cf708a35c"
+    sha256 cellar: :any,                 ventura:      "68a53494a048d922554dfc0875f9e16e48e8887e77428ac940ee262fbd57bc38"
+    sha256 cellar: :any,                 monterey:     "6c831c599fd7139b3348a601ce1218390580c5f45d10de10c8fb4ad060c5d776"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "b3341f5d86bc61c9de66805c1cd4542622883498f684d622846e6b29d5fced2f"
   end
 
   depends_on "autoconf" => :build

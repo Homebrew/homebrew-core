@@ -8,7 +8,7 @@ class Sevenzip < Formula
 
   livecheck do
     url "https://7-zip.org/download.html"
-    regex(/>\s*Download\s+7-Zip\s+v?(\d+(?:\.\d+)+)(?!\s+\(beta\))[\s<]/im)
+    regex(%r{>\s*Download\s+7-Zip\s+v?(\d+(?:\.\d+)+)\s+\([^)]+?\)(?:</?[^>]+?>)*:}im)
   end
 
   bottle do

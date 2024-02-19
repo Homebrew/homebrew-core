@@ -4,6 +4,7 @@ class ArpSk < Formula
   url "https://web.archive.org/web/20180223202629/sid.rstack.org/arp-sk/files/arp-sk-0.0.16.tgz"
   mirror "https://pkg.freebsd.org/ports-distfiles/arp-sk-0.0.16.tgz"
   sha256 "6e1c98ff5396dd2d1c95a0d8f08f85e51cf05b1ed85ea7b5bcf73c4ca5d301dd"
+  license "GPL-2.0-or-later"
   revision 1
 
   bottle do
@@ -20,6 +21,8 @@ class ArpSk < Formula
     sha256 cellar: :any,                 high_sierra:    "67666cd80446c78b49deac3b8f2589ccbd140f32b739b662556a6dc7bda7b453"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a6745104a8b8035108f38a3f35ae90527790a02641cca54c29e99c962c74f16"
   end
+
+  deprecate! date: "2024-01-10", because: :repo_removed
 
   depends_on "libnet"
 

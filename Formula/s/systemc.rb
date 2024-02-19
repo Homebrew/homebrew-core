@@ -11,21 +11,20 @@ class Systemc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5e1c290d3451b98053cf9f80a6c99c97c1ca7301b9a97592166859b9f313c38c"
-    sha256 cellar: :any,                 arm64_ventura:  "86a338b268c08838c1c081c3b90ea2aadc8f6bfe6554dc6eddc68bc93878a619"
-    sha256 cellar: :any,                 arm64_monterey: "eb2010d067c45efd303bac411973243c0ff936c23b7da1c8a13b80ecf348e68c"
-    sha256 cellar: :any,                 arm64_big_sur:  "102bfe8370777ea864c7e0c9713b02f36b72d2577119072b57b6140748c2af2a"
-    sha256 cellar: :any,                 sonoma:         "0c0d532f0938668a8469068651ced9094f808215b95ef03e5594f56bd6388633"
-    sha256 cellar: :any,                 ventura:        "0ab40c9b44e333f064980bcc37b5b99573a1d373415cb3786f4d95a9d3696a82"
-    sha256 cellar: :any,                 monterey:       "68dd6cdb933b8a1ae004b3213d4c1fbeb6069f0db396997a2aec5dcc2ed25dc8"
-    sha256 cellar: :any,                 big_sur:        "df1f9591f00390b027cb6885c74fa7ae119c9984beadafe93a58bd81d3688f4a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2905eb9b4d3717295d134ee90c72811a5949ce6ba445801e1a17280e81e9238d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "eb785658f39fe25281c632a1e51daab687a0705730170884c4e997173d6125c5"
+    sha256 cellar: :any,                 arm64_ventura:  "989d49220f52b3987baba507e649a30b4db40c1a8e9c55aef2678b47eb1672c0"
+    sha256 cellar: :any,                 arm64_monterey: "689cae280d1d412ecf168b3b731b11433ad6dcbaa24b019d4949858922adf4f2"
+    sha256 cellar: :any,                 sonoma:         "f352320837fc33c56ce5532f353192b2837b384ea9579f98553efc1757aebdc9"
+    sha256 cellar: :any,                 ventura:        "c548bd356b7239e94e1a90fbbd4827dd344837e5326a0730d0f0b7fffe6f824e"
+    sha256 cellar: :any,                 monterey:       "79ff38f4d5e532c70f095dee78f582b7d26c99ef220eecf358c7378ae925b249"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f39ae4a52ab5bef51937c31c5237c3040438d889eb0ccda412cd259b38debd8"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=11", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -38,7 +37,7 @@ class Systemc < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "-std=gnu++11", "-L#{lib}", "-lsystemc", "test.cpp"
+    system ENV.cxx, "-std=gnu++17", "-L#{lib}", "-lsystemc", "test.cpp"
     system "./a.out"
   end
 end

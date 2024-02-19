@@ -1,19 +1,19 @@
 class Hex < Formula
   desc "Futuristic take on hexdump"
   homepage "https://github.com/sitkevij/hex"
-  url "https://github.com/sitkevij/hex/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "7159eb1bf14d3c55aeb260cc5fb857fc8c91aca36fec3d22123aa22ecbab0509"
+  url "https://github.com/sitkevij/hex/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "7952ee2b6782e49259f82155c3b5287f1be72f15360a88e379c9270bd0d2416c"
   license "MIT"
   head "https://github.com/sitkevij/hex.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1dd9c0615db9ccb98760fb65e88a9186344be2c9e7d29d0d2fe6611dccc0523f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c62a623a1ef8a0f05ad516c808273c280138caaf93254fd73ab75b78a8bd13e2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "20ca7c372250ca8038c0dd5366f40bc840919693451b50389460e54b24b89041"
-    sha256 cellar: :any_skip_relocation, sonoma:         "75aab541165020ddfb189b70f556d02e20d5a610d786d83d7a61c2f0f40e2947"
-    sha256 cellar: :any_skip_relocation, ventura:        "bbd6e66c9c7be08ac12c14417a01ee6f0fad644761f6900f6e77b813f96f38ee"
-    sha256 cellar: :any_skip_relocation, monterey:       "6c3ebbc3732606adbbb30f7f77bfe6bacbaba67fe9a1bd734f90a76ccc77a4b5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fcd0e1c2f352562dc8167235b72631296712633a66f67ad41655fc7027d6d16b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ba2edfeca426fad9d11610304e66413568579e8799fcd75233bb78b244c734b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "12c69fa625d5767d73c6db34852bc5e407ea72f0e3323719cc12452be5a96aa2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "add8f34f654c08ee6bad65a9241ddf888f48671af80ed8802a28aeb0521c0ec1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a68b4808c49f1efe490dda2257c7a086b49f06568217b69377d26f29579c6382"
+    sha256 cellar: :any_skip_relocation, ventura:        "773540855a62a291de74084ecb0176d9d10b7451c447524c31de2e5916178931"
+    sha256 cellar: :any_skip_relocation, monterey:       "32335343e695d99fe0e99e3f4d10900337d0b3994e0f4e5bb628a7ada5ccb643"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b991de74c7ae7edad37b6c25c583a93de8cfd3cdc938bb00d978de0d80602bf5"
   end
 
   depends_on "rust" => :build

@@ -21,7 +21,7 @@ class Jsonschema < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5d9adbaab5f963722b4da057ae1524bb48c5c7d5f4f1cf2a214c969d6160598"
   end
 
-  deprecate! date: "2023-01-20", because: "cli is deprecated, and will be removed"
+  disable! date: "2024-01-21", because: "cli is deprecated, and will be removed"
 
   depends_on "python@3.11"
 

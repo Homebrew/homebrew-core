@@ -1,19 +1,19 @@
 class Graphqxl < Formula
   desc "Language for creating big and scalable GraphQL server-side schemas"
   homepage "https://gabotechs.github.io/graphqxl"
-  url "https://github.com/gabotechs/graphqxl/archive/refs/tags/v0.40.0.tar.gz"
-  sha256 "11f642476d684b2dc69f4f40fadc679e15ee371d9b479c64407ad08f6cd857ac"
+  url "https://github.com/gabotechs/graphqxl/archive/refs/tags/v0.40.1.tar.gz"
+  sha256 "eaeca9ce9c4d659d3ef9f033d54df9acd0dedc5785dac27a5756ebfc7eb15c6d"
   license "MIT"
   head "https://github.com/gabotechs/graphqxl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "379bf722db2923512ecdb3432f50e55e08d745de72413d2cbc237aa7fe79a38d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9057e3ddcb6a8a1fa798385108f513d9927ee5653ec274945dd38d63b7b3957"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "28ef10a54b84d1be7f375e412dd27308171fcc4fad3a8955697b177682db0466"
-    sha256 cellar: :any_skip_relocation, sonoma:         "948f00d9446aebb66f0ca97c834da58e94b1a82b87cd8f50ba65882455ceca54"
-    sha256 cellar: :any_skip_relocation, ventura:        "cdffb8c2523a1179eee4f39a1cf6f3dc820486323a2c3e0b1e93a7d9727210b7"
-    sha256 cellar: :any_skip_relocation, monterey:       "2deab7850a1d7ccbc8bcf27916cc17cc37e000d149436a19252326f958a1fb93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c87582fe8fe4d2e3540116b399762e492f3c1896f7d66bbaaa91238b24d27d05"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34aff89044cfe6a4bfd04fcff03d53cccc8bfc8d0f1edfb07392b788f56d8dcf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97e4e1fdb3e9f3ad63a935cd16b14b78e880fbc3b1db7d0b4ed17f090fbc6b28"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "81265ae8a9194dc65c5eddd22e36ef114d31aed47930b1a72039052c7b3b3e05"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b6a3666d43942c295a6f7c206c5120c1a28b3982fa9dc9e611b5aad156107263"
+    sha256 cellar: :any_skip_relocation, ventura:        "4538fc198c80c0e3220b1b16e49a2529855aaf9ac3e186a6029b48c48d589cc3"
+    sha256 cellar: :any_skip_relocation, monterey:       "96987b6c99c6283f618b163418cfc6a2928dc647817f944dcd7ea63cad956946"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f351beb2919c505bbb37b66ecf893889143f03a1d77169680b089d3d21add45"
   end
 
   depends_on "rust" => :build

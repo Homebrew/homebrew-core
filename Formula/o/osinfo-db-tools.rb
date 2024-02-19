@@ -33,10 +33,8 @@ class OsinfoDbTools < Formula
   uses_from_macos "libxml2"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "install", "-C", "build"
   end
 
   def post_install

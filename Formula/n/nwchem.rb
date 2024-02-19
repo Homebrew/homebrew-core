@@ -7,8 +7,9 @@ class Nwchem < Formula
   license "ECL-2.0"
 
   livecheck do
-    url "https://github.com/nwchemgit/nwchem.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)-release$/i)
+    strategy :github_latest
   end
 
   bottle do

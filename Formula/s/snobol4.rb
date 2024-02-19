@@ -1,8 +1,8 @@
 class Snobol4 < Formula
   desc "String oriented and symbolic programming language"
   homepage "https://www.regressive.org/snobol4/"
-  url "https://ftp.regressive.org/snobol/snobol4-2.3.1.tar.gz"
-  sha256 "91244d67d4e29d2aadce5655bd4382ffab44c624a7ea4ad6411427f3abf17535"
+  url "https://ftp.regressive.org/snobol/snobol4-2.3.2.tar.gz"
+  sha256 "41e301e9dd180d70117d64f3694f9dd54f9ed909a36a32587c8bed85ab68ac15"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,17 +11,13 @@ class Snobol4 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "d45bb7d202dfc6996efbaf97a302092ed0acb8d841f659eec313efb89a124e0d"
-    sha256 arm64_ventura:  "505e0a672763a6722cdac5f45129c79172a17b62cc2ca8e16166c00e39ae28e6"
-    sha256 arm64_monterey: "a53dcbc020bfb1f4717e77b9b329fedef3be50f57fa30bb2c55cde9a124eb9bd"
-    sha256 arm64_big_sur:  "4ed47b83e9a1e747c178a7b1ebb17d1c752c8f354d91f8e03f4c31e7a9b7f6ed"
-    sha256 sonoma:         "38e72c2fd4089d9f3afbc3bb5dffec3673cdb8a831cc83bc396a812e626b53a1"
-    sha256 ventura:        "415f81ff2821f8e0f7a6f29b4e2c8ed1aad6a32c8be79ac2e5d9e26cb22d9146"
-    sha256 monterey:       "9273da745ee760883553c560010c999831afcadbf1cf220188f260cb7a2269d3"
-    sha256 big_sur:        "ac601704cde8de8f0334349e32f82cd2a9ce6cd5467d995fe8ac1ea79747c42b"
-    sha256 catalina:       "1196997d82a94df4c3ec3438f02d3a32360f809a2d66af7205a6ee9959ede4b6"
-    sha256 x86_64_linux:   "bc243751bbaf442dea44e1e571ab0d8ca129e91615a45be6024b275e085191ad"
+    sha256 arm64_sonoma:   "7baa9cfb9bdbb89ec8f1817fccc3f4a3531e56822617a3bab083459029a6457a"
+    sha256 arm64_ventura:  "bab2633cd719743f5648b6a5fa32dae630ad6b7bc4400417747f834226c860e6"
+    sha256 arm64_monterey: "90e3d3102cb1b10ad1578aad8f4fcaec31c2960a4ad54e54983f4778b5646a97"
+    sha256 sonoma:         "c4576d539a10c904408404d64fde008b7939d8fbcddf2e739738b38c9fe613bd"
+    sha256 ventura:        "c8c5b13e46532544bdc4fa93d3670fa5b648d5a9aa9593758a9e83bd9d72f897"
+    sha256 monterey:       "e4d3d40f4b8bd51e49b1c99de9590e79f00876fadb28c13cf98070525106a5ea"
+    sha256 x86_64_linux:   "c555c7e31212c27a251d42ebf6b166ee1ac59c6d306c60327a8e1e429d1a7f7a"
   end
 
   depends_on "openssl@3"

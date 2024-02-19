@@ -3,18 +3,18 @@ class Weasyprint < Formula
 
   desc "Convert HTML to PDF"
   homepage "https://www.courtbouillon.org/weasyprint"
-  url "https://files.pythonhosted.org/packages/a6/b8/c6f092e67d00c2e5d6e6cccd30a6dfa4a047a283a3a0e3bfaa534c60ff8d/weasyprint-60.2.tar.gz"
-  sha256 "0c0cdd617a78699262b80026e67fa1692e3802cfa966395436eeaf6f787dd126"
+  url "https://files.pythonhosted.org/packages/da/d9/a74474c18eb4d5aa87e6da82e98a93e4fbdc826c3434e352a423a389a0b4/weasyprint-61.0.tar.gz"
+  sha256 "d91b11a05426fef1d63de826f30a80521d48c6a356455d338c2c429989fa586d"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f8cf39aeec2abf244d126d75086d29e2fe8e7bb37fb6a47a98dcea7581609b36"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a096399ae040dc01e353b6a223563df3e414839b80b06c3c7ab49b2232a393f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "78f77687d4d3becd0aa9644b2e7553d4250f88018150f45479e5f19d42fac72d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "925b8d7921d80fb3ea7809e4349cc27315198d5c88d1b3b40174c2bd5f512d80"
-    sha256 cellar: :any_skip_relocation, ventura:        "b60ae3f519eae6259c7e5e4e3ce989a93df83a7b9eb391fd33ce8cba97d95c04"
-    sha256 cellar: :any_skip_relocation, monterey:       "ba575683866ad0a1dd4fcc0737393c049280d342ca628e7c28ac91b2bfafb421"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82c0ff19d330bb95caa7b2a95c49e94abe7405c4903760263f99ca335f91207d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4b16fb199be88e6d68cda2d4be92f33e895bb9739cfbae96f99a2362f5e51b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d6492a6127fc873d425ec7310619c00e578b1a52996eeb3f3ffc5619c3f1ff5e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d222349e3e9e48f530bc50a1e9fcf843af38834616970bdff3c317f39daf5308"
+    sha256 cellar: :any_skip_relocation, sonoma:         "efa91f9c5c352c84c2a68f4f586467224441935323cd94bed0f8e28cf5358121"
+    sha256 cellar: :any_skip_relocation, ventura:        "ffbe231f3f4bd7e238762c911b7682df663e9bfcb30fd0f1f302d977ffa57dee"
+    sha256 cellar: :any_skip_relocation, monterey:       "083d9213eb3c12c353bbfb9fb832201b2e21c82db9f79c634aaceaab1f08af0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e22bc4c4d3a37750a69951a545977c6fa63e5375533193f761b14586fc98a401"
   end
 
   depends_on "cffi"

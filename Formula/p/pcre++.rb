@@ -22,7 +22,7 @@ class Pcrexx < Formula
   end
 
   # Last release on 2004-08-25 and it is a wrapper around EOL `pcre`
-  deprecate! date: "2023-02-19", because: :unmaintained
+  disable! date: "2024-02-12", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

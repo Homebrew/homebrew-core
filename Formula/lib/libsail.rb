@@ -1,18 +1,18 @@
 class Libsail < Formula
   desc "Missing small and fast image decoding library for humans (not for machines)"
   homepage "https://github.com/HappySeaFox/sail"
-  url "https://github.com/HappySeaFox/sail/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "892738e0f56fed8c6387e1045bba2bfbf1b095024a495845d4879edb310cd1a7"
+  url "https://github.com/HappySeaFox/sail/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "d02ce889b70d9e237b64806df26b044753e3edf3e87c8af42c32ec9968133a88"
   license "MIT"
 
   bottle do
-    sha256 arm64_sonoma:   "65920d269a4808976c62a633c44842392a14782f40f7c8d2ae13cf3690aca4d6"
-    sha256 arm64_ventura:  "72e3d594e8f0969372ea6185a49e067cd3d7413d7e57f8c56bf1ee56111f93df"
-    sha256 arm64_monterey: "2460273c0459e5c506ae0fe2549b3773e524cda54e52ea0dda76c69726b9b329"
-    sha256 sonoma:         "61db1c9ae86851397c187f5eff9c2220c70202c82d1192b7a969b8fb2c2fdd9a"
-    sha256 ventura:        "07b58b25676f108676432feb75dfb10b8d1be3a518452058dab8f3bbf630ec43"
-    sha256 monterey:       "f4431c1af8d6e5cd39340766bf48f94558bc65b8c2fb9a8fd1af9e62af261b24"
-    sha256 x86_64_linux:   "5078ea7828d61766f094b081970e4127c9fed853f13bfed8b34895921977da36"
+    sha256 arm64_sonoma:   "892e810cfbf5c82f3669df92557b09f5e1a95ba05e2fd8bfebe122739048138b"
+    sha256 arm64_ventura:  "f12a4b9944c894afe54f83346af3f2df20354ce7399d163b104a99633ee5c26c"
+    sha256 arm64_monterey: "fd19a8ee959db32f42c8d7cd669fda6de6ba9251210f7a7c6ee0075872b78ea2"
+    sha256 sonoma:         "9bd6302b283f72605c3bbd49a37200e04e65e1fb01e73845248a79fd97b6115b"
+    sha256 ventura:        "2397b138d40673b3496421e5eb291f4e7ed2b111e1e728d4f6a9e876fc2ed6fd"
+    sha256 monterey:       "878495a910f5b5b637c31ac2f796c49798509ec1ee0964ff82149064b07d82fc"
+    sha256 x86_64_linux:   "beeb7791e76ad1e875ee941e9a52777d65f3a9b4d3d580c9970f8c05540b63f5"
   end
 
   depends_on "cmake"      => :build

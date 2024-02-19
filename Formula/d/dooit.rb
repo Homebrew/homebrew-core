@@ -3,20 +3,19 @@ class Dooit < Formula
 
   desc "TUI todo manager"
   homepage "https://github.com/kraanzu/dooit"
-  url "https://files.pythonhosted.org/packages/c7/b3/8d73a4ed09c6589242adf005d3c83b662989ac944b983efbfe27fc6b3d93/dooit-2.0.1.tar.gz"
-  sha256 "ebf1a83a1cd6f3a101cf7a4b122790d705905540ddf89b5a4a64a4de1199c983"
+  url "https://files.pythonhosted.org/packages/eb/f3/3d12b29b9ec6302197b215890fe9b0263f3f78f148270513ae4eb7b89f77/dooit-2.2.0.tar.gz"
+  sha256 "3fbd83bcb4fa373314c8f8ebf304360a67d062a2624c20ac2947a4f3ee5caf4f"
   license "MIT"
-  revision 1
   head "https://github.com/kraanzu/dooit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a75312be31dfddb5435dec8bfc4b2e6cd5c45633d1cea350e7cc7e0ccc0fb238"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "adfbdcf482eac4cb70a80fc20b6fd968ce0bc83c6d7444f1f40ae53f2170c5a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4370b6e22615d8a385eaa02a54bc23faeba45f8973ba85f8c878f0352b11a7b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "777b43ca3324ee6b842510fe16ac83a846bf4fa8383a72d558c6c559a3bebeca"
-    sha256 cellar: :any_skip_relocation, ventura:        "7a346fc1696bdc0e8c0b73e5f3299023b4d0c7183b6b717f6701f664b25df33b"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f31789c525c08a237c043b6d0cdb8eec07c3b0f9cc31a1153b238dcd5cc69dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bad46eebcdf24f19e1fe3db9afedc0da7cf63b85b6fbe7d8e91b23e43f6d6db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3dc21ba56ab8c4fed99b89d7b27994772bb82a8ece0d1e732e94d1110e926e7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3e2003df0a2e4f9cb4e433efca501c1dff69a330ceb4aada779ef26e4d98206"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3f38be7eb4b91ef75d2f1205f85aad8ba3843ecd2a947d662a98dbcfb528362"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a308dd8fc66776cce51e5ce81911185d5bdb9cf6651cccf55a06e6e557cab9aa"
+    sha256 cellar: :any_skip_relocation, ventura:        "6f641154f8aa1236f5a1f2df51cbbd7b84c18c1dd9d1c6fe3c48d3d093cded73"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c1db167d13cf0c0bc2ac86c893de5acc5bab74e6e910e132acb0ac092763cf1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2a7760a4c131601b2d80978b126de97689bc4896163d9750cbc739a900aabe6"
   end
 
   depends_on "cmake" => :build
@@ -31,11 +30,6 @@ class Dooit < Formula
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
     sha256 "7d5d0167b2b1ba821647616af46a749d1c653740dd0d2415100fe26e27afdf41"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/44/ae06b446b8d8263d712a211e959212083a5eda2bf36d57ca7415e03f6f36/importlib_metadata-6.8.0.tar.gz"
-    sha256 "dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743"
   end
 
   resource "linkify-it-py" do
@@ -69,13 +63,13 @@ class Dooit < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/b1/0e/e5aa3ab6857a16dadac7a970b2e1af21ddf23f03c99248db2c01082090a3/rich-13.6.0.tar.gz"
-    sha256 "5c14d22737e6d5084ef4771b62d5d4363165b403455a30a1c8ca39dc7b644bef"
+    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
+    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/26/c1/a03d903920167f4022e61eeff8b7280dd5fc2541147a78c90aabdd459eb2/textual-0.34.0.tar.gz"
-    sha256 "b66deee4afa9f6986c1bee973731d7dad2b169872377d238c9aad7141449b443"
+    url "https://files.pythonhosted.org/packages/24/51/57eb835afc9569d32b5979ecbf3bf73f8ece8700ebffab3bac7ff29f92e4/textual-0.47.1.tar.gz"
+    sha256 "4b82e317884bb1092f693f474c319ceb068b5a0b128b121f1aa53a2d48b4b80c"
   end
 
   resource "tzlocal" do
@@ -86,11 +80,6 @@ class Dooit < Formula
   resource "uc-micro-py" do
     url "https://files.pythonhosted.org/packages/75/db/241444fe6df6970a4c18d227193cad77fab7cec55d98e296099147de017f/uc-micro-py-1.0.2.tar.gz"
     sha256 "30ae2ac9c49f39ac6dce743bd187fcd2b574b16ca095fa74cd9396795c954c54"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
   end
 
   def install

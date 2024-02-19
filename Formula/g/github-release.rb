@@ -23,11 +23,14 @@ class GithubRelease < Formula
 
   depends_on "go" => :build
 
+  # upstream PR ref, https://github.com/github-release/github-release/pull/129
+  patch do
+    url "https://github.com/github-release/github-release/commit/074f4e8e1688642f50a7a3cc92b5777c7b484139.patch?full_index=1"
+    sha256 "4d7d4ae04642ab48b16ab6e31b0e0f989cc7750dc29123dc8164c629b9523c2e"
+  end
+
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    system "make"
-    bin.install "github-release"
+    system "go", "build", *std_go_args(ldflags: "-s -w")
   end
 
   test do

@@ -1,19 +1,19 @@
 class Envd < Formula
   desc "Reproducible development environment for AI/ML"
   homepage "https://envd.tensorchord.ai"
-  url "https://github.com/tensorchord/envd/archive/refs/tags/v0.3.43.tar.gz"
-  sha256 "588609b0573d2456359f63fed25bf36ba976b3da734e857e8ec98d6b30d56057"
+  url "https://github.com/tensorchord/envd/archive/refs/tags/v0.3.45.tar.gz"
+  sha256 "5dc8802b6ffdd9c6859b97de6eff71ebdaf5c6db916a832f8ef694569de79178"
   license "Apache-2.0"
   head "https://github.com/tensorchord/envd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0978e3423538e29d27ed86c2da51c0d25d8944ae22bef76412cbcb3b3afac897"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e541b643010ebb24de4375b7332d8bc8ee5a885b95ea206eab91beaa688da843"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d373c574bfacd7898d65228eafb8291ecf8f133a2ba2a2ddb647ab6aab4f33d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "67df1d61232aaf61ef9d27948add6b7b9cd73f0fa816b5e79ac730d88fc1559f"
-    sha256 cellar: :any_skip_relocation, ventura:        "91e5c47862b1026e927c0f04eebaca800db147d5c206d0a70232c34e7ef302c1"
-    sha256 cellar: :any_skip_relocation, monterey:       "495230314da79e6d6c0374c8bce9633eaf872e8dfff5486d35af8bbd18394cce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d612c89a2d74fa9490cd1ad431438e61c380ceb3cdb228b5eb95acc3f0401ca2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20b4514e5b71dc23b8a9ac6a51f0d41c243253d2b5d7bd478878bb9997950e68"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdbfeca300caffd35f51e74ce2dbd71d2131f3da43253689909219f55829783f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c952e29a6e9d957d96a91b469625930df6399aaa119ff84a438aad1a5e106628"
+    sha256 cellar: :any_skip_relocation, sonoma:         "20c354bb829e87b9717f3e7a07383524898a98ba4b95d45cf7bd1fae66524d1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "769b04d7c0432dc3ba36636c45e552618a948118dc10291d4bf4f181f221f694"
+    sha256 cellar: :any_skip_relocation, monterey:       "68222aa5bfdb48c1a4d13fabce1b17becccb7f8f78020a8d304ac52c8870fcaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf2133c09cd94b30bbef81cea84f8b75a032238a07d8146cea3b04ff30eba238"
   end
 
   depends_on "go" => :build

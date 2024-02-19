@@ -2,7 +2,7 @@ class Rtaudio < Formula
   desc "API for realtime audio input/output"
   homepage "https://www.music.mcgill.ca/~gary/rtaudio/"
   url "https://www.music.mcgill.ca/~gary/rtaudio/release/rtaudio-6.0.1.tar.gz"
-  sha256 "2161c8ba9e96ea64cc855724358bc5d90d9bbe13446e6e6b83ccdcbbb86789c0"
+  sha256 "42d29cc2b5fa378ba3a978faeb1885a0075acf0fecb5ee50f0d76f6c7d8ab28c"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,14 @@ class Rtaudio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "95578725a7446c01127c43ca94846a13d5a23e868a34529d9cea1d51ce5d800b"
-    sha256 cellar: :any,                 arm64_monterey: "a7feb64e0ef53ca67e2e8aa3b80af6636d808eb9aed47f639d7886af45114ea3"
-    sha256 cellar: :any,                 arm64_big_sur:  "1a6e291e96dd7ce8b4efa2cf431a494d3f34a4d63a36fc7583621001acbb3a86"
-    sha256 cellar: :any,                 ventura:        "179a0ce6061e5c93f63e814ca3e3bdb14dfcdd4a18f3e46ab9849d5a3d5a9141"
-    sha256 cellar: :any,                 monterey:       "272e49ca4060c6770f4c4e994b397c8f4b96c6dc4c820ef9d91197fb91e5b14e"
-    sha256 cellar: :any,                 big_sur:        "1eaa2f6e8f6774b5df0bd01f94574e5ffbf6a02f16d912c63b28c78cc567e7b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66f643b1a1dfc3b6b7c2caf5e29be98a0242a0fb9880f40d0c795ad074c68148"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "1d56ffbaacd143c4ce5215d42f5424d42dfd947bc26eaf57830eb51e7546068b"
+    sha256 cellar: :any,                 arm64_ventura:  "483296d1cc1b969448614c1a22d004a1222270832842dce62be151465fd21753"
+    sha256 cellar: :any,                 arm64_monterey: "87c6a5b3c3eeb5b176786c650f5606de4cf7936ddf152fb669456eca491512cb"
+    sha256 cellar: :any,                 sonoma:         "0a25a53c7f0cf7dc23dc4e4e9ecaa7df13051b16b3c8513ece3609064a74bab1"
+    sha256 cellar: :any,                 ventura:        "a3feed53dc08f1210bd32431b16fc0bf0264dc66144ea64716b95b9a34e80902"
+    sha256 cellar: :any,                 monterey:       "fb3184319287e1a9d056b35033806116fd44390f406cc3a19f2d9fc107148318"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5115ee3bbfff48c47089c8051a0826ce35277e2d75397cb8e1b0fe39e8933588"
   end
 
   head do

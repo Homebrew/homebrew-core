@@ -5,6 +5,11 @@ class Slurm < Formula
   sha256 "2f846c9aa16f86cc0d3832c5cd1122b9d322a189f9e6acf8e9646dee12f9ac02"
   license "GPL-2.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(%r{^upstream/v?(\d+(?:\.\d+)+)$}i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45e31ecee4bc3065e733dc130884346f4eabae06012ba29d75da76e5584e6481"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a2e8b79fac19c1d029e8d8f2dc61b39d74abf242f509e0507c1761d0dbd8f0af"

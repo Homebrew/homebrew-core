@@ -1,9 +1,9 @@
 class Tarlz < Formula
   desc "Data compressor"
   homepage "https://www.nongnu.org/lzip/tarlz.html"
-  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.24.tar.lz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.24.tar.lz"
-  sha256 "49838effe95acb29d548b7ef2ddbb4b63face40536df0d9a80a62900c7170576"
+  url "https://download.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.25.tar.lz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/tarlz/tarlz-0.25.tar.lz"
+  sha256 "7d0bbe9c3a137bb93a10be56988fcf7362e4dbc65490639edc4255b704105fce"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,22 +12,16 @@ class Tarlz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8253224a69a54c9d86b7ce062a19a16202855672c321fe6637f3a2c4492f3844"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c246f551b1b7aac697aa6fa07ef8cab03356dea54dffd2057ca72fce33b5b15"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9163497b962fdcc9f0d846d4529dd9e2467534760de8b09262488a0e7969d4f8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "efb13a712648bee26fbda8e096c309bed4095bae3bc6de035993918f875f94f5"
-    sha256 cellar: :any_skip_relocation, ventura:        "94b6ae7dabb81f2fb79a2a3263f419a69590ef889517a4c73f6f71b093a40e6f"
-    sha256 cellar: :any_skip_relocation, monterey:       "1003be058ef246a8db7fafadf561c706572304dc567680148ecb39f6f673b632"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c437f5d15a94bb56857ae9687f2f530de669c41f3cb9aae69f6cec5878378fa1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "724ae61a60f4b858328dabb04ea1c8a96d5ac3992f7b1b4915dde4bca22ec907"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f4ee004dc11788230bf475c8a45aa88693d8c8e2fd5a73c6df973defaab3beb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "818cc5f0bce8a9a6b2a0710a70f17d406de307d365bd3395ad624ec4a0649d7f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "769cbcce323ad82b3321cf3ac067c1be49c9a81c1f1dd2f7397aa416e70aa1e8"
+    sha256 cellar: :any_skip_relocation, ventura:        "287f2d4b7a60a4bdd500f8ffabeaa260fe0df60f8b7501d32a872ceccd7dcb7a"
+    sha256 cellar: :any_skip_relocation, monterey:       "bbce39b7d5de4e4c66032f715c382e779bcfa9746e37815d2a85118595664b27"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e7441fc058e0e2de405d0ba720d32fc416eda8ba88db5ff75254ff0c2e3d74b"
   end
 
   depends_on "lzlib"
-
-  # patch for missing major/minor/makedev for osx builds
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/0fe617f/tarlz/0.24.patch"
-    sha256 "289a90c49c6ae7990debca5d4516cbb2c17d64d7e8ab23564e65b12d1f2feb9c"
-  end
 
   def install
     system "./configure", *std_configure_args
@@ -47,7 +41,7 @@ class Tarlz < Formula
     mkdir_p spath
     mkdir_p dpath
 
-    system "#{bin}/tarlz", "-C", testpath, "-cf", lzipfilepath, "source"
+    system bin/"tarlz", "-C", testpath, "-cf", lzipfilepath, "source"
     assert_predicate lzipfilepath, :exist?
 
     system "#{bin}/tarlz", "-C", dpath, "-xf", lzipfilepath

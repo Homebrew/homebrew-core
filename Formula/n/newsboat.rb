@@ -7,8 +7,10 @@ class Newsboat < Formula
   head "https://github.com/newsboat/newsboat.git", branch: "master"
 
   bottle do
+    sha256 arm64_sonoma:   "f44eedb155e41dc3a5cd3720d5a737b1b04c6d73b9bed1552b85cb7051360a6d"
     sha256 arm64_ventura:  "92fa42ba9684b26e535453dd828a5a43cee64b7e066bab1d9dc348d130615ccb"
     sha256 arm64_monterey: "966ddaebb548f7fb0148c7e5db74e20c47ce2dedb81ee700641628154eb5f001"
+    sha256 sonoma:         "fa32f1d63d746e5a9cd9654a12cb524f79244bd6562300b6108b27ba4d13e1bc"
     sha256 ventura:        "6b7210e257dc9308c1455bcae657b63a25a3b3dc93062e933cbe767a9f433eb1"
     sha256 monterey:       "cd4777df961b95a31210a7fabbddccfa1b7a77dc8de320367f46e267339b3702"
     sha256 x86_64_linux:   "84727fa839237468b974fe446ec692f56a37b284eff871b274c602c15a7a1283"
@@ -88,6 +90,12 @@ class Newsboat < Formula
     # Remove once libsftl is not used anymore
     ENV.prepend_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     ENV.append "LDFLAGS", "-Wl,-rpath,#{libexec}/lib"
+
+    # Work around Apple's ncurses5.4-config outputting -lncursesw
+    if OS.mac? && MacOS.version >= :sonoma
+      system "gmake", "config", "prefix=#{prefix}"
+      inreplace "config.mk", "-lncursesw", "-lncurses"
+    end
 
     # Call `make` as `gmake` to use Homebrew `make`.
     system "gmake", "install", "prefix=#{prefix}"

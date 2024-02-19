@@ -12,6 +12,8 @@ class Clinfo < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4349f5759c42841276dd4bbd8ccc5e5dfffae88fab4ecb7273611f197cc04859"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f5e47b95c7d64d71af511c63fd358aa0c17baf8643b63bdede9f576788408166"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "bdab44766ca458a88c221ea4f7449b186b9fd748db904f7eefde045fb6443fb0"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "2c1497f49082ece2d52fae1bfc65c5317e7c76a6b2d8272f95fcb69f6068a4a6"
     sha256 cellar: :any_skip_relocation, sonoma:         "50df43e65bf588c3d98290b5a6a1dfa8b51ef24bc8684201880026fa68364a3a"
@@ -32,6 +34,11 @@ class Clinfo < Formula
   end
 
   test do
-    assert_match(/Device Type +[CG]PU/, shell_output(bin/"clinfo"))
+    # OpenCL does not work on virtualized arm64 macOS.
+    if Hardware::CPU.virtualized? && Hardware::CPU.arm? && OS.mac?
+      assert_match "number of devices : error -30", shell_output(bin/"clinfo 2>&1", 1)
+    else
+      assert_match(/Device Type +[CG]PU/, shell_output(bin/"clinfo"))
+    end
   end
 end

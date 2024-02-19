@@ -4,16 +4,17 @@ class Mlt < Formula
   url "https://github.com/mltframework/mlt/releases/download/v7.22.0/mlt-7.22.0.tar.gz"
   sha256 "7cf4d9573a061d76902c6e12a2f09f5f461e7c697635233df82a63a3fe4d6da6"
   license "LGPL-2.1-only"
+  revision 1
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "2d53a87659cb1ab91f4d26c5300ec2c31596c319d3316eb51b409a1bf040af24"
-    sha256 arm64_ventura:  "9995a145304b07405cace3670f52004ab6799a58b3919a83335681e85c63c8c8"
-    sha256 arm64_monterey: "0851982a20f6e3ca69cecda78fa401a74bf1aa28fac297113517c54cb22e0096"
-    sha256 sonoma:         "5378fc27f1e03873e45eced86bcb519077849cf414802f91872855be2ae652af"
-    sha256 ventura:        "adc6c07b2d4c2a99e868d3cf11b858723d4dc4911d1dfa51a1373f93d9125f4c"
-    sha256 monterey:       "89f16b6677b4529ccfe0d060da473cce664ba08ee5817a688c3d308ae7404c21"
-    sha256 x86_64_linux:   "eae8840dbd4594948716a9358da63dad0fabae6f528c02959ef707c93857b93d"
+    sha256 arm64_sonoma:   "b68d3e75ce464d07df784ce792a4b1705fa554329d6d2e8769612265c177122c"
+    sha256 arm64_ventura:  "6dad882486d787d034595de0d1cdce9ff3e19b25c4f9cace7f881daf3fb1d738"
+    sha256 arm64_monterey: "361f633a056714a0273fc7624d0354c350e58c5c0c3dc99f72003c416fc8fdb4"
+    sha256 sonoma:         "34d3ec34ee74cda44f313f85547a7d2c0ecd0b44fbaa639a223acccf342b5ba0"
+    sha256 ventura:        "39a6d9f6bf6970ca17fb08542c102dd7db6fb5c52960d41235e01bdc20550a31"
+    sha256 monterey:       "0a7cf3cf38073a79e0f0944844efd4962592f832c5c5e1460a8c839335e5a8f6"
+    sha256 x86_64_linux:   "fb50992d0ffc75c4f330ca03261c614705fb4705b89e92082740796de178654e"
   end
 
   depends_on "cmake" => :build

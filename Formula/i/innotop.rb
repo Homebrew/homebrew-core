@@ -1,21 +1,23 @@
 class Innotop < Formula
   desc "Top clone for MySQL"
   homepage "https://github.com/innotop/innotop/"
+  # Check if mysql-client@8.0 can be update to latest with next version
+  # if DBD::mysql > 5.003 - https://github.com/perl5-dbi/DBD-mysql/issues/375
   url "https://github.com/innotop/innotop/archive/refs/tags/v1.13.0.tar.gz"
   sha256 "6ec91568e32bda3126661523d9917c7fbbd4b9f85db79224c01b2a740727a65c"
   license any_of: ["GPL-2.0-only", "Artistic-1.0-Perl"]
-  revision 6
+  revision 7
   head "https://github.com/innotop/innotop.git"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "6ebac90fa631d9aaf0e8f388db5c7f2b5199884822792d1e8b4426e27544e969"
-    sha256 cellar: :any,                 arm64_monterey: "64e15253d62337db2f0ec1be9c7d33f9a67325df905d4a6490f24e41465b401f"
-    sha256 cellar: :any,                 ventura:        "0c8ff89b827aa1925b6aa607ea4ae518fc8c5b253742e33f801066b04432acac"
-    sha256 cellar: :any,                 monterey:       "a0a0f1e3750a70f93fca1e3b99bd0eca0893f2dc767acf0cb0e0f96733897e1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5331cfdb419c2669ad272183abccd8e622e182b863e156b2bf5a8634d84a28d"
+    sha256 cellar: :any,                 arm64_ventura:  "814f824e2b94f33a9f95ede0d2860025546d0469b9d8f3873930562255320a41"
+    sha256 cellar: :any,                 arm64_monterey: "5081f056aa6067f5e17d2eeab7c5e4717c8cb98965959b053f6c407e082bfd5c"
+    sha256 cellar: :any,                 ventura:        "512d63347d335f738c9e630385c36137c6b60067ccbaf442ce98f60378bc6cce"
+    sha256 cellar: :any,                 monterey:       "f200fa923567dcad52cccff4154412d13fd93dfc1efa635393f20b8fbee82dac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8457950e00284c337b9a9dcceef6e4a980748668b6819b0824b85ac272e8e95"
   end
 
-  depends_on "mysql-client"
+  depends_on "mysql-client@8.0"
   depends_on "openssl@3"
 
   uses_from_macos "perl"

@@ -95,11 +95,11 @@ jobs:
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Check for CI labels
         id: check-labels
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         env:
           TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
           ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}
@@ -260,11 +260,11 @@ jobs:
       test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
       test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Check for CI labels
         id: check-labels
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         env:
           TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
           ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}

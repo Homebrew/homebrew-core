@@ -1,19 +1,18 @@
 class Atkmm < Formula
   desc "Official C++ interface for the ATK accessibility toolkit library"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.2.tar.xz"
-  sha256 "6f62dd99f746985e573605937577ccfc944368f606a71ca46342d70e1cdae079"
+  url "https://download.gnome.org/sources/atkmm/2.36/atkmm-2.36.3.tar.xz"
+  sha256 "6ec264eaa0c4de0adb7202c600170bde9a7fbe4d466bfbe940eaf7faaa6c5974"
   license "LGPL-2.1-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "2b26464c452d497c5f7733139178a5af27cc7bfe19887c1256a1ca062847fdc3"
-    sha256 cellar: :any, arm64_ventura:  "a8c0fa46900a62e555167c9e64daaaf99a23c309163c97628ab388c82f48dc94"
-    sha256 cellar: :any, arm64_monterey: "18c5366998778655f3b3e763112c25bd9ced8a6d39330259934c7d1a05860ee9"
-    sha256 cellar: :any, sonoma:         "cb5c29c19c8472bc5ae82df6aa9c8772c4008c69e677f902dc86b913129807aa"
-    sha256 cellar: :any, ventura:        "6c024b94531bc97c6b6a278a9b16dd23a263887ffc232012e7d586037a005e49"
-    sha256 cellar: :any, monterey:       "70d07f74ed39fc547ca95d8ef3d1f0e448719ace0299646b0fd4e58f235032d7"
-    sha256               x86_64_linux:   "f4418a0fe87c9891115c4e4093bb6b14639e7255fc0c0e23d94401e9c99c7dcf"
+    sha256 cellar: :any, arm64_sonoma:   "62dd226fac2e76888483763ecc6ef017a652bde7bb98c914565c8002efe03db3"
+    sha256 cellar: :any, arm64_ventura:  "3cc5b98b28dad00ca0c2caf58510534bb1181ec9a649ce4fcf1dc4c587bb7fb9"
+    sha256 cellar: :any, arm64_monterey: "24dd60968bc4fea78ba832266d4a735d1bbd678f52b75bdb1df621cb4d8c8092"
+    sha256 cellar: :any, sonoma:         "6454c0225d51922b4ad717b04dade8bf93b92aa26c836d77b41a55fbc41a0a14"
+    sha256 cellar: :any, ventura:        "8327309298dd1743517ed04c4d8b0c7803c9619ea9139dfcbe5531f51730a639"
+    sha256 cellar: :any, monterey:       "d16d833f1b2cd3ff76fd00054da59dba3413e2ce655068f62ef2c47dabe8e08b"
+    sha256               x86_64_linux:   "cec181c4ae3a4be7b814e82d909f1128e5279592ff3a4ea6e7e85baebe27dbb0"
   end
 
   depends_on "meson" => :build

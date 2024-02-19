@@ -1,18 +1,18 @@
 class Hubble < Formula
   desc "Network, Service & Security Observability for Kubernetes using eBPF"
   homepage "https://github.com/cilium/hubble"
-  url "https://github.com/cilium/hubble/archive/refs/tags/v0.12.3.tar.gz"
-  sha256 "34d2127677dace7f4b54524dd29c9b1d0a7856ef71d45f3d48d32d00699ccd97"
+  url "https://github.com/cilium/hubble/archive/refs/tags/v0.13.0.tar.gz"
+  sha256 "c4c2e5ed223c5c4d8777f1da9b44623373240d940365910adb501636a07faecb"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ce6af132b54cf6f3f081e2e85ec28e8a416161e07d9849468404e67e39af5df5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b58a0693f468e47cfdc60411e87e7b146297f4ff0a571dbc85f08b23f36df10d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0461f6c9cdc25e4bc3672cdf0f23c182394133b88f834c6eae561282998385e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fb0f6b8466f386538142036a456d8261e9d566b0bf735ae4d4a74b7186051a41"
-    sha256 cellar: :any_skip_relocation, ventura:        "18b052e9a5548c04ab5ae6394c43b80759d18dc162414d6b205c5d50cdef7c71"
-    sha256 cellar: :any_skip_relocation, monterey:       "3692d2cd250b6b874a732fe07cc39e16f84d0bec5045a873e7a0ad80ca6e11a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2b432e822ce9f6ea0eca8c36ec4c54ef4ee7159880ce2e5b266147ae88178db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ba8adc5048a46c4209fbbf4f1d6d826e26a35c701477f1dca11f38f1f9b9192e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c9d9bbb979b2e1aac348ea4e1e802b1398c2c6f65195b35b1081e04a6be96e0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "db33b61bdc6eb32c3dc0472bf19c96afb2f5031998657a83d08796aa7fabbf3b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0fdf69d134e2875e95b55865e0df7cb39d38c70ec211491dbe8fb8b8575ed272"
+    sha256 cellar: :any_skip_relocation, ventura:        "1bd13fbc612ac48f3b27bd964216a032824a1010b0f538a0c357f4f585d47da0"
+    sha256 cellar: :any_skip_relocation, monterey:       "df63048893140ca767bb308e9833d4043b7ba6191d6c0d2d52ee11cd04f6e2b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b02d2abde10854a4dc01ef9de89438039ef519022b40b9f711f7299a75f211d"
   end
 
   depends_on "go" => :build

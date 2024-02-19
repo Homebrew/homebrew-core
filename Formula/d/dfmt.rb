@@ -8,9 +8,11 @@ class Dfmt < Formula
   head "https://github.com/dlang-community/dfmt.git", branch: "v0.x.x"
 
   bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3f83333ce483ce594e6308c079727378874f1868787168ed60c20ab80892c1f"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "0fdcf8d6abe92da0779370868eb8cd46437bc88705ba963361b5deeb0466e4ed"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "42099cdc494464ad1b203c242a7144f0d0147f4f948644986f6437f05248d4bb"
     sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a284a73ce3996487787a8aeb084b951e6e4523342bc87e484f84de61d66cd040"
+    sha256 cellar: :any_skip_relocation, sonoma:         "205f244726eb8139d6c5a3c4a4ac0adc89ff30b6ec0a65e78c2c5235f7d154f4"
     sha256 cellar: :any_skip_relocation, ventura:        "5ba1872f353a3ffec3c558edc7c89b82ddb8701a8d5d599b6520633bedb916a0"
     sha256 cellar: :any_skip_relocation, monterey:       "2e3b7afee0e3a199b364181e973a79991c82df1dbea3bd827ea7ef1442760dbb"
     sha256 cellar: :any_skip_relocation, big_sur:        "c0f852a6e158291f6203fdc20eb2c1b8053518ee8028b04f6da330f37e1ae2e5"

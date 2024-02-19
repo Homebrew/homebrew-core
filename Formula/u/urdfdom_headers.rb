@@ -5,6 +5,14 @@ class UrdfdomHeaders < Formula
   sha256 "b2ee5bffa51eea4958f64479b4fa273881d82a3bfa1d98686a16f8d8ca6c2350"
   license "BSD-3-Clause"
 
+  # Upstream uses Git tags (e.g. `1.0.0`) to indicate a new version. They
+  # created a few releases on GitHub in the past but now they simply use tags.
+  # See: https://github.com/Homebrew/homebrew-core/pull/158963#issuecomment-1879185279
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, all: "9c343415f07893bdee8693c0015e04a1c7b70dc79d2a8e1b8fb6da74364664af"
   end

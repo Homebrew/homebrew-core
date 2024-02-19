@@ -1,6 +1,6 @@
 class Fastfec < Formula
   desc "Extremely fast FEC filing parser written in C"
-  homepage "https://github.com/washingtonpost/FastFEC"
+  homepage "https://www.washingtonpost.com/fastfec/"
   # Check whether PCRE linking issue is fixed in Zig at version bump.
   url "https://github.com/washingtonpost/FastFEC/archive/refs/tags/0.1.9.tar.gz"
   sha256 "1f6611b76c54005580d937cbac75b57783a33aa18eb32e4906ae919f6a1f0c0e"

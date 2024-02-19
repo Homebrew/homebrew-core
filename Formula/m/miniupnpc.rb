@@ -1,8 +1,8 @@
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
   homepage "https://miniupnp.tuxfamily.org"
-  url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.2.5.tar.gz"
-  sha256 "38acd5f4602f7cf8bcdc1ec30b2d58db2e9912e5d9f5350dd99b06bfdffb517c"
+  url "https://miniupnp.tuxfamily.org/files/download.php?file=miniupnpc-2.2.6.tar.gz"
+  sha256 "37fcd91953508c3e62d6964bb8ffbc5d47f3e13481fa54e6214fcc68704c66f1"
   license "BSD-3-Clause"
 
   # We only match versions with only a major/minor since versions like 2.1 are
@@ -13,15 +13,13 @@ class Miniupnpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4a06368a2a1a20ce1ebfd43c6e019c062b5349a9fead39f2b68aa5ca01fc5bfd"
-    sha256 cellar: :any,                 arm64_ventura:  "f6ecafbc60eadb5fd14c12efce8f25b24ba5cf58d35700558072e8d1284d0298"
-    sha256 cellar: :any,                 arm64_monterey: "a3ac9ac040fdb5c551b331812e16ad5815c0c4a1fffe76db1b8c50598d182746"
-    sha256 cellar: :any,                 arm64_big_sur:  "f5cdb0a658e0365301886fa456c889df15b094439cbb5b3a0358e9f5076ca21e"
-    sha256 cellar: :any,                 sonoma:         "af442c08368a0147ea7771b53cb8b5b2b7a9ceac7619863f3cc0bb8d32a7ad3f"
-    sha256 cellar: :any,                 ventura:        "c5169ce164fb7f73958235a65fae51a976e323393738e0b580dff6e6ca059e98"
-    sha256 cellar: :any,                 monterey:       "fb719f010b4936c1fe4117df0f80799075a8db33438ba85099508eac11420ff7"
-    sha256 cellar: :any,                 big_sur:        "9ed146f123781d070d7f18716d567373fda2e28bc051ce8aaba3bb4aeb46f56e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e662068adb2eadd32d856f8ee3d634ce7b86238b9c89f034c8db56b79cf4637e"
+    sha256 cellar: :any,                 arm64_sonoma:   "02a81c9c170c97effbcae5b55f8b2a385efad63b971f504b4526fc609e1c6ed5"
+    sha256 cellar: :any,                 arm64_ventura:  "2bda37195ccbaa7d59c3232ad2e3eff64fda54635fd1447b145f636e7678745f"
+    sha256 cellar: :any,                 arm64_monterey: "329d8d48af0c01f50dfaaa061f05d4c50a510f8b1cd78a713ea6289e547053d4"
+    sha256 cellar: :any,                 sonoma:         "9a5f84d7bbc7fb3b0e3a09bf3f776425aecf84f49261def4b904d752d0bcba95"
+    sha256 cellar: :any,                 ventura:        "2d185bc3955d99d1b8050a3c1b15c363c7d3d9782c3c46adf06f05bcf08b831e"
+    sha256 cellar: :any,                 monterey:       "2621a3091630fe71fddc538948a93b6758d6635ee7594c89f0e121e6a2a45256"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0da03bf3a4b1bcd7152393a9a3bd7ebdbdefa4a7d68b250b0182f4aca7492f9"
   end
 
   def install

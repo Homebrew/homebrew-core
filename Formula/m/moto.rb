@@ -3,18 +3,18 @@ class Moto < Formula
 
   desc "Mock AWS services"
   homepage "http://getmoto.org/"
-  url "https://files.pythonhosted.org/packages/0f/4d/2671039ebc3ecbb15342ffc8d3d600fa8fa6225663698b12459df48819b0/moto-4.2.12.tar.gz"
-  sha256 "7c4d37f47becb4a0526b64df54484e988c10fde26861fc3b5c065bc78800cb59"
+  url "https://files.pythonhosted.org/packages/b8/0e/4eefbe1d41a1584e48ebd61ebdafa119a053be1e04882be4d53b00660771/moto-5.0.2.tar.gz"
+  sha256 "7e27395e5c63ff9554ae14b5baa41bfe6d6b1be0e59eb02977c6ce28411246de"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7abab081869989e7e81286aa3c404703d15b63f3fefa38a028d593d71e8fd78c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a27007a42ab51c5fdcd95a988f1a4a7c31cf2c24ad95ec783f800e3699850833"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14d142bcb86a7ea1d853238ea429e8f9f41fb30848e946bc59dc3f2d832b9cd8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "956e4470aaeca798ad8e6458dd7860885dcc958c7a187f0eb418cea670fbfff6"
-    sha256 cellar: :any_skip_relocation, ventura:        "1d003c6d7372c9cbd0ddba6d4b4328817fe5b5840fc3dec12f6d5f38c5a56224"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ac0928722f5b0e5e1b8b7e163a4d9ebfba56c3c749b7d10e5e37ad1da49a155"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c243b874cff4932af5eba6c6ef3b96fe72673c359261105652bfaa247dad8aa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4aa2297805c6537188da3df78bc83e4c6d211b755dbbf8ab6940fb3975994095"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "972c0bda9a3d3bfadde21774ab29d3e4d1c75b1df285aa2c9005bd0e919657aa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d446182cfbca69f765e9baa24955ff550cdbded99c8add1458c642253b078b58"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7de49f032ddd38534be2f296a46a3ef6550a60eff92afddef84f86c3020e18ac"
+    sha256 cellar: :any_skip_relocation, ventura:        "3ae445c44f7818febf15232147a5b0f141b9da3e61c739b32a3724eb23868015"
+    sha256 cellar: :any_skip_relocation, monterey:       "da90e36b7eec3a4f559330700c9c507a2e9dd67b7f52a3480289212b8dd9e823"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c87202711ca07d5ff27023afc5ca5b8daccd87be0c26d9203e2aa9000827bd35"
   end
 
   depends_on "cffi"
@@ -51,14 +51,9 @@ class Moto < Formula
     sha256 "323736fb92cd9418fc5e7133bc953e11a9da04f4483f828b527db553f1e7e5a3"
   end
 
-  resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/ff/7b/ba6547a76c468a0d22de93e89ae60d9561ec911f59532907e72b0d8bc0f1/ecdsa-0.18.0.tar.gz"
-    sha256 "190348041559e21b22a1d65cee485282ca11a6f81d503fddb84d5017e9ed1e49"
-  end
-
   resource "flask" do
-    url "https://files.pythonhosted.org/packages/d8/09/c1a7354d3925a3c6c8cfdebf4245bae67d633ffda1ba415add06ffc839c5/flask-3.0.0.tar.gz"
-    sha256 "cfadcdb638b609361d29ec22360d6070a77d7463dcb3ab08d2c2f2f168845f58"
+    url "https://files.pythonhosted.org/packages/3f/e0/a89e8120faea1edbfca1a9b171cff7f2bf62ec860bbafcb2c2387c0317be/flask-3.0.2.tar.gz"
+    sha256 "822c03f4b799204250a7ee84b1eddc40665395333973dfb9deebfe425fefcb7d"
   end
 
   resource "flask-cors" do
@@ -82,8 +77,13 @@ class Moto < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
+  end
+
+  resource "joserfc" do
+    url "https://files.pythonhosted.org/packages/1e/c0/220477f18e91d518928d1f5844d23d663bd30df91258ea281f9564021b63/joserfc-0.9.0.tar.gz"
+    sha256 "eebca7f587b1761ce43a98ffd5327f2b600b9aa5bb0a77b947687f503ad43bc0"
   end
 
   resource "jsondiff" do
@@ -122,18 +122,8 @@ class Moto < Formula
   end
 
   resource "py-partiql-parser" do
-    url "https://files.pythonhosted.org/packages/e9/80/47fab55e0c82c447ed2b5b484f4ae6a6c306365f16c4fd578fda56c93468/py-partiql-parser-0.5.0.tar.gz"
-    sha256 "427a662e87d51a0a50150fc8b75c9ebb4a52d49129684856c40c88b8c8e027e4"
-  end
-
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/ce/dc/996e5446a94627fe8192735c20300ca51535397e31e7097a3cc80ccf78b7/pyasn1-0.5.1.tar.gz"
-    sha256 "6d391a96e59b23130a5cfa74d6fd7f388dbbe26cc8f1edf39fdddf08d9d6676c"
-  end
-
-  resource "python-jose" do
-    url "https://files.pythonhosted.org/packages/e4/19/b2c86504116dc5f0635d29f802da858404d77d930a25633d2e86a64a35b3/python-jose-3.3.0.tar.gz"
-    sha256 "55779b5e6ad599c6336191246e95eb2293a9ddebd555f796a65f838f07e5d78a"
+    url "https://files.pythonhosted.org/packages/7e/43/fb1b0afb1c869c0865ddb8bc1659dd50f451205c7eb20b2d45f7673a2de4/py-partiql-parser-0.5.1.tar.gz"
+    sha256 "aeac8f46529d8651bbae88a1a6c14dc3aa38ebc4bc6bd1eb975044c0564246c6"
   end
 
   resource "requests" do
@@ -142,8 +132,8 @@ class Moto < Formula
   end
 
   resource "responses" do
-    url "https://files.pythonhosted.org/packages/a0/c5/2f4f243e9b9ddb2fa70d696fb66daafd8fde20c9663a4a22c6a02d61bd97/responses-0.24.1.tar.gz"
-    sha256 "b127c6ca3f8df0eb9cc82fd93109a3007a86acb24871834c47b77765152ecf8c"
+    url "https://files.pythonhosted.org/packages/ea/d5/a7300764f8350420815b2c1abf30ebb78a7edd6eea586af784babdc2e9b0/responses-0.25.0.tar.gz"
+    sha256 "01ae6a02b4f34e39bffceb0fc6786b67a25eae919c6368d05eabc8d9576c2a66"
   end
 
   resource "rfc3339-validator" do
@@ -151,14 +141,9 @@ class Moto < Formula
     sha256 "138a2abdf93304ad60530167e51d2dfb9549521a836871b88d7f4695d0022f6b"
   end
 
-  resource "rsa" do
-    url "https://files.pythonhosted.org/packages/aa/65/7d973b89c4d2351d7fb232c2e452547ddfa243e93131e7cfa766da627b52/rsa-4.9.tar.gz"
-    sha256 "e38464a49c6c85d7f1351b0126661487a7e0a14a50f1675ec50eb34d4f20ef21"
-  end
-
-  resource "sshpubkeys" do
-    url "https://files.pythonhosted.org/packages/a3/b9/e5b76b4089007dcbe9a7e71b1976d3c0f27e7110a95a13daf9620856c220/sshpubkeys-3.3.1.tar.gz"
-    sha256 "3020ed4f8c846849299370fbe98ff4157b0ccc1accec105e07cfa9ae4bb55064"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
   end
 
   resource "werkzeug" do

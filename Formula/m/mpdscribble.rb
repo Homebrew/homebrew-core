@@ -30,11 +30,9 @@ class Mpdscribble < Formula
   uses_from_macos "curl"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "--sysconfdir=#{etc}", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "--sysconfdir=#{etc}", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   def caveats
@@ -50,6 +48,8 @@ class Mpdscribble < Formula
   end
 
   test do
-    system "#{bin}/mpdscribble", "--version"
+    assert_match "No 'username'", shell_output("#{bin}/mpdscribble --no-daemon 2>&1", 1)
+
+    assert_match version.to_s, shell_output("#{bin}/mpdscribble --version")
   end
 end

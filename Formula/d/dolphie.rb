@@ -3,19 +3,18 @@ class Dolphie < Formula
 
   desc "Feature-rich top tool for monitoring MySQL"
   homepage "https://github.com/charles-001/dolphie"
-  url "https://files.pythonhosted.org/packages/0a/c1/2a5e77affec2692b159274ff836f1f385beb6f9d00c961536599f6ae4bff/dolphie-3.2.0.tar.gz"
-  sha256 "d9b6c309183c69a67a5526207002492644d3e01bc282a1a3ecda6cb5c5b875dc"
+  url "https://files.pythonhosted.org/packages/ab/37/61ae4b07e2107c70f6756279932d82a4c243b2c8ab21b680687deeffce56/dolphie-4.2.2.tar.gz"
+  sha256 "f8727d86e885cc51d66b7afef747b43ad30000f9d7b22d232de928a667ca4c3a"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42a9ee149e564fbf6fe2c3060153826d18793e549d62dcbef46bc849964d1ba6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdc0a9bc8e7dfd2b7b17cd3f451b2a8d2181bc03edd0c3d9261b36aa3b826f04"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e386634507ba08666a98c6f9a98f7c755b68d1cad5ed308f4a84d630b7a1c12a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fad846b21c544865608372b9603fe0fb447486ed287232e81ab180d2ca648856"
-    sha256 cellar: :any_skip_relocation, ventura:        "78b040e0ec288c42df8a2e2efbae0c420ed256232d7c69eccb274aeefecc0ffa"
-    sha256 cellar: :any_skip_relocation, monterey:       "836545725bae7b3f8c30f02205153f8c26849f329deae905a48fb9ed6ae4d908"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2464c7e734b90d97acfa3420c7f2e31ebf95445ab25bc847d12685c919098fc7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5deb0e1b35e78f4a966614f91cd0a87ed97481c5c45fe0553faacc194eea996"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39a0bb660f49bdf3f112a3775e88aaed8474520fd0057127d95b759389e0d3f4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d880f1a279541082baff966c44a6ef62db6c2f56bfa13b463ff87ddaa91cd351"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1de7a773065f61b481bd51b091f4baa94180fd8d919f6145baf8a4f58a8344ae"
+    sha256 cellar: :any_skip_relocation, ventura:        "a07f5a384b143de7897bc3acdad8ac1f19e58858a2a8e53c9b448c692a37923c"
+    sha256 cellar: :any_skip_relocation, monterey:       "1dd81ce8d85d7e99e72dcd3821f1119b380ebbb86c164820eccb9437323c2f11"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7afb0ad0e7b56bd610348bbfdae363e666ec9a2eb8b3f53b77354e504946bb7"
   end
 
   depends_on "cffi"
@@ -29,14 +28,9 @@ class Dolphie < Formula
   depends_on "python@3.12"
   depends_on "sqlparse"
 
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/33/44/ae06b446b8d8263d712a211e959212083a5eda2bf36d57ca7415e03f6f36/importlib_metadata-6.8.0.tar.gz"
-    sha256 "dbace7892d8c0c4ac1ad096662232f831d4e64f4c4545bd53016a3e9d4654743"
-  end
-
   resource "linkify-it-py" do
-    url "https://files.pythonhosted.org/packages/8d/fd/73bb30ec2b3cd952fe139a79a40ce5f5fd0280dd2cc1de94c93ea6a714d2/linkify-it-py-2.0.2.tar.gz"
-    sha256 "19f3060727842c254c808e99d465c80c49d2c7306788140987a1a7a29b0d6ad2"
+    url "https://files.pythonhosted.org/packages/2a/ae/bb56c6828e4797ba5a4821eec7c43b8bf40f69cda4d4f5f8c8a2810ec96a/linkify-it-py-2.0.3.tar.gz"
+    sha256 "68cda27e162e9215c17d786649d1da0021a451bdc436ef9e0fa0ba5234b9b048"
   end
 
   resource "markdown-it-py" do
@@ -75,8 +69,8 @@ class Dolphie < Formula
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/04/db/47913d93759a5e64802ecc7c61e1dddca1496a2c7edbf6c7b73f2f253f52/textual-0.41.0.tar.gz"
-    sha256 "73fb675a90ddded17d59ebd864dedaf82a3e7377e68ba1601581281dfd47ea86"
+    url "https://files.pythonhosted.org/packages/8f/d3/b97d99dbcf86d4a1d8a51d5ab021e8cc5831703ea34abaeba30e354addce/textual-0.49.0.tar.gz"
+    sha256 "a66f981bde8f64c5cbb524d029946136d85602e82b595f4f5793f7bdc2e965b7"
   end
 
   resource "textual-autocomplete" do
@@ -85,13 +79,8 @@ class Dolphie < Formula
   end
 
   resource "uc-micro-py" do
-    url "https://files.pythonhosted.org/packages/75/db/241444fe6df6970a4c18d227193cad77fab7cec55d98e296099147de017f/uc-micro-py-1.0.2.tar.gz"
-    sha256 "30ae2ac9c49f39ac6dce743bd187fcd2b574b16ca095fa74cd9396795c954c54"
-  end
-
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
+    url "https://files.pythonhosted.org/packages/91/7a/146a99696aee0609e3712f2b44c6274566bc368dfe8375191278045186b8/uc-micro-py-1.0.3.tar.gz"
+    sha256 "d321b92cff673ec58027c04015fcaa8bb1e005478643ff4a500882eaab88c48a"
   end
 
   def install
@@ -103,8 +92,8 @@ class Dolphie < Formula
     # See https://github.com/Homebrew/homebrew-core/pull/152912#issuecomment-1787257320
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    output = shell_output("#{bin}/dolphie mysql://dolphie:test@localhost:3306 2>&1")
-    assert_match "Failed to connect to database host", output
+    output = shell_output("#{bin}/dolphie mysql://user:password@host:port 2>&1")
+    assert_match "Invalid URI: Port could not be cast to integer value as 'port'", output
 
     assert_match version.to_s, shell_output("#{bin}/dolphie --version")
   end

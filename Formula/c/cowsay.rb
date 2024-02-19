@@ -22,6 +22,8 @@ class Cowsay < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d35c9dfb46eea22b2b53c9c0deb00d7d95b6fe3fcfeb8d9404fd269d5739790"
   end
 
+  deprecate! date: "2023-11-22", because: :repo_archived
+
   def install
     # Remove offensive content
     %w[cows/sodomized.cow cows/telebears.cow].each do |file|

@@ -3,13 +3,12 @@ class Ddgr < Formula
 
   desc "DuckDuckGo from the terminal"
   homepage "https://github.com/jarun/ddgr"
-  url "https://github.com/jarun/ddgr/archive/refs/tags/v2.1.tar.gz"
-  sha256 "fb6601ad533f2925d2d6299ab9e6dd48da0b75e99ef9ed9068f37e516380b5e6"
+  url "https://github.com/jarun/ddgr/archive/refs/tags/v2.2.tar.gz"
+  sha256 "a858e0477ea339b64ae0427743ebe798a577c4d942737d8b3460bce52ac52524"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "1897c82717033ec9ed60f36143882de688dd39cf36af2f06c6ffbcc73518a09a"
+    sha256 cellar: :any_skip_relocation, all: "374c96ff5deaf0e4f73c471220bb299f1c6b2f4114da8db31a575d2463eee3c4"
   end
 
   depends_on "python@3.12"

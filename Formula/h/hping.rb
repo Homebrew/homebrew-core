@@ -19,7 +19,7 @@ class Hping < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc0ad4627c731e75ac2b5358822f39a75d64cbb0a84e963a58c22dc7d9bfd3a4"
   end
 
-  deprecate! date: "2023-03-11", because: :unmaintained
+  disable! date: "2024-02-15", because: :unmaintained
 
   uses_from_macos "libpcap"
 

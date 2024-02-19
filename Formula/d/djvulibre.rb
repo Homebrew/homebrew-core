@@ -30,7 +30,7 @@ class Djvulibre < Formula
 
   def install
     system "./autogen.sh"
-    # Don't build X11 GUI apps, Spotlight Importer or QuickLook plugin
+    # Don't build X11 GUI apps, Spotlight Importer or Quick Look plugins
     system "./configure", "--prefix=#{prefix}", "--disable-desktopfiles"
     system "make"
     system "make", "install"

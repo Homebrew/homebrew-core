@@ -5,13 +5,13 @@ class Rav1e < Formula
   head "https://github.com/xiph/rav1e.git", branch: "master"
 
   stable do
-    url "https://github.com/xiph/rav1e/archive/refs/tags/v0.6.6.tar.gz"
-    sha256 "723696e93acbe03666213fbc559044f3cae5b8b888b2ddae667402403cff51e5"
+    url "https://github.com/xiph/rav1e/archive/refs/tags/v0.7.1.tar.gz"
+    sha256 "da7ae0df2b608e539de5d443c096e109442cdfa6c5e9b4014361211cf61d030c"
 
     # keep the version in sync
     resource "Cargo.lock" do
-      url "https://github.com/xiph/rav1e/releases/download/v0.6.6/Cargo.lock"
-      sha256 "2014f7d76e7d0d7eaa63158ef5a1a1cea15a095fd5fb79b20b1052015a7fcd0c"
+      url "https://github.com/xiph/rav1e/releases/download/v0.7.1/Cargo.lock"
+      sha256 "4482976bfb7647d707f9a01fa1a3848366988f439924b5c8ac7ab085fba24240"
     end
   end
 
@@ -21,15 +21,13 @@ class Rav1e < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dfe3ff3ca91287de6b3763196855e56535399c88d5939b82602c5ea8043ac65a"
-    sha256 cellar: :any,                 arm64_ventura:  "3a0e10c10070252c551cdb863000fdfd08b3f39f73f6834f8ba468245bfd7407"
-    sha256 cellar: :any,                 arm64_monterey: "68d4cfaeb084772d0a204f9ea0349d13a08045e0c9bc8a3b1d863c4013e67b17"
-    sha256 cellar: :any,                 arm64_big_sur:  "53745f5c67bf84dfa288eeb3f1e4fdd55a513c797cd6571c01470c32197482b6"
-    sha256 cellar: :any,                 sonoma:         "5379729bb8ddad65b0a8f9deb6980bda29ed6a48647a26a99bfcb20cf73f9e41"
-    sha256 cellar: :any,                 ventura:        "67a6ce79473a844710bb6b3992cb3298da921c9689c3e09be2ad09177c5100db"
-    sha256 cellar: :any,                 monterey:       "671e5164de0012dcf4e365a21fff14445116fe6832a78235bc7da0763fda94a6"
-    sha256 cellar: :any,                 big_sur:        "726efa39a001b22ba36d9edf08e6251d19b4741bb24d6bd10e73f40688b96cd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8858d8c96535e94dfa75f15e858b24855034d714950df482d00760cc7fb8edad"
+    sha256 cellar: :any,                 arm64_sonoma:   "03c3c20f83de1fca64b0e0c67e8eb583a334f30769c047304a6627fcec76c765"
+    sha256 cellar: :any,                 arm64_ventura:  "ebbacd899e780c0eaa27cd2adb2d3eba5f1d60d1ea38097601e1ea8991c95c30"
+    sha256 cellar: :any,                 arm64_monterey: "5a95ecb310417a49fcd0a488a7f69bddede2ab766345e7a90f28235430c27109"
+    sha256 cellar: :any,                 sonoma:         "824a1de49472fc953a0676070611304e00ec69b4292a7d448a8dc94db0519415"
+    sha256 cellar: :any,                 ventura:        "1b42472f766a82b42d4b345034cb242a7939ddac1c29dcc761326fe002a87833"
+    sha256 cellar: :any,                 monterey:       "851887583386e346690659f508b7785936417d94da7429e0f08e11b876d1aceb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e4cc6efb6c1c457be8202cc6d09604a79d158d321a4782a2042b5faa34406d1"
   end
 
   depends_on "cargo-c" => :build
@@ -39,11 +37,6 @@ class Rav1e < Formula
     depends_on "nasm" => :build
   end
 
-  resource "homebrew-bus_qcif_7.5fps.y4m" do
-    url "https://media.xiph.org/video/derf/y4m/bus_qcif_7.5fps.y4m"
-    sha256 "1f5bfcce0c881567ea31c1eb9ecb1da9f9583fdb7d6bb1c80a8c9acfc6b66f6b"
-  end
-
   def install
     buildpath.install resource("Cargo.lock") if build.stable?
     system "cargo", "install", *std_cargo_args
@@ -51,6 +44,11 @@ class Rav1e < Formula
   end
 
   test do
+    resource "homebrew-bus_qcif_7.5fps.y4m" do
+      url "https://media.xiph.org/video/derf/y4m/bus_qcif_7.5fps.y4m"
+      sha256 "1f5bfcce0c881567ea31c1eb9ecb1da9f9583fdb7d6bb1c80a8c9acfc6b66f6b"
+    end
+
     assert_equal version, resource("Cargo.lock").version, "`Cargo.lock` resource needs updating!" unless head?
     resource("homebrew-bus_qcif_7.5fps.y4m").stage do
       system bin/"rav1e", "--tile-rows=2",

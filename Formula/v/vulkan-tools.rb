@@ -1,23 +1,24 @@
 class VulkanTools < Formula
   desc "Vulkan utilities and tools"
   homepage "https://github.com/KhronosGroup/Vulkan-Tools"
-  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.268.tar.gz"
-  sha256 "07b08b45812da1e82921ac707076558ec9b2f6f00eefefb69b911a1ba0715294"
+  url "https://github.com/KhronosGroup/Vulkan-Tools/archive/refs/tags/v1.3.277.tar.gz"
+  sha256 "487dd46f82a07ab445dc5338aa978bdacebf20f816ec0cede3d3a7e036d1a925"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b4d41df7875f155c4fdadc3345f49901772efcb8d70424fe389f6a4c856126af"
-    sha256 cellar: :any,                 arm64_ventura:  "d4cac3776598e19391ed199f8bdfc4de6c630af8e8c6fe4a962631996fa2ea04"
-    sha256 cellar: :any,                 arm64_monterey: "940fe5d5f84beeb96219bead4454a8bdfcace6505f1d4d0d5ad4354fe0371507"
-    sha256 cellar: :any,                 sonoma:         "d9ad23d802ddd301ff8116d979023e5807e8d5ad585bd9078265d065742e5246"
-    sha256 cellar: :any,                 ventura:        "ca30603a36c46a092a240c162bdd664c9e2d0d2a8aad5b54655ef1cba3339dcd"
-    sha256 cellar: :any,                 monterey:       "80b6af96aa3a7ee0aa0a56992bdacfc519f7cc9f2137835d0c649a3835300e66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4e8ab6083445030ee7036adc642dded10bccff35fccbceb18313ac5a222507d"
+    sha256 cellar: :any,                 arm64_sonoma:   "3847b069033278d9caa7d1c7e800cc9b9c804d7e71051c81b7af9cc7c342743f"
+    sha256 cellar: :any,                 arm64_ventura:  "a978119673e60d513c6310f0188943fc3f728892e2e2a0c65dbd88150945a504"
+    sha256 cellar: :any,                 arm64_monterey: "f530074dbe7948859086e74832ec1ed7b15db7ffabc79f2f4dc30cc4a20419ef"
+    sha256 cellar: :any,                 sonoma:         "aa2d5640eaed3eff1bf0336291b75b805d256a9849df97bd644ef680c8949eb0"
+    sha256 cellar: :any,                 ventura:        "579110ad05bef089bc076d6b14d818bb9bb7fd30b25118a726d7ab000425c3ac"
+    sha256 cellar: :any,                 monterey:       "42328d836b63837156bb45b0f6f79b599484bfc163a0a1155f93cb104ea28b35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d7638307072c774b886caffe77e5f64613ad07fb7e2ba5f519524a38a354039"
   end
 
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
+  depends_on "vulkan-volk" => :build
   depends_on "glslang"
   depends_on "vulkan-headers"
   depends_on "vulkan-loader"
@@ -39,10 +40,10 @@ class VulkanTools < Formula
   def install
     if OS.mac?
       # account for using already-built MoltenVK instead of the source repo
-      inreplace "mac_common.cmake",
+      inreplace "cube/CMakeLists.txt",
                 "${MOLTENVK_DIR}/MoltenVK/icd/MoltenVK_icd.json",
                 "${MOLTENVK_DIR}/share/vulkan/icd.d/MoltenVK_icd.json"
-      inreplace buildpath.glob("*/macOS/*/*.cmake") do |s|
+      inreplace buildpath.glob("*/macOS/*/CMakeLists.txt") do |s|
         s.gsub! "${MOLTENVK_DIR}/MoltenVK/include",
                 "${MOLTENVK_DIR}/include"
         s.gsub! "${MOLTENVK_DIR}/MoltenVK/dylib/macOS/libMoltenVK.dylib",
@@ -59,6 +60,7 @@ class VulkanTools < Formula
       "-DGLSLANG_INSTALL_DIR=#{Formula["glslang"].opt_prefix}",
       "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].opt_prefix}",
       "-DVULKAN_LOADER_INSTALL_DIR=#{Formula["vulkan-loader"].opt_prefix}",
+      "-DCMAKE_INSTALL_RPATH=#{rpath(target: Formula["vulkan-loader"].opt_lib)}",
     ]
     args += if OS.mac?
       ["-DMOLTENVK_REPO_ROOT=#{Formula["molten-vk"].opt_prefix}"]
@@ -87,7 +89,6 @@ class VulkanTools < Formula
       ln_sf targets, framework_dir, verbose: true
     end
 
-    bin.install prefix/"vulkaninfo/vulkaninfo"
     (bin/"vkcube").write_env_script "/usr/bin/open", "-a #{prefix}/cube/vkcube.app", {}
     (bin/"vkcubepp").write_env_script "/usr/bin/open", "-a #{prefix}/cube/vkcubepp.app", {}
   end

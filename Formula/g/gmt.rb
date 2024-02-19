@@ -1,21 +1,20 @@
 class Gmt < Formula
   desc "Tools for manipulating and plotting geographic and Cartesian data"
   homepage "https://www.generic-mapping-tools.org/"
-  url "https://github.com/GenericMappingTools/gmt/releases/download/6.4.0/gmt-6.4.0-src.tar.xz"
-  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.4.0-src.tar.xz"
-  sha256 "b46effe59cf96f50c6ef6b031863310d819e63b2ed1aa873f94d70c619490672"
+  url "https://github.com/GenericMappingTools/gmt/releases/download/6.5.0/gmt-6.5.0-src.tar.xz"
+  mirror "https://mirrors.ustc.edu.cn/gmt/gmt-6.5.0-src.tar.xz"
+  sha256 "4022adb44033f9c1d5a4d275b69506449e4d486efe2218313f3ff7a6c6c3141e"
   license "LGPL-3.0-or-later"
-  revision 9
   head "https://github.com/GenericMappingTools/gmt.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "464e7b7b333f2d3decbe35107b9dd284e2822c721881a4c6a0bc5aaa2f8145b4"
-    sha256 arm64_ventura:  "3c531959d36d080cfa5c1b2bb39634564c1bd4778f6faaf6b51399638970d35c"
-    sha256 arm64_monterey: "20e417333cc0aa3cc362204b083dc2d0395345290b084ccb2120c3c65682c606"
-    sha256 sonoma:         "76ea99ac7743a75123d1b45ca2126600ce82b4327b6fa586bdbcb631feaa94bb"
-    sha256 ventura:        "8ec303d77e27c184d2cf44e17a1d7c871499b2910318a898572c6e3cdbbace04"
-    sha256 monterey:       "45625b36360fa3508bcd8d21672196bc2b4f3296b61c3bf1849689668661afd2"
-    sha256 x86_64_linux:   "30486ec437600e382601f5d90b1b71ef3a8825ee2c3662261625eb976122460b"
+    sha256 arm64_sonoma:   "ba82c9715316e45e91201d173028377adaed8f10221fc88403b55f2b3c888d6d"
+    sha256 arm64_ventura:  "360938a5b222c2e967e4649f7a77e437c50d184e2bbb15f5aa473a374e27e52f"
+    sha256 arm64_monterey: "5c43bed954e3ad794537c74e7aa851560ce94f95abc9f7e96fb32ae74fea4322"
+    sha256 sonoma:         "2a855f1972922cddccf98e2e6a2286b3c35d65fcbba43fc47bf5a6df8136444d"
+    sha256 ventura:        "746b79ba5ac4cca50760014d2b9acadbd6cf8d387f29334b92de1bb63ce6d702"
+    sha256 monterey:       "677c8728626fe616acc5d8aed70454bd3262e18a75ad9ed5530fe0526481e6a0"
+    sha256 x86_64_linux:   "dd165f5ec670ba015c86b058a5e0dc3381b497d0e23505408c67afd8f03ddc88"
   end
 
   depends_on "cmake" => :build

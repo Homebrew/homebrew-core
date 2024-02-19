@@ -4,19 +4,20 @@ class QtMysql < Formula
   url "https://download.qt.io/official_releases/qt/6.6/6.6.1/submodules/qtbase-everywhere-src-6.6.1.tar.xz"
   sha256 "450c5b4677b2fe40ed07954d7f0f40690068e80a94c9df86c2c905ccd59d02f7"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
+  revision 1
 
   livecheck do
     formula "qt"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fa9d3a13a24c5330c6559b18102687613f0611ab64dbf3ce1be2050d1926982f"
-    sha256 cellar: :any,                 arm64_ventura:  "8c8d1162f170fecf88a6f471ef6e0741b7ab4423ec06b5fe56b28b98d676c78e"
-    sha256 cellar: :any,                 arm64_monterey: "cd2b81a34d44150a05daace55f14344b78f4f536e8255554063cdb059c3b63f7"
-    sha256 cellar: :any,                 sonoma:         "710c23dbd1d4a268a390b34d411ccb31c4530564ab6375996a77110352bb2492"
-    sha256 cellar: :any,                 ventura:        "f2f630909734b5086e3f07d2a249e2e7abfa7744f32d9cc62c96aa735ee8e39a"
-    sha256 cellar: :any,                 monterey:       "a30485ba678b637eba7cc41d2b2857e77f906ce0276b0dccd7ddb922f1516400"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19bf6155da07e672910f6d8c72db452520ea796f906dd61a0dbaf68831987de4"
+    sha256 cellar: :any,                 arm64_sonoma:   "2ab5cdc7439230e57d5cf24a709ad1b40f3adafe5ca13ac9e9149c5314a61e52"
+    sha256 cellar: :any,                 arm64_ventura:  "85f15b15c5bae2a0fe8a40312b6b7ce9b1aca888433abc47ba20dece367f0f1d"
+    sha256 cellar: :any,                 arm64_monterey: "282caa16ecff63f3d99a5e10a413251edbf231b0555053ae11adfe91ad27b338"
+    sha256 cellar: :any,                 sonoma:         "839dd139d1d0449ebafbb11afcc16ab1de62cf2f2434dc1ec4ca38ac309781fc"
+    sha256 cellar: :any,                 ventura:        "5d91adaba125776db9cdda7240846eeb4915c7bfac02225e53dc2d51d9e34991"
+    sha256 cellar: :any,                 monterey:       "ca4dc7bc03ec7f0bfdcf28349a45ec19e04e2f26a7f70cc0df27d351684ba26a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5d45c609c512284f21b4d7d0eb92ec33744dc85fd87edc8e63b7730a767b2e50"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -28,6 +29,13 @@ class QtMysql < Formula
     because: "qt-mysql, qt-mariadb, and qt-percona-server install the same binaries"
 
   fails_with gcc: "5"
+
+  # Fix for breaking API changes in MySQL 8.3.0
+  # https://codereview.qt-project.org/c/qt/qtbase/+/532555
+  patch do
+    url "https://github.com/qt/qtbase/commit/41c842d3f7eecdf736d26026427033791586c83a.patch?full_index=1"
+    sha256 "f89d7c40ec29f992edcd5332c9512d5573d8047cb907eb8e36aaee15ba33a547"
+  end
 
   def install
     args = std_cmake_args + %W[

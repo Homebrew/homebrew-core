@@ -1,9 +1,10 @@
 class Fastlane < Formula
   desc "Easiest way to build and release mobile apps"
   homepage "https://fastlane.tools"
-  url "https://github.com/fastlane/fastlane/archive/refs/tags/2.217.0.tar.gz"
-  sha256 "e66a2c45b9a44c352ec20dc9e1846345110fd20d30407cecd5739651824c8c15"
+  url "https://github.com/fastlane/fastlane/archive/refs/tags/2.219.0.tar.gz"
+  sha256 "100458a3bc60c23fbc374748b7eab3f4666aa50fb84ffe94daa9e074d5dbf059"
   license "MIT"
+  revision 2
   head "https://github.com/fastlane/fastlane.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Fastlane < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "91af5f1200f28c3373e0c42829179cefe1996f454c635f30ca2cbff451915f6a"
-    sha256 cellar: :any,                 arm64_ventura:  "7fa76937d5e469bcbcdd938547a290523a442650453bc45d1c6e5d96ee5d2687"
-    sha256 cellar: :any,                 arm64_monterey: "b4c88dd9c23442eb89f9e793fced96a0d7aa37fcfbea4165c5fcc216d310d875"
-    sha256 cellar: :any,                 ventura:        "3c60d7d5471d5b4bc25aa940c62b5b8fa082556cf6faea3ff018e9771d1977f5"
-    sha256 cellar: :any,                 monterey:       "7bd2b50d0320ae8c8ae226fc96803469411065629caa8e9aef99d14b4f01bfaa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "669a63bf74a8000322f6191d49d6349a144d45122718ce0062dbcd7af58cb115"
+    sha256 cellar: :any,                 arm64_sonoma:   "8c5022a9976ba8df487627ad71a8b31f89cbb2e600e85596aa3f34cb2cfefb4e"
+    sha256 cellar: :any,                 arm64_ventura:  "8f913dc152de63df86c8360b8ec9dfc940cbcd43c0b4c6c2acabae545a57f836"
+    sha256 cellar: :any,                 arm64_monterey: "a4c708aff31dc26df462628e011fe56906f97ed018ecd98cdf5b112e7b0303b1"
+    sha256 cellar: :any,                 sonoma:         "3039fc1313f1d5f6b4ee995db17e0c61bf2fee1a53bcb823a4898f0b60a5f9bc"
+    sha256 cellar: :any,                 ventura:        "099e7108d21bc4f62ce25d4df3d5a115a4a6af0278a1127dd3f8cfa603a02fbb"
+    sha256 cellar: :any,                 monterey:       "68c09c344ed1005c51d9234c2ce4833aae206daabc76fa3aa45b95bb9abecc2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c24e2cb0e786cdd719f364fb73d5e674829b402b6df272f3b0da2b54ef97741"
   end
 
   depends_on "ruby"
@@ -35,7 +36,7 @@ class Fastlane < Formula
     system "gem", "install", "fastlane-#{version}.gem", "--no-document"
 
     (bin/"fastlane").write_env_script libexec/"bin/fastlane",
-      PATH:                            "#{Formula["ruby@3.1"].opt_bin}:#{libexec}/bin:$PATH",
+      PATH:                            "#{Formula["ruby"].opt_bin}:#{libexec}/bin:$PATH",
       FASTLANE_INSTALLED_VIA_HOMEBREW: "true",
       GEM_HOME:                        libexec.to_s,
       GEM_PATH:                        libexec.to_s

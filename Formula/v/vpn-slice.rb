@@ -9,22 +9,21 @@ class VpnSlice < Formula
   head "https://github.com/dlenski/vpn-slice.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f3961aeca188dbdb19efb3bd4fb38a981201b5766d93464ba89d41bba7ad83cd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b42144d344427daa2c18715bdc7944fdffc663c1034576655cc2edbb98e52949"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7643a624395a9b1ec80cfbb7567be45a3ec860c3864ce596edc97cea3fb7613c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "983a3fa1565fa20958bc4ce9b770634467436825dd3f85a01cea3ad443feb32a"
-    sha256 cellar: :any_skip_relocation, ventura:        "1c5caf9f3eec5874fa3f42e753399834a7d479b6a72f31075882c2bbfb0b8c4a"
-    sha256 cellar: :any_skip_relocation, monterey:       "13339b69283682eb0229bb38d3abcf85f7b024b4c650d433652ac89a1ed201c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1c9ffddb15031d6e821823f58baaf7d855da147d7b1f7f50e7269ecaaeb12c6"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06be0346ac3f5bc81d9c48f65272f98a0077aa8451ca390d011e3461066f697f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "285e4532b8bac6eb5a40c0a4b00160ce14762e51fe649eb72571fafaeb55e551"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1340a190aa89d25abb928c276f0d916afc0858f17d2cea7470e0c770352074e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c8552b9edb0b222a44cd398e1e67ee932a62f9f3068a05d6e8f6a784f123b2a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "8134ff7619c007c0285093f8c5bb5d4faa58380614612df94ac800148bf62a0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8dbc0128fb07e6682fe5e472354ba6bbe839ca8c987e4758232422c56167c1fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f264427a1600d282f31182e68af0a6e8cc84ef392aab087c60d1f15ed0e4b05f"
   end
 
-  depends_on "python-setuptools"
   depends_on "python@3.12"
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/65/2d/372a20e52a87b2ba0160997575809806111a72e18aa92738daccceb8d2b9/dnspython-2.4.2.tar.gz"
-    sha256 "8dcfae8c7460a2f84b4072e26f1c9f4101ca20c071649cb7c34e8b6a93d58984"
+    url "https://files.pythonhosted.org/packages/65/51/fbffab4071afa789e515421e5749146beff65b3d371ff30d861e85587306/dnspython-2.5.0.tar.gz"
+    sha256 "a0034815a59ba9ae888946be7ccca8f7c157b286f8455b379c692efb51022a15"
   end
 
   resource "setproctitle" do
@@ -32,14 +31,21 @@ class VpnSlice < Formula
     sha256 "c913e151e7ea01567837ff037a23ca8740192880198b7fbb90b16d181607caae"
   end
 
+  # Drop setuptools dep
+  # https://github.com/dlenski/vpn-slice/pull/149
+  patch do
+    url "https://github.com/dlenski/vpn-slice/commit/5d0c48230854ffed5042192d921d8d97fbe427be.patch?full_index=1"
+    sha256 "0ae3a54d14f1be373478820de2c774861dd97f9ae156fef21d27c76cee157951"
+  end
+
   def install
+    ENV["PIP_USE_PEP517"] = "1"
     virtualenv_install_with_resources
   end
 
   test do
     # vpn-slice needs root/sudo credentials
-    output = `#{bin}/vpn-slice 192.168.0.0/24 2>&1`
+    output = shell_output("#{bin}/vpn-slice 192.168.0.0/24 2>&1", 1)
     assert_match "Cannot read/write /etc/hosts", output
-    assert_equal 1, $CHILD_STATUS.exitstatus
   end
 end

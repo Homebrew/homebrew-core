@@ -3,7 +3,7 @@ class Cdargs < Formula
   homepage "https://github.com/cbxbiker61/cdargs"
   url "https://github.com/cbxbiker61/cdargs/archive/refs/tags/2.1.tar.gz"
   sha256 "062515c3fbd28c68f9fa54ff6a44b81cf647469592444af0872b5ecd7444df7d"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   head "https://github.com/cbxbiker61/cdargs.git", branch: "master"
 
   bottle do
@@ -35,11 +35,9 @@ class Cdargs < Formula
   end
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
 
     rm Dir["contrib/Makefile*"]
     prefix.install "contrib"

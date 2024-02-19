@@ -9,7 +9,7 @@ class GoogleSqlTool < Formula
     sha256 cellar: :any_skip_relocation, all: "a8a2db726882c0e8ce9a5dec8c040e9a6fbc66217a969cf4cede54df93f3c76b"
   end
 
-  deprecate! date: "2023-02-11", because: :unmaintained
+  disable! date: "2024-02-15", because: :unmaintained
 
   depends_on "openjdk"
 

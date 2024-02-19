@@ -22,17 +22,15 @@ class Sratom < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "lv2"
   depends_on "serd"
   depends_on "sord"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dtests=disabled", ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", "-Dtests=disabled", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -44,11 +42,9 @@ class Sratom < Formula
         return 0;
       }
     EOS
-    lv2 = Formula["lv2"].opt_include
-    serd = Formula["serd"].opt_include
-    sord = Formula["sord"].opt_include
-    system ENV.cc, "-I#{lv2}", "-I#{serd}/serd-0", "-I#{sord}/sord-0", "-I#{include}/sratom-0",
-                   "-L#{lib}", "-lsratom-0", "test.c", "-o", "test"
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs sratom-0").chomp.split
+    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
     system "./test"
   end
 end

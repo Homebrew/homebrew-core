@@ -1,21 +1,19 @@
 class Vnstat < Formula
   desc "Console-based network traffic monitor"
   homepage "https://humdi.net/vnstat/"
-  url "https://humdi.net/vnstat/vnstat-2.11.tar.gz"
-  sha256 "babc3f1583cc40e4e8ffb2f53296d93d308cb5a5043e85054f6eaf7b4ae57856"
+  url "https://humdi.net/vnstat/vnstat-2.12.tar.gz"
+  sha256 "b7386b12fc1fc6f47fab31f208b12eda61862e63e229e84e95a6fa80406d2852"
   license "GPL-2.0-only"
   head "https://github.com/vergoh/vnstat.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "82a27759165561abdcb95bee69b60f460ba21c77e411695452669a614168ec2f"
-    sha256 arm64_ventura:  "273d5ae9920f32ad1fc22a8cd3a8cd16021175d380059489ceee02f189bfe72d"
-    sha256 arm64_monterey: "40d35d2096727b3e8cafa2b23de4a75fe6e7d104b336cd10d54b5c3d24333425"
-    sha256 arm64_big_sur:  "eda88fe18783d34e22d4b7d04efa303f588c5a112a12e93e816816f97c6279c0"
-    sha256 sonoma:         "40b623b7b6d4ff17b627955873f3a2129d26c81510d04e2d9df4e40c68f0063e"
-    sha256 ventura:        "8989044eaebd33345f005c005fca3a8f7a5a04f71a72bac0585c849056173fe9"
-    sha256 monterey:       "1a4999f1e59b1c1d21500e7df3dad26ffbb198f589cb9f3d337875ac8c985691"
-    sha256 big_sur:        "7180971117aa772820ca83052f282c855e0fb2b0ab5186b69f055fde257441d4"
-    sha256 x86_64_linux:   "176ea16a1ca4a86515db372afaa28e49863fbb2fa14b68c586327142de5c36bb"
+    sha256 arm64_sonoma:   "b9f2f91ebb02d0abeac163c0964816202483cde13f53832cbb390e477fa344df"
+    sha256 arm64_ventura:  "ba02bb2d0ae58290104e3ee06cdc915d16007f53c45833081083f52bddb4cf6f"
+    sha256 arm64_monterey: "638b93276b154fc5339c440e98961d986fae27d855a1ad22e764cffa53818735"
+    sha256 sonoma:         "f9e45487f466e1d613f2880d278b47f324e6142b0e73b711add74e9d0f672e07"
+    sha256 ventura:        "2ab99304bb533b71dc0df069bbe8795bd053723d724600e538b5aedb0fb7b625"
+    sha256 monterey:       "46d35cbc5297d77dea91df6a1109fb6313e715a201af6051d327853586feb6a9"
+    sha256 x86_64_linux:   "242acd29230207c57e434823a2246674d0e1efbf7f4f61db859437affacb5857"
   end
 
   depends_on "gd"

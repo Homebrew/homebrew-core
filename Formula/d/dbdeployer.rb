@@ -18,6 +18,8 @@ class Dbdeployer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "920be82872a3ea62308092a58e929eef0bf95c54027e772acfe7c23425a971f0"
   end
 
+  deprecate! date: "2023-10-29", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

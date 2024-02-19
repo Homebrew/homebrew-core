@@ -1,8 +1,8 @@
 class Dnsmasq < Formula
   desc "Lightweight DNS forwarder and DHCP server"
   homepage "https://thekelleys.org.uk/dnsmasq/doc.html"
-  url "https://thekelleys.org.uk/dnsmasq/dnsmasq-2.89.tar.gz"
-  sha256 "8651373d000cae23776256e83dcaa6723dee72c06a39362700344e0c12c4e7e4"
+  url "https://thekelleys.org.uk/dnsmasq/dnsmasq-2.90.tar.gz"
+  sha256 "8f6666b542403b5ee7ccce66ea73a4a51cf19dd49392aaccd37231a2c51b303b"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
@@ -11,15 +11,13 @@ class Dnsmasq < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "cac6ed802f57c2b5564b0e74a86c3dd3dba2cfc0872a6338f94e6d7ea896b85e"
-    sha256 arm64_ventura:  "490265bd8d3e8392380fff3b0fbb4caf65f918366b5cf8c613372d21844860aa"
-    sha256 arm64_monterey: "550f2bc4e841dff11350365deccd14a2ae3977b4a21b499ef25da1658c9aaa9f"
-    sha256 arm64_big_sur:  "6c07ed0ee4e4da7f96b3019a99314db35594950a7e74e00268a1d9653c5f3d63"
-    sha256 sonoma:         "37c231e1034adfe524fd59764ece9fc6cda5852be288485c4c02ac3380168e11"
-    sha256 ventura:        "1c6667316c0c59f169539b20268526dbd809f1e1d4ff1ff4152230745c958213"
-    sha256 monterey:       "8d208dd2b6b2571b6fe00abc4cea2e3da949ec722c587a7a373c88e6ea385108"
-    sha256 big_sur:        "1790d62200547a99955d7b0cb8925b13343e3b3fd15ee551ebb4d1b1772088df"
-    sha256 x86_64_linux:   "402f77fca452d49f05c63d63bb83dc01cd70e005b4d4f5094706d5b64201560f"
+    sha256 arm64_sonoma:   "b6897c95d454b3d7a0d488b3cba0f525a90c951d8690929a80794aee05f48ae7"
+    sha256 arm64_ventura:  "96d78b8341adb55a2f3260fa4813102e7c08bc0d61306401de5bf4f1e49843b2"
+    sha256 arm64_monterey: "740412d9203cd865d9cafb9c10a3bc69ef19e44291954d7c26e48b17fd378039"
+    sha256 sonoma:         "0e20ef773a39be121ee8fddc46a6dca9f1d6b9c09cc069bfa75334bff479079b"
+    sha256 ventura:        "f0fda257b89641375e5711c1afdc66c35771234a7fc2a51c124cc856085dd005"
+    sha256 monterey:       "51b10e0af794890ffcf3220848032c3086af3d3f5d488b454003fcde72793225"
+    sha256 x86_64_linux:   "ba407d18d57b06e39f5576cda5f97703b1def62c14960d62f16eecd236180fc4"
   end
 
   depends_on "pkg-config" => :build

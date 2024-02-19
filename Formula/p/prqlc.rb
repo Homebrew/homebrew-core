@@ -1,19 +1,19 @@
 class Prqlc < Formula
   desc "Simple, powerful, pipelined SQL replacement"
   homepage "https://prql-lang.org"
-  url "https://github.com/PRQL/prql/archive/refs/tags/0.11.1.tar.gz"
-  sha256 "98c8509dfb216e35f6e51a7a79c2fd59b3fe603d74242914a19a796f2b9c9bd0"
+  url "https://github.com/PRQL/prql/archive/refs/tags/0.11.3.tar.gz"
+  sha256 "d6bbf5569c9e376d31b0f2e132e510b88cb1d358d736c36d090c76e903f903e3"
   license "Apache-2.0"
   head "https://github.com/prql/prql.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59418ed02aa3380fc50ec992b14fe41e29a29175c159d12e7402203c3ba00adb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e5bf9df2ca0ef14501438564fc4cbe2ac9fde8f010e89111e88b042792c4c8b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77851b8e8ef2a83cb805698e5b1ba352d26f85506093d37659c554d5e4bc279f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "62802b73506979bc248784d155cf02e1fc5de8d3dd598645f6f69f2706a27014"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7818e18524b24d877268541e1b0e33c7a66e36c3d136c7560e5078783bb4e4e"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a78c1f9f225a76a086f3ceb3691a8f383b762eef887814c9e02bb2295e3e420"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d77fd0f3a60e16e9642d963b739d432a34541ca5cff54bc0c415c4d3148c0e0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "22b24a994267bbcbe79ab90e1c4933e61f30fec9d8f5479c25f2dcb2cfc3ed9a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8436e711455eeb96ff95a31a3c886f65f6aafdba8547473ca4a1fc84f65b2b2f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc67ee966fbdc4e85c0cce745cf70114e6a2652bc39e7a90c9f97ee97f61a517"
+    sha256 cellar: :any_skip_relocation, sonoma:         "550838b9dae438391c2c58fa38c0fcf465f6d73ef1a3eee93c99a1d46e6b35ac"
+    sha256 cellar: :any_skip_relocation, ventura:        "88eb531af5eb46199755c5ef4742e396d69d5c1ae79ffb30fd431c74d7ad3091"
+    sha256 cellar: :any_skip_relocation, monterey:       "12c5b8b938598e8d93b2941d86a75d37ea22e02aa803be237fcce846449958fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82cf2d299e78af06f748a49291e61564ed98f20395803af7211f7f677978ff54"
   end
 
   depends_on "rust" => :build

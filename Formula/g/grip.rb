@@ -6,16 +6,16 @@ class Grip < Formula
   url "https://files.pythonhosted.org/packages/f4/3f/e8bc3ea1f24877292fa3962ad9e0234ad4bc787dc1eb5bd08c35afd0ceca/grip-4.6.2.tar.gz"
   sha256 "3cf6dce0aa06edd663176914069af83f19dcb90f3a9c401271acfa71872f8ce3"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "098f36d577b191abf68aa5f18c717c329385750a0ae9465629346efafdceed79"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "292ae971ccd20644be0c67be0f843789b5bc6f9c29e10f0ed1d1d10bd1959920"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed7eeab70ce801fe70375b66eefd62a299c135d36c97586cc892d3de5fe9d478"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e7d2aa0ea8d33f85540ac0613017e9fcabc9014ebbdbbcdbd51507b759c43096"
-    sha256 cellar: :any_skip_relocation, ventura:        "9036744b9fbe67915e5c3b2f8e8fa4b11fe87f7b5373c2113402a30fc10e0d20"
-    sha256 cellar: :any_skip_relocation, monterey:       "5509d794582f37c20bdaef14a5f9a92099597f13b418341971ddcd272ec9057e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "12d2f6a9b3f784c7ce51d589f598506d5eadba7ef3938662afd35b3fe2230f9c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c2cf3dd7082dde1a9b66aa8d29fb0f42863b0d622d5bb110136fa568ee4014ef"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e005857587f2d0b54e46794570ddd10d5378c2fb8d19935ed0c74cdb36ac8022"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "138651c3ea4797333fa147c1bcce479446d2ae5c63ed9852a9fc4a5f65efa062"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3c936c3186f015cdf9aebe90451a3f65a9d8225480920cde3c487ee3996c2397"
+    sha256 cellar: :any_skip_relocation, ventura:        "7a9c6d90a7c3d0ebeb363e78e1bf9925773086eb0d6fd9abc28a5dc4b4707a71"
+    sha256 cellar: :any_skip_relocation, monterey:       "5dd437ee6a481d7cedac5a45c2d818585604aa15c34723d478675ef3b8d6c147"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5256290403cb1703fe7b95de3ef53791b7f8587ae0468371975f93be7b1f11ae"
   end
 
   depends_on "pygments"
@@ -25,13 +25,13 @@ class Grip < Formula
   depends_on "python@3.12"
 
   resource "blinker" do
-    url "https://files.pythonhosted.org/packages/ea/96/ed1420a974540da7419094f2553bc198c454cee5f72576e7c7629dd12d6e/blinker-1.6.3.tar.gz"
-    sha256 "152090d27c1c5c722ee7e48504b02d76502811ce02e1523553b4cf8c8b3d3a8d"
+    url "https://files.pythonhosted.org/packages/a1/13/6df5fc090ff4e5d246baf1f45fe9e5623aa8565757dfa5bd243f6a545f9e/blinker-1.7.0.tar.gz"
+    sha256 "e6820ff6fa4e4d1d8e2747c2283749c3f547e4fee112b98555cdcdae32996182"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/6d/b3/aa417b4e3ace24067f243e45cceaffc12dba6b8bd50c229b43b3b163768b/charset-normalizer-3.3.1.tar.gz"
-    sha256 "d9137a876020661972ca6eec0766d81aef8a5627df628b664b234b73396e727e"
+    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
+    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
   resource "click" do
@@ -50,8 +50,8 @@ class Grip < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "itsdangerous" do
@@ -60,8 +60,8 @@ class Grip < Formula
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
   resource "path-and-address" do
@@ -75,8 +75,8 @@ class Grip < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
-    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
+    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
+    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
   end
 
   resource "werkzeug" do

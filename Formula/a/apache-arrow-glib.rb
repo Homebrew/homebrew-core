@@ -1,9 +1,9 @@
 class ApacheArrowGlib < Formula
   desc "GLib bindings for Apache Arrow"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-14.0.2/apache-arrow-14.0.2.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-14.0.2/apache-arrow-14.0.2.tar.gz"
-  sha256 "1304dedb41896008b89fe0738c71a95d9b81752efc77fa70f264cb1da15d9bc2"
+  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-15.0.0/apache-arrow-15.0.0.tar.gz"
+  mirror "https://archive.apache.org/dist/arrow/arrow-15.0.0/apache-arrow-15.0.0.tar.gz"
+  sha256 "01dd3f70e85d9b5b933ec92c0db8a4ef504a5105f78d2d8622e84279fb45c25d"
   license "Apache-2.0"
   head "https://github.com/apache/arrow.git", branch: "main"
 
@@ -12,13 +12,13 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "72ed04737f168cdacd815ae21299e6a724fc34c599e542bafe76b07793784376"
-    sha256 cellar: :any, arm64_ventura:  "33b856ac4805ce35bfa95597f5800a0c47dda37e892cce420619543d88722563"
-    sha256 cellar: :any, arm64_monterey: "f43f4a6a0be77888bc92fabfd2b06ff810cc1cde10e80f766c4446b5b3464a5b"
-    sha256 cellar: :any, sonoma:         "3f39949e2c4ec2b3d4f15ddef5c2e61372f91476149b8c964fcdff8ad36dc528"
-    sha256 cellar: :any, ventura:        "21807f0037c2c98c1067674bc8818fc42e0cd19008132b0531cbc0717a1f44a8"
-    sha256 cellar: :any, monterey:       "b5a5f6fde8c910fe92cfa33d79b34534958f967a3456deea2694745331756bee"
-    sha256               x86_64_linux:   "6c1c3e55db4aadc3d355ef7d79cc4cc9cd0431c88d0f2c916123adf16587e7fa"
+    sha256 cellar: :any, arm64_sonoma:   "b4d94fdc2c605409a32d52c7fb35e8df71b105f4d67b75eac0888c6087fa5e33"
+    sha256 cellar: :any, arm64_ventura:  "2f70b685806d5fbda693c730ff124ecc0426e33e540e1646a8f9bb035bbdb5cc"
+    sha256 cellar: :any, arm64_monterey: "319fccd212ae81c6351e46576c563cae7a31918efd0f626e760b5bc4413e67c3"
+    sha256 cellar: :any, sonoma:         "5a5165cda5791da5af83c7a65b128dc5e0dbf5c10de08e04a141a7094ef84d8e"
+    sha256 cellar: :any, ventura:        "ffa2cf231ee2a184c8b93245ccf0b13c6746348cfbc32c50533a637f13389b91"
+    sha256 cellar: :any, monterey:       "6ce37876938e37612521d6d9e70dd85420b3012c11f893f9cb358323a8646fec"
+    sha256               x86_64_linux:   "58914e7838f943c203cb60a6b211fb2d6140354167880789c7fdcae0c45fae49"
   end
 
   depends_on "gobject-introspection" => :build

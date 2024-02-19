@@ -1,8 +1,8 @@
 class Azcopy < Formula
   desc "Azure Storage data transfer utility"
   homepage "https://github.com/Azure/azure-storage-azcopy"
-  url "https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.22.1.tar.gz"
-  sha256 "fc7314f534845353252a743928845bfc0b1a9e56752e9cf01e4e4c12eb0f1bf6"
+  url "https://github.com/Azure/azure-storage-azcopy/archive/refs/tags/v10.23.0.tar.gz"
+  sha256 "9e8ff91f28074b180b063092142a182ca3dffdecf83d1966a85d1ea2f491ba9a"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Azcopy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "680e4416077a14b061423250853ad1ce78db6eed006c6625795c8384282dae71"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19bc5bf031f9ec110220d2851818479911fdd50f18afdfa10ff03ac32a5c0843"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "42c4bceec2575ca6ee00f226af3404fc9f6efa5a9829926d036a68d4ceeca24c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8ce0a0ef0a598cca824d8e9847239fb965b8d93eb731cdbd1e8317f9902a3d30"
-    sha256 cellar: :any_skip_relocation, ventura:        "b72dd9cf961e7e25e6a0833280f44dacb1d5ff70a65c023fcbc76c8718125927"
-    sha256 cellar: :any_skip_relocation, monterey:       "9fa2f07946631708455106f6bcb2fc78081b184518aa1648cc9bbc337b495471"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9db084c365831e431bcce8264c39666838c40108f57b68fd8639b8f8e037115f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4966c7a7e5592c0acd834b4315785fc1bc1135c1456eb8275dee49adf55cc6f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8843af6944b3b7c0e523fe86edcef26f2a0af5a15b1dd4bc43ae8ff10b18166"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "355a638fef03c241e2e502d3c5db7be2e7439721f278507dfa81d7424a5f246b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0cef01752318b3b8a67692f2eb536270cdb56cc44d6cd10c768d83f694dab692"
+    sha256 cellar: :any_skip_relocation, ventura:        "efdf1155f1484b842f5f38cb2c71eada8bbdb8a6a145156d1490f11ae24ab34f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ac62f030f893c9ce20f07b6cda5dd7b51684d2f875d25f234d069d8d6887c797"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "466a67078a5856f5c5ddc4f71d1ee6ed5c512804a9e1db11dccdc80c4f232b7c"
   end
 
   depends_on "go" => :build
@@ -29,7 +29,7 @@ class Azcopy < Formula
   end
 
   test do
-    assert_match "failed to obtain credential info",
+    assert_match "ERROR CODE: AuthorizationFailure",
                  shell_output("#{bin}/azcopy list https://storageaccountname.blob.core.windows.net/containername/", 1)
   end
 end

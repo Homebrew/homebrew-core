@@ -7,11 +7,6 @@ class Reminiscence < Formula
   mirror "http://cyxdown.free.fr/reminiscence/REminiscence-0.5.1.tar.bz2"
   sha256 "6b02b8568a75af5fbad3b123d2efe033614091d83f128bc7f3b8b533db6e4b29"
 
-  livecheck do
-    url :homepage
-    regex(/href=.*?REminiscence[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
-
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "887a653149cd8f77383f4f3ffdac106f8dcba9c52987c4a1c17157db04c33b32"
     sha256 cellar: :any,                 arm64_monterey: "98ebed8348cdac56e1a8d02070321635fce264f93934d1f1b3f26489e7a72c05"
@@ -21,6 +16,9 @@ class Reminiscence < Formula
     sha256 cellar: :any,                 big_sur:        "ebeeb228a43e965ea400a36fd035b515e6b648854bbf96159042d95299173ba0"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "55b09c3a5ffbfc0bd191c3290731350a1a341b6e48065bf60ac2c5b805a035dd"
   end
+
+  # also the repo is archived
+  disable! date: "2024-01-06", because: "missing license"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

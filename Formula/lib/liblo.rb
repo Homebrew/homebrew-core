@@ -1,32 +1,18 @@
 class Liblo < Formula
   desc "Lightweight Open Sound Control implementation"
   homepage "https://liblo.sourceforge.net/"
-  license "LGPL-2.1"
-
-  stable do
-    url "https://downloads.sourceforge.net/project/liblo/liblo/0.31/liblo-0.31.tar.gz"
-    sha256 "2b4f446e1220dcd624ecd8405248b08b7601e9a0d87a0b94730c2907dbccc750"
-
-    # Fix -flat_namespace being used on Big Sur and later.
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-      sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
-    end
-  end
+  url "https://downloads.sourceforge.net/project/liblo/liblo/0.32/liblo-0.32.tar.gz"
+  sha256 "5df05f2a0395fc5ac90f6b538b8c82bb21941406fd1a70a765c7336a47d70208"
+  license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "39f1705123d3a8b54e27f7e73d0177e93eff1a1f408aae472fc94b3f10e65a74"
-    sha256 cellar: :any,                 arm64_ventura:  "96268ad44e715ae9d4fb77b08b1f38740cf9d88f4045d196b2e9a3863be9f82f"
-    sha256 cellar: :any,                 arm64_monterey: "ec5eeaedb57fa7e93e3f5ff00fc5092427ca254fcbaab1306350fed40329c832"
-    sha256 cellar: :any,                 arm64_big_sur:  "95b358e3f04623998f6c2d734599ec7e63b3c389f9d6e0cc9fc6311850929f55"
-    sha256 cellar: :any,                 sonoma:         "783718d0b59f2942ed8b378bd2a58c2f000dc0edd37eb1ba674f4dd642ad0608"
-    sha256 cellar: :any,                 ventura:        "ea21449e020059bb394046886f430289e4628b8d3fb0f3c9dcc1ff4671d790a4"
-    sha256 cellar: :any,                 monterey:       "375403935f81443482f672921c5b2d5ca2802f31186fd2834f0ba1d6c7cea19f"
-    sha256 cellar: :any,                 big_sur:        "19eef0619f05faa15a7d5368973dcd3e5ed2e44291b56cc6ff72825fe8879845"
-    sha256 cellar: :any,                 catalina:       "aac4280d5e147a6baab53c252bbf7cda296fe5bdeceb26d7aa60acb10ecc5444"
-    sha256 cellar: :any,                 mojave:         "3310110ec91fb412b8d5c727bda03454aebec087d78ebada20bb53ad9582088e"
-    sha256 cellar: :any,                 high_sierra:    "034eaec236ee4df490d16db9998ec7a4d88223d929b333c8b08ade641bc74bcb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4abab6d8b5735e6b1dac973850d9608e71c644255c13b954365398daf8aeec4"
+    sha256 cellar: :any,                 arm64_sonoma:   "c379d421a02f1afa3c6105e527dc71b5271450f2964f31b6f6117fd826c8f783"
+    sha256 cellar: :any,                 arm64_ventura:  "1395a951f82712482f5f90cd4a4803d88044154029cd3cd1d2fb2fbaf0f357c1"
+    sha256 cellar: :any,                 arm64_monterey: "e79362d970b3c7a741336f9e02e3d738f43169bc5fddd6972dfae327d4dfe8ee"
+    sha256 cellar: :any,                 sonoma:         "79de8fe2295a65736c7a7de5a2a24e6b62bc8745dd692a330c208e4b717b65e6"
+    sha256 cellar: :any,                 ventura:        "98ec4c770688b3f59d46c99eda7c052eee63ff6c8ab4b874bc56db2942dad96f"
+    sha256 cellar: :any,                 monterey:       "8f4e3f2fd6ce732d7d170f1db5193f9b53b233fcb08b876cc66114b252f465cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62fbd9950f4178a2ec7eeb280aac525b10d483953417f750aca24b420089b157"
   end
 
   head do
@@ -38,16 +24,10 @@ class Liblo < Formula
   end
 
   def install
-    args = %W[
-      --disable-debug
-      --disable-dependency-tracking
-      --prefix=#{prefix}
-    ]
-
     if build.head?
-      system "./autogen.sh", *args
+      system "./autogen.sh", *std_configure_args
     else
-      system "./configure", *args
+      system "./configure", *std_configure_args
     end
 
     system "make", "install"

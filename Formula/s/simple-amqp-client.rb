@@ -4,17 +4,17 @@ class SimpleAmqpClient < Formula
   url "https://github.com/alanxz/SimpleAmqpClient/archive/refs/tags/v2.5.1.tar.gz"
   sha256 "057c56b29390ec7659de1527f9ccbadb602e3e73048de79594521b3141ab586d"
   license "MIT"
-  revision 6
+  revision 7
   head "https://github.com/alanxz/SimpleAmqpClient.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f6bd6bf6f3d8d9d8de51f542da48e4969953e00feb39fde3bb8f47ae85727140"
-    sha256 cellar: :any,                 arm64_ventura:  "87541854d6127e353f9520e65150b53f9dc08906786b06fdad0dd14dc75feb4e"
-    sha256 cellar: :any,                 arm64_monterey: "287fc84fbaece2eb235aa040f4dff6ffc6c9c95bbaf57c306e55a2d93ce85416"
-    sha256 cellar: :any,                 sonoma:         "99702fa54ac07f44fc2f02a17e8684a786acbb828a00b5c44653c70769e4caea"
-    sha256 cellar: :any,                 ventura:        "f7c421c9b737bb5bfd3ff194a9e9e2b1a7aea197104d74a57ba87ba7f4842990"
-    sha256 cellar: :any,                 monterey:       "218104a4d4ce1ed7e3a918b23ac7d8b8d3dafc7aa5e9d5de96d04c80acdd2477"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e2edbc9411379b1ef91abcf2ecb1f783087ebc7cb6e2786e9a65214a350736d"
+    sha256 cellar: :any,                 arm64_sonoma:   "5955d47161a434eb00091e98b1627b7087e0289cf740ebc968ad6bc8c1a21d64"
+    sha256 cellar: :any,                 arm64_ventura:  "f1197fa38e9b5f61e952b33523cd107d7b7a6ed46313ca3641aa92f8e8c54ad0"
+    sha256 cellar: :any,                 arm64_monterey: "e021e1fa6187820eb9ffc9a52d3daa1ca070d855824471e9273c1e256411e137"
+    sha256 cellar: :any,                 sonoma:         "cf2ae443a4777b7f154d39763e831d82e9bd33700ff9927cc6a949dbe7a39395"
+    sha256 cellar: :any,                 ventura:        "78aab41f8651a59aec7ca1ce4ebb380a4761cd1502e30f2fc45abdbba895538b"
+    sha256 cellar: :any,                 monterey:       "7828550fa8c2da040249a911fdea4d223978452eacd5d71b88f393ba8e88ff0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01b9a95164c0fe33252744f8edeb3250893ded1e2b62ec6b342ec75717b4fd0b"
   end
 
   depends_on "cmake" => :build
@@ -23,8 +23,16 @@ class SimpleAmqpClient < Formula
   depends_on "rabbitmq-c"
 
   def install
+    # Remove hard-coded CMAKE_CXX_STANDARD
+    # Else setting DCMAKE_CXX_STANDARD does not work
+    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 98)", ""
+
     mkdir "build" do
-      system "cmake", "..", "-DCMAKE_INSTALL_LIBDIR=lib", *std_cmake_args
+      system "cmake",
+             "..",
+             "-DCMAKE_INSTALL_LIBDIR=lib",
+             "-DCMAKE_CXX_STANDARD=14",
+             *std_cmake_args
       system "make", "install"
     end
   end
@@ -42,7 +50,7 @@ class SimpleAmqpClient < Formula
         return 0;
       }
     EOS
-    system ENV.cxx, "test.cpp", "-L#{lib}", "-lSimpleAmqpClient", "-o", "test"
+    system ENV.cxx, "test.cpp", "-std=c++14", "-L#{lib}", "-lSimpleAmqpClient", "-o", "test"
     system "./test"
   end
 end

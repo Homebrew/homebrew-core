@@ -24,13 +24,14 @@ class UtilLinux < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "d6696eafc31afceb1a26e1907e61852888253a617371cbe175bee6d254e1bcf5"
-    sha256 arm64_ventura:  "b948c1c4644d47d8a01c54f5c58815e704808bc226ff1c5b8c8c567814f32eb1"
-    sha256 arm64_monterey: "9444b99249ca945538230e5992b373e242619defb9c39eded7eb2b20c45d760f"
-    sha256 sonoma:         "f52560fff1164ab4f98dc00b52123778139d19aa214c6f4588fa3dfff220c1c8"
-    sha256 ventura:        "c8214269d901842bd6deffff20b5d95cc18ffee709d0d86639ff8bd8d14d9412"
-    sha256 monterey:       "cd4df60ba5435161deb354c8e58aa82b65c1c378ed318aae1cb86d1cffef4edd"
-    sha256 x86_64_linux:   "caccd0657b3b8e6555e63b0b924f76ce211807c18109c491408aa9edb765adb4"
+    rebuild 1
+    sha256 arm64_sonoma:   "c0fe29bd7ce098ba80b119b4a6b37c16255e9a028724f91ca64efb5259fc9a34"
+    sha256 arm64_ventura:  "3932d45a861da3e7925b1241972f074578b032c83862aa3f1a34801b97f2addb"
+    sha256 arm64_monterey: "b4771e674ce06c984ed83357d6886dc80485c0e46d927fd3b2cba328ed69e9b3"
+    sha256 sonoma:         "aa8a929192d2869fd27e07a3daf14c09f458d83bd2f668dfe0ec82f064724aa1"
+    sha256 ventura:        "72b0ed58340a0cef0a91e2ff8257bf07cec0d2f2ed368ce35e54634c418f82fb"
+    sha256 monterey:       "8fda2654e1ccd298956d2852b3ad905e0991073d45ce995a905914c39190ae17"
+    sha256 x86_64_linux:   "76d8863bb61e6a28021f62bff5677fa0dc4d78a4cf1b230645436ca444a91bd7"
   end
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
@@ -40,6 +41,7 @@ class UtilLinux < Formula
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "pkg-config" => :build # fixes ncursesw detection
     depends_on "gettext" # for libintl
   end
 
@@ -56,6 +58,10 @@ class UtilLinux < Formula
     args = %w[--disable-silent-rules --disable-asciidoc]
 
     if OS.mac?
+      # Support very old ncurses used on macOS 13 and earlier
+      # https://github.com/util-linux/util-linux/issues/2389
+      ENV.append_to_cflags "-D_XOPEN_SOURCE_EXTENDED" if MacOS.version <= :ventura
+
       args << "--disable-ipcs" # does not build on macOS
       args << "--disable-ipcrm" # does not build on macOS
       args << "--disable-wall" # already comes with macOS

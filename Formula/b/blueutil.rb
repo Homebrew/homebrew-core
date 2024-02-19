@@ -28,6 +28,7 @@ class Blueutil < Formula
   end
 
   test do
-    system "#{bin}/blueutil"
+    system bin/"blueutil", "--discoverable", "0"
+    assert_match version.to_s, shell_output("#{bin}/blueutil --version")
   end
 end

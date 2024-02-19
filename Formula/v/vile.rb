@@ -1,8 +1,8 @@
 class Vile < Formula
   desc "Vi Like Emacs Editor"
   homepage "https://invisible-island.net/vile/"
-  url "https://invisible-island.net/archives/vile/current/vile-9.8y.tgz"
-  sha256 "1b67f1ef34f5f2075722ab46184bb149735e8538fa912fc07c985c92f78fe381"
+  url "https://invisible-island.net/archives/vile/current/vile-9.8z.tgz"
+  sha256 "0b3286c327b70a939f21992d22e42b5c1f8a6e953bd9ab9afa624ea2719272f7"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Vile < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "9c04feee9958fd062e6360fd4308d1e2893ffcd4d198daf4f53ba76869302cbd"
-    sha256 arm64_ventura:  "007220d4bfc4a658ffe56b9f4b1af2fa13cb8e8c2fe8cedd2d0537cba3efc8af"
-    sha256 arm64_monterey: "38daf7cce4250fb7eb1b679dd1641c5e23706ed039731f95c3587dda288dac2b"
-    sha256 arm64_big_sur:  "43f477324a6b277b54fe2f14d7cd9c3cac2f2d4e110bc9fa53bd611adc1f0cf3"
-    sha256 sonoma:         "7e1f1a19466d40ea1591751dcfbe64a8c275bf74fcdfd802a715a4696eb2c985"
-    sha256 ventura:        "674ad45785df6e65fd7ff6c23cb685d18bfc69a9efa94c6fc5ad3c7dc3b71f3e"
-    sha256 monterey:       "f40b8db1d54f7bfe59600ab8153f706f12618489f085f232e092d5c771ddb768"
-    sha256 big_sur:        "35ca3b5029b92d685e93e2a965869eb3460663b75d7fd818454f6ad02c887df9"
-    sha256 x86_64_linux:   "cedd8f1889f10d2ce2ae2269963245e0e5e223f6dacc3a539c214cf5eaf0a328"
+    sha256 arm64_sonoma:   "e84be3fdb790f3335cd751171d55992f7bab1c53eebba6a06221a52665da04f4"
+    sha256 arm64_ventura:  "cdaba9b9b3fc2a83aabc80a1b76481fa81bf861c0667d4c4e37929b4b92b5025"
+    sha256 arm64_monterey: "a59ef3113b85e9b48da4bd05c297628d14aee271559257fc3bea1acac346ea72"
+    sha256 sonoma:         "d6a9755cd33df24d243597f47dfb1da3c9e0708665e64167a0e1fe6ba036abda"
+    sha256 ventura:        "9be509ddf2f63412f674624495e0e2c7e7475a21b448a0e027ae031c8b29bf25"
+    sha256 monterey:       "7edd3946a1dced6529483b4f19816ff4b6d6a6310ad069f9d609f6b3a4803417"
+    sha256 x86_64_linux:   "8fadd720ffa6b64bcdfe7fa7b99c76b79b452482aed43279b627ced5f285ac11"
   end
 
   uses_from_macos "flex" => :build
@@ -27,10 +25,6 @@ class Vile < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "ncurses"
   uses_from_macos "perl"
-
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "groff" => :build
-  end
 
   def install
     system "./configure", *std_configure_args,

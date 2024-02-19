@@ -33,14 +33,13 @@ class SharedMimeInfo < Formula
 
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
+
     # Disable the post-install update-mimedb due to crash
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-      pkgshare.install share/"mime/packages"
-      rmdir share/"mime"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+    pkgshare.install share/"mime/packages"
+    rmdir share/"mime"
   end
 
   def post_install
@@ -62,6 +61,8 @@ class SharedMimeInfo < Formula
   end
 
   test do
+    ENV["XDG_DATA_HOME"] = testpath
+
     cp_r share/"mime", testpath
     system bin/"update-mime-database", testpath/"mime"
   end

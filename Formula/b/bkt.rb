@@ -1,20 +1,18 @@
 class Bkt < Formula
   desc "CLI utility for caching the output of subprocesses"
   homepage "https://www.bkt.rs"
-  url "https://github.com/dimo414/bkt/archive/refs/tags/0.7.1.tar.gz"
-  sha256 "ac36ff1015ebbec57d8b9141e88c7ad36423e6abaf35551e3ca715e173c6c835"
+  url "https://github.com/dimo414/bkt/archive/refs/tags/0.8.0.tar.gz"
+  sha256 "c8b99f4540a3a083368db7d42d6947aa37217b32b443d97972e4536ed9404469"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "90854af6ff72f2d0c4bb256fc6a8af608dcdafccf72a35af030693a9b8ba3e0e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc30464dba54c65f53cdc3439c48b3fb533fb9534c62aadff286739e3da9b8df"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "27cbb8f9a4928e7ca87ff458a2481221300da6ffbc253be3a56a47d7e35765e0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "db83f90396caad01bae1f9f51589f651f9218f914e977a0664702049e03beffa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c73da10ab36edc3b771f685bd66d11caa9c905ea096fdfa5b3742929ccdacb50"
-    sha256 cellar: :any_skip_relocation, ventura:        "2f207ee237121d3b386a665473fe66bd685781ac7be987be3d839d54aac2a81b"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa805c2d9b6b611594e1662937dc29f7ae78a92ef45964ceb78769b780371d37"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c7db1c6af6bb8edadb82c5414bdc620cd9feb4210f30d1f83f217ecdbf298316"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c34524bbf630f6c5c9f7cc0d719a572fd89a1cce33aa3ca25f514b8540d9a66b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f208dd72de9d4518a0624dc5cbaefa7edebd76e1b59af107d705ce36ad0ed7c9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f43a7716573ea97ca8d771a0aca2d0eeba2f3b4fb0a7c961acd00443fd515a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4918fde1784c5f9857c270c071ca1419db44a34c8750e85313fa96d02cd8648"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5474740470603f46600633932c9aea50fc6521aa78231f9663645c03fc3bb039"
+    sha256 cellar: :any_skip_relocation, ventura:        "003091dc33df2f6e13ed64cbe9ece53d6b5facb1799b7cb237b878c570e51681"
+    sha256 cellar: :any_skip_relocation, monterey:       "1cdcd41e666dc4c82cf59e768ac9a0fbeb47733c07a963d9f27df861d58e4db6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8b0cbe97719769610f00faecb17cf49de17b5837b3cb23a102c28b133e0840f"
   end
 
   depends_on "rust" => :build

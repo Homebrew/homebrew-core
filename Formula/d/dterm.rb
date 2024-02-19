@@ -22,7 +22,7 @@ class Dterm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e32e1bc798fb4622c7fc33cd62f36fad897329075a8f738708fc319c08e82505"
   end
 
-  deprecate! date: "2023-04-16", because: :unsupported
+  disable! date: "2024-02-18", because: :unsupported
 
   on_linux do
     depends_on "readline"

@@ -17,7 +17,7 @@ class Pachi < Formula
   end
 
   resource "datafiles" do
-    url "https://github.com/pasky/pachi/releases/download/pachi-12.84/pachi-12.84-linux-static.tgz", using: :nounzip
+    url "https://github.com/pasky/pachi/releases/download/pachi-12.84/pachi-12.84-linux-static.zip", using: :nounzip
     sha256 "c9b080a93468cb4eacfb6cb43ccd3c6ca2caacc784b02ebe5ec7ba3e4e071922"
   end
 

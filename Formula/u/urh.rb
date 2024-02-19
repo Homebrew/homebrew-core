@@ -3,20 +3,19 @@ class Urh < Formula
 
   desc "Universal Radio Hacker"
   homepage "https://github.com/jopohl/urh"
-  url "https://files.pythonhosted.org/packages/49/4b/b1a4236c6e3dbcf215a3b1ded8e7ff1af6ca02155c230c40e9b1db0a5376/urh-2.9.5.tar.gz"
-  sha256 "eb621df420e0f15cf7fe98bceac6beb453c909e88c3fad05066f034ea578f406"
+  url "https://files.pythonhosted.org/packages/d8/dc/a6dcf5686e980530b23bc16936cd9c879c50da133f319f729da6d20bd95b/urh-2.9.6.tar.gz"
+  sha256 "0dee42619009361e8f5f54d48f31e1c6cf24b171c773dd38f99a34111a0945e1"
   license "GPL-3.0-only"
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "ad61c232478ac7b456cd3713a7a3d87d663b6e9d01218f10c0366c79588677f9"
-    sha256 cellar: :any,                 arm64_ventura:  "9ea899a6df94c9d97f9bf795b693651e8b2bea1fa17d167a220f2ed571672f8c"
-    sha256 cellar: :any,                 arm64_monterey: "de41e4e2e98dd2c791d3a08f4f2dd394c2ae72773fa1f21be87941cf58b5daad"
-    sha256 cellar: :any,                 sonoma:         "0d7af4b9dda3efb846cb47ff97627077884fd84380c7b5c51cb7bc58da91c329"
-    sha256 cellar: :any,                 ventura:        "401f29ab2e995b37fe14b21898e4e7ec874377583dc4e54f2a4ce03499e1f5ba"
-    sha256 cellar: :any,                 monterey:       "5aa0d23ee74dae5cbc2a9db225bf230b6bf52ebae3aeb701cc834985f7e9588e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa8eec6f5246fa1b88cfd865bc954213c42f1644d277799c0ccfc793cf575fe7"
+    sha256 cellar: :any,                 arm64_sonoma:   "85926c282e7134110066411902d8493f51e4b600c9928d23942cb0ef26414158"
+    sha256 cellar: :any,                 arm64_ventura:  "13af4a878b54ccff9770d1861c284aaff23c1a40c080a4d3218686089d71eb2e"
+    sha256 cellar: :any,                 arm64_monterey: "58be3a1068075e6306a3da6e1ba0562fa68c2052d6c8123bad7a08f3d2d0aab8"
+    sha256 cellar: :any,                 sonoma:         "ae4ebd2a4d3a2c4ace6d2622a009223e29907e966512192594b9e856da0d95f1"
+    sha256 cellar: :any,                 ventura:        "2e5758f7276bcb3647458e0ff86cbd181142ec762c959fc9a12abdd3a407088d"
+    sha256 cellar: :any,                 monterey:       "7f4e434d39bab2752b16e629a71ff6f61bd776534c4053faed81e8f9029f24db"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6753b0fdbd9b3e1a5419aecb36f0b3feacd6e0d1ca80b8783a252a86602b1fef"
   end
 
   depends_on "pkg-config" => :build

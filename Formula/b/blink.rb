@@ -1,22 +1,19 @@
 class Blink < Formula
   desc "Tiniest x86-64-linux emulator"
   homepage "https://github.com/jart/blink"
-  url "https://github.com/jart/blink/releases/download/1.0.0/blink-1.0.0.tar.gz"
-  sha256 "09ffc3cdb57449111510bbf2f552b3923d82a983ef032ee819c07f5da924c3a6"
+  url "https://github.com/jart/blink/releases/download/1.1.0/blink-1.1.0.tar.gz"
+  sha256 "9ac213c7d34a672d2077e79a2aaa85737eb1692d6e533ab2483c07369c60d834"
   license "ISC"
   head "https://github.com/jart/blink.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9b1037d08c598f374bab452fa73b9c62c13f9173c278865813382fbd153f50c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8ac41a29518e1e18a74a68199a12bf7588ff95fc32287bcd3c1cab90ca59906"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b5731d5aa4969fd91a8bc74aee2f8eaf575a904ed22a6d6ab379ad7ff50d457"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d173eb506408f249117adb658e7ac23b50fd049933474d2a472144bbd8839e27"
-    sha256 cellar: :any_skip_relocation, sonoma:         "251e91568986e88da03cc103c06092a7c3f6139f844ef1fe8a160c746b5cf4c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "8f7870d0b8433b83425a676928fafc1b1d66512f67365b2a8f6ce351329be1fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "b277da929dcca474fa44027f775b0a4cec037d2be844329a2c3807f4b25bb6b4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "216715141888fb68111e473514172ce0f4a32c9b3db5c971c8ed73c4b8060ec9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7be6034bfabd74f897c36a63e77c41769f86e01566661d124abaa4593f409e3e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2de61fd64e8fbe185bf583189710c8dc8793c13fe5535489638dc4e1116b7901"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed08f66b03fb447aac0c38f232f6d0ddf3d193f11e1ccfda27141e1de452d5b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "22ddedacbb9166f752850e36aa9b787c66671f0338a452ea465c6bd8e37885d4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dfc61d7528246380f32c4926b1345e19064fd62d56e635fce1a49aa7ff8ecdcf"
+    sha256 cellar: :any_skip_relocation, ventura:        "5d816c1d15c0eafb78919ce3cf3fe2615835fa35b048ad0925debf212d8e1d82"
+    sha256 cellar: :any_skip_relocation, monterey:       "ca2a5adb954404890dfbf93e0bae8934a5568a87e2425068d90e94922eb60bd7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b037ea0f7e1afbba04ffcca29bfdc542fa466be4ffacb9015743b720e227750d"
   end
 
   depends_on "make" => :build # Needs Make 4.0+

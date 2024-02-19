@@ -9,7 +9,7 @@ class Paket < Formula
     sha256 cellar: :any_skip_relocation, all: "e88d0baf7898ba4bdcff08a69f27710b6c1356bb451805a7ad11292bf315d112"
   end
 
-  deprecate! date: "2023-01-14", because: :does_not_build
+  disable! date: "2024-01-16", because: :does_not_build
 
   depends_on "mono"
 

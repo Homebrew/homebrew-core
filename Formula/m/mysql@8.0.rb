@@ -4,8 +4,9 @@ class MysqlAT80 < Formula
   # TODO: Check if we can use unversioned `protobuf` at version bump
   # https://bugs.mysql.com/bug.php?id=111469
   # https://bugs.mysql.com/bug.php?id=113045
-  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.35.tar.gz"
-  sha256 "41253c3a99cefcf6d806040c6687692eb0c37b4c7aae5882417dfb9c5d3ce4ce"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.0/mysql-boost-8.0.36.tar.gz"
+  sha256 "429c5f69f3722e31807e74119d157a023277af210bfee513443cae60ebd2a86d"
+
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -14,13 +15,13 @@ class MysqlAT80 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0da93ff997e9acde2346f03bebb0e14d67ff83e5637b751b1ccaa4a03732f17a"
-    sha256 arm64_ventura:  "9e43c090f73ba34256f77727dceb61b10cd1eb99f79d2fd35ef6b6c3d15d7aa6"
-    sha256 arm64_monterey: "5030be43a741ebddc02c2ac9b38ee42e3cb8874f54733287ddc8dc491f51354e"
-    sha256 sonoma:         "fa06bc790dee06468daa6843b6d2faef779b18e2aa6f9bfb5a82d8ae9e6ca19f"
-    sha256 ventura:        "a5172cf80f000c57ba8be8b6dd57382d64c7ee9b4860dbd160ba8b26e66cb402"
-    sha256 monterey:       "794b229813fe9d5faea7b712cfc86e22afa085196e656171f7abd8e682c0e0ee"
-    sha256 x86_64_linux:   "0df48ec8e9d594f61e8ed369c5152875173ea702c9b7183f45f0c65643e6ade3"
+    sha256 arm64_sonoma:   "78b92956b3ed10c3c09732c127fb15b69284f19e2a5bc98d29d69474609394e2"
+    sha256 arm64_ventura:  "6fd57c5000a76717d60e61ac9569d75d216dd418bd8470a5afb75091014905e1"
+    sha256 arm64_monterey: "c924897ae8caace729e480183c440b4cc431a8bc37391dccebd681b359cd9a62"
+    sha256 sonoma:         "7e269dcce64d3371bbde115194bbda13ed973aec3777696b844a5a60eedfe42b"
+    sha256 ventura:        "6130bbb1c38ff917faa174efe49afef66c73e76b5b06ff9e9f96587dc08973be"
+    sha256 monterey:       "6c82882bfb9ee6525f87557e5da33089c36188d4528f079892f808c9d76b42d6"
+    sha256 x86_64_linux:   "8f1731f775ff324b0edcc409c379be09d861b03742301dcb21807438ecc3b24c"
   end
 
   keg_only :versioned_formula
@@ -33,7 +34,7 @@ class MysqlAT80 < Formula
   depends_on "libfido2"
   depends_on "lz4"
   depends_on "openssl@3"
-  depends_on "protobuf@21" # https://bugs.mysql.com/bug.php?id=111469
+  depends_on "protobuf@21" # https://bugs.mysql.com/bug.php?id=113045
   depends_on "zlib" # Zlib 1.2.12+
   depends_on "zstd"
 
@@ -51,13 +52,6 @@ class MysqlAT80 < Formula
   # Patch out check for Homebrew `boost`.
   # This should not be necessary when building inside `brew`.
   # https://github.com/Homebrew/homebrew-test-bot/pull/820
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/030f7433e89376ffcff836bb68b3903ab90f9cdc/mysql/boost-check.patch"
-    sha256 "af27e4b82c84f958f91404a9661e999ccd1742f57853978d8baec2f993b51153"
-  end
-
-  # Fix for "Cannot find system zlib libraries" even though they are installed.
-  # https://bugs.mysql.com/bug.php?id=110745
   patch :DATA
 
   def datadir
@@ -104,10 +98,6 @@ class MysqlAT80 < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # Fix bad linker flags in `mysql_config`.
-    # https://bugs.mysql.com/bug.php?id=111011
-    inreplace bin/"mysql_config", "-lzlib", "-lz"
 
     (prefix/"mysql-test").cd do
       system "./mysql-test-run.pl", "status", "--vardir=#{Dir.mktmpdir}"
@@ -195,25 +185,39 @@ class MysqlAT80 < Formula
 end
 
 __END__
-diff --git a/cmake/zlib.cmake b/cmake/zlib.cmake
-index 460d87a..36fbd60 100644
---- a/cmake/zlib.cmake
-+++ b/cmake/zlib.cmake
-@@ -50,7 +50,7 @@ FUNCTION(FIND_ZLIB_VERSION ZLIB_INCLUDE_DIR)
-   MESSAGE(STATUS "ZLIB_INCLUDE_DIR ${ZLIB_INCLUDE_DIR}")
- ENDFUNCTION(FIND_ZLIB_VERSION)
-
--FUNCTION(FIND_SYSTEM_ZLIB)
-+MACRO(FIND_SYSTEM_ZLIB)
-   FIND_PACKAGE(ZLIB)
-   IF(ZLIB_FOUND)
-     ADD_LIBRARY(zlib_interface INTERFACE)
-@@ -61,7 +61,7 @@ FUNCTION(FIND_SYSTEM_ZLIB)
-         ${ZLIB_INCLUDE_DIR})
-     ENDIF()
-   ENDIF()
--ENDFUNCTION(FIND_SYSTEM_ZLIB)
-+ENDMACRO(FIND_SYSTEM_ZLIB)
-
- MACRO (RESET_ZLIB_VARIABLES)
-   # Reset whatever FIND_PACKAGE may have left behind.
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 42e63d0..5d21cc3 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1942,31 +1942,6 @@ MYSQL_CHECK_RAPIDJSON()
+ MYSQL_CHECK_FIDO()
+ MYSQL_CHECK_FIDO_DLLS()
+ 
+-IF(APPLE)
+-  GET_FILENAME_COMPONENT(HOMEBREW_BASE ${HOMEBREW_HOME} DIRECTORY)
+-  IF(EXISTS ${HOMEBREW_BASE}/include/boost)
+-    FOREACH(SYSTEM_LIB ICU LIBEVENT LZ4 PROTOBUF ZSTD FIDO)
+-      IF(WITH_${SYSTEM_LIB} STREQUAL "system")
+-        MESSAGE(FATAL_ERROR
+-          "WITH_${SYSTEM_LIB}=system is not compatible with Homebrew boost\n"
+-          "MySQL depends on ${BOOST_PACKAGE_NAME} with a set of patches.\n"
+-          "Including headers from ${HOMEBREW_BASE}/include "
+-          "will break the build.\n"
+-          "Please use WITH_${SYSTEM_LIB}=bundled\n"
+-          "or do 'brew uninstall boost' or 'brew unlink boost'"
+-          )
+-      ENDIF()
+-    ENDFOREACH()
+-  ENDIF()
+-  # Ensure that we look in /usr/local/include or /opt/homebrew/include
+-  FOREACH(SYSTEM_LIB ICU LIBEVENT LZ4 PROTOBUF ZSTD FIDO)
+-    IF(WITH_${SYSTEM_LIB} STREQUAL "system")
+-      INCLUDE_DIRECTORIES(SYSTEM ${HOMEBREW_BASE}/include)
+-      BREAK()
+-    ENDIF()
+-  ENDFOREACH()
+-ENDIF()
+-
+ IF(WITH_AUTHENTICATION_FIDO OR WITH_AUTHENTICATION_CLIENT_PLUGINS)
+   IF(WITH_FIDO STREQUAL "system" AND
+     NOT WITH_SSL STREQUAL "system")

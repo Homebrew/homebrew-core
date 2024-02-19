@@ -1,8 +1,8 @@
 class Lziprecover < Formula
   desc "Data recovery tool and decompressor for files in the lzip compressed data format"
   homepage "https://www.nongnu.org/lzip/lziprecover.html"
-  url "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.23.tar.gz"
-  sha256 "f29804177f06dd51c3fa52615ae198a76002b6ce8d961c3575546c3740f4b572"
+  url "https://download-mirror.savannah.gnu.org/releases/lzip/lziprecover/lziprecover-1.24.tar.gz"
+  sha256 "1d699cfaefe92eb2624a3652580bcafe0bbb98fe7818c25e6de823bcdd0d458f"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,16 +11,13 @@ class Lziprecover < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43ed952d2f7fe54a423fb733564ab33d486ef5db6b8854ac9bdbdaeea30097f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47ea60a44899e5833b8bd0b4daa3e037802ff53681e1cedf6b6acae3d306a5ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f304f75f053a6045e0286da2f1761c1a5c73c0333c80446017b8f7a3519b66e7"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e750fd2418477ae083f1be0113572af5703d0997971871e046db90450530d4e1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "66d896633fa6620e45d2a007e38d6d0a8789ab932b63add83edc7d4270522310"
-    sha256 cellar: :any_skip_relocation, ventura:        "26cbe75e810889f787a764ebc8d9ee13327876f0428e0f3e9f4f8b7efab2adf9"
-    sha256 cellar: :any_skip_relocation, monterey:       "f85eac960d6a8a1a8fcf3711980fb9122e1cd4789161c7d974840c2d1762e650"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0180531f07c7493e58ef145c7de2ee0891db6ec8c2d2a24ca62cad813c5ea95d"
-    sha256 cellar: :any_skip_relocation, catalina:       "5e2168438e6bd3669db3dae1969173737873f46372003ae36a56d832296e5e45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61b9cb353269182c3ba0564849ac427d35735389270c565eadc55e8c4b2dfd70"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "92fb61b39ad982dcefcf73afb6a005208156b9909cdcb7b3e5def6158589336c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25f136fe7fe5b7565373debbae2ea9efc280c140ca82f1f01e64be2bb9cf087b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17f6b6deabe434ae8fd3ee061a07847f0146f38d786fb46b53917b658eab0d5a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "11dfdffe42cf0c75cd15acd369336a80569a57e14f83a42c0fd0f31c0707b2f2"
+    sha256 cellar: :any_skip_relocation, ventura:        "0324acbac4ee097f0a9ebcf2fefe3b30dbe654b55baa70fe63241dcd89075e89"
+    sha256 cellar: :any_skip_relocation, monterey:       "9c9949fa4537af00f21ff19e58616a54565c6f2118a843472aab12af1c2ec9d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6df153d89b7704c4920d7419815b7804aca753067b1984bc7711c3d748d994d8"
   end
 
   depends_on "lzip" => :test

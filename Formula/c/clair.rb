@@ -11,16 +11,17 @@ class Clair < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ae3e85126240fd24fa213b59eca3471a5f6091bbded991e4c33f80310680120"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa8503477ab71c480bd363c1e7c4307c41f7d267759ad7104b9b9ede4993a442"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3eced5d3fd65b01be22fcf5fc0ca7754e8d0f33b95e6e6242937ca5714e86664"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a2bedd64e6d81f40d1c6bfeef83ad6cd977aa958a5ec38f524f76a4e903e74d9"
-    sha256 cellar: :any_skip_relocation, ventura:        "3f2cc0fc5baead4e9853dcaa3009c69043333a6da93c9b11165ed0cc8ede9a5c"
-    sha256 cellar: :any_skip_relocation, monterey:       "82e820020ca49308b5602cfd8d34d14c10c1a0fab71e7d4368148931221ffb44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb434c8789c0d0b1fe858eb2573cd97a9c52cf34b04872b03126a10ace8f43b6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "187b08c3ea2875ae55f6b05ad639ea6f7f1ca9c1c891feeef64759b3bf216596"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78e0d3fd902448fb3cd0a5624c6a6a9b41515479008e9d4c5323da494bd0c90a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b97dff3112bd67bee0d68bb538ffac2500e571b35b38d515e74e77f78d980664"
+    sha256 cellar: :any_skip_relocation, sonoma:         "99a34cecf0e46eec0ef50d522948bd98fc5af5fe8c8dfe1c31f0746379cc8e5c"
+    sha256 cellar: :any_skip_relocation, ventura:        "192594d5cd82870c9978de3e7d573f4b86c63ad6a85e1582fb27e59d4e54035b"
+    sha256 cellar: :any_skip_relocation, monterey:       "19557e5444a6ef4bfa2a11ae9c97a69f551303231d3cb63b631987f9e3d0f286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3491976aaa4eec50e3eebd021e898654e4e0e9eb9f305dbabd728e49056afdd8"
   end
 
-  depends_on "go" => :build
+  depends_on "go@1.21" => :build # use "go" again when https://github.com/quay/clair/pull/1942 is released
 
   def install
     ldflags = %W[

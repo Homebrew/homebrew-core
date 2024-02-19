@@ -1,19 +1,19 @@
 class VulkanExtensionlayer < Formula
   desc "Layer providing Vulkan features when native support is unavailable"
   homepage "https://github.com/KhronosGroup/Vulkan-ExtensionLayer"
-  url "https://github.com/KhronosGroup/Vulkan-ExtensionLayer/archive/refs/tags/v1.3.268.tar.gz"
-  sha256 "038fe8be301a7169b57c5fef7fbcdfa61a52f2b0fb3dabcf61218dfa417ba7dc"
+  url "https://github.com/KhronosGroup/Vulkan-ExtensionLayer/archive/refs/tags/v1.3.277.tar.gz"
+  sha256 "05815a88b8ab7fc2bf46093eaa9fa1bfd18e36877b6b25f13d751ca6113e1e9b"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-ExtensionLayer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4863eafe85a71d3f47029d5d3b1098a3a36b9ee200fc7481e8d335980fdc8841"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d44f601b9f0931f0e808e2d4e241f0da6e6cfde8e503cdad8cbdc9a9a53ef55"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "37a2a6da2a019b87acfa9548e34e58b0191397cbeb5e1525df1c5e4f8f4d3b20"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6712427862da96e9a6c8e9c91c183e39c2704c38f032d55eb99a0a20dd671562"
-    sha256 cellar: :any_skip_relocation, ventura:        "141799afecfc728676905d61e2beaf143ce46b5c83975b9e57a81d30b0c139bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "6af951d041a7c7816e9180594d82363b6dd77394da15acd34a1564e2d79f48e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b2b88f11c14db216711f4f5305d8aae413cce3482aee144c1f182933f9449cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d48b1f9e1fce6a51be381816db28d92da91f6ae48f2a7ee37995bb3c0ae66eed"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aeb8aabff9f57eebe614564b78444d08dc7abcf8d39e74f75df9431e22cdecc6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f2e7c86d8e06a77d64f4b78ec61e097149ecd571c9d1a2652ec9a0e6a1fdd902"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2373bca1e21d6ca77f51a7c58f8ff4a6528ac792dc64992a44d49a56caa71aa0"
+    sha256 cellar: :any_skip_relocation, ventura:        "c6cd94f1e11434b29edb56024845ff5316e37cbde52186a4a3af1c4a643a2d32"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c8b89534a9b336cf28cf1b88e6f0f0a3860fc89d9ffb89d432f760ef4d4dbd6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59c8829ced3ee62c0b57548e4d64417f4f7f35ad94cf0c09e52e06a48f3bf2c7"
   end
 
   depends_on "cmake" => :build
@@ -41,6 +41,7 @@ class VulkanExtensionlayer < Formula
                     "-DSPIRV_HEADERS_INSTALL_DIR=#{Formula["spirv-headers"].prefix}",
                     "-DSPIRV_TOOLS_INSTALL_DIR=#{Formula["spirv-tools"].prefix}",
                     "-DVULKAN_HEADERS_INSTALL_DIR=#{Formula["vulkan-headers"].prefix}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath(target: Formula["vulkan-loader"].opt_lib)}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -56,15 +57,14 @@ class VulkanExtensionlayer < Formula
   test do
     ENV.prepend_path "VK_LAYER_PATH", share/"vulkan/explicit_layer.d"
     ENV["VK_ICD_FILENAMES"] = Formula["vulkan-tools"].lib/"mock_icd/VkICD_mock_icd.json"
+    ENV["VK_MEMORY_DECOMPRESSION_FORCE_ENABLE"]="true"
+    ENV["VK_SHADER_OBJECT_FORCE_ENABLE"]="true"
+    ENV["VK_VK_SYNCHRONIZATION2_FORCE_ENABLE"]="true"
 
-    expected = <<~EOS
-      Instance Layers: count = 3
-      --------------------------
-      VK_LAYER_KHRONOS_shader_object      Khronos Shader object layer      \\d\\.\\d\\.\\d+  version 1
-      VK_LAYER_KHRONOS_synchronization2   Khronos Synchronization2 layer   \\d\\.\\d\\.\\d+  version 1
-      VK_LAYER_KHRONOS_timeline_semaphore Khronos timeline Semaphore layer \\d\\.\\d\\.\\d+  version 1
-    EOS
-    actual = shell_output("vulkaninfo --summary")
-    assert_match Regexp.new(expected), actual
+    actual = shell_output("vulkaninfo")
+    %w[VK_EXT_shader_object VK_KHR_synchronization2 VK_KHR_timeline_semaphore
+       VK_NV_memory_decompression].each do |expected|
+      assert_match expected, actual
+    end
   end
 end

@@ -17,7 +17,7 @@ class Clfft < Formula
     sha256 cellar: :any, el_capitan:     "369c0df6b06b7ea116120e177a44a54760cc4d7132a1fb59a83ef52a99a6b5f4"
   end
 
-  deprecate! date: "2023-03-10", because: :unmaintained
+  disable! date: "2024-01-05", because: :unmaintained
 
   depends_on "boost" => :build
   depends_on "cmake" => :build

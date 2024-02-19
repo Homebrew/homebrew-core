@@ -1,8 +1,8 @@
 class Fish < Formula
   desc "User-friendly command-line shell for UNIX-like operating systems"
   homepage "https://fishshell.com"
-  url "https://github.com/fish-shell/fish-shell/releases/download/3.6.4/fish-3.6.4.tar.xz"
-  sha256 "0f3f610e580de092fbe882c8aa76623ecf91bb16fdf0543241e6e90d5d4bc393"
+  url "https://github.com/fish-shell/fish-shell/releases/download/3.7.0/fish-3.7.0.tar.xz"
+  sha256 "df1b7378b714f0690b285ed9e4e58afe270ac98dbc9ca5839589c1afcca33ab1"
   license "GPL-2.0-only"
 
   livecheck do
@@ -13,13 +13,13 @@ class Fish < Formula
   pour_bottle? only_if: :default_prefix
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9fd37026489e9daac1ce77284d05e9f7af0a4751c3dd97828112b58e71c10dd8"
-    sha256 cellar: :any,                 arm64_ventura:  "0529f97d5e5a07308ca8bedd29b038cf0050aebc546f05efa59aab292fa17c1c"
-    sha256 cellar: :any,                 arm64_monterey: "d60d08d8bca99b3bd96f2f9c226b483ca64d31940521ef5036da289ab82071f9"
-    sha256 cellar: :any,                 sonoma:         "81610211da71108ad9794f3bb3ee2a3db7fe43e08108c50161fccf71e3a87e9f"
-    sha256 cellar: :any,                 ventura:        "31f67946b37763f9abf17cdbf652a23747eabe49bab6f535c9706cd94b939fd2"
-    sha256 cellar: :any,                 monterey:       "7c969d93c021c32c671695bc0e5248e63e75344e5d2e2c58f2758d3abc6c1edd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0faad1c9fbeb7737b67fba61450fe5d4fe881559d0a4e56b5f654aba32f12b85"
+    sha256 cellar: :any,                 arm64_sonoma:   "df77766a3e20b75b220364befbb0a8abea19662e471fb9c42bc0d8746ae00570"
+    sha256 cellar: :any,                 arm64_ventura:  "1968642c9fec6da5d16cb649d54c66bc9d500e5b91c43bd2c4b8098f71c0b983"
+    sha256 cellar: :any,                 arm64_monterey: "80e5c51fe504bef8785c472424ea8a176536b0d56f3b52eb79a1d1b6ac7739f3"
+    sha256 cellar: :any,                 sonoma:         "4a123e4be4fb992fe9d0e4473d7be2f8389616b12b0d081db82e5bae395e57cf"
+    sha256 cellar: :any,                 ventura:        "00de65841e80b4acd781999a03f2fe38d32a1aa10d8b4432af832905ec26c2d8"
+    sha256 cellar: :any,                 monterey:       "0bea9245a7565601af76d43c3cb26b7ce500b68a9326df6cd4d0d6cd49d91e12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8b18b643a3cf68af82ebeb260dde9be24bac67b5e48b44cce1799777eab4e96"
   end
 
   head do

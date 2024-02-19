@@ -1,20 +1,19 @@
 class Garble < Formula
   desc "Obfuscate Go builds"
   homepage "https://github.com/burrowers/garble"
-  url "https://github.com/burrowers/garble/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "355e0ee7e98b1656fcfe8156040ed2ef41afd5e2f2d6332465392ab425530494"
+  url "https://github.com/burrowers/garble/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "98ade316176d434f298bdb36e4c421e3c4c33668cfd2922d358f7f0403566500"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/burrowers/garble.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ca7cacf31cdfd1b84b80070621419c71e4c6cf22a2da893d935d50e70cf7183"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8626463363e920d3b36c000b6eb9015ad9682d5937078744c21b6cae5d5266e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "69e2c4e0d00129061b6498ef802e13d6064533180e3d99d5ff36e4b7a49b36fb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "41deef2a97fbf15eaab5e244ae460c51f0b70f3dc8c1a08d8109653faa73bd85"
-    sha256 cellar: :any_skip_relocation, ventura:        "4261aaa514d189b58921ce8e561b311e57311c62ff5402b9dc6c6f24a8e28703"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee295efb0c4f93944a798529203ebbe3d845527175494fc1ca37e8e3792b47ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8ec75a2ba723217ac76a484335de41940aa8530754e760ed620b886147cbf20"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5167cb5986f5d9818ad230574072ea34c8fc4221bce401c90eb0236dd3ce62f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c677e7d91b35e1e087183a12b5c94d1601c59e13861385913b564c5d96ebdd5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21196d08acd7975e1f4eb4b9893942f576b1b59c16a18e5c17dc9d29f5458b1a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7652b0fd742d195c844a367bf2f7ee9c8731469a60306fdc511a89c2efd24224"
+    sha256 cellar: :any_skip_relocation, ventura:        "6951a65b83e415ac31baf30a04e4c7da7ba6b7a3a9566c6dcf355686f4ecf0ce"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e045cb31fce426d644f81f4c19e9f5623b23dee368a2b73a29007298cb8fa3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da8eeb880d156a43ac0b33f670a155a23caaeca7df79964b9c187fb92fe4977b"
   end
 
   depends_on "go" => [:build, :test]
@@ -38,16 +37,11 @@ class Garble < Formula
     system bin/"garble", "-literals", "-tiny", "build", testpath/"hello.go"
     assert_equal "Hello World\n", shell_output("#{testpath}/hello")
 
-    goos = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOOS").chomp
-    goarch = Utils.safe_popen_read("#{Formula["go"].bin}/go", "env", "GOARCH").chomp
     expected = <<~EOS
       Build settings:
             -buildmode exe
              -compiler gc
              -trimpath true
-           CGO_ENABLED 1
-                GOARCH #{goarch}
-                  GOOS #{goos}
     EOS
     assert_match expected, shell_output("#{bin}/garble version")
   end

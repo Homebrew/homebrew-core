@@ -12,7 +12,8 @@ class MsgpackCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f7c820135c11949305392b6bd00db7bfbbb47ffeaf7477cf30ce2e6b8283eac1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "a75f1a2157ce644a3f1750478b7ba34cae5c0d354d70ffaaaccbb9c15a0e721b"
   end
 
   depends_on "cmake" => :build
@@ -56,7 +57,7 @@ class MsgpackCxx < Formula
       }
     EOS
 
-    system ENV.cxx, "-o", "test", "test.cpp", "-I#{include}"
+    system ENV.cxx, "-std=c++14", "-o", "test", "test.cpp", "-I#{include}"
     assert_equal "[\"Hello\",\"MessagePack\"]\n", `./test`
   end
 end

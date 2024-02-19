@@ -11,8 +11,10 @@ class Onionprobe < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "527de4383a1c90b0c86abfa59f357829f073e70f24c980b398aeba8e863c77be"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "4709f43b926d374d1860141f7775788992b42a62a9c1ef5b7980ed6f688af833"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "d8fbc9ec6cfdc54f128bfa251834d419f473a4a41848e317b9aac76e3b76eb77"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0e54dcf7fa482c195ed1d89e052c3e2381264a9cd8d25a7f4e31a1f5a740a1b3"
     sha256 cellar: :any_skip_relocation, ventura:        "6ed0df431c2bf11fe15c9f7b950ffa83bd1d83e58607d837ebfa0b0d0d6395bd"
     sha256 cellar: :any_skip_relocation, monterey:       "5dd577cd3836fef6243cf75e7042bae8cc132b716b7c3b7cf4621a0643fdee39"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0989a516c22bd501011ca86e6a119f1f011f8d3c2b9b3e77e309a74f65b2424"

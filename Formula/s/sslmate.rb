@@ -2,6 +2,7 @@ require "language/perl"
 
 class Sslmate < Formula
   include Language::Perl::Shebang
+  include Language::Python::Virtualenv
 
   desc "Buy SSL certs from the command-line"
   homepage "https://sslmate.com"
@@ -16,14 +17,14 @@ class Sslmate < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7124d6323deb7b605957235b77286ad7a26ff542e856fb18a3a22568ef5f198e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7124d6323deb7b605957235b77286ad7a26ff542e856fb18a3a22568ef5f198e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7124d6323deb7b605957235b77286ad7a26ff542e856fb18a3a22568ef5f198e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a48ce07dace5cd56870b2eeaa3cb720300314319896ef1234463bd54de52c693"
-    sha256 cellar: :any_skip_relocation, ventura:        "a48ce07dace5cd56870b2eeaa3cb720300314319896ef1234463bd54de52c693"
-    sha256 cellar: :any_skip_relocation, monterey:       "a48ce07dace5cd56870b2eeaa3cb720300314319896ef1234463bd54de52c693"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b5c7e9cfc44002529a99466d13cf544d4650488f9989e85973c3b9a78759d68"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb39df31804e5f153a76080268c3c8752742e5c4a76f00dea551a05aca24d5d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "659740379424a373de6480d44ef56bce23499dcf2aaf3081582fbde5e92e9fd5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6db9446504bcecebd1e1505f86a29c87c99c4ce6e63710aa855453e5a6a66a1a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f35883d50f0c3c8a5a8f2827efff697d20355b61d12c4e6dfda2e5ca07619972"
+    sha256 cellar: :any_skip_relocation, ventura:        "432bb73e85b906bb964a52b0a28847c909aec0477e6efdbf63c2beaae9283d60"
+    sha256 cellar: :any_skip_relocation, monterey:       "0addd0ca9e4abbedda048348471b912aee0e03291267a2adfa3054cb37ab5d61"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "68e7576fa7b3fbc78c7303c4778f8c41e1ecf3313bc39783edb281aa271e2d72"
   end
 
   depends_on "python@3.12"
@@ -42,10 +43,20 @@ class Sslmate < Formula
     end
   end
 
+  resource "boto3" do
+    url "https://files.pythonhosted.org/packages/d7/1e/919989cd5ffc34ac7bc1107cca3eb1a9e03bbe05232c5ae61f923ecb689e/boto3-1.29.6.tar.gz"
+    sha256 "d1d0d979a70bf9b0b13ae3b017f8523708ad953f62d16f39a602d67ee9b25554"
+  end
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"vendor/lib/perl5"
 
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resource("boto3")
+
     resources.each do |r|
+      next if r.name == "boto3"
+
       r.stage do
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}/vendor"
         system "make"

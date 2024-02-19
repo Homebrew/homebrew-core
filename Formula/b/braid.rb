@@ -5,17 +5,16 @@ class Braid < Formula
       tag:      "v1.1.9",
       revision: "0b2f7cd4296039c0e8c0a5f563443c4f0665d026"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "288b638c1602782f7ea961a44d9df022cd1ab0b6cc84e6d149caf54d0ea75471"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "442f0a9bbf78cbcf5f3c7067ba9b727641092d770502a98b43d5edb166274020"
-    sha256 cellar: :any_skip_relocation, sonoma:         "288b638c1602782f7ea961a44d9df022cd1ab0b6cc84e6d149caf54d0ea75471"
-    sha256 cellar: :any_skip_relocation, ventura:        "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
-    sha256 cellar: :any_skip_relocation, monterey:       "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "3402b0a04d37a38cbe3fec1f55d4365e338b8c4c0d6220efd8830ecf6d441cfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88f0796512331c9add77ddc67834521dec363d1e565ab146f0e964f310d114e7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
+    sha256 cellar: :any_skip_relocation, ventura:        "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
+    sha256 cellar: :any_skip_relocation, monterey:       "37b6af924165c983beabe2fe2cf9bcb3fdf682e3b5bfca305934557268dbe6d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "323907f20250f9604aef138be96269c39ebf6ee86306ff1b7279cda7a9be430e"
   end
 
   uses_from_macos "ruby", since: :high_sierra

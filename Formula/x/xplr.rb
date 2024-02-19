@@ -1,21 +1,19 @@
 class Xplr < Formula
   desc "Hackable, minimal, fast TUI file explorer"
   homepage "https://github.com/sayanarijit/xplr"
-  url "https://github.com/sayanarijit/xplr/archive/refs/tags/v0.21.3.tar.gz"
-  sha256 "27800f0e731aedc194872609263e8c20b2e94b2f2e9088da5d3f501c406e938d"
+  url "https://github.com/sayanarijit/xplr/archive/refs/tags/v0.21.5.tar.gz"
+  sha256 "c6e2b800888363c6d6101eafe585723a5bf9cc304cedff77a302c0e2a6d0a151"
   license "MIT"
   head "https://github.com/sayanarijit/xplr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "090a366de0a7468749029b1833361bcdf1317453644e4924fae47627c67055d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf45f453db98e46627589ccb714c4dd77784ca3ed66789707c323e205ea032a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "250b160f712305bf0b26a9b646ebb92bdc75b5ec07ae8b02140abece36daadc3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7c2d4469d1f47267e696d4f585d25c76d9f24e0b43b80154c3574fa5514361a3"
-    sha256 cellar: :any,                 sonoma:         "e8a2d52767ca9e97db4dbcd22976ae0b36346fae437e677ce9ebb7c0c87c285c"
-    sha256 cellar: :any_skip_relocation, ventura:        "3208ff8b9db848db3dc018b545f5ad9db80eeeb7f0a4f621b29da07ee8e69dbc"
-    sha256 cellar: :any_skip_relocation, monterey:       "26bec132afb8adf781fe4b8f5e453b1e807eed1767023c3f4059aa6683faba19"
-    sha256 cellar: :any_skip_relocation, big_sur:        "6492c79136002ecb1d9a604c74c97af1e050b1735f7d2830dc64ca3ac6b12f33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55d18fb8642c8eb2a34c15889abb5ca5010fe6ae24b9044a500f5e2384d734e3"
+    sha256 cellar: :any,                 arm64_sonoma:   "d983a8db6be6c12d07ffe368eec9a31d6f748507a0034f63d8f7b8794f484ccb"
+    sha256 cellar: :any,                 arm64_ventura:  "dc5daebb3294ccb64053293da12d7262699934812f1dae43cd9e8b6ea2a84ab1"
+    sha256 cellar: :any,                 arm64_monterey: "d1dd3855ff3099c7c5b41ed93b68c5f9271f9475e6eed4f26d872b1d2111199a"
+    sha256 cellar: :any,                 sonoma:         "a089019f3c3d65e8ac9dfae5e1da9e8642f405a80309c10d42e63a238deb75d4"
+    sha256 cellar: :any,                 ventura:        "d9c4b7786b218413fac34063c1031cc87b2384ea460cca7b70bc06c2854cba14"
+    sha256 cellar: :any,                 monterey:       "0b6f202f477034c9ce36221f22e8423c57232f32773449e268a683c317739b20"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fec4a296ef77d536a944c9e591507ec46952ce2ea14c130fe57162c1f92c6de4"
   end
 
   depends_on "pkg-config" => :build
@@ -64,7 +62,7 @@ index 48bd3e1..69cdd17 100644
 @@ -73,7 +73,7 @@ features = ['serde']
  
  [dependencies.mlua]
- version = "0.8.9"
+ version = "0.9.2"
 -features = ['luajit', 'vendored', 'serialize', 'send']
 +features = ['luajit', 'serialize', 'send']
  

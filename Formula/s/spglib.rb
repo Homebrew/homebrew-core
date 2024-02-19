@@ -1,18 +1,18 @@
 class Spglib < Formula
   desc "C library for finding and handling crystal symmetries"
   homepage "https://spglib.readthedocs.io/"
-  url "https://github.com/spglib/spglib/archive/refs/tags/v2.2.0.tar.gz"
-  sha256 "ac929e20ec9d4621411e2cdec59b1442e02506c1e546005bbe2c7f781e9bd49a"
+  url "https://github.com/spglib/spglib/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "6eb977053b35cd80eb2b5c3fa506a538ff2dad7092a43a612f4f0d4dc2069253"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5911be8110caa19a48ba5ec884182506300cd08bc32b9ebb02a96403e1bcc3fa"
-    sha256 cellar: :any,                 arm64_ventura:  "962499b9d28386bb78076b9d35261c7a97393305b0d9d415ba9f33324197fb53"
-    sha256 cellar: :any,                 arm64_monterey: "bae90e995fe2a1442b1a9b8056dd24c71deb65fd25b9cf5e3cd95a9ec280a923"
-    sha256 cellar: :any,                 sonoma:         "556970e798d2e06fbedd3b61b9f8158685d1bcb6e50dad793b1224e58e0e1a35"
-    sha256 cellar: :any,                 ventura:        "15e8b05b0faf058629fdc1a310c3c7b9bfb2d9dcbd1dda26844f79e483e90956"
-    sha256 cellar: :any,                 monterey:       "5016e46b335a7b91ae123e208bfc6449b0d5cd6433317f96d66976c5d61f640d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc3d19eb250359ec5ebf9440e8203d364a147f94f024d57ab80dd1cbc2d67276"
+    sha256 cellar: :any,                 arm64_sonoma:   "076dbf48095ccbcd03b975f7e000245ad896e002154d6726f65a153c50250715"
+    sha256 cellar: :any,                 arm64_ventura:  "ea234e064949293d5f7e59f166903e0a584c6a38b17003cdf14b827ea720eda1"
+    sha256 cellar: :any,                 arm64_monterey: "b415ef151c30804a7c45548a434dae8e613e7f19532fa3a2fe9e9931b52f7184"
+    sha256 cellar: :any,                 sonoma:         "78231c5221d713ab26a2d64070ceda8d5e79af91ea2c05e0dff6fa7d040496d8"
+    sha256 cellar: :any,                 ventura:        "0ec0215f5643d50e674729a2a9ba15a6eab51acf7d9759763dd411036f156b16"
+    sha256 cellar: :any,                 monterey:       "8e69dd2763de14b943a879862b469b382907bdd62f1343ef0fb37211de9872f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c99aab6f75d48da47709e56ed5c19fcbb3650f3e1b86738325f1f39add4aef12"
   end
 
   depends_on "cmake" => [:build, :test]

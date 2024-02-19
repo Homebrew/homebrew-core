@@ -1,41 +1,19 @@
 class Ctl < Formula
   desc "Programming language for digital color management"
   homepage "https://github.com/ampas/CTL"
+  url "https://github.com/ampas/CTL/archive/refs/tags/ctl-1.5.3.tar.gz"
+  sha256 "0a9f5f3de8964ac5cca31597aca74bf915a3d8214e3276fdcb52c80ad25b0096"
   license "AMPAS"
-  revision 12
   head "https://github.com/ampas/CTL.git", branch: "master"
 
-  stable do
-    url "https://github.com/ampas/CTL/archive/refs/tags/ctl-1.5.2.tar.gz"
-    sha256 "d7fac1439332c4d84abc3c285b365630acf20ea041033b154aa302befd25e0bd"
-
-    # Backport support for OpenEXR/Imath 3. Remove in the next release.
-    # Due to large number of changes from last stable release to OpenEXR 3 commit
-    # https://github.com/ampas/CTL/commit/3fc4ae7a8af35d380654e573d895216fd5ba407e,
-    # we apply a patch generated from GitHub compare range.
-    patch do
-      url "https://github.com/ampas/CTL/compare/ctl-1.5.2..3fc4ae7a8af35d380654e573d895216fd5ba407e.patch?full_index=1"
-      sha256 "701df07c80ad10341d8e70da09ce4a624ae3cccbe86e72bf07e6e6187bca96cc"
-    end
-
-    # Fix installation error: file cannot create directory: /CTL.
-    # Remove in the next release.
-    patch do
-      url "https://github.com/ampas/CTL/commit/f2474a09f647426302472009649edb4c3daac471.patch?full_index=1"
-      sha256 "9adb22c5558bf661afea173695bad0a23a19af12981ba31c9fc0c6f9129fe6f1"
-    end
-  end
-
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a0168820a05b59e486be9e08500d23a1c6db05004c13b359c66273a42c94460d"
-    sha256 cellar: :any,                 arm64_ventura:  "f8c3cbbb2404f37e00b825c3c72fd7a22757e3435e8e799402ce19d33740e316"
-    sha256 cellar: :any,                 arm64_monterey: "4876e92dc02bc69c6c0c6aa6fe0cafa3dc06718a0a388f3977aa2ba7b45332b6"
-    sha256 cellar: :any,                 arm64_big_sur:  "9be1c965bb3145b08728f102b33c519c83a6e7143625e562fb0b8fc9ca8355da"
-    sha256 cellar: :any,                 sonoma:         "01b15b89bdbe253423b119b4f2dc955ce4d482b06d98450d63b353b3e50909b9"
-    sha256 cellar: :any,                 ventura:        "f2e2507f4a8e553222b1e3a75db65c42af9bf27d8d71a60951ac0b777944897c"
-    sha256 cellar: :any,                 monterey:       "d5b65911c6ac1e2c2d8966aa334d68ad23486edb76044657a2faa57c517002f7"
-    sha256 cellar: :any,                 big_sur:        "b35ded51c3ee67c1ae4e9abad1ce085f8610fcc9a2e3b87212452ea292aafd31"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0211b234a9eeb9e5d316085c72bed2c98da00d913cd21b72ff2d02ed828190a9"
+    sha256 cellar: :any,                 arm64_sonoma:   "09e00ca81ea0579317522d47dc94b7569c0ec006779af1688e321db694be4039"
+    sha256 cellar: :any,                 arm64_ventura:  "7a3fd5eca1686d5396816bc4f7110e49fa03d0c4e1d5a31e4e7a1797661e9379"
+    sha256 cellar: :any,                 arm64_monterey: "18d01a3812983c2dda174e54a1ba361545be2e26977520d30209a232e67bd34b"
+    sha256 cellar: :any,                 sonoma:         "87183233f8b431d80d3e3e0cc48a63640ab648cf8f8ee9e28ef28388a5f00ebe"
+    sha256 cellar: :any,                 ventura:        "99dad1064acd32072818f9461897f7e135b3e83e74327470dee8fa471dbb67a6"
+    sha256 cellar: :any,                 monterey:       "4654b4b1cd581df25409b0953009b57b7e8e58c15e55a459e068cee4b1c18661"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41978658fbcaa4a098be2a6cb93fc4ee0240b3bc3fc7663a84f54a04e58d3fcf"
   end
 
   depends_on "cmake" => :build

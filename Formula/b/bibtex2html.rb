@@ -3,6 +3,7 @@ class Bibtex2html < Formula
   homepage "https://www.lri.fr/~filliatr/bibtex2html/"
   url "https://www.lri.fr/~filliatr/ftp/bibtex2html/bibtex2html-1.99.tar.gz"
   sha256 "d224dadd97f50199a358794e659596a3b3c38c7dc23e86885d7b664789ceff1d"
+  license "GPL-2.0-only"
 
   livecheck do
     url :homepage

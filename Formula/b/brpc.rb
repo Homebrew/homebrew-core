@@ -1,17 +1,19 @@
 class Brpc < Formula
   desc "Better RPC framework"
   homepage "https://brpc.apache.org/"
-  url "https://dlcdn.apache.org/brpc/1.7.0/apache-brpc-1.7.0-src.tar.gz"
-  sha256 "767fa5d70118ce7dda89edb958da5c873bac7d2e21753892765e0e4ffe4a9854"
+  url "https://dlcdn.apache.org/brpc/1.8.0/apache-brpc-1.8.0-src.tar.gz"
+  sha256 "fa640c55c2770aaf0e80ddb3a9bef423d1f377129662367133d46efb005955b2"
   license "Apache-2.0"
   head "https://github.com/apache/brpc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "2d6362b167c9b39b6496ac03c7dd3f44225b4af6e01baa7711287e7c96e24426"
-    sha256 cellar: :any,                 arm64_monterey: "4329a5f727e5191c2ba4f0867eb508723754619bb57e08c8185ca9460e2290e3"
-    sha256 cellar: :any,                 ventura:        "18950c2221f71ebaae25aed94896ff813a5067376a73ee1801d8cf99b85c8a2e"
-    sha256 cellar: :any,                 monterey:       "5ae5b53f0178a13bfb99d5160ee71e1bd5186c0e223a8098c679ff23008f4bd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1401707da2744aabfe5ff96085ae0791505b7bc8894280898b62dece143fb7d"
+    sha256 cellar: :any,                 arm64_sonoma:   "6de038c2039d9696686b8ae0c4537b542e5a99b0e63b1d24101c6ecc07eadb87"
+    sha256 cellar: :any,                 arm64_ventura:  "84411de2a816ca7677f8c007a4921170bbd734c734b8c078e37678c142d7581e"
+    sha256 cellar: :any,                 arm64_monterey: "78daf50f94516aaee1561bad22d029897b7f9177abeec628d75f5d3df5e2cf00"
+    sha256 cellar: :any,                 sonoma:         "7749290e638894259a3cc283f6533a12862732f40f4633228ddd4ff3ace925e3"
+    sha256 cellar: :any,                 ventura:        "59fb019ffbd6ffdf3ea9a9240d3d824856fa5598a253f2f166b5e9eb2fbf9c29"
+    sha256 cellar: :any,                 monterey:       "a4c72f4aef9371c7364600712c21b5c68d2e1197f5c9ef5237025f7c1160bf57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2177ee46bbea06ee6b738ee9109b472cc3a4124d411fed290f879645a56314f2"
   end
 
   depends_on "cmake" => :build

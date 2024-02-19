@@ -1,8 +1,8 @@
 class Libxmlxx < Formula
   desc "C++ wrapper for libxml"
   homepage "https://libxmlplusplus.sourceforge.net/"
-  url "https://download.gnome.org/sources/libxml++/2.42/libxml++-2.42.2.tar.xz"
-  sha256 "a433987f54cc1ecaa84af26af047a62df9e884574e0d686e5ddc6f70441c152b"
+  url "https://download.gnome.org/sources/libxml++/2.42/libxml++-2.42.3.tar.xz"
+  sha256 "74b95302e24dbebc56e97048e86ad0a4121fc82a43e58d381fbe1d380e8eba04"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,16 +11,13 @@ class Libxmlxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "5acfc2e109849b2276b4e0e8b695bc4d06475bf2b52f82302c66d83cce24eb66"
-    sha256 cellar: :any, arm64_ventura:  "511445cd841949d87b692d1a10b5eed93fa1eddb8c44b660c0d8632c43ac084c"
-    sha256 cellar: :any, arm64_monterey: "7daf9521857c514d0bbd206e995f9981206ed9c2c514e38c6dad17009e5dc75d"
-    sha256 cellar: :any, arm64_big_sur:  "1e5d1560ba5277bd2fbbd64700c2d8dc79bf94f21eed9d1a247f04ebb11398e0"
-    sha256 cellar: :any, sonoma:         "07c4e6e45a993ac35c49e4e11cdcc0499e6b0a0b263e268f7cb72e16d871c566"
-    sha256 cellar: :any, ventura:        "2bb9a91142c4502170553c7573d49de81310af5dc337d11c586bdf1720f4dd86"
-    sha256 cellar: :any, monterey:       "0b223c37cc7523b616c272843059559ab6861dc77b7a12b5a52710b2d6df663f"
-    sha256 cellar: :any, big_sur:        "6fa7ac0f621ea2e7260ad4d45f1f1a7cb66f08f4c7dfc4ede020859c27b5cd0b"
-    sha256 cellar: :any, catalina:       "11650e7441e72a3a19ad51749a7c9ea8e4675fc68d39b4b66e7fb043e468cdff"
-    sha256               x86_64_linux:   "6da3628949c4bee0be85fc3ae19aabb2e5fd273f72f029792c9522c3966fbd1f"
+    sha256 cellar: :any, arm64_sonoma:   "ecc4bfa5bec6222f62d35af0afa054dd14dbbc768619e59b751535af9e1d2c40"
+    sha256 cellar: :any, arm64_ventura:  "90bb4a37548aef72c8884931767231a8db350f92587fe71540384fa4a665f089"
+    sha256 cellar: :any, arm64_monterey: "3c9aed5436d578af2db72c4beacb9597d3641c452a5ae89f53c2e7f760e7b6e6"
+    sha256 cellar: :any, sonoma:         "f94ee80dbab0f76742730875f9c96bbf9ffb150cabaeb59934f3465a5bad628e"
+    sha256 cellar: :any, ventura:        "0a44a4c9705798b962ec67053415810a8ce79211df06f7b9401f4ff1d3059098"
+    sha256 cellar: :any, monterey:       "2c2578ab09f0b69f9155aee5d0591c63b9f6da95f0e6b0c2193d78c96125c4c8"
+    sha256               x86_64_linux:   "3005c784682af5d78591f50de19cbd70a72dad5032a58b2be657e467c17a4bcb"
   end
 
   depends_on "meson" => :build
@@ -31,12 +28,9 @@ class Libxmlxx < Formula
   uses_from_macos "libxml2"
 
   def install
-    ENV.cxx11
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do

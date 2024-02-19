@@ -8,17 +8,15 @@ class Asitop < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59ccc7576dbd652b5f0e830573f0e8051a2d068c5057eaaa0fbee7150c527aaf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1332975b0e14cfcaff9174d94af5166d33cacbfbe5f398253c45fa7cb7f5d03b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2c02496f76a70c1116e8cda3fce262427df4cd4c1c1288d047bda2d29627c10"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eeab44a58dd6252a970dbc0383d562cbd540ef255e65111e04cfcdd0b720729c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "50d1ee2206a174682d11b33b7e193156886b323c2ce0cb44c54ddda926696330"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "57512f3dfa29da42031706f9768e0c86441ba377d08bc3ea22cafca61f779a73"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on arch: :arm64
   depends_on :macos
-  depends_on "python-psutil"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/25/ae/92e9968ad23205389ec6bd82e2d4fca3817f1cdef34e10aa8d529ef8b1d7/blessed-1.20.0.tar.gz"
@@ -30,9 +28,19 @@ class Asitop < Formula
     sha256 "2514608e0f29a775dbd1b1111561219ce83d53cfa4baa2fe4101fab84fd56f1b"
   end
 
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
+    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/2e/1c/21f2379555bba50b54e5a965d9274602fe2bada4778343d5385840f7ac34/wcwidth-0.2.10.tar.gz"
-    sha256 "390c7454101092a6a5e43baad8f83de615463af459201709556b6e4b1c861f97"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   def install

@@ -1,21 +1,19 @@
 class Log4cxx < Formula
   desc "Library of C++ classes for flexible logging"
   homepage "https://logging.apache.org/log4cxx/index.html"
-  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.1.0/apache-log4cxx-1.1.0.tar.gz"
-  mirror "https://archive.apache.org/dist/logging/log4cxx/1.1.0/apache-log4cxx-1.1.0.tar.gz"
-  sha256 "1fc7d82697534184bc0f757348d969d24852b948f63d6b17283fd1ee29c2c28a"
+  url "https://www.apache.org/dyn/closer.lua?path=logging/log4cxx/1.2.0/apache-log4cxx-1.2.0.tar.gz"
+  mirror "https://archive.apache.org/dist/logging/log4cxx/1.2.0/apache-log4cxx-1.2.0.tar.gz"
+  sha256 "09f4748aa5675ef5c0770bedbf5e00488668933c5a935a43ac5b85be2436c48a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c1659df32ab097bb579cfa91676aff9a98120ee4296fb07a037b3ef685f64b61"
-    sha256 cellar: :any,                 arm64_ventura:  "c5e8608447ef140e30beb4d3af98ead428159fa2cf3a561e88e47249de504131"
-    sha256 cellar: :any,                 arm64_monterey: "7e4b418f5e96883128b3ff409974f63179ec2e4b05f8c8f53aed25a836b051bf"
-    sha256 cellar: :any,                 arm64_big_sur:  "84b64c6a7f245af8bfe68ebe0162b69398657a7f9768a0b6221cc51706f65811"
-    sha256 cellar: :any,                 sonoma:         "3b7f9666b405be1704af4dde821091a59667beb38dc3bf9d4ee84f22682105f2"
-    sha256 cellar: :any,                 ventura:        "890ffbebd63b81412b019d66a07b6ac2595e6a3bf7d0a5dd19deb1e129f99fe4"
-    sha256 cellar: :any,                 monterey:       "8c30ba98d371b21078c04b2eddf1523fa2750cc11c81714565d830c727eacfe4"
-    sha256 cellar: :any,                 big_sur:        "386b8149bb19eeec6524525634c06d3179d63b9a77fee090ff5f65dd11009fa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c40e3a445d05d3d18b3a6b94b331739bd0225f8599cb364d3faa54bdaf21ef56"
+    sha256 cellar: :any,                 arm64_sonoma:   "ae968c162e73526143bcaeea0522ee360a8e2adb760907deb985e0f403eeaf4a"
+    sha256 cellar: :any,                 arm64_ventura:  "97fb128001e637e57e029e2b2bf49de3fe7a066948c7b07e6efe1ac632a04f2c"
+    sha256 cellar: :any,                 arm64_monterey: "12f426219bc428535331856f114e9cc62ee7c6e27562a19bd99f687d1a9bea92"
+    sha256 cellar: :any,                 sonoma:         "4ccefef8d95df7a5de25e9cdc12a35c2294343f7e25946fd595d3fa109a97af1"
+    sha256 cellar: :any,                 ventura:        "07223ca4687861da6e1dfefde93c4cca205af8a8c44abba7e4171889c77cc051"
+    sha256 cellar: :any,                 monterey:       "2b81e6a1ce0e9f4d7be75fa8e32bd3d0f8919a50cadc15c5887db60995b0b982"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef721c73d011ef0cba1683287e67e61a09b7f97e75be0328a748994bbdef7379"
   end
 
   depends_on "cmake" => :build

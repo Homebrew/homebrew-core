@@ -3,22 +3,22 @@ class Ptpython < Formula
 
   desc "Advanced Python REPL"
   homepage "https://github.com/prompt-toolkit/ptpython"
-  url "https://files.pythonhosted.org/packages/66/51/a86ee34f068e71a12ba611b69f327545606b138042f5b2562d0992c2631d/ptpython-3.0.25.tar.gz"
-  sha256 "887f0a91a576bc26585a0dcec41cd03f004ac7c46a2c88576c87fc51d6c06cd7"
+  url "https://files.pythonhosted.org/packages/46/56/56cdf93d1633cba2b16486aa27978893ab3791dae51b27068e09d08bd300/ptpython-3.0.26.tar.gz"
+  sha256 "c8fb1406502dc349d99c57eaf06e7116f3b2deac94f02f342bae68708909f743"
   license "BSD-3-Clause"
   head "https://github.com/prompt-toolkit/ptpython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "04b14d3a1b599721dc41360f375c5029059d8a08242d16a3495249a03c8726fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cfddce9f859b9b47ebbcd9d30326e64888a2f3a4b248c6a6cb834369edc81d6f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f49614db1e7efe490e6fd8ffec1ca37f664ae56abf47094f77f3ca258f671431"
-    sha256 cellar: :any_skip_relocation, sonoma:         "679cff5d2226e7dfc593a3607ab9ba692308e4ddcc50fae06a6ed7dedc498a04"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4a06bef4a18845e85af099a63e976b3971b4c1ddb17a89535963d7de8c7607f"
-    sha256 cellar: :any_skip_relocation, monterey:       "8d944463f583bd7752e5b62fd1da986a83eae3c74882fcdcba0b81432e30067c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fca01b24dbecbaa86d9402ca633bdca179d9e24af665fd034b0872186414d7fe"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbc5cd523b19762f085171802f99fe8e02dd5ef4fd33bfd2ef904610328fa705"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cf45fd30c6f0315cc6d5e080bb55facb73c9d77944a256e3667db8ad16201942"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e683af5524123d28e30f19b8aa9b33648d91486377514a62588cbbe516cfb91"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8b587bb8ddb56b207e002953df90011a39c5b96ab224e0b278521090773aeec3"
+    sha256 cellar: :any_skip_relocation, ventura:        "62ede092c68ab613f7165a707f573f980d0b1cc36a65171a08a79b3ba49017e9"
+    sha256 cellar: :any_skip_relocation, monterey:       "d67fc517edfe6e721cdbab1f84684000ba7dc8459b001187ff5ec6dee2cf6d5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfef990ecc1a86c0e0bfca31eb5192e04d66c216d153a7cabdef2b6012a7e889"
   end
 
-  depends_on "pygments"
   depends_on "python@3.12"
 
   resource "appdirs" do
@@ -41,9 +41,14 @@ class Ptpython < Formula
     sha256 "3527b7af26106cbc65a040bcc84839a3566ec1b051bb0bfe953631e704b0ff7d"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
-    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   def install

@@ -1,8 +1,8 @@
 class Tesseract < Formula
   desc "OCR (Optical Character Recognition) engine"
   homepage "https://github.com/tesseract-ocr/"
-  url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.3.3.tar.gz"
-  sha256 "dc4329f85f41191b2d813b71b528ba6047745813474e583ccce8795ff2ff5681"
+  url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.3.4.tar.gz"
+  sha256 "141afc12b34a14bb691a939b4b122db0d51bd38feda7f41696822bacea7710c7"
   license "Apache-2.0"
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Tesseract < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "50a8324b4de3d633069242bd82d16a6fd0571cd492987392a46ed31109e881a9"
-    sha256 cellar: :any,                 arm64_ventura:  "34f7e7048e6285aa45b88c97e86a3def62d8fa56c48765a02fd524461666ef7c"
-    sha256 cellar: :any,                 arm64_monterey: "156eae31ede968cd89b3a630c5b73d9e73605b178b1532d6b69a276878f396af"
-    sha256 cellar: :any,                 sonoma:         "1de8251f7c22f7809530d20ce2b06c2ff10b6dc538ae2630127d1043c62d4bf9"
-    sha256 cellar: :any,                 ventura:        "c4411530f313a35041e5aeb25fed4184c57088269bf8004a89cda45e0e855e7b"
-    sha256 cellar: :any,                 monterey:       "f43f7b843699c46b347ef6cebbe639566b24ffab8a03cc7e5281238d7917c887"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99419c149e3150ac52ac63a8264f6030d55e1b8ac5eea02a80ba0f8839e099e0"
+    sha256 cellar: :any,                 arm64_sonoma:   "805d454420fcbc76262ff1642b1ed0a135b76df8e4a25dcaa587ebb780303621"
+    sha256 cellar: :any,                 arm64_ventura:  "028d37d4b1857bead246c23eba17a84954ea9d5b80ce5c1c3a3cacd53f195c8d"
+    sha256 cellar: :any,                 arm64_monterey: "c74b108a05b14ba6ad757cc7cc9270efed95b9ddda4a9f58edfde0d885e77f90"
+    sha256 cellar: :any,                 sonoma:         "02d10e75db7d4577dcbcadf76b08e34c731f1f90a4bdba9421000267dd6a8d1b"
+    sha256 cellar: :any,                 ventura:        "f32796f68ea875ccd92d797fa4d9a869b1e09458e42f66171069b070662189d0"
+    sha256 cellar: :any,                 monterey:       "764dc68e328ecf43a6dba5be6419436acc8d676628f60cccb3555ff7107d7b3a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff1fafb8821d271338bdb764cc0bc8f1ec5758535498c0ee523c2b83d4245f1b"
   end
 
   depends_on "autoconf" => :build

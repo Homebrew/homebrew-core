@@ -22,7 +22,7 @@ class Scrollkeeper < Formula
   end
 
   # Last release on 2003-12-06 and no upstream activity.
-  deprecate! date: "2023-02-16", because: :unmaintained
+  disable! date: "2024-02-12", because: :unmaintained
 
   depends_on "docbook"
   depends_on "gettext"

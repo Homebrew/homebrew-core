@@ -6,6 +6,10 @@ class Wdfs < Formula
   license "GPL-2.0-or-later"
   revision 1
 
+  livecheck do
+    skip "No longer developed or maintained"
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, x86_64_linux: "795f6e2939f798aeea462d891b102cb80e32c5abb3586f8d57841843d2120f91"
   end

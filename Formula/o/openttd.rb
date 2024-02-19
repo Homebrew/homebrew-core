@@ -8,7 +8,13 @@ class Openttd < Formula
 
   livecheck do
     url "https://cdn.openttd.org/openttd-releases/latest.yaml"
-    regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+    strategy :yaml do |yaml|
+      yaml["latest"]&.map do |item|
+        next if item["name"] != "stable"
+
+        item["version"]&.to_s
+      end
+    end
   end
 
   bottle do
@@ -49,7 +55,13 @@ class Openttd < Formula
 
     livecheck do
       url "https://cdn.openttd.org/opengfx-releases/latest.yaml"
-      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+      strategy :yaml do |yaml|
+        yaml["latest"]&.map do |item|
+          next if item["name"] != "stable"
+
+          item["version"]&.to_s
+        end
+      end
     end
   end
 
@@ -59,7 +71,13 @@ class Openttd < Formula
 
     livecheck do
       url "https://cdn.openttd.org/openmsx-releases/latest.yaml"
-      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+      strategy :yaml do |yaml|
+        yaml["latest"]&.map do |item|
+          next if item["name"] != "stable"
+
+          item["version"]&.to_s
+        end
+      end
     end
   end
 
@@ -69,7 +87,13 @@ class Openttd < Formula
 
     livecheck do
       url "https://cdn.openttd.org/opensfx-releases/latest.yaml"
-      regex(/version:\s*?v?(\d+(?:\.\d+)+)/i)
+      strategy :yaml do |yaml|
+        yaml["latest"]&.map do |item|
+          next if item["name"] != "stable"
+
+          item["version"]&.to_s
+        end
+      end
     end
   end
 

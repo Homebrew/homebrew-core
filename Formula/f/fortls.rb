@@ -9,17 +9,16 @@ class Fortls < Formula
   head "https://github.com/fortran-lang/fortls.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d2540cdbaea952f38aac873dd8d19c9404f90093f250be08c4051a226c6397c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "364872120beea98946dd8bd10f974addc00d35617e88fca6373116ff1217237d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "89708fedc19ade3e41704eab5d9dffa22867a77d3ca502c7043b1d0926572408"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b95eebf3293522341599f7cd32efcde0e76b43eb0c4f0148a4be0006d17055b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "59537d4418469e3e97545944b197142e85f780b93ec2e01db1a1e3401a6d7c9f"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec86fe9071e7375e380ff118d8a9cbdf924a3c3d4dec6adf29978abf36791a27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc750c090055052b2ddc422030bf75e7d56aeee7a88dadde6455b0d665fe7faf"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f72f3698e59bbac8d6f18cc0837a069f780677fb2eba3b4ad1a7c54159c9a511"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7251adffa56e231b0fd92d1b1bb862dd60d8d0453757e4e8956a97e2e949238a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e3d8d40a2958cdac989492c3c547074c1e1a4aeecfef2b4b8a645f5c6cab97c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e1e3429b82468af4bc8df61ca17d26184aeeabdea52dd24cccae1149739b2116"
+    sha256 cellar: :any_skip_relocation, ventura:        "297dbb38409899d4641895bc9ea234813ee91ed00340a333d2d0063afb37d259"
+    sha256 cellar: :any_skip_relocation, monterey:       "d20219ad11612fd7339f2c292dfa2dd62a9f264be2f2c5bdd9f65d951c9c6d35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fec87f2bc7d3c8013ca32e1bc113d6c9d82a4080bd6bb1de170d1ab9c59ce7fa"
   end
 
-  depends_on "python-packaging"
   depends_on "python@3.12"
 
   conflicts_with "fortran-language-server", because: "both install `fortls` binaries"
@@ -27,6 +26,11 @@ class Fortls < Formula
   resource "json5" do
     url "https://files.pythonhosted.org/packages/f9/40/89e0ecbf8180e112f22046553b50a99fdbb9e8b7c49d547cda2bfa81097b/json5-0.9.14.tar.gz"
     sha256 "9ed66c3a6ca3510a976a9ef9b8c0787de24802724ab1860bc0153c7fdd589b02"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
   end
 
   def install

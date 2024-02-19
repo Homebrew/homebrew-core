@@ -1,30 +1,21 @@
 class Brook < Formula
   desc "Cross-platform strong encryption and not detectable proxy. Zero-Configuration"
   homepage "https://txthinking.github.io/brook/"
-  url "https://github.com/txthinking/brook/archive/refs/tags/v20230606.tar.gz"
-  sha256 "4490f203973b59e5bbaa4cbfb8835232f9671dac1b82ab4de882d32a2ad6b612"
+  url "https://github.com/txthinking/brook/archive/refs/tags/v20240214.tar.gz"
+  sha256 "d3c77b8069b21cfdb14f3282eba26b7b4860cd741462e4d6b6929ad07fa55153"
   license "GPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8906b156e46fe120c332669fb38a9c0e401b70089173ddeef03a982210690a2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "545d4d40b00c8046b78c3db7ea4f58860e615dfcc852fb876acbc93b57ca25c0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cc4ddadf8a89af7569b54aeafdf2138601bab81cfa7ae6a4db56087c8914305d"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "9239e17a226fdfcc053059d0e8165ccb3ec4c41ee66a98d45de873786c66088b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fbe3bf0bbbaf45f4f468f758fde6557c02249f118f800c098bd8ba53cf02cf45"
-    sha256 cellar: :any_skip_relocation, ventura:        "87d006e6916613366cc87b68219385cfe326d91deb6984f440064d5ecd09f719"
-    sha256 cellar: :any_skip_relocation, monterey:       "ab1b1252075be3283d66b63db52e8ec286a497464382cf5c761a04e4bf151f7f"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a7dfa4b5d67cf7f30cca218baebc1aabca00cbced98098f3b96e24fcd4bc689c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03d317c85e8bec7ece9ed2594aa763d544728b17aaf60e8eed22c299828ff908"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32ef30e3fe3125fbae237f080cf4bb1564b853fff23a4d02623ed760531c0fe2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3038ba4d9da0278a06985d7ba6992e64744b7bc18a4273fe0e0afb9a88b44d5b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "736c43a0f7e46e4aaffb7ebe62633b4cd38f73fe1b4f13e3f1a99953bc0092ba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2231ce59fe4c23ebcbe766a24b51327401de97dfa703d5ae9148d52a17644f95"
+    sha256 cellar: :any_skip_relocation, ventura:        "264a76174748962560b477e02775ac4817a407838ca394ca52970092b761869c"
+    sha256 cellar: :any_skip_relocation, monterey:       "40ebd6d7ac1b861481fd386e8c815ae294858d5309046b7e440dde5f8aa5e549"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64c29c66b6170ffa67c29751a6046fc7e18ec8dd55f74475f4290e4a317d743f"
   end
 
   depends_on "go" => :build
-
-  # quic-go patch for go1.21.0 build
-  patch do
-    url "https://github.com/txthinking/brook/commit/3b8488e9138393b63da3a1f090e0f0fb109f12d1.patch?full_index=1"
-    sha256 "8974cc16188269daabd84950aac061cf3af827bb1d9a713c66647511011829a7"
-  end
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./cli/brook"

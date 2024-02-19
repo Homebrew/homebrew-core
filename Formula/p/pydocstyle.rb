@@ -19,6 +19,8 @@ class Pydocstyle < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e9481d4c84b7d0328fa500dfca9acf2898235745391773b2aa85d096d34b10d"
   end
 
+  disable! date: "2023-11-04", because: :repo_archived
+
   depends_on "python@3.12"
 
   resource "snowballstemmer" do

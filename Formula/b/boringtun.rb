@@ -35,11 +35,10 @@ class Boringtun < Formula
 
   test do
     system "#{bin}/boringtun-cli", "--help"
-    assert_match "boringtun #{version}", shell_output("#{bin}/boringtun-cli -V").chomp
+    assert_match "boringtun #{version}", shell_output("#{bin}/boringtun-cli -V")
 
-    output = shell_output("#{bin}/boringtun-cli utun --log #{testpath}/boringtun.log 2>&1", 1)
-    assert_predicate testpath/"boringtun.log", :exist?
+    output = shell_output("#{bin}/boringtun-cli utun --foreground 2>&1", 1)
     # requires `sudo` to start
-    assert_match "BoringTun failed to start", output
+    assert_match "Failed to initialize tunnel", output
   end
 end

@@ -3,18 +3,18 @@ class AwscliLocal < Formula
 
   desc "Thin wrapper around the `aws` command-line interface for use with LocalStack"
   homepage "https://localstack.cloud/"
-  url "https://files.pythonhosted.org/packages/a1/83/884aba89b4245c39da0e020b2c3f2edec84a71327401ac1ab29fbd187a58/awscli-local-0.21.1.tar.gz"
-  sha256 "31a579438a932127d32c27c1dbd656197a12c3183facb18afe8bd713ec9aab3d"
+  url "https://files.pythonhosted.org/packages/25/f9/023c80ea27d67b0930f116597fd55a93f84de9b05d18b38c7d2d5d75c1c9/awscli-local-0.22.0.tar.gz"
+  sha256 "3807cf2ee4bbdd4df4dfc8bef027f25bde523dcaf8119720f677ed95ebba66a4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "89e79ad4a1d6154030f86e9f5595db107baba5407d2fcb1f26d566df3ab69199"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1d5ff2622d41095a9bb5ebc1cebf338245256d329221f5294046df8a1eedbdb0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a61f3bfe59fbb2a7d823e4f647728774d0a31d451e1c2ed17a6f26d3a99a88b2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "111a846c72b25142838b44f4510b6393baec692054f5b897567dde9191efc60d"
-    sha256 cellar: :any_skip_relocation, ventura:        "08581c0256205d19a2ef2166559420c9f711c1e502d11c9047cc4bd5bb3c6f92"
-    sha256 cellar: :any_skip_relocation, monterey:       "e8937e080e3ce7599ecb5e77736a449d0f44ed9867ab9a2f2d3f9fe139f3d269"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53a71d80cc2668397bcc681143b53f2bfc3872314974883f5723e22f44189cf6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e67b9e8c81cdaea08859b60369a1e7198064f0b652a52fafe71aa408f3c6bc9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1cb5ca792f0e064403dcde031e0fb0cec34b79202b8af8aede616eab29dcd3c3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17d15ef2e803bdfdf6c5ef4c57a520aa9b8811532d34cd5847660ddb7fe78f98"
+    sha256 cellar: :any_skip_relocation, sonoma:         "692b6de0c929a80d93af90b64af2e64c452c906b5fd975028e64eaff87356574"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e7a3b823d77ac4f59034dca76720f96a3a69ac244176c2787a7146fd9ae44d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "6ae6bc304c118b14dbbeb70cf554007c24234de0129f3a47ff1ebf57735fd47b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec8bbd3065d0b0ce110256926a0714afc9871fd0793be11d01c253255cab3172"
   end
 
   depends_on "awscli" => :test # awscli-local can work with any version of awscli
@@ -23,13 +23,13 @@ class AwscliLocal < Formula
   depends_on "six"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/6b/06/7e2ca443db1af4f3cb76d36eb9f20baf78688ddb095d473e733309a22bb2/boto3-1.29.3.tar.gz"
-    sha256 "d038b19cbe29d488133351ee6eb36ee11a0934df8bcbc0892bbeb2c544a327a4"
+    url "https://files.pythonhosted.org/packages/b5/5c/1d529b3dde18e48778f0b4a39c1b8309a1d4346103aa81d69fe1eb3f65f1/boto3-1.34.11.tar.gz"
+    sha256 "31c130a40ec0631059b77d7e87f67ad03ff1685a5b37638ac0c4687026a3259d"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/de/d1/6bbd2a3ade785ff5af9f46c0865c3e7e0f1e4d3c99e9530756ffda9cc1aa/botocore-1.32.3.tar.gz"
-    sha256 "be622915db1dbf1d6d5ed907633471f9ed8f5399dd3cf333f9dc2b955cd3e80d"
+    url "https://files.pythonhosted.org/packages/41/19/6a5eda9547aca880db17f685f385ca48d09df8dde0ee6dc738c7cfb06c21/botocore-1.34.11.tar.gz"
+    sha256 "51905c3d623c60df5dc5794387de7caf886d350180a01a3dfa762e903edb45a9"
   end
 
   resource "jmespath" do
@@ -48,8 +48,8 @@ class AwscliLocal < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/3f/ff/5fd9375f3fe467263cff9cad9746fd4c4e1399440ea9563091c958ff90b5/s3transfer-0.7.0.tar.gz"
-    sha256 "fd3889a66f5fe17299fe75b82eae6cf722554edca744ca5d5fe308b104883d2e"
+    url "https://files.pythonhosted.org/packages/a0/b5/4c570b08cb85fdcc65037b5229e00412583bb38d974efecb7ec3495f40ba/s3transfer-0.10.0.tar.gz"
+    sha256 "d0c8bbf672d5eebbe4e57945e23b972d963f07d82f661cabf678a5c88831595b"
   end
 
   resource "urllib3" do

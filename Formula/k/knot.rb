@@ -1,8 +1,8 @@
 class Knot < Formula
   desc "High-performance authoritative-only DNS server"
   homepage "https://www.knot-dns.cz/"
-  url "https://secure.nic.cz/files/knot-dns/knot-3.3.3.tar.xz"
-  sha256 "aab40aab2acd735c500f296bacaa5c84ff0488221a4068ce9946e973beacc5ae"
+  url "https://secure.nic.cz/files/knot-dns/knot-3.3.4.tar.xz"
+  sha256 "2a771b43ce96b6b48d53b29f2086528732e6ac067bc71a3be934f859d1302fc0"
   license all_of: ["GPL-3.0-or-later", "0BSD", "BSD-3-Clause", "LGPL-2.0-or-later", "MIT"]
 
   livecheck do
@@ -11,13 +11,13 @@ class Knot < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "83276dcdbbcaf6a7074479c4b0de74a4c6cd00888e1ff7903aba00277f1077f9"
-    sha256 arm64_ventura:  "691c664e463a3beff6aa199b8cf91c1f88aa42bc2b7cc56729c203f24765382b"
-    sha256 arm64_monterey: "3cea16604ef42a8666ceeccdab0df9f073121e073f761b82ca687cf41dd22a60"
-    sha256 sonoma:         "fb174e06f20d643eeaa415f82126174a5c266d0fdb540d675638f35346265da8"
-    sha256 ventura:        "4a14d8bd055651f93c5f7d352e0991bd7874e8492b45580f59eafc71ced5db15"
-    sha256 monterey:       "51276762b8825e0dcb8a0ccfd2cd57f639e3e7cbc5ec4ee53f81647c1f6e8b30"
-    sha256 x86_64_linux:   "9abe37d9d17c6f06687d1ffbbd5cd1aa652bc67aa602e021a0e500b1435d0fab"
+    sha256 arm64_sonoma:   "5c18450cf27eaededafaf349e992814953861f0708c08ba5cb4c03cf692ca6f8"
+    sha256 arm64_ventura:  "dcf889d6ca478764a75f953213a363cf8204720e97bc891b7ffaf077929ee013"
+    sha256 arm64_monterey: "b93c942815e16207f20b0e837bfd3d767a98ababd185fa9123aab2427504d9b4"
+    sha256 sonoma:         "a664ba409830e32c50de2b0deeaa7caa5a0f87ad28c413201e2c93faa25d6207"
+    sha256 ventura:        "ee673f53851736f2c9c042589e9f272fcdf91fab65567d727268fb6964c5ac10"
+    sha256 monterey:       "0b5951d61c0b613b00c44636c7288bed7ee37c64713c5a3b56ddf6980bd01ea8"
+    sha256 x86_64_linux:   "b95aa8cd50487b7b87035680f33c8034805262fe22a927b28b50fcd8b9dc31b7"
   end
 
   head do
@@ -39,10 +39,6 @@ class Knot < Formula
   depends_on "userspace-rcu"
 
   uses_from_macos "libedit"
-
-  # build patch to use `IPV6_PKTINFO` on macOS
-  # submitted issue and build patch via https://gitlab.nic.cz/knot/knot-dns/-/issues/909
-  patch :DATA
 
   def install
     system "autoreconf", "-fvi" if build.head?
@@ -103,34 +99,3 @@ class Knot < Formula
     system sbin/"knotc", "conf-check"
   end
 end
-
-__END__
-diff --git a/src/knot/server/quic-handler.c b/src/knot/server/quic-handler.c
-index 0944900..f8ab263 100644
---- a/src/knot/server/quic-handler.c
-+++ b/src/knot/server/quic-handler.c
-@@ -13,6 +13,9 @@
-     You should have received a copy of the GNU General Public License
-     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  */
-+#ifdef __APPLE__
-+#define __APPLE_USE_RFC_3542 /* to use IPV6_PKTINFO */
-+#endif
-
- #include <netinet/in.h>
- #include <string.h>
-diff --git a/src/knot/server/udp-handler.c b/src/knot/server/udp-handler.c
-index 3b06fa9..5d85877 100644
---- a/src/knot/server/udp-handler.c
-+++ b/src/knot/server/udp-handler.c
-@@ -14,7 +14,9 @@
-     along with this program.  If not, see <https://www.gnu.org/licenses/>.
-  */
-
--#define __APPLE_USE_RFC_3542
-+#ifdef __APPLE__
-+#define __APPLE_USE_RFC_3542 /* to use IPV6_PKTINFO */
-+#endif
-
- #include <assert.h>
- #include <dlfcn.h>

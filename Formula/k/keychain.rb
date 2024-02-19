@@ -6,7 +6,7 @@ class Keychain < Formula
   license "GPL-2.0-only"
 
   livecheck do
-    url "https://github.com/funtoo/keychain.git"
+    url :stable
     strategy :github_latest
   end
 

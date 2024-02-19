@@ -1,8 +1,8 @@
 class Pmtiles < Formula
   desc "Single-file executable tool for creating, reading and uploading PMTiles archives"
   homepage "https://protomaps.com/docs/pmtiles"
-  url "https://github.com/protomaps/go-pmtiles/archive/refs/tags/v1.11.3.tar.gz"
-  sha256 "f2165529fe20d77ce7ec926a69e42bcb1e3a32d90a521374c0c96fadf831a518"
+  url "https://github.com/protomaps/go-pmtiles/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "d1068808e3c9fbf83e057fcf6dcbe21f4719a22e766f7167b494ac954c2d06c7"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Pmtiles < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e693ff0e4d2d05c53cb7f5f5f3435fd0e5452db9ab3583e3dcbc3fb794ca806"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d843732459f07365f90e2b5da69ccfe0697ec6585a897fdab7cd74b70a4f7d9e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5df133dd1cf1b1a3f0bc19d17f6bd091f1a093ba5c0fb83b4167eb3cbc4ddf86"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6b99f3acf185d9fcd1867af55d3270a1a20411b82ff4d932db0f4fa48ed8b4b4"
-    sha256 cellar: :any_skip_relocation, ventura:        "fe3f09bddbd957d0d791dee0d95565cd0ce0506835119d98c5790ff0fdfa9b63"
-    sha256 cellar: :any_skip_relocation, monterey:       "a4ea82d7203ea8ff13543feddb2342c3da4e4a527488c6a19b45332eb1da8b63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8532ab953cc888031e5446d34c7b0b67f1fafefc6387100dc79911dab6e20ce"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a8f859347aad15277cde53fda0621ab7b2647c9105456e4aed2294254b69e668"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "77b1461957739b8c261b727b98fdb2669c39a056a01c1b6cf400ba0759e59849"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "da17dd85210e09d29e92a10c3e87d34b88a98a8274979d8e674eba0c7d56b938"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2343ad8a7621ac54b567d0aca8bb385d20860aedb16f5a027c0f1e07062f67cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "80f8de2517e4af5db3c61443f27a0bd4d2ecfbec999807a1fdb0a2acd6d12add"
+    sha256 cellar: :any_skip_relocation, monterey:       "71b995313953576fb8903e98b955fa69fcd96a01c8fa9b267f9a6dd3853fafe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e660cca9ad19c64d0e3d48f80d7ffdfaf4b68ac1f0136f7a8033ee8ab8482329"
   end
 
   depends_on "go" => :build
@@ -34,7 +34,7 @@ class Pmtiles < Formula
     end
     sleep 3
     output = shell_output("curl -sI http://localhost:#{port}")
-    assert_match "404 Not Found", output
+    assert_match "HTTP/1.1 204 No Content", output
   ensure
     Process.kill("HUP", pid)
   end

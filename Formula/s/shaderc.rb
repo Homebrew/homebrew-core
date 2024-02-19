@@ -4,36 +4,36 @@ class Shaderc < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/google/shaderc/archive/refs/tags/v2023.7.tar.gz"
-    sha256 "681e1340726a0bf46bea7e31f10cbfe78e01e4446a35d90fedc2b78d400fcdeb"
+    url "https://github.com/google/shaderc/archive/refs/tags/v2023.8.tar.gz"
+    sha256 "dfec5045f30d8f6d3d3914ab5b3cc2695947f266d41261b1459177cd789308d1"
 
     resource "glslang" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/glslang.git",
-          revision: "48f9ed8b08be974f4e463ef38136c8f23513b2cf"
+          revision: "a91631b260cba3f22858d6c6827511e636c2458a"
     end
 
     resource "spirv-headers" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "4183b260f4cccae52a89efdfcdd43c4897989f42"
+          revision: "1c6bb2743599e6eb6f37b2969acc0aef812e32e3"
     end
 
     resource "spirv-tools" do
       # https://github.com/google/shaderc/blob/known-good/known_good.json
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "360d469b9eac54d6c6e20f609f9ec35e3a5380ad"
+          revision: "f0cc85efdbbe3a46eae90e0f915dc1509836d0fc"
     end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "33f9f476a1a57bb93e019deffadc69e788b1581e17df9f98f4648d053f83b424"
-    sha256 cellar: :any,                 arm64_ventura:  "f72e5f7f0da8b9b82cc8ca890760c6b33b1f5e041e3dcc1bdfc60c321ded25db"
-    sha256 cellar: :any,                 arm64_monterey: "b5c8b42e754bf4f348514efc19db6fb073d66f09447677f7e18d5b6dc3b7f64d"
-    sha256 cellar: :any,                 sonoma:         "271b067ae2f1438a5b2271b3a8d95d333f5658806677dfd590bf3d4db3fe89c3"
-    sha256 cellar: :any,                 ventura:        "953b737d858fb1a319d43e80b5231fdd8857775e9a489b464185d735d2085402"
-    sha256 cellar: :any,                 monterey:       "b47422248e90574c2d641f88c48491a3de899649c5a713d2655f88ec1426ff43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33e4d6ffb6dade9df0ed5aecb7e5538e5306638fccedc1f364fafdcef3744ecc"
+    sha256 cellar: :any,                 arm64_sonoma:   "7c9e9d75a35439667250ae50f061a5b0190deec55ca87699da393f5e826e085f"
+    sha256 cellar: :any,                 arm64_ventura:  "bcf75d86965a3ee28d73bcc6908407745ce6947861089ef20d7b5baf43916036"
+    sha256 cellar: :any,                 arm64_monterey: "228a541402e5e6a758ad63365a5ab9cf3fcd84224e9d2a168d81b4637863ff02"
+    sha256 cellar: :any,                 sonoma:         "7b5c2929aa9a35a4cd4e9601801165c3ded70e82b0028c7fae45dd5ba2c1a483"
+    sha256 cellar: :any,                 ventura:        "6d8afa4685485af244eacf7ce9c070295b825b49d2d773234e4e75c1cb081f1d"
+    sha256 cellar: :any,                 monterey:       "3011f2f29b705b584314985a89d9ebabee34cce61a58de9fdc8ce65619bdcea7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43ff891801bd6d5e46531aaac54b5e3d1974f5dc0c6d5c45eea4837c0e17d7db"
   end
 
   head do
@@ -53,7 +53,7 @@ class Shaderc < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
 
   def install
     resources.each do |res|

@@ -1,8 +1,8 @@
 class Openfst < Formula
   desc "Library for weighted finite-state transducers"
   homepage "https://www.openfst.org/twiki/bin/view/FST/WebHome"
-  url "https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.2.tar.gz"
-  sha256 "de987bf3624721c5d5ba321af95751898e4f4bb41c8a36e2d64f0627656d8b42"
+  url "https://openfst.org/twiki/pub/FST/FstDownload/openfst-1.8.3.tar.gz"
+  sha256 "077714159d5cf3e38a80b6c6656d3ccc2c8b8b6c50bb41bb65c5fec10796bf53"
   license "Apache-2.0"
 
   livecheck do
@@ -11,17 +11,13 @@ class Openfst < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "2202c56e761e6f9ae1450efb68561828744dc89aaa89e054a50f13068640d0ee"
-    sha256 cellar: :any,                 arm64_ventura:  "46eb8cddc071ee5bdf2df6cdb6f1891f2a0cffe8453cdc024970204866ea1918"
-    sha256 cellar: :any,                 arm64_monterey: "ec9cdf817cbee846c502f05800db8d5106d558cd16afa935df22877ef71f98a5"
-    sha256 cellar: :any,                 arm64_big_sur:  "277c268e760b1ea193494379b4e33e2c6d1ea0692be304f80363570dbf04aebf"
-    sha256 cellar: :any,                 sonoma:         "d4e84ef0911f6d8f1ad93311a03bf10253df7196cc5a1a46026e500a6cfea675"
-    sha256 cellar: :any,                 ventura:        "912fef9ae0e31f4c23e994250baa4e1434bd8aa6ee0d5f57baa2c8f587ce4705"
-    sha256 cellar: :any,                 monterey:       "1f8a3f063ceef921bd4517956b4706897374f71b4a179bd118704688bd90e572"
-    sha256 cellar: :any,                 big_sur:        "5d66b6cee648a6b9e29bf32b341fa57b0605d331e3a4acebb1f03fc3aa0373b3"
-    sha256 cellar: :any,                 catalina:       "0cfbe1901bd76a5e5ec5fc5a30e9d902b91e70b7305dbc0ee3945ff5e23dde27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4eb7f68ee3bf2995d4ad13203bc4de0fc4b0c7b29a4e2ff5d884d73f969613b"
+    sha256 cellar: :any,                 arm64_sonoma:   "3a0436dfb645f06b824d626e1b8e10c47b782b7134c6ac04d5f4ee4df106db22"
+    sha256 cellar: :any,                 arm64_ventura:  "76a0f9e9075766f227495fe513ce756167b62d3c6fd326399bbe259ba493b6ee"
+    sha256 cellar: :any,                 arm64_monterey: "45aa8f4f880ea7e84b9aa4463f892d25b41b00cfb684aeb81efa94088e18d4c2"
+    sha256 cellar: :any,                 sonoma:         "9cc3657fddcd253c2e69e870a90978776f0356fab021338dcaad3c4c2837c20e"
+    sha256 cellar: :any,                 ventura:        "918bf970528321b4b385c8e08f57d9a45b530428bac2b0e74a474e5434fa1f03"
+    sha256 cellar: :any,                 monterey:       "62b9fbfe4dd8e058825ae75a682f922844c4f3dae90d956e5e9e0192496d33ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18b293aa36b18f6c227da97b39f8389accdf0f02a6b5801b197d062a473407fa"
   end
 
   fails_with gcc: "5" # for C++17

@@ -1,8 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "https://people.engr.tamu.edu/davis/suitesparse.html"
-  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.3.1.tar.gz"
-  sha256 "b512484396a80750acf3082adc1807ba0aabb103c2e09be5691f46f14d0a9718"
+  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.6.0.tar.gz"
+  sha256 "19cbeb9964ebe439413dd66d82ace1f904adc5f25d8a823c1b48c34bd0d29ea5"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.1-or-later",
@@ -18,52 +18,50 @@ class SuiteSparse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "99a35a720fad6c15d7b8a705efe6f6b5d274ad181e9293dc33b7e6b52ea7c7e2"
-    sha256 cellar: :any,                 arm64_ventura:  "1457c274b7bb1f63cd835204bf0d5d2f110b9de3d5ff101d0d690805b8517393"
-    sha256 cellar: :any,                 arm64_monterey: "bd069f2d216187ad52eb3d449feeada150dfc8966d761bc7049286b54bdc499e"
-    sha256 cellar: :any,                 sonoma:         "d2061d7168a7cfa33e0d931fd73b1f04d7e888c0b0cd8a049ac64257f3ddca97"
-    sha256 cellar: :any,                 ventura:        "5189b27530c37b7a20b3e7446b3436a7140968b9f1520fc6fef6801b4d12c5d6"
-    sha256 cellar: :any,                 monterey:       "ec3ae42fc3fcb42fbe42f2ad2bae039316b5f43b770542c91b2e81475990900f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9740d4012be76d0d736ffec0baf0ccc479990ed0665822411f0d1289b70eae9f"
+    sha256 cellar: :any,                 arm64_sonoma:   "2688af2a1ffe3f9f958846b60909954376c50e0bcaa53e42ee8d0832fd9c6ebb"
+    sha256 cellar: :any,                 arm64_ventura:  "4d82f2cf8f443b3094161fcda646c2588dbe22182c89c5ad10849ad26ea2df9e"
+    sha256 cellar: :any,                 arm64_monterey: "823276159d016f93b88e2ae568b87b080b343106230b9cfb8e7474638531459b"
+    sha256 cellar: :any,                 sonoma:         "f776ed8d8c5b9092ae6be2f479df97d6fc94e822b81a60f73873a246d33ee90a"
+    sha256 cellar: :any,                 ventura:        "21cb9e6ff61233fc0515e6119eca3aa9c25ff6f12ec8118620994e5f5912b372"
+    sha256 cellar: :any,                 monterey:       "789aab765431c07810ece1c3cce13050190a8037e903f9f9cf2cfc58a7e6ba29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f58b475712619f02cc6665139a5ffd3f8e42cd80be40ee14fbb6b1624c387b6"
   end
 
   depends_on "cmake" => :build
+  depends_on "gcc" # for gfortran
+  depends_on "gmp"
   depends_on "metis"
-  depends_on "openblas"
+  depends_on "mpfr"
 
   uses_from_macos "m4"
 
-  conflicts_with "mongoose", because: "suite-sparse vendors libmongoose.dylib"
+  on_macos do
+    depends_on "libomp"
+  end
+
+  on_linux do
+    depends_on "openblas"
+  end
 
   def install
-    # Force cmake to use our compiler shims
+    # Avoid references to Homebrew shims
     if OS.mac?
       inreplace "GraphBLAS/cmake_modules/GraphBLAS_JIT_configure.cmake",
-          "GB_C_COMPILER  \"${CMAKE_C_COMPILER}\"", "GB_C_COMPILER \"#{ENV.cc}\""
+          "C_COMPILER_BINARY \"${CMAKE_C_COMPILER}\"", "C_COMPILER_BINARY \"#{ENV.cc}\""
     end
 
-    cmake_args = *std_cmake_args, "-DCMAKE_INSTALL_RPATH=#{rpath}"
-    args = [
-      "INSTALL=#{prefix}",
-      "BLAS=-L#{Formula["openblas"].opt_lib} -lopenblas",
-      "LAPACK=$(BLAS)",
-      "MY_METIS_LIB=-L#{Formula["metis"].opt_lib} -lmetis",
-      "MY_METIS_INC=#{Formula["metis"].opt_include}",
-      "CMAKE_OPTIONS=#{cmake_args.join(" ")}",
-      "JOBS=#{ENV.make_jobs}",
-    ]
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                                              *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
-    # Parallelism is managed through the `JOBS` make variable and not with `-j`.
-    ENV.deparallelize
-    system "make", "library", *args
-    system "make", "install", *args
-    lib.install Dir["**/*.a"]
     pkgshare.install "KLU/Demo/klu_simple.c"
   end
 
   test do
     system ENV.cc, "-o", "test", pkgshare/"klu_simple.c",
-           "-L#{lib}", "-lsuitesparseconfig", "-lklu"
+                   "-I#{include}/suitesparse", "-L#{lib}",
+                   "-lsuitesparseconfig", "-lklu"
     assert_predicate testpath/"test", :exist?
     assert_match "x [0] = 1", shell_output("./test")
   end

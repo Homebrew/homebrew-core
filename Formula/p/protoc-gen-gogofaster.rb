@@ -23,7 +23,7 @@ class ProtocGenGogofaster < Formula
 
   # gogoprotobuf is officially deprecated:
   # https://github.com/gogo/protobuf/commit/f67b8970b736e53dbd7d0a27146c8f1ac52f74e5
-  deprecate! date: "2023-03-02", because: :deprecated_upstream
+  disable! date: "2024-02-15", because: :deprecated_upstream
 
   depends_on "go" => :build
   depends_on "protobuf"

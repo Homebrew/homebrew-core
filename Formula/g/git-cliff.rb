@@ -1,18 +1,18 @@
 class GitCliff < Formula
   desc "Highly customizable changelog generator"
   homepage "https://github.com/orhun/git-cliff"
-  url "https://github.com/orhun/git-cliff/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "8ec9a2c9cd0e97a8111a82bcf2fce415f40818897bdc76a2c5cc63d99114ec30"
+  url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "ab29fbda532bec2a344d99f39b7998063c576efee92a1bee083c6fba5f52e4ef"
   license all_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7763105faf1d1e8c135a5270ee3785f4ced1285cbd03174dfe2f6485ee7b61f4"
-    sha256 cellar: :any,                 arm64_ventura:  "e20b7dbc635f860a3e8f02b5d76bb1915b964791876e426358c28a30f56d0a1a"
-    sha256 cellar: :any,                 arm64_monterey: "150ebcb6afbc4f77db10e58df1f21a1cc378c2640581d01ff6b73504324f575d"
-    sha256 cellar: :any,                 sonoma:         "76fe09d233cca43759946fecc1fda079cc62e540ef670a1997d3c6e7df9e6256"
-    sha256 cellar: :any,                 ventura:        "258e5f7e4cbdc91dba2b7177ce5f2b532eced6378ee16a5fe40743233a1901dc"
-    sha256 cellar: :any,                 monterey:       "845954b8c8191a10c4892afef729f6681c675410736e858d90feb9f0b3cc57aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bf03df8f277405c695c632bbc2745cac390d7ca8923c6c5bcb19fe71533002d"
+    sha256 cellar: :any,                 arm64_sonoma:   "7f94f82704e925bc81e0dbfd23e35817bc6ee246c2ae2e66fc4855f756951367"
+    sha256 cellar: :any,                 arm64_ventura:  "d9b53988f947087e73b870bf36a748047f688ddc19cfa83ca282b73a5300d8fb"
+    sha256 cellar: :any,                 arm64_monterey: "3c0663977e411136e2873708ce3a0d8c29536299dde578f441e2588ef048f786"
+    sha256 cellar: :any,                 sonoma:         "bbf63149a78b25652d0d52eaa387249c433698b7fab8b2cdd22edcc7b05f1195"
+    sha256 cellar: :any,                 ventura:        "490f5d6bc63870535c0bd638613ab0b6847053fd2872054fda0be96fb005b0fc"
+    sha256 cellar: :any,                 monterey:       "4e29c6c850b0cd584fdade92b3b1f6c494c2f9c47c44f7eca55f67714160c345"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89fa2b57b489affe2d6620f6652e86868f84f3fa18b530c5d0b0deb6777fbcf7"
   end
 
   depends_on "pkg-config" => :build
@@ -24,11 +24,21 @@ class GitCliff < Formula
 
     system "cargo", "install", *std_cargo_args(path: "git-cliff")
 
+    # Setup buildpath for completions and manpage generation
     ENV["OUT_DIR"] = buildpath
+
+    # Generate completions
     system bin/"git-cliff-completions"
-    bash_completion.install "git-cliff.bash"
+    bash_completion.install "git-cliff.bash" => "git-cliff"
     fish_completion.install "git-cliff.fish"
     zsh_completion.install "_git-cliff"
+
+    # generate manpage
+    system bin/"git-cliff-mangen"
+    man1.install "git-cliff.1"
+
+    # no need to ship `git-cliff-completions` and `git-cliff-mangen` binaries
+    rm [bin/"git-cliff-completions", bin/"git-cliff-mangen"]
   end
 
   test do
@@ -38,8 +48,16 @@ class GitCliff < Formula
     system "git", "init"
     system "git", "add", "cliff.toml"
     system "git", "commit", "-m", "chore: initial commit"
-    changelog = "### Miscellaneous Tasks\n\n- Initial commit"
-    assert_match changelog, shell_output("git cliff")
+
+    assert_match <<~EOS, shell_output("git cliff")
+      All notable changes to this project will be documented in this file.
+
+      ## [unreleased]
+
+      ### ⚙️ Miscellaneous Tasks
+
+      - Initial commit
+    EOS
 
     linkage_with_libgit2 = (bin/"git-cliff").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)

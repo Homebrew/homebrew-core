@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://protobuf.dev/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v25.1/protobuf-25.1.tar.gz"
-  sha256 "9bd87b8280ef720d3240514f884e56a712f2218f0d693b48050c836028940a42"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v25.3/protobuf-25.3.tar.gz"
+  sha256 "d19643d265b978383352b3143f04c0641eea75a75235c111cc01a1350173180e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,13 @@ class Protobuf < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "76050775316e70aef31157c84acd3399e3336dcfd8e7b40cd451967be3c8fbf3"
-    sha256                               arm64_ventura:  "c03a24f1a4b5672dfaa522f9dfc632c3e43e4f03d8be781b4bd37e86cc5495c6"
-    sha256                               arm64_monterey: "71f5c80f21248a0f044598193c25625cfa268c80cebd2134c04a9f441b9941f2"
-    sha256                               sonoma:         "6c70bf31a1fdaec5f812e48b9bae5127ec530656bf452d9896e3f9afcb52a49b"
-    sha256                               ventura:        "49998369eb1cf1de551aea13d12f90c316a5b1b159f5a32c90ee2330d4cb6bfb"
-    sha256                               monterey:       "df583c67be77ec4bf2ec60ce8d9a5424f0feafc4068fe3626319e2dd0c87d71f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c66dab524eb7c75b18727a610c60e8c5d2ddea1c47675bce3d57b0365a8bd7e"
+    sha256                               arm64_sonoma:   "11544609db3c460e2f29f925c635a2fa14cbaed95605382fec8841c2b38180c5"
+    sha256                               arm64_ventura:  "d343361f14902afbecfa33b37a9acc07633aaf0c89290b26ab50d4e55c83e87d"
+    sha256                               arm64_monterey: "34f598e55fc7be32c351346a971c464e3b4ddb7a48b5eb170cae8639b40afdcd"
+    sha256                               sonoma:         "8ed910199ee7b9773922150c453a91a23496612626fbf8750b82ed10e79fc00d"
+    sha256                               ventura:        "cbb17db9cb927c4c2cd8d45cce6059f946235aba3f71336bf32712243d421135"
+    sha256                               monterey:       "3ce77e5911489450ca43fea3331afdc7614efc2df48d1f381e19209cb767994e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2da46e3fff8eaaa62bb26248686abb3f5d939b1145b2cef2af8eabaa5132cf7e"
   end
 
   depends_on "cmake" => :build

@@ -2,8 +2,8 @@ class V8 < Formula
   desc "Google's JavaScript engine"
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
-  url "https://github.com/v8/v8/archive/refs/tags/11.7.439.16.tar.gz"
-  sha256 "df073b032cafab5124a166771b5d66f6afaa8412c4d5863d2ba8d52c253ced33"
+  url "https://github.com/v8/v8/archive/refs/tags/12.1.285.24.tar.gz"
+  sha256 "30942df4ec837b212b697895b9453459b2cdce118eed2e07656dcefea465da72"
   license "BSD-3-Clause"
 
   livecheck do
@@ -23,23 +23,24 @@ class V8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "914f44e5948dadbda17c95651a6c690a0bca7b888d2b5c664595de5fcb8b7b77"
-    sha256 cellar: :any,                 arm64_ventura:  "923dcb56245d63d810769af204979ce8ec79b8c5948129018ec3ca1c24a9b3b1"
-    sha256 cellar: :any,                 arm64_monterey: "ed26e75302ce842f8d1db3f8deca7edc47da2bdbd86593fa8adc26e9e4efe9ab"
-    sha256 cellar: :any,                 arm64_big_sur:  "bf3964edddd790884e2e230a7df0732e11e6a991f27dbdefb4cafdb759718e8d"
-    sha256 cellar: :any,                 sonoma:         "bfb6eca5b46a983a19094d1ef7b2dbf984bfff076cb68157eaf00e0a3ce14424"
-    sha256 cellar: :any,                 ventura:        "df68e49baa4c80fd8a0ac350d610b0b273960843b42c4276947ddd826a0b6bdf"
-    sha256 cellar: :any,                 monterey:       "ac0f7843d7a98dd6ff7df3bb7d475999b124bb1d84ac8f0ae50eba85599330a4"
-    sha256 cellar: :any,                 big_sur:        "e347443e3a34f8b43abd15e72ec214b4d277b65e7420bc8ff8f270556ff88e41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b1e4ffb2d4b2c2e150bf969ec6e373130ca94a33ffeac66d301ac9111978e1e"
+    sha256 cellar: :any,                 arm64_sonoma:   "f32a5a022378b428cea1b649a34fd55d8c7edc443e1526a701314a993eca4f08"
+    sha256 cellar: :any,                 arm64_ventura:  "fc52a73f061198c928bc31a5561ad8460e948a8ea20ae45218e4f360d3c52fa0"
+    sha256 cellar: :any,                 arm64_monterey: "4cd19a160f5ad942a30968f582ffaeb9485aad034e122c14910a4101e68aac35"
+    sha256 cellar: :any,                 sonoma:         "ca514e9dd9466c58c3fd466a11796655d8131985602b44d0c7a02d3788fb3841"
+    sha256 cellar: :any,                 ventura:        "2de6daceddeae9d5c08d0842bdf08b9eb78a85bc3a869eae6629e4a5b883bcae"
+    sha256 cellar: :any,                 monterey:       "9596dd1d33272babe4959de7869f569a00de8e62a8df7711e60b172a6a3f0c43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c109bd1d47b502257784e1e28acbfdf68292f2f839feaab396d7fe71cc5a063e"
   end
 
   depends_on "ninja" => :build
-  depends_on "python@3.11" => :build
+  depends_on xcode: ["10.0", :build] # required by v8
+
+  uses_from_macos "python" => :build
 
   on_macos do
-    depends_on "llvm" => :build
-    depends_on xcode: ["10.0", :build] # required by v8
+    on_intel do
+      depends_on "llvm@16" => :build if DevelopmentTools.clang_build_version <= 1400
+    end
   end
 
   on_linux do
@@ -50,20 +51,26 @@ class V8 < Formula
   fails_with gcc: "5"
 
   # Look up the correct resource revisions in the DEP file of the specific releases tag
-  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#64
+  # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#74
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "811d332bd90551342c5cbd39e133aa276022d7f8"
+        revision: "7367b0df0a0aa25440303998d54045bda73935a5"
   end
 
   resource "v8/base/trace_event/common" do
     url "https://chromium.googlesource.com/chromium/src/base/trace_event/common.git",
-        revision: "147f65333c38ddd1ebf554e89965c243c8ce50b3"
+        revision: "29ac73db520575590c3aceb0a6f1f58dda8934f6"
   end
 
   resource "v8/build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "afe0125ef9e10b400d9ec145aa18fca932369346"
+        revision: "9b8bc79c291c01ddcdb0383ace9316e3dcccce2f"
+
+    # Use Arch Linux Chromium package patch to remove some LLVM/Clang 18 flags
+    patch :p2 do
+      url "https://gitlab.archlinux.org/archlinux/packaging/packages/chromium/-/raw/46f81f58f555dc99f5f789167c64950e88c38e63/drop-flags-unsupported-by-clang16.patch"
+      sha256 "8d1cdf3ddd8ff98f302c90c13953f39cd804b3479b13b69b8ef138ac57c83556"
+    end
   end
 
   resource "v8/third_party/googletest/src" do
@@ -73,7 +80,7 @@ class V8 < Formula
 
   resource "v8/third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "de4ce0071eb47ed54cbda54869001210cf3a8ae5"
+        revision: "a622de35ac311c5ad390a7af80724634e5dc61ed"
   end
 
   resource "v8/third_party/jinja2" do
@@ -88,12 +95,12 @@ class V8 < Formula
 
   resource "v8/third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "526382e41c9c5275dc329db4328b54e4f344a204"
+        revision: "dd5fc1316c9bfe87091c4f418e427633590a84a4"
   end
 
   resource "v8/third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "583dc6d1b3a0dd44579718699e37cad2f0c41a26"
+        revision: "0764ad493e54a79c7e3e02fc3412ef55b4835b9e"
   end
 
   def install
@@ -109,7 +116,7 @@ class V8 < Formula
     # Build gn from source and add it to the PATH
     (buildpath/"gn").install resource("gn")
     cd "gn" do
-      system "python3.11", "build/gen.py"
+      system "python3", "build/gen.py"
       system "ninja", "-C", "out/", "gn"
     end
     ENV.prepend_path "PATH", buildpath/"gn/out"
@@ -126,8 +133,7 @@ class V8 < Formula
       is_debug:                     false,
       is_component_build:           true,
       v8_use_external_startup_data: false,
-      v8_enable_i18n_support:       true, # enables i18n support with icu
-      clang_base_path:              "\"#{Formula["llvm"].opt_prefix}\"", # uses Homebrew clang instead of Google clang
+      v8_enable_i18n_support:       true,  # enables i18n support with icu
       clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
       use_custom_libcxx:            false, # uses system libc++ instead of Google's custom one
       treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
@@ -142,6 +148,13 @@ class V8 < Formula
       ENV["AR"] = DevelopmentTools.locate("ar")
       ENV["NM"] = DevelopmentTools.locate("nm")
       gn_args[:use_rbe] = false
+    else
+      ENV["DEVELOPER_DIR"] = ENV["HOMEBREW_DEVELOPER_DIR"] # help run xcodebuild when xcode-select is set to CLT
+      gn_args[:clang_base_path] = if Hardware::CPU.intel? && DevelopmentTools.clang_build_version <= 1400
+        "\"#{Formula["llvm@16"].opt_prefix}\"" # uses Homebrew clang instead of Google clang
+      else
+        '"/usr"' # uses Apple clang instead of Google clang
+      end
     end
 
     # Make sure private libraries can be found from lib

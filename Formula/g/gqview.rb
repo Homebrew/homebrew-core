@@ -23,7 +23,7 @@ class Gqview < Formula
 
   # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
   # Last release on 2006-12-02
-  deprecate! date: "2023-01-18", because: :unmaintained
+  disable! date: "2024-01-21", because: :unmaintained
 
   depends_on "pkg-config" => :build
   depends_on "gtk+"

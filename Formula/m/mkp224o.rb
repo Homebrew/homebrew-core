@@ -1,20 +1,19 @@
 class Mkp224o < Formula
   desc "Vanity address generator for tor onion v3 (ed25519) hidden services"
   homepage "https://github.com/cathugger/mkp224o"
-  url "https://github.com/cathugger/mkp224o/releases/download/v1.6.1/mkp224o-1.6.1-src.tar.gz"
-  sha256 "772d4b429c08f04eca3bc45cd3f6ce57b71fa912fa6c061cd39f73bf2fec8e70"
+  url "https://github.com/cathugger/mkp224o/releases/download/v1.7.0/mkp224o-1.7.0-src.tar.gz"
+  sha256 "e38465ea893c6032ddfd7c133cbbf0de2eeaf1c428ca563fac5e85aeb609c929"
   license "CC0-1.0"
-  revision 1
   head "https://github.com/cathugger/mkp224o.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "61283aa2acafa66ffabc064e62d7ce68283b72e82ea756e66325280bf4b77602"
-    sha256 cellar: :any,                 arm64_ventura:  "56bc588afbe1543a383982b6bd745cf441a5e5f6562a9cb8ea84fbb5b7f9d531"
-    sha256 cellar: :any,                 arm64_monterey: "961a0ec2a23a7f0b2d7ade5515cd91ada5c2f97fab8e58227331cfbd6813292a"
-    sha256 cellar: :any,                 sonoma:         "af9a18e9169dd69f4ade7f99df10e2dd2e04d09b6d66b2cd43b61d823085b29f"
-    sha256 cellar: :any,                 ventura:        "1d73166eafa6fe93119ed962fcd34a4741315cddc61b13a88071ce3ec33cbe34"
-    sha256 cellar: :any,                 monterey:       "f79051333f166545cf8d6a3b29b93a2543ba42466845f5f26db28391c42aad8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f7a759233a2d61e95ce7d5a99a895e3afac07362d8f4b650f85ccbda4f6f65b"
+    sha256 cellar: :any,                 arm64_sonoma:   "76a0f038b57586fc90bdb0688520d308e207f11902a9479a81d8149049c9f418"
+    sha256 cellar: :any,                 arm64_ventura:  "9251236b842079b87786a0ff3db1b19ff11dba9b78aecf07635842f2494e0ab4"
+    sha256 cellar: :any,                 arm64_monterey: "75bccb06af583ad85950b27658b5ffef1c99018b6cf48ec4e190df0c37be4ee7"
+    sha256 cellar: :any,                 sonoma:         "fa5df29c3c00e7877e777d3cabb36cd66252c2c952673b542afa3d5102621436"
+    sha256 cellar: :any,                 ventura:        "96cb00d8017bbd68a6cb63b75be9f61f009af25139b9be4331fd07a59ceb8936"
+    sha256 cellar: :any,                 monterey:       "45a413e61913ebe5fb046527221ae35e7de44d8607e0b4c4c112c06e75dbfd90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7614290d244905ffde9a1c969687b56c400aa3d16a272a10ed511d2cd42737af"
   end
 
   depends_on "libsodium"

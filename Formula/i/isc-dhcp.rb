@@ -23,6 +23,9 @@ class IscDhcp < Formula
     sha256 x86_64_linux:   "6085ad7064a861fe03a25bf6ba6172d1a50cdf0f5985dc652ba32484fb7e08ca"
   end
 
+  # see https://www.isc.org/blogs/isc-dhcp-eol/
+  deprecate! date: "2024-01-16", because: :deprecated_upstream
+
   def install
     # use one dir under var for all runtime state.
     dhcpd_dir = var/"dhcpd"

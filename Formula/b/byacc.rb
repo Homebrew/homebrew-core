@@ -1,8 +1,8 @@
 class Byacc < Formula
   desc "(Arguably) the best yacc variant"
   homepage "https://invisible-island.net/byacc/"
-  url "https://invisible-mirror.net/archives/byacc/byacc-20230521.tgz"
-  sha256 "5ad915a7d5833aa38a5e31bd077505666029c35e365dff8569fe4598eaa9fef2"
+  url "https://invisible-mirror.net/archives/byacc/byacc-20240109.tgz"
+  sha256 "f2897779017189f1a94757705ef6f6e15dc9208ef079eea7f28abec577e08446"
   license :public_domain
 
   livecheck do
@@ -11,15 +11,13 @@ class Byacc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca47f2fe6cda1f89a13c3a3f1817c693ce5d8a2723fcdb269d78e18b1783792a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38ce343287827cb635395e53d6335d31022e05e07cded481ace466889c003615"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c0cda08a52207ffec61486dd83aab12002b67f0e650cd7eb9170dc3596016fa"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f2498ba1b3d8beb6c7c29f11763f1971707f708bd56c0dcdb2fe058f66cce3cc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d83b4520cce9e86c6845fb4aaa01fbe27cdd65b16fb8a375878f7576687671db"
-    sha256 cellar: :any_skip_relocation, ventura:        "559fd17c57ee319a5f0ffa0b04b2f42ffc3a0a6dbf0e85e3a42dc9cda059218f"
-    sha256 cellar: :any_skip_relocation, monterey:       "309accb76b2f5daa03813ccf640da8396bec1d0540f83a13e85ed41d6b64b4ea"
-    sha256 cellar: :any_skip_relocation, big_sur:        "420f2b6d7799a77f32c8ad2cd86b5a00218ad2019e2daa07f2d8f87559d3c242"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55dff71ab67cd1fc94db04da4501a5fe110d27bc18ce6918fa014c3ee1e423e3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9689a35e53bfb11647dfea27c9943f6356adec3aa435082b7c5b9160a62d3bb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad323ecf849316b79f9647eaa7f8a07c93041c72fdb6b739c0ea21de9797194e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f692de26b32ba58379da96eea29f0f170d4fd86da51d975d595d7c3b0098f107"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e96b9b1fa077cc47b35ab745ac97e1b34b210a29bc44c0b041832dc9151f978"
+    sha256 cellar: :any_skip_relocation, ventura:        "ab3d92f531d410ea7deed110794c1e29ee188c87a1e6b7953587d18e54a745e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "a2cc93a64020cbb540ab14080ec7bd5f0c07a56a4b93b1109953ad1916ea0c5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6ba6891c56da94c6f57029a29d01c4a0b7df2096683a571e1c19efacd4495a3"
   end
 
   def install

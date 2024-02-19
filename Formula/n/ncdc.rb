@@ -1,8 +1,8 @@
 class Ncdc < Formula
   desc "NCurses direct connect"
   homepage "https://dev.yorhel.nl/ncdc"
-  url "https://dev.yorhel.nl/download/ncdc-1.23.1.tar.gz"
-  sha256 "95881214077a5b3c24fbbaf020ada0d084ee3b596a7c3cc1e0e68aaac4c9b5e6"
+  url "https://dev.yorhel.nl/download/ncdc-1.24.tar.gz"
+  sha256 "233510d5355fc72fdad3578ebc8ab35d1da95b21d2774990f3a1356b7112da1e"
   license "MIT"
 
   livecheck do
@@ -11,16 +11,13 @@ class Ncdc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cc6fa14986fd22e53ec453bc8fb5c239f533ace810f9d2f1dc0dae3e375585ff"
-    sha256 cellar: :any,                 arm64_ventura:  "98457589a1d9849757717a82ae339760498fc175be64629f3b0ffb983cb1b1d5"
-    sha256 cellar: :any,                 arm64_monterey: "53c31dd30f67aed950af38ff4c38caa28d3457be2e0c0a37ff458a36850126e9"
-    sha256 cellar: :any,                 arm64_big_sur:  "98556bfc802f5fcf60afe2233c49f214f6cde7c55455f1cb0faa3b69661e4d6c"
-    sha256 cellar: :any,                 sonoma:         "44d61b941e2d515281b5529293fb7a72c10c4f1026732e6e5d22a8b54debd352"
-    sha256 cellar: :any,                 ventura:        "0de5298a38529b43420a6baad568a0f68f9daba603d38ef0d74feacc63f76352"
-    sha256 cellar: :any,                 monterey:       "322804a1c48dc8c02ad86dc62a8201cdf2396922e3b1192a33ca4e164ec3110d"
-    sha256 cellar: :any,                 big_sur:        "f58142f3ee9f4e59823506472ad771d6eb6a0ca6ba4bc24d52c08668854f8cc9"
-    sha256 cellar: :any,                 catalina:       "b97cd73d131b3635595adedffdd2044cc8f39b6d32b3e0d35dc2c6e9b6a280d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "367c1d0a6db764a9e04b6a71cd0da854cb827ea762a5df1a66f4c39f8b1ef417"
+    sha256 cellar: :any,                 arm64_sonoma:   "448965a91bec01318b95c036154514b67d5fd6efffe221c0272df7a3c49335db"
+    sha256 cellar: :any,                 arm64_ventura:  "bea97fd261d2f4f4d84459837a6859e68bdac8e9de67d1c62bbdc00b13eebb86"
+    sha256 cellar: :any,                 arm64_monterey: "6e025f32af0b6590e8025c6bfe8376849e94e8024a2343180dc48bae6a5ed187"
+    sha256 cellar: :any,                 sonoma:         "e41987d8e45d9117aa0718bdf2d612cf6eaac9437a7849599f82635af84fa498"
+    sha256 cellar: :any,                 ventura:        "b981d0d4ffac3f1654aecdc787639222885378a3f7edb5532f68bd7d455898ce"
+    sha256 cellar: :any,                 monterey:       "cfeff0459c43337224add6446e25c485696ba681e4ae8ac5fcdf0bf57c359ed0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d830ea52e8f48bb16592d0513ede1f09a91bac6e5971decdb942c64095aec9bd"
   end
 
   head do

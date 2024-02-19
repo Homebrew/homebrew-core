@@ -1,8 +1,8 @@
 class Capnp < Formula
   desc "Data interchange format and capability-based RPC system"
   homepage "https://capnproto.org/"
-  url "https://capnproto.org/capnproto-c++-1.0.1.1.tar.gz"
-  sha256 "b224e61d5b46f13967b7189860a7373b96d0c105e0d6170f29acba09a2d31f57"
+  url "https://capnproto.org/capnproto-c++-1.0.2.tar.gz"
+  sha256 "9057dbc0223366b74bbeca33a05de164a229b0377927f1b7ef3828cdd8cb1d7e"
   license "MIT"
   head "https://github.com/capnproto/capnproto.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Capnp < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "714c2ec53524959f97c4e03b7861db0cbb0aec6f1185bbc4f35630736167b197"
-    sha256 arm64_ventura:  "4fef4878bac3608b0c75ffa10a81f3458db7b980fef4b5661bcc74ec9bddfee9"
-    sha256 arm64_monterey: "4d07365f041cc8f44853dec957ee8f51cdca14323d207594725ec9c4c37b7fdb"
-    sha256 sonoma:         "abd5284dca697c41663e20c3dca129366777db57825bbf356771f6fcad0095df"
-    sha256 ventura:        "afbb77dbfb505b0f3c6cc0a54dc7b094f95090c065320aab7e3969f680cfda3f"
-    sha256 monterey:       "76e9c2a5ddbe996fd3304bd4a1cdbe4c74f319a3a47fa60db3d34578ac7bc4ec"
-    sha256 x86_64_linux:   "837985aa7ff7b1d6513740f5812b78065750b5b38a00dc6cc15c53b59cf674bb"
+    sha256 arm64_sonoma:   "19bd2ac85d9b982d0f5bb2cbf728823aeb1ceed838096c55459f1b973f6d9733"
+    sha256 arm64_ventura:  "f9f10d39ccda6aac9d9e4dee159dd2e882ba5cd027a8b19216f498fd1c39ae72"
+    sha256 arm64_monterey: "d4db0fb57022ca7980f402cdde520987d37ee66caaaa61b78037136b4476225f"
+    sha256 sonoma:         "5b90bfe71f8f407f71c0d0f3404a02607eb3d1fcc903067cce628653dd5c00ed"
+    sha256 ventura:        "37ba767871207bc87d5869e343738a4db44e8357366d7f6165618ddf211bd968"
+    sha256 monterey:       "ddd4e35539498174d233ed6fec3fce40c3ee7b2d61b93f5114e6b6eba5784e83"
+    sha256 x86_64_linux:   "28f2ac2e3b0ab17b31bcf092c2e3e6d810d5601e0a17e09c2a12872a4ec57348"
   end
 
   depends_on "cmake" => :build

@@ -22,7 +22,7 @@ class Termius < Formula
 
   # https://github.com/termius/termius-cli/issues/197#issuecomment-1399394041
   # https://github.com/termius/termius-cli/issues/188
-  deprecate! date: "2023-01-25", because: :unmaintained
+  disable! date: "2024-01-10", because: :unmaintained
 
   depends_on "rust" => :build
   depends_on "libyaml"

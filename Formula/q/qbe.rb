@@ -1,8 +1,8 @@
 class Qbe < Formula
   desc "Compiler Backend"
   homepage "https://c9x.me/compile/"
-  url "https://c9x.me/compile/release/qbe-1.1.tar.xz"
-  sha256 "7d0a53dd40df48072aae317e11ddde15d1a980673160e514e235b9ecaa1db12c"
+  url "https://c9x.me/compile/release/qbe-1.2.tar.xz"
+  sha256 "a6d50eb952525a234bf76ba151861f73b7a382ac952d985f2b9af1df5368225d"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Qbe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f6f7b5fb72bfa840a2108c2d3b0749ee0a46351a66a4c998d37d180db82800be"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e0f58c85a4bbf3b4eef38435d8bdfee9254a4e0311381e939d000311081c289"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5318c7031f94916e283ab4161095171b6ab9cb6e6a9430ea6c5f0811568ab62"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "e00dce5f83a8cf7e9400c42234e5b63f670d99a2fdcbad487389f90093780bf2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0e323a907ad4aedaa186fd7e0fa27099e8ec8a0b7fb0a6803b735203283afb76"
-    sha256 cellar: :any_skip_relocation, ventura:        "0c919e700fb02acf816593311660d0269c621eabd2a3274d85d0a4496a00fef9"
-    sha256 cellar: :any_skip_relocation, monterey:       "7a48c78d50eb35e007a17431b41d59f08a23ce911291bb9bdc13a0dab59f40ca"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c56c49645beaec309145f55d36ca1cab8109f92621ce74f0d742350e6b30a05a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "182be378da98a564106defabd1377fba09bac76277e003a4c5f037d31ef89b82"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2a90df32c350542929724a253efe4d9f5039fb3cf27364e7b08a2f6aff816d50"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8cee652f4a0941d2ffda250f8b8da61502de995ac1f84ad64aec8127b24e091e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5eff52847b1d8b30c6c56d65986801508cef2bb613c0f2c202c518c276b97cbb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "08b4c0f09bc6459c9439b017e60848b4cef7ae2f9c69fe9b54576b64a9c66742"
+    sha256 cellar: :any_skip_relocation, ventura:        "5a74085a4f075f38f4945d760ab274c4a5e4fc059ef27f0fdecef82b8f29eafc"
+    sha256 cellar: :any_skip_relocation, monterey:       "ffb1426fef8e72648b3fcc550d2dd72454cb40d82f553b75c42f16e4d91f4a23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56401769cc3485e1d15f4a245404068c2b2d7996e86e470904a76b77f9eae01f"
   end
 
   def install

@@ -1,6 +1,6 @@
 class Coccinelle < Formula
   desc "Program matching and transformation engine for C code"
-  homepage "https://coccinelle.lip6.fr/"
+  homepage "https://coccinelle.gitlabpages.inria.fr/website/"
   license "GPL-2.0-only"
   revision 1
   head "https://github.com/coccinelle/coccinelle.git", branch: "master"

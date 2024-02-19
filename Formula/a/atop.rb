@@ -1,15 +1,17 @@
 class Atop < Formula
   desc "Advanced system and process monitor for Linux using process events"
   homepage "https://www.atoptool.nl"
-  url "https://github.com/Atoptool/atop/archive/refs/tags/v2.9.0.tar.gz"
-  sha256 "31246dad746330c11bdce2857f1d1fa316adeea6a54ee9eb7d8540d3122a9293"
+  url "https://github.com/Atoptool/atop/archive/refs/tags/v2.10.0.tar.gz"
+  sha256 "29b8cf36f9dd92bb2efef19b791afa5842573fd22d7ecb14d1eeab597bcdc30c"
   license "GPL-2.0-or-later"
   head "https://github.com/Atoptool/atop.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "45195d16c2b7ac329ad9cd6a78564a91f0533224d3239d6f8f79444b570b19b1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "1c6f352f8729ea5b0212b864586101840b399fcbb9c48fbb2515a0c651a13d48"
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "glib"
   depends_on :linux
   depends_on "linux-headers@5.15"
   depends_on "ncurses"

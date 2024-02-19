@@ -4,16 +4,16 @@ class Mosh < Formula
   url "https://github.com/mobile-shell/mosh/releases/download/mosh-1.4.0/mosh-1.4.0.tar.gz"
   sha256 "872e4b134e5df29c8933dff12350785054d2fd2839b5ae6b5587b14db1465ddd"
   license "GPL-3.0-or-later"
-  revision 10
+  revision 12
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "11889adf1ed7b43e2f31e1109f81f3564f983d587f9970fd5725ba890a5ad9db"
-    sha256 cellar: :any,                 arm64_ventura:  "b9428a84a290385a426e7c41e61987c6fea314896567075614c424d25da67c05"
-    sha256 cellar: :any,                 arm64_monterey: "7e6eb9586a35a7361d1011716605b2533b13b5f2c22d6afdcd6fdfa593218b63"
-    sha256 cellar: :any,                 sonoma:         "9264262b960c50fe1d260615c33af45a9dd4d012b40987a327d1abb8223cb309"
-    sha256 cellar: :any,                 ventura:        "9312db1b1b7911e57cad50f8b7579bc109b1e50309c7d29edd0fa54145ad1b8e"
-    sha256 cellar: :any,                 monterey:       "3a8c080a86a6501edf4bf82a0a4dfdcb28ab2ddff45ff810f4ada11c113d8a03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "97c5b8d7f1f605030bbe7628fc63505371678c61f0441f8fb8d807efd855f08a"
+    sha256 cellar: :any,                 arm64_sonoma:   "cd2b510adac763f44c5fb1de477d1ab1b89df7f495c655786969e3c5b9de385d"
+    sha256 cellar: :any,                 arm64_ventura:  "d9dcc753f4ee0027ae17c411ab712a2d30160807c958ae9221ad37fc7349443a"
+    sha256 cellar: :any,                 arm64_monterey: "e3c79cb999651b5d7bb1d0b84ac95f323e736f616fefe1ad77ec85de747e3edd"
+    sha256 cellar: :any,                 sonoma:         "b2ea40dd80afe745a63de0438881ad937455f0f6c4b6de500cf8f1e80649a79d"
+    sha256 cellar: :any,                 ventura:        "b801a1835498c054c18667807eea97ed6cfb1d96598a818ab705b771dc0e03d9"
+    sha256 cellar: :any,                 monterey:       "75a371314f389cecc26a9341f7f08d2bd71dddd70873dbf2e55de8d9b8a0934f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a5cc3764647484e45c37cc88110d0bbb450fd666030afde7abc5149b5d6892c"
   end
 
   head do

@@ -4,6 +4,7 @@ class TemporalTables < Formula
   url "https://github.com/arkhipov/temporal_tables/archive/refs/tags/v1.2.2.tar.gz"
   sha256 "85517266748a438ab140147cb70d238ca19ad14c5d7acd6007c520d378db662e"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,35 +12,31 @@ class TemporalTables < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3439256a09f6b5ba2cdb9e7db565caf62c26bd6c6d3ec3d8848b50ac4363fd84"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "188021cc902cebe9286202a66a1cbb3251c028733df5e81cdf9c16d40bb46b0e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c77e85f0a99540b6f4ff3c22dc09f0682b7ade9cffeff1c2ec35017e2d0ee14c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "10f35710e7934b43481a4f551a422b6fe6539bbc1ffeb7d99289ff7fe89f1f83"
-    sha256 cellar: :any_skip_relocation, ventura:        "1a1ef5ff8e73b0df8df1134e841b68be2a58575cbe8f688cac2d66ef173d6ba5"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa4a1fd509081672f14781805cd570d712954c73e5a4f3a434ca3198a5e59e76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35187d653f58864f5bc79d688246fb84e6daa88f33fd6a2fe5e4804aee449583"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4c329e88b8fa82e9360be732ae2054d0d77b41b29e302636c31f1da2b47203e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5222d996fc391c50b0b70a096e931c886620e6f538c34d3955bea1fd86f46508"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e458a800f09bb073d81b032e56e6ba124f86a46e8adf7fec9afd5dbfcaee8617"
+    sha256 cellar: :any_skip_relocation, sonoma:         "91a343a4100f09bf265f0bb826ecdd610189a5e55fa7349911512a3f5a45c0ab"
+    sha256 cellar: :any_skip_relocation, ventura:        "1292cf245c40f3c833b3c05dc4f17d960550107aa4a5df06c8cd8ea77612060b"
+    sha256 cellar: :any_skip_relocation, monterey:       "94cfaaa4269a1d3bb894d6eb63c3efb337fd05854a048e47f5d6952a3240d6a4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96fd42f1d03e29962b80bca8ddeb2f25091c810760ee8cbc3163c1b3852e41f9"
   end
 
   depends_on "postgresql@14"
 
   def postgresql
-    Formula["postgresql@14"]
+    deps.map(&:to_formula)
+        .find { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
-    ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
-
-    # Use stage directory to prevent installing to pg_config-defined dirs,
-    # which would not be within this package's Cellar.
-    mkdir "stage"
-    system "make", "install", "DESTDIR=#{buildpath}/stage"
-
-    stage_path = File.join("stage", HOMEBREW_PREFIX)
-    lib.install (buildpath/stage_path/"lib").children
-    share.install (buildpath/stage_path/"share").children
+    system "make", "install", "PG_CONFIG=#{postgresql.opt_bin}/pg_config",
+                              "pkglibdir=#{lib/postgresql.name}",
+                              "datadir=#{share/postgresql.name}",
+                              "docdir=#{doc}"
   end
 
   test do
+    ENV["LC_ALL"] = "C"
     pg_ctl = postgresql.opt_bin/"pg_ctl"
     psql = postgresql.opt_bin/"psql"
     port = free_port

@@ -3,27 +3,27 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/19/a4/f12219c1423de0381e0030c0411f787a875a987c2c217d563e9720055f3c/commitizen-3.13.0.tar.gz"
-  sha256 "53cd225ae44fc25cb1582f5d50cda78711a5a1d44a32fee3dcf7a22bc204ce06"
+  url "https://files.pythonhosted.org/packages/69/54/8b1fe0d33d4b5b03c1788079f8eb99f3a4ddd6f682f93c3700f867c5a156/commitizen-3.15.0.tar.gz"
+  sha256 "10b9cc1013a87aaca30562f9f5ac6ddaad47c336f7eee6fbfd11e92b820eee39"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a74056afdafce51883fe0937af573f4d505d36581e43ce4ba9ddbc920eb2d5d5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0433cdbf23c0a30a887c5539cd377c35206261f03f815ce9db0ca149417d638b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d94ae3fc7343adf694633ee4d2a56bfa776664834190d2be5f3977817b78428"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01acc87aa4219a0907253df8afe869847a4aadf44f3a9500792e85c4b56ff295"
-    sha256 cellar: :any_skip_relocation, ventura:        "b1f1376717a2a3025c4e706216d238d189fc76e1788ec6e57377d89f64ffcf77"
-    sha256 cellar: :any_skip_relocation, monterey:       "2e1ed2418c21b73cf6f05d24f2a7c98c73d7a6108c3b4a6e795fac394686b489"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6dffe7a83e640a9bd6a3caa1f96b64e35616af94962ce94945ae5c8a9f3d5983"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d480f66f46ec68c89270ffcaa987d33059315de28d58defe2570258e0a8e2263"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7747d2bdf83c7f943f913dd56bcf7da9e7a89af4202d627f54d4ebf1a115e0b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "16d5766579045b97ba3d3bcc43e118237e3010807c6b9731c265d8f211b102b1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fea2771cf5c2ee625e5e8153125b83aeb20b39db02f2d126d4fcfd594177d200"
+    sha256 cellar: :any_skip_relocation, ventura:        "283c94f7f8622c2a354d2a235121a71dcb3e48c1b44afe27389fb3d2429ce417"
+    sha256 cellar: :any_skip_relocation, monterey:       "499fe871bcde130add5cbeff4c4c07e4f021c593c628aea39af6a80ca4634d3e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc59e65d7868c88539f37be2a9505ad8431ad639559ee34042fb76f6eca3652d"
   end
 
-  depends_on "python-argcomplete"
-  depends_on "python-markupsafe"
-  depends_on "python-packaging"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
-  depends_on "pyyaml"
+
+  resource "argcomplete" do
+    url "https://files.pythonhosted.org/packages/f0/a2/ce706abe166457d5ef68fac3ffa6cf0f93580755b7d5f883c456e94fab7b/argcomplete-3.2.2.tar.gz"
+    sha256 "f3e49e8ea59b4026ee29548e24488af46e30c9de57d48638e24f54a1ea1000a2"
+  end
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -41,18 +41,33 @@ class Commitizen < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/97/4b/54711968ae127aa7c781017c85344477ed7da8e8493a06f02cd92bdc8dae/importlib_metadata-6.9.0.tar.gz"
-    sha256 "e8acb523c335a91822674e149b46c0399ec4d328c4d1f6e49c273da5ff0201b9"
+    url "https://files.pythonhosted.org/packages/90/b4/206081fca69171b4dc1939e77b378a7b87021b0f43ce07439d49d8ac5c84/importlib_metadata-7.0.1.tar.gz"
+    sha256 "f238736bb06590ae52ac1fab06a3a9ef1d8dce2b7a35b5ab329371d6c8f5d2cc"
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
+  end
+
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
   end
 
   resource "prompt-toolkit" do
     url "https://files.pythonhosted.org/packages/fb/93/180be2342f89f16543ec4eb3f25083b5b84eba5378f68efff05409fb39a9/prompt_toolkit-3.0.36.tar.gz"
     sha256 "3e163f254bef5a03b146397d7c1963bd3e2812f0964bb9a24e6ec761fd28db63"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "questionary" do
@@ -71,8 +86,8 @@ class Commitizen < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
-    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   resource "zipp" do
@@ -83,10 +98,8 @@ class Commitizen < Formula
   def install
     virtualenv_install_with_resources
 
-    python_exe = Formula["python@3.12"].opt_libexec/"bin/python"
-    register_argcomplete = Formula["python-argcomplete"].opt_bin/"register-python-argcomplete"
     generate_completions_from_executable(
-      python_exe, register_argcomplete, "cz",
+      libexec/"bin/register-python-argcomplete", "cz",
       base_name:              "cz",
       shell_parameter_format: :arg
     )

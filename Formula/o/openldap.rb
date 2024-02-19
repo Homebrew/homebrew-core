@@ -1,10 +1,10 @@
 class Openldap < Formula
   desc "Open source suite of directory software"
   homepage "https://www.openldap.org/software/"
-  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.6.tgz"
-  mirror "http://fresh-center.net/linux/misc/openldap-2.6.6.tgz"
-  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.6.tgz"
-  sha256 "082e998cf542984d43634442dbe11da860759e510907152ea579bdc42fe39ea0"
+  url "https://www.openldap.org/software/download/OpenLDAP/openldap-release/openldap-2.6.7.tgz"
+  mirror "http://fresh-center.net/linux/misc/openldap-2.6.7.tgz"
+  mirror "http://fresh-center.net/linux/misc/legacy/openldap-2.6.7.tgz"
+  sha256 "cd775f625c944ed78a3da18a03b03b08eea73c8aabc97b41bb336e9a10954930"
   license "OLDAP-2.8"
 
   livecheck do
@@ -13,20 +13,20 @@ class Openldap < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0664e43cdee625e336007730038b596e5cbae9c66036289cc1625052f0c37af4"
-    sha256 arm64_ventura:  "29426f6dd15964b20f8561f9f0a7a332a80086a0b480ac739719213c76f2d5e9"
-    sha256 arm64_monterey: "7812d6a2e9faa260f918bd39ef8a0e6cb37063b4f9bac67449e7e9bf8bda6a70"
-    sha256 arm64_big_sur:  "989d4f6ec3b7caad51088b0afd70b7544ec2bb210d3fc6cd845252e776884289"
-    sha256 sonoma:         "db3357512f13bcc05b9d02a03136e10d04f952c8e95dff3e593a32cb197e10ed"
-    sha256 ventura:        "03c932365fcfc8e8523c82a5da61cb22eb8341a35a2c959cf27468657b134f92"
-    sha256 monterey:       "b68dd6afb59524ff8c7711b2d2c77227d6c7aa1f3994ca3cf0071d748bdb9c13"
-    sha256 big_sur:        "c2f581d225a0f1f40f285734b1d399068b4cbda11e5d1042f8ab4b3672e55325"
-    sha256 x86_64_linux:   "161684fd77821834cc9a918a8e9b01636f5f6c5ce92a2d7abf2c6628d71a8100"
+    sha256 arm64_sonoma:   "586762c2bc4dc3ac9c5959009af103ca4d46309c073de7b9da33ad8ec6767e01"
+    sha256 arm64_ventura:  "0bb2ff7967bb92f0dd7de90360eb1544931f44559acdaf8499255f3e971a1a1f"
+    sha256 arm64_monterey: "3b129f7922a3942d2044d74333cb138d81c3d424254dfdfd5fcbbe4a0f5200f0"
+    sha256 sonoma:         "93641ee79dc64412d56d7cd363b8b7f574713a36c4378ae87dd7afb564428fc3"
+    sha256 ventura:        "82787c552d0b75a406efb2739ecb42666b1aefeeecf297cf3ce923b6a9ad2aaa"
+    sha256 monterey:       "53db644f20f3a1bae71ddecc65366c461b9e64a8816e1b75f81e3c3573055470"
+    sha256 x86_64_linux:   "f251004321722f41e9d53b49539c24a7116d8f297969822134e2cdb06c696089"
   end
 
   keg_only :provided_by_macos
 
   depends_on "openssl@3"
+
+  uses_from_macos "mandoc" => :build
 
   on_linux do
     depends_on "util-linux"
@@ -65,17 +65,18 @@ class Openldap < Formula
       --without-systemd
     ]
 
-    if OS.linux? || MacOS.version >= :ventura
-      # Disable manpage generation, because it requires groff which has a huge
-      # dependency tree on Linux and isn't included on macOS since Ventura.
-      inreplace "Makefile.in" do |s|
-        subdirs = s.get_make_var("SUBDIRS").split - ["doc"]
-        s.change_make_var! "SUBDIRS", subdirs.join(" ")
+    soelim = if OS.mac?
+      if MacOS.version >= :ventura
+        "mandoc_soelim"
+      else
+        "soelim"
       end
+    else
+      "bsdsoelim"
     end
 
     system "./configure", *args
-    system "make", "install"
+    system "make", "install", "SOELIM=#{soelim}"
     (var/"run").mkpath
 
     # https://github.com/Homebrew/homebrew-dupes/pull/452

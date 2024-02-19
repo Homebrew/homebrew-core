@@ -1,20 +1,18 @@
 class Nift < Formula
   desc "Cross-platform open source framework for managing and generating websites"
   homepage "https://nift.dev/"
-  url "https://github.com/nifty-site-manager/nsm/archive/refs/tags/v3.0.2.tar.gz"
-  sha256 "5f2e60aa113ba0227175bfdcc35a75bfaffe315a8c9966a7bfe4208f9bae8e46"
+  url "https://github.com/nifty-site-manager/nsm/archive/refs/tags/v3.0.3.tar.gz"
+  sha256 "4900247b92e0ae0d124391ec710a38b322ae83170e2c39191f8ad497090ffd24"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "911fcaa5ca14991a2be91da4f9a24139b93ffd74b59886879ce7971d4306b1f6"
-    sha256 cellar: :any,                 arm64_ventura:  "d1b70f0c8408fdd4989de5ab087f6352985d4c623bd96ad09d13779616a7ff80"
-    sha256 cellar: :any,                 arm64_monterey: "7dcd8dc27176f7d428e6335ffc00e0f009495fbc375eb9981598a443390d80f6"
-    sha256 cellar: :any,                 arm64_big_sur:  "cbc8c0ee3c71696a7d5cd901548fe0bdbff0f5847e880ef00f506ec1a2a2223b"
-    sha256 cellar: :any,                 sonoma:         "149d5601d49767fde9f778a010c2cf34d6e8e51907af4773503b8de82fdc5f70"
-    sha256 cellar: :any,                 ventura:        "714bd5ce882aba69388a0eef41e445b69066f747da8202a13f10ebf9bf89788a"
-    sha256 cellar: :any,                 monterey:       "831d084f21c27d6aeb6128959ffee655d83d6077fa69faba662606a880f5445b"
-    sha256 cellar: :any,                 big_sur:        "096b99ab5e0f03b26e2605c2d2b4b335aa0d3924b332c91c64661298363560a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1735a12a20065f134cf0358547005cecfd6485d3446e5b3262c23d462f379260"
+    sha256 cellar: :any,                 arm64_sonoma:   "d956ac86be1b6ba12faa5fd44203b5528e7449118bf10529ccc92b9e99870cdd"
+    sha256 cellar: :any,                 arm64_ventura:  "a7b8a8bb2bae90045ea083bb172b1209c3a9afb6cd7c23dcb9daaacb33a8a5e3"
+    sha256 cellar: :any,                 arm64_monterey: "318f8e6c52625ac950dd133d0842f679b8fdfcfcf81291e7c62681dd9841833d"
+    sha256 cellar: :any,                 sonoma:         "be9f28e1d59a40c8f7eb2ef64706389a7e3983ecc884072c925fd4ea5f058d4a"
+    sha256 cellar: :any,                 ventura:        "c2261dd8442c08a37c268f6b5192abfed469b4edbde6bf640873a8db0f1c78f4"
+    sha256 cellar: :any,                 monterey:       "a72728301c2f93e669868c547353a2bc1cb09d68a8bd0a14ebeab4556877e2fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4ceda3cb7527a85aac01357fa0e8fe3a1adb2d8dc4be618b7e93cacd97e6754"
   end
 
   depends_on "luajit"

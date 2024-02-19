@@ -1,8 +1,8 @@
 class Greed < Formula
   desc "Game of consumption"
   homepage "http://www.catb.org/~esr/greed/"
-  url "http://www.catb.org/~esr/greed/greed-4.2.tar.gz"
-  sha256 "702bc0314ddedb2ba17d4b55d873384a1606886e8d69f35ce67f6e3024a8d3fd"
+  url "http://www.catb.org/~esr/greed/greed-4.3.tar.gz"
+  sha256 "60433afaef3eb8e20e4aa33d4b5538f6ea661b1880c98cd9d7c6df86c91d4baa"
   license "BSD-2-Clause"
   head "https://gitlab.com/esr/greed.git", branch: "master"
 
@@ -12,19 +12,13 @@ class Greed < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "07a287751b8ed024ef7194a0d3f9bd7f7e731ccd2094c17179f572cd85510f83"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36c2fea013a54064053d5ce3e5a72dd7f2acdda4151221c87963b330e6b11766"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e742fb2edc5d957f895a9843bb3432f0b965f582e53bf315ac6a1eec2c3cd78"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "197eaf64e266d04b451278067451a05271ee348e04c860c360212f22e0a22cd2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "75a9aa2880d88ad4de0a5e94f587bfd2e8987978066f09cb0e974afed1cdf88e"
-    sha256 cellar: :any_skip_relocation, ventura:        "4186bd81b2117f752ef4f6ef551a8fbd0394f45bc14945aa95c346e846deeafb"
-    sha256 cellar: :any_skip_relocation, monterey:       "f63c247592d7a30dfe5683919c96bc572b4841695358b94627895deb7e48dfa5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "15791321c59787d6e5b633efb195e0b7edf8c92976d5c6991e12a920a9f46a00"
-    sha256 cellar: :any_skip_relocation, catalina:       "64d0028754d683a8bbe1de0bb1a7319dcf6d8020c6d3624e58df5b5be3bf4e42"
-    sha256 cellar: :any_skip_relocation, mojave:         "9cba951e4fd73d29a1e4899a4f2a7d5f0158f6f5b6d02bb75837c7296530e65c"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "9685dcc52ad08b19964cfb61f4fd0d9e28ec0d42cde2f112da4e9be1e1d15b5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ab888e57c904b28bca019bcbf06b8439d8d0f3594acb3f5306441797af4da55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a3e7b7239960308e29bf2dfe2e74e0c8d8f668eba481d83b64235180f96efbb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fa7e8531d206c50da08b2e675a362e6a456476d177af8d31135e65f900e1f673"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d5d9248e0afb74bf84489914b4db0076f3d2ebcaf673410ddfebbd3b29cae2b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4bc754b53d564166bb70c838b7cf122c8d85d01482d6a6c6ce3d7dbddf37fdba"
+    sha256 cellar: :any_skip_relocation, ventura:        "248414686a9fe19755be3b53a948dc70e4b81dd9bd9bde5939003d76999b6de7"
+    sha256 cellar: :any_skip_relocation, monterey:       "20c9887c2d21ce3992fd41f9fac4ff26ff3152e06112ae408026d6c8987f5cbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7f7db5fc7dbc281817a928f614c13af17805c1e8b7804cef14b7cb23f5ac6cf"
   end
 
   uses_from_macos "ncurses"

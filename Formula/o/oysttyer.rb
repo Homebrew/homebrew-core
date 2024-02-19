@@ -9,6 +9,8 @@ class Oysttyer < Formula
     sha256 cellar: :any_skip_relocation, all: "a1700139674a1c4bdfb17dc7b5c7d513f835ac100fd419ac07672cdd6f78ec1b"
   end
 
+  deprecate! date: "2024-01-06", because: :repo_archived
+
   def install
     bin.install "oysttyer.pl" => "oysttyer"
   end

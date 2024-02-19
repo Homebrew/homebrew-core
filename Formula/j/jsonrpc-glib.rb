@@ -20,17 +20,15 @@ class JsonrpcGlib < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
   depends_on "glib"
   depends_on "json-glib"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, "-Dwith_vapi=true", ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", "-Dwith_vapi=true", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -42,35 +40,8 @@ class JsonrpcGlib < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    json_glib = Formula["json-glib"]
-    pcre = Formula["pcre"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/jsonrpc-glib-1.0
-      -I#{json_glib.opt_include}/json-glib-1.0
-      -I#{pcre.opt_include}
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{json_glib.opt_lib}
-      -L#{lib}
-      -lgio-2.0
-      -lglib-2.0
-      -lgobject-2.0
-      -ljson-glib-1.0
-      -ljsonrpc-glib-1.0
-    ]
-    if OS.mac?
-      flags << "-lintl"
-      flags << "-Wl,-framework"
-      flags << "-Wl,CoreFoundation"
-    end
-    system ENV.cc, "test.c", "-o", "test", *flags
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs jsonrpc-glib-1.0").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_cflags
     system "./test"
   end
 end

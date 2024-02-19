@@ -14,6 +14,7 @@ class Bit < Formula
     sha256                               arm64_ventura:  "c61128513cd41645552e4438d6f86f6cd96778c77ca29aa4be380a7d0ff9bfe9"
     sha256                               arm64_monterey: "25d35baef7bc17a6a2ab9d8f3083925f07c18dd40fa3c79c03e1a1eaeeab12fe"
     sha256                               arm64_big_sur:  "4aef1c99d8073edb373e209c739a490c87c8956434e242aa8fd393419ba3baf7"
+    sha256                               sonoma:         "71e9cb25136a1825bbdc88a437999effbafbdd62fd1c22ecaee78e796145cdc7"
     sha256                               ventura:        "ac8fc4aaef48145d1ceed6bbdaa63b58f2b6c993bf65a1ca29817154c04f108b"
     sha256                               monterey:       "1b4cefb9480be0579cc849bed266ee8602d5d074f280c9e2c88c47ed28ac3404"
     sha256                               big_sur:        "387868e05ed7c459fde2b0d7c6eb31f889002bfb2628fa54bcc8a33b91f3c6de"

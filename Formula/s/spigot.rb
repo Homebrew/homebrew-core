@@ -1,9 +1,9 @@
 class Spigot < Formula
   desc "Command-line streaming exact real calculator"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/spigot/"
-  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20220606.eb585f8.tar.gz"
-  version "20220606"
-  sha256 "27234d668fc750f5afe6b62d94d629f079740bb8b7cb11322a6fbbef2b0dec0a"
+  url "https://www.chiark.greenend.org.uk/~sgtatham/spigot/spigot-20240202.10bd0ca.tar.gz"
+  version "20240202"
+  sha256 "5bccbeaa48968e79e97af032a13fa5643d34f5142014f710d0c198e5088affe7"
   license "MIT"
 
   livecheck do
@@ -12,16 +12,13 @@ class Spigot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "485e425d8512a17786bc423981b553a20233178390dcd0420ba4c97cf7bafba4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "030a5c0fc3e0bee531208741bd5012b4fa2a5fe5e8fb2f079ffb6c37ac6babd1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2619cd7ae18bf5e034a5f061fbc8593b1ab5acfb890b5b4dbfe71a216b68e9c0"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c7a514b7ac79c2c391a16ff6bb3534639ffa15306cefc586af1d5906c52c305c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a95f6b1897e06a0d27b6fd78198d3744073e4498f6c6f478f1fb3aac80c81d36"
-    sha256 cellar: :any_skip_relocation, ventura:        "97a406f8f490a381b27db40a24066629ade62f9ab34b8d9ad43fe2663a3590a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "9cd1259b84062a5e0fd8aec409cff82fa6df655667d34375c444e63730a5917d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "c3f1a1a5dd3c96d353c3db29ab681b4ea61823563386f9d143da6580edfdb050"
-    sha256 cellar: :any_skip_relocation, catalina:       "8b1776395e9a1fc99a1910212e046381b307ea8f55726695b8c2d7c5a5cf0a36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5741c9380e849ddefb17be31323a14c0e170d340a58f7c6c469e7637b0adf191"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ac8ecbbd6e813dc9ffed29f98740bc04cca493387348ed9d7aa1ed5527dec52"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8524a2242c2a01dddabecce6784a19ee14f66c2affd0dca7b3ef0e4771e3f512"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6549e181c26fe45b9f4c09eda98e6750d97109285670e07a47f93c47f88d4f61"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0832df09ea00d162d5a07ab80b4310ed994f3a3ab0428f745120857f4d6f5052"
+    sha256 cellar: :any_skip_relocation, ventura:        "3b70982556818fa2bf60baf121feb2036350200acb8e7d98ddaef3a3b0528bf5"
+    sha256 cellar: :any_skip_relocation, monterey:       "f83ab94d4c56ad5052849489a07518ff3dedafc27e6ad5cd82af1def0e64e634"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59093bf7c15030fe7ce289edd152f03474f02f0d5620dce01535e132ab47b575"
   end
 
   depends_on "cmake" => :build

@@ -23,21 +23,20 @@ class Superlu < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :test
   depends_on "gcc"
   depends_on "openblas"
 
   def install
-    args = std_cmake_args + %W[
+    args = %W[
       -Denable_internal_blaslib=NO
       -DTPL_BLAS_LIBRARIES=#{Formula["openblas"].opt_lib}/#{shared_library("libopenblas")}
       -DBUILD_SHARED_LIBS=YES
     ]
 
-    mkdir "build" do
-      system "cmake", "..", *args
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Source and data for test
     pkgshare.install "EXAMPLE/dlinsol.c"
@@ -45,9 +44,8 @@ class Superlu < Formula
   end
 
   test do
-    system ENV.cc, pkgshare/"dlinsol.c", "-o", "test",
-                   "-I#{include}/superlu", "-L#{lib}", "-lsuperlu",
-                   "-L#{Formula["openblas"].opt_lib}", "-lopenblas"
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs superlu").chomp.split
+    system ENV.cc, pkgshare/"dlinsol.c", *pkg_config_cflags, "-o", "test"
     assert_match "No of nonzeros in L+U = 11886",
                  shell_output("./test < #{pkgshare}/g20.rua")
   end

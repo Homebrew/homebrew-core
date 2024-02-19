@@ -8,17 +8,16 @@ class Touca < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a885219aadafa7a8691d1442b9dcbb0f8b711a2630a45a9254bf2490529650c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "12452b5c5d4105d8d4d9e953f95e88446a471127c2741981df374b92377414b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f125890b52bbb83c41da6dcbce56e37730c6b60eb3c91ea8a7ef750c0bae6ebc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9ee394c3708cdbc2aaf49834d8f7d98cdeb594f35ee7141c530bee624dd8d67a"
-    sha256 cellar: :any_skip_relocation, ventura:        "b94b3e407073badc2157340226b1a0d3719dac71f11b86523b719a3304343f70"
-    sha256 cellar: :any_skip_relocation, monterey:       "a11d5858f280a2c2d64d7b8f9c787a811e1a3e109bd21003290d0871b17fa68f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f30224270a4263629886ed84036ff4ab0e7adf48ac95dfd82c1d159e2d2a005"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "343fc4996c6ce18a5d9491e17eff7d3f56bcbaa69530f1b357f65934804ee74b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37cc781c1683fbaf74ad88c07e0e705be46abfcad90ae251a9898704d13a6907"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4a9875943860bdc2220eb547cb93ae6507a7c29d81063ce867ddc59e15d555c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fa149859df07f6dfdc1300e49655b6d7f7114dfdf750b2e09ebfaf6667b276f3"
+    sha256 cellar: :any_skip_relocation, ventura:        "ff80cdadebea93093541b65bf1948be128b348387ed102471816058eeb55326b"
+    sha256 cellar: :any_skip_relocation, monterey:       "0fa4544cc2f19b900ca5498a6bb621134c6dcae795beb38b98f681a0c18628c8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "328bc9c8333c9678c53aa3f7992f7bc3addf66fc63369b9562c471be55cc04ea"
   end
 
-  depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
@@ -40,6 +39,11 @@ class Touca < Formula
   resource "touca-fbs" do
     url "https://files.pythonhosted.org/packages/0e/ae/c5bd348bf8c21d5696538261dc8c05fc5e5a7d60056ecf7180c590d02bd1/touca_fbs-0.0.3.tar.gz"
     sha256 "f9d31d0498bff34637356dcd567ae026e9f10d24ee806bf2e020be49b472779d"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   resource "urllib3" do

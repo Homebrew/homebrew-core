@@ -18,7 +18,7 @@ class GnomeCommon < Formula
   end
 
   # https://wiki.gnome.org/Projects/GnomeCommon
-  deprecate! date: "2023-01-25", because: :deprecated_upstream
+  disable! date: "2024-02-01", because: :deprecated_upstream
 
   conflicts_with "autoconf-archive", because: "both install ax_check_enable_debug.m4 and ax_code_coverage.m4"
 

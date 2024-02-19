@@ -4,6 +4,7 @@ class Anttweakbar < Formula
   url "https://downloads.sourceforge.net/project/anttweakbar/AntTweakBar_116.zip"
   version "1.16"
   sha256 "fbceb719c13ceb13b9fd973840c2c950527b6e026f9a7a80968c14f76fcf6e7c"
+  license "Zlib"
 
   bottle do
     rebuild 2
@@ -22,7 +23,7 @@ class Anttweakbar < Formula
   # From https://sourceforge.net/projects/anttweakbar/:
   # "The project is not maintained anymore but feel free to download
   # and modify the source code to fit your needs or fix issues."
-  deprecate! date: "2023-02-14", because: :unmaintained
+  disable! date: "2024-02-12", because: :unmaintained
 
   on_linux do
     depends_on "libxcursor"

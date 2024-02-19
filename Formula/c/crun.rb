@@ -1,12 +1,12 @@
 class Crun < Formula
   desc "Fast and lightweight fully featured OCI runtime and C library"
   homepage "https://github.com/containers/crun"
-  url "https://github.com/containers/crun/releases/download/1.12/crun-1.12.tar.xz"
-  sha256 "860f4d1972dd2fdb17e4a1aae4386c4da2989e547d1e17f909b3ca0aff135c28"
+  url "https://github.com/containers/crun/releases/download/1.14.3/crun-1.14.3.tar.xz"
+  sha256 "bd1703c346087fdfecba4f9e6f15ad7b55ab1d9456c3c344b79b8672978df9b4"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "9696d3d6240f9437047732ad8d65844f3cdf38584e6e5634efbd299bbe309893"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "618b51c1a9ed571e6dfa3cf6f7d468f7bd7b84bfd5d82880294b1347d7b1667a"
   end
 
   depends_on "autoconf" => :build

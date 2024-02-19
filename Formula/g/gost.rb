@@ -17,16 +17,19 @@ class Gost < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3333b5b518c55f24c532d6cbcf44dad08f72415b3371c65e59d7e6ad2c7c7b6f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b880bb2bace71fb50f816374dd623ad62e893e7abd06101ba88b01f026ba9110"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b880bb2bace71fb50f816374dd623ad62e893e7abd06101ba88b01f026ba9110"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "b880bb2bace71fb50f816374dd623ad62e893e7abd06101ba88b01f026ba9110"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7f8b42a119ce3827df9b3ec1e9a7e9e2fc00ebff4c2c60745aa7d77289241950"
-    sha256 cellar: :any_skip_relocation, ventura:        "77320157771741abee963d6a3e1745a80702745c896ddd83b82cbcf6d46d4e8e"
-    sha256 cellar: :any_skip_relocation, monterey:       "77320157771741abee963d6a3e1745a80702745c896ddd83b82cbcf6d46d4e8e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "77320157771741abee963d6a3e1745a80702745c896ddd83b82cbcf6d46d4e8e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de1f718516d68a836440a2ad09bc48ec150935de28084726bab8e159c2c48860"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a27e7e6720095678916b47236b60ba280773f57d3168450c73a81b8857c8815c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a27e7e6720095678916b47236b60ba280773f57d3168450c73a81b8857c8815c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a27e7e6720095678916b47236b60ba280773f57d3168450c73a81b8857c8815c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d7a3db5ee313e576ab5b8ec6b3353153e0161c33396ed8355a49a094908fd5e1"
+    sha256 cellar: :any_skip_relocation, ventura:        "d7a3db5ee313e576ab5b8ec6b3353153e0161c33396ed8355a49a094908fd5e1"
+    sha256 cellar: :any_skip_relocation, monterey:       "d7a3db5ee313e576ab5b8ec6b3353153e0161c33396ed8355a49a094908fd5e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ccbbcfddd4e05137303c86f5d25bbbf8ecccd093a72c6af80cd79b800bdf5d4b"
   end
+
+  # no release to support go1.20, https://github.com/ginuerzh/gost/issues/1012
+  # also no actions on go1.21 build support PR, https://github.com/ginuerzh/gost/pull/983
+  deprecate! date: "2024-02-14", because: :unmaintained
 
   depends_on "go@1.20" => :build
 

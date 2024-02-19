@@ -15,17 +15,15 @@ class Libfuse < Formula
   depends_on :linux
 
   def install
-    args = std_meson_args + %W[
+    args = %W[
       --sysconfdir=#{etc}
       -Dinitscriptdir=#{etc}/init.d
       -Dudevrulesdir=#{etc}/udev/rules.d
       -Duseroot=false
     ]
-    mkdir "build" do
-      system "meson", *args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *args, *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
     (pkgshare/"doc").install "doc/kernel.txt"
   end
 

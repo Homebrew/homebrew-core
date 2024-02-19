@@ -1,19 +1,18 @@
 class Fred < Formula
   desc "Fully featured FRED Command-line Interface & Python API wrapper"
   homepage "https://fred.stlouisfed.org/docs/api/fred/"
-  url "https://files.pythonhosted.org/packages/dd/2c/51a14730b2091563018e948bf4f5c3600298a966c50862cd9ef98bee836c/fred-py-api-1.1.1.tar.gz"
-  sha256 "e2689366a92f194f8f85db15463153a2116f241459ffc07d0bb5bbd5fb00837e"
+  url "https://files.pythonhosted.org/packages/b9/4d/5997ff747d69b8451a63b92182eb3df42a87a171e0a1c8acc2792bc8afc1/fred-py-api-1.1.2.tar.gz"
+  sha256 "361886a97b8016e3010557e2c2e60f5656f2192f37eae05fa53867c6c3b0653c"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f4bbcf117467983ab0d2b9792a533762e0732d949a208b623dc936e2a6b0719"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b5785396e15e4f499a3762b14f75e5388cb428e0548fd0303a996eac33c2c5a7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9096419d5c681481ca0cd2614ac7f534ada6343e3dbe078ad31207d20ad95f37"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fec38be17de92195374f254437ed0567ec86f8c810e260693caf2b5a87526412"
-    sha256 cellar: :any_skip_relocation, ventura:        "f2d6678b7efef07768d6b345cde9f987540e9410edecb20c5213c74c789673ad"
-    sha256 cellar: :any_skip_relocation, monterey:       "0c0affe7ff545c9474e442027d344a281fc7a8aac875e6cf1b1923630d7f3414"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2402469d3fb97d6acd5f0ed30b58c12cd2f75d5028c540eca30010fd98ba72c5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5ce275d5c843ce253177418aaa9702610c5cec42bb895e652a8f670738e08991"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee5b209458739a4c8176040ec0ebec0346e73c2924e50fe4bf118d4edc23ef4d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "081ebd21cd9131bb88eb50eedf99849edeea7a0442f826cfb333ae2e652ab2df"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ac932e610b08e6a1f72ea4e2bb116da7a711b90277a4ff6925effd0d90e5250a"
+    sha256 cellar: :any_skip_relocation, ventura:        "7bfc4a0be445af8cd8ba20ec00db25c88c3e33f5ccd100ac6c9bee12065249cb"
+    sha256 cellar: :any_skip_relocation, monterey:       "f4cecc47c2b042828d757cbff6b1401014d19c3a0106b8210772780a4d4059aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a5d5c3bb146a8befb05cc261fa6b7d8417373fab670a861aeb59744db9f6d68"
   end
 
   depends_on "python-setuptools" => :build

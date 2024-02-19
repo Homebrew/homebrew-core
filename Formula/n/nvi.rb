@@ -1,6 +1,6 @@
 class Nvi < Formula
   desc "44BSD re-implementation of vi"
-  homepage "https://sites.google.com/a/bostic.com/keithbostic/vi/"
+  homepage "https://repo.or.cz/nvi.git"
   url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6.orig.tar.gz"
   sha256 "8bc348889159a34cf268f80720b26f459dbd723b5616107d36739d007e4c978d"
   license "BSD-3-Clause"
@@ -53,10 +53,11 @@ class Nvi < Formula
   # Upstream have been pretty inactive for a while, so we may want to kill this
   # formula at some point unless that changes. We're leaning hard on Debian now.
   patch do
-    url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-13.debian.tar.xz"
-    sha256 "306c6059d386a161b9884535f0243134c8c9b5b15648e09e595fd1b349a7b9e1"
+    url "https://deb.debian.org/debian/pool/main/n/nvi/nvi_1.81.6-19.debian.tar.xz"
+    sha256 "33e6b71119b391a1c024b619565a2b9677ad169583ba1f73596d535ed1d6cd24"
     apply "patches/03db4.patch",
           "patches/19include_term_h.patch",
+          "patches/20glibc_has_grantpt.patch",
           "patches/24fallback_to_dumb_term.patch",
           "patches/26trailing_tab_segv.patch",
           "patches/27support_C_locale.patch",
@@ -76,9 +77,8 @@ class Nvi < Formula
       # Xcode 12 needs the "-Wno-implicit-function-declaration" to compile successfully
       # The usual trick of setting $CFLAGS in the environment doesn't work for this
       # configure file though, but specifying an explicit CC setting does
-      system "./configure", "--prefix=#{prefix}",
+      system "./configure", *std_configure_args,
                             "--program-prefix=n",
-                            "--disable-dependency-tracking",
                             "CC=" + ENV.cc + " -Wno-implicit-function-declaration"
       system "make"
       ENV.deparallelize

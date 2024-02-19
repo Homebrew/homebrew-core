@@ -3,23 +3,22 @@ class Rpmspectool < Formula
 
   desc "Utility for handling RPM spec files"
   homepage "https://github.com/nphilipp/rpmspectool"
-  url "https://files.pythonhosted.org/packages/f9/45/d7c3f5ea8f924ec63f4be1bbef072c015dc79e80ce47a488267fa81ba364/rpmspectool-1.99.9.tar.gz"
-  sha256 "4452f49d86317d91767ccf0aa5a2f146fbae17574780fc3cb6cd3b651daf295b"
+  url "https://files.pythonhosted.org/packages/7d/cc/53ef9a699df75f3f29f672d0bdf7aae162829e2c98f7b7b5f063fd5d3a46/rpmspectool-1.99.10.tar.gz"
+  sha256 "b79d59388ecba5f8b957c722a43a429b5a728435f5ed0992011e9482850e3583"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "c0e42332bbcadd0d09d3a8356ada8aa5d91f18ab4c52f028c5c730cf585fd09f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "121a47cd15dc9959fc3a51f762c9879cd5d14a22fbcd92bdf74ac055219249bf"
   end
 
   depends_on :linux
   depends_on "python-pycurl"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
   depends_on "rpm"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/85/b9/e2bef848f79fce1e70d048b4de873424fde918c54ac2e6b8638cca887243/argcomplete-2.1.2.tar.gz"
-    sha256 "fc82ef070c607b1559b5c720529d63b54d9dcf2dcfc2632b10e6372314a34457"
+    url "https://files.pythonhosted.org/packages/b8/a0/524e0aaabf9bc3dfcfb4da4c61a0469d5cbac31e39dd807a832ea6098c91/argcomplete-3.2.1.tar.gz"
+    sha256 "437f67fb9b058da5a090df505ef9be0297c4883993f3f56cb186ff087778cfb4"
   end
 
   def install

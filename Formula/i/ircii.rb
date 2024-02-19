@@ -1,9 +1,10 @@
 class Ircii < Formula
   desc "IRC and ICB client"
-  homepage "http://www.eterna.com.au/ircii/"
-  url "https://ircii.warped.com/ircii-20210314.tar.bz2"
-  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20210314.orig.tar.bz2"
-  sha256 "866f2b847daed3d70859f208f7cb0f20b58c0933b2159f7ff92a68c518d393a9"
+  # notified upstream about the site issue on 2024-01-12
+  homepage "https://web.archive.org/web/20231024192652/http://eterna.com.au/ircii/"
+  url "https://ircii.warped.com/ircii-20240111.tar.bz2"
+  mirror "https://deb.debian.org/debian/pool/main/i/ircii/ircii_20240111.orig.tar.bz2"
+  sha256 "acb9351d9215c783111ad118ab2a1d3ac27f96e53db9bdc685e5dde1c14fd95d"
   license all_of: [
     "BSD-3-Clause",
     "BSD-2-Clause",
@@ -18,17 +19,13 @@ class Ircii < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "7ae68e6a781885bc7c5a2a43e09b52389d15bac1152f9a74d48ad61f32dd84b9"
-    sha256 arm64_ventura:  "dc7d4b485e4f00ec1fb9750f38110b452bcc9ee777aebc51521bb32b031d3690"
-    sha256 arm64_monterey: "e1a64a64f9aab81c8fce589945912aa0c459daff48e65f455a181d0391539b23"
-    sha256 arm64_big_sur:  "9daf37b4ec3ed1b47c8ce24d9acffb0a0781f648f97220c09c6100310819344b"
-    sha256 sonoma:         "726f2193fbf03a12dbc85f7fac423d732d082366a4f74171361b2a83932c8770"
-    sha256 ventura:        "17de357ffa8090c0928c6af8e0a1ade72b43c187552bbc3acb82cf98ebf5d65e"
-    sha256 monterey:       "bb15fc3ed62c9a10c8555a53cf3ea89d9025a8ed13ba972f9fd78ce7449998cc"
-    sha256 big_sur:        "4d2671014e366e382805580bba8c328f20b52a5838701f08619f030f43f58ae1"
-    sha256 catalina:       "b621da055243edbf54884b186c1250ef4ab80655e7647aa837d07e523e8e5c1a"
-    sha256 x86_64_linux:   "2c88482345ab4bb6ec095d529259fe14768c6cc7b7918883bf94a3e07b62d700"
+    sha256 arm64_sonoma:   "abb7c5038b0d96a37d249ca0dd4f64ecf76f76b85849d6a9981577ce88ea2c8e"
+    sha256 arm64_ventura:  "035ffb6101cca1e95d9331d6887c70e7b15f2aeeade6572fdae30c803aa9bf7e"
+    sha256 arm64_monterey: "694c2884b8beaa9c03933499fda1140f421a9527ee7017f8e5063d8feec7da36"
+    sha256 sonoma:         "31df637946b965d07b2c240f382a3496eb8f8e96fb5ea6e29712648cbe4c44df"
+    sha256 ventura:        "0b26898ec18c93d737d05a5ddc78f9a4c617686472d32484d78ef22cc9ca1d08"
+    sha256 monterey:       "1513fc8051263bde7bbf4aa0bb81ded72c8d89ce70331efde8d648896539df3a"
+    sha256 x86_64_linux:   "e47af1b036ee325428beee16be3859e3ccd5f14f383d510996ae90e21aae241a"
   end
 
   depends_on "openssl@3"

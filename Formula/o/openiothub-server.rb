@@ -2,22 +2,19 @@ class OpeniothubServer < Formula
   desc "Server for OpenIoTHub"
   homepage "https://github.com/OpenIoTHub/server-go"
   url "https://github.com/OpenIoTHub/server-go.git",
-      tag:      "v1.2.1",
-      revision: "e9b10913f1e291cebd9daeeecb88054a51585759"
+      tag:      "v1.2.2",
+      revision: "f1f22eafad275bb3f4fef9a16c84aa4621660af1"
   license "MIT"
   head "https://github.com/OpenIoTHub/server-go.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "86f4c018028c08468f01c48eb0aa5bdd12b67d19b0c3f3a057bfaea74998390a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e577ddde46d0ad27a625a73e9637d24e72961c3622fad535eb60059082135b4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "13dbc955f87f4db7312684958f4a37e10a87fddbc839b28d727f6a54754475de"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "611a932dba202a72cda774c99e7e4fcc946dd9ea3ed5905dc0c9458a0a3c16e4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ef12c97a690a5c398f4f3c33c43372deca39cee8dde2773bce070ebb6f1ae6a3"
-    sha256 cellar: :any_skip_relocation, ventura:        "843ab385316ce21a0c37e406d1434023e05c6a0dd2add39e977fc0fae8c9d816"
-    sha256 cellar: :any_skip_relocation, monterey:       "68189ff6031ff8e611d6a1a858cc485f0410f0ba5a35a5492beacfcae0ecd798"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2d3403311ba16b4564ea082a2eabe71a2dee04ee67a1de95bc1392361793072"
-    sha256 cellar: :any_skip_relocation, catalina:       "d5a7c18d1ebb71d72a9f8510e19be548b529f26af377762d394a6fcc556e6ac0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e79346dfe3caf01f3e10f48de9f284b642146665b0d1c49916cfd55fa8930e0d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cc09588b08d156a35e0e70cc1b7132093078d60d0f23165db9fe04d9374fa8ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "91c90cd81dc422d572332312133ac6c3ab565c23062b575525631a2f7ec84f54"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "10d2e36f0eedda408df08a738bea3d90db785107365fdaf5d0be7e2b8e975180"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4bb3373df388303977b2097676ba6c2a30909788fa5eb67932e2b977a5ca0c2a"
+    sha256 cellar: :any_skip_relocation, ventura:        "dde52cc3f47124149dbab1ff6fd87768f11a2ad2d74df16598ff2914c863ae26"
+    sha256 cellar: :any_skip_relocation, monterey:       "e7279b40eab7cdc889d77efd66efc3d7b608c28582cd976c277e9a879c6d08f3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b48139c572567631859520bc6f52e3669ff043e200227df1097701dd6a6d8e7"
   end
 
   depends_on "go" => :build

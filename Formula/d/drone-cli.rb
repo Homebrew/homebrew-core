@@ -2,21 +2,19 @@ class DroneCli < Formula
   desc "Command-line client for the Drone continuous integration server"
   homepage "https://drone.io"
   url "https://github.com/harness/drone-cli.git",
-      tag:      "v1.7.0",
-      revision: "c75a1a82d46e687d2d961115c849bf3a137b8e9d"
+      tag:      "v1.8.0",
+      revision: "bb3f656485ac8c289fe85b9f62d59993ffabf6dc"
   license "Apache-2.0"
   head "https://github.com/harness/drone-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "002758637d8a801317305b11f1995618b28c3ba2beb03509dd673de30c8a9010"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "472e935c44edd6772746d83e64b7b6ba26c41ff2eb70a8b57967371ac1f17279"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "472e935c44edd6772746d83e64b7b6ba26c41ff2eb70a8b57967371ac1f17279"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "472e935c44edd6772746d83e64b7b6ba26c41ff2eb70a8b57967371ac1f17279"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e98a58ade5961ab0282336260e9405b7d7a8add1661220001336951d2118963f"
-    sha256 cellar: :any_skip_relocation, ventura:        "b00d9cc103564fd460e84cfd28a748dbfedb8558b2fc43b72cd0760f0770b0d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "b00d9cc103564fd460e84cfd28a748dbfedb8558b2fc43b72cd0760f0770b0d9"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b00d9cc103564fd460e84cfd28a748dbfedb8558b2fc43b72cd0760f0770b0d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d25092e50d68f78bc010ec2a6cdb779970a9ae72aaea11f8ebca90c8bc0438e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8fc8dfba68da80112f85551c3dce05fc6cb269a6ae4a4f4aa7a1732d8098a85e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8fc8dfba68da80112f85551c3dce05fc6cb269a6ae4a4f4aa7a1732d8098a85e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8fc8dfba68da80112f85551c3dce05fc6cb269a6ae4a4f4aa7a1732d8098a85e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bdb5c00c40d6176cd7f9dcf1d5d2e16bd73301687f8feca565f6ac7ab99b5651"
+    sha256 cellar: :any_skip_relocation, ventura:        "bdb5c00c40d6176cd7f9dcf1d5d2e16bd73301687f8feca565f6ac7ab99b5651"
+    sha256 cellar: :any_skip_relocation, monterey:       "bdb5c00c40d6176cd7f9dcf1d5d2e16bd73301687f8feca565f6ac7ab99b5651"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9f53894149db17b3bb43aeaf2b72cf81f4d9f564fe810b1e7ec241645a5be2e"
   end
 
   depends_on "go" => :build

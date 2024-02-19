@@ -1,8 +1,8 @@
 class IpinfoCli < Formula
   desc "Official CLI for the IPinfo IP Address API"
   homepage "https://ipinfo.io/"
-  url "https://github.com/ipinfo/cli/archive/refs/tags/ipinfo-3.2.0.tar.gz"
-  sha256 "997eff6e52c9adcae16e4f1a1c6ac33d0f971f61cf5959fa2d044d42069b9047"
+  url "https://github.com/ipinfo/cli/archive/refs/tags/ipinfo-3.3.0.tar.gz"
+  sha256 "18069e115c78a7a167311ad02de354c8e8d71dc63d838d94635f439eb64585f0"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,14 @@ class IpinfoCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c9d9166563933dc3fff2e409839952a0c5d9ed3d4a694145e8e96f1cf6f7b69"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1909b291ea0e13bcb358ffcbc9b9a12448efcc24c3c05be21f007aa31b0d579e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ea85b5ffbe2777806330e0be39d85694be325a123aab1c794416f7f3125b682"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4774ff8389acd984a674f9d704876082dbe8151011a128ad25a904d54b6676d0"
-    sha256 cellar: :any_skip_relocation, ventura:        "2bccf0dfbe19237df737573449a05a63f55edcdbb21d6a32652aab6b3d61d641"
-    sha256 cellar: :any_skip_relocation, monterey:       "11250b402b87be6ae093d008f8bd2ef222f77ef0949684c87da533d6de97ec94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e28cc93a4203261e790e742820fb4a8830f8e048d5e988cdc58f216480d7dd0"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a890ab424c2003b2c1041317c08de00c4161f6d878c33e247bd1030496ed7b3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea2ff859451743f1d01b2c76295e3dfcd0604777fb033451ac4b5716be3e2050"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "64dc809280e977531f34dd74d4546ffee2cb45efbe9ee8de8c08b8ffa1d3f6ee"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad244ae0fd693a2d0844b23d80f1cfdf487906b2e379ec4e26bc340793d50712"
+    sha256 cellar: :any_skip_relocation, ventura:        "4daed60eef138ab905420d0dfc3536dadd0b09f51da719ddf66c9d723f60a0c3"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d00f4343d1d8d140ebf6b8781e6c637abfea9895d1303adb5aef66a06ae3753"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e55c905ca88062290d6843685d6d5506ed34448da276beac34b0e191cfd7b982"
   end
 
   depends_on "go" => :build
@@ -27,6 +28,7 @@ class IpinfoCli < Formula
   def install
     system "./ipinfo/build.sh"
     bin.install "build/ipinfo"
+    generate_completions_from_executable(bin/"ipinfo", "completion")
   end
 
   test do

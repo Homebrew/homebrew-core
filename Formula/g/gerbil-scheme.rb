@@ -7,14 +7,16 @@ class GerbilScheme < Formula
   revision 3
 
   livecheck do
-    url "https://github.com/vyzo/gerbil.git"
+    url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do
+    sha256 arm64_sonoma:   "d14934e41e373d08361070ee4ae92941c5933eb9afea231d289a9c66c1726067"
     sha256 arm64_ventura:  "5568e6b56fed556b8c0145de4d54d6dc256c0d75af3e43a88a34c4f3b4922a0f"
     sha256 arm64_monterey: "eea0039afa114fcf1329ca303a4b1829141a8b94d95520409109b362ffe459f6"
     sha256 arm64_big_sur:  "a95805093e7668f057a9bead359aed795887a461c6399fe7da08a2a365d0a176"
+    sha256 sonoma:         "aca1864f111e920c18688f8c38f5a29ef0ad4def897279cc280b1eae77b528fb"
     sha256 ventura:        "29e03e2cce80923ebace68b450dd7ac32c0fb8e9d5108ad1734c20b133e70306"
     sha256 monterey:       "f3048903ad1fd2bd101cabb22d7587229d8e92712f6fb1724d5683664ad1e80b"
     sha256 big_sur:        "f6e7338913c1e66538c1af4d177c63869dd33554f0aa5d14be7143eefa724330"

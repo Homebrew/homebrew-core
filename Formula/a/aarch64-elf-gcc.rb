@@ -5,27 +5,30 @@ class Aarch64ElfGcc < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-13.2.0/gcc-13.2.0.tar.xz"
   sha256 "e275e76442a6067341a27f04c5c6b83d8613144004c0413528863dc6b5c743da"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
 
   livecheck do
     formula "gcc"
   end
 
   bottle do
-    sha256 arm64_sonoma:   "2651ce90da8c630cc8a85469509215e1bec3a2feb6f8826abd3aa995a83607cb"
-    sha256 arm64_ventura:  "52fbab7e246024b0ab64be29079ab0d9acc2293963a9d8cb236260afc4df9179"
-    sha256 arm64_monterey: "1edf222b87033c0ba5e5e5eb6a37a4a02cfdd2eaebb16fd59d530672d9743b8f"
-    sha256 arm64_big_sur:  "335fd71e860fbed870ada71c893e520901530ba04743de7d57fe321c901efd27"
-    sha256 sonoma:         "cbf7d116b12da8d69d177ff004c415dbbd0684b6991c64217af89618dcbc40f2"
-    sha256 ventura:        "3f0f2a063e451533e86db1ffcebf5cbee33348e684ed4ca03c2f6154377496ed"
-    sha256 monterey:       "b9c9ec0616f365523345ec8317f2a53f2a0de2069f83082d96e0bfe801adcca4"
-    sha256 big_sur:        "60f1e4b14e7b7c5e85f6fe0aa7cb9e63ad102993f6e9b3f75eaf4018067058ea"
-    sha256 x86_64_linux:   "92db41fba79e8f057480e9223ff53cea160a6d0256d96752d5ff3a8fa2e42a58"
+    sha256 arm64_sonoma:   "f13a2ab5a45bd03b1d9a664ffb0524d4a504f09020cbfaed74cbd8551f37457c"
+    sha256 arm64_ventura:  "1edb3ad6987f0021ca659bb223a473504e6783b586898660de4098db2a933716"
+    sha256 arm64_monterey: "bcd7f75541fa82ff055536c8eb402db850caa349674cac1533f73b34fe40e7e7"
+    sha256 sonoma:         "f29d945f920b507a8823812eda0553ae0aea07ad9394458082cac94400b203ba"
+    sha256 ventura:        "5a83a1e38cae5f21b761c3b26014798654737e59326708315341c3259f8672cb"
+    sha256 monterey:       "c92b9be0fd103128718d3847bdd6f64ea58b21e5a05c3a6bfaa27d4904404a46"
+    sha256 x86_64_linux:   "8d9983e965cbf4c8f3e0a34476c38691698da05b228d111961fd87207ee4044d"
   end
 
   depends_on "aarch64-elf-binutils"
   depends_on "gmp"
+  depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
+  depends_on "zstd"
+
+  uses_from_macos "zlib"
 
   def install
     target = "aarch64-elf"
@@ -34,11 +37,14 @@ class Aarch64ElfGcc < Formula
                              "--prefix=#{prefix}",
                              "--infodir=#{info}/#{target}",
                              "--disable-nls",
-                             "--without-isl",
                              "--without-headers",
                              "--with-as=#{Formula["aarch64-elf-binutils"].bin}/aarch64-elf-as",
                              "--with-ld=#{Formula["aarch64-elf-binutils"].bin}/aarch64-elf-ld",
-                             "--enable-languages=c,c++"
+                             "--enable-languages=c,c++,objc,lto",
+                             "--enable-lto",
+                             "--with-system-zlib",
+                             "--with-zstd",
+                             *std_configure_args
       system "make", "all-gcc"
       system "make", "install-gcc"
       system "make", "all-target-libgcc"

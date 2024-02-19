@@ -1,23 +1,18 @@
 class Cctz < Formula
   desc "C++ library for translating between absolute and civil times"
   homepage "https://github.com/google/cctz"
-  url "https://github.com/google/cctz/archive/refs/tags/v2.3.tar.gz"
-  sha256 "8615b20d4e33e02a271c3b93a3b208e3d7d5d66880f5f6208b03426e448f32db"
+  url "https://github.com/google/cctz/archive/refs/tags/v2.4.tar.gz"
+  sha256 "e1a00957d472044808a24a26f1ba020f36dc26949a69c214562d96b74093adb3"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4217b25907160dd98daa37f15cadabdc66dc3f743399b7a7f22bf5c487c2525c"
-    sha256 cellar: :any,                 arm64_ventura:  "72f87dc452212bdf12aefe25c5ae745d15a6df0b5161919c3c01bcac29a39477"
-    sha256 cellar: :any,                 arm64_monterey: "756dc7625a50e7e2e607a45c75fa7f2002fc7e8bcec504ddcb06eab20766948d"
-    sha256 cellar: :any,                 arm64_big_sur:  "4895638a03396673d972613bed298d7288d369fe91aca165ddcf9b0357aade18"
-    sha256 cellar: :any,                 sonoma:         "283139031d11a8c226493e1f93c1774923b4ae70c1d367b9c45d4fad1659c779"
-    sha256 cellar: :any,                 ventura:        "347a197be8fddb79983086f3a54fc3f7adda08b00cf926bb7596b1f71f898ea2"
-    sha256 cellar: :any,                 monterey:       "ee512d1b222211307cfc2f3e5e6c4ce33085ec79bb0a25aec62ce16cca13fd7f"
-    sha256 cellar: :any,                 big_sur:        "b0796719cf068ae526435e86922477820dedd3afd5a9044fd099fe3ff6c90765"
-    sha256 cellar: :any,                 catalina:       "3a73ab9d2f67020d95657e8c5b32a26d7eb81987cee2eace2b9d26eab2621bbb"
-    sha256 cellar: :any,                 mojave:         "439ce8e6d464aa64aadd117e3effba68379883c3013de4944dda1def4127ff7d"
-    sha256 cellar: :any,                 high_sierra:    "2d61f3555630f98a572971867d5da46212712eb30a18bb6545f9067369865c33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59dffb99b033ab3a17ae375e4b2e66cf3bd9e403b88b58611cbe994155d33c44"
+    sha256 cellar: :any,                 arm64_sonoma:   "12f4fd08ce0235acfae73b1af5f3cd618fe5d4c7675fd448ba0affe004df3f64"
+    sha256 cellar: :any,                 arm64_ventura:  "29b3eda980b49d6194c0f6c84fef48e506430fd5e01742e8778bf54c7b6340ab"
+    sha256 cellar: :any,                 arm64_monterey: "0b0c26679d5fade184996abebcb2c2f3d5403b5d3ab49195c8649bed52690dbf"
+    sha256 cellar: :any,                 sonoma:         "067e248e5286cd504f20909c5ce08b8747533a99dfdb100c6d82a729961c3e9b"
+    sha256 cellar: :any,                 ventura:        "5b47b57312c19fddd60a02d403dfcb80920de82b9691bed95364f764c40760af"
+    sha256 cellar: :any,                 monterey:       "a0f00e1a70014af1dd61f874e232a20059e26aeed1c2d941c3bcc1785f2e947b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62ae3155aafe87fc71fbbecdd8b2ceaa0e57c03d32e29b6349614b73ce0c4192"
   end
 
   depends_on "cmake" => :build

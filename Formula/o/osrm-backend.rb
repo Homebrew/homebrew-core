@@ -2,7 +2,7 @@ class OsrmBackend < Formula
   desc "High performance routing engine"
   homepage "http://project-osrm.org/"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
   head "https://github.com/Project-OSRM/osrm-backend.git", branch: "master"
 
   stable do
@@ -20,13 +20,13 @@ class OsrmBackend < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "650ea136cb0ac674ad516c9c35699e7c20bbdd308a24ef299897d7fa5efd9c34"
-    sha256 cellar: :any,                 arm64_ventura:  "428dff4f7597745a1f927575eb5cc4de00cc9732e666981fdf3f1d15ae0dee77"
-    sha256 cellar: :any,                 arm64_monterey: "51f91040008829d8407cc2e31a5a6b3894250fa89996ff52d5a6eed20d027317"
-    sha256 cellar: :any,                 sonoma:         "244ea8c5cc9170c6066aaf05530bdf713726de18f831b3e644071fd08d8ce89b"
-    sha256 cellar: :any,                 ventura:        "baf1bb1bede9f14881c7a201eed9090bcd4215145e711da9d045786a26b8c487"
-    sha256 cellar: :any,                 monterey:       "cca3d7cecab4b71d589768d7644044a5bedb9417d6e7a2b260fa94edc0f22ede"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df6c9ce58d2b0f8a45d20ad5ea1bd88811c0fc986792c6fb9663efb5c3657b52"
+    sha256 cellar: :any,                 arm64_sonoma:   "caf7f16eca550f4d6ee0489da25bf1424d1b502d1d6b857fec32a949b5eccd4c"
+    sha256 cellar: :any,                 arm64_ventura:  "1e2a9f3bdbe82b4829e1ede3055e01723c41a173cddb5d844b786f6e067997d6"
+    sha256 cellar: :any,                 arm64_monterey: "2ec4be7416632841b0ab975bf3ee19955a0553dc29f3688a7490e074500c1b7e"
+    sha256 cellar: :any,                 sonoma:         "5ff2a490bd7c37b84a0950d6723fe8f26dc32c4c3dfcdaacd86f2408021a18c5"
+    sha256 cellar: :any,                 ventura:        "c09c5ac0b43ce8522733109e5058f0bdc6a1263ebb63f12f31707d16125fb342"
+    sha256 cellar: :any,                 monterey:       "7cc4db1f0e503ec4c4c638f8d1af5f59b3b5cd446ef823eadfda27d5323bb1b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d5c85b00c8c3508407531ad72704f8c4b4211ce7c401d103ac37dbcc9c9e249"
   end
 
   depends_on "cmake" => :build

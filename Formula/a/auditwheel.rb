@@ -3,17 +3,21 @@ class Auditwheel < Formula
 
   desc "Auditing and relabeling cross-distribution Linux wheels"
   homepage "https://github.com/pypa/auditwheel"
-  url "https://files.pythonhosted.org/packages/79/4b/640fb9c5e9d0310f8209f276f093bdd1ffe09aeb029296a80157d82602b1/auditwheel-5.4.0.tar.gz"
-  sha256 "aaf8153ab7a29cc99a663ce2498804daf1887ea1b7a3231ba0d3fee68a3ccf19"
+  url "https://files.pythonhosted.org/packages/62/6c/0a99a7df52487bd2204a1b8ba56cd90f6f651d23027dc355e0e21b7b0492/auditwheel-6.0.0.tar.gz"
+  sha256 "6422c4ab6421d23e355c91e9946926cd532b9fdf46f2b5ffdaf1abfe9ee29e67"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "4d5c4e8a43af16fb81fd4ac6e481e69f3e23cf1f764d77773070e29757a1da87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8e7935f976c5420a4d7a74ecc0a10b0fc8766bdc92756551cd16542e40a3a6cf"
   end
 
   depends_on :linux
-  depends_on "python-setuptools"
   depends_on "python@3.12"
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
 
   resource "pyelftools" do
     url "https://files.pythonhosted.org/packages/84/05/fd41cd647de044d1ffec90ce5aaae935126ac217f8ecb302186655284fc8/pyelftools-0.30.tar.gz"

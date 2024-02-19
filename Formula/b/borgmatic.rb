@@ -3,18 +3,18 @@ class Borgmatic < Formula
 
   desc "Simple wrapper script for the Borg backup software"
   homepage "https://torsion.org/borgmatic/"
-  url "https://files.pythonhosted.org/packages/87/e5/b6b50f2c2469590b37f2856d118ae83db7a87912013fe9eba27e561e7402/borgmatic-1.8.5.tar.gz"
-  sha256 "5e4887adb4fdf4800bbb94faae8352f6f4be12829aec214618224ef305a597d8"
+  url "https://files.pythonhosted.org/packages/87/a6/d6d385e91081a42e91e94e18f0e117687274af956e599903661c1c38ba13/borgmatic-1.8.8.tar.gz"
+  sha256 "74f5a9f121f8fff1c9942ac5e9845a31bdf689da31d44d3f19df2a73f1a63f87"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4e4bcd71a05dd857ed3566536d7446effe15bd81405587ec50968f2acbb457cd"
-    sha256 cellar: :any,                 arm64_ventura:  "f82d2713b4485edd9fc4ec770fe005f591e42e5d4d58ff7d66fc5d218a813234"
-    sha256 cellar: :any,                 arm64_monterey: "c3e5e421082b848ede82489041226ff6e5b18104d650ce3afebc81c2c5824273"
-    sha256 cellar: :any,                 sonoma:         "48affb9255d9c506bfea0afca1d23756bf4042e44a06724bb0a8b0bc690d923b"
-    sha256 cellar: :any,                 ventura:        "1d13a20d07ed3a5f2ff1477afd80990b64dd4d2cb8ca99a6bba7309d37a448aa"
-    sha256 cellar: :any,                 monterey:       "2f69c7f52090f8421f1a6db75128d4f95a3eee53ae74eea8514c0bcc5b3086f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "36ee8e9376490db3fd279381a849a4744eb0e5376c99d81f766cc2a9ddfe9adb"
+    sha256 cellar: :any,                 arm64_sonoma:   "79a12b88bf418bdaff057ad8408eed18f4faa5bfaf88cec451ce378bdcfe0151"
+    sha256 cellar: :any,                 arm64_ventura:  "1d4d8fe87d44b1cc7f100899cbe4cc24fa5d16fac79efc3e3597542d2825fc33"
+    sha256 cellar: :any,                 arm64_monterey: "b6d336cf41a12b6496e09c660dbac0520cc44e20eb1dd7726d2e726c6cd55f82"
+    sha256 cellar: :any,                 sonoma:         "ec575eb7bb5636f0a76714b74a1b4c30de89ae8b0bbb2db0bb535dc9fd1898c8"
+    sha256 cellar: :any,                 ventura:        "905942a4c928085df757bc72af943fd99dba8cb63110aeb7c03f9000906455bb"
+    sha256 cellar: :any,                 monterey:       "1cab59066536bd7096b05a23b79b5f1b13a1737876195342117b284224f145df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "362c2f7506a8ef3cb10f1a863f42369b701839d089cc73d16f91716bf34c10ef"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -23,8 +23,8 @@ class Borgmatic < Formula
   depends_on "python@3.12"
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/97/90/81f95d5f705be17872843536b1868f351805acf6971251ff07c1b8334dbb/attrs-23.1.0.tar.gz"
-    sha256 "6279836d581513a26f1bf235f9acd333bc9115683f14f7e8fae46c98fc50e015"
+    url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
+    sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
   end
 
   resource "charset-normalizer" do
@@ -38,23 +38,23 @@ class Borgmatic < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/a8/74/77bf12d3dd32b764692a71d4200f03429c41eee2e8a9225d344d91c03aff/jsonschema-4.20.0.tar.gz"
-    sha256 "4f614fd46d8d61258610998997743ec5492a648b33cf478c1ddc23ed4598a5fa"
+    url "https://files.pythonhosted.org/packages/4d/c5/3f6165d3df419ea7b0990b3abed4ff348946a826caf0e7c990b65ff7b9be/jsonschema-4.21.1.tar.gz"
+    sha256 "85727c00279f5fa6bedbe6238d2aa6403bedd8b4864ab11207d07df3cc1b2ee5"
   end
 
   resource "jsonschema-specifications" do
-    url "https://files.pythonhosted.org/packages/d4/84/8f5072792a260016048d3a5ae5186ec3be9e090480ddf5446484394dd8c3/jsonschema_specifications-2023.11.1.tar.gz"
-    sha256 "c9b234904ffe02f079bf91b14d79987faa685fd4b39c377a0996954c0090b9ca"
+    url "https://files.pythonhosted.org/packages/f8/b9/cc0cc592e7c195fb8a650c1d5990b10175cf13b4c97465c72ec841de9e4b/jsonschema_specifications-2023.12.1.tar.gz"
+    sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/61/11/5e947c3f2a73e7fb77fd1c3370aa04e107f3c10ceef4880c2e25ef19679c/referencing-0.31.0.tar.gz"
-    sha256 "cc28f2c88fbe7b961a7817a0abc034c09a1e36358f82fedb4ffdf29a25398863"
+    url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
+    sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
   end
 
   resource "requests" do
@@ -63,8 +63,8 @@ class Borgmatic < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/81/b8/c18e4fa683dd67fd2f1b9239648ba8c29fed467b4aa80387b14116e3a06b/rpds_py-0.13.0.tar.gz"
-    sha256 "35cc91cbb0b775705e0feb3362490b8418c408e9e3c3b9cb3b02f6e495f03ee7"
+    url "https://files.pythonhosted.org/packages/b7/0a/e3bdcc977e6db3bf32a3f42172f583adfa7c3604091a03d512333e0161fe/rpds_py-0.17.1.tar.gz"
+    sha256 "0210b2668f24c078307260bf88bdac9d6f1093635df5123789bfee4d8d7fc8e7"
   end
 
   resource "ruamel-yaml" do
@@ -77,9 +77,14 @@ class Borgmatic < Formula
     sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
+    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
+    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
   end
 
   def install

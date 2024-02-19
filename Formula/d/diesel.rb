@@ -4,16 +4,17 @@ class Diesel < Formula
   url "https://github.com/diesel-rs/diesel/archive/refs/tags/v2.1.4.tar.gz"
   sha256 "5aac923078a5b431902d75cfca36f2990b3f11dbb2bbbc44f4538305af939657"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/diesel-rs/diesel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "608973741191ddce848c9cca40080a082b35e06f4bef4f0128ff42c045a0ca4f"
-    sha256 cellar: :any,                 arm64_ventura:  "25ccc9d1151f4f0ebc5139537e5cd05e2bccfbf16f1d84182c55e464a8bed2b1"
-    sha256 cellar: :any,                 arm64_monterey: "ca7d81596d9c941b7fede129bbd1f0870752fd48b779d2fac5e7eedbc6043422"
-    sha256 cellar: :any,                 sonoma:         "e363f0af425f142c3a93bd2b2413d1da88904590b795cbc162478774b6dfbce1"
-    sha256 cellar: :any,                 ventura:        "4317c4ae0dd0102cb3081c1f0e566de99433bb2bc70852106720a925551d1886"
-    sha256 cellar: :any,                 monterey:       "f19abf8905c6ef8ee97e90907d5872af57d5b04d46f035c8f9e955144a05a15a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "211c7444e7ff2692c71da7c20969fe17926de823c46e57be6222aecc7ee4a4d6"
+    sha256 cellar: :any,                 arm64_sonoma:   "515154489d83510a1b766c1c560e20aba0bf69f4f8a7e4c5ab61422d6239abb0"
+    sha256 cellar: :any,                 arm64_ventura:  "2edd7c5f90fd3d7dfd190f68a9f9581f807c491f9ed9226be5d9f62d2ac1ea10"
+    sha256 cellar: :any,                 arm64_monterey: "e583cab88fe4efc422f2ec56943bdd538839260225d12a8dc4d17ca14fc6ffa0"
+    sha256 cellar: :any,                 sonoma:         "88f90b357db55926639fc1e332f17f26e59212172a83e43804bb76e2d30a6f7b"
+    sha256 cellar: :any,                 ventura:        "6e865c89f16d987c0da2bd313980749508768383ef20b16318ac205aaae0d635"
+    sha256 cellar: :any,                 monterey:       "1caa005a57decc61b66eede1f5f499640c2a4c1c0ccb9af96f38c2cc19273d74"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6abef19ae2e350f2c39df6a3acb3f5c34c3a585652fbadc77abcc2bc54c958f2"
   end
 
   depends_on "rust" => [:build, :test]

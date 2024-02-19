@@ -1,29 +1,19 @@
 class Siril < Formula
   desc "Astronomical image processing tool"
   homepage "https://www.siril.org"
+  url "https://free-astro.org/download/siril-1.2.1.tar.bz2"
+  sha256 "b1b44e9334df137bea5a73d9a84ebe71072bf622c63020a2a7a5536ecff1cd91"
   license "GPL-3.0-or-later"
-  revision 2
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
-  stable do
-    url "https://free-astro.org/download/siril-1.2.0.tar.bz2"
-    sha256 "5941a4b5778929347482570dab05c9d780f3ab36e56f05b6301c39d911065e6f"
-
-    # TODO: Remove this patch on the next version after 1.2.0.
-    patch do
-      url "https://gitweb.gentoo.org/repo/gentoo.git/plain/sci-astronomy/siril/files/siril-1.2-exiv2-0.28.patch?id=002882203ad6a2b08ce035a18b95844a9f4b85d0"
-      sha256 "023a1a084f3005ed90649e71c70d59335d2efcd06875433f2cc2841f9d357eba"
-    end
-  end
-
   bottle do
-    sha256 arm64_sonoma:   "33922c686ad84821d5bc1a04a5c540725f0dfc77d0a4cdce27beb961c5949509"
-    sha256 arm64_ventura:  "8a4a6d473b8b693e79f706df3f9e36dd98a775c98f32d6e42fb87b10de2c44a9"
-    sha256 arm64_monterey: "c3ae5b816fe7a495308f6757a0efd7cea863d00adc4183e34e21b014529315e2"
-    sha256 sonoma:         "db52eb9a39ea334070995d0b21c1c36d8e2010f664988ae766909e0470c5e4ff"
-    sha256 ventura:        "7c37c42106b9914cebe8b2b5587074ff5b4b0ff5c51bebaa20b4258e02d40a94"
-    sha256 monterey:       "7e3ef4144957b19c986e3aa1c3192e45936d8b14b0cb446cfa9218e5a2b485a2"
-    sha256 x86_64_linux:   "12a108862be66ec25ec158ad9831619ee70fd3809af5860d8a23ad4066b54653"
+    sha256 arm64_sonoma:   "af55d2d35973a4272999571a7681bfc408fd8a9d49a6bc480cd975921ae33e7e"
+    sha256 arm64_ventura:  "80ee0204dfec028108dfa5e07db4dad38b386f6163bc91b3d192554395f4c1d3"
+    sha256 arm64_monterey: "83da42d1ad9e340b620e3e7cec4a8c300c080ecb95111b45643991dbbd7eaa12"
+    sha256 sonoma:         "6da10980001fa4d5dec8a66e75d5cc64fb91d9ee49af0df02303ec497cc782a2"
+    sha256 ventura:        "12dc528d824afb5764b90cf81d94cc3adf84cb4c503a6da103bca84ef9daec37"
+    sha256 monterey:       "aa1c30685c121a499971686a5348256e09b4457e597d39f88af04bd974d13956"
+    sha256 x86_64_linux:   "438960f33418d162c04c735ee5f49253f0b235a9b9a3474682a84037b248ab4d"
   end
 
   depends_on "cmake" => :build

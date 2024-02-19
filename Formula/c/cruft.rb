@@ -6,17 +6,17 @@ class Cruft < Formula
   url "https://files.pythonhosted.org/packages/d8/59/bb9e052fba37972e4b27db74d0bc770bade501d48336dec3c89fe57e9513/cruft-2.15.0.tar.gz"
   sha256 "9802af66037418655e7e4b6f30b531591e0761939b3ff5dd45d27c3a3f588abe"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/cruft/cruft.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "557c20920b34919b1acc303a550f67e5197111a54920a93d7cec1820112a4abc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3d4f24153c2245770c2650cf3674c834c305ad38e0dac66bd8b767e2b9bfe8fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b85f1f4fab09015ae89cb63c79a65f24f1b2cc8c77baedf07b0b906e6cc9be5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "47f16d1c7709a921bda8542fb82217b06503646d8a38445e6cd6e48c4ef00525"
-    sha256 cellar: :any_skip_relocation, ventura:        "339d30c7a708535daa26d0681ac9e4b5a7b84c495e9fc488233d5dc391a2d59c"
-    sha256 cellar: :any_skip_relocation, monterey:       "42089654b741fcef152cc2c37ccd5eb686453a4398231dcf49d49e50d7e93405"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a08eae5f76ee5b4ae0061b567851dced87a28fdd4926ac1e7139f7e66aca617b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6de6d61219b899715a02e70aab063caf285a83cf137b5601e7d672846d45d32f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dfadbc63d63af965507d9e54745ee62e0c9efa7575d2ddf9cf00000cd1358561"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "84dfec6a1e4cf0c64cd352c39a9169b956320a557fe86b53bbccebca8be46d59"
+    sha256 cellar: :any_skip_relocation, sonoma:         "970c605f36d6def9d0c59e4385d3c676cf311ee5840060b8fd5f0d2f23a28128"
+    sha256 cellar: :any_skip_relocation, ventura:        "925ccc230ae298d456736fa56efb07c09185d4228937f03e0aaf8ce612208f5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "7528b0fff86e4edb1dd08f522d909f484ec13a109a78b41c4c1688ca82702086"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a225a4bbf79bbcf5aaeb1be364b526e73cdf203cc38349f43455f63a24caf93"
   end
 
   depends_on "cookiecutter"
@@ -25,13 +25,13 @@ class Cruft < Formula
   depends_on "six"
 
   resource "gitdb" do
-    url "https://files.pythonhosted.org/packages/4b/47/dc98f3d5d48aa815770e31490893b92c5f1cd6c6cf28dd3a8ae0efffac14/gitdb-4.0.10.tar.gz"
-    sha256 "6eb990b69df4e15bad899ea868dc46572c3f75339735663b81de79b06f17eb9a"
+    url "https://files.pythonhosted.org/packages/19/0d/bbb5b5ee188dec84647a4664f3e11b06ade2bde568dbd489d9d64adef8ed/gitdb-4.0.11.tar.gz"
+    sha256 "bf5421126136d6d0af55bc1e7c1af1c397a34f5b7bd79e776cd3e89785c2b04b"
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/c6/33/5e633d3a8b3dbec3696415960ed30f6718ed04ef423ce0fbc6512a92fa9a/GitPython-3.1.37.tar.gz"
-    sha256 "f9b9ddc0761c125d5780eab2d64be4873fc6817c2899cbcb34b02344bdc7bc54"
+    url "https://files.pythonhosted.org/packages/e5/c2/6e3a26945a7ff7cf2854b8825026cf3f22ac8e18285bc11b6b1ceeb8dc3f/GitPython-3.1.41.tar.gz"
+    sha256 "ed66e624884f76df22c8e16066d567aaa5a37d5b5fa19db2c6df6f7156db9048"
   end
 
   resource "smmap" do

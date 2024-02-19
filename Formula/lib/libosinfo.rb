@@ -14,6 +14,7 @@ class Libosinfo < Formula
     sha256 arm64_sonoma:   "5acd188d4c078e794e31e12701323a9d549c2db6dd09c0903060d3f5526378d6"
     sha256 arm64_ventura:  "ecbf5376391dd7932c61d6112f86cbdb2f7bf3f7f457694157abea71cdf289f9"
     sha256 arm64_monterey: "a7d126750cd6bc8fc8abb8433c3835da6ebfba0dbc0a8a6b19273648334f69c6"
+    sha256 sonoma:         "9ae4b3ac7101c25433bafebdbfe01aa6ab8a3340173c426513fcf214a1ed14b8"
     sha256 ventura:        "6ddc2d382c032be8472373fa603c3b9b0d5238cc5e2219e736377c19d61df384"
     sha256 monterey:       "556d1cddbdc4c90e958754ee315c8f2e4f3b63ee59b5d00015debbf8bfc783ed"
     sha256 x86_64_linux:   "c17b5a93160795024c5be3de4e763140cf9aac0e14df7b396b5c480fbc83faf6"

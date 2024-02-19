@@ -1,19 +1,18 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://wiki.gnome.org/Apps/Gedit"
-  url "https://download.gnome.org/sources/gedit/46/gedit-46.1.tar.xz"
-  sha256 "a1a6e37f041765dff7227a1f5578b6f49faaf016b1e17e869caf5bfb94c6aa4e"
+  url "https://download.gnome.org/sources/gedit/46/gedit-46.2.tar.xz"
+  sha256 "c0866412bad147ebace2d282ffcbb5a0e9a304b20fd55640bee21c81e6d501ef"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "3dc00cee81ce4db3e3d62fc48f48ed23f074eb55e3d767a2594a5630ba34a708"
-    sha256 arm64_ventura:  "12cfbae2966fdde44d786f39497b69416b992f2fb2c5ddefac80b7ca7b8e5c6c"
-    sha256 arm64_monterey: "d70cc384ceb71f0044a89d4ce63bad6636b4b2cbe8b3e635bcc7dc082d4c250b"
-    sha256 sonoma:         "16550a2071d4569b67761a1e0f046dc5dc8e6a81e1f9f984a6f661e255bc7742"
-    sha256 ventura:        "2fe8a8789a93f1cfacd424309c1a8c790c29f47345236e8c6649a55fd118ae8a"
-    sha256 monterey:       "ebf405597d4719e974f378b2ae032119d4f73ca0f826ec263858ab4fa26da9bd"
-    sha256 x86_64_linux:   "cf98197954d5156b7fe90ea20ef7ddfd1c5548b6e83e792d13925bdfc5f5d405"
+    sha256 arm64_sonoma:   "8f2cfff223961d0c42ef7b773cd7c340bb97c348ab86080b01f72c311c066c41"
+    sha256 arm64_ventura:  "8a5402472280c1148b2aedf23ea342d65f3dd4a2a939f05be224742374b25d56"
+    sha256 arm64_monterey: "6a89552f93b4487c6106b4ac0e519594b0e1865e1c97cb34b64096fd0b430332"
+    sha256 sonoma:         "708944a5115f5c2982bbe97ddd73a2d69d66f495d2a769477aa0e5991ae69731"
+    sha256 ventura:        "96fae25d1372008b7bb96d5ca8e0860fdfefdc24172ccc2c9e2dd9eb95da8696"
+    sha256 monterey:       "02e0d4a94208fc06e1f643f051be16a3513f8dca4b78c86c10953e512c801605"
+    sha256 x86_64_linux:   "454403a0bddc2bcfa64625ea50c2cd5d436df9a1d817d37800cc649f242a9bcc"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database

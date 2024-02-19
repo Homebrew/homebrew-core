@@ -1,10 +1,9 @@
 class PostgresqlAT16 < Formula
   desc "Object-relational database system"
   homepage "https://www.postgresql.org/"
-  url "https://ftp.postgresql.org/pub/source/v16.1/postgresql-16.1.tar.bz2"
-  sha256 "ce3c4d85d19b0121fe0d3f8ef1fa601f71989e86f8a66f7dc3ad546dd5564fec"
+  url "https://ftp.postgresql.org/pub/source/v16.2/postgresql-16.2.tar.bz2"
+  sha256 "446e88294dbc2c9085ab4b7061a646fa604b4bec03521d5ea671c2e5ad9b2952"
   license "PostgreSQL"
-  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -12,13 +11,13 @@ class PostgresqlAT16 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b24e22631e608efac49bf142e9900fc1a685819643d91f9eec7773fee9e31975"
-    sha256 arm64_ventura:  "319503bbad7013074c96f71169c0d566b341efecd33d108dd047534fc2ac5020"
-    sha256 arm64_monterey: "dbaf443e97905d99774ae1edd713ba6d487f824dbdabc16f0ad71a26aecd5843"
-    sha256 sonoma:         "658852e21bf9ae980f92aea8703bf3f81b289ae9a489a528f624cfc878585677"
-    sha256 ventura:        "3a307dbdb3119e6f4b10005a9d3b1c71614ab19c3b0da44f09570a4a6d26f907"
-    sha256 monterey:       "e797ed505dcb30a08d47b34075c5f7c368f228d439633f371aa71f02bd5828af"
-    sha256 x86_64_linux:   "d533452b6449de6e2a2a40ca8eeac8243c25db6dd45bfcefc29104d0b7342624"
+    sha256 arm64_sonoma:   "9ec32f776cec8b94942cf19511652414da3d95636027b675f59e2f93c4c5727b"
+    sha256 arm64_ventura:  "9b95beb14ca91fb061a02a5870504cce0fb9cd629a18039bd25595a17ce49a51"
+    sha256 arm64_monterey: "2a5ce8a6203ba3f2c78a2f08d33626464beb8f9c6b856cbd6c85794d7d46d9f4"
+    sha256 sonoma:         "15ee940b519061851b04a793c46869558f96be31cd4d6015ad7582dea92f7c7b"
+    sha256 ventura:        "3eff23dc1283a708d8d399cb138b3d3d475f8d1e179850b0d2f2d6bfc66f182b"
+    sha256 monterey:       "b0c7eaf9d6e74f2a72eac46106275be537fbf195eca1c7151209a95e3c792ec3"
+    sha256 x86_64_linux:   "de2886d2e88418aae6fa603da1e22bd9d4ca5baed2d4d6e1617297ca2e6ec366"
   end
 
   keg_only :versioned_formula
@@ -37,6 +36,7 @@ class PostgresqlAT16 < Formula
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "readline"
+  depends_on "zstd"
 
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
@@ -47,11 +47,6 @@ class PostgresqlAT16 < Formula
     depends_on "linux-pam"
     depends_on "util-linux"
   end
-
-  # Fix compatibility with OpenSSL 3.2
-  # Remove once merged
-  # Ref https://www.postgresql.org/message-id/CX9SU44GH3P4.17X6ZZUJ5D40N%40neon.tech
-  patch :DATA
 
   def install
     ENV.delete "PKG_CONFIG_LIBDIR"
@@ -76,6 +71,7 @@ class PostgresqlAT16 < Formula
       --with-libxml
       --with-libxslt
       --with-lz4
+      --with-zstd
       --with-openssl
       --with-pam
       --with-perl
@@ -161,91 +157,3 @@ class PostgresqlAT16 < Formula
     assert_match "-I#{Formula["gettext"].opt_include}", shell_output("#{bin}/pg_config --cppflags")
   end
 end
-
-__END__
-diff --git a/src/backend/libpq/be-secure-openssl.c b/src/backend/libpq/be-secure-openssl.c
-index e9c86d08df..49dca0cda9 100644
---- a/src/backend/libpq/be-secure-openssl.c
-+++ b/src/backend/libpq/be-secure-openssl.c
-@@ -844,11 +844,6 @@ be_tls_write(Port *port, void *ptr, size_t len, int *waitfor)
-  * to retry; do we need to adopt their logic for that?
-  */
-
--#ifndef HAVE_BIO_GET_DATA
--#define BIO_get_data(bio) (bio->ptr)
--#define BIO_set_data(bio, data) (bio->ptr = data)
--#endif
--
- static BIO_METHOD *my_bio_methods = NULL;
-
- static int
-@@ -858,7 +853,7 @@ my_sock_read(BIO *h, char *buf, int size)
-
- 	if (buf != NULL)
- 	{
--		res = secure_raw_read(((Port *) BIO_get_data(h)), buf, size);
-+		res = secure_raw_read(((Port *) BIO_get_app_data(h)), buf, size);
- 		BIO_clear_retry_flags(h);
- 		if (res <= 0)
- 		{
-@@ -878,7 +873,7 @@ my_sock_write(BIO *h, const char *buf, int size)
- {
- 	int			res = 0;
-
--	res = secure_raw_write(((Port *) BIO_get_data(h)), buf, size);
-+	res = secure_raw_write(((Port *) BIO_get_app_data(h)), buf, size);
- 	BIO_clear_retry_flags(h);
- 	if (res <= 0)
- 	{
-@@ -954,7 +949,7 @@ my_SSL_set_fd(Port *port, int fd)
- 		SSLerr(SSL_F_SSL_SET_FD, ERR_R_BUF_LIB);
- 		goto err;
- 	}
--	BIO_set_data(bio, port);
-+	BIO_set_app_data(bio, port);
-
- 	BIO_set_fd(bio, fd, BIO_NOCLOSE);
- 	SSL_set_bio(port->ssl, bio, bio);
-diff --git a/src/interfaces/libpq/fe-secure-openssl.c b/src/interfaces/libpq/fe-secure-openssl.c
-index 390c888c96..b730352b86 100644
---- a/src/interfaces/libpq/fe-secure-openssl.c
-+++ b/src/interfaces/libpq/fe-secure-openssl.c
-@@ -1830,11 +1830,6 @@ PQsslAttribute(PGconn *conn, const char *attribute_name)
-  * to retry; do we need to adopt their logic for that?
-  */
-
--#ifndef HAVE_BIO_GET_DATA
--#define BIO_get_data(bio) (bio->ptr)
--#define BIO_set_data(bio, data) (bio->ptr = data)
--#endif
--
- static BIO_METHOD *my_bio_methods;
-
- static int
-@@ -1842,7 +1837,7 @@ my_sock_read(BIO *h, char *buf, int size)
- {
- 	int			res;
-
--	res = pqsecure_raw_read((PGconn *) BIO_get_data(h), buf, size);
-+	res = pqsecure_raw_read((PGconn *) BIO_get_app_data(h), buf, size);
- 	BIO_clear_retry_flags(h);
- 	if (res < 0)
- 	{
-@@ -1872,7 +1867,7 @@ my_sock_write(BIO *h, const char *buf, int size)
- {
- 	int			res;
-
--	res = pqsecure_raw_write((PGconn *) BIO_get_data(h), buf, size);
-+	res = pqsecure_raw_write((PGconn *) BIO_get_app_data(h), buf, size);
- 	BIO_clear_retry_flags(h);
- 	if (res < 0)
- 	{
-@@ -1963,7 +1958,7 @@ my_SSL_set_fd(PGconn *conn, int fd)
- 		SSLerr(SSL_F_SSL_SET_FD, ERR_R_BUF_LIB);
- 		goto err;
- 	}
--	BIO_set_data(bio, conn);
-+	BIO_set_app_data(bio, conn);
-
- 	SSL_set_bio(conn->ssl, bio, bio);
- 	BIO_set_fd(bio, fd, BIO_NOCLOSE);

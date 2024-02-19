@@ -1,8 +1,8 @@
 class Lldpd < Formula
   desc "Implementation of IEEE 802.1ab (LLDP)"
   homepage "https://lldpd.github.io/"
-  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.17.tar.gz"
-  sha256 "9343177f145d2bca66ef03d59528079d3f1663c624b1e2b9d08268efdc6127ce"
+  url "https://media.luffy.cx/files/lldpd/lldpd-1.0.18.tar.gz"
+  sha256 "4b320675d608901a4a0d4feff8f96bb846d4913d914b0cf75b7d0ae80490f2f7"
   license "ISC"
 
   livecheck do
@@ -10,15 +10,13 @@ class Lldpd < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5f72fe07b466a3bc7f8d1d5204a4d5d9493954d7df43b9362628a451522e9f67"
-    sha256 arm64_ventura:  "05359b24178b10a6d51b89d879da01150b073029943870917e4906ace804240a"
-    sha256 arm64_monterey: "429752982f0ba472b97f95cf89e0c0a42109a0734a8643c22c87ff044a93b851"
-    sha256 arm64_big_sur:  "a95b1e0fb11f67ef23e3a6e312e179813a00db6ac4c2a3133e43c543101cf644"
-    sha256 sonoma:         "44873b7c7233cef7e3463bd3c0ed65ec18c4b12bd568f935649a1adadf9dd470"
-    sha256 ventura:        "91e756817f4ae5a6c1a4cf15f4244aad4a610e9ccbd778093fc4e14ed8351c7f"
-    sha256 monterey:       "182c26074eea41ab2b01627a8379f74b4232866f486643286c180e50371ee599"
-    sha256 big_sur:        "d308af855f3bfa9c0b2ef7099406d21bf37c019200d372893904557977a2baab"
-    sha256 x86_64_linux:   "3d31ed3f8699f0c3116047c90c26ff80a79bba6f6cb0555a2fb1d222f1bf7410"
+    sha256 arm64_sonoma:   "1d55dfdc5fa76768424a820782b134945bef25af4f512e70b96a63948e44f24d"
+    sha256 arm64_ventura:  "15f64e1ee4848e766401080882146fd250ac41feed01104f21bf849b95bbb679"
+    sha256 arm64_monterey: "bfcce147acac721899e51388683ba20a747a51300981be6651f15a096371fabd"
+    sha256 sonoma:         "6d3b544f3fa125ab6e3249c4a41e1f1c5013baef1ca379c1439f26960af131df"
+    sha256 ventura:        "c76a1a426eb945a77945c4fa7908abfbfc886dcb189d923fcc9ef7b1c19496e2"
+    sha256 monterey:       "c4f335a83f7a5bee626b6aa24347e98fcf2c27ec94f6172f3568ac8042a70969"
+    sha256 x86_64_linux:   "4f8cb4e54dcf685cc00a0d6882f01c16e87584a2aef9742cb33a197e166be7b8"
   end
 
   depends_on "pkg-config" => :build

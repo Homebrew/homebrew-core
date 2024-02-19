@@ -2,8 +2,8 @@ class K3sup < Formula
   desc "Utility to create k3s clusters on any local or remote VM"
   homepage "https://k3sup.dev"
   url "https://github.com/alexellis/k3sup.git",
-      tag:      "0.13.4",
-      revision: "9ba4228629fb0dfa96dd2a05bf1b9db111bdddff"
+      tag:      "0.13.5",
+      revision: "d952d6df22b06147806ca1030b8ba3a4bb9e0c0c"
   license "MIT"
   head "https://github.com/alexellis/k3sup.git", branch: "master"
 
@@ -13,13 +13,13 @@ class K3sup < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7c3a793196819073a41f078cf8ab0465b939b4d036e053c7b4ff1855995bacd4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3618af175e045b3b73155235150b0038c48b6945f4a9b00f741d950a31a9ae52"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5990c63257ff11ea9ae504e312152da985203946a8bcc2ec717101971bac98d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5c19db8a5ba0c5180402a869e001ddbf4cbe597129d51a6343caa564066539c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "cacd8acb1d76b715f288ce5b6a11da6b2cce5d855690fd8794bac70b072afc80"
-    sha256 cellar: :any_skip_relocation, monterey:       "3d71744252ee0084f2349c5e2051d4295a3fdef8f1f1a290b64d051a1290cba5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a63046acccfc3be3230c6e45223da7e4f81610f23e9fb2d4e247bd8dbbe97719"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3927ff6844801422cb6c68988e5c762e6637c679dc9f28f6ca060a58bce8a902"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bae9c7d295f490bf932b46a5f0b40f6eb503b04b5c702df1898f5f206964acc9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "94e59c75c538a16df1734649ba769b095591130031149800de886effaabd2149"
+    sha256 cellar: :any_skip_relocation, sonoma:         "74d270536f7f46831b3e27d2ded78e798fd583ce3a7eb694c86c4059094fc55f"
+    sha256 cellar: :any_skip_relocation, ventura:        "d62ce4a1b929872735823b090291b9e93cc5456dcdbcbb4646f7af786777e700"
+    sha256 cellar: :any_skip_relocation, monterey:       "bfa33d7a9c7e74f83185c776e7d8608eac12f1d4d240cca66fa1694ade394c86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98984bb980a297ddf8b8cb923c0e6ba2b1e1feddb19efcfb774d73d19af490b2"
   end
 
   depends_on "go" => :build

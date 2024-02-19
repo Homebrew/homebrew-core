@@ -1,42 +1,31 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.5.1/libchewing-0.5.1.tar.bz2"
-  sha256 "9708c63415fa6034435c0f38100e7d30d0e1bac927f67bec6dfeb3fef016172b"
-  license "LGPL-2.1"
+  url "https://github.com/chewing/libchewing/releases/download/v0.6.0/libchewing-0.6.0.tar.xz"
+  sha256 "c2913bed55b7fdb25942b6a5832c254bc9bcb9c365d3cafa0a569b4b7cbd8f00"
+  license "LGPL-2.1-only"
 
   bottle do
-    rebuild 1
-    sha256               arm64_sonoma:   "48023d90acffd84b8102a12fe0d6873d70cf810f7801c68d1f916700b9758d52"
-    sha256               arm64_ventura:  "4f426db91a724d687c30bc4d2ff08b82395d9ed12570462ac803d95697c29c2b"
-    sha256               arm64_monterey: "799235390947ec3798bf57595ea1bbc3bc1e73a430646e7a8c0608abf781ee5f"
-    sha256 cellar: :any, arm64_big_sur:  "1424757d5ef5bb08e8fe1949a9b53cf40af8aab8806b7dd22f2aa5e15d57d7ab"
-    sha256               sonoma:         "7438c641d8ccbe7957cdad7e9ceea414cf9954a08a13f3d39deb47fc168da392"
-    sha256               ventura:        "b3002094b9b7a3d7d3a8d3c221cb006e770f73aab8d6af934390a4f0f489fd45"
-    sha256               monterey:       "6a4a53dec4940719c9a80c606e0da10adf46aea09ec09f13f1559d7a2be8d632"
-    sha256 cellar: :any, big_sur:        "e1d6473e63dc121157f7afd61991b57335bac48f4d842262ac7c43e5b637b7eb"
-    sha256 cellar: :any, catalina:       "19b9c38b3036f5ad16c413135e5424c8174789129cafe3c488fecdaffa39f281"
-    sha256 cellar: :any, mojave:         "b00710a74c619461b99eb3043b927248ccc0e2c2f3607683dfbcad61b82e4fe3"
-    sha256 cellar: :any, high_sierra:    "c346c2dbf72ea2d97f88cc9fc694b61eccc7db44c38092e9d652a31612f60ef1"
-    sha256               x86_64_linux:   "e655d141d9a30243dd3059296cddacb68138eaee3ad064dde0a0de81b5b35c1a"
+    sha256 arm64_sonoma:   "f6b0bae26a972636b58d05cd8d38e1f190bbb9b8451697b71250d1b8565d7755"
+    sha256 arm64_ventura:  "2e81a74c69dd6d45f338c834307e462b2e3eadae969ee38a4808feb81ac82cfe"
+    sha256 arm64_monterey: "04d6bc7b63800ffdcc2eea940241e5ef2159dc36eab0f65d75584fef6a7e1a41"
+    sha256 sonoma:         "a51840ab89e99407f22784ab4b5d5a9997e78e65b060b1de12cdfebfe629ea86"
+    sha256 ventura:        "4bc98f0aa284a4086f18c65a24a566969d021f9414fc2bb8d722b8749a11ab9a"
+    sha256 monterey:       "46d704071c778e0d718a37ac0d0ae25de49025e7679e02b17358155efce877a7"
+    sha256 x86_64_linux:   "b3c77db3b0e9db76fb7341cb8d0fd30959d251e69da1ac6504eb293733076b3d"
   end
 
-  head do
-    url "https://github.com/chewing/libchewing.git", branch: "master"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-    depends_on "libtool" => :build
-  end
-
-  depends_on "texinfo" => :build
+  depends_on "cmake" => :build
   uses_from_macos "sqlite"
 
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "texinfo" => :build
+  end
+
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

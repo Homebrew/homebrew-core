@@ -3,19 +3,19 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/1e/e7/d4273fd54055d5400e0f753161fd6dc3253cdc39ca39d99cbe181b0bc13e/ipython-8.19.0.tar.gz"
-  sha256 "ac4da4ecf0042fb4e0ce57c60430c2db3c719fa8bdf92f8631d6bd8a5785d1f0"
+  url "https://files.pythonhosted.org/packages/83/aa/6b5bd15d4914394a4f6bd5a4d88dee2d5ddd1b346b8b60fd9e735223a8ea/ipython-8.21.0.tar.gz"
+  sha256 "48fbc236fbe0e138b88773fa0437751f14c3645fb483f1d4c5dee58b37e5ce73"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bacdb8d7eecc5ae24ace72bc792ecc80a1e16a6648a9edcb83fcbbb733c48000"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7c1b85a23dfb3c082f0395b46880646b1ff8ebb105801a6e85c36db91fb8ba5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a8aa0e1c47d03911a6f7aacc3e52f217fe53db6410040dc91360ce2ddec8f2d4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d8a024de5f919a27146ec2ad19fea7cc00672d560a37f48b8240c1892d5dd30c"
-    sha256 cellar: :any_skip_relocation, ventura:        "a1181440a5f9be283e5021d146d21de2be31fa0d97a653e93d6f997ca5f17eda"
-    sha256 cellar: :any_skip_relocation, monterey:       "923a2b0c1d41337a29042f5ed4bbc1b3d1eba7dae74fda0cdaa0e6dac568c3b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "99596d96f58c5d5d6b8ffc41bab68007d06e4728b88dbff382a8b3d90963d905"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c391b3fae1c02dede264c4f0fd2cb7ce3b8ff79c2911e74a172a480f17c6f8f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7846d2bc0fff3f38cb4115133d725391b60aea1a40ac76bc1cd456e9eacc130b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be812b8b57c5c34725fc081602624e5d9688b77614d249dd355294cf7f9fb072"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5c6e31455ec2ee9b9a8ec3ba8495ba09cad791e5907e70d82c8299d2fd1bc7ba"
+    sha256 cellar: :any_skip_relocation, ventura:        "451e64dab6459dcbf115a3860713dfcab2c31fea50a60e51dd4536bb898eaa1b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d703af9a77bf024baf1e3c5ec723d9268b0e7ced56fc05bd7c0d679c92b9a0ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0eaf4055ecb953907426616e055aa933dce180cd0b5c997cdfa10cb2f5aaaca7"
   end
 
   depends_on "pygments"
@@ -78,13 +78,13 @@ class Ipython < Formula
   end
 
   resource "traitlets" do
-    url "https://files.pythonhosted.org/packages/25/a0/2feefaa884a7eaa83934476091ecfb2a3bc3b61c1ed98db3da0fbbf46e73/traitlets-5.14.0.tar.gz"
-    sha256 "fcdaa8ac49c04dfa0ed3ee3384ef6dfdb5d6f3741502be247279407679296772"
+    url "https://files.pythonhosted.org/packages/f1/b9/19206da568095bbf2e57f9f7f7cb6b3b2af2af2670f8c83c23a53d6c00cd/traitlets-5.14.1.tar.gz"
+    sha256 "8585105b371a04b8316a43d5ce29c098575c2e477850b62b848b964f1444527e"
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/d7/12/63deef355537f290d5282a67bb7bdd165266e4eca93cd556707a325e5a24/wcwidth-0.2.12.tar.gz"
-    sha256 "f01c104efdf57971bcb756f054dd58ddec5204dd15fa31d6503ea57947d97c02"
+    url "https://files.pythonhosted.org/packages/6c/63/53559446a878410fc5a5974feb13d31d78d752eb18aeba59c7fef1af7598/wcwidth-0.2.13.tar.gz"
+    sha256 "72ea0c06399eb286d978fdedb6923a9eb47e1c486ce63e9b4e64fc18303972b5"
   end
 
   def install

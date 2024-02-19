@@ -1,13 +1,12 @@
 class MmCommon < Formula
   desc "Build utilities for C++ interfaces of GTK+ and GNOME packages"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.5.tar.xz"
-  sha256 "705c6d29f4116a29bde4e36cfc1b046c92b6ef8c6dae4eaec85018747e6da5aa"
+  url "https://download.gnome.org/sources/mm-common/1.0/mm-common-1.0.6.tar.xz"
+  sha256 "b55c46037dbcdabc5cee3b389ea11cc3910adb68ebe883e9477847aa660862e7"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "27e4057e962e1491e667eca0801ef83963e293234d6517d33a9b1da6caf7be86"
+    sha256 cellar: :any_skip_relocation, all: "93fdb7bd94d6b01caafaf53f6cb3d729f8440d7efe1246ff47d8387a81683364"
   end
 
   depends_on "meson" => :build

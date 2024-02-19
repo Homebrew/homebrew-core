@@ -1,20 +1,18 @@
 class Imath < Formula
   desc "Library of 2D and 3D vector, matrix, and math operations"
   homepage "https://www.openexr.com/"
-  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.9.tar.gz"
-  sha256 "f1d8aacd46afed958babfced3190d2d3c8209b66da451f556abd6da94c165cf3"
+  url "https://github.com/AcademySoftwareFoundation/Imath/archive/refs/tags/v3.1.10.tar.gz"
+  sha256 "f2943e86bfb694e216c60b9a169e5356f8a90f18fbd34d7b6e3450be14f60b10"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b40261eb35b6bea2e60626a6cc57e22fe3ef8631d59a238761ee5e3c4ae8e545"
-    sha256 cellar: :any,                 arm64_ventura:  "089d0a19694cd8bb2687be2d573e9f5aa1ee75f9173033bfc0aa2c4879d69e49"
-    sha256 cellar: :any,                 arm64_monterey: "cd78bb2314109596f4dfd8d30c8ddc2c93ece0605762e42ef1d610b0f99fd4d5"
-    sha256 cellar: :any,                 arm64_big_sur:  "8beb6dbb10be5ff784de51ea573d7b6c5617d1474b2c018a8fc41af624a5f419"
-    sha256 cellar: :any,                 sonoma:         "75ddf0a1eb9650bc83c3270ce96ac1e73175ec3a97b75281bd280ede36a9e1fe"
-    sha256 cellar: :any,                 ventura:        "4cf74522f152f13e85353c2c4af9ba195fb7f75fe9fd1f4fcba590d544bb35ac"
-    sha256 cellar: :any,                 monterey:       "fe2514670ff94bb4e331ee2d79fc63c87072daedcc3a0dd53dfeec3f870aa170"
-    sha256 cellar: :any,                 big_sur:        "4b20276f002c8cf184c4c2ad8d1eb78ee5933e9429424321e2002e583ba25fed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64f31ec84b72c1343a1386abf63ab91c6ed7fca57304e9463dade8dd469ea072"
+    sha256 cellar: :any,                 arm64_sonoma:   "24c57d4a0f4d44c372995a3f2e3a6648ac1d1b3fedfe40e1411b845c7a9f3ee4"
+    sha256 cellar: :any,                 arm64_ventura:  "df05fa1fae871cc631d18f5bdff6c2a1658dbf40be530d5c356841f76e957898"
+    sha256 cellar: :any,                 arm64_monterey: "28539e853bd2f828186318b9a03b005c9b22255efd8878757de0878810e4fd4c"
+    sha256 cellar: :any,                 sonoma:         "77fa1aec2959111d75ea8179f10025bc35470fa6d254190dceb8695cc97f4e00"
+    sha256 cellar: :any,                 ventura:        "56c81ff84f3be1b98ba4745de23ec639bdee8b60f727bcb09520d48aa6a613ee"
+    sha256 cellar: :any,                 monterey:       "b0993ae34a3fd582708e578386d7c89ac2654db3e752ad79823764b302fcf784"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cbdc08902491405961995e0c99200ed3164d5d90c9d62a1a9718a912d7722c5b"
   end
 
   depends_on "cmake" => :build

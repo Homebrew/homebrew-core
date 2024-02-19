@@ -1,8 +1,8 @@
 class Gnuplot < Formula
   desc "Command-driven, interactive function plotting"
   homepage "http://www.gnuplot.info/"
-  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/5.4.10/gnuplot-5.4.10.tar.gz"
-  sha256 "975d8c1cc2c41c7cedc4e323aff035d977feb9a97f0296dd2a8a66d197a5b27c"
+  url "https://downloads.sourceforge.net/project/gnuplot/gnuplot/6.0.0/gnuplot-6.0.0.tar.gz"
+  sha256 "635a28f0993f6ab0d1179e072ad39b8139d07f51237f841d93c6c2ff4b1758ec"
   license "gnuplot"
 
   livecheck do
@@ -11,13 +11,13 @@ class Gnuplot < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "04ca8099532e677c80a2e0dd65d2012941e5c3b53c3897f41b47c236c89129ca"
-    sha256 arm64_ventura:  "e25c05265f8d139a0b01a06bd1ea71557f170625743cd8a497496cd362817acf"
-    sha256 arm64_monterey: "3e2407a40a5424390354534912ca8d885e39cb3414dcc57f954d0911e1591715"
-    sha256 sonoma:         "6d4854f0ea469038e2bd64c99a4e04d94d1feb4672f9a67e89cad3a2f19962e9"
-    sha256 ventura:        "92b7ec37f33014601c24d3b9edc9f1c60569edf340aa10897a1d737345136b36"
-    sha256 monterey:       "c5eb8a8ebc3a532d0c42e989344eb86084d365672f5e596d7eda9e79b0075c0d"
-    sha256 x86_64_linux:   "c81d616534185dfc47a258325132b0d8f15dc4fff2661a7e1bf1468376aeccba"
+    sha256 arm64_sonoma:   "d92d1dc715458feb2d30d989d652c8fdd4d8dfb147bce1b45ead44bb02ceb829"
+    sha256 arm64_ventura:  "8a9d03d57efcf9873c2923b142417cc62fa15892a78469db57e5ec15cb179d17"
+    sha256 arm64_monterey: "904fffc29054b3cf6d5c78f548fe67f71280188c710ece1f791c1246b12fd382"
+    sha256 sonoma:         "70eb518fbcfcd30c0f26a1fc8a0a3e9b575553c37f4a61c478fa8646b61e9c0c"
+    sha256 ventura:        "d72c280d93c71dd20fcaf800145b5eef16242c1c0908f352347e3ca22e487d3d"
+    sha256 monterey:       "38d49f29e33cd79a583575f48822189109c46d0ce27abfab82bd47300905e079"
+    sha256 x86_64_linux:   "18c5a4d8d1a6314539fd4f5cadefcfc0228130d5e4ec45d4a26f99c1f6037f85"
   end
 
   head do
@@ -28,6 +28,7 @@ class Gnuplot < Formula
     depends_on "libtool" => :build
   end
 
+  depends_on "gnu-sed" => :build # https://sourceforge.net/p/gnuplot/bugs/2676/
   depends_on "pkg-config" => :build
   depends_on "gd"
   depends_on "libcerf"
@@ -51,6 +52,9 @@ class Gnuplot < Formula
       RCC=#{Formula["qt"].pkgshare}/libexec/rcc
       UIC=#{Formula["qt"].pkgshare}/libexec/uic
     ]
+
+    # https://sourceforge.net/p/gnuplot/bugs/2676/
+    ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
 
     if OS.mac?
       # pkg-config files are not shipped on macOS, making our job harder

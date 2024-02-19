@@ -20,6 +20,8 @@ class Stolon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ca55abf39725e1760d6610e38ea05f089fd382724da55c170f2cf914ee1050"
   end
 
+  deprecate! date: "2024-02-04", because: "depends on soon to be deprecated consul"
+
   depends_on "go" => :build
   depends_on "consul" => :test
   depends_on "libpq"

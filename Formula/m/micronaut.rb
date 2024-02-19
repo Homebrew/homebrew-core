@@ -1,8 +1,8 @@
 class Micronaut < Formula
   desc "Modern JVM-based framework for building modular microservices"
   homepage "https://micronaut.io/"
-  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.2.2.tar.gz"
-  sha256 "b458b41d48c23ac19b3b3c62aa38860c9ce8a3d522d275dd4a229524cc220c70"
+  url "https://github.com/micronaut-projects/micronaut-starter/archive/refs/tags/v4.3.2.tar.gz"
+  sha256 "a86871eb28a5f885f4294395ff8da437f2ba6b08805d2e72d2ca61e70f38d162"
   license "Apache-2.0"
 
   livecheck do
@@ -11,17 +11,17 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "46e4819d3c8d4e0ee65449912ae44a3c02a5440a3a56baf7cd3c0c19e377fde5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "953fecccef7785ad3e79cb39bd3202f4b351fd8574cc7a55c3dd250e962b98f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b5be8040332a0074e9dad5cf0f0a47d69c4f33e082b874a50035cf1d7dc495b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "93eac2ec69db7ecb2baef64b4b7271e0d3d22b0d69a0a55f7a3f4600f76e5e14"
-    sha256 cellar: :any_skip_relocation, ventura:        "efb57b30bfe3851fa3ab8322968e88aa3518572954d004bbcc9e8402f8c12811"
-    sha256 cellar: :any_skip_relocation, monterey:       "2a1f1ecb2bb4acaee3ba0df796e65b6bd5da9a80dc54cea9fb7446524bf87b2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5d53b0bf5b3a7473a71cbf491c79564121fb293b41a4adbe563d430affe6203"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b7efd12fdd0c58b07ed83c6bc4895c0584b9a6c812dc80deadb289d7efaa4a9d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc783be709cef1ad3cd32ada7fafc8ce96246999798fdec38056a749bcbb5d19"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8dc94650771597b587fd747a3be9ad268c0ec897da30c17f3f75447b511d421f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3b7ebc76d21dfd002900ba7ea1ca62d7b54442f634525a7a129dc7ab65af508f"
+    sha256 cellar: :any_skip_relocation, ventura:        "3193c7840b98265d6af9f8062cbb74a58bb5df3fbc4fddfcc239370af2c22b71"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b16b79840e12b9325ab3e56e7bc2d76588879c207ee9bfc5fce6af2f3ab1352"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "448807d05f0ad055cdfa4750909be3a01f896d65b71ceedbbfb26e07fc5df9ae"
   end
 
   depends_on "gradle" => :build
-  # Uses a hardcoded list of supported JDKs. Try switching to `openjdk` on update.
+  # jdk21 support issue, https://github.com/micronaut-projects/micronaut-core/issues/10046
   depends_on "openjdk@17"
 
   def install

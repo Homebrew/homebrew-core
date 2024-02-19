@@ -21,7 +21,7 @@ class Sz81 < Formula
   end
 
   # Last release on 2011-02-13
-  deprecate! date: "2023-02-13", because: :unmaintained
+  disable! date: "2024-02-12", because: :unmaintained
 
   depends_on "sdl12-compat"
 

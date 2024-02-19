@@ -3,29 +3,46 @@ class Pipgrip < Formula
 
   desc "Lightweight pip dependency resolver"
   homepage "https://github.com/ddelange/pipgrip"
-  url "https://files.pythonhosted.org/packages/1c/c4/e72ccab675d835e3a8632fc145dcb10fc0b3f0f290e958e34c3e126ee6e7/pipgrip-0.10.11.tar.gz"
-  sha256 "cb845fd8dcc64c975eb586c18d2fdd7f39a0d10bf7bd0d70b38639eba19d3dc7"
+  url "https://files.pythonhosted.org/packages/ff/d5/ddf2f6edc7a6da2e31071340c38b2d71c3a8b99ffccf3652bb6965a8ab52/pipgrip-0.10.12.tar.gz"
+  sha256 "4ff9bee6158eed27fe5b609c3504eaaea57709401592057e88656663457fc9d7"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "abee6d8eeea0c0fc5087ca313f66340475d06c1532a564e9982703bc3bfb4d68"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74cd37fc1e5f50881d55ec0e2da2f5cbdf6526e9b5ad7d0052e1bbba4dd82872"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6dcd5a69bb02c3b7fe7df3482a489d1904b0fbf52e2bf2ced931734b2a525838"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ba2143db6f4383fcce585589f11bd31f21c9319ce804477ad2a96dd0971ac1c8"
-    sha256 cellar: :any_skip_relocation, ventura:        "112a3c942ff7d617075543e765836d492bfe02bef2714ba75a1ace40ce13d78b"
-    sha256 cellar: :any_skip_relocation, monterey:       "defdb63f2d833b67f6d6d30b2f597a8d1ee79c88b9c9cfd8e06ca3db6dd4063a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85071eb20332b5697662caac935a97cd1da5fb7c2d4cb41fd0cf55b42087cc94"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e2545baeb5169e14787bcde0e2ca4692dffad5236d1eac5ef2c6bb4e66e9e94"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ac2738df7ab4c8d9cdc151653a53f77a4f22983471fe34fd7495f65408baf2ff"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "82e35ef1395ce034390b3e27d1b5b7aaef7952f136fa41267892af32f86539d3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "040b93ee65392e66b4748e0b6fd0320d1e19e3a4e0bd8ca35efc5b412bc15dfb"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d4623510e536d8993c24a67755a35976ecb6f230ecb1506800234d67802aec7"
+    sha256 cellar: :any_skip_relocation, monterey:       "664881b65b793f9b36ebaa1d25e6be956140192b22fab607eb54ab38ade6814e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4628af5dd00a834ee26483c9d89f2d7d6150a2a64379ed2a81ea55fa2df1866"
   end
 
-  depends_on "python-click"
-  depends_on "python-packaging"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "anytree" do
     url "https://files.pythonhosted.org/packages/f9/44/2dd9c5d0c3befe899738b930aa056e003b1441bfbf34aab8fce90b2b7dea/anytree-2.12.1.tar.gz"
     sha256 "244def434ccf31b668ed282954e5d315b4e066c4940b94aff4a7962d85947830"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "wheel" do

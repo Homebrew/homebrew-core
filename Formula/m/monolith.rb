@@ -1,21 +1,18 @@
 class Monolith < Formula
   desc "CLI tool for saving complete web pages as a single HTML file"
   homepage "https://github.com/Y2Z/monolith"
-  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "2076b479638d4ae5c1d1009c915527213175e6ae1b18f95d296092cbda0e7cc2"
+  url "https://github.com/Y2Z/monolith/archive/refs/tags/v2.8.1.tar.gz"
+  sha256 "16bc9010f6a425ffa6cc71e01ab72bb3c9029f736c30918bff70157115b3ae9c"
   license "CC0-1.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ed6b8eb4205fb7c59d582e0e1aa0d8ea1e460f70c56544d8ba7d98697ef3c11"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7906a2428d7e39f543cbf7fdecb72ba83e7853400307f8c3e8acad7e7fe4c800"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8fa307ca859044ac1c9699a35dfd72c8746bbb4a96909ea6b9f65a025483694"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "90a44adc8f1ccbb88da3c6c904472c4944b6146ffacb39ba380d99f731391c0a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e5ffd8938e6f6f778cae697712a74b9f6bdd82cd46e26b474f6b9d722f3b1782"
-    sha256 cellar: :any_skip_relocation, ventura:        "7d13cc03f1f56004b2d28eb7e0dd7849544bcd60b035f8a44358a087295aa8db"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f4d4ecdf066f62844db3422e1ba1219ca9ca187879cf38d95f860efda7f3dde"
-    sha256 cellar: :any_skip_relocation, big_sur:        "53dde0061e4b7c58d7400aae84e4164a02ac003f2edb7c69c0b4226077d8c0f6"
-    sha256 cellar: :any_skip_relocation, catalina:       "d695f22c79b7b3c1ca434db9c8dfc87acd97c69d9ecf9463530dc15a8e0c58bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f58a88c34fe41097ce534b2c0aef72d5f8805bfc349857b29b9e244a209e22ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6706f0c92e08ef9a6ddde3909affb08c2bc73a182bba2743d9a749f2d04d1d4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "53c97c6e153e089a3060cfd56e6cb3ac0b905acf04605fdd2504d624d61690f8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9eb4b854965d62ff6cfa4d0dca120c1fa260c170763dc242afa43b36efee24eb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2b5fa9d548cf64fc872b6507abe24648215ee6bb7e6b9c1ecc8d0eed30aa53fc"
+    sha256 cellar: :any_skip_relocation, ventura:        "4ee9e494db43ce35bb963af6784d6ce3fdb99a5a5c8a381c0665cef324e6cc4f"
+    sha256 cellar: :any_skip_relocation, monterey:       "9d0a0eefb85a3193bae463e17820735abff925de23c2d9ef63ef3b870f6ee31e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eaf5fe1cfb7273562ab9ab32697e869cf02f2e33cb85dda48b70c0157229c13d"
   end
 
   depends_on "pkg-config" => :build

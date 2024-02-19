@@ -19,6 +19,9 @@ class Mxnet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3cbcaa399628827097bd18a797cd6dd7f10df7950eac62564143edc818967156"
   end
 
+  # Moved into the Attic in 2023-09: https://attic.apache.org/projects/mxnet.html
+  deprecate! date: "2024-01-05", because: :deprecated_upstream
+
   depends_on "cmake" => :build
   depends_on "openblas"
   depends_on "opencv"

@@ -9,11 +9,10 @@ class Libnl < Formula
     sha256 x86_64_linux: "07804611bd9c14d970bba5b051a54e71045331061861dc1a9c128ef5ab6d80ca"
   end
 
+  depends_on "bison" => :build
+  depends_on "flex" => :build
   depends_on "pkg-config" => :test
   depends_on :linux # Netlink sockets are only available in Linux.
-
-  uses_from_macos "bison" => :build
-  uses_from_macos "flex" => :build
 
   def install
     system "./configure", *std_configure_args, "--disable-silent-rules", "--sysconfdir=#{etc}"

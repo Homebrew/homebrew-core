@@ -4,8 +4,8 @@ class MoltenVk < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.2.6.tar.gz"
-    sha256 "b6a3d179aa9c41275ed0e35e502e5e3fd347dbe5117a0435a26868b231cd6246"
+    url "https://github.com/KhronosGroup/MoltenVK/archive/refs/tags/v1.2.7.tar.gz"
+    sha256 "3166edcfdca886b4be1a24a3c140f11f9a9e8e49878ea999e3580dfbf9fe4bec"
 
     # MoltenVK depends on very specific revisions of its dependencies.
     # For each resource the path to the file describing the expected
@@ -13,19 +13,19 @@ class MoltenVk < Formula
     resource "SPIRV-Cross" do
       # ExternalRevisions/SPIRV-Cross_repo_revision
       url "https://github.com/KhronosGroup/SPIRV-Cross.git",
-          revision: "2de1265fca722929785d9acdec4ab728c47a0254"
+          revision: "117161dd546075a568f0526bccffcd7e0bc96897"
     end
 
     resource "Vulkan-Headers" do
       # ExternalRevisions/Vulkan-Headers_repo_revision
       url "https://github.com/KhronosGroup/Vulkan-Headers.git",
-          revision: "7b3466a1f47a9251ac1113efbe022ff016e2f95b"
+          revision: "217e93c664ec6704ec2d8c36fa116c1a4a1e2d40"
     end
 
     resource "Vulkan-Tools" do
       # ExternalRevisions/Vulkan-Tools_repo_revision
       url "https://github.com/KhronosGroup/Vulkan-Tools.git",
-          revision: "1532001f7edae559af1988293eec90bc5e2607d5"
+          revision: "2c0a644db855f40f100f9f39e5a8a8dfa2b0014d"
     end
 
     resource "cereal" do
@@ -37,19 +37,19 @@ class MoltenVk < Formula
     resource "glslang" do
       # ExternalRevisions/glslang_repo_revision
       url "https://github.com/KhronosGroup/glslang.git",
-          revision: "be564292f00c5bf0d7251c11f1c9618eb1117762"
+          revision: "a91631b260cba3f22858d6c6827511e636c2458a"
     end
 
     resource "SPIRV-Tools" do
       # known_good.json in the glslang repository at revision of resource above
       url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-          revision: "360d469b9eac54d6c6e20f609f9ec35e3a5380ad"
+          revision: "f0cc85efdbbe3a46eae90e0f915dc1509836d0fc"
     end
 
     resource "SPIRV-Headers" do
       # known_good.json in the glslang repository at revision of resource above
       url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-          revision: "e867c06631767a2d96424cbec530f9ee5e78180f"
+          revision: "1c6bb2743599e6eb6f37b2969acc0aef812e32e3"
     end
   end
 
@@ -59,13 +59,12 @@ class MoltenVk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:   "824854916a8585d9ca8c4aa5320207c6c7d9a17ea80231a296353cc99c7c67ec"
-    sha256 cellar: :any, arm64_ventura:  "ef70b4f7386544e4501ca678d0c4161675bd7255cdd2feed40236dbd93dd3733"
-    sha256 cellar: :any, arm64_monterey: "582db3ddb81439b7d6a6521b0173615906c903ff13bf2a59e1c07d6ce13732f2"
-    sha256 cellar: :any, sonoma:         "1b6217a945ce747dbdfd73d628bdaff2522929cdecd0e37f8a10ef5af53ba9f3"
-    sha256 cellar: :any, ventura:        "95c0a376b5e4b736fa409d2871897da543497554519eefcfce1ae1cb94bd012f"
-    sha256 cellar: :any, monterey:       "a5d0472bbc7c2049f070aa19b3f7b6f70f6c1d9538400ccf619fe8636e781609"
+    sha256 cellar: :any, arm64_sonoma:   "d5c9c58fb6e8ade6c059a4f8584b4cfb9b77e6d93a6c46856c9c61d72a827b92"
+    sha256 cellar: :any, arm64_ventura:  "d5c9c58fb6e8ade6c059a4f8584b4cfb9b77e6d93a6c46856c9c61d72a827b92"
+    sha256 cellar: :any, arm64_monterey: "3cebad86a5ed6dbbfb8585c3d53a3b231daf0920d1e828b25d70f96f0739fd0f"
+    sha256 cellar: :any, sonoma:         "e71d24f1f20db3dae42699531bf49cf656f533f03291616179f21f99a32680e5"
+    sha256 cellar: :any, ventura:        "e71d24f1f20db3dae42699531bf49cf656f533f03291616179f21f99a32680e5"
+    sha256 cellar: :any, monterey:       "8830b328d1ce651e6f9ef1be8b85f01c955f055eb0b5c386786a865054d9e0ec"
   end
 
   head do
@@ -141,11 +140,11 @@ class MoltenVk < Formula
       # Required to build xcframeworks with Xcode 15
       # https://github.com/KhronosGroup/MoltenVK/issues/2028
       xcodebuild "-create-xcframework", "-output", "./External/build/Release/SPIRVCross.xcframework",
-                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libSPIRVCross.a"
+                "-library", "./External/build/Release/libSPIRVCross.a"
       xcodebuild "-create-xcframework", "-output", "./External/build/Release/SPIRVTools.xcframework",
-                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libSPIRVTools.a"
+                "-library", "./External/build/Release/libSPIRVTools.a"
       xcodebuild "-create-xcframework", "-output", "./External/build/Release/glslang.xcframework",
-                "-library", "./External/build/Intermediates/XCFrameworkStaging/Release/Platform/libglslang.a"
+                "-library", "./External/build/Release/libglslang.a"
     end
 
     # Build MoltenVK Package
@@ -157,8 +156,8 @@ class MoltenVk < Formula
                "GCC_PREPROCESSOR_DEFINITIONS=${inherited} MVK_CONFIG_LOG_LEVEL=MVK_CONFIG_LOG_LEVEL_NONE",
                "build"
 
-    (libexec/"lib").install Dir["External/build/Intermediates/XCFrameworkStaging/Release/" \
-                                "Platform/lib{SPIRVCross,SPIRVTools,glslang}.a"]
+    (libexec/"lib").install Dir["External/build/Release/" \
+                                "lib{SPIRVCross,SPIRVTools,glslang}.a"]
     glslang_dir = Pathname.new("External/glslang")
     Pathname.glob("External/glslang/{glslang,SPIRV}/**/*.{h,hpp}") do |header|
       header.chmod 0644

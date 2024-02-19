@@ -1,22 +1,19 @@
 class Gsasl < Formula
   desc "SASL library command-line interface"
   homepage "https://www.gnu.org/software/gsasl/"
-  url "https://ftp.gnu.org/gnu/gsasl/gsasl-2.2.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-2.2.0.tar.gz"
-  sha256 "79b868e3b9976dc484d59b29ca0ae8897be96ce4d36d32aed5d935a7a3307759"
+  url "https://ftp.gnu.org/gnu/gsasl/gsasl-2.2.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gsasl/gsasl-2.2.1.tar.gz"
+  sha256 "d45b562e13bd13b9fc20b372f4b53269740cf6279f836f09ce11b9d32bcee075"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256               arm64_sonoma:   "ada52f070eea012d01434e277020dfcacece5e96c3d6d0b48ef181a662765d62"
-    sha256 cellar: :any, arm64_ventura:  "3a9246f399e33a4274ccacfe96d46140e0130a171a991cfdebd27e417d142022"
-    sha256 cellar: :any, arm64_monterey: "126a0ded684a9349c873c37caa3d36779a9389891ad50fe8ff042add39d64374"
-    sha256 cellar: :any, arm64_big_sur:  "de5f7a8910fbc88acdde0fa7513a86b492a5a6bbb9ab05934d690a59ac17a90b"
-    sha256               sonoma:         "9797931c474382a839807b57ddb9422fd52b4bee60267ac0079f3b7c5c9523a6"
-    sha256 cellar: :any, ventura:        "ad6dad6e655aabb9df197fe7e3198505e317d9b76a2c05146b27eacf46897d47"
-    sha256 cellar: :any, monterey:       "bee461c1291a0341f1a02df6daab52ea23eccf1f5aeed77e0ec846a5252be02c"
-    sha256 cellar: :any, big_sur:        "06238f587cee9d327614299a30577b01c64c49a037754c893ff05146fc3ad167"
-    sha256 cellar: :any, catalina:       "2b6cad9f39e375aa026c2b7b4bbe774a4c6cd6cd5319ae8500111000f85e3575"
-    sha256               x86_64_linux:   "2ad19aa5ffdcf833602a2761b40492be8cfed8fb185713eaaa39c4b35d8cd68f"
+    sha256 arm64_sonoma:   "08a3d6b5d9118239db46ac525dc8ff6dfcdb751aaf71c26d563e248ffe321601"
+    sha256 arm64_ventura:  "e41f99e5a461ff905df7786838db28b8cf714a69e64d97074ac4d60192f1931e"
+    sha256 arm64_monterey: "c99076a61434cfb716df47fe5ed29ce21765456effdd0eafbf7b645cff4fe85a"
+    sha256 sonoma:         "f6d6007e35934b3f04c5cad57ff43d0ebe402c4de6fcb11be613607b6daf2c10"
+    sha256 ventura:        "5889ccd75161e8bd226dfc1fa2cd9c3fcd0db7a70e1ca517037494246fc948a5"
+    sha256 monterey:       "dc572d0c68f75916659bdc4fb41857dc956cacd060b78392a3e6ed83a84df623"
+    sha256 x86_64_linux:   "d240c5d2c14596f6ea5db8bfbc926e5e970a7c123698b6522a2be5740bef5c1d"
   end
 
   depends_on "libgcrypt"

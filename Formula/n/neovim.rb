@@ -4,8 +4,8 @@ class Neovim < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.9.4.tar.gz"
-    sha256 "148356027ee8d586adebb6513a94d76accc79da9597109ace5c445b09d383093"
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.9.5.tar.gz"
+    sha256 "fe74369fc30a32ec7a086b1013acd0eacd674e7570eb1acc520a66180c9e9719"
 
     # Remove when `mpack` resource is removed.
     depends_on "luarocks" => :build
@@ -53,13 +53,13 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "28ef7032c35b01b4d0c787cfa479a4e5cfa721920c7e16c9cfbe16ced2899f40"
-    sha256 arm64_ventura:  "d86a5c7cfc96b756f1169d62f3193bb32837878ab230a52f66b752d817483465"
-    sha256 arm64_monterey: "107e1eeaae2826286b8e91421b9f658da562389b1a289c321c88266b710412da"
-    sha256 sonoma:         "d8349c7fc1e0605507bb7ffe8b809d459bffbc144da0d5555248f3d80358adf1"
-    sha256 ventura:        "37eb3344698eba447de3497f6232fa7075488f67d8c0fec75bc2b910db05a9d0"
-    sha256 monterey:       "f8b0ab4ccc82676f516e137b53b4a0de405ac2f609329106f1a286e2a1b37e50"
-    sha256 x86_64_linux:   "1b4a294d242a749ca6d6eb0710fcbeb4cff8873608bd9296814edcd58983f89f"
+    sha256 arm64_sonoma:   "dceae593d688ebcab98d65cb2a8c885493ce7ceba0d87dff5e35cc9a00840382"
+    sha256 arm64_ventura:  "de0f296454dd02e139ad69f6a193e597691528988389214407c4ea08677e26fb"
+    sha256 arm64_monterey: "b7b6fc8764383e84657912cc17197f40fe112382dd98299713abc273131acaef"
+    sha256 sonoma:         "c0d17b581f7584ea6de7e131cfbb89374d9753464fc5030d262aadf186aefb11"
+    sha256 ventura:        "56162a099233d89e325b024ac3052cd7a0c7bc667071fb83f5ba4ebbeffcf8a5"
+    sha256 monterey:       "cb2591d244f1ec97c38fc5f7f0d0a358d0d03a1a94432c28c1cc7c577dddb369"
+    sha256 x86_64_linux:   "ab667b4b8ce2b55f8c654d85520831f05590b1df4c2ddd277149d24681643a20"
   end
 
   # TODO: Replace with single-line `head` when `lpeg`
@@ -101,8 +101,8 @@ class Neovim < Formula
           deps_build = buildpath/"deps-build"
 
           # The path separator for `LUA_PATH` and `LUA_CPATH` is `;`.
-          ENV.prepend "LUA_PATH", deps_build/"share/lua/5.1/?.lua", ";"
-          ENV.prepend "LUA_CPATH", deps_build/"lib/lua/5.1/?.so", ";"
+          ENV["LUA_PATH"] = "#{deps_build}/share/lua/5.1/?.lua;;"
+          ENV["LUA_CPATH"] = "#{deps_build}/lib/lua/5.1/?.so;;"
 
           rock = "mpack-1.0.11-0.rockspec"
           output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{deps_build}")
@@ -137,12 +137,6 @@ class Neovim < Formula
 
     # Replace `-dirty` suffix in `--version` output with `-Homebrew`.
     inreplace "cmake/GenerateVersion.cmake", "--dirty", "--dirty=-Homebrew"
-
-    # Needed to find `lpeg` in non-default prefixes.
-    ENV.prepend "LUA_CPATH", Formula["lpeg"].opt_lib/"lua/5.1/?.so", ";"
-    # Don't clobber the default search path
-    ENV.append "LUA_PATH", ";", ";"
-    ENV.append "LUA_CPATH", ";", ";"
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DLUV_LIBRARY=#{Formula["luv"].opt_lib/shared_library("libluv")}",

@@ -14,11 +14,10 @@ class Cppzmq < Formula
   depends_on "zeromq"
 
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args, "-DCPPZMQ_BUILD_TESTS=OFF"
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DCPPZMQ_BUILD_TESTS=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
     pkgshare.install "examples"
   end
 

@@ -3,6 +3,7 @@ class Autopsy < Formula
   homepage "https://www.sleuthkit.org/autopsy/index.php"
   url "https://downloads.sourceforge.net/project/autopsy/autopsy/2.24/autopsy-2.24.tar.gz"
   sha256 "ab787f519942783d43a561d12be0554587f11f22bc55ab79d34d8da703edc09e"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url "https://github.com/sleuthkit/autopsy.git"

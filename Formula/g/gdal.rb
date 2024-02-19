@@ -1,8 +1,8 @@
 class Gdal < Formula
   desc "Geospatial Data Abstraction Library"
   homepage "https://www.gdal.org/"
-  url "https://github.com/OSGeo/gdal/releases/download/v3.8.2/gdal-3.8.2.tar.gz"
-  sha256 "e914690d2694671d75bab15b451a42c2f115d7267a5b600eb361e94b58a089d6"
+  url "https://github.com/OSGeo/gdal/releases/download/v3.8.4/gdal-3.8.4.tar.gz"
+  sha256 "c435a2ec08eca3d4c2bfe774081f8c433c00e56ee2f0f2f4f6494c2d078fcfb9"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Gdal < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "dab684f2b6ae1eb7d96983985f6da54b2f166fa0e91ddc1f7ef9b96fa53eefb7"
-    sha256 arm64_ventura:  "5c2fade1d50277541f5aaea9f21d2feebb129ee703eaa34992cae56fd4d98d72"
-    sha256 arm64_monterey: "8caa2eadcc51320edd06ff35e1444015d198b316e16acf9f692ca3e2a2da7ced"
-    sha256 sonoma:         "034e0557eb82e9e90adcbadb925d918f41e90c44d5bc39d9481a7f770fc8dab4"
-    sha256 ventura:        "198e171dc5aff5b8802cdcdf6432dea87a8165d8c24af3ec6ab0c37370b7acea"
-    sha256 monterey:       "4d5b586bf6c60454eea9fd52d433aa614d27abe25ae20ed5fe82b9c3447855ed"
-    sha256 x86_64_linux:   "6faa74e48f7b84ac009ca3eaf619edfcf4425f9d703d712d3521d45f77235a2c"
+    sha256 arm64_sonoma:   "448373933d77569561fd8212ffc15d918691a760e0a346a88f6756f5c0f9b387"
+    sha256 arm64_ventura:  "c78ea1459a2133991a30da9776ee583a2114e5a7b1f3c4bc2b58ad24c3e37dc9"
+    sha256 arm64_monterey: "089e676e74f98643102972c7a5004137aa848e2d6af6f782d988534122fc7878"
+    sha256 sonoma:         "ee54027f25a8c0d07d36b180132271b75e44c9e3d060ac5a8cc5d4d2eaa1966e"
+    sha256 ventura:        "63814d6b31ac1e3ac661a7891a89eabed72fc32c924c147be87cf3e863821d74"
+    sha256 monterey:       "08f59e9bf664248b099dd2e56352f3ca34c867aff26f809a40e7d6440079357c"
+    sha256 x86_64_linux:   "3aa045e6629541f380996265b634a67ec7c378d658083e1dcd49faf91a3f6278"
   end
 
   head do
@@ -28,6 +28,7 @@ class Gdal < Formula
   depends_on "boost" => :build # for `libkml`
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "swig" => :build
   depends_on "apache-arrow"
   depends_on "cfitsio"

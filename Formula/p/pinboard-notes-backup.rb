@@ -1,20 +1,19 @@
 class PinboardNotesBackup < Formula
   desc "Efficiently back up the notes you've saved to Pinboard"
   homepage "https://github.com/bdesham/pinboard-notes-backup"
-  url "https://github.com/bdesham/pinboard-notes-backup/archive/refs/tags/v1.0.5.6.tar.gz"
-  sha256 "0b544d5e3dfd0ebf029b50fcb405045f601dac1f103fbd95f2b24b5aefd4ef40"
+  url "https://github.com/bdesham/pinboard-notes-backup/archive/refs/tags/v1.0.5.7.tar.gz"
+  sha256 "12940372b976bbc9491e20810992396426f3ee482416a42e6379bdad9999a07c"
   license "GPL-3.0-or-later"
   head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a23126069b6eb37ec5fa9cdfc4e90fdec0607b7e5b663f369ade70f4622edd34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0179793fea1c674a55303c6fbd09a0eb18479f69ea4913d899051998d431015"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c14f48435e8582dd61b1c90c499a2532f288af4ab8676c10341348dd4c80c4c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a6a4583d4eec71832fb5231d5a461ab4a6a9f46824965f4f4d70971d6dc2800a"
-    sha256 cellar: :any_skip_relocation, ventura:        "d7d134ba104152960322db03077c2747145f9eed0767365654ddf0dd0e1ce747"
-    sha256 cellar: :any_skip_relocation, monterey:       "961d9679a44ca529b677128731d8c08b975bf4c4d24a331249519e408f5a5059"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4207355c1a379695a0eac57910fc29b23eed8fe6f296c3068044ef327b488276"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63e685a5471c77c535f67b05195429f4d71c3e9f655b0d3faf591025c7a1f36f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d375d8d2a1c76e2ac6dc0f93656182cad288b58c3c3457922955df7ff3fbb87b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b570d147f98d42f9fc47429fdd14bba0f59f7038d9922429b3ef911fd5b38f7b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1bb2a015045e1d6d0870f523473379af184034a878754a55b27452896db4893e"
+    sha256 cellar: :any_skip_relocation, ventura:        "e793489b6fd7c1658683dd16ebc56d2e266be7cdffcfb997f49ba76ac4012dad"
+    sha256 cellar: :any_skip_relocation, monterey:       "20dcaeaadae53a452675a64a3f435537d54d813108da2e3d216e79fb7be42908"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19365a6c0ca7c4d6a56c8bbfd591346ab77c23b89c7e4a2aec77ddc9eba57fe7"
   end
 
   depends_on "cabal-install" => :build

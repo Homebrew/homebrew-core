@@ -10,21 +10,20 @@ class Watson < Formula
   head "https://github.com/TailorDev/Watson.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "94e684e89229c5bcf3989fd27d82918f6245d71761e32bf597e27ba9b7218b21"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02c61d18705e7917e29fa6cb57a72ef49169d1cf2bbb91b640d8a6be403205b7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4cbb1cfea5c4efa4d80da227824f11e4258e650a92f0b2fd52c6d259a798d42b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3250c2a199deb50ce04f87e550f4dd64865920074b633b5313e0890e0636f6fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "65d5a97a8f94742aa7224530d97b16d9ebd303f86d43ef99de546a457175f7c5"
-    sha256 cellar: :any_skip_relocation, monterey:       "dd7bc67a9e037b5645cd043e949941f756db476f7bc0dbc942d1415124ca6ac8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32116f47634b4e0c3c4ed02992ca592fe80c7e8aa32d05008f976f52a1175467"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f46f74b1e17b6fdc0300fbb606a44bd6408bfa3cc9cac408fa4866ad55b8e9da"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4479c4f809b93c1f38097104c07e6780711acfc3ddf25dce2a1837c1df51eb5e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37609d0b3d02bd3be9e15ca8290bb549f22e1794ad0721d827adc49392f1b53e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7b4f43239f0ddee86e0c5147489b40f4d527cac993d0c753d141087440db9cd4"
+    sha256 cellar: :any_skip_relocation, ventura:        "109c4a191e2ba1a44e1827335a050d78b5f72e6ca84c3a89b0ff8ff7bdae7a77"
+    sha256 cellar: :any_skip_relocation, monterey:       "0aff5e866917a3e76665b4dff9f9b3fc78a694bee7c93fd9c2c9288091d58976"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6ac197f13ced64a8fa64d89cbe0e7c19cce70a935de5f495549392f3da9646e"
   end
 
   depends_on "python-certifi"
   depends_on "python-click"
   depends_on "python-dateutil"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "arrow" do
     url "https://files.pythonhosted.org/packages/2e/00/0f6e8fcdb23ea632c866620cc872729ff43ed91d284c866b515c6342b173/arrow-1.3.0.tar.gz"

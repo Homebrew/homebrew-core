@@ -9,6 +9,7 @@ class GopassJsonapi < Formula
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "76d729fe3e8dd0f9d4abdce58080b118da0e71c41f4dd422bea57ad98c8c073e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "67560066d8e8bacd70609b14f1ec57779d89db9874491e7d5e4e120d4daaafe1"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "af5496b3865bf634facbc18e7a1128a4f5f72edeedfc1dc8ce6d33e783f127ec"
+    sha256 cellar: :any_skip_relocation, sonoma:         "41fff3c6e2b3a985bb24208d555500457ec939a9f1174bffe60368028407b64e"
     sha256 cellar: :any_skip_relocation, ventura:        "4b1d7e1563492f3198a6838cc57bf54dc73c08d1b4d450b5cafb2c9e8691f1d6"
     sha256 cellar: :any_skip_relocation, monterey:       "172387a00ceef540736f6fedd4d5edca5cbea747251eff9c59e5769f7d0206f9"
   end

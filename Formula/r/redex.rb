@@ -4,7 +4,7 @@ class Redex < Formula
   desc "Bytecode optimizer for Android apps"
   homepage "https://github.com/facebook/redex"
   license "MIT"
-  revision 13
+  revision 14
   head "https://github.com/facebook/redex.git", branch: "main"
 
   stable do
@@ -38,13 +38,13 @@ class Redex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5432d337825371686b4021b8898003c75505c4a09b0b5afe37ad9104843d7ba4"
-    sha256 cellar: :any,                 arm64_ventura:  "6bdf687aef61253b280936c81bf9c8b8fcc0ec830087885973ac836c29e1fe8f"
-    sha256 cellar: :any,                 arm64_monterey: "bc02b64093d49159e8a92bd83df951b7e099563c43dafba3765db81c5e4722d4"
-    sha256 cellar: :any,                 sonoma:         "95af337e88269e9dc187bab2bb8b3cd3588e36fdb6591fca58e6a6b364ca4f91"
-    sha256 cellar: :any,                 ventura:        "8fee121096aea10a76db45b4db03fb91426623e5460c5889c8d3d05dc285d5e7"
-    sha256 cellar: :any,                 monterey:       "f2e979f03d9e3882bfcc3fd46b2ba9e327ad0e118609f813a1959338e96c448d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37698a87c862ca311ed5b2fc5c182e225891ddc67f3cd089d349ae6675bbf9a2"
+    sha256 cellar: :any,                 arm64_sonoma:   "86aadd8c35002ce327547f07d1758a5b949555e8b2c55c02b5787f202c84a938"
+    sha256 cellar: :any,                 arm64_ventura:  "47b418a551ec6a995193be1a5a56dde673a93f5c3f2e50958ced4fbdd3c412b7"
+    sha256 cellar: :any,                 arm64_monterey: "cf5f6273c4688d21e1c61e05c9dc6fcc95e6312fedb05830cc76ae69364b7b52"
+    sha256 cellar: :any,                 sonoma:         "bfe8c41b3f25f510812a4a60b47c6585754f7bb5778420451c9246b6b884357d"
+    sha256 cellar: :any,                 ventura:        "504e8955566293a7b45e2a4100193e7d4c4369460660a06795cb2dc61f24279f"
+    sha256 cellar: :any,                 monterey:       "0ff09c6abada7901b3c2086fa6416cbf0e3027dadbdd2abc4dc928625522057a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6ba5c29bec4a0fd5d685784dfc0bbee1db4d9b59063d870b1cdf82ea8ce422e"
   end
 
   depends_on "autoconf" => :build

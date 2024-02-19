@@ -10,16 +10,14 @@ class AnimeDownloader < Formula
   head "https://github.com/anime-dl/anime-downloader.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f91739b656bb1165fe754066cdf834630d3215db265df563183823781a042fd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "647c05f2aab4373df042279267464f1d356f96be248fba315ba73f8610438f79"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "65bf2e379d99e9af5c72b406d38ed6f336532116c9a16d11e3c3ec32bc590d83"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34990e1ea3973b2fe138b0f171e913c4ca30211301080177bb742d82176eb6f9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "43ab870c7cb8b692d63ebef75a00c86aefa26e574149ce5fd3387e1103ecb946"
-    sha256 cellar: :any_skip_relocation, ventura:        "f226ed63d4058cd13e4d6b34b5f92bf879828aa15bb5e77b71ea14fcef04576c"
-    sha256 cellar: :any_skip_relocation, monterey:       "f1855ef41361a65b90b2a7d8dd4bc3da0705cfaa08be1c0b47db4e5f146cb7d5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c632ca8127cbd7dc0cc3bb0670ba6c032deba47bffae8cae59723a4a3eb0ec2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c54196e4e2bd20d52d715c585705d3f4f4be4aa898bb87e528af48a0f2abc4c"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7258b2045bc048226c995e5a38991a34711fbab809c2f79295d842d31dc1932d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e0bf613d53b1c8e6c403734bfdf9eaba94b4a17d3219dfcc863973b8ae0c506"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "99b135c2d0bda9cd5a6fa8832ae42dc83f4c4d361733d05b02d4c6a3af04ea6a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "14f9c7c46d6786a37fbb8747b067078d5459eb7dbae8eb49f38d6a1a811cee0c"
+    sha256 cellar: :any_skip_relocation, ventura:        "dd5758a6e02820cdbe05b8e490da60c5f0704512189a39d874c255e1061d288f"
+    sha256 cellar: :any_skip_relocation, monterey:       "5bbdf50e7863f1d4cdad66e3e54055698633ab37e4ba4ce1a6760886c2374c7b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c126737d5947b2854408fceb070a68ad5178b12efdcfa2c637864084679b7255"
   end
 
   # https://github.com/anime-dl/anime-downloader/commit/24de83d
@@ -28,9 +26,7 @@ class AnimeDownloader < Formula
   depends_on "aria2"
   depends_on "node"
   depends_on "python-certifi"
-  depends_on "python-tabulate"
   depends_on "python@3.11"
-  depends_on "six"
 
   resource "appdirs" do
     url "https://files.pythonhosted.org/packages/d7/d8/05696357e0311f5b5c316d7b95f46c669dd9c15aaeecbb48c7d0aeb88c40/appdirs-1.4.4.tar.gz"
@@ -107,9 +103,19 @@ class AnimeDownloader < Formula
     sha256 "b7c26ea98143bac7058fad6e773d56c3442eabc0da9ea7480af5edfc134ff515"
   end
 
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "soupsieve" do
     url "https://files.pythonhosted.org/packages/f3/03/bac179d539362319b4779a00764e95f7542f4920084163db6b0fd4742d38/soupsieve-2.3.2.post1.tar.gz"
     sha256 "fc53893b3da2c33de295667a0e19f078c14bf86544af307354de5fcf12a3f30d"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
+    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
   end
 
   resource "url-normalize" do

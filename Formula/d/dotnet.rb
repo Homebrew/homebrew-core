@@ -3,17 +3,18 @@ class Dotnet < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/dotnet.git",
-      tag:      "v8.0.0",
-      revision: "40e7f014ff784457efffa58074549735e30772ae"
+      tag:      "v8.0.1",
+      revision: "b27976e5a6850466ee5b4ce24f91ee93bef645f7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3e7c2a22ccd3eb9780607ea77bc0a82c772411a093268973e831393fb9cb9df1"
-    sha256 cellar: :any,                 arm64_ventura:  "1452fc9a89d69d27d49cc67304abbf72df107cba7dab2d4c1806dfd628c58017"
-    sha256 cellar: :any,                 arm64_monterey: "952a520c7b0f1b117c0d0c67503209a555519722078f4e06a47265d0dbfe27c6"
-    sha256 cellar: :any,                 ventura:        "f5b5308c1f61266fef07a72191310874614be0ac66f963eda8f2c39925f4aef5"
-    sha256 cellar: :any,                 monterey:       "758df6ba1fbeab7227b3cc07f1a147d8b1f62070c8dd32a570ae6a640bd54f18"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7081e687c5ebad93ba573a75022979de54cf5ddc801ea140072d6a8c1d13e7b6"
+    sha256 cellar: :any,                 arm64_sonoma:   "fe16d3dc3e1072ec371128be7dcaf483a9b02be472cb87e1da3b43fb842bf82f"
+    sha256 cellar: :any,                 arm64_ventura:  "49d43810256813aa3375cd9c3269bb065d6e3f8fa059c553ab71685a3809fd91"
+    sha256 cellar: :any,                 arm64_monterey: "a1f2ee204269a54c96db79418119b954508e5117e85e06855496cee045de0d9b"
+    sha256 cellar: :any,                 sonoma:         "5e0b209c5a8aef590fa7805aa047c8308064953f24bdfcbf5c82c48d3aff7762"
+    sha256 cellar: :any,                 ventura:        "c4a7d97f40ff6165c38bc6f106567ff08d6afd0fa0bc564de7aa109605c853e8"
+    sha256 cellar: :any,                 monterey:       "90a53fa755e4946734eb0e3db1fb11b0a0bd511cbfd1882159e46a3b1c6a075e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40880305c33d01db2bfdbb6c1f3a970c408d0a05f8e8bc0db2c5cc2c3bb4f7f3"
   end
 
   depends_on "cmake" => :build

@@ -1,8 +1,8 @@
 class Liboqs < Formula
   desc "Library for quantum-safe cryptography"
   homepage "https://openquantumsafe.org/"
-  url "https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.9.1.tar.gz"
-  sha256 "317e04416604184472a4205e355185741ad4972fed15cc65f5d40c64f96f501c"
+  url "https://github.com/open-quantum-safe/liboqs/archive/refs/tags/0.9.2.tar.gz"
+  sha256 "a708c058d4d9dcf5568245439b526fa480180f1fa4541adf21b1d094dc9e0590"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Liboqs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a0f688ad396c8bc407c164d926a33c1771764b0c1c726da9317755f6fe664677"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9833b1339c279e4f8be8c757cea07e911272169e6536727a2e97befb261bad0e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b02b83618d8c43316ab9735334f963aafbcd713129a34bf57656e76ca2f7fd2e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9056d026736f0c2b508798967ed3b67c1f70907c13a322ca9910e49038a26d37"
-    sha256 cellar: :any_skip_relocation, ventura:        "44097accfb355b009ead16e423f3857bd91a2cab11d7b93982176d28f448088d"
-    sha256 cellar: :any_skip_relocation, monterey:       "c899cb5242a90103d76e3dbc58bf380b53c9a01b3e9655c19db8c4ef8a9f495a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cc0bf1f5bab87093bdc7241fb6458b8f4be37404b9d363e62c764f9bc9c7fe5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5fb629a03656c68c49b99f9daf0ebc580928090046210729a00b9c35c09b8a50"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "418035892a17e36adb088fda0d1c5afdbced280a32e60e384a675e7a16775d1b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "05786a72a882d6afb5ce32ce5699f88b6e802f9b05c6c38db5ae390492537eef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b158e4860040b89aa9a2c53aeda5bc17232c1e593f8d285c4cd60dc12d4cfbb8"
+    sha256 cellar: :any_skip_relocation, ventura:        "a013201bffd4da33ee70dba4dcd8435916a7356910a1d3f62cd86a453c88c5b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "3446fd5382ff0895b2b1753ab2c655492cd7be00a3c976ffa879e2a25fedf4ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8541d89d46cd4d88179b86d611297ed76c879e345a640986e77dfed6180ae67"
   end
 
   depends_on "cmake" => :build

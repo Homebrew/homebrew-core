@@ -1,21 +1,18 @@
 class Dssim < Formula
   desc "RGBA Structural Similarity Rust implementation"
   homepage "https://github.com/kornelski/dssim"
-  url "https://github.com/kornelski/dssim/archive/refs/tags/3.2.4.tar.gz"
-  sha256 "f58d834876ebcc8e5f21e94e0db42b173d2bea600642cbbbb6dab16a6b5d7537"
+  url "https://github.com/kornelski/dssim/archive/refs/tags/3.3.1.tar.gz"
+  sha256 "2bb8204f87eea2966e7d1455d174e5b7e3f47514aee13ad73045d4399d0f3edc"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0bc9931a1610325ef85147102d05bf4f0116eaf837f386f926978d682661b0d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4a216f56df26aff08e84ea6b81ec7761a79ccfd8ab140f0dd6fe62f389a183d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "152c13927b088e6f0ad1733e4540a6197a32dab7d674659cb966a95bda94316f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc115c42134e98b2b9fa537715a9af7b44bfc22de71cad41df6c3ae104be80bd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ea8dfe4c7d6e4dd63ea519cc3f89797ecffcbf2442d9a60841a825eb743d346b"
-    sha256 cellar: :any_skip_relocation, ventura:        "7f27b7724b2f1f19d4bffd30c99fef77243349b76e519a2b92bda3d640786e51"
-    sha256 cellar: :any_skip_relocation, monterey:       "3026cc94e32968aa407186fbb3406f844228e82fb5c84d20b6a58753c1d943f3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "20defb82713908472254c03c45b25e4eb224fd703e1bed428809d930cfe5c138"
-    sha256 cellar: :any_skip_relocation, catalina:       "f1c5fdc878cf1eb50c934e1741ef86ddc70036bc389b01dd179a0ca339ce79d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6adec880587fce1266c753dc41af3f237eddf9709d225b9dc36184d9474f8a1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0dfd2b5a1c056ff3884f49982d7ac8d6960a7bf0e908cf0d5d926a84dd99eec4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cd17c98c89c6d8e62ae6c95f4c642c99c57ffa52744347bfd15e75cae9abfb9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "20c10ef5485635eab7e246dad306a17147d46e27939ea1780eed38b328497f01"
+    sha256 cellar: :any_skip_relocation, sonoma:         "62bb524a94bf5c90463d244690a32591a7c3166bdddf8aa1a97f2fd0cd779e2f"
+    sha256 cellar: :any_skip_relocation, ventura:        "7222cc33dad5c0f39a9496b1df83adfe2b83c8fa8eb112e6c7fd38f26e774893"
+    sha256 cellar: :any_skip_relocation, monterey:       "8501f2023519307e078531d1d8bacd9cea878ef4b32e8a572536a3af54efc57d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1fca55387957980c34d82360e44f11d9f8e413bb40e7387f6d19fff1246de63"
   end
 
   depends_on "nasm" => :build

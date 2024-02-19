@@ -1,13 +1,13 @@
 class Asdf < Formula
   desc "Extendable version manager with support for Ruby, Node.js, Erlang & more"
   homepage "https://asdf-vm.com/"
-  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.13.1.tar.gz"
-  sha256 "da22f5bce2dcf13edaa0b6381b6734e55fbf43128f12ca5f575ff4fda03399f4"
+  url "https://github.com/asdf-vm/asdf/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "8bca30e01e7fdb71d93fe7bc6efc80bfa41f27a3ff584d184138817962be8058"
   license "MIT"
   head "https://github.com/asdf-vm/asdf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ce9cfa03a236cba15a77b2e567d5ec9b2406a8ba0ab78d653ca2bf28f4014f35"
+    sha256 cellar: :any_skip_relocation, all: "2aa1302895c8908cef593cd3e9b3be3aea517595c8cd8bcb380cc0474db0bd05"
   end
 
   depends_on "autoconf"

@@ -21,15 +21,13 @@ class Graphene < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
 
   def install
-    mkdir "build" do
-      system "meson", *std_meson_args, ".."
-      system "ninja", "-v"
-      system "ninja", "install", "-v"
-    end
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
@@ -41,18 +39,8 @@ class Graphene < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    flags = %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/graphene-1.0
-      -I#{lib}/graphene-1.0/include
-      -L#{lib}
-      -lgraphene-1.0
-    ]
-    system ENV.cc, "test.c", "-o", "test", *flags
-    system "./test"
+
+    pkg_config_cflags = shell_output("pkg-config --cflags --libs glib-2.0 graphene-1.0").chomp.split
+    system ENV.cc, "test.c", *pkg_config_cflags, "-o", "test"
   end
 end

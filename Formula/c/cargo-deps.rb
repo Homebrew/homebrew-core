@@ -18,6 +18,8 @@ class CargoDeps < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "205f88a20c0bf8fdabc555ecd1ec72a6103f65dcaaf5dc8c23f687e6d78249d3"
   end
 
+  deprecate! date: "2024-01-19", because: :repo_removed
+
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
 

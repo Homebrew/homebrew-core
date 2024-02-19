@@ -1,19 +1,19 @@
 class PerlXmlParser < Formula
   desc "Perl module for parsing XML documents"
-  homepage "https://github.com/toddr/XML-Parser"
-  url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.46.tar.gz"
-  sha256 "d331332491c51cccfb4cb94ffc44f9cd73378e618498d4a37df9e043661c515d"
-  license any_of: ["Artistic-1.0-Perl", "GPL-1.0-or-later"]
-  head "https://github.com/toddr/XML-Parser.git", branch: "master"
+  homepage "https://github.com/cpan-authors/XML-Parser"
+  url "https://cpan.metacpan.org/authors/id/T/TO/TODDR/XML-Parser-2.47.tar.gz"
+  sha256 "ad4aae643ec784f489b956abe952432871a622d4e2b5c619e8855accbfc4d1d8"
+  license "Artistic-2.0"
+  head "https://github.com/cpan-authors/XML-Parser.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "473fbd1263ba43ca877ca887b777e5a9afce13768b6cfc2ff6285c4bc9971824"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4eac26785194dbcbd96bf24a8479db7ea85352a2a16b7972c922afd4d9ea68e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fcde94080253f566a98b5f349b7ea010cc6d21fe6ddec59fa4743abc5edea58f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "de0c1626a94b200ebe015c45d8b1409efdd6e8d395aec19cf2d81d6af1aa2b0d"
-    sha256 cellar: :any_skip_relocation, ventura:        "c6b74c83a127b6cadddb8509919dfee6627a598100f94f3d861fdb2a5163de4b"
-    sha256 cellar: :any_skip_relocation, monterey:       "5572c581adfbe973e52db8be2aa407bffc0967ce6f9b2e3baa944634f7ec8cbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3ac116881f491dd486c9951ad305fb55a73bfd6af80cb89fccc248e4f732ea8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "abc5750010dbf09e17cad13f74162ce621f12f731e90841e613b805927146b1f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32325a1ebd1bb1e3254db3e55109102a0ccdf9ee4574af862096db23596ac84c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d49fad80145a196ee2546d8de14ed565a7b9f56038c6b1c323aa0fc1e1344fbd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a7f69bdcdf93c52175a00c985059d65ef662331d52162d3bc66b5179e924be8"
+    sha256 cellar: :any_skip_relocation, ventura:        "89ed0963847169a29ff1f651c1e6aa7dad231b1c3dd31d4780987ef88e28afd2"
+    sha256 cellar: :any_skip_relocation, monterey:       "c062154f9f17fe3002232fa03dd75a4d6215f376964b6ff3628a61fed824ecf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "876f84653f0c11dfe42194d77094ae883520e76a6c0cdf741ea7fa52afa749a7"
   end
 
   uses_from_macos "perl"

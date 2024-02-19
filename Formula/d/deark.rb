@@ -1,8 +1,8 @@
 class Deark < Formula
   desc "File conversion utility for older formats"
   homepage "https://entropymine.com/deark/"
-  url "https://entropymine.com/deark/releases/deark-1.6.5.tar.gz"
-  sha256 "572be942796d44085d9ffd3cfe5c55175bf4aa315981adb65c45f9d972743ee3"
+  url "https://entropymine.com/deark/releases/deark-1.6.6.tar.gz"
+  sha256 "6a4231801d08c7188aac692ae3054f54aede588988bed1e35b52d1a30dde62a1"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Deark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4737631a58d8a352f74562059ae8ba7c19cba6d80c13cdfea8abaa75ffbe7e0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "141c18827d0ced50178ba80affadeaed60fa51d461a6e806de7f12c45b5b4ecb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7388420edd42e8510b78fe4782e825b748a0416390e1353924c54c4c46266d28"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "304e04d6a884a11377eefc8e60cfa3755184389b4ce833b336d29a68126e88ba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b625a0d9fbf1599bf211ef24692448331abdda40318484b9f22c1426de709991"
-    sha256 cellar: :any_skip_relocation, ventura:        "35a1b0e34a3dd56054ebf95eaa28c33a613b388f7d795d1fe2f32af96debccf3"
-    sha256 cellar: :any_skip_relocation, monterey:       "bb834227b65ddf9e01364c11a6f711156ba810d7105289e5bb8a38ceb703fd42"
-    sha256 cellar: :any_skip_relocation, big_sur:        "a10b3bfa4494d6858e17acb7ba4276286165f97de4903c44ad9c4b0b45959668"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "83f8ba1f7c111903c5832c43a2f43c765ffa34239e67d1d67fd30c6b9643f71b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dffe74f23bf5f9546ce71e13c0b2e39dd64356a5f2beaad51358c2940ef4d47b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eba2bc765840156d1715e27cacf943855765c18ce56ef155e36dd664bbc55e84"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a0ab34bf2bc7bc1784adbf09fbcb104631e892671003c3c041b36e4e004f0e8b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c6a3340be7431a41ac8af91b1ac36c28723d171800a5a5a5caa4f50321f146f8"
+    sha256 cellar: :any_skip_relocation, ventura:        "a0420392f98f312347cd51bf61ca781fc34416cde3d2952081f047fe692e74ca"
+    sha256 cellar: :any_skip_relocation, monterey:       "76b9a8c23a586c528136ed1df90dcfc7679b006007c8462b92fa2ffff22e6c3b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa0c02ed4e3637994576c31d2027576c560fa68527408aacf69693fcc24b731b"
   end
 
   def install

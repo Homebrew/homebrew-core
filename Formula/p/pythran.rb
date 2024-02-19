@@ -3,21 +3,19 @@ class Pythran < Formula
 
   desc "Ahead of Time compiler for numeric kernels"
   homepage "https://pythran.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/2c/ab/a647b8cc3ac1aa07cde06875157696e4522958fb8363474bce21c302d4d8/pythran-0.14.0.tar.gz"
-  sha256 "42f3473946205964844eff7f750e2541afb2006d53475d708f5ff2d048db89bd"
+  url "https://files.pythonhosted.org/packages/82/31/cc6fd7a2b91efc6cdb03e7c42df895b4a65a8f049b074579d45d1def746f/pythran-0.15.0.tar.gz"
+  sha256 "f9bc61bcb96df2cd4b578abc5a62dfb3fbb0b0ef02c264513dfb615c5f87871c"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0eddf90ccf8b375979890692b2055c412b020cdec739710d40042aa18ec60bc5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4cb4b32cf519de7cb726262ba8178c1194e49c203ee307f5c083963f945b955"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7954217dba20328512b364cbf043791ee7b9835657de06f2b2b8a864841d393d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9f6f5ce60efa42ebc691856159aa77f1027393d4fe10d63789a594e7f76c3a6c"
-    sha256 cellar: :any_skip_relocation, ventura:        "f958f656b096eb14c0894361abd1fca548b3c4d784949c7d0828a918702c6d37"
-    sha256 cellar: :any_skip_relocation, monterey:       "06979055ae2124484c3449bbd5939b721e7c8bd6778e081d8ee164f26415b054"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5ebfa109ac5bf54d5de07fab269dfbfaf4363b7d4383a113c7ddd72f3a373a2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18327b6119a4e8d127c5425c0b459b856a775b8bdb553d7b8e5c3a3e2d038f87"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c86c216e0d0adc371a57feadf7772fad2561c34273a7cc22efba05fe6bb04bd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a6330ba2011cf8ef566f308a11a60a23133f8127173acd56148225789916b8a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d431cb54d3078ef33cae0bb00a9400fc7786acefb78e232b38966547190a66f7"
+    sha256 cellar: :any_skip_relocation, ventura:        "4e0040f0fcfb919eefad7f0490e06604816a228124654bb12327fc18b6599236"
+    sha256 cellar: :any_skip_relocation, monterey:       "33a3f116d7a84a09d7e3ae6af205b057cc3d8012f99ae15cf3b8595bddf2039c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "449118b7ab431e9478525f7cedbc7f075d8075d2f409f3be5d40c89eb89dfaef"
   end
 
   depends_on "python@3.11" => [:build, :test]
