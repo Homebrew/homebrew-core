@@ -79,6 +79,7 @@ class OpenjdkAT8 < Formula
       # Fix macOS version detection. After 10.10 this was changed to a 6 digit number,
       # but this Makefile was written in the era of 4 digit numbers.
       inreplace "hotspot/make/bsd/makefiles/gcc.make" do |s|
+        s.gsub! "-Wno-logical-op-parentheses", "-Wno-reserved-user-defined-literal -Wno-logical-op-parentheses"
         s.gsub! "$(subst .,,$(MACOSX_VERSION_MIN))", ENV["HOMEBREW_MACOS_VERSION_NUMERIC"]
         s.gsub! "MACOSX_VERSION_MIN=10.7.0", "MACOSX_VERSION_MIN=#{MacOS.version}"
       end
