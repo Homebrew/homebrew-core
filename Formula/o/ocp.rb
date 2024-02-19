@@ -1,10 +1,9 @@
 class Ocp < Formula
   desc "UNIX port of the Open Cubic Player"
   homepage "https://stian.cubic.org/project-ocp.php"
-  url "https://stian.cubic.org/ocp/ocp-0.2.106.tar.xz"
-  sha256 "bf11d96d4a58bbf9c344eb53cf815fc2097c63a3c2c713f7ffb134073bd84721"
+  url "https://stian.cubic.org/ocp/ocp-0.2.107.tar.xz"
+  sha256 "7627e4fe3acf7ffd7108ac2a6bf53e8a28de7a220c054338c8642c4e37d94626"
   license "GPL-2.0-or-later"
-  revision 1
   head "https://github.com/mywave82/opencubicplayer.git", branch: "master"
 
   livecheck do
@@ -45,6 +44,7 @@ class Ocp < Formula
     depends_on "util-linux" => :build # for `hexdump`
   end
 
+  # pin to 15.0.06 for the pre-compiled fonts
   resource "unifont" do
     url "https://ftp.gnu.org/gnu/unifont/unifont-15.0.06/unifont-15.0.06.tar.gz"
     sha256 "36668eb1326d22e1466b94b3929beeafd10b9838bf3d41f4e5e3b52406ae69f1"
@@ -63,7 +63,6 @@ class Ocp < Formula
     end
 
     args = %W[
-      --prefix=#{prefix}
       --without-x11
       --without-desktop_file_install
       --without-update-mime-database
@@ -72,7 +71,7 @@ class Ocp < Formula
       --with-unifontdir-otf=#{share}
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end
