@@ -1,10 +1,9 @@
 class OpenkimModels < Formula
   desc "All OpenKIM Models compatible with kim-api"
   homepage "https://openkim.org"
-  url "https://s3.openkim.org/archives/collection/openkim-models-2021-08-11.txz", using: :homebrew_curl
-  sha256 "f42d241969787297d839823bdd5528bc9324cd2d85f5cf2054866e654ce576da"
+  url "https://s3.openkim.org/archives/collection/openkim-models-2024-02-20.txz", using: :homebrew_curl
+  sha256 "355c09f060da1566c06f01b56ec4bc54ac0e8d906c41f93942acc3a9840e75a3"
   license "CDDL-1.0"
-  revision 1
 
   livecheck do
     url "https://s3.openkim.org/archives/collection/"
@@ -27,7 +26,13 @@ class OpenkimModels < Formula
   depends_on "cmake" => :build
   depends_on "kim-api"
 
+  # patch to add umbrella CMakeLists.txt
+  patch :DATA
+
   def install
+    # remove QUIP and TorchML support
+    rm_rf Dir["model-drivers/{QUIP__MD_915965102628_000,TorchML__MD_173118614730_000}"]
+
     args = %W[
       -DKIM_API_MODEL_DRIVER_INSTALL_PREFIX=#{lib}/openkim-models/model-drivers
       -DKIM_API_PORTABLE_MODEL_INSTALL_PREFIX=#{lib}/openkim-models/portable-models
@@ -44,3 +49,29 @@ class OpenkimModels < Formula
     assert_match "LJ_ElliottAkerson_2015_Universal__MO_959249795837_003", output
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+new file mode 100644
+index 0000000..6c2da15
+--- /dev/null
++++ b/CMakeLists.txt
+@@ -0,0 +1,18 @@
++cmake_minimum_required(VERSION 3.10)
++project(openkim-models LANGUAGES NONE)
++enable_testing()
++
++file(GLOB MD "${CMAKE_SOURCE_DIR}/model-drivers/*")
++foreach(item ${MD})
++  add_subdirectory(${item})
++endforeach()
++
++file(GLOB MO "${CMAKE_SOURCE_DIR}/portable-models/*")
++foreach(item ${MO})
++  add_subdirectory(${item})
++endforeach()
++
++file(GLOB SM "${CMAKE_SOURCE_DIR}/simulator-models/*")
++foreach(item ${SM})
++  add_subdirectory(${item})
++endforeach()
