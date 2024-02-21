@@ -18,6 +18,7 @@ class Copier < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "719e5440658e402a79b4cc1b363f33b61e979bd97ade2cc1e77b06cf261d1c57"
   end
 
+  depends_on "libyaml"
   depends_on "rust" => :build # for pydantic
   depends_on "python@3.12"
 
