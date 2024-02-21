@@ -18,6 +18,7 @@ class Mapproxy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dec34448201cb3881d6d25af2eaf7c315881e9e701f1ebf473b23f1a4f6a6ac2"
   end
 
+  depends_on "libyaml"
   depends_on "pillow"
   depends_on "proj"
   depends_on "python-certifi"
