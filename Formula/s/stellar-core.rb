@@ -2,8 +2,8 @@ class StellarCore < Formula
   desc "Backbone of the Stellar (XLM) network"
   homepage "https://www.stellar.org/"
   url "https://github.com/stellar/stellar-core.git",
-      tag:      "v19.14.0",
-      revision: "5664eff4e76ca6a277883d4085711dc3fa7c318a"
+      tag:      "v20.3.0",
+      revision: "1609a7a5ce2bcd69a18ce439b2c4e9e13420bcde"
   license "Apache-2.0"
   head "https://github.com/stellar/stellar-core.git", branch: "master"
 
@@ -29,9 +29,11 @@ class StellarCore < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "bison" => :build # Bison 3.0.4+
+  depends_on "coreutils" => :build
   depends_on "libtool" => :build
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
+  depends_on "rust" => :build
   depends_on "libpq"
   depends_on "libpqxx"
   depends_on "libsodium"
@@ -50,11 +52,9 @@ class StellarCore < Formula
 
   def install
     system "./autogen.sh"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}",
-                          "--enable-postgres"
+    system "./configure", "--disable-silent-rules",
+                          "--enable-postgres",
+                          *std_configure_args
     system "make", "install"
   end
 
@@ -63,9 +63,7 @@ class StellarCore < Formula
       accountsubentriescount
       bucketlistconsistent
       topology
-      upgrades
     ]
-    system "#{bin}/stellar-core", "test",
-      test_categories.map { |category| "[#{category}]" }.join(",")
+    system bin/"stellar-core", "test", test_categories.map { |category| "[#{category}]" }.join(",")
   end
 end
