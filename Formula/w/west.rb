@@ -20,6 +20,7 @@ class West < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "044e4c73db953335801e52a715b40415123979520744935385d347182a0d2d88"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "colorama" do
