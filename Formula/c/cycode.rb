@@ -18,6 +18,7 @@ class Cycode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "71143c7219eba0ef77b057eb052340aed29878b9132d201f2eaa4cf104ea3f37"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
