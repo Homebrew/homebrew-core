@@ -18,6 +18,7 @@ class Peru < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a046dce60f8571919aecb130b33666834dc125e31d3a52498ffe457c1ac1a9ce"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "docopt" do
