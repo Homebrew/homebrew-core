@@ -20,6 +20,7 @@ class DetectSecrets < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c99a95d02285a425668531b115a298e7a064a684d4cc3bf53ccd46d73ea584e1"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
