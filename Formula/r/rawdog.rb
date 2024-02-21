@@ -18,6 +18,7 @@ class Rawdog < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b05cca910221a733e79b2fcffa31356c7c809faa6cbb7b793ef42b1b2bd4f0f"
   end
 
+  depends_on "libyaml"
   depends_on "rust" => :build # for tiktoken
   depends_on "python@3.12"
 
