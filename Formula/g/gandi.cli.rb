@@ -22,6 +22,7 @@ class GandiCli < Formula
   # https://github.com/Gandi/gandi.cli#gandi-cli
   disable! date: "2023-10-17", because: :deprecated_upstream
 
+  depends_on "libyaml"
   depends_on "python-setuptools"
   depends_on "python@3.12"
 
