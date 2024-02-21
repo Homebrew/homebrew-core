@@ -18,6 +18,7 @@ class Xxh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d46b88f0638507261cefa580dd2c5fa6db540efd2222b4f6af5550585280918"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "pexpect" do
