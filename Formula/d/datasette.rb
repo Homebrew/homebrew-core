@@ -19,6 +19,7 @@ class Datasette < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "61f03a92165f42e6dd19b97b46b370e3b9aaa16d3a078c9fcf8b0be3ec94f9d1"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
   depends_on "uvicorn"
