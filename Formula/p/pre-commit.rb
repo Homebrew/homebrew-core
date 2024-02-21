@@ -18,6 +18,7 @@ class PreCommit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e71a809feac61e44ec22464f585ca6a013061cad05504598a6e8b45be49249bb"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "cfgv" do
