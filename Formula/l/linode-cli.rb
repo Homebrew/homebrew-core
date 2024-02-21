@@ -19,6 +19,7 @@ class LinodeCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5331440a5748c55e9bc69cfe2b405a90ba20396e6a06377f43a2d14607bf3d60"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
