@@ -10,7 +10,6 @@ class NewnodeHelper < Formula
   depends_on "coreutils"
   depends_on "libtool"
   depends_on "mbedtls@2"
-  depends_on "wget"
 
   def install
     system "./build.sh"
