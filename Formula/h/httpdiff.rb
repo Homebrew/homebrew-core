@@ -7,20 +7,14 @@ class Httpdiff < Formula
   head "https://github.com/jgrahamc/httpdiff.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e8f493a6c29a4edf788d888adc111c2f3727b0a725661f0b62c9934292f1c43"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7fcb1b3bdfb03fa3238b6e837c99668fcdc340070519d1a8e2144171be14b33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8e0883f20c870f02e78385ba604f33cca56c29e41037c1b42c98b9e231a1845"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "290b6c6f1c990249cc760ee510f0669dd9e317ac169be71cd5fb945a8625413e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "541557da88ab0a9ec186d305cc0f65f8e25df8ad183ebbe80af829afbae87477"
-    sha256 cellar: :any_skip_relocation, ventura:        "3dcf894a63441e77ae53928406016eb7b4c061588156aea9a6b5b28fb825b2a0"
-    sha256 cellar: :any_skip_relocation, monterey:       "868da1b5aed20834315043ee38f653e34166b799fdf4ee90aa5967de099d8c45"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bd0aa59b471dc747b3af50d5c1f4611ed2c4993eebe64ffb4d343d1d7bef0fbb"
-    sha256 cellar: :any_skip_relocation, catalina:       "5731d30f22cf63bd619c18f0f91c4547c52f2ae1b38a2cfeb0316958e93995c1"
-    sha256 cellar: :any_skip_relocation, mojave:         "6113414a69c11632f0088e478d6db0acc6b826db7937c3570e661152c58bd334"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "1432608ef9e3ffaac9fc3c6207e63d888dd2246e1c806bc6a57cab312f944aea"
-    sha256 cellar: :any_skip_relocation, sierra:         "39a0d685904aba4c3e55ff22b4d231b8890c022a1eb0366dc264bbabc410a117"
-    sha256 cellar: :any_skip_relocation, el_capitan:     "59b46605118f8789c10facd53e9d4ce4c9f54c8de85611d423984c4316a169eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b75213c432ca3754d283de01029ae208a75955949c8b5b9e04613c9da943f8c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb3ba79a205bd981619555ecf41ca6e137e909e81584fab9f99ee866c2894f76"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92a83ed3c1661dcfda3e29bf72ea203caed009916edf179e21e1f56fded10c67"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "976753c4e064c4dbd0994aba563bac6d0b77cd05baba4b265c13e49811e630c6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ad69abab3d99d25736c9017d6150b152d936d0be30540d080e42201cf2a1e852"
+    sha256 cellar: :any_skip_relocation, ventura:        "e2cf711b03af114403ff20ac0cd7565043273e5c7d2b7f34148dfd1f51008a13"
+    sha256 cellar: :any_skip_relocation, monterey:       "bfd140f70cd77286862c07f915f2501b92674a8e0285a51c72a744104bc50b39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e246edcfa7a513659fefbbe3facb39d1103f8678768e92b0fc370dfcc1db74b1"
   end
 
   # https://github.com/jgrahamc/httpdiff/issues/21
