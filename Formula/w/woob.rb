@@ -20,6 +20,7 @@ class Woob < Formula
   end
 
   depends_on "gnupg"
+  depends_on "libyaml"
   depends_on "pillow"
   depends_on "python-certifi"
   depends_on "python@3.12"
