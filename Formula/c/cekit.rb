@@ -17,6 +17,7 @@ class Cekit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1953c1205a6b3ff72285b3d7899973a7d8c96db7d33cc6530c2928c9b73ae882"
   end
 
+  depends_on "libyaml"
   depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
