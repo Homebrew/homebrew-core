@@ -3,8 +3,8 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/d7/c6/8bec4b09c6cdaa8eecf73a07ce1dc3fc92c21e4f07764a7c8d66f874d4a4/ipython-8.22.0.tar.gz"
-  sha256 "bc649987e35a75ecccab7a245d7403710e3a289384c268d6d846ab8933ca0811"
+  url "https://files.pythonhosted.org/packages/95/2c/9ef08ee0cc836f95bc2750e7c3f18790a90dff596d372cee4bcd2561ae1c/ipython-8.22.1.tar.gz"
+  sha256 "39c6f9efc079fb19bfb0f17eee903978fe9a290b1b82d68196c641cecb76ea22"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
