@@ -5,12 +5,14 @@ class NewnodeHelper < Formula
     tag: "2.1.4", revision: "c42a04ded55cfdff857878f4d9234950e530bb00"
   license "GPL-2.0-only"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "coreutils" => :build
+  depends_on "libtool" => :build
+  depends_on "mbedtls@2" => :build
+  depends_on "pkg-config" => :build
   depends_on xcode: ["9.3", :build]
-  depends_on "automake"
-  depends_on "coreutils"
-  depends_on "libtool"
   depends_on :macos
-  depends_on "mbedtls@2"
 
   def install
     system "./build.sh"
@@ -38,7 +40,7 @@ class NewnodeHelper < Formula
 
     ENV["https_proxy"] = "http://localhost:8006"
     begin
-      system "wget", "https://brew.sh"
+      system "curl", "https://brew.sh"
     ensure
       Process.kill("TERM", pid)
       begin
