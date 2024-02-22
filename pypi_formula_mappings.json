@@ -78,9 +78,6 @@
   "aws-sso-util": {
     "exclude_packages": ["certifi"]
   },
-  "awscli": {
-    "exclude_packages": ["cffi", "docutils", "pycparser", "six"]
-  },
   "awscli@1": {
     "exclude_packages": ["six", "PyYAML", "docutils"]
   },
@@ -99,14 +96,11 @@
   "bandcamp-dl": {
     "exclude_packages": ["certifi"]
   },
-  "bashate": {
-    "exclude_packages": ["pbr"]
-  },
   "bbot": {
     "exclude_packages": ["certifi", "cryptography"]
   },
   "beancount": {
-    "exclude_packages": ["certifi", "lxml", "packaging", "pyparsing", "six"]
+    "exclude_packages": ["certifi"]
   },
   "bilix": {
     "exclude_packages": ["certifi"]
@@ -151,9 +145,6 @@
   "cffi": {
     "exclude_packages": ["pycparser"]
   },
-  "cfripper": {
-    "exclude_packages": ["click", "PyYAML", "typing-extensions", "six"]
-  },
   "charm-tools": {
     "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser", "PyYAML", "six"],
     "extra_packages": ["pip==22.3.1", "wheel"]
@@ -186,8 +177,8 @@
     ]
   },
   "cloudformation-cli": {
-    "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin", "cloudformation-cli-python-plugin"],
-    "exclude_packages": ["certifi", "click", "markupsafe", "six", "packaging", "PyYAML", "typing-extensions"]
+    "extra_packages": ["cloudformation-cli-go-plugin", "cloudformation-cli-java-plugin", "cloudformation-cli-python-plugin", "setuptools"],
+    "exclude_packages": ["certifi"]
   },
   "cloudsplaining": {
     "exclude_packages": ["certifi", "click", "markdown", "markupsafe", "pyyaml", "six"]
@@ -259,7 +250,7 @@
     "exclude_packages": ["PyYAML"]
   },
   "dotdrop": {
-    "exclude_packages": ["certifi", "markupsafe", "packaging"]
+    "exclude_packages": ["certifi"]
   },
   "dstack": {
     "package_name": "dstack[aws,azure,gcp,lambda]",
@@ -336,7 +327,7 @@
     "exclude_packages": ["certifi"]
   },
   "gcalcli": {
-    "exclude_packages": ["certifi", "pyparsing", "six"]
+    "exclude_packages": ["certifi"]
   },
   "ggshield": {
     "exclude_packages": ["certifi", "cryptography"]
@@ -348,9 +339,6 @@
     "package_name": "gimme-aws-creds",
     "exclude_packages": ["certifi", "cffi", "cryptography", "keyring", "six"],
     "extra_packages": ["pyobjc-framework-localauthentication"]
-  },
-  "git-cola": {
-    "exclude_packages": ["packaging", "pyparsing", "pyqt5"]
   },
   "git-review": {
     "exclude_packages": ["certifi"]
@@ -396,9 +384,6 @@
     "package_name": "huggingface-hub",
     "exclude_packages": ["certifi", "packaging", "PyYAML", "typing-extensions"]
   },
-  "hyfetch": {
-    "exclude_packages": ["typing-extensions"]
-  },
   "img2pdf": {
     "exclude_packages": ["pillow"]
   },
@@ -406,7 +391,7 @@
     "exclude_packages": ["certifi"]
   },
   "instalooter": {
-    "exclude_packages": ["certifi", "six"]
+    "exclude_packages": ["certifi"]
   },
   "internetarchive": {
     "exclude_packages": ["certifi"]
@@ -432,14 +417,11 @@
     "package_name": "jinja2-cli[yaml,toml,xml]",
     "exclude_packages": ["jinja2", "MarkupSafe", "PyYAML", "toml"]
   },
-  "johnnydep": {
-    "exclude_packages": ["packaging", "PyYAML", "six", "tabulate", "toml"]
-  },
   "jrnl": {
     "exclude_packages": ["cffi", "cryptography", "keyring", "pygments", "six"]
   },
   "juju-wait": {
-    "exclude_packages": ["PyYAML"]
+    "extra_packages": ["setuptools"]
   },
   "jupyterlab": {
     "extra_packages": ["hatch-jupyter-builder", "hatch-nodejs-version", "jupyter-console", "notebook"],
@@ -559,9 +541,6 @@
   },
   "nbdime": {
     "exclude_packages": ["certifi", "jupyter-server", "nbconvert", "pyyaml", "six"]
-  },
-  "neovim-remote": {
-    "exclude_packages": ["psutil"]
   },
   "nicotine-plus": {
     "exclude_packages": ["pycairo", "PyGObject"]
