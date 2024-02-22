@@ -6,10 +6,10 @@ class NewnodeHelper < Formula
   license "GPL-2.0-only"
 
   depends_on xcode: ["9.3", :build]
-  depends_on :macos
   depends_on "automake"
   depends_on "coreutils"
   depends_on "libtool"
+  depends_on :macos
   depends_on "mbedtls@2"
 
   def install
