@@ -1,8 +1,8 @@
 class Erigon < Formula
   desc "Implementation of Ethereum (execution client), on the efficiency frontier"
   homepage "https://github.com/ledgerwatch/erigon"
-  url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.55.1.tar.gz"
-  sha256 "2e340bb5504f565bb9fe8c4d246dea50bd54bfcf6a91e9196aeb4fbda722ae9e"
+  url "https://github.com/ledgerwatch/erigon/archive/refs/tags/v2.58.0.tar.gz"
+  sha256 "328bec2af8b3771e81b23a652a94755e948d68c4553bf0dd00b0dfe1d5f41366"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later"]
   head "https://github.com/ledgerwatch/erigon.git", branch: "devel"
 
@@ -26,12 +26,23 @@ class Erigon < Formula
 
   conflicts_with "ethereum", because: "both install `evm` binaries"
 
+  resource "silkworm-go" do
+    url "https://github.com/erigontech/silkworm-go/archive/refs/tags/v0.12.0.tar.gz"
+    sha256 "581d0068c132abcc2c9d40cc9e054536d099df39bbdc2b83f7fc148e87304c0d"
+  end
+
   def install
     unless build.head?
-      ENV["GIT_COMMIT"] = "unknown"
+      ENV["GIT_COMMIT"] = "Homebrew"
       ENV["GIT_BRANCH"] = "release"
       ENV["GIT_TAG"] = "v#{version}"
     end
+
+    resource("silkworm-go").stage buildpath/"silkworm-go"
+    os = OS.mac? ? "macos" : "linux"
+    arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+    suffix = OS.mac? ? "dylib" : "so"
+    lib.install "silkworm-go/lib/#{os}_#{arch}/libsilkworm_capi.#{suffix}"
 
     system "make", "all"
     bin.install Dir["build/bin/*"]
