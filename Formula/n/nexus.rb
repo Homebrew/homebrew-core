@@ -1,8 +1,8 @@
 class Nexus < Formula
   desc "Repository manager for binary software components"
   homepage "https://www.sonatype.org/"
-  url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.38.1-01.tar.gz"
-  sha256 "83b3a39e4d350d9786ce47410607fdd9ec04fca4f8451c0a763d8e22c5639e87"
+  url "https://github.com/sonatype/nexus-public/archive/refs/tags/release-3.65.0-02.tar.gz"
+  sha256 "0c1d106ad26a90276f0785904d95ba82bcb296eb79645d3db74d6d3a54713b75"
   license "EPL-1.0"
 
   # As of writing, upstream is publishing both v2 and v3 releases. The "latest"
@@ -29,7 +29,7 @@ class Nexus < Formula
 
   def install
     ENV["JAVA_HOME"] = Formula["openjdk@8"].opt_prefix
-    system "mvn", "install", "-DskipTests"
+    system "mvn", "clean", "install", "-DskipTests"
     system "unzip", "-o", "-d", "target", "assemblies/nexus-base-template/target/nexus-base-template-#{version}.zip"
 
     rm_f Dir["target/nexus-base-template-#{version}/bin/*.bat"]
