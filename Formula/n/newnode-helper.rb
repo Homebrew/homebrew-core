@@ -30,8 +30,24 @@ class NewnodeHelper < Formula
   test do
     # use wget to try to download a file via the newnode's HTTP proxy
     # if that works, newnode vpn is working
-    ENV["https_proxy"] = "http://localhost:8006"
+    pid = fork do
+      exec "#{opt_bin}/newnode-helper", "-p", "8006"
+    end
     sleep 5
-    system "wget", "https://brew.sh"
+
+    ENV["https_proxy"] = "http://localhost:8006"
+    begin
+      system "wget", "https://brew.sh"
+    ensure
+      Process.kill("TERM", pid)
+      begin
+        Timeout.timeout(5) do
+          Process.wait(pid)
+        end
+      rescue Timeout::Error
+        Process.kill("KILL", pid) # Forcefully kill if not terminated after timeout
+        Process.wait(pid)
+      end
+    end
   end
 end
