@@ -476,10 +476,7 @@
     "exclude_packages": ["certifi", "cffi", "cryptography", "Cython", "docutils", "pycparser", "six"]
   },
   "openai-whisper": {
-    "exclude_packages": [
-      "certifi", "huggingface_hub", "markupsafe", "numpy", "PyYAML",
-      "torch", "typing-extensions"
-    ]
+    "exclude_packages": ["certifi", "numpy", "torch"]
   },
   "openstackclient": {
     "extra_packages": ["python-designateclient", "python-heatclient", "python-octaviaclient"],
@@ -711,7 +708,7 @@
     "exclude_packages": ["certifi"]
   },
   "torchvision": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi", "numpy", "pillow", "torch"]
   },
   "touca": {
     "exclude_packages": ["certifi"]
