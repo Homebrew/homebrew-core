@@ -2,11 +2,10 @@ class Agda < Formula
   desc "Dependently typed functional programming language"
   homepage "https://wiki.portal.chalmers.se/agda/"
   license "BSD-3-Clause"
-  revision 4
 
   stable do
-    url "https://hackage.haskell.org/package/Agda-2.6.4.1/Agda-2.6.4.1.tar.gz"
-    sha256 "23248a9b3c50c81ea4751518a66f2a6144617b6a5a9202686b54e33bc9cbd080"
+    url "https://hackage.haskell.org/package/Agda/Agda-2.6.4.3.tar.gz"
+    sha256 "74edc96ec57d43bc148b329c02f6b06c3c3c16e8e40802e735570b1424df03a2"
 
     resource "stdlib" do
       url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.0.tar.gz"
@@ -14,8 +13,8 @@ class Agda < Formula
     end
 
     resource "cubical" do
-      url "https://github.com/agda/cubical/archive/refs/tags/v0.6.tar.gz"
-      sha256 "10b78aec56c4dfa24a340852153e305306e6a569c49e75d1ba7edbaaa6bba8e3"
+      url "https://github.com/agda/cubical/archive/refs/tags/v0.7.tar.gz"
+      sha256 "25a0d1a0a01ba81888a74dfe864883547dbc1b06fa89ac842db13796b7389641"
     end
 
     resource "categories" do
