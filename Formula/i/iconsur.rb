@@ -29,8 +29,9 @@ class Iconsur < Formula
 
   test do
     mkdir testpath/"Test.app"
-    system bin/"iconsur", "set", testpath/"Test.app", "-k", "AppleDeveloper"
-    system bin/"iconsur", "cache"
-    system bin/"iconsur", "unset", testpath/"Test.app"
+    output = shell_output("#{bin}/iconsur set #{testpath}/Test.app -l 2>&1", 1)
+    assert_match "Generating adaptive icon...", output
+
+    assert_match version.to_s, shell_output("#{bin}/iconsur --version")
   end
 end
