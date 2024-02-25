@@ -30,7 +30,7 @@ class Putty < Formula
 
     args = std_cmake_args + %W[
       -DRELEASE=#{build_version}
-      -DPUTTY_GTK_VERSION=NONE
+      -DPUTTY_GTK_VERSION=3
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args
