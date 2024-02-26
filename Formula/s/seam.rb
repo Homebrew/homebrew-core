@@ -8,7 +8,7 @@ class Seam < Formula
   license "MIT"
 
   livecheck do
-    url :stable
+    url :homepage
     strategy :github_latest
   end
 
