@@ -1,9 +1,9 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u392-ga.tar.gz"
-  version "1.8.0-392"
-  sha256 "06b508ff8d8e63ddc20ca31aa45f3669577fd306b8277de905cc4e3a04eecd24"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u402-ga.tar.gz"
+  version "1.8.0-402"
+  sha256 "4e7495914ca02ef8e3d467d0026ff76672891b4ba026b4200aeb9a0666e22238"
   license "GPL-2.0-only"
 
   livecheck do
@@ -59,6 +59,17 @@ class OpenjdkAT8 < Formula
       sha256 "8a7387c1ed151474301b6553c6046f865dc6c1e1890bcf106acc2780c55727c8"
     end
   end
+
+  # Fix `clang++ -std=gnu++11` compile failure issue on MacOS.
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/04ad4a17332e391cd359271965d4c6dac87a7eb2/java/openjdk8/files/0001-8181503-Can-t-compile-hotspot-with-c-11.patch"
+    sha256 "a02e0ea7c70390796e46b8b6565f986fedc17a08aa039ee3306438a39a60538a"
+  end
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/04ad4a17332e391cd359271965d4c6dac87a7eb2/java/openjdk8/files/0006-Disable-C-11-warnings.patch"
+    sha256 "127d9508b72005e849a6ada6adf04bd49a236731d769810e67793bdf2aa722fe"
+  end
+  patch :p0, :DATA
 
   def install
     _, _, update = version.to_s.rpartition("-")
@@ -126,6 +137,14 @@ class OpenjdkAT8 < Formula
           --with-extra-cxxflags=-F#{javavm_framework_path}
         ]
         ldflags << "-F#{javavm_framework_path}"
+        # Fix "'JavaNativeFoundation/JavaNativeFoundation.h' file not found" issue on MacOS Sonoma.
+      elsif MacOS.version == :sonoma
+        javavm_framework_path = "/Library/Developer/CommandLineTools/SDKs/MacOSX13.sdk/System/Library/Frameworks"
+        args += %W[
+          --with-extra-cflags=-F#{javavm_framework_path}
+          --with-extra-cxxflags=-F#{javavm_framework_path}
+        ]
+        ldflags << "-F#{javavm_framework_path}"
       end
     else
       args += %W[
@@ -187,3 +206,27 @@ class OpenjdkAT8 < Formula
     assert_match "Hello, world!", shell_output("#{bin}/java HelloWorld")
   end
 end
+
+__END__
+--- jdk/src/share/native/com/sun/java/util/jar/pack/jni.cpp
++++ jdk/src/share/native/com/sun/java/util/jar/pack/jni.cpp
+@@ -292,7 +292,7 @@
+
+   if (uPtr->aborting()) {
+     THROW_IOE(uPtr->get_abort_message());
+-    return false;
++    return 0;
+   }
+
+   // We have fetched all the files.
+--- jdk/src/macosx/native/com/sun/media/sound/PLATFORM_API_MacOSX_Ports.cpp
++++ jdk/src/macosx/native/com/sun/media/sound/PLATFORM_API_MacOSX_Ports.cpp
+@@ -609,7 +609,7 @@
+                 // get the channel name
+                 char *channelName;
+                 CFStringRef cfname = NULL;
+-                const AudioObjectPropertyAddress address = {kAudioObjectPropertyElementName, port->scope, ch};
++                const AudioObjectPropertyAddress address = {kAudioObjectPropertyElementName, port->scope, (unsigned)ch};
+                 UInt32 size = sizeof(cfname);
+                 OSStatus err = AudioObjectGetPropertyData(mixer->deviceID, &address, 0, NULL, &size, &cfname);
+                 if (err == noErr) {
