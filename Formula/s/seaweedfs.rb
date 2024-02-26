@@ -6,8 +6,8 @@ class Seaweedfs < Formula
 
   stable do
     url "https://github.com/seaweedfs/seaweedfs.git",
-        tag:      "3.62",
-        revision: "59b8af99b0aca1b9e88fec7b5f27c7d15e5e8604"
+        tag:      "3.63",
+        revision: "54d7748a4a54d94a31ce04d05db801faeff4f690"
 
     # patch for http assign logic
     patch do
