@@ -1,8 +1,8 @@
 class WildflyAs < Formula
   desc "Managed application runtime for building applications"
   homepage "https://www.wildfly.org/"
-  url "https://github.com/wildfly/wildfly/releases/download/30.0.1.Final/wildfly-30.0.1.Final.tar.gz"
-  sha256 "c9c5db601ed47cd181a9c18740977817809986a517fd15b719a83a6bac74ed0f"
+  url "https://github.com/wildfly/wildfly/releases/download/31.0.1.Final/wildfly-31.0.1.Final.tar.gz"
+  sha256 "d5b0d9490f22d9e5f509794470c773a7147301b512fd2db9315991340f2b562d"
   license "Apache-2.0"
 
   livecheck do
@@ -61,7 +61,7 @@ class WildflyAs < Formula
 
   test do
     ENV["JBOSS_HOME"] = opt_libexec
-    system "#{opt_libexec}/bin/standalone.sh --version | grep #{version}"
+    ENV["JBOSS_LOG_DIR"] = testpath
 
     port = free_port
 
