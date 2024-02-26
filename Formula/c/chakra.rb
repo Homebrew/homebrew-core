@@ -2,7 +2,7 @@ class Chakra < Formula
   desc "Core part of the JavaScript engine that powers Microsoft Edge"
   homepage "https://github.com/chakra-core/ChakraCore"
   license "MIT"
-  revision 6
+  revision 7
   head "https://github.com/chakra-core/ChakraCore.git", branch: "master"
 
   stable do
@@ -27,10 +27,10 @@ class Chakra < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 ventura:      "f7b87e1a5e8df971a1a70d83cce648a0c8099d9353859035896c882323af0a4b"
-    sha256 cellar: :any,                 monterey:     "26401fbd6570cfd5e5581a707f61cacbc917674dd3d35d7ae48418c20e852580"
-    sha256 cellar: :any,                 big_sur:      "09e445d4df2da3d80e3245bebb269b4f893fab9e600fd08653c065fe313ead0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "a1033b83b4ba7b914ab67d205e83bc70600d7585a958d0fb4e1ff438d058dee1"
+    sha256 cellar: :any,                 sonoma:       "f39b6f95009d65bd7cc461518c1667856471393d6c1260f99daa2ae667b53194"
+    sha256 cellar: :any,                 ventura:      "c4db98f4364992cf9986fa29fa7d33dfa20c8e3ddc9cde9240958d7cfbf69626"
+    sha256 cellar: :any,                 monterey:     "60e90a2fe6f156a7653e0a399b786fd8dbec2614dd42dd639fe735a608331503"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "21fa51d8801cdb1e3982bc85d2e02370faa1eb78320bf01e40937295516e81a8"
   end
 
   depends_on "cmake" => :build
@@ -45,6 +45,9 @@ class Chakra < Formula
 
   def install
     ENV.clang if OS.linux? # Currently fails to build with LLVM 16.
+
+    # Use ld_classic to work around 'ld: Assertion failed: (0 && "lto symbol should not be in layout")'
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
 
     args = %W[
       --custom-icu=#{Formula["icu4c"].opt_include}

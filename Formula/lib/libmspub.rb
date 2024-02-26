@@ -4,7 +4,7 @@ class Libmspub < Formula
   url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.4.tar.xz"
   sha256 "ef36c1a1aabb2ba3b0bedaaafe717bf4480be2ba8de6f3894be5fd3702b013ba"
   license "MPL-2.0"
-  revision 14
+  revision 15
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,15 +12,13 @@ class Libmspub < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fd2bb38bdffffa662ebebce65306c5d4944eaab0a8278385d54d37de0a5b15cf"
-    sha256 cellar: :any,                 arm64_ventura:  "f53ba0f603ff82e1be6edf58ea68ddc5cf15618ecc9425bf7d25686600ffaa6e"
-    sha256 cellar: :any,                 arm64_monterey: "d3f278ac26e5f228b769821daf271faf2ad535eddace9459cc0931daabd2adff"
-    sha256 cellar: :any,                 arm64_big_sur:  "7eb5fddbb726a0d7f26fe9617651d47cf4ac9808c3210dcc42379841a618a5a5"
-    sha256 cellar: :any,                 sonoma:         "cf2dbb53b96683355b136ddbbcadb093cfd14bd9da35dab1d8611d45ad205dd5"
-    sha256 cellar: :any,                 ventura:        "3e127402489dc095a2b0716a21ac188f22c4cfc7bcd1a19724a123cc0bd1559b"
-    sha256 cellar: :any,                 monterey:       "f5f6346fb4dae4e768dec30a28a8cefd01b45e3d029b3074dca1f5022f28136f"
-    sha256 cellar: :any,                 big_sur:        "9245461f9a2f04aa3216a72fa1d2de594bf4a979b83a90d0b88fa72658b67647"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c6660cd4a5cd1b0ab0040ae7a22251ebac88ac84d6d38a3631e47b5f21d8254"
+    sha256 cellar: :any,                 arm64_sonoma:   "8cb2377b7d0cfa029bc64851ccc621c7e75f28fd9d96ecdd87b46c043ef5fdcf"
+    sha256 cellar: :any,                 arm64_ventura:  "a17bfc0422565de7fade8199f23c2a97c1daf0834a34b113f11b83777c7138b7"
+    sha256 cellar: :any,                 arm64_monterey: "58d3b2c548f8d38cda3ade55681f0b41d045b33d36614f4eeb38e28ca0b2d763"
+    sha256 cellar: :any,                 sonoma:         "0e8a7db8b068af6009973bcf3a077c13f6107e1d0e9b0b92e109ad38429b0396"
+    sha256 cellar: :any,                 ventura:        "45ddab4bd14a6f2a5b8f0814cb10eb58328076d076e0444177f063a4c634d222"
+    sha256 cellar: :any,                 monterey:       "d792d2c08761c3e13de216ae3a4e8b516cd1a4d749c4397b9dc284901475c477"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18293c8d8717b1fcf2388ee6eb6278295cc02c4e4b92335dbfe2ec9828479245"
   end
 
   depends_on "boost" => :build

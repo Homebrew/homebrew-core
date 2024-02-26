@@ -1,8 +1,8 @@
 class Stockfish < Formula
   desc "Strong open-source chess engine"
   homepage "https://stockfishchess.org/"
-  url "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_16.tar.gz"
-  sha256 "a1600ebdaf4e324ba3e10cec2e0c9a810dc64c6f0db5cc955b2fd5e1eefa1cc6"
+  url "https://github.com/official-stockfish/Stockfish/archive/refs/tags/sf_16.1.tar.gz"
+  sha256 "a5f94793b5d4155310397ba89e9c4266570ef0f24cd47de41a9103556f811b82"
   license "GPL-3.0-only"
   head "https://github.com/official-stockfish/Stockfish.git", branch: "master"
 
@@ -12,15 +12,13 @@ class Stockfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "642a2ff8b5fdd336062b5cf4b747d9033d56a5ac97c6b30501e10dee362589d7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c85682af4f040f57555116ac1762f6d6d4749fcf419e21e94fd91c46a50fd9ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50a5998dbabe422fe64e49fbc259bedfc2cb1e9657a6375f1ef467ece03b8cae"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de69084dc86ff7a30c4b0561d2a5091d88a43c96dd5f13842d50327a8663283d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8739cb16ad47e8fdf5b43d2ec82303061332968f88fc14626d77b296d430a9e2"
-    sha256 cellar: :any_skip_relocation, ventura:        "196f7d090cbfde5aa3aff32748f3081b4d7ea4f29588e9a5551df4e392048b64"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f90ccc4d589b06bcff87f70856c754074656cec63fe5252f252f13fb699fff6"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5a2430875eee53cf4855a1a897220115df48f5d8463c1b10d57f4db22286a3e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5affbe2bf93f2b96edc4ccd453563fd961f44dd13ef96a0dd460d45e5d642344"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da1930a5c5a3d8bf6114cd44cd19c7bdc32ab8db3d986ab7ed3eb373149b8d57"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "192db669ced3f8274f846f6e10b0a00a5c9c7b65be23c9b7fc109921f7e6ec3d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "88d8364bebb769bda3ab8afbc7b15594da730fe8c318ee49ea8169e116ba1d76"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b8ddab5e047308b049e48d2a535b58c388def6dae99a9e6f88378008e14dba80"
+    sha256 cellar: :any_skip_relocation, ventura:        "ad2f1d36b3378417e9ad77729f21dda76526d2f624cd88e55ab0c7da5e0522b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4074394b6956768b9af3128b7739814c8dcc039fd06257132d43d6fdc2726ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f82e1a7783b5bafc5af9517e555c1729bf8c439cbe93717b33bec72988b1f97"
   end
 
   fails_with gcc: "5" # For C++17

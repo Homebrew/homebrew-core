@@ -1,18 +1,18 @@
 class Czkawka < Formula
   desc "Duplicate file utility"
   homepage "https://github.com/qarmin/czkawka"
-  url "https://github.com/qarmin/czkawka/archive/refs/tags/6.1.0.tar.gz"
-  sha256 "63e64c717a93b3d5210d6a4718833fdbf3ad7b28c9b74a243d9de3ab1ee6ad5a"
+  url "https://github.com/qarmin/czkawka/archive/refs/tags/7.0.0.tar.gz"
+  sha256 "ce7d072056dedc4f2ca4d3647dc786ba071d4f3c58e79415da18d7dafd62e87b"
   license all_of: ["MIT", "CC-BY-4.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cbe8e037bde658f9ca5a7759bfe3b95080cda6ec6dc9aa45174d7c5078706714"
-    sha256 cellar: :any,                 arm64_ventura:  "e2b71c7b66839a1bada0efc1112f206f6540f08f6f2a34df0c34fde2bc5b9e58"
-    sha256 cellar: :any,                 arm64_monterey: "f0cc5d19ede515e22a0e0e0795f72cdc114cdec53b07f8540205f8b0b807e337"
-    sha256 cellar: :any,                 sonoma:         "3565bdc22a5826812f334e3ec2fc8e86cc38e6e0b1834e658e17d12cdef4cdf4"
-    sha256 cellar: :any,                 ventura:        "e059266e48240234b079c17e2bb2c1dd97f39abe9c3856eb1ab742e174c0d17c"
-    sha256 cellar: :any,                 monterey:       "ce5f5f266488f1aef777428e717594ebd8404a61a962ed8077dbdded68152281"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "902d6635984d301d8c34d7eb3eef5ad4b99b5f546e3749c2081f0ca7ca3c487a"
+    sha256 cellar: :any,                 arm64_sonoma:   "d17367de2f7b896a58efae5ca41830614a2e4fd689e8668c305133c937ea2c76"
+    sha256 cellar: :any,                 arm64_ventura:  "fa017774f8c98c96c11cbb8bb76b2bedd7abd591d2636ede733ab62c371cb784"
+    sha256 cellar: :any,                 arm64_monterey: "b5553b503b7500cfe3c582426760d63b132cd9f4cd8ee24b4d2b41844afe2f4e"
+    sha256 cellar: :any,                 sonoma:         "baa04c19350433d017831d7457d5a35c75c7fbc5290b4112bb994787bc7f06d9"
+    sha256 cellar: :any,                 ventura:        "b7bcab24f61e453034cc803bb2743d0fce7c2e2345e2749063514a163cb3ff44"
+    sha256 cellar: :any,                 monterey:       "ece5ccc15c1f8f9a47986026bbb20f259d164d968d2d4684c63237ad3a33532e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3194269936ed396ae49ec4dbccf8ac6525af961a2fb98910c6d1efa916216f84"
   end
 
   depends_on "rust" => :build

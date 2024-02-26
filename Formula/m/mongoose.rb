@@ -1,18 +1,18 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://github.com/cesanta/mongoose"
-  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.12.tar.gz"
-  sha256 "91e719e164816b349be3cb71293927f3f6abbe3fb02187e2d9b5e56f542c2063"
+  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.13.tar.gz"
+  sha256 "5c9dc8d1d1762ef483b6d2fbf5234e421ca944b722225bb533d2d0507b118a0f"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6845d6b809b54bd35f18b477cbbc47010cd2e76e965f1244a15b91c74ada8625"
-    sha256 cellar: :any,                 arm64_ventura:  "e070626cd88c0444afb90250f6c30c8cc15a9d66bc6616022b9851c719817866"
-    sha256 cellar: :any,                 arm64_monterey: "4e10f8e4e8c23c25a67d18a7d3e4af20a6f3d8b82ecd6e31b646b3d5ebdf5006"
-    sha256 cellar: :any,                 sonoma:         "8d4b68e574d6c0a17756345a2f848e7c74e267c1b9ace2ddb1630f1211488935"
-    sha256 cellar: :any,                 ventura:        "b86348df5d274db250bd2ffd668e6677cabbc7e1eb39edbc68ef32a1a8a0a322"
-    sha256 cellar: :any,                 monterey:       "2a8361fbb6222f2e24943b36fdb9a6426416e24960be2100ecfac315b15096c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c5d90ae0447d386e367008fa03c8e69f56d505819432798e8d55d96be41f1d0"
+    sha256 cellar: :any,                 arm64_sonoma:   "c9dc15665c6045def9510d6f554994a4c933ed9a6031109d54a38672ba65e3e6"
+    sha256 cellar: :any,                 arm64_ventura:  "a8d6e7fc859aa4bfe2f8b6cd97e9480a6f0f55aaa0a871677693f6b01b9d0aae"
+    sha256 cellar: :any,                 arm64_monterey: "3684166873863e2042938215be5c0c352f42d12d1327c392bef9bc472e2d6a50"
+    sha256 cellar: :any,                 sonoma:         "9342e3597f35d6474dff21d0b2402da7dc74bb104512f6f89492723c401608fc"
+    sha256 cellar: :any,                 ventura:        "372366ea632b1594d8876705860208c40554629ba5409cf9e3cb5f2682c08a3e"
+    sha256 cellar: :any,                 monterey:       "b708e50a24bca539b9f56477e05b22ec58ae5207f84e8517eb1f5875a8804bb4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e3109cd6688f7757fc4a1542d422eb0a0a23481d73d92ffef5f69f04480cfc4"
   end
 
   depends_on "openssl@3"

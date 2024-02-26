@@ -3,6 +3,7 @@ class Cdecl < Formula
   homepage "https://cdecl.org/"
   url "https://cdecl.org/files/cdecl-blocks-2.5.tar.gz"
   sha256 "9ee6402be7e4f5bb5e6ee60c6b9ea3862935bf070e6cecd0ab0842305406f3ac"
+  license :public_domain
 
   livecheck do
     skip "No version information available"

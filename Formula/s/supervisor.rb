@@ -9,18 +9,22 @@ class Supervisor < Formula
   head "https://github.com/Supervisor/supervisor.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ff8c113fa52ad7fcfdd63fbcc761809f5e27afd73b9ad9f09a1771d7dcae16eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "379f1c1e3a7f699ee93c23ec56ea88aa521e07bd57c872794d9a84f31a079d1a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a4d870e085e652b0d20ba483013e960556df58032111db255056d3c469c9e22"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5733f2279479f146558632128ac2e09c0f8679d669d1dcc0eca2227e61410c74"
-    sha256 cellar: :any_skip_relocation, ventura:        "bdafd39efc94ca15c14d1c8cc27637c88de5b346b097d4bed01a8be68b27bd14"
-    sha256 cellar: :any_skip_relocation, monterey:       "6261dc4b3b8b532f362ab3f13009a78fc3e1b4079e0cd5bc58c0cc7dac2c70b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5c5f62ca8dc1b0d9643a120ea346c9b5206a726fe8c27de63321e2c9cb2666a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "114ed80c189bf19224311eb0bbd95769267b80327c8072f21c23802f377d665f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2873473b2f374c6918ba564f217a5251fa3b6d9a5510015ccbd5b8d027fb7dd2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa2fbe86f0746425a1b24ef9524c553a41bb697174f6f02af721740834b7b37e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "01790650d680a9618c81cf4fadc932954ca60dfa4d55cbcef6739bb4021ab953"
+    sha256 cellar: :any_skip_relocation, ventura:        "41c9b2f7cbe02d24eabaa4cbca4a63f6335d315b1d8a416f85a39941f4f815df"
+    sha256 cellar: :any_skip_relocation, monterey:       "399bf9a900a4f198bba19ddcb9f70b7b0b1a8dc9bfd400ed2466a82a6551a62c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e4e0ba7947159bb2c71d518062e0f79a12f54db62fe4aa3f9d5a627d1968fe6"
   end
 
-  depends_on "python-setuptools"
   depends_on "python@3.12"
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
 
   def install
     inreplace buildpath/"supervisor/skel/sample.conf" do |s|

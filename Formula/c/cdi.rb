@@ -1,8 +1,8 @@
 class Cdi < Formula
   desc "C and Fortran Interface to access Climate and NWP model Data"
   homepage "https://code.mpimet.mpg.de/projects/cdi"
-  url "https://code.mpimet.mpg.de/attachments/download/29020/cdi-2.3.0.tar.gz"
-  sha256 "fff47c8eac38ec2e0f47715aadcbc1343b166aa017f0466019e73c4a53a323a6"
+  url "https://code.mpimet.mpg.de/attachments/download/29309/cdi-2.4.0.tar.gz"
+  sha256 "91fca015b04c6841b9eab8b49e7726d35e35b9ec4350922072ec6e9d5eb174ef"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class Cdi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8ae2c90cfa070057b4edc714f3ddde24bf5aa455a81b2b998634c855fa62caae"
-    sha256 cellar: :any,                 arm64_ventura:  "e0d5baef97f109bfa43ef317d528050b3d70c52de0fa702d1aaede31bc1e659a"
-    sha256 cellar: :any,                 arm64_monterey: "addc58d5737d12ff8a30d1ce3f342d93f07b0b25198185f08aa04b2f5c50b7b1"
-    sha256 cellar: :any,                 sonoma:         "da0376631baec0ad089466c06d733285f12ad7ab7bba6ba65d64b27ef2273cd5"
-    sha256 cellar: :any,                 ventura:        "84c7fc168b237c297989d2bbd523633868d64f79ebdd9f6d3c303e42f6a748e7"
-    sha256 cellar: :any,                 monterey:       "92296e036796c3661a7912991e7d2da960707a3ca790b505bd125d70298c301f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87d96530868c99b7e706281ebb6477f23ce026928ce4947134af81fa12bb3e65"
+    sha256 cellar: :any,                 arm64_sonoma:   "8c26a7e5b5908520142602d64d6f6f3cd418d7c074a33bdce4797a46d7ef6e69"
+    sha256 cellar: :any,                 arm64_ventura:  "38380367199754d9dda02b4a7ceeabed762b97f5dfced787341e99fbf87d394d"
+    sha256 cellar: :any,                 arm64_monterey: "2cec357ca25bc45418fbb8e088ef6dd01eb479c15571cf34026c3d69ef8c2161"
+    sha256 cellar: :any,                 sonoma:         "cefbb36095b6131ed994d93c0110671e1e9e32f3b17b5333726b0eb185379b95"
+    sha256 cellar: :any,                 ventura:        "3f2a8147426eef4ba20cb40b8e1d866e78eee21c9b016c0fb4515e2372c21c94"
+    sha256 cellar: :any,                 monterey:       "980dbd3e42b386ce5380a54be7bc4e97303562d43c28567adc4215f729d64d23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fc0b60386f888ccd9d9acb0d628d8f432fe1b0a9732343f023f586dc37e82e1"
   end
 
   depends_on "eccodes"

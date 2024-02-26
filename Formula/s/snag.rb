@@ -23,6 +23,9 @@ class Snag < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7096008e3aab8b00c45a600edab938bd16918a92543423662f3a6015e5a14edb"
   end
 
+  # https://github.com/Tonkpils/snag/issues/66
+  deprecate! date: "2024-02-24", because: :unmaintained
+
   depends_on "go" => :build
 
   def install

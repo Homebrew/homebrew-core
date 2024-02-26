@@ -4,12 +4,13 @@ class Toilet < Formula
   url "http://caca.zoy.org/raw-attachment/wiki/toilet/toilet-0.3.tar.gz"
   mirror "https://deb.debian.org/debian/pool/main/t/toilet/toilet_0.3.orig.tar.gz"
   sha256 "89d4b530c394313cc3f3a4e07a7394fa82a6091f44df44dfcd0ebcb3300a81de"
-
   license "WTFPL"
+
   livecheck do
     url "http://caca.zoy.org/raw-attachment/wiki/toilet/"
     regex(/href=.*?toilet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
+
   bottle do
     sha256 arm64_sonoma:   "e357c586a77052ed8e040b211e693d1f420c2667caffe012d5e5d121659bc3e7"
     sha256 arm64_ventura:  "24f5a74c74de3d9dd4a7ee917c9e2faa072c1062189b6272d8bb041a91f8be6a"

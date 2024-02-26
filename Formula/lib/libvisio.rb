@@ -4,7 +4,7 @@ class Libvisio < Formula
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
   license "MPL-2.0"
-  revision 8
+  revision 9
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,15 +12,13 @@ class Libvisio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e8c82757d76a768d0c53761e27cf1eb68750dc936825caced749c0abc9f1fe9c"
-    sha256 cellar: :any,                 arm64_ventura:  "e9c402292b9fbdf9ff47e39afbd1fe979648dd0b1ea930a151c6625a32711590"
-    sha256 cellar: :any,                 arm64_monterey: "c0367e8d9d93e5958a61a5afdd3a637c9cf78165eb311116e27c99f27af9df3f"
-    sha256 cellar: :any,                 arm64_big_sur:  "3a5903295d31adcea271eb795325b277e1c72caee3e5507a72e0c9105c0a207d"
-    sha256 cellar: :any,                 sonoma:         "e4f445cb36f09a522e7b87cefdbda3d7852ae21e62b7affbd9f9c09a391536d6"
-    sha256 cellar: :any,                 ventura:        "a069a1f73e0935188c0eb65a8a54162463d631411103088e751a50005d4f2450"
-    sha256 cellar: :any,                 monterey:       "0524e13f8e95af1ba8f030d932a126f9803fef489b2010e751a8b1480aaef8b3"
-    sha256 cellar: :any,                 big_sur:        "8541e46ff41dd1d7cec5a8807d136edcd4a7dbd4efdc419d4e1d67c67701ea9b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9c9445d29af37557973bc87987a09eff567e354f818727e928674cacc58f462"
+    sha256 cellar: :any,                 arm64_sonoma:   "22d954a005f6347ffb3eb64773d44fd20975e26f07319b9c89b1e9796f413ee5"
+    sha256 cellar: :any,                 arm64_ventura:  "17ee6d60a92ea6c59eea9155b255b4c6c2cb532e565b0f689af4f317032e369f"
+    sha256 cellar: :any,                 arm64_monterey: "b602b9736cfc5a72c9d0c6ca1e40c1f64dcb04b3f2b87878c66f721fb48833ec"
+    sha256 cellar: :any,                 sonoma:         "8025f333d26ffd42ae0ebf5b8197268ef74e0b0bada7f8d2879673dcaefe03af"
+    sha256 cellar: :any,                 ventura:        "c7e5fc5dafae638ec9d57e594ace220b349bf2e3f61bf611b38b830dc2f17bd2"
+    sha256 cellar: :any,                 monterey:       "8a6e5d7c6a9f8ce1a3fc1d5783f66f78027209310728ba3f3f1d921a6ae44cc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad23bfb3366f55886db7ca0b460b25c41fc30efd35af8c3d724e7723234eb573"
   end
 
   depends_on "cppunit" => :build

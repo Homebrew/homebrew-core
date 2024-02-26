@@ -11,33 +11,26 @@ class Libbtbb < Formula
   head "https://github.com/greatscottgadgets/libbtbb.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b89bf5fb91b8743bd12591d35bc406b28e7ee27ffac5fa5d378dccc65c8ac08a"
-    sha256 cellar: :any,                 arm64_ventura:  "36c467509eec45be4a17cb6c9146f56866f2b6a3f41c08166404f39944fa4621"
-    sha256 cellar: :any,                 arm64_monterey: "1b9b2c8f1895afb52212f2564b5e538e7e2e17c58ed669015dd3e2f7ba668997"
-    sha256 cellar: :any,                 arm64_big_sur:  "045cb3192c8dd4f487e972da2222a3ace4b93ab7b538cf61dd5b93836b2e1c17"
-    sha256 cellar: :any,                 sonoma:         "124ca5b0888e89dcc532cfdbca0ecd5eba9d6a383d923fcbc3ea497ff29f7395"
-    sha256 cellar: :any,                 ventura:        "f0eecd7ea2b13216116d2c810367c42ec5172ff556d1330898b9f120263688d2"
-    sha256 cellar: :any,                 monterey:       "f74c9cd2853b7fcfbdcf288265e5a77032b085bdb9b07edf75ba32daf3cc4f44"
-    sha256 cellar: :any,                 big_sur:        "351fdb32609b85096a959d4511430584d3b5fef71f207e092cfb6e1007dd2488"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "022b75cccc7cfc9ea9e18a5efb7c5bda3286d154d2952b2b0109530d509d2a39"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "6a8d435f557ff501f185e5210afa482aec2fa60c91174659590baa3e0bae81e0"
+    sha256 cellar: :any,                 arm64_ventura:  "917631db529c0c099316eabaf82b5913a46c928717b86ea83f7ca3468ce1c1f6"
+    sha256 cellar: :any,                 arm64_monterey: "ad06c3de65ee9278e7ee01c6b031d0da7f3e983c1cd11555d270ab216c1aac34"
+    sha256 cellar: :any,                 sonoma:         "da1230775d4adc0fe43ebd1800f8f30c8a65467d6fc4cfa127bc84f5f554dabb"
+    sha256 cellar: :any,                 ventura:        "4f34330ad301c24c5cc2afdf781fd17663a571a72fd6888523c4f61d46bb963e"
+    sha256 cellar: :any,                 monterey:       "3221dcf2bd421184e7c647a2573cbc74f0083d9421ddb8994cff38203d84bec9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "295956e1e9db910945434b4149530ddd97a5e38ccf96b9673a15ae34426fbc13"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   def install
-    # setuptools>=60 prefers its own bundled distutils, which breaks the installation
-    ENV["SETUPTOOLS_USE_DISTUTILS"] = "stdlib"
-
-    # Work around Homebrew's "prefix scheme" patch which causes non-pip installs
-    # to incorrectly try to write into HOMEBREW_PREFIX/lib since Python 3.10.
-    site_packages = prefix/Language::Python.site_packages("python3.11")
-    inreplace "python/pcaptools/CMakeLists.txt", "${OUTPUT} install ", "\\0 --install-lib=#{site_packages} "
-
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DENABLE_PYTHON=OFF", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    system "python3.12", "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
+    bin.install "python/pcaptools/btaptap"
     rewrite_shebang detected_python_shebang, bin/"btaptap"
   end
 

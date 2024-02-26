@@ -9,32 +9,28 @@ class Fobis < Formula
   revision 2
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bb6b8391538d007deff154f1ba61133fef780c47bb4ce5950f488678204a82ab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef3655ae24dbc9c1db4ca7310e0085019c8363f6cd3fe6244825ddf704e88727"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48907a8772aaea92593c15fa496441b3e70fc6cd9ccbc6c33939ebb59da1afdc"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "34bd55f9d976e63024d4db2f340be2807b0d10a52b1a6d33ae1af305a65123be"
-    sha256 cellar: :any_skip_relocation, sonoma:         "086e21cc8fad72ee1c6e6797853a38a078bd39561cd824614a5ab6e71577d2e4"
-    sha256 cellar: :any_skip_relocation, ventura:        "6979ae67c338a57331c033d7532e2f55919a15c5ba43263c5bf618b9e5ea8819"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad700a8e305dae8552c63fe769290b5aede0bb026df206d5f035429f5bccc651"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0f30368491b20eb5a23162c69263500c829812a9fbd53fd3f2163d3d1818089e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b941e8f203bc59f207f77301a5bfd40262998d24b076fd3bfd56ccb5b0d3d64a"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "147212cd6a9f780dbada04421a8fbf84e68b48a010b67a40db34b8f5ade5e771"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "26c58909011ac4d947e902e1128ed5bcbf2c8847d90b00cb7d9ed43ecd0a33bb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "deb8ce8e0404339cb83dcc86b9e7a877e57a1d7ecf8813841ddfe076f095c2ce"
+    sha256 cellar: :any_skip_relocation, sonoma:         "117442d15b852a02ffd674c2a0644a110dea8a39308f8a64b9427fc029385a76"
+    sha256 cellar: :any_skip_relocation, ventura:        "5689771979471f64086c656e092dce45e26311836a9a6932723d208b70f80c20"
+    sha256 cellar: :any_skip_relocation, monterey:       "47191b5e509953a6b701c57810b7f93bc855ed515c047d8d27a0e556a7dd0c67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "48182e9f5852fac9b862d87d2c10efeb1bbd0d384ffdfbaf7626918a6ea3746a"
   end
 
   depends_on "gcc" # for gfortran
   depends_on "graphviz"
-  # Issue ref: https://github.com/szaghi/FoBiS/issues/129
-  # `future` issue ref: https://github.com/PythonCharmers/python-future/issues/625
-  depends_on "python@3.11" # Python 3.12 blocked by imp usage in `future`
+  depends_on "python@3.12"
 
   resource "configparser" do
-    url "https://files.pythonhosted.org/packages/4b/c0/3a47084aca7a940ed1334f89ed2e67bcb42168c4f40c486e267fe71e7aa0/configparser-5.3.0.tar.gz"
-    sha256 "8be267824b541c09b08db124917f48ab525a6c3e837011f3130781a224c57090"
+    url "https://files.pythonhosted.org/packages/0b/65/bad3eb64f30657ee9fa2e00e80b3ad42037db5eb534fadd15a94a11fe979/configparser-6.0.0.tar.gz"
+    sha256 "ec914ab1e56c672de1f5c3483964e68f71b34e457904b7b76e06b922aec067a8"
   end
 
   resource "future" do
-    url "https://files.pythonhosted.org/packages/8f/2e/cf6accf7415237d6faeeebdc7832023c90e0282aa16fd3263db0eb4715ec/future-0.18.3.tar.gz"
-    sha256 "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
+    url "https://files.pythonhosted.org/packages/a7/b2/4140c69c6a66432916b26158687e821ba631a4c9273c474343badf84d3ba/future-1.0.0.tar.gz"
+    sha256 "bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05"
   end
 
   def install

@@ -4,6 +4,7 @@ class Cspice < Formula
   url "https://naif.jpl.nasa.gov/pub/naif/toolkit/C/MacIntel_OSX_AppleC_64bit/packages/cspice.tar.Z"
   version "67"
   sha256 "6f4980445fee4d363dbce6f571819f4a248358d2c1bebca47e0743eedfe9935e"
+  license :cannot_represent
 
   # The `stable` tarball is unversioned, so we have to identify the latest
   # version from text on the homepage.

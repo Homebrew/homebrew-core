@@ -1,10 +1,9 @@
 class Lnav < Formula
   desc "Curses-based tool for viewing and analyzing log files"
   homepage "https://lnav.org/"
-  url "https://github.com/tstack/lnav/releases/download/v0.11.2/lnav-0.11.2.tar.gz"
-  sha256 "3aae3b0cc3dbcf877ecaf7d92bb73867f1aa8c5ad46bd30163dcd6d787c57864"
+  url "https://github.com/tstack/lnav/releases/download/v0.12.0/lnav-0.12.0.tar.gz"
+  sha256 "a6f51a5019df1870c6a5889e337cf2cfc1365b04d81a0602f7f071ec971f5997"
   license "BSD-2-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class Lnav < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c419e2a3947d0fabf11da0462d0df3268a862b3bca3f07f696ab914682614d81"
-    sha256 cellar: :any,                 arm64_ventura:  "ace44e4760c5a5404747089b1bb9de3a911cc168b21785024001e6ff9daf8574"
-    sha256 cellar: :any,                 arm64_monterey: "3eb2a1855390e0c40ef64f05db171ab50c3cc360e21ff3e4ad9885a9e4acacf7"
-    sha256 cellar: :any,                 sonoma:         "ec3e6557fd9e161a21a2b8e6025a03a54bc576f1cdc402ffbb65d07d8715f457"
-    sha256 cellar: :any,                 ventura:        "c3884cc6a95eb18bedf085ff8619c5e21408e807b63141911deb7aab838fca60"
-    sha256 cellar: :any,                 monterey:       "da344c3d7106f68e27949713ab77b48bf195b720db10ec5e6099b38992fe0b42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "669b8996545079b6a7d50b19d39a71e7663e5a8384856c4fa266a868e9c311c9"
+    sha256 cellar: :any,                 arm64_sonoma:   "982776a815ac91387eeae50a575cd63ee5c2308068f2d50269c144626ccc80d0"
+    sha256 cellar: :any,                 arm64_ventura:  "fe10f585040a47915393bf124993dcdf339397dbf87addc38feb67dc391286ac"
+    sha256 cellar: :any,                 arm64_monterey: "3787a1aa6c5ebfb66a45c994f562f005a8ceb0d7f9d43ad22c3d5fcbb477b9a1"
+    sha256 cellar: :any,                 sonoma:         "d04530276c6cc85e571ba91957ae95e6476a920525dc2560f051fd87e4b5fe29"
+    sha256 cellar: :any,                 ventura:        "b1f74dc7e2721f2155ca7dac19a34d41d45745349bdef9e8bb2e3dd491495dae"
+    sha256 cellar: :any,                 monterey:       "ab73609e4f9fd622268da25c07b814b2b12dd51d89fc418db385cfd928336da6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5da66924b9943bc033bb6b0e455a59e7b78641f748a5e7b0e55ef304e4e8b1b"
   end
 
   head do

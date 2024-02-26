@@ -6,6 +6,7 @@ class Black < Formula
   url "https://files.pythonhosted.org/packages/29/69/f3ab49cdb938b3eecb048fa64f86bdadb1fac26e92c435d287181d543b0a/black-24.2.0.tar.gz"
   sha256 "bce4f25c27c3435e4dace4815bcb2008b87e167e3bf4ee47ccdc5ce906eb4894"
   license "MIT"
+  revision 1
   head "https://github.com/psf/black.git", branch: "main"
 
   livecheck do
@@ -14,14 +15,13 @@ class Black < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9820f3783eb07223f536f828b78280f9ffc5271868cd4953a9e2963757f7af02"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3131c4e24f8155ab1bf7740ee18315f41b7a28af7ec19b62503511c8049c8246"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f7950ea313bc581fbaf9cc2b7b8b9399ac23c74917e5a626fae66eff8b534e8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "351e7bcaa44ee9ceaf1e8a973bfd9c66e696b56f4c734dd95a60c85142b71d62"
-    sha256 cellar: :any_skip_relocation, ventura:        "f608779edf5486072481ae4c6748f73252f0a2cf008e3414a5ea5d1fd3addcf4"
-    sha256 cellar: :any_skip_relocation, monterey:       "9d0d9f9e3fe61200184f4dd100a2a73aa73768241adc32d51cb4ef4991aa7d1d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b6c0afe7ad0b673354af063987770e118e1798821b44ce740b55b1da07fc61c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "910cf87f10a6b6bd5138a4b191f5aee1b294f304940d4f0d27f70a65f37d9a09"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab6a5c54844383f8bbb5fa2bcacaf12d95561783bd8bae0a5820cb8a230be30d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba8b0e9916f060771db1d1b728a2f78a40bb3ad3d6b014115d52c938194e3fcd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e8c7c527ab77a6a74aaab932cbb975f5f4ea42111c3d731df4d486fe2208bd49"
+    sha256 cellar: :any_skip_relocation, ventura:        "d9fe6f6427d27a0577c47326a6f6549de617b5aae4dc380ebb03f916e463ab19"
+    sha256 cellar: :any_skip_relocation, monterey:       "287ec1c6a5304c365a7bf3e180957c02fc6693a5a2fc73626ba2191f6187e5d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f90c32af49b27d53ea7c5ba169aefa27b03477c55e31513a96d04c914005810b"
   end
 
   depends_on "python@3.12"

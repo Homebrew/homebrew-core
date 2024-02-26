@@ -20,7 +20,7 @@ class Libwandevent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa30ff4a09850d6c0611845c6a36c981a8648d1fb47afe428d09f28fa7dfa36f"
   end
 
-  deprecate! date: "2023-05-09", because: :repo_removed
+  disable! date: "2024-02-21", because: :repo_removed
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do

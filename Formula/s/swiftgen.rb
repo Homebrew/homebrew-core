@@ -12,7 +12,7 @@ class Swiftgen < Formula
   end
 
   # https://github.com/SwiftGen/SwiftGen/issues/1030
-  deprecate! date: "2023-06-07", because: :does_not_build
+  disable! date: "2024-02-22", because: :does_not_build
 
   depends_on xcode: ["13.3", :build]
   depends_on :macos

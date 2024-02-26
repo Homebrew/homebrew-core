@@ -1,19 +1,19 @@
 class Runme < Formula
   desc "Execute commands inside your runbooks, docs, and READMEs"
   homepage "https://runme.dev/"
-  url "https://github.com/stateful/runme/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "963a2e1eca3e5550d0ecb9da03eec19b39474cd51956b8a30641f834f4d3af8f"
+  url "https://github.com/stateful/runme/archive/refs/tags/v3.0.2.tar.gz"
+  sha256 "7f3ac2ba6c2907287f13c353557e5a2d599c44e6abeaa71775eb6f86daa19670"
   license "Apache-2.0"
   head "https://github.com/stateful/runme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "41aef47ca9464034651b2fbe15a2730e57de04ce5299a188f4b2bc5eed67d569"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a05e42b50380d74200d24331de4e2302f1070cf1fe7d7ae62f33642527f919c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6d5fe16a2044bed74da051b9e30aebd3f1474e3b0df05d96a0a9d7cdfbaf6be4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2bf1bf5ec11aca2f9fe53f716990a4b2a82c7e9a661d701f2f498bc0bed04779"
-    sha256 cellar: :any_skip_relocation, ventura:        "92ee2ebb4a28687743e90740b59f1547e3dd62f3470d2e841cd7566db4555338"
-    sha256 cellar: :any_skip_relocation, monterey:       "fb30c21807e490acf830dea4130518c6042e461a56047936117391c151db3c26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69f9d4d3651eeba109a6f93f844a99e60a9ab3fbcedea43484d59d0fa2770fe6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c8fb6b6c6b3ee65fd8ee8b24fe9e85bec007afb89623f7fc40a83705d9e182de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dd86b7c4ff86b8eeac245a52f3e9fbff6bef6397192553d0e8e021d09e7f2a6d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d96dbc75dca1a2e86509806ad8add6190613f0216efdb2ae56574018db2ca81"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cacea0b5986575d0570872c9cd2f38d16f5dfb31aa3bffa481bcab2a3a84105a"
+    sha256 cellar: :any_skip_relocation, ventura:        "936001bf873ea054ae90f3d95183c72f40c9b785de6dcf2cbac767bd9f53f144"
+    sha256 cellar: :any_skip_relocation, monterey:       "c60171c845adba8566f7107dfc9863212f128d37320fc64fb828f153c63dd9e2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c54d321877af3a0eb2fc73b119ffc8525877464a1d0f8f1f816a469429db01d8"
   end
 
   depends_on "go" => :build

@@ -3,24 +3,23 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/83/aa/6b5bd15d4914394a4f6bd5a4d88dee2d5ddd1b346b8b60fd9e735223a8ea/ipython-8.21.0.tar.gz"
-  sha256 "48fbc236fbe0e138b88773fa0437751f14c3645fb483f1d4c5dee58b37e5ce73"
+  url "https://files.pythonhosted.org/packages/95/2c/9ef08ee0cc836f95bc2750e7c3f18790a90dff596d372cee4bcd2561ae1c/ipython-8.22.1.tar.gz"
+  sha256 "39c6f9efc079fb19bfb0f17eee903978fe9a290b1b82d68196c641cecb76ea22"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c391b3fae1c02dede264c4f0fd2cb7ce3b8ff79c2911e74a172a480f17c6f8f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7846d2bc0fff3f38cb4115133d725391b60aea1a40ac76bc1cd456e9eacc130b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be812b8b57c5c34725fc081602624e5d9688b77614d249dd355294cf7f9fb072"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5c6e31455ec2ee9b9a8ec3ba8495ba09cad791e5907e70d82c8299d2fd1bc7ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "451e64dab6459dcbf115a3860713dfcab2c31fea50a60e51dd4536bb898eaa1b"
-    sha256 cellar: :any_skip_relocation, monterey:       "d703af9a77bf024baf1e3c5ec723d9268b0e7ced56fc05bd7c0d679c92b9a0ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0eaf4055ecb953907426616e055aa933dce180cd0b5c997cdfa10cb2f5aaaca7"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20874b5e93b98520b50304aecd8312ef652a5a22f6ecd2335cc808374bcfd12a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b93a97b89ecaf696b5c0830a2c5c85362b5375d66b496e2a1a687c8c2509216"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a77d2c8e32db4092b562fc399ad58ace5f69efda5e95ffc178cc347ddd4b947e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "833e3cda9c169c1ef82109e78f6560c67afaec1d30953d6a04b4158aae1ce08e"
+    sha256 cellar: :any_skip_relocation, ventura:        "3a0011f2037eaccf4f0bfaec40aa1311c693320142fca00ef49e3a8a1ead4f79"
+    sha256 cellar: :any_skip_relocation, monterey:       "ceb9cbcb90ada43e41cb0458fd5314ec783ce264914819ad5441773a540b9372"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f6be82ded3b45d3aa2b59defde60a4972861521b0b539f65f67f4a5d3b9ca3e"
   end
 
-  depends_on "pygments"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "asttokens" do
     url "https://files.pythonhosted.org/packages/45/1d/f03bcb60c4a3212e15f99a56085d93093a497718adf828d050b9d675da81/asttokens-2.4.1.tar.gz"
@@ -72,6 +71,16 @@ class Ipython < Formula
     sha256 "2b45320af6dfaa1750f543d714b6d1c520a1688dec6fd24d339063ce0aaa9ac3"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "stack-data" do
     url "https://files.pythonhosted.org/packages/28/e3/55dcc2cfbc3ca9c29519eb6884dd1415ecb53b0e934862d3559ddcb7e20b/stack_data-0.6.3.tar.gz"
     sha256 "836a778de4fec4dcd1dcd89ed8abff8a221f58308462e1c4aa2a3cf30148f0b9"
@@ -90,7 +99,6 @@ class Ipython < Formula
   def install
     virtualenv_install_with_resources
 
-    # Install man page
     man1.install libexec/"share/man/man1/ipython.1"
   end
 

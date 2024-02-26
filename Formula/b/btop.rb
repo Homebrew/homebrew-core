@@ -1,28 +1,41 @@
 class Btop < Formula
   desc "Resource monitor. C++ version and continuation of bashtop and bpytop"
   homepage "https://github.com/aristocratos/btop"
-  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.2.13.tar.gz"
-  sha256 "668dc4782432564c35ad0d32748f972248cc5c5448c9009faeb3445282920e02"
+  url "https://github.com/aristocratos/btop/archive/refs/tags/v1.3.2.tar.gz"
+  sha256 "331d18488b1dc7f06cfa12cff909230816a24c57790ba3e8224b117e3f0ae03e"
   license "Apache-2.0"
   head "https://github.com/aristocratos/btop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_monterey: "377bedf756891fdf81312df0de7f6698653c00bb74cbfc21859402139af71c12"
-    sha256 cellar: :any,                 arm64_big_sur:  "048387f6e5b471decca93682518d7e30f1300dbb5e22f4d0ecd771447276f512"
-    sha256 cellar: :any,                 sonoma:         "aaacf83f415408c1761f514c6cdf08cc76aecbe621abf514763b40a6a8fcbab0"
-    sha256 cellar: :any,                 ventura:        "6c9f5da037520e6116a04ebf6c011a54aa38ff6d61d6b778266476985312f437"
-    sha256 cellar: :any,                 monterey:       "13ff2c92dff4f98569dbcf19cd2d6d5eaa907485ce55fe3e6750eab687556ee3"
-    sha256 cellar: :any,                 big_sur:        "b5215ec41daa2216f3312738d4bb2d6e225fba7d3a760cc629d91bcdfaf87972"
-    sha256 cellar: :any,                 catalina:       "fffa1b48e2a7dec0da167a25aa411b87e28619dd72026e650239d8c3d6012df8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af5c08bf52c9d84b54b3fe3992240a50c048ff3b897e8ee13f428fac4db76e0f"
+    sha256 cellar: :any,                 arm64_sonoma:  "e2d3ce97c7b2dab1c4647631687f4884cb9078fe59d9009ea54d5028c2669703"
+    sha256 cellar: :any,                 arm64_ventura: "ac19df269dc2da0586011c7e93ba0606d178f1f5840afd070c34d8e29404420d"
+    sha256 cellar: :any_skip_relocation, sonoma:        "73b9683780fdc4fcb996644990f37524a424daf4ad6333d23ce9a1ad9eea3281"
+    sha256 cellar: :any,                 ventura:       "619e5e3fab0c6c5074d94baaa1c37837035731a729d48deba4a1db7bb2ce4ff4"
+    sha256 cellar: :any,                 monterey:      "5e509f11849bb625bfbd972a8078f9735b70448d5b3d73744d8c88e300651a90"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "16e1fa0055f26d4d30a7437fc2c41d6d626271c09fe1e092099d01b58aa340fb"
   end
 
   on_macos do
     depends_on "coreutils" => :build
-    depends_on "gcc"
+    depends_on "gcc" if DevelopmentTools.clang_build_version <= 1403
   end
 
-  fails_with :clang # -ftree-loop-vectorize -flto=12 -s
+  on_ventura do
+    depends_on "gcc"
+    fails_with :clang
+  end
+
+  on_arm do
+    depends_on "gcc"
+    depends_on macos: :ventura
+    fails_with :clang
+  end
+
+  # -ftree-loop-vectorize -flto=12 -s
+  fails_with :clang do
+    build 1403
+    cause "Requires C++20 support"
+  end
 
   fails_with :gcc do
     version "9"
@@ -35,22 +48,26 @@ class Btop < Formula
   end
 
   test do
-    config = (testpath/".config/btop")
-    mkdir config/"themes"
-    (config/"btop.conf").write <<~EOS
-      #? Config file for btop v. #{version}
-
-      update_ms=2000
-      log_level=DEBUG
-    EOS
-
     require "pty"
     require "io/console"
 
-    r, w, pid = PTY.spawn("#{bin}/btop")
-    r.winsize = [80, 130]
-    sleep 5
-    w.write "q"
+    config = (testpath/".config/btop")
+    mkdir config/"themes"
+    begin
+      (config/"btop.conf").write <<~EOS
+        #? Config file for btop v. #{version}
+
+        update_ms=2000
+        log_level=DEBUG
+      EOS
+
+      r, w, pid = PTY.spawn("#{bin}/btop")
+      r.winsize = [80, 130]
+      sleep 5
+      w.write "q"
+    rescue Errno::EIO
+      # Apple silicon raises EIO
+    end
 
     log = (config/"btop.log").read
     assert_match "===> btop++ v.#{version}", log

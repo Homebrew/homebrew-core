@@ -8,21 +8,20 @@ class HuggingfaceCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1b0236132b92295f8c453fd1e6737f97ff698b51bf84d2682be2fa05a9a3844"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b1e5119d4302cec909a5a77acb45165d7bb8cb57f2c246c535336cabec1f14c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a512ab0602c05097ddffd3eb35bbf30b1a75be30829ac6713647e9bf48a28851"
-    sha256 cellar: :any_skip_relocation, sonoma:         "211313857cfc4419c17846cab7d5587b56ae77fe58cc276f20b7c3c52308fe75"
-    sha256 cellar: :any_skip_relocation, ventura:        "7fa89d4fb53bb7ae7ead9c7cbab08b7a734aa1237c1286ad62e1d937fe259550"
-    sha256 cellar: :any_skip_relocation, monterey:       "f05332a73d18630b831f18d28d3f1bfb199ad78887c87ad852511b992f94e7fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ec16e7b669e955e0f7a4d5cc5cbeddddab3272d28c089593068e941b5d5a7e8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "aa013a7eb45fc45e033f5314b71710d2c97ec5a4667367777d895f9fa0c7d5ed"
+    sha256 cellar: :any,                 arm64_ventura:  "0b0487e41627660a6d106071f6ffe5e05e23bc540197d32f432b5be613b019c0"
+    sha256 cellar: :any,                 arm64_monterey: "f121e9b716377c0be3236221ad18d16db0129b519dc896db8838590083554e2d"
+    sha256 cellar: :any,                 sonoma:         "0f923b7200b6b7d5f46eab9663d0f257d56738f0ce229e49e2b9d04973bbec19"
+    sha256 cellar: :any,                 ventura:        "a16ba266e0554ed8ddc24546bf62b047d16f3424d4eeeb91fdf14f58496f6e84"
+    sha256 cellar: :any,                 monterey:       "df4f94cb38ea3919a617e1e4219c46b3da08820b8a6e105351157e3c57018fc7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6edf2c04950e23b2f4ccd3474357caa6480f1502ed6c89a6856f00aacd0ba4f2"
   end
 
   depends_on "git-lfs"
+  depends_on "libyaml"
   depends_on "python-certifi"
-  depends_on "python-packaging"
-  depends_on "python-typing-extensions"
-  depends_on "python@3.11"
-  depends_on "pyyaml"
+  depends_on "python@3.12"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -35,13 +34,23 @@ class HuggingfaceCli < Formula
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/fa/08/cac914ff6ff46c4500fc4323a939dbe7a0f528cca04e7fd3e859611dea41/fsspec-2023.12.2.tar.gz"
-    sha256 "8548d39e8810b59c38014934f6b31e57f40c1b20f911f4cc2b85389c7e9bf0cb"
+    url "https://files.pythonhosted.org/packages/28/d3/c2e0403c735548abf991bba3f45ba39194dff4569f76a99fbe77078ba7c5/fsspec-2024.2.0.tar.gz"
+    sha256 "b6ad1a679f760dda52b1168c859d01b7b80648ea6f7f7c7f5a8a91dc3f3ecb84"
   end
 
   resource "idna" do
     url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
     sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "requests" do
@@ -50,13 +59,18 @@ class HuggingfaceCli < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
-    sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
+    url "https://files.pythonhosted.org/packages/ea/85/3ce0f9f7d3f596e7ea57f4e5ce8c18cb44e4a9daa58ddb46ee0d13d6bff8/tqdm-4.66.2.tar.gz"
+    sha256 "6cd52cdf0fef0e0f543299cfc96fec90d7b8a7e88745f411ec33eb44d5ed3531"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   def install

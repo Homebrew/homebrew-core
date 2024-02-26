@@ -13,24 +13,23 @@ class ConanAT1 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d0b8bb1de5eb1e0e82104ad294b1e5afdfdc1906ba7c7d6b41043282dae75333"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5a2437752e4c0518af6ba69c690b1420f2a50fc2229a245b89b71dd6e7606ba"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae5d26556dac4e60011c0c7c46e109a600056b7223d12ac8f0288e26689dbadd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a9bec012504201101fa710cdacd9da026b7122f495400397f820e2f17540aad0"
-    sha256 cellar: :any_skip_relocation, ventura:        "ba4c342730c4022179a5510a8709fb2172df0afe236a83ad7964f0967839de47"
-    sha256 cellar: :any_skip_relocation, monterey:       "dc8f7a4f62cb1398ec5178b9ffa7b1f7aced5a6a50f32130abe018955bb05ed7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfeed77553eaf99f8ce1311c4c5567b9e9c0d6849ffc047ef9c56f51c84fa09a"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "a5b165b27836c2ad4baa446ca75e383a025eb6ff111486770b1e29eb5b20655c"
+    sha256 cellar: :any,                 arm64_ventura:  "15e91fe9e4734410b769dc04d731d81ed90e06592e837099bc6a6bcde15367b7"
+    sha256 cellar: :any,                 arm64_monterey: "a9018ff763a6363dd47ab80d92dffe392a11330279718a84069d37011d607a66"
+    sha256 cellar: :any,                 sonoma:         "fa2fd36357f9cd753774daf0c2078c47d724f895c22ba35a7e4221a0dffb73c0"
+    sha256 cellar: :any,                 ventura:        "a23517d48980cc5eb2904055116c0d139c48f93b06784d829689854aaebc5363"
+    sha256 cellar: :any,                 monterey:       "193fcc60bf3ac9b39ec3863c4c9dc1b57e094bb5c42b88d941f92a8c4419cb7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9364965220352bab46982003874d197ebc196a54189dc15e7f28da36312747b9"
   end
 
   keg_only :versioned_formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :test
-  depends_on "pygments"
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
 
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/fd/04/1c09ab851a52fe6bc063fd0df758504edede5cc741bd2e807bf434a09215/bottle-0.12.25.tar.gz"
@@ -48,8 +47,8 @@ class ConanAT1 < Formula
   end
 
   resource "distro" do
-    url "https://files.pythonhosted.org/packages/4b/89/eaa3a3587ebf8bed93e45aa79be8c2af77d50790d15b53f6dfc85b57f398/distro-1.8.0.tar.gz"
-    sha256 "02e111d1dc6a50abb8eed6bf31c3e48ed8b0830d1ea2a1b78c61765c2513fdd8"
+    url "https://files.pythonhosted.org/packages/fc/f8/98eea607f65de6527f8a2e8885fc8015d3e6f5775df186e443e0964a11c3/distro-1.9.0.tar.gz"
+    sha256 "2fa77c6fd8940f116ee1d6b94a2f90b13b5ea8d019b98bc8bafdcabcdd9bdbed"
   end
 
   resource "fasteners" do
@@ -87,6 +86,11 @@ class ConanAT1 < Formula
     sha256 "ff6c33a98fce232e9c73841d787a643de574937069f0d18147028d70d7dee287"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
   resource "pyjwt" do
     url "https://files.pythonhosted.org/packages/30/72/8259b2bccfe4673330cea843ab23f86858a419d8f1493f66d413a76c7e3b/PyJWT-2.8.0.tar.gz"
     sha256 "57e28d156e3d5c10088e0c68abb90bfac3df82b40a71bd0daa20c65ccd5c23de"
@@ -97,9 +101,19 @@ class ConanAT1 < Formula
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "tqdm" do

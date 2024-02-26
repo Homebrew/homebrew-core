@@ -1,18 +1,18 @@
 class Zoxide < Formula
   desc "Shell extension to navigate your filesystem faster"
   homepage "https://github.com/ajeetdsouza/zoxide"
-  url "https://github.com/ajeetdsouza/zoxide/archive/refs/tags/v0.9.3.tar.gz"
-  sha256 "f733fabe5d25978f538a4d4cb7a2732a066adc21eeac8e8110f9aedd47f38470"
+  url "https://github.com/ajeetdsouza/zoxide/archive/refs/tags/v0.9.4.tar.gz"
+  sha256 "ec002bdca37917130ae34e733eb29d4baa03b130c4b11456d630a01a938e0187"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "945cf578c0abaa57819f781e14d6605fffc34e85e27c25a8c73db7fca3e07121"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b87c3f12409f742a56fb6c7758f8af6b779c532ea5fff75c88882b23dc459404"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a1e3392fd1435fb5445393dfb43a82ebe55b58ddfa7f873fd7583e6d13b4462c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d47b500b3747f5e119dd74771b460a660069584fc83b97573cfec8ad39e14cf0"
-    sha256 cellar: :any_skip_relocation, ventura:        "1bd2d1a4737c7f8316e87aafea3bfc4ff11cd770e49d565ef4a90e3d2bccbac9"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa50266c2dc513e8b150b361d18caa5cb837aaf18aa2446961a279d04f5fc32e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "918c684134dd7921085f4337561007d8ccfaca055eda92a002fa3d551a37a37a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f676f976bc36f800fb3e1501dac29b579493d4cfe09217bd9a7a78d7a6289ed3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e0633546aacf6a5b61e8f4f3a3267fc2fe20437bdef451523bf6f6280441bc2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a8eb375e99c59cd6f24432d3dd80d4ad7d6e79f43de93c215cfa79f7a27ff33"
+    sha256 cellar: :any_skip_relocation, sonoma:         "117d3d68c603514fd9c0db890f2cfb6337748b897e15d0f60ff1f80adcf72535"
+    sha256 cellar: :any_skip_relocation, ventura:        "c57845be5b2e1c2b1c0a1830ea238790be6010ac8471bff993e52e29e3588a38"
+    sha256 cellar: :any_skip_relocation, monterey:       "599d8d2fcd5f2dddf52ba4815bb310e3344f2b30bae902a6aff8956ef4991f1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "778fb5fd4766a8a149ad721195b626bf7efc8d11da7ae15b9a5d95a2b5a07365"
   end
 
   depends_on "rust" => :build

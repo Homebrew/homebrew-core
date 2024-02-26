@@ -10,16 +10,17 @@ class DetectSecrets < Formula
   head "https://github.com/Yelp/detect-secrets.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d0d862f39b5ecdd10a44e338b16b80400e6f4d8667a0c5667572f8144307df3a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f15b90af34ced2ce90df268c89d032e6b424b4f3db73a0d095eca442438bcb7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ea43cfa32b5aa5e6657fd52dbbae74e12e1ca9014a6dfe8f1099d1a1e289adbd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6493c728955b5a33216e33c066dcfe452c6a16ed8c529a68cf529319d9821982"
-    sha256 cellar: :any_skip_relocation, ventura:        "6d17504b09c192f7aff46e450063983dbbc5731071ca3eb6b713f47cfaac440a"
-    sha256 cellar: :any_skip_relocation, monterey:       "edebfafc7200e37457cbf56a5bb3c76c2f24469af5a80a4c996f1f25fe068885"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c99a95d02285a425668531b115a298e7a064a684d4cc3bf53ccd46d73ea584e1"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "369d04afa889d5ee9635f530ab53b2df4ed7634d529f16948a29ef5909829857"
+    sha256 cellar: :any,                 arm64_ventura:  "8a88936d5203a614ad21522ef4389611c76883d9f415a80b9e96a6f4ac109359"
+    sha256 cellar: :any,                 arm64_monterey: "86c9210007811b70e213339122faad329d6612da0e8dfef8bac3bfa76039ef90"
+    sha256 cellar: :any,                 sonoma:         "b0c76a50fb08fbe80f13e080b5822ac4e68d2b97c7bdd647b3ebbba2ddc0cb7b"
+    sha256 cellar: :any,                 ventura:        "a887cfa36f12e3af499e4bd071852a15ad2d95357d58987242445d992e1caeed"
+    sha256 cellar: :any,                 monterey:       "0f48a9fa4d37049ceab4d716b9e40d6e990949d97ac245ec1ee30d2ec9e68409"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08510131dace027059a68516b5b41620f0cee95954dd93d50fd6cbdd41eac8fc"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
 

@@ -9,21 +9,19 @@ class Tern < Formula
   head "https://github.com/tern-tools/tern.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c4c988c7b74b96edc67c090f26105b875ccd27f72cd7e44c49102bb62670111a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc193056a56d4e0100f508651f999772d557046bd8901e49d4532a2fc76fbd3f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbc59515013fd228b92903e054dc32c1e5dd66215b8851a24bd26f7ed46bf0ae"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eb1993ed4292f26f789bf52d8656290c17d37348d26ba726174cc93e9b82e5f3"
-    sha256 cellar: :any_skip_relocation, ventura:        "da9cdaec86444e4dc533a0ee24ec1ae34fd9409f0e4d241ae79abb697bcbc91b"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f943f12859b421563657744e4d51f3f97baa2fc6ada5ce24091dfbc6a992710"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d2306632ea2134ae1708ab3d3b60b8b6aedaf1470c65820dc64f3c5037e3938"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sonoma:   "c927fb71988f1c428da415b7b86f42187ca8f91836b707952d2843555ee3a38a"
+    sha256 cellar: :any,                 arm64_ventura:  "9f43227a39c36102b07cf3b87473161543a7ab1c3abe8e24c5577fcea430495a"
+    sha256 cellar: :any,                 arm64_monterey: "713f377c08ad16ede820e076a51d72c070e9ff6e02481b6423d35633477aaad7"
+    sha256 cellar: :any,                 sonoma:         "7794db7830a6501d0403bd43f7dfa109b969aca8d8e730fb557792a9fea75cea"
+    sha256 cellar: :any,                 ventura:        "a9d149cee947ea2e239878f473b1fcceb9ba318adee6264775f9b2f89ebbbc78"
+    sha256 cellar: :any,                 monterey:       "2afb6cd919e0a3c50303ca2f0b7fd2b2d53565b3e3a97f4fc9eed3a147cf3702"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71d6a99401e0ab562cb61ef9a51114ea7669a2487211919b9bc61b95d4057af2"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
-  depends_on "python-packaging"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
   on_linux do
     depends_on "attr" # for `getfattr`
@@ -89,6 +87,11 @@ class Tern < Formula
     sha256 "bbcc53d2cb5920c815c1626c75992f319bfc450b73893fa7bd8aac5869aa49fe"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "pbr" do
     url "https://files.pythonhosted.org/packages/02/d8/acee75603f31e27c51134a858e0dea28d321770c5eedb9d1d673eb7d3817/pbr-5.11.1.tar.gz"
     sha256 "aefc51675b0b533d56bb5fd1c8c6c0522fe31896679882e1c4c63d5e4a0fccb3"
@@ -109,6 +112,11 @@ class Tern < Formula
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
+
   resource "smmap" do
     url "https://files.pythonhosted.org/packages/21/2d/39c6c57032f786f1965022563eec60623bb3e1409ade6ad834ff703724f3/smmap-5.0.0.tar.gz"
     sha256 "c840e62059cd3be204b0c9c9f74be2c09d5648eddd4580d9314c3ecde0b30936"
@@ -117,6 +125,11 @@ class Tern < Formula
   resource "stevedore" do
     url "https://files.pythonhosted.org/packages/ac/d6/77387d3fc81f07bc8877e6f29507bd7943569093583b0a07b28cfa286780/stevedore-5.1.0.tar.gz"
     sha256 "a54534acf9b89bc7ed264807013b505bf07f74dbe4bcfa37d32bd063870b087c"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "urllib3" do
@@ -135,7 +148,11 @@ class Tern < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # Multiple resources require `setuptools`, so it must be installed first
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resource("setuptools")
+    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install_and_link buildpath
   end
 
   def caveats

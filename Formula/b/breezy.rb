@@ -9,20 +9,20 @@ class Breezy < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "90330d2d1674f6f993f6c317ef00d2220d4348c78a979c210279d9455e05e32d"
-    sha256 cellar: :any,                 arm64_ventura:  "c779f1942367e1f623e845f4507e60fa2670e5c51d789565abdca9467942d73c"
-    sha256 cellar: :any,                 arm64_monterey: "a177a4f939500231e515851cb56f4b84415f1981e4ac428e12a28f3a5949c995"
-    sha256 cellar: :any,                 sonoma:         "822a00973e0ccb307ce080f4c769ce4e99e7ef2edddcdb69d0ea3ce5e36804f7"
-    sha256 cellar: :any,                 ventura:        "0a550ee727aeb7e49b8e121d27fdc8760db2a4758be921a379ef8e35e1032906"
-    sha256 cellar: :any,                 monterey:       "33d05889f4fe0f0ed1f0c28ed48d875872f680a8311741b3aaea46d7f85c60d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "27075f632fbe9d96477e142e0df72238f145072b604dc4cfbd99c6a4f21f2fa1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "f15901e4c92437189ad9559aa819b08d59dc2091e4ad8af0925f93b39e533764"
+    sha256 cellar: :any,                 arm64_ventura:  "9e5496b4f951036bfc021d5e2bb7b2b7792856f0c4a6fa45ebe03b0f4f17766f"
+    sha256 cellar: :any,                 arm64_monterey: "3c1b8fefa81bc367ae31a09c2ba8e9bbb75ba0481ac46a60ff0e9052d1f9394a"
+    sha256 cellar: :any,                 sonoma:         "aada017c0892e62473cfe05746fea02523c19a3ac14fe1b28545f7140063691e"
+    sha256 cellar: :any,                 ventura:        "ad3a40974a921caa74117536189d77a8bd93109b9d7b3f69869705ce58127911"
+    sha256 cellar: :any,                 monterey:       "217558ac5dd4ab8ce2024c31748976688363514aef789a004b97710188798d53"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec5c5a4a8205d4ba57755d073f7b19f193b03255f53bf8183106f2c98aeee00f"
   end
 
   depends_on "gettext" => :build
   depends_on "rust" => :build
+  depends_on "libyaml"
   depends_on "python@3.12"
-  uses_from_macos "openssl"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/cb/87/17d4c6d634c044ab08b11c0cd2a8a136d103713d438f8792d7be2c5148fb/configobj-5.0.8.tar.gz"

@@ -25,7 +25,7 @@ class Cdparanoia < Formula
   end
 
   # see https://github.com/orgs/Homebrew/discussions/4154
-  deprecate! date: "2023-05-15", because: :unmaintained
+  disable! date: "2024-02-21", because: :unmaintained
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build

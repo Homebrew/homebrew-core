@@ -4,6 +4,7 @@ class Cdrtools < Formula
   url "https://downloads.sourceforge.net/project/cdrtools/alpha/cdrtools-3.02a09.tar.gz"
   mirror "https://fossies.org/linux/misc/cdrtools-3.02a09.tar.gz"
   sha256 "c7e4f732fb299e9b5d836629dadf5512aa5e6a5624ff438ceb1d056f4dcb07c2"
+  license "CDDL-1.0"
 
   livecheck do
     # For 3.0.2a we are temporarily using the "alpha" due to a long wait for release.

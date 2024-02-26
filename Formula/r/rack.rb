@@ -24,7 +24,7 @@ class Rack < Formula
   end
 
   # https://github.com/rackspace/rack/pull/470
-  deprecate! date: "2023-08-13", because: :unmaintained
+  disable! date: "2024-02-24", because: :unmaintained
 
   depends_on "go" => :build
 

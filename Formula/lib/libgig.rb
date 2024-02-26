@@ -1,8 +1,8 @@
 class Libgig < Formula
   desc "Library for Gigasampler and DLS (Downloadable Sounds) Level 1/2 files"
   homepage "https://www.linuxsampler.org/libgig/"
-  url "https://download.linuxsampler.org/packages/libgig-4.4.0.tar.bz2"
-  sha256 "b5ef0149157e3869e49c844a08e69191c93b59cfd27c4b8dd413fd32797e4bcb"
+  url "https://download.linuxsampler.org/packages/libgig-4.4.1.tar.bz2"
+  sha256 "fdc89efab1f906128e6c54729967577e8d0462017018bc12551257df5dfe3aa4"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Libgig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a8852fc0cbdf394d0d6aa81b70a1295032d00a3d807c02738efd24dd438cc01d"
-    sha256 cellar: :any,                 arm64_ventura:  "39a6dac35658dd82ebb37d439a025494e9d38a5f578bd843921fb01c17c5e83a"
-    sha256 cellar: :any,                 arm64_monterey: "a18ef09113d7cb18446d4490001c63f3998f3eca77ddb52d0fc18ffbe96ed35d"
-    sha256 cellar: :any,                 sonoma:         "e2f162237927953c0ab2b4b50ffd8ba0b8a9b9354f4903d2301b5a0e2784da2a"
-    sha256 cellar: :any,                 ventura:        "dd7663f819c3d815f53b4b368565f2dd18a93849d15b29aae41ebe599b63892a"
-    sha256 cellar: :any,                 monterey:       "84856efdb102ced26fef47ae18945e94694a2b7d042ac14cb8c29af4555f0c50"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d4537ed3bbd107fb171c762a14fe9611196b8a584e7e3409606aa7a56b40fb16"
+    sha256 cellar: :any,                 arm64_sonoma:   "84491aae7c3455ae9708acf082dcc9686ee0d70ba45c995d3f874a15fbca6d01"
+    sha256 cellar: :any,                 arm64_ventura:  "0bb7378b952081033a2c964ef36e595029ae377cf753ea6437f54086e07f1bf7"
+    sha256 cellar: :any,                 arm64_monterey: "699c836a4e66d518fbcfc3ee3a83a60c526d88909bda1a34667c8e67cded482c"
+    sha256 cellar: :any,                 sonoma:         "ca1486d8efa94ae049f2bfb3d8c204551042e44bb866df455689a974152eee2e"
+    sha256 cellar: :any,                 ventura:        "01f2602c4c663695f4d7dd5cf6fbe3a9ee6b8485efd11879e0d186fc0def1b61"
+    sha256 cellar: :any,                 monterey:       "85490eaa518755542f760200f141b5f65fd71e7796df188f45f16ef4ffabecae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "55b3244b6baa9d30aa0d625a9c27455437b8bb85a1feb61571dec1d4dd765e81"
   end
 
   depends_on "pkg-config" => :build

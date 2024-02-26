@@ -9,17 +9,18 @@ class RdiffBackup < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "62a12dbf5e750987a1a6afbe81cb89366e4c591b0a99a42b2473610ac366ec8a"
-    sha256 cellar: :any,                 arm64_ventura:  "f31e3f9d90f28f2e8600c5dd1956b0a9df5902268b53c152fa5b721d52c0bb77"
-    sha256 cellar: :any,                 arm64_monterey: "893f90f342759922aeebccc17bdc7683377a967406f12eaa8ab44dfaa3ae7b49"
-    sha256 cellar: :any,                 sonoma:         "c984ff93acdcb76f458954594e064dab73dc370941f2f5f019c9237e8198c99e"
-    sha256 cellar: :any,                 ventura:        "f172827a94012d6e471df1e73d7774593949d1d725a9715dd344a1e1ab043441"
-    sha256 cellar: :any,                 monterey:       "9a54b66ed56540b4f2b460fe4226fc8229403cfef70884e2f31d60abcdf7f2ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ad5d8f59011596de1dbc0325a153d7deb17ab2d1336c32a4fa53859ad0055dd"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "ff8a427c988c6d1e3217145fe0f523317ca9f0923b285f81548fc7454208b432"
+    sha256 cellar: :any,                 arm64_ventura:  "da3a41317c08c7843b6fbbb8fc3e0e6af467b2ff3a60a6a92ce8aff0aa7fc41c"
+    sha256 cellar: :any,                 arm64_monterey: "74396cb4ee9b8c8c6fa1096a818a3bd54ecc2795865e865e02c6fa70a4885509"
+    sha256 cellar: :any,                 sonoma:         "a2993b72aee045eaea3b6965bb2ac4bc986304c25f36732abdcfce7a464a2c9c"
+    sha256 cellar: :any,                 ventura:        "b78453d46cce36258eb13fa06022faa32e7f65448bc1115e9a9342f8d7df6ab2"
+    sha256 cellar: :any,                 monterey:       "03241fa97fd63a5a44283d285342e7a650136d0eab6a5d95cea9f5575b8d9f47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "811ca55b1517942476402713af81af0d01d2fce1927a899dda18af755f08a33a"
   end
 
   depends_on "librsync"
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "pyyaml" do

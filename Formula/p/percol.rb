@@ -10,24 +10,28 @@ class Percol < Formula
   head "https://github.com/mooz/percol.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "72687e52eb42ed6c6ad1b6ce908a389f1c5ab3297518f04dd8dfd45522993c35"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "252ca2240639e6f32b9c1d948471276bd70d3436278e03124980e6fdf6970cbd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "17f3add6c45755500601ef7da8a8aaddd1c6fcdbef72c3f5b845eae73f83ea53"
-    sha256 cellar: :any_skip_relocation, sonoma:         "58c8e5428cc4f090748378ef6ddcc72ab5d63daac3da74717950bb0587efa217"
-    sha256 cellar: :any_skip_relocation, ventura:        "4f6477180e64befc85d9bda592502b13e43d60f57b629ad793468f11134e32be"
-    sha256 cellar: :any_skip_relocation, monterey:       "0725e41666d33aec48d5f16b8e87dd807b60f5592aefbae292ee0a12edd6c993"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30ac024a06a551d9f47c58ba662714ceb6014aea8ecf20b74482f24479669d88"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d5597a464a6e0aba9ecd7acaa292993eab3902152f0185bc0d13d8694df95976"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66f845e8b6002bbe556ae966499d5bf7c480f4b9f25a72397e9aae1fdf4e355a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "599c1c89a45465582c1ceb50dc104d75682e80d88df94dfd22c26fe128fb859a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7d9a119d3416d356128749d89215fbb6d6c44d7b6eacd1a6a0f29b735097422a"
+    sha256 cellar: :any_skip_relocation, ventura:        "0dc1d46ae856efe5b417726781c1e517473e20a39597c1b8a57b0d8e8fe2259b"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9a946699e0bd20fe73cb5c9aea58c77204330cda4cedd58917fd8ed4ff9fd21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ced2fa46c94783273b276e0b057239feb898f041a6525909e2aa14f82f07db18"
   end
 
   depends_on "python@3.12"
-  depends_on "six"
 
   uses_from_macos "expect" => :test
 
   resource "cmigemo" do
     url "https://files.pythonhosted.org/packages/2f/e4/374df50b655e36139334046f898469bf5e2d7600e1e638f29baf05b14b72/cmigemo-0.1.6.tar.gz"
     sha256 "7313aa3007f67600b066e04a4805e444563d151341deb330135b4dcdf6444626"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

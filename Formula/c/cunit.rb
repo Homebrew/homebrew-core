@@ -3,6 +3,7 @@ class Cunit < Formula
   homepage "https://cunit.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/cunit/CUnit/2.1-3/CUnit-2.1-3.tar.bz2"
   sha256 "f5b29137f845bb08b77ec60584fdb728b4e58f1023e6f249a464efa49a40f214"
+  license "LGPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "92297087d6f77632f4db7fb8c436ba6f70c9da28fdc11e56cb975a86ea27cc90"

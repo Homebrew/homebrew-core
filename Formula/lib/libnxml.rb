@@ -1,43 +1,31 @@
 class Libnxml < Formula
   desc "C library for parsing, writing, and creating XML files"
   homepage "https://github.com/bakulf/libnxml"
-  # Update to use an archive from GitHub once there's a release after 0.18.3
-  url "https://www.autistici.org/bakunin/libnxml/libnxml-0.18.3.tar.gz"
-  sha256 "0f9460e3ba16b347001caf6843f0050f5482e36ebcb307f709259fd6575aa547"
+  url "https://github.com/bakulf/libnxml/archive/refs/tags/0.18.5.tar.gz"
+  sha256 "263d6424db3cd5f17a9f6300594548e82449ed22af59e9e5534646fa0dabd6a7"
   license "LGPL-2.1-or-later"
   head "https://github.com/bakulf/libnxml.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "23de2777cfea9dc091c170a37051e8aaae78a7e8853ad0850ef245a73faa0b39"
-    sha256 cellar: :any,                 arm64_ventura:  "4eacea651f361f6159331989db43fcb5b88df845d5e3873c583a049826fcdc5f"
-    sha256 cellar: :any,                 arm64_monterey: "7b9f770e09e58cede9baff8e2cb8b588529368a451ea876edc7d72edb00e324b"
-    sha256 cellar: :any,                 arm64_big_sur:  "c9fb3bcc767561392f500093ca5549248153ba874b7d3df6ae17a9a94c9135b7"
-    sha256 cellar: :any,                 sonoma:         "bd24e8bacf521fb3585fe1c4b60a3e8406e21c67099cd4e78913b2ed05299c6d"
-    sha256 cellar: :any,                 ventura:        "0630539c78edcfe2b7af9362a3928c41cbc578e64df98e22e10d5f83bc05e94c"
-    sha256 cellar: :any,                 monterey:       "db15774e70f1d15202c5c3a0412c87bf2a40625064976ee71b004c9f2a9f439a"
-    sha256 cellar: :any,                 big_sur:        "646e960c9d78476dd4102b5ede1aac8bf0ea3dd06f51de6cec429f0851b4f1ec"
-    sha256 cellar: :any,                 catalina:       "af92d830dbb7a103cd5a512c03c1cf2777742ea72c998ecbf1fc80912679cb47"
-    sha256 cellar: :any,                 mojave:         "61e076a06cab737a7410a8a2adf9c29c3d32e44467caaef25d54c7be63093bd6"
-    sha256 cellar: :any,                 high_sierra:    "a6b51b3ed4d09a603b7d232040b7e53fb26013a16ea9b4b86f415c45200faf43"
-    sha256 cellar: :any,                 sierra:         "ddeb6f19f803f29eb44f498ed687dd76a5bdeb0b6416c67759e1690ab9fa4f14"
-    sha256 cellar: :any,                 el_capitan:     "de106efa2da60ccb8567403547f904485c1c6431dd492ce4e1bbd66599c7f961"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea65c2b532c9c55ac17f22075d0d4efbf83fbf36c522c57d797e9faa037588e1"
+    sha256 cellar: :any,                 arm64_sonoma:   "c7287e418f649ae7a95a152feb06cc43846a286ed8a5b511b490e4a2cac8d341"
+    sha256 cellar: :any,                 arm64_ventura:  "6a57d9af9acf0588b0b58903248f8f116639f043bd6b1716d6592c459da3f658"
+    sha256 cellar: :any,                 arm64_monterey: "c6887b727e4b7254d5d90c7018cd60c80681624eb0fafe6e8075a8d8313ef6a7"
+    sha256 cellar: :any,                 sonoma:         "b33e1d5aef9bbf9f058740832ee647c7c838c23bc2523105b3e1192059f01ddf"
+    sha256 cellar: :any,                 ventura:        "5025007cfe5e551c8f0fba852bfadf3bc22f9d631548e6fd15c78fad5b927839"
+    sha256 cellar: :any,                 monterey:       "2d3296d3ee6942ded48af843e36539242da4f5fea43cafc406dec3b69f7f5bcb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63bb969c6efc96d3bc6c97c4e8faa0dc918ed41bdf9d55e25f372f33b4c4d78e"
   end
 
-  # Regenerate `configure` to avoid `-flat_namespace` bug.
-  # None of our usual patches apply.
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
+  depends_on "pkg-config" => [:build, :test]
 
   uses_from_macos "curl"
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
@@ -82,7 +70,8 @@ class Libnxml < Formula
       }
     EOS
 
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lnxml", "-o", "test"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs nxml").chomp.split
+    system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
     assert_equal("root: Hello world!\n", shell_output("./test"))
   end
 end

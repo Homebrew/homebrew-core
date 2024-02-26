@@ -12,21 +12,21 @@ class Fheroes2 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f12fcbbb6b20aa9d75e15ff24d30efbdc074dd6e91f19c9bcc4d148b6b48e369"
-    sha256 arm64_ventura:  "e0b7835c0bae053da6efae60f81bbdcd0ef4c63913d62cdb444b94e6843d69fd"
-    sha256 arm64_monterey: "48cc1591eebccab94ea59778010d7cad73911190daf3fd84b79ea573ab0e529e"
-    sha256 sonoma:         "117376d77083e6fe0b93f673d5385d2aca325bcac3f91e7780c4cf8e4fa55910"
-    sha256 ventura:        "9309abc9efa7fd322799b24c083ec627019c3d0b4b81be5fd1be7f8a336843a3"
-    sha256 monterey:       "eed826270ddff7d393a8897ce9c988a6a5a2636963c2ff43b70f3dbc44a76a6b"
-    sha256 x86_64_linux:   "c1e601dceaa669a2e89c70cfd5584ad793a4f8a9bbfae6a0c4eb8b96623cddf6"
+    rebuild 1
+    sha256 arm64_sonoma:   "eb97f820980c15fa22c555ae890d04855a7d8701056bff965990d74530870aaf"
+    sha256 arm64_ventura:  "c34f334bc9a553a1e0f30b0baffd210db6f2924dc8011a522bda492c26faf4eb"
+    sha256 arm64_monterey: "57115fc429778525669b819d133702dbac203729101f63d6c9090dee7832d725"
+    sha256 sonoma:         "579c42f69c3506d52a1e60cd1ccce65409d0d0c85902f86e66797a9e9cd7d3c7"
+    sha256 ventura:        "5d7cef1d2081a07deed4e2f08af84f6285bfc43311d1007c86ac57f570490791"
+    sha256 monterey:       "0c53a32123714e22998bc9c15758dd35c1aba56716c773df5d8893f5ade208eb"
+    sha256 x86_64_linux:   "aadd4306040e0ef69e6c840d0966f8b397a553fa83ce2e044d046ca7da33eb82"
   end
 
   depends_on "cmake" => :build
   depends_on "gettext" => :build
 
-  depends_on "libpng"
+  depends_on "innoextract"
   depends_on "sdl2"
-  depends_on "sdl2_image"
   depends_on "sdl2_mixer"
 
   uses_from_macos "zlib"

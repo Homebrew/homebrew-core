@@ -21,7 +21,7 @@ class Embree < Formula
   depends_on "tbb"
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DBUILD_TESTING=OFF
       -DEMBREE_IGNORE_CMAKE_CXX_FLAGS=OFF
       -DEMBREE_ISPC_SUPPORT=ON
@@ -36,11 +36,9 @@ class Embree < Formula
       args << "-DEMBREE_MAX_ISA=#{max_isa}"
     end
 
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Remove bin/models directory and the resultant empty bin directory since
     # tutorials are not enabled.
@@ -51,6 +49,7 @@ class Embree < Formula
     (testpath/"test.c").write <<~EOS
       #include <assert.h>
       #include <embree4/rtcore.h>
+
       int main() {
         RTCDevice device = rtcNewDevice("verbose=1");
         assert(device != 0);
@@ -60,6 +59,6 @@ class Embree < Formula
     EOS
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lembree4"
-    system "./a.out"
+    assert_match "Embree Ray Tracing Kernels #{version} ()", shell_output("./a.out")
   end
 end

@@ -19,7 +19,6 @@ class Pipenv < Formula
 
   depends_on "python-certifi"
   depends_on "python@3.12"
-  depends_on "virtualenv"
 
   def python3
     "python3.12"
@@ -52,10 +51,6 @@ class Pipenv < Formula
 
   def install
     virtualenv_install_with_resources
-
-    site_packages = Language::Python.site_packages("python3.12")
-    paths = %w[virtualenv].map { |p| Formula[p].opt_libexec/site_packages }
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
 
     generate_completions_from_executable(libexec/"bin/pipenv", shells:                 [:fish, :zsh],
                                                                shell_parameter_format: :click)

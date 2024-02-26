@@ -10,22 +10,26 @@ class ShallowBackup < Formula
   head "https://github.com/alichtman/shallow-backup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a6a6639d95d70b1e4de8f28ba91752df01e0ac86e21e341585b843b1d7a1a09"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "009c2d332a99014ca3740f5b17ff5957f7a5a0d5dac821b35f54004f1e88146f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0709fd2ea3dc6f256c48408be391715a51a7f85c7620c3f3cb3eed5b1bb1e49"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a646322b741a3ff0cc7becc067b9e8afe257d8770fd2897c15e53fe0e8e935d6"
-    sha256 cellar: :any_skip_relocation, ventura:        "3783244c76113f1eaf30c3fa01a820dbb5972d0ac6fc2ba589a4c45e773b85c3"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2198a7e2056234a1e2de2c94337113892d51aea1a3c0d2916f8e8e9cbb06882"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8cf43c44ad13c3697afc1dd9140fa7b17196c6948e5ceab8fcde4d84f21cf36"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3492f90a6e89d87e11fe7cc40d07d3f171918fb0e9699b9e3532a74660155d0b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3198dde56520cdd92f01873c83a8b864d7088553a027e376d14a3162bb05e26"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cadcf3c688712b7c6aa1c3af9498f7034c3221b27df0179ae3243d10cfada129"
+    sha256 cellar: :any_skip_relocation, sonoma:         "20468194ea44e2924c6e9a88304fd0abebab1ad7f9588c826ea61f8e51504e91"
+    sha256 cellar: :any_skip_relocation, ventura:        "f7a0acd8ac84add2e76b56e310100af09545505c0e71c126694f91a6f3b881b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "40a247a4d604bb2f84684bbb701a9a03ac52c6563cdb40831c167db5ab761dbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fea6d0e6c8b328be1a69933f24724a26165e49fe8d65fea7e38960b5e3669d2f"
   end
 
-  depends_on "python-click"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "blessed" do
     url "https://files.pythonhosted.org/packages/25/ae/92e9968ad23205389ec6bd82e2d4fca3817f1cdef34e10aa8d529ef8b1d7/blessed-1.20.0.tar.gz"
     sha256 "2cdd67f8746e048f00df47a2880f4d6acbcdb399031b604e34ba8f71d5787680"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "colorama" do
@@ -34,8 +38,8 @@ class ShallowBackup < Formula
   end
 
   resource "editor" do
-    url "https://files.pythonhosted.org/packages/65/f7/286f79cc04f0ea0f52b9f7685200a2defd66803656876ef35459a5960f45/editor-1.6.5.tar.gz"
-    sha256 "5a8ad611d2a05de34994df3781605e26e63492f82f04c2e93abdd330eed6fa8d"
+    url "https://files.pythonhosted.org/packages/2a/92/734a4ab345914259cb6146fd36512608ea42be16195375c379046f33283d/editor-1.6.6.tar.gz"
+    sha256 "bb6989e872638cd119db9a4fce284cd8e13c553886a1c044c6b8d8a160c871f8"
   end
 
   resource "gitdb" do
@@ -44,13 +48,13 @@ class ShallowBackup < Formula
   end
 
   resource "gitpython" do
-    url "https://files.pythonhosted.org/packages/e5/c2/6e3a26945a7ff7cf2854b8825026cf3f22ac8e18285bc11b6b1ceeb8dc3f/GitPython-3.1.41.tar.gz"
-    sha256 "ed66e624884f76df22c8e16066d567aaa5a37d5b5fa19db2c6df6f7156db9048"
+    url "https://files.pythonhosted.org/packages/8f/12/71a40ffce4aae431c69c45a191e5f03aca2304639264faf5666c2767acc4/GitPython-3.1.42.tar.gz"
+    sha256 "2d99869e0fef71a73cbd242528105af1d6c1b108c60dfabd994bf292f76c3ceb"
   end
 
   resource "inquirer" do
-    url "https://files.pythonhosted.org/packages/87/7a/acbfd27542c5d87d1ee025cd54a7d9923f57d0a89d8d16f526a622237981/inquirer-3.2.1.tar.gz"
-    sha256 "d5ff9bb8cd07bd3f076eabad8ae338280886e93998ff10461975b768e3854fbc"
+    url "https://files.pythonhosted.org/packages/03/eb/b631f7ed6156717cd5bd9abc8c9df809fe128a389a0377274f2d6cb102db/inquirer-3.2.4.tar.gz"
+    sha256 "33b09efc1b742b9d687b540296a8b6a3f773399673321fcc2ab0eb4c109bf9b5"
   end
 
   resource "readchar" do
@@ -59,13 +63,18 @@ class ShallowBackup < Formula
   end
 
   resource "runs" do
-    url "https://files.pythonhosted.org/packages/8b/91/4d1e3f01cecdd7f8a5486f6a5961bf2cd1d48b98b48541b08e783e3c8853/runs-1.2.0.tar.gz"
-    sha256 "8804271011b7a2eeb0d77c3e3f556e5ce5f602fa0dd2a31ed0c1222893be69b7"
+    url "https://files.pythonhosted.org/packages/26/6d/b9aace390f62db5d7d2c77eafce3d42774f27f1829d24fa9b6f598b3ef71/runs-1.2.2.tar.gz"
+    sha256 "9dc1815e2895cfb3a48317b173b9f1eac9ba5549b36a847b5cc60c3bf82ecef1"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
-    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "smmap" do

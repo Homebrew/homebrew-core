@@ -7,16 +7,14 @@ class LibsoupAT2 < Formula
   revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "4e8330cbf98501f043c70db9f556e0471edddc4a7f2d0a8b792f8ec750c9d94e"
-    sha256 arm64_ventura:  "28703a1f52485e8606ff0e34b22bcaf09aa743f84b62c937f8e2dc6bb2a3e2e9"
-    sha256 arm64_monterey: "c83d1b06c461f1052dca33dbb4611de3255629a01f6841cea10c879b33de062a"
-    sha256 arm64_big_sur:  "1beb7bcd38a32eb0392edf2c4512282dd70545a00522abceb18f27e8c4ad0ca1"
-    sha256 sonoma:         "74b8f29618c2981330dc19fab37c794cbbc2f37ab84b15e158dd9e7f3987b36e"
-    sha256 ventura:        "c75a526b2a7e38e78e1610f943e5057c3f74ee047405005a75e263e502fcc08e"
-    sha256 monterey:       "c45af2b51eefcef87380bd327d068113d862d8ea3468798143229e4a6ffaf066"
-    sha256 big_sur:        "c5b6becbd8d56922f462b27d995abdfb3c0e0bf40a5f90ad2dbaf8fbcf342f60"
-    sha256 catalina:       "a197f1b5e2b63ac86c26398cd4a01c60e5ff6c467fcfd4e64462c5c7d37186e2"
-    sha256 x86_64_linux:   "de39b19dac0d2b9ef080286d5402ab4d8d950d21765b19ebc4888276843c9009"
+    rebuild 1
+    sha256 arm64_sonoma:   "9d50f2ce85396610a34a8b73c2f90f065a61958f5b5aa5f31df1a5e6d1c6b901"
+    sha256 arm64_ventura:  "b6b1f722faecc11f7f0f7d59da96b6582815179e2998e06c9d7d9a9b6221b8bc"
+    sha256 arm64_monterey: "c9a5a1b8cdbad59ea9bb297e382dd1165a3ada3d8145f4da3cec8183c34be647"
+    sha256 sonoma:         "df99ce0eca58f54c20982f095d6b0d51904dbfe21451e92637ba8b506c81cc4a"
+    sha256 ventura:        "9ff691ca203a1692efc87a66bb3f162eb88680a931085accbb65e223209e4704"
+    sha256 monterey:       "83efcf8f54f047a9ba3dd3acf032ef4cdbabce4574feac8105e6ae3822878021"
+    sha256 x86_64_linux:   "416f1242c8f4e786d4e3fb673a40926b9c5543bf50420bf9dbf24cae569743f2"
   end
 
   keg_only :versioned_formula
@@ -25,7 +23,7 @@ class LibsoupAT2 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "vala" => :build
   depends_on "glib-networking"
   depends_on "gnutls"
@@ -34,6 +32,10 @@ class LibsoupAT2 < Formula
   uses_from_macos "krb5"
   uses_from_macos "libxml2"
   uses_from_macos "sqlite"
+
+  on_linux do
+    depends_on "brotli"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args

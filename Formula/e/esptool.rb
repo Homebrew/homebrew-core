@@ -8,24 +8,23 @@ class Esptool < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42f74e259a48063e4b673f46111c88b9886149d40035f61d0e8cf410d24c7753"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "04b7c744f8ddad03346cffc4f741cbc607c423c91441293d61e59e66f17ea015"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8235fb37242202cbcbb49a14935d0a25e27f01cdfbd386a12672715201bfed36"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5ed52334d92de19c5a3482c9c50bb9e2fa44d0d37c979f931bf0783ea6217221"
-    sha256 cellar: :any_skip_relocation, ventura:        "6a0459a13aef4fa0c2435a66dbbe6dec49eda8a5e48f539c76fa99cdc98570e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "3e578c131a1fdeaef5665ed44c2de48aaa938f7255941a4015397b58ce1692e0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "ad26d0313acc94dae318af8d29f6e66fd39196ab55bf7b9f5ec1ac18eb4a7188"
+    sha256 cellar: :any,                 arm64_ventura:  "2f63840db71dff5d5b4600441cb64f94672772ac717a6fb4a055cadce04cc6b0"
+    sha256 cellar: :any,                 arm64_monterey: "707e0cf7141784169c79fe59410409d70abda418c1a8688257686d2e3a927e27"
+    sha256 cellar: :any,                 sonoma:         "276f4d18874b04d2f4deee260d60f6f32dc0665d966ee8d3959fb264171bba52"
+    sha256 cellar: :any,                 ventura:        "110e711ba7ec23485302adeaf14f4b96b03178c27ee6af7580add0efd1dbae1b"
+    sha256 cellar: :any,                 monterey:       "cbf9cca1fdd8c8975e885f7d856b61f44ad6a92840f5e4d6460b1ca033e170bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cced5d363875bafac5c656ca7500ba4dad28c1ce67a14a2b0db7af77dde1e95"
   end
 
-  depends_on "cffi"
-  depends_on "pycparser"
+  depends_on "libyaml"
   depends_on "python-cryptography"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/2e/7b/31d117a213a0a42a5c5f48bab3e5786b98952d243022d43727f379db0e16/bitarray-2.8.5.tar.gz"
-    sha256 "b7564fd218cc4479f7f0106d341e096f78907b47865aeeff702c807df1927c01"
+    url "https://files.pythonhosted.org/packages/c7/bf/25cf92a83e1fe4948d7935ae3c02f4c9ff9cb9c13e977fba8af11a5f642c/bitarray-2.9.2.tar.gz"
+    sha256 "a8f286a51a32323715d77755ed959f94bef13972e9a2fe71b609e40e6d27957e"
   end
 
   resource "bitstring" do
@@ -48,9 +47,19 @@ class Esptool < Formula
     sha256 "3c77e014170dfffbd816e6ffc205e9842efb10be9f58ec16d3e8675b4925cddb"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "reedsolo" do
     url "https://files.pythonhosted.org/packages/f7/61/a67338cbecf370d464e71b10e9a31355f909d6937c3a8d6b17dd5d5beb5e/reedsolo-1.7.0.tar.gz"
     sha256 "c1359f02742751afe0f1c0de9f0772cc113835aa2855d2db420ea24393c87732"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

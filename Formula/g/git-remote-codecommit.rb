@@ -10,29 +10,41 @@ class GitRemoteCodecommit < Formula
   head "https://github.com/aws/git-remote-codecommit.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d8ba20dcd9f55de970c25529a95bb3473258876b3516b187322418615f27883b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2c9b27f956a030046be35f93002359c8eaf8c92c1408487ecd5286312e93280"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a810bab4bcbe5fbd32da4ac3453d5f9098a94adef37ad7c0640d456ed32e60f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1af35d3a2e017ef480b2cfcee9330223dafefa5b6209097dcc25b3145d1f08e3"
-    sha256 cellar: :any_skip_relocation, ventura:        "15e2a407d36c1731c42aec5acd172ab4cf217fa7d9a7272106bdd799a972bcc6"
-    sha256 cellar: :any_skip_relocation, monterey:       "ebe4e3256b7758ff8473ecdb4287eb4422fef1bcef2154adcc9fb455a1cc4860"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0c1687232860b04ae552af8b6da12096f022917ed22a246177bf834d2a25d10"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d5c336a96fe1298c4d611911da80992e3eac31b557a617acb8e66b8b88e4efb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c99e7620a096d70ec805849d5422d6b9548d8ad0c92419c926f898d3056e0baf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c51728e7b342f52f887425f139bb6eab3665b0c01b1ae91a4099e10010d469dc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5469b821f4399b31e7c6387e43ffc321fc96f6b0671d025be83c34fa9ffc5e27"
+    sha256 cellar: :any_skip_relocation, ventura:        "2f55bc4e410cd2acb0ce8916b18f15a4e4f794768d22e80cbcfa97544271cd3f"
+    sha256 cellar: :any_skip_relocation, monterey:       "35c1a9c3b928aaa28c93f69bac223d4e034c93735122a03ae098622ee030f2fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3b4a7162044926b1f1804c6c0f99fc3c8523d82c0642d6d00b17d850bbbb70a"
   end
 
-  depends_on "python-dateutil"
-  depends_on "python-urllib3"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/42/30/e5e2126eca77baedbf51e48241c898d99784d272bcf2fb47f5a10360e555/botocore-1.31.65.tar.gz"
-    sha256 "90716c6f1af97e5c2f516e9a3379767ebdddcc6cbed79b026fa5038ce4e5e43e"
+    url "https://files.pythonhosted.org/packages/93/cf/8c9516f6b1fb859e7fcb7413942b51573b54113307a92db46a44497a3b96/botocore-1.34.47.tar.gz"
+    sha256 "29f1d6659602c5d79749eca7430857f7a48dd02e597d0ea4a95a83c47847993e"
   end
 
   resource "jmespath" do
     url "https://files.pythonhosted.org/packages/00/2a/e867e8531cf3e36b41201936b7fa7ba7b5702dbef42922193f05c8976cd6/jmespath-1.0.1.tar.gz"
     sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
+  end
+
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
+  resource "urllib3" do
+    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
+    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
   def install

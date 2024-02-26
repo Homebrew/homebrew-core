@@ -4,6 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.8/qca-2.3.8.tar.xz"
   sha256 "48759ca86a0202461d908ba66134380cc3bb7d20fed3c031b9fc0289796a8264"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -12,13 +13,13 @@ class Qca < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "be5c81b8ea7e03cf23979ab7b8922c31213b8c4861a10178b1b092a0c3a5e952"
-    sha256 cellar: :any,                 arm64_ventura:  "4a23c095adb5b58e4455a0073beb65a01d7aed68f99ff42e896b13b3dfaf754f"
-    sha256 cellar: :any,                 arm64_monterey: "8b1b95d2db586333e330bc7945d53c74a3626787f845d280c9d6a540b0b392b3"
-    sha256 cellar: :any,                 sonoma:         "1dec33eb15212833cd68c53c1634130eb756bd084f5013c900f85d642e6737a0"
-    sha256 cellar: :any,                 ventura:        "6c2b9563d96b052a3605232e98f32480cf0e53b83a05ea6b39d9cac0020e515c"
-    sha256 cellar: :any,                 monterey:       "b0f69af4d530dca5b61712aa6744fe63830dfd2d51bf5f2b3cc6135e5807d0ae"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bcce390bf80c101b5c5b6b77d76fabf4db52f77f4e56098e088983bf054f0659"
+    sha256 cellar: :any,                 arm64_sonoma:   "216ca2aef055ba9ce90ec813b8dc039041e90b821e113563ad825879fc60cd17"
+    sha256 cellar: :any,                 arm64_ventura:  "bc3767a5578438daa50b649affd0d072f7b3b773142f0b50870517e00d3088b1"
+    sha256 cellar: :any,                 arm64_monterey: "1f81f86cd7bd048b243cd251e74020c0f9f9fe38b246ae4dd59fffa819a6e49c"
+    sha256 cellar: :any,                 sonoma:         "41c866aa265c7f6a96faa858e1ccf306e4fa1e9e76cbbb4a411a561e8849f799"
+    sha256 cellar: :any,                 ventura:        "b65a8e4f2a6e8a67f11e27b6a58e9b3da735de2f0795ff199e3bbda7561f018e"
+    sha256 cellar: :any,                 monterey:       "da6412ada84a28846ba1e57dc03bd244ba630e5cc58d7366e209f8bf64af59c2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b0c4064e9cdfa23b770c86994bb3b4b2069a1b51ef70e8e9926ae7db0fca2ca"
   end
 
   depends_on "cmake" => :build
@@ -34,9 +35,20 @@ class Qca < Formula
 
   uses_from_macos "cyrus-sasl"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
+  end
+
+  fails_with :clang do
+    build 1400
+    cause "Requires C++20"
+  end
+
   fails_with gcc: "5"
 
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+
     ENV["QC_CERTSTORE_PATH"] = Formula["ca-certificates"].pkgetc/"cert.pem"
 
     # FIXME: QCA_PLUGINS_INSTALL_DIR should match qt's directory "{share}/qt/plugins";

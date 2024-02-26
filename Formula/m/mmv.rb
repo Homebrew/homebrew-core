@@ -1,24 +1,30 @@
 class Mmv < Formula
   desc "Move, copy, append, and link multiple files"
   homepage "https://github.com/rrthomas/mmv"
-  url "https://github.com/rrthomas/mmv/releases/download/v2.5.1/mmv-2.5.1.tar.gz"
-  sha256 "f7b4cbd3b778909541df3ab11284288eeb05c68d5ad620f354568e82553dec14"
+  url "https://github.com/rrthomas/mmv/releases/download/v2.6/mmv-2.6.tar.gz"
+  sha256 "020cb39cb177aa9e66363d73f49fe2e56aa23a3501c9cb16383f75b1ddcd4fe4"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d170334acb21ecb9e81f3e15686148fe14208a2c15b708f348e41b1398c224f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcd16fe7537000cf4fdf25a0cca6619863b6e7ff7a0851ebddf910a4ce7d9b1e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "05632ba15c14846978cdb96105031efb3cf64bd49f1ba8c8ccd5f06edf2c3e71"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3fd8416e6082a478ca9e0b8f9e8d362a6c6b099c48c400edd4b483cfb8f24a13"
-    sha256 cellar: :any,                 sonoma:         "fb9fc9039b220db725c19e2a06aab7a2bdaf2a03d7801071a1139291b0cae969"
-    sha256 cellar: :any_skip_relocation, ventura:        "ca03f571a416fab8ef906eea873838332ae69d4e97e8c4349b89915271b97254"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f31cd8ba22cad6f5806250333f0ce885fac184764f2e9e1f05f970880071947"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1f980bf248cde5825884a4126c6dffbf9fc8538a12623d607b743a438c8d01b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e401678476327b649450fb13a9c083bd1d2185d0f90a7250cea2678d9291c9ba"
+    sha256 cellar: :any,                 arm64_sonoma:   "c7aa9476b38e87544ae2b503fb26b07c6797af48d6599e35fd36e36146dd703c"
+    sha256 cellar: :any,                 arm64_ventura:  "f31f06317a02f971057af3ff2270d5f6bad1477fafd726e5d45bab0bf7528f30"
+    sha256 cellar: :any,                 arm64_monterey: "675f1116463e152f9ebce257b12cc7751033f44699c1f9fd424c6991dc65b7e6"
+    sha256 cellar: :any,                 sonoma:         "30f0afc5ae3ae60453be909614fca5744be8ca266c583be8f9210816ee5653ad"
+    sha256 cellar: :any,                 ventura:        "f0ae4b832a19d6295ac1c4a06f9580386ddaec418e95c7fe87bd6eb25f38e760"
+    sha256 cellar: :any,                 monterey:       "9f9c382404016cdbc966e8c4e1d191e0620b219033dcede7e88f31c2b253422c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66d09ff4bda9665a4d90eac5b93f2ad01621f3d45ecbbb6817a38c13e361de8f"
   end
 
+  depends_on "help2man" => :build # for patch
   depends_on "pkg-config" => :build
   depends_on "bdw-gc"
+
+  # Backport fix for gnulib base_name().
+  # TODO: Remove patch and `help2man` dependency in the next release.
+  patch do
+    url "https://github.com/rrthomas/mmv/commit/5a3ab0746db2f761bff332dc2411afe1f99434eb.patch?full_index=1"
+    sha256 "cf9efa6f6eb175d2d71f46ab3a3da317390c82594424168f4af023abd4e9c168"
+  end
 
   def install
     # Fix compile with newer Clang

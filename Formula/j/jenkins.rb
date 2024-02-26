@@ -1,8 +1,8 @@
 class Jenkins < Formula
   desc "Extendable open source continuous integration server"
   homepage "https://www.jenkins.io/"
-  url "https://get.jenkins.io/war/2.445/jenkins.war"
-  sha256 "e505d4d41e775691292ff3a0323fee1064ff0219901acc47476acd65f87b3099"
+  url "https://get.jenkins.io/war/2.446/jenkins.war"
+  sha256 "ce0aee7be11cc5af961c1eceac6c6db24055fc53ff67a27e8572a65a9c377ded"
   license "MIT"
 
   livecheck do
@@ -11,7 +11,7 @@ class Jenkins < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "110857fab2f62b459e5324ddc5c5e2ec79b4611f7d7076c0338b0f9932de3902"
+    sha256 cellar: :any_skip_relocation, all: "3d1149100ef8215ccf121cb37bcc623eb8783f8bec789eb992d0c6b1f44a9482"
   end
 
   head do

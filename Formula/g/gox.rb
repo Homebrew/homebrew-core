@@ -21,6 +21,8 @@ class Gox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cc3c2783e83ca2b0d77c516144d4311df5f4a04ab445b5175e9d2585f8a3e3d"
   end
 
+  deprecate! date: "2024-02-20", because: :repo_archived
+
   depends_on "go"
 
   resource "iochan" do

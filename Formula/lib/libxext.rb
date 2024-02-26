@@ -1,21 +1,18 @@
 class Libxext < Formula
   desc "X.Org: Library for common extensions to the X11 protocol"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXext-1.3.5.tar.gz"
-  sha256 "1a3dcda154f803be0285b46c9338515804b874b5ccc7a2b769ab7fd76f1035bd"
+  url "https://www.x.org/archive/individual/lib/libXext-1.3.6.tar.gz"
+  sha256 "1a0ac5cd792a55d5d465ced8dbf403ed016c8e6d14380c0ea3646c4415496e3d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3f26762922fad44024043f23f4a230a0888628e8f41eca4b8f507328334c3c3b"
-    sha256 cellar: :any,                 arm64_ventura:  "36ef5333565be1614ad8eb2d740ea93df80c5d2ee41b403145179e7c5d1e1e82"
-    sha256 cellar: :any,                 arm64_monterey: "4f194ef26f45585047eab4ceaa2c811c4273d32d2ea47d9b3d18f09bb0c1f300"
-    sha256 cellar: :any,                 arm64_big_sur:  "232f1d192c14de36a9cb57dfedd73943d65fdd6ce3b75e80d4d0c2eb6c18dcd6"
-    sha256 cellar: :any,                 sonoma:         "a4623f19de9adeadf969fc2cd414af824b4d3b9cd56099440dcddcb2368b78a9"
-    sha256 cellar: :any,                 ventura:        "8567d6ebc49a8efcda5216368ba27ed2493bb4bb00492b66ba9e1686cee17c61"
-    sha256 cellar: :any,                 monterey:       "9682e4720a940f352af2cea9e4633cdf14947e23b640bac524e1b3674b9493a9"
-    sha256 cellar: :any,                 big_sur:        "674376b0e5cbcfb9278cdcf97e4ccc3910bf134cb1e45bf9e190d614a7f3a200"
-    sha256 cellar: :any,                 catalina:       "77862d3344c49f5bc3bf77f3efeaff99d36330bf13cb05c91cf7a4f4d43ed7a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5e6ada73c0d137a611ca58038a36227f3ac10e59986b9bf9da21e2a44bdaab2"
+    sha256 cellar: :any,                 arm64_sonoma:   "50a9b29c594f9b93690466d66b52f2ac36461d956016b135a85d3dfbc883e336"
+    sha256 cellar: :any,                 arm64_ventura:  "fb6852f038dacbef11883d2fb8277e517d1eb237f563f62c96996f764ef40032"
+    sha256 cellar: :any,                 arm64_monterey: "d580398c8be17c909f43f110b4d8a459850f066c4ef97d7a6184c5c66242893c"
+    sha256 cellar: :any,                 sonoma:         "86fd68fab7f6cdcca7212812b697efc8d2c1349ceada7c74a1eeabf0f9ec8523"
+    sha256 cellar: :any,                 ventura:        "5adc7a81fe4a19ce37d33850009bd3154f6723a501c932c572d43389d2399657"
+    sha256 cellar: :any,                 monterey:       "eb71965f92cd97a43eaf0e9a8a49fab31ca397be6ffcbb30f5a8edc2f8853e3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c62be32e864f64fc9ed3392a2f6eae085350c5b929b52306ac5e26c07b38bd3f"
   end
 
   depends_on "pkg-config" => :build

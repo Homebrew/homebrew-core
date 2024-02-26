@@ -9,16 +9,16 @@ class Pferd < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3e5a2d60a9215280f3651a3b7901323aa369d3645e407e626557157b45e217f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "898e66a3021eb4e971507f1191b4e11be6433552373d04d3a3c151f7dcd0c683"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2bc4e64908ec2d63edbe8a300120a2bd3a515f7824de352aa137df209a2c83ba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f472f0de030614c09f1c54cbe6fc4969aebb8e48c9435e4257ce57dff44597aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "523c0668bdc40cb7b382055b7d8a2743aca007bc33079b99bff7580775fc3496"
-    sha256 cellar: :any_skip_relocation, monterey:       "a1bab5112eea905268940ee96d117f69f6feaa1a2e216bce87a8538bc80f43b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73bd54a8aa58452302bbdb32e71614ed1c9fb82bc0309bf3f3cf9ed76e62aae1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c30b587c3559451b854052946e70262b7550c9ad3667dcefb3b9a1a1f2721d1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7712ca7e8da94334a6204fbf25e7d4dd860d40008ce6a159d41b7688fe926eb8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "112b2f0537c1e11a6b37a82166c9c639d84d14564a5090312fed42d21ae1d752"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3d3aee05868b8e53e574bff9f513dd5ae086d7fa6e5b02110bc1e57ebaa7f45a"
+    sha256 cellar: :any_skip_relocation, ventura:        "dbfa17b4656d740f88fb2ac28eb8cbc6105dc8495a1c1976828716bac1276cdb"
+    sha256 cellar: :any_skip_relocation, monterey:       "4952500185c097ca748b3e2201985292de65efb3a4666e082f5bc6775a96679d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f937165cb0ff4877f9d94ec3a12eebf5f88ce2112c2d43be9fb483d7ffea1117"
   end
 
-  depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
@@ -53,8 +53,8 @@ class Pferd < Formula
   end
 
   resource "jaraco-classes" do
-    url "https://files.pythonhosted.org/packages/8b/de/d0a466824ce8b53c474bb29344e6d6113023eb2c3793d1c58c0908588bfa/jaraco.classes-3.3.0.tar.gz"
-    sha256 "c063dd08e89217cee02c8d5e5ec560f2c8ce6cdc2fcdc2e68f7b2e5547ed3621"
+    url "https://files.pythonhosted.org/packages/a5/8a/ed955184b2ef9c1eef3aa800557051c7354e5f40a9efc9a46e38c3e6d237/jaraco.classes-3.3.1.tar.gz"
+    sha256 "cb28a5ebda8bc47d8c8015307d93163464f9f2b91ab4006e09ff0ce07e8bfb30"
   end
 
   resource "keyring" do
@@ -78,8 +78,13 @@ class Pferd < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/4a/15/bd620f7a6eb9aa5112c4ef93e7031bcd071e0611763d8e17706ef8ba65e0/multidict-6.0.4.tar.gz"
-    sha256 "3666906492efb76453c0e7b97f2cf459b0682e7402c0489a95484965dbc1da49"
+    url "https://files.pythonhosted.org/packages/f9/79/722ca999a3a09a63b35aac12ec27dfa8e5bb3a38b0f857f7a1a209a88836/multidict-6.0.5.tar.gz"
+    sha256 "f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   resource "rich" do

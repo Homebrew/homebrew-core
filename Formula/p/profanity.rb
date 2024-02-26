@@ -6,14 +6,14 @@ class Profanity < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "244bfea9088b20382b2fa6d094b207f711dd0519e157b6fc9ae94f2da6011478"
-    sha256 arm64_ventura:  "5b0b3b659be206020c43262e5afecb2c4c028b5349ea92fe04ef91973f56232c"
-    sha256 arm64_monterey: "c9850c6da8adc21e93fed0410bf2dd1a508e26530260c0a357c4d8ef8a350b88"
-    sha256 sonoma:         "3598757d7025dbe0db9b71b92445618bdbed930aed763d98415e42292db9bd97"
-    sha256 ventura:        "c8e2c1ee834cbb44c56c43b0cb32b4ac01815b0cf8b9a84daaaf707ac8f9dfb9"
-    sha256 monterey:       "ba6a50ab342e1108ff971a101ed33c96a00dd437391b8e04b49629a7833a8bdc"
-    sha256 x86_64_linux:   "3e71d2099b2aacdcffea417afbfb1f0e0058ffc325ab17880c79c4080afeb971"
+    rebuild 2
+    sha256 arm64_sonoma:   "3c6edaa4c1aaf06a4db21ea71e9c8d3f82187e0ace35c9813136c0e1164e479d"
+    sha256 arm64_ventura:  "0abe70541f49da406e708d83fda1692aa020c7942b44934d93555da080bcae22"
+    sha256 arm64_monterey: "e062da3abfb99bcbba595ffd8a759b3aac43d539d76d57dc26340025c5a25367"
+    sha256 sonoma:         "bc25e571d1887a3464dcca4f8d9bdfc10fce9e3e2769ba28b7765c612d3e5f79"
+    sha256 ventura:        "6fc7f42a211ebcd9257ba509ea6a9327ce531ad42227c1d59857c468b8adfc52"
+    sha256 monterey:       "6f626bcec863159279cca047f5b2e8bf5bcc2dc74603ffd065a8d0ce7c786747"
+    sha256 x86_64_linux:   "da7113532893f9b7ff5fefa25c8f58e6aa757b6eec6476747f23ebb1125992c2"
   end
 
   head do
@@ -50,6 +50,7 @@ class Profanity < Formula
     # environment will prevent any other `brew` installations from being found.
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
+                          "--enable-python-plugins",
                           "BREW=#{HOMEBREW_BREW_FILE}"
     system "make", "install"
   end

@@ -10,19 +10,22 @@ class Pywhat < Formula
   head "https://github.com/bee-san/pyWhat.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d80030ca434f682f0674b67431f4d4f416d58e8123dbfa93023ad54cf8bd47e5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc449a5315cb873b3860d5a0eefa667581713637d6f2a258e2624316f4fbe088"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a5e6e74daf24fd21cbe3db1d5f6e483b83fad84b33df8d769d67a0c164e77b9b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "231b23c2f713289646ef38bd66e8e8a4fc4f308413d5342de4c0af843c3f1f94"
-    sha256 cellar: :any_skip_relocation, ventura:        "711a1879e91b79c56ecba529b4241de462ac29750137d542c37441c8a949f6d7"
-    sha256 cellar: :any_skip_relocation, monterey:       "7af641ae14ce814349ed0398ebfd58d8a9ac805e9aabce408316ec65694362b7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1befb624408aeaf942bbd525ba31255607bda2b1695b4601af0e3a35ff9db55"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e370395de68228f3efab43e6c91bd8e069ecda92bf6e0c4534b998e3a465f12d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab4bd8600366859bf4f0249f0fa380a62085b25163fca308da2e8c1f2a2d47e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6f78a6512b3f4032d80d8cf590ed361f0adf386c457e9f223f7c33bd19c8a473"
+    sha256 cellar: :any_skip_relocation, sonoma:         "77e611213fc1d827a31f3c95231b5f37e60da8ecb6547cb79d586824d11f1f04"
+    sha256 cellar: :any_skip_relocation, ventura:        "ec995ec0e0ce5cb0817f7a7726920e99e32711443f5c6308eef8b0e1a19d11ea"
+    sha256 cellar: :any_skip_relocation, monterey:       "4875e98f40846677d05ee488088fc8888804d1f4c3631bf46c7f1c86bf9f24ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bbdd32c04fb7efca7c7798b289b0666f5b6f9c0d17056a0e2aaf4267ba06587"
   end
 
-  depends_on "pygments"
-  depends_on "python-click"
   depends_on "python@3.12"
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
 
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
@@ -37,6 +40,11 @@ class Pywhat < Formula
   resource "rich" do
     url "https://files.pythonhosted.org/packages/74/c3/e55ebdd66540503cee29cd3bb18a90bcfd5587a0cf3680173c368be56093/rich-10.16.2.tar.gz"
     sha256 "720974689960e06c2efdb54327f8bf0cdbdf4eae4ad73b6c94213cad405c371b"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   def install

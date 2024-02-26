@@ -1,8 +1,8 @@
 class Mariadb < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-11.2.3/source/mariadb-11.2.3.tar.gz"
-  sha256 "14a0bba0c2847eb3f69a4637f55798f8abe10904cd1dd22899c9b0a39c43e35f"
+  url "https://archive.mariadb.org/mariadb-11.3.2/source/mariadb-11.3.2.tar.gz"
+  sha256 "5570778f0a2c27af726c751cda1a943f3f8de96d11d107791be5b44a0ce3fb5c"
   license "GPL-2.0-only"
 
   livecheck do
@@ -17,13 +17,13 @@ class Mariadb < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "061901d321073cbf25f86246080d485d0edc85c3417afe9714190faafa8df0fc"
-    sha256 arm64_ventura:  "6bbf1a4049f98fa85539986c870fc124a585b538c324ec67baba9fa18c9dd04b"
-    sha256 arm64_monterey: "11cb117953f0a91cc5f0fd294d06c679631859db1c7777eef9f1678fdead655c"
-    sha256 sonoma:         "bf0905d944e4e3d370c810c7754f49e306b007d248840c4b6223fecf061db0d3"
-    sha256 ventura:        "a89e1a43e730c7b76650acdc5068986d5ff60f3655d02f1b4c0f9985e45f1aa6"
-    sha256 monterey:       "7b3f840dcdb3e80d5301b6eea4be7420238df2ea0eea7be8425dce2ca4ce2d27"
-    sha256 x86_64_linux:   "25a906b97b58f261310fe03dee4234313d8884f69f69881fa6f30cd520648f5b"
+    sha256 arm64_sonoma:   "62b3259218d3f4a3c1b52eb011382d9bfe2e2833f40d255d735c40320fa9d81c"
+    sha256 arm64_ventura:  "a9f71222869b1e0fcfe4cc0fd55ee340755efb5b31a26483a726b3a577a86828"
+    sha256 arm64_monterey: "2547a84d2c507b22d6163ccc994355933bf4cc9c9742e406080e13d3579c5b96"
+    sha256 sonoma:         "e8ef52d72c29883f186d75430147012cba4a68c1a44214a3e0516e6d8819edcb"
+    sha256 ventura:        "9ab7548d251c9ea816b5167d562df7026ac9e4b547e3b8c9f334c73e282f81a1"
+    sha256 monterey:       "4fe540840104edcffe20f5329e9a96a65ca5188e6d8f22de250c6ea03ac3774e"
+    sha256 x86_64_linux:   "190cfffaffb9692e8e8ca7ef32d5ba8a2f0fadb5287b3e0a4e9262f0838b72a7"
   end
 
   depends_on "bison" => :build

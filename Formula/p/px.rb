@@ -1,32 +1,29 @@
 class Px < Formula
+  include Language::Python::Virtualenv
+
   desc "Ps and top for human beings (px / ptop)"
   homepage "https://github.com/walles/px"
   url "https://github.com/walles/px.git",
-      tag:      "3.5.1",
-      revision: "53c4faf6708a89d5dd07ac5b994b42e4ae4164b2"
+      tag:      "3.5.2",
+      revision: "584f919429f1da41661d87b59305347680fb0a2c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00f5fd439db844283da0e008553e8c424a0894845ff284486d73bb244d371994"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "15e4fbb2f34972283785fd3fdfcd3b075de908847393c66134496a183969f4b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "985f96d22ed17cd64abf10aefd1f2a84d32679ff0986f96ce36fbc19e8e8cada"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8c3789f0f91dc0e32d320747da22f232dad95abbcfe9c8e9ac4ae7b2e24f6458"
-    sha256 cellar: :any_skip_relocation, ventura:        "a357c3effd8ebb632817107e1281b8957ce8dd003269063e6904b3b4798821cf"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee94f13463a500ca3caf282f6618bf230f200d79cf46a3ad6cdff66d8ab67161"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4e9861786d4a53cf68888cbd090e2154f1f34762f5af8ade431a0b5620396ba"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfbce983a56a6cced3dbe043966be5d7a03db965e9010792e35323a4109c2cea"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e191c21a2a3ae3cb26ca838fb38e098fa356f7bc7d6f4b6ccccf2a6f6ab6c36"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "672be80ea811076afd74fc132178f6d2875ea080021e0d1a80847b08fe052935"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a84e585d140a31deb4a74348db6ef72954c024b126715e075127a5547cfd0f77"
+    sha256 cellar: :any_skip_relocation, ventura:        "8cf0c8a2f23acb0849333491b2a5b0507427933f317213b38bb196b9ce79c283"
+    sha256 cellar: :any_skip_relocation, monterey:       "46eb85ce299da203e5c689234b91dbc20d53483e1c2a35042360ec9f33402062"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4179aff98025129416df49507dc78b09b133248e85265f7f7d074487d9192208"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
   uses_from_macos "lsof"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
 
     man1.install Dir["doc/*.1"]
   end

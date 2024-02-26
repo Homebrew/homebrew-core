@@ -1,8 +1,8 @@
 class Ispc < Formula
   desc "Compiler for SIMD programming on the CPU"
   homepage "https://ispc.github.io"
-  url "https://github.com/ispc/ispc/archive/refs/tags/v1.22.0.tar.gz"
-  sha256 "38b0e2de585838004aaa1090af12c2ad20a5ee05c620a686979386450ba0c9c9"
+  url "https://github.com/ispc/ispc/archive/refs/tags/v1.23.0.tar.gz"
+  sha256 "9dd5e24ecc5496d74022cf74b38cacad079c2a5432e9ae9f5bf8a655b85b5744"
   license "BSD-3-Clause"
 
   # Upstream sometimes creates releases that use a stable tag (e.g., `v1.2.3`)
@@ -14,13 +14,13 @@ class Ispc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a53fdd3b0aebeb740244025c9daa572467f42403d6b19bbf3d5066b4cb9148db"
-    sha256 cellar: :any,                 arm64_ventura:  "8bb18c66e3e8d7fe2aa995567631deed8c3020bf6400d8572565b91af267efb6"
-    sha256 cellar: :any,                 arm64_monterey: "ca18a541e1979a0bbb66df754f29d9e3060d2272b892d691ba1738d9500c7838"
-    sha256 cellar: :any,                 sonoma:         "cfecd1289779a3b393738e6e04137f99f2af5ae50191b949408c2be555d55bf1"
-    sha256 cellar: :any,                 ventura:        "3a268edfcdf05648e6cfe12bf77e4e04d4bded8a67fae4d94f973ac0e071fbcc"
-    sha256 cellar: :any,                 monterey:       "e2d7744cc1a65867ddf207d1d906467aef2de8588355a1887b41ce265b0357b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ca029f7573e647b87b98491feb0f0baa99cdc3a7b8210a5e400906158d93ce0"
+    sha256 cellar: :any,                 arm64_sonoma:   "fcdd916d114a15d52b070592d0788b29f0a6e210ea635358a8ccceb17adee024"
+    sha256 cellar: :any,                 arm64_ventura:  "172a46160c01488bfb1332a7f0d33b727370d3bd2ba0e00efbff4149b216a094"
+    sha256 cellar: :any,                 arm64_monterey: "47f1d7e71ebeda29e95c9bd8670b46b93645db272f3ffa72ca1927008e9cfb57"
+    sha256 cellar: :any,                 sonoma:         "a992e97f1d0ccdb90b8f8e85c0801b1d966fac67cbd657c196a5e677b90791a7"
+    sha256 cellar: :any,                 ventura:        "ed4c920f931d8782aa149130e57f77cbd924924dab55859ad4bc6314ce587170"
+    sha256 cellar: :any,                 monterey:       "9ef3ab28ccd18533b7fbd99659d25b0d44ea47e821b91c78072a33eb4583b5b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04af9f6c3c56320c930a8d4ef479138e128a230320c1603ab7b2d1c31dd1b2d9"
   end
 
   depends_on "bison" => :build

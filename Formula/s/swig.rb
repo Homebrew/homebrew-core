@@ -1,18 +1,18 @@
 class Swig < Formula
   desc "Generate scripting interfaces to C/C++ code"
   homepage "https://www.swig.org/"
-  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.2.0/swig-4.2.0.tar.gz"
-  sha256 "261ca2d7589e260762817b912c075831572b72ff2717942f75b3e51244829c97"
+  url "https://downloads.sourceforge.net/project/swig/swig/swig-4.2.1/swig-4.2.1.tar.gz"
+  sha256 "fa045354e2d048b2cddc69579e4256245d4676894858fcf0bab2290ecf59b7d8"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "97cdabcd467f9741ae172546500737a468445f8b7c1030b6835ff1d630c3270b"
-    sha256 arm64_ventura:  "18bffb40f30f478d6bf2e0d1e2963dca3e5d5d7fed0e2c7be10bc17aa63dfafa"
-    sha256 arm64_monterey: "af291aaee5dae8b1bf12c390176532a11d00e1238e817e2d52896fed78f5ca4c"
-    sha256 sonoma:         "24b7aab0a197c733e238565fb52bb5120d188b9d56351423ca7322e39254d17b"
-    sha256 ventura:        "da430be477a081fffeb7b57b40c009e62a94087a3b6ffe771258102032cb2c5e"
-    sha256 monterey:       "242977d3fe2ac50c7f0e00ad53d147fd36107a334842023326a5d08eaf926a99"
-    sha256 x86_64_linux:   "76566cb1026a82ec4bf61e86b4ab5f6377a3a75cffab9062f0103caa6c105202"
+    sha256 arm64_sonoma:   "183268434604fe51bf67ca63c6bb3adb0327b698be2214d1eb43c0d5d2ebb231"
+    sha256 arm64_ventura:  "0bc1f80fdf13d7aa62a5940fa739162a00b4ae25d6d978d9f7021d08799a08ef"
+    sha256 arm64_monterey: "0db87779d83c4f22f94ded633d6c3cc6edfc90be6a3c0b78899cd97f0519316d"
+    sha256 sonoma:         "81c8657b9bc70c7a18615e011fb5a1dfd65a0d8ff34b11993194d0c820c439cb"
+    sha256 ventura:        "50ec50d91f2abf91deded716fe9f7b1abe144851b79ec59f2ecd7e9f6004c665"
+    sha256 monterey:       "eb3bb9b187414f8e0a095c89373cc85559b9e84cbb8ae77e90fcc0ccdde8ed71"
+    sha256 x86_64_linux:   "fc7a4fc21a0adda671084c1d85730a5f94bd1528442e15c6579055a485c80300"
   end
 
   head do
@@ -22,9 +22,9 @@ class Swig < Formula
     depends_on "automake" => :build
   end
 
+  depends_on "python-setuptools" => :test
+  depends_on "python@3.12" => :test
   depends_on "pcre2"
-
-  uses_from_macos "python" => :test
 
   def install
     ENV.append "CXXFLAGS", "-std=c++11" # Fix `nullptr` support detection.

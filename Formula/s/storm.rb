@@ -14,8 +14,6 @@ class Storm < Formula
   depends_on "openjdk"
   depends_on "python@3.12"
 
-  conflicts_with "stormssh", because: "both install 'storm' binary"
-
   def install
     libexec.install Dir["*"]
     (bin/"storm").write_env_script libexec/"bin/storm", Language::Java.overridable_java_home_env

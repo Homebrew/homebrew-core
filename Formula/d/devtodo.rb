@@ -23,7 +23,7 @@ class Devtodo < Formula
 
   # Superseded by devtodo2
   # Last release on 2007-09-06
-  deprecate! date: "2023-05-06", because: :deprecated_upstream
+  disable! date: "2024-02-20", because: :deprecated_upstream
 
   depends_on "readline"
 

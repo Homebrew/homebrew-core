@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "https://download.gnome.org/sources/libxml2/2.12/libxml2-2.12.5.tar.xz"
   sha256 "a972796696afd38073e0f59c283c3a2f5a560b5268b4babc391b286166526b21"
   license "MIT"
+  revision 1
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -13,13 +14,13 @@ class Libxml2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "00b0550e2f1645ea5d850e8ec45b39b3261a21f3cbcbad06c607a221dcc2b632"
-    sha256 cellar: :any,                 arm64_ventura:  "03b55a5795abe691eccb3e312e6e263c4e04d285fc55e20b7cc44981115c2a06"
-    sha256 cellar: :any,                 arm64_monterey: "b3979ddac33f9937edc6bfa5c4419a6748f34f2949ceaa32e443c55a5d5a4442"
-    sha256 cellar: :any,                 sonoma:         "c3146cf97fd68a928035c0a12ce1b82f46258bab577e5bc347b1631b9351b510"
-    sha256 cellar: :any,                 ventura:        "0eb3b7e9aa4299e9fad1ab438c86bc398ceea781b6fcb9aac7c769aadacb0d8a"
-    sha256 cellar: :any,                 monterey:       "73939dd8f148fbc0f40ab0fa9ef6e066173ecb47783d55fc6573d76b3c267acf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff5db5bc23ceab1dc888d3bbd1ebedb2970675cd550c2cdac23f57f224bc4692"
+    sha256 cellar: :any,                 arm64_sonoma:   "a9353056b9e9f185d3b3be79477a73e3d7e1717bb8c62c251f64e585684bd94a"
+    sha256 cellar: :any,                 arm64_ventura:  "781767e1aa6567a936d7feb13fc749f9edd0731fa25b90b30ca875b8ff7edcc3"
+    sha256 cellar: :any,                 arm64_monterey: "ec61e56bb001ac6af9b4850cda84249919d38ba17e6d0cf833266f07de363f19"
+    sha256 cellar: :any,                 sonoma:         "3673303347e8019e21ae73d5507d41f9890b739e76b750b88745e3e0f2902fc6"
+    sha256 cellar: :any,                 ventura:        "c4ff529ea45b6bd2ac71b464f41f313d23b74c382d72b954f906664fbc0707bb"
+    sha256 cellar: :any,                 monterey:       "eb9991b786ff3e759a76ebdd501023af924bd007f37480304ad8a80ad74bf7fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9e882727d625c87f88f8c1f4d8ac392cfa0ca42123e5da44531362cb811a650"
   end
 
   head do

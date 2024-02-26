@@ -20,7 +20,7 @@ class GccAT7 < Formula
 
   # Unsupported per https://gcc.gnu.org/gcc-7/
   # Last release on 2019-11-14
-  deprecate! date: "2023-05-18", because: :deprecated_upstream
+  disable! date: "2024-02-22", because: :deprecated_upstream
 
   # The bottles are built on systems with the CLT installed, and do not work
   # out of the box on Xcode-only systems due to an incorrect sysroot.

@@ -1,18 +1,18 @@
 class Grin < Formula
   desc "Minimal implementation of the Mimblewimble protocol"
   homepage "https://grin.mw/"
-  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.2.0.tar.gz"
-  sha256 "23d958e4c07075d62b66185fd07bb862457f56c4e518e62650fe5650c738a8f8"
+  url "https://github.com/mimblewimble/grin/archive/refs/tags/v5.2.1.tar.gz"
+  sha256 "243f391e5181307c5a8158759f560bc835b3e0287ffdd1898d38d6db644de631"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80cbaf50c6c9f08b073e27445c4d3dfad73a020255a26f1f207efdc0ae0638e1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1776e745ea7afbd4b2fc5f34aec4063c44b01d6581f373aa026b4ef7ea55523"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "359fafc884243814d31f62073c6ea4333271cff375a255eb7456a3cf0376cc78"
-    sha256 cellar: :any_skip_relocation, sonoma:         "85f24243e5d9f163be61d2daf51390e7ecde2159bcc8594182f105082b6bea81"
-    sha256 cellar: :any_skip_relocation, ventura:        "d8132a1f9dbd6db7e788777db771fe3bb940af20316188d68d7122229585fd19"
-    sha256 cellar: :any_skip_relocation, monterey:       "fe57a47d8371de9896bf50347d98a3c337e016c298bcce7cd75ea47096c541c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "031122bb316749a63cdb3e6ad53262531d6b8a5bab50fe44dcba0df0e02f060f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05f68f3caf0b4cef0870c96275a817bccfd9b903290a823c8b3b4a2e670a210a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "428409d7fbe42d5724fc854f327b60a0495a81e55dbea52e9c2e67d81806b236"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa57538c97aff157112eb556cd5488fd0d0626f53bc637753710e8b09ffef5c3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a4e38053926da306851e7f52dd21c94a6c7f01230acfc74bd4ddba1aa8c5129d"
+    sha256 cellar: :any_skip_relocation, ventura:        "0cdca72ad1c8de934c61e079842d06d5fdfd4f345ccf08370cc5f93f78a85128"
+    sha256 cellar: :any_skip_relocation, monterey:       "b240b9c21819088b04c045a82480e6d5650947e68c38f136aaada618deef2bf7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "56241d9e23541542bdce1c9c22905509140c3254c5b63d3ae6e8bb8ae7fedf07"
   end
 
   # Use `llvm@15` to work around build failure with Clang 16 described in

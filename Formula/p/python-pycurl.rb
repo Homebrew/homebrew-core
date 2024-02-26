@@ -1,20 +1,18 @@
 class PythonPycurl < Formula
   desc "Python Interface To libcurl"
   homepage "http://pycurl.io/"
-  url "https://files.pythonhosted.org/packages/a8/af/24d3acfa76b867dbd8f1166853c18eefc890fc5da03a48672b38ea77ddae/pycurl-7.45.2.tar.gz"
-  sha256 "5730590be0271364a5bddd9e245c9cc0fb710c4cbacbdd95264a3122d23224ca"
+  url "https://files.pythonhosted.org/packages/c9/5a/e68b8abbc1102113b7839e708ba04ef4c4b8b8a6da392832bb166d09ea72/pycurl-7.45.3.tar.gz"
+  sha256 "8c2471af9079ad798e1645ec0b0d3d4223db687379d17dd36a70637449f81d6b"
   license any_of: ["LGPL-2.1-or-later", "MIT"]
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "ac515c6b2154b523a86de9a6ee580ade298c825bd735c73eb922857bc8fe04a3"
-    sha256 cellar: :any,                 arm64_ventura:  "f42e236a9c6a848a8a9b6fab97c245a2070f14bc46c004beb693c8a0b6fd0e8f"
-    sha256 cellar: :any,                 arm64_monterey: "48893fdcbb66ff23eb72049784a568e52a3452348ab19d5563a3f6b2bf0bfbb2"
-    sha256 cellar: :any,                 sonoma:         "7fb9a02d61098ddd50349f8a3ac4729e01b4c95bad8870faa38a295eabf99d45"
-    sha256 cellar: :any,                 ventura:        "aee44a44793eb38112a643cdcdeb77fc004819cb8b068121f4c5ff85b144e965"
-    sha256 cellar: :any,                 monterey:       "d7cdf45e7ee9f65eefadbd9efafd0499e8c973c2931a7b07058f0fb133ff3eda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c9ed88f96d7fa65a7f6b287d3313824bd73a5910b4f8613304deb6bcdd95c39"
+    sha256 cellar: :any,                 arm64_sonoma:   "71ccf2bb733435739ab3b34ee708ad08c2cfb67fd873e3c0a0d8e3fe66c4e63b"
+    sha256 cellar: :any,                 arm64_ventura:  "79223f7862d985e145f47dc169d1eea0dd1192b7d856879fab9507e961ec80fb"
+    sha256 cellar: :any,                 arm64_monterey: "af88878f404cd4945b86acd54e48978eec498d7f2068ae6c7eb02184425d478c"
+    sha256 cellar: :any,                 sonoma:         "581bb81a65f50478885acbe259d378b64d5854009155363942a3809ea6efe31f"
+    sha256 cellar: :any,                 ventura:        "cd7d71242cdbb86ff6bf9dc48c05f466f9c8342f31690f800ced655b421b2229"
+    sha256 cellar: :any,                 monterey:       "0cfb4ca826115c8a4157a028cd21cc1a2d0f7ed81959286975eaee9ddb03165e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc893fcef966ba5f2321f65dc65df7ec093193685b753bbb6dd8e7f7907b6abe"
   end
 
   depends_on "python-setuptools" => :build

@@ -6,20 +6,21 @@ class Libsoup < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "c4dc531ea8036eec8fd72a8113a9732c48463b648a1a386faceb347a12f35d95"
-    sha256 arm64_ventura:  "518bf9d6ce898df5024f8c6b987b58ad71c8bcdeec285d9469fd12a561412441"
-    sha256 arm64_monterey: "ed970d47202f2f621f1ee7565c6dfa82f7aeb25b492a6b133665cf2597baade7"
-    sha256 sonoma:         "53f7084a45d065c75bbe1e0bc21695a6dd0cc743984adff14b70f2a639e10a96"
-    sha256 ventura:        "e0b9b6e695e1772341d9d32c6a247e6c4cfa18bea3f1f6162ac4d3d6fb5cd2c8"
-    sha256 monterey:       "57ce39074439c5a3e4a14661ae4012ebdde7692e745101d8f03db76f33852248"
-    sha256 x86_64_linux:   "fec1b30444388241915ec32a660aa139d56084e5223abaaf123a884ccbf24e58"
+    rebuild 1
+    sha256 arm64_sonoma:   "df1cb8af129b82f0ab5d96628ea7caf87ade46e9ef9bf6c579da87e510ce46b7"
+    sha256 arm64_ventura:  "b7f355256762b236b6d4fcff8fb5a80049519d99714e3bf051e62c9dac1b519a"
+    sha256 arm64_monterey: "15a0f712603d4b6df25ad49558388335362ffd421302c80337a7371529a2bcaf"
+    sha256 sonoma:         "dbf3dfe5cb28b449d24773caa726f8dfc8e5be50106e838a40b5c391ffd1309b"
+    sha256 ventura:        "ccfb7aa97121d72d9fa0ac050df3d8022410433b8b543000593928912e119ae5"
+    sha256 monterey:       "0882c7581ef56bea324c6ca57ede71822ddd6bce9e6ce828c376b2d9dc2ae9a3"
+    sha256 x86_64_linux:   "6f5b3e5587f4155be4f50f8c219e0036c116db0aa90c4fc2f24694637a67857b"
   end
 
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on "vala" => :build
   depends_on "glib-networking"
   depends_on "gnutls"

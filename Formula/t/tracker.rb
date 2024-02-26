@@ -6,6 +6,7 @@ class Tracker < Formula
       tag:      "3.6.0",
       revision: "624ef729966f2d9cf748321bd7bac822489fa8ed"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version
   # scheme but they do appear to use 90+ minor/patch versions, which may
@@ -16,13 +17,13 @@ class Tracker < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "1f5e4992b3fa05c595419f3c74bc6c1ed060d88713732c53b94bcbd7cca992ac"
-    sha256 arm64_ventura:  "d1f4c659bc3bcb540267a77f037bc9fb2482729631d67a08fa85ef6b0bd395e4"
-    sha256 arm64_monterey: "d20678b865cc20bb74fb8e94b723218f04df877f88eb04630466b85b70d3668d"
-    sha256 sonoma:         "76b0f840a5a237480948a4eb0c3e669baedc2dc4bcdf645cf98191b366f92c85"
-    sha256 ventura:        "fcb5fd3a9e459a7e22fc43f659c28f86f6be87d0f608f47cf2218f0f549cf45e"
-    sha256 monterey:       "1f5bb1ce43ea8cf8b5d909f4d8c2f5c0696ee7c1f8af2deffe45c73320340cd1"
-    sha256 x86_64_linux:   "d29cab10448fb77fe9bb36c19503b9b35663582294df079083c38775270fe66d"
+    sha256 arm64_sonoma:   "a786b2b3491a5703f792f0011716e5cb7ecee55928caffb765a2b6ac3f55cab3"
+    sha256 arm64_ventura:  "277812e0fda3fd75fada5fe36ad2809755f35605ad2550988ea5a1634ffaad7c"
+    sha256 arm64_monterey: "bc1401fea1e7c77ee3a1706c029aba7cde648b9228cfca990d1cd098f9e51bdb"
+    sha256 sonoma:         "cf05c52e47410b399d2f52827d64027aa802009bee0db70a970a72009cfc5b2c"
+    sha256 ventura:        "cdc13ce4c3b905226af7150eab017ad9eb08e3d894ed69e928b360cf218707c5"
+    sha256 monterey:       "8a728aee6d68011f8bd3a071bb11edd3710996e45b8e1f2991d141f296ed1fe5"
+    sha256 x86_64_linux:   "fd31fdf16061831cc0057d07f7dd89a7958c4895020fb7e4d9a058a984c2220a"
   end
 
   depends_on "gobject-introspection" => :build

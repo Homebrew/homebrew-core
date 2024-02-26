@@ -10,17 +10,17 @@ class Vdirsyncer < Formula
   head "https://github.com/pimutils/vdirsyncer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3d7dce0a74ed47993904fa1f7571afb35a88c334c16c43810255d7550556acc5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a7c54a083e4cc1eaf13a7f35724e0dfd9ad4bfd59153bf01833e6827e4fb432"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "efa938ff2f5d29a47cae2d60ce29110445f293b6b13343c8caa53f2fb8c98913"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5d23a8acb7c785ba0562bddbae68c4bc5a522b7e322d09d342910a1b97152a50"
-    sha256 cellar: :any_skip_relocation, ventura:        "ab85064b5788e215769786c0502d2713cee6e8b900bd07ad1c881b6f4723852c"
-    sha256 cellar: :any_skip_relocation, monterey:       "f4049f1f678a4872936f5040f5d3d44f3393df7e43c1c66bf8f548d06c8bb00b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9faf46aba317a433a275333d6e9299fcf431376f475b2ebf085f369c45fc7542"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3abb39a1645ad13d17d7e650ab5b1c99cda2b1ed249ea71bdbd737fdc4505c15"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b308865b45c2dd680d82489d76d9df1c86e886599a9242fb9cccca51be3890b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fc41874b1ba2e5f3703a0e0884b4b4d4a024ba1b96f437c1772923c3d99d5c4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "edb118e6c37fdec6662b2fadcbb39603e0db8429a4ee538011639c141ec5e0b1"
+    sha256 cellar: :any_skip_relocation, ventura:        "9fef7a430bd5b7d8245a7282255436fc2d16872759154d79e139e70710745ead"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f758d3108c36e3fd6c3d8f358dfbbafc9eeeb87e64578aa7c1d5240f006ea50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7425ca87cfc243a6047d8f164b2062416d9e513f13b0594eaeea70b6d5204fe0"
   end
 
   depends_on "python-certifi"
-  depends_on "python-click"
   depends_on "python@3.12"
 
   resource "aiohttp" do
@@ -58,6 +58,11 @@ class Vdirsyncer < Formula
     sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
   resource "click-log" do
     url "https://files.pythonhosted.org/packages/32/32/228be4f971e4bd556c33d52a22682bfe318ffe57a1ddb7a546f347a90260/click-log-0.4.0.tar.gz"
     sha256 "3970f8570ac54491237bcdb3d8ab5e3eef6c057df29f8c3d1151a51a9c23b975"
@@ -74,8 +79,8 @@ class Vdirsyncer < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/4a/15/bd620f7a6eb9aa5112c4ef93e7031bcd071e0611763d8e17706ef8ba65e0/multidict-6.0.4.tar.gz"
-    sha256 "3666906492efb76453c0e7b97f2cf459b0682e7402c0489a95484965dbc1da49"
+    url "https://files.pythonhosted.org/packages/f9/79/722ca999a3a09a63b35aac12ec27dfa8e5bb3a38b0f857f7a1a209a88836/multidict-6.0.5.tar.gz"
+    sha256 "f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da"
   end
 
   resource "oauthlib" do
@@ -94,8 +99,8 @@ class Vdirsyncer < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "yarl" do

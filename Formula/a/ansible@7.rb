@@ -37,6 +37,7 @@ class AnsibleAT7 < Formula
 
   uses_from_macos "krb5"
   uses_from_macos "libffi"
+  uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
   # This will collect requirements from:

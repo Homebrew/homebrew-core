@@ -1,8 +1,8 @@
 class Neo4j < Formula
   desc "Robust (fully ACID) transactional property graph database"
   homepage "https://neo4j.com/"
-  url "https://neo4j.com/artifact.php?name=neo4j-community-5.16.0-unix.tar.gz"
-  sha256 "5de9518ceef86d3e87aeb513cb996f6f3f4dce11db5bb1d2308cab327deb9890"
+  url "https://neo4j.com/artifact.php?name=neo4j-community-5.17.0-unix.tar.gz"
+  sha256 "975b79448e4a7e0cd3f729c343149b52d20474fb3505509d638dfde861c9c440"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -12,13 +12,13 @@ class Neo4j < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44b1dd6415a4ee20865fa457dcfec992346591ca274ab800ff58b2764cfdb52f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44b1dd6415a4ee20865fa457dcfec992346591ca274ab800ff58b2764cfdb52f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "44b1dd6415a4ee20865fa457dcfec992346591ca274ab800ff58b2764cfdb52f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d0069b6c4e5e73e9512872f4f5e83033973b7159c3281f16fdb51f4c85c36155"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0069b6c4e5e73e9512872f4f5e83033973b7159c3281f16fdb51f4c85c36155"
-    sha256 cellar: :any_skip_relocation, monterey:       "d0069b6c4e5e73e9512872f4f5e83033973b7159c3281f16fdb51f4c85c36155"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44b1dd6415a4ee20865fa457dcfec992346591ca274ab800ff58b2764cfdb52f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b48d6f6676600d4f90833a31e4a7e428e99a7bb1c8101d7f0eff9f9da5008c12"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b48d6f6676600d4f90833a31e4a7e428e99a7bb1c8101d7f0eff9f9da5008c12"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b48d6f6676600d4f90833a31e4a7e428e99a7bb1c8101d7f0eff9f9da5008c12"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cce13f4a6991ec92e401b985ab63e802ad3c5e855494ce733a188e97eadbbe4c"
+    sha256 cellar: :any_skip_relocation, ventura:        "cce13f4a6991ec92e401b985ab63e802ad3c5e855494ce733a188e97eadbbe4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "cce13f4a6991ec92e401b985ab63e802ad3c5e855494ce733a188e97eadbbe4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b48d6f6676600d4f90833a31e4a7e428e99a7bb1c8101d7f0eff9f9da5008c12"
   end
 
   depends_on "openjdk"

@@ -9,21 +9,20 @@ class RobotFramework < Formula
   head "https://github.com/robotframework/robotframework.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4eab0205d6992f6f4d6b81f3dbd174fb4ad20fb1f9b03ea74960df4735aefe1f"
-    sha256 cellar: :any,                 arm64_ventura:  "a9c39ba3f27c4fe62eeeaa74480bb43c0d7389bf69b6249929edfe1a1cba6439"
-    sha256 cellar: :any,                 arm64_monterey: "f972a2157b3a18453c4d7361a7d79f2a1260925332575d65445e379a0be0b8f3"
-    sha256 cellar: :any,                 sonoma:         "3879eec6cd0f3b6e7d103fb4dee354fa150eadd398f90352188bb580e50b3649"
-    sha256 cellar: :any,                 ventura:        "2bd31e43773ea35a94065abed833349a2afeea069d88f6f08daf199c73deed17"
-    sha256 cellar: :any,                 monterey:       "e94f8d4d73847fbe02d709d21e83d48fd261aa754110661af40697bbf9c80f9a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "838d173411b21be1c225422ce0b05bac69b7ef1751798ade3feae4ab556b627b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "35061945b18349903a9e6e87c6cffd06204413f35223ca0fa77c356bbd30af76"
+    sha256 cellar: :any,                 arm64_ventura:  "94876e8e6b49b4e85972fe23db198bdcdaf5031d62b5687e584e2a2684b34359"
+    sha256 cellar: :any,                 arm64_monterey: "3be3595cbe35c1826b3781437ac2b760ba1da83033c477dd39d79e0fda3b9526"
+    sha256 cellar: :any,                 sonoma:         "8dd5a58194e12b459a4428e5aa58fa804242bfec522f909d9024d5d7acf7037c"
+    sha256 cellar: :any,                 ventura:        "ca45dbd377f8a375d584647dcad18b61c98b32293fe66d25edb11bd66d46fee3"
+    sha256 cellar: :any,                 monterey:       "4b6942d23e20d657afc53a05ceda735cdf764b168133c0d9a15e682e540a82f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "87b844b4b0a396c8b4502954984b662465bb3e65fb1eeaed39a46ac10428d790"
   end
 
   depends_on "rust" => :build # for bcrypt
-  depends_on "cffi"
   depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
@@ -96,8 +95,8 @@ class RobotFramework < Formula
   end
 
   resource "selenium" do
-    url "https://files.pythonhosted.org/packages/16/fd/a0ef793383077dd6296e4637acc82d1e9893e9a49a47f56e96996909e427/selenium-4.16.0.tar.gz"
-    sha256 "b2e987a445306151f7be0e6dfe2aa72a479c2ac6a91b9d5ef2d6dd4e49ad0435"
+    url "https://files.pythonhosted.org/packages/5e/30/5d5d83efaac1c7b2aa45e383b74e733156dae6c67434c562f88e05db9ddb/selenium-4.18.1.tar.gz"
+    sha256 "a11f67afa8bfac6b77e148c987b33f6b14eb1cae4d352722a75de1f26e3f0ae2"
   end
 
   resource "sniffio" do
@@ -120,9 +119,14 @@ class RobotFramework < Formula
     sha256 "18c11793647703c158b1f6e62de638acada927344d534e3c7628eedcb746839f"
   end
 
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "wsproto" do

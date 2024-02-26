@@ -3,25 +3,26 @@ class OrganizeTool < Formula
 
   desc "File management automation tool"
   homepage "https://github.com/tfeldmann/organize"
-  url "https://files.pythonhosted.org/packages/46/11/64cd44c8accd864c1f3e67a8185b60434834d50e0876a961554ceb9a64f7/organize_tool-3.1.2.tar.gz"
-  sha256 "03ef0bc8a179a31a302b65f0b2a725cc949946075dd13cd1fb72c2307dda9fbe"
+  url "https://files.pythonhosted.org/packages/15/ff/ba4c3d7b0071436349b995f9b6530b7495ce032570a662eedc73684a43d6/organize_tool-3.2.1.tar.gz"
+  sha256 "39f135f7b7af32b7ec2628c5550668345c8a93d70938214d1c32212d86253170"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "5d6b61e6e74bb835e8e560cfbd391ecf09345150d50e097c86edf022df4c986d"
-    sha256 cellar: :any,                 arm64_ventura:  "4fc085ebd1bdcfb9d78e079bc653694cbd0b52c150697506e532b1c0b67251e5"
-    sha256 cellar: :any,                 arm64_monterey: "dc9b93b5f2bba098c7121f7aafd5a87fe33dd5a58290db6a9063a581b1024012"
-    sha256 cellar: :any,                 sonoma:         "89a4dac1fa7902ef589eb5f395235448dabff6169fe755869617d3ef487edc5d"
-    sha256 cellar: :any,                 ventura:        "af738e6e0d65dd106ae035dbdc9f60bdd9ffe6800ae3db41c12ba52d3a0ed5f9"
-    sha256 cellar: :any,                 monterey:       "bb146d44bf39fb8bb52fbebc42bef3de9db14c9881a580004b8b323ff82a00b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bc0a9b18d1b5110b1a845c2d8ab68875f7d0172a920bb4e8314c149d2728121"
+    sha256 cellar: :any,                 arm64_sonoma:   "caf9cecd4fc217f42839b224a5d98658b7d5501a155794195eec16f737c63fa0"
+    sha256 cellar: :any,                 arm64_ventura:  "83797c66300308f671bbc4b0c36e713664e79b80884bfa12b28f0f7ead041826"
+    sha256 cellar: :any,                 arm64_monterey: "f4f5e7034388be8195f5dad8604eb903c8db6e65000d207943774348b0bfa684"
+    sha256 cellar: :any,                 sonoma:         "3874a70393c9097a1303e57da3b37d777088e239eeb596824329293b07434ba7"
+    sha256 cellar: :any,                 ventura:        "6193e17bbc72021797ec29afc25c040b5a6d36d60fd4f5ca438e5b90cbff0dd1"
+    sha256 cellar: :any,                 monterey:       "674271887123a0d078e01843c27635288bae3211aaa8c830c4390a388b1e8984"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10bcb93e6548078591f2b6b7f30306395cd91ff2d286ce257e7fa6e8759e8768"
   end
 
   depends_on "cmake" => :build
-  depends_on "rust" => :build # for pydantic_core
+  depends_on "rust" => :build
   depends_on "freetype"
+  depends_on "libyaml"
   depends_on "openjpeg"
+  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "annotated-types" do
@@ -34,14 +35,19 @@ class OrganizeTool < Formula
     sha256 "d4540617648cb5f895730f1ad8c82a65f2dad0166f57b75f3ca54759c4d67a85"
   end
 
-  resource "cffi" do
-    url "https://files.pythonhosted.org/packages/68/ce/95b0bae7968c65473e1298efb042e10cafc7bafc14d9e4f154008241c91d/cffi-1.16.0.tar.gz"
-    sha256 "bcb3ef43e58665bbda2fb198698fcae6776483e0c4a631aa5647806c25e02cc0"
+  resource "charset-normalizer" do
+    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
+    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
   resource "docopt-ng" do
     url "https://files.pythonhosted.org/packages/e4/50/8d6806cf13138127692ae6ff79ddeb4e25eb3b0bcc3c1bd033e7e04531a9/docopt_ng-0.9.0.tar.gz"
     sha256 "91c6da10b5bb6f2e9e25345829fb8278c78af019f6fc40887ad49b060483b1d7"
+  end
+
+  resource "docx2txt" do
+    url "https://files.pythonhosted.org/packages/7d/7d/60ee3f2b16d9bfdfa72e8599470a2c1a5b759cb113c6fe1006be28359327/docx2txt-0.8.tar.gz"
+    sha256 "2c06d98d7cfe2d3947e5760a57d924e3ff07745b379c8737723922e7009236e5"
   end
 
   resource "exifread" do
@@ -79,14 +85,19 @@ class OrganizeTool < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "natsort" do
+    url "https://files.pythonhosted.org/packages/e2/a9/a0c57aee75f77794adaf35322f8b6404cbd0f89ad45c87197a937764b7d0/natsort-8.4.0.tar.gz"
+    sha256 "45312c4a0e5507593da193dedd04abb1469253b601ecaf63445ad80f0a1ea581"
+  end
+
+  resource "pdfminer-six" do
+    url "https://files.pythonhosted.org/packages/31/b1/a43e3bd872ded4deea4f8efc7aff1703fca8c5455d0c06e20506a06a44ff/pdfminer.six-20231228.tar.gz"
+    sha256 "6004da3ad1a7a4d45930cb950393df89b068e73be365a6ff64a838d37bcb08c4"
+  end
+
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/96/dc/c1d911bf5bb0fdc58cc05010e9f3efe3b67970cef779ba7fbc3183b987a8/platformdirs-4.2.0.tar.gz"
     sha256 "ef0cc731df711022c174543cb70a9b5bd22e5a9337c8624ef2c2ceb8ddad8768"
-  end
-
-  resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/5e/0b/95d387f5f4433cb0f53ff7ad859bd2c6051051cebbb564f139a999ab46de/pycparser-2.21.tar.gz"
-    sha256 "e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
   end
 
   resource "pydantic" do

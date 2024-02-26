@@ -4,18 +4,16 @@ class BoostAT176 < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eeafff189152118243504a54beb22ab68bddd258d6f307ef8c44158cc66757a7"
-    sha256 cellar: :any,                 arm64_ventura:  "960bbd424890c9d6a08104dd5714d620d215f144ad69e816154723423989040d"
-    sha256 cellar: :any,                 arm64_monterey: "26aa21aaa3142a4fed4e6432664eb50704d06a05e49fda44904a6be8401b67c9"
-    sha256 cellar: :any,                 arm64_big_sur:  "30cee145b99d61188734587a08e1bf21b669cf75dfcf4fa1032e76f23b6de51b"
-    sha256 cellar: :any,                 sonoma:         "bf4e91f0c9c34fdd260a16a3b885d7dc85917c9908ce50f1243b54685552681d"
-    sha256 cellar: :any,                 ventura:        "ae7b3d8a883abed1ea4f7bdd51dd26dd52c7c6dfb126ef819bcace472389b9a7"
-    sha256 cellar: :any,                 monterey:       "7458b977ef6a75dc3b873fac286cb3ba2330d06034228fc0ef76c86feaaa0f42"
-    sha256 cellar: :any,                 big_sur:        "0552835e6fa8401714d0571c2fb621416da9d78f21f3093d0b0e5a65f2da6812"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f070d8d009e7b1c5380fb26ac8e1fec40dd805a90e6153193a75f5c84d6b867"
+    sha256 cellar: :any,                 arm64_sonoma:   "5c718e08e1de8256b50673bc799eaaef9cb4ce5f577fbc00936066a1f263b734"
+    sha256 cellar: :any,                 arm64_ventura:  "4c6562993352d34504fe22d22bf0a9e6a6a965b9090de894aeec1be216e9943e"
+    sha256 cellar: :any,                 arm64_monterey: "ca5c2e872449f5a9b703778fcb268f455cc643d2581e303e346b11def9897c38"
+    sha256 cellar: :any,                 sonoma:         "022c82f06180646e3374ba911ccc9ff4a668517e8cf8345ff3bf7282bca66653"
+    sha256 cellar: :any,                 ventura:        "4d0f733689e2dc7b832affec363bdb52343cd3c0b3e27c574910ae2e46c5f25a"
+    sha256 cellar: :any,                 monterey:       "7bcdaaa05e334ad957101fc7d523d4a9a2d9ac725204b99b3c882d0b471b4f48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6019846913e6219bad58cc55b2d6d4d0faeb443b999526e198f558048f3757f5"
   end
 
   keg_only :versioned_formula

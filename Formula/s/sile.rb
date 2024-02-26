@@ -2,6 +2,7 @@ class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
   license "MIT"
+  revision 1
 
   # TODO: With 0.15 release:
   # - Remove `cosmo` resource and corresponding references in install
@@ -14,13 +15,13 @@ class Sile < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ef87d8f35cb9b17e14627f64a71f18550531a169d393084334e4b02cb3e23992"
-    sha256 cellar: :any,                 arm64_ventura:  "dafd11d14bc78bcfb153f7a088ccfc781d8fc2f8e66df054ec14d28dcbb94803"
-    sha256 cellar: :any,                 arm64_monterey: "04a1779112b669eb7650305470ebf0ed9fb3674f5123bdbeeeed817e5a7930f0"
-    sha256 cellar: :any,                 sonoma:         "d849a2ed94a4ade3d1c6369276c4e7a43e2c71f0d6e1f287f9d9d9bbba1d460f"
-    sha256 cellar: :any,                 ventura:        "eb8a399d0db98c2387f2cc539fcbe14c8ee808d66f56f8c09e33203da16046a4"
-    sha256 cellar: :any,                 monterey:       "443d523a097024b7b184971c3e2116ef02ba3a481793907624963d5ff4dc8752"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ff6c031a2b66639e5b8bf5b7853d09115026457e8dc8caa8bdca5e4ae60d472"
+    sha256 cellar: :any,                 arm64_sonoma:   "74bee659db3d23a9b2ab54e30d0fad09f19d02fc035987db06219c9c363a4d1f"
+    sha256 cellar: :any,                 arm64_ventura:  "68e0846baebd4fa1d78da92c25f9924a805fde515c844cd1f77db75710568151"
+    sha256 cellar: :any,                 arm64_monterey: "156067d6a65fed6a0543026b924998f3d73ec95cb72388b83e925286206c6785"
+    sha256 cellar: :any,                 sonoma:         "909940767d0810a28b3ea1d705a6bb120d04dd544a10e0e86f97809009ccfa0b"
+    sha256 cellar: :any,                 ventura:        "8ef384866a339dcf0c9c362bca28808e7852b45fca87a3d85e86ad26769526e9"
+    sha256 cellar: :any,                 monterey:       "877ee8ebca792e0b199d05c85bc901515bec45aff0d02a05aa8f4fd37e9d7ad4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46bcd748249ed2c5a45159c55d2f5133ce630a57f7fc080c9f729f4ead3d13e2"
   end
 
   head do

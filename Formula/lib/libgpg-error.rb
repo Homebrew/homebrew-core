@@ -1,8 +1,8 @@
 class LibgpgError < Formula
   desc "Common error values for all GnuPG components"
   homepage "https://www.gnupg.org/related_software/libgpg-error/"
-  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.47.tar.bz2"
-  sha256 "9e3c670966b96ecc746c28c2c419541e3bcb787d1a73930f5e5f5e1bcbbb9bdb"
+  url "https://gnupg.org/ftp/gcrypt/libgpg-error/libgpg-error-1.48.tar.bz2"
+  sha256 "89ce1ae893e122924b858de84dc4f67aae29ffa610ebf668d5aa539045663d6f"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class LibgpgError < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "cc9affb619675e392885d29c117a08f4f761176b23507156474620566810dd6c"
-    sha256 arm64_ventura:  "89880157c066b02269207fb97fefc861f396c5787cad47089ef34c4a459ed282"
-    sha256 arm64_monterey: "aeffa4d66556e265070446531d84cbe6a953b66ea53c34f6d89637db22635790"
-    sha256 arm64_big_sur:  "1899eb9ba164578b36e85e97753ab4c09cbef831d0fa8f14e568530bc7a202e6"
-    sha256 sonoma:         "bd833dc2e4864adf415010b6b57894e46931beff8bb5c280fa8fb23fa0311b9f"
-    sha256 ventura:        "478d7c81b9bec50008638f93444ce1421b6ebbff07c23118587415ecfdabd79d"
-    sha256 monterey:       "be6a020de8279043f0fd123f32bc2681da17db2edac2bba50ca6c5565842877e"
-    sha256 big_sur:        "1bac110b0742324c549c26a76bc5b0f7702fd26dd3f72de773d356911184f7e9"
-    sha256 x86_64_linux:   "c108c343e2fefc5fd01043e153aacd26a32396984eb6ed4b68702116efba5994"
+    sha256 arm64_sonoma:   "a0ba26a324b2b0ecd2346f1c1075a7cec1b73029ae92321b2271de1a254ceb42"
+    sha256 arm64_ventura:  "84627e30a47510d90f048ce09b41a4c85950444d93f59b586cbfa12b86663670"
+    sha256 arm64_monterey: "46968ed0dc58494cfbd33ebea402c0ad15d8515aa9d6b49655e32a513889c4d8"
+    sha256 sonoma:         "5fbd068a04c0aba00404f7b69c5fb2b0bed32eb31eff35981583968dba072485"
+    sha256 ventura:        "9333a88dbebd98b41a07f3d68fc23099c686a53498a86cc74355f74ee7b6eb8f"
+    sha256 monterey:       "e1a2e37e62d528b0d512524248d8682180947eb043437f37b99af9a361c829dd"
+    sha256 x86_64_linux:   "5669f61dcc25f047eab9eadd84fe279af4cba2eff2e726043d84ee1fdf3a53e7"
   end
 
   on_macos do

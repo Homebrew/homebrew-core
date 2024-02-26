@@ -3,6 +3,7 @@ class Cscope < Formula
   homepage "https://cscope.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/cscope/cscope/v15.9/cscope-15.9.tar.gz"
   sha256 "c5505ae075a871a9cd8d9801859b0ff1c09782075df281c72c23e72115d9f159"
+  license "BSD-3-Clause"
 
   livecheck do
     url :stable

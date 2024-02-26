@@ -1,18 +1,18 @@
 class Thanos < Formula
   desc "Highly available Prometheus setup with long term storage capabilities"
   homepage "https://thanos.io"
-  url "https://github.com/thanos-io/thanos/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "6ad9755ba3f9c51bb96dbe2c3a10494b6d6d1db79ea250436aa51e783fde4abb"
+  url "https://github.com/thanos-io/thanos/archive/refs/tags/v0.34.1.tar.gz"
+  sha256 "511090dcc7e6a0a8fb4e7d9b07aa9e0f16a58861cbb86f04dcad2758816f3295"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b69c1cddad5adc3bc7a48c6165f54d9a95a5498bb7aee2982111b4cf4ab720c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29810ae735b212eb18f9178ff62e8f5b687373a36110652d7859e3483773456a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cbb84936e418921bd5c1ec58d82a20d307cdee115f64af55e5673a9c7e110ab"
-    sha256 cellar: :any_skip_relocation, sonoma:         "441561952db83696223d30e422e4560bd498927668afd80e477b4042306b87fb"
-    sha256 cellar: :any_skip_relocation, ventura:        "99d79d51a73a5800619e856f48c09d7ae6fe7493a5e02659eb5f22598fdb505e"
-    sha256 cellar: :any_skip_relocation, monterey:       "b806825a82849ba081418d2e6c3883d22ffcb7ea92705768c5642e25bd439360"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa62730f84eb041bb0814efe9aab9fe0a74e7ddab6c3b35756fc6f48046c0fff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "601aebece1734f6cc14b63907e05b6a5a17ddd9583162f1cb367635299b27538"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "955fbb8ea5d58536284d461b7211622171999c7c414aaad4dca9f8fd00234f7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c4b6a99199242735b51fa1611414b44f39c1a9b11d02d9cee743c670ea0df5d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "449a0d309aa17936ef7878f870b7ab169ba13e4d5f21f97cf43f88c83b5e11f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "bc2af5e0eab2050ef22b60e0d99242558a82829022539a2c6fed1b1d1ed4267e"
+    sha256 cellar: :any_skip_relocation, monterey:       "ef084fea3a456936caa01f783b70f6b8ab170f921034c1ac6041b8e0dd7ba60a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ffc4bb1793ec9b6a778474c9dc441ee8abc73c3fca6a04f77309721e8efa8a7"
   end
 
   depends_on "go" => :build

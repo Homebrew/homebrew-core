@@ -9,21 +9,25 @@ class Bpytop < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b4bb40e691ad83c8a37878d4927c4c4061d717d7c76badb196b8bb7f88f1c33"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b4bb40e691ad83c8a37878d4927c4c4061d717d7c76badb196b8bb7f88f1c33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b4bb40e691ad83c8a37878d4927c4c4061d717d7c76badb196b8bb7f88f1c33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "76b6191acb3c6d2c2745c557fd492aa44b6921e84427e00ca879e09ec652b9c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "76b6191acb3c6d2c2745c557fd492aa44b6921e84427e00ca879e09ec652b9c9"
-    sha256 cellar: :any_skip_relocation, monterey:       "76b6191acb3c6d2c2745c557fd492aa44b6921e84427e00ca879e09ec652b9c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a8811adf8219ded4489100cb8f0aed862a97e0861f7bd179a24c87b3eabc4f4"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "afbf743207adc75d2e3892ce97f745e488d10cf684c3403cb2bf8ca380413143"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd9246bfdd892cc310121f01b98ad28affb17a62e85fc9739a2b5d80be8f20b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3d37cdbe668836efa2cad572810831e376cfbb7e3aa5cd1d47591806a6fb077"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6adb154d1352cc284cfe07dc2a4832e56d702a065253c35955a89eded824fe18"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f1faa82258730cb0c6408b4906ecf5c48c0e11129c59bcf971fa5c394f5fd3a"
+    sha256 cellar: :any_skip_relocation, monterey:       "620f4bc5466211bea4b3bcd363f5a97a15ed6081d7d12fc8cb4998f54e36f392"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f053d1d4872dfbe70e7a432ffd4d80c0254369887ef65182673ac4e73ed16f0"
   end
 
-  depends_on "python-psutil"
   depends_on "python@3.12"
 
   on_macos do
     depends_on "osx-cpu-temp"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
+    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
   end
 
   # Tolerate SMC error from osx-cpu-temp

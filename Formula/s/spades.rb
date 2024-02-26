@@ -2,7 +2,7 @@ class Spades < Formula
   include Language::Python::Shebang
 
   desc "De novo genome sequence assembly"
-  homepage "https://cab.spbu.ru/software/spades/"
+  homepage "https://github.com/ablab/spades"
   url "https://github.com/ablab/spades/releases/download/v3.15.5/SPAdes-3.15.5.tar.gz"
   sha256 "155c3640d571f2e7b19a05031d1fd0d19bd82df785d38870fb93bd241b12bbfa"
   license "GPL-2.0-only"
@@ -14,23 +14,23 @@ class Spades < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, sonoma:       "2801af7d1693b0ddb1a6e0121633240f5128958f0ded1f63e5297fe0c6738147"
-    sha256 cellar: :any_skip_relocation, ventura:      "04556a71583e8f9a32f8eb0e68509156ceb41f801c7c67311ed5abee49c673fd"
-    sha256 cellar: :any_skip_relocation, monterey:     "20789d391cc248d051c8370922326ed590944aaf6bbdd822ae9ba506f73cfdbb"
-    sha256 cellar: :any_skip_relocation, big_sur:      "57f9773581ada2f7410f4b8a75e987fdb1571a95e32361780efdbec29edb9217"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ba08213dc4deed3d1ddc56d1a6a7c449c782f8eb1d5bc25fd8e6d50f356edb64"
+    rebuild 2
+    sha256 cellar: :any,                 sonoma:       "fe9990fdd0a2aed4be9ae1b409ec9ce7624fb67cecdaf9a93dc7a27e79a5d44b"
+    sha256 cellar: :any,                 ventura:      "7937876005faaaf6721f9aa34a38eaf46559863660b8a80f610cce1ab82e9eef"
+    sha256 cellar: :any,                 monterey:     "c81b55304bedd35d5b1959ab650f0d005d3fee2eadf6795fc3d69b3c5a4539b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3889b1e2c9a0a3f08f9e478cf370e078524fd2155150af7431866f4fca7c0557"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.11"
+  depends_on "python-setuptools"
+  depends_on "python@3.12"
 
   uses_from_macos "bzip2"
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   on_macos do
-    depends_on "libomp"
+    depends_on "gcc"
   end
 
   on_linux do
@@ -38,11 +38,14 @@ class Spades < Formula
     depends_on "readline"
   end
 
+  fails_with :clang do
+    cause "fails to link with recent `libomp`"
+  end
+
   def install
-    mkdir "src/build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "install"
-    end
+    system "cmake", "-S", "src", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     rewrite_shebang detected_python_shebang, *bin.children
   end
 

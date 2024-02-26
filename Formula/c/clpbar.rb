@@ -3,6 +3,7 @@ class Clpbar < Formula
   homepage "https://clpbar.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/clpbar/clpbar/bar-1.11.1/bar_1.11.1.tar.gz"
   sha256 "fa0f5ec5c8400316c2f4debdc6cdcb80e186e668c2e4471df4fec7bfcd626503"
+  license "GPL-2.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6475090688882a9c4e55d754641a2739da88bad7cc68b3b5825c0454e8bcf89a"

@@ -23,18 +23,19 @@ class Blitz < Formula
 
   depends_on "cmake" => :build
 
+  uses_from_macos "python" => :build
+
   def install
-    mkdir "build" do
-      system "cmake", "..", *std_cmake_args
-      system "make", "lib"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     (testpath/"testfile.cpp").write <<~EOS
       #include <blitz/array.h>
       #include <cstdlib>
+
       using namespace blitz;
       int main(){
         Array<float,2> A(3,1);
@@ -42,9 +43,14 @@ class Blitz < Formula
         cout << "A = " << A << endl;
         return 0;}
     EOS
+
     system ENV.cxx, "testfile.cpp", "-o", "testfile"
     output = shell_output("./testfile")
-    var = "/A = (0,2) x (0,0)\n[ 17 \n  2 \n  97 ]\n\n/"
-    assert_match output, var
+    assert_match <<~EOS, output
+      A = (0,2) x (0,0)
+      [ 17\s
+        2\s
+        97 ]
+    EOS
   end
 end

@@ -22,7 +22,7 @@ class MariadbAT103 < Formula
 
   # See: https://mariadb.com/kb/en/changes-improvements-in-mariadb-103/
   # End-of-life on 2023-05-25: https://mariadb.org/about/#maintenance-policy
-  deprecate! date: "2023-05-25", because: :unsupported
+  disable! date: "2024-02-21", because: :unsupported
 
   depends_on "bison" => :build
   depends_on "cmake" => :build

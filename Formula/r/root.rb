@@ -15,12 +15,14 @@ class Root < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "dacfe11fa048be0850bb3f8d6063b2eabd45179ca5e0db6d38a12b7a5723f942"
-    sha256 arm64_ventura:  "b3235f9c9d75696a6d257e934535382db6e951b91dde71f2b58421c8496f1398"
-    sha256 arm64_monterey: "2c3be78e473e1b9ef477403207ab51bac76bbce245c261aafb5ef7a6220614e2"
-    sha256 sonoma:         "3844e74c8b2a1654e2f5ad3dae992dca30c6e9fcf0f3a22c4484eff7ddc9bdf7"
-    sha256 ventura:        "a2e4a35baf6703261cec740f62aa6f6e49dc5a3f6b7bdd7144c56be4651c923d"
-    sha256 monterey:       "47d12445b293713b6b865bd1fcd8e020eef75e0cffae82a11110dae605d3888b"
+    rebuild 1
+    sha256 arm64_sonoma:   "92651641d4a0a409b2b8afeb1c453a1c78ba2f4acd54d000001d0fe7ddad2aaf"
+    sha256 arm64_ventura:  "82af4c41e86e1840f980716bf013bf7a64d01e99367c240215117aa23f2764d5"
+    sha256 arm64_monterey: "f354b81d7f4bb12ff44f521895a7a813f39142e11c2c8cbc2e8a0c727a847da3"
+    sha256 sonoma:         "2bce1c7477ebe8bc8241ac25e82e529b878310a264eb5e8f6166d800385ea724"
+    sha256 ventura:        "2e4442dbac74c3376c1d8117e5b1a9b3aeafe4c7545c6a406ff46ca0847207a8"
+    sha256 monterey:       "46c5f65bf53d139973a5730bb88ee6029b7133abbfa2768bdcf22605eee8c348"
+    sha256 x86_64_linux:   "c89513ccbb389583c3af24d745750a878f46473693ac52fdf9277d15cef62565"
   end
 
   depends_on "cmake" => :build
@@ -43,7 +45,7 @@ class Root < Formula
   depends_on "openblas"
   depends_on "openssl@3"
   depends_on "pcre"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "tbb"
   depends_on :xcode
@@ -66,7 +68,7 @@ class Root < Formula
   fails_with gcc: "5"
 
   def python3
-    "python3.11"
+    "python3.12"
   end
 
   def install
@@ -85,7 +87,7 @@ class Root < Formula
       -DCLING_CXX_PATH=clang++
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_INSTALL_ELISPDIR=#{elisp}
-      -DPYTHON_EXECUTABLE=#{python3}
+      -DPYTHON_EXECUTABLE=#{which(python3)}
       -DXROOTD_ROOT_DIR=#{Formula["xrootd"].opt_prefix}
       -Dbuiltin_afterimage=ON
       -Dbuiltin_cfitsio=OFF

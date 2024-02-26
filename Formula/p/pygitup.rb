@@ -9,16 +9,16 @@ class Pygitup < Formula
   revision 6
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a384990db1b3e3f2625f9226d38ca337adcf868077e85503350f799a27e9984"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed785f9a38575c102603254e759afa5ce86202c9f42204afc5c5730cf7cc1df0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2c3ea016f0a8ce1981d57d3a49cce5b2e96bc4a3e20e36bc5a7963791a5135f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "015a278ebff4ca3add1bb8ac5d2acfd0ba205e901e2e9f3052e9b26b2deb4d7e"
-    sha256 cellar: :any_skip_relocation, ventura:        "b05e762720ffb2d1629ca7fff66b15f3ad2e7f939548a2aa7c5f0b9d7dcb4e84"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2c8f7009e59e28941c4823fb94b217481a53bde505d9e172f4b6f3e3814e447"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe772ee98b9633d8d4bea9033faf56a4e47d67ea55fe149070068d03a9ea60c1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9c35855737998db174e1881211025f98056b88b317248d42a33357e5a1898139"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0ecfc67c1a56c0bb8b55a838cfcc925423757b6313ea72a805db661dc899dd3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a6160237c7def873073d438a0dc30e54783e00ec6aad65d234c810a43cb6aaf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cbe485e8436fbbc11e9511f13ceeec125f35ccad63847a6035127fbed0ddbbcc"
+    sha256 cellar: :any_skip_relocation, ventura:        "a4a8bc36201c800b95a4c52eec4cc7ee6347a51370467b432670152b0f71a198"
+    sha256 cellar: :any_skip_relocation, monterey:       "b756cd6c5d2e6719f9b099d320946574deff4a4679b6fbaf0a65a12765c7288d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d7b54ea93c598ebbf629b278b47f9405661dad87bc78f99024298c58ab8ec58"
   end
 
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
 
   resource "colorama" do
@@ -44,6 +44,11 @@ class Pygitup < Formula
   resource "termcolor" do
     url "https://files.pythonhosted.org/packages/10/56/d7d66a84f96d804155f6ff2873d065368b25a07222a6fd51c4f24ef6d764/termcolor-2.4.0.tar.gz"
     sha256 "aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   def install

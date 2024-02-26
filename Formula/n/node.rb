@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v21.6.2/node-v21.6.2.tar.xz"
   sha256 "191294d445d1e6800359acc8174529b1e18e102147dc5f596030d3dce96931e5"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -12,13 +13,13 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "09264777f1f64b4ce1fe0093f122b0a99528c28ad089469b643f1fe3e6011c06"
-    sha256 arm64_ventura:  "a8fb7b7984a56d01043d2d5e8c3c2dbbdd9f1f1d245fc2f3dd4bbb0cbc8e7fde"
-    sha256 arm64_monterey: "970faa32926c39a96e98ba6cd6ceb164fc09bf2e9ccb574fe1bc9f978c35112e"
-    sha256 sonoma:         "92c466f9762892b47c40a4a409a5a4da2d6d44e254b679c3c5291788f4569718"
-    sha256 ventura:        "bef0767d92fb30cbf98a75aa7d7cd4790d352f3b9a40ec8dc76356000172788f"
-    sha256 monterey:       "1fa17cc6f4a1bf965529eacb505cac37d921d779f61eb51c3e48996c91746d41"
-    sha256 x86_64_linux:   "6cb6a717d4035c8d171d9288115eb0052ae59e5d44522bb84165e4394a09f4c8"
+    sha256 arm64_sonoma:   "af7aeba413b3f8891a6b3bccc0ed71f6b31f68f1de393264847774c38b626bc4"
+    sha256 arm64_ventura:  "0ba24079a97ff053c81170ac77c02b37e3f41e128085b15d546847dd0749e8cf"
+    sha256 arm64_monterey: "3f3dc926924f4f10d4cd635662754d67e5b7a2df0d0ab5bfb63051200f592b5d"
+    sha256 sonoma:         "f9501173c3a0426f4f801a511665f8acb97a894579cfdd00fd62bfb9cc0b791e"
+    sha256 ventura:        "63e4cbf1270f55dcdd7793562dca8e685a1d5fd56127225cec60932b8baeb773"
+    sha256 monterey:       "30596e0df1906b4a46e51fc213e8071691363841118df86e4e4d11110f2a35ca"
+    sha256 x86_64_linux:   "e6c2e083aef80f89d269058c7090d15a19d1282e90dbb6e6357a25794c88548e"
   end
 
   depends_on "pkg-config" => :build

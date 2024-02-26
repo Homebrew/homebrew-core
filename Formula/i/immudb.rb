@@ -12,13 +12,14 @@ class Immudb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "834e9427584a33dc302feac93faec7f206439500d8c2e123e7adf06659cb0fcd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d5d4eef5cf3c16a668393215399d58e17f11a2cad00bf1946bd61a773fe6889"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "058de2088ed836a8cfaac661568c649c1f6dbb4070b3cc0de73466fe23e6eb17"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1514af18dc0a24acd9e4432b92373e22f00603420a6fec4892d53f9a12e13202"
-    sha256 cellar: :any_skip_relocation, ventura:        "395b96224666a93a8559f4e139da56af4bf8833e3e57aa9598a8baf677f31965"
-    sha256 cellar: :any_skip_relocation, monterey:       "2df58871fb914df342910ffc5f2c2fa25c889f5b5014ab1e57bf4274100a057e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d979a4d4f3969f537aba36f911653acc53f60095f5b7c34d62f206cfc7376b5e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4868d088f7b84a0f9d01676d3534a7f2a127da182aa6a17208a29e8e4dbc462e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3e16ef882d0f581a4ff4cef7b266472ef56b971141e0717d2a27e05a5ca1bf3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f014f55b7f4982482a5863b0ebb613d89dbfa759b1ecdb075c52d160854d724"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b23bda5c964fb82bf55d3f225cb819ec020aef411e75e89336e2f0a2110e43d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "943458682676d00c9c77cd3dedbdfa5accb4987c0b1d556be62a2ca2bc9eb968"
+    sha256 cellar: :any_skip_relocation, monterey:       "74f574f6eb18f5d4d23eaf5abd1951b555d6df10d88cdcc18812b284df4c3423"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1637ecfcd2ab18cb9571e104d27d57b3544527f6a497c6675bad47f1032de2cc"
   end
 
   depends_on "go" => :build
@@ -29,7 +30,7 @@ class Immudb < Formula
 
     %w[immudb immuclient immuadmin].each do |binary|
       bin.install binary
-      generate_completions_from_executable(bin/binary, "completion")
+      generate_completions_from_executable(bin/binary, "completion", base_name: binary)
     end
   end
 

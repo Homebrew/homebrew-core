@@ -4,16 +4,16 @@ class Gspell < Formula
   url "https://download.gnome.org/sources/gspell/1.12/gspell-1.12.2.tar.xz"
   sha256 "b4e993bd827e4ceb6a770b1b5e8950fce3be9c8b2b0cbeb22fdf992808dd2139"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 arm64_sonoma:   "c3073d875233e0bfb03722e4d5e815b549a8a8eb14e5262a7e6efa342e463895"
-    sha256 arm64_ventura:  "1c27e15fc2e539e47a8fe8c0091d90b8098e60a4bd2fcbc9022e041450859da1"
-    sha256 arm64_monterey: "4a1a9c85a603dd2f18dc24a0206aaa2912e8a7103cee2b14015e50349512694d"
-    sha256 sonoma:         "df2bb7f2f847a8df3a9d3ab123b91406bab7c3c1b758c2852a54468ff72edfff"
-    sha256 ventura:        "1ebf779b92af0dfb394def7c5923a9a64f20772e2ad7dbead93cfce181a20ca6"
-    sha256 monterey:       "5bce087e7c18df26706677e01c7beb7b33da2fb657b2baf012be9e1b7517e4f9"
-    sha256 x86_64_linux:   "58ff08f8cc41b9d4e02463836d5fa162be9cb810bb57c4a3c13319d85dfa30e7"
+    sha256 arm64_sonoma:   "e3c60c553bc207bd79782ff8057f1a2a100ae83abdea680e07a80890d409de6f"
+    sha256 arm64_ventura:  "176a3af6ec71a5fbe2dba3c9ab5f931e4946ebbd9786670aa2c5bce827065d95"
+    sha256 arm64_monterey: "ad975f225b5ba1d0b103ec980f0ab083e3c48355e1cd95d3d9ec5924b29830ac"
+    sha256 sonoma:         "c8e7040dbfa7da13e66c7741a55c9d815dfd8ef5f17ab43f5ddfab3d5845eaf1"
+    sha256 ventura:        "c1cf683b898ebc84f913f2f44e83c8f8b89508e67acc691981901bbfee3df337"
+    sha256 monterey:       "403f2159375a438c99743db41c1275e27ab0d6b26c8ee6171e344dff847c02fe"
+    sha256 x86_64_linux:   "1e74d8a181bc1e6fc55d1eb36a737728077969bf83e6ea38ce643abf50df2a3b"
   end
 
   depends_on "gobject-introspection" => :build

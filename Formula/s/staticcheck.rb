@@ -1,21 +1,19 @@
 class Staticcheck < Formula
   desc "State of the art linter for the Go programming language"
   homepage "https://staticcheck.io/"
-  url "https://github.com/dominikh/go-tools/archive/refs/tags/2023.1.6.tar.gz"
-  sha256 "c3a45209348ac0a6ea2018f4b25d483467ad5800ceff483834bce6345256fa62"
+  url "https://github.com/dominikh/go-tools/archive/refs/tags/2023.1.7.tar.gz"
+  sha256 "9e4c710e79f9b18626ff33d225587518f2005ce9c651eda3b2fa539ee4677a20"
   license "MIT"
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "687dbae190708996143671cfd2a63fe554ea28a2e1fd6987a5e10c853c684c07"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ae6211403749353bdd5654d5f13b8666b58e6563aa60dff6e024e8429878cfe"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a6e9b2ddaa0155244d34576ab9209c59b0b41b5010673b1b06b96597d39003a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "bc0680cbc94e68fccdacf9464061cfe78a613c5abc1c8c4f1791f429be9cd6db"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7e68cb01a42bee54283787f4e9f49049ceb4303fc53913fbce98b14243f590c6"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ba70ee95d55da4aec3b16548e285fecf8ca8010206f4e0e2ecb51e6cc044028"
-    sha256 cellar: :any_skip_relocation, monterey:       "4736fb3ec1d4c271e32c8212306af9acfe3dd5af4001976e9efa69be5e39d4b2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "aa81205f5b2af5cfac842acce27c53e0ce53cde22063088b171b139df7666d5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8f954c7cb683abd682b8a7b21170a65e15004b422ac27e157a93e7a5d42b2dd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3cd68c06d04557cc5051dfa3730a377228fd94f2b89e476a637ff791b09de28a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1e2d7c0f62b84bb06b0c6a50890d3f3fdf625e687056e67e79d45692529c0692"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "db03de30bc6dc6062411795ccca39cc7f57f32c087c2dd4c8e8c5041b6bb6ec6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d175335b9ffd6fd4fb1308ff7fd1b749378c90cbeed7ad67300daaebec301973"
+    sha256 cellar: :any_skip_relocation, ventura:        "98c05d2ae5250f0f208c4ef8053ae6ad72398a6c0f3a98d3fa046ed9d05d361d"
+    sha256 cellar: :any_skip_relocation, monterey:       "7c7e41b410c98982c90087cff787edcd923ac64345bdb278faf5031557b746dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73c95aa66b477825604f646e45315c9e198ff9c2c82a76603b7eb481ee4bd53e"
   end
 
   depends_on "go"

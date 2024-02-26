@@ -9,19 +9,18 @@ class OscCli < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c4db6d48a779ce4d15f5f612a2457b29e76b5de0ed50418c514f69a20cca79b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc3ee661e0d031be8884aea33f31ad361788067046e780a43b88c1431d236a75"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "39f71ff5fff8dd5fa84d5e210dac42d48d718f9c023669040ebc3fe68ee29f50"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17305708af6e7bf638fcf605417debcbd02a51027acf27e427ce534b677fbda5"
-    sha256 cellar: :any_skip_relocation, ventura:        "ab3454f880b08cdbea079bbdde3c2650c6ae1cbf18b0b497bc138a9e7dd37193"
-    sha256 cellar: :any_skip_relocation, monterey:       "a2661194b8b3d773d39580b8a0cda53d1896b6fc7f8166dff8719c20dcf50d67"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa7cb00096003ef740a0ddde973cf1a7e52af1741b7f700141a1ce8579e63a81"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bddb25f9c950e14b4d36720e2d7b02fbdedc3abf3c4e90340854531112709ebc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a03f07487ddf29d015d32032b5491b735bde79051ed235e7abc72d76b10ba681"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a897fc9298436460cd5bc0424fcabc725bc60b21e24e45680db4d29f90c0205b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "56bc0acb572f109f04cf6e1ade8501a800520657a115e7fbb74fd2271d9f0ada"
+    sha256 cellar: :any_skip_relocation, ventura:        "3db342c285653ea0b425c1f81634f952fe6fe61511a6708216b0668d0906c5e0"
+    sha256 cellar: :any_skip_relocation, monterey:       "ce047e958fbe99ec9f12bae2ca8d696f0226b6b557f3d724de2a80a8d8f4b3ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "644dc2376972c59ad1c29dd559095237d3fd51c901dff58260a5beb70103cd5f"
   end
 
   depends_on "python-certifi"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -49,8 +48,13 @@ class OscCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
-    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "termcolor" do
@@ -58,9 +62,14 @@ class OscCli < Formula
     sha256 "aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"
   end
 
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "xmltodict" do

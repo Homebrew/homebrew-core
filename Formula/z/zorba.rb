@@ -4,17 +4,15 @@ class Zorba < Formula
   url "https://github.com/28msec/zorba/archive/refs/tags/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
   license "Apache-2.0"
-  revision 18
+  revision 19
 
   bottle do
-    sha256 arm64_sonoma:   "3a4731e66825f7baf0781385e6ff7fa1c0908dceb5154715a0126201d43cc055"
-    sha256 arm64_ventura:  "97f108986cb35b6a09113fb9fb18b5e40e6b2321212981ab1eeeedf8830fa46b"
-    sha256 arm64_monterey: "c1a3ea5f34bb0523a68124e5f40a95e9048b063c37cf041363fe71131efee4e1"
-    sha256 arm64_big_sur:  "785f9a1aa5f5e2823c8bea4b1853b43af2817b407ebbd54e8dd863afe1b398fe"
-    sha256 sonoma:         "d06711ee8347f22f2f9e4dbebe179467d2be03d26a54fa0a93dfb99d6cfa11fa"
-    sha256 ventura:        "c3ab863eb030b2adbc8b033040319b67cc0fe9a93c1c97554d5347559a66d183"
-    sha256 monterey:       "0ac8239e4e37f74590940e3c5f8e37202aa6942cbf241e3d5827241c205a7faa"
-    sha256 big_sur:        "a4baa74dcb62830f6bbc21a224fece87287d372b9ab1deffd3c3b437929073b6"
+    sha256 arm64_sonoma:   "76020d9803bf9f2c53dfe4abed2556ecaffa1a76da175c3d1212798b4b6bb5b4"
+    sha256 arm64_ventura:  "1d4b6b753efab82657b360c0e2c7a42ee1b7b4e4ce9b3a36175a6986bdcc70dc"
+    sha256 arm64_monterey: "d76750b3bcafe33f0a73276d0f6f1af6e4e20bc852c9051d5721bba72847545f"
+    sha256 sonoma:         "888b611e99c01579f1766d2a4ac32580b67e8720eb8fb16f2bca1734da4ee131"
+    sha256 ventura:        "52dff33ef2a07234108bfa1ae7f7147d993f1a1fcf27b9d4be36b5a587f22b48"
+    sha256 monterey:       "65458012718d8c612cff221ec17e165504d6db79692fcd860a0cf4b757bac5fb"
   end
 
   depends_on "cmake" => :build

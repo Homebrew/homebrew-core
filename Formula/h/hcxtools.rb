@@ -1,19 +1,19 @@
 class Hcxtools < Formula
   desc "Utils for conversion of cap/pcap/pcapng WiFi dump files"
   homepage "https://github.com/ZerBea/hcxtools"
-  url "https://github.com/ZerBea/hcxtools/archive/refs/tags/6.3.2.tar.gz"
-  sha256 "555e46a59df6a77c5aa73b99ffa8c1e84fa79e24ffaf5180de1d3a7f4ab7a470"
+  url "https://github.com/ZerBea/hcxtools/archive/refs/tags/6.3.4.tar.gz"
+  sha256 "1d507688bc919b970734f853dd659d64d54e6e49b16a2c6e55d903dff2b2a957"
   license "MIT"
   head "https://github.com/ZerBea/hcxtools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e579104b0f72973624df8560b968c59a8f8d2d039c891d920cfadc736fe60234"
-    sha256 cellar: :any,                 arm64_ventura:  "6a9f12f80529e69a9bc098ca50a2d8e1aace3358dabdc6b25d5c4ab5da31afbf"
-    sha256 cellar: :any,                 arm64_monterey: "d020750ff76b0f5f480aa1265d71e9f438b6098acd7232050ec7c73d28cba0f7"
-    sha256 cellar: :any,                 sonoma:         "4581e01bae79aec9d243c3b640324fb067d7762f989d0eae0cd2f75e6448dd63"
-    sha256 cellar: :any,                 ventura:        "a205c592f414ba685c499963924c60ed175b18ce237bb7949823f6ca3b25a595"
-    sha256 cellar: :any,                 monterey:       "c69760226d8750516f2ba5b08c7a0771d37e686f05503120747c173fbcc85e35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a17118b8277136578a40b7ddfc5bebdb5c6aeffd8565d92fc14c1f1d3585ecad"
+    sha256 cellar: :any,                 arm64_sonoma:   "6e2c39029b7060c87e8ec1bfb6e71eeac1da42971d775b44f022f69e7968ce12"
+    sha256 cellar: :any,                 arm64_ventura:  "13df5da62f36c0065a3939bc8be5484c6578bfcab67049fbfd3a836ce747ba11"
+    sha256 cellar: :any,                 arm64_monterey: "d1c9dd58578e4ae79e92496d23e482f05eb6067269d7202595162793bfb7344a"
+    sha256 cellar: :any,                 sonoma:         "772803944814e5a07b2430bc92c7637a17fbff0f4e8714876da7845a2822f647"
+    sha256 cellar: :any,                 ventura:        "86ff1f26722c263873311920e7da72ba34f1b5e0f1931be22baef828ae9ef55b"
+    sha256 cellar: :any,                 monterey:       "205baf524f5e111a5d1b9842accd8b0729134db969830f000ebbfe3f94a940ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f43a8a590d5f33c06511c8baebcaa2f5a4463a03183bc6081632bbc50eb0fc2"
   end
 
   depends_on "pkg-config" => :build

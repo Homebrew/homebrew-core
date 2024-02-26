@@ -4,6 +4,7 @@ class Widelands < Formula
   url "https://github.com/widelands/widelands/archive/refs/tags/v1.1.tar.gz"
   sha256 "6853fcf3daec9b66005691e5bcb00326634baf0985ad89a7e6511502612f6412"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -12,13 +13,13 @@ class Widelands < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c0f1eb41f1ef1f6b359fb128e1ad3b0023532ab90188e7c8fd4843763f08b942"
-    sha256 arm64_ventura:  "a5af48e0bb4984778e02feb82153bb26ffb340d69411bde7a76a7da63b512a77"
-    sha256 arm64_monterey: "4390c9f4d380a0620b9111fef12dc43bb89f7d892524ebae56282254ef53477a"
-    sha256 sonoma:         "1a1167910481b60ae611c2095c42b9a6be21cb89b330d918842abc42a3432a61"
-    sha256 ventura:        "9580d60e79faaa491706b454e10a6c2be6ba016243d771251f491d8788615d1c"
-    sha256 monterey:       "d0cb3c9a947a84a8faaef591a67f1c26132aa9858bb862b971a9b7f806f6d05a"
-    sha256 x86_64_linux:   "aefc3bfe905cd517aa49229c59c19dc292f32decc8ef0d58fc91afa3631f42b5"
+    sha256 arm64_sonoma:   "0ac47acf86b2646cc1f020c0a6c482481f78eb03aa5e8ef7ca1902ec245978a0"
+    sha256 arm64_ventura:  "3b0d1c2543c3c6d4529d7f44faabfb1ea2a95f173155962d3876c466e9a0a613"
+    sha256 arm64_monterey: "30ed1d2fe00dd4f45f66d101ff0be92c2c8f6306d8df50082b4fd4fc09ca222a"
+    sha256 sonoma:         "91a68cc33fece2d9213ac61e82ca72fab11873646fbe1fbe3108ce2861c16c9d"
+    sha256 ventura:        "4282349d1de5a74bb211fc363042f6e9f8ab37324b31dfb9393da19b8ac2d074"
+    sha256 monterey:       "ea2b0dcaaf82bb9c351246e6254ad28709b5a57cf0262f7464dcb5fddd659245"
+    sha256 x86_64_linux:   "676ce11d380bc21483c452409a2d8a7f9508393068a26263ef251e43d26b63e1"
   end
 
   depends_on "asio" => :build

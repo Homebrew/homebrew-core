@@ -1,38 +1,41 @@
 class Glfw < Formula
   desc "Multi-platform library for OpenGL applications"
   homepage "https://www.glfw.org/"
-  url "https://github.com/glfw/glfw/archive/refs/tags/3.3.9.tar.gz"
-  sha256 "a7e7faef424fcb5f83d8faecf9d697a338da7f7a906fc1afbc0e1879ef31bd53"
+  url "https://github.com/glfw/glfw/archive/refs/tags/3.4.tar.gz"
+  sha256 "c038d34200234d071fae9345bc455e4a8f2f544ab60150765d7704e08f3dac01"
   license "Zlib"
   head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a57c82ca524c088bfe769b0c82a117723b808d0c6f12ed58142623c7d49c885b"
-    sha256 cellar: :any,                 arm64_ventura:  "b8be90143734ec60dba41c54002de776d88cef22f9cbd6bbbb5ff62c2a157247"
-    sha256 cellar: :any,                 arm64_monterey: "0977c638c0f0e778e98ef26708100dd3615976090f6a24b7601ea0f8f5710d26"
-    sha256 cellar: :any,                 sonoma:         "3f7b8f7cb5504c67686430ace522917ffdcd23133bc507d5b626ab11cf7b06fb"
-    sha256 cellar: :any,                 ventura:        "df455405d14c30aa1f5db93eab3084e011bb113bd6a241a44f996d72e9570184"
-    sha256 cellar: :any,                 monterey:       "26ece97f71aa7e287e532307d4d54baf569f9a25704cb67cd18e9b5f5e07d3f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e95b38b2877d6f826767c69c3bd841187665af7cf9f8a5a225215db44669d72a"
+    sha256 cellar: :any,                 arm64_sonoma:   "6651050d28fe038e7bfd4e8fa1a5693574eaa2d75c91718a8f676efb82dc34b6"
+    sha256 cellar: :any,                 arm64_ventura:  "549762dd442f10d30c7d093e6aff9ffdf8ed669979da6441c2ba3cf25c41ca8f"
+    sha256 cellar: :any,                 arm64_monterey: "32d34c5cb6a5e02b8af0045e8a9fd4dd505f6c589102ce97eab9a5e40d5dd9f7"
+    sha256 cellar: :any,                 sonoma:         "ec625c2a297201e2d71aae74bb688a18ce97039d9838c57d013ae8b9df3632fa"
+    sha256 cellar: :any,                 ventura:        "b49affc8b0d66cfa2fe2648cfd959bc94fe7a77426c4aa9e1a9b0dcfc7f2b398"
+    sha256 cellar: :any,                 monterey:       "211745327a975a1767ad6110a7150df16526e8f131ca9f1c196591c4d86eb9fe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "635be56f472665900647abe79eeaf8403c194f211c684bf8d62271b9bdf33a9c"
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
 
   on_linux do
     depends_on "freeglut"
     depends_on "libxcursor"
+    depends_on "libxkbcommon"
     depends_on "mesa"
   end
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DGLFW_USE_CHDIR=TRUE
       -DGLFW_USE_MENUBAR=TRUE
       -DBUILD_SHARED_LIBS=TRUE
     ]
 
-    system "cmake", *args, "."
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

@@ -9,23 +9,31 @@ class Doc8 < Formula
   head "https://github.com/PyCQA/doc8.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcab8748ce6d8189bca884ce88ab7196b44bb73ac97d790180366458f8fbb243"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "829b928634e11c99d75b28ad3ae3922d718b706363e875581e18779e6d835adf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5492b0b1f69c7da9031822ad056f5d226c4483ea7234b3473b88d5893d961801"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e50e5e4ad8474f92edbba636a15dcb26f686bad8075b93db4c91901cf1eeeeb"
-    sha256 cellar: :any_skip_relocation, ventura:        "9f9c957149c0f97c629a56469cb7d454e6822685d0e1abd3245d55a9e4419eef"
-    sha256 cellar: :any_skip_relocation, monterey:       "fc8fc1492606b7fcc5d49560b73171729f4bf0cdb5258c2a8aa1759306eccb5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9f92b4c8a1d56cfbb40e073702afd85d6753867e1cf3391af542f1c9126d919"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "19afe5fe6d519aa6f95b9bfcdc03217d80e1eef12845f1cf4a6df6666dd13be0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34c2af1d4bcaceda69f99623f6477f10338e6c7bfae75e4747a761d4e27d9c01"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f243afe79d6c21dc8bdec9cb3dec2fe28844b7f9dd7540f2d361b98e4603f3af"
+    sha256 cellar: :any_skip_relocation, sonoma:         "97589fd0e5a9ff1e28462a7f57dbb74cadbc8f50fa665972c7dac7e6a70ea2fa"
+    sha256 cellar: :any_skip_relocation, ventura:        "fa252efb596300267b70559c70d5f9ee051303ddb8d1f96e36d6491b6ffeeb97"
+    sha256 cellar: :any_skip_relocation, monterey:       "b87a1b15782d7290d386fae72081a3b2f1629cb276aa5292710940c31b794ef8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0be4c5cee6cd61e606a920a4803c9dbe4ca30c65b340679408d5f579a4219f29"
   end
 
-  depends_on "docutils"
-  depends_on "pygments"
   depends_on "python@3.12"
 
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
+    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
+  end
+
   resource "pbr" do
-    url "https://files.pythonhosted.org/packages/02/d8/acee75603f31e27c51134a858e0dea28d321770c5eedb9d1d673eb7d3817/pbr-5.11.1.tar.gz"
-    sha256 "aefc51675b0b533d56bb5fd1c8c6c0522fe31896679882e1c4c63d5e4a0fccb3"
+    url "https://files.pythonhosted.org/packages/8d/c2/ee43b3b11bf2b40e56536183fc9f22afbb04e882720332b6276ee2454c24/pbr-6.0.0.tar.gz"
+    sha256 "d1377122a5a00e2f940ee482999518efe16d745d423a670c27773dfbc3c9a7d9"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   resource "restructuredtext-lint" do

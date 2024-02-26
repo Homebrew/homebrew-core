@@ -1,4 +1,6 @@
 class Yamllint < Formula
+  include Language::Python::Virtualenv
+
   desc "Linter for YAML files"
   homepage "https://github.com/adrienverge/yamllint"
   url "https://files.pythonhosted.org/packages/da/06/d8cee5c3dfd550cc0a466ead8b321138198485d1034130ac1393cc49d63e/yamllint-1.35.1.tar.gz"
@@ -7,26 +9,31 @@ class Yamllint < Formula
   head "https://github.com/adrienverge/yamllint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "16120f61c559ec5fd83bb28d110b265d7bfeb38fb5f6ae3958b6edddc3836fde"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9ede8ae30ddc0615758e87836e91d84e712616801d17c0ff0ae1ebb737f4ae7f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee60920ab2ac09300844b9a0ddadef8b212d331e77ad00a3a8d163ce4651860a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3a9a0bfa4caf102c09649e2c5ef5d8c33da13ffc0390c167ed6b4b35b8715b5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "8d1074f726fc3dce640a3c19542edcac8bfd67676508c43879ed833d919a12b1"
-    sha256 cellar: :any_skip_relocation, monterey:       "9c609546ff7edd2d308ec5dc3e49676eeab8eda9ef9211571aadeeeeee74920b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8799f333c63d658c4dd6d87113fab523b23b8e41940e869c50e4205609145bb7"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "f4c04876473720910f72e135311c05d3fefe3208bba7d90e7904cbbc2f154051"
+    sha256 cellar: :any,                 arm64_ventura:  "55c913a5745760a8c12f537a3c67fa1e97dd8dbc8e8ceb4ef7bc87d27b116279"
+    sha256 cellar: :any,                 arm64_monterey: "2698561d2192e10a5566a2168f6ec3ded2bc5416970967b3667408d144b6e497"
+    sha256 cellar: :any,                 sonoma:         "b7b45b6cef591f8f02529e510315543830b33e4de4827fbffb1deed4c8e1c30c"
+    sha256 cellar: :any,                 ventura:        "9b3b376d46761939812fb46be383f62dda5370417a6968bef9043ea701dd8be9"
+    sha256 cellar: :any,                 monterey:       "abfd6d24311132e574b45598a59b44f07d48dc35f5e383eaad45f793fd49fc04"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07a1c2f2e7b0f719576acf927daf06638605e873bc72ccc862ca3e0bf28faf64"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "python-pathspec"
+  depends_on "libyaml"
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
-  def python3
-    "python3.12"
+  resource "pathspec" do
+    url "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz"
+    sha256 "a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

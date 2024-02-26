@@ -4,19 +4,17 @@ class Zk < Formula
   url "https://github.com/mickael-menu/zk/archive/refs/tags/v0.14.0.tar.gz"
   sha256 "bd96f93d50e2e72ce05f36c3dab5b7942ae205756f26d4c68ba2a7ccc783abc8"
   license "GPL-3.0-only"
-  revision 1
+  revision 2
   head "https://github.com/mickael-menu/zk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5b642fa155209f8d1ca526c4c465957b109a888b74261041b770cde5445591af"
-    sha256 cellar: :any,                 arm64_ventura:  "4971122839654adbff8642e44ba166117cbb09f53a4ee35cb3bd73c1c32625dc"
-    sha256 cellar: :any,                 arm64_monterey: "fa87223acb14ee1d33b5493498b19380b0b4a94c3bebdf2faa64e0bf3335026e"
-    sha256 cellar: :any,                 arm64_big_sur:  "ba7dec1077c88ec64205cba25cdae02518ba69507ee9acea84358a130b25858a"
-    sha256 cellar: :any,                 sonoma:         "8154b7c0242db67199e3348a27ff99533f989d85af9d62ddff17c98ab87d598b"
-    sha256 cellar: :any,                 ventura:        "a1e96b6d47ff1ce7316d12f0d659db84885c7b9c9f752186d6ab875d78884f2d"
-    sha256 cellar: :any,                 monterey:       "83b294c1fd7da4e5976129741a8abc9d8fb8d8a96ddec7d4d8e473b2c79d0720"
-    sha256 cellar: :any,                 big_sur:        "59becb9aa1e9296c69a713b57c2fa4567170bf00fc0c77ea2b33525be8d90f63"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92e8999c69b2a43d1ce03a54a0cc2c6cc87e2741419c9bff24d96b4fc9075afd"
+    sha256 cellar: :any,                 arm64_sonoma:   "3ab58eb9d649bad4f30052de7eb9875b186d6aa69b57c489c19a6eba6397b608"
+    sha256 cellar: :any,                 arm64_ventura:  "1fdfd9fc01e2561c0bf16bd415da539afecf643552097523b53ce8e4407ccbf2"
+    sha256 cellar: :any,                 arm64_monterey: "df2f05d38498a8bd1d4e7a975d7e50b389f4432fe1ffb4a3a259e2da5929aa3f"
+    sha256 cellar: :any,                 sonoma:         "55cb1cef218ca538adf377f373b8f5cd95685fa319cfc7aa53ba975323bb65a7"
+    sha256 cellar: :any,                 ventura:        "f84f2d2a5d443a8715e658e651cc587fbca96129a10401ecd65e72846ce60304"
+    sha256 cellar: :any,                 monterey:       "d465773ec91007d9fcd6cd4d07867b42d51b2efc2998ca55fec7911b93b929ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e9be7234f54efdf2192cf9346b755df13cf99df1a54a8cfe332179035f2d043"
   end
 
   depends_on "go" => :build

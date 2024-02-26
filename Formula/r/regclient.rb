@@ -7,13 +7,14 @@ class Regclient < Formula
   head "https://github.com/regclient/regclient.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d01e26ad3c73b4633712f58787c4ae7c3d0f1e9c13367d65a38a717c19f24ef2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4cbc8116143d082f423387e28ebe8454b4dffcad3ecf99531f8d93868a23b9ab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f2251f34df4a20f8cd8067d04030ffcc4390a6d024aeee63851783b44ad25f6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5be21f1430404a4ce876b6664aad2265055332b0d4b77e050372dfa52d2bbba4"
-    sha256 cellar: :any_skip_relocation, ventura:        "ebe3d45dac76e89c7ed76ac46bf867239f359d048381e44e2020405dbed0c477"
-    sha256 cellar: :any_skip_relocation, monterey:       "4665393cda27ea6cf9356fc9c37a3749c993c144616c69b06c7776eaa7886a74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64f9baf34e3bb77e192f1baef0b01d4b53bdae92beffcb062263206b9e2698a8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "20ab870ceae6867470a3516c20f67e6d6f5d28622e04d4f169c4f7d5063e1a32"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dde61df5bc145c429a90be9fdcc9b88ff10dd45f6b45e6b6fbd0c87874e93bf6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6629c61bd01f6ebb090b84ac9ec7b7067bde3dc7c5dcc354e9c9572cd514d8e6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "455bf06adedcbd147efb2d462fba441426b8a653a900758ed6ec7fe1f88c0981"
+    sha256 cellar: :any_skip_relocation, ventura:        "a71391a7306a2395592a50676763b96803d56bc9194191dc925cb4b5a2aba656"
+    sha256 cellar: :any_skip_relocation, monterey:       "28050f61b77ad1b3c7148350c3a43a0deea6b4bdfe89b505e9ed172427fe0a17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e42858d0038f19e35dd2a3879cdbcbdd99555520ece15b19f70351e2e63a343"
   end
 
   depends_on "go" => :build
@@ -21,9 +22,9 @@ class Regclient < Formula
   def install
     ldflags = "-s -w -X github.com/regclient/regclient/internal/version.vcsTag=#{version}"
     ["regbot", "regctl", "regsync"].each do |f|
-      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/f.to_s), "./cmd/#{f}"
+      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/f), "./cmd/#{f}"
 
-      generate_completions_from_executable(bin/f.to_s, "completion")
+      generate_completions_from_executable(bin/f, "completion", base_name: f)
     end
   end
 

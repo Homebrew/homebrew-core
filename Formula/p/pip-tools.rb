@@ -8,13 +8,14 @@ class PipTools < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f39393f494c9a6529e2a97fadffe2ecca281d8741c9e1e2d7ef86d29fc3d1eb1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37f7212ae928eb238cd0b3951cfeb98adf13419355bf2a766142df4c8447c464"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dea58d1b2b6710d06da1656b3b308fd4fe8ecf0e8a55aae3191da7a891293975"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cf758395a955a5678460ca49855b9d29121e9210c6be663f2d5904f90f613a98"
-    sha256 cellar: :any_skip_relocation, ventura:        "e496a2fe51c3b67c84842aaef935c697afb7854380189f5f979dc06b70a2f1ec"
-    sha256 cellar: :any_skip_relocation, monterey:       "2fc7fb1ad18b6bbf12eed76c4a7dada743317c9151d5b1e500574953393126b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b33af6e354030af45aeb9c5162ffd652a130fc04b1cedc0c61e430103857ee2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eafbd53745fde7bacf6f8ce65f89e066413df5e4596d885355e3f6a09eb14614"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "727ea69dea29e662df1aa145e8fc52ac1dd0a12ee87272071a7add38ef0cecd6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9a18cb803739abf71669f6fefbfbdc23a7ebd222048812d7818d336b636d61b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ba294995ae872965c0154dceb684be2feb05f074969abaaac7cb57fb4795b44c"
+    sha256 cellar: :any_skip_relocation, ventura:        "2c28048695427ad498e31f0552c79bf671e9d9b672f3f582d9b879ccb12f43a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec8f3c3637c71a6a5e50789df4d437043130bcdb9db32e67ab237b336cab11ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "08438bf3257412842a783e3c98e4261b19973506adb9677fd9e1c7ab5d0ccd96"
   end
 
   depends_on "python@3.12"
@@ -53,7 +54,10 @@ class PipTools < Formula
     virtualenv_install_with_resources
 
     %w[pip-compile pip-sync].each do |script|
-      generate_completions_from_executable(bin/script, shells: [:fish, :zsh], shell_parameter_format: :click)
+      generate_completions_from_executable(bin/script,
+                                           base_name:              script,
+                                           shells:                 [:fish, :zsh],
+                                           shell_parameter_format: :click)
     end
   end
 

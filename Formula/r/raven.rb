@@ -8,22 +8,19 @@ class Raven < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4c6cccba9c9b787eb326a83e8b453637ce358d64e75f82b0a9818ce9a13fee9e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5a9ede30f8c5508755d4bd69a7077dcdf5de41ea3dad8c5d84e0e8d5bbe80dd0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "41abf1964933c140013642bd17f92ff009376319efd35be71c534edf9a50dda5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4932262d06e3373e152a1b3b47911508ef410bf605ba462157a15fb1f98cbcdf"
-    sha256 cellar: :any_skip_relocation, ventura:        "302824e6ee46409592a2de3b6f81a885d78140b7e98397c56970674b2fd29db8"
-    sha256 cellar: :any_skip_relocation, monterey:       "ddc95c353037f701004dc0ec8f893e0258682fed495f7159fb2d5541c44dd121"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c5142819bc23ee7c9a110d0716a766e9032dff2c0e2c7abbc68e0170fca8e743"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "607a5e37cf25c7f72d3cd4ab69e2d67c0d114aded4b9400135768fd21c483abc"
+    sha256 cellar: :any,                 arm64_ventura:  "69d77f0df70c8e8c3aea877c05c38648da60981a91c2fab1347c9c6bcc64a40c"
+    sha256 cellar: :any,                 arm64_monterey: "d95470ef7f9426aca7ff07099197a7c4c37b3fd4ac639543e20b7de0e24445cd"
+    sha256 cellar: :any,                 sonoma:         "0764b6047853f2d32b8c3bd91f90f9f812314ca29b86b112135895d78088cf6c"
+    sha256 cellar: :any,                 ventura:        "62ea286aeba9445f30e9c6fd0ab1f899819e5d6f6501376697cdd7d5b4825664"
+    sha256 cellar: :any,                 monterey:       "f12fda72a8d0a287e7fd3da15a915f9ecd472428289abb17c12fb8fd7000e786"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38bd7503b92390ea9801e79cb86db0ff4e650f8eb3a25624df784b096507693b"
   end
 
-  depends_on "pygments"
+  depends_on "libyaml"
   depends_on "python-certifi"
-  depends_on "python-packaging"
-  depends_on "python-pytz"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -60,6 +57,11 @@ class Raven < Formula
     sha256 "3a55207bcfed53ddd5c5bae174524062935efed17792e9de2ad0205ce9ad63f7"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "pansi" do
     url "https://files.pythonhosted.org/packages/22/0d/2c19187e820cbad87e73619fe2450d2698eb003eb0a0137551bd687a9676/pansi-2020.7.3.tar.gz"
     sha256 "bd182d504528f870601acb0282aded411ad00a0148427b0e53a12162f4e74dcf"
@@ -75,9 +77,24 @@ class Raven < Formula
     sha256 "4b2737fcd9fd8d82b57e856de4eda005281c9cf0741c989e5252678f0503f77e"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
   resource "pytest" do
     url "https://files.pythonhosted.org/packages/80/1f/9d8e98e4133ffb16c90f3b405c43e38d3abb715bb5d7a63a5a684f7e46a3/pytest-7.4.4.tar.gz"
     sha256 "2cf0005922c6ace4a3e2ec8b4080eb0d9753fdc93107415332f50ce9e7994280"
+  end
+
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/69/4f/7bf883f12ad496ecc9514cd9e267b29a68b3e9629661a2bbc24f80eff168/pytz-2023.3.post1.tar.gz"
+    sha256 "7b4fddbeb94a1eba4b557da24f19fdf9db575192544270a9101d8509f9f43d7b"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "redis" do
@@ -88,6 +105,11 @@ class Raven < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "slack-sdk" do

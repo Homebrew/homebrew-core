@@ -3,6 +3,10 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  url "https://download.qt.io/official_releases/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+  sha256 "3c1e42b3073ade1f7adbf06863c01e2c59521b7cc2349df2f74ecd7ebfcb922d"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -10,22 +14,8 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
+  revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
-
-  stable do
-    url "https://download.qt.io/official_releases/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz"
-    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.6/6.6.1/single/qt-everywhere-src-6.6.1.tar.xz"
-    sha256 "dd3668f65645fe270bc615d748bd4dc048bd17b9dc297025106e6ecc419ab95d"
-
-    # Backport fix for QTBUG-117765 which can cause build failure in `qca`
-    # .../MacOSX.sdk/usr/include/c++/v1/concept:318:1: error: Parse error at "::"
-    patch do
-      url "https://github.com/qt/qtbase/commit/a8c1c38f94ba9011b7646fe4f756ca213479cd30.patch?full_index=1"
-      directory "qtbase"
-      sha256 "dc33174b2b829f2cabb096bad654a984294986aea5d4a226ff225b951e77acfc"
-    end
-  end
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -35,13 +25,13 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e040f997f95282baf2c4a8b23ba850ba8f24e6b02e4535d0b72ef7a8e85d6683"
-    sha256 cellar: :any,                 arm64_ventura:  "fac465712296b83234abdf073491c71f9ffe6fd2e9991586f232c6fa4dcfe296"
-    sha256 cellar: :any,                 arm64_monterey: "fe7cc99dad709cf37c02804131612960aa366b00324b6d2750e651fe47419914"
-    sha256 cellar: :any,                 sonoma:         "4a9ddf2302d2c31340344831ce18bbce08277e0b042874510654444d31ef2534"
-    sha256 cellar: :any,                 ventura:        "c1a6cc75a3961fc1233d7d7db668d1cbf5150efae0c4fcf83bef83c81a4668a9"
-    sha256 cellar: :any,                 monterey:       "dc9ddc418d8bd4594650613e02a421bbd45d13643f6ac023347f0283e55073ab"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2466031ed6771eb76fdd53fa6b6a88dcf4899d211e03236aeb40beb38ecb123"
+    sha256 cellar: :any,                 arm64_sonoma:   "573c3038cd5c74881cf748eb63c803efa35b4b75d19693b7f20cd8897548959a"
+    sha256 cellar: :any,                 arm64_ventura:  "43125cfe40819ece94a418267bebf6bd6a253ae8288e20374202d4598efd9310"
+    sha256 cellar: :any,                 arm64_monterey: "c6b39b8885d61e7bb49639b4f347554bf1672532660966a86fa766eace2ff542"
+    sha256 cellar: :any,                 sonoma:         "ddf48735f5c3c4317d5e46c922614bc168a1b480b488ae228313dcf09fb3338b"
+    sha256 cellar: :any,                 ventura:        "f1bda669aa2d6ea2024fbdde4a6a191b468854ef0bd27d81877f5025518f32fd"
+    sha256 cellar: :any,                 monterey:       "14a64c6df1e1c31008a921458a9374764c42a5ca637e2a2487d07808c8f25893"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a11925797528c635afeae37662fda71003d071347b5f1570ad1a1aa4ac163648"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -49,7 +39,6 @@ class Qt < Formula
   depends_on "node" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => :build # Python 3.12 needs newer Chromium without imp usage (maybe 118 or 120)
-  depends_on "six" => :build
   depends_on "vulkan-headers" => [:build, :test]
   depends_on "vulkan-loader" => [:build, :test]
   depends_on xcode: :build
@@ -123,19 +112,6 @@ class Qt < Formula
     depends_on "xcb-util-keysyms"
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
-
-    # Backport Chromium changes for libxml 2.12 compatibility
-    # https://chromium.googlesource.com/chromium/src/+/871f8ae9b65ce2679b0bc0be36902d65edf0c1e4
-    patch do
-      url "https://chromium-review.googlesource.com/changes/chromium%2Fsrc~4985186/revisions/4/patch?zip&path=third_party%2Fblink%2Frenderer%2Fcore%2Fxml%2Fxslt_processor.h"
-      directory "qtwebengine/src/3rdparty/chromium"
-      sha256 "61d0352bb43ab796e1702f003f119a0838e5357517ee90f71bcc5cd0ba184e36"
-    end
-    patch do
-      url "https://chromium-review.googlesource.com/changes/chromium%2Fsrc~4985186/revisions/4/patch?zip&path=third_party%2Fblink%2Frenderer%2Fcore%2Fxml%2Fxslt_processor_libxslt.cc"
-      directory "qtwebengine/src/3rdparty/chromium"
-      sha256 "dc8cf92c07cad7da51510d2233968af4b0f408ff6857153ffa1d7387bb77f1b7"
-    end
   end
 
   fails_with gcc: "5"
@@ -145,16 +121,14 @@ class Qt < Formula
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
   end
 
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "webencodings" do
     url "https://files.pythonhosted.org/packages/0b/02/ae6ceac1baeda530866a85075641cec12989bd8d31af6d5ab4a3e8c92f47/webencodings-0.5.1.tar.gz"
     sha256 "b36a1c245f2d304965eb4e0a82848379241dc04b865afcc4aab16748587e1923"
-  end
-
-  # Use Gentoo's patch for ICU 74 support until Chromium updates their bundled copy
-  patch do
-    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/dev-qt/qtwebengine/files/qtwebengine-6.5.3-icu74.patch?id=ba397fa71f9bc9a074d9c65b63759e0145bb9fa0"
-    directory "qtwebengine"
-    sha256 "ceee91eb3161b385f54c0070f0e4800202b0674c63c40c8556cb69ac522e6999"
   end
 
   def install

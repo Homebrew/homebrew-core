@@ -15,18 +15,16 @@ class EyeD3 < Formula
   end
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23a97c427e8d7e027dd215230dfdb0a9843bf4b21479c93b6d1ccca222736898"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b3a304bb9dca1443b0b1887c8f1e992a092a80feb0cc0b3c282fb27fe597c33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "badf2521f1510f4b97b53244abddf59a1970945e23cd09e1c434648ba412b803"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e8e4de4305386934bc1aff000d36933497efde4f6fa22ac74761d892dca067c9"
-    sha256 cellar: :any_skip_relocation, ventura:        "ca47a023d45212cb841b6be5011adcc43aeda8b73726f682b1aec2d5fb21db46"
-    sha256 cellar: :any_skip_relocation, monterey:       "0524f02d98210b845fd5108fad85bb11e68efa7373df85759a53a4d2327fd0bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b660e9c9f8d5a5e257ed6edf34f3ab5869e4b53cb4943c60bb23b59f7ed3360"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e7dd9ef41619ee1ba37f59d0f85ec9312baa153c49e4ed2f04623f1a5a977e78"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "492d06caf21120e8d3fe5c7ed475d38c75fb911c25726dbd1f876928610fad02"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1afc95c6df87e421ba9e8528a624bd6511c365df11eb1916dde56a4df33b1700"
+    sha256 cellar: :any_skip_relocation, sonoma:         "75e153d9eb3211c1c238e77b79749ffec0c4b78bf984c077dda30c3fcd93e6c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "1bce118606944fa82f3e327a868abfbca6a4b8a99470c8b63e5815565a415d8f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ebf1572cc8f80b55636ec13ec042b23fac3d868698bd36e47bfd6edcb44780d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dbe1accdb0701ddd51d8b326400efdc5ac1980cc82e4aa209940785c0a39decb"
   end
 
-  depends_on "python-packaging"
-  depends_on "python-toml"
   depends_on "python@3.12"
 
   # Looking for documentation? Please submit a PR to build some!
@@ -45,6 +43,16 @@ class EyeD3 < Formula
   resource "filetype" do
     url "https://files.pythonhosted.org/packages/bb/29/745f7d30d47fe0f251d3ad3dc2978a23141917661998763bebb6da007eb1/filetype-1.2.0.tar.gz"
     sha256 "66b56cd6474bf41d8c54660347d37afcc3f7d1970648de365c102ef77548aadb"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
   end
 
   # Switch build-system to poetry-core to avoid rust dependency on Linux.

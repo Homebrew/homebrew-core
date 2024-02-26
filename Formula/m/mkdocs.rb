@@ -9,16 +9,17 @@ class Mkdocs < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5d0b20c91da8acd2d3f1749a7dc8489ab06dd0456068831ecda5d580c1a897e2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "59f23c7bcd08eac3aedb8547929ffbde6afa528f02f38446b6e158046e41a4b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4d0ad0a28961000a41d2dfc37011fdfe56daf96ac218e4a33653852acfc189b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3b1b5501b96d3fdcc00c453d46a0250252cbe840d1ec236e98f67818ba59dfbc"
-    sha256 cellar: :any_skip_relocation, ventura:        "15a6055ed615e0ee269d9cbe0110bcf7c3ac533c4398f07232301ffcafa8c6fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "4835bbf4f22dcd32966a8e9ba815af628520ffda127114ea57d62cdb5b393ad8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b29c71711f0013edc43925538e8aad3cc7e9f3f34db6e31da3a21f65da7481e5"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "7dfb9f9b86956ae1999419e55ce50aa8636a9011b5959609aa892b470941afe9"
+    sha256 cellar: :any,                 arm64_ventura:  "0cda468fc34c74c61d71854fe797b5fd7ad6b33a98d206a8b3a7a18ba9cbff30"
+    sha256 cellar: :any,                 arm64_monterey: "8efc42e2eefdaef8a26d65e1f2cd5b856d4ac927dd49031e5358b458473f2d30"
+    sha256 cellar: :any,                 sonoma:         "31ea3f1b23c08c25f880604d5b52be7ea52d6aca005694acdc562957105cc295"
+    sha256 cellar: :any,                 ventura:        "5a6ca308f463e0f83c85ca18881df7ab549c40ceb5f628a3df5f36d157ba3215"
+    sha256 cellar: :any,                 monterey:       "ee8afabfcc69a11e5faed28133618c654a6b2154a311fb6ece1b0da329f905df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "628efcb3d54f79075f3e4756636ac67786b9c08b5c0242b997da61f38b3c70ba"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "click" do

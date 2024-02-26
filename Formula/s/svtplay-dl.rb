@@ -8,21 +8,20 @@ class SvtplayDl < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3379b20dbeeb33cdd594fe09e28a7f08348ca55e3bfab8ece2bb38dc4f850a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f761acc70b129c1baa84305c64b86ede33cf83f67e0b8a67c7859937d06b2c9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f171f1a1455867ed0d6c5908432b2a85853f6f707b518279eca0e65278352ba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8ee8d1a470fa0591e966c9b5aa2a08bce6a982e7b56001a9f80880e0601d42cb"
-    sha256 cellar: :any_skip_relocation, ventura:        "75c9b79e76863393b928e5df6471e3638aae58d3244421e2a07e8a0738a0ca68"
-    sha256 cellar: :any_skip_relocation, monterey:       "b597fd2c9bfafb8c3ec6ba8437175969a5acc37f9260d2187654d303688311c8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "729c967c059e50fd9f3742386792db9369c727476e4e56f2f7106ed9a4a4e356"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b0a5e4b7f0832d2439343f52d8c5617a71e43299512d8f993cd60de4dc186f84"
+    sha256 cellar: :any,                 arm64_ventura:  "4c0994817044caffd87b2dccbee8d3af1ef8f044100b1508acfd25ef88563e5c"
+    sha256 cellar: :any,                 arm64_monterey: "fa00d80361923c9a3dc37c0e380874d1d81d3249c8ecc2c99d280d14d8a1b76f"
+    sha256 cellar: :any,                 sonoma:         "07117ba4743eb6e2bdc922ea7757bd3e386868226adcea7782f8b3584f9863c2"
+    sha256 cellar: :any,                 ventura:        "479212d1238b2e509b44b208dcfed4a505ce8bcbab98c7f78498e8f0e80b0e98"
+    sha256 cellar: :any,                 monterey:       "2bb9e3571c31bdc724d8a235eb724264425d750fbc057295fe9829ff4bda113f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85ff5a3352fc21bb541207b4bc5a83504a565e04eae2733a5a67a4c82fc6dca7"
   end
 
-  depends_on "cffi"
-  depends_on "pycparser"
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -39,14 +38,19 @@ class SvtplayDl < Formula
     sha256 "3f8804571ebe159c380ac6de37643bb4685970655d3bba243530d6558b799aa0"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   def install

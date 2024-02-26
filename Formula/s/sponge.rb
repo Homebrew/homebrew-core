@@ -7,8 +7,7 @@ class Sponge < Formula
   head "https://git.joeyh.name/git/moreutils.git", branch: "master"
 
   livecheck do
-    url "https://git.joeyh.name/index.cgi/moreutils.git"
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    formula "moreutils"
   end
 
   bottle do

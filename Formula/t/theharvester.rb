@@ -9,17 +9,18 @@ class Theharvester < Formula
   head "https://github.com/laramies/theHarvester.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "ff33d7defab8caa13631ffc1d645c3ece37283be86a488c72610374e01d135c9"
-    sha256 cellar: :any,                 arm64_ventura:  "af7b3c12a70ed7928c9345b49435b46562f8d873523db166024619d71440bccf"
-    sha256 cellar: :any,                 arm64_monterey: "b2be2adb55279a46148941a4c96060937623c6976ae0331728fa19dc6f8244bc"
-    sha256 cellar: :any,                 sonoma:         "20397723ce573d2749602edff14c4a08ce7c4b75ab08c3767de0572d4a55c80a"
-    sha256 cellar: :any,                 ventura:        "f0c5ad2ec4be2f3ca60cb81b18439b29ce9353d63a26eeaadfc4fb6e0bfd8f08"
-    sha256 cellar: :any,                 monterey:       "fcc0ed8557f7dc6dbb7b320abe7ee651f41952a3a6a4bca97689783b46999641"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edbbe07787db6dd9f370d7f8d89247cc60661b416903c568ea1b71823c2c77a8"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "8c7289e1f7269802b2af9ed9176ee65e8c95d9eb0c8c86e991f389aaa3cc58d2"
+    sha256 cellar: :any,                 arm64_ventura:  "efa94266d9da6a9fc6cd4fa72f4166f3d83262f4eca1323b8728e72758d87dbf"
+    sha256 cellar: :any,                 arm64_monterey: "2f692cd5e18fdc1cf57effeace1cfd73e4e5319679535c553426cf30da2067f2"
+    sha256 cellar: :any,                 sonoma:         "5cbc9e334ded37d1c436629b7bf30927f2e1c87ff2c66b26d7a8880a7e73d5c7"
+    sha256 cellar: :any,                 ventura:        "a946be6ade19bdc6e39c740fa00d7af3da05ffed92fe228086ca1a86bd542c94"
+    sha256 cellar: :any,                 monterey:       "b575453bd9effdb5e59220f723baa09fa1167bf30c83f65f3d886eeb6cfd3c72"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea2fbb6651820f351c07b63261111eb4e582c6229c537acc03ec3e9884b1e5e9"
   end
 
-  depends_on "rust" => :build # for pydantic_core
+  depends_on "rust" => :build
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
 

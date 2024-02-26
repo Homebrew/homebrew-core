@@ -3,26 +3,25 @@ class Streamlink < Formula
 
   desc "CLI for extracting streams from various websites to a video player"
   homepage "https://streamlink.github.io/"
-  url "https://files.pythonhosted.org/packages/93/ca/3e94941674353fa6591923be2e2e7bfef91da9b4da122d7361fefd8b0f71/streamlink-6.6.1.tar.gz"
-  sha256 "31f1e20605078d311419f61530e67d47fedb5a0f0738bb7cfd0430daf19103b1"
+  url "https://files.pythonhosted.org/packages/33/10/d8df560a02560c3b2af59c31f673ec479b9a42e8e03416918ad253539064/streamlink-6.6.2.tar.gz"
+  sha256 "d1417c7c5986dc143bc711c8a99f7b884b10d2583f44b1c3dadea7df0a75e4d5"
   license "BSD-2-Clause"
   head "https://github.com/streamlink/streamlink.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "054704774f84f5ebc58007a20fc23fa297e573875156c35d089f3bb355064e32"
-    sha256 cellar: :any,                 arm64_ventura:  "3293ad6026778ef29f4509e7f9f5cb9b2334c001f699682186b19038c8388040"
-    sha256 cellar: :any,                 arm64_monterey: "46cfa67fa56f0924b8845560f94168ed8f22fa3085a49d1689a76845cfb7134b"
-    sha256 cellar: :any,                 sonoma:         "1bffd36f6fad8b311e092a492279342975b67659d641acfe8fd900a8b3ebff27"
-    sha256 cellar: :any,                 ventura:        "359d16f48c80a7e39772a06d7b2b827fd98d01f0820b355886205b08627ed1fe"
-    sha256 cellar: :any,                 monterey:       "8793a095584c44a8e82e885cda8679fb091ec89b2bcc26c91b002ba2d41f95e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bb35ca9f805835fb1f217d03b05b571c18764064c53796ce9697ebcee4c73b4"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "bcd6ad872635107ea2b8026ae016056fa5517ab6932f4cb41155ac7425148062"
+    sha256 cellar: :any,                 arm64_ventura:  "98bf1b056c87bfbeae659a28c0a3bc5bc1d3342b32c8c4a506b07f9e6658938f"
+    sha256 cellar: :any,                 arm64_monterey: "e940a96154af1ed58f1cb94b2c33dd5ff381134da9ab9a8194b9ef673dfa38d6"
+    sha256 cellar: :any,                 sonoma:         "9b10df6d676f529b8aff9ea26ae7a715fc528ef6b7bd9021385da686127959d3"
+    sha256 cellar: :any,                 ventura:        "031e8c3628017a4e227bf35e46f7d43fbfdf5dcd28e791d46246f054e7f09941"
+    sha256 cellar: :any,                 monterey:       "5bd18da190c2dfad236889593feda154d54db4076ff66a981818467e28b15a2c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "764a00c27b9279bfea3580e9fb38b036fa2240631b56515bea884de53413314d"
   end
 
   depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
   depends_on "python-certifi"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
-  depends_on "six"
 
   uses_from_macos "libffi"
   uses_from_macos "libxslt"
@@ -86,6 +85,11 @@ class Streamlink < Formula
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "sniffio" do
     url "https://files.pythonhosted.org/packages/cd/50/d49c388cae4ec10e8109b1b833fd265511840706808576df3ada99ecb0ac/sniffio-1.3.0.tar.gz"
     sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
@@ -106,9 +110,14 @@ class Streamlink < Formula
     sha256 "18c11793647703c158b1f6e62de638acada927344d534e3c7628eedcb746839f"
   end
 
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
-    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "websocket-client" do

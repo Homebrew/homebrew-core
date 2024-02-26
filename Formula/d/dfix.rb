@@ -23,7 +23,7 @@ class Dfix < Formula
   end
 
   # https://github.com/dlang-community/dfix/issues/60
-  deprecate! date: "2023-06-25", because: :unmaintained
+  disable! date: "2024-02-22", because: :unmaintained
 
   on_arm do
     depends_on "ldc" => :build

@@ -1,8 +1,8 @@
 class CypherShell < Formula
   desc "Command-line shell where you can execute Cypher against Neo4j"
   homepage "https://neo4j.com"
-  url "https://dist.neo4j.org/cypher-shell/cypher-shell-5.16.0.zip"
-  sha256 "3813410411256b2b955a6c52b06eb55044321f6f544a6b994062949c3ab60d5b"
+  url "https://dist.neo4j.org/cypher-shell/cypher-shell-5.17.0.zip"
+  sha256 "55064e6758b8a7ee1f235c3d247cd5219c86a36242dd2b66dadd3392aeb5dad8"
   license "GPL-3.0-only"
   version_scheme 1
 
@@ -12,7 +12,7 @@ class CypherShell < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b86873a4b4093411f80f9b2c35b9d7f0f00aa0a0c9ca69439ed2be59aee12063"
+    sha256 cellar: :any_skip_relocation, all: "071d5cd55f3f21366593536f9522792abb4bfaa98730f2ebcf8244d1ff97c51d"
   end
 
   depends_on "openjdk"

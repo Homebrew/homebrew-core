@@ -21,6 +21,9 @@ class Pup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "984ec42bb2a863b2afec7954b8b1c706a5474e0cbd278ed5e4f5439c13f02bb2"
   end
 
+  # https://github.com/ericchiang/pup/issues/189
+  deprecate! date: "2024-02-20", because: :unmaintained
+
   depends_on "go" => :build
   depends_on "gox" => :build
 

@@ -1,8 +1,8 @@
 class Wimlib < Formula
   desc "Library to create, extract, and modify Windows Imaging files"
   homepage "https://wimlib.net/"
-  url "https://wimlib.net/downloads/wimlib-1.14.3.tar.gz"
-  sha256 "1128c6c7916d2f22da80341f84d87d77c620de6500fbb23a741fa79bd08cd1ef"
+  url "https://wimlib.net/downloads/wimlib-1.14.4.tar.gz"
+  sha256 "3633db2b6c8b255eb86d3bf3df3059796bd1f08e50b8c9728c7eb66662e51300"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Wimlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f5984adc28077cc93b22414f1ca76b93869a57b69919c37af25d300b6279f1b4"
-    sha256 cellar: :any,                 arm64_ventura:  "b87e344985107b0ae1ac3955e4e70c17f9a88239ceb097f11a7813896e10b76d"
-    sha256 cellar: :any,                 arm64_monterey: "2cd14e22f6dba153fde1fa8801527e25718e242cf22f9d85805ba4f20e1874e2"
-    sha256 cellar: :any,                 arm64_big_sur:  "765c802a6cca1c15272759ffa3ecc1c72603c2e22c2fd5aa6bf8bd0852ede6e2"
-    sha256 cellar: :any,                 sonoma:         "2e082bd22d649b16ed2d73b3e6724d86cc2360391e6421d4eb7bdcf1f24b7c3e"
-    sha256 cellar: :any,                 ventura:        "7294142cc77f27cf8e85bdd6b14224bb51d25614dc998308b75ddea51a26439d"
-    sha256 cellar: :any,                 monterey:       "8f20ed1089f5e899933a0f658dbb3c1d3b504d6d78a78d9afa7b971b9aafa776"
-    sha256 cellar: :any,                 big_sur:        "421aa263f99e18307286e6a48fe36b4e21318f2b9065042c0e2e021d7ab00d1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dfde6bc50cf2fb295eca9bdadfd81359a8606926f51b2441ef73c8bbfca0404"
+    sha256 cellar: :any,                 arm64_sonoma:   "8cbbeec3b621170d4577412d4c0a240e27a07a9471ffa6f28186ccb26c601592"
+    sha256 cellar: :any,                 arm64_ventura:  "295512a48ab0166b7e217a83b106bc7e7e01cbf3a6f343eaedfa97a899eb4d92"
+    sha256 cellar: :any,                 arm64_monterey: "9f8f4f22847e831915fccdeedfc885108dc2d6f6d80e276d4932484015bba54a"
+    sha256 cellar: :any,                 sonoma:         "9822e536911e162bb367cfd73ac94ff7ef30a9b0d604400d7702fb4bee072f0e"
+    sha256 cellar: :any,                 ventura:        "77a2f91a0c2ca081a2f50ff5f4b9f3ea4f9e79a3c19705f71309c8c60d08e5d8"
+    sha256 cellar: :any,                 monterey:       "0f92288eb4efd7316e705cf1a6d1729f8b6eee81beb7ea57daf15f968c0c53ff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4710658e4473cd5744958616b25eb4c19bf61ffec09c42cd748ef4d0ce26c3b0"
   end
 
   depends_on "pkg-config" => :build

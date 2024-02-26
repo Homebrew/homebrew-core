@@ -11,6 +11,7 @@ class Task < Formula
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
+
   bottle do
     rebuild 1
     sha256                               arm64_sonoma:   "50c3572e274b41419876401235d67710754821708fe334d871d2b9cd116a8b35"
@@ -38,8 +39,9 @@ class Task < Formula
   fails_with gcc: "5"
 
   def install
-    system "cmake", ".", *std_cmake_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
     bash_completion.install "scripts/bash/task.sh"
     zsh_completion.install "scripts/zsh/_task"
     fish_completion.install "scripts/fish/task.fish"

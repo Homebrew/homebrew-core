@@ -8,21 +8,19 @@ class JenkinsJobBuilder < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b38957c34c4a5204870820f27a46efdd8af5a5fd794285c0b719594ccf5611e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f2ad2a8b456a1af1b733fa66755a9331b6e42f84b24e26c9003d14e2297d9461"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8ed086f703e5735c38d26ea62a273763279a6c9364ee53671bc9a6ef8f944d5a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3eed755680bdc8160d1d78899211286ad3663e03ff4cb006e0b8d119ea58eb76"
-    sha256 cellar: :any_skip_relocation, ventura:        "a052c1be0a7fdb2978a298c35c5e24a9d8aa075a8b80df92592c9e93afd00c9b"
-    sha256 cellar: :any_skip_relocation, monterey:       "d0cf12397cb56c8afcb7789951361ab42989750dd32dbb849907a2fb3b555b4f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b4b5481e0abe634545b3cdfbe4682b31cb1f4c3383c051df2d46605bee606de"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "423d1fb3e9218ebf87b2f7e77a1b952190789347c87673008a855049f3d27dc3"
+    sha256 cellar: :any,                 arm64_ventura:  "569824225f1e395b33160846b9bb500558096342f13d2961e6a30c2512e85926"
+    sha256 cellar: :any,                 arm64_monterey: "623c2473cad66b76f355cab790c476cd4ef1193855d2a789322e6e58bcbba1ef"
+    sha256 cellar: :any,                 sonoma:         "0a6c4438c34bb75887fbdc9854982caea7c1fff37c05e6d1389123cc2eaf14c8"
+    sha256 cellar: :any,                 ventura:        "6dcc5b464ab883e6e820852e7d96dceb02773ca46d70ee0a5ef7939cb710b18c"
+    sha256 cellar: :any,                 monterey:       "fd8ce843d2f263b4b0d4ebb279c19cdf712a3ece03bed49aab4f2379a056adfb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67f9a70a9cbf61b0f05c6ef6c3d07de97ab794b18c9ab868ef75244f5932471a"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
-  depends_on "python-markupsafe"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
@@ -44,6 +42,11 @@ class JenkinsJobBuilder < Formula
     sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+  end
+
   resource "multi-key-dict" do
     url "https://files.pythonhosted.org/packages/6d/97/2e9c47ca1bbde6f09cb18feb887d5102e8eacd82fbc397c77b221f27a2ab/multi_key_dict-2.0.3.tar.gz"
     sha256 "deebdec17aa30a1c432cb3f437e81f8621e1c0542a0c0617a74f71e232e9939e"
@@ -59,9 +62,24 @@ class JenkinsJobBuilder < Formula
     sha256 "56e7dabb0607bdb8e1d6fc6d2d4301abedbed9165da2b206facbd3071cb6eecb"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "stevedore" do
@@ -70,8 +88,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   def install

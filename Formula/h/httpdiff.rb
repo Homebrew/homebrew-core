@@ -23,6 +23,9 @@ class Httpdiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b75213c432ca3754d283de01029ae208a75955949c8b5b9e04613c9da943f8c"
   end
 
+  # https://github.com/jgrahamc/httpdiff/issues/21
+  deprecate! date: "2024-02-20", because: :unmaintained
+
   depends_on "go" => :build
 
   def install

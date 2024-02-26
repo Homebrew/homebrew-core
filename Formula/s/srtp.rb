@@ -1,10 +1,9 @@
 class Srtp < Formula
   desc "Implementation of the Secure Real-time Transport Protocol"
   homepage "https://github.com/cisco/libsrtp"
-  url "https://github.com/cisco/libsrtp/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "8a43ef8e9ae2b665292591af62aa1a4ae41e468b6d98d8258f91478735da4e09"
+  url "https://github.com/cisco/libsrtp/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "bf641aa654861be10570bfc137d1441283822418e9757dc71ebb69a6cf84ea6b"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/cisco/libsrtp.git", branch: "master"
 
   livecheck do
@@ -13,15 +12,13 @@ class Srtp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ea548163859fca444f3c643b9dd1494f28b69c51c52e239e78667265ace4f1fd"
-    sha256 cellar: :any,                 arm64_ventura:  "61764349ccd575995fd3a57b64dc01dedf492c5b68bc17e8b8226e3ca2f96d2a"
-    sha256 cellar: :any,                 arm64_monterey: "c4c7bbe9147a421ff2fa25b20212102b3d714abbe388ddf28f7ede003aba67d3"
-    sha256 cellar: :any,                 arm64_big_sur:  "968b9151d48402479dff561d838c218d61632d559678d1cb240814e9c99450ae"
-    sha256 cellar: :any,                 sonoma:         "762ace3b1574737359e3e12ec5a5e5c0c60147f3fea9250540d2aaafde286e1e"
-    sha256 cellar: :any,                 ventura:        "cbdd3341c2290cbebbd14aed97744c6202c2bfed400bfbda88ae7abc66c754c2"
-    sha256 cellar: :any,                 monterey:       "51e703779b38bc59455cd6f47e54f6a8bbcd9884f9e00671cd5a28696981cda7"
-    sha256 cellar: :any,                 big_sur:        "b02f6996d47db4e07d3063dc444863cf01b921e4034431f7ddcc66bb9d33a75a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a183bda0f672698897b793f85a2267e742784e0362f2e4cfc27c0d2a52c5e2e"
+    sha256 cellar: :any,                 arm64_sonoma:   "f4659edc90366755154d729abdc17c15cd3f0afd5db88a34e113570b123fb32f"
+    sha256 cellar: :any,                 arm64_ventura:  "c3ce5d112378cb65da6076012f3e57071e449cec1624aed7cb643c6875325114"
+    sha256 cellar: :any,                 arm64_monterey: "d5caefa466b896041eb0eeaf3da044b75d19e63361b3bee650ac7ab99dc79ae7"
+    sha256 cellar: :any,                 sonoma:         "7b016d3673afb8f2a19a6b25117562eb7749732b67830e94c389a45f2313ad60"
+    sha256 cellar: :any,                 ventura:        "6854e02c592b23a903e2005f32686c5c2fbeab8bb2b442b19837db2b9f63bb61"
+    sha256 cellar: :any,                 monterey:       "96ec600ba0b44ae3989159641862b20da7149af4d345d60d8b968918038b14eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eae0dbd9de36ab4ca28ded9160425af7fa9ab1928b5de1d94049866627b514b1"
   end
 
   depends_on "pkg-config" => :build

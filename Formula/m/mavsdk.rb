@@ -7,7 +7,7 @@ class Mavsdk < Formula
       tag:      "v1.4.18",
       revision: "b87a21d9044b9385e570fe0dd3389b74a3d52c2d"
   license "BSD-3-Clause"
-  revision 4
+  revision 5
 
   livecheck do
     url :stable
@@ -15,20 +15,18 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0da54134d08e71bcc59491fd5badbeb18f85676049f3583492ef5cdffb1e4b19"
-    sha256 cellar: :any,                 arm64_ventura:  "db6ee13e4498af2075b55cb45d03f46dd759a0f75b9ea8c8efa2ae111f051f7e"
-    sha256 cellar: :any,                 arm64_monterey: "1c413cbe51ada8e4be67a74543e3cde40d4971f00734392059f0d7eef8ed3150"
-    sha256 cellar: :any,                 sonoma:         "4cdb72a764d1c0b37b644057327df6a8700e7bb731ad5063efa6323a4039b595"
-    sha256 cellar: :any,                 ventura:        "8200557b34290f7710e7e6da70c03a64d1e9b6506a93d199f2c091ad8997a4d5"
-    sha256 cellar: :any,                 monterey:       "54bfc77f202592960088418e6c2bd33917a19b25d2320f6223a124f6799a5898"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "171de6995d40ee10b740db63d0afbb9ce05f30e1ccc591e6a4c2e1d1b79b3f9e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "6ec681d8683288dd3b5dcc34e1697bb965a26f07808efcd5f5295de4c6fbc120"
+    sha256 cellar: :any,                 arm64_ventura:  "5d9cbc00bdba6a838a0aae3c975d2fe175b8febda4d305fdd9869c9a21d89c70"
+    sha256 cellar: :any,                 arm64_monterey: "9714b2e951b1f831d56b10ca2ec5d1aacec63b2418547dd39cc157e1a919cb94"
+    sha256 cellar: :any,                 sonoma:         "92d294cc9906b8dbc7151c614a6fbc8ee3a6e0d71c08fe743b68a4ac0dc2184a"
+    sha256 cellar: :any,                 ventura:        "64bb4a533fdd42e403e82975e6aef95c7f76348e27452e7ed24f025fa3b7cb79"
+    sha256 cellar: :any,                 monterey:       "2514232ad28635f6d0d91d661569d449b5e4e4bf04e330be549f34ea0f484f7c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "557ffe7e9cd5e41e681bcad2f05078461574793cd0e6f40116b9dd4e6f8ee7e3"
   end
 
   depends_on "cmake" => :build
-  # `future` issue ref: https://github.com/PythonCharmers/python-future/issues/625
-  # `pymavlink` PR ref to remove `future`: https://github.com/ArduPilot/pymavlink/pull/830
-  depends_on "python@3.11" => :build # Python 3.12 blocked by imp usage in `future` used by pymavlink
-  depends_on "six" => :build
+  depends_on "python@3.12" => :build
   depends_on "abseil"
   depends_on "c-ares"
   depends_on "curl"
@@ -59,18 +57,18 @@ class Mavsdk < Formula
   # These resources are needed to install protoc-gen-mavsdk, which we use to regenerate protobuf headers.
   # This is needed when brewed protobuf is newer than upstream's vendored protobuf.
   resource "future" do
-    url "https://files.pythonhosted.org/packages/8f/2e/cf6accf7415237d6faeeebdc7832023c90e0282aa16fd3263db0eb4715ec/future-0.18.3.tar.gz"
-    sha256 "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
+    url "https://files.pythonhosted.org/packages/a7/b2/4140c69c6a66432916b26158687e821ba631a4c9273c474343badf84d3ba/future-1.0.0.tar.gz"
+    sha256 "bd2968309307861edae1458a4f8a4f3598c03be43b97521076aebf5d94c07b05"
   end
 
-  resource "Jinja2" do
-    url "https://files.pythonhosted.org/packages/7a/ff/75c28576a1d900e87eb6335b063fab47a8ef3c8b4d88524c4bf78f670cce/Jinja2-3.1.2.tar.gz"
-    sha256 "31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852"
+  resource "jinja2" do
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
-  resource "MarkupSafe" do
-    url "https://files.pythonhosted.org/packages/6d/7c/59a3248f411813f8ccba92a55feaac4bf360d29e2ff05ee7d8e1ef2d7dbf/MarkupSafe-2.1.3.tar.gz"
-    sha256 "af598ed32d6ae86f1b747b82783958b1a4ab8f617b06fe68795c7f026abbdcad"
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
   def install
@@ -81,7 +79,7 @@ class Mavsdk < Formula
 
     # Install protoc-gen-mavsdk deps
     venv_dir = buildpath/"bootstrap"
-    venv = virtualenv_create(venv_dir, "python3.11")
+    venv = virtualenv_create(venv_dir, "python3.12")
     venv.pip_install resources
 
     # Install protoc-gen-mavsdk

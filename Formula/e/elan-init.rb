@@ -1,19 +1,19 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "634366078812599bef485eec3af25bc3fa88da6dbe39414128b9c9e14a681a0a"
+  url "https://github.com/leanprover/elan/archive/refs/tags/v3.1.1.tar.gz"
+  sha256 "b3e3c7dc6cc23dd319725fccf58c898bf4920ff3440c97cb8f3a35fc0d5bbf5c"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "468673d385f124495e1e4c08789c3809736e485f8e1fb2c13ccd69a9d8fd03fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3344477e7ad981331e8eb1d1a6378a70d84bf2a5fa3e5ae7aa7da25a95881bcc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bd0e137a5032d8451b60cd4842020260d489a659e994b0e5c42640a9bbcce8e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8b029e69209be0af7302ee2363bcc8e03b80e0e5050c3dd3660d6374326c7764"
-    sha256 cellar: :any_skip_relocation, ventura:        "103deb977242e39eb69a8968676abc178820bbddcac7a015484d448c403eff60"
-    sha256 cellar: :any_skip_relocation, monterey:       "99b1b5f8bedc016ff7c29edce26735ad24602e0cc690910944c5b9057fda503b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4be45c30e1b3f7f98450808352649799d4ef26ad4afa1c4ca621f5571e07a58"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be718756f24a38dfc2fdeabb6c1a8faa762f54e26bd7ba6c46a73ca6e7242a83"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3eb50c0b149c00a1b4cdaeffe3083d9ed651e1db257a73f497ffb0328cfb33c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e087e76a080ff632b3873e6fdcf490021d0708984c95c736d9e837dad82fd08f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f86a70914dac7f2cc72b4f7e8fa0e5a6833f38e1e0d407061f52f02014d6c297"
+    sha256 cellar: :any_skip_relocation, ventura:        "468fe8ba4bdfac9eb73ff28e27ae164028640a3ccde8bea22073f2ac08ee352e"
+    sha256 cellar: :any_skip_relocation, monterey:       "5a7e351d4f81b94d2e6538e41090c70f87ae125ca421dc59d586be3b2dca41a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9351bed83126cf13aba8e95e1dcf4fd2dc9b477381b10fe41929f248b1cba8e3"
   end
 
   depends_on "rust" => :build

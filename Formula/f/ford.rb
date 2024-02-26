@@ -10,24 +10,22 @@ class Ford < Formula
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d19b6fb9084f62ad7fcf1f9190c64cd14f80126292723a514c1cf2284c553aed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f83368d23f711b3397f973ae08080e92601109b60d3da08de78ed77c04578999"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "312c4c4bcf858f0bfb74e65c2675e60a34363f8803be4920f01819c1b4540e2b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ce51a6f1a686329f051867bda3c854658e3d22cbc686d11111eb6576c19a57d3"
-    sha256 cellar: :any_skip_relocation, ventura:        "afca2591842b472216ad900209a9a6f8a855331aef71dffc2cd1555e51db22b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "8aef75e936cd1df557d4d5d4adec1b44e0bab9e26ba1264b164f8b0e95bc699d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b0669a2ce27b2875c4c169e2d09e2cf2431e4fd527c88815fb2db15a52850449"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3a40170bd6f9d9927f86b32c3cd14cf26c91c9c7f9873fd8a137272593685463"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9af47f81bde3581ddab1fdc4520b295754201b7a4fe50d54f41a8cb24ff93f00"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "784e2f628d474c41fdb00e72bf8e3a7bc7412449f9575cb8daccf7be70e795ca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5d6bef7f4d966b7d732857b0dd788bca97422d6f3321f8d337b489423067c4be"
+    sha256 cellar: :any_skip_relocation, ventura:        "4802b956e74d487033f65ab1d75beba943077b9f86fe24f73584ada1e1871afb"
+    sha256 cellar: :any_skip_relocation, monterey:       "90c3ad58b15b549eb4c2c6fe4f4db9c0c38bdf9d9863d9c386409c9fdf75ec73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b224166ab535e64db70e6cbebb76256d2fd99e142ed26741e1948f2de144ab9d"
   end
 
   depends_on "graphviz"
-  depends_on "pygments"
-  depends_on "python-markdown"
-  depends_on "python-markupsafe"
   depends_on "python@3.12"
 
   resource "beautifulsoup4" do
-    url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
-    sha256 "492bbc69dca35d12daac71c4db1bfff0c876c00ef4a2ffacce226d4638eb72da"
+    url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
+    sha256 "74e3d1928edc070d21748185c46e3fb33490f22f52a3addee9aee0f4f7781051"
   end
 
   resource "graphviz" do
@@ -40,6 +38,11 @@ class Ford < Formula
     sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
   end
 
+  resource "markdown" do
+    url "https://files.pythonhosted.org/packages/87/2a/62841f4fb1fef5fa015ded48d02401cd95643ca03b6760b29437b62a04a4/Markdown-3.4.4.tar.gz"
+    sha256 "225c6123522495d4119a90b3a3ba31a1e87a70369e03f14799ea9c0d7183a3d6"
+  end
+
   resource "markdown-include" do
     url "https://files.pythonhosted.org/packages/5d/9c/7f53ad33ec7b7243910f8a5c3335c895fb070dc21b2e38b5a38d6a966c0c/markdown-include-0.7.2.tar.gz"
     sha256 "84070d0244367f99bdf9bbdd49ff7b9f51517bbee7582ad7aa8ff363e30d8157"
@@ -50,6 +53,11 @@ class Ford < Formula
     sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
   end
 
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+  end
+
   resource "mdurl" do
     url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
@@ -58,6 +66,11 @@ class Ford < Formula
   resource "pcpp" do
     url "https://files.pythonhosted.org/packages/41/07/876153f611f2c610bdb8f706a5ab560d888c938ea9ea65ed18c374a9014a/pcpp-1.30.tar.gz"
     sha256 "5af9fbce55f136d7931ae915fae03c34030a3b36c496e72d9636cedc8e2543a1"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   resource "python-markdown-math" do

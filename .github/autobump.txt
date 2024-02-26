@@ -3,6 +3,7 @@ abseil
 access
 ack
 act
+action-validator
 actionlint
 activemq
 ada-url
@@ -53,6 +54,7 @@ apidoc
 apko
 apktool
 appium
+appstream
 apr
 apt
 aptos
@@ -129,6 +131,7 @@ bazarr
 bazel
 bazel-diff
 bazelisk
+bbot
 bbtools
 bcftools
 bcoin
@@ -163,6 +166,7 @@ bore-cli
 borgmatic
 bosh-cli
 botan
+botan@2
 bottom
 brev
 brew-php-switcher
@@ -328,6 +332,7 @@ conduit
 condure
 conftest
 consul-template
+container-diff
 contentful-cli
 convco
 convox
@@ -370,6 +375,7 @@ csfml
 csprecon
 css-crush
 csvkit
+csvlens
 csvq
 csvtk
 ctlptl
@@ -428,6 +434,7 @@ dhall-json
 dhall-lsp-server
 dhall-yaml
 diamond
+dicebear
 diesel
 diffoscope
 difftastic
@@ -663,6 +670,7 @@ g-ls
 gator
 gatsby-cli
 gau
+gcovr
 gdal
 gdu
 geeqie
@@ -679,14 +687,17 @@ ghz-web
 gickup
 gifski
 ginac
+git-absorb
 git-annex
 git-cliff
 git-codereview
+git-credential-oauth
 git-delta
 git-lfs
 git-town
 gitbackup
 gitbucket
+gitea
 gitlab-ci-local
 gitlab-runner
 gitleaks
@@ -695,12 +706,14 @@ gitsign
 gjs
 glassfish
 gleam
+glfw
 glibmm
 global
 glooctl
 gmailctl
 gmic
 gmsh
+gnu-units
 gnumeric
 gnunet
 gnupg-pkcs11-scd
@@ -730,6 +743,7 @@ gosec
 gostatic
 got
 gotestwaf
+gotpm
 govc
 gowsdl
 gpg-tui
@@ -741,6 +755,7 @@ grafana
 grafana-agent
 grails
 greed
+greenmask
 grin
 gromacs
 groovy
@@ -752,6 +767,7 @@ gsmartcontrol
 gsoap
 gupnp
 gupnp-tools
+hackrf
 hadoop
 halide
 hapi-fhir-cli
@@ -760,12 +776,14 @@ hasura-cli
 hcloud
 heartbeat
 helm
+helm-docs
 helm-ls
 helmfile
 helmify
 helmsman
 hermit
 hexyl
+hfstospell
 hidapi
 himalaya
 hive
@@ -805,6 +823,7 @@ ipopt
 ipython
 ircd-hybrid
 iredis
+ispc
 istioctl
 ittapi
 ivy
@@ -814,6 +833,7 @@ jadx
 jaq
 java-service-wrapper
 jc
+jd
 jdtls
 jena
 jenkins
@@ -840,6 +860,7 @@ k2tf
 k3d
 k3sup
 k6
+k8sgpt
 k9s
 kafka
 kahip
@@ -886,6 +907,7 @@ kubevious
 kubie
 kumactl
 kustomize
+kwok
 kyma-cli
 kyverno
 lacework-cli
@@ -911,6 +933,7 @@ libffi
 libgedit-gtksourceview
 libgetdata
 libgit2@1.6
+libgpg-error
 libgr
 libgsf
 libhandy
@@ -926,14 +949,17 @@ libproxy
 librdkafka
 librespot
 libressl
+libsais
 libsecret
 libshumate
 libsndfile
 libucl
+libunwind
 libxext
 libxkbfile
 libxvmc
 libzim
+lighttpd
 lima
 linkerd
 linode-cli
@@ -966,6 +992,7 @@ mapcidr
 marked
 marp-cli
 massdriver
+matplotplusplus
 matterbridge
 maven
 mavsdk
@@ -1000,6 +1027,7 @@ miniserve
 minizinc
 minizip
 minuit2
+mise
 mmark
 mmctl
 mmv
@@ -1009,6 +1037,7 @@ mockserver
 moco
 modsecurity
 molecule
+mongo-cxx-driver
 mongocli
 mongodb-atlas-cli
 monika
@@ -1028,6 +1057,7 @@ mx
 mydumper
 mypy
 mysqltuner
+n
 naabu
 nagios
 nanoflann
@@ -1044,6 +1074,7 @@ neofetch
 neomutt
 neon
 neonctl
+neosync
 nerdctl
 nest
 netdata
@@ -1084,6 +1115,7 @@ oha
 oil
 okta-aws-cli
 okteto
+ollama
 omniorb
 onednn
 onedrive
@@ -1129,6 +1161,7 @@ oxipng
 pacapt
 packetbeat
 pandoc-crossref
+pari
 passenger
 patat
 patchelf
@@ -1156,8 +1189,10 @@ phpunit
 phylum-cli
 pianod
 picard-tools
+pidgin
 pig
 pillow
+pipdeptree
 pipenv
 pkgconf
 plantuml
@@ -1169,6 +1204,8 @@ pngquant
 pnpm
 pocketbase
 podman
+poetry
+ponyc
 popeye
 postgis
 postgrest
@@ -1181,9 +1218,12 @@ prettier
 principalmapper
 procs
 proftpd
+prometheus
 prometheus-cpp
+proto
 protoc-gen-go-grpc
 protolint
+prowler
 proxify
 proxsuite
 proxytunnel
@@ -1198,15 +1238,17 @@ purescript
 purescript-language-server
 pushpin
 pwntools
+px
 py-spy
 py3cairo
 pyenv
 pyflow
 pygit2
 pyinstaller
+pylint
 pyoxidizer
 pyright
-python-cli-helpers
+python-cryptography
 python-mako
 python-matplotlib
 qbe
@@ -1214,6 +1256,7 @@ qbs
 qcachegrind
 qd
 qjackctl
+qpdf
 qpid-proton
 quantlib
 questdb
@@ -1230,6 +1273,7 @@ rbspy
 rbw
 rclone
 rcs
+rdb
 re-flex
 readpe
 rebar3
@@ -1252,8 +1296,10 @@ rhit
 riemann
 rio
 risor
+rizin
 rke
 roadrunner
+rojo
 rollup
 rosa-cli
 rover
@@ -1270,11 +1316,15 @@ rustup-init
 rye
 s-search
 s2n
+s3fs
 saf-cli
 sagittarius-scheme
+samba
 saml2aws
 sbt
 scala
+scala@2.12
+scala@2.13
 scalingo
 scarb
 sccache
@@ -1287,10 +1337,12 @@ scummvm
 scummvm-tools
 scw
 sdl2
+seam
 seaweedfs
 selene
 selenium-server
 semgrep
+sentencepiece
 seqkit
 ser2net
 serverless
@@ -1308,6 +1360,7 @@ signal-cli
 signmykey
 sile
 silicon
+sing-box
 singularity
 sip
 sjk
@@ -1325,6 +1378,7 @@ slurm
 smimesign
 sn0int
 snakemake
+snap
 snapcraft
 sng
 sniffer
@@ -1340,6 +1394,7 @@ sonarqube
 sonarqube-lts
 sonobuoy
 spglib
+spicetify-cli
 spidermonkey
 sponge
 spotbugs
@@ -1347,11 +1402,14 @@ spotify-tui
 sql-migrate
 sqlancer
 sqlc
+sqlcmd
 sqlmap
 sqlpage
 sqlx-cli
+squashfuse
 squid
 src
+srtp
 sshs
 sslyze
 stanford-corenlp
@@ -1362,6 +1420,8 @@ stdman
 steampipe
 stellar-core
 step
+stockfish
+storj-uplink
 storm
 strace
 streamlink
@@ -1384,6 +1444,8 @@ swagger-codegen@2
 swagger2markup-cli
 swi-prolog
 swiftformat
+swiftplantuml
+swig
 syft
 syncthing
 sysdig
@@ -1518,6 +1580,7 @@ wgcf
 whistle
 whois
 wildfly-as
+wimlib
 wireguard-go
 wiremock-standalone
 wolfssl
@@ -1525,6 +1588,7 @@ woodpecker-cli
 woof-doom
 wumpus
 wxwidgets
+x3270
 xbyak
 xcbeautify
 xclogparser
@@ -1537,9 +1601,12 @@ xgboost
 xh
 xkbcomp
 xkeyboardconfig
+xmake
+xonsh
 xplr
 xray
 xrootd
+xterm
 yaegi
 yamllint
 ykman
@@ -1558,9 +1625,11 @@ zipkin
 zlib
 zlint
 znapzend
+znc
 zola
 zookeeper
 zoxide
+zpaqfranz
 zsh-vi-mode
 zstd
 zydis

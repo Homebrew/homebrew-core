@@ -11,21 +11,24 @@ class ArmNoneEabiGcc < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "19bd8623e59de6c729f16d3fcac921be5fd876f89bba70f552e1d91cf477160a"
-    sha256 arm64_ventura:  "4f2f39fafa158e109e7ead969e9fab8d1ea14e4dcf9e78fe2e0f959195c6d906"
-    sha256 arm64_monterey: "9eaf4e0fa6ba13e7d7f355c7fef36b264c869194dde1be79a824c509c18489f3"
-    sha256 arm64_big_sur:  "9c7d8c3936e3ab6151fc0e5ccf2cf9ab740bb8c09e74c1d51deffc1e40966201"
-    sha256 sonoma:         "3b1a78f3874c9f1ea785f3adfdc707b4512c601520d20fdfb36d6de8871ab365"
-    sha256 ventura:        "605716f2172a781934637d78a772fa6b245f786d60d5fcecd8f7b1f9e8d54f36"
-    sha256 monterey:       "86438c6a8f263a5b0942bab2f7eb9b3259f70e3bea77bd5b7f9c1ea4accd1322"
-    sha256 big_sur:        "a156db223f16707396358727e4c178d427496e8174d7f133b51f5efa1643504d"
-    sha256 x86_64_linux:   "e8ae63c45c6b9fc368896e5fe83879d3e7f4682400dcb6cefea33fa684f441f3"
+    rebuild 1
+    sha256 arm64_sonoma:   "46d9091ec4a27e85fbce47c58793407ab4f143012ac9f4f17191ef902eef2941"
+    sha256 arm64_ventura:  "7e09ea2ed7802bd7f3de38171804237b118513514a39418b75b361cf4335502d"
+    sha256 arm64_monterey: "2ce4b4c16a32fac69c6284cdd3d7abd60438ca4c625c6c8aab9d3764790927cf"
+    sha256 sonoma:         "402647439ebd5043aa51e8e9dcb9b370928830a55ed2c27ec5a0070ec06ed40d"
+    sha256 ventura:        "67fda5c96700afa1ab461ff243f264ed9b967d32d1d42a438ee0ce07c249632c"
+    sha256 monterey:       "e572a71afe82a76ef68975aada02dafd0560f3949b8259d4be31648fe9a25e7f"
+    sha256 x86_64_linux:   "f559f76321f645d0679b74d21053b8cbab1dc7f1d00052c5b4bfb0aa4cc1b259"
   end
 
   depends_on "arm-none-eabi-binutils"
   depends_on "gmp"
+  depends_on "isl"
   depends_on "libmpc"
   depends_on "mpfr"
+  depends_on "zstd"
+
+  uses_from_macos "zlib"
 
   def install
     target = "arm-none-eabi"
@@ -34,11 +37,14 @@ class ArmNoneEabiGcc < Formula
                              "--prefix=#{prefix}",
                              "--infodir=#{info}/#{target}",
                              "--disable-nls",
-                             "--without-isl",
                              "--without-headers",
                              "--with-as=#{Formula["arm-none-eabi-binutils"].bin}/arm-none-eabi-as",
                              "--with-ld=#{Formula["arm-none-eabi-binutils"].bin}/arm-none-eabi-ld",
-                             "--enable-languages=c,c++"
+                             "--enable-languages=c,c++,objc,lto",
+                             "--enable-lto",
+                             "--with-system-zlib",
+                             "--with-zstd",
+                             *std_configure_args
       system "make", "all-gcc"
       system "make", "install-gcc"
       system "make", "all-target-libgcc"

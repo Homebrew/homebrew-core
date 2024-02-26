@@ -8,21 +8,22 @@ class Pyspelling < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c2eca55d8f8a0772a62fb884d8af589c29b01dbe59f713c24e52f01608aa197"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1a27b892d485d6ae39458ff7a6251078299958e2497740e38f923e860eb3f9b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4346f191c20659dd54498144b4bd6884bb8ad67ca65570688982aaa24b43d1c9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9a1450ce0589d80ce769f974824897a411393549ed716400e1d94c23c3dc3e1b"
-    sha256 cellar: :any_skip_relocation, ventura:        "0522d090091cc4b4d68d9e85050f715126261766651766a9577883e2f4fa6294"
-    sha256 cellar: :any_skip_relocation, monterey:       "22bacc42b4763bb153993f71b338ad385543ce6908f3d66f46ff1176e68044c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ee6699d2fa97f4cae9f9f97c2289027ab3fe9a00ce09a84d5b7216a22b81e84"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "31af3ab0a1d1140f67e88cc63b4f79f9163b1511851426ccb417a8ca9edc1c3a"
+    sha256 cellar: :any,                 arm64_ventura:  "a8d008f4df13c54a997fe861c9650641e6e3de2606ed45a25af69e8ae6ffd3e2"
+    sha256 cellar: :any,                 arm64_monterey: "8df71eca0c124434e4f916acfdbc1f7490c55a1264ac9eb639d5fe54ac7dddce"
+    sha256 cellar: :any,                 sonoma:         "52fe4ae96c116be9c6ddb115d85e2d1856e4f5094447ae30c7b02f79b629ebd5"
+    sha256 cellar: :any,                 ventura:        "17bf18493ca33f15ae915d200c56f655f548ad3b65ba6e6efa4b957631ddfc75"
+    sha256 cellar: :any,                 monterey:       "336469ed9ad07024bdfd91dcebf13b9ec62820f0d112fa9e9152240e5e95b01c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0b6798b11855e5e28dd020a9470672805f5c5a7917a78f2a00a10efa660a592"
   end
 
   depends_on "aspell" => :test
-  depends_on "python-lxml"
-  depends_on "python-markdown"
+  depends_on "libyaml"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
+
+  uses_from_macos "libxml2"
+  uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
@@ -39,9 +40,29 @@ class Pyspelling < Formula
     sha256 "b2e5b40261e20f354d198eae92afc10d750afb487ed5e50f9c4eaf07c184146f"
   end
 
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/2b/b4/bbccb250adbee490553b6a52712c46c20ea1ba533a643f1424b27ffc6845/lxml-5.1.0.tar.gz"
+    sha256 "3eea6ed6e6c918e468e693c41ef07f3c3acc310b70ddd9cc72d9ef84bc9564ca"
+  end
+
+  resource "markdown" do
+    url "https://files.pythonhosted.org/packages/11/28/c5441a6642681d92de56063fa7984df56f783d3f1eba518dc3e7a253b606/Markdown-3.5.2.tar.gz"
+    sha256 "e1ac7b3dc550ee80e602e71c1d168002f062e49f1b11e26a36264dafd4df2ef8"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "soupsieve" do
     url "https://files.pythonhosted.org/packages/ce/21/952a240de1c196c7e3fbcd4e559681f0419b1280c617db21157a0390717b/soupsieve-2.5.tar.gz"
     sha256 "5663d5a7b3bfaeee0bc4372e7fc48f9cff4940b3eec54a6451cc5299f1097690"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "wcmatch" do

@@ -4,6 +4,7 @@ class Freeciv < Formula
   url "https://downloads.sourceforge.net/project/freeciv/Freeciv%203.0/3.0.10/freeciv-3.0.10.tar.xz"
   sha256 "c185c8ea0d6a2e974a5ad12fb837ca3ceb9aed3e7e884355f01035f5e779d23c"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,13 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5e5b94321fbb77d1926986ec691f8950c9c7937d02e2fb4cfa8ffdd86d58c05d"
-    sha256 arm64_ventura:  "c0eeb1a2a4a08be503988e9ac45c0d4ab339e4eba13a0456246874d9ee01bac9"
-    sha256 arm64_monterey: "d92579e9fcf5b96ddc8cb798b3e912e6fc6de8332a165577d3fc89feeb83425b"
-    sha256 sonoma:         "5ce17c5339b46dcef23f65ce6c12f63bfaf651b50ea114fd9d5935e1f87efad7"
-    sha256 ventura:        "ee1066f80b96fd5392fa8a3265b32cb758ffa6b6535398d6a041983b1ced0539"
-    sha256 monterey:       "5c01f2a05ae5ff19f257a206b1b9492c41bde66259e6c647dad62060713564c5"
-    sha256 x86_64_linux:   "56bea7e5262cc73a04df8cc9584caedf60461337925575bc8450cccb57faa5e9"
+    sha256 arm64_sonoma:   "6184468e0cbb401519ed58c38e9477f4b497a35c74c70c113598cf4b4ed9e24b"
+    sha256 arm64_ventura:  "3504a50f1724087bda8d6163e8d5a344a4dee11005448cf6edbbcf97ba6532c0"
+    sha256 arm64_monterey: "514e2d47bc9b1881baf97844fbf8a8e3b652025ed979c7f3b6b5d1ba6fc8fa7c"
+    sha256 sonoma:         "8da17f4cc949c28c37c31e53214ba55ca05be1c5773cc19dd7ac0335114b19fb"
+    sha256 ventura:        "a71b85fceeb4568029c088e6083bdde34138f21dc0d360ad12cf168d0b1341e1"
+    sha256 monterey:       "fcd2bddc8d41cc47e435ff767eaab56cd34c5243f0f536295568ae2bcd85d99b"
+    sha256 x86_64_linux:   "02aa948caedc12bfcfeaa27a1f0ab5f8c0e8b5ada7c9589a4e786a2136b2acf5"
   end
 
   head do

@@ -9,21 +9,18 @@ class Platformio < Formula
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7d9c60c1a0da7d3f147da576f13eb6ed710114c2d09a9ab5f1f12b356059bff6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9041c8620862f678811b656dd867d3e9dca145a08e016de260f353e79bf85bb1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "820d949561817923d6b1ccc061546a52118f811072b35f650dbc7afd7145e955"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6b9e56eae297656b0ee61a30cdbc7b7ab9bef5c3f313912efb8d59667bbbb84b"
-    sha256 cellar: :any_skip_relocation, ventura:        "ca87ba14d91781960d9c29b2ab58d4b9e04cedff760a8b311ccc7af9d754a32b"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a1651f0106ef15c6b194e6e9a675bbc11868cab4cdbf9cb283ec303798a872c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "385f7c46ffccffa2be79ca362793b65d37586532ea0396dcee35f921584b72bd"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d9396b5537e8e5f7a246d3f3e7aa967cd4a5d2acbf0471380ee9549cd96a9e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92c0b79c16645cca083a620626e71dd1500666c35bab8b89e47acf8130b064fd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "27588e17dbfb747a17c7f811bb119e725aa2502f927d928a3198982b09023f1a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f57f955f5d4527bdebe7a14f7c9be225e5290e54bede99f808cad45bebc150cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "21844235a47b5685f9401e124dd28874a69051e5fb05f71ba489cd5c9ce4258a"
+    sha256 cellar: :any_skip_relocation, monterey:       "0970ff99fca1732baffe28bda0287be96207842649119d3af54f43152360a672"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f28e3c9c08eccc6f815465badfb2d2fc2dbb553525f760a4bb6a09793e96b5d"
   end
 
   depends_on "python-certifi"
-  depends_on "python-click"
-  depends_on "python-packaging"
-  depends_on "python-tabulate"
   depends_on "python@3.12"
-  depends_on "uvicorn"
 
   resource "ajsonrpc" do
     url "https://files.pythonhosted.org/packages/da/5c/95a9b83195d37620028421e00d69d598aafaa181d3e55caec485468838e1/ajsonrpc-1.2.0.tar.gz"
@@ -31,8 +28,8 @@ class Platformio < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/2d/b8/7333d87d5f03247215d86a86362fd3e324111788c6cdd8d2e6196a6ba833/anyio-4.2.0.tar.gz"
-    sha256 "e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f"
+    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
+    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
   end
 
   resource "bottle" do
@@ -40,14 +37,29 @@ class Platformio < Formula
     sha256 "e1a9c94970ae6d710b3fb4526294dfeb86f2cb4a81eff3a4b98dc40fb0e5e021"
   end
 
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
+    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
+  end
+
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
     sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
+  end
+
   resource "colorama" do
     url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
     sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
+  end
+
+  resource "h11" do
+    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
+    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
   end
 
   resource "idna" do
@@ -58,6 +70,11 @@ class Platformio < Formula
   resource "marshmallow" do
     url "https://files.pythonhosted.org/packages/03/81/763717b3448e5d3a3906f27ab2ffedc9a495e8077946f54b8033967d29fd/marshmallow-3.20.2.tar.gz"
     sha256 "4c1daff273513dc5eb24b219a8035559dc573c8f322558ef85f5438ddd1236dd"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
   end
 
   resource "pyelftools" do
@@ -90,9 +107,19 @@ class Platformio < Formula
     sha256 "3e2639dac3520e4f58734ed22553f950d3f3cb1001cd2eaac4d57e8cdc5f66bc"
   end
 
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
+    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+  end
+
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
+  end
+
+  resource "uvicorn" do
+    url "https://files.pythonhosted.org/packages/ec/54/0eb4441bf38c70f6ed1886dddb2e29d1650026041d19e49fc373e332fa60/uvicorn-0.25.0.tar.gz"
+    sha256 "6dddbad1d7ee0f5140aba5ec138ddc9612c5109399903828b4874c9937f009c2"
   end
 
   resource "wsproto" do
@@ -102,10 +129,6 @@ class Platformio < Formula
 
   def install
     virtualenv_install_with_resources
-
-    site_packages = Language::Python.site_packages("python3.12")
-    pth_contents = "import site; site.addsitedir('#{Formula["uvicorn"].opt_libexec/site_packages}')\n"
-    (libexec/site_packages/"homebrew-uvicorn.pth").write pth_contents
 
     generate_completions_from_executable(bin/"pio", shells: [:fish, :zsh], shell_parameter_format: :click)
   end

@@ -6,16 +6,16 @@ class Enex2notion < Formula
   url "https://files.pythonhosted.org/packages/de/5c/c0ce22d810226345411b03177f9b43c35b82c3a671d5d73f56fc43b0858e/enex2notion-0.3.1.tar.gz"
   sha256 "f11d8a7b6c135b4d08c63e1256279d56b3798cdd48ad3b6e39c0770dc3bd82e6"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a3fa9f62620faa0814d9642e8b50009e727126cd3f919f038da84cd593bee5c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3e4a0cc21fb36d818d9fe8d796f6753d81920c7b306513db88a79071a94659fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b29fd3e0ce2e825cc05233dffd069b580fc235aa26d7bdef9df5fc120145bb1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "aef6783d0ccae7500852fad63659f028301b286a6048a012de83f15b4e96edce"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ee34d5fb6dd170c8d12f8400e4450b29fdba3e0a929caa93e3c447c04f09f12"
-    sha256 cellar: :any_skip_relocation, monterey:       "8e8af9a339f882c1d7348ddf88831facc2e3471d79c1df8102b31ed9fd091777"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d846dfa4623c36bb61b2e83272dec4ea7cacd7c17333cdccd69d7a706326dfb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "47796626cad17dc694b5b15e18d27d4e308d1ff5abf8517c0d9bc7f0bfb377ae"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1aed36fa89197fb21c7194a44c06d1410b9ccdea771b6a4b2196dbf6213e638c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "637b2e70c96f2085fec61bbb729aa644ca9c30a1e7928ae6721436572550dabf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "db6fcf910a8591797f56cdf33fe3855734c0d62867a6440a57de6c88b43d43fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "7ade64231139e7d17cae023b4864b23c1f8466b6292a951b3f9c0bbeceb7362c"
+    sha256 cellar: :any_skip_relocation, monterey:       "bbb877a9c790196ba1591412bcae5f3508033ba2acd82de719553552e0f9f9fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9867a6d8a2ba6a8dced30ab82e552cd829996cad2f1f7c61defe3d5d34a04838"
   end
 
   depends_on "python-setuptools" => :build

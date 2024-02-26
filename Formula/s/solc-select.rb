@@ -10,17 +10,22 @@ class SolcSelect < Formula
   head "https://github.com/crytic/solc-select.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c761c0fe379780b6e8559f147d19963504e732659a5e22500e5c63c832ddb814"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "224fa6b5867da53f335a6904a4d57d23bd16f319704c46beb70f147c12c83ee9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a6ab901b4cd0b4148bf882ff89df6286d8da54eb4d4a88779ee35a2d5e7a389"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a939ce9b804482c9427819a691af871ff76cdf8675c5c3515b1e793d660b216d"
-    sha256 cellar: :any_skip_relocation, ventura:        "bbade1d56f170967e3ed0db9bea6b25b5133a8ee0668631a7865985f3455c897"
-    sha256 cellar: :any_skip_relocation, monterey:       "1378a57f59656f0009a769840c6f01a86651d4977cea4535bdafa253e0e8ace9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0062de8a36483fdb650228db8b526cbd48d2212c274e960db52c453ac0ad773f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dcf2eda0e30f6361041ed6d3a9cf058c0621ac9b3aaf32953c6cb5f3bb321378"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3a72a574989a15328910c3339eb1840aba5b7a84375859ca0bd6835d96b16b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c7d8c394a4831a52da179c98fc476386433dcd18205314b0f9bd21b63600609"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0af1d0beb9c4c438b2c2983bc6e8598997417da0e7e4971a2f2d706d1c5fcb92"
+    sha256 cellar: :any_skip_relocation, ventura:        "b699007b5b946854167d61d4973d658277ec09da13efc8d7888813faec4295d2"
+    sha256 cellar: :any_skip_relocation, monterey:       "34f1dc7cffa7cb317316d6a00e0d44dc8e34b9395974062e7be8abf26575a7f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01ef9d77fd4f6823091b8a867632c9c5b935c0d0458bd104824eb28deb49e9cd"
   end
 
-  depends_on "python-packaging"
   depends_on "python@3.12"
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
 
   resource "pycryptodome" do
     url "https://files.pythonhosted.org/packages/b1/38/42a8855ff1bf568c61ca6557e2203f318fb7afeadaf2eb8ecfdbde107151/pycryptodome-3.19.1.tar.gz"

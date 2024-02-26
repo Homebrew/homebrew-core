@@ -1,19 +1,19 @@
 class Xmake < Formula
   desc "Cross-platform build utility based on Lua"
   homepage "https://xmake.io/"
-  url "https://github.com/xmake-io/xmake/releases/download/v2.8.6/xmake-v2.8.6.tar.gz"
-  sha256 "0e6284eafd51a3236098213c095237f56acafae9a88a50406b882cce5ea26b3d"
+  url "https://github.com/xmake-io/xmake/releases/download/v2.8.7/xmake-v2.8.7.tar.gz"
+  sha256 "8c7a8c6f77b1fc1705e785624e9a1e944716844a8378fece7341de27b99f0b89"
   license "Apache-2.0"
   head "https://github.com/xmake-io/xmake.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f769d95e9225da902f3939569577b1fb93de5cc020f1e1c95c6082d81da9d097"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eb18885734486ff82a02a843babb854a53776a9e4dc3501d5d4317f346462808"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f39b399ce2db47616a30a02509e2c4b2b50cfd5729c36c5187f52e94146e025"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ddd68b8d67dc42e077eefc56c0bf65f8373f1726f392bab09f3075a7b0e1abe4"
-    sha256 cellar: :any_skip_relocation, ventura:        "f01a4e720d1769f71c4f5586588065b46007b5c1b38faf3e9f7e3cb7bd2a8d8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "69ca5f788bd938994a702d8991c2d4887e658084c4e3ebd8f12cd0c18b95a32b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13092d3a7ce17c24473521d18de8817dfd8eaa67f30af1541c3bf571e798eb5b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6ffc200e56ccd68fb159387214e5ce266df8c12345ab51bdadb117ed857db881"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cff383e49cb3485ab564a9530be837b99165f73e0f9cc441db7abf163ac17474"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "19e0f0eb3d86947f3f4d84238956f1980fd811397a7a2b9492a971be355bd1ff"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32c952ea2a4c3f6504f90c0aaa054673b7da27abb1f82384ec8064bab87d12f5"
+    sha256 cellar: :any_skip_relocation, ventura:        "c4db7778d8c60e3d7b9a130fa2e5cb1ff0baa14e3bd84736fbd5ca568d5d910b"
+    sha256 cellar: :any_skip_relocation, monterey:       "ee5977c082b417ea55c5fa63ecd342dd041b9b39db48f27403a97e048351381f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16c3acf3a4259fd2b031ad054422ab23369fafc30310ef15b5bc2c215416f493"
   end
 
   on_linux do

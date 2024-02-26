@@ -9,6 +9,11 @@ class Moreutils < Formula
   ]
   head "https://git.joeyh.name/git/moreutils.git", branch: "master"
 
+  livecheck do
+    url :head
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7906d5c61df0f103ce58bc56c3ea187e4fedb7c3dd8e2cadea39f474dbf4972b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "68552a226793171ccdf363e124310009b4326f73261883f9960b7baa1e76a288"

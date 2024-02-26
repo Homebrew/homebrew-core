@@ -8,18 +8,17 @@ class Tox < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "157d3eb1fdc19ef581598e246bd4126f975c6bdceb692b69df0c6eea0a477e83"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4082347ef681a1532e294694599bf87d0c58232a41a99dafd4b850d6395bb4f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ccae02a0f76653948c3f90f1421482670e7d926a04aa7c579157482a9142429"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c014c2963c5ec378c3517bb21e95291f94301d8c951de607769ba0ef9a903343"
-    sha256 cellar: :any_skip_relocation, ventura:        "e19329728144a0023bcc9350a716b210dd163a604dd704ea66a68c38d2c245be"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b562244811d378afd82fa9faa7d1b9ef5a80abc7db9065f1a17711fa77dd128"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d8b4a38481c76ce7c704fcc25da52056554c5942aea07cb1c977479839bfb9c"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7f4a58f3615c65494d6fe7db5a26c6dbf6e5669f407b5560db1c9b0d6a979962"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2182ee0db3755fca0b4f20c9236050ba80fdfee5d4c391627e943cc79a988ac8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d4c71ef9fa3c5579aa58cf8b881ca10004429a07b2e885782b3400b30239521"
+    sha256 cellar: :any_skip_relocation, sonoma:         "419830f699f13dd934a986f9ce6eb1ee1014272cf37664e2a8fe1812a110a338"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d0868a5c0c7ce544c392daa14c17fa76b1ad657307426b92311eda8b8a38fb3"
+    sha256 cellar: :any_skip_relocation, monterey:       "cb2b772e39339d79446655e48efc7cebb50bb7b7434b038e7fd8eb7e3467c17f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e183ec1a7d223cdb58821f94db4ca6e6cd5929df1bf11dd534f00ad9817aa522"
   end
 
-  depends_on "python-packaging"
   depends_on "python@3.12"
-  depends_on "virtualenv"
 
   resource "cachetools" do
     url "https://files.pythonhosted.org/packages/10/21/1b6880557742c49d5b0c4dcf0cf544b441509246cdd71182e0847ac859d5/cachetools-5.3.2.tar.gz"
@@ -46,6 +45,11 @@ class Tox < Formula
     sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "platformdirs" do
     url "https://files.pythonhosted.org/packages/96/dc/c1d911bf5bb0fdc58cc05010e9f3efe3b67970cef779ba7fbc3183b987a8/platformdirs-4.2.0.tar.gz"
     sha256 "ef0cc731df711022c174543cb70a9b5bd22e5a9337c8624ef2c2ceb8ddad8768"
@@ -68,10 +72,6 @@ class Tox < Formula
 
   def install
     virtualenv_install_with_resources
-
-    site_packages = Language::Python.site_packages("python3.12")
-    paths = %w[virtualenv].map { |p| Formula[p].opt_libexec/site_packages }
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
   end
 
   # Avoid relative paths

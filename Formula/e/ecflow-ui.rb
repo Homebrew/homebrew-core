@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
   homepage "https://confluence.ecmwf.int/display/ECFLOW"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.11.4-Source.tar.gz"
-  sha256 "4836a876277c9a65a47a3dc87cae116c3009699f8a25bab4e3afabf160bcf212"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.12.0-Source.tar.gz"
+  sha256 "bdfa22adacf8d2429ce01fe1bdc0cdc8099a42364f18610f2bc2fe15a7541bb4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class EcflowUi < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "1a121595a6400b918596dc7e8cf3de5b3fd0f1b884ee665fc6ed6edae8eac8ea"
-    sha256                               arm64_ventura:  "433514a4337a239d95622a63e0238e4e0d15bbdb0af27736aad2df7ae0ea2d1a"
-    sha256                               arm64_monterey: "c241c4c06635ef7f7ff3d4d65d91efdc5e79b1ec56acfd9c2a07e741cd9c29db"
-    sha256                               sonoma:         "2b6d739250675e59a1c7ed6ff60ec868acf9c682dfd0db2e9dad47ccfca4005a"
-    sha256                               ventura:        "66b1e480c3f35afc5800f8abb150031258847e06fc0ab38b3eef80fff05e9826"
-    sha256                               monterey:       "cf6b9ca09de87a706585bcd40802e4ece4cc0d9ea6e0b93b32d34fca369136a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4c53d3d60d8d2fe3df9cda45da950598fad76f992d3a81a8e1d90bbe058a9ed6"
+    sha256                               arm64_sonoma:   "8e7b74f984080344c907d11b799d236274cfb8d23c59ce3570fc1ea3f1bc550e"
+    sha256                               arm64_ventura:  "914d955103f97651cb2fcc90580d7072b989f71e3bb3abdd525fa3e5ce9189ff"
+    sha256                               arm64_monterey: "15e603bef95393d7e84fdb00c4d34472bf8f69fd06aba02d0f632333046cc777"
+    sha256                               sonoma:         "8de5d5a789676dd3a6021a2061f8807e7e16c25bec78315f043ee6758c01b259"
+    sha256                               ventura:        "d4c085a68f52b46ff87152343f92fa868cae4eb3bad73aa647dbf068438e7b8f"
+    sha256                               monterey:       "61cef4a77cd7a8544a86db2b136f9abe760f947a1013cd3520c8dcf42c9c99e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54937a2dfeb422073bc78d06651aa904690f236a1734bf0f199ed0b69e1fb894"
   end
 
   depends_on "boost" => :build
@@ -28,23 +28,18 @@ class EcflowUi < Formula
   # requires C++17 compiler to build with Qt
   fails_with gcc: "5"
 
-  # Fixes a typo in upstream's code. Remove once merged and released.
-  # PR ref: https://github.com/ecmwf/ecflow/pull/35
-  patch do
-    url "https://github.com/ecmwf/ecflow/commit/5bf5f8490f3ba0a39c9119ba03f8a9b349f6c3ec.patch?full_index=1"
-    sha256 "747e7d8bfb84e3e60c7775a58607bdbf666d83b9c3cc544dc79bbf9ff3e2922b"
-  end
-
   def install
-    mkdir "build" do
-      system "cmake", "..",
-                      "-DENABLE_SSL=1",
-                      "-DENABLE_PYTHON=OFF",
-                      "-DECBUILD_LOG_LEVEL=DEBUG",
-                      "-DENABLE_SERVER=OFF",
-                      *std_cmake_args
-      system "make", "install"
-    end
+    args = %w[
+      -DECBUILD_LOG_LEVEL=DEBUG
+      -DENABLE_PYTHON=OFF
+      -DENABLE_SERVER=OFF
+      -DENABLE_SSL=1
+      -DENABLE_TESTS=OFF
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   # current tests assume the existence of ecflow_client, but we may not always supply

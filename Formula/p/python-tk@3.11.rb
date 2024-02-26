@@ -1,8 +1,8 @@
 class PythonTkAT311 < Formula
   desc "Python interface to Tcl/Tk"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.11.7/Python-3.11.7.tgz"
-  sha256 "068c05f82262e57641bd93458dfa883128858f5f4997aad7a36fd25b13b29209"
+  url "https://www.python.org/ftp/python/3.11.8/Python-3.11.8.tgz"
+  sha256 "d3019a613b9e8761d260d9ebe3bd4df63976de30464e5c0189566e1ae3f61889"
   license "Python-2.0"
 
   livecheck do
@@ -10,13 +10,13 @@ class PythonTkAT311 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "025f53bf66ebad184233dbd6c136a033e015893d07f292ca47072ae2af3d2c5d"
-    sha256 cellar: :any,                 arm64_ventura:  "e2e532d784cf0bddf48658c6491f61301d7f2d168df464062317b0dc11216c30"
-    sha256 cellar: :any,                 arm64_monterey: "79a9e470b618ac34bf98e747d6e769b2bda25b146cb2de01ca3fe449b03363c6"
-    sha256 cellar: :any,                 sonoma:         "67eecc1fcb3340aa41d132b6c0efe6700ba68f6e7307cde4b8b3d9a0a104688d"
-    sha256 cellar: :any,                 ventura:        "20227b9a0ba0e61ed499fe193f1ae0755f3267d9a8f02b8dce1dc6fe5d44958c"
-    sha256 cellar: :any,                 monterey:       "ed8050ce4e92bc2ef0734a1040019e47a3a87d2ab84afb2c68745b3d65cbe8ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ee18c235f45cce29b35dd17ce87cb6a6d0ce9e6d75582499fc1a7ab9744e3ae"
+    sha256 cellar: :any,                 arm64_sonoma:   "735195ebd55e1cc7ac98f3306fece7337b83d018eae99efebe890fcc8b9fb8ad"
+    sha256 cellar: :any,                 arm64_ventura:  "f44cbbd4c0e8bebefc50e75d300ffc2e9ba7d4eea45ff98f8e926e5fd401be00"
+    sha256 cellar: :any,                 arm64_monterey: "fbcb392587884d4192e3c6d09a5e5164e612fb05e4b9f631b214ecd13351720b"
+    sha256 cellar: :any,                 sonoma:         "cb53364018105f70f45e66d0a1862107830031a1b42ad4edd73c8a44da6973de"
+    sha256 cellar: :any,                 ventura:        "bbe9aa43f2efa38b43d754293f4765e468a179ed5d7517245afc87f5fb2ec8a2"
+    sha256 cellar: :any,                 monterey:       "f23e1c5608ca782069523e5e8d0da0fc47b803d3ef4a0333e4e2ed9a466e8c1d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5a56f1ce491e7f458da9f38019d4d16a1100cf41b8a7770ceddc3f5a2eba600"
   end
 
   depends_on "python@3.11"

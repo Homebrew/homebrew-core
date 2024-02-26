@@ -50,11 +50,7 @@ module Homebrew
         else
           ephemeral_suffix = "-#{ENV.fetch("GITHUB_RUN_ID")}"
           macos_runners = [{ runner: "#{macos_version}#{ephemeral_suffix}" }]
-          if macos_version >= :ventura
-            macos_runners << { runner: "#{macos_version}-arm64#{ephemeral_suffix}" }
-          elsif macos_version >= :big_sur
-            macos_runners << { runner: "#{macos_version}-arm64" }
-          end
+          macos_runners << { runner: "#{macos_version}-arm64#{ephemeral_suffix}" }
           macos_runners
         end
       end << linux_runner_spec
@@ -67,7 +63,7 @@ module Homebrew
         else
           runner = macos_version.to_s
           runner += "-#{tag.arch}" if tag.arch != :x86_64
-          runner += "-#{ENV.fetch("GITHUB_RUN_ID")}" if tag.arch == :x86_64 || macos_version >= :ventura
+          runner += "-#{ENV.fetch("GITHUB_RUN_ID")}"
 
           { runner: runner }
         end

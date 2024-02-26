@@ -10,18 +10,23 @@ class Shyaml < Formula
   head "https://github.com/0k/shyaml.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b46bc1af5f896c10e67be0d37ca5fb830f9b4b8ca836767cf08f252977910be"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1ceb01b2b4f42730b98fb82d286b75d3561e2de2bd9f1ac983b084bf23ed5ab0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87e092771c2c63b1a2570b19d240772d32ddedeaf1e54b29ce5291e21f226a36"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6b30cf0dbf0da3d6c0a438d56ef85196cd9aa0542811bfdb0747f55a1cf74159"
-    sha256 cellar: :any_skip_relocation, ventura:        "16bbdf708763e764bbe770beb115144ffaf4043227fb0716e0c0e1257356e9f3"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad208ce49424ec294458cba3192b9e04f7ff8f9665ca92cb73d1184f0ba65d93"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b372f564fbc35d834bce20b9ed36af9f3a5e7bab5cb4895c09425691aa44fa2"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sonoma:   "dfef640dec7d7feda0631dee64cecf64cbfa4f652fb904968aeb3559689df56d"
+    sha256 cellar: :any,                 arm64_ventura:  "ca3e01a14e019cb5631b9e2650389b9dce17e669a030dec0f7e76d2a4229cb57"
+    sha256 cellar: :any,                 arm64_monterey: "4af452f5d5c74a91d59137836d1ba084fb9ec74a42deffe6adfa347eb8e96bb7"
+    sha256 cellar: :any,                 sonoma:         "6f01fcbb83d7129550d9edf349dfbca663922bed9a3658c92c34632abad19661"
+    sha256 cellar: :any,                 ventura:        "60ea04a3903772b63ef876d1d20d44f954f189abf7187a1373dd25917eb6919e"
+    sha256 cellar: :any,                 monterey:       "9ad3c28af300bbcac8dc4e62dcffee9e91405cc6b2097efebc7267975b8998ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c85847600b5161298d5cb8df0466940912c75b3f11ee8fa4d81bd5078a89db7"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
-  depends_on "pyyaml"
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
 
   def install
     # Remove unneeded/broken d2to1: https://github.com/0k/shyaml/pull/67

@@ -6,16 +6,16 @@ class Arjun < Formula
   url "https://files.pythonhosted.org/packages/83/2d/e521035e38c81c9d7f4aa02a287dddeb163ad51ebca28bef7563fc503c07/arjun-2.2.2.tar.gz"
   sha256 "3b2235144e91466b14474ab0cad1bcff6fb1313edb943a690c64ed0ff995cc46"
   license "AGPL-3.0-only"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3b9c6ae5dc31783c0fbda6b937d6438bbb2520f26ef33b329fa5d2198890a84c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aabcaba6f266aae16dfbed6a81c92d14dba64f003ce01cbf4df149b1a6cc4c2f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9588702cd88a65074928a25a79d383fa30eeeb1c55ffb5d19cd3339e537de703"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4aab5ee06302fc9b31c076220da9295fd2d1fafadb5b353de5ae3ec95cfcf22a"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ac401acee3285219dcd6c44e6ba4a3978a16629bc1d433946a2bd180e5cd360"
-    sha256 cellar: :any_skip_relocation, monterey:       "0c8ad8435fa83f7676abcd1b53d7eb20ac118a00395d1fe70e27b76330e25a6d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1c3c0ec336701591f52733e81c1ba4ac404975a649d2103f8bdc0baa1f543f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e14cd0cdd03be123f2e94104833f4cae88a040cc0d173230283f360a01925b16"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89615d66134221dc0473829040456ce11d9eb1df511ee4bd8a7e12dd05c04959"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4f3d70502273ad63723fc7d8ffca102969f96342110fea0a8268fddab7426cec"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d9032ec3eb5e6aa9a949a975c07dcef3a39ee3b4b362d211e0abe3de0c446895"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e886e2371316598924249efeefb0d479df3afcb0fea07c7661b3b22dbc7c125"
+    sha256 cellar: :any_skip_relocation, monterey:       "715a17ea8dea4f3fb9002178e05b88868ffa457402c82a4681d06265b6bd40b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ceede517c5682d225bdb12f54291054bc36be1f16a10c82f90a7d4aa868b463"
   end
 
   depends_on "python-certifi"

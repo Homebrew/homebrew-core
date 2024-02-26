@@ -4,6 +4,7 @@ class GnustepBase < Formula
   url "https://github.com/gnustep/libs-base/releases/download/base-1_29_0/gnustep-base-1.29.0.tar.gz"
   sha256 "fa58eda665c3e0b9c420dc32bb3d51247a407c944d82e5eed1afe8a2b943ef37"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -17,14 +18,13 @@ class GnustepBase < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "273c97c299a8d34bf80b954842dd6de55d0ee7a266bb695a56263bd30635c72d"
-    sha256 cellar: :any,                 arm64_ventura:  "ff0405fbcd2a5e29820f8aac1cf935ad8c5be93748b6bfd5877297547730561a"
-    sha256 cellar: :any,                 arm64_monterey: "fbc3b491c2c32046aeefd0edfc35c9404b33fb15f9273870cab2ee1f8838ed34"
-    sha256 cellar: :any,                 sonoma:         "8e710f26da4ef956b00ed4866241417fb564e043d961ae27e96afb4fce1056e0"
-    sha256 cellar: :any,                 ventura:        "2476f8486238e778203cce03eda32586e86ee9b83467963dbd19ea508b44fae0"
-    sha256 cellar: :any,                 monterey:       "72669da078dd6a7b10336e57c22ccd6fb7a2310bbd11cb93a1105c7e81c6fbe3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ccc5dba4ab5903e9ddb6472edc04a38903032779f6fbc1b5702e9e7547cae44"
+    sha256 cellar: :any,                 arm64_sonoma:   "1d7c91e904aa5235b936237af89844760b564e4bb70cbeed16e56c52cc0ece2a"
+    sha256 cellar: :any,                 arm64_ventura:  "a236ad4dc35176d4eec9ebf0ed1225872d20393fae0498e8f4e79949ebcf183b"
+    sha256 cellar: :any,                 arm64_monterey: "3df755b603ab766f02ab0834ae23fce53fbadcc53b51ab61c2dadb8931f79cd8"
+    sha256 cellar: :any,                 sonoma:         "ff59b43b7be6606c4a7935aececd9ff22e74fbd55f3d54677ed98a2909b9b223"
+    sha256 cellar: :any,                 ventura:        "af2aa5f19a5e72f97950209d0a8abfcbb3333af30c572f5c0a8e6cb55db5db37"
+    sha256 cellar: :any,                 monterey:       "3c1091a0f232597717754dbad8417a1877bc4fc8e68347b4de03d3c0eb7c5624"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eb071ced655073c8386129648bfbb806d2ee382ef1579e46dcdaf25cea88ecd"
   end
 
   depends_on "gnustep-make" => :build

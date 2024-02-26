@@ -1,8 +1,8 @@
 class Pmix < Formula
   desc "Process Management Interface for HPC environments"
   homepage "https://openpmix.github.io/"
-  url "https://github.com/openpmix/openpmix/releases/download/v4.2.8/pmix-4.2.8.tar.bz2"
-  sha256 "09b442878e233f3d7f11168e129b32e5c8573c3ab6aaa9f86cf2d59c31a43dc9"
+  url "https://github.com/openpmix/openpmix/releases/download/v4.2.9/pmix-4.2.9.tar.bz2"
+  sha256 "6b11f4fd5c9d7f8e55fc6ebdee9af04b839f44d06044e58cea38c87c168784b3"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Pmix < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f20b123e03855e606ec1cf6d25182f44813798152662523fcb2537544f204bd6"
-    sha256 arm64_ventura:  "590531f9d2b2742039cced621dc41f749e2807f87a626fbad6e0d98d55d7a69a"
-    sha256 arm64_monterey: "ca047a216d801e66031ee341de181af499748ec4fc060d26e128a7b56b466400"
-    sha256 sonoma:         "5b658d1050383e23a98639bb1726fff09414c96b28d5b55a3e54baaffcf70bad"
-    sha256 ventura:        "f4e6c8b0b72d710a0fa8a6350aa4b013eabe5a666e15121c676235233ca07743"
-    sha256 monterey:       "fb5b16d926e2463dc8b1aa71d89792508d2df4037652cfd9621cdd17b1cd5eac"
-    sha256 x86_64_linux:   "389565b360ae60d93dde74bebcc5d8cc78d4966a9e99322799b92a0dd575ca09"
+    sha256 arm64_sonoma:   "7534c07deb72ae5959aacf9ed49de22302cb043cee37ee828adf005b4c2021e0"
+    sha256 arm64_ventura:  "cbe3c310a455283c40f9cd387661ae2310e62acca9dc106eb836c6caaf37dbaf"
+    sha256 arm64_monterey: "008391906fc8577402975247333c6be1c5626b98501606e1eb99fed34fb5f628"
+    sha256 sonoma:         "61e063ae000d60e98c508a5a0adb3244395422363642956911194ee88b3c97e7"
+    sha256 ventura:        "fe4acd1ae9fbf99199d721dddb66099fba02479381a590da220aef729237ed64"
+    sha256 monterey:       "9c214c1379e3fe27e390f1b8c2d5e2b52cc5f979106e267929cb9b11fbeb5cf2"
+    sha256 x86_64_linux:   "aae3cda6ed8e0af8918a7b63346b47528979093f6899a6333297c92cb184d9d0"
   end
 
   head do

@@ -10,17 +10,18 @@ class Cf2tf < Formula
   head "https://github.com/DontShaveTheYak/cf2tf.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71803f25bc1fe802f3029516fe8afba26366e5f257f1aebe50f4a953dbb9efbd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b632280303616b36d504d41c2bd80a838b8b92076acc41e448c991a78994ab3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff36bd54b800cc257412c556f15a548111dcde54e62ad703aa904fd0b549cd53"
-    sha256 cellar: :any_skip_relocation, sonoma:         "00b8cafcba3333fd30d17d5e56602cd271aadaa311ca110ac724e63a6f2854ae"
-    sha256 cellar: :any_skip_relocation, ventura:        "0aabdb4a6524f92bf404907879d1580413bbcf1ee09b5f5f9bbfb03c9f2ecdac"
-    sha256 cellar: :any_skip_relocation, monterey:       "cfa6476f10965395a3e37206dae2c084fd9b826662de86a6966da0cc9ffc182f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34eb2d9d93ab923f05ae5309352fc6e5b9a51eaf8826be0b4efbc6a66eeaaaf6"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "df0d3bf9b718cce6a8fc3a4fb05ee12de49862dd9335b56c7b88e17c2b11dd3c"
+    sha256 cellar: :any,                 arm64_ventura:  "10290a607e41aaf70a2a02c121087c5d4b1294f64743e2667277ac27550e64e4"
+    sha256 cellar: :any,                 arm64_monterey: "7fac1e703b99ccfe24c9b42adde0ff97d514b6b7107cdc0dbf3578e3d55ae5fd"
+    sha256 cellar: :any,                 sonoma:         "20714d888eed9723e677411c3ab86f0f86d4adc9382a3a51c829b91fda15327b"
+    sha256 cellar: :any,                 ventura:        "89892644d42acf27c4447dd1451620279cc4b41366a09eb2a9f515fdbbe201de"
+    sha256 cellar: :any,                 monterey:       "0cdf4031dde5287b98eb30756d7c83c33430bb11d24f9707c2849fd68cf83363"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3df5297101aaa43f465baa03e116b33e442193187d46eed3e8013ddd96d4564e"
   end
 
   depends_on "cmake" => :build
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
@@ -112,10 +113,6 @@ class Cf2tf < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
     sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
-  end
-
-  def python
-    which("python3.12")
   end
 
   def install

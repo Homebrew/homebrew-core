@@ -1,9 +1,9 @@
 class BashCompletionAT2 < Formula
   desc "Programmable completion for Bash 4.2+"
   homepage "https://github.com/scop/bash-completion"
-  url "https://github.com/scop/bash-completion/releases/download/2.11/bash-completion-2.11.tar.xz"
-  sha256 "73a8894bad94dee83ab468fa09f628daffd567e8bef1a24277f1e9a0daf911ac"
-  license "GPL-2.0"
+  url "https://github.com/scop/bash-completion/releases/download/2.12.0/bash-completion-2.12.0.tar.xz"
+  sha256 "3eb05b1783c339ef59ed576afb0f678fa4ef49a6de8a696397df3148f8345af9"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :stable
@@ -11,14 +11,13 @@ class BashCompletionAT2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2327d8eb7f1d32238624d720bd28856c4489fc1992bf3dc48c4a837cb988dfc1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2327d8eb7f1d32238624d720bd28856c4489fc1992bf3dc48c4a837cb988dfc1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2327d8eb7f1d32238624d720bd28856c4489fc1992bf3dc48c4a837cb988dfc1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e0a9d02cb41f262b764f79135ba150948faab51058d20030e118b555b50f0f66"
-    sha256 cellar: :any_skip_relocation, ventura:        "e0a9d02cb41f262b764f79135ba150948faab51058d20030e118b555b50f0f66"
-    sha256 cellar: :any_skip_relocation, monterey:       "e0a9d02cb41f262b764f79135ba150948faab51058d20030e118b555b50f0f66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac195162fd4c749460be5eada9042bca58d30646f3eff1371af50cb1fde5714c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a89a69189337d02ae9915a7d63f3300a97bfc577a80fb95151b5172d6d8be329"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a89a69189337d02ae9915a7d63f3300a97bfc577a80fb95151b5172d6d8be329"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a89a69189337d02ae9915a7d63f3300a97bfc577a80fb95151b5172d6d8be329"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c8a4c8bd99146abfcd893b273e6a4a53d6a47c3768c169f68296bc3e35d0dc2a"
+    sha256 cellar: :any_skip_relocation, ventura:        "c8a4c8bd99146abfcd893b273e6a4a53d6a47c3768c169f68296bc3e35d0dc2a"
+    sha256 cellar: :any_skip_relocation, monterey:       "c8a4c8bd99146abfcd893b273e6a4a53d6a47c3768c169f68296bc3e35d0dc2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4b277dc873ae381d168808461328bf1a0580f9e94288990f14de82756cb4441"
   end
 
   head do
@@ -36,15 +35,7 @@ class BashCompletionAT2 < Formula
   def install
     inreplace "bash_completion" do |s|
       s.gsub! "readlink -f", "readlink" if OS.mac?
-      if build.head?
-        s.gsub! "(/etc/bash_completion.d)", "(#{etc}/bash_completion.d)"
-      else
-        # Automatically read Homebrew's existing v1 completions
-        s.gsub! ":-/etc/bash_completion.d", ":-#{etc}/bash_completion.d"
-        # Automatically read Homebrew's v2 completions.
-        # TODO: Remove in the next release as script is able to find via PATH.
-        s.gsub! ":-/usr/local/share:", ":-#{HOMEBREW_PREFIX}/share:/usr/local/share:"
-      end
+      s.gsub! "(/etc/bash_completion.d)", "(#{etc}/bash_completion.d)"
     end
 
     system "autoreconf", "-i" if build.head?

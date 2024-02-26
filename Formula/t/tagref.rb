@@ -1,18 +1,18 @@
 class Tagref < Formula
   desc "Refer to other locations in your codebase"
   homepage "https://github.com/stepchowfun/tagref"
-  url "https://github.com/stepchowfun/tagref/archive/refs/tags/v1.8.5.tar.gz"
-  sha256 "5c97a144ff485f90bda461e2f9fdc73840270cf1e0c5b380505330ec66d9ecb7"
+  url "https://github.com/stepchowfun/tagref/archive/refs/tags/v1.9.1.tar.gz"
+  sha256 "929f44cd6684e65fe4e5082d6834c38f7da46ecb8dc7cdc00ad6163500dbacaa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4707788e76d6ae8669cd3110119e2791830d391e06fe9025a099d46008e4051b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3351b75307079128e894ef3831d8a1ee8324cc8b42be3dcfd164b57f96ff1aaa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "60aa9bb8febfc5788803dfb3ec461dbd5e6184e8ffc975f8c8924628a73214ca"
-    sha256 cellar: :any_skip_relocation, sonoma:         "36bfe90501d792cf6f83e6d0017a08dbbfbe4aea2ff9dcddcd8e788c3b1400ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "f480c2055b3267ee5f745d9f59d33d37d88d432eaa333984f9a84081ba6dcae4"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ae6c2ca56a63d84b24c1306f65041a7d8eca25d5440dc9e7aceaecadfb86f95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7417dec82f756a1084e1625370cb18c63808bf96379847d829d309f06f62369d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "78d0f11d433080f87af41e065e24e5d5458674a25aa679342366eb85dfc57316"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6fb1c4fc89eaa539ed136d4e999e3ebe13487ba2f400265596914136f2691403"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12d1beeeb0ec188bc0fbb23367bfd92efd5692e5d548b5de40fbc2a83e06d9fb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a4754276aa29b708efdca8c8e17fae7a97492f9b200afad4d85a04b9a835cc5f"
+    sha256 cellar: :any_skip_relocation, ventura:        "62a44193a79bfbb753155eba2448eac4bf2e1d40737e1846f04a2e9ca57ee44d"
+    sha256 cellar: :any_skip_relocation, monterey:       "1f49677fe25e47c33421a250ee7b05f41ed98084475c518a6bbdbe85c1a040ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a511855a0d6ba412935f490d7c3adc74008a35cd4bfa9f5c0258f1d916df64f"
   end
 
   depends_on "rust" => :build
@@ -35,7 +35,7 @@ class Tagref < Formula
     ENV["NO_COLOR"] = "true"
     output = shell_output("#{bin}/tagref 2>&1")
     assert_match(
-      /2 tags and 2 references validated in \d+ files\./,
+      "2 tags, 2 tag references, 0 file references, and 0 directory references",
       output,
       "Tagref did not find all the tags.",
     )

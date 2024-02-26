@@ -6,19 +6,20 @@ class Aerleon < Formula
   url "https://files.pythonhosted.org/packages/b8/e5/f4386abc5d0e7f18bba22650514c1c14dbd235c93e11ac020f6c724614da/aerleon-1.7.0.tar.gz"
   sha256 "f3145c2a04f37c0463fbd80ee650f039bda9bc445e9c7fd4f18d8eeeda1b6ead"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aerleon/aerleon.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fba986d48e2660f0793902161dc340033826988687368e54d167ad2582ff87ff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "443e4869b384088b7480b71abd487a6e8f484cd580d142e7b7d6591e5794c21e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed35df34125322a1889008e522566e49bd4df831995e9d02e0324b22dc22ac6b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "36a528a249ac51e197317878fcbd43a4359609c40d0263541778d153f25afa19"
-    sha256 cellar: :any_skip_relocation, ventura:        "a964f0a88b90962658c81534496e9c7029aa9dae5f46d6e9494b45447dde1f95"
-    sha256 cellar: :any_skip_relocation, monterey:       "944212093a588cc6ab9e63da9535e35e8ec509fbd73d378409ed971e0caa3bbc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69a6fe0fb1e645c0ec2e374706bc4ce95ced0fad09c03a3ca2bd12093ebd6598"
+    sha256 cellar: :any,                 arm64_sonoma:   "c61f872f3a69078ebd387bc4cd8a0c274be637a735cae556c54624637fb5ce1a"
+    sha256 cellar: :any,                 arm64_ventura:  "c9c9a73139771a0de0174ffc0678241ab7ae8a30b14f34b4d1e2488478b2b0cb"
+    sha256 cellar: :any,                 arm64_monterey: "7dbe36296a72efecccebdff1ab38f168e7d2e95f429496754307898ff780545f"
+    sha256 cellar: :any,                 sonoma:         "1a51907483f5f3adab0715f3e8d5cebbf4c7325f97ded9dccff0d99aaf19f0f1"
+    sha256 cellar: :any,                 ventura:        "227e3d0bc22e7c43bac00bbb2d0d615bf65b337d9e69e27f2ff987cbd2e401f4"
+    sha256 cellar: :any,                 monterey:       "f2133443e9720c6965d008e6426355dd03e4330719c85c2a8ae1834d1d0e9f2e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f36f0dc1b5f5aa8a87cda60453db6f81eaced8fed9d9575f114bb0546165bf1"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "absl-py" do

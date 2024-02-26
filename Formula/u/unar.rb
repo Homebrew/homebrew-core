@@ -4,16 +4,17 @@ class Unar < Formula
   url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.8.tar.gz"
   sha256 "652953d7988b3c33f4f52b61c357afd1a7c2fc170e5e6e2219f4432b0c4cd39f"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "955959ff3b95599559099d55be858c42bcae51573547c605ee427bb786acce72"
-    sha256 cellar: :any,                 arm64_ventura:  "8f315ded2a58518d307a5e5787294e00aa95fa2198a342349a3aafdc25bf5f9f"
-    sha256 cellar: :any,                 arm64_monterey: "012f7b4535902de8ee57b62429cc78a4f3b17466a0151961410190def9b65317"
-    sha256 cellar: :any,                 sonoma:         "0d691d5ca8f7bace618acba25a1831ee20adacb7f039b92e81e0b20d4c1058be"
-    sha256 cellar: :any,                 ventura:        "9f618c0fedf4e290c98655e0fef4bb072506b024ce4125b63123a26a03560848"
-    sha256 cellar: :any,                 monterey:       "3edcc1dafa50751632ebaa3033156ad20177195b6912f669fa4fd7db7868c41e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ddba47b3729d99ceda24f362d3173b59cafafb5ff2d775a41831cb98fd7e3227"
+    sha256 cellar: :any,                 arm64_sonoma:   "46036ee482563d003210225d83aff780915e9a35eaf82b30c96e63ee223bdd2c"
+    sha256 cellar: :any,                 arm64_ventura:  "03f29555080e3732599929fbd9608f9f406daca1f7444d189bc8ccea844f5d5d"
+    sha256 cellar: :any,                 arm64_monterey: "2026bbbf1a02ce6a51df381c084ca6f40edf56c662448da49407a6c24499e534"
+    sha256 cellar: :any,                 sonoma:         "0a21fa771349f9a3df5029845c6616ddac96af7f8c1d189665a62e380a30cf6d"
+    sha256 cellar: :any,                 ventura:        "ad094c32d4257b55ff396af94dcab1d7a9a6f17aee9cfd6efe7baed3c48039eb"
+    sha256 cellar: :any,                 monterey:       "a38913227924d3830444886182afe1321871e769a721dd156192fd058ca57ec6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af7cb31f8209aafe2f02982148d8fbad9a36374d5b93b2bad3dd47f5f9a3429c"
   end
 
   depends_on xcode: :build

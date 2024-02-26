@@ -1,18 +1,18 @@
 class Kwok < Formula
   desc "Kubernetes WithOut Kubelet - Simulates thousands of Nodes and Clusters"
   homepage "https://kwok.sigs.k8s.io"
-  url "https://github.com/kubernetes-sigs/kwok/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "3ed107a8f485610dc8fe3d7e8b327028855e9e0aca0c7bcf83ef3d18f6a834d7"
+  url "https://github.com/kubernetes-sigs/kwok/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "b35fc2d99ca4e63c024169238cfae098ef55263804133d721d30a8dbcacbe7d6"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "578079f6029fd1eda4761cc37829f551541f340ee6999e2a584f3cf4bafeceab"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ddb506fc8ca85714e50fbbc7d32ce14eae5a18442605c05e8e243c889aeb7f1b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a255945e5303cd6ccd84128f1518f58f25385ffe3dd1029f471c4f905b0be84d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "15fda04c8ad55d34d406a3a9677c521002f5f125fb34adfbe9b10c69037b0641"
-    sha256 cellar: :any_skip_relocation, ventura:        "062c41969317b40a3f46dac46a6b8cbd92c9b0e76a2343082265c79bf8cb9313"
-    sha256 cellar: :any_skip_relocation, monterey:       "648de97c72649ec2fbcfae9fda6050600e714757cb218a89f5e9b63321b092c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b132f49b183e54bc6bfb571586e4cc242813e262208565cde1210be954ba15f7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "06fb9cb9aeb140d2fb65008517248e900a6f48be4a7e9f852dd9acc9c7773c3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "01b7adc0d1ce6569d2d23d26fa343ecbdab1b623e039b4ba6c27464134a0a8ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "36b2b83779e4d645142120b23cccc9222935f81f42cbab28a50563877aad272a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "812cef46628bdc5b15108c44ffcbf75693ae114ac0c242ae359e2e65f24bc231"
+    sha256 cellar: :any_skip_relocation, ventura:        "eab0c7dd6750a7b986ad942353ce320f83a1b2afa6358507cdfa0c0cec88d60b"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa3d89ac2bd83d454bb5db537b64931245c168f450e22582ec6264bf92194129"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32736667ece33c43448faa196faf5711924b35899df213666250910d6c3d8ed2"
   end
 
   depends_on "go" => :build

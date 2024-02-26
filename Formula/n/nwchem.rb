@@ -13,14 +13,14 @@ class Nwchem < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "4d5cc2bccfbe731da0c195519ed4f42b4c9e56df48fc2870111ef99b348d73bc"
-    sha256                               arm64_ventura:  "888d004b64558e5e916c836c223a4c1c34e3d6b8db9b2e229d6530955ba51656"
-    sha256                               arm64_monterey: "6083f98be0f32c7274d8012cc569f677c5285732e42ba3fa186305d91ea3d60e"
-    sha256 cellar: :any,                 sonoma:         "d7ec0f6a3e2c28721f4d55b74c84193c48949e4e8f3bd39d518e21f95627bdf0"
-    sha256 cellar: :any,                 ventura:        "e7e429a8fb73aa1cc03b917942feed3660520429609043effce850f9bdf12473"
-    sha256 cellar: :any,                 monterey:       "6deff211539b7cf1f454f5f42513886b43f621f833b2f2886ff8a79a0859f02d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fda12e6b4c4b6bf084bcd3cb50d6b54d899c63fe16b54b0e1144865dd62bde5"
+    rebuild 2
+    sha256                               arm64_sonoma:   "3abde846447d77e53b52cc25c22a526f6aeaa05ba6ea50aea0071076b2c0c9e2"
+    sha256                               arm64_ventura:  "13b783dbbe729ec08f3c86d70cbc313c6e3fd48b92427ed11a6723b952620be0"
+    sha256                               arm64_monterey: "1f24264743a058117b4f66b4bf4c4ce3ed4cca904c12d21f0a6596a508bec7ee"
+    sha256 cellar: :any,                 sonoma:         "5f08344628651f052a4eeb75629efd8563c3c80e1cc7b064284ff35200b4ab4b"
+    sha256 cellar: :any,                 ventura:        "a5642c7083957b97c70b2d224e77c6688c4a5924c65879ace1ed04fd83976ceb"
+    sha256 cellar: :any,                 monterey:       "59ebcfc7e40cff5ce8add809d4e3f20bfcd3f9be8e3d4041c5e7944d499aae5a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b928b2fffea97b3246c994e1fb21d72bed9240eef621231decfcf8c7711dee88"
   end
 
   depends_on "gcc" # for gfortran
@@ -38,6 +38,20 @@ class Nwchem < Formula
   patch do
     url "https://github.com/nwchemgit/nwchem/commit/7ffbf689ceba4258cfe656cf979e783ee8debcdd.patch?full_index=1"
     sha256 "fcfc2b505a3afb0cc234cd0ac587c09c4d74e295f24496c899db7dc09dc7029b"
+  end
+
+  # fix for Py_SetProgramName deprecated by python 3.11
+  # Remove in next release.
+  patch do
+    url "https://github.com/nwchemgit/nwchem/commit/c6851de6a771a31d387e06819fce26b49391b20b.patch?full_index=1"
+    sha256 "558b4f25013b91f29b2740e4d26fa6ebae861260d8ddd169c89aea255b49b7ea"
+  end
+
+  # fix for python 3.13
+  # Remove in next release.
+  patch do
+    url "https://github.com/nwchemgit/nwchem/commit/bc18d20d90ba1fd6efc894558bef2fdacaac28a8.patch?full_index=1"
+    sha256 "5432e8b0af47e80efb22f11774738e578919f5f857a7a3e46138a173910269d7"
   end
 
   def install
@@ -74,8 +88,15 @@ class Nwchem < Formula
       ENV["LIBXC_INCLUDE"] = Formula["libxc"].opt_include.to_s
       os = OS.mac? ? "MACX64" : "LINUX64"
       system "make", "nwchem_config", "NWCHEM_MODULES=all python gwmol", "USE_MPI=Y"
+      cd "tools" do
+        system "make", "NWCHEM_TARGET=#{os}", "USE_MPI=Y"
+      end
+      mkdir_p "../bin/#{os}"
+      system ENV.cc, "config/depend.c", "-o", "../bin/#{os}/depend.x"
+      system "make", "USE_INTERNALBLAS=1", "deps_stamp", "NWCHEM_TARGET=#{os}", "USE_MPI=Y"
+      ENV["QUICK_BUILD"] = "1"
       system "make", "NWCHEM_TARGET=#{os}", "USE_MPI=Y"
-
+      ENV.delete("QUICK_BUILD")
       bin.install "../bin/#{os}/nwchem"
       pkgshare.install "basis/libraries"
       pkgshare.install "basis/libraries.bse"

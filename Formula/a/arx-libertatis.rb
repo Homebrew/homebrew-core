@@ -48,7 +48,12 @@ class ArxLibertatis < Formula
   conflicts_with "rnv", because: "both install `arx` binaries"
 
   def install
-    args = std_cmake_args
+    args = %w[
+      -DBUILD_CRASHREPORTER=OFF
+      -DSTRICT_USE=ON
+      -DWITH_OPENGL=glew
+      -DWITH_SDL=2
+    ]
 
     # Install prebuilt icons to avoid inkscape and imagemagick deps
     if build.head?
@@ -56,14 +61,9 @@ class ArxLibertatis < Formula
       args << "-DDATA_FILES=#{buildpath}/arx-libertatis-data"
     end
 
-    mkdir "build" do
-      system "cmake", "..", *args,
-                            "-DBUILD_CRASHREPORTER=OFF",
-                            "-DSTRICT_USE=ON",
-                            "-DWITH_OPENGL=glew",
-                            "-DWITH_SDL=2"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   def caveats
@@ -77,6 +77,7 @@ class ArxLibertatis < Formula
   end
 
   test do
-    system "#{bin}/arx", "-h"
+    output = shell_output("#{bin}/arx --list-dirs")
+    assert_match "User directories (select first existing)", output
   end
 end

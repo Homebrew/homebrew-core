@@ -19,7 +19,7 @@ class Mytop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "910aa0172b9f4e1d89c49e24fcafe357d841047bc9fc9cda2307e1c78e54fc3c"
   end
 
-  deprecate! date: "2023-06-26", because: :unmaintained
+  disable! date: "2024-02-22", because: :unmaintained
 
   depends_on "mysql-client"
   depends_on "openssl@3"

@@ -1,8 +1,8 @@
 class ApacheBrooklynCli < Formula
   desc "Apache Brooklyn command-line interface"
   homepage "https://brooklyn.apache.org"
-  url "https://github.com/apache/brooklyn-client/archive/refs/tags/rel/apache-brooklyn-1.0.0.tar.gz"
-  sha256 "9eb52ac3cd76adf219b66eb8b5a7899c86e25736294bca666a5b4e24d34e911b"
+  url "https://github.com/apache/brooklyn-client/archive/refs/tags/rel/apache-brooklyn-1.1.0.tar.gz"
+  sha256 "0c9ec77413e88d4ca23d0821c4d053b7cc69818962d4ccb9e7082c9d1dea7146"
   license "Apache-2.0"
 
   livecheck do
@@ -11,29 +11,20 @@ class ApacheBrooklynCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "126da58508acc76081e525c0e526e21b107260e2940076f98e1bd969cade30ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32f68cb32eac244ea9a7745802db86ededbf56a38abbbfc6d3d1306164985cea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e28a0de7403bde7b164029cfd960cceaf1a10353381e486619cee2a14e917969"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1294ffaaa4cebe9accd9686c723154f18b0c132200eddcfaefc9ec69cfc47b57"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9d9bfe75d554658d26d81774653f59661b6c3c3d231e93f7d6aedbabd457dcd0"
-    sha256 cellar: :any_skip_relocation, ventura:        "e59986c652c07c7b7f255d1e723d6d16a993bc35561d563126ebe0889b311763"
-    sha256 cellar: :any_skip_relocation, monterey:       "29f3308f69c65811e229ab4504c1db3c7d313c66ea2c46453413fecfd511ca9a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ee39617c71638a87e473fe90b002d6d1ab34d149a40218cb53758ca08e162593"
-    sha256 cellar: :any_skip_relocation, catalina:       "7769a15fc55f1a6943165e78c0cc3c9677815686b935a888c3db708fbaf2b8dd"
-    sha256 cellar: :any_skip_relocation, mojave:         "1b73cb46bdd10be0d426298ec972fd37362352b28fadb484374e701619d3a1dc"
-    sha256 cellar: :any_skip_relocation, high_sierra:    "b64f20e59f179c2a359d180be65931e06743aea8c62295f58d1afdbd967871d9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a4c4477e4bf83026dee0febd6eace59fe1d0c0d015074b283317131cae49e42"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c5d4f837f66feb0e8ffd454caabde1262774b0146b9a41bc7b0e6c8db2f12d35"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3c1f6d82e0bded1a9caed523d74fc56bde05a5a11dade96496475ff43064f7e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb10e0929a320063dd6ff2bddef8b222600696bc54186be67d390194b4282c88"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4c95c57b459108b4ea53b4ad26ac0fa1f5f63bb7d48f4af8cf213f052e35235b"
+    sha256 cellar: :any_skip_relocation, ventura:        "93b0fa4d3664559fd801cd65d4834352cffb39b5328ae8ee8b983aa379926add"
+    sha256 cellar: :any_skip_relocation, monterey:       "0478989b79dde26f28cb82612e4991cc7f9e0255ea4d5db7991177083b77f036"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7c85e245c2a3ba2ed68c1e2a64d9b6bbb7e1b0dbd5f1a4f3d941d0e0f19a25e"
   end
 
   depends_on "go" => :build
 
   def install
-    ENV["GOPATH"] = buildpath
-    ENV["GO111MODULE"] = "auto"
-    (buildpath/"src/github.com/apache/brooklyn-client").install "cli"
-    cd "src/github.com/apache/brooklyn-client/cli" do
-      system "go", "build", "-o", bin/"br", ".../br"
-      prefix.install_metafiles
+    cd "cli" do
+      system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"br"), "./br"
     end
   end
 

@@ -9,16 +9,17 @@ class CfnFlip < Formula
   revision 1
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5fe456e3037425b76b4ae76fc3d68c014c5c5ed4a352c38880e51de43eecdbfb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "acb66d565d2663c89eb225d9a23a1eff5142e024011d3f8da7145d933fb006a5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "be5dcc30b3d0a746e4d40ed570d8cdd6d004373ec0adac10fcd7ccfb23b33020"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c70451a267a2798b7339d3caa2c7731637a4ce734cd48ac30719ae03b4ff43b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "e88be742c604f237a31a84f866041427673a2acb8db6ccdc9a3ee911b276d808"
-    sha256 cellar: :any_skip_relocation, monterey:       "1a3e4ff1940fb6a61480fd46fd344dbad0e911da516973a0695d0320d114e9bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3566b78a8d8fed72d94476395c7f9534fd2d874c40f62fe4f75c33e85d8bd81d"
+    rebuild 6
+    sha256 cellar: :any,                 arm64_sonoma:   "0c33c1b5656b50bf90c99951eed5ee382af177d5632d2f03209c11ca4d686882"
+    sha256 cellar: :any,                 arm64_ventura:  "289effc7b26137d6a94abc5ebdfd51e544c128d3e13c268c9c5202ec31b7a2d6"
+    sha256 cellar: :any,                 arm64_monterey: "8fe7485220c3e64d5cfa6eaf9a63fbc6ec0e5e8383867c2cdaa704173e2c17e6"
+    sha256 cellar: :any,                 sonoma:         "fe168805ac857d97c45dc33a4ddd09943e9f70f3a80c38e9a8c2581892d84db7"
+    sha256 cellar: :any,                 ventura:        "0ec749160a01b0287c4a7749f7ff52c9843e98f41c8bd1e5ba63485aaf39a5df"
+    sha256 cellar: :any,                 monterey:       "d8ee2e1a6d1602eb6ef4c7ccff05bc5ebde3ef85f542cbb9037acef4b7c9b0b0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "366bbe67359faaabc8549898143985362e1aac613e5c1536512f3868ce8c2505"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "click" do

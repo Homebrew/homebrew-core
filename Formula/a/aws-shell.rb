@@ -9,16 +9,17 @@ class AwsShell < Formula
   revision 4
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "235876f59695bd3de26492b329f4dfc70bf7c72c1760fe1afb5298a915bfed63"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97155882f1d23696ca46b2010c6eaa2fa528b91acf4a11911155eb14728c351a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ebc91f76c92a7a3761510b70395c2d5b81fdd35dc2f77748a2499f97820f3334"
-    sha256 cellar: :any_skip_relocation, sonoma:         "11168a3a04b44ea686fefdbb20b5cd8cdd8e7834b7b1787d4c92f191d24bb9cb"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b10909e712fd45341786a17ec1d98bda50e0a7052416b31b47621b29691e5b3"
-    sha256 cellar: :any_skip_relocation, monterey:       "1db6b3f610f19e0361de412cb2de2b0a218d5b8e2364642d9f9c8dc3b3b023d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "892318e520243aaacac4f694ed898f66653241ae2c1d25521eed82be61ffe6af"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "b9cc080f126a83708f0df33ea5ab854e01d9efc3adb63f8d4fe0c59a78d3cd45"
+    sha256 cellar: :any,                 arm64_ventura:  "57ada13e7c6a0e1b837255789c102055cd8d2d610334640f2b808b921255f322"
+    sha256 cellar: :any,                 arm64_monterey: "54fbf9b20e08ee019d549fbb55abe12c6590d947e963b759820af43e4f391fea"
+    sha256 cellar: :any,                 sonoma:         "8a020ad13ce56df0a18a65c643c42ad0c60eb2cbe4f073f609878d0ab7b82589"
+    sha256 cellar: :any,                 ventura:        "f2f3ca8ac11f25b0e95d44ac810f8b3427034287b3c828cd942d08c7d9f1fd86"
+    sha256 cellar: :any,                 monterey:       "63c04e960f35162d36c7bd5e2660396385167f9bc87bdb1064516b99e0af6703"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b0b2b6002c5c49967e9f018c0dcc5ad183c854dafcc25fe0d88c8cc6fe882a6"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "awscli" do

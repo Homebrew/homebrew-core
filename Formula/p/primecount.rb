@@ -4,15 +4,16 @@ class Primecount < Formula
   url "https://github.com/kimwalisch/primecount/archive/refs/tags/v7.10.tar.gz"
   sha256 "0a0e9aaa25d8c24d06f0612fc01cd0c31f3eac4e096a9248fc041dd42dc60afb"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "584aa5450727af6f4c82e850ed0c5b08ce4d3a71b6e2ee5577ad58c2ca6a98c5"
-    sha256 cellar: :any,                 arm64_ventura:  "ac582604085ef5a058b0cbd66c6d5ef9367696953bf25920b9c1fa436d00da40"
-    sha256 cellar: :any,                 arm64_monterey: "47f769a55899b61143458e1e9a6c3020f58ef6ae5bf333b0f27e660c2babecaf"
-    sha256 cellar: :any,                 sonoma:         "f468cbd81120d2ffbf86bc09c0d1cc3f5cbfbe0966deda4c409aa34d2c337edf"
-    sha256 cellar: :any,                 ventura:        "714994501e53220e4d59b681f83f6a6f839ee622dde6e9a3d4bfa294ae9edef8"
-    sha256 cellar: :any,                 monterey:       "cac1fb7744a88e98da4bf3c143b944ede47cc1525769ec73b003f4edbfc0f209"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0dd518e9a1c8cb0143d22b39ce9e4c8789bf45785e5bbc4e85f5b3670236de49"
+    sha256 cellar: :any,                 arm64_sonoma:   "c21ff0521753955eb31d5a4c424bd2f993b4f982793a2d6131a0904f472c4656"
+    sha256 cellar: :any,                 arm64_ventura:  "259b4c124530fae3a1d7f1124c719298a6734d14cb9c1ec9e652075f35f38cd3"
+    sha256 cellar: :any,                 arm64_monterey: "d351cb9dcc9c0a5477835417e354bc043b357d55fd63dc92e63398c5a822a6bc"
+    sha256 cellar: :any,                 sonoma:         "6a4410fdff1c8d6692dde99ef022c48492d922a610d37883a46f19be42f42774"
+    sha256 cellar: :any,                 ventura:        "3fbf2a2daa3ca9519059156a4dc2ac0dab8e744a671148027a7a9d74c1a63805"
+    sha256 cellar: :any,                 monterey:       "a4c697339aac4eacf17063fd44ccc9e8862fa355b3261c37b857aa90a99ae4d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f064a87ffb58be44abca6ee1d84350f571bd483062ae410c08c503153fb347ff"
   end
 
   depends_on "cmake" => :build

@@ -9,25 +9,28 @@ class Twine < Formula
   head "https://github.com/pypa/twine.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1182dca1e14b49dae61ba90e6fb5266a21a5da40060c4f17faed975ccebc3042"
-    sha256 cellar: :any,                 arm64_ventura:  "50126b82d30ea3d3563665be8c4dcd9bd21f613d813f9c18b504d820c52ad1cd"
-    sha256 cellar: :any,                 arm64_monterey: "a4ab2fba1324dc8c015f84b03f455df60773305874ac7c7d3bbaf739291bc5a7"
-    sha256 cellar: :any,                 sonoma:         "566ff04297c24b9a95a74657303200aa6c3a75242d3e3792eb090f5c78d93a7f"
-    sha256 cellar: :any,                 ventura:        "d5b2960ad568eb880813c25961449314b95b5ed79d252594ebd8fcd6168eee08"
-    sha256 cellar: :any,                 monterey:       "3773d88904fcf546bbc65acafaee6736fee745e4ca25495ed6c7f3144947945f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c73c7e311add8554f8fc27ce5c79072e67de64ec05ad15fe17f2ef71e9b5d58b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "bf718566eb7eaab3515119f0771a1f7626697dea998679edc5d06469d3bb9403"
+    sha256 cellar: :any,                 arm64_ventura:  "705fa5dd174d0211363e3a0ad7ec8faa5d33b679adbd1c842b16b32fe49b8969"
+    sha256 cellar: :any,                 arm64_monterey: "1be6a72634b7b0ab770bf90c13c28ab661026a070d14b4170ee76a4618496ee8"
+    sha256 cellar: :any,                 sonoma:         "3864b90972e221b4fe78d3e464c52b2b74924d0b2b7eff5c008fb0785f4e6e77"
+    sha256 cellar: :any,                 ventura:        "a17ce8f3730df77c173783fc9abf776dd370190f3b46fff90f873e3f62d68dbf"
+    sha256 cellar: :any,                 monterey:       "bb1b7c5bd76c9d8c9def2069a41f283ab010166037723e31540bc6111fcaa956"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52f6366c3a309651a8370bf4be61be91b7caa7d01d2ac594a21172ff0805f98d"
   end
 
   depends_on "rust" => :build
-  depends_on "docutils"
-  depends_on "keyring"
-  depends_on "pygments"
   depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
     sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+  end
+
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
+    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
   end
 
   resource "idna" do
@@ -40,6 +43,16 @@ class Twine < Formula
     sha256 "f238736bb06590ae52ac1fab06a3a9ef1d8dce2b7a35b5ab329371d6c8f5d2cc"
   end
 
+  resource "jaraco-classes" do
+    url "https://files.pythonhosted.org/packages/a5/8a/ed955184b2ef9c1eef3aa800557051c7354e5f40a9efc9a46e38c3e6d237/jaraco.classes-3.3.1.tar.gz"
+    sha256 "cb28a5ebda8bc47d8c8015307d93163464f9f2b91ab4006e09ff0ce07e8bfb30"
+  end
+
+  resource "keyring" do
+    url "https://files.pythonhosted.org/packages/69/cd/889c6569a7e5e9524bc1e423fd2badd967c4a5dcd670c04c2eff92a9d397/keyring-24.3.0.tar.gz"
+    sha256 "e730ecffd309658a08ee82535a3b5ec4b4c8669a9be11efb66249d8e0aeb9a25"
+  end
+
   resource "markdown-it-py" do
     url "https://files.pythonhosted.org/packages/38/71/3b932df36c1a044d397a1f92d1cf91ee0a503d91e470cbd670aa66b07ed0/markdown-it-py-3.0.0.tar.gz"
     sha256 "e3f60a94fa066dc52ec76661e37c851cb232d92f9886b15cb560aaada2df8feb"
@@ -50,6 +63,11 @@ class Twine < Formula
     sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
   end
 
+  resource "more-itertools" do
+    url "https://files.pythonhosted.org/packages/df/ad/7905a7fd46ffb61d976133a4f47799388209e73cbc8c1253593335da88b4/more-itertools-10.2.0.tar.gz"
+    sha256 "8fccb480c43d3e99a00087634c06dd02b0d50fbf088b380de5a41a015ec239e1"
+  end
+
   resource "nh3" do
     url "https://files.pythonhosted.org/packages/08/03/506eb477d723da0db7c46d6259ee06bc68243ef40f5626eb66ab72ae4d69/nh3-0.2.15.tar.gz"
     sha256 "d1e30ff2d8d58fb2a14961f7aac1bbb1c51f9bdd7da727be35c63826060b0bf3"
@@ -58,6 +76,11 @@ class Twine < Formula
   resource "pkginfo" do
     url "https://files.pythonhosted.org/packages/b4/1c/89b38e431c20d6b2389ed8b3926c2ab72f58944733ba029354c6d9f69129/pkginfo-1.9.6.tar.gz"
     sha256 "8fd5896e8718a4372f0ea9cc9d96f6417c9b986e23a4d116dda26b62cc29d046"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   resource "readme-renderer" do
@@ -86,8 +109,8 @@ class Twine < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
-    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "zipp" do
@@ -97,10 +120,6 @@ class Twine < Formula
 
   def install
     virtualenv_install_with_resources
-
-    site_packages = Language::Python.site_packages("python3.12")
-    paths = %w[keyring].map { |p| Formula[p].opt_libexec/site_packages }
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
 
     pkgshare.install "tests/fixtures/twine-1.5.0-py2.py3-none-any.whl"
   end

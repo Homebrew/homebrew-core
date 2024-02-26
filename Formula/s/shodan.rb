@@ -9,24 +9,27 @@ class Shodan < Formula
   head "https://github.com/achillean/shodan-python.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa89d062aca4483c2d46d1c1c7acf61527686c517bdbf1f4378937600efe796e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc10708faae2b7b260c456a2fe45f5974058e9c4ad0c83b73911d6544bdfc5d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1e06570611c096f0136cf413b78f4db80cf6319376a842db648c4d90ecd34e58"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6ddc1ce6d620c6e2a6a2e279892ee6fb39db6df7743e98d142b7e194c2028a65"
-    sha256 cellar: :any_skip_relocation, ventura:        "bd61b12917a0bd0a98b3f0a1ee40a4fcb1820a19f9ef644789a7396b74eb12b1"
-    sha256 cellar: :any_skip_relocation, monterey:       "02e922ddd3c05cbb1d9ecb134dbc3286287270994a49c6d60529f77b20e03370"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2bca3963ec7606ea2f2b86f242d7d97ce74a254ad0a9d77c605746f4031d1194"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d518ba9b417c2a127d15c6492d4e0233f9fd1acf423bd616127f576e390ff28"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58050b7bc17fcf0191e283305beb2b7f663b7db52791cf6ac4320405d621c33c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "340d737ff11a0f0b9c7fa4b1547a018ad842bbc74d6bd1ab5aa7c6a1802ce801"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4169fa72867824c4b34090780b78b1c23e3f572916a0afe8797788b27bb198f2"
+    sha256 cellar: :any_skip_relocation, ventura:        "782dec452632357e5e6e139374e141b80c1c7459287e4f698541a668deaa51e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "ca7541d4e2ca3b06e2356fb0c72128e09a3ad829a128baab24ca65aa7f078a51"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c120fca58ae9884d3f72f452e4e93ebaf4b14933d143e8e77696d1612e1da2a3"
   end
 
   depends_on "python-certifi"
-  depends_on "python-click"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
     sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "click-plugins" do
@@ -55,8 +58,8 @@ class Shodan < Formula
   end
 
   resource "requests-file" do
-    url "https://files.pythonhosted.org/packages/50/5c/d32aeed5c91e7970ee6ab8316c08d911c1d6044929408f6bbbcc763f8019/requests-file-1.5.1.tar.gz"
-    sha256 "07d74208d3389d01c38ab89ef403af0cfec63957d53a0081d8eca738d0247d8e"
+    url "https://files.pythonhosted.org/packages/2b/69/ba1b5f52f96cde4f2d8eca74a0aa2c11a66b2fe58d0fb63b2e46edce6ed3/requests-file-2.0.0.tar.gz"
+    sha256 "20c5931629c558fda566cacc10cfe2cd502433e628f568c34c80d96a0cc95972"
   end
 
   resource "tldextract" do
@@ -65,13 +68,13 @@ class Shodan < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/36/dd/a6b232f449e1bc71802a5b7950dc3675d32c6dbc2a1bd6d71f065551adb6/urllib3-2.1.0.tar.gz"
-    sha256 "df7aa8afb0148fa78488e7899b2c59b5f4ffcfa82e6c54ccb9dd37c1d7b52d54"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "xlsxwriter" do
-    url "https://files.pythonhosted.org/packages/2b/a3/dd02e3559b2c785d2357c3752cc191d750a280ff3cb02fa7c2a8f87523c3/XlsxWriter-3.1.9.tar.gz"
-    sha256 "de810bf328c6a4550f4ffd6b0b34972aeb7ffcf40f3d285a0413734f9b63a929"
+    url "https://files.pythonhosted.org/packages/a6/c3/b36fa44a0610a0f65d2e65ba6a262cbe2554b819f1449731971f7c16ea3c/XlsxWriter-3.2.0.tar.gz"
+    sha256 "9977d0c661a72866a61f9f7a809e25ebbb0fb7036baa3b9fe74afcfca6b3cb8c"
   end
 
   # Drop setuptools dep

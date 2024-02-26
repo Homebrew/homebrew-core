@@ -1,22 +1,18 @@
 class CodeMinimap < Formula
   desc "High performance code minimap generator"
   homepage "https://github.com/wfxr/code-minimap"
-  url "https://github.com/wfxr/code-minimap/archive/refs/tags/v0.6.4.tar.gz"
-  sha256 "4e2f15e4a0f7bd31e33f1c423e3120318e13de1b6800ba673037e38498b3a423"
+  url "https://github.com/wfxr/code-minimap/archive/refs/tags/v0.6.6.tar.gz"
+  sha256 "0526a15a53a0612963f5d35f74d8381c13c7a9fe49272a289e7237f9ad8879ab"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d36a9643a3619f6971647b5016caa18b8250ce411da6ca4d46fb516545cbaf1c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6dd5a19c632f2f0a9f7f36116ca47aa6cb2d461bacffd5e057f6957dc6997701"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5860b64be3fd885f0f3596971a38c84a0a7aff01e805d2226dfe37d4261634a6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8f541ddb82e19e68bfff17a19756c3270a2ab087bd9ad7de76a524407965efb5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ff9bf3103851e808e5029f893c4f4ac4c24c69e2bf74785134c01db92cc11508"
-    sha256 cellar: :any_skip_relocation, ventura:        "90165065861e01a7c0004a1f3e216f74309dca89fd2b467561a5335c14793918"
-    sha256 cellar: :any_skip_relocation, monterey:       "b8bcde829b9158c1608fb9d43854a19a0b90333932d053e0dd11fb8f48985686"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8392793686aed76ac84933cbf4b2ee6b914b5d7dab315615872af14c16ae9f4d"
-    sha256 cellar: :any_skip_relocation, catalina:       "10a8fe0a0ae6b70d4f82ba3931aa9a7eb7451727b18a8dda8d2065d9d58da6bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2289ca16b0c06af4d8880a69f70e610480b59bfe6c1f9352a072eca6ba6be9b3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c95b88156ddabc40410cd962ea71b863821031a3dd4891ca1c5eef6e813fae7b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9816768b8c2dc942feb545b95545d470be414489bcfda073746043f4ba47fd2c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c1a1adcfc4d38038e0acb0c5263bcbae8deafed229d1bf43cb7c98ba47294343"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b247429db31d2ba7e947d5307771c9d3e467274ba371d38021a4771282e00283"
+    sha256 cellar: :any_skip_relocation, ventura:        "e9ef20938bf77720713d45cdf01a6a606fbef93348afce61ab574fe48f6491d1"
+    sha256 cellar: :any_skip_relocation, monterey:       "66a429374419e84a17362f0dcd8396e770d1993e34dfb02673648f2d5c670d5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edca5e766a5921d5da93ccb541885e25c607b98c01093c6565fa9394f050aa94"
   end
 
   depends_on "rust" => :build

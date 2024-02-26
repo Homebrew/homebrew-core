@@ -1,19 +1,19 @@
 class Uv < Formula
   desc "Extremely fast Python package installer and resolver, written in Rust"
   homepage "https://github.com/astral-sh/uv"
-  url "https://github.com/astral-sh/uv/archive/refs/tags/0.1.5.tar.gz"
-  sha256 "1083fed6e65ce9210567eedd0c068736d13c5f68b862696dd4ef4017f5422306"
+  url "https://github.com/astral-sh/uv/archive/refs/tags/0.1.10.tar.gz"
+  sha256 "2c31cb4b0d8c9e38f456bb813e40acb369cccf169043e9642b9879bd144f05b6"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/astral-sh/uv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1e6a4bc0a5d61c71584cb82b8a18e6c71c0a5748d3f1234d3f40a1d7e30aab56"
-    sha256 cellar: :any,                 arm64_ventura:  "c0285c5782877f7b25d2a76f485b403a96d957e4895eaa18a9041a0e1f488026"
-    sha256 cellar: :any,                 arm64_monterey: "fd2d688c34a3da7631d43ad5819eff75c465ff894e8dce4096c8d8391835a24c"
-    sha256 cellar: :any,                 sonoma:         "792af09e0b68e68c1f4351640eaf2df52b33e68b60b6ce8e726f43dd271a020a"
-    sha256 cellar: :any,                 ventura:        "0baef40ea94ae577075ed1f5098e5416cdb8e1323a307c93ad3a2a72c6d0fb50"
-    sha256 cellar: :any,                 monterey:       "bef5f68016683498a53baa1bf164167442ad51f4ff2caa5e833473e3dd9dfef5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "686e45e52c82905a6c0507456c6b4a41723048c550c344f917455523e076e9ae"
+    sha256 cellar: :any,                 arm64_sonoma:   "421d875e41fc9f28cac866ebcc20d2985836acf41448f6dc703901905a75c514"
+    sha256 cellar: :any,                 arm64_ventura:  "cdf4baf55b4d94d922aaa0d6cb4a760cd0b0d7bd816a24338321803b34ae2592"
+    sha256 cellar: :any,                 arm64_monterey: "ea8be7a79011a418960603a36747be30640b034f33bd0b71b030fff68f146284"
+    sha256 cellar: :any,                 sonoma:         "fb6b2a07c24f53243fc2f6dc0dc3a3d61f6025ec0923b963c1607e29e21f718a"
+    sha256 cellar: :any,                 ventura:        "85e40cd31602b7779eb3d019b31376bade9d642cd5f75857e1663de06f138c80"
+    sha256 cellar: :any,                 monterey:       "884a4c5909c133c8ad597037836a17b1189b1487a1385913483eb3d11fca7e40"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85facd408738b61e89c05a0c7b1417305ad6fcd2abf11d93a81750e276ea0f2b"
   end
 
   depends_on "pkg-config" => :build
@@ -31,6 +31,7 @@ class Uv < Formula
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/uv")
+    generate_completions_from_executable(bin/"uv", "generate-shell-completion")
   end
 
   def check_binary_linkage(binary, library)

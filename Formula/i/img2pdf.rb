@@ -9,29 +9,41 @@ class Img2pdf < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5cf6fe368cb747f5a59ef5d497b5bfda7d999cdb136f5d8a7d6a87355dcc78ba"
-    sha256 cellar: :any,                 arm64_ventura:  "477a3a5df8e05cc52dd82f19de887ebbc1786561ab8d4b82a8d5da44564443cb"
-    sha256 cellar: :any,                 arm64_monterey: "b76dcb24356ed2d304a5fb40061b9a6045cb0fa5b9b5622d5c6f5a7900e749fd"
-    sha256 cellar: :any,                 sonoma:         "28ec3b3b256b8d91f305bef63efc5b541254416f2bc3b02080e14105e175ccc9"
-    sha256 cellar: :any,                 ventura:        "cb2de4afdf6f787845774ac03f044373106a0cf5398fa522679b1050d9c69424"
-    sha256 cellar: :any,                 monterey:       "f722068d35a42b0a794b58603efe738452bc40005fa0fec35f6bd3a91cb55750"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7f51551d67b6158fada6dd0b76bc56ba2e84a2908382c440c4923a63887aaa78"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "409163d7e755470e90dd99f6ecd43e8ea3667bc7055f515cb674c1c4dc193ee4"
+    sha256 cellar: :any,                 arm64_ventura:  "0dd1b4daa552ea91bd7cf005284ea07a910be3e6d2bde9fcc370b8388a8ddf18"
+    sha256 cellar: :any,                 arm64_monterey: "32cf098e77d5ddacd780be6ae260cecfaa4286127d77c9f8d69ccdd984cf0b15"
+    sha256 cellar: :any,                 sonoma:         "3f8a2b4805d9da11a6322ce90888b20dc11d77b3ed8f44b7be6bd5717d2a1503"
+    sha256 cellar: :any,                 ventura:        "43ec54d11080a0ef985edab917918f06342196378fd1dd5f02c2688722e03bdd"
+    sha256 cellar: :any,                 monterey:       "f67c6f923a5878b8bc0dc8ca71ed0e1585ccdb22fd64e78d3e59549424a968fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ed291d08c027fc186d4859dfb69c56993ee0b85ce6d6ebfb60a110a3e315f26b"
   end
 
   depends_on "pillow"
-  depends_on "python-lxml"
-  depends_on "python-packaging"
   depends_on "python@3.12"
   depends_on "qpdf"
+
+  uses_from_macos "libxml2", since: :ventura
+  uses_from_macos "libxslt"
 
   resource "deprecated" do
     url "https://files.pythonhosted.org/packages/92/14/1e41f504a246fc224d2ac264c227975427a85caf37c3979979edb9b1b232/Deprecated-1.2.14.tar.gz"
     sha256 "e5323eb936458dccc2582dc6f9c322c852a775a27065ff2b0c4970b9d53d01b3"
   end
 
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/2b/b4/bbccb250adbee490553b6a52712c46c20ea1ba533a643f1424b27ffc6845/lxml-5.1.0.tar.gz"
+    sha256 "3eea6ed6e6c918e468e693c41ef07f3c3acc310b70ddd9cc72d9ef84bc9564ca"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/5b/1e/522532f009bd0ef8948b2b5e059dca57ea884b5a77651cc7e5fb16439087/pikepdf-8.10.1.tar.gz"
-    sha256 "0ed9c0f2908e05e8fdeab14ad73d25924da90f57d3485f3a01acfac6078396af"
+    url "https://files.pythonhosted.org/packages/f4/8a/23f62747cf7ea02cad56d82ca881c3aeba8a2beaf85c209017a18ab6865f/pikepdf-8.13.0.tar.gz"
+    sha256 "3bbd79c7cd6630361d83e75132aeaf3a64ceb837f82870bafdc210a31e3d917a"
   end
 
   resource "wrapt" do

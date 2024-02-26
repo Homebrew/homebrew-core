@@ -9,27 +9,26 @@ class Athenacli < Formula
   revision 4
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12b577d0b6b858d1822ec21560f7926bd3dbbbc63dd3135b15c8cfd4fffdb6b7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ae838a78db18fb3c1da62fae25947650483984667a61bae12eb9c9a29258e1d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "72b93ea667093a25daf7b4eb8b21f319e47ad01c487340c3fc2df031447820d7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4b1b9a2c443e3b1f4876cba5b80af6e9ccb210cf2698b3ac4549a1ab4b2bea62"
-    sha256 cellar: :any_skip_relocation, ventura:        "a9d654e6f7563303a2ad21088857f70b181947b3463c524b693c6bb822612c53"
-    sha256 cellar: :any_skip_relocation, monterey:       "915d8273c55e5ec927c90006ba3880b35bb54338cb842af26f34182565f50f0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa6734569e030a465e747487bf0e2ca664081e5e181bb664b61f2c5803d19193"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f2ad6929c534f32c8926c7028787b922fca4be385a758d4304501a8ba8df88bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d821fa1c99abe247a6c2c48870ed533b2625fe26787c694a8298ddbd798501f9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "088b3a993eced636a992925a6d35f93a45332abb04a8798d61d41d2734d7f14c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "709781d8d2aaa0be96e7c0ad503a32a59cba9c505740913aeb15622b965c50bc"
+    sha256 cellar: :any_skip_relocation, ventura:        "204ec2e7a9220ae96485f2f412710c8ec8c451dd7fff8bb9d62d53d0e6250c07"
+    sha256 cellar: :any_skip_relocation, monterey:       "e223ce1cad2882bf2d4c5f868f477bda7b5d3e1b1e84a7e8fc2cf8be2d038c4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee058ac64120c21d9ffd91d85cf501192eff0bddd2c39c6217ac90a0b4cfca67"
   end
 
   depends_on "python@3.12"
-  depends_on "sqlparse"
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f5/68/2bccad434276f94f42a9331f3056eb0c0b0b36466f5179d4c43d374b6bd1/boto3-1.34.43.tar.gz"
-    sha256 "ed646f600b76939d54fa1ff868415793551a5a08b9de0a09696b46d116da7da5"
+    url "https://files.pythonhosted.org/packages/01/73/b02f13ba277993c4b0f237d78bfa572b0ee06483e685140118b004b1d76e/boto3-1.34.46.tar.gz"
+    sha256 "eb5d84c2127ffddf8e7f4dd6f9084f86cb18dca8416fb5d6bea278298cf8d84c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/86/13/c7e79ed15fe9fcd2b1fe9fe7eb7685a3eb9bd4346b6a3cb1c099863809dd/botocore-1.34.43.tar.gz"
-    sha256 "00dea9fd602dc97420318d373079bdfcc8da34501aaa908ab98b477526bdefec"
+    url "https://files.pythonhosted.org/packages/4a/2b/c62910b4c6983394590fddc46d0b3a44b4fcb726a0c1428cd56b92482241/botocore-1.34.46.tar.gz"
+    sha256 "21a6c391c6b4869aed66bc888b8e6d54581b343514cfe97dbe71ede12026c3cc"
   end
 
   resource "cli-helpers" do
@@ -68,8 +67,8 @@ class Athenacli < Formula
   end
 
   resource "pygments" do
-    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
-    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+    url "https://files.pythonhosted.org/packages/15/53/5345177cafa79a49e02c27102019a01ef1682ab170d2138deca47a4c8924/Pygments-2.11.1.tar.gz"
+    sha256 "59b895e326f0fb0d733fd28c6839bd18ad0687ba20efc26d4277fd1d30b971f4"
   end
 
   resource "python-dateutil" do
@@ -87,6 +86,11 @@ class Athenacli < Formula
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
+  resource "sqlparse" do
+    url "https://files.pythonhosted.org/packages/65/16/10f170ec641ed852611b6c9441b23d10b5702ab5288371feab3d36de2574/sqlparse-0.4.4.tar.gz"
+    sha256 "d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c"
+  end
+
   resource "tabulate" do
     url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
     sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
@@ -98,8 +102,8 @@ class Athenacli < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
-    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
+    url "https://files.pythonhosted.org/packages/af/47/b215df9f71b4fdba1025fc05a77db2ad243fa0926755a52c5e71659f4e3c/urllib3-2.0.7.tar.gz"
+    sha256 "c97dfde1f7bd43a71c8d2a58e369e9b2bf692d1334ea9f9cae55add7d0dd0f84"
   end
 
   resource "wcwidth" do

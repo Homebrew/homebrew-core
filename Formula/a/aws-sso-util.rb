@@ -10,19 +10,19 @@ class AwsSsoUtil < Formula
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bf2c009179ecad087e410e540c3c985456496feea3c09d21188f2b88de4b221"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8dd7cd311614d7c0e9f1ee94c95f4b680fbe49014862e498333be79d74f1ed91"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "62d06aee6fc1e986b5d97ea05113a2f205eb7ae827d4a1b6f1c37cec2d542b1a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "432b66d82718b9e845b49600f8adcaa5babf14f0537ac1c4b1e067a1712dc6b1"
-    sha256 cellar: :any_skip_relocation, ventura:        "94145a5e9f4fc4ea63b9cd0f66f6830cbc20fb6a2ae232c9160b768dfdafb018"
-    sha256 cellar: :any_skip_relocation, monterey:       "adbf86c38eb72ad49acfe0a3e33cdba81fec7665e986e76ab26d1d3651d8e02a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0a7730a7f27adeacf7b1e865dd123eed763996ba7d3143ad475557a5aeaf84c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "add1cac15f7da79418494c65a2e8cfb968a31fc3f26c44c3568ef5aa2fe716ff"
+    sha256 cellar: :any,                 arm64_ventura:  "17d45a43683678b37f8637b4faa276a036c15457d0fedbafff33c87682ade4eb"
+    sha256 cellar: :any,                 arm64_monterey: "78346011231baeb716b215a1e0c77c336ba04036b90a34f0b27906f857973e3f"
+    sha256 cellar: :any,                 sonoma:         "20dcf8768f52208c5f8b71944e4f82891fa92c0c87386c0b47953747797e9541"
+    sha256 cellar: :any,                 ventura:        "1baa6d9fe0c84095861ba633ede8c364dbf35210b9105eddae067f06882d9ebd"
+    sha256 cellar: :any,                 monterey:       "cffc2d2b0493c16509e1d4c3fbdcb5fb3f4f95b57db6334b0215237bed79d1c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ee14cb55e47bd940a091626155d24c796880ac19c25a353517c828a5275b25f"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
-  depends_on "pyyaml"
-  depends_on "six"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
@@ -40,13 +40,13 @@ class AwsSsoUtil < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/8f/82/a0b568542639f1c2df5438ddb67dca42ce7b5fd9cc0a86045d910dcc002f/boto3-1.34.17.tar.gz"
-    sha256 "8ca248cc84e7e859e4e276eb9c4309fa01a3e58473bf48d6c33448be870c2bb8"
+    url "https://files.pythonhosted.org/packages/bb/7a/5ec8b3d253c00ec23246018e5d5dd31639a67a88aabd109a17dcc2d80d40/boto3-1.34.45.tar.gz"
+    sha256 "46432fd506708fec6caec4392d758c6f5b79a376dee67d3284fe8b6bfbafeaf4"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/5a/b4/6fbeafeae332dff07ff2b9898daae54abf4eb3558acb178548c476d8b4f3/botocore-1.34.17.tar.gz"
-    sha256 "e48a662f3a6919219276b55085e8f73c3347966675f55e9d448be30cf79678ee"
+    url "https://files.pythonhosted.org/packages/1a/bd/6aeaef8d15cd59acef3f47b2658507f99effa1736847352da89b1550e3f1/botocore-1.34.45.tar.gz"
+    sha256 "bf4fe24dd00a6262a27573dea1690ea68eb20f939e7086effadf19aa1acb44d1"
   end
 
   resource "charset-normalizer" do
@@ -84,6 +84,11 @@ class AwsSsoUtil < Formula
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
@@ -95,8 +100,13 @@ class AwsSsoUtil < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
-    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do

@@ -8,16 +8,17 @@ class Peru < Formula
   license "MIT"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3a3207338ecad0cd931a107c740d7ddf5f0e537be63e2309811863ae739e2cc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8211cf9d13b6f77b2bc42addba25baa30234c28adbe42875e52ab8bd4fe9ff63"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3407e87d02d47049d5371e9df63b8efea19deda00c0a3d5414c1a4e4880f6179"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7aef8abb72ca0464ea248cdc98e17b3ab086af2420d131a629917b257264b890"
-    sha256 cellar: :any_skip_relocation, ventura:        "bbb7705fec41c76c1b307784361196a3225f99ff3816d7fab0267c310e9ff7bf"
-    sha256 cellar: :any_skip_relocation, monterey:       "6f29ade0026f94290f91c6715d217aa3e0213bb9e69ccb3153372460cce3be96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a046dce60f8571919aecb130b33666834dc125e31d3a52498ffe457c1ac1a9ce"
+    rebuild 5
+    sha256 cellar: :any,                 arm64_sonoma:   "6bbfa6021acb4de8dc1031932083f0e0ca2acc3296dec9dd87c9e77e389d9d49"
+    sha256 cellar: :any,                 arm64_ventura:  "8dade0a9d43215a49d727c92312ca7bfa777ce0f4e91dea0c98944abee794ed3"
+    sha256 cellar: :any,                 arm64_monterey: "806150274ee7f2e12348d7025968174a01c12cf4da437fa6c1ae191fc8e19136"
+    sha256 cellar: :any,                 sonoma:         "5b2f8e9640bf44828878d727ec08acc4d4aa74fc07dd2cb9819c395491950fb4"
+    sha256 cellar: :any,                 ventura:        "73263481f1bd20dd689d255565e8c93a5c86e9475a86922af76cb83634910e04"
+    sha256 cellar: :any,                 monterey:       "c70dc90087a362d3c131be4b2a54a14cc9f1c21828433ef73c5e2ed1d125a44e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52fdcc8015a74fbb3c94714c8113f53cc1ede04a363044f2392a2af9990076b8"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "docopt" do

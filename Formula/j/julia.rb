@@ -2,27 +2,27 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
-  url "https://github.com/JuliaLang/julia/releases/download/v1.9.4/julia-1.9.4-full.tar.gz"
-  sha256 "61843b9647fd06d3b2994f3277a64de1cb5a5a5297d930b8c8e3bc0e93740024"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.10.1/julia-1.10.1-full.tar.gz"
+  sha256 "6ba58b55fc56e7d7cb854d5f3c7b8cfb6a209850d82ef74cdf76878d841612a4"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "f7190a479a0c6fd8539631d215505652591e5795f2388b999330f5657890b214"
-    sha256 cellar: :any, arm64_ventura:  "f9b50f7c75869390088d26cfd2cc48c7166005bbb4f0236cc92258eee050e03d"
-    sha256 cellar: :any, arm64_monterey: "f29d42348293d046097f29c50f393b60c2137b878ca1471cb0162e933d2b5428"
-    sha256 cellar: :any, sonoma:         "f597ec6e14e109c215bd19ea13eee6bdfd9713823445363f375c35ead52667f6"
-    sha256 cellar: :any, ventura:        "10c8cd0f065c31168b596d99568c23fdf9102012c3905ef2a408c61a5eab598a"
-    sha256 cellar: :any, monterey:       "c8c3dd46f4996160b257eb00fd356ebd63f9f1fa75a191645b8f94b371b29e3d"
+    sha256 cellar: :any, arm64_sonoma:   "f3d93a7e08c9b8e572a5cd350e35faf550d72f58206598a9b83bdca1cd5b77a5"
+    sha256 cellar: :any, arm64_ventura:  "de2a12f5c141941496ba175900adbca27eaed811f77b5b9a1ab5a6caad37eaf4"
+    sha256 cellar: :any, arm64_monterey: "cf8205a1acee4b6bddfbd89b992c9d37266ca99a86a30fb5c0da4afd910d4f00"
+    sha256 cellar: :any, sonoma:         "daa1b5805cde124798ff99267c539337904ce82703db411995e301030657263c"
+    sha256 cellar: :any, ventura:        "0a13a8505b52ad56f1388fc808801a3d26978cbc7f097f91ee5131a840102652"
+    sha256 cellar: :any, monterey:       "6ddae8162d7ffb3249af628194ef63e0b702ae5cf5fa0c48ac861f3165b05a7c"
   end
 
   depends_on "cmake" => :build # Needed to build LLVM
-  # TODO: Use system `suite-sparse` when `julia` supports v7.
-  # PR ref: https://github.com/JuliaLang/julia/pull/48977
+  depends_on "gcc" => :build # for gfortran
+  # TODO: Use system `suite-sparse` when `julia` supports v7.3+.
+  # PR ref: https://github.com/JuliaLang/julia/pull/52577
   depends_on "suite-sparse" => :test # Check bundled copy is used
   depends_on "ca-certificates"
   depends_on "curl"
-  depends_on "gcc" # for gfortran
   depends_on "gmp"
   depends_on "libgit2"
   depends_on "libnghttp2"
@@ -91,17 +91,32 @@ class Julia < Formula
     args << "MACOSX_VERSION_MIN=#{MacOS.version}" if OS.mac?
 
     # Set MARCH and JULIA_CPU_TARGET to ensure Julia works on machines we distribute to.
-    # Values adapted from https://github.com/JuliaCI/julia-buildbot/blob/master/master/inventory.py
+    # Values adapted from https://github.com/JuliaCI/julia-buildbot/blob/master/master/inventory.py,
+    # then extended.
     args << "MARCH=#{Hardware.oldest_cpu}" if Hardware::CPU.intel?
 
-    cpu_targets = ["generic"]
-    cpu_targets += if Hardware::CPU.arm?
-      %w[cortex-a57 thunderx2t99 armv8.2-a,crypto,fullfp16,lse,rdm]
-    else
-      %w[sandybridge,-xsaveopt,clone_all haswell,-rdrnd,base(1)]
+    cpu_targets = %w[generic]
+    if Hardware::CPU.arm?
+      # Cortex A57, Thunder-X2, Nvidia Carmel,
+      # Neoverse V1/V2, Cortex A510/A710/A715/X2/X3
+      if OS.linux?
+        cpu_targets += %w[cortex-a57,base(0) thunderx2t99,base(0) armv8.2-a,crypto,fullfp16,lse,rdm,base(1)
+                          neoverse-512tvb,base(3) armv8.5-a,sve2,sve2-bitperm,i8mm,bf16,base(4)]
+      end
+      cpu_targets += %w[apple-m1,clone_all]
     end
-    args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}" if build.stable?
-    args << "TAGGED_RELEASE_BANNER=Built by #{tap.user} (v#{pkg_version})"
+    if Hardware::CPU.intel?
+      cpu_targets += ["#{Hardware.oldest_cpu},clone_all"]
+      cpu_targets += %w[sandybridge,-xsaveopt,base(1) haswell,-rdrnd,base(1) skylake,base(1)]
+      cpu_targets += %w[alderlake,base(4) sapphirerapids,base(4) znver4,base(4)] if OS.linux?
+    end
+    args << "JULIA_CPU_TARGET=#{cpu_targets.join(";")}"
+    user = begin
+      tap.user
+    rescue
+      "unknown user"
+    end
+    args << "TAGGED_RELEASE_BANNER=Built by #{user} (v#{pkg_version})"
 
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/julia"
     # Help Julia find keg-only dependencies

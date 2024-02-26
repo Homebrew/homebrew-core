@@ -1,4 +1,6 @@
 class Vulture < Formula
+  include Language::Python::Virtualenv
+
   desc "Find dead Python code"
   homepage "https://github.com/jendrikseipp/vulture"
   url "https://files.pythonhosted.org/packages/da/70/29f296be6353598dfbbdf994f5496e6bf0776be6811c8491611a31aa15da/vulture-2.11.tar.gz"
@@ -7,25 +9,20 @@ class Vulture < Formula
   head "https://github.com/jendrikseipp/vulture.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a358e6d21716ef06c8b469c866a823e2512b1a118ccf7228fbdd17c5c727027f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61d19219b3199b1c000c1c8c124ff0e937fda861fffede3e45cee63e8c775035"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7a2519a4b5abe2e39c5f4e851c12e5540907f9f30ff27b34bdfb775821e71327"
-    sha256 cellar: :any_skip_relocation, sonoma:         "abec129caa65c07a84818daf8fb458ee3291111db9180261e166162f5108c68e"
-    sha256 cellar: :any_skip_relocation, ventura:        "425c7334b3b7bcf7fb9eeb3379229db6472dcc3be6b9639d54d2023383150b9e"
-    sha256 cellar: :any_skip_relocation, monterey:       "a37a8c3d834920979f268b1683f6db015f7e6b9dfd5ee1b600846b4aa248bae6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63f6b4f4c33053e4f2e22fe9f090066beb906de180259ddec58ee6819aa7bbf5"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc27fcab671d00e8f19313417662667b299ee104d6b9102b0c37d8f781d317b0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7a4609f073de1e1de08c520846fa47cb61750634bdd8aae17e8f833bc063df2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "608759a9a3646d3881845e32432eea74beb25e0a535c4d33c2694487c4523841"
+    sha256 cellar: :any_skip_relocation, sonoma:         "107b5810debf92f63419f76f8d133e52e957b3cc06af6f6561cde20e5bcc0cf9"
+    sha256 cellar: :any_skip_relocation, ventura:        "ff5676c7547d371566895e5311745535c740f7f1a5e2f967331b9ac21d20ea6a"
+    sha256 cellar: :any_skip_relocation, monterey:       "72972d743b216e538def092020c2957b7fa93acc418d8c11733d4fcbf2f79f00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9921574e7c525d24edffb5dd0b6629fa79918d85aa2b01923f9dadcbee83aa5"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "python-toml"
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

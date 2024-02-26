@@ -19,6 +19,10 @@ class TerraformRover < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b078227fb4f38d09892b8ff73db1cb786940ef8dbb850e2f75c7c79d4688c882"
   end
 
+  # https://github.com/im2nguyen/rover/issues/125
+  # https://github.com/im2nguyen/rover/issues/133
+  deprecate! date: "2024-02-22", because: "depends on soon-to-be-deprecated terraform"
+
   depends_on "go" => :build
   depends_on "node"
   depends_on "terraform"

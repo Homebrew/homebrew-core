@@ -8,16 +8,17 @@ class Mapproxy < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "b2b5806283d4c0c606172139d916ed84b170c8a8b921d22133a29cc36a3e8767"
-    sha256 cellar: :any,                 arm64_ventura:  "0cfba96c16fe588aa2d1486ec33b075e9a4a1dc801882e2e870fe7a6b0341d6c"
-    sha256 cellar: :any,                 arm64_monterey: "5ff08003af115e52f8e8aab51a13d2d00e974630674bdc0416872ece08eefe21"
-    sha256 cellar: :any,                 sonoma:         "b779e5baa4128ab54176c1f8d7b75b2e624d9d6d168336f4998ce02f3054073f"
-    sha256 cellar: :any,                 ventura:        "05a0664943b29d978dda069f60a14f46d802600dac2b3717e173773772dbe0f3"
-    sha256 cellar: :any,                 monterey:       "4f1598077b06000bffb2afad81c65e40886a04a3d4e8c16c26118bd427927feb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dec34448201cb3881d6d25af2eaf7c315881e9e701f1ebf473b23f1a4f6a6ac2"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "82398c857174ec6a22855e591db44faba1ae0270e2ee84457960f0608d8678c2"
+    sha256 cellar: :any,                 arm64_ventura:  "06425b98adf84902c1d050ee66c988adff0bb2288868448ef47e69023c441037"
+    sha256 cellar: :any,                 arm64_monterey: "57d9aeb9919b4369c31dad5c4e8729587f8cec6881df41538cc8480ba25a0e00"
+    sha256 cellar: :any,                 sonoma:         "0b2a3b5cb6b62a0d196a8e14c937d273bfdcd06c972d2a1a439c6a7929b8bd1b"
+    sha256 cellar: :any,                 ventura:        "18580838c29f9809de9b1b326d87d62ddeaac7722f2ecc8ad30e21c1d7735fc6"
+    sha256 cellar: :any,                 monterey:       "b3b844f92f66b88c2e80ea2678daa725543f7b433066c76ac92ebdfc370d540f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91815dfe504f725458091b08e042a1b3ebf19cb27d42d222c951485a0de43280"
   end
 
+  depends_on "libyaml"
   depends_on "pillow"
   depends_on "proj"
   depends_on "python-certifi"

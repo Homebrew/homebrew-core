@@ -1,19 +1,19 @@
 class OpentelemetryCpp < Formula
   desc "OpenTelemetry C++ Client"
   homepage "https://opentelemetry.io/"
-  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.14.0.tar.gz"
-  sha256 "9a67561b8f4dba8cf8bb323b404069cbcc2f59974e1330b1ba192c5c8d68c28e"
+  url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.14.1.tar.gz"
+  sha256 "ba782ab583d943d2d4002ee354b9775fe2647c4a4906462db237d2733ff66df6"
   license "Apache-2.0"
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dd432872384edf27c068cd57365ed299edfc694c054d453f09573aeac2b3c99b"
-    sha256 cellar: :any,                 arm64_ventura:  "dbc38149de254d63bfb2773415e901f0f8834b349d46ac27ba0ce9a1078573b2"
-    sha256 cellar: :any,                 arm64_monterey: "e8a6f72b1617d96e7c175cb552d810169325da2fabca4b7fa071bf6d85866aa9"
-    sha256 cellar: :any,                 sonoma:         "4b36ec63fe2fbde1e02b06f710e7cab1da97067ac3b16acc22ed55ca61914667"
-    sha256 cellar: :any,                 ventura:        "438a5ae04eee05c4774fc50031ae18031c5bb2ab8de5cb104f4659f5d28c1f46"
-    sha256 cellar: :any,                 monterey:       "452ec47c8f8ba6b3e4e416684f6ece6de91802099c098e21167d6d3279f58c0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0881bdf3ed04d358122c61d756c434b7d14a59696c466bee2c246b83ec96f072"
+    sha256 cellar: :any,                 arm64_sonoma:   "4a0cc78692c330edfd93164fdf4d6b68f0cb35e665c9bc5c0d093df1b7bf4fea"
+    sha256 cellar: :any,                 arm64_ventura:  "b39821c787c09045ce0e1a1ae508d7e1477fd5f23cae2012c540792f8b4abfb1"
+    sha256 cellar: :any,                 arm64_monterey: "7df92d3f1e8866f18f566e22d0cf29160e7dc2300af6d87e4e29453c0fc0dd9f"
+    sha256 cellar: :any,                 sonoma:         "5ef824a91274323c7078783283797aa59dd1966f3fb6c64b88a908325d8b6b59"
+    sha256 cellar: :any,                 ventura:        "fc501e0fed3be145d1c83a2a90e8120c1e555569411ef235c34f24cc6b8a535b"
+    sha256 cellar: :any,                 monterey:       "eea003c2c99e6f369efbe0de620be7e28108c1039bca856542d2071d60fc4e57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3e302fd7d74eb4c587114aba04ab5092cb7608012e15b7132b64362f0fdb946"
   end
 
   depends_on "cmake" => :build

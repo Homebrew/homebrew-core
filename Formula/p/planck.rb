@@ -4,18 +4,17 @@ class Planck < Formula
   url "https://github.com/planck-repl/planck/archive/refs/tags/2.27.0.tar.gz"
   sha256 "d69be456efd999a8ace0f8df5ea017d4020b6bd806602d94024461f1ac36fe41"
   license "EPL-1.0"
-  revision 2
+  revision 3
   head "https://github.com/planck-repl/planck.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "8fda29d5f8dd36e6b05b1dffa3fe70e88f8377f540c161166eb79d3f40f5b9d8"
-    sha256 cellar: :any,                 arm64_ventura:  "c88241e7e506de46a27e221ed755db3c63e29f5dd94f12257b35f8e38cb9b2ea"
-    sha256 cellar: :any,                 arm64_monterey: "90dad05fabfdd7cbd4239c04f3db400ae1fa270523da515054288ce15a839e25"
-    sha256 cellar: :any,                 sonoma:         "817ae563b1a4fdd70e36e76be7d3f9ef041a35bffa7c6ac776fcb00b4fac3f08"
-    sha256 cellar: :any,                 ventura:        "f030bda901045014db5359209b18c9a2739c5579e3faf69af27f116d4d4f8a22"
-    sha256 cellar: :any,                 monterey:       "b1d9f917b6e6a679645f8659b27adbf4fef08212bdfbfdad673ab6ec29d1eaea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5107a41edde7c77929e24faa9919f8536228b6d08babaf7a1b28a371fafddc7d"
+    sha256 cellar: :any,                 arm64_sonoma:   "6ff3ca72b2b4cf469eb4319d31a45784ecdf4943a99e65b7cf1b0644f679f9da"
+    sha256 cellar: :any,                 arm64_ventura:  "970c6f4dd5346c0acf49d25fdc2256ad3553b5ad646a347c99765510cf517b53"
+    sha256 cellar: :any,                 arm64_monterey: "3545c08d8d72de0a809fdc78db7a3b062e813dc760d5e23cafcc9c469171539d"
+    sha256 cellar: :any,                 sonoma:         "2078414c6bedde4348454315bf808b1df07f4d6e5898626465591daa2191a944"
+    sha256 cellar: :any,                 ventura:        "1740760a4e914f41546f3bb1b4d7eaa0594a9492a73e20843da76b715c10a02b"
+    sha256 cellar: :any,                 monterey:       "7aabe1b076a404ebf5f5795413b4ce92b661981140d7445885856020d9d555d5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffce7a73a0e99520998c61c87c42606c387ab78f57734f1dc7d172821997e865"
   end
 
   depends_on "clojure" => :build

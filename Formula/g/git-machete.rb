@@ -1,18 +1,18 @@
 class GitMachete < Formula
   desc "Git repository organizer & rebase workflow automation tool"
   homepage "https://github.com/VirtusLab/git-machete"
-  url "https://pypi.org/packages/source/g/git-machete/git-machete-3.23.1.tar.gz"
-  sha256 "72826eb4ab0b082b1e83b4d8f8d1982d35ae60e375d2ff6c67b407761c7fa202"
+  url "https://pypi.org/packages/source/g/git-machete/git-machete-3.23.2.tar.gz"
+  sha256 "2766b677bae7f2f7dc596ff6dcc7b6bcc06bc8e3c75a4ca8d826de5619cbc406"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45e51254ef03de9797475fe41d80bb1e6a9528dda98c8bdfa7cf3929c9e0cb13"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3c542b82b0a841395c6530c957e3016a0e05a5ff12a44d65a6140e943fde7ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a876e00bbb3a0b41417d0df7a29d5e56e65f0023312928cb1907185d60d30701"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f4883e82f112528b7ee8fbfba2a341cc9e64d069b04175cc26879834836ef04c"
-    sha256 cellar: :any_skip_relocation, ventura:        "60c6c0c69b062ea55b85f7848365c8c123f83c9ebf9d67040d5feb334abb981c"
-    sha256 cellar: :any_skip_relocation, monterey:       "924895ed0b640091e96f385c8298e1211b8bc0e30e08ddd6752610d7535f8502"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9914faa355def03ae7046deaa78283f0764b9b8fc6476c1592c7974e5566802c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da0bd409bf214a61c6f7e1db5ff67cfb0f89adf9ea489282b76bf3c4801779f1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "528cb96ca908938e9e2e75a265f7fdf0c1a42008f98074f831ea517a4471ddc7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "585c3357ef871ee9cf18af8d839a9bc65e1ff5563921836785f5c50b98562e80"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d739aa668af28e61b5d1860290eb0be9bac6d26957d44574b241a5bd4dbf2328"
+    sha256 cellar: :any_skip_relocation, ventura:        "b34d9f70042f41f3cecfd6e79ccc52735235db60dc836f6e81d33ae44bca3ac6"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc085b6511a8e43a333c2b94f69dc18748e94b7f6a2b28072d2f985efef7c686"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db6558916c4320d13e9bee0619ec3a6fded202f49527cecc648fb030f471b6d6"
   end
 
   depends_on "python-setuptools" => :build

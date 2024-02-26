@@ -6,16 +6,16 @@ class AdbEnhanced < Formula
   url "https://files.pythonhosted.org/packages/82/11/1228620ea0c9204d6d908d8485005141ab3d71d3db71a152080439fa927d/adb-enhanced-2.5.22.tar.gz"
   sha256 "b829dcb4c9a9422735d416a62820de679bed8b08dfbff2014d46a525c39bc7d0"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f140c4da6abe07762bfa5144dd612372e5cfa622cd5baa63abdd8489101ea495"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3650e94ab08fabf3e1979a3a5c3db0fe60921bd761a36031ff44a63573160b45"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a0fe993a91d4e4c6e928a47c9ff88c398a1652c36cae6c2e84a0b682ccc1eda"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a3802ffe0120b058bef09e5386bbd24f4dc3d6529d50cc76e2f6043682035112"
-    sha256 cellar: :any_skip_relocation, ventura:        "986e44cb71e0994fc3f290771e214402d58e17b3d72cb8620e950f167f38df08"
-    sha256 cellar: :any_skip_relocation, monterey:       "ad037d018263b17052c8e00ff57a61e11d71b8368bcb3aedc9ecf8985d68ab8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "907e61c009b105089aba07d6c00c4d1d1cfebbc4bb78fd9d922def97703c5e29"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "51a67bb55d0e87a80e019ebd83aa0727d4b36b120c76c418c682b8be86581eac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "17587c28965d771742ff5534845bf2baf68e778c86a9d718fc6c02b4fe294ce6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "721b9860f8be251a1f596fe981018e2692134af5dcf5d24338ef44201d2280ce"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7ca4773ccb54dd5db5f97116825683419d8eb95f54ba9bd4dcb4f41f3ad29580"
+    sha256 cellar: :any_skip_relocation, ventura:        "6677398363342be5b9f19ec3dcde7c3d18b60960cf646a552caec994bf34906e"
+    sha256 cellar: :any_skip_relocation, monterey:       "2fa6699de13ac4dd8494f4140c989bf125466062d1ada85fb95f779fb4368095"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1dd75d2003096b929ed0531d0b657805a7f251e831b5e2d8042ce1b2b47a41ad"
   end
 
   depends_on "python@3.12"

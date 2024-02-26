@@ -9,26 +9,58 @@ class Virtualfish < Formula
   head "https://github.com/justinmayer/virtualfish.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f247a3d61821e4b5b0cc1ede4f39c4c698037a6490816229a9a770b341fc902"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f86626ae92fe1c934fe678be8fd4fb5835c8696e8bc4a56d5be413fe8418e806"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d95595eca51362b908d0a2d2f51c4fd14df93bc1520000e84a7fece52badd769"
-    sha256 cellar: :any_skip_relocation, sonoma:         "51af3c2433d0d84776e468f95179695a0b1dd9d10530b53892ed5237b1a5769b"
-    sha256 cellar: :any_skip_relocation, ventura:        "4b7198e35a518a0f45eb70a04429deddd63e5281246283ba0d4a7dcdb29cc1f3"
-    sha256 cellar: :any_skip_relocation, monterey:       "7f569f4c0a255980b8245b59204ac037e3bae382b387dbfeddb11c8152f715be"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d02d694ebc0f8363cb640d3493f18a44b23c2399110db2db09c8111070e34028"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b5c2508b685c079c55485e337f55aefc7b0e2798da055852e8ca1e9e5d3cbe59"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f198267a8d05f8de7358c2f656482512746e0dc399be4df298317503ff1bd3b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6514fdc780e83fd107afeba00b2b338adb2bc0de1d90a0a32093800bc8a66574"
+    sha256 cellar: :any_skip_relocation, sonoma:         "13c993f381b13eed83af6481677af6479f690b538f1f219c7d8240e617916b4e"
+    sha256 cellar: :any_skip_relocation, ventura:        "0e35d938523b626eb8708114f67f87000f73ed3ba9163ed3b0a4604f568b898e"
+    sha256 cellar: :any_skip_relocation, monterey:       "7738a1c9f6fb42ea036b0b4ad3f1e494419d1bf2f1b9dc49ee0ac49928c5e510"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7c4fa0bc5f4076a18ad84a490726b1a557af14d5ba2579cd66cc70b5e060bfd"
   end
 
   depends_on "fish"
-  depends_on "python-packaging"
-  depends_on "python-psutil"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
-  depends_on "virtualenv"
+
+  resource "distlib" do
+    url "https://files.pythonhosted.org/packages/c4/91/e2df406fb4efacdf46871c25cde65d3c6ee5e173b7e5a4547a47bae91920/distlib-0.3.8.tar.gz"
+    sha256 "1530ea13e350031b6312d8580ddb6b27a104275a31106523b8f123787f494f64"
+  end
+
+  resource "filelock" do
+    url "https://files.pythonhosted.org/packages/70/70/41905c80dcfe71b22fb06827b8eae65781783d4a14194bce79d16a013263/filelock-3.13.1.tar.gz"
+    sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
 
   resource "pkgconfig" do
     url "https://files.pythonhosted.org/packages/c4/e0/e05fee8b5425db6f83237128742e7e5ef26219b687ab8f0d41ed0422125e/pkgconfig-1.5.5.tar.gz"
     sha256 "deb4163ef11f75b520d822d9505c1f462761b4309b1bb713d08689759ea8b899"
+  end
+
+  resource "platformdirs" do
+    url "https://files.pythonhosted.org/packages/96/dc/c1d911bf5bb0fdc58cc05010e9f3efe3b67970cef779ba7fbc3183b987a8/platformdirs-4.2.0.tar.gz"
+    sha256 "ef0cc731df711022c174543cb70a9b5bd22e5a9337c8624ef2c2ceb8ddad8768"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
+    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+  end
+
+  # setuptools included due to https://github.com/justinmayer/virtualfish/issues/240
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "virtualenv" do
+    url "https://files.pythonhosted.org/packages/94/d7/adb787076e65dc99ef057e0118e25becf80dd05233ef4c86f07aa35f6492/virtualenv-20.25.0.tar.gz"
+    sha256 "bf51c0d9c7dd63ea8e44086fa1e4fb1093a31e963b86959257378aef020e1f1b"
   end
 
   def install

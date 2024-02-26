@@ -1,22 +1,17 @@
 class Wiiuse < Formula
   desc "Connect Nintendo Wii Remotes"
   homepage "https://github.com/wiiuse/wiiuse"
-  url "https://github.com/wiiuse/wiiuse/archive/refs/tags/0.15.5.tar.gz"
-  sha256 "d22b66eb13b92513c7736cc5e867fed40b25a0e398a70aa059711fc4f4769363"
+  url "https://github.com/wiiuse/wiiuse/archive/refs/tags/0.15.6.tar.gz"
+  sha256 "a3babe5eb284606090af706b356f1a0476123598f680094b1799670ec1780a44"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "89b2a0507c72e01683faf6db14e7cd789ff1d190c7fbb14e5fcffd35363a7387"
-    sha256 cellar: :any, arm64_ventura:  "b461bed6e6dd3ff0d1cca716383ec8355ce802c29a15eb1a063f7592780f519a"
-    sha256 cellar: :any, arm64_monterey: "ea877bb14b706754856ae4b7a2192bc15c3ff8036ad4953d626dbcbe67a763fb"
-    sha256 cellar: :any, arm64_big_sur:  "10407776ee12bc410143a63ced0de46badb10b4f9bb4af8fdadeb2501bac8f38"
-    sha256 cellar: :any, sonoma:         "7ddb6da1aba2fa900e79f460d15048de3e63ed3b776e43dbdb5d1d337dd154f9"
-    sha256 cellar: :any, ventura:        "e401fed16b71c5bee6b5a4b29a469cc4d2b68c8707b8f7d16d13e1846b804eb4"
-    sha256 cellar: :any, monterey:       "1b80ae72844ad7197be6cb903f8a001c88a02d9e235cc6f77c293acf6bd4c78c"
-    sha256 cellar: :any, big_sur:        "3bba847f421a4b946c07adc4dbbf0862e46e6fdf9c8e779e07fa6afd1364394a"
-    sha256 cellar: :any, catalina:       "0a7689f0a9a9ad3fcfe44b35b3467f48c6065345ef8396c178fe0c3fcc22c7ff"
-    sha256 cellar: :any, mojave:         "2cd562e7ccdfa82c47a464b4a501925398ce8381e3489db0d7e773e8e2040002"
-    sha256 cellar: :any, high_sierra:    "40f7508add9a2974c76bd91d9e8fbe62bd2500ae4433de06af5711d340297b96"
+    sha256 cellar: :any, arm64_sonoma:   "ec4211428d8a023e0943cdbf200bf44664ba76db66d50289b8d7992af7452dea"
+    sha256 cellar: :any, arm64_ventura:  "43ee0b074e08947d548203b93f4d7c34458bdbdea86827ebc64489000937b715"
+    sha256 cellar: :any, arm64_monterey: "80b2f906e3e35ad7597eb227fb93a3fc51c3ad219d774e3670c7d796317487d5"
+    sha256 cellar: :any, sonoma:         "a35dd06aeca333b8b9be31cccddf6c53ce6ff5cafb93fefc14fb4454dc860d4a"
+    sha256 cellar: :any, ventura:        "72b23904cd146f1a6a3a82da8a169c8c44c32028d264a5604e43f66cc746b91d"
+    sha256 cellar: :any, monterey:       "332cfd221b67fef580e29d75d5f28ba362ed314c6c5d229321acead3a8dcfbe6"
   end
 
   depends_on "cmake" => :build
@@ -25,6 +20,7 @@ class Wiiuse < Formula
     args = %w[
       -DBUILD_EXAMPLE=NO
       -DBUILD_EXAMPLE_SDL=NO
+      -DBUILD_SHARED_LIBS=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

@@ -1,12 +1,12 @@
 class Fennel < Formula
   desc "Lua Lisp Language"
   homepage "https://fennel-lang.org"
-  url "https://github.com/bakpakin/Fennel/archive/refs/tags/1.4.0.tar.gz"
-  sha256 "161eb7f17f86e95de09070214d042fb25372f71ad266f451431f3109e87965c7"
+  url "https://github.com/bakpakin/Fennel/archive/refs/tags/1.4.2.tar.gz"
+  sha256 "b44a205ee7ebdee22f83d2a7a87742172295b8086b5361850dfab4f49699e44f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f46028597883cbc38864c61bd3fa402da9cb90ce97415d51a7b5279bc17f7bd0"
+    sha256 cellar: :any_skip_relocation, all: "8af6684c2a65280d090441f5dd9b323d566bef0f07d2bfd2a508729ee639c42c"
   end
 
   depends_on "lua"

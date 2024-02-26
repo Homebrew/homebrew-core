@@ -1,19 +1,19 @@
 class Luv < Formula
   desc "Bare libuv bindings for lua"
   homepage "https://github.com/luvit/luv"
-  url "https://github.com/luvit/luv/archive/refs/tags/1.47.0-0.tar.gz"
-  sha256 "f9911d9d33808514e9ddc1e74667a57c427efa14fefecfa5fabe80ce95a3150a"
+  url "https://github.com/luvit/luv/archive/refs/tags/v1.48.0-0.tar.gz"
+  sha256 "c9c12e414f8045aea11e5dbb44cd6c68196c10e02e1294dad971c367976cc1f9"
   license "Apache-2.0"
   head "https://github.com/luvit/luv.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6542aa54d40207a854d146f8f80eaa12395c8510ab9810cd7eeb182024ce45a0"
-    sha256 cellar: :any,                 arm64_ventura:  "bf086582a791396d25ef1c6af8f6cc795c708f1588767a9a988a2744cef442bc"
-    sha256 cellar: :any,                 arm64_monterey: "5d0585fef34febe2e6eaf877ba99359cc30bfe5040d51c25cee95259af85e0a9"
-    sha256 cellar: :any,                 sonoma:         "4b74da98648b146f33eac044ccecc8fc8098f354f80460e1261f64d9f83679d8"
-    sha256 cellar: :any,                 ventura:        "c50b9e334980f1fd8ecea1868a4972aa6cbffa484cfe59bea50f0d94377bf5d2"
-    sha256 cellar: :any,                 monterey:       "7ee200bb6e1a39e5d9ff52e7950359beb803feb4637252c188700c6501ca892b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d189e1d69c4b9797d12b8781326484dc304011abf94b6953449c4e21664799a6"
+    sha256 cellar: :any,                 arm64_sonoma:   "a5a0804b0f9e914a959c539e82ed9125e30ee3f8a45ab50687c050038778179e"
+    sha256 cellar: :any,                 arm64_ventura:  "065b4bba5f6f5da08fa3880d6408259e0d7589de22407d744e5010663379bfba"
+    sha256 cellar: :any,                 arm64_monterey: "83c7f87651cb20df7227bf7010074df2ddf1240dbe936f3ee1dc69e24a92fb2f"
+    sha256 cellar: :any,                 sonoma:         "d1ddd7ed8dd0bce2c0e173dd49cc2d9a2b0fa24c9ef007aa74379fab1b63f27f"
+    sha256 cellar: :any,                 ventura:        "4e329fc722c29685d8ffedbe989b3e79ce8b60b424d0b5b4a73263e6ddba1d32"
+    sha256 cellar: :any,                 monterey:       "ea65b68a6ec4aec7ecd77ea792eb3aecd2cbbfdf840e2f2648dfae0afb614c59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "249fa07bc1dd60a559c8aaa9c9f13e8cf4aa4139c718a73c99576a0f8e5afb6c"
   end
 
   depends_on "cmake" => :build
@@ -22,8 +22,8 @@ class Luv < Formula
   depends_on "libuv"
 
   resource "lua-compat-5.3" do
-    url "https://github.com/keplerproject/lua-compat-5.3/archive/refs/tags/v0.10.tar.gz"
-    sha256 "d1ed32f091856f6fffab06232da79c48b437afd4cd89e5c1fc85d7905b011430"
+    url "https://github.com/lunarmodules/lua-compat-5.3/archive/refs/tags/v0.12.tar.gz"
+    sha256 "1ad84bb7d78cd3d0f8b6edbbb4c3a649f2b2c58c0f4b911b134317ea76c75135"
   end
 
   def install

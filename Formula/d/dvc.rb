@@ -3,18 +3,18 @@ class Dvc < Formula
 
   desc "Git for data science projects"
   homepage "https://dvc.org"
-  url "https://files.pythonhosted.org/packages/9b/26/051261435dac8d583546a181eca0b0a84eb699b02d065318a9993554c513/dvc-3.45.0.tar.gz"
-  sha256 "3d3bb4868cd88cafe6829b046baf98611d8c0f77f08e2c271462e5ab2a7dab7d"
+  url "https://files.pythonhosted.org/packages/79/72/0548f1aad2cc731ab481f23fcc52228e82fb5facad619e2d1989b9e010ee/dvc-3.47.0.tar.gz"
+  sha256 "892a005fe3ff81c26722f234a47c63d222a9686e611fa104aa962e0640e24b1d"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "da708be9bdfed523f93ddd9440e00e286d9d8c4f21f05c5cfcf48097a384b147"
-    sha256 cellar: :any,                 arm64_ventura:  "242ed0a1ab5afa3eab5167bfc51d7349a9ca6c0caf67c881f9a7085099e98e93"
-    sha256 cellar: :any,                 arm64_monterey: "1af8d3dd6a7f0b258c6f8036b710ee88920c6a79ad468b07c4e947749db8d89b"
-    sha256 cellar: :any,                 sonoma:         "510a661c101ecd7c4c924f17fb8a84488350cedc882a0661672f390f5b688820"
-    sha256 cellar: :any,                 ventura:        "c816889cc3169fc199102cf90c247a31b74035ab3f9f8d25942c7c917ce20d4f"
-    sha256 cellar: :any,                 monterey:       "83db8d4f8be8d06fab772be771828202d7bdee580d65919c55911984e59932ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eb08271922b4a46546ea6948651a21e28ac2c09e9c1bc4cd5112820fc612b2e"
+    sha256 cellar: :any,                 arm64_sonoma:   "07f8d725893c860fd353b10080c28bfa40f21e3a3a2416b29be443bfa24b43f2"
+    sha256 cellar: :any,                 arm64_ventura:  "b5dc730ce9d05afb32065576c063fbeb9f768c11d3b12f7bb24474d8f3ba6829"
+    sha256 cellar: :any,                 arm64_monterey: "59771188db739f696eea8399273eb9c7fc38e4a511f50c37b33b4c2f748302c6"
+    sha256 cellar: :any,                 sonoma:         "02640b6aacd752f4b6578ae278041a40385723e816ee532fe8e117a4d435388f"
+    sha256 cellar: :any,                 ventura:        "831845f7363e685bc7c3fe15110ccb16706736c961f78a92f5017d8c9db39a01"
+    sha256 cellar: :any,                 monterey:       "c46602094154ce5aaa1cfea784f2616073699d15f43ed00ff36714abbf259593"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f84ce3c976de2aea6ac6eeb3378116eda605e78c65f558b8799cddc02de4cecc"
   end
 
   depends_on "openjdk" => :build # for hydra-core
@@ -103,8 +103,8 @@ class Dvc < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/2d/b8/7333d87d5f03247215d86a86362fd3e324111788c6cdd8d2e6196a6ba833/anyio-4.2.0.tar.gz"
-    sha256 "e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f"
+    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
+    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
   end
 
   resource "appdirs" do
@@ -293,13 +293,13 @@ class Dvc < Formula
   end
 
   resource "dvc-ssh" do
-    url "https://files.pythonhosted.org/packages/36/45/7f2f9ce55fd5b583696148153505fd131d32863ae215a483202f8f719ea1/dvc-ssh-4.0.0.tar.gz"
-    sha256 "59a59ca162976ae347651143b7e327aa91568f1cf26bec80a344d13505115620"
+    url "https://files.pythonhosted.org/packages/13/02/ced97a5206110568a1360473d6416a71327155ae1b93d28b748da61c045f/dvc-ssh-4.1.1.tar.gz"
+    sha256 "96f0baa005d0478bbbb3ed759fa360404c4f73dcabab72409a65edb8ec36dad2"
   end
 
   resource "dvc-studio-client" do
-    url "https://files.pythonhosted.org/packages/1e/ab/4b8e4f6ae7a2592ba2f35b2f1a8a94e4faca9a7ea325405a5367bc1cdd12/dvc-studio-client-0.19.0.tar.gz"
-    sha256 "bd4d9c07d2347c689dcc882e26dae633fd5fe75120e2b89637d6c88a077bded0"
+    url "https://files.pythonhosted.org/packages/fc/ea/ab6698d27ffbc641d41ec69dccae0059a19ce050d951b3cf749c397cc3a4/dvc-studio-client-0.20.0.tar.gz"
+    sha256 "a242e9c46297c689d65ff28d439b7c2e7535b641f09860f871b5628f7ae4bc42"
   end
 
   resource "dvc-task" do
@@ -673,8 +673,8 @@ class Dvc < Formula
   end
 
   resource "shtab" do
-    url "https://files.pythonhosted.org/packages/14/0e/ce211daf7b28fe685b1c9a21d943b3a1c4f300a07e6c59d8765c5f22eb06/shtab-1.6.5.tar.gz"
-    sha256 "cf4ab120183e84cce041abeb6f620f9560739741dfc31dd466315550c08be9ec"
+    url "https://files.pythonhosted.org/packages/18/95/5691f59ef352d45017863bb6082d3c046a7cee2672458b4aa1850a12904a/shtab-1.7.0.tar.gz"
+    sha256 "6661c2835d0214e259ab74d09bdb9a863752e898bcf2e75ad8cf7ebd7c35bc7e"
   end
 
   resource "smmap" do

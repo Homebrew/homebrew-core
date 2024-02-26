@@ -6,8 +6,8 @@ class LibcapNg < Formula
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "3762e67587dbdae0a476f3e25a2b7f6274a6328cf8f9ca3304857d995907b9be"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "2c95eb278def830071146f6a7f5e9cdd9f03caf71646604b5a4013a3750375a3"
   end
 
   head do
@@ -28,12 +28,16 @@ class LibcapNg < Formula
   # https://github.com/stevegrubb/libcap-ng/commit/30453b6553948cd05c438f9f509013e3bb84f25b
   patch :DATA
 
+  def python3
+    "python3.12"
+  end
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
                           "--with-python3"
-    system "make", "install"
+    system "make", "install", "py3execdir=#{prefix/Language::Python.site_packages(python3)}"
   end
 
   test do
@@ -49,7 +53,7 @@ class LibcapNg < Formula
     EOS
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcap-ng", "-o", "test"
     assert_equal "ok", `./test`
-    system "python3.12", "-c", "import capng"
+    system python3, "-c", "import capng"
   end
 end
 

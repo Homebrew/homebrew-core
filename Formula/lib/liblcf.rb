@@ -4,19 +4,17 @@ class Liblcf < Formula
   url "https://easyrpg.org/downloads/player/0.8/liblcf-0.8.tar.xz"
   sha256 "6b0d8c7fefe3d66865336406f69ddf03fe59e52b5601687265a4d1e47a25c386"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b57f87219c7ad74923beef95e855e86792b7e9c00c1185c5e45c1a05abae7dae"
-    sha256 cellar: :any,                 arm64_ventura:  "06aff4bc7c277c9c98b2901a720a49673ad5c7d9be52a3920cb657388edb9335"
-    sha256 cellar: :any,                 arm64_monterey: "151d6daeb6f60ad56cf37569269498bda0c4d14874ce9e04d06ca5dc14dad46f"
-    sha256 cellar: :any,                 arm64_big_sur:  "37b4ca74a5ddd4f08651005cc9a74bf79cc22501df866be6016ffc00e3c01a25"
-    sha256 cellar: :any,                 sonoma:         "8d937b355f970ae9511f80e191776198fc3473e7a22068385e3b3d40efe2d3e6"
-    sha256 cellar: :any,                 ventura:        "31a39c74c9522f9033cc00d33a3858ef46df167b9c72c4f2a19aa04c1681cc9b"
-    sha256 cellar: :any,                 monterey:       "766c6ca63a83b08a67d1d45223effa736b6725fc118dac65db9e9ec9d5aff0a8"
-    sha256 cellar: :any,                 big_sur:        "1289ad51f7274e2a58d004ee702a59a80cfff8313483eb89607292353e41e51c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47297a9348edb42e46b7b990d5531423004c168d628fb5a1fae6ae7fd6bfc9fd"
+    sha256 cellar: :any,                 arm64_sonoma:   "e6b2a50537cda6de3f2de66da5eab8887b60e2fe89b773737b5f18b936305244"
+    sha256 cellar: :any,                 arm64_ventura:  "ef2914abc50f38f5cd948c70513925e16b46cca7e523e26d480cd77465c21a32"
+    sha256 cellar: :any,                 arm64_monterey: "d69068fe28272da2f397082bfa60f98ea942df2200dab9fd7f8df2e5472700d6"
+    sha256 cellar: :any,                 sonoma:         "c5343e23925ac2afbaec41331cad08c65bdebd775cf237f595b8b40cc258034c"
+    sha256 cellar: :any,                 ventura:        "6d76007219de8377928af43b548b0636793939f1f5211e20bb3d6fcf8b4f5963"
+    sha256 cellar: :any,                 monterey:       "a8c0422b3d5d91e6af9de8165169a600b6313676132efe2d8cfc6dca2e533bec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18460590e8ae8ded3470cda06540fe6431c93da712e7e32f7ac5155a8527f3ab"
   end
 
   depends_on "cmake" => :build

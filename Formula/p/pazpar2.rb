@@ -4,7 +4,7 @@ class Pazpar2 < Formula
   url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.1.tar.gz"
   sha256 "9baf590adb52cd796eccf01144eeaaf7353db1fd05ae436bdb174fe24362db53"
   license "GPL-2.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://ftp.indexdata.com/pub/pazpar2/"
@@ -12,15 +12,13 @@ class Pazpar2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5f7094ba1ce2dd7b73d30c3430255746cd9388f8c5b0694beea71b22f724871a"
-    sha256 cellar: :any,                 arm64_ventura:  "78bcd6eaa3b662f92110bc0b9d45d585ec8bdbde67b4dc4a2b405c7d6e58c94c"
-    sha256 cellar: :any,                 arm64_monterey: "cc840568464e25c0661076ee56ea8230ba3d6c4550010c18109e123834f8118f"
-    sha256 cellar: :any,                 arm64_big_sur:  "8097ef633c2e3489f322640e7043fa3dbba14a08e3065a15bbdd1879052981aa"
-    sha256 cellar: :any,                 sonoma:         "089fede9ae6c8cdcafbceedf55b803579846f85e625ec4044988be457a2f4a9c"
-    sha256 cellar: :any,                 ventura:        "1bbbf5ab7ddcb22ebad5ac5a009cea761cb9de0443731ff7f49f956154c401d7"
-    sha256 cellar: :any,                 monterey:       "addf5e45be0b6667882a93f57a9149a7afdfa746bf484bdbee1a0a14579956bd"
-    sha256 cellar: :any,                 big_sur:        "3e16249082fd4fd0a3d46348de7b1e4b3b8bcac48c3eb4102b80875783aee2f0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8b2d098a7ab8bc0571da0f1908afce25da7f5c190d8b9921df8f61c2b1b2ef1c"
+    sha256 cellar: :any,                 arm64_sonoma:   "0f5b9eda587cc7108478df960e74800ce079e09bc131199b24cc37c6ed2ed0aa"
+    sha256 cellar: :any,                 arm64_ventura:  "19fe5a070389f82d87c36335ac4b123d8c72cff599e973acda4adb6e7be0384f"
+    sha256 cellar: :any,                 arm64_monterey: "c849fb96b762c184451e288ccde1514420e2b8071856d000e5b0a4ba5176a278"
+    sha256 cellar: :any,                 sonoma:         "7da68c0e0be9587afa65f166f41e20d6e6e6dcfc1d0fa55443c747ca867e4f03"
+    sha256 cellar: :any,                 ventura:        "5ec6a7c0bd7bb41976b42b3514b5c66f58e0021a027ac7136fbc3d2e942d6055"
+    sha256 cellar: :any,                 monterey:       "e0d0e10a9d903782753abe567aa3610a310276f2f4ce0a1332c02e0b22e5cfa2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3122dee93d74f767ca110f6ca80763c78c4fa9d376892b08fdbe3e27f98d0cce"
   end
 
   head do

@@ -1,9 +1,9 @@
 class Sapling < Formula
   desc "Source control client"
   homepage "https://sapling-scm.com"
-  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20240116-133042+8acecb66.tar.gz"
-  version "0.2.20240116-133042-8acecb66"
-  sha256 "9d5eaaa030b1e5385b85804e779ceed5000a2b9f4c21440ccb45a700c798c8ac"
+  url "https://github.com/facebook/sapling/archive/refs/tags/0.2.20240219-172743+3e819974.tar.gz"
+  version "0.2.20240219-172743-3e819974"
+  sha256 "3c0ff8e5daf795eb32f31c889b2908b90b302d93906d587e1f5665a8094d1c7b"
   license "GPL-2.0-or-later"
   head "https://github.com/facebook/sapling.git", branch: "main"
 
@@ -14,13 +14,13 @@ class Sapling < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "79b0633c0ecc5c9bb5b465fac33dc9d4d0b639695472088f84ece3a06e9de297"
-    sha256 cellar: :any,                 arm64_ventura:  "561506a569b1ccd2827795f0be7ed7f557b46f3a65d54d5e902169022bc204d5"
-    sha256 cellar: :any,                 arm64_monterey: "b47f758b20ab5ef8a0ad1400772c7dc98cf4ec68fe642d53e683c15d9fdf8530"
-    sha256 cellar: :any,                 sonoma:         "400d4f949946570de61cdd25a867e56c488a43f4853f9976b5d1f9bdfeccc150"
-    sha256 cellar: :any,                 ventura:        "2817fe6bf0dd027f5e485d0ac5bb330fb891b4b938490ef1aa84b0a810b54ea2"
-    sha256 cellar: :any,                 monterey:       "8365063ad026c2cea7d879492aff11a8b2b40c7d3e9cb51f1bcd21caa08c7184"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e56b25598ceaa8207323bffe4e173d6eb64d039ab0a280bd4668085879ee0d3"
+    sha256 cellar: :any,                 arm64_sonoma:   "b9c52ae38949665729a6d9492d9c7f5310539b8ce9d24c721b0dafbbdb8359dd"
+    sha256 cellar: :any,                 arm64_ventura:  "de5ea5fd11bee1fcdc2db58cc64c4fcd85de304c40e12173721e8395ff4e76e8"
+    sha256 cellar: :any,                 arm64_monterey: "6911381dce5226cc2e670fb693752e38480d4d566a0d85987f810d5be1696de7"
+    sha256 cellar: :any,                 sonoma:         "a67b69bfdf2a0dee32d96ab28766ef3fca4bdd4e7e7336e157f4e82f2be3dd6e"
+    sha256 cellar: :any,                 ventura:        "f38e331e44464ad7febdf96e61210c18539839c2d55ced05073c542584a86654"
+    sha256 cellar: :any,                 monterey:       "0fe97932b29c611621a064166a724774fee5120c02a6564ab329c186ed200282"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5dde3dabb2cc3d38010cd5327eaa06d1698d9237ddbac47a1b5a29371451c4b1"
   end
 
   depends_on "cmake" => :build

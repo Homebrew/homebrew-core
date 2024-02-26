@@ -9,18 +9,17 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98e24008afb609377b3d2b36b5864d013f288af861c96d56cddb12b8c1662275"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff87d69b5172a97aa94439d113c10a4d08d53cdb4225bcbcf332b23a78a58fd8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fdc5d048e96c3f4f77dd0a30896cf8147d00756a706a084751da0a084b2d5a4e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cba3e0f580be4c28bf96a2b763dd8883ac5abb83c2fa292cdef65dc281add93a"
-    sha256 cellar: :any_skip_relocation, ventura:        "7dc185ea234eda2443df597904a669b3d55361ac33ff1535ad9417de569aa595"
-    sha256 cellar: :any_skip_relocation, monterey:       "13d0126b96b34f15a1ffa33e7e00d31a7c42ee21b32723956e96936976a28d0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bb219f70c3d9cfcbe2b4f603b05c036a152b741b3fa6c52341d2bfc899c95fc4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f3fbc8049b7c7513cdb4b6bf81f4f36cd486686c28a7aa14e0a1d0b4cf85ac9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f8a596c34d193ecd89c0cd948ecb094d51b3703423a2e415ecc26371b958471"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5650a4455364dd5c93e6b88cc96f654b8ee48fcd845bd68212194efb40f47146"
+    sha256 cellar: :any_skip_relocation, sonoma:         "287062cef51ae2527f3419df8dac967cfac2a14a4ece4865f0c1213b550e46c4"
+    sha256 cellar: :any_skip_relocation, ventura:        "f31c81152c8a813ff954d6dda621b176db3761344d2b4b24cd3a7de2e37c3410"
+    sha256 cellar: :any_skip_relocation, monterey:       "0cb181fc7d1fb9cf96e2ceb0f3aad5adcefd09b1b4b1f1f0a391ce1965a4450e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de66343179e652332444261662cb30fbe20f5da76bde6f4d729d4afac3ad5002"
   end
 
-  depends_on "python-pytz"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "atomicwrites" do
     url "https://files.pythonhosted.org/packages/87/c6/53da25344e3e3a9c01095a89f16dbcda021c609ddb42dd6d7c0528236fb2/atomicwrites-1.4.1.tar.gz"
@@ -52,9 +51,19 @@ class Khal < Formula
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
   end
 
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/90/26/9f1f00a5d021fff16dee3de13d43e5e978f3d58928e129c3a62cf7eb9738/pytz-2024.1.tar.gz"
+    sha256 "2a29735ea9c18baf14b448846bde5a48030ed267578472d8955cd0e7443a9812"
+  end
+
   resource "pyxdg" do
     url "https://files.pythonhosted.org/packages/b0/25/7998cd2dec731acbd438fbf91bc619603fc5188de0a9a17699a781840452/pyxdg-0.28.tar.gz"
     sha256 "3267bb3074e934df202af2ee0868575484108581e6f3cb006af1da35395e88b4"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "typing-extensions" do

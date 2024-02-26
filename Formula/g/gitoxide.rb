@@ -1,8 +1,8 @@
 class Gitoxide < Formula
   desc "Idiomatic, lean, fast & safe pure Rust implementation of Git"
   homepage "https://github.com/Byron/gitoxide"
-  url "https://github.com/Byron/gitoxide/archive/refs/tags/v0.33.0.tar.gz"
-  sha256 "0fc1e0f9e36d2622f6a11925607090abf619c73551d2a8f5ea710e97ef1a9eb4"
+  url "https://github.com/Byron/gitoxide/archive/refs/tags/v0.34.0.tar.gz"
+  sha256 "5f0686213fa3ad3d6f3adedf3df463dfdb9bb60f9cad03a174ec6b5adba1567f"
   license "Apache-2.0"
   head "https://github.com/Byron/gitoxide.git", branch: "main"
 
@@ -12,14 +12,13 @@ class Gitoxide < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "de55b76cde5237b1898852311820e6c65aeab19b4ed32a9c4f922b58505eabfc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8a293a668d6ab1a28eb85eeeed795b03fe1d68e5b0b4822a1577e3661dd69c33"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0dd1bd0756abc947743f98b7f16875ece3365372c07ceb3f7e0ee84f014840e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "87f81a35906e9662377d4500136987711eb8cb5a02bfb7cfde0daaaa5d6b78bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b2d18393513595d59f00a8a47b958ee63b2a8a98353cf61c99a0f51d943d5ca"
-    sha256 cellar: :any_skip_relocation, monterey:       "2964ac975258a5df0e74cf561f49d41d7adc6e474820f9a029d783ad3766f79d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72fbb4ae279cb89733a5807bd50d34f337bc3a5f9bc0c6f7164ba2d11859a06b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8f3e6feddcd6f7de0b15d85c01c03cf40be0a2e0f3d747b72256ee8f33419620"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dbc24a06372d0a2bab0241352847970f5bcfc123084ba1a2e4d570e415144eac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54448eb50ade47c5645064843753686bc5039473073c25ef04b3eaa4631071d9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4913d9d32eb09da5cc90384abddba6e737ae53da740125f28719d64f44ab7e9c"
+    sha256 cellar: :any_skip_relocation, ventura:        "80055454f29e4fe63d65b9dc81d2852c712692dab9c30f29c65ebb284f4c4f46"
+    sha256 cellar: :any_skip_relocation, monterey:       "19186db63c137fb7c350f6e2f24ffffe7ef4bbe647d790bdd444805cf4133c36"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19baaa21e8100d3613bb5c4f6373d66aed8e1e7d8080342c095a6e2a852a0cb7"
   end
 
   depends_on "pkg-config" => :build
@@ -44,7 +43,7 @@ class Gitoxide < Formula
     system "git", "-C", "test", "commit", "--message", "initial commit", "--quiet"
     # the gix test output is to stderr so it's redirected to stderr to match
     assert_match "OK", shell_output("#{bin}/gix --repository test verify 2>&1")
-    assert_match "gitoxide", shell_output("#{bin}/ein --version")
+    assert_match "ein", shell_output("#{bin}/ein --version")
     assert_match "./test", shell_output("#{bin}/ein tool find")
   end
 end

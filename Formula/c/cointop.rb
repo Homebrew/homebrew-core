@@ -19,6 +19,8 @@ class Cointop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ac984c14974abe0006d84d1e802a2eddb376e2603f88fd42b60decab2a8c2ad"
   end
 
+  deprecate! date: "2024-02-25", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

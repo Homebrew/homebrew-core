@@ -4,6 +4,7 @@ class Tarantool < Formula
   url "https://download.tarantool.org/tarantool/src/tarantool-3.0.1.tar.gz"
   sha256 "3d7dafee29353887afeecaf49927c540ec70a1eb6299d1bc02b5ac616b3e2c06"
   license "BSD-2-Clause"
+  revision 1
   version_scheme 1
   head "https://github.com/tarantool/tarantool.git", branch: "master"
 
@@ -13,13 +14,13 @@ class Tarantool < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9007a953e7c4f613ab5e368c9e5efbbdd7b97082fb685096a1f8000c7524f478"
-    sha256 cellar: :any,                 arm64_ventura:  "f09b2a66fd71c84bdb02d359e6ce1767b2fc0c08d1f433a47ed35e1044720048"
-    sha256 cellar: :any,                 arm64_monterey: "e424456b6e351465c819566c9cb09c0352503a13c9e897ef6e08eb9df6d9cb88"
-    sha256 cellar: :any,                 sonoma:         "dde06372a7ba540b649b33aeb2bfcef091b0341c5b684770f55e3c15ef762885"
-    sha256 cellar: :any,                 ventura:        "7946131b84dd17618c07843d4a1dc7fda19751b713ae5761121ff36bc328848f"
-    sha256 cellar: :any,                 monterey:       "33fee58496e626c90d2e90c8127ba15068ff5d8b40a132aa501c27b02fbf809b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc66066322ec19228ffed75c8a2672c3a9bc2555df9dd175dceb0a2f3fb96bbb"
+    sha256 cellar: :any,                 arm64_sonoma:   "b6c5fc0de6ee435b6e669c2aa8f3f253597aa34cc037fec0fe79e4c30f47fe9b"
+    sha256 cellar: :any,                 arm64_ventura:  "753efa5efe29b66a2a63a53a67e36372035722b36ab0f84d5f3ec444bbd7695e"
+    sha256 cellar: :any,                 arm64_monterey: "1040ec75da515efe6578f9fd8316b86f72c9f2e7fc18f3e7f98081d6b9c14002"
+    sha256 cellar: :any,                 sonoma:         "d42ca3a5342696584ba00511b6ac8e55fa93e34c211466243b88c9efc2d71dfd"
+    sha256 cellar: :any,                 ventura:        "890e8d5986b0a7cdd13f758d0ace20dbc000454d0fc7ca64e6007c4431e1923f"
+    sha256 cellar: :any,                 monterey:       "bbc68f4f7a88de13c6d452b1738b853106c216d3274afbf5572c15be095c88cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae8946ed653dd598dc71df0d9d62c21933fc05bdb08a022918e0fad384582b41"
   end
 
   depends_on "cmake" => :build

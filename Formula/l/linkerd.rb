@@ -2,8 +2,8 @@ class Linkerd < Formula
   desc "Command-line utility to interact with linkerd"
   homepage "https://linkerd.io"
   url "https://github.com/linkerd/linkerd2.git",
-      tag:      "stable-2.14.9",
-      revision: "2aae59bd247914357405634650906230f7d4813a"
+      tag:      "stable-2.14.10",
+      revision: "1ea6b271718f90182bdf747490895784988e980e"
   license "Apache-2.0"
 
   livecheck do
@@ -12,23 +12,28 @@ class Linkerd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "521965ba1a3586e4ad951082a0e312c70ca7ab2fe13a0a2f0a9a50fb0e3e616e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc499ae57c9591ecd738b576ac66c21709870f64c171a026a2e8fa7184b633c8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dbdb1e957772c188674f26ddaf1e625c8d05f582586b526d138ffdaac7bdb4a7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ca4f10795e9c24dffb7cef45a490cc60a89afe56c858c84aa88064e2da9e5ebd"
-    sha256 cellar: :any_skip_relocation, ventura:        "79d6e3d1a36de61df97b84d19bc22bcc5fa422a7eb2fa411f69bd9c70551aa93"
-    sha256 cellar: :any_skip_relocation, monterey:       "bf650bc6cd0ebb2ec0cffd8cd79690131470bfb0854de521139a9dd79bc46e89"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3202b6d250a7152ed8c3b1eb1a67072adbff9304860e580dba5c6ee7ea5ab165"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4dd8a49fcb56e1eab62825fa310ffe6966d9aac27ebf4356b0f2be56ccb7d2ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecd3045e2d699c0bb1a16619ec5b045fae1d92293a3276c754354c3d201cc2aa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e5e275b3c5a026354bc0db5683f6044b75e551dafc0d40dd70144a9bc374b61c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a805f780856c04434e1cf56bf9722ff2d72e78ccbd4cd2bfec4b4667dca06084"
+    sha256 cellar: :any_skip_relocation, ventura:        "e5c1ac2ba88949aa2e98ca4e39d5532a33d14cfad608d8776bb2f10e47cd4f8e"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d982f58ff4958cc8a9cfabb65325d72dceb0c01c3b2c6200473868fb526a650"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1695ba96f330ebb2cfe3267a5e3cb4e77b092410ac9dac2465a977317d00945"
   end
 
   depends_on "go" => :build
+
+  # upstream PR to bump go to v1.22, https://github.com/linkerd/linkerd2/pull/12114
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/8e0c96d6f54eb3e6b6a690b7800995f3a3a6bb9c/linkerd/stable-2.14.10.patch"
+    sha256 "0d634f7ca5036e75435a10318f3e6a7d6a5c40ee0c21689a5f1814dbc5ba6911"
+  end
 
   def install
     ENV["CI_FORCE_CLEAN"] = "1"
 
     system "bin/build-cli-bin"
     bin.install Dir["target/cli/*/linkerd"]
-    prefix.install_metafiles
 
     generate_completions_from_executable(bin/"linkerd", "completion")
   end

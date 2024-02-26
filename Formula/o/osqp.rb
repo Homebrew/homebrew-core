@@ -28,21 +28,12 @@ class Osqp < Formula
     # Install qdldl git submodule not included in release source archive.
     (buildpath/"lin_sys/direct/qdldl/qdldl_sources").install resource("qdldl")
 
-    args = *std_cmake_args + %w[
-      -DENABLE_MKL_PARDISO=OFF
-    ]
-
-    mkdir "build" do
-      system "cmake", *args, ".."
-      system "make"
-      system "make", "install"
-    end
+    system "cmake", "-S", ".", "-B", "build", "-DENABLE_MKL_PARDISO=OFF", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     # Remove unnecessary qdldl install.
-    rm_rf include/"qdldl"
-    rm_rf lib/"cmake/qdldl"
-    rm lib/"libqdldl.a"
-    rm lib/shared_library("libqdldl")
+    rm_rf Dir[include/"qdldl", lib/"cmake/qdldl", lib/"libqdldl.a", lib/shared_library("libqdldl")]
   end
 
   test do
@@ -50,15 +41,19 @@ class Osqp < Formula
       cmake_minimum_required(VERSION 3.2 FATAL_ERROR)
       project(osqp_demo LANGUAGES C)
       find_package(osqp CONFIG REQUIRED)
+
       add_executable(osqp_demo osqp_demo.c)
       target_link_libraries(osqp_demo PRIVATE osqp::osqp -lm)
+
       add_executable(osqp_demo_static osqp_demo.c)
       target_link_libraries(osqp_demo_static PRIVATE osqp::osqpstatic -lm)
     EOS
+
     # from https://github.com/osqp/osqp/blob/HEAD/tests/demo/test_demo.h
     (testpath/"osqp_demo.c").write <<~EOS
       #include <assert.h>
       #include <osqp.h>
+
       int main() {
         c_float P_x[3] = { 4.0, 1.0, 2.0, };
         c_int   P_nnz  = 3;
@@ -98,9 +93,10 @@ class Osqp < Formula
         return 0;
       }
     EOS
-    system "cmake", "."
-    system "make"
-    system "./osqp_demo"
-    system "./osqp_demo_static"
+
+    system "cmake", "-S", ".", "-B", "build"
+    system "cmake", "--build", "build"
+    system "./build/osqp_demo"
+    system "./build/osqp_demo_static"
   end
 end

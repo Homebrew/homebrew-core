@@ -8,21 +8,38 @@ class Jinja2Cli < Formula
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a9d940cebae588965a188d9fd72b11e7bfd76fa3faf2cebcfbde2b12ce38525"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "995aae35f9fb72bb98bfe7e52388b8bfb2e5e714378f2502861b010209cd2f8b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e83b2c66fb4c595a9394d308ebbaa95d431664bd31d4c9fff2f82278ad5d0e2f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0ddbc456312405fc3aad5aded56fb1216dd78a0975e7d48182e10230f1cf5628"
-    sha256 cellar: :any_skip_relocation, ventura:        "f04b1ecd4ada0008f29dde74955edda40815f79593fa729b12ea2e64e6374c34"
-    sha256 cellar: :any_skip_relocation, monterey:       "8d9909f1b8733cd19deb40c5184681b324026368e8ba7de156dcac2fa2fb4cb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "188e80295f8a89c064d396711547d18b806421c527e46e1eff93b7a0093bd570"
+    rebuild 6
+    sha256 cellar: :any,                 arm64_sonoma:   "5e6317bf512472455c25ed47d55f79b34d06cfdb948cfeb578d9aba399a49716"
+    sha256 cellar: :any,                 arm64_ventura:  "c80c6d8eba05a57503305aa937c16f63a7cb4be55c5c11fa154ff637758407a1"
+    sha256 cellar: :any,                 arm64_monterey: "61f5f30d260e9700923c66fc1e973208dcf6d7816daeaa8a0b559518e679e85b"
+    sha256 cellar: :any,                 sonoma:         "45f6bf3e5b569a6884a8c1ee8746389bed3e9ffcb9b7505c2207d0cc5f53ed8a"
+    sha256 cellar: :any,                 ventura:        "04bc49119ca858e3e1f455ae6da0c1d2dbda14987879bfbb31d71855b1a91afc"
+    sha256 cellar: :any,                 monterey:       "9018172309d4bbd3a4d3fa15b75e96dda5c8d814d74feb86edda40ac2cd25f28"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffef8d2b244034ea71cf97254df437ad3e78dbb9cb7c4589d40181a0cdd71719"
   end
 
-  depends_on "python-jinja"
-  depends_on "python-markupsafe"
-  depends_on "python-toml"
+  depends_on "libyaml"
   depends_on "python@3.12"
-  depends_on "pyyaml"
+
+  resource "jinja2" do
+    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
+    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
+  end
+
+  resource "markupsafe" do
+    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
+    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
+  resource "toml" do
+    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
+    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
+  end
 
   resource "xmltodict" do
     url "https://files.pythonhosted.org/packages/39/0d/40df5be1e684bbaecdb9d1e0e40d5d482465de6b00cbb92b84ee5d243c7f/xmltodict-0.13.0.tar.gz"

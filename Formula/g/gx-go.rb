@@ -25,7 +25,7 @@ class GxGo < Formula
   end
 
   # https://github.com/whyrusleeping/gx-go/issues/63
-  deprecate! date: "2023-06-27", because: :unmaintained
+  disable! date: "2024-02-20", because: :unmaintained
 
   depends_on "go" => :build
 

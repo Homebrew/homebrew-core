@@ -17,13 +17,14 @@ class Pdal < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "f55399e6bab66339ed4a238b5496f438d7a18e3103c9798314067641bb3e1b8e"
-    sha256                               arm64_ventura:  "a7534bf836be5eae604bc2c613d1b18c9eb19a5fbd74688e4772133d7d27cfef"
-    sha256                               arm64_monterey: "239a1a53b59c0b7363f71899e493518f81ee22aa643ed0eb0d843ce745fca15e"
-    sha256                               sonoma:         "d049ca0eab141477047e1bf470ada1d073cbae3bfb8b6056a7bde5565002c12c"
-    sha256                               ventura:        "7dee3c43b2978a80990dcc7aab48820f137e1cabbc0bf1d3491b70491f421907"
-    sha256                               monterey:       "c59403a91924762b18eed85de7fd4971a3c720bd9f256e4263bf33f9d13b1aa8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a1e8be40cfad7935652651d5e8856650c328b74d96d7989107116689f839ea95"
+    rebuild 1
+    sha256                               arm64_sonoma:   "c6acd2cecd72c34d858943ec9a33988a013cc297ff96947181aa07e26687a84b"
+    sha256                               arm64_ventura:  "fa887a586439631b23db98c6515aa027e77f03b5c23b7cfd3f7d6dd5c581572a"
+    sha256                               arm64_monterey: "68abdace8b745f64bf7a2181c5441eceae4e080b4e4900b0ac2856cd880915c7"
+    sha256                               sonoma:         "722b1ba33b3de73e1dac7bcc3f639089d7799eeafbab01cbc38f54f70619999b"
+    sha256                               ventura:        "6e679ed6eed161bfe1ae74164a9696d8a41af7c79e07744f3edbf8e110c09c6e"
+    sha256                               monterey:       "fe3e5b93efd05bedccbafeed1a545ace62a2e53cee674e8f53f052da0f0c8e29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1c0950cae711852379acebab17f96752eaf8f948135e01abbb497ef563b7bc5"
   end
 
   depends_on "cmake" => :build
@@ -38,6 +39,10 @@ class Pdal < Formula
   fails_with gcc: "5" # gdal is compiled with GCC
 
   def install
+    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+    # libunwind due to it being present in a library search path.
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib if DevelopmentTools.clang_build_version >= 1500
+
     system "cmake", ".", *std_cmake_args,
                          "-DWITH_LASZIP=TRUE",
                          "-DBUILD_PLUGIN_GREYHOUND=ON",
@@ -53,5 +58,6 @@ class Pdal < Formula
 
   test do
     system bin/"pdal", "info", doc/"test/data/las/interesting.las"
+    assert_match "pdal #{version}", shell_output("#{bin}/pdal --version")
   end
 end

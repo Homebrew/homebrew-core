@@ -1,13 +1,13 @@
 class Cxxopts < Formula
   desc "Lightweight C++ command-line option parser"
   homepage "https://github.com/jarro2783/cxxopts"
-  url "https://github.com/jarro2783/cxxopts/archive/refs/tags/v3.2.0.tar.gz"
-  sha256 "9f43fa972532e5df6c5fd5ad0f5bac606cdec541ccaf1732463d8070bbb7f03b"
+  url "https://github.com/jarro2783/cxxopts/archive/refs/tags/v3.2.1.tar.gz"
+  sha256 "841f49f2e045b9c6365997c2a8fbf76e6f215042dda4511a5bb04bc5ebc7f88a"
   license "MIT"
   head "https://github.com/jarro2783/cxxopts.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1b343c366ee36a3d0b4bc404f367266b282a8bddf5a13d5f946b7cb6e09097ea"
+    sha256 cellar: :any_skip_relocation, all: "883a901ef150f303dfba9430fc0fd7f29a9f132406b35ebd9dcf481f23029957"
   end
 
   depends_on "cmake" => :build

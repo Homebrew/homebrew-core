@@ -8,20 +8,18 @@ class Grayskull < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48751e01d2cb0a6f284c21605aafac1c40c6756c8cf2668af14cc876b56198ff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d5351d0bf2d1e20cd9d2d8b626e8025952a49d3ee222e2085e2cf1c78933eb3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "02d34cfca128c3629a8126fc5965b6c9d3334b37ae25e95c3d7b31de2080ff1e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eba688acbc06cb7978be4614e13085e12dfb3fc16a4ba472c3589f79889a7825"
-    sha256 cellar: :any_skip_relocation, ventura:        "af3d981bcf1b5915e4d07e9b1bc839655307858970e98e7487e00acfc0bdcfbd"
-    sha256 cellar: :any_skip_relocation, monterey:       "739b67018acd6c3ea95dc421eb003e413f526766953af23f79ec7ccba3ac3545"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e84ab9bae1a8e8e46c7b823d907537c26eb78644835938e2e4a7c500b51b0f4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64b47faebb0e2d37a103d4eb921e39944f5e99d2ab06c769322b0b5e70f65f12"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38d6374b735de1bb166d78eaa0e25a940293ca58f03bf9622f0769c46ad4eb4a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "98bfd423143ec427fbf5bc4dcdd4c166323783cfabe9d40849dc8b76fccdb315"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2034d2ccac94e6a79d100fcf2bfb02c9b405b78690bee06e81a3740832bd6212"
+    sha256 cellar: :any_skip_relocation, ventura:        "39db56cd2beb4a024a49ba23db827e889d49c56d0f31a0e436d4c5b88c14f870"
+    sha256 cellar: :any_skip_relocation, monterey:       "68bbaccfb3adfbb3536b758935653d0f6192d3a7418d49341be89bc4ed3101cd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9d943405289187e6eefaf9a9b080b06af85456a2b4c91c9ef3833d1f756cf78"
   end
 
   depends_on "cmake" => :build
   depends_on "python-certifi"
-  depends_on "python-packaging"
-  depends_on "python-setuptools"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
 
   resource "beautifulsoup4" do
@@ -89,9 +87,19 @@ class Grayskull < Formula
     sha256 "8449be29d9a157fa92d1648adc161d718e469f0d38a6b21e0eabb76fd5b3e663"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "semver" do
     url "https://files.pythonhosted.org/packages/41/6c/a536cc008f38fd83b3c1b98ce19ead13b746b5588c9a0cb9dd9f6ea434bc/semver-3.0.2.tar.gz"
     sha256 "6253adb39c70f6e51afed2fa7152bcd414c411286088fb4b9effb133885ab4cc"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
   end
 
   resource "soupsieve" do
@@ -112,6 +120,11 @@ class Grayskull < Formula
   resource "tomli-w" do
     url "https://files.pythonhosted.org/packages/49/05/6bf21838623186b91aedbda06248ad18f03487dc56fbc20e4db384abde6c/tomli_w-1.0.0.tar.gz"
     sha256 "f463434305e0336248cac9c2dc8076b707d8a12d019dd349f5c1e382dd1ae1b9"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
+    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
   resource "urllib3" do

@@ -8,29 +8,41 @@ class Restview < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c2c1e9644f738c54a085b51d220af690897518d11f553397c5abefeaf445d01"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5210f186429a421ad538c68c9691eb75f9f82672272eded412452096075a9a15"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29b87b6d761847fbc10cd31dbfa6191fa8dc7a3478eec0719d7ae296109c7f7e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8447d46fae305f35d3dd7bb976753f76b76568e4ea9746a8a972131b71c6dde1"
-    sha256 cellar: :any_skip_relocation, ventura:        "907b93b8222821255a1fce0f4d55e7ad7ed2bceefe230bb829b9f3bc844ec644"
-    sha256 cellar: :any_skip_relocation, monterey:       "97c1469ca2fc25a10abe1c81254b40269480a157b32f073722fb7b6c0fb5aa5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9166e1a0ffdbe51501417f6916a94f98f1a5e030e38a457d6faafc2744f723ba"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c921d83c49cd1c6169d42e7eece6d4c2a1bbd690f6def296261d07d927fd6306"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e18712cf12f3363279f64be710918eaa98e791219264cf2ca21c8274740e5986"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e964791ab8f477e1f267b6e8f6612de2ceb0b9b65f8b48408ecf5ffde68db689"
+    sha256 cellar: :any_skip_relocation, sonoma:         "899782b5fa0e36b02995a9b2bd6781b373feb0cc45444e9238ff08950e4cba6e"
+    sha256 cellar: :any_skip_relocation, ventura:        "9467d70467a0619c96bbfcfbd687cfe1c1aca86ef864f4ad04ae36381f6d97c4"
+    sha256 cellar: :any_skip_relocation, monterey:       "da343b1572747013a65397c6aa4e57477076162ea5b5fc28331260d416ef134b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0d58dcd202f9c066cc1480dc052c1b1844b07e9246b0ddc530dfe1d8724b660"
   end
 
-  depends_on "docutils"
-  depends_on "pygments"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "bleach" do
-    url "https://files.pythonhosted.org/packages/c2/5d/d5d45a38163ede3342d6ac1ca01b5d387329daadf534a25718f9a9ba818c/bleach-5.0.1.tar.gz"
-    sha256 "0d03255c47eb9bd2f26aa9bb7f2107732e7e8fe195ca2f64709fcf3b0a4a085c"
+    url "https://files.pythonhosted.org/packages/6d/10/77f32b088738f40d4f5be801daa5f327879eadd4562f36a2b5ab975ae571/bleach-6.1.0.tar.gz"
+    sha256 "0a31f1837963c41d46bbf1331b8778e1308ea0791db03cc4e7357b97cf42a8fe"
+  end
+
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
+    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
   end
 
   resource "readme-renderer" do
     url "https://files.pythonhosted.org/packages/15/4e/0ffa80eb3e0d0fcc0c6b901b36d4faa11c47d10b9a066fdd42f24c7e646a/readme_renderer-36.0.tar.gz"
     sha256 "f71aeef9a588fcbed1f4cc001ba611370e94a0cd27c75b1140537618ec78f0a2"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "webencodings" do

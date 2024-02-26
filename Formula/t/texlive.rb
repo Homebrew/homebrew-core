@@ -8,7 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2023/texlive-20230313-source.tar.xz"
   sha256 "3878aa0e1ed0301c053b0e2ee4e9ad999c441345f4882e79bdd1c8f4ce9e79b9"
   license :cannot_represent
-  revision 2
+  revision 3
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -34,15 +34,13 @@ class Texlive < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a3a31bbb1d9bc1e9d373b9674f9f9e430715cc4dde6163e4a74c258c8fe000c0"
-    sha256 arm64_ventura:  "7c4424d7dbda8aa023b5a4c4d07ddf604ccf872a2241967bae24c3b05e65e08c"
-    sha256 arm64_monterey: "42560a30b4731c8db5f74e6bbefb17075b68aba0c83899733c703997f62f6b33"
-    sha256 arm64_big_sur:  "091fa3f73856f3c2fdffb6402925de126c1773ec734c90700d27af6c791849ea"
-    sha256 sonoma:         "72d4f3997dddf64b72fa3937cc1bf5f3587ac4a010a4a8c460f6fb829b8d5731"
-    sha256 ventura:        "3b82d7b12355a116decb003b11ab06f2e65c582ba83daa0d20c187c0320f91dc"
-    sha256 monterey:       "9e82bafde878de14292757dfe00038d03f500639ee873d22da31a5fc7bd81882"
-    sha256 big_sur:        "8618d95d4161d83e59e2ea99d35c5cb389789d48ba2227a5bcb578d963c98b20"
-    sha256 x86_64_linux:   "7c68fa0c6ba0f08acf5af865cecd5dd5f1f822438cd6e9bfb38e866163416d0b"
+    sha256 arm64_sonoma:   "ab4cae869e05a6fb84301c17881565e58cb84ba35474e2cc2138fdeae2bc1a75"
+    sha256 arm64_ventura:  "3b5422ead46675bc723097c6957e5f052b5ba9cc4c0dfa3212845bd3b6c9f71d"
+    sha256 arm64_monterey: "840b06481d875b252745eb5cec2484764a7d750ffaf0477cdc6d04386ab64e29"
+    sha256 sonoma:         "16fe71cf2445d7371366572561d63bf80242f28e488cdffaa70a219a932a8a26"
+    sha256 ventura:        "ff7700e96e8e1fbb4b568cda24f6ed7096aac361611e9f68073add1337d7f6db"
+    sha256 monterey:       "a9e8fa42729ed08a9a50e4698a5a57b501d8dfd97a251613889781688929efb0"
+    sha256 x86_64_linux:   "20d388b5bf21d33be297a11e94c4e20c2f1de6bd13321edc18b0a53cebdbe226"
   end
 
   depends_on "pkg-config" => :build

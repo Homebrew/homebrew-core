@@ -9,28 +9,19 @@ class AwsElasticbeanstalk < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "48278f3cc529db84cf7015e61f5848d7d26b46034b94d9d7512068680810e00f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1de68f3519460b8b4f21593780b2ceaf8e99f9dc221f7cc4b19acc1c82c5b738"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ebc6fff514534f3acc09d0b80994afe8d33a4561bfa5649930abd4acdcb1e174"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e85226ef312e03fd7dc55a9c855590c7d29af347725107b92bde0f3988fc36ec"
-    sha256 cellar: :any_skip_relocation, ventura:        "343b1505124c545cefb5d8b4d83114dbd277226ac51d2adcf64fa2c5e7f2dccd"
-    sha256 cellar: :any_skip_relocation, monterey:       "e58336135ceb0dac7b81b25cb2d2b6c56220ce9aa359d7de11ba8e7ab2bf2e92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78de72258cccfbfd0c11f25670e7a42988ada5c985be1abf118e30762843f4ab"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "7b0d28ed3a7901b94ad7aaeac96bfe91fdfed21684c4c5bd93d8268c52874d55"
+    sha256 cellar: :any,                 arm64_ventura:  "5d3e9843d5c3d8da383e940a2654e0b88c9d17e9ef89f655f9346e9800f98c90"
+    sha256 cellar: :any,                 arm64_monterey: "396cfcd3604c630b2294ed7dd83cd52db22cf34f6bed0ee33ff8d372f8fb391b"
+    sha256 cellar: :any,                 sonoma:         "057b3d798892a7dbdb6de524496ff438293edb21e7643ee35c1dc8c8a00b2dde"
+    sha256 cellar: :any,                 ventura:        "e184814e85d988eb74e21221000eab669cff0d35e0c87de19676a555291f67d2"
+    sha256 cellar: :any,                 monterey:       "7f96c7823f92eddf8c1332e06dbd171421afccdf69a03702d04468e4c3e27cbb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efbbe3216e0419c815fc497701e34cb0ca85c33a36fb34d1e3136c0a25c3a4cf"
   end
 
-  # `pkg-config` and `rust` are for bcrypt
-  depends_on "pkg-config" => :build
-  depends_on "rust" => :build
-  depends_on "cffi"
-  depends_on "pycparser"
+  depends_on "libyaml"
   depends_on "python-certifi"
-  depends_on "python-cryptography"
-  depends_on "python-dateutil"
-  depends_on "python-packaging"
-  depends_on "python@3.11" # Python 3.12 blocked by https://github.com/datafolklabs/cement/issues/386
-  depends_on "pyyaml"
-  depends_on "six"
+  depends_on "python@3.11" # Python 3.12 needs https://github.com/aws/aws-elastic-beanstalk-cli/pull/512
 
   uses_from_macos "libffi"
 
@@ -40,8 +31,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/42/30/e5e2126eca77baedbf51e48241c898d99784d272bcf2fb47f5a10360e555/botocore-1.31.65.tar.gz"
-    sha256 "90716c6f1af97e5c2f516e9a3379767ebdddcc6cbed79b026fa5038ce4e5e43e"
+    url "https://files.pythonhosted.org/packages/98/ab/5d42fe78dd88c65c9dea758c7384c8a040bb40ef34f6483dd424807e1641/botocore-1.31.85.tar.gz"
+    sha256 "ce58e688222df73ec5691f934be1a2122a52c9d11d3037b586b3fff16ed6d25f"
   end
 
   resource "cement" do
@@ -50,8 +41,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/cf/ac/e89b2f2f75f51e9859979b56d2ec162f7f893221975d244d8d5277aa9489/charset-normalizer-3.3.0.tar.gz"
-    sha256 "63563193aec44bce707e0c5ca64ff69fa72ed7cf34ce6e11d5127555756fd2f6"
+    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
+    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
   resource "colorama" do
@@ -60,8 +51,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
+    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
   end
 
   resource "jmespath" do
@@ -74,6 +65,16 @@ class AwsElasticbeanstalk < Formula
     sha256 "7ace6161b621d31e7902eb6b5ae148d12cfd23f4a249b9ffb6b9fee12084323d"
   end
 
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
@@ -82,6 +83,11 @@ class AwsElasticbeanstalk < Formula
   resource "semantic-version" do
     url "https://files.pythonhosted.org/packages/d4/52/3be868c7ed1f408cb822bc92ce17ffe4e97d11c42caafce0589f05844dd0/semantic_version-2.8.5.tar.gz"
     sha256 "d2cb2de0558762934679b9a104e82eca7af448c9f4974d1f3eeccff651df8a54"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "termcolor" do

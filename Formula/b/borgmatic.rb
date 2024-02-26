@@ -8,18 +8,18 @@ class Borgmatic < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "79a12b88bf418bdaff057ad8408eed18f4faa5bfaf88cec451ce378bdcfe0151"
-    sha256 cellar: :any,                 arm64_ventura:  "1d4d8fe87d44b1cc7f100899cbe4cc24fa5d16fac79efc3e3597542d2825fc33"
-    sha256 cellar: :any,                 arm64_monterey: "b6d336cf41a12b6496e09c660dbac0520cc44e20eb1dd7726d2e726c6cd55f82"
-    sha256 cellar: :any,                 sonoma:         "ec575eb7bb5636f0a76714b74a1b4c30de89ae8b0bbb2db0bb535dc9fd1898c8"
-    sha256 cellar: :any,                 ventura:        "905942a4c928085df757bc72af943fd99dba8cb63110aeb7c03f9000906455bb"
-    sha256 cellar: :any,                 monterey:       "1cab59066536bd7096b05a23b79b5f1b13a1737876195342117b284224f145df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "362c2f7506a8ef3cb10f1a863f42369b701839d089cc73d16f91716bf34c10ef"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "f769bd16337747f99f160fdbd70911957677c397fa6247145abb0ab5ce90f3ad"
+    sha256 cellar: :any,                 arm64_ventura:  "6300d5d3d65314ee4c2e24ed0a902c47085b9a38414e1a1802d021ff0fe71992"
+    sha256 cellar: :any,                 arm64_monterey: "5eb5e8cba1d99e6941b853393fbd71b4625a2215445d999c0dc772a18d4fb495"
+    sha256 cellar: :any,                 sonoma:         "39e0ea4c51e926d6b723fe03116728a2ab59013e6dcfd48f83a4748a3e5419dc"
+    sha256 cellar: :any,                 ventura:        "c3713b638529a72c606328fbda4822365df430295db3b865c1682f9ac173be9c"
+    sha256 cellar: :any,                 monterey:       "a55693d3a809efa9d4e4eb510908e515939262195923ee4fa2b07ba05edd8a0b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "609cd5539abfaad5d1b6738316ae196a6021c54ba39f283893192bb63ea4c068"
   end
 
   depends_on "rust" => :build # for rpds-py
   depends_on "python-certifi"
-  depends_on "python-packaging"
   depends_on "python@3.12"
 
   resource "attrs" do
@@ -52,6 +52,11 @@ class Borgmatic < Formula
     sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "referencing" do
     url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
     sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
@@ -63,13 +68,13 @@ class Borgmatic < Formula
   end
 
   resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/b7/0a/e3bdcc977e6db3bf32a3f42172f583adfa7c3604091a03d512333e0161fe/rpds_py-0.17.1.tar.gz"
-    sha256 "0210b2668f24c078307260bf88bdac9d6f1093635df5123789bfee4d8d7fc8e7"
+    url "https://files.pythonhosted.org/packages/55/ba/ce7b9f0fc5323f20ffdf85f682e51bee8dc03e9b54503939ebb63d1d0d5e/rpds_py-0.18.0.tar.gz"
+    sha256 "42821446ee7a76f5d9f71f9e33a4fb2ffd724bb3e7f93386150b61a43115788d"
   end
 
   resource "ruamel-yaml" do
-    url "https://files.pythonhosted.org/packages/82/43/fa976e03a4a9ae406904489119cd7dd4509752ca692b2e0a19491ca1782c/ruamel.yaml-0.18.5.tar.gz"
-    sha256 "61917e3a35a569c1133a8f772e1226961bf5a1198bea7e23f06a0841dea1ab0e"
+    url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
+    sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
   end
 
   resource "ruamel-yaml-clib" do
@@ -78,13 +83,13 @@ class Borgmatic < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/fc/c9/b146ca195403e0182a374e0ea4dbc69136bad3cd55bc293df496d625d0f7/setuptools-69.0.3.tar.gz"
-    sha256 "be1af57fc409f93647f2e8e4573a142ed38724b8cdd389706a867bb4efcf1e78"
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
-    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   def install

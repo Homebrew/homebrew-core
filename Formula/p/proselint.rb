@@ -10,18 +10,17 @@ class Proselint < Formula
   head "https://github.com/amperser/proselint.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be448af58ff0d1b30c121d0fda4e3b5da67ff8b6020e821873db48c81875c4b5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc6962aeefd2c56637375e63f9d39657305b92dd247327c358234570a7767f7a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a3afaef5e02bf8bf60359f0cc3436ccdea2a92e80148a4f1a5c466debcb4bbb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "58ecd6b139a4ddb67925c340ce4f9846e527e64d50869f0f7db0b0669d6678dd"
-    sha256 cellar: :any_skip_relocation, ventura:        "102805d2ac9d185255183c75377761b23b836cec6085eafc1fc6d842b2fb03fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "f6279ef869ccbf9005cb1ea19121979cabfc07bf049a1af9c4ecf3e891af6035"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "360c46bc07f68964b03757e66a7b2eab0a23d423911e1354862aaf055ff91d1a"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4ed17aae83ab4db2184a89ed428f0f55e7460e81f549e74b3325d966f7dc4df5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e6e0f868c31a9a934209e57c5a3980450af0c8fe44f6bb61edfdfb6b71d6c6d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "be71ca3ef347306463ab8aa9bd64e1a53a5511776268683853cc0175e5f9d676"
+    sha256 cellar: :any_skip_relocation, sonoma:         "61131b05955cc82a2f168ef03f21cda3e5f312313a11841b78c92a825e3356b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "6ea888644c7b7e7f21104ab2360d004db60011764c048a52a3848f9986787a4d"
+    sha256 cellar: :any_skip_relocation, monterey:       "75436637988d1f5e7dd286c2cddb563b4b13e82c210276c3f04e006f8f7ff844"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "207764a7a35aef6ffda10dcbba76e5cd3b54e2662ec6e8e5ff091fdee6679e35"
   end
 
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "click" do
     url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
@@ -31,6 +30,11 @@ class Proselint < Formula
   resource "future" do
     url "https://files.pythonhosted.org/packages/8f/2e/cf6accf7415237d6faeeebdc7832023c90e0282aa16fd3263db0eb4715ec/future-0.18.3.tar.gz"
     sha256 "34a17436ed1e96697a86f9de3d15a3b0be01d8bc8de9c1dffd59fb8234ed5307"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   def install

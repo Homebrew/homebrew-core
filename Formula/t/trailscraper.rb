@@ -10,22 +10,17 @@ class Trailscraper < Formula
   head "https://github.com/flosell/trailscraper.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "058062c73bda5546dfa1b4041a9c36d914935989e2c8efc1caa3b4c46d875d02"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3e6a790e68aa6a52f86a246957295b8e7030486360ef2fa32f44dfcfba3849f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d76e5e9699584d67254b86f144d32c7800a908595b68b3fc2c20265c8a5e07e4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "447a2384b43f7672a54a515a368fa9dee918f809cec4b77e702f093b011b169f"
-    sha256 cellar: :any_skip_relocation, ventura:        "6a4849e3e049ff4f634f253396f3d52f3cfd3ff212b376c348e0aae1349caba9"
-    sha256 cellar: :any_skip_relocation, monterey:       "d746bfff2f0f5cc387bda439cf3a3e821adb65d17af72c0b2a4daba279081798"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5896b62702afcdcaa61a47fdaa02315e6642376451b5a7c207bebdd7f504fb99"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "030fcc52b470369c9add987bab8e9de709af9404538cd8ef19418f492f28d188"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8d95e86577d6e154ed190f02e7e2caaea98f6a247536e17d51ba5e331cc26d17"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "16b4ba60b4717e947005bb3aed439fe48a0d031e930a3a6dc65ee7bee45b99f8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32c7821bbdbdc91998416d4eb31c3f65435088ae00d3154e27870a89cbd4c313"
+    sha256 cellar: :any_skip_relocation, ventura:        "f36a48802e6a97654b7275d7dfbef2994fe04275099d8022165fd9c1994efd1a"
+    sha256 cellar: :any_skip_relocation, monterey:       "612aa90487cc9c59dfa6b161e8f59406ab6381ac38894e8d2cb7d4e785809ccb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f39761ef6754b4d70de5632f9fea388466323d8b38d448987c236d943e00de6"
   end
 
-  depends_on "python-click"
-  depends_on "python-dateutil"
-  depends_on "python-pytz"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "boto3" do
     url "https://files.pythonhosted.org/packages/95/60/88c7932476b438fc4702daa0dc6f5663c8c1451898d3d7daa0f934468086/boto3-1.26.54.tar.gz"
@@ -35,6 +30,11 @@ class Trailscraper < Formula
   resource "botocore" do
     url "https://files.pythonhosted.org/packages/3d/f6/d35a27c73dc1053abdfe8524d1e488073fccb51e43c88da61b8fe29522e3/botocore-1.29.165.tar.gz"
     sha256 "988b948be685006b43c4bbd8f5c0cb93e77c66deb70561994e0c5b31b5a67210"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/59/87/84326af34517fca8c58418d148f2403df25303e02736832403587318e9e8/click-8.1.3.tar.gz"
+    sha256 "7682dc8afb30297001674575ea00d1814d808d6a36af415a82bd481d37ba7b8e"
   end
 
   resource "dateparser" do
@@ -47,9 +47,19 @@ class Trailscraper < Formula
     sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
+  resource "python-dateutil" do
+    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
+    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+  end
+
+  resource "pytz" do
+    url "https://files.pythonhosted.org/packages/03/3e/dc5c793b62c60d0ca0b7e58f1fdd84d5aaa9f8df23e7589b39cc9ce20a03/pytz-2022.7.1.tar.gz"
+    sha256 "01a0681c4b9684a28304615eba55d1ab31ae00bf68ec157ec3708a8182dbbcd0"
+  end
+
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/6b/38/49d968981b5ec35dbc0f742f8219acab179fc1567d9c22444152f950cf0d/regex-2023.10.3.tar.gz"
-    sha256 "3fef4f844d2290ee0ba57addcec17eec9e3df73f10a2748485dfd6a3a188cc0f"
+    url "https://files.pythonhosted.org/packages/b5/39/31626e7e75b187fae7f121af3c538a991e725c744ac893cc2cfd70ce2853/regex-2023.12.25.tar.gz"
+    sha256 "29171aa128da69afdf4bde412d5bedc335f2ca8fcfe4489038577d05f16181e5"
   end
 
   resource "ruamel-yaml" do
@@ -62,14 +72,25 @@ class Trailscraper < Formula
     sha256 "cab66d3380cca3e70939ef2255d01cd8aece6a4907a9528740f668c4b0611861"
   end
 
+  # setuptools explicitly added due to https://github.com/flosell/trailscraper/issues/602
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
+    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "toolz" do
     url "https://files.pythonhosted.org/packages/cf/05/2008534bbaa716b46a2d795d7b54b999d0f7638fbb9ed0b6e87bfa934f84/toolz-0.12.0.tar.gz"
     sha256 "88c570861c440ee3f2f6037c4654613228ff40c93a6c25e0eba70d17282c6194"
   end
 
   resource "tzlocal" do
-    url "https://files.pythonhosted.org/packages/b2/e2/adf17c75bab9b33e7f392b063468d50e513b2921bbae7343eb3728e0bc0a/tzlocal-5.1.tar.gz"
-    sha256 "a5ccb2365b295ed964e0a98ad076fe10c495591e75505d34f154d60a7f1ed722"
+    url "https://files.pythonhosted.org/packages/04/d3/c19d65ae67636fe63953b20c2e4a8ced4497ea232c43ff8d01db16de8dc0/tzlocal-5.2.tar.gz"
+    sha256 "8d399205578f1a9342816409cc1e46a93ebd5755e39ea2d85334bea911bf0e6e"
   end
 
   resource "urllib3" do

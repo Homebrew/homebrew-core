@@ -1,8 +1,8 @@
 class Sqlcmd < Formula
   desc "Microsoft SQL Server command-line interface"
   homepage "https://github.com/microsoft/go-sqlcmd"
-  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "e6ab8eacb98836f5f101792713692bcfce1ce864f9ae471545847d6b92948328"
+  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "f200155b4233fc7d8f632800705bae19eaa338a9c82c3f9d9106cbf3dcb78a8e"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,13 @@ class Sqlcmd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8a2073142d63dd5006617a87f7ad1295510d06487a2f9049bd59f695a755a9f6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3b2071f39c57875bc2c6e88110ddfb205a98d1ede9d11c73de6c9f6f8064a046"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e630d2ab204978c894a3543ef39e1f2c213f4f806e1ee65aeaa6cf848531ea58"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a367e1e2af87cfc231e35a95265465a94a6c581182d526733bde3b012cf3c944"
-    sha256 cellar: :any_skip_relocation, ventura:        "ce9399a277de1c39eb4f617f63e5f5b6fa3ac57f78f8765fbee5ad726bcd4b92"
-    sha256 cellar: :any_skip_relocation, monterey:       "1a0318610bf5911ee0183f137b89ae856745d399194b183fe8eb03b30d6361d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6af41f9617bfe7084bb1b4600528f3ce9d2fa0a2e25225200fc1f7d9d49e174a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "adf2a7f2de30f08ce50776011df042fd69b02ce58fde3efc0398c5348c6ae670"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e43a2a3e5c78153c19d87681ea905e1d040eb54cbed84a599e13dc6617f12e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5893be6a21490849d0e6888e92d322888688771f1ccc81134dfcfc533c295d49"
+    sha256 cellar: :any_skip_relocation, sonoma:         "278d8128f315b98b7560523c39fe01d5f9ab21893a0d133111d9cfaa72835852"
+    sha256 cellar: :any_skip_relocation, ventura:        "d62ceaaee735d31ac6505a18037f4d198f8d1d002cc26466478adc57a759b044"
+    sha256 cellar: :any_skip_relocation, monterey:       "3a3c1b8f8a89cd67f8645eb18325694b18e6591f25701204b9cbe0c498c66325"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d5b669bcbd378a11dc3259f3992ef0d9da9d55fd8da9ac5f79f93892b07645a"
   end
 
   depends_on "go" => :build

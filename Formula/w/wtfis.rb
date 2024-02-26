@@ -3,21 +3,19 @@ class Wtfis < Formula
 
   desc "Passive hostname, domain, and IP lookup tool"
   homepage "https://github.com/pirxthepilot/wtfis"
-  url "https://files.pythonhosted.org/packages/25/2a/6ede7b982da3e94102b3d7cfe968b95bad28364c082fbff4cf88ab9aba40/wtfis-0.7.1.tar.gz"
-  sha256 "812cc1679f5bc4b07f73d84d96a963b16cbed2e4ccc07c7f24b2b696abba3dd3"
+  url "https://files.pythonhosted.org/packages/53/22/df5fdf569254b5e13710deb6b561ad68fa35aee36b2dabf87c5351453c58/wtfis-0.8.0.tar.gz"
+  sha256 "ac4264def13f50962f4b0717774c2918036e320104c4c52682d6846b8ec2a974"
   license "MIT"
-  revision 2
   head "https://github.com/pirxthepilot/wtfis.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "fe98ec763898dc324cb5e83fe8c00350ea55afba14eae8d09756abcbf9b6ffa5"
-    sha256 cellar: :any,                 arm64_ventura:  "983e1d6db8773ab2e5a594a8dc704de25566a7054694e3773faa31b10dd10bc1"
-    sha256 cellar: :any,                 arm64_monterey: "15202d0b67c1f289bbc6112d6ff6b7b594985c5b6f087bd14135ae272dc37b08"
-    sha256 cellar: :any,                 sonoma:         "1a24f09a326f9cc873758613a4c64fd898b802bf2f6bb0d2edbb116f4995c213"
-    sha256 cellar: :any,                 ventura:        "cff6badbcc9fec8b276f60fb9df4e8950f3f9afd56d2e7430a4109d3e60973cb"
-    sha256 cellar: :any,                 monterey:       "0a7d265d854512b7e99e36fb0ec4d46a27a03dd7ec518d9a83b86dbfd393b122"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "805506df0dc0611886672682e0682eafe779337fa93a989885deff66b2123cc6"
+    sha256 cellar: :any,                 arm64_sonoma:   "a1a01774f58968abeb63e18f8ebfb288db0ebd76d331f2c1a2494826aff05f38"
+    sha256 cellar: :any,                 arm64_ventura:  "93b3b386249a76365e778951c7d15168ab439904588b09b4ea5a10d47bff645d"
+    sha256 cellar: :any,                 arm64_monterey: "1e427516f23d9898ff1ee0d319dea6aa92ef3a12a35e565fc835f2b701faf582"
+    sha256 cellar: :any,                 sonoma:         "b0c4ae10223132d8a3406efbcd1d3e57d71b78b050415bfd013fb6ba2472deb1"
+    sha256 cellar: :any,                 ventura:        "5cecaf904c779a6c9563106cc3e60917c489a5775585fa30ec20633eec400ba1"
+    sha256 cellar: :any,                 monterey:       "15bc1dda25baf1e929af316c1ffa2ba209a20f6a62eee4c1c7f7fac61e2e3077"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57977be5bc7806733d9cbd8fe84217145b21bd0eba4254173bbaa9c472c4dc64"
   end
 
   depends_on "rust" => :build
@@ -110,8 +108,8 @@ class Wtfis < Formula
   end
 
   resource "xlsxwriter" do
-    url "https://files.pythonhosted.org/packages/2b/a3/dd02e3559b2c785d2357c3752cc191d750a280ff3cb02fa7c2a8f87523c3/XlsxWriter-3.1.9.tar.gz"
-    sha256 "de810bf328c6a4550f4ffd6b0b34972aeb7ffcf40f3d285a0413734f9b63a929"
+    url "https://files.pythonhosted.org/packages/a6/c3/b36fa44a0610a0f65d2e65ba6a262cbe2554b819f1449731971f7c16ea3c/XlsxWriter-3.2.0.tar.gz"
+    sha256 "9977d0c661a72866a61f9f7a809e25ebbb0fb7036baa3b9fe74afcfca6b3cb8c"
   end
 
   def install

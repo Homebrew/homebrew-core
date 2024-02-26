@@ -1,8 +1,8 @@
 class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
-  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.7.10.tar.xz"
-  sha256 "55466c484aa64097ac20f538b4ae042e7f62e6116205418d11ea4fc9221d807e"
+  url "https://deb.debian.org/debian/pool/main/a/apt/apt_2.7.12.tar.xz"
+  sha256 "e46d166b5fc887c2d9bca7add7e0ccda547b962b762e1272a08c0426baa99caf"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,7 +11,7 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 x86_64_linux: "05d29378536739b764c6504f875abc50e046e8b2521cdb99bedf88ccbe7af128"
+    sha256 x86_64_linux: "6b7c35206e14653e87c71af16f6af6903fb81b3b5d4c02cf997288dec7b42f48"
   end
 
   keg_only "not linked to prevent conflicts with system apt"
@@ -81,8 +81,8 @@ class Apt < Formula
   end
 
   resource "Pod::Parser" do
-    url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-1.66.tar.gz"
-    sha256 "22928a7bffe61b452c05bbbb8f5216d4b9cf9fe2a849b776c25500d24d20df7c"
+    url "https://cpan.metacpan.org/authors/id/M/MA/MAREKR/Pod-Parser-1.67.tar.gz"
+    sha256 "5deccbf55d750ce65588cd211c1a03fa1ef3aaa15d1ac2b8d85383a42c1427ea"
   end
 
   resource "ExtUtils::CChecker" do
@@ -91,13 +91,19 @@ class Apt < Formula
   end
 
   resource "XS::Parse::Keyword::Builder" do
-    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.38.tar.gz"
-    sha256 "2500c47869cf5ca8c61dd23c67badabf66b8f1efb5e279207657c1ce693e211e"
+    url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/XS-Parse-Keyword-0.39.tar.gz"
+    sha256 "b4e775becc8a5d9b52cb5d569b9d3230eea451c134735845e77f89fa6a6c23d8"
   end
 
   resource "Syntax::Keyword::Try" do
     url "https://cpan.metacpan.org/authors/id/P/PE/PEVANS/Syntax-Keyword-Try-0.29.tar.gz"
     sha256 "cc320719d3608daa9514743a43dac2be99cb8ccd989b1fefa285290cb1d59d8f"
+  end
+
+  # upstream bug report, https://github.com/mquinson/po4a/issues/475
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/07275a9af84b536ac737c364d66fc2eb4daf729a/apt/po4a-0.70.patch"
+    sha256 "35f0ac1416af3116e17275a4b233a7abc34767655734bf07dda83ff307266e15"
   end
 
   def install

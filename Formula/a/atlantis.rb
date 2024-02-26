@@ -1,8 +1,8 @@
 class Atlantis < Formula
   desc "Terraform Pull Request Automation tool"
   homepage "https://www.runatlantis.io/"
-  url "https://github.com/runatlantis/atlantis/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "5f25e528710dc16f49d6596e2c37229caaa32bdefbc9795742dd12a800f4dd2d"
+  url "https://github.com/runatlantis/atlantis/archive/refs/tags/v0.27.1.tar.gz"
+  sha256 "3bd89fcbfd8061583b5ea1eba7d23a2706faf8646840e7a44323cc40bbfb6daa"
   license "Apache-2.0"
   head "https://github.com/runatlantis/atlantis.git", branch: "main"
 
@@ -12,14 +12,13 @@ class Atlantis < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0eab1e02bb2b711d5ebd5c729791c7b634a8cbcab59f4a6594d5cd4d8defa9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32f0920a8c503b83044d7a6c874ebceb14fcf53bd131e2a293dbe4f84cc6d28f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c624b5cf9914beeb14a964cf033e411dc344157d87fdea86c07687f869ba1dce"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3aa19781edc71972a6273568aa59f35d4be587ff2aa53efddb7bcba8edc604d8"
-    sha256 cellar: :any_skip_relocation, ventura:        "36faefd896505606021163d340e57e5be3c2f48a9e9ff91c6380c3375e44ef74"
-    sha256 cellar: :any_skip_relocation, monterey:       "e88125dc0aaebd97d4872ae6b2541a8118d0f73d2761406b0e92b3dea1c611e2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c55348126547a82ae3d0a7fa4eb7acb506dac684926fdb6308529caf66245836"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45e7370e0bb99a6b9ccbf53c350641b3d467547e74e5858c8c063212a883f69a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "34ec275a05f786edbd77999c821ccec5f92862b0f85f4398bcda00f8af855522"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7fede0c11c3daeb524c58bbf82fb7a4bd53354e7d6fa4406d3203c7c21c0d9be"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a4c83a067e1e64bd5ca523c8715405cc4e96addc8caaf744c0b2d9669094f392"
+    sha256 cellar: :any_skip_relocation, ventura:        "3eca304ebaaa84b491a730205e047262848339dcd7c5c28bda221fbe9cdca154"
+    sha256 cellar: :any_skip_relocation, monterey:       "7593cf74e4dc4007efae749ce7110d7a9dcb154a81d425a863a30f8ae12f0b5d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8568cd1c7021b44978654ac63db80eaba9f8203a8602a1facb0ca6577b2584d2"
   end
 
   depends_on "go" => :build

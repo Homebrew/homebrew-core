@@ -4,7 +4,7 @@ class Sqlsmith < Formula
   url "https://github.com/anse1/sqlsmith/releases/download/v1.4/sqlsmith-1.4.tar.gz"
   sha256 "b0821acbe82782f6037315549f475368be3592cefe2c3c540f9cf52aa70d2f55"
   license "GPL-3.0-only"
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -12,13 +12,13 @@ class Sqlsmith < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1f23ecdd9d829aed9d235d951286d224bf13054c79dfccaf008a1ab5b983ec81"
-    sha256 cellar: :any,                 arm64_ventura:  "5af43469979b34385992159d26a7276b9cf415b491a43e19b01777b9626de358"
-    sha256 cellar: :any,                 arm64_monterey: "cec1e169f6c580b3b321d2d4f9185552c8a1cdc66de34934e0f32e0282f3457e"
-    sha256 cellar: :any,                 sonoma:         "ecec370eeaeb84ab79a7bbf1d0abff13f2847ccd36a791b769cd7a15aa222c6a"
-    sha256 cellar: :any,                 ventura:        "69c40cc6d183bf37ffd6f22b6044a11859388b48a763d9bb344bbbd440d70acd"
-    sha256 cellar: :any,                 monterey:       "12d7c834c4a826ebd595ba3b7a77bcf512c29eb968855841f04a047d0f1dba60"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c5a9f4c1d06d00eb0880c27c4fd7adf559888f193149ec272a67befd9a1393c"
+    sha256 cellar: :any,                 arm64_sonoma:   "b78fc015203026a02f5c1e131507e3b97dcea93e72f35922f1f6f80b6f85489e"
+    sha256 cellar: :any,                 arm64_ventura:  "64a31beb20590bffa1042cd8aee60abc1b9222ac8db256c0a7f6d464c8df13a4"
+    sha256 cellar: :any,                 arm64_monterey: "9075fd2c902eb4bd9ab50a98ee8edbfe99313815d4609dce2d39cfbf62e04a26"
+    sha256 cellar: :any,                 sonoma:         "71604917d8811ed0b57ccc65a17e4dc3b15af78e4eaa942801c9663fa23db13a"
+    sha256 cellar: :any,                 ventura:        "4b727404b5aa16a6d582e86ac71269999635a1cc15d82eddc55c5fbdead99993"
+    sha256 cellar: :any,                 monterey:       "26318bcdd84afd83d1f20e7796d0f03e8d2413d47f78cef9785d63143852db1b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1bae969727cf221a55317071ff5eee0c24858f161c263be6950257ee9e8858c"
   end
 
   head do

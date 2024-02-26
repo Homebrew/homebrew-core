@@ -6,16 +6,16 @@ class Abi3audit < Formula
   url "https://files.pythonhosted.org/packages/a3/4d/1f08c6db0b6cf02ef0fe33be39144d4477030910c3f61bffa3b2a9b09e87/abi3audit-0.0.9.tar.gz"
   sha256 "4f469e146d911f238724d49fd280d8bb7f411ff5d224865b13e47d4132e776a6"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18ac62781ec028807a044892baee50a92d7b4d5fff21ae9ab337fd86e4640666"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6bede2e3de5b2cc3eaa58c4790734a583de98f4ab98f8814e2ac34e5788586d5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c13b79c836c59e073453d20da39976c1f4ba01384e4e2ab5b6a296eaf77a7505"
-    sha256 cellar: :any_skip_relocation, sonoma:         "38f622a1e31a99db877d739bf685de4c31c8b89ea3bbee00f17b9748ef1ef779"
-    sha256 cellar: :any_skip_relocation, ventura:        "e8a9e5ed6a8518948f6f95e5cffb1b09a3548b137691665d4f0e3b5eacdcf686"
-    sha256 cellar: :any_skip_relocation, monterey:       "2f89d183341a9bdb52462a78f400ff9c835a61ce830a57e7d2ab500aadfaacea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7dade876fa469d7dc52cd6ee847346bc47ccd054277cb5f16305af8be1f86498"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2b4e194e73d865a9205cab4a4b0625b5838f13eebaca3ae73fe8fa5367f27a1b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f33987e9272b310d5f6d094d6a48496ebc573b3a06a161ced04ea818d7726b97"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9a684c47a323d7c2db7787fb63ee7c6a02f71bb1fa7cf706892e92cb52b1e61a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2344f08d4891656340143cfeb40425a2559d5064f4d54dc8f5d675dea6c3df34"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9960efb58af7c475c26cdae7955c2c6ae3b1ebaa9a43b7df106f4151ba535a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "e52c01aa1845d8e306b81ed275a7bccdd46ab6f9d846b6a3e312bc9e00169368"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dc4029dc11a715a681fe0603ac06e35feb1ca3af7eaa53713650742868a2534"
   end
 
   depends_on "cmake" => :build

@@ -1,12 +1,12 @@
 class Squashfuse < Formula
   desc "FUSE filesystem to mount squashfs archives"
   homepage "https://github.com/vasi/squashfuse"
-  url "https://github.com/vasi/squashfuse/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "93ef7fc5d359d5a8faf284232bbf351ce5630de4234c9655445803030f7e1bc5"
+  url "https://github.com/vasi/squashfuse/releases/download/0.5.2/squashfuse-0.5.2.tar.gz"
+  sha256 "54e4baaa20796e86a214a1f62bab07c7c361fb7a598375576d585712691178f5"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "59c8ca284fed478bd6495d4659a017263228e550807ee9518c5f743274a53691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "77d92f5849e61b50a32a2b2b8ac570c68f7220f1a31410c17f94e3e11739ae5f"
   end
 
   depends_on "autoconf" => :build
@@ -22,7 +22,6 @@ class Squashfuse < Formula
   depends_on "zstd"
 
   def install
-    system "./autogen.sh"
     system "./configure", *std_configure_args
     system "make", "install"
   end

@@ -1,21 +1,19 @@
 class Phoneinfoga < Formula
   desc "Information gathering framework for phone numbers"
   homepage "https://sundowndev.github.io/phoneinfoga/"
-  url "https://github.com/sundowndev/phoneinfoga/archive/refs/tags/v2.10.8.tar.gz"
-  sha256 "7aef72755c5bea9ba80b73dcacc7757d3933ffb135d7a3f8e8ee5786a764e852"
+  url "https://github.com/sundowndev/phoneinfoga/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "adb3cf459d36c4372b5cab235506afcba24df175eca87bb36539126bb1dbf64e"
   license "GPL-3.0-only"
   head "https://github.com/sundowndev/phoneinfoga.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "05eac35183d7ed9a5a4c3925f40ac4db5c555dd14bae91b8900c43149b0ac43b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "adda96680af077cc100e72b30546128ca60a5af0d5bd9004403fd1ce44b842be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ea74cb7e516aaae8d68d531116dd796b32f1c9ce580810efa263fbc65df84d1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3d89f826b851aa2079145fe62d5e6fb95851135e4427a06110657bd264f74470"
-    sha256 cellar: :any_skip_relocation, sonoma:         "05419d7fa9b55c8df91b0bb9235ff6a7bad4d2dfcff0a61962f2cdbc7ec37470"
-    sha256 cellar: :any_skip_relocation, ventura:        "a2da9a20587e92301cda1b890bc0e5a7a8369a9270c8e12339fe4c2d96f91307"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7e2c5cf3e76ce4cc78a17524ee2c27fd9b83b3a87908658596f9aab21a958b8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d01314dc129020adb39e2c04f94356277b88400d7d5638b7ff1936df89b071eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dc024421a4b9b09dc3acaeb6996757bb8e1feb27941cd3b0391dc3f8b3da79c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d56737c84d3cbb5cf5e4545e77d5b5f2ddc9c589305b68bc929187381dfa0bff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f08a417535abb3f01a6515580727b1f903ab3da8b4245f9c9cc4653fba8ec124"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7d428e6d911e94cca96ba259e884d3019e699aa5d7579d84da3770e23f1bccd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9069391e52de3863ee44302bde11312aff29cdc199e0a3c0db158a149ce5b423"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c8cac2d134f82943c99c898e346093a11f3ab6f318532733b9c72340fec41a4"
+    sha256 cellar: :any_skip_relocation, monterey:       "cca610f2c321e702af581ee8f2dc0e8253428d6882700c4a54a6bd81697a6ebc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f916109ebc6121eed5ebc4c013f3d7bb0b5f132fc6748e6ebc8611969a942d6c"
   end
 
   depends_on "go" => :build

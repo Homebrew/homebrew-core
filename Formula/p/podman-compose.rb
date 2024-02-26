@@ -8,23 +8,28 @@ class PodmanCompose < Formula
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "becb8466afbb5d6b9b61079da397d98e0c592fc4471e5bceadb8a88364a5efbb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3204f96b8e98a2fcb20dcafe036a3b7e25b115f4f81b27f65dac5d33716c0f4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da701c43e938f94868e201dd00259da79ae4e7c697b7dbd0098c7da9ddb7e56f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "519db088b6e269efd89cb223b2f4233082454e4d41b2db5f0b969a8bfdb4c68e"
-    sha256 cellar: :any_skip_relocation, ventura:        "d92642fb09e8231385c116a633affab24dbd5ed73e10cf17e7467bffb4ce739c"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a2faa01e0c24959aedbb50f0492d6a9334a0e3444c33bb44a363edebe4e6e38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "236c6bed04d63d4585c7cea61f82cf63a2a1aac14c4fc9eb1ff736f405ba30cb"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "93607b4de1bfa1b88c180c191a05eecb492eb97792855ef242a081017cdcbd88"
+    sha256 cellar: :any,                 arm64_ventura:  "098a497efe77576d9ff553b14e7a5778337a33c6c938e10b88b9a168465a598d"
+    sha256 cellar: :any,                 arm64_monterey: "91ff7145ee1db5f55d07b191c23d2f026eeeb35675bed0c2239fe8c8913c5f2d"
+    sha256 cellar: :any,                 sonoma:         "4654dd7649f827bfec38c0f731564d1c8d09da13fdb4968abe77918c886259e5"
+    sha256 cellar: :any,                 ventura:        "bd48d44af43746240d247a9548dc0593d268679b0eedd52c07c468ab065e5ad6"
+    sha256 cellar: :any,                 monterey:       "0b837faadf3b412fc32162291b65ad422711c995d52d45281ee53f370acac161"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5736ffb8cf39667421c7cd2a799dfb2f3277dc6fd7e417a1835117603100a30"
   end
 
+  depends_on "libyaml"
   depends_on "podman"
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
   resource "python-dotenv" do
-    url "https://files.pythonhosted.org/packages/31/06/1ef763af20d0572c032fa22882cfbfb005fba6e7300715a37840858c919e/python-dotenv-1.0.0.tar.gz"
-    sha256 "a8df96034aae6d2d50a4ebe8216326c61c3eb64836776504fcca410e5937a3ba"
+    url "https://files.pythonhosted.org/packages/bc/57/e84d88dfe0aec03b7a2d4327012c1627ab5f03652216c63d49846d7a6c58/python-dotenv-1.0.1.tar.gz"
+    sha256 "e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   def install

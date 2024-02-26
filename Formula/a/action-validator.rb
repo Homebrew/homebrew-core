@@ -4,24 +4,24 @@ class ActionValidator < Formula
   license "GPL-3.0-only"
 
   stable do
-    url "https://github.com/mpalmer/action-validator/archive/refs/tags/v0.5.4.tar.gz"
-    sha256 "faf6b7ac865f30e24d81cec6b0c7cdbf7eddf113a97d6c5aa49c7c1a9f44a793"
+    url "https://github.com/mpalmer/action-validator/archive/refs/tags/v0.6.0.tar.gz"
+    sha256 "bdec75f6383a887986192685538a736c88be365505e950aab262977c8845aa88"
 
     # always pull the HEAD commit hash
     resource "schemastore" do
       url "https://github.com/SchemaStore/schemastore.git",
-          revision: "11d1fc36e96803f85324070a018e8457167bb232"
+          revision: "7bf746bd90d7e88cd11f0a9dc4bc34c91fbbf7b4"
     end
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ee9caed6854d367b92e4bad7de7dae6a247c09718c75b6f4d3919d0ff52e430"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "804b5e9354680ab010ffec65bcbee8e81d06d57d210bfe75e890756e94eeda16"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b31e0f1623daabd6a03ebaf9adaf4a4de2e62c191a444ab4856fd5f3e94d3246"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01a5716563eeb1c2b25c65b87ad37f488279bb76717d16a0b1eaea5f3d529b74"
-    sha256 cellar: :any_skip_relocation, ventura:        "0d06546c93797134d0fb08ee2a4580c03d22931b4e95c6685d8f04d09d1080d1"
-    sha256 cellar: :any_skip_relocation, monterey:       "f56fcc9beab1fb0ce0200ab588b54bb786a79f6a08797fc626c9ee7c2302dfc6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81754cf54ccfb597df52d1aa06dd923ca70cb1e0785f767f5ca381891c1113ea"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "347c3544b0c5726c557d949e4169d7e31e8e9b6ddb8d10fe30cd763dc7df030f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d788de5edb5dcc71093119528a77e9cdbfe62a3de062e42f437057c7c46d70b3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "70fad7c8608b4e2ed2940a68b94a527cc609c279a422c326c18fae57e20095bd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e2c2aa5d31932a9b2e40c136da4608b0db775aa60b730b70131ee7f1a81cf9ad"
+    sha256 cellar: :any_skip_relocation, ventura:        "36815305c61bb8943c8393f98dcf53495ce9164a736108ca97aee7c70c57342f"
+    sha256 cellar: :any_skip_relocation, monterey:       "8e6f2d8e17962160c4b61ce9401decef9dc6d062a3da67838192e9d185277a65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "151521ccea42db3b37dcd607c8fa70bf3b974d6fe03050ec0538c8ecea4d6c49"
   end
 
   head do

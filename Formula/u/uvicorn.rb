@@ -9,23 +9,28 @@ class Uvicorn < Formula
   head "https://github.com/encode/uvicorn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3debc30b1e8d7205f6d003f33fff0414e03314d22e3e30008237889e63dbfe3c"
-    sha256 cellar: :any,                 arm64_ventura:  "ab6af8554607f8e8fce39d53da52b3c89643238d9200e1e4ad80dc2eb9e93755"
-    sha256 cellar: :any,                 arm64_monterey: "9018dd8d2fd773965750c1853e83e10c0162b7420edac23c1e22e036625f9215"
-    sha256 cellar: :any,                 sonoma:         "1146e65fa737db10ca29d7d7a2b604b431f2482e68e536928ef08e8b99bb0fac"
-    sha256 cellar: :any,                 ventura:        "8436edfa51a646a5a67d8bc09a670b6ea8cc51e43e890ad5f9e46b2ef8ef641e"
-    sha256 cellar: :any,                 monterey:       "9c581e54813ba0ba16db5ce1488bf08bb0d24a7fe1d826abb7ba54902bbee981"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff4b011d0734942cf73989c0d810201ef170147f95628a7e5c664a57ee03447e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "ce673fc35a478e523e696c738c7e13d00ee025a2c6a11b03de313349e952e8ee"
+    sha256 cellar: :any,                 arm64_ventura:  "877e61484296f360b49e4090683beb0164eb93db9418cb995d18fa7f5407ac60"
+    sha256 cellar: :any,                 arm64_monterey: "d56abe2ddfa3d910cdae5c7f7eb3e0bd8e5e9f9c08c70303a1e08cec293a7184"
+    sha256 cellar: :any,                 sonoma:         "fc553a5127646dcbf0b50684d6e20fe652a88f75cd630eaac3c9b00560de64f6"
+    sha256 cellar: :any,                 ventura:        "28e2f11896fea5129b3f47c0c161e91eb74a40faf7053b9dc7e6de35ac4a42a6"
+    sha256 cellar: :any,                 monterey:       "b5838cc073dddbf5701dc00655cfac9a62a3c7c86cb2693e09d4a7f20bed7f3c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a80d52ba41387dc2774791bbe3358975186472dc4795f29eab169fdcd13b8934"
   end
 
   depends_on "rust" => :build
-  depends_on "python-click"
+  depends_on "libyaml"
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/2d/b8/7333d87d5f03247215d86a86362fd3e324111788c6cdd8d2e6196a6ba833/anyio-4.2.0.tar.gz"
-    sha256 "e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f"
+    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
+    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
+  end
+
+  resource "click" do
+    url "https://files.pythonhosted.org/packages/96/d3/f04c7bfcf5c1862a2a5b845c6b2b360488cf47af55dfa79c98f6a6bf98b5/click-8.1.7.tar.gz"
+    sha256 "ca9853ad459e787e2192211578cc907e7594e294c7ccc834310722b41b9ca6de"
   end
 
   resource "h11" do
@@ -46,6 +51,11 @@ class Uvicorn < Formula
   resource "python-dotenv" do
     url "https://files.pythonhosted.org/packages/bc/57/e84d88dfe0aec03b7a2d4327012c1627ab5f03652216c63d49846d7a6c58/python-dotenv-1.0.1.tar.gz"
     sha256 "e324ee90a023d808f1959c46bcbc04446a10ced277783dc6ee09987c37ec10ca"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
   resource "sniffio" do

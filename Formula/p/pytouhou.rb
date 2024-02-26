@@ -20,6 +20,9 @@ class Pytouhou < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb8bff86fc2cabba2ebc07150a44d8251dd66dc69168d0ad081c1c1ced81cda8"
   end
 
+  # Repo fails to `hg pull` with recent `mercurial`
+  deprecate! date: "2024-02-23", because: :does_not_build
+
   depends_on "pkg-config" => :build
   depends_on "glfw"
   depends_on "gtk+3"

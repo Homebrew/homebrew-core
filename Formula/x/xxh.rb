@@ -8,16 +8,17 @@ class Xxh < Formula
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1fdd512d99aec1b22fef3ce3a0a2a3d462248148955f4c7b5d6f66deabad336"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39f68a86fee8c7978b6f603d451e4fc4ba1e4d9ebd8ecc37e00a30ee74cb5b99"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0a69735bc502f761c7873b62e351c3bb566a0faa6a221611e2ee0d83a92e3a02"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d2dcee2e28678c8947d67881d1541336d95dfc7a25883bf5016668fb651fc523"
-    sha256 cellar: :any_skip_relocation, ventura:        "0ebf95d37797d5eadea31f50d943ccf311a25a9212d96da0437aa3275b8695de"
-    sha256 cellar: :any_skip_relocation, monterey:       "46756d1f103241ebb5cc8ba9717966a21eae5faca797be0def13804c93e3acbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d46b88f0638507261cefa580dd2c5fa6db540efd2222b4f6af5550585280918"
+    rebuild 4
+    sha256 cellar: :any,                 arm64_sonoma:   "b3012b1db3b309e4159e55c9dfefcef33a1ceeb08670b81a145474e9bfc952c0"
+    sha256 cellar: :any,                 arm64_ventura:  "81fa47b11e767a7f35404c478f683c899e7dcd46fbab154ad2eb7072e9266ccd"
+    sha256 cellar: :any,                 arm64_monterey: "b77da2f3dd1a2662c670ae29e488750caa88f1d0db2ca01f256b9c8c7ac52869"
+    sha256 cellar: :any,                 sonoma:         "f50ed216c52cb02b30b81ea58464f3232c1cf18b96cffe896a31ce1e41c5213b"
+    sha256 cellar: :any,                 ventura:        "8b20978c6b182857fe4cdd2bff5eae291ee40b3163e30402c48b0930488ed063"
+    sha256 cellar: :any,                 monterey:       "632f996ce8a44d9066ebff1614e2f8f0f78fce62bc0e4f7b78244a8d8026b1a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7ad3062974fb5ef5e7c3a130f5256cd4622c3d883af790c28d4b8494dbd1fc2"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "pexpect" do

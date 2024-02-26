@@ -1,22 +1,18 @@
 class Gptfdisk < Formula
   desc "Text-mode partitioning tools"
   homepage "https://www.rodsbooks.com/gdisk/"
-  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.9/gptfdisk-1.0.9.tar.gz"
-  sha256 "dafead2693faeb8e8b97832b23407f6ed5b3219bc1784f482dd855774e2d50c2"
+  url "https://downloads.sourceforge.net/project/gptfdisk/gptfdisk/1.0.10/gptfdisk-1.0.10.tar.gz"
+  sha256 "2abed61bc6d2b9ec498973c0440b8b804b7a72d7144069b5a9209b2ad693a282"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2dda92a3ecdab96ed973a073efe01cf1a4d8b58c272d85000d1caeab0bf69811"
-    sha256 cellar: :any,                 arm64_ventura:  "44695b26f0c6573bef6f0e5406d57364f4a146963a7fc70ffda70785ba5d81a8"
-    sha256 cellar: :any,                 arm64_monterey: "c441169bd2c41b16caa519843b2b8dc4a827842483d335b5c02b1b5bffd92766"
-    sha256 cellar: :any,                 arm64_big_sur:  "1e5f4146ffa1a68c58f24792e12c54abd60f5fefef34cb2554b3e36837ea6c0a"
-    sha256 cellar: :any,                 sonoma:         "75d96447c6cbb8c1c09d5863bfd2bba12a38db5b114aba3334b0e5dfcb0d6ece"
-    sha256 cellar: :any,                 ventura:        "f0ae2fa9ab790995bccdcdbc1c71f50ef64dbb2b292175b58a1f5427fa55a0ab"
-    sha256 cellar: :any,                 monterey:       "97dbd19ad14e804d46a12b60d9f75490f7074403609cd9645e69ec1e970c5cc3"
-    sha256 cellar: :any,                 big_sur:        "9f36a4ef4536d2692770ef30a4e2eb13e1ab29142d3431fafda1167cbc4ad1a6"
-    sha256 cellar: :any,                 catalina:       "232fa946d22e2929d7021ba28e088856cb8542126bcf939fbedc2a99d8f1bf3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d662db01992e4c3c8a077c1dd0883c741db35ec8c4cdb8bb1a3cfb2fccc95259"
+    sha256 cellar: :any,                 arm64_sonoma:   "09a2999c7d63ed2b2b1d1653b8b0eefc58e6a34f44deea18621b8c0137fc3382"
+    sha256 cellar: :any,                 arm64_ventura:  "f3950162cf89ae6ea39989311535d838e8c2d7989ccddadcfcafd90733056c14"
+    sha256 cellar: :any,                 arm64_monterey: "51ac0f2d9d070772afbe428ea9ed3dc424e2b9b9eea017d78cc43c62d5ed9836"
+    sha256 cellar: :any,                 sonoma:         "0f866a7fa08045f6cb0ccec6da7daa2f97f6160f3d1cbbfda57e3f5efa3f1547"
+    sha256 cellar: :any,                 ventura:        "a991ae67bc6d77886ba9fdcac791531c8557d093e385c74d34c5252e8ac62039"
+    sha256 cellar: :any,                 monterey:       "8b3365f6c8abda6ce8a8a4ee7b0fc0d7760cb69002b8710cef9c35413dfbdee7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28c7afa4c318fb486bcaa3dec28ca8a349fd98135d68435f69ec56917fb9d2ff"
   end
 
   depends_on "popt"
@@ -26,10 +22,6 @@ class Gptfdisk < Formula
   on_linux do
     depends_on "util-linux"
   end
-
-  # Backport upstream commit to fix crash with popt 1.19. Remove in the next release.
-  # Ref: https://sourceforge.net/p/gptfdisk/code/ci/5d5e76d369a412bfb3d2cebb5fc0a7509cef878d/
-  patch :DATA
 
   def install
     if OS.mac?
@@ -61,16 +53,3 @@ class Gptfdisk < Formula
     assert_match "Found valid GPT with protective MBR", shell_output("#{bin}/gdisk -l test.dmg")
   end
 end
-
-__END__
---- a/gptcl.cc
-+++ b/gptcl.cc
-@@ -155,7 +155,7 @@
-    } // while
-
-    // Assume first non-option argument is the device filename....
--   device = (char*) poptGetArg(poptCon);
-+   device = strdup((char*) poptGetArg(poptCon));
-    poptResetContext(poptCon);
-
-    if (device != NULL) {

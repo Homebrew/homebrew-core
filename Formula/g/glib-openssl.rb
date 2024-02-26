@@ -22,7 +22,7 @@ class GlibOpenssl < Formula
   end
 
   # See: https://gitlab.gnome.org/Archive/glib-openssl/
-  deprecate! date: "2023-06-22", because: :repo_archived
+  disable! date: "2024-02-22", because: :repo_archived
 
   depends_on "pkg-config" => :build
   depends_on "glib"

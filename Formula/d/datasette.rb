@@ -9,19 +9,19 @@ class Datasette < Formula
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "cede1d07d653c11beede218e5129807110cfe4f7d4e8c700b4963aa9e7a7c784"
-    sha256 cellar: :any,                 arm64_ventura:  "af3b5f12c68c440f792dc7301975bc84075853e607fba8e358c20005f744cff9"
-    sha256 cellar: :any,                 arm64_monterey: "3021428cdde5737bfa7cfeb83edaa0af5bddc2baa1da947d2c44de2183619d45"
-    sha256 cellar: :any,                 sonoma:         "bcc2cc4a2937918141220663f945a64eaaac58fa48ba1bcb393024bde6faa113"
-    sha256 cellar: :any,                 ventura:        "2113fa30c5dfe3446c661e347cfd9a707e9b1c678286c3213b7a1a926ddc138f"
-    sha256 cellar: :any,                 monterey:       "184ed7bbcd4cb0161f0bc7a56b31cb2f2230fcfc2354944c0a37030252cb324d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61f03a92165f42e6dd19b97b46b370e3b9aaa16d3a078c9fcf8b0be3ec94f9d1"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "162667b4aa256499b2648c615e0d21d6a1ed86ecdb17c04b261a6ac6ba53a3ad"
+    sha256 cellar: :any,                 arm64_ventura:  "787476fea649f6e891a0a10c3beebd46e7eab5219149bd6a0c58fc002896899a"
+    sha256 cellar: :any,                 arm64_monterey: "6d0fd8eff92c21f838f303642a36c8b00f5b3e5b39484b482be6245fc07254ae"
+    sha256 cellar: :any,                 sonoma:         "358b839cebf0db834369af3e9c6151d625c31bbde0249aff3b327bc364815c7e"
+    sha256 cellar: :any,                 ventura:        "f1774e7fddfa4e512fc0ceeb57278933c5f9cc07a58ad7b4e185788e28bfca21"
+    sha256 cellar: :any,                 monterey:       "c7120318db2a851d3b4e12cd1280d9439f91634c69c3faa7740d0cb7b4c52f84"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f558cf2fe176526d4bc8d4e31f142bba7b71bfeecd979304362a634e0036ccf9"
   end
 
+  depends_on "libyaml"
   depends_on "python-certifi"
   depends_on "python@3.12"
-  depends_on "uvicorn"
 
   resource "aiofiles" do
     url "https://files.pythonhosted.org/packages/af/41/cfed10bc64d774f497a86e5ede9248e1d062db675504b41c320954d99641/aiofiles-23.2.1.tar.gz"
@@ -29,8 +29,8 @@ class Datasette < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/2d/b8/7333d87d5f03247215d86a86362fd3e324111788c6cdd8d2e6196a6ba833/anyio-4.2.0.tar.gz"
-    sha256 "e1875bb4b4e2de1669f4bc7869b6d3f54231cdced71605e6e64c9be77e3be50f"
+    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
+    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
   end
 
   resource "asgi-csrf" do
@@ -53,9 +53,14 @@ class Datasette < Formula
     sha256 "eb3f3c99ec0d456ca6cd2a7f08f7d4e91771bef51b01bdd9580cc6450fe1251e"
   end
 
+  resource "h11" do
+    url "https://files.pythonhosted.org/packages/f5/38/3af3d3633a34a3316095b39c8e8fb4853a28a536e55d347bd8d8e9a14b03/h11-0.14.0.tar.gz"
+    sha256 "8f19fbbe99e72420ff35c00b27a34cb9937e902a8b810e2c88300c6f0a3b699d"
+  end
+
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/18/56/78a38490b834fa0942cbe6d39bd8a7fd76316e8940319305a98d2b320366/httpcore-1.0.2.tar.gz"
-    sha256 "9fc092e4799b26174648e54b74ed5f683132a464e95643b226e00c2ed2fa6535"
+    url "https://files.pythonhosted.org/packages/94/f1/47528a2f465b09c71caad95f5de1d7225e438cf3d1068d278362a4a6bc6a/httpcore-1.0.3.tar.gz"
+    sha256 "5c0f9546ad17dac4d0772b0808856eb616eb8b48ce94f49ed819fd6982a8a544"
   end
 
   resource "httpx" do
@@ -123,11 +128,6 @@ class Datasette < Formula
     sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   resource "sniffio" do
     url "https://files.pythonhosted.org/packages/cd/50/d49c388cae4ec10e8109b1b833fd265511840706808576df3ada99ecb0ac/sniffio-1.3.0.tar.gz"
     sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
@@ -136,6 +136,11 @@ class Datasette < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
     sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+  end
+
+  resource "uvicorn" do
+    url "https://files.pythonhosted.org/packages/09/d8/8aa69c76585035ca81851d99c3b00fd6be050aefd478a5376ff9fc5feb69/uvicorn-0.27.1.tar.gz"
+    sha256 "3d9a267296243532db80c83a959a3400502165ade2c1338dea4e67915fd4745a"
   end
 
   def install

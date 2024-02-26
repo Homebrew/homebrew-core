@@ -5,15 +5,16 @@ class SpidermonkeyAT91 < Formula
   version "91.13.0"
   sha256 "53be2bcde0b5ee3ec106bd8ba06b8ae95e7d489c484e881dfbe5360e4c920762"
   license "MPL-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e6c8e0991f5644ce8f5ba4978a458da014abcca8ffcc7633ef4f00d45a112e46"
-    sha256 cellar: :any,                 arm64_ventura:  "d2482aa0378ab2caedc651ac5affcafbf7f341f570f29fe4fadac00bbb089e7d"
-    sha256 cellar: :any,                 arm64_monterey: "bdb1f803fb43029a92439b5855d75cba658b0844e2e4d83180e7f82f7b16218b"
-    sha256 cellar: :any,                 sonoma:         "206fa2cdd4e2b8228721eb13532dda5a6eb0c411bffe7879c88044b6701449f0"
-    sha256 cellar: :any,                 ventura:        "24a0b39bf9dd8184685f458d4a154adf5b2b76d93bb221189e500fdb1e5a649d"
-    sha256 cellar: :any,                 monterey:       "9bf5558c2ba41bdaa832660ad01c009e8691892cf61140b5a554e8ee8333de22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "174f3e9cc9c2bc69f9c6be9a7e0a1346f2f59955bedfbe2c6279de467f0b472c"
+    sha256 cellar: :any,                 arm64_sonoma:   "67ab8a1a5b3c43e1b0c8b28e261ac6f584ae03a18d19a0279cea2ca7cfb054d0"
+    sha256 cellar: :any,                 arm64_ventura:  "a4b5607569f9d86bb90f204337c362a1e63a5333669ca3ecd2b90a945ca3d15c"
+    sha256 cellar: :any,                 arm64_monterey: "6b646df4501dc6a8ac9e0ea5dd7fb604ef28177f0f67e06422fdf30176fd8fc4"
+    sha256 cellar: :any,                 sonoma:         "1f73995d267a3d0dbee5a05e64c6a227006e3491c9ccd0d7b4927cf50b21e170"
+    sha256 cellar: :any,                 ventura:        "bdafb8a4478924f90059fbe30c727e8127cb6c220f08a5c2290b68a1d4e8808a"
+    sha256 cellar: :any,                 monterey:       "0e82c03130747ffd00d9142350d60b6f8e532854666c6fe1164b34452b275992"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae8f67dc53fa55e1d06ee912bd04ee344c6d742210c401bc1dfae9410d198eaf"
   end
 
   # Has been EOL since 2022-09-20

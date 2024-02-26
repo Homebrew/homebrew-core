@@ -3,22 +3,23 @@ class Cookiecutter < Formula
 
   desc "Utility that creates projects from templates"
   homepage "https://github.com/cookiecutter/cookiecutter"
-  url "https://files.pythonhosted.org/packages/1a/5d/9f6a7b748436597060654c8b5815dabedd78893e566bc9838c6dcbf05e04/cookiecutter-2.5.0.tar.gz"
-  sha256 "e61e9034748e3f41b8bd2c11f00d030784b48711c4d5c42363c50989a65331ec"
+  url "https://files.pythonhosted.org/packages/52/17/9f2cd228eb949a91915acd38d3eecdc9d8893dde353b603f0db7e9f6be55/cookiecutter-2.6.0.tar.gz"
+  sha256 "db21f8169ea4f4fdc2408d48ca44859349de2647fbe494a9d6c3edfc0542c21c"
   license "BSD-3-Clause"
   head "https://github.com/cookiecutter/cookiecutter.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "66ed812706f5700cac1ddc739d62dfd4182bff7fb20d7444537df23e0970425a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90cd932c665d7a2e0650f863fbc844dfe5aaa2894b18b30fe5e746f4f6edec79"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c755f8f65fd5df85b5718f933bbbadf946d845c2d4c529f18aa3c312a464b030"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8bdedb2ed6a0207e5a3a7c8dd93957866310b37135c85229f38a2114023220a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae32c6b0080ba61507221c369964dbadfa47a165027d07294b3f1bc3d3c3513c"
-    sha256 cellar: :any_skip_relocation, monterey:       "921c860b7acfabdc0b33c04d700a3e09392a6030d0dddcef44e23fb990c7b123"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8787b485a7161ad1b270b36bfc3394536fb9e80198503c1ccb15c77b44dc2c3"
+    sha256 cellar: :any,                 arm64_sonoma:   "673cd812f28d0976932d4ebd83605551b05c5436d9b5119e184ade1c55e377ce"
+    sha256 cellar: :any,                 arm64_ventura:  "e9eb866768fcd72e060c73691e1d3cddb3290d4b2544f55d1aac8f5eb6433253"
+    sha256 cellar: :any,                 arm64_monterey: "1fe86670cbc5e90232b1215f5cd6166f9db9abcbffaecb257cbfb145818906dd"
+    sha256 cellar: :any,                 sonoma:         "dc0be409ab5c32ac0d9af6427b7caef62df2e74f140cf83a5e9fb3dc05217f93"
+    sha256 cellar: :any,                 ventura:        "d19b612cd52999c180899bf1cca6c17f9a522ee981b48016c4d31ae77f98fb39"
+    sha256 cellar: :any,                 monterey:       "9f2d15bd55f7f2e2e169daa9d63f337b0e342c80ab53a205c1e426cf0d6a79f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ced74e50497fbad89d9d258421a92cf7a554e9dfd7eade4806efd7d1dd18b06"
   end
 
+  depends_on "libyaml"
+  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "arrow" do
@@ -29,11 +30,6 @@ class Cookiecutter < Formula
   resource "binaryornot" do
     url "https://files.pythonhosted.org/packages/a7/fe/7ebfec74d49f97fc55cd38240c7a7d08134002b1e14be8c3897c0dd5e49b/binaryornot-0.4.4.tar.gz"
     sha256 "359501dfc9d40632edc9fac890e19542db1a287bbcfa58175b66658392018061"
-  end
-
-  resource "certifi" do
-    url "https://files.pythonhosted.org/packages/71/da/e94e26401b62acd6d91df2b52954aceb7f561743aa5ccc32152886c76c96/certifi-2024.2.2.tar.gz"
-    sha256 "0569859f95fc761b18b45ef421b1290a0f65f147e92a1e5eb3e635f9a5e4e66f"
   end
 
   resource "chardet" do
@@ -122,8 +118,8 @@ class Cookiecutter < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
-    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   def install

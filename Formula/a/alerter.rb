@@ -15,7 +15,7 @@ class Alerter < Formula
   end
 
   # https://github.com/vjeantet/alerter/issues/53
-  deprecate! date: "2023-05-09", because: :does_not_build
+  disable! date: "2024-02-20", because: :does_not_build
 
   depends_on xcode: :build
   depends_on :macos

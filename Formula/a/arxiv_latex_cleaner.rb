@@ -6,25 +6,22 @@ class ArxivLatexCleaner < Formula
   url "https://files.pythonhosted.org/packages/66/87/8866fcffec4c6d39eaa7a08e3bb0b98ec98464aef55fcf0897196819a2f0/arxiv_latex_cleaner-1.0.4.tar.gz"
   sha256 "6c371dd6c7bec01259bebc80820e6704274d2f5f75f9de1d112d9d3f8a392023"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9cf0ccfdb65b1ae64fc695c1a7439e7dbd9642e14429ecf31d229dfbef2e82bf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "23c1059cd14f3a43c9a4541347ba1f73d42721c4a154995d313598cc58c8b8ca"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c6164d3c4f41f55534027a30b94aa4d8e2829f1278323065daeb3c3f1f707d9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4fe519a7a66b06236395b9cefb9833445fd50864b0835a0d4f979bdb7e5ed20c"
-    sha256 cellar: :any_skip_relocation, ventura:        "0dee55c2b0e72be5612caed9f456c5835fa978ba77031271f36f5d2aaec75f2a"
-    sha256 cellar: :any_skip_relocation, monterey:       "b41eef16972b9d343e1914436e3f424280fd90fe3cd05eb55158fb87419714ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7a50e20b87a04dc6ef4868c2f3470ac0c88550e6bbdffbc9667cc461a8fd0ca"
+    sha256 cellar: :any,                 arm64_sonoma:   "0cd192afc47b746c94d9044671eaddf63aa263c0a658c37a4b8cd5636dcf5d74"
+    sha256 cellar: :any,                 arm64_ventura:  "db4f54fb4d80516c6c76eccb843f17fb143f6bcde9a4c60c151cbce9a1096e15"
+    sha256 cellar: :any,                 arm64_monterey: "e36c22728bde52b262d0814f5f57a78b0fe30e718bf5f0aca467f1eed328ccd2"
+    sha256 cellar: :any,                 sonoma:         "25458ce654e5845f4b747368277d1d3e80b95acecb1d862191b07fad7a75b087"
+    sha256 cellar: :any,                 ventura:        "d0d6cac23647b60d7dcaaf443d7965664bf10550b7f83da834b608a49d857ab6"
+    sha256 cellar: :any,                 monterey:       "6fc2033be2ea22ecd4e465f48bac1cb89595fcc2de572edf5010a79260207aaf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9730a7fe31d8f209af51b670a903c65a501b34c336c52546b46de3f120d7ba84"
   end
 
+  depends_on "libyaml"
   depends_on "pillow"
   depends_on "python@3.12"
-
-  def python3
-    "python3.12"
-  end
 
   resource "absl-py" do
     url "https://files.pythonhosted.org/packages/7a/8f/fc001b92ecc467cc32ab38398bd0bfb45df46e7523bf33c2ad22a505f06e/absl-py-2.1.0.tar.gz"

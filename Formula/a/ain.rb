@@ -6,6 +6,14 @@ class Ain < Formula
   license "MIT"
   head "https://github.com/jonaslu/ain.git", branch: "main"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea25b30846e0726917a3657c40e6ea27f1ff562de9fea12c521df1e3350c5918"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea25b30846e0726917a3657c40e6ea27f1ff562de9fea12c521df1e3350c5918"

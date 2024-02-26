@@ -9,24 +9,21 @@ class Principalmapper < Formula
   revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57ab3bf7969b488a522d7f96422d51e71110655f862e4d66fd4756974346d98f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0ff16319ad2e6d138b2afcbf3ab96f0e8016a2cd807ac720e45dd979901481b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c30306569885d9e313a1e6a8854774439a32f8e5a55a03766268016b64d572da"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7347a0ae555a0794de92b822edfa7b4a59527235b857d3583c1a478833c5366c"
-    sha256 cellar: :any_skip_relocation, ventura:        "f944f671ce9fab549323ef531c16b4f276d184cca6145fc800e18caf05a6a6d6"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b43edf024ad756848f4ae9a139aecf6a5384324aa890924982ae5879706b50d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20b7d3899889dd835192acf03e376bd9921b2eeed70d93210572aefab495a869"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39c91c47b0168bd27ed5e72514791d3539143883755ab101fabaae6398dad4c3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "98e0059909b81c8db7504ed1ab368829353abd208d767c29be8105f151701a42"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "912f3b13b00b1005eedd854ce36389d3a06c216cb0d828b104cba1c806dd7f6f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0627e606a615ce55918f6707d7bf1471f6d95c83917e0d6a25056cb77c68b42c"
+    sha256 cellar: :any_skip_relocation, ventura:        "c4ba43acd5d1961d66c6592f91e043c9337c8963abef08669705f6c53dec7d0b"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d9aad2145eff7ac4afddc62276f9d38d9ab06cc4c264794f5870c6981506701"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6d317dd3f7b54fcc7ebd7d704a217b0c89c5e92e6e5b7a923cdcbf3d183ae9b"
   end
 
-  depends_on "python-packaging"
-  depends_on "python-pyparsing"
   depends_on "python@3.12"
-  depends_on "six"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/42/30/e5e2126eca77baedbf51e48241c898d99784d272bcf2fb47f5a10360e555/botocore-1.31.65.tar.gz"
-    sha256 "90716c6f1af97e5c2f516e9a3379767ebdddcc6cbed79b026fa5038ce4e5e43e"
+    url "https://files.pythonhosted.org/packages/93/cf/8c9516f6b1fb859e7fcb7413942b51573b54113307a92db46a44497a3b96/botocore-1.34.47.tar.gz"
+    sha256 "29f1d6659602c5d79749eca7430857f7a48dd02e597d0ea4a95a83c47847993e"
   end
 
   resource "jmespath" do
@@ -34,14 +31,29 @@ class Principalmapper < Formula
     sha256 "90261b206d6defd58fdd5e85f478bf633a2901798906be2ad389150c5c60edbe"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "pydot" do
-    url "https://files.pythonhosted.org/packages/13/6e/916cdf94f9b38ae0777b254c75c3bdddee49a54cc4014aac1460a7a172b3/pydot-1.4.2.tar.gz"
-    sha256 "248081a39bcb56784deb018977e428605c1c758f10897a339fce1dd728ff007d"
+    url "https://files.pythonhosted.org/packages/d7/2f/482fcbc389e180e7f8d7e7cb06bc5a7c37be6c57939dfb950951d97f2722/pydot-2.0.0.tar.gz"
+    sha256 "60246af215123fa062f21cd791be67dda23a6f280df09f68919e637a1e4f3235"
+  end
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
+    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
   end
 
   resource "python-dateutil" do
     url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
     sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "urllib3" do

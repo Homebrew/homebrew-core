@@ -23,7 +23,7 @@ class Iprint < Formula
   end
 
   # Debian does not ship this as a package anymore
-  deprecate! date: "2023-05-06", because: :repo_removed
+  disable! date: "2024-02-21", because: :repo_removed
 
   patch do
     url "https://deb.debian.org/debian/pool/main/i/iprint/iprint_1.3-9.diff.gz"

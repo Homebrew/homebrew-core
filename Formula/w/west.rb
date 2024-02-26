@@ -6,20 +6,20 @@ class West < Formula
   url "https://files.pythonhosted.org/packages/ee/7a/4c69c6a1054b319421d5acf028564bb1303ea9da42032a2000021d6495ee/west-1.2.0.tar.gz"
   sha256 "b41e51ac90393944f9c01f7be27000d4b329615b7ed074fb0ef693b464681297"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/zephyrproject-rtos/west.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1a1c37b8204c2cb7f8b843672e692bfea29020a6df285265e3889b599511419"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bf1bc4ef813eeb1be7ad04f7d0a7635eea4843611322f46c93faa1537c884d5c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "28133e9aa3c88cba658ec02145b7564e2e0d6f75194808c780c62623cc99838e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "036725939c5b80998ea6af74fb0c0965b9f6e6efbafe21d8d9bbaef12e0b0c82"
-    sha256 cellar: :any_skip_relocation, ventura:        "0d0018226a52fc3e49736b0dfd845d479dabbbbf2640c9b39bc1ffa5a658a572"
-    sha256 cellar: :any_skip_relocation, monterey:       "60ca1dcced25de5a868fd052e5b66b0a9399902a6718971d1f58e240850f52fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "044e4c73db953335801e52a715b40415123979520744935385d347182a0d2d88"
+    sha256 cellar: :any,                 arm64_sonoma:   "26576af9f46307f4848f693b8735d4db5034db58937e82422e9ea716e49b0833"
+    sha256 cellar: :any,                 arm64_ventura:  "eaaf79d5b5ea31abcc74489f1624ee88a8deb35d819899a67457166a15ec0dd2"
+    sha256 cellar: :any,                 arm64_monterey: "8411289dc521b14e6444ab4e60ca9b44eaa62982e7c9652aa4d379b96cfa0ba9"
+    sha256 cellar: :any,                 sonoma:         "8e725d4997ab94daf01a382e332f14ebdb86ea3cabad292183b9ec24a35cc4db"
+    sha256 cellar: :any,                 ventura:        "a74d001bc69b95a6c877480d11ff48bb318819fad6b1f7ddc0197ccee8153052"
+    sha256 cellar: :any,                 monterey:       "d3b81aa7b72db48dc467ab2b2081b7c0a21058200dbc43ab07e3059bba1eb371"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0efc8af2f61986d8008c990bdc936fd8a03c3386f1b9b32df70ba371fafc3e4a"
   end
 
+  depends_on "libyaml"
   depends_on "python@3.12"
 
   resource "colorama" do

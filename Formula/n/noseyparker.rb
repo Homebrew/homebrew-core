@@ -8,13 +8,14 @@ class Noseyparker < Formula
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50db564b661533644ea94832f316071e72ffc389bfd141bf5b75fa701f81b991"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "618257cebb32da10f5803e603ed5c52a4bc41fb6f45ce6b861254c6d69b57b0b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9e75fff4e3e797b363abea1252560e0e0df4a4f03be24e1d099d7c836ad7c5c5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1929f054176f90fad51b8e12ccb762b37dce51ac67fcd9f42288d7c7e1f5273a"
-    sha256 cellar: :any_skip_relocation, ventura:        "6eade6cf7f29fe67dbe86338664648110fee2b5bdb97c33f82f62806686e80b7"
-    sha256 cellar: :any_skip_relocation, monterey:       "3021a1791fc2ba45f62e17a2f68fec392594e3595eb6c8d9900c0d8bdd7bcb52"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aef6fa1f6f54bd512083100d37073b9a411e8a608dbb358a8910bea71e723288"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc5d06c0d92862dcf8e88acf3a141a2b3f1b827334b103cb7ea6b7fb0e70a016"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b0500c41c8dc69cbc9d65aa8bda8b480ed5a777fc630037763d7e8027943309"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d8475de78661a784dea6b9fac97f0e57b2307b175b13e3c728629a0630da2b1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c9ef38987d3313d3772a25ba8492260b592ce9fa57697e66cb55c2f59b3026f5"
+    sha256 cellar: :any_skip_relocation, ventura:        "89d5aa10e33bceba1a07d38d5e7600d382c293ac67acca0c488023bd87ecfb7e"
+    sha256 cellar: :any_skip_relocation, monterey:       "d6270739d4c971d09ee74c48103f76adb8050836cc0a092e6c73d2c6253054d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b07cb6341ff98dcedbe9a57795c5b9bb61db9fe3bb136c427d18244d6f85a1ec"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,7 @@ class Noseyparker < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "crates/noseyparker-cli")
+    system "cargo", "install", "--features", "release", *std_cargo_args(path: "crates/noseyparker-cli")
     mv bin/"noseyparker-cli", bin/"noseyparker"
 
     generate_completions_from_executable(bin/"noseyparker", "shell-completions", "--shell")
