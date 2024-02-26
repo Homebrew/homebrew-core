@@ -7,6 +7,11 @@ class Seam < Formula
   sha256 "9366256c67111ed07c88204de393c0fd6e46e4022c06db70e2220b5b06eea754"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd35c1f389cc8fca48ac86fd96e031ec745a3d93ea75479f6b010a8c3f641f2d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd35c1f389cc8fca48ac86fd96e031ec745a3d93ea75479f6b010a8c3f641f2d"
