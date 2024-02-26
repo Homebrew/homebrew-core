@@ -3,8 +3,8 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/f2/b9/4d9a88a4a860ae1388c9788ee5b409733e87d93fbe6abb5bd06afbf7f00d/pdm-2.12.3.tar.gz"
-  sha256 "53cdab727c1469fdc196efd8d7ff8404a3ca91ee43c0a5714736f2020d0a5ddf"
+  url "https://files.pythonhosted.org/packages/2e/30/03b790c7e90d138f8e7f1703d6f30ca3e149b1ec00cf6ab6486f364b6c7c/pdm-2.12.4.tar.gz"
+  sha256 "d04877362f95cf9ffc1d2c38b851f693706e4928840e48986ae576dad5741496"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
@@ -38,8 +38,8 @@ class Pdm < Formula
   end
 
   resource "dep-logic" do
-    url "https://files.pythonhosted.org/packages/fe/6b/aab4ea5d80af862612f4efdf7ccc3a1dc2b24bf499e5658b45ba89a7c127/dep_logic-0.0.4.tar.gz"
-    sha256 "1830e784e0d58fc93511e77da164887629641b65b38876b274db974ec5f3889f"
+    url "https://files.pythonhosted.org/packages/21/d5/c365826c3d0b65b9cc273bdf2e99022ada232fb95502f4efd98a8f9e31aa/dep_logic-0.2.0.tar.gz"
+    sha256 "cff502b515aff2d413d19d6afc70174fc67da19e821be4a9b68460ccee2514c9"
   end
 
   resource "distlib" do
@@ -148,13 +148,13 @@ class Pdm < Formula
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
-    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   resource "virtualenv" do
-    url "https://files.pythonhosted.org/packages/94/d7/adb787076e65dc99ef057e0118e25becf80dd05233ef4c86f07aa35f6492/virtualenv-20.25.0.tar.gz"
-    sha256 "bf51c0d9c7dd63ea8e44086fa1e4fb1093a31e963b86959257378aef020e1f1b"
+    url "https://files.pythonhosted.org/packages/93/4f/a7737e177ab67c454d7e60d48a5927f16cd05623e9dd888f78183545d250/virtualenv-20.25.1.tar.gz"
+    sha256 "e08e13ecdca7a0bd53798f356d5831434afa5b07b93f0abdf0797b7a06ffe197"
   end
 
   resource "wheel" do
