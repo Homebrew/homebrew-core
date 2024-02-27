@@ -1,3 +1,16 @@
+class JavaRequirement < Requirement
+  fatal true
+
+  satisfy(build_env: false) { which("java") }
+
+  def message
+    <<~EOS
+      temurin17 is required; install it via one of:
+        brew cask install temurin17
+    EOS
+  end
+end
+
 class Liquibase < Formula
   desc "Library for database change tracking"
   homepage "https://www.liquibase.org/"
@@ -20,8 +33,6 @@ class Liquibase < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "edb971b0d93ae1c3a7887d7e3b9aa00421a8b9b5e31f90b9e3dde197dafd287a"
   end
 
-  depends_on "openjdk"
-
   def install
     rm_f Dir["*.bat"]
     chmod 0755, "liquibase"
@@ -35,6 +46,8 @@ class Liquibase < Formula
     <<~EOS
       You should set the environment variable LIQUIBASE_HOME to
         #{opt_libexec}
+      temurin17 is the recommended Java runtime; install it via:
+        brew cask install temurin17
     EOS
   end
 
