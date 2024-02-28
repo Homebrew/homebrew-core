@@ -209,9 +209,6 @@
   "dolphie": {
     "exclude_packages": ["certifi", "cryptography"]
   },
-  "dotbot": {
-    "exclude_packages": ["PyYAML"]
-  },
   "dotdrop": {
     "exclude_packages": ["certifi"]
   },
