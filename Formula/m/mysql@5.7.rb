@@ -6,11 +6,6 @@ class MysqlAT57 < Formula
   license "GPL-2.0-only"
   revision 1
 
-  livecheck do
-    url "https://dev.mysql.com/downloads/mysql/5.7.html?tpl=files&os=src&version=5.7"
-    regex(/href=.*?mysql[._-](?:boost[._-])?v?(5\.7(?:\.\d+)*)\.t/i)
-  end
-
   bottle do
     sha256 arm64_sonoma:   "ca2e5c8b98bd92843578ffeae0e6280d3066afc33c814cb1ba49299fe9285f50"
     sha256 arm64_ventura:  "c0ff4905882e49d8baf0446652ee9fa6158b00bcd0d17ef2c1a017d0875c5ae5"
