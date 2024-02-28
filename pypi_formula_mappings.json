@@ -102,7 +102,8 @@
     "exclude_packages": ["certifi", "cryptography"]
   },
   "bzt": {
-    "exclude_packages": ["certifi", "lxml", "numpy", "six", "Cython", "PyYAML", "psutil", "pytz"]
+    "exclude_packages": ["certifi", "Cython", "numpy"],
+    "extra_packages": ["setuptools"]
   },
   "ccm": {
     "extra_packages": ["cassandra-driver", "setuptools"]
