@@ -1,8 +1,8 @@
 class Cfitsio < Formula
   desc "C access to FITS data files with optional Fortran wrappers"
   homepage "https://heasarc.gsfc.nasa.gov/docs/software/fitsio/fitsio.html"
-  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.3.1.tar.gz"
-  sha256 "47a7c8ee05687be1e1d8eeeb94fb88f060fbf3cd8a4df52ccb88d5eb0f5062be"
+  url "https://heasarc.gsfc.nasa.gov/FTP/software/fitsio/c/cfitsio-4.4.0.tar.gz"
+  sha256 "95900cf95ae760839e7cb9678a7b2fad0858d6ac12234f934bd1cb6bfc246ba9"
   license "CFITSIO"
 
   livecheck do
@@ -28,7 +28,7 @@ class Cfitsio < Formula
     system "make", "fpack"
     system "make", "funpack"
     system "make", "install"
-    (pkgshare/"testprog").install Dir["testprog*"]
+    (pkgshare/"testprog").install Dir["testprog*", "utilities/testprog.c"]
   end
 
   test do
