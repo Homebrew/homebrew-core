@@ -155,7 +155,7 @@
     "exclude_packages": ["certifi"]
   },
   "codelimit": {
-    "exclude_packages": ["certifi", "click", "Pygments", "typing-extensions", "six"]
+    "exclude_packages": ["certifi"]
   },
   "conan": {
     "exclude_packages": ["certifi"],
