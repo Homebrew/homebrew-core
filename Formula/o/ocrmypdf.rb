@@ -8,13 +8,14 @@ class Ocrmypdf < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e0d479b2823e39b3aaf29ce6e65bfb9c90466eb37de971f01943535f6be35c5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96936962887c6c6e67ba2e65769a502d341e3b381207f492844f137498dee43e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5d1100246520e4027a5f1c4b806075011161efd81e0b99a588a35f88cc7395db"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6d0ce90438dc21e1eedbae63763dbc24a24216fb2e596601589f6dd35bd1e0dd"
-    sha256 cellar: :any_skip_relocation, ventura:        "83d83d05c778cc5a3d99f7776ed620e1473c891ca22346864ab9fd8032c21710"
-    sha256 cellar: :any_skip_relocation, monterey:       "14d50dac1eb398c7894c367a61784f5894898c0830356f38696e473f96726e77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "66798a4375abe447879ddb18fbcd8878ae8d2d345b56bf7ddf61a748a23540a5"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "379b1b67afbad682d1bc73a781266efaf4d84f22fe6e6bcfd71a5ae53065c0d7"
+    sha256 cellar: :any,                 arm64_ventura:  "c350d4e33c29fb11a037f0a542fa99df15bd393d01bac83dac46dbe2f2296026"
+    sha256 cellar: :any,                 arm64_monterey: "0e2e4c9791b82f8f569cc2aabf9a7385c577758148f70e3e65c401612d766430"
+    sha256 cellar: :any,                 sonoma:         "d18bededf31a1d9f38d358c297137a761efc936b2f1fa76db479c38c7cad02f7"
+    sha256 cellar: :any,                 ventura:        "d9111101599e61d7cdb8c55d391864a535980cc66b58dfd7d13f0b171cf8e68d"
+    sha256 cellar: :any,                 monterey:       "2d297fc051f6834ffee18ea64b3ded82c63e2e97953690818c9f312599d281e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a7524c133727625ddb8bcdb69c50b690cbb7224a8f94ff97ce3ea7839c8649f"
   end
 
   depends_on "freetype"
