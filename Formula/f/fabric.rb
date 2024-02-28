@@ -10,13 +10,14 @@ class Fabric < Formula
   head "https://github.com/fabric/fabric.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e46673aaa5baa307f61b4f917bfd4524c43a4cc9363c8222da0a54e1dcec6f62"
-    sha256 cellar: :any,                 arm64_ventura:  "f247c56f9047681325712198c8f5486125d033f2f3572da1fd9cc8858dc6da6f"
-    sha256 cellar: :any,                 arm64_monterey: "f6905f5ad28807f123a24d5ddb77ed0355aa3b3eadc4402d9b87040e8de67858"
-    sha256 cellar: :any,                 sonoma:         "e43766487cb54f6cf1e54420a84d069600196ac492bbac3f46cfddeb021efd4e"
-    sha256 cellar: :any,                 ventura:        "67b9e6c027110430dacff43353f84e31e0f0bfec6b31570eaa5b5c8f01932b23"
-    sha256 cellar: :any,                 monterey:       "631004a4755b0578ca6309dffff58f83c1375686df4ce89fa9252200123d6295"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "232d94c32efa684b3c1ef1eae3de5cdc6a5c62da426f925beacf324813aa0e81"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "c2116944a2a1e6e0f112da9773a2167616383ac0736ad4e3139c6b0e36ac77b8"
+    sha256 cellar: :any,                 arm64_ventura:  "7d12a47bedf4df869db6476e95a2711a0aa64f51d385df1377275821a27fba3a"
+    sha256 cellar: :any,                 arm64_monterey: "5de3eccf1f4d7d303a18d1c47470e8f282fccb7ad7d744e8fea9bbd56b7a7a01"
+    sha256 cellar: :any,                 sonoma:         "0893a800de0de2d4ccb7d98fbc6939d3eddc04bad3f5b41d5416bc2e5dac816f"
+    sha256 cellar: :any,                 ventura:        "b241b212db30eae4ea85ad2ea91f1ce037a1956ab08be4fb2c2df3900fd7a9f5"
+    sha256 cellar: :any,                 monterey:       "8dff329002cbdff21306942e2bd81adb71ce9eba71b028b5499a7139dd4857dd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19a28d4ca7d2ff534db3d2ccb0330635990be91f257a95b423d151725489ff50"
   end
 
   depends_on "rust" => :build # for bcrypt
