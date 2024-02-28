@@ -256,7 +256,7 @@
   },
   "fabric": {
     "extra_packages": ["decorator"],
-    "exclude_packages": ["cffi", "cryptography", "invoke", "pycparser"]
+    "exclude_packages": ["cryptography"]
   },
   "fava": {
     "exclude_packages": ["certifi"]
