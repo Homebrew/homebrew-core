@@ -4,6 +4,7 @@ class Freerdp < Formula
   url "https://github.com/FreeRDP/FreeRDP/archive/refs/tags/3.3.0.tar.gz"
   sha256 "1667af42f8e84bd6e1478fe368c683f7bba6c736655483b0e778b25706bac9b3"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "a03b12a0cad828cbd31ba2d2c0cf8450004305449388e2978b101d9e16f20001"
