@@ -167,9 +167,8 @@
     "extra_packages": ["distro"]
   },
   "conda-lock": {
-    "exclude_packages": [
-      "certifi", "keyring", "packaging", "pycparser", "pyyaml", "six", "typing-extensions", "virtualenv"
-    ]
+    "exclude_packages": ["certifi", "cryptography"],
+    "extra_packages": ["jeepney", "secretstorage"]
   },
   "cookiecutter": {
     "exclude_packages": ["certifi"]
