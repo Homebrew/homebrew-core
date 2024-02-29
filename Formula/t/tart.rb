@@ -3,8 +3,8 @@ class Tart < Formula
   homepage "https://github.com/cirruslabs/tart"
   # NOTE: 1.x uses non-open source license
   # https://tart.run/blog/2023/02/11/changing-tart-license/
-  url "https://github.com/cirruslabs/tart/archive/refs/tags/0.38.0.tar.gz"
-  sha256 "ca6a46c2373eb9c9e105d2a80229f7cbcdb03d5ce800173ec01b78424f5a5d7f"
+  url "https://github.com/cirruslabs/tart/archive/refs/tags/2.6.1.tar.gz"
+  sha256 "f404a90ea2c34198c1c9ebd67a3f48ed7bebb35fbf39d3609952fb66ec92d844"
   license "AGPL-3.0-or-later"
 
   livecheck do
