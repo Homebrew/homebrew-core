@@ -2,14 +2,13 @@ class NewnodeHelper < Formula
   desc "Web proxy that uses a distributed p2p network to circumvent censorship"
   homepage "https://www.newnode.com/newnode-vpn"
   url "https://github.com/clostra/newnode.git",
-    tag: "2.1.4", revision: "c42a04ded55cfdff857878f4d9234950e530bb00"
+    tag: "2.1.5", revision: "18a3f713267b2a08e34cbe04253df891889997a2"
   license "GPL-2.0-only"
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "coreutils" => :build
   depends_on "libtool" => :build
-  depends_on "mbedtls@2" => :build
   depends_on "pkg-config" => :build
   depends_on xcode: ["9.3", :build]
   depends_on :macos
