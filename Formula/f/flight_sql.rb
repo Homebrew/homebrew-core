@@ -14,6 +14,7 @@ class FlightSql < Formula
   depends_on "openssl@3" => :build
   depends_on "python@3.11" => :build
   depends_on xcode: :build
+  depends_on :macos
 
   def install
     mkdir "build"
