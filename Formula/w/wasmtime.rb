@@ -13,13 +13,13 @@ class Wasmtime < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b96cccbe3e847bf6ae04d8c7400f0d317c6c009a4a52ff721151e9f483f2b2fb"
-    sha256 cellar: :any,                 arm64_ventura:  "c1134d9d250f0c25de321bd5bdb15f7a5678317e32b8d4bb1f3b50e8b8d63c56"
-    sha256 cellar: :any,                 arm64_monterey: "ad37cfa906c0d1a98ab9ed466ec0b7afc0be9f951c76294cb6081c754722d9a5"
-    sha256 cellar: :any,                 sonoma:         "f8276bb098d9f19fe97a1d137a1177c88be2eae677d4b23dc8636fbd12bd9e09"
-    sha256 cellar: :any,                 ventura:        "2e3a0a1a622b2d3a76012f99fd670709c77e0e5a57af08e9276d2649506fcd82"
-    sha256 cellar: :any,                 monterey:       "057b2c6728e3cd3ed32064a533f803be114c5fccdbf4b4a79e1fa89fb6bfd58b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a1ba4b873880abbb2b4b6e559774f1e30754d8b4d629ee406f839381d2b462e"
+    sha256 cellar: :any,                 arm64_sonoma:   "8133bb2cc8b047798ec23ef5e5470eb29b7523ad7a930ec5349079026afa160a"
+    sha256 cellar: :any,                 arm64_ventura:  "ddce8cfd31efcadfa6c272b726daecc4c7387219fd315b2a515e6b309debe281"
+    sha256 cellar: :any,                 arm64_monterey: "20612e02d7b357eb19f4f19900a34829e9889cca643a5bab566ea903816c4f96"
+    sha256 cellar: :any,                 sonoma:         "9cb9b89b103c00f3a7b163108cf89ee0cdd7cb62b205629b85b421ded1d04ee3"
+    sha256 cellar: :any,                 ventura:        "8a12429de4ad31489d989b761375d61be5e963a8e79f22dd09f9d76e25aa4533"
+    sha256 cellar: :any,                 monterey:       "550327a93ffbb7979bc5a222364566a392cb5999d0e485bad6613db728b8948d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "119dcf3009395bc61c085965922e2754e2f329245a1a0565708e1e6f82b2195d"
   end
 
   depends_on "rust" => :build
