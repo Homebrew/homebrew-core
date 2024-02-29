@@ -7,13 +7,13 @@ class ContainerStructureTest < Formula
   head "https://github.com/GoogleContainerTools/container-structure-test.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f038adce4df86137afbd1bdbd1f9585eb7fa218db412ca6693b4342f746387b1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a79c88d9269069353c7af8e28b53722cb66eb26818f4479112a905f24f17f39"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d3f86a5340feae9a44bcb0102b262bc31c83fd61d439a5a1430314f4f08cd4d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ec77c7ab594a7bfbf27a687094cf159c36fd196c507551a122bfa85d30db4f96"
-    sha256 cellar: :any_skip_relocation, ventura:        "512b962c9a6ab3c5d9accd00f6ce4dd3b595779f77aa521beb1b194246485abc"
-    sha256 cellar: :any_skip_relocation, monterey:       "f299f6e84c802461b0e1eb98ec500fa86e6d0bf017be86cb1d26ad2ffde6c3a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3078aa1886902cdd8656382b7fed27b151e9257d0a0d5eaf61bd1a68bd9d5ec1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "856ff7c3f6ddf762d15ea2b69f5065d49f92143f7f4353d0999a2740e6c10cd7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b50992a2021a742afebcd651562cc94580c8ab0dd6c040721496af67597516a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f878d441df542160bfb6b1d4b2281981518174dd33722771977befe95d60f9d3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6eab5580e70fcf4c6fc57762ba17ba30c7ddd131fcbb62266683caa6d53d5463"
+    sha256 cellar: :any_skip_relocation, ventura:        "f4c1d201809e0b798f40191a9c2700d256ac26b2ef9fffd00d1429e8ceef1300"
+    sha256 cellar: :any_skip_relocation, monterey:       "d4a1ae1012216ae5593da0a694bd1768ad25ac18894b2f21315670b44eb857af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1f8f29a5b8091c70525e06261fdf5815ba96d787cba64f56fc5533b15980ece"
   end
 
   depends_on "go" => :build
