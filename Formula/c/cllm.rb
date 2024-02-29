@@ -1,13 +1,15 @@
 class Cllm < Formula
   desc "Empower your CLI experience with a command search tool driven by LLM magic!"
   homepage "https://github.com/dev-backpack/cllm"
-  url "https://github.com/dev-backpack/cllm/releases/download/v0.1.1/cllm-x86_64-apple-darwin.tar.gz"
+  url "https://github.com/dev-backpack/cllm/archive/refs/tags/v0.1.1.tar.gz"
   version "0.1.1"
-  sha256 "bed0845aa5a4f9fc6c5bf3eb8c7d6ef77201c753ce6a4daf74f70e41f1cde47e"
+  sha256 "2f0713c46b9e977e80f0263c7030a60899c4c4020049e2c02b2157844d299103"
   license "MIT"
 
+  depends_on "rust" => :build
+
   def install
-    bin.install "cllm"
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
