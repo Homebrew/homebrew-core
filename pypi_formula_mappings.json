@@ -241,10 +241,7 @@
     "exclude_packages": ["certifi", "lxml", "PyMuPDF", "six"]
   },
   "esphome": {
-    "exclude_packages": [
-      "argcomplete", "certifi", "cffi", "cryptography", "platformio", "protobuf", "pycparser",
-      "pyparsing", "PyYAML", "six", "tabulate"
-    ]
+    "exclude_packages": ["certifi", "cryptography", "protobuf"]
   },
   "esptool": {
     "exclude_packages": ["cryptography"]
