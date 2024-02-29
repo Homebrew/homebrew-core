@@ -353,9 +353,6 @@
     "exclude_packages": ["certifi"],
     "extra_packages": ["requests"]
   },
-  "jello": {
-    "exclude_packages": ["Pygments"]
-  },
   "jenkins-job-builder": {
     "exclude_packages": ["certifi"],
     "extra_packages": ["setuptools"]
