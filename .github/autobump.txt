@@ -221,7 +221,6 @@ cargo-make
 cargo-nextest
 cargo-outdated
 cargo-release
-cargo-udeps
 cargo-watch
 cargo-zigbuild
 carla
@@ -542,7 +541,6 @@ elm-format
 elvish
 emacs-dracula
 embree
-embulk
 emqx
 emscripten
 enchant
@@ -677,7 +675,6 @@ geeqie
 gegl
 genact
 geph4
-gerbil-scheme
 gf
 gh
 ghostunnel
@@ -1465,7 +1462,6 @@ teip
 tektoncd-cli
 teku
 telegraf
-teleport
 tendermint
 tengo
 termshark
