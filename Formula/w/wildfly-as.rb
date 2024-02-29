@@ -11,12 +11,12 @@ class WildflyAs < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "57f9b8fc7e91024ffee776bd858f6a584bc1bf28db61f77d3a5fc7976bc89a4a"
-    sha256 cellar: :any, arm64_ventura:  "57f9b8fc7e91024ffee776bd858f6a584bc1bf28db61f77d3a5fc7976bc89a4a"
-    sha256 cellar: :any, arm64_monterey: "57f9b8fc7e91024ffee776bd858f6a584bc1bf28db61f77d3a5fc7976bc89a4a"
-    sha256 cellar: :any, sonoma:         "a2efe54e3d954ae2a6a9ecda2eb0bd5caed903225835b904cf118b9c3ea7ab39"
-    sha256 cellar: :any, ventura:        "a2efe54e3d954ae2a6a9ecda2eb0bd5caed903225835b904cf118b9c3ea7ab39"
-    sha256 cellar: :any, monterey:       "a2efe54e3d954ae2a6a9ecda2eb0bd5caed903225835b904cf118b9c3ea7ab39"
+    sha256 cellar: :any, arm64_sonoma:   "044be5c1e36113ad826996dc9d8c22343caa9a81ea5416be242fdc3b7f3953b3"
+    sha256 cellar: :any, arm64_ventura:  "044be5c1e36113ad826996dc9d8c22343caa9a81ea5416be242fdc3b7f3953b3"
+    sha256 cellar: :any, arm64_monterey: "044be5c1e36113ad826996dc9d8c22343caa9a81ea5416be242fdc3b7f3953b3"
+    sha256 cellar: :any, sonoma:         "4d6b23a3360a6c12ac10a2e4777d4c647b9ea282c71b9959aef5ab94fa460a7a"
+    sha256 cellar: :any, ventura:        "4d6b23a3360a6c12ac10a2e4777d4c647b9ea282c71b9959aef5ab94fa460a7a"
+    sha256 cellar: :any, monterey:       "4d6b23a3360a6c12ac10a2e4777d4c647b9ea282c71b9959aef5ab94fa460a7a"
   end
 
   # Installs a pre-built `libartemis-native-64.so` file with linkage to libaio.so.1
