@@ -12,6 +12,7 @@ class FlightSql < Formula
   depends_on "gflags" => :build
   depends_on "ninja" => :build
   depends_on "openssl@3" => :build
+  depends_on "python@3.11" => :build
   depends_on xcode: :build
 
   def install
