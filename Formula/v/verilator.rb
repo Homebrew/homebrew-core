@@ -7,13 +7,13 @@ class Verilator < Formula
   head "https://github.com/verilator/verilator.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "b47c7c591fbd98cde34877623e03c4a6c21f0c11b5cba4e05d507ae4856db827"
-    sha256 arm64_ventura:  "771dca8bb5f254ade51cc9ff2fbc43d056cbe25af62cedfa20cb61b7354462fb"
-    sha256 arm64_monterey: "1aaa10214a83b76a414d75f74d5840881e209553aa0a435af7ef92f3ac2c656d"
-    sha256 sonoma:         "143c245daaa629629da0433db91ee700546e282ad3de6cd221e2d82a2bb4fe9f"
-    sha256 ventura:        "f0a6048e4a58c7c08b58fc04a3c7c891b4d6b7623b30f3ceda3547c7ca4e2191"
-    sha256 monterey:       "0cdf4d00c49a7cb5020e8d06bd7ac8e0ab03ef4732998c435b933fdfc89d7da2"
-    sha256 x86_64_linux:   "fe6638a6b8458630c0b73776fe9e9f949d8dc12992e112f7d6971fbf65b645f1"
+    sha256 arm64_sonoma:   "cdbbc21547d6bd630f1084e3de089f806f8cd9a01dc1c21902d3b8a249a01acc"
+    sha256 arm64_ventura:  "54dbd46906419c612e9c1d9dd834bbc264acaa5bec368eaeca6295c27b164d68"
+    sha256 arm64_monterey: "d447146992ddd831dc3939dadf6e0017b964f68a25f8d09bc1cf7672569af004"
+    sha256 sonoma:         "d794010777e190597e399e6027288b42f2982ed1b19fad069cfe9cda0bc6f7e5"
+    sha256 ventura:        "8824e57d2d9b8c49a77ee5f4048574ac9b7c8da162061ebf88251990951db6f9"
+    sha256 monterey:       "1e6d312e7808ffd8c9faedb0a279d0d134a43a8b8b079ab3b8c98cf3f758037a"
+    sha256 x86_64_linux:   "0cbb69277bfcdefef780a639e858533d364b7a59597603327b71f4737681a1fa"
   end
 
   depends_on "autoconf" => :build
