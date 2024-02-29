@@ -6,15 +6,13 @@ class Cgal < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "12c14fd56a5a5674cbbf62b0aba339c22a106d8023db5144aea5877b2c3bff63"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"
-    sha256 cellar: :any_skip_relocation, ventura:        "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b364cb6e61b1a46dbc759046c49c9bb91cfea6bccdbde69a9fb84ffea95a95a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40ae8b7776ee9f69cdeee4e3d648d16ec6807b0643e9b5533b724e7edca54be3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d4b1b6e98b428e1df572307c483c8ad4aaaf0e13b1c06ece4f031991c921f4ef"
+    sha256 cellar: :any_skip_relocation, ventura:        "d4b1b6e98b428e1df572307c483c8ad4aaaf0e13b1c06ece4f031991c921f4ef"
+    sha256 cellar: :any_skip_relocation, monterey:       "d4b1b6e98b428e1df572307c483c8ad4aaaf0e13b1c06ece4f031991c921f4ef"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca93e7df5a46e3faf900422c23919a8bc5e9851ce690d98ae97d758176c91540"
   end
 
   depends_on "cmake" => [:build, :test]
