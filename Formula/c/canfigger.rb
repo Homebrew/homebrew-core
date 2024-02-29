@@ -1,8 +1,8 @@
 class Canfigger < Formula
   desc "Simple configuration file parser library"
   homepage "https://github.com/andy5995/canfigger/"
-  url "https://github.com/andy5995/canfigger/releases/download/v0.2.0/canfigger-0.2.0.tar.xz"
-  sha256 "c43449d5f99f4a5255800c8c521e3eaec7490b08fc4363f2858ba45c565a1d23"
+  url "https://github.com/andy5995/canfigger/releases/download/v0.3.0/canfigger-0.3.0.tar.xz"
+  sha256 "3d813e69e0cc3a43c09cf565138ac1278f7bcea74053204f54e3872c094cb534"
   license "GPL-3.0-or-later"
   head "https://github.com/andy5995/canfigger.git", branch: "trunk"
 
@@ -43,8 +43,8 @@ class Canfigger < Formula
       #include <string.h>
       int main()
       {
-        st_canfigger_list *list = canfigger_parse_file ("test.conf", ',');
-        st_canfigger_list *root = list;
+        char *expected[] = { "one", "two", "three", "four", "five", "six", "seven" };
+        struct Canfigger *list = canfigger_parse_file ("test.conf", ',');
         if (list == NULL)
         {
           fprintf (stderr, "Error");
@@ -52,11 +52,20 @@ class Canfigger < Formula
         }
         assert (strcmp (list->key, "Numbers") == 0);
         assert (strcmp (list->value, "list") == 0);
-        assert (strcmp (list->attr_node->str, "one") == 0);
-        assert (strcmp (list->attr_node->next->str, "two") == 0);
-        assert (strcmp (list->attr_node->next->next->str, "three") == 0);
-        canfigger_free_attr (list->attr_node);
-        canfigger_free (list);
+        char *attr = NULL;
+        canfigger_free_current_attr_str_advance(list->attributes, &attr);
+        int i = 0;
+        while (attr != NULL)
+        {
+          assert (strcmp (attr, expected[i]) == 0);
+          canfigger_free_current_attr_str_advance(list->attributes, &attr);
+          i++;
+        }
+
+        canfigger_free_current_key_node_advance(&list);
+
+        if (i != sizeof expected/sizeof expected[0])
+          return -1;
         return 0;
       }
     EOS
