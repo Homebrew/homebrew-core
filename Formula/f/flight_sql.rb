@@ -1,6 +1,4 @@
 class FlightSql < Formula
-  include Language::Python::Virtualenv
-
   desc "Apache Arrow Flight SQL Server - with DuckDB and SQLite back-ends"
   homepage "https://arrow.apache.org/docs/format/FlightSql.html"
   url "https://github.com/voltrondata/flight-sql-server-example.git",
@@ -8,6 +6,7 @@ class FlightSql < Formula
       revision: "6280bfb7642ac640f6352f01081a7a7b1805a318"
   license "Apache-2.0"
 
+  depends_on "automake" => :build
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "gflags" => :build
