@@ -7,15 +7,13 @@ class Jet < Formula
   head "https://github.com/go-jet/jet.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6c5a750da0df61e3e3dd8140d8dab7988208a040e58e2bb8297764467b350ac"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "19e720e66149cd632a73fce73bbb3993f4b278bef524e70c0b5d380d176b2151"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3575267bfac6e2915d6509d120b3997f35c319e1bf5a2874562775edd8aa34a4"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5558fc8b5d0bbd7309dd2985d957ad62e38631202a9473b331e70fb6d557086a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "08583e8b31ccca7ce40cd1928fdf650609fff73d4f7436389819ee6d9d529942"
-    sha256 cellar: :any_skip_relocation, ventura:        "22c63a2140468e0b01a9d9db4905cc9a9111bb92e79e719d7924cc3f64ac5ff7"
-    sha256 cellar: :any_skip_relocation, monterey:       "0864144bde8a0a64321dc4f52999cf7cecec52335653f17e81b09797315e7b01"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d7a0db87b66cc64e9dc734bc917f8f02fb2c7bfd359ca20403845f5c565eea77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51793306a7358db7fddce5dcc2da3506e852c1428b8ec2470f4989f12e355e83"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc37dc4a48f2b06c33690cdd5a737f73f7610c60e5ae105588715da8789ab381"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "05c571f6400d6f11ab10169f59a4cd1ec3fcd51159862a9174bd2a6d05417718"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8fa3d1f1c64eb438a7857b551f461b42250a4bde7c84a30fc57b96192162b99"
+    sha256 cellar: :any_skip_relocation, sonoma:         "957052707d8100002dc937ccafefc72a54a5af48278f7032b6cc892db2d4b2d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "6d0314543514b17f7d08436b691ce7c4b8bdb4341ec04067247856f2d5f42032"
+    sha256 cellar: :any_skip_relocation, monterey:       "85a0444cb04c2ee9081eb86cfbfbdac5d7b47d610625b37b2ddbd387e1fdb88e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d7df83b4ac072d0ccdb843326d3399a8b1caff71cd56222f3c0325438ff042b"
   end
 
   depends_on "go" => :build
