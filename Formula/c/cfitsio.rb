@@ -11,13 +11,13 @@ class Cfitsio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ee324b42ef67ebfad269e7ac96cfdda35f433984cb6613462651a99a178b6d97"
-    sha256 cellar: :any,                 arm64_ventura:  "44262eb18be219e45b4fd280efa7155502552454828f5dde86c4497d65b85740"
-    sha256 cellar: :any,                 arm64_monterey: "bd9e9397cf816a2937daad46f30d5256fe37bed322e02b4389018978ca0b26fe"
-    sha256 cellar: :any,                 sonoma:         "3c360e9a68a2951174849cf113f75622cbfa00eb6c010b8f2299a9dc6f7c6e8b"
-    sha256 cellar: :any,                 ventura:        "38bdf0ca3aaf441d18d034115a04eab298ef72f46391784ea3618d7d0531ac9b"
-    sha256 cellar: :any,                 monterey:       "724020e1ee162c1ea78e4c0c82b29cb111946824e4bae7eb88b000979dc42f69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b17cdc6cab966a590c137f3ff656ddf5a029dcffd40b0f870bec9cee3b7fb8c"
+    sha256 cellar: :any,                 arm64_sonoma:   "b03ed1452ea75406a4cb032d9ffdff6d0212fe32ed37c804dbed5131326b50b8"
+    sha256 cellar: :any,                 arm64_ventura:  "eeef88260a116dfd268b0da53b5b29f68703a60d1a6d73f548c512c2bc40f8a0"
+    sha256 cellar: :any,                 arm64_monterey: "9cdb23e252f43ad8297eb56127828dd3d57e925e5a697f22a572ea3246888c32"
+    sha256 cellar: :any,                 sonoma:         "6fa804978d31fade2b596e6b7f8c511d7306b48521a1bfbfb99af1fb175bca26"
+    sha256 cellar: :any,                 ventura:        "5dd2a84c1e4b537b80dc95cac5693fb6621407477e3dcdd2d5026d7395330b92"
+    sha256 cellar: :any,                 monterey:       "15c76678e98ca4b654ebafd68915fdca5fa06641a2870bc4f2bf7995a5c7a25c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06931190944abe9dd019cb2be0bf2ef97607e80e27610b1e77c550a19294df94"
   end
 
   uses_from_macos "zlib"
