@@ -12,13 +12,13 @@ class PgpoolIi < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "3a07a65c018ddd09e1316aaffdd7c9de2adb67a3480c89200560f6e5a208467f"
-    sha256 arm64_ventura:  "8a8c8605f04a1b0a1ba3ed092b41a311f14b236581f851cb67273bca3139c903"
-    sha256 arm64_monterey: "9da21341ccb6186e28e9fb172634e0d35074274551ad08f731a4e03a3e302cf9"
-    sha256 sonoma:         "dff4e96e974c04685c426ad3ea0a7ba1048f42c3dc2e61cee21c2325578f70e0"
-    sha256 ventura:        "5f92013e40bd8f599572e4a545affdb82c4783157fd98e801672b0432d2d8f65"
-    sha256 monterey:       "7a9e5e19d24ca077cb7452596e8e021c9513d7ace33bd736a841e11fe127556c"
-    sha256 x86_64_linux:   "83483c977d45453a98dfb4d432fb7a7bfa19da57aafaec468c1eea5aaaf9b907"
+    sha256 arm64_sonoma:   "ec4d38c4b5c73bc5cbcd3c2355e20cb1c6ce302392585bdcebdafb3aef15b917"
+    sha256 arm64_ventura:  "807ec55e9d36041dc0c190ca21d3d10fd115355fb10f649f4864c4ef8aa979ee"
+    sha256 arm64_monterey: "38480a1464a8da32afda555d67b8d1f65df6493196b012681e9d12a20b69041d"
+    sha256 sonoma:         "b3aca47abf17eab1e042f314d209742bdddb148934a3d37ee5cd3578d797d1bf"
+    sha256 ventura:        "616694d55e745fbb55bdd46a6d7d01e5db47ad2382eb7839cb181a2ceda33033"
+    sha256 monterey:       "c4087418b227e67985b445b7329d3cc3c4bdea7104b6718369c67d9b9f1468e0"
+    sha256 x86_64_linux:   "0ecc3f571a533b689a749f83de5fb813e23a909ba5efdb595eb2f6d9aa796785"
   end
 
   depends_on "libmemcached"
