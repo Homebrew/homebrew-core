@@ -6,11 +6,13 @@ class MacBrightnessctl < Formula
   license "MIT"
 
   livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    url "https://github.com/rakalex/mac-brightnessctl/releases/latest/download/mac-brightnessctl.tar.gz"
+    regex(/^v?(\d+(\.\d+)+)$/i)
   end
 
   on_macos do
+    depends_on "make" => :build
+
     def install
       system "make"
       bin.install "mac-brightnessctl"
