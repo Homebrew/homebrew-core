@@ -5,22 +5,11 @@ class MacBrightnessctl < Formula
   sha256 "2a275269326ef2a396d87b5b1dff4779d9a003e9474454a6f0df32e01b0bc4d7"
   license "MIT"
 
-  livecheck do
-    url "https://github.com/rakalex/mac-brightnessctl/releases/latest/download/mac-brightnessctl.tar.gz"
-    regex(/^v?(\d+(\.\d+)+)$/i)
-  end
+  depends_on :macos
 
-  on_macos do
-    depends_on "make" => :build
-
-    def install
-      system "make"
-      bin.install "mac-brightnessctl"
-    end
-  end
-
-  on_linux do
-    disable! "This formula is intended for macOS only."
+  def install
+    system "make"
+    bin.install "mac-brightnessctl"
   end
 
   test do
