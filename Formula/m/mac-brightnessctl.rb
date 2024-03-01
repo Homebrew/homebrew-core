@@ -17,6 +17,10 @@ class MacBrightnessctl < Formula
     end
   end
 
+  on_linux do
+    disable! "This formula is intended for macOS only."
+  end
+
   test do
     assert_match "Usage:", shell_output("#{bin}/mac-brightnessctl --help")
   end
