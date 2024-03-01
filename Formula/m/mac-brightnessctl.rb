@@ -16,4 +16,8 @@ class MacBrightnessctl < Formula
       bin.install "mac-brightnessctl"
     end
   end
+
+  test do
+    assert_match "Usage:", shell_output("#{bin}/mac-brightnessctl --help")
+  end
 end
