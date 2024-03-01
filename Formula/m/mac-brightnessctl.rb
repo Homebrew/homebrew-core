@@ -5,6 +5,13 @@ class MacBrightnessctl < Formula
   sha256 "2a275269326ef2a396d87b5b1dff4779d9a003e9474454a6f0df32e01b0bc4d7"
   license "MIT"
 
+  livecheck do
+    url :stable
+    strategy :git do |tags|
+      tags.map { |tag| tag[/^(\d{4}-\d{2}-\d{2})$/i, 1]&.gsub(/\D/, "") }.compact
+    end
+  end
+
   depends_on :macos
 
   def install
