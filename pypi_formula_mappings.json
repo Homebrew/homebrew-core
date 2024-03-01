@@ -539,6 +539,16 @@
       "PyQt6-NetworkAuth", "PyQt6-WebEngine"
     ]
   },
+  "pyqt@5": {
+    "exclude_packages": [
+      "pyqt5-qt5", "pyqt3d-qt5", "pyqtchart-qt5", "pyqtdatavisualization-qt5",
+      "pyqtnetworkauth-qt5", "pyqtpurchasing-qt5", "pyqtwebengine-qt5"
+    ],
+    "extra_packages": [
+      "pyqt3d", "pyqtchart", "pyqtdatavisualization",
+      "pyqtnetworkauth", "pyqtpurchasing", "pyqtwebengine"
+    ]
+  },
   "pyqt-builder": {
     "exclude_packages": ["packaging", "pyparsing", "sip", "toml"]
   },
