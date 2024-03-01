@@ -8,7 +8,7 @@ class MacBrightnessctl < Formula
   livecheck do
     url :stable
     strategy :git do |tags|
-      tags.map { |tag| tag[/^(\d{4}-\d{2}-\d{2})$/i, 1]&.gsub(/\D/, "") }.compact
+      filter_map { |tag| tag[/^(\d{4}-\d{2}-\d{2})$/i, 1]&.gsub(/\D/, "") }.compact
     end
   end
 
