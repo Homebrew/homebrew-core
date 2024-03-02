@@ -3,10 +3,9 @@ class Klee < Formula
 
   desc "Symbolic Execution Engine"
   homepage "https://klee.github.io/"
-  url "https://github.com/klee/klee/archive/refs/tags/v3.0.tar.gz"
-  sha256 "204ebf0cb739886f574b1190b04fa9ed9088770c0634984782e9633d1aa4bdc9"
+  url "https://github.com/klee/klee/archive/refs/tags/v3.1.tar.gz"
+  sha256 "ae3d97209fa480ce6498ffaa7eaa7ecbbe22748c739cb7b2389391d0d9c940f7"
   license "NCSA"
-  revision 2
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
@@ -22,7 +21,7 @@ class Klee < Formula
   depends_on "cmake" => :build
   depends_on "python-setuptools" => :build
   depends_on "gperftools"
-  depends_on "llvm@14" # LLVM 16 PR: https://github.com/klee/klee/pull/1664
+  depends_on "llvm@16" # llvm 17 support issue, https://github.com/klee/klee/issues/1705
   depends_on "python-tabulate"
   depends_on "python@3.12"
   depends_on "sqlite"
@@ -36,8 +35,8 @@ class Klee < Formula
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz"
-    sha256 "8b3cfd7bc695bd6cea0f37f53f0981f34f87496e79e2529874fd03a2f9dd3a8a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
+    sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
   end
 
   def llvm
@@ -55,7 +54,9 @@ class Klee < Formula
       libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %w[
         -DCMAKE_C_COMPILER=wllvm
         -DCMAKE_CXX_COMPILER=wllvm++
-        -DLLVM_ENABLE_PROJECTS=libcxx;libcxxabi
+        -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
+        -DLLVM_ENABLE_PROJECTS=
+        -DLLVM_ENABLE_PROJECTS_USED:BOOL=ON"
         -DLLVM_ENABLE_THREADS:BOOL=OFF
         -DLLVM_ENABLE_EH:BOOL=OFF
         -DLLVM_ENABLE_RTTI:BOOL=OFF
@@ -76,20 +77,18 @@ class Klee < Formula
         ]
       end
 
-      mkdir "llvm/build" do
-        with_env(
-          LLVM_COMPILER:      "clang",
-          LLVM_COMPILER_PATH: llvm.opt_bin,
-        ) do
-          system "cmake", "..", *libcxx_args
-          system "make", "cxx"
-          system "make", "-C", "projects", "install"
+      with_env(
+        LLVM_COMPILER:      "clang",
+        LLVM_COMPILER_PATH: llvm.opt_bin,
+      ) do
+        system "cmake", "-S", "llvm", "-B", "libcxx_build", *libcxx_args
+        system "cmake", "--build", "libcxx_build"
+        system "cmake", "--install", "libcxx_build"
 
-          Dir[libcxx_install_dir/"lib"/shared_library("*"), libcxx_install_dir/"lib/*.a"].each do |sl|
-            next if File.symlink? sl
+        Dir[libcxx_install_dir/"lib"/shared_library("*"), libcxx_install_dir/"lib/*.a"].each do |sl|
+          next if File.symlink? sl
 
-            system "extract-bc", sl
-          end
+          system "extract-bc", sl
         end
       end
     end
@@ -105,13 +104,15 @@ class Klee < Formula
     # https://github.com/klee/klee/blob/v#{version}/README-CMake.md
     args = %W[
       -DKLEE_RUNTIME_BUILD_TYPE=Release
+      -DENABLE_KLEE_LIBCXX=ON
       -DKLEE_LIBCXX_DIR=#{libcxx_install_dir}
-      -DKLEE_LIBCXX_INCLUDE_DIR=#{libcxx_install_dir}/include/c++/v1
+      -DKLEE_LIBCXX_BC_PATH=#{libcxx_install_dir}/lib
+      -DKLEE_LIBCXX_INCLUDE_DIR=#{libcxx_install_dir}/include
+      -DKLEE_LIBCXX_INCLUDE_PATH=#{libcxx_install_dir}/include/c++/v1
       -DKLEE_LIBCXXABI_SRC_DIR=#{libcxx_src_dir}/libcxxabi
       -DLLVM_CONFIG_BINARY=#{llvm.opt_bin}/llvm-config
       -DM32_SUPPORTED=OFF
       -DENABLE_KLEE_ASSERTS=ON
-      -DENABLE_KLEE_LIBCXX=ON
       -DENABLE_SOLVER_STP=ON
       -DENABLE_TCMALLOC=ON
       -DENABLE_SOLVER_Z3=ON
@@ -160,7 +161,7 @@ class Klee < Formula
                     testpath/"get_sign.c"
 
     expected_output = <<~EOS
-      KLEE: done: total instructions = 33
+      KLEE: done: total instructions = 32
       KLEE: done: completed paths = 3
       KLEE: done: partially completed paths = 0
       KLEE: done: generated tests = 3
