@@ -851,8 +851,6 @@ ivykis
 jackett
 jadx
 jaq
-jasper
-java-service-wrapper
 jc
 jd
 jdtls
