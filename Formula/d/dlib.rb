@@ -33,6 +33,7 @@ class Dlib < Formula
       -Dcblas_lib=#{Formula["openblas"].opt_lib/shared_library("libopenblas")}
       -Dlapack_lib=#{Formula["openblas"].opt_lib/shared_library("libopenblas")}
       -DDLIB_NO_GUI_SUPPORT=ON
+      -DDLIB_LINK_WITH_SQLITE3=OFF
       -DBUILD_SHARED_LIBS=ON
     ]
 
