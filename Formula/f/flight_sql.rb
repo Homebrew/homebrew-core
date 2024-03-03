@@ -12,18 +12,15 @@ class FlightSql < Formula
   depends_on "gflags" => :build
   depends_on "ninja" => :build
   depends_on "openssl@3" => :build
-  depends_on "python@3.11" => :build
+  depends_on "python@3.12" => :build
   depends_on xcode: :build
   depends_on :macos
 
   def install
-    mkdir "build"
-    cd "build" do
-      system "cmake", "-S", "..", *std_cmake_args, "-G", "Ninja"
-      system "cmake", "--build", ".", "--target", "install"
-      bin.install "flight_sql_server"
-      bin.install "flight_sql_client"
-    end
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build", "--target", "install"
+    bin.install "flight_sql_server"
+    bin.install "flight_sql_client"
   end
 
   test do
