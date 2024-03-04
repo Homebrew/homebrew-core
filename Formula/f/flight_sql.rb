@@ -2,8 +2,8 @@ class FlightSql < Formula
   desc "Apache Arrow Flight SQL Server - with DuckDB and SQLite back-ends"
   homepage "https://arrow.apache.org/docs/format/FlightSql.html"
   url "https://github.com/voltrondata/flight-sql-server-example.git",
-      tag:      "v1.2.3",
-      revision: "72360f270f98ec3fc0516999fb946b9d5f0f839c"
+      tag:      "v1.2.5",
+      revision: "242e77488a6b59c7d91b34e7d5b63f8bf97d2825"
   license "Apache-2.0"
 
   depends_on "automake" => :build
