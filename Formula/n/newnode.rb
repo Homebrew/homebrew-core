@@ -15,24 +15,24 @@ class NewnodeHelper < Formula
 
   def install
     system "./build.sh"
-    bin.install "client" => "newnode-helper"
-    path = (var/"newnode-helper")
+    bin.install "client" => "newnode"
+    path = (var/"newnode")
     path.mkpath
     path.chmod 0775
   end
 
   service do
-    run [opt_bin/"newnode-helper", "-p", "8006"]
+    run [opt_bin/"newnode", "-p", "8006"]
     keep_alive true
-    working_dir var/"newnode-helper"
-    log_path var/"log/newnode-helper.log"
-    error_log_path var/"log/newnode-helper-error.log"
+    working_dir var/"newnode"
+    log_path var/"log/newnode.log"
+    error_log_path var/"log/newnode-error.log"
   end
 
   test do
     port = free_port
     pid = fork do
-      exec bin/"newnode-helper", "-p", port.to_s
+      exec bin/"newnode", "-p", port.to_s
     end
     sleep 5
 
