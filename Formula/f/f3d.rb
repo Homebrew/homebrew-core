@@ -30,6 +30,12 @@ class F3d < Formula
   depends_on "opencascade"
   depends_on "vtk"
 
+  # Upstream fix for https://github.com/f3d-app/f3d/issues/1087
+  patch do
+    url "https://github.com/f3d-app/f3d/commit/a5ecb6bd.patch?full_index=1"
+    sha256 "62856957da64bdf56243c11573b79a624979d9952f64c613c7fe8d5f0ab484dc"
+  end
+
   def install
     args = %W[
       -DBUILD_SHARED_LIBS:BOOL=ON
