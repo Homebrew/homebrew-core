@@ -30,14 +30,13 @@ class NewnodeHelper < Formula
   end
 
   test do
-    # use wget to try to download a file via the newnode's HTTP proxy
-    # if that works, newnode vpn is working
+    port = free_port
     pid = fork do
-      exec "#{opt_bin}/newnode-helper", "-p", "8006"
+      exec bin/"newnode-helper", "-p", port.to_s
     end
     sleep 5
 
-    ENV["https_proxy"] = "http://localhost:8006"
+    ENV["https_proxy"] = "http://localhost:#{port}"
     begin
       system "curl", "https://brew.sh"
     ensure
