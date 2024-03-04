@@ -2,8 +2,8 @@ class FlightSql < Formula
   desc "Apache Arrow Flight SQL Server - with DuckDB and SQLite back-ends"
   homepage "https://arrow.apache.org/docs/format/FlightSql.html"
   url "https://github.com/voltrondata/flight-sql-server-example.git",
-      tag:      "v1.2.1",
-      revision: "6280bfb7642ac640f6352f01081a7a7b1805a318"
+      tag:      "v1.2.3",
+      revision: "72360f270f98ec3fc0516999fb946b9d5f0f839c"
   license "Apache-2.0"
 
   depends_on "automake" => :build
@@ -14,13 +14,10 @@ class FlightSql < Formula
   depends_on "openssl@3" => :build
   depends_on "python@3.12" => :build
   depends_on xcode: :build
-  depends_on :macos
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build", "--target", "install"
-    bin.install "flight_sql_server"
-    bin.install "flight_sql_client"
   end
 
   test do
