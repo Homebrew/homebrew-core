@@ -1,8 +1,8 @@
 class Popeye < Formula
   desc "Kubernetes cluster resource sanitizer"
   homepage "https://popeyecli.io"
-  url "https://github.com/derailed/popeye/archive/refs/tags/v0.20.4.tar.gz"
-  sha256 "cc46f8dd975ac86686202a188d30d45e0a327acfccf339e1d3b7595e0ec76427"
+  url "https://github.com/derailed/popeye/archive/refs/tags/v0.20.5.tar.gz"
+  sha256 "65bd1d1cc13e48ec44c9be0c45d514fbc06e39ec6b38ebce18f07988a329317c"
   license "Apache-2.0"
 
   bottle do
@@ -30,7 +30,7 @@ class Popeye < Formula
   end
 
   test do
-    output = shell_output("#{bin}/popeye --save --out html --output-file report.html 2>&1", 2)
+    output = shell_output("#{bin}/popeye --save --out html --output-file report.html 2>&1", 1)
     assert_match "connect: connection refused", output
 
     assert_match version.to_s, shell_output("#{bin}/popeye version")
