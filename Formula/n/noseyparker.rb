@@ -8,14 +8,13 @@ class Noseyparker < Formula
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc5d06c0d92862dcf8e88acf3a141a2b3f1b827334b103cb7ea6b7fb0e70a016"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b0500c41c8dc69cbc9d65aa8bda8b480ed5a777fc630037763d7e8027943309"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d8475de78661a784dea6b9fac97f0e57b2307b175b13e3c728629a0630da2b1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c9ef38987d3313d3772a25ba8492260b592ce9fa57697e66cb55c2f59b3026f5"
-    sha256 cellar: :any_skip_relocation, ventura:        "89d5aa10e33bceba1a07d38d5e7600d382c293ac67acca0c488023bd87ecfb7e"
-    sha256 cellar: :any_skip_relocation, monterey:       "d6270739d4c971d09ee74c48103f76adb8050836cc0a092e6c73d2c6253054d0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b07cb6341ff98dcedbe9a57795c5b9bb61db9fe3bb136c427d18244d6f85a1ec"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ec62c97c2d7b6f72b391e310d9e1d0943d189aa1cd1c123c2b2f8af2b545ff3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8adaa248fb06359347e0a226f6232b562cee6828b093b0c431708a26d9f26e8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f349cdb736656c7dce734b40ba5ddea1e9b8d32452774cde1027bcd0996636f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6d07bea1bb599eb99b08345aab528237d97834a6254444291ee85ea6f916ff9"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf3c5f42d92ebeef36c38885f359af905bdc16a205f9b944febde2980a16b033"
+    sha256 cellar: :any_skip_relocation, monterey:       "35f5ac450e27c913cea22cef5212427bab66e764a5e622788a3c7b829a2fbc77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ba2a98bb72af407674b5d60cda47a6a584b6a0f1272a8955c192a16d172e3df"
   end
 
   depends_on "cmake" => :build
