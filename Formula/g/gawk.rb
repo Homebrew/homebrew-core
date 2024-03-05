@@ -8,13 +8,14 @@ class Gawk < Formula
   head "https://git.savannah.gnu.org/git/gawk.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "0ef661ff666f91dc709142739643045cdb0d5e551ebd50e291ff5aba6eb618cc"
-    sha256 arm64_ventura:  "e4d8d214cf4fbb002e8e126f67cf18846920133b4a65ed8ba2ad468cc49209e3"
-    sha256 arm64_monterey: "e467ce97a8c5a7900696215c9b47ac0e1b995ff341248de063e743cd2e6c7e81"
-    sha256 sonoma:         "5b86d052d87f04b68db3f72000edb6c685c88ac1b7ffa0f895ca8273f6ddef06"
-    sha256 ventura:        "961cdc2469d6024f727f9ed6565aeec04e33770a53350109461389366a33d01e"
-    sha256 monterey:       "2c31bf294df4959ff3dadb71268416885aaa52ba25ece4dfc79b617ab5ce3f6b"
-    sha256 x86_64_linux:   "3027c2f8c9192fa35085eeadb6c88b1aa9f577660a7955b0a30f7ca2121c34ab"
+    rebuild 1
+    sha256 arm64_sonoma:   "499846eee5d2c6b3be6fd9b7c6097728f935453741b9f148890fc05dfa46da77"
+    sha256 arm64_ventura:  "8f10baab1fd634eba3b7f84edd353d9f978de2b11d20e76cb4294eb6fc963934"
+    sha256 arm64_monterey: "f9885785f17b99fe4fdd3ed0df6c18835cd0d65d5cfa6f46b4eb193856a36495"
+    sha256 sonoma:         "2b93e1aec7726e3276bcd4826b3f258c2bdad143ffcf6d36ea7b2b317fa3175e"
+    sha256 ventura:        "d024c72187389da9f92ce7264dd199ab624fb0b25a210ce612705b5f8a1b9af5"
+    sha256 monterey:       "1171dc2bb9c744ee48d96a379be108b80550daff5ed472512c16f73349ef9e50"
+    sha256 x86_64_linux:   "a9c75546a0a9e37feed5cbe1512c3d1ff31f27349c5e63ed1934a60b2f25f576"
   end
 
   depends_on "gettext"
