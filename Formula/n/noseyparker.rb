@@ -2,8 +2,8 @@ class Noseyparker < Formula
   desc "Finds secrets and sensitive information in textual data and Git history"
   homepage "https://github.com/praetorian-inc/noseyparker"
   url "https://github.com/praetorian-inc/noseyparker.git",
-      tag:      "v0.16.0",
-      revision: "6fac285015b6e07bc8eacc020d3f3f270c0bfe2c"
+      tag:      "v0.17.0",
+      revision: "41f30e2ca0186435ed3649e220549d4a4516109f"
   license "Apache-2.0"
   head "https://github.com/praetorian-inc/noseyparker.git", branch: "main"
 
@@ -30,7 +30,7 @@ class Noseyparker < Formula
     system "cargo", "install", "--features", "release", *std_cargo_args(path: "crates/noseyparker-cli")
     mv bin/"noseyparker-cli", bin/"noseyparker"
 
-    generate_completions_from_executable(bin/"noseyparker", "shell-completions", "--shell")
+    generate_completions_from_executable(bin/"noseyparker", "generate", "shell-completions", "--shell")
   end
 
   test do
