@@ -1,5 +1,6 @@
 class Klee < Formula
   include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "Symbolic Execution Engine"
   homepage "https://klee.github.io/"
@@ -20,10 +21,8 @@ class Klee < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python-setuptools" => :build
   depends_on "gperftools"
   depends_on "llvm@14" # LLVM 16 PR: https://github.com/klee/klee/pull/1664
-  depends_on "python-tabulate"
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "stp"
@@ -40,11 +39,33 @@ class Klee < Formula
     sha256 "8b3cfd7bc695bd6cea0f37f53f0981f34f87496e79e2529874fd03a2f9dd3a8a"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
+
+  resource "tabulate" do
+    url "https://files.pythonhosted.org/packages/ec/fe/802052aecb21e3797b8f7902564ab6ea0d60ff8ca23952079064155d1ae1/tabulate-0.9.0.tar.gz"
+    sha256 "0095b12bf5966de529c0feb1fa08671671b3368eec77d7ef7ab114be2c068b3c"
+  end
+
   def llvm
     deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
   end
 
+  def python3
+    "python3.12"
+  end
+
   def install
+    venv = virtualenv_create(buildpath/"venv", python3)
+    venv.pip_install resource("setuptools")
+    ENV.prepend_path "PYTHONPATH", buildpath/"venv"/Language::Python.site_packages(python3)
+
+    venv2 = virtualenv_create(libexec, python3)
+    venv2.pip_install resource("tabulate")
+    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+
     libcxx_install_dir = libexec/"libcxx"
     libcxx_src_dir = buildpath/"libcxx"
     resource("libcxx").stage libcxx_src_dir
