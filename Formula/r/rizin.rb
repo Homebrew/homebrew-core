@@ -1,8 +1,8 @@
 class Rizin < Formula
   desc "UNIX-like reverse engineering framework and command-line toolset"
   homepage "https://rizin.re"
-  url "https://github.com/rizinorg/rizin/releases/download/v0.7.1/rizin-src-v0.7.1.tar.xz"
-  sha256 "149dc8eed4070089b6e4e65071d55f571c0d2e4c72d2ee420562a2321308c294"
+  url "https://github.com/rizinorg/rizin/releases/download/v0.7.2/rizin-src-v0.7.2.tar.xz"
+  sha256 "fcff3fb45ae2b75e3f604bc7a08076e322e6e14def79098186378065ccb3582a"
   license "LGPL-3.0-only"
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
