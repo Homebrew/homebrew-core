@@ -1,4 +1,4 @@
-class NewnodeHelper < Formula
+class Newnode < Formula
   desc "Web proxy that uses a distributed p2p network to circumvent censorship"
   homepage "https://www.newnode.com/newnode-vpn"
   url "https://github.com/clostra/newnode.git",
