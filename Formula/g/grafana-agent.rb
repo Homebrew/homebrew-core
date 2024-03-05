@@ -6,13 +6,13 @@ class GrafanaAgent < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b11f3617c6ebbce8cd7c12904ece73acb7c4141f6b42e8f1f28a173d2c512567"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "949c320545a842f2c6db12e595ebf156dbcf07ed04487e6039c0d28854d64ba1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "83885403e4f420756275128dc2df441c130c9065148fedea59bffae7eaa9d2ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "74458c9f93bf830fb3a10617b3ae81142ace301e5d38bdbcc67f0f795a4f5520"
-    sha256 cellar: :any_skip_relocation, ventura:        "10aaa07f21e74823e126e3e48f5d99d54f1f36825baf3dac65e71d019c82e61f"
-    sha256 cellar: :any_skip_relocation, monterey:       "13de6d2c58b07c949ee83cd4ebfee8f1d85368b8b54bef550d725350ae420ceb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06198c6fd73c77d6576dcd4ddc3844569ad07b2b303c0799fd74ee93ac4750f1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b03d16e253827e0fc595e415cdd1b44169f4ff29579c9706e816126784179fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39861dab2c6d2f68cb379d042eaf0a4c9a3238286e695bac800516c33cd55a5e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "501664cf5d80ca21587d6e103365acfc3883c8b8527c54bee22f2892cdf9568e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9f516a9d6ca07576b9f46c3ddaf7954bbbe914f91eccb404accf5070c16dcf8c"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd518a9ce4ab7c80cdde77143f958d4d04b9d3751a056717265f34935efd1824"
+    sha256 cellar: :any_skip_relocation, monterey:       "24d61cd169f51d1ed2301ec995f76fdc49aa35ac992df011baac1233611dd8fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65b4f1ba05d2d554a146ddbb6c36b097fa8eb7d0c27e9e216891d187468dc143"
   end
 
   depends_on "go@1.21" => :build # use "go" again when https://github.com/grafana/agent/pull/6139 is released
