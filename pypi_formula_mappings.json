@@ -693,9 +693,6 @@
   "svtplay-dl": {
     "exclude_packages": ["certifi", "cryptography"]
   },
-  "terminator": {
-    "exclude_packages": ["psutil"]
-  },
   "theharvester": {
     "exclude_packages": ["certifi"]
   },
