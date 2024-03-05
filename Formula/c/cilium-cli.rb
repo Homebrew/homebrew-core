@@ -1,8 +1,8 @@
 class CiliumCli < Formula
   desc "CLI to install, manage & troubleshoot Kubernetes clusters running Cilium"
   homepage "https://cilium.io"
-  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.15.23.tar.gz"
-  sha256 "0e8fa2a15f8783cda36c11870a22621cc28d7cb9da587c577248fcf20444759a"
+  url "https://github.com/cilium/cilium-cli/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "735ff90f94f4a39ff5371acf78f302199e4458f03d505934f804e6905bd24ae3"
   license "Apache-2.0"
 
   # Upstream uses GitHub releases to indicate that a version is released
@@ -26,8 +26,8 @@ class CiliumCli < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = "-s -w -X github.com/cilium/cilium-cli/cli.Version=v#{version}"
-    system "go", "build", *std_go_args(output: bin/"cilium", ldflags: ldflags), "./cmd/cilium"
+    ldflags = "-s -w -X github.com/cilium/cilium-cli/defaults.CLIVersion=v#{version}"
+    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"cilium"), "./cmd/cilium"
 
     generate_completions_from_executable(bin/"cilium", "completion", base_name: "cilium")
   end
