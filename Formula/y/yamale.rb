@@ -9,14 +9,13 @@ class Yamale < Formula
   head "https://github.com/23andMe/Yamale.git", branch: "master"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_sonoma:   "537b215d7ace1197ab947adf9f74dddc1bfff996252d6cf1a576de7dd93c3473"
-    sha256 cellar: :any,                 arm64_ventura:  "294ef10fd3d56aa2254e906a2de8b81ad8ae768499dfef026be01e84a62941c4"
-    sha256 cellar: :any,                 arm64_monterey: "351d34280958b5f6184a619a5db348f142e9500bdbe966d3281e5da3222f372c"
-    sha256 cellar: :any,                 sonoma:         "954bbc58163d984669dbea615002c36f0dcf731944042348b719ab1ad68ac616"
-    sha256 cellar: :any,                 ventura:        "d4fe9a642e834e771ddeea3a43ad2d3784cccfc64b6d7d7101cd4a2c8e0f2081"
-    sha256 cellar: :any,                 monterey:       "ed0cd3ab62fc753fbc6c4850af044abf4f64e3a3e55e19aef18516278065dc57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a8562f639335608c5672873b912a2354d972516f0a435ddc90734d119ec7e7a"
+    sha256 cellar: :any,                 arm64_sonoma:   "93aac388fcd9e9eac86664fbf861f47e176f63de8c5825f15aac6f3979042b07"
+    sha256 cellar: :any,                 arm64_ventura:  "0fcc69f665110653a1d77729388932ba1f5ed20e789b711a561e10cc182ed72f"
+    sha256 cellar: :any,                 arm64_monterey: "2a78731e2b57463d5e9c16e6c1779c8cd977169251c6d08587760c8705e4664f"
+    sha256 cellar: :any,                 sonoma:         "d6dd1f0c441dffc38a8d14c73a633f98e47bb8d1356ffe5d16cbb55b0cf9073a"
+    sha256 cellar: :any,                 ventura:        "255b612151df695aa6ba0f3f661c30effb131b36c0b8f76998fc85eb3c650574"
+    sha256 cellar: :any,                 monterey:       "d20eeeefa31a4695208616418ac2914cee98a91e4469925ae510e91228c67dfc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b9de997a035362a7317e54a4f70ae489e2e651c7553951f6b54a86aa071f02d"
   end
 
   depends_on "libyaml"
