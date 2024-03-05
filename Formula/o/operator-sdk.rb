@@ -13,13 +13,13 @@ class OperatorSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7b45852070ba2b651ccafa070c30e80976adb0959e8b10264b6ef3f87f7601e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3c68acae64499125a003a9293d54dcfe748f289f660107c0ad0305252bbc54ae"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0457ff91e01660c2a8ab699518f8ef7a220ed1d63a8cd273aa724017f6c7e45a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "98ad3b70cb9e5c14fc85001a08ab6e3dafc5da6e312acd62b2d4cec5f9ed6cf0"
-    sha256 cellar: :any_skip_relocation, ventura:        "c27c851291a3b086252c04da4b8c4148e83340d07bc7c7e0299be93c9a18252e"
-    sha256 cellar: :any_skip_relocation, monterey:       "251f89b903944735d88937d5e19d01e50f282a0e42958797189c885797c31e2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bde602e2f69b8f8af5466f6274d7397ba9d9606c809557ecad062305de9ea1a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ee180a4e583804440cb95f410b9eb164becfb9396ce5b1f8514610432a76b6af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0355eb6ffabcc0b00d8fc44337c574b7617b17ef6dd06e8dd7ba4d75b2be9241"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b84f2c2b5c1f37c8c9aaedbdd6d81e57010c9c64e6318a9d4b7f335f76dc15b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "10588a890073b8adba6341f0989b74ed973a715bea7db99dc276eb5d78c366d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "b47bbcd9346383a75c08e7435f2c70221c6cd69f5f39f7ad7bc1d21a547597e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "78c2b7e7d97e57956eeee393414de573fa018fc967191bb6c34f089b5043a98b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e8d51713b7d920b6a536ec87ef6f84cbc02fba4b3af2ddafbe120b8adbcc316"
   end
 
   # use "go" again when https://github.com/operator-framework/operator-sdk/issues/6644 is resolved and released
