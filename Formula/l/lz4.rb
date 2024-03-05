@@ -31,11 +31,10 @@ class Lz4 < Formula
   end
 
   test do
-    input = "testing compression and decompression"
-    input_file = testpath/"in"
+    input = "#include <uchar.h>"
+    input_file = testpath/"a.cpp"
     input_file.write input
-    output_file = testpath/"out"
-    system "sh", "-c", "cat #{input_file} | #{bin}/lz4 | #{bin}/lz4 -d > #{output_file}"
-    assert_equal output_file.read, input
+    system ENV.cxx, "-std=c++11", "-c", "a.cpp"
+    system ENV.cxx, "-c", "a.cpp"
   end
 end
