@@ -1,8 +1,8 @@
 class Flowpipe < Formula
   desc "Cloud scripting engine"
   homepage "https://flowpipe.io"
-  url "https://github.com/turbot/flowpipe/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "e61bc0902f44e8369d9c89dfbe0287396714f8def857663833a0288805004d8b"
+  url "https://github.com/turbot/flowpipe/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "8b0b64e377e2660770a466b17b9c81b7e51af5ac748460d79911b842ebdc9781"
   license "AGPL-3.0-only"
 
   bottle do
@@ -16,8 +16,15 @@ class Flowpipe < Formula
   end
 
   depends_on "go" => :build
+  depends_on "node" => :build
+  depends_on "yarn" => :build
 
   def install
+    cd "ui/form" do
+      system "yarn", "install"
+      system "yarn", "build"
+    end
+
     ldflags = %W[
       -s -w
       -X main.version=#{version}
