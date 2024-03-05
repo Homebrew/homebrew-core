@@ -7,15 +7,13 @@ class Yaegi < Formula
   head "https://github.com/traefik/yaegi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a4246a33ac24672560f6a8f88097e5878a1c9e10fd8413aa0c309f59a9c00a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9e254b5ae147e0039257b152e26d141a7de35ec7dda8055ff499c8b361ee87e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9e254b5ae147e0039257b152e26d141a7de35ec7dda8055ff499c8b361ee87e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "a9e254b5ae147e0039257b152e26d141a7de35ec7dda8055ff499c8b361ee87e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "61bc1b558d9f4d88cdbb065714d55b656f633865dd2a6cbbb48aa132c04409bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa07402b69b8ac8433d5790857d44ed5d5ba3002c5eb2e854c8738670445db33"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa07402b69b8ac8433d5790857d44ed5d5ba3002c5eb2e854c8738670445db33"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fa07402b69b8ac8433d5790857d44ed5d5ba3002c5eb2e854c8738670445db33"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5657b3d88c8ce1d60aca7d7cf2ade108e2dda1d4ff1ab41a538d2dc2df7ccbd2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d57101d28414b81ef994d0642b4910804174a7b346179ff4345add58470fc28"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4079400ee37d691ceaaecbac440d5d5b5b188b181b818583078aad7efb89dd76"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35935341ca2bc46e5134bdc552751a437f706dbe1c7cc98eeacfccca3cc2473c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "95ef4d3c09e3be12d26a381610dd4978c8a6a6f4b10c988bbdaac55d6c715939"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf77b3a35251286d59d5f029b3ddfae1954f21e1a373ddab0e392f823614df8e"
+    sha256 cellar: :any_skip_relocation, monterey:       "f6db1fabd03f00b13ca284466fdc91892da672ac986f0a57f709e61edca6d64b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c978af552f0e951fad995b78651d9de3f5cd1b8a5e970ffef992c59a16eb568"
   end
 
   depends_on "go" => :build
