@@ -20,6 +20,8 @@ class Cheat < Formula
   conflicts_with "bash-snippets", because: "both install a `cheat` executable"
 
   def install
+    ENV["CGO_ENABLED"] = "0"
+
     system "go", "build", "-mod", "vendor", "-o", bin/"cheat", "./cmd/cheat"
 
     bash_completion.install "scripts/cheat.bash"
