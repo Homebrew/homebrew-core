@@ -7,13 +7,13 @@ class Rizin < Formula
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
-    sha256 arm64_sonoma:   "6d15d2aa32ecb84f9b0468a8ddd6a6f2f5fd71c348c5395b172371240ee8327f"
-    sha256 arm64_ventura:  "e36d83d89a617f2e6151e47e757b48c5ae6a01d4c016eb1e728080376bb7779f"
-    sha256 arm64_monterey: "82a23d49ac1c0fa6c91393d2e8cb99c4e86ce3817515311226b4b040dec5e67d"
-    sha256 sonoma:         "125ea004df8a7df2359131ea5cfc33664d12aff8a66db55071a26c9097d37cb6"
-    sha256 ventura:        "d42413910b2cb121adadfe55b806b0054ef6f5b9ad014e42a3f7be57a5a94334"
-    sha256 monterey:       "cac2d262246420e36101061d368836216b18c2317afa7d1bb5e2a2d985e56d6a"
-    sha256 x86_64_linux:   "e16784411cfaadc8aaadb6eedff72f47b576261becddd6c7df66e895436f05c9"
+    sha256 arm64_sonoma:   "60049d407433aef6033edbef49debf112fa6ae983a2fa36ddc87e14dbe0cba48"
+    sha256 arm64_ventura:  "edf5c3eb1e8be2cdd25c333badb634972ee82890dbe5b59cafe6d785e5eaff76"
+    sha256 arm64_monterey: "f3f96eacdb829263bba7c7c6a590678dc69fa8b925b2882f8bcad9f2a3b1e05f"
+    sha256 sonoma:         "bee6324e824f18c82f831c40fc86d25221923f2e9037a37b16cb04b0afa98803"
+    sha256 ventura:        "b741aa7f6da709418d0a72a57a93793f144328253aa0c4a6ad165bf70b167a0a"
+    sha256 monterey:       "3a32153a1739f151586c021d1dbe8d99bd24a55ccda31a382b9f8c8d7fc1f72b"
+    sha256 x86_64_linux:   "3547d7514ff885c8b9d157f7d7c19a09665ad9e7c817121f90351158227fbd6e"
   end
 
   depends_on "meson" => :build
