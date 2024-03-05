@@ -21,7 +21,6 @@ class Glib < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
   depends_on "pcre2"
 
   uses_from_macos "libffi", since: :catalina
@@ -36,9 +35,16 @@ class Glib < Formula
     depends_on "util-linux"
   end
 
-  # These used to live in the now defunct `glib-utils`.
   link_overwrite "bin/gdbus-codegen", "bin/glib-genmarshal", "bin/glib-mkenums", "bin/gtester-report"
   link_overwrite "share/glib-2.0/codegen", "share/glib-2.0/gdb"
+
+  # Fix python 3.12 compatibility, remove in 2.80
+  patch do
+    url "https://gitlab.gnome.org/GNOME/glib/-/commit/6ef967a0f930ce37a8c9b5aff96969.diff"
+    sha256 "0d1d8f2359e384f868a4d537258ac03c579cc6b3364031b2beb9f70de1ecde7e"
+  end
+
+  # These used to live in the now defunct `glib-utils`.
 
   # replace several hardcoded paths with homebrew counterparts
   patch do
