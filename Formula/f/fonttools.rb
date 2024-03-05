@@ -1,4 +1,6 @@
 class Fonttools < Formula
+  include Language::Python::Virtualenv
+
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
   url "https://files.pythonhosted.org/packages/52/c0/b117fe560be1c7bf889e341d1437c207dace4380b10c14f9c7a047df945b/fonttools-4.49.0.tar.gz"
@@ -16,16 +18,20 @@ class Fonttools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "302703d910a5705be423e7a6f1ed13e0679cbafe05753ff881252276ecff6ca2"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "python-brotli"
   depends_on "python@3.12"
 
-  def python3
-    which("python3.12")
+  resource "brotli" do
+    url "https://files.pythonhosted.org/packages/2f/c2/f9e977608bdf958650638c3f1e28f85a1b075f075ebbe77db8555463787b/Brotli-1.1.0.tar.gz"
+    sha256 "81de08ac11bcb85841e440c13611c00b67d3bf82698314928d0b676362546724"
+  end
+
+  resource "zopfli" do
+    url "https://files.pythonhosted.org/packages/92/d8/71230eb25ede499401a9a39ddf66fab4e4dab149bf75ed2ecea51a662d9e/zopfli-0.2.3.zip"
+    sha256 "dbc9841bedd736041eb5e6982cd92da93bee145745f5422f3795f6f258cdc6ef"
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

@@ -271,6 +271,7 @@
   "flit": {
     "exclude_packages": ["certifi"]
   },
+  "fonttools": "fonttools[woff]",
   "gallery-dl": {
     "exclude_packages": ["certifi"]
   },
