@@ -14,13 +14,13 @@ class CiliumCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "46211e61ea1786490263437398aeef3f724875ddb31f225a4e2ada0aff9ebfdc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e602bd59d44fd38f2ffd03115bc93e48d11ff5f0111367099f9fd6961cd3744e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad7835f98f2d8b01acdb4578e16ac703d90f85f36e2a88a36ddc11bd44225a5a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "70a98cd6c42c009716a7ed8fc5a8e5200fa91adcfd159f345da83c00755b6839"
-    sha256 cellar: :any_skip_relocation, ventura:        "a38c1085d3c090270e7eb9ad848e4820f0b46ff3753e8984d449dbd7da7ed2e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "292385d623657eef85dc92df2ab7b04fc110c973db3236a0601f165949b9aa81"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c8a39c57d4608b392ebb1f52228a1380ae1c96a016394c40063ce2ea07ab0a10"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37f3f2f2f68f77c94fb142b2ecc001039e761e922afd11fcfc845d2f1f910801"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f061a8c57333326ba6080851cab8aac1920b82e820b29e3dbb7e70db762c744e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bcbd0996fe14d639e4a45734902a053a175eebf6670227fa6edd073815f2626f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d952a00ca9d809d959176c2e0c0b7215c4922f84260f27f7cc3efe19d4db2c60"
+    sha256 cellar: :any_skip_relocation, ventura:        "0251de26b1936f3ce6a17ff6d631ad8e57606c94d229a576e40be5024d9164d8"
+    sha256 cellar: :any_skip_relocation, monterey:       "18a6517f68172f07fec944c2a0daf9098c82a65e3f136c591a96f309bb839076"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "34524df2ab10048b7b7e5e2c81ab4a2ba538815e033373bac38718df88eeb22c"
   end
 
   depends_on "go" => :build
