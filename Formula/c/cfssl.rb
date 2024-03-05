@@ -7,15 +7,13 @@ class Cfssl < Formula
   head "https://github.com/cloudflare/cfssl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "18d0ae4ac84d1aac8c6c51d61fa360b8ae2849405264c9456ad376fdd02d3cfd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13eec81639a2f2b7410d7bbc82b8eee6f5d154c97dfeece7556e464a7d350ecb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "509d715fcb6c46394d74e4475f9755656b4dc129251d81f9f18658f994af3b0f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "21d5f13dabd1641e6c1507da0b5c55930595e51f6bc89d28dc64dc43f9efe113"
-    sha256 cellar: :any_skip_relocation, sonoma:         "004813fea2c556228bd4bf251e021edeeed7967ac04983b9421c1aa40aa35460"
-    sha256 cellar: :any_skip_relocation, ventura:        "d121eae6acb5ac4ee9b2f931d20ff534904931de37a239f0eea67e5e5d919a55"
-    sha256 cellar: :any_skip_relocation, monterey:       "b14fd6d83726ae06b3062b682055b174fe31c73c0983a9e2a040f063aaea46a2"
-    sha256 cellar: :any_skip_relocation, big_sur:        "0c388e257623007107d6b5ffe192c759e1a03055eb632357b90cf1c2b32669f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38ce3de9fbc732613b2825b7c01106fb566a236afce1d1ee4855f341146e8339"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d2805f5ff4362d940159c5578dcf8eb8fdcd102a99f92b6a795c8c47f706967"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9b9efc3ba89015abe77d10049ef07445204a054d5e7c18ebed89eb210b137af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4b6e5105534c9c4c2e3da0319af682127c9f77e63f929e157d59c2e97a946fd9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "989ba2b7f104eacbca8168890d255b59918ca2e3247a19aaf721c2835de34b38"
+    sha256 cellar: :any_skip_relocation, ventura:        "ec170c030c163a3bee7b0f136fd22f043d93a74917c1acd29d68a5fae228a1fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "a25c632a1fe68e2afb9a2ac8cb38fbadf026f2ff15c190a7941d8c02d962d5cf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bde98d987b9a50e4fc9f2fd32a4f85dadcea1bd1b94fa792e0554fae1c183c5b"
   end
 
   depends_on "go" => :build
