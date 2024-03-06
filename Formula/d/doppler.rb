@@ -1,8 +1,8 @@
 class Doppler < Formula
   desc "CLI for interacting with Doppler secrets and configuration"
   homepage "https://docs.doppler.com/docs"
-  url "https://github.com/DopplerHQ/cli/archive/refs/tags/3.67.0.tar.gz"
-  sha256 "244154a5c19783fb42f345fcc00ff47ab71e28f95d208c7e83cc6375ad246748"
+  url "https://github.com/DopplerHQ/cli/archive/refs/tags/3.67.1.tar.gz"
+  sha256 "072fa1bd9b483b034eed8d150f1ac71734dd088e115a17f67d756bd66ce7469b"
   license "Apache-2.0"
   head "https://github.com/DopplerHQ/cli.git", branch: "master"
 
