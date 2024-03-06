@@ -20,10 +20,9 @@ class Petsc < Formula
     sha256 x86_64_linux:   "ee8ff9905d77adbedc5c0550b9488b013858d1b919726130046d4676a8106db4"
   end
 
-  depends_on "hdf5"
+  depends_on "hdf5-mpi"
   depends_on "hwloc"
   depends_on "metis"
-  depends_on "netcdf"
   depends_on "open-mpi"
   depends_on "openblas"
   depends_on "scalapack"
