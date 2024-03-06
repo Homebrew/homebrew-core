@@ -16,8 +16,11 @@ class Gssh < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "926f16eaf21cd5fa5971a238c95a06f5ccccccf340207a5dd3951f16a42c1ec5"
   end
 
-  depends_on "gradle@7" => :build
+  depends_on "gradle" => :build
   depends_on "openjdk"
+
+  # gradle 8 build patch, remove in next release
+  patch :DATA
 
   def install
     ENV["CIRCLE_TAG"] = version
@@ -31,3 +34,20 @@ class Gssh < Formula
     assert_match "groovy-ssh-#{version}", shell_output("#{bin}/gssh --version")
   end
 end
+
+__END__
+diff --git a/cli/build.gradle b/cli/build.gradle
+index 8044c6e..e6c2815 100644
+--- a/cli/build.gradle
++++ b/cli/build.gradle
+@@ -32,7 +32,7 @@ jar {
+ }
+
+ shadowJar {
+-    baseName = 'gssh'
+-    classifier = ''
+-    version = ''
++    archiveBaseName = 'gssh'
++    archiveVersion = ''
++    archiveClassifier = ''
+ }
