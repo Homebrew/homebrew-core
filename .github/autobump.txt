@@ -958,6 +958,7 @@ lexbor
 lexicon
 lf
 libadwaita
+libassuan
 libbsd
 libclc
 libcouchbase
