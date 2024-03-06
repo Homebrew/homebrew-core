@@ -7,13 +7,13 @@ class Syft < Formula
   head "https://github.com/anchore/syft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "52eba589a0dec039e8d3f27048cf405583687d6032efe2bca32ff816e9aa35a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "facf4a6e642e39427e653f5c78a583d181949a5e7875eea1275c9467b00d06e0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc595211dbd17199241fb7169f9c5e1c4de5b2b8ffb4bd3b02e70e2277ed77b2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bd701854f94ee4594845cb2b03ef7a9b28023227625141dbef384fd83ec7a55f"
-    sha256 cellar: :any_skip_relocation, ventura:        "b32fc00f1864c777ace6ca49665b1843cf41a4526481c91de75b13e712267fd7"
-    sha256 cellar: :any_skip_relocation, monterey:       "a537bee8c3b0a7956b0442760a1d6bc2b14f0314ead435710c8ef59626b12aa6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "16272b3ea0c6d68af607b91e9ea15c1a38e02c8dae21cd075911c8ceca975a55"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bf28b7b99fa5dc3ff08f480b03e1c734a25d09584ded78d5222dad04f31da010"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e1531417e4522776a882867e63a5ca0ec12719a564af0c53dbc5653994bc8e39"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a37cb1b2f3d78c7580685e0e33affe28cd4b6245f6deed42c33c1da58282243"
+    sha256 cellar: :any_skip_relocation, sonoma:         "42272be27de254d1e1184a27f31236f5670d2a3b83cbc1571b1cb9e1ca3b395f"
+    sha256 cellar: :any_skip_relocation, ventura:        "9df6ac4e7b17442d41fa9b5c3eca94f04781189619b0bfa0022cc6b8e18243a6"
+    sha256 cellar: :any_skip_relocation, monterey:       "46838f93e9f32b09a759f9458c649f8c03cc1979e50d21066b7ef3ab470bd7e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0069f5d23d9db5c725f622e07ef4723f9ee435ed4df8aab11d8b1b1d867fbd3f"
   end
 
   depends_on "go" => :build
