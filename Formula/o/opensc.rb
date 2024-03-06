@@ -1,8 +1,8 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.24.0/opensc-0.24.0.tar.gz"
-  sha256 "24d03c69287291da32a30c4c38a304ad827f56cb85d83619e1f5403ab6480ef8"
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.25.0/opensc-0.25.0.tar.gz"
+  sha256 "e6d7b66e2a508a377ac9d67aa463025d3c54277227be10bd08872e3407d6622f"
   license "LGPL-2.1-or-later"
   head "https://github.com/OpenSC/OpenSC.git", branch: "master"
 
