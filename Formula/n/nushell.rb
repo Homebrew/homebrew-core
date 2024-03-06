@@ -13,13 +13,13 @@ class Nushell < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d3c7edc3e08ccde9dac8dbac06079a1a2d4ddf774e56708c979d5e9d5a253d3f"
-    sha256 cellar: :any,                 arm64_ventura:  "63350c367bbce231d39b9df253c71cecd4cca0f22209dd78e85784ee8623b920"
-    sha256 cellar: :any,                 arm64_monterey: "22a39ea70c93fd2442d41261d2ee8dc79b8ea9138cd2e64bd1d7dd8953b87f9b"
-    sha256 cellar: :any,                 sonoma:         "560e805d923e30075e8b59b081c7c1ae7a8f723529776a982cebef8676b5576b"
-    sha256 cellar: :any,                 ventura:        "09c2c2e36fc60d130269b7147dcd230fa4e1b33b6309237dcd9668e844eccd22"
-    sha256 cellar: :any,                 monterey:       "6ced3e558f08d30433533a85bc604ba5de4508e1061b5017b8aa26d28fdefd3a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c37ffd28a499c80840d172a9c76af76bb480fa129008a75e5dd87d990fb56eba"
+    sha256 cellar: :any,                 arm64_sonoma:   "8f820381a2cc6147e3fbbd81b400c4fae6800251a84133dd175e43cb356191b7"
+    sha256 cellar: :any,                 arm64_ventura:  "37a0266128bd05192eda3dfc1df0737ccacf23445abc9f0793bd584c53045766"
+    sha256 cellar: :any,                 arm64_monterey: "452993b30a1d09b2000b027f86d0e459144023cd22bd7a6b852ee2f26ac91eff"
+    sha256 cellar: :any,                 sonoma:         "80b8429a8c6feeec0c600ea9b3c09799fd88f51330719a94111fc3b12153edf3"
+    sha256 cellar: :any,                 ventura:        "2154dbccafa813a101caeb53d3b4e629d8c04cd8dc0ad7b05071c01ab5c98012"
+    sha256 cellar: :any,                 monterey:       "4ab07f9ad820a55c34e2b4f3f2d091dcfdc6621c2e97581b13587da9150c424f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a1758c7829be780cf751adb71a15125dc057f1735b4e616807564a39156b69e6"
   end
 
   depends_on "rust" => :build
