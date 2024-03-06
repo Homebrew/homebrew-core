@@ -1,11 +1,10 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.20.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.20.0.tar.gz"
-  sha256 "56029e78a99c04d52b1358094ae5074e4cd8ea9b98cf6855f57ad9af27ac9518"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.21.0.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.21.0.tar.gz"
+  sha256 "a846eb9f64b5602c6e518badfa32a9ee18d9e66042ad4765e40a936041ca74ad"
   license "AGPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "40cf19a20f3974bf5942ca41f9f085cb482d40853cf8ff970383d5e97067b151"
@@ -28,7 +27,7 @@ class Gnunet < Formula
   depends_on "libsodium"
   depends_on "libunistring"
 
-  uses_from_macos "curl"
+  uses_from_macos "curl", since: :ventura # needs curl >= 7.85.0
   uses_from_macos "sqlite"
 
   def install
