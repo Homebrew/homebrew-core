@@ -11,13 +11,13 @@ class Freeciv < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6184468e0cbb401519ed58c38e9477f4b497a35c74c70c113598cf4b4ed9e24b"
-    sha256 arm64_ventura:  "3504a50f1724087bda8d6163e8d5a344a4dee11005448cf6edbbcf97ba6532c0"
-    sha256 arm64_monterey: "514e2d47bc9b1881baf97844fbf8a8e3b652025ed979c7f3b6b5d1ba6fc8fa7c"
-    sha256 sonoma:         "8da17f4cc949c28c37c31e53214ba55ca05be1c5773cc19dd7ac0335114b19fb"
-    sha256 ventura:        "a71b85fceeb4568029c088e6083bdde34138f21dc0d360ad12cf168d0b1341e1"
-    sha256 monterey:       "fcd2bddc8d41cc47e435ff767eaab56cd34c5243f0f536295568ae2bcd85d99b"
-    sha256 x86_64_linux:   "02aa948caedc12bfcfeaa27a1f0ab5f8c0e8b5ada7c9589a4e786a2136b2acf5"
+    sha256 arm64_sonoma:   "320250dbd312579ce73c00800c38f947c60577cfd12b52f742f4d118efcde8db"
+    sha256 arm64_ventura:  "a5c285e5eab1609fe8f532ca3dddab508a598ef672bfa1727d13e968b1e34d00"
+    sha256 arm64_monterey: "4c69f7e8153dc940b2512f38a0027fcae203480fc8a30c821afce02489653fa6"
+    sha256 sonoma:         "f3b20676cc777c7640fe0df0fb9ea86edaae56d348e7c5ab6c5d55df18488524"
+    sha256 ventura:        "20ff937a9252c7f67aba5f1e556f430f4a50bc9aefaf5632945cf919919cee73"
+    sha256 monterey:       "a57309a396244c18948c8f3651351231d47b84e599b6a270bf855f783487f7c3"
+    sha256 x86_64_linux:   "5fea1e4ce55564cc0ff577fc92c1f518561db4ef3a897b5afaf393280fb47815"
   end
 
   head do
