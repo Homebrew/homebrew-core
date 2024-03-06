@@ -1,8 +1,8 @@
 class Tt < Formula
   desc "Command-line utility to manage Tarantool applications"
   homepage "https://github.com/tarantool/tt"
-  url "https://github.com/tarantool/tt/releases/download/v2.1.2/tt-2.1.2-complete.tar.gz"
-  sha256 "9bd621f0e165f59409278dddaf9a13ed8f467d42d99c75d2b3c07c4e794e405f"
+  url "https://github.com/tarantool/tt/releases/download/v2.2.0/tt-2.2.0-complete.tar.gz"
+  sha256 "da989f49268da1cf70bf6e7617ffb6743c05f67fa82b90fbb0b4e7a8f0f70aef"
   license "BSD-2-Clause"
 
   bottle do
@@ -32,7 +32,8 @@ class Tt < Formula
     ENV["TT_CLI_BUILD_SSL"] = "shared"
     system "mage", "build"
     bin.install "tt"
-    (etc/"tarantool").install "tt.yaml.default" => "tt.yaml"
+    (etc/"tarantool").install "package/tt.yaml.default" => "tt.yaml"
+
     generate_completions_from_executable(bin/"tt", "completion", shells: [:bash, :zsh])
   end
 

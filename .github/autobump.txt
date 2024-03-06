@@ -1609,6 +1609,7 @@ trino
 trivy
 trojan-go
 trufflehog
+tt
 ttdl
 typedb
 typescript-language-server
