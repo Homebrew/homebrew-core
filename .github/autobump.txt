@@ -875,6 +875,7 @@ jql
 jreleaser
 jrnl
 jruby
+json-fortran
 jsonnet
 jsvc
 juju
