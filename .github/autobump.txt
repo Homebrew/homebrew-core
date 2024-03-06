@@ -195,6 +195,7 @@ byteman
 bzt
 c-ares
 c2rust
+c3c
 caddy
 cadence
 cadence-workflow
