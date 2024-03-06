@@ -1222,6 +1222,7 @@ pacapt
 packetbeat
 pandoc
 pandoc-crossref
+pango
 pari
 partio
 passenger
