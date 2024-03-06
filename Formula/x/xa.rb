@@ -1,9 +1,9 @@
 class Xa < Formula
   desc "6502 cross assembler"
   homepage "https://www.floodgap.com/retrotech/xa/"
-  url "https://www.floodgap.com/retrotech/xa/dists/xa-2.4.0.tar.gz"
-  sha256 "9e587a0ca8ff791009880bfa331f6ed36935e08ef9c123822ca175285f8c030c"
-  license "GPL-2.0"
+  url "https://www.floodgap.com/retrotech/xa/dists/xa-2.4.1.tar.gz"
+  sha256 "63c12a6a32a8e364f34f049d8b2477f4656021418f08b8d6b462be0ed3be3ac3"
+  license "GPL-2.0-or-later"
 
   livecheck do
     url :homepage
