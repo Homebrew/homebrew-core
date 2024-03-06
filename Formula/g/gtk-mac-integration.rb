@@ -13,6 +13,16 @@ class GtkMacIntegration < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
       sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
     end
+
+    # Avoid crash when non-UTF-8 locale is set:
+    #   https://trac.macports.org/ticket/65474
+    # Fix merged by upstream via:
+    #   https://gitlab.gnome.org/GNOME/gtk-mac-integration/-/merge_requests/6
+    patch do
+      url "https://raw.githubusercontent.com/macports/macports-ports/a7f8a7049bb8e5c37a3a646bc216c5ab9244d9f6/devel/gtk-osx-application/files/patch-locale-gettext.diff"
+      sha256 "af8a00c278110c4ad47b28b05e86d1a41531f764266d87d5cd843c416c7f7849"
+      directory "src"
+    end
   end
 
   # We use a common regex because gtk-mac-integration doesn't use GNOME's
