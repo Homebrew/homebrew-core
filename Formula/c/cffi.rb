@@ -20,7 +20,6 @@ class Cffi < Formula
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "pycparser"
-  depends_on "python-setuptools"
 
   uses_from_macos "libffi"
 
@@ -32,7 +31,7 @@ class Cffi < Formula
 
   def install
     pythons.each do |python|
-      system python, "-m", "pip", "install", *std_pip_args, "."
+      system python, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
   end
 
@@ -42,30 +41,24 @@ class Cffi < Formula
       int sum(int a, int b) { return a + b; }
     EOS
 
-    system ENV.cc, "-shared", "sum.c", "-o", testpath/shared_library("libsum")
+    libsum = testpath/shared_library("libsum")
+    system ENV.cc, "-shared", "sum.c", "-o", libsum
 
-    (testpath/"sum_build.py").write <<~PYTHON
+    (testpath/"sum.py").write <<~PYTHON
       from cffi import FFI
-      ffibuilder = FFI()
+      ffi = FFI()
 
       declaration = """
         int sum(int a, int b);
       """
 
-      ffibuilder.cdef(declaration)
-      ffibuilder.set_source(
-        "_sum_cffi",
-        declaration,
-        libraries=['sum'],
-        extra_link_args=['-L#{testpath}', '-Wl,-rpath,#{testpath}']
-      )
-
-      ffibuilder.compile(verbose=True)
+      ffi.cdef(declaration)
+      lib = ffi.dlopen("#{libsum}")
+      print(lib.sum(1, 2))
     PYTHON
 
     pythons.each do |python|
-      system python, "sum_build.py"
-      assert_equal 3, shell_output("#{python} -c 'import _sum_cffi; print(_sum_cffi.lib.sum(1, 2))'").to_i
+      assert_equal 3, shell_output("#{python} sum.py").to_i
     end
   end
 end
