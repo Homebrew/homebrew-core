@@ -1597,6 +1597,7 @@ tomcat@9
 tomee-plus
 tomee-webprofile
 topgrade
+tox
 toxiproxy
 trader
 traefik
