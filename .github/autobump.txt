@@ -1485,6 +1485,7 @@ soplex
 spglib
 spicetify-cli
 spidermonkey
+spirv-llvm-translator
 sponge
 spotbugs
 spotify-tui
