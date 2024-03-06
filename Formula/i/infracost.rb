@@ -1,8 +1,8 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/infracost/archive/refs/tags/v0.10.33.tar.gz"
-  sha256 "8150557209c71452c1aabf138f912fa78f0e07650d28804480c16d1affc1570a"
+  url "https://github.com/infracost/infracost/archive/refs/tags/v0.10.34.tar.gz"
+  sha256 "ee4a042ba813d9d3560e1c07cf35e983e5f6bcd6961a9d041c97db808478978d"
   license "Apache-2.0"
   head "https://github.com/infracost/infracost.git", branch: "master"
 
@@ -30,6 +30,6 @@ class Infracost < Formula
     assert_match "v#{version}", shell_output("#{bin}/infracost --version 2>&1")
 
     output = shell_output("#{bin}/infracost breakdown --no-color 2>&1", 1)
-    assert_match "No INFRACOST_API_KEY environment variable is set.", output
+    assert_match "Error: INFRACOST_API_KEY is not set but is required", output
   end
 end
