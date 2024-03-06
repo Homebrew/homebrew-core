@@ -33,12 +33,13 @@ class GtkMacIntegration < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8717c04c7659cff47328719a99ad71d0aba5ad1dcd51b765a312a97601a411d4"
-    sha256 arm64_ventura:  "1fc1129b7d43614e952bf740b905973eea3bdebfd2b3ca3f90421385a2e4464c"
-    sha256 arm64_monterey: "5fdb5ed12f5c58671b00a3c6075a72699f2329661416bc9ebb8a50843194bf96"
-    sha256 sonoma:         "ce2daefc2505d48d115c0731459c682892e6a157e0e5491af39ee3a8898361aa"
-    sha256 ventura:        "aad2d1bfb099a2b052d66d5c0b888ca00a55e657b7ba19d3485dd753a540cd5b"
-    sha256 monterey:       "342ebfd16e77e24285385a29d594b3cb28e750c19d9db8d4f4ee667181773c31"
+    rebuild 1
+    sha256 arm64_sonoma:   "b538f4f624bda8680cf08cd1a26a41f3dd8e0d16c4c52db4543a737554c068a2"
+    sha256 arm64_ventura:  "f134dfb863936707bcf6927e9fcba8c50fee3faed9084e0fba72b1f7f8352df7"
+    sha256 arm64_monterey: "581818e7d81cb28e844189d94bea6bbd186f166b32bfd36991bc37b662946ab9"
+    sha256 sonoma:         "3d573ee5e2cab82e9c8ae0ca90facc8f075ad2c18395212c13f8d2f60456dcb9"
+    sha256 ventura:        "88b5528e911a68f5eca6bd83b5a6bb2ba64cb34fff84875199762e13a29ff65d"
+    sha256 monterey:       "1c3c9b3f0d821b0bd56ba6dac705e5f3024fbea667249c00fa69273e1f235a5d"
   end
 
   head do
