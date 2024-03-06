@@ -1639,6 +1639,7 @@ video-compare
 vineyard
 vips
 virgil
+virtctl
 virtualenvwrapper
 virustotal-cli
 vite
