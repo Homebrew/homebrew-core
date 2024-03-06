@@ -15,13 +15,13 @@ class RattlerBuild < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "143b7675d87f8d5e6e0deb6d4e4fd1be539b081a4f16af657d0b6aef31c80593"
-    sha256 cellar: :any,                 arm64_ventura:  "3c360fabe1178c8ae5e4955c9f0372bfb0d109a22d3133ffbc624a876c987f22"
-    sha256 cellar: :any,                 arm64_monterey: "a29c892aed143bbfb2aaa669ae24abc3f0066146889de12b9b9d8b89027a1b80"
-    sha256 cellar: :any,                 sonoma:         "be5f18b66cd0634340cab6afbdbedceafe593e50e8b9c2c7863f3815cedf6f5d"
-    sha256 cellar: :any,                 ventura:        "ba8475d3f22a768d20af72097040881bb7b758dc97ce4f062d1b8f390232e3bc"
-    sha256 cellar: :any,                 monterey:       "fe0b180771b5b68c6d4b244cf141b57dabec76fefb3a377e645eb0b72cc53285"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bf166f834a7a888c3bf56c9c2eb7517bd656b091d73df5d0290fa7484b92ba3"
+    sha256 cellar: :any,                 arm64_sonoma:   "6c5adae253c5d1c4dd4276b19de0befa775bce5a5c15e1684a82c53d326b19f5"
+    sha256 cellar: :any,                 arm64_ventura:  "810813efb4f0a62143baf427e8ece6bb452024bde3b45895558f0816e841b3cf"
+    sha256 cellar: :any,                 arm64_monterey: "b59aae2dc53b22b59f1bce668d34cd63404f4129ea648b2e19780c394115c90a"
+    sha256 cellar: :any,                 sonoma:         "5515a6eea5eb3e28455731833a28bbf61f9a3249fc962e44ba68bda72d8fefba"
+    sha256 cellar: :any,                 ventura:        "93bec871ace6c225dd56ef35ab07ac68c3bff20dcd2fa740f334c35b0b1067ae"
+    sha256 cellar: :any,                 monterey:       "df22d0b58b842b9b5dd513b82b464468343505fed8682afe92630ae3e045727e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7498ae2ce56e2f14e01da5c543966605edf7e23c27ad9ac925ad004a1475f3cb"
   end
 
   depends_on "pkg-config" => :build
