@@ -283,6 +283,7 @@ circumflex
 citus
 clair
 clamav
+clang-format
 clazy
 clblast
 clhep
@@ -954,6 +955,7 @@ lexicon
 lf
 libadwaita
 libbsd
+libclc
 libcouchbase
 libdap
 libepoxy
@@ -974,6 +976,7 @@ liblouis
 libmicrohttpd
 libnfs
 libnice
+libomp
 libopenmpt
 liboqs
 libpano
