@@ -1,8 +1,8 @@
 class Sundials < Formula
   desc "Nonlinear and differential/algebraic equations solver"
   homepage "https://computing.llnl.gov/projects/sundials"
-  url "https://github.com/LLNL/sundials/releases/download/v6.7.0/sundials-6.7.0.tar.gz"
-  sha256 "5f113a1564a9d2d98ff95249f4871a4c815a05dbb9b8866a82b13ab158c37adb"
+  url "https://github.com/LLNL/sundials/releases/download/v7.0.0/sundials-7.0.0.tar.gz"
+  sha256 "d762a7950ef4097fbe9d289f67a8fb717a0b9f90f87ed82170eb5c36c0a07989"
   license "BSD-3-Clause"
 
   livecheck do
@@ -34,7 +34,7 @@ class Sundials < Formula
       -DBUILD_SHARED_LIBS=ON
       -DKLU_ENABLE=ON
       -DKLU_LIBRARY_DIR=#{Formula["suite-sparse"].opt_lib}
-      -DKLU_INCLUDE_DIR=#{Formula["suite-sparse"].opt_include}
+      -DKLU_INCLUDE_DIR=#{Formula["suite-sparse"].opt_include}/suitesparse
       -DLAPACK_ENABLE=ON
       -DLAPACK_LIBRARIES=#{blas};#{blas}
       -DMPI_ENABLE=ON
@@ -52,9 +52,19 @@ class Sundials < Formula
 
   test do
     cp Dir[pkgshare/"examples/*"], testpath
-    system ENV.cc, "test_nvector.c", "test_nvector_serial.c", "-o", "test",
-                   "-I#{include}", "-L#{lib}", "-lsundials_nvecserial", "-lm"
-    assert_match "SUCCESS: NVector module passed all tests",
-                 shell_output("./test 42 0")
+    args = %W[
+      -I#{include}
+      -L#{lib}
+      -lsundials_core
+      -lsundials_nvecserial
+      -lmpi
+      -lm
+    ]
+
+    args += ["-I#{Formula["open-mpi"].opt_include}", "-L#{Formula["open-mpi"].opt_lib}"] if OS.mac?
+
+    system ENV.cc, "test_nvector.c", "test_nvector_serial.c", "-o", "test", *args
+
+    assert_match "SUCCESS: NVector module passed all tests", shell_output("./test 42 0")
   end
 end
