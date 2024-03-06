@@ -807,6 +807,7 @@ hivemind
 hledger
 hoverfly
 hpack
+hpp-fcl
 htmldoc
 htmlq
 htmltest
