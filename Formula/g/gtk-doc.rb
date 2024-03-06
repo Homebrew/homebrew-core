@@ -3,10 +3,9 @@ class GtkDoc < Formula
 
   desc "GTK+ documentation tool"
   homepage "https://gitlab.gnome.org/GNOME/gtk-doc"
-  url "https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz"
-  sha256 "cc1b709a20eb030a278a1f9842a362e00402b7f834ae1df4c1998a723152bf43"
+  url "https://download.gnome.org/sources/gtk-doc/1.34/gtk-doc-1.34.0.tar.xz"
+  sha256 "b20b72b32a80bc18c7f975c9d4c16460c2276566a0b50f87d6852dff3aa7861c"
   license "GPL-2.0-or-later"
-  revision 2
 
   # We use a common regex because gtk-doc doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
