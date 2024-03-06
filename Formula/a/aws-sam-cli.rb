@@ -8,13 +8,13 @@ class AwsSamCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e9fd8985ce4e023d774bce7df25048333bda17e159ffbcd6c1d286559f52267f"
-    sha256 cellar: :any,                 arm64_ventura:  "c4d77d2d8274f99ceee2b9f0bf620098e769cbc49abf2e79f6ef3ca675877262"
-    sha256 cellar: :any,                 arm64_monterey: "97fd2ff3d4e60374e276d3441b4df6624c76ddbeacda4806aadcc942a590f2a3"
-    sha256 cellar: :any,                 sonoma:         "d571352caaa4e3a15e38daa17956f80e020f5a85237d9dac649caf4e368d30d7"
-    sha256 cellar: :any,                 ventura:        "7fbcf3b96e651eba6a3ef3b4c302a0b38aff85649962aa5d242e76622fbde5dd"
-    sha256 cellar: :any,                 monterey:       "82d8409d2fc5d69ff58234ad13d2b2ef464513ebf4326e275f24c3b5fe093bf1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "196357407dfdb3df31c5f4092bfd983d5d8962557792284589b81f264cd9d9a5"
+    sha256 cellar: :any,                 arm64_sonoma:   "1d2906cb55f7542f977fc10a6dbc2d976c6e53282b00aa913f6d99b8f5caa2e7"
+    sha256 cellar: :any,                 arm64_ventura:  "fa1601893bf3b0a997b45a4dc8e80ecaf952bf0cd0cda0aae03d08f5196f578a"
+    sha256 cellar: :any,                 arm64_monterey: "50fb8af1374abb6913bd886ea49bbd04de223db4ddf2adb661170be5afaa171f"
+    sha256 cellar: :any,                 sonoma:         "f7491507304c5c37bdf0157a09ae7bdf5821d8f82d5188a17163b7243d3f47f4"
+    sha256 cellar: :any,                 ventura:        "69c95c6c91772802f7f0e7e7127d18204aeaffa624a2f4f4d1f1b4aa140823be"
+    sha256 cellar: :any,                 monterey:       "67eccd9bd10f40ec68cac6f3b9e96d09a13def160c9db8e94fdafa0831620679"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f70a76d59f9ef7ec31c747a7f931cdc7c5fee343d33e89b6574d3b5d7d854561"
   end
 
   depends_on "pkg-config" => :build
