@@ -11,7 +11,7 @@ class Kmod < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "98443a2d0e7fc9328c79d003c86ea00daf584e1d81e3b686f19bcab3dc120b08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "92f97941033e512c0489249f4cb7573c45b9424286daedf688f6634892f01834"
   end
 
   depends_on :linux
