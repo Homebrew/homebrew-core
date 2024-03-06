@@ -82,7 +82,7 @@ jobs:
           echo "prefix=${cache_key_prefix}" >> "${GITHUB_OUTPUT}"
 
       - name: Cache Homebrew Bundler gems
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{ steps.set-up-homebrew.outputs.gems-path }}
           key: ${{ steps.cache-key.outputs.prefix }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}

@@ -42,9 +42,9 @@ jobs:
           test-bot: true
 
       - name: Cache style cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
-          path: ~/.cache/Homebrew/style
+          path: /home/linuxbrew/.cache/Homebrew/style
           key: style-cache-${{ github.sha }}
           restore-keys: style-cache-
 
