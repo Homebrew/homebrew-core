@@ -6,6 +6,7 @@ class SlitherAnalyzer < Formula
   url "https://files.pythonhosted.org/packages/1d/62/6963e21c75a783de0683fe9267c827a93dc5294dcc0001bf52bf3a9ff809/slither-analyzer-0.10.1.tar.gz"
   sha256 "b99b81dfe949238e15e48d2ca9b3e756144a194f3a25c7d61c22712b2f99e9a6"
   license "AGPL-3.0-only"
+  revision 1
   head "https://github.com/crytic/slither.git", branch: "master"
 
   bottle do
@@ -63,8 +64,8 @@ class SlitherAnalyzer < Formula
   end
 
   resource "eth-abi" do
-    url "https://files.pythonhosted.org/packages/7b/98/3ed235fe27f30a7fa51dfcc5cdfdf5af1fbcef7906858ef59ff40e154bc0/eth_abi-5.0.0.tar.gz"
-    sha256 "89c4454d794d9ed92ad5cb2794698c5cee6b7b3ca6009187d0e282adc7f9b6dc"
+    url "https://files.pythonhosted.org/packages/b2/cb/370191e5445b3cbac2e6cb2023aa6ec232bbfa683d80909c884b2b0c2c62/eth_abi-5.0.1.tar.gz"
+    sha256 "e9425110c6120c585c9f0db2e8a33d76c4b886b148a65e68fc0035d3917a3b9c"
   end
 
   resource "eth-account" do
