@@ -21,8 +21,8 @@ class Sgr < Formula
 
   depends_on "libcython" => :build # TODO: remove with newer `pglast` (4.4+)
   depends_on "rust" => :build # for pydantic
+  depends_on "certifi"
   depends_on "libpq" # for psycopg2-binary
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
