@@ -7,13 +7,13 @@ class AdaUrl < Formula
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a187c2505b5b28e3d4f4eb2568a109f2cb6b8c5ba4c79f309fdbc4cf347d2f58"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b91d0d62e84ef7814d3850af3f955f071c0cb416e8075d56d20c295a75336de3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "57eb3306747e53c70484e0f5bfb84441b81883d8187ddff4af745ad72272705f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a996328b134176eac870a552b1d6d08419adf8f9e51608df21bb4b064a8491e4"
-    sha256 cellar: :any_skip_relocation, ventura:        "3b371177d94a20edb844be71ccfde6b9dfcd8fb73fe4c14aaef6abd7b536384f"
-    sha256 cellar: :any_skip_relocation, monterey:       "f3f204ebd86565e71ee585a64667ed93ac0ef01b3614043b43856ba796a11231"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28b8d4d61d8e25041fa1aa4596e4e9a3827c589a0bf7ede0f74d9d01062522a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "44635012980ef6cb70b4a886476ff7a63c4ec9b9f6750b12942ac271b28df244"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff30f58699a644cc0945a8fe89f29d9152f162cd438e434d48a672fe964411dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "959c4694ffea87120c72d0105e229538162b5ce8afb92026d809dcad102a1dd4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "abae80bfcdfc244d1b03fec87ff2dead6deb7c5e9427ab469122b829c6ba3c3e"
+    sha256 cellar: :any_skip_relocation, ventura:        "4c7730eeebfe5737240d3dcdcffc5d644af9adf33609182c02ab080a03af7e83"
+    sha256 cellar: :any_skip_relocation, monterey:       "bbd1fe163cad88fcb37645dcca890c3dde63a8c340c8657ba29c9d7f3085eb26"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "458f9e1f1d5d3e6269c0b430431d044eb36fd5557f7a1458ff5e9e40ff57e25b"
   end
 
   depends_on "cmake" => :build
