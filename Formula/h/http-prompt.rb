@@ -20,8 +20,8 @@ class HttpPrompt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5524a3a3d87ecd68632e7efea9abeafbb4c45c816f3f4961b7d45832456c2db5"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
