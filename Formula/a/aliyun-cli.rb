@@ -20,7 +20,7 @@ class AliyunCli < Formula
 
   def install
     ldflags = "-s -w -X github.com/aliyun/aliyun-cli/cli.Version=#{version}"
-    system "go", "build", *std_go_args(output: bin/"aliyun", ldflags: ldflags), "main/main.go"
+    system "go", "build", *std_go_args(output: bin/"aliyun", ldflags:), "main/main.go"
   end
 
   test do
