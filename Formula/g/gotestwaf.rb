@@ -20,7 +20,7 @@ class Gotestwaf < Formula
 
   def install
     ldflags = "-s -w -X github.com/wallarm/gotestwaf/internal/version.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd"
 
     pkgetc.install "config.yaml"
   end
