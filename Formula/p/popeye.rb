@@ -24,7 +24,7 @@ class Popeye < Formula
       -X github.com/derailed/popeye/cmd.commit=#{tap.user}
       -X github.com/derailed/popeye/cmd.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"popeye", "completion")
   end
