@@ -35,7 +35,7 @@ class SlsaVerifier < Formula
       -X sigs.k8s.io/release-utils/version.buildDate=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cli/slsa-verifier"
+    system "go", "build", *std_go_args(ldflags:), "./cli/slsa-verifier"
 
     generate_completions_from_executable(bin/"slsa-verifier", "completion")
   end
