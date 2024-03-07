@@ -1,4 +1,6 @@
 class Csvtomd < Formula
+  include Language::Python::Virtualenv
+
   desc "CSV to Markdown table converter"
   homepage "https://github.com/mplewis/csvtomd"
   url "https://files.pythonhosted.org/packages/9d/59/ea3c8b102f9c72e5d276a169f7f343432213441c39a6eac7a8f444c66681/csvtomd-0.3.0.tar.gz"
@@ -17,18 +19,18 @@ class Csvtomd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1662efe1ed0d02a00afc4fee58a8bf4d1935b66b54c97c22d1778e874b9b29a4"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
 
   # ValueError: invalid mode: 'rU'
   patch :DATA
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

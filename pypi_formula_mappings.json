@@ -195,6 +195,9 @@
   "cruft": {
     "exclude_packages": ["certifi"]
   },
+  "csvtomd": {
+    "extra_packages": ["setuptools"]
+  },
   "cycode": {
     "exclude_packages": ["certifi"]
   },
