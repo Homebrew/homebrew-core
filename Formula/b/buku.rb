@@ -20,7 +20,7 @@ class Buku < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "867652b95594c2ea2ee4897f67ff754d5393584aa87cf5bac2fab2b2787a0e24"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
