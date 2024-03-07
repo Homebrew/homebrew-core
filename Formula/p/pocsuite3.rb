@@ -19,8 +19,8 @@ class Pocsuite3 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a5c015b4b69ee7849396f19a63242a4d67862287c620dde616a16f56b2ada6f"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
