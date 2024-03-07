@@ -6,6 +6,7 @@ class Codespell < Formula
   url "https://files.pythonhosted.org/packages/e1/97/df3e00b4d795c96233e35d269c211131c5572503d2270afb6fed7d859cc2/codespell-2.2.6.tar.gz"
   sha256 "a8c65d8eb3faa03deabab6b3bbe798bea72e1799c7e9e955d57eca4096abcff9"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
     rebuild 3
