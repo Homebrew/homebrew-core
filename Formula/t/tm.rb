@@ -27,7 +27,7 @@ class Tm < Formula
       -X github.com/triggermesh/tm/cmd.version=v#{version}
     ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
