@@ -18,10 +18,10 @@ class Mapproxy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "91815dfe504f725458091b08e042a1b3ebf19cb27d42d222c951485a0de43280"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
   depends_on "pillow"
   depends_on "proj"
-  depends_on "python-certifi"
   # Should be able to remove python-setuptools dependency in next release,
   # see: https://github.com/mapproxy/mapproxy/pull/863
   depends_on "python-setuptools"
