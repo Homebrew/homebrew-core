@@ -35,7 +35,7 @@ class Chezmoi < Formula
       -X main.date=#{time.iso8601}
       -X main.builtBy=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     bash_completion.install "completions/chezmoi-completion.bash"
     fish_completion.install "completions/chezmoi.fish"
