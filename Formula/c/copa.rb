@@ -26,7 +26,7 @@ class Copa < Formula
       -X github.com/project-copacetic/copacetic/pkg/version.BuildDate=#{time.iso8601}
       -X main.version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
