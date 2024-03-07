@@ -25,7 +25,7 @@ class DockerBuildx < Formula
       -X github.com/docker/buildx/version.Revision=#{tap.user}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/buildx"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/buildx"
 
     (lib/"docker/cli-plugins").install_symlink bin/"docker-buildx"
 
