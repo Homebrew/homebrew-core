@@ -19,8 +19,8 @@ class SigmaCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "46a330842148ed94606f922d6f6b4ea910b1f2662b67427c8decd1cc1628f309"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
