@@ -44,7 +44,7 @@ class Hof < Formula
 
     ENV["CGO_ENABLED"] = "0"
     ENV["HOF_TELEMETRY_DISABLED"] = "1"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/hof"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/hof"
 
     generate_completions_from_executable(bin/"hof", "completion")
   end
