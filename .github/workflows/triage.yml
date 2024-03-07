@@ -100,10 +100,6 @@ jobs:
               status: removed
               path: Formula/.+
 
-            - label: bottle unneeded
-              path: Formula/.+
-              content: \n  (bottle :unneeded)\n
-
             - label: no ARM bottle
               path: Formula/.+
               content: '\n    sha256.* (?!.*(?:arm64_|_linux)).+: +"[a-fA-F0-9]+"\n'
