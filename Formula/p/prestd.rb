@@ -25,7 +25,7 @@ class Prestd < Formula
 
   def install
     ldflags = "-s -w -X github.com/prest/prest/helpers.PrestVersionNumber=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/prestd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/prestd"
   end
 
   test do
