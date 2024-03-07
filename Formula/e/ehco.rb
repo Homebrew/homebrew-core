@@ -38,7 +38,7 @@ class Ehco < Formula
       -X github.com/Ehco1996/ehco/internal/constant.BuildTime=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "cmd/ehco/main.go"
+    system "go", "build", *std_go_args(ldflags:), "cmd/ehco/main.go"
   end
 
   test do
