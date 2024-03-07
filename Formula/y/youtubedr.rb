@@ -25,7 +25,7 @@ class Youtubedr < Formula
     ].join(" ")
 
     ENV["CGO_ENABLED"] = "0"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/youtubedr"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/youtubedr"
 
     generate_completions_from_executable(bin/"youtubedr", "completion")
   end
