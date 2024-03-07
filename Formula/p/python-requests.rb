@@ -18,7 +18,7 @@ class PythonRequests < Formula
   depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-charset-normalizer"
   depends_on "python-idna"
   depends_on "python-urllib3"
