@@ -23,8 +23,8 @@ class Cloudsplaining < Formula
   # https://github.com/salesforce/cloudsplaining/commit/9cee9be13458f197b75ada02bce0140fd311b60d
   deprecate! date: "2024-01-12", because: :repo_archived
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "beautifulsoup4" do
