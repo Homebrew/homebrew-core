@@ -27,7 +27,7 @@ class Goreleaser < Formula
       -X main.builtBy=homebrew
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     # Install shell completions
     generate_completions_from_executable(bin/"goreleaser", "completion")
