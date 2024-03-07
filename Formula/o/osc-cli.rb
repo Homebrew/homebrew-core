@@ -19,7 +19,7 @@ class OscCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "644dc2376972c59ad1c29dd559095237d3fd51c901dff58260a5beb70103cd5f"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
