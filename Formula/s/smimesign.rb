@@ -23,7 +23,7 @@ class Smimesign < Formula
 
   def install
     ldflags = "-s -w -X main.versionString=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
