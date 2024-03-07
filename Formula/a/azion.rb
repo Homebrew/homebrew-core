@@ -25,7 +25,7 @@ class Azion < Formula
       -X github.com/aziontech/azion-cli/pkg/constants.AuthURL=https://sso.azion.com/api
       -X github.com/aziontech/azion-cli/pkg/constants.ApiURL=https://api.azionapi.net
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/azion"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/azion"
 
     generate_completions_from_executable(bin/"azion", "completion")
   end
