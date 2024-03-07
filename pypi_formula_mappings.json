@@ -104,9 +104,6 @@
     "package_name": "buku[server]",
     "exclude_packages": ["certifi", "cryptography"]
   },
-  "bumpversion": {
-    "extra_packages": ["setuptools"]
-  },
   "bzt": {
     "exclude_packages": ["certifi", "Cython", "numpy"],
     "extra_packages": ["setuptools"]
