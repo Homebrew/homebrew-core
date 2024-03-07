@@ -5,7 +5,7 @@ class Llvm < Formula
   sha256 "58a8818c60e6627064f312dbf46c02d9949956558340938b71cf731ad8bc0813"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
+  revision 2
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
