@@ -19,7 +19,7 @@ class RichCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "20a2d86721ff6f3c4d039b028c0a83c2d294f3cebd296eb9b0b599aeb2aeb855"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
