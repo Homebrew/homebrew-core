@@ -19,8 +19,8 @@ class Lexicon < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cec45d788f077e7cc0b0b2fa24c3265ddd7893873fb631b4798e8d8f008b8e7"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
