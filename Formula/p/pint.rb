@@ -23,7 +23,7 @@ class Pint < Formula
       -X main.version=#{version}
       -X main.commit=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/pint"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/pint"
 
     pkgshare.install "docs/examples"
   end
