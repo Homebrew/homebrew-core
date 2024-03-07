@@ -1,4 +1,6 @@
 class Fypp < Formula
+  include Language::Python::Virtualenv
+
   desc "Python powered Fortran preprocessor"
   homepage "https://fypp.readthedocs.io/en/stable/"
   url "https://files.pythonhosted.org/packages/01/35/0e2dfffc90201f17436d3416f8d5c8b00e2187e410ec899bb62cf2cea59b/fypp-3.2.tar.gz"
@@ -17,16 +19,11 @@ class Fypp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c2b773c9ffd79f4f5adec76d7a01eae787f7e175de659e44e865628042690f9"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "gcc" => :test
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
