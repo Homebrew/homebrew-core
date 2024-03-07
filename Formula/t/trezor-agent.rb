@@ -19,9 +19,9 @@ class TrezorAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aca7da7281da077231135cf8880eb2088fb06622fdf04093f82a2734e7823c4b"
   end
 
+  depends_on "certifi"
   depends_on "libusb"
   depends_on "pillow"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
