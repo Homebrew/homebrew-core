@@ -8,14 +8,14 @@ class Cpplint < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d40b696645ffe9e48472a8b705b0bd06c44b56f762881d48455b436e4271396"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2c2ed51f4ac77f7c56b0d0f4e71e202adb295c407f582ad33ed7288c2ddb5ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "94bf09c685fd1271693233ff52c0b87fc49a0802b3a57408a27497d623f36b26"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c5d503ab4c4013f67f85435a2581c8856acfc43bec291c0b24b7c5ac9a14fbc2"
-    sha256 cellar: :any_skip_relocation, ventura:        "d51ecb560de169b44305d8219489ac73e5acc892f360d19c489c1502e592c5d1"
-    sha256 cellar: :any_skip_relocation, monterey:       "c4e15ab4e5e4b0c013625686b944e033d1660051c585f68f40472f67758ee6e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f0fe2cc9f6d88a1a56620aa0b075d964a6c8add35d2f384631a020f208a38e0"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b1ebcdaadbf95e043eee26a5e61ef099d163f02b1024bfd6a48e25b43bb1e40a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "160d2679081ce1941f4c026ae9808ad2b7611afb937b6a3536b00be8709796f5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5ae38619920a9e68a04561d58ddfdbdca7a214beaa4f2d7a0a53a37c1da3e4db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "491893d9094e7f1565ae342c8aceecde9f7ccbc011fe10546b2690507bd8fee1"
+    sha256 cellar: :any_skip_relocation, ventura:        "4e6456089c2d047c90d1533bbe3ea2be9fe341ed595c990eeff4a4f44b31be6a"
+    sha256 cellar: :any_skip_relocation, monterey:       "5f433ee51e12a95f15dae3023877f3e84a6cb87ae27cc20f7052a5de39e9d7df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7f80a3e8068bebc91afb5c7cb391aaddc15bc098ae7f5698a4b5bfbd09439dc"
   end
 
   depends_on "python@3.12"
