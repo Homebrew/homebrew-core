@@ -1,4 +1,6 @@
 class EgExamples < Formula
+  include Language::Python::Virtualenv
+
   desc "Useful examples at the command-line"
   homepage "https://github.com/srsudar/eg"
   url "https://files.pythonhosted.org/packages/5f/3f/f55eef404adae2d5429728722d6a81ad6ac50a80e9b47be046cfbe97bc44/eg-1.2.2.tar.gz"
@@ -16,15 +18,10 @@ class EgExamples < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a9ae5a700dab424e7b48158245af4efce5cc757604d1afac04e3507ceae7e1e"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
