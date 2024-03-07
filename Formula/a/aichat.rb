@@ -7,13 +7,13 @@ class Aichat < Formula
   head "https://github.com/sigoden/aichat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a15f18cc8e96bdf0b5cdc689d76773b795391616a58cdae3c718c391f1d90eae"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc503d73c290a56970d1319898306593859e59c2bc757677ff16df8f15e0eb00"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa03832342ca7ae4e2d7d34f4af2cac3383ac742ff503c27b57ba6487a1544b3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8da708b32223db0a48bc120a14d526af06f523ea5d32b9f97fef69a2f91997fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "faa5ba0f2af6e2f13439cbb5531acfa73fb92061bcb85831b601146fc2b31c93"
-    sha256 cellar: :any_skip_relocation, monterey:       "05c5efdcadd1688b10c740eaf0f5640548c790267063167e8c808fefe70009c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e80ec8b594e166036703b044f1389ea328ce46bcbf7137494f66cafffa0ad624"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a2b79f7719b07f221ffd406048cd7f059a102835ca5c620590fd812015d3d8aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "69b6d3ea482e551ded27c57da10d40670f598c4d65daecc3c7de0795caaf3499"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43d601dc5cb9ae5b136967a0f176755e2c1a7d51ae84ac9c3248200fec360b90"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0c78c71fc8787f224cf945be12878124862f709cc8c858240554fb08f7bf88c5"
+    sha256 cellar: :any_skip_relocation, ventura:        "1fdd8ef112f0da1f38800c667b6010a5335530feb3b02e2bddfb814489e224ad"
+    sha256 cellar: :any_skip_relocation, monterey:       "d3dfedaa009129485b0a2722667094ded5ed3a1b0884e1d8a9777d97f6e5d518"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94ee38b852e4611d66cfe0756d61e0bacca92b24517b303b14d48a4c26e7ee25"
   end
 
   depends_on "rust" => :build
