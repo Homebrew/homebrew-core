@@ -27,7 +27,7 @@ class GolangciLint < Formula
       -X main.date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/golangci-lint"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/golangci-lint"
 
     generate_completions_from_executable(bin/"golangci-lint", "completion")
   end
