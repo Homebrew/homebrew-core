@@ -1,8 +1,8 @@
 class EcflowUi < Formula
   desc "User interface for client/server workflow package"
   homepage "https://confluence.ecmwf.int/display/ECFLOW"
-  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.12.0-Source.tar.gz"
-  sha256 "bdfa22adacf8d2429ce01fe1bdc0cdc8099a42364f18610f2bc2fe15a7541bb4"
+  url "https://confluence.ecmwf.int/download/attachments/8650755/ecFlow-5.12.1-Source.tar.gz"
+  sha256 "bc56c4efa0c599c212ae52c76b25e292a03575fdbd27b36ed99890b70c5957c3"
   license "Apache-2.0"
 
   livecheck do
