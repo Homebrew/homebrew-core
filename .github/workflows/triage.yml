@@ -223,8 +223,12 @@ jobs:
               allow_any_match: true
 
             - label: CI-build-dependents-from-source
-              path: Formula/.+/(cabal-install|docbook-xsl|emscripten|erlang|ghc|go|ocaml|ocaml-findlib|ocaml-num|openjdk|rust).rb
+              path:
+                - 'Formula/.+/(cabal-install|docbook-xsl|emscripten|erlang|ocaml|ocaml-findlib|ocaml-num|openjdk|rust)\.rb'
+                - 'Aliases/(ghc|go)(@[0-9.]+)?$'
+              missing_content: '\n  revision [0-9]+\n'
               keep_if_no_match: true
+              allow_any_match: true
 
             - label: CI-skip-recursive-dependents
               path: Formula/.+/(ca-certificates|curl|gettext|openssl@3|sqlite).rb
