@@ -22,7 +22,7 @@ class Gyb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "de29cdde581377fb6a67f587c676c5e3df28a9eade95188b30f25480b67c1e7e"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "cachetools" do
