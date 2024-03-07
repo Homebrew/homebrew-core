@@ -1,4 +1,6 @@
 class SshAudit < Formula
+  include Language::Python::Virtualenv
+
   desc "SSH server & client auditing"
   homepage "https://github.com/jtesta/ssh-audit"
   url "https://files.pythonhosted.org/packages/c8/b9/974b5dff0b2ae42fde4773f3115e02aa58efed93b70a4888888c056238f8/ssh-audit-3.1.0.tar.gz"
@@ -16,15 +18,10 @@ class SshAudit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a64a87ae4c903840ce4e0cd3b2f75653b38f4d51a726dd9941acfc10fab3d521"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
