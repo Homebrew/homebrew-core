@@ -1,8 +1,8 @@
 class Jj < Formula
   desc "Git-compatible distributed version control system"
   homepage "https://github.com/martinvonz/jj"
-  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "2dcb890b64c3d576159d2a0c19177f9e622d444506f74a97e92806613b610ba6"
+  url "https://github.com/martinvonz/jj/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "e39f80edaa01da29e86782424d031c38324eabff10c44704781c80fd60c9fb0e"
   license "Apache-2.0"
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
