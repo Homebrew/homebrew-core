@@ -18,8 +18,8 @@ class SvtplayDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "85ff5a3352fc21bb541207b4bc5a83504a565e04eae2733a5a67a4c82fc6dca7"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
