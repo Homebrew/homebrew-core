@@ -23,7 +23,7 @@ class SpicetifyCli < Formula
       -s -w
       -X main.version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: libexec/"spicetify")
+    system "go", "build", *std_go_args(ldflags:, output: libexec/"spicetify")
     cd buildpath do
       libexec.install [
         "css-map.json",
