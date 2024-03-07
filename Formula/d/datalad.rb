@@ -18,9 +18,9 @@ class Datalad < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "285babb02e16ed1386a45a6911a1129ab38408d733d61f0a6c7841c282495d32"
   end
 
+  depends_on "certifi"
   depends_on "git-annex"
   depends_on "p7zip"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.11" # Python 3.12 blocked by `boto` usage: https://github.com/datalad/datalad/issues/5597
 
