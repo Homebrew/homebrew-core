@@ -23,7 +23,7 @@ class Diffoci < Formula
       -s -w
       -X github.com/reproducible-containers/diffoci/cmd/diffoci/version.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/diffoci"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/diffoci"
 
     generate_completions_from_executable(bin/"diffoci", "completion")
   end
