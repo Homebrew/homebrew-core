@@ -26,7 +26,7 @@ class Devspace < Formula
 
   def install
     ldflags = "-s -w -X main.commitHash=#{tap.user} -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"devspace", "completion")
   end
