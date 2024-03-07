@@ -19,7 +19,7 @@ class AivenClient < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "311a8a900c7d14dac945ec404b878693917968be43fc16981f0dd5e1f5632402"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
