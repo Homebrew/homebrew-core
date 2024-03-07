@@ -803,6 +803,7 @@ hermit
 hexyl
 hfstospell
 hidapi
+highs
 himalaya
 hive
 hivemind
