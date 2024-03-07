@@ -19,7 +19,7 @@ class Grayskull < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "beautifulsoup4" do
