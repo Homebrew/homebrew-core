@@ -24,7 +24,7 @@ class Pgweb < Formula
       -X github.com/sosedoff/pgweb/pkg/command.GoVersion=#{Formula["go"].version}
     ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
