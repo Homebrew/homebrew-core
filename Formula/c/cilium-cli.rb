@@ -27,7 +27,7 @@ class CiliumCli < Formula
 
   def install
     ldflags = "-s -w -X github.com/cilium/cilium-cli/defaults.CLIVersion=v#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"cilium"), "./cmd/cilium"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"cilium"), "./cmd/cilium"
 
     generate_completions_from_executable(bin/"cilium", "completion", base_name: "cilium")
   end
