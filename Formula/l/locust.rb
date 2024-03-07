@@ -17,7 +17,7 @@ class Locust < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "24696645f086eddb7daca78408ff531a567c82424f508271bcf3c956122ed3b2"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
   depends_on "zeromq"
 
