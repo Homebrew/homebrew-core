@@ -19,8 +19,8 @@ class Flit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "88fca41340487d622a4dffa4009abd0fabc3ff0f6dc7cd8593527b48f3bb9c50"
   end
 
+  depends_on "certifi"
   depends_on "docutils"
-  depends_on "python-certifi"
   depends_on "python-flit-core"
   depends_on "python@3.12"
 
