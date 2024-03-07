@@ -1,8 +1,8 @@
 class HaskellStack < Formula
   desc "Cross-platform program for developing Haskell projects"
   homepage "https://haskellstack.org/"
-  url "https://github.com/commercialhaskell/stack/archive/refs/tags/v2.13.1.tar.gz"
-  sha256 "00333782b1bda3bda02ca0c1bbc6becdd86e5a39f6448b0df788b634e1bde692"
+  url "https://github.com/commercialhaskell/stack/archive/refs/tags/v2.15.3.tar.gz"
+  sha256 "f81ddbcab12c7647536128ecda2acb6fcd91d18474dea908c53848314bd7c867"
   license "BSD-3-Clause"
   head "https://github.com/commercialhaskell/stack.git", branch: "master"
 
@@ -32,6 +32,7 @@ class HaskellStack < Formula
     (buildpath/"cabal.project").unlink
     (buildpath/"cabal.project").write <<~EOS
       packages: .
+      constraints: tar < 0.6
     EOS
 
     system "cabal", "v2-update"
