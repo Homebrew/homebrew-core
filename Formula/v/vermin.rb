@@ -1,4 +1,6 @@
 class Vermin < Formula
+  include Language::Python::Virtualenv
+
   desc "Concurrently detect the minimum Python versions needed to run code"
   homepage "https://github.com/netromdk/vermin"
   url "https://files.pythonhosted.org/packages/3d/26/7b871396c33006c445c25ef7da605ecbd6cef830d577b496d2b73a554f9d/vermin-1.6.0.tar.gz"
@@ -16,15 +18,10 @@ class Vermin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e09aab935f0ca29d76b066a2e4e0b73467b63046f968957389fda7e50bb75256"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
