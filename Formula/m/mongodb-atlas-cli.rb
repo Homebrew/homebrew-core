@@ -1,8 +1,8 @@
 class MongodbAtlasCli < Formula
   desc "Atlas CLI enables you to manage your MongoDB Atlas"
   homepage "https://www.mongodb.com/docs/atlas/cli/stable/"
-  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.15.1.tar.gz"
-  sha256 "ced26bbf859750e11002c400af6028c19c4c949f4b3919cdabaf2b07a39a5489"
+  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/atlascli/v1.16.0.tar.gz"
+  sha256 "a36a48db85e545f0ad579cfaa47489f1d5b7f7eadd4e165bf0a1a4ca3a80362c"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongodb-atlas-cli.git", branch: "master"
 
@@ -28,12 +28,10 @@ class MongodbAtlasCli < Formula
   conflicts_with "nim", because: "both install `atlas` executable"
 
   def install
-    with_env(
-      ATLAS_VERSION: version.to_s,
-      MCLI_GIT_SHA:  "homebrew-release",
-    ) do
-      system "make", "build-atlascli"
-    end
+    ENV["ATLAS_VERSION"] = version.to_s
+    ENV["MCLI_GIT_SHA"] = "homebrew-release"
+
+    system "make", "build"
     bin.install "bin/atlas"
 
     generate_completions_from_executable(bin/"atlas", "completion", base_name: "atlas")
