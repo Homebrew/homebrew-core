@@ -18,7 +18,7 @@ class Arjun < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ceede517c5682d225bdb12f54291054bc36be1f16a10c82f90a7d4aa868b463"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   def python3
