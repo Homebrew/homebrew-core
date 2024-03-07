@@ -18,7 +18,7 @@ class Toot < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c33e35cec9cacc293440840b2f79602917d5b2d68d4cc3bccaeabffb93b101d"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "beautifulsoup4" do
