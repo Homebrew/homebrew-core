@@ -26,7 +26,7 @@ class Risor < Formula
   def install
     chdir "cmd/risor" do
       ldflags = "-s -w -X 'main.version=#{version}' -X 'main.date=#{time.iso8601}'"
-      system "go", "build", "-tags", "aws", *std_go_args(ldflags: ldflags), "."
+      system "go", "build", "-tags", "aws", *std_go_args(ldflags:), "."
       generate_completions_from_executable(bin/"risor", "completion")
     end
   end
