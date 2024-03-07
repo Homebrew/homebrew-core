@@ -27,7 +27,7 @@ class Tygo < Formula
       -X github.com/gzuidhof/tygo/cmd.commitDate=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"tygo", "completion")
     pkgshare.install "examples"
