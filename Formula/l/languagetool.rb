@@ -39,8 +39,8 @@ class Languagetool < Formula
       libexec.install Dir["*/*"]
     end
 
-    bin.write_jar_script libexec/"languagetool-commandline.jar", "languagetool", java_version: java_version
-    bin.write_jar_script libexec/"languagetool.jar", "languagetool-gui", java_version: java_version
+    bin.write_jar_script(libexec/"languagetool-commandline.jar", "languagetool", java_version:)
+    bin.write_jar_script(libexec/"languagetool.jar", "languagetool-gui", java_version:)
     (bin/"languagetool-server").write <<~EOS
       #!/bin/bash
       export JAVA_HOME="#{Language::Java.overridable_java_home_env(java_version)[:JAVA_HOME]}"
