@@ -1,4 +1,6 @@
 class Wllvm < Formula
+  include Language::Python::Virtualenv
+
   desc "Toolkit for building whole-program LLVM bitcode files"
   homepage "https://pypi.org/project/wllvm/"
   url "https://files.pythonhosted.org/packages/4b/df/31d7519052bc21d0e9771e9a6540d6310bfb13bae7dacde060d8f647b8d3/wllvm-1.3.1.tar.gz"
@@ -17,16 +19,11 @@ class Wllvm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d498bbcc563be8807d7bbdc6cd7aaf6d5f7fefb11b9f0fd38418a0274198f680"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "llvm" => :test
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
