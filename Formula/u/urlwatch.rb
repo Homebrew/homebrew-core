@@ -19,8 +19,8 @@ class Urlwatch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "509ec4ca0fa64e60bf9cc27511892983480de3a74fd8616035468b289a56dad1"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura
