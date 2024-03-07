@@ -1060,6 +1060,7 @@ logstash
 lout
 lsof
 luajit
+luarocks
 luau
 luit
 lunzip

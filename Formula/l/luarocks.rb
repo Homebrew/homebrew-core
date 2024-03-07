@@ -1,8 +1,8 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.9.2.tar.gz"
-  sha256 "bca6e4ecc02c203e070acdb5f586045d45c078896f6236eb46aa33ccd9b94edb"
+  url "https://luarocks.org/releases/luarocks-3.10.0.tar.gz"
+  sha256 "e9bf06d5ec6b8ecc6dbd1530d2d77bdb3377d814a197c46388e9f148548c1c89"
   license "MIT"
   head "https://github.com/luarocks/luarocks.git", branch: "master"
 
@@ -30,6 +30,9 @@ class Luarocks < Formula
   uses_from_macos "unzip"
 
   def install
+    # Fix the lua config file missing issue for luarocks-admin build
+    ENV.deparallelize
+
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--rocks-tree=#{HOMEBREW_PREFIX}"
