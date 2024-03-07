@@ -25,7 +25,7 @@ class Openfga < Formula
       -X github.com/openfga/openfga/internal/build.Commit=brew
       -X github.com/openfga/openfga/internal/build.Date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/openfga"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/openfga"
 
     generate_completions_from_executable(bin/"openfga", "completion")
   end
