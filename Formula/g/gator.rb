@@ -23,7 +23,7 @@ class Gator < Formula
       -s -w
       -X github.com/open-policy-agent/gatekeeper/v3/pkg/version.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/gator"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/gator"
 
     generate_completions_from_executable(bin/"gator", "completion")
   end
