@@ -19,8 +19,8 @@ class AwsGoogleAuth < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f98f7060a9106d76e50c579df000f69501cc0f18845e258177355ffbad237380"
   end
 
+  depends_on "certifi"
   depends_on "pillow"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura
