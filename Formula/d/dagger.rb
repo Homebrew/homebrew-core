@@ -30,7 +30,7 @@ class Dagger < Formula
       -s -w
       -X github.com/dagger/dagger/engine.Version=v#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/dagger"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/dagger"
 
     generate_completions_from_executable(bin/"dagger", "completion")
   end
