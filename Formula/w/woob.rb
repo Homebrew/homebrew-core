@@ -19,10 +19,10 @@ class Woob < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1df388f3a8034b3d8f0398296d9c32104f453f8b3b5d8887ade875f720db83cb"
   end
 
+  depends_on "certifi"
   depends_on "gnupg"
   depends_on "libyaml"
   depends_on "pillow"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura
