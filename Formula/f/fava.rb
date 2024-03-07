@@ -19,7 +19,7 @@ class Fava < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "09ac4d12eaccf42b5dba8a5cc207020907cd3d7761151aa7d55ab8bc1191cd7d"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura
