@@ -15,12 +15,12 @@ class PythonMatplotlib < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d62510ab0add381615c5588e975266b83d006f2370e6dde73eb837ea950fc8d3"
   end
 
+  depends_on "certifi" => :build
   depends_on "meson" => :build
   depends_on "meson-python" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "pybind11" => :build
-  depends_on "python-certifi" => :build
   depends_on "python-setuptools-scm" => :build
   depends_on "fonttools"
   depends_on "freetype"
