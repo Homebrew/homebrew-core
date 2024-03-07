@@ -24,7 +24,7 @@ class Hcloud < Formula
       -X github.com/hetznercloud/cli/internal/version.version=v#{version}
       -X github.com/hetznercloud/cli/internal/version.versionPrerelease=
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/hcloud"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/hcloud"
 
     generate_completions_from_executable(bin/"hcloud", "completion")
   end
