@@ -20,7 +20,7 @@ class Hoverfly < Formula
 
   def install
     ldflags = "-s -w -X main.hoverctlVersion=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./core/cmd/hoverfly"
+    system "go", "build", *std_go_args(ldflags:), "./core/cmd/hoverfly"
   end
 
   test do
