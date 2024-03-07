@@ -28,7 +28,7 @@ class Helmfile < Formula
       -X go.szostok.io/version.commitDate=#{time.iso8601}
       -X go.szostok.io/version.dirtyBuild=false
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"helmfile", "completion")
   end
