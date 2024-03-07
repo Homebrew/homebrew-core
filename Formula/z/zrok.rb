@@ -28,7 +28,7 @@ class Zrok < Formula
     end
     ldflags = ["-X github.com/openziti/zrok/build.Version=#{version}",
                "-X github.com/openziti/zrok/build.Hash=brew"]
-    system "go", "build", *std_go_args(ldflags: ldflags), "github.com/openziti/zrok/cmd/zrok"
+    system "go", "build", *std_go_args(ldflags:), "github.com/openziti/zrok/cmd/zrok"
   end
 
   test do
