@@ -21,8 +21,8 @@ class Certbot < Formula
 
   depends_on "python-setuptools" => :build
   depends_on "augeas"
+  depends_on "certifi"
   depends_on "dialog"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
