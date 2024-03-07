@@ -237,7 +237,7 @@
     "exclude_packages": ["cryptography", "certifi"]
   },
   "enex2notion": {
-    "exclude_packages": ["certifi", "lxml", "PyMuPDF", "six"]
+    "exclude_packages": ["certifi"]
   },
   "esphome": {
     "exclude_packages": ["certifi", "cryptography", "protobuf"]

@@ -18,12 +18,12 @@ class Enex2notion < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9867a6d8a2ba6a8dced30ab82e552cd829996cad2f1f7c61defe3d5d34a04838"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "pymupdf"
+  depends_on "cmake" => :build
   depends_on "python-certifi"
-  depends_on "python-lxml"
   depends_on "python@3.12"
-  depends_on "six"
+
+  uses_from_macos "libxml2", since: :ventura
+  uses_from_macos "libxslt"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/af/0b/44c39cf3b18a9280950ad63a579ce395dda4c32193ee9da7ff0aed547094/beautifulsoup4-4.12.2.tar.gz"
@@ -60,6 +60,11 @@ class Enex2notion < Formula
     sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
   end
 
+  resource "lxml" do
+    url "https://files.pythonhosted.org/packages/2b/b4/bbccb250adbee490553b6a52712c46c20ea1ba533a643f1424b27ffc6845/lxml-5.1.0.tar.gz"
+    sha256 "3eea6ed6e6c918e468e693c41ef07f3c3acc310b70ddd9cc72d9ef84bc9564ca"
+  end
+
   resource "notion-vzhd1701-fork" do
     url "https://files.pythonhosted.org/packages/77/5b/314816c876cae1dac143c3e0221a9b4b9b186576ef92e75e0aab041c179c/notion_vzhd1701_fork-0.0.37.tar.gz"
     sha256 "36bab3b5257a3019ada5b085d9c6f7d1f5d466d38bb8a089b850ce792fd561bc"
@@ -68,6 +73,11 @@ class Enex2notion < Formula
   resource "pdfkit" do
     url "https://files.pythonhosted.org/packages/58/bb/6ddc62b4622776a6514fd749041c2b4bccd343e006d00de590f8090ac8b1/pdfkit-1.0.0.tar.gz"
     sha256 "992f821e1e18fc8a0e701ecae24b51a2d598296a180caee0a24c0af181da02a9"
+  end
+
+  resource "pymupdf" do
+    url "https://files.pythonhosted.org/packages/c5/47/ebd9cdc09d82462533f69f983c7f57ebbf01e68adb111a3c49acacde2540/PyMuPDF-1.23.26.tar.gz"
+    sha256 "a904261b317b761b0aa2bd2c1f6cd25d25aa4258be67a90c02a878efc5dca649"
   end
 
   resource "python-dateutil" do
@@ -93,6 +103,11 @@ class Enex2notion < Formula
   resource "requests" do
     url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
   resource "soupsieve" do
@@ -167,7 +182,9 @@ class Enex2notion < Formula
       </en-export>
     EOF
 
-    assert_match "No token provided", shell_output("#{bin}/enex2notion test.enex 2>&1")
+    output = shell_output("#{bin}/enex2notion test.enex --verbose 2>&1")
+    assert_match "No token provided", output
+    assert_match "Parsing note 'Test'", output
 
     assert_match version.to_s, shell_output("#{bin}/enex2notion --version")
   end
