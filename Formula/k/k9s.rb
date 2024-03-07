@@ -30,7 +30,7 @@ class K9s < Formula
       -X github.com/derailed/k9s/cmd.version=#{version}
       -X github.com/derailed/k9s/cmd.commit=#{Utils.git_head}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"k9s", "completion")
   end
