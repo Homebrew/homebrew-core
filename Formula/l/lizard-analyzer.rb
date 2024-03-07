@@ -1,4 +1,6 @@
 class LizardAnalyzer < Formula
+  include Language::Python::Virtualenv
+
   desc "Extensible Cyclomatic Complexity Analyzer"
   homepage "http://www.lizard.ws"
   url "https://files.pythonhosted.org/packages/ef/70/bbb7c6b5d1b29acca0cd13582a7303fc528e6dbf40d0026861f9aa7f3ff0/lizard-1.17.10.tar.gz"
@@ -16,15 +18,10 @@ class LizardAnalyzer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f46c945d71e652f59d6cb4a902f17df6d0b2a658429b9f0caf8f630b4ef544e"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
