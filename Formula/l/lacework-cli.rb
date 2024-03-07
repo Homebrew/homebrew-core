@@ -34,7 +34,7 @@ class LaceworkCli < Formula
       -X github.com/lacework/go-sdk/cli/cmd.GitSHA=#{Utils.git_head}
       -X github.com/lacework/go-sdk/cli/cmd.BuildTime=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(output: bin/"lacework", ldflags: ldflags), "./cli"
+    system "go", "build", *std_go_args(output: bin/"lacework", ldflags:), "./cli"
 
     generate_completions_from_executable(bin/"lacework", "completion", base_name: "lacework")
   end
