@@ -18,7 +18,7 @@ class DockerSquash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f01b0cfe45184c12709cac5ddec452e54b1901c8670db88b3fba8482952d4c41"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
