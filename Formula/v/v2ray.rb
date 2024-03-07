@@ -40,7 +40,7 @@ class V2ray < Formula
 
   def install
     ldflags = "-s -w -buildid="
-    system "go", "build", *std_go_args(ldflags: ldflags, output: libexec/"v2ray"), "./main"
+    system "go", "build", *std_go_args(ldflags:, output: libexec/"v2ray"), "./main"
 
     (bin/"v2ray").write_env_script libexec/"v2ray",
       V2RAY_LOCATION_ASSET: "${V2RAY_LOCATION_ASSET:-#{pkgshare}}"
