@@ -18,11 +18,11 @@ class OnlykeyAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9408817bcedd63b545ec65f4309bd344ff4bec4df6400c9ea83907cf9d88912"
   end
 
+  depends_on "certifi"
   depends_on "gnupg"
   depends_on "hidapi"
   depends_on "libcython"
   depends_on "libusb"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
