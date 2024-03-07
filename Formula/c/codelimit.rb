@@ -17,8 +17,8 @@ class Codelimit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "04086cde11d3e9e8c7e9ef4bc91bd3754d4877cfd13eb46273bc39d253549a4f"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "aiohttp" do
