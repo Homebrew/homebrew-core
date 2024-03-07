@@ -20,7 +20,7 @@ class Certgraph < Formula
 
   def install
     ldflags = "-s -w -X main.gitDate=#{Time.now.iso8601} -X main.gitHash=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
