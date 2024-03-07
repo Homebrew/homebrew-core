@@ -10,14 +10,14 @@ class Mkvtomp4 < Formula
   head "https://github.com/gavinbeatty/mkvtomp4.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12ce2a3b382ca7a2983051a1ad62e2a8f440b57f92a863036544b65ff1263a9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03fef034ddc3444e057de70b4145a47562dff5a631abada7df4fee7c195d35ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "98055a1447d0168c10b30e83ec972b5afb2fccb2abc6ff19f0cd5ebfc5439306"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1060a5f50089a0b0a0f9a2a0f34adcf4a083c800fea248897f42e2636561d9b1"
-    sha256 cellar: :any_skip_relocation, ventura:        "9ee6d01cacda55e7defde62d37a862e9f7add5d0fd0734879720ebc1ea2bebda"
-    sha256 cellar: :any_skip_relocation, monterey:       "66134324e6af6ac8de9861bcfc8d1e4a2ef25808439d45121bb9822f669ff432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a03d3794981d2717fbe2d7b2fd7d42ae8573a8b440bbf9dd8eaf6a0e3c91f0a6"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b0211e548f427a745a616acb0040ac4bee43dbbba351058c7db51737848bdd7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "28cd8a440b014863414812ca1c0b5dc7a53ca5679cc6186c56043c870b388cf1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c25c3203f036ed522c4b5bdaacda644afc1828e245f8d6661e620d69eaf5883"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1c67f86549714e14becca9a1b5e86bb07615d4249bc892d967c1ee4b80ef20a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "272f9a3386061722abfe5d8a8cfc1659b54eebdc2738739b5119986262bb01d0"
+    sha256 cellar: :any_skip_relocation, monterey:       "d089374400cccda7d73f4d34069831da18fb48e230f6525d3c788585dcb532f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d341dd943da6c2447fc8110ae4fde421c4205d69f343e5810fd07dc1b6a4fc7"
   end
 
   depends_on "ffmpeg"
