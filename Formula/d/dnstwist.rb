@@ -18,8 +18,8 @@ class Dnstwist < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e2498d888b5c22b3f94c63a6a8f81aef7a641ce50bd0013e4ae071537ccd023d"
   end
 
+  depends_on "certifi"
   depends_on "libmaxminddb"
-  depends_on "python-certifi"
   depends_on "python@3.12"
   depends_on "ssdeep"
 
