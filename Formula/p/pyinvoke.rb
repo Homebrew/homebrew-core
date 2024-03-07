@@ -19,15 +19,10 @@ class Pyinvoke < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ee356e6c29cbead91c18d814a4598d9470dd82fc879937ec57bc6825ebfe7c9"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12" # Do not remove runtime dependency https://github.com/Homebrew/homebrew-core/issues/151248
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
