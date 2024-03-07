@@ -17,7 +17,7 @@ class Sickchill < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2289f697ffcc643da6c2d19987e36a8286e9d38b532f8da7072b1a8b51c11b8"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
