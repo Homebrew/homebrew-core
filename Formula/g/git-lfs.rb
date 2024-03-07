@@ -1,8 +1,8 @@
 class GitLfs < Formula
   desc "Git extension for versioning large files"
   homepage "https://git-lfs.github.com/"
-  url "https://github.com/git-lfs/git-lfs/releases/download/v3.4.1/git-lfs-v3.4.1.tar.gz"
-  sha256 "89acbe51799c5d7bdf6d8e6704fcd1a07735ee7d1ed67a0bc646a5d9a9d1099f"
+  url "https://github.com/git-lfs/git-lfs/releases/download/v3.5.1/git-lfs-v3.5.1.tar.gz"
+  sha256 "fc19c7316e80a6ef674aa4e1863561c1263cd4ce0588b9989e4be9461664d752"
   license "MIT"
 
   # Upstream creates releases that are sometimes not the latest stable version,
