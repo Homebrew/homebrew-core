@@ -26,7 +26,7 @@ class Gebug < Formula
       -s -w
       -X github.com/moshebe/gebug/version.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"gebug", "completion")
   end
