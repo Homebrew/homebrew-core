@@ -34,7 +34,7 @@ class Tilt < Formula
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/tilt"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/tilt"
 
     generate_completions_from_executable(bin/"tilt", "completion")
   end
