@@ -18,7 +18,7 @@ class Pdm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "47058cdbc868627c13d2ad4ddfc1e100a4fab46f3dd7a5872d12fb04f3cf47a9"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "blinker" do
