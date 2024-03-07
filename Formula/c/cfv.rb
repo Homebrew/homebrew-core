@@ -8,14 +8,14 @@ class Cfv < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ceda98b6735adc3c9ffb311d107f2e6852dfa2b1d95606dc2cbdbd1f9fe14957"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00bd5bdcc3c6d07fa25f2740c6d4957e1dfbb69e12d1b5f5dcaa1b1b51215845"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f8a4205950b7ca03b64af3d346d4a62e2f92e2b9c62471eff4016b297b1f54bd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "549e42b89e00ef86475782f6c3e4ab816ce34137a8bd3fbe1ca4f9bfe99e82b2"
-    sha256 cellar: :any_skip_relocation, ventura:        "88a64151f0fd0e00d7c2ff56ed4ca792080fb2df54f536193c1870a598a13740"
-    sha256 cellar: :any_skip_relocation, monterey:       "4d2f9326362dc6904d6ba58e018cf53462fb45d8430cfa8ddcd87509db93dfd9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e8a066bcffd91118d3331e2a2b38759a56917957f9f4d32b9273c4091cce45c"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45d0cc0d275d2abce31dc68f6b588cd2b6542700079e914f5313536069105df4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73de17963f67bb975bfba11b8f3e69ac80a47a7729b5b384082a95241a13ff07"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34d37ec148d00f729be8d759b3d9b9dbd146169f5632e5b1027baeb8f1a8d968"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dbc8899ec58d62eb0510d40f9d379dcb6c30d95689577e8ddabacccbdbc2cee0"
+    sha256 cellar: :any_skip_relocation, ventura:        "5617ab20813e0f0e396bf33cf97ef6ed25e7af735afe7771052b0caa63041440"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ece33d693e3d3182fd24bbebe315d5ae40e65795810158caec543ed32ffa3e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebd9e777458f000cd6cdf0fccec16a5c50399a07607f15076519d6cbc181da5d"
   end
 
   depends_on "python@3.12"
