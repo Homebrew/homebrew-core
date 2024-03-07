@@ -28,7 +28,7 @@ class Cmctl < Formula
     ]
 
     cd "cmd/ctl" do
-      system "go", "build", *std_go_args(ldflags: ldflags)
+      system "go", "build", *std_go_args(ldflags:)
     end
 
     generate_completions_from_executable(bin/"cmctl", "completion")
