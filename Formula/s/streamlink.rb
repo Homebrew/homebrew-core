@@ -19,8 +19,8 @@ class Streamlink < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "764a00c27b9279bfea3580e9fb38b036fa2240631b56515bea884de53413314d"
   end
 
+  depends_on "certifi"
   depends_on "libxml2" # https://github.com/Homebrew/homebrew-core/issues/98468
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
