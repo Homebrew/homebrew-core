@@ -28,7 +28,7 @@ class YtDlp < Formula
     end
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "brotli" do
