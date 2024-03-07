@@ -20,7 +20,7 @@ class Beancount < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "77281a4733c4e6f1912da62bf07f9e3f8e072680a33bb834ff9c52319d41573e"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura
