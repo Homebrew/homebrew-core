@@ -21,8 +21,8 @@ class CloudformationCli < Formula
 
   depends_on "rust" => :build # for pydantic
   depends_on "go" => :test
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "expect" => :test
