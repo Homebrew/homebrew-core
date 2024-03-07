@@ -30,7 +30,7 @@ class Cxgo < Formula
       -X main.date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/cxgo"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/cxgo"
   end
 
   test do
