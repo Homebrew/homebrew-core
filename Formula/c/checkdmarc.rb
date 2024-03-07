@@ -19,7 +19,7 @@ class Checkdmarc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "edd4eb656db150fb1c31164af9cc5622e14c7cc51a9d85e7ca9e19971ece9d88"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
