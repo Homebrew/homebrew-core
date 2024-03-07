@@ -1,5 +1,5 @@
 class Ranger < Formula
-  include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "File browser"
   homepage "https://ranger.github.io"
@@ -20,15 +20,10 @@ class Ranger < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa2faf4fe8116fc48ba789940320882c5bed58b7c5900e827200021f38d62c83"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python
-    Formula["python@3.12"].opt_libexec/"bin/python"
-  end
-
   def install
-    system python, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
@@ -38,7 +33,7 @@ class Ranger < Formula
     (testpath/"test.py").write code
     assert_equal code, shell_output("#{bin}/rifle -w cat test.py")
 
-    ENV.prepend_path "PATH", python.parent
+    ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin"
     assert_equal "Hello World!\n", shell_output("#{bin}/rifle -p 2 test.py")
   end
 end
