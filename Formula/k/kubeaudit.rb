@@ -25,7 +25,7 @@ class Kubeaudit < Formula
       -X github.com/Shopify/kubeaudit/cmd.BuildDate=#{time.strftime("%F")}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd"
 
     generate_completions_from_executable(bin/"kubeaudit", "completion")
   end
