@@ -1,4 +1,6 @@
 class Asciinema < Formula
+  include Language::Python::Virtualenv
+
   desc "Record and share terminal sessions"
   homepage "https://asciinema.org"
   url "https://files.pythonhosted.org/packages/f1/19/45b405438e90ad5b9618f3df62e9b3edaa2b115b530e60bd4b363465c704/asciinema-2.4.0.tar.gz"
@@ -17,15 +19,10 @@ class Asciinema < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecb93ab4fa6cec9f6346eefd2d9ddac8dc5a981a8c946494fa12b5784b5ad669"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    which("python3.12")
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
