@@ -17,9 +17,9 @@ class HuggingfaceCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4c4874416b8f071d8c5a7784ba3577b1e8456a36eaa0ab4b2fd0e07e872fc4f"
   end
 
+  depends_on "certifi"
   depends_on "git-lfs"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
