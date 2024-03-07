@@ -23,7 +23,7 @@ class Signmykey < Formula
       -s -w
       -X github.com/signmykeyio/signmykey/cmd.versionString=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"signmykey", "completion")
   end
