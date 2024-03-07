@@ -1,4 +1,6 @@
 class MuRepo < Formula
+  include Language::Python::Virtualenv
+
   desc "Tool to work with multiple git repositories"
   homepage "https://github.com/fabioz/mu-repo"
   url "https://files.pythonhosted.org/packages/0d/3d/ddf28cf3beafadb5b3ea45ab882530c1d993b4fc10c0c61d82c8da624f3d/mu_repo-1.9.0.tar.gz"
@@ -15,17 +17,12 @@ class MuRepo < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c06644e358dba26e24c06d2aa07a41117c7becfc86ddefaed2f2df6120922a8d"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
   conflicts_with "mu", because: "both install `mu` binaries"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
