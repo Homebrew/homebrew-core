@@ -1368,6 +1368,7 @@ redis
 redwax-tool
 regclient
 regina-rexx
+regipy
 regula
 release-it
 remind
