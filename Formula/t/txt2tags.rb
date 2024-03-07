@@ -1,4 +1,6 @@
 class Txt2tags < Formula
+  include Language::Python::Virtualenv
+
   desc "Conversion tool to generating several file formats"
   homepage "https://txt2tags.org/"
   url "https://files.pythonhosted.org/packages/27/17/c9cdebfc86e824e25592a20a8871225dad61b6b6c0101f4a2cb3434890dd/txt2tags-3.9.tar.gz"
@@ -16,15 +18,10 @@ class Txt2tags < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a075f97bedb110cc7d271e98fbf7deb3ebd315bd358b7e2b20570014559f9dd9"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
