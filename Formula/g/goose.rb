@@ -19,7 +19,7 @@ class Goose < Formula
 
   def install
     ldflags = %W[-s -w -X main.version=v#{version}]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/goose"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/goose"
   end
 
   test do
