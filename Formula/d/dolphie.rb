@@ -17,7 +17,7 @@ class Dolphie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f4df4b93e047c3470b08c3534087c99fd0bb9975f02a75fbe6e84749077dbafe"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
