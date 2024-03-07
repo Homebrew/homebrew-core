@@ -23,7 +23,7 @@ class Wazero < Formula
       -s -w
       -X github.com/tetratelabs/wazero/internal/version.version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/wazero"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/wazero"
   end
 
   test do
