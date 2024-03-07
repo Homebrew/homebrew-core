@@ -33,7 +33,7 @@ class Kubeval < Formula
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     pkgshare.install "fixtures"
   end
