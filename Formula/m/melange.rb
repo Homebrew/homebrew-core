@@ -26,7 +26,7 @@ class Melange < Formula
       -X sigs.k8s.io/release-utils/version.gitTreeState=clean
       -X sigs.k8s.io/release-utils/version.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"melange", "completion")
   end
