@@ -7,13 +7,13 @@ class Gf < Formula
   head "https://github.com/gogf/gf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "82f21eb71fb4362ee5cae406316e77a7bd282386eeb81367132bc40895e4691e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a00f3f072121f0ff7bbe14eba436ff8f0d39e00875ab966570f51dc46096bb5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8cfa69c85ad3ae6db994c6778feeec90d66b9330ae8b486f4cda5469340da4b9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4f75d0c8c29dd3dab1e430d0e5c3a44dc82c1d71ae1b50acd785c8d8a967b2d5"
-    sha256 cellar: :any_skip_relocation, ventura:        "d4d159a21dfb9b9d98777fd2cfd6bb23b888fcc3b530da62d73ae39140e5ecd9"
-    sha256 cellar: :any_skip_relocation, monterey:       "39d35de1a7e99d39c00aa0091c561b1a70ba6ace04186387a8913413f0ace899"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af81905651b593f2a59cc21cdbd50abdebf08f879e79c45a4e931f3b4cb40c3a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "34a6d8cdc38d5556556c03736afc9b757592bd534efa7cb2530aa77ad46bc5be"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c42b51fe5d9c77f4ed797a157a9d97896624d2baddf7db581ebbf6cba8917120"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "78f80fedbad44366de5ceb911cd52226740330262aa7f372f5ab4832c79f5fcc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "eca8cb492fdf54f47d7df0f6f3220365f171dba0481979ddf3973c2de9c7b1ab"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c8b7c527f8e6c4601c46858e7ee06fa5604ea0cbbc649d85759f71ac7085a66"
+    sha256 cellar: :any_skip_relocation, monterey:       "76e92a19dc0b007a490f43badc8b468750d2b7ffdbdedc52d5b55bcf3b0128f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f55db19f7f09792c345b00423964b3431b6b129a517a08aeb0711326a7cf5949"
   end
 
   depends_on "go" => [:build, :test]
