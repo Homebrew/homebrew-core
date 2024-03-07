@@ -27,7 +27,7 @@ class GitSync < Formula
       -s -w
       -X k8s.io/git-sync/pkg/version.VERSION=v#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
