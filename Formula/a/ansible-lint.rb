@@ -22,8 +22,8 @@ class AnsibleLint < Formula
   depends_on "rust" => :build # for rpds-py
   depends_on "ansible"
   depends_on "black"
+  depends_on "certifi"
   depends_on "pygments"
-  depends_on "python-certifi"
   depends_on "python@3.12"
   depends_on "pyyaml"
   depends_on "yamllint"
