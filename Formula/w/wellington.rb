@@ -29,7 +29,7 @@ class Wellington < Formula
 
   def install
     ldflags = "-X github.com/wellington/wellington/version.Version=#{version}"
-    system "go", "build", *std_go_args(output: bin/"wt", ldflags: ldflags), "wt/main.go"
+    system "go", "build", *std_go_args(output: bin/"wt", ldflags:), "wt/main.go"
   end
 
   test do
