@@ -233,6 +233,7 @@ jobs:
             - label: CI-linux-self-hosted
               path: Formula/.+/(alsa-lib|aom|brotli|cups|dart-sdk|dbus|envoy|freetype|gdbm|glib|glslang|gmp|gtk4|gzip|harfbuzz|hdf5|icu4c|json-c|krb5|libarchive|libedit|libnghttp2|libsndfile|libssh2|libtiff|libva|libx11|libxcrypt|libxml2|libxrandr|llvm|mesa|minizip|mpfr|mysql-connector-c\+\+|nghttp2|nss|numpy|open-mpi|openexr|p11-kit|pygments|python-setuptools|python@3.11|qt(@5)?|readline|remind|shared-mime-info|souffle|sui|systemd|texlive|unbound|utf8cpp|util-linux|webp|xz|zlib|zstd).rb
               keep_if_no_match: true
+              allow_any_match: true
 
             - label: bump-formula-pr
               pr_body_content: Created with `brew bump-formula-pr`
