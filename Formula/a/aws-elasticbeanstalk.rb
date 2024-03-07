@@ -19,8 +19,8 @@ class AwsElasticbeanstalk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "efbbe3216e0419c815fc497701e34cb0ca85c33a36fb34d1e3136c0a25c3a4cf"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.11" # Python 3.12 needs https://github.com/aws/aws-elastic-beanstalk-cli/pull/512
 
   uses_from_macos "libffi"
