@@ -18,8 +18,8 @@ class Ggshield < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7ba43511eaaccd914b76bb41aeaad168b3888d7609716fe4a643aeca52f0e81"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
