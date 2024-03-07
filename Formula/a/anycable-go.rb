@@ -33,7 +33,7 @@ class AnycableGo < Formula
       "-X github.com/anycable/anycable-go/utils.version=#{version}"
     end
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/anycable-go"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/anycable-go"
   end
 
   test do
