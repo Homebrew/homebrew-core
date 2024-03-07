@@ -32,7 +32,7 @@ class Testkube < Formula
       -X main.builtBy=#{tap.user}
     ]
 
-    system "go", "build", *std_go_args(output: bin/"kubectl-testkube", ldflags: ldflags),
+    system "go", "build", *std_go_args(output: bin/"kubectl-testkube", ldflags:),
       "cmd/kubectl-testkube/main.go"
 
     bin.install_symlink "kubectl-testkube" => "testkube"
