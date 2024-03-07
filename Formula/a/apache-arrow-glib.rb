@@ -12,13 +12,13 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b4d94fdc2c605409a32d52c7fb35e8df71b105f4d67b75eac0888c6087fa5e33"
-    sha256 cellar: :any, arm64_ventura:  "2f70b685806d5fbda693c730ff124ecc0426e33e540e1646a8f9bb035bbdb5cc"
-    sha256 cellar: :any, arm64_monterey: "319fccd212ae81c6351e46576c563cae7a31918efd0f626e760b5bc4413e67c3"
-    sha256 cellar: :any, sonoma:         "5a5165cda5791da5af83c7a65b128dc5e0dbf5c10de08e04a141a7094ef84d8e"
-    sha256 cellar: :any, ventura:        "ffa2cf231ee2a184c8b93245ccf0b13c6746348cfbc32c50533a637f13389b91"
-    sha256 cellar: :any, monterey:       "6ce37876938e37612521d6d9e70dd85420b3012c11f893f9cb358323a8646fec"
-    sha256               x86_64_linux:   "58914e7838f943c203cb60a6b211fb2d6140354167880789c7fdcae0c45fae49"
+    sha256 cellar: :any, arm64_sonoma:   "da019c9cab3a75c3a4756ca61063d58e5db87eaf7102c352f9c9e711857a2636"
+    sha256 cellar: :any, arm64_ventura:  "216bd3b1235e30ac8bcad5c31265d4dca28a0bd4bbdf8c854a1859b425c89ffb"
+    sha256 cellar: :any, arm64_monterey: "7b0c632d8d66156dcae42fd989b14b84e4e407d4aade62bd78e366d609df87b8"
+    sha256 cellar: :any, sonoma:         "f9134a2d4dce662361654d7690ae6bc158fa24492b4b3ee830e684dcb7d5c8ae"
+    sha256 cellar: :any, ventura:        "f27d91cbd4e87508ebfcf3543de1702e604de44737492677578d97d07ba70d0b"
+    sha256 cellar: :any, monterey:       "9eca85882812f642f562823de74ee8536270ffb55b14dda66de97023a98a9dea"
+    sha256               x86_64_linux:   "97bbd8d330d7fbb156f99faf4ce73355e92746904b63e807bf993be2c163399b"
   end
 
   depends_on "gobject-introspection" => :build
