@@ -6,13 +6,13 @@ class Tt < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "846eb23fbb4298d49f9059492309d74c9c353793d1a4a0210fd083988020b052"
-    sha256 cellar: :any,                 arm64_ventura:  "e395b546bc6fa0ea02a7518b709ce747bd825729cc0165b71b9e5856980e064b"
-    sha256 cellar: :any,                 arm64_monterey: "8922950cd37f03a578ad1caa07dd8e6fb852c31bfd2aea04655aade044f01309"
-    sha256                               sonoma:         "9bc1ff032b913b0387bc0e8903799f6368f2363473d88ed63d768778818fcb35"
-    sha256                               ventura:        "f18aca23a1ef3bf5f4141957e97a5e1b0acc0470b96ed6a4a0e772da92b654e0"
-    sha256                               monterey:       "7bcfd2f0a52a98cefaf833d3cec33a36123e90ebdd8eecebd8bb0dabc05bd74f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9804ab48ebb2796c3d5f0da3c8e3d0cf3ee2201833dc5ee97fecff007778364a"
+    sha256 cellar: :any,                 arm64_sonoma:   "e4fc38e4386e529dfddb0dd51a0ce99a85c8c57f9737f88d87d20946455c9070"
+    sha256 cellar: :any,                 arm64_ventura:  "4895166df988ae8057318b0b8eb72546ecd1014a6ce4f0242b1365d88472eac6"
+    sha256 cellar: :any,                 arm64_monterey: "57a646397635bdae8012694da92c85402aa708fd17e39a866e28834d1f868270"
+    sha256                               sonoma:         "66fd4ad2aaaf71f49d3333a1476b04a11ebb427ac7e9c12be5b8e908d1e6d3c3"
+    sha256                               ventura:        "0106a68dc8f66d272b1b16ad37e3673725bc3939df96b77edbef90e6796263f5"
+    sha256                               monterey:       "1f4db740066c7b6f698d98c7409494a1e81f5a12d16e1cfb1baabeb3a7276860"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0388451c4d65b0b920a2c0d9906889e2eed136b8aadba7e899103027dee0f0ab"
   end
 
   depends_on "go" => :build
