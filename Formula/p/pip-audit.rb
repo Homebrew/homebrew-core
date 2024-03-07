@@ -18,7 +18,7 @@ class PipAudit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffbd2e9f4540428a858ce5a6a88c4ef973d2b204304c8d81a69ac51d4f67ac49"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "boolean-py" do
