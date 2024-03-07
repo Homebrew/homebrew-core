@@ -18,8 +18,8 @@ class Apprise < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "980655ce6d442249c7fb98b0ad1cb81bf0b80f2ef24e5828b59ed3d759fbf0f4"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
