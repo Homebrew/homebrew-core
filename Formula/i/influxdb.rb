@@ -83,7 +83,7 @@ class Influxdb < Formula
       -X main.date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(output: bin/"influxd", ldflags: ldflags),
+    system "go", "build", *std_go_args(output: bin/"influxd", ldflags:),
            "-tags", "assets,sqlite_foreign_keys,sqlite_json", "./cmd/influxd"
 
     data = var/"lib/influxdb2"
