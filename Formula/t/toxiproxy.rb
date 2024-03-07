@@ -19,8 +19,8 @@ class Toxiproxy < Formula
 
   def install
     ldflags = "-s -w -X github.com/Shopify/toxiproxy/v2.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"toxiproxy-server", "./cmd/server"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"toxiproxy-cli", "./cmd/cli"
+    system "go", "build", *std_go_args(ldflags:), "-o", bin/"toxiproxy-server", "./cmd/server"
+    system "go", "build", *std_go_args(ldflags:), "-o", bin/"toxiproxy-cli", "./cmd/cli"
   end
 
   service do
