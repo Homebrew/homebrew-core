@@ -19,8 +19,8 @@ class Dotdrop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "986cd015ace2abc28f6c2317c5708cadf98de286a5338f3be23f6ae7d1011a4c"
   end
 
+  depends_on "certifi"
   depends_on "libmagic"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
