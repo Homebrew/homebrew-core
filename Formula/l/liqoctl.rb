@@ -25,7 +25,7 @@ class Liqoctl < Formula
       -X github.com/liqotech/liqo/pkg/liqoctl/version.liqoctlVersion=v#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/liqoctl"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/liqoctl"
 
     generate_completions_from_executable(bin/"liqoctl", "completion")
   end
