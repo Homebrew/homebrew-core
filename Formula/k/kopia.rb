@@ -27,7 +27,7 @@ class Kopia < Formula
       -X github.com/kopia/kopia/repo.BuildVersion=#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"kopia", shells:                 [:bash, :zsh],
                                                       shell_parameter_format: "--completion-script-")
