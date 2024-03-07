@@ -18,7 +18,7 @@ class Certsync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "49de264b89d0fc16a6644f5f40502f5b49beb0002c1a1b97cc0842a798c20345"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
