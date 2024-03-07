@@ -25,7 +25,7 @@ class Gotop < Formula
       -X main.Version=#{version}
       -X main.BuildDate=#{time.strftime("%Y%m%dT%H%M%S")}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/gotop"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/gotop"
   end
 
   test do
