@@ -23,7 +23,7 @@ class Ctlptl < Formula
       -X main.version=#{version}
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/ctlptl"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/ctlptl"
 
     generate_completions_from_executable(bin/"ctlptl", "completion")
   end
