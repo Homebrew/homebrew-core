@@ -51,7 +51,7 @@ class HasuraCli < Formula
       os = OS.kernel_name.downcase
 
       cp "../cli-ext/bin/cli-ext-hasura", "./internal/cliext/static-bin/#{os}/#{arch}/cli-ext"
-      system "go", "build", *std_go_args(output: bin/"hasura", ldflags: ldflags), "./cmd/hasura/"
+      system "go", "build", *std_go_args(output: bin/"hasura", ldflags:), "./cmd/hasura/"
 
       generate_completions_from_executable(bin/"hasura", "completion", base_name: "hasura", shells: [:bash, :zsh])
     end
