@@ -25,7 +25,7 @@ class HelmLs < Formula
       -X main.GitCommit=#{tap.user}
       -X main.BuildTime=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"helm_ls")
+    system "go", "build", *std_go_args(ldflags:, output: bin/"helm_ls")
 
     generate_completions_from_executable(bin/"helm_ls", "completion")
   end
