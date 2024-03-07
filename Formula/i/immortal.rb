@@ -21,7 +21,7 @@ class Immortal < Formula
   def install
     ldflags = "-s -w -X main.version=#{version}"
     %w[immortal immortalctl immortaldir].each do |file|
-      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/file), "cmd/#{file}/main.go"
+      system "go", "build", *std_go_args(ldflags:, output: bin/file), "cmd/#{file}/main.go"
     end
     man8.install Dir["man/*.8"]
   end
