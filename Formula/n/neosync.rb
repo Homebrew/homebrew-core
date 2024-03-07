@@ -26,7 +26,7 @@ class Neosync < Formula
       -X github.com/nucleuscloud/neosync/cli/internal/version.buildDate=#{time.iso8601}
     ]
     cd "cli" do
-      system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/neosync"
+      system "go", "build", *std_go_args(ldflags:), "./cmd/neosync"
     end
 
     generate_completions_from_executable(bin/"neosync", "completion")
