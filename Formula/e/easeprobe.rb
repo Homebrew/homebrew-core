@@ -32,7 +32,7 @@ class Easeprobe < Formula
       -X github.com/megaease/easeprobe/pkg/version.COMMIT=#{tap.user}
       -X github.com/megaease/easeprobe/pkg/version.REPO=megaease/easeprobe
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/easeprobe"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/easeprobe"
   end
 
   test do
