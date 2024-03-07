@@ -27,7 +27,7 @@ class Envd < Formula
       -X github.com/tensorchord/envd/pkg/version.gitCommit=#{tap.user}
       -X github.com/tensorchord/envd/pkg/version.gitTreeState=clean
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/envd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/envd"
     generate_completions_from_executable(bin/"envd", "completion", "--no-install",
                                          shell_parameter_format: "--shell=",
                                          shells:                 [:bash, :zsh, :fish])
