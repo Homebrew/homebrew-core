@@ -18,7 +18,7 @@ class Hatch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a328a4e8e3e5f440c785cc7b4ca79dd56e864e1d149840b6bed40bc8bd6cf13a"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
