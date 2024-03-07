@@ -1,4 +1,6 @@
 class FortranLanguageServer < Formula
+  include Language::Python::Virtualenv
+
   desc "Language Server for Fortran"
   homepage "https://github.com/hansec/fortran-language-server"
   url "https://files.pythonhosted.org/packages/72/46/eb2c733e920a33409906aa145bde93b015f7f77c9bb8bdf65faa8c823998/fortran-language-server-1.12.0.tar.gz"
@@ -17,17 +19,12 @@ class FortranLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e62186facb38b3fe9430b8b8890d47364eacba02947b85c41c62e9f707cb6b7"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
   conflicts_with "fortls", because: "both install `fortls` binaries"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
