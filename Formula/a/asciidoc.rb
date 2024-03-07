@@ -1,4 +1,6 @@
 class Asciidoc < Formula
+  include Language::Python::Virtualenv
+
   desc "Formatter/translator for text files to numerous formats"
   homepage "https://asciidoc-py.github.io/"
   url "https://files.pythonhosted.org/packages/8a/57/50180e0430fdb552539da9b5f96f1da6f09c4bfa951b39a6e1b4fbe37d75/asciidoc-10.2.0.tar.gz"
@@ -22,17 +24,17 @@ class Asciidoc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "19a26ffa77e57c0504f2668f3e5673e4e94a50075d74716eabcda1dc9ed3d536"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "docbook"
   depends_on "python@3.12"
   depends_on "source-highlight"
 
-  def python3
-    "python3.12"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   def caveats
