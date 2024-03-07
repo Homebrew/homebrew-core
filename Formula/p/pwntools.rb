@@ -20,7 +20,7 @@ class Pwntools < Formula
   end
 
   depends_on "rust" => :build # for bcrypt
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
