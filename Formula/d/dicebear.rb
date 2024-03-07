@@ -3,8 +3,8 @@ require "language/node"
 class Dicebear < Formula
   desc "CLI for DiceBear - An avatar library for designers and developers"
   homepage "https://github.com/dicebear/dicebear"
-  url "https://registry.npmjs.org/dicebear/-/dicebear-7.1.0.tgz"
-  sha256 "27a3be6cb2013393981941ef346d08d33dba6165141fcd09769e10be95305308"
+  url "https://registry.npmjs.org/dicebear/-/dicebear-7.1.1.tgz"
+  sha256 "332285a19b485e45f4a4574f8414b1b19bfae8aa0de15ddbd9be10f6033f4fc9"
   license "MIT"
 
   bottle do
