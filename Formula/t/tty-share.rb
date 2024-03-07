@@ -22,7 +22,7 @@ class TtyShare < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-mod=vendor"
+    system "go", "build", *std_go_args(ldflags:), "-mod=vendor"
   end
 
   test do
