@@ -5,8 +5,8 @@ class CloudflareWrangler2 < Formula
 
   desc "CLI tool for Cloudflare Workers"
   homepage "https://github.com/cloudflare/workers-sdk"
-  url "https://registry.npmjs.org/wrangler/-/wrangler-3.31.0.tgz"
-  sha256 "67341e283431a02126f981a895c8fabf03f2faba28ab229d613f6e788263f2ae"
+  url "https://registry.npmjs.org/wrangler/-/wrangler-3.32.0.tgz"
+  sha256 "6ca792f586fd31a74187b8c83b6729b16ca2cd668d7ba8ff09ee9de4e5c254af"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
@@ -27,9 +27,6 @@ class CloudflareWrangler2 < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     rewrite_shebang detected_node_shebang, *Dir["#{libexec}/lib/node_modules/**/*"]
     bin.install_symlink Dir["#{libexec}/bin/wrangler*"]
-
-    # Replace universal binaries with their native slices
-    deuniversalize_machos libexec/"lib/node_modules/wrangler/node_modules/fsevents/fsevents.node"
   end
 
   test do
