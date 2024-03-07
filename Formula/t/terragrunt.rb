@@ -24,7 +24,7 @@ class Terragrunt < Formula
       -s -w
       -X github.com/gruntwork-io/go-commons/version.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
