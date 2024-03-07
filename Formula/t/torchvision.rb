@@ -25,11 +25,11 @@ class Torchvision < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python@3.12" => [:build, :test]
+  depends_on "certifi"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python-certifi"
   depends_on "pytorch"
 
   on_macos do
