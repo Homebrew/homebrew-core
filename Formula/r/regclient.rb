@@ -22,7 +22,7 @@ class Regclient < Formula
   def install
     ldflags = "-s -w -X github.com/regclient/regclient/internal/version.vcsTag=#{version}"
     ["regbot", "regctl", "regsync"].each do |f|
-      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/f), "./cmd/#{f}"
+      system "go", "build", *std_go_args(ldflags:, output: bin/f), "./cmd/#{f}"
 
       generate_completions_from_executable(bin/f, "completion", base_name: f)
     end
