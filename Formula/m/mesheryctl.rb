@@ -29,7 +29,7 @@ class Mesheryctl < Formula
       -X github.com/layer5io/meshery/mesheryctl/internal/cli/root/constants.releasechannel=stable
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./mesheryctl/cmd/mesheryctl"
+    system "go", "build", *std_go_args(ldflags:), "./mesheryctl/cmd/mesheryctl"
 
     generate_completions_from_executable(bin/"mesheryctl", "completion")
   end
