@@ -31,7 +31,7 @@ class Ntfy < Formula
     with_env(
       "CGO_ENABLED" => "0",
     ) do
-      system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "noserver"
+      system "go", "build", *std_go_args(ldflags:), "-tags", "noserver"
     end
   end
 
