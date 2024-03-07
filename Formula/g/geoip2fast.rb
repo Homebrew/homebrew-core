@@ -1,4 +1,6 @@
 class Geoip2fast < Formula
+  include Language::Python::Virtualenv
+
   desc "GeoIP2 country/ASN lookup tool"
   homepage "https://github.com/rabuchaim/geoip2fast"
   url "https://files.pythonhosted.org/packages/eb/34/6d91d8165b2d717736360c65a7822ccb025bca4cd0a1385982c49ce73b9e/geoip2fast-1.2.1.tar.gz"
@@ -16,15 +18,10 @@ class Geoip2fast < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0402ff566f44c1f6f63c18bfeaae6410cd8716786f508c8caf0d331c5e2757e3"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
