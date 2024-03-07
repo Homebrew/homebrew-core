@@ -17,13 +17,13 @@ class Ortp < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "362978e525177fcc0a237986c1c4cfc5cd628a2e6499a6eade777462dc3fbddf"
-    sha256 cellar: :any,                 arm64_ventura:  "4e9465d8240295cd5146137a3d5784582a061594f0d3f92b7dfaf520245091d7"
-    sha256 cellar: :any,                 arm64_monterey: "b813f09c0334f022a76085ecee233a3dcbf6981572bd7ba1db43c970f46cd9e1"
-    sha256 cellar: :any,                 sonoma:         "a7ba0fccc976ccdf693c1248bba0928330b2d8aec141e93bacb97525ece91bce"
-    sha256 cellar: :any,                 ventura:        "ef9ebbe77059093fde33568d3cd35cc52085e64d6b8f29841bdaeee55040d540"
-    sha256 cellar: :any,                 monterey:       "e81e540cc3959e562790568266708a3b4ca918998622d196be91b429134201d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61aba93d1c94e9c91aab413d2a7fdab691a74974807032378f406305c40f3e85"
+    sha256 cellar: :any,                 arm64_sonoma:   "4fbacc424a903e3d5050c10cd1d48fcf44fcab7181a7fb3e915019b8d9b73ad9"
+    sha256 cellar: :any,                 arm64_ventura:  "8670c923e0910f6686565b1b305b88123ba30becd5361bdb6c21c4bc9674a247"
+    sha256 cellar: :any,                 arm64_monterey: "42ce2b36fcf0f3e77c28dfdf89990b1c76715454fa19b05d56bad800d82ec8a3"
+    sha256 cellar: :any,                 sonoma:         "6f6ed06a547d90b80872a7ec116db1f040a588059000b217169d63acaf9a6278"
+    sha256 cellar: :any,                 ventura:        "49448fe1ad1e6ce1c281751cc28e43a01777f7e461ab5798d76728efea9097d6"
+    sha256 cellar: :any,                 monterey:       "434bf7e008c052ed2143157c3cdf8459141a802a733dae7dc4c51de9e8554c2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6023163a73d738e26c237bdc57caf7258cf5a91af42e54833fd1bfcf92591830"
   end
 
   head do
