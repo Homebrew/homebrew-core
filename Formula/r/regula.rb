@@ -28,7 +28,7 @@ class Regula < Formula
       -X github.com/fugue/regula/v3/pkg/version.GitCommit=#{Utils.git_short_head}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"regula", "completion")
   end
