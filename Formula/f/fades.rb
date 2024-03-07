@@ -17,18 +17,30 @@ class Fades < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a94986ec051694e5472114067a7fd4cb4b764aebd0a3b84a709b25443d2498f5"
   end
 
-  depends_on "python-setuptools"
   depends_on "python@3.12"
 
   def python3
     which("python3.12")
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
+
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    ENV.append_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+
+    resources.each do |r|
+      r.stage do
+        system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."
+      end
+    end
+    system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."
+    (bin/"fades").write_env_script(libexec/"bin/fades", PYTHONPATH: ENV["PYTHONPATH"])
 
     man1.install buildpath/"man/fades.1"
-    rm_f bin/"fades.cmd" # remove windows cmd file
+    rm_f libexec/"bin/fades.cmd" # remove windows cmd file
   end
 
   test do
