@@ -19,7 +19,7 @@ class Platformio < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f28e3c9c08eccc6f815465badfb2d2fc2dbb553525f760a4bb6a09793e96b5d"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "ajsonrpc" do
