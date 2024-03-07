@@ -18,7 +18,7 @@ class Fred < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8022ae63417b65e9cc9e1a76498ea4ac5ba347e2d3e3ea7951ec194257f227f8"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
