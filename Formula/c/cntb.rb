@@ -19,7 +19,7 @@ class Cntb < Formula
 
   def install
     ldflags = "-s -w -X contabo.com/cli/cntb/cmd.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"cntb", "completion")
   end
