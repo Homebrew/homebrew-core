@@ -4,6 +4,7 @@ class C3c < Formula
   url "https://github.com/c3lang/c3c/archive/refs/tags/v0.5.4.tar.gz"
   sha256 "3ddf869bc6db6874837b82b32f1fddc9bf7ff34fc1315eb967610aee294822eb"
   license "LGPL-3.0-only"
+  revision 1
   head "https://github.com/c3lang/c3c.git", branch: "master"
 
   livecheck do
@@ -23,6 +24,7 @@ class C3c < Formula
 
   depends_on "cmake" => :build
   depends_on "llvm"
+  depends_on "z3"
   depends_on "zstd"
 
   uses_from_macos "curl"
