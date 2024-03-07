@@ -27,7 +27,7 @@ class Naml < Formula
       -X github.com/kris-nova/naml.Version=#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd"
   end
 
   test do
