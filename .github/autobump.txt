@@ -1648,6 +1648,7 @@ vips
 virgil
 virtctl
 virtualenvwrapper
+virtualfish
 virustotal-cli
 vite
 vitess
