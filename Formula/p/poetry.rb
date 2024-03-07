@@ -19,7 +19,7 @@ class Poetry < Formula
   end
 
   depends_on "cmake" => :build # for rapidfuzz
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   on_linux do
