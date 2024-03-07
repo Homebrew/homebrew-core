@@ -1,4 +1,6 @@
 class GitRevise < Formula
+  include Language::Python::Virtualenv
+
   desc "Rebase alternative for easy & efficient in-memory rebases and fixups"
   homepage "https://github.com/mystor/git-revise"
   url "https://files.pythonhosted.org/packages/99/fe/03e0afc973c19af8ebf9c7a4a090a974c0c39578b1d4082d201d126b7f9a/git-revise-0.7.0.tar.gz"
@@ -17,15 +19,10 @@ class GitRevise < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e5a2a0b8b28bc4151e1c06d88d8bcc401334c7cfd27c1122b7e9cbdcbdfd113"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
