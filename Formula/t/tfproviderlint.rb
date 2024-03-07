@@ -27,7 +27,7 @@ class Tfproviderlint < Formula
       -X github.com/bflad/tfproviderlint/version.VersionPrerelease=#{build.head? ? "dev" : ""}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/tfproviderlint"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/tfproviderlint"
   end
 
   test do
