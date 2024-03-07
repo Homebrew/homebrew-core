@@ -27,7 +27,7 @@ class KtConnect < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"ktctl"), "./cmd/ktctl"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"ktctl"), "./cmd/ktctl"
 
     generate_completions_from_executable(bin/"ktctl", "completion", base_name: "ktctl")
   end
