@@ -23,7 +23,7 @@ class Doppler < Formula
       -s -w
       -X github.com/DopplerHQ/cli/pkg/version.ProgramVersion=dev-#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"doppler", "completion")
   end
