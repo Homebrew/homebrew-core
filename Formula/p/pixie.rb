@@ -37,7 +37,7 @@ class Pixie < Formula
       -X px.dev/pixie/src/shared/goversion.buildNumber=#{revision + bottle&.rebuild.to_i + 1}
       -X px.dev/pixie/src/shared/goversion.builtBy=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"px"), "./src/pixie_cli"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"px"), "./src/pixie_cli"
 
     generate_completions_from_executable(bin/"px", "completion", base_name: "px")
   end
