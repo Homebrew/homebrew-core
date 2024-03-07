@@ -1,8 +1,8 @@
 class SshVault < Formula
   desc "Encrypt/decrypt using SSH keys"
   homepage "https://ssh-vault.com/"
-  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.0.10.tar.gz"
-  sha256 "0e29daebb65422c4909c84dba126292c6e3d88933822b2a02e4ff1627da9dc3e"
+  url "https://github.com/ssh-vault/ssh-vault/archive/refs/tags/1.0.11.tar.gz"
+  sha256 "ef124bdec41ec9236cbc815f5f9199d2746f270d3f87da73304937d4b389163c"
   license "BSD-3-Clause"
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "main"
 
