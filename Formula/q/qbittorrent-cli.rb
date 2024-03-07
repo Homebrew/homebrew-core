@@ -25,7 +25,7 @@ class QbittorrentCli < Formula
       -X main.commit=#{tap.user}
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"qbt"), "./cmd/qbt"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"qbt"), "./cmd/qbt"
 
     generate_completions_from_executable(bin/"qbt", "completion")
   end
