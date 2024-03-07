@@ -18,8 +18,8 @@ class PassImport < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7aab526c1f56101cf9198009a8360c6a99fedb048d9c88091cc38da15e25fc9f"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
