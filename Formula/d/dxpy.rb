@@ -17,7 +17,7 @@ class Dxpy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c68a9d1bce87e75c8ccc884f30498c2541f4b06fbde81c719d49298c5fe08b6"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
