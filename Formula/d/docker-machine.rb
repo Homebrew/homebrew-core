@@ -1,9 +1,9 @@
 class DockerMachine < Formula
   desc "Create Docker hosts locally and on cloud providers"
   homepage "https://docs.docker.com/machine"
-  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.24/docker-machine-v0.16.2-gitlab.24.tar.bz2"
-  version "0.16.2-gitlab.24"
-  sha256 "172bcf784745806f39551caa5f565ab0dc792f1d26538c872fe9bceff49015ee"
+  url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/archive/v0.16.2-gitlab.25/docker-machine-v0.16.2-gitlab.25.tar.bz2"
+  version "0.16.2-gitlab.25"
+  sha256 "a4b7f3f68891206acd3e75bd55ed3b32d92926fd525ca11a85a73612ced308b3"
   license "Apache-2.0"
   head "https://gitlab.com/gitlab-org/ci-cd/docker-machine.git", branch: "master"
 
@@ -19,14 +19,9 @@ class DockerMachine < Formula
 
   depends_on "go" => :build
 
-  # upstream version patch PR, https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/merge_requests/121
-  patch do
-    url "https://gitlab.com/gitlab-org/ci-cd/docker-machine/-/commit/8630d656313d791bd99a80e02b4efa9b3c95b250.diff"
-    sha256 "96ff340785c1e7e6ddb5cec71ed3f2c0fadd8381a270b7f7688fc46d2b568f1c"
-  end
-
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/docker-machine"
+    ldflags = "-s -w"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/docker-machine"
 
     bash_completion.install Dir["contrib/completion/bash/*.bash"]
     zsh_completion.install "contrib/completion/zsh/_docker-machine"
