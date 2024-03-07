@@ -28,14 +28,14 @@ class DockerSlim < Formula
     system "go", "generate", "./pkg/appbom"
     ldflags = "-s -w -X github.com/slimtoolkit/slim/pkg/version.appVersionTag=#{version}"
     system "go", "build",
-                 *std_go_args(output: bin/"slim", ldflags: ldflags),
+                 *std_go_args(output: bin/"slim", ldflags:),
                  "./cmd/slim"
 
     # slim-sensor is a Linux binary that is used within Docker
     # containers rather than directly on the macOS host.
     ENV["GOOS"] = "linux"
     system "go", "build",
-                 *std_go_args(output: bin/"slim-sensor", ldflags: ldflags),
+                 *std_go_args(output: bin/"slim-sensor", ldflags:),
                  "./cmd/slim-sensor"
     (bin/"slim-sensor").chmod 0555
   end
