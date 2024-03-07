@@ -162,6 +162,9 @@
   "codelimit": {
     "exclude_packages": ["certifi"]
   },
+  "codespell": {
+    "extra_packages": ["setuptools"]
+  },
   "conan": {
     "exclude_packages": ["certifi"],
     "extra_packages": ["distro"]

@@ -1,4 +1,6 @@
 class Codespell < Formula
+  include Language::Python::Virtualenv
+
   desc "Fix common misspellings in source code and text files"
   homepage "https://github.com/codespell-project/codespell"
   url "https://files.pythonhosted.org/packages/e1/97/df3e00b4d795c96233e35d269c211131c5572503d2270afb6fed7d859cc2/codespell-2.2.6.tar.gz"
@@ -16,15 +18,15 @@ class Codespell < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d6369de2dc22d6dec2798c459a5299a8c4de42f4912b31fe5928377d03acc76"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
