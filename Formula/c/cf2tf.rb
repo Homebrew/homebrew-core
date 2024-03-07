@@ -21,8 +21,8 @@ class Cf2tf < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "cfn-flip" do
