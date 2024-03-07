@@ -42,7 +42,7 @@ class MinioMc < Formula
         -X #{proj}/cmd.ReleaseTag=#{minio_release}
         -X #{proj}/cmd.CommitID=#{Utils.git_head}
       ]
-      system "go", "build", *std_go_args(output: bin/"mc", ldflags: ldflags)
+      system "go", "build", *std_go_args(output: bin/"mc", ldflags:)
     end
   end
 
