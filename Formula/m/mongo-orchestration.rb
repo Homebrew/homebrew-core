@@ -20,7 +20,7 @@ class MongoOrchestration < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a222570ec7d9eecbb7d15f93f16dc4eeb8af03608d21d10fe84978f50bb3c317"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "bottle" do
