@@ -18,8 +18,8 @@ class JenkinsJobBuilder < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "67f9a70a9cbf61b0f05c6ef6c3d07de97ab794b18c9ab868ef75244f5932471a"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
