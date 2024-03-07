@@ -36,7 +36,7 @@ class Zbctl < Formula
         -X #{project}.Version=#{version}
         -X #{project}.Commit=#{commit}
       ]
-      system "go", "build", "-tags", "netgo", *std_go_args(ldflags: ldflags)
+      system "go", "build", "-tags", "netgo", *std_go_args(ldflags:)
 
       generate_completions_from_executable(bin/"zbctl", "completion")
     end
