@@ -25,7 +25,7 @@ class TelegramDownloader < Formula
       -X github.com/iyear/tdl/pkg/consts.Commit=#{tap.user}
       -X github.com/iyear/tdl/pkg/consts.CommitDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"tdl")
+    system "go", "build", *std_go_args(ldflags:, output: bin/"tdl")
 
     generate_completions_from_executable(bin/"tdl", "completion")
   end
