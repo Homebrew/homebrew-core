@@ -17,9 +17,9 @@ class Esphome < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d248b96bfc2360ee1093a83d6b3f24b33592f311a8c27fd8bf245a9fe816cca0"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
   depends_on "protobuf"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
