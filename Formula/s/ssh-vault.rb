@@ -7,13 +7,13 @@ class SshVault < Formula
   head "https://github.com/ssh-vault/ssh-vault.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4a2349338d9a035c924392a168ec26ec4d2f1a1f79276d7694dd3f0f25d6d2e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8056714240bc5d1d34c148666505739987a28df806a5504bc55455720d0b143"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "18933ad16a7bb6518cae23c3bc647193818b52527c37d469cf760235b08b43fe"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a63eadaf3d9fb5af2c6236fb2b3b85b449b89e65672a5a264bc7e7230ff78760"
-    sha256 cellar: :any_skip_relocation, ventura:        "140042c2c1f6d2e299e2fe1dfa60a1a91d0e8b6a07248affbd9a364557a7f054"
-    sha256 cellar: :any_skip_relocation, monterey:       "4886bba2186ba3a628a6137cdcdc40705d7f48492baa47073f4c321b0dcb3928"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28be2ede3671520d5fb33c248c9dad6bc0f136ccb854e0080ea8e8025b1b6957"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cdd501da3abe69472681d7aa4f89db6335fc86f969d8938a9cb98dd96270e53e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4b8597ddc151475f55ad768dac0a368e79ad600e55b8d57ece19c12488ab2410"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d3a10b26907e7763d73eb738caf0467e19d90a3834c70b4bbfdac8c0a4e3bb67"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7654f549587bb6c3c630af30650a2d67cea56a95a54282e40b26fccf9eec855a"
+    sha256 cellar: :any_skip_relocation, ventura:        "83106665ce1c105ed365be314a64db2841d4ea47c7319414cb3b14f693ab8406"
+    sha256 cellar: :any_skip_relocation, monterey:       "eee1b04a058cb602e656b88a4f3175e5ec136bb59d384e6400c9295af96225eb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44d39bd9eac0baed2f87414b3f7847fdeea6d41696001bbe98e8bb8d7a734484"
   end
 
   depends_on "rust" => :build
