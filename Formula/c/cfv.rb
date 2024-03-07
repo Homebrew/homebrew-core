@@ -6,6 +6,7 @@ class Cfv < Formula
   url "https://files.pythonhosted.org/packages/db/54/c5926a7846a895b1e096854f32473bcbdcb2aaff320995f3209f0a159be4/cfv-3.0.0.tar.gz"
   sha256 "2530f08b889c92118658ff4c447ccf83ac9d2973af8dae4d33cf5bed1865b376"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 3
