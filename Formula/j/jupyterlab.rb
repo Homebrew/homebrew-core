@@ -21,10 +21,10 @@ class Jupyterlab < Formula
   end
 
   depends_on "rust" => :build # for rpds-py
+  depends_on "certifi"
   depends_on "libyaml"
   depends_on "node"
   depends_on "pandoc"
-  depends_on "python-certifi"
   depends_on "python@3.12"
   depends_on "zeromq"
 
