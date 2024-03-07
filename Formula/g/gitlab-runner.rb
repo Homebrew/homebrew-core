@@ -33,7 +33,7 @@ class GitlabRunner < Formula
       -X #{proj}/common.BRANCH=#{version.major}-#{version.minor}-stable
       -X #{proj}/common.BUILT=#{time.strftime("%Y-%m-%dT%H:%M:%S%:z")}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   service do
