@@ -1,8 +1,8 @@
 class RosaCli < Formula
   desc "RedHat OpenShift Service on AWS (ROSA) command-line interface"
   homepage "https://www.openshift.com/products/amazon-openshift"
-  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.35.tar.gz"
-  sha256 "35dbe844689bea72bcac890912f33303991f403c7069bbff9fd8d57b0b77c98c"
+  url "https://github.com/openshift/rosa/archive/refs/tags/v1.2.36.tar.gz"
+  sha256 "ec3d784f1235e90265a5a348398217d057db97371e9f7291497f64d54e67fd47"
   license "Apache-2.0"
   head "https://github.com/openshift/rosa.git", branch: "master"
 
@@ -25,13 +25,15 @@ class RosaCli < Formula
   depends_on "awscli"
 
   def install
-    system "go", "build", *std_go_args(output: bin/"rosa"), "./cmd/rosa"
+    system "go", "build", *std_go_args(ldflags: "-s -w", output: bin/"rosa"), "./cmd/rosa"
+
     generate_completions_from_executable(bin/"rosa", "completion", base_name: "rosa")
   end
 
   test do
+    output = shell_output("#{bin}/rosa create cluster 2<&1", 1)
+    assert_match "Failed to create OCM connection: Not logged in", output
+
     assert_match version.to_s, shell_output("#{bin}/rosa version")
-    assert_match "Failed to create AWS client: Failed to find credentials.",
-                 shell_output("#{bin}/rosa create cluster 2<&1", 1)
   end
 end
