@@ -1,4 +1,6 @@
 class Ydiff < Formula
+  include Language::Python::Virtualenv
+
   desc "View colored diff with side by side and auto pager support"
   homepage "https://github.com/ymattw/ydiff"
   url "https://files.pythonhosted.org/packages/1e/ed/e25e1f4fffbdfd0446f1c45504759e54676da0cde5a844d201181583fce4/ydiff-1.2.tar.gz"
@@ -17,15 +19,10 @@ class Ydiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a516a84269d8f058ff8d271fce358dac1b58da7b49f2942854b829944890c29"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
