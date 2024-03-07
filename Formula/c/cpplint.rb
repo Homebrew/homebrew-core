@@ -1,4 +1,6 @@
 class Cpplint < Formula
+  include Language::Python::Virtualenv
+
   desc "Static code checker for C++"
   homepage "https://pypi.org/project/cpplint/"
   url "https://files.pythonhosted.org/packages/18/72/ea0f4035bcf35d8f8df053657d7f3370d56ff4d4e6617021b6544b9958d4/cpplint-1.6.1.tar.gz"
@@ -16,15 +18,15 @@ class Cpplint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfe77e381361892a458fa4851680be39db2a287bb5954ca9cab86d9d781ebc8d"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
 
     # install test data
     pkgshare.install "samples"
