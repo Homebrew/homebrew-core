@@ -21,8 +21,8 @@ class Mathlibtools < Formula
 
   deprecate! date: "2023-09-04", because: :repo_archived
 
+  depends_on "certifi"
   depends_on "cffi"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
   depends_on "pyyaml"
