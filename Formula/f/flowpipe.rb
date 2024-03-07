@@ -32,7 +32,7 @@ class Flowpipe < Formula
       -X version.commit=#{tap.user}
       -X version.builtBy=#{tap.user}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
