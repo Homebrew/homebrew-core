@@ -1,4 +1,6 @@
 class Sqlparse < Formula
+  include Language::Python::Virtualenv
+
   desc "Non-validating SQL parser"
   homepage "https://github.com/andialbrecht/sqlparse"
   url "https://files.pythonhosted.org/packages/65/16/10f170ec641ed852611b6c9441b23d10b5702ab5288371feab3d36de2574/sqlparse-0.4.4.tar.gz"
@@ -16,16 +18,10 @@ class Sqlparse < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eae399addb6d8d3ec1a6d7ed91b74284bfbaee35966531abf8021e974cbf5be"
   end
 
-  depends_on "python-flit-core" => :build
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
     man1.install "docs/sqlformat.1"
   end
 
