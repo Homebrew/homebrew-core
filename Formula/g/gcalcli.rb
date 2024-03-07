@@ -20,7 +20,7 @@ class Gcalcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1535bd3438d95af783b6b0bf9a90ed7edb1d8c70946e8fbf861ef11dfb95872c"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "cachetools" do
