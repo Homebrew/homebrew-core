@@ -20,7 +20,7 @@ class GitReview < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "45e5db0d2e62795718a77d3a3373214333fdecd56fa29b92f434eed5a1b0e9d2"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
