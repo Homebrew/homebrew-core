@@ -20,8 +20,8 @@ class Onionprobe < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "601b9287417aface80a01cf2d57fe44cf5e7d6abe2efb7d1a253629b084e4cf8"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
   depends_on "tor"
