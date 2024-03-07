@@ -32,7 +32,7 @@ class Nexttrace < Formula
       -X github.com/nxtrace/NTrace-core/config.CommitID=brew
       -X github.com/nxtrace/NTrace-core/config.BuildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   def caveats
