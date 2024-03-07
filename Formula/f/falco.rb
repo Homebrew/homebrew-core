@@ -20,7 +20,7 @@ class Falco < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/falco"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/falco"
   end
 
   test do
