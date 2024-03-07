@@ -42,7 +42,7 @@ class Minio < Formula
         -X github.com/minio/minio/cmd.CommitID=#{Utils.git_head}
       ]
 
-      system "go", "build", *std_go_args(ldflags: ldflags)
+      system "go", "build", *std_go_args(ldflags:)
     end
   end
 
