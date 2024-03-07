@@ -1,4 +1,6 @@
 class Djhtml < Formula
+  include Language::Python::Virtualenv
+
   desc "Django/Jinja template indenter"
   homepage "https://github.com/rtts/djhtml"
   url "https://files.pythonhosted.org/packages/a0/03/aac9bfb7c9b03604a2c4b0d474af22731ef41cb662fad07f956ae7bf0f6b/djhtml-3.0.6.tar.gz"
@@ -16,15 +18,10 @@ class Djhtml < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb1265169606f5b095a3878b7fdb4e0ff29d0d25d3cd7880af6da73e126732e0"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
