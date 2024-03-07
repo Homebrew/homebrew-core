@@ -60,7 +60,7 @@ class Octant < Formula
 
     tags = "embedded exclude_graphdriver_devicemapper exclude_graphdriver_btrfs containers_image_openpgp"
 
-    system "go", "build", *std_go_args(ldflags: ldflags),
+    system "go", "build", *std_go_args(ldflags:),
            "-tags", tags, "-v", "./cmd/octant"
 
     generate_completions_from_executable(bin/"octant", "completion")
