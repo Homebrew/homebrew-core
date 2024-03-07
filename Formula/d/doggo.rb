@@ -27,7 +27,7 @@ class Doggo < Formula
       -X main.buildDate=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/doggo"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/doggo"
 
     zsh_completion.install "completions/doggo.zsh" => "_doggo"
     fish_completion.install "completions/doggo.fish"
