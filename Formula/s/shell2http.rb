@@ -20,7 +20,7 @@ class Shell2http < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     man1.install "shell2http.1"
   end
