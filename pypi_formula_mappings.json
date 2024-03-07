@@ -48,9 +48,6 @@
   "arxiv_latex_cleaner": {
     "exclude_packages": ["pillow"]
   },
-  "asciidoc": {
-    "extra_packages": ["setuptools"]
-  },
   "astrometry-net": {
     "exclude_packages": ["numpy"],
     "extra_packages": ["fitsio"]
