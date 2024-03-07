@@ -128,6 +128,9 @@
   "cffi": {
     "exclude_packages": ["pycparser"]
   },
+  "cfv": {
+    "extra_packages": ["setuptools"]
+  },
   "charm-tools": {
     "exclude_packages": ["certifi", "cryptography"],
     "extra_packages": ["pip==22.3.1", "wheel"]
