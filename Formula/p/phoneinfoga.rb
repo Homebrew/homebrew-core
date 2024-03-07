@@ -32,7 +32,7 @@ class Phoneinfoga < Formula
       -X github.com/sundowndev/phoneinfoga/v2/build.Commit=brew
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
