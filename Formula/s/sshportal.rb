@@ -23,7 +23,7 @@ class Sshportal < Formula
       -X main.GitSha=#{tap.user}
       -X main.GitTag=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
