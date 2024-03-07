@@ -23,7 +23,7 @@ class Gptscript < Formula
       -s -w
       -X github.com/gptscript-ai/gptscript/pkg/version.Tag=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     pkgshare.install "examples"
   end
