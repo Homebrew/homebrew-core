@@ -19,8 +19,8 @@ class Enex2notion < Formula
   end
 
   depends_on "python-setuptools" => :build
+  depends_on "certifi"
   depends_on "pymupdf"
-  depends_on "python-certifi"
   depends_on "python-lxml"
   depends_on "python@3.12"
   depends_on "six"
