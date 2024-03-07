@@ -19,8 +19,8 @@ class Mvt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e0bdffdfcdf59c7128ebb65219495c331ba975f2d9958d9974d6fd01822b9a5"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
