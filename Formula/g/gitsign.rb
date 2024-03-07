@@ -22,7 +22,7 @@ class Gitsign < Formula
       -s -w
       -X github.com/sigstore/gitsign/pkg/version.gitVersion=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"gitsign", "completion")
   end
