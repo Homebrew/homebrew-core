@@ -19,9 +19,9 @@ class Checkov < Formula
 
   depends_on "cmake" => :build # for igraph
   depends_on "rust" => :build # for rpds-py
+  depends_on "certifi"
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
