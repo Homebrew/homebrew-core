@@ -160,6 +160,7 @@ bk
 bkt
 black
 bluepill
+bluez
 bmake
 bnd
 boolector
@@ -196,6 +197,7 @@ bzt
 c-ares
 c2rust
 c3c
+c7n
 caddy
 cadence
 cadence-workflow
@@ -422,6 +424,7 @@ ddcutil
 ddrescue
 deark
 debianutils
+define
 dehydrated
 delve
 deno
@@ -913,6 +916,7 @@ kiota
 kitchen-sync
 kitex
 klee
+kmod
 kn
 knot
 knot-resolver
@@ -963,6 +967,7 @@ libadwaita
 libassuan
 libbsd
 libclc
+libcoap
 libcouchbase
 libdap
 libepoxy
@@ -1083,6 +1088,7 @@ minikube
 miniserve
 minizinc
 minizip
+minizip-ng
 minuit2
 mkfontscale
 mlkit
@@ -1156,9 +1162,11 @@ node-build
 node-sass
 node@18
 node@20
+noseyparker
 notcurses
 npth
 nsq
+ntfy
 nuclei
 numactl
 numbat
@@ -1201,6 +1209,7 @@ openldap
 openlibm
 openrct2
 openrtsp
+opensc
 opensearch
 openshift-cli
 opentelemetry-cpp
@@ -1271,6 +1280,7 @@ pig
 pillow
 pint
 pip-audit
+pip-tools
 pipdeptree
 pipenv
 pkgconf
@@ -1303,6 +1313,7 @@ proj
 prometheus
 prometheus-cpp
 proto
+protoc-gen-go
 protoc-gen-go-grpc
 protolint
 prowler
@@ -1334,6 +1345,7 @@ python-cryptography
 python-dateutil
 python-mako
 python-matplotlib
+python-pyparsing
 python-setuptools
 python-trove-classifiers
 qbe
@@ -1343,6 +1355,7 @@ qd
 qjackctl
 qpdf
 qpid-proton
+qsv
 quantlib
 quantum++
 questdb
@@ -1403,6 +1416,7 @@ rsyslog
 rubberband
 ruff
 ruff-lsp
+rune
 rust-analyzer
 rustup-init
 rye
@@ -1505,6 +1519,7 @@ sqlx-cli
 squashfuse
 squealer
 squid
+sratoolkit
 src
 srtp
 sshs
@@ -1585,6 +1600,7 @@ tfsec
 thanos
 theharvester
 thrift
+thriftgo
 tika
 tile38
 timg
@@ -1616,7 +1632,9 @@ trojan-go
 trufflehog
 tt
 ttdl
+tygo
 typedb
+typescript
 typescript-language-server
 typos-cli
 typstfmt
@@ -1699,9 +1717,11 @@ witness
 wolfssl
 woodpecker-cli
 woof-doom
+wstunnel
 wumpus
 wxwidgets
 x3270
+xa
 xauth
 xbyak
 xcbeautify
@@ -1724,6 +1744,7 @@ xrootd
 xterm
 xz
 yaegi
+yamale
 yamllint
 ykman
 yle-dl
