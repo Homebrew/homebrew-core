@@ -19,7 +19,7 @@ class Pdfcpu < Formula
 
   def install
     ldflags = "-X github.com/pdfcpu/pdfcpu/pkg/pdfcpu.VersionStr=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/pdfcpu"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/pdfcpu"
   end
 
   test do
