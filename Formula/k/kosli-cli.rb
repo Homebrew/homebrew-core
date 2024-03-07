@@ -25,7 +25,7 @@ class KosliCli < Formula
       -X github.com/kosli-dev/cli/internal/version.gitCommit=#{tap.user}
       -X github.com/kosli-dev/cli/internal/version.gitTreeState=clean
     ]
-    system "go", "build", *std_go_args(output: bin/"kosli", ldflags: ldflags), "./cmd/kosli"
+    system "go", "build", *std_go_args(output: bin/"kosli", ldflags:), "./cmd/kosli"
 
     generate_completions_from_executable(bin/"kosli", "completion", base_name: "kosli")
   end
