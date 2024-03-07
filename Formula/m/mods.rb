@@ -24,7 +24,7 @@ class Mods < Formula
       -X main.CommitSHA=#{tap.user}
       -X main.CommitDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
