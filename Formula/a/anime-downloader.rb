@@ -24,8 +24,8 @@ class AnimeDownloader < Formula
   deprecate! date: "2023-11-08", because: :unmaintained
 
   depends_on "aria2"
+  depends_on "certifi"
   depends_on "node"
-  depends_on "python-certifi"
   depends_on "python@3.11"
 
   resource "appdirs" do
