@@ -49,7 +49,7 @@ class Werf < Formula
       tags = "dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp"
     end
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", tags, "./cmd/werf"
+    system "go", "build", *std_go_args(ldflags:), "-tags", tags, "./cmd/werf"
 
     generate_completions_from_executable(bin/"werf", "completion")
   end
