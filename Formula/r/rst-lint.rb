@@ -1,4 +1,6 @@
 class RstLint < Formula
+  include Language::Python::Virtualenv
+
   desc "ReStructuredText linter"
   homepage "https://github.com/twolfson/restructuredtext-lint"
   url "https://files.pythonhosted.org/packages/48/9c/6d8035cafa2d2d314f34e6cd9313a299de095b26e96f1c7312878f988eec/restructuredtext_lint-1.4.0.tar.gz"
@@ -16,16 +18,11 @@ class RstLint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "23f218209f20b76eeeec8fd8c1b9ad9a03071cf81c292d75581a3b8ab0402541"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "docutils"
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
