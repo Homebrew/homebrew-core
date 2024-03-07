@@ -27,7 +27,7 @@ class Lazygit < Formula
 
   def install
     ldflags = "-X main.version=#{version} -X main.buildSource=homebrew"
-    system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags)
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags:)
   end
 
   # lazygit is a terminal GUI, but it can be run in 'client mode' to do certain tasks
