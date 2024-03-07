@@ -19,7 +19,7 @@ class GalleryDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dca970a658c6e8d1469e14cd44e8b6ce83f49d5349ab6063a3c046faa38a6201"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
