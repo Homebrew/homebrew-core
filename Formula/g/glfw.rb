@@ -30,9 +30,13 @@ class Glfw < Formula
     args = %w[
       -DGLFW_USE_CHDIR=TRUE
       -DGLFW_USE_MENUBAR=TRUE
-      -DBUILD_SHARED_LIBS=TRUE
     ]
 
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    lib.install "build/src/libglfw3.a"
+
+    args << "-DBUILD_SHARED_LIBS=TRUE"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
