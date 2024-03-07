@@ -20,8 +20,8 @@ class DetectSecrets < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "08510131dace027059a68516b5b41620f0cee95954dd93d50fd6cbdd41eac8fc"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
