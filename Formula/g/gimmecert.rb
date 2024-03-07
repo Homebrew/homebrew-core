@@ -17,7 +17,7 @@ class Gimmecert < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2fb4c2af0f720f970c8aab3281801a3125547e484de41552d49330706dee53dd"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
 
