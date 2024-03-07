@@ -19,7 +19,7 @@ class OktaAwscli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f6e14088096c658719f3900673c4d62d11b29213c2a9ad02e63dd9e383cd787"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "beautifulsoup4" do
