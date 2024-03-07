@@ -19,7 +19,7 @@ class Grip < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e5db998a7b16a2226bccc964d65fe4007e7752403aac82f50e2867eb9f90036"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "blinker" do
