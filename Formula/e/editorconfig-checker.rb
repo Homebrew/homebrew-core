@@ -20,7 +20,7 @@ class EditorconfigChecker < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/editorconfig-checker/main.go"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/editorconfig-checker/main.go"
   end
 
   test do
