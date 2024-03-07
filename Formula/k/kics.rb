@@ -28,7 +28,7 @@ class Kics < Formula
       -s -w
       -X github.com/Checkmarx/kics/internal/constants.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/console"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/console"
 
     pkgshare.install "assets"
   end
