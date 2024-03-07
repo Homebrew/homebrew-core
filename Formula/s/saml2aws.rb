@@ -20,7 +20,7 @@ class Saml2aws < Formula
 
   def install
     ldflags = "-s -w -X main.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/saml2aws"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/saml2aws"
     (zsh_completion/"_saml2aws").write <<~EOS
       #compdef saml2aws
 
