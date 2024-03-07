@@ -24,7 +24,7 @@ class ChainloopCli < Formula
       -X github.com/chainloop-dev/chainloop/app/cli/cmd.Version=#{version}
     ]
 
-    system "go", "build", *std_go_args(output: bin/"chainloop", ldflags: ldflags), "./app/cli"
+    system "go", "build", *std_go_args(output: bin/"chainloop", ldflags:), "./app/cli"
 
     generate_completions_from_executable(bin/"chainloop", "completion", base_name: "chainloop")
   end
