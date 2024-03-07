@@ -24,11 +24,11 @@ class Fdroidserver < Formula
   depends_on "ninja" => :build
   depends_on "pybind11" => :build
   depends_on "rust" => :build
+  depends_on "certifi"
   depends_on "freetype"
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python-certifi"
   depends_on "python-cryptography"
   depends_on "python@3.12"
   depends_on "qhull"
