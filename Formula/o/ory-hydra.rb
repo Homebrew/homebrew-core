@@ -32,7 +32,7 @@ class OryHydra < Formula
       -X github.com/ory/hydra/v2/driver/config.Date=#{time.iso8601}
       -X github.com/ory/hydra/v2/driver/config.Commit=#{Utils.git_head}
     ].join(" ")
-    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "sqlite", "-o", bin/"hydra"
+    system "go", "build", *std_go_args(ldflags:), "-tags", "sqlite", "-o", bin/"hydra"
   end
 
   test do
