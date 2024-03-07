@@ -150,6 +150,7 @@
   "prestosql": "trino",
   "prql-compiler": "prqlc",
   "pyqt5": "pyqt@5",
+  "python-certifi": "certifi",
   "qt5": "qt@5",
   "racket": "minimal-racket",
   "rebar@3": "rebar3",
