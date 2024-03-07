@@ -23,7 +23,7 @@ class Trivy < Formula
       -s -w
       -X github.com/aquasecurity/trivy/pkg/version.ver=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/trivy"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/trivy"
   end
 
   test do
