@@ -17,7 +17,7 @@ class B2Tools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9d29638123f94eb0d706842a98e0f132fbda40c54d2e11c354101aca5670de3"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   conflicts_with "boost-build", because: "both install `b2` binaries"
