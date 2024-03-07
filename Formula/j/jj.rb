@@ -7,13 +7,13 @@ class Jj < Formula
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c0493d70ed1e11483aaf89e6315544f60d2f9b7dc1b70b3f961c761375cf0bf1"
-    sha256 cellar: :any,                 arm64_ventura:  "78b650ca6fb88f4ac839fe8f0056c4fbefbd4f21c1afd991b5edb8360f062d5b"
-    sha256 cellar: :any,                 arm64_monterey: "02c776bfbf80e68d64be98471e4d588783c2e59258069b7761b0f58a8feef925"
-    sha256 cellar: :any,                 sonoma:         "f2d02f01be8e0ceff9316f9be23c9297b3db7de135801bee43c01b73fef09dfa"
-    sha256 cellar: :any,                 ventura:        "52d5d5c36d17b1142b0bd760c3a6b3045ec7bb295f424c8e73b3d657d8301f57"
-    sha256 cellar: :any,                 monterey:       "e5bbb2ea3a39075def140d159c52adc9ba1bca45c58332d9eb91c2c3ceef8b0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cf7e08d1dce031dc81d3971a1f3f728311456de23a93aa726c021fb7950b651"
+    sha256 cellar: :any,                 arm64_sonoma:   "549b74afbd6a3d90a5db8b2c603bbf4a2f970349edbe179556a577a6c266f181"
+    sha256 cellar: :any,                 arm64_ventura:  "e3ede281d14c2d947abca361ead9b9dc55cc86087474154c73c4f53c65fc9bf7"
+    sha256 cellar: :any,                 arm64_monterey: "b287fa57a5815e430a77251b4deca881d0bb5d8cb0630ffe93ede49f91ec6027"
+    sha256 cellar: :any,                 sonoma:         "7e94a1a1b2187c0bb7142b69c5aa72265b2790f8d2de692e6d838aa95627772e"
+    sha256 cellar: :any,                 ventura:        "0668de106b9d7fcc48685b6c36f343a3d23e22f589642c4dc0e649c82832b214"
+    sha256 cellar: :any,                 monterey:       "05a24c34475d54362a16c0748dfffebbd9ac54ee1aa6d484e33bf9e8d8961bda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39af6104574cdedcb611ce684895eaedd3dc2548bad9cbc97c291dc74a6a8c3a"
   end
 
   depends_on "pkg-config" => :build
