@@ -36,7 +36,7 @@ class Scorecard < Formula
       -X #{pkg}.gitTreeState=clean
       -X #{pkg}.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
     system "make", "generate-docs"
     doc.install "docs/checks.md"
 
