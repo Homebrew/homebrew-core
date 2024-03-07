@@ -37,7 +37,7 @@ class Logcli < Formula
       -X github.com/grafana/loki/pkg/util/build.BuildDate=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/logcli"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/logcli"
   end
 
   test do
