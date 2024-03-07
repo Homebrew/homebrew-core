@@ -25,6 +25,8 @@ class MongodbAtlasCli < Formula
   depends_on "mongosh"
   depends_on "podman"
 
+  conflicts_with "nim", because: "both install `atlas` executable"
+
   def install
     with_env(
       ATLAS_VERSION: version.to_s,
