@@ -24,7 +24,7 @@ class Seaweedfs < Formula
       -s -w
       -X github.com/seaweedfs/seaweedfs/weed/util.COMMIT=#{Utils.git_head}
     ]
-    system "go", "build", *std_go_args(output: bin/"weed", ldflags: ldflags), "./weed"
+    system "go", "build", *std_go_args(output: bin/"weed", ldflags:), "./weed"
   end
 
   test do
