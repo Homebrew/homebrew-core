@@ -39,7 +39,7 @@ class Ksync < Formula
       -X #{project}/pkg/ksync.VersionString=#{tap.user}
       -X #{project}/pkg/ksync.GoVersion=go#{Formula["go"].version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "#{project}/cmd/ksync"
+    system "go", "build", *std_go_args(ldflags:), "#{project}/cmd/ksync"
   end
 
   test do
