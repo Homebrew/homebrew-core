@@ -3,8 +3,8 @@ require "language/node"
 class VercelCli < Formula
   desc "Command-line interface for Vercel"
   homepage "https://vercel.com/home"
-  url "https://registry.npmjs.org/vercel/-/vercel-33.5.4.tgz"
-  sha256 "8943682385fc825f5b1053aa94eb38dbed7634208448ef7647a95b670db4368c"
+  url "https://registry.npmjs.org/vercel/-/vercel-33.5.5.tgz"
+  sha256 "2f43985fee72037b876ffa3110a29cce6d37b86751e004c12ea93217613abb8d"
   license "Apache-2.0"
 
   bottle do
@@ -31,10 +31,6 @@ class VercelCli < Formula
     node_modules = libexec/"lib/node_modules/vercel/node_modules"
     node_modules.glob("deasync/bin/*")
                 .each { |dir| dir.rmtree if dir.basename.to_s != "#{os}-#{arch}" }
-
-    # Replace universal binaries with native slices
-    (node_modules/"fsevents/fsevents.node").unlink if OS.mac? && Hardware::CPU.arm?
-    deuniversalize_machos
   end
 
   test do
