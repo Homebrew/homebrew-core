@@ -1,8 +1,8 @@
 class Shellcheck < Formula
   desc "Static analysis and lint tool, for (ba)sh scripts"
   homepage "https://www.shellcheck.net/"
-  url "https://github.com/koalaman/shellcheck/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "3cec1fec786feee79dacdabf9de784a117b7f82388dbcca97ba56a5c9ff7d148"
+  url "https://github.com/koalaman/shellcheck/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "149ef8f90c0ccb8a5a9e64d2b8cdd079ac29f7d2f5a263ba64087093e9135050"
   license "GPL-3.0-or-later"
   head "https://github.com/koalaman/shellcheck.git", branch: "master"
 
@@ -18,7 +18,7 @@ class Shellcheck < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.4" => :build
+  depends_on "ghc" => :build
   depends_on "pandoc" => :build
 
   def install

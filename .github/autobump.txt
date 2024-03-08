@@ -1457,6 +1457,7 @@ serverless
 shadowenv
 shadowsocks-rust
 sheldon
+shellcheck
 shellharden
 shellz
 shfmt
