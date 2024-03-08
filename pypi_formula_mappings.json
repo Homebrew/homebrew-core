@@ -258,7 +258,7 @@
   },
   "fdroidserver": {
     "exclude_packages": ["certifi", "cryptography", "numpy", "pillow"],
-    "extra_packages": ["androguard==3.3.5"]
+    "extra_packages": ["androguard==3.3.5", "setuptools"]
   },
   "flintrock": {
     "exclude_packages": ["cryptography"]

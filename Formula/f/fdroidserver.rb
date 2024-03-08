@@ -143,8 +143,8 @@ class Fdroidserver < Formula
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/95/2c/9ef08ee0cc836f95bc2750e7c3f18790a90dff596d372cee4bcd2561ae1c/ipython-8.22.1.tar.gz"
-    sha256 "39c6f9efc079fb19bfb0f17eee903978fe9a290b1b82d68196c641cecb76ea22"
+    url "https://files.pythonhosted.org/packages/43/ac/82acd7bf004bc916f45cdb01622f3ef88199465ca6a7ba0bcf22db27226f/ipython-8.22.2.tar.gz"
+    sha256 "2dcaad9049f9056f1fef63514f176c7d41f930daa78d05b82a176202818f2c14"
   end
 
   resource "jedi" do
@@ -243,8 +243,8 @@ class Fdroidserver < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
-    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
+    url "https://files.pythonhosted.org/packages/46/3a/31fd28064d016a2182584d579e033ec95b809d8e220e74c4af6f0f2e8842/pyparsing-3.1.2.tar.gz"
+    sha256 "a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"
   end
 
   resource "pypng" do
@@ -253,8 +253,8 @@ class Fdroidserver < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "python-vagrant" do
@@ -287,9 +287,9 @@ class Fdroidserver < Formula
     sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
   end
 
-  resource "sdkmanager" do
-    url "https://files.pythonhosted.org/packages/c7/7f/896d48e75f68f685c0a4fae0f5104d5cdee3c2d376ff4cfa5e78a8b5809e/sdkmanager-0.6.6.tar.gz"
-    sha256 "639d91085c921665cdcbb104c24fe41ad7227590cdb1ffc2b0bd4e23b6d31b37"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
   end
 
   resource "six" do
