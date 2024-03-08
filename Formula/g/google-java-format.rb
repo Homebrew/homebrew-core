@@ -20,6 +20,10 @@ class GoogleJavaFormat < Formula
   end
 
   def install
+    if version != resource("google-java-format-diff").version
+      odie "google-java-format-diff resource needs to be updated"
+    end
+
     libexec.install "google-java-format-#{version}-all-deps.jar" => "google-java-format.jar"
     bin.write_jar_script libexec/"google-java-format.jar", "google-java-format"
     resource("google-java-format-diff").stage do
@@ -30,12 +34,15 @@ class GoogleJavaFormat < Formula
 
   test do
     (testpath/"foo.java").write "public class Foo{\n}\n"
+
     assert_match "public class Foo {}", shell_output("#{bin}/google-java-format foo.java")
+
     (testpath/"bar.java").write <<~BAR
       class Bar{
         int  x;
       }
     BAR
+
     patch = <<~PATCH
       --- a/bar.java
       +++ b/bar.java
@@ -48,6 +55,5 @@ class GoogleJavaFormat < Formula
         int x;
       }
     BAR
-    assert_equal version, resource("google-java-format-diff").version
   end
 end
