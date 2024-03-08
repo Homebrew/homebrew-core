@@ -30,9 +30,10 @@ class Scrcpy < Formula
   end
 
   def install
-    r = resource("prebuilt-server")
-    r.fetch
-    cp r.cached_download, buildpath/"prebuilt-server.jar"
+    odie "prebuilt-server resource needs to be updated" if version != resource("prebuilt-server").version
+
+    buildpath.install resource("prebuilt-server")
+    cp "scrcpy-server-v#{version}", "prebuilt-server.jar"
 
     system "meson", "setup", "build", "-Dprebuilt_server=#{buildpath}/prebuilt-server.jar",
                                       *std_meson_args
@@ -50,8 +51,6 @@ class Scrcpy < Formula
   end
 
   test do
-    assert_equal version, resource("prebuilt-server").version, "`prebuilt-server` resource needs updating!"
-
     fakeadb = (testpath/"fakeadb.sh")
 
     # When running, scrcpy calls adb five times:
