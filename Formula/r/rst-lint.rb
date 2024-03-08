@@ -8,14 +8,14 @@ class RstLint < Formula
   license "Unlicense"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2013010f0f3dcc1c2e868018e13c77e805ca45cb152f6acfae68a7badc362db4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09d370fb0f3e19c7a1c7ed849460b5999d4b2aa3c85b1692a66310d1666880f5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6e6c405acfb82857aa08fcdbf891cbaa3c1a56365cf80502fd8af584b5aff48"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eddb01270707c267cf7ec8a5ab305eeb9ae0eaf7c5aaa02c2fa1225540ebb482"
-    sha256 cellar: :any_skip_relocation, ventura:        "83a5b7049353db3c3b5cd68261256734844f97e993e65dab8ca06e6b12875e46"
-    sha256 cellar: :any_skip_relocation, monterey:       "775ade00686e821d32947f01d5918dd369244cc4004669b001d4ae2c09b272b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23f218209f20b76eeeec8fd8c1b9ad9a03071cf81c292d75581a3b8ab0402541"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1db6397fe2d4b35e67f124e9582f3197e28b4932ab113ec4cac2f034cef2a654"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "431cbcd662e20a5e4df5738eb6c6dbb71cbabd450f83daeff704a1b98885d936"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6eda922bdc79d0b4aa1cab87d7d1f8575b191ee0dd03a9913b667d024dbdc8cd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "41a6b658d2b234bf2278667d39bea343d47511d9f7f72e4d76505384cc093fec"
+    sha256 cellar: :any_skip_relocation, ventura:        "975a231fd9109436a7797b5dfd2a9fccd30fd84a1c79c80e4167711ff1b14038"
+    sha256 cellar: :any_skip_relocation, monterey:       "daa0ff6cbd83610b8439648ab9648fa6fd818394ca77007f94af04cb9bfe052a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "108a99943b09360f91f3e2f45cd3ae287408ec38f17c806c40a84463349b679e"
   end
 
   depends_on "docutils"
