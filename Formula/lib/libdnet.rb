@@ -1,8 +1,8 @@
 class Libdnet < Formula
   desc "Portable low-level networking library"
   homepage "https://github.com/ofalk/libdnet"
-  url "https://github.com/ofalk/libdnet/archive/refs/tags/libdnet-1.17.0.tar.gz"
-  sha256 "6be1ed0763151ede4c9665a403f1c9d974b2ffab2eacdb26b22078e461aae1dc"
+  url "https://github.com/ofalk/libdnet/archive/refs/tags/libdnet-1.18.0.tar.gz"
+  sha256 "a4a82275c7d83b85b1daac6ebac9461352731922161f1dcdcccd46c318f583c9"
   license "BSD-3-Clause"
 
   livecheck do
