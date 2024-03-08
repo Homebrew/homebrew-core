@@ -32,6 +32,7 @@ class LaceworkCli < Formula
       -s -w
       -X github.com/lacework/go-sdk/cli/cmd.Version=#{version}
       -X github.com/lacework/go-sdk/cli/cmd.GitSHA=#{Utils.git_head}
+      -X github.com/lacework/go-sdk/cli/cmd.HoneyDataset=lacework-cli-prod
       -X github.com/lacework/go-sdk/cli/cmd.BuildTime=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(output: bin/"lacework", ldflags:), "./cli"
