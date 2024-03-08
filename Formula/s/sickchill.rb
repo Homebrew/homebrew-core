@@ -274,6 +274,11 @@ class Sickchill < Formula
     sha256 "c132d59fa44b9ca2b1699af5c86f57ce9f4c5eb56629d5d55fbb7a35f84e2312"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
@@ -361,7 +366,11 @@ class Sickchill < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # Multiple resources require `setuptools`, so it must be installed first
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resource("setuptools")
+    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install_and_link buildpath
   end
 
   service do

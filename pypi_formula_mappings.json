@@ -665,7 +665,8 @@
     "exclude_packages": ["certifi"]
   },
   "sickchill": {
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography"],
+    "extra_packages": ["setuptools"]
   },
   "sigma-cli": {
     "exclude_packages": ["certifi"],
