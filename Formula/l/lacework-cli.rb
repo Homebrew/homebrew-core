@@ -16,14 +16,13 @@ class LaceworkCli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "30b744f68612e0692fa0fc62443df5376047507ec904f7d4574f35281d8f67e1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0c470c9deb054d95514a40ef099a61c9eb3fa9281ef0edd9d01fb1895aaf9c3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "62abfd8ae8ef3f4a5e702a502c5fdb4ba5c5597803158fa843c4b210e9e97f06"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bf6575b51ccf3b28ee15dca975df9ad1fe7ef8748cd4ade6c1048d7a147931d7"
-    sha256 cellar: :any_skip_relocation, ventura:        "bda313d184a70df9caa1d8ecfb64c31f13bea7c0b8bd1fedaf949f338763f33b"
-    sha256 cellar: :any_skip_relocation, monterey:       "acdcc2c9ada2ab2792ccc0f30653b6d8d87637aca233bc3247e48ae14541434f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3dde5fe646f8e5638f599ba8af2ed43abcd4495eb73c32ca3437e52c2266ca20"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9b7532a96b5aec1237712481d2c972422a33ecad68b563b21c41e46884424fe7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "233321b8fc1ec55832bede4a75d653cfef4d8a81b87510b851436240fe33f2f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a4e323d74b1933776901dd6945cba3b6d3303b565ade7e0540ada3775f99c700"
+    sha256 cellar: :any_skip_relocation, sonoma:         "883a592c1d34fb02102bb3bc52ca4163cf86c2e3c29fb374d4e1634090e05011"
+    sha256 cellar: :any_skip_relocation, ventura:        "b5618eb2316b5b627380290a5c3ace17e48abcbc53067256bb09ee81a6e59478"
+    sha256 cellar: :any_skip_relocation, monterey:       "913920a1aa1394d2754cae55ca77f9938c077057dc7f7c773610bc562d0474f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ff3188886c382a37e0cabbc2b0a1fa654b903d21d801c01156f9b42c8c85545"
   end
 
   depends_on "go" => :build
