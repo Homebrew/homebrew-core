@@ -22,8 +22,8 @@ class Pipx < Formula
   depends_on "python@3.12"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/f0/a2/ce706abe166457d5ef68fac3ffa6cf0f93580755b7d5f883c456e94fab7b/argcomplete-3.2.2.tar.gz"
-    sha256 "f3e49e8ea59b4026ee29548e24488af46e30c9de57d48638e24f54a1ea1000a2"
+    url "https://files.pythonhosted.org/packages/3c/c0/031c507227ce3b715274c1cd1f3f9baf7a0f7cec075e22c7c8b5d4e468a9/argcomplete-3.2.3.tar.gz"
+    sha256 "bf7900329262e481be5a15f56f19736b376df6f82ed27576fa893652c5de6c23"
   end
 
   resource "click" do
@@ -42,8 +42,8 @@ class Pipx < Formula
   end
 
   resource "userpath" do
-    url "https://files.pythonhosted.org/packages/4d/13/b8c47191994abd86cbdb256146dbd7bbabcaaa991984b720f68ccc857bfc/userpath-1.9.1.tar.gz"
-    sha256 "ce8176728d98c914b6401781bf3b23fccd968d1647539c8788c7010375e02796"
+    url "https://files.pythonhosted.org/packages/d5/b7/30753098208505d7ff9be5b3a32112fb8a4cb3ddfccbbb7ba9973f2e29ff/userpath-1.9.2.tar.gz"
+    sha256 "6c52288dab069257cc831846d15d48133522455d4677ee69a9781f11dbefd815"
   end
 
   def python3
