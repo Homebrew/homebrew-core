@@ -36,14 +36,13 @@ class Singular < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "f0bddb5da1c198e218dcd79b585cf0398770f9decbf5b2ac454721ecb0f5d015"
-    sha256 arm64_ventura:  "e4a22b79e5ccf17a46e0ce271cdf61ba32d7459e8f6d24a0e256af3dfc5957e2"
-    sha256 arm64_monterey: "098334fdfc30955cb547398be691c51e4946ab5ebdfc904f08313ce77a1aefc7"
-    sha256 sonoma:         "7ed4d7303a1267240d6361547b46f98219b153032c47667c60e500eeb4d90b2d"
-    sha256 ventura:        "b8be00bbe12c3807b700663611d8a566cb87b1cd6f807e67bf49ec2df92e40e3"
-    sha256 monterey:       "b6b9a45728e90034875d3cfd1bdaf39bd2081e00d84bead8f920ae19047b23f4"
-    sha256 x86_64_linux:   "64c5c20f4a2d54099bb692ec0a7af371fbd19b81ecd197c7dc0ac5167d0dfb7e"
+    sha256 arm64_sonoma:   "101500912b78329b856a9faf1b3267466fc82e7bdb59d10d1849a90d8bd53269"
+    sha256 arm64_ventura:  "f81833d0f7a0f63447d99974989e6ee6faed19b9952ac49e7d4e226a5360c869"
+    sha256 arm64_monterey: "82f3007f90f677e434132809493852e3b9fb662fc9ca16b07b6002a45e1e84e3"
+    sha256 sonoma:         "ddba9784c1d2a8be82ce87c00f16ff863572f60df6e3696e5a0f59238c9b079b"
+    sha256 ventura:        "3e46f2cb8e5792c64b8243b2da1487e69246dfb6ca59448938d612d2228428cc"
+    sha256 monterey:       "7d73bd60a946e44ab0be78fa148c9d1ed4684e7d184a1bbf9a65148e3898867c"
+    sha256 x86_64_linux:   "aaa222a5f55aa0c399564f75fe8e91f2853085c86b45993a16100b9a5c0dd514"
   end
 
   head do
