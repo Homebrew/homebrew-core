@@ -579,9 +579,6 @@
     "exclude_packages": ["cffi", "pycparser"],
     "extra_packages": ["setuptools-rust"]
   },
-  "python-jinja": {
-    "exclude_packages": ["markupsafe"]
-  },
   "python-lsp-server": {
     "package_name": "python-lsp-server[websockets]",
     "extra_packages": ["python-lsp-black", "pylsp-mypy", "python-lsp-ruff", "pylsp-rope"],
