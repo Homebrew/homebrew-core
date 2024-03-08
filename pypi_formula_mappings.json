@@ -513,7 +513,8 @@
   },
   "pocsuite3": {
     "package_name": "pocsuite3[complete]",
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography"],
+    "extra_packages": ["setuptools"]
   },
   "poetry": {
     "exclude_packages": ["certifi", "cryptography"]
