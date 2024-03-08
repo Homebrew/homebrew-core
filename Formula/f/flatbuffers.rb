@@ -12,13 +12,13 @@ class Flatbuffers < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4f6a9bad19abe43ead39f59953950ab18250ac94b01870e436bb7662dcfda104"
-    sha256 cellar: :any,                 arm64_ventura:  "76145ff2480451461b8127dbe05e15dbfde947cec68b19b76393d3df04b7074f"
-    sha256 cellar: :any,                 arm64_monterey: "eb07d135e07a4b79f39fdd29a79ab0f318e8498d55bf629ccde5a00b17ec5a99"
-    sha256 cellar: :any,                 sonoma:         "02cf3a7e4630239395665da773163dba3f515660234e712e20f1051e5a7670be"
-    sha256 cellar: :any,                 ventura:        "e7bb7aef25c883261534cd4b7c3abe18631f2218b6bad727e9810b00e3c98643"
-    sha256 cellar: :any,                 monterey:       "94455cef86ceb20f464f8504465f473085297e2a9d6dbcbadd427793acb07f9d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3e114b72dc773cfe1d5caea6e0fa48ec872810a23d85886531f039641d3876e"
+    sha256 cellar: :any,                 arm64_sonoma:   "3ef3d132da0bb476b9d17ec8044666b736250517cd24320b5a522d9d3c827263"
+    sha256 cellar: :any,                 arm64_ventura:  "b2462c2bd4cc29c8bb9e81edf256717b894e69e46a624bd69271829395ddee58"
+    sha256 cellar: :any,                 arm64_monterey: "ce5615da659d7ba610994d6722102b813cea3c1703a8cb16f6d1f00a0013700c"
+    sha256 cellar: :any,                 sonoma:         "865b954c792114a718115a7dbfafc271db4009a63f5f15d78a4039c67aef9132"
+    sha256 cellar: :any,                 ventura:        "1b0167c5bb940cc7cb2ab6f328fb89d8a8e6d4e134965c36b23913d548032069"
+    sha256 cellar: :any,                 monterey:       "8f93c4da23d05ee862248eaabd29d500bd4e3e52406f3b2138dc022b6cbde173"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8d7febb27db2cc5c0e4745e6125419c4dfce521e73bcf866c3cfbd0486b30d4"
   end
 
   depends_on "cmake" => :build
