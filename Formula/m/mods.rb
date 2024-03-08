@@ -1,8 +1,8 @@
 class Mods < Formula
   desc "AI on the command-line"
   homepage "https://github.com/charmbracelet/mods"
-  url "https://github.com/charmbracelet/mods/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "8116b04fd32879bf457e2c162b4e26418ec7a84556260bedf3ba4618ca19931f"
+  url "https://github.com/charmbracelet/mods/archive/refs/tags/v1.2.2.tar.gz"
+  sha256 "67adced6190624824636fb80b5185a8606e3ad9c821d7e8f931d6d3822da51fe"
   license "MIT"
 
   bottle do
@@ -31,7 +31,7 @@ class Mods < Formula
     ENV["OPENAI_API_KEY"] = "faketest"
 
     output = pipe_output(bin/"mods 2>&1", "Hello, Homebrew!", 1)
-    assert_match "Invalid OpenAI API key", output
+    assert_match "ERROR  Invalid openai API key", output
 
     assert_match version.to_s, shell_output(bin/"mods --version")
   end
