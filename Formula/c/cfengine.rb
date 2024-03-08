@@ -37,6 +37,8 @@ class Cfengine < Formula
   end
 
   def install
+    odie "masterfiles resource needs to be updated" if version != resource("masterfiles").version
+
     args = %W[
       --disable-dependency-tracking
       --prefix=#{prefix}
@@ -68,8 +70,6 @@ class Cfengine < Formula
   end
 
   test do
-    assert_equal version, resource("masterfiles").version, "`masterfiles` resource needs updating!"
-
     assert_equal "CFEngine Core #{version}", shell_output("#{bin}/cf-agent -V").chomp
   end
 end
