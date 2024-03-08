@@ -6,13 +6,13 @@ class PythonArgcomplete < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2328c24c6ad6c34bc6cd1e8978ba9b56d614505a6f95b217c2e24ed961142def"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60f23e1139b099d8ea2b446c304c3892878c982445ec53f6f39bbeef80a97f17"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f804aa13a4f8048326bf8125f29f06bdc683c71f8c616f126da5c0aad9f1bf8a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "95ab4f36f087bd784f876b64ac1c9f086964bd0551a4ff86e7405d50f02f08ab"
-    sha256 cellar: :any_skip_relocation, ventura:        "c7d7dc6b7196c915863a60727077e84316c9fffd162d88e5a5de364e2c5e6977"
-    sha256 cellar: :any_skip_relocation, monterey:       "d45b8b1429462e607a92f24076d0c1ea3e992ce1e11084db4aedcc5bdbefce1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23f5813e59516c0e40910ca03968b7aa7d908775231ee9539ca34cc857bae6d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cac00ccede9d57ed46f041837e8285d06879fdb728ef77264c1f9e226d0f6841"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cac00ccede9d57ed46f041837e8285d06879fdb728ef77264c1f9e226d0f6841"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cac00ccede9d57ed46f041837e8285d06879fdb728ef77264c1f9e226d0f6841"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4b28834c0cd22f5a0b2ef0579131c50d575dfa5b439300b757901f74305c687d"
+    sha256 cellar: :any_skip_relocation, ventura:        "4b28834c0cd22f5a0b2ef0579131c50d575dfa5b439300b757901f74305c687d"
+    sha256 cellar: :any_skip_relocation, monterey:       "4b28834c0cd22f5a0b2ef0579131c50d575dfa5b439300b757901f74305c687d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09d6d2676b7d1d6eba28ce17ce0fa3bd48d0c2c01d9d5d1b4181b09fd02ddca9"
   end
 
   depends_on "python-setuptools" => :build
