@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.87/asymptote-2.87.src.tgz"
-  sha256 "0e6a9295f3df20d56d8ef8739ecfd07d2ff8111c97bf24993d91fdc1ae03591b"
+  url "https://downloads.sourceforge.net/project/asymptote/2.88/asymptote-2.88.src.tgz"
+  sha256 "0de71a743fa6ee9391b87dd275cb3fe4cdef51b37aae14a416834dd12a2af5bb"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -22,6 +22,7 @@ class Asymptote < Formula
   end
 
   depends_on "glm" => :build
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "ghostscript"
   depends_on "gsl"
@@ -36,11 +37,13 @@ class Asymptote < Formula
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.87/asymptote.pdf"
-    sha256 "460a1323681b8215d530245b981f27df4b70e6c7d535f48ecfcd93f9c99a56ea"
+    url "https://downloads.sourceforge.net/project/asymptote/2.88/asymptote.pdf"
+    sha256 "7597b5ab25484ec77c472606e0eea057bb47efc97d8c638df51357d9e8d1b4ab"
   end
 
   def install
+    odie "manual resource needs to be updated" if version != resource("manual").version
+
     system "./configure", *std_configure_args
 
     # Avoid use of MacTeX with these commands
@@ -55,14 +58,13 @@ class Asymptote < Formula
   end
 
   test do
-    assert_equal version, resource("manual").version, "`manual` resource needs updating!"
-
     (testpath/"line.asy").write <<~EOF
       settings.outformat = "pdf";
       size(200,0);
       draw((0,0)--(100,50),N,red);
     EOF
-    system "#{bin}/asy", testpath/"line.asy"
+
+    system bin/"asy", testpath/"line.asy"
     assert_predicate testpath/"line.pdf", :exist?
   end
 end
