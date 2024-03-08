@@ -1,8 +1,8 @@
 class Xapian < Formula
   desc "C++ search engine library"
   homepage "https://xapian.org/"
-  url "https://oligarchy.co.uk/xapian/1.4.24/xapian-core-1.4.24.tar.xz"
-  sha256 "eda5ae6dcf6b0553a8676af64b1fd304e998cd20f779031ccaaf7ab9a373531a"
+  url "https://oligarchy.co.uk/xapian/1.4.25/xapian-core-1.4.25.tar.xz"
+  sha256 "0c99dfdd817571cb5689bc412a7e021407938313f38ea3a70fa3bf86410608ee"
   license "GPL-2.0-or-later"
   version_scheme 1
 
@@ -33,8 +33,8 @@ class Xapian < Formula
   skip_clean :la
 
   resource "bindings" do
-    url "https://oligarchy.co.uk/xapian/1.4.23/xapian-bindings-1.4.23.tar.xz"
-    sha256 "e0bc8cc0ecf0568549c50b51fd59e4cffb5318d6f202afcd4465855ef5f33f7d"
+    url "https://oligarchy.co.uk/xapian/1.4.25/xapian-bindings-1.4.25.tar.xz"
+    sha256 "068314fca3f54524701492df432fa54c485fd4e39613ca2cd275e136964e81a9"
   end
 
   # Fix -flat_namespace being used on Big Sur and later.
@@ -48,6 +48,8 @@ class Xapian < Formula
   end
 
   def install
+    odie "bindings resource needs to be updated" if version != resource("bindings").version
+
     ENV["PYTHON"] = which(python3)
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

@@ -1773,6 +1773,7 @@ wumpus
 wxwidgets
 x3270
 xa
+xapian
 xauth
 xbyak
 xcbeautify
