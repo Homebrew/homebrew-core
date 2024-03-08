@@ -466,7 +466,6 @@ dnsperf
 dnstwist
 dnsx
 docfx
-docker
 docker-buildx
 docker-compose
 docker-credential-helper
