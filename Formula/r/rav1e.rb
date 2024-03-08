@@ -38,6 +38,8 @@ class Rav1e < Formula
   end
 
   def install
+    odie "Cargo.lock resource needs to be updated" if build.stable? && version != resource("Cargo.lock").version
+
     buildpath.install resource("Cargo.lock") if build.stable?
     system "cargo", "install", *std_cargo_args
     system "cargo", "cinstall", "--prefix", prefix
@@ -49,11 +51,7 @@ class Rav1e < Formula
       sha256 "1f5bfcce0c881567ea31c1eb9ecb1da9f9583fdb7d6bb1c80a8c9acfc6b66f6b"
     end
 
-    assert_equal version, resource("Cargo.lock").version, "`Cargo.lock` resource needs updating!" unless head?
-    resource("homebrew-bus_qcif_7.5fps.y4m").stage do
-      system bin/"rav1e", "--tile-rows=2",
-                          "bus_qcif_7.5fps.y4m",
-                          "--output=bus_qcif_15fps.ivf"
-    end
+    testpath.install resource("homebrew-bus_qcif_7.5fps.y4m")
+    system bin/"rav1e", "--tile-rows=2", "bus_qcif_7.5fps.y4m", "--output=bus_qcif_15fps.ivf"
   end
 end
