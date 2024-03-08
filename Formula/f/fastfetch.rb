@@ -12,13 +12,13 @@ class Fastfetch < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "809502f7bf2c44fd9ca16c10dd7590b25e1d9547a47da2d65786c9991cea61b4"
-    sha256 arm64_ventura:  "115d3b4d7cbf3d6a74608c2ad4b5981c6948f3d6516cb91186fad7c8d05c363b"
-    sha256 arm64_monterey: "7f997c8f73e2dac87664e032fe60ac8ac7d61aeecb7d3f8d874dadf70522a8be"
-    sha256 sonoma:         "1b7b35047fe734c018ea1e8643eb2ad0923b6905beea41ca79687d3986be80bc"
-    sha256 ventura:        "da0ad725d4cd45023d5bc646b90a2292113100af040e372554ef53022866cd24"
-    sha256 monterey:       "37bbe130ad180b4e44bf75fa1fbc1256319c8a377a78db2e51d13721a213940f"
-    sha256 x86_64_linux:   "3cf9a969f3f590b73b35b66e7263a04194be6253edc56a7a59629ff684999f81"
+    sha256 arm64_sonoma:   "7fe6335797736c6af4e4540d68d33fa0280b7036af8eabfb894fc6670eb45cec"
+    sha256 arm64_ventura:  "2eb609cf7f5cbe9e04a4cc148dc9d5760c7740e8d261eac82164e73a4ba408e7"
+    sha256 arm64_monterey: "c7e88d09f2274c2d29e9ea263779e9cf5122ee9d9432bc8e9fa9013d82244180"
+    sha256 sonoma:         "ab422fad9a682ed2b03cb69694d2ea461ce2c4a516cbe5bbd0aa1322d6e1de35"
+    sha256 ventura:        "526b1437d2f65fae3d751deee79a1794af14bcb285e8838fea8a2aeba2d99890"
+    sha256 monterey:       "a4a853f898ed23a8724fe479e6a4b63a39540259b3e4fe918d4355195f2598bc"
+    sha256 x86_64_linux:   "57ccceb8b40489ec7156347b0d0ff88f4eb83da2b0aa8112479804ecbb87a8ca"
   end
 
   depends_on "chafa" => :build
