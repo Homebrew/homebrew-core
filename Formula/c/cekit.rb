@@ -3,8 +3,8 @@ class Cekit < Formula
 
   desc "Container Evolution Kit"
   homepage "https://cekit.io"
-  url "https://files.pythonhosted.org/packages/c4/cc/a948fb7fc87bb974f55b37da024734166d4981a4f43958f1efc84d2b1e3d/cekit-4.10.0.tar.gz"
-  sha256 "83909f20463073aeb2d5f56295b7446c39ea4605fe8640ccfb521c618c5663e6"
+  url "https://files.pythonhosted.org/packages/2b/e8/f6f756156e26ee85221306123f60b2f1162a0d988a0e59f195d0631ed21f/cekit-4.11.0.tar.gz"
+  sha256 "5dc7ce15f903c2de20b119a18086c042a28ed0c72ef7f1d5956fa20cef2cfc32"
   license "MIT"
 
   bottle do
@@ -46,11 +46,6 @@ class Cekit < Formula
     sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
-  resource "odcs" do
-    url "https://files.pythonhosted.org/packages/2c/d8/f5cad90fc6db4a0a26bf072a504a6badf58e411eb568952d7faf864f0bc2/odcs-0.8.0.tar.gz"
-    sha256 "2910f002acc52f851c761798bb4448daaa0ced85b80a448891ac171a0b016c8a"
-  end
-
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
     sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
@@ -62,8 +57,8 @@ class Cekit < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do
