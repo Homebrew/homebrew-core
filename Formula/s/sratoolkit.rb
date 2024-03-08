@@ -43,6 +43,8 @@ class Sratoolkit < Formula
   uses_from_macos "libxml2"
 
   def install
+    odie "ncbi-vdb resource needs to be updated" if build.stable? && version != resource("ncbi-vdb").version
+
     (buildpath/"ncbi-vdb-source").install resource("ncbi-vdb")
 
     # Workaround to allow clang/aarch64 build to use the gcc/arm64 directory
@@ -69,8 +71,6 @@ class Sratoolkit < Formula
   end
 
   test do
-    assert_equal version, resource("ncbi-vdb").version, "`ncbi-vdb` resource needs updating!" if build.stable?
-
     # For testing purposes, generate a sample config noninteractively in lieu of running vdb-config --interactive
     # See upstream issue: https://github.com/ncbi/sra-tools/issues/291
     require "securerandom"
