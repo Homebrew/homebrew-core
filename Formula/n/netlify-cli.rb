@@ -3,8 +3,8 @@ require "language/node"
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-17.18.1.tgz"
-  sha256 "38dfc69f6620e1bfd5a7b0236fe5a801b893171790cee5b898a15f3a819cb1e1"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-17.19.0.tgz"
+  sha256 "77e385b7b6201190ff16de20922555f6abb528b733c19418df6860c4b83087eb"
   license "MIT"
   head "https://github.com/netlify/cli.git", branch: "main"
 
@@ -35,7 +35,6 @@ class NetlifyCli < Formula
     if OS.linux?
       (node_modules/"@lmdb/lmdb-linux-x64").glob("*.musl.node").map(&:unlink)
       (node_modules/"@msgpackr-extract/msgpackr-extract-linux-x64").glob("*.musl.node").map(&:unlink)
-      (node_modules/"@parcel/watcher-linux-x64-musl/watcher.node").unlink
     end
 
     clipboardy_fallbacks_dir = node_modules/"clipboardy/fallbacks"
