@@ -1195,6 +1195,7 @@ open-adventure
 open-image-denoise
 open-mpi
 opendetex
+openfga
 openh264
 openimageio
 openiothub-server
