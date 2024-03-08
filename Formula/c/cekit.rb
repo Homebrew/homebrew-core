@@ -8,14 +8,13 @@ class Cekit < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "473ea6afdb211d88f5ef500d863eba46deee43ea76e3d34ee04ca51876ae5a2a"
-    sha256 cellar: :any,                 arm64_ventura:  "f528f533601a6a0958a55d7b015f510cfc1493fa1afab94799249b4905e59f78"
-    sha256 cellar: :any,                 arm64_monterey: "a19bbe1bcf354f6aaa52b2280cb76c6dd0a1798204910050a9919e6dabd1c719"
-    sha256 cellar: :any,                 sonoma:         "042e65bb6c9034b0713998480d0d98e981dca158558693f5b9de26b40d30490c"
-    sha256 cellar: :any,                 ventura:        "d45a491d8fb943bf1ca2b7761bac0ed9929802a62f266ffccb36385ee065c5e6"
-    sha256 cellar: :any,                 monterey:       "53b69f7cd4e471adff3df3dcbc1f64ebbb5613934f35f683b26490350ea69259"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20a6fec4e02cc2f79ca541be59ad3797d5fd66494b5931390b66afbafab56d17"
+    sha256 cellar: :any,                 arm64_sonoma:   "bded464bf731194819a08509a29533a9842a1e442f1edbc2cfa3bca49d6e9192"
+    sha256 cellar: :any,                 arm64_ventura:  "eabe5f30826ff2709e40c9c0b366075e3ec87ed97a4ff306ee4a3508730ada8b"
+    sha256 cellar: :any,                 arm64_monterey: "053a66475fbfdf1e1de7bf5bd5da1c71c3876f585d2de6c5a82102964e6c9e7a"
+    sha256 cellar: :any,                 sonoma:         "3ef58b8154ee270521c4bb1cf45bdc99303c508e265adfc854cbd4dc20ce030f"
+    sha256 cellar: :any,                 ventura:        "c45cfaae966ca4ecfb93680f18e9a43bee8c611b43dc718f20960b8102bc7f93"
+    sha256 cellar: :any,                 monterey:       "aa4f335a5e63d7da8e2f64bfeb9bbf083c6a159faf0b8593a5aa4f822929e09c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3ba17894609c5da36c7f88adbcdde0f519dd64517a0c851c4fd8e3e09935adb"
   end
 
   depends_on "libyaml"
