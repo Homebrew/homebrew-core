@@ -365,7 +365,8 @@
     "exclude_packages": ["certifi"]
   },
   "keepkey-agent": {
-    "exclude_packages": ["cryptography"]
+    "exclude_packages": ["cryptography"],
+    "extra_packages": ["protobuf==3.20.3", "setuptools"]
   },
   "keyring": {
     "package_name": "keyring[completion]",
