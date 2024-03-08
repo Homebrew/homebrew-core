@@ -37,6 +37,8 @@ class Libomp < Formula
   end
 
   def install
+    odie "cmake resource needs to be updated" if version != resource("cmake").version
+
     (buildpath/"src").install buildpath.children
     (buildpath/"cmake").install resource("cmake")
 
@@ -57,7 +59,6 @@ class Libomp < Formula
   end
 
   test do
-    assert_equal version, resource("cmake").version, "`cmake` resource needs updating!"
     (testpath/"test.cpp").write <<~EOS
       #include <omp.h>
       #include <array>
