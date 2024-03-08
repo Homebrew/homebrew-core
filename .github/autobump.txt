@@ -72,11 +72,13 @@ arrayfire
 artillery
 arturo
 ascii
+asciidoctor
 asciidoctorj
 asdf
 ask-cli
 asn
 asnmap
+aspell
 assh
 ast-grep
 astgen
@@ -176,6 +178,7 @@ brew-php-switcher
 brogue
 brook
 broot
+brotli
 btrfs-progs
 bubblewrap
 buf
@@ -198,6 +201,7 @@ c-ares
 c2rust
 c3c
 c7n
+ca-certificates
 caddy
 cadence
 cadence-workflow
@@ -247,6 +251,7 @@ cdk8s
 cdktf
 cdogs-sdl
 cdxgen
+cekit
 censys
 certbot
 certigo
@@ -272,6 +277,7 @@ check-jsonschema
 checkbashisms
 checkdmarc
 checkmake
+checkov
 checkstyle
 cherrytree
 chkrootkit
@@ -284,6 +290,7 @@ cimg
 circleci
 circumflex
 citus
+cjson
 clair
 clamav
 clang-format
@@ -661,6 +668,7 @@ freetds
 freetype
 freexl
 frei0r
+fribidi
 frugal
 fselect
 fsql
@@ -689,6 +697,7 @@ genact
 geph4
 gettext
 gf
+ghostscript
 ghostunnel
 ghq
 ghz
@@ -720,6 +729,7 @@ glassfish
 glasskube
 gleam
 glfw
+glib
 glib-networking
 glibmm
 glm
@@ -728,11 +738,14 @@ glooctl
 gmailctl
 gmic
 gmsh
+gnu-getopt
 gnu-units
 gnumeric
 gnunet
+gnupg
 gnupg-pkcs11-scd
 gnuplot
+gnutls
 go-critic
 go-feature-flag-relay-proxy
 go-md2man
@@ -790,6 +803,7 @@ hadoop
 halide
 hapi-fhir-cli
 haproxy
+harfbuzz
 hasura-cli
 haxe
 hcloud
@@ -836,6 +850,7 @@ imagemagick
 imagemagick@6
 imap-backup
 imapsync
+imath
 imgproxy
 immortal
 influxdb
@@ -858,6 +873,8 @@ ivykis
 jackett
 jadx
 jaq
+jasper
+jbig2dec
 jc
 jd
 jdtls
@@ -958,17 +975,20 @@ lean-cli
 leapp-cli
 lego
 leiningen
+leptonica
 lerna
 lexbor
 lexicon
 lf
 libadwaita
 libassuan
+libavif
 libbsd
 libclc
 libcoap
 libcouchbase
 libdap
+libdnet
 libepoxy
 libffi
 libfontenc
@@ -979,6 +999,7 @@ libgpg-error
 libgr
 libgsf
 libhandy
+libidn2
 libint
 libjwt
 libksba
@@ -993,6 +1014,7 @@ liboqs
 libpano
 libphonenumber
 libpipeline
+libpng
 libproxy
 librdkafka
 librespot
@@ -1003,11 +1025,16 @@ libshumate
 libsndfile
 libspelling
 libstrophe
+libtiff
 libucl
+libunibreak
 libunwind
+libuv
 libvirt
+libx11
 libxaw3d
 libxcursor
+libxdmcp
 libxext
 libxkbfile
 libxvmc
@@ -1019,6 +1046,7 @@ linkerd
 linode-cli
 linux-headers@5.15
 liquibase
+little-cms2
 livekit
 llm
 llvm
@@ -1030,6 +1058,7 @@ log4cxx
 logstash
 lout
 lsof
+luajit
 luau
 luit
 lunzip
@@ -1056,6 +1085,7 @@ maven
 mavsdk
 mawk
 maxwell
+mbedtls
 md4c
 mdbook
 mdcat
@@ -1112,6 +1142,7 @@ morse
 moto
 mpc
 mpd
+mpdecimal
 mpg123
 mpich
 mpv
@@ -1119,6 +1150,7 @@ mqttui
 mruby
 mu
 muffet
+mujs
 murex
 mutt
 mydumper
@@ -1147,6 +1179,7 @@ nest
 netdata
 nethogs
 netlify-cli
+nettle
 newman
 newrelic-cli
 newrelic-infra-agent
@@ -1166,6 +1199,7 @@ noseyparker
 notcurses
 npth
 nsq
+nss
 ntfy
 nuclei
 numactl
@@ -1197,6 +1231,7 @@ open-adventure
 open-image-denoise
 open-mpi
 opendetex
+openexr
 openfga
 openh264
 openimageio
@@ -1240,6 +1275,7 @@ osslsigncode
 osv-scanner
 ott
 oxipng
+p11-kit
 pacapt
 packetbeat
 pandoc
@@ -1259,6 +1295,7 @@ pdftk-java
 pdm
 pdns
 pdnsrec
+perl
 perltidy
 pfetch-rs
 pgbadger
@@ -1285,6 +1322,7 @@ pip-audit
 pip-tools
 pipdeptree
 pipenv
+pipgrip
 pkgconf
 plantuml
 plow
@@ -1338,6 +1376,7 @@ py3cairo
 pyenv
 pyflow
 pygit2
+pygments
 pyinstaller
 pylint
 pyoxidizer
@@ -1350,6 +1389,7 @@ python-matplotlib
 python-pyparsing
 python-setuptools
 python-trove-classifiers
+pyyaml
 qbe
 qbs
 qcachegrind
@@ -1456,6 +1496,7 @@ sentencepiece
 seqkit
 ser2net
 serverless
+shaderc
 shadowenv
 shadowsocks-rust
 sheldon
@@ -1472,6 +1513,7 @@ signmykey
 sile
 silicon
 sing-box
+singular
 singularity
 sip
 sjk
@@ -1524,6 +1566,7 @@ squealer
 squid
 sratoolkit
 src
+srt
 srtp
 sshs
 sslyze
@@ -1555,6 +1598,7 @@ sundials
 suricata
 svgbob
 svgo
+svt-av1
 svtplay-dl
 swagger-codegen
 swagger-codegen@2
@@ -1597,6 +1641,7 @@ terragrunt
 terragrunt-atlantis-config
 terramate
 terrascan
+tesseract
 testkube
 tfautomv
 tfsec
@@ -1627,6 +1672,7 @@ trader
 traefik
 trafficserver
 translate-toolkit
+tree
 tree-sitter
 triangle
 trino
@@ -1645,6 +1691,7 @@ tz
 uffizzi
 ugit
 ugrep
+unar
 uni
 universal-ctags
 usb.ids
@@ -1741,10 +1788,12 @@ xkeyboardconfig
 xmake
 xmrig
 xonsh
+xorgproto
 xplr
 xray
 xrootd
 xterm
+xxhash
 xz
 yaegi
 yamale
@@ -1754,12 +1803,14 @@ yle-dl
 yosys
 youtubedr
 yq
+yt-dlp
 yubico-piv-tool
 z3
 zabbix
 zbctl
 zellij
 zenith
+zeromq
 zf
 zipkin
 zlib
