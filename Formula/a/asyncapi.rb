@@ -3,8 +3,8 @@ require "language/node"
 class Asyncapi < Formula
   desc "All in one CLI for all AsyncAPI tools"
   homepage "https://github.com/asyncapi/cli"
-  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-1.6.0.tgz"
-  sha256 "055378d113db9d312148580b818900ce9e57288b56d5e0addef8e5fd67d95065"
+  url "https://registry.npmjs.org/@asyncapi/cli/-/cli-1.6.1.tgz"
+  sha256 "f186f5ecd23ea6b00565c030b3e54361a094b2bc99a8279baad5337f4931f921"
   license "Apache-2.0"
 
   bottle do
@@ -22,10 +22,6 @@ class Asyncapi < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Delete native binaries installed by npm, as we dont support `musl` for a `libc` implementation
-    node_modules = libexec/"lib/node_modules/@asyncapi/cli/node_modules"
-    (node_modules/"@swc/core-linux-x64-musl/swc.linux-x64-musl.node").unlink if OS.linux?
 
     # Replace universal binaries with their native slices
     deuniversalize_machos
