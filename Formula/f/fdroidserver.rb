@@ -5,6 +5,8 @@ class Fdroidserver < Formula
   homepage "https://f-droid.org"
   # TODO: Remove `androguard==3.3.5` from pypi_formula_mappings.json in the next release.
   # Ref: https://github.com/f-droid/fdroidserver/commit/2f84ce36da2aa79c1583832cd475b1d0be14cca5
+  # Ensure `sdkmanager` resource is present. It will be grabbed by `pip` starting in the next release.
+  # Ref: https://github.com/f-droid/fdroidserver/commit/0dd5a7db648133e3f5ea2dfe1acc381b0541738b
   url "https://files.pythonhosted.org/packages/75/72/ea1e1e9d7d0ade051279b8676e6025f8c14dd64a5edeb76f2208e23c7720/fdroidserver-2.2.1.tar.gz"
   sha256 "6dcba0b747bfc9ebe4d441c56cf0c8aeab70a58cd0d1248462892e933a382302"
   license "AGPL-3.0-or-later"
@@ -285,6 +287,11 @@ class Fdroidserver < Formula
   resource "ruamel-yaml-clib" do
     url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
     sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
+  end
+
+  resource "sdkmanager" do
+    url "https://files.pythonhosted.org/packages/c7/7f/896d48e75f68f685c0a4fae0f5104d5cdee3c2d376ff4cfa5e78a8b5809e/sdkmanager-0.6.6.tar.gz"
+    sha256 "639d91085c921665cdcbb104c24fe41ad7227590cdb1ffc2b0bd4e23b6d31b37"
   end
 
   resource "setuptools" do
