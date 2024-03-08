@@ -1,8 +1,8 @@
 class Asciidoctor < Formula
   desc "Text processor and publishing toolchain for AsciiDoc"
   homepage "https://asciidoctor.org/"
-  url "https://github.com/asciidoctor/asciidoctor/archive/refs/tags/v2.0.21.tar.gz"
-  sha256 "78a54eaf88fe9f5e6945578313aac4096a9d8c49e760932b3ef66c599483f10b"
+  url "https://github.com/asciidoctor/asciidoctor/archive/refs/tags/v2.0.22.tar.gz"
+  sha256 "88b56b1fdd1bcfd097addc892c6071c76cb80409847f4765ae3e15d890543e6c"
   license "MIT"
 
   bottle do
@@ -30,6 +30,16 @@ class Asciidoctor < Formula
     sha256 "ed48add684a2d7a8fd6e3b8b027d8ee5983b50977ae691913131a24f1746ac29"
   end
 
+  resource "concurrent-ruby" do
+    url "https://rubygems.org/gems/concurrent-ruby-1.2.3.gem"
+    sha256 "82fdd3f8a0816e28d513e637bb2b90a45d7b982bdf4f3a0511722d2e495801e2"
+  end
+
+  resource "bigdecimal" do
+    url "https://rubygems.org/gems/bigdecimal-3.1.6.gem"
+    sha256 "bcbc27d449cf8ed1b1814d21308f49c9d22ce73e33fff0d228e38799c02eab01"
+  end
+
   resource "ttfunk" do
     url "https://rubygems.org/gems/ttfunk-1.7.0.gem"
     sha256 "2370ba484b1891c70bdcafd3448cfd82a32dd794802d81d720a64c15d3ef2a96"
@@ -45,39 +55,9 @@ class Asciidoctor < Formula
     sha256 "82062744f7126c2d77501da253a154271790254dfa8c309b8e52e79bc5de2abd"
   end
 
-  resource "ruby-rc4" do
-    url "https://rubygems.org/gems/ruby-rc4-0.1.5.gem"
-    sha256 "00cc40a39d20b53f5459e7ea006a92cf584e9bc275e2a6f7aa1515510e896c03"
-  end
-
-  resource "hashery" do
-    url "https://rubygems.org/gems/hashery-2.1.2.gem"
-    sha256 "d239cc2310401903f6b79d458c2bbef5bf74c46f3f974ae9c1061fb74a404862"
-  end
-
-  resource "Ascii85" do
-    url "https://rubygems.org/gems/Ascii85-1.1.0.gem"
-    sha256 "9ce694467bd69ab2349768afd27c52ad721cdc6f642aeaa895717bfd7ada44b7"
-  end
-
-  resource "afm" do
-    url "https://rubygems.org/gems/afm-0.2.2.gem"
-    sha256 "c83e698e759ab0063331ff84ca39c4673b03318f4ddcbe8e90177dd01e4c721a"
-  end
-
-  resource "pdf-reader" do
-    url "https://rubygems.org/gems/pdf-reader-2.12.0.gem"
-    sha256 "61e72a4839cf2b3735a4b08dcb00e23c57a51d199494a5b11bd78e49d7b91758"
-  end
-
-  resource "prawn-templates" do
-    url "https://rubygems.org/gems/prawn-templates-0.1.2.gem"
-    sha256 "117aa03db570147cb86fcd7de4fd896994f702eada1d699848a9529a87cd31f1"
-  end
-
-  resource "prawn-table" do
-    url "https://rubygems.org/gems/prawn-table-0.2.2.gem"
-    sha256 "336d46e39e003f77bf973337a958af6a68300b941c85cb22288872dc2b36addb"
+  resource "prawn-icon" do
+    url "https://rubygems.org/gems/prawn-icon-3.0.0.gem"
+    sha256 "dac8d481dee0f60a769c0cab0fd1baec7351b4806bf9ba959cd6c65f6694b6f5"
   end
 
   resource "rexml" do
@@ -106,18 +86,43 @@ class Asciidoctor < Formula
   end
 
   resource "prawn-svg" do
-    url "https://rubygems.org/gems/prawn-svg-0.33.0.gem"
-    sha256 "6228b5115719e34b9c0f585b0434328e8191bd11a2393e60da1ee26470771f29"
+    url "https://rubygems.org/gems/prawn-svg-0.34.1.gem"
+    sha256 "7c04e24bb5dbc8458ad86823f65973b2ef6e8ea68e12e1f7f92f8e3a209f4013"
   end
 
-  resource "prawn-icon" do
-    url "https://rubygems.org/gems/prawn-icon-3.0.0.gem"
-    sha256 "dac8d481dee0f60a769c0cab0fd1baec7351b4806bf9ba959cd6c65f6694b6f5"
+  resource "afm" do
+    url "https://rubygems.org/gems/afm-0.2.2.gem"
+    sha256 "c83e698e759ab0063331ff84ca39c4673b03318f4ddcbe8e90177dd01e4c721a"
   end
 
-  resource "concurrent-ruby" do
-    url "https://rubygems.org/gems/concurrent-ruby-1.2.3.gem"
-    sha256 "82fdd3f8a0816e28d513e637bb2b90a45d7b982bdf4f3a0511722d2e495801e2"
+  resource "hashery" do
+    url "https://rubygems.org/gems/hashery-2.1.2.gem"
+    sha256 "d239cc2310401903f6b79d458c2bbef5bf74c46f3f974ae9c1061fb74a404862"
+  end
+
+  resource "ruby-rc4" do
+    url "https://rubygems.org/gems/ruby-rc4-0.1.5.gem"
+    sha256 "00cc40a39d20b53f5459e7ea006a92cf584e9bc275e2a6f7aa1515510e896c03"
+  end
+
+  resource "Ascii85" do
+    url "https://rubygems.org/gems/Ascii85-1.1.0.gem"
+    sha256 "9ce694467bd69ab2349768afd27c52ad721cdc6f642aeaa895717bfd7ada44b7"
+  end
+
+  resource "pdf-reader" do
+    url "https://rubygems.org/gems/pdf-reader-2.12.0.gem"
+    sha256 "61e72a4839cf2b3735a4b08dcb00e23c57a51d199494a5b11bd78e49d7b91758"
+  end
+
+  resource "prawn-templates" do
+    url "https://rubygems.org/gems/prawn-templates-0.1.2.gem"
+    sha256 "117aa03db570147cb86fcd7de4fd896994f702eada1d699848a9529a87cd31f1"
+  end
+
+  resource "prawn-table" do
+    url "https://rubygems.org/gems/prawn-table-0.2.2.gem"
+    sha256 "336d46e39e003f77bf973337a958af6a68300b941c85cb22288872dc2b36addb"
   end
 
   # asciidoctor supports the Python 3 pygments syntax highlighter via pygments.rb ~> 2.0.0
@@ -131,8 +136,8 @@ class Asciidoctor < Formula
   end
 
   resource "asciidoctor-pdf" do
-    url "https://rubygems.org/gems/asciidoctor-pdf-2.3.13.gem"
-    sha256 "fa03c42e317060b0492005b77665c376d36d75e50859a51fc21b7f85d1030e77"
+    url "https://rubygems.org/gems/asciidoctor-pdf-2.3.14.gem"
+    sha256 "24c1cc018118b5cbc57bdb35875ffa013bfd1653851e3513f1216cefea68e952"
   end
 
   resource "coderay" do
