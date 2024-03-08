@@ -1,8 +1,8 @@
 class VulkanValidationlayers < Formula
   desc "Vulkan layers that enable developers to verify correct use of the Vulkan API"
   homepage "https://github.com/KhronosGroup/Vulkan-ValidationLayers"
-  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v1.3.279.tar.gz"
-  sha256 "5eb86653b5be9824143a26b88fdec1bee9c9a21e4bba849753356fcfd37990b9"
+  url "https://github.com/KhronosGroup/Vulkan-ValidationLayers/archive/refs/tags/v1.3.280.tar.gz"
+  sha256 "96ad0b0b3e24df2a8bc88de35de31bc66e947f826f7ad0df315dd23fd966ed42"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-ValidationLayers.git", branch: "main"
 
@@ -41,13 +41,13 @@ class VulkanValidationlayers < Formula
   # https://github.com/KhronosGroup/Vulkan-ValidationLayers/blob/v#{version}/scripts/known_good.json#L32
   resource "SPIRV-Headers" do
     url "https://github.com/KhronosGroup/SPIRV-Headers.git",
-        revision: "b73e168ca5e123dcf3dea8a34b19a5130f421ae1"
+        revision: "8b246ff75c6615ba4532fe4fde20f1be090c3764"
   end
 
   # https://github.com/KhronosGroup/Vulkan-ValidationLayers/blob/v#{version}/scripts/known_good.json#L46
   resource "SPIRV-Tools" do
     url "https://github.com/KhronosGroup/SPIRV-Tools.git",
-        revision: "9bd44d028e8ca257dde9c24d5f67adabee3275ab"
+        revision: "7c363050de047e37ca168c74e0a960fd4b097173"
   end
 
   def install
