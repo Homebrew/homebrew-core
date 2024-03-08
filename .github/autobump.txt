@@ -836,6 +836,7 @@ httm
 httping
 httpx
 httpyac
+hubble
 huggingface-cli
 hugo
 hwatch

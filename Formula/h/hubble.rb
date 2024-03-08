@@ -5,6 +5,14 @@ class Hubble < Formula
   sha256 "c4c2e5ed223c5c4d8777f1da9b44623373240d940365910adb501636a07faecb"
   license "Apache-2.0"
 
+  # There can be a notable gap between when a version is tagged and a
+  # corresponding release is created, so we check the "latest" release instead
+  # of the Git tags.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ba8adc5048a46c4209fbbf4f1d6d826e26a35c701477f1dca11f38f1f9b9192e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c9d9bbb979b2e1aac348ea4e1e802b1398c2c6f65195b35b1081e04a6be96e0"
