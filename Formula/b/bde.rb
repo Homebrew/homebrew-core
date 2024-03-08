@@ -32,6 +32,8 @@ class Bde < Formula
   end
 
   def install
+    odie "bde-tools resource needs to be updated" if version != resource("bde-tools").version
+
     (buildpath/"bde-tools").install resource("bde-tools")
 
     # Use brewed pcre2 instead of bundled sources
@@ -59,8 +61,6 @@ class Bde < Formula
   end
 
   test do
-    assert_equal version, resource("bde-tools").version, "`bde-tools` resource needs updating!"
-
     # bde tests are incredibly performance intensive
     # test below does a simple sanity check for linking against bsl.
     (testpath/"test.cpp").write <<~EOS
