@@ -39,6 +39,8 @@ class Ortp < Formula
   depends_on "mbedtls"
 
   def install
+    odie "bctoolbox resource needs to be updated" if build.stable? && version != resource("bctoolbox").version
+
     resource("bctoolbox").stage do
       args = ["-DENABLE_TESTS_COMPONENT=OFF", "-DBUILD_SHARED_LIBS=ON"]
       args << "-DCMAKE_C_FLAGS=-Wno-error=unused-parameter" if OS.linux?
@@ -83,8 +85,5 @@ class Ortp < Formula
     linker_flags = OS.mac? ? %W[-F#{frameworks} -framework ortp] : %W[-L#{lib} -lortp]
     system ENV.cc, "test.c", "-o", "test", "-I#{include}", "-I#{libexec}/include", *linker_flags
     system "./test"
-
-    # Ensure that bctoolbox's version is identical to ortp's.
-    assert_equal version, resource("bctoolbox").version
   end
 end
