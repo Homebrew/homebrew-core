@@ -466,7 +466,8 @@
     "exclude_packages": ["certifi", "cryptography"]
   },
   "onlykey-agent": {
-    "exclude_packages": ["certifi", "cryptography", "Cython"]
+    "exclude_packages": ["certifi", "cryptography", "cython"],
+    "extra_packages": ["setuptools"]
   },
   "openai-whisper": {
     "exclude_packages": ["certifi", "numpy", "torch"]
