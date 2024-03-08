@@ -1019,6 +1019,7 @@ libproxy
 librdkafka
 librespot
 libressl
+librsvg
 libsais
 libsecret
 libshumate
