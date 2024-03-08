@@ -1,8 +1,8 @@
 class BashUnit < Formula
   desc "Bash unit testing enterprise edition framework for professionals"
   homepage "https://github.com/pgrange/bash_unit"
-  url "https://github.com/pgrange/bash_unit/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "750983353e79ad83cb3ec093406be7306bd1d90a64f77977b29bb968d66731f6"
+  url "https://github.com/pgrange/bash_unit/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "30aefc0a75196000680f0668b495f3f98c568eb06d9187eab1e9b2e07237802c"
   license "GPL-3.0-only"
 
   bottle do
