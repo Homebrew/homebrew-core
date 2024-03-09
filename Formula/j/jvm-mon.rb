@@ -12,6 +12,7 @@ class JvmMon < Formula
   end
 
   bottle do
+    sha256 cellar: :any_skip_relocation, sonoma:       "88c2a99416c6bd4c33480769b5e47f9f4964d28d0f04fbcb1821e2fda0e891b7"
     sha256 cellar: :any_skip_relocation, ventura:      "c20d541a04a08a0282c90ed1968fbc03d5be5012f9a73e22b52d2ded67c9a880"
     sha256 cellar: :any_skip_relocation, monterey:     "c20d541a04a08a0282c90ed1968fbc03d5be5012f9a73e22b52d2ded67c9a880"
     sha256 cellar: :any_skip_relocation, big_sur:      "c20d541a04a08a0282c90ed1968fbc03d5be5012f9a73e22b52d2ded67c9a880"
