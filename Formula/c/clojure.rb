@@ -1,9 +1,9 @@
 class Clojure < Formula
   desc "Dynamic, general-purpose programming language"
   homepage "https://clojure.org"
-  url "https://github.com/clojure/brew-install/releases/download/1.11.1.1435/clojure-tools-1.11.1.1435.tar.gz"
-  mirror "https://download.clojure.org/install/clojure-tools-1.11.1.1435.tar.gz"
-  sha256 "452fc579b2040fc45861745704a5d93d144e3b41eac83a34ce16fea784399bc0"
+  url "https://github.com/clojure/brew-install/releases/download/1.11.2.1446/clojure-tools-1.11.2.1446.tar.gz"
+  mirror "https://download.clojure.org/install/clojure-tools-1.11.2.1446.tar.gz"
+  sha256 "aa7effb0fc950df8d93cb796c655010658c05bf77c702c3a9449b7fdd792ef71"
   license "EPL-1.0"
   version_scheme 1
 
