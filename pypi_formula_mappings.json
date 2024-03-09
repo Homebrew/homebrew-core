@@ -333,6 +333,10 @@
   "huggingface-cli": {
     "exclude_packages": ["certifi"]
   },
+  "iconsur": {
+    "package_name": "",
+    "extra_packages": ["pyobjc-core", "pyobjc-framework-cocoa"]
+  },
   "img2pdf": {
     "exclude_packages": ["pillow"]
   },
