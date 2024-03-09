@@ -5,6 +5,11 @@ class Wazero < Formula
   sha256 "10c79ae33c927f6e9003b054a7768b7bf20f1470b9984a62969428448cba3abf"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d957b85035512488340e3d3f71dbd35b7f89044778815d504cce1d0b7f8891a"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "a269ea061ce6d047a78fa6a59fda006b75f8d4aaa79c10d640fd8facd7b31aca"
