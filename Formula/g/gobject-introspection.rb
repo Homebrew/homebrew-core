@@ -4,8 +4,8 @@ class GobjectIntrospection < Formula
 
   desc "Generate introspection data for GObject libraries"
   homepage "https://gi.readthedocs.io/en/latest/"
-  url "https://download.gnome.org/sources/gobject-introspection/1.78/gobject-introspection-1.78.1.tar.xz"
-  sha256 "bd7babd99af7258e76819e45ba4a6bc399608fe762d83fde3cac033c50841bb4"
+  url "https://download.gnome.org/sources/gobject-introspection/1.80/gobject-introspection-1.80.0.tar.xz"
+  sha256 "54a90b4a3cb82fd6a3e8b8a7775178ebc954af3c2bc726ed5961e6503ce62636"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
 
   bottle do
@@ -82,13 +82,18 @@ class GobjectIntrospection < Formula
   end
 
   test do
-    resource "homebrew-tutorial" do
-      url "https://gist.github.com/tdsmith/7a0023656ccfe309337a.git",
-          revision: "499ac89f8a9ad17d250e907f74912159ea216416"
-    end
+    (testpath/"main.c").write <<~EOS
+      #include <girepository.h>
 
-    resource("homebrew-tutorial").stage testpath
-    system "make"
-    assert_predicate testpath/"Tut-0.1.typelib", :exist?
+      int main (int argc, char *argv[]) {
+        GIRepository *repo = g_irepository_get_default();
+        g_assert_nonnull(repo);
+        return 0;
+      }
+    EOS
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs gobject-introspection-1.0").strip.split
+    system ENV.cc, "main.c", "-o", "test", *pkg_config_flags
+    system "./test"
   end
 end
