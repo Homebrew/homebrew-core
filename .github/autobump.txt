@@ -874,6 +874,7 @@ jackett
 jadx
 jaq
 jasper
+jbang
 jbig2dec
 jc
 jd
