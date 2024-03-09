@@ -3,8 +3,8 @@ class Certsync < Formula
 
   desc "Dump NTDS with golden certificates and UnPAC the hash"
   homepage "https://github.com/zblurx/certsync"
-  url "https://files.pythonhosted.org/packages/dc/0d/34b200d297acf6f580daa64a611804ea2f139e38c7afcb17ceb5353b7ae8/certsync-0.1.4.tar.gz"
-  sha256 "ac97dd363b9f795ba34c79d7003ed213507a4b686f6021f47c62f707612cdba8"
+  url "https://files.pythonhosted.org/packages/bd/3d/cdacde9d464c4b059336af2e531a9c15660b92125f345a165da754d0ec9f/certsync-0.1.5.tar.gz"
+  sha256 "699a4f8b15045883011c25f461c83e81b53093ae31588fdff41f7ef505b969c7"
   license "MIT"
 
   bottle do
