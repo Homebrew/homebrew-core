@@ -6,13 +6,13 @@ class Popeye < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "37cf974e60ce90bcf64ca9b7b83fd9562893608d866dc10b37eb245a7a859d19"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cdbfe1f9c6e54bdcd92a923b08689b1b28165bc5c6e5435a94b450e572f915ff"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c261f62209f2cd502bce06c7cee093f9513e262d59953956c5ef079ee4791422"
-    sha256 cellar: :any_skip_relocation, sonoma:         "12a978dbf6facedc77ee5a73c3db70060ace1736449b51aeaec1e45f80149caa"
-    sha256 cellar: :any_skip_relocation, ventura:        "e0df67d14466568583b6ff5b3abec993781c59431fb39e931c7ed6ee15a53f8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "84a77f63918b99d75d48f235120b40263ccdc69e75421888f642e087544478e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38eae50bd3ddecde171efc917bae0e531c762ba3b4b532b617cc0be2a3ade5f4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1bb4fe50d13833c37b187ae1d0b40ee8fd286e3a3ef4bbe9d8809fa438a90fc6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1d25028d674caae40154ced55f8c8b17ab5b4f6bc12bbef074815a584644431"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce809a8bfbc21abd740a67aea0ea100c6b58c4053b6679cfb4f6d0680828e4cb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "120957be7e06976ac4c71a8e9ba52dee6e62a281d855702a348ae8ffaa2db05c"
+    sha256 cellar: :any_skip_relocation, ventura:        "63d525a8741f8b5e8f1356488eff8c2be42857f9c7be77e52ea9f0bc6ed9dc4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "0dfd8cbb39077a0ec03b6709d68ef54a171c1fec81738c729546b082236747f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cefe4de42f06724aa1ddb0dd32bed155eaff48fcec0c64325e70fb17e33b0712"
   end
 
   depends_on "go" => :build
