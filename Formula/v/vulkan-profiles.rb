@@ -15,13 +15,13 @@ class VulkanProfiles < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8d0cbdbe8da114a0ec9359db75e71ecfb1aef01a0cad45dd6d3227fa2911f0a0"
-    sha256 cellar: :any,                 arm64_ventura:  "e44d7d44bc50b675f1e824c6758b06702bf4391f0cc37080c4b0e73b71100a62"
-    sha256 cellar: :any,                 arm64_monterey: "f78f938eddd295bfa97c5c7a7fb4745a9681bd75386499dbfe79e6a7cc2b67a8"
-    sha256 cellar: :any,                 sonoma:         "8350cb58b9cded666703eda63967955f3f078d9e3f80e55abc031bac1acb6ba0"
-    sha256 cellar: :any,                 ventura:        "fd93f63d1a94c15639404804726745f007f048b41aa7e99c2fe17538910404aa"
-    sha256 cellar: :any,                 monterey:       "fcda357165957a53306362d5e3f56cd365a34da9646ac7affa1b5103b4e994de"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4a10f96542a1dfb12a956a2a095d593250a247ddfa8254f58acd5f6e6843bb5"
+    sha256 cellar: :any,                 arm64_sonoma:   "8889c536f20904979bc50d204828d51caa6a68648d810b86d45bfdda045a6528"
+    sha256 cellar: :any,                 arm64_ventura:  "821f2c2330f73dc373b43e42675c4538a85df4bd925e28a990e9392d4a166f81"
+    sha256 cellar: :any,                 arm64_monterey: "2f9e9e1fc594b52c8567847b892ae0bae19bf1a7027c079345bcb98a40f96413"
+    sha256 cellar: :any,                 sonoma:         "1e5b609f175173a3a1c052e12c9eb06077d27a0472903691d6e03aa2c3359723"
+    sha256 cellar: :any,                 ventura:        "1ff42d37434158ee3ec903fdacfa4344ea475891081d38539ebff3d8db3fed95"
+    sha256 cellar: :any,                 monterey:       "ec095aeec0c35f793091550b7c4d8c53da5d7d1a21c8903415b8c5d0bcf515b8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bca87a486eeb7abd72111e0589047af781cb35482d2593dc6bfb360b0360fa0"
   end
 
   depends_on "cmake" => :build
