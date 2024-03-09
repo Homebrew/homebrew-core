@@ -9,13 +9,13 @@ class Quicktype < Formula
   head "https://github.com/quicktype/quicktype.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f847c468cc1ed3321535815ebf16dd8aa8eb2d371275a48181e124fb310b194"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f847c468cc1ed3321535815ebf16dd8aa8eb2d371275a48181e124fb310b194"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f847c468cc1ed3321535815ebf16dd8aa8eb2d371275a48181e124fb310b194"
-    sha256 cellar: :any_skip_relocation, sonoma:         "15809848565980fe3000a7509ec51d61623c4f752d3c2963d459b711f9ff0a76"
-    sha256 cellar: :any_skip_relocation, ventura:        "15809848565980fe3000a7509ec51d61623c4f752d3c2963d459b711f9ff0a76"
-    sha256 cellar: :any_skip_relocation, monterey:       "15809848565980fe3000a7509ec51d61623c4f752d3c2963d459b711f9ff0a76"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f847c468cc1ed3321535815ebf16dd8aa8eb2d371275a48181e124fb310b194"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e2b7e4e23163a22f706e50b624668f91b4af9c74d5690d7c5a68aa4cd6c38d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6e2b7e4e23163a22f706e50b624668f91b4af9c74d5690d7c5a68aa4cd6c38d0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e2b7e4e23163a22f706e50b624668f91b4af9c74d5690d7c5a68aa4cd6c38d0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c985e9dc09e46f782d4b1ec05ea0bdd5c0357c21f76be80328562dc5c0d9b715"
+    sha256 cellar: :any_skip_relocation, ventura:        "c985e9dc09e46f782d4b1ec05ea0bdd5c0357c21f76be80328562dc5c0d9b715"
+    sha256 cellar: :any_skip_relocation, monterey:       "c985e9dc09e46f782d4b1ec05ea0bdd5c0357c21f76be80328562dc5c0d9b715"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6e2b7e4e23163a22f706e50b624668f91b4af9c74d5690d7c5a68aa4cd6c38d0"
   end
 
   depends_on "node"
