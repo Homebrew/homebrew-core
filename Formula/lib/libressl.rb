@@ -13,13 +13,13 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "275e20c1fd0d2dea082ece51d5bb91253d60a033f36f05d5a28602d11c3c70bf"
-    sha256 arm64_ventura:  "919037dda29c47ebdc95f1b671267d0bb5da7a03738d7d574f91705abc435af7"
-    sha256 arm64_monterey: "9b521a692c4ae45224e9d2f04548a9046515d943ad02eaec7e98413ff452921f"
-    sha256 sonoma:         "1fd84082abf064c369328b9bf9a1b9e665401bc619448835f55a44c91a71e5df"
-    sha256 ventura:        "752f831dbc389bd6d59d9d0d9f94f07de4e58945a5787d6a4aa1f886fd0ee0a6"
-    sha256 monterey:       "f2fdf30340767dc723ce1002a3f70fbb62a18c3e6a97dbc759d8fe3817f909dd"
-    sha256 x86_64_linux:   "bb4a7f805ea8b1fc995ad16687b31d8bb265ea91a6f717fe208b81e4c881e50f"
+    sha256 arm64_sonoma:   "42da82b5fc36e79bb0c3ced6e0f17143581ca09524c16f2bc5df6b0d0bdb64e1"
+    sha256 arm64_ventura:  "1c15edeeda153f9a9f71dcdf3929ac04d447e05bd4b4e6b639d4f38049f72ab2"
+    sha256 arm64_monterey: "c0b959f3f07391e2d85fbf381d0a5192fcd9493698421b29d50af166778e0e81"
+    sha256 sonoma:         "28c1c87ab3b05a4e91be27804291e6c09f18b95ee35cbead63489ca53562b727"
+    sha256 ventura:        "e6bcdc4353f2eb8d1678ab5b14cfaf25ef41b41f9b965f348d8438b9e0b45ef7"
+    sha256 monterey:       "c3d435c7c0bb68558847f5b5b6b5aef289323c389441f927efc77f089146c82f"
+    sha256 x86_64_linux:   "2f30efdef2f483235760c974e2eed83889caae4387b90ee1316e1d1730765d23"
   end
 
   head do
