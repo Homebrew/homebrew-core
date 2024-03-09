@@ -289,6 +289,10 @@
   "gitless": {
     "exclude_packages": ["pygit2"]
   },
+  "glib": {
+    "package_name": "",
+    "extra_packages": ["packaging"]
+  },
   "gnuradio": {
     "extra_packages": [
       "click", "click-plugins", "jsonschema", "lxml", "mako",
