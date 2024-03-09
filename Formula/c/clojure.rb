@@ -13,7 +13,7 @@ class Clojure < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "323c8636fc0d8dfc7e2fc8b644fc745e11e3bea2e66d5133cd78fecea4f0c2cd"
+    sha256 cellar: :any_skip_relocation, all: "1d7fc02dbb66eaada28a4d5ee0101ee3e163976e2a44ce02b714f1bbd6ec10c9"
   end
 
   depends_on "openjdk"
