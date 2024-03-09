@@ -7,22 +7,22 @@ class ClangFormat < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.0/llvm-18.1.0.src.tar.xz"
-    sha256 "b83af9ed31e69852bb5f835b597f8e769a0707aea89a3097d4fc8e71e43f2a1a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.1/llvm-18.1.1.src.tar.xz"
+    sha256 "ab0508d02b2d126ceb98035c28638a9d7b1e7fa5ef719396236e72f59a02e1ac"
 
     resource "clang" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.0/clang-18.1.0.src.tar.xz"
-      sha256 "c5cb0cedec2817914e66bb86ea4c6588ddf53b183e89b2997741d005f9553cbe"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.1/clang-18.1.1.src.tar.xz"
+      sha256 "412a482b81a969846b127552f8fa2251c7d57a82337f848fe7fea8e6ce614836"
     end
 
     resource "cmake" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.0/cmake-18.1.0.src.tar.xz"
-      sha256 "d367bf77a3707805168b0a7a7657c8571207fcae29c5890312642ee42b76c967"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.1/cmake-18.1.1.src.tar.xz"
+      sha256 "5308023d1c1e9feb264c14f58db35c53061123300a7eb940364f46d574c8b2d6"
     end
 
     resource "third-party" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.0/third-party-18.1.0.src.tar.xz"
-      sha256 "5028eb1d6baa7b59cc88b2180467ea67ff2d5d4acdf095b530260d9d8868c16b"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-18.1.1/third-party-18.1.1.src.tar.xz"
+      sha256 "41cdf4fe95faa54f497677313b906e04e74079a03defa9fdc2f07ed5f259f1ef"
     end
   end
 
@@ -54,6 +54,10 @@ class ClangFormat < Formula
   end
 
   def install
+    odie "clang resource needs to be updated" if build.stable? && version != resource("clang").version
+    odie "cmake resource needs to be updated" if build.stable? && version != resource("cmake").version
+    odie "third-party resource needs to be updated" if build.stable? && version != resource("third-party").version
+
     llvmpath = if build.head?
       ln_s buildpath/"clang", buildpath/"llvm/tools/clang"
 
