@@ -7,13 +7,13 @@ class Protolint < Formula
   head "https://github.com/yoheimuta/protolint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4bbb5f3ba78da25aa3ae9c7b057e7cb90f6cd15a4a54e9aab8664c66267d5bc9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82a8be44f6150d88c93d48f61f5e8034f4ba158689911a0cce77fce3a55cb592"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8f9a60f2fc6296d00b9a71a3014259a23f997ef5478dcc3b9f3fe1e3aa75cbb8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a61c2cf6cf798b74ec430b53cf511f2e12b411e953f0e0196140c7995959a645"
-    sha256 cellar: :any_skip_relocation, ventura:        "7a2e8ade8f34a1f56ad9bbd129f5b75e5aeed1852986b90c74599bb2733c3ef4"
-    sha256 cellar: :any_skip_relocation, monterey:       "9aa04b1d2b500cc40668cac08e15252a8579eb43694dca2cda72910052ef789f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8eca83400845b7dcc6824a8296de2cb03e02eae526b724265e48a3258e962d0a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54227b9b0d2343feb85f0a07ee4882b6b3e377b32efa368cf0768730af010c7f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3dc804769d72c51fc5a2e1c89c0accd37a510930855da63cbdf1053496d0679"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2104fad4b2bb87ad093a7df4c027f712518aecd32de56f13ee5ad6ab264eab32"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5ffe4ce895e788fe3d741f15d01887df8e115fdabf062bd426fd9e5c068a733b"
+    sha256 cellar: :any_skip_relocation, ventura:        "5bff0d05343ff3f9d3cdaab310b92818fa2841428e44a41077c9557eba7eddd3"
+    sha256 cellar: :any_skip_relocation, monterey:       "6ec4b80189cbc8ddd544bdf953111821301b4dbed1f5d2a7fe93781951dcef60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdc8a4078df2c45c6ad27d2b8ddd96aa5eb1ed3ea7cbb6e03f6b51fa9efe72eb"
   end
 
   depends_on "go" => :build
