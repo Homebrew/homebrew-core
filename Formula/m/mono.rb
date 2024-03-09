@@ -5,6 +5,11 @@ class Mono < Formula
   sha256 "57366a6ab4f3b5ecf111d48548031615b3a100db87c679fc006e8c8a4efd9424"
   license "MIT"
 
+  livecheck do
+    url "https://www.mono-project.com/download/stable/"
+    regex(/href=.*?(\d+(?:\.\d+)+)[._-]macos/i)
+  end
+
   bottle do
     rebuild 2
     sha256 arm64_monterey: "7c423e09da1607e5c80a8631fb4eb9f53869aca4c1bd702af36c3651a059f8dd"
@@ -16,8 +21,6 @@ class Mono < Formula
     sha256 x86_64_linux:   "e147b8ae7c32cda6c96a34bdd1de6f7d15c40af36b9ae68cb2196eb7e827e0a2"
   end
 
-  deprecate! date: "2023-10-24", because: "uses deprecated `openssl@1.1`"
-
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11"
@@ -27,7 +30,7 @@ class Mono < Formula
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "openssl@1.1" => :build
+    depends_on "openssl@3" => :build
     depends_on "ca-certificates"
   end
 
@@ -172,7 +175,7 @@ class Mono < Formula
       # Help .NET SDK run by providing path to libraries or disabling features
       if OS.linux?
         ENV["DOTNET_SYSTEM_GLOBALIZATION_INVARIANT"] = "1"
-        ENV["LD_LIBRARY_PATH"] = "#{Formula["openssl@1.1"].opt_lib}:#{HOMEBREW_PREFIX}/lib"
+        ENV["LD_LIBRARY_PATH"] = "#{Formula["openssl@3"].opt_lib}:#{HOMEBREW_PREFIX}/lib"
       end
 
       with_env(version: "") do
