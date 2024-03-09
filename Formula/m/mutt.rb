@@ -10,8 +10,8 @@
 class Mutt < Formula
   desc "Mongrel of mail user agents (part elm, pine, mush, mh, etc.)"
   homepage "http://www.mutt.org/"
-  url "https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.12.tar.gz"
-  sha256 "043af312f64b8e56f7fd0bf77f84a205d4c498030bd9586457665c47bb18ce38"
+  url "https://bitbucket.org/mutt/mutt/downloads/mutt-2.2.13.tar.gz"
+  sha256 "eb23faddc1cc97d867693f3a4a9f30949ad93765ad5b6fdae2797a4001c58efb"
   license "GPL-2.0-or-later"
 
   bottle do
