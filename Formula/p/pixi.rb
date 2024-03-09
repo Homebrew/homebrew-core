@@ -1,8 +1,8 @@
 class Pixi < Formula
   desc "Package management made easy"
   homepage "https://pixi.sh"
-  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.15.2.tar.gz"
-  sha256 "b044b3325d7e0e5cf5f209dff3725089e28f510a3c2c5285e155ee2588461719"
+  url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "838123d01370570c7170471103263b460ecff3c2ad3298edbe0d4f3e59e7798b"
   license "BSD-3-Clause"
   head "https://github.com/prefix-dev/pixi.git", branch: "main"
 
@@ -25,24 +25,47 @@ class Pixi < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
+
+  depends_on "libgit2"
+  depends_on "openssl@3"
 
   uses_from_macos "bzip2"
 
-  on_linux do
-    depends_on "pkg-config" => :build
-    depends_on "openssl@3"
-  end
-
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
+    # Ensure the correct `openssl` will be picked up.
+    ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
+    ENV["OPENSSL_NO_VENDOR"] = "1"
+
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"pixi", "completion", "-s")
   end
 
+  def check_binary_linkage(binary, library)
+    binary.dynamically_linked_libraries.any? do |dll|
+      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
+
+      File.realpath(dll) == File.realpath(library)
+    end
+  end
+
   test do
     assert_equal "pixi #{version}", shell_output("#{bin}/pixi --version").strip
-    system "#{bin}/pixi", "init"
+
+    system bin/"pixi", "init"
     assert_path_exists testpath/"pixi.toml"
+
+    linked_libraries = [
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
+      Formula["openssl@3"].opt_lib/shared_library("libssl"),
+      Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
+    ]
+    linked_libraries.each do |library|
+      assert check_binary_linkage(bin/"pixi", library),
+             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
+    end
   end
 end
