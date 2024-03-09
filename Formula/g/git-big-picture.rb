@@ -1,8 +1,8 @@
 class GitBigPicture < Formula
   desc "Visualization tool for Git repositories"
   homepage "https://github.com/git-big-picture/git-big-picture"
-  url "https://github.com/git-big-picture/git-big-picture/archive/refs/tags/v1.2.2.tar.gz"
-  sha256 "7b2826d72e146c7a53e7a1cc9533c360cd8e0feb870c7d1eadcc189b8bc2c5f6"
+  url "https://github.com/git-big-picture/git-big-picture/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "cccbd3e35dfe6d0ce86d06079e80cf9219cb25f887c7a782e2808e740dc23c3a"
   license "GPL-3.0-or-later"
 
   bottle do
