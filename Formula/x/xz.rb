@@ -2,11 +2,11 @@ class Xz < Formula
   desc "General-purpose data compression with high compression ratio"
   homepage "https://xz.tukaani.org/xz-utils/"
   # The archive.org mirror below needs to be manually created at `archive.org`.
-  url "https://github.com/tukaani-project/xz/releases/download/v5.6.0/xz-5.6.0.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/lzmautils/xz-5.6.0.tar.gz"
-  mirror "https://archive.org/download/xz-5.6.0/xz-5.6.0.tar.gz"
-  mirror "http://archive.org/download/xz-5.6.0/xz-5.6.0.tar.gz"
-  sha256 "0f5c81f14171b74fcc9777d302304d964e63ffc2d7b634ef023a7249d9b5d875"
+  url "https://github.com/tukaani-project/xz/releases/download/v5.6.1/xz-5.6.1.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/lzmautils/xz-5.6.1.tar.gz"
+  mirror "https://archive.org/download/xz-5.6.1.tar.gz/xz-5.6.1.tar.gz"
+  mirror "http://archive.org/download/xz-5.6.1.tar.gz/xz-5.6.1.tar.gz"
+  sha256 "2398f4a8e53345325f44bdd9f0cc7401bd9025d736c6d43b372f4dea77bf75b8"
   license all_of: [
     "0BSD",
     "LGPL-2.1-or-later",
