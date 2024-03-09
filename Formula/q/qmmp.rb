@@ -11,13 +11,11 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "62b3c2e5e9a085f1f2a24d3efd0940d9f283c2ef5e875a822441d6b6ee439d2f"
-    sha256 arm64_monterey: "a88f9ca5f66ed3c4ad31ea47cb9de92e3efc4a82c5451340c234d06f885d0306"
-    sha256 arm64_big_sur:  "67d92990dadd4193cabd8bd1aaf8cf5f8b77bc52f92cba58e4de092a1ba8569b"
-    sha256 ventura:        "987813643761bb3d1af83e012d622039c94ad586f535b94000545494bf622fa8"
-    sha256 monterey:       "35d00de5ceaeb9e994437a8f76f6c36911e53110e5ee6e9f968b9486362a9ed8"
-    sha256 big_sur:        "887ba0171ed8d1a7341d3d5f37017e301efe01655afe35200e4130b4d6e0ee91"
-    sha256 x86_64_linux:   "618424e0fa34bbb1db85bd1e30a8c6e4a1f1825cc93741f08d6e6a7914154ff6"
+    sha256 arm64_ventura:  "3a184744eb22e470cc024c1d02139be521951c67dbb73c5dcd2c9cad4326a076"
+    sha256 arm64_monterey: "f373f60656cb8e8e5672b66155c2bdb584cd6d1b3a9de8af462843eea2074142"
+    sha256 ventura:        "b74c8c23c89b3d6c5b30db1b9fcf4c59b2564e1af6162fcf24db9f9e128977e3"
+    sha256 monterey:       "a623dc262436782fc3e9a312237b608499734dab0b5b63a53c7acda382f2069f"
+    sha256 x86_64_linux:   "a25566cbca3372edfab950071571db44639fabb22fb7287ac3ce29d9cf821c6d"
   end
 
   depends_on "cmake"      => :build
