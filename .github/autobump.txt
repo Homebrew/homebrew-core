@@ -1235,6 +1235,7 @@ open-mpi
 opendetex
 openexr
 openfga
+openfpgaloader
 openh264
 openimageio
 openiothub-server
