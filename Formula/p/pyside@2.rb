@@ -2,8 +2,8 @@ class PysideAT2 < Formula
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
   # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.12-src/pyside-setup-opensource-src-5.15.12.tar.xz"
-  sha256 "9c53a111ca5779064593e690db0da43ce0d5dad25369931b7a4f593886259ff4"
+  url "https://download.qt.io/official_releases/QtForPython/pyside2/PySide2-5.15.13-src/pyside-setup-opensource-src-5.15.13.tar.xz"
+  sha256 "7a57797b20268d6ebcb39deba48c754a69abf9221aee03e1f3dca6f6565b7da9"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
