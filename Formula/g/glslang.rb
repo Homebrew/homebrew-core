@@ -1,8 +1,8 @@
 class Glslang < Formula
   desc "OpenGL and OpenGL ES reference compiler for shading languages"
   homepage "https://www.khronos.org/opengles/sdk/tools/Reference-Compiler/"
-  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/14.0.0.tar.gz"
-  sha256 "80bbb916a23e94ea9cbfb1acb5d1a44a7e0c9613bcf5b5947c03f2273bdc92b0"
+  url "https://github.com/KhronosGroup/glslang/archive/refs/tags/14.1.0.tar.gz"
+  sha256 "b5e4c36d60eda7613f36cfee3489c6f507156829c707e1ecd7f48ca45b435322"
   license all_of: ["BSD-3-Clause", "GPL-3.0-or-later", "MIT", "Apache-2.0"]
   head "https://github.com/KhronosGroup/glslang.git", branch: "main"
 
@@ -25,13 +25,6 @@ class Glslang < Formula
   depends_on "cmake" => :build
   depends_on "spirv-tools"
   uses_from_macos "python" => :build
-
-  # Fix SPIRV-Tools-opt dependency which breaks cmake files used by other projects
-  # Remove when released: https://github.com/KhronosGroup/glslang/pull/3487
-  patch do
-    url "https://github.com/KhronosGroup/glslang/commit/f72a347e88737aee4977df709af322302decce20.patch?full_index=1"
-    sha256 "7bb8e737792a534fbc65485688132318e4d29a507ec37667c5254b7afb7d2146"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",
