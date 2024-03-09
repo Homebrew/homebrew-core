@@ -14,13 +14,13 @@ class Librsvg < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "be900233640593c746d704a23016e5c47d85dd69525ea0dc7cf2ff08050e35aa"
-    sha256                               arm64_ventura:  "a41b9a670709370e1f6804e7c5c826a49948f10f74730352e9407de6c2cdbc29"
-    sha256                               arm64_monterey: "102b15de7e67a1d8a794c2cd6b764d33aec8fdfb31aabd3b31713c1a4661827f"
-    sha256                               sonoma:         "d2e84828e7a1788a6edfa5dd68182e79d25922dbff696bf91bc2f21a93cdc531"
-    sha256                               ventura:        "0faf9c16f418ca08d3f0d2c91df8de68f8d1088cbdb972c3f0c2fb1187ae7a59"
-    sha256                               monterey:       "4ed64b0b08ca176911c0a7a6fde71a4d854837f5102a4788981f8caf2dbf6257"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2be9b2a3e32eb5ccd6c1e2b287fbe28ee34c90b40341d0fbb7e0ab6ec03ca860"
+    sha256                               arm64_sonoma:   "d758ebff6d6a85f6066461cb7bd35f8314e76d92c13ff8dd5f6bf8b59b9d96a1"
+    sha256                               arm64_ventura:  "00b73fcdcc3191e20b3934fdb33c39ab71d736b4fb1f1c38f2ff9d5525dc5990"
+    sha256                               arm64_monterey: "52add2f8a00c4002414ed178e8fdf3d537c8a51a7349188812f3fa6a317b63ef"
+    sha256                               sonoma:         "0dbab45efbd8349b6579443f00cc5efe7cdf38f222ae6710037d9addddd54409"
+    sha256                               ventura:        "4002c714774b36faf510847d15b2eace047b89be8da1d1461abfdbb7d9a6696f"
+    sha256                               monterey:       "cd02ac2932b777d971368b4b4054a3f2ebada8759ab42d86c409d86f08fd5b47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "387ae1240bad68e9e41fd944719feff6b44f93eb86ac535d8ada73aa621faa3c"
   end
 
   depends_on "gobject-introspection" => :build
