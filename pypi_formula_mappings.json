@@ -591,10 +591,6 @@
   "python-build": {
     "exclude_packages": ["packaging", "pyproject-hooks"]
   },
-  "python-cryptography": {
-    "exclude_packages": ["cffi", "pycparser"],
-    "extra_packages": ["setuptools-rust"]
-  },
   "python-lsp-server": {
     "package_name": "python-lsp-server[websockets]",
     "extra_packages": ["python-lsp-black", "pylsp-mypy", "python-lsp-ruff", "pylsp-rope"],
