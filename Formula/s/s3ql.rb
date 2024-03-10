@@ -21,11 +21,11 @@ class S3ql < Formula
   depends_on "libcython" => :build
   depends_on "pkg-config" => :build
   depends_on "cffi"
+  depends_on "cryptography"
   depends_on "libffi"
   depends_on "libfuse"
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "openssl@3"
-  depends_on "python-cryptography"
   depends_on "python-packaging"
   depends_on "python@3.12"
   depends_on "six"
