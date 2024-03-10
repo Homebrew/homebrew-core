@@ -21,11 +21,11 @@ class Dvc < Formula
   depends_on "rust" => :build # for bcrypt
   depends_on "apache-arrow"
   depends_on "certifi"
+  depends_on "cryptography"
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "numpy"
   depends_on "protobuf"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "adlfs" do
