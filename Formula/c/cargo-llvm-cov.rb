@@ -8,13 +8,13 @@ class CargoLlvmCov < Formula
   head "https://github.com/taiki-e/cargo-llvm-cov.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4f63ae65ebbf45854c15599e1f75b529e342e0a62701c651e6056c70c16a22d0"
-    sha256 cellar: :any,                 arm64_ventura:  "d9311ee7707ff0ced996c11c1acb0d53b8ab1b19de44defd6228ca896cb12a34"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "406431cec7e896c9f8230c50ef1dc44e46eb387654cd1e7ae31cc856045c3b63"
-    sha256 cellar: :any,                 sonoma:         "2f3740c0d25079afe73f9c7597e6933e48c16a2b245154f75d9f28e38e7b62d7"
-    sha256 cellar: :any,                 ventura:        "b055d1233f7748d8f95cf08f96cc7c304f7a72277037a23426c6bb456ec66ae8"
-    sha256 cellar: :any_skip_relocation, monterey:       "f08c95e786fd05db788d76fc2755fe55f95c2ef88b5fc8aa11b6af3ee2189710"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d1d13ffd95380764841566880b41e7deeb01328a132b6fada8e63e5c48aafbd"
+    sha256 cellar: :any,                 arm64_sonoma:   "93b301485a59d5c6628baf88c2e672186cfe4d31353296fddff9cceb5f4c05b4"
+    sha256 cellar: :any,                 arm64_ventura:  "b39da6427c1b9d6e64897e4e864f9869401a21d40152f50c1691800884335e09"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e4f8b52ef9d48e68335e3bec79fc1d029ef0a51fddd7efefd9c7a57e96145db"
+    sha256 cellar: :any,                 sonoma:         "59296846a61296b7249b447c7cf29fe6319f9ee2ff2346cdaa691dfd20d506b1"
+    sha256 cellar: :any,                 ventura:        "cfd13fee5fb259b7e9d0c6d57aec1402d6f459b6db4afd5452747d488b35d49e"
+    sha256 cellar: :any_skip_relocation, monterey:       "9274276c4a37cae9391c385885800da9c659251b0de908f3e24775b5cdc3fbfd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c0d71d81c157b64f4d39cb2c2998b046991b8e86ef6517906fae16e90d496c2"
   end
 
   depends_on "rust" => :build
