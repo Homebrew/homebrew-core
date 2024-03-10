@@ -19,11 +19,11 @@ class Badkeys < Formula
   end
 
   depends_on "cffi"
+  depends_on "cryptography"
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "pycparser"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "gmpy2" do
