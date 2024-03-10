@@ -19,9 +19,9 @@ class Datalad < Formula
   end
 
   depends_on "certifi"
+  depends_on "cryptography"
   depends_on "git-annex"
   depends_on "p7zip"
-  depends_on "python-cryptography"
   depends_on "python@3.11" # Python 3.12 blocked by `boto` usage: https://github.com/datalad/datalad/issues/5597
 
   resource "annexremote" do
