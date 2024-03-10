@@ -1,8 +1,8 @@
 class Modsurfer < Formula
   desc "Validate, audit and investigate WebAssembly binaries"
   homepage "https://dev.dylibso.com/docs/modsurfer/"
-  url "https://github.com/dylibso/modsurfer/archive/refs/tags/v0.0.9.tar.gz"
-  sha256 "61d343518c3b11e3c0496f37553e716a0e213cb711dff65d92cc682a7efd0e01"
+  url "https://github.com/dylibso/modsurfer/archive/refs/tags/v0.0.10.tar.gz"
+  sha256 "2f5defcfe8668d7323a83dab0b323282e2855a4171c1d0d4eacf5963aa3729b1"
   license "Apache-2.0"
 
   bottle do
