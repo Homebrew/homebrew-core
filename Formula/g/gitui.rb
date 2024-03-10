@@ -69,7 +69,6 @@ class Gitui < Formula
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
     ]
-    linked_libraries << (Formula["openssl@3"].opt_lib/shared_library("libcrypto")) if OS.mac?
     linked_libraries.each do |library|
       assert check_binary_linkage(bin/"gitui", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
