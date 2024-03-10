@@ -27,7 +27,7 @@ class AwsGoogleAuth < Formula
   uses_from_macos "libxslt"
 
   on_linux do
-    depends_on "python-cryptography"
+    depends_on "cryptography"
   end
 
   resource "beautifulsoup4" do
