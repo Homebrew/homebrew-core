@@ -20,8 +20,8 @@ class Mvt < Formula
   end
 
   depends_on "certifi"
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "adb-shell" do
