@@ -6,13 +6,13 @@ class Primesieve < Formula
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0d9fe2fe27a89de5b5fadcdccd7e7446636c50fef43eedf00ccb144c51bd5ed0"
-    sha256 cellar: :any,                 arm64_ventura:  "e5e29f8389457fd94c5a01a3b68a00c51cb6f7620b23ae2a0706bb88293f17ab"
-    sha256 cellar: :any,                 arm64_monterey: "f3bc95620fce53821276b736d3b44fa6398e387abbce78c8fe9036cec7280bae"
-    sha256 cellar: :any,                 sonoma:         "d9b32e4a4e2f8e7741ae4aa446532bf8e2109253896291aad4f13f71eadc2ac1"
-    sha256 cellar: :any,                 ventura:        "04880d4fc273713eb4421beab4b29e3ebb0d3b33f37b0215c293b29036fb580f"
-    sha256 cellar: :any,                 monterey:       "ba68aad11914a674cad2c130885703933e423ea3f3db6d486a95da316f149fcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e93f69c0d7d514b5dd3802457c923bbc20c5f0c97e871e1245aae16ae0f55cfe"
+    sha256 cellar: :any,                 arm64_sonoma:   "d0a2bc5684a209029fd4cf0f597f351add96110a453b1db1c18773bfe6537f89"
+    sha256 cellar: :any,                 arm64_ventura:  "9bab8dce016fc005cd2fe823b5ea772205da5158ef55e4123dc367f932b384f2"
+    sha256 cellar: :any,                 arm64_monterey: "02c488e6d3bb6c746f35b61e0ffc9c5e5fed8ccc60c0dd491f3beb68bdd2c540"
+    sha256 cellar: :any,                 sonoma:         "726329c7b1ff868bd35fe3c01ef593b8f29c790f4da30f2953beb9dfb8bbff8a"
+    sha256 cellar: :any,                 ventura:        "a5ff1332a0362c7c649282a4f14f0f0b41e0428ef1a5c79d146fc81e25aae7b9"
+    sha256 cellar: :any,                 monterey:       "ea94ba935bbc9cb9795062c48c8da7875398f5782c1077611eac8e197d49e514"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a5b6f4f46c560f873545f412daee09b5b829b9dcf9be3d869591fbb318c6ec8"
   end
 
   depends_on "cmake" => :build
