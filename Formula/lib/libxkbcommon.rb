@@ -1,8 +1,8 @@
 class Libxkbcommon < Formula
   desc "Keyboard handling library"
   homepage "https://xkbcommon.org/"
-  url "https://xkbcommon.org/download/libxkbcommon-1.5.0.tar.xz"
-  sha256 "560f11c4bbbca10f495f3ef7d3a6aa4ca62b4f8fb0b52e7d459d18a26e46e017"
+  url "https://xkbcommon.org/download/libxkbcommon-1.6.0.tar.xz"
+  sha256 "0edc14eccdd391514458bc5f5a4b99863ed2d651e4dd761a90abf4f46ef99c2b"
   license "MIT"
   head "https://github.com/xkbcommon/libxkbcommon.git", branch: "master"
 
@@ -27,15 +27,22 @@ class Libxkbcommon < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "libx11"
-  depends_on "libxcb"
+
   depends_on "xkeyboardconfig"
+  depends_on "xorg-server"
 
   uses_from_macos "libxml2"
+
+  # upstream patch PR, https://github.com/xkbcommon/libxkbcommon/pull/468
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d074f6ee748fa7395ff76b91210229d22c04f185/libxkbcommon/1.6.0.patch"
+    sha256 "942b1a2b7c912e234f902f1a780284b7cf02f05510f69d7edc2f2b75c13b8959"
+  end
 
   def install
     args = %W[
       -Denable-wayland=false
+      -Denable-x11=true
       -Denable-docs=false
       -Dxkb-config-root=#{HOMEBREW_PREFIX}/share/X11/xkb
       -Dx-locale-root=#{HOMEBREW_PREFIX}/share/X11/locale
