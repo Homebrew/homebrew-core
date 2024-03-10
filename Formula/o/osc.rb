@@ -24,7 +24,7 @@ class Osc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1d776287c849c184bade5084620e7da03bc2933f4f3dd81e3392cd557824f2f9"
   end
 
-  depends_on "python-cryptography"
+  depends_on "cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "curl"
