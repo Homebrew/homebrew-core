@@ -383,6 +383,7 @@ croc
 cromwell
 crowdin
 crun
+cryptography
 cryptol
 cryptominisat
 crystal

@@ -184,6 +184,10 @@
   "cruft": {
     "exclude_packages": ["certifi"]
   },
+  "cryptography": {
+    "exclude_packages": ["cffi", "pycparser"],
+    "extra_packages": ["setuptools-rust"]
+  },
   "cycode": {
     "exclude_packages": ["certifi"]
   },
