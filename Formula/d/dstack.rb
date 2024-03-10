@@ -21,9 +21,9 @@ class Dstack < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "certifi"
+  depends_on "cryptography"
   depends_on "libyaml"
   depends_on "protobuf"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "adal" do
