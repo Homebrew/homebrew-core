@@ -20,7 +20,7 @@ class Credstash < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "862e054287f07b02d9fdaac6ed7722cf33a5ad27d68f6d0408df473eb6bc4be3"
   end
 
-  depends_on "python-cryptography"
+  depends_on "cryptography"
   depends_on "python@3.12"
 
   resource "boto3" do
