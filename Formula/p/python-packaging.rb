@@ -6,14 +6,7 @@ class PythonPackaging < Formula
   license any_of: ["Apache-2.0", "BSD-2-Clause"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc68dd6b701f0c370b1d538bfa3394d0d5dfffa5973880e834040c008b7fbe1e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd248202a9d29dba96e3de77d14770fe1483fecec60ca12f7eac4ea18a0cf7a6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9ef8094a159ea9edbdbfb8f9399f76675a6a8df0ce04dc4eee6993d71032a679"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a090d7705a4cbdbfab9cd06d45628e14fcf6c5011f2a4497fa8940e59b0dbf92"
-    sha256 cellar: :any_skip_relocation, ventura:        "a61d5e78c02f66997b4f39f0cca91a47227754654a53a01280b872fb074ae789"
-    sha256 cellar: :any_skip_relocation, monterey:       "0fd9263a51f3b31ee2e60b3b03df1b7dec6f2b2cd55d3835f0600ca39d6c3a26"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0cf08b1acd67850b3f3ce886fe9194f9a2ebaf7eb9747012abd68eeb522067c9"
+    sha256 cellar: :any_skip_relocation, all: "2cf07e8f77ff012e840b93321f30017d29b0b9408e11b8071ee0b4bbd647bcd1"
   end
 
   depends_on "python-flit-core" => :build
