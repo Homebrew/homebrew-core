@@ -19,11 +19,11 @@ class OnlykeyAgent < Formula
   end
 
   depends_on "certifi"
+  depends_on "cryptography"
   depends_on "gnupg"
   depends_on "hidapi"
   depends_on "libcython"
   depends_on "libusb"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
