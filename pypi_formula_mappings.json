@@ -634,7 +634,7 @@
     "exclude_packages": ["docutils"]
   },
   "ruff-lsp": {
-    "exclude_packages": ["ruff", "packaging", "typing-extensions"]
+    "exclude_packages": ["ruff"]
   },
   "sail": {
     "exclude_packages": ["certifi", "cryptography"]

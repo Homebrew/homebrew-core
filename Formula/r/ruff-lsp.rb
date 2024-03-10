@@ -17,8 +17,6 @@ class RuffLsp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "9776d06e0bc3947ad90f84092032c95149c285c900de2b644d88df51fbb41131"
   end
 
-  depends_on "python-packaging"
-  depends_on "python-typing-extensions"
   depends_on "python@3.12"
   depends_on "ruff"
 
@@ -37,9 +35,19 @@ class RuffLsp < Formula
     sha256 "cc5c15130d2403c18b734304339e51242d3018a05c4f7d0f198ad6e0cd21861d"
   end
 
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
+    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+  end
+
   resource "pygls" do
     url "https://files.pythonhosted.org/packages/e9/8d/31b50ac0879464049d744a1ddf00dc6474433eb55d40fa0c8e8510591ad2/pygls-1.3.0.tar.gz"
     sha256 "1b44ace89c9382437a717534f490eadc6fda7c0c6c16ac1eaaf5568e345e4fb8"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
+    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
   end
 
   def install
