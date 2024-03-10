@@ -3,8 +3,8 @@ require "language/node"
 class Whistle < Formula
   desc "HTTP, HTTP2, HTTPS, Websocket debugging proxy"
   homepage "https://github.com/avwo/whistle"
-  url "https://registry.npmjs.org/whistle/-/whistle-2.9.65.tgz"
-  sha256 "a54bb007a05224969c9add41d6565206ea18b5896961a47765f8dc95857f865d"
+  url "https://registry.npmjs.org/whistle/-/whistle-2.9.66.tgz"
+  sha256 "6e36220bdd3e3da078ca129983cb5a3865574a928e50527b75fb5ec10207bc42"
   license "MIT"
 
   bottle do
