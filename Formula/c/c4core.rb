@@ -5,6 +5,16 @@ class C4core < Formula
   sha256 "67f4443f3742424f42453594e26e656f616dddfcf225a1d810e00473a741408c"
   license all_of: ["MIT", "BSL-1.0"]
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "d2e73d851a2777b9df10eb937e1a4bbbf89aaee76e9320c5192339181e4aadf1"
+    sha256 cellar: :any,                 arm64_ventura:  "1460fb66ee37eb0c57f61d40ea81f6a35509e171c2e3746abca337ee7f66f24a"
+    sha256 cellar: :any,                 arm64_monterey: "fbb9103d688898c9d8f12e9558d331806f89840ece7a63e13861734333875bb1"
+    sha256 cellar: :any,                 sonoma:         "a4312fdef6b2cb21b9d08a053401b0e74c56621437ea9e952f7c56e2accf126b"
+    sha256 cellar: :any,                 ventura:        "08997fa1bda6673f3d47812d1f3aa74813176e3e332d68e426f4e38aa9064d47"
+    sha256 cellar: :any,                 monterey:       "2053081e026e5e92f7431f0b22f8052eae0915722a72791203201a0be7574625"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa534b33171bcf2aeaf41ffe6cef097bb6fd972c3b9df4ca80ed6e101ef9769e"
+  end
+
   depends_on "cmake" => [:build, :test]
 
   def install
