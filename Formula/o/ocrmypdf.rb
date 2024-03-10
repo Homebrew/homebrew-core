@@ -18,6 +18,7 @@ class Ocrmypdf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a7524c133727625ddb8bcdb69c50b690cbb7224a8f94ff97ce3ea7839c8649f"
   end
 
+  depends_on "cryptography"
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "img2pdf"
@@ -26,7 +27,6 @@ class Ocrmypdf < Formula
   depends_on "pillow"
   depends_on "pngquant"
   depends_on "pybind11"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
   depends_on "qpdf"
   depends_on "tesseract"
