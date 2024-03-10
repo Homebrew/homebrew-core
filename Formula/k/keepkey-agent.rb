@@ -19,8 +19,8 @@ class KeepkeyAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "54d01a0cea61c9546517ffcea9a32b9bb43254ab2189c1767ffbadd00bf411f9"
   end
 
+  depends_on "cryptography"
   depends_on "libusb"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
