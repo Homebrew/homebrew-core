@@ -5,7 +5,7 @@ class Securefs < Formula
       tag:      "0.14.3",
       revision: "8345530d700a6ff73ef59c5074403dede9f9ce96"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
   bottle do
