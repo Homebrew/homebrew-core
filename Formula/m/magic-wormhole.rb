@@ -21,8 +21,8 @@ class MagicWormhole < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d5423442ea66f14b2de664a63b5febd32a98a6612abc667e252595d08c9dc0f"
   end
 
+  depends_on "cryptography"
   depends_on "libsodium"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
