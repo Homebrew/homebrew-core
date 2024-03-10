@@ -23,7 +23,7 @@ class Poetry < Formula
   depends_on "python@3.12"
 
   on_linux do
-    depends_on "python-cryptography"
+    depends_on "cryptography"
   end
 
   resource "build" do
