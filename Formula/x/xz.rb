@@ -15,14 +15,13 @@ class Xz < Formula
   ]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "5de19727020b72e3d9aca5b82ac379f7e28262e02ed3baf78a75325d99286d48"
-    sha256 cellar: :any,                 arm64_ventura:  "f4b2dfaa60525765aae78c823f600ab9bff4232798e4f3e0d984d8056b27f420"
-    sha256 cellar: :any,                 arm64_monterey: "ba29b23ec8749e31962a3850dde2465cf0006ff58846b35824f513916304ee1d"
-    sha256 cellar: :any,                 sonoma:         "35628316edd14ff77eefb6cdcdfc1d97ddfdd2bac32ff60370abeefe3a4796f9"
-    sha256 cellar: :any,                 ventura:        "fdf1c431c6b921abdc3c1b89f1fa93821599c040707554fc1a17ea8ef9aeaadf"
-    sha256 cellar: :any,                 monterey:       "628a41a2ce6328656b82c27801842159e4f879545427e52c44c8b8345fd9425c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23e4a4c53b09215de7125acfdf7f1a6078eadc2a942b64f475c5c1c574f72f9e"
+    sha256 cellar: :any,                 arm64_sonoma:   "b5583c24107269a6223a3fae17d83b596d6ce1d84b3497be59670f143d73eaf7"
+    sha256 cellar: :any,                 arm64_ventura:  "ba1734295f99d0090426b520e67f967e40b8b26ee5b258220d56014906c69606"
+    sha256 cellar: :any,                 arm64_monterey: "0ae9c26448ce55dbc7604640826990ea630e74dfd084b430fa0c13805a58ae20"
+    sha256 cellar: :any,                 sonoma:         "81c5be0ee64277bcee76ae2be974d82de050e815a266885f363b998a9c18117b"
+    sha256 cellar: :any,                 ventura:        "2d778ef01a68e1ace220086a54df3a25f54673a7100603e710d64ed02b7f8353"
+    sha256 cellar: :any,                 monterey:       "4e677b6b71dae40a67ad99fe3d174cff6aec27df234a22265411eb94df0f8fe9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca86f58b1cecdf378a756bb1e1bad590760b2442f848c1d10a1416d5c506e89f"
   end
 
   def install
