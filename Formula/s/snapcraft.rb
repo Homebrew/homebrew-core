@@ -37,7 +37,7 @@ class Snapcraft < Formula
   on_linux do
     depends_on "intltool" => :build # for python-distutils-extra
     depends_on "apt"
-    depends_on "python-cryptography"
+    depends_on "cryptography"
 
     # Extra non-PyPI Python resources
     # https://github.com/snapcore/snapcraft/blob/91a18b3128de4971edfc090a8683a64ff1679f2e/setup.py#L154-L158
