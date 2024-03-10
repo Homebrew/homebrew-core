@@ -4,8 +4,8 @@ class Dpkg < Formula
   # Please use a mirror as the primary URL as the
   # dpkg site removes tarballs regularly which means we get issues
   # unnecessarily and older versions of the formula are broken.
-  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.5.tar.xz"
-  sha256 "26d27610536fdf951aa2be84503166c6ca8f6c36f71c049ab562ccca3233ca7e"
+  url "https://deb.debian.org/debian/pool/main/d/dpkg/dpkg_1.22.6.tar.xz"
+  sha256 "4379123466cf1804f82aaac7fbea7133c58aefa178dfbf7029cdc61a8d220655"
   license "GPL-2.0-only"
 
   livecheck do
