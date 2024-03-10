@@ -1,10 +1,8 @@
-require "language/node"
-
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.21.0.tar.gz"
-  sha256 "6bb60e5b63c1dc18aba57a9e7b3ea775b4f9ceec44cc35dac4634d26db4eb69c"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.22.1.tar.gz"
+  sha256 "b21065e78da33e529893c954e712ad15d9ad44a594b74567321d4a3a007d6090"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
@@ -25,6 +23,13 @@ class TreeSitter < Formula
 
   depends_on "rust" => :build
   depends_on "node" => :test
+
+  # Fix Makefile for BSD `install`
+  # https://github.com/tree-sitter/tree-sitter/issues/3157
+  patch :p0 do
+    url "https://raw.githubusercontent.com/macports/macports-ports/76faa188751724c04931ebb3dfb4d18152424cfc/devel/tree-sitter/files/patch-makefile-install.diff"
+    sha256 "fdce92d9ebcad0c25f0b7cd4e0eae810e2670ece47631740b002f2a3ea99f7cf"
+  end
 
   def install
     system "make", "AMALGAMATED=1"
@@ -52,7 +57,7 @@ class TreeSitter < Formula
       hello
     EOS
     parse_result = shell_output("#{bin}/tree-sitter parse #{testpath}/test/corpus/hello.txt").strip
-    assert_equal("(source_file [0, 0] - [1, 0])", parse_result.split("\n")[-1])
+    assert_equal("(source_file [0, 0] - [1, 0])", parse_result)
 
     # test `tree-sitter test`
     (testpath/"test"/"corpus"/"test_case.txt").write <<~EOS
