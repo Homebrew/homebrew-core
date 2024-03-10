@@ -26,8 +26,8 @@ class CharmTools < Formula
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "charm"
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   on_linux do
