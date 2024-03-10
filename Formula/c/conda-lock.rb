@@ -24,7 +24,7 @@ class CondaLock < Formula
   depends_on "python@3.12"
 
   on_linux do
-    depends_on "python-cryptography"
+    depends_on "cryptography"
 
     resource "jeepney" do
       url "https://files.pythonhosted.org/packages/d6/f4/154cf374c2daf2020e05c3c6a03c91348d59b23c5366e968feb198306fdf/jeepney-0.8.0.tar.gz"
