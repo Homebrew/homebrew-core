@@ -20,8 +20,8 @@ class GimmeAwsCreds < Formula
 
   depends_on "certifi"
   depends_on "cffi"
+  depends_on "cryptography"
   depends_on "keyring"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
   depends_on "six"
 
