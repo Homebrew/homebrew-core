@@ -1,8 +1,8 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.7/bochs-2.7.tar.gz"
-  sha256 "a010ab1bfdc72ac5a08d2e2412cd471c0febd66af1d9349bc0d796879de5b17a"
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.8/bochs-2.8.tar.gz"
+  sha256 "a85b13aff7d8411f7a9f356ba6c33b5f5dc1fbb107eb5018cc23a62639da0059"
   license "LGPL-2.0-or-later"
 
   livecheck do
