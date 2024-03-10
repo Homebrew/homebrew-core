@@ -7,13 +7,13 @@ class HelmLs < Formula
   head "https://github.com/mrjosh/helm-ls.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57992a92ca747945c63537e3f4fcbf40215c414470dc305793f43dcca7e93d26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2837ad40c79c143fa4daef390f7d9c978c2d8d116a6628ad3636f8c36797c85e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e2b9b6d0d9629047e18853ca061285f515e33ec0f50b33d5d17ac99d6f80213"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8f35d1ea06f0eed19a6cb1bef3737140705c920949bbd9396c34c0c53e2a27a0"
-    sha256 cellar: :any_skip_relocation, ventura:        "e29e0901d20cb6b50923d284f225ad94ebca5628aec60697efd90da003b8d62a"
-    sha256 cellar: :any_skip_relocation, monterey:       "e07bd439ef9f75b0efe9e0880b830e988e254c1fee7bf15314c910162fb3f788"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e01f7cdb0db0f7807d7837bc4571649163c5960ca42dd6c8fb3f7366839e8afe"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0df3c8cee1bdaa3779d2535f425eaef8206b4e6d83f1d1ae3087985f62e9d9a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0d5d369208648ea59bd1def9af30c0d7cc33df9b619ebc1944958af627c51869"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ed378c5a4bc785008089d388f6cc34ee3b6fc7a4ab400557e4b685da85f597b9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f9db95ae5e8843df0d58b2cf1d29a4934f46a1ad3a933da3c87ff6f5983cc5a0"
+    sha256 cellar: :any_skip_relocation, ventura:        "f6aabe80397fd4720ff45c64e869540f246d5972a3a586a9d08822ce5affa0bb"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ab555b2ae4ee2b81a63fc330752dcd15d8cb66e7a892e0b733d97f4260d91bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c363dd25877f013e97940699ca517f38ff39ffbf451bb66ab499024520a7fd66"
   end
 
   depends_on "go" => :build
