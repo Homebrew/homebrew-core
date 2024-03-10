@@ -4,12 +4,11 @@ class QtAT5 < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
   # NOTE: Use *.diff for GitLab/KDE patches to avoid their checksums changing.
-  url "https://download.qt.io/official_releases/qt/5.15/5.15.12/single/qt-everywhere-opensource-src-5.15.12.tar.xz"
-  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.12/single/qt-everywhere-opensource-src-5.15.12.tar.xz"
-  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.12/single/qt-everywhere-opensource-src-5.15.12.tar.xz"
-  sha256 "93f2c0889ee2e9cdf30c170d353c3f829de5f29ba21c119167dee5995e48ccce"
+  url "https://download.qt.io/official_releases/qt/5.15/5.15.13/single/qt-everywhere-opensource-src-5.15.13.tar.xz"
+  mirror "https://mirrors.dotsrc.org/qtproject/archive/qt/5.15/5.15.13/single/qt-everywhere-opensource-src-5.15.13.tar.xz"
+  mirror "https://mirrors.ocf.berkeley.edu/qt/archive/qt/5.15/5.15.13/single/qt-everywhere-opensource-src-5.15.13.tar.xz"
+  sha256 "9550ec8fc758d3d8d9090e261329700ddcd712e2dda97e5fcfeabfac22bea2ca"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-2.1-only", "LGPL-3.0-only"]
-  revision 1
 
   livecheck do
     url "https://download.qt.io/official_releases/qt/5.15/"
@@ -177,14 +176,6 @@ class QtAT5 < Formula
   patch :p0 do
     url "https://raw.githubusercontent.com/macports/macports-ports/56a9af76a6bcecc3d12c3a65f2465c25e05f2559/aqua/qt5/files/patch-qtbase-memory_resource.diff"
     sha256 "87967d685b08f06e91972a6d8c5e2e1ff672be9a2ba1d7d7084eba1413f641d5"
-    directory "qtbase"
-  end
-
-  # CVE-2023-24607
-  # Remove with Qt 5.15.13
-  patch do
-    url "https://download.qt.io/official_releases/qt/5.15/CVE-2023-24607-qtbase-5.15.diff"
-    sha256 "047c0aec35ec7242cab61e514f1ecca61509c7f72597b4702c9d32a4c65581c5"
     directory "qtbase"
   end
 
