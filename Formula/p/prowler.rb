@@ -20,8 +20,8 @@ class Prowler < Formula
 
   depends_on "rust" => :build
   depends_on "certifi"
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "about-time" do
