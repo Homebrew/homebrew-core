@@ -12,13 +12,13 @@ class Objfw < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "72f9126a5f8f7e296fe01e452fe29e79c6088c4c98c52a0fad3b1bea93d56c57"
-    sha256 arm64_ventura:  "f82b6d751c6ddd8a16eef0ed25b0562f6153313c70f7d119f834b80db5b45fe3"
-    sha256 arm64_monterey: "9f328e4283b6bf0edaca8598abaef248ef85fd3b5b76c9d37d7a3e693d2fbd5b"
-    sha256 sonoma:         "554ec5e972ba9b136a289f7b1cb8bad74714465fdf430143fa21eb736000fb4f"
-    sha256 ventura:        "bc42dc4625060b10dfd630a4af8b7e121f74940601432a8732b4faeff851fa45"
-    sha256 monterey:       "202b34cab76f76a62ee772c37c48a33083ad1f60cdee4d8f2c19bb0084c1b2e3"
-    sha256 x86_64_linux:   "f957bfd7b433ee125ed53eb40a725f9f8b3dc67457036176c03781c3ddb0f0ba"
+    sha256 arm64_sonoma:   "9d84cf5b0d9e4826ab22a0637fb710291bb6e35f826570ab9cb666953440c95d"
+    sha256 arm64_ventura:  "6e4df7eeb2d5a1ef885b69bcf5c1d30604d0d9253f6bada64617f86a5565aa2a"
+    sha256 arm64_monterey: "e493590d96d19cead1c33eee06584f088c866f793c9e2917d96887f9ff5b7892"
+    sha256 sonoma:         "55930073bc333b96eab02936a6054292ccbe0cee6b3baa4287f3f7f2c5c3f346"
+    sha256 ventura:        "44ee2029820770e2467c3f1fcb499c4c9cfa00af58393fa8542ca092ce76a9ae"
+    sha256 monterey:       "64bc2ea49da72d28c41771de713077af4f32b04199be93a4dcc4d958d565f45e"
+    sha256 x86_64_linux:   "de44d62ab4c6342b5ec2d14007b16cf00ca18af6491dfa22779f2fdd3f4fb8c6"
   end
 
   depends_on "autoconf" => :build
