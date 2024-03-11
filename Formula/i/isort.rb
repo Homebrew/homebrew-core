@@ -1,4 +1,6 @@
 class Isort < Formula
+  include Language::Python::Virtualenv
+
   desc "Sort Python imports automatically"
   homepage "https://pycqa.github.io/isort/"
   url "https://files.pythonhosted.org/packages/87/f9/c1eb8635a24e87ade2efce21e3ce8cd6b8630bb685ddc9cdaca1349b2eb5/isort-5.13.2.tar.gz"
@@ -21,18 +23,10 @@ class Isort < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9dd61f17354840ea1029f6221180547b2c451c23954a9273e99d64045980c61"
   end
 
-  depends_on "poetry" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    site_packages = Language::Python.site_packages(python3)
-    ENV.prepend_path "PYTHONPATH", Formula["poetry"].opt_libexec/site_packages
-
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do
