@@ -20,13 +20,13 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8fe3eb70964b1cbf4403504ed142fbae40db9f27a6edbe6265bb02abaa3aaab9"
-    sha256 cellar: :any,                 arm64_ventura:  "895a19858f4f5043467cd3458cead9efa50d9a753e4f2df7c2473c18cf90d637"
-    sha256 cellar: :any,                 arm64_monterey: "1afc4604bc3d0a6948df40d52a66ee2941a1de51f3bb1cd1cc3cc0905ac13854"
-    sha256 cellar: :any,                 sonoma:         "1d278ecb87e9faf843f92f2fc0bf5ba286a6c5a39f0107bbafbc44ad81cb1613"
-    sha256 cellar: :any,                 ventura:        "ccf5121643769cfaebddab88806ab619d9f4b3de332773f4f1bd8fa02cbcb2f5"
-    sha256 cellar: :any,                 monterey:       "0dc9e47837b320636c452c088e0cfab7c14cd4a80bec82ab1a7e583ebc839b27"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40a10f063e33752f068950f84980af381bd4656264e8a9e8b301852537807359"
+    sha256 cellar: :any,                 arm64_sonoma:   "abbf6c7c410d73ceaecaf47997d3860fcac96ae380ce00e7bec843a7e933f0f5"
+    sha256 cellar: :any,                 arm64_ventura:  "23c3cc7d77ca7ece972393f49fcce2ad9a9ec5b0edc69d41c99991bd3a980329"
+    sha256 cellar: :any,                 arm64_monterey: "50a9dd6cb58127fdf2849870820e285a8d7c5eb23e9a3f284ed69dcc3eee56e9"
+    sha256 cellar: :any,                 sonoma:         "d7f9b3d18e2352ab3f623754f7ebb5f659308700e9757f27c4565abb0849986e"
+    sha256 cellar: :any,                 ventura:        "9b95bd38c23c02e5f98af44b80d6e2d91f52634de3150f89ac4e4f819f9aed8c"
+    sha256 cellar: :any,                 monterey:       "73a248e7cf4b29c252fc1a79d6a97c85d8733ee07eb7d10a1fdafb9eb0ff8bc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "358089fc0680d9cd21e5d55f39184bc49ac4a3d3c9b4a38edf45842e14c78b79"
   end
 
   depends_on "autoconf" => :build
