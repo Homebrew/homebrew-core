@@ -6,13 +6,13 @@ class Rye < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f3cdc70f99bf996eb9c5de6ebbae85ba8cb4b6ce6dbf8b25dd5c978d2d44fff6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cddd3def26f78ce976eebd4418f134d69316c7105ca70160b0ff82a98e52eccb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "da3520a08408dd55ed2fe887c5529399cecd70fac0512ae558d202065cc028a9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0d034307ce994e496652cacb2cadd07e462835143e96bc70267e77f8a1bb824e"
-    sha256 cellar: :any_skip_relocation, ventura:        "c58770aaebaefa8fff3932a9cf34f51f040bc23810141d856244cb05c2c8b588"
-    sha256 cellar: :any_skip_relocation, monterey:       "e43c5b51e87b1cfce317980fd3de7f92b4c58412f88da9f2c4ba93f6a6bd7271"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b94b5590da9e76d34d147bd938d0bb4786ccc1ecc1cabfa005c07d42941c0bf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8f77c19b1cd91521efef0425dd1458785289bdafa681e0eff16effe80accf744"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1e755d46b852856af0f17cf0cfc6705ddfa36285b8d98a8ce06b50104a8ff13"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e0ecb55c58f9465366f0fd6ec071ded034b8d5f00ff1a8e9e33e1a8bedcdf2d4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bf33cc8475789648ec81032050bab094a95ffcc06706d49b77b9be556e89f6b3"
+    sha256 cellar: :any_skip_relocation, ventura:        "19cf082fa80745c7cc9cf617c9f14ca9d02c9d7e215f086649d2a590e34c0b8d"
+    sha256 cellar: :any_skip_relocation, monterey:       "5afd6e3c7cca09aaa7628f4a7200f0ad6d7a6faeccc54945c0fb7ad60eccbda7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0dce2229ea35d98b6dad7705dc82495a2aeae7b262154c6359e9a561e1c0f67"
   end
 
   depends_on "rust" => :build
