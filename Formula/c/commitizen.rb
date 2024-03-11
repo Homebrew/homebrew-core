@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/79/5f/98942b42fa35235594de9ec5bdecc0df5ae9b49c179aaf13ff80125a41f6/commitizen-3.18.1.tar.gz"
-  sha256 "28930493f0a370e23e0e469ea7ec9dcf501be21dd87e8c012497552e5778bc41"
+  url "https://files.pythonhosted.org/packages/5b/e3/ec8ba655be6bd4d04b2a0585db747a9a0b8fb8c977f3dd325b563690fc92/commitizen-3.18.2.tar.gz"
+  sha256 "b0730b0024c49c07a90b75cb40361af4d1cb89d074ab9133fbd8af9c0634de5f"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
