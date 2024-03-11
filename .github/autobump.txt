@@ -1457,6 +1457,7 @@ rosa-cli
 rover
 rpg-cli
 rpki-client
+rpl
 rpmspectool
 rqlite
 rswift
