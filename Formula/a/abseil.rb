@@ -7,15 +7,13 @@ class Abseil < Formula
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2c0ce0bf7a814050604e08e7cca584796e9ad6c6f9c144482723cf2078530ae4"
-    sha256 cellar: :any,                 arm64_ventura:  "8ca7bf42d9c171c4ee7c8820d4ea06d9844500f6175567b69af41c6b0d0aed1b"
-    sha256 cellar: :any,                 arm64_monterey: "c6d08c6b6527e1690fb90422a0ac3f68e3b2690f32d33f2ca6dc6544b95d713b"
-    sha256 cellar: :any,                 arm64_big_sur:  "a4cdc8226142f6c4e60269e37fd5c72158557bc72b259375dc98bcdedcc040a1"
-    sha256 cellar: :any,                 sonoma:         "196cccb369bee0da7792576f6dbd81f09e61000719eb55007d9170fd689fc46c"
-    sha256 cellar: :any,                 ventura:        "4b0d382639cafe5d893cbd94f9b81d9f5bebee71137ac81ed776d61692a2d603"
-    sha256 cellar: :any,                 monterey:       "318281ca65382113d62cd3fb6abc9c72dfc9b3ff29a4cbed5a98c96a02fea967"
-    sha256 cellar: :any,                 big_sur:        "f27b84a7ecd0a042f2539376bceb9c51873a41f5f67f7d0c07f253f25bb96e5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8cab757ec3d44569b025395324cb53f09f4384129ed913fe7ceb0b48ec0a3d76"
+    sha256 cellar: :any,                 arm64_sonoma:   "3d4e420f6cbe5173bb119eccc8dc1e8c157910960572c320b492fa2b86fbfd15"
+    sha256 cellar: :any,                 arm64_ventura:  "c8b3c00165314428a961270c155f99293da118ce6e3f5168d53197d802666c65"
+    sha256 cellar: :any,                 arm64_monterey: "5e755850a1f19269b6d437a5664c2dac11ae8dc3b6524c79c3948a6529382a34"
+    sha256 cellar: :any,                 sonoma:         "1a341bebdc6e3100bcf70854e74eb50a75e20aaf4026500d014abe8ebf5042bf"
+    sha256 cellar: :any,                 ventura:        "6fe66ac0982beac4e53472c17e1058d57cd83aceac7cbd7a44156f5ac181cb3f"
+    sha256 cellar: :any,                 monterey:       "c78fb6bcee52344a1e80eb9262b379ac29665692e6d59eef8f1c103503d921b4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5d11d4048802f83a1fd97656df8c105b60c3433523542a51a8cd4d0cb5d24a2"
   end
 
   depends_on "cmake" => :build
