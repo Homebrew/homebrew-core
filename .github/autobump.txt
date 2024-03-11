@@ -1220,6 +1220,7 @@ oci-cli
 ocp
 ocrmypdf
 octave
+odpi
 oh-my-posh
 oha
 oil
