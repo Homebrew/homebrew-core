@@ -6,13 +6,13 @@ class Libqalculate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256                               arm64_sonoma:   "0f99ad0f94ddebd4aaca03a496f4fb1e96ed057979a43fc342c4801ac47355d2"
-    sha256                               arm64_ventura:  "f6cb74899726e0321342c15e7e8a715b4232e8857dd377cce92bc9588ee05efd"
-    sha256                               arm64_monterey: "9c53c5155574c6de801f101666ab208b59771b5236583d47774eae05442d79f2"
-    sha256                               sonoma:         "7a3e569a4090cdaf095422154b0c6145827db3ab6ab16c2145e68784383584df"
-    sha256                               ventura:        "b92d0ba3aad9e324d4a8b0ca82f7c39fea1143b2feff34d4decf01a4288d4fc0"
-    sha256                               monterey:       "8d465af76147e1dfb212d9d4904e3f7ecda9638e2f5e3f3353c82e228d5ac89a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63b56ded239d7cee990c892690b27efd0a89363fddd57a58dd260bca9662e9c7"
+    sha256                               arm64_sonoma:   "d02e09f3af0fd2a27be6fd6a1703e4390e8100eb1262c16b48e274ee8258d042"
+    sha256                               arm64_ventura:  "ffc06bc24f4b3aa50afec39161697aafabff36b1dd5ec2d59acd28f3895eede2"
+    sha256                               arm64_monterey: "d9c12c06922ab0cc75e16f31aebaa892e47364d6ff8e924e16bca6f96f91dccb"
+    sha256                               sonoma:         "e8327739501ee2bb132bcc892ef9487e459511702fdf807989b91fdd7b33c442"
+    sha256                               ventura:        "3688d0dbbd17c7d2361a54cd893a7bbb4ff9b053d8faa0728915b300892e1c91"
+    sha256                               monterey:       "131244d7958d62ec9f4c6d67eaed9c836d64e533e6ce3f5f3e71273451522a77"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa786ada2f3453b890f8cc980096db1323053f2645c47d58085a7936c5d34323"
   end
 
   depends_on "intltool" => :build
