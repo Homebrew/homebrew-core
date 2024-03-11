@@ -14,13 +14,13 @@ class Hubble < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae199c96afe7f4dc75d7d98af88a9f0fb2a2cf25d328dd4731390526e94d330f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "631ae4149169e308933a0f9d4c000eb6a009e668966730a4d7a0f2a2d8f11e1b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6ebefbaeb49f2561c27185e5bcd2cb013e4b066bea7972335e9644388c80f58e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7f3329e3f2cbfe8bce4be447890d94f8c8875eeb04b2171072ffab0ea14d21e8"
-    sha256 cellar: :any_skip_relocation, ventura:        "97e859b2e5d33fc9806935b3d0051ac8f2588b13a7575692cd0f1ff57b853ae5"
-    sha256 cellar: :any_skip_relocation, monterey:       "16c63e30bad24ef1d75ae1ab2b6ef003a0136a4e4713e873c9bb949aba479946"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "736f26289bc874f8747afa8d5365adc78552f28b2050c8db5cc403964d586bf3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd4b6815e689cd4536cef004ce1074b8bab09558cf7563a2c30fa879a4cb26ac"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc623022cbdeb79368535401061a5ecb67480295b5d08c573dce4aa00ad9b7b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "53e575489464d4096d103c76534c3117c1ea74e7f9e160cffb6b1f19a3ec196e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d549f7be6c09a2758c9c98fa77d8c31a29ba453662a7f1099099b371b7cabd45"
+    sha256 cellar: :any_skip_relocation, ventura:        "313f1a0cdc19642bbe30827dc6bbb47779140092aed74bbbd843687fce05ef3b"
+    sha256 cellar: :any_skip_relocation, monterey:       "69f00cb33219b1561d3fd8fe6dd4b84054479d0d6e6a3fc5e5c0be0d38d2982b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8ee253f17423a819fea7fdbcffc1f410d55ac63ead405a8a71d6dc86d5193d19"
   end
 
   depends_on "go" => :build
