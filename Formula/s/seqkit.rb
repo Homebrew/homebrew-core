@@ -1,8 +1,8 @@
 class Seqkit < Formula
   desc "Cross-platform and ultrafast toolkit for FASTA/Q file manipulation in Golang"
   homepage "https://bioinf.shenwei.me/seqkit"
-  url "https://github.com/shenwei356/seqkit/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "b5c723ffd4640659860fc70a71c218d8f53bea0eae571cecc98eff04c7291e02"
+  url "https://github.com/shenwei356/seqkit/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "260ff3d483965b15071f4632f9f9c35ca335ebebbd74aa3322ecc37a999be7fe"
   license "MIT"
   head "https://github.com/shenwei356/seqkit.git", branch: "master"
 
@@ -18,16 +18,16 @@ class Seqkit < Formula
 
   depends_on "go" => :build
 
-  resource "homebrew-testdata" do
-    url "https://raw.githubusercontent.com/shenwei356/seqkit/e37d70a7e0ca0e53d6dbd576bd70decac32aba64/tests/seqs4amplicon.fa"
-    sha256 "b0f09da63e3c677cc698d5cdff60e2d246368263c22385937169a9a4c321178a"
-  end
-
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w"), "./seqkit"
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://raw.githubusercontent.com/shenwei356/seqkit/e37d70a7e0ca0e53d6dbd576bd70decac32aba64/tests/seqs4amplicon.fa"
+      sha256 "b0f09da63e3c677cc698d5cdff60e2d246368263c22385937169a9a4c321178a"
+    end
+
     resource("homebrew-testdata").stage do
       assert_equal ">seq1\nCCCACTGAAA",
       shell_output("#{bin}/seqkit amplicon --quiet -F CCC -R TTT seqs4amplicon.fa").strip
