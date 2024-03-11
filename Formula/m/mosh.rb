@@ -7,13 +7,13 @@ class Mosh < Formula
   revision 13
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cd2b510adac763f44c5fb1de477d1ab1b89df7f495c655786969e3c5b9de385d"
-    sha256 cellar: :any,                 arm64_ventura:  "d9dcc753f4ee0027ae17c411ab712a2d30160807c958ae9221ad37fc7349443a"
-    sha256 cellar: :any,                 arm64_monterey: "e3c79cb999651b5d7bb1d0b84ac95f323e736f616fefe1ad77ec85de747e3edd"
-    sha256 cellar: :any,                 sonoma:         "b2ea40dd80afe745a63de0438881ad937455f0f6c4b6de500cf8f1e80649a79d"
-    sha256 cellar: :any,                 ventura:        "b801a1835498c054c18667807eea97ed6cfb1d96598a818ab705b771dc0e03d9"
-    sha256 cellar: :any,                 monterey:       "75a371314f389cecc26a9341f7f08d2bd71dddd70873dbf2e55de8d9b8a0934f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a5cc3764647484e45c37cc88110d0bbb450fd666030afde7abc5149b5d6892c"
+    sha256 cellar: :any,                 arm64_sonoma:   "384364cbc58dc94e33c6b32e53f2b877e1014cd635d6ba216232b45dc725a8df"
+    sha256 cellar: :any,                 arm64_ventura:  "c4aab38921e8a24ff74732d7357d95a1990dd3a8d6feca447c507d6136713cf6"
+    sha256 cellar: :any,                 arm64_monterey: "7fa5e6bb05486a871da58fafe04040adf9fe01f3a7ec48787f9f15da4f19cc90"
+    sha256 cellar: :any,                 sonoma:         "79a666789fa858de4c5ab78ec88865cd8a6856b04b6af965a2d108f370d26551"
+    sha256 cellar: :any,                 ventura:        "259c9eb8ce53f4fe6a2011f76574cd093e30b4e26556c84f83ff8cb8d41be05f"
+    sha256 cellar: :any,                 monterey:       "5c5a4b69d057960f0c2b29c46a619ecd132082ea6c4ff575b89ebdb275dbacac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c0210b2232e5ca4492baeacf3fcbc80d5c9906f8a977d6de63b4e1b0e99f007"
   end
 
   head do
