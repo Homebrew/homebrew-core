@@ -6,13 +6,13 @@ class Fx < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c190a4979e95feb3b0449a0d8a54ef6b232929163957276527ea72a87b600bf2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c190a4979e95feb3b0449a0d8a54ef6b232929163957276527ea72a87b600bf2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c190a4979e95feb3b0449a0d8a54ef6b232929163957276527ea72a87b600bf2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "272dd116fdec010fcd768502a398242c144e95792bea93889ab688efd19036b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "272dd116fdec010fcd768502a398242c144e95792bea93889ab688efd19036b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "272dd116fdec010fcd768502a398242c144e95792bea93889ab688efd19036b8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96a2f1240235ac22bd0dba9658f52c82c4d16ab42ee1d57823fc454d3aa4d9fa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b59b6e71e63c16a5461d2b3cf5de6946e2b3b17873dde6b85d23213cfd338fbc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b59b6e71e63c16a5461d2b3cf5de6946e2b3b17873dde6b85d23213cfd338fbc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b59b6e71e63c16a5461d2b3cf5de6946e2b3b17873dde6b85d23213cfd338fbc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3331762edd4b0820b2491fb06e367d822cdd880bba3f66a716b394738cf3a6f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "3331762edd4b0820b2491fb06e367d822cdd880bba3f66a716b394738cf3a6f0"
+    sha256 cellar: :any_skip_relocation, monterey:       "3331762edd4b0820b2491fb06e367d822cdd880bba3f66a716b394738cf3a6f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e48e27b14c88fe47e17b0092343b4d9d4bef7d9472dc0de12a4d7bdc03c48135"
   end
 
   depends_on "go" => :build
