@@ -1,6 +1,7 @@
 [
   "apr",
   "apr-util",
+  "gnu-getopt",
   "libressl",
   "llvm",
   "openblas",
