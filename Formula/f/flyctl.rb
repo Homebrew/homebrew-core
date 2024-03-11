@@ -18,13 +18,13 @@ class Flyctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b0872994d9994b605045d2a5f728e043236b82d3e3cdb616636f8ba4e50a0c96"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b0872994d9994b605045d2a5f728e043236b82d3e3cdb616636f8ba4e50a0c96"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0872994d9994b605045d2a5f728e043236b82d3e3cdb616636f8ba4e50a0c96"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b82d97bf1e08cd5309d1ee6a054b1c0ab62e194d0d092acc1f7746e975248301"
-    sha256 cellar: :any_skip_relocation, ventura:        "b82d97bf1e08cd5309d1ee6a054b1c0ab62e194d0d092acc1f7746e975248301"
-    sha256 cellar: :any_skip_relocation, monterey:       "b82d97bf1e08cd5309d1ee6a054b1c0ab62e194d0d092acc1f7746e975248301"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c93f1908132fae62592c0bd8e1aca9893ae2fe902d8acd16332a87dafd29672f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "78995991d4a73f4c38a299e8dbaf7813bea7d55abc4cb288050b3a10ba3c21ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78995991d4a73f4c38a299e8dbaf7813bea7d55abc4cb288050b3a10ba3c21ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "78995991d4a73f4c38a299e8dbaf7813bea7d55abc4cb288050b3a10ba3c21ba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fc66c41da97cded7ad8474409b5cd90a12143e6c8b33f9e3fdd80dba2a78477a"
+    sha256 cellar: :any_skip_relocation, ventura:        "fc66c41da97cded7ad8474409b5cd90a12143e6c8b33f9e3fdd80dba2a78477a"
+    sha256 cellar: :any_skip_relocation, monterey:       "fc66c41da97cded7ad8474409b5cd90a12143e6c8b33f9e3fdd80dba2a78477a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "712a1d7642454eb2c957d4119f985294a14e9f33288af80cb32ae4df4c866f66"
   end
 
   depends_on "go" => :build
