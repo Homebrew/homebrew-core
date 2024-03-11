@@ -843,6 +843,7 @@ hugo
 hwatch
 hyperfine
 hypre
+hysteria
 hyx
 i2p
 iamy
