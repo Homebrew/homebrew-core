@@ -1054,6 +1054,7 @@ libxkbfile
 libxvmc
 libzim
 libzzip
+lighthouse
 lighttpd
 lima
 linkerd
