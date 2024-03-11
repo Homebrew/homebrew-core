@@ -26,7 +26,7 @@ class Risor < Formula
   def install
     chdir "cmd/risor" do
       ldflags = "-s -w -X 'main.version=#{version}' -X 'main.date=#{time.iso8601}'"
-      system "go", "build", "-tags", "aws", *std_go_args(ldflags:), "."
+      system "go", "build", "-tags", "aws,k8s,vault", *std_go_args(ldflags:), "."
       generate_completions_from_executable(bin/"risor", "completion")
     end
   end
@@ -36,5 +36,7 @@ class Risor < Formula
     assert_match(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/, output)
     assert_match version.to_s, shell_output("#{bin}/risor version")
     assert_match "module(aws)", shell_output("#{bin}/risor -c aws")
+    assert_match "module(k8s)", shell_output("#{bin}/risor -c k8s")
+    assert_match "module(vault)", shell_output("#{bin}/risor -c vault")
   end
 end
