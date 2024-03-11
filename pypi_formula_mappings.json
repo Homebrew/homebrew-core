@@ -269,7 +269,7 @@
     "exclude_packages": ["cryptography"]
   },
   "flit": {
-    "exclude_packages": ["certifi", "docutils", "flit-core"]
+    "exclude_packages": ["certifi"]
   },
   "gallery-dl": {
     "exclude_packages": ["certifi"]
