@@ -7,13 +7,13 @@ class Runme < Formula
   head "https://github.com/stateful/runme.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "257621af6b9d6334d707e046282fa5d7c559be5a84372277d67fc12101677742"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1186c6ebaaf70c223d38f7c70ef2d79f6910f36c59c629a8cab2c520c09c13c9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "990e334d4e6a4cacc66a7811f4a1ca15f30f432e13e82ef95b0d6e3cbebbe94e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d8acddaa59ae5d65b6ca51da80f17ad435ff516d68a5d29c648c904ac4aa12e9"
-    sha256 cellar: :any_skip_relocation, ventura:        "1efc605918f46e86cd3a2da10945873848444b8858b0740c47c150bd69f7c451"
-    sha256 cellar: :any_skip_relocation, monterey:       "288fa36bbc844cf29d845f49e93822a5e3cbcdf6728a4f8416a5a020b9dd7e77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4da0f22a7201afab4ecd501641294e94081118f8226627dafc1f499d7307c5a7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8ba7aa36db877a7dfaa1f3fbcd4ffe76ae68a2c3f5e8f09d4317b5ab8e88d55c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5010d16b521c75020fc59b45f3a7e9276b6666370c08d57a79bd8d3b054cbd11"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "46b32f968bb54b76b51dbd760858a8ba0ea5782371c3a84f512aa16fe70eed72"
+    sha256 cellar: :any_skip_relocation, sonoma:         "24ca1db16570fb7b6056e3abc41fa3111bc80315cc1be82bd0c887fac08ad99a"
+    sha256 cellar: :any_skip_relocation, ventura:        "e7329c22ca6430a09cb67a96521bf184a817bf937bc968a66dea3e332e54481f"
+    sha256 cellar: :any_skip_relocation, monterey:       "3fb0c7e6aced24026faa5205552bd7653e0b4a68e4e944979112ad5e0bd2147d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64615f3c1435f14b2c6e37f2202b34caff2b70153f788ee1aa45fe340a9b30f2"
   end
 
   depends_on "go" => :build
