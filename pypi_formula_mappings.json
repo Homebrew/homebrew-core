@@ -630,9 +630,6 @@
     "extra_packages": ["robotframework-archivelibrary", "robotframework-selenium2library", "robotframework-sshlibrary"],
     "exclude_packages": ["certifi", "cryptography"]
   },
-  "rst-lint": {
-    "exclude_packages": ["docutils"]
-  },
   "ruff-lsp": {
     "exclude_packages": ["ruff"]
   },

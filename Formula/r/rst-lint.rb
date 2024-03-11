@@ -18,8 +18,12 @@ class RstLint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "108a99943b09360f91f3e2f45cd3ae287408ec38f17c806c40a84463349b679e"
   end
 
-  depends_on "docutils"
   depends_on "python@3.12"
+
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
+    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
+  end
 
   def install
     virtualenv_install_with_resources
