@@ -11,7 +11,7 @@ class Src < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8db86ce3b4fb3beedfc734bd988a5ecaef543d8a786815e3466819f4ccedf07e"
+    sha256 cellar: :any_skip_relocation, all: "dacdbdab1465ba0a988f3211f27e05dcb2c361f3cc8ccfcb6c0c10407367c605"
   end
 
   head do
