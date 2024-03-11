@@ -7,13 +7,13 @@ class EtcdCppApiv3 < Formula
   revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dc871d0e5d6aa8e53ecdef18853fb51ed85222501fa34a3536587d4622817786"
-    sha256 cellar: :any,                 arm64_ventura:  "e7346847d95a2a10392c2afb85353781eb000b29562692e1c87f1baea5deedb6"
-    sha256 cellar: :any,                 arm64_monterey: "e66de126e4b948fb07da4fe681e3c30398054038ee6d9f0b7c37c74bdd48a9eb"
-    sha256 cellar: :any,                 sonoma:         "4c48f85dc12dac13549d6e1b5222497dfad4eb05eed24e27d5a55c8ab750c305"
-    sha256 cellar: :any,                 ventura:        "01cd4784a6f403c35a3bc985aa94cc59e894816da4b084619cf881e032266d0c"
-    sha256 cellar: :any,                 monterey:       "488e7a1c8ca745ed56283e1d489bb7bad0871e352f369e560f998c59b9fedae0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7524f606768dcbe2078d65435702e565e9e887e05034b1c7f58911874b7869a"
+    sha256 cellar: :any,                 arm64_sonoma:   "3161667b6956c52f791de30188d4a246383d9bd7782f54cc91f9ce864514f0a9"
+    sha256 cellar: :any,                 arm64_ventura:  "e353097a404439daf97b2d39cdf5ed88cb58b255ee6cf3c8704f4bcbdf1da7a0"
+    sha256 cellar: :any,                 arm64_monterey: "5b32f575d37ff5e13c6c841d5fb8ec5f57e971d5efe4634a64c3e6da243d1634"
+    sha256 cellar: :any,                 sonoma:         "60cf5e59498e455af86b93f6d81b5680b46a012e9c40c47a6011381066ab6d4f"
+    sha256 cellar: :any,                 ventura:        "6b0561467e8a9f4165c611bdbebf4cfe57f893e073a27a928c2893e11a1ef7d8"
+    sha256 cellar: :any,                 monterey:       "e0e91efe712e0c9468d7d57361b76b05081a32ea703c7e4cbe919e4028c320b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bcac26e4cc9dd8747c03b2c86a8de2675943027d747f0148058dd9358b10059"
   end
 
   depends_on "cmake" => :build
