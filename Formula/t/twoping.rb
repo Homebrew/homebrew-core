@@ -10,8 +10,14 @@ class Twoping < Formula
   head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "75e4fc4ecab8c1c779214c4220d5d7c0c61b3d6a2d9f64774a12950cf22bcfe0"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, ventura:        "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aafa2c41be4f9c5d9a83d80f83fd81560da9e1edfafe157ef010781be9afc083"
   end
 
   depends_on "python@3.12"
