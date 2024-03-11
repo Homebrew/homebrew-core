@@ -17,7 +17,6 @@ class Pycparser < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "26566af3b0704cb579e246f19bc9c1bf10e04322b5ad711c077c8f1759617e8c"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
@@ -29,7 +28,7 @@ class Pycparser < Formula
 
   def install
     pythons.each do |python|
-      system python, "-m", "pip", "install", *std_pip_args, "."
+      system python, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
     pkgshare.install "examples"
   end
