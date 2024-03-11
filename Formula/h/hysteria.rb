@@ -7,13 +7,13 @@ class Hysteria < Formula
   head "https://github.com/apernet/hysteria.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfc1c39a5880bc281286e4b43a970b38ffc0a72ac224398441a67a481270ac9f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f633ae121d10561417f8484591d5cf47c7979f61346110a931304323d2860206"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ad3715ec8073b370a1ec8416ac40c64c01a0efa1dc16da73de53c36b305d33f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4299f61e9b0588fb72a0e089233fa90ad7691d3dce5303ba83978b7cfe97e474"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7102bc70707e0b8810df93d924c5f16aeb9134f11dd8da9415767546b3cb236"
-    sha256 cellar: :any_skip_relocation, monterey:       "b789b4d75f3e8ffc7564b6e4f52c3410818274142557a3e79da299f0a7c98d47"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f09f47c450a5d2d650857a945fefa089052464fc5b3d0a5854cd321499bc4862"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7bcc2435f85907ba426f26d47f84a116c8622f88417c5319b5a50185dbe85a2b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e969d25f830564da7f24640aa28a61adc9cfc88ca003f3e7118650d048ad261"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a77ba34c22d633a9018695f0a766be49bd82f4c7e1b4a7196eb8c59857ff466d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b53736bcf499afd7e14af8051c36f24aaa8458b22e53e0f9645f84537abc5fd6"
+    sha256 cellar: :any_skip_relocation, ventura:        "63e304cbea61c3bbea65daad47496a5b7cfb6070f94b5ca7d10f92870bb4294d"
+    sha256 cellar: :any_skip_relocation, monterey:       "3d7f1358d1a1a936113c53370e9f4879ef39fe2668b8777b0e9a505f1085a481"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30e2172041c40bf3323a2247afd070a31877b76324f66698bac5da87e5207f62"
   end
 
   depends_on "go" => :build
