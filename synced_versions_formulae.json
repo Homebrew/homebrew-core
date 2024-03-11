@@ -35,7 +35,7 @@
   ["libnetworkit", "networkit"],
   ["libnghttp2", "nghttp2"],
   ["libngspice", "ngspice"],
-  ["libqalculate", "qalculate-gtk"],
+  ["libqalculate", "qalculate-gtk", "qalculate-qt"],
   ["logcli", "loki", "promtail"],
   ["mame", "rom-tools"],
   ["mecab-unidic", "mecab-unidic-extended"],
