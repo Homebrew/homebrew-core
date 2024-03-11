@@ -15,7 +15,7 @@ class GrafanaAgent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "65b4f1ba05d2d554a146ddbb6c36b097fa8eb7d0c27e9e216891d187468dc143"
   end
 
-  depends_on "go@1.21" => :build # use "go" again when https://github.com/grafana/agent/pull/6139 is released
+  depends_on "go" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
 
