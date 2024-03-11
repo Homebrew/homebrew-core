@@ -11,13 +11,13 @@ class NotmuchMutt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f0d42a21fff63f1b7a836a6d105a321eb65f6bb79cce3d3d668593fc3482da63"
-    sha256 cellar: :any,                 arm64_ventura:  "e5ffbd34b43eb467a26f9f72fd1261bbd3747ce15a8bb74225eaebc18ac2ed1c"
-    sha256 cellar: :any,                 arm64_monterey: "ae76e445e79296f896dccbb90c2fb08d226df2ae525801afeb40fb721906d1ee"
-    sha256 cellar: :any,                 sonoma:         "c9372ba227dff9795bb45060be3ace60ad3ac564bbe244030254bcf972c679e0"
-    sha256 cellar: :any,                 ventura:        "7bce5134e212ac7be9770e8f97e3a2f4d0ee12d39af5fa88c44b006978356d53"
-    sha256 cellar: :any,                 monterey:       "f485d11af66d1dfd0cffc75aba9dabf256f1e4ba262de34e3bc28aba2e29ba2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5b88e8d52ba06641fe4f00c18fb1a57a44a251ab1bc093560816c0d68b1d43b9"
+    sha256 cellar: :any,                 arm64_sonoma:   "a97fab20e7c81079f03221d342cf9ffb337d707cf1fc2aecf62701f4c8fd4728"
+    sha256 cellar: :any,                 arm64_ventura:  "c12fcbb4288c848b59e8ac48617ee928afbd665cc3248d4d2ac2e6f09b593690"
+    sha256 cellar: :any,                 arm64_monterey: "e5786019af8789331d40ff9fb9a4c46dda6f87b7abdfe5db90a71e9040ca6d81"
+    sha256 cellar: :any,                 sonoma:         "657f1ad5b9745b42ec3a2032649be0cb4efe672ce769e0b3fb1a79e83b884a06"
+    sha256 cellar: :any,                 ventura:        "8c78f44d4e17370507862ed51fd8bb5d9d21179936f8d4b19cbac4545a9d65ef"
+    sha256 cellar: :any,                 monterey:       "2347f01ea978ab5b3a02b29fd22477b92e1ec01d638645ab1b10b566e19299bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ac3f56a93fa7667eabf2b95a59ed431ea30d81cbe9fde8bc673eeda2feb76eda"
   end
 
   depends_on "notmuch"
