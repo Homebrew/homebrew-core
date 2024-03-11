@@ -18,12 +18,10 @@ class Badkeys < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "53fa9501f5bc882d53d5d0b205371046d4a9051fc634c6bcb53c89bd06c1d45c"
   end
 
-  depends_on "cffi"
   depends_on "cryptography"
   depends_on "gmp"
   depends_on "libmpc"
   depends_on "mpfr"
-  depends_on "pycparser"
   depends_on "python@3.12"
 
   resource "gmpy2" do

@@ -71,7 +71,7 @@
     "exclude_packages": ["certifi"]
   },
   "badkeys": {
-    "exclude_packages": ["cffi", "cryptography", "pycparser"]
+    "exclude_packages": ["cryptography"]
   },
   "bandcamp-dl": {
     "exclude_packages": ["certifi"]
