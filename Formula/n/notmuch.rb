@@ -1,8 +1,8 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.38.2.tar.xz"
-  sha256 "5282ebe4742b03ee00fc3ab835969f94d229279db7232112bdc5009d861e947e"
+  url "https://notmuchmail.org/releases/notmuch-0.38.3.tar.xz"
+  sha256 "9af46cc80da58b4301ca2baefcc25a40d112d0315507e632c0f3f0f08328d054"
   license "GPL-3.0-or-later"
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
@@ -25,6 +25,7 @@ class Notmuch < Formula
   depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
   depends_on "cffi"
   depends_on "glib"
