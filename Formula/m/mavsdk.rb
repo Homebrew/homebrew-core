@@ -15,13 +15,13 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0f557c0410307b44c0027a859c774dba5e0aae7b11f25a9f6d3b2ec06cbb34c2"
-    sha256 cellar: :any,                 arm64_ventura:  "8a59f798e0f99ff7a4246a303d8c55d7baec5f3b6fc76b5998bea2e550e3d910"
-    sha256 cellar: :any,                 arm64_monterey: "e812179d2fb83fc0393fe1a58be6403946fc80a343dd34bc5a2ad4196e3d59c8"
-    sha256 cellar: :any,                 sonoma:         "7232e3b2507d4b5f0e9591f09bce42ef32ea78e89440f79594720a258eddeff6"
-    sha256 cellar: :any,                 ventura:        "03bb3ae1dd9b9e9e3d2a5ef72e5685cce49df6bff6d722e1e5ea3b7f07eb9280"
-    sha256 cellar: :any,                 monterey:       "de6e68a1ef3f733f8f06aff08a2ff156b8817df1fca783187e0acce4e02ff144"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec7989abf4b91bb42c7cd89cda44b40c88150dff1af0f5cce29329833e319ae7"
+    sha256 cellar: :any,                 arm64_sonoma:   "99392e33812f1d5902fd64821e534f11aeb51acacc8857e2627b1ee05eb7bb0d"
+    sha256 cellar: :any,                 arm64_ventura:  "a8fb435ccdf7e7adfe3ad124327c321ace71186564793a97daccbf82abee826a"
+    sha256 cellar: :any,                 arm64_monterey: "47dd65e255258d53cd206ad91b49a9aa108b8ddf22567eb0203fc12c8faf7afb"
+    sha256 cellar: :any,                 sonoma:         "786c98c070d414f5d1e00bd4a27a2002b5b79f0565a9c0a577e438709549dc88"
+    sha256 cellar: :any,                 ventura:        "458830cd8994e7f3aad1db5b55867daa72b85344e59dd6583d00b6a17fa88437"
+    sha256 cellar: :any,                 monterey:       "6186efc8954c71d74fa0c0abb650bdf0b898a95411bb3093a5c5421688d2107c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f2689a6fab7c612e8e6a45837020f5d013c58f1d35ad8a8c3bec3a34ddf10c8"
   end
 
   depends_on "cmake" => :build
