@@ -51,12 +51,14 @@ class RomTools < Formula
     args = %W[
       PYTHON_EXECUTABLE=#{which("python3")}
       TOOLS=1
+      EMULATOR=0
       USE_LIBSDL=1
       USE_SYSTEM_LIB_EXPAT=1
       USE_SYSTEM_LIB_ZLIB=1
       USE_SYSTEM_LIB_ASIO=1
       USE_SYSTEM_LIB_FLAC=1
       USE_SYSTEM_LIB_UTF8PROC=1
+      VERBOSE=1
     ]
     if OS.linux?
       args << "USE_SYSTEM_LIB_PORTAUDIO=1"
