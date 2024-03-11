@@ -1215,6 +1215,7 @@ nushell
 nvc
 oauth2_proxy
 oauth2c
+objfw
 ocaml-findlib
 oci-cli
 ocp
