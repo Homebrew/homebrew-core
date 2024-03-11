@@ -11,13 +11,13 @@ class Geeqie < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "d4a3771aea12c87fce802264773618c30a640e4a78fd959092d801ae36b6aa41"
-    sha256 cellar: :any, arm64_ventura:  "35cfa3654f4fb946f235e9313352daa1b080d3e88c4db8de0272e7e6868bd3e7"
-    sha256 cellar: :any, arm64_monterey: "d7642af283fd54acd659f2f32a6406cc341ed0093ab23420ee5c390ef67b6662"
-    sha256 cellar: :any, sonoma:         "410f1b8f968e12018f9096a5ab6954b413303ae5e1d12fc2504cf6cab0e9e691"
-    sha256 cellar: :any, ventura:        "9053afa0e733d30010de12e2b4126a21859b815432bed0f701e654fe2109dbcd"
-    sha256 cellar: :any, monterey:       "1067c13a4b5acf7251cebe6c7ecbbbaacaff8d190586e77dee8a676e266b3c6e"
-    sha256               x86_64_linux:   "9913aaa086139df79c834368dcaf6904eb40abc3903314616d25ae8a35050fc5"
+    sha256 cellar: :any, arm64_sonoma:   "00e12bb86816fbb76c4ae7291f2721467765834a688feabdf4c3981e26e49f46"
+    sha256 cellar: :any, arm64_ventura:  "0edc216cedcd6d1a28490e1959ae27e06ae72ee9375230d3c4c7c79b675c6f0e"
+    sha256 cellar: :any, arm64_monterey: "a223a3d09e500e22b43ab19f4666cd5dc1679b8c92be94d81b3d02c864762a28"
+    sha256 cellar: :any, sonoma:         "99ef67d5e6e67203005f3fd87f5f43f464c0a1aacb55d4e27b3d94c756a0dd33"
+    sha256 cellar: :any, ventura:        "c0975ef8d5efeb67dba0a8dc446add42b41e57e94a8cbe7b48c205b8cd9d15b9"
+    sha256 cellar: :any, monterey:       "fe514a965f56343e745d6e64ebc5be8b77d83bbd21fc439a4842d23f95f823e3"
+    sha256               x86_64_linux:   "ab15173508e65f6d607f5b106446a292967bef34c5d0401c38feeb6a7ce52d50"
   end
 
   depends_on "meson" => :build
