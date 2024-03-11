@@ -1066,6 +1066,7 @@ luajit
 luarocks
 luau
 luit
+lune
 lunzip
 luv
 lux
