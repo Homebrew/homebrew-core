@@ -1,8 +1,8 @@
 class Just < Formula
   desc "Handy way to save and run project-specific commands"
   homepage "https://github.com/casey/just"
-  url "https://github.com/casey/just/archive/refs/tags/1.25.1.tar.gz"
-  sha256 "52a77acb3b8ee109a3a3a6dc5f25cad9418cdd009438788098128d737cc537d2"
+  url "https://github.com/casey/just/archive/refs/tags/1.25.2.tar.gz"
+  sha256 "5a005a4de9f99b297ba7b5dc02c3365c689e579148790660384afee0810a2342"
   license "CC0-1.0"
   head "https://github.com/casey/just.git", branch: "master"
 
