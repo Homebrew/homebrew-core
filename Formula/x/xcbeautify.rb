@@ -2,8 +2,8 @@ class Xcbeautify < Formula
   desc "Little beautifier tool for xcodebuild"
   homepage "https://github.com/cpisciotta/xcbeautify"
   url "https://github.com/cpisciotta/xcbeautify.git",
-      tag:      "1.6.0",
-      revision: "82bc54c25c78284555759277d4d92fef5627f95e"
+      tag:      "2.0.0",
+      revision: "f1eb8fcf41fbb51a7d6a06a76cf06ba5a86270cb"
   license "MIT"
   head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
@@ -16,8 +16,8 @@ class Xcbeautify < Formula
     sha256 cellar: :any_skip_relocation, monterey:       "2d417679d5513c90a6126dae00f2fda223b6a151795de7b252afa2b5ac06ec2b"
   end
 
-  # needs Swift tools version 5.7.0
-  depends_on xcode: ["14.0", :build]
+  # needs Swift tools version 5.9.0
+  depends_on xcode: ["15.0", :build]
 
   uses_from_macos "swift"
 
