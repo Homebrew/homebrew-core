@@ -1,10 +1,9 @@
 class Reprepro < Formula
   desc "Debian package repository manager"
-  homepage "https://salsa.debian.org/brlink/reprepro"
-  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.0.orig.tar.gz"
-  sha256 "5a5404114b43a2d4ca1f8960228b1db32c41fb55de1996f62bc1b36001f3fab4"
+  homepage "https://salsa.debian.org/debian/reprepro"
+  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.1.orig.tar.xz"
+  sha256 "5a6d48bf1f60cfd3c32eae05b535b334972c1e9d4e62ed886dd54e040e9c1cda"
   license "GPL-2.0-only"
-  revision 5
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/r/reprepro/"
@@ -24,10 +23,13 @@ class Reprepro < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "083ddcc7baec64baff8ebe0ebabdfe14debf27f38f8ee86b588d52d9b3bbed39"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "berkeley-db@5"
   depends_on "gpgme"
   depends_on "libarchive"
   depends_on "xz"
+  depends_on "zstd"
 
   on_macos do
     depends_on "gcc"
@@ -38,6 +40,7 @@ class Reprepro < Formula
   end
 
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",
