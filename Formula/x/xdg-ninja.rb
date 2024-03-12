@@ -18,6 +18,7 @@ class XdgNinja < Formula
     pkgshare.install "programs/"
     pkgshare.install "xdg-ninja.sh" => "xdg-ninja"
     (bin/"xdg-ninja").write_env_script(pkgshare/"xdg-ninja", XN_PROGRAMS_DIR: pkgshare/"programs")
+    man1.install "man/xdg-ninja.1"
   end
 
   test do
