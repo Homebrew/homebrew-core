@@ -7,15 +7,13 @@ class RustupInit < Formula
   head "https://github.com/rust-lang/rustup.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23448f34076addfcb95eed04ba2bafcea32a25b57442e24baf1a92572ca0a9b4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f83c1f987e10419ba71eaf6546249763c2cdc0ff0ec6ea08f9be56c675c1aa5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47ac8dd8c8bde9ef120cc83c221c6cb199a9865e7b95f991e37938ba7c5e9460"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "32ce314ca621607de3b0648729779a021f8b84f1c83348daa72c30c747394681"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e614a8ac90ec6811c649b32510987acc8e65222054359addba46d6b17af0c367"
-    sha256 cellar: :any_skip_relocation, ventura:        "08b7293cdfa169876f17ed0fce082a27d8def0f6196a1797077c5db7eab91d35"
-    sha256 cellar: :any_skip_relocation, monterey:       "ae7610b4babb0b4cdfb7aad014ccef60901859197498b7e24cd6f3b8d833e9a1"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9b1190e54377eade02a31d104e27793f4b752a3017f27f1579258531190f7e35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "163975e8261a925c4c6082d937b9e1712f116ca6da619768fd309894885c6a60"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe0597a894036869478f85e9699d6842ee31f89087b675bc45052ef229e8fef5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "399234a5a960841a0fc41348cac0efb5f8e7926401dc01463fbaf9289488217f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1833fc3ffcc01993d5a717b95f7bafe74acfa1315e2ccc174de3b7a6666be855"
+    sha256 cellar: :any_skip_relocation, sonoma:         "870867bdea82352df96a534859fc07d75cf4af4e24d7797dada8380c61dd1776"
+    sha256 cellar: :any_skip_relocation, ventura:        "334b6421d2b4dcafd48b6ff9eaf43d0f31bdf91f8d1c6c0e609d45f4576fc0da"
+    sha256 cellar: :any_skip_relocation, monterey:       "d882f55cab523ff781de41061113b16a66c1c6e5291af37b9fba4e2222c673ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3d69498ba5c52988b2191a2aab7a0b8bfae2a1e86541de168739290bd6928a45"
   end
 
   depends_on "rust" => :build
