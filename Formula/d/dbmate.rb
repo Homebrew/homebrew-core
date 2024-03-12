@@ -7,13 +7,13 @@ class Dbmate < Formula
   head "https://github.com/amacneil/dbmate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e95146fb64df59dc826d7225f47b5bc02cf1c856f63ee3c80dea6b72cc117ad"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "962058ba9e5e35cadd92cc581815e03be01b7e60b0d3c7722235767dc7375f81"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "20f9d7b1f51f109d8658db6a01d8158f3e7993b4802fb820c91d21b12b797ba0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b08f5492fcd813ca38104812b91d10504dc4a194581db695ea20c60bdcc80a76"
-    sha256 cellar: :any_skip_relocation, ventura:        "14620cdcaa5ccac015bfccdbe14002beeb2814919e4b56408193ea67bb965c69"
-    sha256 cellar: :any_skip_relocation, monterey:       "82d282ab26966140199a2384a222603d7fe124e2e9c4b94e47392cf3bfb199b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79e0e666758b509ce24153e8df0eadcd007b2f1208b9f1d5b07cdafdf28ecfd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4b39890879dcc7f2238e989ceb0623e553c9a156a8261acf84e930d6d98ae270"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "858b7d1bf3a3fd553cdcf45bf82a26f9c6285e46916233c04b3d6cfa1f6487d3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "267de2a70f9c1d18d205ef11d424c43798d23ec75aebcbf31bdd1b59753e5f15"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b7737eadfbe1c06c57f91af06606a67f7a8b967bb1cca7158c70a0395e756db2"
+    sha256 cellar: :any_skip_relocation, ventura:        "0ebb99efcd00424e99a636b026772c041f4b549619a682f915ccb19f89e3fb48"
+    sha256 cellar: :any_skip_relocation, monterey:       "61e35a85276c63f9e4ddc09f7afee4d41a2f20df660124c5b2606c9264166231"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c664bf524f1ca3e140b245577e4df46486a8107ba2e18149da6e303485e881b"
   end
 
   depends_on "go" => :build
