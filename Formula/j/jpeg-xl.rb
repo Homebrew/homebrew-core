@@ -11,13 +11,13 @@ class JpegXl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bb6ef9768ecf5a59ff9a25507f46e040d14261a8da6e5f943caf286e4bee1ffd"
-    sha256 cellar: :any,                 arm64_ventura:  "d75498b5adccc226e94fef183cce058d2e7c81c6193e6959ee4cba0ce6e2097b"
-    sha256 cellar: :any,                 arm64_monterey: "4892e8d3cc4fa0c52ca95337592e3dc008dcc1197267c2db7c89af0cf051ef93"
-    sha256 cellar: :any,                 sonoma:         "7732aea9d3110b61bf18b598362f3e6849550b5aaa012136f04a5c6520022405"
-    sha256 cellar: :any,                 ventura:        "21268bc3870c597b3d6932ca463e995f011382d93e18947ba701ee63304bf710"
-    sha256 cellar: :any,                 monterey:       "993af6a93eb460fb8766c9da82fcafbc797b5d300989fb5d994a910b226441e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2cd0d9944eded139932a31b011b412ec8684c1b4f028081a588d613ab0ccb374"
+    sha256 cellar: :any,                 arm64_sonoma:   "7624f860e59e279c5810bb7c2baa1a1a70beae2166f1781b00ce32ea3c949860"
+    sha256 cellar: :any,                 arm64_ventura:  "136444e6e6c21514af90cd1b4abdaa95a9559b3996fe4710deba5edb825af2cf"
+    sha256 cellar: :any,                 arm64_monterey: "4fefef455164e3c000c11fb55579c5b43983666d4898dec23dce4f4964a3433a"
+    sha256 cellar: :any,                 sonoma:         "90c89d7f44a6a3cdb6f369d23fe2c7d6a2a013ed14acfe65c8637586aad721d9"
+    sha256 cellar: :any,                 ventura:        "a00279e231490fa6419f3fb17f1c5933fa470e92cb15c5a13f405d9e03f63527"
+    sha256 cellar: :any,                 monterey:       "f9012616b6d6d773dd97f21f9f1306027e49d9a2165ff5c0670b845e58292bfe"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c6a70e3be41ab8b953baf0bbc9eac8c4be9b5d4caaea58b916fa569fd3805c2"
   end
 
   depends_on "asciidoc" => :build
