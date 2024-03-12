@@ -1,8 +1,8 @@
 class Vultr < Formula
   desc "Command-line tool for Vultr services"
   homepage "https://github.com/vultr/vultr-cli"
-  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "ae258a579564e857ce20d9073875747ff057a3cdfb5effa0ef24443286d2fd0a"
+  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.0.2.tar.gz"
+  sha256 "a5011187487f7ed42491ee54ffbba60a31b3f45af7d7f4239411d22f8563e7ed"
   license "Apache-2.0"
   head "https://github.com/vultr/vultr-cli.git", branch: "master"
 
