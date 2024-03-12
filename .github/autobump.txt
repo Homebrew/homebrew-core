@@ -718,6 +718,7 @@ git-cola
 git-credential-oauth
 git-delta
 git-lfs
+git-split-diffs
 git-town
 git-xargs
 gitbackup
