@@ -1,10 +1,9 @@
 class OsmPbf < Formula
   desc "Tools related to PBF (an alternative to XML format)"
   homepage "https://wiki.openstreetmap.org/wiki/PBF_Format"
-  url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "2abf3126729793732c3380763999cc365e51bffda369a008213879a3cd90476c"
+  url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "183ad76c5905c7abd35d938824320ffb82d9ca8987796018f2da8380b51cdac2"
   license "LGPL-3.0-or-later"
-  revision 8
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "17d198ccf1e7853b52d271673f4c6cb915829baa7e815f241334b616098acc88"
@@ -22,10 +21,6 @@ class OsmPbf < Formula
   uses_from_macos "zlib"
 
   def install
-    # Work around build failure with Protobuf 22+ which needs C++14/C++17
-    # Issue ref: https://github.com/openstreetmap/OSM-binary/issues/76
-    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
-
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
