@@ -4,6 +4,7 @@ class Fail2ban < Formula
   url "https://github.com/fail2ban/fail2ban/archive/refs/tags/1.0.2.tar.gz"
   sha256 "ae8b0b41f27a7be12d40488789d6c258029b23a01168e3c0d347ee80b325ac23"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -24,10 +25,11 @@ class Fail2ban < Formula
   depends_on "help2man" => :build
   depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.12"
+  # See https://github.com/Homebrew/homebrew-core/issues/165623, waiting for new release
+  depends_on "python@3.11"
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.11"
     ENV["PYTHON"] = which(python3)
 
     rm "setup.cfg"
