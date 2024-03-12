@@ -8,15 +8,13 @@ class Awk < Formula
   head "https://github.com/onetrueawk/awk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3741938ae9a555470dcfe75975f7f98b6d838bce024b561b1e380b8112ee6981"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "71dcc0d85c8d256e4ade6241eae82a18de3fc1fe20ca242961b9ed6b1e4206ea"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "90467b080cdf1b139af338000c31586fd9b3ee387a214597b333d036354d6d63"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3e5e4df91f2628fdd27e655e1198cdf4f19e80aaf5235f4d987fa095638ad0ed"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5e3669a1e2820cc1fd720c0af37ace49f1fea3da567983c61b3daccdefb05e9f"
-    sha256 cellar: :any_skip_relocation, ventura:        "9ee6a4d8b1dcfb3808ef2dc51214017865924b0631b2107d381be48c8e93ae0a"
-    sha256 cellar: :any_skip_relocation, monterey:       "14e36a488a1b66e579663545494c55bb9eeec31b71d72f23f810f69e04963333"
-    sha256 cellar: :any_skip_relocation, big_sur:        "5943f92ced18437d64dbfc8653ea95f589517757316dd0dab9fac3ee1d39dbca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7675e8286eaea8e940da59bf608da314f34033606c9f0a0c71c98f1f698cf8a4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d59a4fa943ba0fc40fcf7b83215b728f1566faca0440c203a604c4ba605d9b7d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8135309c68739e22a9978bc396f1d48a6f0e5dd5058d99a0610d6981239575ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2f1269b3fecf4541b79b33e78aa2717454c19afe96c8e58a3e3bdf2f34568c71"
+    sha256 cellar: :any_skip_relocation, sonoma:         "efc004e18bd03606edea04a13a64d4f73d18bc0ba35187aeb8c8b26c6c3258a7"
+    sha256 cellar: :any_skip_relocation, ventura:        "0d551904ed75cf5d59500cfae560558cb73778d82c46c4409d3e32a34b8558a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "61fe03cfdd3c21c30b50dbeaefbdf4b0b96546268bf0480dfb0ef40b3e917f19"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72cd6ae9d87e6fa7275cad4fd3fb61f66b05cb63360d707fa01c8854fa0abe78"
   end
 
   uses_from_macos "bison" => :build
