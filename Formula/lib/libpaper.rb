@@ -6,13 +6,13 @@ class Libpaper < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "786452152952325f3d77cf74404be6aeb41152e7c43616dbd184f47dbc60ec47"
-    sha256 arm64_ventura:  "09ed918523282ef8f12ed2d4c4b9f350b631b5ce705ed2e84629517018f787bc"
-    sha256 arm64_monterey: "38e63fb74451cbe22ebe873e8d00aeb985b92f6cc323ed21a3937f173840b79c"
-    sha256 sonoma:         "77f5b39699369fa8889b75e639081f7ca3496ed294a6abf0e19e86afa688bafc"
-    sha256 ventura:        "887b9b96124a28944912f83d144a1e0cd25910ba59c1240aa3b0eaf03498debe"
-    sha256 monterey:       "1a0d53c805967b6324fd9ca7e90e322733c423238757f2f089fddbf896cce6ea"
-    sha256 x86_64_linux:   "d0d6c406373d8014a6cbef56e21e32dac36bcce56ca85d20e31a60fd1944a079"
+    sha256 arm64_sonoma:   "6daa5b0424b9c4aba3c5f3f2de108af402381d438732c48fa31b996cab2bdcf8"
+    sha256 arm64_ventura:  "ff4600d575e47d33f9640c93834ccbdf5ba7c99b11d1bcb3760c8ccfc8746c89"
+    sha256 arm64_monterey: "197776b9bdad9682e42be844589467672d0ca8ec8dd56ae084e784168f01e710"
+    sha256 sonoma:         "22ab8ccba69a067d5f8b34b4e209de4a11b5f4fa0c6ac2eecd97227c7ac7e55a"
+    sha256 ventura:        "3d71099c1dc44c3153ece6384caee390a18754a17459eabda26131e5b4d8fa9f"
+    sha256 monterey:       "21ded4ed1d1227dbab1b495a0cab1ba4dabbe57af60f6cc6b2bf680e675abf3e"
+    sha256 x86_64_linux:   "4e1ce257311a09fec836d586158e254a5d9f074768ca9cd8f8e0c4806e10d0f8"
   end
 
   depends_on "help2man" => :build
