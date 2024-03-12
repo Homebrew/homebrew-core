@@ -53,6 +53,10 @@ class PkgConfig < Formula
 
     pc_path = pc_path.uniq.join(File::PATH_SEPARATOR)
 
+    # Work-around for build issue with Xcode 15.3
+    # https://gitlab.freedesktop.org/pkg-config/pkg-config/-/issues/81
+    ENV.append_to_cflags "-Wno-int-conversion"
+
     system "./configure", "--disable-debug",
                           "--prefix=#{prefix}",
                           "--disable-host-tool",
