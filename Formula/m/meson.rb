@@ -1,8 +1,8 @@
 class Meson < Formula
   desc "Fast and user friendly build system"
   homepage "https://mesonbuild.com/"
-  url "https://github.com/mesonbuild/meson/releases/download/1.3.2/meson-1.3.2.tar.gz"
-  sha256 "492eb450c8b073024276f916f5adbb3c4bb7e90e9e6ec124efda064f3d9b5baa"
+  url "https://github.com/mesonbuild/meson/releases/download/1.4.0/meson-1.4.0.tar.gz"
+  sha256 "8fd6630c25c27f1489a8a0392b311a60481a3c161aa699b330e25935b750138d"
   license "Apache-2.0"
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
@@ -43,7 +43,7 @@ class Meson < Formula
   test do
     (testpath/"helloworld.c").write <<~EOS
       #include <stdio.h>
-      main() {
+      int main(void) {
         puts("hi");
         return 0;
       }
