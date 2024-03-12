@@ -17,4 +17,10 @@ class Harbor < Formula
     system "go", "build", *std_go_args(ldflags:), "./cmd/harbor"    
   end
 
+  test do 
+    assert_match "#{version}", shell_output("#{bin}/harbor version")
+    # Test for handling credential store error during project creation.
+    assert_match "failed to read credential store", shell_output("#{bin}/harbor create project 2>&1", 1)
+  end
+
 end
