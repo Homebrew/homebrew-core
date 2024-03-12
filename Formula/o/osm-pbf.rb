@@ -6,13 +6,13 @@ class OsmPbf < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "17d198ccf1e7853b52d271673f4c6cb915829baa7e815f241334b616098acc88"
-    sha256 cellar: :any,                 arm64_ventura:  "00a33c62396b1f2ab92a4e31a31e04ca46726a9690a188d97b34d947bfc3c85e"
-    sha256 cellar: :any,                 arm64_monterey: "fdefbdbb3d47f82d1b9ff3884d70a1710897258c6017fdb7a848a435449810cc"
-    sha256 cellar: :any,                 sonoma:         "db3ef1e8759bb598c780e34a85fac51383f578ffa41f33bc4f6d62d02f238427"
-    sha256 cellar: :any,                 ventura:        "2826291aa7c0bb921f135018a8bbf2f219da9fe0c5eed560e15a4fc2ddf1b272"
-    sha256 cellar: :any,                 monterey:       "70dce24b4b8444a8301f3c9827808f4aabdc66d10c16c87fa0b1324fecb07a66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fd734c94a03dcdac4645e6016356c1622258cc40b2f663dee68fe4549d99d225"
+    sha256 cellar: :any,                 arm64_sonoma:   "656693464a84370602be8ebfc7a027510712026fbfd3da69fb27ccbb8c1358ae"
+    sha256 cellar: :any,                 arm64_ventura:  "368660ba31744e1294832f9d4145d029dab551d555fcbff47beb1513ca9308b3"
+    sha256 cellar: :any,                 arm64_monterey: "132758dfc09f85b61d287e2eb8d82969a9553124fa35cfb02e4add149d413b5b"
+    sha256 cellar: :any,                 sonoma:         "d8e50f6f8e3e1953afd9afb78f7eff8471b39a08eafac5d186b0daf619b89a0b"
+    sha256 cellar: :any,                 ventura:        "0cbe569273fc87a85943131b2afa2733efc6ce46e9974f2275810054f6d34ecd"
+    sha256 cellar: :any,                 monterey:       "1f2af2b96a7ad23d76c30fd93ade898c9faf072b26862b640c860a4bd788d5e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9b099bce5548ce8f878771dbe935bf4cfaa4183ea3e22b522f6de820a1fcc3c"
   end
 
   depends_on "cmake" => :build
