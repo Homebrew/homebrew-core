@@ -36,7 +36,7 @@ class SpotifyTui < Formula
   on_linux do
     depends_on "pkg-config" => :build
     depends_on "libxcb"
-    depends_on "openssl@1.1"
+    depends_on "openssl@3"
   end
 
   # Fix build with Rust 1.64+ by updating socket2 using open dependabot PR.
