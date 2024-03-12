@@ -32,8 +32,7 @@ class TreeSitter < Formula
   end
 
   def install
-    system "make", "AMALGAMATED=1"
-    system "make", "install", "PREFIX=#{prefix}"
+    system "make", "install", "AMALGAMATED=1", "PREFIX=#{prefix}"
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
 
