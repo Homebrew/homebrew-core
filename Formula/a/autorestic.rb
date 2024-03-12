@@ -1,8 +1,8 @@
 class Autorestic < Formula
   desc "High level CLI utility for restic"
   homepage "https://autorestic.vercel.app/"
-  url "https://github.com/cupcakearmy/autorestic/archive/refs/tags/v1.7.11.tar.gz"
-  sha256 "e5ff0cce5b225de06fb3a9fcbf36ad17ef3fa01ff9f9b8d581c821308171c3b2"
+  url "https://github.com/cupcakearmy/autorestic/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "a3174c795938b9d70a6af99d90c71083c228d82fc3c6a9961f8315ac12860f37"
   license "Apache-2.0"
   head "https://github.com/cupcakearmy/autorestic.git", branch: "master"
 
@@ -20,7 +20,8 @@ class Autorestic < Formula
   depends_on "restic"
 
   def install
-    system "go", "build", *std_go_args, "./main.go"
+    ldflags = "-s -w"
+    system "go", "build", *std_go_args(ldflags:), "./main.go"
     generate_completions_from_executable(bin/"autorestic", "completion")
   end
 
@@ -31,11 +32,13 @@ class Autorestic < Formula
       "backends"  => { "bar" => { "type" => "local", "key" => "secret", "path" => "data" } },
     }
     config["version"] = 2
-    File.write(testpath/".autorestic.yml", config.to_yaml)
+
+    (testpath/".autorestic.yml").write config.to_yaml
     (testpath/"repo"/"test.txt").write("This is a testfile")
-    system "#{bin}/autorestic", "check"
-    system "#{bin}/autorestic", "backup", "-a"
-    system "#{bin}/autorestic", "restore", "-l", "foo", "--to", "restore"
+
+    system bin/"autorestic", "check"
+    system bin/"autorestic", "backup", "-a"
+    system bin/"autorestic", "restore", "-l", "foo", "--to", "restore"
     assert compare_file testpath/"repo"/"test.txt", testpath/"restore"/testpath/"repo"/"test.txt"
   end
 end
