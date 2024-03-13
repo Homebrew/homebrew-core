@@ -9,13 +9,13 @@ class Virtualfish < Formula
   head "https://github.com/justinmayer/virtualfish.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6d88c749812d603e148a8d1d48281f5739ea043b8d1cffa455a88419a5eccf63"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7a2b190194f4541b340bc50535b74753ed27e08e87cbfaa76bf9f3fc0aacb74"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c1ae0b1f1e0cae23713821f1a29771d9a51cc44d6ed2690136dd9221d61e0d4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bf3d0f0f7324b1eeeff2d522ec8f05e5cb4459d8ef523b6a5475377a51120878"
-    sha256 cellar: :any_skip_relocation, ventura:        "dbf107d25ab7e476128a38991867945b56baa7ac9feff3848cb42f96cac7e115"
-    sha256 cellar: :any_skip_relocation, monterey:       "36aad222113e614fae160591312da3aba183adb56cba2f1104932aa501a15af5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5dc9aa7733edb30f0cad148736cafee7a3128c692c28aeb54d6afc6d5ee3064"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "65deff56f7bfda016430a19ce252cc2e7318cd31563ff5140bb90f0b64badb0a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "982e1d4a943fd468ecdcb2196a29d6ed6f42fd8a6d21eeeb739c45464b85c067"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9da9c4a06a1f1ad1b00530fd6e861f5bc5a328bfeb2560d5d9eb029a320616c9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3215b85676fdb3b91f4aa75d2b9a5d975902d501bd6979f3bd926da66d028976"
+    sha256 cellar: :any_skip_relocation, ventura:        "aafd7742e3085a0785fa5dd966442ddddb1ba4052d23f806927256e9293e3627"
+    sha256 cellar: :any_skip_relocation, monterey:       "b05c553e36daeea3732b8529ccfd772eb5dfc9ce35144cb98e31ca3fc9291d9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70961a036370488acbebb91ae0729bbc23836c4a2cd197158f48d394fd6071e9"
   end
 
   depends_on "fish"
