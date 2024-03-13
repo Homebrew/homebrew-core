@@ -1,8 +1,8 @@
 class Espflash < Formula
   desc "Serial flasher utility for Espressif SoCs and modules based on esptool.py"
   homepage "https://github.com/esp-rs/espflash"
-  url "https://github.com/esp-rs/espflash/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "85a62ee12949eeb9ed0cb186b87f88b1ff04eeabce5c4974cc24c304ed1bf960"
+  url "https://github.com/esp-rs/espflash/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "ec24f052345f2ffba0e820ac7b389395f6e54f38545eddc62758079f2b9c7697"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do

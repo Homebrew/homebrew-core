@@ -581,6 +581,7 @@ erlang@25
 erofs-utils
 esbuild
 eslint
+espflash
 esphome
 esptool
 etcd
