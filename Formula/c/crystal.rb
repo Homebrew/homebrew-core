@@ -40,6 +40,7 @@ class Crystal < Formula
   end
 
   depends_on "bdw-gc"
+  depends_on "gcc"
   depends_on "gmp" # std uses it but it's not linked
   depends_on "libevent"
   depends_on "libyaml"
