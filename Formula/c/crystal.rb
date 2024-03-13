@@ -112,7 +112,6 @@ class Crystal < Formula
     release_flags = ["release=true", "FLAGS=--no-debug"]
     crystal_build_opts = release_flags + [
       "CRYSTAL_CONFIG_LIBRARY_PATH=#{config_library_path}",
-      "CRYSTAL_CONFIG_LIBRARY_RPATH=#{config_library_path}",
       "CRYSTAL_CONFIG_PATH=#{config_path}",
       "interpreter=true",
     ]
