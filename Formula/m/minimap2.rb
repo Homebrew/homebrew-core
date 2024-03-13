@@ -11,15 +11,13 @@ class Minimap2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d60154934409665d6837f301a651e0008c0c30d82b13c43520ae590fa6f08d7e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2fac2191822f597856d08dc0ebe8140fead7b1ad69449b142318c8565a5783cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7d4c7d2de5060e2e2c6cad063589e0fe4b85a029f0f4059370d2343549f2b50"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f33f5b2a19c70d088a2008b47bb8f310ee92340eebbb37458d84881a8d9f1068"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c6d80ed540146f49cb133f0e4b22cae9cacb8bd6a1b3fe319b7738cf5301aafb"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2aeff2e9f605b4310d03a8ac36791688537e19c712c640fe4b2065a87037c52"
-    sha256 cellar: :any_skip_relocation, monterey:       "4371d29b25df3ebb4a44b93f7d6cc99581a533537f9a83566d935e4e53c770ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d3b4a714519502f6336dbf7c1d40b17532f4ca00bc428065bcedabbfe08c3c5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64a3fd304a3250c54bd8be2037ba13565bd055c07f0adccc40b66a679b91f4af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f682b5adbbae08fc261bd5050e3db95daef291d5af573975f62b0de58d7d78fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b2af528b6f911d1c70de8a77c146e87295a195d102448871c202bf967a24e38"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1bf22d1d8de0c95d7387c8877f41cd6d86eda4028ab45edffb1e4332cf4173f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9bc76316ec78fe78e0e07ef7326f07de2d7fbb70cfa8cd185fb690791a2eaae"
+    sha256 cellar: :any_skip_relocation, ventura:        "dd0b65b8b9c38288caa35ca86696bb02c5f6066086eb3e0ed203c02c56c4da13"
+    sha256 cellar: :any_skip_relocation, monterey:       "6034231fb2326eaa195420fe5260fc959b4c374465eee57f41fded0da51af970"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03104c16fdc1d9cb697ac848ea9d644bc9b68988f62a42b32825dd2efb79b9c9"
   end
 
   uses_from_macos "zlib"
