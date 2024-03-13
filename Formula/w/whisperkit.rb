@@ -17,6 +17,7 @@ class Whisperkit < Formula
   end
 
   test do
+    require "json"
     mkdir_p "#{testpath}/Models/whisperkit-coreml"
     system "huggingface-cli",
         "download",
@@ -25,11 +26,15 @@ class Whisperkit < Formula
         "openai_whisper-tiny/*",
         "--local-dir",
         "#{testpath}/Models/whisperkit-coreml"
-    File.rename "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
-        "#{testpath}/Models/whisperkit-coreml/tiny"
+
+    file = File.read("#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny/config.json")
+    config_hash = JSON.parse(file)
+    config_hash.delete("_name_or_path")
+    File.write("#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny/config.json", JSON.dump(config_hash))
+
     system "#{bin}/transcribe",
         "--model-path",
-        "#{testpath}/Models/whisperkit-coreml/tiny",
+        "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
         "--audio-path",
         test_fixtures("test.mp3"),
         "--audio-encoder-compute-units",
