@@ -11,13 +11,13 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0312c3638d489b79806db8c688340fbf271a719e4c357495384afe0c05ebf1b1"
-    sha256 cellar: :any,                 arm64_ventura:  "0d65fae66ffe15994372ba985f3445023ed3d255b4da5739259dc36d6b85dfcd"
-    sha256 cellar: :any,                 arm64_monterey: "59c30a4a189d462688236d6f814ed4f9b246fc4d7e20efd2d107739823518fd8"
-    sha256 cellar: :any,                 sonoma:         "d0f019351fd5847cc186f546f8760c50b4b2379a36c18ac713a5293b66fefd7e"
-    sha256 cellar: :any,                 ventura:        "b4dcdde8b947d798c22bac8690970858f2b19a6215213bed45a9ad37a9f9b442"
-    sha256 cellar: :any,                 monterey:       "4493355803c28d88eae473121b692ce655490732daa7394644c280e1c7519c38"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dfd1cabf3980f3efdcf17776865f134d487a65adf2e092ae13104b8c1a9dcf2e"
+    sha256 cellar: :any,                 arm64_sonoma:   "23fbc0644271120a1586abc35dd527006ef0a58b39e0ebfc0f583395a54fb8e2"
+    sha256 cellar: :any,                 arm64_ventura:  "8ae6f97a60710d478b3409b39d1e3764cf8b2fb7e61b97cdf2cbd36a2fffdd78"
+    sha256 cellar: :any,                 arm64_monterey: "4a6bae822ce498ec699aa29b5c191cb7c6c2cd02ce164999be32695a9ea7e126"
+    sha256 cellar: :any,                 sonoma:         "71eab7f58ad71aecb9363033489c0608cc05961f7dfe06cc9c61901deecf0338"
+    sha256 cellar: :any,                 ventura:        "c34ea7402f1d244df1c0fa70804919054753a584150d86520a30692f29046b46"
+    sha256 cellar: :any,                 monterey:       "4bab48704b9600f642e76062f120042308d9cc24b4eb8ffc7bb6de630e9e5da0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fde8b647887a2f4b8c606445852469c63fce7b828d1c11bdab87d78824588299"
   end
 
   depends_on "boost" => :build
