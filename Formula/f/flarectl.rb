@@ -6,6 +6,11 @@ class Flarectl < Formula
   license "BSD-3-Clause"
   head "https://github.com/cloudflare/cloudflare-go.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e0de3f0e9eae55af092eb8d56f1ea3ba4e35a083ac3ec7d332503b3181e3bf4"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9f25707af80f73f5f7388f152669571082ddab9a1072eecc3c1f9f9a19b37d4"
