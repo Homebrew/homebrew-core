@@ -20,13 +20,14 @@ class Chrony < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "52eb2a90d0a86c0259c2bf09ae9474262adb420c5bc6dd75ecb0ff8b5124f1c9"
   end
 
+  depends_on "pkg-config" => :build
+  depends_on "gnutls"
   depends_on "nettle"
 
   uses_from_macos "libedit"
 
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--localstatedir=#{var}"
+    system "./configure", "--localstatedir=#{var}", *std_configure_args
     system "make", "install"
   end
 
