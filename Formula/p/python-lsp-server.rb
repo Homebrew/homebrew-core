@@ -3,8 +3,8 @@ class PythonLspServer < Formula
 
   desc "Python Language Server for the Language Server Protocol"
   homepage "https://github.com/python-lsp/python-lsp-server"
-  url "https://files.pythonhosted.org/packages/6c/9f/4a3a6cc6e982eca3dfad39fdcaf48dcdc5a020f38dfe973e4487765e0048/python-lsp-server-1.10.0.tar.gz"
-  sha256 "0c9a52dcc16cd0562404d529d50a03372db1ea6fb8dfcc3792b3265441c814f4"
+  url "https://files.pythonhosted.org/packages/60/fc/1779454d6fb22dcda94c2b892bdc40cfd448007a68ee57935b491891707b/python-lsp-server-1.10.1.tar.gz"
+  sha256 "ec4c5706af67a265a19173fe4beb3b0a2c1626fa33a15ea952c2f288798b8c0d"
   license "MIT"
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
@@ -34,8 +34,8 @@ class PythonLspServer < Formula
   end
 
   resource "docstring-to-markdown" do
-    url "https://files.pythonhosted.org/packages/2b/11/4be3230b6ebaeb31b2406876367243780d10a28da3a881a45a960ed4469b/docstring-to-markdown-0.13.tar.gz"
-    sha256 "3025c428638ececae920d6d26054546a20335af3504a145327e657e7ad7ce1ce"
+    url "https://files.pythonhosted.org/packages/7a/ad/6a66abd14676619bd56f6b924c96321a2e2d7d86558841d94a30023eec53/docstring-to-markdown-0.15.tar.gz"
+    sha256 "e146114d9c50c181b1d25505054a8d0f7a476837f0da2c19f07e06eaed52b73d"
   end
 
   resource "jedi" do
@@ -44,8 +44,8 @@ class PythonLspServer < Formula
   end
 
   resource "lsprotocol" do
-    url "https://files.pythonhosted.org/packages/65/4a/c9a61e98a8f766c989546a02b6b96d2059e2504db9f96dec495c5834b8e7/lsprotocol-2024.0.0a1.tar.gz"
-    sha256 "d0a181c6c8888cfd148ecb451425fae65fd69675ff18345da8b835780fb4918c"
+    url "https://files.pythonhosted.org/packages/9d/f6/6e80484ec078d0b50699ceb1833597b792a6c695f90c645fbaf54b947e6f/lsprotocol-2023.0.1.tar.gz"
+    sha256 "cc5c15130d2403c18b734304339e51242d3018a05c4f7d0f198ad6e0cd21861d"
   end
 
   resource "parso" do
@@ -54,8 +54,8 @@ class PythonLspServer < Formula
   end
 
   resource "pluggy" do
-    url "https://files.pythonhosted.org/packages/36/51/04defc761583568cae5fd533abda3d40164cbdcf22dee5b7126ffef68a40/pluggy-1.3.0.tar.gz"
-    sha256 "cf61ae8f126ac6f7c451172cf30e3e43d3ca77615509771b3a984a0730651e12"
+    url "https://files.pythonhosted.org/packages/54/c6/43f9d44d92aed815e781ca25ba8c174257e27253a94630d21be8725a2b59/pluggy-1.4.0.tar.gz"
+    sha256 "8c85c2876142a764e5b7548e7d9a0e0ddb46f5185161049a79b7e974454223be"
   end
 
   resource "pylsp-mypy" do
@@ -64,8 +64,8 @@ class PythonLspServer < Formula
   end
 
   resource "pylsp-rope" do
-    url "https://files.pythonhosted.org/packages/fe/25/1935fc44a596427d50be237658a8fd23302a7904705422a5f1e39468e921/pylsp-rope-0.1.11.tar.gz"
-    sha256 "48aadf993dafa5e8fca1108b4a5431314cf80bc78cffdd56400ead9c407553be"
+    url "https://files.pythonhosted.org/packages/fe/c6/65994dd6c47fa420ba9e4d185da503ef0e654770c3f21de756b39db7cd96/pylsp-rope-0.1.15.tar.gz"
+    sha256 "d1fd16cc971539f1f569b267bd908b339fd6d497d5c520c01fe67500303a9144"
   end
 
   resource "python-lsp-black" do
@@ -79,8 +79,8 @@ class PythonLspServer < Formula
   end
 
   resource "python-lsp-ruff" do
-    url "https://files.pythonhosted.org/packages/94/78/296a431800664008dedc46554090fe13e82554fa4ab708c51e8ba0e42db4/python-lsp-ruff-2.0.2.tar.gz"
-    sha256 "b4a6219119d73d9175ffd88aeacb0db6859ae72f606158fdcc550e105957c8e0"
+    url "https://files.pythonhosted.org/packages/ae/8e/623702d362010dee2c45799242d5b42a54489552458ee5a4ad394632ecda/python-lsp-ruff-2.2.0.tar.gz"
+    sha256 "67c14067f76bc3d16bd5473a574e0d7b3bd422d723b62d2b2a83356e8af051db"
 
     # this depends on `ruff` solely to install the binary,
     # but we can just depend on the `ruff` formula in Homebrew
@@ -158,14 +158,14 @@ end
 
 __END__
 diff --git a/pyproject.toml b/pyproject.toml
-index cfdf720..d84c1b7 100644
+index 5eb87bf..5bdc9e4 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -13,7 +13,6 @@ readme = "README.md"
- requires-python = ">=3.7"
+ requires-python = ">=3.8"
  license = {text = "MIT"}
  dependencies = [
--  "ruff>=0.1.5, <0.2.0",
+-  "ruff>=0.2.0",
    "python-lsp-server",
-	 "cattrs!=23.2.1",
-   "lsprotocol>=2022.0.0a1",
+ 	"cattrs!=23.2.1",
+   "lsprotocol>=2023.0.1",
