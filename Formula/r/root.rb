@@ -67,6 +67,13 @@ class Root < Formula
 
   fails_with gcc: "5"
 
+  # Upstream fix for Xcode 15.3 build failure
+  # https://github.com/root-project/root/issues/14902
+  patch do
+    url "https://github.com/root-project/root/commit/440c7303a95ad53ecd0e5ae7d6ebd0f29a733fa6.patch?full_index=1"
+    sha256 "6cd88fecaf104591a9f43ada36a2daa13d5c8c0aa48b97d1bd5ed1b090fe80e9"
+  end
+
   def python3
     "python3.12"
   end
