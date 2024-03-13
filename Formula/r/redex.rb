@@ -1,5 +1,6 @@
 class Redex < Formula
   include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "Bytecode optimizer for Android apps"
   homepage "https://github.com/facebook/redex"
@@ -53,8 +54,12 @@ class Redex < Formula
   depends_on "libtool" => :build
   depends_on "boost"
   depends_on "jsoncpp"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+  end
 
   def install
     if build.stable?
@@ -64,6 +69,9 @@ class Redex < Formula
       # Ref: https://github.com/facebook/redex/commit/3f4cde379da4657068a0dbe85c03df558854c31c
       ENV.append "CXXFLAGS", "-include set"
     end
+
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resources
 
     python_scripts = %w[
       apkutil
@@ -75,12 +83,12 @@ class Redex < Formula
       tools/redex-tool/DexSqlQuery.py
       tools/redexdump-apk
     ]
-    rewrite_shebang detected_python_shebang, *python_scripts
+    rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *python_scripts
 
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
-                          "--with-boost=#{Formula["boost"].opt_prefix}"
+    system "./configure", "--disable-silent-rules",
+                          "--with-boost=#{Formula["boost"].opt_prefix}",
+                          *std_configure_args
     system "make"
     system "make", "install"
   end
