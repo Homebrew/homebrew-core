@@ -10,6 +10,8 @@ class PackerCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "e607f862efdc7c44bbf62da84a69d6986251af7e8a030809bcacc3b24804258c"
   end
 
+  deprecate! date: "2024-03-12", because: :repo_archived
+
   def install
     bash_completion.install "packer"
   end
