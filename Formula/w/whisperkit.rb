@@ -18,7 +18,7 @@ class Whisperkit < Formula
   end
 
   test do
-    require "json"
+    require "timeout"
     mkdir_p "#{testpath}/Models/whisperkit-coreml"
     system "huggingface-cli",
         "download",
@@ -28,11 +28,13 @@ class Whisperkit < Formula
         "--local-dir",
         "#{testpath}/Models/whisperkit-coreml"
 
-    system "#{bin}/transcribe",
-        "--model-path",
-        "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
-        "--audio-path",
-        test_fixtures("test.mp3"),
-        "--verbose"
+    Timeout.timeout(150) do
+      system "#{bin}/transcribe",
+          "--model-path",
+          "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
+          "--audio-path",
+          test_fixtures("test.mp3"),
+          "--verbose"
+    end
   end
 end
