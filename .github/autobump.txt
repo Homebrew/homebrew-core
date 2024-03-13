@@ -1826,6 +1826,7 @@ yubico-piv-tool
 z3
 zabbix
 zbctl
+zeek
 zellij
 zenith
 zeromq
