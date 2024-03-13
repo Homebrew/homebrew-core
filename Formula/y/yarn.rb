@@ -10,7 +10,7 @@ class Yarn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "321bf5ede7905483a19a4acd4896caad7f6cb7cc4f92fbe4e2f39706e1f98bb3"
+    sha256 cellar: :any_skip_relocation, all: "9a80ed679d05f019e217f737a7d531f4578144b65be6a1a19d3322ef41d25683"
   end
 
   depends_on "node" => :test
