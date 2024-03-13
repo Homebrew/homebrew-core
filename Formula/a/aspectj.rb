@@ -17,13 +17,13 @@ class Aspectj < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fef55c5cc502cf7877fad2b76fb8d4a4762f8144243afd7d37499a27d12725c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37e2e01cc744d4a68ddadd89081d15dfee3cb2c09b68257fe56b4a5ab4baa9a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc582e134d62d08846e0d083556037e6d9f0c6f5519f798b0e1b2e1a2b2794d8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4fd725143ac01cccc8cba869ff85c36fa33657409d9f6f7e986c33775b92aeb"
-    sha256 cellar: :any_skip_relocation, ventura:        "f42ad68a2915e3b18fda63e6fd54cee377b2c9ec9420be3f7d77db7de368d838"
-    sha256 cellar: :any_skip_relocation, monterey:       "017087890296767c6deaa638ac23a16979635fa97d40d127c330cd39971ce3dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a719cdf15793cb5476763dcd7e9d5d274412ef70cfbeabbe4a4220918dc0eb4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98f8a3135ab21245baec62b2413552ae05d4deb813c5914fd335cc34934cb8c6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ed2ca9d085a904e0705c56ed00c70ebbc5828c63207ea141f17339c1d80803bc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7111ceec36dff2c878b978d5c936d1150d111ea27c2287863676ece36b16800"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9c5058efbcf9e9a1f3dcd182d935c55d7e33af622cdb61aca64334ab160816cc"
+    sha256 cellar: :any_skip_relocation, ventura:        "b51ff0df41636e9816921f3a9f5fb7f1489aaaa311e545b57c738a4dfc875582"
+    sha256 cellar: :any_skip_relocation, monterey:       "7280d34aa3f4011b9e8c808f97fc818a405a0c01c19296e5f64da17a4f3bd973"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1b4471f72f918a307db2b2eedca6c5cd85c5a257d6ad893c0c9d7b768471f67"
   end
 
   depends_on "openjdk"
