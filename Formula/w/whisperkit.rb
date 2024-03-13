@@ -10,6 +10,7 @@ class Whisperkit < Formula
   depends_on "huggingface-cli"
   depends_on :macos
   depends_on macos: :ventura
+  uses_from_macos "swift"
 
   def install
     system "swift", "build", "-c", "release", "--product", "transcribe", "--disable-sandbox"
@@ -27,20 +28,11 @@ class Whisperkit < Formula
         "--local-dir",
         "#{testpath}/Models/whisperkit-coreml"
 
-    file = File.read("#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny/config.json")
-    config_hash = JSON.parse(file)
-    config_hash.delete("_name_or_path")
-    File.write("#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny/config.json", JSON.dump(config_hash))
-
     system "#{bin}/transcribe",
         "--model-path",
         "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
         "--audio-path",
         test_fixtures("test.mp3"),
-        "--audio-encoder-compute-units",
-        "cpuOnly",
-        "--text-decoder-compute-units",
-        "cpuOnly",
         "--verbose"
   end
 end
