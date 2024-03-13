@@ -1397,7 +1397,6 @@ pyright
 pyside@2
 python-build
 python-dateutil
-python-mako
 python-matplotlib
 python-pyparsing
 python-setuptools
