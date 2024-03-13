@@ -1,8 +1,8 @@
 class BazelDiff < Formula
   desc "Performs Bazel Target Diffing between two revisions in Git"
   homepage "https://github.com/Tinder/bazel-diff/"
-  url "https://github.com/Tinder/bazel-diff/releases/download/6.0.0/bazel-diff_deploy.jar"
-  sha256 "dc743227e3becc925eb3cb3398360d4c29b4d8cb08fbc583849f090dde7e049a"
+  url "https://github.com/Tinder/bazel-diff/releases/download/6.1.0/bazel-diff_deploy.jar"
+  sha256 "5d90de4561afd1e711bc62956560a9dfcbb4454bd6b209d6e68272b65c3cb50a"
   license "BSD-3-Clause"
 
   bottle do
@@ -19,6 +19,6 @@ class BazelDiff < Formula
 
   test do
     output = shell_output("#{bin}/bazel-diff generate-hashes --workspacePath=#{testpath} 2>&1", 1)
-    assert_match "Unexpected error during generation of hashes", output
+    assert_match "ERROR: The 'info' command is only supported from within a workspace", output
   end
 end
