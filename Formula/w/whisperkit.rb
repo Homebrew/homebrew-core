@@ -8,6 +8,7 @@ class Whisperkit < Formula
 
   depends_on xcode: ["15.0", :build]
   depends_on "git-lfs"
+  depends_on :macos
   depends_on macos: :ventura
 
   def install
