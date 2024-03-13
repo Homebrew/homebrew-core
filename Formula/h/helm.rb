@@ -2,8 +2,8 @@ class Helm < Formula
   desc "Kubernetes package manager"
   homepage "https://helm.sh/"
   url "https://github.com/helm/helm.git",
-      tag:      "v3.14.2",
-      revision: "c309b6f0ff63856811846ce18f3bdc93d2b4d54b"
+      tag:      "v3.14.3",
+      revision: "f03cc04caaa8f6d7c3e67cf918929150cf6f3f12"
   license "Apache-2.0"
   head "https://github.com/helm/helm.git", branch: "main"
 
