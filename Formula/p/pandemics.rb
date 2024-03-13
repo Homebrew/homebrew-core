@@ -3,8 +3,8 @@ require "language/node"
 class Pandemics < Formula
   desc "Converts your markdown document in a simplified framework"
   homepage "https://pandemics.gitlab.io"
-  url "https://registry.npmjs.org/pandemics/-/pandemics-0.12.0.tgz"
-  sha256 "8106ae09462a19768b4e74cb0079093b73d30ed9bc6ec22e0dd9d4434d23ea3f"
+  url "https://registry.npmjs.org/pandemics/-/pandemics-0.12.1.tgz"
+  sha256 "9be418ec78ca512cc66d57a7533a5acda003c8bc488d7fff7fa2905c9ad39e29"
   license "BSD-3-Clause"
 
   bottle do
