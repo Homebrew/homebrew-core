@@ -102,6 +102,12 @@ class Crystal < Formula
       ENV.prepend_path "CRYSTAL_LIBRARY_PATH", dep.opt_lib
     end
 
+    # `CRYSTAL_CONFIG_CC` bakes the reference to `gcc` into the compiler to
+    # ensure it uses homebrew's version of `gcc` which is configured to pick
+    # up libraries installed via homebrew.
+    gcc = Formula["gcc"]
+    ENV["CRYSTAL_CONFIG_CC"] = gcc.opt_bin/"gcc-#{gcc.any_installed_version.major}"
+
     crystal_install_dir = bin
     stdlib_install_dir = pkgshare
 
