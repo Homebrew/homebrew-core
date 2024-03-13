@@ -8,15 +8,13 @@ class Pandemics < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3f661c33867c3c714248b6e3fee9b5b075588cb6227c4730b12e584d1e3c3b44"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ba3d95dc31bec61a6be96c0a0ee08befebf159f2d92c3f900bf5c6d29f7959e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ba3d95dc31bec61a6be96c0a0ee08befebf159f2d92c3f900bf5c6d29f7959e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "3ba3d95dc31bec61a6be96c0a0ee08befebf159f2d92c3f900bf5c6d29f7959e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2fa19a5f7e50a0304fd859cce7235af9852e72fd7a710f7d63eb8c1c39e842a0"
-    sha256 cellar: :any_skip_relocation, ventura:        "fcb7becebfe11194903b3c2f602a3e20840c6fccc9e2482cba6672acf630cbe8"
-    sha256 cellar: :any_skip_relocation, monterey:       "fcb7becebfe11194903b3c2f602a3e20840c6fccc9e2482cba6672acf630cbe8"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fcb7becebfe11194903b3c2f602a3e20840c6fccc9e2482cba6672acf630cbe8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ba3d95dc31bec61a6be96c0a0ee08befebf159f2d92c3f900bf5c6d29f7959e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e67ac2267b5cd23b60aebe99d0323fe8816824933d494c14a02b7ad1c4e39452"
+    sha256 cellar: :any_skip_relocation, ventura:        "e67ac2267b5cd23b60aebe99d0323fe8816824933d494c14a02b7ad1c4e39452"
+    sha256 cellar: :any_skip_relocation, monterey:       "e67ac2267b5cd23b60aebe99d0323fe8816824933d494c14a02b7ad1c4e39452"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
   end
 
   depends_on "librsvg"
