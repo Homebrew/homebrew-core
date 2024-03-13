@@ -25,9 +25,11 @@ class Whisperkit < Formula
         "openai_whisper-tiny/*",
         "--local-dir",
         "#{testpath}/Models/whisperkit-coreml"
+    File.rename "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
+        "#{testpath}/Models/whisperkit-coreml/tiny"
     system "#{bin}/transcribe",
         "--model-path",
-        "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
+        "#{testpath}/Models/whisperkit-coreml/tiny",
         "--audio-path",
         test_fixtures("test.mp3"),
         "--audio-encoder-compute-units",
