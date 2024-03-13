@@ -7,7 +7,7 @@ class Whisperkit < Formula
   license "MIT"
 
   depends_on xcode: ["15.0", :build]
-  depends_on "git-lfs"
+  depends_on "huggingface-cli"
   depends_on :macos
   depends_on macos: :ventura
 
@@ -18,15 +18,13 @@ class Whisperkit < Formula
 
   test do
     mkdir_p "#{testpath}/Models/whisperkit-coreml"
-    ENV["GIT_LFS_SKIP_SMUDGE"] = "1"
-    system "git", "lfs", "install"
-    system "git",
-        "clone",
-        "https://huggingface.co/argmaxinc/whisperkit-coreml",
+    system "huggingface-cli",
+        "download",
+        "argmaxinc/whisperkit-coreml",
+        "--include",
+        "openai_whisper-tiny/*",
+        "--local-dir",
         "#{testpath}/Models/whisperkit-coreml"
-    chdir "#{testpath}/Models/whisperkit-coreml" do
-      system "git", "lfs", "pull", "--include=openai_whisper-tiny/*"
-    end
     system "#{bin}/transcribe",
         "--model-path",
         "#{testpath}/Models/whisperkit-coreml/openai_whisper-tiny",
