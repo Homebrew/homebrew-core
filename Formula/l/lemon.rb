@@ -11,13 +11,13 @@ class Lemon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "beda42023d227c38a98bce2d924be9d5c216b40fd6fc90524004cd988962349d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e90a285ef4c04ad584f62d29b29a83b9d87336026b89e587ab90fb4af409f4c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de0392a56ebe63c4cd8f8202311ea197a7034647c7eac1abef6da01a07c8dc10"
-    sha256 cellar: :any_skip_relocation, sonoma:         "59277362620b8f9d55482c2be3dd3a5850e37c438a67c6485944f0ede9858ed2"
-    sha256 cellar: :any_skip_relocation, ventura:        "2a89242bd10a7ff02433e224009cba5a261309212c226aa8623d97eede04b400"
-    sha256 cellar: :any_skip_relocation, monterey:       "dbb1482ffd611fee05a958c8ac00d21028668b086182dff4aaead424c77853a2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1769e87592a6ea3fbdbdd7746a68f579894ba75b29755d38e7bdc2867fa7a3a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b31c0471cd410a7988e59c89063678d633278373782657fb9f13c6515bf7e04"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dcb740cd3a4f36c6466920d1ebdcfff38111fe6bd39615423df964e19b2cabf2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e80c7bf91d48639d66137014e293713ec9a7d03120d815144f31cec1f301c53"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ac4477fdc12d923efbf47e5ea88f4eb069f189428eccabb72fcd8aa1501bf16c"
+    sha256 cellar: :any_skip_relocation, ventura:        "9c082333b2e8dcee1e6ea4ac0a0be909729415b49b9d239530012d6c92bfbbd4"
+    sha256 cellar: :any_skip_relocation, monterey:       "119e62e023c45fd1554f3db9b90269a3dd19360f12f2fe854119cb94dd4a5900"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4195f77c9ee72eb6cd9300d8a7ee7d097d9a0d5327309d78d6c8b70804b9519e"
   end
 
   # Submitted the patch via email to the upstream
