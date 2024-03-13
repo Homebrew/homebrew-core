@@ -7,13 +7,13 @@ class Sqlpage < Formula
   head "https://github.com/lovasoa/SQLpage.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e5be259547c0197f7629c2a0ca1ea6a9235756b7482e063fef7fd49400d28011"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "25a2e51b6bbb097dab9ea546bec7bafb1ba09080ce25a419820f95b0cbc66f8c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "482fe4b96979f2b9b1700eae8284da261d670f9b25bd7bd336cf115644f7218c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c01223b81ec59aae89ac6400c77a10c015c3a2193ed402e606df7b863e4f35a4"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae3ba92f3276c0a32c7115910bbb91b816c38b275ed9aa46f1a308676b5b97c7"
-    sha256 cellar: :any_skip_relocation, monterey:       "53e61ac550dccc874c7837985eb081c1c41b1784dc667015b0db4a01bd397e5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca28664497929d8ca95467d10c5168ef5e23fef9dbe80ffe102bb6c91f2a0bfa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29abe1d0c4fee7ba66795040e95479b9bd300ae97a774e900f3ea0341c8db894"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aeb0c345d7ae7bb9946f3b680c3a1fea1ce6404203d5c6112d534bf60cbdf0e7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3cfff226620265ac22ea6a31e840c584f245815f646db85f937bfce0fd9e4606"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d424f1c75e7782354e8fab767f680a017ccae8d04cb8af05303e13d74c6a17c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "240a0d10ea6dd629964ab999fcebe73bb703ac702517c1e85097fe064d8dc559"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4f1d5df12123582f648956ce92fd4171df22e76d557c418bbb822b50894c716"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2b00f692a4306d65b73e5cedbdb4f23c3a98bfe65fbcd23477fba5106cb2da72"
   end
 
   depends_on "rust" => :build
