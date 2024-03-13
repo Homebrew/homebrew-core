@@ -11,7 +11,7 @@ class Jenkins < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3b82b8a2d39ea344c462efca5908c86fb0cc1a6c78d6615ecc35942d4561a205"
+    sha256 cellar: :any_skip_relocation, all: "f5dcd2f12a9f112991bee70bcbbfda2e6fb1d73d51cb227b5452270838be87c9"
   end
 
   head do
