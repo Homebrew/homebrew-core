@@ -8,13 +8,13 @@ class Pandemics < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e67ac2267b5cd23b60aebe99d0323fe8816824933d494c14a02b7ad1c4e39452"
-    sha256 cellar: :any_skip_relocation, ventura:        "e67ac2267b5cd23b60aebe99d0323fe8816824933d494c14a02b7ad1c4e39452"
-    sha256 cellar: :any_skip_relocation, monterey:       "e67ac2267b5cd23b60aebe99d0323fe8816824933d494c14a02b7ad1c4e39452"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c8e1c71e10d1599ce608f8bdb8c03b9649d3f3b3e39e6060dae19a5a7cc2581"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3f9f657ee8034b2a8f061362e8eb9a74019dc990f54fdb3d75e87c4642857155"
+    sha256 cellar: :any_skip_relocation, ventura:        "3f9f657ee8034b2a8f061362e8eb9a74019dc990f54fdb3d75e87c4642857155"
+    sha256 cellar: :any_skip_relocation, monterey:       "a0e63b2bcee0890cf82a0dcf37eec467dc860dbdc1ec807c24aa4e44f907f725"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e903551f020b611f22d074a0c0c9d57ecfc474755cd8265c09847e86778f0bd1"
   end
 
   depends_on "librsvg"
