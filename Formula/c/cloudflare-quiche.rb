@@ -8,13 +8,13 @@ class CloudflareQuiche < Formula
   head "https://github.com/cloudflare/quiche.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8f281f0d96925b21b9bd751a96cfa3fb4d1e5c25325c49251d6ea2fd58f6488b"
-    sha256 cellar: :any,                 arm64_ventura:  "02da14a6cacb951eb5a62e37adef6e4c9e2f3a3716a2526f6d7cc9afa11d52f5"
-    sha256 cellar: :any,                 arm64_monterey: "398ebcf2aba174360de935d27f7ea3828b86016cddbf41e1631e3f8b4df309d4"
-    sha256 cellar: :any,                 sonoma:         "85edce1d91484e8432bd0b93c4003e64b2b8444499a3c62b24c88b3d17889d6f"
-    sha256 cellar: :any,                 ventura:        "0efef5015d1a5e1ff00db312e0d69ff5e265d1b305d1654b215ef999de613bd6"
-    sha256 cellar: :any,                 monterey:       "44716d9a61c3dc30d6a6348b5a40b8bb1797637c8763a7cde6b0de60ff57d69b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "37005d35150baf9bcf71cdf1d3d2cdd7e1de45fc631fc18c3b0be69385160c9b"
+    sha256 cellar: :any,                 arm64_sonoma:   "a3a831d97257fe5dc8695aabfec5856a7f9495e64b62b1306e2cc767fe6d9e10"
+    sha256 cellar: :any,                 arm64_ventura:  "e31a1ed2d9a67b58714a98b394559369b3d1c8719b6bc37957717fe26ccbbe28"
+    sha256 cellar: :any,                 arm64_monterey: "c3da869d1828557d7abd5e25fa23b40f1b1e51e7f8d4d958692820d667ea4d90"
+    sha256 cellar: :any,                 sonoma:         "89a0c1e2ef3d0112d5209a64165cba6b5e2acb0966fc70160d96cbe56e8e7dc7"
+    sha256 cellar: :any,                 ventura:        "2779621ec9d55baaf03d5d7eb45e75fdf6eee21d0b8d250f9354d229e520ac46"
+    sha256 cellar: :any,                 monterey:       "2e2a23f0201a3c8ce4fc7946d38a8000c622c815d0c398db3117d7d0643e1f93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9cf7b7d81e0dcb9bc529481a2ed59f087b1c010afc14366da750e003ca1a2739"
   end
 
   depends_on "cmake" => :build
