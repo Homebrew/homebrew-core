@@ -64,6 +64,9 @@
   "aws-sso-util": {
     "exclude_packages": ["certifi"]
   },
+  "awscli": {
+    "extra_packages": ["setuptools", "wheel"]
+  },
   "awscurl": {
     "exclude_packages": ["certifi", "cryptography"]
   },
