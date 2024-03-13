@@ -1,10 +1,9 @@
 class Primecount < Formula
   desc "Fast prime counting function program and C/C++ library"
   homepage "https://github.com/kimwalisch/primecount"
-  url "https://github.com/kimwalisch/primecount/archive/refs/tags/v7.10.tar.gz"
-  sha256 "0a0e9aaa25d8c24d06f0612fc01cd0c31f3eac4e096a9248fc041dd42dc60afb"
+  url "https://github.com/kimwalisch/primecount/archive/refs/tags/v7.11.tar.gz"
+  sha256 "e5b015555b50f4f19ae5c9f902bbee08082218862d15ed4ca45deb72f6c9c3f9"
   license "BSD-2-Clause"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "c21ff0521753955eb31d5a4c424bd2f993b4f982793a2d6131a0904f472c4656"
