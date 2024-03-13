@@ -6,13 +6,13 @@ class Lune < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e5e5b12fb64e3733d27a5e04087d1e4ed08872dcd52a6033e2615e648c20ee1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "141c3a8803c4f5675913346f747d7edb954aad0f8aed62a50f66d8b3601f0fe9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8eb836beab8318e41478fa72dd671d98f9f67b6d810892d22ea7ce093ad0c4dc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "febba79262a62d18dc6f20393e94e8fb6490d9c93d90f8e68205a907e49fcec9"
-    sha256 cellar: :any_skip_relocation, ventura:        "5ec9e9cff005cc06e5683e89ddf3c241226a6146038605d1d2a14d8ee60d3f8d"
-    sha256 cellar: :any_skip_relocation, monterey:       "607e6b5e62314e4829cb448c39a620309ad483f78f99c0efa853fd3a41a6f0bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "399fbd1c0f5a7615546c64e2f6cbafe4f9496060a9d22beb28bfaefe2c26166c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9c24e44a89f8cbbf3338fed2b59c09f4fde6aa241d6e79578d48e43ca2bb6f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a88b5d3c8ef0338a18953abb694af42663b9cdf5757e88de6489e4a5b74ae856"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6e374ec537443bd38685b2b7ccf5cd12783195e3953cf9e03831e7aec36638e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "13aab608e7aebc2bcf8d12c06c117280c9f62dc398e97a87f712bac6c08534c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "7e4e68c9765191543d74bee3ef31e0a936bc3cdba6d1a833661aba8e907f1b0f"
+    sha256 cellar: :any_skip_relocation, monterey:       "dceeda710f5a7695b4610a46915fc9f31cc57a4a676af9db3eec6f33adf85789"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45b5e4f198e4ac10edccb4a448d483b133d88dd5217926fdf3ea81eb4b98bfa7"
   end
 
   depends_on "rust" => :build
