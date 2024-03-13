@@ -6,13 +6,7 @@ class Lit < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d108e9b9f850097d24dbe39a670283fcb1a953a141cce2d225035202b10e7498"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b89b796b84c2a7157fa6589fbe24bd01d90facd695f406d202f1d6040ef1b8d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86176d276e0deb7f75e7719053bc031deece7e5778b56fdc88c3592f300a3619"
-    sha256 cellar: :any_skip_relocation, sonoma:         "084f42cd8636af8ee1f038b2d38da5b265a843a7f1f85df19d1b01495d82a914"
-    sha256 cellar: :any_skip_relocation, ventura:        "d1100f694ef5823a0f2022f1cc9e206bf223c3fa3301e8320a0ed973374b14d2"
-    sha256 cellar: :any_skip_relocation, monterey:       "73746b6a2d27d09fdd1c6abe2b6611441bbbafbb7ca75c22e92fed078dadbcd5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "02c934a185a050250deaf52b6e88aa0472967802fc048a4c359c5dd105523e74"
+    sha256 cellar: :any_skip_relocation, all: "7265c22ff95040c9deccc0c56e940faa96f348f0b26ab1e728f476cceaf4c327"
   end
 
   depends_on "python-setuptools" => :build
