@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.12/gtk-4.12.5.tar.xz"
-  sha256 "28b356d590ee68ef626e2ef9820b2dd21441484a9a042a5a3f0c40e9dfc4f4f8"
+  url "https://download.gnome.org/sources/gtk/4.14/gtk-4.14.0.tar.xz"
+  sha256 "3821124067258d4a1f0ab581a56df68768036e66f072eec7e12867949ad0f810"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -54,6 +54,7 @@ class Gtk4 < Formula
       -Dbuild-examples=false
       -Dbuild-tests=false
       -Dmedia-gstreamer=disabled
+      -Dvulkan=disabled
     ]
 
     if OS.mac?
