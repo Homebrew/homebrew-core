@@ -305,6 +305,10 @@
       "packaging", "pygccxml", "pyyaml", "setuptools"
     ]
   },
+  "gobject-introspection": {
+    "package_name": "",
+    "extra_packages": ["mako", "markdown", "setuptools"]
+  },
   "goolabs": {
     "exclude_packages": ["certifi"]
   },
