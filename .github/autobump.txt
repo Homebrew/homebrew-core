@@ -110,7 +110,6 @@ awscli@1
 axel
 azcopy
 b2-tools
-b3sum
 babel
 babl
 bacon
