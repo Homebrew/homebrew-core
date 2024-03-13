@@ -58,6 +58,7 @@ appium
 appstream
 apr
 apt
+aravis
 arb
 archi-steam-farm
 argc
