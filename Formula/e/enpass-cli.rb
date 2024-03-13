@@ -1,8 +1,8 @@
 class EnpassCli < Formula
   desc "Enpass command-line client"
   homepage "https://github.com/hazcod/enpass-cli"
-  url "https://github.com/hazcod/enpass-cli/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "25668bb30747dc566695ff7f30e65fa2e29b04f5896155a4ab03185d8f5b4111"
+  url "https://github.com/hazcod/enpass-cli/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "adc41a0ea630e4c13b7e1333f3e4fdac438a86560d06c2861f5ba9f7979e8a54"
   license "MIT"
 
   bottle do

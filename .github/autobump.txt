@@ -565,6 +565,7 @@ embree
 emqx
 emscripten
 enchant
+enpass-cli
 ensmallen
 entr
 envconsul
