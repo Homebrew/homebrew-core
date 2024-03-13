@@ -12,13 +12,13 @@ class CodeCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b0812b95380129485011240fa5a73507f4a4d4caeb239de984176b8a1999fea4"
-    sha256 cellar: :any,                 arm64_ventura:  "6867dcf93afed23aa6f1f958575526c1f2ab787844934af450f6317bd13f3d1b"
-    sha256 cellar: :any,                 arm64_monterey: "bb2d9f818460064a901bf159b800ff4a1bf5fef026d93b1344a18ad721bda32b"
-    sha256 cellar: :any,                 sonoma:         "81d3d2e42c5b4f282deb834ca30d66418f4cb55a369fa3fa85e439a058ae25b1"
-    sha256 cellar: :any,                 ventura:        "16bfe03071cd64c572fd3ed3e43ab5082339feec48b1574b99a505933ac75b2a"
-    sha256 cellar: :any,                 monterey:       "28b37c480d1d842aae2e4b9c797185c5920ab08343e00c09a7fd64163af41f41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3058b5ebc80cedade8cf8118f91c5f6dcd3e6af8b3b696af1a0f095dd08bc194"
+    sha256 cellar: :any,                 arm64_sonoma:   "ab30f53179ae66ff792c3ef94ca2b9477d442f2b73d0846e19bf7b5773fbc05b"
+    sha256 cellar: :any,                 arm64_ventura:  "1756df9f6cf07ef4d15a6703845c0aa370114b3357ab88ed00f88246a9f578f9"
+    sha256 cellar: :any,                 arm64_monterey: "5c7fd0b4be6f4d22a1b6a60cefbd8c4e37cc81b54f37239a7c7b87ee500aad16"
+    sha256 cellar: :any,                 sonoma:         "f0bd14520c8d0931b58689a39de9e0e0758f47d854f6f4b9d02218d87a679f4e"
+    sha256 cellar: :any,                 ventura:        "a246f9032ad5d66962daed7115810806cabcba7e21fe3eb6425a1538e926358b"
+    sha256 cellar: :any,                 monterey:       "a8f7d5e26c7341ff8b094a150371374608bcff75d1e7a57dc8cbfde92b28a990"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f350bbf9e17d469b706c659ac341827dfb958c89280be253a1842d7d40eea9db"
   end
 
   depends_on "rust" => :build
