@@ -6,13 +6,13 @@ class Aravis < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "1f4c2e38ab288ea7d63f6819b98d7ed6360bc96084f42c3238e6a01cce42ccaf"
-    sha256 arm64_ventura:  "37fe3ab86c269e0d29c3426caf4bde33fa9c0c6bc7a44cd9c9ccb74f1bb895aa"
-    sha256 arm64_monterey: "d6aed1ef3322c79867426e8362e0e140c7a60f36d4c06d929fa5993a55cf7dca"
-    sha256 sonoma:         "a9a529672a64eacb6a54ac796ec1e9e935d757b53badaeb5886e01b01daf6cce"
-    sha256 ventura:        "2633a32ebb17ea6d140445a86d8b19d9561f8840efdd3f961776f0a31c0a5ea5"
-    sha256 monterey:       "2c0315ba520f01d7b29cacc00504f9802d7ac9a8bff748a6d129fb7f0ed3d487"
-    sha256 x86_64_linux:   "46efd141618e6c8d828da803918377263e2642a836b49d38f457c24a2d60ec49"
+    sha256 arm64_sonoma:   "92d2a832735db576610b78b26efa529f9ed0ae5e61f7d86588e5955f9e64a26d"
+    sha256 arm64_ventura:  "c1bf4f1146b3658960e09736d3fb08cd640ecd597b89665d175e51b5a5bd3cd0"
+    sha256 arm64_monterey: "2879866705ce34022653cf6838751e79b55c198dc7733ce19a75d41f48382aa9"
+    sha256 sonoma:         "973c99a6806dac2ae3eb7447655e7108eb681033d3947557934892efd24e1ded"
+    sha256 ventura:        "11d8e8bed23ea7cfd6cf8b72e2c54f3e85151b659d185468da508259753b20b1"
+    sha256 monterey:       "63a17a0c9ab56dc2eb8b30d7a2fd99f3bf0eac141c2f5e17aa906db66567cb4c"
+    sha256 x86_64_linux:   "d81bad462d46b7940211234830014a1c7b37f38cb09fe2792bd4e6a718282385"
   end
 
   depends_on "gobject-introspection" => :build
