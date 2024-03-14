@@ -1,8 +1,8 @@
 class Chapel < Formula
   desc "Programming language for productive parallel computing at scale"
   homepage "https://chapel-lang.org/"
-  url "https://github.com/chapel-lang/chapel/releases/download/1.33.0/chapel-1.33.0.tar.gz"
-  sha256 "9dfd9bbab3eb1acf10242db909ccf17c1b07634452ca6ba8b238e69788d82883"
+  url "https://github.com/chapel-lang/chapel/releases/download/2.0.0/chapel-2.0.0.tar.gz"
+  sha256 "b5387e9d37b214328f422961e2249f2687453c2702b2633b7d6a678e544b9a02"
   license "Apache-2.0"
   head "https://github.com/chapel-lang/chapel.git", branch: "main"
 
@@ -17,7 +17,7 @@ class Chapel < Formula
 
   depends_on "cmake"
   depends_on "gmp"
-  depends_on "llvm@15"
+  depends_on "llvm"
   depends_on "python@3.11"
 
   # LLVM is built with gcc11 and we will fail on linux with gcc version 5.xx
@@ -62,6 +62,8 @@ class Chapel < Formula
       with_env(CHPL_LLVM: "system") do
         system "make"
       end
+      # TODO: a bug (in the formula?) is causing chpldoc to not be installed
+      # see https://github.com/chapel-lang/chapel/issues/24639
       with_env(CHPL_PIP_FROM_SOURCE: "1") do
         system "make", "chpldoc"
       end
@@ -96,11 +98,16 @@ class Chapel < Formula
     cd libexec do
       with_env(CHPL_LLVM: "system") do
         system "util/test/checkChplInstall"
+        # TODO: enable when bug affecting chpldoc install is resolved
+        # system "util/test/checkChplDoc"
       end
       with_env(CHPL_LLVM: "none") do
         system "util/test/checkChplInstall"
+        # TODO: enable when bug affecting chpldoc install is resolved
+        # system "util/test/checkChplDoc"
       end
     end
     system bin/"chpl", "--print-passes", "--print-commands", libexec/"examples/hello.chpl"
+    system bin/"mason", "--version"
   end
 end
