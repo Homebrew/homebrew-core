@@ -12,14 +12,14 @@ class RomTools < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "70a9a74c896dfe5ed9d4b8adfd73a936c035dc3714eb20d50db8a0708b1b619e"
-    sha256 cellar: :any,                 arm64_ventura:  "b31e250c3963524342f8df49f6076b896cb194029cf884ab080541dcff2db69b"
-    sha256 cellar: :any,                 arm64_monterey: "21e0399d7ce6b57c5fced50aa064024706f78ea357f5203d6053b3b76ad77b06"
-    sha256 cellar: :any,                 sonoma:         "1f1e4db1e52cb93d95f9f0cbbf7bc05b88071c3e6aae65c851ff9ef6ab32fd33"
-    sha256 cellar: :any,                 ventura:        "526c3e89cf2a89e24abf8d1fc532abad99d5ad64bcfb0d28911d30c43482b03e"
-    sha256 cellar: :any,                 monterey:       "b3171839a9a5fef09873f7c3000649d80d1964d342a9b901d4d1ff3f7a69b032"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24fee93e031bebcf10d24b47cdd7bcbb074bd55d16f683e9d50037eab957b74d"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "689f46493cb52f61a35596c0de060c5bc07c845bce860ad2945a9ec3411b49f2"
+    sha256 cellar: :any,                 arm64_ventura:  "c05d246aedc00df3b21eedf373f7b5ce475a799c341bf98ad26dce8db7f2edca"
+    sha256 cellar: :any,                 arm64_monterey: "3934ad07ab118071230b2718eaed051aba4ded21f1cf0574bafccf0e9b492928"
+    sha256 cellar: :any,                 sonoma:         "77d44bb794f8d0b011fba21fd350bc59e4a9b375122156c66f7aa19ea1c65791"
+    sha256 cellar: :any,                 ventura:        "8e6dfee064f19d6e5116a1bec01ea9770e7bfbebaa21afc97e21374ce9bc9dd0"
+    sha256 cellar: :any,                 monterey:       "f90a8ecdd6276eb8f2d8058b2066186ca7e1a64969f752d9be5406605dfc919c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a6a2627a81cbc766f618a1834cdebc30a82d27535263af76868467be89cb6d1"
   end
 
   depends_on "asio" => :build
