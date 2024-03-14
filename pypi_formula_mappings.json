@@ -102,7 +102,7 @@
     "exclude_packages": ["certifi", "cryptography"]
   },
   "bzt": {
-    "exclude_packages": ["certifi", "Cython", "numpy"],
+    "exclude_packages": ["certifi", "numpy"],
     "extra_packages": ["setuptools"]
   },
   "cassandra": {
