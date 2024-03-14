@@ -1,15 +1,10 @@
 class Hercules < Formula
   desc "System/370, ESA/390 and z/Architecture Emulator"
-  homepage "http://www.hercules-390.eu/"
-  url "http://downloads.hercules-390.eu/hercules-3.13.tar.gz"
-  sha256 "890c57c558d58708e55828ae299245bd2763318acf53e456a48aac883ecfe67d"
+  homepage "https://sdl-hercules-390.github.io/html/"
+  url "https://github.com/SDL-Hercules-390/hyperion/archive/refs/tags/Release_4.7.tar.gz"
+  sha256 "74c747773e0b5639164f6f69ce9220e1bd1d4853c5c4f18329da21c03aebe388"
   license "QPL-1.0"
-  head "https://github.com/hercules-390/hyperion.git", branch: "master"
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?hercules[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  head "https://github.com/SDL-Hercules-390/hyperion.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -28,26 +23,53 @@ class Hercules < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
+  depends_on "cmake" => :build
+  depends_on "gnu-sed" => :build
   depends_on "libtool" => :build
-
   uses_from_macos "zlib"
 
-  skip_clean :la
+  resource "crypto" do
+    url "https://github.com/SDL-Hercules-390/crypto/archive/a5096e5dd79f46b568806240c0824cd8cb2fcda2.tar.gz"
+    sha256 "78bda462d46c75ab4a92e7fd6755b648658851f5f1ac3f07423e55251bd83a8c"
+  end
+
+  resource "decNumber" do
+    url "https://github.com/SDL-Hercules-390/decNumber/archive/3aa2f4531b5fcbd0478ecbaf72ccc47079c67280.tar.gz"
+    sha256 "527192832f191454b19da953d1f3324c11a4f01770ad2451c42dc6d638baca62"
+  end
+
+  resource "SoftFloat" do
+    url "https://github.com/SDL-Hercules-390/SoftFloat/archive/4b0c326008e174610969c92e69178939ed80653d.tar.gz"
+    sha256 "46a141a183cb1ad8de937612d134ad51e8ff100931bcf6d4a62874baadf18e69"
+  end
+
+  resource "telnet" do
+    url "https://github.com/SDL-Hercules-390/telnet/archive/729f0b688c1426018112c1e509f207fb5f266efa.tar.gz"
+    sha256 "222bc9c5b56056b3fa4afdf4dd78ab1c87673c26c725309b1b3a6fd3e0e88d51"
+  end
 
   def install
-    ENV.deparallelize
+    resources.each do |r|
+      resource_prefix = buildpath/r.name
+      resource_prefix.rmtree
+      build_dir = buildpath/"#{r.name}64.Release"
 
-    if build.head?
-      system "./autogen.sh"
-    elsif Hardware::CPU.arm?
-      system "autoreconf", "-fvi"
+      r.stage do
+        system "cmake", "-S", ".", "-B", build_dir, *std_cmake_args(install_prefix: resource_prefix)
+        system "cmake", "--build", build_dir
+        system "cmake", "--install", build_dir
+      end
+
+      (resource_prefix/"lib/aarch64").install_symlink (resource_prefix/"lib").children if Hardware::CPU.arm?
     end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--enable-optimization=no"
+    system "./configure", *std_configure_args,
+                          "--disable-silent-rules",
+                          "--enable-optimization=no",
+                          "--disable-getoptwrapper",
+                          "--without-included-ltdl"
     system "make"
+    ENV.deparallelize if OS.linux?
     system "make", "install"
     pkgshare.install "hercules.cnf"
   end
