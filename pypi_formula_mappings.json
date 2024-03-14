@@ -602,7 +602,7 @@
     "exclude_packages": ["certifi", "charset-normalizer", "idna", "urllib3"]
   },
   "pythran": {
-    "exclude_packages": ["numpy", "ply", "setuptools"]
+    "exclude_packages": ["numpy"]
   },
   "raven": {
     "exclude_packages": ["certifi"]
