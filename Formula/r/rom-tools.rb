@@ -29,6 +29,7 @@ class RomTools < Formula
   depends_on macos: :high_sierra
   depends_on "sdl2"
   depends_on "utf8proc"
+  depends_on "zstd"
 
   uses_from_macos "python" => :build
   uses_from_macos "expat"
@@ -59,6 +60,7 @@ class RomTools < Formula
       USE_SYSTEM_LIB_ASIO=1
       USE_SYSTEM_LIB_FLAC=1
       USE_SYSTEM_LIB_UTF8PROC=1
+      USE_SYSTEM_LIB_ZSTD=1
       VERBOSE=1
     ]
     if OS.linux?
