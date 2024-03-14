@@ -1,9 +1,8 @@
 class Groovy < Formula
   desc "Java-based scripting language"
-  # TODO: remove `groovy-raw-#{version}-raw.jar` workaround when bump
   homepage "https://www.groovy-lang.org/"
-  url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.19.zip"
-  sha256 "41b5ac00bd86e5beff108002cf328724ce533f0dfcb7d8f8073071385378fd22"
+  url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-binary-4.0.20.zip"
+  sha256 "fdf70cc57eff997f3fa5aee2b340d311593912e822ad810b3fd6ee403985eb75"
   license "Apache-2.0"
 
   livecheck do
@@ -58,9 +57,6 @@ class Groovy < Formula
                       "META-INF/native/osx64/libjansi.jnilib"
       end
     end
-
-    # workaround to fix startup issue, see discussions in https://issues.apache.org/jira/browse/GROOVY-11328
-    rm_f "lib/groovy-raw-#{version}-raw.jar"
 
     # Don't need Windows files.
     rm_f Dir["bin/*.bat"]
