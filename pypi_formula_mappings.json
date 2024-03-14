@@ -642,7 +642,7 @@
     "exclude_packages": ["certifi"]
   },
   "scikit-image": {
-    "exclude_packages": ["networkx", "numpy", "packaging", "pillow", "scipy"]
+    "exclude_packages": ["numpy", "pillow", "scipy"]
   },
   "scipy": {
     "exclude_packages": ["numpy"]
