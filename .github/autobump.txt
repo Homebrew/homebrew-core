@@ -1326,6 +1326,8 @@ phoronix-test-suite
 php
 php-code-sniffer
 php-cs-fixer
+php@8.1
+php@8.2
 phpmd
 phpmyadmin
 phpunit
