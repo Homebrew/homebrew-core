@@ -2,8 +2,8 @@ class Groovysdk < Formula
   desc "SDK for Groovy: a Java-based scripting language"
   # TODO: remove `groovy-raw-#{version}-raw.jar` workaround when bump
   homepage "https://www.groovy-lang.org/"
-  url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-sdk-4.0.19.zip"
-  sha256 "b14670abfe74d2d79aca091cfecab5629b5c662b8d0310c42a143f342520b541"
+  url "https://groovy.jfrog.io/artifactory/dist-release-local/groovy-zips/apache-groovy-sdk-4.0.20.zip"
+  sha256 "a1680827e7fea8f2d6bf7be495b5b4238f3b6c6d1784e9e1c3bda5cba9927184"
   license "Apache-2.0"
 
   livecheck do
