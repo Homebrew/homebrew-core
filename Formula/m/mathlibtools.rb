@@ -9,14 +9,14 @@ class Mathlibtools < Formula
   revision 5
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57c2931eff802f64303699075e2f006e690b31e05bc5061223bcb5ba0c2452b1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44d405f28d4bfa0a39127d6d35a835e3a613e85471c9e1cde23a1abc88c25b4a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "32684d76ad5deb3b4eb2a4792bc1f7c77c91e6d4e0ea8d7c51c38cd510b2eb8c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "14702ce98273d278c09a64772942b4a38352af32a053e31ff7a69ceb90b33947"
-    sha256 cellar: :any_skip_relocation, ventura:        "aeb648de8748caed8fe6660fc58ead760b27bcdcef0c658c23d1dccca6818047"
-    sha256 cellar: :any_skip_relocation, monterey:       "001b6d2d75fcac91969eea01ee88e0e4f8e15e27c91628b3215f46663f177d94"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e2d8173639de9bb78347e67fa5b12781503ada3dbf93392b75533441edfdffb"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "5c30b6bd959cec65f56d140dff795e4f6d139b2c0b9bb35e4d964378d810b729"
+    sha256 cellar: :any,                 arm64_ventura:  "e7b4098b3b86e02c75fe7b9eb1d3e1233d8d941aba977e703d2a27a1e0d7c3d2"
+    sha256 cellar: :any,                 arm64_monterey: "3ca76a75c8f500659d6717edbf8920b4a98a3232b4571852c1024cde7b7cd5f5"
+    sha256 cellar: :any,                 sonoma:         "524e34d53bb6d589d02b9dc8fdb364786593a3731b07eaa139d2c4fdf0381c86"
+    sha256 cellar: :any,                 ventura:        "6fb10a6aca23e710cf3bdab9ae2d72dd13ff614910d14a1cd9edebeb402b4e66"
+    sha256 cellar: :any,                 monterey:       "7b62c45d6c24e66b8659f246fec6f92bde2d75785d2370deaccb047d95dbfa95"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "749aa46ceb3aaf5e592562d7f952384543f65702848507e613b07684ce75d12d"
   end
 
   deprecate! date: "2023-09-04", because: :repo_archived
