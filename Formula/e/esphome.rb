@@ -20,7 +20,6 @@ class Esphome < Formula
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "protobuf"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
@@ -46,8 +45,8 @@ class Esphome < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/f0/a2/ce706abe166457d5ef68fac3ffa6cf0f93580755b7d5f883c456e94fab7b/argcomplete-3.2.2.tar.gz"
-    sha256 "f3e49e8ea59b4026ee29548e24488af46e30c9de57d48638e24f54a1ea1000a2"
+    url "https://files.pythonhosted.org/packages/3c/c0/031c507227ce3b715274c1cd1f3f9baf7a0f7cec075e22c7c8b5d4e468a9/argcomplete-3.2.3.tar.gz"
+    sha256 "bf7900329262e481be5a15f56f19736b376df6f82ed27576fa893652c5de6c23"
   end
 
   resource "bitarray" do
@@ -68,6 +67,11 @@ class Esphome < Formula
   resource "chacha20poly1305-reuseable" do
     url "https://files.pythonhosted.org/packages/18/c4/011bf30a7b82df544c9f1b1703bfe249b76f2309b2ca7d65e3359152fb2c/chacha20poly1305_reuseable-0.12.1.tar.gz"
     sha256 "c1ca3de2c78eb87ac006d975729e0b9032ff31597e3c112e78268f4cd431fd6a"
+  end
+
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
+    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
   end
 
   resource "charset-normalizer" do
@@ -141,8 +145,8 @@ class Esphome < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "paho-mqtt" do
@@ -155,14 +159,19 @@ class Esphome < Formula
     sha256 "ed7c6397f0ced579bc8137c8253465c0cfab6c0cc38d4f63da4502e995bdb5ce"
   end
 
+  resource "protobuf" do
+    url "https://files.pythonhosted.org/packages/ea/ab/ae590cd71f5a50cd9e0979593e217529b532a001e46c2dd0811c8697f4ad/protobuf-5.26.0.tar.gz"
+    sha256 "82f5870d74c99addfe4152777bdf8168244b9cf0ac65f8eccf045ddfa9d80d9b"
+  end
+
   resource "pyelftools" do
     url "https://files.pythonhosted.org/packages/84/05/fd41cd647de044d1ffec90ce5aaae935126ac217f8ecb302186655284fc8/pyelftools-0.30.tar.gz"
     sha256 "2fc92b0d534f8b081f58c7c370967379123d8e00984deb53c209364efd575b40"
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
-    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
+    url "https://files.pythonhosted.org/packages/46/3a/31fd28064d016a2182584d579e033ec95b809d8e220e74c4af6f0f2e8842/pyparsing-3.1.2.tar.gz"
+    sha256 "a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"
   end
 
   resource "pyserial" do
