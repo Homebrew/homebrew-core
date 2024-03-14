@@ -1,8 +1,8 @@
 class Lxc < Formula
   desc "CLI client for interacting with LXD"
   homepage "https://ubuntu.com/lxd"
-  url "https://github.com/canonical/lxd/releases/download/lxd-5.20/lxd-5.20.tar.gz"
-  sha256 "2f958b757f4cde64d0f3578da0bda9ee5965a3a70ec0956eddf8287d1290167f"
+  url "https://github.com/canonical/lxd/releases/download/lxd-5.21.0/lxd-5.21.0.tar.gz"
+  sha256 "be787ef099b83a583e55d00fa466e82d26c285d9f0b14f38220cb319ee25b60f"
   license "AGPL-3.0-only"
   head "https://github.com/canonical/lxd.git", branch: "main"
 
@@ -24,7 +24,7 @@ class Lxc < Formula
 
   test do
     output = JSON.parse(shell_output("#{bin}/lxc remote list --format json"))
-    assert_equal "https://images.linuxcontainers.org", output["images"]["Addr"]
+    assert_equal "https://cloud-images.ubuntu.com/releases", output["ubuntu"]["Addr"]
 
     assert_match version.to_s, shell_output("#{bin}/lxc --version")
   end
