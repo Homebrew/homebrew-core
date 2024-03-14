@@ -11,13 +11,13 @@ class Jupyterlab < Formula
   ]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "09a577bedf8f2ddda2a6571bc5244ddc838a20003827c782c6549fb7f60acf21"
-    sha256 cellar: :any,                 arm64_ventura:  "92b4fb05509a999124cd7871a1fea8c4c10f697951f00c4108619862f0e6d890"
-    sha256 cellar: :any,                 arm64_monterey: "eb0d1dd6a1d91758c37309bcc474f9cc6beff86eab3b462acbe9798084e0f842"
-    sha256 cellar: :any,                 sonoma:         "636a710107b01f978c1a28e91c41a5786d49ac1490d47141744b4f106a24df0e"
-    sha256 cellar: :any,                 ventura:        "ff1792023da3a875216b2294377dcc22798e95154c12ba0e2861453790310006"
-    sha256 cellar: :any,                 monterey:       "282e303d46800be0dd5a4d80b3f4709e5aacb337cf88ad1e53473ec8ec7094a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6642dc48d182c8b74ab0aaffca90e72760dfda988d1ad340d3fddf6ef9997509"
+    sha256 cellar: :any,                 arm64_sonoma:   "14bc02a5633b25cb8fbbc05c37a67269ed46a97f27f9e89d3e2112396a731457"
+    sha256 cellar: :any,                 arm64_ventura:  "35fe46ec46de40bc0ebbec49f8a26b49e55a3ebd4508281c3b64926852194d89"
+    sha256 cellar: :any,                 arm64_monterey: "7e1b841c20b6347028a4b80410865f6ea89492a4190bc14655221c01de9c4d3f"
+    sha256 cellar: :any,                 sonoma:         "1bf981eb27b6fd800be2306bda04f5af62d3598703af29d61def8a356a658abb"
+    sha256 cellar: :any,                 ventura:        "768ca945fda9f9434fca1039dfbfe9c60439482d1b28e8942b71cb8716aa6a6e"
+    sha256 cellar: :any,                 monterey:       "60a83fa0dfdd31dc0c90f005b684e4b9c02b24e751619261ed21c6f6826e9efc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d440eb3d5291777c4da7ae7d62d4dcb59f9ef8033a49668d97d613f27b5be4c"
   end
 
   depends_on "rust" => :build # for rpds-py
