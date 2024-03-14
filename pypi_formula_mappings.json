@@ -733,8 +733,7 @@
     "extra_packages": ["ledger-agent", "keepkey-agent"]
   },
   "trzsz": {
-    "extra_packages": ["trzsz-iterm2"],
-    "exclude_packages": ["protobuf"]
+    "extra_packages": ["trzsz-iterm2"]
   },
   "tvnamer": {
     "exclude_packages": ["certifi"]
