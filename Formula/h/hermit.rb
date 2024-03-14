@@ -6,13 +6,13 @@ class Hermit < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dba559ed140842cb282d2050d9ea40e91bdeb74da6bbcd6f184d25c5ece53960"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "965e7d18a46a95840cdf47d503213ddc3be67a6a04b0ed624f20d4ac917c361d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77a8f5e3e94e36989fac777fd70fcdcc9dc613b9f8f6b00028fb5b1fc7f79462"
-    sha256 cellar: :any_skip_relocation, sonoma:         "36ed70e642f74d889805f33d7378671d1043bb071cf01e30b083802021718440"
-    sha256 cellar: :any_skip_relocation, ventura:        "1e1279b2da6f486ff74f8accccdec0d7f01fbe429293001df9c4835183620fc0"
-    sha256 cellar: :any_skip_relocation, monterey:       "050d6eee21bfc534c34866089799c732bfd410de0c6f2641450c76c048963b4d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "10db53cbcb94d090adf4cd160d43b0ba06a5e7772c4b03e70fcac8d790c01b1f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7abe36de4f0afe696fc44da5c5960bbf79471513598af743d898a53242a702bc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "003dc0850e69371415e6e4ef1e17c2f0b0c5d896a4d82518b56b23d00ccd0c3e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35a1336f0bcdb1d9d00e158216725932599805d5c16848491944746c6148e44a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9384dfdba9a0b9695b30b0e52a97e2b300c0e93be53645f68ed6d9d1c8f22cac"
+    sha256 cellar: :any_skip_relocation, ventura:        "cb1bc46a07edfd40c06193e26d9ed74e7a2147c4b104b1ac40b7640d5c3d4335"
+    sha256 cellar: :any_skip_relocation, monterey:       "815a0c8072df470225cb6576e55cff282547f97642d1a62d29148c6daf248dcc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3a01de9943360b6cc41aa27b13264668ee877a13885fbb1f7733c340384b54c"
   end
 
   depends_on "go" => :build
