@@ -22,8 +22,6 @@ class GitAnnexRemoteRclone < Formula
 
     # make sure git can find git-annex
     ENV.prepend_path "PATH", bin
-    # We don't want this here or it gets "caught" by git-annex.
-    rm_r "Library/Python/2.7/lib/python/site-packages/homebrew.pth"
 
     system "git", "init"
     system "git", "annex", "init"
