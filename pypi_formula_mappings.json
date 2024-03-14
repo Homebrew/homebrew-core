@@ -286,7 +286,7 @@
     "extra_packages": ["setuptools"]
   },
   "gimme-aws-creds": {
-    "exclude_packages": ["certifi", "cffi", "cryptography", "keyring", "six"],
+    "exclude_packages": ["certifi", "cryptography"],
     "extra_packages": ["pyobjc-framework-localauthentication"]
   },
   "git-review": {
