@@ -6,13 +6,13 @@ class Vitess < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7ab74f9fbbbf7923d49a194ebecbee72ad3893c4daa9c9320d31a4c7d91514c8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "37d2a359a92f5a923feb8ae4832f9b189f70d0cbae6d8468760f11565e2d7452"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "541effc7eeb79d76ec8caa363cfeab8571bdfd810c85548f4175f311b57f7151"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bb3a91655fe7e6d0159bee772d0bf8fd87fa92705b2ab3aba558f8e49d01f373"
-    sha256 cellar: :any_skip_relocation, ventura:        "82cbc69d277c4a9d16eb75756f2436c5b4b1c6f48662ac301ff10a0fea4d2659"
-    sha256 cellar: :any_skip_relocation, monterey:       "36ad01b0a735231ac3a917be3defff628a065f3c26507b3f403b3a40299c9f0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e32f5b7f3cae9b1f9d767417ae21c4d55ea6280804eda8bb13bf43cee9ab4bc7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3589502e33c77c1e4e11c51a77eb9321b23bbca590cf4ad701515e990ad3f90"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ffb362b934debabd283c429729d99fa45a2f6c437217013896e775bee35314ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "78f4cce935b52f574e72f59bda7ff7534099b4d0c51aff3fb7131b9c2761a6e3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dda0710f1297c292fcf144ddadd9b59db1bc6fe4a03ee5e0bdb148bd08a73116"
+    sha256 cellar: :any_skip_relocation, ventura:        "d78f856a50c4e062e5196f86f811d8e85d729cd77f9eede03d53e594b168b81e"
+    sha256 cellar: :any_skip_relocation, monterey:       "2c9da325e7d45c6293986fd4e1b9db03eff67fc61d80255ccc03d04022010c78"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "502e4d7503fef3e91256a04b2eccd4b3f94968166dcc3861bc3624497547b037"
   end
 
   depends_on "go" => :build
