@@ -811,6 +811,7 @@ haproxy
 harfbuzz
 hasura-cli
 haxe
+hbase
 hcloud
 hcxtools
 heartbeat
