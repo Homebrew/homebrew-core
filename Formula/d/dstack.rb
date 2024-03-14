@@ -23,7 +23,6 @@ class Dstack < Formula
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "protobuf"
   depends_on "python@3.12"
 
   resource "adal" do
@@ -449,6 +448,11 @@ class Dstack < Formula
   resource "proto-plus" do
     url "https://files.pythonhosted.org/packages/91/2d/8c7fa3011928b024b10b80878160bf4e374eccb822a5d090f3ebcf175f6a/proto-plus-1.23.0.tar.gz"
     sha256 "89075171ef11988b3fa157f5dbd8b9cf09d65fffee97e29ce403cd8defba19d2"
+  end
+
+  resource "protobuf" do
+    url "https://files.pythonhosted.org/packages/5e/d8/65adb47d921ce828ba319d6587aa8758da022de509c3862a70177a958844/protobuf-4.25.3.tar.gz"
+    sha256 "25b5d0b42fd000320bd7830b349e3b696435f3b329810427a6bcce6a5492cc5c"
   end
 
   resource "pyasn1" do
