@@ -8,13 +8,13 @@ class Newman < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f090e47d6972f0a4871c6bb4a60ab94c7cc6a5f3e5ae8c00d10c9140a0ef6c60"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f090e47d6972f0a4871c6bb4a60ab94c7cc6a5f3e5ae8c00d10c9140a0ef6c60"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f090e47d6972f0a4871c6bb4a60ab94c7cc6a5f3e5ae8c00d10c9140a0ef6c60"
-    sha256 cellar: :any_skip_relocation, sonoma:         "19c30b0dfa57c803d0b84d61f2322e8e5971f325e86ce9776b01370147729c90"
-    sha256 cellar: :any_skip_relocation, ventura:        "19c30b0dfa57c803d0b84d61f2322e8e5971f325e86ce9776b01370147729c90"
-    sha256 cellar: :any_skip_relocation, monterey:       "19c30b0dfa57c803d0b84d61f2322e8e5971f325e86ce9776b01370147729c90"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f090e47d6972f0a4871c6bb4a60ab94c7cc6a5f3e5ae8c00d10c9140a0ef6c60"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "275eea0935b3d2303ac6048ce9f67dc7f095e109bcf0c577a3cc5d252fbd4890"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "275eea0935b3d2303ac6048ce9f67dc7f095e109bcf0c577a3cc5d252fbd4890"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "275eea0935b3d2303ac6048ce9f67dc7f095e109bcf0c577a3cc5d252fbd4890"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2817c91ed5a94aa549555d299bed2f73eed6cc20079188248b77e08613b03ce4"
+    sha256 cellar: :any_skip_relocation, ventura:        "2817c91ed5a94aa549555d299bed2f73eed6cc20079188248b77e08613b03ce4"
+    sha256 cellar: :any_skip_relocation, monterey:       "2817c91ed5a94aa549555d299bed2f73eed6cc20079188248b77e08613b03ce4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "275eea0935b3d2303ac6048ce9f67dc7f095e109bcf0c577a3cc5d252fbd4890"
   end
 
   depends_on "node"
