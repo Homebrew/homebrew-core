@@ -22,37 +22,48 @@ class Afflib < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "libcython" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
   depends_on "openssl@3"
   depends_on "python@3.12"
 
   uses_from_macos "curl"
   uses_from_macos "expat"
 
+  # Backport commits for regenerated pyaff.c to fix build with Python 3.12.
+  # Remove in the next release.
+  patch do
+    url "https://github.com/sshock/AFFLIBv3/commit/e465b771c11a975e69bd3d89c11dbc15b6c3c951.patch?full_index=1"
+    sha256 "833e168baaddbf243d8a58cd370998c47745fe6bd6d1e4a912bd00df05fb28aa"
+  end
+  patch do
+    url "https://github.com/sshock/AFFLIBv3/commit/4309b86f4a5e9beab4c41e16a7a971f79b56f644.patch?full_index=1"
+    sha256 "48f0852729ff33f53d8f2a6aa135ef7459ce481d2d34a5fa27068edd3a883401"
+  end
+  patch do
+    url "https://github.com/sshock/AFFLIBv3/commit/01210f488410a23838c54fcc22297cf08ac7de66.patch?full_index=1"
+    sha256 "7ad16951841f278631f11432ba7ec2284c317367bb5f28816eb9a6748be1065a"
+  end
+
   def python3
     which("python3.12")
   end
 
   def install
-    # Fix build with Python 3.12 by regenerating cythonized file.
-    (buildpath/"pyaff/pyaff.c").unlink
-    site_packages = Language::Python.site_packages(python3)
-    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
-
-    ENV["PYTHON"] = python3
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", *std_configure_args,
+    system "./configure", "--disable-fuse",
+                          "--disable-python",
+                          "--disable-silent-rules",
                           "--enable-s3",
-                          "--enable-python",
-                          "--disable-fuse"
-
-    # Prevent installation into HOMEBREW_PREFIX.
-    inreplace "pyaff/Makefile", "--single-version-externally-managed",
-                                "--install-lib=#{prefix/site_packages} \\0"
+                          *std_configure_args
     system "make", "install"
+
+    # We install Python bindings with pip rather than `./configure --enable-python` to avoid
+    # managing Setuptools dependency and modifying Makefile to work around our sysconfig patch.
+    # As a side effect, we need to imitate the Makefile and provide paths to headers/libraries.
+    ENV.append_to_cflags "-I#{include}"
+    ENV.append "LDFLAGS", "-L#{lib}"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./pyaff"
   end
 
   test do
