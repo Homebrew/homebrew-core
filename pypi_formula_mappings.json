@@ -424,7 +424,7 @@
     "exclude_packages": ["pygobject"]
   },
   "mathlibtools": {
-    "exclude_packages": ["certifi", "cffi", "cryptography", "pycparser", "PyYAML"]
+    "exclude_packages": ["certifi", "cryptography"]
   },
   "maturin": {
     "exclude_packages": ["typing-extensions"],
