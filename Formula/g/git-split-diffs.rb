@@ -7,6 +7,10 @@ class GitSplitDiffs < Formula
   sha256 "124709db0b14ba1543553e8774d44c0c2361f4d4765f71df5d9d6d345cc104ed"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "5b348302822608e4fe122591d8b0d89cffa0a1687b79c6d49bab09fbbc9dc22b"
+  end
+
   depends_on "node"
 
   def install
