@@ -21,7 +21,6 @@ class Gitless < Formula
 
   depends_on "pygit2"
   depends_on "python@3.12"
-  depends_on "six"
 
   uses_from_macos "libffi"
 
