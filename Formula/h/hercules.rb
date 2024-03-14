@@ -7,18 +7,13 @@ class Hercules < Formula
   head "https://github.com/SDL-Hercules-390/hyperion.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "68878f114b2f527152e73c11c8dfdf8f4b449ad1bdd98e2cce203d11d6eab59e"
-    sha256 arm64_ventura:  "9fcd456bb4ae3b312765e3b0c2c3d10a3d24aab9d2d39745b7bb049b08d1dd35"
-    sha256 arm64_monterey: "989fec41881653b8d1f7372d4de8447703fba4b2b6880194e5974cdad50b58d9"
-    sha256 arm64_big_sur:  "ba4b3fa347d63601909127c94c0a2b1e42d81bbcc154970a18d7dd4ad8b15bba"
-    sha256 sonoma:         "e7ff4c56c22896aab1caa013a28885b8c59654904c97f24713a64ca9102a990c"
-    sha256 ventura:        "478ecb96c865328760fd636aee98d44e0b5f27e90be83d3fef3c0f437d41830e"
-    sha256 monterey:       "00df43bff8324b015c01c6cae809d69b911e2c2ba45b0a07a4d3be440daf672b"
-    sha256 big_sur:        "c85d96adaa0f5cc5a17d5927d4cd1b44f42003baba3e59ff11cee5ce444512fc"
-    sha256 catalina:       "aae09d5616cf146c74bf3bfae69c1490cf920404d75d43c7d8c28ac1aab176b8"
-    sha256 mojave:         "3c7535fa1d1e9385c9f2525e40445b931c3768ab611db4e6a2019c7910538c41"
-    sha256 x86_64_linux:   "253d9c36ec65a956796d413a957999b99bc22b10fc3baa436f2d3fb7ef7dcd25"
+    sha256 arm64_sonoma:   "6335c4dd89a1abb2951183b3ec1b0b08fb67a31c40f037a79c55621670343f74"
+    sha256 arm64_ventura:  "5329211fef90aff4b3eee6b92b28f00aec11d8d1c4de0f6b0fd3f785e735b64e"
+    sha256 arm64_monterey: "4fc79b7305696102ac6f2adc908434782ab242b87594fcd018fb03beb5c39095"
+    sha256 sonoma:         "01855e3533a3e48c482ba771afb025da4c822ad8813405597717487d7b8ffad6"
+    sha256 ventura:        "6594a7b9c695403ca67c60f8408e66403a0b56169d87b038b3d7389e3368f43f"
+    sha256 monterey:       "ca05b47ad3e18223fb77535ad13ec131767a631a71ab3de1d4cb3b146b4f34f0"
+    sha256 x86_64_linux:   "7ef16d12587bb8a87a978599062d4fb6a8c23394da485664650e60234ef36c81"
   end
 
   depends_on "autoconf" => :build
