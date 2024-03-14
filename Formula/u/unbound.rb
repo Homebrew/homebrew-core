@@ -15,13 +15,13 @@ class Unbound < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8e9fca6e94de8d8302b98f9231062bae7b7bcc82325cc862e68c56b61e11bbf9"
-    sha256 arm64_ventura:  "89a43610dcc2567d1d99249f4c6c512f6234654025943df1963f43491ebafcb9"
-    sha256 arm64_monterey: "b3661edc73c489f3910ad2020fbe0b3df3fb025871ba4ae57dab2bf918812e99"
-    sha256 sonoma:         "2e8eb9f92cecbbe2010546c93bcae5e7a74a708d8efc05d3cd2aa20370dde876"
-    sha256 ventura:        "7f5485b63236c79d2224941d1014ee4121c433a6688f9adc71f9baee00f675df"
-    sha256 monterey:       "54217359bc24f1cc9d40c8a5b7502196ab2c3c8d3f5d09bdb870d8edc53e59f1"
-    sha256 x86_64_linux:   "8b036b56d6dee63a4e4a7ea68a5c970a93d1582d88e23ef9b8d97d7f8ee5ddf2"
+    sha256 arm64_sonoma:   "1c74328fd710de4ca59b32cfa8c904efbfb3a957cfc9b73a4add78b30b007a55"
+    sha256 arm64_ventura:  "1aeeb206335ddba2eb5ccf68532642f6b373d81b2b112ab42dd5bb9e439542bc"
+    sha256 arm64_monterey: "80dc56f3f7642cb3245e26e3a5a2a7e28e04cce6c6843ba58a63bd352f884deb"
+    sha256 sonoma:         "c9a62474cf15b79fe6d47fc07fb07dec66940e3a914c8116a996eae14bd9bd9f"
+    sha256 ventura:        "1bd4e20b1948c795a5798ba108229887b6f6bdde8349d2bdc140ca29ab5ac418"
+    sha256 monterey:       "7a927aec89f5cf471bed32ee99d6fba005af1f5ab3c8870a8dc156ffa1ffcfeb"
+    sha256 x86_64_linux:   "c7d900fcfab9b7c6ddc3521560a46a7fb5f13ccbc9a0794292a6acf069fd61e2"
   end
 
   depends_on "libevent"
