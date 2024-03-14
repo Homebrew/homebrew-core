@@ -6,13 +6,13 @@ class ManifestTool < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "972f649a148a6e66d5e374c50a509c680095b9d696203923bead2d6ae67077ba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "60f91ab0e5516d8b450aa4a9904e9885b87d4c4b93579d7942ac9e74c33cd9a9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad4fe4953a40c829a4acd709e4b5be891aa54b94fe61a42a0c7fdca6549a8413"
-    sha256 cellar: :any_skip_relocation, sonoma:         "584b0fc7b7ecd8a152d7153aad637a238a7891a08ace00c3b82ebe17d2604b74"
-    sha256 cellar: :any_skip_relocation, ventura:        "1820d87341c1291b79533db8ba0b052ad3cc8074e1dc163a485351342e959972"
-    sha256 cellar: :any_skip_relocation, monterey:       "a03ae205258645b02bc4c859778c41fe336c9152f2a40c00a1a77026877afcb7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20119b02d73f800092dc51254da3cf2a6d763ae5243063f893ae105f084fdd6c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "972c6533ac4e024b66809212bcb7744d4aa16de7fbc45f0787eeb926b118dd89"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "96ed3800f775332ea1c655d832de37d88eb715b2d5c10cce0c9e6fc6758a5555"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e46c37a2e774c5fd61c37525ec2462871a94a2a87f59921d18938278a4122c4d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bf46e7aeeda1e772dd3d8229c78ed8c0fc28a99c070799a8c0b39c022ce423b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "b902934a3dce529d0a91927e9d55a92ce16717b68b1b7bb32236d818d3003f99"
+    sha256 cellar: :any_skip_relocation, monterey:       "8a66126c030352fdc96c5fdf1d6882386271b74b908b9dc0139671d97821614d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30afd13173de3932bfede02d0166fa0d1345cb506eef16eb2c1d4c0df8a98900"
   end
 
   depends_on "go" => :build
