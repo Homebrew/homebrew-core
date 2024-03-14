@@ -1,8 +1,8 @@
 class Cog < Formula
   desc "Containers for machine learning"
   homepage "https://github.com/replicate/cog"
-  url "https://github.com/replicate/cog/archive/refs/tags/v0.9.4.tar.gz"
-  sha256 "5f455da636ec6dd6c81fd46fb721e261da1912ec42e2c547496c9cc8bae78773"
+  url "https://github.com/replicate/cog/archive/refs/tags/v0.9.5.tar.gz"
+  sha256 "e8ed3242f17cfffc6d80841aa46f6b1cf2a0170a3a3488be80cf2a123a56f714"
   license "Apache-2.0"
   head "https://github.com/replicate/cog.git", branch: "main"
 
@@ -18,13 +18,17 @@ class Cog < Formula
   end
 
   depends_on "go" => :build
-
-  uses_from_macos "python" => :build
+  depends_on "python@3.12" => :build
 
   def install
-    ENV["SETUPTOOLS_SCM_PRETEND_VERSION"] = version.to_s
-    system "make", "COG_VERSION=#{version}", "PYTHON=python3"
-    bin.install "cog"
+    python3 = "python3.12"
+
+    # Prevent Makefile from running `pip install build` by manually creating wheel.
+    # Otherwise it can end up installing binary wheels.
+    system python3, "-m", "pip", "wheel", "--verbose", "--no-deps", "--no-binary=:all:", "."
+    (buildpath/"pkg/dockerfile/embed").install buildpath.glob("cog-*.whl").first => "cog.whl"
+
+    system "make", "install", "COG_VERSION=#{version}", "PYTHON=#{python3}", "PREFIX=#{prefix}"
     generate_completions_from_executable(bin/"cog", "completion")
   end
 
