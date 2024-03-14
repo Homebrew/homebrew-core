@@ -18,6 +18,8 @@ class Pbzx < Formula
     sha256 cellar: :any, catalina:       "c6d161a1c58bcbc3e1f6d8bcf7ec567a0f93cafe626849838cf4d8ec4c90044a"
   end
 
+  deprecate! date: "2024-03-13", because: :repo_archived
+
   # pbzx is a format employed OSX disk images
   depends_on :macos
   depends_on "xz"
