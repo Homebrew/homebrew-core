@@ -25,11 +25,9 @@ class Binwalk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "efbc1bfff4ac063ee5a86192599445eb56d3ba408df57a993730893469316f40"
   end
 
-  depends_on "meson" => :build # for contourpy
-  depends_on "meson-python" => :build # for contourpy
-  depends_on "ninja" => :build # for contourpy
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "pybind11" => :build # for contourpy and matplotlib
   depends_on "swig" => :build
   depends_on "freetype"
   depends_on "libpng"
@@ -40,6 +38,10 @@ class Binwalk < Formula
   depends_on "qhull"
   depends_on "ssdeep"
   depends_on "xz"
+
+  on_linux do
+    depends_on "patchelf" => :build
+  end
 
   resource "capstone" do
     url "https://files.pythonhosted.org/packages/7a/fe/e6cdc4ad6e0d9603fa662d1ccba6301c0cb762a1c90a42c7146a538c24e9/capstone-5.0.1.tar.gz"
@@ -122,12 +124,7 @@ class Binwalk < Formula
       system_qhull = true
     EOS
 
-    venv = virtualenv_create(libexec, "python3.11")
-    venv.pip_install resource("kiwisolver") # needs `cppy` to build so keep build isolation
-    # We disable build isolation to make use of existing Homebrew formulae rather
-    # than rebuilding Python packages like `numpy` that are used by build-backend.
-    venv.pip_install(resources.reject { |r| r.name == "kiwisolver" }, build_isolation: false)
-    venv.pip_install_and_link(buildpath, build_isolation: false)
+    virtualenv_install_with_resources
   end
 
   test do
