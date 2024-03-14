@@ -64,8 +64,7 @@ class Texlive < Formula
   depends_on "pixman"
   depends_on "potrace"
   depends_on "pstoedit"
-  depends_on "pygments"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
 
   uses_from_macos "icu4c"
   uses_from_macos "ncurses"
@@ -334,8 +333,16 @@ class Texlive < Formula
     sha256 "32aa7271a6bdfedc3330119b3825daddd0aa4b5c936f84ad74eabb932a200a5e"
   end
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
   def install
-    python3 = "python3.11"
+    python3 = "python3.12"
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resource("pygments")
+
     # Install Perl resources
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
@@ -344,9 +351,10 @@ class Texlive < Formula
     tex_resources = %w[texlive-extra install-tl texlive-texmf]
 
     resources.each do |r|
-      r.stage do
-        next if tex_resources.include? r.name
+      next if tex_resources.include? r.name
+      next if r.name == "pygments"
 
+      r.stage do
         if File.exist? "Makefile.PL"
           args = ["INSTALL_BASE=#{libexec}"]
           args += ["X11INC=#{HOMEBREW_PREFIX}/include", "X11LIB=#{HOMEBREW_PREFIX}/lib"] if r.name == "Tk"
@@ -470,8 +478,7 @@ class Texlive < Formula
     end
 
     # Wrap some Python scripts so they can find dependencies and fix depythontex.
-    python_path = libexec/Language::Python.site_packages(python3)
-    ENV.prepend_path "PYTHONPATH", python_path
+    ENV.prepend_path "PYTHONPATH", venv.site_packages
     rm bin/"pygmentex"
     rm bin/"pythontex"
     rm bin/"depythontex"
