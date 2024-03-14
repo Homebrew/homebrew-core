@@ -314,6 +314,7 @@
     "exclude_packages": ["certifi", "pillow"]
   },
   "grayskull": {
+    "exclude_packages": ["certifi"],
     "extra_packages": ["setuptools"]
   },
   "grip": {
