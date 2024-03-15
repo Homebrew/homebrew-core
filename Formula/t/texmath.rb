@@ -1,8 +1,8 @@
 class Texmath < Formula
   desc "Haskell library for converting LaTeX math to MathML"
   homepage "https://johnmacfarlane.net/texmath.html"
-  url "https://hackage.haskell.org/package/texmath-0.12.8.6/texmath-0.12.8.6.tar.gz"
-  sha256 "7ba37a07ad3bb64d1dfbe443dcf64575458e403083151591445a2c1ef040da9d"
+  url "https://hackage.haskell.org/package/texmath-0.12.8.7/texmath-0.12.8.7.tar.gz"
+  sha256 "d33c332e21c8b4737fafd2a7753d38b67c6c94ffc44fd3dcdbd4f883f07c7644"
   license "GPL-2.0-or-later"
   head "https://github.com/jgm/texmath.git", branch: "master"
 
@@ -17,7 +17,7 @@ class Texmath < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.6" => :build
+  depends_on "ghc" => :build
 
   def install
     system "cabal", "v2-update"
