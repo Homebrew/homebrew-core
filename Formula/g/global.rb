@@ -1,5 +1,6 @@
 class Global < Formula
   include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
@@ -31,33 +32,34 @@ class Global < Formula
 
   depends_on "libtool"
   depends_on "ncurses"
-  depends_on "pygments"
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "universal-ctags"
 
   skip_clean "lib/gtags"
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
   def install
     system "sh", "reconf.sh" if build.head?
 
     python3 = "python3.12"
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
 
     args = %W[
       --disable-dependency-tracking
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-sqlite3=#{Formula["sqlite"].opt_prefix}
+      --with-python-interpreter=#{venv.root}/bin/python
       --with-universal-ctags=#{Formula["universal-ctags"].opt_bin}/ctags
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
-
-    rewrite_shebang detected_python_shebang, share/"gtags/script/pygments_parser.py"
-
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 
     etc.install "gtags.conf"
 
