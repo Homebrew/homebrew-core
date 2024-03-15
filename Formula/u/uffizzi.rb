@@ -1,8 +1,8 @@
 class Uffizzi < Formula
   desc "Self-serve developer platforms in minutes, not months with k8s virtual clusters"
   homepage "https://uffizzi.com"
-  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.7.tar.gz"
-  sha256 "5787b48ff15c3e1aa3fb341600184a456aa5622656a6412badf067b62b2f4bfb"
+  url "https://github.com/UffizziCloud/uffizzi_cli/archive/refs/tags/v2.4.8.tar.gz"
+  sha256 "1f8fc5d05ede957b66b8d05ef03099760dc61dc9a1c9f1b4af747180ec20bf89"
   license "Apache-2.0"
 
   livecheck do
@@ -76,8 +76,8 @@ class Uffizzi < Formula
   end
 
   resource "sentry-ruby" do
-    url "https://rubygems.org/gems/sentry-ruby-5.16.1.gem"
-    sha256 "767ef1db68d7294cfbfd0fc9e12d7297e452c287243cca71219e2c7b5cd0583b"
+    url "https://rubygems.org/gems/sentry-ruby-5.17.1.gem"
+    sha256 "5768c4339661463efc84452af92e20be58c1d8e1705aeeede1f056aaf1aab101"
   end
 
   resource "securerandom" do
@@ -101,13 +101,13 @@ class Uffizzi < Formula
   end
 
   resource "launchy" do
-    url "https://rubygems.org/gems/launchy-2.5.2.gem"
-    sha256 "8aa0441655aec5514008e1d04892c2de3ba57bd337afb984568da091121a241b"
+    url "https://rubygems.org/gems/launchy-3.0.0.gem"
+    sha256 "4abcdab659689550ceca6ec0630cd9efd9940b51dc14cb4ebceee8f7aedc791b"
   end
 
   resource "i18n" do
-    url "https://rubygems.org/gems/i18n-1.14.1.gem"
-    sha256 "9d03698903547c060928e70a9bc8b6b87fda674453cda918fc7ab80235ae4a61"
+    url "https://rubygems.org/gems/i18n-1.14.4.gem"
+    sha256 "c7deedead0866ea9102975a4eab7968f53de50793a0c211a37808f75dd187551"
   end
 
   resource "faker" do
@@ -166,8 +166,8 @@ class Uffizzi < Formula
   end
 
   resource "uffizzi-cli" do
-    url "https://rubygems.org/gems/uffizzi-cli-2.4.7.gem"
-    sha256 "fa3364b0e8888eeead5787c626dd71d5e1aae1dfb6466fc2c40c842028c46b1b"
+    url "https://rubygems.org/gems/uffizzi-cli-2.4.8.gem"
+    sha256 "df6ae432d612732a86e1f26d6f0003add32e9cbe4045eaef0db06b5da58072f0"
   end
 
   def install
