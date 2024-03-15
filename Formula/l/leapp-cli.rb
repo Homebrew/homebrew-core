@@ -8,13 +8,13 @@ class LeappCli < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256                               arm64_sonoma:   "9dd622d94917192125d035e104012bedc17236ab00f852da88470c8c2975ac48"
-    sha256                               arm64_ventura:  "56d6b206f5db49159dc6e52e98705133f50d7711af314f4a8a907a771edc2636"
-    sha256                               arm64_monterey: "6b7b6cf985006bd22a72a2eb46576fd423ac4da69659ffbaaedefbb468110957"
-    sha256                               sonoma:         "719d8382677bab6c0679e0fb0a8d623ae1fbdf9694431cd66d6c7f53bd2d1f10"
-    sha256                               ventura:        "2eeedb9c309a6f18ec530184b5c82069a9912f27df8cb91d035730b7bcffdb84"
-    sha256                               monterey:       "8440860a5d1f643d67a066a9f1f176a006a99d77fb05979ee2a71edbc804d0d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2629db9ae39cef24d500ef4bc83de7bf641482320c58607d4e540d46e23cd653"
+    sha256                               arm64_sonoma:   "95490933985ac191a11b046a2b032858a03cfd4994342fc65a5736d7d9dcc4e7"
+    sha256                               arm64_ventura:  "08d47e74e06f75c3619d703f29ff8ca67f408a1f2c0c9852f5dcb24a9c66e792"
+    sha256                               arm64_monterey: "5bd83996ed049cc64b2117d7fc4cdd71bd1e0bf401b27bdd5ee0d418657a7193"
+    sha256                               sonoma:         "2d903ae070c2a5dec9c800fa5aec0f05a8b65b08c44556ab283cad5062cc56c3"
+    sha256                               ventura:        "4041465dd93d488dcf06ecf6b0c9bb2835a84b1d8cdd1dc3f9996c014f9e44c7"
+    sha256                               monterey:       "b1e27f9ef7df7dc07dc2de94a7e16d7a0f6610115eb348e045f42f02ae475865"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6314712fa2196365e54d599f2482707af827774256690a328921deb1e3fc867"
   end
 
   depends_on "pkg-config" => :build
