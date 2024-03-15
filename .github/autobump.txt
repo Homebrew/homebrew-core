@@ -1710,6 +1710,7 @@ typedb
 typescript
 typescript-language-server
 typos-cli
+typst
 typstfmt
 tz
 uffizzi
