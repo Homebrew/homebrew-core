@@ -2,8 +2,8 @@ class SwiftFormat < Formula
   desc "Formatting technology for Swift source code"
   homepage "https://github.com/apple/swift-format"
   url "https://github.com/apple/swift-format.git",
-      tag:      "509.0.0",
-      revision: "83248b4fa37919f78ffbd4650946759bcc54c2b5"
+      tag:      "510.0.1",
+      revision: "7c60a5d1f508965a87ed66b6e58e9392af4b36af"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/apple/swift-format.git", branch: "main"
