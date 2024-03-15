@@ -5,8 +5,8 @@ class Pushpin < Formula
   head "https://github.com/fastly/pushpin.git", branch: "main"
 
   stable do
-    url "https://github.com/fastly/pushpin/releases/download/v1.38.0/pushpin-1.38.0.tar.bz2"
-    sha256 "3dc0d7927aa3233f9e6f06a91454ab250224ce01694f7d65c406b0fc92987495"
+    url "https://github.com/fastly/pushpin/releases/download/v1.39.0/pushpin-1.39.0.tar.bz2"
+    sha256 "25044e1f1dabdbd20fd42d35666f4b4a0e84bae2146dd30c8f82c85543a97bf2"
 
     patch do
       url "https://github.com/fastly/pushpin/commit/3479ed60b20acadbfe7c59b063efbdd5a8716e4c.patch?full_index=1"
