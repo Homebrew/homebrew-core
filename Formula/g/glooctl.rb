@@ -4,8 +4,8 @@ class Glooctl < Formula
   # NOTE: Please wait until the newest stable release is finished building and
   # no longer marked as "Pre-release" before creating a PR for a new version.
   url "https://github.com/solo-io/gloo.git",
-      tag:      "v1.16.7",
-      revision: "fc46ba6af98d169e297d6c95e83c9549e3b853c4"
+      tag:      "v1.16.8",
+      revision: "de66ccdad8222f5d06965aaa201c82323edf7258"
   license "Apache-2.0"
   head "https://github.com/solo-io/gloo.git", branch: "master"
 
