@@ -10,26 +10,20 @@ class Luajit < Formula
   # Get the latest commit with:
   #   `git ls-remote --heads https://github.com/LuaJIT/LuaJIT.git v2.1`
   # This is a rolling release model so take care not to ignore CI failures that may be regressions.
-  url "https://github.com/LuaJIT/LuaJIT/archive/c525bcb9024510cad9e170e12b6209aedb330f83.tar.gz"
+  url "https://github.com/LuaJIT/LuaJIT/archive/d06beb0480c5d1eb53b3343e78063950275aa281.tar.gz"
   # Use the version scheme `2.1.timestamp` where `timestamp` is the Unix timestamp of the
   # latest commit at the time of updating.
   # `brew livecheck luajit` will generate the correct version for you automatically.
-  version "2.1.1703358377"
-  sha256 "eb20affc70a9e97a8a0e1e0b10456f220fca7637a198e4a937b5fc827dd1ef95"
+  version "2.1.1710088188"
+  sha256 "6abd146a1dfa240a965748f63221633446affa2a715e3eb03879136e3efb95f4"
   license "MIT"
   head "https://luajit.org/git/luajit.git", branch: "v2.1"
 
   livecheck do
-    url "https://github.com/LuaJIT/LuaJIT/commits/v2.1"
+    url "https://api.github.com/repos/LuaJIT/LuaJIT/branches/v2.1"
     strategy :json do |json|
-      json.dig("payload", "commitGroups")&.map do |group|
-        group["commits"]&.map do |commit|
-          date = commit["committedDate"]
-          next if date.blank?
-
-          "2.1.#{DateTime.parse(date).strftime("%s")}"
-        end
-      end&.flatten
+      date = json.dig("commit", "commit", "author", "date")
+      "2.1.#{DateTime.parse(date).strftime("%s")}"
     end
   end
 
