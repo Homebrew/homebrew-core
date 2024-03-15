@@ -6,13 +6,13 @@ class Psysh < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2956acd5f6fa0deceaf2ac02c1d43ecca75f613c67354ee48564de10500b8624"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2956acd5f6fa0deceaf2ac02c1d43ecca75f613c67354ee48564de10500b8624"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2956acd5f6fa0deceaf2ac02c1d43ecca75f613c67354ee48564de10500b8624"
-    sha256 cellar: :any_skip_relocation, sonoma:         "38acfd2c24e8acabdaabc4dc32ffbcee9456762e833851cc250bb592c981ed70"
-    sha256 cellar: :any_skip_relocation, ventura:        "38acfd2c24e8acabdaabc4dc32ffbcee9456762e833851cc250bb592c981ed70"
-    sha256 cellar: :any_skip_relocation, monterey:       "38acfd2c24e8acabdaabc4dc32ffbcee9456762e833851cc250bb592c981ed70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2956acd5f6fa0deceaf2ac02c1d43ecca75f613c67354ee48564de10500b8624"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dba2a82df66019ee916322892dc97b2a40f17e6d18c13894a3459430e330aeb8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dba2a82df66019ee916322892dc97b2a40f17e6d18c13894a3459430e330aeb8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dba2a82df66019ee916322892dc97b2a40f17e6d18c13894a3459430e330aeb8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "62c7255fe2543e264376cc422ce97b292b9c840bca198b0a4f142e3eb19aa852"
+    sha256 cellar: :any_skip_relocation, ventura:        "62c7255fe2543e264376cc422ce97b292b9c840bca198b0a4f142e3eb19aa852"
+    sha256 cellar: :any_skip_relocation, monterey:       "62c7255fe2543e264376cc422ce97b292b9c840bca198b0a4f142e3eb19aa852"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dba2a82df66019ee916322892dc97b2a40f17e6d18c13894a3459430e330aeb8"
   end
 
   depends_on "php"
