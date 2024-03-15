@@ -1,10 +1,9 @@
 class Pdns < Formula
   desc "Authoritative nameserver"
   homepage "https://www.powerdns.com"
-  url "https://downloads.powerdns.com/releases/pdns-4.8.4.tar.bz2"
-  sha256 "7f40c8cbc4650d06fe49abba79902ebabb384363dabbd5cef271964a07c3645c"
+  url "https://downloads.powerdns.com/releases/pdns-4.9.0.tar.bz2"
+  sha256 "fe1d5433c88446ed70d931605c6ec377da99839c4e151b90b71aa211bd6eea92"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url "https://downloads.powerdns.com/releases/"
@@ -61,7 +60,7 @@ class Pdns < Formula
   end
 
   test do
-    output = shell_output("#{sbin}/pdns_server --version 2>&1", 99)
+    output = shell_output("#{sbin}/pdns_server --version 2>&1")
     assert_match "PowerDNS Authoritative Server #{version}", output
   end
 end
