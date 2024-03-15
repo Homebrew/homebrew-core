@@ -1,8 +1,8 @@
 class Ata < Formula
   desc "ChatGPT in the terminal"
   homepage "https://github.com/rikhuijzer/ata"
-  url "https://github.com/rikhuijzer/ata/archive/refs/tags/v2.0.3.tar.gz"
-  sha256 "bcf44527769c5d37685f0acaafa1d40ccdb3f3663ba1ae5b5d2e6b7601cc06b0"
+  url "https://github.com/rikhuijzer/ata/archive/refs/tags/v2.0.4.tar.gz"
+  sha256 "a70498492fce7b46a2a62175886a801f61f9f530c5c6d01b664af2750d3af555"
   license "MIT"
 
   bottle do
