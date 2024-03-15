@@ -5,16 +5,16 @@ class Pushpin < Formula
   head "https://github.com/fastly/pushpin.git", branch: "main"
 
   stable do
-    url "https://github.com/fastly/pushpin/releases/download/v1.38.0/pushpin-1.38.0.tar.bz2"
-    sha256 "3dc0d7927aa3233f9e6f06a91454ab250224ce01694f7d65c406b0fc92987495"
+    url "https://github.com/fastly/pushpin/releases/download/v1.39.0/pushpin-1.39.0.tar.bz2"
+    sha256 "25044e1f1dabdbd20fd42d35666f4b4a0e84bae2146dd30c8f82c85543a97bf2"
 
     patch do
-      url "https://github.com/fastly/pushpin/commit/3479ed60b20acadbfe7c59b063efbdd5a8716e4c.patch?full_index=1"
-      sha256 "834561f938926a4043df2b78bd039b9874410fecb053e8f9660a21b073f7ddb3"
+      url "https://github.com/fastly/pushpin/commit/b20aeed32fa0d7eb7cd47119608c0208d0373513.patch?full_index=1"
+      sha256 "bb7e181a0ed35e67d784b658658bbceb9f3c6b108e027431dd1e1798b2c5a0e3"
     end
     patch do
-      url "https://github.com/fastly/pushpin/commit/a3861f20e3fc2598d810f1d9fb9778a04a680aca.patch?full_index=1"
-      sha256 "e4e78d3c0977ccc6da9f1188108261c9199d1649bb8d9be19c53d058483713c8"
+      url "https://github.com/fastly/pushpin/commit/8b17bf4b59731af62a9508b1143d72f6615cef7d.patch?full_index=1"
+      sha256 "32bd7cb01251d4a365ecf83c7e76b27a47dfca2a84aeecd11d9d5ede398af293"
     end
   end
 
