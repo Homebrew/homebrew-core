@@ -1,8 +1,8 @@
 class Envoy < Formula
   desc "Cloud-native high-performance edge/middle/service proxy"
   homepage "https://www.envoyproxy.io/index.html"
-  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.28.0.tar.gz"
-  sha256 "c5628b609ef9e5fafe872b8828089a189bfbffb6e261b8c4d34eff4c65229a3f"
+  url "https://github.com/envoyproxy/envoy/archive/refs/tags/v1.29.2.tar.gz"
+  sha256 "53ca7d71a88def7a908c5b4f1a1b8fb9447c921ca05f0a63532692350b313fde"
   license "Apache-2.0"
   head "https://github.com/envoyproxy/envoy.git", branch: "main"
 
@@ -31,6 +31,7 @@ class Envoy < Formula
   depends_on xcode: :build
   depends_on macos: :catalina
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "python" => :build
 
   on_macos do
@@ -38,10 +39,8 @@ class Envoy < Formula
   end
 
   # https://github.com/envoyproxy/envoy/tree/main/bazel#supported-compiler-versions
-  fails_with :gcc do
-    version "8"
-    cause "C++17 support and tcmalloc requirement"
-  end
+  # GCC/ld.gold had some issues while building envoy 1.29 so use clang/lld instead
+  fails_with :gcc
 
   def install
     # Per https://luajit.org/install.html: If MACOSX_DEPLOYMENT_TARGET
@@ -64,6 +63,10 @@ class Envoy < Formula
       # Try to remove in a release that uses a newer abseil
       args << "--cxxopt=-Wno-uninitialized"
       args << "--host_cxxopt=-Wno-uninitialized"
+
+      # Work around build failure using clang with libstdc++: https://github.com/envoyproxy/envoy/issues/31856
+      args << "--cxxopt=-fsized-deallocation"
+      args << "--config=clang"
     else
       # The clang available on macOS catalina has a warning that isn't clean on v8 code.
       # The warning doesn't show up with more recent clangs, so disable it for now.
