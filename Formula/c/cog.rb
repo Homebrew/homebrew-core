@@ -7,14 +7,13 @@ class Cog < Formula
   head "https://github.com/replicate/cog.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e4487f81bba0027b04ebabda2c9e32c3e81cc6a1c14b8f6a65a57462266d838"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd980304b84c5ad3d732e4b025a42a1446394128d83d406e779ab00d92b34d3d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2c60097dcb7d72346cf6e4e46a49be556655f3f2687200620bccd234d228477f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "de636cf99f2f4162f11683a4457f7047d5e2a907a6ed639aa39783cf2a2888b1"
-    sha256 cellar: :any_skip_relocation, ventura:        "f526ce33260b4eb2d3686cc72e9ba35cfdd76bd1f9f034baeaeb31daa121eb04"
-    sha256 cellar: :any_skip_relocation, monterey:       "8f7b05a97df14e5240ab5684058a44d043763f05f0734ed71bfba21fa7ca1195"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19e01d6fdf14ddcd473c6eee30ffbc8f3464a6e444492e0bf3fb434baa7048cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af923bdf3e61eb935531805f8b57fb18b0a54f6cfbc4fe49e2841275844596f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a1d3661b7c94958241ac609798615a96af81241997db42db68687003553b4ea5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "31f57813e5fccb45be9aa2fd10180e86abd87c5ce1cb1bbf417f09199fd806e0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "14b2612b58b65d70ad8ec2dbb8a88c5df0d08f607da69fa1956f22fb88e77a96"
+    sha256 cellar: :any_skip_relocation, ventura:        "f5dc3667506b9e25eac81b3dafb927dedf528dcf12000be3829fc6f97202396f"
+    sha256 cellar: :any_skip_relocation, monterey:       "207cd24010feebe42626b1ce1c9b7cef5d6917f3d6a832d41fbba0df6fa12e6d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2ec63aeea525235209663458def7b77995d964f3d12cb839c12c86b2f38f523"
   end
 
   depends_on "go" => :build
