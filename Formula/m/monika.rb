@@ -8,13 +8,13 @@ class Monika < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "2ddbb36d583ea578e1c56d12c68f8a139ac0862f888f54e4f271ef129a5288d8"
-    sha256                               arm64_ventura:  "fb8bba85bdcb6939587f416473d38872edcf5009856d1295476e51299a0e74b4"
-    sha256                               arm64_monterey: "866c9e3c2bdeae57d755ace447ef3427a88faa5ed4dbeba652797c7beee3813c"
-    sha256                               sonoma:         "d7a26d87c1a1738bf252400127167990556949bf51b823b2e9ae4f8f06aa9bd5"
-    sha256                               ventura:        "e5def8c2ca8cbae39f8e37957165cad984db6e946103ed7930b7a451715b8301"
-    sha256                               monterey:       "1ddca5029a2f356404482fb508b18c0ff3c9f05a16396fed14508b81f5dcfd35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43209c72082acfe55ec8787ab845b5e00b545942db6eeea41bcce41a7a16c5c6"
+    sha256                               arm64_sonoma:   "d8310d8fd5621d786b6b3adac05ed55eeba6f0624946bc52fd4226ede609d35c"
+    sha256                               arm64_ventura:  "5798ac8bfe44dd94680f54a6c06b4d342ed25250804039fcc28b821736fda205"
+    sha256                               arm64_monterey: "4fceb8edb0a8bbaf78b1d9771cf28c40543676a19113a417b8b0d1796bbb0ba2"
+    sha256                               sonoma:         "1e6f41a51a336c33f62c583e4103908e09ef2dcc2a0eb158b5c9637d6346ded4"
+    sha256                               ventura:        "aab775db4c0b1cd09490ae5558af9de4a7b9a23d2ba850955bf0fb3474fbd23c"
+    sha256                               monterey:       "1125b64c9fde33831ca4c5d9b9f28292599d9d0d45a72920a2015a29c8510d21"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d85cfb8a9195a53fae26876ab2f1f02da7972308ce186319b3a66ebdc6ea0ca2"
   end
 
   depends_on "node"
