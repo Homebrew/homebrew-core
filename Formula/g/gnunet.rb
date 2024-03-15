@@ -1,9 +1,9 @@
 class Gnunet < Formula
   desc "Framework for distributed, secure and privacy-preserving applications"
   homepage "https://gnunet.org/"
-  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.21.0.tar.gz"
-  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.21.0.tar.gz"
-  sha256 "a846eb9f64b5602c6e518badfa32a9ee18d9e66042ad4765e40a936041ca74ad"
+  url "https://ftp.gnu.org/gnu/gnunet/gnunet-0.21.1.tar.gz"
+  mirror "https://ftpmirror.gnu.org/gnunet/gnunet-0.21.1.tar.gz"
+  sha256 "93e68b3eaca7087273e3d7685fe6ae38b2e8055e4c9e700d360dd4055249785c"
   license "AGPL-3.0-or-later"
 
   bottle do
