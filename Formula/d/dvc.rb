@@ -17,6 +17,8 @@ class Dvc < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "848c6d8cc2de15aee30f7fa4b8bfceafe5258bd08e02155801df46edc682c474"
   end
 
+  depends_on "cmake" => :build # for pyarrow
+  depends_on "ninja" => :build # for pyarrow
   depends_on "openjdk" => :build # for hydra-core
   depends_on "rust" => :build # for bcrypt
   depends_on "apache-arrow"
@@ -25,8 +27,11 @@ class Dvc < Formula
   depends_on "libgit2"
   depends_on "libyaml"
   depends_on "numpy"
-  depends_on "protobuf"
   depends_on "python@3.12"
+
+  on_linux do
+    depends_on "patchelf" => :build # for pyarrow
+  end
 
   resource "adlfs" do
     url "https://files.pythonhosted.org/packages/8b/d0/6b9e786f870dcdc5a5765f6ae46579913aef8d7aed72a190fab7a51164c6/adlfs-2024.2.0.tar.gz"
@@ -369,8 +374,8 @@ class Dvc < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/33/f5/01b3c47e568e180f2bf6a600c105ccd19cffc4f6938e9a6d8e5f707545fb/google-api-python-client-2.121.0.tar.gz"
-    sha256 "df863ece4db8b36ce1053ebd983e43fbc5b664209eed78e82cc84ae56ddac6c0"
+    url "https://files.pythonhosted.org/packages/b7/c1/2418c084eac8126fa3b5f52eb70de04564023040dea23a9e9cb856327785/google-api-python-client-2.122.0.tar.gz"
+    sha256 "77447bf2d6b6ea9e686fd66fc2f12ee7a63e3889b7427676429ebf09fcb5dcf9"
   end
 
   resource "google-auth" do
@@ -563,9 +568,25 @@ class Dvc < Formula
     sha256 "3527b7af26106cbc65a040bcc84839a3566ec1b051bb0bfe953631e704b0ff7d"
   end
 
+  resource "protobuf" do
+    url "https://files.pythonhosted.org/packages/5e/d8/65adb47d921ce828ba319d6587aa8758da022de509c3862a70177a958844/protobuf-4.25.3.tar.gz"
+    sha256 "25b5d0b42fd000320bd7830b349e3b696435f3b329810427a6bcce6a5492cc5c"
+  end
+
   resource "psutil" do
     url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
     sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+  end
+
+  resource "pyarrow" do
+    url "https://files.pythonhosted.org/packages/ac/f8/38a8498b294a6d3c74cd81bb411c510d52dfdd40d082651ded761fa7a964/pyarrow-15.0.1.tar.gz"
+    sha256 "21d812548d39d490e0c6928a7c663f37b96bf764034123d4b4ab4530ecc757a9"
+
+    # Backport fix for Cython 3.0.9+
+    patch :p2 do
+      url "https://github.com/apache/arrow/commit/1d966e98e41ce817d1f8c5159c0b9caa4de75816.patch?full_index=1"
+      sha256 "3272126cb6726744cfeb770513eb2b8b105b7926a38477a6bbd4aa0352beb6d5"
+    end
   end
 
   resource "pyasn1" do
@@ -584,8 +605,8 @@ class Dvc < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/3c/6c/5d3b1c9615726a69a9a1f992e63f8fd0a2d19ae726c15eb9154fdce48217/pydantic-2.6.3.tar.gz"
-    sha256 "e07805c4c7f5c6826e33a1d4c9d47950d7eaf34868e2690f8594d2e30241f11f"
+    url "https://files.pythonhosted.org/packages/4b/de/38b517edac45dd022e5d139aef06f9be4762ec2e16e2b14e1634ba28886b/pydantic-2.6.4.tar.gz"
+    sha256 "b1704e0847db01817624a6b86766967f552dd9dbf3afba4004409f908dcc84e6"
   end
 
   resource "pydantic-core" do
@@ -679,13 +700,13 @@ class Dvc < Formula
   end
 
   resource "s3transfer" do
-    url "https://files.pythonhosted.org/packages/a0/b5/4c570b08cb85fdcc65037b5229e00412583bb38d974efecb7ec3495f40ba/s3transfer-0.10.0.tar.gz"
-    sha256 "d0c8bbf672d5eebbe4e57945e23b972d963f07d82f661cabf678a5c88831595b"
+    url "https://files.pythonhosted.org/packages/83/bc/fb0c1f76517e3380eb142af8a9d6b969c150cfca1324cea7d965d8c66571/s3transfer-0.10.1.tar.gz"
+    sha256 "5683916b4c724f799e600f41dd9e10a9ff19871bf87623cc8f491cb4f5fa0a19"
   end
 
   resource "scmrepo" do
-    url "https://files.pythonhosted.org/packages/f9/b6/aec2972544ad2e90ea741f6d29490de83b2e4ee4cfd8d27c849aac6432b9/scmrepo-3.2.0.tar.gz"
-    sha256 "84a20ee3b0c555c8756977141065a92927ecc67afd5c782ef11a502d0848f422"
+    url "https://files.pythonhosted.org/packages/63/0d/c9fd8b36823eb2b4625e9bed4fcf7411a491a199d35d61cbd6fbb9eb76ef/scmrepo-3.3.0.tar.gz"
+    sha256 "36e64f5324764e5784627a9a8d24a95575c5031f69f9c5889e162b50b7dc839d"
   end
 
   resource "semver" do
@@ -694,13 +715,13 @@ class Dvc < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   resource "shortuuid" do
-    url "https://files.pythonhosted.org/packages/cf/a0/f7a811bbe38e4c82b48ca8ffde6f7ba0d8a3516ab2540363843a60e63ca4/shortuuid-1.0.12.tar.gz"
-    sha256 "c39f1b348b3c1e9b115a954b33b76c8c522d2d177a9d20acdbb20d24fac3ccfd"
+    url "https://files.pythonhosted.org/packages/8c/e2/bcf761f3bff95856203f9559baf3741c416071dd200c0fc19fad7f078f86/shortuuid-1.0.13.tar.gz"
+    sha256 "3bb9cf07f606260584b1df46399c0b87dd84773e7b25912b7e391e30797c5e72"
   end
 
   resource "shtab" do
@@ -809,6 +830,20 @@ class Dvc < Formula
   end
 
   def install
+    if DevelopmentTools.clang_build_version >= 1500
+      # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
+      # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
+      ENV.append_to_cflags "-Wno-incompatible-function-pointer-types"
+
+      # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+      # libunwind due to it being present in a library search path.
+      ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib
+    end
+
+    # dvc-hdfs uses fsspec.implementations.arrow.HadoopFileSystem which is
+    # a wrapper on top of pyarrow.fs.HadoopFileSystem.
+    ENV["PYARROW_WITH_HDFS"] = "1"
+
     # NOTE: dvc uses this file [1] to know which package it was installed from,
     # so that it is able to provide appropriate instructions for updates.
     # [1] https://github.com/iterative/dvc/blob/3.0.0/scripts/build.py#L23
