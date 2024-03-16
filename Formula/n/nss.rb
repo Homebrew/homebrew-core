@@ -14,13 +14,13 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b790075f6dcb1f8494372bc44c0877021b3f89a1f5c3024d932be86a0d25e789"
-    sha256 cellar: :any,                 arm64_ventura:  "bc927de4e93213be44a7aafe7449b13913a71b76efb415e9a481f8dd87bf2758"
-    sha256 cellar: :any,                 arm64_monterey: "fc47979bce34e2b4679b3ca40b36fca4a2ed6a85ee0e530c11478f982c6c46d7"
-    sha256 cellar: :any,                 sonoma:         "889300b0cb61c78585095533d48913b8d8053dc0c0c5da3c0ff3b1a0a389a69e"
-    sha256 cellar: :any,                 ventura:        "b8b67373d240506768f0fd722759c2aff4cb6e355fd0d1e99047e5315d4a5b6d"
-    sha256 cellar: :any,                 monterey:       "4b21f833949d2efc551ce57f9ab02a748ec98ffdb86c11efa7451a3ff6516877"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1230eb2a5e3920995b77869ec39c9a04f7d16b7fef6503b6538103b581399933"
+    sha256 cellar: :any,                 arm64_sonoma:   "55b7cb652b36c46817e352f7e2878f9e59d5018d1d20c0a901e27ad64a00335e"
+    sha256 cellar: :any,                 arm64_ventura:  "e8bfb7e2fd407d811b9ec341bf186eb10e1c97ac992d32029739eeb7d528fa71"
+    sha256 cellar: :any,                 arm64_monterey: "64eef8661fdbce629dd9698b629d0bf43e310e73b58040923cfc237c19f2e4ef"
+    sha256 cellar: :any,                 sonoma:         "01be78440411fce90fd91576a117185f813252056b708bb8e5bfc5814e660b9f"
+    sha256 cellar: :any,                 ventura:        "a446576f956967a09f1350144a6faf5dc3c7c260443e8c4485a7ec71d2187651"
+    sha256 cellar: :any,                 monterey:       "b4dd23943bdfccccffdd18000256885eaa6e75f8484f5c8f4cc7d8010b074822"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0f66e9c38728cc5433797a0539b18ef543084b1e349f09e732ca3c29d366ac4"
   end
 
   depends_on "nspr"
