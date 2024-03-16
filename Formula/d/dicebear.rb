@@ -8,13 +8,13 @@ class Dicebear < Formula
   license "MIT"
 
   bottle do
-    sha256                               arm64_sonoma:   "641a664583962bca43e51b5d888313c908706b32d4e0f76eb8a84a302dabc809"
-    sha256                               arm64_ventura:  "5ed6aa6dc6b6a6ed92e128ea5a79def22443c1db527f60698208b97ebb3d3a57"
-    sha256                               arm64_monterey: "300019cef47f3a76540df445c29358e192a060ddf1be760632292ceb06ae9244"
-    sha256                               sonoma:         "5e021532323cdd6c9387e4550ad8f4e60c42f2dd44d34240366d92a406c9edc2"
-    sha256                               ventura:        "9638b1ab6f3bd3c7aacfd04286fa7f5efad4d3aa43e7670cde5ab651858e9750"
-    sha256                               monterey:       "1c92bad1c69672262ee087910013a7c5f691d6a387cbcf2ce3d9cc70c5d294d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "557094e3a63e342e3e7cf2d4d34f500d38d85952a82e95c639b2e110f0d18b87"
+    sha256                               arm64_sonoma:   "6e79fa663d43d331ebf6febb6bfccee38eb784b1b414c58bc826e41977829c89"
+    sha256                               arm64_ventura:  "e30db9845a7d38e59949709e9f0ba17d0c6ad575a0fdb36712b12bc5c3b0418a"
+    sha256                               arm64_monterey: "d9006eeff06b9e5784b8bc0b29dc0f6b1a541eb8fe65e75af4084ceacb78d6c2"
+    sha256                               sonoma:         "77fd18654a21c16fd20d014f98f84ae2803022329c68a88173693632f501b23f"
+    sha256                               ventura:        "524d962bc2bcb369513f27b5ddd94a1462a5926fb03c1928a20a16a881ab5092"
+    sha256                               monterey:       "0a872d482c070c321f951c05837dea2acf58b0aca60a47c4713c520336b75286"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a6494f17d622da49859e463a7dcfea6a8564d95c06b6a73466b4e79125e904f"
   end
 
   depends_on "node"
