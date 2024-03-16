@@ -6,13 +6,13 @@ class Riff < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "26588a5b49c6307c333d59aee5a69bf6248c2c7e5412a95ed32d0d6c00ddcb7d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d9c6c40a6cd023cfc90822aed8c24b4de34a4810b139a1e0c4162283587fa324"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9240fc953746fb5de140ef1a0b3a0f0a05cebd2828016c6077476b2bd9606c2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "da00dd007131585b1de738fb2eda92a41ecf24332933ead3fb33760f0c50215a"
-    sha256 cellar: :any_skip_relocation, ventura:        "bb8f910dbf3d3f50b0c6f9424e283bfcfe073e87645e3cbc62b56c399c9b9863"
-    sha256 cellar: :any_skip_relocation, monterey:       "d36ddde1d22a13efb99d1661a5deeae1a69953010174236131ac5270eaaa190e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f3a7cde44269dd593765fd8705fdc32e5ac991439bf38f8eb3568d8b768ecaf4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "74d999280bbfdcdd7f1a6915dbe9725b4055795af07cf103e581866a2d632ed3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9bf7bbb4c4fadac5d7b0de5e05ad2e60e81fab7397ffa06fd90bdab5f2f20816"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d632a1afc6347319301dc559e9a92d4cd5da94c118591bd8f89317264542236"
+    sha256 cellar: :any_skip_relocation, sonoma:         "507350fdc66767f6b4c4e878232e04ee29c57262b7b47aa2238291980bd10fe2"
+    sha256 cellar: :any_skip_relocation, ventura:        "af6ec28b7856bbda2b221f59f7248026892a4168ea0c4313efae93e2bbaa4a9e"
+    sha256 cellar: :any_skip_relocation, monterey:       "64c8c50c0e1d458a68008f8d9c58ca7be4306c2fccd609feb22826dd128b4253"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeab6a9c385d23ceec30ff589bafab926885c2dc82b3469c668e304b9aa5bf0c"
   end
 
   depends_on "rust" => :build
