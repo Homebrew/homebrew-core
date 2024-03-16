@@ -3,8 +3,8 @@ require "language/node"
 class Dicebear < Formula
   desc "CLI for DiceBear - An avatar library for designers and developers"
   homepage "https://github.com/dicebear/dicebear"
-  url "https://registry.npmjs.org/dicebear/-/dicebear-7.1.1.tgz"
-  sha256 "332285a19b485e45f4a4574f8414b1b19bfae8aa0de15ddbd9be10f6033f4fc9"
+  url "https://registry.npmjs.org/dicebear/-/dicebear-8.0.0.tgz"
+  sha256 "bdd8c468bdb7d14974e6f888b462eb12c7ea07d3f03ae22b40f709eb60c82c5d"
   license "MIT"
 
   bottle do
@@ -27,9 +27,7 @@ class Dicebear < Formula
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
 
-    # Delete native binaries installed by npm, as we dont support `musl` for a `libc` implementation
     node_modules = libexec/"lib/node_modules/dicebear/node_modules"
-    (node_modules/"@resvg/resvg-js-linux-x64-musl/resvgjs.linux-x64-musl.node").unlink if OS.linux?
 
     # Remove incompatible pre-built `bare-fs`/`bare-os` binaries
     os = OS.kernel_name.downcase
