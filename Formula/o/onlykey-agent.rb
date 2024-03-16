@@ -20,9 +20,9 @@ class OnlykeyAgent < Formula
 
   depends_on "certifi"
   depends_on "cryptography"
+  depends_on "cython"
   depends_on "gnupg"
   depends_on "hidapi"
-  depends_on "libcython"
   depends_on "libusb"
   depends_on "python@3.12"
 
@@ -221,7 +221,7 @@ class OnlykeyAgent < Formula
     # add path configuration file to find cython
     site_packages = Language::Python.site_packages(python3)
     pth_contents = <<~EOS
-      import site; site.addsitedir('#{Formula["libcython"].opt_libexec/site_packages}')
+      import site; site.addsitedir('#{Formula["cython"].opt_libexec/site_packages}')
     EOS
     (libexec/site_packages/"homebrew-onlykey-agent.pth").write pth_contents
   end
