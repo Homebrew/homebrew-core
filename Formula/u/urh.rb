@@ -20,26 +20,30 @@ class Urh < Formula
 
   depends_on "pkg-config" => :build
   depends_on "hackrf"
-  depends_on "libcython"
   depends_on "numpy"
   depends_on "pyqt@5"
-  depends_on "python-psutil"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
 
+  resource "cython" do
+    url "https://files.pythonhosted.org/packages/2a/97/8cc3fe7c6de4796921236a64d00ca8a95565772e57f0d3caae68d880b592/Cython-0.29.37.tar.gz"
+    sha256 "f813d4a6dd94adee5d4ff266191d1d95bf6d4164a4facc535422c021b2504cfb"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
+    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+  end
+
   def install
-    python3 = "python3.12"
-
-    # Enable finding cython, which is keg-only
-    site_packages = Language::Python.site_packages(python3)
-    pth_contents = <<~EOS
-      import site; site.addsitedir('#{Formula["libcython"].opt_libexec/site_packages}')
-    EOS
-    (libexec/site_packages/"homebrew-libcython.pth").write pth_contents
-
-    # We disable build isolation to avoid trying to build another numpy for build-only usage.
-    # We can replace the virtualenv with pip install if we decide to link `libcython`.
-    venv = virtualenv_create(libexec, python3)
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resources
+    # Need to disable build isolation and install Setuptools since `urh` only
+    # has a setup.py which assumes Cython and Setuptools are already installed
     venv.pip_install_and_link(buildpath, build_isolation: false)
   end
 
