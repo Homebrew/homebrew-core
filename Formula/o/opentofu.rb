@@ -6,14 +6,6 @@ class Opentofu < Formula
   license "MPL-2.0"
   head "https://github.com/opentofu/opentofu.git", branch: "main"
 
-  # This uses a loose regex, so it will match unstable versions for now. Once a
-  # stable version becomes available, we should update or remove this to ensure
-  # we only match stable versions going forward.
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+.*)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "883170dcdc5df4bf8d895dbabc8c6b06941c4c819266ba58bd3664674f1022ae"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "564ce4b3c92a68e84ab2ea7cf6fa73c093e4a6b0f012ece99373996d7491691c"
