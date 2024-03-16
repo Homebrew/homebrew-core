@@ -9,10 +9,13 @@ class Zbctl < Formula
 
   # Upstream creates stable version tags (e.g., `v1.2.3`) before a release but
   # the version isn't considered to be released until a corresponding release
-  # is created on GitHub, so it's necessary to use the `GithubLatest` strategy.
+  # is created on GitHub. Upstream may not mark all unstable releases as
+  # "pre-release", so we have to use the `GithubReleases` strategy until the
+  # "latest" release is always a stable version.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases
   end
 
   bottle do
