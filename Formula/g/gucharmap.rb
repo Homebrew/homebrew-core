@@ -6,13 +6,13 @@ class Gucharmap < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "937c7b65fa87ab5f513f85abb5c68960c517e9ef6f3da8b1c581b4a4fe27382a"
-    sha256 arm64_ventura:  "ee7e34c415afbda101e1784014aaa38985caa7fae057261350e4b77e09085b38"
-    sha256 arm64_monterey: "c1c2b25d5a17eeade8d045c04c2575fcfeeb17baab7bd348e2d01224d5834f91"
-    sha256 sonoma:         "fda688f5f05e15017b40e886fdc76576da5a7c61c09dca1e913bb23cbf4dc99d"
-    sha256 ventura:        "afe4c96b04b6cff057aa6aba089f0b42e06bf4de8747a35efb9f7ad75acfb8b6"
-    sha256 monterey:       "75d634ccc137cc07feac07f7a9e37d1cbcf8d982c4f5a429a6b65561de3393ed"
-    sha256 x86_64_linux:   "29690eb9d8b42c02ae8b8505a6fb62bf98a3ae52cb47f9c6606e004f4d4881de"
+    sha256 arm64_sonoma:   "2070196886ef6c547122b63d378b6b1ea1ed849a22f8eb3f683ee3dd7a80af8f"
+    sha256 arm64_ventura:  "2e2b1d2636e3ba31521ea7f60952ee19e39e2cf475393cb221655034790e5879"
+    sha256 arm64_monterey: "1280d67990bec09743a336332f71604087e12a67c3cc06f4ad5c3da6bd264e1f"
+    sha256 sonoma:         "5d572fe48545bb93826a0ac7b3cd18967f9904070647a69c698b209b8ccf7a08"
+    sha256 ventura:        "8a5b29c7155d172a2717d74c05a2362b4f9830702ab9eee51f1d8304b0497d15"
+    sha256 monterey:       "a45718d5fe8f5841c53f63d73c2d3b3adb45ba1c3bc0214f7a6d5226f05b2525"
+    sha256 x86_64_linux:   "d615b7cc5176058ed8b2166b73f781b86060584f115c3eba3d4d10637b000efe"
   end
 
   depends_on "desktop-file-utils" => :build
