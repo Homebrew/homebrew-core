@@ -1,8 +1,8 @@
 class Fheroes2 < Formula
   desc "Recreation of the Heroes of Might and Magic II game engine"
   homepage "https://ihhub.github.io/fheroes2/"
-  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.12.tar.gz"
-  sha256 "a5b088ff4c1c6c2e05e72d755bbabde8c0cbea19debea3b5a82b5d08b16cc2be"
+  url "https://github.com/ihhub/fheroes2/archive/refs/tags/1.0.13.tar.gz"
+  sha256 "eb7f960e77ee8012e5bbab385baf4959797e578454ace82574a3c6fee24f94c8"
   license "GPL-2.0-or-later"
   head "https://github.com/ihhub/fheroes2.git", branch: "master"
 
@@ -32,13 +32,6 @@ class Fheroes2 < Formula
   uses_from_macos "zlib"
 
   fails_with gcc: "5"
-
-  # Fixes Sonoma iconv issue `end-of-line within string`
-  # Remove in next release
-  patch do
-    url "https://github.com/ihhub/fheroes2/commit/18ab688b64bc3a978292602b27cf4542bcb07f7d.patch?full_index=1"
-    sha256 "f1f1f716c4b2ef8ec99aa336fd9526e45f95b3ecfa002d398b1ec9cd955e8000"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
