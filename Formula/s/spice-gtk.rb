@@ -31,7 +31,6 @@ class SpiceGtk < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.12" => :build
-  depends_on "six" => :build
   depends_on "vala" => :build
 
   depends_on "at-spi2-core"
@@ -50,9 +49,18 @@ class SpiceGtk < Formula
   depends_on "pango"
   depends_on "phodav"
   depends_on "pixman"
-  depends_on "python-pyparsing"
   depends_on "spice-protocol"
   depends_on "usbredir"
+
+  resource "pyparsing" do
+    url "https://files.pythonhosted.org/packages/46/3a/31fd28064d016a2182584d579e033ec95b809d8e220e74c4af6f0f2e8842/pyparsing-3.1.2.tar.gz"
+    sha256 "a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"
+  end
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
 
   # Backport fix for "ld: unknown file type in '.../spice-gtk-0.42/src/spice-glib-sym-file'"
   patch do
@@ -64,6 +72,10 @@ class SpiceGtk < Formula
   patch :DATA
 
   def install
+    venv = virtualenv_create(buildpath/"venv", "python3.12")
+    venv.pip_install resources
+    ENV.prepend_path "PATH", venv.root/"bin"
+
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build"
     system "meson", "install", "-C", "build"
