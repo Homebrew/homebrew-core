@@ -16,7 +16,6 @@
   ["boost", "boost-bcp", "boost-build", "boost-mpi", "boost-python3"],
   ["bundler-completion", "gem-completion", "rails-completion", "ruby-completion"],
   ["cmake", "cmake-docs"],
-  ["cython", "libcython"],
   ["dbhash", "lemon", "sqldiff", "sqlite", "sqlite-analyzer"],
   ["dmd", "dtools"],
   ["docker", "docker-completion"],

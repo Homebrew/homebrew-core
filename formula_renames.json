@@ -108,6 +108,7 @@
   "letsencrypt": "certbot",
   "libbitcoin": "libbitcoin-system",
   "libcppa": "caf",
+  "libcython": "cython",
   "libmongoclient": "mongo-cxx-driver",
   "libpython-tabulate": "python-tabulate",
   "libsasl2": "cyrus-sasl",
