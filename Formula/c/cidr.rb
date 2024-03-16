@@ -1,8 +1,8 @@
 class Cidr < Formula
   desc "CLI to perform various actions on CIDR ranges"
   homepage "https://github.com/bschaatsbergen/cidr"
-  url "https://github.com/bschaatsbergen/cidr/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "e1b7859bebcd88f9f67844973188766da48d73f8c1c0d47c4b66f34daf12e9e8"
+  url "https://github.com/bschaatsbergen/cidr/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "ce3d0bd65ba9b74c3c56646f1a6b58a712ad622ace1cb8c1b72bf9f6b6d44bba"
   license "MIT"
   head "https://github.com/bschaatsbergen/cidr.git", branch: "main"
 
@@ -28,7 +28,7 @@ class Cidr < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/cidr --version")
-    assert_equal "65534\n", shell_output("#{bin}/cidr count 10.0.0.0/16")
+    assert_equal "65536\n", shell_output("#{bin}/cidr count 10.0.0.0/16")
     assert_equal "1\n", shell_output("#{bin}/cidr count 10.0.0.0/32")
     assert_equal "false\n", shell_output("#{bin}/cidr overlaps 10.106.147.0/24 10.106.149.0/23")
   end
