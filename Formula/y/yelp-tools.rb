@@ -9,8 +9,14 @@ class YelpTools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "5f9bc87c483a0e5d1d8b8a25f2f399ba53c8bb97f9b52d5bde70314d37f67bca"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "fbae1e97dd9800a69ea65c94ce2344358543be53546bef33033e15ac820892da"
+    sha256 cellar: :any,                 arm64_ventura:  "b9aaee8bdd73c94f40d388b2a71d440cb3af6b94a4232547d73221c342647fdb"
+    sha256 cellar: :any,                 arm64_monterey: "fc21e8eaa199474b8995401cb18602da05b93f621aeb04e4275206aa7717eb71"
+    sha256 cellar: :any,                 sonoma:         "b8c8fade4e54ceb8404e7752d231f1067e4a158f7ba0111f35cc16faeef2a39e"
+    sha256 cellar: :any,                 ventura:        "2dd792141d0defb21675d6033c943fb688f2c7de6a2b8aedd524e34de8b20696"
+    sha256 cellar: :any,                 monterey:       "57497f6983883ffcef9a672347ab3a414ea496626448936874681c9d100d8b05"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "673a9997e83219618a3b26a5c80944ab0f4c96417a2cd97242a97710590ee030"
   end
 
   depends_on "gettext" => :build
