@@ -8,6 +8,7 @@ class Stanc3 < Formula
       tag:      "v2.32.2",
       revision: "bcbf83c52c76018ce4a6cd86233de1601ddf9422"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
     rebuild 1
