@@ -24,9 +24,9 @@ class Pytouhou < Formula
   deprecate! date: "2024-02-23", because: :does_not_build
 
   depends_on "pkg-config" => :build
+  depends_on "cython"
   depends_on "glfw"
   depends_on "gtk+3"
-  depends_on "libcython"
   depends_on "libepoxy"
   depends_on "py3cairo"
   depends_on "pygobject3"
@@ -42,7 +42,7 @@ class Pytouhou < Formula
 
   def install
     python = "python3.11"
-    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages(python)
+    ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python)
 
     # hg can't determine revision number (no .hg on the stage)
     inreplace "setup.py", /(version)=.+,$/, "\\1='#{version}',"
