@@ -240,3 +240,7 @@ jobs:
 
             - label: pip-audit
               pr_body_content: Created by `brew-pip-audit`
+
+            - label: autobump
+              path: \.github/autobump\.txt
+              allow_any_match: true
