@@ -1,8 +1,8 @@
 class PythonHatchling < Formula
   desc "Modern, extensible Python build backend"
   homepage "https://github.com/pypa/hatch/tree/master/backend"
-  url "https://files.pythonhosted.org/packages/d8/a1/7dd1caa87c0b15c04c6291e25112e5d082cce02ee87f221a8be1d594f857/hatchling-1.21.1.tar.gz"
-  sha256 "bba440453a224e7d4478457fa2e8d8c3633765bafa02975a6b53b9bf917980bc"
+  url "https://files.pythonhosted.org/packages/fd/9b/6c92b3078a5493ebba5a5e4cb805b8bfee4253d56bfe6e9e4d16c9b8d173/hatchling-1.22.1.tar.gz"
+  sha256 "ad52ebe5dabbce8f7448f347e2a4f72700dcc7a1e3d93f6e69996f9df30bc129"
   license "MIT"
 
   bottle do
@@ -24,14 +24,9 @@ class PythonHatchling < Formula
   depends_on "python-pluggy"
   depends_on "python-trove-classifiers"
 
-  resource "editables" do
-    url "https://files.pythonhosted.org/packages/37/4a/986d35164e2033ddfb44515168a281a7986e260d344cf369c3f52d4c3275/editables-0.5.tar.gz"
-    sha256 "309627d9b5c4adc0e668d8c6fa7bac1ba7c8c5d415c2d27f60f081f8e80d1de2"
-  end
-
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "pathspec" do
@@ -45,8 +40,8 @@ class PythonHatchling < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/44/e4/9de7cda4a03a996758fbdb7ddacc071b4c62fdcd645e0a1192a22e8c55c0/trove-classifiers-2024.1.8.tar.gz"
-    sha256 "6e36caf430ff6485c4b57a4c6b364a13f6a898d16b9417c6c37467e59c14b05a"
+    url "https://files.pythonhosted.org/packages/13/11/e13906315b498cb8f5ce5a7ff39fc35941e8291e914158157937fd1c095d/trove-classifiers-2024.3.3.tar.gz"
+    sha256 "df7edff9c67ff86b733628998330b180e81d125b1e096536d83ac0fd79673fdc"
   end
 
   def pythons
