@@ -4,6 +4,7 @@ class Comby < Formula
   url "https://github.com/comby-tools/comby/archive/refs/tags/1.8.1.tar.gz"
   sha256 "04d51cf742bbbf5e5fda064a710be44537fac49bff598d0e9762a3a799d666e2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
