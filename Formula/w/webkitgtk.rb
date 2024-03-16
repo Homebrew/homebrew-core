@@ -1,10 +1,9 @@
 class Webkitgtk < Formula
   desc "GTK interface to WebKit"
   homepage "https://webkitgtk.org"
-  url "https://webkitgtk.org/releases/webkitgtk-2.42.5.tar.xz"
-  sha256 "b64278c1f20b8cfdbfb5ff573c37d871aba74a1db26d9b39f74e8953fe61e749"
+  url "https://webkitgtk.org/releases/webkitgtk-2.44.0.tar.xz"
+  sha256 "c66530e41ba59b1edba4ee89ef20b2188e273bed0497e95084729e3cfbe30c87"
   license "GPL-3.0-or-later"
-  revision 2
 
   livecheck do
     url "https://webkitgtk.org/releases/"
@@ -66,7 +65,9 @@ class Webkitgtk < Formula
       -DENABLE_GAMEPAD=OFF
       -DENABLE_MINIBROWSER=ON
       -DUSE_AVIF=ON
+      -DUSE_GTK4=OFF
       -DUSE_JPEGXL=ON
+      -DUSE_LIBBACKTRACE=OFF
       -DUSE_LIBHYPHEN=OFF
       -DPython_EXECUTABLE=#{which("python3.12")}
     ]
