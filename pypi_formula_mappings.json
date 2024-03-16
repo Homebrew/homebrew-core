@@ -233,7 +233,7 @@
       "paramiko", "pexpect", "pydrive2",
       "python-swiftclient[keystone]", "requests[security]", "requests-oauthlib"
     ],
-    "exclude_packages": ["certifi", "cryptography", "protobuf"]
+    "exclude_packages": ["certifi", "cryptography"]
   },
   "dvc": {
     "package_name": "dvc[all]",
