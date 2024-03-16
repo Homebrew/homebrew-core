@@ -6,13 +6,13 @@ class PodmanTui < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7eab176fea58bd434d6d7a8df4ed63527517549168c901dae6a9a9a2edc9b1f1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0cf25203ed768a0c4c6f400cb3c37f99904814315cfcd57b47b34209a2ca4246"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b91987a044451a50d39da6e48205e52b72edea6a7edf06070e08253045a9cac"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3beef012e03fd2096542f8d6591a4ac464fed0ccbf28e13275e7cb6215aa5ccd"
-    sha256 cellar: :any_skip_relocation, ventura:        "5111291f349a1fa607a0b658ad63b0374c3e2509a3b89152e537887b1b1a01db"
-    sha256 cellar: :any_skip_relocation, monterey:       "49413d24066e44eafaa3f65ed019a7a42ed2f33b220e10b1e189918158b768b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f5b9d75ccd2e1e3e445bc6cef987eb084bf838c8ad0fea1b34d7ade019088d4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b85a1d661ffeefe45e5e22988382e4413ba8f80f3dc00865f87c0016bfe4406a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85a77c6adbb0fceecc190f89d489e20d6c74e106f4ff399baff28429312375e5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "710f3572aca7c5ec33052a3945aeec69d2ea0fd6eb475e6741817730b48bcbf8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "af7cfde1e1b0b5ed7abd6ae06d34b3f17844c3bab6d0e7c75e1fb002906307ed"
+    sha256 cellar: :any_skip_relocation, ventura:        "b70b2a7980447064e027e39ffa73c358480ebc6102f2f32c336df38029ed5cc7"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9b5a73222fad4edcd75dae8738d7fc454061c81cd478c2f5a55577ac9e0c442"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "154f7075e2d11e47a6fe8be27b9bfcca17f2277208b995a78f8353aeabeb96fe"
   end
 
   depends_on "go" => :build
