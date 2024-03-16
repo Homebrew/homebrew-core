@@ -24,8 +24,6 @@ class HppFcl < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "pkg-config" => :build
-  depends_on "python-lxml" => :build
-  depends_on "python-setuptools" => :build
   depends_on "assimp"
   depends_on "boost"
   depends_on "eigen"
@@ -43,7 +41,6 @@ class HppFcl < Formula
 
     system "cmake", "-S", ".", "-B", "build",
                     "-DPYTHON_EXECUTABLE=#{which(python3)}",
-                    "-DBUILD_UNIT_TESTS=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
