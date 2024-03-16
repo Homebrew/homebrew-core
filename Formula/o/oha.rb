@@ -1,8 +1,8 @@
 class Oha < Formula
   desc "HTTP load generator, inspired by rakyll/hey with tui animation"
   homepage "https://github.com/hatoo/oha/"
-  url "https://github.com/hatoo/oha/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "cbcb9dbeb741b3cd2207011c117b2ee82f1577d49f4f8be3c07828552ba24c7a"
+  url "https://github.com/hatoo/oha/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "23691f9bf60745ee9a9df2ec92a4fc4e77d89cd2648b38410d396b193146ce43"
   license "MIT"
   head "https://github.com/hatoo/oha.git", branch: "master"
 
