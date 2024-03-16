@@ -1,8 +1,8 @@
 class Libshumate < Formula
   desc "Shumate is a GTK toolkit providing widgets for embedded maps"
   homepage "https://gitlab.gnome.org/GNOME/libshumate"
-  url "https://download.gnome.org/sources/libshumate/1.1/libshumate-1.1.3.tar.xz"
-  sha256 "6b8a159ed744fdd15992411662a05cb4187fb55e185111a366e0038d2f0b3543"
+  url "https://download.gnome.org/sources/libshumate/1.2/libshumate-1.2.0.tar.xz"
+  sha256 "4f8413a707cd00f84cee39ca49f58c48fc436f008ea80d6532ac37dafd0ba96b"
   license "LGPL-2.1-or-later"
 
   # libshumate doesn't use GNOME's "even-numbered minor is stable" version
@@ -29,10 +29,15 @@ class Libshumate < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
+
   depends_on "cmake"
   depends_on "gi-docgen"
   depends_on "gtk4"
+  depends_on "json-glib"
   depends_on "libsoup"
+  depends_on "protobuf-c"
+
+  uses_from_macos "gperf"
   uses_from_macos "icu4c"
   uses_from_macos "sqlite"
 
