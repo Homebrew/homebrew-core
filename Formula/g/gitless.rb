@@ -9,14 +9,14 @@ class Gitless < Formula
   revision 15
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9f4b487e1f75ce43d64d7a9e80790c216564f212f4a5da7fafba626c3a8e901e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f4b487e1f75ce43d64d7a9e80790c216564f212f4a5da7fafba626c3a8e901e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9f4b487e1f75ce43d64d7a9e80790c216564f212f4a5da7fafba626c3a8e901e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "26ff00d734d1bcf6a3be5e67713db3afc6dccd7e1ae4ea4b1f7b5842548a8556"
-    sha256 cellar: :any_skip_relocation, ventura:        "26ff00d734d1bcf6a3be5e67713db3afc6dccd7e1ae4ea4b1f7b5842548a8556"
-    sha256 cellar: :any_skip_relocation, monterey:       "26ff00d734d1bcf6a3be5e67713db3afc6dccd7e1ae4ea4b1f7b5842548a8556"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a7a5a9e64e8a5a19353c9169f19e055a8358a25f00e5bf19d1b1615770c6738"
+    rebuild 3
+    sha256 cellar: :any,                 arm64_sonoma:   "5a34588024e77b81bb4159be66a1cd88ac9b1fc6cf2fe4e38304ffdc8c7e257b"
+    sha256 cellar: :any,                 arm64_ventura:  "3962cf0338bd55bd51c56105f66b9b61c13108b43741c933c0f22bee9aef1ae2"
+    sha256 cellar: :any,                 arm64_monterey: "b38610d904c03a9cc861c465667da9702f65ffb66e2e57a5110152f5c072fb71"
+    sha256 cellar: :any,                 sonoma:         "4ec25c83e7b3d13501d74c80984ff77fcc36c6b271529102eb248cccd8ea2811"
+    sha256 cellar: :any,                 ventura:        "98ce8f01cc7cf04682efb27b14cdbea6c5a02838b27136912ea4fed092be0b58"
+    sha256 cellar: :any,                 monterey:       "33cd664f810a9ef2571c2444ab85b51a828a1d71c13bbe72fb0db404a9960e63"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c245e63afd7c27ce7ce170cb89179054d81d68421f87fdba927ba0042c58ce1e"
   end
 
   depends_on "libgit2"
