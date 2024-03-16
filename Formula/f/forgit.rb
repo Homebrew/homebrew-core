@@ -1,8 +1,8 @@
 class Forgit < Formula
   desc "Interactive git commands in the terminal"
   homepage "https://github.com/wfxr/forgit"
-  url "https://github.com/wfxr/forgit/releases/download/24.03.1/forgit-24.03.1.tar.gz"
-  sha256 "5e15266446a2263b43bb6c0d05fd7aa4211218fad0a5f723d335c791284ee4ce"
+  url "https://github.com/wfxr/forgit/releases/download/24.03.2/forgit-24.03.2.tar.gz"
+  sha256 "6887749d105dd8688225ab0a2b6021aacf3508a858d57b5d4682b23aebc0dee4"
   license "MIT"
 
   bottle do
