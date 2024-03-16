@@ -18,9 +18,7 @@
     ]
   },
   "ansible-lint": {
-    "exclude_packages": [
-      "ansible-core", "black", "certifi", "pygments", "pyyaml", "yamllint"
-    ]
+    "exclude_packages": ["cryptography"]
   },
   "ansible@7": {
     "extra_packages": [
