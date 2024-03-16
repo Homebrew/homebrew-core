@@ -784,6 +784,7 @@ govc
 gowsdl
 gpg-tui
 gpsim
+gptscript
 gradle
 gradle-completion
 gradle-profiler
