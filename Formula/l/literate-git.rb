@@ -18,7 +18,7 @@ class LiterateGit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "280d7c2e724ef7e2deadbab95db97818a6818ec8fcef24713336790c3e4b0939"
   end
 
-  depends_on "pygit2"
+  depends_on "libgit2"
   depends_on "python@3.12"
 
   on_linux do
