@@ -16,34 +16,8 @@ class Maturin < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "8c6f2f3baa0da92565d5af8102220ec9a711759407ab8435198f2c1b52acf371"
   end
 
-  depends_on "python-flit-core" => :build
-  depends_on "python-setuptools" => :build
-  depends_on "python-typing-extensions" => :build
-  depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.12" => :test
   depends_on "rust"
-
-  resource "semantic-version" do
-    url "https://files.pythonhosted.org/packages/7d/31/f2289ce78b9b473d582568c234e104d2a342fd658cc288a7553d83bb8595/semantic_version-2.10.0.tar.gz"
-    sha256 "bdabb6d336998cbb378d4b9db3a4b56a1e3235701dc05ea2690d9a997ed5041c"
-  end
-
-  resource "setuptools-rust" do
-    url "https://files.pythonhosted.org/packages/9d/f1/2cb8887cad0726a5e429cc9c58e30767f58d22c34d55b075d2f845d4a2a5/setuptools-rust-1.9.0.tar.gz"
-    sha256 "704df0948f2e4cc60c2596ad6e840ea679f4f43e58ed4ad0c1857807240eab96"
-  end
-
-  resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
-  end
-
-  def pythons
-    deps.map(&:to_formula)
-        .filter { |f| f.name.start_with?("python@") }
-        .sort_by(&:version)
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
 
   def install
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
@@ -55,27 +29,13 @@ class Maturin < Formula
                                        .opt_lib
     end
 
-    pythons.each do |python|
-      ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python)
-      resources.each do |r|
-        r.stage do
-          system python, "-m", "pip", "install", *std_pip_args(prefix: buildpath), "."
-        end
-      end
-
-      system python, "-m", "pip", "install", *std_pip_args, "."
-    end
-
-    # overwrite the minimal binary that pip installed
-    system "cargo", "install", *std_cargo_args, "--force"
+    system "cargo", "install", *std_cargo_args
     generate_completions_from_executable(bin/"maturin", "completions")
   end
 
   test do
     system "cargo", "init", "--name=brew", "--bin"
     system bin/"maturin", "build", "-o", "dist", "--compatibility", "off"
-    pythons.each do |python|
-      system python, "-m", "pip", "install", "brew", "--prefix=./dist", "--no-index", "--find-links=./dist"
-    end
+    system "python3.12", "-m", "pip", "install", "brew", "--prefix=./dist", "--no-index", "--find-links=./dist"
   end
 end

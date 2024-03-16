@@ -424,10 +424,6 @@
   "mathlibtools": {
     "exclude_packages": ["certifi", "cryptography"]
   },
-  "maturin": {
-    "exclude_packages": ["typing-extensions"],
-    "extra_packages": ["semantic-version", "setuptools-rust", "tomli"]
-  },
   "mdv": "mdv[yaml]",
   "mentat": {
     "exclude_packages": ["certifi", "numpy", "pillow"]
