@@ -19,7 +19,7 @@ class Sgr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf85cb31381e761bc5b416038a632109af6ad8f956467631fafe5159ff15a987"
   end
 
-  depends_on "libcython" => :build # TODO: remove with newer `pglast` (4.4+)
+  depends_on "cython" => :build # TODO: remove with newer `pglast` (4.4+)
   depends_on "rust" => :build # for pydantic
   depends_on "certifi"
   depends_on "cryptography"
@@ -218,7 +218,7 @@ class Sgr < Formula
 
   def install
     # TODO: remove with newer `pglast` (4.4+)
-    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages("python3.12")
+    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages("python3.12")
 
     virtualenv_install_with_resources
 
