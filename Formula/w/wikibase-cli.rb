@@ -3,8 +3,8 @@ require "language/node"
 class WikibaseCli < Formula
   desc "Command-line interface to Wikibase"
   homepage "https://github.com/maxlath/wikibase-cli#readme"
-  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.0.0.tgz"
-  sha256 "b4100d9f6ff5159f59d4a7d7925912ca2fbe0eac81fb5e8c07e3a62bca6322ef"
+  url "https://registry.npmjs.org/wikibase-cli/-/wikibase-cli-18.0.1.tgz"
+  sha256 "c6bd5ccdc0d1273b81951f715ea2b2c5c0049b83c23080e10cb59f5990c4ceaf"
   license "MIT"
 
   bottle do
