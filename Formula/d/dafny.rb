@@ -6,11 +6,11 @@ class Dafny < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db53ec433f8ada834f457aa9452263051035bc90e84edf77b61dd4ac49e8fb55"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "46bf172d8239c8275249bb80c2291fff1960b752c858739eff3be5cc828db434"
-    sha256 cellar: :any_skip_relocation, ventura:        "cd47394361095971eb73890be2ef745081086ecf2d073532c9cdc4e89726f8d4"
-    sha256 cellar: :any_skip_relocation, monterey:       "94812f8dc29b343ce991ea9a994ee371da6ee5ac4b717a4f270882541573d2ea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b0014f130d7e33690490641f9d4005b1f63daf0a48dbc809c46d9296e7550c3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82da952f859be276293a2aa78adb35525069d42b62abcdd5b36154600d157f79"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6d09b23732c6cee2d3722e3a4e76ba4996239edc0470a01fddc8969738fb1fb"
+    sha256 cellar: :any_skip_relocation, ventura:        "5944c263e072071d4da4f3a3d33e7a1d655d1f69f5936e094b474ff5119f6cf4"
+    sha256 cellar: :any_skip_relocation, monterey:       "97fb3aa48d29a64e4a55c5761b3e4ac9031646cdec10ec20e0049ebd6fad0bda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "256789e5f23cd1e67f8cce25fc648aa87ac54164e3b14f328edaf93f233d2304"
   end
 
   depends_on "dotnet@6"
