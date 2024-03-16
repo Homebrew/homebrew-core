@@ -1,4 +1,6 @@
 class Suricata < Formula
+  include Language::Python::Virtualenv
+
   desc "Network IDS, IPS, and security monitoring engine"
   homepage "https://suricata.io"
   url "https://www.openinfosecfoundation.org/download/suricata-7.0.3.tar.gz"
@@ -25,14 +27,23 @@ class Suricata < Formula
   depends_on "jansson"
   depends_on "libmagic"
   depends_on "libnet"
+  depends_on "libyaml"
   depends_on "lz4"
   depends_on "pcre2"
   depends_on "python@3.12"
-  depends_on "pyyaml"
 
   uses_from_macos "libpcap"
 
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
+    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
   def install
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resources
+    ENV.prepend_path "PATH", venv.root/"bin"
+
     jansson = Formula["jansson"]
     libmagic = Formula["libmagic"]
     libnet = Formula["libnet"]
@@ -58,11 +69,8 @@ class Suricata < Formula
       args << "--with-libpcap-libraries=#{Formula["libpcap"].opt_lib}"
     end
 
-    inreplace "configure", "for ac_prog in python3 ", "for ac_prog in python3.12 "
-    system "./configure", *std_configure_args, *args
+    system "./configure", *args, *std_configure_args
     system "make", "install-full"
-
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: lib/"suricata/python")
 
     # Leave the magic-file: prefix in otherwise it overrides a commented out line rather than intended line.
     inreplace etc/"suricata/suricata.yaml", %r{magic-file: /.+/magic}, "magic-file: #{libmagic.opt_share}/misc/magic"
