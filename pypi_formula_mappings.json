@@ -293,9 +293,6 @@
   "git-review": {
     "exclude_packages": ["certifi"]
   },
-  "gitless": {
-    "exclude_packages": ["pygit2"]
-  },
   "glib": {
     "package_name": "",
     "extra_packages": ["packaging"]
