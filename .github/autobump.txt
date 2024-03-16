@@ -703,6 +703,7 @@ genact
 geph4
 gettext
 gf
+ghcup
 ghostscript
 ghostunnel
 ghq
