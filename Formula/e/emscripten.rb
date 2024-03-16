@@ -3,8 +3,8 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.55.tar.gz"
-  sha256 "0be7f08c1a5e37e1965f429a84c8c9bf9864cd26eba83b59d38bb2ed77fd2e9b"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.56.tar.gz"
+  sha256 "9a0a265c5f8952206d0e033df28c5914678f93f6e638896b33ea7b7573c594b9"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -33,6 +33,7 @@ class Emscripten < Formula
   depends_on "python@3.12"
   depends_on "yuicompressor"
 
+  uses_from_macos "llvm" => :build
   uses_from_macos "zlib"
 
   # OpenJDK is needed as a dependency on Linux and ARM64 for google-closure-compiler,
@@ -47,7 +48,14 @@ class Emscripten < Formula
     depends_on "openjdk"
   end
 
-  fails_with gcc: "5"
+  # We use LLVM to work around an error while building bundled `google-benchmark` with GCC
+  fails_with :gcc do
+    cause <<~EOS
+      .../third-party/benchmark/src/thread_manager.h:50:31: error: expected ‘)’ before ‘(’ token
+         50 |   GUARDED_BY(GetBenchmarkMutex()) Result results;
+            |                               ^
+    EOS
+  end
 
   # Use emscripten's recommended binaryen revision to avoid build failures.
   # https://github.com/emscripten-core/emscripten/issues/12252
@@ -58,7 +66,7 @@ class Emscripten < Formula
   # Then use the listed binaryen_revision for the revision below.
   resource "binaryen" do
     url "https://github.com/WebAssembly/binaryen.git",
-        revision: "2ca9638354e4a5f260ced04d186808fc8b498986"
+        revision: "6e8fefe1ea13346f8908075d1f35b23317cfcc0f"
   end
 
   # emscripten does not support using the stable version of LLVM.
@@ -66,8 +74,8 @@ class Emscripten < Formula
   # See binaryen resource above for instructions on how to update this.
   # Then use the listed llvm_project_revision for the tarball below.
   resource "llvm" do
-    url "https://github.com/llvm/llvm-project/archive/6c7805d5d186a6d1263f90b8033ad85e2d2633d7.tar.gz"
-    sha256 "ca16158a37923eba027cc6354539caee53fd980530c844ab531e7aceb3da98e6"
+    url "https://github.com/llvm/llvm-project/archive/34ba90745fa55777436a2429a51a3799c83c6d4c.tar.gz"
+    sha256 "ec54a5c05e4c4a971ca5392bc114f740ec9ed3274f6432f00b2273f84cc0abd0"
   end
 
   def install
