@@ -17,8 +17,6 @@ class Mpi4py < Formula
     sha256               x86_64_linux:   "bf9015e5340ba63c8053f3266a9ead0f984723c9df9dc6a37dfed19b8cdd99d7"
   end
 
-  depends_on "libcython" => :build
-  depends_on "python-setuptools" => :build
   depends_on "open-mpi"
   depends_on "python@3.12"
 
@@ -27,7 +25,7 @@ class Mpi4py < Formula
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
   end
 
   test do
