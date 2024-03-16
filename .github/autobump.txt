@@ -1593,7 +1593,6 @@ srgn
 srt
 srtp
 sshs
-sslyze
 stackql
 stanford-corenlp
 starship
