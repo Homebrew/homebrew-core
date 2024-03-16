@@ -3,7 +3,7 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  # TODO: Try to remove `libcython` and corresponding build_cython in the next release.
+  # TODO: Try to remove `cython` and corresponding build_cython in the next release.
   # Ref: https://github.com/s3ql/s3ql/issues/335
   url "https://github.com/s3ql/s3ql/releases/download/s3ql-5.1.3/s3ql-5.1.3.tar.gz"
   sha256 "9511f7c230f3b9ea16908a806649ed9bf90ee71ed6838ceb19db9cf4eb28ed5c"
@@ -18,7 +18,7 @@ class S3ql < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "5d223be175375be7dfded444afc65a36d644b05d7f32cbde3cec7e135f715500"
   end
 
-  depends_on "libcython" => :build
+  depends_on "cython" => :build
   depends_on "pkg-config" => :build
   depends_on "cffi"
   depends_on "cryptography"
@@ -116,7 +116,7 @@ class S3ql < Formula
     inreplace "setup.py", /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="
 
     # Regenerate Cython files for Python 3.12 support. Try to remove in next release.
-    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python3)
     system libexec/"bin/python3", "setup.py", "build_cython"
 
     system libexec/"bin/python3", "setup.py", "build_ext", "--inplace"
