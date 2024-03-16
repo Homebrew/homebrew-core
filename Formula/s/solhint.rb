@@ -3,8 +3,8 @@ require "language/node"
 class Solhint < Formula
   desc "Linter for Solidity code"
   homepage "https://protofire.github.io/solhint/"
-  url "https://registry.npmjs.org/solhint/-/solhint-4.1.1.tgz"
-  sha256 "3a60240a6535fa210a5be93011d5a28c7e22115b7ff2ee2e02387d9e67dc9e04"
+  url "https://registry.npmjs.org/solhint/-/solhint-4.5.2.tgz"
+  sha256 "a57318a4f78b62fe61b6ee342389c018325119055b209e7c9c41ccb03129d33b"
   license "MIT"
 
   bottle do
@@ -42,6 +42,6 @@ class Solhint < Formula
       }
     EOS
     assert_match "error  Code contains empty blocks  no-empty-blocks",
-      shell_output("#{bin}/solhint --config #{test_config} test.sol 2>&1", 1)
+      shell_output("#{bin}/solhint --config #{test_config} test.sol 2>&1")
   end
 end
