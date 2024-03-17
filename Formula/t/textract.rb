@@ -22,9 +22,7 @@ class Textract < Formula
   depends_on "flac"
   depends_on "pillow"
   depends_on "poppler"
-  depends_on "python-setuptools" # for `distutils`
   depends_on "python@3.12"
-  depends_on "six"
   depends_on "swig"
   depends_on "tesseract"
   depends_on "unrtf"
@@ -97,6 +95,11 @@ class Textract < Formula
     sha256 "587497ff28e779ab18dbb074f6d4052893c85dedc95ed75df319364f331fedee"
   end
 
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "sortedcontainers" do
     url "https://files.pythonhosted.org/packages/e8/c4/ba2f8066cceb6f23394729afe52f3bf7adec04bf9ed2c820b39e19299111/sortedcontainers-2.4.0.tar.gz"
     sha256 "25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"
@@ -128,7 +131,14 @@ class Textract < Formula
     sha256 "de810bf328c6a4550f4ffd6b0b34972aeb7ffcf40f3d285a0413734f9b63a929"
   end
 
+  # Drop distutils for 3.12: https://github.com/deanmalmgren/textract/pull/502
+  patch do
+    url "https://github.com/deanmalmgren/textract/commit/78f9e644dd502bb721867ce3560d2d0a8b41d648.patch?full_index=1"
+    sha256 "1865a006e8f7a86f18ed488ee004a1f529743bc5048ea650c12091db2e6827db"
+  end
+
   def install
+    ENV["PIP_USE_PEP517"] = "1"
     venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources.reject { |r| r.name == "ebcdic" }
     resource("ebcdic").stage { venv.pip_install "ebcdic" }
