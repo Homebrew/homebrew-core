@@ -94,6 +94,7 @@ atlantis
 atlas
 atuin
 auditbeat
+autopep8
 autorest
 autorestic
 avrdude
