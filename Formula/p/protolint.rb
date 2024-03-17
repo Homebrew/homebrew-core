@@ -1,8 +1,8 @@
 class Protolint < Formula
   desc "Pluggable linter and fixer to enforce Protocol Buffer style and conventions"
   homepage "https://github.com/yoheimuta/protolint"
-  url "https://github.com/yoheimuta/protolint/archive/refs/tags/v0.49.2.tar.gz"
-  sha256 "d7ac871e52b01be0e43142dda02eac71e683e8467d4f691daa38a3c1f0a59ac7"
+  url "https://github.com/yoheimuta/protolint/archive/refs/tags/v0.49.3.tar.gz"
+  sha256 "3cd0e84c535fb559fd8cd112ce0691f027927dc73a5e700f1ed279d8d052c2af"
   license "MIT"
   head "https://github.com/yoheimuta/protolint.git", branch: "master"
 
