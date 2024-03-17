@@ -313,6 +313,11 @@
   "gptline": {
     "exclude_packages": ["certifi", "pillow"]
   },
+  "graph-tool": {
+    "package_name": "",
+    "exclude_packages": ["numpy", "pillow"],
+    "extra_packages": ["matplotlib", "setuptools", "zstandard"]
+  },
   "grayskull": {
     "exclude_packages": ["certifi"],
     "extra_packages": ["setuptools"]
