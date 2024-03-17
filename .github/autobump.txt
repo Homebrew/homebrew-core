@@ -92,6 +92,7 @@ astyle
 asuka
 asymptote
 asyncapi
+at-spi2-core
 atlantis
 atlas
 atuin
