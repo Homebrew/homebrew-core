@@ -6,6 +6,11 @@ class Hadoop < Formula
   sha256 "f5195059c0d4102adaa7fff17f7b2a85df906bcb6e19948716319f9978641a04"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://hadoop.apache.org/releases.html"
+    regex(/href=.*?hadoop[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "babb72b9ea422ae665945db155016e9fda102ec8fd37af97261faf72805ac7ac"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "cddc35ec7bb9fa8f6304588d52b62886ea9cb6ede2bd25368565457423258e2f"
