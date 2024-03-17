@@ -1,8 +1,8 @@
 class Simde < Formula
   desc "Implementations of SIMD intrinsics for systems which don't natively support them"
   homepage "https://github.com/simd-everywhere/simde"
-  url "https://github.com/simd-everywhere/simde/archive/refs/tags/v0.7.6.tar.gz"
-  sha256 "c63e6c61392e324728da1c7e5de308cb31410908993a769594f5e21ff8de962b"
+  url "https://github.com/simd-everywhere/simde/archive/refs/tags/v0.8.0.tar.gz"
+  sha256 "d7c1aef6dd9ef0fbe6f521d1ca3e79afc26deda7d8f857544ca020b42a4b9b97"
   license "MIT"
   head "https://github.com/simd-everywhere/simde.git", branch: "master"
 
@@ -12,6 +12,17 @@ class Simde < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
+
+  # Patches iterated on via https://github.com/simd-everywhere/simde/issues/1146
+  patch do
+    url "https://github.com/simd-everywhere/simde/commit/21db6433cece8ed0ddb2e52c018f7a24ddbb6af4.patch?full_index=1"
+    sha256 "85bf378fcf9a419ef9f0636c90d57e678e3169b7cef9180295217645b93876c4"
+  end
+
+  patch do
+    url "https://github.com/simd-everywhere/simde/commit/26b55a9b3ea26301b07880a941a5deaf783602a1.patch?full_index=1"
+    sha256 "4790f2444eacedf88686c6a1ee30889e06ca54aff5368f831af1715a3a9b1c83"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args, "-Dtests=false"
