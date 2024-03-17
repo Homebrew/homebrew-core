@@ -1044,6 +1044,7 @@ libsecret
 libshumate
 libsndfile
 libspelling
+libsql
 libstrophe
 libtiff
 libucl
