@@ -7,13 +7,13 @@ class Fzf < Formula
   head "https://github.com/junegunn/fzf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "044cc3a8687caaee048b542204f2c56de0bafc628dc27a9279df154c327c8510"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1999a4eda6abbee68fd6e73e94d8c455ab79150af11fae89a63f23891b059a96"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49769cd220e714b38d23b31c90a54401d81ca51249e78464722e37b2da543771"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c208eefdf776ab36c9f65ab7585b51e96ea91fc231e397ea2e5165fbc5d3798b"
-    sha256 cellar: :any_skip_relocation, ventura:        "2eee2c887f24d28feb71802b3f55c0aa132d8cbeb82ff09e221c440628033b16"
-    sha256 cellar: :any_skip_relocation, monterey:       "2b53748b06f07aa0a0f4b455f51ef6b416896f4dca29f524ff8a262570e347ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af96775adac3bbb73d8c76b18bc03492dfd46737fa37bc2c2038fdcd43eb43ad"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cc4afd3c1576c055d53004cd7b464df0851291cb4afe2d2c51cdd6175c0bb7ce"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58ae799ffc3ed7e06dac105af60c2096e6996315aa7484cfa49c2200c789f1b9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ee5bc5096dea57b0099a79cea63b5faabf12f01b1a42010f9206683d5136d4e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e5bd67c377e351b230ca46252630d1388c1ca10c1f7af97f252d04ce0dccf3d"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e5764fbd3039153d4081210d9c3743b78d6c4362a29df9544418e07a1eafe0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "1e27d28d86cfe5b098bacb07380e732cd933d1f2d467de08c8fd4a9d87e9d314"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5f0ab34b8c6d452896a09f8d422047b2b97b8d1b86b7013f0dcc9ee1349f250f"
   end
 
   depends_on "go" => :build
