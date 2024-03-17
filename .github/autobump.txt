@@ -69,6 +69,7 @@ argocd
 argocd-autopilot
 argocd-vault-plugin
 argparse
+arjun
 arkade
 armadillo
 arp-scan
