@@ -958,6 +958,7 @@ ko
 kompose
 kops
 kor
+kosli-cli
 kotlin
 krakend
 krew
