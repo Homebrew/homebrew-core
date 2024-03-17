@@ -771,6 +771,7 @@ golangci-lint
 google-java-format
 goose
 gopass
+gopass-jsonapi
 gopls
 goplus
 gor
