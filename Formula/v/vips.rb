@@ -11,13 +11,13 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "14af569a8742fb3b93dbabcf6dc3d8d8e62ce299b43380b4a8f94a4b4603d53e"
-    sha256 arm64_ventura:  "ce9cd3f84c95f6c6f6a490e4a62aab788e65ddd7d3b2795dd3cadcf5aba53a40"
-    sha256 arm64_monterey: "cb5ac84379c0c12d86bd7ac4a10680a9996b1ef0a67314514607ac6ed86fa1b5"
-    sha256 sonoma:         "7b878c61ddffebded07efe87367a0cf3fbb1a4a35a9661854cd1cff2424f679a"
-    sha256 ventura:        "b733bf3745809785a400e9e175be1960d5e3ca9ca97d6abeb24f89b2205f7a4b"
-    sha256 monterey:       "caa0bdb2d9ff9f742de0b8e2f62848892438fa97d88404dd61e458c66fe512fa"
-    sha256 x86_64_linux:   "c4afa61a1296838df5f039d8a13b0f1d31f481b533a67ff5b46e346b6c962d39"
+    sha256 arm64_sonoma:   "b2ebb56e24d468a5ec0df113e46d59955f6e57dd1fc92e1b2a6e27f8141fd86b"
+    sha256 arm64_ventura:  "78e7fd5e7b010bf16b393c3c90b8b6831e8c83968b79eb225d8b63dd899d49e2"
+    sha256 arm64_monterey: "e4c85f4abecc1ea57de48987c00778dacf6b148f3d89b94dd69e2685e04b4313"
+    sha256 sonoma:         "f7331f678f4fa0c1f7eb264dbe7be9204edb09d49aa81cd4e79cbea9899c5ed6"
+    sha256 ventura:        "42b359d7406f0d163ae7b707c9efafac7f43e25acb17377f26c8a183c60bab01"
+    sha256 monterey:       "3aa48eb7a0191c2b06ffda9c47e5d0ce659c97da35f2cf30c445920b0e2389d0"
+    sha256 x86_64_linux:   "d2a4f010269a9ab764c5ad367e18cd257ec6d61b58e29f1fca9df34e35988187"
   end
 
   depends_on "gobject-introspection" => :build
