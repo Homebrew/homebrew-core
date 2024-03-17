@@ -12,13 +12,13 @@ class Mydumper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ceeb99cdfb5f7bbe0057108f8178dcae452935349ac02202174cce8f7e470cb8"
-    sha256 cellar: :any,                 arm64_ventura:  "36cde4a8d16d6d358057bf683c6b16187c32393879adb102b406567a33b5a3c9"
-    sha256 cellar: :any,                 arm64_monterey: "5e8add3c8b7f1eb4e6815b5cbb2288cc1032b7659c1c458b7a43f9e9762e16b7"
-    sha256 cellar: :any,                 sonoma:         "054e4bc1f833d12b4390f0f408e80c6ccbd9506e184dfc060e3dbbe16d1d4490"
-    sha256 cellar: :any,                 ventura:        "b449650a112aba9026facb4ea877f36f922f87e4ba31c8d8c4f8f89d271c562c"
-    sha256 cellar: :any,                 monterey:       "21fc050a4eefd85839542ba631ce67c8a7ff3d6929e24d4abf7f73d88cf92237"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b378a2bfc33870b65d2977cbbc44041b7452863ac14d45b4525521ea2dcb4e87"
+    sha256 cellar: :any,                 arm64_sonoma:   "345650ec3dfa0c864a24ebf1977e8260154ada0a78a2d7a9c340114830084ffb"
+    sha256 cellar: :any,                 arm64_ventura:  "893bb953cdf56aec43abd6d5c94bf9b60084b32333dc53795c9a722f6f4e22b5"
+    sha256 cellar: :any,                 arm64_monterey: "95cf4e8f5ed62e1f7bd4c9bcd3eef099f51add0a1ff1d1aff3a517cfd0969507"
+    sha256 cellar: :any,                 sonoma:         "6be7959782f3d692d37b10efe4fce2eaf2e23f61f60a2ba4ed90bcc4e4c6fda7"
+    sha256 cellar: :any,                 ventura:        "5f78a95e16f597b0e81d1915ac4db009bb3a3be2bab6c7456df5809e931ec097"
+    sha256 cellar: :any,                 monterey:       "54e4fa5ec30cd927607dcb1e66b798525064a5acb23b02d538e44ba71f2047ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "11c3f576177bc1330c87d6f38595e7a281a17c93e171029c89a6875d74b954ca"
   end
 
   depends_on "cmake" => :build
