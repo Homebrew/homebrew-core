@@ -482,6 +482,7 @@ digdag
 direnv
 direvent
 dislocker
+dissent
 distrobox
 dive
 django-completion
