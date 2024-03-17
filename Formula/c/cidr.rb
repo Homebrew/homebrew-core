@@ -7,13 +7,13 @@ class Cidr < Formula
   head "https://github.com/bschaatsbergen/cidr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "954a4ae2bea00e60565f5cd70b756c488ebbcb7440b375742a26cf968d6334cd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7c74e841555e1dd7a2a11361e81378cf4e8274084f48445094cdbe0a1fda2aa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ce93979795e63d01c0f5b1f0bb7fcbdcecbd3b41483a461d18692790875f0dbf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a601025529ac9cd8e1e010b8cd4ead7c963b4e9ad503c0260f9c048534cc063f"
-    sha256 cellar: :any_skip_relocation, ventura:        "6c104cd86c3294b7a82c3fec3a304c7fed44de0c93a90825126bbff9fecedc1d"
-    sha256 cellar: :any_skip_relocation, monterey:       "2e110a2578bcfdd8749259dfba64250e55d39750c01ad5a985e4d4dc20a17224"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "490147e7760138e8c66e4575acda724d22f7f75ab22fdfde31f8c5f577613aa9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ae215e663006801d31126fe27f48837684ad6b1b64ee4d26695face667bed495"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3670db621c237ce9040a5bfcef371cbadb18bdaab15cb4d2f39ec17f79b6e2ea"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f443e1ab26996941cbff63b7f9c940a2482604870702bfab14d70c7eaaed336"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ff90244ebada45a81ae12bc461f1c4b2c0e88a09fccad9b3a7d5c45718e52c9a"
+    sha256 cellar: :any_skip_relocation, ventura:        "166fe35bf94f2484fee8246d15977a11e4660426d533a4ab63ffb309f8bf6377"
+    sha256 cellar: :any_skip_relocation, monterey:       "769be268a5d810daed3c4211f1eef872b35180321ce3730f8090a7ac3c908c75"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47fc7c12caef7ec7ed404fdb794bbdf8bd0d9b37a9b7a53fd51a621ba268a2d2"
   end
 
   depends_on "go" => :build
