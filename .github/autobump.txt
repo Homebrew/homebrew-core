@@ -21,6 +21,7 @@ alda
 algol68g
 aliddns
 aliyun-cli
+aliyunpan
 all-repos
 allure
 alluxio
