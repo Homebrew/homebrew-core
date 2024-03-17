@@ -1,8 +1,8 @@
 class TreeSitter < Formula
   desc "Parser generator tool and incremental parsing library"
   homepage "https://tree-sitter.github.io/"
-  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.22.1.tar.gz"
-  sha256 "b21065e78da33e529893c954e712ad15d9ad44a594b74567321d4a3a007d6090"
+  url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.22.2.tar.gz"
+  sha256 "0c829523b876d4a37e1bd46a655c133a93669c0fe98fcd84972b168849c27afc"
   license "MIT"
   head "https://github.com/tree-sitter/tree-sitter.git", branch: "master"
 
@@ -24,13 +24,6 @@ class TreeSitter < Formula
 
   depends_on "rust" => :build
   depends_on "node" => :test
-
-  # Fix Makefile for BSD `install`
-  # https://github.com/tree-sitter/tree-sitter/issues/3157
-  patch :p0 do
-    url "https://raw.githubusercontent.com/macports/macports-ports/76faa188751724c04931ebb3dfb4d18152424cfc/devel/tree-sitter/files/patch-makefile-install.diff"
-    sha256 "fdce92d9ebcad0c25f0b7cd4e0eae810e2670ece47631740b002f2a3ea99f7cf"
-  end
 
   def install
     system "make", "install", "AMALGAMATED=1", "PREFIX=#{prefix}"
