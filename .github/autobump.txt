@@ -807,6 +807,7 @@ grype
 gsmartcontrol
 gsoap
 gtk-gnutella
+gtkmm4
 gupnp
 gupnp-tools
 hackrf

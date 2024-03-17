@@ -1,8 +1,8 @@
 class Gtkmm4 < Formula
   desc "C++ interfaces for GTK+ and GNOME"
   homepage "https://www.gtkmm.org/"
-  url "https://download.gnome.org/sources/gtkmm/4.12/gtkmm-4.12.0.tar.xz"
-  sha256 "fbc3e7618123345c0148ef71abb6548d421f52bb224fbda34875b677dc032c92"
+  url "https://download.gnome.org/sources/gtkmm/4.14/gtkmm-4.14.0.tar.xz"
+  sha256 "9350a0444b744ca3dc69586ebd1b6707520922b6d9f4f232103ce603a271ecda"
   license "LGPL-2.1-or-later"
 
   livecheck do
