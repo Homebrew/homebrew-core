@@ -7,13 +7,13 @@ class Activemq < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3edd1eac3a62a8a6899b7617a7aa5b045125b731de31fe7ec45ebb5f59a0aeb7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8dccbe3d26b41710e2f008bf0d272887d67d08fee9931e8d73bbab14170156c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c21b3d9ef504117cc74de5731c582570db549ddf5124117530d49bbdf82f5b67"
-    sha256 cellar: :any_skip_relocation, sonoma:         "72c0b9a37c5e9be4495394776012248ba0b4c00fcccdab68d9835fc4f43fe0df"
-    sha256 cellar: :any_skip_relocation, ventura:        "a3c6030f695ec2e8e57433394cdec1121771287158757697b84d9edadbdf17d9"
-    sha256 cellar: :any_skip_relocation, monterey:       "659570f65231a3a3a7e7f60bff2dc3f5e88d42bba15f0727f87947422da2ea9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e877550d49233a2d348293f5cb67b8910dfed574a54d6db40fc9ac067dfbdfc8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8fb31be689ced27442973d8828d547242d92e07a069334e1635f8798cbc86794"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbd1eaaad89d2dc6468b3f0b5e7bc586f45a01dbc116f1aaf3348402019c7aa6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f756f1662504242c55b7ff1e91fec97dc47f1b150b91a1456c3cca47aa08ae0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6119542fc7b6350edd6b96a0650199868a9ccfa304fff4e755d76882f31b42e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "e0c23602211e7993524bca8e7572c175b1e45182d5bc763e73c3e56f52fbc231"
+    sha256 cellar: :any_skip_relocation, monterey:       "3ab86369b31600c2059d48f6f229e01ff372e815846710b0b13c842cf69823c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b2534517c88a8916eae8b0dac5f8956378ba00ded2499d3a1e26fed50d3cb47"
   end
 
   depends_on "java-service-wrapper"
