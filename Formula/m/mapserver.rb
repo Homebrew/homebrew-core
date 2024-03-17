@@ -51,8 +51,12 @@ class Mapserver < Formula
   end
 
   def install
-    # Install within our sandbox
-    inreplace "mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}", "-Wl,-undefined,dynamic_lookup" if OS.mac?
+    if OS.mac?
+      mapscript_rpath = rpath(source: prefix/Language::Python.site_packages(python3)/"mapscript")
+      # Install within our sandbox and add missing RPATH due to _mapscript.so not using CMake install()
+      inreplace "mapscript/python/CMakeLists.txt", "${Python_LIBRARIES}",
+                                                   "-Wl,-undefined,dynamic_lookup,-rpath,#{mapscript_rpath}"
+    end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
@@ -75,7 +79,7 @@ class Mapserver < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system python3, "-m", "pip", "install", *std_pip_args, "./build/mapscript/python"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./build/mapscript/python"
   end
 
   test do
