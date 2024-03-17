@@ -1,8 +1,8 @@
 class Onefetch < Formula
   desc "Command-line Git information tool"
   homepage "https://onefetch.dev/"
-  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.19.0.tar.gz"
-  sha256 "e6aa7504730de86f307d6c3671875b11a447a4088daf74df280c8f644dea4819"
+  url "https://github.com/o2sh/onefetch/archive/refs/tags/2.20.0.tar.gz"
+  sha256 "385bc8f11c3e1cf168ef6d4c64263ded44af948184a990611c1b30fe6c46e37e"
   license "MIT"
   head "https://github.com/o2sh/onefetch.git", branch: "main"
 
@@ -21,11 +21,9 @@ class Onefetch < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
   depends_on "zstd"
 
   def install
-    ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["ZSTD_SYS_USE_PKG_CONFIG"] = "1"
 
     system "cargo", "install", *std_cargo_args
@@ -46,13 +44,5 @@ class Onefetch < Formula
     system "git", "add", "main.rb"
     system "git", "commit", "-m", "First commit"
     assert_match("Ruby (100.0 %)", shell_output("#{bin}/onefetch").chomp)
-
-    linkage_with_libgit2 = (bin/"onefetch").dynamically_linked_libraries.any? do |dll|
-      next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
-
-      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
-    end
-
-    assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
   end
 end
