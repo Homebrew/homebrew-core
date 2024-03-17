@@ -7,13 +7,13 @@ class LsLint < Formula
   head "https://github.com/loeffel-io/ls-lint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ade0a8aa2afc8d445d935b83d8fb725a8de7811271eafa32a377185d82c8901d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ade0a8aa2afc8d445d935b83d8fb725a8de7811271eafa32a377185d82c8901d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ade0a8aa2afc8d445d935b83d8fb725a8de7811271eafa32a377185d82c8901d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7c3aad50bdfd0fa9ef421b3da5d7ae3bb055892c1ea756af739925d62c557efa"
-    sha256 cellar: :any_skip_relocation, ventura:        "7c3aad50bdfd0fa9ef421b3da5d7ae3bb055892c1ea756af739925d62c557efa"
-    sha256 cellar: :any_skip_relocation, monterey:       "7c3aad50bdfd0fa9ef421b3da5d7ae3bb055892c1ea756af739925d62c557efa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4f2eb9dd112354e274be69aa5f364a2e9ea5bc86dff37281f66c4586f3f5115"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8fac9b7885df446f7fcda2415ea0d4839d9792f7ff18a1905b9184bc30552815"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8fac9b7885df446f7fcda2415ea0d4839d9792f7ff18a1905b9184bc30552815"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8fac9b7885df446f7fcda2415ea0d4839d9792f7ff18a1905b9184bc30552815"
+    sha256 cellar: :any_skip_relocation, sonoma:         "39d342e5e3693a26bf268d5c552a76ec32a63fa13c7ff4f8aeaa2f999beb3cad"
+    sha256 cellar: :any_skip_relocation, ventura:        "39d342e5e3693a26bf268d5c552a76ec32a63fa13c7ff4f8aeaa2f999beb3cad"
+    sha256 cellar: :any_skip_relocation, monterey:       "39d342e5e3693a26bf268d5c552a76ec32a63fa13c7ff4f8aeaa2f999beb3cad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bf25330c45872e958d5b59bdcaf1b637bd65a6bfe68708c40895c00cb0a64dd"
   end
 
   depends_on "go" => :build
