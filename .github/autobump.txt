@@ -756,6 +756,7 @@ gnupg
 gnupg-pkcs11-scd
 gnuplot
 gnutls
+go-camo
 go-critic
 go-feature-flag-relay-proxy
 go-md2man
