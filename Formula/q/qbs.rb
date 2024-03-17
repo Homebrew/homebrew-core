@@ -26,6 +26,13 @@ class Qbs < Formula
 
   fails_with gcc: "5"
 
+  # Fix for Xcode 15.3, patch can be removed
+  # for 2.3 release: https://bugreports.qt.io/browse/QBS-1786
+  patch do
+    url "https://code.qt.io/cgit/qbs/qbs.git/patch/?id=5c88b6b11b762cf5861c9d1570df4f1f050c826e"
+    sha256 "bf49f5519122b37c1632ff465ea7df086cc618769e000811fb1f9002e77daed6"
+  end
+
   def install
     qt = Formula["qt"].opt_prefix
     system "cmake", ".", "-DQt6_DIR=#{qt}/lib/cmake/Qt6", "-DQBS_ENABLE_RPATH=NO",
