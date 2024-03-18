@@ -6,13 +6,13 @@ class Lynis < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa42ff07a71b7ea74838c20577e452385f94dd7dbb8d1ef4da05c6f93cc63d28"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aa42ff07a71b7ea74838c20577e452385f94dd7dbb8d1ef4da05c6f93cc63d28"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa42ff07a71b7ea74838c20577e452385f94dd7dbb8d1ef4da05c6f93cc63d28"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6903141a385b893e605a512e2d9f2b3490fa3d89eedef375a1271cd72ce60142"
-    sha256 cellar: :any_skip_relocation, ventura:        "6903141a385b893e605a512e2d9f2b3490fa3d89eedef375a1271cd72ce60142"
-    sha256 cellar: :any_skip_relocation, monterey:       "6903141a385b893e605a512e2d9f2b3490fa3d89eedef375a1271cd72ce60142"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa42ff07a71b7ea74838c20577e452385f94dd7dbb8d1ef4da05c6f93cc63d28"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b9c8022b97c3540b39b3d305a597999600fe0a9f95fda0228c476c0276ee26da"
+    sha256 cellar: :any_skip_relocation, ventura:        "b9c8022b97c3540b39b3d305a597999600fe0a9f95fda0228c476c0276ee26da"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9c8022b97c3540b39b3d305a597999600fe0a9f95fda0228c476c0276ee26da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
   end
 
   def install
