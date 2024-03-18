@@ -13,13 +13,13 @@ class Dynare < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "f724a920cc98d627f3f23c0d1fe1d37913a595c7c0608ea4b963ee54f2075cdf"
-    sha256 cellar: :any, arm64_ventura:  "7f87119fe0abed35d53cf070aec3a78e3b2dca8734f5747ca31730545abce2b7"
-    sha256 cellar: :any, arm64_monterey: "db33ee85a7d77a8803c39a3ee7e90e98baee746a01d3d662caf53d23138ddd7d"
-    sha256 cellar: :any, sonoma:         "70ff34ab986031fd4a562350ff0e78c01fa791f585f135cfc88b5ebe288171ea"
-    sha256 cellar: :any, ventura:        "e70e1029170eb209fc7442730092bf8acd658f597f39ca37eeb023c88cfad8a0"
-    sha256 cellar: :any, monterey:       "c07e217156bc23bcf0729782d6c165ae484f837077e8f16c16d96c0eb0eba60b"
-    sha256               x86_64_linux:   "36341c8122034995cd63b2c4565f037f802409d773f04a6d9553a4b20a556247"
+    sha256 cellar: :any, arm64_sonoma:   "735082a3de132613ae2e5f7f9542fa975cb803c76bd4a9b68f9ccb751f5704ba"
+    sha256 cellar: :any, arm64_ventura:  "fb562b6f3876ca77cbd36dd54726ff38611a790ef6a78688ed5b30af11877440"
+    sha256 cellar: :any, arm64_monterey: "b81c27f5924f1c290e8d8cc5313eda11a0896d80b816188ae14f1f5b7de0a6e8"
+    sha256 cellar: :any, sonoma:         "f8bc049be241b5383e8656dc2bcf34026ad340ab448db335d4279407343d90cc"
+    sha256 cellar: :any, ventura:        "48db2ccf885cb0af1504ebab996c89f901f7a2dabbbf03238e401df44e9ef60b"
+    sha256 cellar: :any, monterey:       "0e2108b2f154027e78bb246d64b48cea7225a770dc8dc3d6167ff8e905062a7f"
+    sha256               x86_64_linux:   "c19a7ece62c121e7b91637b553dd5661e7594cb25dfdd07395890c0fc907f1c2"
   end
 
   depends_on "bison" => :build
