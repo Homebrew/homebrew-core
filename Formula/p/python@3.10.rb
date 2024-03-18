@@ -4,7 +4,7 @@ class PythonAT310 < Formula
   url "https://www.python.org/ftp/python/3.10.13/Python-3.10.13.tgz"
   sha256 "698ec55234c1363bd813b460ed53b0f108877c7a133d48bde9a50a1eb57b7e65"
   license "Python-2.0"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -256,6 +256,9 @@ class PythonAT310 < Formula
 
       # Remove symlinks that conflict with the main Python formula.
       rm %w[Headers Python Resources Versions/Current].map { |subdir| frameworks/"Python.framework"/subdir }
+
+      # Fix for https://github.com/Homebrew/brew/issues/16660
+      system "/usr/bin/codesign", "-f", "-s", "-", frameworks/"Python.framework"
     else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
