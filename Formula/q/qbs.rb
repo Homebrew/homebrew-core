@@ -12,13 +12,14 @@ class Qbs < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "53ce70872ea8c7731c7f961e5c54162855df53fe1f4adbd8c70604decc9b8a6c"
-    sha256 cellar: :any,                 arm64_ventura:  "74ff72313fa43ac6e33b2639e1d59e7f3a04e9726f3f8234447aa24a8530984c"
-    sha256 cellar: :any,                 arm64_monterey: "2496922db293b15fcd9d187b8eb1bb9977d3df3970e2fddebaef4fe18514c155"
-    sha256 cellar: :any,                 sonoma:         "47990c489562f449555bd9fc060e64b4feced3e871066f12aa954ab98559f531"
-    sha256 cellar: :any,                 ventura:        "952e1d9937897883e3951baa58fc4bd462f7db8aac9c951f5e89632a86111aff"
-    sha256 cellar: :any,                 monterey:       "0eb41d474c61a0e009e70732e2a7919029de1d4783dcb5bac95ca9501bfe693f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7407842e538149fe1a5e13a74b916c5b23bfe9ff213b468f717b7a2b9d8cbcba"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "1aef0597a90185bab8945e7795e53344c7a2360b54ce0ad2966b37aa049e64a3"
+    sha256 cellar: :any,                 arm64_ventura:  "607e0b4a326ae60c9b3deaa87c9a20aae1f592f3bdb82136faa9d848eb32bd52"
+    sha256 cellar: :any,                 arm64_monterey: "85e2cecfc063abe38c921395a827f25ffd436083cef9455ffae9bf0092c4bb0a"
+    sha256 cellar: :any,                 sonoma:         "d09d190826553ad2ba36d407154bc79aa1593ce86b223f8a1121245d4742dfa7"
+    sha256 cellar: :any,                 ventura:        "0b66a3c79ddc14ff5c14e9691135fd8d693929aef786e7ba78effc4968301dc6"
+    sha256 cellar: :any,                 monterey:       "523bc05a90b98567b3c7efc5f20a083a26605e4aa30616379de68edb00bf662e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d340fdd7c8117cae9e91fe50bd86a4c5835d5407f5eb6c1b0f1aa519610bd664"
   end
 
   depends_on "cmake" => :build
