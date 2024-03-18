@@ -18,13 +18,13 @@ class Argocd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ecabe220793ccc1afc43ac618061d59633c6c78c0be741dd44a9f5cade59c7cb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "abd299b201526e92dacaff9661bf0f8c0c29dd8e2373927506bdd651fc735d8b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "41523069408e6fa55eda9a6282ecfc25ce515d6af7f2aa17e55d4fa327095d53"
-    sha256 cellar: :any_skip_relocation, sonoma:         "79fab8a0d41ab80b2045fe8dc91af0fd459bf799c727d38c692fb491ad82d4ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "d62d60a0f39e24b2ab1ae4ddff9587d68bdcd4cb13c58785e6e151c89c8c0db3"
-    sha256 cellar: :any_skip_relocation, monterey:       "625a1f7acbdf487eaddb4731d617dba6babfd67cb4812cc219e770754e60f2e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "937050e69fb575b62a925ff10170543625cfc5f79854d7dffd9872013663c71c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "57268a71c48e9d12b5c7715c6850c55a583caae071aeb7c8e54fa3d72d225c8f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "48315c1bc1372c0b7db3acaa766881b520edc0aa9c004bd2f0c1671077770c6c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6d48bde502874e8547dc93a4bb04063aa479ad4bbdd1d33f18d8f9ba38e7247"
+    sha256 cellar: :any_skip_relocation, sonoma:         "783b3bf146f87f8ac896772e7d5adae6c1b18da910b544d45f1e5e5e836c0741"
+    sha256 cellar: :any_skip_relocation, ventura:        "a0e43755015f0a07b79ada6a13f3f0d72a118b0d1fed7d7f49377acc06bb5873"
+    sha256 cellar: :any_skip_relocation, monterey:       "3e40fdd84c33ba09c41185312c01b284cc50feb5bd7201eaff3c4b25afcb1eb1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "170b7296a25c9034a503192ff77cae09d37e91d20d339affc2b0b9b7975a9f9b"
   end
 
   depends_on "go" => :build
