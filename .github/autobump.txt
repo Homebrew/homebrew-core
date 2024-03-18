@@ -386,6 +386,7 @@ cpu_features
 cpufetch
 cpuid
 cql-proxy
+crabz
 crane
 croaring
 croc
