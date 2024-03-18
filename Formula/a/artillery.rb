@@ -3,8 +3,8 @@ require "language/node"
 class Artillery < Formula
   desc "Cloud-native performance & reliability testing for developers and SREs"
   homepage "https://artillery.io/"
-  url "https://registry.npmjs.org/artillery/-/artillery-2.0.7.tgz"
-  sha256 "f5461d6048f3e38ec10cde1d0fcb4c5685fa4e47f598e34a55714a02d2e1721c"
+  url "https://registry.npmjs.org/artillery/-/artillery-2.0.8.tgz"
+  sha256 "2333a2c58333644dd4479582e0f102378679cd45dab426efa874348787d87a4f"
   license "MPL-2.0"
 
   livecheck do
@@ -31,9 +31,6 @@ class Artillery < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Replace universal binaries with their native slices
-    deuniversalize_machos libexec/"lib/node_modules/artillery/node_modules/fsevents/fsevents.node"
   end
 
   test do
