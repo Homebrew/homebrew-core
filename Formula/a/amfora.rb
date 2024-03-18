@@ -1,14 +1,13 @@
 class Amfora < Formula
   desc "Fancy terminal browser for the Gemini protocol"
-  homepage "https://github.com/makeworld-the-better-one/amfora"
-  url "https://github.com/makeworld-the-better-one/amfora.git",
-      tag:      "v1.9.2",
-      revision: "61d864540140f463a183e187e4211c258bd518bf"
+  homepage "https://github.com/makew0rld/amfora"
+  url "https://github.com/makew0rld/amfora/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "0bc9964ccefb3ea0d66944231492f66c3b0009ab0040e19cc115d0b4cd9b8078"
   license all_of: [
     "GPL-3.0-only",
     any_of: ["GPL-3.0-only", "MIT"], # rr
   ]
-  head "https://github.com/makeworld-the-better-one/amfora.git", branch: "master"
+  head "https://github.com/makew0rld/amfora.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "627b05fbc926466078947bbec694bdd2bfd9b6e4dcd04bec8d97ae08c7b5a2f1"
@@ -26,22 +25,19 @@ class Amfora < Formula
   depends_on "go" => :build
 
   def install
-    ldflags = %W[
-      -s -w
-      -X main.version=#{version}
-      -X main.commit=#{Utils.git_head}
-      -X main.builtBy=homebrew
-    ]
+    ldflags = "-s -w -X main.version=#{version} -X main.commit=#{tap.user} -X main.builtBy=homebrew"
     system "go", "build", *std_go_args(ldflags:)
     pkgshare.install "contrib/themes"
   end
 
   test do
+    ENV["TERM"] = "xterm"
+
     require "open3"
 
     input, _, wait_thr = Open3.popen2 "script -q screenlog.txt"
     input.puts "stty rows 80 cols 43"
-    input.puts "env TERM=xterm #{bin}/amfora"
+    input.puts "#{bin}/amfora"
     sleep 1
     input.putc "1"
     sleep 1
