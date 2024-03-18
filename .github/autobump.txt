@@ -877,6 +877,7 @@ influxdb
 influxdb-cli
 influxdb@1
 inlyne
+instaloader
 inxi
 ioctl
 ipfs
