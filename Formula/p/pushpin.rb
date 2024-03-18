@@ -1,22 +1,10 @@
 class Pushpin < Formula
   desc "Reverse proxy for realtime web services"
   homepage "https://pushpin.org/"
+  url "https://github.com/fastly/pushpin/releases/download/v1.39.1/pushpin-1.39.1.tar.bz2"
+  sha256 "a78d8088ed49a0b07b665148e6bced1581c32f490452c8043f54bbe4a55c1e14"
   license "Apache-2.0"
   head "https://github.com/fastly/pushpin.git", branch: "main"
-
-  stable do
-    url "https://github.com/fastly/pushpin/releases/download/v1.39.0/pushpin-1.39.0.tar.bz2"
-    sha256 "25044e1f1dabdbd20fd42d35666f4b4a0e84bae2146dd30c8f82c85543a97bf2"
-
-    patch do
-      url "https://github.com/fastly/pushpin/commit/b20aeed32fa0d7eb7cd47119608c0208d0373513.patch?full_index=1"
-      sha256 "bb7e181a0ed35e67d784b658658bbceb9f3c6b108e027431dd1e1798b2c5a0e3"
-    end
-    patch do
-      url "https://github.com/fastly/pushpin/commit/8b17bf4b59731af62a9508b1143d72f6615cef7d.patch?full_index=1"
-      sha256 "32bd7cb01251d4a365ecf83c7e76b27a47dfca2a84aeecd11d9d5ede398af293"
-    end
-  end
 
   bottle do
     sha256 cellar: :any,                 sonoma:       "ace5ffa91826756133c944eb86bd0cc93f60d5143fd054966ad6a960c2ad02b8"
