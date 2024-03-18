@@ -1,10 +1,9 @@
 class Vte3 < Formula
   desc "Terminal emulator widget used by GNOME terminal"
   homepage "https://wiki.gnome.org/Apps/Terminal/VTE"
-  url "https://download.gnome.org/sources/vte/0.74/vte-0.74.2.tar.xz"
-  sha256 "a535fb2a98fea8a2449cd1a02cccf5190131dddff52e715afdace3feb536eae7"
+  url "https://download.gnome.org/sources/vte/0.76/vte-0.76.0.tar.xz"
+  sha256 "bbce30b8f504370b12d6439c07a82993e97d7e9afe2dd367817cd58ff029ffda"
   license "LGPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "04f7acc8d61fcbe1c536532fd3089be6061bb10dbc8dc4dabdf3fde064f40346"
@@ -33,8 +32,19 @@ class Vte3 < Formula
   depends_on "pcre2"
 
   on_macos do
-    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1200
     depends_on "gettext"
+  end
+
+  on_ventura :or_newer do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
+  end
+
+  on_monterey :or_older do
+    # We use GCC on older macOS as build fails with brew `llvm`.
+    # Undefined symbols for architecture x86_64:
+    #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from: ...
+    depends_on "gcc"
+    fails_with :clang
   end
 
   on_linux do
@@ -43,7 +53,7 @@ class Vte3 < Formula
   end
 
   fails_with :clang do
-    build 1200
+    build 1500
     cause "Requires C++20"
   end
 
@@ -56,7 +66,11 @@ class Vte3 < Formula
   patch :DATA
 
   def install
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1200)
+    ENV.llvm_clang if OS.mac? && MacOS.version >= :ventura && DevelopmentTools.clang_build_version <= 1500
+    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
+    # libunwind due to it being present in a library search path.
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib if DevelopmentTools.clang_build_version == 1500
+
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
     system "meson", "setup", "build", "-Dgir=true",
