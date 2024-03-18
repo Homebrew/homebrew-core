@@ -8,14 +8,13 @@ class Instaloader < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "95ef1c90d5de63fdb77a891424cb778fcfec4268fe5390bbf34722b584e375f1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3366c05d9bceba70d467fb431adf77fdf9154477d2e400c538e63f881b390207"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a87da3e3ab26cd1286bdb89a005d3c10a97b5353c2d1ce0e3f3bd1b4ffb7cc86"
-    sha256 cellar: :any_skip_relocation, sonoma:         "527483287295939b17ba78254f764b5d6c3148560525ff9bc8083a940ca8f502"
-    sha256 cellar: :any_skip_relocation, ventura:        "16415cf0e56b69f1979b9cccb71da6d667d799adc34909e4b82cd76341bbfa86"
-    sha256 cellar: :any_skip_relocation, monterey:       "a439a75b7a9129aaa91457a24f1a31a473a9a1b2565732d6569dff9dd702b90e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2524ecc531ed61a9b29c91230373251d589bdbdbecb1f829262fb3b07805a12c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b2f940102153dd74305faf4e9503aa6ad2696654aa55619fb391606c9daf5d6e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b2f940102153dd74305faf4e9503aa6ad2696654aa55619fb391606c9daf5d6e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b2f940102153dd74305faf4e9503aa6ad2696654aa55619fb391606c9daf5d6e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b2f940102153dd74305faf4e9503aa6ad2696654aa55619fb391606c9daf5d6e"
+    sha256 cellar: :any_skip_relocation, ventura:        "b2f940102153dd74305faf4e9503aa6ad2696654aa55619fb391606c9daf5d6e"
+    sha256 cellar: :any_skip_relocation, monterey:       "b2f940102153dd74305faf4e9503aa6ad2696654aa55619fb391606c9daf5d6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca62d32abd9285a6021907050c400d181ec6f15d79576812eff7cda9334d78a4"
   end
 
   depends_on "certifi"
