@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Dec2023/MonetDB-11.49.1.tar.xz"
-  sha256 "f112ee377ae0d00c29e277b4e57e8140f57d33a41c03b5b4ede3c31384212cef"
+  url "https://www.monetdb.org/downloads/sources/Dec2023-SP1/MonetDB-11.49.5.tar.xz"
+  sha256 "44a6299c45431bde2966c06ab3e40a34b593145e3c3aa6f08a3ec131d91ab7ab"
   license "MPL-2.0"
   head "https://dev.monetdb.org/hg/MonetDB", using: :hg
 
