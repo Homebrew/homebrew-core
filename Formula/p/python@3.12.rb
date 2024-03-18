@@ -4,7 +4,7 @@ class PythonAT312 < Formula
   url "https://www.python.org/ftp/python/3.12.2/Python-3.12.2.tgz"
   sha256 "a7c4f6a9dc423d8c328003254ab0c9338b83037bd787d680826a5bf84308116e"
   license "Python-2.0"
-  revision 2
+  revision 1
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -256,7 +256,8 @@ class PythonAT312 < Formula
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
 
-      # Fix for https://github.com/Homebrew/brew/issues/16660
+      # Binaries are codesigned but the framework is not
+      # https://github.com/Homebrew/brew/issues/16660
       system "/usr/bin/codesign", "-f", "-s", "-", frameworks/"Python.framework"
     else
       # Prevent third-party packages from building against fragile Cellar paths
