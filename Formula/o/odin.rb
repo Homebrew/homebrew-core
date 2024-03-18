@@ -2,9 +2,9 @@ class Odin < Formula
   desc "Programming language with focus on simplicity, performance and modern systems"
   homepage "https://odin-lang.org/"
   url "https://github.com/odin-lang/Odin.git",
-      tag:      "dev-2024-02",
-      revision: "539cec7496c128a0f8bb10794a1d3d0d043705f0"
-  version "2024-02"
+      tag:      "dev-2024-03",
+      revision: "4c35633e0147b481dd7b2352d6bdb603f78c6dc7"
+  version "2024-03"
   license "BSD-3-Clause"
   head "https://github.com/odin-lang/Odin.git", branch: "master"
 
