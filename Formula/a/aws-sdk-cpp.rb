@@ -1,12 +1,15 @@
 class AwsSdkCpp < Formula
   desc "AWS SDK for C++"
   homepage "https://github.com/aws/aws-sdk-cpp"
-  # aws-sdk-cpp should only be updated every 15 releases on multiples of 15
   url "https://github.com/aws/aws-sdk-cpp.git",
       tag:      "1.11.285",
       revision: "8213a588808acf5148b0f739e0b558879955310f"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sdk-cpp.git", branch: "main"
+
+  livecheck do
+    throttle 15
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "00d6ed4a1d44cf57cec6dfe90a45c731e77fbd89bc2e7e10b118a5c09091a772"
