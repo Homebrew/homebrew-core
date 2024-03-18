@@ -7,6 +7,15 @@ class Checkov < Formula
   sha256 "dca00fe8f0e04fd4fde88de5143bbe01aae7966351cd0f70f69456313bd43428"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://pypi.org/rss/project/checkov/releases.xml"
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :xml do |xml, regex|
+      xml.get_elements("//item/title").map { |item| item.text[regex, 1] }
+    end
+    throttle 10
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "6650301b491fea31b686c042acc4ae7ffcc26fccdc0e3c0f8c0af8e45d512d25"
     sha256 cellar: :any,                 arm64_ventura:  "a4e206fc90bd293f450d1be8f7a6bc6c914f56197cd79b54ea44cfde173abeef"
