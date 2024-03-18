@@ -7,13 +7,13 @@ class Shtools < Formula
   head "https://github.com/SHTOOLS/SHTOOLS.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "426a2b8a4ed608f76f9c5bc438c53a498549e04f3a1d8c8f3fa357d5787ea88b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8e47113dbb8208b7e348a11b27659490a3524f229c516a02adeb4e6011fc220"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad9126e93757f33ae5cad1612a9a09539ccaeb705e8fac9f6bceb18b10a47a48"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17393fb9829fd2c8ce7517c41a8e94faa97cd572610abb8d0d1223bf416211b7"
-    sha256 cellar: :any_skip_relocation, ventura:        "06659c9e2bd5b2c66c4a1675b392cd5403e04ccbf75b264b66f69697eb06d21c"
-    sha256 cellar: :any_skip_relocation, monterey:       "f8fe64cd2c915ebe42cdddd933f4a59d4e51e3c7caf953cda5bc0667d5487c04"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "13a462c4536a970655f5df3189c00e786e220f399c73762c723838ef7adf69d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7d139c07337891fe153bbf18700cb4d45f258177f9a3c8f4cbc4f54cadce446a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68a1fd186978e7993f4656eac8b2df6f9076e8d4e42565ca67d754aaad9cc7d0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bf7cbe3cd3ca8e4c7a25f668dc709c26a20b6166e7149aaa34607d6420b4a5f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ff84c07de9706cbb77e8c7c058c383eb6382edf9bfc5a683ed6ab49eb4e0a566"
+    sha256 cellar: :any_skip_relocation, ventura:        "d8bc6890a51dfce4f141ea650f9635fd47982bbee0352a9e1742b74796ab5fda"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4575c4027ef6086e68e3c14be1bf6577b8f494e7638af3a9e6a29b29fdb9053"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46e390c6a35f4e23ec07a96421758cd9729ee2c0f14118fcc79006f291bf64e2"
   end
 
   depends_on "fftw"
