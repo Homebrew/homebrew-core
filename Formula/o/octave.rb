@@ -5,6 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-9.1.0.tar.xz"
   sha256 "ed654b024aea56c44b26f131d31febc58b7cf6a82fad9f0b0bf6e3e9aa1a134b"
   license "GPL-3.0-or-later"
+  revision 1
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -91,6 +92,17 @@ class Octave < Formula
     # SUNDIALS 6.4.0 and later needs C++14 for C++ based features
     # Configure to use gnu++14 instead of c++14 as octave uses GNU extensions
     ENV.append "CXX", "-std=gnu++14"
+
+    # Qt doesn't ship with pkg-config files, so must supply flags manually
+    ENV.append "QT_LIBS", "-F#{Formula["qt"].opt_frameworks}"
+    ENV.append "LDFLAGS", "-F#{Formula["qt"].opt_frameworks}"
+    %w[QtWidgets QtCore QtGui QtHelp QtNetwork QtOpenGL
+       QtOpenGLWidgets QtPrintSupport QtXml QtCore5Compat].each do |component|
+      ENV.append "QT_CFLAGS", "-I#{Formula["qt"].opt_frameworks}/#{component}.framework/Headers"
+      ENV.append "CXXFLAGS", "-I#{Formula["qt"].opt_frameworks}/#{component}.framework/Headers"
+      ENV.append "QT_LIBS", "-framework #{component}"
+      ENV.append "LDFLAGS", "-framework #{component}"
+    end
 
     system "./bootstrap" if build.head?
     args = ["--prefix=#{prefix}",
