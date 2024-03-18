@@ -1041,6 +1041,7 @@ libphonenumber
 libpipeline
 libpng
 libproxy
+libpulsar
 librdkafka
 librespot
 libressl

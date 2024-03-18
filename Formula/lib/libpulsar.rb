@@ -1,11 +1,10 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://dlcdn.apache.org/pulsar/pulsar-client-cpp-3.4.2/apache-pulsar-client-cpp-3.4.2.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.4.2/apache-pulsar-client-cpp-3.4.2.tar.gz"
-  sha256 "3e9a6f122bb61f9ccb85714b9791b03c68a90bcb9db8ceaac39a44fade000c5c"
+  url "https://dlcdn.apache.org/pulsar/pulsar-client-cpp-3.5.0/apache-pulsar-client-cpp-3.5.0.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.5.0/apache-pulsar-client-cpp-3.5.0.tar.gz"
+  sha256 "eecd96ef2ef4e24505a06bf84d4b44e76058a5b4c7505539676f96c0fcda44f8"
   license "Apache-2.0"
-  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "8d4ac6e4a01530bbc3da4f5e1926e2205b93114d59fdfa70c1b5d8854c70634d"
@@ -28,16 +27,14 @@ class Libpulsar < Formula
   uses_from_macos "curl"
 
   def install
-    # Needed for `protobuf`, which depends on `abseil`.
-    inreplace "CMakeLists.txt", "CMAKE_CXX_STANDARD 11", "CMAKE_CXX_STANDARD 17"
-    system "cmake", "-S", ".", "build",
-                    "-DBUILD_TESTS=OFF",
-                    "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # protocolbuffers/protobuf#12292
-                    "-Dprotobuf_MODULE_COMPATIBLE=ON", # protocolbuffers/protobuf#1931
-                    "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
-                    "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
-                    "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib/shared_library("libprotobuf")}",
-                    *std_cmake_args
+    args = %w[
+      -DBUILD_TESTS=OFF
+      -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON # protocolbuffers/protobuf#12292
+      -Dprotobuf_MODULE_COMPATIBLE=ON # protocolbuffers/protobuf#1931
+      -DCMAKE_CXX_STANDARD=17
+    ]
+
+    system "cmake", "-S", ".", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "--target", "pulsarShared", "pulsarStatic"
     system "cmake", "--install", "build"
   end
