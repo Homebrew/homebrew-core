@@ -130,8 +130,12 @@ class Yewtube < Formula
   end
 
   test do
-    Open3.popen3("#{bin}/yt", "/Drop4Drop x Ed Sheeran,", "d 1,", "q") do |_, _, stderr|
-      assert_empty stderr.read, "Some warnings were raised"
-    end
+    system bin/"yt",
+      "set checkupdate false,",
+      "set ddir \"#{testpath}\",",
+      "/youtube-dl test video,", "d 1,", "q"
+    downloaded_file = (testpath/"mps").children.first
+    file_info = Utils.safe_popen_read("file", "--brief", downloaded_file).strip
+    assert_match(/^(WebM)|(.*MP4.*)$/, file_info)
   end
 end
