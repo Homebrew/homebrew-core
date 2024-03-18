@@ -4,7 +4,7 @@ class PythonAT39 < Formula
   url "https://www.python.org/ftp/python/3.9.18/Python-3.9.18.tar.xz"
   sha256 "01597db0132c1cf7b331eff68ae09b5a235a3c3caa9c944c29cac7d1c4c4c00a"
   license "Python-2.0"
-  revision 3
+  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -239,11 +239,12 @@ class PythonAT39 < Formula
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
 
+      # Binaries are codesigned but the framework is not
+      # https://github.com/Homebrew/brew/issues/16660
+      system "/usr/bin/codesign", "-f", "-s", "-", frameworks/"Python.framework"
+
       # Remove symlinks that conflict with the main Python formula.
       rm %w[Headers Python Resources Versions/Current].map { |subdir| frameworks/"Python.framework"/subdir }
-
-      # Fix for https://github.com/Homebrew/brew/issues/16660
-      system "/usr/bin/codesign", "-f", "-s", "-", frameworks/"Python.framework"
     else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
