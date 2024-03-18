@@ -1,8 +1,8 @@
 class Gat < Formula
   desc "Cat alternative written in Go"
   homepage "https://github.com/koki-develop/gat"
-  url "https://github.com/koki-develop/gat/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "482bbeda7fd524a23cb8ed553b7227feee729bc8ee5da3c0084ab7119744fa34"
+  url "https://github.com/koki-develop/gat/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "62c7509bee419f81af5d2f856f17ec98d65dd12212b3e361806cb2b6a22233b6"
   license "MIT"
 
   bottle do
