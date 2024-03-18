@@ -1,14 +1,14 @@
 class Flint < Formula
   desc "C library for number theory"
   homepage "https://flintlib.org/"
-  url "https://flintlib.org/flint-3.1.0.tar.gz"
-  sha256 "b30df05fa81de49c20d460edccf8c410279d1cf8410f2d425f707b48280a2be2"
+  url "https://github.com/flintlib/flint/releases/download/v3.1.1/flint-3.1.2.tar.gz"
+  sha256 "fdb3a431a37464834acff3bdc145f4fe8d0f951dd5327c4c6f93f4cbac5c2700"
   license "LGPL-3.0-or-later"
-  head "https://github.com/wbhart/flint2.git", branch: "trunk"
+  head "https://github.com/flintlib/flint.git", branch: "main"
 
   livecheck do
-    url "https://flintlib.org/downloads.html"
-    regex(/href=.*?flint[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    strategy :github_latest
   end
 
   bottle do
@@ -21,23 +21,29 @@ class Flint < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "796f363a97eb42772140b94d31a9eaccfb2acf445175639aba7869250b293942"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "libtool" => :build
   depends_on "gmp"
   depends_on "mpfr"
-  depends_on "ntl"
-
   uses_from_macos "m4" => :build
 
   def install
+    # to build against NTL
     ENV.cxx11
+    # Allow -march options to be passed through, as FLINT builds
+    # arch-specific code with runtime detection of capabilities:
+    # https://flintlib.org/doc/building.html
+    ENV.runtime_cpu_detection
+
+    system "./bootstrap.sh" if build.head?
+
     args = %W[
       --with-gmp=#{Formula["gmp"].prefix}
       --with-mpfr=#{Formula["mpfr"].prefix}
-      --with-ntl=#{Formula["ntl"].prefix}
     ]
-    if build.bottle?
-      args << "ax_cv_check_cxxflags___march_native=no"
-      args << "ax_cv_check_cflags___march_native=no"
-    end
+
+    args << "--enable-arch-#{Hardware.oldest_cpu}" if build.bottle?
 
     system "./configure", *args, *std_configure_args
     system "make"
