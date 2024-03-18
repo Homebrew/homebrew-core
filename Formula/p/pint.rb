@@ -1,8 +1,8 @@
 class Pint < Formula
   desc "Prometheus rule linter/validator"
   homepage "https://cloudflare.github.io/pint/"
-  url "https://github.com/cloudflare/pint/archive/refs/tags/v0.55.0.tar.gz"
-  sha256 "99d1f68fedb842487f3a0cef965f2499436b24574b49760a3063af14cef38544"
+  url "https://github.com/cloudflare/pint/archive/refs/tags/v0.56.0.tar.gz"
+  sha256 "1a38ff41a08961fa3311ac55bf6400ee3e6eb5974fa034b027e2c5b9e670a47a"
   license "Apache-2.0"
 
   bottle do
@@ -46,7 +46,7 @@ class Pint < Formula
 
     output = shell_output("#{bin}/pint -n lint #{testpath}/test.yaml 2>&1")
     assert_match "level=INFO msg=\"Loading configuration file\" path=.pint.hcl", output
-    assert_match "level=INFO msg=\"Problems found\" Warning=5", output
+    assert_match "level=INFO msg=\"Problems found\" Warning=6", output
 
     assert_match version.to_s, shell_output("#{bin}/pint version")
   end
