@@ -3,10 +3,6 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
-  sha256 "3c1e42b3073ade1f7adbf06863c01e2c59521b7cc2349df2f74ecd7ebfcb922d"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -16,6 +12,20 @@ class Qt < Formula
   ]
   revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
+
+  stable do
+    url "https://download.qt.io/official_releases/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+    mirror "https://qt.mirror.constant.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+    sha256 "3c1e42b3073ade1f7adbf06863c01e2c59521b7cc2349df2f74ecd7ebfcb922d"
+
+    # Fix build with newer libc++.
+    patch do
+      url "https://github.com/google/angle/commit/c23029d2fe0a55a5b26cd8005f0bf74943ed3865.patch?full_index=1"
+      sha256 "c6aa0f3237001e9ad9ed17dab671a2f402aa0060012a90349113f6cf9c0c95c1"
+      directory "qtwebengine/src/3rdparty/chromium/third_party/angle"
+    end
+  end
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
@@ -164,6 +174,10 @@ class Qt < Formula
     ]
     inreplace assistant_files, '"Assistant.app/Contents/MacOS/Assistant"', '"Assistant"'
 
+    # Allow generating unofficial pkg-config files for macOS to be used by other formulae.
+    # Upstream currently does not provide them: https://bugreports.qt.io/browse/QTBUG-86080
+    inreplace "qtbase/cmake/QtPkgConfigHelpers.cmake", "(NOT UNIX OR QT_FEATURE_framework)", "(NOT UNIX)"
+
     config_args = %W[
       -release
 
@@ -286,6 +300,18 @@ class Qt < Formula
     bin.glob("*.app") do |app|
       libexec.install app
       bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+    end
+
+    # Modify unofficial pkg-config files to fix up paths and use frameworks.
+    # Also move them to `libexec` as they are not guaranteed to work for users,
+    # i.e. there is no upstream or Homebrew support.
+    lib.glob("pkgconfig/*.pc") do |pc|
+      inreplace pc do |s|
+        s.gsub! " -L${libdir}", " -F${libdir}", false
+        s.gsub! " -lQt6", " -framework Qt", false
+        s.gsub! " -Ilib/", " -I${libdir}/", false
+      end
+      (libexec/"lib/pkgconfig").install pc
     end
   end
 
