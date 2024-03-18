@@ -1,8 +1,8 @@
 class Bpftop < Formula
   desc "Dynamic real-time view of running eBPF programs"
   homepage "https://github.com/Netflix/bpftop"
-  url "https://github.com/Netflix/bpftop/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "0cca2b54308e7cda18b17915c74a564cdd7a69b0273b1db670bc54b01eaab648"
+  url "https://github.com/Netflix/bpftop/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "dd4fd8b5fd51ae071d226d9cca70110415b56b3c9e4c664a7d5eefa40f3f0930"
   license "Apache-2.0"
   head "https://github.com/Netflix/bpftop.git", branch: "main"
 
