@@ -1,25 +1,10 @@
 class Rmw < Formula
   desc "Trashcan/recycle bin utility for the command-line"
   homepage "https://theimpossibleastronaut.github.io/rmw-website/"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.2/rmw-0.9.2.tar.xz"
+  sha256 "f1a7003f920297b0d1904c7c79debc06fbb00e1ef62871615a4fe836715a889d"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
-
-  stable do
-    url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.1/rmw-0.9.1.tar.xz"
-    sha256 "9a7b93e8530a0ffcd49f1a880e0a717b3112d0ec1773db7349bac416ee1a42b3"
-
-    # canfigger 0.3.0 build patch, remove in next release
-    patch do
-      url "https://github.com/theimpossibleastronaut/rmw/commit/295185e3b8c1090ea01e9a817d56706847292118.patch?full_index=1"
-      sha256 "dffc9c4a58b3043f3df0750dc7f935c3e4074f7a6445c057a013cda64b01ff84"
-    end
-    patch :DATA
-    patch do
-      url "https://github.com/theimpossibleastronaut/rmw/commit/cdee62512a750ca3ccf6a2cb3ea12221036c22b9.patch?full_index=1"
-      sha256 "0cf20084686966abafeef732acac7fbf82e286bcb21ada95e0aec8c447dc3948"
-    end
-  end
 
   livecheck do
     url :stable
@@ -62,31 +47,3 @@ class Rmw < Formula
     assert_match "purging is disabled", shell_output("#{bin}/rmw -vvg")
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index 793322e..3ff2020 100644
---- a/meson.build
-+++ b/meson.build
-@@ -63,7 +63,7 @@ config_h = configure_file(output : 'config.h', configuration : conf)
- main_bin = executable(
-   'rmw',
-   'src/main.c',
--  dependencies: [dep_canfigger, dep_rmw, dep_intl],
-+  dependencies: [canfigger_dep, dep_rmw, dep_intl],
-   install : true
-   )
-
-diff --git a/test/meson.build b/test/meson.build
-index ee982de..b1f0f39 100644
---- a/test/meson.build
-+++ b/test/meson.build
-@@ -23,7 +23,7 @@ foreach case : test_cases
-     'test_' + case,
-     '../src/' + case + '.c',
-     c_args : ['-DTEST_LIB', '-DRMW_FAKE_HOME="@0@"'.format(RMW_FAKE_HOME)],
--    dependencies: [dep_canfigger, dep_rmw]
-+    dependencies: [canfigger_dep, dep_rmw]
-     )
-   test('test_' + case, exe)
- endforeach
