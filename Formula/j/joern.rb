@@ -2,13 +2,13 @@ class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
   # joern should only be updated every 10 releases on multiples of 10
-  url "https://github.com/joernio/joern/archive/refs/tags/v2.0.180.tar.gz"
-  sha256 "62116442be2cecd3a8200daf2a76f0d12981e597715b7e3d3d020087e645da86"
+  url "https://github.com/joernio/joern/archive/refs/tags/v2.0.260.tar.gz"
+  sha256 "e1cef6362b94259465a21346a7668a609bf48c8455a8627aeda8a5b4ed834c05"
   license "Apache-2.0"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    regex(/^v?(\d+(?:\.\d+)*\.\d*0)$/i)
   end
 
   bottle do
@@ -37,10 +37,9 @@ class Joern < Formula
 
     # Remove incompatible pre-built binaries
     os = OS.mac? ? "macos" : OS.kernel_name.downcase
-    arch = Hardware::CPU.arch.to_s
-    goastgen_name = Hardware::CPU.intel? ? "goastgen-#{os}" : "goastgen-#{os}-#{arch}"
-    (libexec/"frontends/gosrc2cpg/bin/goastgen").glob("goastgen-*").each do |f|
-      rm f if f.basename.to_s != goastgen_name
+    astgen_suffix = Hardware::CPU.intel? ? "astgen-#{os}" : "astgen-#{os}-#{Hardware::CPU.arch}"
+    libexec.glob("frontends/{csharp,go}src2cpg/bin/astgen/{dotnet,go}astgen-*").each do |f|
+      f.unlink unless f.basename.to_s.end_with?(astgen_suffix)
     end
 
     libexec.children.select { |f| f.file? && f.executable? }.each do |f|
