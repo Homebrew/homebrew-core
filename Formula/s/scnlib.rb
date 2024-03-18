@@ -4,6 +4,7 @@ class Scnlib < Formula
   url "https://github.com/eliaskosunen/scnlib/archive/refs/tags/v2.0.2.tar.gz"
   sha256 "a485076b8710576cf05fbc086d39499d16804575c0660b0dfaeeaf7823660a17"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/eliaskosunen/scnlib.git", branch: "master"
 
   bottle do
@@ -18,18 +19,25 @@ class Scnlib < Formula
   depends_on "cmake" => :build
   depends_on "simdutf"
 
+  # patch to support simdutf 5.0.0, https://github.com/eliaskosunen/scnlib/pull/102
+  patch do
+    url "https://github.com/eliaskosunen/scnlib/commit/5398f91aa42f5bc88bab00447e51ad0eab65300d.patch?full_index=1"
+    sha256 "43d2f868589515d7369ce35d5a9700f17275a54b670b6928c6be344735c1ae9b"
+  end
+
   def install
-    system "cmake", "-S", ".",
-                    "-B", "build",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DSCN_TESTS=OFF",
-                    "-DSCN_DOCS=OFF",
-                    "-DSCN_EXAMPLES=OFF",
-                    "-DSCN_BENCHMARKS=OFF",
-                    "-DSCN_BENCHMARKS_BUILDTIME=OFF",
-                    "-DSCN_BENCHMARKS_BINARYSIZE=OFF",
-                    "-DSCN_USE_EXTERNAL_SIMDUTF=ON",
-                    *std_cmake_args
+    args = %w[
+      -DBUILD_SHARED_LIBS=ON
+      -DSCN_TESTS=OFF
+      -DSCN_DOCS=OFF
+      -DSCN_EXAMPLES=OFF
+      -DSCN_BENCHMARKS=OFF
+      -DSCN_BENCHMARKS_BUILDTIME=OFF
+      -DSCN_BENCHMARKS_BINARYSIZE=OFF
+      -DSCN_USE_EXTERNAL_SIMDUTF=ON
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -47,12 +55,8 @@ class Scnlib < Formula
         return result == expected ? EXIT_SUCCESS : EXIT_FAILURE;
       }
     EOS
-    system ENV.cxx, "-std=c++17",
-                    "test.cpp",
-                    "-o", "test",
-                    "-I#{include}",
-                    "-L#{lib}",
-                    "-lscn"
+
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lscn"
     system "./test"
   end
 end
