@@ -20,7 +20,7 @@ class Arb < Formula
   end
 
   # See upstream discussion, https://github.com/fredrik-johansson/arb/issues/453
-  deprecate! date: "2023-10-21", because: "Merged into flint 3.0.0"
+  disable! date: "2024-03-19", because: "arb has been merged into flint 3.0.0"
 
   depends_on "cmake" => :build
   depends_on "flint"
