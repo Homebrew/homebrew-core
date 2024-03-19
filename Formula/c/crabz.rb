@@ -7,15 +7,13 @@ class Crabz < Formula
   head "https://github.com/sstadick/crabz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3dcb5c8835ec73ab78b1ab1b97075cd8f14cc2fc62912cb005fbe8e71c827c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80debddd165bd37ea5360cdf0be6c11b270feb513a044716a89970615b15881c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "250f395594afef4fcf76fa3fdad71e582a75fa50a5feeb34996b8bbbb9737139"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04d8e5a883bf7f46495c5248b3a197941e2ba47850bf262c0b9b5716b73b153a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17db739a960ce4e09b4552f7eecd5722d40932dab4f254566f2bc76b47dea959"
-    sha256 cellar: :any_skip_relocation, ventura:        "83e834149559a7b20198249e53ed3ede7ec70d85daa3f4dfca5c33ebd40a548e"
-    sha256 cellar: :any_skip_relocation, monterey:       "65b892644ebc0a701b4c0f9099557c5ea2cbaf6b8307395d7004577164766b57"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ccda0fe0e7e5fba9c1ba0f3ca4eea48883878bc569bc9276a3483eab02a215b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f10c994cb0d1bb60460076fe107b2b14940b67d16c0acdbb349219f4f3da59b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af699a0228f047d0544b3095764bef4dc5ccc0336c13ff3bc306f27b679f7989"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f61c359fb0a0041f92fe056b45ccf73d9f02bf0fd9976601459d2264428755f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ffb214bd38d27a22ec0361a465c3a56279c9bbe0f8b1227fbc9482c20e8d0398"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3fab9b0230fdb0ff9dff9b1f4bc97f1b02c84fda834155e5df7f16917b141a71"
+    sha256 cellar: :any_skip_relocation, ventura:        "cb25eab893baf38b6deb477928f313763202c89cd8fe7982e098708d557b3cab"
+    sha256 cellar: :any_skip_relocation, monterey:       "fbb9520455e96fcb6eb32191be9ba97c040c6113a49ddde700881d3ef6190608"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60095aa977ab3b03c47ec8de50190199510cdc9eee314104c0b3ae494bc9de9f"
   end
 
   depends_on "cmake" => :build
