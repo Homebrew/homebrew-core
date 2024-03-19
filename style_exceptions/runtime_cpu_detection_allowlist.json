@@ -1,0 +1,13 @@
+[
+  "abseil",
+  "aom",
+  "blis",
+  "fftw",
+  "highway",
+  "libvpx",
+  "openblas",
+  "opencv",
+  "open-mpi",
+  "qt",
+  "vc"
+]
