@@ -10,6 +10,7 @@ activemq
 ada-url
 adb-enhanced
 adios2
+adwaita-icon-theme
 afflib
 agda
 age
@@ -1744,6 +1745,7 @@ universal-ctags
 usb.ids
 usbredir
 uv
+uvicorn
 v2ray
 vala
 valabind
@@ -1875,4 +1877,3 @@ zpaqfranz
 zsh-vi-mode
 zstd
 zydis
-uvicorn
