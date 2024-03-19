@@ -12,13 +12,13 @@ class Mafft < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "256ec7b1ed45a40135d2b4ca03c9d108a84177a85f8b119f2209188309766f65"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "219e442bf7af3df694fe8db914e6028b9e11d0bf5c314446373156a686e2ec3e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "06cdd139defbac1ef1ac3e0021f4e0e889145f4a84d97e504c0e82a555a1a5a2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2a6e523ad86aa8db7212ddd47ca5193df7e3409465836d6c3749004c184e3cd4"
-    sha256 cellar: :any_skip_relocation, ventura:        "010b2bd3a37895feb8a2effbe47a35711786394f78cda4292613ff0ba6b99fe6"
-    sha256 cellar: :any_skip_relocation, monterey:       "4f238aae0d4e8404f247e79134a70fdc80e3b31c5acca1cfd002d07b10b85d09"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c44ff19df4e8f79b5ceb8c6cf29f064fd2bdcd11654af87b1f9475b25f90ee2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7888d8cd90816aef36abaf14eb9c35f7e49d75b385df5fbee7fd3c9c8e085773"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecada47a14e316ea3b10c48766b5dedf018c68bb28bd045ad84b721b8353a813"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4d05485bc2b5e3350bed7a3e36717cd31c57d8db8e11660fe84160d8e224e92"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2411c247ddbd7dd212453665c00ec00c7d8848d257b48be1123cf5b5cb448f79"
+    sha256 cellar: :any_skip_relocation, ventura:        "cc9a9c74bf915a7a2186b155208f1ddf202afa0859532b92ebc5c2338083c902"
+    sha256 cellar: :any_skip_relocation, monterey:       "376a10680342351d465b1a532393b52674d1ff20a6461fab9dc66fc69aa81c8e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d492fe9c55f20b5a9442fce995c888aa2b921166234676572598f69bb46c1859"
   end
 
   def install
