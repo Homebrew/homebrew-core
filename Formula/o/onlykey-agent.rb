@@ -20,13 +20,10 @@ class OnlykeyAgent < Formula
 
   depends_on "certifi"
   depends_on "cryptography"
+  depends_on "cython"
   depends_on "gnupg"
   depends_on "hidapi"
-  depends_on "libcython"
-  depends_on "libusb"
   depends_on "python@3.12"
-
-  uses_from_macos "libffi"
 
   resource "aenum" do
     url "https://files.pythonhosted.org/packages/d0/f8/33e75863394f42e429bb553e05fda7c59763f0fd6848de847a25b3fbccf6/aenum-3.1.15.tar.gz"
@@ -165,8 +162,8 @@ class OnlykeyAgent < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   resource "six" do
@@ -190,40 +187,30 @@ class OnlykeyAgent < Formula
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/b0/b4/bc2baae3970c282fae6c2cb8e0f179923dceb7eaffb0e76170628f9af97b/wheel-0.42.0.tar.gz"
-    sha256 "c45be39f7882c9d34243236f2d63cbd58039e360f85d0913425fbd7ceea617a8"
-  end
-
-  def python3
-    "python3.12"
+    url "https://files.pythonhosted.org/packages/b8/d6/ac9cd92ea2ad502ff7c1ab683806a9deb34711a1e2bd8a59814e8fc27e69/wheel-0.43.0.tar.gz"
+    sha256 "465ef92c69fa5c5da2d1cf8ac40559a8c940886afcef87dcf14b9470862f1d85"
   end
 
   def install
-    # prevent "fatal error: libusb.h: No such file or directory" when building hidapi on linux
-    ENV.append_to_cflags "-I#{Formula["libusb"].include}/libusb-1.0"
-    # replacement for virtualenv_install_with_resources per https://docs.brew.sh/Python-for-Formula-Authors
+    python3 = "python3.12"
     venv = virtualenv_create(libexec, python3)
-    # build hidapi
+
+    # Use brewed hidadpi: https://github.com/trezor/cython-hidapi/issues/54
+    # TODO: For hidapi>0.14, replace with ENV["HIDAPI_SYSTEM_HIDAPI"] = ENV["HIDAPI_WITH_LIBUSB"] = "1"
     resource("hidapi").stage do
-      # monkey patch hidapi's include paths to be the homebrew-installed path instead
-      # TODO: Fix this with an upstream patch to support `--with-system-hidapi=/foo/bar/hidapi`
-      #       per https://github.com/Homebrew/homebrew-core/pull/104096#discussion_r919469723
       inreplace "setup.py" do |s|
-        s.gsub! "/usr/include/libusb-1.0", "#{Formula["libusb"].opt_include}/libusb-1.0"
+        s.gsub! "system_hidapi = 0", "system_hidapi = 1"
         s.gsub! "/usr/include/hidapi", "#{Formula["hidapi"].opt_include}/hidapi"
       end
-      system python3, *Language::Python.setup_install_args(libexec, python3), "--with-system-hidapi"
+      venv.pip_install Pathname.pwd
     end
-    # now have pip build other resources except hidapi:
+
     venv.pip_install resources.reject { |r| r.name == "hidapi" }
     venv.pip_install_and_link buildpath
 
     # add path configuration file to find cython
     site_packages = Language::Python.site_packages(python3)
-    pth_contents = <<~EOS
-      import site; site.addsitedir('#{Formula["libcython"].opt_libexec/site_packages}')
-    EOS
-    (libexec/site_packages/"homebrew-onlykey-agent.pth").write pth_contents
+    (libexec/site_packages/"homebrew-onlykey-agent.pth").write Formula["cython"].opt_libexec/site_packages
   end
 
   test do
