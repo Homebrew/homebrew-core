@@ -16,7 +16,7 @@ class Networkit < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libcython" => :build
+  depends_on "cython" => :build
   depends_on "ninja" => :build
   depends_on "python-setuptools" => :build
   depends_on "tlx" => :build
@@ -34,7 +34,7 @@ class Networkit < Formula
     site_packages = Language::Python.site_packages(python3)
 
     ENV.prepend_create_path "PYTHONPATH", prefix/site_packages
-    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
+    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/site_packages
 
     networkit_site_packages = prefix/site_packages/"networkit"
     extra_rpath = rpath(source: networkit_site_packages, target: Formula["libnetworkit"].opt_lib)
