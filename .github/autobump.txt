@@ -1634,6 +1634,7 @@ storm
 strace
 streamlink
 stress-ng
+strongswan
 structurizr-cli
 stunnel
 stylelint
