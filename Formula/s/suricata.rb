@@ -13,14 +13,13 @@ class Suricata < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "7981b503dd471bad9b0717164ddcaa3f6e86f6a24c6c7ad6eb2b3d0c955b188b"
-    sha256 arm64_ventura:  "5f3d95ea38be9a64a38d3ad2ab65a34f8db20531dbd1aa11ea35d5eaf621b0c1"
-    sha256 arm64_monterey: "8a62e504440eab2b58b212a6b86ddc1ae9e93b300c22349d6bc05be89b23bfeb"
-    sha256 sonoma:         "c58b495431acba6248ddf54f86a19abeba4ec31aba123babc2d2960fada176c2"
-    sha256 ventura:        "87e0bdd8531f9c68aa9a018600bd6a63ce8629ca112932285f5a7ff18fda6a7f"
-    sha256 monterey:       "ddadc98247e6323ba0d9d56c4efd73dce4d33c4795709f490260329d8bc0fb79"
-    sha256 x86_64_linux:   "9a0a33a63fae8e103ff14a488d4aae202b3007fd5a8bce7f4590ae301958e23a"
+    sha256 arm64_sonoma:   "b92e370635c1d3a8c48e573b348f2dd4bf0cbc15657504de3472a6c88f38f718"
+    sha256 arm64_ventura:  "91ed3f2dbcf96d42b1f98122c44162f264145b4cdea792981ab31445d99387fa"
+    sha256 arm64_monterey: "053d06d86752a15b5c5486fead3310ee858480037aebaf38b554ec1c88d52c61"
+    sha256 sonoma:         "4a64a5ddb63ffb45485c4b44c488c80661745d3126d285aa69856fc33c57c6f6"
+    sha256 ventura:        "c9d700a49f5b87f12c2aded8cbe181a033340560a90ae95b4a98ee6d7d483263"
+    sha256 monterey:       "3f6d96fc5ac79f5a58fd22f11b641b5ebf04b50f172d5f82e1cfe4e4092b8165"
+    sha256 x86_64_linux:   "99618885ddae7ed202d22a5b7215789ef2051f756291e393bfcb913843c3e307"
   end
 
   depends_on "pkg-config" => :build
