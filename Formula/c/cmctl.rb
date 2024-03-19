@@ -1,10 +1,10 @@
 class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
-  url "https://github.com/cert-manager/cert-manager/archive/refs/tags/v1.14.4.tar.gz"
-  sha256 "f9b68c18840d7590e3c0691d9827b63ede30cbdcd21604312034f32d23bf1a3e"
+  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "fbb3f0a65e01a534e0946cbeb48b7ae8f758d48cca21957b15681b2cdfde0ad6"
   license "Apache-2.0"
-  head "https://github.com/cert-manager/cert-manager.git", branch: "master"
+  head "https://github.com/cert-manager/cmctl.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "daab6a2b88667b7c544428150984ee0a3276119273c5440179ac42b781fdfd10"
@@ -19,17 +19,16 @@ class Cmctl < Formula
   depends_on "go" => :build
 
   def install
+    project = "github.com/cert-manager/cmctl/v2"
     ldflags = %W[
       -s -w
-      -X github.com/cert-manager/cert-manager/cmd/ctl/pkg/build.name=cmctl
-      -X github.com/cert-manager/cert-manager/cmd/ctl/pkg/build/commands.registerCompletion=true
+      -X #{project}/pkg/build.name=cmctl
+      -X #{project}/pkg/build/commands.registerCompletion=true
       -X github.com/cert-manager/cert-manager/pkg/util.AppVersion=v#{version}
       -X github.com/cert-manager/cert-manager/pkg/util.AppGitCommit=#{tap.user}
     ]
 
-    cd "cmd/ctl" do
-      system "go", "build", *std_go_args(ldflags:)
-    end
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"cmctl", "completion")
   end
@@ -40,7 +39,7 @@ class Cmctl < Formula
     assert_match "cmctl", shell_output("#{bin}/cmctl help")
     # We can't make a Kubernetes cluster in test, so we check that when we use a remote command
     # we find the error about connecting
-    assert_match "error: error finding the scope of the object", shell_output("#{bin}/cmctl check api 2>&1", 1)
+    assert_match "error: error finding the scope of the object", shell_output("#{bin}/cmctl check api 2>&1", 129)
     # The convert command *can* be tested locally.
     (testpath/"cert.yaml").write <<~EOF
       apiVersion: cert-manager.io/v1beta1
