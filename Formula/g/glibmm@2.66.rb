@@ -4,6 +4,7 @@ class GlibmmAT266 < Formula
   url "https://download.gnome.org/sources/glibmm/2.66/glibmm-2.66.6.tar.xz"
   sha256 "5358742598181e5351d7bf8da072bf93e6dd5f178d27640d4e462bc8f14e152f"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://download.gnome.org/sources/glibmm/2.66/"
