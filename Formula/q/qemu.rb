@@ -4,7 +4,7 @@ class Qemu < Formula
   url "https://download.qemu.org/qemu-8.2.1.tar.xz"
   sha256 "8562751158175f9d187c5f22b57555abe3c870f0325c8ced12c34c6d987729be"
   license "GPL-2.0-only"
-  head "https://git.qemu.org/git/qemu.git", branch: "master"
+  head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
   livecheck do
     url "https://www.qemu.org/download/"
