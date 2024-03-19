@@ -474,6 +474,7 @@ dive
 django-completion
 djhtml
 djl-serving
+dmenu
 dnscontrol
 dnscrypt-proxy
 dnsdist
