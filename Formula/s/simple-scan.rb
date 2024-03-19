@@ -1,10 +1,9 @@
 class SimpleScan < Formula
   desc "GNOME document scanning application"
   homepage "https://gitlab.gnome.org/GNOME/simple-scan"
-  url "https://download.gnome.org/sources/simple-scan/44/simple-scan-44.0.tar.xz"
-  sha256 "39b870fd46f447f747eaecc2df26049ef773185099f0e13c675656264dd98e95"
+  url "https://download.gnome.org/sources/simple-scan/46/simple-scan-46.0.tar.xz"
+  sha256 "c16e6590142fe563be5143122b3bbb53f6b00a7da9d952f61c47fa26f7b4f0a9"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "ede4b8f1b73d0d696dd111ceb935176a9229cef508511a94a8643e89237b2107"
@@ -22,14 +21,19 @@ class SimpleScan < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "vala" => :build
+
   depends_on "glib"
-  depends_on "gtk+3"
+  depends_on "gtk4"
+  depends_on "libadwaita"
   depends_on "libgusb"
-  depends_on "libhandy"
   depends_on "sane-backends"
   depends_on "webp"
 
   def install
+    # Work-around for build issue with Xcode 15.3
+    # upstream bug report, https://gitlab.gnome.org/GNOME/simple-scan/-/issues/386
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     ENV["DESTDIR"] = "/"
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -38,7 +42,7 @@ class SimpleScan < Formula
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do
