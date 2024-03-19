@@ -2,8 +2,8 @@ class Mafft < Formula
   desc "Multiple alignments with fast Fourier transforms"
   homepage "https://mafft.cbrc.jp/alignment/software/"
   url "https://gitlab.com/sysimm/mafft.git",
-      tag:      "v7.520",
-      revision: "52b59f064c600da59bca8233736418fb8bb35d5e"
+      tag:      "v7.525",
+      revision: "a1e1e3f1bd468b0e47918840c7b82057f0fd1faa"
   license "BSD-3-Clause"
 
   livecheck do
