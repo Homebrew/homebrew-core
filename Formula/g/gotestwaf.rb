@@ -7,13 +7,13 @@ class Gotestwaf < Formula
   head "https://github.com/wallarm/gotestwaf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "599b758e842e6ce4846a030e6e7549215802ad2c2ec12cbf968306f43cb85f39"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d4ab1d2867a4457c84a952943d9f9aca7fe5d2e30df842fb0aabd385875ed147"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "057ee055a4dd5b28a73c5a877ff10052e3fce2c11ff8cdac909f17fe9c202237"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7c005d1e593f5cd991dac136ba1a0fa184552e9a3c53e07457df7a2ff104421d"
-    sha256 cellar: :any_skip_relocation, ventura:        "1deb2e3eacaeebceac4d63bec6024891f7e7d351ddff9d5cc23bd50d2c377dbc"
-    sha256 cellar: :any_skip_relocation, monterey:       "6c0713b0040f4317695f7ebfdb99e82ce97fd45d872ef968fb641f8c9ed3fdcd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "113cfc26a4194b70232b1e7306ec328dfd79150604e24e87e51805a863249b57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "986ba13222dde0fde75b5152f55bd744de8e75e19099c52ec26f7b88b34ebfa9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62e4de324ef4f03218876f45afa0715a7a7e92d7991215cddbe2da893f8bec8d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1886b732a99aa8dcde602e7ee980f714dd5322b483874cdaaee5c798eb3fe03"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f3adcac30d74966c4ba4c641414fdf8ce563ab880610277f71187e05194481e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "473e5ee4540c20424b4001394198bb73cd6bec451922bacc56c7135ae05280f6"
+    sha256 cellar: :any_skip_relocation, monterey:       "2946f69c27ce4af3afbdbc1edfe33a2d3610b345812cef6c1de6ffde08fab0cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "755876c3a63e8a20c1f7947bf62be4930b546577a7296ae2b77e853eddb37172"
   end
 
   depends_on "go" => :build
