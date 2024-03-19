@@ -6,13 +6,13 @@ class SimpleScan < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "ede4b8f1b73d0d696dd111ceb935176a9229cef508511a94a8643e89237b2107"
-    sha256 arm64_ventura:  "95d221ebd8db12997effdb57b515dcdf67db873967459990c7adfd051051d3a1"
-    sha256 arm64_monterey: "a80f90b79f99908c1cc605e094e95dadccaec4fd4e8d5787779f8165b5a03320"
-    sha256 sonoma:         "d41e03717c1b7a381c790aa4223553fc51ba20c58217f8bccd3dddd4775fa19c"
-    sha256 ventura:        "604b9a994a1849c54d3d85a3a8ec5b841e8548880fc3a9ba5537380314eff5b6"
-    sha256 monterey:       "6369e2e883f9bf6f69290c4ca660e7e21c2ce742b2102cd7c3cd2861584765ab"
-    sha256 x86_64_linux:   "e3dc89775898ce3019d4c3625ee196ce4c4f443001cb4b271001a6171080c105"
+    sha256 arm64_sonoma:   "1a630e40d1d5dd033d1797fbfc747b536565e025afff4d389983550a73541faf"
+    sha256 arm64_ventura:  "710b448ae8e62de98dd11cbac8b58338fbef90f0fe7a7b7c288b01bd73885c6d"
+    sha256 arm64_monterey: "bfb59ff1bb224ef61826a2015949a870abd29ff3ad0b62ef79d51dbdf41be9f7"
+    sha256 sonoma:         "f5eb28ebc19c028cda3c385f7f56ac31aaf59a31cef9399e11df3806f2030654"
+    sha256 ventura:        "b0e2cefa0b2f040a784328ea91b952ecaab721e90cede5d59e3631444ef425cd"
+    sha256 monterey:       "cd024056d7d2adb8de0ba6a4bd6bc7bc1371671b056f75f355942bcbb5d9329d"
+    sha256 x86_64_linux:   "877a4b7d0279114908c924bd91e6e0e7062ecfdcf2323d205754fcf38ae3f0f1"
   end
 
   depends_on "gettext" => :build # for msgfmt
