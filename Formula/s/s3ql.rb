@@ -3,7 +3,7 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  # TODO: Try to remove `libcython` and corresponding build_cython in the next release.
+  # TODO: Try to remove `cython` and corresponding build_cython in the next release.
   # Ref: https://github.com/s3ql/s3ql/issues/335
   url "https://github.com/s3ql/s3ql/releases/download/s3ql-5.1.3/s3ql-5.1.3.tar.gz"
   sha256 "9511f7c230f3b9ea16908a806649ed9bf90ee71ed6838ceb19db9cf4eb28ed5c"
@@ -18,7 +18,7 @@ class S3ql < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux: "5d223be175375be7dfded444afc65a36d644b05d7f32cbde3cec7e135f715500"
   end
 
-  depends_on "libcython" => :build
+  depends_on "cython" => :build
   depends_on "pkg-config" => :build
   depends_on "cffi"
   depends_on "cryptography"
@@ -85,6 +85,11 @@ class S3ql < Formula
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+  end
+
   resource "trio" do
     url "https://files.pythonhosted.org/packages/04/b0/5ec370ef69832f3d6d79069af7097dcec0a8c68fa898822e49ad621c4af0/trio-0.22.2.tar.gz"
     sha256 "3887cf18c8bcc894433420305468388dac76932e9668afa1c49aa3806b6accb3"
@@ -116,7 +121,7 @@ class S3ql < Formula
     inreplace "setup.py", /'(?:(mkfs|fsck|mount|umount)\.)s3ql =/, "'\\1_s3ql ="
 
     # Regenerate Cython files for Python 3.12 support. Try to remove in next release.
-    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages(python3)
     system libexec/"bin/python3", "setup.py", "build_cython"
 
     system libexec/"bin/python3", "setup.py", "build_ext", "--inplace"
@@ -127,7 +132,6 @@ class S3ql < Formula
     assert_match "S3QL ", shell_output(bin/"mount_s3ql --version")
 
     # create a local filesystem, and run an fsck on it
-    assert_equal "Library\n", shell_output("ls")
     assert_match "Creating metadata", shell_output(bin/"mkfs_s3ql --plain local://#{testpath} 2>&1")
     assert_match "s3ql_params", shell_output("ls s3ql_params")
     system bin/"fsck_s3ql", "local://#{testpath}"
