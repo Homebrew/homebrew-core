@@ -8,6 +8,16 @@ class Tartufo < Formula
   license "GPL-2.0-only"
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "ca6285522fc3e3acb9caa7d138d52f00340fe90d30cdf469c7af896f1dae8810"
+    sha256 cellar: :any,                 arm64_ventura:  "eb507ba58820f3a2eb3ffab9750ed4b1be5d73ecf17faf7749529ace779d0475"
+    sha256 cellar: :any,                 arm64_monterey: "88ea6be6f01b84422eea3eaf73581bb2d842a43996e96a4864198cfe7924cee1"
+    sha256 cellar: :any,                 sonoma:         "855555b472b539847a776bb9f055273c03eb883129a0790e39ee6379e8bd0441"
+    sha256 cellar: :any,                 ventura:        "006ca239c22671c1378b655e8eebdeb874542cebfc0913e4dddc86b7b6d0e070"
+    sha256 cellar: :any,                 monterey:       "774eab27db9ef995164cb72eb6c634cf9cfaf277b203068ec4c5755082093942"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93361f79f79bd27a1fddf8fa6e6ed2055394f23d519e7ffb6cad4a8180239e57"
+  end
+
   depends_on "libgit2"
   depends_on "python@3.12"
 
