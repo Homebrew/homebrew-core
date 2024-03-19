@@ -19,7 +19,7 @@ class Sgr < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf85cb31381e761bc5b416038a632109af6ad8f956467631fafe5159ff15a987"
   end
 
-  depends_on "libcython" => :build # TODO: remove with newer `pglast` (4.4+)
+  depends_on "cython" => :build # TODO: remove with newer `pglast` (4.4+)
   depends_on "rust" => :build # for pydantic
   depends_on "certifi"
   depends_on "cryptography"
@@ -105,13 +105,13 @@ class Sgr < Formula
   end
 
   resource "minio" do
-    url "https://files.pythonhosted.org/packages/3a/2e/7bd24eb2e02a19a03bd0e73e59c051c62c62cabdd305ccbc59a90143752c/minio-7.2.4.tar.gz"
-    sha256 "d504d8464e5198fb74dd9b572cc88b185ae7997c17705e8c09f3fef2f439d984"
+    url "https://files.pythonhosted.org/packages/21/8f/bb5090471700cb300c15c296928035627b6ce8fcd2c1668a963a555ae9b7/minio-7.2.5.tar.gz"
+    sha256 "59d8906e2da248a9caac34d4958a859cc3a44abbe6447910c82b5abfa9d6a2e1"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "parsimonious" do
@@ -120,8 +120,8 @@ class Sgr < Formula
   end
 
   resource "pglast" do
-    url "https://files.pythonhosted.org/packages/88/df/201bb63cd9777007b89070b23e6bfb00e6da0ef2cbb9d8a4fd3df4c257e1/pglast-3.4.tar.gz"
-    sha256 "d2288d9607097a08529d9165970261c1be956934e8a8f6d9ed2a96d9b8f03fc6"
+    url "https://files.pythonhosted.org/packages/dc/1f/35e26fb6ac645f16c99d720624b69aee94bd284e15e6878b9f759bbf08b0/pglast-3.18.tar.gz"
+    sha256 "1703d5bde8f21f9d54e1bc20ff61aa0d64b490b3d27a2a8dce34940dc39a703c"
   end
 
   resource "psycopg2-binary" do
@@ -135,8 +135,8 @@ class Sgr < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/a7/2d/6308c04382ebdf15f1add7f0ec5e518ab23a0958363a8b3399f09c314fc0/pydantic-2.6.2.tar.gz"
-    sha256 "a09be1c3d28f3abe37f8a78af58284b236a92ce520105ddc91a6d29ea1176ba7"
+    url "https://files.pythonhosted.org/packages/4b/de/38b517edac45dd022e5d139aef06f9be4762ec2e16e2b14e1634ba28886b/pydantic-2.6.4.tar.gz"
+    sha256 "b1704e0847db01817624a6b86766967f552dd9dbf3afba4004409f908dcc84e6"
   end
 
   resource "pydantic-core" do
@@ -145,8 +145,8 @@ class Sgr < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
-    sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
+    url "https://files.pythonhosted.org/packages/59/d7/48b862b8133da2e0ed091195028f0d45c4d0be0f7f23dbe046a767282f37/referencing-0.34.0.tar.gz"
+    sha256 "5773bd84ef41799a5a8ca72dc34590c041eb01bf9aa02632b4a973fb0181a844"
   end
 
   resource "requests" do
@@ -170,8 +170,8 @@ class Sgr < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   resource "six" do
@@ -217,10 +217,17 @@ class Sgr < Formula
   end
 
   def install
-    # TODO: remove with newer `pglast` (4.4+)
-    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/Language::Python.site_packages("python3.12")
+    # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
+    # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    virtualenv_install_with_resources
+    # TODO: remove with newer `pglast` (4.4+)
+    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/Language::Python.site_packages("python3.12")
+
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resource("setuptools")
+    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install_and_link buildpath
 
     generate_completions_from_executable(bin/"sgr", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
