@@ -536,6 +536,7 @@ dune
 duo_unix
 dust
 dvc
+dwm
 dxpy
 dyld-headers
 dynaconf
