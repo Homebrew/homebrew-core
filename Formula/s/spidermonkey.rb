@@ -15,11 +15,11 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "c8a244aed5005fa0de34956d781a96ceba4666df9fb9b15ef8d7d0344c57e4a9"
-    sha256 cellar: :any, arm64_ventura: "fe448b4c9b91e39fd449dcb9e607e86331577edf8cda7abe6cd3f9c182a6940f"
-    sha256 cellar: :any, sonoma:        "815b1ababfec575ffcfd41f571fedcb7e07d844a286008eb80a22a0747892a91"
-    sha256 cellar: :any, ventura:       "ea19b4c1de0345eaa053cf6fc04c6f2028106b8f1a840dd80c110987455fd962"
-    sha256               x86_64_linux:  "34dffb49fdd294539a7e2f50575bbac59d48951c54bc2d8003d634e5b09886cd"
+    sha256 cellar: :any, arm64_sonoma:  "f67e88e4d2f60288f400ace79248f0982ee3adf8a439f8bea58ac78a0d033e12"
+    sha256 cellar: :any, arm64_ventura: "95d163e0c17ae0123a3e4926e44176dbcce8540dc7abec78085c13bb5afeea96"
+    sha256 cellar: :any, sonoma:        "3dfede535a854d9f223408f6ad5e3f06d8e359e1c8c916136fed1013b7ed0904"
+    sha256 cellar: :any, ventura:       "74cce55204c1c4c3562d0e75e8eace9e38e34a9891bd79bb7e2dbd4f5ca69e52"
+    sha256               x86_64_linux:  "23a9702a0f582d345413b8bc09c3307c8174bfffdb3f460f01e77f225cf505b7"
   end
 
   depends_on "pkg-config" => :build
