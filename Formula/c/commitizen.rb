@@ -3,8 +3,8 @@ class Commitizen < Formula
 
   desc "Defines a standard way of committing rules and communicating it"
   homepage "https://commitizen-tools.github.io/commitizen/"
-  url "https://files.pythonhosted.org/packages/df/39/b429d7287d92ace5020e7fef4278e0b4eb2000ef885205d49fc18fe86312/commitizen-3.18.4.tar.gz"
-  sha256 "57b3051d4170e23a5317f348d1bc61b98e57ac01b04f66e0f9a25fef75e6f679"
+  url "https://files.pythonhosted.org/packages/df/fb/a74a4a0a1f35dc9e1d30e97f1571c81512e11b6ffcd0d1cbfbdaaac855ef/commitizen-3.20.0.tar.gz"
+  sha256 "17aebc8f36326fa3e65dcc08195303579e356be84b0d65c3c4bfed85b8822411"
   license "MIT"
   head "https://github.com/commitizen-tools/commitizen.git", branch: "master"
 
@@ -92,8 +92,8 @@ class Commitizen < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/4a/caf3ac13aeada77b78ade7b74ec9cd9367e93eadcdefd8a1b4e8c4d05aed/zipp-3.18.0.tar.gz"
-    sha256 "df8d042b02765029a09b157efd8e820451045890acc30f8e37dd2f94a060221f"
+    url "https://files.pythonhosted.org/packages/3e/ef/65da662da6f9991e87f058bc90b91a935ae655a16ae5514660d6460d1298/zipp-3.18.1.tar.gz"
+    sha256 "2884ed22e7d8961de1c9a05142eb69a247f120291bc0206a00a7642f09b5b715"
   end
 
   def install
