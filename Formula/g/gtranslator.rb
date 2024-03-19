@@ -28,8 +28,8 @@ class Gtranslator < Formula
   depends_on "json-glib"
   depends_on "libadwaita"
   depends_on "libgda"
-  depends_on "libhandy"
   depends_on "libsoup"
+  depends_on "libspelling"
 
   uses_from_macos "libxml2"
 
