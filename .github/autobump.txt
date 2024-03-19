@@ -1726,6 +1726,7 @@ trino
 trivy
 trojan-go
 trufflehog
+tsduck
 tt
 ttdl
 tygo

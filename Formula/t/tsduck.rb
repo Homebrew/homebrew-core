@@ -1,8 +1,8 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.36-3528.tar.gz"
-  sha256 "068ef1cbc60821a4cce8d50c876edef5150ad581b31f4a92f085e20b3becd0eb"
+  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.37-3670.tar.gz"
+  sha256 "dbb7c654330108c509f2d8a97fe0346e3a1f55ad959e13dcee4a40dd04507886"
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
@@ -22,6 +22,7 @@ class Tsduck < Formula
   depends_on "openjdk" => :build
   depends_on "librist"
   depends_on "libvatek"
+  depends_on "openssl@3"
   depends_on "srt"
 
   uses_from_macos "python" => :build
