@@ -85,11 +85,12 @@ class Dynare < Formula
 
   test do
     resource "statistics" do
-      url "https://github.com/gnu-octave/statistics/archive/refs/tags/release-1.6.3.tar.gz", using: :nounzip
-      sha256 "71ea088e23274a3d24cb24a93f9e5d3dae4649951da5ff762caea626983ded95"
+      url "https://github.com/gnu-octave/statistics/archive/refs/tags/release-1.6.5.tar.gz", using: :nounzip
+      sha256 "0ea8258c92ce67e1bb75a9813b7ceb56fff1dacf6c47236d3da776e27b684cee"
     end
 
     ENV.cxx11
+    ENV.delete "LDFLAGS" # avoid overriding Octave flags
 
     statistics = resource("statistics")
     testpath.install statistics
