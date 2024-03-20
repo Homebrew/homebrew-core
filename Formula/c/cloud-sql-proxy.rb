@@ -7,13 +7,13 @@ class CloudSqlProxy < Formula
   head "https://github.com/GoogleCloudPlatform/cloud-sql-proxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "843ce6317e986244adf32a2ab77d4a5c403bdce0095df44b216864e94546e6d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "85c25bfa91a745076c5526e081af383b7f46862305cc8b15c37972aff2ce6b37"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "06da29b359de2cccd630f9b297f887b34ba69688f7a8d136d5948cb78d8aad46"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8dd94ae7b9ab70e60747ab384f6950b865f982decbc1ef7033138e05264afae3"
-    sha256 cellar: :any_skip_relocation, ventura:        "054f4fa0d92a5a96f02390193656b50a257eb9b1321bf646d7fe7da1d4ccfe4f"
-    sha256 cellar: :any_skip_relocation, monterey:       "1dbdeed731f14f5bc2ee60ad2beaa2c6bf1b380d5b3991bf82aaebab80d494a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "880bde96c0821d8051625a0760aec9d72b259b7b70276e6572e6b60d54c30d62"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64824e8c1e50c2a4fe6a25fbac86507b91df87a520263934b5f8de2ae8080c07"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32488ea3f173887df8ad2e6cde990451d2add0e87939f05638d02bb3e22481f6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "396f5a8e460126e314e9d5fec84810742337916f2e8f916eb538922cdd4328bc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "992175decbdd9418242f4fd24d4c2288212a73721508d95c2f7e771a294ba2da"
+    sha256 cellar: :any_skip_relocation, ventura:        "7adff3a54978fd483d82ab1b8645e5c8e981cf0baa7e467f472ec6ebee9ad3d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "121bf36eb439cbe2c50a7058cf6f1a0536f57b267e53bbeb810f19a8b00dab93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6111a0a31d6be3cf8abbf436133efc40e2d85920eb1229778f603db835c97452"
   end
 
   depends_on "go" => :build
