@@ -3,8 +3,8 @@ class Certsync < Formula
 
   desc "Dump NTDS with golden certificates and UnPAC the hash"
   homepage "https://github.com/zblurx/certsync"
-  url "https://files.pythonhosted.org/packages/bd/3d/cdacde9d464c4b059336af2e531a9c15660b92125f345a165da754d0ec9f/certsync-0.1.5.tar.gz"
-  sha256 "699a4f8b15045883011c25f461c83e81b53093ae31588fdff41f7ef505b969c7"
+  url "https://files.pythonhosted.org/packages/c8/75/3928920bdbfb0af317446236fad17b47a1d6aad507f1ae2eed6bbf7e7ad9/certsync-0.1.6.tar.gz"
+  sha256 "bbfffd10f36edcb8c4d2d5033f2a2e1e7d641e41d6c5bd11069e7b0827fa1c8d"
   license "MIT"
 
   bottle do
@@ -117,8 +117,8 @@ class Certsync < Formula
   end
 
   resource "pyopenssl" do
-    url "https://files.pythonhosted.org/packages/eb/81/022190e5d21344f6110064f6f52bf0c3b9da86e9e5a64fc4a884856a577d/pyOpenSSL-24.0.0.tar.gz"
-    sha256 "6aa33039a93fffa4563e655b61d11364d01264be8ccb49906101e02a334530bf"
+    url "https://files.pythonhosted.org/packages/91/a8/cbeec652549e30103b9e6147ad433405fdd18807ac2d54e6dbb73184d8a1/pyOpenSSL-24.1.0.tar.gz"
+    sha256 "cabed4bfaa5df9f1a16c0ef64a0cb65318b5cd077a7eda7d6970131ca2f41a6f"
   end
 
   resource "pyspnego" do
