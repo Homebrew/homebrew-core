@@ -166,7 +166,7 @@
   },
   "conan": {
     "exclude_packages": ["certifi"],
-    "extra_packages": ["distro"]
+    "extra_packages": ["distro", "setuptools"]
   },
   "conan@1": {
     "exclude_packages": ["certifi"],
