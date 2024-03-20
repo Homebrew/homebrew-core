@@ -10,15 +10,13 @@ class PythonTkAT39 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6cf17300caeb9de0bedcb9be19b4f91ddc8e1ed02a05bac1dede7b89ec6e019e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "239544d688c136aa332a7cf19b099c8bb7c1ed18b935c91e7aae10838ed735f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8feaaf7a0a9a189c4c4501b2b615c0593cd72c893c66931a12ac11db8422f528"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7880e183e7cdb45d62abcffff5cc40b17cba08aab202dfdd4a149760b99737a7"
-    sha256 cellar: :any,                 sonoma:         "ab7b792e607b5109719c52c03c3c5e9973ecf495b4bf42d79310ce9325765be0"
-    sha256 cellar: :any_skip_relocation, ventura:        "81664ef3893a689b3af8405fabb344e2d16fbad7ac802c3ae4758f558014b7b7"
-    sha256 cellar: :any_skip_relocation, monterey:       "99054c55d322d74e9998bbed0a1b79664eb0e043ade79c39e57940444b7afd95"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e21545af299a2aec6b9847815395df053cf169f7c6a53e709d2f11de4766c434"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "01e4e20eb6d8e953f0b68776e7c48a89e7946dac0830842b8679e55d953c5c4d"
+    sha256 cellar: :any,                 arm64_sonoma:   "7f6272ad30e48e306397b068f2064a36d405e795d4805aae4c925f1073a385dc"
+    sha256 cellar: :any,                 arm64_ventura:  "8efc8964d31d301ae4e9382e0903f40061ec6a832da0def5fc9c4820d2045f82"
+    sha256 cellar: :any,                 arm64_monterey: "a67ae974fc6d23bffd2bb902df0f848ae47569ff367dadaca3fd435a08147323"
+    sha256 cellar: :any,                 sonoma:         "e06800ab45ed107d7a5ef009d53af144ead2da982802bd346442ff56eb4c5ea5"
+    sha256 cellar: :any,                 ventura:        "6385f4fee0e4035239afa1057a563ef94127a4424fcbb32aaec5777b2cfb0dec"
+    sha256 cellar: :any,                 monterey:       "4c7b09a65e0a6445a3f582f81de8088e0a8bc0dca50dbf10f554c08f01ee95e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a98bba397c793b56ace409f02712fe57c8e60840ffbce3fa3e4037090c57133"
   end
 
   depends_on "python@3.9"
