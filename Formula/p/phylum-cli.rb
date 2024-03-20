@@ -7,13 +7,13 @@ class PhylumCli < Formula
   head "https://github.com/phylum-dev/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6f22db4b5d200c3834cb3b7fda6b0c245a3122139b0311a46321417f1c28183d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0375374c2e86e9126ef38b61c50fd67109c3eab852021d22703a29f64e1b399d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "93be2c7257bd3e26c49b0d5e3a37447a5a186c59d45783e14b4bca8fc9a2b4be"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a3982fbee3a289c059d0e15e8d799e045d3b2011ad516b06c8282111b4dea146"
-    sha256 cellar: :any_skip_relocation, ventura:        "a44f593d363e93e886b6b5726b68e911dda0783fd0224764a721b5e072b49aec"
-    sha256 cellar: :any_skip_relocation, monterey:       "c9e8e4cf84ed2074bdf231ff693a3db6d74e367bec388dd06745d5434a8314cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e1faa8bfaeb78296c552ab296fce876474dc987de28080f99b942b9a2b35cdc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a4b765298ae9059b6ca983d0b8f3fd5691dc8fa3a5c6f8a7507563d150ae0169"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "def3f18e7d43c2628d8f9b971e0b4c896df0ebd9c3af84982fbb8c95f5402d44"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "76e2ac61c914ccdf48e765937f30cb6bbdbd634e99d491b1e7872ad03a3870f2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9e5f8e1f60e3cf796eee788abfb5a8d57ca022efcc2c2ca5c24916dc384718f9"
+    sha256 cellar: :any_skip_relocation, ventura:        "450eb2292e5266b47f3dcd616051d06e43e0b2b6d8cf85e71486ac4b693655e9"
+    sha256 cellar: :any_skip_relocation, monterey:       "36bf59f8b903c28a8c302ce0b73fa081f4e0d0e53171e8c582262275e86c2680"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91e3b9c8877441dd8e6a548a103aef318537ea86d7583c742dae2f5bedcb1a1d"
   end
 
   depends_on "protobuf" => :build
