@@ -6,14 +6,13 @@ class GsettingsDesktopSchemas < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4fca0573983e235860f8628a6718c63f3a804c7a7744d017f67041ea46876abc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fca0573983e235860f8628a6718c63f3a804c7a7744d017f67041ea46876abc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4fca0573983e235860f8628a6718c63f3a804c7a7744d017f67041ea46876abc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4fca0573983e235860f8628a6718c63f3a804c7a7744d017f67041ea46876abc"
-    sha256 cellar: :any_skip_relocation, ventura:        "4fca0573983e235860f8628a6718c63f3a804c7a7744d017f67041ea46876abc"
-    sha256 cellar: :any_skip_relocation, monterey:       "4fca0573983e235860f8628a6718c63f3a804c7a7744d017f67041ea46876abc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "092735996f7814e3609a156d28054edc5463a1aa54b87a17126db77a4a31424b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0cf5db7c142d6769c09befe16e21caed32f43595367752be53141fd8b0820f41"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0cf5db7c142d6769c09befe16e21caed32f43595367752be53141fd8b0820f41"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0cf5db7c142d6769c09befe16e21caed32f43595367752be53141fd8b0820f41"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0cf5db7c142d6769c09befe16e21caed32f43595367752be53141fd8b0820f41"
+    sha256 cellar: :any_skip_relocation, ventura:        "0cf5db7c142d6769c09befe16e21caed32f43595367752be53141fd8b0820f41"
+    sha256 cellar: :any_skip_relocation, monterey:       "0cf5db7c142d6769c09befe16e21caed32f43595367752be53141fd8b0820f41"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c46a1417763d1a1f38479e75934ba374a08f44ba12b84680b20c570f06802083"
   end
 
   depends_on "gettext" => :build
