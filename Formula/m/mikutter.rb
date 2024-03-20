@@ -12,13 +12,13 @@ class Mikutter < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2a8b97e987ca69bd4307b5f1d178c8fa3d9e44573986cd9f4f71db57ae745f03"
-    sha256 cellar: :any,                 arm64_ventura:  "6d29c706b74c20d36c19cb19c7feb0252296188cdc3587d40500338b9efbf553"
-    sha256 cellar: :any,                 arm64_monterey: "1b031235a2664e740b222d2028ee09fe148e4e5484496d0e5f920c3ec6617c7f"
-    sha256 cellar: :any,                 sonoma:         "0887758152ad30f3e6a3338bf020bc982d1849cb1b01160c35028401c369b851"
-    sha256 cellar: :any,                 ventura:        "1d2841a72ac9e1f960d122ede46ed90eca91aef4aebdc10c6d30f92a2f8933ff"
-    sha256 cellar: :any,                 monterey:       "960f81a7bb6d50e519d0ba21bb590baf9804ea2afe426ab01d89416aada3cb37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cd97ed8b2370ba6e80ddabfb4edac05a7c4ada24b4249dc92ded90fd6c3f7b2"
+    sha256 cellar: :any,                 arm64_sonoma:   "c1b732ce1d7dedc6c57fe9a25406987dccefa25e081710c2683a5a2e1be1f0a5"
+    sha256 cellar: :any,                 arm64_ventura:  "a8fa0a861d63e27f8ae2d31044d33aca0f2a9c0fb8d6697e6b3c0bc863ee41ea"
+    sha256 cellar: :any,                 arm64_monterey: "9d8d9287e20580c0a18d5734ded6ec4d12a6d61c2c8d4d90f06f9c681703d3d2"
+    sha256 cellar: :any,                 sonoma:         "4b94d2cd22ca6df472e12b3cd2777e4d4e6d0abaeecd74f7cafaa7852ae0fba4"
+    sha256 cellar: :any,                 ventura:        "c6b2bf7bdc6727689f0b2eafef7b8cabcf195c1bc7e38a685ee9ada254893675"
+    sha256 cellar: :any,                 monterey:       "db28c9928c925451b84f7c5f6fd147ae0bdd619df903b677c2841a833b40fd64"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e87ded60e6d201e5ff577c2a7eec7330e1ab2f5a358f0010a0b2352d5e2a2c22"
   end
 
   depends_on "gobject-introspection"
