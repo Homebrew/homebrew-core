@@ -1,8 +1,4 @@
 {
-  "aws-sdk-cpp": 15,
-  "awscli@1": 10,
-  "checkov": 10,
-  "joern": 10,
   "renovate": 10,
   "vim": 50
 }
