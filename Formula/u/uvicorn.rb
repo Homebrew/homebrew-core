@@ -3,8 +3,8 @@ class Uvicorn < Formula
 
   desc "ASGI web server"
   homepage "https://www.uvicorn.org/"
-  url "https://files.pythonhosted.org/packages/62/25/7f0bfc9055284129bfd2977fb3460ac78aa4d127fd2b8391e7eb93002bef/uvicorn-0.28.1.tar.gz"
-  sha256 "08103e79d546b6cf20f67c7e5e434d2cf500a6e29b28773e407250c54fc4fa3c"
+  url "https://files.pythonhosted.org/packages/49/8d/5005d39cd79c9ae87baf7d7aafdcdfe0b13aa69d9a1e3b7f1c984a2ac6d2/uvicorn-0.29.0.tar.gz"
+  sha256 "6a69214c0b6a087462412670b3ef21224fa48cae0e452b5883e8e8bdfdd11dd0"
   license "BSD-3-Clause"
   head "https://github.com/encode/uvicorn.git", branch: "master"
 
