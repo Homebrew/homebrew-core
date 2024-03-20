@@ -1,8 +1,8 @@
 class OpenshiftCli < Formula
   desc "OpenShift command-line interface tools"
   homepage "https://www.openshift.com/"
-  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.15.0/openshift-client-src.tar.gz"
-  sha256 "954075655e06fef8333d5188ef3eb2533ebf1aaae2fa35cb6813199ed35e8232"
+  url "https://mirror.openshift.com/pub/openshift-v4/clients/ocp/4.15.2/openshift-client-src.tar.gz"
+  sha256 "8999d3c360508e5dfdb741f21ec932258fef8d834e79130cea71c1b6839c46c9"
   license "Apache-2.0"
   head "https://github.com/openshift/oc.git", shallow: false, branch: "master"
 
