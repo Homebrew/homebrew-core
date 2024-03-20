@@ -6,13 +6,13 @@ class Observerward < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b261659ea64d67c4d77a4511f925c9afb4b672f90758665c5b2c30b56b78c1ff"
-    sha256 cellar: :any,                 arm64_ventura:  "fb5c21cacbf32b14fc2782b343a14b08df02a1f64f860620fed4b7ca8a5db8bf"
-    sha256 cellar: :any,                 arm64_monterey: "2c442820a3253827ff4586dd36afac95f0a7e7a520dbdf9d9d9929f078f35495"
-    sha256 cellar: :any,                 sonoma:         "562d55f8fa1dee50805d10960dc22f276fff4fd70334115b0a4120ab38afb744"
-    sha256 cellar: :any,                 ventura:        "cc53f6ba716e77e9f1894df7250abbb4264329383b5aed99becc45ed9ae434b4"
-    sha256 cellar: :any,                 monterey:       "59f43bc002806728ad0ba8bdc378358539e4f7dbdc11e61d499b89118fd1709f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c6cb34478b914acba08b631467010bc6ecd16859713e3a192bd9bcb9ebc3b11"
+    sha256 cellar: :any,                 arm64_sonoma:   "007a1a7d46186ceab76f51b5ab1e7dbc78c751c193a5b01605d0b17f1786a88e"
+    sha256 cellar: :any,                 arm64_ventura:  "eaf1cdfbe5bf2a7621941e526489a9be95d5f2df1ceb1c5fa897c32650bd25d8"
+    sha256 cellar: :any,                 arm64_monterey: "b8b80f83ccc64e26d468b8721f79c098edd601c4b3e2277dcba66aed333948a8"
+    sha256 cellar: :any,                 sonoma:         "c9faa25889b441571d9541ba5b4050081d762c620e9d356e6898cbd4f8845c4e"
+    sha256 cellar: :any,                 ventura:        "76a5823b52c96e5f616e10ff0cdcd78ac30fa791ef24a99b29731ef1c81ec8b4"
+    sha256 cellar: :any,                 monterey:       "9ca3a71457bcc341e7bac374568e18c8946f23b860089caf757efdeb1fd33289"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a7249d6db39173e657a29dfbe9530e02989c75772aa6e109698e81a0f02063d"
   end
 
   depends_on "rust" => :build
