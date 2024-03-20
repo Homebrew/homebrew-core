@@ -5,8 +5,8 @@ class PklGenSwift < Formula
   sha256 "2318ab9f641237a70531652b78fcdcf2e9cb609f96e5386778dd08e14fe847b4"
   license "Apache-2.0"
 
-  depends_on xcode: ["15.2"]
   depends_on "pkl"
+  depends_on xcode: ["15.2"]
 
   uses_from_macos "swift"
 
