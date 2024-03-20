@@ -1,14 +1,14 @@
 class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
-  # joern should only be updated every 10 releases on multiples of 10
   url "https://github.com/joernio/joern/archive/refs/tags/v2.0.260.tar.gz"
   sha256 "e1cef6362b94259465a21346a7668a609bf48c8455a8627aeda8a5b4ed834c05"
   license "Apache-2.0"
 
   livecheck do
     url :stable
-    regex(/^v?(\d+(?:\.\d+)*\.\d*0)$/i)
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    throttle 10
   end
 
   bottle do
