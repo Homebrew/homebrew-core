@@ -1731,6 +1731,7 @@ toxiproxy
 trader
 traefik
 trafficserver
+trafilatura
 translate-toolkit
 tree
 tree-sitter
