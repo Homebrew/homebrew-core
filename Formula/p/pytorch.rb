@@ -6,7 +6,7 @@ class Pytorch < Formula
   url "https://github.com/pytorch/pytorch/releases/download/v2.2.0/pytorch-v2.2.0.tar.gz"
   sha256 "e12d18c3dbb12d7ae2f61f5ab9a21023e3dd179d67ed87279ef96600b9ac08c5"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -102,6 +102,10 @@ class Pytorch < Formula
     sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
   end
 
+  # Backport usage of SLEEF_CONST from upstream commit
+  # Ref: https://github.com/pytorch/pytorch/commit/2b060983809e5fe8706acd085fff67b6a27bfb5f
+  patch :DATA
+
   def install
     python3 = "python3.12"
 
@@ -174,3 +178,33 @@ class Pytorch < Formula
     end
   end
 end
+
+__END__
+diff --git a/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h b/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h
+index 3e26213d6d26609b2cda7bde2d026fc92c626db2..edda0210746530bb60765939e90899083f8be595 100644
+--- a/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h
++++ b/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h
+@@ -265,7 +266,8 @@ static_assert(
+     }
+     return b;
+   }
+-  Vectorized<T> map(const __m256 (*const vop)(__m256)) const {
++
++  Vectorized<T> map(SLEEF_CONST __m256 (*vop)(__m256)) const {
+     __m256 lo, hi;
+     cvt_to_fp32<T>(values, lo, hi);
+     const auto o1 = vop(lo);
+diff --git a/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h b/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h
+index f9fc92d52bfe0c8ea594384beecf4da47961faa0..6513455283e2be3e588fd15131c5d48a17e107bb 100644
+--- a/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h
++++ b/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h
+@@ -362,7 +363,8 @@ static_assert(
+   }
+   #pragma clang diagnostic push
+   #pragma clang diagnostic ignored "-Wignored-qualifiers"
+-  Vectorized<T> map(const __m512 (*const vop)(__m512)) const {
++
++  Vectorized<T> map(SLEEF_CONST __m512 (*vop)(__m512)) const {
+     __m512 lo, hi;
+     cvt_to_fp32<T>(values, lo, hi);
+     const auto o1 = vop(lo);
