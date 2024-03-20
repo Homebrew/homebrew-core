@@ -23,7 +23,7 @@
   ["easyrpg-player", "liblcf"],
   ["etl", "synfig"],
   ["file-formula", "libmagic"],
-  ["edencommon", "fb303", "fbthrift", "fizz", "folly", "mvfst", "wangle", "watchman"],
+  ["edencommon", "fb303", "fbthrift", "fizz", "folly", "mvfst", "proxygen", "wangle", "watchman"],
   ["frpc", "frps"],
   ["gcc", "libgccjit"],
   ["gdb", "aarch64-elf-gdb", "arm-none-eabi-gdb", "i386-elf-gdb", "riscv64-elf-gdb", "x86_64-elf-gdb"],
