@@ -7,13 +7,13 @@ class Crabz < Formula
   head "https://github.com/sstadick/crabz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af699a0228f047d0544b3095764bef4dc5ccc0336c13ff3bc306f27b679f7989"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f61c359fb0a0041f92fe056b45ccf73d9f02bf0fd9976601459d2264428755f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ffb214bd38d27a22ec0361a465c3a56279c9bbe0f8b1227fbc9482c20e8d0398"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3fab9b0230fdb0ff9dff9b1f4bc97f1b02c84fda834155e5df7f16917b141a71"
-    sha256 cellar: :any_skip_relocation, ventura:        "cb25eab893baf38b6deb477928f313763202c89cd8fe7982e098708d557b3cab"
-    sha256 cellar: :any_skip_relocation, monterey:       "fbb9520455e96fcb6eb32191be9ba97c040c6113a49ddde700881d3ef6190608"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60095aa977ab3b03c47ec8de50190199510cdc9eee314104c0b3ae494bc9de9f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14ea54436bae9bf5efd138c72b306a6d112576b01db726e4137966b7b253ad27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5750118d971ca993668011b90381d97b09d2a739212f1ccdf931cc28a5dd38f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7ae6a787a7a1797943ebbf743f8d5e833b18241fe6e85c678dfca850040059d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "577d2a7fbd81e94e01cea85c3b3da2c759a88146189c66d5a61f9b32f6d9ad10"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf7734ca7c9ba5fbf35a9ee9689d24545e069ddcc7cea47305d3db9be1bfbfbc"
+    sha256 cellar: :any_skip_relocation, monterey:       "b6af3a466b9ed8b122cc9ec0b8e80bf0c8e60c0ff0ec32d5976bc6bbacb04fdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5843ff105bb50beb4e6712e6479edb8e3be80d5f1508e10fb7743d19ca9a6277"
   end
 
   depends_on "cmake" => :build
