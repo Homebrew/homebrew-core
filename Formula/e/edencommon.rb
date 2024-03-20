@@ -1,8 +1,8 @@
 class Edencommon < Formula
   desc "Shared library for Watchman and Eden projects"
   homepage "https://github.com/facebookexperimental/edencommon"
-  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2024.01.22.00.tar.gz"
-  sha256 "0fc567fab380ba905b662b71082dd3a0aa8bbef84f22b9f7256bf80c5ead5644"
+  url "https://github.com/facebookexperimental/edencommon/archive/refs/tags/v2024.03.18.00.tar.gz"
+  sha256 "e3d6e0cba770ca4b04e168142bd96f68acfc0d5178990c2d3d8951d37b236553"
   license "MIT"
   head "https://github.com/facebookexperimental/edencommon.git", branch: "main"
 
@@ -18,11 +18,21 @@ class Edencommon < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
+  depends_on "fb303"
+  depends_on "fbthrift"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
   depends_on "libsodium"
   depends_on "openssl@3"
+  depends_on "wangle"
+
+  # Use AUR's patch from open PR to fix build with `fmt` v10.
+  # PR ref: https://github.com/facebookexperimental/edencommon/pull/17
+  patch do
+    url "https://github.com/facebookexperimental/edencommon/commit/bd46378b43aaa394094799d18f734495385c6f67.patch?full_index=1"
+    sha256 "74b47722dd7d40cb07fc504e9f14dd18fe6ee7c38b83373a4d94637fcb618ca1"
+  end
 
   def install
     # Fix "Process terminated due to timeout" by allowing a longer timeout.
@@ -33,7 +43,13 @@ class Edencommon < Formula
               /gtest_discover_tests\((.*)\)/,
               "gtest_discover_tests(\\1 DISCOVERY_TIMEOUT 60)"
 
-    system "cmake", "-S", ".", "-B", "_build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
+    # Avoid having to build FBThrift py library
+    inreplace "CMakeLists.txt", "COMPONENTS cpp2 py)", "COMPONENTS cpp2)"
+
+    system "cmake", "-S", ".", "-B", "_build",
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "_build"
     system "cmake", "--install", "_build"
   end
