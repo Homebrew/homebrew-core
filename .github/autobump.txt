@@ -1156,6 +1156,7 @@ minder
 minetest
 minikube
 miniserve
+miniupnpc
 minizinc
 minizip
 minizip-ng
