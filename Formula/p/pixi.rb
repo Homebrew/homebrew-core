@@ -15,13 +15,13 @@ class Pixi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "066e5930f9232940c552d80d180840a4d1ca22e24c80bba59f54428072cb73d0"
-    sha256 cellar: :any,                 arm64_ventura:  "8ea2d8ec1591d26bf6456939f48de01507036e0d43b35c8b70a71039a106a277"
-    sha256 cellar: :any,                 arm64_monterey: "29d2c0081732bee3580978f5918136539d9a0da1d3a7ccb0d18962abd7ecf564"
-    sha256 cellar: :any,                 sonoma:         "28b6f853b99c78b84e97d8c6e2c9a21832447ed30706ebf114792e6a7cea74ee"
-    sha256 cellar: :any,                 ventura:        "f129a59cad90d48cf10fd215dc3874c3cfe06f9d53d22e73a73d8ff7e2119ba0"
-    sha256 cellar: :any,                 monterey:       "66308d9a6a0f7c26cb9bea46c226075955d74112c49e5efb45880241015a68dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0bc92e820c633d82be4a065c35a7b8e6a23afd108ddb01d925e4e805da2bcaa"
+    sha256 cellar: :any,                 arm64_sonoma:   "15641e5178f7d5f55c3ad20fc3f50b12809868807fac500c0a867e0abffb240c"
+    sha256 cellar: :any,                 arm64_ventura:  "907b4ebf47caaf5c7a29d24c14da3cf3ecbea7a2257559a7eb9cd611b0848027"
+    sha256 cellar: :any,                 arm64_monterey: "33033ecc093303f21a42879f94582a63c5329334e64f8fbc05de905e40949d1e"
+    sha256 cellar: :any,                 sonoma:         "7c9b847415ffa00b94651e9b9711b6adbe796db1617caf000b550648d57fd87b"
+    sha256 cellar: :any,                 ventura:        "93111234e493f09efdb7390bb29277258f6610f59ff1881aa290db5125cde84b"
+    sha256 cellar: :any,                 monterey:       "30ddd40ed08667e23fb030b2023df119ac2f95ba4a2a300bd77bbf5cbdf48543"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a524d750098d787a6a63552661dbf2bd8c605720bf4948582a1df4085281860b"
   end
 
   depends_on "cmake" => :build
