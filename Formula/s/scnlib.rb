@@ -8,12 +8,12 @@ class Scnlib < Formula
   head "https://github.com/eliaskosunen/scnlib.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "baf89836b5d0fbbf9c4a4eec7b12600eb583d692150724145bfb2576b5db7775"
-    sha256 cellar: :any, arm64_ventura:  "dd2bbeaad476dbbe0e95eaf57f3c8f16236ba2ed5657a44eda4b5e4f1af471df"
-    sha256 cellar: :any, arm64_monterey: "9ea820cb1ee60c2cab7f18f573233a85793dff8bf08da54a2979198f990082b1"
-    sha256 cellar: :any, sonoma:         "2d05fb5c4c3ffa616c6840747880dda74dcf4a5ffa58262f8e6a24157e7fe387"
-    sha256 cellar: :any, ventura:        "c6540655c54874634e739131ec3ea3a6a374fcfd4b97d498bcf0078992e9ee56"
-    sha256 cellar: :any, monterey:       "cbfcf415e9c5fa140c32344d4220471ef5e65101e713fec8aeaa35320bf4eb63"
+    sha256 cellar: :any, arm64_sonoma:   "e0e820a21b0d5b709bfe633bb9423d8655cf7b55894ff0d0cb5b7a6078c91968"
+    sha256 cellar: :any, arm64_ventura:  "090fe1a7c4bd431e2282c3cc6c6326db58c3e828315b77024b315842f657c753"
+    sha256 cellar: :any, arm64_monterey: "43ef5a3b45568849dfcdba3f1d0772386cabdad807756771f4193f787b6a21c4"
+    sha256 cellar: :any, sonoma:         "3e02537c9c2c1e290841a75d97b1bfcbcb8faf81663c941bab984efc24bd95bf"
+    sha256 cellar: :any, ventura:        "0481b6aafbf8f5fa59f0ed88f4ac3ef8c8ef6b3389a00241961d16f580ce28ec"
+    sha256 cellar: :any, monterey:       "1b034acf078d25518bf9ea25084d254d40e88397a5c68b61e3b183920eb18a6a"
   end
 
   depends_on "cmake" => :build
