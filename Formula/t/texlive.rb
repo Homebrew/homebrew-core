@@ -33,14 +33,13 @@ class Texlive < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "e419045893bb23bd9f393d6f90d7127a62390fda8a70949881cc9a6b6e38c7c1"
-    sha256 arm64_ventura:  "ce6e67f8a21e2c580ec0ef2573309d0076a1245a6eed323859e90c5c0868da6c"
-    sha256 arm64_monterey: "82584e70745b55ac5f31fb0965054a4ad240f7c7f87169694c89d33fc973aac7"
-    sha256 sonoma:         "14dd39ec9dc5245b7d0be51823e52f6eed5df10334068023cc922f659b556857"
-    sha256 ventura:        "aaa7d1f3d6232a178ad4a19eab1c760f0f3fd18c35e41308dfbfc42c5acd2487"
-    sha256 monterey:       "910b314ed2a19e1c9093e577e38cda0305a8bd95ff7714fd3e89f7d1c3f8c46a"
-    sha256 x86_64_linux:   "e7cd95b9d9104cb8911ebfca2f4092b4b8988ed5e4717dc8e36ffff357dad62c"
+    sha256 arm64_sonoma:   "e0d06953f710540235b8b6f80da4984bfa2a6690a55250291c2d5ec2bdfa6057"
+    sha256 arm64_ventura:  "fe1175f08ad58b1efc33d47afd9342f860c3167b097c064c29dd3d54b6fb6493"
+    sha256 arm64_monterey: "6bd8d365f9099f60b1f854431dbe42687396b4f4ee63565dad5c5fb09246610a"
+    sha256 sonoma:         "163c4d535411f7b79398f9362965dc35ccb268fefe454314df327f36252afcc5"
+    sha256 ventura:        "2121ccf35545150c97764a4beac1f2d7be3c71d473d82d54f368747e11d7fed6"
+    sha256 monterey:       "c04f925fc21d7552c171341d61468ab80e375caba31a50cb66f2ec2c4825407b"
+    sha256 x86_64_linux:   "d3d5cff482feb3e475228dff92716e271c45c9fae1cfa1fe240f2beae9509352"
   end
 
   depends_on "pkg-config" => :build
