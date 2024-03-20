@@ -408,6 +408,7 @@ csvq
 csvtk
 ctlptl
 cubejs-cli
+cucumber-ruby
 cue
 curl
 cvs-fast-export
