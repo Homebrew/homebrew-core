@@ -1,10 +1,9 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.01.22.00.tar.gz"
-  sha256 "928cbabaa25b70b7998a452269e5d53cd003b5d5fe0fb104cc5c30af4054c883"
+  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2024.03.18.00.tar.gz"
+  sha256 "e1d8d7cc0a718e3c18934ac198ee3ad63848b90e8a19d62b2b7d54f0c878089c"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/facebook/fbthrift.git", branch: "main"
 
   bottle do
@@ -49,10 +48,14 @@ class Fbthrift < Formula
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix
-    ENV.append_to_cflags "-fPIC" if OS.linux?
 
-    # Setting `BUILD_SHARED_LIBS=ON` fails the build.
-    system "cmake", "-S", ".", "-B", "build/shared", *std_cmake_args
+    # The static libraries are a bit annoying to build. If modifying this formula
+    # to include them, make sure `bin/thrift1` links with the dynamic libraries
+    # instead of the static ones (e.g. `libcompiler_base`, `libcompiler_lib`, etc.)
+    shared_args = ["-DBUILD_SHARED_LIBS=ON", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
+    shared_args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-undefined,dynamic_lookup" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build/shared", *shared_args, *std_cmake_args
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
 
