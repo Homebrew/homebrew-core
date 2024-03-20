@@ -3,8 +3,8 @@ class Locust < Formula
 
   desc "Scalable user load testing tool written in Python"
   homepage "https://locust.io/"
-  url "https://files.pythonhosted.org/packages/43/0d/4b91cbf0b4667e2ab2fa9fd1ce9ee3c99809e4978957e27673c57ac026d1/locust-2.24.0.tar.gz"
-  sha256 "6cffa378d995244a7472af6be1d6139331f19aee44e907deee73e0281252804d"
+  url "https://files.pythonhosted.org/packages/07/34/cab535c1400c0751d5515ac01de231a529ac8818c6f5d73492ee1d281d68/locust-2.24.1.tar.gz"
+  sha256 "094161d44d94839bf1120fd7898b7abb9c143833743ba7c096beb470a236b9a7"
   license "MIT"
 
   bottle do
@@ -67,8 +67,8 @@ class Locust < Formula
   end
 
   resource "geventhttpclient" do
-    url "https://files.pythonhosted.org/packages/f2/13/44907f010f2db2156480b0ef83cb3fecb09da0b3e9ab8128716a162c635e/geventhttpclient-2.0.11.tar.gz"
-    sha256 "549d0f3af08420b9ad2beeda211153c7605b5ba409b228db7f1b81c8bfbec6b4"
+    url "https://files.pythonhosted.org/packages/eb/92/4e150971654512baf70749d2730feed3bfd37e8c1710adb8d8323e9583f5/geventhttpclient-2.0.12.tar.gz"
+    sha256 "ebea08e79c1aa7d03b43936b347c0f87356e6fb1c6845735a11f23c949c655f7"
   end
 
   resource "greenlet" do
@@ -97,8 +97,8 @@ class Locust < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/c2/d5/5662032db1571110b5b51647aed4b56dfbd01bfae789fa566a2be1f385d1/msgpack-1.0.7.tar.gz"
-    sha256 "572efc93db7a4d27e404501975ca6d2d9775705c2d922390d878fcf768d92c87"
+    url "https://files.pythonhosted.org/packages/08/4c/17adf86a8fbb02c144c7569dc4919483c01a2ac270307e2d59e1ce394087/msgpack-1.0.8.tar.gz"
+    sha256 "95c02b0e27e706e48d0e5426d1710ca78e0f0628d6e89d5b5a5b91a5f12274f3"
   end
 
   resource "psutil" do
@@ -122,8 +122,8 @@ class Locust < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   resource "six" do
