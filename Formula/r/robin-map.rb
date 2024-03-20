@@ -1,8 +1,8 @@
 class RobinMap < Formula
   desc "C++ implementation of a fast hash map and hash set"
   homepage "https://github.com/Tessil/robin-map"
-  url "https://github.com/Tessil/robin-map/archive/refs/tags/v1.2.1.tar.gz"
-  sha256 "2b54d2c1de2f73bea5c51d5dcbd64813a08caf1bfddcfdeee40ab74e9599e8e3"
+  url "https://github.com/Tessil/robin-map/archive/refs/tags/v1.2.2.tar.gz"
+  sha256 "c72767ecea2a90074c7efbe91620c8f955af666505e22782e82813c652710821"
   license "MIT"
 
   bottle do
