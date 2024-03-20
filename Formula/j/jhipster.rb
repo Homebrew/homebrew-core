@@ -8,13 +8,13 @@ class Jhipster < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256                               arm64_sonoma:   "70a8b915144bed52549b3b8d265475550167adab38ffadf39870f0622c935dc3"
-    sha256                               arm64_ventura:  "95fb0eaf5b8727c68201225355f4593cf6a04c0e0c61c480ffa0c949174fc1ec"
-    sha256                               arm64_monterey: "6f9bd03bc4ded1f3d3fbd2618356c2adcdb372d93205136429356dcf1f012adb"
-    sha256                               sonoma:         "2e991301109444007637ac76f5ad38106b827725884ba111a20a67b034d2d10c"
-    sha256                               ventura:        "fec9456a62397f0194dce279b3018869aa1fc20f15cb296962e473e6b1264519"
-    sha256                               monterey:       "5ac0561abb2de6b6a4f553bb8b85f42b0d6f02e94e286b7e90f4699c91128b77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59d247b45cbc414913eb5e84c2ac231a90cbb18f38984933fba2c44fcc30ff92"
+    sha256                               arm64_sonoma:   "0e17bad03f85df6836fc6df3511358255d53e5dfe0bf078e51b0b7894585b8a4"
+    sha256                               arm64_ventura:  "a4422cb587db92fd53854d205285c1b16031a7977e20f1dc68ef8543a6eeb838"
+    sha256                               arm64_monterey: "85d8aba14f7da7f8e463c3e9abc5549a04e50275df0f04a8dd4cb62431519cf6"
+    sha256                               sonoma:         "e672aaa5fd475aaee9475c841ae271cdabbafda452075cd51c1cf20d34efcc8b"
+    sha256                               ventura:        "d17984363c0dc7aad3f0f3bd506a3c6ded40540409524a8fe7b5f12acaed7b87"
+    sha256                               monterey:       "d2fe7b05f711a499e8b7c983ecddbf8ea8a446338e7548ebc6b1c8aa300a095c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fd2d70e939bf83f778b210210c56e6e259f20104d2f6e098d8986c1b91dd202"
   end
 
   depends_on "node"
