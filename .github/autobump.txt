@@ -1866,6 +1866,7 @@ xz
 yaegi
 yamale
 yamllint
+yash
 ykman
 yle-dl
 yo
