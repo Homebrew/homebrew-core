@@ -710,6 +710,7 @@ gdu
 geeqie
 gegl
 genact
+geoserver
 geph4
 gettext
 gf
