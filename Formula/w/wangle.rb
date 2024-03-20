@@ -1,8 +1,8 @@
 class Wangle < Formula
   desc "Modular, composable client/server abstractions framework"
   homepage "https://github.com/facebook/wangle"
-  url "https://github.com/facebook/wangle/releases/download/v2024.01.22.00/wangle-v2024.01.22.00.tar.gz"
-  sha256 "b6b0a43021604bf4cb51aa895ca47e7846f17a36b1419313d7d0c793bb742d0f"
+  url "https://github.com/facebook/wangle/releases/download/v2024.03.18.00/wangle-v2024.03.18.00.tar.gz"
+  sha256 "9e139c41157f31c4b8e09c33b55038c370bc73fdf181244eef43146267a720b5"
   license "Apache-2.0"
   head "https://github.com/facebook/wangle.git", branch: "main"
 
@@ -37,16 +37,17 @@ class Wangle < Formula
   fails_with gcc: "5"
 
   def install
-    cd "wangle" do
-      system "cmake", ".", "-DBUILD_TESTS=OFF", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
-      system "make", "install"
-      system "make", "clean"
-      system "cmake", ".", "-DBUILD_TESTS=OFF", "-DBUILD_SHARED_LIBS=OFF", *std_cmake_args
-      system "make"
-      lib.install "lib/libwangle.a"
+    args = ["-DBUILD_TESTS=OFF"]
 
-      pkgshare.install Dir["example/echo/*.cpp"]
-    end
+    system "cmake", "-S", "wangle", "-B", "build/shared", "-DBUILD_SHARED_LIBS=ON", *args, *std_cmake_args
+    system "cmake", "--build", "build/shared"
+    system "cmake", "--install", "build/shared"
+
+    system "cmake", "-S", "wangle", "-B", "build/static", "-DBUILD_SHARED_LIBS=OFF", *args, *std_cmake_args
+    system "cmake", "--build", "build/static"
+    lib.install "build/static/lib/libwangle.a"
+
+    pkgshare.install Dir["wangle/example/echo/*.cpp"]
   end
 
   test do
