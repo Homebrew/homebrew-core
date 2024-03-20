@@ -7,13 +7,13 @@ class Dartsim < Formula
   revision 1
 
   bottle do
-    sha256                               arm64_sonoma:   "620a4b776dec5fe6ef3800df2fb48dccf0ac178e5ec044226637c10fef8641a3"
-    sha256                               arm64_ventura:  "813dd6ca1b037b5602a7f7d9c1e41c0230f3df3c31ecafe8777851b42eb1e91b"
-    sha256                               arm64_monterey: "e849dfdc72a4b2f22d89288f5da2d484fb777091e27954845f1fdd6f8e0c713a"
-    sha256                               sonoma:         "7008565b462e4525c2a38eb12a40316518a0e6838155f36835c739c47cecdb8d"
-    sha256                               ventura:        "404d478630fc46753f8daf210e815ef993ad6201288731731e1f05bbd0f67ea4"
-    sha256                               monterey:       "a95c468a2704adf99ee3e8fb403b3f5d9979a4e50033c32e88bb67f76ee27432"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fda106259c407fe62ece832afb42451c90bebea0fa408363c53ebcd5c722f555"
+    sha256                               arm64_sonoma:   "7e58ee7403fa8282bab3d7bcfe4a881b596454b2627fde5debb2140b13a28b2e"
+    sha256                               arm64_ventura:  "1d903439ab275b9c45ca9a61e6a552308dfbb1da372255791d365a2b3568e3d4"
+    sha256                               arm64_monterey: "dca7316217b4d9d1a8f91f3539cad17341dab3be10cbe79c682b0261b1b728d5"
+    sha256                               sonoma:         "42482c0a49e733a42a92f7cf0a983215b7281583998cd9de6645af530dc0824e"
+    sha256                               ventura:        "c174550b79bef7c769a9cd841240deb254c3f49067aa217de935a62819898bd4"
+    sha256                               monterey:       "6811d8031a242b4041f780f255988b9e9101b433d1a0b67ee88e63ec5d3fe699"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a742d85cee365bcbfc461f435b634f788421910baa47fd7b7af53e019c2d44b"
   end
 
   depends_on "cmake" => :build
