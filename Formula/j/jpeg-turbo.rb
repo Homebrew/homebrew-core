@@ -12,13 +12,13 @@ class JpegTurbo < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "89b1342d1dd69be94c1e293c8fc0ec5d324cd62f42bc8c3e9049bf5452957e01"
-    sha256 cellar: :any,                 arm64_ventura:  "0673df94b246dd4e63e8d80e942fd32e6bbd662eba0134b262e9eb6c5e1e2d88"
-    sha256 cellar: :any,                 arm64_monterey: "1ae417c7b858c45796f21a17159f21bde07a0e575318dca1757b92fb3b3e515c"
-    sha256 cellar: :any,                 sonoma:         "7794d8c394ab444645e86b87a47a868fe82f16b0dcc13d596f684b62a2661c57"
-    sha256 cellar: :any,                 ventura:        "01cea0389ed701926bb4141b810a244f9ac57dc43512855019fdf6f0586018a7"
-    sha256 cellar: :any,                 monterey:       "acef2e25ab9ab0d53599d43b9f9043006fc0d071c24f3e7e4ef0128ff16319ec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bcf694df57925d1e267cf9fec76c8495662950fd6008b9e29f9f754c8371320"
+    sha256 cellar: :any,                 arm64_sonoma:   "898ba61a84a444ef98b577162e49a0b06d65e8bdc48ad039d364fef4b4c00b05"
+    sha256 cellar: :any,                 arm64_ventura:  "0a007662b26322a0985f31cc7546124f53caa8334f5d2f1e8356e9d7321fe420"
+    sha256 cellar: :any,                 arm64_monterey: "5c179a6035798dab056356c288284ed695dc9505e4df4aa9868341fb9971a008"
+    sha256 cellar: :any,                 sonoma:         "4e2af273b76b2f4845b08d0f249630212e41a76b113e7d633d319cc6cfb43bef"
+    sha256 cellar: :any,                 ventura:        "91d8bf0169ff83cdccddd64e88fb7ebdcc2df2d799c93ffb2a6fddd3980b631d"
+    sha256 cellar: :any,                 monterey:       "6f004f77f070e05df1c7303e90b4befb100dd831fe68f998996a2a5de60b59d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b16eab4c9fc8814b11ce6e43dd7d599587ec34ebbba7e1359e15bcff42ae672e"
   end
 
   depends_on "cmake" => :build
