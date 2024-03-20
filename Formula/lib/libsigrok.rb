@@ -4,7 +4,7 @@ class Libsigrok < Formula
   # libserialport is LGPL3+
   # fw-fx2lafw is GPL-2.0-or-later and LGPL-2.1-or-later"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 2
+  revision 3
 
   stable do
     url "https://sigrok.org/download/source/libsigrok/libsigrok-0.5.2.tar.gz"
@@ -70,6 +70,7 @@ class Libsigrok < Formula
   depends_on "graphviz" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on "python-setuptools" => :build
   depends_on "sdcc" => :build
   depends_on "swig" => :build
   depends_on "glib"
