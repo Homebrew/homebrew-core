@@ -3,8 +3,8 @@ class Trafilatura < Formula
 
   desc "Discovery, extraction and processing for Web text"
   homepage "https://trafilatura.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/37/91/d9f06ae3a34e2c110ee0574d80df7166354b821e6881a9d67771836b5b3f/trafilatura-1.7.0.tar.gz"
-  sha256 "a166e67f005a6a12ef194f48c7c9fa4e1b0e36756fdd2b64e02473c356962f04"
+  url "https://files.pythonhosted.org/packages/61/7a/559522339003dbb49e495ac840bcc6906960230654bf4ae0f0c59ffc76c7/trafilatura-1.8.0.tar.gz"
+  sha256 "ea54875ed24f3eafaf199b8a0f89b5835c7cf343733c32efbc4af9d3057a8f72"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -40,8 +40,8 @@ class Trafilatura < Formula
   end
 
   resource "htmldate" do
-    url "https://files.pythonhosted.org/packages/37/19/5ffad26ca43d2d2e3f360e24e58b1fc55b123ffc4fe5758070c8202fec47/htmldate-1.7.0.tar.gz"
-    sha256 "02a800dd224cbf74bf483b042f64e14f57ba0e40c6b4404b284e98bc6c30b68d"
+    url "https://files.pythonhosted.org/packages/25/e9/59e50717268787d847064ee9b68da213f8ee8f56370e5232de4bbaa2a854/htmldate-1.8.0.tar.gz"
+    sha256 "f94c7d017f42a1cf422e5a7c5ef10cacbae276886314f27a986464627f30bb15"
   end
 
   resource "justext" do
@@ -60,8 +60,8 @@ class Trafilatura < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pytz" do
