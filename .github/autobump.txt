@@ -1561,6 +1561,8 @@ shush
 sigma-cli
 signal-cli
 signmykey
+sigstore
+sigstore
 sile
 silicon
 simple-scan
