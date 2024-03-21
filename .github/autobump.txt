@@ -1474,7 +1474,6 @@ readpe
 rebar3
 recode
 recoverpy
-redis
 redwax-tool
 regclient
 regina-rexx
