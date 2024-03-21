@@ -4,6 +4,7 @@ class Gping < Formula
   url "https://github.com/orf/gping/archive/refs/tags/gping-v1.16.1.tar.gz"
   sha256 "557dad6e54b5dd23f88224ea7914776b7636672f237d9cbbea59972235ca89a8"
   license "MIT"
+  revision 1
   head "https://github.com/orf/gping.git", branch: "master"
 
   # The GitHub repository has a "latest" release but it can sometimes point to
