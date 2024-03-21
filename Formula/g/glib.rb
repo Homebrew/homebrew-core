@@ -1,12 +1,12 @@
 class Glib < Formula
   include Language::Python::Shebang
-  include Language::Python::Virtualenv
 
   desc "Core application library for C"
   homepage "https://developer.gnome.org/glib/"
   url "https://download.gnome.org/sources/glib/2.80/glib-2.80.0.tar.xz"
   sha256 "8228a92f92a412160b139ae68b6345bd28f24434a7b5af150ebe21ff587a561d"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "96ae5913930d7f02927c9e40a2211c1145633b73d8dceb80b1903fcc8e17a244"
@@ -56,9 +56,17 @@ class Glib < Formula
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
 
-    venv = virtualenv_create(libexec, "python3.12")
-    venv.pip_install resources
-    ENV.prepend_path "PYTHONPATH", venv.site_packages
+    # We don't use a venv as virtualenv_create runs `ENV.refurbish_args`. This causes `gint64`
+    # to be detected as `long` rather than `long long` on macOS which mismatches with `int64_t`.
+    # Although documented as valid (https://docs.gtk.org/glib/types.html#gint64), it can cause
+    # ABI breakage if type changes between releases (e.g. seen in `glibmm@2.66`) and it breaks
+    # assumptions made by some dependents. Also, GNOME prefers equivalence of types but cannot
+    # require it due to ABI impact - https://gitlab.gnome.org/GNOME/glib/-/merge_requests/2841
+    resource("packaging").stage do
+      system "python3.12", "-m", "pip", "install", "--target", share/"glib-2.0",
+                                                   *std_pip_args(prefix: false, build_isolation: true), "."
+    end
+    ENV.prepend_path "PYTHONPATH", share/"glib-2.0"
 
     # Disable dtrace; see https://trac.macports.org/ticket/30413
     # and https://gitlab.gnome.org/GNOME/glib/-/issues/653
@@ -107,8 +115,7 @@ class Glib < Formula
 
     rm "gio/completion/.gitignore"
     bash_completion.install (buildpath/"gio/completion").children
-    rw_info = python_shebang_rewrite_info(venv.root/"bin/python")
-    rewrite_shebang rw_info, *bin.children
+    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   def post_install
@@ -162,5 +169,20 @@ class Glib < Formula
                                 "net.Corp.MyApp.Frobber.xml"
     assert_predicate testpath/"myapp-generated.c", :exist?
     assert_match "my_app_net_corp_my_app_frobber_call_hello_world", (testpath/"myapp-generated.h").read
+
+    # Keep (u)int64_t and g(u)int64 aligned. See install comment for details
+    (testpath/"typecheck.cpp").write <<~EOS
+      #include <cstdint>
+      #include <type_traits>
+      #include <glib.h>
+
+      int main()
+      {
+        static_assert(std::is_same<int64_t, gint64>::value == true, "gint64 should match int64_t");
+        static_assert(std::is_same<uint64_t, guint64>::value == true, "guint64 should match uint64_t");
+        return 0;
+      }
+    EOS
+    system ENV.cxx, "-o", "typecheck", "typecheck.cpp", "-I#{include}/glib-2.0", "-I#{lib}/glib-2.0/include"
   end
 end
