@@ -4,6 +4,7 @@ class Sheldon < Formula
   url "https://github.com/rossmacarthur/sheldon/archive/refs/tags/0.7.4.tar.gz"
   sha256 "5d8ecd432a99852d416580174be7ab8f29fe9231d9804f0cc26ba2b158f49cdf"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/rossmacarthur/sheldon.git", branch: "trunk"
 
   bottle do
