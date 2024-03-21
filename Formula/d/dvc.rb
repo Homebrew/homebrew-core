@@ -6,6 +6,7 @@ class Dvc < Formula
   url "https://files.pythonhosted.org/packages/07/7c/d363b08b694bf16a96156d6375784d9ed67be779237ff9d7b06a3940336d/dvc-3.48.4.tar.gz"
   sha256 "ce9823b5cf95e2094d77ff8037d0c0dfd9b04014dd79f17a9995badcdf8b062c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     rebuild 1
