@@ -1,8 +1,8 @@
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
-  url "https://github.com/michaelrsweet/mxml/releases/download/v3.3.1/mxml-3.3.1.tar.gz"
-  sha256 "0c663ed1fe393b5619f80101798202eea43534abd7c8aff389022fd8c1dacc32"
+  url "https://github.com/michaelrsweet/mxml/releases/download/v4.0.0/mxml-4.0.0.tar.gz"
+  sha256 "aaaa9aa10fbf21a8ab6b60b985b8ec8e0a6c35a45bf5a7fed779ec5efa83bce1"
   license "Apache-2.0"
   head "https://github.com/michaelrsweet/mxml.git", branch: "master"
 
@@ -22,10 +22,7 @@ class Libmxml < Formula
   depends_on xcode: :build # for docsetutil
 
   def install
-    system "./configure", "--disable-debug",
-                          "--enable-shared",
-                          "--prefix=#{prefix}"
-    system "make"
+    system "./configure", "--enable-shared", *std_configure_args
     system "make", "install"
   end
 
