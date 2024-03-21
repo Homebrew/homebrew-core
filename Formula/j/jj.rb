@@ -4,6 +4,7 @@ class Jj < Formula
   url "https://github.com/martinvonz/jj/archive/refs/tags/v0.15.1.tar.gz"
   sha256 "e39f80edaa01da29e86782424d031c38324eabff10c44704781c80fd60c9fb0e"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/martinvonz/jj.git", branch: "main"
 
   bottle do
