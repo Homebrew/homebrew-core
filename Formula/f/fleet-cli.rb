@@ -13,13 +13,13 @@ class FleetCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9657a18ca999f81b6c902528222f26a4f22328672a104536ce6028c57b6f15c4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a211ae7f1ad1d880844e3bcae764f650e296b0b3bf0a9fb9ab61d6a661a00f59"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0486314fde97e9b22743d3a122182679bf68c25cf74408a81f797c5d69bb67f5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4f57bd6d72645dbee0d3def1756969077f93ac778e36f3d610e9c05a4db4d14"
-    sha256 cellar: :any_skip_relocation, ventura:        "078e3acf55f6a08704505ce1c8f7a02f4697470a6d8acb6f34e26f5265ca3430"
-    sha256 cellar: :any_skip_relocation, monterey:       "8b20a55dac756e2ee9c4a8a9799109973d547991ce381aea67d6292b9a5f501d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53bade2815a79023ee962de58abfe81920aa3025fb09829377b50b5e9d53546e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf28ea3257d671a778afdd38d52e9e1794b332310a67d7feb842ed2b03b733ec"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d008ba5f9038dbfb63b534553d8149214adb0a5a9efb0011761cb6400079a993"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b92dc604cbd073aae50f973ec1ceca23db1cb9bef2417fde40ebc21a029794a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5236183e50e77997c3f3a9d7d4a763fd28f4d3851a1066115db881537fd82e07"
+    sha256 cellar: :any_skip_relocation, ventura:        "f25391d95db980af1d445085033431909d01055fb8f63728bb850c9adfb3045b"
+    sha256 cellar: :any_skip_relocation, monterey:       "405e8249dbf0d70d73aa571c64cc51f9e6d8386af0ab7f98de3a30bbfcf17de7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1b0bdfdac7058b64749f9d40f4ba8c3907ae3846a9722fc6f148e9c071b6758"
   end
 
   depends_on "go" => :build
