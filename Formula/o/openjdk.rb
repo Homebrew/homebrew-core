@@ -55,22 +55,22 @@ class Openjdk < Formula
   resource "boot-jdk" do
     on_macos do
       on_arm do
-        url "https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_macos-aarch64_bin.tar.gz"
-        sha256 "9760eaa019b6d214a06bd44a304f3700ac057d025000bdfb9739b61080969a96"
+        url "https://download.java.net/java/GA/jdk22/830ec9fcccef480bb3e73fb7ecafe059/36/GPL/openjdk-22_macos-aarch64_bin.tar.gz"
+        sha256 "d10f82429d01047968c52c7975c326388cb5d212791e14c1de21c987463a4b53"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_macos-x64_bin.tar.gz"
-        sha256 "1ca6db9e6c09752f842eee6b86a2f7e51b76ae38e007e936b9382b4c3134e9ea"
+        url "https://download.java.net/java/GA/jdk22/830ec9fcccef480bb3e73fb7ecafe059/36/GPL/openjdk-22_macos-x64_bin.tar.gz"
+        sha256 "ae31fe10916429e3fe284266095067a5ce9fecbdc03ff1a079d20459f731ca36"
       end
     end
     on_linux do
       on_arm do
-        url "https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-aarch64_bin.tar.gz"
-        sha256 "f5e4e4622756fafe05ac0105a8efefa1152c8aad085a2bbb9466df0721bf2ba4"
+        url "https://download.java.net/java/GA/jdk22/830ec9fcccef480bb3e73fb7ecafe059/36/GPL/openjdk-22_linux-aarch64_bin.tar.gz"
+        sha256 "b272e3228d2a3e04b126d54844d33cc6d137256490526cd08679d7023d07d4b7"
       end
       on_intel do
-        url "https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_linux-x64_bin.tar.gz"
-        sha256 "7e80146b2c3f719bf7f56992eb268ad466f8854d5d6ae11805784608e458343f"
+        url "https://download.java.net/java/GA/jdk22/830ec9fcccef480bb3e73fb7ecafe059/36/GPL/openjdk-22_linux-x64_bin.tar.gz"
+        sha256 "4d65cc6ed28711768fd72c2043a7925f7c83f5f51bb64970bd9d52f7791fc6ac"
       end
     end
   end
