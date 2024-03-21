@@ -6,6 +6,7 @@ class Tartufo < Formula
   url "https://files.pythonhosted.org/packages/d5/ea/6248387282150270f1886d75111f776f43e694f488a3a1ea3b5b0d1195f1/tartufo-5.0.0.tar.gz"
   sha256 "99ab6652cae6de295aeb31089e9ba27d66d0ad695af493d2d5cbc795397d1c84"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/godaddy/tartufo.git", branch: "main"
 
   bottle do
