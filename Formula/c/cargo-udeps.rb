@@ -4,6 +4,7 @@ class CargoUdeps < Formula
   url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.47.tar.gz"
   sha256 "8794b480ab6dd166617711345116be5958def42679c1a5948d41850ecb9cb806"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "b00bdb45cf491c545641ec5f5b0ea3ebf72827cb05619071b3b4ebd930b2894f"
