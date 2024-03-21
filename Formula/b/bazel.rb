@@ -11,12 +11,12 @@ class Bazel < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "30c82269902a83b0394f18e97b555951ea2d50919ac84ce4d33c7751f9a38a3e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "30c82269902a83b0394f18e97b555951ea2d50919ac84ce4d33c7751f9a38a3e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb4b3294d5426b84a2a897dabc19f30d2e583bc3602d299b836c813189d84047"
-    sha256 cellar: :any_skip_relocation, sonoma:         "87eb8b5e68d7307b0c463d37ced737a782b71b84cbfd707f9a2be3cd9a866dee"
-    sha256 cellar: :any_skip_relocation, ventura:        "87eb8b5e68d7307b0c463d37ced737a782b71b84cbfd707f9a2be3cd9a866dee"
-    sha256 cellar: :any_skip_relocation, monterey:       "e08b63b8818c026953afccde5c45a2249e35092c8d448418df51e182826836cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c54f02ffadc440cddc571389eadc9b33955528c6776ff65d2b6bebda1cb75d92"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64203cab88c6f357ed02abfbe39f40318bb7c5e1b2c6457fbfc26ff62ee8c3c6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1f1c942a69b55e58d4be72f56ebc2e2d8ca7ca6362fadc5699b3f63658b7ef7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1ba3e118676c57835c6891e0561c9cf254fef4af0479a73c183f29f5d46f03f7"
+    sha256 cellar: :any_skip_relocation, ventura:        "cd8f1a671863968487d45b0b04fff740f997a21fbaa5ffa4a31f64b1dd7cdd5d"
+    sha256 cellar: :any_skip_relocation, monterey:       "71f3e9474e0ada2be79760aba7c477773b89cdd71e10dee7186340ec0122c56c"
   end
 
   depends_on "python@3.12" => :build
