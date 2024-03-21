@@ -4,6 +4,7 @@ class GitWorkspace < Formula
   url "https://github.com/orf/git-workspace/archive/refs/tags/v1.4.0.tar.gz"
   sha256 "fb66b03f4068950ba2fac73b445a964b2b941137f9b31f5db9f4fba1a73d3d4d"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "cdc40292261367e43efac7c65c58247c660b86cb6595c1e1fbe87b14b8545fb9"
