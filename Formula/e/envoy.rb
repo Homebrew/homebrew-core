@@ -12,13 +12,13 @@ class Envoy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "158b198acc33142af704c4ea415ec372fbfe536b0b54a703828d1345d519bfc3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "838141f04f6b8a75c94b4b5c7995b78c964bee7362b40650b2aabb8aecd510e2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c266927bdea474f301de72346fed0b7aa6eadc893a4cc5fe4c143737e76a05e4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3219656957ca0c34df1b5a99abadd96bbc492c8c52f771614fccb4d2903b6951"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae7abab3e48b3e6293b82d4e0556af2c95c48242b074c8df41e6880e44072cee"
-    sha256 cellar: :any_skip_relocation, monterey:       "a5674482fc5abe99f9e2eef4cb2640c3de409fbe7d9a703521f9eb018a80a282"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f916f44a9a9e116ec38ecb2f23e2bf573bd797cac23f059be97b016cf2366719"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "236776865c29b9f36cee7abfbd9a13ee435c4cf6130e82f8b973a103544c7735"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef7af19bc771f1f7c45fe056318e61bd150aa1380b85d0eae7641e764ee21f7e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d65092d61bd230c541f39cdb824e614242efb87fdbe10aaeab3ef2b691314f8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "66bf9f48938055054db79ecd979e3e9a9fe28b06f01a0b2e0f1f3a2b3c8e6fb8"
+    sha256 cellar: :any_skip_relocation, ventura:        "db88f5e6b9b64b1a295f90fb029410d93855d8a0c08d858cc720dda156e66260"
+    sha256 cellar: :any_skip_relocation, monterey:       "9a85c1290746b569ad06380ffe4c3c88fb6aba83a33afedf0e0b050c1797a979"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "91674362692d86f050a9180555c4083bf07d473a1f5fa099313cb9f7f1b8f001"
   end
 
   depends_on "automake" => :build
