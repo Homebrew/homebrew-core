@@ -7,17 +7,13 @@ class Sleef < Formula
   head "https://github.com/shibatch/sleef.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "6737ba48789667ef56d391443b2477c67d68bc33762fd7ba088e0044c58fe7bb"
-    sha256 cellar: :any,                 arm64_ventura:  "29d31e2b6f752ac2b2224ea8334746484f08caac8b5e007a3ae0c7bfb78938dd"
-    sha256 cellar: :any,                 arm64_monterey: "e24cd50466a172fe2fe1fd38145d6380798b3a4358b2618ebcf5d75b53824761"
-    sha256 cellar: :any,                 arm64_big_sur:  "72c41de0c2f48173012a81362bd53cc3339de27f716baa7ea5d4b17604cd4a67"
-    sha256 cellar: :any,                 sonoma:         "1e495d3a4d9694c3b9b56346850aebe0e08467d3b5ce55f08cb5c9fb3d08c48c"
-    sha256 cellar: :any,                 ventura:        "a4785640f8657134c06a22f2f427d8a6ace04e6fa8fdd55f1b4261c77625457a"
-    sha256 cellar: :any,                 monterey:       "b5b0877f9aec2c35b1c42a06b0a86dbf9cb53c98a11f3399d0cac79a57d7676e"
-    sha256 cellar: :any,                 big_sur:        "483dc0549bf982bdcb71e8e3e07be8042d17b52484ddca20425feb820c1fb0fb"
-    sha256 cellar: :any,                 catalina:       "0e2a1b3e27c3c886864c498a597f1a9e0c5faae346d4b3a7eceb7ef44f763e57"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f5ab3809f9503bbc49c03b1b26b39ffde4ebdf4f5148a375d267ff3cc816ebd6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5cc1fe8da1a1afa6d2b686ccc65abdf9a52bf1147e3817722fc2661424b735b2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "22527373f82cfd19b307bdc56ebc449dc81fac9e12080e7f282b28b3be913be5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f86a7bec0b3642735010325a1a15edc2acea912538b55f8583936e9b6dc1c7f9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ca7da36f88ac624244d6b235e256eedc753ae63720b89ba248c848b96510915"
+    sha256 cellar: :any_skip_relocation, ventura:        "39c9e3a0faf326f8002f4051b7bfdb8192a6b19209fb7711352754cb38317eb6"
+    sha256 cellar: :any_skip_relocation, monterey:       "020d64210fd44ea2dc3570abecfced1b399b2049c161a15f5b1bdb6f9f023c54"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8fda2d508070d75076ee173daf8a8c9437e3c37a71fd96e46b7931202082fde"
   end
 
   depends_on "cmake" => :build
