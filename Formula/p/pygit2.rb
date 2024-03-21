@@ -4,6 +4,7 @@ class Pygit2 < Formula
   url "https://files.pythonhosted.org/packages/f0/5e/6e05213a9163bad15489beda5f958500881d45889b0df01d7b8964f031bf/pygit2-1.14.1.tar.gz"
   sha256 "ec5958571b82a6351785ca645e5394c31ae45eec5384b2fa9c4e05dde3597ad6"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
+  revision 1
   head "https://github.com/libgit2/pygit2.git", branch: "master"
 
   bottle do
