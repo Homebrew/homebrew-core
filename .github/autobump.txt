@@ -98,6 +98,7 @@ atlantis
 atlas
 atuin
 auditbeat
+autodiff
 autopep8
 autorest
 autorestic
