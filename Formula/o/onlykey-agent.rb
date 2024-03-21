@@ -23,6 +23,7 @@ class OnlykeyAgent < Formula
   depends_on "cython"
   depends_on "gnupg"
   depends_on "hidapi"
+  depends_on "libusb"
   depends_on "python@3.12"
 
   resource "aenum" do
