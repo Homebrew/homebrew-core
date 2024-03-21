@@ -8,14 +8,14 @@ class OnlykeyAgent < Formula
   license "LGPL-3.0-only"
 
   bottle do
-    rebuild 5
-    sha256 cellar: :any,                 arm64_sonoma:   "d7156da46ac46ee3304c5fb890f60ae0bc69932370c53c5d9ff1505bc572841c"
-    sha256 cellar: :any,                 arm64_ventura:  "b7d47312f32b43114117757274454b736cdc705bf01067bdd7d1fcccc3da7b5d"
-    sha256 cellar: :any,                 arm64_monterey: "a2d0f18fcfa9255b630db09e88c0460154deee0d047c2b796080d5b06520ca37"
-    sha256 cellar: :any,                 sonoma:         "ddc5f87245caa30a1aba51d6ec5a6fd37990cc9187a3532595ace500cb968208"
-    sha256 cellar: :any,                 ventura:        "f27025df5012b9cbb6f1d9f2b50fa33c48e50e009728ac3039ff8cf4214eb99c"
-    sha256 cellar: :any,                 monterey:       "e4f43138a7a177389fbc6616decf5560de592d6fa7a2f8a6e821fc0ef71d6ffb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57f928159591276e2bc7a01263290307d4046df036ab0e4302221ed434ee6f9e"
+    rebuild 6
+    sha256 cellar: :any,                 arm64_sonoma:   "a0fad59933c5f81b799011dff4bbb38c8e38aa8b116a42a99c4c736a84506523"
+    sha256 cellar: :any,                 arm64_ventura:  "039d8bfceea5b8a26294f5b5d63da731dae37d00647e8a82e888dccc372099a1"
+    sha256 cellar: :any,                 arm64_monterey: "f1d8c865af3b02cc65dee45bdffa0e6f8b9bd1a8a700fffde59d93d648ad8791"
+    sha256 cellar: :any,                 sonoma:         "60c760c2b900efd3ff552594111ebea1d10feef6e0df6b45bd77f8fd39b7fa4d"
+    sha256 cellar: :any,                 ventura:        "7292365b40021bf96d36843ceac7d558b195ccba82a8d36025c58e68804b2c23"
+    sha256 cellar: :any,                 monterey:       "cc99c15cf8af6ce4df81be0b559cb51964ca17586895d67f53fa5a9d7f17393b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "925664187321b92eecb691f8406cac2e1d1f14a798711bd94a505c628c21c663"
   end
 
   depends_on "certifi"
