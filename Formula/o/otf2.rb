@@ -4,6 +4,7 @@ class Otf2 < Formula
   url "https://perftools.pages.jsc.fz-juelich.de/cicd/otf2/tags/otf2-3.0.3/otf2-3.0.3.tar.gz", using: :homebrew_curl
   sha256 "18a3905f7917340387e3edc8e5766f31ab1af41f4ecc5665da6c769ca21c4ee8"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -26,7 +27,6 @@ class Otf2 < Formula
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "python@3.11"
-  depends_on "six"
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
