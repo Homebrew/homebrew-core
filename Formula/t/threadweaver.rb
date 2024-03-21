@@ -42,7 +42,7 @@ class Threadweaver < Formula
     kf = "KF#{version.major}"
     (testpath/"CMakeLists.txt").unlink
     (testpath/"CMakeLists.txt").write <<~EOS
-      cmake_minimum_required(VERSION #{Formula["cmake"].version})
+      cmake_minimum_required(VERSION 3.5)
       project(HelloWorld LANGUAGES CXX)
       find_package(ECM REQUIRED NO_MODULE)
       find_package(#{kf}ThreadWeaver REQUIRED NO_MODULE)
