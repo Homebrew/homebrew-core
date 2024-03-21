@@ -4,6 +4,7 @@ class Pixi < Formula
   url "https://github.com/prefix-dev/pixi/archive/refs/tags/v0.17.0.tar.gz"
   sha256 "d3021bd676b6f5541b2d6296443349418cb17bd7bc1b2660501bb067e05fdae5"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/prefix-dev/pixi.git", branch: "main"
 
   # There can be a notable gap between when a version is tagged and a
