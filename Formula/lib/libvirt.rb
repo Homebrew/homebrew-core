@@ -4,6 +4,7 @@ class Libvirt < Formula
   url "https://download.libvirt.org/libvirt-10.1.0.tar.xz"
   sha256 "36d9077e2b0ef6b0c6df3b42e42a67411b6ce3b1564b427b55e65019dde60eed"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
+  revision 1
   head "https://gitlab.com/libvirt/libvirt.git", branch: "master"
 
   livecheck do
