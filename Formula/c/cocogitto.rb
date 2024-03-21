@@ -4,6 +4,7 @@ class Cocogitto < Formula
   url "https://github.com/cocogitto/cocogitto/archive/refs/tags/6.1.0.tar.gz"
   sha256 "756bc574f311311639723297f3dc793f7494d9b3ae375d6bc3e6e714432d08f0"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "2fb27f968de5a96b8e5b4de66278bdb28175e3a11c9c7ffefb310eb5f754dd42"
