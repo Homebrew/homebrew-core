@@ -59,7 +59,7 @@ class Karchive < Formula
 
     examples.each do |example|
       inreplace testpath/example/"CMakeLists.txt", /^project\(/, <<~EOS
-        cmake_minimum_required(VERSION #{Formula["cmake"].version})
+        cmake_minimum_required(VERSION 3.5)
         \\0
       EOS
 
