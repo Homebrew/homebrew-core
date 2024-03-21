@@ -1,8 +1,8 @@
 class Proto < Formula
   desc "Pluggable multi-language version manager"
   homepage "https://moonrepo.dev/proto"
-  url "https://github.com/moonrepo/proto/archive/refs/tags/v0.31.5.tar.gz"
-  sha256 "f91035029b144538602e8577c25a043a8778ea0924fd9e2011c0e4697cee047a"
+  url "https://github.com/moonrepo/proto/archive/refs/tags/v0.32.1.tar.gz"
+  sha256 "40e69b8ffe128f33c6dee5ecb1279eb2772ad45b5770d4ec7015418c940c8ce3"
   license "MIT"
   head "https://github.com/moonrepo/proto.git", branch: "master"
 
@@ -35,10 +35,13 @@ class Proto < Formula
     bin.each_child do |f|
       basename = f.basename
 
+      # shimming proto-shim would break any shims proto itself creates,
+      # it luckily works fine without PROTO_LOOKUP_DIR
       next if basename.to_s == "proto-shim"
 
       (libexec/"bin").install f
-      (bin/basename).write_env_script libexec/"bin"/basename, PROTO_INSTALL_DIR: opt_prefix/"bin"
+      # PROTO_LOOKUP_DIR is necessary for proto to find its proto-shim binary
+      (bin/basename).write_env_script libexec/"bin"/basename, PROTO_LOOKUP_DIR: opt_prefix/"bin"
     end
   end
 
