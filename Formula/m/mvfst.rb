@@ -7,13 +7,13 @@ class Mvfst < Formula
   head "https://github.com/facebookincubator/mvfst.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4590210f9d58e7af94a5dffb1fd90a8cbf18f013156116d7558cc6d849cc28e1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af34bef03ed5100e6d6e8b427b2d2e6b3d213b6043bec288b20909e42780c138"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eee92bc2e355b7e37561d47f1bbb73f9fd0f94a68a1212bf6bb0ce7f3fc4cfcf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a1fd610fdbc8baf53b565f2d128c44ea12b20a99b3cb142d15969495a4fcae3e"
-    sha256 cellar: :any_skip_relocation, ventura:        "b783d529e644bf9ef44ef1358ce239573b34a7641e6ae0c50bccc749fe4aeac9"
-    sha256 cellar: :any_skip_relocation, monterey:       "1f366b10209640735fb64809f4ce2c4e7987a1ba3b7607a119cf338a63578b39"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f47bc0d28f5df4660096f42847bd23931d5d46eae5127119ca97521e9a7375b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0123d215543ace1f10c7ed22479cb0eb24eb94dba8c388ce11bd174b37089caa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0662ba619371e6a0848be6af134ca9cb8377fc94c54a210d93d3ff339761485f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21b08fd57d688dcce6b88aa87359118d5fc06161f7f493f9615a091a0447dca7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2b79a17ef4d7bb8202d23382349aee6533a728e87a12b015eebccd5261e835d1"
+    sha256 cellar: :any_skip_relocation, ventura:        "951fdc0eaf3f70a811c329b2bc250eb6a768befd37a60a0fa16170341e583fbf"
+    sha256 cellar: :any_skip_relocation, monterey:       "1daf759e385f14dc3728002de8a3b9f5d7b53c1a2472ce786bcf8292628d91d8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfe7c440a853d38bf256ee72f007ee5244e73da82b6a0bf259bcfbf46ddcb796"
   end
 
   depends_on "cmake" => [:build, :test]
