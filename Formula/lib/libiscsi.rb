@@ -1,8 +1,8 @@
 class Libiscsi < Formula
   desc "Client library and utilities for iscsi"
   homepage "https://github.com/sahlberg/libiscsi"
-  url "https://github.com/sahlberg/libiscsi/archive/refs/tags/1.19.0.tar.gz"
-  sha256 "c7848ac722c8361d5064654bc6e926c2be61ef11dd3875020a63931836d806df"
+  url "https://github.com/sahlberg/libiscsi/archive/refs/tags/1.20.0.tar.gz"
+  sha256 "6321d802103f2a363d3afd9a5ae772de0b4052c84fe6a301ecb576b34e853caa"
   license "GPL-2.0"
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
