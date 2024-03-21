@@ -19,13 +19,13 @@ class Gsoap < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8acc579430f4ded53206fc1414c04a59ad072081d8c2aa2a79c905206c38c224"
-    sha256 arm64_ventura:  "dea0d3df2a060f3f72df1217350d3ab4cea035efdc94aa64e6670c95f737915f"
-    sha256 arm64_monterey: "7768a71815d15ef467fc084b84aecbb671170beabcc6ed420869d1824547a02e"
-    sha256 sonoma:         "b51a5d29696e56ece31300dcc23c03170f0329d7a3b653f9bc703102c0d3f319"
-    sha256 ventura:        "0cac3c55e200fc04bf422f1379bf4664fc137a8142e7d10fcbdec516cafd9bd9"
-    sha256 monterey:       "205338069dabccf5ccdd8d3938fa7934cfd7ad3fcf7de3697f5367b53b52678b"
-    sha256 x86_64_linux:   "7e6a34ddac15c9cbeed7cf0147c81033b2cf9a96bb997255efc311ebbb4381c5"
+    sha256 arm64_sonoma:   "87dcebb85bba05fd93bfbb3905c7f435353c4fd57a9f95c9c241704cd2faf9bd"
+    sha256 arm64_ventura:  "f57c7c9b843ad0604cbb4c38dd7ba754f3b0b4ab7557060205a68737310290eb"
+    sha256 arm64_monterey: "55e9d5abe46e475bb43f9b77c6b2b0550ce09c93281e1e695a35820788dae275"
+    sha256 sonoma:         "6c5d4c8ba7d8292bba9d5b3cc1aa6760faf0a3a13cd56e1aa86e6ec1b3aad9d9"
+    sha256 ventura:        "d0443e48a7b7858cc2a40093c49186983238bd7906514fb94653263d2ef9eba1"
+    sha256 monterey:       "6861e4f06441fda42d984164f8f6900c6dcfb13ba8a3f69ffa2259298d47a893"
+    sha256 x86_64_linux:   "a4d5c053275de3daf2c31776b21e577141250abdef8984b2089f99ef574f03e8"
   end
 
   depends_on "autoconf" => :build
