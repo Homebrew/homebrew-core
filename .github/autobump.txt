@@ -713,6 +713,7 @@ gegl
 genact
 geoserver
 geph4
+getmail6
 gettext
 gf
 ghcup
