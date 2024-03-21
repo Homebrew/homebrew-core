@@ -7,13 +7,13 @@ class Neosync < Formula
   head "https://github.com/nucleuscloud/neosync.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da19164e63ff667a424598ba101a0874b556b54fb334819a8db8c72e7412b355"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ef90296da6b67e836590f9da1f840be194e170683aa514ade4dfe93074babd0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ad306c0f41bba1cbf21163cef44a9e92f0cc729c1de0d755e74ee4e45f3f081"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c1d1b61319d3f05d3d9688c56fffea16df87223a98c74da1bb44869916b1c396"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e3951d3d6d3fd35a4516fdc8b0561f794bdc8a35245803539c917f46e4ff37f"
-    sha256 cellar: :any_skip_relocation, monterey:       "eb956efd240313324f45cfb8e0ca57975c2a0cbabda79f6315292fe7567f0088"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4841e2b84da45d3afe3b0cc2784c0d0173576cd275fa67c8946cc03ba29d5d57"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c462c911f10c098db8a848f6538a0f2ec2e5af77a7cab1ef9463d8f20d3870fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1a5db3fcbe1fb80c267f5e2fc83e0e37fa3b668b2cd1bd7908d7ecf11654feb0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "21ace1b37f1992ba4452b86e05dbe47ae6025c874b410f12088c681502b7cd07"
+    sha256 cellar: :any_skip_relocation, sonoma:         "97287a4857291ec6e6ec93a97369bd1cefffd34e5217ada3a5f4c08df7de3be7"
+    sha256 cellar: :any_skip_relocation, ventura:        "634789754a6781e1990d5e055136c66dede6b0aad7b5ca60e756438c901b93dc"
+    sha256 cellar: :any_skip_relocation, monterey:       "3bee64f6b60b6610f068b8e2e4d51f8c5b6daefb52032f48f2bd994912e87461"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e5efa79ad1dfcbcba26dc72cb4559d70669d05f6e891c75c9be9e7742f49b86"
   end
 
   depends_on "go" => :build
