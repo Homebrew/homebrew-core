@@ -1018,6 +1018,7 @@ lexbor
 lexicon
 lf
 libadwaita
+libaec
 libassuan
 libavif
 libbsd
