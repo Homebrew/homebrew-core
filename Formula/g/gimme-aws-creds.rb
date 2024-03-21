@@ -157,11 +157,6 @@ class GimmeAwsCreds < Formula
     venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources.reject { |r| r.name.start_with?("pyobjc") && OS.linux? }
     venv.pip_install_and_link buildpath
-
-    # we depend on virtualenv, but that's a separate formula, so install a `.pth` file to link them
-    site_packages = Language::Python.site_packages("python3.12")
-    paths = %w[keyring].map { |p| Formula[p].opt_libexec/site_packages }
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
   end
 
   test do
