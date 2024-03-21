@@ -4,6 +4,7 @@ class CargoC < Formula
   url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.9.30.tar.gz"
   sha256 "174cfc3a69263c3e54b95e00c4bd61b13377f7f72d4bf60aa714fd9e7ed3849c"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
