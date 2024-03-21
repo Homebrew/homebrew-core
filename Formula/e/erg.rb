@@ -11,13 +11,13 @@ class Erg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8c0342f471fe4420da8922a3bfb1543c6831888c3464d2bd656114f5d203309"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "546a6695af08a56774657572ab570fbecb73c8234196f80cdeeab276633fe30d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4ab8847235ecca039bc55d8b5774569fbf403a448d071e118a137596431abab"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2094540782b4257259e4d52319b08b52cd370371804b2a130f3cb4ec37cae351"
-    sha256 cellar: :any_skip_relocation, ventura:        "c2d88c9bf6950683d344702af7289d0ed83b73b88865be6af415deda875ba55c"
-    sha256 cellar: :any_skip_relocation, monterey:       "012ffc2e72e5c7d9bc10fa6fd533b54ab0e48388b6fd1f5618541916ae97df19"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a15d788d892d4f3908a699499878024aefe878da85077b105b6798e291ba645"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6025dcc27a8b953748e0cfb57cebcad7dd5f40db7c5fe145a2b46e633984d5e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5b054758bd62fa4565b54587a6317b7e4834c9edd34a3490591d57df91c527be"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3526ac349cf10555bf3d43cb18595446bfbba1050335302b2de7236b9f8b6dc5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5a845da686b613e27eda95e6e0677062a728ffe5aa6be2708cccc91aac5fabcd"
+    sha256 cellar: :any_skip_relocation, ventura:        "68729a569a22927d66665fa1949e1c4483afe31e3020451e870b7d7a9c709f56"
+    sha256 cellar: :any_skip_relocation, monterey:       "b1e5b8823f0f1c4979841e96291fde48609cd25b82c0fc9606bfbee066ef231e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7b7e09ca3f2b0c9976c4ccade451864dc8d5aacf1eac98ea6177244c36266d2"
   end
 
   depends_on "rust" => :build
