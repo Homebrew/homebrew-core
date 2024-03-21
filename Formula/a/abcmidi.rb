@@ -11,13 +11,13 @@ class Abcmidi < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63430b690a1e3495d5b9b4b5bae90704504695f6155c52beeffe5125e3569d85"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6772053e1f365194bd8d8baf565a6563ac18c75149801a9f546af76ea6c746b6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "062013ac17c3109f2309f56be224a8c44af10d7232b7c56c0333b738aa1392b5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2eed59a7c41b67e5df02dd62f0ffdfd2cf016de676a672229bab50faac07eafb"
-    sha256 cellar: :any_skip_relocation, ventura:        "f09b6d932a8902eef9b99278554d04d696c19bf1d3754bf8771628128708e0fa"
-    sha256 cellar: :any_skip_relocation, monterey:       "16d206dcc7ed56a41999b8dd942f57d267aed8c6e8349d4293eaec4e80e81af4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "59b773818bfba03455cc7687f260269ae34ce0afde2f99d4d9cbf137bf0dc658"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42058e83960e60821e8bb0305fa48b07b4cf77f65ad29748507b935a9ac1d9d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab61c542fbd1c75bef34424aded2c4335bd5f22b13bbbc590175a8c390001e07"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d4b75cbf1b42ed702ab6193d09b011b28cf5acc8e12cf0c8e58667cfb8ef6283"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d216ed90ad8fddf1a44cde14f2fead343b66666c70ec339892ca3eaab77e01d6"
+    sha256 cellar: :any_skip_relocation, ventura:        "14445a3dca5e8d5877f56f935d62e3a781fbbe3b15a223405ac0438a2a450855"
+    sha256 cellar: :any_skip_relocation, monterey:       "bd4f03e7c320a57791bcb12524447b9914ff08763c238fb08a3bb51e2b05b095"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58764c2c899364e8240401ce330a8a6c180994b04cefb6e95e7fd51334ce78e0"
   end
 
   def install
