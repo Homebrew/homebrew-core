@@ -4,6 +4,7 @@ class CargoGenerate < Formula
   url "https://github.com/cargo-generate/cargo-generate/archive/refs/tags/v0.19.0.tar.gz"
   sha256 "520e7a98bf82f368e911c14e774f8ef16a4c8ffd785d492c9d518ee563dc3864"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
   bottle do
