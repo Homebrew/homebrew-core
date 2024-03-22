@@ -6,13 +6,13 @@ class Star < Formula
   license "CDDL-1.0"
 
   bottle do
-    sha256 arm64_sonoma:   "57bb05fb4b7c8ee56434e530f856ffe4ec5939594633983dcf36cb20c5eaf111"
-    sha256 arm64_ventura:  "dff7da95a2a96b372b0227602533290512c7445edf4a2e3ece9f56ce1eefc58c"
-    sha256 arm64_monterey: "bc80d714e33b7f0f2fa8cc59527ec55cd68ef7bdf9d627fff987f717867092b0"
-    sha256 sonoma:         "2519f9558ca33390544e937858e2d18033a8335e0d01a33e9090eca7272dfdf9"
-    sha256 ventura:        "156defe7462aff7b3c3d2447311d7bd9d44a531509f7c6abe2f50bb1ad2f5e37"
-    sha256 monterey:       "3f98c2eab8f8f56a786506b5d36034a7efb671339e007c28b2dbc6a1e818d144"
-    sha256 x86_64_linux:   "ad6c7b60a278859ec533d13eee82a8565830384a7a571df01fceeeaa2235d489"
+    sha256 arm64_sonoma:   "4f7d3a2831a685b8ff9881ff5b56fc2402b04c410d6a8b3640d4cb794154165d"
+    sha256 arm64_ventura:  "800616aa187156f940ce52ad810e23b6fe385a633948f3d666372cba6fea9727"
+    sha256 arm64_monterey: "066533943950ef805516fdd1e22b845c02ad7764b924f2922689a27549260cbb"
+    sha256 sonoma:         "e30e6506794c00b9eb288edf39bd4910e8e0a9742793319b96c48dea5f24d81d"
+    sha256 ventura:        "697228bef43eb329599da53d6156a374c008fa508473ebcd79d0dccaec003b82"
+    sha256 monterey:       "3898a6a463bdad06cbbce3792f8ef73909e98ef9f9db4483317e43a846d4175a"
+    sha256 x86_64_linux:   "a132ee6b490220cb5c060736aa796fb70b04227d53f115e605d30bf5d2784f9c"
   end
 
   depends_on "smake" => :build
