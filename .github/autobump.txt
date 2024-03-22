@@ -1908,5 +1908,6 @@ zookeeper
 zoxide
 zpaqfranz
 zsh-vi-mode
+zshdb
 zstd
 zydis
