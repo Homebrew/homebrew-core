@@ -3,8 +3,8 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/c0/e2/9d665fe3a65119894f4f1eb64404b0f53d4542ea841af271a834b444b1a4/internetarchive-3.6.0.tar.gz"
-  sha256 "86c011e23751f5dff1d5cc6e3bc610b2eca3331d5e502c1cd34c2021068b6bbd"
+  url "https://files.pythonhosted.org/packages/ab/f0/edfeb1a2add5577d831f5639dea1b886e04ca898a9abd2645345b4660fce/internetarchive-3.7.0.tar.gz"
+  sha256 "fca52e6b28fb76c84c47e61f32794653dc2d2ae4cc2de90911cb967be221d70c"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -62,18 +62,14 @@ class Internetarchive < Formula
   end
 
   resource "tqdm" do
-    url "https://files.pythonhosted.org/packages/62/06/d5604a70d160f6a6ca5fd2ba25597c24abd5c5ca5f437263d177ac242308/tqdm-4.66.1.tar.gz"
-    sha256 "d88e651f9db8d8551a62556d3cff9e3034274ca5d66e93197cf2490e2dcb69c7"
+    url "https://files.pythonhosted.org/packages/ea/85/3ce0f9f7d3f596e7ea57f4e5ce8c18cb44e4a9daa58ddb46ee0d13d6bff8/tqdm-4.66.2.tar.gz"
+    sha256 "6cd52cdf0fef0e0f543299cfc96fec90d7b8a7e88745f411ec33eb44d5ed3531"
   end
 
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/e2/cc/abf6746cc90bc52df4ba730f301b89b3b844d6dc133cb89a01cfe2511eb9/urllib3-2.2.0.tar.gz"
-    sha256 "051d961ad0c62a94e50ecf1af379c3aba230c66c710493493560c0c223c49f20"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
-
-  # Drop setuptools dep
-  # https://github.com/jjjake/internetarchive/pull/621
-  patch :DATA
 
   def install
     ENV["PIP_USE_PEP517"] = "1"
@@ -85,49 +81,3 @@ class Internetarchive < Formula
     assert_equal metadata["metadata"]["uploader"], "mistydemeo@gmail.com"
   end
 end
-
-__END__
-From 7f882e7d25c7baaadca1f9abf014f8c16f7e76d0 Mon Sep 17 00:00:00 2001
-From: Letu Ren <fantasquex@gmail.com>
-Date: Tue, 9 Jan 2024 18:28:50 +0800
-Subject: [PATCH] Switch to importlib-metadata to drop deprecated pkg_resources
-
-According to https://setuptools.pypa.io/en/latest/pkg_resources.html,
-pkg_resources has been deprecated and importlib-metadata is recommended.
-`DistributionNotFound` only can be thrown from `find_plugins()` which is
-not used by ia. Tested with plugin
-https://github.com/JesseWeinstein/ia_recent.
-
-Closes: https://github.com/jjjake/internetarchive/issues/613
----
- internetarchive/cli/ia.py | 6 +++---
- setup.cfg                 | 1 +
- 2 files changed, 4 insertions(+), 3 deletions(-)
-
-diff --git a/internetarchive/cli/ia.py b/internetarchive/cli/ia.py
-index 8e044c36..9a5b2c70 100755
---- a/internetarchive/cli/ia.py
-+++ b/internetarchive/cli/ia.py
-@@ -64,7 +64,7 @@
- import sys
-
- from docopt import docopt, printable_usage
--from pkg_resources import DistributionNotFound, iter_entry_points
-+from importlib.metadata import entry_points
- from schema import Or, Schema, SchemaError  # type: ignore[import]
-
- from internetarchive import __version__
-@@ -97,11 +97,11 @@ def load_ia_module(cmd: str):
-             return __import__(_module, fromlist=['internetarchive.cli'])
-         else:
-             _module = f'ia_{cmd}'
--            for ep in iter_entry_points('internetarchive.cli.plugins'):
-+            for ep in entry_points(group='internetarchive.cli.plugins'):
-                 if ep.name == _module:
-                     return ep.load()
-             raise ImportError
--    except (ImportError, DistributionNotFound):
-+    except (ImportError):
-         print(f"error: '{cmd}' is not an ia command! See 'ia help'",
-               file=sys.stderr)
-         matches = '\t'.join(difflib.get_close_matches(cmd, cmd_aliases.values()))
