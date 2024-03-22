@@ -1044,6 +1044,7 @@ libksba
 liblinear
 liblouis
 libmicrohttpd
+libmxml
 libnfs
 libnice
 libomp
