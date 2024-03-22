@@ -1601,6 +1601,7 @@ slides
 slirp4netns
 sloc
 slurm
+smake
 smimesign
 sn0int
 snakemake
