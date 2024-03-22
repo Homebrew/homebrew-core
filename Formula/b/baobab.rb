@@ -1,10 +1,9 @@
 class Baobab < Formula
   desc "Gnome disk usage analyzer"
   homepage "https://wiki.gnome.org/Apps/Baobab"
-  url "https://download.gnome.org/sources/baobab/45/baobab-45.0.tar.xz"
-  sha256 "a7d2cf308a6c839ee0b0bf074f8f5fd60d62ae2f064a94b3c610d6560b758e86"
+  url "https://download.gnome.org/sources/baobab/46/baobab-46.0.tar.xz"
+  sha256 "ce4def5c82d05671a5009f7bebcf85ac98675d9d8160d28ad9181b269a72e37c"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "976ee19963aca9875c5f2535890982f0ada6c3859f9f219974828fdb5d587c96"
@@ -30,6 +29,10 @@ class Baobab < Formula
   depends_on "libadwaita"
 
   def install
+    # Work-around for build issue with Xcode 15.3
+    # upstream bug report, https://gitlab.gnome.org/GNOME/baobab/-/issues/122
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # stop meson_post_install.py from doing what needs to be done in the post_install step
     ENV["DESTDIR"] = "/"
 

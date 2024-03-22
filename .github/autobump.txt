@@ -130,6 +130,7 @@ balena-cli
 ballerina
 bandicoot
 bandwhich
+baobab
 bareos-client
 bartib
 bartycrouch
