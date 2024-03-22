@@ -1,8 +1,8 @@
 class Verapdf < Formula
   desc "Open-source industry-supported PDF/A validation"
   homepage "https://verapdf.org/home/"
-  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.25.221.tar.gz"
-  sha256 "96990ddbbf56b59b738290891b136cb59cf890a4b1ac3227f940ca696c7579d2"
+  url "https://github.com/veraPDF/veraPDF-apps/archive/refs/tags/v1.25.223.tar.gz"
+  sha256 "b75ad44d2320da682b1b01f1aea23f9edd23ecb274849c195f31dadaef88e349"
   license any_of: ["GPL-3.0-or-later", "MPL-2.0"]
   head "https://github.com/veraPDF/veraPDF-apps.git", branch: "integration"
 
