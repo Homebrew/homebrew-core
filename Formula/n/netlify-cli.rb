@@ -9,13 +9,13 @@ class NetlifyCli < Formula
   head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sonoma:   "83152d0f332a83718b4753ce0b4b66a2f72d9f6765282af945b05b2662acaaf3"
-    sha256                               arm64_ventura:  "c9eebc6d1be9c454007fa11c8c0768a583430b91f5a339b668f35c147eb92d05"
-    sha256                               arm64_monterey: "316fe25020033590d7d1790ab1464fd8c63ff289dffcbbb375664185b03e07bc"
-    sha256                               sonoma:         "01db50f6e93cb3b45402ddcfaa90bdb65fe9cc4dccaa940631bcfea75195e099"
-    sha256                               ventura:        "4fd5704118caba8c953fc3627f90e88a63b2c949c0efcc3c20973ba38d0d765a"
-    sha256                               monterey:       "98d650ecec574f087977e2f3ecab3a0be98021714334c854a5f1d03cdb8fb965"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5acd1f019c6dcefe4a17bf34c3ba51fae73bb093b5bf9a675ab57045cff3216"
+    sha256                               arm64_sonoma:   "6d86c7f382997678852105d70038312a1f3e8d1b382693a4a06156a17f9aac9b"
+    sha256                               arm64_ventura:  "a9fbd85dc9b1fdcf1b9b2295419943d999aa50d9e4ffeba7180194c81a3c09b6"
+    sha256                               arm64_monterey: "4106f7f6720e35eb62094c424726033b01d4d1473a9f3f63599e24252010dbe5"
+    sha256                               sonoma:         "de240fb0fbcf5f7a2ea4a9879026a2c970aa8d31d1f0c6084fd2015b766e7aee"
+    sha256                               ventura:        "b34ede74fc7f8b80811eb219269da9e9c30432d9c7d0a4607d8168f08e377dfd"
+    sha256                               monterey:       "6ed13bc5ca150985d8b854f5d63829f2727d421fc3e968c53e73560d30b50b7f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0a68de063e1cde47314101bf1822ec50f27cf874ac4daa5cc36ca903c96ce04"
   end
 
   depends_on "node"
