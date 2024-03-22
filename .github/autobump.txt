@@ -1465,6 +1465,7 @@ rabbitmq
 radamsa
 rancher-cli
 rapidfuzz-cpp
+ratchet
 rattler-build
 rav1e
 raven
