@@ -480,6 +480,7 @@ dive
 django-completion
 djhtml
 djl-serving
+dlib
 dmenu
 dnscontrol
 dnscrypt-proxy
