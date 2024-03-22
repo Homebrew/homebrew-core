@@ -24,7 +24,9 @@ class Acpica < Formula
   uses_from_macos "m4" => :build
 
   def install
-    system "make", "PREFIX=#{prefix}"
+    # ACPI_PACKED_POINTERS_NOT_SUPPORTED:
+    # https://github.com/acpica/acpica/issues/781#issuecomment-1718084901
+    system "make", "PREFIX=#{prefix}", "OPT_CFLAGS=\"-DACPI_PACKED_POINTERS_NOT_SUPPORTED\""
     system "make", "install", "PREFIX=#{prefix}"
   end
 
