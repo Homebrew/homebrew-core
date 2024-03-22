@@ -12,7 +12,7 @@ class Libwpe < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "5ed609989f08deb87a250e42f186999d2c995d6526309c0f79c64550686fbbdc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3379e8514cfb002130c2326391d08dffb36e19d0a26dae57ae9ef779d49fff00"
   end
 
   depends_on "meson" => :build
