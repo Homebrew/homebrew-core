@@ -6,13 +6,13 @@ class NagiosPlugins < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "99683106836b01e6f8a6758abb18a043362be953dcc3c47bb5e02e68bf7e44c1"
-    sha256 arm64_ventura:  "0574d3fef8cc0be39cc6896342fdbbcc2a4f1cacd9a5ad928f6e44f513fd5b8c"
-    sha256 arm64_monterey: "7bfd35199b9f7b078808fc13d783da5f6316c266a910f9f3d2cdba97ea052382"
-    sha256 sonoma:         "2d4cc7864117e3f0009061930c43dd9e690908ae68c0460e632ff398b3d14a54"
-    sha256 ventura:        "c955af9605a814902565929d784b80d40178be23bfd441c438531dd3db17ef3a"
-    sha256 monterey:       "b40f9476d5618f2db3066de6e72c88f09f62df9076e18dd2b9b8b529a6e8192e"
-    sha256 x86_64_linux:   "91f503d22017211fed9cfb022b186e06facb4ce979cd7e92358fab4c9e4a2b96"
+    sha256 arm64_sonoma:   "1bc2096c34e80cd6e6ba595c3246f71dffa2ed38ab9f62d0090eec97d17a7a5c"
+    sha256 arm64_ventura:  "365b9b21999f7f4541bb41af1f6cc9c72456c3bffd433eaaee25caba523a9575"
+    sha256 arm64_monterey: "6f1cc6d7d49040b4a7475f97661c3810d04996d7b6e46b42667a7b9d14601c7f"
+    sha256 sonoma:         "928eaceb0fae5b7bf1373125867cf07786b6ecbd2b6ababcd9ccc9524b948c29"
+    sha256 ventura:        "bbdfe7c21bc9947ebb1d22e456ff84570f7842a34e3e50c549122d9564349b01"
+    sha256 monterey:       "74afc77720ec9152145b8a9db9c5009450b99d88e61fedaba78690bffbd5a6d6"
+    sha256 x86_64_linux:   "278a9d1c126545003bd5933b9926c8f74929bae0540d84a86b158914d117bb58"
   end
 
   depends_on "gettext"
