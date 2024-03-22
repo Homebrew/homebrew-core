@@ -13,13 +13,13 @@ class GlibmmAT266 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "37f2bab6f8512cf758144d7fe1e75e8cac88c03a1aca6671721b3577140e9f03"
-    sha256 cellar: :any, arm64_ventura:  "187891e655f142a36604b95c20ee03c4121c7f1bb9b18b946e5ab6393c34473d"
-    sha256 cellar: :any, arm64_monterey: "1fea23c1f77f054c4c2aa2af28f790f9925009fb881e19c5919ee020bc97d276"
-    sha256 cellar: :any, sonoma:         "b2bc09369516ea9a4d73488ec55a6951da1b8f45338d80560a002203dd4636de"
-    sha256 cellar: :any, ventura:        "ca2a492586ee5d0d9e48deac89d5838fa4e6d856daf08b3a413f6ec91069c179"
-    sha256 cellar: :any, monterey:       "5d319a089e7ce4da73188ce4e0652a4ca14b3a756ec6c56c69b30015985c011b"
-    sha256               x86_64_linux:   "828d91142a3af237d14d2c964b442d2317943cb451417dab556f4e1c938390bf"
+    sha256 cellar: :any, arm64_sonoma:   "3915a61ffbfd7ecada46f6e41ac587a41208bb382e5fc23104c52c220e32b17c"
+    sha256 cellar: :any, arm64_ventura:  "457126ab74fd61dbfce6499e48a39749e7e3985c5e6b3653ffd711a8eec37b0c"
+    sha256 cellar: :any, arm64_monterey: "8c37d94e8e640d1e543aa915915fc1855917423226fc22b81128b5387b9ddb90"
+    sha256 cellar: :any, sonoma:         "e614892a5f38beccf279558a374bb3373b61229be5037428ae6f31ea541ffd3f"
+    sha256 cellar: :any, ventura:        "d22bd412259f7fba06de7b3a838e0619f640e6733b0117cbc251d6629b0d6827"
+    sha256 cellar: :any, monterey:       "3ca011ec8119ee16bc8eaa51f9759495ff70ecdd046916565da0dd6d60b77678"
+    sha256               x86_64_linux:   "c771334806ada7e03280cefe916d6435e4805e6c37326ff254eb62d9d0ca60dc"
   end
 
   depends_on "meson" => :build
