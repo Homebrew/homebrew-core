@@ -37,8 +37,15 @@ class Fzf < Formula
 
   def caveats
     <<~EOS
-      To install useful keybindings and fuzzy completion:
-        #{opt_prefix}/install
+      To set up shell integration, add this to your shell configuration file:
+        # bash
+        eval "$(fzf --bash)"
+
+        # zsh
+        eval "$(fzf --zsh)"
+
+        # fish
+        fzf --fish | source
 
       To use fzf in Vim, add the following line to your .vimrc:
         set rtp+=#{opt_prefix}
