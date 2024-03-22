@@ -1060,6 +1060,7 @@ liblouis
 libmicrohttpd
 libnfs
 libnice
+libobjc2
 libomp
 libopenmpt
 liboqs
