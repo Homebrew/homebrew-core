@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Open Source Security tool to perform Cloud Security best practices"
   homepage "https://prowler.pro/"
-  url "https://files.pythonhosted.org/packages/4e/e8/413e4ab57df35ca9a586873a7a683c0c105f3f103fdac64ff9c7ee1b066f/prowler-3.15.2.tar.gz"
-  sha256 "ac7825aa56f8bc3884063c0c434bae0f40408434696bbb156fc614662d69d4ac"
+  url "https://files.pythonhosted.org/packages/c0/cd/dbdf388247189f395ba29fcdad1c91280634f7cf89c1a15312eed6efab04/prowler-3.15.3.tar.gz"
+  sha256 "4452d8bbe2a4c34fe103bd913c6745eb4553f5d5f794bbe177a07f18b235c8d9"
   license "Apache-2.0"
 
   bottle do
@@ -229,8 +229,8 @@ class Prowler < Formula
   end
 
   resource "google-api-core" do
-    url "https://files.pythonhosted.org/packages/58/e2/c2ce7bf379a7200ecab7de2cbf17dcbb3fe2ab5085925dfe6797e263a475/google-api-core-2.17.1.tar.gz"
-    sha256 "9df18a1f87ee0df0bc4eea2770ebc4228392d8cc4066655b320e2cfccb15db95"
+    url "https://files.pythonhosted.org/packages/b2/8f/ecd68579bd2bf5e9321df60dcdee6e575adf77fedacb1d8378760b2b16b6/google-api-core-2.18.0.tar.gz"
+    sha256 "62d97417bfc674d6cef251e5c4d639a9655e00c45528c4364fbfebb478ce72a9"
   end
 
   resource "google-api-python-client" do
@@ -426,6 +426,11 @@ class Prowler < Formula
   resource "portalocker" do
     url "https://files.pythonhosted.org/packages/35/00/0f230921ba852226275762ea3974b87eeca36e941a13cd691ed296d279e5/portalocker-2.8.2.tar.gz"
     sha256 "2b035aa7828e46c58e9b31390ee1f169b98e1066ab10b9a6a861fe7e25ee4f33"
+  end
+
+  resource "proto-plus" do
+    url "https://files.pythonhosted.org/packages/91/2d/8c7fa3011928b024b10b80878160bf4e374eccb822a5d090f3ebcf175f6a/proto-plus-1.23.0.tar.gz"
+    sha256 "89075171ef11988b3fa157f5dbd8b9cf09d65fffee97e29ce403cd8defba19d2"
   end
 
   resource "protobuf" do
