@@ -16,14 +16,13 @@ class Libgweather < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "14452e8ad34e53e9f3c3f1e9814028748e257d324d174805404046ed0b7d57af"
-    sha256 arm64_ventura:  "477b304b8271e17885e266f41bded0968aada1d586374bec31917e2d781f096e"
-    sha256 arm64_monterey: "77f609d6a257549a96e7897ea6e2b9bb69c6470e37d8982face334b73d87498c"
-    sha256 sonoma:         "0f410cf62efd6c02c41af55e4639e88aac047f7e39142a4153051686895d2ff5"
-    sha256 ventura:        "ffc9e20982fc997d3c4b821cf443acb62483582cb2da9386cdc64eeed2e8db2d"
-    sha256 monterey:       "974bbac2ebb66b77d8b987eaed48e6df65a10f83e111d46b106566d820cb2682"
-    sha256 x86_64_linux:   "f95c30bbe9752c9cf0b3b0caa3a01f10d7f22d45c9e9682f470a294fc5710058"
+    sha256 arm64_sonoma:   "e0ef8f8736b53583da15408c467a9dfb8feb135c4c904838bf64d3aa5d0202cd"
+    sha256 arm64_ventura:  "6c52028e226233657fc77cbd8a887e368b261d1b50ccdfc68173573e6e06cff2"
+    sha256 arm64_monterey: "7a4e4e256b900deb768298bc9b2e41cf454f1f712a9fe86d308979add8cf93d0"
+    sha256 sonoma:         "d4cad5470dd1b33ad275bac768106918947e666e41c6cb07aa923ce26655a4aa"
+    sha256 ventura:        "6df289e4c7b64757696490a044e23003b26884e744709830c4016e10d1760a92"
+    sha256 monterey:       "c2c8b1a04db977e88bcf56384a715be5b48af5175339c23644cd47508203aae1"
+    sha256 x86_64_linux:   "5489a2ac860e4a8bbeb4545939d78eaa5b975a6cd6bd7e619f0ddb15a357f00b"
   end
 
   depends_on "gettext" => :build
