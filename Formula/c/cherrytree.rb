@@ -12,13 +12,13 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "dac55a1d7728c7550b567f8d7efadd2543e8424147daa237927efd08485396aa"
-    sha256 arm64_ventura:  "511d1cd34670bef25b38de09b287470e0f06ac202e4f8e7476c79425e2d88098"
-    sha256 arm64_monterey: "e8d2068d9328bf85bdc92e83deded9969568d1e29490a84eafc66aa2bedbd067"
-    sha256 sonoma:         "cb8e1335465c8bfbee3731e5d7dd8a198ecce6b7673349ebbe1618948aa4ed12"
-    sha256 ventura:        "d7c39a4ef8faa6ae00c09179856bb8569862e83c5ade889f73aa8854a6eb0f1d"
-    sha256 monterey:       "3d8031ed1cb4d35224a1c7acea2ac602df6b2795ac1c793effa956204181b285"
-    sha256 x86_64_linux:   "29f6a300d2fe797b04578d6f577be41c11cfa812174938735636ae3ea8b7f4ce"
+    sha256 arm64_sonoma:   "c16c6a153c912642e7efafcec86e47ee0931b7bf069795f9c3dda8a488e5a842"
+    sha256 arm64_ventura:  "6a86ffbedb6507a9baf94ca31188dba1462a278319e7c97c0e210bba2cf4fc97"
+    sha256 arm64_monterey: "998cb9e18584ed8fc67411fcd09529a0a27bb15c5ac3c42a0b4e4f727b195efc"
+    sha256 sonoma:         "63c030b3041e7b91cefeab35426f8c04e5321b808eee0424e5c4ac11e7fb6ae1"
+    sha256 ventura:        "c144c32569d48c37caf156cc99d6cb1c26f6ee2b5fe26c8a65b1c0a02b7e5ae3"
+    sha256 monterey:       "80f819bfd4e52553df8ee037094ac75f17e4fbdc4379da700d527128fbb07a5b"
+    sha256 x86_64_linux:   "697f38aba4be87c4480d0e934a308ea04821a7c0ad4c32f01ab320ad47ba60fd"
   end
 
   depends_on "cmake" => :build
