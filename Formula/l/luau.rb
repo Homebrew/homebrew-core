@@ -13,13 +13,13 @@ class Luau < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc7cb492a60651b5d6442f8ac9b3cec2b890886eb6e59f27bcc98b68ecc35772"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d506c600abff6b4c8360db39fde6c49f6052bf33827416c70096fdad3fd99484"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2be0d69698169f80cfc8d5174cf2bebece015e72b4e13708d28ecd65124470a1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2ddb77e6a175ca54a3da58c3193a9a8f416b5e5b7f490a79db74c3725f4d8000"
-    sha256 cellar: :any_skip_relocation, ventura:        "85b64b114af36743b92efe7cb45948311623beb9188377d0a8168af2b6e4d29f"
-    sha256 cellar: :any_skip_relocation, monterey:       "2d36467f5e83ed105ff7b85cfb4a0b3b7cafdb1d6ce2872e52ba3a5a79cd8c05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9339d84b58211ef375baf2d0b45cd966f0a6cb605951d28c069c9864f45b7d2a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3013a0b4e8441687391c9b2fa29bf6fec27725ab6c450daef8293f467923049e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3526fd7e6134e0d3447fefb479c966e078e1a687eafca8b45cec22a14b13365d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cbb806a78379748770d2cf38e58057230ceaaccc2f297e45c28fa97193e01ec7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8bbff845c8c21038eb9cd3fc4a0ef6cba8e7138d60e35238f1a3afe1b667d9e9"
+    sha256 cellar: :any_skip_relocation, ventura:        "51f39e8dbf80f42ff4616e6a044a293925a91ee8f44736091d4eddb79318b65d"
+    sha256 cellar: :any_skip_relocation, monterey:       "9e02bec7a93a1f896de5b86cf624939a5f73b3f1a2e60eb98d14cd2b74b82fc8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49a1e7008cec267804a54765643116068f8923b78b2c3b00ec1aba502db40443"
   end
 
   depends_on "cmake" => :build
