@@ -6,13 +6,13 @@ class Baobab < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "976ee19963aca9875c5f2535890982f0ada6c3859f9f219974828fdb5d587c96"
-    sha256 arm64_ventura:  "4536d768a8ce57ac327a8807b5a915426b84246fe71a60e670fc7e9eaf8919fa"
-    sha256 arm64_monterey: "1dbcc7aff96c0e13e0a3f111dcc224c20a18f5a994bc146aaa59a882fa1e17cb"
-    sha256 sonoma:         "86c04921a9dd7e05050a2337c66ebfce846b423fe8139bb0d36ce2cc1d273f0e"
-    sha256 ventura:        "eb5964c8ad54f6eb620f13f680db20fd4811049a1c5b40d8c3a3b4641726c1e5"
-    sha256 monterey:       "d96c43667ebf5e04f5e2757134c6e123a6b0b48fa9a638ab461d9c021b18b946"
-    sha256 x86_64_linux:   "9619add2ac0cd8952ff8de166e3c871ee3de5981551c547b268e2ebb60f14b21"
+    sha256 arm64_sonoma:   "b2b03a56d8ac4a7499d8bcc100d66a3898898d89d5b43b0ff0838096774eb941"
+    sha256 arm64_ventura:  "36fa0972f41310643be85354a2a098e73713aaf27521a29982c899a9e12bafc1"
+    sha256 arm64_monterey: "da943150c400c94b10d540d494aa40569523b1afb25ed30a53efa7b8ca61c4a2"
+    sha256 sonoma:         "998e2590ecc63ffd66624d49ddb1d206be2e5cc1a5c049234779b2e0f1e41caf"
+    sha256 ventura:        "9bf97e0440388cfbd896fb6eb41a7adfeea17d29593cca2f23849f71289a5c8b"
+    sha256 monterey:       "396e9b0686844b2d7ab83c12a87155f3cdbf4691fa42f91b1bf6ce4eeffd6102"
+    sha256 x86_64_linux:   "dd385933494b6cb5e6a6b0b911c83f4c6cf9922d8a17830d61cca27d763cf659"
   end
 
   depends_on "desktop-file-utils" => :build
