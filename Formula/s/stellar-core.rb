@@ -16,14 +16,12 @@ class StellarCore < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9c02b5f80dc1e5bc67c5345cb9e41d950a72ff5dd95e87dc1a692ae739aaf6ad"
-    sha256 cellar: :any,                 arm64_ventura:  "3d743c3c190d286146b4641686a962dc6bae910ba556ced19aa16e4f876866f7"
-    sha256 cellar: :any,                 arm64_monterey: "3bd593bd7fcdf4da807c8efafc1a6811ae7d669b6eeec9e14473cdbb624e9771"
-    sha256 cellar: :any,                 arm64_big_sur:  "ac8f0216f0c40a283251b535e830e5ede21a483986068e1fb5e5793abe9ac26d"
-    sha256 cellar: :any,                 ventura:        "93c9731b317370b3b0e536fe3c360d14e637a1917512ba87aaa73ccb541399dc"
-    sha256 cellar: :any,                 monterey:       "8c24dc045cb0c9356ab26874cde6ac6d9a217662d04d48167c1998f1453ed641"
-    sha256 cellar: :any,                 big_sur:        "70e2b6efdd7c02172c9cdc44f5485e2d821f82fca9c4fb398f5a6e639bab0b54"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7abd7620b0d2d7674acd699132917e21d542faaf7d5286f1c170df46d6aa55c3"
+    sha256 cellar: :any,                 arm64_sonoma:   "840a75fdcc9a82cf2152b2657b96d2b79ac3d2aaf5624c9301b1eb6f71ad5177"
+    sha256 cellar: :any,                 arm64_ventura:  "9906f23e0da6bc81e0904efc6f606058776a2fc2c8bae8a410708c69f9b516d1"
+    sha256 cellar: :any,                 arm64_monterey: "b3b2c2122628ecbbf213b06e2e4cc7c05a8cb802f33f9c36db7168aa29f4f988"
+    sha256 cellar: :any,                 ventura:        "0b64edf8c2007ac5d733fc564d860f7e5f2290cbb7d37a21a9ae84703ea2d418"
+    sha256 cellar: :any,                 monterey:       "a0aec355ecaee41e0d87afccd4bec1a73f322ec794b302bb728359ed5b413fd8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3793e8929b124c247cc0830d08ea4d3a9818e130350f4379b6dcd646db11745"
   end
 
   depends_on "autoconf" => :build
