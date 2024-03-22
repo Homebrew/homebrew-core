@@ -6,13 +6,13 @@ class Gitui < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "09779802d7e5a8be04545ce8f67237b59cb9b3f9ce435102e76f71075c5a29b6"
-    sha256 cellar: :any,                 arm64_ventura:  "38b410b0db8a331c7bd032b2194337fe7cc37b7e41bf086839409f9478bf3c6c"
-    sha256 cellar: :any,                 arm64_monterey: "e10e695ec296f452c7c4e4607573accbc326ffa048b6c1b817d1d54843434b6f"
-    sha256 cellar: :any,                 sonoma:         "1a3254a64360681b008722a192e8071c2c4d37483cda136a623f98d075ae3a35"
-    sha256 cellar: :any,                 ventura:        "44d3b5227758adcb2def4db8003e97ced7377f4972e9c30abe8c412b2bc0ffbd"
-    sha256 cellar: :any,                 monterey:       "72736375b4d0d0a2515627786cf46412e9aacb3d06cb29298da5f6edc8ceace3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3edd12eeb36faef2259e3ca293a6e2ebd874a40ee8088a7629c68f3b795e5579"
+    sha256 cellar: :any,                 arm64_sonoma:   "739b2fba0c482453e418c38bf674da8f00054e4e8412b2c737ca6407997ad46c"
+    sha256 cellar: :any,                 arm64_ventura:  "3a7356e4a448cd9ee2986afefd9c723aa6d0feee32d89a510a069827a0af8ffd"
+    sha256 cellar: :any,                 arm64_monterey: "9b4d1a6d8cf11c5514ee8e124c87a3a17d9f2c229a1bb2bc55e0d30fcf1ea3ce"
+    sha256 cellar: :any,                 sonoma:         "983efec7318c06c7ba48eb96c24aaf09ed695cbb2ebdb077cd507b6b8a2de8cd"
+    sha256 cellar: :any,                 ventura:        "fff8c764bb0bf530206a1d2b841570250f8d4fe00589c1ebdf57892e12cc8375"
+    sha256 cellar: :any,                 monterey:       "826d5404ce4c99ca5083b769109c538f34b253c5fc00fc99e394cfc94ffb752d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb6cb3c5cd29861e448b4fa09fa4db387f1a12334d689ab91aa02c7212a06bd5"
   end
 
   depends_on "rust" => :build
