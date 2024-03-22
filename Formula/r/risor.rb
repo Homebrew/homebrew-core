@@ -1,8 +1,8 @@
 class Risor < Formula
   desc "Fast and flexible scripting for Go developers and DevOps"
   homepage "https://risor.io/"
-  url "https://github.com/risor-io/risor/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "d24f387a5e03a65a503632d1e7a874102e7f3331816e245d5fac9b4557d8c33b"
+  url "https://github.com/risor-io/risor/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "a058c74be956bbf0c1e9b369b2cfdd18acf0800059a5a0122deb74085d7e2795"
   license "Apache-2.0"
   head "https://github.com/risor-io/risor.git", branch: "main"
 
