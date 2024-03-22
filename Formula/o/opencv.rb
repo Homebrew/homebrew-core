@@ -62,6 +62,18 @@ class Opencv < Formula
     "python3.12"
   end
 
+  # Patch for DNN module to work with OpenVINO API 2.0(enabled starting OV 2022.1 release)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a10057a843de773896a50e9b18f4559a8bbc4d27/opencv/openvino-api2.0.patch"
+    sha256 "08f918fa762715d0fbc558baee9867be8f059ee3008831dc0a09af63404a9048"
+  end
+
+  # Patch for G-API to work with OpenVINO API 2.0(enabled starting OV 2022.1 release)
+  patch do
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/a10057a843de773896a50e9b18f4559a8bbc4d27/opencv/gapi-openvino-api2.0.patch"
+    sha256 "b67aa8882559858824c5841ba3d0746078273be081540b0d339c0ff58dc9452d"
+  end
+
   def install
     resource("contrib").stage buildpath/"opencv_contrib"
 
