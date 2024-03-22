@@ -890,6 +890,7 @@ influxdb-cli
 influxdb@1
 inlyne
 instaloader
+internetarchive
 inxi
 ioctl
 ipfs
