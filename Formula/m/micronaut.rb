@@ -11,13 +11,13 @@ class Micronaut < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3a682b82149660c2da8c1a4b1f99a2c38812a31fb3bd965d3e44b4211afc63eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f7584631d3816b054c2a109b14389360bfa965306368b8f3a08b13cb74d02d0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d145f3ce0a865179acc0c4e12584055b19ae5390bda40ac28f1c992838ab03d0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d9ecab04dabf6f63f29a7bd6ff18cd7bd3216f7cda24298cd685228c7301a354"
-    sha256 cellar: :any_skip_relocation, ventura:        "2b9f6cd83d70fe7515492854dadfc6d5f572115c5316bebc057c219a76c1f489"
-    sha256 cellar: :any_skip_relocation, monterey:       "7dfd475930847bef70e7edb2285c48b289138d93213319db7d8d45d4f58f56d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b55d9e73f479e883d192c78ce898568505dcf567437d2a62e7ecfa0d3258172"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e795a1d45daf0d7b7f87848bb2747d213e72734641476ae6d97354767c5750c3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "085f29a72e55ef3486617c6e939b5e961657c359dd21690b10d3885a0c7db7b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6c2ab11fc6e991f11599cad5eb5490f829f2594fd3bd57b064fd8bce9e29baf7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4ecbb465bc1ac799d42f8a3141abe4631b17cefbf204571fb2a0308607312217"
+    sha256 cellar: :any_skip_relocation, ventura:        "4c7037ead4ed709db1ff61c87d18dfa06b961d32ff6dc125bb5a41b3696398fe"
+    sha256 cellar: :any_skip_relocation, monterey:       "a53117ae09ab40c966147698f8712dcca686a8fb58da238017d046f31fd7a86a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "928718bb001880ce90a97c168fb09b2c60790b86aead46ee3720ed3d99f34e7e"
   end
 
   depends_on "gradle" => :build
