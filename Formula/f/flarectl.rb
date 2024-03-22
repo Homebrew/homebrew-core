@@ -12,13 +12,13 @@ class Flarectl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "67b0bc751747a52cb6b510960213d60025d1e461bf5688eb702312e43e5a7070"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b98aa9d0df7441bba2567b1d8a0dc061b22e84bc3b80439ba4b38357c093f5f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "733dfa5f9ccab99b64bfd848612b6363b63c036c93ea9ecc174932029323ef25"
-    sha256 cellar: :any_skip_relocation, sonoma:         "552ed018f385f576d5bb82b09ea05eb26c6bafd8dd7c8d5fc205dc0c7b10d357"
-    sha256 cellar: :any_skip_relocation, ventura:        "359f68c2b538fcab2420cd81e318ebfd2d51b81e62785332338adc8cbac00092"
-    sha256 cellar: :any_skip_relocation, monterey:       "622bd636ac2268e8b62856d64271dd9a84f754953389206d1f4985cfe81142ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e142fab7c9e746c959f1fce44a77096cbc163156244b369b5c191142994ed950"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c005a4382d22f78624a2de2f7f51e114780900b48fb9090a57f3d39659ab3d40"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58665f7ecd5055c7d84b70d39acae42cf75971e851dfd1126e49cb26b7994a9f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe26c1c839ca8dcdd56afc542ccc774bd0547f739a84b91a579c4d048263ee5d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "414b71890ba0487df6f22de62576e5c69deff767849ae24ebc4953ec1c3dd1f5"
+    sha256 cellar: :any_skip_relocation, ventura:        "9ab40931a94a71f8f32102c6273ac7b4c5e77d1b4356ce64c8320f5c358d7147"
+    sha256 cellar: :any_skip_relocation, monterey:       "c99d7ed827ac523a3b28ac159c3393308bff89572e20d16c04c9258430e936e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45c2617f5232f7523ac87ec077d8291427ff60c985cf889771393048c13f1f55"
   end
 
   depends_on "go" => :build
