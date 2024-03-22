@@ -1037,6 +1037,7 @@ libgit2@1.6
 libgpg-error
 libgr
 libgsf
+libgweather
 libhandy
 libidn2
 libint
