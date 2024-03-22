@@ -6,14 +6,13 @@ class Gtranslator < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "5fb14d2c828cbb684b8f302ad56478eb5988b0c0c6b7f92dbdf8bf8bc7b514ce"
-    sha256 arm64_ventura:  "bc7c2ce82bf3cf452077bcfd2906a8fea222560f59621bccd82655025f407943"
-    sha256 arm64_monterey: "67467375492e60ae25f7f48f376c73a5b7f19054b0aac5407cb14b77a75eda62"
-    sha256 sonoma:         "de8b1397f02ab800154c23fab0e5fa949077beaf695bcc3ba4eb8b26c4f3a9b7"
-    sha256 ventura:        "15b87f6323d70be30998ce0a5e60875916fb0864d52e3240cd18538ecf75e279"
-    sha256 monterey:       "81157827b02db1fef21645f3f51144f4bf263f7c94452581e087713f39c845d3"
-    sha256 x86_64_linux:   "74977dc28b39a0f2de7d5157094fd40acbb46fdbb4ad531b61f540a36a7e59ce"
+    sha256 arm64_sonoma:   "c3aec870cba9a26a2c1502bb869d897507f561598aae8f33e52b5cd67d1a0916"
+    sha256 arm64_ventura:  "f61d1c7b389c657772f13a98c1570712363f9ff5e34a14cc77ba6efcfcb92a0a"
+    sha256 arm64_monterey: "175c4f43fbcd01432c50c97aaa89a575fab1929375bd58fb8744f835e5880661"
+    sha256 sonoma:         "a4ad0b2b63cbab5ed8be710d95f0ba4a19354ffb9cf9a6ab639f4a1ef5e6ee3c"
+    sha256 ventura:        "359a9191f2669986dd391d81a3a0309cd0d64ff0f68d055ae82e91f2b6a520b2"
+    sha256 monterey:       "61727b32df792e2f5f8bf6ea99436dd713dcda77d08abd42bcf2c378d890b216"
+    sha256 x86_64_linux:   "912e28944db7258f1fc4808d7f7997273046c44f6da573011ae68192623fa67f"
   end
 
   depends_on "itstool" => :build
