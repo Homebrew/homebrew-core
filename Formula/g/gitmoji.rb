@@ -8,13 +8,13 @@ class Gitmoji < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "199c718a205424ad652e14c40375e4ef9b7c7e6609183395318fcd8ca1be3f66"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "199c718a205424ad652e14c40375e4ef9b7c7e6609183395318fcd8ca1be3f66"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "199c718a205424ad652e14c40375e4ef9b7c7e6609183395318fcd8ca1be3f66"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5c5fe3c35a14457bf063d72c12ff2ab2c27058c4a349a7279cb71b50846a26e7"
-    sha256 cellar: :any_skip_relocation, ventura:        "5c5fe3c35a14457bf063d72c12ff2ab2c27058c4a349a7279cb71b50846a26e7"
-    sha256 cellar: :any_skip_relocation, monterey:       "5c5fe3c35a14457bf063d72c12ff2ab2c27058c4a349a7279cb71b50846a26e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "199c718a205424ad652e14c40375e4ef9b7c7e6609183395318fcd8ca1be3f66"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e19fe318795ce8b4ebef24b473b9a84786416e765117801105fc7220a25442f1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e19fe318795ce8b4ebef24b473b9a84786416e765117801105fc7220a25442f1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e19fe318795ce8b4ebef24b473b9a84786416e765117801105fc7220a25442f1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "77931c35535978ab873c655f5710652a2c660b9b8347e8710584cefd0e1f5d42"
+    sha256 cellar: :any_skip_relocation, ventura:        "77931c35535978ab873c655f5710652a2c660b9b8347e8710584cefd0e1f5d42"
+    sha256 cellar: :any_skip_relocation, monterey:       "77931c35535978ab873c655f5710652a2c660b9b8347e8710584cefd0e1f5d42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e19fe318795ce8b4ebef24b473b9a84786416e765117801105fc7220a25442f1"
   end
 
   depends_on "node"
