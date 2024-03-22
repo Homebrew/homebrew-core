@@ -1,8 +1,7 @@
 class Influxdb < Formula
   desc "Time series, events, and metrics database"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
-  # When bumping to 3.x, remove from `permitted_formula_license_mismatches.json`
-  # and update license stanza to `license any_of: ["Apache-2.0", "MIT"]`
+  # When bumping to 3.x, update license stanza to `license any_of: ["Apache-2.0", "MIT"]`
   # Ref: https://github.com/influxdata/influxdb/blob/main/Cargo.toml#L124
   url "https://github.com/influxdata/influxdb.git",
       tag:      "v2.7.5",
