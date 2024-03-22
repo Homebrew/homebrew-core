@@ -1217,6 +1217,7 @@ mysqltuner
 n
 naabu
 nagios
+nagios-plugins
 nanoflann
 nativefier
 nats-server
