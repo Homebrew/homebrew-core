@@ -27,6 +27,10 @@ permissions:
 jobs:
   tap_syntax:
     if: github.repository_owner == 'Homebrew'
+    strategy:
+      matrix:
+        stable: [false, true]
+    name: tap_syntax${{ matrix.stable && ' (stable)' || '' }}
     runs-on: ubuntu-22.04
     container:
       image: ghcr.io/homebrew/ubuntu22.04:master
@@ -40,13 +44,14 @@ jobs:
           core: true
           cask: false
           test-bot: true
+          stable: ${{ matrix.stable }}
 
       - name: Cache style cache
         uses: actions/cache@v4
         with:
           path: /home/linuxbrew/.cache/Homebrew/style
-          key: style-cache-${{ github.sha }}
-          restore-keys: style-cache-
+          key: style-cache-${{ matrix.stable && 'stable-' || '' }}${{ github.sha }}
+          restore-keys: style-cache-${{ matrix.stable && 'stable-' || '' }}
 
       - run: brew test-bot --only-tap-syntax
 
