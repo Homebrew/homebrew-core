@@ -1,8 +1,8 @@
 class Star < Formula
   desc "Standard tap archiver"
   homepage "https://codeberg.org/schilytools/schilytools"
-  url "https://codeberg.org/schilytools/schilytools/archive/2023-09-28.tar.gz"
-  sha256 "564ea2365876a53eba02f184c565016399aee188c26d862589906cf3f92198e6"
+  url "https://codeberg.org/schilytools/schilytools/archive/2024-03-21.tar.gz"
+  sha256 "4d66bf35a5bc2927248fac82266b56514fde07c1acda66f25b9c42ccff560a02"
   license "CDDL-1.0"
 
   bottle do

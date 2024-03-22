@@ -1648,6 +1648,7 @@ srtp
 sshs
 stackql
 stanford-corenlp
+star
 starship
 staticcheck
 statix
