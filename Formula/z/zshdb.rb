@@ -15,7 +15,7 @@ class Zshdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cd141e76881226d00c069ea1ae725e69d836ec2f7413713d421bcd616ac2390d"
+    sha256 cellar: :any_skip_relocation, all: "642ce820ac874107e1e57211b1ddc3b34df5da556da39706cdd5fb8f3bee9c26"
   end
 
   head do
