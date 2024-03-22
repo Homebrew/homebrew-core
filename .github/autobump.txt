@@ -1227,6 +1227,7 @@ nats-server
 nats-streaming-server
 naturaldocs
 navi
+nco
 ncspot
 ncview
 needle
