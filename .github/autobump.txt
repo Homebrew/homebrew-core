@@ -18,6 +18,7 @@ age-plugin-yubikey
 agg
 aichat
 ain
+aiven-client
 alda
 algol68g
 aliddns
