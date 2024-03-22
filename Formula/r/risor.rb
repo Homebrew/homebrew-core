@@ -12,13 +12,13 @@ class Risor < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6531b4abc3b2a7f209dbb5f5e40062fbb0afe62a4f07567f42b783ff0c07e512"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fac4a685dbe80a2e883bb907dc2b36c6025a19e0999804c574a71ec81ed20739"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7466ee0c58b12d8ebb5e32d46b9bf8f7061fa165b399b6efb29e8ccf386e91a6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7171a47ba6281252f2952b7990bfd2e51b3da687b9d2877e7728faec6c0eacb5"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3510618a85f3fa9b56eb568ad41ac36d994936ee643e517e98936f80d82d3fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "3055391d90fc0be77558a140e0cb40717ba85fd1657295cc667affc87894239b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba1b61561d60256714868dead5a4988e34bbef03711ce6cc48b5ff724daaea45"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6e10093a772175510e9a7a820df26788009d9a839f62cc9bea6b5c4b399c56e6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e17fa54b9b965edd9188d57ae7247617b06d2e040536c9c599f05a6eb3e6065"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6dd5686c3c0919eb8a94e79dc474c5184725d7347e31461b2740cc619d55a595"
+    sha256 cellar: :any_skip_relocation, sonoma:         "68967a779ce719959a7e1b596e2feb7d0e0251161ab498650f249990d671f8b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "f1bfe3fcdba3e267603f0b62636f0eb30d903c0d952f7caeb6ec6bd4e461dfac"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa4d60660f32332d790f0c4206fe703c4ce7120fbb75de79d38afb58ddbd22bf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9d6ca86f522c45438f60cc399aa1ddba34cd78eaf74ffbe07a0367482c0d965"
   end
 
   depends_on "go" => :build
