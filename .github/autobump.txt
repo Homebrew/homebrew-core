@@ -1073,6 +1073,7 @@ libunibreak
 libunwind
 libuv
 libvirt
+libwpe
 libx11
 libxaw3d
 libxcursor
