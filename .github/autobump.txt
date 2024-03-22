@@ -760,6 +760,7 @@ glfw
 glib
 glib-networking
 glibmm
+glibmm@2.66
 glm
 global
 glooctl
