@@ -1089,6 +1089,7 @@ linkerd
 linode-cli
 linux-headers@5.15
 liquibase
+lit
 little-cms2
 livekit
 llm
