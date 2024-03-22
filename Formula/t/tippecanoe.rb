@@ -1,8 +1,8 @@
 class Tippecanoe < Formula
   desc "Build vector tilesets from collections of GeoJSON features"
   homepage "https://github.com/felt/tippecanoe"
-  url "https://github.com/felt/tippecanoe/archive/refs/tags/2.51.0.tar.gz"
-  sha256 "bd7fa0b06aac2f487011193cc9b1954ef91fe622ad2926cdd574b6548b818fc0"
+  url "https://github.com/felt/tippecanoe/archive/refs/tags/2.52.0.tar.gz"
+  sha256 "f6ebea5c7ec134908265ff1a46a3b0dde8aac9598458ed0bd38c5e40bad16b07"
   license "BSD-2-Clause"
 
   bottle do
