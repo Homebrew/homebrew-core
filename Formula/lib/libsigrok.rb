@@ -41,13 +41,13 @@ class Libsigrok < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "37d478b2931cc0a867bddf809ff526f904b31a2c552b9a73bcf7266b53c54b99"
-    sha256                               arm64_ventura:  "bd6638d92a24c33194836a5ee9dd1ceeacc5fb533f72ef8d2123b57fe5a0402c"
-    sha256                               arm64_monterey: "e20d11b6d5ca4ea09eccb73c5c16f60cc1db8d1a237801aff7683864f1e23fa4"
-    sha256                               sonoma:         "6a25a2b67f7860b77fe5e64adc84d9aa65222ee4721fe581838c6c4b74ecaacc"
-    sha256                               ventura:        "2e1090286c68cfa6de1d44ebc472b647c2e0ee2e3f120f3bfec152b51bcb8dd7"
-    sha256                               monterey:       "656de95db6201cff53404f88f21a20d5e96fa696c04979daa17b78de1b57c8c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50da94aa58cfdb4027684b8a5288469d5902edff8ea6c62101aaa9f477195948"
+    sha256                               arm64_sonoma:   "2b4fba5fab7b14eb6353ba0b46011834e532aa86cf1025caf93574b7c44ca3bf"
+    sha256                               arm64_ventura:  "f34fc56616368f574610435653d7d075ca4a0c1c308faadbfcb11b35dd60bc0e"
+    sha256                               arm64_monterey: "96f681f1de2c5bc55cc716ff81ed739f81e119598cc9b2825d6b32d888ba24a1"
+    sha256                               sonoma:         "3fee2ccdeac69c721c42813728cfb2b42967069f2beb75c90e8d813ae51bb57e"
+    sha256                               ventura:        "fc0b38abdc6cc5b9493dfdcc512a0a6efa222319a2f98f210f7a01f0fc420d76"
+    sha256                               monterey:       "c850c19abe5a14bdb3523870a8ea16d49a86add71543fa7e8660e52c9d5506b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9766522977b12741bdd678ef04274aa748e3a42c627d8b62772a9fec0f2ab19"
   end
 
   head do
