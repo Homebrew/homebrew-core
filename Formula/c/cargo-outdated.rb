@@ -1,10 +1,13 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
-  # TODO: check if we can use unversioned `libgit2` at version bump.
-  # See comments below for details.
-  url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "4aea3dcbbf4b118c860ac29a2e66608f226c485ae329a9bfc73680967920589e"
+  # We use crates.io url since the corresponding GitHub tag is missing. This is the latest
+  # release as the official installation method of `cargo install --locked cargo-outdated`
+  # pulls same source from crates.io. v0.15.0+ is needed to avoid an older unsupported libgit2.
+  # We can switch back to GitHub releases when upstream decides to upload.
+  # Issue ref: https://github.com/kbknapp/cargo-outdated/issues/388
+  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.15.0.crate"
+  sha256 "0641d14a828fe7dcf73e6df54d31ce19d4def4654d6fa8ec709961e561658a4d"
   license "MIT"
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
 
@@ -21,17 +24,13 @@ class CargoOutdated < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  # To check for `libgit2` version:
-  # 1. Search for `libgit2-sys` version at https://github.com/kbknapp/cargo-outdated/blob/v#{version}/Cargo.lock
-  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
-  #    - Migrate to the corresponding `libgit2` formula.
-  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
-  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
-  depends_on "libgit2@1.6"
+  depends_on "libgit2"
   depends_on "openssl@3"
 
   def install
-    ENV["LIBGIT2_SYS_USE_PKG_CONFIG"] = "1"
+    system "tar", "--strip-components", "1", "-xzvf", "cargo-outdated-#{version}.crate" if build.stable?
+
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     system "cargo", "install", *std_cargo_args
@@ -75,7 +74,7 @@ class CargoOutdated < Formula
     end
 
     [
-      Formula["libgit2@1.6"].opt_lib/shared_library("libgit2"),
+      Formula["libgit2"].opt_lib/shared_library("libgit2"),
       Formula["openssl@3"].opt_lib/shared_library("libssl"),
       Formula["openssl@3"].opt_lib/shared_library("libcrypto"),
     ].each do |library|
