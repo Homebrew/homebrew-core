@@ -11,13 +11,13 @@ class Graphicsmagick < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0e381f4e58aa3b359e8e67b1c498074c1e99f414f16b3d72b3e5c0a8e8768790"
-    sha256 arm64_ventura:  "25962c0477d4d5a586677f071f025ec784bbd97f04d7cfb6d47af9d2d8b66c33"
-    sha256 arm64_monterey: "ff7defdce2e26469cdd7fe3eb2a9e1adb6aa7727fbc0f123aef0ef00590e2758"
-    sha256 sonoma:         "96a3ec593c14be38d54c6112fd2eb61494a67895cc1ede13643b954851de2817"
-    sha256 ventura:        "48c7e7f1f67f2dba081e48ad378e84e2a0b92ca720750965a3b81fb64596d580"
-    sha256 monterey:       "39c7e04ca7fd33dc55d7de30efd082090262f149a496a4e34efdab12281d56ef"
-    sha256 x86_64_linux:   "e26fa2ea455f009f9c5e886f04036b6098811c3a023936fc23f60d86f713d1fe"
+    sha256 arm64_sonoma:   "143e614c74346301ca2ea5184eb12bc341ede5a857ee7d8376db6ba2c351775d"
+    sha256 arm64_ventura:  "2d0c6fbcaf499d7e3f88f7ad1faed386505d2b1c2ed834325cda01dfa65a3658"
+    sha256 arm64_monterey: "6414650deb92aad45128e73dd3915f49e5060f9efe92fad6ef0efaec85612f62"
+    sha256 sonoma:         "47bdb7effd130ce0335a4456ac59891ba24efef266a07484889764660d8d4588"
+    sha256 ventura:        "bfa12ae1ec6863ecf89525980eeb678429c3c107ee14893c52ef6d69b0bfaebd"
+    sha256 monterey:       "3060c0efd9b1fe8a838b7c64f105fa7ad42af3148e13765a66d766a05b5e4a21"
+    sha256 x86_64_linux:   "602d33b627591740d12f6da5a1fb5c864d177c613d514127f92cdd601de6637d"
   end
 
   depends_on "pkg-config" => :build
