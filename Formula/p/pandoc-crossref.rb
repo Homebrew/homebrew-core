@@ -7,13 +7,13 @@ class PandocCrossref < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "21c84225580dc02889ea17f9479b01db391670b031d84fd3f8b13eb7768a49eb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a377448e3dfc6f3740cd609b69d45e074230f02fb4859c8b301bc0bea8626e8d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fbc6aa9b3cf63659ae9a958e6263b2da8095fbf4dbddc9be28e5eabe4a6d228d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "603299ffca0fbdcc17162826001511e1a6115e5bddf1ef2fea36677f7328b006"
-    sha256 cellar: :any_skip_relocation, ventura:        "3ae8a2e72518d5dc7dd116ec12dcdbd95575cc4629d9a3a9ace488d9933a7cdf"
-    sha256 cellar: :any_skip_relocation, monterey:       "d4b1f9e019dbb582ea569c71d7c98ca366d98a46b06a3573f5ddd51ce775019d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89065c0766d3c23c39a8ae1c03d370e6226055ffdb57401589c1e6a60e75bfb5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "04516489216ed22923ad1b4bb7c7532cd11cf116402b17cd890b8287e0a6ac14"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "64e3a543705b5e1b5cab8acd69e8c306d702ce2aad59491fd8faa2bbe211398d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "49e731fa6278f8abaabe8956b876bae09d0e13371be8d05a68b439a0882a2906"
+    sha256 cellar: :any_skip_relocation, sonoma:         "325a640b2db90d48a50ec6b9bba87949bfba4ec35d4961d28d72fe399732e0eb"
+    sha256 cellar: :any_skip_relocation, ventura:        "523b3f8b631b6cb939ee2af7c0b1d4598b14686522a4d1ffc11e9a7a80599eaf"
+    sha256 cellar: :any_skip_relocation, monterey:       "1520602ad949cec9f922f4f61a922b8a1f65820b5c745b74f21b0722444fb68c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "df39eeead5ff678db8e3714cd3977f92c73b826ad9139f9d3a222e4d33540dbe"
   end
 
   depends_on "cabal-install" => :build
