@@ -429,6 +429,7 @@ daemon
 dafny
 dagger
 daq
+dar
 darkhttpd
 darkstat
 dart-sdk
