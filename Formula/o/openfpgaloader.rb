@@ -7,13 +7,13 @@ class Openfpgaloader < Formula
   head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "e01a215c16c41140fcbda7940a95cefdcdd7fdc941390238fbaf6f842c8a766a"
-    sha256 arm64_ventura:  "7ea2d9905a30cdb7e3300b33a2e3284cbdc72f4a844a027dac37f20488ca4120"
-    sha256 arm64_monterey: "83e2cd627e0bec7218c3d02f65c70e72f96deeffd01a651be8fe8dc1c8e0a2e3"
-    sha256 sonoma:         "99fea384a000bf86855732b406ff2fdee7cba5ed2a04508b5fb8efa9a66f373c"
-    sha256 ventura:        "0603023f401d5d8fefd723f9fc15a4cb5fe28236a418d8ddf6213fb088b60383"
-    sha256 monterey:       "4abe25c4379a4c5088456799e742b1d5e07f6701eb2e298361c32dd7934a9947"
-    sha256 x86_64_linux:   "dcad59c7d6df1562f7d9d8c183e0dcd74f10d20d24d01ac945b988ae4d02e3f7"
+    sha256 arm64_sonoma:   "4ea5de1bb729263aca9cd5a02f905bce83f33cd254066092f7743ddf8eee71f7"
+    sha256 arm64_ventura:  "78f4b3627bd8442931c6eb2aee3710f9e85440797401e111c0026e681e287e71"
+    sha256 arm64_monterey: "c39f654334abcaca0a6f06be85d10e84e1e11f17d87a1604c18c7e166d5b213d"
+    sha256 sonoma:         "e9a77b3de0e081a047a27bcc61a998ea29f8f405865563a8221f0748df31cbb0"
+    sha256 ventura:        "2ff894e1bbcd97e5e503e248fa3531484d0c78acf89516ceeca947877de888db"
+    sha256 monterey:       "fb2c87e13038d1e85d50ebc0981803684d58105253ed6eaf96b92ca13bfb596b"
+    sha256 x86_64_linux:   "6ba7e9b4d370b1ff5165c94f716e3a97542747da12ff7083d3bf76b75e42f24f"
   end
 
   depends_on "cmake" => :build
