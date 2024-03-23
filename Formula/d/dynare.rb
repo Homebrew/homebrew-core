@@ -92,6 +92,12 @@ class Dynare < Formula
     ENV.cxx11
     ENV.delete "LDFLAGS" # avoid overriding Octave flags
 
+    # Work around Xcode 15.0 ld error with GCC: https://github.com/Homebrew/homebrew-core/issues/145991
+    if OS.mac? && (MacOS::Xcode.version.to_s.start_with?("15.0") || MacOS::CLT.version.to_s.start_with?("15.0"))
+      ENV["LDFLAGS"] = shell_output("#{Formula["octave"].opt_bin}/mkoctfile --print LDFLAGS").chomp
+      ENV.append "LDFLAGS", "-Wl,-ld_classic"
+    end
+
     statistics = resource("statistics")
     testpath.install statistics
 
@@ -107,6 +113,6 @@ class Dynare < Formula
     EOS
 
     system Formula["octave"].opt_bin/"octave", "--no-gui",
-           "-H", "--path", "#{lib}/dynare/matlab", "dyn_test.m"
+           "--no-history", "--path", "#{lib}/dynare/matlab", "dyn_test.m"
   end
 end
