@@ -1037,6 +1037,7 @@ libclc
 libcoap
 libcouchbase
 libdap
+libdeflate
 libdnet
 libepoxy
 libffi
