@@ -6,15 +6,13 @@ class Kalker < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43fcf01ea69f721a3dc86165bc9597dd5e76f1926744275b838c2112220e6b6f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ee4036b4dc8dc9c6d7d8f6d8555a69b004226ec25049a7aab3624cca34b43fd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a8fef02b3300ca11f60b4b6c8ecf0af6ab95f964cb3b067ba34bd7b39396ba3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "85ffdc1c6fb323a24b572e1d39dd91ebd3d45822cf4dec31be3f34603f415a33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a662cdc7a510916f83b5883f06748fd2ac506e1caf92364f8db8eed47fbecbcc"
-    sha256 cellar: :any_skip_relocation, ventura:        "c09066ae27648232ce2854359c01b16ec2c05205dc318435524b9470279a4b87"
-    sha256 cellar: :any_skip_relocation, monterey:       "ed288790e1bb931223e9edd5aaca90562595058f9edf6f2ce726c225e2caecd4"
-    sha256 cellar: :any_skip_relocation, big_sur:        "73232c8f4c1fcb92010d8620ca76bded2da5f1a8040353a4d0320983b4d247d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0698d25d84770b0c1649370a0afa23fe32cca3bf3007d5418034d4e8c45bd38"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df9a3aba5106e5a42ad972de1a182e344462ff84ef805c90ccc59fd35d00b424"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36d049322f8205a07a6112bb2559342ec68f3e44e58a978ef6dd7bc82e263468"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9005072c3b8ade326668bbffb1ed3a02b155302f9863fbbc8c1c512f9221fb13"
+    sha256 cellar: :any_skip_relocation, sonoma:         "45bcd564f719d9a12abfc9b76208672b3e70e78ead9b9657d794f80a2e931565"
+    sha256 cellar: :any_skip_relocation, ventura:        "190bf3ce48f31cdc23c8d89a6988ecab7478374bca2074f7c9931faed20933e3"
+    sha256 cellar: :any_skip_relocation, monterey:       "69b6be5da4873ad19510e3bc9c2b669d5fc57a85e713b28443cc17e64011a2a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fd191b77ff17574f709b95ef157d9d15bdfcd510c46a91b0c92f64911fa81d9"
   end
 
   depends_on "rust" => :build
