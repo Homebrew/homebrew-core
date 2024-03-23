@@ -4,7 +4,7 @@ class Yosys < Formula
   url "https://github.com/YosysHQ/yosys/archive/refs/tags/yosys-0.39.tar.gz"
   sha256 "a66d95747b21d03e5b9c274d3f7cb0f7dd99610891dd66920bfaee25bc30dad1"
   license "ISC"
-  head "https://github.com/YosysHQ/yosys.git", branch: "master"
+  head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
   bottle do
     sha256 arm64_sonoma:   "b6e2be927cef62f7e8804abe1c64b22bac7d1f4aee64342c051192c813f53642"
