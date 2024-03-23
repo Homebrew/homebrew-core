@@ -7,13 +7,13 @@ class CargoDeny < Formula
   head "https://github.com/EmbarkStudios/cargo-deny.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "668f8ef575e8268eeee10d86f8c732809e047d4bd5d67ba87a9700389e4a3bf0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ee9c72c399b1ebd1e82089e4f51d5b34c83e80bd08409441984a0b3c14b95927"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "33704a0b11c348d01ee9f7804e5f7610a750cb0ff6992e0f14af2f1bf788962e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dc33107e4e111707b94d773d62258610b2645543501030aaba20eabca9087884"
-    sha256 cellar: :any_skip_relocation, ventura:        "c11cf532e305c5aad94e76a70186bccf042f2896103cf51c8571bead4c9fe4ce"
-    sha256 cellar: :any_skip_relocation, monterey:       "a9f3ab5a9a42e078275bd5006f3eb446500a1f4998f61b3907278ed4746fdfa7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2eb38089439c4028cce74cf3253e479080f581fdb6ceeb24b24dad23d76a16ac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1eb9ce53afe43f51e06a0eff18bf19354570353bb76f8bb8f9817f561442c9e2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "238446a565199e5b086480be92f1cd1a0324ae73be4b1292ba5fc672ab2101b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd72fa2505dd9efd469bcc97c60599e46d4038f056aa9016f85187260cb6ec93"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ca3b8f0631e2b1fca5742e33c29cd8d348cbf682350713f6c0f093cd1a9dc6f6"
+    sha256 cellar: :any_skip_relocation, ventura:        "f33fda65aff26d442df9120061b4c8d24a60de2338c0dda195a578f042c78f03"
+    sha256 cellar: :any_skip_relocation, monterey:       "47e7b027ad5d68075fe32e00b3091f67d6c7f22ce16d855a1d75632ba6209747"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "155e6448213268bd049f5b990bcec56825fa271bc588e5e327d10444d994b53a"
   end
 
   depends_on "pkg-config" => :build
