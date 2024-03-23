@@ -31,6 +31,7 @@ class Vips < Formula
   depends_on "fontconfig"
   depends_on "gettext"
   depends_on "glib"
+  depends_on "highway"
   depends_on "imagemagick"
   depends_on "jpeg-xl"
   depends_on "libarchive"
@@ -46,7 +47,6 @@ class Vips < Formula
   depends_on "openexr"
   depends_on "openjpeg"
   depends_on "openslide"
-  depends_on "orc"
   depends_on "pango"
   depends_on "poppler"
   depends_on "webp"
@@ -58,9 +58,6 @@ class Vips < Formula
   fails_with gcc: "5"
 
   def install
-    # workaround for Xcode 15.3, upstream bug report: https://github.com/libvips/libvips/issues/3901
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
     # mozjpeg needs to appear before libjpeg, otherwise it's not used
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["mozjpeg"].opt_lib/"pkgconfig"
 
