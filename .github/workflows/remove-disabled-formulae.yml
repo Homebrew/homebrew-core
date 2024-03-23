@@ -2,6 +2,8 @@ name: Remove disabled formulae
 
 on:
   push:
+    branches:
+      - master
     paths:
       - .github/workflows/remove-disabled-formulae.yml
   schedule:
