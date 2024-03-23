@@ -1,8 +1,8 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.3/geeqie-2.3.tar.xz"
-  sha256 "cd5cad97f8d0e8c62025334d62688fcf6f82be73a7716c5ca16b205d59b8519b"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.4/geeqie-2.4.tar.xz"
+  sha256 "f2b7d1290786fdd1afec09bbe0217f327ff1ee7c80363563e8a108d03aec77da"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -49,12 +49,6 @@ class Geeqie < Formula
 
   uses_from_macos "python" => :build
   uses_from_macos "vim" => :build # for xxd
-
-  # macos build patch
-  patch do
-    url "https://github.com/BestImageViewer/geeqie/commit/4a9376a78d258ff11e9db33985abbfb9a7be614c.patch?full_index=1"
-    sha256 "f9c49cec18cbeb9e764e7ed51cdbeec005f5dbcf99efc26f7e254bb32be1acc9"
-  end
 
   def install
     system "meson", "setup", "build", "-Dlua=disabled", *std_meson_args
