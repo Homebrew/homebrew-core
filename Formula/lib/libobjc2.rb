@@ -6,7 +6,7 @@ class Libobjc2 < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ba344263f90c949f7be3cf48ac100e83eb0fe062f5b770cd688b2b84b6f3ece4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7b71a49e26e6f376aea15f25c584ba70da3ea0c4cfbb7eaa0e66a52eb300ccb9"
   end
 
   depends_on "cmake" => :build
