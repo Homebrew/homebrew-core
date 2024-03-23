@@ -4,8 +4,8 @@ class CabalInstall < Formula
   # TODO: Try removing --constraint in next release of `cabal-install` or `ghc`.
   # GHC 9.8.1 includes Cabal 3.10.2.0 which has an issue building Objective-C sources.
   # Issue ref: https://github.com/haskell/cabal/issues/9190
-  url "https://hackage.haskell.org/package/cabal-install-3.10.2.1/cabal-install-3.10.2.1.tar.gz"
-  sha256 "d53620c5f72d40d7f225af03f9fe5d7dc4dc1e5b4e5297bace968970859f8244"
+  url "https://hackage.haskell.org/package/cabal-install-3.10.3.0/cabal-install-3.10.3.0.tar.gz"
+  sha256 "a8e706f0cf30cd91e006ae8b38137aecf65983346f44d0cba4d7a60bbfa3da9e"
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "3.10"
 
