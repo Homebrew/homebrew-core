@@ -753,6 +753,7 @@ gitoxide
 gitql
 gitsign
 gjs
+glances
 glassfish
 glasskube
 gleam
