@@ -1113,6 +1113,7 @@ locust
 log4cxx
 logstash
 lout
+lsd
 lsof
 luajit
 luarocks
