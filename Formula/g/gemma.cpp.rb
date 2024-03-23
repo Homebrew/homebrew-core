@@ -9,7 +9,7 @@ class GemmaCpp < Formula
   depends_on "sentencepiece"
 
   def install
-    system "cmake", "--preset", "make", *std_cmake_args
+    system "cmake", "--preset", "make", *std_cmake_args, "-DCMAKE_INSTALL_RPATH:STRING=#{rpath}"
     system "cmake", "--build", "--preset", "make"
     bin.install "build/gemma"
     lib.install "build/libgemma.a"
