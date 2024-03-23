@@ -15,13 +15,13 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "1034b3e02b4e9a6d8755d17e1fd7b58e3f42d1865b07c8e84382b12d6f7c2933"
-    sha256 arm64_ventura:  "b068deaf56c2554e43e1339f2f2132a576d8ad2bbb4b75f248a0683c5e3af466"
-    sha256 arm64_monterey: "c17220806985701e1d408266ffe12c791688d13b897acb9f31c413ddfee85793"
-    sha256 sonoma:         "bdb9f8e6efb6bfbe4c34090eac928d4fbc91c221a13e6798c10ebff1441a5db0"
-    sha256 ventura:        "eacdb33052e3581539f70d7be1b9c53a877e084369a095fe45d5bbd25fbbe73d"
-    sha256 monterey:       "7419a2076d552f96b05ffd1373674661f46d7de03a970f2b28e9c30ffc40f114"
-    sha256 x86_64_linux:   "f5c89f6cb26266e314d2918ac09b5179affde7febe817ee671f54d7bfa833b53"
+    sha256 arm64_sonoma:   "c0e3b1658deeb3be2605a127f76e570825a42a876b08b74a9c98e0bc60af459d"
+    sha256 arm64_ventura:  "2c5bbf702bf4eb17c76e37aa6e672579924350a2317a74b8b706beb0c496da09"
+    sha256 arm64_monterey: "f79169679d11f185d863c4356388acbe2d953323ac281416db5b1bf6b3fb2079"
+    sha256 sonoma:         "24df1e7892e1c2c7d0aa0949cb0f44fb9a831cd9af12e44a56b4c3a9b84a43a9"
+    sha256 ventura:        "065db32c758ca9cb33cb2362559c51e136d797962db8219f0f3d45e5c745e276"
+    sha256 monterey:       "633bb63c92d310ce88d56b9f9889bcdcf2fb4f44503af9d7af8fbbcfa50ecaa2"
+    sha256 x86_64_linux:   "348b047a1f7f1c5b77c9ba684256051a962cf152aa3c75608a4787af404e5466"
   end
 
   head do
