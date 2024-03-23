@@ -6,13 +6,13 @@ class GitTown < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4f6feb69e964100c4da75beb507c1077d781433bb9286a73a37e177866e43b01"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bdea6d2b69c391d699b6f113acf00be2cc33fbe9e4b3cbbd440b45cf77e6e735"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0cd114394ab506e5bd77880e9df3bdf9031cb7f96608acc59d64eafa055c586d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b7056b84cb17ddcd8d11aa30c4877fbdc5d92bd037a075672491123ab50f4d95"
-    sha256 cellar: :any_skip_relocation, ventura:        "035f867ed6cb4d640aa3a950bcf1a691bd307780d03eed590d50f9f3512025eb"
-    sha256 cellar: :any_skip_relocation, monterey:       "a0792c61d78e60194a5de82091e01ea33c4eb0093ddc85e92b7c9beb37641859"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ec18f6b04d66f1b54172e63c31c7f9298b8aa43a2da448f5135bc90f1317017"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0dac7dba597c3574e3044838ef5d70d72459a94fb1046cefae159e86d3b5adf1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d03c5b8daf3c56d836e1c8afe006c340f81750f04426a022d3c7f59e8c117960"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4225325812de062b6bf4ca615b4c9504fe2b1cfc7ede48e011bf724c2c4c9b99"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a1448f632996ca223a9bd1ad136f9ed065b4a856c0ec8d3755cc9426a59ed072"
+    sha256 cellar: :any_skip_relocation, ventura:        "e178b6fca74525ef29bf7bf17cfcb2f797441da7769c8951006e70ccd2e5a3db"
+    sha256 cellar: :any_skip_relocation, monterey:       "22ee79634143885718be402e99cfc96e6d75e1ab3d0cd1fc1c94b7a59cb0c962"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9bb56f27a6bd0e5f195b0f6cc33f388e3f61733c61b82a34c6ec895096211e80"
   end
 
   depends_on "go" => :build
