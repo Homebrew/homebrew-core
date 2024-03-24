@@ -12,13 +12,13 @@ class Libxkbcommon < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a13ecda4aba3adbc8cfe1f9d61df8d1989a5980ebc9894e6bb3bf480374123fc"
-    sha256 arm64_ventura:  "07edab1fe13db03f7d82d80284c3bf7b507b6613a1f4d8f5a2b4c2dcbf28c2c9"
-    sha256 arm64_monterey: "d8ea4549721280adb007fadedaebb0bfbd4138ad6b7bd5bfc6c47cb4b7984948"
-    sha256 sonoma:         "a83354b234ebbbe42a81ebd43d292dc65467350841f1bae38cda424484156063"
-    sha256 ventura:        "a0e88782a77ab70eed79326dd717cef49a9ae17a9ed69f2f87595ab7b3cf7997"
-    sha256 monterey:       "d5b36845c4a3a313335aa6cc08b4a4b1c8715d5d6738d38b0c45bbcb78002ad9"
-    sha256 x86_64_linux:   "9c3ffb1a4833c13c148e2889ad7b509898ff80eca4cf8244391110917c599391"
+    sha256 arm64_sonoma:   "d4dc5666abb07f964a4ea2dcf8bed13d2a1a4ef8035c7001c3f176359d774fae"
+    sha256 arm64_ventura:  "99e8ee1df3f8a3247bc3904f5f5fe1184067b2cb3a826fabcbaef70cf3249219"
+    sha256 arm64_monterey: "bb99be852933c86dfd745e44ac46081140b1f21b9c02ad9fc31f663426384ebd"
+    sha256 sonoma:         "72b44058453e2b5d75b576a9403647f0dc0d76dfd2b0a6cddd31f2e2fac779c9"
+    sha256 ventura:        "83381d671ce4b07cf9232d06ec45e6e051d2090f8525a73f528544f3fa5b8e19"
+    sha256 monterey:       "6958c8a61b2a62205cb3eae70ef088e3d3d2675a74e57bf7c35f23e6b2ee378f"
+    sha256 x86_64_linux:   "3327f58e3610858e97b5675451c67ec2c7cadf16f34419292b4240186b5fa650"
   end
 
   depends_on "bison" => :build
