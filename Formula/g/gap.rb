@@ -30,6 +30,6 @@ class Gap < Formula
     EOS
     system bin/"gap", "m11.gap"
 
-    assert_equal "7920", `cat m11.txt`.strip
+    assert_equal "7920", shell_output("cat m11.txt").strip
   end
 end
