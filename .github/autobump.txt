@@ -1534,6 +1534,7 @@ rqlite
 rswift
 rsyncy
 rsyslog
+rtabmap
 rubberband
 ruff
 ruff-lsp

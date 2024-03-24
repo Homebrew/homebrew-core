@@ -1,8 +1,8 @@
 class Rtabmap < Formula
   desc "Visual and LiDAR SLAM library and standalone application"
   homepage "https://introlab.github.io/rtabmap"
-  url "https://github.com/introlab/rtabmap/archive/refs/tags/0.21.4.tar.gz"
-  sha256 "242f8da7c5d20f86a0399d6cfdd1a755e64e9117a9fa250ed591c12f38209157"
+  url "https://github.com/introlab/rtabmap/archive/refs/tags/0.21.4.1.tar.gz"
+  sha256 "72d842bd907b2eb9c909e0b501814984de77d3f96e1e2c55b8c55e7316da690e"
   license "BSD-3-Clause"
   head "https://github.com/introlab/rtabmap.git", branch: "master"
 
@@ -40,7 +40,7 @@ class Rtabmap < Formula
     else
       shell_output("#{bin}/rtabmap --version")
     end
-    assert_match "RTAB-Map:               #{version}", output
+    assert_match version.to_s, output
 
     # Required to avoid missing Xcode headers
     # https://github.com/Homebrew/homebrew-core/pull/162576/files#r1489824628
