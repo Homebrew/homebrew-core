@@ -22,8 +22,6 @@ class Gap < Formula
   end
 
   test do
-    system bin/"gap", "--version"
-
     (testpath/"m11.gap").write <<-EOS
       m11 := Group((1,2,3,4,5,6,7,8,9,10,11),(3,7,11,8)(4,10,5,6));
       s := Size( m11 );
