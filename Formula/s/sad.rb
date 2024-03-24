@@ -7,15 +7,13 @@ class Sad < Formula
   head "https://github.com/ms-jpq/sad.git", branch: "senpai"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fdfdadb1427daffaa162ec8e3d3bb59e5800bcea3f9a6752c889777d58a2a5d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "11cc4875f8a0e61f5460c32b690b3383a05977c1781757eb5fb2d4f1f0af551f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6e1baefaec3e780a624158013dc5f43363402d814f285cf6b6695acf1865b9af"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "1604ed184a03f92bf1fa7d8305b8160b3976b5e4a3239efdde084b595d880ae1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e88274e8bcd5288ba6180b48bbc43ddf1e9a11654be75b472f4150dd94f632e4"
-    sha256 cellar: :any_skip_relocation, ventura:        "2fdbada4bd1ff10afcb0701481ab11f939a166c1cec125af80e7b383dbcb442b"
-    sha256 cellar: :any_skip_relocation, monterey:       "db6d9b36c126b985c3e2346b5ce8a6df779e80ee9ce2b8deff4517e5bc0820ec"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8bf2d0ff89c1ea56cec9e067628d57b00be4b143a437bc2cce47d9e8933e01bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2115afbd70c36285540df21c3de43d145570f9cd032ec664d970b609e81efc35"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "39d063216801c2fc39d81678bba8d3e6d581b189d0956f2afd6c0bab0cd986f8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14e19d72473391afd8be374d0a032c316235b067edc65a76745e32c5625e78ec"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "581065af75c51e405e6eea14a333fe5ccc22eaffdf1d09f137c3c1356ba0a31b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4a42140db56e2b78b67b016bb3111ede9d12e779fadfdf0cebe67fa910254746"
+    sha256 cellar: :any_skip_relocation, ventura:        "f0c74d5c5244cda2b3db55c4a8ae610b9d0b560660152c724932a5fc6658925f"
+    sha256 cellar: :any_skip_relocation, monterey:       "184c1599b5c4664a49db0474f2867a0cdfea31335a3232e09490725e9fe8e003"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "60f8d4eeba449a6dcd4ef6131563a2a6010ba5d9d5114af6ec50806a2e8d2706"
   end
 
   depends_on "rust" => :build
