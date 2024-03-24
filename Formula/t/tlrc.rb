@@ -1,8 +1,8 @@
 class Tlrc < Formula
   desc "Official tldr client written in Rust"
   homepage "https://github.com/tldr-pages/tlrc"
-  url "https://github.com/tldr-pages/tlrc/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "900845c56bd87af990f6328b4762762bc7392cb93571080ee52df2c6d0fb9456"
+  url "https://github.com/tldr-pages/tlrc/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "d58977a3239538ddaf8b02a54de867a8ac670c2e5770c85f867d54a2c35b016e"
   license "MIT"
   head "https://github.com/tldr-pages/tlrc.git", branch: "main"
 
@@ -22,14 +22,13 @@ class Tlrc < Formula
   conflicts_with "tldr", because: "both install `tldr` binaries"
 
   def install
-    ENV["COMPLETION_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
 
     man1.install "tldr.1"
 
-    bash_completion.install "tldr.bash" => "tldr"
-    zsh_completion.install "_tldr"
-    fish_completion.install "tldr.fish"
+    bash_completion.install "completions/tldr.bash" => "tldr"
+    zsh_completion.install "completions/_tldr"
+    fish_completion.install "completions/tldr.fish"
   end
 
   test do
