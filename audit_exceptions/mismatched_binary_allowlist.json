@@ -1,7 +1,7 @@
-[
-  "aws-sam-cli",
-  "balena-cli",
-  "faust",
-  "lima",
-  "qemu"
-]
+{
+  "aws-sam-cli": "libexec/lib/python*/site-packages/samcli/local/rapid/aws-lambda-rie-*",
+  "balena-cli": "**/*",
+  "faust": "share/faust/android/app/lib/libsndfile/lib/*/libsndfile.so",
+  "lima": "share/lima/lima-guestagent.Linux-*",
+  "qemu": "share/qemu/*"
+}
