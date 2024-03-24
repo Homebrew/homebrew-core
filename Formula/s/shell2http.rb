@@ -1,8 +1,8 @@
 class Shell2http < Formula
   desc "Executing shell commands via HTTP server"
   homepage "https://github.com/msoap/shell2http"
-  url "https://github.com/msoap/shell2http/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "90aa95c7b7bdb068b5b4a44e3e6782cda6b8417efbd0551383fb4f102e04584c"
+  url "https://github.com/msoap/shell2http/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "17fab67e34e767accfbc59ab504971c704f54d79b57a023e6b5efa5556994624"
   license "MIT"
   head "https://github.com/msoap/shell2http.git", branch: "master"
 

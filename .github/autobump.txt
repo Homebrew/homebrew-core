@@ -1580,6 +1580,7 @@ shaderc
 shadowenv
 shadowsocks-rust
 sheldon
+shell2http
 shellcheck
 shellharden
 shellz
