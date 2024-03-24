@@ -1547,6 +1547,7 @@ rye
 s-search
 s2n
 s3fs
+sad
 saf-cli
 sagittarius-scheme
 samba
