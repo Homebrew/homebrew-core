@@ -14,8 +14,7 @@ class Gap < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure",
-      "--prefix=#{prefix}",
+    system "./configure", *std_configure_args,
       "--with-gmp=#{Formula["gmp"].include}",
       "--with-readline=#{Formula["readline"].include}"
     system "make", "install"
