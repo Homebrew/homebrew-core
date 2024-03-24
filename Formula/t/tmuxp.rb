@@ -8,13 +8,13 @@ class Tmuxp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "33b546050f3b160cca9a29c6056472b0a4382791904e8fe0c86edce4e83dd5df"
-    sha256 cellar: :any,                 arm64_ventura:  "c65360ca7f5d994e80105fee34a7c0a623b6b3e5b8260425344a88934bf1d529"
-    sha256 cellar: :any,                 arm64_monterey: "544b4e4d1b8cf1795ef4bc9d451013f454de999c0b552b79626a262de0266e24"
-    sha256 cellar: :any,                 sonoma:         "382dab9e6973119f28c0de6dc7993a398bde3e2335eb78f7742f8b2915e07aaf"
-    sha256 cellar: :any,                 ventura:        "bbccd707bd9edfebb08751662cc9f8241c04db9406eacf768ca505abb71ce096"
-    sha256 cellar: :any,                 monterey:       "33041bf349569f1156c7f92593ed45b64fc1ae66b9d674fe3c976c4867f5e571"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f85a79d90248dc8ad59d061dacb9daa9bb94b9ce7f2025ba6403c50178bc5cc6"
+    sha256 cellar: :any,                 arm64_sonoma:   "c887c570333fe97adfa46794d0507ed679df3287c3d0e01a6a80e971f9bb4a2e"
+    sha256 cellar: :any,                 arm64_ventura:  "8e3cb79d85485b4da34e0b8033c16ec6d5801324c18653fd9aa9270287ad679e"
+    sha256 cellar: :any,                 arm64_monterey: "943d7067d213a0fcb92a45171c130e77babe55487358831f0793c8d5cdbc408d"
+    sha256 cellar: :any,                 sonoma:         "84adae392346758e60686b8912b17634c1e372026e06d32e8cd1d14d7b520a2c"
+    sha256 cellar: :any,                 ventura:        "1671f2ea358cc060b7853f0deae2d88ee8f6dcb7e70a57d07c0982fb5aea9552"
+    sha256 cellar: :any,                 monterey:       "2ee887892fa1feacbe09e9e135b227aaf6893528db32357d3ec8b3b9a5e30963"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bece2660d5073f3328c7eb3a6a84ae2cae1c4cd486c43ab51b259fe1eac0d5c8"
   end
 
   depends_on "libyaml"
