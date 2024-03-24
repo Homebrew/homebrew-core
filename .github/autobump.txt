@@ -1733,6 +1733,7 @@ tesseract
 testkube
 tfautomv
 tfsec
+tgui
 thanos
 theharvester
 thrift
