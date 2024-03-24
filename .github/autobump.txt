@@ -1484,6 +1484,7 @@ questdb
 quick-lint-js
 quicktype
 quictls
+quill
 qxmpp
 rabbitmq
 radamsa
