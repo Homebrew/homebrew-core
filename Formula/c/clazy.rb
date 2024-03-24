@@ -2,7 +2,7 @@ class Clazy < Formula
   desc "Qt oriented static code analyzer"
   homepage "https://www.kdab.com/"
   license "LGPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://invent.kde.org/sdk/clazy.git", branch: "master"
 
   stable do
@@ -48,7 +48,9 @@ class Clazy < Formula
   depends_on "cmake"   => [:build, :test]
   depends_on "qt"      => :test
   depends_on "coreutils"
-  depends_on "llvm"
+  # TODO: Backport patch for LLVM 18 support
+  # https://github.com/KDE/clazy/commit/be6ec9a3f3e1e4cb7168845008fd4d0593877b64
+  depends_on "llvm@17"
 
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"

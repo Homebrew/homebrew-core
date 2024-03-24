@@ -1,27 +1,14 @@
-class LlvmAT16 < Formula
+class LlvmAT17 < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  # TODO: Remove `six` dependency and `LLDB_USE_SYSTEM_SIX` at next release.
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
-  sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
+  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-17.0.6/llvm-project-17.0.6.src.tar.xz"
+  sha256 "58a8818c60e6627064f312dbf46c02d9949956558340938b71cf731ad8bc0813"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
-  revision 1
 
   livecheck do
     url :stable
-    regex(/^llvmorg[._-]v?(16(?:\.\d+)+)$/i)
-  end
-
-  bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "9bab38bfbe2c1e785fa2fc46929ebf75ca50eb8d20926f1b290ae103f51d4216"
-    sha256 cellar: :any,                 arm64_ventura:  "833e6a2c39b667ecbb39c10f549d7e79187e8c4395c056eebae5439af4eac77c"
-    sha256 cellar: :any,                 arm64_monterey: "8da9dba46e6be61025f2b40e3e67d1c154cddb5db282ee2cc063a9330bf488b9"
-    sha256 cellar: :any,                 sonoma:         "336f479820f2a8fd236ef5c7cdf4d58acdc2b84879fd37586403aec3ef3c134a"
-    sha256 cellar: :any,                 ventura:        "fca6a8c3cde7cf7c6c2038c28a4836b8675d62ebb9c126a29f74c960571ffae0"
-    sha256 cellar: :any,                 monterey:       "9bedaf4519f8bba86b4deb6b3bbf2c1651f204b19d5789425c267c7fc94de80c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "165c4888dd34e3722ade1ea7dc35b2e4aa4ad1ead86e250cc027572862901257"
+    regex(/^llvmorg[._-]v?(17(?:\.\d+)+)$/i)
   end
 
   # Clang cannot find system headers if Xcode CLT is not installed
@@ -32,10 +19,7 @@ class LlvmAT16 < Formula
   # https://llvm.org/docs/GettingStarted.html#requirement
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "swig" => :build
-  depends_on "python@3.12"
-  depends_on "six" # TODO: Remove at next release.
-  depends_on "z3"
+  depends_on "python@3.12" => [:build, :test]
   depends_on "zstd"
 
   uses_from_macos "libedit"
@@ -52,16 +36,12 @@ class LlvmAT16 < Formula
   # Fails at building LLDB
   fails_with gcc: "5"
 
-  # Fixes https://github.com/mesonbuild/meson/issues/11642
+  # Fix arm64 misoptimisation in some cases.
+  # https://github.com/Homebrew/homebrew-core/issues/158957
+  # Remove with LLVM 18.
   patch do
-    url "https://github.com/llvm/llvm-project/commit/ab8d4f5a122fde5740f8c084c8165f51a26c93c7.patch?full_index=1"
-    sha256 "9b01de9708e4eb5cef10c18f25dd42e126306ed8cbd9d9a26bb5fbb91ac7d7a3"
-  end
-
-  # Fix build failure on Sonoma.
-  patch do
-    url "https://github.com/llvm/llvm-project/commit/73e15b5edb4fa4a77e68c299a6e3b21e610d351f.patch?full_index=1"
-    sha256 "b540ef6e3728d7881d95775a163314fac6e2f9207f5d5e8b79c8c73c73ba4dc3"
+    url "https://raw.githubusercontent.com/Homebrew/formula-patches/23704400c86976aaa4f421f56928484a270ac79c/llvm/17.x-arm64-opt.patch"
+    sha256 "0e312207fd9474bd26f4a283ee23d94b334d3ec8732086d30bce95f7c8dc2201"
   end
 
   def python3
@@ -78,7 +58,6 @@ class LlvmAT16 < Formula
       clang
       clang-tools-extra
       lld
-      lldb
       mlir
       polly
     ]
@@ -97,7 +76,6 @@ class LlvmAT16 < Formula
     python_versions = Formula.names
                              .select { |name| name.start_with? "python@" }
                              .map { |py| py.delete_prefix("python@") }
-    site_packages = Language::Python.site_packages(python3).delete_prefix("lib/")
 
     # Apple's libstdc++ is too old to build LLVM
     ENV.libcxx if ENV.compiler == :clang
@@ -124,15 +102,9 @@ class LlvmAT16 < Formula
       -DLLVM_INCLUDE_DOCS=OFF
       -DLLVM_INCLUDE_TESTS=OFF
       -DLLVM_INSTALL_UTILS=ON
-      -DLLVM_ENABLE_Z3_SOLVER=ON
+      -DLLVM_ENABLE_Z3_SOLVER=OFF
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
-      -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
-      -DLLDB_ENABLE_PYTHON=ON
-      -DLLDB_ENABLE_LUA=OFF
-      -DLLDB_ENABLE_LZMA=ON
-      -DLLDB_USE_SYSTEM_SIX=ON
-      -DLLDB_PYTHON_RELATIVE_PATH=libexec/#{site_packages}
       -DLIBOMP_INSTALL_ALIASES=OFF
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
@@ -489,17 +461,6 @@ class LlvmAT16 < Formula
     assert_equal "int main() { printf(\"Hello world!\"); }\n",
       shell_output("#{bin}/clang-format -style=google clangformattest.c")
 
-    # Test static analyzer
-    (testpath/"unreachable.c").write <<~EOS
-      unsigned int func(unsigned int a) {
-        unsigned int *z = 0;
-        if ((a & 1) && ((a & 1) ^1))
-          return *z; // unreachable
-        return 0;
-      }
-    EOS
-    system bin/"clang", "--analyze", "-Xanalyzer", "-analyzer-constraints=z3", "unreachable.c"
-
     # This will fail if the clang bindings cannot find `libclang`.
     with_env(PYTHONPATH: prefix/Language::Python.site_packages(python3)) do
       system python3, "-c", <<~EOS
@@ -507,16 +468,6 @@ class LlvmAT16 < Formula
         cindex.Config().get_cindex_library()
       EOS
     end
-
-    # Check that lldb can use Python
-    lldb_script_interpreter_info = JSON.parse(shell_output("#{bin}/lldb --print-script-interpreter-info"))
-    assert_equal "python", lldb_script_interpreter_info["language"]
-    python_test_cmd = "import pathlib, sys; print(pathlib.Path(sys.prefix).resolve())"
-    assert_match shell_output("#{python3} -c '#{python_test_cmd}'"),
-                 pipe_output("#{bin}/lldb", <<~EOS)
-                   script
-                   #{python_test_cmd}
-                 EOS
 
     # Ensure LLVM did not regress output of `llvm-config --system-libs` which for a time
     # was known to output incorrect linker flags; e.g., `-llibxml2.tbd` instead of `-lxml2`.

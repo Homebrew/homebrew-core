@@ -6,7 +6,9 @@ class Mesa < Formula
   url "https://mesa.freedesktop.org/archive/mesa-24.0.3.tar.xz"
   sha256 "77aec9a2a37b7d3596ea1640b3cc53d0b5d9b3b52abed89de07e3717e91bfdbe"
   license "MIT"
+  revision 1
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
+
   bottle do
     sha256 arm64_sonoma:   "a267a7fad192daaeacd5504c21559d0dfdb285475fb4b0d6cefb61e0a508e111"
     sha256 arm64_ventura:  "a9003a675890dfae1281590688dae49a2fc3b88424fadeadd9208a23a4027229"

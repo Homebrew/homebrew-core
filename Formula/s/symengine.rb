@@ -4,7 +4,7 @@ class Symengine < Formula
   url "https://github.com/symengine/symengine/releases/download/v0.11.2/symengine-0.11.2.tar.gz"
   sha256 "f6972acd6a65354f6414e69460d2e175729470632bdac05919bc2f7f32e48cbd"
   license "MIT"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "6458bc2c2e3337c318d7fc2857c0034c013c29512ffee81def43db6c97f3c732"
@@ -33,6 +33,13 @@ class Symengine < Formula
   patch do
     url "https://gitweb.gentoo.org/repo/gentoo.git/plain/sci-libs/symengine/files/symengine-0.8.1-fix_llvm.patch?id=83ab9587be9f89e667506b861208d613a2f016e5"
     sha256 "c654ea7c4ee44c689433e87f71c7ae78e6c04968e7dfe89be5e4ba4c8c53713b"
+  end
+
+  # LLVM 18 support
+  # remove at next release
+  patch do
+    url "https://github.com/symengine/symengine/commit/b3b9b43d3ecb387664223bb08bb7511f4f5fa548.patch?full_index=1"
+    sha256 "09574aba1efcd2bfeb12deb4dc786d41d42a48c613e2ee6f829fec0f1bf92391"
   end
 
   def install

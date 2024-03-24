@@ -5,6 +5,7 @@ class CargoLlvmCov < Formula
   url "https://static.crates.io/crates/cargo-llvm-cov/cargo-llvm-cov-0.6.8.crate"
   sha256 "c1cb94e7d372c775b5376a75a41419fd9ecf729cc2ab6f0d99727e29a3d1ceb3"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/taiki-e/cargo-llvm-cov.git", branch: "main"
 
   bottle do
@@ -19,12 +20,12 @@ class CargoLlvmCov < Formula
 
   depends_on "rust" => :build
   depends_on "rustup-init" => :test
-  depends_on "llvm"
+  depends_on "llvm@17"
 
   def install
     system "tar", "--strip-components", "1", "-xzvf", "cargo-llvm-cov-#{version}.crate" unless build.head?
     system "cargo", "install", *std_cargo_args(root: libexec)
-    llvm_bin = Formula["llvm"].opt_bin
+    llvm_bin = Formula["llvm@17"].opt_bin
     (bin/"cargo-llvm-cov").write_env_script libexec/"bin/cargo-llvm-cov",
       LLVM_COV:      llvm_bin/"llvm-cov",
       LLVM_PROFDATA: llvm_bin/"llvm-profdata"

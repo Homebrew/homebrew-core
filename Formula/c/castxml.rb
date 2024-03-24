@@ -1,10 +1,21 @@
 class Castxml < Formula
   desc "C-family Abstract Syntax Tree XML Output"
   homepage "https://github.com/CastXML/CastXML"
-  url "https://github.com/CastXML/CastXML/archive/refs/tags/v0.6.4.tar.gz"
-  sha256 "86d02c7ed743122ce8c6d888c643da92fb7515da04577a933d33180fb7731872"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/CastXML/castxml.git", branch: "master"
+
+  # Remove `stable` block when patch is no longer needed
+  stable do
+    url "https://github.com/CastXML/CastXML/archive/refs/tags/v0.6.4.tar.gz"
+    sha256 "86d02c7ed743122ce8c6d888c643da92fb7515da04577a933d33180fb7731872"
+
+    # Support LLVM 18
+    patch do
+      url "https://github.com/CastXML/CastXML/commit/64bc54080f43da003045a557232a029e985704ed.patch?full_index=1"
+      sha256 "0236e003ffaae18eecbe2f059335fb3be23db1366a22f2c2c2cf9f6dbc4d0cfd"
+    end
+  end
 
   livecheck do
     url :stable

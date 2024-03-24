@@ -1,8 +1,8 @@
 class IncludeWhatYouUse < Formula
   desc "Tool to analyze #includes in C and C++ source files"
   homepage "https://include-what-you-use.org/"
-  url "https://include-what-you-use.org/downloads/include-what-you-use-0.21.src.tar.gz"
-  sha256 "6a351919ff89bda7c95c895472601868db3daab96a958b38e0362890d58760b6"
+  url "https://include-what-you-use.org/downloads/include-what-you-use-0.22.src.tar.gz"
+  sha256 "859074b461ea4b8325a73418c207ca33b5e6566b08e6b587eb9164416569a6dd"
   license "NCSA"
   head "https://github.com/include-what-you-use/include-what-you-use.git", branch: "master"
 

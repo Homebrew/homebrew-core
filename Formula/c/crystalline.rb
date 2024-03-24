@@ -4,6 +4,7 @@ class Crystalline < Formula
   url "https://github.com/elbywan/crystalline/archive/refs/tags/v0.12.2.tar.gz"
   sha256 "32d137f1e4edd29c74381cc010e9080379346b23646ca5f0806f64d2e05628fb"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 arm64_sonoma:   "8b3a14b51496e54a12b6c05c9afb99c352b6db81b1063f56fb946e1c05500cf7"

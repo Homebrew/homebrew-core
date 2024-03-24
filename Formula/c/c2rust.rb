@@ -4,7 +4,7 @@ class C2rust < Formula
   url "https://github.com/immunant/c2rust/archive/refs/tags/v0.18.0.tar.gz"
   sha256 "cf72bd59cac5ff31553c5d1626f130167d4f72eaabcffc27630dee2a95f4707e"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "6468964b49221ea68654b1b20614ee165bd6bc7813ed3a3ac83a408b61acadbc"
@@ -26,6 +26,12 @@ class C2rust < Formula
   patch do
     url "https://github.com/immunant/c2rust/commit/df42b55eae9ecfd4380004a513a10526ef8776cf.patch?full_index=1"
     sha256 "0bef002335192076888c236faec2edcd8cb6fb3ffd6e38994fdd7c70d19089a6"
+  end
+
+  # Support LLVM 18
+  patch do
+    url "https://github.com/immunant/c2rust/commit/3e09934e91613c246393bfeb0d5bbb386ae0e16a.patch?full_index=1"
+    sha256 "05b895bd49174e5e7c7a893ef7f80710ce804a6c42fc0ea398cd46ab0fa5f068"
   end
 
   def install
