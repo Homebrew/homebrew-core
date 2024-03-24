@@ -7,7 +7,7 @@ class Kerl < Formula
   head "https://github.com/kerl/kerl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "8b5467bdcc5df239257cd18fb5f7e6fa01457b9ba86b77cea04898033e564075"
+    sha256 cellar: :any_skip_relocation, all: "c757158a932bce930b8be4a9d23a94cb076f609744cf5b55dfc23524f8bb02fc"
   end
 
   def install
