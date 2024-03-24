@@ -1037,6 +1037,7 @@ ldc
 ldeep
 lean-cli
 leapp-cli
+leetup
 lego
 leiningen
 leptonica
