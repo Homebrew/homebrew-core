@@ -1,8 +1,8 @@
 class Pmd < Formula
   desc "Source code analyzer for Java, JavaScript, and more"
   homepage "https://pmd.github.io"
-  url "https://github.com/pmd/pmd/releases/download/pmd_releases/6.55.0/pmd-bin-6.55.0.zip"
-  sha256 "21acf96d43cb40d591cacccc1c20a66fc796eaddf69ea61812594447bac7a11d"
+  url "https://github.com/pmd/pmd/releases/download/pmd_releases%2F7.0.0/pmd-dist-7.0.0-bin.zip"
+  sha256 "24be4bde2846cabea84e75e790ede1b86183f85f386cb120a41372f2b4844a54"
   license "BSD-4-Clause"
 
   bottle do
@@ -14,13 +14,7 @@ class Pmd < Formula
   def install
     rm Dir["bin/*.bat"]
     libexec.install Dir["*"]
-    (bin/"pmd").write_env_script libexec/"bin/run.sh", Language::Java.overridable_java_home_env
-  end
-
-  def caveats
-    <<~EOS
-      Run with `pmd` (instead of `run.sh` as described in the documentation).
-    EOS
+    (bin/"pmd").write_env_script libexec/"bin/pmd", Language::Java.overridable_java_home_env
   end
 
   test do
@@ -35,7 +29,8 @@ class Pmd < Formula
       }
     EOS
 
-    system "#{bin}/pmd", "pmd", "-d", "#{testpath}/java", "-R",
-      "rulesets/java/basic.xml", "-f", "textcolor", "-l", "java"
+    output = shell_output("#{bin}/pmd check -d #{testpath}/java " \
+                          "-R category/java/bestpractices.xml -f json")
+    assert_empty JSON.parse(output)["processingErrors"]
   end
 end
