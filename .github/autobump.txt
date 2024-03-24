@@ -141,6 +141,7 @@ bashunit
 bat
 bat-extras
 batik
+bats-core
 bazarr
 bazel
 bazel-diff
