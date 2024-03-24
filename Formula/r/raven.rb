@@ -8,14 +8,13 @@ class Raven < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "607a5e37cf25c7f72d3cd4ab69e2d67c0d114aded4b9400135768fd21c483abc"
-    sha256 cellar: :any,                 arm64_ventura:  "69d77f0df70c8e8c3aea877c05c38648da60981a91c2fab1347c9c6bcc64a40c"
-    sha256 cellar: :any,                 arm64_monterey: "d95470ef7f9426aca7ff07099197a7c4c37b3fd4ac639543e20b7de0e24445cd"
-    sha256 cellar: :any,                 sonoma:         "0764b6047853f2d32b8c3bd91f90f9f812314ca29b86b112135895d78088cf6c"
-    sha256 cellar: :any,                 ventura:        "62ea286aeba9445f30e9c6fd0ab1f899819e5d6f6501376697cdd7d5b4825664"
-    sha256 cellar: :any,                 monterey:       "f12fda72a8d0a287e7fd3da15a915f9ecd472428289abb17c12fb8fd7000e786"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38bd7503b92390ea9801e79cb86db0ff4e650f8eb3a25624df784b096507693b"
+    sha256 cellar: :any,                 arm64_sonoma:   "5ffd10c11746c4b371bcf585c6706f892092a1f4e7793b614d146b11edd1c050"
+    sha256 cellar: :any,                 arm64_ventura:  "c1688df4222b0ee4c3585eca91520caec051408f01abe179ec68509ec559139d"
+    sha256 cellar: :any,                 arm64_monterey: "de29b4047914f3ff32fe25251a671b8f1c08822d93e883544be3eb29734936eb"
+    sha256 cellar: :any,                 sonoma:         "099c9deb73902061c3017ce0848ecbdfd912647a6070ca202f81916b42530e08"
+    sha256 cellar: :any,                 ventura:        "40871399dbfebc3e03c46dcc096de8be464c6b6550d03f749469cdde57a619d0"
+    sha256 cellar: :any,                 monterey:       "d61a537fcc3b0f58d22efee3bb2f7bb1593609af6e38e3637a8d1797ef38a602"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17cb53dafdcfe99ba17588ff2294f53fa53aa531646881484b00eaa6a0ac4fd8"
   end
 
   depends_on "certifi"
