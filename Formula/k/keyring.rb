@@ -3,8 +3,8 @@ class Keyring < Formula
 
   desc "Easy way to access the system keyring service from python"
   homepage "https://github.com/jaraco/keyring"
-  url "https://files.pythonhosted.org/packages/ae/6c/bd2cfc6c708ce7009bdb48c85bb8cad225f5638095ecc8f49f15e8e1f35e/keyring-24.3.1.tar.gz"
-  sha256 "c3327b6ffafc0e8befbdb597cacdb4928ffe5c1212f7645f186e6d9957a898db"
+  url "https://files.pythonhosted.org/packages/93/c3/6fafc393844ef43b36a5d908495ee49dd7e67f3568d4ae848a696daaf713/keyring-25.0.0.tar.gz"
+  sha256 "fc024ed53c7ea090e30723e6bd82f58a39dc25d9a6797d866203ecd0ee6306cb"
   license "MIT"
 
   bottle do
@@ -38,14 +38,19 @@ class Keyring < Formula
     sha256 "cb28a5ebda8bc47d8c8015307d93163464f9f2b91ab4006e09ff0ce07e8bfb30"
   end
 
+  resource "jaraco-context" do
+    url "https://files.pythonhosted.org/packages/7c/b4/fa71f82b83ebeed95fe45ce587d6cba85b7c09ef3d9f61602f92f45e90db/jaraco.context-4.3.0.tar.gz"
+    sha256 "4dad2404540b936a20acedec53355bdaea223acb88fd329fa6de9261c941566e"
+  end
+
+  resource "jaraco-functools" do
+    url "https://files.pythonhosted.org/packages/57/7c/fe770e264913f9a49ddb9387cca2757b8d7d26f06735c1bfbb018912afce/jaraco.functools-4.0.0.tar.gz"
+    sha256 "c279cb24c93d694ef7270f970d499cab4d3813f4e08273f95398651a634f0925"
+  end
+
   resource "more-itertools" do
     url "https://files.pythonhosted.org/packages/df/ad/7905a7fd46ffb61d976133a4f47799388209e73cbc8c1253593335da88b4/more-itertools-10.2.0.tar.gz"
     sha256 "8fccb480c43d3e99a00087634c06dd02b0d50fbf088b380de5a41a015ec239e1"
-  end
-
-  resource "shtab" do
-    url "https://files.pythonhosted.org/packages/18/95/5691f59ef352d45017863bb6082d3c046a7cee2672458b4aa1850a12904a/shtab-1.7.0.tar.gz"
-    sha256 "6661c2835d0214e259ab74d09bdb9a863752e898bcf2e75ad8cf7ebd7c35bc7e"
   end
 
   def install
