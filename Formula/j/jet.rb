@@ -1,8 +1,8 @@
 class Jet < Formula
   desc "Type safe SQL builder with code generation and auto query result data mapping"
   homepage "https://github.com/go-jet/jet"
-  url "https://github.com/go-jet/jet/archive/refs/tags/v2.11.0.tar.gz"
-  sha256 "095947050b463cf19bd982df3ff74718c0bed6030233cb8f35d5712a4bf8d84f"
+  url "https://github.com/go-jet/jet/archive/refs/tags/v2.11.1.tar.gz"
+  sha256 "a046e5982eb972825b2dce80548ff1e77dfdaaea2f3dea016e6e5d376cbbc822"
   license "Apache-2.0"
   head "https://github.com/go-jet/jet.git", branch: "master"
 
