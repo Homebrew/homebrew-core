@@ -1,12 +1,12 @@
 class Tcpflow < Formula
   desc "TCP/IP packet demultiplexer"
   homepage "https://github.com/simsong/tcpflow"
-  url "https://downloads.digitalcorpora.org/downloads/tcpflow/tcpflow-1.6.1.tar.gz"
+  url "https://corp.digitalcorpora.org/downloads/tcpflow/tcpflow-1.6.1.tar.gz"
   sha256 "436f93b1141be0abe593710947307d8f91129a5353c3a8c3c29e2ba0355e171e"
   license "GPL-3.0-only"
 
   livecheck do
-    url "https://downloads.digitalcorpora.org/downloads/tcpflow/"
+    url "https://corp.digitalcorpora.org/downloads/tcpflow/"
     regex(/href=.*?tcpflow[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
