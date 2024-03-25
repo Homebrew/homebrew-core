@@ -10,8 +10,8 @@ class Ghc < Formula
   head "https://gitlab.haskell.org/ghc/ghc.git", branch: "master"
 
   stable do
-    url "https://downloads.haskell.org/~ghc/9.8.2/ghc-9.8.2-src.tar.xz"
-    sha256 "e2fb7a7dd7461237d22e8365a83edd9e1a77d2e15d045f3945396845a87781c9"
+    url "https://downloads.haskell.org/~ghc/9.10.0/ghc-9.10.0-src.tar.xz"
+    sha256 "e2fb7a7dd7461237d22e8365a83edd9e1a77d211111111111111111111111111"
 
     # Backport fix for autoconf 2.72.
     patch do
