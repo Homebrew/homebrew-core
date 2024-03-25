@@ -12,13 +12,13 @@ class Remind < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "e729629ce02319e0f5e3a7a69025875dd8bdbfd8c9181f8a400fecf6344ee88a"
-    sha256 arm64_ventura:  "bbc3028e3dcf5120591905b1e18233c0d2cb3997ccbfb1522eabae62b2c5bfc3"
-    sha256 arm64_monterey: "b24964e1491035f9a810ac8be1f9e40021643392641c636212052bab28b86774"
-    sha256 sonoma:         "3c771af16adbf2a84c1b527edb0ccc19b85805408db4b343d579393c9f7452dc"
-    sha256 ventura:        "a9a550f8d86005b09a9da5821d72e0958ebe7ef9571ba218bfa6bc916212ed63"
-    sha256 monterey:       "043c572e175abfe0a7be0f9759727284eecaf8e71e04bc49d3474a6f4bb20785"
-    sha256 x86_64_linux:   "136b8719f53612364066d6d8d9504fe7a0a791465769004b85efe5dab36ac9a7"
+    sha256 arm64_sonoma:   "1cecf2834d174c2f59288cff1cacbf1dd51f01ae6f52397bf6e06944a1ef3b0a"
+    sha256 arm64_ventura:  "0dc01fc202d30d697058664f098a138b3e3b9aebab8c6a8995e7e0e5a049c70a"
+    sha256 arm64_monterey: "b05acc5b5afeb2ccd599c54f11747183af2b5bdf45cf09a57764b0caacfeb150"
+    sha256 sonoma:         "296b0e45d112d38a67f86727d080334b73c5e490253d80af0871ef977b59bcbf"
+    sha256 ventura:        "aeb6b7551e17a0b2f2e055fc0054f6852e0d2d05dc7711d94defc9925c3a8d8b"
+    sha256 monterey:       "d6346f704603a9b8d632a532948e3b7f7cdcf6f1a0a95909912717342d645042"
+    sha256 x86_64_linux:   "ac33f0dd21e03ceec2d00c43d6658ff2e940d770fef858890f3502d27c3c2a12"
   end
 
   conflicts_with "rem", because: "both install `rem` binaries"
