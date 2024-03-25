@@ -15,13 +15,13 @@ class NewrelicInfraAgent < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "008d4c244734c21f7f8008e52306bed01c70f4c1e6364dad3da43c96a4aaf118"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b83dd3006739a953ff5b19d01cb67ac5a1eb3a1df1ac8b311d88162fe2fdc2c7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7166f7238e02995b70ba65ce8f3e407c257441aa4a92205a4f557ed9e50c7e56"
-    sha256 cellar: :any_skip_relocation, sonoma:         "06f77a0bdb9395e0e37f94f043990100769bf87329cbde166527f448f29e892d"
-    sha256 cellar: :any_skip_relocation, ventura:        "deff385cb6f26b09c1ae0bebacee81154106871c0266894cb0a44f6613249d27"
-    sha256 cellar: :any_skip_relocation, monterey:       "a10dff6c15e9b0886342e4c45c85741c5258bedaad5381d9563fa371d6dc9057"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ae077fe52553aa4004a78e71e04db72e1981a26eced5d9891ad5cb63c8e01ef"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6bf335038ba720b3c400f54ac57b6ff6d893dd29f33e235813b08114a4ea79c2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9991b012b0e9328566d386176a1829da39e9812abc86c0beec9b7ff7fe6560a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae5413c45e01706bdf04488998928c15211b5d25ebdf9ef97b49d898503ce7f5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2516f7fceefe63aab576b59481e639979ccec414dfacc961f61b78278f4438df"
+    sha256 cellar: :any_skip_relocation, ventura:        "e95e5c19b79fbb1bbdbbbb5e03c6ad9e042ab640bfa382c621bb53bb61541b6d"
+    sha256 cellar: :any_skip_relocation, monterey:       "1dd773d0010e817dcc4b59e90c399d409d2d6422f7a6e5dd457b9a1c634b2268"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e79d9c3e01f2658ba16be94494c9b0701c327c76c215d20832038c7ed60eeb2"
   end
 
   depends_on "go" => :build
