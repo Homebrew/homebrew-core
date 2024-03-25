@@ -8,13 +8,13 @@ class SnykCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9070ec4fd21b530c75de994f637f4a0b6254ef663f020ab33bfa78093b229cc0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a81546d419e92fb8ea101aa2a8a06ffd42f6ffc05c0cf5fea9a372f5c1dfea23"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3c02b365ff816ef0e86a4491163871bb7f4ca095bb41ecd462ec284c54a4730f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7c3e4d3a0f98fbfe2219a89a1caa5400f90173012f197e13f4af6ff08040d165"
-    sha256 cellar: :any_skip_relocation, ventura:        "47ccfab50f11436f324a00862a3f80a03c7ec0196b247656002ce498a38093e9"
-    sha256 cellar: :any_skip_relocation, monterey:       "9b1ceaa8265d8800baba40f5a0bbe6492cf5f6b5168d3d47bcd2d890dc595d95"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "747390e525fa05392ed377be3ad3786a0e429b324a0df7e0b5be5bdfea1c29d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df8efb741ca1bd879ba76334f2c46b621578e5e0503022dddd9e2656c447dcb1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7a64fd7a4616a4a3115e9e2f62872b7a44d117b4597d069be1401b59e9e0d735"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "982e35d9f357780287e826edf6f6b474c7582113f173ae3ee6537e6fa713086f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1e43916e819f453018933c9756494f34a6729bb2cc472fba7751f8590fa69c24"
+    sha256 cellar: :any_skip_relocation, ventura:        "6f5279e6a92acd2df95c1f2b6382fbf4608af6e42385d73a3212d66be2cc1277"
+    sha256 cellar: :any_skip_relocation, monterey:       "5c9a1eef8a6ec3dcb3a390a61d55fc3ca823cb50dc9e525977be3ba088eeed9b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9670a8a8d1cff657e8d58e8cad44e8e0a5237fbf08ab7b9cc2e13ae47226e6f1"
   end
 
   depends_on "node"
