@@ -1098,6 +1098,7 @@ libxcursor
 libxdmcp
 libxext
 libxkbfile
+libxmu
 libxvmc
 libzim
 libzzip
