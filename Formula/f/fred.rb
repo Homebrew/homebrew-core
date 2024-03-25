@@ -3,8 +3,8 @@ class Fred < Formula
 
   desc "Fully featured FRED Command-line Interface & Python API wrapper"
   homepage "https://fred.stlouisfed.org/docs/api/fred/"
-  url "https://files.pythonhosted.org/packages/b9/4d/5997ff747d69b8451a63b92182eb3df42a87a171e0a1c8acc2792bc8afc1/fred-py-api-1.1.2.tar.gz"
-  sha256 "361886a97b8016e3010557e2c2e60f5656f2192f37eae05fa53867c6c3b0653c"
+  url "https://files.pythonhosted.org/packages/c8/c8/eec6f19c93f33a5bfbe1f5fe8f757acaa440fdb56f4209f13ef7896ea1f1/fred-py-api-1.1.3.tar.gz"
+  sha256 "792760b47976f15b0e11c49944de456623e48ec67c791e03770cddca22e859f4"
   license "MIT"
 
   bottle do
@@ -20,6 +20,11 @@ class Fred < Formula
 
   depends_on "certifi"
   depends_on "python@3.12"
+
+  resource "certifi" do
+    url "https://files.pythonhosted.org/packages/71/da/e94e26401b62acd6d91df2b52954aceb7f561743aa5ccc32152886c76c96/certifi-2024.2.2.tar.gz"
+    sha256 "0569859f95fc761b18b45ef421b1290a0f65f147e92a1e5eb3e635f9a5e4e66f"
+  end
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
