@@ -1714,6 +1714,7 @@ talhelper
 talisman
 tanka
 taplo
+task
 tcl-tk
 tcsh
 tctl
