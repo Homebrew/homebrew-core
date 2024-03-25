@@ -1115,6 +1115,7 @@ llm
 llvm
 lmdb
 lmod
+lndir
 localstack
 locust
 log4cxx
