@@ -3,8 +3,8 @@ require "language/node"
 class GulpCli < Formula
   desc "Command-line utility for Gulp"
   homepage "https://github.com/gulpjs/gulp-cli"
-  url "https://registry.npmjs.org/gulp-cli/-/gulp-cli-2.3.0.tgz"
-  sha256 "0a5a76e5be9856edf019fb5be0ed8501a8d815da1beeb9c6effca07a93873ba4"
+  url "https://registry.npmjs.org/gulp-cli/-/gulp-cli-3.0.0.tgz"
+  sha256 "f90ba044fd1486dcc0f5e7ec07aba39fc62079cd0f3df78f2ba123b404f8094b"
   license "MIT"
 
   bottle do
