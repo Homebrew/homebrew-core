@@ -1,8 +1,8 @@
 class Dotslash < Formula
   desc "Simplified executable deployment"
   homepage "https://dotslash-cli.com"
-  url "https://github.com/facebook/dotslash/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "bb7212a13248474232c0b23c94bc1736b5653094b87c817d9b32c0dcbd8fba26"
+  url "https://github.com/facebook/dotslash/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "e1d55ecbe1a471a54a9f915df89faba23ff72fbfc5ad7b68e66f509b38bc8c9b"
   license "Apache-2.0"
 
   bottle do

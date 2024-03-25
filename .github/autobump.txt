@@ -514,6 +514,7 @@ doppler
 dosbox-staging
 dosbox-x
 dotenv-linter
+dotslash
 double-conversion
 doxygen
 dpkg
