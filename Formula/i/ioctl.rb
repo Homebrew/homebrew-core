@@ -6,13 +6,13 @@ class Ioctl < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1c86705b703f013b95bd88cd1b2a0620a6fe783ed55293431e51c130e732d47f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b9573cdeaa4a344f2130b6ac3426ff27b48b432288dcab958916667a9c3f42ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc2cdbd1fb953d5867466c3a28e91d983a9dc831a673c18d800a88520ea50fa8"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a7bcf9433d8ebdc6cb79b091e26b098ed053633fccb1763dd58adeb909c03711"
-    sha256 cellar: :any_skip_relocation, ventura:        "19fcba84fcd442e3a5bded570a9595e81b839c8730bd9b978bcb8f6d946db769"
-    sha256 cellar: :any_skip_relocation, monterey:       "3531e2fe9597abfcde6c235784b3a01f8ca1bb414391749605ff569962149ef2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2b6fadade8f74085e09355bf44a590b5419244bebf5cb1c1790140d4e059ff2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd687f31cda96cf0f517a7dbf297f7e264d006358802fea5afb60c6c90bbfa15"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ebb4eb5e93a6d7866c82f48c42ba6c985b40c89dabf87d54bc209322ccfa451c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b90848a8fb8f6eb0c50cc676a87c937b3a7a9496bf71efeb23cf8a00d9646c4a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b5dd0b4c64532f22962ffcaa410dcf313acea78cd5dcbb259879a08781d63230"
+    sha256 cellar: :any_skip_relocation, ventura:        "aa263a7d4ce510d6227a8086fa4edf162e985ee2fe4b5b5afb51966e37fd48cc"
+    sha256 cellar: :any_skip_relocation, monterey:       "bccf1babdfd6d59e501dd8326ed5d0853df8bb310b9d63e2d60ce217946bf659"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73f902d1e89bbfdd36b7f3af75039b2c581db37abec1706aa60b97993f364951"
   end
 
   depends_on "go" => :build
