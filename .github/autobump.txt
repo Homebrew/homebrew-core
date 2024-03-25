@@ -1271,6 +1271,7 @@ node@18
 node@20
 noseyparker
 notcurses
+npm-check-updates
 npth
 nsq
 nss
