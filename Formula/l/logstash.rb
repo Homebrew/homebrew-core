@@ -75,7 +75,7 @@ class Logstash < Formula
   end
 
   def post_install
-    ln_s etc/"logstash", libexec/"config"
+    ln_s etc/"logstash", libexec/"config" unless (libexec/"config").exist?
   end
 
   def caveats
