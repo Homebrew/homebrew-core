@@ -1297,6 +1297,7 @@ ocp
 ocrmypdf
 octave
 octomap
+ode
 odpi
 oh-my-posh
 oha
