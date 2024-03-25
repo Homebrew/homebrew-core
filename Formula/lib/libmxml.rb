@@ -1,8 +1,8 @@
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
-  url "https://github.com/michaelrsweet/mxml/releases/download/v3.3.1/mxml-3.3.1.tar.gz"
-  sha256 "0c663ed1fe393b5619f80101798202eea43534abd7c8aff389022fd8c1dacc32"
+  url "https://github.com/michaelrsweet/mxml/releases/download/v4.0.2/mxml-4.0.2.tar.gz"
+  sha256 "34ae4854c02f14007886d0fb0c50c09edbd3cc3f9a9267d6540823e4d617c8da"
   license "Apache-2.0"
   head "https://github.com/michaelrsweet/mxml.git", branch: "master"
 
@@ -20,6 +20,7 @@ class Libmxml < Formula
   end
 
   depends_on xcode: :build # for docsetutil
+  depends_on "pkg-config" => :test
 
   def install
     system "./configure", "--disable-debug",
@@ -39,7 +40,7 @@ class Libmxml < Formula
         mxml_node_t *tree;
 
         fp = fopen("test.xml", "r");
-        tree = mxmlLoadFile(NULL, fp, MXML_OPAQUE_CALLBACK);
+        tree = mxmlLoadFile(NULL, NULL, fp);
         fclose(fp);
       }
     EOS
@@ -50,7 +51,9 @@ class Libmxml < Formula
         <text>I'm an XML document.</text>
       </test>
     EOS
-    system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lmxml", "-o", "test"
+
+    pkg_config_flags = shell_output("pkg-config --cflags --libs mxml4").chomp.split
+    system ENV.cc, "test.c", *pkg_config_flags, "-o", "test"
     system "./test"
   end
 end
