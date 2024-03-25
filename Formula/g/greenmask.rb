@@ -7,13 +7,13 @@ class Greenmask < Formula
   head "https://github.com/GreenmaskIO/greenmask.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6238248a1910eaae0ba5caa17fbc2b485d78daecd6e432b56587e1f312d01939"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c669ee957e42392afb372e15ab973265b4e54c8ec91ed1fdc44e3042333e038"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2359990a6d66324e2443a79a11bc4444a1568e3fd838cddd7470138ce41b13f6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f89d0df8fc4e15711e3458b47bd5cd89f8ecc2087c87533909166dfec936dd29"
-    sha256 cellar: :any_skip_relocation, ventura:        "6c5dd5e3a99196f87ca96244ac7ba1b6c032e5ea61d73aefd44959d3febded6a"
-    sha256 cellar: :any_skip_relocation, monterey:       "8171f77b52fb755d48a7e14ad0a3804753c94b6d43e70f0078a28dd8580a7455"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "169042f04f8acef1a16f8802a5eacf39b1bb23a3bc812485b261a43ada8c45f2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b81c16290a26e3bb28304e77349d20494b504f7189034b3cca8ac87ba2252535"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "366f8a90585fe02f488d77817fed6f0c6a82e40c1eed10dd776d40eb464f688e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d0efeb1718fefc7fa17ae474721af54cf33413a26902180be0882b42e97c36ce"
+    sha256 cellar: :any_skip_relocation, sonoma:         "36cfa51bcef23a10e87bba7a77b288ad3d849fce9e960f1505c1f6558f195209"
+    sha256 cellar: :any_skip_relocation, ventura:        "8681a80f0fa4b478667ede41b21cdd47452a2d3b90ea21f817cb28513e0126c9"
+    sha256 cellar: :any_skip_relocation, monterey:       "52780c67b7675f501bf187f5628e28afa735c66965affe42bc24bbd637a0bc42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c56b07f6f743788ba1ed317b118f0d365d0c4b8a6ec4d4360e192e21049c3a95"
   end
 
   depends_on "go" => :build
