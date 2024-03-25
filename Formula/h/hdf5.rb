@@ -4,6 +4,7 @@ class Hdf5 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.14/hdf5-1.14.3/src/hdf5-1.14.3.tar.bz2"
   sha256 "9425f224ed75d1280bb46d6f26923dd938f9040e7eaebf57e66ec7357c08f917"
   license "BSD-3-Clause"
+  revision 1
   version_scheme 1
 
   # This regex isn't matching filenames within href attributes (as we normally
@@ -26,9 +27,9 @@ class Hdf5 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :test
   depends_on "gcc" # for gfortran
   depends_on "libaec"
+  depends_on "pkg-config"
 
   uses_from_macos "zlib"
 
