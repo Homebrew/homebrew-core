@@ -7,13 +7,13 @@ class Csvlens < Formula
   head "https://github.com/YS-L/csvlens.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7b109626f6733f2435538ddbce29dea56eb351533ee717ca4775c65d876e4e8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e166a1616f5d0304b446ebe332be60850a19d53f111a00474705dfeafa76bf6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2442e5afc8aa590f962113f3db851f1c384651db0ffd03b79d175fb1bf335d95"
-    sha256 cellar: :any_skip_relocation, sonoma:         "edcb6f11630d182babfe92a768001226d03577109f09234f788510275f2137b0"
-    sha256 cellar: :any_skip_relocation, ventura:        "aac8d2498cbbab6d2f5b48b3d1838bd7d41f5855a080b0a6c5e8bea6ee300732"
-    sha256 cellar: :any_skip_relocation, monterey:       "44d10c5b3d1f06c8bfdf1c818837a9bbb327664b1f9084dea37a60e8d4779577"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1acca2211a9fe3a2ad1898c136bc1c5287624ac8c357197027ab458a9038bad7"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9372bb11e30c3cfcc881706c4dd0b181516aa87b37094d87f0f50fb7c7aa7aa4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "449974f3cb6ea9cb4b5eb2b03685e62bdccc1ac77879bf4cf93a08c13517cbe9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1f84ecc2a95a06d84ec46417bd10690bbc6ba8e98c401d82e125bdce56b7eb5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7223393a61d740183f34a55e74d672a68625f1e6899ea9d9d61c8ae6adfdaf8b"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d151151569a1b75781ec0f32fa5b08514e3188982c81d1e925fbf9fac680cc8"
+    sha256 cellar: :any_skip_relocation, monterey:       "49d99498713e281f58aa4a941c11928c651066deaa2046c05397a7f92b9a5a12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67e4afb5758fa82748a1b55f7785b329240fbe8d23d91dfb5a11c601e3cfbb34"
   end
 
   depends_on "rust" => :build
