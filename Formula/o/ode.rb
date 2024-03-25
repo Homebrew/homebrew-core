@@ -1,8 +1,8 @@
 class Ode < Formula
   desc "Simulating articulated rigid body dynamics"
   homepage "https://www.ode.org/"
-  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.4.tar.gz"
-  sha256 "71037b8281c6c86b0a55729f90d5db697abe4cbec1d8118157e00d48ec253467"
+  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.5.tar.gz"
+  sha256 "ba875edd164570958795eeaa70f14853bfc34cc9871f8adde8da47e12bd54679"
   license any_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
   head "https://bitbucket.org/odedevs/ode.git", branch: "master"
 
@@ -18,27 +18,21 @@ class Ode < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "26dc057f117efea645ebf883369d7d48082b6a87a40443ad95e2d40f26d2ff48"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "libccd"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  # We patch `libtool.m4` and not `configure` because we call `./bootstrap`.
-  patch :DATA
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   def install
-    inreplace "bootstrap", "libtoolize", "glibtoolize"
-    system "./bootstrap"
+    args = []
+    args << "-DOPENGL_INCLUDE_DIR=#{Formula["mesa"].include}" if OS.linux?
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-libccd",
-                          "--enable-shared",
-                          "--disable-static",
-                          "--enable-double-precision"
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -56,30 +50,3 @@ class Ode < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/m4/libtool.m4 b/m4/libtool.m4
-index 10ab284..bfc1d56 100644
---- a/m4/libtool.m4
-+++ b/m4/libtool.m4
-@@ -1067,16 +1067,11 @@ _LT_EOF
-       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[[91]]*)
--	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
--	10.[[012]][[,.]]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+	10.[[012]],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;
