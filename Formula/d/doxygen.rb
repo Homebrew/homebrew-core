@@ -3,6 +3,7 @@ class Doxygen < Formula
   homepage "https://www.doxygen.nl/"
   url "https://doxygen.nl/files/doxygen-1.10.0.src.tar.gz"
   mirror "https://downloads.sourceforge.net/project/doxygen/rel-1.10.0/doxygen-1.10.0.src.tar.gz"
+  mirror "https://github.com/doxygen/doxygen/releases/download/Release_1_10_0/doxygen-1.10.0.src.tar.gz"
   sha256 "dd7c556b4d96ca5e682534bc1f1a78a5cfabce0c425b14c1b8549802686a4442"
   license "GPL-2.0-only"
   head "https://github.com/doxygen/doxygen.git", branch: "master"
