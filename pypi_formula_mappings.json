@@ -26,7 +26,7 @@
       "zabbix-api", "junos-eznc", "jxmlease", "dnspython", "pysphere3", "python-consul", "requests-credssp",
       "openshift", "pexpect", "ntc-templates", "proxmoxer"
     ],
-    "exclude_packages": ["certifi", "cffi", "pycparser", "PyYAML", "six"]
+    "exclude_packages": ["certifi", "cffi", "pycparser", "pyyaml", "six"]
   },
   "ansible@8": {
     "exclude_packages": ["certifi", "cryptography"],
@@ -92,7 +92,7 @@
   },
   "black": "black[d]",
   "borgmatic": {
-    "extra_packages": ["ruamel.yaml.clib"],
+    "extra_packages": ["ruamel-yaml-clib"],
     "exclude_packages": ["certifi"]
   },
   "bpython": {
@@ -145,7 +145,7 @@
     "exclude_packages": ["certifi"],
     "extra_packages": [
       "fqdn", "isoduration", "jsonpointer", "rfc3339-validator",
-      "rfc3987", "uri_template", "webcolors"
+      "rfc3987", "uri-template", "webcolors"
     ]
   },
   "checkdmarc": {
@@ -243,7 +243,7 @@
     "exclude_packages": ["cryptography", "certifi"]
   },
   "enex2notion": {
-    "exclude_packages": ["certifi", "lxml", "PyMuPDF", "six"]
+    "exclude_packages": ["certifi", "lxml", "pymupdf", "six"]
   },
   "esphome": {
     "exclude_packages": ["certifi", "cryptography"]
@@ -462,7 +462,7 @@
     "exclude_packages": ["certifi", "jupyter-server", "nbconvert"]
   },
   "nicotine-plus": {
-    "exclude_packages": ["pycairo", "PyGObject"]
+    "exclude_packages": ["pycairo", "pygobject"]
   },
   "notifiers": {
     "exclude_packages": ["certifi"],
@@ -551,12 +551,12 @@
   },
   "pyqt": {
     "exclude_packages": [
-      "PyQt6-3D-Qt6", "PyQt6-Charts-Qt6", "PyQt6-DataVisualization-Qt6",
-      "PyQt6-NetworkAuth-Qt6", "PyQt6-WebEngine-Qt6", "PyQt6-Qt6"
+      "pyqt6-3d-qt6", "pyqt6-charts-qt6", "pyqt6-datavisualization-qt6",
+      "pyqt6-networkauth-qt6", "pyqt6-webengine-qt6", "pyqt6-qt6"
     ],
     "extra_packages": [
-      "PyQt6-3D", "PyQt6-Charts", "PyQt6-DataVisualization",
-      "PyQt6-NetworkAuth", "PyQt6-WebEngine"
+      "pyqt6-3d", "pyqt6-charts", "pyqt6-datavisualization",
+      "pyqt6-networkauth", "pyqt6-webengine"
     ]
   },
   "pyqt@5": {
@@ -617,7 +617,7 @@
     "exclude_packages": ["certifi"],
     "extra_packages": [
       "pyyaml", "dnspython", "lxml", "mechanize", "requests",
-      "flask", "flask-restful", "flasgger", "dicttoxml", "XlsxWriter", "unicodecsv", "rq"
+      "flask", "flask-restful", "flasgger", "dicttoxml", "xlsxwriter", "unicodecsv", "rq"
     ]
   },
   "regipy": "regipy[cli]",
@@ -690,7 +690,7 @@
     "extra_packages": ["setuptools"]
   },
   "snapcraft": {
-    "extra_packages": ["catkin_pkg"]
+    "extra_packages": ["catkin-pkg"]
   },
   "sphinx-doc": {
     "exclude_packages": ["certifi"],
