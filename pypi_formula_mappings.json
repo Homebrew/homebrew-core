@@ -392,7 +392,8 @@
   },
   "keyring": {
     "package_name": "keyring[completion]",
-    "exclude_packages": ["cryptography"]
+    "exclude_packages": ["cryptography"],
+    "extra_packages": ["jeepney", "secretstorage"]
   },
   "ldeep": {
     "exclude_packages": ["cryptography"]
