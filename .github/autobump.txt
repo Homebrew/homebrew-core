@@ -1314,6 +1314,7 @@ open-adventure
 open-image-denoise
 open-mpi
 opendetex
+opendht
 openexr
 openfga
 openfpgaloader
