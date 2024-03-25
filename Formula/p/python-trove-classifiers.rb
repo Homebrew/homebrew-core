@@ -6,13 +6,7 @@ class PythonTroveClassifiers < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3262cec2f58dc742124bf9b3995efc5b0e911404385449c48e3b4ea47b7a7b90"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9424ca80c4e12c2f556052b3c26d405614e4cdb6f196d09b6763f91ba2d6517b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5fe397804155f3f4c74dc341a09a9db3b01ba40ddb60a088982a95f3b2384cd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "817ac9b2f73fc8e386ee78467923e2dce058ab8e9e4fc2a663e98442d7c38a01"
-    sha256 cellar: :any_skip_relocation, ventura:        "ffb21cc20ee6c6d6fbf572506af28ae82ff79dba88223bed3fce603622c481c7"
-    sha256 cellar: :any_skip_relocation, monterey:       "70b0c0c048af66ef1e4e122cf6da34a71b9bb2b7ce87877e16a86d0558320193"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a2eddd72c1f6966e0102a9241c75c8042c5edcd91510c2d72a82c383e01f5b2"
+    sha256 cellar: :any_skip_relocation, all: "60b794b825880dce65e9024a83930814c42be20b2cac8c4f162e92d83fe86eed"
   end
 
   depends_on "python-setuptools" => :build
