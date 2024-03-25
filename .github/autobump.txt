@@ -1907,6 +1907,7 @@ xh
 xkbcomp
 xkeyboardconfig
 xmake
+xmlrpc-c
 xmrig
 xonsh
 xorgproto
