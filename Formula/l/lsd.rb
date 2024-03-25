@@ -7,13 +7,13 @@ class Lsd < Formula
   head "https://github.com/lsd-rs/lsd.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbb9f7bc8aea8231ad150e829a43eec918fec6fd1c0b53f0c0d7292ff96432f0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c529215209023473a75895082ffec3e51291559d97cedb20d8d3cada085251a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c328dc58a83bdb82f1ff8ac175b1b145b630399041c541199d5e6c009e13b431"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bed44b96025d6fb3a5c29f7b58f422e889c148c2d4ea7f5574de59290207feb6"
-    sha256 cellar: :any_skip_relocation, ventura:        "72117f112c6d3868571f2354353cdbd4fdadefcd6b93e13d50d43ce9d6852156"
-    sha256 cellar: :any_skip_relocation, monterey:       "495054e4b9b60d14c403c9114117a613b796c5e98f597fbe4093e518543c9a5f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58b4dd76450606fbabb81a49fde2042772cd512eb41553eede8fccf230bb6ea1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "027e3ba1d73615e16a1a74f12733841d36a32cb131a8657fb96d8ece41fcd5d4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "657cc7ac5bff7861461b767f269fac518ff4af0642850f76ff8a797577b7d5ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e4109de20c64864e6e5fdaf9ccfbbf7f548eb61226b6051b6d55ce045dd34a3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "62c1787b634e9cb9728ea4fdca9d9b8e5e87dac1d2938c2613ba0264f2fb62a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "90c856e0277445914fb47e0d7d1e020e69e7cd72a675e4f73765a284d79ec924"
+    sha256 cellar: :any_skip_relocation, monterey:       "f8216e4e7492f603eca16d736209577864eadc20932cd9d4e5749836d14acc39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31de828a654365884713c54d7177791752505c4e01b8b71c0bbad5215772c85c"
   end
 
   depends_on "pandoc" => :build
