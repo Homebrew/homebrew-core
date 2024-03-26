@@ -1,8 +1,8 @@
 class Kalker < Formula
   desc "Full-featured calculator with math syntax"
   homepage "https://kalker.strct.net"
-  url "https://github.com/PaddiM8/kalker/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "ada68589b916ce535cb49a37370b11c2bc9145e444f6e9036a3d74f301de2189"
+  url "https://github.com/PaddiM8/kalker/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "f7c5ed0f565367965f9aeb5a6b0ca9964b1eefa17a0830b7cda33384d0efa432"
   license "MIT"
 
   bottle do
