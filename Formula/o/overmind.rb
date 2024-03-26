@@ -7,15 +7,13 @@ class Overmind < Formula
   head "https://github.com/DarthSim/overmind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a110d69ff6f691658ed2f176271371ff54e2aeeeab73d4ccd124ed616d7f8f9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "984c9e975dda90a96ded9fa43a6b70110c80ef3efc4604ceb274547a035c22c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d26b6161cefed451e50c007ba9bb6601a8e0ca21f297720a74bfd38075866e1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8eb53694a8b87289a4f2dc5a307926ce841becb78f141a625608c8ec2d798a33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d91928daa9df19605d347d0f20e36b98108b2dd131c55161a976cc0d86738d74"
-    sha256 cellar: :any_skip_relocation, ventura:        "bae2f9b47e7fb846de0b69cf21e464e2896777fb189a2aa557a2afd69e9d8fd7"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca5d5836b5710febf70d33af79e507cccd6e505d39d8c2943067f36f649786ae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "10e30d50a5e5b5eb170652d62c0e8dee30a5d0d545bcd8a8a7e365b4d931602f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71554c46da7c312dd2a56e5c8f37dde2923adbc4fdb1e448d0a748c0bf1e54bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70f2114d4d3ad2b4f7e131e8e28876d4abe94faa1bf7b27fd94e9f717d2373c2"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4512e978d6c4664cb8aaae7470cb665072c20b4c6589dfad1c018b6da5b39ad9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c62750fbd9b429d90baf16a43d16d470ffafa2fcbe50cce25c2dccbfd6c5b320"
+    sha256 cellar: :any_skip_relocation, sonoma:         "62793053255bcb627e97739e5b9e4ea7deba7b94d770e0eac06cc03636a5c304"
+    sha256 cellar: :any_skip_relocation, ventura:        "b172a7b77b2fa5d608b4d13dc902c5d43726d726656c84c8030ad426996ae025"
+    sha256 cellar: :any_skip_relocation, monterey:       "c2adae63e8d18753674bab5fafbf9755d52f9b524b5a23cb1b85380415bd30bd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4444baf6d40a3896025dbaccb345585c0b369e833c3a72c2195a597781f6b50a"
   end
 
   depends_on "go" => :build
