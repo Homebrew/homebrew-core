@@ -1263,6 +1263,7 @@ nettle
 newman
 newrelic-cli
 newrelic-infra-agent
+newsboat
 nexttrace
 nfdump
 nfpm
