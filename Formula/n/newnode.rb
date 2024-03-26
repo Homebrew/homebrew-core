@@ -16,7 +16,7 @@ class Newnode < Formula
   def install
     system "./build.sh"
     bin.install "client" => "newnode"
-    path = (var/"newnode")
+    path = (var/"cache/newnode")
     path.mkpath
     path.chmod 0775
   end
