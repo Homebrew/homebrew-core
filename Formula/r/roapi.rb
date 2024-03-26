@@ -6,13 +6,13 @@ class Roapi < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da0ff1811b9e4d919e86f901e1d4017a80e69e6f539bfd53d5f44e8cc72aa117"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d92b3d686644d95288450228953cb884a81abb76b36ca0884f5b08adad9ef4d5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e70fa2082fd8b32fd9dfbac610fd2f31a57bca475ca6c1daaa9013b10939fd7b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "207a3d71484b4526a106991fba4dbc66a2dacb46523b24de35fb821f51c186e6"
-    sha256 cellar: :any_skip_relocation, ventura:        "4a9ca50752ccea857755dc4aa12a956d4ef62ea1a9e9ad66a0e2b720ead32241"
-    sha256 cellar: :any_skip_relocation, monterey:       "2bd306cb30e00d2514de46a34542b22dd050b09ec37c2db3f672061bc9094fc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7ba8869362eb39131a1e983affe78d6791707fec63330d4412d126f56d4d5d0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d68a9355594e05b2129fa6fe02858109e5f669e78ebba8a579cf4c7bc1e04485"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6dddf977f491d0e810ae720b4752e52ca9db3d92ec4ebea48f7f6ed661af5ca"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb229f0a93d5b83c641dd3648372ac98685853fa3ed3f5422b726695e68f0f31"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bd09a90566de516a51808455373a270c8546ee137565fb3b45e9292e519bf3a4"
+    sha256 cellar: :any_skip_relocation, ventura:        "3872b649489c184881e9d7ebaf3a8b4f13ab7e31c567f5f4f7a13712098ccbbd"
+    sha256 cellar: :any_skip_relocation, monterey:       "aac1d761a9091f6e70f1685d53b267c53e1fb3ff3dfbc9efa80cc5f34a883b45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79c6fcadaa9b92b1f63049fd65f127e6fc10f108578c5b9afb8bf0179ddbc2f6"
   end
 
   depends_on "rust" => :build
