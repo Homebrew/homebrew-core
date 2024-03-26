@@ -17,11 +17,19 @@ class Newnode < Formula
 
   on_linux do
     depends_on "llvm" => :build
+    depends_on "gnu-sed" => :build
+    depends_on "grep" => :build
     depends_on "wget"
   end
 
   def install
-    inreplace "https_wget.c", "/usr/bin/wget", "#{Formula["wget"].opt_bin}/wget" if OS.linux?
+    if OS.linux?
+      inreplace "https_wget.c", "/usr/bin/wget", "#{Formula["wget"].opt_bin}/wget"
+      ENV["SED"] = "#{Formula["gnu-sed"].opt_bin}/sed"
+      ENV["GREP"] = "#{Formula["grep"].opt_bin}/grep"
+      ENV["HOMEBREW_CC"] = "#{Formula["llvm"].opt_bin}/clang"
+      ENV["HOMEBREW_CXX"] = "#{Formula["llvm"].opt_bin}/clang++"
+    end
     system "./build.sh"
     bin.install "client" => "newnode"
     path = (var/"cache/newnode")
