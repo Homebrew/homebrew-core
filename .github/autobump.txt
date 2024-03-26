@@ -100,6 +100,7 @@ atlantis
 atlas
 atuin
 auditbeat
+autobrr
 autodiff
 autopep8
 autorest
