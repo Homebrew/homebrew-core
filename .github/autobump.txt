@@ -675,6 +675,7 @@ flyway
 fmt
 fn
 fnm
+fnt
 folderify
 fontconfig
 fontforge
