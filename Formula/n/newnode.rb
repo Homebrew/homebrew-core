@@ -10,10 +10,20 @@ class Newnode < Formula
   depends_on "coreutils" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on xcode: ["9.3", :build]
-  depends_on :macos
+
+  on_macos do
+    depends_on xcode: ["9.3", :build]
+  end
+
+  on_linux do
+    depends_on "llvm" => :build
+    depends_on "wget"
+  end
 
   def install
+    if OS.linux?
+      inreplace "https_wget.c", "/usr/bin/wget", "#{Formula["wget"].opt_bin}/wget"
+    end
     system "./build.sh"
     bin.install "client" => "newnode"
     path = (var/"cache/newnode")
