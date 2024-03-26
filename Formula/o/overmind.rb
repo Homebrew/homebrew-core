@@ -7,13 +7,13 @@ class Overmind < Formula
   head "https://github.com/DarthSim/overmind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70f2114d4d3ad2b4f7e131e8e28876d4abe94faa1bf7b27fd94e9f717d2373c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4512e978d6c4664cb8aaae7470cb665072c20b4c6589dfad1c018b6da5b39ad9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c62750fbd9b429d90baf16a43d16d470ffafa2fcbe50cce25c2dccbfd6c5b320"
-    sha256 cellar: :any_skip_relocation, sonoma:         "62793053255bcb627e97739e5b9e4ea7deba7b94d770e0eac06cc03636a5c304"
-    sha256 cellar: :any_skip_relocation, ventura:        "b172a7b77b2fa5d608b4d13dc902c5d43726d726656c84c8030ad426996ae025"
-    sha256 cellar: :any_skip_relocation, monterey:       "c2adae63e8d18753674bab5fafbf9755d52f9b524b5a23cb1b85380415bd30bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4444baf6d40a3896025dbaccb345585c0b369e833c3a72c2195a597781f6b50a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "170345488efff9664a6e6f1c203e9f252f2a6b36f3b19a574a69e2a504ff88d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cefab99b19b428357d41d4f27186c68a149c6b67dd317ba71e7cc985e3ab824"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b5121a20d14591466ebfa082329d902ced52c30e7c257bebe0c6141717c29ca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "75d9f3f07a21c2bd979f50fd520bec07a4221fecf0e70afe2e167d91ca263360"
+    sha256 cellar: :any_skip_relocation, ventura:        "d10e4a237a80de7a6119f79ab10304623e7cb5dd42d74e5feb1382bd74642862"
+    sha256 cellar: :any_skip_relocation, monterey:       "8f39c51a41a651b932147937384d1091dd0b86ae15a040bd6dbd96c2db5f3cf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba8a085f0aae6ddeec87817674bc44a085c2ae884e0a90568b23d9e37c5a3cee"
   end
 
   depends_on "go" => :build
