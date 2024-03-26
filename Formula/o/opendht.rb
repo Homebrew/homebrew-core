@@ -14,13 +14,13 @@ class Opendht < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1f43046cb2042ccf5f68fbdff9babac75dded5f4cb63b6b1831671eb7d9ae3b0"
-    sha256 cellar: :any,                 arm64_ventura:  "83ac006f7b3d4f6cbceb2e3d60d230cd04d6b548508121ac53a9edf85b3b7d16"
-    sha256 cellar: :any,                 arm64_monterey: "0b2f14146c84a1c6acf3255c7ec3632e78f7aa494ee8841462ebf0875cf103aa"
-    sha256 cellar: :any,                 sonoma:         "193f5292ace5065c09351fdde1eb16a6d9c89aac2198bb0e6908c39320b8cdbd"
-    sha256 cellar: :any,                 ventura:        "454159f8d05415a59f960e28e180a4927dc34d73c021ff51798e395d05945f82"
-    sha256 cellar: :any,                 monterey:       "e05233dc2a53492c810030345312dc4e8fdfdf8316254a083e77772253630280"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6fedc09c6e263f187fe42dfe7d24ef9896e882207ab4a2cd3078bd1befff6a7a"
+    sha256 cellar: :any,                 arm64_sonoma:   "5a31ae7cd4370eef59b51b61f33c9d242e2b9b75393f1a499fb9e23b1a2ff5fd"
+    sha256 cellar: :any,                 arm64_ventura:  "5a80cfeebec9ed84ed9b1a6ea27faf70a223961c48f6c11dd47f01562ae08810"
+    sha256 cellar: :any,                 arm64_monterey: "387556873417e9e340b6a6a269e3c4841ce0a50d7d0e1477430a90562d64c788"
+    sha256 cellar: :any,                 sonoma:         "107c4f1420d18c4636965c3445c36ad29f0fcb7c3540bf246774de812040144e"
+    sha256 cellar: :any,                 ventura:        "92e9c194f9e57de853e2419382391732997cc01021dee94d197d24a6c6d4ad53"
+    sha256 cellar: :any,                 monterey:       "db1623bea5b24536eeb3da9751bce6d7826db7241b81d6af33e62aff8c4b067b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de4c11d17872baefc4b45ee6795f1f2ea320a835d346d66dc1e7e866d5e0f96d"
   end
 
   depends_on "cmake" => :build
