@@ -1528,6 +1528,7 @@ scala
 scala@2.12
 scala@2.13
 scalingo
+scalr
 scamper
 scarb
 sccache
