@@ -6,7 +6,7 @@ class CargoOutdated < Formula
   # pulls same source from crates.io. v0.15.0+ is needed to avoid an older unsupported libgit2.
   # We can switch back to GitHub releases when upstream decides to upload.
   # Issue ref: https://github.com/kbknapp/cargo-outdated/issues/388
-  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.15.0.crate"
+  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.15.0.crate", using: :nounzip
   sha256 "0641d14a828fe7dcf73e6df54d31ce19d4def4654d6fa8ec709961e561658a4d"
   license "MIT"
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
