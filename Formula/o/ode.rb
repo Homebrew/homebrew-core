@@ -7,15 +7,13 @@ class Ode < Formula
   head "https://bitbucket.org/odedevs/ode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6cfb73fcdaa9bf73ecfd3763bcdf7d5a8ccd7639a0f9fe7a5da5067774b2f52a"
-    sha256 cellar: :any,                 arm64_ventura:  "0db659d5d8b9f5b0a8391e07bf6dce76c6528ee142ef64227d27cd108c14fe76"
-    sha256 cellar: :any,                 arm64_monterey: "2eb1e7ae85cec1e9d3686113190d8ec89fca460c58b81f3e978b20961d235cf6"
-    sha256 cellar: :any,                 arm64_big_sur:  "f4cb558f0e993040046a0400a5d6aa69bd4916d5cac25e45597f2b6b72cbdb83"
-    sha256 cellar: :any,                 sonoma:         "8220eec9e9f7cb97a01f3126ebf7f9365a98d9e02113e5bf98199cff3b65a4ba"
-    sha256 cellar: :any,                 ventura:        "e04a88ce07030af5f9f93f2bd035a4b89ea200a9d67a17ebd89c7ad5bc536565"
-    sha256 cellar: :any,                 monterey:       "af90730fce7e61597be9dd2132e985386a47e59dde6ba23a16c42d4e6a0d44f2"
-    sha256 cellar: :any,                 big_sur:        "21c78389a6a1999ea1c0a5deb90e779ae44cbe71affcc7b6c5ac5ce0d43af578"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26dc057f117efea645ebf883369d7d48082b6a87a40443ad95e2d40f26d2ff48"
+    sha256 cellar: :any,                 arm64_sonoma:   "270ce81f43aed519ba13d83987b7506873cc60163d0f09b09e6b4cd64c4c62d2"
+    sha256 cellar: :any,                 arm64_ventura:  "26093d917736df12a0510654e0bc4d602d521a3c9c3dd09113401897f3acc317"
+    sha256 cellar: :any,                 arm64_monterey: "b1da27ab0578179b232494c19eca7908d8a77da515894be35c93baa001d913c7"
+    sha256 cellar: :any,                 sonoma:         "97d4f2c4c7e43015b3f5dffd884312f123818801e25f38a86e470d8a24e5f6b7"
+    sha256 cellar: :any,                 ventura:        "08c2d6e501581a2e3bf1bd7975f00912d632ced10673d0372dd55489b2328850"
+    sha256 cellar: :any,                 monterey:       "1d9407a8b74ce382bc76489d37f2b33e21830aae7b8dc11c2f9068190c022617"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "389509a9254588ea10f1e0d888d7ed487ed509de9a07fff79cdee31ed4c856d5"
   end
 
   depends_on "cmake" => :build
