@@ -16,9 +16,9 @@ class Newnode < Formula
   end
 
   on_linux do
-    depends_on "llvm" => :build
     depends_on "gnu-sed" => :build
     depends_on "grep" => :build
+    depends_on "llvm" => :build
     depends_on "wget"
   end
 
