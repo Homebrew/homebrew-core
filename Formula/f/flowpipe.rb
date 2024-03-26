@@ -6,13 +6,13 @@ class Flowpipe < Formula
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7af828df4fe17ee03673249ee248be1df80e10697ec0217dd8416aef0ed32bbe"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3569babe8ca1378053425093ab00bf9a46618c83f80bb62e294daa2e438e9e2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88ec2e0f95544b6108c9d9f80cb43497c97282e7af24b140282f8521c9d11c51"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4abc59f9abdaeb26dfacfeb3f3b3f28bb90e585c536ca23c5867240d0dc9caaa"
-    sha256 cellar: :any_skip_relocation, ventura:        "b5ba33e3534942ac0f9d4c079e79b2a3ab91f1aa71b99eccfdf95c21d128a49c"
-    sha256 cellar: :any_skip_relocation, monterey:       "726dc91548dc372b6eb62364633f10a4de898f67fba969d4197d984922cf8bbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e8387aa5cc46f9a17ba25d42e0ab7081f7c34c4fbadad1b780ef22ae3f3c215"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "028c494f378c3d59c7230117776b9455212399b11a9a319699efa38b2b487150"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "63410a4de916feeeec077072508b85ea08167cd69fc34cd3381de4f0e175c70e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a7bdef3f3fb0a58a278a1e5a58c47e603830c54a681cb1976e70c5acfc99f4e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "74d0544afbec5a47c50ad7e910e7bb287604208024549e13726ed683fe5f17c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "2f601d1747831da7a68fd1971b9d0885a09fb77ed8ddedbde4a0dc28778e1eac"
+    sha256 cellar: :any_skip_relocation, monterey:       "1d47ff2cf57a38140cb6c443b48e17d2fc05a5fe601e82fcbe63114e2e50771a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e7fcd5c42cd71219037bc0d1fbd1773eba877bd774640cf87fb8dbc3a77338c"
   end
 
   depends_on "go" => :build
