@@ -1,7 +1,7 @@
 class Oakc < Formula
   desc "Portable programming language with a compact intermediate representation"
   homepage "https://github.com/adam-mcdaniel/oakc"
-  url "https://static.crates.io/crates/oakc/oakc-0.6.1.crate"
+  url "https://static.crates.io/crates/oakc/oakc-0.6.1.crate", using: :nounzip
   sha256 "1f4a90a3fd5c8ae32cb55c7a38730b6bfcf634f75e6ade0fd51c9db2a2431683"
   license "Apache-2.0"
   head "https://github.com/adam-mcdaniel/oakc.git", branch: "develop"
