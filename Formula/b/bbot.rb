@@ -9,13 +9,13 @@ class Bbot < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4e7cf0d401cb1b543631ef556d6419763a80b15f56385cc49cb80f0c91c75c1a"
-    sha256 cellar: :any,                 arm64_ventura:  "3fb6c7fe7673e35c22b1dbd67b8c8bacdc8d2e9fbab5bbcac17f2e4707a12e2e"
-    sha256 cellar: :any,                 arm64_monterey: "05c59297ef8ae5f8e12dc0f6e5b525a99dac888f5f64bca1f0237fbe4c863b56"
-    sha256 cellar: :any,                 sonoma:         "40a3f6e11d1facb5e3f22a39a93c477d2d5609ff0238af05a4d9ec75fee123d8"
-    sha256 cellar: :any,                 ventura:        "30bc894b11d790157bd505a4e2998ee04eaad8813362166eaa7175d43e32ab7c"
-    sha256 cellar: :any,                 monterey:       "dabc5135e49d792a3d1e4f61e57e549be29073ac1ccb2e661686a8fde2c974db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1aa45ca06bf49e0165f911d1139e0f7f2a3073214dcc9042cadd6ebb8df91f4e"
+    sha256 cellar: :any,                 arm64_sonoma:   "8f0a9df954aa50a67f981534aa6fb0d9194e96e191e190b2216701d220e31c56"
+    sha256 cellar: :any,                 arm64_ventura:  "79affea67be274eafccc5c8f96fec0e1642961af72a5e54a4ccc06aefdbcde9a"
+    sha256 cellar: :any,                 arm64_monterey: "d4d6420094791e2c6ee8c5900f4a357b8cdfaa57944af92ef2900ea37590f58e"
+    sha256 cellar: :any,                 sonoma:         "3f916fa7e3466d331aad9edb40a75d5ad05b9afba1a65cfd83734d5b384d8cd9"
+    sha256 cellar: :any,                 ventura:        "e12aa4ac52dcaef584aa3d8b3dc1d8a8b439655fbf4222a2bd6ac1a6c9229d8d"
+    sha256 cellar: :any,                 monterey:       "6e4c7385d3721f4329fb1fa7ae888e2da75fd52f6867dbceda485e47a739c169"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aab795fdbd6d24c46258689e85068156ab7958a2b8f9013636a9ff3acb5381c4"
   end
 
   depends_on "openjdk" => :build
