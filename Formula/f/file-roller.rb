@@ -1,8 +1,8 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/43/file-roller-43.1.tar.xz"
-  sha256 "84994023997293beb345d9793db8f5f0bbb41faa155c6ffb48328f203957ad08"
+  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.tar.xz"
+  sha256 "5b1c0e6a2e7de75392bd424550c1e5643dd1cf6c333fb1ed6a76419a29507aa4"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -21,18 +21,18 @@ class FileRoller < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "gtk+3"
+  depends_on "gtk4"
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
+  depends_on "libadwaita"
   depends_on "libarchive"
-  depends_on "libhandy"
   depends_on "libmagic"
 
   def install
     # Patch out gnome.post_install to avoid failing when unused commands are missing.
     # TODO: Remove when build no longer fails, which may be possible in following scenarios:
     # - gnome.post_install avoids failing on missing commands when `DESTDIR` is set
-    # - gnome.post_install works with Homebrew's distribution of `gtk+3`
+    # - gnome.post_install works with Homebrew's distribution of `gtk4`
     # - `file-roller` moves to `gtk4`
     inreplace "meson.build", /^gnome\.post_install\([^)]*\)$/, ""
 
@@ -47,10 +47,13 @@ class FileRoller < Formula
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do
+    # Fails in Linux CI with: Gtk-WARNING **: 13:08:32.713: Failed to open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system bin/"file-roller", "--help"
   end
 end
