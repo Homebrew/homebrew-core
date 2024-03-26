@@ -7,11 +7,11 @@ class Gjs < Formula
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:  "9fbd2b15e1b98c7590dd370deb21db644d2676a831bae75df410092e16450414"
-    sha256 arm64_ventura: "dbf074036561f646a5bc0344d5df9186c273529678fff3ab7d1b68caaf16da12"
-    sha256 sonoma:        "4e9412dc31df82b06d88bc7cb54d1d6d9ffcc6d5dd5c129265786b3fd28feda8"
-    sha256 ventura:       "d29305210a5ed228544d029b667253c7df7364a155dd495845d2882f66d4b6e9"
-    sha256 x86_64_linux:  "0b645baee03ad6e32164fe91105216082dc85fe952becd90f7b578a03c18324e"
+    sha256 arm64_sonoma:  "b6c056e8b3636d052764830169090b6d22ec1ad956d214fb614149c9b6dfe27f"
+    sha256 arm64_ventura: "1a6f27e55fb9e52a95965657f56448d50d4d16b818ae2251f443f19773f318ae"
+    sha256 sonoma:        "051a70886e726d034610ea33aa4e2947661824c49e165a3fa794fd6f980c1b63"
+    sha256 ventura:       "92d8f1a82b6ed5933fb68ccec2bbf7ec325ed6858a598c6ac497f34421d105e4"
+    sha256 x86_64_linux:  "db86e13bd209eeb4cfe0002ad93854fa157f2901360ba31778a77f99f32c52f3"
   end
 
   depends_on "meson" => :build
