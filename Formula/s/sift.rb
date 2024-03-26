@@ -18,6 +18,9 @@ class Sift < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a5dc83483b444b3850237050f761c8967ce36008114dad661a1424aa6068da3"
   end
 
+  # https://github.com/svent/sift/issues/120
+  deprecate! date: "2024-03-26", because: :unmaintained
+
   depends_on "go" => :build
 
   go_resource "github.com/svent/go-flags" do
