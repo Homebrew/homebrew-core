@@ -6,13 +6,13 @@ class Dotslash < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5678c69aaa638e05bae37dbee984b4ff51393ea41c913a554b7b5dc1e2f870a4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e35bf3f24552c0056243247c88f15c2825d188a17f34f4d3b974f764b3a7e044"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "30437ee711d5b0a2cd68da494df2bb84d95c86dfe9d5afca50ff80953405c5a0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "95c84aa6a85fa9224798953dbf7086d43e1e9ba46e56872ad79a2e268ccd1b39"
-    sha256 cellar: :any_skip_relocation, ventura:        "8ed866b61a47651121e17e6c8932a24c9137b6f251744737cc3c807b4a18fb94"
-    sha256 cellar: :any_skip_relocation, monterey:       "52ad3566e70c364723c78795e885d0a300ccf582b4c92879f0233ada9e9ae703"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc538e70942dbb1c3ea89059bc71b6e4ac0917fc5c15bac0f1326dc6d98d9a91"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bf3a2a90ba611d8ba9a80845aeb2fd2c74bdaae8d0e3a583bacbcb5f06f7e142"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9aab2ff43179d9f2a4400cc292fd7f9109eb4a75ceba009e877ed5dff381c865"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bdd359772064f0c4c7b9fe88a89fcce4b2e65b537b84913ac3a2fa5085799e79"
+    sha256 cellar: :any_skip_relocation, sonoma:         "813dabfbc78ffb2c730b6027f2bd4df47906e4e0a5c3df18d2fb85a440b2d181"
+    sha256 cellar: :any_skip_relocation, ventura:        "a304ec04b729c20a5a46fdd44d403a25ebfb7cf43e5b04c3c4d88a0b7dd0424d"
+    sha256 cellar: :any_skip_relocation, monterey:       "5838717bd257244a1ad33e096f0fce5e4c5d431e58b76b505389ce4c22b7bf48"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fcfa3a61536c198241b748fbff8a07527a5d27597e03a502846fd6c100c53e4"
   end
 
   depends_on "rust" => :build
