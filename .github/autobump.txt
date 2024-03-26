@@ -277,6 +277,7 @@ cfripper
 cfssl
 cgal
 cgl
+cglm
 cgrep
 chain-bench
 chainloop-cli

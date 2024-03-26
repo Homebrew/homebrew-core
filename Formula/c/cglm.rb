@@ -1,8 +1,8 @@
 class Cglm < Formula
   desc "Optimized OpenGL/Graphics Math (glm) for C"
   homepage "https://github.com/recp/cglm"
-  url "https://github.com/recp/cglm/archive/refs/tags/v0.9.2.tar.gz"
-  sha256 "5c0639fe125c00ffaa73be5eeecd6be999839401e76cf4ee05ac2883447a5b4d"
+  url "https://github.com/recp/cglm/archive/refs/tags/v0.9.3.tar.gz"
+  sha256 "4eda95e34f116c36203777f4fe770d64a3158b1450ea40364abb111cf4ba4773"
   license "MIT"
 
   bottle do
@@ -20,10 +20,8 @@ class Cglm < Formula
   depends_on "libtool" => :build
 
   def install
-    system "autoreconf", "-fiv"
-    system "./configure", "--disable-dependency-tracking",
-                          "--disable-silent-rules",
-                          "--prefix=#{prefix}"
+    system "autoreconf", "--force", "--install", "--verbose"
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
