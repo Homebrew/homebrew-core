@@ -46,6 +46,7 @@ class Libvirt < Formula
   end
 
   on_linux do
+    depends_on "acl"
     depends_on "libtirpc"
   end
 
