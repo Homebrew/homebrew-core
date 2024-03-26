@@ -1118,6 +1118,7 @@ lima
 linkerd
 linode-cli
 linux-headers@5.15
+liqoctl
 liquibase
 lit
 little-cms2
