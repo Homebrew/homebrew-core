@@ -45,7 +45,7 @@ class Deno < Formula
   # Use the version of `v8` crate at: https://github.com/denoland/deno/blob/v#{version}/Cargo.lock
   # Search for 'name = "v8"' (without single quotes).
   resource "rusty_v8" do
-    url "https://static.crates.io/crates/v8/v8-0.85.0.crate"
+    url "https://static.crates.io/crates/v8/v8-0.85.0.crate", using: :nounzip
     sha256 "ec8e09551fa5c3500b47f08912b4a39e07ae20a3874051941408fbd52e3e5190"
   end
 
