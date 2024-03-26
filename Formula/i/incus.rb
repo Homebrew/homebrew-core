@@ -7,13 +7,13 @@ class Incus < Formula
   head "https://github.com/lxc/incus.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d00f1cb16c61c4f3c8cd1d54a194508a7501198fb7c701cb4b9bf4e074b21333"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d3375f779341ed562154dd8cf06d2f7195e1f4a2dc39e3f10e1b4c2338a4fd69"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14ddb00a041354bbb0e290285f7d130f09d0eb57e279d1e7493826d343b3a9ba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "871288a638822dbb10587452cdd5847bf65f4fb4c0a1f95e0f49f0553af5496d"
-    sha256 cellar: :any_skip_relocation, ventura:        "e9166dae7c32c45730f149393e88fd63eaaa36091bc48c8e08196c9492b6c671"
-    sha256 cellar: :any_skip_relocation, monterey:       "9dd537cfad6d092179a58f96819fd8809894e24275b0810b1078f62d141a25eb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "69d173e87930c3f0cadd31bed11be7e93c18196fa1e9dc073cf9e46cd307c9df"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1cd55ac660d9b61a6fd2466e10ab92522c1addf7c55090d0b6d06733ab2d802"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "13b0c70ea0f3f4e2928cc0a3cf8786239e3dd1521c830b1ac1ac0ff4fa48e1a5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ee867b3bff64fb5272f392f36fa27e74d7d35671eb9f6d83bf17420938f4e828"
+    sha256 cellar: :any_skip_relocation, sonoma:         "918ebd1fcc5a4234d16c5a03f0ff3143e7a70c5fb31d9b8d9a329b654e2ee4ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "1903d2692ccd507e6fa2cf190af806ef277a75722a44b0fd312b46785fc3d783"
+    sha256 cellar: :any_skip_relocation, monterey:       "be5d3fd65aef67e16feaad3876c276ea98cc957ebc980ff1e1fdf5558a9c126f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b4488c373ead4263cebef658a800eb9641695fb1be0365095b66a15922a0ce5"
   end
 
   depends_on "go" => :build
