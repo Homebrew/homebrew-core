@@ -1641,6 +1641,7 @@ sleuthkit
 slides
 slirp4netns
 sloc
+slsa-verifier
 slurm
 smake
 smimesign
