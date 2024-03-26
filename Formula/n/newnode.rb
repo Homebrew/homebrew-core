@@ -24,7 +24,7 @@ class Newnode < Formula
   service do
     run [opt_bin/"newnode", "-p", "8006"]
     keep_alive true
-    working_dir var/"newnode"
+    working_dir var/"cache/newnode"
     log_path var/"log/newnode.log"
     error_log_path var/"log/newnode-error.log"
   end
