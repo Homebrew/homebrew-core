@@ -1539,6 +1539,7 @@ reminiscence
 renovate
 repo
 reposurgeon
+reproc
 restic
 resvg
 revive
