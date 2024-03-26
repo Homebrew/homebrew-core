@@ -8,13 +8,13 @@ class Stylelint < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f576a41679c57bb036a25620385caa0c48e43be15431e7e0d2fd99fd6f441f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f576a41679c57bb036a25620385caa0c48e43be15431e7e0d2fd99fd6f441f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f576a41679c57bb036a25620385caa0c48e43be15431e7e0d2fd99fd6f441f3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4b6520e448586daf10e19b00faf9a655f582519c48674102d7b49da32ffff64f"
-    sha256 cellar: :any_skip_relocation, ventura:        "4b6520e448586daf10e19b00faf9a655f582519c48674102d7b49da32ffff64f"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b6520e448586daf10e19b00faf9a655f582519c48674102d7b49da32ffff64f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f576a41679c57bb036a25620385caa0c48e43be15431e7e0d2fd99fd6f441f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "43b52d7079d143150c2b07b064ab6556fce899522ae40428f8f0a502d8f794dd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "43b52d7079d143150c2b07b064ab6556fce899522ae40428f8f0a502d8f794dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "43b52d7079d143150c2b07b064ab6556fce899522ae40428f8f0a502d8f794dd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b3a91d15b47a2311813e0e854b6ddd795ee0c8f2bf583af01b24979a0c4e1f7e"
+    sha256 cellar: :any_skip_relocation, ventura:        "b3a91d15b47a2311813e0e854b6ddd795ee0c8f2bf583af01b24979a0c4e1f7e"
+    sha256 cellar: :any_skip_relocation, monterey:       "b3a91d15b47a2311813e0e854b6ddd795ee0c8f2bf583af01b24979a0c4e1f7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "43b52d7079d143150c2b07b064ab6556fce899522ae40428f8f0a502d8f794dd"
   end
 
   depends_on "node"
