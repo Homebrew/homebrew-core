@@ -358,6 +358,7 @@ commitlint
 composer
 conan
 conan@1
+concurrencykit
 conda-zsh-completion
 conduit
 condure

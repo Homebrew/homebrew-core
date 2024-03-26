@@ -1,8 +1,9 @@
 class Concurrencykit < Formula
   desc "Aid design and implementation of concurrent systems"
-  homepage "http://concurrencykit.org/"
-  url "https://github.com/concurrencykit/ck/archive/refs/tags/0.7.0.tar.gz"
-  sha256 "e730cb448fb0ecf9d19bf4c7efe9efc3c04dd9127311d87d8f91484742b0da24"
+  # site not accessible bug report, https://github.com/concurrencykit/ck/issues/225
+  homepage "https://github.com/concurrencykit/ck"
+  url "https://github.com/concurrencykit/ck/archive/refs/tags/0.7.2.tar.gz"
+  sha256 "568ebe0bc1988a23843fce6426602e555b7840bf6714edcdf0ed530214977f1b"
   license "BSD-2-Clause"
   head "https://github.com/concurrencykit/ck.git", branch: "master"
 
