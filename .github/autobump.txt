@@ -1097,6 +1097,7 @@ libucl
 libunibreak
 libunwind
 libuv
+libva
 libvirt
 libwpe
 libx11
