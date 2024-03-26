@@ -1,8 +1,8 @@
 class Reproc < Formula
   desc "Cross-platform (C99/C++11) process library"
   homepage "https://github.com/DaanDeMeyer/reproc"
-  url "https://github.com/DaanDeMeyer/reproc/archive/refs/tags/v14.2.4.tar.gz"
-  sha256 "55c780f7faa5c8cabd83ebbb84b68e5e0e09732de70a129f6b3c801e905415dd"
+  url "https://github.com/DaanDeMeyer/reproc/archive/refs/tags/v14.2.5.tar.gz"
+  sha256 "69467be0cfc80734b821c54ada263c8f1439f964314063f76b7cf256c3dc7ee8"
   license "MIT"
   head "https://github.com/DaanDeMeyer/reproc.git", branch: "main"
 
