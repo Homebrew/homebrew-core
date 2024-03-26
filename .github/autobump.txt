@@ -281,6 +281,7 @@ cgrep
 chain-bench
 chainloop-cli
 chamber
+chaoskube
 charmcraft
 chars
 chart-testing
