@@ -21,9 +21,7 @@ class Newnode < Formula
   end
 
   def install
-    if OS.linux?
-      inreplace "https_wget.c", "/usr/bin/wget", "#{Formula["wget"].opt_bin}/wget"
-    end
+    inreplace "https_wget.c", "/usr/bin/wget", "#{Formula["wget"].opt_bin}/wget" if OS.linux?
     system "./build.sh"
     bin.install "client" => "newnode"
     path = (var/"cache/newnode")
