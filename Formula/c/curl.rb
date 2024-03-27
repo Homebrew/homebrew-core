@@ -2,11 +2,11 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.6.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_6_0/curl-8.6.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.6.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.6.0.tar.bz2"
-  sha256 "b4785f2d8877fa92c0e45d7155cf8cc6750dbda961f4b1a45bcbec990cf2fa9b"
+  url "https://curl.se/download/curl-8.7.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_7_1/curl-8.7.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.7.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.7.1.tar.bz2"
+  sha256 "05bbd2b698e9cfbab477c33aa5e99b4975501835a41b7ca6ca71de03d8849e76"
   license "curl"
 
   livecheck do
@@ -48,6 +48,12 @@ class Curl < Formula
   uses_from_macos "zlib"
 
   def install
+    tag_name = "curl-#{version.to_s.tr(".", "_")}"
+    if build.stable? && stable.mirrors.grep(/github\.com/).first.exclude?(tag_name)
+      odie "Tag name #{tag_name} is not found in the GitHub mirror URL! " \
+           "Please make sure the URL is correct."
+    end
+
     system "./buildconf" if build.head?
 
     args = %W[
@@ -80,11 +86,6 @@ class Curl < Formula
   end
 
   test do
-    tag_name = "curl-#{version.to_s.tr(".", "_")}"
-    assert_match tag_name, stable.mirrors.grep(/github\.com/).first,
-                 "Tag name #{tag_name} is not found in the GitHub mirror " \
-                 "URL! Please make sure the URL is correct"
-
     # Fetch the curl tarball and see that the checksum matches.
     # This requires a network connection, but so does Homebrew in general.
     filename = (testpath/"test.tar.gz")
