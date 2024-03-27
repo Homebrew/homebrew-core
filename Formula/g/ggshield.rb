@@ -3,8 +3,8 @@ class Ggshield < Formula
 
   desc "Scanner for secrets and sensitive data in code"
   homepage "https://www.gitguardian.com"
-  url "https://files.pythonhosted.org/packages/82/00/b751d687403c3b8f5b986efd20afc498e5dcd693390238e1fef520dc8f2b/ggshield-1.25.0.tar.gz"
-  sha256 "202bd5749ddf03a8f92a2def1d26d6583d264ff63f40962c6243bcdd5609d1bd"
+  url "https://files.pythonhosted.org/packages/c1/61/583d8d6777734e39fe7a331e934c652911d0dd354b7ae0d096e42cfb8394/ggshield-1.26.0.tar.gz"
+  sha256 "d5c18d5f4fb8fd00013c0f9cad19a466a095eee7214cbd95d585f09694b201bd"
   license "MIT"
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
@@ -64,8 +64,8 @@ class Ggshield < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "platformdirs" do
