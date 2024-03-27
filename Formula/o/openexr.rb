@@ -6,13 +6,13 @@ class Openexr < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a357d90dc61aa4a52341360d4f0c00380d92efe60b1bbf8d3414cd9cc4fd9313"
-    sha256 cellar: :any,                 arm64_ventura:  "791d76391dccefe54ff1a26920a256ebdee3e83d3bcfb7d94bd5b60f57237a05"
-    sha256 cellar: :any,                 arm64_monterey: "58a60da9dcce71915ce5dc11b4330d09c712f6040740f9bffc26efecbbb5d7c7"
-    sha256 cellar: :any,                 sonoma:         "03d8be45f4df92a8a4686fc40b53ad53b9b56827606d21d9df56a320e65f86fb"
-    sha256 cellar: :any,                 ventura:        "a44dc65bf9d528bf238da62658821d4b8a38fe78102e1138feabc4cb5c024f1f"
-    sha256 cellar: :any,                 monterey:       "551c9b7829489ffe3e6334b1c7a7a38ba4cf75d8ca2a1560b3936f81491e4e0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0618d89a16c7644fb231d68b3fe5b131bac75278d5050921abadaed771f610c"
+    sha256 cellar: :any,                 arm64_sonoma:   "49b4acf727abd6a736d9d7cf8b38fe96ef3f89979523186ce4eb947d5478b772"
+    sha256 cellar: :any,                 arm64_ventura:  "690f103efb1ab0a421cc8c7aa4c0eb0c1715f3e35e26b05f54820bc7896c16ef"
+    sha256 cellar: :any,                 arm64_monterey: "eafdc1854757f9215568e38005d69884c3da63b23d62cc6496e95430d2713796"
+    sha256 cellar: :any,                 sonoma:         "e2d68cb84ae057f4323e7f52214ddb1c3db955a02db865acddcc8d41828ef445"
+    sha256 cellar: :any,                 ventura:        "893b120aee538446c12c39d819f2a56a54d4493558d6c6e339ef3f0f2a382607"
+    sha256 cellar: :any,                 monterey:       "bc8c4411b513c76de4c416642341c8f72b29a4fff10f0bcfc2c13c17ef899261"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7c839fd2991b3cc8a66a5e5fa6aa4d86e3d9621280d56b24219900c81ed7d1e"
   end
 
   depends_on "cmake" => :build
