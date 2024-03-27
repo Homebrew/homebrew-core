@@ -9,13 +9,13 @@ class Glib < Formula
   revision 2
 
   bottle do
-    sha256 arm64_sonoma:   "aa44de729d2a822013b8466aac7b5bf9fd05a2cb30be6417d46a6bfb5681d789"
-    sha256 arm64_ventura:  "4fbe903dc8bd989384cb7c9fb78e3c36d8a5f29f7e48ce289c48bd42b52f51f1"
-    sha256 arm64_monterey: "508a98f46f737a0c45b777124d51123313805f8fa8354645542ef5973ce28810"
-    sha256 sonoma:         "b1bd1a9384825561f54870aff0f5f3d4e2d5670dc6562fbda956090d447321f3"
-    sha256 ventura:        "904e5feef4f8d753cf9fae04b1659e42cb3c29c26b9c0ec054bfb44d792aeafd"
-    sha256 monterey:       "c1020494efbf833c6504f7ae92f18f8238aca0d9cdf1722660a37a5f700b3c4e"
-    sha256 x86_64_linux:   "2f7670c6ca1eda7a4a3ef12cb1599a8ab8139add55188b05db08af1a39fe4b62"
+    sha256 arm64_sonoma:   "cfb04cb6f69ccce6b98f2e028f21a6e71a0d55fd157d7fb83e3d602dad8294fd"
+    sha256 arm64_ventura:  "e5bef115fbdeae3f2d43a9509d7050f785a0c45b551438010ca4d9b7029d9357"
+    sha256 arm64_monterey: "d5c9c0ad7efe4327c3efde307cfb789d6e6aaf8976522ed3a65a8646c9ddbc12"
+    sha256 sonoma:         "39d8494c82a793f34853649e1e26a1a1f6a00e9ad89330e70e348c60a093e0b9"
+    sha256 ventura:        "c38a32e98f6cd669499a3deb1a7b220cb9de04300471537ac22f27f2e6aa3d35"
+    sha256 monterey:       "f8543922f24f6f122411842e72732dd624afedad18581d15827c5e4c2cae627e"
+    sha256 x86_64_linux:   "24a55d75657e5ccf5ae945dae717e7574ebcb8cf7d9dcc161dadd4f2eba7e13b"
   end
 
   depends_on "bison" => :build # for gobject-introspection
