@@ -1,10 +1,10 @@
 class Libusbmuxd < Formula
   desc "USB multiplexor library for iOS devices"
   homepage "https://www.libimobiledevice.org/"
-  url "https://github.com/libimobiledevice/libusbmuxd/archive/refs/tags/2.0.2.tar.gz"
-  sha256 "8ae3e1d9340177f8f3a785be276435869363de79f491d05d8a84a59efc8a8fdc"
+  url "https://github.com/libimobiledevice/libusbmuxd/releases/download/2.1.0/libusbmuxd-2.1.0.tar.bz2"
+  sha256 "c35bf68f8e248434957bd5b234c389b02206a06ecd9303a7fb931ed7a5636b16"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  head "https://github.com/libimobiledevice/libusbmuxd.git", branch: "master"
 
   bottle do
     rebuild 1
@@ -19,23 +19,18 @@ class Libusbmuxd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c079d3ad24bfda0f8bfdcc912f52f2fbcba4576d36dcf4337d7febb68c49307a"
   end
 
-  # libimobiledevice-glue is required for building future versions
-  # Move outside of HEAD clause when there's a new release.
-  head do
-    url "https://github.com/libimobiledevice/libusbmuxd.git", branch: "master"
-    depends_on "libimobiledevice-glue"
-  end
-
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
+  depends_on "libimobiledevice-glue"
   depends_on "libplist"
 
   uses_from_macos "netcat" => :test
 
   def install
-    system "./autogen.sh", *std_configure_args, "--disable-silent-rules"
+    system "./autogen.sh", *std_configure_args, "--disable-silent-rules" if build.head?
+    system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make", "install"
   end
 
