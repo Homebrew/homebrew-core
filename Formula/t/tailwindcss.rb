@@ -3,8 +3,8 @@ require "language/node"
 class Tailwindcss < Formula
   desc "Utility-first CSS framework"
   homepage "https://tailwindcss.com"
-  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.1.tar.gz"
-  sha256 "a3f5a288d8d0b2b9b9dbe0448fb325247fd71a758c6b645f76a93c3a4ab510fb"
+  url "https://github.com/tailwindlabs/tailwindcss/archive/refs/tags/v3.4.2.tar.gz"
+  sha256 "649f0bac61fdf669c617729911cc361e42c89d5d2d62f1ce88ee147b09a79006"
   license "MIT"
 
   bottle do
@@ -20,9 +20,6 @@ class Tailwindcss < Formula
   depends_on "node" => :build
 
   def install
-    node = Formula["node"].opt_bin/"node"
-    system node, "./scripts/swap-engines.js"
-
     system "npm", "install", *Language::Node.local_npm_install_args
     system "npm", "run", "build"
 
