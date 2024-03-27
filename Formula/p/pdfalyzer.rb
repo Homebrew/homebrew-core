@@ -3,8 +3,8 @@ class Pdfalyzer < Formula
 
   desc "PDF analysis toolkit"
   homepage "https://github.com/michelcrypt4d4mus/pdfalyzer"
-  url "https://files.pythonhosted.org/packages/fd/86/d235c3936af7638eed693648d9bf651930dd384aa50d11250e5db9d6b4ab/pdfalyzer-1.14.6.tar.gz"
-  sha256 "d992de52f060559d0ff0086c0fff05fd86219fb8ffe3a48f8c03a7debee98809"
+  url "https://files.pythonhosted.org/packages/33/ca/ee761d07a8a739784ad4afe566d5cba4563d0dc1a7c3be29fa51b0b6561e/pdfalyzer-1.14.7.tar.gz"
+  sha256 "63c82144d1a250d56d6757e857917e79499e4675d5a258c62c420e411c0f419f"
   license "GPL-3.0-or-later"
   head "https://github.com/michelcrypt4d4mus/pdfalyzer.git", branch: "master"
 
@@ -22,8 +22,8 @@ class Pdfalyzer < Formula
   depends_on "python@3.12"
 
   resource "anytree" do
-    url "https://files.pythonhosted.org/packages/7e/84/51e270f1f117da92025427e5cddd71ee62fc65de8b0391568055eb872d3d/anytree-2.12.0.tar.gz"
-    sha256 "0dde0365cc8b1f3531e927694f39b903c360eadab2be09c50f3426ecca967949"
+    url "https://files.pythonhosted.org/packages/f9/44/2dd9c5d0c3befe899738b930aa056e003b1441bfbf34aab8fce90b2b7dea/anytree-2.12.1.tar.gz"
+    sha256 "244def434ccf31b668ed282954e5d315b4e066c4940b94aff4a7962d85947830"
   end
 
   resource "chardet" do
@@ -77,13 +77,13 @@ class Pdfalyzer < Formula
   end
 
   resource "yara-python" do
-    url "https://files.pythonhosted.org/packages/a4/2b/d36b6399027bb888faed23e3393f4efc3568996a5c386233b364d9e701d5/yara-python-4.2.3.tar.gz"
-    sha256 "31f6f6f2fdca4c5ddfeed7cc6d29afad6af7dc259dde284df2d7ea5ae15ee69a"
+    url "https://files.pythonhosted.org/packages/62/7b/81789fafcc6167fe8cfd94b3813c0971a083cde142731213007e2456f35b/yara-python-4.5.0.tar.gz"
+    sha256 "4feecc56d2fe1d23ecb17cb2d3bc2e3859ebf7a2201d0ca3ae0756a728122b27"
   end
 
   resource "yaralyzer" do
-    url "https://files.pythonhosted.org/packages/27/ab/53c0702f351334c1014eff376d67b31e2628197e3ad75a4824c3858512ca/yaralyzer-0.9.3.tar.gz"
-    sha256 "d8d2fbb8b12733b3d0623c6de3a7c3ec29dcb040cfdb647bdad811fdf94981a6"
+    url "https://files.pythonhosted.org/packages/23/73/9adfae6d87a9faaaaaccf2766e75c364314c127c81366cfecc3cce1d735d/yaralyzer-0.9.4.tar.gz"
+    sha256 "a30f655e7e42221bdb069c2f4c6a8c67d10408f3d0f3e4be08dab7dbf0ffe6ba"
   end
 
   def install

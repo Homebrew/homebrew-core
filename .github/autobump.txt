@@ -1388,6 +1388,7 @@ payara
 pciutils
 pcsc-lite
 pdal
+pdfalyzer
 pdfcpu
 pdfgrep
 pdftk-java
