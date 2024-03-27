@@ -657,6 +657,7 @@ fig2dev
 filebeat
 findent
 findomain
+fio
 firebase-cli
 firefoxpwa
 fisher
