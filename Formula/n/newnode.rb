@@ -25,8 +25,7 @@ class Newnode < Formula
   def install
     if OS.linux?
       inreplace "https_wget.c", "/usr/bin/wget", "#{Formula["wget"].opt_bin}/wget"
-      ENV["SED"] = "#{Formula["gnu-sed"].opt_bin}/sed"
-      ENV["GREP"] = "#{Formula["grep"].opt_bin}/grep"
+      ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
       ENV["HOMEBREW_CC"] = "#{Formula["llvm"].opt_bin}/clang"
       ENV["HOMEBREW_CXX"] = "#{Formula["llvm"].opt_bin}/clang++"
     end
