@@ -1100,6 +1100,7 @@ libspelling
 libsql
 libstrophe
 libtiff
+libtommath
 libucl
 libunibreak
 libunwind
