@@ -8,7 +8,7 @@ class Bubblewrap < Formula
   head "https://github.com/containers/bubblewrap.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "8647ce8a184f5a3071dc0dd4ba31c17423540d5bd11bd1b2513771d9fab36a66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "8a1f4b5ef0aaf9e6bf6a9f573c922702e8b0103dd7af93bb92d2ab33b71902e5"
   end
 
   depends_on "docbook-xsl" => :build
