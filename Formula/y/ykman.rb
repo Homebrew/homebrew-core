@@ -3,8 +3,8 @@ class Ykman < Formula
 
   desc "Tool for managing your YubiKey configuration"
   homepage "https://developers.yubico.com/yubikey-manager/"
-  url "https://files.pythonhosted.org/packages/7f/7d/a488f1c4d8847e25234902cb7230dc572bebc5ed8dbd29b5f5fa9b8889a4/yubikey_manager-5.3.0.tar.gz"
-  sha256 "5492c36a10ce6a5995b8ea1d32cf5bd60db7587201b2aa3e63e0c1da2334b8b6"
+  url "https://files.pythonhosted.org/packages/ca/22/c973548be0286e3bd3599e525c6de55b4535e38f0feff165442777db0f24/yubikey_manager-5.4.0.tar.gz"
+  sha256 "53726a186722cd2683b2f5fd781fc0a2861f47ce62ba9d3527960832c8fabec8"
   license "BSD-2-Clause"
   head "https://github.com/Yubico/yubikey-manager.git", branch: "main"
 
@@ -31,8 +31,8 @@ class Ykman < Formula
   end
 
   resource "fido2" do
-    url "https://files.pythonhosted.org/packages/a7/0f/b9f940372e0baa5a44742012f1eef1563296569db030a422ef3ce287b0ac/fido2-1.1.2.tar.gz"
-    sha256 "6110d913106f76199201b32d262b2857562cc46ba1d0b9c51fbce30dc936c573"
+    url "https://files.pythonhosted.org/packages/78/6c/79d44841549cc3d95bdfbeaa6bc7b36892c86066b05aac44585c56113819/fido2-1.1.3.tar.gz"
+    sha256 "26100f226d12ced621ca6198528ce17edf67b78df4287aee1285fee3cd5aa9fc"
   end
 
   resource "jaraco-classes" do
@@ -46,8 +46,8 @@ class Ykman < Formula
   end
 
   resource "keyring" do
-    url "https://files.pythonhosted.org/packages/69/cd/889c6569a7e5e9524bc1e423fd2badd967c4a5dcd670c04c2eff92a9d397/keyring-24.3.0.tar.gz"
-    sha256 "e730ecffd309658a08ee82535a3b5ec4b4c8669a9be11efb66249d8e0aeb9a25"
+    url "https://files.pythonhosted.org/packages/ae/6c/bd2cfc6c708ce7009bdb48c85bb8cad225f5638095ecc8f49f15e8e1f35e/keyring-24.3.1.tar.gz"
+    sha256 "c3327b6ffafc0e8befbdb597cacdb4928ffe5c1212f7645f186e6d9957a898db"
   end
 
   resource "more-itertools" do
@@ -56,8 +56,8 @@ class Ykman < Formula
   end
 
   resource "pyscard" do
-    url "https://files.pythonhosted.org/packages/cc/33/b7d115ccf1b594af18db7ca61a7b07192356be35c65dfcd1d5ef9b28dc0a/pyscard-2.0.7.tar.gz"
-    sha256 "278054525fa75fbe8b10460d87edcd03a70ad94d688b11345e4739987f85c1bf"
+    url "https://files.pythonhosted.org/packages/27/f9/290e3af3b9cf367d8bc9ffe13f537d26ba37ba93b1eae90777125d22d822/pyscard-2.0.8.tar.gz"
+    sha256 "2eb16ee0e89ab27759fcb36f032c40a5774ed5926c0e03309837bdeb563a6032"
   end
 
   resource "secretstorage" do
