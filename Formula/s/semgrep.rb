@@ -15,13 +15,13 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d56b889e583d7699a12aedb25f3509f299a4a113926567251d92b6f1cdcfc67e"
-    sha256 cellar: :any,                 arm64_ventura:  "d08d3ea8660a02791591c44312fe66d331e32073068403e462d1901ae4df31a9"
-    sha256 cellar: :any,                 arm64_monterey: "c5f0b0091f98acd4875ddf3192b15d2d1861c13707e5da6e99b65ca934ee458f"
-    sha256 cellar: :any,                 sonoma:         "35404a8d00ed194084b9da45e3c57f49dc393e32c3dd30216edebe5b28972a7a"
-    sha256 cellar: :any,                 ventura:        "9cf33bbae7162eb655eb208be8bec49b62020e1f98af8bf4aa28502d2eebf8f7"
-    sha256 cellar: :any,                 monterey:       "678b24cf2b8e85bf1063bd9a5c6ca99e1088a04f760ed2f6a257ea3507003002"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7633068cb5e636a184e054fd5ce846da13837018a484628418a85eb934fef7d4"
+    sha256 cellar: :any,                 arm64_sonoma:   "1eb07fd86c6889a8a4e831830442a2723ed1dfb8bbf3b4ab9c5014f936df0b4d"
+    sha256 cellar: :any,                 arm64_ventura:  "076af5a2953404d074195abbc95b1f7ec4a926a5c3fb829bc78bc474f0b97f24"
+    sha256 cellar: :any,                 arm64_monterey: "3108a83afb1f60d92c3714af48f14f58b141dc2e3af7be1c11a7dd15e94c468d"
+    sha256 cellar: :any,                 sonoma:         "f1718cf32d21503394a03a25c700e5f47656d3dbbd006b5d1a4fef646c99d7e1"
+    sha256 cellar: :any,                 ventura:        "7182ddeeaa86bfe3cc3ab6ad61df3d97c82b999ba9cff0712dc2119be32bb481"
+    sha256 cellar: :any,                 monterey:       "1a72e5d34f19dbffd559d838d6b80956c4f29e2d4a06ef918b86204d23b7bfa4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31bc6e17d9483e91c35851709bed22eb9607dc21b2dd30506dbefe1cbe8b5667"
   end
 
   depends_on "autoconf" => :build
