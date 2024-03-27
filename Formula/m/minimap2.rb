@@ -11,13 +11,13 @@ class Minimap2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f682b5adbbae08fc261bd5050e3db95daef291d5af573975f62b0de58d7d78fc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b2af528b6f911d1c70de8a77c146e87295a195d102448871c202bf967a24e38"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1bf22d1d8de0c95d7387c8877f41cd6d86eda4028ab45edffb1e4332cf4173f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a9bc76316ec78fe78e0e07ef7326f07de2d7fbb70cfa8cd185fb690791a2eaae"
-    sha256 cellar: :any_skip_relocation, ventura:        "dd0b65b8b9c38288caa35ca86696bb02c5f6066086eb3e0ed203c02c56c4da13"
-    sha256 cellar: :any_skip_relocation, monterey:       "6034231fb2326eaa195420fe5260fc959b4c374465eee57f41fded0da51af970"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03104c16fdc1d9cb697ac848ea9d644bc9b68988f62a42b32825dd2efb79b9c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bfd4d2c1731ffbc45839fda3a405dfa930208b497c08de8f53770d4b942e690"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47cef6f5132e485823d26e03caba808de26301d29dff56a59d51006d00f5e4cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0a6571f41113568817ec781db7b4c9a31ac15fbe1aff96691dd04a6db12148d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7948260fe80260ff50ae0541174e6b404f8699f4b3ad1dfcaef7619fee42cd75"
+    sha256 cellar: :any_skip_relocation, ventura:        "27681877ccc90d85eb51cfb7126d8b242998eb145eb985331f110cfaf8b81383"
+    sha256 cellar: :any_skip_relocation, monterey:       "fcefb72704e3e02c7ce06c694cb6ff12d9d8d84983025e0e3e61a48358410e43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca4b9be1d24ab45476ef3008a956aee3b4f62ebb5bf0172745928d04cce44e66"
   end
 
   uses_from_macos "zlib"
