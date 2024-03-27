@@ -39,6 +39,11 @@ class Leetup < Formula
   end
 
   test do
-    assert_match "Easy", shell_output("#{bin}/leetup list 'Two Sum'")
+    assert_match <<~EOS, shell_output("#{bin}/leetup user --logout")
+      User not logged in!
+      User logged out!
+    EOS
+
+    assert_match version.to_s, shell_output("#{bin}/leetup --version")
   end
 end
