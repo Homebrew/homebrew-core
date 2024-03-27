@@ -12,13 +12,13 @@ class Moon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "494a4b140bdd0f8d91d8b1660445f5fd4c397201a955c02a77673a7b73cbfc8b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab0b1f1f037922e1d1fd8e04e9ac59827656572a745de3d3cde1bbe555b50d6c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "229b024774c5c2e41f19a38acc945126a54c384aa265763898fce5bcd899e9ba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d9742351d53eab2650dfa3845dd86d3a7adf210511fa3b7d095061de30bed184"
-    sha256 cellar: :any_skip_relocation, ventura:        "4f975924b6a26e7ef52be6cc2951085fd9b694d0789c07f65967da5fa34a653d"
-    sha256 cellar: :any_skip_relocation, monterey:       "d85cb419658c22656fc6c692477d49c666e64a9dc7888e8943c0d1890bbe58b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d813a68d9d98ac19d384235ab44b8a75cb29650f5d17072de3e2805d2f38c84"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1781af9d0d127d7e4068e9189c0ca981cf8bba0c63cda2097fde63b184297d3d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3ac50710b6a90c60a7786c0797708c1d0a498abb8dfdc5eb6996570bdd14b667"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c784a491a3d7882dcbbb98f7dd09b32410152cf34a642280e7a3a620484660e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0bf391a05d5227f4c2aa2747f432423396835e3bf606f84d2b251a1e55d44597"
+    sha256 cellar: :any_skip_relocation, ventura:        "96e3391816f4f6e20d61b92f3fd0af7219fe1fc7e40cf1fd15c84c55216a4070"
+    sha256 cellar: :any_skip_relocation, monterey:       "585755f34d7116a03b86241929734b1680deee6ae651ae0d5e90315d079b6f15"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7a93373d53176cbf476cfe0c87bf8fff068044c3ef6896f324e9819570a62172"
   end
 
   depends_on "pkg-config" => :build
