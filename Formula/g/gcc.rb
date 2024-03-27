@@ -2,6 +2,7 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
@@ -26,6 +27,13 @@ class Gcc < Formula
     # Upstream fix to deal with macOS 14 SDK <math.h> header
     # https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff;h=93f803d53b5ccaabded9d7b4512b54da81c1c616
     patch :DATA
+
+    # Upstream commit to fix include of ctype.h in macOS 14.2 SDK
+    # https://gcc.gnu.org/git/?p=gcc.git;a=commit;h=9970b576b7e4ae337af1268395ff221348c4b34a
+    patch do
+      url "https://gcc.gnu.org/git/?p=gcc.git;a=commitdiff_plain;h=9970b576b7e4ae337af1268395ff221348c4b34a;hp=a242f69693d2fcac428cb82bf843882dee84fc81"
+      sha256 "7d3c84cc34cd52f5c4d339f15edcc10d5ddb232da7038493478ca24dc9af0088"
+    end
   end
 
   livecheck do
@@ -109,6 +117,14 @@ class Gcc < Formula
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       args << "--with-sysroot=#{sdk}" if sdk
+
+      # Work around bugs in Xcode 15's new linker:
+      #  - Xcode 15 and 15.1: FB13038083, linker assertion failure
+      #  - Xcode 15.3: FB13194355, no support for `-commons use_dylibs`
+      if DevelopmentTools.clang_build_version >= 1500
+        toolchain_path = "/Library/Developer/CommandLineTools"
+        args << "--with-ld=#{toolchain_path}/usr/bin/ld-classic"
+      end
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
