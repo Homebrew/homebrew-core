@@ -6,9 +6,9 @@ class Gap < Formula
   license "GPL-2.0-or-later"
 
   depends_on "autoconf" => :build
+  depends_on "gcc" => :build
   depends_on "libtool" => :build
   depends_on "make" => :build
-  depends_on "gcc" => :build
   depends_on "gmp"
   depends_on "readline"
   uses_from_macos "zlib"
