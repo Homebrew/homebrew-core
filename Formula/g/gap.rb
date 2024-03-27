@@ -7,10 +7,10 @@ class Gap < Formula
 
   depends_on "autoconf" => :build
   depends_on "libtool" => :build
+  depends_on "make" => :build
+  depends_on "gcc" => :build
   depends_on "gmp"
-  depends_on :macos
   depends_on "readline"
-  depends_on :xcode
   uses_from_macos "zlib"
 
   def install
