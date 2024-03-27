@@ -6,7 +6,6 @@ class GemmaCpp < Formula
   license "Apache-2.0"
 
   depends_on "cmake" => :build
-  depends_on "sentencepiece"
 
   def install
     system "cmake", "--preset", "make", *std_cmake_args, "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}"
