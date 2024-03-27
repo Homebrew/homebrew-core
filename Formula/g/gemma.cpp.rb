@@ -8,7 +8,7 @@ class GemmaCpp < Formula
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "--preset", "make", *std_cmake_args, "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}"
+    system "cmake", "--preset", "make", *std_cmake_args, "-DCMAKE_EXE_LINKER_FLAGS=-Wl"
     system "cmake", "--build", "--preset", "make"
     bin.install "build/gemma"
     lib.install "build/libgemma.a"
