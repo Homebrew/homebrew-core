@@ -9,14 +9,13 @@ class GobjectIntrospection < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later", "MIT"]
 
   bottle do
-    rebuild 2
-    sha256 arm64_sonoma:   "96d6d76ee31526ffa6c8f5f3c7869b8ff1f0c6eada16f3e4a3fadd4493db2ea4"
-    sha256 arm64_ventura:  "6d95c26c2f55fa9c580c7c752f2206213ef084e1e809b57a44010f00dab93541"
-    sha256 arm64_monterey: "e0bd5fa89b92f5b59089a65a4619d01357f181046d1c40cb1fd305497ef4c36a"
-    sha256 sonoma:         "6c368de4058f8a828e199693087d4f91bf484a45b8caae7361adac73fc46d580"
-    sha256 ventura:        "76d91c3f79ef5bb1136b48d0d824d6273a7060372d4d100361bd4413595100b9"
-    sha256 monterey:       "00d3d7872a095c21e0ae895a482a330da60db35d6f8062dc5f6a20d3ebc96e8e"
-    sha256 x86_64_linux:   "9bedb5012b273ce8918c43935ede3dfee2fc3faf8a8f209551d10cbfb45813ba"
+    sha256 arm64_sonoma:   "1d83e7a0161a925efbf078e59945ea15464a851a58ed9e338cfbb75045182040"
+    sha256 arm64_ventura:  "a3d8880b2a9743befeaef6a9f664cc082b8aaf82ee094c1b2584baa94664caf1"
+    sha256 arm64_monterey: "04c549ee90a4c74430735ebf26c721103e9eb275fd50b5e79368bd62b802eb30"
+    sha256 sonoma:         "70cba482d9c2e316ca6ff7c878c1ddfbfb6d8be9c59b899a9373f85c0ee8073b"
+    sha256 ventura:        "0ffd57156ef0bd2a6c36c1a3fda526cfec5c198606df6001f54ae7de570f6383"
+    sha256 monterey:       "2481191ca8f417769c05ebfa7a6eaad67a8e546461d50fa7ee391814e4414aef"
+    sha256 x86_64_linux:   "1c96da5a9385af9b4cf647cdc106d85ad6742bd46f2d63eb07a55ee70d6b692f"
   end
 
   depends_on "bison" => :build
