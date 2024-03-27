@@ -124,6 +124,10 @@ class Mailhog < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b66c1a2cbd67663bd1046ec584e8a9fd8518b7b68a3907ded7b6225d55774da"
   end
 
+  # No support for Go modules and needs deprecated `go_resource` DSL.
+  # https://github.com/mailhog/MailHog/issues/442#issuecomment-1493415258
+  deprecate! date: "2024-03-27", because: :unmaintained
+
   depends_on "go" => :build
 
   def install
