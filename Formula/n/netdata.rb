@@ -1,10 +1,9 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v1.44.3/netdata-v1.44.3.tar.gz"
-  sha256 "50df30a9aaf60d550eb8e607230d982827e04194f7df3eba0e83ff7919270ad2"
+  url "https://github.com/netdata/netdata/releases/download/v1.45.0/netdata-v1.45.0.tar.gz"
+  sha256 "798cf5860600cde2c2fa67c16d27c98f596dbc517992bc39be50277c5049fcb5"
   license "GPL-3.0-or-later"
-  revision 2
 
   livecheck do
     url :stable
@@ -21,18 +20,19 @@ class Netdata < Formula
     sha256 x86_64_linux:   "eaf7d9f20de88f1e860c8f3709cb98d9d0cc37dc45f200d2d5e1df2fb6bdaf48"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "m4" => :build
+  depends_on "cmake" => :build
+  depends_on "go" => :build
+  depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "brotli"
+  depends_on "freeipmi"
   depends_on "json-c"
   depends_on "libuv"
   depends_on "libyaml"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "pcre2"
-  depends_on "protobuf"
-  depends_on "protobuf-c"
+  depends_on "zstd"
 
   uses_from_macos "zlib"
 
@@ -40,65 +40,48 @@ class Netdata < Formula
     depends_on "util-linux"
   end
 
-  resource "judy" do
-    url "https://downloads.sourceforge.net/project/judy/judy/Judy-1.0.5/Judy-1.0.5.tar.gz"
-    sha256 "d2704089f85fdb6f2cd7e77be21170ced4b4375c03ef1ad4cf1075bd414a63eb"
+  # On Mac, patch needed which uses pkg-config to find openssl
+  # https://github.com/netdata/netdata/pull/17250
+  patch do
+    url "https://github.com/netdata/netdata/commit/e60da951405fc74a8c7513357d5bd28b49602c14.patch?full_index=1"
+    sha256 "fa6708091d7c9cadcb50a5c6bea7b938ceb083c7762955d3a79871ee7c2f1fd5"
   end
 
   def install
-    # daemon/buildinfo.c saves the configure args and certain environment
-    # variables used to build netdata. Remove the environment variable that may
-    # reference `HOMEBREW_LIBRARY`, which can make bottling fail.
-    ENV.delete "PKG_CONFIG_LIBDIR"
-
     # https://github.com/protocolbuffers/protobuf/issues/9947
     ENV.append_to_cflags "-DNDEBUG"
 
-    # We build judy as static library, so we don't need to install it
-    # into the real prefix
-    judyprefix = "#{buildpath}/resources/judy"
-
-    resource("judy").stage do
-      system "./configure", "--disable-debug", "--disable-dependency-tracking",
-          "--disable-shared", "--prefix=#{judyprefix}"
-
-      # Parallel build is broken
-      ENV.deparallelize do
-        system "make", "install"
-      end
-    end
-
-    ENV["PREFIX"] = prefix
-    ENV.append "CFLAGS", "-I#{judyprefix}/include"
-    ENV.append "LDFLAGS", "-L#{judyprefix}/lib"
-
-    # We need C++17 for protobuf.
-    inreplace "configure.ac", "# AX_CXX_COMPILE_STDCXX(17, noext, optional)",
-                              "AX_CXX_COMPILE_STDCXX(17, noext, mandatory)"
-
-    system "autoreconf", "--force", "--install", "--verbose"
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --prefix=#{prefix}
-      --sysconfdir=#{etc}
-      --localstatedir=#{var}
-      --libexecdir=#{libexec}
-      --with-math
-      --with-zlib
-      --enable-dbengine
-      --with-user=netdata
+    args = %w[
+      -DENABLE_PLUGIN_GO=On
+      -DENABLE_BUNDLED_PROTOBUF=On
+      -DENABLE_PLUGIN_SYSTEMD_JOURNAL=Off
+      -DENABLE_PLUGIN_CUPS=On
+      -DENABLE_PLUGIN_DEBUGFS=Off
+      -DENABLE_PLUGIN_PERF=Off
+      -DENABLE_PLUGIN_SLABINFO=Off
+      -DENABLE_PLUGIN_CGROUP_NETWORK=Off
+      -DENABLE_PLUGIN_LOCAL_LISTENERS=Off
+      -DENABLE_PLUGIN_NETWORK_VIEWER=Off
+      -DENABLE_PLUGIN_EBPF=Off
+      -DENABLE_PLUGIN_LOGS_MANAGEMENT=Off
+      -DENABLE_LOGS_MANAGEMENT_TESTS=Off
+      -DENABLE_ACLK=On
+      -DENABLE_CLOUD=On
+      -DENABLE_BUNDLED_JSONC=Off
+      -DENABLE_DBENGINE=On
+      -DENABLE_H2O=On
+      -DENABLE_ML=On
+      -DENABLE_PLUGIN_APPS=On
+      -DENABLE_EXPORTER_PROMETHEUS_REMOTE_WRITE=Off
+      -DENABLE_EXPORTER_MONGODB=Off
+      -DENABLE_PLUGIN_FREEIPMI=On
+      -DENABLE_PLUGIN_NFACCT=Off
+      -DENABLE_PLUGIN_XENSTAT=Off
     ]
-    if OS.mac?
-      args << "UUID_LIBS=-lc"
-      args << "UUID_CFLAGS=-I/usr/include"
-    else
-      args << "UUID_LIBS=-luuid"
-      args << "UUID_CFLAGS=-I#{Formula["util-linux"].opt_include}"
-    end
-    system "./configure", *args
-    system "make", "clean"
-    system "make", "install"
+
+    system "cmake", " -S", ".", "-B", "build", "-G", "Ninja", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
 
     (etc/"netdata").install "system/netdata.conf"
   end
@@ -112,12 +95,12 @@ class Netdata < Formula
   end
 
   service do
-    run [opt_sbin/"netdata", "-D"]
+    run ["#{Formula["netdata"].opt_prefix}/usr/sbin/netdata", "-D"]
     working_dir var
   end
 
   test do
-    system "#{sbin}/netdata", "-W", "set", "registry", "netdata unique id file",
+    system "#{Formula["netdata"].opt_prefix}/usr/sbin/netdata", "-W", "set", "registry", "netdata unique id file",
                               "#{testpath}/netdata.unittest.unique.id",
                               "-W", "set", "registry", "netdata management api key file",
                               "#{testpath}/netdata.api.key"
