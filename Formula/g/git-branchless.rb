@@ -1,8 +1,7 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
-  # TODO: check if we can use unversioned `libgit2` at version bump.
-  # See comments below for details.
+  # TODO: check if we can remove git2 inreplace (or increase precise version) on next release
   url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.8.0.tar.gz"
   sha256 "f9e13d9a3de960b32fb684a59492defd812bb0785df48facc964478f675f0355"
   license any_of: ["Apache-2.0", "MIT"]
@@ -29,15 +28,15 @@ class GitBranchless < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  # To check for `libgit2` version:
-  # 1. Search for `libgit2-sys` version at https://github.com/arxanas/git-branchless/blob/v#{version}/Cargo.lock
-  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
-  #    - Migrate to the corresponding `libgit2` formula.
-  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
-  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
-  depends_on "libgit2@1.6"
+  depends_on "libgit2"
 
   def install
+    # Adjust git2 dependency to avoid formula deprecation due to using old unsupported `libgit2`
+    git2_version = "0.18.3"
+    inreplace "Cargo.toml", /^(git2 = \{ version = )"0.17.2"/, "\\1\"#{git2_version}\""
+    system "cargo", "update", "git2", "--precise", git2_version
+
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     # make sure git can find git-branchless
     ENV.prepend_path "PATH", bin
 
@@ -58,7 +57,7 @@ class GitBranchless < Formula
     linkage_with_libgit2 = (bin/"git-branchless").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.6"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."
