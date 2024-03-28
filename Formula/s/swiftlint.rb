@@ -2,8 +2,8 @@ class Swiftlint < Formula
   desc "Tool to enforce Swift style and conventions"
   homepage "https://github.com/realm/SwiftLint"
   url "https://github.com/realm/SwiftLint.git",
-      tag:      "0.53.0",
-      revision: "6d2e58271ebc14c37bf76d7c9f4082cc15bad718"
+      tag:      "0.54.0",
+      revision: "f17a4f9dfb6a6afb0408426354e4180daaf49cee"
   license "MIT"
   head "https://github.com/realm/SwiftLint.git", branch: "main"
 
@@ -17,7 +17,7 @@ class Swiftlint < Formula
     sha256                               x86_64_linux:   "fbbc56fccfcfcd34564feb7325567e2ff3638d3c609396a5c4aa13311c7b26e0"
   end
 
-  depends_on xcode: ["14.0", :build]
+  depends_on xcode: ["15.3", :build]
   depends_on xcode: "8.0"
 
   uses_from_macos "swift"
