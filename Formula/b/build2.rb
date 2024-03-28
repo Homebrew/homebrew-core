@@ -4,6 +4,7 @@ class Build2 < Formula
   url "https://download.build2.org/0.16.0/build2-toolchain-0.16.0.tar.xz"
   sha256 "23793f682a17b1d95c80bbd849244735ed59a3e27361529aa4865d2776ff8adc"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://download.build2.org/toolchain.sha256"
