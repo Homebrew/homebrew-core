@@ -7,13 +7,13 @@ class Overtls < Formula
   head "https://github.com/ShadowsocksR-Live/overtls.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d3872de432acd790d9d3d1e9f58250ed0707a2ed2588848beb1cbd1e57551c92"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "55b114044f1253cdbb2d9bc41cc9e94837c4dd30e657371edd5d477323ab7e7b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fe623f2d9a1d126c30154f1f5e0f862c22991d63b797ceab2403f8ebbf7c233b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8f92732e37b3269afb6bcd982f81580ae87dddf26e88a43c7fbcb171aade4ccf"
-    sha256 cellar: :any_skip_relocation, ventura:        "e278fdb0bf3ec15a3e7aaaa2c7be65ae9edf86f5ec9e7806cfee574b442b4a3d"
-    sha256 cellar: :any_skip_relocation, monterey:       "86d824c418afcbdac737104912f0fac657dbab7793f411fadf0d3687473a22bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa02c2f37524e6ca0f020e9851dbcd2aad6f7b2b9ce2bc31c3215418c3408de9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "efa9adc1c8faa29c454648cecee15d3433711c49785dc09f03e3f2e95cf241ae"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6249a797445380de4dddf417153caf3ef83f3ce18a9f5d4b2db88418b5b1c64"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "93213f3884a6a008e96a6e5d5e874928c0d0bb2db984401a7d56b92203ac0c0a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f6e02e710ae8a0bf7ef2b6e034035e67a3bfc29ca880864603d0c59d66f98a4f"
+    sha256 cellar: :any_skip_relocation, ventura:        "c1aa80509f625369704e8ee983d48ed7aed7935e3563fbc77a7ff7275b6c2d81"
+    sha256 cellar: :any_skip_relocation, monterey:       "a5047e6eea6a7971dfad5bf3643adf8b6e2b6081e35d035746278ac59d467a4b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "139cc1a5eaaad4b0be4a6def7d8b3b83d429153662153fc55d451f887c0d699c"
   end
 
   depends_on "rust" => :build
