@@ -77,6 +77,7 @@ arkade
 armadillo
 arp-scan
 arrayfire
+arti
 artillery
 arturo
 ascii
