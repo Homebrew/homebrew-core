@@ -256,6 +256,10 @@ class PythonAT311 < Formula
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
 
+      # Binaries are codesigned but the framework is not
+      # https://github.com/Homebrew/brew/issues/16660
+      system "/usr/bin/codesign", "-f", "-s", "-", frameworks/"Python.framework"
+
       # Remove symlinks that conflict with the main Python formula.
       rm %w[Headers Python Resources Versions/Current].map { |subdir| frameworks/"Python.framework"/subdir }
     else

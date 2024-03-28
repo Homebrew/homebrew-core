@@ -255,6 +255,10 @@ class PythonAT312 < Formula
       inreplace lib_cellar/"_sysconfigdata__darwin_darwin.py",
                 %r{('LINKFORSHARED': .*?)'(Python.framework/Versions/3.\d+/Python)'}m,
                 "\\1'#{opt_prefix}/Frameworks/\\2'"
+
+      # Binaries are codesigned but the framework is not
+      # https://github.com/Homebrew/brew/issues/16660
+      system "/usr/bin/codesign", "-f", "-s", "-", frameworks/"Python.framework"
     else
       # Prevent third-party packages from building against fragile Cellar paths
       inreplace Dir[lib_cellar/"**/_sysconfigdata_*linux_x86_64-*.py",
