@@ -23,6 +23,8 @@ class Libxc < Formula
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_FORTRAN=ON",
+                    "-DDISABLE_KXC=OFF",
+                    "-DDISABLE_LXC=OFF",
                     "-DBUILD_SHARED_LIBS=ON",
                     *std_cmake_args
     system "cmake", "--build", "build"
