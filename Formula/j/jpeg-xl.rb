@@ -4,6 +4,7 @@ class JpegXl < Formula
   url "https://github.com/libjxl/libjxl/archive/refs/tags/v0.10.2.tar.gz"
   sha256 "95e807f63143856dc4d161c071cca01115d2c6405b3d3209854ac6989dc6bb91"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -50,16 +51,25 @@ class JpegXl < Formula
     url "https://github.com/webmproject/sjpeg.git",
         revision: "e5ab13008bb214deb66d5f3e17ca2f8dbff150bf"
   end
+  resource "jpeg-turbo" do
+    url "https://github.com/libjpeg-turbo/libjpeg-turbo.git",
+        revision: "8ecba3647edb6dd940463fedf38ca33a8e2a73d1"
+  end
 
   def install
     ENV.append_path "XML_CATALOG_FILES", HOMEBREW_PREFIX/"etc/xml/catalog"
-    resources.each { |r| r.stage buildpath/"third_party"/r.name }
+    resource("sjpeg").stage buildpath/"third_party/sjpeg"
+    # We only want some of jpeg-turbo's headers.
+    resource("jpeg-turbo").stage do
+      cp ["jconfig.h.in", "jpeglib.h", "jmorecfg.h"],
+         buildpath/"third_party/libjpeg-turbo/"
+    end
     system "cmake", "-S", ".", "-B", "build",
                     "-DJPEGXL_FORCE_SYSTEM_BROTLI=ON",
                     "-DJPEGXL_FORCE_SYSTEM_LCMS2=ON",
                     "-DJPEGXL_FORCE_SYSTEM_HWY=ON",
                     "-DJPEGXL_ENABLE_JNI=OFF",
-                    "-DJPEGXL_ENABLE_JPEGLI=OFF",
+                    "-DJPEGXL_ENABLE_JPEGLI=ON",
                     "-DJPEGXL_ENABLE_SKCMS=OFF",
                     "-DJPEGXL_VERSION=#{version}",
                     "-DJPEGXL_ENABLE_MANPAGES=ON",
@@ -69,11 +79,23 @@ class JpegXl < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--build", "build", "--target", "install"
+    if OS.linux?
+      lib.install buildpath/"build/lib/jpegli"
+      include.install buildpath/"build/lib/include/jpegli"
+    end
   end
 
   test do
     system "#{bin}/cjxl", test_fixtures("test.jpg"), "test.jxl"
     assert_predicate testpath/"test.jxl", :exist?
+
+    system "#{bin}/cjpegli", test_fixtures("test.png"), "test.jpg", "--xyb"
+    shell_output("#{bin}/djpegli test.jpg --disable_output")
+
+    if OS.linux?
+      assert_predicate lib/"jpegli/libjpeg.so", :exist?
+      assert_predicate include/"jpegli/jconfig.h", :exist?
+    end
 
     (testpath/"jxl_test.c").write <<~EOS
       #include <jxl/encode.h>
