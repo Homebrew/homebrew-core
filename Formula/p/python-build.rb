@@ -9,14 +9,13 @@ class PythonBuild < Formula
   head "https://github.com/pypa/build.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7cf2f0431b83814aac5d459f04fe5fae420fb990933bf695c6c29f478a1e002"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7cf2f0431b83814aac5d459f04fe5fae420fb990933bf695c6c29f478a1e002"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7cf2f0431b83814aac5d459f04fe5fae420fb990933bf695c6c29f478a1e002"
-    sha256 cellar: :any_skip_relocation, sonoma:         "12f4cb17cda361497cffbd7dcdf81e497a56aef12359f83570b2fbe29ef2cfce"
-    sha256 cellar: :any_skip_relocation, ventura:        "12f4cb17cda361497cffbd7dcdf81e497a56aef12359f83570b2fbe29ef2cfce"
-    sha256 cellar: :any_skip_relocation, monterey:       "12f4cb17cda361497cffbd7dcdf81e497a56aef12359f83570b2fbe29ef2cfce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c20c6e2a28bf1e786ad3b488afd089d7a54d6859182181cd2746ce08d535e6d3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "657992de5626a5a110fbd22cce59f2491976f4c297418a29d87b72489a06bbad"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "657992de5626a5a110fbd22cce59f2491976f4c297418a29d87b72489a06bbad"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "657992de5626a5a110fbd22cce59f2491976f4c297418a29d87b72489a06bbad"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e198b95c3a8005d32c9cf3b584c1d96495ab4e7390dad4580fac6bf8d3c3c8a3"
+    sha256 cellar: :any_skip_relocation, ventura:        "e198b95c3a8005d32c9cf3b584c1d96495ab4e7390dad4580fac6bf8d3c3c8a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "e198b95c3a8005d32c9cf3b584c1d96495ab4e7390dad4580fac6bf8d3c3c8a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8777011942ea77fab80c89a6fb4f9cf65ac013ecf3d2b864fc7e7d3f35685ec3"
   end
 
   depends_on "python@3.12"
