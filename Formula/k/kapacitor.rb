@@ -32,7 +32,9 @@ class Kapacitor < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9c728517d5c4fd80f8e9dbe70813fa657ecc4314334cc452890967cfecb3efd"
   end
 
-  depends_on "go" => :build
+  # use "go" again when supported
+  # see https://github.com/influxdata/kapacitor/issues/2769 and https://github.com/influxdata/kapacitor/issues/2782
+  depends_on "go@1.21" => :build
   depends_on "rust" => :build
 
   on_linux do
