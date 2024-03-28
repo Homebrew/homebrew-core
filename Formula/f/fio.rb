@@ -1,8 +1,8 @@
 class Fio < Formula
   desc "I/O benchmark and stress test"
   homepage "https://github.com/axboe/fio"
-  url "https://github.com/axboe/fio/archive/refs/tags/fio-3.36.tar.gz"
-  sha256 "b34b8f3c5cd074c09ea487ffe3f444e95565c214b34a73042f35b00cbaab0e17"
+  url "https://github.com/axboe/fio/archive/refs/tags/fio-3.37.tar.gz"
+  sha256 "b59099d42d5c62a8171974e54466a688c8da6720bf74a7f16bf24fb0e51ff92d"
   license "GPL-2.0-only"
 
   livecheck do
@@ -11,13 +11,13 @@ class Fio < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0fa5f29acbc4d39001de9c520d6e638e4e8e7ed2b9f7261c3edccffaf5da20d3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "61aecb471bfb1d8f1f9c8b5a97414dabc957130d8b2d18ac0491c63c391b5be0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "81e33797ea700cd1e2b463cb2df302d489ce56a1069c41cbcd4da1943c8502db"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cfc26c572616aef25c16711be4c15c8c882f8f52dfd5cfa311ec9c5e033d3206"
-    sha256 cellar: :any_skip_relocation, ventura:        "b3c0ed99e6ce9210a06f8613610eff0bdecec2501eb53162645107e9bdbfe88d"
-    sha256 cellar: :any_skip_relocation, monterey:       "0047937e6a1b4e1988046b0b331ffc0795b4824a9a8a835406c7160e23ac263c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d792563e51ac3ae90c3b8540995cac1d3e49a0636eae52a62afe7537b887e3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4606a60336899fd6999316c0d7de2a23b87467f6d77b0eef9000260e899a31fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14600f40dc8304b14b5e9620ea0d58c4d518cebf581b1a44e0adf78206c6f3a2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e975b49bbc2f53fc937ef2efd886dffc00b14221056c378bfa12a98ce1bb9aff"
+    sha256 cellar: :any_skip_relocation, sonoma:         "18c52b3d11e199a2f960a0781007204b7d0d9de26f26f13670262c6e4a4db5b0"
+    sha256 cellar: :any_skip_relocation, ventura:        "15e4e2f977211365ccae723d41eb8e1d73722a2d28ab9f0fc4887a3814a8dfe9"
+    sha256 cellar: :any_skip_relocation, monterey:       "a3d576aba0d1979b57fc1083143b703c0876c932688156ed7de3c7ecd5aa7082"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc5fb7416705b1cfed6f18938ba6e54c5da7f9aa81a1ef77380afb67171cf47c"
   end
 
   uses_from_macos "zlib"

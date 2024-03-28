@@ -4,15 +4,13 @@ class Ghostscript < Formula
   license "AGPL-3.0-or-later"
 
   stable do
-    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10021/ghostpdl-10.02.1.tar.xz"
-    sha256 "01f4b699f031566b04cec495506811866e17896b26847c14e5333fb3adfc0619"
+    url "https://github.com/ArtifexSoftware/ghostpdl-downloads/releases/download/gs10030/ghostpdl-10.03.0.tar.xz"
+    sha256 "854fd1958711b9b5108c052a6d552b906f1e3ebf3262763febf347d77618639d"
 
     on_macos do
-      # 1. Make sure shared libraries follow platform naming conventions.
-      # 2. Prevent dependent rebuilds on minor version bumps.
+      # 1. Prevent dependent rebuilds on minor version bumps.
       # Reported upstream at:
       #   https://bugs.ghostscript.com/show_bug.cgi?id=705907
-      #   https://bugs.ghostscript.com/show_bug.cgi?id=705908
       patch :DATA
     end
   end
@@ -27,13 +25,13 @@ class Ghostscript < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "40d5580ead459aefe68afa9598cf9a78b2986728b1facd65197dee6d515bb89b"
-    sha256 arm64_ventura:  "c5db66858cd4a9adf1c2550aaecac97e9dc77d909ce383c7237e21e9296ff5eb"
-    sha256 arm64_monterey: "6827f568486864faef458a93639ab434f6ac462851a7174e032920af1560f5fb"
-    sha256 sonoma:         "16c06c980a9042d4cc6bfb25066bbd5115e79844491e52ed9d14b2e70cdc229f"
-    sha256 ventura:        "1bd495710c4e3dd8c82910da392b31bb62031c0367ca33b833a190911bd4cde9"
-    sha256 monterey:       "aa61f407ef7001d70f2999cc41856376ed3e02d816018f1ae6178f921000f693"
-    sha256 x86_64_linux:   "2991d1596604df285d584c401eec3b226a4846adf27cdf32493547e08db5e613"
+    sha256 arm64_sonoma:   "5a4d2e12ec9ad26a94cb92817fe6685bc2b29d406174825cbe256e01a20f8e21"
+    sha256 arm64_ventura:  "ba6c4d70667d55f5275bd53695269ee2110fcc98316ac4c8772c65d68695bc00"
+    sha256 arm64_monterey: "66b6b08bcc0464ee44f37c3ae5004f6c7b9f218b647dced944963a0c924efb00"
+    sha256 sonoma:         "bd8ac911d2c568d9cd2e01b6dc2056d876c9a63580488f69630227bf41340a44"
+    sha256 ventura:        "ffc9f0f5ab002fcee2afaa5b7a32c08f34f3da59e26f50903b14e8b07bc5f4b6"
+    sha256 monterey:       "d8233c88f480d3a0c099dd482ecdf41b77de8610ba9c8a21324db949772ca6f5"
+    sha256 x86_64_linux:   "9f0a3bff7c308669561afe78692b58d27a3571ab4fbb94cfa175fd5cd67360c9"
   end
 
   head do
@@ -66,16 +64,6 @@ class Ghostscript < Formula
   resource "fonts" do
     url "https://downloads.sourceforge.net/project/gs-fonts/gs-fonts/8.11%20%28base%2035%2C%20GPL%29/ghostscript-fonts-std-8.11.tar.gz"
     sha256 "0eb6f356119f2e49b2563210852e17f57f9dcc5755f350a69a46a0d641a0c401"
-  end
-
-  # fmemopen is only supported from 10.13 onwards (https://news.ycombinator.com/item?id=25968777).
-  # For earlier versions of MacOS, needs to be excluded.
-  # This should be removed once patch added to next release of leptonica (which is incorporated by ghostscript in
-  # tarballs).
-  patch do
-    url "https://github.com/DanBloomberg/leptonica/commit/848df62ff7ad06965dd77ac556da1b2878e5e575.patch?full_index=1"
-    sha256 "7de1c4e596aad5c3d2628b309cea1e4fc1ff65e9c255fe64de1922b3fd2d60fc"
-    directory "leptonica"
   end
 
   def install
@@ -140,24 +128,3 @@ index 89dfa5a..c907831 100644
  #LDFLAGS_SO=-dynamiclib -flat_namespace
  #LDFLAGS_SO_MAC=-dynamiclib -install_name $(GS_SONAME_MAJOR_MINOR)
  #LDFLAGS_SO=-dynamiclib -install_name $(FRAMEWORK_NAME)
-diff --git a/configure b/configure
-index bfa0985..8de469c 100755
---- a/configure
-+++ b/configure
-@@ -12805,11 +12805,11 @@ case $host in
-     ;;
-     *-darwin*)
-       DYNAMIC_CFLAGS="-fPIC $DYNAMIC_CFLAGS"
--      GS_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(GS_SONAME_MAJOR_MINOR)"
--      PCL_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(PCL_SONAME_MAJOR_MINOR)"
--      XPS_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(XPS_SONAME_MAJOR_MINOR)"
--      PDL_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(GPDL_SONAME_MAJOR_MINOR)"
--      PDF_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(PDF_SONAME_MAJOR_MINOR)"
-+      GS_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(GS_SONAME_MAJOR)"
-+      PCL_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(PCL_SONAME_MAJOR)"
-+      XPS_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(XPS_SONAME_MAJOR)"
-+      PDL_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(GPDL_SONAME_MAJOR)"
-+      PDF_DYNAMIC_LDFLAGS="-dynamiclib -install_name $DARWIN_LDFLAGS_SO_PREFIX\$(PDF_SONAME_MAJOR)"
-       DYNAMIC_LIBS=""
-       SO_LIB_EXT=".dylib"
-     ;;

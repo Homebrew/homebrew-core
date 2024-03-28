@@ -1,21 +1,19 @@
 class Crabz < Formula
   desc "Like pigz, but in Rust"
   homepage "https://github.com/sstadick/crabz"
-  url "https://github.com/sstadick/crabz/archive/refs/tags/v0.8.1.tar.gz"
-  sha256 "41efe343480587a44bb6e050f91e50e2318366cca5fb91d22ff7022ca5320a3b"
+  url "https://github.com/sstadick/crabz/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "2bbd8eb669a6570b104a0eb412d2492d5a9296524964cd676440069d27f52e6c"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/sstadick/crabz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c3dcb5c8835ec73ab78b1ab1b97075cd8f14cc2fc62912cb005fbe8e71c827c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "80debddd165bd37ea5360cdf0be6c11b270feb513a044716a89970615b15881c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "250f395594afef4fcf76fa3fdad71e582a75fa50a5feeb34996b8bbbb9737139"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "04d8e5a883bf7f46495c5248b3a197941e2ba47850bf262c0b9b5716b73b153a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17db739a960ce4e09b4552f7eecd5722d40932dab4f254566f2bc76b47dea959"
-    sha256 cellar: :any_skip_relocation, ventura:        "83e834149559a7b20198249e53ed3ede7ec70d85daa3f4dfca5c33ebd40a548e"
-    sha256 cellar: :any_skip_relocation, monterey:       "65b892644ebc0a701b4c0f9099557c5ea2cbaf6b8307395d7004577164766b57"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ccda0fe0e7e5fba9c1ba0f3ca4eea48883878bc569bc9276a3483eab02a215b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f10c994cb0d1bb60460076fe107b2b14940b67d16c0acdbb349219f4f3da59b0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14ea54436bae9bf5efd138c72b306a6d112576b01db726e4137966b7b253ad27"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c5750118d971ca993668011b90381d97b09d2a739212f1ccdf931cc28a5dd38f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7ae6a787a7a1797943ebbf743f8d5e833b18241fe6e85c678dfca850040059d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "577d2a7fbd81e94e01cea85c3b3da2c759a88146189c66d5a61f9b32f6d9ad10"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf7734ca7c9ba5fbf35a9ee9689d24545e069ddcc7cea47305d3db9be1bfbfbc"
+    sha256 cellar: :any_skip_relocation, monterey:       "b6af3a466b9ed8b122cc9ec0b8e80bf0c8e60c0ff0ec32d5976bc6bbacb04fdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5843ff105bb50beb4e6712e6479edb8e3be80d5f1508e10fb7743d19ca9a6277"
   end
 
   depends_on "cmake" => :build

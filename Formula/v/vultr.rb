@@ -1,19 +1,19 @@
 class Vultr < Formula
   desc "Command-line tool for Vultr services"
   homepage "https://github.com/vultr/vultr-cli"
-  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.0.1.tar.gz"
-  sha256 "ae258a579564e857ce20d9073875747ff057a3cdfb5effa0ef24443286d2fd0a"
+  url "https://github.com/vultr/vultr-cli/archive/refs/tags/v3.0.3.tar.gz"
+  sha256 "f0aa3f641c8be1278824c1d1a44670cb18ea236d91776a60d27bafb25372137e"
   license "Apache-2.0"
   head "https://github.com/vultr/vultr-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1e03df17ee7a5656606dc9ea545b67da9589491acb9cd9e935f59fc607a52530"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f9205569bc874a8d241b9c2dacca162950943cbd7bbe1ea01bd1f42667c089e9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "016dea1297836d5bf1ac44b8a6c9292fdc778c9d649169954b38566260850d98"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0e9d09e89c33bd9b725e12f47d647e4edfdf3dc574820f7f19c2f23cb1b0f459"
-    sha256 cellar: :any_skip_relocation, ventura:        "3d49b829b9562247f498161179fd604ee0f00366fbf1c340e4b3ba4e10217bc2"
-    sha256 cellar: :any_skip_relocation, monterey:       "69eb292363064852250e73ce122c0f9502469fb5406c61f93d2e4ffd30398f00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8ef28591b2c86fb261b99098a9113d79b49ee40768c1ca4f5597c2f4bf11d4e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f612a5a74ef871797d961186a4a921d22ca38f384405874a6fa3851be554e356"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a3dde6487c06d4ed6af1115578da70933889a6ca77e26de2a763058b0f3e21bf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8fa896747c25a1a48320de2ef90944300555a0f924fc4189d2772e9bb129781"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2fbd16d52aedf944e134ffe2cd656bdd9548bffff30b0aa72b1d94fff58076bb"
+    sha256 cellar: :any_skip_relocation, ventura:        "783c979b602e5343e1cd6607044334f3a29a0f3cb616ad0f9c0c4d2ad30a90e5"
+    sha256 cellar: :any_skip_relocation, monterey:       "67d2c7ed2a082582c0f8f2a5a30794bc195b676e4f4d4cc8493b50e00d053658"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd62e375cb8e907b8284c743eedd5b61f268b1694085d98a1cf0a1d3345af37d"
   end
 
   depends_on "go" => :build

@@ -29,7 +29,7 @@ class WakatimeCli < Formula
       -X github.com/wakatime/wakatime-cli/pkg/version.OS=#{OS.kernel_name.downcase}
       -X github.com/wakatime/wakatime-cli/pkg/version.Version=v#{version}
     ].join(" ")
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

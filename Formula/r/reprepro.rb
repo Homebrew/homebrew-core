@@ -1,10 +1,9 @@
 class Reprepro < Formula
   desc "Debian package repository manager"
-  homepage "https://salsa.debian.org/brlink/reprepro"
-  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.0.orig.tar.gz"
-  sha256 "5a5404114b43a2d4ca1f8960228b1db32c41fb55de1996f62bc1b36001f3fab4"
+  homepage "https://salsa.debian.org/debian/reprepro"
+  url "https://deb.debian.org/debian/pool/main/r/reprepro/reprepro_5.3.1.orig.tar.xz"
+  sha256 "5a6d48bf1f60cfd3c32eae05b535b334972c1e9d4e62ed886dd54e040e9c1cda"
   license "GPL-2.0-only"
-  revision 5
 
   livecheck do
     url "https://deb.debian.org/debian/pool/main/r/reprepro/"
@@ -12,22 +11,22 @@ class Reprepro < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a6cc1deda988e9a1c03cd5401fabe8790e1be755e0c121a52cdee7744b12bbba"
-    sha256 cellar: :any,                 arm64_ventura:  "58280d22109eadb3d07036d81afe3a9d0a1eb5b0cc6433993ea072bec7bb597a"
-    sha256 cellar: :any,                 arm64_monterey: "e915fdd76e80343ba05cad6f9a914f9b60f4542f3e7960c670356b7fd0d98b5d"
-    sha256 cellar: :any,                 arm64_big_sur:  "23db5bfd409b0976b8ef34417dcf9c1978180d691a7cd2700022dcd5dfed5967"
-    sha256 cellar: :any,                 sonoma:         "eeeee8d9d1f36ae03c65d72b5c85336b32a18b6b41dac85f26a63a58c6e1e80e"
-    sha256 cellar: :any,                 ventura:        "856e70889d4ab149bea1b24b7af3145ff6e9b7d1ff226889bcfb9854a715a23c"
-    sha256 cellar: :any,                 monterey:       "58dd7d17fb51befa9c6631a2da3db17ba8b78036d6e465bc41b9823359a8e9f4"
-    sha256 cellar: :any,                 big_sur:        "3dbf660c420d129cdf9dcbc4ec8b53ede30beabb269c4dcc320ee3dbee77158b"
-    sha256 cellar: :any,                 catalina:       "f52c6ba27a0f1f0d979ba890cd8a11b916afeed5b581cad08fa788d2d5d10a43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "083ddcc7baec64baff8ebe0ebabdfe14debf27f38f8ee86b588d52d9b3bbed39"
+    sha256 cellar: :any,                 arm64_sonoma:   "6ae8f574c8fbfa13776901135cf93d2764d7fc039d7ab6727c959310785769b6"
+    sha256 cellar: :any,                 arm64_ventura:  "074ecc0f03f9b65eee888d3c80da0b236267cea25fdca49f6a77f25da6bbcb45"
+    sha256 cellar: :any,                 arm64_monterey: "4bd034f17d9a86c6e85173977ad58cbb2affa18678bd471b35216337be0f050f"
+    sha256 cellar: :any,                 sonoma:         "4b6b3e4d96f54fefc29c8708115b720aed7af8390a11e4527a09adf7d1613512"
+    sha256 cellar: :any,                 ventura:        "bb3fdf9b10d2edc35f84e82a851cb819aa1a1ba9cba1694ee98c17ef9c5a8e51"
+    sha256 cellar: :any,                 monterey:       "57d484a17dd70a259e33c8f6b74abba671f6fc689fc09ef8c8c00df1ee83f271"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a79848562e65bd88dce7a8753728ac529fd080a20b36e40a1a58cccbc6f110f1"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "berkeley-db@5"
   depends_on "gpgme"
   depends_on "libarchive"
   depends_on "xz"
+  depends_on "zstd"
 
   on_macos do
     depends_on "gcc"
@@ -38,6 +37,7 @@ class Reprepro < Formula
   end
 
   def install
+    system "./autogen.sh"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--disable-silent-rules",

@@ -26,7 +26,7 @@ class KubeScore < Formula
       -X main.commit=#{Utils.git_head}
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/kube-score"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/kube-score"
   end
 
   test do

@@ -1,18 +1,18 @@
 class Lune < Formula
   desc "Standalone Luau script runtime"
   homepage "https://lune-org.github.io/docs"
-  url "https://github.com/filiptibell/lune/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "6008829cb9d7fc8ddaeeea3866e9264ce6f6c2f3487f3b6a3f8aa21dfad05a30"
+  url "https://github.com/lune-org/lune/archive/refs/tags/v0.8.2.tar.gz"
+  sha256 "e98a00898c2573649d242d87b21af6cdeb5fd1c0fb5a9df53d9c18fc3c1c5008"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "812b4d3dee3f3c4f404921c47195fc2f3d91161781353a2bf81c2def617f9593"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca136c360df3642d5e75e8bc77ef66bc8e729ac6e9b113a2d2eecb5a63b641d4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e70409c082177e5d2235b3a7cc7fd1e99b23782ee29c527ffdb9fb87e93d11e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e592efea970d041c837ce10841d7436b3b23cded05c17cf1ed67191ef9600887"
-    sha256 cellar: :any_skip_relocation, ventura:        "74bb595146b47bca8c50f6a191ca117e82948c514040a58a7690e10cb7898656"
-    sha256 cellar: :any_skip_relocation, monterey:       "42927bad14ded2c671f71cb2b8f7941b3b217bdb5da642479b21780394d5dacb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78918870663bfe9c4711f86142f287ce057db4328d6339d5a3df9c968a69a05f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b9c24e44a89f8cbbf3338fed2b59c09f4fde6aa241d6e79578d48e43ca2bb6f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a88b5d3c8ef0338a18953abb694af42663b9cdf5757e88de6489e4a5b74ae856"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b6e374ec537443bd38685b2b7ccf5cd12783195e3953cf9e03831e7aec36638e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "13aab608e7aebc2bcf8d12c06c117280c9f62dc398e97a87f712bac6c08534c2"
+    sha256 cellar: :any_skip_relocation, ventura:        "7e4e68c9765191543d74bee3ef31e0a936bc3cdba6d1a833661aba8e907f1b0f"
+    sha256 cellar: :any_skip_relocation, monterey:       "dceeda710f5a7695b4610a46915fc9f31cc57a4a676af9db3eec6f33adf85789"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "45b5e4f198e4ac10edccb4a448d483b133d88dd5217926fdf3ea81eb4b98bfa7"
   end
 
   depends_on "rust" => :build

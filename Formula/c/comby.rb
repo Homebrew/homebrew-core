@@ -4,16 +4,16 @@ class Comby < Formula
   url "https://github.com/comby-tools/comby/archive/refs/tags/1.8.1.tar.gz"
   sha256 "04d51cf742bbbf5e5fda064a710be44537fac49bff598d0e9762a3a799d666e2"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_sonoma:   "9879569428b8a7bde2b56490bf6bd99cf5f0cdc1c524250af7173eae9b3b6621"
-    sha256 cellar: :any, arm64_ventura:  "375dd89916c279b00020467fdbb699d05807a6caf866ad35fa76d9adabcaff8b"
-    sha256 cellar: :any, arm64_monterey: "fb4cc78f0a4a95aa911d3bc4a619e53fae22a1bd5a4bbb94e17cdc849baa4485"
-    sha256 cellar: :any, sonoma:         "fb116fe361c37cefad3d3d4aa0d37a8a76264e2920d3d9d49c4996423aaab5d4"
-    sha256 cellar: :any, ventura:        "f46b53e793bbce9dd888ec53a90224566c2b52ce4c2db664f93a945a425ac52c"
-    sha256 cellar: :any, monterey:       "54ab143ff66d46db4a02ad2c373edabf4c9ad23af83c0fd4945dc66b41ce9772"
-    sha256               x86_64_linux:   "919a845aa0880568e9ca2288c6f390437a8e14a12a59a597e0b8e90f0f540b79"
+    sha256 cellar: :any, arm64_sonoma:   "6547d31a4235741700836ce54b0fdf64bbc0ca2ac42e31ce003c1d86bef079f0"
+    sha256 cellar: :any, arm64_ventura:  "0c2cc4ae48e83842879b731399da84e9eb6891bf2c62a10087250db18c257a38"
+    sha256 cellar: :any, arm64_monterey: "c5e30b40a5bfca4e550da1ff541deeb4a467eef42298de85c72110e373b68c11"
+    sha256 cellar: :any, sonoma:         "1d1399b5fb4f1c0c1fc167a8a758392a8e7fd261ee351f40460079d110dbc27b"
+    sha256 cellar: :any, ventura:        "615cb295eabe9a99891de27aff6950ce729664949a92c705b5e5ce1d61f20687"
+    sha256 cellar: :any, monterey:       "660da52140d4812766f9f942966068c6076d8122b41dfc2a2a2c21e0de2066cb"
+    sha256               x86_64_linux:   "6a87649180d98f7555771ceb9d6062a1ce98f2aaaff996f52f9f8249bf300a8c"
   end
 
   depends_on "autoconf" => :build

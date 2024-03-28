@@ -18,6 +18,8 @@ class Leiningen < Formula
   end
 
   def install
+    odie "jar resource needs to be updated" if build.stable? && version != resource("jar").version
+
     libexec.install resource("jar")
     jar = "leiningen-#{version}-standalone.jar"
 
@@ -42,12 +44,11 @@ class Leiningen < Formula
   end
 
   test do
-    assert_equal version, resource("jar").version, "`jar` resource needs updating!"
-
     (testpath/"project.clj").write <<~EOS
       (defproject brew-test "1.0"
         :dependencies [[org.clojure/clojure "1.10.3"]])
     EOS
+
     (testpath/"src/brew_test/core.clj").write <<~EOS
       (ns brew-test.core)
       (defn adds-two
@@ -55,6 +56,7 @@ class Leiningen < Formula
         [x]
         (+ x 2))
     EOS
+
     (testpath/"test/brew_test/core_test.clj").write <<~EOS
       (ns brew-test.core-test
         (:require [clojure.test :refer :all]
@@ -63,6 +65,7 @@ class Leiningen < Formula
         (testing "adds-two yields 4 for input of 2"
           (is (= 4 (t/adds-two 2)))))
     EOS
-    system "#{bin}/lein", "test"
+
+    system bin/"lein", "test"
   end
 end

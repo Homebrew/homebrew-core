@@ -24,8 +24,8 @@ class ReconNg < Formula
   end
 
   depends_on "rust" => :build # for rpds-py
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.11" # Python 3.12 issue: https://github.com/lanmaster53/recon-ng/issues/193
 
   uses_from_macos "libxml2", since: :ventura

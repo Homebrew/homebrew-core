@@ -1,25 +1,19 @@
 class Libiscsi < Formula
   desc "Client library and utilities for iscsi"
   homepage "https://github.com/sahlberg/libiscsi"
-  url "https://github.com/sahlberg/libiscsi/archive/refs/tags/1.19.0.tar.gz"
-  sha256 "c7848ac722c8361d5064654bc6e926c2be61ef11dd3875020a63931836d806df"
+  url "https://github.com/sahlberg/libiscsi/archive/refs/tags/1.20.0.tar.gz"
+  sha256 "6321d802103f2a363d3afd9a5ae772de0b4052c84fe6a301ecb576b34e853caa"
   license "GPL-2.0"
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "43ff1a7fa79032362ad4b7daa5306a4ef5b159b3b3c83500f43e1077d74edbbc"
-    sha256 cellar: :any,                 arm64_ventura:  "f5ed5adac677b700971eaa437336521ad23f85933ee801f3c5f8346b307c3d72"
-    sha256 cellar: :any,                 arm64_monterey: "7f54d471025b9eda877c0b0d05c025f59b59413c1421c1335ff3091852e88e65"
-    sha256 cellar: :any,                 arm64_big_sur:  "aa722adc6341c8457b38c0078ab264ae30982b57510967de3e8181088036e0e3"
-    sha256 cellar: :any,                 sonoma:         "b7b26517cadf9726831ba6d5558a8d74eb9bc30b84e07e5839c737d35d9eec25"
-    sha256 cellar: :any,                 ventura:        "0e7293f4535f47d206a285a4074fd1054745f6efcd640f4fdf0e90c87c25e906"
-    sha256 cellar: :any,                 monterey:       "76dcdbb37c5b4c48d997e904f6ab177258733cf4bae91e9fbf897e6208514d4a"
-    sha256 cellar: :any,                 big_sur:        "ac06a7b7a74cf83e953f50e33455df97fc87880ebdac4f1dca89a62331375b1a"
-    sha256 cellar: :any,                 catalina:       "e33ab94bb94c63eab8836acfe89a677120293eeaf745c29648a03844779a6b4c"
-    sha256 cellar: :any,                 mojave:         "473988c2ba81d9d9cf6eb21f2f3d41ade13e76131a2c2aabdade9983c79f99ed"
-    sha256 cellar: :any,                 high_sierra:    "c05b614ecbacf4f957777c33144924322147b40b898fbb1acf91b72663e35203"
-    sha256 cellar: :any,                 sierra:         "832760665cad678de3079365edc72bc21d946dd03ecff9304220b9972a29dd8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fde67504bbf2d6f7097c9f48f817913c601b1d0bfc636409dac21904f7b79a19"
+    sha256 cellar: :any,                 arm64_sonoma:   "b8b214472ef93143e0d926b7b44a4b8f31ab658a4d32c072bd70290185490ab6"
+    sha256 cellar: :any,                 arm64_ventura:  "e9cade19921a1d5abfe5b3fcde749ea27ac0169ccefe2ad641cbf335041407db"
+    sha256 cellar: :any,                 arm64_monterey: "43ac5887c657c6b82c77fbdef9a4cf0d7619f8aa6d224886bcec9a9441f16695"
+    sha256 cellar: :any,                 sonoma:         "740b7f606b002d81ac103bdc370dcd3e8c2fe8d40c4076f82da099cec369cf84"
+    sha256 cellar: :any,                 ventura:        "b2ef691dddbb78054d97f690f66d232c5342ab532d675202218ae75c4974acf5"
+    sha256 cellar: :any,                 monterey:       "e37fd9ee5cb599780d8b879d39b13c6b8fa123e7d2d259fc958cebadc3600c92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f038bc77875a74dcbc70d2db6f0f653ee58b744278833151b0c9a6aea8816dfe"
   end
 
   depends_on "autoconf" => :build

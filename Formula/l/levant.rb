@@ -25,7 +25,7 @@ class Levant < Formula
       -X github.com/hashicorp/levant/version.VersionPrerelease=#{tap.user}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

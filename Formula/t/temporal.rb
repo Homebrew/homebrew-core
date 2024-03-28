@@ -20,7 +20,7 @@ class Temporal < Formula
 
   def install
     ldflags = "-s -w -X github.com/temporalio/cli/headers.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/temporal"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/temporal"
     generate_completions_from_executable(bin/"temporal", "completion", shells: [:bash, :zsh])
   end
 

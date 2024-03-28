@@ -18,7 +18,7 @@ class Ldeep < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad69302ffa19ef3a0ccdad31386ace8a2b0fe84fddca2dc7d124b5012a397e6f"
   end
 
-  depends_on "python-cryptography"
+  depends_on "cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "krb5"

@@ -1,4 +1,6 @@
 class LizardAnalyzer < Formula
+  include Language::Python::Virtualenv
+
   desc "Extensible Cyclomatic Complexity Analyzer"
   homepage "http://www.lizard.ws"
   url "https://files.pythonhosted.org/packages/ef/70/bbb7c6b5d1b29acca0cd13582a7303fc528e6dbf40d0026861f9aa7f3ff0/lizard-1.17.10.tar.gz"
@@ -6,25 +8,20 @@ class LizardAnalyzer < Formula
   license "MIT"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6e75f6be81d02683b3e843d2f460ee2fbba1fd5438526aaf3e35774dd619881"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d9f19bae3e6c6eb314187155e8290eddf4f4ea2b7e9e0d741aeb9a685ac9186"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "619457a0446857df8e23958d3312d8f997a6149addb6aee027001ebcce37360f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ce8d0c46a6b2ea3bf507798ab1885002585d8274cc5da77175613aca37dbf099"
-    sha256 cellar: :any_skip_relocation, ventura:        "054ae8e53fd2a0145ad6be71cd8eb8eceb734a3ef701714f638fd2f65b713d3f"
-    sha256 cellar: :any_skip_relocation, monterey:       "342da2deb16b395043ec2cdd302b83d482eb3c9ca45f3ef45dfd6e699e2cf848"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f46c945d71e652f59d6cb4a902f17df6d0b2a658429b9f0caf8f630b4ef544e"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "02c284fd04edc1e93a337bc460af1935aab5cb867ed4f239dea47e71cd022a4e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "343ef6e6e8f753d4d063764c0cff1769151999b62bf987ba046aca0ede67090d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6b4ae7f9bfce19f677e4f93fa2c0ccde987164cce1a197874a6cc692f3eb98d3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3d3586f7af26710b18c0b88b0180af7b86a881c4089d753249bc0420f49f6522"
+    sha256 cellar: :any_skip_relocation, ventura:        "916058c731424ddfbc0fa50d1826bc24abe171a944a0b4a32983e9e013e1cc75"
+    sha256 cellar: :any_skip_relocation, monterey:       "a5fc576b0cbf6d34a2fe49e795156344106dbc9da9dbe7ff25e27ab2e7f2421d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78f3014767cf74f7bafcf3c5fc290ce70b8c823e226b9cae6f9537a0520d588f"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

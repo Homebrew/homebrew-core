@@ -1,5 +1,6 @@
 class Global < Formula
   include Language::Python::Shebang
+  include Language::Python::Virtualenv
 
   desc "Source code tag system"
   homepage "https://www.gnu.org/software/global/"
@@ -9,13 +10,14 @@ class Global < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "8df6ebb4718dfab084edbcd83aae3f3107652d02833203c7a0cc90946451cbd5"
-    sha256 arm64_ventura:  "825d87b1eb6e476f0d9ae2ae97702358f983701d8667991e2c380c8b953cc023"
-    sha256 arm64_monterey: "9b1848887d13781a8b1ceb0dee20eb9730a03bc7328a2729d76a50d7b5c2fc91"
-    sha256 sonoma:         "ccf0b1bd7380489839b4555baa6bc645c70c60751764e509be4f181769082cc8"
-    sha256 ventura:        "2260e6dff62a690918c13bc3597b3c2733e6f43b806305ceb4711465f940218f"
-    sha256 monterey:       "acf7d177404e47337bff83f6d81671a9c76e0a8c8a75296149e82ed849c23f7e"
-    sha256 x86_64_linux:   "a4b21e4bd20d2e1c14b6700d8afcd0808edb9be139b61b38c35cbcf5d5f4d647"
+    rebuild 1
+    sha256 arm64_sonoma:   "b02f7ab847bbff8ed6ae98ba5ae9057e87ceed845a3626863e933a3731dea8c8"
+    sha256 arm64_ventura:  "853208dcab6b2da814d4144e13a385c54c674b83c5660aaf9452e599f8dd9b0e"
+    sha256 arm64_monterey: "ec4a0d0255b7023bdeb89d98086ff021ef7cdf99cc97c40199ef467c4d5a02ba"
+    sha256 sonoma:         "47b9879a3743bfa7f1dadb1a05c2e45182c03c7722453c0f2b1076d01f77c774"
+    sha256 ventura:        "41a680877f21ca02b2b0aea13da1c8e9ce8722a43e6f8e93363dd73ccc2a6098"
+    sha256 monterey:       "27f2fa10cea92c3e4261ba98f2f164a42cdde4b02de6cf8b8cc50320a8cf452e"
+    sha256 x86_64_linux:   "1423d091f9579d8688e5c20de615a4e54e094e45cb8662f2b670ceee8e947872"
   end
 
   head do
@@ -31,33 +33,34 @@ class Global < Formula
 
   depends_on "libtool"
   depends_on "ncurses"
-  depends_on "pygments"
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "universal-ctags"
 
   skip_clean "lib/gtags"
 
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/55/59/8bccf4157baf25e4aa5a0bb7fa3ba8600907de105ebc22b0c78cfbf6f565/pygments-2.17.2.tar.gz"
+    sha256 "da46cec9fd2de5be3a8a784f434e4c4ab670b4ff54d605c4c2717e9d49c4c367"
+  end
+
   def install
     system "sh", "reconf.sh" if build.head?
 
     python3 = "python3.12"
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources
 
     args = %W[
       --disable-dependency-tracking
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --with-sqlite3=#{Formula["sqlite"].opt_prefix}
+      --with-python-interpreter=#{venv.root}/bin/python
       --with-universal-ctags=#{Formula["universal-ctags"].opt_bin}/ctags
     ]
 
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make", "install"
-
-    rewrite_shebang detected_python_shebang, share/"gtags/script/pygments_parser.py"
-
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
 
     etc.install "gtags.conf"
 

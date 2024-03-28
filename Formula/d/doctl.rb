@@ -27,7 +27,7 @@ class Doctl < Formula
       #{base_flag}.Label=release
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/doctl"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/doctl"
 
     generate_completions_from_executable(bin/"doctl", "completion")
   end

@@ -1,18 +1,18 @@
 class CargoUdeps < Formula
   desc "Find unused dependencies in Cargo.toml"
   homepage "https://github.com/est31/cargo-udeps"
-  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.45.tar.gz"
-  sha256 "e5839d74071c44efb44ae33859ff438ff5823c007960889f567b2c2c33cff4d1"
+  url "https://github.com/est31/cargo-udeps/archive/refs/tags/v0.1.47.tar.gz"
+  sha256 "8794b480ab6dd166617711345116be5958def42679c1a5948d41850ecb9cb806"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3ae5e7589474a516f6d565b1142afa489013f0f268bd2895f7ea4b6177498559"
-    sha256 cellar: :any,                 arm64_ventura:  "ed414168a81895dca159fd8ea4536f02e0f63af0984fac6accd904c6278694a5"
-    sha256 cellar: :any,                 arm64_monterey: "b4357283b3e72cd94b2dd5c97a612d0338f3487d3cf6d24c1edd3c030c4a79f7"
-    sha256 cellar: :any,                 sonoma:         "ddbf414fc5a595b9d0066cf4d2a601cfd30fe295e02bebb709b6d62b61252d3f"
-    sha256 cellar: :any,                 ventura:        "10811480430f9177ee054053d05add9b9ece0a63117a881900ec3320ed422743"
-    sha256 cellar: :any,                 monterey:       "590582d3e187fc4520484d56c259b1617994f4a90f37ce972fe0142c5c41d837"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "967a60e21585a6b128dff2a2af857f71f570a84c30b59344c22ea9146f5c2b48"
+    sha256 cellar: :any,                 arm64_sonoma:   "b00bdb45cf491c545641ec5f5b0ea3ebf72827cb05619071b3b4ebd930b2894f"
+    sha256 cellar: :any,                 arm64_ventura:  "55eb71de7dc712e5b9f6392fee924890fb8de957b31acb12ca012875947312cd"
+    sha256 cellar: :any,                 arm64_monterey: "a650e624f353e9a555e373001422f9a412404db753a4d407a548f792c5b89ae1"
+    sha256 cellar: :any,                 sonoma:         "d62863728dacaa6f8ca039a70c4c65a318829170fb56f707cbf5ad6a0c722fad"
+    sha256 cellar: :any,                 ventura:        "452b6ee1631ca2555b39a4cfe66a674a9ae61058e03afe7df0de90ac5def7980"
+    sha256 cellar: :any,                 monterey:       "30ab935ed8e8bc4a4892b42a2465363d53014b63e495cfaeec7949746a54dfca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "285966a31c6a1a441bf1696b00a172ce64f87301d1708517f0afb16ad396a6f8"
   end
 
   depends_on "rust" => :build

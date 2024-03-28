@@ -1,4 +1,6 @@
 class Honcho < Formula
+  include Language::Python::Virtualenv
+
   desc "Python clone of Foreman, for managing Procfile-based applications"
   homepage "https://github.com/nickstenning/honcho"
   url "https://files.pythonhosted.org/packages/0e/7c/c0aa47711b5ada100273cbe190b33cc12297065ce559989699fd6c1ec0cb/honcho-1.1.0.tar.gz"
@@ -7,17 +9,16 @@ class Honcho < Formula
   head "https://github.com/nickstenning/honcho.git", branch: "main"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1dfa759d9121ce5521fbc022ff1877e4c4c9d9aeaf1d63d97417d87aa6b6fe5d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9c610986a2317d2210e874703fbd6ca2b73464eaa4c3f61980f83f09ed11d480"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6777368661355f79a3890e52e83c92dd9993249f1f0a715946e372a7ffbcb9ed"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dcbfbd1ae09df749c831e6043d2e6c636021333e87e5206071a05dbb0175ef5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "58714f704bb6e17b2f24f5320aa950c845ddfba758674b70674420d91de0161b"
-    sha256 cellar: :any_skip_relocation, monterey:       "059b55eb1c872e6a4dca007474bf4a5ed7a683811147546fa842a320f54dbae0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1065c266c6ef9d4d4598b06d549dca5bd0bcc1c1db0714c9e5728cd83158d9ed"
+    rebuild 5
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d1f50a6405f33ec30d7abc2656664197e313b5ec927214c45f343471bad8366b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e7353f7b038e37a1236b3bc177f309ce63fa63ac6cc89c57664701414bdf7f38"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b5a319d41ef6ed3825d96665fa038c2019897b6c193ad49e58383acc1cb00b9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9d78847a700cd9995001c07986b57a21853de400b3a97d07582754c107878921"
+    sha256 cellar: :any_skip_relocation, ventura:        "b18d785ee4915cea8c3d06361a5a8a82a34835227fe4914f9a60c381c62e8fe1"
+    sha256 cellar: :any_skip_relocation, monterey:       "f8461aa1a12f321b47368c55b126c516ff5f037c1f208b6b326787c89d54ee66"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "056f4fb7815940b78ec0e81ec4b08db0dfd4a3b9665cdb71975df4a1eeef4ae6"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
   # Replace pkg_resources with importlib for 3.12
@@ -27,12 +28,8 @@ class Honcho < Formula
     sha256 "a20f222f57d23f33e732cc23ba4cc22000eb38e2f9cd5c71fdbc6321e0eb364f"
   end
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

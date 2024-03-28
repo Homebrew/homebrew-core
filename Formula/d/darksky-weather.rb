@@ -29,7 +29,7 @@ class DarkskyWeather < Formula
     ldflags = ["-s -w",
                "-X #{project}/version.GITCOMMIT=#{tap.user.downcase}",
                "-X #{project}/version.VERSION=v#{version}"]
-    system "go", "build", *std_go_args(output: bin/"weather", ldflags: ldflags)
+    system "go", "build", *std_go_args(output: bin/"weather", ldflags:)
   end
 
   test do

@@ -40,7 +40,7 @@ class Cayley < Formula
         -X github.com/cayleygraph/cayley/version.GitHash=#{Utils.git_short_head}
       ]
 
-      system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/cayley"
+      system "go", "build", *std_go_args(ldflags:), "./cmd/cayley"
 
       inreplace "cayley_example.yml", "./cayley.db", var/"cayley/cayley.db"
       etc.install "cayley_example.yml" => "cayley.yml"

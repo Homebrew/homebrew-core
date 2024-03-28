@@ -1,35 +1,34 @@
 class Cmctl < Formula
   desc "Command-line tool to manage cert-manager"
   homepage "https://cert-manager.io"
-  url "https://github.com/cert-manager/cert-manager/archive/refs/tags/v1.14.3.tar.gz"
-  sha256 "564d75633849ec4a6b4f75f13a637a19465fb7211a102eba9adc436b60a4f4a1"
+  url "https://github.com/cert-manager/cmctl/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "fbb3f0a65e01a534e0946cbeb48b7ae8f758d48cca21957b15681b2cdfde0ad6"
   license "Apache-2.0"
-  head "https://github.com/cert-manager/cert-manager.git", branch: "master"
+  head "https://github.com/cert-manager/cmctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "36296f750210621ff4886257943f48564157ae0dfaa92220b0d034b33da7e717"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8d4eaa90a94c62ca4f866ffd90741379b52119e930eac9b74918638cbb1d074"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f6f5d12b1282dbb5965b485792cd528e15c414a2c5185f836afc53d76bc03a7c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4c9a162d104fe816bf161f9f4186f59b8a4dbeb95e9c91acf371a4035762fa32"
-    sha256 cellar: :any_skip_relocation, ventura:        "ec19598a5eb1822e3b56f51129241a7e26d784a9795b09271869a5d8e6dc8e43"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7355ab9dd9d67c22c09cd3604d54c6f0a021d6c990ed59da9e1e9a5c33adff8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94dbd4b6d2c3948ca59fbb14a475b0053777c10f731f1f9320e71fdc639af633"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "338822f26703c0581823595f44cce36df3cb8ffe9ab253405df586597fd15745"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "82835263503333714b65f7f1673627ccb72651e12a232542c87a078ec6c1370f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1a29cb9219d4bce61335bc041a975974aea5e3c98c7d2fc180ab994841a6de3c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7ea753a5707116635660d8f5fa7bdb688d40b36c8ae5c72cc15c8c2e2053e439"
+    sha256 cellar: :any_skip_relocation, ventura:        "eaf825d88f25585774cce0db95b86a882309914f38b92d3124a4eca12bbe20cf"
+    sha256 cellar: :any_skip_relocation, monterey:       "30663a9b9cfedaafdc278e13d9435cb829eeef08bdbb26f986ba0f02bb70308f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cfda7a381070d98daf6d973ddeb57a4f5e51d07936d1ec6966bf6c1b00431a17"
   end
 
   depends_on "go" => :build
 
   def install
+    project = "github.com/cert-manager/cmctl/v2"
     ldflags = %W[
       -s -w
-      -X github.com/cert-manager/cert-manager/cmd/ctl/pkg/build.name=cmctl
-      -X github.com/cert-manager/cert-manager/cmd/ctl/pkg/build/commands.registerCompletion=true
+      -X #{project}/pkg/build.name=cmctl
+      -X #{project}/pkg/build/commands.registerCompletion=true
       -X github.com/cert-manager/cert-manager/pkg/util.AppVersion=v#{version}
       -X github.com/cert-manager/cert-manager/pkg/util.AppGitCommit=#{tap.user}
     ]
 
-    cd "cmd/ctl" do
-      system "go", "build", *std_go_args(ldflags: ldflags)
-    end
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"cmctl", "completion")
   end
@@ -40,7 +39,7 @@ class Cmctl < Formula
     assert_match "cmctl", shell_output("#{bin}/cmctl help")
     # We can't make a Kubernetes cluster in test, so we check that when we use a remote command
     # we find the error about connecting
-    assert_match "error: error finding the scope of the object", shell_output("#{bin}/cmctl check api 2>&1", 1)
+    assert_match "error: error finding the scope of the object", shell_output("#{bin}/cmctl check api 2>&1", 129)
     # The convert command *can* be tested locally.
     (testpath/"cert.yaml").write <<~EOF
       apiVersion: cert-manager.io/v1beta1

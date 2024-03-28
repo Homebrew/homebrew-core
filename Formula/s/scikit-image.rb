@@ -10,32 +10,31 @@ class ScikitImage < Formula
   head "https://github.com/scikit-image/scikit-image.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd1db9cce79197508fccbc39747ea3e73a32fde20570f1b04a5976afa473153a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "36bbb80bdcbd7006c8ac5cf455362e2a5ab3d6db2681c2d6798f2b8b969b6ff9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "783d14ad0663ef04049ad0d86608a00c1ae67d9c825ae79561e0cb558b717006"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7b4449ac4a1df85ad8bde5e4e716d501c787c7f77669da51217b26c69f850027"
-    sha256 cellar: :any_skip_relocation, ventura:        "56fe3cb6085942201e15a9fe4cddc2a9d4c683c222cb4a800f6ad7e9577d5090"
-    sha256 cellar: :any_skip_relocation, monterey:       "576a0b7dc7e672b1e4c8248da9ef438a88059c8bad81d085bf0065b9bb71e469"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67288d99340a9f0aabc28585a3f5808346eb2574cd6330d190a8317152bdc903"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f4afa8bc6b806407f20bdea39787f6a5ad3d65e518e3a1b938a25c872f6dd7d9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c16471edcf50b0668540e00ddf99c94462c462593695905e69aeda14a28df3a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3b2631b6289770d65f2510cf6f3d48f2970669cb7cc8aa8fe0b407f961a8c1fe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "57d55f35201883265c04e4d6d5f1684bd03530f3c779c67b329a62ef525aebdb"
+    sha256 cellar: :any_skip_relocation, ventura:        "d3688bbcc6f0ec604680f9696c35f3b58ceea6d164b3cf398f2340d264f1284a"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d2c5579cdf063ebab64f60a31a62ed1736b101f872bad3b262aada481598d0e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b624260b5446414ea7aa0947875f1cf98b2cf49df292e8d7fc61115c58f61e85"
   end
 
-  depends_on "libcython" => :build
   depends_on "meson" => :build
-  depends_on "meson-python" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "pythran" => :build
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python-networkx"
-  depends_on "python-packaging"
   depends_on "python@3.12"
   depends_on "scipy"
 
+  on_linux do
+    depends_on "patchelf" => :build
+  end
+
   resource "imageio" do
-    url "https://files.pythonhosted.org/packages/90/69/9448c0156936b437e3803e185e3d991afd8b5413a90e848cdcc038fc0303/imageio-2.32.0.tar.gz"
-    sha256 "e425ad36c605308d9ea6d93eda7b0987926059b8b86220e142a599a7975128dd"
+    url "https://files.pythonhosted.org/packages/c3/71/70f81a9c0cd3b106f6663af8d92402d16354abec48f7b8ba15a6c41ddca9/imageio-2.34.0.tar.gz"
+    sha256 "ae9732e10acf807a22c389aef193f42215718e16bd06eed0c5bb57e1034a4d53"
   end
 
   resource "lazy-loader" do
@@ -43,35 +42,23 @@ class ScikitImage < Formula
     sha256 "3b68898e34f5b2a29daaaac172c6555512d0f32074f147e2254e4a6d9d838f37"
   end
 
-  resource "tifffile" do
-    url "https://files.pythonhosted.org/packages/15/b2/ce2911ff31123c957d26f8c0c1bc9b496cfe35038e133ecda28a859e7310/tifffile-2023.9.26.tar.gz"
-    sha256 "67e355e4595aab397f8405d04afe1b4ae7c6f62a44e22d933fee1a571a48c7ae"
+  resource "networkx" do
+    url "https://files.pythonhosted.org/packages/c4/80/a84676339aaae2f1cfdf9f418701dd634aef9cc76f708ef55c36ff39c3ca/networkx-3.2.1.tar.gz"
+    sha256 "9f1bb5cf3409bf324e0a722c20bdb4c20ee39bf1c30ce8ae499c8502b0b5e0c6"
   end
 
-  def python3
-    "python3.12"
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
+  end
+
+  resource "tifffile" do
+    url "https://files.pythonhosted.org/packages/d1/54/e627e6604700d5ec694b023ae971a5493560452fe062d057dba1db23ac82/tifffile-2024.2.12.tar.gz"
+    sha256 "4920a3ec8e8e003e673d3c6531863c99eedd570d1b8b7e141c072ed78ff8030d"
   end
 
   def install
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources
-
-    config = <<~EOS
-      [DEFAULT]
-      library_dirs = #{HOMEBREW_PREFIX}/lib
-      include_dirs = #{HOMEBREW_PREFIX}/include
-    EOS
-    (libexec/"site.cfg").write config
-
-    site_packages = Language::Python.site_packages(python3)
-    paths = %w[pillow numpy scipy].map { |p| Formula[p].opt_libexec/site_packages }
-    (libexec/site_packages/"homebrew-deps.pth").write paths.join("\n")
-
-    ENV.prepend_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
-    ENV.prepend_path "PYTHONPATH", Formula["pythran"].opt_libexec/site_packages
-    ENV.prepend_path "PATH", Formula["libcython"].opt_libexec/"bin"
-    python_exe = libexec/"bin/python"
-    system python_exe, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   # cleanup leftover .pyc files from previous installs which can cause problems

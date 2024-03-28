@@ -1,23 +1,19 @@
 class Reproc < Formula
   desc "Cross-platform (C99/C++11) process library"
   homepage "https://github.com/DaanDeMeyer/reproc"
-  url "https://github.com/DaanDeMeyer/reproc/archive/refs/tags/v14.2.4.tar.gz"
-  sha256 "55c780f7faa5c8cabd83ebbb84b68e5e0e09732de70a129f6b3c801e905415dd"
+  url "https://github.com/DaanDeMeyer/reproc/archive/refs/tags/v14.2.5.tar.gz"
+  sha256 "69467be0cfc80734b821c54ada263c8f1439f964314063f76b7cf256c3dc7ee8"
   license "MIT"
   head "https://github.com/DaanDeMeyer/reproc.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "e7aca98eeff95f6259484895122624c5da886a1512e0892ddf150d8660dc97f8"
-    sha256 cellar: :any,                 arm64_ventura:  "92dfc69a9bdaf3fe24d6a0e9614991fb7d76555b11744ff1a486fa153c4af70b"
-    sha256 cellar: :any,                 arm64_monterey: "1d50813532d791a9709b50e885a5624d1df39fb9c37661472859c3a26670a2a6"
-    sha256 cellar: :any,                 arm64_big_sur:  "38e7d2580d04f3d0929c6e60ef97cf19da2dd084f920d26a6a11e10c811de7ae"
-    sha256 cellar: :any,                 sonoma:         "15c6d5090ce4e0d546924e85c658a2509d87ea690b907b454a9bb9f39b1f70e1"
-    sha256 cellar: :any,                 ventura:        "bd24d6a297d490c2f97bf9e81ef43ca13da3a431268a4601ba103e1d25802578"
-    sha256 cellar: :any,                 monterey:       "46ee83678708da249ff86807ae8d1c325a1f45c433adf4b2a9b2fe978406f133"
-    sha256 cellar: :any,                 big_sur:        "eca3bef688c4b569bdfc5553518d9e5fb943d03d4d3e84ac8efb7fc4dd780db8"
-    sha256 cellar: :any,                 catalina:       "c4d326f594531cea94259af9fe79a1e0efd8f1aafa1b9293b5ba536673308f00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7bba935ec5f089ca4705e6402d440eaef6c64eaaac73b6fa95baa68af69fc826"
+    sha256 cellar: :any,                 arm64_sonoma:   "4d56ba8e140f0ec062188d880a89853361a324a276042f87dfd7534879a8c1f1"
+    sha256 cellar: :any,                 arm64_ventura:  "95bc077fda0d3238e9a6d7bee628adcc5cf3fd90268b8e4ee96c97e075d97f74"
+    sha256 cellar: :any,                 arm64_monterey: "55aebee60bafdc235d68c900974ae1f27eb06e359fd760c2e90772d8bb783b2f"
+    sha256 cellar: :any,                 sonoma:         "d3c2d756ae1b3b10b4c5d4d4f820612a7d47b5c0a028b19da44bc730dbe3f862"
+    sha256 cellar: :any,                 ventura:        "12c715872d3f5471d6290cd8e9500caca92f5cd366d66c27a5a97deb5d7621eb"
+    sha256 cellar: :any,                 monterey:       "7da06d575b4806cf58d434e9a86194173dd19eb30e7c34d08850da3124d61123"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "693fb2c4503373a230ecae82f0b78cf91c2c83da3d7e16bb88c4d7efc86b7fae"
   end
 
   depends_on "cmake" => :build

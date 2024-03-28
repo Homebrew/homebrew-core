@@ -1,12 +1,12 @@
 class Libpciaccess < Formula
   desc "Generic PCI access library"
   homepage "https://www.x.org/"
-  url "https://www.x.org/pub/individual/lib/libpciaccess-0.18.tar.xz"
-  sha256 "5461b0257d495254346f52a9c329b44b346262663675d3fecdb204a7e7c262a9"
+  url "https://www.x.org/pub/individual/lib/libpciaccess-0.18.1.tar.xz"
+  sha256 "4af43444b38adb5545d0ed1c2ce46d9608cc47b31c2387fc5181656765a6fa76"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "515fa58b43a49a883ba9134cbab52845943485a6a338e7c8912dae72bd998952"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "3433b90a4f960f70e9203327f632387b5ada5017be2500ab8098f9142406a075"
   end
 
   depends_on "meson" => :build

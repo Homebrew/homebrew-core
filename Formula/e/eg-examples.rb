@@ -1,4 +1,6 @@
 class EgExamples < Formula
+  include Language::Python::Virtualenv
+
   desc "Useful examples at the command-line"
   homepage "https://github.com/srsudar/eg"
   url "https://files.pythonhosted.org/packages/5f/3f/f55eef404adae2d5429728722d6a81ad6ac50a80e9b47be046cfbe97bc44/eg-1.2.2.tar.gz"
@@ -6,25 +8,20 @@ class EgExamples < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "55030a23b6ac22884fa1b868746c87e44cb23b8e43297a3fbb901cb97d482c47"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ab78a0a23d13e5855a76d209e348f9d169de15bc6028faf02490cec17edb7599"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "86f0f2ae8e6579457605cd9b684abbf347019a8869c8e7f27564ee7ca2720745"
-    sha256 cellar: :any_skip_relocation, sonoma:         "41306a06cad82e5c147396fbed98ed3f18ce60bd0dd96095a02190d292f310c6"
-    sha256 cellar: :any_skip_relocation, ventura:        "6d2b813abfdffa9b3aebf2194c7d3c810d3a904cc9d0d565a25da7b57b271eab"
-    sha256 cellar: :any_skip_relocation, monterey:       "19119fbf49402e63b7c2bec18f1613cb116d3fe09177bc7a4b28275979f7596e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a9ae5a700dab424e7b48158245af4efce5cc757604d1afac04e3507ceae7e1e"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a9aea56e5fbcc015c6d927edf5b65b474ae0329c52aecd9d10193c0697b852cd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cec5e6f848042f1b91ed94cf0eeb49f09e12878149db5b47d72f3b574d0a36bc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b905e39bc6039c31712d0a064239790bef509b022f36fa457e47d2b0e00fbfb4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7065d0352a19259d8bf4ac5b9fb6d7d5c01af88c48853ee3e79974fa22fbc520"
+    sha256 cellar: :any_skip_relocation, ventura:        "b8eb98698911e503da4f1899cd0e5d3319acda5f60409c4e22e46b53c495ae95"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb03b72a6572d0e7d253eff9d3a6c08185fbfd0ec2826e98b7873719b79ac0ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d45e298ab423592028574b32a1255b04704090228f5dbe2602fc555a26bc72e"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

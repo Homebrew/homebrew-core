@@ -394,13 +394,29 @@ class PythonAT312 < Formula
        xyz, where xyz is the package you are trying to
        install.
 
-       If you wish to install a non-brew-packaged Python package,
-       create a virtual environment using python3 -m venv path/to/venv.
-       Then use path/to/venv/bin/python and path/to/venv/bin/pip.
+       If you wish to install a Python library that isn't in Homebrew,
+       use a virtual environment:
 
-       If you wish to install a non-brew packaged Python application,
-       it may be easiest to use pipx install xyz, which will manage a
-       virtual environment for you. Make sure you have pipx installed.
+         python -m venv path/to/venv
+         source env/bin/activate
+         python -m pip install xyz
+
+       If you wish to install a Python application that isn't in Homebrew,
+       it may be easiest to use 'pipx install xyz', which will manage a
+       virtual environment for you. You can install pipx with
+
+         brew install pipx
+
+       You may restore the old behavior of pip by passing
+       the '--break-system-packages' flag to pip, or by adding
+       'break-system-packages = true' to your pip.conf file. The latter
+       will permanently disable this error.
+
+       If you disable this error, we STRONGLY recommend that you additionally
+       pass the '--user' flag to pip, or set 'user = true' in your pip.conf
+       file. Failure to do this can result in a broken Homebrew installation.
+
+       Read more about this behavior here: <https://peps.python.org/pep-0668/>
     EOS
   end
 
@@ -515,7 +531,7 @@ class PythonAT312 < Formula
     system bin/"pip#{version.major_minor}", "list", "--format=columns"
 
     # Check our externally managed marker
-    assert_match "If you wish to install a non-brew-packaged",
+    assert_match "If you wish to install a Python library",
                  shell_output("#{python3} -m pip install pip 2>&1", 1)
   end
 end

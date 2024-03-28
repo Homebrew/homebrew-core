@@ -7,13 +7,14 @@ class Act < Formula
   head "https://github.com/nektos/act.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5533293b8efc5d003e2f607626ac2a487c7f92202775f9541a0dc3a9f17bb931"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a82970717d947ac9324d5e31d07c4e9be015a226d1791e33a4b4628a056d7c31"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "01a5f990c8d15cda0aa10d1243c9406d5d7887d3d8d56aaabff2c336fe4b6bbd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d004c58656e5847eac9f2342e04a44d2b1f7993271692778678ba1e06abd4206"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b54a691f6f6eb6c1b83e10a09650ec054eb8653584aac83206adc21fc1d69ff"
-    sha256 cellar: :any_skip_relocation, monterey:       "622380502004c8c82a6a31d200c1a16daf88b693909599d5e2882c7fa8002366"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b99bab0b80fddc261a16cadafbb09ba7714b4cf90802b6f1bdd127e8607cff76"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d03a3ccdd0c2f22d290c719b88e5ab182f26fa5016fa2532689b6160d0998aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7c2b4c675fccc4af62ccccb7a656d4f5be2613e20956e3e488500703546fb388"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a43de773db72b5859ec4095e52b7a756e3a8b03c0b8595d08e5a1b4a2f9f8c41"
+    sha256 cellar: :any_skip_relocation, sonoma:         "62eccba08014eac4d559fcf57ebfd59ce85283735b5a7dc55f7086014506b9df"
+    sha256 cellar: :any_skip_relocation, ventura:        "96fd8bdfd642a78c079b06b0e66eafe0ed76cdbe777101f9b84b52fa17a4d426"
+    sha256 cellar: :any_skip_relocation, monterey:       "b41b0b1fdfdef0ae7592013187983b37b952a6021e67278dad1b3ec27f929f92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aefa4e8899387f458acfd220a2381c3e948722b9347af319d0a61abd2e9eccf2"
   end
 
   depends_on "go" => :build

@@ -1,19 +1,19 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/helmfile/helmfile"
-  url "https://github.com/helmfile/helmfile/archive/refs/tags/v0.162.0.tar.gz"
-  sha256 "6cf1877d53c576f7e196b88f79eea00ecd8a19fd7619c84d5d396b3d3a6b1e7f"
+  url "https://github.com/helmfile/helmfile/archive/refs/tags/v0.163.1.tar.gz"
+  sha256 "f6f25651c66d5ee3bb6edb9dbb0b45742e8e804f6137166e9145610df9aa0004"
   license "MIT"
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "311e5560ae22554c7e0d6aa102f9fa1419eb33ee14a15b1108e994f0d342bfca"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4fd84529f5150e43177455af400122478812f58b255b8986a70bae7ba58d07de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "89389108d2b762e710b2da38ae97249ca3d0c51364a9370ab95e6a823b5d4924"
-    sha256 cellar: :any_skip_relocation, sonoma:         "422841989864e53cf9099872e01e278bc5667c34b0c6e6d88b235110e82968ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "e88b749eff126ef2b3d012d8811bb8d84290620358a00c9b7dde0160df335878"
-    sha256 cellar: :any_skip_relocation, monterey:       "d73fa242508fa4d71e9eadb82967daee40b1cebf65161c7284fdb557812959d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a5f1e0365791648d6e898958e32de4dd878896c41184291fbd6bbe172491504"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "56131a6d9c84964f613850426e6f188225b72daadf7361d12766e367c7d0f70e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5c00a26c01f98a12d3fc7647a0e329fa2b1bd4994db9a9e4692e4fe660078727"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "74dbba8f0b577a0efa2c0650bdc63fe660f051c14745c9ecfe413f1ea5e3ecfe"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c868612cbd9002494a325d0c6de92c541c9d720a49b9f25340930c0b7852afbc"
+    sha256 cellar: :any_skip_relocation, ventura:        "0cd93ffaaefca08187241566abd7d2e47e90e04d6166ebaae9a37b4b09ae837c"
+    sha256 cellar: :any_skip_relocation, monterey:       "338212722a5e29ac4ad89eae3b96196cf029ed623fd188c8bd36c86a7d2fea92"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4993f2c735f8578227611273f2968d8486977e12df4862b2512d1071778f2ae9"
   end
 
   depends_on "go" => :build
@@ -28,7 +28,7 @@ class Helmfile < Formula
       -X go.szostok.io/version.commitDate=#{time.iso8601}
       -X go.szostok.io/version.dirtyBuild=false
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"helmfile", "completion")
   end

@@ -4,9 +4,9 @@ class Thrift < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.19.0/thrift-0.19.0.tar.gz"
-    mirror "https://archive.apache.org/dist/thrift/0.19.0/thrift-0.19.0.tar.gz"
-    sha256 "d49c896c2724a78701e05cfccf6cf70b5db312d82a17efe951b441d300ccf275"
+    url "https://www.apache.org/dyn/closer.lua?path=thrift/0.20.0/thrift-0.20.0.tar.gz"
+    mirror "https://archive.apache.org/dist/thrift/0.20.0/thrift-0.20.0.tar.gz"
+    sha256 "b5d8311a779470e1502c027f428a1db542f5c051c8e1280ccd2163fa935ff2d6"
 
     # Fix -flat_namespace being used on Big Sur and later.
     patch do
@@ -16,15 +16,13 @@ class Thrift < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1208a14184bdbe424bc6575be0fc11ccf1e934b772e8978f46095a8603571d06"
-    sha256 cellar: :any,                 arm64_ventura:  "8161ed8e8a1e3b319581b7064f2c8b4e9cfb76c51ce6b7f398a72983a0d242cd"
-    sha256 cellar: :any,                 arm64_monterey: "5f6151bdc7d518220f7ae0e477ee1e4bd1b4ae0dd896e4b24f9aed31d636fbc7"
-    sha256 cellar: :any,                 arm64_big_sur:  "3c1580f6ea44503a9d295234444915b68c3b684ec88249db168bfcffdb545a35"
-    sha256 cellar: :any,                 sonoma:         "c87d878c8802317cdabbc7a6b8ec7521a62b5f0d56e5319ca99c9ad115f8eee4"
-    sha256 cellar: :any,                 ventura:        "21dd6722482aff1bbcc82b609f64065f244c28570f22fceac0e7dd18ad07d1a2"
-    sha256 cellar: :any,                 monterey:       "6fb23ee0d37cecd41b0b0b0d485dfd337b68e39a324af52909acad8c2b900d19"
-    sha256 cellar: :any,                 big_sur:        "1503fc7cc61ef7e6d7d0952db04188abb8131c02d036c5cfe3f97f814fa8c43f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "09ed6e94d948ced7b025cd27e1dd57a1c3a091b6dc7be4c86b5fe414d72e07b2"
+    sha256 cellar: :any,                 arm64_sonoma:   "93a5538c94151be23ff7ecb1aa8dcd88738217fc7092f8b6a20d033f99c63206"
+    sha256 cellar: :any,                 arm64_ventura:  "41e37eea7e17eb56ac112fcd2c6ef55dad48a162356d5d3059b7cb343e6f2712"
+    sha256 cellar: :any,                 arm64_monterey: "c226249f0a56ab2f1bbcd82034309db8fa93c26e6dfe34b6fce4c146d7ba47ef"
+    sha256 cellar: :any,                 sonoma:         "d30ef2a3176a45cbcb7e2e72a83b812b296bb01b28d8ac30861c22dcf9a16e03"
+    sha256 cellar: :any,                 ventura:        "859125a35b08285676003bcb591b4c4c8f201c1fd3e29a7101861da3eceda6f0"
+    sha256 cellar: :any,                 monterey:       "f6675b3a7a9d65d3f110a115137e43f5de6d35c60d9aba1a6ce1b1ed56752c17"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "710a77b27ffa924c1ea308bb8eb779a50562f32678843f8c8c5b8f00613b3907"
   end
 
   head do

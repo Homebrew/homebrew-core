@@ -49,6 +49,13 @@ class Beast < Formula
     inreplace "testUCRelaxedClockLogNormal.xml", 'chainLength="10000000"',
                                                  'chainLength="100000"'
 
+    # OpenCL is not supported on virtualized arm64 macOS and causes all beast commands to fail
+    if OS.mac? && Hardware::CPU.arm? && Hardware::CPU.virtualized?
+      output = shell_output("#{bin}/beast testUCRelaxedClockLogNormal.xml 2>&1", 255)
+      assert_match "OpenCL error: CL_INVALID_VALUE", output
+      return
+    end
+
     system "#{bin}/beast", "testUCRelaxedClockLogNormal.xml"
 
     %w[ops log trees].each do |ext|

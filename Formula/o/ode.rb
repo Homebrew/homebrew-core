@@ -1,44 +1,36 @@
 class Ode < Formula
   desc "Simulating articulated rigid body dynamics"
   homepage "https://www.ode.org/"
-  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.4.tar.gz"
-  sha256 "71037b8281c6c86b0a55729f90d5db697abe4cbec1d8118157e00d48ec253467"
+  url "https://bitbucket.org/odedevs/ode/downloads/ode-0.16.5.tar.gz"
+  sha256 "ba875edd164570958795eeaa70f14853bfc34cc9871f8adde8da47e12bd54679"
   license any_of: ["LGPL-2.1-or-later", "BSD-3-Clause"]
   head "https://bitbucket.org/odedevs/ode.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6cfb73fcdaa9bf73ecfd3763bcdf7d5a8ccd7639a0f9fe7a5da5067774b2f52a"
-    sha256 cellar: :any,                 arm64_ventura:  "0db659d5d8b9f5b0a8391e07bf6dce76c6528ee142ef64227d27cd108c14fe76"
-    sha256 cellar: :any,                 arm64_monterey: "2eb1e7ae85cec1e9d3686113190d8ec89fca460c58b81f3e978b20961d235cf6"
-    sha256 cellar: :any,                 arm64_big_sur:  "f4cb558f0e993040046a0400a5d6aa69bd4916d5cac25e45597f2b6b72cbdb83"
-    sha256 cellar: :any,                 sonoma:         "8220eec9e9f7cb97a01f3126ebf7f9365a98d9e02113e5bf98199cff3b65a4ba"
-    sha256 cellar: :any,                 ventura:        "e04a88ce07030af5f9f93f2bd035a4b89ea200a9d67a17ebd89c7ad5bc536565"
-    sha256 cellar: :any,                 monterey:       "af90730fce7e61597be9dd2132e985386a47e59dde6ba23a16c42d4e6a0d44f2"
-    sha256 cellar: :any,                 big_sur:        "21c78389a6a1999ea1c0a5deb90e779ae44cbe71affcc7b6c5ac5ce0d43af578"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26dc057f117efea645ebf883369d7d48082b6a87a40443ad95e2d40f26d2ff48"
+    sha256 cellar: :any,                 arm64_sonoma:   "270ce81f43aed519ba13d83987b7506873cc60163d0f09b09e6b4cd64c4c62d2"
+    sha256 cellar: :any,                 arm64_ventura:  "26093d917736df12a0510654e0bc4d602d521a3c9c3dd09113401897f3acc317"
+    sha256 cellar: :any,                 arm64_monterey: "b1da27ab0578179b232494c19eca7908d8a77da515894be35c93baa001d913c7"
+    sha256 cellar: :any,                 sonoma:         "97d4f2c4c7e43015b3f5dffd884312f123818801e25f38a86e470d8a24e5f6b7"
+    sha256 cellar: :any,                 ventura:        "08c2d6e501581a2e3bf1bd7975f00912d632ced10673d0372dd55489b2328850"
+    sha256 cellar: :any,                 monterey:       "1d9407a8b74ce382bc76489d37f2b33e21830aae7b8dc11c2f9068190c022617"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "389509a9254588ea10f1e0d888d7ed487ed509de9a07fff79cdee31ed4c856d5"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
-  depends_on "pkg-config" => :build
+  depends_on "cmake" => :build
   depends_on "libccd"
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  # We patch `libtool.m4` and not `configure` because we call `./bootstrap`.
-  patch :DATA
+  on_linux do
+    depends_on "mesa"
+    depends_on "mesa-glu"
+  end
 
   def install
-    inreplace "bootstrap", "libtoolize", "glibtoolize"
-    system "./bootstrap"
+    args = []
+    args << "-DOPENGL_INCLUDE_DIR=#{Formula["mesa"].include}" if OS.linux?
 
-    system "./configure", "--prefix=#{prefix}",
-                          "--enable-libccd",
-                          "--enable-shared",
-                          "--disable-static",
-                          "--enable-double-precision"
-    system "make"
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -56,30 +48,3 @@ class Ode < Formula
     system "./test"
   end
 end
-
-__END__
-diff --git a/m4/libtool.m4 b/m4/libtool.m4
-index 10ab284..bfc1d56 100644
---- a/m4/libtool.m4
-+++ b/m4/libtool.m4
-@@ -1067,16 +1067,11 @@ _LT_EOF
-       _lt_dar_allow_undefined='$wl-undefined ${wl}suppress' ;;
-     darwin1.*)
-       _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--    darwin*) # darwin 5.x on
--      # if running on 10.5 or later, the deployment target defaults
--      # to the OS version, if on x86, and 10.4, the deployment
--      # target defaults to 10.4. Don't you love it?
--      case ${MACOSX_DEPLOYMENT_TARGET-10.0},$host in
--	10.0,*86*-darwin8*|10.0,*-darwin[[91]]*)
--	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
--	10.[[012]][[,.]]*)
-+    darwin*)
-+      case ${MACOSX_DEPLOYMENT_TARGET},$host in
-+	10.[[012]],*|,*powerpc*)
- 	  _lt_dar_allow_undefined='$wl-flat_namespace $wl-undefined ${wl}suppress' ;;
--	10.*)
-+	*)
- 	  _lt_dar_allow_undefined='$wl-undefined ${wl}dynamic_lookup' ;;
-       esac
-     ;;

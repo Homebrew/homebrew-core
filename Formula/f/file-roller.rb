@@ -1,18 +1,18 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/43/file-roller-43.1.tar.xz"
-  sha256 "84994023997293beb345d9793db8f5f0bbb41faa155c6ffb48328f203957ad08"
+  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.tar.xz"
+  sha256 "5b1c0e6a2e7de75392bd424550c1e5643dd1cf6c333fb1ed6a76419a29507aa4"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "14e19ab1d9409ae2d45574f767bd29e7ab39a345d1cead6c0bd9ee82fbc8d679"
-    sha256 arm64_ventura:  "00594e15981fa0051bd32ebd96d91a4c0abe0380fdc6c427a1ef9cf0b92477c5"
-    sha256 arm64_monterey: "0b8aa3451780dac8d8d44a2f338b46c7ee6b49d4d2b72a61c287bb40cd125851"
-    sha256 sonoma:         "28d1e69a91240040ba4b01dbbb4f59e3f211329937942b35d1ba2e4cae716261"
-    sha256 ventura:        "cb4cfb5d58c48bae9dc0f389889b0c5a2675114e572fd6adce3b16c48c93d659"
-    sha256 monterey:       "b97de5e9eb8f1853cfd2a3ec1d639896e7579e34668a2bce489c58140a5b6e38"
-    sha256 x86_64_linux:   "2ea0ae4fbd4f6164d20b818f4534025981db61361cb1e47bb84e49548f7d8be9"
+    sha256 arm64_sonoma:   "e31e3600ec422fd6fd0067abafbbe85cc9fd71e8591c4dcd32badcc216d789e1"
+    sha256 arm64_ventura:  "cab0237602459e94c712ff47d0c63810b5fd551e0aa8b588957f9227f0d72df4"
+    sha256 arm64_monterey: "53943b298cc30a05a3da112745c0d294a8cb30487092edc33242f07081071762"
+    sha256 sonoma:         "d028f009ca3f7fd7704366d6e1d83dcd0a5f64c86bc1744af06c9e6280f35f96"
+    sha256 ventura:        "a1904027b618e0b55707fb460ae83b889b3ed511ea6a454588b473497eca9e59"
+    sha256 monterey:       "6aa1b1a570e0e790db69f9c5075049bb7207e30e816e4c5625fc8e0b55d39060"
+    sha256 x86_64_linux:   "92d8ab339ba7dacc9f344e52f228518763a71c1fecc3709700342445c64830cd"
   end
 
   depends_on "gettext" => :build
@@ -21,18 +21,18 @@ class FileRoller < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "adwaita-icon-theme"
-  depends_on "gtk+3"
+  depends_on "gtk4"
   depends_on "hicolor-icon-theme"
   depends_on "json-glib"
+  depends_on "libadwaita"
   depends_on "libarchive"
-  depends_on "libhandy"
   depends_on "libmagic"
 
   def install
     # Patch out gnome.post_install to avoid failing when unused commands are missing.
     # TODO: Remove when build no longer fails, which may be possible in following scenarios:
     # - gnome.post_install avoids failing on missing commands when `DESTDIR` is set
-    # - gnome.post_install works with Homebrew's distribution of `gtk+3`
+    # - gnome.post_install works with Homebrew's distribution of `gtk4`
     # - `file-roller` moves to `gtk4`
     inreplace "meson.build", /^gnome\.post_install\([^)]*\)$/, ""
 
@@ -47,10 +47,13 @@ class FileRoller < Formula
 
   def post_install
     system "#{Formula["glib"].opt_bin}/glib-compile-schemas", "#{HOMEBREW_PREFIX}/share/glib-2.0/schemas"
-    system "#{Formula["gtk+3"].opt_bin}/gtk3-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
+    system "#{Formula["gtk4"].opt_bin}/gtk4-update-icon-cache", "-f", "-t", "#{HOMEBREW_PREFIX}/share/icons/hicolor"
   end
 
   test do
+    # Fails in Linux CI with: Gtk-WARNING **: 13:08:32.713: Failed to open display
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     system bin/"file-roller", "--help"
   end
 end

@@ -6,17 +6,18 @@ class Networkit < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "696603d46742a9911d64b7d7413f8b69be5d5c0454896f793f1d59b4dff024fe"
-    sha256 cellar: :any,                 arm64_ventura:  "e131660675f6a8b038384ea93d4f0d0b218a7015c5911668b9a5b9e197938126"
-    sha256 cellar: :any,                 arm64_monterey: "bf198f04659bdf0b8a3403a73b69b79c53b43bbc2148dc26fe73bc43433906bc"
-    sha256 cellar: :any,                 sonoma:         "926fee5a9850b67c9d1c5e6c93136c0cc26218727071293e38e4e2c480c2c42c"
-    sha256 cellar: :any,                 ventura:        "88db41a27b63fdf177e1cec08fdba52407a7629b8492f40b8efcc77534569dce"
-    sha256 cellar: :any,                 monterey:       "c5daee28c42b0cd1651dbf1f433ff07bd064132d45c6a4788b13d306d08c924c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8bcf04f8eb69bf0c822e95750b686b28131f3fb786b71efd66b3b657d4daf82b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "aeca1389873b623451264b1fa1d44d523c63cb9ea2728c64e312b7baa91eb24a"
+    sha256 cellar: :any,                 arm64_ventura:  "c4399d2cadbc56465ab7d3b6381eb2102f7900196d1afcc9c26fde900c31e4d2"
+    sha256 cellar: :any,                 arm64_monterey: "e73e3ffd843c1f2174c0bbefd721ba0309cb41d9783866aeaa8fc9c512822efb"
+    sha256 cellar: :any,                 sonoma:         "3aaf130e9d503254b0aa715c8fa879edb13ce048a7ac5a34b8e7d0ac6bf6303a"
+    sha256 cellar: :any,                 ventura:        "1f45434288fe627d17555645be06405a2d1a62c36404bf466b89c0f2227048de"
+    sha256 cellar: :any,                 monterey:       "02e26531757bb9412e6e3ec9f24468fffef797377de1a955e484393b1a2707ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c53c33bf47a6ce53d4181b787fa233096a406ec0b3de7f13d24d8d987f22f36c"
   end
 
   depends_on "cmake" => :build
-  depends_on "libcython" => :build
+  depends_on "cython" => :build
   depends_on "ninja" => :build
   depends_on "python-setuptools" => :build
   depends_on "tlx" => :build
@@ -34,7 +35,7 @@ class Networkit < Formula
     site_packages = Language::Python.site_packages(python3)
 
     ENV.prepend_create_path "PYTHONPATH", prefix/site_packages
-    ENV.append_path "PYTHONPATH", Formula["libcython"].opt_libexec/site_packages
+    ENV.append_path "PYTHONPATH", Formula["cython"].opt_libexec/site_packages
 
     networkit_site_packages = prefix/site_packages/"networkit"
     extra_rpath = rpath(source: networkit_site_packages, target: Formula["libnetworkit"].opt_lib)

@@ -2,18 +2,18 @@ class Kopia < Formula
   desc "Fast and secure open-source backup"
   homepage "https://kopia.io"
   url "https://github.com/kopia/kopia.git",
-      tag:      "v0.15.0",
-      revision: "dd1ebb11cfdb7902a2b87106dfeea038858bafb5"
+      tag:      "v0.16.1",
+      revision: "4f1c994c39ff76270f71c5b3dcec774df8b3c4e5"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cf80f785401241e76181af386fde858abb64d185baf35e90d03ca9b676e3fec4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8a020de8fcd08e6dd01834fcde242f8b67af42b3be5d39d70fe43ec15da374d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd135f46b697ffa632ecc2967d58f205bf154e56fb358c839ec455a6a326eb79"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e4a44b366382d6e317230b6812203fdebc78d3f9c0782d1461bc910b621e8fd6"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0cd0d66b11d6b3d18e4ad4e8994a0e3e14461ce7eb678fd0e224c4ce0cd65af"
-    sha256 cellar: :any_skip_relocation, monterey:       "09eb8a32950d8adf03e96b732f9ec1b3668ceaf58cb2b1db23b7ca5a7c4996c7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "58795eaf28548324f4eb03a3af9a0b1453547841826deb161b0b4c78ad78a63b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ffeecbec8f4537b1ea0e1ba13e87a69fabceffff1035b0c9bc857039d041dc21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "772ac0cbe028fa018035425ea0bf5b25f2b27b7fbe1e6e6991a8b3a72f3f0844"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c43c3d5eb0dbb147a6fbfcab6ea6a38bd160a61ec0c1175c9c23ef41abcfc3d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3494a4be818a337c7820a8b12aad44e190c52b4827f68259548262b34f0bc212"
+    sha256 cellar: :any_skip_relocation, ventura:        "6ca1333f955cfc958bef69ab24a56265ad0578b7fda75864db84b363a80dea38"
+    sha256 cellar: :any_skip_relocation, monterey:       "fbb0a5b2dba45fa0208cd919a987de1a271f9373fd42da434b60b934222e02c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54b39f0f54269342f9087eb644444654bfbb65670e4178ef7fbdc013cf8b7320"
   end
 
   depends_on "go" => :build
@@ -27,7 +27,7 @@ class Kopia < Formula
       -X github.com/kopia/kopia/repo.BuildVersion=#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"kopia", shells:                 [:bash, :zsh],
                                                       shell_parameter_format: "--completion-script-")

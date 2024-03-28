@@ -18,7 +18,7 @@ class Mycli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bf58acf194f18a49188de5e268b3947e33f2a9ac299dc4c7122fec504aaed54b"
   end
 
-  depends_on "python-cryptography"
+  depends_on "cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"

@@ -11,8 +11,6 @@ class Gist < Formula
     sha256 cellar: :any_skip_relocation, all: "0158ab83b42d17104b9dc5bf56f76fea7ec1b2c83e453dbcefc2c2d1d474392a"
   end
 
-  deprecate! date: "2024-02-04", because: :repo_removed
-
   uses_from_macos "ruby", since: :high_sierra
 
   def install

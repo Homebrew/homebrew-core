@@ -1,8 +1,8 @@
 class Gtksourceview5 < Formula
   desc "Text view with syntax, undo/redo, and text marks"
   homepage "https://projects.gnome.org/gtksourceview/"
-  url "https://download.gnome.org/sources/gtksourceview/5.10/gtksourceview-5.10.0.tar.xz"
-  sha256 "b38a3010c34f59e13b05175e9d20ca02a3110443fec2b1e5747413801bc9c23f"
+  url "https://download.gnome.org/sources/gtksourceview/5.12/gtksourceview-5.12.0.tar.xz"
+  sha256 "daf32ff5d3150d6385917d3503a85b9e047ba158b2b03079314c9c00813fa01f"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,15 +11,13 @@ class Gtksourceview5 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "1ac4ed566b842c7f3208d10b3824e02ee0598ed5e23b5107834d9559494a6e93"
-    sha256 arm64_ventura:  "2cce39cb260822ecb6995d7f0533df4b61f312248e1ccb494dd73fe4a32292f1"
-    sha256 arm64_monterey: "af6509c2c368a83453961feea538fff54198a0b9a751d63baa03c5eba7dab790"
-    sha256 arm64_big_sur:  "c2d27258f21f8487b937989b846bba7deb0d000bebedca73247434ed3dbb2073"
-    sha256 sonoma:         "6731abcd2f86dd1b0ff36674450c48575c176132abaea9e069b81c555fb7c940"
-    sha256 ventura:        "cbd0420335ccef393978ba5b546407e1522b3de54a6dafbe18baef3e00a3240f"
-    sha256 monterey:       "c6524d3679f3458b98805ab024354779052e93f44a5e170d2458a4ba40600d8c"
-    sha256 big_sur:        "254f81f448773bb659113cccd55b53938ddc7f31b583f546335ffc214d41824d"
-    sha256 x86_64_linux:   "b257c6940131db2d41b2dfd926101cfd67a986b68aa0053dea17d67119949129"
+    sha256 arm64_sonoma:   "786816bbe19bc03434ec9dd26bef024e184745fe13c60dc7424b8ce8549db61f"
+    sha256 arm64_ventura:  "bffd48ad9e36827a2791607346135c2bb46f4702736a5f085dce4b6f96b0f80f"
+    sha256 arm64_monterey: "3b54c025d8deafb5fdb5544ea129a35b6f580e7e36066c70531cfe13a8570463"
+    sha256 sonoma:         "5acbb50d1d9b0c688598043fe35e4b37b97774eab1b6039f02fa6dcdcf6eb34e"
+    sha256 ventura:        "2fdfa280b3b13397b7772e67b53b8d86397a7790021491ad8f9a23b7a4394345"
+    sha256 monterey:       "e77bf4aa1624231f5db2ecd713ac48fc8049a674a002175d6a7b69b465bb4daf"
+    sha256 x86_64_linux:   "f0912a0d3399c70d5bf674bb254c1e98e3bf0caafae3dec7dcbe7ffd2d8efcbc"
   end
 
   depends_on "gobject-introspection" => :build

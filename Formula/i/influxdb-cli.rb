@@ -36,7 +36,7 @@ class InfluxdbCli < Formula
       -X main.date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(output: bin/"influx", ldflags: ldflags), "./cmd/influx"
+    system "go", "build", *std_go_args(output: bin/"influx", ldflags:), "./cmd/influx"
 
     generate_completions_from_executable(bin/"influx", "completion", base_name: "influx", shells: [:bash, :zsh])
   end

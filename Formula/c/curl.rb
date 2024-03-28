@@ -2,11 +2,11 @@ class Curl < Formula
   desc "Get a file from an HTTP, HTTPS or FTP server"
   homepage "https://curl.se"
   # Don't forget to update both instances of the version in the GitHub mirror URL.
-  url "https://curl.se/download/curl-8.6.0.tar.bz2"
-  mirror "https://github.com/curl/curl/releases/download/curl-8_6_0/curl-8.6.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/curl-8.6.0.tar.bz2"
-  mirror "http://fresh-center.net/linux/www/legacy/curl-8.6.0.tar.bz2"
-  sha256 "b4785f2d8877fa92c0e45d7155cf8cc6750dbda961f4b1a45bcbec990cf2fa9b"
+  url "https://curl.se/download/curl-8.7.1.tar.bz2"
+  mirror "https://github.com/curl/curl/releases/download/curl-8_7_1/curl-8.7.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/curl-8.7.1.tar.bz2"
+  mirror "http://fresh-center.net/linux/www/legacy/curl-8.7.1.tar.bz2"
+  sha256 "05bbd2b698e9cfbab477c33aa5e99b4975501835a41b7ca6ca71de03d8849e76"
   license "curl"
 
   livecheck do
@@ -15,13 +15,13 @@ class Curl < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3231814e0bdbb794f57db7193edc33d930f29cd784fd41af25d41bf03b04d770"
-    sha256 cellar: :any,                 arm64_ventura:  "188e7ef7c17bfd3a15378acf1794873e4a8e6a35cc30d7cc4839cd7be8dbf022"
-    sha256 cellar: :any,                 arm64_monterey: "b8689b34b4ffc9ef5eeb68754063c68f393a91e8a0d374538ba648e516bb8676"
-    sha256 cellar: :any,                 sonoma:         "e0882b7691661774c03a78fcbb7e0b61f0f2d0a53f9458339566d057d4087c77"
-    sha256 cellar: :any,                 ventura:        "833eccc950937eed12e9530dcbc7d5a9f0f7d2c0ad83417de34713622cec5709"
-    sha256 cellar: :any,                 monterey:       "8bbe6cb934786eb681f19df52584a4e74b5ace691deb620d3ca08a93b223a750"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "960084d21f9d235b36a926469dfe48a9e198b44a5e787da8479ccb0467078ccc"
+    sha256 cellar: :any,                 arm64_sonoma:   "d781bc589b8740c836c3339a2eb5fa6ad87727bec92f294d3ba9e01955329599"
+    sha256 cellar: :any,                 arm64_ventura:  "af732a6303664d58d7ba6185a4f3604e6db6653dbac247d07617edb1619475a7"
+    sha256 cellar: :any,                 arm64_monterey: "c1c14ab94a76bc667466a573b14f658c6ac1532aec787988bb7dc6d2d3ed145e"
+    sha256 cellar: :any,                 sonoma:         "52cb38432f13d3e4c9f3d8c2035edc90bff33f3182725b819b48faecd496a8d2"
+    sha256 cellar: :any,                 ventura:        "679a579128450f432f67e89fede3d5adddb4b0e9e7ffe47e3f54d258a204dd19"
+    sha256 cellar: :any,                 monterey:       "5daeb595d977fddd1c854f1e36f91a8694ba993b2432430962a1636f78d787e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85f7c32e66ce2050bbf7e26dfa98b5fa15a2a1ad82be4292a8629ebc730fe20c"
   end
 
   head do
@@ -48,6 +48,12 @@ class Curl < Formula
   uses_from_macos "zlib"
 
   def install
+    tag_name = "curl-#{version.to_s.tr(".", "_")}"
+    if build.stable? && stable.mirrors.grep(/github\.com/).first.exclude?(tag_name)
+      odie "Tag name #{tag_name} is not found in the GitHub mirror URL! " \
+           "Please make sure the URL is correct."
+    end
+
     system "./buildconf" if build.head?
 
     args = %W[
@@ -80,11 +86,6 @@ class Curl < Formula
   end
 
   test do
-    tag_name = "curl-#{version.to_s.tr(".", "_")}"
-    assert_match tag_name, stable.mirrors.grep(/github\.com/).first,
-                 "Tag name #{tag_name} is not found in the GitHub mirror " \
-                 "URL! Please make sure the URL is correct"
-
     # Fetch the curl tarball and see that the checksum matches.
     # This requires a network connection, but so does Homebrew in general.
     filename = (testpath/"test.tar.gz")

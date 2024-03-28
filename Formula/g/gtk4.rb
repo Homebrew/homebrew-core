@@ -1,8 +1,8 @@
 class Gtk4 < Formula
   desc "Toolkit for creating graphical user interfaces"
   homepage "https://gtk.org/"
-  url "https://download.gnome.org/sources/gtk/4.12/gtk-4.12.5.tar.xz"
-  sha256 "28b356d590ee68ef626e2ef9820b2dd21441484a9a042a5a3f0c40e9dfc4f4f8"
+  url "https://download.gnome.org/sources/gtk/4.14/gtk-4.14.1.tar.xz"
+  sha256 "fcefb3f132f8cc4711a9efa5b353c9ae9bb5eeff0246fa74dbc2f2f839b9e308"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Gtk4 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "52b2dedc9ef9b6bcbcba2408abd6aed5af5f84acc26a4d0f469542647e16ed61"
-    sha256 arm64_ventura:  "d22c486614995fcefdc9a9657309afa1820c7e87b7a2401b8bcc54440f95e0e7"
-    sha256 arm64_monterey: "954ab8661e6aeec862d844d2364a0df0486a1a94e21c7f865d7f15bb3c158040"
-    sha256 sonoma:         "0fc8a2a179e58c1e6362ac633f09652bbef234369cb9f011fb6c4469a52c172e"
-    sha256 ventura:        "52c29423e9cecfc11a2b4ccf3c79d0f3804d322a28e22544415c403192710869"
-    sha256 monterey:       "57e77b923ec87ff985c6d2d51c3b3f4d09e3fd4f9c086d3cca9b8ce00c69b855"
-    sha256 x86_64_linux:   "84f80e0597c89508fb72981919a28d9bf96315485fdc2918cfd48385ab8e064f"
+    sha256 arm64_sonoma:   "f79b0147524f2cd03d083a3d296839b636990ef366ddc109b02c25d624e1c2e1"
+    sha256 arm64_ventura:  "ebc0766b7629d6ae355c3f2bf8b902312f18d5311dd5e2f09eaef1b5e31a77c9"
+    sha256 arm64_monterey: "a92b00a6c09eea82824a93c16204b50b4f1a9d149446f472627b221965975602"
+    sha256 sonoma:         "c6f1cca68753ca9e29c50c3d817b67c12786f8ab2f059aa9ebccac8714fe540b"
+    sha256 ventura:        "5012d3096bdb3df7bf98dd9a2ee63db5ad13c7e70c873c7f51c37a04aef4f542"
+    sha256 monterey:       "9398eb36851aca61aaeb25a41df44e92ea5be0133523c61f6b3d62638203d2a8"
+    sha256 x86_64_linux:   "257a33f059c3eaea6607da9daeeca48ea1c87501992e99b828419c9802a10faa"
   end
 
   depends_on "docbook" => :build
@@ -54,6 +54,7 @@ class Gtk4 < Formula
       -Dbuild-examples=false
       -Dbuild-tests=false
       -Dmedia-gstreamer=disabled
+      -Dvulkan=disabled
     ]
 
     if OS.mac?

@@ -22,6 +22,7 @@ class VirtManager < Formula
   depends_on "pkg-config" => :build
 
   depends_on "adwaita-icon-theme"
+  depends_on "certifi"
   depends_on "cpio"
   depends_on "gtk-vnc"
   depends_on "gtksourceview4"
@@ -32,7 +33,6 @@ class VirtManager < Formula
   depends_on "osinfo-db"
   depends_on "py3cairo"
   depends_on "pygobject3"
-  depends_on "python-certifi"
   depends_on "python@3.12"
   depends_on "spice-gtk"
   depends_on "vte3"

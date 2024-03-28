@@ -20,7 +20,7 @@ class Offlineimap < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "17807b22a5818a6d03c8429eb1cc32a9fca98938e3bc8741a482c7dda351329e"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   uses_from_macos "krb5"

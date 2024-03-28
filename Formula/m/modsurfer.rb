@@ -1,18 +1,18 @@
 class Modsurfer < Formula
   desc "Validate, audit and investigate WebAssembly binaries"
   homepage "https://dev.dylibso.com/docs/modsurfer/"
-  url "https://github.com/dylibso/modsurfer/archive/refs/tags/v0.0.9.tar.gz"
-  sha256 "61d343518c3b11e3c0496f37553e716a0e213cb711dff65d92cc682a7efd0e01"
+  url "https://github.com/dylibso/modsurfer/archive/refs/tags/v0.0.10.tar.gz"
+  sha256 "2f5defcfe8668d7323a83dab0b323282e2855a4171c1d0d4eacf5963aa3729b1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f29d1bb6b9cec6ad202b14117cf687c84443f3f61a240d6048a20e62cbff617"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00f907e4a00c41835f0b001b54c00acf7785ae2bf28204a56ab59a047e58b77e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd6a1186fd7f80a41d7fa70c30fed374fba4ed12a048dd7048adcaf4c9a704b9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fe3fc7a7b1fb3e253f78b900db223e8049b5473cf2c6346128477fc072b418b0"
-    sha256 cellar: :any_skip_relocation, ventura:        "4a7fc8d8bf01e5a136afd6c20d9f8718a8151e287f96ca404db161d39dce0871"
-    sha256 cellar: :any_skip_relocation, monterey:       "98fa1a01408dff568cc9b7f4038fc3699df5702bdbcb6c96826eb6fd4f4b4807"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdc4541e3ed2f0dc6c73cae8443e8f86d17abb6948fd27e222c1933d353ee1f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "42474789dbb88caadbcf8c0d113545c1bf40036b77cc89a88368e28413c97886"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7720cac93edc2ab0f29464ba3bc195cca1f5cc1e1d2ad6f9d98303b6b98f46ab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34b454f9d922b88adea055d86ea1ecbf08943162f0b69c73c03da9c664020bbd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b917744c1619ac05cdf12c8236ed2d8f6e25078bd7369c701ff9a0a0ef041303"
+    sha256 cellar: :any_skip_relocation, ventura:        "9f033931b5c7fbf412ec53091fb423d5c376f509abe0a472fc2a6e52c320968e"
+    sha256 cellar: :any_skip_relocation, monterey:       "0e987ef1c06a80190898850d0aaa1e26d9c3515492f8ddbcef4a6c1a7af6dde2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0ae0a282777800dcabb713ce0f994bf1cb0d4154edd5bcf2cdaec083d05b2dd"
   end
 
   depends_on "pkg-config" => :build

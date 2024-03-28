@@ -8,23 +8,21 @@ class Textract < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ac81d4839f9b851a2f4e1a995ce84960a0b93b07c1de0c3e903c2e56db6ab7fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54ec93ae61892006d62f8247ce82724046809095b0600c16a20b21ae5a381451"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f73fc995a39db4d81c8d35163b9f9cae3dccfe5d1301bad97712e40210ad950"
-    sha256 cellar: :any_skip_relocation, sonoma:         "733c22e8913930e238e45b3452922d03e0903c419b05c2e5b7477a80dbc080bc"
-    sha256 cellar: :any_skip_relocation, ventura:        "0014b1e810a0fec8226fa6df4e7f1e42b9cde726e377395b798ff881538ac8b6"
-    sha256 cellar: :any_skip_relocation, monterey:       "b158398620874d3fe52bd3a480eb7c5f0b5a387b32d1cdf56f4006457ca8c21e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61a5a2d03ce7587158d794670e55c0c5a64f44276fdc5a4c3bf7721b15d7b2ce"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "28dc3b359e04b6aef1709e193f9d9f9ae624e036ceaf0b346f398286b9e6d8af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6ba581b23948e522b8b98ef0fd8347ae001157a6e2bfe179c53abc7f4a58c88f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e6d5d68ae37d5b7ddc85e6a4c0120e4275e16d834deb34c19bf9ed247c1e846"
+    sha256 cellar: :any_skip_relocation, sonoma:         "865a9a3abd5252a93757e6654d408a55c53177d4423c59fc8cf71c237341724b"
+    sha256 cellar: :any_skip_relocation, ventura:        "320a824421208cab9ea2a6f1b01b66ca19681ed8994f3b79e7d255782be7958f"
+    sha256 cellar: :any_skip_relocation, monterey:       "52d8d47213610e4a4b5f7e946ed9c8996b5b8690abe87fbdca439ff459ed7f0d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c586d18c8d63831319b36c7e0904037b363f6fa74ce0c71f15237e9f98fa7a54"
   end
 
   depends_on "antiword"
   depends_on "flac"
   depends_on "pillow"
   depends_on "poppler"
-  depends_on "python-setuptools" # for `distutils`
   depends_on "python@3.12"
-  depends_on "six"
   depends_on "swig"
   depends_on "tesseract"
   depends_on "unrtf"
@@ -97,6 +95,11 @@ class Textract < Formula
     sha256 "587497ff28e779ab18dbb074f6d4052893c85dedc95ed75df319364f331fedee"
   end
 
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
+
   resource "sortedcontainers" do
     url "https://files.pythonhosted.org/packages/e8/c4/ba2f8066cceb6f23394729afe52f3bf7adec04bf9ed2c820b39e19299111/sortedcontainers-2.4.0.tar.gz"
     sha256 "25caa5a06cc30b6b83d11423433f65d1f9d76c4c6a0c90e3379eaa43b9bfdb88"
@@ -128,7 +131,14 @@ class Textract < Formula
     sha256 "de810bf328c6a4550f4ffd6b0b34972aeb7ffcf40f3d285a0413734f9b63a929"
   end
 
+  # Drop distutils for 3.12: https://github.com/deanmalmgren/textract/pull/502
+  patch do
+    url "https://github.com/deanmalmgren/textract/commit/78f9e644dd502bb721867ce3560d2d0a8b41d648.patch?full_index=1"
+    sha256 "1865a006e8f7a86f18ed488ee004a1f529743bc5048ea650c12091db2e6827db"
+  end
+
   def install
+    ENV["PIP_USE_PEP517"] = "1"
     venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources.reject { |r| r.name == "ebcdic" }
     resource("ebcdic").stage { venv.pip_install "ebcdic" }

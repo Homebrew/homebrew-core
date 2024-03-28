@@ -3,22 +3,22 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/b7/43/4d3861fe5047917157c2348cd94a2bec2f338bb54c365e9d1d5616897e44/cycode-1.9.1.tar.gz"
-  sha256 "5c6bb71235264c062d178bfa84630eec972d9f8e603d85ce46a80c6d5739b69f"
+  url "https://files.pythonhosted.org/packages/c9/81/55abf8a0079f1573c019fcde1f1785dc0efb17a44d8c81497c308ec3520c/cycode-1.9.2.tar.gz"
+  sha256 "85fd1a89b958c99e4225a5f1246aeb43ec84c42f8cabb9ca018cbeac48de66c5"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fb9dfd46dbd4cb3a1fae95ba549e5c6408fa1381888d6718dc2d9b06bfdc310e"
-    sha256 cellar: :any,                 arm64_ventura:  "c260009fa4a8b739f00fc7c296622f6c08f3abf6efff2d0758e36ae97f23900e"
-    sha256 cellar: :any,                 arm64_monterey: "55b2b94a365a3140e373bf8570cbe5ed11efb2edb6768cd34f8e9b5466689a80"
-    sha256 cellar: :any,                 sonoma:         "91796c340baecf6b1a0f60915c951fa74e75b60e777e2c1438413a533b98f26b"
-    sha256 cellar: :any,                 ventura:        "36af6598ab72b4a73e04a5910ca9403e0e27135abc3bc248c61bab4b7a6d09db"
-    sha256 cellar: :any,                 monterey:       "d77f111f9a2dff44e7ad3ee86525e3c594d51181f592e2041b73e146fca36fe0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4074120d9cea22dfab04ada5c3c471779e8750da4f3ab9fd125e11718775fcb1"
+    sha256 cellar: :any,                 arm64_sonoma:   "24611c3927aef2bd8b56b33a023f22ecda5fd6b07a1fb7f0b4c1fc1a6587b3ab"
+    sha256 cellar: :any,                 arm64_ventura:  "32758bc81f5f90f31056a3af7b0072c8c5b9a3346f9c2fd5281240f7b9852f72"
+    sha256 cellar: :any,                 arm64_monterey: "07ce3dc2d862d1b1895e4bebc3c6fa60a4213f04deb9fda78be178eeea2cdccd"
+    sha256 cellar: :any,                 sonoma:         "acdec51a14b566f9c1d85eb5fa21f6fdc0d8be6d7d1bcb7c03f3ff087854b867"
+    sha256 cellar: :any,                 ventura:        "6ae75605db97944c8bd725dbc1f9bd20bd948d543cb1b0a608a173bfe60ef501"
+    sha256 cellar: :any,                 monterey:       "10b64e54616e0bb64ce73fb52c6fa1f0f91b6941c2b8f0d4cb9465e295f958ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fb14bc9971e6ec847c7d3902e9f1d2a3a5b5932328305eba4dd1a29c3bdba2c7"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "arrow" do
@@ -72,8 +72,8 @@ class Cycode < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "pathspec" do
@@ -82,8 +82,8 @@ class Cycode < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do

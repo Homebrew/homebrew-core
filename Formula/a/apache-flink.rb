@@ -1,10 +1,10 @@
 class ApacheFlink < Formula
   desc "Scalable batch and stream data processing"
   homepage "https://flink.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.18.1/flink-1.18.1-bin-scala_2.12.tgz"
-  mirror "https://archive.apache.org/dist/flink/flink-1.18.1/flink-1.18.1-bin-scala_2.12.tgz"
-  version "1.18.1"
-  sha256 "107c8274e8a61c81a58208c39d79a0934fa10437ce8c4bc869f30c35209e45a9"
+  url "https://www.apache.org/dyn/closer.lua?path=flink/flink-1.19.0/flink-1.19.0-bin-scala_2.12.tgz"
+  mirror "https://archive.apache.org/dist/flink/flink-1.19.0/flink-1.19.0-bin-scala_2.12.tgz"
+  version "1.19.0"
+  sha256 "3119c6db3a8f4813defce1c89cac46111df9d0cb9712a264da0b3a3b7290bf86"
   license "Apache-2.0"
   head "https://github.com/apache/flink.git", branch: "master"
 
@@ -14,18 +14,17 @@ class ApacheFlink < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "34daf472c2e035aa8a379f81919c19432a9cef1d6316ac04f756697ab5450773"
+    sha256 cellar: :any_skip_relocation, all: "0983dd623b462b2b57af833026029eb7db3367469d1605d3597a985fc42adb23"
   end
 
   depends_on "openjdk@11"
 
   def install
-    rm_f Dir["bin/*.bat"]
+    inreplace "conf/config.yaml" do |s|
+      s.sub!(/^env:/, "env.java.home: #{Language::Java.java_home("11")}\n\\0")
+    end
     libexec.install Dir["*"]
-    (libexec/"bin").env_script_all_files(libexec/"libexec", Language::Java.java_home_env("11"))
-    (libexec/"bin").install Dir["#{libexec}/libexec/*.jar"]
-    chmod 0755, Dir["#{libexec}/bin/*"]
-    bin.write_exec_script "#{libexec}/bin/flink"
+    bin.write_exec_script libexec/"bin/flink"
   end
 
   test do

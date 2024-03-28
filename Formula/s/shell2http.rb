@@ -1,26 +1,26 @@
 class Shell2http < Formula
   desc "Executing shell commands via HTTP server"
   homepage "https://github.com/msoap/shell2http"
-  url "https://github.com/msoap/shell2http/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "90aa95c7b7bdb068b5b4a44e3e6782cda6b8417efbd0551383fb4f102e04584c"
+  url "https://github.com/msoap/shell2http/archive/refs/tags/v1.17.0.tar.gz"
+  sha256 "17fab67e34e767accfbc59ab504971c704f54d79b57a023e6b5efa5556994624"
   license "MIT"
   head "https://github.com/msoap/shell2http.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4afb529539a1b571d671848f86b8338041aeb67f917f45176e3220be20e63537"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "791d24266a7c357bb2c00ee4f04714646980b607d58993ebe6b43f5a119e9b64"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c5f3cc864755a4ded46ac897aa8bb5cf0fd9546fd1d84676182246a4c35534a4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "93fb449677f5f9e84184c01c7022127439190c03ab93a72c92da1e75c8f46992"
-    sha256 cellar: :any_skip_relocation, ventura:        "8c9c13e2334150a5cbfc7dd976c4bf46203fdaeb0d58cd7ab6923eb38efa0f82"
-    sha256 cellar: :any_skip_relocation, monterey:       "fa7b359bfb0188cbfdd5d08a7b78924f4b186456706e10c7c2fb80931bcf07e5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "90fe4bf67a183748096c5bfaa8d90677dcff799a9fc847f78ca8a733645b68cd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f5aa3b3d987491267e475439e28ed32236b3a5983ac224f037ba5252b0857406"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7cebeaf54ec1a81eccdaa79a135b6fa47402af330ef4011785fa813ddb4ceb12"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "14b86f0bd62e111c795277d5b02a09960759be90f5a6aaa745e2546ac8270a4b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "22c0f297ed31f96042fbd408d4fc53deb7e4a257fc9e00d5c24892419e10eb0f"
+    sha256 cellar: :any_skip_relocation, ventura:        "b2664cf38188a0fab8f22804a6b82e9058e88b75d7ce2b4226c912885bfdf435"
+    sha256 cellar: :any_skip_relocation, monterey:       "9ec711d670e18409cff61b8d40c06031c1990f13ef845d41fbedcdb22619a219"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2924860684928b8e326d3298c72c447dbae5f7a7ab259e71bcf45e7906568ef4"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     man1.install "shell2http.1"
   end

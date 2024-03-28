@@ -3,10 +3,9 @@ class GtkDoc < Formula
 
   desc "GTK+ documentation tool"
   homepage "https://gitlab.gnome.org/GNOME/gtk-doc"
-  url "https://download.gnome.org/sources/gtk-doc/1.33/gtk-doc-1.33.2.tar.xz"
-  sha256 "cc1b709a20eb030a278a1f9842a362e00402b7f834ae1df4c1998a723152bf43"
+  url "https://download.gnome.org/sources/gtk-doc/1.34/gtk-doc-1.34.0.tar.xz"
+  sha256 "b20b72b32a80bc18c7f975c9d4c16460c2276566a0b50f87d6852dff3aa7861c"
   license "GPL-2.0-or-later"
-  revision 2
 
   # We use a common regex because gtk-doc doesn't use GNOME's
   # "even-numbered minor is stable" version scheme.
@@ -16,13 +15,13 @@ class GtkDoc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3396f660df0c1fc229771113d999afb4649f4d558db3a9b0843c4d620c8d228a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5d549dac87e671dd909d3549d9d1a3b3e7ee8ba2ea0c1ba46d5d453a0799efbd"
-    sha256 cellar: :any,                 arm64_monterey: "5ab3de59f7e3ceafc190662f15fec6cc6c9a39bcce9a1c8b9538ebe9fee3c7b2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f8693fb5823abd139140a296f79ba53f57b5f055cdf98bd373e3c8116bba5e39"
-    sha256 cellar: :any_skip_relocation, ventura:        "9dac6206131a4d1eedd443daf31f8a8ca14eb9e400b4def87ee50648d8ce0304"
-    sha256 cellar: :any,                 monterey:       "f8263480fbd1efa1e5bae24df626222413e2397701c2469565f395b08d56109c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af17e4d4cec00c1de69b0c1ffeff28548f7837001ea9421e16edabd1688fbce6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "493c4822ad0d01b5a4933eedb58ae0860f276286b1e1eaf147d0e875c86b8794"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fced52679062761343b1a541773a946c4b27c9586b86e7b279eb2385388948ab"
+    sha256 cellar: :any,                 arm64_monterey: "a8cffe2b387f08da0853b204105d71b90c818237c7d0888fdb31b7882a9896f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9192bfcdbd1e2276e324da55f4e7445fe284a6a4f74d3fb0691ef1bac76ebc9a"
+    sha256 cellar: :any_skip_relocation, ventura:        "544528ea2038bbe7d93aa2e64f7284c4d686d9d368176699dfe2c945b90d5238"
+    sha256 cellar: :any,                 monterey:       "b617d540052f7a929a74b954e58c5c3ed1e884d8c7257ce03d0cd687026b2dc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e2945b68205eeb97c8413fa0a04dcc847742f34b7933f14df5537c61aa8afcc"
   end
 
   depends_on "meson" => :build

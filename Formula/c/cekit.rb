@@ -3,19 +3,18 @@ class Cekit < Formula
 
   desc "Container Evolution Kit"
   homepage "https://cekit.io"
-  url "https://files.pythonhosted.org/packages/c4/cc/a948fb7fc87bb974f55b37da024734166d4981a4f43958f1efc84d2b1e3d/cekit-4.10.0.tar.gz"
-  sha256 "83909f20463073aeb2d5f56295b7446c39ea4605fe8640ccfb521c618c5663e6"
+  url "https://files.pythonhosted.org/packages/2b/e8/f6f756156e26ee85221306123f60b2f1162a0d988a0e59f195d0631ed21f/cekit-4.11.0.tar.gz"
+  sha256 "5dc7ce15f903c2de20b119a18086c042a28ed0c72ef7f1d5956fa20cef2cfc32"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "473ea6afdb211d88f5ef500d863eba46deee43ea76e3d34ee04ca51876ae5a2a"
-    sha256 cellar: :any,                 arm64_ventura:  "f528f533601a6a0958a55d7b015f510cfc1493fa1afab94799249b4905e59f78"
-    sha256 cellar: :any,                 arm64_monterey: "a19bbe1bcf354f6aaa52b2280cb76c6dd0a1798204910050a9919e6dabd1c719"
-    sha256 cellar: :any,                 sonoma:         "042e65bb6c9034b0713998480d0d98e981dca158558693f5b9de26b40d30490c"
-    sha256 cellar: :any,                 ventura:        "d45a491d8fb943bf1ca2b7761bac0ed9929802a62f266ffccb36385ee065c5e6"
-    sha256 cellar: :any,                 monterey:       "53b69f7cd4e471adff3df3dcbc1f64ebbb5613934f35f683b26490350ea69259"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "20a6fec4e02cc2f79ca541be59ad3797d5fd66494b5931390b66afbafab56d17"
+    sha256 cellar: :any,                 arm64_sonoma:   "bded464bf731194819a08509a29533a9842a1e442f1edbc2cfa3bca49d6e9192"
+    sha256 cellar: :any,                 arm64_ventura:  "eabe5f30826ff2709e40c9c0b366075e3ec87ed97a4ff306ee4a3508730ada8b"
+    sha256 cellar: :any,                 arm64_monterey: "053a66475fbfdf1e1de7bf5bd5da1c71c3876f585d2de6c5a82102964e6c9e7a"
+    sha256 cellar: :any,                 sonoma:         "3ef58b8154ee270521c4bb1cf45bdc99303c508e265adfc854cbd4dc20ce030f"
+    sha256 cellar: :any,                 ventura:        "c45cfaae966ca4ecfb93680f18e9a43bee8c611b43dc718f20960b8102bc7f93"
+    sha256 cellar: :any,                 monterey:       "aa4f335a5e63d7da8e2f64bfeb9bbf083c6a159faf0b8593a5aa4f822929e09c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3ba17894609c5da36c7f88adbcdde0f519dd64517a0c851c4fd8e3e09935adb"
   end
 
   depends_on "libyaml"
@@ -46,11 +45,6 @@ class Cekit < Formula
     sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
   end
 
-  resource "odcs" do
-    url "https://files.pythonhosted.org/packages/2c/d8/f5cad90fc6db4a0a26bf072a504a6badf58e411eb568952d7faf864f0bc2/odcs-0.8.0.tar.gz"
-    sha256 "2910f002acc52f851c761798bb4448daaa0ced85b80a448891ac171a0b016c8a"
-  end
-
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
     sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
@@ -62,8 +56,8 @@ class Cekit < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do

@@ -18,8 +18,8 @@ class Jrnl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc36a6efe3bb34278cdcaea83dafb134a9180249776d76f695a98a5907888f3e"
   end
 
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "expect" => :test

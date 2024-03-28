@@ -1,21 +1,19 @@
 class A2ps < Formula
   desc "Any-to-PostScript filter"
   homepage "https://www.gnu.org/software/a2ps/"
-  url "https://ftp.gnu.org/gnu/a2ps/a2ps-4.15.5.tar.gz"
-  mirror "https://ftpmirror.gnu.org/a2ps/a2ps-4.15.5.tar.gz"
-  sha256 "81bb1b4104e7c2639762451edc9786daf3dfeb3884adfc7dc6ac9d208f30da7f"
+  url "https://ftp.gnu.org/gnu/a2ps/a2ps-4.15.6.tar.gz"
+  mirror "https://ftpmirror.gnu.org/a2ps/a2ps-4.15.6.tar.gz"
+  sha256 "87ff9d801cb11969181d5b8cf8b65e65e5b24bb0c76a1b825e8098f2906fbdf4"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "f6fec638555f04cdcb741cb9d930f95842f603e8d37c6ca5312b25c7a9e585cd"
-    sha256 arm64_ventura:  "10381e1a32d8d2654c3d28fec0856d5e578178dd81341a0187923932dee8c275"
-    sha256 arm64_monterey: "324fda41302930807efa0187fc74e88adaa391174a544182994c88d2f9c2c77b"
-    sha256 arm64_big_sur:  "5d5e4d72ae5eab8dc359210fd20aab84afab4b1f327d0f814d3390eab2a58350"
-    sha256 sonoma:         "8e4e2f2bf62b1a2382a148fe3bd1d05360ee512389b60203accc0b54dfe24201"
-    sha256 ventura:        "e47f1e2e153449972ad6479f6fe7fc9522b913c975a6fb8f91d0ad6d87dfbdb7"
-    sha256 monterey:       "eeb5fabb49782584d65bfe703933e4fe803cdba76b5f08e802d6ff1a4218f3da"
-    sha256 big_sur:        "c2facab6afdbc5630e86dcda22286338f55958b268a5cc50e0f1c2906ed25036"
-    sha256 x86_64_linux:   "40097b5e7b78f67035b8c535476f110de9072f7769670055a8ae7c0a80a78c63"
+    sha256 arm64_sonoma:   "65b376bbaea1ccebe7b46ed808d280c966c0e24fb22f6e92e86dd6eb9d769b75"
+    sha256 arm64_ventura:  "3e182ba99072bc793eaa3e93761288026df7fec9520a39f3f51f1436fe7f5230"
+    sha256 arm64_monterey: "1e6ab666ea444efe10b8892b9923264b8dc0d5961674b3a0937a9cd94397542b"
+    sha256 sonoma:         "010728f54b885a9c8697a81b3602427ccabb10da153d0d74a25526a8144a0e1c"
+    sha256 ventura:        "4b2439ff98f5db6e8c4e3894ba0ab09a4e38e7404a7db950b42de46afeddc62a"
+    sha256 monterey:       "361d7e19f0811037af034bb5a7e582c0cea350cc5a9754f0d05e0094faadf5bb"
+    sha256 x86_64_linux:   "6df41a07d6bd52713e700a83a2994c5955b305ee068b73c50e4786cbb8213dae"
   end
 
   depends_on "pkg-config" => :build

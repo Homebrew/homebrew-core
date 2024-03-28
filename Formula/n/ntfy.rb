@@ -2,19 +2,19 @@ class Ntfy < Formula
   desc "Send push notifications to your phone or desktop via PUT/POST"
   homepage "https://ntfy.sh/"
   url "https://github.com/binwiederhier/ntfy.git",
-      tag:      "v2.8.0",
-      revision: "aaa4976c7d10d54b0484d541816b465997e5521e"
+      tag:      "v2.10.0",
+      revision: "5ee62033b57847a885fc7c58a4b1c9c94b5f1ed3"
   license any_of: ["Apache-2.0", "GPL-2.0-only"]
   head "https://github.com/binwiederhier/ntfy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4d3313080b3f69cbf3e4342ca70e317402fe3f9c51bc796917615604ecff79d2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d3313080b3f69cbf3e4342ca70e317402fe3f9c51bc796917615604ecff79d2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4d3313080b3f69cbf3e4342ca70e317402fe3f9c51bc796917615604ecff79d2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7dce9a30984c0f91b4673dacfcdd479275e4e0c4f93997d6ab2993bbb1dce6fd"
-    sha256 cellar: :any_skip_relocation, ventura:        "7dce9a30984c0f91b4673dacfcdd479275e4e0c4f93997d6ab2993bbb1dce6fd"
-    sha256 cellar: :any_skip_relocation, monterey:       "7dce9a30984c0f91b4673dacfcdd479275e4e0c4f93997d6ab2993bbb1dce6fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffe5491e47e50debe535844d72d0762199820e4ec68d03af910606ff558d7e21"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ddb19092762e98b4f8744cddc3029247f691fad4e02ec752d50e0567ae0893eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ddb19092762e98b4f8744cddc3029247f691fad4e02ec752d50e0567ae0893eb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ddb19092762e98b4f8744cddc3029247f691fad4e02ec752d50e0567ae0893eb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3430fe3879c173b6a29a8da53966866d4407f8544c9077f087a01084ba94fea1"
+    sha256 cellar: :any_skip_relocation, ventura:        "3430fe3879c173b6a29a8da53966866d4407f8544c9077f087a01084ba94fea1"
+    sha256 cellar: :any_skip_relocation, monterey:       "3430fe3879c173b6a29a8da53966866d4407f8544c9077f087a01084ba94fea1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38b8d6c700fb60af60821d816317d00fc0b1affd679c9c03a2e472eda958f81e"
   end
 
   depends_on "go" => :build
@@ -31,7 +31,7 @@ class Ntfy < Formula
     with_env(
       "CGO_ENABLED" => "0",
     ) do
-      system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "noserver"
+      system "go", "build", *std_go_args(ldflags:), "-tags", "noserver"
     end
   end
 

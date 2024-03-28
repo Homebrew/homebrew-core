@@ -1,20 +1,18 @@
 class Prs < Formula
   desc "Secure, fast & convenient password manager CLI with GPG & git sync"
   homepage "https://timvisee.com/projects/prs"
-  url "https://github.com/timvisee/prs/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "c09b563181bc58b49db8e4f015749785798bd55b35a1f1924b3e432fa5f387f2"
+  url "https://github.com/timvisee/prs/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "9a4cc8371ec166c0a62da12cdb2c5e053fe399c49b026dea9c67258546630abe"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "41f5ddbded8685190e165a3609a1d1e1cdcd03d2cf628610c731ff2921d8b3ff"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c179ab6efea0b20ea6728f741ccf68566fcd3116ac0c1ad37e34664962b5829a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03e32f7a7be5705cd65bafd8b91d464be6b8aa8cbbe743ea0a2084e4ec106f51"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f0d06a166a4be290c1b2246d441e21f6d27a4f8838678700f51aa61637abc471"
-    sha256 cellar: :any_skip_relocation, sonoma:         "19acbc995def350dbf7d6508011da04f407a1a2a806de4871a5e5f141cb035db"
-    sha256 cellar: :any_skip_relocation, ventura:        "ae05b51b6c3f02790bdf22f00717bf9ae155e037c15da735ce1689710b4a5a08"
-    sha256 cellar: :any_skip_relocation, monterey:       "fbc0c4071ec4a681c1c129ebf83af025dfc535bca1775e7ee3987f15c7511e17"
-    sha256 cellar: :any_skip_relocation, big_sur:        "9dbedc7e970b7354bd9951175941c06e9bce761bdef08b8dda507e3da290db98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "003944e33f04aad5fe54bcf3f5ba832c2cb12099ff0b12f9606e311d8dcd69c9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8a93fda36c4e71d0530ff82829b8834ca2798503b07ddbd215736a99c5692d45"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f1f84a217868717c2d34388ab151d771f6cb1366c03e9113600c710dcec8731d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ebb272933f7017e878eafbf46a779451361504a38dfbf4701b8daf0b2b96376"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8fc865fed685cba423c806c8501a9439fc91cdbb579714696cab3569063625f2"
+    sha256 cellar: :any_skip_relocation, ventura:        "dbb75b374a81e5246790a9df5bc90b10353ca0b82cafc7843d3b601809b5d96c"
+    sha256 cellar: :any_skip_relocation, monterey:       "8c1a4619c349cad988a4e83b406b7054b45f675a201fc515dd74c76088de4c67"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "74dbee9d5ae9011d4adf16ab1723a0200842b304f443900865fae59be2877ac2"
   end
 
   depends_on "rust" => :build

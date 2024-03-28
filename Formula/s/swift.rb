@@ -4,10 +4,9 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/apple/swift/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-  sha256 "5b93c737c24ba7d861e0777800740eaa9ccddfa2a6a4326bd47dbc5aa9ae8379"
+  url "https://github.com/apple/swift/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+  sha256 "874c3b6668fb138db35c9f1c63570dafacac8476a6094b17764a51a45a1b69a2"
   license "Apache-2.0"
-  revision 1
 
   # This uses the `GithubLatest` strategy because a `-RELEASE` tag is often
   # created several days before the version is officially released.
@@ -18,13 +17,13 @@ class Swift < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "556733ccfa5dfefe13e02e07031253921f2081483e17781c7b9dfe5d722f721b"
-    sha256 cellar: :any,                 arm64_ventura:  "5313a3f7fc1c887aa7c5a5bcfe34feb19ad61ceed26e90c7d55f23fb40d6cc64"
-    sha256 cellar: :any,                 arm64_monterey: "caf558e41ab28c00de216ae2580a35ed3d8c0d40574f781aba206e2b1c234264"
-    sha256 cellar: :any,                 sonoma:         "56e631b94fcdbbe2c631bc2749dafb9885a06eeae6857fb8b49319a623c91963"
-    sha256 cellar: :any,                 ventura:        "c541ac87f26d573a00290ee3e5703d09abf5fa44758d13591279c2eca8f05437"
-    sha256 cellar: :any,                 monterey:       "69b5a84f0da852b6c910936a16171e5278a06a013dd5b51ce4cc7bcd266f4e99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "014ef376a4ac36a939b9ce64ddee5d12b41949221048ca8f99a6947b9710d1eb"
+    sha256 cellar: :any,                 arm64_sonoma:   "c74be5c5c48ca2acfdf542419029c94d96e2002c76a346d02bb9d6c8f48d3375"
+    sha256 cellar: :any,                 arm64_ventura:  "5f5c949c95e858057004eced39eb3153fd7cf5064fba72b29b9b5fc87fec9733"
+    sha256 cellar: :any,                 arm64_monterey: "9104796fd13c4e4de54314d6da2157b45a31f1346e2b4ef83d400020c084fcd6"
+    sha256 cellar: :any,                 sonoma:         "5b32af755f0f4fbfb9cf53581d6b158b50e97023b1c08298aca4165b64c3985d"
+    sha256 cellar: :any,                 ventura:        "8c6f474a5589efee56ca9b6e84eeebc6749d73bb090f23f3ba985e8887f7a8e4"
+    sha256 cellar: :any,                 monterey:       "59e4d847eda70bba498876d057e86a5a31f1cfc08207a95abc5c5c93bd80acce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "672dfc9f04c958666ec0ac30ad48f4ee0d76b8ccac1ff11e3c6c16cbc9fef0e1"
   end
 
   keg_only :provided_by_macos
@@ -67,18 +66,18 @@ class Swift < Formula
     end
 
     resource "swift-corelibs-foundation" do
-      url "https://github.com/apple/swift-corelibs-foundation/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-      sha256 "e58c529ababd547cf0b205fc0820ccce38a033664625c271110b564f2554dd44"
+      url "https://github.com/apple/swift-corelibs-foundation/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+      sha256 "e25700bffc439b36c5c9acf169332c0dd9805fcd91cd570b4ce96163b70bae5b"
     end
 
     resource "swift-corelibs-libdispatch" do
-      url "https://github.com/apple/swift-corelibs-libdispatch/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-      sha256 "b1f3e46ed248df6a3456d20bc23b2d8a12b740a40185d81b668b1d31735cadf2"
+      url "https://github.com/apple/swift-corelibs-libdispatch/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+      sha256 "16e088cf12654d22658879710b9694a6fad1c94d5e5d0c597741b71fbcb3e034"
     end
 
     resource "swift-corelibs-xctest" do
-      url "https://github.com/apple/swift-corelibs-xctest/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-      sha256 "7f0d21ce0bb15ed5275b0d6e5ee1747344d9756c9f1913a644a0b2142ee1fb19"
+      url "https://github.com/apple/swift-corelibs-xctest/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+      sha256 "b298316185270ac43ecdaf4c2fbd4329af51a18b174650510d7526238e9ca6fa"
     end
   end
 
@@ -86,35 +85,29 @@ class Swift < Formula
   fails_with :gcc
 
   resource "llvm-project" do
-    url "https://github.com/apple/llvm-project/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "9df7cacc0107202dcdee8025d5cec9fe413f164e28921372acc61fddd78ed473"
+    url "https://github.com/apple/llvm-project/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "107e88150257e0c12333b4c43baa371a4252118e4977a69f5a16c566ee9f2cd3"
 
     # Fix finding Homebrew Python executable on Linux.
-    # Remove with Swift 5.10+.
+    # Remove with Swift 6.0.
     patch do
       url "https://github.com/apple/llvm-project/commit/9e84e038447e283d020ae01aebb15e0e66ef3642.patch?full_index=1"
       sha256 "a46a6e9bf5309c1cb9c387e9648c6604a60f9cb3880463993ed72df4404f14ca"
     end
-
-    # Fix compile with unpatched bootstrap Swift.
-    # Remove with Swift 5.10+.
-    patch do
-      url "https://github.com/apple/llvm-project/commit/8c76a69c00a8ca5fb9c063ff99c7d91511865bf2.patch?full_index=1"
-      sha256 "62c4e296983a4bf14e94302bfd3292e232c54badb86e4b2cac02e8d495eece78"
-    end
   end
 
   resource "cmark" do
-    url "https://github.com/apple/swift-cmark/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "658f4eb94f271e68af4ae07f4214f58d36dfc8edd7fc17ac44e8c85bec984337"
+    url "https://github.com/apple/swift-cmark/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "6b7377e78b59410f8f3993cd6b83fe35fd097369a5cf89aa77c0e8b86d2218ee"
   end
 
   resource "llbuild" do
-    url "https://github.com/apple/swift-llbuild/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "44bcb0f8c6fa6cccdc16b7e75c996987568d8fde3caf8bc83c24a2e10383406f"
+    url "https://github.com/apple/swift-llbuild/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "ae8962d59244abac157c02813d05e1c077915bbd6022fe9fb62040806ac8dc55"
 
     # Workaround Homebrew sqlite3 not being found.
     # Needs paired inreplace for @@HOMEBREW_PREFIX@@.
+    # https://github.com/apple/swift-llbuild/issues/901
     patch do
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/0080c7317c51d16b17671640c5db665516402d2f/swift/llbuild-sqlite3.patch"
       sha256 "97329a525dabf4a7a13d3e3237965e66ae456887776e0101e82b6ca125a97591"
@@ -122,32 +115,38 @@ class Swift < Formula
   end
 
   resource "swiftpm" do
-    url "https://github.com/apple/swift-package-manager/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "132ae4908fa9c8f10265585f593dc748a021a18b11d6a1881e22d2db2dd1e162"
+    url "https://github.com/apple/swift-package-manager/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "857391656ef94e7ef249b5d05d6a4226c2ec070ddbdd182d7dac92de748ff526"
   end
 
   resource "indexstore-db" do
-    url "https://github.com/apple/indexstore-db/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "a907c8fce27e718c179f6a92b73df62675e44b86612116468ff6ebd3f2997b31"
+    url "https://github.com/apple/indexstore-db/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "b701755b9ecef2363b8f91ad3d1f8677d78f06e81857a10de9a835c72176c241"
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/apple/sourcekit-lsp/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "0db3e5c56f2889a3be2ff4e9b5a285085459dee6f821c0cdf513eb5c9cc94ae4"
+    url "https://github.com/apple/sourcekit-lsp/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "e69f11068546ba1ee0015c68d3dbde0d053f1574ca643dd8d43e1d9dbc4cb2d7"
   end
 
   resource "swift-driver" do
-    url "https://github.com/apple/swift-driver/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "e4db5194e99ebbd605a14b86965b301b5a060482ecd1c5c94a4a099de5754e35"
+    url "https://github.com/apple/swift-driver/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "51a48f1f277f4c5f87b8e1f08668e99ecd74f9fbee359ccde502cbb839eb7128"
+
+    # Revert change that made Swift not respect SDKROOT.
+    # Remove with Swift 6.0.
+    patch do
+      url "https://github.com/apple/swift-driver/commit/ef730dba907fc78bed3ab9f2a40d0ea2de1ccb2b.patch?full_index=1"
+      sha256 "345dee5546c1632a7bfdcafc06354db0077ac1483719857018fa0b771de6c80c"
+    end
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/apple/swift-tools-support-core/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "e0ab6f07998865549ad4bff34c91a3947a50a0085890d2d32605dfff296980c8"
+    url "https://github.com/apple/swift-tools-support-core/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "36bb714e46966bdc48e9835e9440508f30f6c9d0b4479a1cebae0ab9f5952bb9"
 
     # Fix "close error" when compiling SwiftPM.
     # https://github.com/apple/swift-tools-support-core/pull/456
-    # Remove with Swift 5.11?
     patch do
       url "https://github.com/Bo98/swift-tools-support-core/commit/151e8fbd599a440c9931eae2a92221dd6d448dc6.patch?full_index=1"
       sha256 "d17f14ac12abcad3169d736665f43e3fef0c7a15a4812bb04c3b2237da0dfa19"
@@ -155,45 +154,45 @@ class Swift < Formula
   end
 
   resource "swift-docc" do
-    url "https://github.com/apple/swift-docc/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "5c2f2a68280d476b0d5559b38ffd46cb2f04d3d2e7436d9e2ddccf6555a9888f"
+    url "https://github.com/apple/swift-docc/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "76228ac8de50d31685d28473f0eaa9c8859b40726f9b92cf3f6a675e6c53e9de"
   end
 
   resource "swift-lmdb" do
-    url "https://github.com/apple/swift-lmdb/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "0bafb61c6d8924626a9b130f3bcf9b92139f52a86aa1fa04539b83bc668c4b58"
+    url "https://github.com/apple/swift-lmdb/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "44b2ccc9e89eab003cc631a84e9569d4563e2dc4cca673fc7a465fd0fb4dbc6c"
   end
 
   resource "swift-docc-render-artifact" do
-    url "https://github.com/apple/swift-docc-render-artifact/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "be134a7655345544eec00b52d097f4ca4a88333b17d32f3fb72f367aca335f96"
+    url "https://github.com/apple/swift-docc-render-artifact/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "2720c730199b910ed3808accc6f0c105bf35247578504fb1b4b0632bc7d346d8"
   end
 
   resource "swift-docc-symbolkit" do
-    url "https://github.com/apple/swift-docc-symbolkit/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "fb95cecf2de170066d9529dafe0a74781b94c4262891e4f0751693662c48e30d"
+    url "https://github.com/apple/swift-docc-symbolkit/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "de1d4b6940468ddb53b89df7aa1a81323b9712775b0e33e8254fa0f6f7469a97"
   end
 
   resource "swift-markdown" do
-    url "https://github.com/apple/swift-markdown/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "5b00363c4704e8b77bf78f127a734cfaf6fcda9e8898f3340fc4c8745e37e2c5"
+    url "https://github.com/apple/swift-markdown/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "33104f65f31a19d3adfa5e32c7fc00b0e6f9f846bcc66f85ed7e7d6405fd87cc"
   end
 
   resource "swift-experimental-string-processing" do
-    url "https://github.com/apple/swift-experimental-string-processing/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "3abc4225789e19defae966f7d9a712c77a5c0366f1d44d37df671048fe62daf6"
+    url "https://github.com/apple/swift-experimental-string-processing/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "542fa52af41287772ff36a18f4a8971e0aec07dbf4c59400e6d3422ab42d46df"
   end
 
   resource "swift-syntax" do
-    url "https://github.com/apple/swift-syntax/archive/refs/tags/swift-5.9.2-RELEASE.tar.gz"
-    sha256 "b1918519f5bc6c7820f14242adfe26d9520a91896349a486359d9809b4e89351"
+    url "https://github.com/apple/swift-syntax/archive/refs/tags/swift-5.10-RELEASE.tar.gz"
+    sha256 "bec161cf707758d34d208c8e00bc338603094b489a9388caff79db1af3af20c7"
   end
 
   # To find the version to use, check the release/#{version.major_minor} entry of:
   # https://github.com/apple/swift/blob/swift-#{version}-RELEASE/utils/update_checkout/update-checkout-config.json
   resource "swift-argument-parser" do
-    url "https://github.com/apple/swift-argument-parser/archive/refs/tags/1.2.2.tar.gz"
-    sha256 "44782ba7180f924f72661b8f457c268929ccd20441eac17301f18eff3b91ce0c"
+    url "https://github.com/apple/swift-argument-parser/archive/refs/tags/1.2.3.tar.gz"
+    sha256 "4a10bbef290a2167c5cc340b39f1f7ff6a8cf4e1b5433b68548bf5f1e542e908"
   end
 
   # As above: refer to update-checkout-config.json
@@ -204,26 +203,26 @@ class Swift < Formula
 
   # As above: refer to update-checkout-config.json
   resource "swift-collections" do
-    url "https://github.com/apple/swift-collections/archive/refs/tags/1.0.1.tar.gz"
-    sha256 "575cf0f88d9068411f9acc6e3ca5d542bef1cc9e87dc5d69f7b5a1d5aec8c6b6"
+    url "https://github.com/apple/swift-collections/archive/refs/tags/1.0.5.tar.gz"
+    sha256 "d0f584b197860db26fd939175c9d1a7badfe7b89949b4bd52d4f626089776e0a"
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-crypto" do
-    url "https://github.com/apple/swift-crypto/archive/refs/tags/2.5.0.tar.gz"
-    sha256 "a7b2f5c4887ccd728cdff5d1162b4d4d36bd6c2df9c0c31d5b9b73d341c5c1bb"
+    url "https://github.com/apple/swift-crypto/archive/refs/tags/3.0.0.tar.gz"
+    sha256 "5c860c0306d0393ff06268f361aaf958656e1288353a0e23c3ad20de04319154"
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-certificates" do
-    url "https://github.com/apple/swift-certificates/archive/refs/tags/0.4.1.tar.gz"
-    sha256 "d7699ce91d65a622c1b9aaa0235cbbbd1be4ddc42a90fce007ff74bef50e8985"
+    url "https://github.com/apple/swift-certificates/archive/refs/tags/1.0.1.tar.gz"
+    sha256 "fcaca458aab45ee69b0f678b72c2194b15664cc5f6f5e48d0e3f62bc5d1202ca"
   end
 
   # As above: refer to update-checkout-config.json
   resource "swift-asn1" do
-    url "https://github.com/apple/swift-asn1/archive/refs/tags/0.7.0.tar.gz"
-    sha256 "d4470d61788194abbd60ed73965ee0722cc25037e83d41226a8a780088ba524e"
+    url "https://github.com/apple/swift-asn1/archive/refs/tags/1.0.0.tar.gz"
+    sha256 "e0da995ae53e6fcf8251887f44d4030f6600e2f8f8451d9c92fcaf52b41b6c35"
   end
 
   # As above: refer to update-checkout-config.json
@@ -316,6 +315,14 @@ class Swift < Formula
       workspace/"llvm-project/lldb/cmake/caches/Apple-lldb-Linux.cmake",
     ]
     inreplace lldb_cmake_caches, "repl_swift", "lldb-python-scripts \\0"
+
+    # Hack macOS 12 and lower support
+    # Can remove with when this breaks (and we bump the min Xcode accordingly)
+    inreplace [
+      workspace/"swift-collections/Sources/OrderedCollections/HashTable/_HashTable+UnsafeHandle.swift",
+      workspace/"swift-collections/Sources/OrderedCollections/Utilities/_UnsafeBitset.swift",
+      workspace/"swift-certificates/Sources/X509/CertificateSerialNumber.swift",
+    ], "swift(>=5.8)", 'canImport(Swift, _version: "5.8")'
 
     # Paired with llbuild patch
     inreplace workspace/"llbuild/Package.swift", "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX

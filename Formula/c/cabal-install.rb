@@ -4,19 +4,19 @@ class CabalInstall < Formula
   # TODO: Try removing --constraint in next release of `cabal-install` or `ghc`.
   # GHC 9.8.1 includes Cabal 3.10.2.0 which has an issue building Objective-C sources.
   # Issue ref: https://github.com/haskell/cabal/issues/9190
-  url "https://hackage.haskell.org/package/cabal-install-3.10.2.1/cabal-install-3.10.2.1.tar.gz"
-  sha256 "d53620c5f72d40d7f225af03f9fe5d7dc4dc1e5b4e5297bace968970859f8244"
+  url "https://hackage.haskell.org/package/cabal-install-3.10.3.0/cabal-install-3.10.3.0.tar.gz"
+  sha256 "a8e706f0cf30cd91e006ae8b38137aecf65983346f44d0cba4d7a60bbfa3da9e"
   license "BSD-3-Clause"
   head "https://github.com/haskell/cabal.git", branch: "3.10"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db4e8b22d4eb6c3cf26b41d9377e258ae31ab7a57fa2dd63d94db1770a492225"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "882064351b396b55b4ba0f5694ba84e93e302bf0e2be33e84874dfbf249358f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a302c5e79dd7a00ca9a916a3089de8d61f48ea7927fd531d6c64fb1f746103ee"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5ec3cd0aab2bec8f225d27052e3568b7ffa67b7651ffec853e526f1ec6517b53"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f47d35b92f50cd8917697462da5756df57de2c11adb0f4d37ed6262cb211da9"
-    sha256 cellar: :any_skip_relocation, monterey:       "73377aa93b67cd71b9aa30505bb18097f5662fb9e659119b60bb51ccb9e020c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "92b061b878d9eb6140b2a8ccc1f8b8d357e30dd3aa5d1ed97fd33c93c8c4ca49"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7c4045e602d8d7def8ac0d2f75dfac407edee0f30c5bea42966382f3af0f259"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "078855c1050203d13a69f225ab2e3d41f6bafdce44ae420c6f811d0f5ccc5c55"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d405f859c0761869218a0c6f7c4accbfe9bc044bcace7efa0c82fa89a76a7475"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a1fd77bff8f6f5259c822b0fa41b52789e053c1e1fae86f584c1cd5e10cc4dc8"
+    sha256 cellar: :any_skip_relocation, ventura:        "7df852785b8ede266ca04ef7d4d011737b8ceea70e653bb86243a9a41b95d995"
+    sha256 cellar: :any_skip_relocation, monterey:       "288fb972a71efd34256e34e0d561a6ef8788cff17c6e530c744c251bca73feea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "38c362e0ddb166707876b1849edc36af7a0c1dc370f1e47da81d3227216dc0e2"
   end
 
   depends_on "ghc"

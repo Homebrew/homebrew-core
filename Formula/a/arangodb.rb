@@ -108,7 +108,7 @@ class Arangodb < Formula
         -X main.projectVersion=#{resource("starter").version}
         -X main.projectBuild=#{Utils.git_head}
       ]
-      system "go", "build", *std_go_args(ldflags: ldflags)
+      system "go", "build", *std_go_args(ldflags:)
     end
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args

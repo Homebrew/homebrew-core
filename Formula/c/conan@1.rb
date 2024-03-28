@@ -27,8 +27,8 @@ class ConanAT1 < Formula
 
   depends_on "pkg-config" => :build
   depends_on "cmake" => :test
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "bottle" do

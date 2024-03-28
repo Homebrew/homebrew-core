@@ -20,7 +20,7 @@ class Tvnamer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "fdb156ffafb08a5bbfeea58f69ca33f3014008e5a1add188d1177c7a829ccbb4"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

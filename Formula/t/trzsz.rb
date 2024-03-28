@@ -8,21 +8,26 @@ class Trzsz < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6a61d3082420bad36e6cc3ce0cbffc4c87b4676b1a822c47ea901a8794c8cd3f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f4327fbcc191a759c32c8511f231a82006d406ad2d24f5da3ebfbf7eaa85975"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "838a446dda952d38a0def33a461fab42d525bbe65ccad6459189b19056c1bea0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "15ce2195a334629b16820aba5db6fcfaabe0d84c05e2fb63b324783065d82015"
-    sha256 cellar: :any_skip_relocation, ventura:        "dab3513ad785df333ec7cf0cd7f104443256d35c30a1e398a169459c46aa5e0c"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e469f50bc197b9ac948270f64aaef62fd07d49cdf87a22c7ba452fdab9661cb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f64211664956cc18313872bc9e9b8eb8ad8b1974f80f3dfb2ab856be6ff4b25e"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01cd344ddfaebbe08ada14c4b9d5ace9c0c69db8de389868f9e90cb92b781d9e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6246113cd0ec1e6d05879f6dd923f166ef3a41986769ae697c6440cb7c8869dd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "48ca43d8307cea7f093a7037c6e53dd6a1af2823c40b96f69dc5e1e292a2dbc2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6731e64908057053fa7899e9fbd678363e626ed6fb598a0a263ee7a0ccb09cc9"
+    sha256 cellar: :any_skip_relocation, ventura:        "618a1104d52c229262299ede935e7a6266ff5f6297d00cbd934170ccdeb18846"
+    sha256 cellar: :any_skip_relocation, monterey:       "942619ba6767f5cf89ea540605976607b42396aa4f21861a06098df8ecd5076b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "775a3f5ebcfe5ca827e2b7bccd59d434e3109044f49e7d413c8b1e4b2a45dd51"
   end
 
-  depends_on "protobuf"
   depends_on "python@3.12"
 
   resource "iterm2" do
     url "https://files.pythonhosted.org/packages/4f/eb/47bb125fd3b32969f3bc8e0b8997bbe308484ac4d04331ae1e6199ae2c0f/iterm2-2.7.tar.gz"
     sha256 "f6f0bec46c32cecaf7be7fd82296ec4697d4bf2101f0c4aab24cc123991fa230"
+  end
+
+  resource "protobuf" do
+    url "https://files.pythonhosted.org/packages/ea/ab/ae590cd71f5a50cd9e0979593e217529b532a001e46c2dd0811c8697f4ad/protobuf-5.26.0.tar.gz"
+    sha256 "82f5870d74c99addfe4152777bdf8168244b9cf0ac65f8eccf045ddfa9d80d9b"
   end
 
   resource "trzsz-iterm2" do

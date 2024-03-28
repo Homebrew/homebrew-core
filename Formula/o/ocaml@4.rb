@@ -7,8 +7,8 @@
 class OcamlAT4 < Formula
   desc "General purpose programming language in the ML family"
   homepage "https://ocaml.org/"
-  url "https://caml.inria.fr/pub/distrib/ocaml-4.14/ocaml-4.14.1.tar.xz"
-  sha256 "c127974d0242576cf47061b20aa9c86d17be0d6aa9687f6ec9835de67be7bb6f"
+  url "https://caml.inria.fr/pub/distrib/ocaml-4.14/ocaml-4.14.2.tar.xz"
+  sha256 "7819f68693e32946f93358df46a8ea6f517222681fcc6f7cb96214216cfec764"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
 
   livecheck do
@@ -17,13 +17,13 @@ class OcamlAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "015d672de32d28f039ec897291e4c36803bcf562f3904fffecc17dbcd9f0aba6"
-    sha256 arm64_ventura:  "a9b005aeb68d7e7cba4ddf72a2bd4d9683329e95dda048a002afc0f9ef23534b"
-    sha256 arm64_monterey: "71f5a84d9137a11012664e65d7282b57dc1eea163f5c4d8e14c02b1dbb5da58f"
-    sha256 sonoma:         "18a84964e30800cb1ef70b1336c2ce0e5d8eec0b3b017f10e6699ba06346922e"
-    sha256 ventura:        "d4513f0912c5e6eada78a425c8380b2c6fc06055c9ac2b0ad612d1105c3d01d0"
-    sha256 monterey:       "7d10dfd426a35c0dfd07cd6cb5969c0b7d572176bd2d1d40b79e6e49b0500230"
-    sha256 x86_64_linux:   "8412292973241a9951911a94cd1245f861a225a881ef08839815954ce4a276fd"
+    sha256 arm64_sonoma:   "6abe32932e41a40ff75c1d429fc01ea3492f7a0c3281707c5ae472fba7c5db15"
+    sha256 arm64_ventura:  "e63d8b519711cb181b4528efa61771cc1f0075d469fd84a7878b6efb849b6efa"
+    sha256 arm64_monterey: "ea41a63891e8e0200aa517fcd0d8030cb721735d19e4cd119651d31cf2c428de"
+    sha256 sonoma:         "cee37cd961b6f813bcb86b5f20c8640abf3fd691bde2f26da46a026d1fbee93b"
+    sha256 ventura:        "54411358c0d919ff17a96d81a93020dcde72b2138c3cb382a67deb1df18a308a"
+    sha256 monterey:       "cc525d1058ce4ef19405a80cb0dcf3af11c3a6e772fb754431c1ac1053f898bf"
+    sha256 x86_64_linux:   "b9773be3973366e8d5b4d933b7cdadfd212ad9ab76dca04b709a41504b795924"
   end
 
   # The ocaml compilers embed prefix information in weird ways that the default
@@ -37,11 +37,6 @@ class OcamlAT4 < Formula
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
     sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
   end
-
-  # Remove use of -flat_namespace. Upstreamed at
-  # https://github.com/ocaml/ocaml/pull/10723
-  # We embed a patch here so we don't have to regenerate configure.
-  patch :DATA
 
   def install
     ENV.deparallelize # Builds are not parallel-safe, esp. with many cores
@@ -62,16 +57,3 @@ class OcamlAT4 < Formula
     assert_match "val x : int = 1", output
   end
 end
-
-__END__
---- a/configure
-+++ b/configure
-@@ -14087,7 +14087,7 @@ if test x"$enable_shared" != "xno"; then :
-   case $host in #(
-   *-apple-darwin*) :
-     mksharedlib="$CC -shared \
--                   -flat_namespace -undefined suppress -Wl,-no_compact_unwind \
-+                   -undefined dynamic_lookup -Wl,-no_compact_unwind \
-                    \$(LDFLAGS)"
-       supports_shared_libraries=true ;; #(
-   *-*-mingw32) :

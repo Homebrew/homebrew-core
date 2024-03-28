@@ -1,8 +1,8 @@
 class Bochs < Formula
   desc "Open source IA-32 (x86) PC emulator written in C++"
   homepage "https://bochs.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/bochs/bochs/2.7/bochs-2.7.tar.gz"
-  sha256 "a010ab1bfdc72ac5a08d2e2412cd471c0febd66af1d9349bc0d796879de5b17a"
+  url "https://downloads.sourceforge.net/project/bochs/bochs/2.8/bochs-2.8.tar.gz"
+  sha256 "a85b13aff7d8411f7a9f356ba6c33b5f5dc1fbb107eb5018cc23a62639da0059"
   license "LGPL-2.0-or-later"
 
   livecheck do
@@ -11,17 +11,13 @@ class Bochs < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b965beac91d2d5737c9e1d9ae533d99b392b5eba6106b4dc646260152322702d"
-    sha256 arm64_ventura:  "57686b06f051f0c5abd2fbdf7cacdf469bcd9d4b9b1bbbad4aff594dc58e2be9"
-    sha256 arm64_monterey: "e148150828ea9d230cf350212dc8d415e3442ff04e285f4cdc358d0477d282b6"
-    sha256 arm64_big_sur:  "413baabcb17f8a7da9b41306215280ef7fe9e898477c31eed66f483cfb15475a"
-    sha256 sonoma:         "1047d7212679edb50a925e7b915aebdb08ea1fc55d4041a49c63b308d598df27"
-    sha256 ventura:        "9ba58e0479a3088a00919aef9465eea819b6c6bc6b7dd1c01b007fde19bba3a3"
-    sha256 monterey:       "7846c1280fc53365233026350c900bbc481de62b54bce1f454441331e82ce597"
-    sha256 big_sur:        "6e644ff1b857016a22941d01d7136a94c39a790dd6ce0f358da5b5b5ab14af78"
-    sha256 catalina:       "a903d4549d08e804de103c69866708ac5a993f7a4006687e9465e67991494cb4"
-    sha256 mojave:         "8428e13cd552af48b539231826a222f4b74801688aa0e74c2de40c201cb68e30"
-    sha256 x86_64_linux:   "e681cbd2cb984ea659bad90239ba755b4fca333be1a4831513b53f461974a98b"
+    sha256 arm64_sonoma:   "cbf7d0822dc3621c522b35dd08f0c6b13229b09cc8486b03714cdc9720c13b8a"
+    sha256 arm64_ventura:  "554222dd225e1e45dbbcc66835e725b8e7ee948819bee598332baccda2a74361"
+    sha256 arm64_monterey: "863d294eb8184e8c789f1d10d6d317033da4b0e29b975f8fd9e5b04ace9e017d"
+    sha256 sonoma:         "fab7abe0dd5d19498de67f51071ff85fd2e4c7b06ed4a19422321412a5bb76a9"
+    sha256 ventura:        "b8157f821216b5c7ed9ccc378415f05a5effd7533921b54089c7f3379585c05a"
+    sha256 monterey:       "174f8941f3e15e18fce21a3f8dc3933d0e749793cedbe11619a6f23b39c0ee15"
+    sha256 x86_64_linux:   "62d0ad82342936b765efec9a5b9a2525d5daf1ebfa86be5d89530a0c585e7969"
   end
 
   depends_on "pkg-config" => :build

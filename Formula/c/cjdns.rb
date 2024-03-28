@@ -24,6 +24,10 @@ class Cjdns < Formula
   depends_on "six" => :build
 
   def install
+    # Work-around for build issue with Xcode 15.3
+    # upstream PR patch, https://github.com/cjdelisle/cjdns/pull/1263
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     # Libuv build fails on macOS with: env: python: No such file or directory
     ENV.prepend_path "PATH", Formula["python@3.12"].opt_libexec/"bin" if OS.mac?
 

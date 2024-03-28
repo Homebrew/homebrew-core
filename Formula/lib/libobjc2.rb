@@ -1,12 +1,12 @@
 class Libobjc2 < Formula
   desc "Objective-C runtime library intended for use with Clang"
   homepage "https://github.com/gnustep/libobjc2"
-  url "https://github.com/gnustep/libobjc2/archive/refs/tags/v2.1.tar.gz"
-  sha256 "78fc3711db14bf863040ae98f7bdca08f41623ebeaf7efaea7dd49a38b5f054c"
+  url "https://github.com/gnustep/libobjc2/archive/refs/tags/v2.2.1.tar.gz"
+  sha256 "768ea8c5bd0999a29b5d15781125494f986456c1dc5c51d370fb31852cd31ea1"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "ba344263f90c949f7be3cf48ac100e83eb0fe062f5b770cd688b2b84b6f3ece4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "7b71a49e26e6f376aea15f25c584ba70da3ea0c4cfbb7eaa0e66a52eb300ccb9"
   end
 
   depends_on "cmake" => :build
@@ -22,8 +22,8 @@ class Libobjc2 < Formula
   fails_with :gcc
 
   resource "robin-map" do
-    url "https://github.com/Tessil/robin-map/archive/refs/tags/v1.0.1.tar.gz"
-    sha256 "b2ffdb623727cea852a66bddcb7fa6d938538a82b40e48294bb581fe086ef005"
+    url "https://github.com/Tessil/robin-map/archive/refs/tags/v1.2.1.tar.gz"
+    sha256 "2b54d2c1de2f73bea5c51d5dcbd64813a08caf1bfddcfdeee40ab74e9599e8e3"
   end
 
   def install
@@ -55,6 +55,6 @@ class Libobjc2 < Formula
                    "-L#{testpath}", "-Wl,-rpath,#{testpath}", "-lTest", "-o", "RuntimeTest"
 
     # RuntimeTest deliberately throws a test exception and outputs this to stderr.
-    assert_match "in flight exception", shell_output("#{testpath}/RuntimeTest 2>&1")
+    assert_match "testExceptions() ran", shell_output("#{testpath}/RuntimeTest 2>&1")
   end
 end

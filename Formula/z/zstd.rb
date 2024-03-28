@@ -1,10 +1,10 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
   homepage "https://facebook.github.io/zstd/"
-  url "https://github.com/facebook/zstd/archive/refs/tags/v1.5.5.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/zstd-1.5.5.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.5.tar.gz"
-  sha256 "98e9c3d949d1b924e28e01eccb7deed865eefebf25c2f21c702e5cd5b63b85e1"
+  url "https://github.com/facebook/zstd/archive/refs/tags/v1.5.6.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/zstd-1.5.6.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.6.tar.gz"
+  sha256 "30f35f71c1203369dc979ecde0400ffea93c27391bfd2ac5a9715d2173d92ff7"
   license "BSD-3-Clause"
   head "https://github.com/facebook/zstd.git", branch: "dev"
 
@@ -16,16 +16,13 @@ class Zstd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "4712aabcc9f2710c0de2597aa9675ba95cd81fb59e27e8973b09a6ca5eabc2e6"
-    sha256 cellar: :any,                 arm64_ventura:  "cd3a7447c6a18cae189c2366820113f7b23425643482f8af45d03c6e91417ff8"
-    sha256 cellar: :any,                 arm64_monterey: "f41cab61bfe2815d4ca18fa072c507ab9f9c10a8a532c8a660b1ab0f94e9bc8f"
-    sha256 cellar: :any,                 arm64_big_sur:  "4189e80e2dc006e79f08b8e7588773cbd93defbe908c9adf85aa666ee2911f98"
-    sha256 cellar: :any,                 sonoma:         "2137fe12a266078c16b162342500c7efa263def709e6742bfb4bf8601a3f36af"
-    sha256 cellar: :any,                 ventura:        "f74c7a0b93a218a15987716188f71c264cd9a0a54563636f8619ff803310a8ce"
-    sha256 cellar: :any,                 monterey:       "0d57c7e4a47355acffa02ed92ee98e5df7dd3dca0147b9697661330293e362af"
-    sha256 cellar: :any,                 big_sur:        "23c726bf4b71f74ac69bd4a6b67541b08c245f5b3ed6630c7ab914082655457c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96afcbd191c9961446161a6fabf09cbbb4c6b3df371cee25b71c2c5d611719a2"
+    sha256 cellar: :any,                 arm64_sonoma:   "2028141683f55bffcd0693b9e49eef1e3dabc1e184214cacb173ca9bd54dabc0"
+    sha256 cellar: :any,                 arm64_ventura:  "035cbadb205abbe00107f0c7746f3715e3841c007e4b3a309398e65d50c43cf5"
+    sha256 cellar: :any,                 arm64_monterey: "7f12fa16033d6576099c481f93a7423a526a7b3252a0ea0921ea0016c18f49f8"
+    sha256 cellar: :any,                 sonoma:         "09953f22fd56bc85e0d7ceac8de7e35ed622f3affe78dd782154e5e21623037b"
+    sha256 cellar: :any,                 ventura:        "78fd5d1b6afaef60879445e3de8227257e79ec6fca6af1e1324896bc93cf2a75"
+    sha256 cellar: :any,                 monterey:       "b5099f7c339af2fff89af3a844a004b35aba400787ef71e1db6e856889f56557"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e6ddbd4c969bb84261f12b759fb78a828d6f734c9e515793c6ac2c3a846b01e"
   end
 
   depends_on "cmake" => :build

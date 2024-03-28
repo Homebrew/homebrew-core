@@ -2,9 +2,10 @@ class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
   url "https://github.com/grpc/grpc.git",
-      tag:      "v1.62.0",
-      revision: "f78a54c5ad4e058734aa9b2beb9459940e4de342"
+      tag:      "v1.62.1",
+      revision: "6d7a55890e076a3a8abc8185b6bf0153fcf9d179"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/grpc/grpc.git", branch: "master"
 
   # There can be a notable gap between when a version is tagged and a
@@ -19,13 +20,13 @@ class Grpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2715c79bc43ec3689bfd3ce98833d26eddafe1857df225938401957acf68a0d3"
-    sha256 cellar: :any,                 arm64_ventura:  "7875a1b4f7fe1cd9dd882a7c44477e51bdf3b499109415a39b79937331959989"
-    sha256 cellar: :any,                 arm64_monterey: "2d08ec5ec2e2f309156e7e2b171c773274c6b39655a283b84579e6dfaa110423"
-    sha256 cellar: :any,                 sonoma:         "37cc0ab91c3aa07e4b7f72e8251a2ee3adf6ce839a60e188542820f4b1c69369"
-    sha256 cellar: :any,                 ventura:        "a3e7257a8b681ecb43372d2db245093db47afdeefeb2b555394f6c26eaf77db4"
-    sha256 cellar: :any,                 monterey:       "db0dfdd03b08aa0be4f56e0b5478c0e2c6d6423414df1f4ee20a7266dfd53024"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57b376fbfcd15e5dcbf3983545202fcbd8a56d2d01dcf2c41e7b1f46c4569008"
+    sha256 cellar: :any,                 arm64_sonoma:   "abbf6c7c410d73ceaecaf47997d3860fcac96ae380ce00e7bec843a7e933f0f5"
+    sha256 cellar: :any,                 arm64_ventura:  "23c3cc7d77ca7ece972393f49fcce2ad9a9ec5b0edc69d41c99991bd3a980329"
+    sha256 cellar: :any,                 arm64_monterey: "50a9dd6cb58127fdf2849870820e285a8d7c5eb23e9a3f284ed69dcc3eee56e9"
+    sha256 cellar: :any,                 sonoma:         "d7f9b3d18e2352ab3f623754f7ebb5f659308700e9757f27c4565abb0849986e"
+    sha256 cellar: :any,                 ventura:        "9b95bd38c23c02e5f98af44b80d6e2d91f52634de3150f89ac4e4f819f9aed8c"
+    sha256 cellar: :any,                 monterey:       "73a248e7cf4b29c252fc1a79d6a97c85d8733ee07eb7d10a1fdafb9eb0ff8bc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "358089fc0680d9cd21e5d55f39184bc49ac4a3d3c9b4a38edf45842e14c78b79"
   end
 
   depends_on "autoconf" => :build

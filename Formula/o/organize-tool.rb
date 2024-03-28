@@ -19,10 +19,10 @@ class OrganizeTool < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
+  depends_on "cryptography"
   depends_on "freetype"
   depends_on "libyaml"
   depends_on "openjpeg"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "annotated-types" do

@@ -1,8 +1,8 @@
 class Bmake < Formula
   desc "Portable version of NetBSD make(1)"
   homepage "https://www.crufty.net/help/sjg/bmake.html"
-  url "https://www.crufty.net/ftp/pub/sjg/bmake-20240301.tar.gz"
-  sha256 "24ce0be3acfc8b93c75a0796c62eecc16376e3a7c05570b302d20480e38e9f59"
+  url "https://www.crufty.net/ftp/pub/sjg/bmake-20240314.tar.gz"
+  sha256 "f9a906d7487699c9e0d2c135700c2d088da5fcd0f2f6761267a57aabfea31feb"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,13 @@ class Bmake < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cbd02f03e96c79048b2948e3051ae8bca472e83630ca137ead9e7129222a3cd6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "07f2f715091a8c8e028e4cefbf16b297d5f888a1e6a775722edef9d2211cfa42"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "bba266e875451a64d0baac3fda0f8e11ce46a8b3c0cf13bdb1df07bc8a8b089d"
-    sha256                               sonoma:         "17b6487e99dfb14f98a71005788cdbae1d7db11e801445dc2c699bca800ad91c"
-    sha256                               ventura:        "cc0fc22dd4ad48528e2d6c5f8cd6c610ef68358da23af61e5c28c5eed79cde0e"
-    sha256                               monterey:       "dcd0047a2279e3b79d64b7d261afb7aaa76e920cdcda339d57386ed8bb7055fc"
-    sha256                               x86_64_linux:   "56da91c54152e11ddbf32e4978ba61445bc797f59ab40235d83956cc90ed4720"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c388d3cf0c031928547d9142e37014f1ba98354e4efc6bbc123e6b2d68da934b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "00cb273566767ad88d0da92423579e70dd8b86c6c53514e85508443554c03ecf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff8c14d95578927a3a03c3c750f4a1896b09eb9af0d872afbaf5ee65de818f5d"
+    sha256                               sonoma:         "5454f57f4e8c50c42962eaa9b3ffe57dc16968d6b851b6f610f4a78452a6f590"
+    sha256                               ventura:        "5a4f4e894425347f375b138a915f9ca367a70296b3eb820b4f2f51d0928bb9ae"
+    sha256                               monterey:       "6898464057e0305dbee3211b0b1faca12c46595783dc72e8175fff44fe9e2e8f"
+    sha256                               x86_64_linux:   "7142d7870f43f2c4737dab89be0b7c44b73bdd56b3f622710cfd3e75cbdedfe0"
   end
 
   uses_from_macos "bc" => :build

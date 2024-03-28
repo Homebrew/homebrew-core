@@ -3,18 +3,18 @@ require "language/node"
 class Vite < Formula
   desc "Next generation frontend tooling. It's fast!"
   homepage "https://vitejs.dev/"
-  url "https://registry.npmjs.org/vite/-/vite-5.1.5.tgz"
-  sha256 "333846a6d7336cc75c96a46ec386d562232da15864ad37fc10acb954dc7db5ab"
+  url "https://registry.npmjs.org/vite/-/vite-5.2.6.tgz"
+  sha256 "98fb482c53fbe6754ff7e6370943150f26b3cb9b20063d45254da694f4a15fc4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e7b9576a3f6b627733eb30cba1da3e8b86da2fc034ddc65a6935a0dead0bf4be"
-    sha256 cellar: :any,                 arm64_ventura:  "e7b9576a3f6b627733eb30cba1da3e8b86da2fc034ddc65a6935a0dead0bf4be"
-    sha256 cellar: :any,                 arm64_monterey: "e7b9576a3f6b627733eb30cba1da3e8b86da2fc034ddc65a6935a0dead0bf4be"
-    sha256 cellar: :any,                 sonoma:         "d8b4684a17e49ee1aa46002794772109624ed6628dd78bcb52f48d9aa000e819"
-    sha256 cellar: :any,                 ventura:        "d8b4684a17e49ee1aa46002794772109624ed6628dd78bcb52f48d9aa000e819"
-    sha256 cellar: :any,                 monterey:       "d8b4684a17e49ee1aa46002794772109624ed6628dd78bcb52f48d9aa000e819"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3c348f5eef6e44e43bf81feb9138634f2bd50234a511b3f9ee1e16280726e667"
+    sha256 cellar: :any,                 arm64_sonoma:   "cd9a1cc5e22841cd4a7895de8c10c5a621e316bec5bcbf04fbe30fcc58007fe2"
+    sha256 cellar: :any,                 arm64_ventura:  "cd9a1cc5e22841cd4a7895de8c10c5a621e316bec5bcbf04fbe30fcc58007fe2"
+    sha256 cellar: :any,                 arm64_monterey: "cd9a1cc5e22841cd4a7895de8c10c5a621e316bec5bcbf04fbe30fcc58007fe2"
+    sha256 cellar: :any,                 sonoma:         "64029a8dcaf45e26c5d35924edeef2fa5609138fe36c41a8900be196dc388e3f"
+    sha256 cellar: :any,                 ventura:        "64029a8dcaf45e26c5d35924edeef2fa5609138fe36c41a8900be196dc388e3f"
+    sha256 cellar: :any,                 monterey:       "64029a8dcaf45e26c5d35924edeef2fa5609138fe36c41a8900be196dc388e3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61b0af7fb7f2533500e1f584473f5437a5690330645287a761307db95201eff0"
   end
 
   depends_on "node"
@@ -22,13 +22,6 @@ class Vite < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Delete native binaries installed by npm, as we dont support `musl` for a `libc` implementation
-    node_modules = libexec/"lib/node_modules/vite/node_modules"
-    (node_modules/"@rollup/rollup-linux-x64-musl/rollup.linux-x64-musl.node").unlink if OS.linux?
-
-    # Replace universal binaries with their native slices
-    deuniversalize_machos
   end
 
   test do

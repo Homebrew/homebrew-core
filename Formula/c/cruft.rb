@@ -20,8 +20,8 @@ class Cruft < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd30aa4b7682166324cc794be07c5693fdcfa52bc1d7e2b8672615919ecd49ca"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "arrow" do

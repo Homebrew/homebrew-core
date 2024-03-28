@@ -1,8 +1,8 @@
 class Prestd < Formula
   desc "Simplify and accelerate development on any Postgres application, existing or new"
   homepage "https://github.com/prest/prest"
-  url "https://github.com/prest/prest/archive/refs/tags/v1.4.2.tar.gz"
-  sha256 "324996ee8ea430fdd005297b8f8c961da628d93c6ea2c2768f13f98b7c2e512d"
+  url "https://github.com/prest/prest/archive/refs/tags/v1.4.3.tar.gz"
+  sha256 "2173f065ac289821781f489f934670e0be400af69a1c118bff067e583e341fbd"
   license "MIT"
   head "https://github.com/prest/prest.git", branch: "main"
 
@@ -12,20 +12,20 @@ class Prestd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0a0a86fc59a828730c148d45fc5cc94548e7b673c33c84ee612596dd33222eed"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03f74a8b6548924de63ab3e04f0b1b29be1ad2e8f711e1c75c1488b12df5c995"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "42c68fed315e9cb78213ec2401dd0c602d72153a535e66ed91549203063db51b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "be45cd6366878325ab56ab2a8103eb5573fb1ec569caa47b0fe9642a1a62158f"
-    sha256 cellar: :any_skip_relocation, ventura:        "a15a8e4a89a1c64e17c832e5176702382e8a2ea4cf61715dcff4f5d2086ab1a0"
-    sha256 cellar: :any_skip_relocation, monterey:       "af1a682d9e0f0ee07c893bd61306cbd0ce1e3a812bdc707dd7c43ea3cae7bacd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0ba8b70812607fdde8872a907aff0fc2a8cf2ee5d0e16610af759c092eb77e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c29c94c52a115f0771b902d95ff6e45ad0d932072a2d051c39b40bc6f60a3fe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a855d7312dd8e13a6b77133b67a642127effe1c9f78a106001f50c65625a498b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1effcc991bddfd4901da17e32bbe067c6b89dffbd8a6065445bcf3fd80c3a65"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d83bbff3992bd6feb9f6a7a6b03ce32e4093806c4a5b10961c7556d77fa31a2d"
+    sha256 cellar: :any_skip_relocation, ventura:        "591f003826e822e7588535f165b889ac1b1b747d1cf4d5b831927752b1fbd1ca"
+    sha256 cellar: :any_skip_relocation, monterey:       "c23bdef864ff6104884a9bf22b314839773475a3c04e080ecc74c0229dc5697f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "47b0a05e0b0fb5bac6c1ab6972c50f0a3cf58d2f597e688685da519065ade5b5"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X github.com/prest/prest/helpers.PrestVersionNumber=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/prestd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/prestd"
   end
 
   test do

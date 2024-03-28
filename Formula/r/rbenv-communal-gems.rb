@@ -10,6 +10,8 @@ class RbenvCommunalGems < Formula
     sha256 cellar: :any_skip_relocation, all: "4cd057a73659f1fdea3a0d266485367b960378c790eef4c6d7b707a4936c8481"
   end
 
+  deprecate! date: "2024-03-14", because: :repo_archived
+
   depends_on "rbenv"
 
   def install

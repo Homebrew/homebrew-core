@@ -1,31 +1,31 @@
 class WoodpeckerCli < Formula
   desc "CLI client for the Woodpecker Continuous Integration server"
   homepage "https://woodpecker-ci.org/"
-  url "https://github.com/woodpecker-ci/woodpecker/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "ffc0fc1745caa10c1f98d47ed409aad40563d1a89a0282d1ac68b07108300c3b"
+  url "https://github.com/woodpecker-ci/woodpecker/archive/refs/tags/v2.4.1.tar.gz"
+  sha256 "0d0d86a2cb776a9c0389d683b82274aee68d9ec308468035b071cafae500c9ce"
   license "Apache-2.0"
   head "https://github.com/woodpecker-ci/woodpecker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "836fe95f69ed42bc1181e8fb471e436ecbc43217d7f5e9053e8e5647c42fa8b2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "673897e8f2a29698310bc831e909b86e4597db49b2069844bc2cab6cfe89a2fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d1abb29bc060973036238c9b502f155bef68210c2e663ad37242de961c8f0316"
-    sha256 cellar: :any_skip_relocation, sonoma:         "724cc0ee027311720497aaad2409b0d873cff919e1c3bcb230d3d9ece1f49c97"
-    sha256 cellar: :any_skip_relocation, ventura:        "0d8a4c026187c06bd0e0e10cbdbbc3f515cf6a6013f98090661673361b3e9c48"
-    sha256 cellar: :any_skip_relocation, monterey:       "ab405dd0d91514516c516325a9aabca38141994c23fc2ee6e41aaea0036c73ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f86913ec7be998c16fcd0fe9c0a26323f0cdf3e1579e90ef1a93b9d14b670d6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8916f1b08a5c3b40e049c88c3b5a57bac8d217a204b86f9437951a77053a2be"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3b0dc1504bf0b553e57ba9d2592cabeea908ba1f92260179e85ad110834c99c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b321f4402f4a8ee6c378140cd8f35cd9599a25e49091c61cab041d838893a69a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7a8349e92fe1dcc88fcdc931a6739b6781c6994ffaf84a981f893c9ee94ebd4d"
+    sha256 cellar: :any_skip_relocation, ventura:        "ada36bf0f39acd9f675cd6308dda4d373ac8b75570681940fad39652a1b33d7e"
+    sha256 cellar: :any_skip_relocation, monterey:       "4eba21254de390359a9dc6895efcafe9df3b5c3d8474040eb907a0a4ed8b16ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f786e1fc6f2c8395bbf3945c8935f98144a44cbb8b87180cd25c05c5379b088"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X go.woodpecker-ci.org/woodpecker/v#{version.major}/version.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/cli"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/cli"
   end
 
   test do
     output = shell_output("#{bin}/woodpecker-cli info 2>&1", 1)
-    assert_match "you must provide the Woodpecker server address", output
+    assert_match "woodpecker-cli is not setup", output
 
     output = shell_output("#{bin}/woodpecker-cli lint 2>&1", 1)
     assert_match "could not detect pipeline config", output

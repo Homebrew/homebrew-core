@@ -1,8 +1,8 @@
 class Minimap2 < Formula
   desc "Versatile pairwise aligner for genomic and spliced nucleotide sequences"
   homepage "https://lh3.github.io/minimap2"
-  url "https://github.com/lh3/minimap2/archive/refs/tags/v2.26.tar.gz"
-  sha256 "f4c8c3459c7b87e9de6cbed7de019b48d9337c2e46b87ba81b9f72d889420b3c"
+  url "https://github.com/lh3/minimap2/archive/refs/tags/v2.28.tar.gz"
+  sha256 "5ea6683b4184b5c49f6dbaef2bc5b66155e405888a0790d1b21fd3c93e474278"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Minimap2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d60154934409665d6837f301a651e0008c0c30d82b13c43520ae590fa6f08d7e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2fac2191822f597856d08dc0ebe8140fead7b1ad69449b142318c8565a5783cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b7d4c7d2de5060e2e2c6cad063589e0fe4b85a029f0f4059370d2343549f2b50"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f33f5b2a19c70d088a2008b47bb8f310ee92340eebbb37458d84881a8d9f1068"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c6d80ed540146f49cb133f0e4b22cae9cacb8bd6a1b3fe319b7738cf5301aafb"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2aeff2e9f605b4310d03a8ac36791688537e19c712c640fe4b2065a87037c52"
-    sha256 cellar: :any_skip_relocation, monterey:       "4371d29b25df3ebb4a44b93f7d6cc99581a533537f9a83566d935e4e53c770ff"
-    sha256 cellar: :any_skip_relocation, big_sur:        "d3b4a714519502f6336dbf7c1d40b17532f4ca00bc428065bcedabbfe08c3c5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64a3fd304a3250c54bd8be2037ba13565bd055c07f0adccc40b66a679b91f4af"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bfd4d2c1731ffbc45839fda3a405dfa930208b497c08de8f53770d4b942e690"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "47cef6f5132e485823d26e03caba808de26301d29dff56a59d51006d00f5e4cd"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0a6571f41113568817ec781db7b4c9a31ac15fbe1aff96691dd04a6db12148d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7948260fe80260ff50ae0541174e6b404f8699f4b3ad1dfcaef7619fee42cd75"
+    sha256 cellar: :any_skip_relocation, ventura:        "27681877ccc90d85eb51cfb7126d8b242998eb145eb985331f110cfaf8b81383"
+    sha256 cellar: :any_skip_relocation, monterey:       "fcefb72704e3e02c7ce06c694cb6ff12d9d8d84983025e0e3e61a48358410e43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca4b9be1d24ab45476ef3008a956aee3b4f62ebb5bf0172745928d04cce44e66"
   end
 
   uses_from_macos "zlib"

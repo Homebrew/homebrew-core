@@ -33,7 +33,7 @@ class FaasCli < Formula
       -X #{project}/version.GitCommit=#{Utils.git_head}
       -X #{project}/version.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "-a", "-installsuffix", "cgo"
+    system "go", "build", *std_go_args(ldflags:), "-a", "-installsuffix", "cgo"
     bin.install_symlink "faas-cli" => "faas"
 
     generate_completions_from_executable(bin/"faas-cli", "completion", "--shell", shells: [:bash, :zsh])

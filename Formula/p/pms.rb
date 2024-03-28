@@ -1,8 +1,9 @@
 class Pms < Formula
   desc "Practical Music Search, an ncurses-based MPD client"
-  homepage "https://ambientsound.github.io/pms/"
+  homepage "https://kimtore.github.io/pms/"
   url "https://downloads.sourceforge.net/project/pms/pms/0.42/pms-0.42.tar.bz2"
   sha256 "96bf942b08cba10ee891a63eeccad307fd082ef3bd20be879f189e1959e775a6"
+  license "MIT"
   revision 1
 
   bottle do

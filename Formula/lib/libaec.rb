@@ -1,19 +1,19 @@
 class Libaec < Formula
   desc "Adaptive Entropy Coding implementing Golomb-Rice algorithm"
   homepage "https://gitlab.dkrz.de/k202009/libaec"
-  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.1.2/libaec-v1.1.2.tar.bz2"
-  sha256 "bdad8c7923537c3695327aa85afdcd714fb3d30a5f956a27ba2971ef98c043ac"
+  url "https://gitlab.dkrz.de/k202009/libaec/-/archive/v1.1.3/libaec-v1.1.3.tar.bz2"
+  sha256 "46216f9d2f2d3ffea4c61c9198fe0236f7f316d702f49065c811447186d18222"
   license "BSD-2-Clause"
   head "https://gitlab.dkrz.de/k202009/libaec.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cdf50fb48fbe330bb9b925c8c77db35184d72153fcfa5b35e44f8af7fd043167"
-    sha256 cellar: :any,                 arm64_ventura:  "039a503bf9b043b1bfa509291887e083a11656169d27570b3fd5aa5c6dce203d"
-    sha256 cellar: :any,                 arm64_monterey: "e01189e1d9f536cb14b7bb52b3714161c270a4e3decd180d9b7fc00109b98a4e"
-    sha256 cellar: :any,                 sonoma:         "ecc061efd6237f7e8f2b075cb3c878798bf344a9e882d9b331787bbabb8a9616"
-    sha256 cellar: :any,                 ventura:        "5f42304a1ff88ca94ec7ff8f8e2f7ccdc9910312823a61f4ced2b60f61f4115a"
-    sha256 cellar: :any,                 monterey:       "9624bac0ca98f63c38fea833d383559f0e43110b50a24cab4e3e99861495de59"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2aabeaeb8f71d4810ed9ad0ad375785878f1efd7515556f11fec3045c3be02c8"
+    sha256 cellar: :any,                 arm64_sonoma:   "c226a16104f6c585188316a0873bd793c71721f5c39648a346648d5a05a28d3c"
+    sha256 cellar: :any,                 arm64_ventura:  "d16c49cbbc3255ee5acdf072ac7803bda2f25bdaa3feea465ad3add3abc882fd"
+    sha256 cellar: :any,                 arm64_monterey: "c70deb367fb14342dae88999341df49e67ee77198c0c3b46b18d087923228664"
+    sha256 cellar: :any,                 sonoma:         "f75484ecbbd01f45417f8a1e4994d6ee8c814cabac6bcf799b183fca13184670"
+    sha256 cellar: :any,                 ventura:        "e7100d69258e016d8840ee20ee61367f1c48df8f42c3d19b1c0ab67404658a8d"
+    sha256 cellar: :any,                 monterey:       "91b09dc81cfa80f1d2c9dab7b17d471225fc11d93bb9631a6ac8cc9e506735bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "32d3097aa577be93f7d534d6460fc190fc7234a77f34c561ef44d59a6e57d539"
   end
 
   depends_on "cmake" => :build

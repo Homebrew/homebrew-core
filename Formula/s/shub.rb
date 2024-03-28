@@ -19,8 +19,8 @@ class Shub < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb3fe2554634895598a7e301ddf2c1c98069942964ffed41dafb4d0b732ff478"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

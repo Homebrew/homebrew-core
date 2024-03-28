@@ -20,7 +20,7 @@ class Rbtools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ef70330f98a2aac1f43584cf2765555cfcc799b3a315fb0e466bf87971c4716"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "colorama" do

@@ -1,21 +1,19 @@
 class Openfpgaloader < Formula
   desc "Universal utility for programming FPGA"
   homepage "https://github.com/trabucayre/openFPGALoader"
-  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "a463690358d2510919472c2f460039a304d016a08a45970821e667eea1c48cc8"
+  url "https://github.com/trabucayre/openFPGALoader/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "8fb2d1aa3a0de50222f6286c47220a5bc7b73708b60fb7d58f764deebd43d82d"
   license "Apache-2.0"
   head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "f23bb8e00a80121901a5f8d121f9e2cd0097c1173847ee0cbfbe1774b4711b76"
-    sha256 arm64_ventura:  "666c9c4f7c003395fda0e142c59edcb600ea189decb7575f5f166b711192c019"
-    sha256 arm64_monterey: "4aef28949c50535a09557216b0f5849888cdb24f7774e0b4a0702f410880e6b8"
-    sha256 arm64_big_sur:  "17e1f7ac035a755119d64b779b53bf54ce6d6035eb2f6c4f405a9d41f3158bcb"
-    sha256 sonoma:         "e43c5df321a9a594e858c8c6313733454384d8b8405523df55a00f92f2dff001"
-    sha256 ventura:        "835de1449778a19b0673c12e4f1f1375e02b43223228cbfe89e86cef0500d043"
-    sha256 monterey:       "981717b4fdd06ff7a17b6425c9d03af29ecb003239e25c70646e15f4948843a6"
-    sha256 big_sur:        "178c65d1afa79644bfbea2effbc3f0d3570ada4b8ceb1aaae5a00605f651cf48"
-    sha256 x86_64_linux:   "3f010d95399d2a150706ee2176bcc1b651f229e556d1fac89f7f70246aa84944"
+    sha256 arm64_sonoma:   "4ea5de1bb729263aca9cd5a02f905bce83f33cd254066092f7743ddf8eee71f7"
+    sha256 arm64_ventura:  "78f4b3627bd8442931c6eb2aee3710f9e85440797401e111c0026e681e287e71"
+    sha256 arm64_monterey: "c39f654334abcaca0a6f06be85d10e84e1e11f17d87a1604c18c7e166d5b213d"
+    sha256 sonoma:         "e9a77b3de0e081a047a27bcc61a998ea29f8f405865563a8221f0748df31cbb0"
+    sha256 ventura:        "2ff894e1bbcd97e5e503e248fa3531484d0c78acf89516ceeca947877de888db"
+    sha256 monterey:       "fb2c87e13038d1e85d50ebc0981803684d58105253ed6eaf96b92ca13bfb596b"
+    sha256 x86_64_linux:   "6ba7e9b4d370b1ff5165c94f716e3a97542747da12ff7083d3bf76b75e42f24f"
   end
 
   depends_on "cmake" => :build

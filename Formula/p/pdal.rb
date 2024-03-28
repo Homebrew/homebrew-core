@@ -1,8 +1,8 @@
 class Pdal < Formula
   desc "Point data abstraction library"
   homepage "https://www.pdal.io/"
-  url "https://github.com/PDAL/PDAL/releases/download/2.6.3/PDAL-2.6.3-src.tar.bz2"
-  sha256 "e4d90a3ce4c9681cd3522ca29e73a88ff3b3c713f918693ad03932a6b7680460"
+  url "https://github.com/PDAL/PDAL/releases/download/2.7.1/PDAL-2.7.1-src.tar.bz2"
+  sha256 "7769aaacfc26daeb559b511c73c241a5e9a2f31e26ef3a736204b83e791c5453"
   license "BSD-3-Clause"
   head "https://github.com/PDAL/PDAL.git", branch: "master"
 
@@ -17,14 +17,13 @@ class Pdal < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256                               arm64_sonoma:   "c6acd2cecd72c34d858943ec9a33988a013cc297ff96947181aa07e26687a84b"
-    sha256                               arm64_ventura:  "fa887a586439631b23db98c6515aa027e77f03b5c23b7cfd3f7d6dd5c581572a"
-    sha256                               arm64_monterey: "68abdace8b745f64bf7a2181c5441eceae4e080b4e4900b0ac2856cd880915c7"
-    sha256                               sonoma:         "722b1ba33b3de73e1dac7bcc3f639089d7799eeafbab01cbc38f54f70619999b"
-    sha256                               ventura:        "6e679ed6eed161bfe1ae74164a9696d8a41af7c79e07744f3edbf8e110c09c6e"
-    sha256                               monterey:       "fe3e5b93efd05bedccbafeed1a545ace62a2e53cee674e8f53f052da0f0c8e29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1c0950cae711852379acebab17f96752eaf8f948135e01abbb497ef563b7bc5"
+    sha256 cellar: :any,                 arm64_sonoma:   "d369065f506a098721bd7e00c2a8f0ebf6e01a7d6facaf49a14e8be246ba4a87"
+    sha256 cellar: :any,                 arm64_ventura:  "2de77facd3be98899c86ece118ee9f0cf2d936085f6456e84ee489f3c9cf057d"
+    sha256 cellar: :any,                 arm64_monterey: "a9df30529d426d47885e8aa24dab47282f4f9c83c69c79ef0a0a4e600ca4226a"
+    sha256 cellar: :any,                 sonoma:         "96e66792a4d2d0418759506854fde73ce0ab1a8ed890f317280adabc0dbd9fe1"
+    sha256 cellar: :any,                 ventura:        "c6d596fb8ecf669ef626c0ffedc50da150f18c957e4f43c184a6381be89c9a79"
+    sha256 cellar: :any,                 monterey:       "2f3c716e0946cc886a16fc7e68afbeefbbaae39c37aa9c7a3567246c4222d529"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a12d179a8ddf24135ccf4edd54929d6fa591a0e4a26d0daa7209f67f1c042ee3"
   end
 
   depends_on "cmake" => :build

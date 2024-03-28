@@ -27,7 +27,7 @@ class Glider < Formula
       -s -w
       -X main.version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     etc.install buildpath/"config/glider.conf.example" => "glider.conf"
   end

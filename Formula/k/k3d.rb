@@ -38,7 +38,7 @@ class K3d < Formula
       -X github.com/k3d-io/k3d/v#{version.major}/version.K3sVersion=#{k3s_version}
     ]
 
-    system "go", "build", "-mod=readonly", *std_go_args(ldflags: ldflags)
+    system "go", "build", "-mod=readonly", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"k3d", "completion")
   end

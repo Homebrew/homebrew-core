@@ -1,19 +1,19 @@
 class Melange < Formula
   desc "Build APKs from source code"
   homepage "https://github.com/chainguard-dev/melange"
-  url "https://github.com/chainguard-dev/melange/archive/refs/tags/v0.6.7.tar.gz"
-  sha256 "5d313e651b7f4a0f076fa43b9972a326936913de863ed72816c86459c3b835d7"
+  url "https://github.com/chainguard-dev/melange/archive/refs/tags/v0.6.10.tar.gz"
+  sha256 "457924557573736d4acb12fe35d26ec6078494828e22a01833fe2fee48962439"
   license "Apache-2.0"
   head "https://github.com/chainguard-dev/melange.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80eb88c63754ce970a6f9723f4608a55db89ff04e700fc6ccaac66ab97b3b46d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b6c38815b85676d947a78c4e8f09709ce75641581b4f2198a01c176b8b5792a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47b5c78244e0dc56cba77f48ea8503126ed2697fc705395777c548b3a815852f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "50f9fe4eacff15f5abe385c138bad4fe95c5189153fdc3baa20f1eb8f7d49e3c"
-    sha256 cellar: :any_skip_relocation, ventura:        "919f901ca4bd20b65d0d7866630d7d59c8099e858f6b00bccf9918df0c39b22c"
-    sha256 cellar: :any_skip_relocation, monterey:       "7b7fd90e47ae61f468b24459ea0863e3aaa09724348ab3ea7fa467c9cbd5b636"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b4e08f37fe2179a699d3c0cad1e4f256779f65673df35ee8d398912d50d3c4f3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "30dfbf99919b03aae24aaa956896d4746940d4903f609ab47119483ba4d14ea4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a20a3ec692be167cd85b359301640d306da372bffac6bac4f04b4030c0318a60"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "087f226bef51b2d903dd039cc6210474fe858b2ff091d7537e5139fc19caaa68"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e3493c41773935c294ad33563628e0003e5f6af650f4fb6d79e182c6195cc5b6"
+    sha256 cellar: :any_skip_relocation, ventura:        "fdb4eab30f45e72042921b88f1d807fe645309a33d232b465346665b7bea405e"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b5d315a084ba1822c22b43622e2a6175c957ab42e1153df9b33c59eba29039a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0b6482dc3bd02c9196f373ba662bcc966387cbbaa11cff985cd3af7e0d07042"
   end
 
   depends_on "go" => :build
@@ -26,7 +26,7 @@ class Melange < Formula
       -X sigs.k8s.io/release-utils/version.gitTreeState=clean
       -X sigs.k8s.io/release-utils/version.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"melange", "completion")
   end

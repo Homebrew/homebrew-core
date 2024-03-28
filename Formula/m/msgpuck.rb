@@ -23,6 +23,8 @@ class Msgpuck < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "24b63f0499e6e5bc5b138228966945ff497936a4679da98a44aa18cfeec538a1"
   end
 
+  deprecate! date: "2024-03-08", because: :repo_archived
+
   depends_on "cmake" => :build
 
   def install

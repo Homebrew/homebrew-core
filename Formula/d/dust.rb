@@ -1,8 +1,8 @@
 class Dust < Formula
   desc "More intuitive version of du in rust"
   homepage "https://github.com/bootandy/dust"
-  url "https://github.com/bootandy/dust/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "70efd66e662fcd93bbc6cf2f8c3104a1de7e52090f709e9040a34bdc7c72ea9c"
+  url "https://github.com/bootandy/dust/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "34b72116ab6db9bdb97bc1e49dadf392a1619838204b44b0a4695539d54ffbe8"
   license "Apache-2.0"
   head "https://github.com/bootandy/dust.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Dust < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2c1bf858e5e6c2bdeb117f49db5ddd722a4cb4c07599472d270a697682e277ee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "264334f013abc44bcaecd6c8229070091f9cbc0ee584ff4b9dcf894dd41a40be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fc27b077b2c687b4c94de4958f39dd04b75ff69b255f097ef19391730deb7c80"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3e43b7160bb0ec65040abab0455110acdc0626576e149bf4092f0ff9075c3e4c"
-    sha256 cellar: :any_skip_relocation, ventura:        "1f236a0c2c0ad9fa066d074fcf9809a5a5cba5676f4eca813f0b57270a9a50ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "e087273d5b15d676b98ab07be99618ee5d9f43d5ebd0e65f74040be7d4a5009e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9eaeb7e87c5deb6e904ced7d6ac62b2a9e87a24047be3d2b9e68300b940bcfa"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "409ba5dc4ec439ba9b30934286f826a4e4bfa370189be147550f5e37eb4bc625"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2525befaf8dd0f20bb8a0421f789177dc14162b098d5c40374529758aa69e058"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "17b9a48d398d0965a0cdb52dc9ae08325b7691a1c62f3baca9b7763ed3c1a725"
+    sha256 cellar: :any_skip_relocation, sonoma:         "65c18c762ca90dd1a71a319a707afe385fd27eb44575552f87a6d99fdde96fca"
+    sha256 cellar: :any_skip_relocation, ventura:        "bd05918ff8654836fd4a1a4503743b3f28b9b644a3fc2c4f387109dbea69c64f"
+    sha256 cellar: :any_skip_relocation, monterey:       "4d3bd0c11749214d081f52b6044960f7a4adc7262a01a6c38c0ce18740d987ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee66e159d9a8b9ad543346d7e68221061d9ee4232ecf6261ea3d116f38751be0"
   end
 
   depends_on "rust" => :build

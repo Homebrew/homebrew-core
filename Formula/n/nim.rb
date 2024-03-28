@@ -27,6 +27,8 @@ class Nim < Formula
     depends_on "openssl@3"
   end
 
+  conflicts_with "mongodb-atlas-cli", because: "both install `atlas` executable"
+
   def install
     if build.head?
       # this will clone https://github.com/nim-lang/csources_v1

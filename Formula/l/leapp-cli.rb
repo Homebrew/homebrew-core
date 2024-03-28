@@ -3,18 +3,18 @@ require "language/node"
 class LeappCli < Formula
   desc "Cloud credentials manager cli"
   homepage "https://github.com/noovolari/leapp"
-  url "https://registry.npmjs.org/@noovolari/leapp-cli/-/leapp-cli-0.1.63.tgz"
-  sha256 "ab2f51613f53430bd6e87d693dedd5dc301811ddba9d90567033411afdf7f090"
+  url "https://registry.npmjs.org/@noovolari/leapp-cli/-/leapp-cli-0.1.65.tgz"
+  sha256 "a770256e2ce62f08c17650a30e785e46f92e7acb03e2bcbdec949054467b711c"
   license "MPL-2.0"
 
   bottle do
-    sha256                               arm64_sonoma:   "dd36cac55f5c2f50efa745d5d621ec15bb47f42056262740f8f46ce2bbd90a98"
-    sha256                               arm64_ventura:  "bf4508e2929bc44918d7894374fd42c2471cefd6714886226bc9a990cec65f65"
-    sha256                               arm64_monterey: "a4ad568d2f9e81ae3c22bc2a22011b8afc25a22220fd2383e0e652bbbe0d1f15"
-    sha256                               sonoma:         "d0904ecb705bca85f01f088784468e0745fb1aa3e1b9b88f5f99ca564b2d0a72"
-    sha256                               ventura:        "e66b33f6c4eda11f9b9330a2947738bb3a02c94156ebbdc2fc991cceecdd8751"
-    sha256                               monterey:       "a5afc069228107d9903c6934724be4f2f4020d3ccc9f7f0d42bda6345a2e3959"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e7b9b49e7b569de34d6aa83a490d8f19632711d60fb67bb1d31dddd6604a537e"
+    sha256                               arm64_sonoma:   "95490933985ac191a11b046a2b032858a03cfd4994342fc65a5736d7d9dcc4e7"
+    sha256                               arm64_ventura:  "08d47e74e06f75c3619d703f29ff8ca67f408a1f2c0c9852f5dcb24a9c66e792"
+    sha256                               arm64_monterey: "5bd83996ed049cc64b2117d7fc4cdd71bd1e0bf401b27bdd5ee0d418657a7193"
+    sha256                               sonoma:         "2d903ae070c2a5dec9c800fa5aec0f05a8b65b08c44556ab283cad5062cc56c3"
+    sha256                               ventura:        "4041465dd93d488dcf06ecf6b0c9bb2835a84b1d8cdd1dc3f9996c014f9e44c7"
+    sha256                               monterey:       "b1e27f9ef7df7dc07dc2de94a7e16d7a0f6610115eb348e045f42f02ae475865"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6314712fa2196365e54d599f2482707af827774256690a328921deb1e3fc867"
   end
 
   depends_on "pkg-config" => :build

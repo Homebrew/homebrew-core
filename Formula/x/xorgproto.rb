@@ -1,8 +1,8 @@
 class Xorgproto < Formula
   desc "X.Org: Protocol Headers"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2023.2.tar.gz"
-  sha256 "c791aad9b5847781175388ebe2de85cb5f024f8dabf526d5d699c4f942660cc3"
+  url "https://xorg.freedesktop.org/archive/individual/proto/xorgproto-2024.1.tar.gz"
+  sha256 "4f6b9b4faf91e5df8265b71843a91fc73dc895be6210c84117a996545df296ce"
   license "MIT"
 
   livecheck do
@@ -11,15 +11,13 @@ class Xorgproto < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "32a25261f78c125375872609316c2142f7b961617b7b7799b2ea11e818ced721"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "32a25261f78c125375872609316c2142f7b961617b7b7799b2ea11e818ced721"
-    sha256 cellar: :any_skip_relocation, ventura:        "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
-    sha256 cellar: :any_skip_relocation, monterey:       "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
-    sha256 cellar: :any_skip_relocation, big_sur:        "de818c35cca25c4b2286a5642d5d1748320f6031039ec46b375fd11e935ef7e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1a594f854e8323bc670d2467ff340e3a07d7277b53fce1df415656610c0c3b74"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3307601f0a03f6c51b640fb11064ef2c2264cc9c20de0604a255370edee3f7f4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3307601f0a03f6c51b640fb11064ef2c2264cc9c20de0604a255370edee3f7f4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3307601f0a03f6c51b640fb11064ef2c2264cc9c20de0604a255370edee3f7f4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3307601f0a03f6c51b640fb11064ef2c2264cc9c20de0604a255370edee3f7f4"
+    sha256 cellar: :any_skip_relocation, ventura:        "3307601f0a03f6c51b640fb11064ef2c2264cc9c20de0604a255370edee3f7f4"
+    sha256 cellar: :any_skip_relocation, monterey:       "3307601f0a03f6c51b640fb11064ef2c2264cc9c20de0604a255370edee3f7f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc1ef8db0fe244a7a47541fe8494131a281814a4110d3af41d76226274601df7"
   end
 
   depends_on "pkg-config" => [:build, :test]

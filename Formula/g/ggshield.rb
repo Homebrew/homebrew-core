@@ -3,24 +3,24 @@ class Ggshield < Formula
 
   desc "Scanner for secrets and sensitive data in code"
   homepage "https://www.gitguardian.com"
-  url "https://files.pythonhosted.org/packages/82/00/b751d687403c3b8f5b986efd20afc498e5dcd693390238e1fef520dc8f2b/ggshield-1.25.0.tar.gz"
-  sha256 "202bd5749ddf03a8f92a2def1d26d6583d264ff63f40962c6243bcdd5609d1bd"
+  url "https://files.pythonhosted.org/packages/c1/61/583d8d6777734e39fe7a331e934c652911d0dd354b7ae0d096e42cfb8394/ggshield-1.26.0.tar.gz"
+  sha256 "d5c18d5f4fb8fd00013c0f9cad19a466a095eee7214cbd95d585f09694b201bd"
   license "MIT"
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fb322704b53b6aafdfdfe4a737042f2f5e9132d4df93f404b659ec278eec77e2"
-    sha256 cellar: :any,                 arm64_ventura:  "64e2b25c529a4d3961747fa246a557d0b83d0c7fb115b5f8f7e776fdefd79b16"
-    sha256 cellar: :any,                 arm64_monterey: "7f49ee9ed1e96bec6831ed71a0611726046c9624b57ebc2dd53152086a2363fc"
-    sha256 cellar: :any,                 sonoma:         "7a2dd318a486cb0fa44de5bcd2e54e645e6c1918bb7649a5f546b144eec0a345"
-    sha256 cellar: :any,                 ventura:        "3399663c8084ff826f11de4bdef5c725ba2e8344a08472c37e98ff6c52f68c66"
-    sha256 cellar: :any,                 monterey:       "2df74c5144ac37d8692ba7e3efc6e8601bfa8e156838776e95dfb0b2411a1a14"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7ba43511eaaccd914b76bb41aeaad168b3888d7609716fe4a643aeca52f0e81"
+    sha256 cellar: :any,                 arm64_sonoma:   "bae6c042b042eae836f415d5e01f5269c3ee2d925d7c5eeb15080bdef3f36034"
+    sha256 cellar: :any,                 arm64_ventura:  "f65e5b617a05469326c93bef936d5e1f8266416e6ae34d84666f970196cf2f24"
+    sha256 cellar: :any,                 arm64_monterey: "4cabc60def1a295aaf81c5c5d0fce8537b57cfa6411aa1d19d0329c2fdb7af0f"
+    sha256 cellar: :any,                 sonoma:         "9c1b25801808d18fcc3668def6b9261ae4ecaaba017469e22940a093b67a354b"
+    sha256 cellar: :any,                 ventura:        "e6867a6edde39fc54ba803beba61cc77ff4cd128dc886b6513066050903adf27"
+    sha256 cellar: :any,                 monterey:       "6162498d07895062d4fbd003663528ee071a0527fd4f32b4c4c9e3ec85823eb0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc6b76b4d3cf0f5c8835bd2f0ffe4972611cf0747b2c22e4647ee19dc8908cb0"
   end
 
+  depends_on "certifi"
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-certifi"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do
@@ -64,8 +64,8 @@ class Ggshield < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "platformdirs" do

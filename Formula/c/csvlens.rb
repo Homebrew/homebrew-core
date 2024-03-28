@@ -1,19 +1,19 @@
 class Csvlens < Formula
   desc "Command-line csv viewer"
   homepage "https://github.com/YS-L/csvlens"
-  url "https://github.com/YS-L/csvlens/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "3ddfa1229bb9f59da30c0567f723adbfde931dff36305639069657bcec1dde9b"
+  url "https://github.com/YS-L/csvlens/archive/refs/tags/v0.8.1.tar.gz"
+  sha256 "3376f96ee5f6722efc51a7d595dc5ca2dae6894050560cd3c6fe04488dfd10d4"
   license "MIT"
   head "https://github.com/YS-L/csvlens.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa633b7eb513eb1b46607fc9ae2df72279db648e63f4daf2a7bb429f76048943"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b24d0f138b4e7ceac21815116dc970ffbb7bf28aa4917b75b29da6de20ca39fa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d59d43d0720c78067f6a0a8ece7e2e7c356848cc64e5513646a192948f016c0e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3ca202cadb88dc057ac9f573705c577b2c5042789bde428d74e6513383fee0f3"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e599d0128dfcba1a8d67a90371debcc6252ffa4d97ad1a8ca98c734740be79c"
-    sha256 cellar: :any_skip_relocation, monterey:       "e18baab1d62218f32b06afa8019bb0442556e976e69e9121a2c1d7d415434506"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "969f326d810c5dad6d6cfe9170a6680998ea2d906bf6586a1743fa881c257e43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9372bb11e30c3cfcc881706c4dd0b181516aa87b37094d87f0f50fb7c7aa7aa4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "449974f3cb6ea9cb4b5eb2b03685e62bdccc1ac77879bf4cf93a08c13517cbe9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f1f84ecc2a95a06d84ec46417bd10690bbc6ba8e98c401d82e125bdce56b7eb5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7223393a61d740183f34a55e74d672a68625f1e6899ea9d9d61c8ae6adfdaf8b"
+    sha256 cellar: :any_skip_relocation, ventura:        "4d151151569a1b75781ec0f32fa5b08514e3188982c81d1e925fbf9fac680cc8"
+    sha256 cellar: :any_skip_relocation, monterey:       "49d99498713e281f58aa4a941c11928c651066deaa2046c05397a7f92b9a5a12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67e4afb5758fa82748a1b55f7785b329240fbe8d23d91dfb5a11c601e3cfbb34"
   end
 
   depends_on "rust" => :build

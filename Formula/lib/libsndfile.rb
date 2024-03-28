@@ -11,14 +11,14 @@ class Libsndfile < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "d628c38ed7a4b7a5e05f685cc69093051bc499ea54b0ce974e0bd022e06a3e41"
-    sha256 cellar: :any,                 arm64_ventura:  "9153c79689fafe4bf276c519934345494b4407da58d90bd59108586837731ce6"
-    sha256 cellar: :any,                 arm64_monterey: "15b0bd6a7ddbdf62f50ca3932a9d0dc7f2541ce18583c367be9982808d8f0769"
-    sha256 cellar: :any,                 sonoma:         "6dc5dba963a9f0c267b39c95de80f654e5367262ff4627dddea36e08f3bbf8c3"
-    sha256 cellar: :any,                 ventura:        "acd92e352dadd4aa00687ec705712b5c7c28e36dfd0a50461a1c0c071ea64418"
-    sha256 cellar: :any,                 monterey:       "fd8ad4f25cd52444d42b688c8dfea3b595d249d8f61ba40f107ff4d1be19dd5a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5918b80c38cf4f78d34ae3e93fa0cf5fdceff4621ab40188fad1c2ec2f1fe254"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "0e8ccf402d37e1be344af315c4b06c5faf3fb1307bce6d4a79d198ffbb9d2ad0"
+    sha256 cellar: :any,                 arm64_ventura:  "a78c706387bf29a9df4ac87f6642334d92191fd641d868a15058e98ebc5d62cf"
+    sha256 cellar: :any,                 arm64_monterey: "ff1229550d6d68c6de3258942addae073a9a6ffcfbd350716ada06a2573fb9c0"
+    sha256 cellar: :any,                 sonoma:         "95febe4d68e594a59a1b2d12e835263dd71bcd62cef9ba822ebc7c38c9142f28"
+    sha256 cellar: :any,                 ventura:        "0e4063508906f9adbd3cbae4abb6e20aba8b529631300a663d6ab9ef3e3095af"
+    sha256 cellar: :any,                 monterey:       "608f24002de2227bbc10e170cc4d4d47d077981530185db47a98c25ad9f1bd99"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "208e7c63412df3a225c37c7305acf39a1eddac9e0983950051f937ed74960fbc"
   end
 
   depends_on "cmake" => :build
@@ -32,17 +32,21 @@ class Libsndfile < Formula
   uses_from_macos "python" => :build, since: :catalina
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DBUILD_PROGRAMS=ON",
-                    "-DENABLE_PACKAGE_CONFIG=ON",
-                    "-DINSTALL_PKGCONFIG_MODULE=ON",
-                    "-DBUILD_EXAMPLES=OFF",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
-                    "-DPYTHON_EXECUTABLE=#{which("python3")}",
-                    *std_cmake_args
+    args = %W[
+      -DBUILD_PROGRAMS=ON
+      -DENABLE_PACKAGE_CONFIG=ON
+      -DINSTALL_PKGCONFIG_MODULE=ON
+      -DBUILD_EXAMPLES=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DPYTHON_EXECUTABLE=#{which("python3")}
+    ]
+
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args, "-DBUILD_SHARED_LIBS=ON", *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+    system "cmake", "-S", ".", "-B", "static", *std_cmake_args, "-DBUILD_SHARED_LIBS=OFF", *args
+    system "cmake", "--build", "static"
+    lib.install "static/libsndfile.a"
   end
 
   test do

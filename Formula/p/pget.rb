@@ -22,7 +22,7 @@ class Pget < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/pget"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/pget"
   end
 
   test do

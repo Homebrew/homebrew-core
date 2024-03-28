@@ -1,20 +1,19 @@
 class Planck < Formula
   desc "Stand-alone ClojureScript REPL"
   homepage "https://planck-repl.org/"
-  url "https://github.com/planck-repl/planck/archive/refs/tags/2.27.0.tar.gz"
-  sha256 "d69be456efd999a8ace0f8df5ea017d4020b6bd806602d94024461f1ac36fe41"
+  url "https://github.com/planck-repl/planck/archive/refs/tags/2.28.0.tar.gz"
+  sha256 "44f52e170d9a319ec89d3f7a67a7bb8082354f3da385a83bd3c7ac15b70b9825"
   license "EPL-1.0"
-  revision 3
   head "https://github.com/planck-repl/planck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6ff3ca72b2b4cf469eb4319d31a45784ecdf4943a99e65b7cf1b0644f679f9da"
-    sha256 cellar: :any,                 arm64_ventura:  "970c6f4dd5346c0acf49d25fdc2256ad3553b5ad646a347c99765510cf517b53"
-    sha256 cellar: :any,                 arm64_monterey: "3545c08d8d72de0a809fdc78db7a3b062e813dc760d5e23cafcc9c469171539d"
-    sha256 cellar: :any,                 sonoma:         "2078414c6bedde4348454315bf808b1df07f4d6e5898626465591daa2191a944"
-    sha256 cellar: :any,                 ventura:        "1740760a4e914f41546f3bb1b4d7eaa0594a9492a73e20843da76b715c10a02b"
-    sha256 cellar: :any,                 monterey:       "7aabe1b076a404ebf5f5795413b4ce92b661981140d7445885856020d9d555d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ffce7a73a0e99520998c61c87c42606c387ab78f57734f1dc7d172821997e865"
+    sha256 cellar: :any,                 arm64_sonoma:   "d191a614bd84bcc9d260923fa40aeaa05519773c758f2731fc12724c478a9b40"
+    sha256 cellar: :any,                 arm64_ventura:  "417db2a6168646c53b8bf748fc8920c97f41e362e463042fad5548106ae0b235"
+    sha256 cellar: :any,                 arm64_monterey: "a2d86b54405f284660eeb8199488b1892747d60aafdc453598d85cc8b2ddd84d"
+    sha256 cellar: :any,                 sonoma:         "2ea02808fba9f62cb10fa592381cbce8c2a737b3c634bcc6eaec1c94f4566633"
+    sha256 cellar: :any,                 ventura:        "26434fb97e32d2e244d5964e061ae7706ca416fafe6c4600c33548b5bb35f554"
+    sha256 cellar: :any,                 monterey:       "baa4b152e861f9f1579e64a84c925970a9a813c15d2006da864eeed74383016c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "716444d924733adfecb5382de8260cdc0537b49afee6e4a2622a49d1da4853c1"
   end
 
   depends_on "clojure" => :build

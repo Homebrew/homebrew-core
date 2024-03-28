@@ -18,6 +18,5 @@
   "openjdk@17",
   "openjdk@8",
   "pypy",
-  "rust",
-  "sbcl"
+  "rust"
 ]

@@ -1,14 +1,7 @@
 {
-  "gcab": "1.5",
-  "gtk-doc": "1.33",
-  "gtk-mac-integration": "2.1",
   "gtk-vnc": "1.3",
-  "libadwaita": "1.3",
+  "libadwaita": "1.5",
   "libart": "2.3",
   "libepoxy": "1.5",
-  "librsvg": "2.57",
-  "libshumate": "1.1",
-  "libxml2": "2.11",
-  "libxslt": "1.1",
-  "tracker": "3.3"
+  "libxslt": "1.1"
 }

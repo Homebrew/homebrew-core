@@ -21,6 +21,8 @@ class Launchdns < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "38ad8be46847983774ec6b50896560517bb027b6fe5e5543395f168e489c9c27"
   end
 
+  deprecate! date: "2024-03-07", because: :repo_archived
+
   depends_on :macos # uses launchd, a component of macOS
 
   def install

@@ -1,4 +1,6 @@
 class RstLint < Formula
+  include Language::Python::Virtualenv
+
   desc "ReStructuredText linter"
   homepage "https://github.com/twolfson/restructuredtext-lint"
   url "https://files.pythonhosted.org/packages/48/9c/6d8035cafa2d2d314f34e6cd9313a299de095b26e96f1c7312878f988eec/restructuredtext_lint-1.4.0.tar.gz"
@@ -6,26 +8,25 @@ class RstLint < Formula
   license "Unlicense"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2013010f0f3dcc1c2e868018e13c77e805ca45cb152f6acfae68a7badc362db4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09d370fb0f3e19c7a1c7ed849460b5999d4b2aa3c85b1692a66310d1666880f5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6e6c405acfb82857aa08fcdbf891cbaa3c1a56365cf80502fd8af584b5aff48"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eddb01270707c267cf7ec8a5ab305eeb9ae0eaf7c5aaa02c2fa1225540ebb482"
-    sha256 cellar: :any_skip_relocation, ventura:        "83a5b7049353db3c3b5cd68261256734844f97e993e65dab8ca06e6b12875e46"
-    sha256 cellar: :any_skip_relocation, monterey:       "775ade00686e821d32947f01d5918dd369244cc4004669b001d4ae2c09b272b6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23f218209f20b76eeeec8fd8c1b9ad9a03071cf81c292d75581a3b8ab0402541"
+    rebuild 6
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e905e695e089e2c31d67b53fad2b3162e7e1b3c27068535ab6fe9c5eed55d367"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e905e695e089e2c31d67b53fad2b3162e7e1b3c27068535ab6fe9c5eed55d367"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e905e695e089e2c31d67b53fad2b3162e7e1b3c27068535ab6fe9c5eed55d367"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e905e695e089e2c31d67b53fad2b3162e7e1b3c27068535ab6fe9c5eed55d367"
+    sha256 cellar: :any_skip_relocation, ventura:        "e905e695e089e2c31d67b53fad2b3162e7e1b3c27068535ab6fe9c5eed55d367"
+    sha256 cellar: :any_skip_relocation, monterey:       "e905e695e089e2c31d67b53fad2b3162e7e1b3c27068535ab6fe9c5eed55d367"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e0cb2d8ff6a65493086ab426e3391cff943cd74e3521859f3728427cc7472591"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "docutils"
   depends_on "python@3.12"
 
-  def python3
-    "python3.12"
+  resource "docutils" do
+    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
+    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
   end
 
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

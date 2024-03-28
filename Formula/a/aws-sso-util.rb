@@ -20,8 +20,8 @@ class AwsSsoUtil < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ee14cb55e47bd940a091626155d24c796880ac19c25a353517c828a5275b25f"
   end
 
+  depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "attrs" do

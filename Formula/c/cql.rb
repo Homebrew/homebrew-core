@@ -38,7 +38,7 @@ class Cql < Formula
       -X github.com/CovenantSQL/CovenantSQL/conf.RoleTag=C
       -X github.com/CovenantSQL/CovenantSQL/utils/log.SimpleLog=Y
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "-tags", "sqlite_omit_load_extension", "./cmd/cql"
+    system "go", "build", *std_go_args(ldflags:), "-tags", "sqlite_omit_load_extension", "./cmd/cql"
 
     bash_completion.install "bin/completion/cql-completion.bash"
     zsh_completion.install "bin/completion/_cql"

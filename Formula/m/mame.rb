@@ -1,9 +1,9 @@
 class Mame < Formula
   desc "Multiple Arcade Machine Emulator"
   homepage "https://mamedev.org/"
-  url "https://github.com/mamedev/mame/archive/refs/tags/mame0263.tar.gz"
-  version "0.263"
-  sha256 "2f380a7a9344711c667aef6014d522dd876db4c04f15dbab8d14bd3b2a0d4c8c"
+  url "https://github.com/mamedev/mame/archive/refs/tags/mame0264.tar.gz"
+  version "0.264"
+  sha256 "3d9f69ed3ef7c1628d5714c8ae2695ea77b1a652a93347b2703f7c862299376e"
   license "GPL-2.0-or-later"
   head "https://github.com/mamedev/mame.git", branch: "master"
 
@@ -19,13 +19,13 @@ class Mame < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5b149ac3a36fc4a673c7f29219ffc2b41529bb1a002a28ae444688c73996a176"
-    sha256 cellar: :any,                 arm64_ventura:  "3243993231e2014959006828108f70de3432f5033eb22f0806754f99cb4e0102"
-    sha256 cellar: :any,                 arm64_monterey: "eb3ec33f573d4e9c3b152e43d3e8d4bdfd344431ad9fd445ca4d3ede7db33436"
-    sha256 cellar: :any,                 sonoma:         "c3dd6a14971011f1971d6c5878127f4d76c28876c3e4b16417a885757c342d12"
-    sha256 cellar: :any,                 ventura:        "238fe3a53cfcde6939e85ed4dfafbcefe3ac90d7ba6538602f1e6ff5f5bc3384"
-    sha256 cellar: :any,                 monterey:       "ce3c003c52f5324c31323ade820c6a6fbfbe40ea23945a37d7c42294d8889ec9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6bcc1e387a89542a48a90d0ed07b7d8dc2ba97afa809a32b47213cf616ae9587"
+    sha256 cellar: :any,                 arm64_sonoma:   "d6f9412ae148aa6e35cfcc3f83ca0d5e175f7f0bc4bee6028bc43a083fee32a9"
+    sha256 cellar: :any,                 arm64_ventura:  "3ca0c946966362a87293e7521ab859133e962b1a216ec8da71a06c6790dca8fb"
+    sha256 cellar: :any,                 arm64_monterey: "151e17551505efe58a09bdc4b2949a72d3fb15bd010825083969e121d9787ea3"
+    sha256 cellar: :any,                 sonoma:         "dbcbc301a3bf6bb3de4b104fd380c4320725971ba63de3ca7c9561684aea275d"
+    sha256 cellar: :any,                 ventura:        "16dda296d3ccd59024d40917266f2008fd9308b8eeb329139704c9c744c0ec61"
+    sha256 cellar: :any,                 monterey:       "5d26c54a96dfc6520a68da2199c4025959f172092e0bb74c660886c040536649"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4095eef1b7d1a537b5fa1a30a541380c619605d31aeda1bea9094419b368159"
   end
 
   depends_on "asio" => :build
@@ -43,6 +43,7 @@ class Mame < Formula
   depends_on "sdl2"
   depends_on "sqlite"
   depends_on "utf8proc"
+  depends_on "zstd"
 
   uses_from_macos "python" => :build
   uses_from_macos "expat"
@@ -68,7 +69,6 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_EXPAT=1",
                    "USE_SYSTEM_LIB_ZLIB=1",
                    "USE_SYSTEM_LIB_ASIO=1",
-                   "USE_SYSTEM_LIB_LUA=",
                    "USE_SYSTEM_LIB_FLAC=1",
                    "USE_SYSTEM_LIB_GLM=1",
                    "USE_SYSTEM_LIB_JPEG=1",
@@ -77,7 +77,9 @@ class Mame < Formula
                    "USE_SYSTEM_LIB_PUGIXML=1",
                    "USE_SYSTEM_LIB_RAPIDJSON=1",
                    "USE_SYSTEM_LIB_SQLITE3=1",
-                   "USE_SYSTEM_LIB_UTF8PROC=1"
+                   "USE_SYSTEM_LIB_UTF8PROC=1",
+                   "USE_SYSTEM_LIB_ZSTD=1",
+                   "VERBOSE=1"
     bin.install "mame"
     cd "docs" do
       # We don't convert SVG files into PDF files, don't load the related extensions.

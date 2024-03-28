@@ -1,20 +1,18 @@
 class Libxaw < Formula
   desc "X.Org: X Athena Widget Set"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXaw-1.0.15.tar.xz"
-  sha256 "ab35f70fde9fb02cc71b342f654846a74328b74cb3a0703c02d20eddb212754a"
+  url "https://www.x.org/archive/individual/lib/libXaw-1.0.16.tar.xz"
+  sha256 "731d572b54c708f81e197a6afa8016918e2e06dfd3025e066ca642a5b8c39c8f"
   license "MIT"
 
   bottle do
-    sha256 arm64_sonoma:   "1eb007237abefeeabfb2b323354f9957397246e68844e809adfee5c7dce09dda"
-    sha256 arm64_ventura:  "2f50b6cc646acb42a872a5a38a10593260707745d1bf6676d8b5faafb090fef1"
-    sha256 arm64_monterey: "d1c2869ccf78f6ab5dc970d342a22c91cc0f69c9afb44ced6c32aff15452bbdf"
-    sha256 arm64_big_sur:  "602e6f3f98d4bfb01422314291a118b8aed7bae9eafbe174151d3e28dc243d8b"
-    sha256 sonoma:         "a5824411f19db20ce488278b0e720849273b1d205a8c810e1b45beb981097d1f"
-    sha256 ventura:        "3082797341c7d9eab63f938c99c1453de273564ef74f5344a10caaa8bb3616c1"
-    sha256 monterey:       "a2a933c8ff1e3067523d84605b2a718e87d134356fdbadab94d8c3ff7670299c"
-    sha256 big_sur:        "ab588cbedfc53ac1194850d79d03e4f064f3cb5fe05789a65042fec7ce844cac"
-    sha256 x86_64_linux:   "ffa6f160d4cb2245d012676893e5c61396d72fb7d2233f9864a8bbdb3175564e"
+    sha256 arm64_sonoma:   "9bb4e4ecf08fb26def1ea47044c0212419322da6e75be9c4941c3269a7980136"
+    sha256 arm64_ventura:  "a2bd1b54c0ee384adca4e26884e0227f0fa14a1ad9f97cee796eae62c958daa6"
+    sha256 arm64_monterey: "c0fcd5adff5cd8cd3baed32a39cfc7fe562277d071fdc9af355af24148969e65"
+    sha256 sonoma:         "43723594cd2a5eecdfb3cbbdd7fe0dbf450c69f3d946a6f153215248de3551ac"
+    sha256 ventura:        "3fffe8ae45a0f42386a0ade97bd729ba73538e17cce3de42c9b3f477ec505603"
+    sha256 monterey:       "f530f6c416ef2fc96eeade9d6f4d5334baa6a6f1c5da1a70ef4dc8a3a6f8099d"
+    sha256 x86_64_linux:   "18f64e719e125084fe24176f8e137851cd5ee87ebf338e7e87988d7e212a2da8"
   end
 
   depends_on "pkg-config" => :build

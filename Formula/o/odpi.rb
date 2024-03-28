@@ -1,18 +1,18 @@
 class Odpi < Formula
   desc "Oracle Database Programming Interface for Drivers and Applications"
   homepage "https://oracle.github.io/odpi/"
-  url "https://github.com/oracle/odpi/archive/refs/tags/v5.1.0.tar.gz"
-  sha256 "b3e25d37dda78ac42c91eecfb48ebba932712189d2072f6d9064283f2093a59d"
+  url "https://github.com/oracle/odpi/archive/refs/tags/v5.2.0.tar.gz"
+  sha256 "9e2eb3a10e4ab89691d847d5106cfcde8c1126b7959d3ee06076ea3f5b5a9d19"
   license any_of: ["Apache-2.0", "UPL-1.0"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ab96a78fd44bfd65a6d0ab957dbe27b8762ccca3e0e3485929fdd543caa37b33"
-    sha256 cellar: :any,                 arm64_ventura:  "c7e8d47a97008bd8e3656a7b83ee8ca59aa53b500a36b1fe485b2ad3fab73621"
-    sha256 cellar: :any,                 arm64_monterey: "058f4575655ff97b7b5708f32326636c95979b2d5ebc4a25a30cd644fa985e76"
-    sha256 cellar: :any,                 sonoma:         "988204551e0d72d566df331ff0567c78c55f88190b734b5d98b92db9080130bc"
-    sha256 cellar: :any,                 ventura:        "4b340cf810d059cce2c048edf9b3fc1fcd4c68a8ebed4342cd8f2c2f77e87bfa"
-    sha256 cellar: :any,                 monterey:       "00858db07333b14935a2673023da0bf2a05f0b1dc587de29a9a441bb42d74a5b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "53448c6627369a3749d8346b15c4fa2c45e046384918c294aad270da12600516"
+    sha256 cellar: :any,                 arm64_sonoma:   "0ae837553420860a05ee8a968d94707e6fa63f3cfe4af2f5aaa6ce78684ae5d6"
+    sha256 cellar: :any,                 arm64_ventura:  "42e505193fe3ee620ed59799d46e2f266a97bb5b42b88bf6bc92893d3feba889"
+    sha256 cellar: :any,                 arm64_monterey: "1667775ddb5b95274926618af85ff668670491949c9d02d985e33e327a2b3416"
+    sha256 cellar: :any,                 sonoma:         "808c639d7dd0dfa186b263cc86e060ad899874de5b4e9e4d107664c4eac376e1"
+    sha256 cellar: :any,                 ventura:        "03f46387c66a736c46c0d3c12ef8e4401964e74ecff25f00f075b58703326610"
+    sha256 cellar: :any,                 monterey:       "e904271b52791db57833e68b4143dd0a0ad42a305449ebb9a838be1e73c6d9c3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7af4e66755b2e2d131ee8b5c26c3e02b8832e990f1184c00137ed5affb415309"
   end
 
   def install

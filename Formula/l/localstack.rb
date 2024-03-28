@@ -18,9 +18,9 @@ class Localstack < Formula
   end
 
   depends_on "docker" => :test
+  depends_on "certifi"
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-certifi"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "cachetools" do

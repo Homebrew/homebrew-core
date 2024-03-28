@@ -1,26 +1,26 @@
 class Gotestwaf < Formula
   desc "Tool for API and OWASP attack simulation"
   homepage "https://lab.wallarm.com/test-your-waf-before-hackers/"
-  url "https://github.com/wallarm/gotestwaf/archive/refs/tags/v0.4.14.tar.gz"
-  sha256 "c16707210493ea04717ec1c445a0d70666a02b921cf9bbff418b54349302e156"
+  url "https://github.com/wallarm/gotestwaf/archive/refs/tags/v0.4.17.tar.gz"
+  sha256 "bc4c1b8a7fc8b6db2df82ca56942b8d333bd17d75e0e93b4e110663370cef717"
   license "MIT"
   head "https://github.com/wallarm/gotestwaf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4db2685cfa30ca253751fe3811d0775404d762792038c342db2a115370f72303"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "184e895d33d3fbb28d782c859d3bd8f4477a58cf7ffd4728a5ce2ea4c9318225"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "87fc85e5c7cf49c25ad3c1e195c8da137e3f718efd9df8378251d56fbcd8bd81"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9e06fe1e54d1b37b4cbeae792ac8ba7098a285d0031deee62e7cbd667ea81d87"
-    sha256 cellar: :any_skip_relocation, ventura:        "32115bf4c8a6bd29edf4396a7480e67b31e309b558e85dbe0ed393d5ccfbc663"
-    sha256 cellar: :any_skip_relocation, monterey:       "79581b7eed7a078c826b70d711af01fad9476b3b0b0e7efb5ae350a05e555a00"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e9ba532ddc351dcf2b374cd33d62f18eb81a4f7d38137a0e2ee44dee31c0e10"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98bfd4fd884f4f976a7484587e487b0b0bc9c7a90c978a5a86946597f05839f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5b3d73850596159cc58bf9ff10cbd28e918737149b6de92dc869b8640690888"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4374453bac37d3d278e09d65059fb22d95ab5372726950b993f8707d2da9efe9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a69456e96d25bb1a791f61ea8440654e7021312e0485f31b11bc5c71d17da85b"
+    sha256 cellar: :any_skip_relocation, ventura:        "95e0a16ea72104ef3d6228d7b408ccb9a25e2877424f95dabe09191f51ce37bd"
+    sha256 cellar: :any_skip_relocation, monterey:       "48ab320563dd1978660da1a9ccd5c6181cc800b2722fb7fc6fa988377862323a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5365087b5eb1ff7998348e4f621740b80f78c706ca94e57815b598fd285d375f"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X github.com/wallarm/gotestwaf/internal/version.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd"
+    system "go", "build", *std_go_args(ldflags:), "./cmd"
 
     pkgetc.install "config.yaml"
   end

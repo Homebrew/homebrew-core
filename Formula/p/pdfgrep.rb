@@ -1,23 +1,18 @@
 class Pdfgrep < Formula
   desc "Search PDFs for strings matching a regular expression"
   homepage "https://pdfgrep.org/"
-  url "https://pdfgrep.org/download/pdfgrep-2.1.2.tar.gz"
-  sha256 "0ef3dca1d749323f08112ffe68e6f4eb7bc25f56f90a2e933db477261b082aba"
+  url "https://pdfgrep.org/download/pdfgrep-2.2.0.tar.gz"
+  sha256 "0661e531e4c0ef097959aa1c9773796585db39c72c84a02ff87d2c3637c620cb"
   license "GPL-2.0-only"
-  revision 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "a62f500c8a9e3dc3ca64618002bdb718ed8c485df64ed0e97dc3712dd1d1d3b3"
-    sha256 cellar: :any,                 arm64_ventura:  "955662644ac2934b8e215b1d40ac2ba75eb76cf00e298d6020bccd5d3cff4c88"
-    sha256 cellar: :any,                 arm64_monterey: "a0cbc11de2be8d3bd61a1e4838b723de768059d94a72c92406f26127b040a599"
-    sha256 cellar: :any,                 arm64_big_sur:  "76971615597120ebba8f1db8e9c26d70d91faea4b0953c037047eddc9dbeb878"
-    sha256 cellar: :any,                 sonoma:         "4176648b26976216a97b1b5ed31391bc4019c57decc1a5cf1dd4ac5f186c7d7f"
-    sha256 cellar: :any,                 ventura:        "536be42f4b67ca15c0707ca53168d74f6bc77f4eeb40bdee2920f5f8d1b2f87f"
-    sha256 cellar: :any,                 monterey:       "934fedb57e6a7d731d93c0aa43dda0cdb02efb0e35822dc09dc1ce751c965166"
-    sha256 cellar: :any,                 big_sur:        "29cd70f30111aecafd88eb0281319f19415183b6a30393d32e145e2121b91a91"
-    sha256 cellar: :any,                 catalina:       "c1da1cf263fdba46a66396b2b31fd970c8299f538064a4341ba4045d36c4c082"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "003b4df43510e3ee5e4d07092e43c67f525d4cb0a61389dac3d4b0dae1010ff2"
+    sha256 cellar: :any,                 arm64_sonoma:   "c0762f91b0ca5ad841b06af3bf2203fe9acd86a0f8e19847d1c33c3d461184cd"
+    sha256 cellar: :any,                 arm64_ventura:  "02a024177be543d2744302ea206c3ba02ffeb87a84c8e8e26f66a1847c0b84c9"
+    sha256 cellar: :any,                 arm64_monterey: "ff8abcf9a428a1a30b177dc2cb61fce86ad3832a1f4ebb7d328c673f4ec3a6c4"
+    sha256 cellar: :any,                 sonoma:         "4bb38a435fdbd3054fc17ef953d3d1af7d9b667c021ed50522e2eb0e259cf21d"
+    sha256 cellar: :any,                 ventura:        "b101752d7babcffe86816fe6ea2d153e73b55150b1b7dc3348f05129b785012c"
+    sha256 cellar: :any,                 monterey:       "9d20ab009e555a217357e45ba7289a4869264e867daebe4f622bd9ffd5ea21ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e1cf1566232f3a00551158c128251dbaeefa86008f83c6e7ce3191eec5929910"
   end
 
   head do

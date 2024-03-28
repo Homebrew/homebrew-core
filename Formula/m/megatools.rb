@@ -12,24 +12,24 @@ class Megatools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "4200cf8a8f115676b3ac6f0f1468003990e648a9cd5c08ce446e0528a1e363cc"
-    sha256 cellar: :any, arm64_ventura:  "8a544fd3800af543d1928e51ce2406ef64d67e939bdf57b85cc79ebedd913d25"
-    sha256 cellar: :any, arm64_monterey: "a74d719b8acca7b739308db2128e7d2641da8c42f38f7a9581c382b04bd19677"
-    sha256 cellar: :any, arm64_big_sur:  "1317cfb8187d51dcf9f7b006a2ee45e1420786ad8a816c5a0b6726189d4aea93"
-    sha256 cellar: :any, sonoma:         "9613c38ca9f50b37c0fb4451c60e27006d5dbcec559f7d4337f32425e7f907d6"
-    sha256 cellar: :any, ventura:        "41fb9f67d057d8d34c121d23bc4fbcd8245cd0fa2c2cb26b069db0782f761e7b"
-    sha256 cellar: :any, monterey:       "128619776dc719c748b2488c9f731b941cc11b105d8616abc4339160e02c28e6"
-    sha256 cellar: :any, big_sur:        "329cfe785998411d902b0775f4144ad9adfcfd625775ffad3558ed899fe2497c"
-    sha256               x86_64_linux:   "cb6a38119d2342ef36ee09e5b0c1dd98e6156e06aedfb8bb9b11a710678382b0"
+    rebuild 1
+    sha256 cellar: :any, arm64_sonoma:   "b3845c4b42f560ffa78ece64807be6ac5e829b2e2841ce5fee149052d24e5efd"
+    sha256 cellar: :any, arm64_ventura:  "2eb61f7ef9e0c71c3eb0d1b6520e2b99b2f0aa223e2f0bb0a53a3608581718a6"
+    sha256 cellar: :any, arm64_monterey: "c6812e8db8d5fde82501424bcd6df3483965f10c70a71149f037152f5f36f705"
+    sha256 cellar: :any, sonoma:         "e7a64a9b5e2b99b3b77a0cdab91b485b1d0cdacc57930cf5d705219f22b4de5f"
+    sha256 cellar: :any, ventura:        "7b3b7420ba80bb643a085c7499dacd677f3dc56e307a3c4d1d55f45f83825940"
+    sha256 cellar: :any, monterey:       "26e2e1584ae817ded14bda61288acfb220c4ec49026c522475ee8612a7ab7a45"
+    sha256               x86_64_linux:   "107566f078fc8ea1b7c586e8a7ed5a217afbe28c830b6d55e676cd639df62913"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "curl" # curl >= 7.85.0 is required
   depends_on "glib"
   depends_on "glib-networking"
   depends_on "openssl@3"
+
+  uses_from_macos "curl", since: :ventura # needs curl >= 7.85.0
 
   def install
     system "meson", "setup", "build", *std_meson_args

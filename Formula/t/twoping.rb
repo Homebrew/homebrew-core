@@ -1,4 +1,6 @@
 class Twoping < Formula
+  include Language::Python::Virtualenv
+
   desc "Ping utility to determine directional packet loss"
   homepage "https://www.finnie.org/software/2ping/"
   url "https://www.finnie.org/software/2ping/2ping-4.5.1.tar.gz"
@@ -8,21 +10,23 @@ class Twoping < Formula
   head "https://github.com/rfinnie/2ping.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "75e4fc4ecab8c1c779214c4220d5d7c0c61b3d6a2d9f64774a12950cf22bcfe0"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, ventura:        "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "ef33ac789c154cbf0eba01c1af9e4c31d9a491258ae97bb15b4686ff600104ee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aafa2c41be4f9c5d9a83d80f83fd81560da9e1edfafe157ef010781be9afc083"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
   def install
-    python3 = "python3.12"
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
-    system python3, *Language::Python.setup_install_args(libexec, python3)
+    virtualenv_install_with_resources
+
     man1.install "doc/2ping.1"
     man1.install_symlink "2ping.1" => "2ping6.1"
-    bin.install Dir["#{libexec}/bin/*"]
-    bin.env_script_all_files(libexec/"bin", PYTHONPATH: ENV["PYTHONPATH"])
     bash_completion.install "2ping.bash_completion" => "2ping"
   end
 

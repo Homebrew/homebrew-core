@@ -22,10 +22,10 @@ class Gptline < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "certifi"
   depends_on "jpeg-turbo"
   depends_on "libyaml"
   depends_on "pillow"
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura

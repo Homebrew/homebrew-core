@@ -8,16 +8,16 @@ class Stanc3 < Formula
       tag:      "v2.32.2",
       revision: "bcbf83c52c76018ce4a6cd86233de1601ddf9422"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8d5f37a394a5648cb71e93dc693b2ece5c8199b5f12b8fc67cca3f7914f385cd"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92711699de011d8d0e2d1f3c9070a68359d8532bb839c3bfd85dd19d2e0757ef"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7cfef591789f94cc42a791f525e152a66df28f38192bfbae89d02b38b716026e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0129492246548c760cd4e443b90f332bb21a981e1c8d5b1837ae182fe2cfbf69"
-    sha256 cellar: :any_skip_relocation, ventura:        "f738cab3f67f135b7d8ddad036afa0d197086aa0d6964aac385e3706aece60a6"
-    sha256 cellar: :any_skip_relocation, monterey:       "10f98fb1d34c6a395d5922042f7d1aeeefcf2d1be5ecf691adc11daacdbfb1c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "653c73565c23ae031590a18bd3a9537bef7fff3f787450340e5332718d31de68"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d35edd630e73ccbb97e008eaa06c6be9843d345a6fdd332323092dd6a94d68e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "455d22e5b4940c5e82a16bf1b318e986550613c6853a0c11401f657366c0b323"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "87ab3722ebe250a0df5ee5efd2b03ae2a86916165e2c4ba6ec0e603c4b56dbf4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1afd613896f2c410c59791e3424ad26a83d6a2894dc6d9a3cae17bc608432b3a"
+    sha256 cellar: :any_skip_relocation, ventura:        "6a04a68759042d72aa8873097aaf549c00161c5918988ce12e9285e65746388f"
+    sha256 cellar: :any_skip_relocation, monterey:       "86c34cf28af87e139589fae994068e59f47ec8f7dc2526ec7d97b635800d4fc6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc126261729eb66168ad84757e0c90f7c53dd95c87546d88de9096aad2815733"
   end
 
   depends_on "ocaml@4" => :build

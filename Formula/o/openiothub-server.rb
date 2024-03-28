@@ -29,7 +29,7 @@ class OpeniothubServer < Formula
     ]
 
     (etc/"server-go").mkpath
-    system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags)
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags:)
     bin.install_symlink bin/"openiothub-server" => "server-go"
     etc.install "server-go.yaml" => "server-go/server-go.yaml"
   end

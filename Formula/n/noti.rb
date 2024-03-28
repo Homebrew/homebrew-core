@@ -24,7 +24,7 @@ class Noti < Formula
       -s -w
       -X github.com/variadico/noti/internal/command.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "cmd/noti/main.go"
+    system "go", "build", *std_go_args(ldflags:), "cmd/noti/main.go"
     man1.install "docs/man/dist/noti.1"
     man5.install "docs/man/dist/noti.yaml.5"
   end

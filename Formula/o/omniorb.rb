@@ -29,6 +29,8 @@ class Omniorb < Formula
   end
 
   def install
+    odie "bindings resource needs to be updated" if version != resource("bindings").version
+
     ENV["PYTHON"] = python3 = which("python3.12")
     xy = Language::Python.major_minor_version python3
     inreplace "configure",
@@ -49,10 +51,8 @@ class Omniorb < Formula
   end
 
   test do
-    assert_equal version, resource("bindings").version, "`bindings` resource needs updating!"
-
-    system "#{bin}/omniidl", "-h"
-    system "#{bin}/omniidl", "-bcxx", "-u"
-    system "#{bin}/omniidl", "-bpython", "-u"
+    system bin/"omniidl", "-h"
+    system bin/"omniidl", "-bcxx", "-u"
+    system bin/"omniidl", "-bpython", "-u"
   end
 end

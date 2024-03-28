@@ -33,6 +33,8 @@ class Dmd < Formula
   depends_on arch: :x86_64
 
   def install
+    odie "phobos resource needs to be updated" if build.stable? && version != resource("phobos").version
+
     dmd_make_args = %W[
       INSTALL_DIR=#{prefix}
       SYSCONFDIR=#{etc}
@@ -111,8 +113,6 @@ class Dmd < Formula
   end
 
   test do
-    assert_equal version, resource("phobos").version, "`phobos` resource needs updating!" if build.stable?
-
     system bin/"dmd", "-fPIC", pkgshare/"samples/hello.d"
     system "./hello"
   end

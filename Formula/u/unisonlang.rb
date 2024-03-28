@@ -3,12 +3,20 @@ require "language/node"
 class Unisonlang < Formula
   desc "Friendly programming language from the future"
   homepage "https://unison-lang.org/"
-  url "https://github.com/unisonweb/unison.git",
-      tag:      "release/M5j",
-      revision: "7778bdc1a1e97e82a6ae3910a7ed10074297ff27"
-  version "M5j"
   license "MIT"
-  head "https://github.com/unisonweb/unison.git", branch: "trunk"
+
+  stable do
+    url "https://github.com/unisonweb/unison.git",
+        tag:      "release/M5j",
+        revision: "7778bdc1a1e97e82a6ae3910a7ed10074297ff27"
+    version "M5j"
+
+    resource "local-ui" do
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M5j.tar.gz"
+      version "M5j"
+      sha256 "99f8dd4c86b1cae263f16b2e04ace88764a8a1b138cead4756ceaadb7899c338"
+    end
+  end
 
   livecheck do
     url :stable
@@ -23,6 +31,14 @@ class Unisonlang < Formula
     sha256 cellar: :any_skip_relocation, ventura:        "24d03a539050feb1aefe0ebbecef1c4f06f2379d91a063ea144af02dc3f94f45"
     sha256 cellar: :any_skip_relocation, monterey:       "2de0f07799a44b4d53619f62b20741dfa12040fb90fcab8421a8564c5006d5ca"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d594aae90116a8136956555221276bd192bccd2155c64b71cface577c8f5d981"
+  end
+
+  head do
+    url "https://github.com/unisonweb/unison.git", branch: "trunk"
+
+    resource "local-ui" do
+      url "https://github.com/unisonweb/unison-local-ui.git", branch: "main"
+    end
   end
 
   depends_on "ghc@9.2" => :build # GHC 9.4 PR: https://github.com/unisonweb/unison/pull/4009
@@ -41,13 +57,9 @@ class Unisonlang < Formula
     depends_on "elm" => :build
   end
 
-  resource "local-ui" do
-    url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/M5j.tar.gz"
-    version "M5j"
-    sha256 "99f8dd4c86b1cae263f16b2e04ace88764a8a1b138cead4756ceaadb7899c338"
-  end
-
   def install
+    odie "local-ui resource needs to be updated" if build.stable? && version != resource("local-ui").version
+
     jobs = ENV.make_jobs
     ENV.deparallelize
 
@@ -87,9 +99,6 @@ class Unisonlang < Formula
   end
 
   test do
-    # Ensure the local-ui version matches the ucm version
-    assert_equal version, resource("local-ui").version
-
     (testpath/"hello.u").write <<~EOS
       helloTo : Text ->{IO, Exception} ()
       helloTo name =

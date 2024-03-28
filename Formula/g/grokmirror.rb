@@ -20,7 +20,7 @@ class Grokmirror < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7122c9f8ee3da3d6aa21a733b58e012e8adce0d5e88bc9bd8bd7ba0daabf6873"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

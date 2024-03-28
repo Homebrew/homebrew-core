@@ -3,21 +3,21 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/ff/07/dd520f4371d87eede1b7826fc8ab305fe2844533b2032c8ae4010179aba9/ocrmypdf-16.1.1.tar.gz"
-  sha256 "5735cb45a2bba6a56157fffddd038b08dd7f2a1f8a3f9d4724c217d99934a527"
+  url "https://files.pythonhosted.org/packages/43/ee/9d72ac235cc38e041ccaa50e47c069d243ac3285726bdc9221c921c02191/ocrmypdf-16.1.2.tar.gz"
+  sha256 "d1f9c62b3a0cb090218e8f719d85d110bad95cb73e83dec05842652d173b0c29"
   license "MPL-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "379b1b67afbad682d1bc73a781266efaf4d84f22fe6e6bcfd71a5ae53065c0d7"
-    sha256 cellar: :any,                 arm64_ventura:  "c350d4e33c29fb11a037f0a542fa99df15bd393d01bac83dac46dbe2f2296026"
-    sha256 cellar: :any,                 arm64_monterey: "0e2e4c9791b82f8f569cc2aabf9a7385c577758148f70e3e65c401612d766430"
-    sha256 cellar: :any,                 sonoma:         "d18bededf31a1d9f38d358c297137a761efc936b2f1fa76db479c38c7cad02f7"
-    sha256 cellar: :any,                 ventura:        "d9111101599e61d7cdb8c55d391864a535980cc66b58dfd7d13f0b171cf8e68d"
-    sha256 cellar: :any,                 monterey:       "2d297fc051f6834ffee18ea64b3ded82c63e2e97953690818c9f312599d281e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8a7524c133727625ddb8bcdb69c50b690cbb7224a8f94ff97ce3ea7839c8649f"
+    sha256 cellar: :any,                 arm64_sonoma:   "f053e2fc4b0d50b634e2d7c22022d470d9d7392245029be8b8a2fdcb63f19112"
+    sha256 cellar: :any,                 arm64_ventura:  "b2a9f98266ea388b2442b1e1fd43e53d33af6dcf57d3fea83aad6e0be8cf91b0"
+    sha256 cellar: :any,                 arm64_monterey: "2c72e5ce69ac58bfe38a1ab850ffbd498edfd443176a3b59c58381a91492fa0c"
+    sha256 cellar: :any,                 sonoma:         "2ecef410397d569f5a678aa391efd02d059aa1c99a3f0ef233c45794a65e0747"
+    sha256 cellar: :any,                 ventura:        "59e5e86462f1944b67226226d4db65e35342529d2aa8b1155b88503329c07680"
+    sha256 cellar: :any,                 monterey:       "9f3375bf02e53c17d321a14a01c654b608dc6c2cb988e1546a68fbf6b700a082"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eba08178b0d7289c0e564ad8ba818bb52d45f2aa242bf58e1a5986a23504269"
   end
 
+  depends_on "cryptography"
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "img2pdf"
@@ -26,7 +26,6 @@ class Ocrmypdf < Formula
   depends_on "pillow"
   depends_on "pngquant"
   depends_on "pybind11"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
   depends_on "qpdf"
   depends_on "tesseract"
@@ -74,8 +73,8 @@ class Ocrmypdf < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "pdfminer-six" do

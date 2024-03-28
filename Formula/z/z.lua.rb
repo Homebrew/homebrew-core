@@ -1,13 +1,13 @@
 class ZLua < Formula
   desc "New cd command that helps you navigate faster by learning your habits"
   homepage "https://github.com/skywind3000/z.lua"
-  url "https://github.com/skywind3000/z.lua/archive/refs/tags/1.8.17.tar.gz"
-  sha256 "a463aa24658a97dc98afd08e9b5b75e41896ad38609478acf8e9302daa95a38f"
+  url "https://github.com/skywind3000/z.lua/archive/refs/tags/1.8.18.tar.gz"
+  sha256 "e6634c40db18f1901eb054322d5d1962abc6f16e2fef0882249f879ff6e897a8"
   license "MIT"
   head "https://github.com/skywind3000/z.lua.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "5e63a678c4ab31a53aba0643adaf5884ec543ac6cff6a1e43bef28ecb5732cf4"
+    sha256 cellar: :any_skip_relocation, all: "6191e86bba986a68933b07d9ceb1ad4e9c7b050441d5ccaebecfc06fe9e78764"
   end
 
   depends_on "lua"

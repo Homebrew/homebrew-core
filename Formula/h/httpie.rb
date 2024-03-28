@@ -20,7 +20,7 @@ class Httpie < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "00ac00e57e2bb4595b281b8cb128015afc74df43fa0a79e39b47088a5ab7934a"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

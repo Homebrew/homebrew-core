@@ -2,8 +2,8 @@ class SwiftFormat < Formula
   desc "Formatting technology for Swift source code"
   homepage "https://github.com/apple/swift-format"
   url "https://github.com/apple/swift-format.git",
-      tag:      "509.0.0",
-      revision: "83248b4fa37919f78ffbd4650946759bcc54c2b5"
+      tag:      "510.1.0",
+      revision: "7996ac678197d293f6c088a1e74bb778b4e10139"
   license "Apache-2.0"
   version_scheme 1
   head "https://github.com/apple/swift-format.git", branch: "main"
@@ -14,13 +14,13 @@ class SwiftFormat < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "214206bdf245c6c45474a34544c6fd3e77bd40d41230dd569adbfc9c82a525d9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6c97b4e90d3767f66ed05fb88da5e22e922cfec821004fc2128153dbbfbc0ada"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb3c07d03e819d9141ea2ee7020cc545586094258721652e28c2a615415b0f9f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cc9a88070e1678f82b859765bd21b6624c19494534d56eb7ccc69d3f79f73216"
-    sha256 cellar: :any_skip_relocation, ventura:        "6231017fc05b1cdd848d60db53758c7d877dbb170d5fa3773805cf54159e6500"
-    sha256 cellar: :any_skip_relocation, monterey:       "0ea1c6a3795133c58409b293408712a118b6d40bf00a4550a5a0278e072b3e0a"
-    sha256                               x86_64_linux:   "125cf67c6d0f941746fd40b4c6c7bc9c07fb9998da63c9a080da397c313d47b4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c437e97e800c88f93e5888967364514d11cea08d7e51a908e42789f3edce21de"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7230ade95e61a45c86cf2f3b23847502ff79e5390d575018b970ec094d4447f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c19b042df867ea23ae2c81837c2b7c0f772a04abb55406d27f3472bca98df78f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7b71e4df0cd03078c71c867b835d756de32270241338b9c7da093ff9d7b78122"
+    sha256 cellar: :any_skip_relocation, ventura:        "859b0e132e9c8491a6b406fcae047acc6ea36d715a150dc4259692aaf95fc274"
+    sha256 cellar: :any_skip_relocation, monterey:       "b3c52a501c90d3f04e78c5ca3f4175503b2905eef3402c8da4954f1445330b2b"
+    sha256                               x86_64_linux:   "f8dda1ab8a875599b7a0b414f5f656d6e67befe625658964c5a7ed28f7ca958d"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work

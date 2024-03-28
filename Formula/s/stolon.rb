@@ -35,7 +35,7 @@ class Stolon < Formula
       stolon-sentinel ./cmd/sentinel
       stolon-proxy ./cmd/proxy
     ].each_slice(2) do |bin_name, src_path|
-      system "go", "build", *std_go_args(ldflags: ldflags, output: bin/bin_name), src_path
+      system "go", "build", *std_go_args(ldflags:, output: bin/bin_name), src_path
     end
   end
 

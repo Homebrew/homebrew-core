@@ -1,8 +1,8 @@
 class Notmuch < Formula
   desc "Thread-based email index, search, and tagging"
   homepage "https://notmuchmail.org/"
-  url "https://notmuchmail.org/releases/notmuch-0.38.2.tar.xz"
-  sha256 "5282ebe4742b03ee00fc3ab835969f94d229279db7232112bdc5009d861e947e"
+  url "https://notmuchmail.org/releases/notmuch-0.38.3.tar.xz"
+  sha256 "9af46cc80da58b4301ca2baefcc25a40d112d0315507e632c0f3f0f08328d054"
   license "GPL-3.0-or-later"
   head "https://git.notmuchmail.org/git/notmuch", using: :git, branch: "master"
 
@@ -12,19 +12,20 @@ class Notmuch < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c48e1b05733714767668ef3ca709dc9af9c251fa2cb81d18b86e28d3e14b8ae1"
-    sha256 cellar: :any,                 arm64_ventura:  "3918bf3d786e1c325c1b8ae2256db2eae62658de3d74db3b11be1d7e2f7ebc26"
-    sha256 cellar: :any,                 arm64_monterey: "41aabf1ab13a658b79c76ca86e3586c9478d528bd4ec47f38e6c641af7091169"
-    sha256 cellar: :any,                 sonoma:         "b695244332bb341dba121c733dd40601a00615e045f1835e4caf104c31415ec0"
-    sha256 cellar: :any,                 ventura:        "573fcc8eea0f95a0d74b95c97cc8d7fdb5b979a80a20fa7b80ee1892ba50935b"
-    sha256 cellar: :any,                 monterey:       "7ac3901a6a8c992ec80405bcfe5832b29a31ed2e2bbeaeb51b950a9234670cef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "758f00b2529ba8bd92621bb147570109c7fb058e8f349461891c7c62618e8f3b"
+    sha256 cellar: :any,                 arm64_sonoma:   "dc0c9e64e45666c7b504edd124623723793d558f9b92841318cfb57e1905a2bc"
+    sha256 cellar: :any,                 arm64_ventura:  "5866c39776242b60bdffeae0cd8a8e72f4b436fff63eb3fcf2b33d7be69c32a4"
+    sha256 cellar: :any,                 arm64_monterey: "8040db968c5da6d96e90ccd2c1044f1c8eb0dfd0a6c5edc864f33105d31f4894"
+    sha256 cellar: :any,                 sonoma:         "f1017f9efe6fc4487a494f9838dd6ff4177a351ee914fa9845cd3be72132898d"
+    sha256 cellar: :any,                 ventura:        "2f10a85b0c2155e200abc0a4592f6285aaa8b754b20fb3b4cc90ac25a94731ab"
+    sha256 cellar: :any,                 monterey:       "57d086ced8e109e947cdabbaeb81ef9a50b079630b2b73eda20c912d314bb90f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3db984b392cccc361c5ffe324b79ea2e49631c1a468b1ab088bd01162dbcb66"
   end
 
   depends_on "doxygen" => :build
   depends_on "emacs" => :build
   depends_on "libgpg-error" => :build
   depends_on "pkg-config" => :build
+  depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
   depends_on "cffi"
   depends_on "glib"

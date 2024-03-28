@@ -1,24 +1,24 @@
 class Joern < Formula
   desc "Open-source code analysis platform based on code property graphs"
   homepage "https://joern.io/"
-  # joern should only be updated every 10 releases on multiples of 10
-  url "https://github.com/joernio/joern/archive/refs/tags/v2.0.180.tar.gz"
-  sha256 "62116442be2cecd3a8200daf2a76f0d12981e597715b7e3d3d020087e645da86"
+  url "https://github.com/joernio/joern/archive/refs/tags/v2.0.260.tar.gz"
+  sha256 "e1cef6362b94259465a21346a7668a609bf48c8455a8627aeda8a5b4ed834c05"
   license "Apache-2.0"
 
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
+    throttle 10
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9011dc63ff8f4658d4927dbacf6126d42ee27b1810d4a3bbf209340faa8ef96f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8ecdb9627348d9ea005b0cfef373468821d1e2fccf203d72ede87a08bcb2a905"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9011dc63ff8f4658d4927dbacf6126d42ee27b1810d4a3bbf209340faa8ef96f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2335a87379c3a5002a30de175aef789006d890a4c7a349a1de5efd09ca8bde6b"
-    sha256 cellar: :any_skip_relocation, ventura:        "aca3f6ca4c62cd5b7ed18380e4bec62eba924259dd1dbdf0de15ce710733a5d0"
-    sha256 cellar: :any_skip_relocation, monterey:       "d3c398e07f1e533957c483a9763d1ac990b45cfbd59b81d3517056a7acdd8aa0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e32bf5a0667fb2f1f9f94dcb928be2854612fab65911e9af3ac5a48bb25d459c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "53ff3378b6b89834f687f4040e90961c21c96610985d68de0162ca3e425becc9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9b60bb59047770d4e8e70ec865f7461b4747c69768002443f5c5eafe9447bed2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f037ffd828820a6bc0e2e857b217ee058405fbd4c646d32beb938bf373af0ac2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "91f3a5321b0e422423b9a7f3f3c166ae7246b48309e9e512fbd8aa18f840dc87"
+    sha256 cellar: :any_skip_relocation, ventura:        "a2f804d1e7e9e98a08fdf57aa3641126d01df8be9934c66f80476e9f02085de1"
+    sha256 cellar: :any_skip_relocation, monterey:       "bef305b08a69e86fb009ab3186d9fd094a19ae04c7afa8d35a7910c5b24f3c8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ebf4ab2415b48582b72dd383a7a98127f02fa79056c4974e140e76bd83cfb63"
   end
 
   depends_on "sbt" => :build
@@ -37,10 +37,9 @@ class Joern < Formula
 
     # Remove incompatible pre-built binaries
     os = OS.mac? ? "macos" : OS.kernel_name.downcase
-    arch = Hardware::CPU.arch.to_s
-    goastgen_name = Hardware::CPU.intel? ? "goastgen-#{os}" : "goastgen-#{os}-#{arch}"
-    (libexec/"frontends/gosrc2cpg/bin/goastgen").glob("goastgen-*").each do |f|
-      rm f if f.basename.to_s != goastgen_name
+    astgen_suffix = Hardware::CPU.intel? ? "astgen-#{os}" : "astgen-#{os}-#{Hardware::CPU.arch}"
+    libexec.glob("frontends/{csharp,go}src2cpg/bin/astgen/{dotnet,go}astgen-*").each do |f|
+      f.unlink unless f.basename.to_s.end_with?(astgen_suffix)
     end
 
     libexec.children.select { |f| f.file? && f.executable? }.each do |f|

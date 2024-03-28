@@ -3,18 +3,18 @@ require "language/node"
 class Solhint < Formula
   desc "Linter for Solidity code"
   homepage "https://protofire.github.io/solhint/"
-  url "https://registry.npmjs.org/solhint/-/solhint-4.1.1.tgz"
-  sha256 "3a60240a6535fa210a5be93011d5a28c7e22115b7ff2ee2e02387d9e67dc9e04"
+  url "https://registry.npmjs.org/solhint/-/solhint-4.5.2.tgz"
+  sha256 "a57318a4f78b62fe61b6ee342389c018325119055b209e7c9c41ccb03129d33b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c61954eebe4eb830529c713a222b6101dac88a6d528aff13313ec446052bf0e4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c61954eebe4eb830529c713a222b6101dac88a6d528aff13313ec446052bf0e4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c61954eebe4eb830529c713a222b6101dac88a6d528aff13313ec446052bf0e4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "088c9dbdacff22a052490c2e553ccfd4a2b7ff8e2b10ed1da03e0e32ff933a96"
-    sha256 cellar: :any_skip_relocation, ventura:        "088c9dbdacff22a052490c2e553ccfd4a2b7ff8e2b10ed1da03e0e32ff933a96"
-    sha256 cellar: :any_skip_relocation, monterey:       "088c9dbdacff22a052490c2e553ccfd4a2b7ff8e2b10ed1da03e0e32ff933a96"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c61954eebe4eb830529c713a222b6101dac88a6d528aff13313ec446052bf0e4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "54afd001ed52ed06b817582b09b2c883b0424957fa123e8ab9df789f94952b21"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "54afd001ed52ed06b817582b09b2c883b0424957fa123e8ab9df789f94952b21"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "54afd001ed52ed06b817582b09b2c883b0424957fa123e8ab9df789f94952b21"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0f63d04927b0f0ec68329e8264e73b62aecdbff7d14c3340710639e9a120b6fb"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f63d04927b0f0ec68329e8264e73b62aecdbff7d14c3340710639e9a120b6fb"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f63d04927b0f0ec68329e8264e73b62aecdbff7d14c3340710639e9a120b6fb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "54afd001ed52ed06b817582b09b2c883b0424957fa123e8ab9df789f94952b21"
   end
 
   depends_on "node"
@@ -42,6 +42,6 @@ class Solhint < Formula
       }
     EOS
     assert_match "error  Code contains empty blocks  no-empty-blocks",
-      shell_output("#{bin}/solhint --config #{test_config} test.sol 2>&1", 1)
+      shell_output("#{bin}/solhint --config #{test_config} test.sol 2>&1")
   end
 end

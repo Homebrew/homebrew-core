@@ -1,8 +1,8 @@
 class Dwm < Formula
   desc "Dynamic window manager"
   homepage "https://dwm.suckless.org/"
-  url "https://dl.suckless.org/dwm/dwm-6.4.tar.gz"
-  sha256 "fa9c0d69a584485076cfc18809fd705e5c2080dafb13d5e729a3646ca7703a6e"
+  url "https://dl.suckless.org/dwm/dwm-6.5.tar.gz"
+  sha256 "21d79ebfa9f2fb93141836c2666cb81f4784c69d64e7f1b2352f9b970ba09729"
   license "MIT"
   head "https://git.suckless.org/dwm", using: :git, branch: "master"
 
@@ -12,16 +12,13 @@ class Dwm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "41cc6180e686ea2a606c2974e7185766022667df499d77d7ba2ab1193c508a6f"
-    sha256 cellar: :any,                 arm64_ventura:  "3ea89386f0283643f4034d9223c9c5cd39172b630ddf3046769a8655537f3ea4"
-    sha256 cellar: :any,                 arm64_monterey: "10e4acc8a0acf14b00397ddca12a3324e5cbf2ac881974472e473fe4a555b783"
-    sha256 cellar: :any,                 arm64_big_sur:  "45a4e170d418e0c7caeace0c4ddea6e8986b53e59906f056b95f42aa2d4201fe"
-    sha256 cellar: :any,                 sonoma:         "31c2c2a9bd14fdc56500712266eb493ea6f5fbd9edd2fe539f8b17da40876097"
-    sha256 cellar: :any,                 ventura:        "da198c90c358db49b0d9827f1b9702099fb7e7d5b9f74d4fb5caba0a89a1a651"
-    sha256 cellar: :any,                 monterey:       "9774dc44a72ebf8831d07261e49d5607036b03895af484091828452fed9e09b2"
-    sha256 cellar: :any,                 big_sur:        "1620a1e55c9bbce30c5c0247bd02425120fb317e39c5a97ff34ea163641b388d"
-    sha256 cellar: :any,                 catalina:       "0632b1fa0115e7f403e2cd6e05ad4df2554dabc1018825eb16976798b1a84e61"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "24c0fe1f422ba854396d792b3fe28225f5658edca9e0fd98cadff55eeb8b0f13"
+    sha256 cellar: :any,                 arm64_sonoma:   "42c934372742b8f035539bf79d2b8d0a7a22d9391329b1ce9aa1d6ce030ae410"
+    sha256 cellar: :any,                 arm64_ventura:  "6bacb2762fae033de162a20665ca7695e7af99e739ca869563cb2503d546ef89"
+    sha256 cellar: :any,                 arm64_monterey: "c9746655f8aec5b7da2106a02ba7e3851dc43e46536bcea2bb102c616ec4b1d8"
+    sha256 cellar: :any,                 sonoma:         "bbd11ee191cfbd498a774fd08f57f6df864e020da44e9ecfb6abb1a57ed8669e"
+    sha256 cellar: :any,                 ventura:        "c9d816f1f7133f785e6453df1d59d21743bf32bd11f9618d8c5882724a7e3a02"
+    sha256 cellar: :any,                 monterey:       "aa0f35f0f7e181e1f6b8c0fa959f637e8919b04561072881721a14c2d31ef4a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49d9965667c723f02db24e1ea68f1f1a80c891115028a12f8934d921c9a112ac"
   end
 
   depends_on "dmenu"

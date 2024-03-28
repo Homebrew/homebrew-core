@@ -2,8 +2,8 @@ class Docker < Formula
   desc "Pack, ship and run any application as a lightweight container"
   homepage "https://www.docker.com/"
   url "https://github.com/docker/cli.git",
-      tag:      "v25.0.3",
-      revision: "4debf411d1e6efbd9ce65e4250718e9c529a6525"
+      tag:      "v26.0.0",
+      revision: "2ae903e86cab51f694c819721cdfdf5eec693720"
   license "Apache-2.0"
   head "https://github.com/docker/cli.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Docker < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d74c65d2f2fc92a35c544e32d30955f542d3f1a1aa952c7fc4b2b770134deecc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f42d4a5922cd9d45140836fba73ea52481c382213bd3ef8b5b710361fcad9b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "75e767ffb8c739e9c940335076ec4d656630c1138c6966a85fa2838ea86a2fd1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e05971c6fa7e4f7d11e91f116a4deb8edde03859e463f539ca5d4e36b489e345"
-    sha256 cellar: :any_skip_relocation, ventura:        "749dc01ef7c504561e438d0f0b21663349af69e567573c0a91e04158d391ed64"
-    sha256 cellar: :any_skip_relocation, monterey:       "8311c765f8ec60726aa9d0b2993e8aaa621a9b089d392e9844ffc905ccffc951"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d397e666377ef1d2ad53dfe392daf37fce9155caa9fad344a0f94d906881096b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "51799520300bb93bf1ae1f57344a883fe7c118952b467d34c2524fe66d35128c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c985dd4972e5d905503cc2294936b8838ea06e07915e6deafe5c351289383c8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eba5482ecba08d08f256c313f3253510797574a0694aa60e1d5d853dea4a9f79"
+    sha256 cellar: :any_skip_relocation, sonoma:         "78ea960e93a2fde03f6eabc48001f20ff13d552e7dca9280aff6a2617f0bd96e"
+    sha256 cellar: :any_skip_relocation, ventura:        "02ab6715e37262dba37bf302e61cf509e0c99468ee3df288041aecaf186c573e"
+    sha256 cellar: :any_skip_relocation, monterey:       "9b42247cdca9b02232c03ca5e9ea7e934abf4790ff924235617e65fc369789e4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af301b1600937b0077f709fe57ddfc385a84d0d9a876fa6e9402559a6bad1d34"
   end
 
   depends_on "go" => :build
@@ -40,7 +40,7 @@ class Docker < Formula
       -X "github.com/docker/cli/cli/version.PlatformName=Docker Engine - Community"
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "github.com/docker/cli/cmd/docker"
+    system "go", "build", *std_go_args(ldflags:), "github.com/docker/cli/cmd/docker"
 
     Pathname.glob("man/*.[1-8].md") do |md|
       section = md.to_s[/\.(\d+)\.md\Z/, 1]

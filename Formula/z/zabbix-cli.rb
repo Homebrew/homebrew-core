@@ -24,7 +24,7 @@ class ZabbixCli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cae7790742cc2b5fb0f92a180ce26e52d0099fb55a4f7973fc3774ef3c92dc1"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

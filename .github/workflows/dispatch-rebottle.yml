@@ -135,7 +135,7 @@ jobs:
           test-bot: false
 
       - name: Download bottles from GitHub Actions
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v3-node20
         with:
           name: bottles
           path: ~/bottles/

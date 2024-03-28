@@ -1,18 +1,19 @@
 class Libcoap < Formula
   desc "Lightweight application-protocol for resource-constrained devices"
   homepage "https://github.com/obgm/libcoap"
-  url "https://github.com/obgm/libcoap/archive/refs/tags/v4.3.4.tar.gz"
-  sha256 "ae61a48c21f7b40e1442c9e1da9aab9e6f2cf0deccb02f3fed4de232a0b0522e"
+  url "https://github.com/obgm/libcoap/archive/refs/tags/v4.3.4a.tar.gz"
+  version "4.3.4a"
+  sha256 "45f1aabbb5f710e841c91d65fc3f37c906d42e8fc44dd04979e767d3960a77cf"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c5318807d70629d11a4b4d66f3eb50ee7edba115141ada20e551b7780f80df78"
-    sha256 cellar: :any,                 arm64_ventura:  "5be317341fa4f1116c8bde8a7a7228b6565b906a915e079cd11b2be8837b9f73"
-    sha256 cellar: :any,                 arm64_monterey: "aced78b02de0f56db571a4fec3a43ba552ef55cd51c74c6b0d779a54ff732a13"
-    sha256 cellar: :any,                 sonoma:         "7e7a9c9739409132a254b650e7f6b4511ed76f5b218630b437b1cf880bdc16f0"
-    sha256 cellar: :any,                 ventura:        "be3732c2372e3ed2e45ade2f2f5accadb0d6ad119c274623ed8b61d807aba666"
-    sha256 cellar: :any,                 monterey:       "c09e0bce7754763e69ca660fcb233339f396435985027ce270fab5922d065e66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19c81e44ed492de2e8ea366ace3f52c88cadc1f19e5b60a4f98b8cc6b3b4a7e0"
+    sha256 cellar: :any,                 arm64_sonoma:   "2838cc25f928d4364af73515af2793c3e0cc101cdeb341a349261af6245e90fd"
+    sha256 cellar: :any,                 arm64_ventura:  "a3e4f7f5076a275eddc953414e7ebef21ab7bc1de31dd9e7f8807803d32325e5"
+    sha256 cellar: :any,                 arm64_monterey: "d31e6ee6218f56fa932f1d281275cace2b74bd93417ab77c9155d8b616c6822e"
+    sha256 cellar: :any,                 sonoma:         "25f96ff147ca6109379284a132216026e6b8c2e26b5d704be4d23b2a4718de01"
+    sha256 cellar: :any,                 ventura:        "09fc71d739f47c175bb2be5c5ec76c00b013537d6d45477676f5b02908451a0b"
+    sha256 cellar: :any,                 monterey:       "6b4f746b5c9da80cd199c36a7f1154b7fd51755915f64caf4923fe463421c601"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "52d304c37828623c62c1c1f400f01ee2442ef19ff3d726a44c3de9778ad624ae"
   end
 
   depends_on "autoconf" => :build

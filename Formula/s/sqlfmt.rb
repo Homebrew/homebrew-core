@@ -20,7 +20,7 @@ class Sqlfmt < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version} -X main.date=#{time.iso8601}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./backend"
+    system "go", "build", *std_go_args(ldflags:), "./backend"
   end
 
   test do

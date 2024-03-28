@@ -10,24 +10,20 @@ class Pyinvoke < Formula
   head "https://github.com/pyinvoke/invoke.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dd344c952cc84ca26a60d956c247b3fb14b52e00361efd41c1bf70e350220d91"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "86673d4fe059d11933734acf43f671b653fd0195278c66d52ac8abbec6a998ab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c020ca468cd9020b099df8bab9c17ea8126f98576d199430a6dfd61ad1bbd94"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1e8ce934460c66273e213bbe989f64a0028ea7cbedbb86d98f1b2aca3792afc7"
-    sha256 cellar: :any_skip_relocation, ventura:        "9c343ae486cd25d94a3b66ec8c4828fe7f6896e82e8769906744da414263e41a"
-    sha256 cellar: :any_skip_relocation, monterey:       "35a68e0cf99d7869aeaa4c0c5e26dd65bf30144829512584952c6235b3e6e0a8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ee356e6c29cbead91c18d814a4598d9470dd82fc879937ec57bc6825ebfe7c9"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df2155441e4e061f37e689d85347985bcf4dcb032685c71e323295fa566206a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44223d17b48a193c0959da9166dc99540aeab74d3bcd57017fc4d9a5e8a2e2de"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "580d8ddd06ff9702d3bb980134429063cfc926fb1736a2de8b51fef7477f84a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c1e42032921d548303bebd7e73a7ebd744165eb359999612318f79afa4e1bcd3"
+    sha256 cellar: :any_skip_relocation, ventura:        "0e830d28a12412a870e23aa4c62eedce6039fd47fe7d487477ed7ac18b57fcc0"
+    sha256 cellar: :any_skip_relocation, monterey:       "543b5775c3bd0dce958677e4b8a0c2def17f0dbcb7106122009bc29cce8ac65b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7fe4609148305d8681c69364a413beba43a244ea7bc26de56d07607cd6536330"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12" # Do not remove runtime dependency https://github.com/Homebrew/homebrew-core/issues/151248
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

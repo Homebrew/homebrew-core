@@ -1,26 +1,26 @@
 class Toxiproxy < Formula
   desc "TCP proxy to simulate network & system conditions for chaos & resiliency testing"
   homepage "https://github.com/shopify/toxiproxy"
-  url "https://github.com/Shopify/toxiproxy/archive/refs/tags/v2.8.0.tar.gz"
-  sha256 "4c335ba3a8c06402f9b7a99a2bb5e45230cf0aca399e2d5dcd0d8e3b6fd82cbc"
+  url "https://github.com/Shopify/toxiproxy/archive/refs/tags/v2.9.0.tar.gz"
+  sha256 "20edde34342f3209159f22ad9ee0eb4a57f3c47246dbe69b05ae33895cf931ed"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ec2d776d327160fdf54ff05e6bea22d97d791fab714bc3237a3a741adcb4c1a6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b7b48c1ae0a20845cb6b03a4e3b4748dd5cbbab0c558793e1cf88572f7678223"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "376f48a84e1b3eb4e5c255616c0d6232093dfca3e53023d527a5dd81099944d5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5e726354f2a82b70c5145998588f9f49973c917c29016a53b291fdcac7a8e62a"
-    sha256 cellar: :any_skip_relocation, ventura:        "cf6eac25e9fa4c7e42b0ed31da8f733a7220c3e6266a3cd04bfb980651fdf3cc"
-    sha256 cellar: :any_skip_relocation, monterey:       "b3f27565464cecf7e59a1c376cdb1381b196f3d4e14ed021b38d68a196923a0c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d6971436e62058ea8f1f74b08c082a396a81b06e39601832491a1796aaafa44e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f5c14bbb252d3529723055a06282be93e627161e64134ca21d80fc8755e29fd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7e8512fb17bae1dcac2ac114a59fd93dcdf8470d7bc0143629bb67444b7348f0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a2c3adb59a2232b888ed21466760ece732ca7b19105240e771aa4fbda5497ccb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3b44695be480947c0347cf727400a4407f7535b304923416e8027f226d2eb6a0"
+    sha256 cellar: :any_skip_relocation, ventura:        "4cf49725a6044cc2de2c1893c36b70fcc1dc4f1ae88b7a43d9c2a1badae55e36"
+    sha256 cellar: :any_skip_relocation, monterey:       "72f69a2c602446b870a61b63dff964245e23ddfbc5c56c7cd577acbf9a61519d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dcc05d85b995ed7b2ca00d1637dbb19f0aef2af43afee8f8ea317fb02d7082f9"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X github.com/Shopify/toxiproxy/v2.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"toxiproxy-server", "./cmd/server"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-o", bin/"toxiproxy-cli", "./cmd/cli"
+    system "go", "build", *std_go_args(ldflags:), "-o", bin/"toxiproxy-server", "./cmd/server"
+    system "go", "build", *std_go_args(ldflags:), "-o", bin/"toxiproxy-cli", "./cmd/cli"
   end
 
   service do

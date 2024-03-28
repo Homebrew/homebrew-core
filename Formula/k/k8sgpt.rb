@@ -1,19 +1,19 @@
 class K8sgpt < Formula
   desc "Scanning your k8s clusters, diagnosing, and triaging issues in simple English"
   homepage "https://k8sgpt.ai/"
-  url "https://github.com/k8sgpt-ai/k8sgpt/archive/refs/tags/v0.3.27.tar.gz"
-  sha256 "07601e265a526b852fbffe02f763beeace0ed21d53cf6b9ec44eb5b299afdab6"
+  url "https://github.com/k8sgpt-ai/k8sgpt/archive/refs/tags/v0.3.29.tar.gz"
+  sha256 "ab6b4d972bae20bfa180b1ba2975972ad5769b2f7ca2725ec7119a4cd07c14c7"
   license "Apache-2.0"
   head "https://github.com/k8sgpt-ai/k8sgpt.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49796813bdc9cfe15df7e1256821f53c24698a2b6310e4ed462ab74423588682"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3fa017c27107ee10eea0d82dadc45fab7db13556e4e0341d73a812c865e91262"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4a45bf025508ed94d0b792a755f0365059487104b585421760d9c0b4d2b1eeaa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "83999be9ced1d959addcfc6c5a556dedef64413ce813621484b3217ba9e99e55"
-    sha256 cellar: :any_skip_relocation, ventura:        "999e3dc99744ce2f57cab30d8f4b15bf7ab19c3c0fb554c366ea8e816d88b509"
-    sha256 cellar: :any_skip_relocation, monterey:       "0bc31b0a9d7db94821e5ccd48edcbd5889184313f1aa29834ddc44ecda0f7524"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3d1ad5473e9a9b967afd1b6a50d032c5e889813bdca6ec5673bafda4a4efe87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "402714b4019231590a95a17624a3536c26557e04a2098823b85b8174472cd603"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3f92a0550f826633895cde1b1c3d9bb3f502c1f3c979c2fc3249929e1c09717b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c63c2860d4c8981c17d0a31d7e59f7e79d93755c8ac2a7366a7e0e95714b4331"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a2ce82266fa4a0a17b38bac4af41362dc5160d1628191ba0c5fd19e51373309"
+    sha256 cellar: :any_skip_relocation, ventura:        "6861957d5e3148b044caf8cf6befa365a852e946c952398aadca47fa66c3d445"
+    sha256 cellar: :any_skip_relocation, monterey:       "4a84ff1b4b2c251ca309832112c8fe3e507a1295832fb1d7695a77527948dfff"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb190373919ebbde394c80ba51a23a1cca265e14786e9d0e3a4000fda65ae1db"
   end
 
   depends_on "go" => :build
@@ -25,7 +25,7 @@ class K8sgpt < Formula
       -X main.commit=#{tap.user}
       -X main.date=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

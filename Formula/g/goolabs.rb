@@ -19,7 +19,7 @@ class Goolabs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5e084c19dc6ffdbcc2e8cb48d9b69fdbbf1b0f8c8d63d98c143c2baea372537"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

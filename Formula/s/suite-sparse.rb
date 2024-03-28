@@ -1,8 +1,8 @@
 class SuiteSparse < Formula
   desc "Suite of Sparse Matrix Software"
   homepage "https://people.engr.tamu.edu/davis/suitesparse.html"
-  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.6.1.tar.gz"
-  sha256 "ab1992802723b09aca3cbb0f4dc9b2415a781b9ad984ed934c7d8a0dcc31bc42"
+  url "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.7.0.tar.gz"
+  sha256 "529b067f5d80981f45ddf6766627b8fc5af619822f068f342aab776e683df4f3"
   license all_of: [
     "BSD-3-Clause",
     "LGPL-2.1-or-later",
@@ -18,13 +18,13 @@ class SuiteSparse < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d078330ca586c489c1ce288b0038cf24af982e72150b95cab37f9e42025ece24"
-    sha256 cellar: :any,                 arm64_ventura:  "65c7b70914dcbe9470117fb35aa0bdc7f751146922d2ef36b91f05147d8153d4"
-    sha256 cellar: :any,                 arm64_monterey: "394e3c0ff008362f89df35ff41618f7cab48b5376fe5cc10aab0df21672c7bac"
-    sha256 cellar: :any,                 sonoma:         "a47510ed73acf0895276cf2600f3d81b2167f97a37b5c1e692f1811c0e00be14"
-    sha256 cellar: :any,                 ventura:        "38380ba1b94a098c8bf7bb6de513d2356ba624847183d020f42dca351129abb3"
-    sha256 cellar: :any,                 monterey:       "3c29491279fd468c89da8d32ac45e9664bec850cdf7e76c48babd8905c84bb16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2abe7d1717d409e2141b02ed03265b85aca8eba1acb04d9894d57f1a864bba58"
+    sha256 cellar: :any,                 arm64_sonoma:   "e6229acfa28e083373801cdc71cbc50e0639a817f1a515558176dd5932f03c56"
+    sha256 cellar: :any,                 arm64_ventura:  "765d5056333a36a18912354f1f25ea1c45cc0f48cda9afcf4beaffb9b3240118"
+    sha256 cellar: :any,                 arm64_monterey: "7a7345e4fd7e91c2d876f14b6ec4fa7639e103570c69035b6ee826999b9c8ff6"
+    sha256 cellar: :any,                 sonoma:         "5d35a5e4b5f85f47d85dd631b09c7c636403d0988537cb30d0af488c4d2a415e"
+    sha256 cellar: :any,                 ventura:        "64b324938ea324f0a42e167991ea39da46c4d24312aca7be6ff860f06a0c2364"
+    sha256 cellar: :any,                 monterey:       "76053ed3b54df0ffc28d71c9c1c8a44000b8b86f4157d026f552650213c429b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c3ba212f0d9fee64c37fa0052e76b9daf15519951eabc70898c77eec3eb7be1"
   end
 
   depends_on "cmake" => :build

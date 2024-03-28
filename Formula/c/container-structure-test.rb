@@ -25,7 +25,7 @@ class ContainerStructureTest < Formula
       -X #{project}/pkg/version.version=#{version}
       -X #{project}/pkg/version.buildDate=#{time.iso8601}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/container-structure-test"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/container-structure-test"
   end
 
   test do

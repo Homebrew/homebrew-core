@@ -1,25 +1,10 @@
 class Rmw < Formula
   desc "Trashcan/recycle bin utility for the command-line"
   homepage "https://theimpossibleastronaut.github.io/rmw-website/"
+  url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.2/rmw-0.9.2.tar.xz"
+  sha256 "f1a7003f920297b0d1904c7c79debc06fbb00e1ef62871615a4fe836715a889d"
   license "GPL-3.0-or-later"
-  revision 1
   head "https://github.com/theimpossibleastronaut/rmw.git", branch: "master"
-
-  stable do
-    url "https://github.com/theimpossibleastronaut/rmw/releases/download/v0.9.1/rmw-0.9.1.tar.xz"
-    sha256 "9a7b93e8530a0ffcd49f1a880e0a717b3112d0ec1773db7349bac416ee1a42b3"
-
-    # canfigger 0.3.0 build patch, remove in next release
-    patch do
-      url "https://github.com/theimpossibleastronaut/rmw/commit/295185e3b8c1090ea01e9a817d56706847292118.patch?full_index=1"
-      sha256 "dffc9c4a58b3043f3df0750dc7f935c3e4074f7a6445c057a013cda64b01ff84"
-    end
-    patch :DATA
-    patch do
-      url "https://github.com/theimpossibleastronaut/rmw/commit/cdee62512a750ca3ccf6a2cb3ea12221036c22b9.patch?full_index=1"
-      sha256 "0cf20084686966abafeef732acac7fbf82e286bcb21ada95e0aec8c447dc3948"
-    end
-  end
 
   livecheck do
     url :stable
@@ -27,13 +12,13 @@ class Rmw < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c0e89aca645212743b6fd4799b917408a8c30987822e8380a2f2880695648fb8"
-    sha256 arm64_ventura:  "8ecc517cbf5ddf44d049bc5630adf389420f90ac59c2cc8a06d6810c3a26d74a"
-    sha256 arm64_monterey: "08ce5fa8360cbc3c915094a11ba5ec9cd02204087d18a98014f3ae22c5c91575"
-    sha256 sonoma:         "8f8b5b0acdd67752e0a88937cd298cb09dc9a344add9cd20e5ebece1d252f281"
-    sha256 ventura:        "637dacc6362f285d7b526762562140c4e1c242c7529e9590430da85602457a61"
-    sha256 monterey:       "9e5f6ef50ff462583f2f3e63536ea9a824ce5163b8202d9440a02b7d7b3b9ee1"
-    sha256 x86_64_linux:   "e9453c9cef96e81a58479a72c3356642cfde1366cc8e839efdc71b579f10ad7b"
+    sha256 arm64_sonoma:   "29b9e30ceb600ae6b8af8f170a72228b6734aee040fd8c48b79d98fed477be32"
+    sha256 arm64_ventura:  "9f1dc8c2a1ba4631f3502959d988473e9a55f915a02a0ba8f06f1279846538df"
+    sha256 arm64_monterey: "89fda4126f92fe441a6bbd56640aabdcddfc4383aca9214e82914c4f8b79cead"
+    sha256 sonoma:         "cdfcd0de3451565df2df12264e14616c144d139508374eec2fea96c0cb4b642d"
+    sha256 ventura:        "43ccd75b06bf85779799c91368cb91bdc43ca38449a74b3d7706df10b337afde"
+    sha256 monterey:       "4e655492692254ffab63eb9e73193463187f848a0a1583ff4f246a0e1e573fbd"
+    sha256 x86_64_linux:   "1b4a5d2dc6c56247cf6abcff5ef01f7262b3d749a559c4f741e99b8483cca099"
   end
 
   depends_on "meson" => :build
@@ -62,31 +47,3 @@ class Rmw < Formula
     assert_match "purging is disabled", shell_output("#{bin}/rmw -vvg")
   end
 end
-
-__END__
-diff --git a/meson.build b/meson.build
-index 793322e..3ff2020 100644
---- a/meson.build
-+++ b/meson.build
-@@ -63,7 +63,7 @@ config_h = configure_file(output : 'config.h', configuration : conf)
- main_bin = executable(
-   'rmw',
-   'src/main.c',
--  dependencies: [dep_canfigger, dep_rmw, dep_intl],
-+  dependencies: [canfigger_dep, dep_rmw, dep_intl],
-   install : true
-   )
-
-diff --git a/test/meson.build b/test/meson.build
-index ee982de..b1f0f39 100644
---- a/test/meson.build
-+++ b/test/meson.build
-@@ -23,7 +23,7 @@ foreach case : test_cases
-     'test_' + case,
-     '../src/' + case + '.c',
-     c_args : ['-DTEST_LIB', '-DRMW_FAKE_HOME="@0@"'.format(RMW_FAKE_HOME)],
--    dependencies: [dep_canfigger, dep_rmw]
-+    dependencies: [canfigger_dep, dep_rmw]
-     )
-   test('test_' + case, exe)
- endforeach

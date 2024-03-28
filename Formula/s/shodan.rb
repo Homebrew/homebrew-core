@@ -19,7 +19,7 @@ class Shodan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c120fca58ae9884d3f72f452e4e93ebaf4b14933d143e8e77696d1612e1da2a3"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

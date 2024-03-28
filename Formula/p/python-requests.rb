@@ -15,10 +15,11 @@ class PythonRequests < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "38eb54a3c08da5790c7da2dbbe36992772214a7bf2ce87a73b5f58930ec7b0a8"
   end
 
-  depends_on "python-setuptools" => :build
+  deprecate! date: "2024-03-14", because: "does not meet homebrew/core's requirements for Python library formulae"
+
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python-charset-normalizer"
   depends_on "python-idna"
   depends_on "python-urllib3"
@@ -30,8 +31,17 @@ class PythonRequests < Formula
   def install
     pythons.each do |python|
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args, "."
+      system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
+  end
+
+  def caveats
+    <<~EOS
+      Additional details on upcoming formula removal are available at:
+      * https://github.com/Homebrew/homebrew-core/issues/157500
+      * https://docs.brew.sh/Python-for-Formula-Authors#libraries
+      * https://docs.brew.sh/Homebrew-and-Python#pep-668-python312-and-virtual-environments
+    EOS
   end
 
   test do

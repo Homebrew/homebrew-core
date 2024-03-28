@@ -18,7 +18,7 @@ class EvernoteBackup < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "93aaf6829020be35a4fa1d0883b5b7208e07087a87c5527c9c9f811d9c77fce4"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

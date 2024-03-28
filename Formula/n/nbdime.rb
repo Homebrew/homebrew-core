@@ -19,8 +19,8 @@ class Nbdime < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "bac2ef155fe7b1027046870a4743ad12e9ad78f48454fb8e959d5c421e2d1bea"
   end
 
+  depends_on "certifi"
   depends_on "jupyterlab" # only to provide jupyter-server and nbconvert
-  depends_on "python-certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

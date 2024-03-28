@@ -1,18 +1,18 @@
 class Gat < Formula
   desc "Cat alternative written in Go"
   homepage "https://github.com/koki-develop/gat"
-  url "https://github.com/koki-develop/gat/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "482bbeda7fd524a23cb8ed553b7227feee729bc8ee5da3c0084ab7119744fa34"
+  url "https://github.com/koki-develop/gat/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "62c7509bee419f81af5d2f856f17ec98d65dd12212b3e361806cb2b6a22233b6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "010f940992f91c1d91214c402f313708946590c23a5644fb59d467a31664e59c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4ab789c3095f28c57deebd968b2e11f44554ec85c10a1c995411f8ce26ca17d0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "50e3103d1c34a69fbf5f503ad21504db6ea146534116a3d0c642847b7a190b16"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3ba2edc8d1f0002e25cebd7fca6c8ede28517424f0f60e2de7878857e89e6ea4"
-    sha256 cellar: :any_skip_relocation, ventura:        "557043aba542faa00d973bfe1b29379ea0ee1d792d0652554ccecb712b466aa1"
-    sha256 cellar: :any_skip_relocation, monterey:       "6dcafe3008794a5d26a0c01a235d9352042ba02fb418e8ba3379af657d4e2831"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6189dfc425f90bbfd7a349f639bd238cff90a814eb23fb25ba305cb3bcc40b3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c706cfca8fd5af977a4b8e46a4aba3b69bb2c3f1e6c7c7ddb11d7d580d00e9eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c3d4cd3c096edc481df4fa8f6b99294b44e7cdaf562190844e59af476bf52fd2"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5fc22c92ad185bc6fe0e92de23913b5cd72337eeffa1525bee9ca0243c46140d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9e6f4136cd6ffa504610bbe1fb0774329c541da744a334976bf9ca5149dcb3d"
+    sha256 cellar: :any_skip_relocation, ventura:        "e6cd0720ac894cbbc4f6ef10d03935a2bfacd37004fb1b5f00aa9bd01650356b"
+    sha256 cellar: :any_skip_relocation, monterey:       "c4f18d4bbd3a6cb11c209aeeda5c7740b7d33ca72e8792df43e024bfdef25d82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78f5f14eb5471d4dfe1c7f0097e0a1c72ce2004c85ea0a96327efaccc2f3f826"
   end
 
   depends_on "go" => :build

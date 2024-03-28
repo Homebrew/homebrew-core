@@ -1,21 +1,21 @@
 class YtDlp < Formula
   include Language::Python::Virtualenv
 
-  desc "Fork of youtube-dl with additional features and fixes"
+  desc "Feature-rich command-line audio/video downloader"
   homepage "https://github.com/yt-dlp/yt-dlp"
-  url "https://files.pythonhosted.org/packages/a9/a7/d8536993aed7569c5221f532e3ba01b09d5bdc893df3ef4e5b05d01582c4/yt-dlp-2023.12.30.tar.gz"
-  sha256 "a11862e57721b0a0f0883dfeb5a4d79ba213a2d4c45e1880e9fd70f8e6570c38"
+  url "https://files.pythonhosted.org/packages/70/1d/f9617f151c124a15981cf79c47b6a53ac875942211b40010f0381296c51d/yt_dlp-2024.3.10.tar.gz"
+  version "2024.03.10"
+  sha256 "6e74cb14a69dbeb872c8ef4e0b8bbed2ee846ec633513cf3124a74c1faedc07b"
   license "Unlicense"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bfcd87ac2e89838e68d42073b8c02b7a754f3a34be9cb28f5fc048c4e349a586"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e53c6d854ecf66d7f2d905af33e574339f2aaf97e1503edc0498e40b13efb582"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f13c55eacea7bf25a5d90d7b3b290a1174488e1ef417693e3090c64de962f099"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9346dc6618d8803a18a58f61f8de1e64926108b9fb4a27f5f3c11401ff9d520a"
-    sha256 cellar: :any_skip_relocation, ventura:        "6cb2551f738c25f8e96bce76a5f46026157f4e3ff36f36aefe530472d89e6b7c"
-    sha256 cellar: :any_skip_relocation, monterey:       "b62280bc570cb657456698b1375a2de454639ac4826d576e3079d3ce23b5202f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "176b50c93b539d27a994e28919d8f2781edf572163cebe2b0586cc68e0cb3b29"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "95823b14c2a18e5393e1bf150af95870be3f33e551e0517878747b328ad736b5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc52d80b608def4f032ae265bcd9e979e317582d5fbd080954ef0876b874f303"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e20863a4f9a74a14d0535783c649a90fcd13787dd8247ebdccf22ad0debfe47d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ec34a4f6c8b4c23b38a152c7c34017059260e26c6a8ba7a29ce669c9b04561cd"
+    sha256 cellar: :any_skip_relocation, ventura:        "615135cbf163d79087a94096f26b30c2473055dcf0276bf75ff4de7f81f82d50"
+    sha256 cellar: :any_skip_relocation, monterey:       "8e09978dfb650be95f35dbb42fc42b9e9b788a80d1d621894e096ce83ba4f967"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9e6a8c796281ed31fac98872d848f18d8d21b25958a9e0ab3a8540e31bf999a"
   end
 
   head do
@@ -28,7 +28,7 @@ class YtDlp < Formula
     end
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "brotli" do

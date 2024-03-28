@@ -3,10 +3,6 @@ class Qt < Formula
 
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
-  sha256 "3c1e42b3073ade1f7adbf06863c01e2c59521b7cc2349df2f74ecd7ebfcb922d"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",
@@ -17,6 +13,20 @@ class Qt < Formula
   revision 1
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
+  stable do
+    url "https://download.qt.io/official_releases/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+    mirror "https://qt.mirror.constant.com/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+    mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.6/6.6.2/single/qt-everywhere-src-6.6.2.tar.xz"
+    sha256 "3c1e42b3073ade1f7adbf06863c01e2c59521b7cc2349df2f74ecd7ebfcb922d"
+
+    # Fix build with newer libc++.
+    patch do
+      url "https://github.com/google/angle/commit/c23029d2fe0a55a5b26cd8005f0bf74943ed3865.patch?full_index=1"
+      sha256 "c6aa0f3237001e9ad9ed17dab671a2f402aa0060012a90349113f6cf9c0c95c1"
+      directory "qtwebengine/src/3rdparty/chromium/third_party/angle"
+    end
+  end
+
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
   livecheck do
@@ -25,13 +35,14 @@ class Qt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "573c3038cd5c74881cf748eb63c803efa35b4b75d19693b7f20cd8897548959a"
-    sha256 cellar: :any,                 arm64_ventura:  "43125cfe40819ece94a418267bebf6bd6a253ae8288e20374202d4598efd9310"
-    sha256 cellar: :any,                 arm64_monterey: "c6b39b8885d61e7bb49639b4f347554bf1672532660966a86fa766eace2ff542"
-    sha256 cellar: :any,                 sonoma:         "ddf48735f5c3c4317d5e46c922614bc168a1b480b488ae228313dcf09fb3338b"
-    sha256 cellar: :any,                 ventura:        "f1bda669aa2d6ea2024fbdde4a6a191b468854ef0bd27d81877f5025518f32fd"
-    sha256 cellar: :any,                 monterey:       "14a64c6df1e1c31008a921458a9374764c42a5ca637e2a2487d07808c8f25893"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a11925797528c635afeae37662fda71003d071347b5f1570ad1a1aa4ac163648"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "0e4726473ec91f76ec3c1bdea001f2fbde1b0d86cb354981154d483649efbfe5"
+    sha256 cellar: :any,                 arm64_ventura:  "a2c8d1255b3ec9821a0a6816f9ac118fe7716325f626ec4327c38fcd512da740"
+    sha256 cellar: :any,                 arm64_monterey: "283299b96e2d7a92e79f8ae405565662329e8d891619cdea1859733daaaeb776"
+    sha256 cellar: :any,                 sonoma:         "01ac20eac9280daaee92262ea6f9a5590ac417eefc91be5f250ce3e5f01d2488"
+    sha256 cellar: :any,                 ventura:        "df12697a44299790b3f384b02eb9e720dcc77cc8cdd9575d8f73ffd2c043605e"
+    sha256 cellar: :any,                 monterey:       "ce178a1a9544c275bdc7d4c3746e04ce5763ffc3d38b4192339cf1ac9cc2be10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "836c2b167b2157ab3e2e37153238942c7aa1c06001fb97d10b023e5181b38133"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -164,6 +175,10 @@ class Qt < Formula
     ]
     inreplace assistant_files, '"Assistant.app/Contents/MacOS/Assistant"', '"Assistant"'
 
+    # Allow generating unofficial pkg-config files for macOS to be used by other formulae.
+    # Upstream currently does not provide them: https://bugreports.qt.io/browse/QTBUG-86080
+    inreplace "qtbase/cmake/QtPkgConfigHelpers.cmake", "(NOT UNIX OR QT_FEATURE_framework)", "(NOT UNIX)"
+
     config_args = %W[
       -release
 
@@ -286,6 +301,18 @@ class Qt < Formula
     bin.glob("*.app") do |app|
       libexec.install app
       bin.write_exec_script libexec/app.basename/"Contents/MacOS"/app.stem
+    end
+
+    # Modify unofficial pkg-config files to fix up paths and use frameworks.
+    # Also move them to `libexec` as they are not guaranteed to work for users,
+    # i.e. there is no upstream or Homebrew support.
+    lib.glob("pkgconfig/*.pc") do |pc|
+      inreplace pc do |s|
+        s.gsub! " -L${libdir}", " -F${libdir}", false
+        s.gsub! " -lQt6", " -framework Qt", false
+        s.gsub! " -Ilib/", " -I${libdir}/", false
+      end
+      (libexec/"lib/pkgconfig").install pc
     end
   end
 

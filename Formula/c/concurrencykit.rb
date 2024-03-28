@@ -1,8 +1,9 @@
 class Concurrencykit < Formula
   desc "Aid design and implementation of concurrent systems"
-  homepage "http://concurrencykit.org/"
-  url "https://github.com/concurrencykit/ck/archive/refs/tags/0.7.0.tar.gz"
-  sha256 "e730cb448fb0ecf9d19bf4c7efe9efc3c04dd9127311d87d8f91484742b0da24"
+  # site not accessible bug report, https://github.com/concurrencykit/ck/issues/225
+  homepage "https://github.com/concurrencykit/ck"
+  url "https://github.com/concurrencykit/ck/archive/refs/tags/0.7.2.tar.gz"
+  sha256 "568ebe0bc1988a23843fce6426602e555b7840bf6714edcdf0ed530214977f1b"
   license "BSD-2-Clause"
   head "https://github.com/concurrencykit/ck.git", branch: "master"
 
@@ -15,18 +16,13 @@ class Concurrencykit < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "52db982710afc7be4787f7d4d739517a28d8b92e6e016292d4700d2164e07797"
-    sha256 cellar: :any,                 arm64_ventura:  "e5dd4b47a7200e0179e740bfa48f34fa0194263e038020b97303e9b2f7cc93d7"
-    sha256 cellar: :any,                 arm64_monterey: "b2d070df1dd5cad29f20b6a5192c2683086af490bd768a3b698e0fddb657cc2a"
-    sha256 cellar: :any,                 arm64_big_sur:  "fad8ab6678349a6ae3a81ba7a8264591868f8c180c867f06ad98cb422d9627bf"
-    sha256 cellar: :any,                 sonoma:         "bf7d287996890d9dd003f6702950d7e2ff25e42e64c0e286d60886bb411139cc"
-    sha256 cellar: :any,                 ventura:        "5543bda088a7d54b530aed705e22028a9c6a6bc75da68bad81c0afbf4b4d4b12"
-    sha256 cellar: :any,                 monterey:       "f5ccb2c540ce46a669ec5960ecdeb4f92e8eaa7c8e0bd889d0bc2a11474f2ac3"
-    sha256 cellar: :any,                 big_sur:        "2834fffaf1b10eb3ee40fa9f01bfbe72a5df37161cbf78f8dd016f73aaf16966"
-    sha256 cellar: :any,                 catalina:       "12788eda54c82375102f2f33e28f533151b4d3f6fa9042ea7c7aa03fb25c3e3a"
-    sha256 cellar: :any,                 mojave:         "357062d84adf8f0c8d1a92a7fda6fb9278b6264edf061935d595342e0c334aed"
-    sha256 cellar: :any,                 high_sierra:    "c8def7655e173d45ff8ec94bc78750507235fa9eb8b79be639bf250698d59761"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5723a7d3a790bb1e7445f6bc753187ff939c57721a98c453c9539045fd3824ab"
+    sha256 cellar: :any,                 arm64_sonoma:   "61349da656422bd19044368a9dd6a07e9e6a45e77e301baff35e8af1a8331087"
+    sha256 cellar: :any,                 arm64_ventura:  "0a0a6868102744de167a27d8ce774ac1542b268713588998879cc782ce7d0f50"
+    sha256 cellar: :any,                 arm64_monterey: "2b96f7b0f8b586812621ca5711c4cc59d4916e69658ff7b95c11166730611069"
+    sha256 cellar: :any,                 sonoma:         "d94a55b7f88f9cf03147ec862d25be282781c0c6fbcc6d2dbc1bd70ec0abfeb1"
+    sha256 cellar: :any,                 ventura:        "e1adfa5622f3b5dfc3fe5832ae5a8b7241e914483654bbbd7dfc5fda4d90afa7"
+    sha256 cellar: :any,                 monterey:       "9f009724d28dad411a65eae3aad260b7fdb26a4ea6d8fda2125b21350eff06ed"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae7af3262f13d4917f84f0522cc36cc8709e482f458067578c6e58f0a26737ac"
   end
 
   def install

@@ -1,19 +1,19 @@
 class Rclone < Formula
   desc "Rsync for cloud storage"
   homepage "https://rclone.org/"
-  url "https://github.com/rclone/rclone/archive/refs/tags/v1.65.2.tar.gz"
-  sha256 "5ae6179908650429e8d366e4940b586a4bd4aa9ee90c23c423be35550dded346"
+  url "https://github.com/rclone/rclone/archive/refs/tags/v1.66.0.tar.gz"
+  sha256 "9249391867044a0fa4c5a948b46a03b320706b4d5c4d59db9d4aeff8d47cade2"
   license "MIT"
   head "https://github.com/rclone/rclone.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7b88be11a6b79ee338cdc93438405a67f9b5340c57463a6ef7eccdd10ffe1809"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b1fda558b72400157ccb03d307ee8bcc431e0e3fa6af22198efadb34fc50e977"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2dfad3c8cd84b1fee6200e2f5b1c7a0595df6151e64ecd1e27fd0199abd327c7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5d74020d457ac055473afb81f938128a5cb642a5059188b1a046acdfa7e0954b"
-    sha256 cellar: :any_skip_relocation, ventura:        "f277299a72eb2a00bfd3c8029722b3481f489b3e9edaec263bd317bd9a6cff4e"
-    sha256 cellar: :any_skip_relocation, monterey:       "4cd8e5f4e4594c1d78811fd3d8c513bb8c2e27517f1efcccf1835d907da0233d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea9581db687abd37e6ed162059ec97bd1615d0bc084f45fa5193a01e7f30ac87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "df5445aa5023e5c8b652f22fd235b82965e20a8b1ea43f115b49f250703c8e6f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "589eee44ef41acf83429cfda57d5da8611f5c4e29b4f1e363640bebb8d29c669"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "15640c8a84b819167cc0fafa68b6b9f5099e4f1122384c239172ce7fbe0066bc"
+    sha256 cellar: :any_skip_relocation, sonoma:         "bcb78afdb412c65fcbc6124d21effdbf2e637836f212fc42cbeba83867094e50"
+    sha256 cellar: :any_skip_relocation, ventura:        "0738a3b479dbd8330a0af27e00550e4b0df31a291b17c6bb7b1bd61b8f6a4e54"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ef444781a7b86d04ca13c7537c974e0dbeabdcdfdc0c280995215e2b28a2015"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2a4f88762e749dc1663464d2a9fe9af229cf92e64649718fc742262fd9c87b34"
   end
 
   depends_on "go" => :build

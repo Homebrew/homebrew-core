@@ -3,20 +3,19 @@ class Uvicorn < Formula
 
   desc "ASGI web server"
   homepage "https://www.uvicorn.org/"
-  url "https://files.pythonhosted.org/packages/09/d8/8aa69c76585035ca81851d99c3b00fd6be050aefd478a5376ff9fc5feb69/uvicorn-0.27.1.tar.gz"
-  sha256 "3d9a267296243532db80c83a959a3400502165ade2c1338dea4e67915fd4745a"
+  url "https://files.pythonhosted.org/packages/49/8d/5005d39cd79c9ae87baf7d7aafdcdfe0b13aa69d9a1e3b7f1c984a2ac6d2/uvicorn-0.29.0.tar.gz"
+  sha256 "6a69214c0b6a087462412670b3ef21224fa48cae0e452b5883e8e8bdfdd11dd0"
   license "BSD-3-Clause"
   head "https://github.com/encode/uvicorn.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "ce673fc35a478e523e696c738c7e13d00ee025a2c6a11b03de313349e952e8ee"
-    sha256 cellar: :any,                 arm64_ventura:  "877e61484296f360b49e4090683beb0164eb93db9418cb995d18fa7f5407ac60"
-    sha256 cellar: :any,                 arm64_monterey: "d56abe2ddfa3d910cdae5c7f7eb3e0bd8e5e9f9c08c70303a1e08cec293a7184"
-    sha256 cellar: :any,                 sonoma:         "fc553a5127646dcbf0b50684d6e20fe652a88f75cd630eaac3c9b00560de64f6"
-    sha256 cellar: :any,                 ventura:        "28e2f11896fea5129b3f47c0c161e91eb74a40faf7053b9dc7e6de35ac4a42a6"
-    sha256 cellar: :any,                 monterey:       "b5838cc073dddbf5701dc00655cfac9a62a3c7c86cb2693e09d4a7f20bed7f3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a80d52ba41387dc2774791bbe3358975186472dc4795f29eab169fdcd13b8934"
+    sha256 cellar: :any,                 arm64_sonoma:   "8b9ab6c2b2e9ec073845456e775f4f65b78070217263a4bea626620803b68f60"
+    sha256 cellar: :any,                 arm64_ventura:  "e0c93ea2eea1065fcbf606c7b56745c73e7f10fa824ab430e39a971ac0788c51"
+    sha256 cellar: :any,                 arm64_monterey: "1fb5a9ea3d7fe5399642eee70e2801eb08f9945d1d51f148096d1eebc192b204"
+    sha256 cellar: :any,                 sonoma:         "1b5e10a935416084cd40efc7b58ff264b5335f66e383dc36292997126d8374cf"
+    sha256 cellar: :any,                 ventura:        "74d1d2040ec967d1111c02a776e3aa4f7ab380d5fa022e0f4ca477ca355bdb4f"
+    sha256 cellar: :any,                 monterey:       "dc874d8ba56c8f7f6510031a6be8e21788bc1465796422ed176d5c6a623c63be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bc87db2125d322adadccbc915342a73ba9464fb1fc9bb6ec2144869fcfc2e49"
   end
 
   depends_on "rust" => :build
@@ -59,8 +58,8 @@ class Uvicorn < Formula
   end
 
   resource "sniffio" do
-    url "https://files.pythonhosted.org/packages/cd/50/d49c388cae4ec10e8109b1b833fd265511840706808576df3ada99ecb0ac/sniffio-1.3.0.tar.gz"
-    sha256 "e60305c5e5d314f5389259b7f22aaa33d8f7dee49763119234af3755c55b9101"
+    url "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz"
+    sha256 "f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"
   end
 
   resource "uvloop" do

@@ -4,8 +4,8 @@ class Semgrep < Formula
   desc "Easily detect and prevent bugs and anti-patterns in your codebase"
   homepage "https://semgrep.dev"
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.63.0",
-      revision: "d7aaf569f8d01a4f87e290f3b95dbed37bf847fa"
+      tag:      "v1.66.2",
+      revision: "b4ff22a91dc40b8b29abd3474019abc296a693e4"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -15,13 +15,13 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d0c0214a3a468f3e4eac7a310e803cb8c33126b062a5eed4987d37a0ad29e9ad"
-    sha256 cellar: :any,                 arm64_ventura:  "73c26c2bc028eaaaa49a25f145283c410accd4cdac542ac37ccb0c3018f92eb3"
-    sha256 cellar: :any,                 arm64_monterey: "6dbfe14116909bff1a4465c3636de6e5d8a6e79ee26b2a979c16644c4371f5f1"
-    sha256 cellar: :any,                 sonoma:         "70f37337220b816022fac82efcba1082e324e41f66dba2e0228ea502d9c83af4"
-    sha256 cellar: :any,                 ventura:        "dbf03bc2610f82359a87940b4ca368085e4f0eb02092b0a3c919fc1630b87461"
-    sha256 cellar: :any,                 monterey:       "db32495423ef812fb4c167faeb0f8a71ed581e42262f1efc27771c3134873389"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "67c59b11bb95b595ce95a68f06568c0f4b22191127ed2e030e76a1651da20c85"
+    sha256 cellar: :any,                 arm64_sonoma:   "1eb07fd86c6889a8a4e831830442a2723ed1dfb8bbf3b4ab9c5014f936df0b4d"
+    sha256 cellar: :any,                 arm64_ventura:  "076af5a2953404d074195abbc95b1f7ec4a926a5c3fb829bc78bc474f0b97f24"
+    sha256 cellar: :any,                 arm64_monterey: "3108a83afb1f60d92c3714af48f14f58b141dc2e3af7be1c11a7dd15e94c468d"
+    sha256 cellar: :any,                 sonoma:         "f1718cf32d21503394a03a25c700e5f47656d3dbbd006b5d1a4fef646c99d7e1"
+    sha256 cellar: :any,                 ventura:        "7182ddeeaa86bfe3cc3ab6ad61df3d97c82b999ba9cff0712dc2119be32bb481"
+    sha256 cellar: :any,                 monterey:       "1a72e5d34f19dbffd559d838d6b80956c4f29e2d4a06ef918b86204d23b7bfa4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "31bc6e17d9483e91c35851709bed22eb9607dc21b2dd30506dbefe1cbe8b5667"
   end
 
   depends_on "autoconf" => :build
@@ -33,10 +33,10 @@ class Semgrep < Formula
   depends_on "pipenv" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
+  depends_on "certifi"
   depends_on "gmp"
   depends_on "libev"
   depends_on "pcre"
-  depends_on "python-certifi"
   depends_on "python@3.11" # Python 3.12 blocked by imp usage in glom < 23.4.0
   depends_on "sqlite"
   depends_on "tree-sitter"
@@ -127,8 +127,8 @@ class Semgrep < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "peewee" do
@@ -142,8 +142,8 @@ class Semgrep < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
-    sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
+    url "https://files.pythonhosted.org/packages/59/d7/48b862b8133da2e0ed091195028f0d45c4d0be0f7f23dbe046a767282f37/referencing-0.34.0.tar.gz"
+    sha256 "5773bd84ef41799a5a8ca72dc34590c041eb01bf9aa02632b4a973fb0181a844"
   end
 
   resource "requests" do
@@ -152,8 +152,8 @@ class Semgrep < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
-    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
+    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
+    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
   end
 
   resource "rpds-py" do
@@ -192,6 +192,10 @@ class Semgrep < Formula
   end
 
   def install
+    # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
+    # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     ENV.deparallelize
     Dir.mktmpdir("opamroot") do |opamroot|
       ENV["OPAMROOT"] = opamroot

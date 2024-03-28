@@ -23,7 +23,7 @@ class Squealer < Formula
       -s -w
       -X github.com/owenrumney/squealer/version.Version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/squealer"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/squealer"
   end
 
   test do

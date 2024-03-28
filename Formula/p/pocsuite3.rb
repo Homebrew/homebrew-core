@@ -9,19 +9,19 @@ class Pocsuite3 < Formula
   head "https://github.com/knownsec/pocsuite3.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "e57d2304e95dfd73e81689f277c15dc5e1b0a3e5ba82be63b0a1e73e11292cb9"
-    sha256 cellar: :any,                 arm64_ventura:  "292810d4b3cbf2bd9b3a8f0282f9cbc9e7c703f15fded3c0c763637f0d85c311"
-    sha256 cellar: :any,                 arm64_monterey: "9d2a39b318d0733c75f34bbcc1c62acbc3ab7a15fee6ac62b6a7357d8d573a83"
-    sha256 cellar: :any,                 sonoma:         "24a581de3b06e070708bf300b6242ccfb141124a87cf3ed2e706250f5ebc11df"
-    sha256 cellar: :any,                 ventura:        "85414de6bbd90aa81595f83608672720ce418aa32f0b835b8dd6a169e11572e6"
-    sha256 cellar: :any,                 monterey:       "451a727190abfddab624829b1aeadb111d2947baefbd90e34b8789047f40846e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4a5c015b4b69ee7849396f19a63242a4d67862287c620dde616a16f56b2ada6f"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "c1b2768db9229bc541b148c61d9ef2c60e76f28ea1a4d6de9f13f98d78fdbde9"
+    sha256 cellar: :any,                 arm64_ventura:  "b18dfc723b256ca4172c0af4754a11f2a333f21125723c4af263a88ab7d84e3c"
+    sha256 cellar: :any,                 arm64_monterey: "70321dbdcae4d86eb856e3594c98c9c5ffd28b0d762cb606cc20610360dab510"
+    sha256 cellar: :any,                 sonoma:         "1d286c8ec35bb7d68bee2eb859b603c019949b468ddb3cbbeb7c3cf3a52e96a9"
+    sha256 cellar: :any,                 ventura:        "651aaded70b264481421e8c49ca87d2874e9e85be8dc6850ce5981d890a43111"
+    sha256 cellar: :any,                 monterey:       "01e3c7d79a4bab49c95f01a4c0e798e5d356a2b1d94fd8b92fb9cf149247a367"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc8ba846dd907250e6324bf0c59c8caea94e3ee9e9231a4691176d87ec7b45fe"
   end
 
+  depends_on "certifi"
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-certifi"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
@@ -63,8 +63,8 @@ class Pocsuite3 < Formula
   end
 
   resource "faker" do
-    url "https://files.pythonhosted.org/packages/e3/4a/e6d8a070e5eb2528495df3fa88226afd5275dc6af67d81148f6172fe5577/Faker-23.2.1.tar.gz"
-    sha256 "f07b64d27f67b62c7f0536a72f47813015b3b51cd4664918454011094321e464"
+    url "https://files.pythonhosted.org/packages/31/4b/22a48749ffaf4d478192769d783233c37f00f0005d349dc6cf4da7003e3a/Faker-24.1.0.tar.gz"
+    sha256 "4fb0c16c71ad35d278a5fa7a4106a5c26c2b2b5c5efc47c1d67635db90b6071e"
   end
 
   resource "idna" do
@@ -113,8 +113,8 @@ class Pocsuite3 < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do
@@ -142,6 +142,11 @@ class Pocsuite3 < Formula
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
+
   resource "termcolor" do
     url "https://files.pythonhosted.org/packages/10/56/d7d66a84f96d804155f6ff2873d065368b25a07222a6fd51c4f24ef6d764/termcolor-2.4.0.tar.gz"
     sha256 "aab9e56047c8ac41ed798fa36d892a37aca6b3e9159f3e0c24bc64a9b3ac7b7a"
@@ -158,7 +163,11 @@ class Pocsuite3 < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # Multiple resources require `setuptools`, so it must be installed first
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resource("setuptools")
+    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install_and_link buildpath
   end
 
   test do

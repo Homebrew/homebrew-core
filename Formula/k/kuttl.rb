@@ -31,7 +31,7 @@ class Kuttl < Formula
       -X #{project}/pkg/version.buildDate=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(output: bin/"kubectl-kuttl", ldflags: ldflags), "./cmd/kubectl-kuttl"
+    system "go", "build", *std_go_args(output: bin/"kubectl-kuttl", ldflags:), "./cmd/kubectl-kuttl"
     generate_completions_from_executable(bin/"kubectl-kuttl", "completion", base_name: "kubectl-kuttl")
   end
 

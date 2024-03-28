@@ -1,12 +1,12 @@
 class Wgetpaste < Formula
   desc "Automate pasting to a number of pastebin services"
   homepage "https://wgetpaste.zlin.dk/"
-  url "https://github.com/zlin/wgetpaste/releases/download/2.33/wgetpaste-2.33.tar.xz"
-  sha256 "e9359d84a3a63bbbd128621535c5302f2e3a85e23a52200e81e8fab9b77e971b"
+  url "https://github.com/zlin/wgetpaste/releases/download/2.34/wgetpaste-2.34.tar.xz"
+  sha256 "bd6d06ed901a3d63c9c8c57126084ff0994f09901bfb1638b87953eac1e9433f"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e28f46fd5ff5ace39fab378e3e156ada2996420f9db32e78c5679f5b461fee16"
+    sha256 cellar: :any_skip_relocation, all: "19eda68054f097182aff7eefd0edd7cb34b02d1e380b74c01cc6523d5bbcd137"
   end
 
   depends_on "wget"

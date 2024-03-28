@@ -2,28 +2,27 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v4.9.3",
-      revision: "8d2b55ddde1bc81f43d018dfc1ac027c06b26a7f"
+      tag:      "v5.0.0",
+      revision: "e71ec6f1d94d2d97fb3afe08aae0d8adaf8bddf0"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "caa8b1c2158c4ea953fad9af9518cf6e45eb63148d94e7811dc7958bb557dbba"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c9a11c88a840d7fbcee519131a14fab5a937793a995f18656aff7a665d4e397a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2f7ac3a9c85792e71944ac0438853bc3b9025e8f38d95e9059fd6c2b5376234"
-    sha256 cellar: :any_skip_relocation, sonoma:         "37090270d1b5a337335bb0ba902206b3ffba1be263c1a842546bce1aa78abd96"
-    sha256 cellar: :any_skip_relocation, ventura:        "fa275c02f0bd0498f386db232125ba92cb0b7f01e50e4a92d155abf1129452a7"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec7d8e801449c19fcca858e43c23966f78b22460337fd6f501f6004aca4d1738"
-    sha256                               x86_64_linux:   "4791cc5e867224c7eff7ef8cccf697cc6a8f614aca112345947797f05ab33322"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "cf271c034cfbeb6efdd775ef33cde4ba4b8ba374aa09adf786fad690ed2a512c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "412df9d98404bfbb20ace905e4a178e6eaf417a3a410771baceba30ba180e5c1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "7d039d9694fffa63c4194eb01de49fa515f997146c0473366b8ec44ca7ec3b17"
+    sha256 cellar: :any_skip_relocation, ventura:       "2d9e97da57445e9710f2007805113f570a8653d7535a90e82387d7f7c01cb866"
+    sha256                               x86_64_linux:  "f8c9f2fb6749c1ca4a6808f8dcb0860a1d64cddac4ca4792236d632b0614e456"
   end
 
   depends_on "go" => :build
   depends_on "go-md2man" => :build
+  depends_on macos: :ventura # see discussions in https://github.com/containers/podman/issues/22121
   uses_from_macos "python" => :build
 
   on_macos do
     depends_on "make" => :build
-    depends_on "qemu"
   end
 
   on_linux do
@@ -182,8 +181,11 @@ class Podman < Formula
     assert_match "Cannot connect to Podman", out
 
     if OS.mac?
-      out = shell_output("#{bin}/podman-remote machine init --image-path fake-testi123 fake-testvm 2>&1", 125)
-      assert_match "Error: open fake-testi123: no such file or directory", out
+      # This test will fail if VM images are not built yet. Re-run after VM images are built if this is the case
+      # See https://github.com/Homebrew/homebrew-core/pull/166471
+      out = shell_output("#{bin}/podman-remote machine init homebrew-testvm")
+      assert_match "Machine init complete", out
+      system bin/"podman-remote", "machine", "rm", "-f", "homebrew-testvm"
     else
       assert_equal %W[
         #{bin}/podman

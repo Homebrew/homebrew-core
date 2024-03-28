@@ -1,9 +1,9 @@
 class Varnish < Formula
   desc "High-performance HTTP accelerator"
   homepage "https://www.varnish-cache.org/"
-  url "https://varnish-cache.org/_downloads/varnish-7.4.2.tgz"
-  mirror "https://fossies.org/linux/www/varnish-7.4.2.tgz"
-  sha256 "6d3d03c67514e6bb4e8584e40a381f51e708607d39337a63dc4ae42061d9a46f"
+  url "https://varnish-cache.org/_downloads/varnish-7.5.0.tgz"
+  mirror "https://fossies.org/linux/www/varnish-7.5.0.tgz"
+  sha256 "fca61b983139e1aac61c4546d12a1a3ab9807dbb1d8314571e3148c93ff72b5d"
   license "BSD-2-Clause"
 
   livecheck do
@@ -12,13 +12,13 @@ class Varnish < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "05ca605a315ea6a326c9abaf7037f794c58939fed838cc5078acd88f0ec8ddf6"
-    sha256 arm64_ventura:  "bb8f52011862abaf26f45082b11e44455747b64fad5998de980023bfdb701a42"
-    sha256 arm64_monterey: "2a1d0434bf0df77afaed7930f836c0f0247c2833c8d691f361754b8c8edd2cbb"
-    sha256 sonoma:         "f99ec704f81ef63bc861fd4306681a8ac58392c182813e41e435fad35d1d37ed"
-    sha256 ventura:        "bc1ab78a6465477ddf05aa268aa841ed8c352010c62a12c341d4fed79a6635d5"
-    sha256 monterey:       "54ef03c825b0677c218dceb588505c79b026492f55a8ef17c076707c40756f94"
-    sha256 x86_64_linux:   "5e3efd58286811d442ef30b836a17c6d46a1d10d931f7517afa56ba9deeb9cb2"
+    sha256 arm64_sonoma:   "19ea14064a64f0f97aafd32d9cbd8d491175361a542d1da53cded4f1ce619e2b"
+    sha256 arm64_ventura:  "86ca31bfa2855001c34ad80d64fb06bb6ca3ba2f61ad7426e5aa3dac447fc6e3"
+    sha256 arm64_monterey: "cba487b284034122c28f984717523ee7fd49331578891be98d2c4be44ea1c9ff"
+    sha256 sonoma:         "93db247c7ed7a724317e9c603042513de0c46d9b30f20427e8792fb15e3b0a02"
+    sha256 ventura:        "16716f5f300c79f909135864e574ef83c6c7950b5730555d20d02a00292621ab"
+    sha256 monterey:       "94ea6bff5a64531d33f9f8a968999ecaf8d88b5b5a8f3f2b27a8ac087d4397f2"
+    sha256 x86_64_linux:   "f01edf98aaf303d8b9c62d2fbcd89093cb810d1580995c37db6135f288037422"
   end
 
   depends_on "docutils" => :build

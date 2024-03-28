@@ -3,8 +3,8 @@ class Pgxnclient < Formula
 
   desc "Command-line client for the PostgreSQL Extension Network"
   homepage "https://pgxn.github.io/pgxnclient/"
-  url "https://github.com/pgxn/pgxnclient/archive/refs/tags/v1.3.2.tar.gz"
-  sha256 "0d02a91364346811ce4dbbfc2f543356dac559e4222a3131018c6570d32e592a"
+  url "https://files.pythonhosted.org/packages/54/3d/5eae61996702ce218548a98f6ccc930a80b1e4b09b7a8384b1a95129a9c2/pgxnclient-1.3.2.tar.gz"
+  sha256 "b0343e044b8d0044ff4be585ecce0147b1007db7ae8b12743bf222758a4ec7d9"
   license "BSD-3-Clause"
   revision 2
 
@@ -25,14 +25,9 @@ class Pgxnclient < Formula
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
   end
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    virtualenv_install_with_resources
-    site_packages = Language::Python.site_packages(python3)
-    inreplace libexec/site_packages/name/"__init__.py",
+    venv = virtualenv_install_with_resources
+    inreplace venv.site_packages/name/"__init__.py",
               "/usr/local/libexec/pgxnclient", HOMEBREW_PREFIX/"libexec/#{name}"
   end
 

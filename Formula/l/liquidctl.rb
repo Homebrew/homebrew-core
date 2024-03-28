@@ -9,17 +9,16 @@ class Liquidctl < Formula
   head "https://github.com/liquidctl/liquidctl.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "979321cdc22895d36f1e99f0b616ce095cbc476e80f29a760a30d36d613c8891"
-    sha256 cellar: :any,                 arm64_ventura:  "0a83c13630af30ec52110168f24eedabe8946501ece728633d633e795113c7b8"
-    sha256 cellar: :any,                 arm64_monterey: "865ffd2cdd6ec5616d7a20171e98034ff31dd9e0a0d037173629a80420dfe8f4"
-    sha256 cellar: :any,                 sonoma:         "349dce496c01ec5321b4e62841c29b6b766b92e7712fbe3fc0d7303fb14e9352"
-    sha256 cellar: :any,                 ventura:        "d9d7e17d6d44d73a3c1dbdd1fb3d6ba6d7dcb3650315c08b66691d93e14579ff"
-    sha256 cellar: :any,                 monterey:       "fa04016f8f34d03141ca59c3e58c8a20de84a21d76f2461f5b7578e21f75b8e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b90daad2f98669c64866ed4d1eccc1fe5611f766fd4491111691bec3844b1923"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "7c54bc0b938b78cef979fc14034c240929b954838e69bbc291f71c8e4cd8e54b"
+    sha256 cellar: :any,                 arm64_ventura:  "332a8e1cc4a9518c7c5195ffb5c3c8705f128091b7ad79d2f97f38195acfcf45"
+    sha256 cellar: :any,                 arm64_monterey: "85b3ce0085769094dc23c5f19e97f704ad3d4ac0cd6a01ebd679455bdb012fcd"
+    sha256 cellar: :any,                 sonoma:         "4d4edbbc35b6940d190a40a4f74106714b0196fc76629fa25cd04ac6d9561559"
+    sha256 cellar: :any,                 ventura:        "a606ae831d1bca34872b01bde1ca94c4e00fec533f3ba3914852621ad621e17a"
+    sha256 cellar: :any,                 monterey:       "98e5669050a2f30de6b80954dec7a4991ed313f5cc0662733940a2007439ae39"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3bb5a06123244c9a2ce837725ee1a1d62f5b5e1859a91ffd0f7c65f14f3041c3"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "hidapi"
   depends_on "libusb"
   depends_on "pillow"
@@ -30,8 +29,8 @@ class Liquidctl < Formula
   end
 
   resource "colorlog" do
-    url "https://files.pythonhosted.org/packages/78/6b/4e5481ddcdb9c255b2715f54c863629f1543e97bc8c309d1c5c131ad14f2/colorlog-6.7.0.tar.gz"
-    sha256 "bd94bd21c1e13fac7bd3153f4bc3a7dc0eb0974b8bc2fdf1a989e474f6e582e5"
+    url "https://files.pythonhosted.org/packages/db/38/2992ff192eaa7dd5a793f8b6570d6bbe887c4fbbf7e72702eb0a693a01c8/colorlog-6.8.2.tar.gz"
+    sha256 "3e3e079a41feb5a1b64f978b5ea4f46040a94f11f0e8bbb8261e3dbbeca64d44"
   end
 
   resource "crcmod" do
@@ -60,20 +59,23 @@ class Liquidctl < Formula
     sha256 "a4cc7404a203144754164b8b40994e2849fde1cfff06b08492f12fff9d9de7b9"
   end
 
-  def install
-    # customize liquidctl --version
-    ENV["DIST_NAME"] = "homebrew"
-    ENV["DIST_PACKAGE"] = "liquidctl #{version}"
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+  end
 
+  def install
     python3 = "python3.12"
     venv = virtualenv_create(libexec, python3)
 
+    # Use brewed hidadpi: https://github.com/trezor/cython-hidapi/issues/54
+    # TODO: For hidapi>0.14, replace with ENV["HIDAPI_SYSTEM_HIDAPI"] = ENV["HIDAPI_WITH_LIBUSB"] = "1"
     resource("hidapi").stage do
       inreplace "setup.py" do |s|
-        s.gsub! "/usr/include/libusb-1.0", "#{Formula["libusb"].opt_include}/libusb-1.0"
+        s.gsub! "system_hidapi = 0", "system_hidapi = 1"
         s.gsub! "/usr/include/hidapi", "#{Formula["hidapi"].opt_include}/hidapi"
       end
-      system python3, *Language::Python.setup_install_args(libexec, python3), "--with-system-hidapi"
+      venv.pip_install Pathname.pwd
     end
 
     venv.pip_install resources.reject { |r| r.name == "hidapi" }
@@ -82,7 +84,6 @@ class Liquidctl < Formula
     man_page = buildpath/"liquidctl.8"
     # setting the is_macos register to 1 adjusts the man page for macOS
     inreplace man_page, ".nr is_macos 0", ".nr is_macos 1" if OS.mac?
-    man.mkpath
     man8.install man_page
 
     (lib/"udev/rules.d").install Dir["extra/linux/*.rules"] if OS.linux?

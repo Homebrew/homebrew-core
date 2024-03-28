@@ -19,7 +19,7 @@ class Iocextract < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2318a0686892d3ff5714ba7bf814b84574ea888939212f4cf7655bbd7dff198"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   resource "charset-normalizer" do

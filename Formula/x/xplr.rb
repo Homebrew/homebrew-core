@@ -1,19 +1,19 @@
 class Xplr < Formula
   desc "Hackable, minimal, fast TUI file explorer"
   homepage "https://github.com/sayanarijit/xplr"
-  url "https://github.com/sayanarijit/xplr/archive/refs/tags/v0.21.5.tar.gz"
-  sha256 "c6e2b800888363c6d6101eafe585723a5bf9cc304cedff77a302c0e2a6d0a151"
+  url "https://github.com/sayanarijit/xplr/archive/refs/tags/v0.21.7.tar.gz"
+  sha256 "d38f94cc46044dac3cfc96d89dec81989b69a66a98c2f960ea3abe44313675a6"
   license "MIT"
   head "https://github.com/sayanarijit/xplr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d983a8db6be6c12d07ffe368eec9a31d6f748507a0034f63d8f7b8794f484ccb"
-    sha256 cellar: :any,                 arm64_ventura:  "dc5daebb3294ccb64053293da12d7262699934812f1dae43cd9e8b6ea2a84ab1"
-    sha256 cellar: :any,                 arm64_monterey: "d1dd3855ff3099c7c5b41ed93b68c5f9271f9475e6eed4f26d872b1d2111199a"
-    sha256 cellar: :any,                 sonoma:         "a089019f3c3d65e8ac9dfae5e1da9e8642f405a80309c10d42e63a238deb75d4"
-    sha256 cellar: :any,                 ventura:        "d9c4b7786b218413fac34063c1031cc87b2384ea460cca7b70bc06c2854cba14"
-    sha256 cellar: :any,                 monterey:       "0b6f202f477034c9ce36221f22e8423c57232f32773449e268a683c317739b20"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fec4a296ef77d536a944c9e591507ec46952ce2ea14c130fe57162c1f92c6de4"
+    sha256 cellar: :any,                 arm64_sonoma:   "f3666a6f4117fa680ac7424d3c6b3f6cf7a92bf96cf884c1490fd627010c0df1"
+    sha256 cellar: :any,                 arm64_ventura:  "c645f6c3d7ff3e6ca29837e7e6b57a5d222f5fe77e2b4094d3c7670fc1342440"
+    sha256 cellar: :any,                 arm64_monterey: "d0b55b103b10a774b46448ac996be574b0fc4a530522aab9d122016014ffd7dc"
+    sha256 cellar: :any,                 sonoma:         "a1b71054003b61f1fbd94dd58df36745ba0c5a492a4f3dae35ed854682f966a4"
+    sha256 cellar: :any,                 ventura:        "99f8987aab4128368ed62b733a35e0f296d1cca3e0f8309cc484ecef9e6010e7"
+    sha256 cellar: :any,                 monterey:       "c3025a4aa9607069ba5f7c464a352f8adc9450efcd3f7cfb16112c1e50286bec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b76fe0e71bd844dcd6a6943d0841bb77b71480d47948f26ed584d89ff159872e"
   end
 
   depends_on "pkg-config" => :build
@@ -56,13 +56,13 @@ end
 
 __END__
 diff --git a/Cargo.toml b/Cargo.toml
-index 48bd3e1..69cdd17 100644
+index 6c50de0..953d578 100644
 --- a/Cargo.toml
 +++ b/Cargo.toml
 @@ -73,7 +73,7 @@ features = ['serde']
  
  [dependencies.mlua]
- version = "0.9.2"
+ version = "0.9.6"
 -features = ['luajit', 'vendored', 'serialize', 'send']
 +features = ['luajit', 'serialize', 'send']
  

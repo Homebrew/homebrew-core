@@ -25,7 +25,7 @@ class Pgrok < Formula
       -X main.date=#{time.iso8601}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "./pgrok/cli"
+    system "go", "build", *std_go_args(ldflags:), "./pgrok/cli"
 
     etc.install "pgrok.example.yml"
   end

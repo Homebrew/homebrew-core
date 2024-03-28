@@ -23,7 +23,7 @@ class Ots < Formula
 
   def install
     ldflags = "-s -w -X github.com/sniptt-official/ots/build.Version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"ots", "completion")
   end

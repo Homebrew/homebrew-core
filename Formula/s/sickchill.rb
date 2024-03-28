@@ -8,17 +8,18 @@ class Sickchill < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2166c7af8db9e100863064210a48c6e3c75c4e7a7fa48d9a178a2d5c2fdcf42d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e697fcd45ddbda231915bcfa276c3896ca105c8fd49675078ba12bbeb26c79f9"
-    sha256 cellar: :any,                 arm64_monterey: "2e8e564ebeb651c90671644c491050815a28c32f799c2e45d15531f2c4fe4f6c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "67bcc0cbd4448ea3b1c44f65ed8e64511f5b58920d37af0e3aa61a6a61649792"
-    sha256 cellar: :any_skip_relocation, ventura:        "048ca54cef8b86546d69306c06ecf4f6402b9b362ba7783f7ccb671570cca806"
-    sha256 cellar: :any,                 monterey:       "9c9c36235d86700cd43f9810108240a29fe5ccd82e8ea80ed677fd7e8e3f7703"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c2289f697ffcc643da6c2d19987e36a8286e9d38b532f8da7072b1a8b51c11b8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ca63d4eadaf57c83b555b06d053c820e301127790f74d274363f898798e805cc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1c7b3a360dc2ed4f29b760f4aec808c1fe4c9799af68212209b9d548d3e0a58a"
+    sha256 cellar: :any,                 arm64_monterey: "d0c69a836838a645b7bbd30cc4b2728fb20d04d4bd7c897314485cd28af607cb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "71464ac6e7667f48af74add021d7e189e1529d9e7ea2ee7cbf3681fc565a18d6"
+    sha256 cellar: :any_skip_relocation, ventura:        "31379000bdb110072b7e8fbd4859527d077e1686a3fef19d6bed162d5e76127c"
+    sha256 cellar: :any,                 monterey:       "d20d22d4dd6c676e1f1764630b900472ba22277c77cd22dad3e140fb428d105b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c46daf35ab5d87a83b5a38e1717360e849999a3bf9db65fe1b38bed51e65481c"
   end
 
-  depends_on "python-certifi"
-  depends_on "python-cryptography"
+  depends_on "certifi"
+  depends_on "cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura
@@ -274,6 +275,11 @@ class Sickchill < Formula
     sha256 "c132d59fa44b9ca2b1699af5c86f57ce9f4c5eb56629d5d55fbb7a35f84e2312"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
+    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+  end
+
   resource "six" do
     url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
     sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
@@ -361,7 +367,11 @@ class Sickchill < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    # Multiple resources require `setuptools`, so it must be installed first
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resource("setuptools")
+    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install_and_link buildpath
   end
 
   service do

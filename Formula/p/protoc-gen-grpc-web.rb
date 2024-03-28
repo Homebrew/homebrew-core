@@ -8,19 +8,21 @@ class ProtocGenGrpcWeb < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5ab0ae27b604ea0dbec2c4b3148a4fca8d53f0010ce9f1dd566bb22fcafc24f0"
-    sha256 cellar: :any,                 arm64_ventura:  "ba446addb28734a91b4236a52dd8b17e9be933d90bd0bd6a1eac37368f64e023"
-    sha256 cellar: :any,                 arm64_monterey: "57a3d2185dc31f48a53ef3ce0f3ec32fc3fcc22d72774a2cb1f1cbb4ba38e278"
-    sha256 cellar: :any,                 sonoma:         "b4d8f1ba3299e952a09e5822df7dcf1571a731899e74198bad7810afdd9b8ab4"
-    sha256 cellar: :any,                 ventura:        "7afe339c30a097798f4863d24e5dbac7452ea85c918651478ba3bfc7fe2680b3"
-    sha256 cellar: :any,                 monterey:       "50076fd59b916ccc38cec5b4b7f0b1c43bc902aa47a2e12175b6efec80217984"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b2cb5155debaa31e15a2f385298a09aca0f6041d7da2bc2612c73ad7deb33e80"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "b89aa0ba6730eaad8968e03c7cdabdc8de90f56f841bebb0ba8d72d1753065ee"
+    sha256 cellar: :any,                 arm64_ventura:  "b473d8ad0f6cafd1332fae6a53f19d4b1e9d1bd18e474610d954e63bdec13a66"
+    sha256 cellar: :any,                 arm64_monterey: "17d9fb48ecfd5d783335352b4c4542f33b2030a0ddc28a8c97cf25129453c112"
+    sha256 cellar: :any,                 sonoma:         "c889676f319943872be69fb44187852f9d2e16ddde51587ab5bf73e93b158ca3"
+    sha256 cellar: :any,                 ventura:        "e891721d95f76ea73be1cbcae6707ea6bf8b404668f5760d34c5db0ae074fe29"
+    sha256 cellar: :any,                 monterey:       "3f34b457d37d16e122b65bc2941432470cb45b0598f5ea8226fad6e1cd1ce3d1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "066c224c130c3a628c49551eac976a0bd4eea89314bc9195b31b13d3892f1160"
   end
 
   depends_on "cmake" => :build
   depends_on "node" => :test
   depends_on "typescript" => :test
-  depends_on "protobuf@3"
+  depends_on "protobuf@21"
+  depends_on "protoc-gen-js"
 
   def install
     bin.mkpath
@@ -29,11 +31,11 @@ class ProtocGenGrpcWeb < Formula
     # Remove these two lines when this formula depends on unversioned `protobuf`.
     libexec.install bin/"protoc-gen-grpc-web"
     (bin/"protoc-gen-grpc-web").write_env_script libexec/"protoc-gen-grpc-web",
-                                                 PATH: "#{Formula["protobuf@3"].opt_bin}:${PATH}"
+                                                 PATH: "#{Formula["protobuf@21"].opt_bin}:${PATH}"
   end
 
   test do
-    ENV.prepend_path "PATH", Formula["protobuf@3"].opt_bin
+    ENV.prepend_path "PATH", Formula["protobuf@21"].opt_bin
 
     # First use the plugin to generate the files.
     testdata = <<~EOS

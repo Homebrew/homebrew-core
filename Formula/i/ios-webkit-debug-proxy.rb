@@ -4,18 +4,16 @@ class IosWebkitDebugProxy < Formula
   url "https://github.com/google/ios-webkit-debug-proxy/archive/refs/tags/v1.9.0.tar.gz"
   sha256 "ba9bb2feaa976ad999e9e405d8cd8794cdf3546130a79f4785235200ead3c96c"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/google/ios-webkit-debug-proxy.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "7bed3aa738aa0b55c4a923571d1cb6d7dece8c36a40c689763b6d808ca5fd096"
-    sha256 cellar: :any, arm64_ventura:  "2e15e2507a76e76bac5b808e5a312dee84534081d3b61ed9b0e6cd6064de41d7"
-    sha256 cellar: :any, arm64_monterey: "6e2de52a77bb737e611b61efcb6a3990daaa177f1b464e1ca9aa6bb067f6b10b"
-    sha256 cellar: :any, arm64_big_sur:  "cb9b1101f02036e9fff4bd42dc85184726f579f8781ae77b5ab6f63a4e8e0318"
-    sha256 cellar: :any, sonoma:         "abc303428415287a41b121c5c6525f12e6f80227ac27ed47d8069715fabcc633"
-    sha256 cellar: :any, ventura:        "318c0dc88e175fea4de51f1d34c33fd28547d8cdbc13530fece81069ef3d8181"
-    sha256 cellar: :any, monterey:       "0380d81a70ec66f0cac1c1c86a71dc82a3d93fbfffbba49ac5435389855dd508"
-    sha256 cellar: :any, big_sur:        "07ebc21b39e195a83a93240d74432e882ca31618b4efe9805c39da194035271f"
+    sha256 cellar: :any, arm64_sonoma:   "8dc0f73b25236a393fb22ab7270c01e68f5c81b427c585d4db9dee46eb174175"
+    sha256 cellar: :any, arm64_ventura:  "0f63f9da6972e048bb58c4f9ba0d0f3f398cc24225d61f29ddf6115e9648c971"
+    sha256 cellar: :any, arm64_monterey: "7653d218ca09eabd015e45906349343ba592a8922754955af5ffacea2b60e10b"
+    sha256 cellar: :any, sonoma:         "5d57060e448a2a42623057be6b7b0589ae43350edccd0382e6cbc373c66f412f"
+    sha256 cellar: :any, ventura:        "c50a7c3caff3cf42f6891360d1bb483605e9c03f4fa96dcc62a7bcc9968f9ea1"
+    sha256 cellar: :any, monterey:       "0b78423dfa30ed941450cfb746e71f710d375d5c75ed5ccd1cf87ec8c508adbd"
   end
 
   depends_on "autoconf" => :build

@@ -25,7 +25,7 @@ class VulsioGost < Formula
       -X github.com/vulsio/gost/config.Version=#{version}
       -X github.com/vulsio/gost/config.Revision=#{tap.user}
     ]
-    system "go", "build", *std_go_args(output: bin/"gost", ldflags: ldflags)
+    system "go", "build", *std_go_args(output: bin/"gost", ldflags:)
 
     generate_completions_from_executable(bin/"gost", "completion", base_name: "gost")
   end

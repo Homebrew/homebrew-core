@@ -1,10 +1,9 @@
 class Geeqie < Formula
   desc "Lightweight Gtk+ based image viewer"
   homepage "https://www.geeqie.org/"
-  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.2/geeqie-2.2.tar.xz"
-  sha256 "899ac33b801e0e83380f79e9094bc2615234730ccf6a02d93fd6da3e6f8cfe94"
+  url "https://github.com/BestImageViewer/geeqie/releases/download/v2.4/geeqie-2.4.tar.xz"
+  sha256 "f2b7d1290786fdd1afec09bbe0217f327ff1ee7c80363563e8a108d03aec77da"
   license "GPL-2.0-or-later"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +11,13 @@ class Geeqie < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "d4a3771aea12c87fce802264773618c30a640e4a78fd959092d801ae36b6aa41"
-    sha256 cellar: :any, arm64_ventura:  "35cfa3654f4fb946f235e9313352daa1b080d3e88c4db8de0272e7e6868bd3e7"
-    sha256 cellar: :any, arm64_monterey: "d7642af283fd54acd659f2f32a6406cc341ed0093ab23420ee5c390ef67b6662"
-    sha256 cellar: :any, sonoma:         "410f1b8f968e12018f9096a5ab6954b413303ae5e1d12fc2504cf6cab0e9e691"
-    sha256 cellar: :any, ventura:        "9053afa0e733d30010de12e2b4126a21859b815432bed0f701e654fe2109dbcd"
-    sha256 cellar: :any, monterey:       "1067c13a4b5acf7251cebe6c7ecbbbaacaff8d190586e77dee8a676e266b3c6e"
-    sha256               x86_64_linux:   "9913aaa086139df79c834368dcaf6904eb40abc3903314616d25ae8a35050fc5"
+    sha256 cellar: :any, arm64_sonoma:   "f4b5b7ab7d532f9ffd874084a95dfcc9fe72e97fc99268f2d2e6dbbbb2c46494"
+    sha256 cellar: :any, arm64_ventura:  "339ff3d55396d64b25fe06f2d0ac9aa9227860ffc9580e2e3f97f60bc9424c01"
+    sha256 cellar: :any, arm64_monterey: "eac604d18c097e6ead04402af97208018ae0bfbbdce2fa6611c37ec251a872aa"
+    sha256 cellar: :any, sonoma:         "1a61c133caf1bb8053bf0f7fcd721b70b31edeac453cfd461f6d811f075d6e82"
+    sha256 cellar: :any, ventura:        "ff8c7decf730f08851b01d817eee846a8090b9bc7971893785e15320f0bc5193"
+    sha256 cellar: :any, monterey:       "e47bcf35bc04c406d80e37633357668e89eefd803b04091020c770386543cf4d"
+    sha256               x86_64_linux:   "f0ead1a37d0842bb95b63fba36b56f3ea2668f017b70f10f5467586819ca3600"
   end
 
   depends_on "meson" => :build

@@ -1,20 +1,18 @@
 class Lndir < Formula
   desc "Create a shadow directory of symbolic links to another directory tree"
   homepage "https://gitlab.freedesktop.org/xorg/util/lndir"
-  url "https://www.x.org/releases/individual/util/lndir-1.0.4.tar.xz"
-  sha256 "3e3437a9d3bb377755dd04a2c90d4c014d9fe90987ff73450bf5b8d161795e87"
+  url "https://www.x.org/releases/individual/util/lndir-1.0.5.tar.xz"
+  sha256 "3b65577a5575cce095664f5492164a96941800fe6290a123731d47f3e7104ddb"
   license "MIT-open-group"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e4695bf02700af85df133938ab7a77bd072b20fbbb45a32a8a932abfcf780c1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a5c7d4f242366bf8afbf3809b78990ce87a799cdc488fc355be66234db59b050"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ea6bce461d8190d2bae28551e5e69dab707e32b1ca6ab819357cb5fabee6bc3"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "06b4a47c1037873c6ac8c672feb55d1642b731fc8b80ab176a6c527a6f433d47"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4bebd4352e7f4c7a264b4a1bdeaafa97e5211f7925ce8f501392b0d333157b56"
-    sha256 cellar: :any_skip_relocation, ventura:        "5b2b016409ca45aa7d5b791083149ad6c6413e31be5ab26ea1e0fe273f509487"
-    sha256 cellar: :any_skip_relocation, monterey:       "20bcdd3644f291c4d2f8db100b767c7b30f6c5e8d0a758ad83197d7b9aa2d44a"
-    sha256 cellar: :any_skip_relocation, big_sur:        "2c946743e35996f67404220ded67d5f82a9ef6913ad63cf0a8f9cc79d6b4fd9c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7d07d2eb839baf3a80d5980b864ff61a7f2e8c095dc2d3add559837aad49eeb"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b81f2833d3ba3403ff4827293c28af1770b455766d407f4541c9b950b8298085"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0c6d45c23ed0b7b0db075165b1d86ee34add3e07c60149d2153dd57987a1a2e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5de50a05e4ae19512b58bcda8dc8552f9fa4c6cc62dcedd928b583b0638c5d8b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0775ac61f0fa93c88554dc25c9e0f040fca75acb151b1cdc93b08004c6ee633c"
+    sha256 cellar: :any_skip_relocation, ventura:        "375be2c049506f9b438a76ebb32e971d7cc481d5be857ab94052ccfc93f185bf"
+    sha256 cellar: :any_skip_relocation, monterey:       "b2ee287f8e0a07e6afb468a63ae4a053a532620fcf78348bc9363de5bc9969a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecf4313dfc583a1197e94925c502cdfe08d777e5aead7dd44bc3ab360f9c8b3d"
   end
 
   depends_on "pkg-config" => :build

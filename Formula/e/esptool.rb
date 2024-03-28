@@ -18,8 +18,8 @@ class Esptool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cced5d363875bafac5c656ca7500ba4dad28c1ce67a14a2b0db7af77dde1e95"
   end
 
+  depends_on "cryptography"
   depends_on "libyaml"
-  depends_on "python-cryptography"
   depends_on "python@3.12"
 
   resource "bitarray" do

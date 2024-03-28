@@ -19,6 +19,8 @@ class Tm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "58105d9cd50de7d0aa4e130051b6819670acbb2c53702ed9c783d90f92b610ff"
   end
 
+  deprecate! date: "2024-03-15", because: :repo_archived
+
   depends_on "go" => :build
 
   def install
@@ -27,7 +29,7 @@ class Tm < Formula
       -X github.com/triggermesh/tm/cmd.version=v#{version}
     ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

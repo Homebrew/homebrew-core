@@ -1,18 +1,18 @@
 class Libpanel < Formula
   desc "Dock/panel library for GTK 4"
   homepage "https://gitlab.gnome.org/GNOME/libpanel"
-  url "https://download.gnome.org/sources/libpanel/1.4/libpanel-1.4.1.tar.xz"
-  sha256 "98410d00e734857ecdf33b9a20dd7b0fb38d8b6d31d4369bafc1c67392abb9de"
+  url "https://download.gnome.org/sources/libpanel/1.6/libpanel-1.6.0.tar.xz"
+  sha256 "b773494a3c69300345cd8e27027448d1189183026cc137802f886417c6ea30b6"
   license "LGPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "120b4c621c892fde5c6ca6982f110dd132183bbef076eefe6d526ec0024d1ee3"
-    sha256 arm64_ventura:  "9ec9352b07954b6f0eec5d93edb45c5d75843e48740cb45ecf2899da27029ccb"
-    sha256 arm64_monterey: "d13b7481537236142611a235349c53896b496615ddbe4f167aef28139274ff84"
-    sha256 sonoma:         "c375c1347d3f9eda58a35c04b8ed30044131a45902b237a0a775040757666a37"
-    sha256 ventura:        "a89e901c96af5e75b8a8459add6255fecb172c60ef9014b722b6170c8d280cb0"
-    sha256 monterey:       "f444f4da57f81ad818157adc7c5b5b4f8e06fff8dbeccbc73c4425502c222b0a"
-    sha256 x86_64_linux:   "d12b946e63caaef9c24b81b07e74e0a5b612337241aceba3511681b2aeb580a1"
+    sha256 arm64_sonoma:   "f128a9f64a77bf5cd52335cf1bdbca30d5c5d72c4ab50db59381817e63b2e199"
+    sha256 arm64_ventura:  "2690f378bfe0dca66e25e5ba37df69c79059fca808fb4a33e1e4a0a11883da17"
+    sha256 arm64_monterey: "db427b5bd6ec77fe44a009b73b6a8b4a05c038674177f370a274bf0b221b5b9e"
+    sha256 sonoma:         "2184f1d539a8861ef0dc83942b0c57aa61747a2f1deea7f634eeecec623b8f44"
+    sha256 ventura:        "aadc359a7f15b4c3b2dffd9080e7a60d9358daa00c912cad5544b05566aefc75"
+    sha256 monterey:       "473b09c921351aa3de20e02546b2eadc395f91291fab6a5df01911b82896851d"
+    sha256 x86_64_linux:   "3fc32643880bc018a9f829ebbf34038b66ba5231c333fcaa956a8b5289e06ff9"
   end
 
   depends_on "gettext" => :build

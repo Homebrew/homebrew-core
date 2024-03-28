@@ -6,22 +6,22 @@ class Pwntools < Formula
   url "https://files.pythonhosted.org/packages/09/cb/82243a56a8b92451d97ad1792e67cbe8dbc9f9dec2a869a58839993ccca4/pwntools-4.12.0.tar.gz"
   sha256 "320285bd9266152fdba3b81de3a31e61a25076645507a38d85f34e1b15998eb1"
   license "MIT"
+  revision 1
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "8fa64ea8118309a4d5d91972e09cadc0f51edd566a2d6b88695533b92947c244"
-    sha256 cellar: :any,                 arm64_ventura:  "7e41b5836f38f0fa8ab580d93b0be6ded001a34dd69ca2f0e858cc334c09ad57"
-    sha256 cellar: :any,                 arm64_monterey: "e4edbb8567208fd0399f892cf82904ce4a9ac36bb8acab97e920e4964bb25816"
-    sha256 cellar: :any,                 sonoma:         "4a2d884362c0099a27558b34d8012337875e9cecf0dfc6dde0dae55e64e96f98"
-    sha256 cellar: :any,                 ventura:        "246795ceb732e3bc3cbdd6ca66df10129e2a47354fa36fd65ced22a5c5adddfb"
-    sha256 cellar: :any,                 monterey:       "7ac4d34f98c5983ea97362d65474ce24c25a6be683396cd0fb493f81c2d7d04c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3be9611022bf969cb7429ef340d56024b4a82a653c9cefd0fc2922bda1bc373f"
+    sha256 cellar: :any,                 arm64_sonoma:   "f7e60aca87334999205f4f2e568047dc0f16f9c8c85ffed5d750f66b60af15e1"
+    sha256 cellar: :any,                 arm64_ventura:  "f6da70e1448b8702dd2eeb960b32adbedbb4f750f137f81a75dea6c696959d0c"
+    sha256 cellar: :any,                 arm64_monterey: "4d4d8b841b9025e3750316b4480207f67da18592b692321b4ce0edf67da9fc39"
+    sha256 cellar: :any,                 sonoma:         "f52a83f3768d36a03b353f3b89ba67fde118e5b3a480249bb4a2f4cc5b6d001d"
+    sha256 cellar: :any,                 ventura:        "7119f13a9080e699f70be35517cb029e48f01c1b51ca25cfe6a7b37356da546a"
+    sha256 cellar: :any,                 monterey:       "be102d8aed5b216e95b8f08a22cd7958567bc7c4c38e0a6d0934d39bb54c88b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95254a6db181bf7e4b958a47a7c6ea0b5462ef6fb62ba24463ae099497772d12"
   end
 
   depends_on "rust" => :build # for bcrypt
-  depends_on "python-certifi"
-  depends_on "python-cryptography"
+  depends_on "certifi"
+  depends_on "cryptography"
   depends_on "python@3.12"
 
   uses_from_macos "libffi"
@@ -114,8 +114,8 @@ class Pwntools < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "requests" do
@@ -129,8 +129,8 @@ class Pwntools < Formula
   end
 
   resource "rpyc" do
-    url "https://files.pythonhosted.org/packages/0f/e0/a584823afecc5d8a0c18c46da4e028876e3e34946e6e3b2c3d430cd19b18/rpyc-5.3.1.tar.gz"
-    sha256 "f2233174879faf18ae266437d5a65511ce46c817cec4edc1344f036758cfbf52"
+    url "https://files.pythonhosted.org/packages/9a/13/ba2fd171ab860cbc5f69a6c5b60153d8948fefb5890abb8ac54aead607a9/rpyc-6.0.0.tar.gz"
+    sha256 "a7e12b31f40978cbd6b74e0b713da389d4b2565cef612adcb0f4b41aeb188230"
   end
 
   resource "six" do

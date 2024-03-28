@@ -28,7 +28,7 @@ class Kn < Formula
       -X knative.dev/client/pkg/kn/commands/version.BuildDate=#{time.iso8601}
     ]
 
-    system "go", "build", "-mod=vendor", *std_go_args(ldflags: ldflags), "./cmd/..."
+    system "go", "build", "-mod=vendor", *std_go_args(ldflags:), "./cmd/..."
 
     generate_completions_from_executable(bin/"kn", "completion", shells: [:bash, :zsh])
   end

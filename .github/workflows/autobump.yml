@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - '.github/workflows/*.ya?ml'
+      - .github/workflows/autobump.yml
   workflow_dispatch:
     inputs:
       formulae:

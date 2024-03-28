@@ -19,7 +19,7 @@ class BandcampDl < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c5bf42d56da20b6a677d5ebf42d03696641dcff32f6a44085019931f6794814"
   end
 
-  depends_on "python-certifi"
+  depends_on "certifi"
   depends_on "python@3.12"
 
   uses_from_macos "libxml2", since: :ventura

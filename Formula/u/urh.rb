@@ -9,37 +9,42 @@ class Urh < Formula
   head "https://github.com/jopohl/urh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "85926c282e7134110066411902d8493f51e4b600c9928d23942cb0ef26414158"
-    sha256 cellar: :any,                 arm64_ventura:  "13af4a878b54ccff9770d1861c284aaff23c1a40c080a4d3218686089d71eb2e"
-    sha256 cellar: :any,                 arm64_monterey: "58be3a1068075e6306a3da6e1ba0562fa68c2052d6c8123bad7a08f3d2d0aab8"
-    sha256 cellar: :any,                 sonoma:         "ae4ebd2a4d3a2c4ace6d2622a009223e29907e966512192594b9e856da0d95f1"
-    sha256 cellar: :any,                 ventura:        "2e5758f7276bcb3647458e0ff86cbd181142ec762c959fc9a12abdd3a407088d"
-    sha256 cellar: :any,                 monterey:       "7f4e434d39bab2752b16e629a71ff6f61bd776534c4053faed81e8f9029f24db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6753b0fdbd9b3e1a5419aecb36f0b3feacd6e0d1ca80b8783a252a86602b1fef"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "1c761ec24000722b26f2eaaa1c8a890055822edc33e2fb481ae8abe846d9959d"
+    sha256 cellar: :any,                 arm64_ventura:  "b33b6e7a84bcf08bde5797d303b7592ce7b3b34f6ee80f511cc4b7c6a7cd5ca3"
+    sha256 cellar: :any,                 arm64_monterey: "6aaa6bc8354d35293cce98a2df7f352bab19c9e438cfbfcef5a553c6afc14b56"
+    sha256 cellar: :any,                 sonoma:         "a0e7c188e5fd345937d649d9d0ef0c2cd07e1a7469c46fb84df1dd427e860346"
+    sha256 cellar: :any,                 ventura:        "f2c34d221304bb3ad6aeb5a17296ea81db57034d71a2ef20354e2fa78f23b077"
+    sha256 cellar: :any,                 monterey:       "15f815e7131230718efe6ace156afd9bd70d1065ac22bae2875a902e8bf8e34d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b1977bc5ba714adfac0933a38415d8d22ec690d48cb237f3338d6aacfdcdc0a7"
   end
 
   depends_on "pkg-config" => :build
   depends_on "hackrf"
-  depends_on "libcython"
   depends_on "numpy"
   depends_on "pyqt@5"
-  depends_on "python-psutil"
-  depends_on "python-setuptools"
   depends_on "python@3.12"
 
+  resource "cython" do
+    url "https://files.pythonhosted.org/packages/2a/97/8cc3fe7c6de4796921236a64d00ca8a95565772e57f0d3caae68d880b592/Cython-0.29.37.tar.gz"
+    sha256 "f813d4a6dd94adee5d4ff266191d1d95bf6d4164a4facc535422c021b2504cfb"
+  end
+
+  resource "psutil" do
+    url "https://files.pythonhosted.org/packages/90/c7/6dc0a455d111f68ee43f27793971cf03fe29b6ef972042549db29eec39a2/psutil-5.9.8.tar.gz"
+    sha256 "6be126e3225486dff286a8fb9a06246a5253f4c7c53b475ea5f5ac934e64194c"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+  end
+
   def install
-    python3 = "python3.12"
-
-    # Enable finding cython, which is keg-only
-    site_packages = Language::Python.site_packages(python3)
-    pth_contents = <<~EOS
-      import site; site.addsitedir('#{Formula["libcython"].opt_libexec/site_packages}')
-    EOS
-    (libexec/site_packages/"homebrew-libcython.pth").write pth_contents
-
-    # We disable build isolation to avoid trying to build another numpy for build-only usage.
-    # We can replace the virtualenv with pip install if we decide to link `libcython`.
-    venv = virtualenv_create(libexec, python3)
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resources
+    # Need to disable build isolation and install Setuptools since `urh` only
+    # has a setup.py which assumes Cython and Setuptools are already installed
     venv.pip_install_and_link(buildpath, build_isolation: false)
   end
 

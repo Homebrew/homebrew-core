@@ -1,10 +1,9 @@
 class PythonAT38 < Formula
   desc "Interpreted, interactive, object-oriented programming language"
   homepage "https://www.python.org/"
-  url "https://www.python.org/ftp/python/3.8.18/Python-3.8.18.tar.xz"
-  sha256 "3ffb71cd349a326ba7b2fadc7e7df86ba577dd9c4917e52a8401adbda7405e3f"
+  url "https://www.python.org/ftp/python/3.8.19/Python-3.8.19.tar.xz"
+  sha256 "d2807ac69f69b84fd46a0b93bbd02a4fa48d3e70f4b2835ff0f72a2885040076"
   license "Python-2.0"
-  revision 2
 
   livecheck do
     url "https://www.python.org/ftp/python/"
@@ -12,13 +11,13 @@ class PythonAT38 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "7ece56b07ccab539bb1d340dfc7f41573ab392bbde678dabd1425af1b0b472fc"
-    sha256 arm64_ventura:  "768ef87b6156371315a2ed803945df259ec8e1b4d55317f786e812dd27444610"
-    sha256 arm64_monterey: "f13f7bea7fb4021510a971f5d70f90c43798bf5d9a666e073762d17f2d28ac51"
-    sha256 sonoma:         "cb252c20abf616aabc0dbee2e4a49b71a784effe8350eb2356fdf1a7fc044e5e"
-    sha256 ventura:        "6206fa8ddbdfa261c44e56ca602f5c3b4318506ad6f1f5af5f2dc4afef941c7f"
-    sha256 monterey:       "66d3dd50cb782da9be63621c8daeeefabd9bc3830c1944ccce6a1ef754e27fb7"
-    sha256 x86_64_linux:   "07cd581511827e641c540d293a2c7362ce80a172e58692c11f09033af5b3a9f8"
+    sha256 arm64_sonoma:   "d09f8b721bce845fb4442c2fe463f693ba301c1b6de900557aa3f0f91e33dff2"
+    sha256 arm64_ventura:  "c69c13474e19eaaa99bb259bb350b992c6e882bfa47c662105109bd17bb0f329"
+    sha256 arm64_monterey: "7b9cde42d8d02cf45416c444a874f63df7d2de315eebe158ac8a30bde2652b97"
+    sha256 sonoma:         "92aed4e22e09a4aea102d31b174f9bea7d4022d4a401a2c5821bc146f801a2b8"
+    sha256 ventura:        "b2d965f8246e14049fc2f074d4085fa0bd66d9fda7a03afb7d838236158816d7"
+    sha256 monterey:       "a4e974c34845544e02eb0f952a3ad5e8a0d238a57f3c31c8ee07687d432a2cdb"
+    sha256 x86_64_linux:   "ec186f971b5de1a11c2255124ad7f8056f2723074f0217b84e8861faa5b1bb10"
   end
 
   # setuptools remembers the build flags python is built with and uses them to
@@ -55,18 +54,18 @@ class PythonAT38 < Formula
 
   # Always update to latest release
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/1f/7f/4da15e07ccd11c84c1ccc8f6e24288d5e76c99441bf80e315b33542db951/pip-23.3.1.tar.gz"
-    sha256 "1fcaa041308d01f14575f6d0d2ea4b75a3e2871fe4f9c694976f908768e14174"
+    url "https://files.pythonhosted.org/packages/94/59/6638090c25e9bc4ce0c42817b5a234e183872a1129735a9330c472cc2056/pip-24.0.tar.gz"
+    sha256 "ea9bd1a847e8c5774a5777bb398c19e80bcd4e2aa16a4b301b718fe6f593aba2"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/ef/cc/93f7213b2ab5ed383f98ce8020e632ef256b406b8569606c3f160ed8e1c9/setuptools-68.2.2.tar.gz"
-    sha256 "4ac1475276d2f1c48684874089fefcd83bd7162ddaafb81fac866ba0db282a87"
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   resource "wheel" do
-    url "https://files.pythonhosted.org/packages/fb/d0/0b4c18a0b85c20233b0c3bc33f792aefd7f12a5832b4da77419949ff6fd9/wheel-0.41.3.tar.gz"
-    sha256 "4d4987ce51a49370ea65c0bfd2234e8ce80a12780820d9dc462597a6e60d0841"
+    url "https://files.pythonhosted.org/packages/b8/d6/ac9cd92ea2ad502ff7c1ab683806a9deb34711a1e2bd8a59814e8fc27e69/wheel-0.43.0.tar.gz"
+    sha256 "465ef92c69fa5c5da2d1cf8ac40559a8c940886afcef87dcf14b9470862f1d85"
   end
 
   # Link against libmpdec.so.3, update for mpdecimal.h symbol cleanup.

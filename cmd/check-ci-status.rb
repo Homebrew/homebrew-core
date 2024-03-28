@@ -62,13 +62,13 @@ module Homebrew
 
     owner, name = ENV.fetch("GITHUB_REPOSITORY").split("/")
     variables = {
-      owner: owner,
-      name:  name,
+      owner:,
+      name:,
       pr:    pull_request,
     }
     odebug "Checking CI status for #{owner}/#{name}##{pull_request}..."
 
-    response = GitHub::API.open_graphql(GRAPHQL_WORKFLOW_RUN_QUERY, variables: variables, scopes: ["repo"].freeze)
+    response = GitHub::API.open_graphql(GRAPHQL_WORKFLOW_RUN_QUERY, variables:, scopes: ["repo"].freeze)
     commit_node = response.dig("repository", "pullRequest", "commits", "nodes", 0)
     check_suite_nodes = commit_node.dig("commit", "checkSuites", "nodes")
     ci_nodes = check_suite_nodes.select do |node|

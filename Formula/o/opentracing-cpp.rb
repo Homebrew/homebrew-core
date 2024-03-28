@@ -20,6 +20,8 @@ class OpentracingCpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "77f61d48bdd3ed6cc866a9a1da22fa9ca861a67b3aa253e7bd38416eec8b9f42"
   end
 
+  deprecate! date: "2024-03-09", because: :repo_archived
+
   depends_on "cmake" => :build
 
   def install

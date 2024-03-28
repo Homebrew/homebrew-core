@@ -1,19 +1,19 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v1.41.1/deno_src.tar.gz"
-  sha256 "32f9d6c7c6b9b3a010999a721a1024f7ad3b8a95d0dc1cf9c56d60dd8a362880"
+  url "https://github.com/denoland/deno/releases/download/v1.41.3/deno_src.tar.gz"
+  sha256 "ee5025d6834ad6f52c759cda7e4f6a77ed0d48b44d7f35b508f8761e0d48d2b9"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7606e3d2be21d361ecd04468a7f2af1e870c61e48d7eacc132798757a7dd3e28"
-    sha256 cellar: :any,                 arm64_ventura:  "c81e4e9e7cbd4e92153902a035057fc57dd712bb613dad798724d1e0a1f94f15"
-    sha256 cellar: :any,                 arm64_monterey: "48c14e99267187184487d424ce97e3769713b38e547a3ed06a23331ecb203176"
-    sha256 cellar: :any,                 sonoma:         "3befb44e93fd122c164db42d532e77e2df9e06a4fc9a11284336b026bd431f99"
-    sha256 cellar: :any,                 ventura:        "9b61e81bd202a9ea09ee89f54988b58a183591c9e12105b6678b4d85109d2da8"
-    sha256 cellar: :any,                 monterey:       "5781f92307bc4fd06d773fadc6d7c98f79ac6cdd7eaccf014483a986b468a0c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "07e9b925614bfd32d8a7d8ed284ea10287f485d757a0475b9f06e5286dab532e"
+    sha256 cellar: :any,                 arm64_sonoma:   "520d178dd16f2427377319e723d9c79d1b5f0d4da0d47d9e3c0052eef77d2e52"
+    sha256 cellar: :any,                 arm64_ventura:  "60257618c64bd8ed6c79444c9884158e09d224d3de2c7437d7de50875c509e65"
+    sha256 cellar: :any,                 arm64_monterey: "b35ed7d647fef5f75162bc78264213e7da12881c1d0b564aef81b8e4204a309f"
+    sha256 cellar: :any,                 sonoma:         "8c9739018aee675b65d8fc14e031ff0e9fbe5a2a9b8b69da29d3de35ce05968d"
+    sha256 cellar: :any,                 ventura:        "0d06f99d23b312cdc3caca77dd93e659f9e7a8e36f13a44b5cefe408d69b5264"
+    sha256 cellar: :any,                 monterey:       "450428e4c98d4ac5db8e18db3868a984b6c5e1a0747c5032132e27a5ffc62448"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce370d4cc9bcbc929fd845d7e6f31c0683227124a3f0553841b7304261dfc5fd"
   end
 
   depends_on "cmake" => :build
@@ -45,23 +45,23 @@ class Deno < Formula
   # Use the version of `v8` crate at: https://github.com/denoland/deno/blob/v#{version}/Cargo.lock
   # Search for 'name = "v8"' (without single quotes).
   resource "rusty_v8" do
-    url "https://static.crates.io/crates/v8/v8-0.83.2.crate"
-    sha256 "9f6c8a960dd2eb74b22eda64f7e9f3d1688f82b80202828dc0425ebdeda826ef"
+    url "https://static.crates.io/crates/v8/v8-0.85.0.crate", using: :nounzip
+    sha256 "ec8e09551fa5c3500b47f08912b4a39e07ae20a3874051941408fbd52e3e5190"
   end
 
   # Find the v8 version from the last commit message at:
   # https://github.com/denoland/rusty_v8/commits/v#{rusty_v8_version}/v8
   # Then, use the corresponding tag found in https://github.com/denoland/v8/tags
   resource "v8" do
-    url "https://github.com/denoland/v8/archive/refs/tags/12.1.285.27-denoland-ef1375169ab459a6e021.tar.gz"
-    sha256 "0bb511390000cdc21397f59db510991829e07fa51b5ad9dedde19253f3d4490f"
+    url "https://github.com/denoland/v8/archive/refs/tags/12.3.219.9-denoland-53cf77b3c1d27f3fef44.tar.gz"
+    sha256 "567b37a846d6b4cacf2f2186252707c8118700e7d46edf2670271207708c519b"
   end
 
   # Use the version of `deno_core` crate at: https://github.com/denoland/deno/blob/v#{version}/Cargo.lock
   # Search for 'name = "deno_core"' (without single quotes).
   resource "deno_core" do
-    url "https://github.com/denoland/deno_core/archive/refs/tags/0.265.0.tar.gz"
-    sha256 "0d78824acfae0014b011e596637ac6a9c1b503822c7c65ccde66780846d05ba6"
+    url "https://github.com/denoland/deno_core/archive/refs/tags/0.270.0.tar.gz"
+    sha256 "14151b709b4c516d1f87a409feee4b291dea63434d86992ea766be6ee1d00b50"
   end
 
   # To find the version of gn used:

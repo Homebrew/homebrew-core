@@ -1,18 +1,18 @@
 class Kubeshark < Formula
   desc "API Traffic Analyzer providing real-time visibility into Kubernetes network"
   homepage "https://www.kubeshark.co/"
-  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.1.63.tar.gz"
-  sha256 "2b2c66095430f7038fa665472a34e85165ad041396289c98001d10835fd98c63"
+  url "https://github.com/kubeshark/kubeshark/archive/refs/tags/v52.2.1.tar.gz"
+  sha256 "7beee194772df13077e87ed15b06fadab0dbdcc2658fcf8775930fee2842e1d1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "772e0a413748a0f28b513dd26c453c22a714a9199f1f9ebd59d366a3819e16f3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "05a9f04723ceb8c5d4adbcb6559beab3effbc6780b818ed6c3f2344fc4ee1ffd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4c545e6cdf1997afe932c79b0a74f4dd350b22f8ea5a0140858479088e9cced"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e6c396e74709c6d35cb57f547bacba3fff5a4d0040d7cb51d28f2ae1a7e1efb2"
-    sha256 cellar: :any_skip_relocation, ventura:        "b35fab7ccb9efe12a47af22b55b52a1b602274920d38c00b3766d8c461ee3474"
-    sha256 cellar: :any_skip_relocation, monterey:       "d14c6b96a2691f4e0906cc0ab98be67d25d1b191825f213c6c2f01838c314584"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94c8582acd60b75bec61ff8a416f455549f73be229045019be50145d16739cd8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c06677e9211074816e20303574ca7f3dad5c75ffd757fe0b74c591eb1c313115"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "079ba15dab9d07f7e1287ed62a577b7d3f06645772e85615e341d1eee172d517"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb9655cbf15fa7e5cbe48143a8e40a69d11341c4708d1c6d85ba4c484e828bb3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "779ab5daa36fc75aaa639979fe8440581e6b5dc6226360278e583da4592f05e9"
+    sha256 cellar: :any_skip_relocation, ventura:        "8698a7de44a23cb9267ba01343a4880f7645e4822fbbaec63d35e8f5f5a46ad2"
+    sha256 cellar: :any_skip_relocation, monterey:       "160e015fb0d381efa899d0f1465c152f829b941ce6150d16f9d37a41f25e5c82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42c2ddd85aa3a19f3029610f8e24ec023a9869d1e610f8950e67f025e1e1f836"
   end
 
   depends_on "go" => :build
@@ -24,7 +24,7 @@ class Kubeshark < Formula
       -X "github.com/kubeshark/kubeshark/misc.BuildTimestamp=#{time}"
       -X "github.com/kubeshark/kubeshark/misc.Ver=v#{version}"
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

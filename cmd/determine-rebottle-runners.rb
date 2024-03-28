@@ -65,7 +65,7 @@ module Homebrew
           runner += "-#{tag.arch}" if tag.arch != :x86_64
           runner += "-#{ENV.fetch("GITHUB_RUN_ID")}"
 
-          { runner: runner }
+          { runner: }
         end
       rescue MacOSVersion::Error
         if tag.system == :linux && tag.arch == :x86_64

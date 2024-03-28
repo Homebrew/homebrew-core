@@ -28,7 +28,7 @@ class Mmctl < Formula
 
   def install
     ldflags = "-s -w -X github.com/mattermost/mmctl/commands.BuildHash=#{Utils.git_head}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "-mod=vendor"
+    system "go", "build", *std_go_args(ldflags:), "-mod=vendor"
 
     # Install shell completions
     generate_completions_from_executable(bin/"mmctl", "completion", shells: [:bash, :zsh])

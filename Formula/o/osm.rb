@@ -7,11 +7,6 @@ class Osm < Formula
   license "Apache-2.0"
   head "https://github.com/openservicemesh/osm.git", branch: "main"
 
-  livecheck do
-    url :stable
-    regex(/^v?(\d+(?:\.\d+)+)$/i)
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "355b38a1dbff9c3aaa823e43908a3f8f35896ff53b6841be6049a93a27749e6e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f9fc9b20e79dbd991464f6226b5d3d06ec6831cb3def39ba96604f7570875fb"
@@ -23,6 +18,8 @@ class Osm < Formula
     sha256 cellar: :any_skip_relocation, big_sur:        "88a968fa2368ec0f1729747d0eead01c22a24cecb8689a8bc639a9a1cb22931e"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "c331213fde50a3f23b9e668571aa173120210ade4b7768e29c17b167584f49a1"
   end
+
+  deprecate! date: "2024-03-10", because: :repo_archived
 
   depends_on "go" => :build
   depends_on "helm" => :build

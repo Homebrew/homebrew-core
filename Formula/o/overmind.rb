@@ -1,21 +1,19 @@
 class Overmind < Formula
   desc "Process manager for Procfile-based applications and tmux"
   homepage "https://github.com/DarthSim/overmind"
-  url "https://github.com/DarthSim/overmind/archive/refs/tags/v2.4.0.tar.gz"
-  sha256 "6936349e4a2d5fdae97ba35f4e0f92f3e466fd439b217ef3e84cf469e7a18816"
+  url "https://github.com/DarthSim/overmind/archive/refs/tags/v2.5.1.tar.gz"
+  sha256 "d616b89465d488878ed2e1f79e66f8af5b5c2f1d3cf75c2b08e04fb04752d187"
   license "MIT"
   head "https://github.com/DarthSim/overmind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a110d69ff6f691658ed2f176271371ff54e2aeeeab73d4ccd124ed616d7f8f9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "984c9e975dda90a96ded9fa43a6b70110c80ef3efc4604ceb274547a035c22c4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3d26b6161cefed451e50c007ba9bb6601a8e0ca21f297720a74bfd38075866e1"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8eb53694a8b87289a4f2dc5a307926ce841becb78f141a625608c8ec2d798a33"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d91928daa9df19605d347d0f20e36b98108b2dd131c55161a976cc0d86738d74"
-    sha256 cellar: :any_skip_relocation, ventura:        "bae2f9b47e7fb846de0b69cf21e464e2896777fb189a2aa557a2afd69e9d8fd7"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca5d5836b5710febf70d33af79e507cccd6e505d39d8c2943067f36f649786ae"
-    sha256 cellar: :any_skip_relocation, big_sur:        "10e30d50a5e5b5eb170652d62c0e8dee30a5d0d545bcd8a8a7e365b4d931602f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71554c46da7c312dd2a56e5c8f37dde2923adbc4fdb1e448d0a748c0bf1e54bd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "170345488efff9664a6e6f1c203e9f252f2a6b36f3b19a574a69e2a504ff88d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2cefab99b19b428357d41d4f27186c68a149c6b67dd317ba71e7cc985e3ab824"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b5121a20d14591466ebfa082329d902ced52c30e7c257bebe0c6141717c29ca"
+    sha256 cellar: :any_skip_relocation, sonoma:         "75d9f3f07a21c2bd979f50fd520bec07a4221fecf0e70afe2e167d91ca263360"
+    sha256 cellar: :any_skip_relocation, ventura:        "d10e4a237a80de7a6119f79ab10304623e7cb5dd42d74e5feb1382bd74642862"
+    sha256 cellar: :any_skip_relocation, monterey:       "8f39c51a41a651b932147937384d1091dd0b86ae15a040bd6dbd96c2db5f3cf4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ba8a085f0aae6ddeec87817674bc44a085c2ae884e0a90568b23d9e37c5a3cee"
   end
 
   depends_on "go" => :build

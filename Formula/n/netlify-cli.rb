@@ -3,19 +3,19 @@ require "language/node"
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-17.17.2.tgz"
-  sha256 "ae97b61cab2f5c974f4ce62ee79f39b3aa20eb418640bdd92666db17ec73ab27"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-17.21.1.tgz"
+  sha256 "cc6b96fa56e25df93ce3b70ba7537ab9fc6de81932d148e2bc4af7a01ebe3e40"
   license "MIT"
   head "https://github.com/netlify/cli.git", branch: "main"
 
   bottle do
-    sha256                               arm64_sonoma:   "7df27997c804e0d091d08665c25b422479945cf19580c029ba22b5feadf729ac"
-    sha256                               arm64_ventura:  "2609d7a19728cecb1c930a466002b3c35666e37b6f97a417ffffc1e86964425f"
-    sha256                               arm64_monterey: "7d338cf6ef28ed8b1eeb75c9303d003613995953fc663bfa23e110199d2179ce"
-    sha256                               sonoma:         "d2004c348f3dcc9cceccacfbc3c9942ced881799b420e094841ae40a1c1c2784"
-    sha256                               ventura:        "e43400675f268656dd2a24a135ff6599c89e4af472e9198082d9625c9c9037fc"
-    sha256                               monterey:       "e4d5428cba72e610dcec07ec37137a95d70c594f423f4377596c0cca282e2635"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4982321e78919ca7aa08e3570f13a030aa1b40db6421c60cb4807ab35b337e6f"
+    sha256                               arm64_sonoma:   "b5c6b1e51ba2be7eb9630ae5ed9f8dec321efd98dab7bccf611dd6861b850fb6"
+    sha256                               arm64_ventura:  "7367314c9bc713f095c8d1b58c422f6aee99468622fed3081dff00bb21aea1b6"
+    sha256                               arm64_monterey: "0a435b950a747748c04d697053182f07f29194883ae133292bd3a84e3111ede7"
+    sha256                               sonoma:         "d225bc079630571cf833bb58d6cd0b26cb81512173e0a081516cd51943876935"
+    sha256                               ventura:        "2e3bb68ab440a9b04648ed2c6323253a3b786261b9dd78688eb15b04e609af6d"
+    sha256                               monterey:       "b6589feadfe0fa3af738e5e248229d764ea0b80ff6d1a78b694e5877681dd6be"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3fad9f782b1511d2e3dc0c621277097b0dd9fe283d73a9624d0d15c3b6c783a9"
   end
 
   depends_on "node"
@@ -35,7 +35,6 @@ class NetlifyCli < Formula
     if OS.linux?
       (node_modules/"@lmdb/lmdb-linux-x64").glob("*.musl.node").map(&:unlink)
       (node_modules/"@msgpackr-extract/msgpackr-extract-linux-x64").glob("*.musl.node").map(&:unlink)
-      (node_modules/"@parcel/watcher-linux-x64-musl/watcher.node").unlink
     end
 
     clipboardy_fallbacks_dir = node_modules/"clipboardy/fallbacks"

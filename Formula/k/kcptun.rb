@@ -29,8 +29,8 @@ class Kcptun < Formula
 
   def install
     ldflags = "-s -w -X main.VERSION=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_client"), "./client"
-    system "go", "build", *std_go_args(ldflags: ldflags, output: bin/"kcptun_server"), "./server"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"kcptun_client"), "./client"
+    system "go", "build", *std_go_args(ldflags:, output: bin/"kcptun_server"), "./server"
 
     etc.install "examples/local.json" => "kcptun_client.json"
   end

@@ -1,19 +1,19 @@
 class Starship < Formula
   desc "Cross-shell prompt for astronauts"
   homepage "https://starship.rs"
-  url "https://github.com/starship/starship/archive/refs/tags/v1.17.1.tar.gz"
-  sha256 "2b2fc84feb0197104982e8baf17952449375917da66b7a98b3e3fd0be63e5dba"
+  url "https://github.com/starship/starship/archive/refs/tags/v1.18.1.tar.gz"
+  sha256 "2ab61ae3d2e256266191f670a76a35fd06310ada2777efa0f2b6d2602071d13b"
   license "ISC"
   head "https://github.com/starship/starship.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58efc19ef25c237ed5d6272fd4dbaa4124901384f80f16dacba99bad617dfab3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "51eb13f179f91c5c507c818c895191c078b81f89e870a5015a1d4ac092520efd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a224fae1f0ca4c773609bb788983248bce98741245a03fdc9cc13d409ac9ea37"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0aba709eb27b0b45a38650a4982d3fe7fd66538ce5c668762ae8977bdf6431bd"
-    sha256 cellar: :any_skip_relocation, ventura:        "ef1ca68886814af8eec77a8063cff0158ead9074efba593ad8a4dc575dab5fdd"
-    sha256 cellar: :any_skip_relocation, monterey:       "f37a8ae5e7ab4f6785eda4ddb71c89d1d99a2ea4f4b9b061b8b328cf0d258dad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1258810fd14a8b9896c09969f04f401a7d54d5d44398eb5ff8a95a2b3552fe06"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bc963c590631893de7f87287d44d52f32f38f78529d5ea80c0c9ddff39ca93f4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9e2d14af91246f06bd9709ae8d102f3ca3a31df988606ac95862357ca9169ed0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "91221245f0a31447ebe68967aad8ac39f0cd04b5e6beffb5957ea7349818c3c8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6ba5ac1f4908f660a5e7830e1ea9405a010915b8937e1daf9546e0d1f0123a8e"
+    sha256 cellar: :any_skip_relocation, ventura:        "c7650ee45b575679df60accfe93eb1fd28c2526f90bdfce59e8d6d451f52c182"
+    sha256 cellar: :any_skip_relocation, monterey:       "e961d25e02c613e2c321b9f8f53ab82e743cb5e0f78786150e9c220e2c266703"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c4160a98694f3a7495548590dbe367b4c4a59bba2f4643d84c1f290976454f9c"
   end
 
   depends_on "cmake" => :build

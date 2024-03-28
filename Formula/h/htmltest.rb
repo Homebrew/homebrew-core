@@ -25,7 +25,7 @@ class Htmltest < Formula
       -X main.date=#{time.iso8601}
       -X main.version=#{version}
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

@@ -1,4 +1,6 @@
 class Cfv < Formula
+  include Language::Python::Virtualenv
+
   desc "Test and create various files (e.g., .sfv, .csv, .crc., .torrent)"
   homepage "https://github.com/cfv-project/cfv"
   url "https://files.pythonhosted.org/packages/db/54/c5926a7846a895b1e096854f32473bcbdcb2aaff320995f3209f0a159be4/cfv-3.0.0.tar.gz"
@@ -6,28 +8,23 @@ class Cfv < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b6d455648ea1ee84968c57bd0218341c5acee3e594e97d24e53b6ea1dfedc666"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "42b4b04b3a9cd67ec440afaa45db5115d06d1019cbe21c987b53e680a173415a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7e32838b7338414d95863daea12afa2085d38e577f2320feaa2b7bc64eeae425"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b676890c309cbe870ddfbaef65bd4540236fe4f4b8a6cceeb0291be95d317f06"
-    sha256 cellar: :any_skip_relocation, ventura:        "2078439fda829127a701e088d395df2ee279cea6052c72ea38b4efec41ca5e67"
-    sha256 cellar: :any_skip_relocation, monterey:       "4b56673702488afba8ecbc1a524bc580f5dbff0ce1601636f454c05393295f12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "398b65a6b3495ccc1cff405108a5db678ca99b6b7c3d355fcf450c8ec2ea3ea9"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "45d0cc0d275d2abce31dc68f6b588cd2b6542700079e914f5313536069105df4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "73de17963f67bb975bfba11b8f3e69ac80a47a7729b5b384082a95241a13ff07"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "34d37ec148d00f729be8d759b3d9b9dbd146169f5632e5b1027baeb8f1a8d968"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dbc8899ec58d62eb0510d40f9d379dcb6c30d95689577e8ddabacccbdbc2cee0"
+    sha256 cellar: :any_skip_relocation, ventura:        "5617ab20813e0f0e396bf33cf97ef6ed25e7af735afe7771052b0caa63041440"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ece33d693e3d3182fd24bbebe315d5ae40e65795810158caec543ed32ffa3e6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebd9e777458f000cd6cdf0fccec16a5c50399a07607f15076519d6cbc181da5d"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
-
-  def python3
-    "python3.12"
-  end
 
   def install
     # fix man folder location issue
     inreplace "setup.py", "'man/man1'", "'share/man/man1'"
 
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

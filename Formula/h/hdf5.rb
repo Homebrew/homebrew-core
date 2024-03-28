@@ -4,6 +4,7 @@ class Hdf5 < Formula
   url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.14/hdf5-1.14.3/src/hdf5-1.14.3.tar.bz2"
   sha256 "9425f224ed75d1280bb46d6f26923dd938f9040e7eaebf57e66ec7357c08f917"
   license "BSD-3-Clause"
+  revision 1
   version_scheme 1
 
   # This regex isn't matching filenames within href attributes (as we normally
@@ -15,20 +16,19 @@ class Hdf5 < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sonoma:   "98677647262aa47e03f35205eec6f304fe8b400536cb1806c263f70ac216be1e"
-    sha256 cellar: :any,                 arm64_ventura:  "9ea139be087c57e390a3fb5a82f6cf0c5ee1f208caa27478b555ab9e2b07e3c5"
-    sha256 cellar: :any,                 arm64_monterey: "2e562bf0121cc44ede0ae5e2c87433cd2c9167778a86538a21f4fafd9fe29587"
-    sha256 cellar: :any,                 sonoma:         "bc9cf0071e374c7d236854e25120ceebc04365d873814055980d0c6adcaa76a9"
-    sha256 cellar: :any,                 ventura:        "1c8d524731199c49cfaf2ff4d4830e0f7810a92c9dfb550a8065cd6d1f8a82ac"
-    sha256 cellar: :any,                 monterey:       "e1e0a1e9ec50b76d282dbfec3dcc54cedf711506ec56f5462e70012b875570b1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e54ae02556855296e1704cf7d0c62b4fdda00f9a95370908537a969466c3030"
+    sha256 cellar: :any,                 arm64_sonoma:   "0bd0281269f954e5d6cea61797cbe1d285040c00dc46610b97ba35a6bebc0393"
+    sha256 cellar: :any,                 arm64_ventura:  "8675de344a05dc34325ee71ecaceff04795a70ba4c3c4c26ef5916f370b2002e"
+    sha256 cellar: :any,                 arm64_monterey: "395a707db01aee75cc3e287b687c15bc34765a233fb3636f2151f5ca98a2dc5d"
+    sha256 cellar: :any,                 sonoma:         "f1b493887ef96b93a7732f16ec1fde0b4b4543d4bf244392a4caabbb34955301"
+    sha256 cellar: :any,                 ventura:        "3ec0dd000b145448ee040dfe1d8d9e69e90347df6a951a64ceb775fab96f4a37"
+    sha256 cellar: :any,                 monterey:       "3927c9287df13171085b2fabe23ece9d526024afe9be82d24fb475f5b670f252"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "95fb350efd5775377bd85f3eb5e4b6588d3d728323b27a1e3c39f51682431794"
   end
 
   depends_on "cmake" => :build
-  depends_on "pkg-config" => :test
   depends_on "gcc" # for gfortran
   depends_on "libaec"
+  depends_on "pkg-config"
 
   uses_from_macos "zlib"
 

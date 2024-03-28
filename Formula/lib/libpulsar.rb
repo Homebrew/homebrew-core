@@ -1,20 +1,19 @@
 class Libpulsar < Formula
   desc "Apache Pulsar C++ library"
   homepage "https://pulsar.apache.org/"
-  url "https://dlcdn.apache.org/pulsar/pulsar-client-cpp-3.4.2/apache-pulsar-client-cpp-3.4.2.tar.gz"
-  mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.4.2/apache-pulsar-client-cpp-3.4.2.tar.gz"
-  sha256 "3e9a6f122bb61f9ccb85714b9791b03c68a90bcb9db8ceaac39a44fade000c5c"
+  url "https://dlcdn.apache.org/pulsar/pulsar-client-cpp-3.5.0/apache-pulsar-client-cpp-3.5.0.tar.gz"
+  mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.5.0/apache-pulsar-client-cpp-3.5.0.tar.gz"
+  sha256 "eecd96ef2ef4e24505a06bf84d4b44e76058a5b4c7505539676f96c0fcda44f8"
   license "Apache-2.0"
-  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "65bfe570388aabfc5ffad9ef5ffdf35cba5566556a66c33e436b86701da7e52f"
-    sha256 cellar: :any,                 arm64_ventura:  "2dc8daa8d053bfcab5824b4074b5adfd54c6cf92589165a8996f2e1bf60a2f24"
-    sha256 cellar: :any,                 arm64_monterey: "927a71cb10df65648bea847d4b77dc2ee5fbeb0b94a5cfff894ea27e7dfc32a8"
-    sha256 cellar: :any,                 sonoma:         "466a259434df19781c25677dbcfd716284fb75b5d128126389716a45a4667620"
-    sha256 cellar: :any,                 ventura:        "f8ce29fb07b86ba424d981a117262a0f47a3851cf5eb3abce8c754df4eddbc58"
-    sha256 cellar: :any,                 monterey:       "2604531dffc25ca138fdba5b874e7f7707f15c5786907e83f0b11b137e78eae4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5f0ee0355ad533c080b612ac12b6f95bdc9198ff6f3f6f655bfd70714df193d"
+    sha256 cellar: :any,                 arm64_sonoma:   "c4fe19ca52610d7564515bcb170fc9d78903511ace3f653b7f687faafcae0688"
+    sha256 cellar: :any,                 arm64_ventura:  "8fed810437524fd8ade271f061ab6e29dc08a8a79dd0b0859ff0493e6f4356f2"
+    sha256 cellar: :any,                 arm64_monterey: "1da852edef33a962dd6be3a00cfc792e539d131e3c5fc161cac6d8c9de80f012"
+    sha256 cellar: :any,                 sonoma:         "23680520601ffb0ff189f84d78a6627102b5ea6af852638be9c532693c664fa7"
+    sha256 cellar: :any,                 ventura:        "e97b76729cf8ea27ee224ddf16db8cd7925b17481eb7d3592dc1d40d58cc2262"
+    sha256 cellar: :any,                 monterey:       "80622745e2474ce7b8c82ae215a35203c55f0a3c2620926e006de5dfbd43b75c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "62b2cf8571b66277c71c82e01ea86bfab0f9bf498cd933f22e82321fdd9a04a5"
   end
 
   depends_on "cmake" => :build
@@ -28,16 +27,14 @@ class Libpulsar < Formula
   uses_from_macos "curl"
 
   def install
-    # Needed for `protobuf`, which depends on `abseil`.
-    inreplace "CMakeLists.txt", "CMAKE_CXX_STANDARD 11", "CMAKE_CXX_STANDARD 17"
-    system "cmake", "-S", ".", "build",
-                    "-DBUILD_TESTS=OFF",
-                    "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # protocolbuffers/protobuf#12292
-                    "-Dprotobuf_MODULE_COMPATIBLE=ON", # protocolbuffers/protobuf#1931
-                    "-DBoost_INCLUDE_DIRS=#{Formula["boost"].include}",
-                    "-DProtobuf_INCLUDE_DIR=#{Formula["protobuf"].include}",
-                    "-DProtobuf_LIBRARIES=#{Formula["protobuf"].lib/shared_library("libprotobuf")}",
-                    *std_cmake_args
+    args = %w[
+      -DBUILD_TESTS=OFF
+      -DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON # protocolbuffers/protobuf#12292
+      -Dprotobuf_MODULE_COMPATIBLE=ON # protocolbuffers/protobuf#1931
+      -DCMAKE_CXX_STANDARD=17
+    ]
+
+    system "cmake", "-S", ".", "build", *args, *std_cmake_args
     system "cmake", "--build", "build", "--target", "pulsarShared", "pulsarStatic"
     system "cmake", "--install", "build"
   end

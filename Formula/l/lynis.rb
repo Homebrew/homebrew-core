@@ -1,20 +1,18 @@
 class Lynis < Formula
   desc "Security and system auditing tool to harden systems"
   homepage "https://cisofy.com/lynis/"
-  url "https://github.com/CISOfy/lynis/archive/refs/tags/3.0.9.tar.gz"
-  sha256 "520eb76aee5d350c2a7265414bae302077cd70ed5a0aaf61dec9e43a968b1727"
+  url "https://github.com/CISOfy/lynis/archive/refs/tags/3.1.1.tar.gz"
+  sha256 "ca38a27c9c92e78877be4ecffce25f3345a1d24bbcd68be66a3a600e2ff748d1"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "f286611cd75569c254b277018a249a9826c71f276ea1ed2cb2dd53265f6f0e9c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"
-    sha256 cellar: :any_skip_relocation, ventura:        "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"
-    sha256 cellar: :any_skip_relocation, monterey:       "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b611779c1dc232183529386a76a47492aa2a1424220d9e002317e1a79271cebd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f42606a32b9515dd1dadcf130071dae101cc108dd758fe01ba0c95d447f3954c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b9c8022b97c3540b39b3d305a597999600fe0a9f95fda0228c476c0276ee26da"
+    sha256 cellar: :any_skip_relocation, ventura:        "b9c8022b97c3540b39b3d305a597999600fe0a9f95fda0228c476c0276ee26da"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9c8022b97c3540b39b3d305a597999600fe0a9f95fda0228c476c0276ee26da"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a7a6bd2da4ca0d667474e50b56aea971b8f8005cc1671783b066670c0a51622a"
   end
 
   def install

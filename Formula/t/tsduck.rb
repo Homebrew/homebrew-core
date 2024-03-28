@@ -1,19 +1,19 @@
 class Tsduck < Formula
   desc "MPEG Transport Stream Toolkit"
   homepage "https://tsduck.io/"
-  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.36-3528.tar.gz"
-  sha256 "068ef1cbc60821a4cce8d50c876edef5150ad581b31f4a92f085e20b3becd0eb"
+  url "https://github.com/tsduck/tsduck/archive/refs/tags/v3.37-3670.tar.gz"
+  sha256 "dbb7c654330108c509f2d8a97fe0346e3a1f55ad959e13dcee4a40dd04507886"
   license "BSD-2-Clause"
   head "https://github.com/tsduck/tsduck.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7731a93d9a8a7a205af037eacba7df9b169eed0f1c3b2c7d3dfbf399bbe2a650"
-    sha256 cellar: :any,                 arm64_ventura:  "0808276113fea626a24176309f5e5be3e38710988a4638040a2f3ad4a6e461cf"
-    sha256 cellar: :any,                 arm64_monterey: "f5659e4b2be4426016f80545fa362a81121dbd4d3a817d5103a30095b53955d3"
-    sha256 cellar: :any,                 sonoma:         "f50aaef2233e9ed049447e2b6de943c920bd42d21d76e855e694a6e6822f7d19"
-    sha256 cellar: :any,                 ventura:        "acc7d873d83bac8a480a129094c51ca5478d7e6ab4033ce769f2c373a3dafe51"
-    sha256 cellar: :any,                 monterey:       "ad40708c601dff53c1606b9bb82fa93d483f4a847975a28ce4a5dced619bede7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2c6dcdeb0963a57f6668dc1039ebe7bde2b06f6fc6c3bc52ac9e447beced6e57"
+    sha256 cellar: :any,                 arm64_sonoma:   "16e834c1f04b5645d51f215e4f40640a80018a014b1185330ef0cf66d0c6dee1"
+    sha256 cellar: :any,                 arm64_ventura:  "f003ac2228dfcdaf77324ceee4d1faa45a78a8aeed3a640404c38674da6661ce"
+    sha256 cellar: :any,                 arm64_monterey: "c2c8ccf8fa031f9504aab5928fa09f1543843ba8e739a5802593f757dfdaf7ed"
+    sha256 cellar: :any,                 sonoma:         "1642c6d9bed6f47ac1001a7c798120e0428ba307e79fa607580183c5d4994fdb"
+    sha256 cellar: :any,                 ventura:        "3a3b3dd3b7e3b14172ea736280ec2e2802109ad8f1e0f6e769ba6f3f4eda6501"
+    sha256 cellar: :any,                 monterey:       "fe7bb580dd6b5731487427b56762a246969c0ae013bf0bebd1f64cca2c316fe4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d79b6b81e69a6b9ff7059eeecc0a54bddc467dfa9168b413cdd9bd66a81600d"
   end
 
   depends_on "dos2unix" => :build
@@ -22,6 +22,7 @@ class Tsduck < Formula
   depends_on "openjdk" => :build
   depends_on "librist"
   depends_on "libvatek"
+  depends_on "openssl@3"
   depends_on "srt"
 
   uses_from_macos "python" => :build

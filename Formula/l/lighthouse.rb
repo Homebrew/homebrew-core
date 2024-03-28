@@ -1,8 +1,8 @@
 class Lighthouse < Formula
   desc "Rust Ethereum 2.0 Client"
   homepage "https://lighthouse.sigmaprime.io/"
-  url "https://github.com/sigp/lighthouse/archive/refs/tags/v5.0.0.tar.gz"
-  sha256 "3f279a5539bc56765f4e29a4be63f07f1d31dc8ec871770fde35dadfbbd8383a"
+  url "https://github.com/sigp/lighthouse/archive/refs/tags/v5.1.3.tar.gz"
+  sha256 "e33edf3636ff435706eeb03f4ce9cad4abd939ddfc4b3156944f8b56695f734e"
   license "Apache-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Lighthouse < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6b13bbc4acc4dbd8577a2253e8869be4aeac3105a35247ed7a326901f3ca0982"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89d6a61ab56744adc4e692338aecef6aa5973730f55db2752df57ec8696e5f28"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5373829da179d1fd75ee6030166c478c35a1a5454bca8a6ed2b8cdaf4294cfe6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f25215623aace8b7c19cdec00032fb3f0182137fb13597308052cbedf53bb3d7"
-    sha256 cellar: :any_skip_relocation, ventura:        "7de02348e2fe57afd9465c85ec437ca40520c5d2465551873330415182233378"
-    sha256 cellar: :any_skip_relocation, monterey:       "aa2b1935636c63cb4344407ef9b3be8228b9cb0ea84cfbc781c5eeb83bc16b0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ad0e0889c93a07aa5b76d2fae2dd1b17cfbb36b1324403d4fe4120926dcd21c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f01b35a0725f46719addc09b52ff2a5dae3e4a77b94a2651a712e3a0736b264f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c39ea65940b900650a53e0d6f943ab06a0ad6ac8e8d583f017eb0a4b97f4b4cf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7c285f47bf56941271a4f0a834c1c72fb9ef8310160966c3f12591d2fa937a9f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d7005dc92f8543d84e42336cf869beee08e24148a64ccfe127dfc2e4c5390c11"
+    sha256 cellar: :any_skip_relocation, ventura:        "9a7385a0129fb6c93eefab465cd0136ec899681d33b856cd234cfcac726502aa"
+    sha256 cellar: :any_skip_relocation, monterey:       "75c5b3cf0257bb232450872999ee41515f0b04887b1c995b40b76a675213872b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a10f7d02d89462e14cad0eaa588262f6c550f34bf471f5e1b2bbab2e940798cd"
   end
 
   depends_on "cmake" => :build

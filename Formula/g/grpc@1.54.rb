@@ -12,11 +12,13 @@ class GrpcAT154 < Formula
   # corresponding release is created, so we check releases instead of the Git
   # tags. Upstream maintains multiple major/minor versions and the "latest"
   # release may be for a different version, so we have to check multiple
-  # releases to identify the highest 1.54.x version.
+  # releases. However, the latest 1.54.x version has been pushed out of the
+  # latest releases, so we search the releases page instead of using the
+  # `GithubReleases` strategy.
   livecheck do
-    url :stable
-    regex(/^v?(1\.54(?:\.\d+)+)$/i)
-    strategy :github_releases
+    url "https://github.com/grpc/grpc/releases?q=1.54+prerelease%3Afalse"
+    regex(%r{href=["']?[^"' >]*?/tag/v?(1\.54(?:\.\d+)*)["' >]}i)
+    strategy :page_match
   end
 
   bottle do

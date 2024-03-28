@@ -1,4 +1,6 @@
 class FortranLanguageServer < Formula
+  include Language::Python::Virtualenv
+
   desc "Language Server for Fortran"
   homepage "https://github.com/hansec/fortran-language-server"
   url "https://files.pythonhosted.org/packages/72/46/eb2c733e920a33409906aa145bde93b015f7f77c9bb8bdf65faa8c823998/fortran-language-server-1.12.0.tar.gz"
@@ -7,27 +9,22 @@ class FortranLanguageServer < Formula
   head "https://github.com/hansec/fortran-language-server.git", branch: "master"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc6059f065b7349e8ef9a16353b1dc00fd0ad8098b8f17baeaec78282d724d8a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "852a215082283f21b6723ec4ad7825da570c65e50a016739ec22ee0258d4e9a1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "026fef2556b938306ec1452acd1c3f6cd9eb1e23db80daece43f124fb4b59781"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5fe11043b1ae19be5670267c3e85c3a04513ff24be7b804f075def020bc3bb1f"
-    sha256 cellar: :any_skip_relocation, ventura:        "8a489566e13d9f57750543b1d57be7b90f4be1e5307c6975a0860d02d94868cb"
-    sha256 cellar: :any_skip_relocation, monterey:       "c46faba5b9c41ebdce74d6fbdce64cf8a05c035d0e60d68c8dc684bf6b7cc32c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2e62186facb38b3fe9430b8b8890d47364eacba02947b85c41c62e9f707cb6b7"
+    rebuild 4
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dbb19be503ec0e23640180c3ba92887d3f5e9b37e45b2c8e46b9a57c14aa05d9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b904b217b0b36b8f5c3112929e4d7b7f296a3e8a8c9ac3de1671cb941181bf55"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "231266c09577f03896667b414bf375b8cf399caabebc6c35f102574988758edd"
+    sha256 cellar: :any_skip_relocation, sonoma:         "067d39dbc79483550e2c9e06e72883f299e455d1754f95b17052f5cccbf357da"
+    sha256 cellar: :any_skip_relocation, ventura:        "e7e2864aed6120a0eb40e68ae452e935c547c0ed004238ce52f830bd4d36e3af"
+    sha256 cellar: :any_skip_relocation, monterey:       "ec05c59137add94ac7f4a7d33da5184d303243f88401305739ae6a8871a408bc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9a7d6a64e177d7cc60bd9c5b933786114fbb0f1a351bb4d7a4a75afe9deb7dbd"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
   conflicts_with "fortls", because: "both install `fortls` binaries"
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    virtualenv_install_with_resources
   end
 
   test do

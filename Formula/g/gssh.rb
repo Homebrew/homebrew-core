@@ -6,18 +6,21 @@ class Gssh < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5df720161be7b88a9d435b2d4c9dd4e272276d7bda2e392557d66f786e87ef2e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f41326acf59721dae0fc14baeef1376c612e69c76da7ee98a5a0e1bf18a40f3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "722ed5d7f34c34748e9274532cd33774e236d518e58721d1ea16d0437222c8bb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "17bf11543620bed24a77117f094ec31e73f2c212e1199aeb9fa62aaf2e86983a"
-    sha256 cellar: :any_skip_relocation, ventura:        "2ce761546a64ae522a633bc13c7389c5a5fbed193d613c5c173a11a72833081e"
-    sha256 cellar: :any_skip_relocation, monterey:       "8a7f800d753e98a29e99c85c22a876fc7090e853d1e73fcf4821fd7bd8fbfa88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "926f16eaf21cd5fa5971a238c95a06f5ccccccf340207a5dd3951f16a42c1ec5"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c2b5e7f40c765e5d93606a361389c7d3b0a527472dbb4c8e048ee681365c69fa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95769cbff07c37a67f0639fc6aa9bb07b975c6190ee522be0ac9357285023112"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d71fbca8a5b1a0b7e1dc1fb0247104e7a7420d90bdf5a151eb61159354e02f5b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e7e35e73999181f89bb33090ac3bb978f7e928950bf8262d2b3a02c51e0aaeed"
+    sha256 cellar: :any_skip_relocation, ventura:        "98620344224df5447fb46d0bddf1aaa0bfbbc721eebd5e4b80293af1d7f40d99"
+    sha256 cellar: :any_skip_relocation, monterey:       "97b3509b2a1ece5cbea662087610a552592535f5a690599ce24f1058562b2070"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "498b341805351d474054b683fdeec977694b1ecc5f715b304376a94a19af23c2"
   end
 
-  depends_on "gradle@7" => :build
+  depends_on "gradle" => :build
   depends_on "openjdk"
+
+  # gradle 8 build patch, remove in next release
+  patch :DATA
 
   def install
     ENV["CIRCLE_TAG"] = version
@@ -31,3 +34,20 @@ class Gssh < Formula
     assert_match "groovy-ssh-#{version}", shell_output("#{bin}/gssh --version")
   end
 end
+
+__END__
+diff --git a/cli/build.gradle b/cli/build.gradle
+index 8044c6e..e6c2815 100644
+--- a/cli/build.gradle
++++ b/cli/build.gradle
+@@ -32,7 +32,7 @@ jar {
+ }
+
+ shadowJar {
+-    baseName = 'gssh'
+-    classifier = ''
+-    version = ''
++    archiveBaseName = 'gssh'
++    archiveVersion = ''
++    archiveClassifier = ''
+ }

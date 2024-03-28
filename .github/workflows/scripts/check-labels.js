@@ -82,7 +82,7 @@ module.exports = async ({github, context, core}, formulae_detect) => {
       core.setOutput('timeout-minutes', 4320)
     } else {
       console.log('No CI-long-timeout label found. Setting short GitHub Actions timeout.')
-      core.setOutput('timeout-minutes', 90)
+      core.setOutput('timeout-minutes', 120)
 
       if (label_names.includes('long build')) {
         core.setFailed('PR requires the CI-long-timeout label but it is not set!')

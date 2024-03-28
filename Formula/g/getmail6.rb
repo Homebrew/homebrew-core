@@ -3,8 +3,8 @@ class Getmail6 < Formula
 
   desc "Extensible mail retrieval system with POP3, IMAP4, SSL support"
   homepage "https://getmail6.org/"
-  url "https://github.com/getmail6/getmail6/archive/refs/tags/v6.18.13.tar.gz"
-  sha256 "977a8fbf63494b6278c30f225c7bfbc7cbdfdffddbd2f29fcd887dfb6ce0d509"
+  url "https://github.com/getmail6/getmail6/archive/refs/tags/v6.18.14.tar.gz"
+  sha256 "0667efc80d7a59c4528581829f2c7473a7703c680a8fc941254ed872d15721b0"
   license "GPL-2.0-only"
 
   # Upstream uses GitHub releases to indicate that a version is released
@@ -16,15 +16,13 @@ class Getmail6 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "70df6a193df6a6444a8b2178a896d5a50e64f3a36f19d0321dde9293e8d95e29"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "70df6a193df6a6444a8b2178a896d5a50e64f3a36f19d0321dde9293e8d95e29"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "70df6a193df6a6444a8b2178a896d5a50e64f3a36f19d0321dde9293e8d95e29"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "70df6a193df6a6444a8b2178a896d5a50e64f3a36f19d0321dde9293e8d95e29"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8eafc1243b58796239f1e24d45f124dcc3f1e9373011a4e00db831f11326421d"
-    sha256 cellar: :any_skip_relocation, ventura:        "8eafc1243b58796239f1e24d45f124dcc3f1e9373011a4e00db831f11326421d"
-    sha256 cellar: :any_skip_relocation, monterey:       "8eafc1243b58796239f1e24d45f124dcc3f1e9373011a4e00db831f11326421d"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8eafc1243b58796239f1e24d45f124dcc3f1e9373011a4e00db831f11326421d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70df6a193df6a6444a8b2178a896d5a50e64f3a36f19d0321dde9293e8d95e29"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "766eae979bf0fee2bb6d3dab837d834cc128b39733ffc8a3a00f16d6d78220b8"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "766eae979bf0fee2bb6d3dab837d834cc128b39733ffc8a3a00f16d6d78220b8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "766eae979bf0fee2bb6d3dab837d834cc128b39733ffc8a3a00f16d6d78220b8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "06e6cf1500be762382fa1652568a0e864845c7c89ccfcd51725199a92260a624"
+    sha256 cellar: :any_skip_relocation, ventura:        "06e6cf1500be762382fa1652568a0e864845c7c89ccfcd51725199a92260a624"
+    sha256 cellar: :any_skip_relocation, monterey:       "06e6cf1500be762382fa1652568a0e864845c7c89ccfcd51725199a92260a624"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "766eae979bf0fee2bb6d3dab837d834cc128b39733ffc8a3a00f16d6d78220b8"
   end
 
   uses_from_macos "python", since: :catalina

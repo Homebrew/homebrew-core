@@ -4,7 +4,7 @@ class Libsigrok < Formula
   # libserialport is LGPL3+
   # fw-fx2lafw is GPL-2.0-or-later and LGPL-2.1-or-later"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 2
+  revision 4
 
   stable do
     url "https://sigrok.org/download/source/libsigrok/libsigrok-0.5.2.tar.gz"
@@ -41,14 +41,13 @@ class Libsigrok < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256                               arm64_sonoma:   "2efc7ea3acaab115a0a3a6095e613de9cba78625a68a572466811f3e03efeb11"
-    sha256                               arm64_ventura:  "0e286d0c88d19a200e698918a3c18075513a66ff7c13ecdd9521c15f716c1ee7"
-    sha256                               arm64_monterey: "2ba8537cd9d4071c0d23a68e1ef7a9c4feb1efceaa61f6238983edad5d9d295e"
-    sha256                               sonoma:         "8edd38c058edb8adcc385282488249220fa9ab5c6ee0dcf784c1c3e153aa33b3"
-    sha256                               ventura:        "8cbfa9edf3d3f9ed3e60eb2b533d17a308a500486f0e020eb977de5a000a83eb"
-    sha256                               monterey:       "9c572ca4eb57ce6d9f84e350f660244aab5376e4d22dd4c49809f17485c14823"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5e24c05f693e16bdbdbebebc1b60616b821f7f2a510ee2860edb668f56f5fa2e"
+    sha256                               arm64_sonoma:   "2b4fba5fab7b14eb6353ba0b46011834e532aa86cf1025caf93574b7c44ca3bf"
+    sha256                               arm64_ventura:  "f34fc56616368f574610435653d7d075ca4a0c1c308faadbfcb11b35dd60bc0e"
+    sha256                               arm64_monterey: "96f681f1de2c5bc55cc716ff81ed739f81e119598cc9b2825d6b32d888ba24a1"
+    sha256                               sonoma:         "3fee2ccdeac69c721c42813728cfb2b42967069f2beb75c90e8d813ae51bb57e"
+    sha256                               ventura:        "fc0b38abdc6cc5b9493dfdcc512a0a6efa222319a2f98f210f7a01f0fc420d76"
+    sha256                               monterey:       "c850c19abe5a14bdb3523870a8ea16d49a86add71543fa7e8660e52c9d5506b2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b9766522977b12741bdd678ef04274aa748e3a42c627d8b62772a9fec0f2ab19"
   end
 
   head do
@@ -70,6 +69,7 @@ class Libsigrok < Formula
   depends_on "graphviz" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => [:build, :test]
+  depends_on "python-setuptools" => :build
   depends_on "sdcc" => :build
   depends_on "swig" => :build
   depends_on "glib"

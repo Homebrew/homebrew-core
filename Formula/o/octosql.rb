@@ -22,7 +22,7 @@ class Octosql < Formula
 
   def install
     ldflags = "-s -w -X github.com/cube2222/octosql/cmd.VERSION=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"octosql", "completion")
   end

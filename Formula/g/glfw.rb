@@ -7,13 +7,14 @@ class Glfw < Formula
   head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6651050d28fe038e7bfd4e8fa1a5693574eaa2d75c91718a8f676efb82dc34b6"
-    sha256 cellar: :any,                 arm64_ventura:  "549762dd442f10d30c7d093e6aff9ffdf8ed669979da6441c2ba3cf25c41ca8f"
-    sha256 cellar: :any,                 arm64_monterey: "32d34c5cb6a5e02b8af0045e8a9fd4dd505f6c589102ce97eab9a5e40d5dd9f7"
-    sha256 cellar: :any,                 sonoma:         "ec625c2a297201e2d71aae74bb688a18ce97039d9838c57d013ae8b9df3632fa"
-    sha256 cellar: :any,                 ventura:        "b49affc8b0d66cfa2fe2648cfd959bc94fe7a77426c4aa9e1a9b0dcfc7f2b398"
-    sha256 cellar: :any,                 monterey:       "211745327a975a1767ad6110a7150df16526e8f131ca9f1c196591c4d86eb9fe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "635be56f472665900647abe79eeaf8403c194f211c684bf8d62271b9bdf33a9c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "f4339af5fb5faa3df804bf54d30eaeb70e5eb09136433a7dd12a9a4c4f7891a0"
+    sha256 cellar: :any,                 arm64_ventura:  "3dc29608d2a685d2a89dabcf2c636952aa65d64801af10ab54d848da66115fc2"
+    sha256 cellar: :any,                 arm64_monterey: "a3069efe74c2d3f563db176c0c0ed30f7a22ab144674ce6e4406b13b291ee700"
+    sha256 cellar: :any,                 sonoma:         "f62736f5f8d62fe9e3eefc97b9629f93e6d5513fe970449d56e1379bf17e6ce0"
+    sha256 cellar: :any,                 ventura:        "4c2dda8866485758ea1bf446ffd09d99aab8874e3fc3b6f6f968ca8d80ef3344"
+    sha256 cellar: :any,                 monterey:       "fbeb82f1e016c9b2acbf51acedcbd3b70f98006a6793c5946466ecaa78dde94f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "707c1b8a6dc5362e2e00ba631aad8dd85c5d44d8ef721fd7c65cb68f3b9192f1"
   end
 
   depends_on "cmake" => :build
@@ -30,9 +31,13 @@ class Glfw < Formula
     args = %w[
       -DGLFW_USE_CHDIR=TRUE
       -DGLFW_USE_MENUBAR=TRUE
-      -DBUILD_SHARED_LIBS=TRUE
     ]
 
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    lib.install "build/src/libglfw3.a"
+
+    args << "-DBUILD_SHARED_LIBS=TRUE"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"

@@ -25,7 +25,7 @@ class Slacknimate < Formula
 
   def install
     ldflags = "-s -w -X main.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags), "./cmd/slacknimate"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/slacknimate"
   end
 
   test do

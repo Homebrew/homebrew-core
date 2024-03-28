@@ -1,20 +1,18 @@
 class Ata < Formula
   desc "ChatGPT in the terminal"
   homepage "https://github.com/rikhuijzer/ata"
-  url "https://github.com/rikhuijzer/ata/archive/refs/tags/v2.0.2.tar.gz"
-  sha256 "f3fa2d3d8b3098a6b765feb5cda341ef88b8749036230a5ff31b6287321009c3"
+  url "https://github.com/rikhuijzer/ata/archive/refs/tags/v2.0.4.tar.gz"
+  sha256 "a70498492fce7b46a2a62175886a801f61f9f530c5c6d01b664af2750d3af555"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab4d093b95b92ba31c473c7b453280c8e62c34059859b13d7f8fd98d59046675"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2b4786a053d334dcd765a3e17230417797e1b5115bbd363d1ff4f9524481ffb8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e714105c5a2ec7a527de714d4293c7651f2079b9748f11008f4668a9b11c784f"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "63a5d9625d26933f4a55c55dea6d63ed62ad5677637f06024e7a84ff09663dba"
-    sha256 cellar: :any_skip_relocation, sonoma:         "796b5ee96dd2a1040f1594591b611da027fe75ec9348c4995e39af1c8ea42d76"
-    sha256 cellar: :any_skip_relocation, ventura:        "376411fff331be6554e83c3c033ddb5015a37cafa25e5cb2562553338c543811"
-    sha256 cellar: :any_skip_relocation, monterey:       "87f3a58a275e3dd6a7323dbb082c697b13bcb7de9cae932b3eed072857dd4885"
-    sha256 cellar: :any_skip_relocation, big_sur:        "bb61f5f197eebbaad4518ee4f7a68d3e93b89e486460092008ba52f862a45a2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89afa6c333f06af26f722b06e14bce766a39a463c9b1d7888989913da18c3c90"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f61ec72f7a185910b29a9209a746cd3ab5b951bc114479692fbe59a679292ac7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cca453b1df61a1bfb7c6e4121c6f2885b3558907c8275f871e79a252cee4582d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "26a3a3e71ffed54d77329208d9c74ae3eb9be88f5e69cf7fca46f8254aa1ad67"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4b2e8e207ef02ff40ecafaed7d1009785ef20473b7b7d89adfac06b0c97b86a8"
+    sha256 cellar: :any_skip_relocation, ventura:        "0308bfe2e109b9b02c7a7c4216c741b69a5d485f96fe723da1265eec10651e0c"
+    sha256 cellar: :any_skip_relocation, monterey:       "1c08731f02edf7f158c4d8865e331ebea4f91d8699f8fa4c714118af377deb2f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c73e91e7b7fc1ef0ca0db0c57df4e099c105c1a3f63b95a41a526043bd814ff9"
   end
 
   depends_on "rust" => :build

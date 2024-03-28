@@ -21,7 +21,7 @@ class Mediamtx < Formula
     system "go", "generate", "./..."
 
     ldflags = "-s -w -X github.com/bluenviron/mediamtx/internal/core.version=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     # Install default config
     (etc/"mediamtx").install "mediamtx.yml"

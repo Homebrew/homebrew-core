@@ -4,6 +4,7 @@ class Fail2ban < Formula
   url "https://github.com/fail2ban/fail2ban/archive/refs/tags/1.0.2.tar.gz"
   sha256 "ae8b0b41f27a7be12d40488789d6c258029b23a01168e3c0d347ee80b325ac23"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,23 +12,23 @@ class Fail2ban < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b85f9c530ea11f18748d36b4385b9350592b56f8086c74f513372bff3968878"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0b85f9c530ea11f18748d36b4385b9350592b56f8086c74f513372bff3968878"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b85f9c530ea11f18748d36b4385b9350592b56f8086c74f513372bff3968878"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e6837df7ad022e5595329922103f21b16f062cc26cbf4f68995cd435f8935f15"
-    sha256 cellar: :any_skip_relocation, ventura:        "e6837df7ad022e5595329922103f21b16f062cc26cbf4f68995cd435f8935f15"
-    sha256 cellar: :any_skip_relocation, monterey:       "e6837df7ad022e5595329922103f21b16f062cc26cbf4f68995cd435f8935f15"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "41468dd0a4be14f7ff63caec323b7fa248cf8c17f02640ebc45d592e99b3a454"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "512179a32cdd634b874da3915f1362f62dcfdd1bed0e5db34754992551315f70"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "512179a32cdd634b874da3915f1362f62dcfdd1bed0e5db34754992551315f70"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "512179a32cdd634b874da3915f1362f62dcfdd1bed0e5db34754992551315f70"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6840abcaf98fe4d43fafc6420e2551cdc31bff6b8bd6bc99ea611beaacd2d7ec"
+    sha256 cellar: :any_skip_relocation, ventura:        "6840abcaf98fe4d43fafc6420e2551cdc31bff6b8bd6bc99ea611beaacd2d7ec"
+    sha256 cellar: :any_skip_relocation, monterey:       "6840abcaf98fe4d43fafc6420e2551cdc31bff6b8bd6bc99ea611beaacd2d7ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce1fa2c7e742caaa568ff8187e613ee105fc67d2a46b37762ca651ba4dcd61ad"
   end
 
   depends_on "help2man" => :build
   depends_on "python-setuptools" => :build
   depends_on "sphinx-doc" => :build
-  depends_on "python@3.12"
+  # See https://github.com/Homebrew/homebrew-core/issues/165623, waiting for new release
+  depends_on "python@3.11"
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.11"
     ENV["PYTHON"] = which(python3)
 
     rm "setup.cfg"

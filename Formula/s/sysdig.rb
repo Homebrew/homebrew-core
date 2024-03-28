@@ -4,14 +4,14 @@ class Sysdig < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/draios/sysdig/archive/refs/tags/0.35.3.tar.gz"
-    sha256 "c4f896dd1a2821c98176d18e5dd5e13306910d732579d51c5c4b1c03687424c5"
+    url "https://github.com/draios/sysdig/archive/refs/tags/0.36.0.tar.gz"
+    sha256 "2e519bfa7e6af885cf686f3f85a16fb398c3eb5a6763da7ff8e4ba570cdc2701"
 
     # Update to value of FALCOSECURITY_LIBS_VERSION found in
     # https://github.com/draios/sysdig/blob/#{version}/cmake/modules/falcosecurity-libs.cmake
     resource "falcosecurity-libs" do
-      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.14.2.tar.gz"
-      sha256 "b4ae7bbf3ad031deee4a808145f9fd64b71c537406cc5a92f512823b2e52cdd5"
+      url "https://github.com/falcosecurity/libs/archive/refs/tags/0.15.1.tar.gz"
+      sha256 "8c2596fec3c25e9718a8b357b0504450cd26efbe653b79afcd66a8405f0dc08c"
     end
   end
 
@@ -21,13 +21,13 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "a35056d5bd65fbd7483ed1f70c116e3a80f5a05cc88849b42cabf861915bca8b"
-    sha256                               arm64_ventura:  "7d1124898340e75c8f39ad7fa8bed179aa7dc899e65c37aa5aa2ce5fcde683a1"
-    sha256                               arm64_monterey: "c398691540b90bd97347e51409a16cad3e79a93823c56af95230b786013e83b7"
-    sha256                               sonoma:         "d507c4bbc8c9d171399508691f4911209a549d56b714ced018e236cf794f1f46"
-    sha256                               ventura:        "a088c6b8dc3d341858dc583dd48974d258dc25941fe5975c4478e2e308219b5d"
-    sha256                               monterey:       "4322c8b9400be1b7ac2f914416db99a96d65ce6f86dbfd843abfa266436d825a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "716ab71398a1d7bc150ad599672fda84f525ef736376866b4216f3e9bba0ed83"
+    sha256                               arm64_sonoma:   "9a1c607185c302222c414d2e4bf9917ed39387f256b9cb047561980dd77974bc"
+    sha256                               arm64_ventura:  "37f3849f9e63e7a62585da8043fa8e21f506e3bdbd50cdaa9162c42155f1fd17"
+    sha256                               arm64_monterey: "3b23c1b5626823c4ea138d406ab0fcc2afc26cb864c016a32d9a7cddedd4498b"
+    sha256                               sonoma:         "66438e1e96556aef721752fde21fb6cc2cc6df7370fbc2c26d39a7a31dfe9890"
+    sha256                               ventura:        "ad6a514e1c7138ef7142eabcd5d13cb956344747a31172f9cd7e2dff94f37a83"
+    sha256                               monterey:       "7c8913c84d0091cfd53d8a6ecee666bd373579159d12a577bc3cab15f8bb2576"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81f3b85d693bd4a799ec9ca360d8c7eff13552a9f1f9b945c02a2ddb3f5124b5"
   end
 
   head do

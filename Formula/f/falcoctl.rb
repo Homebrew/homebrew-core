@@ -27,7 +27,7 @@ class Falcoctl < Formula
       -X #{pkg}.semVersion=#{version}
     ]
 
-    system "go", "build", *std_go_args(ldflags: ldflags), "."
+    system "go", "build", *std_go_args(ldflags:), "."
 
     generate_completions_from_executable(bin/"falcoctl", "completion")
   end

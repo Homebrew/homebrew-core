@@ -37,7 +37,7 @@ class Sqsmover < Formula
       -X main.builtBy=#{tap.user}
     ].join(" ")
 
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

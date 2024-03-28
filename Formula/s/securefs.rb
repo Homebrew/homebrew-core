@@ -5,11 +5,11 @@ class Securefs < Formula
       tag:      "0.14.3",
       revision: "8345530d700a6ff73ef59c5074403dede9f9ce96"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "35a68875cb5c3cd5381bf65d7bff60504ea9299014ea0d97c66a9b41a76dd2f4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "4210df5259c83c830bb133d34b921e48004fc37585370382b5a750f354f317f9"
   end
 
   depends_on "cmake" => :build

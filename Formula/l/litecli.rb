@@ -3,19 +3,18 @@ class Litecli < Formula
 
   desc "CLI for SQLite Databases with auto-completion and syntax highlighting"
   homepage "https://github.com/dbcli/litecli"
-  url "https://files.pythonhosted.org/packages/f3/8e/2530fef1b2b63d4d59e89fea9d0bed8f204d1b7514e06b8be18c372a2be3/litecli-1.10.0.tar.gz"
-  sha256 "ee9e2a93d193a555c0e661ed083943a6f932a9c8e8c267b689b469f9ac7a3e0c"
+  url "https://files.pythonhosted.org/packages/f4/87/94afa9501babb6b1801fa51581689d1854092d5bf949d0aced2327616a65/litecli-1.10.1.tar.gz"
+  sha256 "37e6801f6be00d5d5853b8881db1ffdbbe9b0817c6c61bb2d9c7962f6cffa08f"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "71d93c3e1530e6302a50c64c081731149a3e0c4ffc7912810ffc10822a611123"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc0468cbded08e31e832d6973bc69f4d2732868587e3ce4fc25219db79fc329b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9b86328b4112ed70684af3cf8d462d104b7ddc9aee1d9de62e7633d94b8eb27"
-    sha256 cellar: :any_skip_relocation, sonoma:         "39e2727f3aac6f48753b2e1c02b7339bb2d7ee38c951fa33da694df495d07e2c"
-    sha256 cellar: :any_skip_relocation, ventura:        "6fc7049f7829a4c7a95af3f4c3231fc0848fe3aef13aef0b3b9b667068493414"
-    sha256 cellar: :any_skip_relocation, monterey:       "b9088adf46104d70cdeba33916445d51d1356b6dfaaa97d10b928cf27a7053e8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6262b7265a87b3ca230742ccdb93bf72630344789a1940b401fd6ea9a79cfaf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
+    sha256 cellar: :any_skip_relocation, ventura:        "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
+    sha256 cellar: :any_skip_relocation, monterey:       "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "408166ccb352b19594eb8c20c00c324d1c6f4e92a0d36989aeb6fcb61962a990"
   end
 
   depends_on "python@3.12"

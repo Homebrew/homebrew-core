@@ -17,6 +17,8 @@ class Cdktf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "3672caff49c3eedaa4014e4da69d7bc198d68344000473d45305716352e4fc00"
   end
 
+  deprecate! date: "2024-03-13", because: "uses soon-to-be deprecated terraform"
+
   depends_on "node"
   depends_on "terraform"
 

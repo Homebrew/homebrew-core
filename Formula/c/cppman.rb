@@ -8,17 +8,20 @@ class Cppman < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a570e7970c982fa1e1c1ea6c222d7d8488785237f2ac36217e2ee2a4f5268c52"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcdd4cef8369692f90a7891a5f55451b6cee56a5d67ff6bf1a3f1ea7b840640a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3be32eb590705a33067dc2c13953c7ba9d537e12a6da22c1073949d1386fafd2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "50bd9bf3a46a4ff11aa274d786633b863d2346773731243cfb97721a79321786"
-    sha256 cellar: :any_skip_relocation, ventura:        "a5790e90df73eaffbce4c098be3f7c2ea567f2ff1720255b70c87dc8b16c73ca"
-    sha256 cellar: :any_skip_relocation, monterey:       "7cf93e2ceb1cc87971b932a39cc5ac93133f5cd94c6e74605f61700388633a4e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd1d8e0b3eb0e6cf71be41fd1b3de80029f5f7bc8737c91b59433fb378d574bd"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e8318f7ad48430b865690662c367d9567eb59dff05aa52779f3ff302ade6c945"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8318f7ad48430b865690662c367d9567eb59dff05aa52779f3ff302ade6c945"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8318f7ad48430b865690662c367d9567eb59dff05aa52779f3ff302ade6c945"
+    sha256 cellar: :any_skip_relocation, sonoma:         "e8318f7ad48430b865690662c367d9567eb59dff05aa52779f3ff302ade6c945"
+    sha256 cellar: :any_skip_relocation, ventura:        "e8318f7ad48430b865690662c367d9567eb59dff05aa52779f3ff302ade6c945"
+    sha256 cellar: :any_skip_relocation, monterey:       "e8318f7ad48430b865690662c367d9567eb59dff05aa52779f3ff302ade6c945"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc6a4bba4cd38b9f4d56cdddd6ba802bd5a0b584d53bd48a46abcefa5f4e9d81"
   end
 
   depends_on "python@3.12"
+  on_system :linux, macos: :ventura_or_newer do
+    depends_on "groff"
+  end
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"

@@ -1,8 +1,8 @@
 class Luarocks < Formula
   desc "Package manager for the Lua programming language"
   homepage "https://luarocks.org/"
-  url "https://luarocks.org/releases/luarocks-3.9.2.tar.gz"
-  sha256 "bca6e4ecc02c203e070acdb5f586045d45c078896f6236eb46aa33ccd9b94edb"
+  url "https://luarocks.org/releases/luarocks-3.11.0.tar.gz"
+  sha256 "25f56b3c7272fb35b869049371d649a1bbe668a56d24df0a66e3712e35dd44a6"
   license "MIT"
   head "https://github.com/luarocks/luarocks.git", branch: "master"
 
@@ -12,16 +12,13 @@ class Luarocks < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
-    sha256 cellar: :any_skip_relocation, sonoma:         "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
-    sha256 cellar: :any_skip_relocation, ventura:        "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
-    sha256 cellar: :any_skip_relocation, monterey:       "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
-    sha256 cellar: :any_skip_relocation, big_sur:        "688737ba89f9cdb348edf15e80fb2f3e9e4dae06e16677526c50fea2198f8739"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "feb3d3a0d197a49b30c6cf97f378edaabc28091b296c20944a604ab605a74186"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e48c1771b1c34f2e034398185e2d974ee41b4b0c6a91ce0ad56494918b7d5d13"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e48c1771b1c34f2e034398185e2d974ee41b4b0c6a91ce0ad56494918b7d5d13"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e48c1771b1c34f2e034398185e2d974ee41b4b0c6a91ce0ad56494918b7d5d13"
+    sha256 cellar: :any_skip_relocation, sonoma:         "de52191efb44bad1affa133ae0ab53c5f4fdbfaf9ac46686f6d5eb44af6bc071"
+    sha256 cellar: :any_skip_relocation, ventura:        "de52191efb44bad1affa133ae0ab53c5f4fdbfaf9ac46686f6d5eb44af6bc071"
+    sha256 cellar: :any_skip_relocation, monterey:       "de52191efb44bad1affa133ae0ab53c5f4fdbfaf9ac46686f6d5eb44af6bc071"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e48c1771b1c34f2e034398185e2d974ee41b4b0c6a91ce0ad56494918b7d5d13"
   end
 
   depends_on "luajit" => :test
@@ -30,6 +27,9 @@ class Luarocks < Formula
   uses_from_macos "unzip"
 
   def install
+    # Fix the lua config file missing issue for luarocks-admin build
+    ENV.deparallelize
+
     system "./configure", "--prefix=#{prefix}",
                           "--sysconfdir=#{etc}",
                           "--rocks-tree=#{HOMEBREW_PREFIX}"

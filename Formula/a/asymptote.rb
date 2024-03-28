@@ -2,8 +2,8 @@ class Asymptote < Formula
   desc "Powerful descriptive vector graphics language"
   homepage "https://asymptote.sourceforge.io"
   # Keep version in sync with manual below
-  url "https://downloads.sourceforge.net/project/asymptote/2.87/asymptote-2.87.src.tgz"
-  sha256 "0e6a9295f3df20d56d8ef8739ecfd07d2ff8111c97bf24993d91fdc1ae03591b"
+  url "https://downloads.sourceforge.net/project/asymptote/2.89/asymptote-2.89.src.tgz"
+  sha256 "f64e62b4ee4f85f1a78640c4f1e8a6f98e91f54edacab19727c7cabe94a57f5b"
   license "LGPL-3.0-only"
 
   livecheck do
@@ -12,16 +12,17 @@ class Asymptote < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "42f2d0ab5ea7ba91cbe25be945175a527c54f350a6dadb09ad81e666f50eb516"
-    sha256 arm64_ventura:  "56f6b7a68057a8c1c2aa344544ebf4acc8019d002504ea4af9517a8b4e653e85"
-    sha256 arm64_monterey: "4ca4b659c0c063fa150f81932e540876820764266709ec2e50e19ae86d2e146d"
-    sha256 sonoma:         "6d43c8ea58c8ea2e467c5bfcd3a70d5499d9edacea8f44a19680b2b0632e7ff4"
-    sha256 ventura:        "577f60086bf5186207c31c972a4655acb6fdd3b12abb3c8e4d17515d7214cd17"
-    sha256 monterey:       "f8650f9c52df5a795a068ccdb538a8b47adefc2467249d60af98fafd0804aa69"
-    sha256 x86_64_linux:   "01bfb84f5b327e163eb523b9c950d68c54ac9ee0f94973aa0a040d74e6eb2f36"
+    sha256 arm64_sonoma:   "b4391c8b620b185ad515fc5a4231d3cc91ba3c14141e628a2df648d065693f2a"
+    sha256 arm64_ventura:  "cd5272505690c2a2fa20c5c5b9d94bf6095dbac528a59d7e1d77376661c9e2c5"
+    sha256 arm64_monterey: "57ca55dcaa13cafa388c2eb6674c3263cd859c2ecc03acd2941f1a0d36e781cc"
+    sha256 sonoma:         "dd179223630ac07ecacff4e201c54da76a5779cfa4c0614c5365a3a3ec5066d7"
+    sha256 ventura:        "ae6b041de51a37329f07361c9e164a0e95ca7f3bc287b7fbf5db1a9bf3414eac"
+    sha256 monterey:       "0e4936bbd458f85c5c4c5f0f1b29dfd2d4b05bda7175cbdcea7899b9e86578a9"
+    sha256 x86_64_linux:   "2f56e57c07516a56e358875328d7ca50f4033b22565fc4034c31c2a3123630ca"
   end
 
   depends_on "glm" => :build
+  depends_on "pkg-config" => :build
   depends_on "fftw"
   depends_on "ghostscript"
   depends_on "gsl"
@@ -36,11 +37,13 @@ class Asymptote < Formula
   end
 
   resource "manual" do
-    url "https://downloads.sourceforge.net/project/asymptote/2.87/asymptote.pdf"
-    sha256 "460a1323681b8215d530245b981f27df4b70e6c7d535f48ecfcd93f9c99a56ea"
+    url "https://downloads.sourceforge.net/project/asymptote/2.89/asymptote.pdf"
+    sha256 "c14f388e05d814462693f04090ad18d9090a5eadd885e5287d1cde3788a5160b"
   end
 
   def install
+    odie "manual resource needs to be updated" if version != resource("manual").version
+
     system "./configure", *std_configure_args
 
     # Avoid use of MacTeX with these commands
@@ -55,14 +58,13 @@ class Asymptote < Formula
   end
 
   test do
-    assert_equal version, resource("manual").version, "`manual` resource needs updating!"
-
     (testpath/"line.asy").write <<~EOF
       settings.outformat = "pdf";
       size(200,0);
       draw((0,0)--(100,50),N,red);
     EOF
-    system "#{bin}/asy", testpath/"line.asy"
+
+    system bin/"asy", testpath/"line.asy"
     assert_predicate testpath/"line.pdf", :exist?
   end
 end

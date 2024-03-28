@@ -4,20 +4,17 @@ class Fcl < Formula
   url "https://github.com/flexible-collision-library/fcl/archive/refs/tags/0.7.0.tar.gz"
   sha256 "90409e940b24045987506a6b239424a4222e2daf648c86dd146cbcb692ebdcbc"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/flexible-collision-library/fcl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "65fc084fe681299eb81a12aadd510c8e490c70e067ebd05de97abb3edffb39e4"
-    sha256 cellar: :any,                 arm64_ventura:  "a32e966491d45e0fb152424f58b4015748e253738afaa0316a2f91c83c340202"
-    sha256 cellar: :any,                 arm64_monterey: "15b9e1b7c5166ad222c94e848259726896f59187b4a31c90671f4bdd00547591"
-    sha256 cellar: :any,                 arm64_big_sur:  "d2054fa4adf473a736ee945e0a1817772a77b423c1fbd314f7ced016ad616760"
-    sha256 cellar: :any,                 sonoma:         "e5ccb800c444e38feda78b3f58cbbda898661e978e870228e783fd0a4072a2e1"
-    sha256 cellar: :any,                 ventura:        "05789d524eeabb2c81cb6c868582e1b5b1a4c178ead3a8f0eafa66bf1c122b8b"
-    sha256 cellar: :any,                 monterey:       "b79ff81383e9aa9de0a692f11d287365751a9610395e99b0acaff1eae9a8f4c8"
-    sha256 cellar: :any,                 big_sur:        "211e57fdf880e25e2441be78170dd1433d746aee1bb9a98990479abc2037a546"
-    sha256 cellar: :any,                 catalina:       "2bac88b84304ad8de56bbf604f7466ee147c31e04484df02ff45ef4aa9c966cc"
-    sha256 cellar: :any,                 mojave:         "095c6887a9007ec034751d8326fa7f5052180b78605d5df92223e081a17cad3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7b0a2f8116b46c0f78f86c850ca6a808282bbc8dc6a7768d716faef891ce64bf"
+    sha256 cellar: :any,                 arm64_sonoma:   "6a4d2a1e04f17fb6cf2d7ed92524f09a841c3b212f3ecf22d9dc00dd294bb895"
+    sha256 cellar: :any,                 arm64_ventura:  "d147e210255b79430e8fed2455325c53aa0975c2f081b39c44050c5921efd813"
+    sha256 cellar: :any,                 arm64_monterey: "05d4d212709bccf7dc0f78eb01882937cdfa656ee019b47493baf6c404d33359"
+    sha256 cellar: :any,                 sonoma:         "24a08459f44fe31c2021fe74d4e3cc05dbc32141ad8d941e60c60863229e6635"
+    sha256 cellar: :any,                 ventura:        "06b3d235437c8047c3aa7d3951e15e254a6a81dc45546fb34d8732ddeaac68ba"
+    sha256 cellar: :any,                 monterey:       "199ee80d6917e61d200cb4ce8fd9516542270ce9eefdfb3139d98f203251fade"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5840ff43dc2df33f18284bf49f0c29c254d5993d71da5d9939bb18ce316da35d"
   end
 
   depends_on "cmake" => :build

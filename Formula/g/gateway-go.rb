@@ -25,7 +25,7 @@ class GatewayGo < Formula
       -X main.commit=
       -X main.builtBy=homebrew
     ]
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
     (etc/"gateway-go").install "gateway-go.yaml"
   end
 

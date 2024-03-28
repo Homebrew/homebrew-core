@@ -1,28 +1,26 @@
 class Define < Formula
   desc "Command-line dictionary (thesaurus) app, with access to multiple sources"
   homepage "https://github.com/Rican7/define"
-  url "https://github.com/Rican7/define/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "d4b85395f941fdbb558e737a3a96b9205bae7ac6fb1d5bdde4121dc1f03a9036"
+  url "https://github.com/Rican7/define/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "b8f0a83bbf345330d1081634e3b865527d4924be8e771501283abf17c4304514"
   license "MIT"
   head "https://github.com/Rican7/define.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9193d4617c8c8958bd174457ac4d90b56e06bc6898d1dc22f0bd0d252e5ea497"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d98a366eb9aa54573e18a04522d60b6ff36a02d9693edf4aedd2e6023a4802cf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d98a366eb9aa54573e18a04522d60b6ff36a02d9693edf4aedd2e6023a4802cf"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "d98a366eb9aa54573e18a04522d60b6ff36a02d9693edf4aedd2e6023a4802cf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6a3f7a3a16a7595cffb41589a3cd0770ba91cb9b60001df8fd34c560906ef152"
-    sha256 cellar: :any_skip_relocation, ventura:        "b8c0ec8a8a3b85cb98a43303d2239a9e4c733459891f340e50e9aa53b712a5ac"
-    sha256 cellar: :any_skip_relocation, monterey:       "b8c0ec8a8a3b85cb98a43303d2239a9e4c733459891f340e50e9aa53b712a5ac"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b8c0ec8a8a3b85cb98a43303d2239a9e4c733459891f340e50e9aa53b712a5ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "276816cda3256886daf23a8cdadb6861d22c3b697303b135dc86b8b018a45f0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4882bc1b7b4cf9f7bfa1181ab067820042a45077ba6941b9a0966546959e7e5f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c301e8ee5532ce47928989534de2bb2b07c2b1361b47dad059bb3aabbeb5642d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "301a61ee7318cdac3c0e4fdbec3bb4a38dfe7c59a33c56f73b5849024ecfc525"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5a7046386262e0c8ead170a8ae73d20ee45eaaf0827fa6e5877d34a27dfa3f1c"
+    sha256 cellar: :any_skip_relocation, ventura:        "52b5e52db7f2a1cd770fb042a28781496fc7c15bcd441fc9d2b0ec24ccfba3c6"
+    sha256 cellar: :any_skip_relocation, monterey:       "f7e89c50d429ffd8a461b0124838d1425fa7b9e06f87889952ce942dc8fb3cb3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5ed09144379f9439b144f3f4e93e394203057f479d9edb6309fadf11183d17c"
   end
 
   depends_on "go" => :build
 
   def install
     ldflags = "-s -w -X github.com/Rican7/define/internal/version.identifier=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do

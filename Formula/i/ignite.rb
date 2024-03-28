@@ -1,18 +1,18 @@
 class Ignite < Formula
   desc "Build, launch, and maintain any crypto application with Ignite CLI"
   homepage "https://github.com/ignite/cli"
-  url "https://github.com/ignite/cli/archive/refs/tags/v28.2.0.tar.gz"
-  sha256 "556f953fd7f922354dea64e7b3dade5dd75b3f62ece93167e2ba126cac27602e"
+  url "https://github.com/ignite/cli/archive/refs/tags/v28.3.0.tar.gz"
+  sha256 "00ea4ca9fbd04af84cd1e88861a8759618afdc03113010688b1e1e3b0f9d6578"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b3917626df2ccb9f2b33a2a4b06cf9a714697ebe927e6e3985460fdcdfdd2d38"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3858b0f9ff045eb91ef61511d63646517a9f6495cd95daa87179a2bbcc8bb63"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c8e6352fcb7dc6f19cdb22f7180dd794cec4b85a73e8e18932ad15a37f5a1a70"
-    sha256 cellar: :any_skip_relocation, sonoma:         "db880dd38b2702a7cbef4f1811f95ebf11bf5e6b75911fbd8cddd5992a58b3da"
-    sha256 cellar: :any_skip_relocation, ventura:        "3c4eefafe9e58270fd9e3dbfc12747be0b5ff884855507bcfc5249b00a3d5dd0"
-    sha256 cellar: :any_skip_relocation, monterey:       "8e6d27b8c589c420e3d238a1399354c033ae7f274fe251366277475be75bee73"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a08f19683fa74772862d744a8677cda077f809b27fc2c4a5691fa89e2dae83ae"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "38e62034b26c18f70a6c4e06b22b6b35a0346c0422d76bdc59fa1a5b746c0d89"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eac26ec65373c5958776259afd3ba3ba54fd5a4858b85f517439e6118696a93c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e0f399b15a4dd3be122a9527b348dfb091e1bbfba8ff943e3edcb84519ea9f0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a01b4767a2228229f0226460371b591e1c61bd8c585e6d710806e8918b8a067b"
+    sha256 cellar: :any_skip_relocation, ventura:        "74237890f7e735f203f1f847dad8053fde07a3b23c6ac340f0d99c1f2f72d933"
+    sha256 cellar: :any_skip_relocation, monterey:       "2a61165bbd36e80432899f822f972ecea6f210a6b5d81409084c1384da8136cc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "944017cea20f77c011540c1ff853e5b76f9306635bfbd586bcba045e784e602c"
   end
 
   depends_on "go"

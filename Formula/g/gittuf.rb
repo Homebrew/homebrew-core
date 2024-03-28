@@ -20,7 +20,7 @@ class Gittuf < Formula
 
   def install
     ldflags = "-s -w -X github.com/gittuf/gittuf/internal/version.gitVersion=#{version}"
-    system "go", "build", *std_go_args(ldflags: ldflags)
+    system "go", "build", *std_go_args(ldflags:)
 
     generate_completions_from_executable(bin/"gittuf", "completion")
   end

@@ -1,20 +1,18 @@
 class Libdeflate < Formula
   desc "Heavily optimized DEFLATE/zlib/gzip compression and decompression"
   homepage "https://github.com/ebiggers/libdeflate"
-  url "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.19.tar.gz"
-  sha256 "27bf62d71cd64728ff43a9feb92f2ac2f2bf748986d856133cc1e51992428c25"
+  url "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.20.tar.gz"
+  sha256 "ed1454166ced78913ff3809870a4005b7170a6fd30767dc478a09b96847b9c2a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "25a9ae1e8167bd14f5f1bf88165f27c80caf8f5d24604579865eaf13b7a27bc1"
-    sha256 cellar: :any,                 arm64_ventura:  "a97e5d8d855fd8bcd1e35a0ca2bb55bb3e05da8928ab091003c8bfd001162247"
-    sha256 cellar: :any,                 arm64_monterey: "6d514e7fda8cb70c16d95147f50342fdbbf87b9706f3b9df78e3ac5eef8f324d"
-    sha256 cellar: :any,                 arm64_big_sur:  "f03cc89c76225623adcee307931ae1b8f6306ae0996c9a1403091209b6743226"
-    sha256 cellar: :any,                 sonoma:         "71836a9918b68414109129a7828a2e79d542d89cf05405836bcbf1dd65e77f2b"
-    sha256 cellar: :any,                 ventura:        "87e07a558b1533935a4a3582948976c232ade085acb0ed39aa58736280940e93"
-    sha256 cellar: :any,                 monterey:       "12d872b0cc1cfcf167a8273b555b8108c0a2ad01fbe3213fbadfa5c3a0cb3842"
-    sha256 cellar: :any,                 big_sur:        "32623fc04c5e7dc31a042fc7e7029143d4a8ee77a13a9fe023dbd5038869787b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c75f2d165b9c852d2c53a4a145b3a49896c1809d23f42c20d663d7c2987c96cd"
+    sha256 cellar: :any,                 arm64_sonoma:   "ef4bc3719c70acff476b1089a30f5ddc04c1c8ba548a01148b6d0ecad2f265d4"
+    sha256 cellar: :any,                 arm64_ventura:  "5817729d8b8bfe60f56c3eb67c4e845fe2fcf07875f83003f39ee6b0e663ce90"
+    sha256 cellar: :any,                 arm64_monterey: "e02c7c600bf3ab0e0a415220c3e475b379238455f6dc7d2576147b37fdee17ce"
+    sha256 cellar: :any,                 sonoma:         "c9d2b68426f8221614191519b44d12722ea9d7099830a43d71324a71d8425150"
+    sha256 cellar: :any,                 ventura:        "4250f3a839c6b6b3fef9ca0a0258c1d90f471a91a005f7efc6320865c5ed0e39"
+    sha256 cellar: :any,                 monterey:       "9076a50d73abd8ee01cc55c125622d97db62d64e51c32f6be2617ae60b1c66a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9570e5ed3a13f304bc21a451e420bd1ef92cebb66cc66701516bdd24fd89a334"
   end
 
   depends_on "cmake" => :build
