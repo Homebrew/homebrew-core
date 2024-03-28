@@ -6,6 +6,16 @@ class ProtocGenJs < Formula
   license "BSD-3-Clause"
   head "https://github.com/protocolbuffers/protobuf-javascript.git", branch: "main"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cc2ba4ee9b1a566ee47dafd96f73dce89b383291c1504950aad5334c7945d661"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "596914c981706cef366b362d4f514a35b6697baeb7646f8d323779ac0a1167a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "37e7fbdf46b8b8a5df2d7f21458bf8bb613ed96d5ce0599b7ecd7038a691938e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a444f2d40d5032e35985f1d9f10994fb69171bd318fe4ad43c01292cc66bfb94"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d18411c33bca80e42e2ab2ee14003d5bda1fc185192f656716bb2491ce58528"
+    sha256 cellar: :any_skip_relocation, monterey:       "82495e5cd063520c537b811bb6a14c11371c7d540b4f31412074a55ff4883a5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cb375b65b3a2fbfa936054f5899c0a9ac5324c027475133d3b5ed36d5da2f055"
+  end
+
   depends_on "bazelisk" => :build
   depends_on "protobuf@21"
 
