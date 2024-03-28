@@ -1,11 +1,10 @@
 class ArmNoneEabiBinutils < Formula
   desc "GNU Binutils for arm-none-eabi cross development"
   homepage "https://www.gnu.org/software/binutils/"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.41.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.41.tar.bz2"
-  sha256 "a4c4bec052f7b8370024e60389e194377f3f48b56618418ea51067f67aaab30b"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.42.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.42.tar.bz2"
+  sha256 "aa54850ebda5064c72cd4ec2d9b056c294252991486350d9a97ab2a6dfdfaf12"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     formula "binutils"
