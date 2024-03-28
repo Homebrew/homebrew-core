@@ -371,6 +371,9 @@
     "exclude_packages": ["certifi"],
     "extra_packages": ["requests"]
   },
+  "iredis": {
+    "extra_packages": ["setuptools"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["certifi"],
     "extra_packages": ["setuptools"]
