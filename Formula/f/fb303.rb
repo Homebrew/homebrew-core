@@ -4,6 +4,7 @@ class Fb303 < Formula
   url "https://github.com/facebook/fb303/archive/refs/tags/v2024.03.25.00.tar.gz"
   sha256 "25f410148fb9eb5423d43f39f4c16168dec76b998695c84e465519c39ee7df05"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/facebook/fb303.git", branch: "main"
 
   bottle do
