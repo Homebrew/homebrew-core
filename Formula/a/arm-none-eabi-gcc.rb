@@ -42,6 +42,8 @@ class ArmNoneEabiGcc < Formula
                              "--with-ld=#{Formula["arm-none-eabi-binutils"].bin}/arm-none-eabi-ld",
                              "--enable-languages=c,c++,objc,lto",
                              "--enable-lto",
+                             "--enable-multilib",
+                             "--with-multilib-list=aprofile,rmprofile",
                              "--with-system-zlib",
                              "--with-zstd",
                              *std_configure_args

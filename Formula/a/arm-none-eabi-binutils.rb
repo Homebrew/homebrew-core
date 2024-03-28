@@ -38,6 +38,7 @@ class ArmNoneEabiBinutils < Formula
            "--infodir=#{info}/#{target}",
            "--with-system-zlib",
            "--with-zstd",
+           "--enable-multilib",
            "--disable-nls"
     system "make"
     system "make", "install"
