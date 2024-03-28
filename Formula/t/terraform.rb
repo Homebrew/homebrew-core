@@ -26,6 +26,9 @@ class Terraform < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "67fee97d6db4e6fb1d53a3c0f5bb092b11cd41966a36078a5d846272d59bb8ea"
   end
 
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2023-09-27", because: "will change its license to BUSL on the next release"
+
   depends_on "go" => :build
 
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
@@ -36,6 +39,16 @@ class Terraform < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new Terraform releases in homebrew/core (with the BUSL license).
+      The next release will change to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   test do
