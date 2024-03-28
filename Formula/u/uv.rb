@@ -4,6 +4,7 @@ class Uv < Formula
   url "https://github.com/astral-sh/uv/archive/refs/tags/0.1.24.tar.gz"
   sha256 "31f4462aff2b7ed56994850c587bf7743f4c4844591c03a2e9618c0781ec225e"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/astral-sh/uv.git", branch: "main"
 
   bottle do

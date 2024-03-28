@@ -4,6 +4,7 @@ class Poac < Formula
   url "https://github.com/poac-dev/poac/archive/refs/tags/0.9.3.tar.gz"
   sha256 "122aa46923e3e93235305b726617df7df747ed7a26072ccd6b87ffaf84a33aed"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/poac-dev/poac.git", branch: "main"
 
   bottle do
