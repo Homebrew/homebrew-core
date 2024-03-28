@@ -20,27 +20,8 @@ class Ipopt < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "ampl-mp"
   depends_on "gcc" # for gfortran
+  depends_on "mumps"
   depends_on "openblas"
-
-  resource "mumps" do
-    # follow links provided in official repo: https://github.com/coin-or-tools/ThirdParty-Mumps/blob/stable/3.0/get.Mumps
-    url "http://coin-or-tools.github.io/ThirdParty-Mumps/MUMPS_5.6.2.tar.gz"
-    mirror "http://deb.debian.org/debian/pool/main/m/mumps/mumps_5.6.2.orig.tar.gz"
-    sha256 "13a2c1aff2bd1aa92fe84b7b35d88f43434019963ca09ef7e8c90821a8f1d59a"
-
-    patch do
-      # MUMPS does not provide a Makefile.inc customized for macOS.
-      on_macos do
-        url "https://raw.githubusercontent.com/Homebrew/formula-patches/ab96a8b8e510a8a022808a9be77174179ac79e85/ipopt/mumps-makefile-inc-generic-seq.patch"
-        sha256 "0c570ee41299073ec2232ad089d8ee10a2010e6dfc9edc28f66912dae6999d75"
-      end
-
-      on_linux do
-        url "https://gist.githubusercontent.com/dawidd6/09f831daf608eb6e07cc80286b483030/raw/b5ab689dea5772e9b6a8b6d88676e8d76224c0cc/mumps-homebrew-linux.patch"
-        sha256 "13125be766a22aec395166bf015973f5e4d82cd3329c87895646f0aefda9e78e"
-      end
-    end
-  end
 
   resource "test" do
     url "https://github.com/coin-or/Ipopt/archive/refs/tags/releases/3.14.14.tar.gz"
@@ -52,24 +33,6 @@ class Ipopt < Formula
     ENV.delete("MPICXX")
     ENV.delete("MPIFC")
 
-    resource("mumps").stage do
-      cp "Make.inc/Makefile.inc.generic.SEQ", "Makefile.inc"
-      inreplace "Makefile.inc", "@rpath/", "#{opt_lib}/" if OS.mac?
-
-      # Fix for GCC 10
-      inreplace "Makefile.inc", "OPTF    = -fPIC",
-                "OPTF    = -fPIC -fallow-argument-mismatch"
-
-      ENV.deparallelize { system "make", "d" }
-
-      (buildpath/"mumps_include").install Dir["include/*.h", "libseq/mpi.h"]
-      lib.install Dir[
-        "lib/#{shared_library("*")}",
-        "libseq/#{shared_library("*")}",
-        "PORD/lib/#{shared_library("*")}"
-      ]
-    end
-
     args = [
       "--disable-debug",
       "--disable-dependency-tracking",
@@ -77,7 +40,7 @@ class Ipopt < Formula
       "--enable-shared",
       "--prefix=#{prefix}",
       "--with-blas=-L#{Formula["openblas"].opt_lib} -lopenblas",
-      "--with-mumps-cflags=-I#{buildpath}/mumps_include",
+      "--with-mumps-cflags=-I#{Formula["mumps"].opt_include}",
       "--with-mumps-lflags=-L#{lib} -ldmumps -lmpiseq -lmumps_common -lopenblas -lpord",
       "--with-asl-cflags=-I#{Formula["ampl-mp"].opt_include}/asl",
       "--with-asl-lflags=-L#{Formula["ampl-mp"].opt_lib} -lasl",
