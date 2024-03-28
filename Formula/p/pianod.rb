@@ -4,6 +4,7 @@ class Pianod < Formula
   url "https://deviousfish.com/Downloads/pianod2/pianod2-405.tar.gz"
   sha256 "f77c8196123ddb0bbb33a40f9fc29862f1df0997e19e19ecd8cbce05b336bf61"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://deviousfish.com/Downloads/pianod2/"

@@ -4,6 +4,7 @@ class Musikcube < Formula
   url "https://github.com/clangen/musikcube/archive/refs/tags/3.0.2.tar.gz"
   sha256 "65f82db36d635bdbfd99f67d1d68c9e1aedf8e38efa627f303cf7971c306d063"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/clangen/musikcube.git", branch: "master"
 
   livecheck do

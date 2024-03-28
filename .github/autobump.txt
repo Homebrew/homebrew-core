@@ -1743,6 +1743,7 @@ syncthing
 sysdig
 sysstat
 systemd
+taglib
 tailscale
 tailwindcss
 talhelper

@@ -4,6 +4,7 @@ class Ncmdump < Formula
   url "https://github.com/taurusxin/ncmdump/archive/refs/tags/1.2.1.tar.gz"
   sha256 "a1bd97fd1b46f9ba4ffaac0cf6cf1e920b49bf6ec753870ad0e6e07a72c2de2d"
   license "MIT"
+  revision 1
   head "https://github.com/taurusxin/ncmdump.git", branch: "main"
 
   bottle do

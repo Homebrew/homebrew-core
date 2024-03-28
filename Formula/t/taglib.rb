@@ -1,9 +1,9 @@
 class Taglib < Formula
   desc "Audio metadata library"
   homepage "https://taglib.org/"
-  url "https://taglib.github.io/releases/taglib-1.13.1.tar.gz"
-  sha256 "c8da2b10f1bfec2cd7dbfcd33f4a2338db0765d851a50583d410bacf055cfd0b"
-  license "LGPL-2.1"
+  url "https://taglib.github.io/releases/taglib-2.0.tar.gz"
+  sha256 "e36ea877a6370810b97d84cf8f72b1e4ed205149ab3ac8232d44c850f38a2859"
+  license all_of: ["LGPL-2.1-only", "MPL-1.1"]
   head "https://github.com/taglib/taglib.git", branch: "master"
 
   bottle do
@@ -19,16 +19,45 @@ class Taglib < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "utf8cpp"
 
   uses_from_macos "zlib"
 
   def install
-    system "cmake", "-DWITH_MP4=ON", "-DWITH_ASF=ON", "-DBUILD_SHARED_LIBS=ON",
-                    *std_cmake_args
-    system "make", "install"
+    args = %w[-DWITH_MP4=ON -DWITH_ASF=ON -DBUILD_SHARED_LIBS=ON]
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
+    (testpath/"test.cpp").write <<~EOS
+      #include <taglib/id3v2tag.h>
+      #include <taglib/textidentificationframe.h>
+      #include <iostream>
+
+      int main() {
+        TagLib::ID3v2::Tag tag;
+
+        auto* artistFrame = new TagLib::ID3v2::TextIdentificationFrame("TPE1", TagLib::String::UTF8);
+        artistFrame->setText("Test Artist");
+        tag.addFrame(artistFrame);
+
+        auto* titleFrame = new TagLib::ID3v2::TextIdentificationFrame("TIT2", TagLib::String::UTF8);
+        titleFrame->setText("Test Title");
+        tag.addFrame(titleFrame);
+
+        std::cout << "Artist: " << tag.artist() << std::endl;
+        std::cout << "Title: " << tag.title() << std::endl;
+
+        return 0;
+      }
+    EOS
+
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-L#{lib}", "-ltag", "-I#{include}", "-lz"
+    assert_match "Artist: Test Artist", shell_output("./test")
+
     assert_match version.to_s, shell_output("#{bin}/taglib-config --version")
   end
 end
