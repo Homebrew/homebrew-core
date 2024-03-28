@@ -1,10 +1,9 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v2.6.2/task-2.6.2.tar.gz"
-  sha256 "b1d3a7f000cd0fd60640670064e0e001613c9e1cb2242b9b3a9066c78862cfec"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.0.0/task-3.0.0.tar.gz"
+  sha256 "30f397081044f5dc2e5a0ba51609223011a23281cd9947ea718df98d149fcc83"
   license "MIT"
-  revision 1
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
 
   livecheck do
@@ -26,6 +25,7 @@ class Task < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "rust" => :build
   depends_on "gnutls"
 
   on_linux do
