@@ -570,9 +570,6 @@
       "pyqtnetworkauth", "pyqtpurchasing", "pyqtwebengine"
     ]
   },
-  "pyqt-builder": {
-    "exclude_packages": ["packaging", "pyparsing", "sip", "toml"]
-  },
   "python@3.8": {
     "package_name": "",
     "extra_packages": ["setuptools", "pip", "wheel"]
@@ -679,9 +676,6 @@
   },
   "sigstore": {
     "exclude_packages": ["certifi", "cryptography"]
-  },
-  "sip": {
-    "exclude_packages": ["packaging", "setuptools"]
   },
   "slither-analyzer": {
     "exclude_packages": ["certifi"]
