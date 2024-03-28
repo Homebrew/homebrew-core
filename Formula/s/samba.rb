@@ -4,10 +4,9 @@ class Samba < Formula
   # option. The shared folder appears in the guest as "\\10.0.2.4\qemu".
   desc "SMB/CIFS file, print, and login server for UNIX"
   homepage "https://www.samba.org/"
-  url "https://download.samba.org/pub/samba/stable/samba-4.19.5.tar.gz"
-  sha256 "0e2405b4cec29d0459621f4340a1a74af771ec7cffedff43250cad7f1f87605e"
+  url "https://download.samba.org/pub/samba/stable/samba-4.20.0.tar.gz"
+  sha256 "02672542510ac6e5d0c91c0c14d90ab4e6ec397c709e952c6da3a6e0b4d5a42f"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -24,6 +23,7 @@ class Samba < Formula
     sha256 x86_64_linux:   "46392ec306d82242ae202cf9eb1df626b79bb8a8e7059ed9de83de36919d5d55"
   end
 
+  depends_on "bison" => :build
   depends_on "cmocka" => :build
   depends_on "pkg-config" => :build
   depends_on "gnutls"
@@ -36,7 +36,6 @@ class Samba < Formula
   depends_on "readline"
   depends_on "talloc"
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "python" => :build # configure requires python3 binary
