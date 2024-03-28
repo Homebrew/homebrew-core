@@ -4,6 +4,7 @@ class OpenMpi < Formula
   url "https://download.open-mpi.org/release/open-mpi/v5.0/openmpi-5.0.2.tar.bz2"
   sha256 "ee46ad8eeee2c3ff70772160bff877cbf38c330a0bc3b3ddc811648b3396698f"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :homepage
@@ -38,6 +39,10 @@ class OpenMpi < Formula
     if OS.mac?
       # Otherwise libmpi_usempi_ignore_tkr gets built as a static library
       ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version
+
+      # Work around asm incompatibility with new linker (FB13194320)
+      # https://github.com/open-mpi/ompi/issues/11935
+      ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
     end
 
     # Avoid references to the Homebrew shims directory
@@ -71,6 +76,10 @@ class OpenMpi < Formula
       --with-sge
     ]
     args << "--with-platform-optimized" if build.head?
+
+    # Work around asm incompatibility with new linker (FB13194320)
+    # https://github.com/open-mpi/ompi/issues/11935
+    args << "--with-wrapper-ldflags=-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
 
     system "./autogen.pl", "--force" if build.head?
     system "./configure", *std_configure_args, *args
