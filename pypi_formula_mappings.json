@@ -423,7 +423,7 @@
   },
   "mapproxy": {
     "exclude_packages": ["certifi", "pillow"],
-    "extra_packages": ["pyproj"]
+    "extra_packages": ["pyproj", "setuptools"]
   },
   "mat2": {
     "exclude_packages": ["pygobject"]

@@ -3,6 +3,8 @@ class Mapproxy < Formula
 
   desc "Accelerating web map proxy"
   homepage "https://mapproxy.org/"
+  # Should be able to remove setuptools from pypi_formula_mappings.json in next release,
+  # see: https://github.com/mapproxy/mapproxy/pull/863
   url "https://files.pythonhosted.org/packages/ba/09/6ca59563371cf5a0839a1bca32f277f00dc737a213b1bfa72e5ec0dfeca6/MapProxy-2.0.2.tar.gz"
   sha256 "1f03b982faec5bda40af3e112edc4d7c29a216a6bce40022eb004923e17d184f"
   license "Apache-2.0"
@@ -22,9 +24,6 @@ class Mapproxy < Formula
   depends_on "libyaml"
   depends_on "pillow"
   depends_on "proj"
-  # Should be able to remove python-setuptools dependency in next release,
-  # see: https://github.com/mapproxy/mapproxy/pull/863
-  depends_on "python-setuptools"
   depends_on "python@3.12"
 
   resource "pyproj" do
@@ -35,6 +34,11 @@ class Mapproxy < Formula
   resource "pyyaml" do
     url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
     sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+  end
+
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   def install
