@@ -4,6 +4,7 @@ class Gauche < Formula
   url "https://github.com/shirok/Gauche/releases/download/release0_9_14/Gauche-0.9.14.tgz"
   sha256 "02928f8535cf83f23ed6097f1b07b1fdb487a5ad2cb81d8a34d5124d02db3d48"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable

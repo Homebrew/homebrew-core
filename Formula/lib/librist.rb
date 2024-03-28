@@ -4,6 +4,7 @@ class Librist < Formula
   url "https://code.videolan.org/rist/librist/-/archive/v0.2.10/librist-v0.2.10.tar.gz"
   sha256 "797e486961cd09bc220c5f6561ca5a08e7747b313ec84029704d39cbd73c598c"
   license "BSD-2-Clause"
+  revision 1
   head "https://code.videolan.org/rist/librist.git", branch: "master"
 
   livecheck do

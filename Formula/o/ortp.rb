@@ -2,6 +2,7 @@ class Ortp < Formula
   desc "Real-time transport protocol (RTP, RFC3550) library"
   homepage "https://linphone.org/"
   license "GPL-3.0-or-later"
+  revision 1
 
   stable do
     url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.37/ortp-5.3.37.tar.bz2"
