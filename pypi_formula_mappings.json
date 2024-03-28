@@ -435,6 +435,10 @@
   "mentat": {
     "exclude_packages": ["certifi", "numpy", "pillow"]
   },
+  "mesa": {
+    "package_name": "",
+    "extra_packages": ["mako", "markupsafe", "packaging", "pygments", "ply"]
+  },
   "meson-python": {
     "exclude_packages": ["meson", "packaging"],
     "extra_packages": ["tomli"]
