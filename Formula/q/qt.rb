@@ -58,6 +58,7 @@ class Qt < Formula
   depends_on "brotli"
   depends_on "dbus"
   depends_on "double-conversion"
+  depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "glib"
   depends_on "harfbuzz"
@@ -94,7 +95,6 @@ class Qt < Formula
     depends_on "alsa-lib"
     depends_on "at-spi2-core"
     # TODO: depends_on "bluez"
-    depends_on "ffmpeg"
     depends_on "fontconfig"
     depends_on "gstreamer"
     # TODO: depends_on "gypsy"
@@ -202,6 +202,7 @@ class Qt < Formula
     cmake_args = std_cmake_args(install_prefix: HOMEBREW_PREFIX, find_framework: "FIRST") + %w[
       -DFEATURE_pkg_config=ON
       -DINSTALL_MKSPECSDIR=share/qt/mkspecs
+      -DQT_FEATURE_ffmpeg=ON
       -DQT_FEATURE_webengine_proprietary_codecs=ON
       -DQT_FEATURE_webengine_kerberos=ON
       -DQT_ALLOW_SYMLINK_IN_PATHS=ON
