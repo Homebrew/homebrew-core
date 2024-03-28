@@ -6,13 +6,13 @@ class Kubeshark < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9ba3dfa5a038c965435cb169a5970ea59cdbc1d3be97ca6924480fa1c01efd6c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb035823f711cb8cd97ea94dd0ecf37622db02cf4209574776cba272de28568c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c721598a832326633cbb5d5982ff1d5a715967df6baa1a9477e30ddc0546e339"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1a6425c907eb3d995b9577f017533808a2145b91b61d5e3910bd1410ca862416"
-    sha256 cellar: :any_skip_relocation, ventura:        "1feffa0d3ff6d0c483b42f85be101d696bfdff9658c3f6173c9e4ae705d01c9d"
-    sha256 cellar: :any_skip_relocation, monterey:       "2c475f3f65d8444acad8a8ada2592fe2de2b8811ae94a3a2605010e527fc0060"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5975b14bd2d3cee6c7d6efd67965b5fbe11e42a2edd1e5b630b6a3b1cb5bcb43"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c06677e9211074816e20303574ca7f3dad5c75ffd757fe0b74c591eb1c313115"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "079ba15dab9d07f7e1287ed62a577b7d3f06645772e85615e341d1eee172d517"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "bb9655cbf15fa7e5cbe48143a8e40a69d11341c4708d1c6d85ba4c484e828bb3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "779ab5daa36fc75aaa639979fe8440581e6b5dc6226360278e583da4592f05e9"
+    sha256 cellar: :any_skip_relocation, ventura:        "8698a7de44a23cb9267ba01343a4880f7645e4822fbbaec63d35e8f5f5a46ad2"
+    sha256 cellar: :any_skip_relocation, monterey:       "160e015fb0d381efa899d0f1465c152f829b941ce6150d16f9d37a41f25e5c82"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "42c2ddd85aa3a19f3029610f8e24ec023a9869d1e610f8950e67f025e1e1f836"
   end
 
   depends_on "go" => :build
