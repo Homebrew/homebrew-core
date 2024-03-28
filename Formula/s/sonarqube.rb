@@ -49,6 +49,7 @@ class Sonarqube < Formula
 
   def caveats
     <<~EOS
+      Conf: #{libexec}/conf/sonar.properties
       Data: #{var}/sonarqube/data
       Logs: #{var}/sonarqube/logs
       Temp: #{var}/sonarqube/temp
