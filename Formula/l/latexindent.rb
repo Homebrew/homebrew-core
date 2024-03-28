@@ -1,8 +1,8 @@
 class Latexindent < Formula
   desc "Add indentation to LaTeX files"
   homepage "https://latexindentpl.readthedocs.io"
-  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V3.23.7.tar.gz"
-  sha256 "2536644c4d5c4d0ce3b4f77f4f0fcb9a6479a315febd1beae4c4cb476e6064ea"
+  url "https://github.com/cmhughes/latexindent.pl/archive/refs/tags/V3.23.8.tar.gz"
+  sha256 "1c7f1a02e4979fdef2a1be164d61f65532abae1ce451285fb94ba34f79c4a513"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -160,8 +160,8 @@ class Latexindent < Formula
   end
 
   resource "Variable::Magic" do
-    url "https://cpan.metacpan.org/authors/id/V/VP/VPIT/Variable-Magic-0.63.tar.gz"
-    sha256 "ba4083b2c31ff2694f2371333d554c826aaf24b4d98d03e48b5b4a43a2a0e679"
+    url "https://cpan.metacpan.org/authors/id/V/VP/VPIT/Variable-Magic-0.64.tar.gz"
+    sha256 "9f7853249c9ea3b4df92fb6b790c03a60680fc029f44c8bf9894dccf019516bd"
   end
 
   resource "XString" do
