@@ -14,13 +14,13 @@ class Gitea < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8641370fbd57faf41ce64ce88ee4dada7828de11987998cbd82bac8b50c3d639"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ea10358bd086eab6260ac0c9c2cfbfdc63ab926c3512388230a96ba87cc23377"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9515dd298cae8709e0e84d12b4bdc3f30e96b8d2e43f19192b5221883e65c88e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fa8f5668b7c0437764bb586960a9bbf73c812dc9b86900f4668ec4d7eea4b148"
-    sha256 cellar: :any_skip_relocation, ventura:        "ca25cfc4eb95fb0c4a6ed9bb6c993be562fafcc73dbe7188ab63b33346ed3ba9"
-    sha256 cellar: :any_skip_relocation, monterey:       "72a1823fe52b47c72d293478d3512eed5ade0fc9028d287e48535943b4d9a0c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2107821d27a03f75e874c01b3950bdc2200d87ab6bf0dc634bfaf0b784b6108"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa4ae017911fb9ca9ad505cafb26f6e40881f14fdc66165dc81478d611f3a828"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d0b608020684d69e64a9ef6eee04ba1c24cbe02461e9dc3b9fc33c70a02e03d9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2ba155f76035396634389f46e0144b82bc28902532b92ce801d6d986834fd7f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "10ecfe3e7b0c719587ed6d7197ea132e5636425befe3a6951e99b896a1d8fc3a"
+    sha256 cellar: :any_skip_relocation, ventura:        "98ca013bc60ca9b658702f4e214d91bf1f74eae1052a36d2936cdf8523acc696"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa016db34206e6de048732692a5bdc81018fa7943610704980c23d77ef681857"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f8dc866125bf66ecf21d093cc9215f406ab0e575263aad9885b8d8c534e27094"
   end
 
   depends_on "go" => :build
