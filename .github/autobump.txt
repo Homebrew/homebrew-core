@@ -373,6 +373,7 @@ cookiecutter
 copa
 copier
 copilot
+coq
 core-lightning
 coredns
 corepack

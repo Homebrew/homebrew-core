@@ -1,10 +1,9 @@
 class Coq < Formula
   desc "Proof assistant for higher-order logic"
   homepage "https://coq.inria.fr/"
-  url "https://github.com/coq/coq/releases/download/V8.19.0/coq-8.19.0.tar.gz"
-  sha256 "17e5c10fadcd3cda7509d822099a892fcd003485272b56a45abd30390f6a426f"
+  url "https://github.com/coq/coq/releases/download/V8.19.1/coq-8.19.1.tar.gz"
+  sha256 "1e535ed924234f18394efce94b12d9247a67e8af29241eb79615804160f21674"
   license "LGPL-2.1-only"
-  revision 1
   head "https://github.com/coq/coq.git", branch: "master"
 
   livecheck do
