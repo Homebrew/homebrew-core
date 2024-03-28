@@ -18,7 +18,7 @@ class Gtksourceview < Formula
   end
 
   # GTK 2 is EOL: https://blog.gtk.org/2020/12/16/gtk-4-0/
-  disable! date: "2024-01-21", because: :unmaintained
+  deprecate! date: "2024-01-21", because: :unmaintained
 
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
