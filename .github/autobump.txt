@@ -843,6 +843,7 @@ grype
 gsettings-desktop-schemas
 gsmartcontrol
 gsoap
+gstreamer
 gtk-gnutella
 gtkmm4
 gtranslator

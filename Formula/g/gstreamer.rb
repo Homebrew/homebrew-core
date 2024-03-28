@@ -4,13 +4,13 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.10/gstreamer-1.22.10.tar.gz"
-    sha256 "bba3a87f82d509802d96a5caf2c47982234063928870623b222f60702f1f50eb"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.0/gstreamer-1.24.0.tar.gz"
+    sha256 "c2932dc3867de8f3ce43eb3cf5ca084d6a19d7d55eb84d1cf3237f1dcb5262c9"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.10/gst-plugins-rs-gstreamer-1.22.10.tar.gz"
-      sha256 "ea866cdac87a57e08cf4529be5ba2870054e764b83dbfca733cd6fea1b9a3e11"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.0/gst-plugins-rs-gstreamer-1.24.0.tar.gz"
+      sha256 "32ca3097d62a9ba41b048a97219d95f6e638cdac7195724e3400043bf055dd8d"
     end
   end
 
@@ -117,7 +117,11 @@ class Gstreamer < Formula
   patch :DATA
 
   def install
+    odie "rs resource needs to be updated" if build.stable? && version != resource("rs").version
+
     (buildpath/"subprojects/gst-plugins-rs").install resource("rs")
+    # fix dav1d version constraint
+    inreplace "subprojects/gst-plugins-rs/meson.build", "['>=1.0', '<1.3'", "['>=1.0', '<1.5'"
 
     # Add support for newer `dav1d`.
     # TODO: Remove once support for 1.3 API is available in release.
@@ -177,9 +181,7 @@ class Gstreamer < Formula
     args << "-Dgstreamer:ptp-helper-permissions=none"
 
     # Prevent the build from downloading an x86-64 version of bison.
-    args << "-Dbuild-tools-source=system" if build.head? # make unconditional in 1.24+
-    inreplace "meson.build", "subproject('macos-bison-binary')", ""
-    odie "`macos-bison-binary` workaround should be removed!" if build.stable? && version >= "1.24"
+    args << "-Dbuild-tools-source=system"
 
     # Set `RPATH` since `cargo-c` doesn't seem to.
     # https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/issues/279
@@ -212,9 +214,6 @@ class Gstreamer < Formula
   end
 
   test do
-    assert_equal version, resource("rs").version,
-                 "The `rs` resource should use the tag matching the `gstreamer` version!"
-
     # TODO: Improve test according to suggestions at
     #   https://github.com/orgs/Homebrew/discussions/3740
     system bin/"gst-inspect-1.0"
@@ -241,28 +240,27 @@ end
 
 __END__
 diff --git a/subprojects/gst-python/gi/overrides/meson.build b/subprojects/gst-python/gi/overrides/meson.build
-index 5977ee3..1b399af 100644
+index 20aeb06..3ae87f5 100644
 --- a/subprojects/gst-python/gi/overrides/meson.build
 +++ b/subprojects/gst-python/gi/overrides/meson.build
-@@ -3,13 +3,20 @@ install_data(pysources,
-     install_dir: pygi_override_dir,
-     install_tag: 'python-runtime')
-
-+# avoid overlinking
-+if host_machine.system() == 'windows'
-+    python_ext_dep = python_dep
-+else
-+    python_ext_dep = python_dep.partial_dependency(compile_args: true)
-+endif
-+
+@@ -6,9 +6,9 @@ python.install_sources(pysources,
+ 
+ host_system = host_machine.system()
+ if host_system == 'windows'
+-  gst_dep_for_gi = gst_dep
++  python_ext_dep = python_dep
+ else
+-  gst_dep_for_gi = gst_dep.partial_dependency(compile_args: true, includes: true, sources: true)
++  python_ext_dep = python_dep.partial_dependency(compile_args: true)
+ endif
+ 
  gstpython = python.extension_module('_gi_gst',
-     sources: ['gstmodule.c'],
-     install: true,
+@@ -17,7 +17,7 @@ gstpython = python.extension_module('_gi_gst',
      install_dir : pygi_override_dir,
      install_tag: 'python-runtime',
      include_directories : [configinc],
--    dependencies : [gst_dep, python_dep, pygobject_dep])
-+    dependencies : [gst_dep, python_ext_dep, pygobject_dep])
-
+-    dependencies : [gst_dep_for_gi, python_dep, pygobject_dep],
++    dependencies : [gst_dep, python_ext_dep, pygobject_dep],
+ )
+ 
  env = environment()
- env.prepend('_GI_OVERRIDES_PATH', [
