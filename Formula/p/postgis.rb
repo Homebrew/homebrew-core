@@ -35,7 +35,7 @@ class Postgis < Formula
   depends_on "icu4c"
   depends_on "json-c" # for GeoJSON and raster handling
   depends_on "pcre2"
-  depends_on "postgresql@14"
+  depends_on "postgresql@16"
   depends_on "proj"
   depends_on "protobuf-c" # for MVT (map vector tiles) support
   depends_on "sfcgal" # for advanced 2D/3D functions
