@@ -5,6 +5,14 @@ class Doltgres < Formula
   sha256 "2a476034582e04bcccbdfa20ebb3de7817e5798db686053e760c21a7dda992c8"
   license "Apache-2.0"
 
+  # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
+  # labeled as "pre-release" on GitHub before the version is released, so it's
+  # necessary to use the `GithubLatest` strategy.
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c522e5451f3f55c7995c0fe11933d83043db7ee09747a06ecb25a6d3e8f4ba17"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "d8cc2469865215653386f60a5ac00bb40cb05958534ff8b083fef9f5b18070b7"
