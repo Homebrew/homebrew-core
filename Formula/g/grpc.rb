@@ -1,12 +1,21 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
-  url "https://github.com/grpc/grpc.git",
-      tag:      "v1.62.1",
-      revision: "6d7a55890e076a3a8abc8185b6bf0153fcf9d179"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/grpc/grpc.git", branch: "master"
+
+  stable do
+    url "https://github.com/grpc/grpc.git",
+        tag:      "v1.62.1",
+        revision: "6d7a55890e076a3a8abc8185b6bf0153fcf9d179"
+
+    # Backport fix for Protobuf 26
+    patch do
+      url "https://github.com/grpc/grpc/commit/98a96c5068da14ed29d70ca23818b5f408a2e7b4.patch?full_index=1"
+      sha256 "5c4fc4307d0943ce3c9a07921bddaa24ca3d504adf38c9b0f071e23327661ac1"
+    end
+  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check releases instead of the Git
@@ -55,43 +64,35 @@ class Grpc < Formula
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
-    mkdir "cmake/build" do
-      args = %W[
-        ../..
-        -DCMAKE_CXX_STANDARD=17
-        -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
-        -DCMAKE_INSTALL_RPATH=#{rpath}
-        -DBUILD_SHARED_LIBS=ON
-        -DgRPC_BUILD_TESTS=OFF
-        -DgRPC_INSTALL=ON
-        -DgRPC_ABSL_PROVIDER=package
-        -DgRPC_CARES_PROVIDER=package
-        -DgRPC_PROTOBUF_PROVIDER=package
-        -DgRPC_SSL_PROVIDER=package
-        -DgRPC_ZLIB_PROVIDER=package
-        -DgRPC_RE2_PROVIDER=package
-      ] + std_cmake_args
+    args = %W[
+      -DCMAKE_CXX_STANDARD=17
+      -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+      -DBUILD_SHARED_LIBS=ON
+      -DgRPC_BUILD_TESTS=OFF
+      -DgRPC_INSTALL=ON
+      -DgRPC_ABSL_PROVIDER=package
+      -DgRPC_CARES_PROVIDER=package
+      -DgRPC_PROTOBUF_PROVIDER=package
+      -DgRPC_SSL_PROVIDER=package
+      -DgRPC_ZLIB_PROVIDER=package
+      -DgRPC_RE2_PROVIDER=package
+    ]
+    system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
+    system "cmake", "--build", "_build"
+    system "cmake", "--install", "_build"
 
-      system "cmake", *args
-      system "make", "install"
-
-      args = %W[
-        ../..
-        -DCMAKE_INSTALL_RPATH=#{rpath}
-        -DBUILD_SHARED_LIBS=ON
-        -DgRPC_BUILD_TESTS=ON
-      ] + std_cmake_args
-      system "cmake", *args
-      system "make", "grpc_cli"
-      bin.install "grpc_cli"
-      lib.install Dir[shared_library("libgrpc++_test_config", "*")]
-
-      if OS.mac?
-        # These are installed manually, so need to be relocated manually as well
-        MachO::Tools.add_rpath(bin/"grpc_cli", rpath)
-        MachO::Tools.add_rpath(lib/shared_library("libgrpc++_test_config"), rpath)
-      end
-    end
+    # The following are installed manually, so need to use CMAKE_*_LINKER_FLAGS
+    args = %W[
+      -DCMAKE_EXE_LINKER_FLAGS=-Wl,-rpath,#{rpath}
+      -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-rpath,#{rpath}
+      -DBUILD_SHARED_LIBS=ON
+      -DgRPC_BUILD_TESTS=ON
+    ]
+    system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
+    system "cmake", "--build", "_build", "--target", "grpc_cli"
+    bin.install "_build/grpc_cli"
+    lib.install Dir["_build/#{shared_library("libgrpc++_test_config", "*")}"]
   end
 
   test do

@@ -1,12 +1,11 @@
 class Mavsdk < Formula
-  include Language::Python::Virtualenv
-
   desc "API and library for MAVLink compatible systems written in C++17"
   homepage "https://mavsdk.mavlink.io"
   url "https://github.com/mavlink/MAVSDK.git",
       tag:      "v2.6.0",
       revision: "2c97b66d74ab8c312bed0d37833fc716a1957d42"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -58,10 +57,13 @@ class Mavsdk < Formula
   end
 
   def install
+    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+
     # Fix version being reported as `v#{version}-dirty`
     inreplace "CMakeLists.txt", "OUTPUT_VARIABLE VERSION_STR", "OUTPUT_VARIABLE VERSION_STR_IGNORED"
 
-    ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
+    # Regenerate files to support newer protobuf
+    system "tools/generate_from_protos.sh"
 
     resource("mavlink").stage do
       system "cmake", "-S", ".", "-B", "build",

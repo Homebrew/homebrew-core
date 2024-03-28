@@ -1,11 +1,20 @@
 class Bear < Formula
   desc "Generate compilation database for clang tooling"
   homepage "https://github.com/rizsotto/Bear"
-  url "https://github.com/rizsotto/Bear/archive/refs/tags/3.1.3.tar.gz"
-  sha256 "8314438428069ffeca15e2644eaa51284f884b7a1b2ddfdafe12152581b13398"
   license "GPL-3.0-or-later"
-  revision 16
+  revision 17
   head "https://github.com/rizsotto/Bear.git", branch: "master"
+
+  stable do
+    url "https://github.com/rizsotto/Bear/archive/refs/tags/3.1.3.tar.gz"
+    sha256 "8314438428069ffeca15e2644eaa51284f884b7a1b2ddfdafe12152581b13398"
+
+    # Backport fix for Protobuf 26
+    patch do
+      url "https://github.com/rizsotto/Bear/commit/4d9d4525cd3d1ad11761c79ca71645946f48e07c.patch?full_index=1"
+      sha256 "be8ffbcb8f7562d70e16f724d2a91cffbd7e0b28b564dcafe46510a4b248bdea"
+    end
+  end
 
   bottle do
     sha256 arm64_sonoma:   "86c5aa0077d6bf06b61505ca63491d59de0b7c17ba9ff3799e08ea83fc1a66a5"

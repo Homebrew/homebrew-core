@@ -1,10 +1,9 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://protobuf.dev/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v25.3/protobuf-25.3.tar.gz"
-  sha256 "d19643d265b978383352b3143f04c0641eea75a75235c111cc01a1350173180e"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v26.0/protobuf-26.0.tar.gz"
+  sha256 "e32100a8013870d24ffc37dad6781a61e5d0c99501bcb04d39c340a1c44a8e63"
   license "BSD-3-Clause"
-  revision 1
 
   livecheck do
     url :stable
@@ -22,19 +21,10 @@ class Protobuf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python-setuptools" => :build
-  depends_on "python@3.11" => [:build, :test]
-  depends_on "python@3.12" => [:build, :test]
   depends_on "abseil"
   depends_on "jsoncpp"
 
   uses_from_macos "zlib"
-
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
 
   def install
     # Keep `CMAKE_CXX_STANDARD` in sync with the same variable in `abseil.rb`.
@@ -56,23 +46,6 @@ class Protobuf < Formula
 
     (share/"vim/vimfiles/syntax").install "editors/proto.vim"
     elisp.install "editors/protobuf-mode.el"
-
-    ENV.append_to_cflags "-I#{include}"
-    ENV.append_to_cflags "-L#{lib}"
-    ENV["PROTOC"] = bin/"protoc"
-
-    cd "python" do
-      # Keep C++ standard in sync with `abseil.rb`.
-      inreplace "setup.py", "extra_compile_args.append('-std=c++14')",
-                            "extra_compile_args.append('-std=c++#{abseil_cxx_standard}')"
-
-      pythons.each do |python|
-        pyext_dir = prefix/Language::Python.site_packages(python)/"google/protobuf/pyext"
-        with_env(LDFLAGS: "-Wl,-rpath,#{rpath(source: pyext_dir)} #{ENV.ldflags}".strip) do
-          system python, *Language::Python.setup_install_args(prefix, python), "--cpp_implementation"
-        end
-      end
-    end
   end
 
   test do
@@ -88,9 +61,5 @@ class Protobuf < Formula
     EOS
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
-
-    pythons.each do |python|
-      system python, "-c", "from google.protobuf.pyext import _message"
-    end
   end
 end

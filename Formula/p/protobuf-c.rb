@@ -4,7 +4,7 @@ class ProtobufC < Formula
   url "https://github.com/protobuf-c/protobuf-c/releases/download/v1.5.0/protobuf-c-1.5.0.tar.gz"
   sha256 "7b404c63361ed35b3667aec75cc37b54298d56dd2bcf369de3373212cc06fd98"
   license "BSD-2-Clause"
-  revision 3
+  revision 4
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "98050b0cd294095a03a6bee072af444febe085042f7ab6c898613b9918c45e11"
@@ -26,6 +26,21 @@ class ProtobufC < Formula
 
   depends_on "pkg-config" => :build
   depends_on "protobuf"
+
+  # Apply commits from open PR to support Protobuf 26.
+  # PR ref: https://github.com/protobuf-c/protobuf-c/pull/711
+  patch do
+    url "https://github.com/protobuf-c/protobuf-c/commit/e3acc96ca2a00ef715fa2caa659f677cad8a9fa0.patch?full_index=1"
+    sha256 "3b564a971023d127bb7b666e5669f792c94766836ccaed5acfae3e23b8152d43"
+  end
+  patch do
+    url "https://github.com/protobuf-c/protobuf-c/commit/1b4b205d87b1bc6f575db1fd1cbbb334a694abe8.patch?full_index=1"
+    sha256 "6d02812445a229963add1b41c07bebddc3437fecb2a03844708512326fd70914"
+  end
+  patch do
+    url "https://github.com/protobuf-c/protobuf-c/commit/d95aced22df60a2f0049fc03af48c8b02ce4d474.patch?full_index=1"
+    sha256 "7aa44807367a4547bd15b3aa9a5275d5fe4739348bf2741ca773fa47015fb01a"
+  end
 
   def install
     # https://github.com/protocolbuffers/protobuf/issues/9947
