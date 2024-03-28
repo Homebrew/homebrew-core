@@ -21,6 +21,8 @@ class AflFuzz < Formula
 
   depends_on arch: :x86_64
 
+  conflicts_with "afl-plus-plus", because: "they are different versions of the same software"
+
   def install
     system "make", "PREFIX=#{prefix}", "AFL_NO_X86=1"
     system "make", "install", "PREFIX=#{prefix}", "AFL_NO_X86=1"
