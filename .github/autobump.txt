@@ -744,6 +744,7 @@ ghz
 ghz-web
 gickup
 gifski
+gimme-aws-creds
 ginac
 git-absorb
 git-annex
