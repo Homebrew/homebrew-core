@@ -2,7 +2,7 @@ class Mtbl < Formula
   desc "Immutable sorted string table library"
   homepage "https://github.com/farsightsec/mtbl"
   url "https://dl.farsightsecurity.com/dist/mtbl/mtbl-1.6.0.tar.gz"
-  sha256 "6563ddf1c7d9973efa7c58033fd339e68e19be69a234fa5a25448871704942df"
+  sha256 "18ed7c9bb8b5ae71decd47dc7c882d1d6a63b61fd679a65b5f526fc241fd76f2"
   license "Apache-2.0"
 
   bottle do
