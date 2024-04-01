@@ -5,7 +5,7 @@ class GnomeRecipes < Formula
   url "https://gitlab.gnome.org/GNOME/recipes.git",
       tag:      "2.0.4",
       revision: "d5e9733c49ea4f99e72c065c05ee1a35ef65e67d"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sonoma:   "3b9c974d968a76db7c9b4c7b331f80a4c18f4ae239def0e0a14cabbc8b9a1f15"
