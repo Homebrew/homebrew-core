@@ -461,6 +461,7 @@ dbus
 dcd
 dcm2niix
 ddcutil
+ddns-go
 ddrescue
 deark
 debianutils
