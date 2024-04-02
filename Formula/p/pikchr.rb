@@ -1,9 +1,9 @@
 class Pikchr < Formula
   desc "PIC-like markup language for diagrams in technical documentation"
   homepage "https://pikchr.org/"
-  url "https://pikchr.org/home/zip/ae3317b0ec/pikchr-ae3317b0ec.zip"
-  version "2024-02-12"
-  sha256 "b07c75d30756f3f19308da2261de85c847b5ea93d001db1341b9829376f7de75"
+  url "https://github.com/drhsqlite/pikchr/archive/refs/tags/version-1.0.0.zip"
+  version "1.0.0"
+  sha256 "dd6615e23504301f09511faf1676a342c36e89114397f6fed796f7374bc00c8c"
   license "0BSD"
 
   def install
