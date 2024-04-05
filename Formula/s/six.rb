@@ -10,7 +10,6 @@ class Six < Formula
     sha256 cellar: :any_skip_relocation, all: "af0e594f44ac758201a84eda10f5eec0e7958ac67c219c6a09165eb18ac79797"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
@@ -21,7 +20,8 @@ class Six < Formula
   def install
     pythons.each do |python|
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, *Language::Python.setup_install_args(prefix, python_exe)
+      build_isolation = python.version >= "3.12"
+      system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation:), "."
     end
   end
 
