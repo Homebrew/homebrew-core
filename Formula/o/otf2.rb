@@ -26,7 +26,11 @@ class Otf2 < Formula
   depends_on "gcc" # for gfortran
   depends_on "open-mpi"
   depends_on "python@3.11"
-  depends_on "six"
+
+  resource "six" do
+    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
+    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
+  end
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -40,15 +44,32 @@ class Otf2 < Formula
     directory "build-backend"
   end
 
+  def python3
+    "python3.11"
+  end
+
   def install
-    ENV["PYTHON"] = which("python3.11")
+    resource("six").stage do
+      system python3, "-m", "pip", "install", *std_pip_args(prefix: libexec), "."
+    end
+
+    ENV.prepend_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+    ENV["PYTHON"] = which(python3)
     ENV["SPHINX"] = Formula["sphinx-doc"].opt_bin/"sphinx-build"
 
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
 
     inreplace pkgshare/"otf2.summary", "#{Superenv.shims_path}/", ""
+  end
+
+  def caveats
+    <<~EOS
+      To use the Python bindings, you will need to have the six library.
+      One option is to use the bundled copy through your PYTHONPATH, e.g.
+        export PYTHONPATH=#{opt_libexec/Language::Python.site_packages(python3)}
+    EOS
   end
 
   test do
@@ -81,5 +102,8 @@ class Otf2 < Formula
       assert_predicate workdir/"ArchivePath/ArchiveName.otf2", :exist?
       system "./otf2_reader_example"
     end
+
+    ENV.prepend_path "PYTHONPATH", libexec/Language::Python.site_packages(python3)
+    system python3, "-c", "import otf2"
   end
 end
