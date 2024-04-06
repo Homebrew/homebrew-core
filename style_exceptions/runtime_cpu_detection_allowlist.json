@@ -9,5 +9,6 @@
   "opencv",
   "open-mpi",
   "qt",
+  "qt-multimedia-ffmpeg",
   "vc"
 ]
