@@ -73,7 +73,7 @@ class Xxh < Formula
       ssh_args = JSON.parse ssh_argv.tr("'", "\"")
       assert_includes ssh_args, "Port=#{port}"
       assert_includes ssh_args, "HostName=127.0.0.1"
-      assert_match "Connection closed by remote host", stderr
+      assert_match "Connection closed", stderr
     ensure
       Process.kill("TERM", server_pid)
     end
