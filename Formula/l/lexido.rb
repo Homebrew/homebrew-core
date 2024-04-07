@@ -1,7 +1,7 @@
 class Lexido < Formula
   desc "Innovative assistant for the command-line"
   homepage "https://github.com/micr0-dev/lexido"
-  url "https://github.com/micr0-dev/lexido.git", tag: "v1.3.1", revision: "36f02d699f2709f0bd51a5f119e"
+  url "https://github.com/micr0-dev/lexido.git", tag: "v1.3.1", revision: "36f02d699f2709f0bd51a5f119e0670845b4ad9f"
   license "AGPL-3.0-or-later"
 
   depends_on "go" => :build
