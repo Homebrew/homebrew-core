@@ -1,7 +1,8 @@
 class Lexido < Formula
-  desc "Innovative assistant for the command line"
+  desc "Innovative assistant for the command-line"
   homepage "https://github.com/micr0-dev/lexido"
-  url "https://github.com/micr0-dev/lexido/archive/v1.3.1.tar.gz"
+  url "https://github.com/micr0-dev/lexido.git",
+      tag: "v1.3.1"
   sha256 "8d05016b392fa43a33d6989c1f6e568f0d8b5d8893faf8622d02d36fd2d5e9db"
 
   depends_on "go" => :build
@@ -14,8 +15,8 @@ class Lexido < Formula
     system "go", "build", *std_go_args, "-o", "#{bin}/lexido"
   end
 
-   test do
-     # Perform a basic sanity check
-     assert_match "Lexido Command Line Tool v1.3.1", shell_output("#{bin}/lexido --version")
-   end
+  test do
+    # Perform a basic sanity check
+    assert_match "Lexido Command Line Tool v1.3.1", shell_output("#{bin}/lexido --version")
+  end
 end
