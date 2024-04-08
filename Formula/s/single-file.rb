@@ -1,6 +1,6 @@
 require "language/node"
 
-class SingleFile < Formula
+class SingleFileCli < Formula
   desc "CLI tool for saving a faithful copy of a complete web page in a single HTML file"
   homepage "https://github.com/gildas-lormeau/single-file-cli/blob/master/README.MD"
   url "https://github.com/gildas-lormeau/single-file-cli/archive/refs/tags/v2.0.29.tar.gz"
@@ -12,5 +12,9 @@ class SingleFile < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
     bin.install_symlink Dir["#{libexec}/bin/*"]
+  end
+
+  test do
+    system "false"
   end
 end
