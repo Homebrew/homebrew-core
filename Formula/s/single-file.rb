@@ -15,6 +15,6 @@ class SingleFile < Formula
   end
 
   test do
-    system "false"
+    assert_match "#{version}", shell_output("#{bin}/single-file --version")
   end
 end
