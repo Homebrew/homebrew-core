@@ -229,6 +229,15 @@ class Manim < Formula
     venv.pip_install_and_link buildpath
   end
 
+  def caveats
+    <<~EOS
+      To render Tex or MathTex, latex must be accessible from your PATH.
+
+      You can install the recommended latex distribution from Homebrew Cask:
+        brew install --cask mactex-no-gui
+    EOS
+  end
+
   test do
     (testpath/"testscene.py").write <<~EOS
       from manim import *
