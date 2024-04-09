@@ -1,8 +1,8 @@
 class Qemu < Formula
   desc "Generic machine emulator and virtualizer"
   homepage "https://www.qemu.org/"
-  url "https://download.qemu.org/qemu-8.2.1.tar.xz"
-  sha256 "8562751158175f9d187c5f22b57555abe3c870f0325c8ced12c34c6d987729be"
+  url "https://download.qemu.org/qemu-8.2.2.tar.xz"
+  sha256 "847346c1b82c1a54b2c38f6edbd85549edeb17430b7d4d3da12620e2962bc4f3"
   license "GPL-2.0-only"
   head "https://gitlab.com/qemu-project/qemu.git", branch: "master"
 
