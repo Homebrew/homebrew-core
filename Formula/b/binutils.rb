@@ -47,6 +47,7 @@ class Binutils < Formula
       "--enable-gold",
       "--enable-plugins",
       "--enable-targets=all",
+      "--enable-install-libiberty",
       "--with-system-zlib",
       "--with-zstd",
       "--disable-nls",
