@@ -2,7 +2,7 @@ class Newnode < Formula
   desc "Web proxy that uses a distributed p2p network to circumvent censorship"
   homepage "https://www.newnode.com/newnode-vpn"
   url "https://github.com/clostra/newnode.git",
-    tag: "2.1.5",
+    tag:      "2.1.5",
     revision: "18a3f713267b2a08e34cbe04253df891889997a2"
   license "GPL-2.0-only"
 
