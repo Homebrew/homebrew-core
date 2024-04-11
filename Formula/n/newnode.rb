@@ -56,15 +56,8 @@ class Newnode < Formula
     begin
       system "curl", "https://brew.sh"
     ensure
+      sleep 5
       Process.kill("TERM", pid)
-      begin
-        Timeout.timeout(5) do
-          Process.wait(pid)
-        end
-      rescue Timeout::Error
-        Process.kill("KILL", pid) # Forcefully kill if not terminated after timeout
-        Process.wait(pid)
-      end
     end
   end
 end
