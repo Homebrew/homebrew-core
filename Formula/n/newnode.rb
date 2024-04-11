@@ -23,12 +23,14 @@ class Newnode < Formula
     depends_on "wget"
   end
 
+  fails_with :gcc do
+    cause "Requires -fblocks support"
+  end
+
   def install
     if OS.linux?
       inreplace "https_wget.c", "/usr/bin/wget", "#{Formula["wget"].opt_bin}/wget"
       ENV.prepend_path "PATH", Formula["gnu-sed"].opt_libexec/"gnubin"
-      ENV["HOMEBREW_CC"] = "#{Formula["llvm"].opt_bin}/clang"
-      ENV["HOMEBREW_CXX"] = "#{Formula["llvm"].opt_bin}/clang++"
     end
     system "./build.sh"
     bin.install "client" => "newnode"
