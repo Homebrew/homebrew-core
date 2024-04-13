@@ -26,7 +26,7 @@ class SingBox < Formula
   end
 
   service do
-    run [opt_bin/"sing-box", "run", "--config", etc/"sing-box/config.json"]
+    run [opt_bin/"sing-box", "run", "--config", etc/"sing-box/config.json", "--directory", etc/"sing-box"]
     run_type :immediate
     keep_alive true
   end
