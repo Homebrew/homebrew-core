@@ -3,8 +3,9 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/42/dc/c6afb068eddaba2ba462a0c62645484f6b0d0bc77859c16339f1ba8a6718/cfn-lint-0.86.2.tar.gz"
-  sha256 "c140c814b6a7db048ac881a4f9b7f4e8335afd706f523f3fbf884eb6322f16f9"
+  url "https://files.pythonhosted.org/packages/f2/c3/5c5b2963b3bcedc3d7f4c6163a35265c4cd1c33d1bfd3a24548fb12d4487/cfn-lint-1.2.5a5.tar.gz"
+  version "1.2.5.a5"
+  sha256 "3fbe1e3006e476ad65bc30a38945d9902b087a9778026522871925db08e1d837"
   license "MIT-0"
 
   bottle do
@@ -37,13 +38,13 @@ class CfnLint < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/f0/d3/3e714658eed2e05df248a676346fbc22a537c183057873d176037afc4fc0/boto3-1.34.78.tar.gz"
-    sha256 "227487f9a40e7963aa108f4fabc81374d65e085891a2a442c190dfd976b86a9e"
+    url "https://files.pythonhosted.org/packages/44/a9/c191f26fb925076ea142e7efcdc59c36285b0ffde420b2ff0835b48b9c80/boto3-1.34.84.tar.gz"
+    sha256 "91e6343474173e9b82f603076856e1d5b7b68f44247bdd556250857a3f16b37b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/6f/5a/29b26451528598feb75c87b7a8682abcfa2b08ba31951f24bcb5679034f0/botocore-1.34.78.tar.gz"
-    sha256 "889fcfd1813fad225a5a70940c58cd4bd7a6f5ba6c9769a1d41d0c670272b75d"
+    url "https://files.pythonhosted.org/packages/f7/b8/6f17f3051a81402894567b1b35518aa6d8b49359b5246e95cfabd3cee558/botocore-1.34.84.tar.gz"
+    sha256 "a2b309bf5594f0eb6f63f355ade79ba575ce8bf672e52e91da1a7933caa245e6"
   end
 
   resource "jmespath" do
@@ -62,8 +63,8 @@ class CfnLint < Formula
   end
 
   resource "jsonpickle" do
-    url "https://files.pythonhosted.org/packages/05/68/38c6c809fd3203e507c0c95ebede5e682bdc84f2e81fc6f818d7926c6a41/jsonpickle-3.0.3.tar.gz"
-    sha256 "5691f44495327858ab3a95b9c440a79b41e35421be1a6e09a47b6c9b9421fd06"
+    url "https://files.pythonhosted.org/packages/72/4b/8c2df97303521f99a0a2cc9be7373ee175dbc01d4befb653ff7b8d32b442/jsonpickle-3.0.4.tar.gz"
+    sha256 "a1b14c8d6221cd8f394f2a97e735ea1d7edc927fbd135b26f2f8700657c8c62b"
   end
 
   resource "jsonpointer" do
@@ -92,8 +93,8 @@ class CfnLint < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/c4/80/a84676339aaae2f1cfdf9f418701dd634aef9cc76f708ef55c36ff39c3ca/networkx-3.2.1.tar.gz"
-    sha256 "9f1bb5cf3409bf324e0a722c20bdb4c20ee39bf1c30ce8ae499c8502b0b5e0c6"
+    url "https://files.pythonhosted.org/packages/04/e6/b164f94c869d6b2c605b5128b7b0cfe912795a87fc90e78533920001f3ec/networkx-3.3.tar.gz"
+    sha256 "0c127d8b2f4865f59ae9cb8aafcd60b5c70f3241ebd66f7defad7c4ab90126c9"
   end
 
   resource "pbr" do
@@ -102,13 +103,13 @@ class CfnLint < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/4b/de/38b517edac45dd022e5d139aef06f9be4762ec2e16e2b14e1634ba28886b/pydantic-2.6.4.tar.gz"
-    sha256 "b1704e0847db01817624a6b86766967f552dd9dbf3afba4004409f908dcc84e6"
+    url "https://files.pythonhosted.org/packages/cd/fc/70fe71ff78f680d584eba9c55a30092f6ef0b9cf0c75a74bd35a24151a83/pydantic-2.7.0.tar.gz"
+    sha256 "b5ecdd42262ca2462e2624793551e80911a1e989f462910bb81aef974b4bb383"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/77/3f/65dbe5231946fe02b4e6ea92bc303d2462f45d299890fd5e8bfe4d1c3d66/pydantic_core-2.16.3.tar.gz"
-    sha256 "1cac689f80a3abab2d3c0048b29eea5751114054f032a941a32de4c852c59cad"
+    url "https://files.pythonhosted.org/packages/3d/28/d693aab237fca82da327990a88a983b2b84b890032076ee4a87e18038dbb/pydantic_core-2.18.1.tar.gz"
+    sha256 "de9d3e8717560eb05e28739d1b35e4eac2e458553a52a301e51352a7ffc86a35"
   end
 
   resource "python-dateutil" do
