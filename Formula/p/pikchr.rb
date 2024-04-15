@@ -6,7 +6,7 @@ class Pikchr < Formula
   license "0BSD"
 
   def install
-    system "make", "CC=#{ENV.cc}"
+    system "make"
     bin.mkpath
     bin.install "pikchr"
   end
