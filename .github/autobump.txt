@@ -905,6 +905,7 @@ helmsman
 hermit
 hexyl
 hfstospell
+hickory-dns
 hidapi
 highs
 himalaya
