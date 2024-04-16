@@ -42,7 +42,7 @@ class Scotch < Formula
         s.change_make_var! "CCD", "mpicc"
       end
 
-      system "make", "libscotch", "libptscotch"
+      system "make", "libscotch", "libptscotch", "esmumps"
       lib.install buildpath.glob("lib/*.a")
       system "make", "realclean"
 
