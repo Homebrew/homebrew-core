@@ -1,8 +1,8 @@
 class Bitcoin < Formula
   desc "Decentralized, peer to peer payment network"
   homepage "https://bitcoincore.org/"
-  url "https://bitcoincore.org/bin/bitcoin-core-26.1/bitcoin-26.1.tar.gz"
-  sha256 "9164ee5d717b4a20cb09f0496544d9d32f365734814fe399f5cdb4552a9b35ee"
+  url "https://bitcoincore.org/bin/bitcoin-core-27.0/bitcoin-27.0.tar.gz"
+  sha256 "9c1ee651d3b157baccc3388be28b8cf3bfcefcd2493b943725ad6040ca6b146b"
   license "MIT"
   head "https://github.com/bitcoin/bitcoin.git", branch: "master"
 
@@ -44,16 +44,6 @@ class Bitcoin < Formula
   fails_with :gcc do
     version "7" # fails with GCC 7.x and earlier
     cause "Requires std::filesystem support"
-  end
-
-  patch do
-    url "https://github.com/bitcoin/bitcoin/commit/e1e3396b890b79d6115dd325b68f456a0deda57f.patch?full_index=1"
-    sha256 "b9bb2d6d2ae302bc1bd3956c7e7e66a25e782df5dc154b9d2b17d28b23fda1ad"
-  end
-
-  patch do
-    url "https://github.com/bitcoin/bitcoin/commit/9c144154bd755e3765a51faa42b8849316cfdeb9.patch?full_index=1"
-    sha256 "caeb3c04eda55b260272bfbdb4f512c99dbf2df06b950b51b162eaeb5a98507a"
   end
 
   def install
