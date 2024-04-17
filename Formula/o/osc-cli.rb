@@ -6,17 +6,16 @@ class OscCli < Formula
   url "https://files.pythonhosted.org/packages/02/cd/f1b796f5e7a301f6a3c0b910be07188cbfd329d2758e036d24ef26b4ee96/osc-sdk-1.11.0.tar.gz"
   sha256 "d3b71b326b0698da1b9a503cd511a992fe578375fd01b30bdec0d63d8328af66"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bddb25f9c950e14b4d36720e2d7b02fbdedc3abf3c4e90340854531112709ebc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a03f07487ddf29d015d32032b5491b735bde79051ed235e7abc72d76b10ba681"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a897fc9298436460cd5bc0424fcabc725bc60b21e24e45680db4d29f90c0205b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "56bc0acb572f109f04cf6e1ade8501a800520657a115e7fbb74fd2271d9f0ada"
-    sha256 cellar: :any_skip_relocation, ventura:        "3db342c285653ea0b425c1f81634f952fe6fe61511a6708216b0668d0906c5e0"
-    sha256 cellar: :any_skip_relocation, monterey:       "ce047e958fbe99ec9f12bae2ca8d696f0226b6b557f3d724de2a80a8d8f4b3ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "644dc2376972c59ad1c29dd559095237d3fd51c901dff58260a5beb70103cd5f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35bd00458bab61efcb409ab18a064da27d13a217e1ce072f6bcaf34269d960f3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "35bd00458bab61efcb409ab18a064da27d13a217e1ce072f6bcaf34269d960f3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "35bd00458bab61efcb409ab18a064da27d13a217e1ce072f6bcaf34269d960f3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "92f1db5ec7cd09963cb3fe79ded8cef1570d10add88fc62a5e50baf9c7a72cf9"
+    sha256 cellar: :any_skip_relocation, ventura:        "92f1db5ec7cd09963cb3fe79ded8cef1570d10add88fc62a5e50baf9c7a72cf9"
+    sha256 cellar: :any_skip_relocation, monterey:       "92f1db5ec7cd09963cb3fe79ded8cef1570d10add88fc62a5e50baf9c7a72cf9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "23f8e8383c9927a3df2382858b05bf96b39c66f8f6e298cf8461a39eb64ff9d8"
   end
 
   depends_on "certifi"
@@ -33,13 +32,13 @@ class OscCli < Formula
   end
 
   resource "fire" do
-    url "https://files.pythonhosted.org/packages/94/ed/3b9a10605163f48517931083aee8364d4d6d3bb1aa9b75eb0a4a5e9fbfc1/fire-0.5.0.tar.gz"
-    sha256 "a6b0d49e98c8963910021f92bba66f65ab440da2982b78eb1bbf95a0a34aacc6"
+    url "https://files.pythonhosted.org/packages/1b/1b/84c63f592ecdfbb3d77d22a8d93c9b92791e4fa35677ad71a7d6449100f8/fire-0.6.0.tar.gz"
+    sha256 "54ec5b996ecdd3c0309c800324a0703d6da512241bc73b553db959d98de0aa66"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "requests" do
@@ -48,8 +47,8 @@ class OscCli < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
-    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+    url "https://files.pythonhosted.org/packages/7a/12/dc02a2401dac87cb2d3ea8d3b23eab30db4cd2948d5b048bf912b9fe959a/setuptools-69.4.tar.gz"
+    sha256 "659e902e587e77fab8212358f5b03977b5f0d18d4724310d4a093929fee4ca1a"
   end
 
   resource "six" do
@@ -63,8 +62,8 @@ class OscCli < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
-    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "urllib3" do

@@ -1,18 +1,18 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.6.0/libchewing-0.6.0.tar.xz"
-  sha256 "c2913bed55b7fdb25942b6a5832c254bc9bcb9c365d3cafa0a569b4b7cbd8f00"
+  url "https://github.com/chewing/libchewing/releases/download/v0.7.0/libchewing-0.7.0.tar.zst"
+  sha256 "87289bc759d04bfebad92d395d4f63e54f584f3e805731588edaa0c9a8bb6cce"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 arm64_sonoma:   "f6b0bae26a972636b58d05cd8d38e1f190bbb9b8451697b71250d1b8565d7755"
-    sha256 arm64_ventura:  "2e81a74c69dd6d45f338c834307e462b2e3eadae969ee38a4808feb81ac82cfe"
-    sha256 arm64_monterey: "04d6bc7b63800ffdcc2eea940241e5ef2159dc36eab0f65d75584fef6a7e1a41"
-    sha256 sonoma:         "a51840ab89e99407f22784ab4b5d5a9997e78e65b060b1de12cdfebfe629ea86"
-    sha256 ventura:        "4bc98f0aa284a4086f18c65a24a566969d021f9414fc2bb8d722b8749a11ab9a"
-    sha256 monterey:       "46d704071c778e0d718a37ac0d0ae25de49025e7679e02b17358155efce877a7"
-    sha256 x86_64_linux:   "b3c77db3b0e9db76fb7341cb8d0fd30959d251e69da1ac6504eb293733076b3d"
+    sha256 arm64_sonoma:   "b823ea11cbf4a566589839dcd06d646f37ea70672741ef94ca8b524bc44d0915"
+    sha256 arm64_ventura:  "89e205c9987821344bbfa80709794caf7f8038dc3558cc5d7cd0c1c4b913b9da"
+    sha256 arm64_monterey: "3c7520eaa8ba24cc205b5b2bd519afdc54fbbc825d157c6fd0a8a0c810cd9904"
+    sha256 sonoma:         "41e45e4e0d3597559653498da4161d9ad31174e54476cf5fdb569f756aba29d1"
+    sha256 ventura:        "3b522a3319d72718c79952e3f7ea49a5a77f3bd988f008e53870d1f4750639e6"
+    sha256 monterey:       "072906a69c35dd23d14527ec7668ca9f09621ca70936b6aa1f171a2303a3ce87"
+    sha256 x86_64_linux:   "66eadfdcdb7667c3ec22feaafde96d028baed046a21899de56c7789b069a1632"
   end
 
   depends_on "cmake" => :build

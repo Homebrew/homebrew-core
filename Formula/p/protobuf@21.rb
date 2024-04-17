@@ -19,21 +19,21 @@ class ProtobufAT21 < Formula
   keg_only :versioned_formula
 
   depends_on "cmake" => :build
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
-  uses_from_macos "zlib"
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
+  uses_from_macos "zlib"
 
   # Fix build with python@3.11
   patch do
     url "https://github.com/protocolbuffers/protobuf/commit/da973aff2adab60a9e516d3202c111dbdde1a50f.patch?full_index=1"
     sha256 "911925e427a396fa5e54354db8324c0178f5c602b3f819f7d471bb569cc34f53"
+  end
+
+  def pythons
+    deps.map(&:to_formula)
+        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
@@ -57,12 +57,12 @@ class ProtobufAT21 < Formula
     ENV.append_to_cflags "-L#{lib}"
     ENV["PROTOC"] = bin/"protoc"
 
-    cd "python" do
-      pythons.each do |python|
-        pyext_dir = prefix/Language::Python.site_packages(python)/"google/protobuf/pyext"
-        with_env(LDFLAGS: "-Wl,-rpath,#{rpath(source: pyext_dir)} #{ENV.ldflags}".strip) do
-          system python, *Language::Python.setup_install_args(prefix, python), "--cpp_implementation"
-        end
+    pip_args = ["--config-settings=--build-option=--cpp_implementation"]
+    pythons.each do |python|
+      build_isolation = Language::Python.major_minor_version(python) >= "3.12"
+      pyext_dir = prefix/Language::Python.site_packages(python)/"google/protobuf/pyext"
+      with_env(LDFLAGS: "-Wl,-rpath,#{rpath(source: pyext_dir)} #{ENV.ldflags}".strip) do
+        system python, "-m", "pip", "install", *pip_args, *std_pip_args(build_isolation:), "./python"
       end
     end
 

@@ -1,7 +1,7 @@
 class Pngquant < Formula
   desc "PNG image optimizing utility"
   homepage "https://pngquant.org/"
-  url "https://static.crates.io/crates/pngquant/pngquant-3.0.3.crate", using: :nounzip
+  url "https://static.crates.io/crates/pngquant/pngquant-3.0.3.crate"
   sha256 "68a12bdd8825f9989f4ee9a6ab0b42727dae57728b939ef63453366697a07232"
   license :cannot_represent
   head "https://github.com/kornelski/pngquant.git", branch: "main"
@@ -22,7 +22,6 @@ class Pngquant < Formula
   depends_on "little-cms2"
 
   def install
-    system "tar", "--strip-components", "1", "-xzvf", "pngquant-#{version}.crate"
     system "cargo", "install", *std_cargo_args
   end
 

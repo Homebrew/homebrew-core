@@ -1,8 +1,8 @@
 class Opensc < Formula
   desc "Tools and libraries for smart cards"
   homepage "https://github.com/OpenSC/OpenSC/wiki"
-  url "https://github.com/OpenSC/OpenSC/releases/download/0.25.0/opensc-0.25.0.tar.gz"
-  sha256 "e6d7b66e2a508a377ac9d67aa463025d3c54277227be10bd08872e3407d6622f"
+  url "https://github.com/OpenSC/OpenSC/releases/download/0.25.1/opensc-0.25.1.tar.gz"
+  sha256 "23cbaae8bd7c8eb589b68c0a961dfb0d02007bea3165a3fc5efe2621d549b37b"
   license "LGPL-2.1-or-later"
   head "https://github.com/OpenSC/OpenSC.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Opensc < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0c53addcc18c0b635a4be48d57f675835a785db5a2c1491de36737c44a69fada"
-    sha256 arm64_ventura:  "92407b17fdec73cb298cb46836cf20e8cccd5a1bd56a026eac831a223ad7d844"
-    sha256 arm64_monterey: "786576a6b579cc5519446956f41af276e7bb2229db831f2e942a3b34b1d36f3c"
-    sha256 sonoma:         "9fabe901d2f14b93d73758c855fc717fa462af3811fa5673f6adf96ff1a6ecb2"
-    sha256 ventura:        "f7f2456f81b07557f9f9c4e138b51fab4b1cbea65d313b205722bfd4fb4ee717"
-    sha256 monterey:       "a95f062efec4e638cdb664d64e9335f808fb4c752e1ea126b37e5e990709c098"
-    sha256 x86_64_linux:   "7ee7cdd895581deb575482b08771ef8dfe068939605ff043d5b9dab241d5214c"
+    sha256 arm64_sonoma:   "f0107f0b54f55535c337cb76d6158f68ce02cf1f8f4f10be9a65fac14bf7c5a2"
+    sha256 arm64_ventura:  "8c9ed4589ec37481862838d43f0d40954bc333ad3cf4505784e1850188652625"
+    sha256 arm64_monterey: "93b0d2c9be69a6f5eb221f0ffe6ab04a80b617fb2a26a5a95a11f3d93dbf41df"
+    sha256 sonoma:         "7073bab28896c1dc2a7af797200f91d322873a17b9dcc030154311a8e623064c"
+    sha256 ventura:        "860ff6efcbe2328dad7658fe939d64f5e60eed1ac857dfd7e5edded12072a989"
+    sha256 monterey:       "5cd706446f087b87f251880290c437200896ac3fd00616cf3c9ef402e6d59c70"
+    sha256 x86_64_linux:   "47a739239d0087a0204d56e6e459e7d0acf01df3b4c9e36122e4626d3e1091f9"
   end
 
   depends_on "autoconf" => :build

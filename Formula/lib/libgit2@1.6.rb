@@ -4,12 +4,6 @@ class Libgit2AT16 < Formula
   url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.6.5.tar.gz"
   sha256 "0f09dd49e409913c94df00eeb5b54f8b597905071b454c7f614f8c6e1ddb8d75"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
-  head "https://github.com/libgit2/libgit2.git", branch: "maint/v1.6"
-
-  livecheck do
-    url :stable
-    regex(/v?(1\.6(?:\.\d+)+)/i)
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "83f4ee26d02fbfda076cdebe727390dd4db92ec8cb3791115212f43d6047eeed"
@@ -22,6 +16,9 @@ class Libgit2AT16 < Formula
   end
 
   keg_only :versioned_formula
+
+  # https://github.com/libgit2/libgit2/?tab=security-ov-file
+  deprecate! date: "2024-04-11", because: :unmaintained
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build

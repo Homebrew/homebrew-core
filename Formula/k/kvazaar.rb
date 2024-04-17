@@ -1,8 +1,8 @@
 class Kvazaar < Formula
   desc "Ultravideo HEVC encoder"
   homepage "https://github.com/ultravideo/kvazaar"
-  url "https://github.com/ultravideo/kvazaar/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "6d88a9c92c06c275e33ff5df9ed6081f43277988b782298544caa76c20b2b601"
+  url "https://github.com/ultravideo/kvazaar/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "c5a1699d0bd50bc6bdba485b3438a5681a43d7b2c4fd6311a144740bfa59c9cc"
   license "BSD-3-Clause"
   head "https://github.com/ultravideo/kvazaar.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Kvazaar < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "07ef15a99eff93bfb2480c95ddf9bf88009894f49499219dd2312601ce8f9b35"
-    sha256 cellar: :any,                 arm64_ventura:  "aa19c913680dddaf84d46b03dbb9e1931d0ceb3c3a351deceff0dc323abe210a"
-    sha256 cellar: :any,                 arm64_monterey: "13cfd7cab68789ee888068796850f722021d35b0180f1816fa2252da86808b2b"
-    sha256 cellar: :any,                 sonoma:         "79523ac3488c084935a4885dca197a104107f77c16084c5ece2b6dbda49b0548"
-    sha256 cellar: :any,                 ventura:        "44a38c7a4204b4a520a96c6d98f184b382dd5cf52bb22025bb4c1fba4506a1d1"
-    sha256 cellar: :any,                 monterey:       "ad362f1a9e7e7f9bd5162fe50fcb1a9598be648f243e477bdbdeb7b0a4a7c52c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "81f432151f29ee23c36bf07c5e2c4f18b1e94a4b75bd1438d24bffa660cdd275"
+    sha256 cellar: :any,                 arm64_sonoma:   "1cbad0414bceb5d09a08e111e35cfae189f36a14979126346195b9c2885a08af"
+    sha256 cellar: :any,                 arm64_ventura:  "0c93533adcc570792d6c19c12e1aba452de88a7b8145bdf07c17109108c07e9c"
+    sha256 cellar: :any,                 arm64_monterey: "b196d9cb2d8f16c21e392b7580a19e5f74c1e485eb793083a2bfafbd65a84b30"
+    sha256 cellar: :any,                 sonoma:         "c881324ae98a472927554e4bf70a17a58a1b3379d25001f3a568b2ab1fcb6cab"
+    sha256 cellar: :any,                 ventura:        "3ece2ea661d18cb5918f69e7195bd81099410e791cd0dedbcc45804228359262"
+    sha256 cellar: :any,                 monterey:       "d76eeeebbdb79194bb39d0d0fe3936b2cef84defc4291a2ce7b39c2605d5ed8d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0146faec0f382d38334e44d177ce0c75c5de2b1eb042e00040c4e1cc3a401575"
   end
 
   depends_on "autoconf" => :build

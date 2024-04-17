@@ -1,18 +1,18 @@
 class Axel < Formula
   desc "Light UNIX download accelerator"
   homepage "https://github.com/axel-download-accelerator/axel"
-  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.13/axel-2.17.13.tar.xz"
-  sha256 "6af9c0238ca4fb850baa17878de0361868e3ff6d9302298d83c6d26931c28723"
+  url "https://github.com/axel-download-accelerator/axel/releases/download/v2.17.14/axel-2.17.14.tar.xz"
+  sha256 "938ee7c8c478bf6fcc82359bbf9576f298033e8b13908e53e3ea9c45c1443693"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "a095f3c098776c43761c65679a2ecc60bd0b04af9c1a94ffd99844ac69661c69"
-    sha256 cellar: :any, arm64_ventura:  "ed71aadbb789bd4086726b793259d58b98fcb2c69e6c3a81f5e40f63344a7acf"
-    sha256 cellar: :any, arm64_monterey: "d0af2765b6dd17d34e15686bee72c1c7e1a5508944d648a32b2f69c0658f0e26"
-    sha256 cellar: :any, sonoma:         "54bd28d46c91a2d5f5b33d15fd4a53ce0ea8233bbf7d3169916dae6ecbcb20b8"
-    sha256 cellar: :any, ventura:        "a88772cfeaef859f51518aacaac3a886944787294ab729acf7197ac7561ff8ab"
-    sha256 cellar: :any, monterey:       "c8b6cf0e29ee3469bc13dc2a92f8a18d758aee32cc1e153163919f46aaf5e1cc"
-    sha256               x86_64_linux:   "5ee8ef570387c5ea1c14b0dbf4dbdac3bb202b9bc522e9a5d3f5030b15c7791e"
+    sha256 cellar: :any, arm64_sonoma:   "3304a247f8e410cf41737d083bb6611d74bb5991d7cec6d76b48d9ce2e944423"
+    sha256 cellar: :any, arm64_ventura:  "0b24ce8df8e83157f4558afcb41083993d7b7aa5dbf02e06b01037a665a63ae5"
+    sha256 cellar: :any, arm64_monterey: "a5ac14c819bb4bc61c7f9b1c9b8211bbc14e83c9db8a3c301f58abaf822de463"
+    sha256 cellar: :any, sonoma:         "10439c6710098fb8022d91ce619e8c459810845beee5d20f2aab33c6cf1a13df"
+    sha256 cellar: :any, ventura:        "5ca2bc10eba04c8efaf32c380ac81f6b3da6a3a8a0dd28013a9000d06a76dd4e"
+    sha256 cellar: :any, monterey:       "70f5c6208758d713185fe924ef3778b4a72e81c29660b495c1cdab5c2e968685"
+    sha256               x86_64_linux:   "bf422304c452796fc7a1c020f7bf067fe1ff5eb7be4757a56b249eef815dfa9d"
   end
 
   head do

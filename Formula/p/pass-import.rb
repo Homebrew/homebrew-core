@@ -6,16 +6,17 @@ class PassImport < Formula
   url "https://files.pythonhosted.org/packages/f1/69/1d763287f49eb2d43f14280a1af9f6c2aa54a306071a4723a9723a6fb613/pass-import-3.5.tar.gz"
   sha256 "e3e5ec38f58511904a82214f8a80780729dfe84628d7c5d6b1cedee20ff3fb23"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/roddhjav/pass-import.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "490ac99e17f182fcd233b72bafcdde38ff4d7123d466a61d1909925c2a9e7d89"
-    sha256 cellar: :any,                 arm64_ventura:  "38fc66c3299ecd2966773195a182dbc22395b2f91d62590d83ec153e2ef03946"
-    sha256 cellar: :any,                 arm64_monterey: "1a0d87d58448c8945bd23c1b7a56f2afdfd91a35b94d18112f755ca6a06ec1a8"
-    sha256 cellar: :any,                 sonoma:         "1a5db64090bc6e37ce6f672406778e6e3a43b1ca3c98cdbb48f400949cf7774e"
-    sha256 cellar: :any,                 ventura:        "0b82daec994db8a7eeeebd1b2e27f0ee619d5dbeb911b6acc9e2d63a1befc1d7"
-    sha256 cellar: :any,                 monterey:       "627a0f30024e874e8dca96f1b8e3766fa27060124fe462c3a4ce655e8f12bb42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7aab526c1f56101cf9198009a8360c6a99fedb048d9c88091cc38da15e25fc9f"
+    sha256 cellar: :any,                 arm64_sonoma:   "51641e4cf1c8bf2628a9b1915e7661df9ae3a5bec4ebb39778d7daed4d8a475c"
+    sha256 cellar: :any,                 arm64_ventura:  "ded7bc7ba4fe54ae17b501d076f4611254a1347b22c932758eace3b7afabe44a"
+    sha256 cellar: :any,                 arm64_monterey: "c36d33dfb91a5092782ba779a1c2e333f355e2999d7c7ef9c391611915408560"
+    sha256 cellar: :any,                 sonoma:         "141b81b98a8aea24a830af13a8c7f4fcbb44c31d1d8a0b565ce2a348edcbf721"
+    sha256 cellar: :any,                 ventura:        "5404f90d176065a81f3b50eb6781dced5670b4b59483304192be5cf4a4d0ff15"
+    sha256 cellar: :any,                 monterey:       "7540b0888dd14488e27e4b7fbd61bc649b26e63dcf7fbafb6910fd830bebc4c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd0b0d51939bae82b2ef847d4ee651fc3ed1c647d34394d1ffe6a552c2cf04b6"
   end
 
   depends_on "certifi"
@@ -28,8 +29,8 @@ class PassImport < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "pyaml" do

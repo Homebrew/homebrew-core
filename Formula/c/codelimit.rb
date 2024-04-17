@@ -6,15 +6,16 @@ class Codelimit < Formula
   url "https://files.pythonhosted.org/packages/a1/ae/0048c31a0185e78cd16504c119b6d3e009c0ffe8932bd9a6b7a449164db5/codelimit-0.8.1.tar.gz"
   sha256 "fbf565e061461ed8e78829b56db083b352b916010c1fbf7e7ca97f1857eaa788"
   license "ISC"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "76d89256fdf039571b6221da922006e713a99e3ae4d21dd8efa04701253a83e3"
-    sha256 cellar: :any,                 arm64_ventura:  "fd80ffaba3a211499e069069c83f18bd7ba05fc4bc6d0a031c26d17d7014aa8e"
-    sha256 cellar: :any,                 arm64_monterey: "92ae99cd541858f4413f968d53d37d02d5005b5757cc3ee28219341b22e7b8cb"
-    sha256 cellar: :any,                 sonoma:         "e852b5ab8e77a8b5c929ad7b880a281d6dee11acf91eba363fa233bf26d4a4b7"
-    sha256 cellar: :any,                 ventura:        "e7ce4c56f0c07a9d398d3e204f486735c0670fbec4d1a028e1cb08161875886a"
-    sha256 cellar: :any,                 monterey:       "cebc3483b89385461c271f20df0077cc64387dc42d58523075a32ae8ddd6d829"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "04086cde11d3e9e8c7e9ef4bc91bd3754d4877cfd13eb46273bc39d253549a4f"
+    sha256 cellar: :any,                 arm64_sonoma:   "d6e460a6a1ca2484baa4db49d83949c6a9dbc2839d3c0727159cdb5c98e9cad9"
+    sha256 cellar: :any,                 arm64_ventura:  "d1d74e99ef76fa952da9efc5ba3dd86d2931b3784626a5a491da26eb38cf16e8"
+    sha256 cellar: :any,                 arm64_monterey: "65ce1777bf5cfc75c7a01f2cf1919c4a9220c31d127bd13e3ba461171251d12b"
+    sha256 cellar: :any,                 sonoma:         "b053277d286446e4a830d4a7f688b4527b13ae307f6d4dcfb6e7e5fd64bb33a5"
+    sha256 cellar: :any,                 ventura:        "dc4b0e3ed0d929e35064857a92dfb408a42715a47970ffa636980a152928d518"
+    sha256 cellar: :any,                 monterey:       "b4eff136adb491b439b9f5204afc3dc2c9cebab7e326ec445bbd0116de64e43d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3a61cdf23ba292fa8c00d828cdbe6f11f70e10195f46911d417bc50435eea075"
   end
 
   depends_on "certifi"
@@ -22,8 +23,8 @@ class Codelimit < Formula
   depends_on "python@3.12"
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/18/93/1f005bbe044471a0444a82cdd7356f5120b9cf94fe2c50c0cdbf28f1258b/aiohttp-3.9.3.tar.gz"
-    sha256 "90842933e5d1ff760fae6caca4b2b3edba53ba8f4b71e95dacf2818a2aca06f7"
+    url "https://files.pythonhosted.org/packages/7e/0b/4235b25496c741f4c9f75a94951fbc15c48537349a03448687fb226256ef/aiohttp-3.9.4.tar.gz"
+    sha256 "6ff71ede6d9a5a58cfb7b6fffc83ab5d4a63138276c771ac91ceaaddf5459644"
   end
 
   resource "aiosignal" do
@@ -62,13 +63,13 @@ class Codelimit < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/90/b4/206081fca69171b4dc1939e77b378a7b87021b0f43ce07439d49d8ac5c84/importlib_metadata-7.0.1.tar.gz"
-    sha256 "f238736bb06590ae52ac1fab06a3a9ef1d8dce2b7a35b5ab329371d6c8f5d2cc"
+    url "https://files.pythonhosted.org/packages/a0/fc/c4e6078d21fc4fa56300a241b87eae76766aa380a23fc450fc85bb7bf547/importlib_metadata-7.1.0.tar.gz"
+    sha256 "b78938b926ee8d5f020fc4772d487045805a55ddbad2ecf21c6d60938dc7fcd2"
   end
 
   resource "linkify-it-py" do
@@ -147,13 +148,13 @@ class Codelimit < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/5b/49/39f10d0f75886439ab3dac889f14f8ad511982a754e382c9b6ca895b29e9/typer-0.9.0.tar.gz"
-    sha256 "50922fd79aea2f4751a8e0408ff10d2662bd0c8bbfa84755a699f3bada2978b2"
+    url "https://files.pythonhosted.org/packages/e9/7d/b1e0399aa5e27071f0042784681d28417f3e526c61f62c8e3635ee5ad334/typer-0.9.4.tar.gz"
+    sha256 "f714c2d90afae3a7929fcd72a3abb08df305e1ff61719381384211c4070af57f"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
-    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "uc-micro-py" do
@@ -172,8 +173,8 @@ class Codelimit < Formula
   end
 
   resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
+    url "https://files.pythonhosted.org/packages/3e/ef/65da662da6f9991e87f058bc90b91a935ae655a16ae5514660d6460d1298/zipp-3.18.1.tar.gz"
+    sha256 "2884ed22e7d8961de1c9a05142eb69a247f120291bc0206a00a7642f09b5b715"
   end
 
   def install

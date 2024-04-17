@@ -6,11 +6,6 @@ class Wapm < Formula
   license "MIT"
   head "https://github.com/wasmerio/wapm-cli.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64bcf4597cca94cacbe81f5171e942822148f75e4a5a6996c4a03755f853695d"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b08738bc1b9beda9d2a865bff6cafe3fa4216bf96c9252c35646718f5f1607d"
@@ -23,6 +18,8 @@ class Wapm < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "d164b8af6b8a005697c6795e9c53df98200fb1b6cdc103ecce68dd69b135525c"
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7ee08cb75bf71add9b45bd1df5b65b605ac8d667349e745948cc8dcb089721e"
   end
+
+  deprecate! date: "2024-04-05", because: :repo_archived
 
   depends_on "rust" => :build
   depends_on "wasmer" => :test

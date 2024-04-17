@@ -22,6 +22,8 @@ class Cmt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6a48e225aa97777da3fb586c4908417e8690d1b0346c7691122287b3848bddb"
   end
 
+  deprecate! date: "2024-04-05", because: :repo_archived
+
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "hpack" => :build

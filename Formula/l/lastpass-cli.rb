@@ -1,19 +1,19 @@
 class LastpassCli < Formula
   desc "LastPass command-line interface tool"
   homepage "https://github.com/lastpass/lastpass-cli"
-  url "https://github.com/lastpass/lastpass-cli/releases/download/v1.3.7/lastpass-cli-1.3.7.tar.gz"
-  sha256 "448a53960602164456bbc9156d017540a1dac989a8cab7bc6a2a9781b52d47cb"
+  url "https://github.com/lastpass/lastpass-cli/releases/download/v1.4.0/lastpass-cli-1.4.0.tar.gz"
+  sha256 "e317c7ac964e35d8535e039b70c0eab26fe4ef5aa596ad0f09f72fd8c7207d87"
   license "GPL-2.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "177e2d87a9c1d179486a0d45e8204003239d854ecc4c23ca803dd08cc3278cce"
-    sha256 cellar: :any,                 arm64_ventura:  "1ae5e09672e1850485f83452599f7804b23d3733d24c69ae90bc58e5024f25bd"
-    sha256 cellar: :any,                 arm64_monterey: "b60409de408e4b86dbe7c4a8a0fcc7b40f5784d762967daa1f8671398882e682"
-    sha256 cellar: :any,                 sonoma:         "ac76e8a2f4c13959161f1d029cbbaad28d8916352e7fb482e29d1d0c5e66731c"
-    sha256 cellar: :any,                 ventura:        "c5af272e2b934e1525b69b6861bbe6cc0f38e39783ab3adc77fbd61c68dab2a0"
-    sha256 cellar: :any,                 monterey:       "11048aff621bc79a0912f0487b531cdbe7bd8398ccbb9e8d22bac81421a37993"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff94855f3e97861d4e55e501220a39a23649570a274f6ada6a10d8a4e8df8b97"
+    sha256 cellar: :any,                 arm64_sonoma:   "c0db1bba3298820fc8026e8413fd551d84f7ea2f5e1c0e5d4503a0d6dea032ee"
+    sha256 cellar: :any,                 arm64_ventura:  "d5a911fb612b47c20b240730d634e336d05b7a3485e77c50d81daf13e5883851"
+    sha256 cellar: :any,                 arm64_monterey: "f2f003ecc5842f784a0332b69ffdcaff03471de08ca2a145adb0a125afdb5e55"
+    sha256 cellar: :any,                 sonoma:         "f9b65123d0e03d7caefdc85603c4fe6cdb74d2efc5d46fe2a47746cde5b240e3"
+    sha256 cellar: :any,                 ventura:        "c92cbd3e13a1f702bc683dcc8ee60088520606849d0bb99f25a16e52ba161c27"
+    sha256 cellar: :any,                 monterey:       "960580a653f746bede884a676ee1d898a50e7a2b10093af482ae4a578c1bcb7e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93a9e53234c6bfc4f1bc79a2adc372d0347038fc749b60ebed9cf565cbb4c8c0"
   end
 
   depends_on "asciidoc" => :build

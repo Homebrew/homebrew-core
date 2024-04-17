@@ -2,6 +2,7 @@ class Subversion < Formula
   desc "Version control system designed to be a better CVS"
   homepage "https://subversion.apache.org/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://www.apache.org/dyn/closer.lua?path=subversion/subversion-1.14.3.tar.bz2"
@@ -16,13 +17,13 @@ class Subversion < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "b51808010d560f470bf6f4c14df7965d7f0840fa36ea5d84f38a83697b710ba3"
-    sha256 arm64_ventura:  "ad02a2f65ee3ac5e6023e64427ebfff10fde2f298ba7d6e4b298fb55c3898388"
-    sha256 arm64_monterey: "97b753bf79a9f4a041d12052ec229bceb34bc420af98f9990b510c4848ccc990"
-    sha256 sonoma:         "024a680f2f7b4fbd9916cb5d02f5923866ba9f67b5bcfa0f3b502076a9721ea3"
-    sha256 ventura:        "e3372419e8caa3545b4567d4146a6769a3a440d53eca0ea38617c4024bf70d95"
-    sha256 monterey:       "c811f533a2e0cf5805808cbfdca17043b3f2c5c7364bd460b35f324aa42078af"
-    sha256 x86_64_linux:   "e3aaf417aed39c962a61c2c1d11292992abd183c8d32ec57cd760188c054beea"
+    sha256 arm64_sonoma:   "559c4a78e3be6fb5dc1edd5198c5e8a6bfdcd3755392cef75c007b77e86a5d5b"
+    sha256 arm64_ventura:  "ff31811eda0a1c661ecac4645c7e41a425206bff94394db1b59e199e85da6089"
+    sha256 arm64_monterey: "f98360a8fdf96edfd3f41266114b074837b2e7dfcb8a5c842e3f23a82aa2796b"
+    sha256 sonoma:         "8ee0ca47c591f62de107314fa3b283f6ba2547763d99f0b6f7bbeea6219450b5"
+    sha256 ventura:        "773e23c8908efbf6aa61c3501ec04a286fa27518b94237fb67113b29bab0336c"
+    sha256 monterey:       "02802ae1c865b6599b9ee54367d6ad9fdab4f59d209bdb285fbf9bee59ee6bc3"
+    sha256 x86_64_linux:   "178d0721f3dfbb4cff77d69dfbae34457d8900343b11a5751fdf35a37ad60cf4"
   end
 
   head do

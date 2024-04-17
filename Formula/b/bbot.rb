@@ -3,19 +3,18 @@ class Bbot < Formula
 
   desc "OSINT automation tool"
   homepage "https://github.com/blacklanternsecurity/bbot"
-  url "https://files.pythonhosted.org/packages/45/9d/792ce23297690f988c3b3988791123b2865be96c65ecd58d9a722dae88f3/bbot-1.1.6.tar.gz"
-  sha256 "68a6e43746f1ce9ab16b4e122113524a7a516bbd2da33398c29168e9e05100f4"
+  url "https://files.pythonhosted.org/packages/70/8b/7aeca0cfc86fceede10aff5ca896a8c4588266071a2d97fb7b5d1bdfcabe/bbot-1.1.6.3.tar.gz"
+  sha256 "bb8d8681d58211a00bb0508e76af345f09a1e4f8eb6e0b2184cb453384e749ae"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8f0a9df954aa50a67f981534aa6fb0d9194e96e191e190b2216701d220e31c56"
-    sha256 cellar: :any,                 arm64_ventura:  "79affea67be274eafccc5c8f96fec0e1642961af72a5e54a4ccc06aefdbcde9a"
-    sha256 cellar: :any,                 arm64_monterey: "d4d6420094791e2c6ee8c5900f4a357b8cdfaa57944af92ef2900ea37590f58e"
-    sha256 cellar: :any,                 sonoma:         "3f916fa7e3466d331aad9edb40a75d5ad05b9afba1a65cfd83734d5b384d8cd9"
-    sha256 cellar: :any,                 ventura:        "e12aa4ac52dcaef584aa3d8b3dc1d8a8b439655fbf4222a2bd6ac1a6c9229d8d"
-    sha256 cellar: :any,                 monterey:       "6e4c7385d3721f4329fb1fa7ae888e2da75fd52f6867dbceda485e47a739c169"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aab795fdbd6d24c46258689e85068156ab7958a2b8f9013636a9ff3acb5381c4"
+    sha256 cellar: :any,                 arm64_sonoma:   "d76f475550b9cfc242c60c39c4c0a933717960512d75332794bd1384e0c3fb07"
+    sha256 cellar: :any,                 arm64_ventura:  "a8f0eec92b25660b0c2277f8fdb439e12ac20655e0eea71ee02e340a60ee2457"
+    sha256 cellar: :any,                 arm64_monterey: "95753027ee7caee8e7f157d805f32710cc366c600114138499c23b91bb6a48af"
+    sha256 cellar: :any,                 sonoma:         "1ee22151d41da372625dfdb5f9f6c3ae172ff087bde4f91bc62123ff67edc28d"
+    sha256 cellar: :any,                 ventura:        "c126ffdab29d35e575ca1b78e318626fd1fc12502daa2c0776cc61883ba3958b"
+    sha256 cellar: :any,                 monterey:       "1bfcec74fa164e445bbd0af6f00c246f56e719cb84536c7798278bb614e2a52d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c84d0812da635a5fa86f85800cd5d24465516cb0f6e3cb91a2a9220706a31fa6"
   end
 
   depends_on "openjdk" => :build
@@ -94,13 +93,13 @@ class Bbot < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
-    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
+    url "https://files.pythonhosted.org/packages/21/ff/c495b797462434f0befcb598b51cde31c3ebdf8577c3fd9d9a8f5eeb844c/docutils-0.21.1.tar.gz"
+    sha256 "65249d8a5345bc95e0f40f280ba63c98eb24de35c6c8f5b662e3e8948adea83f"
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/db/97/3f028f216da17ab0500550a6bb0f26bf39b07848348f63cce44b89829af9/filelock-3.13.3.tar.gz"
-    sha256 "a79895a25bbefdf55d1a2a0a80968f7dbb28edcd6d4234a0afb3f37ecde4b546"
+    url "https://files.pythonhosted.org/packages/38/ff/877f1dbe369a2b9920e2ada3c9ab81cf6fe8fa2dce45f40cad510ef2df62/filelock-3.13.4.tar.gz"
+    sha256 "d13f466618bfde72bd2c18255e269f72542c6e70e7bac83a0232d6b1cc5c8cf4"
   end
 
   resource "h11" do
@@ -109,8 +108,8 @@ class Bbot < Formula
   end
 
   resource "httpcore" do
-    url "https://files.pythonhosted.org/packages/03/9d/2055e6b65592d3a485a1141761ba7047674bbe085cebac0988b30e93c9e6/httpcore-1.0.4.tar.gz"
-    sha256 "cb2839ccfcba0d2d3c1131d3c3e26dfc327326fbe7a5dc0dbfe9f6c9151bb022"
+    url "https://files.pythonhosted.org/packages/17/b0/5e8b8674f8d203335a62fdfcfa0d11ebe09e23613c3391033cbba35f7926/httpcore-1.0.5.tar.gz"
+    sha256 "34a38e2f9291467ee3b44e89dd52615370e152954ba21721378a87b2960f7a61"
   end
 
   resource "httpx" do
@@ -119,8 +118,8 @@ class Bbot < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "jinja2" do
@@ -179,13 +178,13 @@ class Bbot < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/4b/de/38b517edac45dd022e5d139aef06f9be4762ec2e16e2b14e1634ba28886b/pydantic-2.6.4.tar.gz"
-    sha256 "b1704e0847db01817624a6b86766967f552dd9dbf3afba4004409f908dcc84e6"
+    url "https://files.pythonhosted.org/packages/cd/fc/70fe71ff78f680d584eba9c55a30092f6ef0b9cf0c75a74bd35a24151a83/pydantic-2.7.0.tar.gz"
+    sha256 "b5ecdd42262ca2462e2624793551e80911a1e989f462910bb81aef974b4bb383"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/77/3f/65dbe5231946fe02b4e6ea92bc303d2462f45d299890fd5e8bfe4d1c3d66/pydantic_core-2.16.3.tar.gz"
-    sha256 "1cac689f80a3abab2d3c0048b29eea5751114054f032a941a32de4c852c59cad"
+    url "https://files.pythonhosted.org/packages/3d/28/d693aab237fca82da327990a88a983b2b84b890032076ee4a87e18038dbb/pydantic_core-2.18.1.tar.gz"
+    sha256 "de9d3e8717560eb05e28739d1b35e4eac2e458553a52a301e51352a7ffc86a35"
   end
 
   resource "pyjwt" do
@@ -219,8 +218,8 @@ class Bbot < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
-    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
+    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
   end
 
   resource "six" do
@@ -254,8 +253,8 @@ class Bbot < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
-    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "urllib3" do

@@ -1,8 +1,8 @@
 class Iperf < Formula
   desc "Tool to measure maximum TCP and UDP bandwidth"
   homepage "https://sourceforge.net/projects/iperf2/"
-  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.1.9.tar.gz"
-  sha256 "5c0771aab00ef14520013aef01675977816e23bb8f5d9fde016f90eb2f1be788"
+  url "https://downloads.sourceforge.net/project/iperf2/iperf-2.2.0.tar.gz"
+  sha256 "16810a9575e4c6dd65e4a18ab5df3cdac6730b3c832cf080a8990f132f68364a"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,15 +11,13 @@ class Iperf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c215111f712f06bfc8d4e2b59df2647fc627aee38e402169e1a4619f216bdd1b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1ea30486e89e978722b854f72a591f197419d6c529b2cf1bd2164010698c0cb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "255b5d8f43b5d0de1819d006d6d2e929874c4020243e0bac75132404a7bcb617"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7d55ff3cae4a261695736b7065c5a0b06988b35d11f806b48cd5b6da1ab62344"
-    sha256 cellar: :any_skip_relocation, sonoma:         "01a6ab19370c9b73e6e6de2d73439332c86d693dddbf29b759cfd9009db6bf8a"
-    sha256 cellar: :any_skip_relocation, ventura:        "ebc74e656e2733dc621629cf9a986a0f615a3b68061fe7dfcca74f7d969e1676"
-    sha256 cellar: :any_skip_relocation, monterey:       "dffa26177ca409e576636726281d6f84a80896aaec1e4987841a6e31703978ee"
-    sha256 cellar: :any_skip_relocation, big_sur:        "f810f2117e5bb272d2640627f96481d12fef85d9c444e7ca789feab89eb0fed1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72ec63f092aa146d76d83edefc618f0bae97f78b03cda0c3c6d21c4ada52b648"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9bf46728f92fbd32daabb6a35d6ac65ed54a5285b017a4b544f9a9cefabaa5a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e49f0e744808cb351870679663cbd622597a6c9513389f8857f9461fac26f2ee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "39d2a630219f6ae3fe31912068260c1419feac89de34fd3944207a5f6303a820"
+    sha256 cellar: :any_skip_relocation, sonoma:         "976257ee411e2898cef5af8afeb8b48b8f08d8c0f93fca4e6e515c811d7dce4b"
+    sha256 cellar: :any_skip_relocation, ventura:        "1ab6d572f2c64ded3c9911dcec07dfad00e9367f26a33d6115cb51248c93edcc"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0984a0a8f32905a4da2262d07783338f202374d97319b8af4b0e3dea1451078"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ab44b170204b938a97834bf13e94375b0a07c46bd5f2fc4235effbfc6491f2f0"
   end
 
   def install

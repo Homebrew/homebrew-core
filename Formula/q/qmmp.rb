@@ -4,6 +4,7 @@ class Qmmp < Formula
   url "https://qmmp.ylsoftware.com/files/qmmp/2.1/qmmp-2.1.6.tar.bz2"
   sha256 "927aa8e720a470efdb16633efb3f927625b3a4328af68a15d30aa57082a3eeca"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://qmmp.ylsoftware.com/downloads.php"
@@ -11,11 +12,11 @@ class Qmmp < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "3a184744eb22e470cc024c1d02139be521951c67dbb73c5dcd2c9cad4326a076"
-    sha256 arm64_monterey: "f373f60656cb8e8e5672b66155c2bdb584cd6d1b3a9de8af462843eea2074142"
-    sha256 ventura:        "b74c8c23c89b3d6c5b30db1b9fcf4c59b2564e1af6162fcf24db9f9e128977e3"
-    sha256 monterey:       "a623dc262436782fc3e9a312237b608499734dab0b5b63a53c7acda382f2069f"
-    sha256 x86_64_linux:   "a25566cbca3372edfab950071571db44639fabb22fb7287ac3ce29d9cf821c6d"
+    sha256 arm64_ventura:  "02e79e24d8efd6988938f123f7c9397c02348231e411048389fcd2f8e821f661"
+    sha256 arm64_monterey: "0ba62b41fac9a9b8f0bd7bce9caebb7df8c8ab8644b8d306fd01391336b70fe1"
+    sha256 ventura:        "6b8417fd93499d092eec66280bb846bfa850fb89f7841d6e8f9f1a9bdb8817a8"
+    sha256 monterey:       "41ead73b4054223e49eaa013bd29c97c141990bd3ab56196f3ae4038848c07d3"
+    sha256 x86_64_linux:   "a2cb0ae62b85f2f3688990c79d46383efcf87dd2df66962e4ba7b7e532b127b0"
   end
 
   depends_on "cmake"      => :build
@@ -23,7 +24,7 @@ class Qmmp < Formula
 
   # TODO: on linux: pipewire
   depends_on "faad2"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
   depends_on "flac"
   depends_on "game-music-emu"
   depends_on "jack"

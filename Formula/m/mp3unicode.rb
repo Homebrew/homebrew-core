@@ -35,6 +35,10 @@ class Mp3unicode < Formula
     depends_on "automake" => :build
   end
 
+  # does not build with taglib 2, https://github.com/alonbl/mp3unicode/issues/3
+  # no new commits since Dec 2016
+  deprecate! date: "2024-04-04", because: :unmaintained
+
   depends_on "pkg-config" => :build
   depends_on "taglib"
 

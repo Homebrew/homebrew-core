@@ -2,6 +2,7 @@ class Audacious < Formula
   desc "Lightweight and versatile audio player"
   homepage "https://audacious-media-player.org/"
   license "BSD-2-Clause"
+  revision 1
 
   stable do
     url "https://distfiles.audacious-media-player.org/audacious-4.3.1.tar.bz2"
@@ -11,6 +12,15 @@ class Audacious < Formula
       url "https://distfiles.audacious-media-player.org/audacious-plugins-4.3.1.tar.bz2"
       sha256 "2dea26e3af583a2d684df240b27b2b2932bcd653df4db500a85f4fe5d5fdc8a6"
     end
+
+    # Fixes: ../src/libaudcore/vfs.h:78:62: error: integer value -1 is outside
+    # the valid range of values [0, 3] for this enumeration type
+    # [-Wenum-constexpr-conversion]
+    # Remove when included in a release.
+    patch do
+      url "https://github.com/audacious-media-player/audacious/commit/4967240899b6f36e3e5dfc68f1b8963824562fe9.patch?full_index=1"
+      sha256 "f1232ab272927c4d042e2475d02d08e99965b5f01a5a1a7c57a76c669224d688"
+    end
   end
 
   livecheck do
@@ -19,15 +29,12 @@ class Audacious < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f99bf1f66a85cbf56c241631359565a7dc7b430867fff248accd24cf45d0b9e1"
-    sha256 arm64_ventura:  "25f3142a4ca788ca2b4d57853ac8d98c4ee1d8229b728462af226323720339b8"
-    sha256 arm64_monterey: "1f5a9d58989dbcdf06ae5732091ee93ebc6b29398d8cea949cf30dd7c90ddae3"
-    sha256 arm64_big_sur:  "c1e294e3fbe48409e07f1b924003f764bb70943ff1added3bb4d0dafe75b113d"
-    sha256 sonoma:         "0aaddbba68b5065355183a2ab14fe2fcd47ba4f043d3c17bdd64cc8adccce1e7"
-    sha256 ventura:        "0f3c9cacff3ff240a13e88f08055f3a3bfc0cfda6ba46200286f355f5f421fca"
-    sha256 monterey:       "23828385f46ff08c4149b36923b564d6a2696e74ebc48d86a4ddbd3da5b1639e"
-    sha256 big_sur:        "ab1f11e873c42f1f75645724dffaa80c828c6d26532383c5c69fc96f13036a8c"
-    sha256 x86_64_linux:   "d51a93f3d472cf7bd0814dda1f99ab25b4bbdf7fd01c886150aadbeda1b3dad7"
+    sha256 arm64_sonoma:   "82cf7e48a09f0468ccd17fd84b03321d63cc54fbf740baacea47f1061fd21000"
+    sha256 arm64_ventura:  "7c035f0fe808ddb565fe00cc7268aa317ae965cd0fdcfa821dffee0e52904fca"
+    sha256 arm64_monterey: "2b20f6790d06b5c477dcbf760e50d9f15ba55922c74910e54179c4c180384f70"
+    sha256 sonoma:         "db478a7d9dae10ad8b9743cb4c96a4164a62495896ac13b1eb8cf677652eb1a7"
+    sha256 ventura:        "ca18e033d72a4c6ee60b5b7127921b394b2e5c2bf88f69648ed0abf5479260ab"
+    sha256 monterey:       "73d8752361d84d876ef26d68e8003b62ee46d6db7facf7ffb3a931bacf3b0594"
   end
 
   head do

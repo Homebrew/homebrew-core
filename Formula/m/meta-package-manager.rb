@@ -7,15 +7,16 @@ class MetaPackageManager < Formula
   url "https://files.pythonhosted.org/packages/ea/32/a264dab7e8104720b9284c9e881eb47cd2d2ebbf8911bc08c3ec09cb49f2/meta_package_manager-5.15.0.tar.gz"
   sha256 "ab2bf53f4e2e798a14197ba8f40d81daea638644cb11911f189b3fd07a58f821"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1c2b1cc525c6b9156da27190ae5ee8a19691b93b2fcb87604d3811ed0ede1d51"
-    sha256 cellar: :any,                 arm64_ventura:  "f9d1821367fcd0b729538b53ae967e78dc7fd5e1d0df9e3ac7293c82a2bb45a5"
-    sha256 cellar: :any,                 arm64_monterey: "3f869d0c37f974592009f56a23f2b89f8cf90edb77d9c8292045010c85f96ab4"
-    sha256 cellar: :any,                 sonoma:         "90f84963ac530dab2fe7fdaef5a1696558e46c15026a92296d0518eb48ab3bc4"
-    sha256 cellar: :any,                 ventura:        "dc2183a5190f5682c3a5a3edf87a355f2c142bbedb233ffc911bb552cecbf4c0"
-    sha256 cellar: :any,                 monterey:       "3bd654e09674355c87640179117fb3b20d86421ab4a0d114f6b16189bb819bac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f13319a7bbbf72acbbeef8f4a1a419685626d4617439c448917efd2eaec8c2c"
+    sha256 cellar: :any,                 arm64_sonoma:   "cedff76189c58325d6844e79ffbe5ac0ebb5f85379f28deb1a037cbbaa319633"
+    sha256 cellar: :any,                 arm64_ventura:  "4e434347a6f5a134e50406aa5c06b5c07f4a0af7fe973fef11be333a20f9a2bd"
+    sha256 cellar: :any,                 arm64_monterey: "524c379b1eba95a2457f2e84c5a94165f63d75aeac43e3b3cf235be2a692a9d5"
+    sha256 cellar: :any,                 sonoma:         "27b0dee9715758065e947a21df8795f5dc55a578e11d7a26c8834049fe5d7110"
+    sha256 cellar: :any,                 ventura:        "f6de89d0a26139171cc4fca1ae831945f5390804ca3c1f56743f8da8194b0f2e"
+    sha256 cellar: :any,                 monterey:       "8faf3f0598a5961c99e5d4a625ad08f817287af47d951f1549d1ca495a1e2a96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b42d83b5111009dcf7a8699284407ac1ffbdc2fec36733df91b04ac581eef4b"
   end
 
   depends_on "certifi"
@@ -58,8 +59,8 @@ class MetaPackageManager < Formula
   end
 
   resource "cloup" do
-    url "https://files.pythonhosted.org/packages/e4/95/1cdc36a95ffb2a48542b7439d5a7ba6cba0fa90208be913c01edcf267ca5/cloup-3.0.4.tar.gz"
-    sha256 "658111e2f49b8256a822dac5fa0205bf64109fdefc435f39923490a32b13ec09"
+    url "https://files.pythonhosted.org/packages/cf/71/608e4546208e5a421ef00b484f582e58ce0f17da05459b915c8ba22dfb78/cloup-3.0.5.tar.gz"
+    sha256 "c92b261c7bb7e13004930f3fb4b3edad8de2d1f12994dcddbe05bc21990443c5"
   end
 
   resource "commentjson" do
@@ -73,8 +74,8 @@ class MetaPackageManager < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "imagesize" do
@@ -108,8 +109,8 @@ class MetaPackageManager < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "pallets-sphinx-themes" do

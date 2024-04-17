@@ -18,6 +18,8 @@ class Taskell < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cc781498e466ae79de14896e8e93c63f3492babb46ed0570ec3d3ba2e25b0f8d"
   end
 
+  deprecate! date: "2024-04-05", because: :repo_archived
+
   depends_on "cabal-install" => :build
   depends_on "ghc@9.2" => :build
   depends_on "hpack" => :build

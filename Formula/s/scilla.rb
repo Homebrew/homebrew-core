@@ -1,19 +1,19 @@
 class Scilla < Formula
   desc "DNS, subdomain, port, directory enumeration tool"
   homepage "https://github.com/edoardottt/scilla"
-  url "https://github.com/edoardottt/scilla/archive/refs/tags/v1.2.7.tar.gz"
-  sha256 "cccf86bc9c0ed70c2322d2921b06fa51905bdfb65ab51afe9c0df52411596cbb"
+  url "https://github.com/edoardottt/scilla/archive/refs/tags/v1.3.0.tar.gz"
+  sha256 "3a8c3d0b1e061b517b887bd3718810ea09998fbd474a50c769fe244767c67a32"
   license "GPL-3.0-or-later"
   head "https://github.com/edoardottt/scilla.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "69baec3497812a02e6696b0461bb9440ff58b94e12d5bcf31e99c622ef808527"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "039527494f3f17c66014aec9d96864c4b4a8b0b872e17ac7c0fac2adf178f4ce"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "eb5c3d6084a64a174792e865212d082d9b401a58468b49211558620458052dfc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ae371c2742878f593a9ae762bb8a71aa209992cbcd11fe6c5c622cfbab85bbcd"
-    sha256 cellar: :any_skip_relocation, ventura:        "37eb1ecba2eac939a47805c4ddc17fe0453e51b88d06a7904f1d3e09e0a4a473"
-    sha256 cellar: :any_skip_relocation, monterey:       "6c7c2ea4227c1c39157fccb3472c11a84b79946b77da99714134ca36ddb4d732"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "03a8f2960436b22aebd0642db667c9d60e11fd70cb8f294f3407de6ed5d98e2b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e2f4345eabc7c4c52af7d4bafa9c8763bcc3bc7165cdcab01fb9183d676e32a6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fc86278a8751678280b191ce61732c9edd7953face82a5323da368253ea66cbf"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e813e5c031fb8890a8e76d323dae827548bdc4d2314514220332bddc488f2069"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b376bbf11e24d81a67370de1fe80ba7e07f95e68a5dec636b38cae77d345a436"
+    sha256 cellar: :any_skip_relocation, ventura:        "b056341afbd1c454373e5f5e35621e2f98d1f517957f9a0fe260d692186c8104"
+    sha256 cellar: :any_skip_relocation, monterey:       "94f86d582fecf9236a68682a252ecee74a20448093937a38b3d899da4201bc2d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6213d7a324c144a73dcbc4e9c824992bf983c7b89e408fc5f1c50afd203157a4"
   end
 
   depends_on "go" => :build

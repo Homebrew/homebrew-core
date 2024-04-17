@@ -20,6 +20,8 @@ class Jpegrescan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e57f2d0e5e4c03913297ea1c9d1c41164756dffd1899e89b4024125bf81477f2"
   end
 
+  deprecate! date: "2024-04-05", because: :repo_archived
+
   depends_on "jpeg-turbo"
 
   uses_from_macos "perl"

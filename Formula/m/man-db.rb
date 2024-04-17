@@ -1,9 +1,9 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "https://www.nongnu.org/man-db/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.12.0.tar.xz", using: :homebrew_curl
-  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.12.0.tar.xz"
-  sha256 "415a6284a22764ad22ff0f66710d853be7790dd451cd71436e3d25c74d996a95"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.12.1.tar.xz", using: :homebrew_curl
+  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.12.1.tar.xz"
+  sha256 "ddee249daeb78cf92bab794ccd069cc8b575992265ea20e239e887156e880265"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,13 +12,13 @@ class ManDb < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "f3a0d3449ff9d1d00a116a8f435f333a262cc21ab86256374df6b42c0d56b52b"
-    sha256 arm64_ventura:  "b9fdec0ac7c0bec5e262b14add499d72a6ec2c328f79bc6e2462dc22f9d277a2"
-    sha256 arm64_monterey: "cca2c7cbb92413a59741d31e04c0d954830510d87c5252e720b8bd3a594bd1c3"
-    sha256 sonoma:         "3a6f26413b0399f1988b98b7eaa2f27a4df691686812bc3c250f41562270db5a"
-    sha256 ventura:        "e2b5947fff43c1a1ce00c9403cf3199682239ffafc2f43004c123bfc8a555b7e"
-    sha256 monterey:       "7db11d2adfdc645de4392fc130747de7290e4afcb2ba359753ba7799b9272e01"
-    sha256 x86_64_linux:   "1127bbbf15ccd44fd63a0f2af0cb18610982cf6c812d05d994aa6b61856eba88"
+    sha256 arm64_sonoma:   "3046ae03805a9b4f85fc33744abbdaf42317e455d2d7254a5f69e8b22b4d9bb6"
+    sha256 arm64_ventura:  "68acedd167a94a934c30a188e6bc6ad83ec6cfd91ffe5311f06352317f2e9110"
+    sha256 arm64_monterey: "64f8130f82293adc58d86b9ddd0a56f3bfbb8ab55727a3ac80edc7474ae52b6c"
+    sha256 sonoma:         "31396b98bd04d0fac934a4bae0bd94cb2889121f26472e464fbb42fe5360770d"
+    sha256 ventura:        "4b3d5eadfb5e5a68c13bdc5ca4cafe3635b8babf04af5fe5a835d3896c504e4e"
+    sha256 monterey:       "1491c22fa6a8f397961d97dd225240e16e0a4ea11d4d85f01269b567aef9ff6f"
+    sha256 x86_64_linux:   "022c2cf422b768098678dc7317454fa13296c155917e19fdd47aefba5226cc7b"
   end
 
   depends_on "pkg-config" => :build

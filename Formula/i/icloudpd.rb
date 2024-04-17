@@ -3,19 +3,20 @@ class Icloudpd < Formula
 
   desc "Tool to download photos from iCloud"
   homepage "https://github.com/icloud-photos-downloader/icloud_photos_downloader"
-  url "https://github.com/icloud-photos-downloader/icloud_photos_downloader/archive/refs/tags/v1.17.3.tar.gz"
-  sha256 "76e500d64ce491bf987bf1c6999276c138bedb016f9111ae40e33d26b9f17c49"
+  url "https://github.com/icloud-photos-downloader/icloud_photos_downloader/archive/refs/tags/v1.17.4.tar.gz"
+  sha256 "a6c590dcc96415c56a60da134ed48a21b639c09de5fafcccd2faa837fe5fc4c5"
   license "MIT"
+  revision 1
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "65a7a3caafb04712198a2c21a27c5c08a8e902628f65cdb2cc243b5903575961"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad20d559839485e31f3d83470f00b8debe58ef6102edb12220f40c824fe6c4d8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "971bcb057f149373596d09ac08a40ff5a3095b4cdd6321b74c115aad51a12ecf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fe9db6bcd641915d5b205a5102ce74712c59c131d73f381a2e2c3820c2ceb670"
-    sha256 cellar: :any_skip_relocation, ventura:        "20b5e8d2c65698f0d4eaa9c1a826565528224b9f178a00f1cb7a1dd7564654f0"
-    sha256 cellar: :any_skip_relocation, monterey:       "6e43602bdd08c567b8ec9084aa68f11de244222938069cd2caecc4a08a94b94d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "078ed3972d7c52928f67c5fbe156c6ed91d92b788922cd187262f067c57c830c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1b35f297518858495bae82cff55171683531fb3ef14bd47ba401af811556790d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1b35f297518858495bae82cff55171683531fb3ef14bd47ba401af811556790d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1b35f297518858495bae82cff55171683531fb3ef14bd47ba401af811556790d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "b3e295ee3d00b7bddeec9901bd045c7929893d6d753a33733a3bc4fbcf8f1e35"
+    sha256 cellar: :any_skip_relocation, ventura:        "b3e295ee3d00b7bddeec9901bd045c7929893d6d753a33733a3bc4fbcf8f1e35"
+    sha256 cellar: :any_skip_relocation, monterey:       "b3e295ee3d00b7bddeec9901bd045c7929893d6d753a33733a3bc4fbcf8f1e35"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d5459bf47deb56f5ab1808eb7baf1f450abd1a58a0ba036900dc7e68a6825376"
   end
 
   depends_on "python@3.12"
@@ -41,18 +42,13 @@ class Icloudpd < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
-  end
-
-  resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/90/b4/206081fca69171b4dc1939e77b378a7b87021b0f43ce07439d49d8ac5c84/importlib_metadata-7.0.1.tar.gz"
-    sha256 "f238736bb06590ae52ac1fab06a3a9ef1d8dce2b7a35b5ab329371d6c8f5d2cc"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "jaraco-classes" do
-    url "https://files.pythonhosted.org/packages/8b/de/d0a466824ce8b53c474bb29344e6d6113023eb2c3793d1c58c0908588bfa/jaraco.classes-3.3.0.tar.gz"
-    sha256 "c063dd08e89217cee02c8d5e5ec560f2c8ce6cdc2fcdc2e68f7b2e5547ed3621"
+    url "https://files.pythonhosted.org/packages/06/c0/ed4a27bc5571b99e3cff68f8a9fa5b56ff7df1c2251cc715a652ddd26402/jaraco.classes-3.4.0.tar.gz"
+    sha256 "47a024b51d0239c0dd8c8540c6c7f484be3b8fcf0b2d85c13825780d3b3f3acd"
   end
 
   resource "keyring" do
@@ -111,8 +107,8 @@ class Icloudpd < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/4d/60/acd18ca928cc20eace3497b616b6adb8ce1abc810dd4b1a22bc6bdefac92/tzdata-2023.4.tar.gz"
-    sha256 "dd54c94f294765522c77399649b4fefd95522479a664a0cec87f41bebc6148c9"
+    url "https://files.pythonhosted.org/packages/74/5b/e025d02cb3b66b7b76093404392d4b44343c69101cc85f4d180dd5784717/tzdata-2024.1.tar.gz"
+    sha256 "2674120f8d891909751c38abcdfd386ac0a5a1127954fbc332af6b5ceae07efd"
   end
 
   resource "tzlocal" do
@@ -125,11 +121,6 @@ class Icloudpd < Formula
     sha256 "8f135f6502756bde6b2a9b28989df5fbe87c9970cecaa69041edcce7f0589b14"
   end
 
-  resource "zipp" do
-    url "https://files.pythonhosted.org/packages/58/03/dd5ccf4e06dec9537ecba8fcc67bbd4ea48a2791773e469e73f94c3ba9a6/zipp-3.17.0.tar.gz"
-    sha256 "84e64a1c28cf7e91ed2078bb8cc8c259cb19b76942096c8d7b84947690cabaf0"
-  end
-
   def install
     virtualenv_install_with_resources
   end
@@ -137,7 +128,7 @@ class Icloudpd < Formula
   test do
     assert_match version.to_s, shell_output(bin/"icloudpd --version")
 
-    output = shell_output(bin/"icloudpd -u brew@brew.sh -p brew --auth-only 2>&1", 1)
-    assert_match "Invalid username/password combination", output
+    output = shell_output(bin/"icloudpd -u brew -p brew --auth-only 2>&1", 1)
+    assert_match "Authenticating...", output
   end
 end

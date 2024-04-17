@@ -1,10 +1,9 @@
 class Mednafen < Formula
   desc "Multi-system emulator"
   homepage "https://mednafen.github.io/"
-  url "https://mednafen.github.io/releases/files/mednafen-1.29.0.tar.xz"
-  sha256 "da3fbcf02877f9be0f028bfa5d1cb59e953a4049b90fe7e39388a3386d9f362e"
+  url "https://mednafen.github.io/releases/files/mednafen-1.32.1.tar.xz"
+  sha256 "de7eb94ab66212ae7758376524368a8ab208234b33796625ca630547dbc83832"
   license "GPL-2.0-or-later"
-  revision 3
 
   livecheck do
     url "https://mednafen.github.io/releases/"
@@ -12,16 +11,13 @@ class Mednafen < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "31f9e8cf4f40a68c78ddc144dd6ceb081e159021385964b8064d381207464503"
-    sha256 arm64_ventura:  "9096c00e39b4ca7cf5180f4afc46e607f38314336bc591e24723171adebb81b4"
-    sha256 arm64_monterey: "59e6b6f8f9d8797c87b78a7d80d41a75375cec35123e574406f80d8e0464a06c"
-    sha256 arm64_big_sur:  "48a7df09b1d9e6244883287fe1ba28cfcb73b94b4d4ca40b90aeda35a0d076d0"
-    sha256 sonoma:         "328dcf68065d6ab4d9368c438c1ea6d045b17895659d446b91673d5e7c9d0122"
-    sha256 ventura:        "3dcedcf3c6042e2993a5153dcc530c8c4f58b962fc3b3c549a4c1b8b02aa775e"
-    sha256 monterey:       "0d17cda29047b8b86656601227e40e678e358cac1a8acb60841e31c1f96ca4a8"
-    sha256 big_sur:        "e04c8f424849bf8afdfd1bfa55e7f768f87ddb5dcd9449543ecb39a9d8cc7c72"
-    sha256 catalina:       "558b3492c6a264effc024be0462fd05f60d94d78ad20cf117b84256fa47a8969"
-    sha256 x86_64_linux:   "c72f67035b985636b2d6e0c204f6218e43575b6c20d22e547b9516706d4310c5"
+    sha256 arm64_sonoma:   "b72bcc13e2b1d434445671be362e53a972a3a0c87cc891eb1fcdb10f4ed248ad"
+    sha256 arm64_ventura:  "6c642b401c177c0f9afe5c2676c2aa1fcffc0eba991db44fc446494e87ea4641"
+    sha256 arm64_monterey: "6ee3639bd5e939d6438c536e2505724710d3f2d09ca4d251019fe3db330eec80"
+    sha256 sonoma:         "3b70d0a28be268ef8799149e20d3ea2dac1f75d9b5afbb56771eee373dc931c6"
+    sha256 ventura:        "0944ef9b874ae58c2263e3dc87f4f64151ec08fdfec7fcac7a65e1c6c2354495"
+    sha256 monterey:       "961f06c1b8a639e416bdbe6c39b96a47abfd6fafc11c0cef11ff4f3641e4c8d6"
+    sha256 x86_64_linux:   "2b0e225a4706c1e3667c25ffa52181a63a97b2dad8e9d2f8520adbdcf1a5eb0f"
   end
 
   depends_on "pkg-config" => :build

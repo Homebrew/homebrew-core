@@ -6,15 +6,16 @@ class Censys < Formula
   url "https://files.pythonhosted.org/packages/d1/21/9797900ebbed0fa2c961b2432a1c9cf9e41bbd6e8902debcf22ad9473d31/censys-2.2.12.tar.gz"
   sha256 "da75c2e37f064b9ffd579650217cb8d3f129048949f997acee31a0cb34b6e0dd"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb1e857695d256001aac44fd5b1b1f0439d92550532c07d3c93f824611cc4dfa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fb1e857695d256001aac44fd5b1b1f0439d92550532c07d3c93f824611cc4dfa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fb1e857695d256001aac44fd5b1b1f0439d92550532c07d3c93f824611cc4dfa"
-    sha256 cellar: :any_skip_relocation, sonoma:         "74f7daa7a8c611143e3c0ea41ae2d9f5ff936ecd0f18568fe3935b5b660366f9"
-    sha256 cellar: :any_skip_relocation, ventura:        "74f7daa7a8c611143e3c0ea41ae2d9f5ff936ecd0f18568fe3935b5b660366f9"
-    sha256 cellar: :any_skip_relocation, monterey:       "74f7daa7a8c611143e3c0ea41ae2d9f5ff936ecd0f18568fe3935b5b660366f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c32dbbf0f926020bd7cd1b3fbdfd49fc44977bd1215d6817c26b1c1618f2c87"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fd31fb05d2f91f92176f124ed2f8f9ab1c0efdf8c16591eb825049558fd81c18"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd31fb05d2f91f92176f124ed2f8f9ab1c0efdf8c16591eb825049558fd81c18"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd31fb05d2f91f92176f124ed2f8f9ab1c0efdf8c16591eb825049558fd81c18"
+    sha256 cellar: :any_skip_relocation, sonoma:         "91c529f07376ba7afb17c981f6d31d829bd9264e1ef01ffb8d10218b477ab811"
+    sha256 cellar: :any_skip_relocation, ventura:        "91c529f07376ba7afb17c981f6d31d829bd9264e1ef01ffb8d10218b477ab811"
+    sha256 cellar: :any_skip_relocation, monterey:       "91c529f07376ba7afb17c981f6d31d829bd9264e1ef01ffb8d10218b477ab811"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9e758c4a979c03663abddc26c0daa913fc0ea94986e2f38c649e956432e537e"
   end
 
   depends_on "certifi"
@@ -36,8 +37,8 @@ class Censys < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "markdown-it-py" do

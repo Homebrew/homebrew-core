@@ -1,19 +1,18 @@
 class Tbb < Formula
   desc "Rich and complete approach to parallelism in C++"
   homepage "https://github.com/oneapi-src/oneTBB"
-  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.11.0.tar.gz"
-  sha256 "782ce0cab62df9ea125cdea253a50534862b563f1d85d4cda7ad4e77550ac363"
+  url "https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.12.0.tar.gz"
+  sha256 "c7bb7aa69c254d91b8f0041a71c5bcc3936acb64408a1719aec0b2b7639dd84f"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "c24bd15b42e0ae13e2cb12ac655a48719925625160e881ebe3f7106abe3c080d"
-    sha256 cellar: :any,                 arm64_ventura:  "a648bac2b48fe462ccba3ba5791d753b01ecc5ec8ee84fa4b86f2e34e2d7442e"
-    sha256 cellar: :any,                 arm64_monterey: "e9ff0aba06130659e53186ff76c843e922eeba909c19ccb9d1c4274cc51dcc38"
-    sha256 cellar: :any,                 sonoma:         "ac700eb4d553a63441a0b493aa30cd1b5b82d0d740293ae74e10d6f1f61c119d"
-    sha256 cellar: :any,                 ventura:        "b467ab5ad3cc9139e861a3d40059e83cbbcc5cfdddf7b8474a866cdbc9fe3bb5"
-    sha256 cellar: :any,                 monterey:       "757139751fed233518ed43992f0427b87cdf461459fd4ff2f6dabc759855acee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e3d73744e801e49bedfc00ad68838cd6299a50563bf69c270f2808ad51bd7562"
+    sha256 cellar: :any,                 arm64_sonoma:   "1413cb9b7515eb9399c94b5530c998b27fb5ba70b1f183d8168175178827ee8c"
+    sha256 cellar: :any,                 arm64_ventura:  "2501fbee6f73642893338977ae5e9911fd7bd6e793ed1388a7826aefc0c70e11"
+    sha256 cellar: :any,                 arm64_monterey: "aeca6be1f720719fd6f0dde64a85d060cfed6081d590d918128b92fc5b0254e9"
+    sha256 cellar: :any,                 sonoma:         "afb040279f6198282c0348cf215d99e27dbc778c6629dc738c46b67336ed3167"
+    sha256 cellar: :any,                 ventura:        "9da62541c8ccedf71ee94ecfd94eff95264d231841147534dae72347027a8dae"
+    sha256 cellar: :any,                 monterey:       "b4e71f9855e51baf2309ec0bb9f0f6d721b8db67a0452bb195182fc2f9e261ad"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "89c7a9008491b2d1b4780c4fa5f15d46bee5354de2ea96ad34d5d38b2366ee42"
   end
 
   depends_on "cmake" => :build

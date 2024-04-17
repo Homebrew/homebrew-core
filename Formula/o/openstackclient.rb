@@ -6,15 +6,16 @@ class Openstackclient < Formula
   url "https://files.pythonhosted.org/packages/61/ea/fc55acbbc9d7e6392d43d47107c837f1282ca44f68552cb0b0d1921c7c17/python-openstackclient-6.6.0.tar.gz"
   sha256 "bbef1ed34829c41052b2eca26480e29ca1f72be058d1430da5341ec44c4f295c"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1cbc906000e2afdc10fbe79a513bd42739e2d3f69e31f22472ca6201889f1d22"
-    sha256 cellar: :any,                 arm64_ventura:  "e44ba844aa44832c77ffa297e59bd629e1eafaa276fbae23f130af8f7adf562e"
-    sha256 cellar: :any,                 arm64_monterey: "b1ff98eebfb23f3c170bf5c24a6adceb2f6744d05b7e24a5b07b95ff436aa3dc"
-    sha256 cellar: :any,                 sonoma:         "1f7f35757a17f7494fa15636835b999373ef06f10f77751417779990cb7f0a7e"
-    sha256 cellar: :any,                 ventura:        "917ecdd8eca6074e7c8642adcbc85073e9d3dd7587bce559957999c34731d0db"
-    sha256 cellar: :any,                 monterey:       "e11c16ed8ce0ab81b015e9952ed1d78c32b13f78769dee4d6ca5c07066e8d734"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "599face669e7a9d066062e329b7f4bcd9db4f6fa45489ea56ae15bc6d30550f6"
+    sha256 cellar: :any,                 arm64_sonoma:   "76a5086325502d555280b64f1e5bdb08acc510dfd9e97bdd7b2eea5cdbb26248"
+    sha256 cellar: :any,                 arm64_ventura:  "6084d4346d5c03278229bc84d51a77070a00d0ac29491a002eaf3c9eb1c567d3"
+    sha256 cellar: :any,                 arm64_monterey: "dc4ab5305fb66852d86b8df3cf4234a3e5d418e477c3fff6088fc855c3a9b9c0"
+    sha256 cellar: :any,                 sonoma:         "3481171fb8f15aabb28cf05b3897777e20fe865a09da8c01165c27f58d495c64"
+    sha256 cellar: :any,                 ventura:        "2283a21d7d1c7bcbb10a4d0ddfe941652cd073ce8f480d4a70725d1747ddd9a8"
+    sha256 cellar: :any,                 monterey:       "35f7e18e3cec72e9854c54d3d55e4ab6381b874815adee37dcd74e1972db15d0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a167993ce5e812d94df75a0e57c195d01490b41e0ffe1dd10cf0293f6b392002"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -72,8 +73,8 @@ class Openstackclient < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "iso8601" do
@@ -162,8 +163,8 @@ class Openstackclient < Formula
   end
 
   resource "oslo-log" do
-    url "https://files.pythonhosted.org/packages/b5/9b/21cb487426ec7e39807a1996ae16325e62230de49f514638bf376ac15a72/oslo.log-5.5.0.tar.gz"
-    sha256 "4cedd1669c7de28d8e66b67a5f6d6c6fe83928535fa87cd69bf6611b59f567e7"
+    url "https://files.pythonhosted.org/packages/83/b8/399ddd945d31ab29346c515c5fc77a0bdb0f292abf1c3068405ef3074862/oslo.log-5.5.1.tar.gz"
+    sha256 "484148512c5db2a8b35c83cd997e9953755fd8bfa8aaf6ee0cc8c7aeb7429210"
   end
 
   resource "oslo-serialization" do

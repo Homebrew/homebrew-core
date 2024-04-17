@@ -2,8 +2,8 @@ class InfluxdbCli < Formula
   desc "CLI for managing resources in InfluxDB v2"
   homepage "https://influxdata.com/time-series-platform/influxdb/"
   url "https://github.com/influxdata/influx-cli.git",
-      tag:      "v2.7.3",
-      revision: "8b962c7e750559f784dd2028633e5f324d4a8da2"
+      tag:      "v2.7.5",
+      revision: "a79a2a1b825867421d320428538f76a4c90aa34c"
   license "MIT"
   head "https://github.com/influxdata/influx-cli.git", branch: "main"
 
@@ -13,15 +13,13 @@ class InfluxdbCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "862fb7d5bf9382668d2e85adcb91b1202c3d71cf064e5427a4b88b83bfac0323"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fae964b628ac9c22bcc64aaa7c94cf3a06ad49287d0de020cf83f595a6749c11"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "fae964b628ac9c22bcc64aaa7c94cf3a06ad49287d0de020cf83f595a6749c11"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "fae964b628ac9c22bcc64aaa7c94cf3a06ad49287d0de020cf83f595a6749c11"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4ca4a79f1f567978f7fba1cc81b3e1b2dba8dda01495fe1f3a27af0bf5faa03f"
-    sha256 cellar: :any_skip_relocation, ventura:        "b42f314bf4427a447671806c3a2aef9d38d719ca20dd1f4bb119c9a6ea7ce431"
-    sha256 cellar: :any_skip_relocation, monterey:       "b42f314bf4427a447671806c3a2aef9d38d719ca20dd1f4bb119c9a6ea7ce431"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b42f314bf4427a447671806c3a2aef9d38d719ca20dd1f4bb119c9a6ea7ce431"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d401f88c1c460971c1813ac0003490d29440ffa9a056cc50e7a693328c18314"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c3c36b35e1fe4d4f4712f72c5ddd12709846f32088f1bc7637e6b3ed24b2fbe"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f07a68d82c3075c6bf62922c646998bb362c4ea26166f4ecd31738da4e2af9ba"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "91dc24269127d0a41b7faef7d93e61a6ffec9ecb50d0a0cab69465cd66d9c706"
+    sha256 cellar: :any_skip_relocation, sonoma:         "65b07fcaf938f712efb30d280dd18ce8a2652de4b9f89f913ccaad300da18d3f"
+    sha256 cellar: :any_skip_relocation, ventura:        "e098362c88be1c91f18927ab98efab0bbb3d73603a3383c1c6735b0c27b4bf95"
+    sha256 cellar: :any_skip_relocation, monterey:       "f073f4752f61154e3bed747c8e79fe778d51596d16e179506b52106f65225cc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a2f1bdca46755b062abdd18f7c3fefc5af42f14e709034c1f2db67e5ca7e896"
   end
 
   depends_on "go" => :build

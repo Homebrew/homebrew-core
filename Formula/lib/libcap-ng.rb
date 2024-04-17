@@ -1,13 +1,12 @@
 class LibcapNg < Formula
   desc "Library for Linux that makes using posix capabilities easy"
   homepage "https://people.redhat.com/sgrubb/libcap-ng"
-  url "https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.8.4.tar.gz"
-  sha256 "68581d3b38e7553cb6f6ddf7813b1fc99e52856f21421f7b477ce5abd2605a8a"
+  url "https://people.redhat.com/sgrubb/libcap-ng/libcap-ng-0.8.5.tar.gz"
+  sha256 "3ba5294d1cbdfa98afaacfbc00b6af9ed2b83e8a21817185dfd844cc8c7ac6ff"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "2c95eb278def830071146f6a7f5e9cdd9f03caf71646604b5a4013a3750375a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "f095ed6c21a674235ae2decf76a7c6524fa887bf38cfc72d6386efe548547751"
   end
 
   head do
@@ -23,10 +22,6 @@ class LibcapNg < Formula
   depends_on "python@3.12" => [:build, :test]
   depends_on "swig" => :build
   depends_on :linux
-
-  # Compat for latest swig, removing deprecated `%except` directive
-  # https://github.com/stevegrubb/libcap-ng/commit/30453b6553948cd05c438f9f509013e3bb84f25b
-  patch :DATA
 
   def python3
     "python3.12"
@@ -56,23 +51,3 @@ class LibcapNg < Formula
     system python3, "-c", "import capng"
   end
 end
-
-__END__
-diff --git a/bindings/src/capng_swig.i b/bindings/src/capng_swig.i
-index fcdaf18..fa85e13 100644
---- a/bindings/src/capng_swig.i
-+++ b/bindings/src/capng_swig.i
-@@ -30,13 +30,6 @@
- 
- %varargs(16, signed capability = 0) capng_updatev;
- 
--%except(python) {
--  $action
--  if (result < 0) {
--    PyErr_SetFromErrno(PyExc_OSError);
--    return NULL;
--  }
--}
- #endif
- 
- %define __signed__

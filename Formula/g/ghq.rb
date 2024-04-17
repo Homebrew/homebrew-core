@@ -2,19 +2,19 @@ class Ghq < Formula
   desc "Remote repository management made easy"
   homepage "https://github.com/x-motemen/ghq"
   url "https://github.com/x-motemen/ghq.git",
-      tag:      "v1.6.0",
-      revision: "7e1195706238d5adf706aa3db6aea883c35cbeda"
+      tag:      "v1.6.1",
+      revision: "a80a252e39cca876a39f73b577b1fc8865e0b5a6"
   license "MIT"
   head "https://github.com/x-motemen/ghq.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1a812920d6f0920696d47f1b0d9aa0080f545e66896dc19ed987ff25f55abfe3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44f3fb0e53e60a79156198889578ca0d1a13c8f36e626be6c5b35fab10136f6b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5f85f890b28daabda04eb3afca3021df5e19e6daf1f678914411652119aca32c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b3fceb1dfd7fe1b2794b49bd0a04d54a0dab5c1372b26e82ba6c32a80dfc22aa"
-    sha256 cellar: :any_skip_relocation, ventura:        "941c326dbb45820befb77fb562c57b4fb936c70f9cedea9ef049d9ea76003227"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a52355612576470ab4c2e5ef4562eb51c7511f20ecd64d61ac6992256c58a2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5be65a26793875a3cb35a7d8f0037af6775ab032d7b4d0b0ddd987ad5dcd0d21"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "747f890e0d13159372b253953331578c9f2c9286a9d4e37e8475d0bc140c1ca6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0875a6a892d93edfe08e43c60b4dd698e47702c41764968488ce80255f091d6c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "daf26db1459eb4b7e3f61ebbc591836087bbf4780fdb2f45fea9b16dfa6aa22f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "efccec6345ca770c4683231f3c0fd13c4e4e88dfaccef0581c1d5eb60ae75934"
+    sha256 cellar: :any_skip_relocation, ventura:        "210baf1de3ee1a86f37bd33849f77bebcf8d75baf306b50341f93e4e9eb85e41"
+    sha256 cellar: :any_skip_relocation, monterey:       "fa38b9c6d2abb916ce50ac9a686d5c0fc588148a0e49a170d247389e9dd2e6a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3db4d90ee1b04eb3c2e50e65fec1894d9acf2c86a1613862d92c1d8f0df052c5"
   end
 
   depends_on "go" => :build

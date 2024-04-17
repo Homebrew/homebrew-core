@@ -6,14 +6,6 @@ class Cling < Formula
       revision: "f3768a4c43b0f3b23eccc6075fa178861a002a10"
   license any_of: ["LGPL-2.1-only", "NCSA"]
 
-  # There can be a notable gap between when a version is tagged and a
-  # corresponding release is created, so we check the "latest" release instead
-  # of the Git tags.
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
     sha256               arm64_monterey: "ae9ec74f889a58e57f00394e3b46dd1793d975ce7dc5907c71e2e15853610a62"
     sha256 cellar: :any, arm64_big_sur:  "82134eeea0ba90008355120b137908d828011e302b62ec97de10b152777d9651"

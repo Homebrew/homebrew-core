@@ -4,8 +4,8 @@ class Influxdb < Formula
   # When bumping to 3.x, update license stanza to `license any_of: ["Apache-2.0", "MIT"]`
   # Ref: https://github.com/influxdata/influxdb/blob/main/Cargo.toml#L124
   url "https://github.com/influxdata/influxdb.git",
-      tag:      "v2.7.5",
-      revision: "09a9607fd9fe017cae589610364017b1939ae9a2"
+      tag:      "v2.7.6",
+      revision: "3c58c06206bd8c585f847382d074524564174bc1"
   license "MIT"
   head "https://github.com/influxdata/influxdb.git", branch: "main-2.x"
 
@@ -21,13 +21,13 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7eae8cd3dafe84030fc1dfaf80be4f59c972cc95a33d68ca5ef240cabb89ca25"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "32dbe5820ba211824fd983369ffa8ada9c1c3d303e4d27adc761e5285a588dbb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b4f12bb0cc25db487d9c030ee1d5999c7c722d721a657e7a4341bde1e2c2827"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ebe4eb5829e0cba735b48abbdb31c7219e00862d4a5d230965a0d4e5a17284c2"
-    sha256 cellar: :any_skip_relocation, ventura:        "f4609244f0c6eb64f8fa46008851b4a7357fa5c6233d9b2ea837e37de2620f13"
-    sha256 cellar: :any_skip_relocation, monterey:       "43bded82166c0f9933ee1072e2f045e6738d5c019e29ca5277e8450e11c88de3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2519102334106f129672b7b0dd27c49124232f98b1a54ab5a0942574fcdb4ccf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8593997d6a8072614b10cf5a45603436d64aef72af3d65377573bdc58768753c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "92f6700b9089c9faa7d0c50d9f8e858de0eb61a165ae41ddb2c40855c8652c49"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2de3d2b5694859c53dddfe3ba7f489a7107cc5ce9ee7f80e6a2da567aeef21f5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4768de146cb69ec462da844c65f0745d767ac98b0e550da2c49713db5d331212"
+    sha256 cellar: :any_skip_relocation, ventura:        "f1144a0fe030b254f10a511a6c9213a2592e7828aa68d59cd0ea8a454abd3ace"
+    sha256 cellar: :any_skip_relocation, monterey:       "a09e387af6897a7a5b58087718882454382195dca8bffd6e9fd7b2c621147c29"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2b5160be70392770344c3b452a8288591127fe3306d04ca2fcd0616798a6a95"
   end
 
   depends_on "breezy" => :build

@@ -1,19 +1,19 @@
 class Base16384 < Formula
   desc "Encode binary files to printable utf16be"
   homepage "https://github.com/fumiama/base16384"
-  url "https://github.com/fumiama/base16384/archive/refs/tags/v2.2.5.tar.gz"
-  sha256 "63ef99367cbf113eb002f8eb9b8b47df288596055a4df117b1125ca1a4c98af8"
+  url "https://github.com/fumiama/base16384/archive/refs/tags/v2.3.1.tar.gz"
+  sha256 "71ee39510c8c687254315ccc1aa5de601a5e2a2554b6db843f3874c12415a77a"
   license "GPL-3.0-or-later"
   head "https://github.com/fumiama/base16384.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_ventura:  "89a0c9ce759afd4d194adccdae2b403064787b0e3c2c3fd43cbfa93960ac24b3"
-    sha256 cellar: :any,                 arm64_monterey: "fd8d94f165ed9269cc62240ec97d106b1e4d9e42278d26d78175cee54a4ff281"
-    sha256 cellar: :any,                 arm64_big_sur:  "2a5e0e21b9c90a5073083165183dddd6681dc4352cd4541865d229e80305ed82"
-    sha256 cellar: :any,                 ventura:        "b806b5070bc739041d0ab56f159529a158a8d112e90f9e467e1ac4c387fcc241"
-    sha256 cellar: :any,                 monterey:       "4075688a6fc3f34348e8aceb479f5f358569d5eb7e467e3731317b1728a2a3b5"
-    sha256 cellar: :any,                 big_sur:        "a3a59a1cf5f539683daf21679a6cd564672d3b473991c5a649e37d228b5f6b66"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b83109804e8d8da746a41a9f322c0600aeb89db6832590f06abacd657b90ad7f"
+    sha256 cellar: :any,                 arm64_sonoma:   "71adec1b444f7b121e2cc126a876d3ca84df3a8cbe2dad781eac1b7c1c8c0736"
+    sha256 cellar: :any,                 arm64_ventura:  "581c0cb53c4ec53655015c1477a749ae53f63c18ea5b4c56cd28ac4c42fcaf97"
+    sha256 cellar: :any,                 arm64_monterey: "870a9f826384af1e7958de7cc4577c4a7bc536f25b27c70d377685a3616df453"
+    sha256 cellar: :any,                 sonoma:         "aa4c9cacb0c6cbeb386a0b04470c4f184b281f32ab9356e0067897b6153a71f2"
+    sha256 cellar: :any,                 ventura:        "39b4895bba7a1ae5b3b50ff3fa88297e77085ab97f8f4a45bf623d7264e70644"
+    sha256 cellar: :any,                 monterey:       "bb6d45b3c3102d73a79fa28b0ee7345eda0b64f9663d0e0046f434266797831d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8df8dffe60c9b43d5192bc163037d3ebdc9cb4bb7020651aa380d8838db92d5f"
   end
 
   depends_on "cmake" => :build

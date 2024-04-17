@@ -3,18 +3,18 @@ require "language/node"
 class Ungit < Formula
   desc "Easiest way to use Git. On any platform. Anywhere"
   homepage "https://github.com/FredrikNoren/ungit"
-  url "https://registry.npmjs.org/ungit/-/ungit-1.5.25.tgz"
-  sha256 "a49928276034b8883f365100a52bf57c890b5bb4203f083d843b239f5d1355e4"
+  url "https://registry.npmjs.org/ungit/-/ungit-1.5.26.tgz"
+  sha256 "3a5640949faecab900c2fa82b662d42aa66596c2e24352814684407d0cf518b4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f04f11473752e6022c91c59b98e2991c68c54bd0d0aa9b513ab52ae658fbb83"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f04f11473752e6022c91c59b98e2991c68c54bd0d0aa9b513ab52ae658fbb83"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f04f11473752e6022c91c59b98e2991c68c54bd0d0aa9b513ab52ae658fbb83"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9adf0cc64eb52a30a4591cd46f4c162b188371f488081d5626a2d0fa33373071"
-    sha256 cellar: :any_skip_relocation, ventura:        "9adf0cc64eb52a30a4591cd46f4c162b188371f488081d5626a2d0fa33373071"
-    sha256 cellar: :any_skip_relocation, monterey:       "9adf0cc64eb52a30a4591cd46f4c162b188371f488081d5626a2d0fa33373071"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f04f11473752e6022c91c59b98e2991c68c54bd0d0aa9b513ab52ae658fbb83"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e65bc0c2b45f341c3c749e76f962073ba1d9bcdcaf62b1d312f0d52078ee3038"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e65bc0c2b45f341c3c749e76f962073ba1d9bcdcaf62b1d312f0d52078ee3038"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e65bc0c2b45f341c3c749e76f962073ba1d9bcdcaf62b1d312f0d52078ee3038"
+    sha256 cellar: :any_skip_relocation, sonoma:         "def35d1320fab5ec25c27c8b768d03a82b37124feafcbaab28f2b34acc88d115"
+    sha256 cellar: :any_skip_relocation, ventura:        "def35d1320fab5ec25c27c8b768d03a82b37124feafcbaab28f2b34acc88d115"
+    sha256 cellar: :any_skip_relocation, monterey:       "def35d1320fab5ec25c27c8b768d03a82b37124feafcbaab28f2b34acc88d115"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e65bc0c2b45f341c3c749e76f962073ba1d9bcdcaf62b1d312f0d52078ee3038"
   end
 
   depends_on "node"

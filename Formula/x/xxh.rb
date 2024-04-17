@@ -3,19 +3,18 @@ class Xxh < Formula
 
   desc "Bring your favorite shell wherever you go through the ssh"
   homepage "https://github.com/xxh/xxh"
-  url "https://files.pythonhosted.org/packages/78/2b/1e77800918dce31e99c84a26657a01e1544cbf2fa301a27ac45872872c55/xxh-xxh-0.8.12.tar.gz"
-  sha256 "0d71c0e12de2f90534060613dd24c4eb7fb1d7285566bc18a49912423b09f203"
+  url "https://files.pythonhosted.org/packages/d6/ac/fb40368ff37fbdd00d041e241cc0d7a50cdac7bc6ae54dcb9f1349acdde6/xxh-xxh-0.8.14.tar.gz"
+  sha256 "7904c35efdff0a6f50f76b30879d3fbfe726cc765db47a1306ab2f19c03fdfae"
   license "BSD-2-Clause"
 
   bottle do
-    rebuild 4
-    sha256 cellar: :any,                 arm64_sonoma:   "b3012b1db3b309e4159e55c9dfefcef33a1ceeb08670b81a145474e9bfc952c0"
-    sha256 cellar: :any,                 arm64_ventura:  "81fa47b11e767a7f35404c478f683c899e7dcd46fbab154ad2eb7072e9266ccd"
-    sha256 cellar: :any,                 arm64_monterey: "b77da2f3dd1a2662c670ae29e488750caa88f1d0db2ca01f256b9c8c7ac52869"
-    sha256 cellar: :any,                 sonoma:         "f50ed216c52cb02b30b81ea58464f3232c1cf18b96cffe896a31ce1e41c5213b"
-    sha256 cellar: :any,                 ventura:        "8b20978c6b182857fe4cdd2bff5eae291ee40b3163e30402c48b0930488ed063"
-    sha256 cellar: :any,                 monterey:       "632f996ce8a44d9066ebff1614e2f8f0f78fce62bc0e4f7b78244a8d8026b1a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7ad3062974fb5ef5e7c3a130f5256cd4622c3d883af790c28d4b8494dbd1fc2"
+    sha256 cellar: :any,                 arm64_sonoma:   "822e1666ce2e955c53623bda48f314623bd13acc5ba4aa6f3a0ddd1caf47ea4f"
+    sha256 cellar: :any,                 arm64_ventura:  "506b28fef997d22a9758465f16f581f50d6930910795959552a22e950069a4fd"
+    sha256 cellar: :any,                 arm64_monterey: "b8a409e38956b865d25c45dcb45b77cd2f2241a8a26bbb0022a94afa1fbae6a8"
+    sha256 cellar: :any,                 sonoma:         "5fa1b2366a20659838f63c3677cd33ada1fc7c720424ed5fd7b1f9a2fb0e25de"
+    sha256 cellar: :any,                 ventura:        "9503143a0ecaedb5d2890e455bea5842875b465753ada89a8222b8ea45a4439c"
+    sha256 cellar: :any,                 monterey:       "3d160118d09b9b87dd435f9874442a56377bb68dccf916e26310201e4e48823b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9cd1234bba4387ec033284cce8258ca2e6ae6911dfd7efe50e277c7c06be975"
   end
 
   depends_on "libyaml"
@@ -73,7 +72,7 @@ class Xxh < Formula
       ssh_args = JSON.parse ssh_argv.tr("'", "\"")
       assert_includes ssh_args, "Port=#{port}"
       assert_includes ssh_args, "HostName=127.0.0.1"
-      assert_match "Connection closed by remote host", stderr
+      assert_match "Connection closed", stderr
     ensure
       Process.kill("TERM", server_pid)
     end

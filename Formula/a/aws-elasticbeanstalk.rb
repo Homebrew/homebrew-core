@@ -6,17 +6,16 @@ class AwsElasticbeanstalk < Formula
   url "https://files.pythonhosted.org/packages/ec/5e/96dbeec0f796ac7928f52ed61c6b3a44764ae4113185bb1e08fc4d758ba7/awsebcli-3.20.10.tar.gz"
   sha256 "8599d0e2ca70e42ee55948e6f58f65ea06596143c556925572fbf80ce705548d"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sonoma:   "7b0d28ed3a7901b94ad7aaeac96bfe91fdfed21684c4c5bd93d8268c52874d55"
-    sha256 cellar: :any,                 arm64_ventura:  "5d3e9843d5c3d8da383e940a2654e0b88c9d17e9ef89f655f9346e9800f98c90"
-    sha256 cellar: :any,                 arm64_monterey: "396cfcd3604c630b2294ed7dd83cd52db22cf34f6bed0ee33ff8d372f8fb391b"
-    sha256 cellar: :any,                 sonoma:         "057b3d798892a7dbdb6de524496ff438293edb21e7643ee35c1dc8c8a00b2dde"
-    sha256 cellar: :any,                 ventura:        "e184814e85d988eb74e21221000eab669cff0d35e0c87de19676a555291f67d2"
-    sha256 cellar: :any,                 monterey:       "7f96c7823f92eddf8c1332e06dbd171421afccdf69a03702d04468e4c3e27cbb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "efbbe3216e0419c815fc497701e34cb0ca85c33a36fb34d1e3136c0a25c3a4cf"
+    sha256 cellar: :any,                 arm64_sonoma:   "e30643c64d6c9bba31c863ad9a4d9816d5f1392980360db91789636cef9135bb"
+    sha256 cellar: :any,                 arm64_ventura:  "c6ecaa5eb819fbc2ee20dcc820fe966539fa0fff3e3d119399dc07f32b1cef0b"
+    sha256 cellar: :any,                 arm64_monterey: "dc7823c901b396a32f408fbd0dd7a094e47a138108d2ddbdabfbcbb0429858ed"
+    sha256 cellar: :any,                 sonoma:         "12356f4e18a84be0b791fdfab26eefdb41b678dabbcffe15699b8aad820c54b5"
+    sha256 cellar: :any,                 ventura:        "c3f92cbf028441b2721bc05b6f850441d61fdcba25cccec954c1d2a1715d6072"
+    sha256 cellar: :any,                 monterey:       "9daaf7c0534128fe3a2a1e70f0aa17fcb534a87423db9f4c96c01961f8b68907"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78d5a3b3b5bf78c18319c50938481d1561cdcda7b6eefd7b34841bb879383c55"
   end
 
   depends_on "certifi"
@@ -51,8 +50,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "jmespath" do
@@ -66,8 +65,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "pyyaml" do

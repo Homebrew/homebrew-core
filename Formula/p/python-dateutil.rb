@@ -15,8 +15,8 @@ class PythonDateutil < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d84889a7dba322bd761da70dc1adcb1af03350e64b816fad72a68ae2d20ded9c"
   end
 
-  depends_on "python-setuptools" => :build
-  depends_on "python-setuptools-scm" => :build
+  disable! date: "2024-07-04", because: "does not meet homebrew/core's requirements for Python library formulae"
+
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "six"
@@ -25,16 +25,20 @@ class PythonDateutil < Formula
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("python@") }
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz"
-    sha256 "1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"
-  end
-
   def install
     pythons.each do |python|
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args, "."
+      system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
+  end
+
+  def caveats
+    <<~EOS
+      Additional details on upcoming formula removal are available at:
+      * https://github.com/Homebrew/homebrew-core/issues/157500
+      * https://docs.brew.sh/Python-for-Formula-Authors#libraries
+      * https://docs.brew.sh/Homebrew-and-Python#pep-668-python312-and-virtual-environments
+    EOS
   end
 
   test do

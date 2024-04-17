@@ -1,8 +1,8 @@
 class Convox < Formula
   desc "Command-line interface for the Convox PaaS"
   homepage "https://convox.com/"
-  url "https://github.com/convox/convox/archive/refs/tags/3.17.0.tar.gz"
-  sha256 "592a311ff93b3891ae29063f911d356b4bbfe2e93ef39a7123865cd6087dcb12"
+  url "https://github.com/convox/convox/archive/refs/tags/3.18.0.tar.gz"
+  sha256 "83595efbf8bc672f1861982b4b25b90a94c4c1ca618d6100219743e26904d491"
   license "Apache-2.0"
   version_scheme 1
 
@@ -12,13 +12,13 @@ class Convox < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "389a9916241dcb4899b9f67363e38075ff4b70c02a3cec4c5f836b43da1499dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4c8b8ba2c463c6989dcdb6903965a54cd1a2d73c1605197a2db38d9853fa3148"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f3150412f1337fbc931ee8d9a95825a439711e5f761959e64b912eb682fc914"
-    sha256 cellar: :any_skip_relocation, sonoma:         "716184c502d4317c2a5919ddadb2930a087ccfdc62e568d76742e995140caa51"
-    sha256 cellar: :any_skip_relocation, ventura:        "d0a95ab8cd32b3b9e6af57cedc75d8f753b6faebd0fba793af93c8a2f87260ea"
-    sha256 cellar: :any_skip_relocation, monterey:       "0a8c770dd666c35073e4e672515cd8fa2ea65aa973b3f8bcdaa58772158572d7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "223e477bbab0fc4f037b36664dbb6c0a81e51de5cc1e04d9df7468d6a3dcfca6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ce39de949dd75a5e2b982d1b034bc777f95a1a2aea1c59f7c0e8a305e7990b1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "728d2a217f6acc1f40d59f4beabbbfac99912ab1b3ee73f8285a40ab5ad0e29d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9573f262f59b589c60045b3d9abcc9ff973faf7ffc25029f185dc8f5312d67e6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "144114851b55047d9859e64455e6067f1037328b03e4e56e2b469a52a188ca17"
+    sha256 cellar: :any_skip_relocation, ventura:        "43a8d965b22c85d2ddcc691f99473415695eba6146ca9ded40e39735911d91b2"
+    sha256 cellar: :any_skip_relocation, monterey:       "3804d7a3a71cb369d549d49aed15b53c8491feb69a26a3bc2d6d80ef3a8cadf3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9fb35a117641696891139fcc4a3caec7a2a106e580d79154d2693529e8e35114"
   end
 
   depends_on "go" => :build

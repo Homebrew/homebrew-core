@@ -4,17 +4,17 @@ class Opencoarrays < Formula
   url "https://github.com/sourceryinstitute/OpenCoarrays/releases/download/2.10.2/OpenCoarrays-2.10.2.tar.gz"
   sha256 "e13f0dc54b966b0113deed7f407514d131990982ad0fe4dea6b986911d26890c"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9e541ae1a9d4233a8ea34a7078b57f2d9bda43588f83f1e3727c19bfd7a4ca85"
-    sha256 cellar: :any,                 arm64_ventura:  "e8ec2e14d750258735ab6f37f356cfb3173ea8e335babeca9219d3381fa9378f"
-    sha256 cellar: :any,                 arm64_monterey: "0c91af81c400a5b28cd9b5c67b25dc370ecc9960bb3342d751bbff4fe12fc22d"
-    sha256 cellar: :any,                 sonoma:         "608f5a35d6c88b2348fc17a3ad4a54552c79a7a6b6fc75e99978b8b2cf9b69d6"
-    sha256 cellar: :any,                 ventura:        "21622de2a3f88ecc8e691ec3aae354e6d40cd49079162aeb836f1ff0afa3e0a3"
-    sha256 cellar: :any,                 monterey:       "df33bcabd1d86269d4790038ea34bbfa45f6d6b0ba7a3fd8dc67f7594b768397"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6068295f11046f6a146e30c323c83ff9f3153b18cae1c00782ad03ebde9a027"
+    sha256 cellar: :any,                 arm64_sonoma:   "86b885bec80353c13fc3b5251709c25eb2301b6882d318f6accef9e6422c2061"
+    sha256 cellar: :any,                 arm64_ventura:  "1ad5ad000ced5ecc2f25406e853b472eb021cffc1e69bc4323ae2855a84101cc"
+    sha256 cellar: :any,                 arm64_monterey: "d8e3fac0c680d1b042c1230922b81de76a3d219ac08d6966b29ac0ec4b004c83"
+    sha256 cellar: :any,                 sonoma:         "0f7f0c8f1bce8aee7dbae34223cdba331497d553e03e472bb9a629bbb677748a"
+    sha256 cellar: :any,                 ventura:        "7a41f847a2485f22a93d8115cda03992d187fa5679fc0483937167a367478c7b"
+    sha256 cellar: :any,                 monterey:       "f17b31f7f4321aa6259fa6f8b0e56dededec125eaf55661797c9e3e4db48611c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d204334861ce7332d844002f7cd8ec6a0ad56f991ed6a578130ff5ca5afab121"
   end
 
   depends_on "cmake" => :build

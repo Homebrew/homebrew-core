@@ -50,8 +50,8 @@ jobs:
         uses: actions/cache@v4
         with:
           path: /home/linuxbrew/.cache/Homebrew/style
-          key: style-cache-${{ matrix.stable && 'stable-' || '' }}${{ github.sha }}
-          restore-keys: style-cache-${{ matrix.stable && 'stable-' || '' }}
+          key: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}${{ github.sha }}
+          restore-keys: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}
 
       - run: brew test-bot --only-tap-syntax
 

@@ -1,19 +1,19 @@
 class Cloudfox < Formula
   desc "Automating situational awareness for cloud penetration tests"
   homepage "https://github.com/BishopFox/cloudfox"
-  url "https://github.com/BishopFox/cloudfox/archive/refs/tags/v1.13.4.tar.gz"
-  sha256 "599ec6f7d341e973cc0a72b03b62955c9b75d3cf503dfb23eab51894afa817a9"
+  url "https://github.com/BishopFox/cloudfox/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "5ed07d0c80a9cc8a3f30e282be79cbde17c670cfe624d852644933827367ffad"
   license "MIT"
   head "https://github.com/BishopFox/cloudfox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c10f7f646392a20e69e4828f1887f4a4137d4d67dcbbc1fdf2f13263d21de77a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "09b3dddf23cee9b32ec0e7fa68deb07611d6199c6ce15925f23cbcdc439456b2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "062b801e25c4350700b3098fd7d5befb7ffa2024771e1c0a56fcc2a209b9e4c6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a32325b5cfc030b3e5c22fc38ef9dd5bbb1c6552efdb30a71a6cf6a3db4f2cd2"
-    sha256 cellar: :any_skip_relocation, ventura:        "7b5b9fc54e0aaf651097a2c8512bbbf397869d0b94891c67a627f5258f180f58"
-    sha256 cellar: :any_skip_relocation, monterey:       "c06b19b0543635cd4a47759a6a48d34b8d90384ec6b6953499156145670d5a36"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49e60dfe10ca7df672ae53fb3756a3b663b3636c6b5bcf86079db2f66e970003"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "22ecb59b1357ceed260d0fc5d1a283c8c1e06a931b39aa6805a3a9e76c9bef9b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "debfec4d936186762d8236c49e46a5685921602e1e9f5a1db563ff3280a65268"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "369ace173978fcde6548a65d84e537d6619fc638566571f0a9f16485ae36cf9f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d5dcc5ebf0abbd33ddda5f445eb61b8cef3d81edddfc8b5f64b403a502cdee49"
+    sha256 cellar: :any_skip_relocation, ventura:        "2ec62b3293a4efb726bc107c18f2f4e994781d6b53a06122ab78cc53007e835c"
+    sha256 cellar: :any_skip_relocation, monterey:       "b9676359f77fd08d2c8477a510878a13e98cf87942205ae0bf0eee057dfe033e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f49e8192323ab83ead782018be4eba01822980eb8c586f4c2fac6447371dd529"
   end
 
   depends_on "go" => :build

@@ -6,16 +6,17 @@ class Platformio < Formula
   url "https://files.pythonhosted.org/packages/97/09/4f055c5471537e68dc38d8a7981dadd7c158d07135372397e845617798b8/platformio-6.1.14.tar.gz"
   sha256 "7a88ce098f30c538fc0cf8f4c3ac4761c3c4b4eebf09fd3606f172399cd7d4e4"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/platformio/platformio-core.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "604aeb8a78dc1d3ea46ae5c7c5d2e0323cd4a5fe508a430368e40c3fcf0da2de"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "604aeb8a78dc1d3ea46ae5c7c5d2e0323cd4a5fe508a430368e40c3fcf0da2de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "604aeb8a78dc1d3ea46ae5c7c5d2e0323cd4a5fe508a430368e40c3fcf0da2de"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5d2e3f218e3198378d237fc3b72eaff7ee10ae0ab9b69638b83642fb8d1913f7"
-    sha256 cellar: :any_skip_relocation, ventura:        "5d2e3f218e3198378d237fc3b72eaff7ee10ae0ab9b69638b83642fb8d1913f7"
-    sha256 cellar: :any_skip_relocation, monterey:       "5d2e3f218e3198378d237fc3b72eaff7ee10ae0ab9b69638b83642fb8d1913f7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1d4fd57248e5060a7afed4372bdd48d60210601e7af6c730235717d19b19619"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "edd456c2c8ace2392789659ad0f21c2d9f099c061aa73fe06f96842fe68a125a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "edd456c2c8ace2392789659ad0f21c2d9f099c061aa73fe06f96842fe68a125a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "edd456c2c8ace2392789659ad0f21c2d9f099c061aa73fe06f96842fe68a125a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1bbe2e7059da63d4e206f3e667b19ef0b7fc0a507cab4a7bb8fa7d62466f1310"
+    sha256 cellar: :any_skip_relocation, ventura:        "1bbe2e7059da63d4e206f3e667b19ef0b7fc0a507cab4a7bb8fa7d62466f1310"
+    sha256 cellar: :any_skip_relocation, monterey:       "1bbe2e7059da63d4e206f3e667b19ef0b7fc0a507cab4a7bb8fa7d62466f1310"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2396a006844a5d7d433a1f59692960fefbe2a3c59d29cd82f8d51e44d14cdb09"
   end
 
   depends_on "certifi"
@@ -34,11 +35,6 @@ class Platformio < Formula
   resource "bottle" do
     url "https://files.pythonhosted.org/packages/fd/04/1c09ab851a52fe6bc063fd0df758504edede5cc741bd2e807bf434a09215/bottle-0.12.25.tar.gz"
     sha256 "e1a9c94970ae6d710b3fb4526294dfeb86f2cb4a81eff3a4b98dc40fb0e5e021"
-  end
-
-  resource "chardet" do
-    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
-    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
   end
 
   resource "charset-normalizer" do
@@ -62,8 +58,8 @@ class Platformio < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "marshmallow" do

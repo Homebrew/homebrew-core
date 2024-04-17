@@ -1,19 +1,19 @@
 class Cariddi < Formula
   desc "Scan for endpoints, secrets, API keys, file extensions, tokens and more"
   homepage "https://github.com/edoardottt/cariddi"
-  url "https://github.com/edoardottt/cariddi/archive/refs/tags/v1.3.3.tar.gz"
-  sha256 "47927abf07b5b643db9b0f0261867eb9e42e27f6370e11083131d61569b26042"
+  url "https://github.com/edoardottt/cariddi/archive/refs/tags/v1.3.4.tar.gz"
+  sha256 "422d5d764ff44c7226947aa82a1396e6298082db2582ba320d41043aa700dbb1"
   license "GPL-3.0-or-later"
   head "https://github.com/edoardottt/cariddi.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4714f33e2262e3db5a9549cfb3fbab286c4e48b93c4717ebb4c6b83e66bea9c6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "39d8796c417ac9eeba79f69ebfd14a160d05105924f57dea61ca4bc36e341c4f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5b2d5cb8528aee72f903c4488faa8874b67f4f8e6d40a060db7775795f78eacd"
-    sha256 cellar: :any_skip_relocation, sonoma:         "24e35cbe3f72560b0b17a16d645fd5f10d22053413893e0b4bf3bff755fef5b4"
-    sha256 cellar: :any_skip_relocation, ventura:        "4d372ab6031996e11fb80b3a9dd184c7a70c9b4f8391af59002ae2b636d74df0"
-    sha256 cellar: :any_skip_relocation, monterey:       "324dd9d626f292605ef363396a2799dea25f7438e68f9461761cace3b536148a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6496afa064293193cb4c876f739d35db1d26a4928182ff9973985cca7b27d28"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c6acb2ca7cc2008a0a64ca95092053bcf5d2e0eaedc2ea034ad2d49c0b29b0f7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d5c3c6141c6795e870a659106c8d5cc37d06298c67e24a418183632ea139a126"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3a681726e2e275f0bb08ab03f7d028613cd7c9e81d158ea324245b572c59fc55"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5a3cd85ccb2bb062eb6823d6a70b2b1c76af0c4aba1cf4ea6c3649b35ba4af8c"
+    sha256 cellar: :any_skip_relocation, ventura:        "97c404221fadfacac29325d4da0b285ee894ec8c32e7acb2831a5bf5eb4dd7a7"
+    sha256 cellar: :any_skip_relocation, monterey:       "e57ee9bd492ede18af385e17e7c81dfcc8fa1a3e1f255bb31c340cae3f6df6d3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e88f16026746282e5f5b5b085187a97532c82eba50058b3adad31c4911e59578"
   end
 
   depends_on "go" => :build

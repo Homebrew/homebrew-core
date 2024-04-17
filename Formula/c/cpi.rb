@@ -1,23 +1,19 @@
 class Cpi < Formula
   desc "Tiny c++ interpreter"
   homepage "https://treefrogframework.github.io/cpi/"
-  url "https://github.com/treefrogframework/cpi/archive/refs/tags/v2.0.4.tar.gz"
-  sha256 "55e98b851976d258c1211d3c04d99ce2ec104580cc78f5d30064accef6e3d952"
+  url "https://github.com/treefrogframework/cpi/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "15a314e937dd05e62ca928a909305fa58052c764c7d313f79ae472eb0cc3c86c"
   license "MIT"
   head "https://github.com/treefrogframework/cpi.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "67cf9a9311ba7dfaeb57d3df5c8b3ea4d02a6207a6841ef7df1fd9dc61e719ad"
-    sha256 cellar: :any,                 arm64_ventura:  "0644ff18fbbbdcd97bc7ee35fb34cc72a0c127414915c214072a377031ceeed7"
-    sha256 cellar: :any,                 arm64_monterey: "7976724f2069f2d9e22731c252016085021ca616755be85bec0e174092549854"
-    sha256 cellar: :any,                 arm64_big_sur:  "c823b00a18be009c825f41c7da28e9bfbb545784b800ef95a64529164aff909c"
-    sha256 cellar: :any,                 sonoma:         "e0a4f5810ee2cdf71eaae808538d60493d0df6c54eb2064df1ea8f0c38c2d27c"
-    sha256 cellar: :any,                 ventura:        "8d67f2ca90fbfa3d168571d137a7ab7deec1ee6a1f40cebb12d86adcc6d997e0"
-    sha256 cellar: :any,                 monterey:       "6083cacfcaa25e3df4f5f124a4441818b6c9519ca5a5c7af34b8b2d12c4a1a8c"
-    sha256 cellar: :any,                 big_sur:        "26b0d34177634a9682c2e5d5bca99ee4aa67198a60dd235369e2674e42cb17f6"
-    sha256 cellar: :any,                 catalina:       "65f66e825d3c255cd2f888d34ce2552a7027a30655383c5a54b619bd610c84bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c06a6bc36bfdcfd3f3c2278d0ced9bcafc139681dafb0f322908eafcbe75da7"
+    sha256 cellar: :any,                 arm64_sonoma:   "92785cd813d9b3464394887b9c25f5e2920a4987ea11907dd2d14b013a57afd7"
+    sha256 cellar: :any,                 arm64_ventura:  "a20eb54a55df6b579e43896bf79ce66429a0959c5d47d00b28b65676910455f7"
+    sha256 cellar: :any,                 arm64_monterey: "9dd31910d940877880ba9c132eac936e99b351bf739744e038913e515b8ab022"
+    sha256 cellar: :any,                 sonoma:         "4ea255114e1b6df199bcc2b0f77d2fb69318e554521b62827deadd752eaeea7a"
+    sha256 cellar: :any,                 ventura:        "1bf20979f51c0b032ab17ed4283e2e1482c21d626f91674ed409e2641c7354e8"
+    sha256 cellar: :any,                 monterey:       "4ee60a6c83ad0e9f9fe5ff9fb07e5d36c81289a48109d48c5c4c4f5f72451796"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a6f27a012f1278a8c4175c3fb623a9adea382cd94378d61bcc1098ab06df492"
   end
 
   depends_on "qt"

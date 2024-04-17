@@ -4,6 +4,7 @@ class GitSvn < Formula
   url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.44.0.tar.xz"
   sha256 "e358738dcb5b5ea340ce900a0015c03ae86e804e7ff64e47aa4631ddee681de3"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/git/git.git", branch: "master"
 
   livecheck do
@@ -11,13 +12,13 @@ class GitSvn < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3362f4e12e26a6e9c8cdabda4cea74aac8b044ffd33372679e0d9d5d53c6f37e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e3d10cf897e8f385abcc0dc08e2f0f3f2849f42e72dd411d26f08cf186e72d5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "5e3d10cf897e8f385abcc0dc08e2f0f3f2849f42e72dd411d26f08cf186e72d5"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3362f4e12e26a6e9c8cdabda4cea74aac8b044ffd33372679e0d9d5d53c6f37e"
-    sha256 cellar: :any_skip_relocation, ventura:        "5e3d10cf897e8f385abcc0dc08e2f0f3f2849f42e72dd411d26f08cf186e72d5"
-    sha256 cellar: :any_skip_relocation, monterey:       "5e3d10cf897e8f385abcc0dc08e2f0f3f2849f42e72dd411d26f08cf186e72d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad34591e015a68d3dd5f3298d7bea93f89229d83f3f8d4b21e4014237b54d5d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f0ef92d692135b01c46bd0aabd6369f07adc73a6bb4bd6aed99537031fffb1e0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "87e191fad4beffc3078983a98dedd3123c659840b165e408fe0738f41977b09b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "87e191fad4beffc3078983a98dedd3123c659840b165e408fe0738f41977b09b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f0ef92d692135b01c46bd0aabd6369f07adc73a6bb4bd6aed99537031fffb1e0"
+    sha256 cellar: :any_skip_relocation, ventura:        "87e191fad4beffc3078983a98dedd3123c659840b165e408fe0738f41977b09b"
+    sha256 cellar: :any_skip_relocation, monterey:       "87e191fad4beffc3078983a98dedd3123c659840b165e408fe0738f41977b09b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f3bbf16f03448c71874ed103d4a8a9cd633f49a28730dc63b6bd15c497672ab"
   end
 
   depends_on "git"

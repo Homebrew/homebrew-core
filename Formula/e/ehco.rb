@@ -6,14 +6,9 @@ class Ehco < Formula
   license "GPL-3.0-only"
   head "https://github.com/Ehco1996/ehco.git", branch: "master"
 
-  # The upstream repository contains problematic tags (e.g. `2020.06.11.833`,
-  # `v1.13` for version 1.1.3) that make it impractical to reliably identify
-  # stable versions from the Git tags. This situation may change in the future
-  # but for now we're working around this scenario by using the `GithubLatest`
-  # strategy (as the upstream release versions are more reliable).
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
   bottle do

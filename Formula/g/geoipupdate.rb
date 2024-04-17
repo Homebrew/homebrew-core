@@ -1,19 +1,19 @@
 class Geoipupdate < Formula
   desc "Automatic updates of GeoIP2 and GeoIP Legacy databases"
   homepage "https://github.com/maxmind/geoipupdate"
-  url "https://github.com/maxmind/geoipupdate/archive/refs/tags/v6.1.0.tar.gz"
-  sha256 "71a5b3125bb7d5f1b78382ec37a0d3e966caea3215689531a32cddc7e4437ca6"
+  url "https://github.com/maxmind/geoipupdate/archive/refs/tags/v7.0.1.tar.gz"
+  sha256 "59c80ab737f128fc05e4ecdec4d84652182851dc8c8bea892022e3fc12db9101"
   license "Apache-2.0"
   head "https://github.com/maxmind/geoipupdate.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "d1dac2a8404082a26e6308a176fc63a5e99d4f41b7fdbab2921027105adbbf22"
-    sha256 arm64_ventura:  "02633e5f62313de4268a292b75ac46231bb401471acdeec4475e0d62d3e9c669"
-    sha256 arm64_monterey: "0c8eb1feaa332db207e789bdbbd8e6f430f314bcd6b7a8c908e4dbf986e97fc4"
-    sha256 sonoma:         "bd972662b519e037ac80f692490a481357a1ff126d7b92929da36bb68e57ae58"
-    sha256 ventura:        "4d44e8a2620f9c9cc1c63da3946ded217957dbaae38daff14c130e6962312cf9"
-    sha256 monterey:       "93e14ba810188833b0696ab3addb347b9813702842ba6570d1b353f4824e8725"
-    sha256 x86_64_linux:   "5f95d716dda0e8e6a5ecd867ee122325270024db97af9dd5163f7560a551940f"
+    sha256 arm64_sonoma:   "ff0063a996d01a0b1072191a821f42c85ddf94cade101d39b47a24b2ab5488bb"
+    sha256 arm64_ventura:  "207a09ecc2abd3cbeec899b7c070e7d4a77961d24f8d5fe723e23e454b784635"
+    sha256 arm64_monterey: "936095b925f1eee1921482dd93f0e5ebcb942d215db8e962faaa3e29446a0a14"
+    sha256 sonoma:         "82c628d8c011f90f08b0adeaa00c72da8b4393fba61aca2f0bc027132c54523b"
+    sha256 ventura:        "c49b1ffb5af72a5b6191ea7a6352f194a1973b8fce5c0168fcd5c9cfb39477bb"
+    sha256 monterey:       "dd0d88ecb489a04f098b871f3a4341443de67d088c8bab3efc74c285b3732980"
+    sha256 x86_64_linux:   "b5135fa64973d1d4588e161a0fa15b5452d9f88bb06e120b741358d2ce1c71a5"
   end
 
   depends_on "go" => :build

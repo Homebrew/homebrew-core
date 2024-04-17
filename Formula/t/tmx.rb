@@ -1,22 +1,18 @@
 class Tmx < Formula
   desc "Portable C library to load tiled maps in your games"
   homepage "https://github.com/baylej/tmx"
-  url "https://github.com/baylej/tmx/archive/refs/tags/tmx_1.4.0.tar.gz"
-  sha256 "5ab52e72976141260edd1b15ea34e1626c0f4ba9b8d2afe7f4d68b51fc9fedf7"
+  url "https://github.com/baylej/tmx/archive/refs/tags/tmx_1.10.0.tar.gz"
+  sha256 "9ca8ffe6acff8a8e8268b1910a0b9f64263cc73758746e6cfe1f2c9e744f4e1f"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3ac411d5410c18a83b3b34b2f6a5898a7b7fd1c309f4f3d7eefd83ebdd276de9"
-    sha256 cellar: :any,                 arm64_ventura:  "5714907b97ede6353e5f461db191396197605b67df3bd5d79a53e01c9edc5fa5"
-    sha256 cellar: :any,                 arm64_monterey: "1741909448819ba29272e002c9d25fdb8cc315e0ea70991799e2bbfa4bcdb88f"
-    sha256 cellar: :any,                 arm64_big_sur:  "770cdb601ea6b496a29832960cb5fd79626a99f55f01c635985aa921f3e5f31d"
-    sha256 cellar: :any,                 sonoma:         "43d91fc93709a89c8789dbc7f73836ef2ed56b5bf6a6e645d7df7fc3220bb442"
-    sha256 cellar: :any,                 ventura:        "25da4b79d7d3f89fb78a74c5cffba62085adda61a932f01d3dd3d70b858ed0fd"
-    sha256 cellar: :any,                 monterey:       "fd62803bd77e4f17e11137d591ee0f916eea138b4e9a076355fea04f5a01d67c"
-    sha256 cellar: :any,                 big_sur:        "91e9846b6d59e0694918753e357736c229c2a70d8021fdbaa2eb506e5be746c2"
-    sha256 cellar: :any,                 catalina:       "1013715fdb263f6d6985c9145a5dbc05d2e41ba6c4aa28af766f0bc82a87f2c5"
-    sha256 cellar: :any,                 mojave:         "060eab2a5090afed9dfbf6ca716a2867b956be2222e6a623a5b98774bf06ef6e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ab5a06f59f128524607cfc604d1f7a5b40875572bd4516524fd61bb5db4ba13"
+    sha256 cellar: :any,                 arm64_sonoma:   "ffdd9e365993e398ff7bd189f1192e8154fd9a3519698c631214563c6703cbe8"
+    sha256 cellar: :any,                 arm64_ventura:  "6e8d898ce87ba2ac78c25c92b6f968f6466a4d33f5b1fc89f377b3408430f36b"
+    sha256 cellar: :any,                 arm64_monterey: "094e042ed62d272b8c9c287dd9c9fa86fab00a7214a551269a71209a879c0446"
+    sha256 cellar: :any,                 sonoma:         "91be34320e28094fb9073f4e5b54b889688ba61522093ecb36932d31c94e1104"
+    sha256 cellar: :any,                 ventura:        "ffcd3179586548d1cdaef53224cc1e18f1cccce51e24da5f72404e6392d52f46"
+    sha256 cellar: :any,                 monterey:       "346b4b5f56aa3512beeb3d78d0c82576b7db6823b2a0445d31985133e93851e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a0b125b3f78aaebcf8b5b7b9aa3ba1b73838b6cd87aaf4d4d2b88a36b9c16708"
   end
 
   depends_on "cmake" => :build

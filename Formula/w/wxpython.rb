@@ -50,9 +50,7 @@ class Wxpython < Formula
                    "--jobs=#{ENV.make_jobs}",
                    "--verbose",
                    "--nodoc"
-    system python, *Language::Python.setup_install_args(prefix, python),
-                   "--skip-build",
-                   "--install-platlib=#{prefix/Language::Python.site_packages(python)}"
+    system python, "-m", "pip", "install", "--config-settings=--build-option=--skip-build", *std_pip_args, "."
   end
 
   test do

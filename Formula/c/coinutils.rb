@@ -1,8 +1,8 @@
 class Coinutils < Formula
   desc "COIN-OR utilities"
   homepage "https://github.com/coin-or/CoinUtils"
-  url "https://github.com/coin-or/CoinUtils/archive/refs/tags/releases/2.11.10.tar.gz"
-  sha256 "80c7c215262df8d6bd2ba171617c5df844445871e9891ec6372df12ccbe5bcfd"
+  url "https://github.com/coin-or/CoinUtils/archive/refs/tags/releases/2.11.11.tar.gz"
+  sha256 "27da344479f38c82112d738501643dcb229e4ee96a5f87d4f406456bdc1b2cb4"
   license "EPL-2.0"
   head "https://github.com/coin-or/CoinUtils.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Coinutils < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8ec00da73ae5ce6c33a2bbf89c43ddd6df1b9ab10826f2da39f5214fcb991c4f"
-    sha256 cellar: :any,                 arm64_ventura:  "e4d6de981b7e8f12e9ae56d94fb5807864618c06d248254b72a57083b9afdfb7"
-    sha256 cellar: :any,                 arm64_monterey: "87d125df0b857d8a42a1a1d0237e80a70c7f9984e4043d3f05392ea3daea7bd0"
-    sha256 cellar: :any,                 sonoma:         "6c048622f2b24225c77948ae2fb8425852b8acc1cde5c6a23599afaf9e2e1858"
-    sha256 cellar: :any,                 ventura:        "f808e437ed6a88ef270454d8d7c2bbe8cc177f80e559bc4cf49990475c06235b"
-    sha256 cellar: :any,                 monterey:       "a1db503dabf507b3de876de29084e100221e1eb6a3f626f7a4002efd6c82e4ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "555eb1ef4de9326d93e9023a9922c1546f1621367940e77134eba81442f68e1d"
+    sha256 cellar: :any,                 arm64_sonoma:   "c6f4e5097a9ce01d7b84040a54feefd4d500a762c4e9b9e873f32fe6b35ef90f"
+    sha256 cellar: :any,                 arm64_ventura:  "51e76a5938f3e44d9c9aef20e35e811e2f1313f54e3e8e4bdf2b7a3367b236ea"
+    sha256 cellar: :any,                 arm64_monterey: "40e36c57acec28ff44f4669e4478bae2b96b2b8d8312837dfdc468eecd1a7895"
+    sha256 cellar: :any,                 sonoma:         "2d7b6ccf3c0435b1e9ddc52023f420bca498a7a961067f6c45d1cb67536512fd"
+    sha256 cellar: :any,                 ventura:        "1bab0113b0831b8c22954341608f78e41c2340c5c199490c2ada32f0427080f5"
+    sha256 cellar: :any,                 monterey:       "d77ec299c8427040cc64489be26358220fc2107219aee34a42511ff40b09a88c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4498d03f65d0c91c28f2a7717a23eca8ee019101f47e847d41bdf5a6ccbf2dfd"
   end
 
   depends_on "pkg-config" => :build

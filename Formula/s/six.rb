@@ -7,10 +7,10 @@ class Six < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "af0e594f44ac758201a84eda10f5eec0e7958ac67c219c6a09165eb18ac79797"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "f19976d182253ff8cdf2d435b3ce6f24f2a544684baee95ab289bee753d39eb1"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
@@ -21,7 +21,8 @@ class Six < Formula
   def install
     pythons.each do |python|
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, *Language::Python.setup_install_args(prefix, python_exe)
+      build_isolation = python.version >= "3.12"
+      system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation:), "."
     end
   end
 

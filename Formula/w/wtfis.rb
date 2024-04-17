@@ -6,16 +6,17 @@ class Wtfis < Formula
   url "https://files.pythonhosted.org/packages/53/22/df5fdf569254b5e13710deb6b561ad68fa35aee36b2dabf87c5351453c58/wtfis-0.8.0.tar.gz"
   sha256 "ac4264def13f50962f4b0717774c2918036e320104c4c52682d6846b8ec2a974"
   license "MIT"
+  revision 1
   head "https://github.com/pirxthepilot/wtfis.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a1a01774f58968abeb63e18f8ebfb288db0ebd76d331f2c1a2494826aff05f38"
-    sha256 cellar: :any,                 arm64_ventura:  "93b3b386249a76365e778951c7d15168ab439904588b09b4ea5a10d47bff645d"
-    sha256 cellar: :any,                 arm64_monterey: "1e427516f23d9898ff1ee0d319dea6aa92ef3a12a35e565fc835f2b701faf582"
-    sha256 cellar: :any,                 sonoma:         "b0c4ae10223132d8a3406efbcd1d3e57d71b78b050415bfd013fb6ba2472deb1"
-    sha256 cellar: :any,                 ventura:        "5cecaf904c779a6c9563106cc3e60917c489a5775585fa30ec20633eec400ba1"
-    sha256 cellar: :any,                 monterey:       "15bc1dda25baf1e929af316c1ffa2ba209a20f6a62eee4c1c7f7fac61e2e3077"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "57977be5bc7806733d9cbd8fe84217145b21bd0eba4254173bbaa9c472c4dc64"
+    sha256 cellar: :any,                 arm64_sonoma:   "88d1c7ad2f4cfe5dab56038c36757fa6625f1f7cfb78774d1eba00bf756063dd"
+    sha256 cellar: :any,                 arm64_ventura:  "254ec350a6f2e80d14a02b162dc13a2d5a2a6723619e0f4c24b1076e27d771af"
+    sha256 cellar: :any,                 arm64_monterey: "aa65b8900900b8c7e80566156cf50a63bf353748cc7680b914dcb0522c0d6062"
+    sha256 cellar: :any,                 sonoma:         "cffe9ffcbc9c13d1a1b41d75708d15cf1f0c90bf99dd9bfdd6e9ff042ea5f52a"
+    sha256 cellar: :any,                 ventura:        "af1bbbd8ba7ee3c8a599e4fc35a2e83b479aab5c455eb01f23ba373bcda83d72"
+    sha256 cellar: :any,                 monterey:       "064882c863b6f544be71dcb731add1f072ab50fea020c71f8835b7259af1442a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8093b6fafd444853ffd0178800133605cbfdaa55efca3a16931363224e729f67"
   end
 
   depends_on "rust" => :build
@@ -48,8 +49,8 @@ class Wtfis < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "markdown-it-py" do
@@ -98,8 +99,8 @@ class Wtfis < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
-    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "urllib3" do

@@ -35,6 +35,19 @@ class Tinc < Formula
     system "make", "install"
   end
 
+  def post_install
+    (var/"run/tinc").mkpath
+  end
+
+  service do
+    run [opt_sbin/"tincd", "--config=#{etc}/tinc", "--pidfile=#{var}/run/tinc/tinc.pid", "-D"]
+    keep_alive true
+    require_root true
+    working_dir etc/"tinc"
+    log_path var/"log/tinc/stdout.log"
+    error_log_path var/"log/tinc/stderr.log"
+  end
+
   test do
     assert_match version.to_s, shell_output("#{sbin}/tincd --version")
   end

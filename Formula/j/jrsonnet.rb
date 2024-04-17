@@ -29,7 +29,11 @@ class Jrsonnet < Formula
 
   def install
     system "cargo", "install", *std_cargo_args(path: "cmds/jrsonnet")
-    generate_completions_from_executable(bin/"jrsonnet", "-", "--generate")
+    if build.head?
+      generate_completions_from_executable(bin/"jrsonnet", "generate")
+    else
+      generate_completions_from_executable(bin/"jrsonnet", "-", "--generate")
+    end
   end
 
   test do

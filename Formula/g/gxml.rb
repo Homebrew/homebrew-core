@@ -1,20 +1,18 @@
 class Gxml < Formula
   desc "GObject-based XML DOM API"
   homepage "https://wiki.gnome.org/GXml"
-  url "https://gitlab.gnome.org/GNOME/gxml/-/archive/0.20.3/gxml-0.20.3.tar.bz2"
-  sha256 "22d8ed0f9f6bc895c94c74bfcd6f89f64aa96415c19e1b648277df70b4ed20f7"
+  url "https://gitlab.gnome.org/GNOME/gxml/-/archive/0.20.4/gxml-0.20.4.tar.bz2"
+  sha256 "d8d8b16ff701d0c5ff04b337b246880ec4523abfe897a1f77acdf7d73fb14b84"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "c36b24ce2fd40255a906d5854c3256511a65535ea7a570057f65077a792f268c"
-    sha256 arm64_ventura:  "8656553f20776f1cbfeac041d7a7aa21c88bf9237d49162cb76f3613dd023e25"
-    sha256 arm64_monterey: "004caf23ceb17a3c71ffb2b85879ef3d6bf85cb207d517f70c17edc5ba8821aa"
-    sha256 arm64_big_sur:  "4980c9844514c1ff646da64e64b728c0fddd14ce2a1c8262fc00a59429b10a37"
-    sha256 sonoma:         "51a5f98ef267aa52ff19a553546b62dcee7cc323f6f298ae03c48f3a1545fdaa"
-    sha256 ventura:        "53d420b85af3e0e77aa517f66f731e1ff8f4c3f32cebc8acdff3ebf15e4ae97d"
-    sha256 monterey:       "1d892844ac448f58ecb5ef283a66de0d79112686a19963351c2136b28b483821"
-    sha256 big_sur:        "3a83e6b4ed0bfc8a4a869b13c9dc3573ab168ce39c9d625074c27d80615b7716"
-    sha256 x86_64_linux:   "59390a8cce6b9d523c93f9b4ceca1ab1bca8f8d83c35fd6f4d015319d5a9b055"
+    sha256 arm64_sonoma:   "54c6ed5a3a82484145eb346f51f2e76b6477a362f26e2b3cf08c15e45e4ea818"
+    sha256 arm64_ventura:  "c8f3e38d52c9c7628bdf87e483750c871a429ea8e68e018b5c15bb0d4aaa1020"
+    sha256 arm64_monterey: "368c6d6ab14ce46ee5e339801b8290219ff34a63d38a5815b12c47a7f8d77ffe"
+    sha256 sonoma:         "01dd745d114b9f98d1823e9b4fd4fc53bea776c1df994bb5b8e3128ebe78b294"
+    sha256 ventura:        "adf748f00b1956efe7c2bdd6fcdaa415b9987c54b0dbeb547598ed3a21dc684b"
+    sha256 monterey:       "10ad638f4cce9ec42b6d3d1f157a57a4d1abc6b5c8d76acf786f74df76145b00"
+    sha256 x86_64_linux:   "dcea35a54aaa49782fdacee3e59098d9385a80e6ccca1b06a631bbbfe6b0c3da"
   end
 
   depends_on "gobject-introspection" => :build

@@ -3,19 +3,20 @@ class PolicySentry < Formula
 
   desc "Generate locked-down AWS IAM Policies"
   homepage "https://policy-sentry.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/d9/da/5855ad81cca1a75a88874c00d6d301360a2ff82aea17072604540e48903c/policy_sentry-0.12.10.tar.gz"
-  sha256 "b8cf00a11a2a335d2bceba5dc1998182288a4b7848916a77923a6a2e0bc84373"
+  url "https://files.pythonhosted.org/packages/7e/7a/7fbb394f21a3c43edcb7d04382b6d93567900b4c8ea4b224b284656115ed/policy_sentry-0.12.11.tar.gz"
+  sha256 "8db1ea570e835d87c57ef51bf6f2372a8b78d463549a5f9c65cb5f8103cd1ed8"
   license "MIT"
+  revision 1
   head "https://github.com/salesforce/policy_sentry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "09dcbbcc2259480f88f03589f660e80a54d0961a313524da2d3236d8fd4786b7"
-    sha256 cellar: :any,                 arm64_ventura:  "dc43c9b27a9b16c37352e62038cd7715819cf375204d56a6a6e53244c84fdcb6"
-    sha256 cellar: :any,                 arm64_monterey: "282344012f2a60e1f5b3ae2c423d42a7a950f9057d3b0ea6e2b604c49b131374"
-    sha256 cellar: :any,                 sonoma:         "f5f5794a014fda176f8cb6f05271b9eff9325a1e797ab494b2f12d1b13d6d1ff"
-    sha256 cellar: :any,                 ventura:        "79ee086d692d161cb59e8cc3cc9334c0bdd8213ef7ca052837be77805d9fed2e"
-    sha256 cellar: :any,                 monterey:       "b7721501bea2fb948897c4de00026b2c768ad1f3e8790ccceb5dba78444cd002"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "baf1056455546e551657790224877871fd24043d18ae14e3b0d2afb7ef2a695d"
+    sha256 cellar: :any,                 arm64_sonoma:   "63b3e5358610756c06f41898f22dbeea61e4010b8eedb249e1aa6e92f212b2cb"
+    sha256 cellar: :any,                 arm64_ventura:  "80d0d17a7737da77109e11675afb757586f1610f967607451677cc046c9d7103"
+    sha256 cellar: :any,                 arm64_monterey: "8bc17943d6d99ab3cda87b2001585ca398797a61d4bfcdee8491a30842d9102e"
+    sha256 cellar: :any,                 sonoma:         "f0829a6b97a6015c47579379d152ed0dbb71bf20d2862b1d097ef6f901d290bc"
+    sha256 cellar: :any,                 ventura:        "4e5e515e192395b5ab65f6e56f1a4827b590d1aabc7843357aca10c5ab526449"
+    sha256 cellar: :any,                 monterey:       "6e6c81d59fa0e2e5a0d8e9bf5944773b18e94e05124624808fe12f25bc2185f9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cd87f5830e2f9fc973330d6c4b571a9701f89ab94faebaa3c680dfc8c58f249"
   end
 
   depends_on "certifi"
@@ -43,8 +44,8 @@ class PolicySentry < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "pyyaml" do

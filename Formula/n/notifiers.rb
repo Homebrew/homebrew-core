@@ -6,17 +6,16 @@ class Notifiers < Formula
   url "https://files.pythonhosted.org/packages/54/fc/aa5de032cc8d9ee41ceba7bbea98e2ed7090d7d95465dfe0179eb937146f/notifiers-1.3.3.tar.gz"
   sha256 "9fd8d95ab1ebcd3852423755aa90cbb0f72a805ca77af0d8c9ad7af445f58399"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "eb9b1ef6e42744d234f2a1f7ae05a542fcbbaabac46eb898d0e94ddad08d095a"
-    sha256 cellar: :any,                 arm64_ventura:  "37472eb7fb64f0942d696aa136de7bb6607048188b2116684d9c775d4e00c97d"
-    sha256 cellar: :any,                 arm64_monterey: "93bfa7e22516d4c3037ea407d6bdeb9aa9249b2b4d900ab65d281011efe3fe41"
-    sha256 cellar: :any,                 sonoma:         "6f21e1f24c9e11b23e5066782b08d1fdcf96bd73ddc3f980d5e4308d59bd5e51"
-    sha256 cellar: :any,                 ventura:        "3f4abab6f5aedab1861f6f8826046fcded55267f942d8ecd668388291810b102"
-    sha256 cellar: :any,                 monterey:       "768be931f925094af76bcbff688126d6a52091b450b316c12c26fc78a436b308"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d716aad448c9eae1cebee9413b01a612cb1e10e9bf44d3816a94eff1a8636ae1"
+    sha256 cellar: :any,                 arm64_sonoma:   "01d3f7958518c8e9ea82b2c025953318b22360aebeb570926c317ccc85d01108"
+    sha256 cellar: :any,                 arm64_ventura:  "fa398c896d8e1994b4220bb10f246fe5d14162c61fef2dfad6d313cf98779445"
+    sha256 cellar: :any,                 arm64_monterey: "3dfb1db1100d687bcbf52a128a7b37da8648eec48cd392fab075550770db9a8e"
+    sha256 cellar: :any,                 sonoma:         "c0bab147469e80133fe6a56d37f052360bbd0eeefdbd7a3db375decb2739c100"
+    sha256 cellar: :any,                 ventura:        "075865bc259f34e509532ccdc51b11b59249a1d2202bd27b255c69e713e65808"
+    sha256 cellar: :any,                 monterey:       "c05ce91d59924718a8ccaf687c47ea9b1f5fac4daf73ca1ee6e0dd0f6c757d94"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15d61212982bb1a3de9b600e183f2d9a5d0c930ced8f41c56c3a6c4cfeb65366"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -39,8 +38,8 @@ class Notifiers < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "jsonschema" do
@@ -54,8 +53,8 @@ class Notifiers < Formula
   end
 
   resource "referencing" do
-    url "https://files.pythonhosted.org/packages/21/c5/b99dd501aa72b30a5a87d488d7aa76ec05bdf0e2c7439bc82deb9448dd9a/referencing-0.33.0.tar.gz"
-    sha256 "c775fedf74bc0f9189c2a3be1c12fd03e8c23f4d371dce795df44e06c5b412f7"
+    url "https://files.pythonhosted.org/packages/59/d7/48b862b8133da2e0ed091195028f0d45c4d0be0f7f23dbe046a767282f37/referencing-0.34.0.tar.gz"
+    sha256 "5773bd84ef41799a5a8ca72dc34590c041eb01bf9aa02632b4a973fb0181a844"
   end
 
   resource "requests" do
@@ -69,8 +68,8 @@ class Notifiers < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
-    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+    url "https://files.pythonhosted.org/packages/7a/12/dc02a2401dac87cb2d3ea8d3b23eab30db4cd2948d5b048bf912b9fe959a/setuptools-69.4.tar.gz"
+    sha256 "659e902e587e77fab8212358f5b03977b5f0d18d4724310d4a093929fee4ca1a"
   end
 
   resource "urllib3" do

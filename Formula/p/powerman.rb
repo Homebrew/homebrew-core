@@ -1,18 +1,18 @@
 class Powerman < Formula
   desc "Control (remotely and in parallel) switched power distribution units"
   homepage "https://github.com/chaos/powerman"
-  url "https://github.com/chaos/powerman/releases/download/v2.4.0/powerman-2.4.0.tar.gz"
-  sha256 "ff5f66285e1d952b4dbcb9543ef7969bb4abb464276aaecff949f629b72da605"
+  url "https://github.com/chaos/powerman/releases/download/v2.4.1/powerman-2.4.1.tar.gz"
+  sha256 "e91c88e87d1bfe5d578ff6ebadce9f89f1b6934dac14526175ba8add53ea5053"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "a8fa15a90e5cc08a7de1fe4dfe6dc133fcb10a5b09805dba8469fbc21540f524"
-    sha256 arm64_ventura:  "a115d18e912395032621bd18c999cdc9d7e8c26db25d2ec9edc9e4671fca98bd"
-    sha256 arm64_monterey: "c46634314ffb18a7996594ed70042647e36905ec82699326cb1169f0cae24e90"
-    sha256 sonoma:         "703dcdd192d8298cf131be7e2a37b56951c3bc90af83aeed23a2a9d3e837b4e1"
-    sha256 ventura:        "712822df74a50547e54e9f2e37e09152d4a2f8d0c02ec35f176dbba1a08e1c3a"
-    sha256 monterey:       "0444ee3669a06de1b94748f429cb15ef1288617fc485b319f5e74c29bd2b2ca8"
-    sha256 x86_64_linux:   "8e606ba2ca486f8299f73a11c580faf81abc84945dc51d8e21710e7e5e91bc97"
+    sha256 arm64_sonoma:   "ce71983e664c4dcf4ea1671dedc515f536960dd36c8e84ae074bc50604428c5f"
+    sha256 arm64_ventura:  "196bfc868204f245d9043576e958410cba83b720089b125f61d0593eed3a16a2"
+    sha256 arm64_monterey: "180a4d1659974a9f5c276253c95d1b524a28c219d6a9a5217f24769e3b4f3ac7"
+    sha256 sonoma:         "ba39b4190e33052c7cab5565f48da4f0fbdf4df9d1265de278c5b7417b403cb1"
+    sha256 ventura:        "0429fc87ef36713a4c9dfa7d329d9b997c8ea6bcbe6717b0aaa8f13fe801a1a6"
+    sha256 monterey:       "130ddcaab942afdbf18a47bb14dc509b37c3d1dcfb181683150f96b0200e76f9"
+    sha256 x86_64_linux:   "b8b7d2d665d0f69b46ccdf00282aaf6db71e91ce22589772a0ddeedd23031538"
   end
 
   head do
@@ -24,6 +24,7 @@ class Powerman < Formula
   end
 
   depends_on "curl"
+  depends_on "jansson"
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build

@@ -13,13 +13,14 @@ class Atlantis < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b8845a4c5c5fec862421b6ac27d9ff8b9e31e396efa1c40057fc7db430690e93"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d1d52f85b02755ff8bbe196a77712a4688df129bf02dba756f1e6ac0a2b9d260"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "07809a2647989121d6a929ab5a8f7344a2f13bcc6e029f1a0219dca6ab9d200e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a028543e426c3f8ae015deabcf7f8f1103e7c4cb9e02efce93d569593b9f2179"
-    sha256 cellar: :any_skip_relocation, ventura:        "dd6ee28da1ffbda533aa0154ada6c6a4d5d9684998ab351ebed6181e979eeae6"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7b370e28a832dad0377cec8624ebe9f76c9dac817dcd9fa1c665ef3a035b4f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a12a6068bf37a14576b2b45311dddc82006a308765aea858322835e397d06648"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "35b840627fec1733d802157914dcf8b3b4a229d2dabefe483d83c1080098f26a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fdb4008b963978d8800188fbec3448fa00040fd52e8c450543bb760c2567f3b6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1ccfccd60aef7b41012e5a8fbafcdf62ca54bf0c5b0c3a783d67784a4ff0d999"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f4a10883b102dff7471c6eb4cf4d5c9167495077f883f9d7e58019d16f0865ea"
+    sha256 cellar: :any_skip_relocation, ventura:        "7ad13d476479fc9500f9121b8b8ea4a4ba8ae82fbe5d3422da4584c81327037f"
+    sha256 cellar: :any_skip_relocation, monterey:       "e3f5d433a08a17f44cf66d004c66a2855a8d61db1dc613f383fd5996004c4426"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1cb0f0a22b31f42a7d079d7dce8c4ba809d1872902081c2a248cf497a2b574ee"
   end
 
   depends_on "go" => :build
@@ -37,14 +38,19 @@ class Atlantis < Formula
       system "go", "build", *std_go_args(ldflags: "-s -w", output: libexec/"bin/terraform")
     end
 
-    system "go", "build", *std_go_args(ldflags: "-s -w", output: libexec/"bin/atlantis")
+    ldflags = %W[
+      -s -w
+      -X main.version=#{version}
+      -X main.commit=brew
+      -X main.date=#{time.iso8601}
+    ]
+    system "go", "build", *std_go_args(ldflags:, output: libexec/"bin/atlantis")
 
-    env = { PATH: libexec/"bin" }
-    (bin/"atlantis").write_env_script libexec/"bin/atlantis", env
+    (bin/"atlantis").write_env_script libexec/"bin/atlantis", PATH: libexec/"bin"
   end
 
   test do
-    system bin/"atlantis", "version"
+    assert_match version.to_s, shell_output("#{bin}/atlantis version")
     port = free_port
     loglevel = "info"
     gh_args = "--gh-user INVALID --gh-token INVALID --gh-webhook-secret INVALID --repo-allowlist INVALID"

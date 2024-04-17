@@ -3,25 +3,26 @@ class Nox < Formula
 
   desc "Flexible test automation for Python"
   homepage "https://nox.thea.codes/"
-  url "https://files.pythonhosted.org/packages/8a/6b/2c02879d29704b74586a89900c48d9744780a5aad771f1d182c7394cfd57/nox-2024.3.2.tar.gz"
-  sha256 "f521ae08a15adbf5e11f16cb34e8d0e6ea521e0b92868f684e91677deb974553"
+  url "https://files.pythonhosted.org/packages/1e/86/b86fc26784d2f63d038b4efc9e18d4d807ec025569da66c6d032b8f717df/nox-2024.4.15.tar.gz"
+  version "2024.04.15"
+  sha256 "ecf6700199cdfa9e5ea0a41ff5e6ef4641d09508eda6edb89d9987864115817f"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "88961ab237cf511cb413e146bbbe7220f79d90f8325be0c49308fbe958c728c7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1cfeb433ef42d8b93ec9fe427ed39ba858b8ced6be2aec4d663fe30567d18eaa"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47d94eee7b1c13c35ed754dabcfdedb96d5f5448cc533c483aa28a23ebb41eb3"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8b3c34ae72a60dea4527d6d92ac0d505d55443c59bdc2d5b00f08173a4986e51"
-    sha256 cellar: :any_skip_relocation, ventura:        "9afe1e82d1a3cf406e6e79c4de4faa44a2b097c417574130ce56922a88a68b7e"
-    sha256 cellar: :any_skip_relocation, monterey:       "f2567887296dfe92fa4608ccbc02a0d2f5077861794a4cdc808ef781c4cc7d1e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b667f8ab9fa65b1b2b92fd75848846e65a1addf8ba2758216106ad18395b5a4c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e4125816ab344b179b2ab09b3f392a75efa1c8e7fc6acb44a30709b9d31f2c94"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4125816ab344b179b2ab09b3f392a75efa1c8e7fc6acb44a30709b9d31f2c94"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e4125816ab344b179b2ab09b3f392a75efa1c8e7fc6acb44a30709b9d31f2c94"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5bcbd553a4a0ecc80173c998a94561fe5456531a330c19203f9b5cff5288388d"
+    sha256 cellar: :any_skip_relocation, ventura:        "5bcbd553a4a0ecc80173c998a94561fe5456531a330c19203f9b5cff5288388d"
+    sha256 cellar: :any_skip_relocation, monterey:       "5bcbd553a4a0ecc80173c998a94561fe5456531a330c19203f9b5cff5288388d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "092e78bcaf5222fed54a3f3be554d616707b4f68d9df72c929272dbb50599a1b"
   end
 
   depends_on "python@3.12"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/f0/a2/ce706abe166457d5ef68fac3ffa6cf0f93580755b7d5f883c456e94fab7b/argcomplete-3.2.2.tar.gz"
-    sha256 "f3e49e8ea59b4026ee29548e24488af46e30c9de57d48638e24f54a1ea1000a2"
+    url "https://files.pythonhosted.org/packages/79/51/fd6e293a64ab6f8ce1243cf3273ded7c51cbc33ef552dce3582b6a15d587/argcomplete-3.3.0.tar.gz"
+    sha256 "fd03ff4a5b9e6580569d34b273f741e85cd9e072f3feeeee3eba4891c70eda62"
   end
 
   resource "colorlog" do
@@ -35,13 +36,13 @@ class Nox < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/70/70/41905c80dcfe71b22fb06827b8eae65781783d4a14194bce79d16a013263/filelock-3.13.1.tar.gz"
-    sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
+    url "https://files.pythonhosted.org/packages/38/ff/877f1dbe369a2b9920e2ada3c9ab81cf6fe8fa2dce45f40cad510ef2df62/filelock-3.13.4.tar.gz"
+    sha256 "d13f466618bfde72bd2c18255e269f72542c6e70e7bac83a0232d6b1cc5c8cf4"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "platformdirs" do

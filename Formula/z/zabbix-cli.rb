@@ -6,6 +6,7 @@ class ZabbixCli < Formula
   url "https://github.com/unioslo/zabbix-cli/archive/refs/tags/2.3.2.tar.gz"
   sha256 "e56b6be1c13c42c516c8e8e6b01948fc81591eae83f8babb7bee6d2025299c26"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   livecheck do
@@ -14,14 +15,13 @@ class ZabbixCli < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "615774762025acd0659ecf3daf919e6114eafa54e8a8df120e0dd48b757a7964"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7813942f1e22699abfad5fb7871c4a92f236f5fcf1a44eb704a07e72e60ffde7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "28eef75530b6d15d5a47c9055861403925c40537259eeec20e9b9ce36ae8cff1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4b6555f444442b982eac10a1dbd8d514b7a98bc1a251d7956b4e1aea42de648"
-    sha256 cellar: :any_skip_relocation, ventura:        "d3a935de2f2d586566c562f64c7cd0ad57a5716ecf4195b26670a718c6e9e11a"
-    sha256 cellar: :any_skip_relocation, monterey:       "eebfe753011a00db105682b46558372654fc2c19b63784096f3b7d4e1b0e3b71"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4cae7790742cc2b5fb0f92a180ce26e52d0099fb55a4f7973fc3774ef3c92dc1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "75b5d2f0fb2f450c0042a60bd5b4db76f5fdea1c90fcb074e2714388d41caeee"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75b5d2f0fb2f450c0042a60bd5b4db76f5fdea1c90fcb074e2714388d41caeee"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "75b5d2f0fb2f450c0042a60bd5b4db76f5fdea1c90fcb074e2714388d41caeee"
+    sha256 cellar: :any_skip_relocation, sonoma:         "75b5d2f0fb2f450c0042a60bd5b4db76f5fdea1c90fcb074e2714388d41caeee"
+    sha256 cellar: :any_skip_relocation, ventura:        "75b5d2f0fb2f450c0042a60bd5b4db76f5fdea1c90fcb074e2714388d41caeee"
+    sha256 cellar: :any_skip_relocation, monterey:       "75b5d2f0fb2f450c0042a60bd5b4db76f5fdea1c90fcb074e2714388d41caeee"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c307e31ab4dbae73849a2fe4915f72753b7cde2a75ba567481937fa0b3dfee2c"
   end
 
   depends_on "certifi"
@@ -33,13 +33,13 @@ class ZabbixCli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/fb/2b/9b9c33ffed44ee921d0967086d653047286054117d584f1b1a7c22ceaf7b/packaging-23.2.tar.gz"
-    sha256 "048fb0e9405036518eaaf48a55953c750c11e1a1b68e0dd1a9d62ed0c092cfc5"
+    url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
+    sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
   end
 
   resource "requests" do

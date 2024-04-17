@@ -12,13 +12,14 @@ class OpensslAT30 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "739fa204f539dcc3e8c3f071f1ade08507b86d5bee3bba3bc7d14e81a3b72884"
-    sha256 arm64_ventura:  "8f642837641918e4bde5659913c35575790015d036b827f225da387dada87e2b"
-    sha256 arm64_monterey: "d06a6235c4d9505dfa3f3d904d9bd004f4156a832dd63f239e9d8f0c9d6af762"
-    sha256 sonoma:         "94afa44b2e9c52d279228784daa3ceb69ed1133ab0540c5647c0f36eb713a0d3"
-    sha256 ventura:        "b22a1f742cbb67cf6639a03eaf6b6de0228c51fdec4e4d707a2aab8debe6a221"
-    sha256 monterey:       "257f44a4e1c85a4e916f2bcef3d992089f4069caf4d95f2b5a39c5f143f9c7cc"
-    sha256 x86_64_linux:   "e348eb201546c9a49f48036759e07c4b3e15b4c0afa34e28410ce1966c35449e"
+    rebuild 1
+    sha256 arm64_sonoma:   "5cf40592c269c1bfffb25c9be18a07d7dfb65d499c81337d10fa088d61eb7e00"
+    sha256 arm64_ventura:  "c7701bc83751c65257f5fbea454cd5758d359b1df9ceaac721624c03f06d73ea"
+    sha256 arm64_monterey: "c362cc9e153f65f548f627f06c411d50dac642cc936541f6bf9dbb0ad7e7e1e7"
+    sha256 sonoma:         "3c391c2d92b620719d351f542ab2fdd4cae76a0c1d97ad572dfdfe7748bbe885"
+    sha256 ventura:        "c51aff36b2986ad4d77329902d3e3485b1b19dd218e12ac4236127cd825eda1a"
+    sha256 monterey:       "18bc7ea49056430a343c1d7d7de23925b445a7baecaed33261bf9defbd9eed02"
+    sha256 x86_64_linux:   "0ce99826f56f67ef9790d365da99c632f32686824f8c1e5c29300b6aa24638b4"
   end
 
   keg_only :versioned_formula
@@ -64,6 +65,12 @@ class OpensslAT30 < Formula
       args += (ENV.ldflags || "").split
     end
     args
+  end
+
+  # Fixes CVE-2024-2511. Remove in next release.
+  patch do
+    url "https://github.com/openssl/openssl/commit/b52867a9f618bb955bed2a3ce3db4d4f97ed8e5d.patch?full_index=1"
+    sha256 "6f36d0980ddbd7d40c34cb1a340fc1f726a91d7e75573806a77ae0778af37989"
   end
 
   def install

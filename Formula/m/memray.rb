@@ -3,19 +3,18 @@ class Memray < Formula
 
   desc "Memory profiler for Python applications"
   homepage "https://bloomberg.github.io/memray/"
-  url "https://files.pythonhosted.org/packages/b9/3b/0af451f20f8a72b3dcfdf65c6d5639469a92db3f333e3c344a6b5cc12732/memray-1.11.0.tar.gz"
-  sha256 "f72c111a4868d0f2b4e4fb9ba4da736db8c73b6fb0ac6e6f2deca8ee540eb688"
+  url "https://files.pythonhosted.org/packages/88/8b/0a9854e5b6ce0875f2e2ad163cfecdb8de59fc1a2f1b9a1cb7c683a67826/memray-1.12.0.tar.gz"
+  sha256 "3b61c199a60197ae6164a2b44cd828c52de24083ecc49e9ac7d6287686bd68f3"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "59c0f7bd9f706792cd4c2635b9d2c08ab9ae1424fef226e423a1dba7cdba75f0"
-    sha256 cellar: :any,                 arm64_ventura:  "cc1236f2987157ea213b704d80f3c8b7ad5d97e8d4ce3e4cf25a90f2856dda59"
-    sha256 cellar: :any,                 arm64_monterey: "181b183a12ec2fe8718f279f94cdda690c6cf2008fe25b276fe2083e4cc8fa6d"
-    sha256 cellar: :any,                 sonoma:         "2c8bab2b26820b65d0ab21374f368adc278d643de06049afbc46665e22e8ad16"
-    sha256 cellar: :any,                 ventura:        "aa5f7fcb775e8b10cfe5d44e7cd7d38157043f4c89c9defc8b6cf96f414aa1e4"
-    sha256 cellar: :any,                 monterey:       "ab4c255db68bfd50c7ce55b8bec6ee3560024ef1d2dc30d7b2ea46bf56682a98"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dae408d451554221f662a17822de809c76a89af812e936cff3a3cba704fe101"
+    sha256 cellar: :any,                 arm64_sonoma:   "8c1ced93dc305cb40923d631a90bca6144ef880a8ec5e16b8f8f2ec8ff42d1aa"
+    sha256 cellar: :any,                 arm64_ventura:  "c45967b092efb5340cddd34277152d16b7bffccacba170ed8f0d17aae022b9a8"
+    sha256 cellar: :any,                 arm64_monterey: "deeda1f684326ce06c1433d5a78c233b8d65377cb105c9c8e34028fc8ccdbb3f"
+    sha256 cellar: :any,                 sonoma:         "3d13155df21ecc5abea382aa8510e631b53ad8acc76918b9c7764d863ea2c251"
+    sha256 cellar: :any,                 ventura:        "70377574c5b4f7c6b5e327ccbfe0fa523095726512e9d8c143c6df1bd07f3dec"
+    sha256 cellar: :any,                 monterey:       "8c5fb25be76c4ac8f6cefaa72e68d3b1d97111b4d186129274b4267210af3453"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5a9e5964cc9f77cddae6ec0352102caa0918a9f5a25c4c9accd6cca4749dcbcd"
   end
 
   depends_on "lz4"
@@ -61,18 +60,18 @@ class Memray < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/a7/ec/4a7d80728bd429f7c0d4d51245287158a1516315cadbb146012439403a9d/rich-13.7.0.tar.gz"
-    sha256 "5cb5123b5cf9ee70584244246816e9114227e0b98ad9176eede6ad54bf5403fa"
+    url "https://files.pythonhosted.org/packages/b3/01/c954e134dc440ab5f96952fe52b4fdc64225530320a910473c1fe270d9aa/rich-13.7.1.tar.gz"
+    sha256 "9be308cb1fe2f1f57d67ce99e95af38a1e2bc71ad9813b0e247cf7ffbcc3a432"
   end
 
   resource "textual" do
-    url "https://files.pythonhosted.org/packages/bb/ce/b224ccc05260871da8df640e7cd8ca0a5e38721fddb6733650195402841e/textual-0.52.1.tar.gz"
-    sha256 "4232e5c2b423ed7c63baaeb6030355e14e1de1b9df096c9655b68a1e60e4de5f"
+    url "https://files.pythonhosted.org/packages/35/30/2f51da751405bc0fbce8c8dfaf8ee7e9c4941ea28c5c868c2aebfc2748ba/textual-0.56.4.tar.gz"
+    sha256 "6f86ae5b4fd750bc48881c941e1a86f7a188c24a862122002e3ac38cd288ef47"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
-    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "uc-micro-py" do

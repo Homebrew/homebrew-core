@@ -4,6 +4,7 @@ class Musikcube < Formula
   url "https://github.com/clangen/musikcube/archive/refs/tags/3.0.2.tar.gz"
   sha256 "65f82db36d635bdbfd99f67d1d68c9e1aedf8e38efa627f303cf7971c306d063"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/clangen/musikcube.git", branch: "master"
 
   livecheck do
@@ -12,20 +13,18 @@ class Musikcube < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "1242ab2fcf643b3ed64cde86e11b96297e8592d34edf4fc2ea1ed2ab27ffeef4"
-    sha256 arm64_ventura:  "512fb81f7ba32be15e99b9cc7f1b5f5641ece2280a57fb9959b16c7a5a7d8d69"
-    sha256 arm64_monterey: "fee7d42e15666be622d7ea0c82cfba4c016018084e65b33c51fb11275e1ed068"
-    sha256 arm64_big_sur:  "c0f55bc4c17cd63c6f60a38c5dc23e575af1fc6e351d374463dbf6002cfd11aa"
-    sha256 sonoma:         "a70527ff296b35d657d53f65aff29c25f15f67f4c6a4279fc2e9edb56690aaa8"
-    sha256 ventura:        "e234af5ad4c039335c5318b3b3a44d63e80a51bbad81ad8dc45b8211b24810fa"
-    sha256 monterey:       "4921d57427b29a1d1d51f06a8a39770223b1a4d08308c002faca0b2126b7db9f"
-    sha256 big_sur:        "e5adeaf772f02f6a98ef4794f77c28c46eff02ff5c5a1e48d0cd21eb3b4e151f"
+    sha256 arm64_sonoma:   "973c9e44a3834eff19673fe4aa85a46edeccd856f8d38436830537f2cfd6adbe"
+    sha256 arm64_ventura:  "f66fe00d4f779b42531b29ff3d49ee1dca54d9ebb8e69ce15bcee6f1b538c834"
+    sha256 arm64_monterey: "cbc1e67a73376ede3d261bbd7df91ae49511c9b0b357218a3707074ff34bc522"
+    sha256 sonoma:         "552d3abc223e7f180f4756d698b538381bbe34e16458fddf24c742187689faf0"
+    sha256 ventura:        "4f8f9a178681fbf0e68846381f039c88a2d5c058bd48aba2b6ffcb48d4e6aabd"
+    sha256 monterey:       "ba6f7193efdb416a51c57c74322742716fe040cb8371f43bee1b1a492fe7e80c"
   end
 
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
   depends_on "game-music-emu"
   depends_on "gnutls"
   depends_on "lame"

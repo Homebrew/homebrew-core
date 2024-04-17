@@ -1,9 +1,9 @@
 class Clzip < Formula
   desc "C language version of lzip"
   homepage "https://www.nongnu.org/lzip/clzip.html"
-  url "https://download.savannah.gnu.org/releases/lzip/clzip/clzip-1.13.tar.gz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/clzip/clzip-1.13.tar.gz"
-  sha256 "7ac9fbf5036bf50fb0b6a20e84d2293cb0d24d4044eaf33cbe9760bb9e7fea7a"
+  url "https://download.savannah.gnu.org/releases/lzip/clzip/clzip-1.14.tar.gz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/lzip/clzip/clzip-1.14.tar.gz"
+  sha256 "f63fe1245b832fe07ff679e9b9b8687e9379ab613a26bfb0aca3754c8b162d73"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,22 +12,17 @@ class Clzip < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "59b0351c9a82ee781a9bf9bedd91e2a0824808cf2f6475abf2d9904ccf91c7d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "de83ba3aa6b50db57d4ccd3b563598c6e40011d0170281b5b0a9f3d44245bd97"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "7faa899c7e36a92d614d28d6f27ac41b4c46ec681e5e4e885ccc01cd4b988c01"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "de1b081d3b78675d6d98fec39e721ef5dad132fc8f6aa22b95ccdd85562986c6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fe0af043935253c122f88789f634f446f866f351274f662ba52b8f8f3ae43b4c"
-    sha256 cellar: :any_skip_relocation, ventura:        "68e6f8172636729ae858ba4b19c45a4c67d91d9c527666ea3a0aca6eacd9dcca"
-    sha256 cellar: :any_skip_relocation, monterey:       "09aef3ef6a00306fa16929c87253b892e00ab1fb8c571136d914113f3a55422e"
-    sha256 cellar: :any_skip_relocation, big_sur:        "fde4d37b9bde23fe59e800fb9c20fddea867152bad5e996c1083f4c0a4d99fc0"
-    sha256 cellar: :any_skip_relocation, catalina:       "f72ce2568e31d226d104aa3c49e7963fcfa8096cb40460dd1f171336255a041c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2f84e0c820f33a10c1d26d30d53bbea51d1cf77f8e56460f7fe293378818290d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9744ed7fe88f28d0566511d46bb9b882216c0c38d0a43b7dacb8640adf2b7ec4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a60e73764e4b9e0baa0397319cca7efae34975e443f28f91d4302592485aa04d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5a6879494e96d4479321c02a397728f038b545dfaf7b55233c373e377bf79f70"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7f96e349cd33b83f0a919f124468c98c6edff253070854c7d7ad636800c71a97"
+    sha256 cellar: :any_skip_relocation, ventura:        "7e827ac3e9a1af8641959f23d5ca9e2f08aa10ee3100df39cd2b41bc3ed13e9e"
+    sha256 cellar: :any_skip_relocation, monterey:       "547c5212a1f2aa403bac98a074e4eded599c94ea4c8d571471daec77914a38af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a464cac0f82326baa343a47b8c66c75d935548e13adcdd30edcaafcb08a2861"
   end
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
     pkgshare.install "testsuite"
   end

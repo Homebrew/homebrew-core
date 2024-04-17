@@ -4,15 +4,16 @@ class Libheif < Formula
   url "https://github.com/strukturag/libheif/releases/download/v1.17.6/libheif-1.17.6.tar.gz"
   sha256 "8390baf4913eda0a183e132cec62b875fb2ef507ced5ddddc98dfd2f17780aee"
   license "LGPL-3.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cf3a64f00db69ab4cfacf6cda66a2b9df7425e8797cc5756a1713b06af8c5c6d"
-    sha256 cellar: :any,                 arm64_ventura:  "b39a1ccde3da6980cf5a2c39b26615a0f65be474b11c9db7549d74624089f328"
-    sha256 cellar: :any,                 arm64_monterey: "f72576b3314c55b10a9c3920431b53079b4735fed5582f16dd7cc59177d5e684"
-    sha256 cellar: :any,                 sonoma:         "dc7e4ab57ef422d3d5aa23373ba024e68ab1b9e65f452d9d59944c96eb350e0b"
-    sha256 cellar: :any,                 ventura:        "ecadbc951af706b80845fa1d3605ca906402b9f0aa430bfa0310fb5cb953d9e1"
-    sha256 cellar: :any,                 monterey:       "87088818abfeb2b856f149e692113bb724071defdb9e814f91d7507b1ba948dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "510ac3dd14575e3dce887e8d6452e1b7ed150db43ec6a1e3f47784766adcc7ff"
+    sha256 cellar: :any,                 arm64_sonoma:   "d3e6043da49e8af564ff89e35885c1a66ed9c8e9c1f133ca89ed592261737b04"
+    sha256 cellar: :any,                 arm64_ventura:  "a3f34efc3e3ac4b36e3950b6fdb0f89493ce815f7126aa4cc4f97b69e4ab9d0d"
+    sha256 cellar: :any,                 arm64_monterey: "884eaad8e17d3b772e7bd7db7422e7cb896253b295815dc33c0b85fc2f3291ba"
+    sha256 cellar: :any,                 sonoma:         "440c4bd0f9626ef2129e3589e5419f493f69cb82cd4c3fe2dd86790b099f8c0e"
+    sha256 cellar: :any,                 ventura:        "fd1df7cacc463f08a5d43063189c93789409fb0cecce1c156d28c93edd4489ec"
+    sha256 cellar: :any,                 monterey:       "09ecdec8c4360a73d3bfcec2d21e4068754ac2cc5b77be6c50133c1f31ff86ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "30417c8829022c3b2114bce3f9fb89a346ec1217efcf29db813a1c1b20bc84ba"
   end
 
   depends_on "cmake" => :build

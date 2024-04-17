@@ -4,18 +4,17 @@ class ScIm < Formula
   url "https://github.com/andmarti1424/sc-im/archive/refs/tags/v0.8.3.tar.gz"
   sha256 "5568f9987b6d26535c0e7a427158848f1bc03d829f74e41cbcf007d8704e9bd3"
   license "BSD-4-Clause"
+  revision 1
   head "https://github.com/andmarti1424/sc-im.git", branch: "main"
 
   bottle do
-    sha256 arm64_sonoma:   "43ff017e6ad95b5cec3d02664f0f1bf7f67809a03fe2eaa61a94024d9510eca1"
-    sha256 arm64_ventura:  "75f632db6ed4794e25cebcc46c023255be662b3aafa09e457629adb83b87e2e9"
-    sha256 arm64_monterey: "a19adff4e5f065abc68995fdc338fb16d0a9cc77857eaf69724826e8d0b9f0fd"
-    sha256 arm64_big_sur:  "f2f0c70eaf59e601836c64622f3dcb9f07152f1744ab1325ff97cba36e7f0b8f"
-    sha256 sonoma:         "9b471ce8f24b20459d60fb8908c3834aedbf4b38bc149f934b1c6d9a875f877f"
-    sha256 ventura:        "39afae40b8fe65bb8acf478ab9eb7f58106c98b7237342055879ab2969156c8e"
-    sha256 monterey:       "84fa70f78bdaff7c0f6d8ee2e5a5ebc0454114c5a582b0fbf6bffcabbccf9899"
-    sha256 big_sur:        "00f0fe5c274b84d3780032f7cc96ca7a3f6173ac97e26adc53978ec36187f8d2"
-    sha256 x86_64_linux:   "a55c207ca7b4c572c0890c86f254933133d49605a3adbf2e2b79c07f4ea82b6a"
+    sha256 arm64_sonoma:   "30c124461f7951c735ff3229ddd618efe7e0ee3d612c2598f6165bb81bb96a24"
+    sha256 arm64_ventura:  "54ae7f589b0c22177d4cdf1413ab1d86a487851848a4c81ce8f9280d95a46a7b"
+    sha256 arm64_monterey: "9226b60d68226ee16f5fb30eff65a2d2d2c822e683b3bdf847c65f6454ffcdd8"
+    sha256 sonoma:         "c7fdf013f4a21416ab555cdb6b62858e97231ef8d56ca00a46b3520c62d38db7"
+    sha256 ventura:        "4bb402c6e5f62a0f0dca64f2657db17ada1e2a4c6786f000613b0f60101cffc5"
+    sha256 monterey:       "8de79452a1c8e48f6d998d21534bd2604f823b41ed56fd149bfbb7605159526c"
+    sha256 x86_64_linux:   "cb9262b8fed2322e7bcafe6bd0ed348e1dcca53667583c32a12a32d5b0113cf2"
   end
 
   depends_on "pkg-config" => :build
@@ -29,6 +28,9 @@ class ScIm < Formula
   uses_from_macos "bison" => :build
 
   def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Enable plotting with `gnuplot` if available.
     ENV.append_to_cflags "-DGNUPLOT"
 

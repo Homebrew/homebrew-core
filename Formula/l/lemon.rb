@@ -1,9 +1,9 @@
 class Lemon < Formula
   desc "LALR(1) parser generator like yacc or bison"
   homepage "https://www.hwaci.com/sw/lemon/"
-  url "https://www.sqlite.org/2024/sqlite-src-3450200.zip"
-  version "3.45.2"
-  sha256 "4a45a3577cc8af683c4bd4c6e81a7c782c5b7d5daa06175ea2cb971ca71691b1"
+  url "https://www.sqlite.org/2024/sqlite-src-3450300.zip"
+  version "3.45.3"
+  sha256 "ec0c959e42cb5f1804135d0555f8ea32be6ff2048eb181bccd367c8f53f185d1"
   license "blessing"
 
   livecheck do
@@ -11,13 +11,13 @@ class Lemon < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b31c0471cd410a7988e59c89063678d633278373782657fb9f13c6515bf7e04"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dcb740cd3a4f36c6466920d1ebdcfff38111fe6bd39615423df964e19b2cabf2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0e80c7bf91d48639d66137014e293713ec9a7d03120d815144f31cec1f301c53"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ac4477fdc12d923efbf47e5ea88f4eb069f189428eccabb72fcd8aa1501bf16c"
-    sha256 cellar: :any_skip_relocation, ventura:        "9c082333b2e8dcee1e6ea4ac0a0be909729415b49b9d239530012d6c92bfbbd4"
-    sha256 cellar: :any_skip_relocation, monterey:       "119e62e023c45fd1554f3db9b90269a3dd19360f12f2fe854119cb94dd4a5900"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4195f77c9ee72eb6cd9300d8a7ee7d097d9a0d5327309d78d6c8b70804b9519e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6b414e7e7eeb51b437494ea124991bb908a8debe5f6a199dd59cd811fe67154"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1f05843e8aac4c5693425f20b0b438771d9d216f9b1e568d5974f0d13363e190"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7f6cb3e472eb1a08458f7f33c0be1264b1b3799c56a7dde680387fc7d7ee2cab"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8042e7e35a85d5a77539772dd9cf615f3eee541131120b2f90109f031c945952"
+    sha256 cellar: :any_skip_relocation, ventura:        "5add371f1be57a4d7e51a54fef72248077d851f1a36fc602f6d4ada44e11f1a3"
+    sha256 cellar: :any_skip_relocation, monterey:       "a93663a77a8f0afa0d11e00420b65e38472fa5c9d19a8399a9fdb6d617f05324"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7e90d3090c0d836ab9b2e2921f492ca216fa2c2dc5e0c5cd70440d269d9ef3e6"
   end
 
   # Submitted the patch via email to the upstream

@@ -1,8 +1,8 @@
 class Feishu2md < Formula
   desc "Convert feishu/larksuite documents to markdown"
   homepage "https://github.com/Wsine/feishu2md"
-  url "https://github.com/Wsine/feishu2md/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "79fe0bc0839f2560d6191e434f630e073d9f7d0dc2d685463eb6a71bd1095aec"
+  url "https://github.com/Wsine/feishu2md/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "45f9cce470c591c59e933bb9db7227c41f13d86943ac9aa9f4761ad7fcb01adb"
   license "MIT"
   head "https://github.com/Wsine/feishu2md.git", branch: "main"
 
@@ -15,13 +15,13 @@ class Feishu2md < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eeae48c99823ace71e8d9f5cc0bb78d7c95e0dd12606b7db76b49c48d15a2dee"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "108760a99cefa61a5c15c413244dbd38d8d7dd77e63321fc13ab3b6a37117609"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c3f5b13d4423f6d6886e7b9bb43e61b6117fc3d2b427864e54197265a8c78c0a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0d871e181c55232709c68d453d549d55c7b8fec12f2dfe69be723fefe02c8be1"
-    sha256 cellar: :any_skip_relocation, ventura:        "66e34b4e23437dc54edf1296da5ab7203c3564f28d44d725b1f2ac16b624e60d"
-    sha256 cellar: :any_skip_relocation, monterey:       "a2dabfee16043d3a14574772070d7ac4637d09d5a640ff1e79a3ebb4656dd5fd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "751f69c4edb4e9619f3f3f99421399c7f031f3a774fafccb7234511cb9488c4a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98e48d18042397ff107c4d1af86c74ebf1299f6504f871e6c743452f70a8c571"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecee1f1a1b4b97fafde291de8c71f2774d6db47ea0205313a839eae8a2a024bc"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7bb02ba3e358404ee4ed339aebd95c8f3a70d1bf0309fc769aea95c786d469ce"
+    sha256 cellar: :any_skip_relocation, sonoma:         "32c5ea9391a2bb5ec066020e2dba1f2d79e254aad29fe1b828dc1a2c91d25a1e"
+    sha256 cellar: :any_skip_relocation, ventura:        "42996a45718893e7508a665fb15a3394a845161467cbcc54c9026dd839140f50"
+    sha256 cellar: :any_skip_relocation, monterey:       "c977bde773d7319749904a05389c03020bd02ef18803d4c642a3772d3d4de9e1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "139d95d3f7d78dadcdf8752d4b4049c093d2f0ab86ba2a74263c3fd8b4cb2266"
   end
 
   depends_on "go" => :build

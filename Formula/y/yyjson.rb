@@ -1,21 +1,19 @@
 class Yyjson < Formula
   desc "High performance JSON library written in ANSI C"
   homepage "https://github.com/ibireme/yyjson"
-  url "https://github.com/ibireme/yyjson/archive/refs/tags/0.8.0.tar.gz"
-  sha256 "b2e39ac4c65f9050820c6779e6f7dd3c0d3fed9c6667f91caec0badbedce00f3"
+  url "https://github.com/ibireme/yyjson/archive/refs/tags/0.9.0.tar.gz"
+  sha256 "59902bea55585d870fd7681eabe6091fbfd1a8776d1950f859d2dbbd510c74bd"
   license "MIT"
   head "https://github.com/ibireme/yyjson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e01eed4e426b1f2263756a7b10f24ee373106c5cc6868cae967e5e4f0994d9e3"
-    sha256 cellar: :any,                 arm64_ventura:  "3449c7a7b83124cbd4b1cdbdb42c1a6db8a8828b812324a0103912ce0f562392"
-    sha256 cellar: :any,                 arm64_monterey: "9ccea7329ede91039de7149ed5430899abdc2c2a1cd4e19748db266021a49b24"
-    sha256 cellar: :any,                 arm64_big_sur:  "a7b669addfdb02dc52c30e59d6c1634b7abec5b5b80c914e790e627150424954"
-    sha256 cellar: :any,                 sonoma:         "0cc4fcf63c0cf85caf1dd2ccc2ad021243c862d4b45e75834a2a9edc239c9a95"
-    sha256 cellar: :any,                 ventura:        "2dc6a58b5723be0e1b047e1d3d7650a5902d252d593316367c24caf019daf9e2"
-    sha256 cellar: :any,                 monterey:       "c5a0af8a58e10bb3e04de71cce8c0c1250b25540055e1eb2061606f324da2e48"
-    sha256 cellar: :any,                 big_sur:        "390a4950994bb564c36ebe35d82e38cc825cbcf7a15bead14c2f57e663a97eb0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61a7083295ed7711ef5c343b895551c3e65cce544b9aca939ad9b13b90ef8917"
+    sha256 cellar: :any,                 arm64_sonoma:   "4a9f0ed152dc939cfef2fca0f5b909becbac3d518384d7f5477f8dc24fba563b"
+    sha256 cellar: :any,                 arm64_ventura:  "9d7f2f6e4e8b3e32d687f051d46e6638becc6a3e161a984640af6c4f058245aa"
+    sha256 cellar: :any,                 arm64_monterey: "f001c295b9144280a7172abd89f3dac8cc5935d596fff4e346b1be635952cd56"
+    sha256 cellar: :any,                 sonoma:         "bbe09ff4626fdea8b6f01618312dcf4cef31b9c7ddd8d57f036148fbc2e6f085"
+    sha256 cellar: :any,                 ventura:        "9eed441407a199bd57a1ab64674ee874bf7d247675c939c858098e4cfaeef6e2"
+    sha256 cellar: :any,                 monterey:       "f4b178ad08b086b22a9a1b501858d4b2a224a710fa40384bd9d071d29d6895f2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0b0d97a657496f8d633a3ffb896264ba5360bf921b71ba0b39ef92b6bf4fc096"
   end
 
   depends_on "cmake" => :build

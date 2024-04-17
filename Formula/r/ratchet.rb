@@ -1,25 +1,32 @@
 class Ratchet < Formula
   desc "Tool for securing CI/CD workflows with version pinning"
   homepage "https://github.com/sethvargo/ratchet"
-  url "https://github.com/sethvargo/ratchet/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "b2a27c9d5b5423b786097f750bfeedc86dc9927741968f7d84707236352f1e14"
+  url "https://github.com/sethvargo/ratchet/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "e6d418075866a0c1040ef36a009cb4f8d2ed0edf6f4b5cb0041c3d076c6a349a"
   license "Apache-2.0"
   head "https://github.com/sethvargo/ratchet.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "978f7c0cebe6cfe799d7fe131305b352d39aadbd05f98d56fe9805f5de1177cc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "221c351d07f70a4aa7e13c726e8aabf51915db19417724e691c571d90b6d0dd0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77da2ad7cc7ab0092fa74ff854e3a224fe0a25b2e8f0b76b0868c1044e8c1d3d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bf0dc347b7e0c09bcfde5e92c5916843c975c4665e524c39c1c2818cfcc0c5cd"
-    sha256 cellar: :any_skip_relocation, ventura:        "e744746400fa619f19542488730ce649a9273c4b72a9a37eaaf30946f242ad7e"
-    sha256 cellar: :any_skip_relocation, monterey:       "8181c65ffcc0c060c934d17b6cf0297a8186d2adcbde5811419a14d11a241288"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c892298b99cdb6801a5c06339dd58a495f83b5eb2103c2e314f73df0e46ee991"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1cccac2d1277f930cbb1a0864a4bbed8d06eccda93b0ad097397248e05889255"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "44531e78f2f4d6364d9fbf2cb0d5c7f365cbcaf33d223f471a3e6fe0d8dbc972"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ca10450bc9b638951403ab1c0d02a658af4377339f0bce317f48f201e4a027d1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a2770c52767c913f7a762e4c10c19400563f8448ee0291d9e5bfef7da54b534f"
+    sha256 cellar: :any_skip_relocation, ventura:        "fdc70af633ea143ee3e2b0bccdd8a4c05d0e9bc9ad3a03eaa732fe41aa85718d"
+    sha256 cellar: :any_skip_relocation, monterey:       "72844ef394d8418a91a018b74209a08a089ab1c46a005461fe3207bd191a0974"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d46d0be31aabe65fd97e19586c48f5d039aa825a8bf40893220d74121fb08acf"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w")
+    ldflags = %W[
+      -s
+      -w
+      -X=github.com/sethvargo/ratchet/internal/version.version=#{version}
+      -X=github.com/sethvargo/ratchet/internal/version.commit=homebrew
+    ]
+    system "go", "build", *std_go_args(ldflags:)
 
     pkgshare.install "testdata"
   end
@@ -28,5 +35,8 @@ class Ratchet < Formula
     cp_r pkgshare/"testdata", testpath
     output = shell_output(bin/"ratchet check testdata/github.yml 2>&1", 1)
     assert_match "found 4 unpinned refs", output
+
+    output = shell_output(bin/"ratchet -v 2>&1")
+    assert_match "ratchet #{version} (homebrew", output
   end
 end

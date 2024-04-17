@@ -3,7 +3,7 @@ class Pc6001vx < Formula
   # http://eighttails.seesaa.net/ gives 405 error
   homepage "https://github.com/eighttails/PC6001VX"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   stable do
@@ -18,16 +18,16 @@ class Pc6001vx < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "65dea9e1fbc2308ac2e2dffcaf79b2cf18f564345e87a07bbc56c810150899ff"
-    sha256 cellar: :any, arm64_ventura:  "5ecc46cb15241a806a0850625880ca2f480b033ed1e52a4a8aa7c53e9ed522a0"
-    sha256 cellar: :any, arm64_monterey: "87288283dc869c461f72796389efc1364dbcef14fbda590531764cd9836fa496"
-    sha256 cellar: :any, sonoma:         "215c5be9581f838738d92e21b3a04eaa00013054ba8f15a4572f4e4117cf50f1"
-    sha256 cellar: :any, ventura:        "aa9cbcfed113f9d8588be9ba49f39bff59bf315a266cbd47a73a3b98da7b4cc4"
-    sha256 cellar: :any, monterey:       "c0fd47cd4c5cdaabe5f6eafb0deb2a3f3201b3c840e102d49be037df22684721"
+    sha256 cellar: :any, arm64_sonoma:   "d9f0c85994080637e87e46e657c1fa0a585d69d74548a2305654dd9a1f545e08"
+    sha256 cellar: :any, arm64_ventura:  "1e8a92b9a880400821197103bb6571997b468e1bc2777c80d6b7a4c0d8233370"
+    sha256 cellar: :any, arm64_monterey: "6931561bcb1b2bf2b3f56cc24867458dc96bb79e7dd1305fa3f4becf77088b9d"
+    sha256 cellar: :any, sonoma:         "c86a325c279e134b003bfac3483aac49d8d7202ec90e774bcacc4cede9fc8d93"
+    sha256 cellar: :any, ventura:        "5f87fb22702196d38f976a764a970ae4bfee3b394a3b5090e0aaacf2500985ba"
+    sha256 cellar: :any, monterey:       "dc8fdc3a168a600b1f98a40c03d8b2032a3f3cee6eb18974cd9c738ce55838ce"
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
   depends_on "qt"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
@@ -53,7 +53,7 @@ class Pc6001vx < Formula
     pid = fork do
       exec bin/"PC6001VX"
     end
-    sleep 20
+    sleep 30
     assert_predicate user_config_dir/"rom",
                      :exist?, "User config directory should exist"
   ensure

@@ -1,31 +1,19 @@
 class Minipro < Formula
   desc "Open controller for the MiniPRO TL866xx series of chip programmers"
   homepage "https://gitlab.com/DavidGriffith/minipro/"
+  url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.7/minipro-0.7.tar.gz"
+  sha256 "febd2aa1a7e8d7d5b2c4de62503f37e562633a1d2b2bf78b788e49ac06847ab4"
   license "GPL-3.0-or-later"
   head "https://gitlab.com/DavidGriffith/minipro.git", branch: "master"
 
-  stable do
-    url "https://gitlab.com/DavidGriffith/minipro/-/archive/0.6/minipro-0.6.tar.gz"
-    sha256 "16b4220b5fc07dddc4d1d49cc181a2c6a735c833cc27f24ab73eac2572c9304a"
-
-    # Fix version number, remove in next release
-    patch do
-      url "https://gitlab.com/DavidGriffith/minipro/-/commit/6b0074466ea5e2c2664362b5fcba4bc8b0172a44.diff"
-      sha256 "a71e107701ff17d1731c3aa57868a822106b0fe1f808f40a88cfbe236faed289"
-    end
-  end
-
   bottle do
-    sha256 arm64_sonoma:   "5fdf1559c70eff5eadab36148badcde72fca212465979c92a297286a70e2b41e"
-    sha256 arm64_ventura:  "c3fb5f07a52ff36e6a477c432a3f6519ebaa1648a8370843c6e873b3bfa8ee38"
-    sha256 arm64_monterey: "5ca7bf6b78312ce94a7ce84a1f2e846f76b4932ad18b3e9f2c5549b8a45cd684"
-    sha256 arm64_big_sur:  "2494b2555acb90436d868b9d1487a0fc53ad8db168be6fd3a4699e04aa0e7165"
-    sha256 sonoma:         "2309fbfdcec2e47c239e1a206f56703afa3b37e7be1155c9204a00472250d075"
-    sha256 ventura:        "5c6f3e4eaf2ea7492e319ff09dc6b47a7f0849723eee2372fd3d33a31feb747f"
-    sha256 monterey:       "7d955b7ea2350118bdd03baee5e366648ff5aa43ed14aa6b8f4d09e794a46870"
-    sha256 big_sur:        "8661941fc4441e0a8dc145030f60cf20c171159612ec2b1135a3c5aa9aff698e"
-    sha256 catalina:       "568b6057efc9388716d4ade043f0483d1a62bd510fb4dc9be0c0d95bfd4e78eb"
-    sha256 x86_64_linux:   "fb07f4a40d15f74501b8bbf7623598eb466464fd4d3b60df2dba32d90152b783"
+    sha256 arm64_sonoma:   "7683f032c841d97795fc78c53bf54eb1001158ff4629ffb8b2bc71a4f8d53206"
+    sha256 arm64_ventura:  "9c24b204d138e6ae6f700f605377fb3b2e79c41598ec4cda73bfb3bc199e81a5"
+    sha256 arm64_monterey: "042ef3b0b0a7a518ae05e9550272397efb42ea7988646812591c14bf86dc486f"
+    sha256 sonoma:         "c693bc5fc151bb8ae485d32fde83a33c37bfc983ae6a0cb5e0b475d1cfae840e"
+    sha256 ventura:        "e554d7dff64cd94861d766390371770ca570f223543cc6080084b0c4fd4a4d74"
+    sha256 monterey:       "a582c896da5a80544e9b6af4729ffc300cbd4d85a41f10b6c1f15327686686a6"
+    sha256 x86_64_linux:   "ea50165c90c5e75b67e01f5911564c96e52742fd14fa822743955472f04a5123"
   end
 
   depends_on "pkg-config" => :build

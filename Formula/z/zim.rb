@@ -1,4 +1,6 @@
 class Zim < Formula
+  include Language::Python::Virtualenv
+
   desc "Graphical text editor used to maintain a collection of wiki pages"
   homepage "https://zim-wiki.org/"
   url "https://github.com/zim-desktop-wiki/zim-desktop-wiki/archive/refs/tags/0.75.2.tar.gz"
@@ -7,8 +9,14 @@ class Zim < Formula
   head "https://github.com/zim-desktop-wiki/zim-desktop-wiki.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "b6b1a5d27bfe83ff8ee09d82d1f85ebf575f8dfe102b09551b9ffe7ec1180c9d"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
+    sha256 cellar: :any_skip_relocation, sonoma:         "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
+    sha256 cellar: :any_skip_relocation, ventura:        "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
+    sha256 cellar: :any_skip_relocation, monterey:       "201282b70e7324e1a7c21306827b3591dfb99f91f1ae941b9b1f1c3f7fa04e43"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40b97490f127ba70d47cf4d8f841259fa4b432ef74e7d83038a46adbb2624d81"
   end
 
   depends_on "pkg-config" => :build
@@ -24,29 +32,29 @@ class Zim < Formula
     sha256 "3267bb3074e934df202af2ee0868575484108581e6f3cb006af1da35395e88b4"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
+    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
+  end
+
   def install
     python3 = "python3.12"
-    site_packages = Language::Python.site_packages(python3)
-    ENV.prepend_create_path "PYTHONPATH", libexec/site_packages
-    resource("pyxdg").stage do
-      system python3, *Language::Python.setup_install_args(libexec/"vendor", python3)
-    end
+    build_venv = virtualenv_create(buildpath/"venv", python3)
+    build_venv.pip_install resource("setuptools")
+    ENV.prepend_create_path "PYTHONPATH", build_venv.site_packages
 
-    ENV["XDG_DATA_DIRS"] = libexec/"share"
-
-    zim_setup_install_args = Language::Python.setup_install_args(libexec, python3).reject { |s| s[/single-version/] }
-    zim_setup_install_args << "--install-data=#{prefix}"
-    system python3, *zim_setup_install_args
-    bin.install (libexec/"bin").children
-    bin.env_script_all_files libexec/"bin",
-                             PYTHONPATH:    ENV["PYTHONPATH"],
-                             XDG_DATA_DIRS: [HOMEBREW_PREFIX/"share", libexec/"share"].join(":")
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install resources.reject { |r| r.name == "setuptools" }
+    venv.pip_install buildpath, build_isolation: false
+    (bin/"zim").write_env_script libexec/"bin/zim",
+                                 XDG_DATA_DIRS: [HOMEBREW_PREFIX/"share", libexec/"share"].join(":")
+    share.install (libexec/"share").children
     pkgshare.install "zim"
 
     # Make the bottles uniform
     inreplace [
-      libexec/site_packages/"zim/config/basedirs.py",
-      libexec/"vendor"/site_packages/"xdg/BaseDirectory.py",
+      venv.site_packages/"zim/config/basedirs.py",
+      venv.site_packages/"xdg/BaseDirectory.py",
       pkgshare/"zim/config/basedirs.py",
     ], "/usr/local", HOMEBREW_PREFIX
   end

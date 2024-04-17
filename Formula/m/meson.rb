@@ -10,13 +10,12 @@ class Meson < Formula
     sha256 cellar: :any_skip_relocation, all: "0754ab41a963c010173f20f5d8a13bb39078d3a26544aba20eb4071cc9914722"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "ninja"
   depends_on "python@3.12"
 
   def install
-    python = "python3.12"
-    system python, *Language::Python.setup_install_args(prefix, python), "--install-data=#{prefix}"
+    python3 = "python3.12"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
 
     bash_completion.install "data/shell-completions/bash/meson"
     zsh_completion.install "data/shell-completions/zsh/_meson"
@@ -25,7 +24,7 @@ class Meson < Formula
 
     # Make the bottles uniform. This also ensures meson checks `HOMEBREW_PREFIX`
     # for fulfilling dependencies rather than just `/usr/local`.
-    mesonbuild = prefix/Language::Python.site_packages(python)/"mesonbuild"
+    mesonbuild = prefix/Language::Python.site_packages(python3)/"mesonbuild"
     inreplace_files = %w[
       coredata.py
       dependencies/boost.py

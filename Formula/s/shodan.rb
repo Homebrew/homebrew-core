@@ -6,17 +6,17 @@ class Shodan < Formula
   url "https://files.pythonhosted.org/packages/c5/06/c6dcc975a1e7d89bc764fd271da8138b318e18080b48e7f1acd2ab63df28/shodan-1.31.0.tar.gz"
   sha256 "c73275386ea02390e196c35c660706a28dd4d537c5a21eb387ab6236fac251f6"
   license "MIT"
+  revision 1
   head "https://github.com/achillean/shodan-python.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1d518ba9b417c2a127d15c6492d4e0233f9fd1acf423bd616127f576e390ff28"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58050b7bc17fcf0191e283305beb2b7f663b7db52791cf6ac4320405d621c33c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "340d737ff11a0f0b9c7fa4b1547a018ad842bbc74d6bd1ab5aa7c6a1802ce801"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4169fa72867824c4b34090780b78b1c23e3f572916a0afe8797788b27bb198f2"
-    sha256 cellar: :any_skip_relocation, ventura:        "782dec452632357e5e6e139374e141b80c1c7459287e4f698541a668deaa51e5"
-    sha256 cellar: :any_skip_relocation, monterey:       "ca7541d4e2ca3b06e2356fb0c72128e09a3ad829a128baab24ca65aa7f078a51"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c120fca58ae9884d3f72f452e4e93ebaf4b14933d143e8e77696d1612e1da2a3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "118addf700f290f0ad656c87f8159b2b0efcc9e1bab3f28621352977d732b234"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "118addf700f290f0ad656c87f8159b2b0efcc9e1bab3f28621352977d732b234"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "118addf700f290f0ad656c87f8159b2b0efcc9e1bab3f28621352977d732b234"
+    sha256 cellar: :any_skip_relocation, sonoma:         "118addf700f290f0ad656c87f8159b2b0efcc9e1bab3f28621352977d732b234"
+    sha256 cellar: :any_skip_relocation, ventura:        "118addf700f290f0ad656c87f8159b2b0efcc9e1bab3f28621352977d732b234"
+    sha256 cellar: :any_skip_relocation, monterey:       "118addf700f290f0ad656c87f8159b2b0efcc9e1bab3f28621352977d732b234"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bd107b771d650ef6e70e22c3754a238d5d0393643606b4583eb2bfc3383d018b"
   end
 
   depends_on "certifi"
@@ -43,13 +43,13 @@ class Shodan < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/70/70/41905c80dcfe71b22fb06827b8eae65781783d4a14194bce79d16a013263/filelock-3.13.1.tar.gz"
-    sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
+    url "https://files.pythonhosted.org/packages/38/ff/877f1dbe369a2b9920e2ada3c9ab81cf6fe8fa2dce45f40cad510ef2df62/filelock-3.13.4.tar.gz"
+    sha256 "d13f466618bfde72bd2c18255e269f72542c6e70e7bac83a0232d6b1cc5c8cf4"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "requests" do
@@ -63,8 +63,8 @@ class Shodan < Formula
   end
 
   resource "tldextract" do
-    url "https://files.pythonhosted.org/packages/02/21/4f2d7d6023650770112dd8144dbc47afabbfaf568a0d39abc0a4f37e8e9e/tldextract-5.1.1.tar.gz"
-    sha256 "9b6dbf803cb5636397f0203d48541c0da8ba53babaf0e8a6feda2d88746813d4"
+    url "https://files.pythonhosted.org/packages/db/ed/c92a5d6edaafec52f388c2d2946b4664294299cebf52bb1ef9cbc44ae739/tldextract-5.1.2.tar.gz"
+    sha256 "c9e17f756f05afb5abac04fe8f766e7e70f9fe387adb1859f0f52408ee060200"
   end
 
   resource "urllib3" do

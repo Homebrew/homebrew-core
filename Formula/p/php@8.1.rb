@@ -2,11 +2,10 @@ class PhpAT81 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.1.27.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.1.27.tar.xz"
-  sha256 "479e65c3f05714d4aace1370e617d78e49e996ec7a7579a5be47535be61f0658"
+  url "https://www.php.net/distributions/php-8.1.28.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.1.28.tar.xz"
+  sha256 "95d0b2e9466108fd750dab5c30a09e5c67f5ad2cb3b1ffb3625a038a755ad080"
   license "PHP-3.01"
-  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -14,14 +13,13 @@ class PhpAT81 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "1fdb8b4f568e8e16203281feb1bd7a71ce0c3f483c21e906c1d542eb750bf010"
-    sha256 arm64_ventura:  "a14ec91bd78be4b4e0eceac89d9b7a34e506e94c81adbba588f812daa2aac71a"
-    sha256 arm64_monterey: "6c38119339300fad83558f1ec3d8c809a76ad25057c58663854007783a2a73d6"
-    sha256 sonoma:         "6ad22a97abbfd1fbe1006fefc93b5d824695318b538583a1ab058bff272c3919"
-    sha256 ventura:        "db36c289bb724bc44f255730d1dd5a1a3653ad9c6070eae7525d49879d6752c7"
-    sha256 monterey:       "85265d5675507809353c7902f17dd13e2a3bbddc5326a9f2ddd28456959cf6ba"
-    sha256 x86_64_linux:   "ab6acb8bcf4928c42770cf421e23a289bc0ba0bd01490a003ccc3d16c6d63c80"
+    sha256 arm64_sonoma:   "2ee362542d9ca3c803f4049110fae53befad4e22f8cf33c2d2cc8fff475a7303"
+    sha256 arm64_ventura:  "a2152857fa7ebb8137d351535318a79ecb68f520e3e709530a9715a01666a962"
+    sha256 arm64_monterey: "1cf81e0a2174921b687d55b00171134fbb59899a6d6ad9d95e13f264d12fc630"
+    sha256 sonoma:         "26e7220ea576fba05320bf116b22cd1b25f20a5a8980fc2c9614e921f5d04cef"
+    sha256 ventura:        "2a3e46df5983eb9674275bac862c87f94d37317f77b4e0d2dcbab94a914f764c"
+    sha256 monterey:       "08df5c1948b7b7c9e8c06f0e34715b5ad4fe669e4d298b3d896cc38d959760d0"
+    sha256 x86_64_linux:   "8eebb242ad22d638b14ffc46a6d97737ff551582cdf5b05265eb68f6b420f9e1"
   end
 
   keg_only :versioned_formula

@@ -29,13 +29,14 @@ class Cgal < Formula
   fails_with gcc: "5"
 
   def install
-    args = std_cmake_args + %w[
+    args = %w[
       -DCMAKE_CXX_FLAGS='-std=c++14'
       -DWITH_CGAL_Qt5=ON
     ]
 
-    system "cmake", ".", *args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do

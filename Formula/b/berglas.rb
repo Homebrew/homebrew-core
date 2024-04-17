@@ -1,18 +1,18 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "98e17818381e23f7ff3f8cdb61cd47a37e11efd55b5b4c476f958d6485a45ce2"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/refs/tags/v2.0.2.tar.gz"
+  sha256 "e00382df4ca08e777fb773c83bd67d54e54dc423a493f993a3f023d38f811aab"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "98fc4b5a4d6338ed8f324c3c8af8e0c2908dbc85bdfc7216955bafea4b99110b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "210e91db27dce657d744dabdeeda9b341503a28e4a8f44be5f89198e73e0dcbd"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b09fdb132995979c521ce96adc4a6ad51895bc63e1effbffe5eac82c8c81817d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "188dc20a2aa97e0a48cab0b3edfce81dccac303351d0b55716c6035e6d4606fc"
-    sha256 cellar: :any_skip_relocation, ventura:        "b942a606d0a784013b2516ce357a76fc7fc298f6d5c4b4fbb4c0fd5437813795"
-    sha256 cellar: :any_skip_relocation, monterey:       "1aaef701eb89bceb4ab1db4373ca9b7091109bc92b635c39dab0c27ff80cb9dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4449dc88432171bea8e292f1dd472d7d0ce42848e57f27a9a9f8376a910b14cf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cedb09bebbe4c8f6933a1b810d8e0d9ed236d050c273a66952a57fd324348318"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f3a8aa66bb4c340a5d4fcf3c9a57f3d989c161a131ff93e13e1fd11db7886f37"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "860f22ab116f25a3a31ce31c6972dc9bf69a67e79fb0bc1fb69f300873cf1ea2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d972024d5e88d62857df6303f1ad06cf9edbd6071c02f334c99fe12107835358"
+    sha256 cellar: :any_skip_relocation, ventura:        "b4c0cba269b5c51fd1a43c2f05209eebc0e32a8d4d2b3660c9620724b9282e13"
+    sha256 cellar: :any_skip_relocation, monterey:       "e3a61386af637a62a61dff1e1cd0c05c5e7ad543fb7bf40aeadbad38aecf8a98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "161cd8874099448d3ca75b02d426c9cc9aec558fba0318477970bbf9c6d5bb57"
   end
 
   depends_on "go" => :build
@@ -20,7 +20,8 @@ class Berglas < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/GoogleCloudPlatform/berglas/internal/version.Version=#{version}
+      -X github.com/GoogleCloudPlatform/berglas/v2/internal/version.name=berglas
+      -X github.com/GoogleCloudPlatform/berglas/v2/internal/version.version=#{version}
     ]
     system "go", "build", *std_go_args(ldflags:)
 

@@ -4,18 +4,19 @@ class VideoCompare < Formula
   url "https://github.com/pixop/video-compare/archive/refs/tags/20240303.tar.gz"
   sha256 "57c2b39ff80c4325f87fdf0f6b1fb4b388baf19cd660428518c205b57102e970"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "9868ea39e01bc32c1bccf79b9aab59d62fd6def9601de9e3a0eb5d5da5edc821"
-    sha256 cellar: :any,                 arm64_ventura:  "272de02678e2620c2fe28f7f790fcbdafd8eaa3a124a4a239ac74efb1b37bc4f"
-    sha256 cellar: :any,                 arm64_monterey: "79ec40cd8782d5400846d69a2272f18d08782af464d42dd0838e3ea5e7429925"
-    sha256 cellar: :any,                 sonoma:         "5d57450386c98799a6ec1de483b0d3e1c0d0e5bd0f89216f6aa98fada7f6f622"
-    sha256 cellar: :any,                 ventura:        "0fbbc24a10471bf7df788e116f7e4c9e109a4fb00f529d3458899302085c0164"
-    sha256 cellar: :any,                 monterey:       "4a07f7c9c06365c626c1405bcefd4e227402fc998abc92e53be054103b4abaf4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0276bf304d8665498ffba5cffd863ff08c8f9b297bf700e2338905558c1315c4"
+    sha256 cellar: :any,                 arm64_sonoma:   "a43266fcfe327139a6d6b1d8d6543bbed69ad28f9e3af4c8ae835e9b6c9d7d07"
+    sha256 cellar: :any,                 arm64_ventura:  "eb591dc382268b7976e7100cae0a97a170e642b2236a9a060488d45287f56c53"
+    sha256 cellar: :any,                 arm64_monterey: "08819b4dad9eba51e6e181e8d224e653547f4e4973b5854772cf1ed14ad6aff0"
+    sha256 cellar: :any,                 sonoma:         "4b5a6cfc13abb40f23280fbae3d40fb5bb425ca92d48e33c2126aeebb75c4d14"
+    sha256 cellar: :any,                 ventura:        "573decf9c0b41a6e96203881191fd9d40df47c531cc148f0278f58792de93b53"
+    sha256 cellar: :any,                 monterey:       "cd8f0c7091da06e922e444335f1ed9983b7a902114f774e424d7ceaa94d5adc1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "63c3d54976c4b33d88478ceb344d5ca1f5a73ce62ca0aa3b5c936189d56f14a4"
   end
 
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
   depends_on "sdl2"
   depends_on "sdl2_ttf"
 

@@ -6,6 +6,7 @@ class FfmpegAT28 < Formula
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ffmpeg.org/download.html"
@@ -13,13 +14,13 @@ class FfmpegAT28 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "00fe33dbef855097d0a45c4c154c0a96b582343a59456cedd13ace31cf7300aa"
-    sha256 arm64_ventura:  "709564e3afc39a1c3e8ad99a2e6c1dcbed32060cc1eea2aad4d627468be60dcc"
-    sha256 arm64_monterey: "695f2440ba89672b76d159b613ceebfaf444a1b606a084298a704a0ca43cee47"
-    sha256 sonoma:         "a7ef1aa921ac56de58f16cf393255e747932bc61d74d5b1f4e02399bd4ff5766"
-    sha256 ventura:        "8e3204980c368a650a13a4943b07e41ef3c94b346ba7e4ebb471aecdba3f09bb"
-    sha256 monterey:       "02519afb764a5e0b40eb81907e6821aa81a69b8c0dfccf464382c2ee75d9090a"
-    sha256 x86_64_linux:   "3e335a395cf3a49a6a9e2eab1f4acabfe7c24916a3bdc2b391ed63837bb9be20"
+    sha256 arm64_sonoma:   "ce4b0294dbd37cc84c451100c83b35d0dbb4a4f62c3ae6b897577928c2824c62"
+    sha256 arm64_ventura:  "9a6e193bd3e2c76dd1d44daa7f9da5e07e66ce364d83908e5e7fe26512545e2f"
+    sha256 arm64_monterey: "878e4d8b5d2e0da0f3dc31a802e3081e9a5bccde2a71cb171490ee8f1b9a271b"
+    sha256 sonoma:         "a190fb614704211a2d38ef2199c4da37c0318f5e59b40c799e105f7dbd084c50"
+    sha256 ventura:        "39dc3173f263a1a52631f29a2a24c9ca99307e10ddb02317bd73b797f097dce6"
+    sha256 monterey:       "7a9bf7a4e873d9693d5c14b2340382e8731acc1633a50f2f4b18b67cfb55401f"
+    sha256 x86_64_linux:   "a547e14ec86a6927096e887ac5f7308cdfdd3f4e0d3341afb3367f2e86e0e82a"
   end
 
   keg_only :versioned_formula
@@ -49,6 +50,9 @@ class FfmpegAT28 < Formula
   depends_on "xz" # try to change to uses_from_macos after python is not a dependency
 
   def install
+    # Work-around for build issue with Xcode 15.3
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
     args = %W[
       --prefix=#{prefix}
       --enable-shared

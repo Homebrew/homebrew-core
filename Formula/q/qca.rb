@@ -4,7 +4,7 @@ class Qca < Formula
   url "https://download.kde.org/stable/qca/2.3.8/qca-2.3.8.tar.xz"
   sha256 "48759ca86a0202461d908ba66134380cc3bb7d20fed3c031b9fc0289796a8264"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   head "https://invent.kde.org/libraries/qca.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,13 @@ class Qca < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "216ca2aef055ba9ce90ec813b8dc039041e90b821e113563ad825879fc60cd17"
-    sha256 cellar: :any,                 arm64_ventura:  "bc3767a5578438daa50b649affd0d072f7b3b773142f0b50870517e00d3088b1"
-    sha256 cellar: :any,                 arm64_monterey: "1f81f86cd7bd048b243cd251e74020c0f9f9fe38b246ae4dd59fffa819a6e49c"
-    sha256 cellar: :any,                 sonoma:         "41c866aa265c7f6a96faa858e1ccf306e4fa1e9e76cbbb4a411a561e8849f799"
-    sha256 cellar: :any,                 ventura:        "b65a8e4f2a6e8a67f11e27b6a58e9b3da735de2f0795ff199e3bbda7561f018e"
-    sha256 cellar: :any,                 monterey:       "da6412ada84a28846ba1e57dc03bd244ba630e5cc58d7366e209f8bf64af59c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9b0c4064e9cdfa23b770c86994bb3b4b2069a1b51ef70e8e9926ae7db0fca2ca"
+    sha256 cellar: :any,                 arm64_sonoma:   "8ac1bdc66f6ac4c7153b91cdf1dd6526f8a0da87d3c2b9239dd88619d6f77077"
+    sha256 cellar: :any,                 arm64_ventura:  "1af6acb759656c3c345c9d54a3c395474b899762bd6f0a1cbd4b3e36db4d8ed8"
+    sha256 cellar: :any,                 arm64_monterey: "4fd1f850b3d5ceb078245f0a10c67cc50e5053ac04ef0c49f39fe67d0395f463"
+    sha256 cellar: :any,                 sonoma:         "e97e6bb95d11830711d17e1fad1191421daaf691d640ffea3d88d8b8b520f4da"
+    sha256 cellar: :any,                 ventura:        "e919ef19be9690235db663071744edc8ef441169d224982ad475f9835e910c59"
+    sha256 cellar: :any,                 monterey:       "160a221433d2bf2e86b21ce168812ceb240ae9b2d12801114c13ba8d7842b293"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3ed3a4bc1916583872a4c8915ec8ab669082cd3e425ac2a3318a2017ea62384a"
   end
 
   depends_on "cmake" => :build

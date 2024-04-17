@@ -1,19 +1,19 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
-  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240116.1.tar.gz"
-  sha256 "3c743204df78366ad2eaf236d6631d83f6bc928d1705dd0000b872e53b73dc6a"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240116.2.tar.gz"
+  sha256 "733726b8c3a6d39a4120d7e45ea8b41a434cdacde401cba500f14236c49b39dc"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3d4e420f6cbe5173bb119eccc8dc1e8c157910960572c320b492fa2b86fbfd15"
-    sha256 cellar: :any,                 arm64_ventura:  "c8b3c00165314428a961270c155f99293da118ce6e3f5168d53197d802666c65"
-    sha256 cellar: :any,                 arm64_monterey: "5e755850a1f19269b6d437a5664c2dac11ae8dc3b6524c79c3948a6529382a34"
-    sha256 cellar: :any,                 sonoma:         "1a341bebdc6e3100bcf70854e74eb50a75e20aaf4026500d014abe8ebf5042bf"
-    sha256 cellar: :any,                 ventura:        "6fe66ac0982beac4e53472c17e1058d57cd83aceac7cbd7a44156f5ac181cb3f"
-    sha256 cellar: :any,                 monterey:       "c78fb6bcee52344a1e80eb9262b379ac29665692e6d59eef8f1c103503d921b4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a5d11d4048802f83a1fd97656df8c105b60c3433523542a51a8cd4d0cb5d24a2"
+    sha256 cellar: :any,                 arm64_sonoma:   "1f81e5b4e59baadeeb034b9e3ab39bfd6fa3452ba040454b20bc7be02f04e3f1"
+    sha256 cellar: :any,                 arm64_ventura:  "4df3835a2f07aa349e5642ac25f680a825a9354252882a22119c027667dcf1b9"
+    sha256 cellar: :any,                 arm64_monterey: "22261c6210c1f61544c473e07f72fa9b6d8eaa9ff071de86727698678e27fdd0"
+    sha256 cellar: :any,                 sonoma:         "8067cb2758fa425cf8f8bb6f54a7ce623adf88dfcada2de56f99cd5e32648037"
+    sha256 cellar: :any,                 ventura:        "98ccb8fc65de2133f4ddee9261e5ec9e10d8af5cb5adc58a0f8ddda7465eaa37"
+    sha256 cellar: :any,                 monterey:       "51f2422d7012a1de5a8b16a7b443207cefa7d3a9331f14b8c449f4bdbe655b38"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9047cdcf5ca116319459936eea3e768ab1498b63195a9484cf283bb263ee74f"
   end
 
   depends_on "cmake" => :build

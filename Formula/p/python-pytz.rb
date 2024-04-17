@@ -15,7 +15,8 @@ class PythonPytz < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e90e84f24431767d4dd3691b486ca2ffdb3f32a10cd6f89802a0eea587f7533e"
   end
 
-  depends_on "python-setuptools" => :build
+  disable! date: "2024-07-04", because: "does not meet homebrew/core's requirements for Python library formulae"
+
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
@@ -26,8 +27,17 @@ class PythonPytz < Formula
   def install
     pythons.each do |python|
       python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args, "."
+      system python_exe, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
+  end
+
+  def caveats
+    <<~EOS
+      Additional details on upcoming formula removal are available at:
+      * https://github.com/Homebrew/homebrew-core/issues/157500
+      * https://docs.brew.sh/Python-for-Formula-Authors#libraries
+      * https://docs.brew.sh/Homebrew-and-Python#pep-668-python312-and-virtual-environments
+    EOS
   end
 
   test do

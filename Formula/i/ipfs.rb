@@ -2,8 +2,8 @@ class Ipfs < Formula
   desc "Peer-to-peer hypermedia protocol"
   homepage "https://ipfs.tech/"
   url "https://github.com/ipfs/kubo.git",
-      tag:      "v0.27.0",
-      revision: "59bcea8783e4117d56aeb81685ce33b8ddb13a1b"
+      tag:      "v0.28.0",
+      revision: "e7f0f340c65379c1dd2d80967ae625614f1b9eae"
   license all_of: [
     "MIT",
     any_of: ["MIT", "Apache-2.0"],
@@ -16,13 +16,13 @@ class Ipfs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7e31b3fe92b4207b14469e2a9e5c62141194da2e11733fd2edb9158d80f48d6c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d876e9663cd3f18975dc5cceff006c06cf131417d0ae6c14e9c1222f4f2cf9b3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e520f4bafdc83308165ac52713cf6a86eee689750c7c2a52c3cc68a330e0c96c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fde102085a752671e3b8b48b2828cf4bb517e68df60ec3fbfb5e94ed0c81f68c"
-    sha256 cellar: :any_skip_relocation, ventura:        "fd1b6bf78a3709991091e8850a09cfcf37c63d3a717c3d66e0fb715aef285a62"
-    sha256 cellar: :any_skip_relocation, monterey:       "6a778a4712739429ec44252c566c74d9a198d756d73dbd0c212b69dd3652f727"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dd89ebcde1e0a1354a2f7b9d9b1cf9385b98e663961c01f60c2fa4a451933ce9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1939f88ec97ede8a33e67dff6d3d690df67364ffba405c2af8023bdd2ab693c4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "650d65ce584e52ca16c27a8db054681652de2de7b434b00e077d1850929a2543"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "4ce36808666f31a02d8e8b438859b530ee5c8f09d5427824e45d6029b7a0c70b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "347a0696d92a4956dac1335c839c34e88508e78ea8ab5581a768c61c198b7701"
+    sha256 cellar: :any_skip_relocation, ventura:        "351e64b0ac54f1412b92d314b123d22bc604a97a3cbc24d1858c9b90a3f436ac"
+    sha256 cellar: :any_skip_relocation, monterey:       "40a18d345f9fa1a270f02905bf718df539261f9b671b21bf1cc4945291b62876"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46aad39b37c80f05db69b4192f35f554c22f6375488971fa7f7a78a3d78b3be3"
   end
 
   depends_on "go" => :build

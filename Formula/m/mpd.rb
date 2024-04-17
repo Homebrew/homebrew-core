@@ -4,23 +4,24 @@ class Mpd < Formula
   url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
   sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b649546463292d458993740543885c92e45b0dd464dc875a824d54863a633f9d"
-    sha256 cellar: :any, arm64_ventura:  "4626d9887b40acd2fe4d7d95f772c18b39847f02b645cf36a62c2a87862c4bfa"
-    sha256 cellar: :any, arm64_monterey: "2bfbfb85b51d001980de8acebee8474e3ebc9c642178ce455306ce20d9860343"
-    sha256 cellar: :any, sonoma:         "2f9f22878f2b13f55e6e71903b7af4296a255dce392ae962c121bf583e63d825"
-    sha256 cellar: :any, ventura:        "e422b688212ed863d6b6d46d4bfcb5288b3ffc5deac349c2f295e1b17e1aa3dd"
-    sha256 cellar: :any, monterey:       "f0e220960e24c90bbed09158d5a0c83a6617d08d244578372284feedb46fdd16"
-    sha256               x86_64_linux:   "d63ad43240eb10cb399f7dcaf61a9e0712e1b08ad7720f9b7cbc5bd656bdbed7"
+    sha256 cellar: :any, arm64_sonoma:   "75aaa76bf8c7ca80c95031dca7edb2f5d2be3be5ca4497f892991af5f46c84e1"
+    sha256 cellar: :any, arm64_ventura:  "edc7dc059af8a6e12743864c0c28350106562a28a97dd81d47c2be90a7a200e9"
+    sha256 cellar: :any, arm64_monterey: "69357ae80afb04a5280ee467d0fb57b80a4c45e7ee52a34e1900ebb3b0a19ead"
+    sha256 cellar: :any, sonoma:         "9b6fd7a48bca06aedc8b01189f34ede4885b128cd93b44b33a516b850c986dce"
+    sha256 cellar: :any, ventura:        "3264fcec94c16f31feda5ae7811f7afe0ef7577694a6824b62af86360b19e4a4"
+    sha256 cellar: :any, monterey:       "ab6395db650c07787ae9b76d68829abb7c8d651787ee4203b36a70f4f45472b0"
+    sha256               x86_64_linux:   "42f7bdc9e0f5eea39128ac7c3af0f3aac59488bbc58b12ffae15633e3ea38b92"
   end
 
   depends_on "boost" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+  depends_on "chromaprint"
   depends_on "expat"
   depends_on "faad2"
   depends_on "ffmpeg"
@@ -65,6 +66,7 @@ class Mpd < Formula
       -Dsoundcloud=disabled
       -Dao=enabled
       -Dbzip2=enabled
+      -Dchromaprint=enabled
       -Dexpat=enabled
       -Dffmpeg=enabled
       -Dfluidsynth=enabled

@@ -6,15 +6,16 @@ class Litecli < Formula
   url "https://files.pythonhosted.org/packages/f4/87/94afa9501babb6b1801fa51581689d1854092d5bf949d0aced2327616a65/litecli-1.10.1.tar.gz"
   sha256 "37e6801f6be00d5d5853b8881db1ffdbbe9b0817c6c61bb2d9c7962f6cffa08f"
   license "BSD-3-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
-    sha256 cellar: :any_skip_relocation, monterey:       "e3526222ee5dbbebb1f71db8924731a5aae4e0f20a281f7d9fa9a1f25b2f8dbf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "408166ccb352b19594eb8c20c00c324d1c6f4e92a0d36989aeb6fcb61962a990"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "024331ecc820a4cda1ea19948e6d8c5814817de54a2fca36c07e2a7e998800af"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "024331ecc820a4cda1ea19948e6d8c5814817de54a2fca36c07e2a7e998800af"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "024331ecc820a4cda1ea19948e6d8c5814817de54a2fca36c07e2a7e998800af"
+    sha256 cellar: :any_skip_relocation, sonoma:         "024331ecc820a4cda1ea19948e6d8c5814817de54a2fca36c07e2a7e998800af"
+    sha256 cellar: :any_skip_relocation, ventura:        "024331ecc820a4cda1ea19948e6d8c5814817de54a2fca36c07e2a7e998800af"
+    sha256 cellar: :any_skip_relocation, monterey:       "024331ecc820a4cda1ea19948e6d8c5814817de54a2fca36c07e2a7e998800af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "425db02d8f693218b50fb6605ea95e1b9a4b1bc30bcce4fd3d748dac5d033016"
   end
 
   depends_on "python@3.12"
@@ -52,8 +53,8 @@ class Litecli < Formula
   end
 
   resource "sqlparse" do
-    url "https://files.pythonhosted.org/packages/65/16/10f170ec641ed852611b6c9441b23d10b5702ab5288371feab3d36de2574/sqlparse-0.4.4.tar.gz"
-    sha256 "d446183e84b8349fa3061f0fe7f06ca94ba65b426946ffebe6e3e8295332420c"
+    url "https://files.pythonhosted.org/packages/50/26/5da251cd090ccd580f5cfaa7d36cdd8b2471e49fffce60ed520afc27f4bc/sqlparse-0.5.0.tar.gz"
+    sha256 "714d0a4932c059d16189f58ef5411ec2287a4360f17cdd0edd2d09d4c5087c93"
   end
 
   resource "tabulate" do

@@ -5,18 +5,18 @@ class ApifyCli < Formula
 
   desc "Apify command-line interface"
   homepage "https://docs.apify.com/cli"
-  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.19.3.tgz"
-  sha256 "1ff99d74350a97e44fe158de4bf921d392420090e295d22dd0911430c9175b3a"
+  url "https://registry.npmjs.org/apify-cli/-/apify-cli-0.19.4.tgz"
+  sha256 "4c5b11807e8b38311c76aa9409dd5089f637392e57ac77fba50550280c19fce2"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "660380298703db6f2ca2466918799e5a52fb1f69569e2b95e2aff0a8aa148e26"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "660380298703db6f2ca2466918799e5a52fb1f69569e2b95e2aff0a8aa148e26"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "660380298703db6f2ca2466918799e5a52fb1f69569e2b95e2aff0a8aa148e26"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a5f76e292228716f457829ba04c7cbc3e381e093d9b66056a0669708e2e1ce4c"
-    sha256 cellar: :any_skip_relocation, ventura:        "a5f76e292228716f457829ba04c7cbc3e381e093d9b66056a0669708e2e1ce4c"
-    sha256 cellar: :any_skip_relocation, monterey:       "a5f76e292228716f457829ba04c7cbc3e381e093d9b66056a0669708e2e1ce4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c971ecf9877daecc47a51952d3b51a004128c213859c1944843c64190236e713"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cd60b12f94067ec32567dc8a15d69c8450474e550cf8b4e43a0627b6f287f7a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd60b12f94067ec32567dc8a15d69c8450474e550cf8b4e43a0627b6f287f7a7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cd60b12f94067ec32567dc8a15d69c8450474e550cf8b4e43a0627b6f287f7a7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6b4c0d2c720fb6dbb1bde62ae5567ecebbdb2536a6220fe42d7067a8138c94c1"
+    sha256 cellar: :any_skip_relocation, ventura:        "6b4c0d2c720fb6dbb1bde62ae5567ecebbdb2536a6220fe42d7067a8138c94c1"
+    sha256 cellar: :any_skip_relocation, monterey:       "6b4c0d2c720fb6dbb1bde62ae5567ecebbdb2536a6220fe42d7067a8138c94c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8fada99333ccdeb9cbaad9cfcca3ffbf20a71b3ca42a5d0ffbcee6442ead5adc"
   end
 
   depends_on "node"

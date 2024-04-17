@@ -6,17 +6,17 @@ class Iocextract < Formula
   url "https://files.pythonhosted.org/packages/ad/4b/19934df6cd6a0f6923aabae391a67b630fdd03c12c1226377c99a747a4f1/iocextract-1.16.1.tar.gz"
   sha256 "ec1389a76a5083f643652579610e8313d27ed5821fc57e7b046c23ddec181d44"
   license "GPL-2.0-only"
-  revision 3
+  revision 4
   head "https://github.com/InQuest/iocextract.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d86585b482ba85b6e5b3c9bc3397079f0548a43830e0b65ee7d0d467e4c0139"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f508c175a06ac11e21148cf2e2db0230cc61ec1fbcb710a1dbb72a2627df9fc6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "119f4a8fba977ac970194af3541c360d2eda733b602b7a818d58213b35a05c96"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1639fb7a6c5891976d8f70f3c8a1fb7cb103ed71271ca3562f32845af9e47983"
-    sha256 cellar: :any_skip_relocation, ventura:        "257f05b3e1cf33def37fb23276fdf619cfd7dc4cf774a4f645352b9068d3a82f"
-    sha256 cellar: :any_skip_relocation, monterey:       "5972f61a3fb2ebaf9eb789a52ae9a3b740dbde733c218451a43005ba854c2c37"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f2318a0686892d3ff5714ba7bf814b84574ea888939212f4cf7655bbd7dff198"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1458441aa77c472ea153e293888b44aada8cadc09eca779f8965f768cd469d0e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f8dd70df3e85fa300bbc88aba9d7f1d6c9b830ae4fc1cd9ff6ae1666ae8689df"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f48773fc0c7d34d3d4025e4666e243de27d7aee23fe14d15c3547dac8a95882"
+    sha256 cellar: :any_skip_relocation, sonoma:         "541e1c7196d0bb004cbba1258d38e2b61643c76f7c0eb8be0fde39977e6ee2e4"
+    sha256 cellar: :any_skip_relocation, ventura:        "36faddfefdf07f00a3df8730cd0b48d754f62d7441f62ac53490220718c19058"
+    sha256 cellar: :any_skip_relocation, monterey:       "e50bdd7f4cb24f4f10b7ee6c0bb98091fea60250ee1cd42dd8dce45fa0641252"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "50e66a02a05ea4c4742f89f07da695838151882ed3ae88fbe6662899f1f94847"
   end
 
   depends_on "certifi"
@@ -28,8 +28,8 @@ class Iocextract < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "regex" do

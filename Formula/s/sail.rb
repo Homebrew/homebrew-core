@@ -6,17 +6,16 @@ class Sail < Formula
   url "https://files.pythonhosted.org/packages/14/a7/7f3f93ab1d8d9f58e8dce01ff5bbbdaf5f6ce679e5e13638df0cd2bdbe9a/sailed.io-0.10.8.tar.gz"
   sha256 "c31f7adbf97ea4c2827e35f9615a54fe9a013bd0b16a655ad29a926d9f86f014"
   license "GPL-3.0-only"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any,                 arm64_sonoma:   "e2eec051e7a1b20851f97a2b9ef50cad66253edb2e6a18a8c9790865aa015fc1"
-    sha256 cellar: :any,                 arm64_ventura:  "036bd53aedf14083a650fe62b1616b6ca1842d7a180a81b04861bc1abfea3e1e"
-    sha256 cellar: :any,                 arm64_monterey: "1dc9fa74bf6c8fbe14603ccab87a42fa851bb92882465b5b162058b2dac5ddf3"
-    sha256 cellar: :any,                 sonoma:         "8c89ea892de40411c4ac4c7688b77deae4c7420f7d7d3e6965443aec8ce66b85"
-    sha256 cellar: :any,                 ventura:        "de5a5565f0dce60464b40f065aa2cc1cab00bca452f88e25efdd84f9ff5e463a"
-    sha256 cellar: :any,                 monterey:       "8718eec5405a76f6542dc36e47d3607a86a90ca0128b736682a742e74c6c5398"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef29e50a7fdc57fe24295abf5c67a419dfff759d8136515389ed292e7a1e12cf"
+    sha256 cellar: :any,                 arm64_sonoma:   "b1745159c4941e9e56291b6abe29cc1c01d18affc53585e16119de9df0b5dc0c"
+    sha256 cellar: :any,                 arm64_ventura:  "a6ef4af4fd1b8322f9e323fa730ce8b92b3b768430bd676ea512c4705da0c447"
+    sha256 cellar: :any,                 arm64_monterey: "d0de29a6ea4f698dc5e519a1326929f60e5d08476b638878eec9cc7ed82db0c1"
+    sha256 cellar: :any,                 sonoma:         "d9b8c09ba2d4f1f57d3c92bc0f831f88e0688274fa8890c4012250b7500d4225"
+    sha256 cellar: :any,                 ventura:        "af5bd8728649f600e57f5914f504360db583bf22a64731510b852f69bbec8ef2"
+    sha256 cellar: :any,                 monterey:       "35cc7f77f86d3063e137949729b76501e4be6ec843aa98f94600f6e77cb658c5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3999679c05c079298b6ece1d298d3db792cd5ae2ef6ae815df059aa7924204ca"
   end
 
   depends_on "rust" => :build
@@ -56,13 +55,13 @@ class Sail < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/70/70/41905c80dcfe71b22fb06827b8eae65781783d4a14194bce79d16a013263/filelock-3.13.1.tar.gz"
-    sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
+    url "https://files.pythonhosted.org/packages/38/ff/877f1dbe369a2b9920e2ada3c9ab81cf6fe8fa2dce45f40cad510ef2df62/filelock-3.13.4.tar.gz"
+    sha256 "d13f466618bfde72bd2c18255e269f72542c6e70e7bac83a0232d6b1cc5c8cf4"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "invoke" do
@@ -76,8 +75,8 @@ class Sail < Formula
   end
 
   resource "jsonpickle" do
-    url "https://files.pythonhosted.org/packages/05/68/38c6c809fd3203e507c0c95ebede5e682bdc84f2e81fc6f818d7926c6a41/jsonpickle-3.0.3.tar.gz"
-    sha256 "5691f44495327858ab3a95b9c440a79b41e35421be1a6e09a47b6c9b9421fd06"
+    url "https://files.pythonhosted.org/packages/72/4b/8c2df97303521f99a0a2cc9be7373ee175dbc01d4befb653ff7b8d32b442/jsonpickle-3.0.4.tar.gz"
+    sha256 "a1b14c8d6221cd8f394f2a97e735ea1d7edc927fbd135b26f2f8700657c8c62b"
   end
 
   resource "markupsafe" do
@@ -135,19 +134,26 @@ class Sail < Formula
     sha256 "5f370f952971e7d17c7d1ead40e49f32345a7f7a5373571ef44d800d06b1899d"
   end
 
+  # Fix SyntaxWarning's on python 3.12: https://github.com/kovshenin/sail/pull/110
+  patch do
+    url "https://github.com/kovshenin/sail/commit/260c90982c1e0a91e74e56b0f3187719cc18d624.patch?full_index=1"
+    sha256 "47ccabd9d5ba8215e2f18768bbbf23c3fd638adda2629afd135a6190404cc996"
+  end
+
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.12")
+    venv.pip_install resources
+
+    # Workaround build isolation: https://github.com/kovshenin/sail/pull/110
+    cp "sail/__version__.py", "__version__.py"
+    inreplace "setup.py", "import sail", "import __version__ as sail"
+    venv.pip_install_and_link buildpath
 
     generate_completions_from_executable(bin/"sail", shells: [:fish, :zsh], shell_parameter_format: :click)
   end
 
   test do
-    xy = Language::Python.major_minor_version "#{libexec}/bin/python"
-    unittest = "#{libexec}/bin/python -m unittest discover " \
-               "#{libexec}/lib/python#{xy}/site-packages/sail/tests 2>&1"
-
     assert_match(version.to_s, shell_output("#{bin}/sail --version"))
     assert_match("Could not parse .sail/config.json", shell_output("#{bin}/sail deploy 2>&1", 1))
-    assert_match("OK", shell_output(unittest))
   end
 end

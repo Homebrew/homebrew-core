@@ -3,8 +3,8 @@ class Pnpm < Formula
 
   desc "Fast, disk space efficient package manager"
   homepage "https://pnpm.io/"
-  url "https://registry.npmjs.org/pnpm/-/pnpm-8.15.6.tgz"
-  sha256 "01c01eeb990e379b31ef19c03e9d06a14afa5250b82e81303f88721c99ff2e6f"
+  url "https://registry.npmjs.org/pnpm/-/pnpm-9.0.1.tgz"
+  sha256 "46d50ee2afecb42b185ebbd662dc7bdd52ef5be56bf035bb615cab81a75345df"
   license "MIT"
 
   livecheck do
@@ -13,13 +13,13 @@ class Pnpm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2de2aa0effdfaac69c4be6ff788dca18f17a4a0d66e62c4c1ae0de6bfb658494"
-    sha256 cellar: :any,                 arm64_ventura:  "2de2aa0effdfaac69c4be6ff788dca18f17a4a0d66e62c4c1ae0de6bfb658494"
-    sha256 cellar: :any,                 arm64_monterey: "2de2aa0effdfaac69c4be6ff788dca18f17a4a0d66e62c4c1ae0de6bfb658494"
-    sha256 cellar: :any,                 sonoma:         "2b17c0499f9226d8a82c3217562e395e6fd93b99644ad479780def5c50eff4a9"
-    sha256 cellar: :any,                 ventura:        "2b17c0499f9226d8a82c3217562e395e6fd93b99644ad479780def5c50eff4a9"
-    sha256 cellar: :any,                 monterey:       "2b17c0499f9226d8a82c3217562e395e6fd93b99644ad479780def5c50eff4a9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c096d69e09fd440ad819c83473e563ca41189151330655984bf2a09e989bc9a"
+    sha256 cellar: :any,                 arm64_sonoma:   "ff6ac6ecaac4ef21da82cb01ec51e5ebf77492ee57f3ce965e38e5c8732841a3"
+    sha256 cellar: :any,                 arm64_ventura:  "ff6ac6ecaac4ef21da82cb01ec51e5ebf77492ee57f3ce965e38e5c8732841a3"
+    sha256 cellar: :any,                 arm64_monterey: "ff6ac6ecaac4ef21da82cb01ec51e5ebf77492ee57f3ce965e38e5c8732841a3"
+    sha256 cellar: :any,                 sonoma:         "137119528c4efeadc99e72c04cdc811b066d75dd81bcad7b1d5bf7bcfe5a34a9"
+    sha256 cellar: :any,                 ventura:        "137119528c4efeadc99e72c04cdc811b066d75dd81bcad7b1d5bf7bcfe5a34a9"
+    sha256 cellar: :any,                 monterey:       "137119528c4efeadc99e72c04cdc811b066d75dd81bcad7b1d5bf7bcfe5a34a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "404da3723cade9f26e9236821eaeea947f5aa9ce04a6095b694b10cd22b04e4b"
   end
 
   depends_on "node" => :test

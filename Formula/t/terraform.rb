@@ -9,11 +9,6 @@ class Terraform < Formula
   license "MPL-2.0"
   head "https://github.com/hashicorp/terraform.git", branch: "main"
 
-  # TODO: Remove this if/when the formula is deprecated.
-  livecheck do
-    skip "Formula will not be updated due to BUSL license change"
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f43afa7c6970e1bc768f739829ee589e88fd2b9275f867c5d0be60369ce0772e"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c6612f5b1c9921da6fa968698a1d657edaff64fbf62d53ae06850cc6897d8d0"
@@ -26,6 +21,9 @@ class Terraform < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "67fee97d6db4e6fb1d53a3c0f5bb092b11cd41966a36078a5d846272d59bb8ea"
   end
 
+  # https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+  deprecate! date: "2024-04-04", because: "changed its license to BUSL on the next release"
+
   depends_on "go" => :build
 
   conflicts_with "tfenv", because: "tfenv symlinks terraform binaries"
@@ -36,6 +34,16 @@ class Terraform < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+  end
+
+  def caveats
+    <<~EOS
+      We will not accept any new Terraform releases in homebrew/core (with the BUSL license).
+      The next release changed to a non-open-source license:
+      https://www.hashicorp.com/blog/hashicorp-adopts-business-source-license
+      See our documentation for acceptable licences:
+        https://docs.brew.sh/License-Guidelines
+    EOS
   end
 
   test do

@@ -4,15 +4,16 @@ class Scrcpy < Formula
   url "https://github.com/Genymobile/scrcpy/archive/refs/tags/v2.4.tar.gz"
   sha256 "60596f6d4c11163083da3e6805666326873ed57f7defd8a20256b928a1d3503b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "7fbdcf74ec311ba8da752faae8cc30da3d7af70cd7aa5f437edea15765eec62a"
-    sha256 arm64_ventura:  "3fb95fbf9a5a4aadb4ab2d35eb93c3679e71b52a90df7b10b7627b6b38c39f59"
-    sha256 arm64_monterey: "e89e1a0c634a3701e790981bb274b48a0905b108e6cbb03201988d01a82ecf83"
-    sha256 sonoma:         "fadc8e8ddce26adc9703ac0ed769a01f6a22a853929698c0d96a8ab3f1f14e49"
-    sha256 ventura:        "8dd7eb1490110dd2ed9f31186de437757060881a928418f7451177314004ded5"
-    sha256 monterey:       "998db741b12534a698e36f4893fbc7c66f396614bda3a5d9e049d6dd92f12432"
-    sha256 x86_64_linux:   "df8292347c4d57fa7341a4402a92f4b0a4353e9ed7664ba20bc5ce609871ebf9"
+    sha256 arm64_sonoma:   "50ae5100944caee2fb98ee68766a124822c6b981998057052c60f94a8f17ded6"
+    sha256 arm64_ventura:  "bc0db20754cf6f069b7e5159208e8ebdaf6c4407a2deda8a379da368488f5be1"
+    sha256 arm64_monterey: "65bc818c9a9a54896ffbc2a4af5bfd7835d793d8f79a1b812472fc498c81dec5"
+    sha256 sonoma:         "f62672fd35bfc3e512a6aad7d5fd6a0595bccb38e14bfaa6134cbc0aa829cdbf"
+    sha256 ventura:        "501a4e7673f201635eddcd743914ab3865989aa21dc00e15bd43c5da56dfd37a"
+    sha256 monterey:       "58bed9cf4e04545bc372867e877041a327261f6d36ea126ece2b1967dd5006fc"
+    sha256 x86_64_linux:   "fcf8197e0c8dbf9dbc3a92bebbb2650d0ca6c3ec21420133c2109a97041a4c14"
   end
 
   depends_on "meson" => :build

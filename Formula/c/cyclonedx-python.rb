@@ -3,19 +3,19 @@ class CyclonedxPython < Formula
 
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Python projects"
   homepage "https://cyclonedx.org/"
-  url "https://files.pythonhosted.org/packages/59/a1/2f68d3c69ca109c999967bc90e29b268ce3545286fdc5d4d178aea9832d5/cyclonedx_bom-4.1.4.tar.gz"
-  sha256 "7f31b7e3ebdacd316ce1da7d40fa8682b4e95dc5a419c287d63ef837ffd94c0f"
+  url "https://files.pythonhosted.org/packages/6d/83/3fbf3b9cd50bb765889776fbbb869f49c4694e586cdd96d4fadb0023b8a7/cyclonedx_bom-4.1.6.tar.gz"
+  sha256 "9581beff0e82a2532d001daf3eb31f5b1acbaaeddd531942e2aa79ae884e13dd"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0d51824a06e11603ebae51887e0be76dbd16b3fb785aae2c17bd592e8422781f"
-    sha256 cellar: :any,                 arm64_ventura:  "365c2547f652fa5e88f00d2aa95b713808715eb30ffef38c868389d8d4795fc8"
-    sha256 cellar: :any,                 arm64_monterey: "f8a4bdb3dc1f678de773ed86fdab5a692b033966bb2fe565f653166c7794856f"
-    sha256 cellar: :any,                 sonoma:         "2536d9c0664d7fb0442bd013e858cc986492e14d5aa50f78d1710598b3997303"
-    sha256 cellar: :any,                 ventura:        "abc9dfda817d561f54ed0532de1faeff02caba20898f3d141061cb81b462efb7"
-    sha256 cellar: :any,                 monterey:       "d6fbdccf6cf8a425d80857da70d37a8391b747579669d8b6398eeb34507c8ad5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0384d410ce57171c613d96b9e4d78933842da0fa6ea0912e90ccb32622495472"
+    sha256 cellar: :any,                 arm64_sonoma:   "9982705a751ddedca197ef8e3ac03932d71793716a85d235078627d07684da84"
+    sha256 cellar: :any,                 arm64_ventura:  "c662576c2f322838d318d496836cd802bd294c868665aa6a1c771892eff1d65a"
+    sha256 cellar: :any,                 arm64_monterey: "d094ff66777f144518c060d055e0794b06d09bd8bb9af169471855f8b92847c8"
+    sha256 cellar: :any,                 sonoma:         "6cf169debfc1d48e1e31b89d18138c96746a0bc7b726af0f079434aec9ac28c4"
+    sha256 cellar: :any,                 ventura:        "3e8d96696dad5679ac8ed76e4da0cd056ee9b3d2be04319d2c393db4ff5fef1d"
+    sha256 cellar: :any,                 monterey:       "7e68737fa056539168e31c6876f15f6d51a91e75ff8e5364e057bd961f252e31"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c47c19c4ec1de3d61045f4a25ea158dd39397658e388e9666c460c6b8f349d67"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -60,8 +60,8 @@ class CyclonedxPython < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "isoduration" do
@@ -90,8 +90,8 @@ class CyclonedxPython < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/2b/b4/bbccb250adbee490553b6a52712c46c20ea1ba533a643f1424b27ffc6845/lxml-5.1.0.tar.gz"
-    sha256 "3eea6ed6e6c918e468e693c41ef07f3c3acc310b70ddd9cc72d9ef84bc9564ca"
+    url "https://files.pythonhosted.org/packages/ea/e2/3834472e7f18801e67a3cd6f3c203a5456d6f7f903cfb9a990e62098a2f3/lxml-5.2.1.tar.gz"
+    sha256 "3f7765e69bbce0906a7c74d5fe46d2c7a7596147318dbc08e4a2431f3060e306"
   end
 
   resource "packageurl-python" do
@@ -110,8 +110,8 @@ class CyclonedxPython < Formula
   end
 
   resource "py-serializable" do
-    url "https://files.pythonhosted.org/packages/15/15/464be3feba255f4ae9202898f450a000f7b4156079e61aebde70f413e2d1/py_serializable-1.0.2.tar.gz"
-    sha256 "158a98a7ffda067d21f844594ce571d97f36172ba538aee1a93196f8b5888bd8"
+    url "https://files.pythonhosted.org/packages/17/86/70bfc6531c028c81b60b37aa5fb67e35c733bed4b3fc851fbb52e2ae0bbc/py_serializable-1.0.3.tar.gz"
+    sha256 "da3cb4b1f3cc5cc5ebecdd3dadbabd5f65d764357366fa64ee9cbaf0d4b70dcf"
   end
 
   resource "pyparsing" do

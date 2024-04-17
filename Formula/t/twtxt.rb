@@ -6,24 +6,23 @@ class Twtxt < Formula
   url "https://files.pythonhosted.org/packages/fc/4c/cff74642212dbca8d4d9059119555cd335324b3da0b52990a414a0257756/twtxt-1.3.1.tar.gz"
   sha256 "f15e580f8016071448b24048402b939b9e8dec07eabacd84b1f2878d751b71ff"
   license "MIT"
-  revision 2
+  revision 3
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "11099e31eda64bfbbffe9d641c99ba61b0a4d0c64e35208a746f522903bc9c67"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "99686846cccb2bcaab43e8d511480642d94f381a0ea1ccaa8f245e8970196f35"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48f19af25e4f32a6601e7af4b97225984bbe3e945b89e9fec31d20c0b7e27dcc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f2f15efa1646b457a653ea1fcd0d49ee7802104ef2cb8a4aededddd8d5e7a7e5"
-    sha256 cellar: :any_skip_relocation, ventura:        "57dab2134cb30bb3ba6b1e77f8e3a99647b283de019d763fa8acad8173f9bab7"
-    sha256 cellar: :any_skip_relocation, monterey:       "9bf64b27b4cb772a4b8d84058d4f766c05f0d1a108215d6e75b104f6f97d7a29"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c08642d6c760fb99b05644dd848e79c0dfcf3427e84662e92aced0ea86f43871"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "733337de91c23b4e1c75a87f0250d2180427d4628e199adc4eb5cb9f9882c9ba"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cc5b8ff58fe0e1e02d3253b8962f0abfffb5ed1653bd13ac757eef949a52a3a6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3ae2cefd0bc65eb2961c5a98ccb41e0a62fb8d5b0019d2b6d77228b5839fe0f0"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f8ba67c7476f6ad425de2dcf66606fe6ab54dadc4b6eaf5e20296e190fea320b"
+    sha256 cellar: :any_skip_relocation, ventura:        "5e847b668b00a76c17e708fa676e8cb33be4ee2695da3c6e6eeaf1d04fe37654"
+    sha256 cellar: :any_skip_relocation, monterey:       "c2a42801bd4271d75dfe7949c96b3036e7d7325717d2af1438aacc1791ce7d88"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe280f8838cf7f42f3b71325d75e40b49afc5c09986b554b6c2a9019e9e1e9ac"
   end
 
   depends_on "python@3.12"
 
   resource "aiohttp" do
-    url "https://files.pythonhosted.org/packages/18/93/1f005bbe044471a0444a82cdd7356f5120b9cf94fe2c50c0cdbf28f1258b/aiohttp-3.9.3.tar.gz"
-    sha256 "90842933e5d1ff760fae6caca4b2b3edba53ba8f4b71e95dacf2818a2aca06f7"
+    url "https://files.pythonhosted.org/packages/7e/0b/4235b25496c741f4c9f75a94951fbc15c48537349a03448687fb226256ef/aiohttp-3.9.4.tar.gz"
+    sha256 "6ff71ede6d9a5a58cfb7b6fffc83ab5d4a63138276c771ac91ceaaddf5459644"
   end
 
   resource "aiosignal" do
@@ -52,23 +51,23 @@ class Twtxt < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/4a/15/bd620f7a6eb9aa5112c4ef93e7031bcd071e0611763d8e17706ef8ba65e0/multidict-6.0.4.tar.gz"
-    sha256 "3666906492efb76453c0e7b97f2cf459b0682e7402c0489a95484965dbc1da49"
+    url "https://files.pythonhosted.org/packages/f9/79/722ca999a3a09a63b35aac12ec27dfa8e5bb3a38b0f857f7a1a209a88836/multidict-6.0.5.tar.gz"
+    sha256 "f7e301075edaf50500f0b341543c41194d8df3ae5caf4702f2095f3ca73dd8da"
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/4c/c4/13b4776ea2d76c115c1d1b84579f3764ee6d57204f6be27119f13a61d0a9/python-dateutil-2.8.2.tar.gz"
-    sha256 "0123cacc1627ae19ddf3c27a5de5bd67ee4586fbdd6440d9748f8abb483d3e86"
+    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
+    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c9/3d/74c56f1c9efd7353807f8f5fa22adccdba99dc72f34311c30a69627a0fad/setuptools-69.1.0.tar.gz"
-    sha256 "850894c4195f09c4ed30dba56213bf7c3f21d86ed6bdaafb5df5972593bfc401"
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   resource "six" do

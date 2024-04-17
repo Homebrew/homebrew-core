@@ -9,11 +9,6 @@ class Consul < Formula
   license "MPL-2.0"
   head "https://github.com/hashicorp/consul.git", branch: "main"
 
-  # TODO: Remove this if/when the formula is deprecated.
-  livecheck do
-    skip "Formula will not be updated due to BUSL license change"
-  end
-
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6784612460c0d45dd1ebeb8c579100dcdb9daadc498c61474aebc98d3fa4b660"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "3a67ab933f39fe146541aed6e6c578e1064afb7311c63eba85664693ca97ccef"

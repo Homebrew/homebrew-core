@@ -3,18 +3,18 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/95/66/50a1294d09fe5f50b48d1b0b86ddda215f4a66292d9e3482daeeffe931b7/schemathesis-3.26.1.tar.gz"
-  sha256 "352f4b05f8648d12e9819eb31e96c999293ce5be3de6184c4d7a8687f395321d"
+  url "https://files.pythonhosted.org/packages/42/d5/f354c179c681175e280da9551289ecf7e6221edaf61f20ac3ee85d4243c5/schemathesis-3.27.0.tar.gz"
+  sha256 "15ce5e2bf8a9c3cce425022db30fd506f241272fd99daec45ba4f491e5a8ea3e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e384e87d15336d78495fe76a49f9a697c5aa874ebff929a1afc669ecb87b8cd2"
-    sha256 cellar: :any,                 arm64_ventura:  "c89cbeb5033057d0ca1447ec82b576643011ecb87bb608f20395ce6f04b6ab1c"
-    sha256 cellar: :any,                 arm64_monterey: "a5057bb3aa7414955eddfd9ec1e6af7f2ad091ec74852dd25422d943bf4e9709"
-    sha256 cellar: :any,                 sonoma:         "9aec25c34e1c627f436ac04b19611d8a16a5895b485b3f753db2b2780b6e6375"
-    sha256 cellar: :any,                 ventura:        "831f01e1c3c268e08d894aa2ec0b437a9a6b6d23688930acb1563cc943f7c3f9"
-    sha256 cellar: :any,                 monterey:       "ae9c6b9704cd1e25a1b08bf39dcf7809f2f2d930a9f464986b2749af46fc00a3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e8a7b9d115a967ffec4831ea45bf4ba861d872148dc4f355c16d27657b3b293d"
+    sha256 cellar: :any,                 arm64_sonoma:   "b44f23784e3c6ca9320eede87da20f1adec1acf63ecf319449c6f0b8b7808807"
+    sha256 cellar: :any,                 arm64_ventura:  "0e9c11fc7039aa670165e44cda88dcb26570cc1657c9fd14c4c334c0a9943467"
+    sha256 cellar: :any,                 arm64_monterey: "5e6645398689aa388c2e89012539aa159d48fc97fcc0f1a8842ecd814c61b9e8"
+    sha256 cellar: :any,                 sonoma:         "8c637b6d0324d37e24ea1f2dbce2872d7554747c2ccce6d0d95e8d05bc9ea1fc"
+    sha256 cellar: :any,                 ventura:        "0907f19aa137cbb67a6c044c9ea524e9f0fe3b98965406e2ea0f0130463d35bd"
+    sha256 cellar: :any,                 monterey:       "6e06f8e4747c1eac7315d5038c23bfd905182cdf51d062b50bfc4bdce4c9d855"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "251250a0ef33a84d35b90859e64c0dc5fc750768ec810d0171f67bea4f95f005"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -73,8 +73,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/fb/d9/65762008149d8d0d4cd11da2d112b025825f65034d39795016f084640c19/hypothesis-6.100.0.tar.gz"
-    sha256 "1841f6b5083844cd4b66965e44a17c0dc8fe8e9c6370c1f7b8d50647fcb2efd3"
+    url "https://files.pythonhosted.org/packages/5a/30/eaf0f26a982bc3b9bdc701b6b289347275beb1ae50aea146cf443c32ce7c/hypothesis-6.100.1.tar.gz"
+    sha256 "ebff09d7fa4f1fb6a855a812baf17e578b4481b7b70ec6d96496210d1a4c6c35"
   end
 
   resource "hypothesis-graphql" do
@@ -88,8 +88,8 @@ class Schemathesis < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "iniconfig" do
@@ -133,8 +133,8 @@ class Schemathesis < Formula
   end
 
   resource "pyrate-limiter" do
-    url "https://files.pythonhosted.org/packages/c0/a2/bb73c385e6d68cbe0ebe6ff16c22c96a79194c1298b2942005fcaf3eda9d/pyrate_limiter-2.10.0.tar.gz"
-    sha256 "98cc52cdbe058458e945ae87d4fd5a73186497ffa545ee6e98372f8599a5bd34"
+    url "https://files.pythonhosted.org/packages/fa/06/13ffff42f7293f96ee45ec61cd50e2d27b39629652550383ffd212b802b1/pyrate_limiter-3.6.0.tar.gz"
+    sha256 "390f97066b322732e498c9e921fbdfd31d9ec0070a14e06da9af0efc62e091e4"
   end
 
   resource "pytest" do

@@ -3,7 +3,15 @@ class Librest < Formula
   homepage "https://wiki.gnome.org/Projects/Librest"
   url "https://download.gnome.org/sources/rest/0.8/rest-0.8.1.tar.xz"
   sha256 "0513aad38e5d3cedd4ae3c551634e3be1b9baaa79775e53b2dba9456f15b01c9"
+  license all_of: ["LGPL-2.1-or-later", "LGPL-3.0-or-later"]
   revision 4
+
+  # librest doesn't seem to follow the typical GNOME version scheme, so we
+  # provide a regex to disable the `Gnome` strategy's version filtering.
+  livecheck do
+    url :stable
+    regex(/rest[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
 
   bottle do
     rebuild 1

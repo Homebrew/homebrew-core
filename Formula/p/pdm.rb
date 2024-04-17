@@ -3,19 +3,19 @@ class Pdm < Formula
 
   desc "Modern Python package and dependency manager supporting the latest PEP standards"
   homepage "https://pdm.fming.dev"
-  url "https://files.pythonhosted.org/packages/7d/8a/7cf651764e5083fbb60567c7bec2e088b32f6608897663bfc69103ce5cbc/pdm-2.13.2.tar.gz"
-  sha256 "e282bf1caf0a083fc0fb5e89ad6f79d7c579ff52c7bb58ee8587ea3d5bb9e14a"
+  url "https://files.pythonhosted.org/packages/18/df/3c775881f4c0195986581a7af29b5d5dda3e830438b542c6d556d80899f9/pdm-2.14.0.tar.gz"
+  sha256 "7ae6c4b5518085a703e0824ab10cbc3b7246b599ef07b8c4dcb2af1e42859190"
   license "MIT"
   head "https://github.com/pdm-project/pdm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2da9fd1b63083a88a8e47d7a870a76cb90e7f49e884b6cc86127dc844960cdd3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f5140a45d1c11d7c979c8acef193fe7ac0c89b479eea2d274b4c4595742861a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "19ad728155ec404ffcf20f9a0a3c27e66dbb238932a880f818bb07da1132c999"
-    sha256 cellar: :any_skip_relocation, sonoma:         "16e2ee6fd3e60f6e77439f7382f1ba833b027e0114a0c8458310bc3e1462d1b6"
-    sha256 cellar: :any_skip_relocation, ventura:        "0a1bf0ad58e60f3077e121ec894ace09ab40078692af5ffbb128d8f40d82403e"
-    sha256 cellar: :any_skip_relocation, monterey:       "874ebac3167296b922ceb2c81f6e687ca222293e103c564bd4c676603c7c0467"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8df5a383f13509fccf6e0f315eed0ae0964918504aacd269089852f8b98c5a53"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbbd0f6794516b70a5f5515bf22a9df2e4ea98f45d70539863f56fbad12b4815"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2a4e27a100ff1033ffdcb7fe410059d206a234489c1b2032cc331bb1c8f5e7ce"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3501757801de3536b40e46d46e906e617c52e4d2f83267d86e4d28cc2173ff3e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2068353f8d9692fd2e0b34f6be45c42ff1e6ec8f9356148554a75e328257bdd3"
+    sha256 cellar: :any_skip_relocation, ventura:        "36dff7759df0e59db78838ccf9f1897b36bc75084c6b21ce3e85a2dd9b482fd6"
+    sha256 cellar: :any_skip_relocation, monterey:       "8c2e8e17d34f0baddf47aeb89f656bd012c786bfa5527aaff3f6baebc03b2639"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1358bf589886f64af96c48ecf41fb36739682579aed92655e8dace8aadf4cc56"
   end
 
   depends_on "certifi"
@@ -42,8 +42,8 @@ class Pdm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/db/97/3f028f216da17ab0500550a6bb0f26bf39b07848348f63cce44b89829af9/filelock-3.13.3.tar.gz"
-    sha256 "a79895a25bbefdf55d1a2a0a80968f7dbb28edcd6d4234a0afb3f37ecde4b546"
+    url "https://files.pythonhosted.org/packages/38/ff/877f1dbe369a2b9920e2ada3c9ab81cf6fe8fa2dce45f40cad510ef2df62/filelock-3.13.4.tar.gz"
+    sha256 "d13f466618bfde72bd2c18255e269f72542c6e70e7bac83a0232d6b1cc5c8cf4"
   end
 
   resource "findpython" do
@@ -72,8 +72,8 @@ class Pdm < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "installer" do
@@ -102,8 +102,8 @@ class Pdm < Formula
   end
 
   resource "pbs-installer" do
-    url "https://files.pythonhosted.org/packages/88/9e/cad63ea87e9f144e24666cd348932fa368b6c6af16ec5dc1a3bdd8ebf9de/pbs_installer-2024.3.27.tar.gz"
-    sha256 "30a368d14710a5e38a57401006b4c1061f030ed06d42d69c8f5e8dd20ee25d58"
+    url "https://files.pythonhosted.org/packages/bc/51/1a535bbbb7d2fbd30853c62a26d5d66c2d77549b750d9f3fce4f238ae3e1/pbs_installer-2024.4.1.tar.gz"
+    sha256 "1f2aca82511fb9e1973b14708d7386780a8c56d111b680ae5786b3f430fa918a"
   end
 
   resource "platformdirs" do
@@ -162,8 +162,8 @@ class Pdm < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
-    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "unearth" do

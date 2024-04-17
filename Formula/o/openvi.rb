@@ -1,19 +1,19 @@
 class Openvi < Formula
   desc "Portable OpenBSD vi for UNIX systems"
   homepage "https://github.com/johnsonjh/OpenVi#readme"
-  url "https://github.com/johnsonjh/OpenVi/archive/refs/tags/7.4.27.tar.gz"
-  sha256 "7a40c9388c4f34d039a1fcac0ce24cc4ed6cb892d016fe26c0aaa6f42293ad47"
+  url "https://github.com/johnsonjh/OpenVi/archive/refs/tags/7.5.28.tar.gz"
+  sha256 "478392a48fabbfab70b53b1aa2f5d4fda329872c1436044ee786874ff7f495d2"
   license "BSD-3-Clause"
   head "https://github.com/johnsonjh/OpenVi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d626305e066850196c3c153840f8ad7d938098225abbf99345cc5368ea66188c"
-    sha256 cellar: :any,                 arm64_ventura:  "73ff3682a17795dc2c95d9b32d921ab8724f4534298fa00e95973dc5cf2063ff"
-    sha256 cellar: :any,                 arm64_monterey: "ffc56a096e067d8947a225acbe78b52ab8f34504a19b6e9f81920054f790ec83"
-    sha256 cellar: :any,                 sonoma:         "d1dc2056d9472a229cdb9acfdd9afd6afbf866eb5e13360d1eef5a53d6ee340d"
-    sha256 cellar: :any,                 ventura:        "394a1cf3dd57829001a947522857ee6553541446e588658addeaad65240b228c"
-    sha256 cellar: :any,                 monterey:       "06583a5f3ac623e53acc6141466b4ea3258e589b72e0b21522003cee470a62c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "693dbc0eb5a41e6bfce9f829700d330f8ef300678a5b2e3acd033d876ca8f66b"
+    sha256 cellar: :any,                 arm64_sonoma:   "b42f9176baf2443e658aa8d08499c80d7dbda0f8833921e3fd2af084cc68abbc"
+    sha256 cellar: :any,                 arm64_ventura:  "0e79398ef63f174cb8bce9ae721c0071b65f4a5eaab090ae152cba7ccfeb986b"
+    sha256 cellar: :any,                 arm64_monterey: "d3484dd41735a81362c57c02c674d9026c1ff7a2f952d9bd85dff00c1d26335a"
+    sha256 cellar: :any,                 sonoma:         "24c319cc1fb8c9382e0f4b9182ab931edfbd808ee68ace7bc2c5a1cfc7ec084a"
+    sha256 cellar: :any,                 ventura:        "8ae967c3ac5128e08901a557a158fb359a7070697719dbaa4be1f5f6443ffb2f"
+    sha256 cellar: :any,                 monterey:       "28f38bba58a61c62f2a698bba05f80ad07dee52525edaf83ff421de06ca28f10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "334a49cbc17b72f0ec442ca3890c6052ce36f7f6b3de09d083658b2bd2200784"
   end
 
   depends_on "ncurses" # https://github.com/johnsonjh/OpenVi/issues/32

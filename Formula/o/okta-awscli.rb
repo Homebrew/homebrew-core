@@ -6,15 +6,16 @@ class OktaAwscli < Formula
   url "https://files.pythonhosted.org/packages/ed/2c/153d8ba330660d756fe6373fb4d1c13b99e63675570042de45aedf300bb7/okta-awscli-0.5.5.tar.gz"
   sha256 "a8b1277914b992fc24e934edaf1947291723ce386f2191a8952e7c008f2e77fa"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f7cdac5a44696a66529dc440993030f51c23ef82793186b257e69fa20f6d306"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f7cdac5a44696a66529dc440993030f51c23ef82793186b257e69fa20f6d306"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f7cdac5a44696a66529dc440993030f51c23ef82793186b257e69fa20f6d306"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0f7cdac5a44696a66529dc440993030f51c23ef82793186b257e69fa20f6d306"
-    sha256 cellar: :any_skip_relocation, ventura:        "0f7cdac5a44696a66529dc440993030f51c23ef82793186b257e69fa20f6d306"
-    sha256 cellar: :any_skip_relocation, monterey:       "0f7cdac5a44696a66529dc440993030f51c23ef82793186b257e69fa20f6d306"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "524189bbf0928c0cf7bf3e1c6149c5ccd6c9d0360cc91f1ec77b3c4cc04ca08f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d40fa2c1c32294f744c808de914c0499d83e3748bad3273adc0938ca9075ed5b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d40fa2c1c32294f744c808de914c0499d83e3748bad3273adc0938ca9075ed5b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d40fa2c1c32294f744c808de914c0499d83e3748bad3273adc0938ca9075ed5b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d40fa2c1c32294f744c808de914c0499d83e3748bad3273adc0938ca9075ed5b"
+    sha256 cellar: :any_skip_relocation, ventura:        "d40fa2c1c32294f744c808de914c0499d83e3748bad3273adc0938ca9075ed5b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d40fa2c1c32294f744c808de914c0499d83e3748bad3273adc0938ca9075ed5b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ec6caedaf5b7d0187ccbc840653f188dfaa7e55f1b1bd39e4ff5d2d701aeb8f"
   end
 
   depends_on "certifi"
@@ -26,13 +27,13 @@ class OktaAwscli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/c7/82/88ac9072d339d953f5a1d7e15db58a3dea7f3454b328c54fd4b022f06c01/boto3-1.34.65.tar.gz"
-    sha256 "db97f9c29f1806cf9020679be0dd5ffa2aff2670e28e0e2046f98b979be498a4"
+    url "https://files.pythonhosted.org/packages/44/a9/c191f26fb925076ea142e7efcdc59c36285b0ffde420b2ff0835b48b9c80/boto3-1.34.84.tar.gz"
+    sha256 "91e6343474173e9b82f603076856e1d5b7b68f44247bdd556250857a3f16b37b"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/d1/85/fb6f44cb76936ef8e7da2390fa88d0aec184a790e6d12c62cc1cbe3b870f/botocore-1.34.65.tar.gz"
-    sha256 "399a1b1937f7957f0ee2e0df351462b86d44986b795ced980c11eb768b0e61c5"
+    url "https://files.pythonhosted.org/packages/f7/b8/6f17f3051a81402894567b1b35518aa6d8b49359b5246e95cfabd3cee558/botocore-1.34.84.tar.gz"
+    sha256 "a2b309bf5594f0eb6f63f355ade79ba575ce8bf672e52e91da1a7933caa245e6"
   end
 
   resource "charset-normalizer" do
@@ -51,8 +52,8 @@ class OktaAwscli < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "jmespath" do
@@ -91,8 +92,8 @@ class OktaAwscli < Formula
   end
 
   resource "validators" do
-    url "https://files.pythonhosted.org/packages/b2/68/2881ac33c2c015160afd9e3994f5e4e2150bc0e6ba4b470eae6c6e7e8641/validators-0.23.1.tar.gz"
-    sha256 "106d8ca7e4516d0c77e1b7c112723834dbf39e4abdbfca2574ff7cf183db1786"
+    url "https://files.pythonhosted.org/packages/33/03/7e162540489433182faac61afde913780889fcd234c7998a422bcca720cc/validators-0.28.0.tar.gz"
+    sha256 "85bc82511f6ccd0800f4c15d8c0dc546c15e369640c5ea1f24349ba0b3b17815"
   end
 
   def install

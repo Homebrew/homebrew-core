@@ -51,6 +51,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR: ${{ steps.pr.outputs.number }}
+          PIP_AUDIT_MESSAGE: >
+            Ping @woodruffw @alex
           NEW_CONTRIBUTOR_MESSAGE: >
             Thanks for contributing to Homebrew! :tada: It looks like you're having trouble
             with a CI failure. See our [contribution guide](${{ github.event.repository.html_url }}/blob/HEAD/CONTRIBUTING.md)
@@ -68,30 +70,36 @@ jobs:
               --header 'X-GitHub-Api-Version: 2022-11-28' \
               "repos/{owner}/{repo}/pulls/$PR"
           )"
-
-          pip_audit_filter='.body | contains("brew-pip-audit")'
-          new_contributor_filter='.author_association == "FIRST_TIME_CONTRIBUTOR" or .author_association == "NONE"'
-          new_contributor_comment_posted_filter='any(.[].body; contains("'"$NEW_CONTRIBUTOR_MESSAGE"'"))'
           comments_api_url="$(jq --raw-output '.comments_url' <<< "$response")"
 
-          if jq --exit-status "$pip_audit_filter"
-          then
-            echo 'Ping @woodruffw @alex' >> "$COMMENT_BODY_FILE"
-          fi <<< "$response"
+          post_comment_if_not_posted() {
+            comment_condition_filter="$1"
+            message="$2"
 
-          if jq --exit-status "$new_contributor_filter"
-          then
-            # Check that we haven't posted the new contributor message yet.
-            if jq --exit-status "$new_contributor_comment_posted_filter | not"
+            if jq --exit-status "$comment_condition_filter"
             then
-              echo "$NEW_CONTRIBUTOR_MESSAGE" >> "$COMMENT_BODY_FILE"
-            fi < <(
-              gh api \
-                --header 'Accept: application/vnd.github+json' \
-                --header 'X-GitHub-Api-Version: 2022-11-28' \
-                "$comments_api_url"
-            )
-          fi <<< "$response"
+              # Check that we haven't posted the message yet.
+              if jq --exit-status \
+                --arg message "$message" \
+                'any(.[].body; contains($message)) | not'
+              then
+                echo "$message" >> "$COMMENT_BODY_FILE"
+              fi < <(
+                gh api \
+                  --header 'Accept: application/vnd.github+json' \
+                  --header 'X-GitHub-Api-Version: 2022-11-28' \
+                  "$comments_api_url"
+              )
+            fi <<< "$response"
+          }
+
+          post_comment_if_not_posted \
+            '.body | contains("brew-pip-audit")' \
+            "$PIP_AUDIT_MESSAGE"
+
+          post_comment_if_not_posted \
+            '.author_association == "FIRST_TIME_CONTRIBUTOR" or .author_association == "NONE"' \
+            "$NEW_CONTRIBUTOR_MESSAGE"
 
           if [[ -s "$COMMENT_BODY_FILE" ]]
           then

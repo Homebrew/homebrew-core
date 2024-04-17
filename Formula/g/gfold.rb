@@ -1,8 +1,6 @@
 class Gfold < Formula
   desc "Help keep track of your Git repositories, written in Rust"
   homepage "https://github.com/nickgerace/gfold"
-  # TODO: check if we can use unversioned `libgit2` at version bump.
-  # See comments below for details.
   url "https://github.com/nickgerace/gfold/archive/refs/tags/4.4.1.tar.gz"
   sha256 "bdcbebd543f7222e253e4324677a5c524f90543cbf859a448359ac426b9453d9"
   license "Apache-2.0"
@@ -20,12 +18,6 @@ class Gfold < Formula
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  # To check for `libgit2` version:
-  # 1. Search for `libgit2-sys` version at https://github.com/nickgerace/gfold/blob/#{version}/Cargo.lock
-  # 2. If the version suffix of `libgit2-sys` does not match the `libgit2` formula, then:
-  #    - Migrate to the corresponding `libgit2` formula.
-  #    - Change the `LIBGIT2_NO_VENDOR` env var below to `LIBGIT2_SYS_USE_PKG_CONFIG`.
-  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
   depends_on "libgit2"
 
   uses_from_macos "zlib"

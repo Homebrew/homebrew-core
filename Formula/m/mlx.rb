@@ -1,29 +1,21 @@
 class Mlx < Formula
-  include Language::Python::Virtualenv
-
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "42e616f2e84e9f7bd43353b5ec346debf07b5219043c46b26bb89ee1d151d446"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "09e9859e364ee8d19bf656730b7d6a471c8da2d397325efd1c73b836819f6e56"
   license "MIT"
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:  "a635458b40c5265240cf3c8387b40c8a908e870030b79e052c7dbf9ab1af7054"
-    sha256 cellar: :any, arm64_ventura: "83d9ed0a843918daa62e80ee3e165e5c2ab22bdc1d14d838a2901a9e1d489869"
+    sha256 cellar: :any, arm64_sonoma:  "bb89e00e44d1388766dd65f5a68442a8852b32baa5a7ce3d8fba51576b61ee68"
+    sha256 cellar: :any, arm64_ventura: "41cd9939c0ea44b8ef299cbe88ac5b56ee4ee0acb417518e924e69b69cb1f361"
   end
 
   depends_on "cmake" => :build
-  depends_on "pybind11" => :build
   depends_on xcode: ["14.3", :build]
   depends_on arch: :arm64
   depends_on :macos
   depends_on "python@3.12"
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
-  end
 
   def python3
     "python3.12"
@@ -42,16 +34,11 @@ class Mlx < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    venv_root = buildpath/"venv"
-    site_packages = Language::Python.site_packages(python3)
-    ENV.prepend_create_path "PYTHONPATH", venv_root/site_packages
-    venv = virtualenv_create(venv_root, python3)
-    venv.pip_install resource("setuptools")
-
     env = { PYPI_RELEASE: version.to_s }
     env["DEV_RELEASE"] = "1" if build.head?
+    env["MACOSX_DEPLOYMENT_TARGET"] = "#{MacOS.version.major}.#{MacOS.version.minor.to_i}" if OS.mac?
     with_env(env) do
-      system python3, *Language::Python.setup_install_args(prefix, python3)
+      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
   end
 

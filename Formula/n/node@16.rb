@@ -4,16 +4,16 @@ class NodeAT16 < Formula
   url "https://nodejs.org/dist/v16.20.2/node-v16.20.2.tar.xz"
   sha256 "576f1a03c455e491a8d132b587eb6b3b84651fc8974bb3638433dd44d22c8f49"
   license "MIT"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "27070fb9275d5dd1d4bf816659705acc1048ff947a30cc6b0816900d198fab69"
-    sha256 cellar: :any,                 arm64_ventura:  "6712e525f435f790df664cf063b18f85973043f8a3817e14764f0e73ba3d14ce"
-    sha256 cellar: :any,                 arm64_monterey: "d6849c663947a208dbb494be1433ecea9736896988b7078d41e3ed002eb3d0c5"
-    sha256 cellar: :any,                 sonoma:         "5422ad0692efb86e6499645e9cc91de15ae688d426991ae24084fe89a76394c3"
-    sha256 cellar: :any,                 ventura:        "8a163469a0ee7d005efc9ded82e6de9fe80075a207aaaff6c69b675c3fe2e17f"
-    sha256 cellar: :any,                 monterey:       "7c3eace3570476ba69a6922f1de10dab934112fbf5c5f7ae7a6f1b3f30518f44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ade4824e8c644789ac5dcbe03b5e58cf6f07915ebe22771de948a159dd05da9"
+    sha256 cellar: :any,                 arm64_sonoma:   "631a5ed1cd7834f440c6165474fe9affca55e9731d21abb42f01ebf3aa8fd1f6"
+    sha256 cellar: :any,                 arm64_ventura:  "7efc4bbee5dcd2bfce309895cf9870fa0c652c641d887c37e1061fcbc13c1cf0"
+    sha256 cellar: :any,                 arm64_monterey: "1541329ebab112c5c0ad0cf81d0f81e4ad646587bab5e0824ca7b6849c0d53f6"
+    sha256 cellar: :any,                 sonoma:         "70b178141af156260fbd2d1e7d03c1b74bc5878b11b9e4897f9e123e5626518d"
+    sha256 cellar: :any,                 ventura:        "bd526bbf8a16f7da6349fb7a0fb3b182784512bf4b527d622529c8c907f3d8d7"
+    sha256 cellar: :any,                 monterey:       "e3a8ed83a860e58ff03d4b3045715a26510b988dbeca39ded563cbf679da17e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "769953ce120b601f5523298a89df52db171e50053c9311daf3cd9f0ecee71944"
   end
 
   keg_only :versioned_formula
@@ -22,8 +22,7 @@ class NodeAT16 < Formula
   deprecate! date: "2023-11-02", because: :unsupported
 
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
-  depends_on "python@3.12" => :build
+  depends_on "python@3.11" => :build
   depends_on "brotli"
   depends_on "c-ares"
   depends_on "icu4c"
@@ -31,8 +30,12 @@ class NodeAT16 < Formula
   depends_on "libuv"
   depends_on "openssl@3"
 
-  uses_from_macos "python", since: :catalina
   uses_from_macos "zlib"
+
+  # node-gyp bundled in npm does not support Python 3.12.
+  on_system :linux, macos: :mojave_or_older do
+    depends_on "python@3.11"
+  end
 
   fails_with :clang do
     build 1099
@@ -42,7 +45,12 @@ class NodeAT16 < Formula
   fails_with gcc: "5"
 
   def install
-    python3 = "python3.12"
+    # ../deps/v8/src/base/bit-field.h:43:29: error: integer value 7 is outside
+    # the valid range of values [0, 3] for this enumeration type
+    # [-Wenum-constexpr-conversion]
+    ENV.append_to_cflags "-Wno-enum-constexpr-conversion" if DevelopmentTools.clang_build_version >= 1500
+
+    python3 = "python3.11"
     # make sure subprocesses spawned by make are using our Python 3
     ENV["PYTHON"] = which(python3)
 
@@ -90,6 +98,9 @@ class NodeAT16 < Formula
     # make sure npm can find node
     ENV.prepend_path "PATH", opt_bin
     ENV.delete "NVM_NODEJS_ORG_MIRROR"
+    if OS.linux? || (OS.mac? && MacOS.version <= :mojave)
+      ENV.prepend_path "PATH", Formula["python@3.11"].opt_libexec/"bin"
+    end
     assert_equal which("node"), opt_bin/"node"
     assert_predicate bin/"npm", :exist?, "npm must exist"
     assert_predicate bin/"npm", :executable?, "npm must be executable"

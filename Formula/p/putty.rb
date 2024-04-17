@@ -1,19 +1,19 @@
 class Putty < Formula
   desc "Implementation of Telnet and SSH"
   homepage "https://www.chiark.greenend.org.uk/~sgtatham/putty/"
-  url "https://the.earth.li/~sgtatham/putty/0.80/putty-0.80.tar.gz"
-  sha256 "2013c83a721b1753529e9090f7c3830e8fe4c80a070ccce764539badb3f67081"
+  url "https://the.earth.li/~sgtatham/putty/0.81/putty-0.81.tar.gz"
+  sha256 "cb8b00a94f453494e345a3df281d7a3ed26bb0dd7e36264f145206f8857639fe"
   license "MIT"
   head "https://git.tartarus.org/simon/putty.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1f29412db90b14f856819ff9918edfc115d3bd06dc88813889e31479433757f6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d9fd0b838264122474db95895ee3bdbc5c7e2759e60e46609698fc513bf6a7c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "615cbf976762644da1935ec6e5cf74cea68b9bf50ac6012c7fbca902f612558d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "433e774292e163a92035d870739f0cb93f519d39ad426a124a16c10dc501a1d4"
-    sha256 cellar: :any_skip_relocation, ventura:        "2a8c2a1ad499c1506fdd9dd675250d5921cba6e619d4bb18701a0580c1aecb7c"
-    sha256 cellar: :any_skip_relocation, monterey:       "fae6932baeac85c3d67862eb734b3e92bbca8a89944af90e238f30688c3aa1d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "71179d8b7696e8c98931825c9ceb8e03b9ee36dc792797b92140c94c738eab04"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8323405dffcac446d027bee3e03848ce07d8c3d4a8f626eaa302cae659d78772"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "171c6e16fc9c4157a5f43da3de8af558349393ad80b51e78b583c6ac233c08d6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a3efb18c58c42f7c45e1432fef59dc26f3ff653b65d8b21c4f5a4524343f11d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "983b30ce0c3ca5e6059fabfa1a5a4855e82f527d13f483c6bba45c8e005b4366"
+    sha256 cellar: :any_skip_relocation, ventura:        "4805d14b128dc36bc2118d66e0f0a648709ae1c5561270b5901bda70f22a2378"
+    sha256 cellar: :any_skip_relocation, monterey:       "bc85f8be2bcbc40c7b322813c4a841d85762a69888bc55d2ee32b6c2a7c8535c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c346418520e243b63a68a70c53392cbc3a7a9503bb3e2d494b41d4ff035f6f4"
   end
 
   depends_on "cmake" => :build

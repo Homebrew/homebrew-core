@@ -6,17 +6,17 @@ class Poetry < Formula
   url "https://files.pythonhosted.org/packages/49/a7/f5fbce21ed8e5871c229864e9c2b588897e1aeb9431f024636252069245b/poetry-1.8.2.tar.gz"
   sha256 "49cceb3838104647c3e1021f3a4f13c6053704cc18d33f849a90fe687a29cb73"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/python-poetry/poetry.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d9f13a7426b56601c4447790ae76dd0224e7a9372e9f5414d5a81604895dece5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "259092ba2eb9bb5b23c24cbcf028ed758d79e1b7ca1435f41e138d97a6dced48"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "77f8d6f212f50f629b08686d711ac3ee5dacd6557c30b633dbfe5ea0d4549652"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d7c7a4004c11ced725c8386f7075f3785427b9e627ee3683003f1df2e10e7484"
-    sha256 cellar: :any_skip_relocation, ventura:        "a1833072d8f10e3bf0305c90b8ec524de956df73600e01a3126062e6c96247bb"
-    sha256 cellar: :any_skip_relocation, monterey:       "54e372ca623e46300bb6db130a2517222ff9c610d55b7f1fca850088289296a5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "694711f4450d20b0c374f3a3ece463aa5a65f3eef94d72a64ef3cf6ef0df2a0c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bd47ffac903fd85eb107a5db160c46f105fcb4acda7fe80caf0a78c63d36781f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c040c7b3ad190f9a78a147a197244f6d9b30114a416e440af247f046856ab494"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b521b1d3ec96cb003e88a69864d5914ff206d36258b54f48e702baea99fe4e7d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "491297be9da7721b4ccec04baf467acdca518adc97c14028a7dd47a02e52e5e6"
+    sha256 cellar: :any_skip_relocation, ventura:        "caa7098a985871918fc06bf008feaad34b985e5ba980a9dde137e57736d695f5"
+    sha256 cellar: :any_skip_relocation, monterey:       "8258aa7f4a49b4186210d04848ad8516bdd4ec0d8cd3dbc2a63e1be93015cace"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8018ad1672fb807858c7f638c165b275b7c34f626b989c644e80832b6a292036"
   end
 
   depends_on "cmake" => :build # for rapidfuzz
@@ -73,13 +73,13 @@ class Poetry < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/db/97/3f028f216da17ab0500550a6bb0f26bf39b07848348f63cce44b89829af9/filelock-3.13.3.tar.gz"
-    sha256 "a79895a25bbefdf55d1a2a0a80968f7dbb28edcd6d4234a0afb3f37ecde4b546"
+    url "https://files.pythonhosted.org/packages/38/ff/877f1dbe369a2b9920e2ada3c9ab81cf6fe8fa2dce45f40cad510ef2df62/filelock-3.13.4.tar.gz"
+    sha256 "d13f466618bfde72bd2c18255e269f72542c6e70e7bac83a0232d6b1cc5c8cf4"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "installer" do
@@ -153,8 +153,8 @@ class Poetry < Formula
   end
 
   resource "rapidfuzz" do
-    url "https://files.pythonhosted.org/packages/65/75/e52ee00ebf8c13f8ca60b61641dfc1b8786b0d0d2fd4065cb337c861fe3e/rapidfuzz-3.7.0.tar.gz"
-    sha256 "620df112c39c6d27316dc1e22046dc0382d6d91fd60d7c51bd41ca0333d867e9"
+    url "https://files.pythonhosted.org/packages/2a/8b/c5b482bd99c7b4b8e6db31b707333d85f33f0c7eebb72724a1e932f3b6b1/rapidfuzz-3.8.1.tar.gz"
+    sha256 "a357aae6791118011ad3ab4f2a4aa7bd7a487e5f9981b390e9f3c2c5137ecadf"
   end
 
   resource "requests" do
@@ -178,8 +178,8 @@ class Poetry < Formula
   end
 
   resource "trove-classifiers" do
-    url "https://files.pythonhosted.org/packages/c5/e9/1deb1b8113917aa735b08ef21821f3533bda2eb1fa1a16e07256dd05918f/trove-classifiers-2024.3.25.tar.gz"
-    sha256 "6de68d06edd6fec5032162b6af22e818a4bb6f4ae2258e74699f8a41064b7cad"
+    url "https://files.pythonhosted.org/packages/73/e9/b732ae50ebe5e4949bb20a47243d9fee6f3c15027c3f8ffeaa0982e68173/trove-classifiers-2024.4.10.tar.gz"
+    sha256 "49f40bb6a746b72a1cba4f8d55ee8252169cda0f70802e3fd24f04b7fb25a492"
   end
 
   resource "urllib3" do

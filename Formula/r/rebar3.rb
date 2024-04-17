@@ -1,8 +1,8 @@
 class Rebar3 < Formula
   desc "Erlang build tool"
   homepage "https://github.com/erlang/rebar3"
-  url "https://github.com/erlang/rebar3/archive/refs/tags/3.22.1.tar.gz"
-  sha256 "2855b5784300865d2e43cb7a135cb2bba144cf15214c619065b918afc8cc6eb9"
+  url "https://github.com/erlang/rebar3/archive/refs/tags/3.23.0.tar.gz"
+  sha256 "00646b692762ffd340560e8f16486dbda840e1546749ee5a7f58feeb77e7b516"
   license "Apache-2.0"
 
   livecheck do
@@ -11,15 +11,13 @@ class Rebar3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "048a6c1f2c45ac231d9be102e83526cf543f93720befe72cb9d1344151df6ec5"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4671100f75af91f44eefca07685f70373ce2221a62fbc176f6ea40dd239a4112"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "26faa6b5dc3b69c39d0b3da9892d1f6850b03c91e9eb1eafc5fc96ec8e541060"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "6d1caf760e3ce635a5dcb0f0d9abb0159257a170ef87466bd36322b24d0ff08e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "a8856d06f2fb49b641602e54a72cb1f870233ef33ae876387f3489dd07a40980"
-    sha256 cellar: :any_skip_relocation, ventura:        "f79bd43f7020e478b54fda92d8f6ab9cd95e69653113d5dcfae7f97138b6aaa6"
-    sha256 cellar: :any_skip_relocation, monterey:       "f6cbae0a1d0eee241d0e20f8b4ab249b2962e9ae801ce176529e9ab61803ba78"
-    sha256 cellar: :any_skip_relocation, big_sur:        "ab3515d996438d3638a136e85ca6304d26d7eea41535f5a69d629e937aab460c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fad80111ef3b155c297d1109c3327dc7bc3cb8a7083cdb0c3345f18d9c7586ff"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01d161fa4c64a9b227218a7001c53daf856770ceeba139eef4eca96d5f7fbb3a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cd5b28cf93d48eb69c4083b32011476d34aac9a69f85a1fed888efc65f309544"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "b9964a02089ae6dc420bd0d52e53d795c1eb91921698d52aef1eccf27b93a09f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0a369934112432c852d250e433370c2b40e4a2dfa8dbb7b5296a4b21eadd3f7f"
+    sha256 cellar: :any_skip_relocation, ventura:        "3c5823f4e8d58ed2521465bcf0feaa11882aca9fd69517172b68a67210da0e88"
+    sha256 cellar: :any_skip_relocation, monterey:       "681fac041860e1d345090ee7be11a2ec2aaed52dba4fbd4cc4f1cee43f0aba86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce87484cb55d141718486811fe0d0e35aaf7c47ae4c9ad6070b3563da66534a"
   end
 
   depends_on "erlang"

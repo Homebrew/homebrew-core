@@ -6,16 +6,16 @@ class Esptool < Formula
   url "https://files.pythonhosted.org/packages/1b/8b/f0d1e75879dee053874a4f955ed1e9ad97275485f51cb4bc2cb4e9b24479/esptool-4.7.0.tar.gz"
   sha256 "01454e69e1ef3601215db83ff2cb1fc79ece67d24b0e5d43d451b410447c4893"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "ad26d0313acc94dae318af8d29f6e66fd39196ab55bf7b9f5ec1ac18eb4a7188"
-    sha256 cellar: :any,                 arm64_ventura:  "2f63840db71dff5d5b4600441cb64f94672772ac717a6fb4a055cadce04cc6b0"
-    sha256 cellar: :any,                 arm64_monterey: "707e0cf7141784169c79fe59410409d70abda418c1a8688257686d2e3a927e27"
-    sha256 cellar: :any,                 sonoma:         "276f4d18874b04d2f4deee260d60f6f32dc0665d966ee8d3959fb264171bba52"
-    sha256 cellar: :any,                 ventura:        "110e711ba7ec23485302adeaf14f4b96b03178c27ee6af7580add0efd1dbae1b"
-    sha256 cellar: :any,                 monterey:       "cbf9cca1fdd8c8975e885f7d856b61f44ad6a92840f5e4d6460b1ca033e170bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7cced5d363875bafac5c656ca7500ba4dad28c1ce67a14a2b0db7af77dde1e95"
+    sha256 cellar: :any,                 arm64_sonoma:   "1bea1d3fd71a60716ecea4655c11727a80c4e3b05f4bb00cb1e86af32225c713"
+    sha256 cellar: :any,                 arm64_ventura:  "5cb962e470e183db67b3db7a175b98326f6e909a23e6b55de39ae634d45774ce"
+    sha256 cellar: :any,                 arm64_monterey: "60fbfb222d24b267aa1958706617d070ab189b47f0a64ecd8d3a4ccd53d5c917"
+    sha256 cellar: :any,                 sonoma:         "7984f99134cf4392e7be2e11edddc52a4fa3da45c5f2c9083ac7c276c8b1dc32"
+    sha256 cellar: :any,                 ventura:        "c76a0541d101ed1002ebf9d83b3fd71b5e30e890882cb41815a5b0d1feb09e84"
+    sha256 cellar: :any,                 monterey:       "f765c02e94b6d2ddadd4b43f27e2665d9f9770aa01e297446d08fc69cc4a345d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d3f6dcc74c3ae4f255ad7ff562b67ac723fb59dccdaa55728cad130c84c14980"
   end
 
   depends_on "cryptography"
@@ -33,8 +33,8 @@ class Esptool < Formula
   end
 
   resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/ff/7b/ba6547a76c468a0d22de93e89ae60d9561ec911f59532907e72b0d8bc0f1/ecdsa-0.18.0.tar.gz"
-    sha256 "190348041559e21b22a1d65cee485282ca11a6f81d503fddb84d5017e9ed1e49"
+    url "https://files.pythonhosted.org/packages/5e/d0/ec8ac1de7accdcf18cfe468653ef00afd2f609faf67c423efbd02491051b/ecdsa-0.19.0.tar.gz"
+    sha256 "60eaad1199659900dd0af521ed462b793bbdf867432b3948e87416ae4caf6bf8"
   end
 
   resource "intelhex" do

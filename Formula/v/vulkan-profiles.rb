@@ -1,6 +1,4 @@
 class VulkanProfiles < Formula
-  include Language::Python::Virtualenv
-
   desc "Tools for Vulkan profiles"
   homepage "https://github.com/KhronosGroup/Vulkan-Profiles"
   url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.3.280.tar.gz"
@@ -41,15 +39,7 @@ class VulkanProfiles < Formula
     depends_on "mesa" => :test
   end
 
-  resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/4d/c5/3f6165d3df419ea7b0990b3abed4ff348946a826caf0e7c990b65ff7b9be/jsonschema-4.21.1.tar.gz"
-    sha256 "85727c00279f5fa6bedbe6238d2aa6403bedd8b4864ab11207d07df3cc1b2ee5"
-  end
-
   def install
-    venv = virtualenv_create libexec/"venv" # temporary
-    venv.pip_install resource("jsonschema")
-
     # fix dependency on no-longer-existing CMake files for jsoncpp
     inreplace "CMakeLists.txt",
               "find_package(jsoncpp REQUIRED CONFIG)",
@@ -67,8 +57,6 @@ class VulkanProfiles < Formula
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    rm_r libexec/"venv" # cleanup
   end
 
   def caveats

@@ -6,15 +6,16 @@ class Localstack < Formula
   url "https://files.pythonhosted.org/packages/20/4e/6c7e90dd5fe61547b3058dce38f2ed79ad6e17bd37a610fee1429f9a1159/localstack-3.3.0.tar.gz"
   sha256 "50e8c2980eb09e9ee5176776468a3fc9de05599c18dfaf011db434ab57556405"
   license "Apache-2.0"
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c4363510514c9e52d3bf872145d14c28ba325d77e17596bd4b300370b8b4abd4"
-    sha256 cellar: :any,                 arm64_ventura:  "c2b5e2d23c627c36ed1ca827aab8ffb69290f5027fb31c17104cdf9b8eb2b247"
-    sha256 cellar: :any,                 arm64_monterey: "bfb46edc6060a5478a5f12f4c16a4030cdeca5c28ca7d5f7abcd4bfaf1aeb6a6"
-    sha256 cellar: :any,                 sonoma:         "c0089b5b1da4d2d80f69a30e189bbc6789c006161d349e2288ba8b5e6351b46b"
-    sha256 cellar: :any,                 ventura:        "9fdf5dba11897a582a69bda536d185411a9ee71b845f351e880bc32124050c8b"
-    sha256 cellar: :any,                 monterey:       "6ac6fcd4513120c0191bbb3fe49c05ee45ff24a6c510a2e2a07eab6bca2e073e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aa414e352ce4da9755b4e48169dc44216e35f65d6b53579a2b63f25021c6ab06"
+    sha256 cellar: :any,                 arm64_sonoma:   "c11fde467454facd687bd332fb0c099c2f468ee69e3847e6ec72e741034d83d4"
+    sha256 cellar: :any,                 arm64_ventura:  "c6003ca4c86ec48952eb28ace6fc678634a0130705f6b40074125573db8c367e"
+    sha256 cellar: :any,                 arm64_monterey: "60c14a128069d9fb5a78a7475c5dfb26999abeb5c8e32c2ffdb170f20e45184f"
+    sha256 cellar: :any,                 sonoma:         "6949352e6818ea88b27f49ecd282ef74dc8db3e7807254ad3d52b1e70c6ede5a"
+    sha256 cellar: :any,                 ventura:        "8baee60a71e28bcec6eeab8ab12542970769345e2a36aea87d1ca2d5987f9fdc"
+    sha256 cellar: :any,                 monterey:       "6f2e71512275ff0fd977667bf2ba90dc9280cb55eb0721144dc5379643ff587d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ad8803f358ff55f7a2927ae5ade29425f0ccd0a1435b6ac1172a3698cb46837"
   end
 
   depends_on "docker" => :test
@@ -59,13 +60,13 @@ class Localstack < Formula
   end
 
   resource "ecdsa" do
-    url "https://files.pythonhosted.org/packages/ff/7b/ba6547a76c468a0d22de93e89ae60d9561ec911f59532907e72b0d8bc0f1/ecdsa-0.18.0.tar.gz"
-    sha256 "190348041559e21b22a1d65cee485282ca11a6f81d503fddb84d5017e9ed1e49"
+    url "https://files.pythonhosted.org/packages/5e/d0/ec8ac1de7accdcf18cfe468653ef00afd2f609faf67c423efbd02491051b/ecdsa-0.19.0.tar.gz"
+    sha256 "60eaad1199659900dd0af521ed462b793bbdf867432b3948e87416ae4caf6bf8"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "localstack-core" do

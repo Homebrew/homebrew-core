@@ -1,19 +1,19 @@
 class Assimp < Formula
   desc "Portable library for importing many well-known 3D model formats"
   homepage "https://www.assimp.org/"
-  url "https://github.com/assimp/assimp/archive/refs/tags/v5.3.1.tar.gz"
-  sha256 "a07666be71afe1ad4bc008c2336b7c688aca391271188eb9108d0c6db1be53f1"
+  url "https://github.com/assimp/assimp/archive/refs/tags/v5.4.0.tar.gz"
+  sha256 "a90f77b0269addb2f381b00c09ad47710f2aab6b1d904f5e9a29953c30104d3f"
   license :cannot_represent
   head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8ceed09a9c989320467f6b90692caac628c8313dcfdad38e6291170b1c98e66a"
-    sha256 cellar: :any,                 arm64_ventura:  "515d5b7dde63fc4dd6caedda233dfa167a99b27210458fc24024e34edaa30d47"
-    sha256 cellar: :any,                 arm64_monterey: "4cc557c50f89eba7285ab3b063794bfee8a4347b78f600828d507d0104b980e4"
-    sha256 cellar: :any,                 sonoma:         "e7a655610580754fe998dd4cac699179b19a746b08c1518d6d20c0b2ecfce883"
-    sha256 cellar: :any,                 ventura:        "b5ca674953b7bbb359e4816a2f815f8003fa10316557f61bf248d30ca4d165aa"
-    sha256 cellar: :any,                 monterey:       "af9d24b6b60cc4c589424f9b915333cd93bd18ad14ceba741e5a182f8c8e2469"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "299b844069a58a807eb89b28dc413f17717037502b129f8281044effe4de785f"
+    sha256 cellar: :any,                 arm64_sonoma:   "e66353354dd74172ec395b7e61e356faf50a7bcaac1243ea42307fdc0fdf43de"
+    sha256 cellar: :any,                 arm64_ventura:  "cc1d2c1a8acfe0aab52790495d515b156dadb8ee3dec88d0f792102ee3b91947"
+    sha256 cellar: :any,                 arm64_monterey: "e517f57425874252017d2b16262d9b230101593f60e9406a06a850da7e0cb152"
+    sha256 cellar: :any,                 sonoma:         "da3682914a57bf6ccda53c876be45127d961a28d0ed48cf261648397dfc3d330"
+    sha256 cellar: :any,                 ventura:        "6f11be3a3b8cad5ef4b15b90423a0d52b113096379195cb3893de2dcfe234187"
+    sha256 cellar: :any,                 monterey:       "f6e85bfcaaf917b6088cf24c980ae12b478d3b574198c548a9540c9d77e8fab8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4ccccd8ca4bbb031c08eb4cca5661fcca8d96a769893557a221cd3424516328"
   end
 
   depends_on "cmake" => :build

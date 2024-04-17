@@ -1,19 +1,19 @@
 class Cdebug < Formula
   desc "Swiss army knife of container debugging"
   homepage "https://github.com/iximiuz/cdebug"
-  url "https://github.com/iximiuz/cdebug/archive/refs/tags/v0.0.17.tar.gz"
-  sha256 "8e45fe5b6a3109003ba6dbe5aa04e16bacfd1ec12c77a6b41da48e0dcf8f4cbb"
+  url "https://github.com/iximiuz/cdebug/archive/refs/tags/v0.0.18.tar.gz"
+  sha256 "c28d6c079177aa8de850e2edcbd284ac08cd3f9d77aac851928e1cc85a77fbcb"
   license "Apache-2.0"
   head "https://github.com/iximiuz/cdebug.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "23679486b1c34dbd340fdf80c40f8420771a7beab27ff3f3426beac3996fddd7"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4119bd85394bb72a2a539206c2bef0fcf225464a9b4cb1351de296f4ae81da0c"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "432e0604ee4616620988169e73d19e555ccac3dac205ba51cf3f4ed88c30e213"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6c1f554a99ac922f7fd5712377299768660c914e5fa06dda1952b201b49b9da6"
-    sha256 cellar: :any_skip_relocation, ventura:        "69132deda981505ad813a0a06b03f83d43d8892cc282142132ed9c7e1998c523"
-    sha256 cellar: :any_skip_relocation, monterey:       "4c95520fd236d0bbe50c38a94394d32762cf8cb5ad323a7ef2c02a1bc106ae92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "93dcc59667d775e4bd0d1b35b309e74b2e10624df4c5f544a9ba6c7c257b1c22"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7a99dd51424bd5ab2caf6c9cd72ccf714cc47a4de4074011d74f0d037602d8cf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9905753cb70ea35ccc41d3b699b61d4d2c1048de56f0d0c2e73aaba4a678dd06"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f0825f6e7d64ec4f997804b7df677dfed0614cbdf63e8894629956dbf7e07131"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d8bbecf15e4a887884194ce9d3de0e054c2967cd6b3f6b6604ca7d2979b416f0"
+    sha256 cellar: :any_skip_relocation, ventura:        "44591eccd5959f57814791f5f28b62ab873ecb32bc8cf95ecbe1acf1dfec2374"
+    sha256 cellar: :any_skip_relocation, monterey:       "162efaee908ca5548c0b1cd599171b845a19283be9d7daa8c299c4d81d306ca9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0fb21211a688f48562c5aeb2aa0e58922af7e31ab33486722d2bb58514b64c17"
   end
 
   depends_on "go" => :build

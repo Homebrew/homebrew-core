@@ -1,18 +1,18 @@
 class Inlyne < Formula
   desc "GPU powered yet browserless tool to help you quickly view markdown files"
   homepage "https://github.com/Inlyne-Project/inlyne"
-  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.4.1.tar.gz"
-  sha256 "62e089627812690b182520138708151f47391c5ba518f0b80649942dedd1be87"
+  url "https://github.com/Inlyne-Project/inlyne/archive/refs/tags/v0.4.2.tar.gz"
+  sha256 "f454581844f48fbcc9dcb769e607cae768ed9070baea03fb31b1fa8064b45d7c"
   license "MIT"
   head "https://github.com/Inlyne-Project/inlyne.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "730fe33a25ed35d4b6c18f6a261cd22694c2d0fd3500197e096a8c80ed4940b3"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc2b48205cff31cd9b27e7673128c9d535dad90d8e7e504c25e2682d55097977"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "1d85e6a38f9e52d4dbfdca433c231e9c7b374450241314653b3ab150eb32fa4a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fd8962eab6f061f2973ed475ce30e562e7972de59d76b8ba184520571fda9432"
-    sha256 cellar: :any_skip_relocation, ventura:        "ebe2ecd3e53a9886453a5529b23d79d99b192e56fd759ecaa21f15d86aa0db8a"
-    sha256 cellar: :any_skip_relocation, monterey:       "32882860363ad3a2f8d8ea2450e9da31a2b41bf8b0031b347c1e362d170356f8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa900a5c1ee938d9652a354e5032a64edd4a795373c8a217e056444005f349d0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "78d2b141bc9bfc43731e7a66e65c1ea8f8f4115b28a351442fcb86cb54df054b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7ca14b5cea4bfd5ae7f1e3c3f839292670b92466ef9ab1276d2865e6bf389d2b"
+    sha256 cellar: :any_skip_relocation, sonoma:         "817345580436541a81897180e423dbfa8de52b8c1e4d2168e14b3c4618cbb3a6"
+    sha256 cellar: :any_skip_relocation, ventura:        "cd9630e5a0402ea0aaa17754fead8f7c0e616c495cdaf5bd314c609ecef4afd5"
+    sha256 cellar: :any_skip_relocation, monterey:       "d21cfcf5ad2d7e6fd62eca897c1608f1fce5f5c9bfc3f9c51badf8f2687ec6c8"
   end
 
   depends_on "pkg-config" => :build

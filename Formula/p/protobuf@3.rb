@@ -18,7 +18,6 @@ class ProtobufAT3 < Formula
 
   keg_only :versioned_formula
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
@@ -44,7 +43,7 @@ class ProtobufAT3 < Formula
     ENV.cxx11
 
     system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args, "--with-zlib", "--with-pic"
+    system "./configure", "--with-zlib", "--with-pic", *std_configure_args
     system "make"
     system "make", "install"
 
@@ -55,10 +54,10 @@ class ProtobufAT3 < Formula
     ENV.append_to_cflags "-I#{include}"
     ENV.append_to_cflags "-L#{lib}"
 
-    cd "python" do
-      pythons.each do |python|
-        system python, *Language::Python.setup_install_args(prefix, python), "--cpp_implementation"
-      end
+    pip_args = ["--config-settings=--build-option=--cpp_implementation"]
+    pythons.each do |python|
+      build_isolation = Language::Python.major_minor_version(python) >= "3.12"
+      system python, "-m", "pip", "install", *pip_args, *std_pip_args(build_isolation:), "./python"
     end
   end
 

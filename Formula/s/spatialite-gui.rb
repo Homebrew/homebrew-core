@@ -4,7 +4,7 @@ class SpatialiteGui < Formula
   url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/spatialite_gui-2.1.0-beta1.tar.gz"
   sha256 "ba48d96df18cebc3ff23f69797207ae1582cce62f4596b69bae300ca3c23db33"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url "https://www.gaia-gis.it/gaia-sins/spatialite-gui-sources/"
@@ -12,15 +12,13 @@ class SpatialiteGui < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "89884971497663bdf9b7e889b94e05013d80a28084ce2be0cc8780e08fe91ec4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c536a53e5bee1a2971e50aa51eba04bbbcfc71f5ce490c06c84801eec1c822be"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b7434afc44f7b02180d57580736ceb108f87d3c178f4719e2333e1c24c1988a"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "5d3120e5b4bdd9e8a56834e2c06d304d6ccd740084e63f16fc81f384d0e1aa05"
-    sha256 cellar: :any,                 sonoma:         "15aff386a158acc0f2dfc58223b613771d5427541b9cb129cd30ed899dd2adb1"
-    sha256 cellar: :any_skip_relocation, ventura:        "fb28b10d6fcc6d2ae140e635dfb5055d6428b34a08a3f3a5b585441773dbe00a"
-    sha256 cellar: :any_skip_relocation, monterey:       "06a2e3f898aec3797366f6ba02120434b6e97469e6331484e7edf257036110d5"
-    sha256 cellar: :any_skip_relocation, big_sur:        "8ca6204b4ed2605f6172eb35c206cce06171042b321ab09237d383924a4e8739"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ef5b135c6e6a396b28dd0516613d517615077cd9dd2bbe8477f82b9e4eb390ba"
+    sha256 cellar: :any,                 arm64_sonoma:   "8118deb7546c121de8bbc896903e9c72f8041743f181d519e8432f4603e2c6eb"
+    sha256 cellar: :any,                 arm64_ventura:  "017848cd915bdbb235ad0274523f48bb8ee1e596e19c79eecac1fe607002bc0f"
+    sha256 cellar: :any,                 arm64_monterey: "888e9f7843db07a4952db29a454302bd4ffd9161f98d2165fa3b9c0e70f9068a"
+    sha256 cellar: :any,                 sonoma:         "2e6a062109a1d47a99dbd5df515fe7d45fae9b1d72f191344d5220cc40a533fc"
+    sha256 cellar: :any,                 ventura:        "664b0807a162618da46d8898b8c891204ec560a128a38c26f89458c838aa64df"
+    sha256 cellar: :any,                 monterey:       "2e77213707059a4cbaaa4f49639794a3c92e18950efad246381ebbfd852a63d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f9dfab6ace2e591356c57306e21a5faa1f762d7ef94784a5233f652bb0043b31"
   end
 
   depends_on "pkg-config" => :build

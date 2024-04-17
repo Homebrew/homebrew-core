@@ -3,18 +3,18 @@ class Tmuxp < Formula
 
   desc "Tmux session manager. Built on libtmux"
   homepage "https://tmuxp.git-pull.com/"
-  url "https://files.pythonhosted.org/packages/a9/a3/1daa0dcaac35d567e2fa21522c3c1bdcb7b7bd96e56b9ed591cd046ca082/tmuxp-1.45.0.tar.gz"
-  sha256 "23b3ff0a8862a44c2bc687a553f78f4afd8f1e03371d775555a7699ed54572b4"
+  url "https://files.pythonhosted.org/packages/2b/25/e696821e9d490ae3d5cfa31c70fd4589f974f5c82294fc043b57a0835be5/tmuxp-1.46.0.tar.gz"
+  sha256 "f9a5e9b01e268f0f6c64b6a5bf79275bca243fe9a1d8ffe76d90a20b06b75015"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c887c570333fe97adfa46794d0507ed679df3287c3d0e01a6a80e971f9bb4a2e"
-    sha256 cellar: :any,                 arm64_ventura:  "8e3cb79d85485b4da34e0b8033c16ec6d5801324c18653fd9aa9270287ad679e"
-    sha256 cellar: :any,                 arm64_monterey: "943d7067d213a0fcb92a45171c130e77babe55487358831f0793c8d5cdbc408d"
-    sha256 cellar: :any,                 sonoma:         "84adae392346758e60686b8912b17634c1e372026e06d32e8cd1d14d7b520a2c"
-    sha256 cellar: :any,                 ventura:        "1671f2ea358cc060b7853f0deae2d88ee8f6dcb7e70a57d07c0982fb5aea9552"
-    sha256 cellar: :any,                 monterey:       "2ee887892fa1feacbe09e9e135b227aaf6893528db32357d3ec8b3b9a5e30963"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bece2660d5073f3328c7eb3a6a84ae2cae1c4cd486c43ab51b259fe1eac0d5c8"
+    sha256 cellar: :any,                 arm64_sonoma:   "ad733b336a0ee581915838100d724b2dac391d520d1b29c9b4b9756202dab71b"
+    sha256 cellar: :any,                 arm64_ventura:  "0cdbfd7dfa6c5369f9be5e9dcd8516d569d504bcd300ac2126fb9ad6ad40fef2"
+    sha256 cellar: :any,                 arm64_monterey: "b2143905fadbd9b12dd2f33a5a8bd0135ab224e03e674b9f72b83e0cb1394d03"
+    sha256 cellar: :any,                 sonoma:         "f3ea511caa4a41a659a153b47495c3184ac23e0759b1a09f00699be187880575"
+    sha256 cellar: :any,                 ventura:        "381f271a6a06da07b1aa3cc00c2051be462a7b4846ccffbce1647bc148d25078"
+    sha256 cellar: :any,                 monterey:       "9857b34f47e29e1eef68308a6f583bd6981e686dfd26c0b799d88fd470bce603"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "987e1dc108a0d51cc14b52c158c9f95e0b251154d3c571abc907f2372810f778"
   end
 
   depends_on "libyaml"

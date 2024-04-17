@@ -6,16 +6,17 @@ class GitReview < Formula
   url "https://files.pythonhosted.org/packages/79/ae/1c161f8914731ca5a5b3ce0784f5bc47d9a68f4ce33123d431bf30fc90b6/git-review-2.4.0.tar.gz"
   sha256 "a350eaa9c269a1fe3177a5ffd4ae76f2b604e1af122eb0de08ab07252001722a"
   license "Apache-2.0"
+  revision 1
   head "https://opendev.org/opendev/git-review.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3265f6e2135f3caabdb76ad466795753c0614b65fcdf53341eca550b9963b1f1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3265f6e2135f3caabdb76ad466795753c0614b65fcdf53341eca550b9963b1f1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3265f6e2135f3caabdb76ad466795753c0614b65fcdf53341eca550b9963b1f1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3265f6e2135f3caabdb76ad466795753c0614b65fcdf53341eca550b9963b1f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "3265f6e2135f3caabdb76ad466795753c0614b65fcdf53341eca550b9963b1f1"
-    sha256 cellar: :any_skip_relocation, monterey:       "3265f6e2135f3caabdb76ad466795753c0614b65fcdf53341eca550b9963b1f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a4eede950326b9b85fe23f8c4620406126b44e3e29d52ed92b1657e76bc660ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2ad6eb006c5c32abb9eb6ba8da2df4a04d46af23cb38879624ca6aa1368fa1b7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2ad6eb006c5c32abb9eb6ba8da2df4a04d46af23cb38879624ca6aa1368fa1b7"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2ad6eb006c5c32abb9eb6ba8da2df4a04d46af23cb38879624ca6aa1368fa1b7"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2ad6eb006c5c32abb9eb6ba8da2df4a04d46af23cb38879624ca6aa1368fa1b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "2ad6eb006c5c32abb9eb6ba8da2df4a04d46af23cb38879624ca6aa1368fa1b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "2ad6eb006c5c32abb9eb6ba8da2df4a04d46af23cb38879624ca6aa1368fa1b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b010195b900eea4ea20d55cb30281dff703cb147cd4cd7659dcaa7c5f120ad97"
   end
 
   depends_on "certifi"
@@ -27,8 +28,8 @@ class GitReview < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "requests" do

@@ -15,7 +15,8 @@ class PythonTypingExtensions < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d08667977a45cbf7102384b2b1bcd04f6468c0f5b763aecb36a1ccfad6a6d76"
   end
 
-  depends_on "python-flit-core" => :build
+  disable! date: "2024-07-05", because: "does not meet homebrew/core's requirements for Python library formulae"
+
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "mypy" => :test
@@ -28,7 +29,7 @@ class PythonTypingExtensions < Formula
 
   def install
     pythons.each do |python|
-      system python.opt_libexec/"bin/pip", "install", *std_pip_args, "."
+      system python.opt_libexec/"bin/pip", "install", *std_pip_args(build_isolation: true), "."
     end
   end
 
@@ -40,6 +41,11 @@ class PythonTypingExtensions < Formula
     <<~EOS
       This formula provides the `typing_extensions` module for Python #{python_versions}.
       If you need `typing_extensions` for a different version of Python, use pip.
+
+      Additional details on upcoming formula removal are available at:
+      * https://github.com/Homebrew/homebrew-core/issues/157500
+      * https://docs.brew.sh/Python-for-Formula-Authors#libraries
+      * https://docs.brew.sh/Homebrew-and-Python#pep-668-python312-and-virtual-environments
     EOS
   end
 

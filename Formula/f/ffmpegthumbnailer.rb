@@ -2,7 +2,7 @@ class Ffmpegthumbnailer < Formula
   desc "Create thumbnails for your video files"
   homepage "https://github.com/dirkvdb/ffmpegthumbnailer"
   license "GPL-2.0-or-later"
-  revision 9
+  revision 10
   head "https://github.com/dirkvdb/ffmpegthumbnailer.git", branch: "master"
 
   stable do
@@ -21,15 +21,13 @@ class Ffmpegthumbnailer < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "f8ae724062b48d0193fcc9fcb69d693abbcfaa77a40bc1a88b147a07e28f0eaf"
-    sha256 cellar: :any,                 arm64_ventura:  "651e4186281c8f77c76519f282e821795ce42b7cb7a11431c4e9e0ca1fb5a10e"
-    sha256 cellar: :any,                 arm64_monterey: "adf8f9ce013151edad436ae7462fd286a9c9bc3c04abe10c5541887c40b6dc94"
-    sha256 cellar: :any,                 arm64_big_sur:  "cb6e19606a94bd012f7890b5cfc59b3f8d18344552b4bd195b7648ab9e1b5abb"
-    sha256 cellar: :any,                 sonoma:         "86e7c8e02444e95300a3d54f097ec471674e2eb737cc224d344bd9710a53dc2e"
-    sha256 cellar: :any,                 ventura:        "81f5f3ff321630d5ea8f7374716fd7adee4714a78c95af9ded1def1ea483af9c"
-    sha256 cellar: :any,                 monterey:       "e4a182af14a980343f9d45f38e392df82d7640bdbbc12f69670378b815028852"
-    sha256 cellar: :any,                 big_sur:        "2c33a50328d3ba008168f7cd139196d566179f119ae9a780ce5e7a52ef5d5142"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c627f97157285b874faf076adadae31b0b080c64813489227ee669e320ab7f15"
+    sha256 cellar: :any,                 arm64_sonoma:   "235ab42ecf1f474a0384e45a2e78fd9f30841e5749af68eefe462b6abefde494"
+    sha256 cellar: :any,                 arm64_ventura:  "937e42bc36a29d57502d71354e24b73a5be2da001d99fa1af4343e72c0f1cc69"
+    sha256 cellar: :any,                 arm64_monterey: "e848acd7b52d186e84410b372e9fcc736a793bf821146a075a52d632141e197e"
+    sha256 cellar: :any,                 sonoma:         "a434eb881dd1ad39b2ec6a9e6cc0b5bc717bda9c93b889e1854dd94b91b3adcb"
+    sha256 cellar: :any,                 ventura:        "1c9e947edabc6c624ff242a4a1852096a2199d16595a15df3ecfee9bc6f50893"
+    sha256 cellar: :any,                 monterey:       "d44e1ebe5f523a76d2872cc4dc25333743f2297b0fac57aceeffb28b91fe2c12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "335052fa0c62e6e0406baf107c55b02f5ff726d774fdfe6ad30896d0f3ef95cf"
   end
 
   depends_on "cmake" => :build

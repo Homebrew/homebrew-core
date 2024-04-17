@@ -6,17 +6,16 @@ class Waybackpy < Formula
   url "https://files.pythonhosted.org/packages/34/ab/90085feb81e7fad7d00c736f98e74ec315159ebef2180a77c85a06b2f0aa/waybackpy-3.0.6.tar.gz"
   sha256 "497a371756aba7644eb7ada0ebd4edb15cb8c53bc134cc973bf023a12caff83f"
   license "MIT"
-  revision 3
+  revision 4
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5a5b6c2e519d8b7a88a932180534bbc9ca78d1abe209ef95783e4c7bd669a18c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8b4c81d02982f89530951fbffffe03933a93d9a9e0493ef2e4d5ab02194990d1"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "47b23021a426a469efa2b299696387a94cec60dabc97be977af76d239d9231ea"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8fb24a112322b091a4bad5468b276b53602d5d11b664c1eb101dc6bdef3be434"
-    sha256 cellar: :any_skip_relocation, ventura:        "ff71470d24536ce9b49d4f3709ed45cd00ed8dcded7df3c5b3c0292faeb4edcb"
-    sha256 cellar: :any_skip_relocation, monterey:       "221b9a4696b4bfd3f0b5ec3eaf43311a5025f894b8d340960d78f9ad5cd4d139"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f7cbd7b8cdc15cad1c2aaf7ad0d2f67933a3dccaca372129a20074177452b3f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "165c7576d713878d6d90437837807854b5335ba1eda387ba7201c24f4d409403"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "165c7576d713878d6d90437837807854b5335ba1eda387ba7201c24f4d409403"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "165c7576d713878d6d90437837807854b5335ba1eda387ba7201c24f4d409403"
+    sha256 cellar: :any_skip_relocation, sonoma:         "165c7576d713878d6d90437837807854b5335ba1eda387ba7201c24f4d409403"
+    sha256 cellar: :any_skip_relocation, ventura:        "165c7576d713878d6d90437837807854b5335ba1eda387ba7201c24f4d409403"
+    sha256 cellar: :any_skip_relocation, monterey:       "165c7576d713878d6d90437837807854b5335ba1eda387ba7201c24f4d409403"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5241c1dccedc457c95b101762f582249c60bff05463bc9920f044501c59b04c6"
   end
 
   depends_on "certifi"
@@ -33,8 +32,8 @@ class Waybackpy < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "requests" do

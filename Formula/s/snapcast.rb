@@ -1,19 +1,17 @@
 class Snapcast < Formula
   desc "Synchronous multiroom audio player"
   homepage "https://github.com/badaix/snapcast"
-  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "c662c6eafbaa42a4797a4ed6ba4a7602332abf99f6ba6ea88ff8ae59978a86ba"
+  url "https://github.com/badaix/snapcast/archive/refs/tags/v0.28.0.tar.gz"
+  sha256 "ce7edf2db19835c0c4c2bf47af3bc3088a4740144df10fead9e7fb2741b8b51e"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "b7bf09138d0e2a66cc58c0a018bb0629aceb5131b605c16182a608af06694cd9"
-    sha256 cellar: :any, arm64_ventura:  "5f8b48a023b44476b3616388c9b7e307a4faf9cf84c499ddb4a9005e2f0c4bda"
-    sha256 cellar: :any, arm64_monterey: "2ad42c1d88a43a12d762d96edcda0606c5fda5bb70681eda149985697b11ab11"
-    sha256 cellar: :any, arm64_big_sur:  "8588b358091d73a106db67279386ad7be95f3219daba2bfb5f1c9312b953b718"
-    sha256 cellar: :any, sonoma:         "fe4a1959cd2b3247218f27cb96688b14e1aa69960abb6c3916cd08569ea9550e"
-    sha256 cellar: :any, ventura:        "2bbbca9b982f1fec1ddb0586432a2422de1a0e0da70aed728acc7b0606653c07"
-    sha256 cellar: :any, monterey:       "618395d8c3fdcb4e12929e7dc9a1157a5c89f62c0ce064fc28866601097a49eb"
-    sha256 cellar: :any, big_sur:        "ba8f8d14a4b66bc87a4158fbd91b6f043566a65be66bfbb8d16322589960d265"
+    sha256 cellar: :any, arm64_sonoma:   "80fb41b2e5b1d10cf211303256547290722181f29f31f27f3b2b61e90a96a53e"
+    sha256 cellar: :any, arm64_ventura:  "fe61bdbb1751d70c806e04635b71b6ce703cc2139123ad77709a0e3e34b9c756"
+    sha256 cellar: :any, arm64_monterey: "d43333c9aec68a7a71443dd5c7e626071a8a1bdade0f79dfe717314dd352ae4f"
+    sha256 cellar: :any, sonoma:         "340b42091cd68a9cb2244a1ef28d2e324ccebe2dbb0d17f8f3a311f6f1df59af"
+    sha256 cellar: :any, ventura:        "84ad5a9b29a5a85d5f35798953fba89f0eec23affaa6e4fffd9feadc75a59ad5"
+    sha256 cellar: :any, monterey:       "706c5bc609b28c03fedfdfef35c6fa804f8797fa034966fa2e4031aed403c45a"
   end
 
   depends_on "boost" => :build

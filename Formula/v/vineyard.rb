@@ -6,16 +6,16 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.21.5/v6d-0.21.5.tar.gz"
   sha256 "c434f61e71fb5e414add093b302375f27084dc03800e026019199db984183036"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256                               arm64_sonoma:   "13ca677806fa9073f7207f7e5efe9ea33315ff270fdf7559cd3d2bf311db5309"
-    sha256                               arm64_ventura:  "f00c78861c0da0cbabec1e0fcf6a0236067cc23f0410a59c77368528b5addcc6"
-    sha256                               arm64_monterey: "b3ca850db4e8945339563277aaa0942080804ff3c415436506ebb2c85ec21c71"
-    sha256                               sonoma:         "2887df252b3703b18c69038f1db7d4ff119c9cbd21378a3635fc74ddd848ac18"
-    sha256                               ventura:        "cab9a0c4b38a226310c790caeca308d4806957cabef44fd3c60e70d1a05e9b87"
-    sha256                               monterey:       "5f85919fdddcdeac46221d4e63d997e88d821ae9b8b739363d2ffb857b6997a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff64d97910a0ee232f178caf6c0166fc7f7026f2856a70f6e17e6d52a323a880"
+    sha256                               arm64_sonoma:   "d5cffba2127b91d73218c8e35091b482cb4735df98d145609afa988d84050b0b"
+    sha256                               arm64_ventura:  "f02b2f658b66ec9c6b957be59dd8efe03a411b8a217ed54f86b6ce2883b0ca64"
+    sha256                               arm64_monterey: "7486a4a9bfbd5573973d0863f3264dfc88647bf528a37b1bb13dbae49ffe7177"
+    sha256                               sonoma:         "627c89f654e0d8a63d1c471f82b5e7d99152a3068120d682cf529567bbb6f5ee"
+    sha256                               ventura:        "278d437f3be3b49fec36b60a9e84760483d2d272ab1cfdfcc6fbddaf702e789c"
+    sha256                               monterey:       "cb5beb52a278df15303624903560217cbe9a9476e7601b451c536f3c41e649ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6890332a11185595eea54cfeb9e47f897c630b4283511c861f9f4f26f16a3b02"
   end
 
   depends_on "cmake" => [:build, :test]

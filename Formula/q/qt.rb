@@ -10,7 +10,7 @@ class Qt < Formula
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "LGPL-3.0-only",
   ]
-  revision 1
+  revision 2
   head "https://code.qt.io/qt/qt5.git", branch: "dev"
 
   stable do
@@ -35,14 +35,13 @@ class Qt < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "0e4726473ec91f76ec3c1bdea001f2fbde1b0d86cb354981154d483649efbfe5"
-    sha256 cellar: :any,                 arm64_ventura:  "a2c8d1255b3ec9821a0a6816f9ac118fe7716325f626ec4327c38fcd512da740"
-    sha256 cellar: :any,                 arm64_monterey: "283299b96e2d7a92e79f8ae405565662329e8d891619cdea1859733daaaeb776"
-    sha256 cellar: :any,                 sonoma:         "01ac20eac9280daaee92262ea6f9a5590ac417eefc91be5f250ce3e5f01d2488"
-    sha256 cellar: :any,                 ventura:        "df12697a44299790b3f384b02eb9e720dcc77cc8cdd9575d8f73ffd2c043605e"
-    sha256 cellar: :any,                 monterey:       "ce178a1a9544c275bdc7d4c3746e04ce5763ffc3d38b4192339cf1ac9cc2be10"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "836c2b167b2157ab3e2e37153238942c7aa1c06001fb97d10b023e5181b38133"
+    sha256 cellar: :any,                 arm64_sonoma:   "b38f05cfe4fa5c500aef53c3c5ea473a74bb1ede45d1780b2319a8a8c6705a88"
+    sha256 cellar: :any,                 arm64_ventura:  "ab22a0f5ab48473cbab19430b6da428ce7f10cb53021a4c52d1d20bffd03c160"
+    sha256 cellar: :any,                 arm64_monterey: "41296897961f7be62e2c3660b2bcad7d1bc42cf0bc1d4527b459795032ef5d26"
+    sha256 cellar: :any,                 sonoma:         "97ae8277d876f50e1606dd8b5bb73e934848ba0e29e61bdc9374c3bab5bcc4ab"
+    sha256 cellar: :any,                 ventura:        "f14630f2e75dfbfc5f2aaa704a174996290c3df08e31832cc3f310dbd1e904f6"
+    sha256 cellar: :any,                 monterey:       "c422a0bd0ef0d4e3faffe44949adbfa1029769ab277ff802712ff9969a6e649c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75b1bde75ac96973f5c4a333fa0b0b2f1258a8f3bbd780e59334ba183ff4a2e1"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -94,7 +93,7 @@ class Qt < Formula
     depends_on "alsa-lib"
     depends_on "at-spi2-core"
     # TODO: depends_on "bluez"
-    depends_on "ffmpeg"
+    depends_on "ffmpeg@6"
     depends_on "fontconfig"
     depends_on "gstreamer"
     # TODO: depends_on "gypsy"

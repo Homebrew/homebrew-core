@@ -3,12 +3,12 @@ class NodeSass < Formula
 
   desc "JavaScript implementation of a Sass compiler"
   homepage "https://github.com/sass/dart-sass"
-  url "https://registry.npmjs.org/sass/-/sass-1.74.1.tgz"
-  sha256 "9bd8b86118b1eeedf1086c3bf8ff0bced0a78a9bbd7c67fb7e533cbdd5cdf331"
+  url "https://registry.npmjs.org/sass/-/sass-1.75.0.tgz"
+  sha256 "ccc78004176c0cf431d98553920d3df4e8e97aa5e2b35c04691f9f770b44ba83"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4a5d085e069f9086e1d29a649ffa1055cdbdb1834968c5d9eda60b73ae0863cd"
+    sha256 cellar: :any_skip_relocation, all: "704120006840ec3cb01e923935918da23b78ba3272e9c2c81efb1e78093f88bc"
   end
 
   depends_on "node"

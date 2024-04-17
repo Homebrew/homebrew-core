@@ -3,18 +3,18 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/ab/f0/edfeb1a2add5577d831f5639dea1b886e04ca898a9abd2645345b4660fce/internetarchive-3.7.0.tar.gz"
-  sha256 "fca52e6b28fb76c84c47e61f32794653dc2d2ae4cc2de90911cb967be221d70c"
+  url "https://files.pythonhosted.org/packages/81/dc/4d0e4e099068774627b88472881ccd3cc7458b0f20e15b9decb8f327fcd0/internetarchive-4.0.1.tar.gz"
+  sha256 "8e897ee1c054edff40744e65e16d697dbfae26b0645a5fc7762cbaf88aff87b7"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d2c2fa40180e2c11e270b8128f2c304244ad9f12be976d9dfe196aa95c56122f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d2c2fa40180e2c11e270b8128f2c304244ad9f12be976d9dfe196aa95c56122f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d2c2fa40180e2c11e270b8128f2c304244ad9f12be976d9dfe196aa95c56122f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d2c2fa40180e2c11e270b8128f2c304244ad9f12be976d9dfe196aa95c56122f"
-    sha256 cellar: :any_skip_relocation, ventura:        "d2c2fa40180e2c11e270b8128f2c304244ad9f12be976d9dfe196aa95c56122f"
-    sha256 cellar: :any_skip_relocation, monterey:       "d2c2fa40180e2c11e270b8128f2c304244ad9f12be976d9dfe196aa95c56122f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2d4fff891ed7ecf1fdbc84edc27d3c717280585154ccb4625c30fd462d589b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "996092a2f9859451b38a929f39dd2efd33a2d0274889a027720fa4829910f90d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "996092a2f9859451b38a929f39dd2efd33a2d0274889a027720fa4829910f90d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "996092a2f9859451b38a929f39dd2efd33a2d0274889a027720fa4829910f90d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "996092a2f9859451b38a929f39dd2efd33a2d0274889a027720fa4829910f90d"
+    sha256 cellar: :any_skip_relocation, ventura:        "996092a2f9859451b38a929f39dd2efd33a2d0274889a027720fa4829910f90d"
+    sha256 cellar: :any_skip_relocation, monterey:       "996092a2f9859451b38a929f39dd2efd33a2d0274889a027720fa4829910f90d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "dc67016b3be23c9954fd7a865e1ca4319f0d645d6d96721a9af7fa150fdb7673"
   end
 
   depends_on "certifi"
@@ -36,8 +36,8 @@ class Internetarchive < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "jsonpatch" do

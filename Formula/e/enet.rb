@@ -1,8 +1,8 @@
 class Enet < Formula
   desc "Provides a network communication layer on top of UDP"
   homepage "http://enet.bespin.org"
-  url "http://enet.bespin.org/download/enet-1.3.17.tar.gz"
-  sha256 "a38f0f194555d558533b8b15c0c478e946310022d0ec7b34334e19e4574dcedc"
+  url "http://enet.bespin.org/download/enet-1.3.18.tar.gz"
+  sha256 "2a8a0c5360d68bb4fcd11f2e4c47c69976e8d2c85b109dd7d60b1181a4f85d36"
   license "MIT"
   head "https://github.com/lsalzman/enet.git", branch: "master"
 
@@ -12,28 +12,17 @@ class Enet < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "de387a32a1ecaf84c7a6613ad9e52db6240d039dca24c4aad198340517b0c75f"
-    sha256 cellar: :any,                 arm64_ventura:  "8ffd8e1ae66e88e051ccd64b6d74522d02eeb1b096fcbcc022f86f083b8810f0"
-    sha256 cellar: :any,                 arm64_monterey: "b3062174516e707b28107908022121945529e208ca2e7373816cfc3c8799e838"
-    sha256 cellar: :any,                 arm64_big_sur:  "b2ef2e83fc0f527691e8352d39241277ab742569cc5278a357a53b19a42e700d"
-    sha256 cellar: :any,                 sonoma:         "d58d67c6b940adcea2dd7e906309085d548dca0ff305f1f2c490857369357358"
-    sha256 cellar: :any,                 ventura:        "876cfcfa8008a761b85007f72a6644828ab6d8ac752ed303d98abcf42595837b"
-    sha256 cellar: :any,                 monterey:       "4f4c90156aae2b0d4b0ac10863a6be5fe65350f047b7607f46c71e391aa59088"
-    sha256 cellar: :any,                 big_sur:        "bb861ad42df5152ac53708cdee14a599ff5e09a06cf3d438e88f7bc6b84590db"
-    sha256 cellar: :any,                 catalina:       "557052d4c6fb7e8c4329270730bd97b032f279c2cfafaa6ebbd32f7ff7e076bf"
-    sha256 cellar: :any,                 mojave:         "7df13b64c909df3368a91094abaaab1563f66ebcb276af0d318408977af08d2f"
-    sha256 cellar: :any,                 high_sierra:    "6fbf495f25b1df30003129b77167df08d26fbb576fa61a3f17ff7eba366bdd2a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0531f7c9cb6c994d6a38b07ac6e303f81a8a4194dd7daaa6d6aec1d25155afb"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
-    sha256 "35acd6aebc19843f1a2b3a63e880baceb0f5278ab1ace661e57a502d9d78c93c"
+    sha256 cellar: :any,                 arm64_sonoma:   "e078c1459c03714c7bfacf48e92c9245ac4d4842479826b4f76d9e49cca66e45"
+    sha256 cellar: :any,                 arm64_ventura:  "8bcb6508f5e8ff25fe137e0f3373a3f005c3d26797881cbce22cef4056e76c1f"
+    sha256 cellar: :any,                 arm64_monterey: "e2c4a31201788842f820b7f90745e90286b7675940d3edb65f545e3e021b057c"
+    sha256 cellar: :any,                 sonoma:         "826941d0ca8527b5be6121478c8f713b3f72ca69413cf43ef655a616ca0e0551"
+    sha256 cellar: :any,                 ventura:        "ef5837ce67084857ced1dcc5d467f644420a4eb0eac7cb846134274e1c58d0b5"
+    sha256 cellar: :any,                 monterey:       "f6eb8f65dc979ec67b61ece60ffad7543b6c246b37400f48809c97a0d56ee987"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4f47239030ad6e2af53bb52c6a040f0bb46424ffd3909819c190e939a63a8a3"
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 

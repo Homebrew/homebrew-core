@@ -5,19 +5,17 @@ class Glslviewer < Formula
       tag:      "v3.10.1",
       revision: "2671e0f0b362bfd94ea5160f2ecb7f7363d4991d"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
   head "https://github.com/patriciogonzalezvivo/glslViewer.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0b7a803f008bf3fcf1f241b67e2255ed32b8c257ca669a3ad5295a489cf61381"
-    sha256 cellar: :any,                 arm64_ventura:  "afa084b82ac989012ba1b7a0be020dc9b3fa53fbad2fde4f29701b355d773ad1"
-    sha256 cellar: :any,                 arm64_monterey: "457b6bff40820346616235932bb39c2105dd6a4a39d1026c09659bd5438a4d63"
-    sha256 cellar: :any,                 arm64_big_sur:  "b05b023270b9c26d122edbe2bf3d742b33620dd770af545b3a043e14c405c790"
-    sha256 cellar: :any,                 sonoma:         "8d2c4f20dfaa42986bdfa7ec6bd9688d6ae91894072a1cf7a9ef7b7df77a0627"
-    sha256 cellar: :any,                 ventura:        "1cda06348a524c7d2133299fc628b226172a150eaf96bdd166d5a00ca0b7abee"
-    sha256 cellar: :any,                 monterey:       "ba4ceb36a0e468e37d9eec68e085a02e82a287bda20614900a75368af6f328ab"
-    sha256 cellar: :any,                 big_sur:        "b330de6ce3a5d9609fbc10eeac4c9eeca6d5254328ad3d279b72ad185aff9d25"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f38df03d7a2bf56fdc621cbe257ccd4316ed3ec2f6dcb6c190868db7514f8b28"
+    sha256 cellar: :any,                 arm64_sonoma:   "cc73eebe09ee3b60bc5ce16ad6a782f1b0c5cfc697679b5dfbab18bcc202861d"
+    sha256 cellar: :any,                 arm64_ventura:  "bca12029a7978f076ab6f731e71cac82ee34d0c3180db3fcce08f8d3bf8447a4"
+    sha256 cellar: :any,                 arm64_monterey: "a7c3cfbe98494f295e851ccb114b5ce3f84c67fd5f5d8d65fdb553963394e293"
+    sha256 cellar: :any,                 sonoma:         "1470438d1d73005278d1fdfc868e0042478551e80db3ba11160a66a62cd6e960"
+    sha256 cellar: :any,                 ventura:        "28439e4620a08f58ce48f437d7787f324c015751ed2564a29ef8c7adaf27d92b"
+    sha256 cellar: :any,                 monterey:       "8f335fe983329dbf20e1c5cae75e03c86d21120a1bb8dadcdf4ddb9fe8e9a6fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3934d08a398ad07ff9d771fa81df3f8f43f14ecf9b494d04ac9c7dc82f4d1df6"
   end
 
   depends_on "cmake" => :build

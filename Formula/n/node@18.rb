@@ -1,10 +1,9 @@
 class NodeAT18 < Formula
   desc "Platform built on V8 to build network applications"
   homepage "https://nodejs.org/"
-  url "https://nodejs.org/dist/v18.19.1/node-v18.19.1.tar.xz"
-  sha256 "090f96a2ecde080b6b382c6d642bca5d0be4702a78cb555be7bf02b20bd16ded"
+  url "https://nodejs.org/dist/v18.20.2/node-v18.20.2.tar.xz"
+  sha256 "8aaea7c9c7e927fb09d91498da311b6e4d18233390e23c723a53b891fad4c73f"
   license "MIT"
-  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -12,13 +11,13 @@ class NodeAT18 < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "6ceb39cdb19984aed3125dff77678c77d136c40a492742a01d7aac6921e802ef"
-    sha256 arm64_ventura:  "3eb7bc97555f2c6bfd0336621dcdc95b19070ca9bc78e1cfdc3a39a71c32ca50"
-    sha256 arm64_monterey: "8073af2db5b500f9a6aa9d897103b41eb13f647fa6fff439e0c80dde0921700e"
-    sha256 sonoma:         "c5b3ccb0d88886acb6d7d0afb002ca0dd3fed6abacabd115956baf501517cb59"
-    sha256 ventura:        "7b6f43da3692969a73875f0c2b67b1812ffbe10331594ce31ce7c80b37825d61"
-    sha256 monterey:       "76e403212a3cf036325c835b6276d340ec88835b7bcdd59fd7e8e3a39546d16c"
-    sha256 x86_64_linux:   "2e3a2c258c64de94eae19f8c7c1eab88fe9ba5273cd53a3d405a7a8b09557104"
+    sha256 arm64_sonoma:   "2ce8a561e75498dc227f9546c9cb444c8d84b98418098cbbb5d082283a809a70"
+    sha256 arm64_ventura:  "1b7dbb122f27c2d6e0d844d9ccdb936717cc5def1f608f41a67bfc0094f3ca05"
+    sha256 arm64_monterey: "c86ca9997ab9f8762e0f6e0e69aa81774a5666cdbea4504ce17bbee4439eb42a"
+    sha256 sonoma:         "2314bbf7de1c0054b41b679b4ae3ea1693c8eb0a283d77a966ea82486597ca41"
+    sha256 ventura:        "e1847c1899ac853c5a5e931a5fdfac063b26a62c27345a557af6bc5b0bd0513a"
+    sha256 monterey:       "05a174513f3d6d62f58186f30956d1f6538525d4540029e9390beca7a49fe634"
+    sha256 x86_64_linux:   "f192a92d9cda4632e45924c1e192010bdb0133e36d0c40c0eaab6f018f121a94"
   end
 
   keg_only :versioned_formula
@@ -53,8 +52,12 @@ class NodeAT18 < Formula
 
   fails_with gcc: "5"
 
-  # Support Python 3.12
-  patch :DATA
+  # upstream bug report, https://github.com/nodejs/node/issues/52230
+  # and v8 dep patch PR, https://github.com/nodejs/node/pull/52337
+  patch do
+    url "https://github.com/nodejs/node/commit/f7a319eb22d956c11c71fd203243c3fb7fa2094e.patch?full_index=1"
+    sha256 "e410e1abe96bc23b4dc8e308cdc93fc3e940b524bcff78d5a4c15f64b2e075f2"
+  end
 
   def install
     ENV.llvm_clang if OS.mac? && (DevelopmentTools.clang_build_version <= 1100)
@@ -121,27 +124,3 @@ class NodeAT18 < Formula
     assert_match "< hello >", shell_output("#{bin}/npx --yes cowsay hello")
   end
 end
-
-
-__END__
-diff --git a/configure b/configure
-index fefb313c..711a3014 100755
---- a/configure
-+++ b/configure
-@@ -4,6 +4,7 @@
- # Note that the mix of single and double quotes is intentional,
- # as is the fact that the ] goes on a new line.
- _=[ 'exec' '/bin/sh' '-c' '''
-+command -v python3.12 >/dev/null && exec python3.12 "$0" "$@"
- command -v python3.11 >/dev/null && exec python3.11 "$0" "$@"
- command -v python3.10 >/dev/null && exec python3.10 "$0" "$@"
- command -v python3.9 >/dev/null && exec python3.9 "$0" "$@"
-@@ -23,7 +24,7 @@ except ImportError:
-   from distutils.spawn import find_executable as which
-
- print('Node.js configure: Found Python {}.{}.{}...'.format(*sys.version_info))
--acceptable_pythons = ((3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
-+acceptable_pythons = ((3, 12), (3, 11), (3, 10), (3, 9), (3, 8), (3, 7), (3, 6))
- if sys.version_info[:2] in acceptable_pythons:
-   import configure
- else:

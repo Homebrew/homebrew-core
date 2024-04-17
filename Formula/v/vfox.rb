@@ -1,25 +1,28 @@
 class Vfox < Formula
   desc "Version manager with support for Java, Node.js, Flutter, .NET & more"
   homepage "https://vfox.lhan.me"
-  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.3.1.tar.gz"
-  sha256 "789cae4218a46ff1aeadf22b94c0b8ecd394088f0d3440e7c58293d4e53219b9"
+  url "https://github.com/version-fox/vfox/archive/refs/tags/v0.3.4.tar.gz"
+  sha256 "8051374cd4c7fedd740c50e8bcf53abb47bf717d4ce0b49639c2ae291fc04584"
   license "Apache-2.0"
   head "https://github.com/version-fox/vfox.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fe01038811a8ef65a3e2437f51f6fff764e8c730ba83c1a26de313404fe877c2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1286848444548ae83cb079fc8bcbb5060de3864e8facbaec34ded9973a58b5e7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ec0b36a19db641a755ae1cfb7291c5e0269f995671493c6bd5deacf570b23b5d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c4246ccb932ebb9a2ae2e0e01c77963f2bf7996f12121a5641376cfaf1870311"
-    sha256 cellar: :any_skip_relocation, ventura:        "899ee52b9b44d9853dd31f2fcfe2cf1a78577687c009c53e0be97e96d482f632"
-    sha256 cellar: :any_skip_relocation, monterey:       "2c7a4971da76574110566393fb30fb5dc2d828a9c5e649ef515ccf35984b419a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "15dc76cb87ad94cddcaeb41a8de64e73ad655ee5f3ff31d36ae63ab6f6419cfd"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "50cb8a7fb207f0ae12d588444fbd9894f5dd69c9ac0b56eec33edaadd0160015"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ecff56093e3999ac9d23e8056ae58d1d40848371084dbf6d94883d6e8aa702b0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c4a8a9b3dff0e01dff1f6063313f3ed13e9d4ae9adfa308e2cf2c8689e01887d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "02d36c029a01babbb5a39d0c4cf961cb40f538aa389e39738fc857a94080318b"
+    sha256 cellar: :any_skip_relocation, ventura:        "b80fea3c749846604329c96ea2ae5d50b0157ce9be8adc64564c2e0d576cd3d9"
+    sha256 cellar: :any_skip_relocation, monterey:       "0cfd6b37dac358d97b997cbc7de39a2c82ae12727718f18477bbb5eeac035d5c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f1408d26fb6a3623f8f0b851e8273e597ca902c54ba40941fa1e11bd27f6d006"
   end
 
   depends_on "go" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
+
+    bash_completion.install "completions/bash_autocomplete" => "vfox"
+    zsh_completion.install "completions/zsh_autocomplete" => "_vfox"
   end
 
   test do

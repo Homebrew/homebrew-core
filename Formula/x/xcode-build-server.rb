@@ -3,13 +3,13 @@ class XcodeBuildServer < Formula
 
   desc "Build server protocol implementation for integrating Xcode with sourcekit-lsp"
   homepage "https://github.com/SolaWing/xcode-build-server"
-  url "https://github.com/SolaWing/xcode-build-server/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "9c4647e6e21b9de1f10aeae6b7c119e6df8acce603dab1be258326bd45acf5c6"
+  url "https://github.com/SolaWing/xcode-build-server/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "fa2e6d30ef24f5b688ca20b409cb0594f16b117934cbdc72faa62cb49ac413bf"
   license "MIT"
   head "https://github.com/SolaWing/xcode-build-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a878f5aecb890e0175fd9c373c59de27a91d289bc3bab1f86dc153d91b6ddc02"
+    sha256 cellar: :any_skip_relocation, all: "6f5db53f5f0fc9ea907e34bcc79f678ed6bfd368e3d5a6e73d48d4b0c992d388"
   end
 
   depends_on "gzip"

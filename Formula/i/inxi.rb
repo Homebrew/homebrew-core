@@ -1,19 +1,19 @@
 class Inxi < Formula
   desc "Full featured CLI system information tool"
   homepage "https://smxi.org/docs/inxi.htm"
-  url "https://codeberg.org/smxi/inxi/archive/3.3.33-1.tar.gz"
-  sha256 "c2d7ae8914f2810d4377999c24d3839fa9a757a6ace59ff57ab366873161d38c"
+  url "https://codeberg.org/smxi/inxi/archive/3.3.34-1.tar.gz"
+  sha256 "7cfc5c0abe10cb59f281733ce1d526583312344007756e7713fd5c51200b80fb"
   license "GPL-3.0-or-later"
   head "https://codeberg.org/smxi/inxi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af526f73ed5bc73c84f2eeae28c8c57fc3645ce301ca5f28ce122aeb348a4c0b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "af526f73ed5bc73c84f2eeae28c8c57fc3645ce301ca5f28ce122aeb348a4c0b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "af526f73ed5bc73c84f2eeae28c8c57fc3645ce301ca5f28ce122aeb348a4c0b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e2f86cc64b594983b3b9008b4e01038120e637f84de477cca324ff9f1e0ff87c"
-    sha256 cellar: :any_skip_relocation, ventura:        "e2f86cc64b594983b3b9008b4e01038120e637f84de477cca324ff9f1e0ff87c"
-    sha256 cellar: :any_skip_relocation, monterey:       "e2f86cc64b594983b3b9008b4e01038120e637f84de477cca324ff9f1e0ff87c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "af526f73ed5bc73c84f2eeae28c8c57fc3645ce301ca5f28ce122aeb348a4c0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0f4e1fc09d743cb305b8a1036c8c52368fdab78ea293938d4a555fa5d9bb9635"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0f4e1fc09d743cb305b8a1036c8c52368fdab78ea293938d4a555fa5d9bb9635"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0f4e1fc09d743cb305b8a1036c8c52368fdab78ea293938d4a555fa5d9bb9635"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fecbb86a8ad7b79c3579e3a70e9bac1c0ec7556c7d398a3f122b1d1290753ba5"
+    sha256 cellar: :any_skip_relocation, ventura:        "fecbb86a8ad7b79c3579e3a70e9bac1c0ec7556c7d398a3f122b1d1290753ba5"
+    sha256 cellar: :any_skip_relocation, monterey:       "fecbb86a8ad7b79c3579e3a70e9bac1c0ec7556c7d398a3f122b1d1290753ba5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0f4e1fc09d743cb305b8a1036c8c52368fdab78ea293938d4a555fa5d9bb9635"
   end
 
   uses_from_macos "perl"

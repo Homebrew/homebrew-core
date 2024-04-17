@@ -1,13 +1,20 @@
 class GitBranchless < Formula
   desc "High-velocity, monorepo-scale workflow for Git"
   homepage "https://github.com/arxanas/git-branchless"
-  # TODO: check if we can use unversioned `libgit2` at version bump.
-  # See comments below for details.
-  url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "f9e13d9a3de960b32fb684a59492defd812bb0785df48facc964478f675f0355"
   license any_of: ["Apache-2.0", "MIT"]
   revision 1
   head "https://github.com/arxanas/git-branchless.git", branch: "master"
+
+  stable do
+    url "https://github.com/arxanas/git-branchless/archive/refs/tags/v0.8.0.tar.gz"
+    sha256 "f9e13d9a3de960b32fb684a59492defd812bb0785df48facc964478f675f0355"
+
+    # Backport support for libgit2 1.7
+    patch do
+      url "https://github.com/arxanas/git-branchless/commit/5b3d67b20e7fb910be46ea3ee9d0642d11932681.patch?full_index=1"
+      sha256 "ff81ca9c921fc6b8254a75fecec3fc606f168215f66eb658803097b6bb2fcdb8"
+    end
+  end
 
   # Upstream appears to use GitHub releases to indicate that a version is
   # released (and some tagged versions don't end up as a release), so it's
@@ -18,26 +25,22 @@ class GitBranchless < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b110734dc1ef391fc9b2d2bc8a49976327a7692c0d584027deeadff70939de96"
-    sha256 cellar: :any,                 arm64_ventura:  "a86fc202383af0bb6290f20560bc3e1ba91cf1580bd5650d84141072953a2fdb"
-    sha256 cellar: :any,                 arm64_monterey: "de7eefce124b0427145dbf4bbff6135199480782b041dc406137f5450d2ec491"
-    sha256 cellar: :any,                 sonoma:         "c35f286464f34d3c2aec788d4fe408b8544c45fdcee2a79c67c08b2bed03b551"
-    sha256 cellar: :any,                 ventura:        "e7310a07e9c3359b36aa9d0e5906b2e19a9a5d76f8e66a32a5303c054ad278bc"
-    sha256 cellar: :any,                 monterey:       "827d307d7afe2c66823d91ff6e62acafa45be03d99b4271ce9d3208f76c099b3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d7e6fa4d5b29d4b486dcf0f5f52dfe0797df36d11a2a3d8697e8cc357652da1"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "723cd94950543af845b21543d1f0d2a99ae17fd6241add0403b1a7e0a8f0fbd4"
+    sha256 cellar: :any,                 arm64_ventura:  "5550d80acfcb4818b8f5f92c95e64294d4a3b6b8bba34761e1854c71251cb957"
+    sha256 cellar: :any,                 arm64_monterey: "01fe75552c47f9500cc47a9cfc5f16cae879b27ff77a864d6c50bb617e56851d"
+    sha256 cellar: :any,                 sonoma:         "42aaf6d763b559bcf1a2ef8e083d01edfc25163857572441b9721cd1d2fd7c0c"
+    sha256 cellar: :any,                 ventura:        "704d3ba94268d57a36c9c5e65a1dd72e4184a8c38e21138565eb082fa6b545de"
+    sha256 cellar: :any,                 monterey:       "d19937979850141ad61000f9e71c4234316c9fb838f20ce5ff5710bfb7feb1c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28b8360a364a810027705d3adce5d06e2580e4ddc626a91460068c8a181c0681"
   end
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  # To check for `libgit2` version:
-  # 1. Search for `libgit2-sys` version at https://github.com/arxanas/git-branchless/blob/v#{version}/Cargo.lock
-  # 2. If the version suffix of `libgit2-sys` is newer than +1.6.*, then:
-  #    - Migrate to the corresponding `libgit2` formula.
-  #    - Change the `LIBGIT2_SYS_USE_PKG_CONFIG` env var below to `LIBGIT2_NO_VENDOR`.
-  #      See: https://github.com/rust-lang/git2-rs/commit/59a81cac9ada22b5ea6ca2841f5bd1229f1dd659.
-  depends_on "libgit2@1.6"
+  depends_on "libgit2"
 
   def install
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     # make sure git can find git-branchless
     ENV.prepend_path "PATH", bin
 
@@ -58,7 +61,7 @@ class GitBranchless < Formula
     linkage_with_libgit2 = (bin/"git-branchless").dynamically_linked_libraries.any? do |dll|
       next false unless dll.start_with?(HOMEBREW_PREFIX.to_s)
 
-      File.realpath(dll) == (Formula["libgit2@1.6"].opt_lib/shared_library("libgit2")).realpath.to_s
+      File.realpath(dll) == (Formula["libgit2"].opt_lib/shared_library("libgit2")).realpath.to_s
     end
 
     assert linkage_with_libgit2, "No linkage with libgit2! Cargo is likely using a vendored version."

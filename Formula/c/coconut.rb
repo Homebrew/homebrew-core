@@ -6,15 +6,16 @@ class Coconut < Formula
   url "https://files.pythonhosted.org/packages/e6/58/87cda2b6f11f4037b68a649dfe56b53da5de126502f269d23ec16bf04833/coconut-3.1.0.tar.gz"
   sha256 "e404e436e347d31e918d9bc870cc2e93a70b813739bd7b6c5d2353bdf3e6c777"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "af37622c181189bd04b56a8f21ff6cf73a3158dadaf1ab671e3dc111a8957c94"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d68cfc8624dc437101c1d5d3e28b65fa845c86c898e9615fea6b0a4c2445100f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9b5a5195fc074f99e12f3cce889b9df6b3689223fac8ecbad14fe21c7e57e446"
-    sha256 cellar: :any_skip_relocation, sonoma:         "49295e3da6e830fa9c46803d6368ee85f2b0f28b19cd1040ae40aa23938f84f1"
-    sha256 cellar: :any_skip_relocation, ventura:        "b9a5bb6cd1ceffdb71f23da4b7cae63e0ba60e299eceee4b4aa7fbdcacf9e965"
-    sha256 cellar: :any_skip_relocation, monterey:       "f1498dea272205accad14d749863080231b3364bdce726f2df00337849edf1bc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "39fe0be65f72c021d1d28aa7be24528cb2cf8174007351bc832e80c08125368d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2bb11bb2ba9866bb48644b96b492cd57e2bc8853664a35953978d45d839167fc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8e0a1e3d19628ba5eddfe3bacd2990a56f005bb1a968f6ab613c1478cda8f22"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7830add835976aa9eeefa740808dc2a412dcf12099ece7ea1ab2b67c150b38a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7232f746924586aded0e5724d99b13c41df659b4fabb692c4c5922a9ae173bdb"
+    sha256 cellar: :any_skip_relocation, ventura:        "0cba79129f0f87b33dc02420764cf4689c5b8553870a01d3584aa13ef4b3b1ef"
+    sha256 cellar: :any_skip_relocation, monterey:       "eec3c8e407fc2ec4386e5a7ecedb77b02918bb9b807b22bd76f3fd399b996f93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c70efe8d12676bde4496aac4b5d3483a313acf395c6d83a6c8ebba30b2faca6"
   end
 
   depends_on "python@3.12"
@@ -35,8 +36,8 @@ class Coconut < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "prompt-toolkit" do
@@ -55,8 +56,8 @@ class Coconut < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
+    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
   end
 
   resource "sniffio" do
@@ -65,8 +66,8 @@ class Coconut < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
-    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "wcwidth" do

@@ -3,19 +3,19 @@ require "language/node"
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-2.5.1.tgz"
-  sha256 "b7b49d2c307b8b4db49f8a004d9b76a5441662b19b8cfb191f542f51ba65cf53"
+  url "https://registry.npmjs.org/appium/-/appium-2.5.3.tgz"
+  sha256 "dbeecb8d51e2f11ec742a0a77d54165d00bf0a110ab32f5048a4453990df1f65"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "43ccfe10dc211fdedd81baee0b9faf21d3fed12edd95e61ae1bd85f83196eee1"
-    sha256 cellar: :any,                 arm64_ventura:  "43ccfe10dc211fdedd81baee0b9faf21d3fed12edd95e61ae1bd85f83196eee1"
-    sha256 cellar: :any,                 arm64_monterey: "43ccfe10dc211fdedd81baee0b9faf21d3fed12edd95e61ae1bd85f83196eee1"
-    sha256 cellar: :any,                 sonoma:         "98f6cd9b2360df0cfac7f742b07e9a6da4dbb77743555b150de377065e20ada3"
-    sha256 cellar: :any,                 ventura:        "98f6cd9b2360df0cfac7f742b07e9a6da4dbb77743555b150de377065e20ada3"
-    sha256 cellar: :any,                 monterey:       "98f6cd9b2360df0cfac7f742b07e9a6da4dbb77743555b150de377065e20ada3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "77792d8a31ca6106ae8fc4e8125dbc6759d2eec9ce58d4d64d9fd7b7be8307c9"
+    sha256 cellar: :any,                 arm64_sonoma:   "0de964c7d7b70f2286c7875b8e42826a745af7704d45dc2fbbb609893168ad2e"
+    sha256 cellar: :any,                 arm64_ventura:  "0de964c7d7b70f2286c7875b8e42826a745af7704d45dc2fbbb609893168ad2e"
+    sha256 cellar: :any,                 arm64_monterey: "0de964c7d7b70f2286c7875b8e42826a745af7704d45dc2fbbb609893168ad2e"
+    sha256 cellar: :any,                 sonoma:         "ec87e8f2a18cd1753034b1e71c78ac4efdef99518f593f48f4700ec7b79cffa2"
+    sha256 cellar: :any,                 ventura:        "ec87e8f2a18cd1753034b1e71c78ac4efdef99518f593f48f4700ec7b79cffa2"
+    sha256 cellar: :any,                 monterey:       "ec87e8f2a18cd1753034b1e71c78ac4efdef99518f593f48f4700ec7b79cffa2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5f8b533cf44f73faa4539e30199403c3f723c4b00e76c1233b1b5f9aa999f6f"
   end
 
   depends_on "node"
@@ -27,16 +27,6 @@ class Appium < Formula
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec), "--chromedriver-skip-install"
     bin.install_symlink Dir["#{libexec}/bin/*"]
-
-    # Delete native binaries installed by npm, as we dont support `musl` for a `libc` implementation
-    if OS.linux?
-      node_modules = libexec/"lib/node_modules/appium/node_modules"
-      (node_modules/"@img/sharp-libvips-linuxmusl-x64/lib/libvips-cpp.so.42").unlink
-      (node_modules/"@img/sharp-linuxmusl-x64/lib/sharp-linuxmusl-x64.node").unlink
-    end
-
-    # Replace universal binaries with native slices
-    deuniversalize_machos
   end
 
   service do

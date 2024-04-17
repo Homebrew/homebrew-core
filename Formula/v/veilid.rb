@@ -1,25 +1,21 @@
 class Veilid < Formula
   desc "Peer-to-peer network for easily sharing various kinds of data"
   homepage "https://veilid.com/"
-  url "https://gitlab.com/veilid/veilid/-/archive/v0.3.0/veilid-v0.3.0.tar.gz"
-  sha256 "9b9f888d57ba5e371fe931361ac0c4afe1e7b6a3ce4fe7c0f744f2dec5421cdb"
+  url "https://gitlab.com/veilid/veilid/-/archive/v0.3.1/veilid-v0.3.1.tar.gz"
+  sha256 "c99a90c09785bf595aef4219f6ce7d613bc3c819b1f4c60f935764b8d580231e"
   license "MPL-2.0"
   head "https://gitlab.com/veilid/veilid.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "bbabf7a7a25e71201c63833657ce97ad4adf56222440b9cf0e7efe229fa62a1d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ca7c896225086c0deaaccfdb5a5fc225d3c95cbcf443419e40f3220afa194b19"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "635b9f52fd491f24789e14b153253bf4f9fd98412751f93890b4649e70741530"
-    sha256 cellar: :any_skip_relocation, sonoma:         "91e95db22e2c2ead8322c63db98795c59fe036b11748e2f8ea8cf740ab2adade"
-    sha256 cellar: :any_skip_relocation, ventura:        "af2f63f143f0e780aab3c1548eb79dcc3ee3a108e480e9033cdad5bcf96c091c"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4e4372922adf7955a03506f4b160187a9ab10261ed8dc8cf1f435103ce8cde6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f6c2ae1ca0b9a5d2afd2d7cf726a954cea96ad19f03f59d1c623faedcb36523d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a25156725807b73ae46cc5d1014701f00ee1af2218ffbafda421111550b42925"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b134dc671308d08b339e989a5bdeee0cc8a23658f6fb0d97b0c8aa1de0fbca1f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3bf9c4bca03157983c134e3947f794606cd25377ecc2bc3e68c75c3bc65a2ec3"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8dc9ff8a32111974336a9cee92dbeb97640cd10c4e232ce19c5b0b1e599c65e1"
+    sha256 cellar: :any_skip_relocation, ventura:        "f625029bca1d042da65e330255b9e2a1ea45bdaa5b6e7fe0869b317d6d5e2269"
+    sha256 cellar: :any_skip_relocation, monterey:       "0c960f70736842ac5606ef0ce09044760ed95c654c46c6509e84ed311d2693aa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d832acae0d78bc3dfa335761ac274d1e27bfe784b9c2b471629b37a0086bd13f"
   end
 
-  # TODO: Remove `capnp` dependency once version >v0.2.5
-  depends_on "capnp" => :build
-  # TODO: Remove `protobuf` dependency once version >v0.2.5
-  depends_on "protobuf" => :build
   depends_on "rust" => :build
 
   def install

@@ -3,18 +3,19 @@ class Sigstore < Formula
 
   desc "Codesigning tool for Python packages"
   homepage "https://github.com/sigstore/sigstore-python"
-  url "https://files.pythonhosted.org/packages/fb/62/fc71a3266daa9c2f97ad8baf35baed4a71937218b1c0582333f402134897/sigstore-2.1.3.tar.gz"
-  sha256 "7a0c1252cb7974024aee87c8e0f0f6247604af16e8b5a8e3d0a9e1201e330aa2"
+  url "https://files.pythonhosted.org/packages/a2/91/9843dac576ebdfdcd7be64ffce5cff8c208814c29d739de4a134fa36de51/sigstore-2.1.5.tar.gz"
+  sha256 "7771153c5ac5a51d6556481f4680dfb602cb5c32c94fe56f87ff1801b8a8f243"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5f575b6e242c88939f7a33eb296fcbe8fe73a130af555b40b67dd8633eded8e7"
-    sha256 cellar: :any,                 arm64_ventura:  "35128c1665658daf5b478ac4aea37467dfe9c5e5e4a54fac4634a31c4bf41b65"
-    sha256 cellar: :any,                 arm64_monterey: "02e8a8b5acaaf0e1d173135dcec42edf935c2297ad3a2f39adbcf13a54508376"
-    sha256 cellar: :any,                 sonoma:         "68a73728425603c5170d0707a2d69da09b2918e8db00afc7be55b4a3f467ef8a"
-    sha256 cellar: :any,                 ventura:        "9a2dda6a11add3e1d683764e039328c58d0ee7912ca22e1dbb46eed7e8da6568"
-    sha256 cellar: :any,                 monterey:       "7797ec7c350397ed7728a7fc8e4952aec0a5d9610ef05be37c1ca56bda7e4ecb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61508eddbab525d1b37d485c1809477951940ea112a2d50569e522dea3a23a72"
+    sha256 cellar: :any,                 arm64_sonoma:   "72d78ea0674e04782b0601e8346c2bc069f5b422a779d3046af8bacd6ef94e54"
+    sha256 cellar: :any,                 arm64_ventura:  "0e1b198523a145aab03243fe2d7f94dfe309caac36843434b9efc92478f2e5b6"
+    sha256 cellar: :any,                 arm64_monterey: "1d4da0f6179aa9221360b16ccfb8f7ac6c6fbefd2343e50c65e8a2fdec1ae3ec"
+    sha256 cellar: :any,                 sonoma:         "8ca95dfc17255d1520bc3e93a84cfb9d6f55d49f4c1145635548151173c4fd99"
+    sha256 cellar: :any,                 ventura:        "4f9604d03b7403ea0853be8703d0a2137829990557cc02b0d8c9b8348d4f9f56"
+    sha256 cellar: :any,                 monterey:       "e90a9f559e887ec919ce97c1bd0d71b59b893268ff85e8203c36b068e9f488ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f56199f32cca2e13ae691953bcf9d38f2c3469c98a3682da2fafd4c5b136b783"
   end
 
   depends_on "rust" => :build
@@ -78,8 +79,8 @@ class Sigstore < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "markdown-it-py" do
@@ -98,13 +99,13 @@ class Sigstore < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/4b/de/38b517edac45dd022e5d139aef06f9be4762ec2e16e2b14e1634ba28886b/pydantic-2.6.4.tar.gz"
-    sha256 "b1704e0847db01817624a6b86766967f552dd9dbf3afba4004409f908dcc84e6"
+    url "https://files.pythonhosted.org/packages/cd/fc/70fe71ff78f680d584eba9c55a30092f6ef0b9cf0c75a74bd35a24151a83/pydantic-2.7.0.tar.gz"
+    sha256 "b5ecdd42262ca2462e2624793551e80911a1e989f462910bb81aef974b4bb383"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/77/3f/65dbe5231946fe02b4e6ea92bc303d2462f45d299890fd5e8bfe4d1c3d66/pydantic_core-2.16.3.tar.gz"
-    sha256 "1cac689f80a3abab2d3c0048b29eea5751114054f032a941a32de4c852c59cad"
+    url "https://files.pythonhosted.org/packages/3d/28/d693aab237fca82da327990a88a983b2b84b890032076ee4a87e18038dbb/pydantic_core-2.18.1.tar.gz"
+    sha256 "de9d3e8717560eb05e28739d1b35e4eac2e458553a52a301e51352a7ffc86a35"
   end
 
   resource "pygments" do
@@ -143,8 +144,8 @@ class Sigstore < Formula
   end
 
   resource "sigstore-protobuf-specs" do
-    url "https://files.pythonhosted.org/packages/fd/3a/f4a5294a3d836cec5a0157c2c9bcc9b5c3adde37e060f0332a8151b5c9eb/sigstore_protobuf_specs-0.3.0.tar.gz"
-    sha256 "3322adb73992bca0f3dc6d4c2c38bac29086a11d2631a983adb2798e58e32a54"
+    url "https://files.pythonhosted.org/packages/8c/46/cbbe9fac71b99037bcfe9642877e2bca6def226de153077a3441d67bd521/sigstore_protobuf_specs-0.3.1.tar.gz"
+    sha256 "c40b61975b957ae906eb29a5bc7040ec015b68b6b46005cc5805e629493e8dec"
   end
 
   resource "sigstore-rekor-types" do
@@ -163,8 +164,8 @@ class Sigstore < Formula
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/16/3a/0d26ce356c7465a19c9ea8814b960f8a36c3b0d07c323176620b7b483e44/typing_extensions-4.10.0.tar.gz"
-    sha256 "b0abd7c89e8fb96f98db18d86106ff1d90ab692004eb746cf6eda2682f91b3cb"
+    url "https://files.pythonhosted.org/packages/f6/f3/b827b3ab53b4e3d8513914586dcca61c355fa2ce8252dea4da56e67bf8f2/typing_extensions-4.11.0.tar.gz"
+    sha256 "83f085bd5ca59c80295fc2a82ab5dac679cbe02b9f33f7d83af68e241bea51b0"
   end
 
   resource "urllib3" do
@@ -180,21 +181,21 @@ class Sigstore < Formula
     assert_match version.to_s, shell_output("#{bin}/sigstore -V")
 
     resource "homebrew-test-artifact" do
-      url "https://github.com/sigstore/sigstore-python/releases/download/v2.1.3/sigstore-2.1.3.tar.gz", using: :nounzip
-      sha256 "7a0c1252cb7974024aee87c8e0f0f6247604af16e8b5a8e3d0a9e1201e330aa2"
+      url "https://github.com/sigstore/sigstore-python/releases/download/v2.1.5/sigstore-2.1.5.tar.gz", using: :nounzip
+      sha256 "7771153c5ac5a51d6556481f4680dfb602cb5c32c94fe56f87ff1801b8a8f243"
     end
 
     resource "homebrew-test-artifact.sigstore" do
-      url "https://github.com/sigstore/sigstore-python/releases/download/v2.1.3/sigstore-2.1.3.tar.gz.sigstore"
-      sha256 "373e6398dc87eea2c6dfba2f7b52d8b23f68f08f240ca40f9712f8dbd7747b8d"
+      url "https://github.com/sigstore/sigstore-python/releases/download/v2.1.5/sigstore-2.1.5.tar.gz.sigstore"
+      sha256 "c860cea0233020ed5a3417d49c760056b3d34860b10619027de092ab26cf6d9f"
     end
 
     resource("homebrew-test-artifact").stage testpath
     resource("homebrew-test-artifact.sigstore").stage testpath
 
-    cert_identity = "https://github.com/sigstore/sigstore-python/.github/workflows/release.yml@refs/tags/v2.1.3"
+    cert_identity = "https://github.com/sigstore/sigstore-python/.github/workflows/release.yml@refs/tags/v2.1.5"
 
-    output = shell_output("#{bin}/sigstore verify github sigstore-2.1.3.tar.gz --cert-identity #{cert_identity}")
-    assert_match "OK: sigstore-2.1.3.tar.gz", output
+    output = shell_output("#{bin}/sigstore verify github sigstore-2.1.5.tar.gz --cert-identity #{cert_identity}")
+    assert_match "OK: sigstore-2.1.5.tar.gz", output
   end
 end

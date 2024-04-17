@@ -6,16 +6,17 @@ class Ansible < Formula
   url "https://files.pythonhosted.org/packages/03/ea/c1e9206d237237daf1fe48f3931641d87f510a3971a8015e5711b220237c/ansible-9.4.0.tar.gz"
   sha256 "dd431c63380e18c3faca3288ebde8ce2f4f992363ab558a3c11c8f2032d90867"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ff6b0be1882c6b052f0da6a21f3ef6bd787ac7cef40919abc4ec008e8acfa1c1"
-    sha256 cellar: :any,                 arm64_ventura:  "8b94aa8821270a6497a15239c09934e130b2291161ec763f3b3f13a9bf56b006"
-    sha256 cellar: :any,                 arm64_monterey: "9a471a44c18317c3243c4dc648cec9f23c9c4f7197e481fafa12c202ef9566f0"
-    sha256 cellar: :any,                 sonoma:         "316b146dab7e22de7ca3fc7438baa13d4d7928fb32913f1195f79af69b88c35a"
-    sha256 cellar: :any,                 ventura:        "f5d2593d2fb6f9ebca8c2aa3b287422af3adccc74a85b85a992287025df0c714"
-    sha256 cellar: :any,                 monterey:       "2a8042875e8d5caed4ff000508fc32b871936e7d1b8a8bf5bda43d4d3d7d9104"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0d201e9cf190a1704bdafe9584fd58b21a5122e1cd0bceeb6668bacf274f800c"
+    sha256 cellar: :any,                 arm64_sonoma:   "f08a0a73663df3fa3f87f6fa8b3c21d83ddddbb2886cd6d66b4d2a5437d5cc6d"
+    sha256 cellar: :any,                 arm64_ventura:  "8653d85aba0965705d7f27359eb520bed0fea83fed748d44fa774b049b50f908"
+    sha256 cellar: :any,                 arm64_monterey: "8c763a2de426a281030e14e248a01631d077e84b0019dc1dc36ebbe40445af29"
+    sha256 cellar: :any,                 sonoma:         "9adcf18d3c59d1601fbfe4c2a8230c8872ca16f7db0a7d02b9a657caf72b3855"
+    sha256 cellar: :any,                 ventura:        "8129250f664a547253b567a0144aee3250e988f89194888cfbd4b8620b9506c5"
+    sha256 cellar: :any,                 monterey:       "1e7fc141ff7580a20384498e0f94763ccb779a3360f20129e9204f99031a6a57"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "49308ec0c47771c652faa2720c26d30a1c039f027f6b04b7341a62fbc1342f4b"
   end
 
   # `pkg-config` and `rust` are for bcrypt
@@ -64,13 +65,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/a6/35/d55cdfb1c810e5e68f7fe3dc7ca0c3abb53cf9f108f336ca6fc828647aa7/boto3-1.34.71.tar.gz"
-    sha256 "d786e7fbe3c4152866199786468a625dc77b9f27294cd7ad4f63cd2e0c927287"
+    url "https://files.pythonhosted.org/packages/46/6d/8f361c95d4f948dae469a3072cf998f62300ca3bc1a311c1c029a2793313/boto3-1.34.83.tar.gz"
+    sha256 "9733ce811bd82feab506ad9309e375a79cabe8c6149061971c17754ce8997551"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/17/59/71757275ec13ab27469f8d4e2ab23b0594b72756cd1e389928576bd2cbc6/botocore-1.34.71.tar.gz"
-    sha256 "c58f9ed71af2ea53d24146187130541222d7de8c27eb87d23f15457e7b83d88b"
+    url "https://files.pythonhosted.org/packages/0c/b8/6d1ec4802de76d21851784ca2b1d26575f193c31ebd194a196d08dac0d0d/botocore-1.34.83.tar.gz"
+    sha256 "0f302aa76283d4df62b4fbb6d3d20115c1a8957fc02171257fc93904d69d5636"
   end
 
   resource "cachetools" do
@@ -129,8 +130,8 @@ class Ansible < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "iso8601" do
@@ -159,8 +160,8 @@ class Ansible < Formula
   end
 
   resource "junos-eznc" do
-    url "https://files.pythonhosted.org/packages/1d/8c/cddab0785415c65fef67d5d55078e0c3eb3f7134c3db78a8d6bddec9ff2d/junos-eznc-2.7.0.tar.gz"
-    sha256 "a45c90641d24ff4c86796418ea76ca64066c06d0bf644d6b77e605bf957c5c7d"
+    url "https://files.pythonhosted.org/packages/ce/c6/0dde3625873312c8a337334f0998491a07dfa71f378f25bf0e0cdd13eb5f/junos-eznc-2.7.1.tar.gz"
+    sha256 "371f0298bf03e0cb4c017c43f6f4122263584eda0d690d0112e93f13daae41ac"
   end
 
   resource "jxmlease" do
@@ -184,8 +185,8 @@ class Ansible < Formula
   end
 
   resource "lxml" do
-    url "https://files.pythonhosted.org/packages/2b/b4/bbccb250adbee490553b6a52712c46c20ea1ba533a643f1424b27ffc6845/lxml-5.1.0.tar.gz"
-    sha256 "3eea6ed6e6c918e468e693c41ef07f3c3acc310b70ddd9cc72d9ef84bc9564ca"
+    url "https://files.pythonhosted.org/packages/ea/e2/3834472e7f18801e67a3cd6f3c203a5456d6f7f903cfb9a990e62098a2f3/lxml-5.2.1.tar.gz"
+    sha256 "3f7765e69bbce0906a7c74d5fe46d2c7a7596147318dbc08e4a2431f3060e306"
   end
 
   resource "markupsafe" do
@@ -214,8 +215,8 @@ class Ansible < Formula
   end
 
   resource "ntc-templates" do
-    url "https://files.pythonhosted.org/packages/fe/a6/903ec6a1de234dd3dd4a448ec91e038a96eb1036f8f8da807c2614d5b0d0/ntc_templates-4.4.0.tar.gz"
-    sha256 "2f630571f510a8c6573c8b2a1f584494b10505577e446b9ee471b5a1c542620d"
+    url "https://files.pythonhosted.org/packages/69/da/31a8500430f3527f82423499dfe89bc03624aa2af0baa89802c3b883e05c/ntc_templates-5.0.0.tar.gz"
+    sha256 "56919fbe83da582de03474f8a204d945dadeef0c98e630743c3c069a9bcf1120"
   end
 
   resource "oauthlib" do
@@ -264,8 +265,8 @@ class Ansible < Formula
   end
 
   resource "oslo-log" do
-    url "https://files.pythonhosted.org/packages/b5/9b/21cb487426ec7e39807a1996ae16325e62230de49f514638bf376ac15a72/oslo.log-5.5.0.tar.gz"
-    sha256 "4cedd1669c7de28d8e66b67a5f6d6c6fe83928535fa87cd69bf6611b59f567e7"
+    url "https://files.pythonhosted.org/packages/83/b8/399ddd945d31ab29346c515c5fc77a0bdb0f292abf1c3068405ef3074862/oslo.log-5.5.1.tar.gz"
+    sha256 "484148512c5db2a8b35c83cd997e9953755fd8bfa8aaf6ee0cc8c7aeb7429210"
   end
 
   resource "oslo-serialization" do

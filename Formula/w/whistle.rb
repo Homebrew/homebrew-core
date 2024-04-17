@@ -3,18 +3,18 @@ require "language/node"
 class Whistle < Formula
   desc "HTTP, HTTP2, HTTPS, Websocket debugging proxy"
   homepage "https://github.com/avwo/whistle"
-  url "https://registry.npmjs.org/whistle/-/whistle-2.9.67.tgz"
-  sha256 "a2dc32a59fb7596858ef7602753c816365e9c55642107711cccc4c69960516f6"
+  url "https://registry.npmjs.org/whistle/-/whistle-2.9.68.tgz"
+  sha256 "750096bd8c5e2dc2ea0308bd3d6f260566718ffa05c3572e7b945f46768143b7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "784a603f456c85d413119517a9ad6e97251cc1abd894169e82cc23288892bfe4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "784a603f456c85d413119517a9ad6e97251cc1abd894169e82cc23288892bfe4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "784a603f456c85d413119517a9ad6e97251cc1abd894169e82cc23288892bfe4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5c62b15d374b661a3454e6c07bb2be237ae2184dd9fdf8c33e20c0389fb9c49e"
-    sha256 cellar: :any_skip_relocation, ventura:        "5c62b15d374b661a3454e6c07bb2be237ae2184dd9fdf8c33e20c0389fb9c49e"
-    sha256 cellar: :any_skip_relocation, monterey:       "5c62b15d374b661a3454e6c07bb2be237ae2184dd9fdf8c33e20c0389fb9c49e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5c62b15d374b661a3454e6c07bb2be237ae2184dd9fdf8c33e20c0389fb9c49e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8faa524670fccd9b0dee73ecd795ba99ce966cb56fb7f5be22cde60546dc4082"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8faa524670fccd9b0dee73ecd795ba99ce966cb56fb7f5be22cde60546dc4082"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8faa524670fccd9b0dee73ecd795ba99ce966cb56fb7f5be22cde60546dc4082"
+    sha256 cellar: :any_skip_relocation, sonoma:         "46e972df9dbf08cfcae4fbf9f9681764b7ca76edf10303e0f70ceab1e142927c"
+    sha256 cellar: :any_skip_relocation, ventura:        "46e972df9dbf08cfcae4fbf9f9681764b7ca76edf10303e0f70ceab1e142927c"
+    sha256 cellar: :any_skip_relocation, monterey:       "46e972df9dbf08cfcae4fbf9f9681764b7ca76edf10303e0f70ceab1e142927c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "46e972df9dbf08cfcae4fbf9f9681764b7ca76edf10303e0f70ceab1e142927c"
   end
 
   depends_on "node"

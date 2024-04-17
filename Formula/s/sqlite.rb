@@ -1,9 +1,9 @@
 class Sqlite < Formula
   desc "Command-line interface for SQLite"
   homepage "https://sqlite.org/index.html"
-  url "https://www.sqlite.org/2024/sqlite-autoconf-3450200.tar.gz"
-  version "3.45.2"
-  sha256 "bc9067442eedf3dd39989b5c5cfbfff37ae66cc9c99274e0c3052dc4d4a8f6ae"
+  url "https://www.sqlite.org/2024/sqlite-autoconf-3450300.tar.gz"
+  version "3.45.3"
+  sha256 "b2809ca53124c19c60f42bf627736eae011afdcc205bb48270a5ee9a38191531"
   license "blessing"
 
   livecheck do
@@ -15,13 +15,13 @@ class Sqlite < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "40d4422804074ca098583526923f1d3c5a3710f57c5dc5525f493e6a17121c8b"
-    sha256 cellar: :any,                 arm64_ventura:  "59c2a2bf11f1acd5726d9b5e0962dbc0d78e5f06af1723e85e5d06b86740c32e"
-    sha256 cellar: :any,                 arm64_monterey: "b471f70fa248faa2d811128e84b818be47832514618bfe7206aa2777fd6c62a1"
-    sha256 cellar: :any,                 sonoma:         "27b2cbea0051b4314e84c124a3b315437b25fc79c49621263f82120624653181"
-    sha256 cellar: :any,                 ventura:        "b528fc258961192ff8fd5abd9b2ea18d2b24508b41aee7c5647c913ff93ff599"
-    sha256 cellar: :any,                 monterey:       "49e046ad6f979b3d4157d5a5128348f5bfd1b1e46da9692736ad89f2f5f1dd05"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "70e554fc62e6528ec653e0a782a6b5d37075164b8c033ec1b4f449cf851f17a2"
+    sha256 cellar: :any,                 arm64_sonoma:   "253a7732af34b28f992072e84d9977d511844a0ebd238e94a5cb2f3fe254604c"
+    sha256 cellar: :any,                 arm64_ventura:  "844fbdee84f718f211936a2aea851a6983af3501533af643afccb17314e30fd2"
+    sha256 cellar: :any,                 arm64_monterey: "e51cd4fb90a3a233f8b19d0068f1f4dfd537198be60b25261069b86a463090d5"
+    sha256 cellar: :any,                 sonoma:         "47e8a06001c02bd20d69431a76023baa4662a60127faf9fb8a3106d5f532dd29"
+    sha256 cellar: :any,                 ventura:        "0b7a573709f3fad083805cd2cf0d7649721386a177cc18a08613c10a2d4c9753"
+    sha256 cellar: :any,                 monterey:       "71900ed318d6491eac58d5828b46e939f8dbcb5e1b1cb70c6bbc8c21bbe93192"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea3542fea62b40b86e30d357fab3679ede4e2172662b594bf638464ae9708154"
   end
 
   keg_only :provided_by_macos

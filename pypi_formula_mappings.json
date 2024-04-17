@@ -139,7 +139,7 @@
     "extra_packages": ["pip==22.3.1", "wheel"]
   },
   "charmcraft": {
-    "extra_packages": ["appdirs", "keyring", "pydantic", "setuptools"],
+    "extra_packages": ["jeepney", "secretstorage"],
     "exclude_packages": ["certifi", "cryptography"]
   },
   "chatblade": {
@@ -170,7 +170,7 @@
   },
   "conan": {
     "exclude_packages": ["certifi"],
-    "extra_packages": ["distro", "setuptools"]
+    "extra_packages": ["distro"]
   },
   "conan@1": {
     "exclude_packages": ["certifi"],
@@ -247,7 +247,7 @@
     "exclude_packages": ["cryptography", "certifi"]
   },
   "enex2notion": {
-    "exclude_packages": ["certifi", "lxml", "pymupdf", "six"]
+    "exclude_packages": ["certifi", "pymupdf"]
   },
   "esphome": {
     "exclude_packages": ["certifi", "cryptography"]
@@ -277,6 +277,10 @@
     "exclude_packages": ["certifi"]
   },
   "fonttools": "fonttools[woff]",
+  "fwupd": {
+    "package_name": "",
+    "extra_packages": ["jinja2", "markupsafe"]
+  },
   "gallery-dl": {
     "exclude_packages": ["certifi"]
   },
@@ -287,8 +291,7 @@
     "exclude_packages": ["certifi", "cryptography"]
   },
   "gimmecert": {
-    "exclude_packages": ["certifi", "cryptography"],
-    "extra_packages": ["setuptools"]
+    "exclude_packages": ["certifi", "cryptography"]
   },
   "gimme-aws-creds": {
     "exclude_packages": ["certifi", "cryptography"],
@@ -375,6 +378,9 @@
     "exclude_packages": ["certifi"],
     "extra_packages": ["requests"]
   },
+  "iredis": {
+    "extra_packages": ["setuptools"]
+  },
   "jenkins-job-builder": {
     "exclude_packages": ["certifi"],
     "extra_packages": ["setuptools"]
@@ -425,6 +431,9 @@
     "exclude_packages": ["cryptography"],
     "extra_packages": ["wheel"]
   },
+  "manim": {
+    "exclude_packages": ["numpy"]
+  },
   "mapproxy": {
     "exclude_packages": ["certifi", "pillow"],
     "extra_packages": ["pyproj", "setuptools"]
@@ -443,10 +452,6 @@
     "package_name": "",
     "extra_packages": ["mako", "markupsafe", "packaging", "pygments", "ply"]
   },
-  "meson-python": {
-    "exclude_packages": ["meson", "packaging"],
-    "extra_packages": ["tomli"]
-  },
   "meta-package-manager": {
     "exclude_packages": ["certifi"]
   },
@@ -462,7 +467,8 @@
     "exclude_packages": ["certifi", "cryptography"]
   },
   "mvt": {
-    "exclude_packages": ["certifi", "cryptography"]
+    "exclude_packages": ["certifi", "cryptography"],
+    "extra_packages": ["setuptools"]
   },
   "mycli": {
     "exclude_packages": ["cryptography"]
@@ -518,6 +524,10 @@
   },
   "parliament": {
     "extra_packages": ["setuptools"]
+  },
+  "parsedmarc": {
+    "exclude_packages": ["certifi", "cryptography", "kafka-python"],
+    "extra_packages": ["kafka-python-ng"]
   },
   "pass-import": {
     "exclude_packages": ["certifi"]
@@ -612,6 +622,9 @@
   "python-lsp-server": {
     "package_name": "python-lsp-server[websockets]",
     "extra_packages": ["python-lsp-black", "pylsp-mypy", "python-lsp-ruff", "pylsp-rope"]
+  },
+  "python-matplotlib": {
+    "exclude_packages": ["numpy", "pillow"]
   },
   "python-requests": {
     "exclude_packages": ["certifi", "charset-normalizer", "idna", "urllib3"]
@@ -725,11 +738,16 @@
   "svtplay-dl": {
     "exclude_packages": ["certifi", "cryptography"]
   },
+  "sysaidmin": {
+    "exclude_packages": ["certifi"],
+    "extra_packages": ["setuptools"]
+  },
   "theharvester": {
     "exclude_packages": ["certifi"]
   },
   "toot": {
-    "exclude_packages": ["certifi"]
+    "package_name": "toot[images,richtext]",
+    "exclude_packages": ["certifi", "pillow"]
   },
   "torchvision": {
     "exclude_packages": ["certifi", "numpy", "pillow", "torch"]
@@ -777,7 +795,8 @@
     "extra_packages": ["setuptools"]
   },
   "virt-manager": {
-    "exclude_packages": ["certifi"]
+    "exclude_packages": ["certifi"],
+    "extra_packages": ["libvirt-python", "requests"]
   },
   "virtualfish": {
     "extra_packages": ["setuptools"]
@@ -823,5 +842,8 @@
   },
   "zabbix-cli": {
     "exclude_packages": ["certifi"]
+  },
+  "zim": {
+    "extra_packages": ["pyxdg", "setuptools"]
   }
 }

@@ -23,6 +23,7 @@ class Halide < Formula
 
   depends_on "cmake" => :build
   depends_on "pybind11" => :build
+  depends_on "flatbuffers"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "llvm"
@@ -31,6 +32,15 @@ class Halide < Formula
   fails_with :gcc do
     version "6"
     cause "Requires C++17"
+  end
+
+  # Check wabt version in `dependencies/wasm/CMakeLists.txt`.
+  # TODO: Ask upstream to support usage of a system-provided wabt.
+  # TODO: Do we really need a git checkout here?
+  resource "wabt" do
+    url "https://github.com/WebAssembly/wabt.git",
+        tag:      "1.0.33",
+        revision: "963f973469b45969ce198e0c86d3af316790a780"
   end
 
   def python3
@@ -42,14 +52,18 @@ class Halide < Formula
     # libunwind due to it being present in a library search path.
     ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib if DevelopmentTools.clang_build_version >= 1500
 
-    system "cmake", "-S", ".", "-B", "build",
+    builddir = buildpath/"build"
+    (builddir/"_deps/wabt-src").install resource("wabt")
+
+    system "cmake", "-S", ".", "-B", builddir,
                     "-DCMAKE_INSTALL_RPATH=#{rpath}",
                     "-DHalide_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages(python3)}",
                     "-DHalide_SHARED_LLVM=ON",
                     "-DPYBIND11_USE_FETCHCONTENT=OFF",
+                    "-DFLATBUFFERS_USE_FETCHCONTENT=OFF",
                     *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "--build", builddir
+    system "cmake", "--install", builddir
   end
 
   test do

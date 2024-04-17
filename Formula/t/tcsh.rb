@@ -1,9 +1,9 @@
 class Tcsh < Formula
   desc "Enhanced, fully compatible version of the Berkeley C shell"
   homepage "https://www.tcsh.org/"
-  url "https://astron.com/pub/tcsh/tcsh-6.24.11.tar.gz"
-  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.24.11.tar.gz"
-  sha256 "b5a7b627abb3ef2e8d3a869bb675d0e927d850704447a1b2c77946c0d324799d"
+  url "https://astron.com/pub/tcsh/tcsh-6.24.12.tar.gz"
+  mirror "https://ftp.osuosl.org/pub/blfs/conglomeration/tcsh/tcsh-6.24.12.tar.gz"
+  sha256 "e3270ce9667fd5bd2a046687659fcf5fd6a6781326f806ebd724f1e1c9cd4185"
   license "BSD-3-Clause"
 
   livecheck do
@@ -12,13 +12,13 @@ class Tcsh < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "7dd9db8b5098e31ea6271ac6d5fdbb5b419dfede50815cade2304853d139ec53"
-    sha256 arm64_ventura:  "18290379c1442683693bce4b1c3563b151b3e88ac9ffee0d7ba4fea0a2d785e0"
-    sha256 arm64_monterey: "f041614235fd35c2093dfb0666a54278fba994e6c275a7d9e5015ffe13af9430"
-    sha256 sonoma:         "59c603a9d725dbb7e1e149ad0f56670ef6f9c08d7756dd295f95ccac3c24f172"
-    sha256 ventura:        "b5d4b809de1fc0aa3672fe3b61b438428c6717f841afb9da17a927563495f9d5"
-    sha256 monterey:       "b45fe6502f686a33c7b38b7aa78867a99cb3effb4bcdca2ac0551d3f0c82a178"
-    sha256 x86_64_linux:   "47a214211a1903266d80a31e80fde193c810bf25b014dccc406bce0bb24e883b"
+    sha256 arm64_sonoma:   "32241edf1fddce3698aa95a57c80da925a70c8d6f107cea3d80303599968bdfe"
+    sha256 arm64_ventura:  "92f0b3fbd2e10d6a363744821bd40300bba6730ddcf67f32767253a57618e6a5"
+    sha256 arm64_monterey: "a4c8d5b777b1a9ef3c7fc5eb527e97a37051598ee7045fae972d9d459b8db0f5"
+    sha256 sonoma:         "aa4ccb6e90c180903130547e393faa5f03f35686e847eac79f9fe29feca3abe7"
+    sha256 ventura:        "e36497212153cfaac0face18734358dac55669245bd202829a53e62c0ff3203b"
+    sha256 monterey:       "b8f20676d4a993414b70f0e9997e6a64af1c7ec66f2342e68a22386cfd216390"
+    sha256 x86_64_linux:   "5ccfc8a411b6db3a932bf0dd6edddc913144022209fe290d731622543b3013a4"
   end
 
   uses_from_macos "libxcrypt"

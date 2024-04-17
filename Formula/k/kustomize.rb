@@ -2,8 +2,8 @@ class Kustomize < Formula
   desc "Template-free customization of Kubernetes YAML manifests"
   homepage "https://github.com/kubernetes-sigs/kustomize"
   url "https://github.com/kubernetes-sigs/kustomize.git",
-      tag:      "kustomize/v5.4.0",
-      revision: "31706fd7fdae9415d84bfbb66e2ede0f82c163ed"
+      tag:      "kustomize/v5.4.1",
+      revision: "536c1c0a8b66484af18c99b4d371665565f44d19"
   license "Apache-2.0"
   head "https://github.com/kubernetes-sigs/kustomize.git", branch: "master"
 
@@ -13,13 +13,13 @@ class Kustomize < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "be5524ae281ab055a6e21392462cc97c239ebbb17a25ec117362a664b581c803"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "aec8134d77d8f2ef3e30ad84d162b251da036097460858463fabc1324ff97c5a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "750ead5f441e9c8340513257f56931ee08d2869745614c6bd1dd6d7456b417da"
-    sha256 cellar: :any_skip_relocation, sonoma:         "5d6f7a8604d379bfdd284a53987cd0f3961ac24c1c4af1b94c247595e4b9612d"
-    sha256 cellar: :any_skip_relocation, ventura:        "e3a923cfb3dfeddbd4c7ecdf4036fef5b4a68c403adccdba2838d0d3e1a7a885"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7d3631df4f73920fb44a519d1cd25f3da1810eb0198510c160467c18431651c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e11d48f2a0555e830e03647e8d61b5c7fa2c8b5ef80388633edb95cd7b6a589"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "652879953496fac4c135191b94e5dae5bcbffd88fcd61901785f2b7ec702295e"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "90222aa38bc81c54e4282c440a522a3207206f75df04efb30ea196a5c0f907ef"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e7b65d8f5b7be0bd60cba0fa8dce52f0f15f75f0d16a66a06917bb302de9ca95"
+    sha256 cellar: :any_skip_relocation, sonoma:         "14bc86fbb4538c6eca77c98c301b8eeacc13b1de72a1ab2d8cbd3f705805363b"
+    sha256 cellar: :any_skip_relocation, ventura:        "b434e99b6cc2552d1292689501aa8ba15f0911e020bb65cef8c930c85e03ee15"
+    sha256 cellar: :any_skip_relocation, monterey:       "e60675b52c947ed499f6de4c2a67be82f3fed62cb9aa6b2185669f2e2bc37e9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a8309251bc9b8b77c79f896d2e155544a4ac2902b10e5532fc5a7f1b2424558"
   end
 
   depends_on "go" => :build

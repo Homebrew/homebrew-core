@@ -1,8 +1,8 @@
 class Cherrytree < Formula
   desc "Hierarchical note taking application featuring rich text and syntax highlighting"
   homepage "https://www.giuspen.com/cherrytree/"
-  url "https://www.giuspen.com/software/cherrytree_1.1.1.tar.xz"
-  sha256 "05c1252dd46769565700df1146e78d66c6ef60362599ea4f0b5abbd2b7304035"
+  url "https://www.giuspen.com/software/cherrytree_1.1.2.tar.xz"
+  sha256 "d5e7a2fddfe0577c25361695e2ea402ae34ce34d0b16e5610df2e06afa71fd2d"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "2f69f802409d863f2b4d2aa00c74a00ed226c965172b5027890809f6ab06d6f8"
-    sha256 arm64_ventura:  "963cf445fed638c28065853bdf3261496262109a539e06c32bb10678b51d8076"
-    sha256 arm64_monterey: "81c70e91d2fe67915c69f9a85fa687235224b20bbb71b55b291c63e66d04db8a"
-    sha256 sonoma:         "32b2286e66ed6b5697eaf7976e76427f7781a5a4db904755e9e42d39d35ba1a6"
-    sha256 ventura:        "8e71dc3084ec52e93c613a6eb039cc646f4b7098cde9e107e3f8994d63e133d8"
-    sha256 monterey:       "1db250e618ee2ac1e772c6d9d826cda44108e1fcf65699d28b1347aedff5268a"
-    sha256 x86_64_linux:   "0e3fc636ccae726395833127c6ec9e52e62e3638669e64612f700c84bcf7ff24"
+    sha256 arm64_sonoma:   "c098cebdb672465ac50631bcbe1a6a2e5711148bd0d3249d666bb5b0d2bc6449"
+    sha256 arm64_ventura:  "7f414df10247fbc6dbb55ad755410079577d35a90d40a38ff1d11c9824e0911c"
+    sha256 arm64_monterey: "694a8cda64859588a54452a737cf3ab99ddf9803ed4aa1ce027605612eefe349"
+    sha256 sonoma:         "60e723e14ca74a698e4124983ab7a71948bf231f6cc2f7eb15ec5405b59010d3"
+    sha256 ventura:        "04e5d14bc173a9fe5aaccb4ac9050167732b9db0967b7ccaa4176d5edb7431f8"
+    sha256 monterey:       "f56a0217eb32ffefce6d72d89f5f09a0a9bb04c54426a5e54ee714ae54f16ac2"
+    sha256 x86_64_linux:   "3b699b6c01880c796587e7487d107f20c6aba6fc70c113dcd8fe0cd633ab4646"
   end
 
   depends_on "cmake" => :build

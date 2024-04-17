@@ -1,10 +1,9 @@
 class S2geometry < Formula
   desc "Computational geometry and spatial indexing on the sphere"
   homepage "https://github.com/google/s2geometry"
-  url "https://github.com/google/s2geometry/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "1c17b04f1ea20ed09a67a83151ddd5d8529716f509dde49a8190618d70532a3d"
+  url "https://github.com/google/s2geometry/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "bdbeb8ebdb88fa934257caf81bb44b55711617a3ab4fdec2c3cfd6cc31b61734"
   license "Apache-2.0"
-  revision 6
 
   livecheck do
     url :homepage
@@ -12,16 +11,16 @@ class S2geometry < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "984577468ae3d423ab956c4c626ff4643a6b018e6acb02c6f173da16c22f768d"
-    sha256 cellar: :any,                 arm64_ventura:  "9a5cb5dc3ad6ec5448d057d726fc44ff03bbd2332d6f29d96a14b041ab2bda31"
-    sha256 cellar: :any,                 arm64_monterey: "cb4228e851ca6f02988eedf7dd07d4ea3fe68a8657a6fb2229c01eff42ffb7ad"
-    sha256 cellar: :any,                 sonoma:         "6fbaad29d84acfb90660935af163b886a3fc2e680948d372dc39bbe3f858e4a9"
-    sha256 cellar: :any,                 ventura:        "3ea61c14dec2eace51aafed015991900144888f81b067b6da2b0d7d7c9390586"
-    sha256 cellar: :any,                 monterey:       "79a57e7926d4a22872712bf9b819889ad65235f19799aa6e03806c8698d592ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f10bb27078e82d1388da6544b95ac9cc3e21f82eec38029bdc72fb9fcc784ec5"
+    sha256 cellar: :any,                 arm64_sonoma:   "4473959018f9e76b44ef6b3adc12101f0aca03e5db19ea98eeb04f51413adef8"
+    sha256 cellar: :any,                 arm64_ventura:  "a17ecd18a4b8cbf9b899e7b320dcbda2af0c4ca99874269d8bed86088a2058ed"
+    sha256 cellar: :any,                 arm64_monterey: "ea9898f2b559458212fbf91b19cab30c9972f52868ed697c08db6aba8942b291"
+    sha256 cellar: :any,                 sonoma:         "43c00ad7f4bf3f4c03b69b134799c48b1d6e892dad77fdaa02e5853454b9bddd"
+    sha256 cellar: :any,                 ventura:        "2ad449f93b20c81f8ea1e18b433ce4a419d291fa66296c916c5912eacb0d3c7c"
+    sha256 cellar: :any,                 monterey:       "fac9f63cc28b59e4b4f9c0b952471fd39190e9bf57930bfa5834b68d07e257a7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea0639e9d5429a205b6f0274a5f52485c2e601767c62bbc7549b8ec2cc14b689"
   end
 
-  depends_on "cmake" => :build
+  depends_on "cmake" => [:build, :test]
   depends_on "abseil"
   depends_on "glog"
   depends_on "openssl@3"
@@ -29,96 +28,68 @@ class S2geometry < Formula
   fails_with gcc: "5" # C++17
 
   def install
-    # Abseil is built with C++17 and s2geometry needs to use the same C++ standard.
-    inreplace "CMakeLists.txt", "set(CMAKE_CXX_STANDARD 11)", "set(CMAKE_CXX_STANDARD 17)"
-
-    args = std_cmake_args + %W[
+    args = %W[
       -DOPENSSL_ROOT_DIR=#{Formula["openssl@3"].opt_prefix}
+      -DBUILD_TESTS=OFF
       -DWITH_GFLAGS=1
       -DWITH_GLOG=1
+      -DCMAKE_CXX_STANDARD=17
+      -DCMAKE_CXX_STANDARD_REQUIRED=TRUE
     ]
 
-    system "cmake", "-S", ".", "-B", "build/shared", *args
+    system "cmake", "-S", ".", "-B", "build/shared", *args, *std_cmake_args
     system "cmake", "--build", "build/shared"
     system "cmake", "--install", "build/shared"
 
     system "cmake", "-S", ".", "-B", "build/static", *args,
                     "-DBUILD_SHARED_LIBS=OFF",
-                    "-DOPENSSL_USE_STATIC_LIBS=TRUE"
+                    "-DOPENSSL_USE_STATIC_LIBS=TRUE",
+                    *std_cmake_args
     system "cmake", "--build", "build/static"
     lib.install "build/static/libs2.a"
   end
 
   test do
     (testpath/"test.cpp").write <<~EOS
-      #include <cinttypes>
-      #include <cmath>
-      #include <cstdint>
-      #include <cstdio>
-      #include "s2/base/commandlineflags.h"
-      #include "s2/s2earth.h"
-      #include "absl/flags/flag.h"
-      #include "s2/s1chord_angle.h"
-      #include "s2/s2closest_point_query.h"
-      #include "s2/s2point_index.h"
+      #include "s2/s2loop.h"
+      #include "s2/s2polygon.h"
+      #include "s2/s2latlng.h"
 
-      S2_DEFINE_int32(num_index_points, 10000, "Number of points to index");
-      S2_DEFINE_int32(num_queries, 10000, "Number of queries");
-      S2_DEFINE_double(query_radius_km, 100, "Query radius in kilometers");
+      #include <vector>
+      #include <iostream>
 
-      inline uint64 GetBits(int num_bits) {
-        S2_DCHECK_GE(num_bits, 0);
-        S2_DCHECK_LE(num_bits, 64);
-        static const int RAND_BITS = 31;
-        uint64 result = 0;
-        for (int bits = 0; bits < num_bits; bits += RAND_BITS) {
-          result = (result << RAND_BITS) + random();
-        }
-        if (num_bits < 64) {  // Not legal to shift by full bitwidth of type
-          result &= ((1ULL << num_bits) - 1);
-        }
-        return result;
-      }
+      int main() {
+          // Define the vertices of a polygon around a block near the Googleplex.
+          std::vector<S2LatLng> lat_lngs = {
+              S2LatLng::FromDegrees(37.422076, -122.084518),
+              S2LatLng::FromDegrees(37.422003, -122.083984),
+              S2LatLng::FromDegrees(37.421964, -122.084028),
+              S2LatLng::FromDegrees(37.421847, -122.083171),
+              S2LatLng::FromDegrees(37.422140, -122.083167),
+              S2LatLng::FromDegrees(37.422076, -122.084518) // Last point equals the first one
+          };
 
-      double RandDouble() {
-        const int NUM_BITS = 53;
-        return ldexp(GetBits(NUM_BITS), -NUM_BITS);
-      }
+          std::vector<S2Point> points;
+          for (const auto& ll : lat_lngs) {
+              points.push_back(ll.ToPoint());
+          }
+          std::unique_ptr<S2Loop> loop = std::make_unique<S2Loop>(points);
 
-      double UniformDouble(double min, double limit) {
-        S2_DCHECK_LT(min, limit);
-        return min + RandDouble() * (limit - min);
-      }
+          S2Polygon polygon(std::move(loop));
 
-      S2Point RandomPoint() {
-        double x = UniformDouble(-1, 1);
-        double y = UniformDouble(-1, 1);
-        double z = UniformDouble(-1, 1);
-        return S2Point(x, y, z).Normalize();
-      }
+          S2LatLng test_point = S2LatLng::FromDegrees(37.422, -122.084);
+          if (polygon.Contains(test_point.ToPoint())) {
+              std::cout << "The point is inside the polygon." << std::endl;
+          } else {
+              std::cout << "The point is outside the polygon." << std::endl;
+          }
 
-      int main(int argc, char **argv) {
-        S2PointIndex<int> index;
-        for (int i = 0; i < absl::GetFlag(FLAGS_num_index_points); ++i) {
-          index.Add(RandomPoint(), i);
-        }
-
-        S2ClosestPointQuery<int> query(&index);
-        query.mutable_options()->set_max_distance(S1Angle::Radians(
-          S2Earth::KmToRadians(absl::GetFlag(FLAGS_query_radius_km))));
-
-        int64_t num_found = 0;
-        for (int i = 0; i < absl::GetFlag(FLAGS_num_queries); ++i) {
-          S2ClosestPointQuery<int>::PointTarget target(RandomPoint());
-          num_found += query.FindClosestPoints(&target).size();
-        }
-
-        return  0;
+          return 0;
       }
     EOS
+
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
-                    "-I#{Formula["openssl@3"].opt_include}",
-                    "-L#{lib}", "-ls2"
+      "-L#{lib}", "-ls2", "-L#{Formula["abseil"].lib}", "-labsl_log_internal_message"
     system "./test"
   end
 end

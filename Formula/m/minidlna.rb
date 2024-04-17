@@ -4,15 +4,16 @@ class Minidlna < Formula
   url "https://downloads.sourceforge.net/project/minidlna/minidlna/1.3.3/minidlna-1.3.3.tar.gz"
   sha256 "39026c6d4a139b9180192d1c37225aa3376fdf4f1a74d7debbdbb693d996afa4"
   license "GPL-2.0-only"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1f67ac2c286538de0c6912acb76b55a06984d581e89bd17d9f0fcceb763294fd"
-    sha256 cellar: :any,                 arm64_ventura:  "34846ee3fffb81f5c560e667b76f66c608e078d49601642242f5b0eea34db7ce"
-    sha256 cellar: :any,                 arm64_monterey: "e4319eb2b9b1d6f544ce89b96cc639535e44c884ceec77755e6e2bb9a51689ea"
-    sha256 cellar: :any,                 sonoma:         "4478759908de4950bc208b17158d20a4dd50b7253098e1388904681e52372633"
-    sha256 cellar: :any,                 ventura:        "82835a43549c4348862818e853479d108a19b46c3a1d611484466f60641da407"
-    sha256 cellar: :any,                 monterey:       "986cdb6f9aca5296e603cffe4d2b090394b6a5ec9102ac3562c5734c81a0e69d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19e8a48ae9f8b0eb25aeb999327a81c1a5f9ead4fba9324847014bdd84c48f2d"
+    sha256 cellar: :any,                 arm64_sonoma:   "5cdc4271499e5b8b3e6c7effab75da360de272d956e592c74ceb272012cbedc2"
+    sha256 cellar: :any,                 arm64_ventura:  "cfd00cc9d042aa7c6348edb85ccd3d46e961cf5db7889a983c3db86b7c426350"
+    sha256 cellar: :any,                 arm64_monterey: "4ca9b45f96b3db7f8623ac80b17861b25091e851bd0d3b98ab018c2b70593797"
+    sha256 cellar: :any,                 sonoma:         "0f9c174c508fe889e1e5849b43e779b360186fbc416303037379445fe0d713bd"
+    sha256 cellar: :any,                 ventura:        "c4934d6d2fbc41afce5d1bf4a2f79b9fe9ffeef3dbf2c303c42e71db9bf27794"
+    sha256 cellar: :any,                 monterey:       "321cde081415e6c35efe2c8522808c746578c3c5127f7a08df1bc3986c57ee4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "257e53c6ef6bd70fc2369d097e0c7e0da5013dc8e9c763a0762ba5df0bc9588a"
   end
 
   head do
@@ -24,7 +25,7 @@ class Minidlna < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
   depends_on "flac"
   depends_on "jpeg-turbo"
   depends_on "libexif"
@@ -103,7 +104,7 @@ index 35b3f2b..cf425cf 100644
 --- a/kqueue.c
 +++ b/kqueue.c
 @@ -28,6 +28,7 @@
- 
+
  #include <sys/types.h>
  #include <sys/event.h>
 +#include <sys/time.h>

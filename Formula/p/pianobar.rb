@@ -4,7 +4,7 @@ class Pianobar < Formula
   url "https://6xq.net/pianobar/pianobar-2022.04.01.tar.bz2"
   sha256 "1670b28865a8b82a57bb6dfea7f16e2fa4145d2f354910bb17380b32c9b94763"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/PromyLOPh/pianobar.git", branch: "master"
 
   livecheck do
@@ -13,15 +13,13 @@ class Pianobar < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5f18b29f2850516b23dc191bb39fc7ade8d11716e1b2c6b5da3f7f00f577d631"
-    sha256 cellar: :any,                 arm64_ventura:  "fbc2fd420f260620ef30d57b13d850df8da77b2dccecb53a5fb9d698089cba76"
-    sha256 cellar: :any,                 arm64_monterey: "4e6349ecff466a1e973fa0975e992ae0db11a4f919a535839117fda07b402158"
-    sha256 cellar: :any,                 arm64_big_sur:  "0c642308962498b47dae7eec94f52245daf878b180ad5157c107d5d3bb200f75"
-    sha256 cellar: :any,                 sonoma:         "66c7ba15c30e71f62468f9d55d7f1313a3ac10367f301976e69142b6de083a57"
-    sha256 cellar: :any,                 ventura:        "abb8bf92074313509c45f27760b1f7c48b7cac98b6cefb82a8eee3c413f1ff1e"
-    sha256 cellar: :any,                 monterey:       "9b479699fb6c58fec10367f6062613ace2697cbb4d9fd5e64257c83fb182d0c4"
-    sha256 cellar: :any,                 big_sur:        "5ea04fcbbc9d9f411a08f6929fb3c9f12d0e09f1b5e4c7c1d695f3a6151126c2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "44018c075406e5c40822a95155d287dcd13541f27048c566bb5c2fd8edc43b29"
+    sha256 cellar: :any,                 arm64_sonoma:   "dfecf674a95a0dfcdffe9d0faca825d61e4733c4f9cd9b41a2bfa75635209783"
+    sha256 cellar: :any,                 arm64_ventura:  "ee7d2deecd2fa234a9c14882d25d2828d061de6f5c8b8bbf338a9b97ae040d4b"
+    sha256 cellar: :any,                 arm64_monterey: "6332b45b23dfbd4839745039b7a09150874bee615adba4224407f3e0aa8269e2"
+    sha256 cellar: :any,                 sonoma:         "c781c81b0ac0e187fef19df756e1ce51a49ff3aa76c6a208e5300e9d23cca031"
+    sha256 cellar: :any,                 ventura:        "770e8282379b54adf9e896a90d8ad8bb79595f550117761c27965a5a521e8157"
+    sha256 cellar: :any,                 monterey:       "fe84dfc4bb620a7eae6f8aef7d92b5430349d20cae0fe4aaef0d5a0b6e8afa8b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c0bb0c852528eea565637f7859abd86792173da3161ea88390b9ddf05638f760"
   end
 
   depends_on "pkg-config" => :build
@@ -33,6 +31,13 @@ class Pianobar < Formula
   uses_from_macos "curl"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
+
+  # Fix build with FFmpeg 7.0.
+  # Remove when included in a release.
+  patch do
+    url "https://github.com/PromyLOPh/pianobar/commit/8bf4c1bbaa6a533f34d74f83d72eecc0beb61d4f.patch?full_index=1"
+    sha256 "9ede8281d2c8a056b646f87582b84e20d3fc290df41c6e93336f90729794b58b"
+  end
 
   def install
     # Discard Homebrew's CFLAGS as Pianobar reportedly doesn't like them

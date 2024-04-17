@@ -1,12 +1,18 @@
 class SolrAT811 < Formula
   desc "Enterprise search platform from the Apache Lucene project"
   homepage "https://solr.apache.org/"
-  url "https://dlcdn.apache.org/lucene/solr/8.11.2/solr-8.11.2.tgz"
-  sha256 "54d6ebd392942f0798a60d50a910e26794b2c344ee97c2d9b50e678a7066d3a6"
+  url "https://dlcdn.apache.org/lucene/solr/8.11.3/solr-8.11.3.tgz"
+  mirror "https://archive.apache.org/dist/lucene/solr/8.11.3/solr-8.11.3.tgz"
+  sha256 "178300ae095094c2060a1060cf475aa935f1202addfb5bacb38e8712ccb56455"
   license "Apache-2.0"
 
+  livecheck do
+    url "https://solr.apache.org/downloads.html"
+    regex(/href=.*?solr[._-]v?(8\.11(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "430113d21cb3e006e400a60001b5e020cd502aa4d0381f7db437bb9a68f45568"
+    sha256 cellar: :any_skip_relocation, all: "9215d75465b9410dc267924991044a2b4e0e781e654583db2d01a7767d631bfa"
   end
 
   keg_only :versioned_formula

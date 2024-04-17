@@ -19,6 +19,15 @@ class CargoEdit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "79df633b377c8c2fd2ba9f73ee41ca825f7158688d8a378110f56625c712775d"
   end
 
+  # `cargo-edit` uses the API of older crates-index that requires older git2/libgit2.
+  # So it would need something like https://github.com/killercup/cargo-edit/pull/870
+  # at minimum before being able to try updating to newer git2.
+  #
+  # However, it seems upstream is working on killing off `cargo-edit`:
+  # * https://internals.rust-lang.org/t/feedback-on-cargo-upgrade-to-prepare-it-for-merging/17101
+  # * https://github.com/killercup/cargo-edit/issues/864#issuecomment-1645735265
+  deprecate! date: "2024-04-11", because: "uses deprecated `libgit2@1.6`"
+
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "rustup-init" => :test

@@ -4,19 +4,21 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/refs/tags/v0.73.3.tar.gz"
   sha256 "4c959abb90535c61ce79c9583b0317dbada5babb46c17d77414c8bd9d42ad8b4"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 arm64_sonoma:   "386825053225c0294a40da425e7cc56ba422c2b540e8e5be37a03f9cd24c12d8"
-    sha256 arm64_ventura:  "124fffe909810a812ffed5f2c0132efa7ee22968f52ef5517996e3720ca7d988"
-    sha256 arm64_monterey: "964282a4c7e7caeb6aa52df72fc1833533a3170fcc27fa84b59bcbe842767a46"
-    sha256 sonoma:         "4f72baa98339ba394b39e112666e7ef2212a430768e6ed4d47160fd45316d229"
-    sha256 ventura:        "4504e9081bf10f5f5eed1c672ccf6611903d3a42bb4677172676c4d4c7c98a9e"
-    sha256 monterey:       "e76635b08781bc47b2798961aff2adccfa2551a2dfaae2d2e648eee47088aab9"
-    sha256 x86_64_linux:   "5a2ef32aa123c8dc1470446a8a34e117ac7c7685a182f8f4d44dc7619cbf1d83"
+    sha256 arm64_sonoma:   "bde08d009bcd44c2fafd28eee52752aa567a1a4529f944ba5691521fcc982f02"
+    sha256 arm64_ventura:  "0381bae60fff89d7dbacb577ddd99cdd1c1f64eaae839fba3862cb1b7970ffcb"
+    sha256 arm64_monterey: "368aa98b6ffb21f9ea5386893b0d0a186dc2090d66033e55cf83771c402949ba"
+    sha256 sonoma:         "fdb590a270aeae5da6d0844212727517e7a57d2bfe52e46579e6d335315698e5"
+    sha256 ventura:        "74c6d40952d9c3fa66dd73b45e9a83b82a492cb9b4464ff9989dcaddd034fb9b"
+    sha256 monterey:       "f5016d856e756e811214943983d0fd750291bf033c6918d77d16a1f5435a3a14"
+    sha256 x86_64_linux:   "bf776be92abb265a7a7c013c22861e70f1ff35c4de79e800b85d2874fac521af"
   end
 
   depends_on "cmake" => :build
   depends_on "cairo"
+  depends_on "ffmpeg@6"
   depends_on "glfw"
   depends_on "libtiff"
   depends_on "qhull"

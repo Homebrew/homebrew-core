@@ -4,7 +4,7 @@ class Datamash < Formula
   url "https://ftp.gnu.org/gnu/datamash/datamash-1.8.tar.gz"
   mirror "https://ftpmirror.gnu.org/datamash/datamash-1.8.tar.gz"
   sha256 "7ad97e8c7ef616dd03aa5bd67ae24c488272db3e7d1f5774161c18b75f29f6fd"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "521ebd6e3d990405d32e4bdd6ea07c257358f7f780889060df38d18acabe9bc7"
@@ -19,7 +19,7 @@ class Datamash < Formula
   end
 
   head do
-    url "https://git.savannah.gnu.org/git/datamash.git"
+    url "https://git.savannah.gnu.org/git/datamash.git", branch: "master"
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "gettext" => :build

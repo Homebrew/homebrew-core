@@ -9,7 +9,6 @@ class PythonPackaging < Formula
     sha256 cellar: :any_skip_relocation, all: "2cf07e8f77ff012e840b93321f30017d29b0b9408e11b8071ee0b4bbd647bcd1"
   end
 
-  depends_on "python-flit-core" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
@@ -21,8 +20,17 @@ class PythonPackaging < Formula
 
   def install
     pythons.each do |python|
-      system python, "-m", "pip", "install", *std_pip_args, "."
+      system python, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
+  end
+
+  def caveats
+    <<~EOS
+      Additional details on upcoming formula removal are available at:
+      * https://github.com/Homebrew/homebrew-core/issues/157500
+      * https://docs.brew.sh/Python-for-Formula-Authors#libraries
+      * https://docs.brew.sh/Homebrew-and-Python#pep-668-python312-and-virtual-environments
+    EOS
   end
 
   test do

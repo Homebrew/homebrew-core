@@ -3,18 +3,18 @@ class Arjun < Formula
 
   desc "HTTP parameter discovery suite"
   homepage "https://github.com/s0md3v/Arjun"
-  url "https://files.pythonhosted.org/packages/40/68/4d1066a053d699640de07e0041a48d62d7933ccf74639a255c8f63583abd/arjun-2.2.5.tar.gz"
-  sha256 "17cc2b0e90cfb63225168bc43d70b316f7847d1d9e60fc5631d56f6ccf8a6939"
+  url "https://files.pythonhosted.org/packages/bb/97/ed0189286d98aaf92322a06e23b10fc6c298e0ee9a43cd69ab614a1f76cf/arjun-2.2.6.tar.gz"
+  sha256 "15dbc0abf5efcbbe4ba1892ad8edb08fa5efc41bb2ebaadd0be01e47e70240fc"
   license "AGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0573dba6e79a5db1e133709cf6dbef4a726294d2ce2ec0de6fbbc1f6622dbf34"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0573dba6e79a5db1e133709cf6dbef4a726294d2ce2ec0de6fbbc1f6622dbf34"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "0573dba6e79a5db1e133709cf6dbef4a726294d2ce2ec0de6fbbc1f6622dbf34"
-    sha256 cellar: :any_skip_relocation, sonoma:         "0573dba6e79a5db1e133709cf6dbef4a726294d2ce2ec0de6fbbc1f6622dbf34"
-    sha256 cellar: :any_skip_relocation, ventura:        "0573dba6e79a5db1e133709cf6dbef4a726294d2ce2ec0de6fbbc1f6622dbf34"
-    sha256 cellar: :any_skip_relocation, monterey:       "0573dba6e79a5db1e133709cf6dbef4a726294d2ce2ec0de6fbbc1f6622dbf34"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a689285ca1924fcf99a49aefc8eb67a8b6ff195357318a967d865dc638f68464"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f583d31ec494745c847b7e285e46a789f79bc1c2c3986feb3fc910d865b034a9"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f583d31ec494745c847b7e285e46a789f79bc1c2c3986feb3fc910d865b034a9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f583d31ec494745c847b7e285e46a789f79bc1c2c3986feb3fc910d865b034a9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "f583d31ec494745c847b7e285e46a789f79bc1c2c3986feb3fc910d865b034a9"
+    sha256 cellar: :any_skip_relocation, ventura:        "f583d31ec494745c847b7e285e46a789f79bc1c2c3986feb3fc910d865b034a9"
+    sha256 cellar: :any_skip_relocation, monterey:       "f583d31ec494745c847b7e285e46a789f79bc1c2c3986feb3fc910d865b034a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06db40102875f5c9747b2092a5b1e8d42a4afc39fe6a0ee75a842b6afe1aadb1"
   end
 
   depends_on "certifi"
@@ -35,8 +35,8 @@ class Arjun < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "ratelimit" do

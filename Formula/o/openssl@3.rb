@@ -1,12 +1,9 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://www.openssl.org/source/openssl-3.2.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.2.1.tar.gz"
-  mirror "https://www.openssl.org/source/old/3.2/openssl-3.2.1.tar.gz"
-  mirror "https://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.2/openssl-3.2.1.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/openssl-3.2.1.tar.gz"
-  mirror "http://www.mirrorservice.org/sites/ftp.openssl.org/source/old/3.2/openssl-3.2.1.tar.gz"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.2.1/openssl-3.2.1.tar.gz"
+  mirror "https://www.openssl.org/source/openssl-3.2.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/openssl-3.2.1.tar.gz"
   sha256 "83c7329fe52c850677d75e5d0b0ca245309b97e8ecbcfdc1dfdc4ab9fac35b39"
   license "Apache-2.0"
 
@@ -16,14 +13,14 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "fce7bf159988bf2b0960fa3d33ea810688d422c433b6461c7020cd0c937827a6"
-    sha256 arm64_ventura:  "020785e015f7b8ef638abc5835890bf3f0273c1eecba54b2f749e82cab0ddeec"
-    sha256 arm64_monterey: "a99828f7bf992193ab24f93eb85da1d89901d2f7ba32acb6fff9506d9b030897"
-    sha256 sonoma:         "ef8211c5115fc85f01261037f8fea76cc432b92b4fb23bc87bbf41e9198fcc0f"
-    sha256 ventura:        "f3cd46e866f40f134ee02ca264456e69730c721f577af6bd6927fdb90f2807e0"
-    sha256 monterey:       "6f7645cf9afb08c84f129bf39de4974c857bfff8941587cbb08ee20b9feed8d8"
-    sha256 x86_64_linux:   "0e4d59371d274c67e9f09ce81542e2856c7496e5d1bf70d7fed707bfbdfa04c0"
+    rebuild 2
+    sha256 arm64_sonoma:   "13b0371fb0e096c80d703fa573488cc595ccdb65979c5b82ef8aa23d862bfe39"
+    sha256 arm64_ventura:  "9308e425d3366b2a4deb22f02207aa52b409d541aa7983ec75ed752615b407d6"
+    sha256 arm64_monterey: "fe92474e7de65d08d47aa9c9e52ecf4fdca1858d8f1405be3834d1ea93cfc875"
+    sha256 sonoma:         "8c3882fa41d44368e88347b4d82f248dcb68c5c7c077f1ce19a6f76b01e20a1e"
+    sha256 ventura:        "6bf725d8234def1253e39412159a40ba9f140a0555615ae3644f3d010183a266"
+    sha256 monterey:       "52c1ad4b113b2649dd3e39a4f3555f4436432131806340fea691584ba73257d8"
+    sha256 x86_64_linux:   "b5d725bc7fb396e06740ba68d0c2cfa2baa1dc7332cb3c87ffe3d46ffa2914d5"
   end
 
   depends_on "ca-certificates"
@@ -36,9 +33,9 @@ class OpensslAT3 < Formula
     end
 
     resource "Test::More" do
-      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302196.tar.gz"
-      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302196.tar.gz"
-      sha256 "020e71da0a479b2d2546304ce6bd23fb9dd428df7d4e161d19612fc1f406fd9f"
+      url "https://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302198.tar.gz"
+      mirror "http://cpan.metacpan.org/authors/id/E/EX/EXODIST/Test-Simple-1.302198.tar.gz"
+      sha256 "1dc07bcffd23e49983433c948de3e3f377e6e849ad7fe3432c717fa782024faa"
     end
 
     resource "ExtUtils::MakeMaker" do
@@ -72,6 +69,12 @@ class OpensslAT3 < Formula
       args += (ENV.ldflags || "").split
     end
     args
+  end
+
+  # Fixes CVE-2024-2511. Remove in next release.
+  patch do
+    url "https://github.com/openssl/openssl/commit/e9d7083e241670332e0443da0f0d4ffb52829f08.patch?full_index=1"
+    sha256 "cbec9e8d2ff52783239317962a997755353cd13c2516f848596afd4d52232321"
   end
 
   def install

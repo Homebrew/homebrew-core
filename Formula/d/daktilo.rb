@@ -1,18 +1,18 @@
 class Daktilo < Formula
   desc "Plays typewriter sounds every time you press a key"
   homepage "https://daktilo.cli.rs"
-  url "https://github.com/orhun/daktilo/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "55aead933dfe9176bc6f55f397bfe05f5eb97ef0f2b06e6904e4227f3e715b70"
+  url "https://github.com/orhun/daktilo/archive/refs/tags/v0.6.0.tar.gz"
+  sha256 "594987ad0697a29e3d0dc25b220e5680cfaecedf2175fd6c17ba827fc7bc2978"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e1b4b6e48a02126163228cd965c1b082dd3d114680e74e8cbcc69d94c857b70"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2283e58ba4a9fe33b0d33625d2fee746e78daecfbaa122fb6c60eb5e34eb46bb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "793ac3882df541a8d636220508e9bbdade45f783ce83f6c1f3b87f352e92931e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9e4f84409ea2a9785d4f7475785574e914667881b7942bbbdf128fa061b9a2da"
-    sha256 cellar: :any_skip_relocation, ventura:        "b279323b66da0d36d4002df97daa20fb7b0391532e48a15197efc73813be19dc"
-    sha256 cellar: :any_skip_relocation, monterey:       "2ce69ab3ec4924b6c75b8f716c133b5d82a87ea057493d7c3ed08e0f0e316169"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2deb6b60aa7790cb37fbbcd1f1c6c5377eba439972191ccb9e76f27483dae23e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da61f9a129b3f86817d89889f0495546ab29e75c26aa4e0bfaf876cad604b19f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "546b3ee3d5da434c32614c51c92610ce80486b3685cc656c3228f1307c4188c9"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "5c6934cd904014b23e31eff5febfd720868a370c85875a7662e8322e7e409aef"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7e60d9deb2d00237f924690c9ad83c21fa0e9a39a2d5e21815b53d0a97e7a4aa"
+    sha256 cellar: :any_skip_relocation, ventura:        "076a61558f93da37b2a31f97496fd4f687e578be0929488e931fbe3b806575fd"
+    sha256 cellar: :any_skip_relocation, monterey:       "58cde688813e9da476cab1935487bbbaa337a781808602c6c34d3612e752a684"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d862c33b912fb26fb8564fdc3bef5f666265f8945c9cd17c2b7fc030ee3e3ce7"
   end
 
   depends_on "pkg-config" => :build
@@ -25,7 +25,7 @@ class Daktilo < Formula
   end
 
   def install
-    system "cargo", "install", *std_cargo_args
+    system "cargo", "install", *std_cargo_args(path: "crates/daktilo")
   end
 
   test do

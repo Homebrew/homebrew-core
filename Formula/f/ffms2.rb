@@ -4,7 +4,7 @@ class Ffms2 < Formula
   # The FFMS2 source is licensed under the MIT license, but its binaries
   # are licensed under the GPL because GPL components of FFmpeg are used.
   license "GPL-2.0"
-  revision 4
+  revision 5
   head "https://github.com/FFMS/ffms2.git", branch: "master"
 
   stable do
@@ -29,22 +29,20 @@ class Ffms2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "23ba655946a51d846bf8384c103f74558f18e416a3a400c963ed8008d775005c"
-    sha256 cellar: :any,                 arm64_ventura:  "023582cd7706fb178e3673a44f19202e96cb7b743883cd3cf2a622bdc28a910f"
-    sha256 cellar: :any,                 arm64_monterey: "208bea2bad3ab0e3421a05fb95f3d09234dacfd3dbd7846f37abf9198c725ffd"
-    sha256 cellar: :any,                 arm64_big_sur:  "6b0a6c8555f81efe0d9d60a486fc1e132706c4c85dfa38214ae9f5cb7d9348e6"
-    sha256 cellar: :any,                 sonoma:         "6ab12041e65776f6e8b0aa42ab9471c7d3859673102334a5d8fe9456663e18ef"
-    sha256 cellar: :any,                 ventura:        "812acac7fead7e70c367494d0847ae9063196157902047c6b4a6226178073d6a"
-    sha256 cellar: :any,                 monterey:       "b43c093dba63116882aa97a66d7574fe892e456bf8d4cf08938cbde965039c10"
-    sha256 cellar: :any,                 big_sur:        "8af6d5615773b98e695ddc3987ae14ed89900ea3600b9e0c61a76d02e28fef64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b09a1bb54bde4251dff1f4e4f3dfd7bba9a93023bf1c1387a61240a54d220544"
+    sha256 cellar: :any,                 arm64_sonoma:   "72597e1adda2f0302cdc138e81226ba8374739fbee6d25f98e77d33fac48ca7d"
+    sha256 cellar: :any,                 arm64_ventura:  "d3cea8104d6ed35a04269791d554fe0e42b38d2eea50191ff8ab51043687e6c5"
+    sha256 cellar: :any,                 arm64_monterey: "82a3cc0c378bcc1f00935e368db5570aa566e10237962439d2a85c7c5d6525d8"
+    sha256 cellar: :any,                 sonoma:         "f37ff12f719209caa561849a6aedc890accc2dfd877b3dfea7b77e002ea8b769"
+    sha256 cellar: :any,                 ventura:        "87ab1c98928a90b2391aaf638cfaec141e21eac099566f418484b6f4f891c192"
+    sha256 cellar: :any,                 monterey:       "bdd001b5547e9c5ca7b1ac1ff9cb5635424f48ab6cff3158d5548f6d9b89f064"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "260be451fa4aba990e99e519329b8190a599e06f84d88731ec10a4f6085a639a"
   end
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
 
   fails_with gcc: "5" # ffmpeg is compiled with GCC
 

@@ -1,7 +1,6 @@
 class Futhark < Formula
   desc "Data-parallel functional programming language"
   homepage "https://futhark-lang.org/"
-  # TODO: Try to switch `ghc@9.4` to `ghc` when futhark.cabal allows base>=4.17
   url "https://github.com/diku-dk/futhark/archive/refs/tags/v0.25.15.tar.gz"
   sha256 "5820a034e54fc4f511c15c5b16a5fa70bba739a10243a4f75f3cdd195c0e775c"
   license "ISC"
@@ -18,7 +17,7 @@ class Futhark < Formula
   end
 
   depends_on "cabal-install" => :build
-  depends_on "ghc@9.4" => :build
+  depends_on "ghc" => :build
   depends_on "sphinx-doc" => :build
 
   uses_from_macos "ncurses"

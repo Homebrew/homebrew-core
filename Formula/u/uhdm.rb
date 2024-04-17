@@ -41,17 +41,16 @@ class Uhdm < Formula
 
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
-    resources.each do |r|
-      venv.pip_install r
-    end
-    # Build shared library
+    venv.pip_install resources
+
     system "cmake", "-S", ".", "-B", "build_shared",
-      "-DBUILD_SHARED_LIBS=ON",
-      "-DUHDM_BUILD_TESTS=OFF",
-      "-DUHDM_USE_HOST_GTEST=ON",
-      "-DUHDM_USE_HOST_CAPNP=ON",
-      "-DCMAKE_INSTALL_RPATH=#{rpath}",
-      "-DPython3_EXECUTABLE=#{buildpath}/venv/bin/python", *std_cmake_args
+                    "-DBUILD_SHARED_LIBS=ON",
+                    "-DUHDM_BUILD_TESTS=OFF",
+                    "-DUHDM_USE_HOST_GTEST=ON",
+                    "-DUHDM_USE_HOST_CAPNP=ON",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    "-DPython3_EXECUTABLE=#{buildpath}/venv/bin/python",
+                    *std_cmake_args
     system "cmake", "--build", "build_shared"
     system "cmake", "--install", "build_shared"
   end
@@ -83,8 +82,7 @@ class Uhdm < Formula
     EOS
 
     flags = shell_output("pkg-config --cflags --libs UHDM").chomp.split
-    system ENV.cxx, testpath/"test.cpp", "-o", "test",
-      "-fPIC", "-std=c++17", *flags
+    system ENV.cxx, "test.cpp", "-o", "test", "-fPIC", "-std=c++17", *flags
     system testpath/"test"
   end
 end

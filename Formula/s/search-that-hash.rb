@@ -6,18 +6,17 @@ class SearchThatHash < Formula
   url "https://files.pythonhosted.org/packages/5e/b9/a304a92ba77a9e18b3023b66634e71cded5285cef7e3b56d3c1874e9d84e/search-that-hash-0.2.8.tar.gz"
   sha256 "384498abbb9a611aa173b20d06b135e013674670fecc01b34d456bfe536e0bca"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
   head "https://github.com/HashPals/Search-That-Hash.git", branch: "main"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "17654735e1baf8b042d8c7a92a00e17cd3a433efcdfe0ce56c30a42c2da3959f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "f7d51e7d193f54d08a081687027a664177d71932fc881139fcadd36c1edf5fa5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a01765e1dc9dfac4f70c21f47731e1105e989a9a27d3e1f89412f302ba5eb587"
-    sha256 cellar: :any_skip_relocation, sonoma:         "684477d36b05479cff5582e39842cb6d48783e8fc952c6cd798466549d17cbe8"
-    sha256 cellar: :any_skip_relocation, ventura:        "eeabb7c5facfdca4d0c043423cf0764a4466970e553b52b2112cf6df0f4c88db"
-    sha256 cellar: :any_skip_relocation, monterey:       "42cafebad9031752587e30fb669bcd69b8a119ec2ebd6cafe0917731fcab0e22"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec8c7ccca37beba0d9bd61823a97a32d65348ec99823e1d6243f2d736e9a1c63"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e25801d1987279bbe647702e7bc6e33d0839b5f5d49127fdaad3292d6fde9a23"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e25801d1987279bbe647702e7bc6e33d0839b5f5d49127fdaad3292d6fde9a23"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e25801d1987279bbe647702e7bc6e33d0839b5f5d49127fdaad3292d6fde9a23"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c00ce8014bc25b9bdaff8001ebcb68d8dd5b05ff55463808ccf7c124d08dd736"
+    sha256 cellar: :any_skip_relocation, ventura:        "c00ce8014bc25b9bdaff8001ebcb68d8dd5b05ff55463808ccf7c124d08dd736"
+    sha256 cellar: :any_skip_relocation, monterey:       "c00ce8014bc25b9bdaff8001ebcb68d8dd5b05ff55463808ccf7c124d08dd736"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d3aa384e4a3b6e190761d041481d3af54f2d8db52062c1c2374c1700bce7a79"
   end
 
   depends_on "certifi"
@@ -64,8 +63,8 @@ class SearchThatHash < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "loguru" do
@@ -84,8 +83,8 @@ class SearchThatHash < Formula
   end
 
   resource "pyparsing" do
-    url "https://files.pythonhosted.org/packages/37/fe/65c989f70bd630b589adfbbcd6ed238af22319e90f059946c26b4835e44b/pyparsing-3.1.1.tar.gz"
-    sha256 "ede28a1a32462f5a9705e07aea48001a08f7cf81a021585011deba701581a0db"
+    url "https://files.pythonhosted.org/packages/46/3a/31fd28064d016a2182584d579e033ec95b809d8e220e74c4af6f0f2e8842/pyparsing-3.1.2.tar.gz"
+    sha256 "a1bac0ce561155ecc3ed78ca94d3c9378656ad4c94c1270de543f621420f94ad"
   end
 
   resource "requests" do

@@ -1,8 +1,8 @@
 class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
-
   license "GPL-2.0-only"
+  revision 2
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   stable do
@@ -18,18 +18,18 @@ class Fceux < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d4354cc40673c347bda3c50d5658fd207362a8b172b04e06c82d1adb7f5e6dc8"
-    sha256 cellar: :any,                 arm64_ventura:  "68e1c26fa0a93d22dfe111d22665a30159845793e2622ec67bfc59f52f383e5b"
-    sha256 cellar: :any,                 arm64_monterey: "98d448c3cdd2ad2223e02008302927e9b98f155e9d6a8aaf95dc4473747a2eb0"
-    sha256 cellar: :any,                 sonoma:         "0ce27ffa7be3908c2c797913a795017f6c581ecdb084ed4f83142cd50ec09ba8"
-    sha256 cellar: :any,                 ventura:        "b0e0c109c847ee0ab21e3f0acb8d1f0c24f4b2599701a33753ec4b638784a96b"
-    sha256 cellar: :any,                 monterey:       "49e1c8b8856d4181cc4da5fab6997f2da33540dc82038051549829ca768a7072"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e47ed2db6b81d031a7ac9ce88a1815097fcadd4ff81cada95747db2687724ad"
+    sha256 cellar: :any,                 arm64_sonoma:   "bfa825bc1b802bef0d363c3583d2b764003374b304b157a3e3cb60d8957906a6"
+    sha256 cellar: :any,                 arm64_ventura:  "20605deb4c81f581cf24f486481c6fd5a1a5d2c4f2c83cc83b099d970c276b24"
+    sha256 cellar: :any,                 arm64_monterey: "220b5099f902a7285fe7c25aebedb8160eef3d5d46bb5658a584faef9c50eb82"
+    sha256 cellar: :any,                 sonoma:         "c069a6d8df8620c67847c31a30940d85e5a8bf17be80ed33fb80135dc2d3eede"
+    sha256 cellar: :any,                 ventura:        "99f19db1ae480c85e5296511a4a549d3e0c15281d654e937e0dd6a0f06f623b1"
+    sha256 cellar: :any,                 monterey:       "3417ac4e49dfff539e550dbde05e59ad12d51fd3c1a3ecce532ea6e03950731f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "780831f1198865742b0547c7774bcfa8d0453c6bad9f759753853f11c7038d5d"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
   depends_on "minizip"
   depends_on "qt"
   depends_on "sdl2"

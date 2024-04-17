@@ -2,19 +2,19 @@ class Ijq < Formula
   desc "Interactive jq"
   homepage "https://sr.ht/~gpanders/ijq/"
   url "https://git.sr.ht/~gpanders/ijq",
-      tag:      "v1.0.1",
-      revision: "699fd6acaecaa99179bb02bb13161fc8f1f05cfa"
+      tag:      "v1.1.0",
+      revision: "1e8e0a3b1b29050e6c561d4e95cffd46e767d20d"
   license "GPL-3.0-or-later"
   head "https://git.sr.ht/~gpanders/ijq", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1625e3f6125797bca38d90f568fd856b5987dde12bf6e84b8a60e33e8491266f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bc3afbc24b1f00c34c0fc104cb3bf267aeea50f73146e4d37d9d5f51a1c43a59"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b037461f849694ff907a549d93d3528e3388955cfae09c487ac722ed8083519c"
-    sha256 cellar: :any_skip_relocation, sonoma:         "05b45e9f7025afba9845fea5478bd40b0dbdf42f5ded74dc80c9d22b4a81cfb9"
-    sha256 cellar: :any_skip_relocation, ventura:        "9fc36c4cdd0e610abd90aa184a407be54dd53d8cd4b37ad53fe6bd5140f3800b"
-    sha256 cellar: :any_skip_relocation, monterey:       "dab34d0139427833790d9b2cb04f42ee5ede191368d9d694a2d2b8f683d47ae4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cd3701402c5aef3da2be69b1de975ac2619a199697fa63c9a346f06f270803a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8a87747a3e03f68f164b95c687f58431de8b3fed1f468bb7f23fec3f8b970a74"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "208f40e90ce5a309c804a48de9077ce0b9eede68619bf15c4375b5dfc20324c5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "947d459fc3c4bb273b941c664761404171aa5e42a2ea7cf41e48666d7d1b1bf1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "45aaed110eb62830579df79ca36727d69aca012c44d3b39db9c67add37a560ce"
+    sha256 cellar: :any_skip_relocation, ventura:        "bf87f93a4861773d0abe2c74fc046003a791043c8e18251d5c4e176cce17c6b5"
+    sha256 cellar: :any_skip_relocation, monterey:       "e66417e4dd466c9a11ade4e7baeb6d998ce71a66454cc094331d8f7e128dc0ab"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "defbf6204dc865a4a255ddb05d72bc72c853257775723a8eb2f823ec72061bca"
   end
 
   depends_on "go" => :build

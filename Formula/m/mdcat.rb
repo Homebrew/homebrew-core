@@ -16,6 +16,8 @@ class Mdcat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "68db6d25634ac8a5b2c2bb51a9e7f6c0b72366868b49409eacfcf400ff308274"
   end
 
+  deprecate! date: "2024-04-05", because: :repo_archived
+
   depends_on "asciidoctor" => :build
   depends_on "cmake" => :build
   depends_on "rust" => :build

@@ -1,19 +1,19 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/1b/ed/136698c76722268569eac4e48ab90f3ced8b8035e414a8290cb935c40c16/uwsgi-2.0.24.tar.gz"
-  sha256 "77b6dd5cd633f4ae87ee393f7701f617736815499407376e78f3d16467523afe"
+  url "https://files.pythonhosted.org/packages/52/9a/ab43cf8fb4847a6fda585beb1374deba0583660fa05c882a498784b2fc77/uwsgi-2.0.25.1.tar.gz"
+  sha256 "d653d2d804c194c8cbe2585fa56efa2650313ae75c686a9d7931374d4dfbfc6e"
   license "GPL-2.0-or-later"
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "5587786b1541f29b955094dfe9f6bf8027f6d06a7c20578ef41ba6f66f36f2ae"
-    sha256 arm64_ventura:  "544fb471fa2a2eb6601352da2375ce410cb4c067edecfa4b1b2dc0d4b208d479"
-    sha256 arm64_monterey: "19ab56574a2533febd6bcba99004d21109b7bb4a53935d776a13303ef1d01b72"
-    sha256 sonoma:         "7cb23f09c8499580ba6dfdeeacd7976c5cd4b2e49a9a69646ecabdee21522798"
-    sha256 ventura:        "3e27e49da1ff6d25d72ef9f30231c44c6c46501d993c6138cf66fef17fb3152a"
-    sha256 monterey:       "c2a065fbd881842f7a30bdd621a41b49f7f37cad580b52badde62592d3b042b9"
-    sha256 x86_64_linux:   "e2dc4d976da06550120dd4e717bd2dd01f2373fa303dd37f201ba31dff390dd4"
+    sha256 arm64_sonoma:   "983fe6f7af185a9153320b3cd52204dd748e0f41b695f8c6f098e0e11e1a871d"
+    sha256 arm64_ventura:  "b368a4c314a02ff7a8eb6711ee039b257114fdbed533b32e7585c0d41f8ef9e4"
+    sha256 arm64_monterey: "6c09b2e859d6383de85d3e3b8949c24a80d9f5071dfef98fb0f698409be1b7b5"
+    sha256 sonoma:         "5b3a6199dd5cf18504365fa22ca45cde1c861d52a3512ce6a5c2764c985400a1"
+    sha256 ventura:        "042a3a53a27cf8fb4132cb8de7d1b03ab02e243f38b46aeddc009538841b1cf5"
+    sha256 monterey:       "aa8065251cf0676dc1f7a0890c8f78295631fa916ffad0aa9319f8d6e3fa6750"
+    sha256 x86_64_linux:   "d24bc23d5bfcd050697811e1b57950f138fec1b05600e0986c205b80832f5ab2"
   end
 
   depends_on "pkg-config" => :build

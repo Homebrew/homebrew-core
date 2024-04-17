@@ -1,11 +1,12 @@
 class Runit < Formula
   desc "Collection of tools for managing UNIX services"
-  homepage "http://smarden.org/runit"
-  url "http://smarden.org/runit/runit-2.1.2.tar.gz"
+  homepage "https://smarden.org/runit/"
+  url "https://smarden.org/runit/runit-2.1.2.tar.gz"
   sha256 "6fd0160cb0cf1207de4e66754b6d39750cff14bb0aa66ab49490992c0c47ba18"
+  license "BSD-3-Clause"
 
   livecheck do
-    url "http://smarden.org/runit/install.html"
+    url "https://smarden.org/runit/install"
     regex(/href=.*?runit[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 
@@ -20,6 +21,11 @@ class Runit < Formula
     sha256 cellar: :any_skip_relocation, catalina:       "d0e17adfaaf02589b498e362596486515b37a0fda917ee8f0e51ac8e2409afd6"
     sha256 cellar: :any_skip_relocation, mojave:         "ec6f4b2f1b323aba830a5f26daed8615395b0f774de82e074ee699627b1c106a"
     sha256                               x86_64_linux:   "4f36fd98073523f04cebacef60f30fae7501f351c4a885e3a7a4540e41cafb14"
+  end
+
+  on_macos do
+    # Resolve `call to undeclared function` errors on macOS 13
+    patch :DATA
   end
 
   def install
@@ -77,3 +83,58 @@ class Runit < Formula
     assert_match "usage: #{bin}/runsvdir [-P] dir", shell_output("#{bin}/runsvdir 2>&1", 1)
   end
 end
+
+__END__
+diff -ur a/runit-2.1.2/src/lock_ex.c b/runit-2.1.2/src/lock_ex.c
+--- a/runit-2.1.2/src/lock_ex.c 2014-08-10 14:22:34
++++ b/runit-2.1.2/src/lock_ex.c 2024-03-24 17:21:11
+@@ -3,6 +3,7 @@
+ #include <sys/types.h>
+ #include <sys/file.h>
+ #include <fcntl.h>
++#include <unistd.h>
+ #include "hasflock.h"
+ #include "lock.h"
+
+diff -ur a/runit-2.1.2/src/lock_exnb.c b/runit-2.1.2/src/lock_exnb.c
+--- a/runit-2.1.2/src/lock_exnb.c 2014-08-10 14:22:35
++++ b/runit-2.1.2/src/lock_exnb.c 2024-03-24 17:21:22
+@@ -3,6 +3,7 @@
+ #include <sys/types.h>
+ #include <sys/file.h>
+ #include <fcntl.h>
++#include <unistd.h>
+ #include "hasflock.h"
+ #include "lock.h"
+
+diff -ur a/runit-2.1.2/src/pathexec_run.c b/runit-2.1.2/src/pathexec_run.c
+--- a/runit-2.1.2/src/pathexec_run.c  2014-08-10 14:22:35
++++ b/runit-2.1.2/src/pathexec_run.c  2024-03-24 17:21:32
+@@ -1,5 +1,6 @@
+ /* Public domain. */
+
++#include <unistd.h>
+ #include "error.h"
+ #include "stralloc.h"
+ #include "str.h"
+diff -ur a/runit-2.1.2/src/prot.c b/runit-2.1.2/src/prot.c
+--- a/runit-2.1.2/src/prot.c  2014-08-10 14:22:35
++++ b/runit-2.1.2/src/prot.c  2024-03-24 17:21:40
+@@ -1,5 +1,6 @@
+ /* Public domain. */
+
++#include <unistd.h>
+ #include "hasshsgr.h"
+ #include "prot.h"
+
+diff -ur a/runit-2.1.2/src/seek_set.c b/runit-2.1.2/src/seek_set.c
+--- a/runit-2.1.2/src/seek_set.c  2014-08-10 14:22:34
++++ b/runit-2.1.2/src/seek_set.c  2024-03-24 17:21:51
+@@ -1,6 +1,7 @@
+ /* Public domain. */
+
+ #include <sys/types.h>
++#include <unistd.h>
+ #include "seek.h"
+
+ #define SET 0 /* sigh */

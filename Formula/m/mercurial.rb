@@ -22,24 +22,11 @@ class Mercurial < Formula
     sha256 x86_64_linux:   "96bad82d7d2c5fad16842a3dc8cd0a06559b687b27a82fafebed5df52150bfc0"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
 
   def install
-    ENV["HGPYTHON3"] = "1"
-    ENV["PYTHON"] = python3 = which("python3.12")
-
-    # Homebrew's python "prefix scheme" patch tries to install into
-    # HOMEBREW_PREFIX/{lib,bin}, which fails due to sandbox. As workaround,
-    # manually set the installation paths to behave like prior python versions.
-    setup_install_args = %W[
-      --install-lib="#{prefix/Language::Python.site_packages(python3)}"
-      --install-scripts="#{bin}"
-      --install-data="#{prefix}"
-    ]
-    inreplace "Makefile", / setup\.py .* --prefix="\$\(PREFIX\)"/, "\\0 #{setup_install_args.join(" ")}"
-
-    system "make", "install-bin", "PREFIX=#{prefix}"
+    python3 = "python3.12"
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
     system "make", "-C", "contrib/chg", "install", "PREFIX=#{prefix}", "HGPATH=#{bin}/hg", "HG=#{bin}/hg"
@@ -78,6 +65,12 @@ class Mercurial < Formula
   end
 
   test do
-    system "#{bin}/hg", "init"
+    touch "foobar"
+    system bin/"hg", "init"
+    system bin/"hg", "add", "foobar"
+    system bin/"hg", "--config", "ui.username=brew", "commit", "-m", "initial commit"
+    assert_equal "foobar\n", shell_output("#{bin}/hg locate")
+    # Check for chg
+    assert_match "initial commit", shell_output("#{bin}/chg log")
   end
 end

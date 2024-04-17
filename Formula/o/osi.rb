@@ -1,8 +1,8 @@
 class Osi < Formula
   desc "Open Solver Interface"
   homepage "https://github.com/coin-or/Osi"
-  url "https://github.com/coin-or/Osi/archive/refs/tags/releases/0.108.9.tar.gz"
-  sha256 "8b09802960d7d4fd9579b3e4320bfb36e7f8dca5e5094bf1f5edf1b7003f5562"
+  url "https://github.com/coin-or/Osi/archive/refs/tags/releases/0.108.10.tar.gz"
+  sha256 "614c2b329caf57c00326412266299fdfd93c5691492034fbb46990b5e71cc5a7"
   license "EPL-2.0"
 
   livecheck do
@@ -11,13 +11,13 @@ class Osi < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1b4a807addf9f40d64a208be6122d2b804363824c65b8ffb8da3eec8ac3741fd"
-    sha256 cellar: :any,                 arm64_ventura:  "d553f6352d8d3aa1cb29eb616a2ea71bc2bb4d5da7e4bfa38a833ed9d5b4e142"
-    sha256 cellar: :any,                 arm64_monterey: "13f6987eb58a6eb065d331e49e2c55e2c468f7793a930d010cf4a0157256fcfa"
-    sha256 cellar: :any,                 sonoma:         "73a8f48411ee84c77897ce180577513500811384d5f91a21d75f5fca8c621be7"
-    sha256 cellar: :any,                 ventura:        "2d13fc32b0062fbc65b2d7cc39524c1274577d37a1d30903bba94f55f605604b"
-    sha256 cellar: :any,                 monterey:       "21b58eb4d5e7a3de57aa33ebccec4b265938fd03287916614eb6b7b6607889d8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8f3586bd6e32fb870e2c2f413105b446f00257bcbcd70a724632132c6d3ccece"
+    sha256 cellar: :any,                 arm64_sonoma:   "69ddf7a23bba809d9441015863497c1d3d0e0ddcdddaefaff7944bd4a7132a73"
+    sha256 cellar: :any,                 arm64_ventura:  "389be0113a8ce6ba6029c02349f741c64545c17e005a4c12a5f45b1c82cb70a0"
+    sha256 cellar: :any,                 arm64_monterey: "8d385949e281b7def59a9e58eb167dbbb1b5b5c2722ce1e283a2c388976c88c2"
+    sha256 cellar: :any,                 sonoma:         "54aa80a08f1ee551ba675399b4f32566e6863d7ab27b48f29c7a9edee3a0acc1"
+    sha256 cellar: :any,                 ventura:        "cf9bfa64985fccad356d97a647c86ef7a83ef970a57ea6bf0c66ca1a1697441b"
+    sha256 cellar: :any,                 monterey:       "e46614c22e5b59f788fba4ca37825f136341664659105c027ad5c6219ae287ae"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e86dd7bc283f1cd8b3026074e78e6cf17267557325d0ce547bc95ff3c4573aaa"
   end
 
   depends_on "pkg-config" => :build

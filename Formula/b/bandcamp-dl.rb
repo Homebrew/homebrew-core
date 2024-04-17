@@ -6,17 +6,17 @@ class BandcampDl < Formula
   url "https://files.pythonhosted.org/packages/e5/4d/d463bcc20602f5385e0441cd7171b1fe6b67e2bb76240ae0f2684de6c022/bandcamp-downloader-0.0.15.tar.gz"
   sha256 "2f7666c00e9cff39135d5c9fc0498bbc93d64684fcb13171cbd9584e31692ebb"
   license "Unlicense"
-  revision 1
+  revision 2
   head "https://github.com/iheanyi/bandcamp-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6c6d1cf24d4ee1f1c5106eba30dbb53380b7748861a5d9b41a6819ce1c5eb503"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "971162229362dd25a6f1fa06d51138be507d72b4fedfc956ef88d07b7d777ba8"
-    sha256 cellar: :any,                 arm64_monterey: "ff33514eb86e07ed9296e616c5a665ed9bbecb6dd1d3c068f3774c46af0c3092"
-    sha256 cellar: :any_skip_relocation, sonoma:         "371ff3df01cfadcd1ffb4501454cbc9af971854226cb36d51bf6129026ee3a95"
-    sha256 cellar: :any_skip_relocation, ventura:        "9184b0aa6ba5ee8b89c03a756e22a0a8029f37c8fa3421379c0dcc6a56334fb8"
-    sha256 cellar: :any,                 monterey:       "4f3001a6b9f7e9b557b9f3222995435dce2fda17a817210dff7fa34bfd442d42"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c5bf42d56da20b6a677d5ebf42d03696641dcff32f6a44085019931f6794814"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4eec00874f38876b5bb76cc35a859457c2bb773cd5332ce6f91aaeac0eede332"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4eec00874f38876b5bb76cc35a859457c2bb773cd5332ce6f91aaeac0eede332"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "11659e4a8d019287b0bb3f854ba50d57ff42c09c0d9b0b6078db454d3a8cf7f5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4eec00874f38876b5bb76cc35a859457c2bb773cd5332ce6f91aaeac0eede332"
+    sha256 cellar: :any_skip_relocation, ventura:        "4eec00874f38876b5bb76cc35a859457c2bb773cd5332ce6f91aaeac0eede332"
+    sha256 cellar: :any_skip_relocation, monterey:       "11659e4a8d019287b0bb3f854ba50d57ff42c09c0d9b0b6078db454d3a8cf7f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ecbf7052c2b3ef77e9ae84bdf18e5441d9dd958063abc6ed33cf7696989e4413"
   end
 
   depends_on "certifi"
@@ -51,13 +51,8 @@ class BandcampDl < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
-  end
-
-  resource "lxml" do
-    url "https://files.pythonhosted.org/packages/2b/b4/bbccb250adbee490553b6a52712c46c20ea1ba533a643f1424b27ffc6845/lxml-5.1.0.tar.gz"
-    sha256 "3eea6ed6e6c918e468e693c41ef07f3c3acc310b70ddd9cc72d9ef84bc9564ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "mutagen" do

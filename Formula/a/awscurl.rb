@@ -6,16 +6,17 @@ class Awscurl < Formula
   url "https://files.pythonhosted.org/packages/71/5b/9a3e05e574b45e99033db5984a1ba6cbb1ad9f422dc63789b18e16af77e4/awscurl-0.33.tar.gz"
   sha256 "9cc47a97218992206af322bd71c7db4e6c8f5635c45d8045578e616c7c83e6cd"
   license "MIT"
+  revision 1
   head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b4de2a9eaf830fb1f21970e8cc0f6f07fe76089773e54367a15be8b3b9ca7c64"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b4de2a9eaf830fb1f21970e8cc0f6f07fe76089773e54367a15be8b3b9ca7c64"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b4de2a9eaf830fb1f21970e8cc0f6f07fe76089773e54367a15be8b3b9ca7c64"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b4de2a9eaf830fb1f21970e8cc0f6f07fe76089773e54367a15be8b3b9ca7c64"
-    sha256 cellar: :any_skip_relocation, ventura:        "b4de2a9eaf830fb1f21970e8cc0f6f07fe76089773e54367a15be8b3b9ca7c64"
-    sha256 cellar: :any_skip_relocation, monterey:       "b4de2a9eaf830fb1f21970e8cc0f6f07fe76089773e54367a15be8b3b9ca7c64"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9af3e4f0050462bdf7babbb864c4baa08a9afda8b16b32212b0dc18eef3c1ec4"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "62094501216d15ace887533df9fad35734a2fe01f6193f35d5772fa3c2533b7a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "62094501216d15ace887533df9fad35734a2fe01f6193f35d5772fa3c2533b7a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "62094501216d15ace887533df9fad35734a2fe01f6193f35d5772fa3c2533b7a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "62094501216d15ace887533df9fad35734a2fe01f6193f35d5772fa3c2533b7a"
+    sha256 cellar: :any_skip_relocation, ventura:        "62094501216d15ace887533df9fad35734a2fe01f6193f35d5772fa3c2533b7a"
+    sha256 cellar: :any_skip_relocation, monterey:       "62094501216d15ace887533df9fad35734a2fe01f6193f35d5772fa3c2533b7a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2b2b8f59d6d5b752486b9a54dc422307465af3cb598b9c15608de1f4e8a0843"
   end
 
   depends_on "certifi"
@@ -40,8 +41,8 @@ class Awscurl < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "requests" do

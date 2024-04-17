@@ -6,18 +6,17 @@ class Bpython < Formula
   url "https://files.pythonhosted.org/packages/cf/76/54e0964e2974becb673baca69417b6c6293e930d4ebcf2a2a68c1fe9704a/bpython-0.24.tar.gz"
   sha256 "98736ffd7a8c48fd2bfb53d898a475f4241bde0b672125706af04d9d08fd3dbd"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/bpython/bpython.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "96c7f92c5832218cd3035c6732af5105de24f5fdb6107a20b78a769490e2b832"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "68069284494cd3b6e51d190453dfdfb73a40ce933ec41bd6366de3dd0574adda"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "48cf60c2a49097c003a213afef71dc5bdae5f996ff0d31a30113ee33b392fa66"
-    sha256 cellar: :any_skip_relocation, sonoma:         "105016910483900de9c206de154dde9958ccb4bb5af2ba0d3ff153164bda0422"
-    sha256 cellar: :any_skip_relocation, ventura:        "ea41f5c4beb6d78b9e424f80db81e31c9a44f96b63e2e3103c2d69861a9275f6"
-    sha256 cellar: :any_skip_relocation, monterey:       "ec555d4978e1b7feef00570ef88ccac2dbdb06226152f965f55ae9c900d15c7b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "28104736251ccf58500b08e017f2267f0dd11712c7719b3ca77dd8068e1372a8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a630ad1bd590ada80946e0271534c2eb032afc7d690b161ba1a815dc437312d5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "84a8be8557957dcb4649f3f68868d3ab7bbfbaa11e859f1ca23f9833e11980e3"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "783ec8dc5609b7cb44cc365379a0d85f3d65447c84a940227cdc8fd39d3afce5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "79004962ed6df5b5fdfc8f14460228ffe24658db79a4d135f39b2c75779eb6ff"
+    sha256 cellar: :any_skip_relocation, ventura:        "baba94c9e8f480268f496b299c6b1799990959ac22f85617722a4ba9f9d6a6d2"
+    sha256 cellar: :any_skip_relocation, monterey:       "d40737efcad51b6da4437805f0aca9f26d7f23b346745c4694030e0c1d27904d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2ce18537d27a95e0c8e4ef382b5b00a99c4e3b72d3ab56475ede117a46848243"
   end
 
   depends_on "certifi"
@@ -49,8 +48,8 @@ class Bpython < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "pygments" do

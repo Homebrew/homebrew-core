@@ -6,7 +6,7 @@ class CargoOutdated < Formula
   # pulls same source from crates.io. v0.15.0+ is needed to avoid an older unsupported libgit2.
   # We can switch back to GitHub releases when upstream decides to upload.
   # Issue ref: https://github.com/kbknapp/cargo-outdated/issues/388
-  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.15.0.crate", using: :nounzip
+  url "https://static.crates.io/crates/cargo-outdated/cargo-outdated-0.15.0.crate"
   sha256 "0641d14a828fe7dcf73e6df54d31ce19d4def4654d6fa8ec709961e561658a4d"
   license "MIT"
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
@@ -28,8 +28,6 @@ class CargoOutdated < Formula
   depends_on "openssl@3"
 
   def install
-    system "tar", "--strip-components", "1", "-xzvf", "cargo-outdated-#{version}.crate" if build.stable?
-
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["OPENSSL_NO_VENDOR"] = "1"
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix

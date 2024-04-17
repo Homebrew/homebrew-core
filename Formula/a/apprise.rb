@@ -3,18 +3,18 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/c1/d7/5eb1bd8fe2883fc8e15e8f19760a4ca12a28f7f19a0d636b8e03656489a1/apprise-1.7.5.tar.gz"
-  sha256 "0ac34b27009d5c625e87d33ec85fa577062b57f3bced6d7223e17c5afbb40e68"
+  url "https://files.pythonhosted.org/packages/a2/fb/e64be71a57f69f46db65043b16f86750870c1710ee2650c30c20a9bfa624/apprise-1.7.6.tar.gz"
+  sha256 "077f09309cc8a6c9063dbd614b343807d527d546693b7fe8fc5a4433502fea6c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d39c077d5614c71333877f0870d1fb2dbf510ea47889798847c62df4cf0bcfd1"
-    sha256 cellar: :any,                 arm64_ventura:  "60c37ed7200cabd8d980cbe6e5ca0ed6ae310240266dd1e266ee92133e377858"
-    sha256 cellar: :any,                 arm64_monterey: "3fc61d21ab459896861a130a409f9903fdbee62c96bc11392d2a513f585c3374"
-    sha256 cellar: :any,                 sonoma:         "3da35ea21c6896a9bdf468a0c7115e4217cf68fcc96b402156bd335a76c723e2"
-    sha256 cellar: :any,                 ventura:        "c8a02090b72edb8277e282b36b57adb9de17ee286054152a641e2f374c6386c8"
-    sha256 cellar: :any,                 monterey:       "d342336960ad488da91df1d8c2b865865d04b1a197ab0590a0ea17ec943332dc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a0ec747be1c7691f56fa816aa825b38bbdc657975349b7dd2ef9bfa4274afdd"
+    sha256 cellar: :any,                 arm64_sonoma:   "49457a8e3c949dd8cc9f962d25bc2b09432337b8077301aa45e6ae7b3869d3ef"
+    sha256 cellar: :any,                 arm64_ventura:  "d2c2a68f433b9e40b55232d60ccaf4d1170c76eb5ebc819a1e34e44b29263106"
+    sha256 cellar: :any,                 arm64_monterey: "551722e7e3c7ad5b483fc0cc5341a2e1145229d4c8f5ff629a41f71e84e11d4b"
+    sha256 cellar: :any,                 sonoma:         "ca0d5a87267d99be0455769ada18ce86a5bb275d8748b777d9675a4fa9bdf98a"
+    sha256 cellar: :any,                 ventura:        "b6f68f102cf39cf60018d21c61e4e4a37637dfb2a47a154c54c3668192710012"
+    sha256 cellar: :any,                 monterey:       "6ef59a3b7a97012d12607c732d5905fec4c945168a9fc3a8ca31cab259ad5581"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f0f904338b03723b8f06371c6b6ec210714552ab030dcb5cfc39c1591f9a34e0"
   end
 
   depends_on "certifi"
@@ -32,8 +32,8 @@ class Apprise < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "markdown" do

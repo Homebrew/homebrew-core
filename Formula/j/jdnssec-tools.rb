@@ -1,8 +1,8 @@
 class JdnssecTools < Formula
   desc "Java command-line tools for DNSSEC"
   homepage "https://github.com/dblacka/jdnssec-tools"
-  url "https://github.com/dblacka/jdnssec-tools/releases/download/v0.19/jdnssec-tools-0.19.tar.gz"
-  sha256 "24bc5408e1fddd5788d372cd5ba14bd89c719910862b8d8d643f17639ab435e3"
+  url "https://github.com/dblacka/jdnssec-tools/releases/download/v0.20/jdnssec-tools-0.20.tar.gz"
+  sha256 "cddc024726e11e014ff02c04135743f3cb3964ed8fe2487d17544e60230f10d6"
   license "LGPL-2.1"
   head "https://github.com/dblacka/jdnssec-tools.git", branch: "master"
 
@@ -12,7 +12,7 @@ class JdnssecTools < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9a00ed674685e49c9580379c58152bece1eec574e53b81eaf7fbad84cc4be7be"
+    sha256 cellar: :any_skip_relocation, all: "15408395c8e88ae2baa48cfbe3f2cd2850b6805f8b42fe1613734f6fdc131d3b"
   end
 
   depends_on "openjdk"

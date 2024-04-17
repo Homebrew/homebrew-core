@@ -3,18 +3,18 @@ class B2Tools < Formula
 
   desc "B2 Cloud Storage Command-Line Tools"
   homepage "https://github.com/Backblaze/B2_Command_Line_Tool"
-  url "https://files.pythonhosted.org/packages/94/ee/80c20ed1fe24692967e04c097ba066a0eddd2ed4a7145c59d89405a6d3b9/b2-3.18.0.tar.gz"
-  sha256 "6d9b9223d103553fe348e8c69611e6d5c9ac741bf5dd367438716df3dc5580e5"
+  url "https://files.pythonhosted.org/packages/5f/4f/f5bb965f9a1051ba1918061be414f262f1c4be3bcf8551e1cba59bcf1406/b2-3.19.0.tar.gz"
+  sha256 "5da4f79573b9e1e027f1bf1ecea2b1adb2f345e0511e00970255ce7f400eba37"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "305a4c2fb692637deb290aef5507a00238ff791f521ffdc7cb65d154a09802fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "305a4c2fb692637deb290aef5507a00238ff791f521ffdc7cb65d154a09802fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "305a4c2fb692637deb290aef5507a00238ff791f521ffdc7cb65d154a09802fb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ef2d26ff6f614d9aa65352cb0384c91fe59d6b6ecc3e7590687b6456a4a4b63a"
-    sha256 cellar: :any_skip_relocation, ventura:        "ef2d26ff6f614d9aa65352cb0384c91fe59d6b6ecc3e7590687b6456a4a4b63a"
-    sha256 cellar: :any_skip_relocation, monterey:       "ef2d26ff6f614d9aa65352cb0384c91fe59d6b6ecc3e7590687b6456a4a4b63a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea2c2c2b1ef1495b9dac5b9c3dd48eb0e6ffd0a5fa72d78a19bd94e318779687"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6354c39be5cdfa26ee563fecb997f57a722481421308951d783ca3dbcd32d0aa"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6354c39be5cdfa26ee563fecb997f57a722481421308951d783ca3dbcd32d0aa"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6354c39be5cdfa26ee563fecb997f57a722481421308951d783ca3dbcd32d0aa"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d8124fb24b989cf8ac8f792c32efee16658c47eeff209ef7307346001f5d98b7"
+    sha256 cellar: :any_skip_relocation, ventura:        "d8124fb24b989cf8ac8f792c32efee16658c47eeff209ef7307346001f5d98b7"
+    sha256 cellar: :any_skip_relocation, monterey:       "d8124fb24b989cf8ac8f792c32efee16658c47eeff209ef7307346001f5d98b7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2886b391302aafb6744b2c8e30ce348af9120d898d649c75d2a757cfa312baf5"
   end
 
   depends_on "certifi"
@@ -23,8 +23,8 @@ class B2Tools < Formula
   conflicts_with "boost-build", because: "both install `b2` binaries"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/3c/c0/031c507227ce3b715274c1cd1f3f9baf7a0f7cec075e22c7c8b5d4e468a9/argcomplete-3.2.3.tar.gz"
-    sha256 "bf7900329262e481be5a15f56f19736b376df6f82ed27576fa893652c5de6c23"
+    url "https://files.pythonhosted.org/packages/79/51/fd6e293a64ab6f8ce1243cf3273ded7c51cbc33ef552dce3582b6a15d587/argcomplete-3.3.0.tar.gz"
+    sha256 "fd03ff4a5b9e6580569d34b273f741e85cd9e072f3feeeee3eba4891c70eda62"
   end
 
   resource "arrow" do
@@ -33,8 +33,8 @@ class B2Tools < Formula
   end
 
   resource "b2sdk" do
-    url "https://files.pythonhosted.org/packages/af/35/475a0c87f351bcd6bc3724b9bd41d1d7304aeefdb10d2e9bcdd079c78d69/b2sdk-2.0.0.tar.gz"
-    sha256 "0e49cd0fdc989b1bdf8a2509b06badb41e5b9384ac509ab82d09d677037ea93e"
+    url "https://files.pythonhosted.org/packages/1e/c2/4ce1b1424e2d03b61fd153cf71933e5260f6b738bd4f2e0537708a91a23e/b2sdk-2.1.0.tar.gz"
+    sha256 "39116cc539ffa09c45eb9802b96416efafd255698d514303bdf3b7f7cf105f3f"
   end
 
   resource "charset-normalizer" do
@@ -43,13 +43,13 @@ class B2Tools < Formula
   end
 
   resource "docutils" do
-    url "https://files.pythonhosted.org/packages/1f/53/a5da4f2c5739cf66290fac1431ee52aff6851c7c8ffd8264f13affd7bcdd/docutils-0.20.1.tar.gz"
-    sha256 "f08a4e276c3a1583a86dce3e34aba3fe04d02bba2dd51ed16106244e8a923e3b"
+    url "https://files.pythonhosted.org/packages/21/ff/c495b797462434f0befcb598b51cde31c3ebdf8577c3fd9d9a8f5eeb844c/docutils-0.21.1.tar.gz"
+    sha256 "65249d8a5345bc95e0f40f280ba63c98eb24de35c6c8f5b662e3e8948adea83f"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "logfury" do

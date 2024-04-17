@@ -6,15 +6,16 @@ class Fastp < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 sonoma:       "a54df97f0602036abf788bdbb6c7bda362337fb03767093cb0963199b3db03c9"
-    sha256 cellar: :any,                 ventura:      "67d4229c08075e858a8b8a8da5b6e4e4fdf50e4542f4c799d6955de51cbc6ea9"
-    sha256 cellar: :any,                 monterey:     "5e7b279df24f6065f22d52be29a19ac574781a62a57f49449ae8fd49dbaffc08"
-    sha256 cellar: :any,                 big_sur:      "88284d74dc8c61010fe62cdd658c5e9d22db6ef8a7ef0c0b15509f529a153912"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "0589cde1438c370799e468eead88bb2e537bc59ac390512c3b30161315162937"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "6bace081bf270bce7cb74c99ae3a6e6969ed390f5eb1eecabd2c4d25b17e0ad6"
+    sha256 cellar: :any,                 arm64_ventura:  "e4af98afd3553bc385ecf1c723f21f15932f9bef5819f340e593a5782817ff45"
+    sha256 cellar: :any,                 arm64_monterey: "0d91c6bf282d1ec7fa7b91a15e0daa6387788b5b0ee816334e3ae521daa7013f"
+    sha256 cellar: :any,                 sonoma:         "064eb9df00c4d8504168b9de2c0316836f98d14623ec830465dfecd2853ca0a3"
+    sha256 cellar: :any,                 ventura:        "c0e5740eb70059751d80e74eb92170af20b9e547b5183eddf47b61ec6a40a424"
+    sha256 cellar: :any,                 monterey:       "8be736b29ff350632aa615978605a8c023b4d9b6aeb951452a3525d3cef17a5f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e51bb52dfedf81cc82c30b4a64364a4414de0dc9960af325c064c64529ee44a"
   end
 
-  # upstream arm support issue, https://github.com/OpenGene/fastp/issues/420
-  depends_on arch: :x86_64 # isa-l is not supported on ARM
   depends_on "isa-l"
   depends_on "libdeflate"
 

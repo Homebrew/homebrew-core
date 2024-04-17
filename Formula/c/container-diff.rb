@@ -15,6 +15,8 @@ class ContainerDiff < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "47f4eb5a2a2d4663d512ba9fefca353f0508c9234e181d4a51d9d8dc0015bd7e"
   end
 
+  deprecate! date: "2024-04-05", because: :repo_archived
+
   depends_on "go" => :build
 
   def install

@@ -6,15 +6,16 @@ class JenkinsJobBuilder < Formula
   url "https://files.pythonhosted.org/packages/cc/28/48099c7d0762b127469f8a7574fb3b5f41a158fb4e41022dcf2b99aeb859/jenkins-job-builder-6.2.0.tar.gz"
   sha256 "915da0d6a6d2e4bedb12a7cf8a38fad1e2bea5b4dcf1202cfed72da4dbf43c5b"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "4541d808669b786d006d1126e7d34f2dc96c3e8161d3875ae3599d6b8d1ccacd"
-    sha256 cellar: :any,                 arm64_ventura:  "ab7a470ada4e97e937c830689167b56796f6ea194d9393ea50bbdc20eefe8b73"
-    sha256 cellar: :any,                 arm64_monterey: "a387a3e542443fd81d91b4dd12763d71c05b195977d5bb7b29d0c0f6ef5ab489"
-    sha256 cellar: :any,                 sonoma:         "d1c60be7abc62739fda60960d7acb81e0ae9e8adaff575dbed648e2a426f80d5"
-    sha256 cellar: :any,                 ventura:        "61c3e82b0d2a911d6843821d0a4ad8742092fb1888f1f96e3c9d23efa852a8a6"
-    sha256 cellar: :any,                 monterey:       "7c7cff77ca7fa30dccedefd93d3bcb825e4676b71875bfe3cf168e61e79f74d2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4974e178abe9f8ddf345f9e76a3034feddb312d25220322767bef1e29c6317d7"
+    sha256 cellar: :any,                 arm64_sonoma:   "8a6044e9bbe04210aaeea5b2fd10b70b0785702e7d034a212d0e040007fe1f23"
+    sha256 cellar: :any,                 arm64_ventura:  "42512408de66d59e37ba3d79915a91b515d3d2fd70183e05c597a57e9b5cbb13"
+    sha256 cellar: :any,                 arm64_monterey: "61e366653b7caffbcccd49f37e62c19445f3437e97749c54441e0b1d07216f1c"
+    sha256 cellar: :any,                 sonoma:         "90d4a05232145bb40f7bd5822afbc3ff1827853d44f67af3176cfe73d953f489"
+    sha256 cellar: :any,                 ventura:        "a6b44fe4767c6eeabbfea6c0ec46e3badd6c3d0dd71865285015f84485c3e9c6"
+    sha256 cellar: :any,                 monterey:       "b1699bee0f9cfe0a6ce44a1c547771b879e5fc5e2466b2d1aa211ffc9362df4d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a35a53b11e4318118e080f10e0dab5404292e8655123afff987aaaa9275d0476"
   end
 
   depends_on "certifi"
@@ -32,8 +33,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "jinja2" do
@@ -72,8 +73,8 @@ class JenkinsJobBuilder < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/4d/5b/dc575711b6b8f2f866131a40d053e30e962e633b332acf7cd2c24843d83d/setuptools-69.2.0.tar.gz"
-    sha256 "0ff4183f8f42cd8fa3acea16c45205521a4ef28f73c6391d8a25e92893134f2e"
+    url "https://files.pythonhosted.org/packages/5f/dd/50c569f342bc5d22142e2fc5fab1822d256202f404a384f05541f703f2ff/setuptools-69.3.tar.gz"
+    sha256 "e1fd0ca7ba442e4be8a415dcca867b8018777dd5f95f4492bb4dc7d77dbc8bd8"
   end
 
   resource "six" do

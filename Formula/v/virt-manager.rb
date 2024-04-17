@@ -10,17 +10,19 @@ class VirtManager < Formula
   head "https://github.com/virt-manager/virt-manager.git", branch: "main"
 
   bottle do
-    rebuild 8
-    sha256 cellar: :any, arm64_ventura:  "2b36fbf4b95abcc7dc057cd752226a2acb7a2c51830dc071568da0555e304bb7"
-    sha256 cellar: :any, arm64_monterey: "3345f44ca6d28ce4a42657165ef9d315c078de5ad09cd93d7ec4f5fba1e8954f"
-    sha256 cellar: :any, ventura:        "b264b3dbe9e6516eee7a604a766af4f9f8a5810435e6609920d51444ae1ce9e2"
-    sha256 cellar: :any, monterey:       "c7287113d6ce100245bc3d94f0156e0235ffa7ccca5e2c85937dd907a7c96f42"
+    rebuild 9
+    sha256 cellar: :any, arm64_sonoma:   "41fd6e9a29d3603489ab9da23e8966e1dcaaaecaf66e19ffe47122abdbe850d0"
+    sha256 cellar: :any, arm64_ventura:  "f53adafe25e436ef8e61ce865b1af111b8c2de9e4ddf1d0730f1c568c3339919"
+    sha256 cellar: :any, arm64_monterey: "e746ef562019ccc97d922eedcd91f93c1bbc9ef0db0e7065c8fef7bc1fbbdf77"
+    sha256 cellar: :any, sonoma:         "b7667d575c7a133e03822d83a5b57cb90077c8fbecfd6d79b1a162eef0af3ff0"
+    sha256 cellar: :any, ventura:        "fc0ce55d9c07f4c60731b8b2cfcdcf7359b1c4dfccc090e6bca981b9ea956d16"
+    sha256 cellar: :any, monterey:       "5c0e2b424eef79822016435dd21a2349b89a5d22f4d59f9c632114d7f57d966a"
   end
 
   depends_on "docutils" => :build
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-
+  depends_on "python-setuptools" => :build
   depends_on "adwaita-icon-theme"
   depends_on "certifi"
   depends_on "cpio"
@@ -37,21 +39,19 @@ class VirtManager < Formula
   depends_on "spice-gtk"
   depends_on "vte3"
 
-  # Resources are for Python `libvirt-python` and `requests` packages
-
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
     sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/8b/e1/43beb3d38dba6cb420cefa297822eac205a277ab43e5ba5d5c46faf96438/idna-3.4.tar.gz"
-    sha256 "814f528e8dead7d329833b91c5faa87d60bf71824cd12a7530b5526063d02cb4"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "libvirt-python" do
-    url "https://files.pythonhosted.org/packages/92/92/315e66f442147369a592d2afe07df1321602c5c5ef93ed15cf4eecf90ffb/libvirt-python-9.9.0.tar.gz"
-    sha256 "a97327417851b72aa24e24cdfe10765df0037b9775564cd19bcee25e22b341ea"
+    url "https://files.pythonhosted.org/packages/47/f7/5c5112f79761616bf0388b97bb4d0ea1de1d015fb46a40672fe56fdc8ef0/libvirt-python-10.2.0.tar.gz"
+    sha256 "483a2e38ffc2e65f743e4c819ccb45135dbe50b594a0a2cd60b73843dcfde694"
   end
 
   resource "requests" do
@@ -59,22 +59,23 @@ class VirtManager < Formula
     sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
   end
 
-  # requests require "urllib3>=1.21.1,<1.27"
   resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/0c/39/64487bf07df2ed854cc06078c27c0d0abc59bd27b32232876e403c333a08/urllib3-1.26.18.tar.gz"
-    sha256 "f8ecc1bba5667413457c529ab955bf8c67b45db799d159066261719e328580a0"
+    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
+    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
   end
 
   def install
-    python = "python3.12"
-    venv = virtualenv_create(libexec, python)
+    python3 = "python3.12"
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
 
-    args = Language::Python.setup_install_args(prefix, python)
-    args.insert((args.index "install"), "--no-update-icon-cache", "--no-compile-schemas")
-
+    # Restore disabled egg_info command
+    inreplace "setup.py", "'install_egg_info': my_egg_info,", ""
     system libexec/"bin/python", "setup.py", "configure", "--prefix=#{prefix}"
-    system libexec/"bin/python", *args
+    ENV["PIP_CONFIG_SETTINGS"] = "--global-option=--no-update-icon-cache --no-compile-schemas"
+    venv.pip_install_and_link buildpath
+
+    prefix.install libexec/"share"
   end
 
   def post_install

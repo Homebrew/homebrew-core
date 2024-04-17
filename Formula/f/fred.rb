@@ -6,15 +6,16 @@ class Fred < Formula
   url "https://files.pythonhosted.org/packages/c8/c8/eec6f19c93f33a5bfbe1f5fe8f757acaa440fdb56f4209f13ef7896ea1f1/fred-py-api-1.1.3.tar.gz"
   sha256 "792760b47976f15b0e11c49944de456623e48ec67c791e03770cddca22e859f4"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9d525d9671a72f09db79c1aac8e2ab15524543460037b4a901d53325e55b7c3e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9d525d9671a72f09db79c1aac8e2ab15524543460037b4a901d53325e55b7c3e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9d525d9671a72f09db79c1aac8e2ab15524543460037b4a901d53325e55b7c3e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "2a579989971ffc1e620d7bbdddf54bb1addaf1c6b980844d5683d20f69bdba69"
-    sha256 cellar: :any_skip_relocation, ventura:        "2a579989971ffc1e620d7bbdddf54bb1addaf1c6b980844d5683d20f69bdba69"
-    sha256 cellar: :any_skip_relocation, monterey:       "2a579989971ffc1e620d7bbdddf54bb1addaf1c6b980844d5683d20f69bdba69"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "696edc7ba766bf62ed507f2b7014cb546f77ba0db33690224aef291466845ea1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2d5693aeeda98463ac97de506a05f39a94d6dc9868ede3ac75a2f2bf74a584e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2d5693aeeda98463ac97de506a05f39a94d6dc9868ede3ac75a2f2bf74a584e4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2d5693aeeda98463ac97de506a05f39a94d6dc9868ede3ac75a2f2bf74a584e4"
+    sha256 cellar: :any_skip_relocation, sonoma:         "cda0d245c7774f5d667aa031b6b5eea5cbee44e41585fb00282afd02bf66df18"
+    sha256 cellar: :any_skip_relocation, ventura:        "cda0d245c7774f5d667aa031b6b5eea5cbee44e41585fb00282afd02bf66df18"
+    sha256 cellar: :any_skip_relocation, monterey:       "cda0d245c7774f5d667aa031b6b5eea5cbee44e41585fb00282afd02bf66df18"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2272cea9afc775e00235900908ae33778dfe5e784bdd3219d157c77d4c664b2e"
   end
 
   depends_on "certifi"
@@ -36,8 +37,8 @@ class Fred < Formula
   end
 
   resource "idna" do
-    url "https://files.pythonhosted.org/packages/bf/3f/ea4b9117521a1e9c50344b909be7886dd00a519552724809bb1f486986c2/idna-3.6.tar.gz"
-    sha256 "9ecdbbd083b06798ae1e86adcbfe8ab1479cf864e4ee30fe4e46a003d12491ca"
+    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
+    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
   end
 
   resource "requests" do

@@ -1,8 +1,8 @@
 class Libntlm < Formula
   desc "Implements Microsoft's NTLM authentication"
   homepage "https://gitlab.com/gsasl/libntlm/"
-  url "https://download.savannah.nongnu.org/releases/libntlm/libntlm-1.7.tar.gz"
-  sha256 "d805ebb901cbc9ff411e704cbbf6de4d28e7bcb05c9eca2124f582cbff31c0b1"
+  url "https://download.savannah.nongnu.org/releases/libntlm/libntlm-1.8.tar.gz"
+  sha256 "ce6569a47a21173ba69c990965f73eb82d9a093eb871f935ab64ee13df47fda1"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Libntlm < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a19de329bc94a571183ca05e94a2b5d6ba191f791acec2cc84685edeb7830c92"
-    sha256 cellar: :any,                 arm64_ventura:  "6c497f294540cb3d3e7e0d4e30ea323ce98626a266a777afbaa04982fbfd0c7b"
-    sha256 cellar: :any,                 arm64_monterey: "f4aa92e91bfce75842ec9ea9800dd43f2d6afa38e11b735d72d0c0ab88845e19"
-    sha256 cellar: :any,                 sonoma:         "d4fa60526ecddba17fc60ae7410499f03b779015c2c0e98b50aece688c8e52e8"
-    sha256 cellar: :any,                 ventura:        "418598d92ec06810ab33c0db40cc674f0609b4d217a543bc6299c4b3e462abb9"
-    sha256 cellar: :any,                 monterey:       "62ddd12d3c8ec321ef216145d37e1151bab4c22e30fb167c8388a6918eef54a0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1ca554f42dd1ae5813bf910251332b7faee13f680fc6b7fb433b8f1ff946ef39"
+    sha256 cellar: :any,                 arm64_sonoma:   "2629d0038710546db1d05c77d273189bed4554ab7b6f7e67444a80b6fd52cb0d"
+    sha256 cellar: :any,                 arm64_ventura:  "6a07ff33c447c44d0271951ff00810244d7e46fbdbbefa3697533d442e807f31"
+    sha256 cellar: :any,                 arm64_monterey: "3cdeede8fb7af5aeaf2e29d7a2c1b8d77f49602830eb7cda1bd541bcc468d379"
+    sha256 cellar: :any,                 sonoma:         "a7d7f2c53526d724adea9d98fbef0219052797daef5ef6d0e3f12ebe38a105e7"
+    sha256 cellar: :any,                 ventura:        "d01d0c60d1f35088786efd8b5a4f943a6feaeb5f03f484e43dfa342aba675877"
+    sha256 cellar: :any,                 monterey:       "9d1dad1589edba9d4490611fb7a8499e8d2ab0c89f23a81f1d3426aec0b755a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0ebc4d50ef8a904ec1c686c8e869a83d727c55fd490990fb5481d6a34b970ce1"
   end
 
   def install

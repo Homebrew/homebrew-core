@@ -22,6 +22,8 @@ class Nyancat < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "69b8c44133a399fddd0b6b6db41d2dcd9ba2420a5c5b53e62409d14cfacadc85"
   end
 
+  deprecate! date: "2024-04-05", because: :repo_archived
+
   # Makefile: Add install directory option
   # See https://github.com/klange/nyancat/pull/34
   patch do

@@ -4,13 +4,19 @@ class Gstreamer < Formula
   license all_of: ["LGPL-2.0-or-later", "LGPL-2.1-or-later", "MIT"]
 
   stable do
-    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.22.11/gstreamer-1.22.11.tar.gz"
-    sha256 "cde3601f517b24aaaf0c91f1e2f24700d12482f840c6aa778ccf0b1451ea2a41"
+    url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/archive/1.24.2/gstreamer-1.24.2.tar.bz2"
+    sha256 "2dc6023a905c428c6e7d2b8a2701a7f058d5dd990dad2e1e2f862826cbd09f3e"
 
     # When updating this resource, use the tag that matches the GStreamer version.
     resource "rs" do
-      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.22.11/gst-plugins-rs-gstreamer-1.22.11.tar.gz"
-      sha256 "f809314b5cf285d3c093a08554f0c70dca9b21a5db2c0bccd15691733f16b6e6"
+      url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/archive/gstreamer-1.24.2/gst-plugins-rs-gstreamer-1.24.2.tar.bz2"
+      sha256 "d341ea21848b7329ff96c9572d4f795f412a82c1471b3a9d14b74900346beb75"
+
+      # Backport support for newer `dav1d`
+      patch do
+        url "https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/commit/7e1ab086de00125bc0d596f9ec5d74c9b82b2cc0.diff"
+        sha256 "0e4e0454a750d1bbf232bd19f250d9321ea5dba29cd38cc9bb8ca60ccd73ecfe"
+      end
     end
   end
 
@@ -20,13 +26,13 @@ class Gstreamer < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "7899d440a59c3bd4f3fb84c866ee671bcf32d1c93ee6d68c2036ace5862d2dca"
-    sha256 arm64_ventura:  "abb8259c1bd43bf0536a9af0c6111386de4aa5dcfd4eaac7f4917e813158cf2e"
-    sha256 arm64_monterey: "c511f55ec8c9e7ea17cb3a685b7c329ddbd8a450cb88ddc2554c7132ea3cc462"
-    sha256 sonoma:         "007e16a51871638715024b2f2f9a3ef363bf4fd901ebb6e5c03655c83a11e3dd"
-    sha256 ventura:        "fc8f4069d5e9822f860adb8dddae1abf9f10cc9bb0b3b18c65221b708e81da14"
-    sha256 monterey:       "a7bf62d041af614179b656c8a78d2529d16db000fe25357a21ad65be0b6e729d"
-    sha256 x86_64_linux:   "e37704bc3e498f024ac03a02f47efe2066a9c1f52eb63458eaea0f8a7ce91deb"
+    sha256 arm64_sonoma:   "d617678904cfe25434fb0332d3887b82e0a5cd8ec7cf2fb77513d3ff111ae27e"
+    sha256 arm64_ventura:  "8b59fc80c0849578d883e422c6a9bc9115355474a618261415e42f918c878c2b"
+    sha256 arm64_monterey: "0a400818a89b82eb647ab557011ae65f77f87cb6b0d3b433b08bbee89c5f4e4b"
+    sha256 sonoma:         "1913961eaa431efc936662d8d925df11bb2e7b12f4e9ad1fc6ab6d9fe82c59ed"
+    sha256 ventura:        "ebec46e4dcca45c20e0f8a806348450bd3ab563b8c22a62c8718821fc5865fa2"
+    sha256 monterey:       "c94e91528b3d8a83ed3fd35ad5a21a21a245fd42de9dbf5ea5d96e34d5dfc0e1"
+    sha256 x86_64_linux:   "27988d5bfca2be96a115cea3ebfc7d4d212fe4b3466b9776100d00ee381dc8a0"
   end
 
   head do
@@ -51,7 +57,7 @@ class Gstreamer < Formula
   depends_on "faac"
   depends_on "faad2"
   depends_on "fdk-aac"
-  depends_on "ffmpeg"
+  depends_on "ffmpeg@6"
   depends_on "flac"
   depends_on "gettext"
   depends_on "glib"
@@ -117,17 +123,16 @@ class Gstreamer < Formula
   patch :DATA
 
   def install
-    (buildpath/"subprojects/gst-plugins-rs").install resource("rs")
+    odie "rs resource needs to be updated" if build.stable? && version != resource("rs").version
 
-    # Add support for newer `dav1d`.
-    # TODO: Remove once support for 1.3 API is available in release.
-    # Ref: https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/merge_requests/1393
-    inreplace "subprojects/gst-plugins-rs/video/dav1d/Cargo.toml", /^dav1d = "0\.9"$/, 'dav1d = "0.10"'
+    (buildpath/"subprojects/gst-plugins-rs").install resource("rs")
 
     site_packages = Language::Python.site_packages(python3)
     # To pass arguments to subprojects (e.g. `gst-editing-services`), use
     #   -Dsubproject:option=value
     args = %W[
+      -Dpython.platlibdir=#{site_packages}
+      -Dpython.purelibdir=#{site_packages}
       -Dpython=enabled
       -Dlibav=enabled
       -Dlibnice=disabled
@@ -177,9 +182,7 @@ class Gstreamer < Formula
     args << "-Dgstreamer:ptp-helper-permissions=none"
 
     # Prevent the build from downloading an x86-64 version of bison.
-    args << "-Dbuild-tools-source=system" if build.head? # make unconditional in 1.24+
-    inreplace "meson.build", "subproject('macos-bison-binary')", ""
-    odie "`macos-bison-binary` workaround should be removed!" if build.stable? && version >= "1.24"
+    args << "-Dbuild-tools-source=system"
 
     # Set `RPATH` since `cargo-c` doesn't seem to.
     # https://gitlab.freedesktop.org/gstreamer/gst-plugins-rs/-/issues/279
@@ -212,9 +215,6 @@ class Gstreamer < Formula
   end
 
   test do
-    assert_equal version, resource("rs").version,
-                 "The `rs` resource should use the tag matching the `gstreamer` version!"
-
     # TODO: Improve test according to suggestions at
     #   https://github.com/orgs/Homebrew/discussions/3740
     system bin/"gst-inspect-1.0"
@@ -242,28 +242,26 @@ end
 
 __END__
 diff --git a/subprojects/gst-python/gi/overrides/meson.build b/subprojects/gst-python/gi/overrides/meson.build
-index 5977ee3..1b399af 100644
+index 20aeb06ac9..3c53eab6d7 100644
 --- a/subprojects/gst-python/gi/overrides/meson.build
 +++ b/subprojects/gst-python/gi/overrides/meson.build
-@@ -3,13 +3,20 @@ install_data(pysources,
-     install_dir: pygi_override_dir,
-     install_tag: 'python-runtime')
+@@ -7,8 +7,10 @@ python.install_sources(pysources,
+ host_system = host_machine.system()
+ if host_system == 'windows'
+   gst_dep_for_gi = gst_dep
++  python_ext_dep = python_dep
+ else
+   gst_dep_for_gi = gst_dep.partial_dependency(compile_args: true, includes: true, sources: true)
++  python_ext_dep = python_dep.partial_dependency(compile_args: true)
+ endif
 
-+# avoid overlinking
-+if host_machine.system() == 'windows'
-+    python_ext_dep = python_dep
-+else
-+    python_ext_dep = python_dep.partial_dependency(compile_args: true)
-+endif
-+
  gstpython = python.extension_module('_gi_gst',
-     sources: ['gstmodule.c'],
-     install: true,
+@@ -17,7 +19,7 @@ gstpython = python.extension_module('_gi_gst',
      install_dir : pygi_override_dir,
      install_tag: 'python-runtime',
      include_directories : [configinc],
--    dependencies : [gst_dep, python_dep, pygobject_dep])
-+    dependencies : [gst_dep, python_ext_dep, pygobject_dep])
+-    dependencies : [gst_dep_for_gi, python_dep, pygobject_dep],
++    dependencies : [gst_dep_for_gi, python_ext_dep, pygobject_dep],
+ )
 
  env = environment()
- env.prepend('_GI_OVERRIDES_PATH', [

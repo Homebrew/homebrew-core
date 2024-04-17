@@ -3,12 +3,12 @@ class Storm < Formula
 
   desc "Distributed realtime computation system to process data streams"
   homepage "https://storm.apache.org"
-  url "https://dlcdn.apache.org/storm/apache-storm-2.6.1/apache-storm-2.6.1.tar.gz"
-  sha256 "20da1d5f00931f95ec8f0b853e1e459002f87c195f65b485951ffd9743668fde"
+  url "https://dlcdn.apache.org/storm/apache-storm-2.6.2/apache-storm-2.6.2.tar.gz"
+  sha256 "640c2c54a593cdcffef9441336738774ae618830d3e63eb8e770c22d68beed30"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d5ff3d7f0f5266964378fd6748a91f34ea7fb6338f3b3f76d83f9fdad7e58b9d"
+    sha256 cellar: :any_skip_relocation, all: "15616d19926670cd0b2970ef01e22dfe876f1df751be6089c63451d29d8e2213"
   end
 
   depends_on "openjdk"
