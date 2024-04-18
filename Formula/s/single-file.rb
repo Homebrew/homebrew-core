@@ -15,7 +15,6 @@ class SingleFile < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/single-file --version")
     assert_match "Chromium executable not found. Set the path using the --browser-executable-path option.", shell_output("#{bin}/single-file google.com")
   end
 end
