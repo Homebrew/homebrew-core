@@ -2,7 +2,7 @@ class Superfile < Formula
   desc "Modern and pretty fancy file manager for the terminal"
   homepage "https://github.com/MHNightCat/superfile"
   url "https://github.com/MHNightCat/superfile/archive/refs/tags/v1.1.0.tar.gz"
-  sha256 "3d32b838aab524a3d2b93a58bd211d1f159d742e6eb486003f6d111d4f8dfdbd"
+  sha256 "703ab37f1bb994e7decc0b48200dd82b24e58ddff8d3204d9cb53fed67ef0f4a"
   license "MIT"
   depends_on "go" => :build
 
