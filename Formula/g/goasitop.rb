@@ -1,3 +1,6 @@
+# typed: true
+# frozen_string_literal: true
+
 class Goasitop < Formula
     desc "Apple Silicon Monitor Top written in Go Lang"
     homepage "https://github.com/context-labs/goasitop"
@@ -15,3 +18,4 @@ class Goasitop < Formula
       system "#{bin}/goasitop", "--version"
     end
   end
+  
