@@ -7,7 +7,7 @@ class Klee < Formula
   url "https://github.com/klee/klee/archive/refs/tags/v3.1.tar.gz"
   sha256 "ae3d97209fa480ce6498ffaa7eaa7ecbbe22748c739cb7b2389391d0d9c940f7"
   license "NCSA"
-  revision 1
+  revision 2
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Klee < Formula
 
   depends_on "cmake" => :build
   depends_on "gperftools"
-  depends_on "llvm@14" # LLVM 16 PR: https://github.com/klee/klee/pull/1664
+  depends_on "llvm@16"
   depends_on "python@3.12"
   depends_on "sqlite"
   depends_on "stp"
@@ -39,8 +39,8 @@ class Klee < Formula
 
   # klee needs a version of libc++ compiled with wllvm
   resource "libcxx" do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-14.0.6/llvm-project-14.0.6.src.tar.xz"
-    sha256 "8b3cfd7bc695bd6cea0f37f53f0981f34f87496e79e2529874fd03a2f9dd3a8a"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-16.0.6/llvm-project-16.0.6.src.tar.xz"
+    sha256 "ce5e71081d17ce9e86d7cbcfa28c4b04b9300f8fb7e78422b1feb6bc52c3028e"
   end
 
   resource "tabulate" do
@@ -61,7 +61,7 @@ class Klee < Formula
     # https://github.com/klee/klee/blob/v#{version}/scripts/build/p-libcxx.inc
     libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DLLVM_ENABLE_PROJECTS=libcxx;libcxxabi
+      -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi
       -DLLVM_ENABLE_THREADS:BOOL=OFF
       -DLLVM_ENABLE_EH:BOOL=OFF
       -DLLVM_ENABLE_RTTI:BOOL=OFF
