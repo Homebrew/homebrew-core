@@ -1,6 +1,7 @@
 # typed: true
 # frozen_string_literal: true
 
+# available on homebrew
 class Goasitop < Formula
     desc "Apple Silicon Monitor Top written in Go Lang"
     homepage "https://github.com/context-labs/goasitop"
