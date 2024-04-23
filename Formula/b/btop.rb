@@ -17,24 +17,20 @@ class Btop < Formula
 
   on_macos do
     depends_on "coreutils" => :build
-    depends_on "gcc" if DevelopmentTools.clang_build_version <= 1403
 
     on_arm do
       depends_on "gcc"
-      depends_on macos: :ventura
-      fails_with :clang
+      fails_with :clang do
+        cause "Exception in Shared::init() -> failed to get SMC device"
+      end
     end
   end
 
-  on_ventura do
+  on_ventura :or_older do
     depends_on "gcc"
-    fails_with :clang
-  end
-
-  # -ftree-loop-vectorize -flto=12 -s
-  fails_with :clang do
-    build 1403
-    cause "Requires C++20 support"
+    fails_with :clang do
+      cause "needs C++20 <source_location> header"
+    end
   end
 
   fails_with :gcc do
