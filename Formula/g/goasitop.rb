@@ -16,7 +16,7 @@ class Goasitop < Formula
   # Restrict formula to macOS on Apple Silicon only
 
   def install
-    system "go", "build", "-o", "#{bin}/goasitop"
+    system "go", "build", *std_go_args
   end
 
   test do
