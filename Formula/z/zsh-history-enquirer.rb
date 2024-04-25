@@ -9,8 +9,15 @@ class ZshHistoryEnquirer < Formula
 
   depends_on "node"
 
-  uses_from_macos "expect" => :test
-  uses_from_macos "zsh"
+  on_linux do
+    depends_on "expect" => :test
+    depends_on "zsh"
+  end
+
+  resource "zsh-widget.test" do
+    url "https://github.com/zthxxx/zsh-history-enquirer/raw/master/tests/zsh-widget.test.zsh"
+    sha256 "1e20f9bedc3c3ae285f872e9fec2fa954bd9aae6211bc3159600c07c0a88c450"
+  end
 
   def install
     system "npm", "install", *Language::Node.std_npm_install_args(libexec)
@@ -27,21 +34,15 @@ class ZshHistoryEnquirer < Formula
   end
 
   test do
-    (testpath/".zshrc").write <<~EOS
-      HISTFILE=#{testpath}/.zsh_history
-      HISTSIZE=2000
-      SAVEHIST=1000
-      setopt INC_APPEND_HISTORY
-    EOS
-    (testpath/".zsh_history").write "echo one\necho two"
-    (testpath/"command.exp").write <<~EOS
-      set timeout -1
-      spawn #{bin}/zsh-history-enquirer
-      expect "*echo one*"
-      send -- "\r"
-      expect eof
-    EOS
+    require "expect"
 
-    assert_match "two", shell_output("expect -f command.exp")
+    testpath.install resource("zsh-widget.test")
+    widget = testpath/"zsh-widget.test.zsh"
+    chmod "+x", widget
+
+    match = "ech"
+    io = IO.popen(widget, "r")
+    stdout = io.expect(match, 30)
+    assert_match match, stdout&.last
   end
 end
