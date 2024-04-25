@@ -1,8 +1,8 @@
 class Got < Formula
   desc "Version control system"
   homepage "https://gameoftrees.org/"
-  url "https://gameoftrees.org/releases/portable/got-portable-0.97.tar.gz"
-  sha256 "e07a4894a458503a32982047f064bc0c35da6349d8895be8b69064c2094e3b72"
+  url "https://gameoftrees.org/releases/portable/got-portable-0.98.2.tar.gz"
+  sha256 "ff5d4ad9922edf1c8055b2398650972fd463c809590dbe78e2eab1bf78a150c8"
   license "ISC"
 
   livecheck do
@@ -23,8 +23,9 @@ class Got < Formula
   depends_on "bison" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "libressl" # for libtls
   depends_on "ncurses"
-  depends_on "openssl@3"
+
   uses_from_macos "zlib"
 
   on_linux do
