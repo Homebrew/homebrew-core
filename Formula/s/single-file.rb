@@ -3,8 +3,8 @@ require "language/node"
 class SingleFile < Formula
   desc "CLI tool for saving a faithful copy of a complete web page in a single HTML file"
   homepage "https://github.com/gildas-lormeau/single-file-cli/"
-  url "https://github.com/gildas-lormeau/single-file-cli/archive/refs/tags/v2.0.33.tar.gz"
-  sha256 "773727768135fe789476b2b3828704f3c44eb562147cece5b590a275706d9447"
+  url "https://registry.npmjs.org/single-file-cli/-/single-file-cli-2.0.34.tgz"
+  sha256 "347d834bf0c80306981094c6c62ddf5a5bd55132d452d402b8afc4ddc1af878d"
   license "AGPL-3.0-or-later"
 
   depends_on "node"
