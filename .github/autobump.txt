@@ -737,6 +737,7 @@ fossil
 fourmolu
 fping
 fred
+freebayes
 freeciv
 freeipmi
 freerdp
