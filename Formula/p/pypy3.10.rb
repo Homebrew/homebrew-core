@@ -64,11 +64,6 @@ class Pypy310 < Formula
   end
 
   def install
-    # Work around build failure with Xcode 15.3
-    # _curses_cffi.c:6795:38: error: incompatible function pointer types assigning to
-    # 'char *(*)(const char *, ...)' from 'char *(char *, ...)' [-Wincompatible-function-pointer-types]
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
     # The `tcl-tk` library paths are hardcoded and need to be modified for non-/usr/local prefix
     inreplace "lib_pypy/_tkinter/tklib_build.py" do |s|
       s.gsub! "/usr/local/opt/tcl-tk/", Formula["tcl-tk"].opt_prefix/""
