@@ -785,6 +785,7 @@ gcsfuse
 gdal
 gdk-pixbuf
 gdu
+gedit
 geeqie
 gegl
 genact
