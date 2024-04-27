@@ -4,7 +4,7 @@ class GnomeLatex < Formula
   url "https://download.gnome.org/sources/gnome-latex/3.46/gnome-latex-3.46.0.tar.xz"
   sha256 "d67555639b2a15a8aebd54f335354e44fe3433143ae3cb3cca7a8e26f8112ada"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256                               arm64_sonoma:   "1c13cd8534607f8800921e54380c5c8de54a65bf6dc86343bcb9eeae270d0c6e"
