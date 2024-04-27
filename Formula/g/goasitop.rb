@@ -6,10 +6,9 @@ class Goasitop < Formula
   license "MIT"
 
   depends_on "go" => :build
+  # Restrict formula to macOS on Apple Silicon only
   depends_on arch: :arm64
   depends_on :macos
-
-  # Restrict formula to macOS on Apple Silicon only
 
   def install
     system "go", "build", *std_go_args
