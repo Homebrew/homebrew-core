@@ -1,8 +1,8 @@
 class Goasitop < Formula
   desc "Apple Silicon Monitor Top written in Go Lang"
   homepage "https://github.com/context-labs/goasitop"
-  url "https://github.com/context-labs/goasitop/archive/refs/tags/v0.0.7.tar.gz"
-  sha256 "a17fb6b7ba87cd055371aa82abef7388cb6e8114cad92479f82eb58f5d9c46dc"
+  url "https://github.com/context-labs/goasitop/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "e5e2211eb506725a4832a5b5096e2e6a61d3bb7ce0ab58674b50b1ec79187b5d"
   license "MIT"
 
   depends_on "go" => :build
@@ -16,6 +16,7 @@ class Goasitop < Formula
   end
 
   test do
-    system "#{bin}/goasitop", "--version"
+    test_input = "This is a test input for brew"
+    assert_match "Test input received: #{test_input}", shell_output("#{bin}/goasitop --test '#{test_input}'")
   end
 end
