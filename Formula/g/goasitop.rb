@@ -1,8 +1,8 @@
 class Goasitop < Formula
   desc "Apple Silicon Monitor Top written in Go Lang"
   homepage "https://github.com/context-labs/goasitop"
-  url "https://github.com/context-labs/goasitop/archive/refs/tags/v0.1.0.tar.gz"
-  sha256 "e5e2211eb506725a4832a5b5096e2e6a61d3bb7ce0ab58674b50b1ec79187b5d"
+  url "https://github.com/context-labs/goasitop/archive/refs/tags/v0.1.2.tar.gz"
+  sha256 "4e3f2da4c7a20cf84abe618f105e8c8abbaa1279ec3924b4f55a0bd7d874ee0b"
   license "MIT"
 
   depends_on "go" => :build
