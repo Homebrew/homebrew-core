@@ -10,16 +10,16 @@ class Tokenz < Formula
   depends_on :macos
 
   if Hardware::CPU.intel?
-    url "https://github.com/willswire/tokenz/archive/refs/tags/vv0.0.1.tar.gz"
-    sha256 "7f77782fc3d43a53813f69d9c9a70ad130daeb074a9a8135549eeccb20753b08"
+    url "https://github.com/willswire/tokenz/archive/refs/tags/v0.0.1.tar.gz"
+    sha256 "61f5ce2bea9dda1559cbd2062ed858ffa7fcc582a86257b7c554559e9f048a45"
 
     def install
       bin.install "tokenz"
     end
   end
   if Hardware::CPU.arm?
-    url "https://github.com/willswire/tokenz/archive/refs/tags/vv0.0.1.tar.gz"
-    sha256 "f4ec62eacbaaf0f18b69e08065f1dfd4d8ee0003b8aa7832e5fc8ea528d4de7c"
+    url "https://github.com/willswire/tokenz/archive/refs/tags/v0.0.1.tar.gz"
+    sha256 "8c0408cd38f614539b0f1aa892df93e783387903c4f6b5ff360862468ec50eeb"
 
     def install
       bin.install "tokenz"
