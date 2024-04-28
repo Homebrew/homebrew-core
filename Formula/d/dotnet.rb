@@ -9,6 +9,7 @@ class Dotnet < Formula
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "b1c4d845fd53cf8e41b84989e28646df229b2ce71f6849cfbb41e8fec58bb1a1"
+    sha256 cellar: :any,                 arm64_ventura:  "91db87f569f5a66979951af3fecf40eccfec203e9b5a66995bd21d0161f0efa5"
     sha256 cellar: :any,                 arm64_monterey: "de1524e6d2bbdb0a5806b852bd4b4d7858d135d9bec9a938ca6243ef5b1ef59e"
     sha256 cellar: :any,                 sonoma:         "62612a47e65da5e8d8bbf38e09a747e77da589da8850d79eeac06c5d46ed518e"
     sha256 cellar: :any,                 ventura:        "91582419b6db04b8214688821439a20b3cff72d8e5a9d225f5ca680908a79738"
