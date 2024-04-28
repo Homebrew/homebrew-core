@@ -11,7 +11,7 @@ class Tokenz < Formula
 
   if Hardware::CPU.intel?
     url "https://github.com/willswire/tokenz/releases/download/v0.0.1/tokenz_Darwin_x86_64.tar.gz"
-    sha256 "33c0d2a946c12c3760db4a9cffdf9f1c51fa1996fb2aa1fd2a265f082c6cece0"
+    sha256 "e07b0f7f45819c9ed388dd704c0079477e618fbc35dc51d6e88b3b642f3c2c1c"
 
     def install
       bin.install "tokenz"
@@ -19,7 +19,7 @@ class Tokenz < Formula
   end
   if Hardware::CPU.arm?
     url "https://github.com/willswire/tokenz/releases/download/v0.0.1/tokenz_Darwin_arm64.tar.gz"
-    sha256 "a8ffe55daf0ffe94a22b3e9c941999c7c51a30fac225e56573cc067c9ed1e539"
+    sha256 "830c805201144ddcb1743ca7053af5684f0a72e7fb5ae38a9b11340ddf900482"
 
     def install
       bin.install "tokenz"
