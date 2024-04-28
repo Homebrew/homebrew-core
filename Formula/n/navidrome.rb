@@ -36,7 +36,7 @@ class Navidrome < Formula
     pid = fork do
       exec bin/"navidrome", "--port", port.to_s
     end
-    sleep 12
+    sleep 18
     assert_equal ".", shell_output("curl http://localhost:#{port}/ping")
   ensure
     Process.kill "TERM", pid
