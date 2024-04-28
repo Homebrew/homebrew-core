@@ -1,8 +1,8 @@
 class Navidrome < Formula
   desc "Modern Music Server and Streamer compatible with Subsonic/Airsonic"
   homepage "https://www.navidrome.org"
-  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.51.1.tar.gz"
-  sha256 "fc962e3acbedfad63934eda016d4e380dd3a06b4636f2b1e61ade9700a2addcd"
+  url "https://github.com/navidrome/navidrome/archive/refs/tags/v0.52.0.tar.gz"
+  sha256 "5479c681ae2bf07f788039fbb820a3723df070e2026d8c7b2a5a73933524ce42"
   license "GPL-3.0-only"
   head "https://github.com/navidrome/navidrome.git", branch: "master"
 
@@ -25,7 +25,9 @@ class Navidrome < Formula
   def install
     system "make", "setup"
     system "make", "buildjs"
-    system "go", "build", *std_go_args(ldflags: "-X github.com/navidrome/navidrome/consts.gitTag=v#{version} -X github.com/navidrome/navidrome/consts.gitSha=source_archive"), "-buildvcs=false"
+
+    ldflags = "-X github.com/navidrome/navidrome/consts.gitTag=v#{version} -X github.com/navidrome/navidrome/consts.gitSha=source_archive"
+    system "go", "build", *std_go_args(ldflags:), "-buildvcs=false"
   end
 
   test do
@@ -34,7 +36,7 @@ class Navidrome < Formula
     pid = fork do
       exec bin/"navidrome", "--port", port.to_s
     end
-    sleep 5
+    sleep 12
     assert_equal ".", shell_output("curl http://localhost:#{port}/ping")
   ensure
     Process.kill "TERM", pid

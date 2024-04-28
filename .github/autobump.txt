@@ -1410,6 +1410,7 @@ nasm
 nats-server
 nats-streaming-server
 navi
+navidrome
 ncnn
 nco
 ncspot
