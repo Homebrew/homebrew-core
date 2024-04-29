@@ -15,7 +15,7 @@ class SingleFile < Formula
   end
 
   test do
-    assert_match "Chromium executable not found. Set the path using the --browser-executable-path option.",
-shell_output("#{bin}/single-file google.com")
+    assert_match "Invalid URL or file path: undefined",
+shell_output("#{bin}/single-file --error-file")
   end
 end
