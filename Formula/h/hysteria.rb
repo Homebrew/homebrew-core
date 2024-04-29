@@ -34,7 +34,7 @@ class Hysteria < Formula
   end
 
   service do
-    run [opt_bin/"hysteria", "--config", etc/"hysteria/config.json"]
+    run [opt_bin/"hysteria", "--config", etc/"hysteria/config.yaml"]
     run_type :immediate
     keep_alive true
   end
