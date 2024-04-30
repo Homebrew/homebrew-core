@@ -3,10 +3,9 @@ class Pytorch < Formula
 
   desc "Tensors and dynamic neural networks"
   homepage "https://pytorch.org/"
-  url "https://github.com/pytorch/pytorch/releases/download/v2.2.0/pytorch-v2.2.0.tar.gz"
-  sha256 "e12d18c3dbb12d7ae2f61f5ab9a21023e3dd179d67ed87279ef96600b9ac08c5"
+  url "https://github.com/pytorch/pytorch/releases/download/v2.4.0/pytorch-v2.4.0.tar.gz"
+  sha256 "a890d4342149adbc6c8b116a9afe437fe347527a9ecc0650086cdec82ecdcfb7"
   license "BSD-3-Clause"
-  revision 8
 
   livecheck do
     url :stable
@@ -43,18 +42,18 @@ class Pytorch < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/70/70/41905c80dcfe71b22fb06827b8eae65781783d4a14194bce79d16a013263/filelock-3.13.1.tar.gz"
-    sha256 "521f5f56c50f8426f5e03ad3b281b490a87ef15bc6c526f168290f0c7148d44e"
+    url "https://files.pythonhosted.org/packages/08/dd/49e06f09b6645156550fb9aee9cc1e59aba7efbc972d665a1bd6ae0435d4/filelock-3.15.4.tar.gz"
+    sha256 "2207938cbc1844345cb01a5a95524dae30f0ce089eba5b00378295a17e3e90cb"
   end
 
   resource "fsspec" do
-    url "https://files.pythonhosted.org/packages/28/d3/c2e0403c735548abf991bba3f45ba39194dff4569f76a99fbe77078ba7c5/fsspec-2024.2.0.tar.gz"
-    sha256 "b6ad1a679f760dda52b1168c859d01b7b80648ea6f7f7c7f5a8a91dc3f3ecb84"
+    url "https://files.pythonhosted.org/packages/90/b6/eba5024a9889fcfff396db543a34bef0ab9d002278f163129f9f01005960/fsspec-2024.6.1.tar.gz"
+    sha256 "fad7d7e209dd4c1208e3bbfda706620e0da5142bebbd9c384afb95b07e798e49"
   end
 
   resource "jinja2" do
-    url "https://files.pythonhosted.org/packages/b2/5e/3a21abf3cd467d7876045335e681d276ac32492febe6d98ad89562d1a7e1/Jinja2-3.1.3.tar.gz"
-    sha256 "ac8bd6544d4bb2c9792bf3a159e80bba8fda7f07e81bc3aed565432d5925ba90"
+    url "https://files.pythonhosted.org/packages/ed/55/39036716d19cab0747a5020fc7e907f362fbf48c984b14e62127f7e68e5d/jinja2-3.1.4.tar.gz"
+    sha256 "4a3aee7acbbe7303aede8e9648d13b8bf88a429282aa6122a993f0ac800cb369"
   end
 
   resource "markupsafe" do
@@ -68,8 +67,8 @@ class Pytorch < Formula
   end
 
   resource "networkx" do
-    url "https://files.pythonhosted.org/packages/c4/80/a84676339aaae2f1cfdf9f418701dd634aef9cc76f708ef55c36ff39c3ca/networkx-3.2.1.tar.gz"
-    sha256 "9f1bb5cf3409bf324e0a722c20bdb4c20ee39bf1c30ce8ae499c8502b0b5e0c6"
+    url "https://files.pythonhosted.org/packages/04/e6/b164f94c869d6b2c605b5128b7b0cfe912795a87fc90e78533920001f3ec/networkx-3.3.tar.gz"
+    sha256 "0c127d8b2f4865f59ae9cb8aafcd60b5c70f3241ebd66f7defad7c4ab90126c9"
   end
 
   resource "opt-einsum" do
@@ -89,31 +88,25 @@ class Pytorch < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
-    sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
+    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
+    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
   end
 
   resource "sympy" do
-    url "https://files.pythonhosted.org/packages/e5/57/3485a1a3dff51bfd691962768b14310dae452431754bfc091250be50dd29/sympy-1.12.tar.gz"
-    sha256 "ebf595c8dac3e0fdc4152c51878b498396ec7f30e7a914d6071e674d49420fb8"
+    url "https://files.pythonhosted.org/packages/94/15/4a041424c7187f41cce678f5a02189b244e9aac61a18b45cd415a3a470f3/sympy-1.13.2.tar.gz"
+    sha256 "401449d84d07be9d0c7a46a64bd54fe097667d5e7181bfe67ec777be9e01cb13"
   end
 
   resource "typing-extensions" do
-    url "https://files.pythonhosted.org/packages/0c/1d/eb26f5e75100d531d7399ae800814b069bc2ed2a7410834d57374d010d96/typing_extensions-4.9.0.tar.gz"
-    sha256 "23478f88c37f27d76ac8aee6c905017a143b0b1b886c3c9f66bc2fd94f9f5783"
+    url "https://files.pythonhosted.org/packages/df/db/f35a00659bc03fec321ba8bce9420de607a1d37f8342eee1863174c69557/typing_extensions-4.12.2.tar.gz"
+    sha256 "1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"
   end
-
-  # Support numpy 2.0: https://github.com/pytorch/pytorch/pull/121880
-  patch do
-    url "https://github.com/pytorch/pytorch/commit/38d9bb5abcc31ba97927a5399b88afe2cf60bf64.patch?full_index=1"
-    sha256 "c9bf84d154e5f3f9b67a68d25765f32a08b9deb3127254971ed6351231eba228"
-  end
-
-  # Backport usage of SLEEF_CONST from upstream commit
-  # Ref: https://github.com/pytorch/pytorch/commit/2b060983809e5fe8706acd085fff67b6a27bfb5f
-  patch :DATA
 
   def install
+    # QNNPACK was removed but setup.py still checks for it
+    # https://github.com/pytorch/pytorch/issues/131864
+    # https://github.com/pytorch/pytorch/pull/133177
+    inreplace "setup.py", '"QNNPACK",', ""
     python3 = "python3.12"
 
     ENV["ATEN_NO_TEST"] = "ON"
@@ -135,7 +128,9 @@ class Pytorch < Formula
 
     # Work around superenv removing `-Werror=` but leaving `-Wno-error=` breaking flag detection
     if ENV.compiler.to_s.start_with?("gcc")
-      inreplace "CMakeLists.txt", 'append_cxx_flag_if_supported("-Wno-error=inconsistent-missing-', "# \\0"
+      inreplace "CMakeLists.txt",
+                /append_cxx_flag_if_supported\(\s*"-Wno-error=inconsistent-missing-\S+"\n?\s*CMAKE_CXX_FLAGS\)/,
+                ""
     end
 
     # Avoid references to Homebrew shims
@@ -146,7 +141,7 @@ class Pytorch < Formula
     venv.pip_install_and_link(buildpath, build_isolation: false)
 
     # Expose C++ API
-    torch = libexec/Language::Python.site_packages(python3)/"torch"
+    torch = venv.site_packages/"torch"
     include.install_symlink (torch/"include").children
     lib.install_symlink (torch/"lib").children
     (share/"cmake").install_symlink (torch/"share/cmake").children
@@ -185,33 +180,3 @@ class Pytorch < Formula
     end
   end
 end
-
-__END__
-diff --git a/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h b/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h
-index 3e26213d6d26609b2cda7bde2d026fc92c626db2..edda0210746530bb60765939e90899083f8be595 100644
---- a/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h
-+++ b/aten/src/ATen/cpu/vec/vec256/vec256_bfloat16.h
-@@ -265,7 +266,8 @@ static_assert(
-     }
-     return b;
-   }
--  Vectorized<T> map(const __m256 (*const vop)(__m256)) const {
-+
-+  Vectorized<T> map(SLEEF_CONST __m256 (*vop)(__m256)) const {
-     __m256 lo, hi;
-     cvt_to_fp32<T>(values, lo, hi);
-     const auto o1 = vop(lo);
-diff --git a/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h b/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h
-index f9fc92d52bfe0c8ea594384beecf4da47961faa0..6513455283e2be3e588fd15131c5d48a17e107bb 100644
---- a/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h
-+++ b/aten/src/ATen/cpu/vec/vec512/vec512_bfloat16.h
-@@ -362,7 +363,8 @@ static_assert(
-   }
-   #pragma clang diagnostic push
-   #pragma clang diagnostic ignored "-Wignored-qualifiers"
--  Vectorized<T> map(const __m512 (*const vop)(__m512)) const {
-+
-+  Vectorized<T> map(SLEEF_CONST __m512 (*vop)(__m512)) const {
-     __m512 lo, hi;
-     cvt_to_fp32<T>(values, lo, hi);
-     const auto o1 = vop(lo);
