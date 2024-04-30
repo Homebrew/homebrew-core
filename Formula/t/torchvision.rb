@@ -3,10 +3,9 @@ class Torchvision < Formula
 
   desc "Datasets, transforms, and models for computer vision"
   homepage "https://github.com/pytorch/vision"
-  url "https://github.com/pytorch/vision/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "55e395d5c7d9bf7658c82ac633cac2224aa168e1bfe8bb5b2b2a296c792a3500"
+  url "https://github.com/pytorch/vision/archive/refs/tags/v0.19.0.tar.gz"
+  sha256 "4c499d0a412b5a21d55ac3c0a37e80ecd7e1f002f2a7b6b3b38a2de2544acbb6"
   license "BSD-3-Clause"
-  revision 7
 
   livecheck do
     url :stable
@@ -39,26 +38,6 @@ class Torchvision < Formula
     depends_on "libomp"
   end
 
-  resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
-  end
-
-  resource "idna" do
-    url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
-    sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
-  end
-
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
-  end
-
-  resource "urllib3" do
-    url "https://files.pythonhosted.org/packages/7a/50/7fd50a27caa0652cd4caf224aa87741ea41d3265ad13f010886167cfcc79/urllib3-2.2.1.tar.gz"
-    sha256 "d0570876c61ab9e520d776c38acbbb5b05a776d3f9ff98a5c8fd5162a444cf19"
-  end
-
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
@@ -77,7 +56,7 @@ class Torchvision < Formula
     # This needs to happen _before_ we try to install torchvision.
     site_packages = Language::Python.site_packages(python3)
     pytorch = Formula["pytorch"].opt_libexec
-    (libexec/site_packages/"homebrew-pytorch.pth").write pytorch/site_packages
+    (venv.site_packages/"homebrew-pytorch.pth").write pytorch/site_packages
 
     venv.pip_install_and_link(buildpath, build_isolation: false)
 
