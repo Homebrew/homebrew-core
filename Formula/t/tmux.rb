@@ -4,7 +4,7 @@ class Tmux < Formula
   url "https://github.com/tmux/tmux/releases/download/3.4/tmux-3.4.tar.gz"
   sha256 "551ab8dea0bf505c0ad6b7bb35ef567cdde0ccb84357df142c254f35a23e19aa"
   license "ISC"
-  revision 1
+  revision 2
 
   livecheck do
     url :stable
@@ -45,6 +45,11 @@ class Tmux < Formula
   resource "completion" do
     url "https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/f5d53239f7658f8e8fbaf02535cc369009c436d6/completions/tmux"
     sha256 "b5f7bbd78f9790026bbff16fc6e3fe4070d067f58f943e156bd1a8c3c99f6a6f"
+  end
+
+  patch do
+    url "https://github.com/Frederick888/tmux/commit/0c626121f1625e080f80145c1df575ff2555f503.patch?full_index=1"
+    sha256 "0c397d3f6117f4980fdc517e6a730b3e5f9f2df2fbeb647d73e96b588346da15"
   end
 
   def install
