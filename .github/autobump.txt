@@ -1065,6 +1065,7 @@ jsonnet
 jsvc
 jtbl
 juju
+julia
 jupyterlab
 just
 k2tf
