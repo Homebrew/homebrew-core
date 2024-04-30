@@ -28,6 +28,7 @@ class F3d < Formula
   depends_on "assimp"
   depends_on "opencascade"
   depends_on "vtk"
+  depends_on "draco"
 
   def install
     args = %W[
@@ -38,6 +39,7 @@ class F3d < Formula
       -DF3D_PLUGIN_BUILD_ALEMBIC:BOOL=ON
       -DF3D_PLUGIN_BUILD_ASSIMP:BOOL=ON
       -DF3D_PLUGIN_BUILD_OCCT:BOOL=ON
+      -DF3D_PLUGIN_BUILD_DRACO:BOOL=ON
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
