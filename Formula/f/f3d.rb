@@ -27,8 +27,8 @@ class F3d < Formula
   depends_on "alembic"
   depends_on "assimp"
   depends_on "opencascade"
-  depends_on "vtk"
   depends_on "draco"
+  depends_on "vtk"
 
   def install
     args = %W[
