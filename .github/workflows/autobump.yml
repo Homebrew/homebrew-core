@@ -1,0 +1,55 @@
+name: Bump formulae on schedule or request
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - .github/workflows/autobump.yml
+  workflow_dispatch:
+    inputs:
+      formulae:
+        description: Custom list of formulae to livecheck and bump if outdated
+        required: false
+  schedule:
+    # Every 3 hours with an offset of 15 minutes
+    - cron: "15 */3 * * *"
+
+env:
+  HOMEBREW_FORCE_HOMEBREW_ON_LINUX: 1
+
+permissions:
+  contents: read
+
+jobs:
+  autobump:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: ${{ (github.event_name == 'workflow_dispatch' && github.actor) || 'BrewTestBot' }}
+
+      - name: Get list of autobump formulae
+        id: autobump
+        run: echo "autobump_list=$(xargs < "$(brew --repo homebrew/core)"/.github/autobump.txt)" >> "$GITHUB_OUTPUT"
+
+      - name: Bump formulae
+        uses: Homebrew/actions/bump-packages@master
+        continue-on-error: true
+        with:
+          token: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}
+          formulae: ${{ github.event.inputs.formulae || steps.autobump.outputs.autobump_list }}
+        env:
+          HOMEBREW_TEST_BOT_AUTOBUMP: 1
