@@ -5,7 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-9.1.0.tar.xz"
   sha256 "ed654b024aea56c44b26f131d31febc58b7cf6a82fad9f0b0bf6e3e9aa1a134b"
   license "GPL-3.0-or-later"
-  revision 2
+  revision 3
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -80,6 +80,12 @@ class Octave < Formula
   cxxstdlib_check :skip
 
   fails_with gcc: "5"
+
+  # Fix opengl-partial-update bug causing crashes on figure() and plot().
+  patch do
+    url "https://file.savannah.gnu.org/file/bug65605-qt6-opengl-partial-update.patch?file_id=55978"
+    sha256 "4f258a90dcb6b5d7f1af466dfc2b2fd6413968070ab224e4b368d355ec257ca9"
+  end
 
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
