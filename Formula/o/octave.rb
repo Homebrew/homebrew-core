@@ -82,10 +82,10 @@ class Octave < Formula
   fails_with gcc: "5"
 
   # Fix opengl-partial-update bug causing crashes on figure() and plot().
-  patch do
-    url "https://file.savannah.gnu.org/file/bug65605-qt6-opengl-partial-update.patch?file_id=55978"
-    sha256 "4f258a90dcb6b5d7f1af466dfc2b2fd6413968070ab224e4b368d355ec257ca9"
-  end
+  # patch do
+  #   url "https://file.savannah.gnu.org/file/bug65605-qt6-opengl-partial-update.patch?file_id=55978"
+  #   sha256 "4f258a90dcb6b5d7f1af466dfc2b2fd6413968070ab224e4b368d355ec257ca9"
+  # end
 
   def install
     # Default configuration passes all linker flags to mkoctfile, to be
