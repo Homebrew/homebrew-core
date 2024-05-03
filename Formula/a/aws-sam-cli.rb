@@ -7,6 +7,11 @@ class AwsSamCli < Formula
   sha256 "cf24b5642bafcb59434de5f8092c2b8cf48227a3357b4a221c39612eebda087a"
   license "Apache-2.0"
 
+  livecheck do
+    url :stable
+    regex(/href=.*?aws[_-]sam[_-]cli[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "a4da3baccd646a362324f29ea997ecd748a59dfaa3ad31d68a48a510d5d7ae7d"
     sha256 cellar: :any,                 arm64_ventura:  "e9c6d51326392549f12eca1fc1b3abd48560a1923dcf185bf74c8c9e28eb2943"
