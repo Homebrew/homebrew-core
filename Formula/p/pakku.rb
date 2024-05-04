@@ -14,6 +14,6 @@ class Pakku < Formula
   end
 
   test do
-    assert_match "Could not read 'pakku-lock.json'", shell_output(bin/"Pakku add jei")
+    assert_match "Could not read 'pakku-lock.json'", shell_output(bin/"pakku add jei", 1)
   end
 end
