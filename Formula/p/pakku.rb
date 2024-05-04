@@ -3,7 +3,7 @@ class Pakku < Formula
   homepage "https://juraj-hrivnak.github.io/Pakku/"
   url "https://github.com/juraj-hrivnak/Pakku/releases/download/v0.8.4/Pakku-0.8.4.tar"
   sha256 "503e66145d3c525056b706b79804d6e741adcd6100714d6af3cd1d9caefc3a89"
-  license "EUPL-1.2-or-later"
+  license "EUPL-1.2"
 
   depends_on "openjdk"
 
