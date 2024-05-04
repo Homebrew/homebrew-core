@@ -6,7 +6,7 @@ class OpenaiWhisper < Formula
   url "https://files.pythonhosted.org/packages/d2/6e/50ace2bf704e5ffc786d20d96403ab0d57c5d6ab8729de7fed8c436687df/openai-whisper-20231117.tar.gz"
   sha256 "7af424181436f1800cc0b7d75cf40ede34e9ddf1ba4983a910832fcf4aade4a4"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
