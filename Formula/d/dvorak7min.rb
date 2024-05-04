@@ -24,6 +24,9 @@ class Dvorak7min < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "88198e60fed089e8dcc4c8bb9fb955428cecd480578fd1a339e177b1c1e748df"
   end
 
+  # source is a copy from debian
+  deprecate! date: "2024-01-16", because: :repo_removed
+
   uses_from_macos "ncurses"
 
   def install
