@@ -3,8 +3,8 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/11/33/9946f1c61f82fc3e6d8a2f14faa50db95aed823b7d38091fc6c9cdf07638/vunnel-0.22.0.tar.gz"
-  sha256 "71366a96eae6c2ecd5bd63873faaffb478c285ab2c04219dcbf2dd80d5dfb204"
+  url "https://files.pythonhosted.org/packages/a0/28/cd9eff639860bc6c748b152320d6ffd10ccf0fdb5dbdcc86459d8dac600b/vunnel-0.22.2.tar.gz"
+  sha256 "1ce0357e2c54c2e508470fdc5fab3b8364ac0520ad46523e0885f08a0d75e1de"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
@@ -102,8 +102,8 @@ class Vunnel < Formula
   end
 
   resource "mashumaro" do
-    url "https://files.pythonhosted.org/packages/db/18/5355583a63868cb58318d266daae6344e66b5bee324e0203c510a829dd38/mashumaro-3.12.tar.gz"
-    sha256 "bb4ff10aee689edff24f6ff369843e1a826193d396b449b86ef58489bfe40c83"
+    url "https://files.pythonhosted.org/packages/85/fe/a6b35aa5fbb500892cc0ec24543bc54941a9c8855aeb1a78362c0a0b061d/mashumaro-3.13.tar.gz"
+    sha256 "636c31afe39d991efe4cad269fef0c8ba408d87581118784d2a47924c2073faa"
   end
 
   resource "mergedeep" do
@@ -112,8 +112,8 @@ class Vunnel < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/f5/af/0daa12a907215a5af6d97db8adf301ef14a1b1c651f7e176ee04e0998433/orjson-3.10.1.tar.gz"
-    sha256 "a883b28d73370df23ed995c466b4f6c708c1f7a9bdc400fe89165c96c7603204"
+    url "https://files.pythonhosted.org/packages/f8/16/c10c42b69beeebe8bd136ee28b76762837479462787be57f11e0ab5d6f5d/orjson-3.10.3.tar.gz"
+    sha256 "2b166507acae7ba2f7c315dcf185a9111ad5e992ac81f2d507aac39193c2c818"
   end
 
   resource "packaging" do
@@ -152,8 +152,8 @@ class Vunnel < Formula
   end
 
   resource "ruff" do
-    url "https://files.pythonhosted.org/packages/f1/ef/b34ab9103284368f9ef958547998168955d32b017e02e4d66acfb8c57b9a/ruff-0.4.2.tar.gz"
-    sha256 "33bcc160aee2520664bc0859cfeaebc84bb7323becff3f303b8f1f2d81cb4edc"
+    url "https://files.pythonhosted.org/packages/e4/1c/5a709706948875d13fc4aa6cfbbaab7549bc06078c0b422749f092792fe3/ruff-0.4.3.tar.gz"
+    sha256 "ff0a3ef2e3c4b6d133fbedcf9586abfbe38d076041f2dc18ffb2c7e0485d5a07"
   end
 
   resource "six" do
