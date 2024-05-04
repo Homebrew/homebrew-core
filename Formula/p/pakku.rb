@@ -10,7 +10,7 @@ class Pakku < Formula
   def install
     rm_f Dir["bin/*.bat"]
     libexec.install %w[bin lib]
-    (bin/"Pakku").write_env_script libexec/"bin/Pakku", Language::Java.overridable_java_home_env
+    (bin/"pakku").write_env_script libexec/"bin/Pakku", Language::Java.overridable_java_home_env
   end
 
   test do
