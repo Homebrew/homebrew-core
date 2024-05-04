@@ -3,19 +3,19 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/11/33/9946f1c61f82fc3e6d8a2f14faa50db95aed823b7d38091fc6c9cdf07638/vunnel-0.22.0.tar.gz"
-  sha256 "71366a96eae6c2ecd5bd63873faaffb478c285ab2c04219dcbf2dd80d5dfb204"
+  url "https://files.pythonhosted.org/packages/a0/28/cd9eff639860bc6c748b152320d6ffd10ccf0fdb5dbdcc86459d8dac600b/vunnel-0.22.2.tar.gz"
+  sha256 "1ce0357e2c54c2e508470fdc5fab3b8364ac0520ad46523e0885f08a0d75e1de"
   license "Apache-2.0"
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7653c003c0a0a359b7aee034c140e3a56e523ffeb3358faa6b90530096b5ba72"
-    sha256 cellar: :any,                 arm64_ventura:  "16d8ef69beda28132c8005a5ec8b265d68a79030e7115ed19a550db8bc8c9690"
-    sha256 cellar: :any,                 arm64_monterey: "391885a1fb9d2ec3b3a692261d69667ef342df4e8b70747390b7fa8289420187"
-    sha256 cellar: :any,                 sonoma:         "02f19c559230a68649a78eed592f64950bd38b29d7dc3c7dc6c505349cccdd99"
-    sha256 cellar: :any,                 ventura:        "76ea4a7568d8fed2e0cfe96d989c04958c4ee44f8a0f7a5eb0f291d077485639"
-    sha256 cellar: :any,                 monterey:       "d2134f3bb1a0203dd9cb13db8a7fc4b73a24bc5098687ead7185f35d5d75ec3c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e25d6359eb47d20712faad16e26a9410e4c47858d4fd3ec4c2972d64d890867"
+    sha256 cellar: :any,                 arm64_sonoma:   "6cf3abbb366dadf3318d0b09571fcc0cb1a66704dd7b779dd587a90c1ed541d9"
+    sha256 cellar: :any,                 arm64_ventura:  "646f12c4f2c92a0dea88e77617414752241aecda9117bba3ae14ad549e03ab91"
+    sha256 cellar: :any,                 arm64_monterey: "6d498321dbf523feba31e589dc6c0cbf19185166d53253edb7b19f59dbb06fe4"
+    sha256 cellar: :any,                 sonoma:         "9815197724db7451a40c48d9cacdab2b8b650b03ce12980821667787f9b2aa6e"
+    sha256 cellar: :any,                 ventura:        "b51f347ecba1fe256c2cfceef496af86ec99e8a76afdb6769ea390c8290f9b60"
+    sha256 cellar: :any,                 monterey:       "a3064d331001f4cf3400321d912350680b3ddcabf2771587438ebc69bff80710"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e57e70abb1a2f753c8ab434175ae8fdf3cb237ca049d19c0490b6c8c68d5744"
   end
 
   depends_on "rust" => :build
@@ -102,8 +102,8 @@ class Vunnel < Formula
   end
 
   resource "mashumaro" do
-    url "https://files.pythonhosted.org/packages/db/18/5355583a63868cb58318d266daae6344e66b5bee324e0203c510a829dd38/mashumaro-3.12.tar.gz"
-    sha256 "bb4ff10aee689edff24f6ff369843e1a826193d396b449b86ef58489bfe40c83"
+    url "https://files.pythonhosted.org/packages/85/fe/a6b35aa5fbb500892cc0ec24543bc54941a9c8855aeb1a78362c0a0b061d/mashumaro-3.13.tar.gz"
+    sha256 "636c31afe39d991efe4cad269fef0c8ba408d87581118784d2a47924c2073faa"
   end
 
   resource "mergedeep" do
@@ -112,8 +112,8 @@ class Vunnel < Formula
   end
 
   resource "orjson" do
-    url "https://files.pythonhosted.org/packages/f5/af/0daa12a907215a5af6d97db8adf301ef14a1b1c651f7e176ee04e0998433/orjson-3.10.1.tar.gz"
-    sha256 "a883b28d73370df23ed995c466b4f6c708c1f7a9bdc400fe89165c96c7603204"
+    url "https://files.pythonhosted.org/packages/f8/16/c10c42b69beeebe8bd136ee28b76762837479462787be57f11e0ab5d6f5d/orjson-3.10.3.tar.gz"
+    sha256 "2b166507acae7ba2f7c315dcf185a9111ad5e992ac81f2d507aac39193c2c818"
   end
 
   resource "packaging" do
@@ -152,8 +152,8 @@ class Vunnel < Formula
   end
 
   resource "ruff" do
-    url "https://files.pythonhosted.org/packages/f1/ef/b34ab9103284368f9ef958547998168955d32b017e02e4d66acfb8c57b9a/ruff-0.4.2.tar.gz"
-    sha256 "33bcc160aee2520664bc0859cfeaebc84bb7323becff3f303b8f1f2d81cb4edc"
+    url "https://files.pythonhosted.org/packages/e4/1c/5a709706948875d13fc4aa6cfbbaab7549bc06078c0b422749f092792fe3/ruff-0.4.3.tar.gz"
+    sha256 "ff0a3ef2e3c4b6d133fbedcf9586abfbe38d076041f2dc18ffb2c7e0485d5a07"
   end
 
   resource "six" do
