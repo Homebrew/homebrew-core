@@ -244,8 +244,9 @@ jobs:
       volumes:
         - /mnt:/mnt
     permissions:
-      attestations: write # for `generate build provenance`
       id-token: write # for `generate build provenance`
+      contents: write # for `generate build provenance`
+      packages: write # for `generate build provenance`
       actions: read # for `brew pr-pull`
       pull-requests: write # for `gh pr edit|review`
       repository-projects: write # for `gh pr edit`
@@ -287,11 +288,15 @@ jobs:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
         run: gh pr checkout "$PR"
 
-      - name: Pull PR bottles
+      - name: Pull and upload bottles to GitHub Packages
         id: pr-pull
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
+          BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
           HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_CORE_PUBLIC_REPO_EMAIL_TOKEN}}
+          HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
           EXPECTED_SHA: ${{needs.check.outputs.head_sha}}
           LARGE_RUNNER: ${{inputs.large_runner}}
         run: |
@@ -317,43 +322,24 @@ jobs:
 
           # Don't quote arguments that might be empty; this causes errors.
           brew pr-pull \
-            --no-upload \
             --debug \
             --clean \
             --no-cherry-pick \
             --workflows=tests.yml \
+            --committer="$BREWTESTBOT_NAME_EMAIL" \
             --root-url="https://ghcr.io/v2/homebrew/core" \
             --retain-bottle-dir \
             ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}} \
             ${{inputs.message && '--message="$INPUT_MESSAGE"' || ''}} \
             "$PR"
 
-      - name: Generate build provenance
-        uses: actions/attest-build-provenance@v1
+          echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      - name: generate build provenance
+        uses: github-early-access/generate-build-provenance@main
         with:
           subject-path: '${{steps.pr-pull.outputs.bottle_path}}/*.tar.gz'
-
-      - name: Upload bottles to GitHub Packages
-        id: pr-upload
-        working-directory: ${{steps.pr-pull.outputs.bottle_path}}
-        env:
-          BREWTESTBOT_NAME_EMAIL: "BrewTestBot <1589480+BrewTestBot@users.noreply.github.com>"
-          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
-          HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
-          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}
-          REPO_PATH: ${{steps.set-up-homebrew.outputs.repository-path}}
-        run: |
-          # Don't quote arguments that might be empty; this causes errors when `brew`
-          # interprets them as empty arguments when we want `brew` to ignore them instead.
-          brew pr-upload \
-            --debug \
-            --committer="$BREWTESTBOT_NAME_EMAIL" \
-            --root-url="https://ghcr.io/v2/homebrew/core" \
-            ${{inputs.warn_on_upload_failure && '--warn-on-upload-failure' || ''}} \
-            "$PR"
-
-          echo "head_sha=$(git -C "$REPO_PATH" rev-parse HEAD)" >> "$GITHUB_OUTPUT"
-
+  
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
         with:
@@ -387,7 +373,7 @@ jobs:
         id: wait-until-in-sync
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
-          EXPECTED_SHA: ${{steps.pr-upload.outputs.head_sha}}
+          EXPECTED_SHA: ${{steps.pr-pull.outputs.head_sha}}
         run: |
           echo "::notice ::Local repository HEAD: $EXPECTED_SHA"
 
@@ -427,7 +413,7 @@ jobs:
         id: automerge
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          EXPECTED_SHA: ${{steps.pr-upload.outputs.head_sha}}
+          EXPECTED_SHA: ${{steps.pr-pull.outputs.head_sha}}
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         run: |
           local_git_head="$(git rev-parse HEAD)"
