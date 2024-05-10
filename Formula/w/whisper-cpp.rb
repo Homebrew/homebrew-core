@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggerganov/whisper.cpp"
-  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.5.4.tar.gz"
-  sha256 "06eed84de310fdf5408527e41e863ac3b80b8603576ba0521177464b1b341a3a"
+  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.5.5.tar.gz"
+  sha256 "27fa5c472657af2a6cee63de349a34b23d0f3781fa9b8ef301a940cf64964a79"
   license "MIT"
   head "https://github.com/ggerganov/whisper.cpp.git", branch: "master"
 
@@ -22,10 +22,16 @@ class WhisperCpp < Formula
   end
 
   def install
-    system "make"
-    bin.install "main" => "whisper-cpp"
+    if OS.mac?
+      system "make", "WHISPER_COREML=1"
+    else
+      system "make"
+    end
 
-    pkgshare.install ["samples/jfk.wav", "models/for-tests-ggml-tiny.bin", "ggml-metal.metal"]
+    bin.install "main" => "whisper-cpp"
+    bin.install "server" => "whisper-cpp-server"
+
+    pkgshare.install ["samples/jfk.wav", "models/for-tests-ggml-tiny.bin", "ggml-metal.metal", "ggml-common.h"]
   end
 
   def caveats
@@ -39,9 +45,9 @@ class WhisperCpp < Formula
   end
 
   test do
-    cp [pkgshare/"jfk.wav", pkgshare/"for-tests-ggml-tiny.bin", pkgshare/"ggml-metal.metal"], testpath
-
-    system "#{bin}/whisper-cpp", "samples", "-m", "for-tests-ggml-tiny.bin"
+    cp [pkgshare/"jfk.wav", pkgshare/"for-tests-ggml-tiny.bin", pkgshare/"ggml-metal.metal", pkgshare/"ggml-common.h"],
+testpath
+    system "#{bin}/whisper-cpp", "jfk.wav", "-m", "for-tests-ggml-tiny.bin"
     assert_equal 0, $CHILD_STATUS.exitstatus, "whisper-cpp failed with exit code #{$CHILD_STATUS.exitstatus}"
   end
 end
