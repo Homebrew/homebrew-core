@@ -1,0 +1,251 @@
+name: Triage tasks
+
+on: pull_request_target
+
+env:
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+
+concurrency:
+  group: "triage-${{ github.event.number }}"
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  statuses: write
+
+jobs:
+  upload-metadata:
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/upload-artifact@v4
+        with:
+          name: event_payload
+          path: ${{ github.event_path }}
+
+  workflows-label:
+    if: always() && github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check pull request changed files
+        id: files
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          workflow_modified="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              'repos/{owner}/{repo}/pulls/${{ github.event.number }}/files' \
+              --jq 'any(.[].filename; startswith(".github/workflows"))'
+          )"
+          # Fail closed.
+          echo "workflow_modified=${workflow_modified:-true}" >> "${GITHUB_OUTPUT}"
+
+      # Wait briefly in case of failure to make sure we don't end up
+      # hitting the same API error when trying `gh pr edit`.
+      - if: failure()
+        run: sleep 30
+
+      - name: Label PR
+        if: always() && fromJson(steps.files.outputs.workflow_modified)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit --add-label workflows '${{ github.event.number }}'
+
+  limit-pull-requests:
+    if: >
+      always() && github.repository_owner == 'Homebrew' &&
+      (github.event_name == 'pull_request_target' &&
+       github.event.action == 'opened')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: Homebrew/actions/limit-pull-requests@master
+        with:
+          except-users: |
+            BrewTestBot
+          comment-limit: 15
+          comment: |
+            Hi, thanks for your contribution to Homebrew! You already have >=15 open pull requests, so please get them ready to be merged or close them before you open more. If CI fails on any of them, please fix it or ask for help doing so.
+            If you are performing simple version bumps, @BrewTestBot automatically bumps [a list of formulae](https://github.com/${{ github.repository }}/blob/HEAD/.github/autobump.txt) so you don't need to. Please take a look at issues and pull requests labelled https://github.com/${{ github.repository }}/labels/help%20wanted and see if you can help to fix any of them. Thanks!
+          close-limit: 30
+          close: true
+
+  triage:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Check commit format
+        if: >
+          github.actor != 'BrewTestBot' &&
+          !contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')
+        uses: Homebrew/actions/check-commit-format@master
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+
+      - name: Label pull request
+        uses: Homebrew/actions/label-pull-requests@master
+        if: always()
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          def: |
+            - label: new formula
+              status: added
+              path: Formula/.+
+              allow_any_match: true
+
+            - label: marked for removal/rejection
+              status: removed
+              path: Formula/.+
+
+            - label: no ARM bottle
+              path: Formula/.+
+              content: '\n    sha256.* (?!.*(?:arm64_|_linux)).+: +"[a-fA-F0-9]+"\n'
+              missing_content: '\n    sha256.* (arm64_.+|all): +"[a-fA-F0-9]+"\n'
+
+            - label: no Linux bottle
+              path: Formula/.+
+              content: \n  bottle do\n
+              missing_content:
+                - '\n    sha256.* x86_64_linux: +"[a-fA-F0-9]+"\n'
+                - '\n    sha256.* all: +"[a-fA-F0-9]+"\n'
+                - depends_on :macos
+
+            - label: formula deprecated
+              path: Formula/.+
+              content: \n  deprecate!.*\n
+
+            - label: formula disabled
+              path: Formula/.+
+              content: \n  disable!.*\n
+
+            - label: legacy
+              path: Formula/.+@.+
+              except:
+                - Formula/b/bash-completion@2.rb
+                - Formula/lib/libxml++@5.rb
+                - Formula/o/openssl@3.rb
+                - Formula/p/postgresql@16.rb
+                - Formula/p/python@3.12.rb
+                - Formula/p/python-gdbm@3.12.rb
+                - Formula/p/python-tk@3.12.rb
+
+            - label: missing license
+              path: Formula/.+
+              missing_content: \n  license .+\n
+
+            - label: deprecated license
+              path: Formula/.+
+              content: license .*"(GPL|LGPL|AGPL|GFDL)-[0-9].[0-9][+]?".*
+
+            - label: boost
+              path: Formula/.+
+              content: depends_on "boost(@[0-9.]+)?"
+
+            - label: ffmpeg
+              path: Formula/.+
+              content: depends_on "ffmpeg(@[0-9.]+)?"
+
+            - label: go
+              path: Formula/.+
+              content: depends_on "go(@[0-9.]+)?"
+
+            - label: haskell
+              path: Formula/.+
+              content: depends_on "(ghc|haskell-stack)(@[0-9.]+)?"
+
+            - label: icu4c
+              path: Formula/.+
+              content: depends_on "icu4c(@[0-9.]+)?"
+
+            - label: java
+              path: Formula/.+
+              content: depends_on "openjdk(@[0-9.]+)?"
+
+            - label: linux-only
+              path: Formula/.+
+              content: depends_on :linux
+
+            - label: macos-only
+              path: Formula/.+
+              content: depends_on :macos
+
+            - label: lua
+              path: Formula/.+
+              content: depends_on "(lua|luajit|luajit-openresty)(@[0-9.]+)?"
+
+            - label: nodejs
+              path: Formula/.+
+              content: depends_on "node(@[0-9.]+)?"
+
+            - label: ocaml
+              path: Formula/.+
+              content: depends_on "ocaml(@[0-9.]+)?"
+
+            - label: perl
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "perl(@[0-9.]+)?"
+
+            - label: php
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "php(@[0-9.]+)?"
+
+            - label: python
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "python(@[0-9.]+)?"
+              missing_content: (depends_on|uses_from_macos) "python(@[0-9.]+)?" => \[?:(build|test)
+
+            - label: ruby
+              path: Formula/.+
+              content: (depends_on|uses_from_macos) "ruby(@[0-9.]+)?"
+
+            - label: rust
+              path: Formula/.+
+              content: depends_on "rust(@[0-9.]+)?"
+
+            - label: zig
+              path: Formula/.+
+              content: depends_on "zig(@[0-9.]+)?"
+
+            - label: dotnet
+              path: Formula/.+
+              content: depends_on "dotnet(@[0-9.]+)?"
+
+            - label: swift
+              path: Formula/.+
+              content: system "swift", "build"
+
+            - label: long build
+              path: Formula/.+/(agda|aom|apache-pulsar|arangodb|at-spi2-core|aws-sdk-cpp|boost|brotli|c-ares|cp2k|dav1d|deno|dotnet|emscripten|envoy|freetype|gcc|ghc|glib|graph-tool|gsettings-desktop-schemas|gstreamer|gtk\+3|harfbuzz|haskell-language-server|highway|hwloc|icu4c|imath|jasper|jpeg-turbo|libgcrypt|libgpg-error|libidn2|libmicrohttpd|librist|libnghttp2|libomp|libpng|libtensorflow|libunistring|llvm|mame|metashell|mlkit|mpfr|mpg123|mpich|nghttp2|node|numpy|nwchem|openblas|openjpeg|p11-kit|pango|pcre2|ponyc|pytorch|rav1e|rust|shared-mime-info|suite-sparse|swift|texlive|qt|readline|root|souffle|unbound|v8|vtk|xz|zstd)(@[0-9]+)?.rb
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: CI-build-dependents-from-source
+              path:
+                - 'Formula/.+/(cabal-install|docbook-xsl|emscripten|erlang|ocaml|ocaml-findlib|ocaml-num|openjdk|rust)\.rb'
+                - 'Aliases/(ghc|go)(@[0-9.]+)?$'
+              missing_content: '\n  revision [0-9]+\n'
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: CI-skip-recursive-dependents
+              path: Formula/.+/(ca-certificates|curl|gettext|openssl@3|sqlite).rb
+              keep_if_no_match: true
+
+            - label: CI-linux-self-hosted
+              path: Formula/.+/(alsa-lib|aom|brotli|cups|dart-sdk|dbus|envoy|freetype|gdbm|glib|glslang|gmp|gtk4|gzip|harfbuzz|hdf5|icu4c|json-c|krb5|libarchive|libedit|libnghttp2|libsndfile|libssh2|libtiff|libva|libx11|libxcrypt|libxml2|libxrandr|llvm|mesa|minizip|mpfr|mysql-connector-c\+\+|nghttp2|nss|numpy|open-mpi|openexr|p11-kit|python@3.12|qt(@5)?|readline|remind|shared-mime-info|souffle|sui|systemd|texlive|unbound|utf8cpp|util-linux|webp|xz|zlib|zstd).rb
+              keep_if_no_match: true
+              allow_any_match: true
+
+            - label: bump-formula-pr
+              pr_body_content: Created with `brew bump-formula-pr`
+
+            - label: pip-audit
+              pr_body_content: Created by `brew-pip-audit`
+
+            - label: autobump
+              path: \.github/autobump\.txt
+              allow_any_match: true

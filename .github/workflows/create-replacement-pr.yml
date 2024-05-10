@@ -1,0 +1,264 @@
+name: Create replacement pull request
+run-name: "Replace PR #${{ inputs.pull_request }}"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.inputs.pull_request }}-${{ github.event.inputs.upload }}
+  cancel-in-progress: ${{ !fromJson(github.event.inputs.upload) }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      pull_request:
+        description: Pull request number
+        required: true
+      autosquash:
+        description: "Squash pull request commits according to Homebrew style? (default: true)"
+        type: boolean
+        required: false
+        default: true
+      upload:
+        description: >
+          Upload bottles built from original pull request? (default: false)
+          Warning: This destroys status check information when used with autosquash!
+        type: boolean
+        required: false
+        default: false
+      warn_on_upload_failure:
+        description: "Pass `--warn-on-upload-failure` to `brew pr-pull`? (default: false)"
+        type: boolean
+        required: false
+        default: false
+      message:
+        description: "Message to include when autosquashing revision bumps, deletions, and rebuilds (requires autosquash)"
+        required: false
+
+env:
+  PR: ${{ inputs.pull_request }}
+  GNUPGHOME: /tmp/gnupghome
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_FROM_API: 1
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  RUN_URL: ${{ github.event.repository.html_url }}/actions/runs/${{ github.run_id }}
+  REPLACEMENT_BRANCH: PR/${{ inputs.pull_request }}
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    permissions:
+      contents: read
+      pull-requests: write # for `post-comment`, `gh api`, `gh pr edit`
+      repository-projects: write # for `gh pr edit`
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Post comment once started
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue: ${{ env.PR }}
+          body: ":shipit: @${{ github.actor }} has [requested creation of a replacement PR](${{ env.RUN_URL }})."
+          bot_body: ":robot: An automated task has [requested creation of a replacement PR](${{ env.RUN_URL }})."
+          bot: github-actions[bot]
+
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
+      - name: Get reviewers
+        id: reviewers
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          review_data="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/{owner}/{repo}/pulls/$PR/reviews"
+          )"
+
+          reviewers="$(jq --compact-output '[.[].user.login]' <<< "$review_data")"
+          approved="$(jq --raw-output 'any(.[].state; .== "APPROVED")' <<< "$review_data")"
+
+          # See https://github.com/octokit/octokit.net/issues/1763 for possible `mergeable_state` values.
+          mergeable="$(
+            gh api \
+              --header 'Accept: application/vnd.github+json' \
+              --header 'X-GitHub-Api-Version: 2022-11-28' \
+              "repos/{owner}/{repo}/pulls/$PR" \
+              --jq '(.mergeable_state == "clean") and (.draft | not)'
+          )"
+
+          {
+            echo "reviewers=$reviewers"
+            echo "approved=$approved"
+            echo "mergeable=$mergeable"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Check approval if needed
+        if: >
+          inputs.upload &&
+          !(fromJson(steps.reviewers.outputs.approved) && fromJson(steps.reviewers.outputs.mergeable))
+        run: |
+          echo "::error ::Refusing to upload bottles because PR #$PR is not mergeable!"
+          exit 1
+
+      - name: Configure Git user
+        id: git-user-config
+        uses: Homebrew/actions/git-user-config@master
+        with:
+          username: BrewTestBot
+
+      - name: Checkout PR branch
+        if: ${{ !inputs.autosquash }}
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        run: gh pr checkout "$PR"
+
+      - name: Checkout replacement PR branch
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          START_POINT: ${{ inputs.autosquash && 'origin/master' || 'HEAD' }}
+        run: |
+          if git ls-remote --exit-code --heads origin "$REPLACEMENT_BRANCH"
+          then
+            echo "::error ::Branch $REPLACEMENT_BRANCH already exists!"
+            exit 1
+          fi
+          git checkout -b "$REPLACEMENT_BRANCH" "$START_POINT"
+
+      - name: Dismiss approvals
+        if: fromJson(steps.reviewers.outputs.approved)
+        uses: Homebrew/actions/dismiss-approvals@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          pr: ${{ env.PR }}
+          message: Replacement PR dispatched
+
+      - name: Set up commit signing
+        uses: Homebrew/actions/setup-commit-signing@master
+        with:
+          signing_key: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY }}
+
+      - name: Pull PR${{ inputs.upload && ' and upload bottles to GitHub Packages' || '' }}
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          BREWTESTBOT_NAME_EMAIL: "${{ steps.git-user-config.outputs.name }} <${{ steps.git-user-config.outputs.email }}>"
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_CORE_PUBLIC_REPO_EMAIL_TOKEN }}
+          HOMEBREW_GITHUB_PACKAGES_USER: brewtestbot
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{ secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN }}
+          MESSAGE: ${{ inputs.message }}
+        run: |
+          # Don't quote arguments that might be empty; this causes errors.
+          brew pr-pull \
+            --debug \
+            --branch-okay \
+            --workflows=tests.yml \
+            --committer="$BREWTESTBOT_NAME_EMAIL" \
+            --root-url="https://ghcr.io/v2/homebrew/core" \
+            ${{ inputs.autosquash && '--autosquash' || '--clean --no-cherry-pick' }} \
+            ${{ !inputs.upload && '--no-upload' || '' }} \
+            ${{ inputs.warn_on_upload_failure && '--warn-on-upload-failure' || '' }} \
+            ${{ inputs.message && '--message="$MESSAGE"' || '' }} \
+            "$PR"
+
+      - name: Push commits
+        uses: Homebrew/actions/git-try-push@master
+        with:
+          token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+          branch: ${{ env.REPLACEMENT_BRANCH }}
+        env:
+          GIT_COMMITTER_NAME: ${{ steps.git-user-config.outputs.name }}
+          GIT_COMMITTER_EMAIL: ${{ steps.git-user-config.outputs.email }}
+          HOMEBREW_GPG_PASSPHRASE: ${{ secrets.BREWTESTBOT_GPG_SIGNING_SUBKEY_PASSPHRASE }}
+
+      - name: Open replacement pull request
+        id: create-pr
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          REVIEWERS: ${{ join(fromJson(steps.reviewers.outputs.reviewers)) }}
+          LABELS: ${{ inputs.upload && 'CI-published-bottle-commits' || '' }}
+        run: |
+          cat <<MESSAGE > body.txt
+          Created by [\`create-replacement-pr.yml\`]($RUN_URL)
+
+          -----
+
+          Closes #$PR
+          MESSAGE
+
+          gh pr create \
+            --base "$GITHUB_REF" \
+            --title "Replacement for #$PR"\
+            --body-file body.txt \
+            --head "$REPLACEMENT_BRANCH" \
+            --reviewer "$REVIEWERS" \
+            --label "$LABELS"
+
+          pull_number="$(gh pr list --head "$REPLACEMENT_BRANCH" --limit 1 --json number --jq '.[].number')"
+          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
+
+      - name: Approve replacement PR if applicable
+        if: >
+          fromJson(steps.reviewers.outputs.approved) &&
+          fromJson(steps.reviewers.outputs.mergeable)
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPLACEMENT_PR: ${{ steps.create-pr.outputs.pull_number }}
+        run: gh pr review --approve "$REPLACEMENT_PR"
+
+      - name: Enable automerge for replacement PR if applicable
+        if: inputs.upload
+        working-directory: ${{ steps.set-up-homebrew.outputs.repository-path }}
+        env:
+          GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
+          REPLACEMENT_PR: ${{ steps.create-pr.outputs.pull_number }}
+        run: |
+          gh pr merge "$REPLACEMENT_PR" \
+            --auto \
+            --merge \
+            --delete-branch \
+            --match-head-commit "$(git rev-parse HEAD)"
+
+      - name: Label replaced PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh pr edit --add-label automerge-skip --add-label superseded "$PR"
+
+      - name: Mark replaced PR as draft
+        env: # We need a PAT here. https://github.com/github/docs/issues/8925#issuecomment-970255180
+          GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN  }}
+        run: gh pr ready --undo "$PR"
+
+      - name: Post comment on success
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue: ${{ env.PR }}
+          body: ":white_check_mark: @${{ github.actor }} replacement PR created at #${{ steps.create-pr.outputs.pull_number }}."
+          bot_body: ":white_check_mark: Replacement PR created at #${{ steps.create-pr.outputs.pull_number }}."
+          bot: github-actions[bot]
+
+      - name: Post comment on failure
+        if: ${{ !success() }}
+        uses: Homebrew/actions/post-comment@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          issue: ${{ env.PR }}
+          body: ":warning: @${{ github.actor }} replacement PR creation [failed](${{ env.RUN_URL }})."
+          bot_body: ":warning: Replacement PR creation [failed](${{ env.RUN_URL }})."
+          bot: github-actions[bot]
