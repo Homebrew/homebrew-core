@@ -1,10 +1,10 @@
 class SaneBackends < Formula
   desc "Backends for scanner access"
   homepage "http://www.sane-project.org/"
-  url "https://gitlab.com/sane-project/backends/uploads/110fc43336d0fb5e514f1fdc7360dd87/sane-backends-1.2.1.tar.gz"
-  sha256 "f832395efcb90bb5ea8acd367a820c393dda7e0dd578b16f48928b8f5bdd0524"
+  url "https://gitlab.com/sane-project/backends/-/archive/1.3.0/backends-1.3.0.tar.gz"
+  sha256 "0bd3114d0ed8eca9f054e2c6727ab95afa6da0e8e602cc648955e1a788bc2070"
   license "GPL-2.0-or-later"
-  revision 1
+  head "https://gitlab.com/sane-project/backends.git", branch: "master"
 
   livecheck do
     url :head
@@ -23,16 +23,11 @@ class SaneBackends < Formula
     sha256 x86_64_linux:   "d015337c002f86128e3af57eb58afdc40ad8716fdde860c60c939cc803245117"
   end
 
-  head do
-    url "https://gitlab.com/sane-project/backends.git", branch: "master"
-
-    depends_on "autoconf" => :build
-    depends_on "autoconf-archive" => :build
-    depends_on "automake" => :build
-    depends_on "gettext" => :build
-    depends_on "libtool" => :build
-  end
-
+  depends_on "autoconf" => :build
+  depends_on "autoconf-archive" => :build
+  depends_on "automake" => :build
+  depends_on "gettext" => :build
+  depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "jpeg-turbo"
   depends_on "libpng"
@@ -43,13 +38,18 @@ class SaneBackends < Formula
   uses_from_macos "python" => :build
   uses_from_macos "libxml2"
 
+  patch :DATA
+
   def install
-    system "./autogen.sh" if build.head?
-    system "./configure", *std_configure_args,
-                          "--localstatedir=#{var}",
+    # upstream issue, https://gitlab.com/sane-project/backends/-/issues/739
+    odie "Check if we can use release tarball" if version > "1.3.0"
+
+    system "./autogen.sh"
+    system "./configure", "--localstatedir=#{var}",
                           "--without-gphoto2",
                           "--enable-local-backends",
-                          "--with-usb=yes"
+                          "--with-usb=yes",
+                          *std_configure_args
     system "make", "install"
   end
 
@@ -62,3 +62,11 @@ class SaneBackends < Formula
     assert_match prefix.to_s, shell_output("#{bin}/sane-config --prefix")
   end
 end
+
+__END__
+diff --git a/.tarball-version b/.tarball-version
+index e69de29..f0bb29e 100644
+--- a/.tarball-version
++++ b/.tarball-version
+@@ -0,0 +1 @@
++1.3.0

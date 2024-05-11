@@ -1910,6 +1910,7 @@ sagittarius-scheme
 samba
 saml2aws
 samtools
+sane-backends
 sbcl
 sbom-tool
 sbt
