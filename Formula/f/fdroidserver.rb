@@ -3,10 +3,8 @@ class Fdroidserver < Formula
 
   desc "Create and manage Android app repositories for F-Droid"
   homepage "https://f-droid.org"
-  # TODO: Remove `androguard==3.3.5` from pypi_formula_mappings.json in the next release.
-  # Ref: https://github.com/f-droid/fdroidserver/commit/2f84ce36da2aa79c1583832cd475b1d0be14cca5
-  url "https://files.pythonhosted.org/packages/3c/39/16a78b07797a6fb7fdce85aaa0bb71fb1e459dcdd73ee70be5ff15711059/fdroidserver-2.2.2.tar.gz"
-  sha256 "19c268168fa65ad2be4a4f27f4750b9c9d54ddaa5fab229d4d1770f161a093b2"
+  url "https://files.pythonhosted.org/packages/65/67/f0bc0518c635ea39a88ec0438679627cc2cfb142d1da05f8d2e72997270d/fdroidserver-2.3a1.tar.gz"
+  sha256 "9860802b704ee278f0a00ae26a73896069284ea54a2d310519988a2492ba745c"
   license "AGPL-3.0-or-later"
 
   bottle do
@@ -41,8 +39,8 @@ class Fdroidserver < Formula
   end
 
   resource "androguard" do
-    url "https://files.pythonhosted.org/packages/83/78/0f44e8f0fd10493b3118d79d60599c93e5a2cd378d83054014600a620cba/androguard-3.3.5.tar.gz"
-    sha256 "f0655ca3a5add74c550951e79bd0bebbd1c5b239178393d30d8db0bd3202cda2"
+    url "https://files.pythonhosted.org/packages/bd/74/b4d5ce146d023ab57ed8392bfab934993d8095ff6ec3e850a48a7dbbb50b/androguard-4.1.1.tar.gz"
+    sha256 "dffc138046f8c3aea061203afff490c77f2000345f685e1dad1780d478f3c5f6"
   end
 
   resource "apache-libcloud" do
@@ -185,6 +183,11 @@ class Fdroidserver < Formula
     sha256 "0c127d8b2f4865f59ae9cb8aafcd60b5c70f3241ebd66f7defad7c4ab90126c9"
   end
 
+  resource "oscrypto" do
+    url "https://files.pythonhosted.org/packages/06/81/a7654e654a4b30eda06ef9ad8c1b45d1534bfd10b5c045d0c0f6b16fecd2/oscrypto-1.3.0.tar.gz"
+    sha256 "6f5fef59cb5b3708321db7cca56aed8ad7e662853351e7991fcf60ec606d47a4"
+  end
+
   resource "packaging" do
     url "https://files.pythonhosted.org/packages/ee/b5/b43a27ac7472e1818c4bafd44430e69605baefe1f34440593e0332ec8b4d/packaging-24.0.tar.gz"
     sha256 "eb82c5e3e56209074766e6885bb04b8c38a0c015d0a30036ebe7ece34c9989e9"
@@ -223,16 +226,6 @@ class Fdroidserver < Formula
   resource "pure-eval" do
     url "https://files.pythonhosted.org/packages/97/5a/0bc937c25d3ce4e0a74335222aee05455d6afa2888032185f8ab50cdf6fd/pure_eval-0.2.2.tar.gz"
     sha256 "2b45320af6dfaa1750f543d714b6d1c520a1688dec6fd24d339063ce0aaa9ac3"
-  end
-
-  resource "pyasn1" do
-    url "https://files.pythonhosted.org/packages/a4/db/fffec68299e6d7bad3d504147f9094830b704527a7fc098b721d38cc7fa7/pyasn1-0.4.8.tar.gz"
-    sha256 "aef77c9fb94a3ac588e87841208bdec464471d9871bd5050a287cc9a475cd0ba"
-  end
-
-  resource "pyasn1-modules" do
-    url "https://files.pythonhosted.org/packages/88/87/72eb9ccf8a58021c542de2588a867dbefc7556e14b2866d1e40e9e2b587e/pyasn1-modules-0.2.8.tar.gz"
-    sha256 "905f84c712230b2c592c19470d3ca8d552de726050d1d1716282a1f6146be65e"
   end
 
   resource "pydot" do
@@ -401,6 +394,14 @@ class Fdroidserver < Formula
 
         AutoUpdateMode: None
         UpdateCheckMode: None
+      EOS
+      (testpath/"fdroid/config/categories.yml").write <<~EOS
+        Graphics:
+          icon: category_graphics.png
+          name: Graphics
+        Internet:
+          icon: category_internet.png
+          name: Internet
       EOS
 
       system bin/"fdroid", "checkupdates", "--verbose", "--allow-dirty"
