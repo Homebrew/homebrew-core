@@ -9,6 +9,8 @@ class ZshGitPrompt < Formula
     sha256 cellar: :any_skip_relocation, all: "d4fa3836434d56704bd03f88f3e45557cac6e12cb6e17cc251635ecdcbc431eb"
   end
 
+  uses_from_macos "zsh"
+
   def install
     prefix.install Dir["*.{sh,py}"]
   end
@@ -21,8 +23,10 @@ class ZshGitPrompt < Formula
   end
 
   test do
-    system "git", "init"
+    ENV["TERM"] = "xterm"
+
+    system "git", "init", "--initial-branch=main"
     zsh_command = ". #{opt_prefix}/zshrc.sh && git_super_status"
-    assert_match "master", shell_output("zsh -c '#{zsh_command}'")
+    assert_match "main", shell_output("zsh -c '#{zsh_command}'")
   end
 end
