@@ -1,0 +1,26 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
+{
+  "name": "Ubuntu",
+  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+  "features": {
+    "ghcr.io/meaningful-ooo/devcontainer-features/homebrew:2": {}
+  },
+
+  "privileged": true,
+  "postCreateCommand": "brew update",
+
+  "customizations": {
+    "vscode": {
+      "settings": {
+        // Define suggested settings for the dev container
+        "resmon.show.battery": false,
+        "resmon.show.cpufreq": false
+      },
+
+      // For linting Markdown files
+      "extensions": ["DavidAnson.vscode-markdownlint"]
+    }
+  }
+}
