@@ -1,8 +1,8 @@
 class Aichat < Formula
   desc "ChatGPT cli"
   homepage "https://github.com/sigoden/aichat"
-  url "https://github.com/sigoden/aichat/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "e0aa74e6b89d6cffac5b0639ffc59204b64bf9e19c92e35d0a7cd9ab50c47911"
+  url "https://github.com/sigoden/aichat/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "113f910315c6fd1bd0746daf346570a26883206d6f61a8a8dd07d98b4c509393"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/sigoden/aichat.git", branch: "main"
 
@@ -23,7 +23,18 @@ class Aichat < Formula
   end
 
   test do
-    ENV["OPENAI_API_KEY"] = "sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+    ENV["AICHAT_CONFIG_DIR"] = testpath
+
+    (testpath/"config.yaml").write <<~EOS
+      model: openai:gpt-3.5-turbo
+
+      clients:
+      - type: openai
+        api_key: sk-xxx
+        api_base: https://api.openai.com/v1
+        organization_id: org-xxx
+    EOS
+
     output = shell_output("#{bin}/aichat --dry-run math 3.2x4.8")
     assert_match "math 3.2x4.8", output
   end
