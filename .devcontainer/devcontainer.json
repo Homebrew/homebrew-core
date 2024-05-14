@@ -1,0 +1,31 @@
+// For format details, see https://aka.ms/devcontainer.json.
+{
+  "name": "Homebrew/brew",
+  "image": "ghcr.io/homebrew/brew:latest",
+
+  "workspaceFolder": "/home/linuxbrew/.linuxbrew/Homebrew",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/home/linuxbrew/.linuxbrew/Homebrew,type=bind,consistency=cached",
+
+  "onCreateCommand": ".devcontainer/on-create-command.sh",
+
+  "customizations": {
+    "vscode": {
+      // Installing all necessary extensions for vscode
+      // Taken from: .vscode/extensions.json
+      "extensions": [
+        "kaiwood.endwise",
+        "lorankloeze.ruby-rubocop-revived",
+        "rebornix.ruby",
+        "sorbet.sorbet-vscode-extension",
+        "github.vscode-github-actions",
+        "timonwong.shellcheck",
+        "foxundermoon.shell-format",
+        "davidanson.vscode-markdownlint"
+      ]
+    }
+  },
+
+  "remoteEnv": {
+    "HOMEBREW_GITHUB_API_TOKEN": "${localEnv:GITHUB_TOKEN}"
+  }
+}
