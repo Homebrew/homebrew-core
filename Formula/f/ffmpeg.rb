@@ -36,15 +36,20 @@ class Ffmpeg < Formula
   depends_on "harfbuzz"
   depends_on "jpeg-xl"
   depends_on "lame"
+  depends_on "libarchive"
   depends_on "libass"
   depends_on "libbluray"
+  depends_on "libogg"
   depends_on "librist"
+  depends_on "libsamplerate"
   depends_on "libsoxr"
   depends_on "libssh"
   depends_on "libvidstab"
   depends_on "libvmaf"
   depends_on "libvorbis"
   depends_on "libvpx"
+  depends_on "libx11"
+  depends_on "libxcb"
   depends_on "opencore-amr"
   depends_on "openjpeg"
   depends_on "opus"
@@ -71,6 +76,7 @@ class Ffmpeg < Formula
 
   on_linux do
     depends_on "alsa-lib"
+    depends_on "libxext"
     depends_on "libxv"
   end
 
