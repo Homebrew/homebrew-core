@@ -38,4 +38,23 @@ class Libtermkey < Formula
     system "make", "PREFIX=#{prefix}"
     system "make", "install", "PREFIX=#{prefix}"
   end
+  test do
+    (testpath/"test.c").write <<~EOS
+      #include <termkey.h>
+      #include <stdio.h>
+
+      int main() {
+        TermKey *tk = termkey_new(0, 0);
+        if (tk == NULL) {
+          fprintf(stderr, "Failed to initialize libtermkey\\n");
+          return 1;
+        }
+        termkey_destroy(tk);
+        printf("libtermkey initialized and destroyed successfully\\n");
+        return 0;
+      }
+    EOS
+    system ENV.cc, "test.c", "-o", "test", "-L#{lib}", "-ltermkey", "-I#{include}"
+    assert_match "libtermkey initialized and destroyed successfully", shell_output("./test")
+  end
 end
