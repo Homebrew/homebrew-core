@@ -1,8 +1,8 @@
 class OpenMesh < Formula
   desc "Generic data structure to represent and manipulate polygonal meshes"
   homepage "https://www.graphics.rwth-aachen.de/software/openmesh/"
-  url "https://www.graphics.rwth-aachen.de/media/openmesh_static/Releases/10.0/OpenMesh-10.0.0.tar.bz2"
-  sha256 "af22520a474bb6a3b355eb0867449c6b995126f97632d1ee5ff9c7ebd322fedb"
+  url "https://www.graphics.rwth-aachen.de/media/openmesh_static/Releases/11.0/OpenMesh-11.0.0.tar.bz2"
+  sha256 "ad12afc9ff86cb6f0921fd2f1644dcc30014c026810051fd759540517bb8ced0"
   license "BSD-3-Clause"
   head "https://gitlab.vci.rwth-aachen.de:9000/OpenMesh/OpenMesh.git", branch: "master"
 
