@@ -2,6 +2,7 @@ class Libgccjit < Formula
   desc "JIT library for the GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
@@ -35,7 +36,7 @@ class Libgccjit < Formula
   # out of the box on Xcode-only systems due to an incorrect sysroot.
   pour_bottle? only_if: :clt_installed
 
-  depends_on "gcc" => :test
+  depends_on "gcc"
   depends_on "gmp"
   depends_on "isl"
   depends_on "libmpc"
@@ -103,6 +104,14 @@ class Libgccjit < Formula
 
     # Provide a `lib/gcc/xy` directory to align with the versioned GCC formulae.
     (lib/"gcc"/version.major).install_symlink (lib/"gcc/current").children
+
+    # Fix the path to libgcc_s where necessary
+    # https://github.com/orgs/Homebrew/discussions/5364
+    if OS.mac? && Hardware::CPU.intel?
+      MachO::Tools.change_install_name("#{lib}/gcc/current/libgccjit.0.dylib",
+                                      "@rpath/libgcc_s.1.1.dylib",
+                                      "#{Formula["gcc"].opt_lib}/gcc/current/libgcc_s.1.1.dylib")
+    end
   end
 
   test do
