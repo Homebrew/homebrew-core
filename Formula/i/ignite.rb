@@ -1,8 +1,8 @@
 class Ignite < Formula
   desc "Build, launch, and maintain any crypto application with Ignite CLI"
   homepage "https://github.com/ignite/cli"
-  url "https://github.com/ignite/cli/archive/refs/tags/v28.3.0.tar.gz"
-  sha256 "00ea4ca9fbd04af84cd1e88861a8759618afdc03113010688b1e1e3b0f9d6578"
+  url "https://github.com/ignite/cli/archive/refs/tags/v28.4.0.tar.gz"
+  sha256 "cbd4a26bd4889ad10a6f7161ca7e5c4e9cc037105d8f31e691d8a9ed394c4ed8"
   license "Apache-2.0"
 
   bottle do
@@ -25,6 +25,7 @@ class Ignite < Formula
   test do
     ENV["DO_NOT_TRACK"] = "1"
     system bin/"ignite", "s", "chain", "mars"
+    sleep 2
     assert_predicate testpath/"mars/go.mod", :exist?
   end
 end
