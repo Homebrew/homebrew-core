@@ -3,8 +3,8 @@ require "language/node"
 class Seam < Formula
   desc "This utility lets you control Seam resources"
   homepage "https://github.com/seamapi/seam-cli"
-  url "https://registry.npmjs.org/seam-cli/-/seam-cli-0.0.55.tgz"
-  sha256 "ce344169eed14ffd47e17a40cefa94634b3176357ea984175f5eaab02cd689e0"
+  url "https://registry.npmjs.org/seam-cli/-/seam-cli-0.0.56.tgz"
+  sha256 "3d59bcfc7b4e5c048e6b38d9dd1ffb84ca8bc211893a4908cc751e36fd2edc6f"
   license "MIT"
 
   bottle do
