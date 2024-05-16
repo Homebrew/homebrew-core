@@ -207,6 +207,11 @@ class Openstackclient < Formula
     sha256 "105254a8b04934f0bc84e9c24eb360a591aaf6535c9def5f29d92af107a9bf57"
   end
 
+  resource "python-barbicanclient" do
+    url "https://files.pythonhosted.org/packages/eb/8e/d93b8cd37dddef7cfe1a4c2fe31a1119d06c5518a15be3b7501575aa22c0/python-barbicanclient-5.7.0.tar.gz"
+    sha256 "8d22db4faeb4657586592d871e49d7d0b76e47aabd2d30c9c6903c2b4c484d6a"
+  end
+
   resource "python-cinderclient" do
     url "https://files.pythonhosted.org/packages/c5/ac/2a7e767ca2058af6ab9b257bef8cde23b607719ff876602ddb72f6104aa8/python-cinderclient-9.5.0.tar.gz"
     sha256 "1b9d717aff93cad420045fb6c52f6376ab72f085f8193130892020ec46c93555"
