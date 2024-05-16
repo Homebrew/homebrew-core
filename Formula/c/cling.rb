@@ -2,24 +2,9 @@ class Cling < Formula
   desc "C++ interpreter"
   homepage "https://root.cern.ch/cling"
   url "https://github.com/root-project/cling.git",
-      tag:      "v0.9",
-      revision: "f3768a4c43b0f3b23eccc6075fa178861a002a10"
+      tag:      "v1.0",
+      revision: "ab81cdcc61f26dfd6a31fb141f1f4b335f6922be"
   license any_of: ["LGPL-2.1-only", "NCSA"]
-
-  bottle do
-    sha256               arm64_monterey: "ae9ec74f889a58e57f00394e3b46dd1793d975ce7dc5907c71e2e15853610a62"
-    sha256 cellar: :any, arm64_big_sur:  "82134eeea0ba90008355120b137908d828011e302b62ec97de10b152777d9651"
-    sha256               monterey:       "90f4150c5bcc027fe76db2f53948eb31e757124da337639303eee2ac768c8999"
-    sha256 cellar: :any, big_sur:        "e894d9476bc9ed0edb1ca8d3ca1d9fa6cefc8fc50befc93f1d1c25d1f1bee721"
-    sha256 cellar: :any, catalina:       "fd178b38640189a9b096d9c98fe3b1dedc934a504ddc0d3dc1c6bbfea144f09f"
-    sha256 cellar: :any, mojave:         "5135fc901ba316ca0e02f5598af21cd42a264994111252964f239b2576c7829b"
-    sha256               x86_64_linux:   "315073c45b0684a970493476b9c8476ddf90eb7d69bd5326efdf97b79ec55e25"
-  end
-
-  # Does not build on Ventura
-  # https://github.com/Homebrew/homebrew-core/pull/131473
-  # https://github.com/root-project/cling/issues/492#issuecomment-1555938334
-  deprecate! date: "2023-08-24", because: :does_not_build
 
   depends_on "cmake" => :build
 
@@ -27,30 +12,26 @@ class Cling < Formula
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
-  resource "clang" do
-    url "http://root.cern.ch/git/clang.git",
-        tag:      "cling-v0.9",
-        revision: "b7fa7dcfd21cac3d67688be9bdc83a35778e53e1"
-  end
-
   resource "llvm" do
-    url "http://root.cern.ch/git/llvm.git",
-        tag:      "cling-v0.9",
-        revision: "85e42859fb6de405e303fc8d92e37ff2b652b4b5"
+    url "https://github.com/root-project/llvm-project.git",
+        tag:      "cling-llvm13-20240318-01",
+        revision: "3610201fbe0352a63efb5cb45f4ea4987702c735"
   end
 
   def install
     (buildpath/"src").install resource("llvm")
-    (buildpath/"src/tools/cling").install buildpath.children - [buildpath/"src"]
-    (buildpath/"src/tools/clang").install resource("clang")
     mkdir "build" do
-      system "cmake", *std_cmake_args, "../src",
+      system "cmake", *std_cmake_args,
                       "-DCMAKE_INSTALL_PREFIX=#{libexec}",
-                      "-DCLING_CXX_PATH=clang++"
+                      "-DLLVM_EXTERNAL_PROJECTS=cling",
+                      "-DLLVM_EXTERNAL_CLING_SOURCE_DIR=..",
+                      "-DLLVM_ENABLE_PROJECTS=clang",
+                      "-DLLVM_TARGETS_TO_BUILD=host;NVPTX",
+                      "-DLLVM_BUILD_TOOLS=Off",
+                      "../src/llvm"
       system "make", "install"
     end
     bin.install_symlink libexec/"bin/cling"
-    prefix.install_metafiles buildpath/"src/tools/cling"
   end
 
   test do
