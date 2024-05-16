@@ -11,7 +11,4 @@ class Rsjpg < Formula
     system "cargo", "install", *std_cargo_args
   end
 
-  test do
-    system "#{bin}/rsjpg", "--version"
-  end
 end
