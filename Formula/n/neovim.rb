@@ -61,13 +61,13 @@ class Neovim < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "dceae593d688ebcab98d65cb2a8c885493ce7ceba0d87dff5e35cc9a00840382"
-    sha256 arm64_ventura:  "de0f296454dd02e139ad69f6a193e597691528988389214407c4ea08677e26fb"
-    sha256 arm64_monterey: "b7b6fc8764383e84657912cc17197f40fe112382dd98299713abc273131acaef"
-    sha256 sonoma:         "c0d17b581f7584ea6de7e131cfbb89374d9753464fc5030d262aadf186aefb11"
-    sha256 ventura:        "56162a099233d89e325b024ac3052cd7a0c7bc667071fb83f5ba4ebbeffcf8a5"
-    sha256 monterey:       "cb2591d244f1ec97c38fc5f7f0d0a358d0d03a1a94432c28c1cc7c577dddb369"
-    sha256 x86_64_linux:   "ab667b4b8ce2b55f8c654d85520831f05590b1df4c2ddd277149d24681643a20"
+    sha256 arm64_sonoma:   "29f56efa4ef3ad9826c6166ae3ff703143038f9b771928cb90927b88bd234e32"
+    sha256 arm64_ventura:  "031b5ec26e73d2523c561bf54ffb9984012f6fd4a8610a41dbf73048713d2060"
+    sha256 arm64_monterey: "5204adbe762b797feb2f8ca3005182eeef43e89bfe753ed8ad8c533cba6805f1"
+    sha256 sonoma:         "2415920449c19c1b50ae5c91e0aff2b54a2c20e10c6bdacfcd77f9f09defce90"
+    sha256 ventura:        "64de1ffb23f9ef9f8f51dd0d33ab19d31a290d33b1d62a422be1d4a4047820f2"
+    sha256 monterey:       "fe5c86b90ee70689f94bfe05ec95f064053ad7223090f64749de8f86b3b8465c"
+    sha256 x86_64_linux:   "77883d08b74050e4a609865c8e113f07b847e6eacc657b9597cf002bbc97395e"
   end
 
   depends_on "cmake" => :build
