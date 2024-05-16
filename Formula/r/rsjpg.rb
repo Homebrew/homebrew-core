@@ -11,4 +11,10 @@ class Rsjpg < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+<<<<<<< HEAD
+=======
+  test do
+    system "#{bin}/rsjpg", "--version"
+  end
+>>>>>>> 8bf358facee (Fix license and version issues)
 end
