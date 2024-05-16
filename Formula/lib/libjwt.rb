@@ -11,13 +11,13 @@ class Libjwt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d529c193f8a33bd5fa79321c8aba7fd6f474cb0353b54b54c2cdc6ed92fa543f"
-    sha256 cellar: :any,                 arm64_ventura:  "66bad1a8957b19388528dbcaa5761afaa5760cff5782c2de52a2a739468e265c"
-    sha256 cellar: :any,                 arm64_monterey: "9567d7b2b04866173df2a33fd6109409a44194e0500fe867068c3280da2a97cb"
-    sha256 cellar: :any,                 sonoma:         "a2c3941e80d85fdd0cf2e4d324d5fcc171e1c018491c6c9c95d92f4c622d86ea"
-    sha256 cellar: :any,                 ventura:        "d01f570cfd764f3c3c442275b6e6480b8362bef77053fcc31e9f654813b82979"
-    sha256 cellar: :any,                 monterey:       "b07b3eb345222f0a73cb6e3c0361c4d016e40b5275e04e29c841c7a4e11e340a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "96c9f7e64468ff49779273c29f12751d0d292dffe78c3fd9f00c3ea4b51d7e39"
+    sha256 cellar: :any,                 arm64_sonoma:   "d401018405929b179299529c9ff100ddaf58ab2a8bceb47ca7d85057c3e0ab01"
+    sha256 cellar: :any,                 arm64_ventura:  "6cc8b31e9e5df4d95ded09ef7b627e6b1a5b38eda0cef904b569065786399a3e"
+    sha256 cellar: :any,                 arm64_monterey: "eeda8958df30e73b8265b31e2805090d626991d52e2b902a0dd2e5d66f907f79"
+    sha256 cellar: :any,                 sonoma:         "970142499d0e227ea6511192d66ca058e32f7a656e479ee0391b1b798bc4e5f0"
+    sha256 cellar: :any,                 ventura:        "0ff812e7b77b0e9062002888ac5f995f7b1531eaa1086fc7f60e458ce2fb8ff2"
+    sha256 cellar: :any,                 monterey:       "4b9afa8a495a47d52610af8b90f07d2c779118dfab47a58b9447acae2b553210"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9e10b6e84062a8c02d463a84dadd4c1836005357a26b99b997e73d42b76580d6"
   end
 
   head do
