@@ -3,22 +3,11 @@ class Neovim < Formula
   homepage "https://neovim.io/"
   license "Apache-2.0"
 
+  head "https://github.com/neovim/neovim.git", branch: "master"
+
   stable do
-    url "https://github.com/neovim/neovim/archive/refs/tags/v0.9.5.tar.gz"
-    sha256 "fe74369fc30a32ec7a086b1013acd0eacd674e7570eb1acc520a66180c9e9719"
-
-    # Remove when `mpack` resource is removed.
-    depends_on "luarocks" => :build
-    # Remove in 0.10.
-    # Upstream plan to replace this with `libtickit` which will subsume `libtermkey`.
-    # See: https://github.com/neovim/neovim/pull/25870
-    depends_on "libtermkey"
-
-    # Remove in 0.10.
-    resource "mpack" do
-      url "https://github.com/libmpack/libmpack-lua/releases/download/1.0.11/libmpack-lua-1.0.11.tar.gz"
-      sha256 "a2d9ec184867ab92ad86e251908619fa13e345b8f2c9bc99df4ac63c8039d796"
-    end
+    url "https://github.com/neovim/neovim/archive/refs/tags/v0.10.0.tar.gz"
+    sha256 "372ea2584b0ea2a5a765844d95206bda9e4a57eaa1a2412a9a0726bab750f828"
 
     # Keep resources updated according to:
     # https://github.com/neovim/neovim/blob/v#{version}/cmake.deps/CMakeLists.txt
@@ -26,28 +15,43 @@ class Neovim < Formula
     # TODO: Consider shipping these as separate formulae instead. See discussion at
     #       https://github.com/orgs/Homebrew/discussions/3611
     resource "tree-sitter-c" do
-      url "https://github.com/tree-sitter/tree-sitter-c/archive/refs/tags/v0.20.5.tar.gz"
-      sha256 "694a5408246ee45d535df9df025febecdb50bee764df64a94346b9805a5f349b"
+      url "https://github.com/tree-sitter/tree-sitter-c/archive/refs/tags/v0.21.0.tar.gz"
+      sha256 "6f0f5d1b71cf8ffd8a37fb638c6022fa1245bd630150b538547d52128ce0ea7e"
     end
 
     resource "tree-sitter-lua" do
-      url "https://github.com/MunifTanjim/tree-sitter-lua/archive/refs/tags/v0.0.18.tar.gz"
-      sha256 "659beef871a7fa1d9a02c23f5ebf55019aa3adce6d7f5441947781e128845256"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-lua/archive/refs/tags/v0.1.0.tar.gz"
+      sha256 "230cfcbfa74ed1f7b8149e9a1f34c2efc4c589a71fe0f5dc8560622f8020d722"
     end
 
     resource "tree-sitter-vim" do
-      url "https://github.com/neovim/tree-sitter-vim/archive/refs/tags/v0.3.0.tar.gz"
-      sha256 "403acec3efb7cdb18ff3d68640fc823502a4ffcdfbb71cec3f98aa786c21cbe2"
+      url "https://github.com/tree-sitter-grammars/tree-sitter-vim/archive/refs/tags/v0.4.0.tar.gz"
+      sha256 "9f856f8b4a10ab43348550fa2d3cb2846ae3d8e60f45887200549c051c66f9d5"
     end
 
     resource "tree-sitter-vimdoc" do
-      url "https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v2.0.0.tar.gz"
-      sha256 "1ff8f4afd3a9599dd4c3ce87c155660b078c1229704d1a254433e33794b8f274"
+      url "https://github.com/neovim/tree-sitter-vimdoc/archive/refs/tags/v2.5.1.tar.gz"
+      sha256 "063645096504b21603585507c41c6d8718ff3c11b2150c5bfc31e8f3ee9afea3"
     end
 
     resource "tree-sitter-query" do
-      url "https://github.com/nvim-treesitter/tree-sitter-query/archive/refs/tags/v0.1.0.tar.gz"
-      sha256 "e2b806f80e8bf1c4f4e5a96248393fe6622fc1fc6189d6896d269658f67f914c"
+      url "https://github.com/nvim-treesitter/tree-sitter-query/archive/refs/tags/v0.3.0.tar.gz"
+      sha256 "f878ff37abcb83250e31a6569e997546f3dbab74dcb26683cb2d613f7568cfc0"
+    end
+
+    resource "tree-sitter-python" do
+      url "https://github.com/tree-sitter/tree-sitter-python/archive/refs/tags/v0.21.0.tar.gz"
+      sha256 "720304a603271fa89e4430a14d6a81a023d6d7d1171b1533e49c0ab44f1e1c13"
+    end
+
+    resource "tree-sitter-bash" do
+      url "https://github.com/tree-sitter/tree-sitter-bash/archive/refs/tags/v0.21.0.tar.gz"
+      sha256 "f0515efda839cfede851adb24ac154227fbc0dfb60c6c11595ecfa9087d43ceb"
+    end
+
+    resource "tree-sitter-markdown" do
+      url "https://github.com/tree-sitter-grammars/tree-sitter-markdown/archive/refs/tags/v0.2.3.tar.gz"
+      sha256 "4909d6023643f1afc3ab219585d4035b7403f3a17849782ab803c5f73c8a31d5"
     end
   end
 
@@ -66,18 +70,11 @@ class Neovim < Formula
     sha256 x86_64_linux:   "ab667b4b8ce2b55f8c654d85520831f05590b1df4c2ddd277149d24681643a20"
   end
 
-  # TODO: Replace with single-line `head` when `lpeg`
-  #       is no longer a head-only dependency in 0.10.0.
-  head do
-    url "https://github.com/neovim/neovim.git", branch: "master"
-    depends_on "lpeg"
-  end
-
   depends_on "cmake" => :build
-  depends_on "lpeg" => :build # needed at runtime in 0.10.0
   depends_on "gettext"
   depends_on "libuv"
   depends_on "libvterm"
+  depends_on "lpeg"
   depends_on "luajit"
   depends_on "luv"
   depends_on "msgpack"
@@ -97,29 +94,13 @@ class Neovim < Formula
 
     if build.stable?
       cd "deps-build/build/src" do
-        # TODO: Remove `mpack` build block in 0.10.0.
-        cd "mpack" do
-          luajit = Formula["luajit"]
-          lua_path = "--lua-dir=#{luajit.opt_prefix}"
-          deps_build = buildpath/"deps-build"
-
-          # The path separator for `LUA_PATH` and `LUA_CPATH` is `;`.
-          ENV["LUA_PATH"] = "#{deps_build}/share/lua/5.1/?.lua;;"
-          ENV["LUA_CPATH"] = "#{deps_build}/lib/lua/5.1/?.so;;"
-
-          rock = "mpack-1.0.11-0.rockspec"
-          output = Utils.safe_popen_read("luarocks", "unpack", lua_path, rock, "--tree=#{deps_build}")
-          unpack_dir = output.split("\n")[-2]
-
-          cd unpack_dir do
-            system "luarocks", "make", lua_path, "--tree=#{deps_build}"
-          end
-        end
-
         Dir["tree-sitter-*"].each do |ts_dir|
           cd ts_dir do
-            cp buildpath/"cmake.deps/cmake/TreesitterParserCMakeLists.txt", "CMakeLists.txt"
-
+            if ts_dir == "tree-sitter-markdown"
+              cp buildpath/"cmake.deps/cmake/MarkdownParserCMakeLists.txt", "CMakeLists.txt"
+            else
+              cp buildpath/"cmake.deps/cmake/TreesitterParserCMakeLists.txt", "CMakeLists.txt"
+            end
             parser_name = ts_dir[/^tree-sitter-(\w+)$/, 1]
             system "cmake", "-S", ".", "-B", "build", "-DPARSERLANG=#{parser_name}", *std_cmake_args
             system "cmake", "--build", "build"
