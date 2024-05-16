@@ -15,4 +15,3 @@ class Rsjpg < Formula
     system "#{bin}/rsjpg", "--version"
   end
 end
-
