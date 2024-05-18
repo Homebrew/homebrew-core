@@ -5,17 +5,6 @@ class Mariadb < Formula
   sha256 "5570778f0a2c27af726c751cda1a943f3f8de96d11d107791be5b44a0ce3fb5c"
   license "GPL-2.0-only"
 
-  livecheck do
-    url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
-    strategy :json do |json|
-      json["releases"]&.map do |release|
-        next if release["status"] != "stable"
-
-        release["release_number"]
-      end
-    end
-  end
-
   bottle do
     sha256 arm64_sonoma:   "62b3259218d3f4a3c1b52eb011382d9bfe2e2833f40d255d735c40320fa9d81c"
     sha256 arm64_ventura:  "a9f71222869b1e0fcfe4cc0fd55ee340755efb5b31a26483a726b3a577a86828"
@@ -26,16 +15,24 @@ class Mariadb < Formula
     sha256 x86_64_linux:   "190cfffaffb9692e8e8ca7ef32d5ba8a2f0fadb5287b3e0a4e9262f0838b72a7"
   end
 
+  # https://mariadb.org/about/#maintenance-policy
+  # https://mariadb.org/adjusting-release-model/
+  deprecate! date: "2024-05-18", because: :unmaintained
+
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "fmt" => :build
   depends_on "pkg-config" => :build
   depends_on "groonga"
+  depends_on "lz4"
   depends_on "openssl@3"
   depends_on "pcre2"
+  depends_on "xz"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
+  uses_from_macos "krb5"
+  uses_from_macos "libedit"
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "ncurses"
