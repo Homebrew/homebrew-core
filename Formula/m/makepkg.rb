@@ -24,6 +24,7 @@ class Makepkg < Formula
   depends_on "fakeroot"
   depends_on "libarchive"
   depends_on "openssl@3"
+  depends_on "coreutils"
 
   uses_from_macos "m4" => :build
   uses_from_macos "python" => :build
