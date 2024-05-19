@@ -22,6 +22,25 @@ class Mcfly < Formula
     system "cargo", "install", *std_cargo_args
   end
 
+  def caveats
+    <<~EOS
+      ONE MORE STEP!
+
+      If this is your first time installing mcfly, add the following to the end of your ~/.bashrc, ~/.zshrc, or ~/.config/fish/config.fish file:
+
+      Bash:
+        eval "$(mcfly init bash)"
+
+      Zsh:
+        eval "$(mcfly init zsh)"
+
+      Fish:
+        mcfly init fish | source
+
+      You will also need to restart your terminal when first installing and on some updates. If you receive a McFly error when running commands, try restarting your terminal.
+    EOS
+  end
+
   test do
     assert_match "mcfly_prompt_command", shell_output("#{bin}/mcfly init bash")
     assert_match version.to_s, shell_output("#{bin}/mcfly --version")
