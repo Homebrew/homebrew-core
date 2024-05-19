@@ -1,5 +1,5 @@
 class Lgogdownloader < Formula
-  desc "Unofficial downloader for GOG.com games haha"
+  desc "Unofficial downloader for GOG.com games"
   homepage "https://sites.google.com/site/gogdownloader/"
   url "https://github.com/Sude-/lgogdownloader/releases/download/v3.13/lgogdownloader-3.13.tar.gz"
   sha256 "e1bd9abd5955ad6a6d083674021cd9421d03473ce90d6e6a1a497f71c05d1fd0"
