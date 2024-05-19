@@ -1,10 +1,10 @@
 class Lgogdownloader < Formula
-  desc "Unofficial downloader for GOG.com games"
+  desc "Unofficial downloader for GOG.com games haha"
   homepage "https://sites.google.com/site/gogdownloader/"
-  url "https://github.com/Sude-/lgogdownloader/releases/download/v3.12/lgogdownloader-3.12.tar.gz"
-  sha256 "bf3a16c1b2ff09152f9ac52ea9b52dfc0afae799ed1b370913149cec87154529"
+  url "https://github.com/Sude-/lgogdownloader/releases/download/v3.13/lgogdownloader-3.13.tar.gz"
+  sha256 "e1bd9abd5955ad6a6d083674021cd9421d03473ce90d6e6a1a497f71c05d1fd0"
   license "WTFPL"
-  revision 3
+  revision 1
   head "https://github.com/Sude-/lgogdownloader.git", branch: "master"
 
   livecheck do
@@ -25,6 +25,7 @@ class Lgogdownloader < Formula
   depends_on "cmake" => :build
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
+  depends_on "tidy-html5" => :build
   depends_on "boost"
   depends_on "htmlcxx"
   depends_on "jsoncpp"
