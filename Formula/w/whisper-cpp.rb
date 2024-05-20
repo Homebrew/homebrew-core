@@ -1,8 +1,8 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggerganov/whisper.cpp"
-  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.5.5.tar.gz"
-  sha256 "27fa5c472657af2a6cee63de349a34b23d0f3781fa9b8ef301a940cf64964a79"
+  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "2729a83662edf909dad66115a3b616c27011cbe4c05335656034954c91ba0c92"
   license "MIT"
   head "https://github.com/ggerganov/whisper.cpp.git", branch: "master"
 
@@ -45,8 +45,10 @@ class WhisperCpp < Formula
   end
 
   test do
-    cp [pkgshare/"jfk.wav", pkgshare/"for-tests-ggml-tiny.bin", pkgshare/"ggml-metal.metal", pkgshare/"ggml-common.h"],
-testpath
+    cp [pkgshare/"jfk.wav",
+        pkgshare/"for-tests-ggml-tiny.bin",
+        pkgshare/"ggml-metal.metal",
+        pkgshare/"ggml-common.h"], testpath
     system "#{bin}/whisper-cpp", "jfk.wav", "-m", "for-tests-ggml-tiny.bin"
     assert_equal 0, $CHILD_STATUS.exitstatus, "whisper-cpp failed with exit code #{$CHILD_STATUS.exitstatus}"
   end
