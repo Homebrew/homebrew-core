@@ -1344,6 +1344,7 @@ literate-git
 little-cms2
 livekit
 livekit-cli
+llama-cpp
 llm
 llvm
 lmdb
