@@ -1,8 +1,8 @@
 class Pymupdf < Formula
   desc "Python bindings for the PDF toolkit and renderer MuPDF"
   homepage "https://pymupdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/c5/47/ebd9cdc09d82462533f69f983c7f57ebbf01e68adb111a3c49acacde2540/PyMuPDF-1.23.26.tar.gz"
-  sha256 "a904261b317b761b0aa2bd2c1f6cd25d25aa4258be67a90c02a878efc5dca649"
+  url "https://files.pythonhosted.org/packages/65/2a/d91d3cef09e02e6b07e1a6723f66938e11675bb59b80f1c24eb05ceecc39/PyMuPDF-1.24.4.tar.gz"
+  sha256 "03f9e8656e2799a2d7a1d69719da4cd45ce9a030e06a5887e04c5d531035bfa2"
   license "AGPL-3.0-only"
 
   bottle do
@@ -15,20 +15,12 @@ class Pymupdf < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cdc726ae89a1d66a80526abfeb7bd380fee4e5b2aa2027bd352f31a78418460"
   end
 
+  depends_on "cmake" => :build
   depends_on "freetype" => :build
-  depends_on "python-setuptools" => :build
-  depends_on "swig" => :build
-
+  depends_on "pkg-config" => :build
   depends_on "mupdf"
   depends_on "python@3.12"
-
-  on_linux do
-    depends_on "gumbo-parser"
-    depends_on "harfbuzz"
-    depends_on "jbig2dec"
-    depends_on "mujs"
-    depends_on "openjpeg"
-  end
+  uses_from_macos "m4" => :build
 
   def python3
     "python3.12"
@@ -41,10 +33,10 @@ class Pymupdf < Formula
     # Builds only classic implementation
     # https://github.com/pymupdf/PyMuPDF/issues/2628
     ENV["PYMUPDF_SETUP_IMPLEMENTATIONS"] = "a"
-    ENV["PYMUPDF_INCLUDES"] = "#{Formula["mupdf"].opt_include} -I#{Formula["freetype"].opt_include}/freetype2"
+    ENV["PYMUPDF_INCLUDES"] = "#{Formula["mupdf"].opt_include}:#{Formula["freetype"].opt_include}/freetype2"
     ENV["PYMUPDF_MUPDF_LIB"] = Formula["mupdf"].opt_lib.to_s
 
-    system python3, "-m", "pip", "install", *std_pip_args, "."
+    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
   end
 
   test do
