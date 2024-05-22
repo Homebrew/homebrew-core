@@ -6,7 +6,7 @@ class Sceptre < Formula
   url "https://files.pythonhosted.org/packages/fd/ab/3cc351da1ce48d263e79398ea472c42509c6ab37737c809cf03eb7033d2e/sceptre-4.4.2.tar.gz"
   sha256 "5bb5683233346dc9bb7584d817851403f7b1c483d4d3ace805c76ebd09b9a49a"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "97b0ea364cf176ca984409f4a27e65aae588ce3bb6becee2b15cc9b65e4761fe"
@@ -28,13 +28,13 @@ class Sceptre < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ed/8d/630018078458d3b05fee5f68a5a20f7f3452137c63043f29d805aa4657e0/boto3-1.34.101.tar.gz"
-    sha256 "1d854b5880e185db546b4c759fcb664bf3326275064d2b44229cc217e8be9d7e"
+    url "https://files.pythonhosted.org/packages/f2/09/fe22f1a2704edbf370ffa0093e23ffb3fb78704f2e65989d0ba79a41687d/boto3-1.34.110.tar.gz"
+    sha256 "83ffe2273da7bdfdb480d85b0705f04e95bd110e9741f23328b7c76c03e6d53c"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/ba/4c/4b65cad9a70cabbc85b1a462cacecdf2151974715fab940e08a9fcf5ea2c/botocore-1.34.101.tar.gz"
-    sha256 "01f3802d25558dd7945d83884bf6885e2f84e1ff27f90b5f09614966fe18c18f"
+    url "https://files.pythonhosted.org/packages/68/21/3186c501d87a83dcc1b3df12c9112ee494033c1ed7c051e72414ba6a3212/botocore-1.34.110.tar.gz"
+    sha256 "b2c98c40ecf0b1facb9e61ceb7dfa28e61ae2456490554a16c8dbf99f20d6a18"
   end
 
   resource "cfn-flip" do
@@ -128,8 +128,8 @@ class Sceptre < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
+    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
   end
 
   resource "s3transfer" do
@@ -148,8 +148,8 @@ class Sceptre < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
-    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
+    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
+    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
   end
 
   resource "six" do
