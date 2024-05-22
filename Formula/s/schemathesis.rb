@@ -6,6 +6,7 @@ class Schemathesis < Formula
   url "https://files.pythonhosted.org/packages/c8/15/9caad5683af1e14815eb98fe98e395fda893c69c1bdc9cff74ca90ba2f6a/schemathesis-3.28.1.tar.gz"
   sha256 "940ed1858bc61f9eddb5b84ac26e15c1e0ff59b4a2b2f34dd58e4cd612aeed3e"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "3519b48b1a03ffe8d576e7b17b682181d7fb2c4c704e50812b5babd53d63e497"
@@ -73,8 +74,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/47/dc/cc4303847d1e386d3ceefdd6fddfbf75bd402879cdd534eab04a8b103a5b/hypothesis-6.100.6.tar.gz"
-    sha256 "726663fe65c793cd0c092b82ce737940f7da7fa1297a81da898c3317e5a19026"
+    url "https://files.pythonhosted.org/packages/f9/fa/8fd95a642e1309d9aad9c48cc38aff7493d6be5de8deaa348edfedcb2734/hypothesis-6.102.4.tar.gz"
+    sha256 "59b4d144346d5cffb482cc1bafbd21b13ff31608e8c4b3e4630339aee3e87763"
   end
 
   resource "hypothesis-graphql" do
@@ -138,8 +139,8 @@ class Schemathesis < Formula
   end
 
   resource "pytest" do
-    url "https://files.pythonhosted.org/packages/09/9d/78b3785134306efe9329f40815af45b9215068d6ae4747ec0bc91ff1f4aa/pytest-8.2.0.tar.gz"
-    sha256 "d507d4482197eac0ba2bae2e9babf0672eb333017bcedaa5fb1a3d42c1174b3f"
+    url "https://files.pythonhosted.org/packages/cf/4e/0ceea141f0e5d09de4053c5338c62615ae2bd9bd3f013813f5ec62e3cf97/pytest-8.2.1.tar.gz"
+    sha256 "5046e5b46d8e4cac199c373041f26be56fdb81eb4e67dc11d4e10811fc3408fd"
   end
 
   resource "pytest-subtests" do
@@ -158,8 +159,8 @@ class Schemathesis < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/9d/be/10918a2eac4ae9f02f6cfe6414b7a155ccd8f7f9d4380d62fd5b955065c3/requests-2.31.0.tar.gz"
-    sha256 "942c5a758f98d790eaed1a29cb6eefc7ffb0d1cf7af05c3d2791656dbd6ad1e1"
+    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
+    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
   end
 
   resource "rpds-py" do
