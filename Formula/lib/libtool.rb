@@ -19,7 +19,7 @@ class Libtool < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f55d5bcc07a45f599800b2c9fb5818c13be90803355e169cdb0e1ddc621bee5e"
   end
 
-  depends_on "m4"
+  uses_from_macos "m4"
 
   def install
     args = %W[
