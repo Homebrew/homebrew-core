@@ -1,9 +1,9 @@
 class Codesmooth < Formula
-  desc "Command Line Interface for CodeSmooth projects"
+  desc "Command-line interface for CodeSmooth tasks"
   homepage "https://codesmooth.dev"
-  version "1.0.0"
   url "https://storage.googleapis.com/codesmooth-resources/public/cli/codesmooth-1.0.0.tar.gz"
-  sha256 "1d6cc5bf9e04d3aa1d3c89f9661d3c123210c7f0a6f7fc349d4e558b15e98e2b"
+  version "1.0.0"
+  sha256 "a91d85198ae2f7bc4b4a797acd608fcddebc779b4f1a77c38844b724ef08dcfa"
   license "Apache-2.0"
 
   def install
