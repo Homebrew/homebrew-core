@@ -1,8 +1,8 @@
 class Wasmedge < Formula
   desc "Lightweight, high-performance, and extensible WebAssembly runtime"
   homepage "https://WasmEdge.org/"
-  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.13.5/WasmEdge-0.13.5-src.tar.gz"
-  sha256 "95e066661c9fc00c2927e6ae79cb0d3f9c38e804834c07faf4ceb72c0c7ff09f"
+  url "https://github.com/WasmEdge/WasmEdge/releases/download/0.14.0/WasmEdge-0.14.0-src.tar.gz"
+  sha256 "3fc518c172329d128ab41671b86e3de0544bcaacdec9c9b47bfc4ce8b421dfd5"
   license "Apache-2.0"
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
@@ -18,14 +18,13 @@ class Wasmedge < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  # llvm is required on run-time, as WASMEDGE_LINK_LLVM_STATIC defaults to OFF.
-  # The version is pinned to 16 due to https://github.com/WasmEdge/WasmEdge/pull/2878
-  depends_on "llvm@16"
+  depends_on "llvm"
+  depends_on "spdlog"
 
   def install
-    ENV["LLVM_DIR"] = Formula["llvm@16"].opt_lib/"cmake"
-    ENV["CC"] = Formula["llvm@16"].opt_bin/"clang"
-    ENV["CXX"] = Formula["llvm@16"].opt_bin/"clang++"
+    ENV["LLVM_DIR"] = Formula["llvm"].opt_lib/"cmake"
+    ENV["CC"] = Formula["llvm"].opt_bin/"clang"
+    ENV["CXX"] = Formula["llvm"].opt_bin/"clang++"
     system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
