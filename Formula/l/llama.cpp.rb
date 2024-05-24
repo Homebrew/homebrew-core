@@ -13,7 +13,7 @@ class LlamaCpp < Formula
 
   depends_on xcode: ["15.0", :build]
   depends_on arch: :arm64
-  depends_on macos: :ventura
+  depends_on macos: :sonoma
   depends_on :macos
   uses_from_macos "curl"
 
