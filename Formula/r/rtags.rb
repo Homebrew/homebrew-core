@@ -57,6 +57,8 @@ class Rtags < Formula
   depends_on "llvm"
   depends_on "openssl@3"
 
+  uses_from_macos "zlib"
+
   fails_with gcc: "5"
 
   def install
@@ -97,6 +99,7 @@ class Rtags < Formula
       pipe_output("#{bin}/rc -c", "clang -c #{testpath}/src/foo.c", 0)
       sleep 1
       assert_match "foo.c:1:6", shell_output("#{bin}/rc -f #{testpath}/src/foo.c:5:3")
+      sleep 1
       system "#{bin}/rc", "-q"
     ensure
       Process.kill 9, rdm
