@@ -1,5 +1,5 @@
 class Vedic < Formula
-  desc "vedic-lang is a Sanskrit programming language"
+  desc "Sanskrit programming language"
   homepage "https://vedic-lang.github.io/"
   url "https://github.com/vedic-lang/vedic/archive/refs/tags/v2.0.6.tar.gz"
   sha256 "5453386fcebfa48a5f3d39bc832d19edaaaa98d8d36841428ff6a20db0dd0151"
