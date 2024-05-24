@@ -3,8 +3,8 @@ class Pyside < Formula
 
   desc "Official Python bindings for Qt"
   homepage "https://wiki.qt.io/Qt_for_Python"
-  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.7.0-src/pyside-setup-everywhere-src-6.7.0.tar.xz"
-  sha256 "82eae370737df5ecf539c165d09d7c81d5fc6153a541b8d3d37b11275f9e3e8f"
+  url "https://download.qt.io/official_releases/QtForPython/pyside6/PySide6-6.7.1-src/pyside-setup-everywhere-src-6.7.1.tar.xz"
+  sha256 "6f33de37f4121e547064023edb344b95e2ab454234fa8fce27ea73df96f933cd"
   license all_of: ["GFDL-1.3-only", "GPL-2.0-only", "GPL-3.0-only", "LGPL-3.0-only"]
 
   livecheck do
@@ -39,7 +39,9 @@ class Pyside < Formula
   fails_with gcc: "5"
 
   # Fix .../sources/pyside6/qtexampleicons/module.c:4:10: fatal error: 'Python.h' file not found
-  # Upstream issue: https://bugreports.qt.io/browse/PYSIDE-2491
+  #   https://bugreports.qt.io/browse/PYSIDE-2491
+  # And `error: no member named 'Conversions' in namespace 'Shiboken'`
+  #   https://bugreports.qt.io/browse/PYSIDE-2765
   patch :DATA
 
   def python3
@@ -143,3 +145,15 @@ index 1562f7b..0611399 100644
  target_include_directories(QtExampleIcons PRIVATE ${SHIBOKEN_PYTHON_INCLUDE_DIRS})
 
  get_property(SHIBOKEN_PYTHON_LIBRARIES GLOBAL PROPERTY shiboken_python_libraries)
+diff --git a/sources/shiboken6/libshiboken/sbkmodule.cpp b/sources/shiboken6/libshiboken/sbkmodule.cpp
+index 47977d747..c45bf391f 100644
+--- a/sources/shiboken6/libshiboken/sbkmodule.cpp
++++ b/sources/shiboken6/libshiboken/sbkmodule.cpp
+@@ -7,6 +7,7 @@
+ #include "bindingmanager.h"
+ #include "sbkstring.h"
+ #include "sbkcppstring.h"
++#include "sbkconverter_p.h"
+
+ #include <unordered_map>
+ #include <unordered_set>
