@@ -51,6 +51,8 @@ class Swift < Formula
 
   on_linux do
     depends_on "icu4c" # Used in swift-corelibs-foundation
+    depends_on "util-linux"
+    depends_on "zstd"
 
     # Doesn't have to be in sync but does need to be no older than X.(Y - 1).0
     resource "bootstrap" do
