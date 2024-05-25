@@ -15,6 +15,7 @@ class LlamaCpp < Formula
   depends_on arch: :arm64
   depends_on macos: :ventura
   depends_on :macos
+
   uses_from_macos "curl"
 
   def install
