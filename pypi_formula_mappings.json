@@ -343,7 +343,7 @@
   "graph-tool": {
     "package_name": "",
     "exclude_packages": ["numpy", "pillow"],
-    "extra_packages": ["matplotlib", "setuptools", "zstandard"]
+    "extra_packages": ["setuptools", "zstandard"]
   },
   "grayskull": {
     "exclude_packages": ["certifi"]
