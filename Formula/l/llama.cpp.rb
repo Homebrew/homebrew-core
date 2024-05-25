@@ -22,17 +22,11 @@ class LlamaCpp < Formula
   end
 
   test do
-    llama_cli_command = ["llama-cli",
-                         "--hf-repo",
-                         "ggml-org/tiny-llamas",
-                         "-m",
-                         "stories15M-q4_0.gguf",
-                         "-n",
-                         "400",
-                         "-p",
-                         "I",
-                         "-ngl",
-                         "0"].join(" ")
-    assert_includes shell_output(llama_cli_command), "<s>"
+    llama_cli_command = %w[ llama-cli
+                         --hf-repo ggml-org/tiny-llamas
+                         -m stories15M-q4_0.gguf
+                         -n 400 -p I -ngl 0
+    ]
+    assert_match "<s>", shell_output(llama_cli_command.join(" "))
   end
 end
