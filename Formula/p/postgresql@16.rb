@@ -75,6 +75,7 @@ class PostgresqlAT16 < Formula
       --with-openssl
       --with-pam
       --with-perl
+      --enable-tap-tests
       --with-uuid=e2fs
       --with-extra-version=\ (#{tap.user})
     ]
