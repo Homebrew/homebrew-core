@@ -7,10 +7,6 @@ class LlamaCpp < Formula
       revision: "95fb0aefab568348da159efdd370e064d1b35f97"
   license "MIT"
 
-  livecheck do
-    throttle 10
-  end
-
   depends_on xcode: ["15.0", :build]
   depends_on arch: :arm64
   depends_on macos: :ventura
