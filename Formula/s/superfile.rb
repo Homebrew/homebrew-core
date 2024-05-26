@@ -1,8 +1,8 @@
 class Superfile < Formula
   desc "Modern and pretty fancy file manager for the terminal"
   homepage "https://github.com/MHNightCat/superfile"
-  url "https://github.com/MHNightCat/superfile/archive/refs/tags/v1.1.2.tar.gz"
-  sha256 "aa4aadc54ca7b16c2715148524d241c940c4ab0b8e0610ee71ed1a8708c116d7"
+  url "https://github.com/MHNightCat/superfile/archive/refs/tags/v1.1.3.tar.gz"
+  sha256 "1735a2a7886b670ff392f1331b2af142416691ac86303945feccbc4a1f2c6a43"
   license "MIT"
 
   bottle do
