@@ -13,7 +13,6 @@ class GreenOrb < Formula
   end
 
   test do
-
     (testpath/"test.yaml").write <<~EOF
       channels:
 
@@ -31,6 +30,5 @@ class GreenOrb < Formula
 
     test_files = testpath.glob("SPLIT")
     assert_equal 1, test_files.length, "Expected exactly one SPLIT file"
-
   end
 end
