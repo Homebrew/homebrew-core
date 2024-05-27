@@ -5,6 +5,7 @@ class ValeLs < Formula
   sha256 "3daba73d517a27c1243b85075adff6388cd195294f741ca34fc6f75bd8251ea1"
   license "MIT"
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
 
   def install
