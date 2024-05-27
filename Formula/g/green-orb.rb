@@ -26,7 +26,7 @@ class GreenOrb < Formula
           channel : "test"
     EOF
 
-    system "orb", "-c", testpath/"test.yaml", "echo", "BANANA"
+    system "#{bin}/orb", "-c", testpath/"test.yaml", "echo", "BANANA"
 
     test_files = testpath.glob("SPLIT")
     assert_equal 1, test_files.length, "Expected exactly one SPLIT file"
