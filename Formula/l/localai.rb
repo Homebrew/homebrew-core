@@ -7,13 +7,13 @@ class Localai < Formula
   sha256 "690ee0facf5450fbf9ff886ac20c6e36c68face626e2d58014cc7ccbaa330ac0"
   license "MIT"
 
-  depends_on "abseil" => :build
+  depends_on "abseil"
   depends_on "cmake" => :build
   depends_on "go" => :build
-  depends_on "grpc" => :build
-  depends_on "protobuf" => :build
-  depends_on "protoc-gen-go" => :build
-  depends_on "protoc-gen-go-grpc" => :build
+  depends_on "grpc"
+  depends_on "protobuf"
+  depends_on "protoc-gen-go"
+  depends_on "protoc-gen-go-grpc"
   depends_on "python-setuptools" => :build
   depends_on xcode: :build
 
