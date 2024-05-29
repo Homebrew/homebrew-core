@@ -18,6 +18,7 @@ class Codequery < Formula
 
   depends_on "cmake" => :build
   depends_on "qt"
+  depends_on "sqlite"
 
   fails_with gcc: "5"
 
