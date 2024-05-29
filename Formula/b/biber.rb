@@ -16,6 +16,7 @@ class Biber < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "texlive" => :test
   depends_on "openssl@3"
   depends_on "perl"
 
@@ -683,5 +684,24 @@ class Biber < Formula
     assert_predicate testpath/"annotations.bcf.html", :exist?
     assert_predicate testpath/"annotations.blg", :exist?
     assert_predicate testpath/"annotations.bbl", :exist?
+
+    (testpath/"test.bib").write <<~EOS
+      @book{test,
+        author = {Test},
+        title = {Test}
+      }
+    EOS
+    (testpath/"test.latex").write <<~EOS
+      \\documentclass{article}
+      \\usepackage[backend=biber]{biblatex}
+      \\bibliography{test}
+      \\begin{document}
+      \\cite{test}
+      \\printbibliography
+      \\end{document}
+    EOS
+    system Formula["texlive"].bin/"pdflatex", "-interaction=errorstopmode", testpath/"test.latex"
+    system bin/"biber", "test"
+    assert_predicate testpath/"test.bbl", :exist?
   end
 end
