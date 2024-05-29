@@ -1,8 +1,8 @@
-class zhistory < Formula
-  desc "Command line analysis tool for zsh history"
+class Zhistory < Formula
+  desc "Command-line analysis tool for zsh history"
   homepage "https://github.com/itsKarad/ZHistory"
-  url "https://github.com/itsKarad/ZHistory/archive/refs/tags/v1.0.0.tar.gz"
-  sha256 "0019dfc4b32d63c1392aa264aed2253c1e0c2fb09216f8e2cc269bbfb8bb49b5"
+  url "https://github.com/itsKarad/ZHistory/archive/refs/tags/v0.1.0.tar.gz"
+  sha256 "1093b009dd9ca9beca551c1dc33e0924f1498247066262a7f5c8d6c7d022e8c9"
   license "MIT"
 
   depends_on "rust" => :build
