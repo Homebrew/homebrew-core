@@ -19,6 +19,7 @@ class Codequery < Formula
   depends_on "cmake" => :build
   depends_on "qt"
 
+
   fails_with gcc: "5"
 
   def install
