@@ -1,8 +1,8 @@
 class Codequery < Formula
   desc "Code-understanding, code-browsing or code-search tool"
   homepage "https://ruben2020.github.io/codequery/"
-  url "https://github.com/ruben2020/codequery/archive/refs/tags/v0.27.0.tar.gz"
-  sha256 "c03b86f9f5a8f5373862efaef6bddd18a15e5786570a93f0310725ecc5d74ff3"
+  url "https://github.com/ruben2020/codequery/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "b0776adeae2963f197e3b9a57eb7ca405542da5f6413e06063e8d68f8246baa8"
   license "MPL-2.0"
 
   bottle do
@@ -17,7 +17,7 @@ class Codequery < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "qt@5"
+  depends_on "qt@6"
 
   fails_with gcc: "5"
 
