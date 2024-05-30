@@ -3,8 +3,8 @@ class Autopep8 < Formula
 
   desc "Automatically formats Python code to conform to the PEP 8 style guide"
   homepage "https://github.com/hhatto/autopep8"
-  url "https://files.pythonhosted.org/packages/d7/88/1a1460a39c5ed907115f96a396e720ad6c9bc75b9b8b3502ddef39863e30/autopep8-2.1.2.tar.gz"
-  sha256 "77b07146bf127aa88de78efc270d395a54ebb8284fdbe6542c4aeb8d969f4d9a"
+  url "https://files.pythonhosted.org/packages/0e/11/7f4fe3b6ce04a073ce093413f8ddaedc253feebafaabd24e0faa1eb7739d/autopep8-2.2.0.tar.gz"
+  sha256 "d306a0581163ac29908280ad557773a95a9bede072c0fafed6f141f5311f43c1"
   license "MIT"
 
   bottle do
