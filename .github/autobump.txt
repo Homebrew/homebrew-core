@@ -2293,6 +2293,7 @@ traefik@2
 trafficserver
 trafilatura
 translate-toolkit
+transmission-cli
 trash-cli
 tree
 tree-sitter

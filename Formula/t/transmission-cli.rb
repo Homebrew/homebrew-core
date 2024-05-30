@@ -1,8 +1,8 @@
 class TransmissionCli < Formula
   desc "Lightweight BitTorrent client"
   homepage "https://www.transmissionbt.com/"
-  url "https://github.com/transmission/transmission/releases/download/4.0.5/transmission-4.0.5.tar.xz"
-  sha256 "fd68ff114a479200043c30c7e69dba4c1932f7af36ca4c5b5d2edcb5866e6357"
+  url "https://github.com/transmission/transmission/releases/download/4.0.6/transmission-4.0.6.tar.xz"
+  sha256 "2a38fe6d8a23991680b691c277a335f8875bdeca2b97c6b26b598bc9c7b0c45f"
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   livecheck do
@@ -24,6 +24,7 @@ class TransmissionCli < Formula
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "libevent"
+  depends_on "miniupnpc"
 
   uses_from_macos "python" => :build
   uses_from_macos "curl"
