@@ -2,8 +2,8 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      tag:      "2.2.31",
-      revision: "94edddb0bd9880d2c1fedee2b8f420f4ce023c9e"
+      tag:      "3.0.2",
+      revision: "5ea76c2a76f2066ca2443ac976569cf2af33f659"
   license "MIT"
 
   bottle do
@@ -20,6 +20,7 @@ class ThorsSerializer < Formula
   depends_on "bzip2"
   depends_on "libyaml"
   depends_on "magic_enum"
+  depends_on "openssl@3"
 
   fails_with gcc: "5"
 
