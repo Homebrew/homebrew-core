@@ -1011,6 +1011,7 @@ hatari
 hatch
 haxe
 hbase
+hblock
 hck
 hcl2json
 hcloud
