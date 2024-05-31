@@ -55,6 +55,7 @@ class Licensed < Formula
       gem 'licensed', '#{version}'
     EOS
 
+    # regression test
     (testpath/".licensed.yml").write <<~EOS
       name: 'test'
       allowed:
