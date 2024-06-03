@@ -8,6 +8,7 @@ class Texlive < Formula
   mirror "https://ftp.tu-chemnitz.de/pub/tug/historic/systems/texlive/2024/texlive-20240312-source.tar.xz"
   sha256 "7b6d87cf01661670fac45c93126bed97b9843139ed510f975d047ea938b6fe96"
   license :cannot_represent
+  revision 1
   head "https://github.com/TeX-Live/texlive-source.git", branch: "trunk"
 
   livecheck do
@@ -88,6 +89,16 @@ class Texlive < Formula
   conflicts_with "lcdf-typetools", because: "both install a `cfftot1` executable"
 
   fails_with gcc: "5"
+
+  # biber 2.20 requires BibLaTeX 3.20, but TeX Live 2024 ships BibLaTeX 3.19
+  # (https://github.com/Homebrew/homebrew-core/issues/172769). Install BibLaTeX 3.20
+  # so that biber is functional. This resource and the update of BibLaTeX can be
+  # removed when TeX Live 2025 is released. The string biblatex@3.20 should also
+  # be removed from the list of tex_resources in this formula's install method.
+  resource "biblatex@3.20" do
+    url "https://github.com/plk/biblatex/archive/refs/tags/v3.20.tar.gz"
+    sha256 "f936ca60463f47d14ca165226f89388db39080caf49e62fbd36b9787b596b238"
+  end
 
   resource "texlive-extra" do
     url "https://ftp.math.utah.edu/pub/tex/historic/systems/texlive/2024/texlive-20240312-extra.tar.xz"
@@ -347,7 +358,7 @@ class Texlive < Formula
     ENV["PERL_MM_USE_DEFAULT"] = "1"
     ENV["OPENSSL_PREFIX"] = Formula["openssl@3"].opt_prefix
 
-    tex_resources = %w[texlive-extra install-tl texlive-texmf]
+    tex_resources = %w[biblatex@3.20 texlive-extra install-tl texlive-texmf]
 
     resources.each do |r|
       next if tex_resources.include? r.name
@@ -435,6 +446,16 @@ class Texlive < Formula
     system "make"
     system "make", "install"
     system "make", "texlinks"
+
+    # This can be removed when TeX Live 2025 is released.
+    resource("biblatex@3.20").stage do
+      inreplace "obuild/build.sh",
+                "declare DATE=$(date '+%Y/%m/%d')",
+                # Date from https://github.com/plk/biblatex/releases/tag/v3.20
+                "declare DATE='2024/03/21'"
+
+      system "obuild/build.sh", "install", "3.20", share/"texmf-dist"
+    end
 
     # Create tlmgr config file.  This file limits the actions that the user
     # can perform in 'system' mode, which would write to the cellar.  'tlmgr' should
