@@ -1,8 +1,8 @@
 class Libgit2AT16 < Formula
   desc "C library of Git core methods that is re-entrant and linkable"
   homepage "https://libgit2.github.com/"
-  url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.6.5.tar.gz"
-  sha256 "0f09dd49e409913c94df00eeb5b54f8b597905071b454c7f614f8c6e1ddb8d75"
+  url "https://github.com/libgit2/libgit2/archive/refs/tags/v1.8.1.tar.gz"
+  sha256 "8c1eaf0cf07cba0e9021920bfba9502140220786ed5d8a8ec6c7ad9174522f8e"
   license "GPL-2.0-only" => { with: "GCC-exception-2.0" }
 
   bottle do
