@@ -1,8 +1,8 @@
 class GhcAT810 < Formula
   desc "Glorious Glasgow Haskell Compilation System"
   homepage "https://haskell.org/ghc/"
-  url "https://downloads.haskell.org/~ghc/8.10.7/ghc-8.10.7-src.tar.xz"
-  sha256 "e3eef6229ce9908dfe1ea41436befb0455fefb1932559e860ad4c606b0d03c9d"
+  url "https://downloads.haskell.org/~ghc/9.10.1/ghc-9.10.1-src.tar.xz"
+  sha256 "bf386a302d4ee054791ffd51748900f15d71760fd199157922d120cc1f89e2f7"
   # We bundle a static GMP so GHC inherits GMP's license
   license all_of: [
     "BSD-3-Clause",
