@@ -3,10 +3,9 @@ class Tracker < Formula
   homepage "https://gnome.pages.gitlab.gnome.org/tracker/"
   # pull from git tag to get submodules
   url "https://gitlab.gnome.org/GNOME/tracker.git",
-      tag:      "3.6.0",
-      revision: "624ef729966f2d9cf748321bd7bac822489fa8ed"
+      tag:      "3.7.3",
+      revision: "cd0a096ca42557612fa6d30c91e778527793036b"
   license all_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later"]
-  revision 1
 
   # Tracker doesn't follow GNOME's "even-numbered minor is stable" version
   # scheme but they do appear to use 90+ minor/patch versions, which may
