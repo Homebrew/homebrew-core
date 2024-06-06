@@ -6,6 +6,7 @@ class Toxcore < Formula
   url "https://github.com/TokTok/c-toxcore/releases/download/v0.2.19/c-toxcore-0.2.19.tar.gz"
   sha256 "8b418f6470db085cf59a9915685613556556df2bf427148f1814b7b118628594"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/TokTok/c-toxcore.git", branch: "master"
 
   bottle do
