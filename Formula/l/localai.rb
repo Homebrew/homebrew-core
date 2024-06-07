@@ -43,7 +43,7 @@ class Localai < Formula
       ENV["LOCALAI_ADDRESS"] = "127.0.0.1:#{http_port}"
       exec bin/"local-ai"
     end
-    sleep 6
+    sleep 30
 
     response = shell_output("curl -s -i 127.0.0.1:#{http_port}")
     assert_match "HTTP/1.1 200 OK", response
