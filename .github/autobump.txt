@@ -1765,6 +1765,7 @@ patchelf
 payara
 pciutils
 pcl
+pcre2
 pcsc-lite
 pdal
 pdfalyzer
