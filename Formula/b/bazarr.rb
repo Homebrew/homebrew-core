@@ -123,7 +123,6 @@ class Bazarr < Formula
       end
     ensure
       Process.kill "TERM", wait_thr.pid
-      Process.wait wait_thr.pid
     end
 
     assert_predicate (testpath/"config/config.ini.old"), :exist?
