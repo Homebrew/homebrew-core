@@ -2,6 +2,7 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
+  revision 1
 
   stable do
     url "https://github.com/draios/sysdig/archive/refs/tags/0.37.1.tar.gz"
@@ -21,13 +22,13 @@ class Sysdig < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "3280d421289871e61de86045c56907c3240b30fa93dc43d1734680ef8a7e232c"
-    sha256                               arm64_ventura:  "997dcca4ff9a5be37ec33a1bdc83279ab8b043067ec5f7410a4d3f7cbf337562"
-    sha256                               arm64_monterey: "d8fa74ed3cd50a2503462445fb6e4f6289fef9bc18f53a0ae9234173e49f3a7e"
-    sha256                               sonoma:         "efd14a2d5d39d719647e633fa2f2f4e538c8050470a4df4cfce732b87be6820e"
-    sha256                               ventura:        "d594a71c3cf08ff02e9b973b246c605a50cee74dfc7116742fd758fa2fcdc75a"
-    sha256                               monterey:       "8f9d5db659eb45ca533aaa199d15fa68b3d4570950a01aefad12ff2e4a6636b0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7c1d5b3a20bdb6dd1e379e9d765a6363d052f3e507d7b035d13a2e8678e09ed"
+    sha256                               arm64_sonoma:   "ea309f2c3911132ec751b96b69d26f81c42d7bdc7737194c7e68203e3123ef15"
+    sha256                               arm64_ventura:  "5914bcde213ec06e612315960717e0fa2bad026f2ecc1855e94ec334c637df9d"
+    sha256                               arm64_monterey: "2485c8c8fb72e4d537c9d64d1b319020641021d6bcdf5c6b39b05c984d153cf3"
+    sha256                               sonoma:         "0640944acbaee87b60ca580f9166736c41ec044c65a8e3b6a0707ead1b3e70e9"
+    sha256                               ventura:        "4931b7430c774666401b1c1dde16716969c879a9d74cd1a11019cc1c6ec474bb"
+    sha256                               monterey:       "b51b373b526e3f6a50e2602fbf36629851e9ef3fa75dd0a57e70dc8422f61f45"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a2145abf7c8114014fd3e80e3a3e1b6ae7994651ae13705b9b87649ff8e1d2cc"
   end
 
   head do

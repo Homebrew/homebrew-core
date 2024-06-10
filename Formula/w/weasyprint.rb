@@ -3,18 +3,18 @@ class Weasyprint < Formula
 
   desc "Convert HTML to PDF"
   homepage "https://www.courtbouillon.org/weasyprint"
-  url "https://files.pythonhosted.org/packages/3b/0b/b2b165439954c1d4ed4045ad95cb7fb2bd0c696e3b90ecba56533b8aa12f/weasyprint-62.1.tar.gz"
-  sha256 "bf3c1a9ac4194271a7cf117229c093744105b50ac2fa64c0a6e44e68ae742992"
+  url "https://files.pythonhosted.org/packages/c4/c6/02995082a0f02cb4f8de4b3f1d4cf31965322e0c1609fb84bb91842edfb3/weasyprint-62.2.tar.gz"
+  sha256 "a08ac400e11919d996d76becaa33160d7c1ac55ba160628c42ce7586574c1a51"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0b35b2ade5fbd456086d7cdedfc8c6b126b8a7948e348205c520c252ac10591a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "0031cfd1d73959aa57cb0127785f266949efc01a51a16cb1f03b6664f80ab288"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f802e9838cb796392d56979229a5fa63e157a1b5c4ce841e4162bf954d8e7c50"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4a7bc0540935044049c4265dc6d8559e4b231114728dfcbe4e90a5d69301c7c5"
-    sha256 cellar: :any_skip_relocation, ventura:        "9e0e6d7f29bf95db630c9e3c9db76563aba77ad9f86b5be68df79df2a4d9638e"
-    sha256 cellar: :any_skip_relocation, monterey:       "248955cfab4b2548578c904bada35a676c13684d9ae8a643cf11def85aef4dff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4ed19f260072132d81fe409888806a124144d1ec9b1a64731443e485daa5dfac"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db17dda7bf44efec6034fae3f3c2c2309159757d63881ffcdc97e376424e33bf"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d13c4c58f9273e2b383a3dc978affc4d991f23955b08b32453fb03f7da06b4eb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c3d11ca6b6f6818fa1b0d0b268460e2685c2dce64c8972b767dbcb6100d1d96"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5298750fa5acf4c4357ebdebcc8a195993698853a1a9fe832d0c85c135cb219a"
+    sha256 cellar: :any_skip_relocation, ventura:        "0581b00b7987f1c93e086dea1a01019f0427b88a8a186a6b3fdada88f2ca2876"
+    sha256 cellar: :any_skip_relocation, monterey:       "5b581ac3516572bd422ae3b83073561f3948ce3bd621a81b2e7311d85def7535"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "79d5c3c53ac756c9a9956a0155ec31c8b5a4c3edc2a3a3ddf6099e59630949ca"
   end
 
   depends_on "pango"
@@ -39,8 +39,8 @@ class Weasyprint < Formula
   end
 
   resource "fonttools" do
-    url "https://files.pythonhosted.org/packages/73/e4/5f31f97c859e2223d59ce3da03c67908eb8f8f90d96f2537b73b68aa2a5a/fonttools-4.51.0.tar.gz"
-    sha256 "dc0673361331566d7a663d7ce0f6fdcbfbdc1f59c6e3ed1165ad7202ca183c68"
+    url "https://files.pythonhosted.org/packages/a4/6e/681d39b71d5f0d6a1b1dc87d7333331f9961b5ab6a2ad6372d6cf3f8b04c/fonttools-4.53.0.tar.gz"
+    sha256 "c93ed66d32de1559b6fc348838c7572d5c0ac1e4a258e76763a5caddd8944002"
   end
 
   resource "html5lib" do

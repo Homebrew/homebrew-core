@@ -3,20 +3,19 @@ class Ansible < Formula
 
   desc "Automate deployment, configuration, and upgrading"
   homepage "https://www.ansible.com/"
-  url "https://files.pythonhosted.org/packages/e4/85/23d1a1884f8c6bd437edc5a0f55709c77250f357a198469d8060071237f9/ansible-9.6.0.tar.gz"
-  sha256 "58732a4ad74a746d299ecfa48b7a91cb217e2c0bd3a44493f2d9f29af2f3ab61"
+  url "https://files.pythonhosted.org/packages/96/78/95e152c98f1b9349854cf8f4a9cea1d6ad55bf132e66a81207c650f92d01/ansible-10.0.1.tar.gz"
+  sha256 "b2ab79d54883837f3c5b9b95fd779dff76e5fc5d9ef8555c969575ed24f9f2e1"
   license "GPL-3.0-or-later"
   head "https://github.com/ansible/ansible.git", branch: "devel"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "9b83ebbdabe669584a7c5624aed5b65b67d9b8d043cd2ff3df5079f52e64917f"
-    sha256 cellar: :any,                 arm64_ventura:  "a5a43407b9891cd135703b53fdf17e5249768ce4ae60fb692046c691a03846bd"
-    sha256 cellar: :any,                 arm64_monterey: "5c5f7e7088572a555ab94f3c9b72bddefd1c5039010c253be72307e6f0ec91ec"
-    sha256 cellar: :any,                 sonoma:         "310872efb4ad09e7f54ea72c269c6bf793998fa467141f07c0179ad9db4a98f6"
-    sha256 cellar: :any,                 ventura:        "2811b0b717a74c51c437cee4d62b47356862bde33a4367dd44a3e0e334ba1645"
-    sha256 cellar: :any,                 monterey:       "cbc343c00e6dd51aa3477ad45ca76d65593d44ba197c216b552d095d30b94e49"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e9828666f2f4d9376b78ce253eb5aefc413dae9689bf1cb3916f2f422f4b5c60"
+    sha256 cellar: :any,                 arm64_sonoma:   "16942d6f9886cb57d1b71f4363267d25ba0056248022d05ab62c0aa4dbe59a0e"
+    sha256 cellar: :any,                 arm64_ventura:  "681f360d524a88f43698ae34a8eb4c322592f7d31379634a6ac6ec319772c05d"
+    sha256 cellar: :any,                 arm64_monterey: "6c5a588b892e9f1de74296e22f85cdc92160c416dd832c0d75ce6817cbfe33b1"
+    sha256 cellar: :any,                 sonoma:         "21871023afdc60b242ee952e3925403066056d387a5e9bd5d435a5c1629b084b"
+    sha256 cellar: :any,                 ventura:        "05cd8712d17f7ca82c19b0cbb7ef505c9a2cbfd8bf287ed173613d532360f82a"
+    sha256 cellar: :any,                 monterey:       "fe093d580a8dc1ff3220e9d389694bd93ef550881b5c33de5323ea3dfa04e920"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bfe30aca312def76cba9faf75412e15522071c31996672730b48c2439ebce845"
   end
 
   # `pkg-config` and `rust` are for bcrypt
@@ -41,8 +40,8 @@ class Ansible < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/6b/1b/6a9e9012b250b9f13680eaabaf9ec5eae51622a1c519a851046d0eac4e3b/ansible_core-2.16.7.tar.gz"
-    sha256 "a8c8f4facba30514571d47abec5c62a5768b86fef3d80d724911c8f20b7b34b7"
+    url "https://files.pythonhosted.org/packages/a7/e5/956a16811044c28663d88740932de9c3fbbe2ec14fabe86a69b3cfe4842b/ansible_core-2.17.0.tar.gz"
+    sha256 "bd16e30ecac405dac594de3e1b1b4d9cc6fa1a9f7a01a6a8d4c471b20660716d"
   end
 
   resource "ansible-pylibssh" do
@@ -71,13 +70,13 @@ class Ansible < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ee/b4/8fc1043365aa5bf1056426acda0b15b38551b669eaec5ed3cd019c6b4c8b/boto3-1.34.114.tar.gz"
-    sha256 "eeb11bca9b19d12baf93436fb8a16b8b824f1f7e8b9bcc722607e862c46b1b08"
+    url "https://files.pythonhosted.org/packages/f9/23/ff7c23f027f301baf6dcecce5d50bae6ebc5210e1fadee561177fdc37758/boto3-1.34.120.tar.gz"
+    sha256 "38893db8269d25b72cc6fbab97633bfc863eefde5456847169d06149a16aa6e0"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/4c/7c/0a169bb7389625b97c95daed070e807a6e89580f013ba422a65a635d11c1/botocore-1.34.114.tar.gz"
-    sha256 "5705f74fda009656a218ffaf4afd81228359160f2ab806ab8222d07e9da3a73b"
+    url "https://files.pythonhosted.org/packages/4c/23/a0bf68a3098af517cfe2b615af100c2a83d7355cd0f7811f14a93e626e8e/botocore-1.34.120.tar.gz"
+    sha256 "5cc0fca43cb2aad54917a394a001ac9ba774d21ad6a08828002d54b601776f78"
   end
 
   resource "cachetools" do
@@ -221,8 +220,8 @@ class Ansible < Formula
   end
 
   resource "ntc-templates" do
-    url "https://files.pythonhosted.org/packages/69/da/31a8500430f3527f82423499dfe89bc03624aa2af0baa89802c3b883e05c/ntc_templates-5.0.0.tar.gz"
-    sha256 "56919fbe83da582de03474f8a204d945dadeef0c98e630743c3c069a9bcf1120"
+    url "https://files.pythonhosted.org/packages/a6/20/6cc8564322c713d8ebecab26cf25c7a0e99265b56c32c3d79c0868022638/ntc_templates-5.1.0.tar.gz"
+    sha256 "820583f35a8d7411c86b70635a6acd65ce357b8bc19e1f408ce836eac30a6371"
   end
 
   resource "oauthlib" do
@@ -406,8 +405,8 @@ class Ansible < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
-    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "requests-credssp" do

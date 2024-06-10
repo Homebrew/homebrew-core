@@ -1,18 +1,18 @@
 class Dillo < Formula
   desc "Fast and small graphical web browser"
   homepage "https://dillo-browser.github.io/"
-  url "https://github.com/dillo-browser/dillo/releases/download/v3.1.0/dillo-3.1.0.tar.bz2"
-  sha256 "f56766956d90dac0ccca31755917cba8a4014bcf43b3e36c7d86efe1d20f9d92"
+  url "https://github.com/dillo-browser/dillo/releases/download/v3.1.1/dillo-3.1.1.tar.bz2"
+  sha256 "5b85adc2315cff1f6cc29c4fa7e285a964cc3adb7b4cd652349c178292a4fb9e"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 arm64_sonoma:   "6b6ad17d3a8797bd5b1c8fede45201a498ce949ae0aa736614b0e8e0f65e6faf"
-    sha256 arm64_ventura:  "bab53bbc438c2443d7f719d24efb696974b4173f05b48eeae96907d29cea911b"
-    sha256 arm64_monterey: "0ec5d858b40c794c8bb15a5f03fd0fb77291dffd8a746d716eb4980608998f3f"
-    sha256 sonoma:         "9193be742f33b7d2cb71777491ff014687fa0f2b8669584731722ada2fc0e891"
-    sha256 ventura:        "6a879420943b29cd9c0fd67cc8b0b2ec1f0941947c2c89bb10b094d2ec40192f"
-    sha256 monterey:       "a4ef74fa043c58267c4413225d4b2de5c22ab13520741a8cbe2ffd40b0f2ea86"
-    sha256 x86_64_linux:   "0a24be77fa9c3812601d3acf746e178d1e411811aa345eb7f7c58091b73fa37b"
+    sha256 arm64_sonoma:   "7659f9a43d50f1bbb57cbcf772e0678fd8450ce7e11449a99c1e6c2191c7ccdb"
+    sha256 arm64_ventura:  "988cd2898a45ab880b51f51803baccbae409468c18e329b3f3ee406fa783628c"
+    sha256 arm64_monterey: "d1870bc65b0e048eb642b1853f7b31526327160df24e6f9dda1a6c18976ba22c"
+    sha256 sonoma:         "b1a7d562d451d28fb2d2d16c894c070271dd4425bc33955d6dcb5c859466a482"
+    sha256 ventura:        "f7f73f1ce2a1c5ed69287182e8d870a366209dde19a76e49f547803468b16a95"
+    sha256 monterey:       "049ba3e72f9a0cf75e62f4ab6dfce2a11b383e06e253fe2d8a5c7223487cb97f"
+    sha256 x86_64_linux:   "fd6127a85c1bbabba2446009df8eb6bd91a9fc182b79cf6d259167fe23bfe69c"
   end
 
   head do
@@ -23,7 +23,15 @@ class Dillo < Formula
   end
 
   depends_on "fltk"
+  depends_on "jpeg-turbo"
+  depends_on "libpng"
   depends_on "openssl@3"
+
+  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "libx11"
+  end
 
   def install
     if build.head?

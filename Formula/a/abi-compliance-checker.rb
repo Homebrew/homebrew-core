@@ -11,6 +11,8 @@ class AbiComplianceChecker < Formula
     sha256 cellar: :any_skip_relocation, all: "06af34b7632a01e00b3d6d5ad826d4102e7a840e32b4a0a0bc2a58c3fc799cef"
   end
 
+  deprecate! date: "2024-06-05", because: :unmaintained
+
   uses_from_macos "perl"
 
   on_macos do

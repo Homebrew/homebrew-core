@@ -1,23 +1,19 @@
 class Libwbxml < Formula
   desc "Library and tools to parse and encode WBXML documents"
   homepage "https://github.com/libwbxml/libwbxml"
-  url "https://github.com/libwbxml/libwbxml/archive/refs/tags/libwbxml-0.11.8.tar.gz"
-  sha256 "a6fe0e55369280c1a7698859a5c2bb37c8615c57a919b574cd8c16458279db66"
-  license "LGPL-2.1"
+  url "https://github.com/libwbxml/libwbxml/archive/refs/tags/libwbxml-0.11.9.tar.gz"
+  sha256 "704029f7745abfd58e26b54f15ce7de0d801048a9a359a7e9967f8346baeff3f"
+  license "LGPL-2.1-or-later"
   head "https://github.com/libwbxml/libwbxml.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "96d521767660b9f716d38654a02dbc9aa9a6eea639808b7ab67c3847edc525b5"
-    sha256 cellar: :any,                 arm64_ventura:  "98d058e5bcb1eb4846a21d474774cbec312ce4b49c37585eae02c601c64e201e"
-    sha256 cellar: :any,                 arm64_monterey: "fe2ac6ea506094bb84685b873d59cb9b0ea225b2ce56cb13b2fc1197bcd6b906"
-    sha256 cellar: :any,                 arm64_big_sur:  "ac5e42ae5a76a5d3cf1d731b80b40ae019ffd90c0cef0ea4ad24d700958f3dc3"
-    sha256 cellar: :any,                 sonoma:         "2609521b850d61fc4164142ffe21e9530653586013e40a3fdac4ca790a79d860"
-    sha256 cellar: :any,                 ventura:        "a3d9904a0466a386a6572f5dbe8834960511574475511cc5096e5751c5a2c1c1"
-    sha256 cellar: :any,                 monterey:       "08e5267c81b874f8115b1fb110a3a0553553863b139c950e60aeead99701ac7f"
-    sha256 cellar: :any,                 big_sur:        "1d656b5fd3c1c1486db641b7e00a129b71071c1f26a522dad2bc29795d6c2a85"
-    sha256 cellar: :any,                 catalina:       "1a5739cb2c803bc0580ef5cab2c58effaa2d849f7f0d55060f325a5cd9cf8ec2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec4cdd3a2ead2da218798ef2a020fe2ef66f18b44d6a995977838af60257e8a2"
+    sha256 cellar: :any,                 arm64_sonoma:   "d97b5597a9692c27d9a810ca628a2febbe1b95c20276021765bf9b3b7258189e"
+    sha256 cellar: :any,                 arm64_ventura:  "fef6a0c53128442d71e20c6a7c1b1ffab1c649de54939f0a708d12369a00665a"
+    sha256 cellar: :any,                 arm64_monterey: "2c9277ebb11f3c72c3cd5db7f4e9425d1cf9c6267215a2d1b268c0bb2f2a45bb"
+    sha256 cellar: :any,                 sonoma:         "7bcac3ac4be1a36e9a83e83814bcdbf8c9174250e553f4f363e76adb1d98bd6d"
+    sha256 cellar: :any,                 ventura:        "001104686da1ab293a681294f72fbda96325925c6e4f955ef04346490a8213da"
+    sha256 cellar: :any,                 monterey:       "ad0d34f3717c82221243b057e8203b0e7b25c966ccdd86a1bce228696ba4bdaa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b6c0ce836f82ddc2db06a65d83bbf37b3d207c3d5f6157f73c59a434a492bb5c"
   end
 
   depends_on "cmake" => :build

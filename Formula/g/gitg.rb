@@ -2,7 +2,7 @@ class Gitg < Formula
   desc "GNOME GUI client to view git repositories"
   homepage "https://wiki.gnome.org/Apps/Gitg"
   url "https://download.gnome.org/sources/gitg/44/gitg-44.tar.xz"
-  sha256 "5b0e99ab3e7b94b0daa98ca8041d5ec9280ee0a2c28338a5506a968ac52e2354"
+  sha256 "342a31684dab9671cd341bd3e3ce665adcee0460c2a081ddc493cdbc03132530"
   license "GPL-2.0-or-later"
   revision 1
 
@@ -12,15 +12,17 @@ class Gitg < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "bdd73eeb6714dff95ae717dc812e794bf023681de6e3e43dc5c36b8b9bd6588a"
-    sha256 arm64_ventura:  "70ec29b54e3d54557c431853dcbaad0c70b31f37507054b6255c9cba96106abf"
-    sha256 arm64_monterey: "19351cc5535ea2b921a14591d2c1bf902b13c26287dae9fbac19efe0d9e5c23d"
-    sha256 sonoma:         "b60877bb50252d62f29f401fa7e91b624da5a9feb62f8ee14e5be066b5686399"
-    sha256 ventura:        "a3d8863e2cf58e8c1f10d29856c9bb21d8a40998d4b8efcac430491fa17a6f41"
-    sha256 monterey:       "d8cd6d8a3a6bd8b0f76ec18cf895dc9c9972fcd8ca20aa0eaaaec35a76f0fc9f"
-    sha256 x86_64_linux:   "102e277be5f21e445cc3c1ffc9920226e79df6e78eb1d8acbec58a97d4178ba8"
+    rebuild 2
+    sha256 arm64_sonoma:   "c2d256dff6512475355f39087ecb4879f71d7acf921c0052437cda5bcfe05a8d"
+    sha256 arm64_ventura:  "2d3427983fdab1b82bc9f70c0738d8afea29c567f202ca66810b888b662b919e"
+    sha256 arm64_monterey: "e95f4e4de0df3ccb5771f9fe11a31a149c456094ac271e31141a64a411a99e1f"
+    sha256 sonoma:         "b15febabe2a755e5cbd4549e82193d4254cc8c88cd0d29f2850b0479efb99de9"
+    sha256 ventura:        "7ae4a73fc8793b7477b1793667d99400b762998512677f87ffff24ae0f6e0aa3"
+    sha256 monterey:       "5c88b3b0852de793a274aa7bd8e78a04911e8bbfa9981c9ad93c250c4d5d39c3"
+    sha256 x86_64_linux:   "9c51c81c30bc1240f9eab3a3558890736b5d33131199a482dd85a6250d9400a7"
   end
 
+  depends_on "gettext" => :build # for `msgfmt`
   depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
@@ -39,12 +41,12 @@ class Gitg < Formula
   depends_on "libgit2"
   depends_on "libgit2-glib"
   depends_on "libhandy"
-  depends_on "libpeas"
+  depends_on "libpeas@1"
   depends_on "libsecret"
 
   def install
-    # Fix version output. Remove on next release.
-    inreplace "meson.build", "version: '45.alpha'", "version: '#{version}'"
+    # Work-around for build issue with Xcode 15.3: https://gitlab.gnome.org/GNOME/gitg/-/issues/465
+    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
     ENV["DESTDIR"] = "/"
     system "meson", "setup", "build", "-Dpython=false", *std_meson_args

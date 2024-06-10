@@ -112,6 +112,7 @@ asyncapi
 at-spi2-core
 atlantis
 atlas
+atomicparsley
 atuin
 auditbeat
 autobrr
@@ -131,6 +132,7 @@ aws-nuke
 aws-rotate-key
 aws-sam-cli
 aws-sso-cli
+aws-sso-util
 awscli
 awscli@1
 awscurl
@@ -311,6 +313,7 @@ cdxgen
 cekit
 censys
 cern-ndiff
+certbot
 certigo
 cf2tf
 cfengine
@@ -345,11 +348,13 @@ checkov
 checkstyle
 cherrytree
 chezmoi
+chibi-scheme
 chkrootkit
 choose-rust
 chroma
 chromaprint
 chronograf
+chsrc
 chuck
 cidr
 cilium-cli
@@ -490,6 +495,7 @@ cxxopts
 cyclonedx-gomod
 cyclonedx-python
 cycode
+cyctl
 cypher-shell
 cyrus-sasl
 cython
@@ -524,6 +530,7 @@ define
 dehydrated
 delve
 deno
+dep-tree
 dependency-check
 deployer
 derby
@@ -742,6 +749,7 @@ feishu2md
 felinks
 fend
 fennel
+fern-api
 feroxbuster
 ffmpeg
 ffms2
@@ -753,6 +761,7 @@ file-roller
 filebeat
 findent
 findomain
+findutils
 fio
 firebase-cli
 firefoxpwa
@@ -839,6 +848,7 @@ gegl
 genact
 geogram
 geoipupdate
+geos
 geoserver
 geph4
 getmail6
@@ -958,6 +968,7 @@ govulncheck
 gowsdl
 gpac
 gpg-tui
+gprof2dot
 gpsim
 gptscript
 gradle
@@ -969,7 +980,6 @@ grap
 graph-tool
 graphqurl
 graphqxl
-greed
 greenmask
 grex
 grin
@@ -1039,6 +1049,7 @@ himalaya
 hive
 hivemind
 hledger
+hof
 hoverfly
 hpack
 hpp-fcl
@@ -1150,6 +1161,7 @@ jsontoolkit
 jsvc
 jtbl
 juju
+julia
 jupyterlab
 just
 k2tf
@@ -1177,6 +1189,7 @@ khal
 ki
 kickstart
 kics
+killport
 kin
 kind
 kiota
@@ -1272,6 +1285,7 @@ libdap
 libdeflate
 libdnet
 libdpp
+libdrm
 libedit
 libepoxy
 libewf
@@ -1299,6 +1313,7 @@ libksba
 liblc3
 liblinear
 liblouis
+libmaa
 libmatio
 libmicrohttpd
 libmxml
@@ -1313,9 +1328,11 @@ liboqs
 libpano
 libphonenumber
 libpipeline
+libplctag
 libplist
 libpng
 libpq
+libpqxx
 libproxy
 libpulsar
 librdkafka
@@ -1350,6 +1367,7 @@ libusbmuxd
 libuv
 libva
 libvirt
+libwbxml
 libwpe
 libx11
 libxaw3d
@@ -1395,6 +1413,7 @@ lndir
 localstack
 locust
 log4cxx
+logrotate
 logstash
 lout
 lsd
@@ -1419,6 +1438,7 @@ mactop
 mafft
 mage
 magic-wormhole
+mailcatcher
 mailpit
 mailsy
 mailutils
@@ -1451,6 +1471,7 @@ mawk
 maxwell
 mbedtls
 mbedtls@2
+mbt
 mcap
 mcfly
 md4c
@@ -1512,6 +1533,7 @@ mods
 modsecurity
 mold
 molecule
+mongo-c-driver
 mongo-cxx-driver
 mongocli
 mongodb-atlas-cli
@@ -1529,6 +1551,7 @@ mpdecimal
 mpg123
 mpi4py
 mpich
+mpop
 mpv
 mqttui
 mrboom
@@ -1538,11 +1561,13 @@ msgpack-cxx
 msmtp
 mtbl
 mtoc
+mtools
 mu
 muffet
 mujs
 murex
 mutt
+mvnvm
 mvt
 mx
 mycli
@@ -1610,6 +1635,7 @@ notcurses
 nox
 npm-check-updates
 npth
+ns-3
 nsd
 nsq
 nss
@@ -1678,9 +1704,11 @@ openfpgaloader
 openh264
 openimageio
 openiothub-server
+openj9
 openjdk
 openjdk@11
 openjdk@17
+openjdk@21
 openjdk@8
 openjpeg
 openjph
@@ -1691,6 +1719,8 @@ openrtsp
 opensc
 opensearch
 openshift-cli
+openssl@3
+openssl@3.0
 opentelemetry-cpp
 opentofu
 openttd
@@ -1785,6 +1815,7 @@ pip-tools
 pipdeptree
 pipenv
 pipgrip
+pipx
 pixi
 pkgconf
 pkl
@@ -2034,6 +2065,7 @@ scorecard
 scotch
 scrapy
 scrcpy
+scriptisto
 scummvm
 scummvm-tools
 scw
@@ -2055,6 +2087,7 @@ sh4d0wup
 shaderc
 shadowenv
 shadowsocks-rust
+shairport-sync
 sheldon
 shell2http
 shellcheck
@@ -2098,6 +2131,7 @@ sloc
 slsa-verifier
 slurm
 smake
+smartdns
 smimesign
 sn0int
 snakefmt
@@ -2119,6 +2153,7 @@ solana
 solhint
 sollya
 solr
+sonar-scanner
 sonarqube
 sonarqube-lts
 sonobuoy
@@ -2128,6 +2163,7 @@ source-to-image
 sourcekitten
 sourcery
 spack
+spades
 spatialindex
 spectral-cli
 spglib
@@ -2197,6 +2233,8 @@ superfile
 suricata
 svgbob
 svgo
+svlint
+svls
 svt-av1
 svtplay-dl
 swagger-codegen
@@ -2233,6 +2271,7 @@ tcsh
 tctl
 tealdeer
 tectonic
+teensy_loader_cli
 teip
 tektoncd-cli
 teku
@@ -2242,6 +2281,7 @@ template-glib
 tendermint
 tengo
 tenv
+terminator
 termshark
 terracognita
 terraform-inventory
@@ -2259,6 +2299,7 @@ tetra
 texlab
 texmath
 tfautomv
+tfel
 tfmigrate
 tfproviderlint
 tfsec
@@ -2284,12 +2325,14 @@ tmuxp
 tmx
 toast
 tofuenv
+toipe
 tomcat
 tomcat-native
 tomcat@9
 tomee-plume
 tomee-plus
 tomee-webprofile
+toml-test
 toot
 topgrade
 tor
@@ -2304,6 +2347,7 @@ trafilatura
 translate-toolkit
 transmission-cli
 trash-cli
+travis
 tree
 tree-sitter
 triangle
@@ -2325,7 +2369,7 @@ typescript
 typescript-language-server
 typos-cli
 typst
-typstfmt
+typstyle
 tz
 tzdiff
 u-boot-tools
@@ -2363,6 +2407,7 @@ valkey
 vapor
 vapoursynth
 vault-cli
+vc
 vcluster
 vcsh
 veclibfort
@@ -2373,6 +2418,7 @@ verapdf
 vercel-cli
 verovio
 vet
+vexctl
 vfox
 vgmstream
 vgrep
@@ -2419,6 +2465,7 @@ wasmer
 wasmtime
 watchexec
 wavpack
+wayland
 wayland-protocols
 wazero
 weasyprint
@@ -2486,9 +2533,11 @@ xxhash
 xz
 yaegi
 yamale
+yaml-language-server
 yamlfmt
 yamllint
 yara
+yara-x
 yash
 ydiff
 ykman
@@ -2510,7 +2559,9 @@ zellij
 zenith
 zeromq
 zf
+zfind
 zig
+zigmod
 zipkin
 zk
 zlib

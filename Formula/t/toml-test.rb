@@ -1,24 +1,24 @@
 class TomlTest < Formula
   desc "Language agnostic test suite for TOML parsers"
   homepage "https://github.com/burntsushi/toml-test"
-  url "https://github.com/BurntSushi/toml-test/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "3717163777494016243a47261500bbbed6a59c89e232f9f969b3dd849c12db63"
+  url "https://github.com/BurntSushi/toml-test/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "e6829cdcaed94ac2bfcaea05dab9d16db0bead2d3ac9936224774a67fbd46ade"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8038b7561bc45ff83022330c7933e11b5d634e0b8152654a134daf8dfd74c1f2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8038b7561bc45ff83022330c7933e11b5d634e0b8152654a134daf8dfd74c1f2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8038b7561bc45ff83022330c7933e11b5d634e0b8152654a134daf8dfd74c1f2"
-    sha256 cellar: :any_skip_relocation, sonoma:         "4a1f31af0b426f36346bcf01973e27772000292947041e4f9e573cec38c9587b"
-    sha256 cellar: :any_skip_relocation, ventura:        "4a1f31af0b426f36346bcf01973e27772000292947041e4f9e573cec38c9587b"
-    sha256 cellar: :any_skip_relocation, monterey:       "4a1f31af0b426f36346bcf01973e27772000292947041e4f9e573cec38c9587b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "80903b80656360a49fa248bcfeb0d8331ae791646d75f7d2d2b553a532c52e94"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e8f84fa60cb3575cbebdbb288bfd5b1b7cc1d07b3ca7e6028c5822ab42d53757"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e8f84fa60cb3575cbebdbb288bfd5b1b7cc1d07b3ca7e6028c5822ab42d53757"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8f84fa60cb3575cbebdbb288bfd5b1b7cc1d07b3ca7e6028c5822ab42d53757"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a7471409f4ee3f531619b2bd63fbc770749e3b506e35ccb1d81fdcd92dc7bb87"
+    sha256 cellar: :any_skip_relocation, ventura:        "a7471409f4ee3f531619b2bd63fbc770749e3b506e35ccb1d81fdcd92dc7bb87"
+    sha256 cellar: :any_skip_relocation, monterey:       "a7471409f4ee3f531619b2bd63fbc770749e3b506e35ccb1d81fdcd92dc7bb87"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d052b80767db257261ffbc2c39125745f20e9d155cb35441788d6e8a3046da6"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args, "./cmd/toml-test"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/toml-test"
     pkgshare.install "tests"
   end
 

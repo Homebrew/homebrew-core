@@ -1,18 +1,18 @@
 class Libchewing < Formula
   desc "Intelligent phonetic input method library"
   homepage "https://chewing.im/"
-  url "https://github.com/chewing/libchewing/releases/download/v0.8.3/libchewing-0.8.3.tar.zst"
-  sha256 "6c8734eb3e5bbb7e9ba407d1315ffdaa8770e4c21fca835fb045329ef7fd3a1c"
+  url "https://github.com/chewing/libchewing/releases/download/v0.8.4/libchewing-0.8.4.tar.zst"
+  sha256 "c272e85c9aff03265db08641cac25709b9faf45b4602e04ea6cb39317103b3fa"
   license "LGPL-2.1-only"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2dc3ecc2bed611df306ce6ca74922d631d9e832b036663ed0d802f512dd319ed"
-    sha256 cellar: :any,                 arm64_ventura:  "3016e913c1fd5f87bc1e1b60955f58b96305e0e11243edf577e52a1e4bdf3a26"
-    sha256 cellar: :any,                 arm64_monterey: "c10a1c9a3245c157d8098867d0b0efc40d8778df9db3c69fb5a6bbe4d7065a76"
-    sha256 cellar: :any,                 sonoma:         "611bbc2315e7228a2deef89cc161a2d99ed826960b185865f7277b766152aa70"
-    sha256 cellar: :any,                 ventura:        "2e04b74f0ee6d81f56797d99fbe18b0771686d17d9709174760c6c2bf65c7616"
-    sha256 cellar: :any,                 monterey:       "8912cfbde607c76d60f58547f18217a5eaaef780f76208a369aabd23354bfb35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f47bcdc7cf36ccec22f25d3f2074e5876e666408bc7029e5d25ed28ded350550"
+    sha256 cellar: :any,                 arm64_sonoma:   "7f1a299fcae44b3ff5c4b857e7218ea8b9ec689eec261a7787efce48084a99e7"
+    sha256 cellar: :any,                 arm64_ventura:  "39f8feb5a332fb7e5c5ccf7a7c34f2962ea06af11821dc2a797d6d6a9f44c6eb"
+    sha256 cellar: :any,                 arm64_monterey: "c5d4c657ae42255346a6948686c6c133be6759b074fac940e666d7fe06a6ab47"
+    sha256 cellar: :any,                 sonoma:         "72f4a959c958f5cc3857cc70e993130c946932fa720a45cb7fc35ec2f2eafa8a"
+    sha256 cellar: :any,                 ventura:        "7fadf43898c394b03850e0135cb4bcf1e49503d624ac67107f5f5467c3be1542"
+    sha256 cellar: :any,                 monterey:       "7fb74f41c2c0709f5167733b54bf7a533848b02d2d03d4c6abffe7ccdbd4557a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b1c2e758831df267ae0a6245a69a2002086bc26ce7ee30be9e5c1a9d55e1252"
   end
 
   depends_on "cmake" => :build
@@ -30,12 +30,6 @@ class Libchewing < Formula
   patch do
     url "https://github.com/chewing/libchewing/commit/b21ff8f118e6138b795da4d37026712516a12676.patch?full_index=1"
     sha256 "13d64e23d42c0549117bc2f6239cd09da03d17d2f8015a81fb1a3307aeaf708f"
-  end
-  # cmake build patch, https://github.com/chewing/libchewing/pull/576
-  # remove in 0.8.4 release
-  patch do
-    url "https://github.com/chewing/libchewing/commit/633977ad822deab43d5563112638d701a6bc9279.patch?full_index=1"
-    sha256 "be099a6e70839b7f1fdc49b24ab618a149890dbfc4a4bff9543ae4ce12a7b818"
   end
 
   def install

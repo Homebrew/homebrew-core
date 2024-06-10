@@ -1,13 +1,13 @@
 class Ntp < Formula
   desc "Network Time Protocol (NTP) Distribution"
   homepage "https://www.ntp.org"
-  url "https://www.eecis.udel.edu/~ntp/ntp_spool/ntp4/ntp-4.2/ntp-4.2.8p18.tar.gz"
+  url "https://downloads.nwtime.org/ntp/4.2.8/ntp-4.2.8p18.tar.gz"
   version "4.2.8p18"
   sha256 "cf84c5f3fb1a295284942624d823fffa634144e096cfc4f9969ac98ef5f468e5"
   license all_of: ["BSD-2-Clause", "NTP"]
 
   livecheck do
-    url "https://www.ntp.org/downloads/"
+    url "https://downloads.nwtime.org/ntp/"
     regex(/href=.*?ntp[._-]v?(\d+(?:\.\d+)+(?:p\d+)?)\.t/i)
   end
 

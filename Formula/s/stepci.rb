@@ -3,18 +3,18 @@ require "language/node"
 class Stepci < Formula
   desc "API Testing and Monitoring made simple"
   homepage "https://stepci.com"
-  url "https://registry.npmjs.org/stepci/-/stepci-2.8.1.tgz"
-  sha256 "0206aa0c982f163057da3394e6f3d4c393b06b71189dae8b33476c4054bd55a5"
+  url "https://registry.npmjs.org/stepci/-/stepci-2.8.2.tgz"
+  sha256 "0ba4ed74a5f51414b0ed86651e37a1b5e6af4e027187bedfc94dbd2176793178"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "29e324cd9f1694f75c5bb00f29777bfb75615cbed3943ad0f1d6783564f110dc"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "29e324cd9f1694f75c5bb00f29777bfb75615cbed3943ad0f1d6783564f110dc"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "29e324cd9f1694f75c5bb00f29777bfb75615cbed3943ad0f1d6783564f110dc"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f046a0ace725d64e2dce18b845343108259402b7a309dabb0d9da4bf491cbfe2"
-    sha256 cellar: :any_skip_relocation, ventura:        "f046a0ace725d64e2dce18b845343108259402b7a309dabb0d9da4bf491cbfe2"
-    sha256 cellar: :any_skip_relocation, monterey:       "f046a0ace725d64e2dce18b845343108259402b7a309dabb0d9da4bf491cbfe2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29e324cd9f1694f75c5bb00f29777bfb75615cbed3943ad0f1d6783564f110dc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2e3908fc84c52c88b2a15ef7034e8ca824653cd647ebb1374fcab6a354b12cc6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2e3908fc84c52c88b2a15ef7034e8ca824653cd647ebb1374fcab6a354b12cc6"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "2e3908fc84c52c88b2a15ef7034e8ca824653cd647ebb1374fcab6a354b12cc6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "77835aa9e8fea98c91c76937f3a407d44ee8996eee5599f49bc29353941f5d22"
+    sha256 cellar: :any_skip_relocation, ventura:        "77835aa9e8fea98c91c76937f3a407d44ee8996eee5599f49bc29353941f5d22"
+    sha256 cellar: :any_skip_relocation, monterey:       "77835aa9e8fea98c91c76937f3a407d44ee8996eee5599f49bc29353941f5d22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7df98f52a5b404ad257877570bfc89f91d923520bd974e43666d55c9ba03ecc3"
   end
 
   depends_on "node"

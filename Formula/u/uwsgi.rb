@@ -1,25 +1,26 @@
 class Uwsgi < Formula
   desc "Full stack for building hosting services"
   homepage "https://uwsgi-docs.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/52/9a/ab43cf8fb4847a6fda585beb1374deba0583660fa05c882a498784b2fc77/uwsgi-2.0.25.1.tar.gz"
-  sha256 "d653d2d804c194c8cbe2585fa56efa2650313ae75c686a9d7931374d4dfbfc6e"
+  url "https://files.pythonhosted.org/packages/3a/7a/4c910bdc9d32640ba89f8d1dc256872c2b5e64830759f7dc346815f5b3b1/uwsgi-2.0.26.tar.gz"
+  sha256 "86e6bfcd4dc20529665f5b7777193cdc48622fb2c59f0a7f1e3dc32b3882e7f9"
   license "GPL-2.0-or-later"
   head "https://github.com/unbit/uwsgi.git", branch: "master"
 
   bottle do
-    sha256 arm64_sonoma:   "983fe6f7af185a9153320b3cd52204dd748e0f41b695f8c6f098e0e11e1a871d"
-    sha256 arm64_ventura:  "b368a4c314a02ff7a8eb6711ee039b257114fdbed533b32e7585c0d41f8ef9e4"
-    sha256 arm64_monterey: "6c09b2e859d6383de85d3e3b8949c24a80d9f5071dfef98fb0f698409be1b7b5"
-    sha256 sonoma:         "5b3a6199dd5cf18504365fa22ca45cde1c861d52a3512ce6a5c2764c985400a1"
-    sha256 ventura:        "042a3a53a27cf8fb4132cb8de7d1b03ab02e243f38b46aeddc009538841b1cf5"
-    sha256 monterey:       "aa8065251cf0676dc1f7a0890c8f78295631fa916ffad0aa9319f8d6e3fa6750"
-    sha256 x86_64_linux:   "d24bc23d5bfcd050697811e1b57950f138fec1b05600e0986c205b80832f5ab2"
+    sha256 arm64_sonoma:   "27e371c3f7bb193ac9cb226169915a0e0dc7146b1ebade6e5cd8d106a545a4e1"
+    sha256 arm64_ventura:  "14b4231f0554bb1b5a306ab8d6eba456894c72a7e3e9ba38e232224840b14f7c"
+    sha256 arm64_monterey: "0fd8a39e407a683d5651821ac6abc4db208df0791116b6c449ea48a9031bf0f5"
+    sha256 sonoma:         "b6970777bb9d9d039df5409e5920a1ef8599afa2d8f8aace25ae600f32f9255e"
+    sha256 ventura:        "e03c2f0e7665d047aaf52a17752248de26539e428e20fa71d51e3e6349a038a0"
+    sha256 monterey:       "fbb82ab342ab97f23cbf909d2d812657a6ff714ffd6c6e7ca8a7522b2891f5c6"
+    sha256 x86_64_linux:   "052a7b88f365576d5505f51a53c7ac1085c6c671696d4107875722bbecd4e73b"
   end
 
   depends_on "pkg-config" => :build
   depends_on "openssl@3"
   depends_on "pcre" # PCRE2 issue: https://github.com/unbit/uwsgi/issues/2486
   depends_on "python@3.12"
+  depends_on "sqlite"
   depends_on "yajl"
 
   uses_from_macos "curl"

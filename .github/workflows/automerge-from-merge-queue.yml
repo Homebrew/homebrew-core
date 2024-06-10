@@ -36,20 +36,34 @@ jobs:
       pull-requests: read
       actions: read
     steps:
+      - name: Upload metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: event_payload
+          path: ${{ github.event_path }}
+
+      - name: Dump metadata
+        run: jq . "$GITHUB_EVENT_PATH"
+
       - name: Get PR number
         id: pr
         env:
           GH_TOKEN: ${{ github.token }}
-          WORKFLOW_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.event.workflow_run.id }}
+          WORKFLOW_RUN_NODE_ID: ${{ github.event.workflow_run.node_id }}
           QUERY: |-
-            query($url: URI!) {
-              resource(url: $url) {
+            query($id: ID!) {
+              node(id: $id) {
                 ... on WorkflowRun {
                   checkSuite {
                     commit {
-                      associatedPullRequests(last: 1) {
+                      parents(last: 2) {
                         nodes {
-                          number
+                          oid
+                          associatedPullRequests(last: 1) {
+                            nodes {
+                              number
+                            }
+                          }
                         }
                       }
                     }
@@ -58,12 +72,28 @@ jobs:
               }
             }
         run: |
-          number="$(
+          # Get the latest PR associated with the second parent of the merge commit created for the merge_group.
+          head_commit_data="$(
             gh api graphql \
-              --field url="$WORKFLOW_RUN_URL" \
+              --field id="$WORKFLOW_RUN_NODE_ID" \
               --raw-field query="$QUERY" \
-              --jq '.data.resource.checkSuite.commit.associatedPullRequests.nodes[].number'
+              --jq '.data.node.checkSuite.commit.parents.nodes | last'
           )"
+          number="$(jq --raw-output '.associatedPullRequests.nodes[].number' <<<"$head_commit_data")"
+
+          # Fall back to using the commit SHA if the associated PR is not available from the GraphQL API.
+          if [[ -z "$number" ]]
+          then
+            commit_sha="$(jq --raw-output '.oid' <<<"$head_commit_data")"
+            number="$(gh pr list --search "$commit_sha" --state open --limit 1 --json number --jq '.[].number')"
+          fi
+
+          if [[ -z "$number" ]]
+          then
+            echo "::error::Missing PR number!"
+            exit 1
+          fi
+
           echo "number=$number" >> "$GITHUB_OUTPUT"
 
       - name: Check PR labels and timeline for merge queue events
@@ -85,9 +115,7 @@ jobs:
           publishable=true
           while IFS='' read -r label
           do
-            if [[ "$label" = "new formula" ]] ||
-               [[ "$label" = "automerge-skip" ]] ||
-               [[ "$label" = "pre-release" ]] ||
+            if [[ "$label" = "pre-release" ]] ||
                [[ "$label" = "CI-published-bottle-commits" ]]
             then
               publishable=false

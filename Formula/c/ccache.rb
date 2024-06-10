@@ -1,22 +1,37 @@
-# TODO: Add this to Homebrew so it can be used as a dependency:
-#       https://github.com/martinmoene/span-lite
 class Ccache < Formula
   desc "Object-file caching compiler wrapper"
   homepage "https://ccache.dev/"
-  url "https://github.com/ccache/ccache/releases/download/v4.10/ccache-4.10.tar.xz"
-  sha256 "83630b5e922b998ab2538823e0cad962c0f956fad1fcf443dd5288269a069660"
   license "GPL-3.0-or-later"
   head "https://github.com/ccache/ccache.git", branch: "master"
 
+  stable do
+    # TODO: Remove `stable` block at next release (after removing patches below)
+    url "https://github.com/ccache/ccache/releases/download/v4.10/ccache-4.10.tar.xz"
+    sha256 "83630b5e922b998ab2538823e0cad962c0f956fad1fcf443dd5288269a069660"
+
+    # Fix detection of system blake3
+    # https://github.com/ccache/ccache/pull/1464
+    patch do
+      url "https://github.com/ccache/ccache/commit/d159306db8398da233df6481ac3fd83460ef0f0b.patch?full_index=1"
+      sha256 "1db1a39677b94cd365b98d8df1fcd0b116866175d4a55730af9bfa1ab443e4be"
+    end
+
+    # Fix blake3 include. Same PR as above.
+    patch do
+      url "https://github.com/ccache/ccache/commit/fa4046966e71011587364b0241255130b62858fb.patch?full_index=1"
+      sha256 "c0d5d61e3ef594c0587e249798e95c9d508f41452fd649685b8f6a00e667be80"
+    end
+  end
+
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "362e29807c48743ef00cab49b7872258f5636f449e966bbc0b386dc5a1f05818"
-    sha256 cellar: :any,                 arm64_ventura:  "f1cf9d4ae9fd82ab535acf13b409121d5f02afce7a5c519dd76003a2ed90435d"
-    sha256 cellar: :any,                 arm64_monterey: "23c1ddf2956b4f0a119485a46f6501f70b71c7382de7764d782e04c53ad16cf5"
-    sha256 cellar: :any,                 sonoma:         "f703c1bd5db344995f4b4c88e4027e69499c74a38dd9afec1e7a969e160a0ffa"
-    sha256 cellar: :any,                 ventura:        "e17b749981c76783e243bcea96d4041155dce095b422ecdc071706b5de165aa9"
-    sha256 cellar: :any,                 monterey:       "52bc73a6c84e522d694703e4451a5244c1838d72d8879aed4d3cef5fddd43d48"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "991a5800ee133ad0535c8a28de13c3e6f5e3d14a5dbf6b8e0f5cdc92c80d79d2"
+    rebuild 2
+    sha256 cellar: :any,                 arm64_sonoma:   "4e72285f6d94410d3baf40dc04052bb546dc5ab7d7bc01d7ac7ca70e64b24020"
+    sha256 cellar: :any,                 arm64_ventura:  "8043e413c18d0c598653b309275cd8c3fb974d4020f95b1ea85941f0ce9262c4"
+    sha256 cellar: :any,                 arm64_monterey: "5ca62fe4461f482f453a589e9bb80c8fdd2c3eadd94fc0bef52b104fc25d13d0"
+    sha256 cellar: :any,                 sonoma:         "6df01b817d2bfed4194adc1aecb269403dac1c628db61e092137afbbaf97b359"
+    sha256 cellar: :any,                 ventura:        "cfba61f8bc211cdd291d71ebce4756779df320f42c0dc5dd5b22388d10f95dbc"
+    sha256 cellar: :any,                 monterey:       "76ca517d84c07890373dd7ecc00524de556cde1eaf7f56da1575b8a2b88e1297"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9d82ff8a8f096ef8506b29def639240dff809d12728e6be088698022f93bbbda"
   end
 
   depends_on "asciidoctor" => :build
@@ -24,6 +39,7 @@ class Ccache < Formula
   depends_on "cpp-httplib" => :build
   depends_on "doctest" => :build
   depends_on "pkg-config" => :build
+  depends_on "span-lite" => :build
   depends_on "tl-expected" => :build
   depends_on "blake3"
   depends_on "fmt"
@@ -32,19 +48,6 @@ class Ccache < Formula
   depends_on "zstd"
 
   fails_with gcc: "5"
-
-  # Fix detection of system blake3
-  # https://github.com/ccache/ccache/pull/1464
-  patch do
-    url "https://github.com/ccache/ccache/commit/d159306db8398da233df6481ac3fd83460ef0f0b.patch?full_index=1"
-    sha256 "1db1a39677b94cd365b98d8df1fcd0b116866175d4a55730af9bfa1ab443e4be"
-  end
-
-  # Fix blake3 include. Same PR as above.
-  patch do
-    url "https://github.com/ccache/ccache/commit/fa4046966e71011587364b0241255130b62858fb.patch?full_index=1"
-    sha256 "c0d5d61e3ef594c0587e249798e95c9d508f41452fd649685b8f6a00e667be80"
-  end
 
   def install
     system "cmake", "-S", ".", "-B", "build",

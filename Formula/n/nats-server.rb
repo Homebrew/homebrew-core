@@ -6,6 +6,11 @@ class NatsServer < Formula
   license "Apache-2.0"
   head "https://github.com/nats-io/nats-server.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1073a49b6d678ab5bc9b47aa1d152e6dc7a1d487590515b403055143083d462b"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "7ac8b86ba1ed323de3b4d5178a7cb9d038a441df38434258c23ff25661ad26fc"

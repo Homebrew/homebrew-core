@@ -1,19 +1,19 @@
 class Chainhook < Formula
   desc "Reorg-aware indexing engine for the Stacks & Bitcoin blockchains"
   homepage "https://github.com/hirosystems/chainhook"
-  url "https://github.com/hirosystems/chainhook/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "00806aec182bf14be9d3cad722dafc54c16cf7da9db9c885a89469c03c92545b"
+  url "https://github.com/hirosystems/chainhook/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "9afc764a073b40e1598d730f436cf4f2be2c1c1dd3bbbc533cdf1aa4c0779b3e"
   license "GPL-3.0-only"
   head "https://github.com/hirosystems/chainhook.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "050f80990e4f76d9b90364cb09fa1db3dc5c6b61d57368bca4b9ad518a8def96"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b46a82f9894a34b137d63a646e360e010f84a9c2cf6b6f7f513b5a3fc4466c7d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "cfdeef245d82998e1330e264becc33c7bf2c70bdc020c313c0d14e3731e6fa00"
-    sha256 cellar: :any_skip_relocation, sonoma:         "65b51217f673bcdb1d50bb04cb6f2bcf1867f24fba2b14552b4fb015146f3314"
-    sha256 cellar: :any_skip_relocation, ventura:        "165f9376423bb30608a46ce02760d061ac1097c065961f809a8dbb51821e44bc"
-    sha256 cellar: :any_skip_relocation, monterey:       "ee193ac87ba6381f885fca48065a58cd7f3b7ca7a1e89f1d9548e7d21f8b8646"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "300bd18d279e66b3abe3e1c1b2018c87744cc15d3ac559a148d2885a731b79a3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ab65909e061bad7b48abb69df1b6d3da4a3fcf297799cf5873ef79960c05c8c3"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db904c99b8e9bf5ee5cfe387a11d85bcda7c179bdd83298a045cbffa4a07ca74"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "44eafc1bf1c782f9b15566c98d963bbe85c7f9f021a6b53b8d91812f92c9d220"
+    sha256 cellar: :any_skip_relocation, sonoma:         "405a0304cde407273c4e39792777ce889ea1d2b0f2f820192ac5eae793bb9f52"
+    sha256 cellar: :any_skip_relocation, ventura:        "6563d3372202560fb91650da2d4043df352b4aacded4036b2236d4b6133c7aeb"
+    sha256 cellar: :any_skip_relocation, monterey:       "cc7493c35cdc38e67b410c55328c76c06bdf0901f78431e313b9fd84c4229a42"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "279156fc1cae3d28f450af3554b94dbec9ae0463f9e7c70b0448d0ed3f2d7902"
   end
 
   depends_on "rust" => :build

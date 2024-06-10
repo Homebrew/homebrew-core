@@ -12,13 +12,14 @@ class Sqlsmith < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b78fc015203026a02f5c1e131507e3b97dcea93e72f35922f1f6f80b6f85489e"
-    sha256 cellar: :any,                 arm64_ventura:  "64a31beb20590bffa1042cd8aee60abc1b9222ac8db256c0a7f6d464c8df13a4"
-    sha256 cellar: :any,                 arm64_monterey: "9075fd2c902eb4bd9ab50a98ee8edbfe99313815d4609dce2d39cfbf62e04a26"
-    sha256 cellar: :any,                 sonoma:         "71604917d8811ed0b57ccc65a17e4dc3b15af78e4eaa942801c9663fa23db13a"
-    sha256 cellar: :any,                 ventura:        "4b727404b5aa16a6d582e86ac71269999635a1cc15d82eddc55c5fbdead99993"
-    sha256 cellar: :any,                 monterey:       "26318bcdd84afd83d1f20e7796d0f03e8d2413d47f78cef9785d63143852db1b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c1bae969727cf221a55317071ff5eee0c24858f161c263be6950257ee9e8858c"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sonoma:   "243870da20774ace2bb0fb2d151d7c13c17476f6709778fcad73d3daf775c10e"
+    sha256 cellar: :any,                 arm64_ventura:  "a73bf5da9f72029581e9d94f8881cd68a5d76619070c072a3eaba963960dff7a"
+    sha256 cellar: :any,                 arm64_monterey: "17f2807af8ea421abfbfd1006324003e830a635bfb6c72157643e229b497882b"
+    sha256 cellar: :any,                 sonoma:         "ac49565ca4eebece4c71d1f6e7b3b1267e24c5256846e3c35086e70610eab688"
+    sha256 cellar: :any,                 ventura:        "8b6244b263a7099ec2430513a8f8514fcd471ddf3d93a5f3d947c3483592b5a5"
+    sha256 cellar: :any,                 monterey:       "531e89b0c6fdb52816932863d4e70e670abe9d0bdf183fb2bbd9273e2391a3ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b3365775225260f0de10d4196edd0b0499041c52b4e3dc4838ba271c5970136f"
   end
 
   head do
@@ -30,6 +31,7 @@ class Sqlsmith < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "libpq"
   depends_on "libpqxx"
 
   uses_from_macos "sqlite"

@@ -1,19 +1,19 @@
 class Spdlog < Formula
   desc "Super fast C++ logging library"
   homepage "https://github.com/gabime/spdlog"
-  url "https://github.com/gabime/spdlog/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "534f2ee1a4dcbeb22249856edfb2be76a1cf4f708a20b0ac2ed090ee24cfdbc9"
+  url "https://github.com/gabime/spdlog/archive/refs/tags/v1.14.1.tar.gz"
+  sha256 "1586508029a7d0670dfcb2d97575dcdc242d3868a259742b69f100801ab4e16b"
   license "MIT"
   head "https://github.com/gabime/spdlog.git", branch: "v1.x"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "43bcdb69cb3a9a7428c8ff0bc0749d072b7b8a984a7534beafdb0b718f7de85b"
-    sha256 cellar: :any,                 arm64_ventura:  "6d5fae89435460949aed7c8b37d9c64a5af5aaa64218d7dc4d2a13064c3b44ef"
-    sha256 cellar: :any,                 arm64_monterey: "ffe6a1c28884c980bffb29abf5f9feed7cc8f9b363a2a6cbff14fad3e31dda07"
-    sha256 cellar: :any,                 sonoma:         "bae142f1dffb1f4922c189b9a385fdec7fb6aac900148219fcaec8cacbe5d180"
-    sha256 cellar: :any,                 ventura:        "0a1e50708d457e5bca58f8bafaabfc63430272546615ad7847dbaa27ce4a099b"
-    sha256 cellar: :any,                 monterey:       "35d9e5f8db9a96930c3c807291800b7b3f79b75347cd9b9e59aa56d6c1c4b1f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fee4420a3817f82a555b8360e9a96680743e5e5f97ea779aa56a8ca0c6cfc4ad"
+    sha256 cellar: :any,                 arm64_sonoma:   "25b98f9a432a924734c13ccf5ff201c1df0c50fe141b41d99e69599dd7b00670"
+    sha256 cellar: :any,                 arm64_ventura:  "b5fd78a0347e7e35d3e4e22e41b6f5c48aefb34f990c94e370c74c4f2a0dac26"
+    sha256 cellar: :any,                 arm64_monterey: "cc4fe928b44e3cdfa6ff6a069a70a52ab2d4e38a4982fbf2cc2a5aefa1149250"
+    sha256 cellar: :any,                 sonoma:         "5fdbfa866ea2c90d7163358ebefa2862f58a9f85b44b921f39f8bc9ab2a70516"
+    sha256 cellar: :any,                 ventura:        "5d1a5d09e968aed5c37a7c6b53893c3f18689396c5de1049db572a769f5cba63"
+    sha256 cellar: :any,                 monterey:       "85dd11b2c4fe465fa11265472468801961b32074ce3007d227061a8d3b1c90f6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fe60f809aaac9294e33b36a6752d1b41d04b2fae8c3489a218924569a3250b62"
   end
 
   depends_on "cmake" => :build

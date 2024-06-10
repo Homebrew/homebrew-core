@@ -1,11 +1,10 @@
 class Octave < Formula
   desc "High-level interpreted language for numerical computing"
   homepage "https://www.gnu.org/software/octave/index.html"
-  url "https://ftp.gnu.org/gnu/octave/octave-9.1.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/octave/octave-9.1.0.tar.xz"
-  sha256 "ed654b024aea56c44b26f131d31febc58b7cf6a82fad9f0b0bf6e3e9aa1a134b"
+  url "https://ftp.gnu.org/gnu/octave/octave-9.2.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/octave/octave-9.2.0.tar.xz"
+  sha256 "21417afb579105b035cac0bea09201522e384893ae90a781b8727efa32765807"
   license "GPL-3.0-or-later"
-  revision 3
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
@@ -15,13 +14,13 @@ class Octave < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "c29b8f0818e07b37d63281e835ff45e1f7b4ff02cbdc0bccea0ec049440c420b"
-    sha256 arm64_ventura:  "a1859c825d5a66d53166834b6aa61712e1b398354a63c98df6b01802554c89f7"
-    sha256 arm64_monterey: "4166853a3d44678ec71f693b756cf5c458436e194734e93e9872b50b1dc525fb"
-    sha256 sonoma:         "a4ce56d9c9e42e6b5f62c5ec7020f1c80f388e49e053aa7704bf70c5185ad6b3"
-    sha256 ventura:        "ab016eb74e0920f212585361e16b7df92be85c2ebbf53148178ae825abb07f48"
-    sha256 monterey:       "3e9a1a26d9226a3fbd3465939da7c7bbd89ac4e3e4d3fd55064d895bb250d6a9"
-    sha256 x86_64_linux:   "fff83d8cff5076d827214dc3f6860b965cf49b056be8fc2b676680b288f7ba89"
+    sha256 arm64_sonoma:   "02f7cc330a2375c96920796a281e93087399509754c41fdd25f83794f1396690"
+    sha256 arm64_ventura:  "f89bc978f60040fdc82e5d1f2fe16ff26c5ab94fe2795ad75bd0bd776f9772ff"
+    sha256 arm64_monterey: "4878ff0d0ff235453053b256207c625cfda8133440eb1edceacfbc5c4f2a8685"
+    sha256 sonoma:         "4fbbbdc08918039d20113559a8daaad2edeca34581784fc6c5c0ec93d379c28d"
+    sha256 ventura:        "e5ddc3cba4721722c34a319bb097b4c84c4c4e29a3318139af1513ff8a905612"
+    sha256 monterey:       "939a246d08b1bae6d6682700cbb8c361867544046dce81efeade8a544963a212"
+    sha256 x86_64_linux:   "6287c397454f4d4c2c6e1871d0cbcd92e363fbb26f605242f264572c1be4c7f6"
   end
 
   head do
@@ -35,10 +34,7 @@ class Octave < Formula
   end
 
   # Complete list of dependencies at https://wiki.octave.org/Building
-  depends_on "autoconf" => :build # for the patches
-  depends_on "automake" => :build # for the patches
   depends_on "gnu-sed" => :build # https://lists.gnu.org/archive/html/octave-maintainers/2016-09/msg00193.html
-  depends_on "libtool" => :build # for the patches
   depends_on "openjdk" => :build
   depends_on "pkg-config" => :build
   depends_on "arpack"
@@ -83,20 +79,6 @@ class Octave < Formula
   cxxstdlib_check :skip
 
   fails_with gcc: "5"
-
-  # Fix build for Qt 6.7.0
-  # https://hg.savannah.gnu.org/hgweb/octave/rev/f428a432ed4f
-  patch do
-    url "https://hg.savannah.gnu.org/hgweb/octave/raw-rev/f428a432ed4f"
-    sha256 "a9dd08ffecff5b310039b14847e8012e150de9b71337adc0955b0e668eea1d37"
-  end
-
-  # Fix opengl-partial-update bug causing crashes on figure() and plot() with Qt 6.7.0
-  # https://hg.savannah.gnu.org/hgweb/octave/rev/317fa0e5c8de
-  patch do
-    url "https://hg.savannah.gnu.org/hgweb/octave/raw-rev/317fa0e5c8de"
-    sha256 "909dc65614d0ef2520c35c5f8d4f78c451b189b2673e837f4f21c18a776273f0"
-  end
 
   def install
     # Default configuration passes all linker flags to mkoctfile, to be

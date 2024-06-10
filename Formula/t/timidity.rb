@@ -3,6 +3,7 @@ class Timidity < Formula
   homepage "https://timidity.sourceforge.net/"
   url "https://downloads.sourceforge.net/project/timidity/TiMidity++/TiMidity++-2.15.0/TiMidity++-2.15.0.tar.bz2"
   sha256 "161fc0395af16b51f7117ad007c3e434c825a308fa29ad44b626ee8f9bb1c8f5"
+  license "GPL-2.0-or-later"
   revision 2
 
   livecheck do
@@ -11,14 +12,14 @@ class Timidity < Formula
   end
 
   bottle do
-    sha256 arm64_ventura:  "683ed0581cef4c5527eea9482440ced7ae6c7dfd9b09a7bf7207f7f2a49b5faf"
-    sha256 arm64_monterey: "215a1a95a53e1f8f136d96107135133375060c7c5f97e37ea61224c152cfd17e"
-    sha256 arm64_big_sur:  "8e0f3d548b9566140d1c2f1f12ebb221260e062060eb2c374fabc998efab5d1d"
-    sha256 ventura:        "d5cd5ebef9d74d9353dfe729c02b6b583c767e0426d3c12ca8b4da07ff8e25dc"
-    sha256 monterey:       "7aeddb0863d411f946560c9a25606de141db96a596f63bbd80d19ccebbb4b4ec"
-    sha256 big_sur:        "2feeeebd41909eb7296bbe8fd7b09b99e49bb4f52341eed107d0cb423a673793"
-    sha256 catalina:       "761a0dd6e3c1499005cc2722a5cef8e8529216c8c668c18b9b1fc8711ea409f4"
-    sha256 x86_64_linux:   "bfb585896b4dcdc915adefea538fcb691a213a7f672e10d24b5ff34f95139a9a"
+    rebuild 1
+    sha256 arm64_sonoma:   "4c35935f5ab6bef4f133601dcee29c8f992dc4ceaa35541d4a881dd414b128fd"
+    sha256 arm64_ventura:  "733c42a66bbbef0581bfffd17818184d7739f7388284f8aa8474d590e2fb023e"
+    sha256 arm64_monterey: "d471c899e61b20c831429a9e98b9e2980c182438c2ebd4eb4b5e6c4760fe725b"
+    sha256 sonoma:         "4d3ffe2f9725898d435fec7e619d0f396cfa3b053801d7f9f16a5e7eafce3051"
+    sha256 ventura:        "eaefc53812370a3675964745649ecc49e524d37a8c576d3331c857b52148572a"
+    sha256 monterey:       "b94b23e9e855b931f7ae2604e2e8030e10d049af93c101a7aa9d39d1208ec553"
+    sha256 x86_64_linux:   "eb933705b211fb7f7f2caa7e514f7055bde34c9d911aba8a35e43b63fe1579d8"
   end
 
   depends_on "autoconf" => :build
@@ -37,6 +38,7 @@ class Timidity < Formula
   end
 
   def install
+    ENV.append_to_cflags "-DSTDC_HEADERS" if OS.mac?
     audio_options = %w[
       vorbis
       flac

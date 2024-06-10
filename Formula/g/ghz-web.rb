@@ -1,8 +1,8 @@
 class GhzWeb < Formula
   desc "Web interface for ghz"
   homepage "https://ghz.sh"
-  url "https://github.com/bojand/ghz/archive/refs/tags/v0.118.0.tar.gz"
-  sha256 "179bbc7ee390a6485074cc3c6ed8c2be141e386ba3a24e2b739c0d14ce60215a"
+  url "https://github.com/bojand/ghz/archive/refs/tags/v0.120.0.tar.gz"
+  sha256 "e058b1dc3aa09ca7594a79f92bad3b481c4193a0db31b2ac310b54ad802b2580"
   license "Apache-2.0"
 
   livecheck do
@@ -10,21 +10,21 @@ class GhzWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ddfde41de469793bf3d5149a33a598f473ef16c1132c7e5353a0541238e3c94d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a926c86ce6d8893467d875aad808d70af45f68ed7f4da3408e852606557654ce"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e7bc73666c58ab425ef7055eed320f8d61b1db3a0283620127b0783d0cd8d0e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "f9a0e4aaf2dde9d5d9c981417b20643a9baecf8c1186afc01082206862b0e17f"
-    sha256 cellar: :any_skip_relocation, ventura:        "645baf62ecf1534b50d5da3bd9d0a0738ee043dcbf6caa1aa93a55c948c74406"
-    sha256 cellar: :any_skip_relocation, monterey:       "02a6a2250c80caebc986676940efc5b991c5ad5ad0837e70928db085f015eb0d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7c7e7c8017be498f7dc273e12d00c1760d70a8b609f99fbc97df0a5c6db4b9f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4aaf95d9bb2d035676ce06f3b6650eacfdd5c149e771dbf4e26f3881aed47c6c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "88cdd543eb268e47d62dcc27a67a620071b3842b53bdcdeb975aa5357550523c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dcaa8c8a1f4648b9eb480a316275d3499e6ae93aca2167ea98a8a6a82a206d4a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5fdce463dddf22e4cf8e452f32f60a5e9eff0d53f05a5886434d80cb4a4f1e4a"
+    sha256 cellar: :any_skip_relocation, ventura:        "f33d047cb7a064c954fe807f2bd6c47ccb366264d7a2f98ac497e889b7b5c7ba"
+    sha256 cellar: :any_skip_relocation, monterey:       "aa8bc7a1d646ea1bac570b39a534cb2f71195e7acc60c85d42895cb1d64e7b81"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "26e58f6d58a9c1549952092b2a5518409b2c7aac05540446f7ea42f589f3492b"
   end
 
   depends_on "go" => :build
   depends_on xcode: :build
 
   def install
-    ENV["CGO_ENABLED"] = "1"
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "cmd/ghz-web/main.go"
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/ghz-web"
   end
 
   test do

@@ -1,18 +1,18 @@
 class Govulncheck < Formula
   desc "Database client and tools for the Go vulnerability database"
   homepage "https://github.com/golang/vuln"
-  url "https://github.com/golang/vuln/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "a1c1c287dfacd4b3c40b369a11d67be968796d481cbb35539100ae944a7045fa"
+  url "https://github.com/golang/vuln/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "89f8412640e375899a6c4df7518005e121b9d37d5a6157bd4418cfa28b19344c"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e6168a3ec46db9a431e72b25c0ea0033b71e3c0ba8dd0614d0aebceb1e7383ec"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6f977516721443ce4e650fc3a01ef506b314d7ce331eaf7c9c86bb782e292aa3"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ae61e186cfcdef4dc3c8a56ac6cb94e0be45cff03fc31f2c1252d75fcf99f827"
-    sha256 cellar: :any_skip_relocation, sonoma:         "dc52656de21f8bc701031e0502d212eddd276073c3e10e7be7801108734c1417"
-    sha256 cellar: :any_skip_relocation, ventura:        "d4e24fca4f0fe94f0d73dfccc28bc2aa8c9d782e7d8d8606565043849c878c94"
-    sha256 cellar: :any_skip_relocation, monterey:       "639efc242745af5c114022a1e173a116cccfa87e3350c99f2d4d713a134ee7a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7628fc86bc5d3460cd6e1cf8ae4200f2a3d60a410e3d8fc56e32bff5c0f41ffc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "921453f5951c515cdd190e206d587b06f60f74ebc4b33ccbef5048d9ee7ae082"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74c0bae2212d9f9cab07b047f299aa8c0bfbfa92bf0a77a2fdde0d0379b63a9e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "fd3fd09d3a4234b11fc5e7ee5f8f2f3c71b7db7cb41867d6c9fbd06f0577f95a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5624c1fa68914248d2140730cea689f7a6192dfbbb32c8aa63bd9964be31a9fa"
+    sha256 cellar: :any_skip_relocation, ventura:        "718764cf03b2dd3ffa6469be0dcb1e92d5e80a137e890afdd9c6c2ef3d1ada89"
+    sha256 cellar: :any_skip_relocation, monterey:       "26284e03175e2d0ad850906014c36613e83f0e58ab920481fdcc2cc4e1710969"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5ddd2f249a5a1e8a6bba28119dd368351a270853bd8c614ca3cc5c8f0d98b266"
   end
 
   depends_on "go" => [:build, :test]

@@ -4,16 +4,16 @@ class OcamlZarith < Formula
   url "https://github.com/ocaml/Zarith/archive/refs/tags/release-1.13.tar.gz"
   sha256 "a5826d33fea0103ad6e66f92583d8e075fb77976de893ffdd73ada0409b3f83b"
   license "LGPL-2.0-only"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "932642604c05ad5bb0d69c83b846263480e871dd637a07b25dadd3c9819dd282"
-    sha256 cellar: :any,                 arm64_ventura:  "ebcdae625f98d18e5165ddd32a50ba524cbc65608d0eadfb7ace4d7a2ed48ac4"
-    sha256 cellar: :any,                 arm64_monterey: "94f18c52e35044939bc72ea6b318cc24b0a8dff9d0b224632fef51268a66f269"
-    sha256 cellar: :any,                 sonoma:         "92762f6bd2138426c75811d46b6298aacf2a48796c1c74332369b52b69536634"
-    sha256 cellar: :any,                 ventura:        "73bb4af9dd50aa6ca4c5be5b856e6d760279c14f3e8ec7950098b0718c405210"
-    sha256 cellar: :any,                 monterey:       "ed57526ab3af9355aecd1990d5e142c825b135d10702465d23f125300bdd510c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c196a69f7ab0a5f9f03cdba4bf6be873cb49401a66c8d0fc84be5a846aa7662f"
+    sha256 cellar: :any,                 arm64_sonoma:   "85b400fa6861f589bedb6f40c99848fda05ead5c4688d026782b594faa61f85b"
+    sha256 cellar: :any,                 arm64_ventura:  "8ff062fbfca3ad3c65e752c03f7d4d00cbe1825a8179b3d6b2ae8a4aff60e218"
+    sha256 cellar: :any,                 arm64_monterey: "86fd9c681ff691a68efa6832b4942c5b7ab202c6940655f66c19a53641808573"
+    sha256 cellar: :any,                 sonoma:         "5347a67f893e51944fc7d781abcca6b42af49aa86d9f590e816bbabf1fe752d5"
+    sha256 cellar: :any,                 ventura:        "7c3f79fa6b1a362ef4fca2ce9765820cdd09fb9d62da6185fd2ed7154eb3cfed"
+    sha256 cellar: :any,                 monterey:       "de7eaedd674f2af979fd9485c37efeba9f92d546800bcaae7d5dd80e31c9371a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6cf499a4828612b8ee118b3cb9e9e38b7a2f2c79480833a729a869201fe87737"
   end
 
   depends_on "ocaml-findlib" => :build

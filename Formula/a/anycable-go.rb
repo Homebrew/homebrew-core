@@ -1,8 +1,8 @@
 class AnycableGo < Formula
   desc "WebSocket server with action cable protocol"
   homepage "https://github.com/anycable/anycable-go"
-  url "https://github.com/anycable/anycable-go/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "309cd07cc50794fa4527aee20ff8c9441e1a496ff2abaa7659bd5f783e4e0b21"
+  url "https://github.com/anycable/anycable-go/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "3fe63f2970ae99e59309a579d5d0bebd1f1b8a6cfdc0117f3d3c7231d8b6a7e2"
   license "MIT"
   head "https://github.com/anycable/anycable-go.git", branch: "master"
 
@@ -12,13 +12,13 @@ class AnycableGo < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a3925cdd9fa8894e17824e6c74c863200399904101cde22519608940a74dc37e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bfb773c7d5f61a62a7711ef0d480c7dc542b480a8308e2f59b7e16f1aaadd8a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8d1e886e7c219935e4ff37470ffd17e07d9a7f82bc1b19bf3560128a04e94c0f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bc9482c3418f3eaea175b972b35029196712d5d9e3834b62a6eae76206d2e7ee"
-    sha256 cellar: :any_skip_relocation, ventura:        "aea47ae84b6a20fb4a33fa6591e1f5779d591daaf52bf463caa5ab22cfae0f01"
-    sha256 cellar: :any_skip_relocation, monterey:       "a7c108eec85a868f5fdec6f188216b6aecacffe15d32433650bddced31c21fe1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cfb3711af0717a7b00d86006587cbe7fc05a539b5f803049525740bd6e883cc"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "1fd2b94c0246c12ab9c94ab71bde270d18ce70094ff72a257ab3b1b06ec7d0e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ff752d17acd7ad99d43ba094af7430509f11bc6c42c7a57bb57195bf7defd7b5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f41235a2ac3e4b3c87265d616f9c002a00eaffa0b9251bc206953ae1e28ab752"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c2a010c9385cfc3a5c63ff8427a753c2f56a8942c7c92c38dbb7beac40e05ce0"
+    sha256 cellar: :any_skip_relocation, ventura:        "574a6ad159c51514e85518bdc9c0403080ab37dd18be72148fd928d105b06e34"
+    sha256 cellar: :any_skip_relocation, monterey:       "b4f51b5e08412b5d3111573aaf0951822bf6ed0cf98b1579305ec0f78101910d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ec8d6980b634a2417a261af82ad0cf463c6f4c6f95c12dfa5f109c1acb0246f5"
   end
 
   depends_on "go" => :build

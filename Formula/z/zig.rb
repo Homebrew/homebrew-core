@@ -1,9 +1,8 @@
 class Zig < Formula
   desc "Programming language designed for robustness, optimality, and clarity"
   homepage "https://ziglang.org/"
-  # TODO: Check if we can use unversioned `llvm` at version bump.
-  url "https://ziglang.org/download/0.12.0/zig-0.12.0.tar.xz"
-  sha256 "a6744ef84b6716f976dad923075b2f54dc4f785f200ae6c8ea07997bd9d9bd9a"
+  url "https://ziglang.org/download/0.13.0/zig-0.13.0.tar.xz"
+  sha256 "06c73596beeccb71cc073805bdb9c0e05764128f16478fa53bf17dfabc1d4318"
   license "MIT"
 
   livecheck do
@@ -12,26 +11,33 @@ class Zig < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "b29fd206a2901a98bc54965e635ceeda49b888eb19d232102bd9325e44ea7f56"
-    sha256 cellar: :any,                 arm64_ventura:  "d62fd01d62ff70335248de047a393e02198a64538cc571eb22b732eba1ddcce5"
-    sha256 cellar: :any,                 arm64_monterey: "b236a97dd7e99560f0163bf125d4de32dba12e8128d8721c9e885a4fd396dc9d"
-    sha256 cellar: :any,                 sonoma:         "280268416169c9380803c9a4f09946c19effd120eaf9789432a66a437a41a7fc"
-    sha256 cellar: :any,                 ventura:        "8cb59f37d582014e5d44bed5bfc6bd01bdd26e29266bc5aff202cb4264fd8da7"
-    sha256 cellar: :any,                 monterey:       "6130fb2b4b92efc04f3fc306be13ac72054f51ac0805020a9e54dc01f9a26220"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "33292b8bb48bc913b72630876cdc1b7e9839a0e99f750a1b2c2f4c8835a64b9a"
+    sha256 cellar: :any,                 arm64_sonoma:   "e2fdab9f70dba65551d21e6e9fc47d98336bcdb52658ff3f7799ad244aa2f500"
+    sha256 cellar: :any,                 arm64_ventura:  "09cbcd8fdc15b0c5cdcbdecd2f0e42337a2ddac0070b50189fb02e5db1942633"
+    sha256 cellar: :any,                 arm64_monterey: "2f197b24ce0a0d7167eacf89314407ef21103e963916c05c9a094d79d152ecc4"
+    sha256 cellar: :any,                 sonoma:         "193e35179c6695aee629a8551920237cf3c94a8a8853b9edf61e91ac7ba709e2"
+    sha256 cellar: :any,                 ventura:        "dda3491dea9cdda74d5ab8ef63a38f88ad1e73e1d7ec58c4e54333e9a3333b54"
+    sha256 cellar: :any,                 monterey:       "ea39859d4c94d9a3b5c03d5faa7552275ad74d13d24c3ea558ae3f6397a9879e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ca207335ca7208dbe6198f0c12d593f7c8251457e924bc05f3cd1875874cc3af"
   end
 
   depends_on "cmake" => :build
-  # Check: https://github.com/ziglang/zig/blob/#{version}/CMakeLists.txt
-  # for supported LLVM version.
-  depends_on "llvm@17" => :build
+  depends_on "llvm" => :build
   depends_on macos: :big_sur # https://github.com/ziglang/zig/issues/13313
+  depends_on "z3" # Remove when using versioned LLVM
   depends_on "zstd"
 
   uses_from_macos "ncurses"
   uses_from_macos "zlib"
 
   def install
+    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
+               .to_formula
+    if llvm.versioned_formula? && deps.any? { |dep| dep.name == "z3" }
+      # Don't remove this check even if we're using a versioned LLVM
+      # to avoid accidentally keeping it when not needed in the future.
+      odie "`z3` dependency should be removed!"
+    end
+
     # Workaround for https://github.com/Homebrew/homebrew-core/pull/141453#discussion_r1320821081.
     # This will likely be fixed upstream by https://github.com/ziglang/zig/pull/16062.
     if OS.linux?

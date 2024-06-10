@@ -1,18 +1,18 @@
 class Csprecon < Formula
   desc "Discover new target domains using Content Security Policy"
   homepage "https://github.com/edoardottt/csprecon"
-  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "846e83e6fad65ed31134600aa908a9d9d3db55c6c963eae161887fe62b362bca"
+  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "a3d9ed64cee648df81b410ea4a3e42afc9ca13fb77f7717163b756665f4b1233"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "484f40210147d9b0ab0d299b97e08a238da09f5dc4df5b53d6a0d8e3854eb877"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6606b4fce15e31a8b1b7f38a8e74ea818b506953921e81b96f7d2c3f21d510f7"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "402bb4a3576d51aec74b9e15ffc577aecbb49e5c1f070ab86f5d1705bf060648"
-    sha256 cellar: :any_skip_relocation, sonoma:         "912783c446078f2bcd1011b8456ca8a3dae10dc4b2ea8aedf056d32c8b1a24a6"
-    sha256 cellar: :any_skip_relocation, ventura:        "144a757ec2dda95bbc217dc60828e0a7d15a1c175c9e13d70d23de63a4043d7e"
-    sha256 cellar: :any_skip_relocation, monterey:       "f39b4cb1d96830acf124faf64f3581b4977ec155865cb044b36a59a52d071586"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "165bae4cd647dc3bd004f57902c050709edfd1063d275d3ce7d934f623edfb89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5bb3a951f8095ae1544dd71d54fb045eb0d1109c455fb36f950dcba0b50748a7"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2687c0535a5f691d5901e15c83ce9b57bd72031d644bf69a2aacffcbdb2fe5c8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "86b457675bb44c86452e13f34eaa68814261851217ffd9941aeecff973e56bf2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "c2c5788908d476e893f4dcb1f965d03213003a1db84fa3025e7977c8d5f7f19c"
+    sha256 cellar: :any_skip_relocation, ventura:        "85f66e17ee062b9f1422145b722989c4923d15af9a3af96016e359023b16d34e"
+    sha256 cellar: :any_skip_relocation, monterey:       "15d0097d533bbcd6d23e8c708239b897c1d03f7d0649b811e0d2f5eeb8b95519"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ee90531f66595d94ea39bb6e6234caf123e168cb063a44fe96294ab47bd2bc21"
   end
 
   depends_on "go" => :build

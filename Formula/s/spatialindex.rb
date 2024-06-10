@@ -1,8 +1,8 @@
 class Spatialindex < Formula
   desc "General framework for developing spatial indices"
   homepage "https://libspatialindex.org/"
-  url "https://github.com/libspatialindex/libspatialindex/releases/download/1.9.3/spatialindex-src-1.9.3.tar.bz2"
-  sha256 "4a529431cfa80443ab4dcd45a4b25aebbabe1c0ce2fa1665039c80e999dcc50a"
+  url "https://github.com/libspatialindex/libspatialindex/releases/download/2.0.0/spatialindex-src-2.0.0.tar.bz2"
+  sha256 "949e3fdcad406a63075811ab1b11afcc4afddc035fbc69a3acfc8b655b82e9a5"
   license "MIT"
 
   livecheck do
@@ -11,24 +11,21 @@ class Spatialindex < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "62082e264a9ca877789a5d779f46a5d8df0e8f57b245d5788d67bb75035730a8"
-    sha256 cellar: :any,                 arm64_ventura:  "7b70926966d026440d780207a5f7ec0432ce2e5284b62c2907a94393392e6699"
-    sha256 cellar: :any,                 arm64_monterey: "1e01a5347e7bc5c45e0f4b06a92265c08868ee384f9e375f0b7cb42a13106fd2"
-    sha256 cellar: :any,                 arm64_big_sur:  "5786e51306b202e51c9a81b4bc6c7b593027c8e88b777d142e486bf012eebe34"
-    sha256 cellar: :any,                 sonoma:         "198609aaa7b1448c9494dfc36fc794a62d16b207357c40644029a283e1d88113"
-    sha256 cellar: :any,                 ventura:        "436732ecbc6b625c4a712c918baf869b9e670bf4a7dea7e18866dce970a9ccfa"
-    sha256 cellar: :any,                 monterey:       "2a4b3dfa9dce372c262f91985c7fae864c799ce642725beb237a0a2f6338bad4"
-    sha256 cellar: :any,                 big_sur:        "49ef8e79ee6c7348b438d2b174effd66a2a7136a12c58645a0a37a5c22740ce3"
-    sha256 cellar: :any,                 catalina:       "fbcbfaf6510137f3168a0dc57cbac8c8b1435094b1ede9d35a30fa6ccaea28f4"
-    sha256 cellar: :any,                 mojave:         "a5cbdfb3acddb053e596fc56e7653559581923e48ed6815503fffc47c7a16660"
-    sha256 cellar: :any,                 high_sierra:    "cace27981cc1e5143a48e8b700d6823dff9d8049140683e0e536c476894ede91"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fc7ec6fab28b23661a825c46d29b861fca6a6115048be5f42355da59deed84bb"
+    sha256 cellar: :any,                 arm64_sonoma:   "d4d8356031dbd364d52f7084eda53904504adb4c2d66cd271eb59724c68c54bb"
+    sha256 cellar: :any,                 arm64_ventura:  "18cf32a34ab1ba0b81c809ddcdaee91467b0221cd0175db1fdf859f8f6be237f"
+    sha256 cellar: :any,                 arm64_monterey: "45516ebe96f28fd4cc70ee529d7e008b897e4e277aaff5ee7407635134089bd7"
+    sha256 cellar: :any,                 sonoma:         "6b452f456423420445266dcec2c67a8ff3d342fc18bce4c280af2148054d4cfe"
+    sha256 cellar: :any,                 ventura:        "37c67e12247424a37c681c930ddf5a130fb7f28165c2c10536975dcc7c1c7f98"
+    sha256 cellar: :any,                 monterey:       "0cefd42c848e69c6763d45a4eded4b9309ed01a752f284a370d93596e3bc0109"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "eb8f43583a9d8c86dcabbe2d332e325c9bf1603ffba4f3344239e23d86b8c8ca"
   end
 
   depends_on "cmake" => :build
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath}",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

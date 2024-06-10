@@ -3,19 +3,19 @@ class Fortls < Formula
 
   desc "Fortran language server"
   homepage "https://fortls.fortran-lang.org/"
-  url "https://files.pythonhosted.org/packages/7a/3f/db215a89836cf9c9e7d2039f9ded31511fdaeceb63bb8bc8d0e01714b1a0/fortls-3.1.0.tar.gz"
-  sha256 "e38f9f6af548f78151d54bdbb9884166f8d717f8e147ab1e2dbf06b985df2c6d"
+  url "https://files.pythonhosted.org/packages/38/56/38b11a3b5e3025dcb6054b16e00772b7d3d6701442fabd25722ff311996c/fortls-3.1.1.tar.gz"
+  sha256 "ef248ce72bd1656d37ddb4d52f67c4764926102c749fc65b58429dcf9120e48d"
   license "MIT"
   head "https://github.com/fortran-lang/fortls.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "00bcd81cccbe00902df21ec67f947e7fa159c3f0532e57090dee8ad7125a8f9e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "816a8bb69dfb03574e6ad9322e2ab5d022f9f402d40a25e718e498b042ff4132"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "863801d634f7f56948ec657c0f0cca3748cd95698632e7aa94a76b72af9daddb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "eb1f012c33bb89eeaea4597215cb6c4683554e67d100b2e080720d4174fd237a"
-    sha256 cellar: :any_skip_relocation, ventura:        "d842a5fa5ba725875960bbaf6d003a34daa19c05fbcdde26f36c4d60b2bc33b8"
-    sha256 cellar: :any_skip_relocation, monterey:       "e3862d45d0ef7f7122f128aa2374e935f31a156a8404c86df29b5b19c0002ae2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b8b492f31f2329c07f04b24f73319e0892b2e0fcd6e84eadc4142085c271742"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7d443c225335e5ba2dbc876feb1dd42ba01a52799a8a169d1d459433020ec493"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7d443c225335e5ba2dbc876feb1dd42ba01a52799a8a169d1d459433020ec493"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "7d443c225335e5ba2dbc876feb1dd42ba01a52799a8a169d1d459433020ec493"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7d443c225335e5ba2dbc876feb1dd42ba01a52799a8a169d1d459433020ec493"
+    sha256 cellar: :any_skip_relocation, ventura:        "7d443c225335e5ba2dbc876feb1dd42ba01a52799a8a169d1d459433020ec493"
+    sha256 cellar: :any_skip_relocation, monterey:       "7d443c225335e5ba2dbc876feb1dd42ba01a52799a8a169d1d459433020ec493"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b832d03239ff371f68f0461562338ea938548b538c82da1522a414289cd5a7c5"
   end
 
   depends_on "python@3.12"

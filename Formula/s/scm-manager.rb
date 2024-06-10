@@ -11,17 +11,18 @@ class ScmManager < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "03dfd10f31387e0dd5fade0f69ca4c33bf78b2b7d534597c89ef5e35ece005d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "03dfd10f31387e0dd5fade0f69ca4c33bf78b2b7d534597c89ef5e35ece005d4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "03dfd10f31387e0dd5fade0f69ca4c33bf78b2b7d534597c89ef5e35ece005d4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "03dfd10f31387e0dd5fade0f69ca4c33bf78b2b7d534597c89ef5e35ece005d4"
-    sha256 cellar: :any_skip_relocation, ventura:        "03dfd10f31387e0dd5fade0f69ca4c33bf78b2b7d534597c89ef5e35ece005d4"
-    sha256 cellar: :any_skip_relocation, monterey:       "03dfd10f31387e0dd5fade0f69ca4c33bf78b2b7d534597c89ef5e35ece005d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "18221ab74c8ecddfa494132e5baff963ef15b9a5c6912d601dedad671279d716"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
+    sha256 cellar: :any_skip_relocation, ventura:        "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
+    sha256 cellar: :any_skip_relocation, monterey:       "dc40e1ab0dc62ad344d6adf8da3370116c71ac53dfdff9379441cbd25017371f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0a17779339d3d1359b170d8518523cab99b3b73e5049c1e3ad2516eda0660051"
   end
 
   depends_on "jsvc"
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     # Replace pre-built `jsvc` with formula to add Apple Silicon support
@@ -29,7 +30,7 @@ class ScmManager < Formula
     rm Dir["libexec/jsvc-*"]
     libexec.install Dir["*"]
 
-    env = Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env("21")
     env["BASEDIR"] = libexec
     env["REPO"] = libexec/"lib"
     (bin/"scm-server").write_env_script libexec/"bin/scm-server", env

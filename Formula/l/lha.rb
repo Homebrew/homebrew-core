@@ -7,6 +7,17 @@ class Lha < Formula
   license "MIT"
   head "https://github.com/jca02266/lha.git", branch: "master"
 
+  # Tags simply use a date-based `release-YYYYMMDD` format, so we naively
+  # prepend `1.14i-ac` to match the formula version format. This will need to be
+  # updated if the leading version ever changes.
+  livecheck do
+    url :stable
+    regex(/^(?:release[._-])?v?(\d+(?:\.\d+)*)$/i)
+    strategy :git do |tags, regex|
+      tags.map { |tag| tag[regex, 1]&.prepend("1.14i-ac") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e42f198ac84b3b9b7be6358792ecb7125de6f404def713744e7caac480afdf14"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "c7a59e14fef6de2726498fb18a67c4eab1361ca60563fddff7e98bb4cbd5b0ae"

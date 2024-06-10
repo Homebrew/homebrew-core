@@ -1,9 +1,9 @@
 class Go < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
-  url "https://go.dev/dl/go1.22.3.src.tar.gz"
-  mirror "https://fossies.org/linux/misc/go1.22.3.src.tar.gz"
-  sha256 "80648ef34f903193d72a59c0dff019f5f98ae0c9aa13ade0b0ecbff991a76f68"
+  url "https://go.dev/dl/go1.22.4.src.tar.gz"
+  mirror "https://fossies.org/linux/misc/go1.22.4.src.tar.gz"
+  sha256 "fed720678e728a7ca30ba8d1ded1caafe27d16028fab0232b8ba8e22008fb784"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/go.git", branch: "master"
 
@@ -21,13 +21,13 @@ class Go < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "de015e63596ba157040131dc2cb34065db112f44f01d00bda2a4498405d01583"
-    sha256 arm64_ventura:  "f691f8b4a5c7c363a775067866e76530806a090dadcd540fdae7c3647f67546d"
-    sha256 arm64_monterey: "3049c5428155463c4b3da64caf9095895514471cda6003aadd596979bc931eb9"
-    sha256 sonoma:         "c4c42e83193f2b6798a9b2d84b624b2603c3daef0163b8fc8efd699a8fbafcd8"
-    sha256 ventura:        "7639dd48d1cf8302f6998043627c609ea133df95acc1d9fabc8758ba95396dd5"
-    sha256 monterey:       "563f6ec4a515f96c4c548dbb34b3f97662679631e00bd435bd763ecc1e312d6e"
-    sha256 x86_64_linux:   "1a500f20d26ced4a694d2f1646f9d7d9756eef8c4bff1abd63e1a2842593b63c"
+    sha256 arm64_sonoma:   "dfabcce1e527cbc83efb0a900a29cf19258543f826267ab599d981a7bac11511"
+    sha256 arm64_ventura:  "0704c08c881216518ef63c601059f2673d674d9301ec7b179564adf888c6003e"
+    sha256 arm64_monterey: "713c8907b0227f00b07edafa549b09cb390c2a9e7a5a9a9b19d301b282c592fa"
+    sha256 sonoma:         "8ca278668026d49a7ec435c203b351c40f3a96b75c1cbe04ad1074b3ccc61a99"
+    sha256 ventura:        "3379c6f57a1abb976f1cb56e71b0bd10fcfd400e4aba92eddc063c4bb581285f"
+    sha256 monterey:       "c04013344e23c6c787d091f5dd40543d738fed86a3d976baeec2e833c6176eec"
+    sha256 x86_64_linux:   "5bf7cba28544183f58efea708718a7030da7fbef09566a15d0975a04a844aa9f"
   end
 
   # Don't update this unless this version cannot bootstrap the new version.

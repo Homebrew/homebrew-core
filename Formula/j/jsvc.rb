@@ -7,16 +7,17 @@ class Jsvc < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fa154bb18167635e5bf59f06968ad2f795bcb819c9250b4f431d78778c8417da"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bbc8cc85b87a73647c42a9fbc15e762f0053274b4d221a5e44ef14cd79b723a4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b0b5125b0a7f2f0c65b70c9cfcaf360046a2edbd99969a78d2689df02cb7f03d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9b42f73ea5fec143f1451ee941f27accc500311c91ef08a71d976265e534cff7"
-    sha256 cellar: :any_skip_relocation, ventura:        "8aafeea24d7f1c27b5e73f94428049896c4258ea392a79984c994c4da72452f5"
-    sha256 cellar: :any_skip_relocation, monterey:       "b68e62120116e03619e77496c1cd5b3140a8520002688c3ec8a8401d5e04a7ef"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "78e7084642c481492d64a4f30ff92bab922dfb3c62875569b3caa28fb1e07039"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "da8011ddc9b79a39530d7f5c14b6ca044c5a1fb1811adc52a0bb4fb399a58dd1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "252dedd105372cc567919abb4a076feb4b47ecb55babafad8fa8c96499ab2769"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "560dad0bc6f713b936aea6cf9e26043cfcfae79488f71f9f5cde0b8e3cbd3900"
+    sha256 cellar: :any_skip_relocation, sonoma:         "5e02dfd1ddb83a236cae975a5452764909fba6c5424d6b4569a701c1a8396af8"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c188b4235704997a056da7a68de92a1d9013d4a7415b98baae0870dc64debd5"
+    sha256 cellar: :any_skip_relocation, monterey:       "b22e2638c3e59970a1eaacc4468ee83d438a6010cf411591034c1ba623ef8d0f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8e4b2cb1e48a600781869d4007377c3a6e3287a2ac58eba3c6c37a344df34d8c"
   end
 
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     prefix.install %w[NOTICE.txt LICENSE.txt RELEASE-NOTES.txt]
@@ -25,11 +26,11 @@ class Jsvc < Formula
       # https://github.com/Homebrew/homebrew-core/pull/168294#issuecomment-2104388230
       ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-      system "./configure", "--with-java=#{Formula["openjdk"].opt_prefix}"
+      system "./configure", "--with-java=#{Formula["openjdk@21"].opt_prefix}"
       system "make"
 
       libexec.install "jsvc"
-      (bin/"jsvc").write_env_script libexec/"jsvc", Language::Java.overridable_java_home_env
+      (bin/"jsvc").write_env_script libexec/"jsvc", Language::Java.overridable_java_home_env("21")
     end
   end
 

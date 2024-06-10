@@ -1,19 +1,19 @@
 class Jnv < Formula
   desc "Interactive JSON filter using jq"
   homepage "https://github.com/ynqa/jnv"
-  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "87338cb8b3f8fbcfcfa4380ebeb3aa86e39f3bce57149f845ea76c9087e58f21"
+  url "https://github.com/ynqa/jnv/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "4cbb0700b3b1c4212c97edca577039abf4ea238ca8c966978825d537f13f8885"
   license "MIT"
   head "https://github.com/ynqa/jnv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f58c488ce751be38f85a6f1fe1021017b876e45ca7150b7b1ab2c6bf181af551"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "315253bbc759e03f557272cee8740c6a733894b6672b767f9d3f0065e047a025"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f3fc8e8cedb919aead85633a4ca5467f2fef67bb653280fb295b5e4c702fe7d7"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d97d234d25741479552f4ee1e4815fec0f4d286efb2ec8b11ef480b7a348f62b"
-    sha256 cellar: :any_skip_relocation, ventura:        "8725c7cd6e15ebdea8c287aeda0731281444544c9a765070acc106d21cf45edf"
-    sha256 cellar: :any_skip_relocation, monterey:       "9ed428372cc63e9010ee1ca5acc7713563d8db19a9436d696451cf852a1fc296"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a9cc78a4d39d1d410e644c38a01afa8a7d5cbdc2c174a820b4dce46b428c53b9"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3c4a4d321848c6e62f36cf921aff575d56e7e1c913a745d8b4e633e87c8cc449"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2159c5e6c9d548b28abad2ec9f2f908758ba1aa035bae21ecb4c3bfb0f42ac28"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3214aeeafa34b3cabf330b10276efd6bfabf6b86fb34aad8c716addb1a10f5d6"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2866a9d24e838dbfab3ffd53ed8821adef3ac1d062e4781b6bb8633d4cb1cc9e"
+    sha256 cellar: :any_skip_relocation, ventura:        "13f99b3f55a70f9d23a07cac1f0a81752d06e5baa30020162daf8d5ecd639e5f"
+    sha256 cellar: :any_skip_relocation, monterey:       "ebeb7b8259a4bb7f73dbe2bebee0bb5136683af0abc308cc97170e81337c4279"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c9e0ea9aa4d8745b0fa0eba94c750fec760003616d5d93a82930ed6d2596209f"
   end
 
   depends_on "autoconf" => :build

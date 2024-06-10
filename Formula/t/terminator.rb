@@ -3,19 +3,18 @@ class Terminator < Formula
 
   desc "Multiple GNOME terminals in one window"
   homepage "https://gnome-terminator.org"
-  url "https://github.com/gnome-terminator/terminator/archive/refs/tags/v2.1.3.tar.gz"
-  sha256 "ba499365147f501ab12e495af14d5099aee0b378454b4764bd2e3bb6052b6394"
+  url "https://github.com/gnome-terminator/terminator/archive/refs/tags/v2.1.4.tar.gz"
+  sha256 "b6a544426a19829f9e9bb41441a2f4789edc04f1867c84a436822d1af6a36d06"
   license "GPL-2.0-only"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "80e72e1494c20a2b7af3fa0b05d8ccba0f3ac7535fc63ba571dcbc8ced59fa38"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "b6d52cedeac8cdc339026a89a340758e96aff186f44adc3379065b7de9baabac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f5ac084ee51b80ca0fa7e79aeeffd5991410b3f72bbb1c1bb2152ad0ca320ae0"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b385d049fc9609bfdecae76d6aea79a430d679092d42f82b584e30d705e6e160"
-    sha256 cellar: :any_skip_relocation, ventura:        "d907e535fab50b660a77b1c680c73963d6ffc7e69d109fa6a3d84b152644f7fe"
-    sha256 cellar: :any_skip_relocation, monterey:       "52c72d278ac0a012ad2a6d85fe9e04f4de45e7daec8ec47ce74a31d51d50a304"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c1b9e9be39bbf308993a1469d1dc55c2ff2a69f04ce74a014383bb7616b60d5"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "977d208ffe8ac59d8a5ff0ef577ac0e6e6af388ca5bd637632227ad232a72326"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "6d7be7db387a5e11d7ed9f6f6e08c5638ec484680d923a2486f12f993ff1ded4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "c059276169ab3dc9d3307fd648252ea3f10ab046cab0c51b3f0fa7cd8a386ff1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d2e0770ff214ee3b3d0ea6d3674ede07b7a27216f933f1d5bfb7391c5c537dd8"
+    sha256 cellar: :any_skip_relocation, ventura:        "af1cf0b858e2341d6c5686d7eb36c6c277dbf3eb60522cb22fa58e62b5a5031b"
+    sha256 cellar: :any_skip_relocation, monterey:       "d9eebb2a1316d84ea194f18a2b0870c7cb332f3f0a513d656f518f84e48f6b7d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "de5eb10e4a24584a4db44a6f84d7f355dff428f380bed522ed69a44e373f78a9"
   end
 
   depends_on "pygobject3"

@@ -3,22 +3,22 @@ class AwsSsoUtil < Formula
 
   desc "Smooth out the rough edges of AWS SSO (temporarily, until AWS makes it better)"
   homepage "https://github.com/benkehoe/aws-sso-util"
-  url "https://files.pythonhosted.org/packages/6e/93/90d3753ac7ea3148c41c43929cace11d8fc1331c629497ab24a91a6c3724/aws_sso_util-4.32.0.tar.gz"
-  sha256 "2649dcf3c594851a0c55ed6ebf2df70205d1debd6e58e263738430d4703890ec"
+  url "https://files.pythonhosted.org/packages/4f/64/f00272ecbc60703d0f1a3b17ab75d893c05ec5d60b0e6e9d59ef9b8b9c61/aws_sso_util-4.33.0.tar.gz"
+  sha256 "e48d7f5911443450d28e1ac1613f81b9aa15babb1b2055b4531df87db43a09df"
   license "Apache-2.0"
-  revision 6
   head "https://github.com/benkehoe/aws-sso-util.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "183b8d56116ebf20fc1cde868a21722ef9ce7a40bbe16e151aee9166242e6d4c"
-    sha256 cellar: :any,                 arm64_ventura:  "9d788f13ed8c7b9099b6c3c3a8eb639c74fb868a77dba4c5630373495c582144"
-    sha256 cellar: :any,                 arm64_monterey: "e716b9f7ba9c2709692eda0bf4c2fed3bcde76e2bdba9ba6556289352df152b6"
-    sha256 cellar: :any,                 sonoma:         "a94a1822a0cbfce232fa2e7d40fbe86fb912a14910b209e98d8b5915c77b6c72"
-    sha256 cellar: :any,                 ventura:        "e02ab584717180357ba8b5d6dddc35a0313372e32dd5d69ebc9bf0e86ce20d22"
-    sha256 cellar: :any,                 monterey:       "be6858058657c027555d31973f8ef642e2543010d03405909cca9b8de9eea2ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "00bfb48426323bd428df0df9092fe6551bd3fb947e6e43865ed6726b58ef7121"
+    sha256 cellar: :any,                 arm64_sonoma:   "7836869c583bc0ff875ec3320b5547227d68bd8adcb21d000245bca09abf3a13"
+    sha256 cellar: :any,                 arm64_ventura:  "96096190305272c14e350922bfa23ec4925157de3928244ed56b7c99091f26aa"
+    sha256 cellar: :any,                 arm64_monterey: "da79e10847615ab266c52fc7ab67839d5bbccb92fb121b6420061fb86a57e063"
+    sha256 cellar: :any,                 sonoma:         "13bad4661c7714000fc2f61fc682bd34fa5751fe097ff85d60a44d58a4d9ee18"
+    sha256 cellar: :any,                 ventura:        "dde2babbf2933e2fc25706aef136130489b6931480e8dab0d4ab6660591c3752"
+    sha256 cellar: :any,                 monterey:       "cbf807c0124f493a4a33528cfc8b1375e515a021b9738ba21ccb52c6afc809f0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1f09dfe69f131a7c4c243c93eda1160d493d54187e9ef2a24865ebc8675a2d1a"
   end
 
+  depends_on "rust" => :build # for rpds-py
   depends_on "certifi"
   depends_on "libyaml"
   depends_on "python@3.12"
@@ -39,13 +39,13 @@ class AwsSsoUtil < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/cd/f5/03bfbb89af1266a10125ebbc2bb09e2d276450de0e360767e7edb0d54022/boto3-1.34.109.tar.gz"
-    sha256 "98d389562e03a46fd79fea5f988e9e6032674a0c3e9e42c06941ec588b7e1070"
+    url "https://files.pythonhosted.org/packages/85/83/cad274d561666dc36dbb2702cf049dd4204a2ba8574cbab6c1c54f34e379/boto3-1.34.117.tar.gz"
+    sha256 "c8a383b904d6faaf7eed0c06e31b423db128e4c09ce7bd2afc39d1cd07030a51"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/7a/af/091991a0420d70e150012fdee651185c7a0a3de8d96ad626b0ec9e35b704/botocore-1.34.109.tar.gz"
-    sha256 "804821252597821f7223cb3bfca2a2a513ae0bb9a71e8e22605aff6866e13e71"
+    url "https://files.pythonhosted.org/packages/aa/fd/163ba1340a4fcfcf85146dffa2c01f403b3308d8bf29a76c28c7b784af7e/botocore-1.34.117.tar.gz"
+    sha256 "4637ca42e6c51aebc4d9a2d92f97bf4bdb042e3f7985ff31a659a11e4c170e73"
   end
 
   resource "charset-normalizer" do
@@ -69,13 +69,13 @@ class AwsSsoUtil < Formula
   end
 
   resource "jsonschema" do
-    url "https://files.pythonhosted.org/packages/69/11/a69e2a3c01b324a77d3a7c0570faa372e8448b666300c4117a516f8b1212/jsonschema-3.2.0.tar.gz"
-    sha256 "c8a85b28d377cc7737e46e2d9f2b4f44ee3c0e1deac6bf46ddefc7187d30797a"
+    url "https://files.pythonhosted.org/packages/19/f1/1c1dc0f6b3bf9e76f7526562d29c320fa7d6a2f35b37a1392cc0acd58263/jsonschema-4.22.0.tar.gz"
+    sha256 "5b22d434a45935119af990552c862e5d6d564e8f6601206b305a61fdf661a2b7"
   end
 
-  resource "pyrsistent" do
-    url "https://files.pythonhosted.org/packages/ce/3a/5031723c09068e9c8c2f0bc25c3a9245f2b1d1aea8396c787a408f2b95ca/pyrsistent-0.20.0.tar.gz"
-    sha256 "4c48f78f62ab596c679086084d0dd13254ae4f3d6c72a83ffdf5ebdef8f265a4"
+  resource "jsonschema-specifications" do
+    url "https://files.pythonhosted.org/packages/f8/b9/cc0cc592e7c195fb8a650c1d5990b10175cf13b4c97465c72ec841de9e4b/jsonschema_specifications-2023.12.1.tar.gz"
+    sha256 "48a76787b3e70f5ed53f1160d2b81f586e4ca6d1548c5de7085d1682674764cc"
   end
 
   resource "python-dateutil" do
@@ -88,19 +88,24 @@ class AwsSsoUtil < Formula
     sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
   end
 
+  resource "referencing" do
+    url "https://files.pythonhosted.org/packages/99/5b/73ca1f8e72fff6fa52119dbd185f73a907b1989428917b24cff660129b6d/referencing-0.35.1.tar.gz"
+    sha256 "25b42124a6c8b632a425174f24087783efb348a6f1e0008e63cd4466fedf703c"
+  end
+
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/d8/c1/f32fb7c02e7620928ef14756ff4840cae3b8ef1d62f7e596bc5413300a16/requests-2.32.1.tar.gz"
-    sha256 "eb97e87e64c79e64e5b8ac75cee9dd1f97f49e289b083ee6be96268930725685"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
+  end
+
+  resource "rpds-py" do
+    url "https://files.pythonhosted.org/packages/2d/aa/e7c404bdee1db7be09860dff423d022ffdce9269ec8e6532cce09ee7beea/rpds_py-0.18.1.tar.gz"
+    sha256 "dc48b479d540770c811fbd1eb9ba2bb66951863e448efec2e2c102625328e92f"
   end
 
   resource "s3transfer" do
     url "https://files.pythonhosted.org/packages/83/bc/fb0c1f76517e3380eb142af8a9d6b969c150cfca1324cea7d965d8c66571/s3transfer-0.10.1.tar.gz"
     sha256 "5683916b4c724f799e600f41dd9e10a9ff19871bf87623cc8f491cb4f5fa0a19"
-  end
-
-  resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
-    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
   end
 
   resource "six" do

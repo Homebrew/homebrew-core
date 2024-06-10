@@ -15,7 +15,6 @@ class Attr < Formula
     sha256 x86_64_linux: "2c131520e0e49f68b20bce55f7efe36909ede3f95e484606d3f721b1d39a5f15"
   end
 
-  depends_on "gettext" => :build
   depends_on :linux
 
   def install

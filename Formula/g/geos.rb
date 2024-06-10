@@ -1,8 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://libgeos.org/"
-  url "https://download.osgeo.org/geos/geos-3.12.1.tar.bz2"
-  sha256 "d6ea7e492224b51193e8244fe3ec17c4d44d0777f3c32ca4fb171140549a0d03"
+  url "https://download.osgeo.org/geos/geos-3.12.2.tar.bz2"
+  sha256 "34c7770bf0090ee88488af98767d08e779f124fa33437e0aabec8abd4609fec6"
   license "LGPL-2.1-or-later"
 
   livecheck do
@@ -11,13 +11,13 @@ class Geos < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "eb5ed506791fa7a8d992d675b0fde0caf76a7c2c1969a97f18260489aeb90126"
-    sha256 cellar: :any,                 arm64_ventura:  "2e59c5d88e6d77ca35f8a6f206e9e92461ad881471773799e2ca676561d554e4"
-    sha256 cellar: :any,                 arm64_monterey: "d7e8fa72281b48b77053d17041c8f7374e9d6e7e6ed8745b7ae14f35ac920111"
-    sha256 cellar: :any,                 sonoma:         "058b84baac8fc31b6bc1195e9b457aae1cd4327d016f6ebeb3457fbfe32d6a6b"
-    sha256 cellar: :any,                 ventura:        "64e05681743aaaf4c4d0e328d6766b4a8e8f3615bcc07a394e4b3ecd0adedb87"
-    sha256 cellar: :any,                 monterey:       "7c2a67de025cee40f7485b54ebece0c8ade16091e8a55595b30a89c3faf6fb0a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6d49e923f8efb65728637e7bfc6a266dad0e31456e3056dd85d66f36e3925c80"
+    sha256 cellar: :any,                 arm64_sonoma:   "f6c82434de971f349f3824c0c5eb3dce5281d7763b6da3a345948355de7d37b1"
+    sha256 cellar: :any,                 arm64_ventura:  "78e6c7c86f8b88758d1eff8066b4130aa902989b94abb8ddaf35ffc78e882507"
+    sha256 cellar: :any,                 arm64_monterey: "55a7b103f27eba635eb3605550f97298342d53ff09315db1f0fa765585752162"
+    sha256 cellar: :any,                 sonoma:         "50be92d7858e7d3eac62eddafc133ec4abdc2bbcd81ac30dd5a1dd00555b3b00"
+    sha256 cellar: :any,                 ventura:        "dbde222e31e5c935c707df8f0f7a06dac48c7f9d9dc9ed141f1acf4e8dd32272"
+    sha256 cellar: :any,                 monterey:       "91e77574b4d8cc7eab8fbab3e40ea31c7806c25f79654790dc614121d9fe22ba"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1c95d3336f8a2fac401f11a40c0a32e577331500e5dd30ea0641dfd741e9118e"
   end
 
   depends_on "cmake" => :build

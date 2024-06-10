@@ -1,19 +1,19 @@
 class Cryptography < Formula
   desc "Cryptographic recipes and primitives for Python"
   homepage "https://cryptography.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/78/63/66c03eb51f0d241862083deb3f17ab5fce08cf6b347db7887bcb4d1a194e/cryptography-42.0.7.tar.gz"
-  sha256 "ecbfbc00bf55888edda9868a4cf927205de8499e7fabe6c050322298382953f2"
+  url "https://files.pythonhosted.org/packages/93/a7/1498799a2ea06148463a9a2c10ab2f6a921a74fb19e231b27dc412a748e2/cryptography-42.0.8.tar.gz"
+  sha256 "8d09d05439ce7baa8e9e95b07ec5b6c886f548deb7e0f69ef25f64b3bce842f2"
   license any_of: ["Apache-2.0", "BSD-3-Clause"]
   head "https://github.com/pyca/cryptography.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "fa931de864cde4e129e723044c96964bea921e66696330240b24f125a05bcbd6"
-    sha256 cellar: :any,                 arm64_ventura:  "9eba75615d69539a04370a4dbcb74a18e8d26a1e18a049fea3764c926a738544"
-    sha256 cellar: :any,                 arm64_monterey: "f013612a4be0c9c6fa5be2869ea5195476446fa349b845e1c6416d531d81ff70"
-    sha256 cellar: :any,                 sonoma:         "7f5eba4546a9e97d2d41148fb08a93677e35208979c7662cb58df6719ec2ed5b"
-    sha256 cellar: :any,                 ventura:        "760c2638de6b28205fb163caa01da87ca857565d6d008bb996f0d911c820dc14"
-    sha256 cellar: :any,                 monterey:       "09695143da9121fdb02ba0fc46c2de991e328357d1baddaa7503e3c0a261cb12"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ae929ad754628360c1c1868018f8e55a3e5fd26f3cfb16f1367f053e27a1509d"
+    sha256 cellar: :any,                 arm64_sonoma:   "634346cb47bbcf97c61c968f5dbdb8e20cfa61e105bccaa64bc4d77686a905c9"
+    sha256 cellar: :any,                 arm64_ventura:  "6857c224dd8cada92edb85cfebd190f7750ecd340ffc0a771582928a67a97df9"
+    sha256 cellar: :any,                 arm64_monterey: "1b7a356f952ec1fae8e8f5841baf21886cf2e5819ec4a11a5244dbf321c4038e"
+    sha256 cellar: :any,                 sonoma:         "f849e69b449bb7fefa0d30a3418df38731646027f8eef135a357f3adfd4dc5d1"
+    sha256 cellar: :any,                 ventura:        "c2f40add6226a6f7bfc14a9a4001053349f6ef7f97db1cfcfe139b84686cb3dd"
+    sha256 cellar: :any,                 monterey:       "cc3c59c05f5ff7d76932f4ad31053298afa0dd56d51e532910f3911c44d22150"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f82da8a29e4dfcfd6740a347ff6f2fbc3ddea6bec7db175b89c99dbf54ea0975"
   end
 
   depends_on "pkg-config" => :build
@@ -29,8 +29,8 @@ class Cryptography < Formula
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
-    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
+    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
+    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
   end
 
   resource "setuptools-rust" do

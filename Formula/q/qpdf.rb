@@ -1,18 +1,18 @@
 class Qpdf < Formula
   desc "Tools for and transforming and inspecting PDF files"
   homepage "https://github.com/qpdf/qpdf"
-  url "https://github.com/qpdf/qpdf/releases/download/v11.9.0/qpdf-11.9.0.tar.gz"
-  sha256 "9f5d6335bb7292cc24a7194d281fc77be2bbf86873e8807b85aeccfbff66082f"
+  url "https://github.com/qpdf/qpdf/releases/download/v11.9.1/qpdf-11.9.1.tar.gz"
+  sha256 "2ba4d248f9567a27c146b9772ef5dc93bd9622317978455ffe91b259340d13d1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "37b5a16af4cb8315d35a7a0f7983061e2f6fba7164db529b234494bd7990a08b"
-    sha256 cellar: :any,                 arm64_ventura:  "ab3b8a2a19b93c998cd54487e0c6851da40cd10bd0d0839a7cfa8355f7a2a6f9"
-    sha256 cellar: :any,                 arm64_monterey: "321997f6eb9285bc9455d07aac0717d9880791d21fbca6bebdd3106ef97e2fb4"
-    sha256 cellar: :any,                 sonoma:         "496530559b01e82aa325b6def8b6afdd009f82f63ba557dad5613b8e17c34540"
-    sha256 cellar: :any,                 ventura:        "e5e4613f8343859da8b2293bd99c62f8829f3ddafdf836bc6bb2834e4e58ac0e"
-    sha256 cellar: :any,                 monterey:       "1f24e13ca10c2abef832abc06ed5cd94dc91ec048563efd2452dff9292b7d9e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "770f62a2916cc532db8136dd6c0d43c8b624b8031ff9b1da5a90d6e4ffb22800"
+    sha256 cellar: :any,                 arm64_sonoma:   "a4aa3f1a65544861debcfbf6c5df9283e17e4a2f40b14b8c680fa9e8636c0ae9"
+    sha256 cellar: :any,                 arm64_ventura:  "e9f29cb2c999847320165614618f92d9487172a6c5ca09a2691159b934072399"
+    sha256 cellar: :any,                 arm64_monterey: "546a9271c1e4fa88c50a15ed0a6baf4a10e6729e249cdda7642337c125d309fc"
+    sha256 cellar: :any,                 sonoma:         "0af29572086526cbd6e8ec28526d5b02fb97f0b3c7dca97bcf9de7d42a5f555d"
+    sha256 cellar: :any,                 ventura:        "a7b542a3cbfeeaf64f7481d9cbc8a9edd2c4367783519281d59309578d50f8c1"
+    sha256 cellar: :any,                 monterey:       "fe39e820c2a21942e07975bd1f1dc2b596219ffb3b90aa4053fe41223c08eeda"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "f208edd304c812097562ceb2e069dc472d1b5a630086eedf4b645451f6a90384"
   end
 
   depends_on "cmake" => :build

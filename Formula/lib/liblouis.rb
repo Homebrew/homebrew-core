@@ -1,18 +1,18 @@
 class Liblouis < Formula
   desc "Open-source braille translator and back-translator"
   homepage "https://liblouis.io"
-  url "https://github.com/liblouis/liblouis/releases/download/v3.29.0/liblouis-3.29.0.tar.gz"
-  sha256 "4e73d86bbfe1a9af5447b3ddd607243b50414989ec290bfb467b9b774675c8f5"
+  url "https://github.com/liblouis/liblouis/releases/download/v3.30.0/liblouis-3.30.0.tar.gz"
+  sha256 "37328e938a6b432e2700156ed76626b04b06ae296a6da179e0cd64b547ef29dd"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
-    sha256 arm64_sonoma:   "3f87adb7917c5328fa5e502408a13a68c645634050bf91bffb06da3c2535c0fe"
-    sha256 arm64_ventura:  "f221985add2fadc846007485af8011be45e66612f27dfe458111bb5e231057c8"
-    sha256 arm64_monterey: "6131bf73d147d49b4491b1787960373e5ecc710d100c2865d113bdc6a66c7675"
-    sha256 sonoma:         "f460b16a919681f73eda7535ca5402998dbeff545a72f6a447a7b90b6101831c"
-    sha256 ventura:        "17214faa6cdd3b62b1f09fe54177a3266a7314a8a66e08da8dac815adad64bae"
-    sha256 monterey:       "e51e2723b138c8cc70b102225862d3309fdd7e03d058b25e8de5aec3e0fa5361"
-    sha256 x86_64_linux:   "be73583ebaab7fa6c85f59b0da586045e2e6dfc27468a55d369914e664d0c6f9"
+    sha256 arm64_sonoma:   "330b924949add94fa528ec3e4ed79050fb76a8141dc938fe3ec3f49c06df72f2"
+    sha256 arm64_ventura:  "f53a60d37f71445867dac720aa0aedaac3db5b8cddf89d01acc3359bdd0d3f77"
+    sha256 arm64_monterey: "79d26ec533d715dd5bc28ea2cef36a8f8809ae57ce79f41b5616dbf1b0b5b824"
+    sha256 sonoma:         "30375749b231d4d1e3aacb24935bf418ac371ac539e2e7b56fb4201b045dfcd7"
+    sha256 ventura:        "77ef1d9bed5f43b5154322d565ef935c4db6603f48113844448a1f7ad0247fb6"
+    sha256 monterey:       "a58fa76c30754611856fe7e127796d3d61443d70cee802f9353d7b90aae313bf"
+    sha256 x86_64_linux:   "3c2b30a446ab75b75c3f109cf6d07c5f3ffbd314f72d58883f3777df13791b73"
   end
 
   head do
@@ -26,6 +26,8 @@ class Liblouis < Formula
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.12"
+
+  uses_from_macos "m4"
 
   def python3
     "python3.12"

@@ -4,7 +4,7 @@ class Opencv < Formula
   url "https://github.com/opencv/opencv/archive/refs/tags/4.9.0.tar.gz"
   sha256 "ddf76f9dffd322c7c3cb1f721d0887f62d747b82059342213138dc190f28bc6c"
   license "Apache-2.0"
-  revision 8
+  revision 9
 
   livecheck do
     url :stable
@@ -12,13 +12,13 @@ class Opencv < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "090ebc969b6b8d6b762411ebe2a3a37c949675cd019634adfd56074dcc4e77e6"
-    sha256 arm64_ventura:  "9441ad114eb196a74de361476d4e96c3d90af0e6dd43c563e45a76ca803e1710"
-    sha256 arm64_monterey: "5b94af737251cc5fcf8b58b796e3a9ea71dc6a417c72553269b22dc0da4eb03e"
-    sha256 sonoma:         "a76ff6bb248a01fbaaf8986901ea23f3a55abbf62f6235d4a046c85567b6ad17"
-    sha256 ventura:        "f6cf46a78caa12136a993c731974a17550d325bcead252e7e9527564f5ce426a"
-    sha256 monterey:       "e2714b5b4118ec01e9ea20454ce55e83d6aafada64d4f9697231c44aab7166dd"
-    sha256 x86_64_linux:   "4be13033bc84ac92db64b49beea9ef6f0dcfd846b455d80b8f7276cbb3807391"
+    sha256 arm64_sonoma:   "31d00359e95a3ab3291dc1317cfb9a2fe4dee729b59edde05fc820c37cae1ae3"
+    sha256 arm64_ventura:  "fd3d269d7b85ff844f501cf2b86a09f987dacb41273e1d60cf4651473a1b2a71"
+    sha256 arm64_monterey: "40124369c395a61c620a2ee5e3a93b0cdbb04d1cdb6102a1686c2b539576ad66"
+    sha256 sonoma:         "dceae5bbd6f21b6d430f7a3369c5e30c3d05fb3b3054ba7e2fcc688d515101fd"
+    sha256 ventura:        "8eababdcdd49d727055b59fae7b82094b5f8f1914497dffb20a121deaf7917f6"
+    sha256 monterey:       "9ada06261c61f19e89d4fe4831837354971ca6057951876cb2c047c5eacd3dfb"
+    sha256 x86_64_linux:   "0a7e17e7a32afc0cf0b631db12f8c47d465582c6f9c02129b9b61e6b4f4ab7b7"
   end
 
   depends_on "cmake" => :build

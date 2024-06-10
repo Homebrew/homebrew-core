@@ -1,8 +1,8 @@
 class Libsql < Formula
   desc "Fork of SQLite that is both Open Source, and Open Contributions"
   homepage "https://turso.tech/libsql"
-  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.12/source.tar.gz"
-  sha256 "4931bb84beafaeff08045a08d053830beba6d95997c1ad58ccbd03599a377b11"
+  url "https://github.com/tursodatabase/libsql/releases/download/libsql-server-v0.24.14/source.tar.gz"
+  sha256 "e35a7f77c81724a232adb92be57a1f18bb859e4d2a8534793df0bda06314bf03"
   license "MIT"
   head "https://github.com/tursodatabase/libsql.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Libsql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3ebbc58aa5b0813ca1fb183d66c27af7304dc30046824111221552253c0bce9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "66de5e00995d2e52f2718a382f392f7851934ea759f47be5a5c7f862519b1281"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "b5e3e26991ccf08efc2060116ab9281deeb190f24d953678d35d6ecb38b316a6"
-    sha256 cellar: :any_skip_relocation, sonoma:         "04104e9cecabedf6285a5f9c31385cac19b08ed5cb6f6e5cc118e8fb09f91759"
-    sha256 cellar: :any_skip_relocation, ventura:        "c1f571cacb865c34fb7a5d17ca624f8d266d00a41de7a2534b2c1eef6e3de272"
-    sha256 cellar: :any_skip_relocation, monterey:       "99b3e7958ab90be76ea3ee65fe07c3254e598b5f14cff61c58ddd960ef5969f1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e5fe8e8dbb1c96de765ff4cc0f44a6d2207abd541d1bd40e4796425848f70e0b"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f97518439c92ed4eb334e233c81c45d3ef28503095b8ab05e7e5ca08a6783fbc"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4beac2b2a3ff69d406b015a7490bbddbef0f14527d24ee4a7bc3a4f95d33270b"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "aa735c88ee064fbafe689c2f7c95f6775b02280ea7d6e9ed59f16c36a990171e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "af69310802f5948cbfb95543c402a33db760a6374c8baed3619d39a1ede1a2fd"
+    sha256 cellar: :any_skip_relocation, ventura:        "b896fb9096f4a4d81127c6d57a70f42ac888eddcae5f0ae17255dd237bc36ba9"
+    sha256 cellar: :any_skip_relocation, monterey:       "84d9bdbea8d0a28a0318e9d5ec81e5b3e06c013db5e57c935d6a102deda390fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "796c6a7349d5090f685c3bc64c8b8efc26c43b518b683f06b33be1e4a95dfbc2"
   end
 
   depends_on "rust" => :build

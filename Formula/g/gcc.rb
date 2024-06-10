@@ -2,6 +2,7 @@ class Gcc < Formula
   desc "GNU compiler collection"
   homepage "https://gcc.gnu.org/"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
   head "https://gcc.gnu.org/git/gcc.git", branch: "master"
 
   stable do
@@ -15,6 +16,12 @@ class Gcc < Formula
       url "https://raw.githubusercontent.com/Homebrew/formula-patches/82b5c1cd38826ab67ac7fc498a8fe74376a40f4a/gcc/gcc-14.1.0.diff"
       sha256 "1529cff128792fe197ede301a81b02036c8168cb0338df21e4bc7aafe755305a"
     end
+
+    # Addition patch to be more portable across various SDK headers
+    patch do
+      url "https://github.com/iains/gcc-14-branch/commit/75ff8c390327ac693f6a1c40510bc0d35d7a1e22.patch?full_index=1"
+      sha256 "13a7ef21fafa39b268e63c3aaed6a78a1d744176a08ffb8d0fbf2f0083e0c850"
+    end
   end
 
   livecheck do
@@ -23,13 +30,13 @@ class Gcc < Formula
   end
 
   bottle do
-    sha256                               arm64_sonoma:   "17b354e160f7a5d8e7a1f00487a7c051887e305a6150a4b847c17e76aed97ae7"
-    sha256                               arm64_ventura:  "a810fb66fad37e77b1c1af22db005d2fddf771b5b9d0948d7af21177660e2a40"
-    sha256                               arm64_monterey: "22755e8f5880f66533abdc1acb938b28b61046e5ed355e642dd96af817ed655f"
-    sha256                               sonoma:         "cf86c9f26e5b181a638dcd14f4e7ca9fd068585704b10039858d02bf0c2e3508"
-    sha256                               ventura:        "6943930ddecf54c6f34aa970978a411ff791a5390d3b1c2bf1d0dd569148b104"
-    sha256                               monterey:       "7d6bb594da973be313a6e4828280e46aecf7128272c62ae02e54853deb996253"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db5a991887aa5ec1d683a18e6e0fe868c700acddda43d864cbc39ef7987aaed2"
+    sha256                               arm64_sonoma:   "55d0308e8b18062a65b5e021b0d2378bfa59ce00f1aab168692bacce2309d7c3"
+    sha256                               arm64_ventura:  "d392d25a2843f698a4a9b28264b0797759b94d6b617af829c345e6c35513bd47"
+    sha256                               arm64_monterey: "ed9b9cdb77ab2125576ee83995f67a0ad652d2a60eb492d143352fa65e79941b"
+    sha256                               sonoma:         "2e0a345d1d9730af4ff668daebeb8e7477175f1a18f6b83446a88944cf3a6dd7"
+    sha256                               ventura:        "ad8d000ac673d10434c1c12b945c707115536cb6ef8437780fae92b087b5b53b"
+    sha256                               monterey:       "eb2742da4807117169cf733f69b0eabfa514347c510067686c58f03971124c2a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6356fd3788f92d60a10ed20cd6b1ec4f4d53235ece41bb7d8678707fabcbfdb1"
   end
 
   # The bottles are built on systems with the CLT installed, and do not work
@@ -97,6 +104,8 @@ class Gcc < Formula
       # System headers may not be in /usr/include
       sdk = MacOS.sdk_path_if_needed
       args << "--with-sysroot=#{sdk}" if sdk
+
+      make_args = []
     else
       # Fix cc1: error while loading shared libraries: libisl.so.15
       args << "--with-boot-ldflags=-static-libstdc++ -static-libgcc #{ENV.ldflags}"
@@ -110,11 +119,16 @@ class Gcc < Formula
       # Change the default directory name for 64-bit libraries to `lib`
       # https://stackoverflow.com/a/54038769
       inreplace "gcc/config/i386/t-linux64", "m64=../lib64", "m64="
+
+      make_args = %W[
+        BOOT_CFLAGS=-I#{Formula["zlib"].opt_include}
+        BOOT_LDFLAGS=-L#{Formula["zlib"].opt_lib}
+      ]
     end
 
     mkdir "build" do
       system "../configure", *args
-      system "make"
+      system "make", *make_args
 
       # Do not strip the binaries on macOS, it makes them unsuitable
       # for loading plugins

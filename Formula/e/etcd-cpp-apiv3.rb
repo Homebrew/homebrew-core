@@ -4,26 +4,29 @@ class EtcdCppApiv3 < Formula
   url "https://github.com/etcd-cpp-apiv3/etcd-cpp-apiv3/archive/refs/tags/v0.15.4.tar.gz"
   sha256 "4516ecfa420826088c187efd42dad249367ca94ea6cdfc24e3030c3cf47af7b4"
   license "BSD-3-Clause"
-  revision 6
+  revision 7
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a8c4eeaa7336bb1891f535402d6066e9aa50d64df4a5791232e92f7305c37562"
-    sha256 cellar: :any,                 arm64_ventura:  "c15fe98c1ee8424f895622da927268c1075c633966c0170a847f59ee3dbf8813"
-    sha256 cellar: :any,                 arm64_monterey: "4303c948a3a1a1e4d85103236a3249a10332e44e63fbd40d8908dfcc795ffd7d"
-    sha256 cellar: :any,                 sonoma:         "a79145ece811eff98f7835b1dc2e309115278307cbe7cba0935129117bddbe48"
-    sha256 cellar: :any,                 ventura:        "65b7057f20d25fe286231d0110bac45101538fa032845a7ea9c1c28c8dd6a55c"
-    sha256 cellar: :any,                 monterey:       "e90ee70548881679f99c789fdd7e678802c7a9db093a6305baed2e6e5d41fcd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6cbd3426ba1d1376d02e041af6b3debd94d80fbd66e4f03d60cc328ed9bb2b9"
+    sha256 cellar: :any,                 arm64_sonoma:   "616db5dee3027eee5c6420f314f8a5e1b55e65c1b95f093fed42e5dcaacfaca1"
+    sha256 cellar: :any,                 arm64_ventura:  "1e01cf3d3910a0cea44a918eacaa8a2c0d729d00f1c18fac9f8af922ff5d0375"
+    sha256 cellar: :any,                 arm64_monterey: "bb370c0fe6fe366dd5b2ecf6816ef8138f4001f89a083574fb13eef948579110"
+    sha256 cellar: :any,                 sonoma:         "562fa426a1da7b92f9a40e926de8dfcc1d87e9db8adb02aaa68e6d48955e761c"
+    sha256 cellar: :any,                 ventura:        "6420c096364c5db98f59e0810e2ce7365da946114dc44474ff08ac6b4abb423b"
+    sha256 cellar: :any,                 monterey:       "2c7f09c4b040c1075a5e37886bc80c0c44e8aac2b5feeac64c269caa0008e4af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4f06801845cf7e5e4a6cab9c008df1db3ac9d23ddc928d6deb96c230299b19fe"
   end
 
   depends_on "cmake" => :build
   depends_on "etcd" => :test
 
+  depends_on "abseil"
   depends_on "boost"
+  depends_on "c-ares"
   depends_on "cpprestsdk"
   depends_on "grpc"
   depends_on "openssl@3"
   depends_on "protobuf"
+  depends_on "re2"
 
   fails_with gcc: "5"
 

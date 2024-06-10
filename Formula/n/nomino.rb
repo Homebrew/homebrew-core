@@ -1,19 +1,19 @@
 class Nomino < Formula
   desc "Batch rename utility"
   homepage "https://github.com/yaa110/nomino"
-  url "https://github.com/yaa110/nomino/archive/refs/tags/1.3.4.tar.gz"
-  sha256 "a4a75307c29ea5f729fbce8836db6302b9b298fcd9b23cf71d626878ce1dfad7"
+  url "https://github.com/yaa110/nomino/archive/refs/tags/1.3.5.tar.gz"
+  sha256 "35df10b30608c6ce733fe57625247621f8b2c51d99dc68421114b54880424ed2"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/yaa110/nomino.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a5a40465524c2905a0f5c2f4063731ad6d227a176829ec49864c1813d4184fa2"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "89a841ef7719b07d46f1f5b7df017fe69f1865c23a93c3729fa9d5726bcab21b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d7c27895f4c782b6c3220e3424e8006ecf9cfad7b8ac57b1a7bbd30b49f09781"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9a0b00a299c9c541772e00a1f551d42ef79ce7f31e437f9b086188b0479bab42"
-    sha256 cellar: :any_skip_relocation, ventura:        "a4b15bb529ed1e3f981864f7a566ef95037c2a73f23c950ccb59bf8c604f225f"
-    sha256 cellar: :any_skip_relocation, monterey:       "9a89b365b9e063af353eabeab66ca16ad888475063747a8ebf781b8229fa0527"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7d6241e0dee8299cae62b2f11e24b8247bf76088d2407c73d1ec43c0b79ace01"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7167bdcda8987fae6d1176853b20a72bb8fe1b37117e18f8d085405466f33836"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c8f1894e5657149e1419fb5a43fe1efc457c5fbacf8eaff944025bfc13ad1395"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "38818cce18f4df79b6aec98138c1387db5e1dc586a0af76bea15239adae99f7d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4776ca97dfc0222a313f0c7702b610e9c7040606717da6fbacbcfc517d83127e"
+    sha256 cellar: :any_skip_relocation, ventura:        "2032516b17fb64a98e099c513abd1dfd4d390fa9ae2c61d5360f8cdb3f76e1af"
+    sha256 cellar: :any_skip_relocation, monterey:       "c0f46889b17cec7968f7ff3613a1fe6a52c9d65b0f3ae4005701e8b8063f19fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "98d84ebaa4e520ef1863c757108a97fcd8cec5c467efdd3651733a8d72c8dfdd"
   end
 
   depends_on "rust" => :build

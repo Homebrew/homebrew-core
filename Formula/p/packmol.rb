@@ -6,6 +6,11 @@ class Packmol < Formula
   license "MIT"
   head "https://github.com/m3g/packmol.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d3b16a432f027c075f1fd7078db57b6feb1eada927947473146af4876094b9b2"
     sha256 cellar: :any,                 arm64_ventura:  "c1c3e091d3d7667c3983cfff7cde909e2099832bb4343fb0fbd5fb0a7a4baca6"

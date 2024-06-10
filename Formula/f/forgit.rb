@@ -1,12 +1,18 @@
 class Forgit < Formula
   desc "Interactive git commands in the terminal"
   homepage "https://github.com/wfxr/forgit"
-  url "https://github.com/wfxr/forgit/releases/download/24.05.0/forgit-24.05.0.tar.gz"
-  sha256 "98021db4880a16ff5782a26738045281e8fbbb7c00b65127a12b899515817557"
+  url "https://github.com/wfxr/forgit/releases/download/24.06.0/forgit-24.06.0.tar.gz"
+  sha256 "7beb5e5938000b966c1c2b5d17786ae53aa85fc9127e8eb5ee41aa0210b0955b"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c2a73a9bf20ab70e561b8f2498495e47cd220da4e447a22b36bbe23ef846105c"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3302e0bdfc0cad63e04a3ec12cc5bc797bc92de5634dcd101c67e009d2271e60"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3302e0bdfc0cad63e04a3ec12cc5bc797bc92de5634dcd101c67e009d2271e60"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3302e0bdfc0cad63e04a3ec12cc5bc797bc92de5634dcd101c67e009d2271e60"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3302e0bdfc0cad63e04a3ec12cc5bc797bc92de5634dcd101c67e009d2271e60"
+    sha256 cellar: :any_skip_relocation, ventura:        "3302e0bdfc0cad63e04a3ec12cc5bc797bc92de5634dcd101c67e009d2271e60"
+    sha256 cellar: :any_skip_relocation, monterey:       "3302e0bdfc0cad63e04a3ec12cc5bc797bc92de5634dcd101c67e009d2271e60"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "64eb5a0d561a1af5a9733dc330239d805794d0fc4035eedcc51b6e1d83e7c4c6"
   end
 
   depends_on "fzf"

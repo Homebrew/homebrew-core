@@ -1,8 +1,8 @@
 class Ghz < Formula
   desc "Simple gRPC benchmarking and load testing tool"
   homepage "https://ghz.sh"
-  url "https://github.com/bojand/ghz/archive/refs/tags/v0.118.0.tar.gz"
-  sha256 "179bbc7ee390a6485074cc3c6ed8c2be141e386ba3a24e2b739c0d14ce60215a"
+  url "https://github.com/bojand/ghz/archive/refs/tags/v0.120.0.tar.gz"
+  sha256 "e058b1dc3aa09ca7594a79f92bad3b481c4193a0db31b2ac310b54ad802b2580"
   license "Apache-2.0"
 
   livecheck do
@@ -11,19 +11,20 @@ class Ghz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0d800c027168dc4b213ab6b32dd3866edf590095682bd1de124ce1272f49bd04"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a0fcf76ab268e808b1bb134614e83823ecd9016ba694197f269ecc627d27f2b5"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "4c980ec0db8a15f8c1b4b178f2cfcf1eaa984e5020ec52ad48c981a3c056d0ac"
-    sha256 cellar: :any_skip_relocation, sonoma:         "481addc008ea8f306c7ecb3aab2827b0bd86139316159bcf639c4f7a9a5b595f"
-    sha256 cellar: :any_skip_relocation, ventura:        "1bdb63234193e3db8ba86c19c3797ac96322bb4dcd43fa80f19be8df423036b5"
-    sha256 cellar: :any_skip_relocation, monterey:       "c4d3380c49c4741723df7e5128fe6af50de221477b940f967414819dcc445c44"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "17295125c597ce3c38da1d34454f78225f45a1832b55d98c1e3b2868c2898810"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b401ea03c0ecd684e119a75498403d33fb819da7f2d4c846aec1b0f9ece93ce4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2bf690f5896de5d29b8fef7c10584cb20d5dc56cf12966f9438fdf5296463d58"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f417a9adde4cb59711d35b85aef26d48b22c6d2c36342bb3164b38c4bd13de7e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "6b5619a75383d5242e401da25dcd2bce75ead6b09fe2cd4d0953c9f6f1da5471"
+    sha256 cellar: :any_skip_relocation, ventura:        "aae590227a2a239a67cbfe22676fb3bf1570ac74a958ab90168bc69c32943d5e"
+    sha256 cellar: :any_skip_relocation, monterey:       "d3b4eb715afffc5663d43fe8c02bda49e1a4787a333cc60bfb4229ee1f57c309"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ea5178ebfb4366a1aa75c1dff50167fb9424911c924a3fee0f1f9471c1273ceb"
   end
 
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w -X main.version=#{version}"), "cmd/ghz/main.go"
+    ldflags = "-s -w -X main.version=#{version}"
+    system "go", "build", *std_go_args(ldflags:), "./cmd/ghz"
   end
 
   test do

@@ -4,13 +4,14 @@ class Hyperkit < Formula
   url "https://github.com/moby/hyperkit/archive/refs/tags/v0.20210107.tar.gz"
   sha256 "095f5f5ef550d7cad10e4d13e9c9ce8b58cc319d654a6d837d8d87ee70537835"
   license "BSD-2-Clause"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, ventura:  "3b67078315551718bc3c752b943b933713ddb69058f3cb72a0f65faa6e9295ab"
-    sha256 cellar: :any_skip_relocation, monterey: "da3b0d0374a85af5c649c86fb7796c1eecae468f5783bbb994a96d807e60712a"
-    sha256 cellar: :any_skip_relocation, big_sur:  "f96e7270e9e853ce33f2195136b11338a5cf4d612ee50f3dd51b5c8506b4efcb"
-    sha256 cellar: :any_skip_relocation, catalina: "cd58afe172473278d3ed9404e9d25e10bee487fb4e27cd6de39c950a0ccaca87"
+    sha256 cellar: :any_skip_relocation, monterey: "69e59bde1dae4ff1da807711cd9060cdf81e248aa55a0dd761a20abd8787e20b"
   end
+
+  # does not build for 13 and 14, and no upstream commits in the past two years
+  deprecate! date: "2024-06-06", because: :unmaintained
 
   depends_on "ocaml" => :build
   depends_on "opam" => :build

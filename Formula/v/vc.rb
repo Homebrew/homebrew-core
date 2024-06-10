@@ -1,18 +1,18 @@
 class Vc < Formula
   desc "SIMD Vector Classes for C++"
   homepage "https://github.com/VcDevel/Vc"
-  url "https://github.com/VcDevel/Vc/archive/refs/tags/1.4.4.tar.gz"
-  sha256 "5933108196be44c41613884cd56305df320263981fe6a49e648aebb3354d57f3"
+  url "https://github.com/VcDevel/Vc/archive/refs/tags/1.4.5.tar.gz"
+  sha256 "eb734ef4827933fcd67d4c74aef54211b841c350a867c681c73003eb6d511a48"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5293aa5119bd8b37b5d73d1944076534aae79d3d4436db82ff6bb130e8e7180e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "feba55569aead40c46d0a79e8ff8ba2c7f64679ddc6e2136258c53ba7e730b4b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "88935f1e7fc0564b58b03ebd4fef3244b2c540b96deff9700e44ca6c7630280f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "9b216a3d09bee77da164a475449cf0d9c84876ea1eece7ccf4d7c15966ccecaa"
-    sha256 cellar: :any_skip_relocation, ventura:        "1069faf9f3a7c8121fc3f4cb0f62eace86cb3399d701a282b641ca9520c8c691"
-    sha256 cellar: :any_skip_relocation, monterey:       "39570197fbc39087c9b46cfe533a74098d78f43aa6f8db7fa3a5a50679cfacc4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0c5b49f5a4c6bb2a291dcc8ccc374887bd53164fb4e1b530dee634c3b200fdf0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "12e14e942d2a5731d3887be279807412ce7f5a8aee97299db2e4f9bc7018d307"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "dc7cfc2f7ab132f3e877d9457d4683335ea23453934447352567e71e19812cf5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "1112be197628e9954b83528bdac5ea8899bcac4957ae808ffebc47ec08bae054"
+    sha256 cellar: :any_skip_relocation, sonoma:         "de1f4a4224f4cb2a9b8cccbcc8bff55f6b54cc060df433f265cb6268e13beece"
+    sha256 cellar: :any_skip_relocation, ventura:        "b718e2c8384e24be4668186f14e6a05e025e9244888c91a88ff2c30d0dc6658e"
+    sha256 cellar: :any_skip_relocation, monterey:       "6710920fa0199be3b39e5bb10c0ac93f57b322637eadd606d7e307b149c93b08"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "885b412d8d27d60b3db7c1a9ee1c6b2a41034e08bafd030f5e363a6e1301e7eb"
   end
 
   depends_on "cmake" => :build

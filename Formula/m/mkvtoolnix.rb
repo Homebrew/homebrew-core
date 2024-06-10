@@ -1,9 +1,9 @@
 class Mkvtoolnix < Formula
   desc "Matroska media files manipulation tools"
   homepage "https://mkvtoolnix.download/"
-  url "https://mkvtoolnix.download/sources/mkvtoolnix-84.0.tar.xz"
-  mirror "https://fossies.org/linux/misc/mkvtoolnix-84.0.tar.xz"
-  sha256 "e9176dea435c3b06b4716fb131d53c8f2621977576ccc4aee8ff9050c0d9ea7a"
+  url "https://mkvtoolnix.download/sources/mkvtoolnix-85.0.tar.xz"
+  mirror "https://fossies.org/linux/misc/mkvtoolnix-85.0.tar.xz"
+  sha256 "702442c80706c7c770ac04f7b4eed7a57e9e03ead6c5e6e90b9655dd84c8d829"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,13 +12,13 @@ class Mkvtoolnix < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "47a500b12bbed6e057aaa2a22f4c8489304052933f4d800575fe16deecc03be5"
-    sha256 cellar: :any, arm64_ventura:  "bccfaf7206ea875ee93fcce1ccd1bf9fc57965bebf277659e422f98fcc34467b"
-    sha256 cellar: :any, arm64_monterey: "12070d27b17bd8a698b0afc1be57c0cecd22167c65170a48468a31f6c8e5d24a"
-    sha256 cellar: :any, sonoma:         "10d1b0f36805054943de6c8ab0ae4f1d19dd87e98856ef2dff3756443d3d2434"
-    sha256 cellar: :any, ventura:        "ead023f7dcb4e5e7e68dd56f5f6f58f15ad69c8580d607d8a506c4193583f4bf"
-    sha256 cellar: :any, monterey:       "2da18f9062c1026281bd4d4cbe2d54aad94f745881dbc0b6176a9f7b9c10b3e3"
-    sha256               x86_64_linux:   "cb0608824a6312223e71b5d512e8de188d0967c487b688d481c1fed9dd37ec3c"
+    sha256 cellar: :any, arm64_sonoma:   "ded9d414d86eaaf8b7a146d15cbf3b1bf4322a1ac1eac0ae0b91dd3365e17404"
+    sha256 cellar: :any, arm64_ventura:  "641821e1ac280a7966d31874b85913124c4fe2999d8f75b946991b81c15f6428"
+    sha256 cellar: :any, arm64_monterey: "882d12d27b5738c333ed4c57b09c07c8eda1fbd2afc5bcbc3498a1cc4a6720ec"
+    sha256 cellar: :any, sonoma:         "e6cbc1baad712026dea9af683e8b8db08ff9df73001dca96b08a3a4df7623205"
+    sha256 cellar: :any, ventura:        "28e8a3d7ab3e7a7389e996be809f761246ec0fce974caf0efa13d7ce33df47e8"
+    sha256 cellar: :any, monterey:       "6b48a0b9fb8a93ba89fd35f017b09111c170f826f76c29e7d227f8609ade7ff4"
+    sha256               x86_64_linux:   "ab4cac9226131f7ae641668b9667dbbf10f06401e0ed05928063dca8429d8fc1"
   end
 
   head do
@@ -48,6 +48,7 @@ class Mkvtoolnix < Formula
 
   uses_from_macos "libxslt" => :build
   uses_from_macos "ruby" => :build
+  uses_from_macos "zlib"
 
   fails_with gcc: "5"
 

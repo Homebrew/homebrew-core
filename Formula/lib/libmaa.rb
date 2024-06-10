@@ -1,8 +1,8 @@
 class Libmaa < Formula
   desc "Low-level data structures including hash tables, sets, lists"
-  homepage "http://www.dict.org/"
-  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.4.7/libmaa-1.4.7.tar.gz"
-  sha256 "4e01a9ebc5d96bc9284b6706aa82bddc2a11047fa9bd02e94cf8753ec7dcb98e"
+  homepage "https://dict.org/bin/Dict"
+  url "https://downloads.sourceforge.net/project/dict/libmaa/libmaa-1.5.1/libmaa-1.5.1.tar.gz"
+  sha256 "3a30e25f038e99c4715125545516490d991fe3a505825cc832b1a956e31bf669"
   license "MIT"
   head "https://github.com/cheusov/libmaa.git", branch: "master"
 
@@ -12,18 +12,13 @@ class Libmaa < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "c53e58fdc89c230cdaa5017dfe739bb644561adb83c4f5ada91a9a24577a5ab6"
-    sha256 cellar: :any,                 arm64_ventura:  "25c0b4572fe7bf62814749448134d94f4dce1933a3881fe147469a14948243cd"
-    sha256 cellar: :any,                 arm64_monterey: "d880dd810a8e28a38d62d420f7e0afd55d8135c19497794697690411b1b42ccd"
-    sha256 cellar: :any,                 arm64_big_sur:  "39eb7101638dba1cd91aad7b7f33c281cb8b9709ed0bf3709b61a2315cf9f786"
-    sha256 cellar: :any,                 sonoma:         "3cf143f53d435c35246322394d93fa4dbd456b61f2aadb0f5462c254069acd59"
-    sha256 cellar: :any,                 ventura:        "52c5ad403f403c0e6bd38ba1dcc1f5fa2f0c4b06cfc06870da085f1ad1ee7c77"
-    sha256 cellar: :any,                 monterey:       "3bd13aae044ffb89036034c9ce275a1ff79b265276c39161fbfbb2e7b30a0879"
-    sha256 cellar: :any,                 big_sur:        "65222587a532a2412f342564d09e0dc134c84501803c75b450fa591f1c6fc029"
-    sha256 cellar: :any,                 catalina:       "b8d4137855afaa273b7decbfaf8e49657e83a0ec647b97592d803f816038a5bd"
-    sha256 cellar: :any,                 mojave:         "1ec304723997a8aabf2848900aa5293c560abbebfe2bc293eb40ace2176c148e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "85484c0740508cbc0c66f738210e832b820b8491469250bca336bdc673aca9c9"
+    sha256 cellar: :any,                 arm64_sonoma:   "ffeb3a62fca07f8c095090d570b64165b442ab4e9debfab6475d7b6fdc2bdbe1"
+    sha256 cellar: :any,                 arm64_ventura:  "90ab64584330817a8a5e11494945f1bcc67fac60733e4bea976d95a833341ce8"
+    sha256 cellar: :any,                 arm64_monterey: "b3d1be0159e481318505912f1dd5e2d07e3d05122cf791e3743461595e2bd43b"
+    sha256 cellar: :any,                 sonoma:         "92b9875c3fcae14b3bfa42df2d5cc47c87170f214f8e70eb5dd111e1fe1791ac"
+    sha256 cellar: :any,                 ventura:        "05c6bb7f0a72131eb382e77c084dd3b26c34e58301fed77648c068b02c15da5d"
+    sha256 cellar: :any,                 monterey:       "57325e2231ecbfd40349ab24d4841b433d41dd32d503aa9bbc484ee6954fc9c4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "beb95d2918f10ee42290fb44faa0259e0e9f9e8a4f353822bcfee4268d3f5ef2"
   end
 
   depends_on "bmake" => :build

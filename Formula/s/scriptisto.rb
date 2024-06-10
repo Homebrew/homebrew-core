@@ -1,20 +1,18 @@
 class Scriptisto < Formula
   desc "Language-agnostic \"shebang interpreter\" to write scripts in compiled languages"
   homepage "https://github.com/igor-petruk/scriptisto"
-  url "https://github.com/igor-petruk/scriptisto/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "0d96b54589e9efe6b2994ebd66b8c2a6b0971baaec66798da53b0978bdce6d28"
+  url "https://github.com/igor-petruk/scriptisto/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "192d20885b563eeaf66766695314ab3e2711dc10c44f938aeeee6271e9720397"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fc7538c76a54deb0fbef67ef7af0191550cd7d731066c342c1ba5186faae8ee1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "925d24e6cd29a5240be55a4cde9b783003742e7b2ea16164870ece16d8ab1c65"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "22db05ed07bac30043e313e8d564635e6273bcbd67f22daf392f8b3b1f7a00f8"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "c9febde14d2fe86bc88342b4cb51d4bee4fc4b9df757e454d27b886ff25534d4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1b236603b9bc8326d4306419129cdd282707f834766a7024d49be6741d4caf47"
-    sha256 cellar: :any_skip_relocation, ventura:        "d6e2330d8ee92fbde9a16c5a5d85bdfd48b1fee92bab04c7c4bfb5abc9390377"
-    sha256 cellar: :any_skip_relocation, monterey:       "f207151397102480f07eaaedd0fb97782fda6e8fe947a846eb219e73ab96e71b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "deedfc1ef677ac7134d0eff3832f726e4260d8c51e1eb11e8459bde63af5698d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d018f86f84775751e42073177fa38feb0d492f252a24846b7eb4fc8a0719bfaf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "962438fd18d9f434b593e0b4f3e5ae907993a6538c225f8a7c92adae3ded797c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02658b3baaeb3fba08067cb154742902c83e0cc5365428fecea581d59075f9b1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "019c58e7262b36e0c58dfe2b691c240ed95a61fbf1e632628794856b28262f3f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "4c586e045919918edbd2db012047eb30954a21c7f7c1758e0d1c1aeb90aca9a2"
+    sha256 cellar: :any_skip_relocation, ventura:        "7cc46782245c45d92f7729c387d01fb8aafab7412db46841cbc050f6f8868402"
+    sha256 cellar: :any_skip_relocation, monterey:       "71f480bb22ef0b004d8659d50226118ef2236178d9e4a884777a2b76bcfc40d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "aeb6d0436c7092c1056e3e1baca883a891a3dfb700517d28b6f07e4665151f3a"
   end
 
   depends_on "pkg-config" => :build

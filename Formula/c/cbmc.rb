@@ -7,18 +7,19 @@ class Cbmc < Formula
   license "BSD-4-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4a93a74b6ceacd62465a7c0c27a8451c775e8a69923a2b9388aaa0a51257b249"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c625b851133a25efc6d180cee609e29eaf85984f831f97034906487fa6c937ee"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "512b4480b1068442f73548499c5ba0f58c3db012dffda2a72a7f3a3ac57f83d9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ba108b3ea344f31e8a5b78080be1987f9bc19af1abaf1818d5ae5fa82f912e58"
-    sha256 cellar: :any_skip_relocation, ventura:        "bc1e610ac17d864e3a400638bed661252ac2f027bb7b29e25950ee10571dcee0"
-    sha256 cellar: :any_skip_relocation, monterey:       "2a2ca2db14350b20b4eaa012eda5cc147abc6f6253833bd030a202658ffea7bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "635f7f7b776288dbec70f66b3665393a5fe03e5ea8bf0ddeb372dfff25f1d6f2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "176b682268a962b7177ae2b19cffdbd17689d731a1f13f6762251ec9e1bda57c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a4c24510b758c604c0fea80c400498f74ed606665c72614203a354deba1b8fab"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0496f976a0002300be584cc24e4f6d873336719dddec34fd8cddb9d3b384b3c5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "feecd518e6cff4086219c51cca9e1e5c2fdfb231d3da0ea5544c319aa472203b"
+    sha256 cellar: :any_skip_relocation, ventura:        "8ecb77e007217f76396bc17440b965f4f69e5202ccb35851f46903e068afb58d"
+    sha256 cellar: :any_skip_relocation, monterey:       "c6e0416b6abf6c9379e6902083ba475d4c698d6861a6b6555299916f8d8357fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4fb3dc3778bb81da39aa613e84278e9b33a798204d65c76a0eff91109dcb624a"
   end
 
   depends_on "cmake" => :build
   depends_on "maven" => :build
-  depends_on "openjdk" => :build
+  depends_on "openjdk@21" => :build
   depends_on "rust" => :build
 
   uses_from_macos "bison" => :build
@@ -30,6 +31,7 @@ class Cbmc < Formula
     # Fixes: *** No rule to make target 'bin/goto-gcc',
     # needed by '/tmp/cbmc-20240525-215493-ru4krx/regression/goto-gcc/archives/libour_archive.a'.  Stop.
     ENV.deparallelize
+    ENV["JAVA_HOME"] = Formula["openjdk@21"].opt_prefix
 
     system "cmake", "-S", ".", "-B", "build", "-Dsat_impl=minisat2;cadical", *std_cmake_args
     system "cmake", "--build", "build"

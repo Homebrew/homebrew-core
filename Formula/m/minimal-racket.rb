@@ -1,18 +1,18 @@
 class MinimalRacket < Formula
   desc "Modern programming language in the Lisp/Scheme family"
   homepage "https://racket-lang.org/"
-  url "https://mirror.racket-lang.org/installers/8.11.1/racket-minimal-8.11.1-src.tgz"
-  sha256 "1f55fd6e1430f7239a1126cae3eb6f7855956f813230d18b2ae930280a39f3cc"
+  url "https://mirror.racket-lang.org/installers/8.13/racket-minimal-8.13-src.tgz"
+  sha256 "f5fa2d026063ef679197e9f83da8a0b3e3d0b3c05ecd4a962c4ce323a4416337"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
-    sha256 arm64_sonoma:   "668ef627261e748cca81850ce0cfff82e95a06195bdff8a5a83b97b827bc9b0d"
-    sha256 arm64_ventura:  "823097e0c7d9df7fc6a5aa462b821d241a2aa1372ec2ea88b676e95f5a64ffba"
-    sha256 arm64_monterey: "3a49b8d0fdb8b4a0106070121d88eb2e4ec5dc7f9a67b82a481642954a5d96ff"
-    sha256 sonoma:         "a3f0c2f3c0315725d82ebc001124cfb708c146a271da02e150bc059c8f894253"
-    sha256 ventura:        "d4b8e69b02f398bcf49442459857c4d9d910293f5049de17a1c1ea336efa89b9"
-    sha256 monterey:       "4227a89759a5f44192cd2660c8c108ba79de0ac0663a466fc6a8ef6911cb91c1"
-    sha256 x86_64_linux:   "4ae85d638753f279823276adb714ef82b8b998a02aeca8fe3a1779ee9d2ee42f"
+    sha256 arm64_sonoma:   "55f894b034968f59a68fcc3ebd4169acefbfb5f26c32183b8a2780b9d8e99e95"
+    sha256 arm64_ventura:  "805612035a3454f57769224c0ddca2fc8fdc574908a3170cdccee3b1eac9b7bd"
+    sha256 arm64_monterey: "d56d707911ec2ccc6f2732234f4ba17f829ad755ab2808b63112ed7c302814ba"
+    sha256 sonoma:         "f4ae0ef7e7fdd3d506412bb95ba083110c0564a2fc43372491173addbde77d13"
+    sha256 ventura:        "1e9f18f5263f4ef3934093aa74a7005d71e99ba609c9426e0361d2d07e5f21a5"
+    sha256 monterey:       "a392895ec9d5e161db022011473a6be045019b7db076ba20c127dd4b14debee5"
+    sha256 x86_64_linux:   "7f0b0121aa0fdc6c94703ff619449ec8207166e4c9355a2a51145ee1f7ba0d35"
   end
 
   deprecate! date: "2023-10-24", because: "uses deprecated `openssl@1.1`"

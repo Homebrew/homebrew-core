@@ -5,20 +5,21 @@ class Libpulsar < Formula
   mirror "https://archive.apache.org/dist/pulsar/pulsar-client-cpp-3.5.1/apache-pulsar-client-cpp-3.5.1.tar.gz"
   sha256 "d24990757319dfa9c9e5d3263f60105dd9e12ddeaf1396d6b397f87dab2fd7d1"
   license "Apache-2.0"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "3fff111a7b587706434cab7912abad51ce873fa2ea2dda118f5935b244cd4963"
-    sha256 cellar: :any,                 arm64_ventura:  "d269e47fe644c6610b7f889dbc0349a52eae2a4539498dac248b73050bc73195"
-    sha256 cellar: :any,                 arm64_monterey: "b17867e7525e48fc192dd2405daa135d35c70fec6e13e50953fb77355cd2cdc5"
-    sha256 cellar: :any,                 sonoma:         "ae47fbc2f5e85f1fcfc53d9f7334663230b8e5188b144b480e83c7dbed8a0d92"
-    sha256 cellar: :any,                 ventura:        "d159bf901ff1d4855d7bda034b744462751543d138f1da83feb0e1fdeef04223"
-    sha256 cellar: :any,                 monterey:       "e0337b7fc58357c45f72843a2767c5e96f60704614545d71dfc77f8c3102b7bf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4bf3f1bd4618b31ed18a970964638271218d00f302d87dd9d8ededff297af0d0"
+    sha256 cellar: :any,                 arm64_sonoma:   "e9a8c4fdce52d8527834802e88e49ef5626be2bcb62874f05054c9c492ce7bfa"
+    sha256 cellar: :any,                 arm64_ventura:  "c6de53c50f101028cf3b41acdceab57672b71b5697b76577cc6a1faca1f57d1d"
+    sha256 cellar: :any,                 arm64_monterey: "16c747c9d2c151f3d1cc1c41e19177d79015caae94ac41fa5c04a5db2b9c45a7"
+    sha256 cellar: :any,                 sonoma:         "80c8ffc6ca9a8c7fee69b6737eb5db3f414eef42de1f373e96eab646ae34fd91"
+    sha256 cellar: :any,                 ventura:        "34ed444fa22a3e38f1f69ff2a9a3874d5fa79fd6ff58d6c0a4bf425ee45ca2bd"
+    sha256 cellar: :any,                 monterey:       "478b41fda1d301e837e925f5b774b44e30c62683f7f91d9dbd34f985fc9a2353"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "75319b4881305a725a654a39065bde7023133d3a58211d9c7804dd2af8f8ee30"
   end
 
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
+  depends_on "abseil"
   depends_on "boost"
   depends_on "openssl@3"
   depends_on "protobuf"

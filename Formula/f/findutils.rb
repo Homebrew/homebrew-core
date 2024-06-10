@@ -1,23 +1,19 @@
 class Findutils < Formula
   desc "Collection of GNU find, xargs, and locate"
   homepage "https://www.gnu.org/software/findutils/"
-  url "https://ftp.gnu.org/gnu/findutils/findutils-4.9.0.tar.xz"
-  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.9.0.tar.xz"
-  sha256 "a2bfb8c09d436770edc59f50fa483e785b161a3b7b9d547573cb08065fd462fe"
+  url "https://ftp.gnu.org/gnu/findutils/findutils-4.10.0.tar.xz"
+  mirror "https://ftpmirror.gnu.org/findutils/findutils-4.10.0.tar.xz"
+  sha256 "1387e0b67ff247d2abde998f90dfbf70c1491391a59ddfecb8ae698789f0a4f5"
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f6e698b67946d557bc577ee72dc5d6fda6b4fd01b28a0aa7c04a1435d19618d4"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "74fbe230e7727aaaf128082d47a2fc0f032c204154375b83461161442934961a"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "e21f10bcc0baed90d33aad5ce7428f9ad24a9cd4e35f4b0003e14160045f8fb5"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "72ddcf7cfdccb52f6c4c4f20c2c0cdbb4111d37641d73a1622a4af170ed5b53b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "7312e1463b5b7e47b061cc180381acdcf5c5a7d396012ed0481f2fccd32e0b99"
-    sha256 cellar: :any_skip_relocation, ventura:        "c32f96d54d0b689a5df3f9664a65d2a1fe954402481a49593767b5e856700887"
-    sha256 cellar: :any_skip_relocation, monterey:       "595025aa645a0bc036179b30613986bd436081cc4416db21de0f8fba4d95934b"
-    sha256 cellar: :any_skip_relocation, big_sur:        "e2171d40184a93549ca6877410abf8717c7d8b13ae1a0bf3568dd49a24b7747e"
-    sha256 cellar: :any_skip_relocation, catalina:       "a957b1c3b354edee634d1d96f66315fa8ea327efc9f282c8c026b5298d8802e3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3be871b90f426c6a6b9f292e65ba359c402017e783523746e965d849436137db"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "4632e8c4200947b4471dd14ccc7bb17a1d30c021c56de6061ca7ff5635cf1063"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "02bab07606b4cc4489332e1a78f383abe4d6ed7afce997704eaf216ddda7f829"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "9c36229f3cb487588e4278296c9f8a398a9cd272dd82e3a6d1bc86735a27b3e8"
+    sha256 cellar: :any_skip_relocation, sonoma:         "db0190807d6d1c0eae8fede9f5ecdc03621e7c29a386b97fcfdd0f9ed5e557ca"
+    sha256 cellar: :any_skip_relocation, ventura:        "1fa79827c794159b52acb895f067c4f4b41fe6427707862c4103d33c50ac38a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "aca1fce6de56ec58b6d666bf2ee9dcb77d9a614762440fe18935a75d815613e3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0bb6a963121bc5cbb06dc9d225f6019fc36059f0065412afe011d2a845960cf4"
   end
 
   def install

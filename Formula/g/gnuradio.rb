@@ -6,7 +6,7 @@ class Gnuradio < Formula
   url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.9.2.tar.gz"
   sha256 "7fa154c423d01494cfa4c739faabad70b97f605238cd3fea8907b345b421fea1"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -15,13 +15,13 @@ class Gnuradio < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "7d89cd313db8652bb6d7750b19e48ea375140db44bdb6a9c0f0c58629c86a9a4"
-    sha256 cellar: :any,                 arm64_ventura:  "74ef42bfdef8d7e8d19a85365b28513cb811bd0a542c2b260d97ffb3436fffcb"
-    sha256 cellar: :any,                 arm64_monterey: "5350eb2e872664e4c9d45aedaf079d79169b6b738c52aee335150fc7e9c4a44c"
-    sha256 cellar: :any,                 sonoma:         "e92aacf02b119ecbb87853061add7013c621dd588c381374d716f43116fcc2c3"
-    sha256 cellar: :any,                 ventura:        "6eeae35bb57fa4809f85805ddc18a43ef1d6273264df2be7dddfbf894a700bf9"
-    sha256 cellar: :any,                 monterey:       "40a3d44b596b7ddf19133b1bbd645839a4cf607371e865fd772d386ef506b68b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c910cc25ec48ff4971af3655c74b4ec5b91b8ccf9c2cbdaf6afad83f57f48bdd"
+    sha256 cellar: :any,                 arm64_sonoma:   "7ceba39328bce232033010251ebaddcc361ebf521edcc34771426505dc208d23"
+    sha256 cellar: :any,                 arm64_ventura:  "8ad0d7108333bcd1ef01bdba672a50ccf2197685d96a3dbf77acd680079c9b82"
+    sha256 cellar: :any,                 arm64_monterey: "944a62c1dfbea406b66880c44e873c2ac940aa14592c5fb2c12c729951f13c52"
+    sha256 cellar: :any,                 sonoma:         "499aea7434aab4ef38fb7a58292495c39f03e3915e311aab5825d53d3ec43b0f"
+    sha256 cellar: :any,                 ventura:        "50ee8116d017399ab5ce296394a67badf7d9a422b7ce4ea60f86e54171355b89"
+    sha256 cellar: :any,                 monterey:       "71101ae128916bf2749c93c2a5b2347a5dc9103624a5e6ab89769d106db47f4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5bb14627003bb805ad7ae33b8fcf4834c2e95369e5384ab2ac87f62929e116b8"
   end
 
   depends_on "cmake" => :build

@@ -2,18 +2,24 @@ class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
   # Use the `-full` tarball to avoid having to download during the build.
-  url "https://github.com/JuliaLang/julia/releases/download/v1.10.3/julia-1.10.3-full.tar.gz"
-  sha256 "d892b2123be64dacf9d05e4ccbad7f1797f6bf87c397a74804b011c8750f6c8f"
+  url "https://github.com/JuliaLang/julia/releases/download/v1.10.4/julia-1.10.4-full.tar.gz"
+  sha256 "f32e5277f5d82a63824882cdebfac158199bb84814c3c019a3fecc3601586191"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
 
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "0a8b83039393127d87643d5c1c6d0dd4ff3c5c841fc5c6402dcc766e202e3ffe"
-    sha256 cellar: :any, arm64_ventura:  "3e7ced7e54e0334de39a02cae2523d6a8f0eb9fa445a700e19cec4025c074706"
-    sha256 cellar: :any, arm64_monterey: "fb3c582697f581866333540f97ca1b18f99f70e08894f4742a6dfa3a8bbef0d2"
-    sha256 cellar: :any, sonoma:         "e4ac104b223adf1d0ace2f7dbc3ddf06b768a892310fb4e3978dcb5f73305b82"
-    sha256 cellar: :any, ventura:        "08378de1faea86cf9cb04e884ac06c54466d95052a16ed0b70dbcad57da1c9b1"
-    sha256 cellar: :any, monterey:       "70a8a5b4e3de05f5d1502ef8ee480fc6ffa3d860955b9cfbf70429f4fb3d707b"
+    sha256 cellar: :any,                 arm64_sonoma:   "efb2ea2ecada21f49143e8c3eb041c8311ce9bda20926592b4e9a78eb0858c0d"
+    sha256 cellar: :any,                 arm64_ventura:  "5cf7165a409134e6558478fe759a1d0033dae6e92bfc723ba95e85ae02068828"
+    sha256 cellar: :any,                 arm64_monterey: "21879e908d76e4dd33c2025bfa922ca8512665b3b87a1bd71dd1a244b50c265d"
+    sha256 cellar: :any,                 sonoma:         "f4ea8e1bc989f3b7a9e1696d9b4133bb6b42085322211558878803c98a878582"
+    sha256 cellar: :any,                 ventura:        "a72d4bb60872a50043f2894fa70d7c9546f5c22f2a2f56ac7f5307be1d93f3f6"
+    sha256 cellar: :any,                 monterey:       "f518cf358c04a34ce0a43947c2c3cf4687ab8f4928580e2aa5b5dd7f7ee5a77b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "29a2c4acb419f6642cab1937305b7c7f9c4cbc54e525e06b0042272c3a354c13"
   end
 
   depends_on "cmake" => :build # Needed to build LLVM

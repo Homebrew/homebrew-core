@@ -4,6 +4,7 @@ class Zellij < Formula
   url "https://github.com/zellij-org/zellij/archive/refs/tags/v0.40.1.tar.gz"
   sha256 "1f0bfa13f2dbe657d76341a196f98a3b4caa47ac63abee06b39883a11ca220a8"
   license "MIT"
+  head "https://github.com/zellij-org/zellij.git", branch: "main"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2183f0c3592b2fb0c9874c94870a3e303c2901f28e2370fb8e71d89625e4ef4a"

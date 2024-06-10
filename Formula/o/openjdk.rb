@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.java.net/"
-  url "https://github.com/openjdk/jdk21u/archive/refs/tags/jdk-21.0.3-ga.tar.gz"
-  sha256 "818e9dee28ae390f2781406d594690fc42bd994d078ad9f8360a4fbca6a3df1f"
+  url "https://github.com/openjdk/jdk22u/archive/refs/tags/jdk-22.0.1-ga.tar.gz"
+  sha256 "dd2d8acd685c07e0ccf5f8b4ac562f50ff31421db90f121be36f06e54dfe41f1"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
 
   livecheck do
@@ -11,13 +11,13 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "899a85f9494e22325c35bc9250dfd640a2b611ddf240965510f89ad796999b45"
-    sha256 cellar: :any, arm64_ventura:  "6092129025731e6b3e000bfe612e2970ff72654413ae9186679d8fde129db496"
-    sha256 cellar: :any, arm64_monterey: "1e9cfd336b0f99065751017556feb4666d838569aac32d52c723d7116fd11655"
-    sha256 cellar: :any, sonoma:         "0962f564a5b1abce89ae74cf6aa7c75a6057ee08073bb60f9619f11e91b57fe5"
-    sha256 cellar: :any, ventura:        "457ecf4522b60ae3d467189f14eb673d27f1eb88ee0184f8d9a0fe346be46191"
-    sha256 cellar: :any, monterey:       "5a2384e6025e1029677e5da8507da50bf8033714428c3229532e05b75c665be1"
-    sha256               x86_64_linux:   "8dcb8f3701e23abdb557dc4211a5fe65ba9281b95fb0387396b1b5fa343dade1"
+    sha256 cellar: :any, arm64_sonoma:   "60f4623883102f432e52afc23fcbe55c36920bd0260011ba17e905c57f3936ab"
+    sha256 cellar: :any, arm64_ventura:  "abd1c7a14d32c1740d1664d3e045863e3233ed853ca71c0716ff8554b71887c1"
+    sha256 cellar: :any, arm64_monterey: "7f778a1ee9b6c296dd3d663eb903881e5645d6e8bc613087d297793419872d86"
+    sha256 cellar: :any, sonoma:         "2da3e4f3dbd7d3c10c32e66052b1ccf860886e43e2c56323f8d92f6b779c2609"
+    sha256 cellar: :any, ventura:        "b90a2677176ead200711f498417ae7714fef0d2cb54951f7d9d7af963d35d52f"
+    sha256 cellar: :any, monterey:       "ad0e7652b3d1c2b795daf6af45c5c07c7490ac8ba1665ff50e52b3b2b89f3f15"
+    sha256               x86_64_linux:   "e70008bfb27aae728caa1a18cd1748625e75dc0cd2684121a96c2bcd6afae8ae"
   end
 
   keg_only :shadowed_by_macos
@@ -43,6 +43,7 @@ class Openjdk < Formula
     depends_on "freetype"
     depends_on "libx11"
     depends_on "libxext"
+    depends_on "libxi"
     depends_on "libxrandr"
     depends_on "libxrender"
     depends_on "libxt"

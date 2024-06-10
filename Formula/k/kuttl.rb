@@ -1,19 +1,19 @@
 class Kuttl < Formula
   desc "KUbernetes Test TooL"
   homepage "https://kuttl.dev"
-  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.16.0.tar.gz"
-  sha256 "25d1c39852397f81f7e5098e692e37ff5f76444b447973c031e012cb8af3df92"
+  url "https://github.com/kudobuilder/kuttl/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "a9a3a0aea4d6954855b53c7b033996ccb2a60cc09ed6e49ca17d1aaf73a7092a"
   license "Apache-2.0"
   head "https://github.com/kudobuilder/kuttl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "850bc491d8e6b4249b72094b67863dad38b5fe35093266a03ade73e58b1a4db6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "75a4e1321e1f987d1517d981f62820c67aa71669043e0bf3d5e5aa2581a88eb0"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "edd6dabcd60f8be00f22cbd4b3937e49becd7767d5c0ec45046c5d37bff71e31"
-    sha256 cellar: :any_skip_relocation, sonoma:         "93cd1aa1100a63a12ecfde013d0026d639a22809b72e7947d54e22c29cc44031"
-    sha256 cellar: :any_skip_relocation, ventura:        "fd7d1eab4dc04bbef3f98d3309d5ee265cd1cb8aa8e740c50f46d6cc52d20f41"
-    sha256 cellar: :any_skip_relocation, monterey:       "01ed67a7debfe7e233cfa8a510e924871250b0b95076033118f9d22be3c6f8d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c3c5049d6497ea2171c41a7dcb350beb5ad5d611b3c280b0fc485753ae65f57e"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "01be77011aa2709aaca437ea6d1dcc24fc9d626ac800878b116b953b7149d16b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "c1a0a0a2adabefcc39f69066e02e3829d6d45e3e59a1179510281d0ae0d73215"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "d04621991072d889d6a6ee12c0d78d9c1e7b9eec4d4f67891ebaaeb835cf9600"
+    sha256 cellar: :any_skip_relocation, sonoma:         "23e31d4b93abc256c0be48ed50b633508f42c2a6ac6913ae9deea756250ec3d7"
+    sha256 cellar: :any_skip_relocation, ventura:        "6c588e4ee59f539beb0099eed7d18feb764bcb01e8290d83d98addf17e9ca1fb"
+    sha256 cellar: :any_skip_relocation, monterey:       "cf61cb85592e5f1cf567f04b3e7ba7399d4a206a829059ceca82cc81b4fe6278"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4106a1c1d66a6fbcc9e4a2ed9ac8688a2f987ac748457be3fa58f660b03ce0b2"
   end
 
   depends_on "go" => :build

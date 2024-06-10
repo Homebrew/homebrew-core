@@ -3,22 +3,24 @@ class Nvchecker < Formula
 
   desc "New version checker for software releases"
   homepage "https://github.com/lilydjwg/nvchecker"
-  url "https://files.pythonhosted.org/packages/73/ac/3cdb953fab79abfdea4c758b9560069605d8714f6e928dbc0e7c966332ec/nvchecker-2.15.tar.gz"
-  sha256 "ca910cd7d0474ff3283ad7e4478da908f76391f7fcc2b3d3c4e352318f56d9ba"
+  url "https://files.pythonhosted.org/packages/7b/60/fd880c869c6a03768fcfe44168d7667f036e2499c8816dd106440e201332/nvchecker-2.15.1.tar.gz"
+  sha256 "a2e2b0a8dd4545e83e0032e8d4a4d586c08e2d8378a61b637b45fdd4556f1167"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "d0a1ebe1440437214aaa783e8df713f9c35ebb0b6e494144ebae0820ed026918"
-    sha256 cellar: :any,                 arm64_ventura:  "da4fe819af5f8b379cdc0ce908378efcfb394ff5bfe7f2752ba395996139203d"
-    sha256 cellar: :any,                 arm64_monterey: "0a206cdeaba3ee3a31339a52eec56fbf731c33d5b2b8858bf493634eb702720b"
-    sha256 cellar: :any,                 sonoma:         "fb07dfbf7fd7fab59145b823fd77b206e41813099ffd1225f08d17968674b204"
-    sha256 cellar: :any,                 ventura:        "55b53c8a2ac7bc4d6ec7ed1823312bba7c00aa6ca9f4f5e1694ac732dec3aca7"
-    sha256 cellar: :any,                 monterey:       "04123f2f79e9c038cb4b612c47b2eb5b2d731c82e5565ac5cd62e77b769cb628"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "809994c96d39a6b0fcb5fffb1fa06656828a2481316897e744f4deb6e86bc854"
+    sha256 cellar: :any,                 arm64_sonoma:   "344b6b08f4321b14758c0b807e3e9131874917920a312e77dfe054bf673c5936"
+    sha256 cellar: :any,                 arm64_ventura:  "4712d70f895b55bce21491792a2f7e5dfe4946faa590ae95e34f9b4524c3cd92"
+    sha256 cellar: :any,                 arm64_monterey: "91e4397ebcc8882e8d4e299813998cd7110c690ded807b215637cba52e0e41e8"
+    sha256 cellar: :any,                 sonoma:         "3801d03c3f34cf1c70ce19c8dcb90eaee17924d23c73ddb31b400b69ad48682f"
+    sha256 cellar: :any,                 ventura:        "5a4b8c21fc8540743febf8d913004c7207fa448d2decd157ecc868b7c8c0657e"
+    sha256 cellar: :any,                 monterey:       "32808fe993c10a4ab7de50ee0c981890134d28bb2fdd2f911682634126b9eb03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d00485828972efa74808b34d98219060fc93c96b16000c0b1a5f0f1884c4eef4"
   end
 
   depends_on "jq" => :test
   depends_on "curl"
+  depends_on "openssl@3"
   depends_on "python@3.12"
 
   resource "packaging" do
@@ -42,8 +44,8 @@ class Nvchecker < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/bd/a2/ea124343e3b8dd7712561fe56c4f92eda26865f5e1040b289203729186f2/tornado-6.4.tar.gz"
-    sha256 "72291fa6e6bc84e626589f1c29d90a5a6d593ef5ae68052ee2ef000dfd273dee"
+    url "https://files.pythonhosted.org/packages/ee/66/398ac7167f1c7835406888a386f6d0d26ee5dbf197d8a571300be57662d3/tornado-6.4.1.tar.gz"
+    sha256 "92d3ab53183d8c50f8204a51e6f91d18a15d5ef261e84d452800d4ff6fc504e9"
   end
 
   def install

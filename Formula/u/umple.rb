@@ -1,9 +1,9 @@
 class Umple < Formula
   desc "Modeling tool/programming language that enables Model-Oriented Programming"
   homepage "https://www.umple.org"
-  url "https://github.com/umple/umple/releases/download/v1.33.0/umple-1.33.0.6934.a386b0a58.jar"
-  version "1.33.0"
-  sha256 "de6a76e25e2c7de1e4d2fc2f23ffbc5dfc60c404e1eb5466e64c682f2dba8138"
+  url "https://github.com/umple/umple/releases/download/v1.34.0/umple-1.34.0.7242.6b8819789.jar"
+  version "1.34.0"
+  sha256 "817891ba9299f12bc3753c5902d9d61dc15a80096322aceea5c9996922ace0b5"
   license "MIT"
   version_scheme 1
 
@@ -13,7 +13,13 @@ class Umple < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d500ab2f39de119a46b6e2e5906b716998248fb3ef0eddcf4abec50f0942725d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8eaf91b07723485e1efa605144885f6cc322fa313a17c755a94bf98300fc9f91"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8eaf91b07723485e1efa605144885f6cc322fa313a17c755a94bf98300fc9f91"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8eaf91b07723485e1efa605144885f6cc322fa313a17c755a94bf98300fc9f91"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8eaf91b07723485e1efa605144885f6cc322fa313a17c755a94bf98300fc9f91"
+    sha256 cellar: :any_skip_relocation, ventura:        "8eaf91b07723485e1efa605144885f6cc322fa313a17c755a94bf98300fc9f91"
+    sha256 cellar: :any_skip_relocation, monterey:       "8eaf91b07723485e1efa605144885f6cc322fa313a17c755a94bf98300fc9f91"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c6a53686935942ed6d83bda76e1066b94b26641060773126d460d08bf55175b4"
   end
 
   depends_on "openjdk"

@@ -12,10 +12,19 @@ class Glassfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "eccb506fc6021318a113c083245af2945b6815ec8b5514f158ffde53d6138b84"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "58bb17e797f2e9e6df464a9242c9bb673713dc2ad4129cfa6ba506564b0b9e4c"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "58bb17e797f2e9e6df464a9242c9bb673713dc2ad4129cfa6ba506564b0b9e4c"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "58bb17e797f2e9e6df464a9242c9bb673713dc2ad4129cfa6ba506564b0b9e4c"
+    sha256 cellar: :any_skip_relocation, sonoma:         "58bb17e797f2e9e6df464a9242c9bb673713dc2ad4129cfa6ba506564b0b9e4c"
+    sha256 cellar: :any_skip_relocation, ventura:        "58bb17e797f2e9e6df464a9242c9bb673713dc2ad4129cfa6ba506564b0b9e4c"
+    sha256 cellar: :any_skip_relocation, monterey:       "58bb17e797f2e9e6df464a9242c9bb673713dc2ad4129cfa6ba506564b0b9e4c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e7f57e2b33a0d631a81afa7414e4a37986716285012919c23a629a1aab73b69"
   end
 
-  depends_on "openjdk"
+  # no java 22 support for glassfish 7.x
+  # https://github.com/eclipse-ee4j/glassfish/blob/master/docs/website/src/main/resources/download.md
+  depends_on "openjdk@21"
 
   conflicts_with "payara", because: "both install the same scripts"
 
@@ -26,7 +35,7 @@ class Glassfish < Formula
     libexec.install Dir["*"]
     bin.install Dir["#{libexec}/bin/*"]
 
-    env = Language::Java.overridable_java_home_env
+    env = Language::Java.overridable_java_home_env("21")
     env["GLASSFISH_HOME"] = libexec
     bin.env_script_all_files libexec/"bin", env
 

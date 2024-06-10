@@ -1,18 +1,18 @@
 class Pgweb < Formula
   desc "Web-based PostgreSQL database browser"
   homepage "https://sosedoff.github.io/pgweb/"
-  url "https://github.com/sosedoff/pgweb/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "fb8c324d8c7c6efd144cdb977b30eb0ec2b2051b23c97ab6a7a2be578e1247b9"
+  url "https://github.com/sosedoff/pgweb/archive/refs/tags/v0.16.0.tar.gz"
+  sha256 "f2974238977d4f405e37918c1158650d34e67f6cfc1b7cb9d3d88ae5881a6d58"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b288febe1f825b78896380ced8b8eb102e931c6d0161aeef2730a2ad209a586a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "33d0366dbef19c2b6fd37edfa18cdd7dfe16548937b9c73823b37b3f06a198de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8b39da436e0f405c7411043a185184499536903b0196e5f9da2c8e14382e4c07"
-    sha256 cellar: :any_skip_relocation, sonoma:         "71b4c6118421e90e5a45d9f15dacef4bff7c168e7a269fb9f0ee865e8be99dac"
-    sha256 cellar: :any_skip_relocation, ventura:        "b7b0bdd56fc97b0cfcdfeb7dce6c7633bd4f684269fbb23dc25edd2b34e0bb50"
-    sha256 cellar: :any_skip_relocation, monterey:       "adc190dc233335c32cab948645157966dd4cc6c9b53e89235d4784200c88580d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a431ebeece760c1a764c46970da095e30cc34655ce422400bfeaac3e60fbc5d1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "26b6c61352c9385628aac4b3e5228218363c5bc037f7b77dc1bb39385acef1fd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "2f11d0b102e9aa1a078bd91ab1593e705c077e7a9b648991c662de0b94af71c4"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ba3ed5e1cbf303aa6245d24e3afc7303bc222f418800422633f886ab2eba77a2"
+    sha256 cellar: :any_skip_relocation, sonoma:         "9f6d9c5291606f74f88524c0f95e884483758d58eaecfbb5e112a4a93cf08618"
+    sha256 cellar: :any_skip_relocation, ventura:        "1b3e1d39cfd02163baad3da1aa4323b393f8dc659f6e7c8082368b0f77ea422e"
+    sha256 cellar: :any_skip_relocation, monterey:       "209d52e118ceeafd33b2483944d44e464dc03c0bd6da5fc4888de68a4a02283d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3958018c55f4940b0cd6efd9a059ec96003a345cb2b680cfb37b06f2a23da1dc"
   end
 
   depends_on "go" => :build

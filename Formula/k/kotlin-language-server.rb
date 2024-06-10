@@ -6,30 +6,30 @@ class KotlinLanguageServer < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "aa7683696d84ec4a485d4bd32ee5e8364a4230755a8a71b0b05d7070937d6843"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "448e70081f23c2db25dea9b86cab775a219afb49a2190f4b975935be85b98b39"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "2cb73fd76ad3a811f76c3a464f431f33d71eaeefbd39c4e219b5c21f7869247a"
-    sha256 cellar: :any_skip_relocation, sonoma:         "c6b565d76dc26dd9df38c5623778b9612479f1e0680ffb910f6262c552c9478b"
-    sha256 cellar: :any_skip_relocation, ventura:        "f835c5f77b01d80f2f437a8cb9d2c04a283f1d9b972c447c38a1d390da146d5c"
-    sha256 cellar: :any_skip_relocation, monterey:       "451bfd4eaeec930bbad53a02cfe982422e63c6e819765f628299ac4c1aa276c4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8dbaf426c48685ac6d060d0eebaa2e8f0b0d5e08e52188e1fe0d8f773be96ca3"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f8d59892ad24d73ed974361ae1cf3d76a5b69be2aabf65ba957c613f142dfc0b"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "67e00c791ec11c67d1b7460aa2e1a7974540958f77e1ce3c8e58dd08a89b050a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "322fc2466fc81316599f83290d47d32ca34cd4a595db595c313b7483717cc444"
+    sha256 cellar: :any_skip_relocation, sonoma:         "533bff6c7a0e79a623c818109e1afe6e189de0bb63e67fca5ba408a4eff2a402"
+    sha256 cellar: :any_skip_relocation, ventura:        "d702b4eb3f92da0a827c3d5368fd7b60703579eccf493056e218096123800eb2"
+    sha256 cellar: :any_skip_relocation, monterey:       "0d6cccf5835831e9a4618982f35e0b33fa21b5a68f6e9087f1422d0718fc2d10"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4320f8a6d153c210c02aac4288ec8c2f9f77743f22bcc4093b39137232749191"
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
-    ENV["JAVA_HOME"] = Language::Java.java_home
+    ENV["JAVA_HOME"] = Language::Java.java_home("21")
     #  Remove Windows files
     rm "gradlew.bat"
 
-    system "gradle", ":server:installDist", "-PjavaVersion=#{Formula["openjdk"].version.major}"
+    system "gradle", ":server:installDist", "-PjavaVersion=#{Formula["openjdk@21"].version.major}"
 
     libexec.install Dir["server/build/install/server/*"]
 
     (bin/"kotlin-language-server").write_env_script libexec/"bin/kotlin-language-server",
-      Language::Java.overridable_java_home_env
+      Language::Java.overridable_java_home_env("21")
   end
 
   test do

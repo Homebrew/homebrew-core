@@ -1,8 +1,8 @@
 class Lgogdownloader < Formula
   desc "Unofficial downloader for GOG.com games"
   homepage "https://sites.google.com/site/gogdownloader/"
-  url "https://github.com/Sude-/lgogdownloader/releases/download/v3.13/lgogdownloader-3.13.tar.gz"
-  sha256 "e1bd9abd5955ad6a6d083674021cd9421d03473ce90d6e6a1a497f71c05d1fd0"
+  url "https://github.com/Sude-/lgogdownloader/releases/download/v3.14/lgogdownloader-3.14.tar.gz"
+  sha256 "2629c54e2549881cdd155b4f89b472c62617db7a9cfe6b68dbcb1753080b1448"
   license "WTFPL"
   head "https://github.com/Sude-/lgogdownloader.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Lgogdownloader < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c39b51c0929ab9e65b5c471fc6f41f8cbe450ed02fe39dd93260504aeda9e539"
-    sha256 cellar: :any,                 arm64_ventura:  "fb8480c15c6345b33694d30f9ad7568adde94cd420607d6daf521068093896d4"
-    sha256 cellar: :any,                 arm64_monterey: "76fc11825a70630471c8a08bce9cc7b1ec57736383df41da4a20d5b9a8051696"
-    sha256 cellar: :any,                 sonoma:         "483cd8e03fabb72d719fd8e6b9fdb2f132691351bbf5b3548c978f1037d9e295"
-    sha256 cellar: :any,                 ventura:        "5af4fa67f195a665fdbb0155c3f7b64c3fe565abd35e78ff77ead03bacabbd37"
-    sha256 cellar: :any,                 monterey:       "9432b3766cea74573f73e38103058c3bb0a501434dc64cfa94a32297b9b978d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a635ac3dd9da4f2169a99ce011e157b44d6c4d9eaa1ffd88d43246cd113f6a7a"
+    sha256 cellar: :any,                 arm64_sonoma:   "a9de6ed7c7ec77d44b813cde0c83fc573f3dbb0d8be891b56ffc3397b1101a02"
+    sha256 cellar: :any,                 arm64_ventura:  "a3799f06e0ad3d204aed0e115063b833e07b559f91adb40c5ff320f80ebdce51"
+    sha256 cellar: :any,                 arm64_monterey: "49765ce12ddffec3053a7e78534ac991528e60be0e04f7cbdadb70c176c2aab6"
+    sha256 cellar: :any,                 sonoma:         "064e4a05acb3dbe9a70fa9ceec8a27934e6f6cced8f6b707f50440b05f369c53"
+    sha256 cellar: :any,                 ventura:        "26730cd36bb8305c9c1ad99aedba7cb39f92a0ddf6b1e2de8259687246449ad9"
+    sha256 cellar: :any,                 monterey:       "6f980ab4fbfc71614ac52e62d2b51e97ecf46096284af0c13bee4e781cf09d1e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e222f35f393e64335cd3d963c299729569047f47b12a6b56b620e02b2447077"
   end
 
   depends_on "cmake" => :build

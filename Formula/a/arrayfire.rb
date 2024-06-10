@@ -4,16 +4,16 @@ class Arrayfire < Formula
   url "https://github.com/arrayfire/arrayfire/releases/download/v3.9.0/arrayfire-full-3.9.0.tar.bz2"
   sha256 "8356c52bf3b5243e28297f4b56822191355216f002f3e301d83c9310a4b22348"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "865c6f979a09926528424dd8000734307b6312e684b8a7d71f0de9ee1f2fc1ce"
-    sha256 cellar: :any,                 arm64_ventura:  "49e2ddc39ff3e3823e62c535a601bc0e137a9ec637050d981315b653166680d1"
-    sha256 cellar: :any,                 arm64_monterey: "2459d0bf29599dd214224e2e7163d443057473c14b2d69fd1a2f11d3c5d8a040"
-    sha256 cellar: :any,                 sonoma:         "499980917ef26007d417c08b3791030705291cc8e7cc99c060ef09c4747ed03a"
-    sha256 cellar: :any,                 ventura:        "96f19e2b71e4c4c62763c8c5d3ae7295495368378b67b01eba06f70cb1e4d7be"
-    sha256 cellar: :any,                 monterey:       "2fd4620360c08ada0b4df6c3ee90242a698672a391dbd1fbf67b69826e59381e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "823212b946aabd15bc03686fa64bb6be37b733322613c479bab570177eab882a"
+    sha256 cellar: :any,                 arm64_sonoma:   "299f14fef2c6fde1e37418dc89b69fdab58cdd64f94e1f4e6224a86e390c41b2"
+    sha256 cellar: :any,                 arm64_ventura:  "14f1b6f1fe2c8c442c1f2ad3f75a1f9b7a252a123171c9ca63192f0f18636453"
+    sha256 cellar: :any,                 arm64_monterey: "290feb9f740d79b69960f7a436b28f926acd44b57813621707a63f7931e65885"
+    sha256 cellar: :any,                 sonoma:         "013b97c42f5856df55fd820fd0b60618f6d499805ec0c521ff831393e68d2809"
+    sha256 cellar: :any,                 ventura:        "b179ae4ac1dc38da16c080993d5d970e7909a6cfdae15f93343982b78b6c8be6"
+    sha256 cellar: :any,                 monterey:       "c2b3fbc6c5e70354dd25a8c242d1f2c163ca596d72f62a6b338d0807d63badbc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4635b6a5294fdd22f1de00d06eaf228ff4c9d0f400b428a9f025573dc7adb95c"
   end
 
   depends_on "boost" => :build

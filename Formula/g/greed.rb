@@ -21,6 +21,8 @@ class Greed < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7f7db5fc7dbc281817a928f614c13af17805c1e8b7804cef14b7cb23f5ac6cf"
   end
 
+  deprecate! date: "2024-06-07", because: "checksum has changed and upstream is unresponsive"
+
   uses_from_macos "ncurses"
 
   def install

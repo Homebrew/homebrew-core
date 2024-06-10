@@ -202,57 +202,6 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
 
-  conclusion:
-    needs: [tests, setup_tests, setup_runners]
-    if: always() && github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check `tests` result
-        run: |
-          result='${{ needs.tests.result }}'
-          # Silence lint error about backtick usage inside single quotes.
-          # shellcheck disable=SC2016
-          printf '::notice ::`tests` job status: %s\n' "$result"
-
-          # Possible values are `success`, `failure`, `cancelled` or `skipped`.
-          # https://docs.github.com/en/actions/learn-github-actions/contexts#needs-context
-          if [[ "$result" = "failure" ]] || [[ "$result" = "cancelled" ]]
-          then
-            # Silence lint error about backtick usage inside single quotes.
-            # shellcheck disable=SC2016
-            printf '::error ::`tests` job %s.\n' "$result"
-            exit 1
-          fi
-
-          runners_present='${{ needs.setup_runners.outputs.runners_present }}'
-          syntax_only='${{ needs.setup_tests.outputs.syntax-only }}'
-
-          # The tests job can be skipped only if the PR is syntax-only
-          # or no runners were assigned.
-          if [[ "$result" = "skipped" ]] &&
-             [[ "$runners_present" = "false" || "$syntax_only" = "true" ]]
-          then
-            exit 0
-          fi
-
-          # The test job can succeed only if the PR is not syntax-only
-          # and runners were assigned. Otherwise it must have been skipped.
-          if [[ "$result" = "success" ]] &&
-             [[ "$runners_present" = "true" ]] &&
-             [[ "$syntax_only" = "false" ]]
-          then
-            exit 0
-          fi
-
-          # If we made it here, something went wrong with our workflow run that needs investigating.
-          printf '::error ::Unexpected outcome!\n'
-          # Silence lint error about backtick usage inside single quotes.
-          # shellcheck disable=SC2016
-          printf '::error ::`tests` job result: %s\n' "$result" # success/skipped
-          printf '::error ::runners assigned:   %s\n' "$runners_present" # true/false
-          printf '::error ::syntax-only:        %s\n' "$syntax_only" # true/false
-          exit 1
-
   setup_dep_tests:
     permissions:
       pull-requests: read
@@ -372,3 +321,54 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
           upload-bottles: false
+
+  conclusion:
+    needs: [tests, test_deps, setup_tests, setup_runners]
+    if: always() && github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check `tests` result
+        run: |
+          result='${{ needs.tests.result }}'
+          # Silence lint error about backtick usage inside single quotes.
+          # shellcheck disable=SC2016
+          printf '::notice ::`tests` job status: %s\n' "$result"
+
+          # Possible values are `success`, `failure`, `cancelled` or `skipped`.
+          # https://docs.github.com/en/actions/learn-github-actions/contexts#needs-context
+          if [[ "$result" = "failure" ]] || [[ "$result" = "cancelled" ]]
+          then
+            # Silence lint error about backtick usage inside single quotes.
+            # shellcheck disable=SC2016
+            printf '::error ::`tests` job %s.\n' "$result"
+            exit 1
+          fi
+
+          runners_present='${{ needs.setup_runners.outputs.runners_present }}'
+          syntax_only='${{ needs.setup_tests.outputs.syntax-only }}'
+
+          # The tests job can be skipped only if the PR is syntax-only
+          # or no runners were assigned.
+          if [[ "$result" = "skipped" ]] &&
+             [[ "$runners_present" = "false" || "$syntax_only" = "true" ]]
+          then
+            exit 0
+          fi
+
+          # The test job can succeed only if the PR is not syntax-only
+          # and runners were assigned. Otherwise it must have been skipped.
+          if [[ "$result" = "success" ]] &&
+             [[ "$runners_present" = "true" ]] &&
+             [[ "$syntax_only" = "false" ]]
+          then
+            exit 0
+          fi
+
+          # If we made it here, something went wrong with our workflow run that needs investigating.
+          printf '::error ::Unexpected outcome!\n'
+          # Silence lint error about backtick usage inside single quotes.
+          # shellcheck disable=SC2016
+          printf '::error ::`tests` job result: %s\n' "$result" # success/skipped
+          printf '::error ::runners assigned:   %s\n' "$runners_present" # true/false
+          printf '::error ::syntax-only:        %s\n' "$syntax_only" # true/false
+          exit 1

@@ -17,13 +17,14 @@ class Clusterctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e3c6fd03a140c8c69f1568720247375a097e25818e491cc970fd7adb70a88d6e"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ceef88a957b162844b9f96cdd6e2280a6355c8c19598a9fa47656d5008266706"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "f68468017a837672deaa2b624cda24a4797be297607d3bfc8a05e952d83ea60f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "094042c057c8d9a48d4ae7ef6530698fb6fb9ddfd3d1b9aed83c9cb88f3a91a5"
-    sha256 cellar: :any_skip_relocation, ventura:        "d38ef2959855908f337def6b58a68d2c7d52aac03c0094e1126d7a0c72413191"
-    sha256 cellar: :any_skip_relocation, monterey:       "86ab1f15a99df03ab9bee8d3a711a28bfcd7ae440427d590e11b62f7f4a27cf3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b562db95042c09e60f6a9929539f4cfbaa6b8a1c3ace1a916cb9cd9bce91aeba"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "837e33ba07aae60b30fa9b8c83d9d53a6601470c32deb3f7ac8b9d9fb17e6ceb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "5e4f266f4b1ad24bb3d87a21ab428e56e68ef1d8837da56887273b71ebf21632"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "970520003348961ddf50d14d405a4198f36b1129535918de2ae7f187b9b10aba"
+    sha256 cellar: :any_skip_relocation, sonoma:         "047d17957aa13e81c3141ebd56a6f0513ef1bf0333f8e3753b38b59b45e0fb8a"
+    sha256 cellar: :any_skip_relocation, ventura:        "0a6bc0bd127c6eaa2960e301ae5859197d99dd693eb181acddb7880fd9922a9e"
+    sha256 cellar: :any_skip_relocation, monterey:       "663f8a6f62783bcb18682043ab43e0c9bef1308929508f15570220ffc09e413e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "264f515d04567cb5cbd094974c498edf8b9052105aeafe30c4f0cc0bab800719"
   end
 
   depends_on "go" => :build
@@ -38,7 +39,7 @@ class Clusterctl < Formula
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/clusterctl"
 
-    generate_completions_from_executable(bin/"clusterctl", "completion", shells: [:bash, :zsh])
+    generate_completions_from_executable(bin/"clusterctl", "completion", shells: [:bash, :zsh, :fish])
   end
 
   test do

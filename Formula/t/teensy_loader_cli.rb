@@ -1,22 +1,19 @@
 class TeensyLoaderCli < Formula
   desc "Command-line integration for Teensy USB development boards"
   homepage "https://www.pjrc.com/teensy/loader_cli.html"
-  url "https://github.com/PaulStoffregen/teensy_loader_cli/archive/refs/tags/2.2.tar.gz"
-  sha256 "103c691f412d04906c4f46038c234d3e5f78322c1b78ded102df9f900724cd54"
+  url "https://github.com/PaulStoffregen/teensy_loader_cli/archive/refs/tags/2.3.tar.gz"
+  sha256 "d9c5357d7e8b99e9a9ae93f5e921c35a133a4a5d399f57eec10f3a606be5d89f"
   license "GPL-3.0-only"
   head "https://github.com/PaulStoffregen/teensy_loader_cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d71b36f5e961b3d6bd984e4b0ae10e028879a4ce8e83f3c035b29c6d96efb84d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "97148c203288820eb1f651a744f6bd0867b38383671ec7b7d0961504ecfc51ad"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a534e52c0de21164168c188ae60e929a17e183be3eba10ee7f4a1394c6bb94c6"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "06529ad4373a483829c4b7ffd9bcb262077e7242be60c4a8645601ccc4aea134"
-    sha256 cellar: :any_skip_relocation, sonoma:         "d0dde0856ae3bfeca3e777ebf567c3de5fcd0302fdf3ee646554766e6156e059"
-    sha256 cellar: :any_skip_relocation, ventura:        "ea14a1fe61e74119a04a43a5fb0b66c2860863e7f380471679b2750794d3bde6"
-    sha256 cellar: :any_skip_relocation, monterey:       "0239cc41b148dea13c918f858930cca2631db5547e5aa17db57c9c5efdcdd2fe"
-    sha256 cellar: :any_skip_relocation, big_sur:        "1077e947102d333896796ada9f702fb11bfc43741b0ffe737292479624249ced"
-    sha256 cellar: :any_skip_relocation, catalina:       "5f622de032367bbd7d3325e1e3d88ee205f941908a111102cbb10d176474e197"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3e61b76878c12cea8fbce6abbfcd7c2e26afbf79785fda38135009ae1d08f1f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "31075e6eb9a92d0ddaa3b9505c00fd00c77b057dc817b192c02bb0a3c1bb9cd0"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "369f2615e61079c280fa552715b8a771d3f620f4b05bc494b45c568b8f647fb0"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "6a73f7e320626476c5bbf849d59794329cc55414f9e3dca28e4f6ff7f0e74720"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0beb513ca87f99ee2a03e3700570bb2e82f7f6905b2921a5a14a31df6e0f12bf"
+    sha256 cellar: :any_skip_relocation, ventura:        "1800778350862ed8662bf3183296fb5ba2efc08a5d9dd4531f684639176d02ee"
+    sha256 cellar: :any_skip_relocation, monterey:       "1ac5153cfe35bc276fc73c0bb14823f34bd8ae34b408ab81d3140df1db128d03"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "578d01b193225d1af0f017f21000dc19fa544e15c090af656869c1de14eb7f44"
   end
 
   on_linux do

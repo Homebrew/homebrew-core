@@ -3,20 +3,19 @@ class LinodeCli < Formula
 
   desc "CLI for the Linode API"
   homepage "https://github.com/linode/linode-cli"
-  url "https://files.pythonhosted.org/packages/b7/81/1d3f969f9ebd99bc80c052e87234269ef63e8deef9c9a8bc1561766bed4d/linode_cli-5.49.1.tar.gz"
-  sha256 "7609390dbccb72967481ac43e76f2a92c253ac8bb501a6628b77404187573b63"
+  url "https://files.pythonhosted.org/packages/6d/ca/358b725ddcf59706bb8b83fb794d8f72d598561f423944564c9b827ae198/linode_cli-5.50.0.tar.gz"
+  sha256 "3829ceec17f6b439c2e20ee4612d1616557da65012db919bcd13ba9a90d86319"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/linode/linode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "cc1d9f2f49c16fc91c3dc52aceaf305cd39abfcda57b10cd770846be672712f3"
-    sha256 cellar: :any,                 arm64_ventura:  "b5e990111cdba8fd60371a968b720441e01d681554fee7a31f03d7dde14a1e5a"
-    sha256 cellar: :any,                 arm64_monterey: "4dd998258e61faa2a16b0dcba31d8a7f255fe4c654c245003096687c8a279126"
-    sha256 cellar: :any,                 sonoma:         "63b642ee02e00ef4940fc0ca52664a16e51d3b15c3bbd29243d4d2d106456e58"
-    sha256 cellar: :any,                 ventura:        "f538a093f61d3daa3a99241cb2080f7693e77317abc4c38053747a85888c1feb"
-    sha256 cellar: :any,                 monterey:       "89a9774074689b4a808f880cecd3aed7bc03b8b2b9879f28ae28c27a86a87613"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d9b1b8c63fb4de16c102b5b5bd4ac3c18af2dbffc587b76113d72ea2005371b9"
+    sha256 cellar: :any,                 arm64_sonoma:   "4eaa4ccef8ec91e47415e9e1dffd64d927ec29f5ecbe951be69a73104462a368"
+    sha256 cellar: :any,                 arm64_ventura:  "c04a8926b61ae56f43a6fefc0d7d49ecdea72c0a45b6a620478d75726385f4e5"
+    sha256 cellar: :any,                 arm64_monterey: "c7692d925d6899ff38b79c52cead7d9126daff04d070838e1d90910c0695bbdc"
+    sha256 cellar: :any,                 sonoma:         "fff78e96325142dceea3d8e1c032f6f3c639674534e0a3143519b2ce0a0d35a6"
+    sha256 cellar: :any,                 ventura:        "df43b79c67a386c3e73827f7ef91c1fcb69d1d83b9a9f5ae476bd4792f9188ab"
+    sha256 cellar: :any,                 monterey:       "6bb3e343795345809928a9edddde84be659e0fb1fbcd8b352bb2b3fe4c727afa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a3659bb6b908c978d8086c197b277107cb5192891fca11f088719ef4967aebef"
   end
 
   depends_on "certifi"
@@ -24,8 +23,8 @@ class LinodeCli < Formula
   depends_on "python@3.12"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
-    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
+    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
+    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
   end
 
   resource "charset-normalizer" do
@@ -89,8 +88,8 @@ class LinodeCli < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
-    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "rich" do

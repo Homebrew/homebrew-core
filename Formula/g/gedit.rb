@@ -13,13 +13,14 @@ class Gedit < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8f2cfff223961d0c42ef7b773cd7c340bb97c348ab86080b01f72c311c066c41"
-    sha256 arm64_ventura:  "8a5402472280c1148b2aedf23ea342d65f3dd4a2a939f05be224742374b25d56"
-    sha256 arm64_monterey: "6a89552f93b4487c6106b4ac0e519594b0e1865e1c97cb34b64096fd0b430332"
-    sha256 sonoma:         "708944a5115f5c2982bbe97ddd73a2d69d66f495d2a769477aa0e5991ae69731"
-    sha256 ventura:        "96fae25d1372008b7bb96d5ca8e0860fdfefdc24172ccc2c9e2dd9eb95da8696"
-    sha256 monterey:       "02e0d4a94208fc06e1f643f051be16a3513f8dca4b78c86c10953e512c801605"
-    sha256 x86_64_linux:   "454403a0bddc2bcfa64625ea50c2cd5d436df9a1d817d37800cc649f242a9bcc"
+    rebuild 1
+    sha256 arm64_sonoma:   "777d2f0921fa04711b03b411ca7c694c49cf2e1d83f2adbaa4c666a2f6b066d6"
+    sha256 arm64_ventura:  "9782b95eeb5018630fdf4eb107c6de00b163e9f764926451fe9f5b61caeae54e"
+    sha256 arm64_monterey: "a901fbafe0f26f5f15c7639590cfea0b8e507c8d9ac4cb45dc9522ee95a416f8"
+    sha256 sonoma:         "3d9eb8f9c8510c0c1ef5123053834f9b69fd7feed60fff48d3b660e4746cf59b"
+    sha256 ventura:        "4110ca2fc7ee3eeff7fac46ad5c4af84e805ca5e559f6a4f393340ed103e3dfa"
+    sha256 monterey:       "95fc3cbec4956c99dd475fd985f63b30fcaf1a0cf0952de91e0b641d45091a97"
+    sha256 x86_64_linux:   "3784d5b0bce3a017dbe55447af1dee3a2b335f4dfbd0a7340a98c2c511eea35a"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -42,7 +43,7 @@ class Gedit < Formula
   depends_on "gtk+3"
   depends_on "libgedit-amtk"
   depends_on "libgedit-gtksourceview"
-  depends_on "libpeas"
+  depends_on "libpeas@1"
   depends_on "libsoup"
   depends_on "libxml2"
   depends_on "pango"
@@ -65,6 +66,7 @@ class Gedit < Formula
 
   test do
     ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libpeas@1"].opt_lib/"pkgconfig"
 
     # main executable test
     system bin/"gedit", "--version"

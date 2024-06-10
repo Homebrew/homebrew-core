@@ -1,10 +1,10 @@
 class OpensslAT3 < Formula
   desc "Cryptography and SSL/TLS Toolkit"
   homepage "https://openssl.org/"
-  url "https://github.com/openssl/openssl/releases/download/openssl-3.3.0/openssl-3.3.0.tar.gz"
-  mirror "https://www.openssl.org/source/openssl-3.3.0.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/openssl-3.3.0.tar.gz"
-  sha256 "53e66b043322a606abf0087e7699a0e033a37fa13feb9742df35c3a33b18fb02"
+  url "https://github.com/openssl/openssl/releases/download/openssl-3.3.1/openssl-3.3.1.tar.gz"
+  mirror "https://www.openssl.org/source/openssl-3.3.1.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/openssl-3.3.1.tar.gz"
+  sha256 "777cd596284c883375a2a7a11bf5d2786fc5413255efab20c50d6ffe6d020b7e"
   license "Apache-2.0"
 
   livecheck do
@@ -13,14 +13,13 @@ class OpensslAT3 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_sonoma:   "ec6f9daf8e32d96f4a2f4cd56d18533ee47bb8d9e7cb3d832ac64115d8a1a4ca"
-    sha256 arm64_ventura:  "58665ec9e2873dba2799be5992eab3973f230acc352d09bd4a69131ac3ccd2d4"
-    sha256 arm64_monterey: "1afa5e6964d9418fb8bb2d489e5069becd55f963c1ea7a2a30ca838b17d9bf66"
-    sha256 sonoma:         "f37328addd300e16046ee900f26d3ed026a6c810ea88269e114a4e0f06ed41b6"
-    sha256 ventura:        "28be258776e175a8c29a19be5312b885574a98324d7b03c7ec12f2d7eadcbce1"
-    sha256 monterey:       "f5b70155f3fdbf574843741924758ca05fc996263e348660ac817e75052dacf9"
-    sha256 x86_64_linux:   "005380f94547e270e9c8617fe0211c30daad8a5712d038f7edee3fb5bc0f1226"
+    sha256 arm64_sonoma:   "d57cf59ebcfa7755895707f5eab2c07cbcc177b1c1803d160a8633db99b110ba"
+    sha256 arm64_ventura:  "09883397c900867cc82802c965b617ccb129619b4a63955e69b49727e32f8dfa"
+    sha256 arm64_monterey: "0d88c67b408ad9520a28d195418d14875f2237fbd808114763f980a7a9190831"
+    sha256 sonoma:         "ec3aa180c8c474ad3eece67ddcff9bd1f17992d89da91f71431354fd849adc1f"
+    sha256 ventura:        "dfedf75692505f5d750dd5af97d0a4ea0a9cf24112e1e9339dc802658711a3e6"
+    sha256 monterey:       "06e6ff16eb23a8fd4dc9222e6cf5bcf2b680d250ba0233e6e0c0dc6e9616cb34"
+    sha256 x86_64_linux:   "d84029bfaf8a5452329d7e2535ba32d720b361b398e46051ee6090ff989dfd55"
   end
 
   depends_on "ca-certificates"
@@ -106,7 +105,9 @@ class OpensslAT3 < Formula
     system "perl", "./Configure", *(configure_args + arch_args)
     system "make"
     system "make", "install", "MANDIR=#{man}", "MANSUFFIX=ssl"
-    system "make", "test"
+    # AF_ALG support isn't always enabled (e.g. some containers), which breaks the tests.
+    # AF_ALG is a kernel feature and failures are unlikely to be issues with the formula.
+    system "make", "test", "TESTS=-test_afalg"
   end
 
   def openssldir

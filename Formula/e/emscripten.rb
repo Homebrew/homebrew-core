@@ -3,8 +3,8 @@ require "language/node"
 class Emscripten < Formula
   desc "LLVM bytecode to JavaScript compiler"
   homepage "https://emscripten.org/"
-  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.60.tar.gz"
-  sha256 "adef7d4e907653f8817c9cf8cacb4565de846a825384ffeeb95231e7905f8121"
+  url "https://github.com/emscripten-core/emscripten/archive/refs/tags/3.1.61.tar.gz"
+  sha256 "bc5eff3d929a208173a61de47f0084e687d06df442c03684a796538d51e4a38b"
   license all_of: [
     "Apache-2.0", # binaryen
     "Apache-2.0" => { with: "LLVM-exception" }, # llvm
@@ -18,13 +18,13 @@ class Emscripten < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "a3b929ce31ab9df0a2effcc55a606be999e2b4ff8418c70659e4a5ecd6b2a79d"
-    sha256 cellar: :any,                 arm64_ventura:  "6481efdedfc6fd031571644ac0143b4c02fe4150eb544963b49606fbcda0b00e"
-    sha256 cellar: :any,                 arm64_monterey: "b9a9524761570bd5a4eb28cb664df5673c3d0ffe6e48ba5add8199638ad05f4f"
-    sha256 cellar: :any,                 sonoma:         "ef89ab3b46a694031a6e422eb78140bf0f3c243aef398574c204cf4f27818759"
-    sha256 cellar: :any,                 ventura:        "7e2c704cce7ae321f66f950e63c148c2222e381bfe37d37278ae7158416222a4"
-    sha256 cellar: :any,                 monterey:       "adc693525d5825d42a9b5ad69b9f1ead53eebaa863feb875bf399110a41d3409"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce646f789881dbc343d549251ce735c715544520eaafa74b3e00c0284957474a"
+    sha256 cellar: :any,                 arm64_sonoma:   "19ecfeeb5c44879193306be8324b9c6344a89eb87ac2e8c582ab20750cc90cfa"
+    sha256 cellar: :any,                 arm64_ventura:  "53fd7b9cbc946040502507f3bb8bc74b59996e9e108ab2d478e1df45c31b9eab"
+    sha256 cellar: :any,                 arm64_monterey: "3d2dd7617d6168e1d32f0c93c96b08a139b5a08ac4da814e86e6ee602b72b4d5"
+    sha256 cellar: :any,                 sonoma:         "380b8d69c2b5b5df2e742c6e75dcda06cce9f23f7784c817eeaeda3532106e85"
+    sha256 cellar: :any,                 ventura:        "a4fe64490633d86507be16a67a6a9d2ba5883a923281eda1a4c15c23e1f07176"
+    sha256 cellar: :any,                 monterey:       "c43850bc36648a5427b7b900f05e4bd73a7b330b2d36327583daf7abe24fb120"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b597df87d3fa822a8bec1d751d62f03433584a643cce5a3a2892a29e976c7134"
   end
 
   depends_on "cmake" => :build

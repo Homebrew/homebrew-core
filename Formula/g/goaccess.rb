@@ -1,8 +1,8 @@
 class Goaccess < Formula
   desc "Log analyzer and interactive viewer for the Apache Webserver"
   homepage "https://goaccess.io/"
-  url "https://tar.goaccess.io/goaccess-1.9.2.tar.gz"
-  sha256 "4064234320ab8248ee7a3575b36781744ff7c534a9dbc2de8b2d1679f10ae41d"
+  url "https://tar.goaccess.io/goaccess-1.9.3.tar.gz"
+  sha256 "49f0ee49e3c4a95f5f75f6806b0406746fcbf2f9ad971cae23e2ea95d3ec7837"
   license "MIT"
   head "https://github.com/allinurl/goaccess.git", branch: "master"
 
@@ -12,13 +12,13 @@ class Goaccess < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8fd1dd5b8bfd7ea93ef555c6f9be6b9a8a3bb0d316237d1a9738716038739e75"
-    sha256 arm64_ventura:  "794659211781c6666ebb05a9654009cdce003f030a0255d605a221938066fdc0"
-    sha256 arm64_monterey: "1251bd54c07021bfe85b7b5343ca48e40daf99f0335fd2dd93464b3e4a22ccac"
-    sha256 sonoma:         "e1bf74e33740213b04ac06e9321850735585eddc62ceb7b54dcbfb4c3fb906c8"
-    sha256 ventura:        "8c44d82cbe44f17659b0ee88bca3dc5dc1a5ff4bf6484c8ba551a656ec22b9bb"
-    sha256 monterey:       "31938ca561a5c6906f2510799554815f5d5c092c3796b42e8aa00268e3e70fcd"
-    sha256 x86_64_linux:   "48bf7651f109ff702a19870481425fff7e447ee0543c57a832323b2e925e92b9"
+    sha256 arm64_sonoma:   "87aa707dacbd55256870c04738ba57e253767e167c16bcd391f9fca89164931b"
+    sha256 arm64_ventura:  "fab59a784e6221780e73de49fb5b7b20b8be593a0fab28d07f031b5b1433a8e0"
+    sha256 arm64_monterey: "7cc09da579a2685826fec756cce8bf87fb868120ff09f680203fa172ad1d3af3"
+    sha256 sonoma:         "1b64c1206f019b712ed90724342e12ed9962e48e33d4f6ef0cb3dbebc184454f"
+    sha256 ventura:        "d0dde1b682b280570fcfe938d46c0ab44f8d79c30fbb0b167c203ecc0e93446a"
+    sha256 monterey:       "40999cea57bc1fca15720fc2d11304db6801b2ac1a89d9da74910fd049944d28"
+    sha256 x86_64_linux:   "a3ee515f40ffb70cf7db643c7150156a19558ec33a1426a792bad4b4434aa42a"
   end
 
   depends_on "autoconf" => :build
@@ -26,6 +26,8 @@ class Goaccess < Formula
   depends_on "gettext"
   depends_on "libmaxminddb"
   depends_on "tokyo-cabinet"
+
+  uses_from_macos "ncurses"
 
   def install
     ENV.append_path "PATH", Formula["gettext"].bin

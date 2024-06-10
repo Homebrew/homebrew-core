@@ -1,8 +1,8 @@
 class Libsodium < Formula
   desc "NaCl networking and cryptography library"
   homepage "https://libsodium.org/"
-  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.19.tar.gz"
-  sha256 "018d79fe0a045cca07331d37bd0cb57b2e838c51bc48fd837a1472e50068bbea"
+  url "https://download.libsodium.org/libsodium/releases/libsodium-1.0.20.tar.gz"
+  sha256 "ebb65ef6ca439333c2bb41a0c1990587288da07f6c7fd07cb3a18cc18d30ce19"
   license "ISC"
 
   livecheck do
@@ -11,13 +11,13 @@ class Libsodium < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "dc3c442e29cd2c031179003f04ee2dea388edc68b0f284d6b938f38e2ca49efc"
-    sha256 cellar: :any,                 arm64_ventura:  "182de39b6e91d6966cac1982307baa664cf9d59bf387e77caea7d65bf822456d"
-    sha256 cellar: :any,                 arm64_monterey: "2bb039f392d4f01cda78cac11b30bda1a37e8474ba8f583e47ce710403a1f630"
-    sha256 cellar: :any,                 sonoma:         "211da6345b583cbae203218545b36ecab03482ec33535663773bf96cb8310b4d"
-    sha256 cellar: :any,                 ventura:        "12f53fc591d31ff001358580893befa02707b15c22332eebb33f75f32efda41a"
-    sha256 cellar: :any,                 monterey:       "68ce4512d9bf1e061edd2d0c09c809d7d63ca61a904802a0bf60cb935613c484"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8ca1515b870335e26ee78bae614a734ccc1f30f3dbad1514f503ce7d9972d5f"
+    sha256 cellar: :any,                 arm64_sonoma:   "66835fcd7e4dd8dde5be4e8d34c5314481c1d724e8dd82d4e97059d9fdaf1a45"
+    sha256 cellar: :any,                 arm64_ventura:  "21b83b95eef039b914d712f4ac5d235d85e1f1143383dfa9c5359f0cc88fa08d"
+    sha256 cellar: :any,                 arm64_monterey: "25377f9e16747b9af732be608a966b580287d0854c2d530f23eea1235bca1ff7"
+    sha256 cellar: :any,                 sonoma:         "ebc452002391195287aef3819c1285ba597bbfe55cb926f18dae5990202afa12"
+    sha256 cellar: :any,                 ventura:        "5de3b5180b73678d93c4c69a77d662afd6aac0bfd71246be6e78cfacf97cc3d7"
+    sha256 cellar: :any,                 monterey:       "0556f27feb8d4b5f31edf42e392eb4901daa5b9dbb8510499aa196c9e77134c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94394d217dc5a833492a702a8a9e914573a945da13f3b4f42b59f2513835f439"
   end
 
   head do

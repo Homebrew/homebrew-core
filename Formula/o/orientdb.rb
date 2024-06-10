@@ -1,8 +1,8 @@
 class Orientdb < Formula
   desc "Graph database"
   homepage "https://orientdb.org/"
-  url "https://search.maven.org/remotecontent?filepath=com/orientechnologies/orientdb-community/3.2.29/orientdb-community-3.2.29.zip"
-  sha256 "e3502a36ad7be277c41eb1d73aa8b63876290d87276a3007c043c9a51e5ff053"
+  url "https://search.maven.org/remotecontent?filepath=com/orientechnologies/orientdb-community/3.2.30/orientdb-community-3.2.30.zip"
+  sha256 "48a95446477d17db1d3f297c3a5887c83761b895326b08ed96ba5a8c18a75344"
   license "Apache-2.0"
 
   livecheck do
@@ -11,7 +11,13 @@ class Orientdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0b6f22b5855511be7e7b58e85e9d11fbbd808c4f187776e50c1a3fbebdeb1a5d"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8c9de024d5de1c199984036fd1d21806a7645622182ed4df6e268a9a94bd9b22"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8c9de024d5de1c199984036fd1d21806a7645622182ed4df6e268a9a94bd9b22"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "8c9de024d5de1c199984036fd1d21806a7645622182ed4df6e268a9a94bd9b22"
+    sha256 cellar: :any_skip_relocation, sonoma:         "8c9de024d5de1c199984036fd1d21806a7645622182ed4df6e268a9a94bd9b22"
+    sha256 cellar: :any_skip_relocation, ventura:        "8c9de024d5de1c199984036fd1d21806a7645622182ed4df6e268a9a94bd9b22"
+    sha256 cellar: :any_skip_relocation, monterey:       "8c9de024d5de1c199984036fd1d21806a7645622182ed4df6e268a9a94bd9b22"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "14862548e58a875f3c5de04b958be8c42dccb8c8ce517751c6767a74ca380d69"
   end
 
   depends_on "maven" => :build

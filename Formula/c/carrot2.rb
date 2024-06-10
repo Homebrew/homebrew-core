@@ -7,19 +7,20 @@ class Carrot2 < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "316e0b843788f87a4fc950905d572f191dec3a22c6be0f50e794b7d3998b5b6f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8f767a93a5fc89cc44e5c212ed3e7a25bef7dca2a029ffcc5ce167fa935c8754"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a294204538f9fc2282d585501a42e2445b701374f4b6211c9a13fa641e7e07ce"
-    sha256 cellar: :any_skip_relocation, sonoma:         "735a5f21733a85c406478d037bb04e0aaf0850eacb4acf10a32cfb11ae9d8229"
-    sha256 cellar: :any_skip_relocation, ventura:        "4eb89597731157708f85ee4667a4465623c433848d1c5d1f0f86ec887e0fec9e"
-    sha256 cellar: :any_skip_relocation, monterey:       "3ac3622ebbbd5de4f0a250679e01cbcbbda9bebae8c4beee4756d7b485f9904d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "7c26f5920ee5eb1571ecf1f34850bc07c6da816afb2a55734c660cb78709e470"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "63b10879de0b38414b6d3d0a77a7d1301d43e877f41e6c5a3f593f71da12378a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "baf90c58c0de1fb56ec3d47d263ca2b2fd5596d26bd31cb5bd23f0000e7e94ac"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e2b5d97a750dae863513da210590e6f182c83c77e8485b4af3090d52002ca65f"
+    sha256 cellar: :any_skip_relocation, sonoma:         "7d8d893393a220446ab0409b49350cd3c1b51e223671eb10b5ad235905d4df01"
+    sha256 cellar: :any_skip_relocation, ventura:        "7172200db6bf11abff4c0eb13e4b8ca9a1aebe11fd86d36c7c946c9e82be19a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "bea99b1b19f45ac46a26d418ecd07f79a099e69aafe2c9a027223e5c0bdbbedf"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d8441898809575d62112c43a0662bb50171bc5492ff80ce451a6dd2b51a412ee"
   end
 
   depends_on "gradle" => :build
   depends_on "node" => :build
   depends_on "yarn" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   def install
     # Make possible to build the formula with the latest available in Homebrew gradle
@@ -42,7 +43,7 @@ class Carrot2 < Formula
     end
 
     (bin/"carrot2").write_env_script "#{libexec}/dcs/dcs",
-      JAVA_CMD:    "exec '#{Formula["openjdk"].opt_bin}/java'",
+      JAVA_CMD:    "exec '#{Formula["openjdk@21"].opt_bin}/java'",
       SCRIPT_HOME: libexec/"dcs"
   end
 

@@ -1,8 +1,8 @@
 class Butane < Formula
   desc "Translates human-readable Butane Configs into machine-readable Ignition Configs"
   homepage "https://github.com/coreos/butane"
-  url "https://github.com/coreos/butane/archive/refs/tags/v0.20.0.tar.gz"
-  sha256 "cde5ecd3a535b7dba81056cadd5985288fcdfcef4544d5610322d95863f4a40b"
+  url "https://github.com/coreos/butane/archive/refs/tags/v0.21.0.tar.gz"
+  sha256 "44c1ff13c01b4dd8ab8310fd4703c3e7ec411b15925cecb434ad5f595f9d17d6"
   license "Apache-2.0"
   head "https://github.com/coreos/butane.git", branch: "main"
 
@@ -12,13 +12,13 @@ class Butane < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "acb1c3dc58d6b1e9197723fd70bab260e7f86c890f2b126099b02cdaa2ffce3b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d97885dda04b095371f8048eb4932ac5208d0c53080274643ef08e5a1819f8b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a7ee8049d27f3840967b4410612ad1428e5c7beda32808897cf26cbba690f8bf"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b22da92491c8716746d836f87b3e4d4400f75f699a46415c90d17a87b801c821"
-    sha256 cellar: :any_skip_relocation, ventura:        "a3700c75d80ad8db326c29b6ae3dc859be7fe02e2330636af72c5d82a60110b7"
-    sha256 cellar: :any_skip_relocation, monterey:       "f7fde2ea0300dcee3df7f00c2e62f7ec6b65fd6b28e1638f63a9a1d2604c62ff"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e4da61e292a1bb53f3163ceb00494c442927596ad257161a4edfb4b184a0a381"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "570b9e8ef564d279566ee4741860f46f05d0f4a3fea1c3135379d3ddc041a8fd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "323077ac66cc7e737f43e0b270acbb753dfa498c0a6cf2a676035c591bf6c566"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "03f18f4f7a0e7a4a25ae70f8b22cf0f6103bb4aaa19a7a1ee41c227cc9a4d9c1"
+    sha256 cellar: :any_skip_relocation, sonoma:         "face021d24a529596709f2b314d8b79ea884b06452f509ccfd7c45b4e31583b5"
+    sha256 cellar: :any_skip_relocation, ventura:        "80132d87e55e6378b818e134d6b38012c0732ce5d912d4e8f27fe0fa9a511b50"
+    sha256 cellar: :any_skip_relocation, monterey:       "fbdaf2e88ef5bd930e81ac464381ae0820916358b58157cca38f8eeec78fc54e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bc916a83969028e7b7b2d1714fd9e88ced52ad0fd5182534ce535fc653429f98"
   end
 
   depends_on "go" => :build

@@ -1,20 +1,18 @@
 class Logrotate < Formula
   desc "Rotates, compresses, and mails system logs"
   homepage "https://github.com/logrotate/logrotate"
-  url "https://github.com/logrotate/logrotate/releases/download/3.21.0/logrotate-3.21.0.tar.xz"
-  sha256 "8fa12015e3b8415c121fc9c0ca53aa872f7b0702f543afda7e32b6c4900f6516"
+  url "https://github.com/logrotate/logrotate/releases/download/3.22.0/logrotate-3.22.0.tar.xz"
+  sha256 "42b4080ee99c9fb6a7d12d8e787637d057a635194e25971997eebbe8d5e57618"
   license "GPL-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c1fd331eff062aadfffca8a276ddcc671b243959543740be3b18d0fa8043f6e2"
-    sha256 cellar: :any,                 arm64_ventura:  "8e7e4ceaea1356aae5339c4b73e30357f2b5b7f2cd7885d088512e4424d587e6"
-    sha256 cellar: :any,                 arm64_monterey: "69e5e0b7e048425a9f65032bed75319417cffd44e5139240de34a0186e217adf"
-    sha256 cellar: :any,                 arm64_big_sur:  "412184f46ae0eb6a4c15c81349cccdfd1da979faa083aa21d72a9662198be08f"
-    sha256 cellar: :any,                 sonoma:         "f55bbbb576c066529ef0f86e525a9f2fe55018b41d27f6d4863b129ce1a1b9b6"
-    sha256 cellar: :any,                 ventura:        "bf4b7d1163c6506ea22cc96da7c830cf1fb7b7a9f5e5c2fe2f0373fae9d2ad99"
-    sha256 cellar: :any,                 monterey:       "6e7b959f377ef96a40b1e25f8bf15a8aa0f05cde1d28e36ef2890d3d8239ef50"
-    sha256 cellar: :any,                 big_sur:        "58a2d05ffa4b5350d1f9985aeda51a1db40040c5d845428820c0c205313547c9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3f471902687bec2d0e8ed417300938568118d9c86a5f0535f837bbb6e67b30ca"
+    sha256 cellar: :any,                 arm64_sonoma:   "cc989a616df04d37c0644ee673313f9a0b978c122000bccfa9fdbf3cce7e55dd"
+    sha256 cellar: :any,                 arm64_ventura:  "9d16fd4af182a7110bed763ea092c38e6807bf98a2de15289052db9be87ac0ce"
+    sha256 cellar: :any,                 arm64_monterey: "b4f8a2de9632fe60890087d05a3121caa140a133b629f98af4a1e5de704dcc33"
+    sha256 cellar: :any,                 sonoma:         "4a262dfa8dd7faf2bfbba2ac4c1c1dbf58aaa55b5bbe9b78de2c291c53a821c6"
+    sha256 cellar: :any,                 ventura:        "b66ab2b20624eb143b00bf928653507fc0dd49ad413d44eb10e18f6019f65db5"
+    sha256 cellar: :any,                 monterey:       "20b2031cd8d411f41e12fc271952e9cee937c57a75429656630d8ce5e59a463f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "65b63035bae30c3aac9275d86db7b05c185524e15528e454b01c2d61500e35e1"
   end
 
   depends_on "popt"

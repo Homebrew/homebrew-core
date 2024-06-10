@@ -1,19 +1,19 @@
 class River < Formula
   desc "Reverse proxy application, based on the pingora library from Cloudflare"
   homepage "https://github.com/memorysafety/river"
-  url "https://github.com/memorysafety/river/archive/refs/tags/v0.2.0.tar.gz"
-  sha256 "32201e9b1e7f8072a4f96ccfb0ce06006115700b1b495477e4519afcda4c1bd3"
+  url "https://github.com/memorysafety/river/archive/refs/tags/v0.2.1.tar.gz"
+  sha256 "7c3aebe1e60a53d2d80b81db6b074623b7797570a07dfad93c7f6ae8df0f9b37"
   license "Apache-2.0"
   head "https://github.com/memorysafety/river.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c0b14e58da260e0f2f4234fa031190de4678d2bb8c95e9c321e23b72c8cffcfe"
-    sha256 cellar: :any,                 arm64_ventura:  "00e8601070d12bb88a43cb84efeab8fdf49f2f5520f5d9792851efda9bfa885e"
-    sha256 cellar: :any,                 arm64_monterey: "70119ab06938669f746a23de17161d5ae9c8a1a59e8a32d0f705684b13d0eae4"
-    sha256 cellar: :any,                 sonoma:         "8db2e9dc0b5ed09fa93fd5439907f1a0c049bcd1e91fd4c02e02f994e4490792"
-    sha256 cellar: :any,                 ventura:        "9b2daa78ae9ff051882a946bde89d6c2e82deb1bb7375b311b0f07b20f0713e5"
-    sha256 cellar: :any,                 monterey:       "1624ffe66adaf07c0f01ac4a3f03439c903628559fd889ff274087d7f5912e8c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ebfba898ca1b62afdecb1e9b19b13c0119c75034727e00053a00dab629fdfc03"
+    sha256 cellar: :any,                 arm64_sonoma:   "46262a1e65759a7bb82a2bad87a3b93e0f0ff026058e7b7395f0414d48ca11cd"
+    sha256 cellar: :any,                 arm64_ventura:  "df60af939baefbc036bca27de5be2669758dc2c2864a16178dc4916324a77e01"
+    sha256 cellar: :any,                 arm64_monterey: "56f55a4cea81a5014a2939d836ca1586941b0d18f53757de67141eace5005061"
+    sha256 cellar: :any,                 sonoma:         "7f67a8fa921b335dcad92ec624006977104e1b19ef5219508e44e65dd7b4560b"
+    sha256 cellar: :any,                 ventura:        "2944a3550c8885951dde845bed1bc669413c8e5bfff9ebdb3c76effa603399ef"
+    sha256 cellar: :any,                 monterey:       "4820fa07c07203d69451463ac697d213cf1bfef51726b8c66fcc674a78aeda5e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6af7fe38c679aa37dff51d886f3eab82f6960d2546d438f1e84c02b79035e082"
   end
 
   depends_on "cmake" => :build

@@ -4,16 +4,16 @@ class CamlpStreams < Formula
   url "https://github.com/ocaml/camlp-streams/archive/refs/tags/v5.0.1.tar.gz"
   sha256 "ad71f62406e9bb4e7fb5d4593ede2af6c68f8b0d96f25574446e142c3eb0d9a4"
   license "LGPL-2.1-only" => { with: "OCaml-LGPL-linking-exception" }
-  revision 1
+  revision 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "1ab3f2156883e27bcfeff416cccb5e6f5e32102a52640299c5d6ca561b0b09f4"
-    sha256 cellar: :any,                 arm64_ventura:  "ee43234549a20178bcc759f2b630f68869c956527061079b3203091358c49195"
-    sha256 cellar: :any,                 arm64_monterey: "c88d7c4203e0111c6f21c6db54bfeb963e7962025741659d827a4153a096f3e0"
-    sha256 cellar: :any,                 sonoma:         "909acae960bc459db4f9f721801086296809a7b85db919229cc26ae67457f92e"
-    sha256 cellar: :any,                 ventura:        "e57d2a7c4e1ed7d865c72f6e0699a5e8439b22b76cff119ca10f41ccaf38ac92"
-    sha256 cellar: :any,                 monterey:       "584919e25737e013998be682d4cb0b79a512dd37180444e134f853c254586fd6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c23521a07bf157dc5f7fd018fdc804149a5e4c4acb375db87f1396bf50a1321c"
+    sha256 cellar: :any,                 arm64_sonoma:   "2e14df738f00604bcc6f5bd534dc4a6216486240427aa007b5fe8df7b187b0fd"
+    sha256 cellar: :any,                 arm64_ventura:  "ca997e18666ae5d5a8e5763e33734b275cefe959a8f2e255d6851eb8f301978f"
+    sha256 cellar: :any,                 arm64_monterey: "f0a77287617143cdfa16431336601bf3a6f8a0414361b0b67b4516fc738f3c81"
+    sha256 cellar: :any,                 sonoma:         "b30608d83869c763c51775791e1d005d644c72cc64f2fa9d15c8cd2b11e77d39"
+    sha256 cellar: :any,                 ventura:        "c821b2f2fe7931a46ab12c76675d3ffb7dd6b52e867ea760043c5c3b0f3487c7"
+    sha256 cellar: :any,                 monterey:       "8c6b64e84a4345a3825af63c61b0e3240d5c3de2650cfbe7c3845d0a968eb4fd"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "94edf173dbacdba66a99216f910de374584c51a6a59ea97695ca251024a61a10"
   end
 
   depends_on "dune" => :build

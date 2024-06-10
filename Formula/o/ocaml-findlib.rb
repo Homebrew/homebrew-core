@@ -4,7 +4,7 @@ class OcamlFindlib < Formula
   url "http://download.camlcity.org/download/findlib-1.9.6.tar.gz"
   sha256 "2df996279ae16b606db5ff5879f93dbfade0898db9f1a3e82f7f845faa2930a2"
   license "MIT"
-  revision 1
+  revision 2
 
   livecheck do
     url "http://download.camlcity.org/download/"
@@ -12,13 +12,13 @@ class OcamlFindlib < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "57ff114e13929f3b5382c78418a43b896cd2c4f3d9627d9017b1d94a2609489a"
-    sha256 arm64_ventura:  "377870c6a2a9a7e059136d3fb161e9cf0d48191f4e3df7fb7adfc7003e0527fc"
-    sha256 arm64_monterey: "ad81c990d61dbcee8f0ab536ac519f697e7839313290a3b3f9ccff2717100a07"
-    sha256 sonoma:         "187c3979f7d1a04e3e009a9c36d0943c5d6bf7ae780fdfb38a27e0923d31eea6"
-    sha256 ventura:        "a0fc2d66f141c96efbf271429b7655ca53f05ee1c33350822903807beb8a96d7"
-    sha256 monterey:       "32251158ac86cbfafb14df0866da222e540fa0c4a30a023e631fb411dc604a8d"
-    sha256 x86_64_linux:   "0d81ac15dc0af7b4675ca0c2a5f302594ed5f5a676af51066d7d9c0f8f41faf5"
+    sha256 arm64_sonoma:   "27db02a3efa66607b5131c5c7e2fe171540b3967ab0e80da5c62252b2cf8936b"
+    sha256 arm64_ventura:  "c9b81ddf8a113a064ef29cc3f0477a608367cec59a87885101ae5ab7063010dd"
+    sha256 arm64_monterey: "e37c0b5bf1940cbbc4bfb6406e10d060aa76164bb77d598adf82834a9b725a07"
+    sha256 sonoma:         "c7dd3598b58e99b1dfcc4060a1b4bb244e289ae9a13fe98914f29217b5ab67d7"
+    sha256 ventura:        "ba4ead7c276b54aa9c48c6e2b929aea8f04a1cbbb808fbfb087a5d9f03fe47ee"
+    sha256 monterey:       "5fc964c610117d95d20857f3ffffb52d6f518fe502c74a3ec40e108e60d9e40d"
+    sha256 x86_64_linux:   "75203b91c65f7c6ca18a0105202a5a6aeffbd225a4f97fc7a1d977bcaa403f30"
   end
 
   depends_on "ocaml"

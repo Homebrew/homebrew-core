@@ -6,18 +6,18 @@ class Gssh < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c2b5e7f40c765e5d93606a361389c7d3b0a527472dbb4c8e048ee681365c69fa"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "95769cbff07c37a67f0639fc6aa9bb07b975c6190ee522be0ac9357285023112"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "d71fbca8a5b1a0b7e1dc1fb0247104e7a7420d90bdf5a151eb61159354e02f5b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e7e35e73999181f89bb33090ac3bb978f7e928950bf8262d2b3a02c51e0aaeed"
-    sha256 cellar: :any_skip_relocation, ventura:        "98620344224df5447fb46d0bddf1aaa0bfbbc721eebd5e4b80293af1d7f40d99"
-    sha256 cellar: :any_skip_relocation, monterey:       "97b3509b2a1ece5cbea662087610a552592535f5a690599ce24f1058562b2070"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "498b341805351d474054b683fdeec977694b1ecc5f715b304376a94a19af23c2"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fee6aa3a10a6bc1427d48fcd271b055a8c7f4f7fedc7164519e2be8b7aa81b98"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "701b4eb639074e1e7b39d3358531836bf142f3751123145e701aaa71fd17cb03"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3f5ed2374501abd977eb5c67490489ebe7354094c48f878d01543bd3d69a8782"
+    sha256 cellar: :any_skip_relocation, sonoma:         "966fffd78fe61b7292a4141678a84e3a700a9388ecb2ab04ef2daba8220ccc5f"
+    sha256 cellar: :any_skip_relocation, ventura:        "2b1130e6167fd512b87c843e1ebe20830b95bb21e98469cd681a944897300c61"
+    sha256 cellar: :any_skip_relocation, monterey:       "1b51f981f8523077dbc4ac4269267ef57fc4c38d3c015bac0e14e1f612044f16"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "db58030c9483c22ecde1258a00dd0bd3f1da7649e1114178e0495e0195296ef6"
   end
 
   depends_on "gradle" => :build
-  depends_on "openjdk"
+  depends_on "openjdk@21"
 
   # gradle 8 build patch, remove in next release
   patch :DATA
@@ -27,7 +27,7 @@ class Gssh < Formula
     ENV["GROOVY_SSH_VERSION"] = version
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "cli/build/libs/gssh.jar"
-    bin.write_jar_script libexec/"gssh.jar", "gssh"
+    bin.write_jar_script libexec/"gssh.jar", "gssh", java_version: "21"
   end
 
   test do

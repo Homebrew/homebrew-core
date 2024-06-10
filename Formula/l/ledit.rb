@@ -5,6 +5,7 @@ class Ledit < Formula
   version "2.06"
   sha256 "9fb4fe256ca9e878a0b47dfd43b4c64c6a3f089c9e76193b2db347f0d90855be"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -15,13 +16,13 @@ class Ledit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb17134571471349a072e47eb5849e5ecc66006616fa77bf2363d04a8fa91446"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "26e778db2994c1524b3b993e94eb642586c227cfe04b103e9ead54a557fa67ac"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "9799ea6b0736a0a266eabd35ca40719683f4cb9dfecf220f4f73f3de26ee3b5d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "ab446bc5a875dc4527f05103db24700488cc32761aa241d18065ac6a66082971"
-    sha256 cellar: :any_skip_relocation, ventura:        "3b7c8d59ad0746dab63189ddc5fa9176b177c39404c368520be0cf03c9c14cca"
-    sha256 cellar: :any_skip_relocation, monterey:       "6fd3e1bcddb9d283dd6dbb8b84bb0dcab8ee5ec215bef0004be1c2a4991c912a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3521f1fe5b11e11d11a53c988888cf4807db6f5f17e420010e5c85a543ce7211"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "5cd73d8f31cd78874d997a6d4fd9f641e48feca0f7fe8563bb76bc1cb3e54fbd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e3a9793e08a678bf56e0d52ec6d1882a7e9f315b3aa3408444ed140f15bf2b32"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "e8fa06836756c84e6f20a13214680bbb0b360025ef193211d7e3ac0b88856202"
+    sha256 cellar: :any_skip_relocation, sonoma:         "ba5e850a2325c803b48366814ccd65ccf4acf57112f9cb16b4bc5ef43add3a8a"
+    sha256 cellar: :any_skip_relocation, ventura:        "61b71950ed308177659d6d98f88e83d9f26b2ce8c9f41cffab9e92eef9988144"
+    sha256 cellar: :any_skip_relocation, monterey:       "482dd44cabb6afec89846ad02430f0b48e2aee3e32885c58eedd38619fdc4886"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "280c140f1337f33186cc2d9a1946cd27732435292e98fff8c1a431d408ebb237"
   end
 
   depends_on "ocaml-findlib" => :build

@@ -1,8 +1,8 @@
 class ChibiScheme < Formula
   desc "Small footprint Scheme for use as a C Extension Language"
   homepage "https://github.com/ashinn/chibi-scheme"
-  url "https://github.com/ashinn/chibi-scheme/archive/refs/tags/0.10.tar.gz"
-  sha256 "ae1d2057138b7f438f01bfb1e072799105faeea1de0ab3cc10860adf373993b3"
+  url "https://github.com/ashinn/chibi-scheme/archive/refs/tags/0.11.tar.gz"
+  sha256 "b4404d5304b51b243684702fa7b5f2d82f77cb7ef470bcfca1d94f8ed7660342"
   license "BSD-3-Clause"
   head "https://github.com/ashinn/chibi-scheme.git", branch: "master"
 
@@ -12,17 +12,13 @@ class ChibiScheme < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "fc6874281f699af16828073dcf1b38c0e37089f7bd0bf20e45926651ec222ec8"
-    sha256 arm64_ventura:  "ad09d2ffe56cff238f35f494831537ee5abf0cfb79eac853d4fdf30c59f4db59"
-    sha256 arm64_monterey: "d2f22ab5082b1d77f7511e4d94c84ccc75a5661b8b4a88e2b8f3e1aef005f338"
-    sha256 arm64_big_sur:  "18fc48f1b5623936fd24b7259b4bcb0e611a91ebe2354b2e1ca8b3dc99dd3eb6"
-    sha256 sonoma:         "4e38bb6fd16c66c4dfbdfc7deafa99e4dd7c8ae87ea32c068f79902dee8e57f5"
-    sha256 ventura:        "3da3a458763da85598324d71211965cb01e34d2b0f4fa590957ba63b12e3f0f8"
-    sha256 monterey:       "17e2c86eb08a94910eef369344fa0bc0136120155f9b94aa465d4ed63e450124"
-    sha256 big_sur:        "2547ea8be7276702a7db43cd70ca284d74fd7176d612e4b2bab2837343fd3736"
-    sha256 catalina:       "38846d601710212a1e2769fd7415d176f0ee439798108ca022f86328fd23b42d"
-    sha256 mojave:         "e24e63d2279cdc92dd95d61520c031b8c6ed1f57a3bbe5f7c971376c930112a1"
-    sha256 x86_64_linux:   "d1e2da39ca7ade3c5cd55d95132c56ba7d73b6d70c60ad5b55aa0866aa4fc879"
+    sha256 arm64_sonoma:   "3aa850015f232c2e5eb9c4622ac5ad7356ebb07ad3562db673cc02eaf15550fa"
+    sha256 arm64_ventura:  "9bc3a2cee147f70c2370b3b2de9f081907c8a5e4399f2115eeddd76dc72dcc61"
+    sha256 arm64_monterey: "9e59a68ef1ebcabbf717e8b7f87e7b769f0f380ccdb64e46d4385bdccb53aec9"
+    sha256 sonoma:         "a406562fbc9f63a108759d19021614d67153b3d2821a4141e8a3d789e9d1b349"
+    sha256 ventura:        "a25bba1715b6a6c6005aed9b6e36ee15f61440fe46bd26a2e765060dc764cc13"
+    sha256 monterey:       "f82edaec5b649ae9c309a3f26c54444d55a25bf24fdbfb026774c9241a978d78"
+    sha256 x86_64_linux:   "395662059e73c41bc156117acff16a06d156e785d8ddd352788fd0b13df9540c"
   end
 
   def install

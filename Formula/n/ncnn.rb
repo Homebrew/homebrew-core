@@ -4,16 +4,17 @@ class Ncnn < Formula
   url "https://github.com/Tencent/ncnn/archive/refs/tags/20240410.tar.gz"
   sha256 "328fe282b98457d85ab56184fa896467f6bf640d4e48e91fcefc8d31889f92b7"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "2f0eeec3233a7ba1f93f55165daa93932dc7e9736991f27359b1308f54037d09"
-    sha256 cellar: :any,                 arm64_ventura:  "c83399e8210744e6580aef6e59303dd1f0b5b9065aff48885742b009b04a94f9"
-    sha256 cellar: :any,                 arm64_monterey: "234cf087f225ff0830829a03e01e9b87a4a025dcf638eafd5629af8e7cfce799"
-    sha256 cellar: :any,                 sonoma:         "ba2ae2c5fa17a4e1368358580328ce14d111103024b29b199fb65d3c31970289"
-    sha256 cellar: :any,                 ventura:        "fef9688e0ce1658c0f8bcb4a32f9effee1cc7375240b3ed8ed17ac9a7e3467b1"
-    sha256 cellar: :any,                 monterey:       "f5df4214be77343a8c412fecf1ca60844c9747e65156a53f98e7155946137295"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2dc0ff5fd2c705a6300e063b5a989b6e8e2f22f3c2a385f2d21bc88b4202f05b"
+    sha256 cellar: :any,                 arm64_sonoma:   "2b1b4cf2e7b021ded641b78ebc684cd272f6ca46f15e037b799352bb849ce3ab"
+    sha256 cellar: :any,                 arm64_ventura:  "fccbbfbfbc34a41d61331fb514f36620c876316afb81f942754d92fd61d01abf"
+    sha256 cellar: :any,                 arm64_monterey: "d88f770e5e781a85cbca85a6e204f0384180516053625069e2565c0f51deebde"
+    sha256 cellar: :any,                 sonoma:         "eb27cb34cff0a730e4adddf6e832079fc565b78e88fcbb3dc3fc3d3d317779d2"
+    sha256 cellar: :any,                 ventura:        "3545e17eaef9f6d81c16eff608174f19493a27fe8c6dd702217f5d3c8b6cef61"
+    sha256 cellar: :any,                 monterey:       "b42f877e01f17f0ca405c382c440bd0b6dd95f78e174c493b885b7cbc63925d7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2982ef20468deb1ebf189acde73d36f97dfdcc636332f9ef8b792b9fc511c672"
   end
 
   depends_on "cmake" => :build
@@ -21,9 +22,11 @@ class Ncnn < Formula
 
   on_macos do
     depends_on "vulkan-headers" => [:build, :test]
+    depends_on "abseil"
     depends_on "glslang"
     depends_on "libomp"
     depends_on "molten-vk"
+    depends_on "spirv-tools"
   end
 
   def install
@@ -31,12 +34,13 @@ class Ncnn < Formula
     # https://stackoverflow.com/a/55086637
     ENV.append "LDFLAGS", "-Wl,--copy-dt-needed-entries" if OS.linux?
 
-    args = std_cmake_args + %w[
+    args = %W[
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_CXX_STANDARD_REQUIRED=ON
       -DNCNN_SHARED_LIB=ON
       -DNCNN_BUILD_BENCHMARK=OFF
       -DNCNN_BUILD_EXAMPLES=OFF
+      -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
 
     if OS.mac?
@@ -50,7 +54,7 @@ class Ncnn < Formula
     end
 
     inreplace "src/gpu.cpp", "glslang/glslang", "glslang"
-    system "cmake", "-S", ".", "-B", "build", *args
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

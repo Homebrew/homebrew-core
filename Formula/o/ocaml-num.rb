@@ -4,15 +4,16 @@ class OcamlNum < Formula
   url "https://github.com/ocaml/num/archive/refs/tags/v1.5.tar.gz"
   sha256 "7ae07c8f5601e2dfc5008a62dcaf2719912ae596a19365c5d7bdf2230515959a"
   license "LGPL-2.1"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "6a837fdd87b83bdb4db4602fc9942dad50624c7d99481f41b99716bf592aee85"
-    sha256 cellar: :any,                 arm64_ventura:  "231cfed2d688c19e41a1ae0c82905ccb3959cc6fbc86d2217ca9deb6a8288266"
-    sha256 cellar: :any,                 arm64_monterey: "4d375fd5288c5f44f4ff65e5c85eb1e92b887af71db96b2e3f63a80399993a0d"
-    sha256 cellar: :any,                 sonoma:         "f2b874ac0a07256fa90b68eadf30afa7f47fd93ce401ba2427811d9d8260d5e3"
-    sha256 cellar: :any,                 ventura:        "9ee4141f058d0fe4d54ebb82fa0e9775cc7710ee54beec33ffea4167e92b4f3e"
-    sha256 cellar: :any,                 monterey:       "12dfa8ad705078f598817b0da7318ecd976c96d711c10fb77cce6c280c12bf77"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e0e5e92a00aefb0ee4682437417fd5ee86e02671738c9b476820573f13f44e7"
+    sha256 cellar: :any,                 arm64_sonoma:   "7e7b2d6adfef7295f25999b02b580412d2fa696c6930b664c012a3de467d3573"
+    sha256 cellar: :any,                 arm64_ventura:  "75917ef34c2d9db4edb9e26c4032ed90e88b5b9c60d269a9d3eeec2d064b0010"
+    sha256 cellar: :any,                 arm64_monterey: "9e62643f96acfd3196326a958182691dac900fab5968460d4b94278e90c5a862"
+    sha256 cellar: :any,                 sonoma:         "82b313f948966c3e7ac0871dec7b2a086454c52701010a88a2f3eafea402db7b"
+    sha256 cellar: :any,                 ventura:        "3efd7a7c5e693579e750fbdf013e1cf709b31abe7bf41085b2223a31fcae5741"
+    sha256 cellar: :any,                 monterey:       "6d0fcf3f73719c755a40b41ca397a0210ac1ee336fb37685a3674673ae526de8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a8bd4fec57bb98c82767df5d77937b67170256cf20a67b9335ed30de3248ab75"
   end
 
   depends_on "ocaml-findlib" => :build
