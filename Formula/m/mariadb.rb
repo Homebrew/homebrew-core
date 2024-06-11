@@ -192,5 +192,7 @@ class Mariadb < Formula
     assert_match "information_schema",
       shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
+    assert_match "--bind-address=127.0.0.1",
+      shell_output("#{bin}/mysqld --print-defaults")
   end
 end
