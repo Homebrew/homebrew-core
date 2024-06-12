@@ -1,11 +1,20 @@
 class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
-  url "https://easyrpg.org/downloads/player/0.8/liblcf-0.8.tar.xz"
-  sha256 "6b0d8c7fefe3d66865336406f69ddf03fe59e52b5601687265a4d1e47a25c386"
   license "MIT"
-  revision 2
+  revision 3
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
+
+  stable do
+    url "https://easyrpg.org/downloads/player/0.8/liblcf-0.8.tar.xz"
+    sha256 "6b0d8c7fefe3d66865336406f69ddf03fe59e52b5601687265a4d1e47a25c386"
+
+    # Backport C++17 for `icu4c` 75. Remove in the next release.
+    patch do
+      url "https://github.com/EasyRPG/liblcf/commit/8c782e54ba244981141d91e7d44922952563677c.patch?full_index=1"
+      sha256 "593f729e7f9a5411e6d8548aaac0039e09eee437f525409a9ca8513a0ee15cd0"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "e6b2a50537cda6de3f2de66da5eab8887b60e2fe89b773737b5f18b936305244"
@@ -19,7 +28,7 @@ class Liblcf < Formula
 
   depends_on "cmake" => :build
   depends_on "expat" # Building against `liblcf` fails with `uses_from_macos`
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   def install
     system "cmake", "-S", ".", "-B", "build",

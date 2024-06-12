@@ -6,6 +6,7 @@ class PhpAT82 < Formula
   mirror "https://fossies.org/linux/www/php-8.2.20.tar.xz"
   sha256 "4474cc430febef6de7be958f2c37253e5524d5c5331a7e1765cd2d2234881e50"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -40,7 +41,7 @@ class PhpAT82 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"
@@ -65,6 +66,12 @@ class PhpAT82 < Formula
     # PHP build system incorrectly links system libraries
     # see https://github.com/php/php-src/issues/10680
     patch :DATA
+  end
+
+  # Backport support for `icu4c` 75
+  patch do
+    url "https://github.com/php/php-src/commit/037855fcd3f2bc8a40d7c9ca485b3be81ce480ea.patch?full_index=1"
+    sha256 "37092174e79df35e8622ff21a83c033fcbadc5ae6d95a515d21c2ccb4860e3d9"
   end
 
   def install

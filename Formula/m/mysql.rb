@@ -4,7 +4,7 @@ class Mysql < Formula
   url "https://cdn.mysql.com/Downloads/MySQL-8.3/mysql-boost-8.3.0.tar.gz"
   sha256 "f0a73556b8a417bc4dc6d2d78909080512beb891930cd93d0740d22207be285b"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
+  revision 2
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/?tpl=files&os=src"
@@ -24,7 +24,7 @@ class Mysql < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libevent"
   depends_on "libfido2"
   depends_on "lz4"

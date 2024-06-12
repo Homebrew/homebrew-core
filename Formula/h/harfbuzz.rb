@@ -4,6 +4,7 @@ class Harfbuzz < Formula
   url "https://github.com/harfbuzz/harfbuzz/archive/refs/tags/8.5.0.tar.gz"
   sha256 "7ad8e4e23ce776efb6a322f653978b3eb763128fd56a90252775edb9fd327956"
   license "MIT"
+  revision 1
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
   bottle do
@@ -26,7 +27,7 @@ class Harfbuzz < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "graphite2"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   resource "homebrew-test-ttf" do
     url "https://github.com/harfbuzz/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"
@@ -34,8 +35,11 @@ class Harfbuzz < Formula
   end
 
   def install
+    # TODO: Remove -Dcpp_std=c++17 if upstream adds autodetection of `icu4c` min C++ standard.
+    # Issue ref: https://github.com/harfbuzz/harfbuzz/issues/4671
     args = %w[
       --default-library=both
+      -Dcpp_std=c++17
       -Dcairo=enabled
       -Dcoretext=enabled
       -Dfreetype=enabled

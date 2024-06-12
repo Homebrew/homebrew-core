@@ -55,7 +55,7 @@ class Mapnik < Formula
   depends_on "freetype"
   depends_on "gdal"
   depends_on "harfbuzz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "jpeg-turbo"
   depends_on "libpng"
   depends_on "libpq"
@@ -73,12 +73,12 @@ class Mapnik < Formula
       recursive_dependencies
         .select { |d| d.name.match?(/^llvm(@\d+)?$/) }
         .map { |llvm_dep| llvm_dep.to_formula.opt_lib }
-        .each { |llvm_lib| ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm_lib }
+        .each { |llvm_lib| ENV.remove "LDFLAGS", "-L#{llvm_lib}" }
     end
 
     boost = Formula["boost"]
     harfbuzz = Formula["harfbuzz"]
-    icu = Formula["icu4c"]
+    icu = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
     jpeg = Formula["jpeg-turbo"]
     libpng = Formula["libpng"]
     libpq = Formula["libpq"]
@@ -87,6 +87,8 @@ class Mapnik < Formula
     sqlite = Formula["sqlite"]
     webp = Formula["webp"]
 
+    # icu4c 75+ needs C++17. Remove in 4.0.0
+    ENV.append "CXXFLAGS", "-std=c++17"
     # upstream issue, see https://github.com/boostorg/phoenix/issues/115
     # workaround to avoid the inclusion of `boost/phoenix/stl/tuple.hpp`
     ENV.append "CXXFLAGS", "-DBOOST_PHOENIX_STL_TUPLE_H_"

@@ -4,7 +4,7 @@ class Ncmpcpp < Formula
   url "https://rybczak.net/ncmpcpp/stable/ncmpcpp-0.9.2.tar.bz2"
   sha256 "faabf6157c8cb1b24a059af276e162fa9f9a3b9cd3810c43b9128860c9383a1b"
   license "GPL-2.0-or-later"
-  revision 16
+  revision 17
 
   livecheck do
     url "https://rybczak.net/ncmpcpp/installation/"
@@ -32,7 +32,7 @@ class Ncmpcpp < Formula
   depends_on "pkg-config" => :build
   depends_on "boost"
   depends_on "fftw"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libmpdclient"
   depends_on "ncurses"
   depends_on "readline"
@@ -41,16 +41,16 @@ class Ncmpcpp < Formula
   uses_from_macos "curl"
 
   def install
-    ENV.cxx11
+    # icu4c 75+ needs C++17
+    inreplace (build.head? ? "configure.ac" : "configure"), /\$std_cpp14\b/, "-std=c++17"
 
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     ENV.append "BOOST_LIB_SUFFIX", "-mt"
     ENV.append "CXXFLAGS", "-D_XOPEN_SOURCE_EXTENDED"
 
-    args = %W[
-      --disable-dependency-tracking
-      --prefix=#{prefix}
+    args = %w[
+      --disable-silent-rules
       --enable-clock
       --enable-outputs
       --enable-unicode
@@ -60,7 +60,7 @@ class Ncmpcpp < Formula
     ]
 
     system "./autogen.sh" if build.head?
-    system "./configure", *args
+    system "./configure", *args, *std_configure_args
     system "make"
     system "make", "install"
   end

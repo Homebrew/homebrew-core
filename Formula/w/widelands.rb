@@ -4,6 +4,7 @@ class Widelands < Formula
   url "https://github.com/widelands/widelands/archive/refs/tags/v1.2.tar.gz"
   sha256 "c6bed3717c541276fbed8a33adce230a2637297588c719268fcb963e076210e2"
   license "GPL-2.0-or-later"
+  revision 1
   version_scheme 1
 
   livecheck do
@@ -27,7 +28,7 @@ class Widelands < Formula
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
   depends_on "glew"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libpng"
   depends_on "lua"
   depends_on "minizip"

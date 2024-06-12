@@ -4,7 +4,7 @@ class Mpd < Formula
   url "https://github.com/MusicPlayerDaemon/MPD/archive/refs/tags/v0.23.15.tar.gz"
   sha256 "d2865d8f8ea79aa509b1465b99a2b8f3f449fe894521c97feadc2dca85a6ecd2"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
   head "https://github.com/MusicPlayerDaemon/MPD.git", branch: "master"
 
   bottle do
@@ -29,7 +29,7 @@ class Mpd < Formula
   depends_on "fluid-synth"
   depends_on "fmt"
   depends_on "glib"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "lame"
   depends_on "libao"
   depends_on "libgcrypt"

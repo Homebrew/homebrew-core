@@ -6,6 +6,20 @@ class Php < Formula
   mirror "https://fossies.org/linux/www/php-8.3.8.tar.xz"
   sha256 "aea358b56186f943c2bbd350c9005b9359133d47e954cfc561385319ae5bb8d7"
   license "PHP-3.01"
+  revision 1
+
+  stable do
+    # Should only be updated if the new version is announced on the homepage, https://www.php.net/
+    url "https://www.php.net/distributions/php-8.3.7.tar.xz"
+    mirror "https://fossies.org/linux/www/php-8.3.7.tar.xz"
+    sha256 "d53433c1ca6b2c8741afa7c524272e6806c1e895e5912a058494fea89988570a"
+
+    # Backport support for `icu4c` 75
+    patch do
+      url "https://github.com/php/php-src/commit/037855fcd3f2bc8a40d7c9ca485b3be81ce480ea.patch?full_index=1"
+      sha256 "37092174e79df35e8622ff21a83c033fcbadc5ae6d95a515d21c2ccb4860e3d9"
+    end
+  end
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -41,7 +55,7 @@ class Php < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"

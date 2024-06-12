@@ -7,7 +7,7 @@ class Znc < Formula
   mirror "https://znc.in/releases/archive/znc-1.9.0.tar.gz"
   sha256 "8b99c9dbb21c1309705073460be9bfacb6f7b0e83a15fe5d4b7140201b39d2a1"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_sonoma:   "ece54a18459b4d498a699278daef03cae8f37d008645313afe0116e9e5a5f263"
@@ -22,7 +22,7 @@ class Znc < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "openssl@3"
   depends_on "python@3.12"
 

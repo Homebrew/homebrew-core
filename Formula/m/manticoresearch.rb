@@ -4,9 +4,8 @@ class Manticoresearch < Formula
   url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/6.2.12.tar.gz"
   sha256 "272d9e3cc162b1fe08e98057c9cf6c2f90df0c3819037e0dafa200e5ff71cef9"
   license "GPL-2.0-only" # License changes in the next release and must be removed from formula_license_mismatches
-  revision 1
+  revision 2
   version_scheme 1
-  head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
   # Only even patch versions are stable releases
   livecheck do
@@ -24,12 +23,27 @@ class Manticoresearch < Formula
     sha256 x86_64_linux:   "63f602892d1341f76aef3bd17a5f8f91e6198ae151993ce8b0a5e3297487e957"
   end
 
+  head do
+    url "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
+
+    depends_on "cctz"
+
+    # Unable to use `xxhash` formula as it doesn't include CMake files
+    # https://github.com/manticoresoftware/manticoresearch/blob/master/cmake/GetxxHash.cmake
+    resource "xxhash" do
+      url "https://github.com/manticoresoftware/xxHash/archive/c0371096e176f9b35a53224d77c35780d2942746.tar.gz"
+      sha256 "829c1a42a3ad56ed3ef1cb3f111a373d37ccfd7ab4b3f033c858a27e1ed3e19f"
+    end
+  end
+
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "icu4c"
+  depends_on "nlohmann-json" => :build
+  depends_on "icu4c@75"
   depends_on "libpq"
   depends_on "mysql-client@8.0"
   depends_on "openssl@3"
+  depends_on "re2"
   depends_on "unixodbc"
   depends_on "zstd"
 
@@ -42,9 +56,26 @@ class Manticoresearch < Formula
 
   fails_with gcc: "5"
 
+  # https://github.com/manticoresoftware/manticoresearch/blob/#{version}/cmake/GetSTEMMER.cmake
+  resource "stemmer" do
+    url "https://snowballstem.org/dist/libstemmer_c.tgz"
+    sha256 "054e76f2a05478632f2185025bff0b98952a2b7aed7c4e0960d72ba565de5dfc"
+  end
+
+  # Unable to use `uni-algo` formula as `manticoresearch` needs code added in fork
+  # https://github.com/manticoresoftware/manticoresearch/blob/#{version}/cmake/GetUniAlgo.cmake
+  resource "uni-algo" do
+    url "https://github.com/manticoresoftware/uni-algo/archive/refs/tags/v0.7.2.tar.gz"
+    sha256 "4df3a10b6f9f0cc3be98834f09100c822ba3e3be13e9dfd23cf4810ed229633f"
+  end
+
   def install
+    resources.each { |r| (buildpath/"build/_deps/#{r.name}-src").install r }
+
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+
     # ENV["DIAGNOSTIC"] = "1"
-    ENV["ICU_ROOT"] = Formula["icu4c"].opt_prefix.to_s
+    ENV["ICU_ROOT"] = icu4c.opt_prefix.to_s
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl"].opt_prefix.to_s
     ENV["MYSQL_ROOT_DIR"] = Formula["mysql-client@8.0"].opt_prefix.to_s
     ENV["PostgreSQL_ROOT"] = Formula["libpq"].opt_prefix.to_s

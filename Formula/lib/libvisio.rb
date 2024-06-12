@@ -4,7 +4,7 @@ class Libvisio < Formula
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
   license "MPL-2.0"
-  revision 9
+  revision 10
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -24,19 +24,22 @@ class Libvisio < Formula
   depends_on "cppunit" => :build
   depends_on "pkg-config" => :build
   depends_on "boost"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "librevenge"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "libxml2"
 
   def install
+    # Needed for icu4c 75 compatibility.
+    ENV.append "CXXFLAGS", "-std=c++17"
     # Needed for Boost 1.59.0 compatibility.
-    ENV["LDFLAGS"] = "-lboost_system-mt"
-    system "./configure", "--without-docs",
-                          "-disable-dependency-tracking",
-                          "--enable-static=no",
-                          "--prefix=#{prefix}"
+    ENV.append "LIBS", "-lboost_system-mt"
+
+    system "./configure", "--disable-silent-rules",
+                          "--disable-static",
+                          "--without-docs",
+                          *std_configure_args
     system "make", "install"
   end
 

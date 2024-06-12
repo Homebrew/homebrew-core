@@ -4,6 +4,7 @@ class Tesseract < Formula
   url "https://github.com/tesseract-ocr/tesseract/archive/refs/tags/5.4.0.tar.gz"
   sha256 "30ceffd9b86780f01cbf4eaf9b7fc59abddfcbaf5bbd52f9a633c6528cb183fd"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/tesseract-ocr/tesseract.git", branch: "main"
 
   livecheck do
@@ -26,7 +27,7 @@ class Tesseract < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "cairo"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "leptonica"
   depends_on "libarchive"
   depends_on "pango"
@@ -56,9 +57,9 @@ class Tesseract < Formula
     ENV.cxx11
 
     system "./autogen.sh"
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-dependency-tracking",
-                          "--datarootdir=#{HOMEBREW_PREFIX}/share"
+    system "./configure", "--datarootdir=#{HOMEBREW_PREFIX}/share",
+                          "--disable-silent-rules",
+                          *std_configure_args
 
     system "make", "training"
 

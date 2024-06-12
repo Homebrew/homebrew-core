@@ -4,7 +4,7 @@ class Gspell < Formula
   url "https://download.gnome.org/sources/gspell/1.12/gspell-1.12.2.tar.xz"
   sha256 "b4e993bd827e4ceb6a770b1b5e8950fce3be9c8b2b0cbeb22fdf992808dd2139"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
 
   bottle do
     sha256 arm64_sonoma:   "e3c60c553bc207bd79782ff8057f1a2a100ae83abdea680e07a80890d409de6f"
@@ -22,7 +22,7 @@ class Gspell < Formula
   depends_on "enchant"
   depends_on "glib"
   depends_on "gtk+3"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   on_macos do
     depends_on "autoconf" => :build
@@ -36,10 +36,10 @@ class Gspell < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if OS.mac?
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    system "./configure", "--disable-silent-rules",
                           "--enable-introspection=yes",
-                          "--enable-vala=yes"
+                          "--enable-vala=yes",
+                          *std_configure_args
     system "make", "install"
   end
 
@@ -52,7 +52,9 @@ class Gspell < Formula
         return 0;
       }
     EOS
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig" if OS.mac?
+
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+    ENV.prepend_path "PKG_CONFIG_PATH", icu4c.opt_lib/"pkgconfig"
     flags = shell_output("pkg-config --cflags --libs gspell-1").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     ENV["G_DEBUG"] = "fatal-warnings"

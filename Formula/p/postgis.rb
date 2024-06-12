@@ -33,7 +33,7 @@ class Postgis < Formula
   depends_on "pkg-config" => :build
   depends_on "gdal" # for GeoJSON and raster handling
   depends_on "geos"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "json-c" # for GeoJSON and raster handling
   depends_on "pcre2"
   depends_on "postgresql@14"

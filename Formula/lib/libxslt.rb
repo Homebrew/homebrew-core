@@ -4,6 +4,7 @@ class Libxslt < Formula
   url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.39.tar.xz"
   sha256 "2a20ad621148339b0759c4d4e96719362dee64c9a096dbba625ba053846349f0"
   license "X11"
+  revision 1
 
   # We use a common regex because libxslt doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -32,7 +33,6 @@ class Libxslt < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "icu4c"
   depends_on "libgcrypt"
   depends_on "libxml2"
 

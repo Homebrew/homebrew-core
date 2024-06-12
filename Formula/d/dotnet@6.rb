@@ -6,6 +6,7 @@ class DotnetAT6 < Formula
       tag:      "v6.0.125",
       revision: "e898a826c2b7f66602c8962134ef165fb9e6d44b"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_ventura:  "74ae1e9f647dad3ca8ef8f05559e23284c0ce23163beff75749b43df90b2577d"
@@ -20,7 +21,7 @@ class DotnetAT6 < Formula
   depends_on "cmake" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.12" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "openssl@3"
 
   uses_from_macos "llvm" => :build
@@ -59,7 +60,8 @@ class DotnetAT6 < Formula
   patch :DATA
 
   def install
-    ENV.append_path "LD_LIBRARY_PATH", Formula["icu4c"].opt_lib if OS.linux?
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+    ENV.append_path "LD_LIBRARY_PATH", icu4c.opt_lib if OS.linux?
 
     (buildpath/".dotnet").install resource("dotnet-install.sh")
     (buildpath/"src/SourceBuild/tarball/patches/msbuild").install resource("homebrew-msbuild-patch")

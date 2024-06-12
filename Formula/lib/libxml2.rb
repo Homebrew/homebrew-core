@@ -4,6 +4,7 @@ class Libxml2 < Formula
   url "https://download.gnome.org/sources/libxml2/2.12/libxml2-2.12.7.tar.xz"
   sha256 "24ae78ff1363a973e6d8beba941a7945da2ac056e19b53956aeb6927fd6cfb56"
   license "MIT"
+  revision 1
 
   # We use a common regex because libxml2 doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -33,11 +34,10 @@ class Libxml2 < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "pkg-config" => :test
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "readline"
 
   uses_from_macos "zlib"
@@ -49,6 +49,12 @@ class Libxml2 < Formula
   end
 
   def install
+    # Work around build failure due to icu4c 75+ adding -std=c11 to installed
+    # files when built without manually setting "-std=" in CFLAGS. This causes
+    # issues on Linux for `libxml2` as `addrinfo` needs GNU extensions.
+    # nanohttp.c:1019:42: error: invalid use of undefined type 'struct addrinfo'
+    ENV.append "CFLAGS", "-std=gnu11" if OS.linux?
+
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args,
                           "--sysconfdir=#{etc}",
@@ -79,7 +85,8 @@ class Libxml2 < Formula
       # https://github.com/Homebrew/homebrew-core/pull/154551#issuecomment-1820102786
       with_env(PYTHONPATH: buildpath/"python") do
         pythons.each do |python|
-          system python, "-m", "pip", "install", *std_pip_args, "."
+          build_isolation = Language::Python.major_minor_version(python) >= "3.12"
+          system python, "-m", "pip", "install", *std_pip_args(build_isolation:), "."
         end
       end
     end

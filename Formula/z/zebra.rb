@@ -4,7 +4,7 @@ class Zebra < Formula
   url "https://ftp.indexdata.com/pub/zebra/idzebra-2.2.7.tar.gz"
   sha256 "b465ffeb060f507316e6cfc20ebd46022472076d0d4e96ef7dab63e798066420"
   license "GPL-2.0-or-later"
-  revision 2
+  revision 3
 
   livecheck do
     url "https://ftp.indexdata.com/pub/zebra/"
@@ -21,7 +21,7 @@ class Zebra < Formula
     sha256 x86_64_linux:   "1038933d7519ce99529c371bfd3d08759626bf84d81a01e65f2154d08e5fcf9a"
   end
 
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "yaz"
 
   uses_from_macos "bzip2"
@@ -32,15 +32,15 @@ class Zebra < Formula
   uses_from_macos "zlib"
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
+    system "./configure", "--disable-silent-rules",
                           "--enable-mod-text",
                           "--enable-mod-grs-regx",
                           "--enable-mod-grs-marc",
                           "--enable-mod-grs-xml",
                           "--enable-mod-dom",
                           "--enable-mod-alvis",
-                          "--enable-mod-safari"
+                          "--enable-mod-safari",
+                          *std_configure_args
     system "make", "install"
   end
 

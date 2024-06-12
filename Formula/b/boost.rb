@@ -4,6 +4,7 @@ class Boost < Formula
   url "https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2-nodocs.tar.xz"
   sha256 "09f0628bded81d20b0145b30925d7d7492fd99583671586525d5d66d4c28266a"
   license "BSL-1.0"
+  revision 1
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   livecheck do
@@ -24,7 +25,7 @@ class Boost < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "24719603623f93428cd585e5a8abba44d7412aee3f9fe4743e2ff7432a2aeb9c"
   end
 
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "xz"
   depends_on "zstd"
 
@@ -42,11 +43,11 @@ class Boost < Formula
     end
 
     # libdir should be set by --prefix but isn't
-    icu4c_prefix = Formula["icu4c"].opt_prefix
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
     bootstrap_args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-icu=#{icu4c_prefix}
+      --with-icu=#{icu4c.opt_prefix}
     ]
 
     # Handle libraries that will not be built.
@@ -73,7 +74,8 @@ class Boost < Formula
 
     # Boost is using "clang++ -x c" to select C compiler which breaks C++14
     # handling using ENV.cxx14. Using "cxxflags" and "linkflags" still works.
-    args << "cxxflags=-std=c++14"
+    # `icu4c` now requires C++17.
+    args << "cxxflags=-std=c++17"
     args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
 
     system "./bootstrap.sh", *bootstrap_args

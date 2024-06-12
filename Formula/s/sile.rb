@@ -2,7 +2,7 @@ class Sile < Formula
   desc "Modern typesetting system inspired by TeX"
   homepage "https://sile-typesetter.org"
   license "MIT"
-  revision 1
+  revision 2
 
   # TODO: With 0.15 release:
   # - Remove `cosmo` resource and corresponding references in install
@@ -44,7 +44,7 @@ class Sile < Formula
   depends_on "pkg-config" => :build
   depends_on "fontconfig"
   depends_on "harfbuzz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libpng"
   depends_on "luarocks"
   depends_on "openssl@3"
