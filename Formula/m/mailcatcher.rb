@@ -4,6 +4,7 @@ class Mailcatcher < Formula
   url "https://github.com/sj26/mailcatcher/archive/refs/tags/v0.10.0.tar.gz"
   sha256 "4cd027e22878342d6a002402306d42ada1f34045cc1d7f35b5a7fa37b944326e"
   license "MIT"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "b1e3e8c79312f8a9cfc995ebf3323750c1673da1bcc46129a516124575dd4116"
@@ -161,6 +162,7 @@ class Mailcatcher < Formula
              "--no-document", "--install-dir", libexec
     end
 
+    system "rake", "assets"
     system "gem", "build", "#{name}.gemspec"
     system "gem", "install", "--ignore-dependencies", "#{name}-#{version}.gem"
     bin.install libexec/"bin"/name, libexec/"bin/catchmail"
@@ -239,6 +241,7 @@ class Mailcatcher < Formula
     system "expect", "-f", "mailcatcher.exp"
     assert_match "bob@example.org", shell_output("curl --silent http://localhost:#{http_port}/messages")
     assert_equal "Hello Alice.", shell_output("curl --silent http://localhost:#{http_port}/messages/1.plain").strip
+    assert_match "Content-Type: application/javascript", shell_output("curl --silent -i http://localhost:#{http_port}/assets/mailcatcher.js").strip
     system "curl", "--silent", "-X", "DELETE", "http://localhost:#{http_port}/"
   end
 end
