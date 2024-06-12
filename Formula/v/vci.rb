@@ -3,7 +3,7 @@ class Vci < Formula
   homepage "https://github.com/vulncheck-oss/cli"
   url "https://github.com/vulncheck-oss/cli/archive/refs/tags/v0.4.2.tar.gz"
   sha256 "d06798ef8321c08835c9370fbe4545ecf0eb5c9b21cbc7db3f6e090ce34fafd7"
-  license "MIT"
+  license "Apache-2.0"
 
   head "https://github.com/vulncheck-oss/cli.git", branch: "main"
 
