@@ -1,8 +1,8 @@
 class VulkanProfiles < Formula
   desc "Tools for Vulkan profiles"
   homepage "https://github.com/KhronosGroup/Vulkan-Profiles"
-  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.3.280.tar.gz"
-  sha256 "05bc8adf326131f54b236cb542012360eb0c78ef5897c9f69fea44344e440c5e"
+  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.3.287.tar.gz"
+  sha256 "29c90153b0af2192c4011846fd31b05206d391be770301a34156249fed722bda"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Profiles.git", branch: "main"
 
@@ -67,17 +67,11 @@ class VulkanProfiles < Formula
   end
 
   test do
-    # FIXME: when GitHub Actions Intel Mac runners support the use of Metal,
-    # remove this weakened version and conditional
-    if OS.mac? && Hardware::CPU.intel?
-      assert_predicate share/"vulkan/explicit_layer.d/VkLayer_khronos_profiles.json", :exist?
-    else
-      ENV.prepend_path "VK_LAYER_PATH", share/"vulkan/explicit_layer.d"
+    ENV.prepend_path "VK_LAYER_PATH", share/"vulkan/explicit_layer.d"
 
-      actual = shell_output("vulkaninfo")
-      %w[VK_EXT_layer_settings VK_EXT_tooling_info].each do |expected|
-        assert_match expected, actual
-      end
+    actual = shell_output("vulkaninfo")
+    %w[VK_EXT_layer_settings VK_EXT_tooling_info].each do |expected|
+      assert_match expected, actual
     end
   end
 end
