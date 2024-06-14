@@ -34,6 +34,7 @@
   "python@3.10",
   "python@3.11",
   "python@3.12",
+  "python-debug@3.12",
   "python-gdbm@3.11",
   "python-gdbm@3.12",
   "python-tk@3.9",
