@@ -4,7 +4,6 @@ class Cpcready < Formula
   url "https://github.com/CPCReady/software/releases/download/0.1.0/CPCReady-0.1.0.tar.gz"
   sha256 "862351ff020a82b68c66804a35ab979155d997b01591b686b1715f042146d172"
   license "MIT"
-  
   depends_on "dos2unix"
   depends_on "jq"
   depends_on "yq"
