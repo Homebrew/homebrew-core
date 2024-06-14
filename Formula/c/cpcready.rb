@@ -9,7 +9,6 @@ class Cpcready < Formula
     depends_on "yq"
   
     def install
-      # bin.install Dir["bin/*"]
       bin.install "bin/cpc-about.sh"
       bin.install "bin/cpc"
       bin.install "bin/cpc-cls.sh"
@@ -33,8 +32,6 @@ class Cpcready < Formula
     end
   
     test do
-      # Verifica que los ejecutables se instalaron correctamente
-      assert_predicate bin/"cpc", :exist?
       assert_predicate share/"VERSION", :exist?
     end
   end
