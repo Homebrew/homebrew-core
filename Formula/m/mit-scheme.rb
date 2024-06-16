@@ -5,6 +5,7 @@ class MitScheme < Formula
   mirror "https://ftpmirror.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
   sha256 "2c5b5bf1f44c7c2458da79c0943e082ae37f1752c7d9d1ce0a61f7afcbf04304"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/?C=M&O=D"
@@ -12,11 +13,11 @@ class MitScheme < Formula
     strategy :page_match
   end
 
-  #bottle do
-  #  sha256 monterey:     "bae1d2a271efb27c40b785490cb77ae62a2ad2856c49169df4ca4b6fa5d15a77"
-  #  sha256 big_sur:      "e53230ae27dc40a7b3a4ed54dfe9e905b60a605f5693e5fdbea513f4a5f12b35"
-  #  sha256 x86_64_linux: "84fc2e7429a15a8a894e39b4edfe042e4ddc404ef517896bcf63c8ee0c97bbed"
-  #end
+  bottle do
+    sha256 monterey:     "bae1d2a271efb27c40b785490cb77ae62a2ad2856c49169df4ca4b6fa5d15a77"
+    sha256 big_sur:      "e53230ae27dc40a7b3a4ed54dfe9e905b60a605f5693e5fdbea513f4a5f12b35"
+    sha256 x86_64_linux: "84fc2e7429a15a8a894e39b4edfe042e4ddc404ef517896bcf63c8ee0c97bbed"
+  end
 
   # Has a hardcoded compile check for /Applications/Xcode.app
   # Dies on "configure: error: SIZEOF_CHAR is not 1" without Xcode.
@@ -25,10 +26,6 @@ class MitScheme < Formula
 
   uses_from_macos "m4" => :build
   uses_from_macos "ncurses"
-
-  #on_macos do
-  #  depends_on arch: :x86_64 # No support for Apple silicon: https://www.gnu.org/software/mit-scheme/#status
-  #end
 
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
@@ -52,8 +49,7 @@ class MitScheme < Formula
     # not the correct type." Only Haswell and above appear to be impacted.
     # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47767
     # NOTE: `unless build.bottle?` avoids overriding --bottle-arch=[...].
-    
-    # Force Homebrew to use the macOS endorsed 'GCC' install to correctly compile
+    # Force Homebrew to use the macOS endorsed 'GCC' install as the Homebrew preferred compiler does not work on Intel or Apple Silicon
     ENV["CC"] = "/usr/bin/gcc"
     ENV["CXX"] = "/usr/bin/g++"
     ENV["OBJC"] = "/usr/bin/gcc"
