@@ -40,7 +40,7 @@ class Quilt < Formula
       args << "--with-stat=/usr/bin/stat" # on macOS, quilt expects BSD stat
       if MacOS.version >= :ventura
         args << "--with-diff=#{Formula["diffutils"].opt_bin}/diff"
-        args << "--with-patch=#{Formula["gpatch"].opt_bin}/patch"
+        args << "--with-patch=#{Formula["gpatch"].opt_bin}/gpatch"
       end
     else
       args << "--with-sed=#{Formula["gnu-sed"].opt_bin}/sed"
