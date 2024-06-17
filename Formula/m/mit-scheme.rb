@@ -32,15 +32,8 @@ class MitScheme < Formula
   end
 
   resource "bootstrap" do
-    on_arm do
-      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
-      sha256 "2c5b5bf1f44c7c2458da79c0943e082ae37f1752c7d9d1ce0a61f7afcbf04304"
-    end
-
-    on_intel do
-      url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
-      sha256 "2c5b5bf1f44c7c2458da79c0943e082ae37f1752c7d9d1ce0a61f7afcbf04304"
-    end
+    url "https://ftp.gnu.org/gnu/mit-scheme/stable.pkg/12.1/mit-scheme-12.1-svm1-64le.tar.gz"
+    sha256 "2c5b5bf1f44c7c2458da79c0943e082ae37f1752c7d9d1ce0a61f7afcbf04304"
   end
 
   def install
@@ -79,8 +72,8 @@ class MitScheme < Formula
     end
 
     ENV.prepend_path "PATH", buildpath/"staging/bin"
-    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
 
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
     system "make"
     system "make", "install"
   end
