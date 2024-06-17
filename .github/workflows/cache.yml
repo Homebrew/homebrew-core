@@ -1,0 +1,93 @@
+name: Populate gem cache
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/cache.yml
+  push:
+    paths:
+      - .github/workflows/cache.yml
+    branches:
+      - master
+  schedule:
+    - cron: '30 19/6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+
+concurrency:
+  group: cache-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  determine-runners:
+    if: github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    outputs:
+      runners: ${{ steps.determine-runners.outputs.runners }}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: false
+          cask: false
+          test-bot: false
+
+      - name: Determine runners to use for this job
+        id: determine-runners
+        env:
+          HOMEBREW_MACOS_TIMEOUT: 30
+        run: brew determine-test-runners --all-supported
+
+  cache:
+    needs: determine-runners
+    strategy:
+      matrix:
+        include: ${{ fromJson(needs.determine-runners.outputs.runners) }}
+      fail-fast: false
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: ${{ matrix.timeout }}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: false
+          cask: false
+          test-bot: true
+
+      - name: Cleanup runner
+        if: matrix.cleanup
+        working-directory: ${{ runner.temp }}
+        run: brew test-bot --only-cleanup-before
+
+      - name: Get cache key
+        id: cache-key
+        run: |
+          cache_key_prefix="${{ runner.os }}"
+          if [ "${{ runner.os }}" = macOS ]
+          then
+            macos_version="$(sw_vers -productVersion)"
+            cache_key_prefix="${macos_version%%.*}-$(uname -m)"
+          fi
+          echo "prefix=${cache_key_prefix}" >> "${GITHUB_OUTPUT}"
+
+      - name: Cache Homebrew Bundler gems
+        uses: actions/cache@v4
+        with:
+          path: ${{ steps.set-up-homebrew.outputs.gems-path }}
+          key: ${{ steps.cache-key.outputs.prefix }}-rubygems-${{ steps.set-up-homebrew.outputs.gems-hash }}
+          restore-keys: ${{ steps.cache-key.outputs.prefix }}-rubygems-
+
+      - name: Setup Homebrew test environment
+        working-directory: ${{ runner.temp }}
+        run: brew test-bot --only-setup

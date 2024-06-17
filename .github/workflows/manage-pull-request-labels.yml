@@ -1,0 +1,30 @@
+name: Manage pull request labels
+
+on:
+  pull_request_target:
+    types:
+      - unlabeled
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.number }}-${{ github.event.label.name }}
+  cancel-in-progress: true
+
+env:
+  GH_REPO: ${{ github.repository }}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  PR: ${{ github.event.number }}
+
+jobs:
+  label:
+    permissions:
+      pull-requests: write # for `gh pr edit`
+    runs-on: ubuntu-latest
+    if: >
+      github.repository_owner == 'Homebrew' &&
+      contains(fromJson('["workflows"]'), github.event.label.name)
+    steps:
+      - name: Re-label PR
+        run: gh pr edit "$PR" --add-label '${{ github.event.label.name }}'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

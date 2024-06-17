@@ -1,0 +1,46 @@
+class Aftman < Formula
+  desc "Toolchain manager for Roblox, the prodigal sequel to Foreman"
+  homepage "https://github.com/LPGhatguy/aftman"
+  url "https://github.com/LPGhatguy/aftman/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "f75aab63cb887c63e3888a225061a1ab4e0fd0d9c3e0a1c86b8ac7ad035fdf6c"
+  license "MIT"
+  head "https://github.com/LPGhatguy/aftman.git", branch: "main"
+
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79678c381bbec86c92bee17e53dd01f34355e0dcda445f5a90a1d287c4825c11"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "9f52a939e6d2cefc3d5e936a08ef2450b8bb0ad909af7f71adc0c1ec7bb1cfc8"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "3302f69a40b249f7cfa486fa479674c4373c4666e815b07042bc829e151c371e"
+    sha256 cellar: :any_skip_relocation, sonoma:         "fdf56dee4a49f7c3e0038b48b7dc2520dc94882bc7a2e5ce554bc4cc89ce2c7e"
+    sha256 cellar: :any_skip_relocation, ventura:        "707ab252c150e4208055d2398d6d7bf29ca1309d329128a2f3303ba45011717c"
+    sha256 cellar: :any_skip_relocation, monterey:       "9afea6436f083ac4beca2dd9e1321490a7768a5f0f784a0fcacd6f7a813c32a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e8943e04ce29ca295996d3acacb141d87504a59374aa2da2e7e15a453bbe5a9"
+  end
+
+  depends_on "rust" => :build
+  uses_from_macos "bzip2"
+
+  on_linux do
+    depends_on "pkg-config" => :build
+    depends_on "openssl@3"
+  end
+
+  def install
+    system "cargo", "install", *std_cargo_args
+  end
+
+  test do
+    (testpath/"aftman.toml").write <<~EOS
+      [tools]
+      rojo = "rojo-rbx/rojo@7.2.1"
+    EOS
+
+    system bin/"aftman", "install", "--no-trust-check"
+
+    assert_predicate testpath/".aftman", :exist?
+  end
+end

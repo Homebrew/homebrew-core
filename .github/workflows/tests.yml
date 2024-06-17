@@ -1,0 +1,374 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  merge_group:
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_TEST_BOT_ANALYTICS: 1
+  HOMEBREW_ENFORCE_SBOM: 1
+  GH_REPO: ${{github.repository}}
+  GH_NO_UPDATE_NOTIFIER: 1
+  GH_PROMPT_DISABLED: 1
+  SCRIPTS_PATH: .github/workflows/scripts
+
+concurrency:
+  group: "tests-${{ github.ref }}"
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  tap_syntax:
+    if: github.repository_owner == 'Homebrew'
+    strategy:
+      matrix:
+        stable: [false, true]
+    name: tap_syntax${{ matrix.stable && ' (stable)' || '' }}
+    runs-on: ubuntu-22.04
+    continue-on-error: ${{ matrix.stable }}
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:${{ matrix.stable && 'latest' || 'master'}}
+    env:
+      HOMEBREW_SIMULATE_MACOS_ON_LINUX: 1
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: true
+          stable: ${{ matrix.stable }}
+
+      - name: Cache style cache
+        uses: actions/cache@v4
+        with:
+          path: /home/linuxbrew/.cache/Homebrew/style
+          key: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}${{ github.sha }}
+          restore-keys: style-cache-${{ matrix.stable && 'stable-' || 'master-' }}
+
+      - run: brew test-bot --only-tap-syntax
+
+  formulae_detect:
+    if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    outputs:
+      testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
+      added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
+      deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: true
+
+      - run: brew test-bot --only-formulae-detect
+        id: formulae-detect
+
+      - name: Fetch detected formulae bottles
+        if: >
+          github.event_name == 'merge_group' ||
+          (contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits') &&
+           github.base_ref != 'master')
+        env:
+          TESTING_FORMULAE: ${{ steps.formulae-detect.outputs.formulae_to_fetch }}
+        run: brew test-bot --only-bottles-fetch --testing-formulae="$TESTING_FORMULAE"
+
+  setup_tests:
+    permissions:
+      pull-requests: read
+    if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
+    runs-on: ubuntu-22.04
+    needs: formulae_detect
+    outputs:
+      syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
+      linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
+      fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
+      test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
+      long-timeout: ${{ steps.check-labels.outputs.long-timeout }}
+      test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
+      test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for CI labels
+        id: check-labels
+        uses: actions/github-script@v7
+        env:
+          TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
+          ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}
+          DELETED_FORMULAE: ${{needs.formulae_detect.outputs.deleted_formulae}}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          retries: 3
+          script: |
+            const path = require('path')
+            const script = require(path.resolve(`${process.env.SCRIPTS_PATH}/check-labels.js`))
+
+            const formulae_detect = {
+              testing_formulae: `${process.env.TESTING_FORMULAE}`,
+              added_formulae: `${process.env.ADDED_FORMULAE}`,
+              deleted_formulae: `${process.env.DELETED_FORMULAE}`
+            }
+
+            try {
+              await script({github, context, core}, formulae_detect, false)
+            } catch (error) {
+              console.error(error);
+            }
+
+  setup_runners:
+    needs: [formulae_detect, setup_tests]
+    if: >
+      github.event_name == 'pull_request' &&
+      !fromJson(needs.setup_tests.outputs.syntax-only)
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    outputs:
+      runners: ${{steps.determine-runners.outputs.runners}}
+      runners_present: ${{steps.determine-runners.outputs.runners_present}}
+    env:
+      HOMEBREW_LINUX_RUNNER: ${{needs.setup_tests.outputs.linux-runner}}
+      HOMEBREW_MACOS_LONG_TIMEOUT: ${{needs.setup_tests.outputs.long-timeout}}
+      TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
+      DELETED_FORMULAE: ${{needs.formulae_detect.outputs.deleted_formulae}}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
+      - name: Determine runners to use for tests job
+        id: determine-runners
+        run: brew determine-test-runners "$TESTING_FORMULAE" "$DELETED_FORMULAE"
+
+  tests:
+    needs: [tap_syntax, setup_tests, setup_runners]
+    if: >
+      github.event_name == 'pull_request' &&
+      !fromJson(needs.setup_tests.outputs.syntax-only) &&
+      fromJson(needs.setup_runners.outputs.runners_present)
+    strategy:
+      matrix:
+        include: ${{fromJson(needs.setup_runners.outputs.runners)}}
+      fail-fast: ${{fromJson(needs.setup_tests.outputs.fail-fast)}}
+    name: ${{matrix.name}}
+    runs-on: ${{matrix.runner}}
+    container: ${{matrix.container}}
+    timeout-minutes: ${{ matrix.timeout }}
+    defaults:
+      run:
+        shell: /bin/bash -e {0}
+        working-directory: ${{matrix.workdir || github.workspace}}
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      BOTTLES_DIR: ${{matrix.workdir || github.workspace}}/bottles
+    steps:
+      - name: Pre-test steps
+        uses: Homebrew/actions/pre-build@master
+        with:
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+          cleanup: ${{ matrix.cleanup }}
+
+      - run: brew test-bot ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
+        id: brew-test-bot-formulae
+        working-directory: ${{ env.BOTTLES_DIR }}
+
+      - name: Post-build steps
+        if: always()
+        uses: Homebrew/actions/post-build@master
+        with:
+          runner: ${{ matrix.runner }}
+          cleanup: ${{ matrix.cleanup }}
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+          logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
+
+  setup_dep_tests:
+    permissions:
+      pull-requests: read
+    if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
+    runs-on: ubuntu-22.04
+    needs: [setup_tests, formulae_detect]
+    outputs:
+      syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
+      linux-runner: ${{ steps.check-labels.outputs.linux-runner }}
+      fail-fast: ${{ steps.check-labels.outputs.fail-fast }}
+      test-dependents: ${{ steps.check-labels.outputs.test-dependents }}
+      long-timeout: ${{ steps.check-labels.outputs.long-timeout }}
+      test-bot-formulae-args: ${{ steps.check-labels.outputs.test-bot-formulae-args }}
+      test-bot-dependents-args: ${{ steps.check-labels.outputs.test-bot-dependents-args }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check for CI labels
+        id: check-labels
+        uses: actions/github-script@v7
+        env:
+          TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
+          ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}
+          DELETED_FORMULAE: ${{needs.formulae_detect.outputs.deleted_formulae}}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          retries: 3
+          script: |
+            const path = require('path')
+            const script = require(path.resolve(`${process.env.SCRIPTS_PATH}/check-labels.js`))
+
+            const formulae_detect = {
+              testing_formulae: `${process.env.TESTING_FORMULAE}`,
+              added_formulae: `${process.env.ADDED_FORMULAE}`,
+              deleted_formulae: `${process.env.DELETED_FORMULAE}`
+            }
+
+            try {
+              await script({github, context, core}, formulae_detect, true)
+            } catch (error) {
+              console.error(error);
+            }
+
+  setup_dep_runners:
+    needs: [formulae_detect, setup_dep_tests]
+    if: >
+      github.event_name == 'pull_request' &&
+      !fromJson(needs.setup_dep_tests.outputs.syntax-only) &&
+      fromJson(needs.setup_dep_tests.outputs.test-dependents)
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    outputs:
+      runners: ${{steps.determine-dependent-runners.outputs.runners}}
+      runners_present: ${{steps.determine-dependent-runners.outputs.runners_present}}
+    env:
+      HOMEBREW_LINUX_RUNNER: ${{needs.setup_dep_tests.outputs.linux-runner}}
+      HOMEBREW_MACOS_LONG_TIMEOUT: ${{needs.setup_dep_tests.outputs.long-timeout}}
+      TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
+    steps:
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
+      - name: Determine runners to use for test_deps job
+        id: determine-dependent-runners
+        run: brew determine-test-runners --dependents --eval-all "$TESTING_FORMULAE"
+
+  test_deps:
+    needs: [tap_syntax, setup_dep_tests, setup_dep_runners, tests]
+    if: >
+      (success() ||
+      (failure() &&
+       !fromJson(needs.setup_dep_tests.outputs.fail-fast) &&
+       !contains(fromJson('["skipped", "cancelled"]'), needs.tests.result))) &&
+      github.event_name == 'pull_request' &&
+      !fromJson(needs.setup_dep_tests.outputs.syntax-only) &&
+      fromJson(needs.setup_dep_tests.outputs.test-dependents) &&
+      fromJson(needs.setup_dep_runners.outputs.runners_present)
+    strategy:
+      matrix:
+        include: ${{fromJson(needs.setup_dep_runners.outputs.runners)}}
+      fail-fast: ${{fromJson(needs.setup_dep_tests.outputs.fail-fast)}}
+    name: ${{matrix.name}} (deps)
+    runs-on: ${{matrix.runner}}
+    container: ${{matrix.container}}
+    timeout-minutes: ${{ matrix.timeout }}
+    defaults:
+      run:
+        shell: /bin/bash -e {0}
+        working-directory: ${{matrix.workdir || github.workspace}}
+    env:
+      GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      HOMEBREW_GITHUB_API_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      BOTTLES_DIR: ${{matrix.workdir || github.workspace}}/bottles
+    steps:
+      - name: Pre-test steps
+        uses: Homebrew/actions/pre-build@master
+        with:
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+          cleanup: ${{ matrix.cleanup }}
+          download-bottles: true
+
+      - run: brew test-bot ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
+        working-directory: ${{ env.BOTTLES_DIR }}
+
+      - name: Steps summary and cleanup
+        if: always()
+        uses: Homebrew/actions/post-build@master
+        with:
+          runner: ${{ runner.os == 'Linux' && format('{0}-deps', matrix.runner) || matrix.runner }}
+          cleanup: ${{ matrix.cleanup }}
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+          logs-directory: ${{ format('{0}/logs', env.BOTTLES_DIR) }}
+          upload-bottles: false
+
+  conclusion:
+    needs: [tests, test_deps, setup_tests, setup_runners]
+    if: always() && github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check `tests` result
+        run: |
+          result='${{ needs.tests.result }}'
+          # Silence lint error about backtick usage inside single quotes.
+          # shellcheck disable=SC2016
+          printf '::notice ::`tests` job status: %s\n' "$result"
+
+          # Possible values are `success`, `failure`, `cancelled` or `skipped`.
+          # https://docs.github.com/en/actions/learn-github-actions/contexts#needs-context
+          if [[ "$result" = "failure" ]] || [[ "$result" = "cancelled" ]]
+          then
+            # Silence lint error about backtick usage inside single quotes.
+            # shellcheck disable=SC2016
+            printf '::error ::`tests` job %s.\n' "$result"
+            exit 1
+          fi
+
+          runners_present='${{ needs.setup_runners.outputs.runners_present }}'
+          syntax_only='${{ needs.setup_tests.outputs.syntax-only }}'
+
+          # The tests job can be skipped only if the PR is syntax-only
+          # or no runners were assigned.
+          if [[ "$result" = "skipped" ]] &&
+             [[ "$runners_present" = "false" || "$syntax_only" = "true" ]]
+          then
+            exit 0
+          fi
+
+          # The test job can succeed only if the PR is not syntax-only
+          # and runners were assigned. Otherwise it must have been skipped.
+          if [[ "$result" = "success" ]] &&
+             [[ "$runners_present" = "true" ]] &&
+             [[ "$syntax_only" = "false" ]]
+          then
+            exit 0
+          fi
+
+          # If we made it here, something went wrong with our workflow run that needs investigating.
+          printf '::error ::Unexpected outcome!\n'
+          # Silence lint error about backtick usage inside single quotes.
+          # shellcheck disable=SC2016
+          printf '::error ::`tests` job result: %s\n' "$result" # success/skipped
+          printf '::error ::runners assigned:   %s\n' "$runners_present" # true/false
+          printf '::error ::syntax-only:        %s\n' "$syntax_only" # true/false
+          exit 1
