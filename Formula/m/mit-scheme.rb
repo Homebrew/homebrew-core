@@ -44,22 +44,9 @@ class MitScheme < Formula
   end
 
   def install
-    # Setting -march=native, which is what --build-from-source does, can fail
-    # with the error "the object ..., passed as the second argument to apply, is
-    # not the correct type." Only Haswell and above appear to be impacted.
-    # Reported 23rd Apr 2016: https://savannah.gnu.org/bugs/index.php?47767
-    # NOTE: `unless build.bottle?` avoids overriding --bottle-arch=[...].
-
-    ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}" unless build.bottle?
-
     resource("bootstrap").stage do
       cd "src"
-      if OS.mac?
-        system "./configure", "--prefix=#{buildpath}/staging", "--without-x", \
-          "CC=/usr/bin/gcc", "CXX=/usr/bin/g++"
-      else
-        system "./configure", "--prefix=#{buildpath}/staging", "--without-x"
-      end
+      system "./configure", "--prefix=#{buildpath}/staging", "--without-x"
       system "make"
       system "make", "install"
     end
@@ -92,13 +79,7 @@ class MitScheme < Formula
     end
 
     ENV.prepend_path "PATH", buildpath/"staging/bin"
-
-    if OS.mac?
-      system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x", \
-        "CC=/usr/bin/gcc", "CXX=/usr/bin/g++"
-    else
-      system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
-    end
+    system "./configure", "--prefix=#{prefix}", "--mandir=#{man}", "--without-x"
 
     system "make"
     system "make", "install"
