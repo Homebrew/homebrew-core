@@ -4,6 +4,7 @@ class Gfold < Formula
   url "https://github.com/nickgerace/gfold/archive/refs/tags/4.5.0.tar.gz"
   sha256 "ba5afe509ef17f5cdde8540cfd9321001cbb10d49dd6324f22562d65dbae8738"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/nickgerace/gfold.git", branch: "main"
 
   bottle do

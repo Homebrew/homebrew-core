@@ -6,6 +6,7 @@ class LiterateGit < Formula
   url "https://files.pythonhosted.org/packages/bd/1d/d8b406bb72174e3869c3d3242aec9ebd435a7b38cc9c4b0a34edd2bdf2b7/literategit-0.4.7.tar.gz"
   sha256 "b669f7209638e1a2a98304f749f5f2cc594db353c2b50d7be720cf6b261da97e"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "08a4638b65d6e90593fb4cfafa12ee4377ea8eecd641083f8f5e88206f1298cd"

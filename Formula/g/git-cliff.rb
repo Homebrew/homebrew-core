@@ -4,6 +4,7 @@ class GitCliff < Formula
   url "https://github.com/orhun/git-cliff/archive/refs/tags/v2.3.0.tar.gz"
   sha256 "a234fa1b78f7d9807ef1e41e6c36e56f178e65aa0f6e1fb7100cf144def2f180"
   license all_of: ["Apache-2.0", "MIT"]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "0671857570d54832691f72961ed13e4a7ba7427a62173a1900a03f5185c00ca2"

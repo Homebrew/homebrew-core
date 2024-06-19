@@ -6,6 +6,7 @@ class Snapcraft < Formula
   url "https://github.com/snapcore/snapcraft/archive/refs/tags/8.2.11.tar.gz"
   sha256 "e786d7d73183ee3776091548de65511a94eda5666c30d9f8fb6e381df9c44550"
   license "GPL-3.0-only"
+  revision 1
 
   livecheck do
     url :stable

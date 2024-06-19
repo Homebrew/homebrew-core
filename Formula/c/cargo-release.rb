@@ -4,6 +4,7 @@ class CargoRelease < Formula
   url "https://github.com/crate-ci/cargo-release/archive/refs/tags/v0.25.8.tar.gz"
   sha256 "428886515fec3253e79bc079576e747687a7f3685c2a389c851b3583396db373"
   license any_of: ["Apache-2.0", "MIT"]
+  revision 1
   head "https://github.com/crate-ci/cargo-release.git", branch: "master"
 
   bottle do

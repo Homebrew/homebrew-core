@@ -4,6 +4,7 @@ class Prr < Formula
   url "https://github.com/danobi/prr/archive/refs/tags/v0.18.0.tar.gz"
   sha256 "3c32911854a33a1a7870382db0e759923315ec943b5d43dec42d751820473094"
   license "GPL-2.0-only"
+  revision 1
   head "https://github.com/danobi/prr.git", branch: "master"
 
   bottle do

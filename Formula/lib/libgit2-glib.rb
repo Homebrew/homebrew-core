@@ -4,6 +4,7 @@ class Libgit2Glib < Formula
   url "https://gitlab.gnome.org/GNOME/libgit2-glib/-/archive/v1.2.0/libgit2-glib-v1.2.0.tar.bz2"
   sha256 "421ac5c99e02c5b6235842e60eb7f9fa8dc580d2500fb1eb521ced8a22de9f29"
   license "LGPL-2.1-only"
+  revision 1
   head "https://gitlab.gnome.org/GNOME/libgit2-glib.git", branch: "master"
 
   bottle do
