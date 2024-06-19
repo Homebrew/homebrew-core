@@ -1,10 +1,19 @@
 class Deno < Formula
   desc "Secure runtime for JavaScript and TypeScript"
   homepage "https://deno.com/"
-  url "https://github.com/denoland/deno/releases/download/v1.44.2/deno_src.tar.gz"
-  sha256 "18bc6a08cb01f219d4603f78c37741e7c4a38e3f7f2bd2ce202b421c68e6f942"
   license "MIT"
   head "https://github.com/denoland/deno.git", branch: "main"
+
+  stable do
+    url "https://github.com/denoland/deno/releases/download/v1.44.3/deno_src.tar.gz"
+    sha256 "d5eb5e1a70486b50917f96155a2ac67b0ed4259464d2b7268137b1d436ef67f9"
+
+    # Fix `frequent, random HTTP import` failure, upstream PR ref, https://github.com/denoland/deno/pull/24262
+    patch do
+      url "https://github.com/denoland/deno/commit/b94707af7df757db13f24b7b70dbd7956d1e1e1c.patch?full_index=1"
+      sha256 "bab986ea8228ab7f96408925db39e8af21d481963f466ff14ac3e67024899de3"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "9a891ef09e61b2c3bef0026cb3cae6b54fc7c2cff9f92ff7b77b1a225ee2dc2c"
@@ -58,8 +67,8 @@ class Deno < Formula
 
   # VERSION = #{version} && curl -s https://raw.githubusercontent.com/denoland/deno/v$VERSION/Cargo.lock | grep -C 1 'name = "deno_core"'
   resource "deno_core" do
-    url "https://github.com/denoland/deno_core/archive/refs/tags/0.288.0.tar.gz"
-    sha256 "0719b9c1b8601acdbe2278de16766e11abf13d38b3e9adc80a4184051f580cec"
+    url "https://github.com/denoland/deno_core/archive/refs/tags/0.290.0.tar.gz"
+    sha256 "3bdbd0d11bde7958d4d5e7964bf445d94b9665d4b59682573b122a866057e69c"
   end
 
   # To find the version of gn used:
