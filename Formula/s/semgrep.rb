@@ -232,6 +232,14 @@ class Semgrep < Formula
     end
 
     ENV["SEMGREP_SKIP_BIN"] = "1"
+
+    # Limit pip version to < 24 to side step an issue related to
+    # missing the wheel package when installing semgrep with pip 24.
+    #
+    # Longer term, we probably need to update our setup.py and
+    # pyproject.toml files to properly make it work with pip 24.
+    system "python3.11", "-m", "pip", "install", "--force-reinstall", "-v", "pip<24"
+
     venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install resources
     venv.pip_install_and_link buildpath/"cli"
