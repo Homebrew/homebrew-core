@@ -130,6 +130,7 @@
   "prestosql": "trino",
   "prql-compiler": "prqlc",
   "pyqt5": "pyqt@5",
+  "python-build": "build",
   "python-certifi": "certifi",
   "python-cryptography": "cryptography",
   "qt5": "qt@5",
