@@ -918,6 +918,7 @@ gitbackup
 gitbucket
 gitea
 github-markdown-toc
+github-release
 gitlab-ci-local
 gitlab-gem
 gitlab-runner
