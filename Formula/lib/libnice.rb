@@ -25,14 +25,17 @@ class Libnice < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "glib"
   depends_on "gnutls"
-  depends_on "gstreamer"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "intltool" => :build
   end
 
   def install
-    system "meson", "setup", "build", *std_meson_args
+    system "meson", "setup", "build", "-Dgstreamer=disabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end

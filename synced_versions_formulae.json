@@ -32,6 +32,7 @@
   ["libnetworkit", "networkit"],
   ["libnghttp2", "nghttp2"],
   ["libngspice", "ngspice"],
+  ["libnice", "libnice-gstreamer"],
   ["qalculate-gtk", "qalculate-qt"],
   ["logcli", "loki", "promtail"],
   ["mame", "rom-tools"],

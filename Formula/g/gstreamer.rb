@@ -54,6 +54,8 @@ class Gstreamer < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "yasm" => :build
+  depends_on "aom"
+  depends_on "at-spi2-core"
   depends_on "cairo"
   depends_on "dav1d"
   depends_on "faac"
@@ -61,25 +63,43 @@ class Gstreamer < Formula
   depends_on "fdk-aac"
   depends_on "ffmpeg@6"
   depends_on "flac"
+  depends_on "gdk-pixbuf"
   depends_on "gettext"
   depends_on "glib"
   depends_on "glib-networking"
   depends_on "graphene"
   depends_on "gtk+3"
   depends_on "gtk4"
+  depends_on "harfbuzz"
+  depends_on "imath"
   depends_on "jpeg-turbo"
   depends_on "json-glib"
   depends_on "lame"
+  depends_on "libass"
+  depends_on "libnice"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libpthread-stubs"
   depends_on "libshout"
+  depends_on "libsndfile"
   depends_on "libsodium"
   depends_on "libsoup"
   depends_on "libusrsctp"
+  depends_on "libvmaf"
   depends_on "libvorbis"
   depends_on "libvpx"
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "libxext"
+  depends_on "libxfixes"
+  depends_on "libxi"
+  depends_on "libxtst"
+  depends_on "little-cms2"
+  depends_on "mpg123"
+  depends_on "nettle"
+  depends_on "opencore-amr"
   depends_on "openexr"
+  depends_on "openjpeg"
   depends_on "openssl@3"
   depends_on "opus"
   depends_on "orc"
@@ -89,14 +109,21 @@ class Gstreamer < Formula
   depends_on "rav1e"
   depends_on "rtmpdump"
   depends_on "speex"
+  depends_on "srt"
   depends_on "srtp"
+  depends_on "svt-av1"
   depends_on "taglib"
   depends_on "theora"
+  depends_on "webp"
   depends_on "x264"
+  depends_on "x265"
   depends_on "xz"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   on_macos do
     # musepack is not bottled on Linux
@@ -105,7 +132,15 @@ class Gstreamer < Formula
   end
 
   on_linux do
+    depends_on "alsa-lib"
     depends_on "freeglut"
+    depends_on "libdrm"
+    depends_on "libva"
+    depends_on "libxdamage"
+    depends_on "libxv"
+    depends_on "mesa"
+    depends_on "pulseaudio"
+    depends_on "wayland"
   end
 
   def python3
@@ -202,6 +237,14 @@ class Gstreamer < Formula
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
+  end
+
+  def post_install
+    # Create a symlink so that GStreamer can find the `libnice` plugin.
+    # Needs to be done in `post_install` since `brew bottle` will remove the symlink.
+    libnice_gst_plugin = Formula["libnice-gstreamer"].opt_lib/"gstreamer-1.0"/shared_library("libgstnice")
+    gst_plugin_dir = lib/"gstreamer-1.0"
+    ln_sf libnice_gst_plugin.relative_path_from(gst_plugin_dir), gst_plugin_dir
   end
 
   def caveats
