@@ -68,6 +68,10 @@ class Ipopt < Formula
         "libseq/#{shared_library("*")}",
         "PORD/lib/#{shared_library("*")}"
       ]
+      # install headers
+      libexec.install "include"
+      (libexec/"include").install Dir["libseq/*.h"]
+      include.install_symlink Dir[libexec/"include/*"]
     end
 
     args = [
