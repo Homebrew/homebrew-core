@@ -17,6 +17,8 @@ class Dumb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "de4310947cbbc1807cf9c2bbdb9dcc42cc381de7153b3dc4f206718a1923fe40"
   end
 
+  deprecate! date: "2024-06-22", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "argtable"
   depends_on "sdl2"
