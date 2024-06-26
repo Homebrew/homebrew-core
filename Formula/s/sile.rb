@@ -5,6 +5,8 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.15.3/sile-0.15.3.tar.zst"
   sha256 "88d24a70710e301ba3400351a82c5f28b49cebcd637b7a59d28b001a56b398c6"
 
+  url "https://github.com/sile-typesetter/sile.git", branch: "develop" if build.head?
+
   license "MIT"
 
   bottle do
@@ -18,8 +20,6 @@ class Sile < Formula
   end
 
   head do
-    url "https://github.com/sile-typesetter/sile.git", branch: "develop"
-
     depends_on "autoconf" => :build
     depends_on "automake" => :build
     depends_on "libtool" => :build
@@ -189,6 +189,12 @@ class Sile < Formula
       --with-system-lua-sources
       --disable-embeded-resources
     ]
+
+    # Upstream bug https://github.com/sile-typesetter/sile/issues/2078 triggers
+    # a useless automake cycle when building from the source tarball. This
+    # argument avoids needing the dependency by just making it a noop. Remove
+    # on the next release.
+    configure_args += %w[AUTOMAKE=:]
 
     system "./bootstrap.sh" if build.head?
     system "./configure", *configure_args, *std_configure_args
