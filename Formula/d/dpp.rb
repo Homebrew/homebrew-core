@@ -2,8 +2,8 @@ class Dpp < Formula
   desc "Directly include C headers in D source code"
   homepage "https://github.com/atilaneves/dpp"
   url "https://github.com/atilaneves/dpp.git",
-      tag:      "v0.5.5",
-      revision: "c74291190d5fe81ff23ec1d21290fd7047c256a9"
+      tag:      "v0.6.0",
+      revision: "9c2b175b32cc46581a94a7ee1c0026f0cda045fc"
   license "BSL-1.0"
 
   bottle do
@@ -24,19 +24,20 @@ class Dpp < Formula
   uses_from_macos "llvm" # for libclang
 
   # Match versions from dub.selections.json
+  # VERSION=#{version} && curl https://raw.githubusercontent.com/atilaneves/dpp/v$VERSION/dub.selections.json
   resource "libclang" do
-    url "https://code.dlang.org/packages/libclang/0.3.2.zip"
-    sha256 "c54c01b65f2a62c93a2929c4d7acee05ed502d841839bf9f4c212e5d18ded137"
+    url "https://code.dlang.org/packages/libclang/0.3.3.zip"
+    sha256 "281b1b02f96c06ef812c7069e6b7de951f10c9e1962fdcfead367f9244e77529"
   end
 
   resource "sumtype" do
-    url "https://code.dlang.org/packages/sumtype/0.7.1.zip"
-    sha256 "e27e026505bd9a7eb8f11cda12a3030c190a3d93f6b8dccfe7b22ffc36694e4e"
+    url "https://code.dlang.org/packages/sumtype/1.2.8.zip"
+    sha256 "fd273e5b4f97ef6b6f08f9873f7d1dd11da3b9f0596293ba901be7caac05747f"
   end
 
   resource "unit-threaded" do
-    url "https://code.dlang.org/packages/unit-threaded/2.1.3.zip"
-    sha256 "bb306506cc69f51e3ff712590c9ce02dba16832171d34c0a6243a47ba4a936d6"
+    url "https://code.dlang.org/packages/unit-threaded/2.1.9.zip"
+    sha256 "1e06684e7f542e2c3d20f3b0f6179c16af2d80806a3a322d819aec62b6446d74"
   end
 
   def install
