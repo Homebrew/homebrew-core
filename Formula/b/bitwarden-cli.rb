@@ -5,7 +5,7 @@ class BitwardenCli < Formula
   homepage "https://bitwarden.com/"
   url "https://registry.npmjs.org/@bitwarden/cli/-/cli-2024.6.0.tgz"
   sha256 "c6cc40900db37dd7653eb24bb095dbedbe00bb27a1024642dbf12c31a03dceeb"
-  license "GPL-3.0-only"
+  license :cannot_represent # GPL with some enterprise features behind a custom license. See LICENSE.txt in source.
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "fb752136fdb18ceea631e6626e260b6385691af02663e0e31c97ac5a963d59b7"
