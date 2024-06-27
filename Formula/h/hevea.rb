@@ -1,7 +1,7 @@
 class Hevea < Formula
   desc "LaTeX-to-HTML translator"
-  homepage "http://hevea.inria.fr/"
-  url "http://hevea.inria.fr/old/hevea-2.36.tar.gz"
+  homepage "https://hevea.inria.fr/"
+  url "https://hevea.inria.fr/old/hevea-2.36.tar.gz"
   sha256 "5d6759d7702a295c76a12c1b2a1a16754ab0ec1ffed73fc9d0b138b41e720648"
   license all_of: [
     "QPL-1.0", # source files
@@ -9,7 +9,7 @@ class Hevea < Formula
   ]
 
   livecheck do
-    url "http://hevea.inria.fr/old/"
+    url "https://hevea.inria.fr/old/"
     regex(/href=.*?hevea[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

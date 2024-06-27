@@ -128,8 +128,8 @@ class Ford < Formula
       source: false
       graph: true
       search: true
-      extra_mods: json_module: http://jacobwilliams.github.io/json-fortran/
-                  futility: http://cmacmackin.github.io
+      extra_mods: json_module: https://jacobwilliams.github.io/json-fortran/
+                  futility: https://cmacmackin.github.io
       license: by-nc
       extra_filetypes: sh #
       max_frontpage_items: 4

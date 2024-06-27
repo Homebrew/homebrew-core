@@ -46,7 +46,7 @@ class GnuTar < Formula
     # iconv is detected during configure process but -liconv is missing
     # from LDFLAGS as of gnu-tar 1.35. Remove once iconv linking works
     # without this. See https://savannah.gnu.org/bugs/?64441.
-    # fix commit, http://git.savannah.gnu.org/cgit/tar.git/commit/?id=8632df39, remove in next release
+    # fix commit, https://git.savannah.gnu.org/cgit/tar.git/commit/?id=8632df39, remove in next release
     ENV.append "LDFLAGS", "-liconv" if OS.mac?
 
     system "./bootstrap" if build.head?

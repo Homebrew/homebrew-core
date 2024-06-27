@@ -2,7 +2,7 @@ class PariGaldata < Formula
   desc "Galois resolvents data for PARI/GP"
   homepage "https://pari.math.u-bordeaux.fr/packages.html"
   url "https://pari.math.u-bordeaux.fr/pub/pari/packages/galdata.tgz"
-  # Refer to http://pari.math.u-bordeaux.fr/packages.html#packages for most recent package date
+  # Refer to https://pari.math.u-bordeaux.fr/packages.html#packages for most recent package date
   version "20080411"
   sha256 "b7c1650099b24a20bdade47a85a928351c586287f0d4c73933313873e63290dd"
   license "GPL-2.0-or-later"

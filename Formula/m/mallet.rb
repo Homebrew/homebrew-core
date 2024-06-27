@@ -6,7 +6,7 @@ class Mallet < Formula
   revision 1
 
   livecheck do
-    url "http://mallet.cs.umass.edu/download.php"
+    url "https://mallet.cs.umass.edu/download.php"
     regex(/href=.*?mallet[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

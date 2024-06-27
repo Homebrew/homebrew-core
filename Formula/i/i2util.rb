@@ -6,8 +6,7 @@ class I2util < Formula
   revision 1
 
   livecheck do
-    # HTTP allows directory listing while HTTPS returns 403
-    url "http://software.internet2.edu/sources/I2util/"
+    url "https://software.internet2.edu/sources/I2util/"
     regex(/href=.*?I2util[._-]v?(\d+(?:\.\d+)+)\.t/i)
   end
 

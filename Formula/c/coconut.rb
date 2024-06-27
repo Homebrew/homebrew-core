@@ -2,7 +2,7 @@ class Coconut < Formula
   include Language::Python::Virtualenv
 
   desc "Simple, elegant, Pythonic functional programming"
-  homepage "http://coconut-lang.org/"
+  homepage "https://coconut-lang.org/"
   url "https://files.pythonhosted.org/packages/b9/0f/f8b531ee6351f1f5300b28efd5444aa618b7581b802d35cb5a40e240ea10/coconut-3.1.1.tar.gz"
   sha256 "14c5f502465f1b9dde0b0cefe5c5b6458433c724fcede5920faa2183ecebd4f2"
   license "Apache-2.0"

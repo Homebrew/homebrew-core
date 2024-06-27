@@ -1,7 +1,7 @@
 class Gsar < Formula
   desc "General Search And Replace on files"
-  homepage "http://tjaberg.com/"
-  url "http://tjaberg.com/gsar151.zip"
+  homepage "https://tjaberg.com/"
+  url "https://tjaberg.com/gsar151.zip"
   version "1.51"
   sha256 "72908ae302d2293de5218fd4da0b98afa2ce8890a622e709360576e93f5e8cc8"
   license "GPL-2.0-only"

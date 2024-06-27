@@ -1,6 +1,6 @@
 class Mfem < Formula
   desc "Free, lightweight, scalable C++ library for FEM"
-  homepage "http://www.mfem.org/"
+  homepage "https://mfem.org/"
   url "https://github.com/mfem/mfem/archive/refs/tags/v4.7.tar.gz"
   sha256 "731bc2665c13d4099f9c9c946eb83ab07cd2e78a9575d4fa62a96cdb40d6ba0f"
   license "BSD-3-Clause"

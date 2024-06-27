@@ -4,7 +4,7 @@ class Libgrapheme < Formula
   url "https://dl.suckless.org/libgrapheme/libgrapheme-2.0.2.tar.gz"
   sha256 "a68bbddde76bd55ba5d64116ce5e42a13df045c81c0852de9ab60896aa143125"
   license "ISC"
-  head "git://git.suckless.org/libgrapheme/", branch: "master"
+  head "https://git.suckless.org/libgrapheme/", using: :git, branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "961545ff7d4e1825ee195a79d6522ba7ae226c401d72b655410d8a132933eb2e"

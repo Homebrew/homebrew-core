@@ -1,10 +1,10 @@
 class Kytea < Formula
   desc "Toolkit for analyzing text, especially Japanese and Chinese"
-  homepage "http://www.phontron.com/kytea/"
+  homepage "https://www.phontron.com/kytea/"
   license "Apache-2.0"
 
   stable do
-    url "http://www.phontron.com/kytea/download/kytea-0.4.7.tar.gz"
+    url "https://www.phontron.com/kytea/download/kytea-0.4.7.tar.gz"
     sha256 "534a33d40c4dc5421f053c71a75695c377df737169f965573175df5d2cff9f46"
 
     # Fix -flat_namespace being used on Big Sur and later.

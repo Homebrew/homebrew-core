@@ -30,7 +30,7 @@ class GoCamo < Formula
     sleep 1
     assert_match "200 OK", shell_output("curl -sI http://localhost:#{port}/metrics")
 
-    url = "http://golang.org/doc/gopher/frontpage.png"
+    url = "https://golang.org/doc/gopher/frontpage.png"
     encoded = shell_output("#{bin}/url-tool -k 'test' encode -p 'https://img.example.org' '#{url}'").chomp
     decoded = shell_output("#{bin}/url-tool -k 'test' decode '#{encoded}'").chomp
     assert_equal url, decoded

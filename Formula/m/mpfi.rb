@@ -1,7 +1,7 @@
 class Mpfi < Formula
   desc "Multiple precision interval arithmetic library"
   homepage "https://perso.ens-lyon.fr/nathalie.revol/software.html"
-  url "http://perso.ens-lyon.fr/nathalie.revol/softwares/mpfi-1.5.4.tar.bz2"
+  url "https://perso.ens-lyon.fr/nathalie.revol/softwares/mpfi-1.5.4.tar.bz2"
   sha256 "d20ba56a8d57d0816f028be8b18a4aa909a068efcb9a260e69577939e4199752"
   license all_of: ["GPL-3.0-or-later", "LGPL-2.1-or-later"]
 

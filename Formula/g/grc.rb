@@ -2,7 +2,7 @@ class Grc < Formula
   include Language::Python::Shebang
 
   desc "Colorize logfiles and command output"
-  homepage "http://kassiopeia.juls.savba.sk/~garabik/software/grc.html"
+  homepage "https://kassiopeia.juls.savba.sk/~garabik/software/grc.html"
   url "https://github.com/garabik/grc/archive/refs/tags/v1.13.tar.gz"
   sha256 "a7b10d4316b59ca50f6b749f1d080cea0b41cb3b7258099c3eb195659d1f144f"
   license "GPL-2.0-or-later"
