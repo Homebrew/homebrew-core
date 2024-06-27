@@ -1,8 +1,8 @@
 class Lsv < Formula
   desc "Vlang implementation of ls"
   homepage "https://mike-ward.net/lsv/"
-  url "https://github.com/mike-ward/lsv/releases/download/2024.2/lsv_mac_m1.gz"
-  sha256 "4b7aae13db5e366bfb90a0a66ec38c59d6264b5194dd8221e8f78d0086c92cd3"
+  url "https://github.com/mike-ward/lsv/releases/download/2024.2/lsv_mac_m1.zip"
+  sha256 "904fe34bd9f725098066f5716b9e1997da81cffec80f34e0195ffc9f131f24ff"
   license "MIT"
 
   def install
