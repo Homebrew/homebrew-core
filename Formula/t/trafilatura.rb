@@ -3,19 +3,18 @@ class Trafilatura < Formula
 
   desc "Discovery, extraction and processing for Web text"
   homepage "https://trafilatura.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/28/3f/1d11375431bbcd8d42dc2014d742f0b836102213dfa16390036b63c43a52/trafilatura-1.10.0.tar.gz"
-  sha256 "7b10573e2dd16b6702f56f56858b25f34ff81d6b16e429af0a3b266f0746aeee"
+  url "https://files.pythonhosted.org/packages/03/9e/ae012a5e563c1e2f948af367518ae2bc4a3ebdaecf9efdb79058c775e653/trafilatura-1.11.0.tar.gz"
+  sha256 "9334ca101c40b2904af5afcee790f0374fabca3ac388811720be65cc768787a2"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c7cc4f9e02d7551d11219333b115f177ae61c327a5adc47f69208719d772717d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "015a2e6ca35b6d2a3b94024c5d855112cc615246f404b33d3dd0111a3e6c256c"
-    sha256 cellar: :any,                 arm64_monterey: "bfb8f01c59c4557f76eaac02412a0b280cb15df8cead2b471e2946d433aa1594"
-    sha256 cellar: :any_skip_relocation, sonoma:         "1b9cf6f3e7c394d431e6a88e04731c70ce49fa9e5e1c90ef34573185647a9ba1"
-    sha256 cellar: :any_skip_relocation, ventura:        "830d3eae922042f79b15ffd576dd1135f3d8355bd6b74cc57b9e08edc43eab87"
-    sha256 cellar: :any,                 monterey:       "88e4617ba380fb9d6203a1dd42987a45b3343ceb508dbbcfc33a932ed9272f16"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2563936c1fc8536a51fc7797e36b3e98fa0256576208612e160db6692081ee09"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "2247edf98598adbb5d70ce94a1827ee7d802d57bb38c3d667eacd2a30c7fd0bd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "fd57aa2496623b77f41a5dc4a4f877c608edfa5371017fa18402c6804c198777"
+    sha256 cellar: :any,                 arm64_monterey: "b4ce4d772797b0d53d38a548f8b066130cd75ae434bb1d29d4abe11ef1f624cf"
+    sha256 cellar: :any_skip_relocation, sonoma:         "78b40a3133ae6981986c79052c5fa9ea4989dc3b332020d8d4791863221d0c30"
+    sha256 cellar: :any_skip_relocation, ventura:        "f2eb82c266b43b9f01c2e035b1e8fbc7654f0800d39121fe95f91574579bd485"
+    sha256 cellar: :any,                 monterey:       "32dc85b9b44302c31d1075ec59fc08792f982263c1ab7b74044cc69bade9acdb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8097367fc91e179140cc7614cdcc9d59876099c43447d59a349006d8bcd67071"
   end
 
   depends_on "certifi"

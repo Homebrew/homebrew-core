@@ -3,18 +3,18 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/f1/b1/168222f4808bac49e3e337c0bf1a52e834b88b01ca483ff82c9e3de41f93/schemathesis-3.30.2.tar.gz"
-  sha256 "78e39451740bd5f24d3ef26b7fe4c8e94d5307ed23573908332761042b96a139"
+  url "https://files.pythonhosted.org/packages/5c/6f/0575642453ea7da590655058a6a841fa5dfd6dcd43695014edbe76a11dd5/schemathesis-3.30.3.tar.gz"
+  sha256 "961a2f41eac8d77935369c57222e5f016f3095a9f8eb793cd72c4fb84b9d4fb4"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5b04fcb07b46602c7b913879007df559a057a4b22f6fd9125148b6f581bd3fb1"
-    sha256 cellar: :any,                 arm64_ventura:  "4d4626d650449fe6f6506576ae4c0205671e24e363ec4afb3ceffc53538dc026"
-    sha256 cellar: :any,                 arm64_monterey: "37d433560d4c49221e07ccc95ad901e67857874361fb05156239e8c4e8cc9b17"
-    sha256 cellar: :any,                 sonoma:         "0a5a17497567110b06e3a621801e7b9e4fabd3701a506aec3011ac4f2cf4ea17"
-    sha256 cellar: :any,                 ventura:        "dbdf64c7326eb07a5a1d004ec16ef3dfaa582ba39959173308da0688b6c76552"
-    sha256 cellar: :any,                 monterey:       "9f7c9b851dd7bb7c93c79a7684c544fa3b93dbe58872b877e73445c4bc11d7ad"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b5fc0a312ed0a6594659d3adefb325df86dabe136e655bf7b0a43d95ec84d4a"
+    sha256 cellar: :any,                 arm64_sonoma:   "a9ce23f6bc887f745297d83dcf98f41f99593c0d3151b66d2feb96d5d37d7867"
+    sha256 cellar: :any,                 arm64_ventura:  "b3e9575a4d57851e07bb734084876b88497dbe8c936bd2a249fee089db4e82dc"
+    sha256 cellar: :any,                 arm64_monterey: "6105130fdd4494a64bd66ba7987ed177bbdccd59db6c41207e8242c56cbdc40b"
+    sha256 cellar: :any,                 sonoma:         "17cf1d7418df27d427be7dc017684b33c0b616bf1ec3c75f61ce1b176dc69625"
+    sha256 cellar: :any,                 ventura:        "f967780d67185b9b984acf95cce5a7f7130d7f057b718c5cbf6ee2b0d6bcdeec"
+    sha256 cellar: :any,                 monterey:       "0fff332c697ad428f31411cb15b49286ab6fadb7f7d917bf22b2e22af3264bc3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "61946f4696357183a11456543e291bb8911de68863b7670329a47413d9fa4369"
   end
 
   depends_on "rust" => :build # for rpds-py
