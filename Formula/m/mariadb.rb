@@ -138,14 +138,14 @@ class Mariadb < Formula
                                "#{libexec}/wsrep_sst_common"
     end
 
-    # Install my.cnf that binds to 127.0.0.1 by default
-    (buildpath/"my.cnf").write <<~EOS
+    # Install bind-to-localhost.cnf that binds to 127.0.0.1 by default
+    (buildpath/"bind-to-localhost.cnf").write <<~EOS
       # Default Homebrew MySQL server config
       [mysqld]
       # Only allow connections from localhost
       bind-address = 127.0.0.1
     EOS
-    etc.install "my.cnf"
+    (etc/"my.cnf.d").install "bind-to-localhost.cnf"
   end
 
   def post_install
@@ -192,5 +192,7 @@ class Mariadb < Formula
     assert_match "information_schema",
       shell_output("#{bin}/mysql --port=#{port} --user=root --password= --execute='show databases;'")
     system "#{bin}/mysqladmin", "--port=#{port}", "--user=root", "--password=", "shutdown"
+    assert_match "--bind-address=127.0.0.1",
+      shell_output("#{bin}/mysqld --print-defaults")
   end
 end
