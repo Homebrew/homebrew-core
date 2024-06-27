@@ -1,8 +1,8 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
-  url "https://github.com/gravitational/teleport/archive/refs/tags/v14.3.3.tar.gz"
-  sha256 "c30cefedae3df3cacef78e385a369773820f9ed00432b3c1bd12b0026b01f144"
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v16.0.1.tar.gz"
+  sha256 "f9db3cd6c39575cf564efdd932817092020aa172ed8a10113c816f480766bc03"
   license "AGPL-3.0-or-later"
   head "https://github.com/gravitational/teleport.git", branch: "master"
 
@@ -29,10 +29,16 @@ class Teleport < Formula
 
   depends_on "go" => :build
   depends_on "pkg-config" => :build
+  depends_on "rustup-init" => :build # wasm-pack requires rustup to install the wasm32-unknown-unknown target
+  depends_on "wasm-pack" => :build
   depends_on "yarn" => :build
   depends_on "libfido2"
   depends_on "node"
   depends_on "openssl@3"
+  
+  if on_macos do
+    depends_on xcode: :build
+  end
 
   uses_from_macos "curl" => :test
   uses_from_macos "netcat" => :test
@@ -41,6 +47,9 @@ class Teleport < Formula
   conflicts_with "etsh", because: "both install `tsh` binaries"
 
   def install
+    system "#{Formula["rustup-init"].bin}/rustup-init", "-qy", "--no-modify-path", "--profile", "minimal"
+    ENV.prepend_path "PATH", HOMEBREW_CACHE/"cargo_cache/bin"
+
     ENV.deparallelize { system "make", "full", "FIDO2=dynamic" }
     bin.install Dir["build/*"]
   end
