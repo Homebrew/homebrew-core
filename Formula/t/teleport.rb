@@ -41,7 +41,7 @@ class Teleport < Formula
   uses_from_macos "zip"
 
   on_macos do
-    depends_on xcode: :build
+    depends_on xcode: ["15.0", :build]
   end
 
   conflicts_with "etsh", because: "both install `tsh` binaries"
