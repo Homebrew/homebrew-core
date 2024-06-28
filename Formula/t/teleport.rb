@@ -36,7 +36,7 @@ class Teleport < Formula
   depends_on "node"
   depends_on "openssl@3"
   
-  if on_macos do
+  on_macos do
     depends_on xcode: :build
   end
 
