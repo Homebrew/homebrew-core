@@ -1,8 +1,9 @@
 class Qq < Formula
-  desc "A lightweight and flexible command-line JSON processor"
+  desc "A multi-tool structured format processor for query, transcoding, and transforming. Query with jq and gron grepping"
   homepage "https://github.com/jfryy/qq"
-  version "0.1.5-alpha"
+  version "0.1.5"
   license "MIT"
+  head "https://github.com/laktak/chkbit-py.git", branch: "main"
 
   on_macos do
     if Hardware::CPU.intel?
@@ -36,7 +37,7 @@ class Qq < Formula
 
   test do
     (testpath/"test.json").write('{"somekey": "somevalue"}')
-    assert_equal "somevalue\n", shell_output("cat test.json | #{bin}/qq .somekey -r").strip
+    assert_equal "somevalue", shell_output("cat test.json | #{bin}/qq .somekey -r").strip
   end
 end
 
