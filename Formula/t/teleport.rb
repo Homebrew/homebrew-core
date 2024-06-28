@@ -35,14 +35,14 @@ class Teleport < Formula
   depends_on "libfido2"
   depends_on "node"
   depends_on "openssl@3"
-  
-  on_macos do
-    depends_on xcode: :build
-  end
 
   uses_from_macos "curl" => :test
   uses_from_macos "netcat" => :test
   uses_from_macos "zip"
+
+  on_macos do
+    depends_on xcode: :build
+  end
 
   conflicts_with "etsh", because: "both install `tsh` binaries"
 
