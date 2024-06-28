@@ -1,8 +1,8 @@
 class Protobuf < Formula
   desc "Protocol buffers (Google's data interchange format)"
   homepage "https://protobuf.dev/"
-  url "https://github.com/protocolbuffers/protobuf/releases/download/v27.1/protobuf-27.1.tar.gz"
-  sha256 "6fbe2e6f703bcd3a246529c2cab586ca12a98c4e641f5f71d51fde09eb48e9e7"
+  url "https://github.com/protocolbuffers/protobuf/releases/download/v27.2/protobuf-27.2.tar.gz"
+  sha256 "e4ff2aeb767da6f4f52485c2e72468960ddfe5262483879ef6ad552e52757a77"
   license "BSD-3-Clause"
 
   livecheck do
