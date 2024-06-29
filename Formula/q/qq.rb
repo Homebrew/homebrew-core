@@ -1,37 +1,19 @@
 class Qq < Formula
-  desc "A multi-tool structured format processor for query, transcoding, and transforming. Query with jq and gron grepping"
+  desc "Multi-tool structured format processor for query and transcoding."
   homepage "https://github.com/jfryy/qq"
+  url "https://github.com/jfryy/qq/archive/refs/tags/v0.1.5-alpha.tar.gz"
   version "0.1.5"
   license "MIT"
-  head "https://github.com/laktak/chkbit-py.git", branch: "main"
+  head "https://github.com/jfryy/qq.git", branch: "main"
+  sha256 "5539959db9bc08cc7f72d9e4c152b007133d6393932cc0a103332d4acf2a979b"
 
-  on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/JFryy/qq/releases/download/v0.1.5-alpha/qq-v0.1.5-alpha-darwin-amd64.tar.gz"
-      sha256 "29e7849a638dc185551e4fce7375f3279ecc1e4e9e5034b4c28994e5a59c6391"
-    elsif Hardware::CPU.arm?
-      url "https://github.com/JFryy/qq/releases/download/v0.1.5-alpha/qq-v0.1.5-alpha-darwin-arm64.tar.gz"
-      sha256 "8e8f1a0ae6d51accda2060290bc8e905c71f73912baaa6480634dbd6b0faad1b"
-    end
-  end
-
-  on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/JFryy/qq/releases/download/v0.1.5-alpha/qq-v0.1.5-alpha-linux-amd64.tar.gz"
-      sha256 "5cb1815d1d7cbc88bcf2de921021aaf3b13ef0db782183253682fd87dd5f0b21"
-    elsif Hardware::CPU.arm?
-      url "https://github.com/JFryy/qq/releases/download/v0.1.5-alpha/qq-v0.1.5-alpha-linux-arm64.tar.gz"
-      sha256 "f7edcc9e5407c1ca19978b8be493f528e7a87c9e3a333b976608085c32daa78f"
-    end
-  end
-
+  depends_on "go" => :build
 
   def install
-    if File.exist?("qq")
-      bin.install "qq"
-    else
-      system "tar", "-xzf", cached_download
-      bin.install Dir["qq-*"].first => "qq"
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/jfryy/qq").install Dir["*"]
+    cd "src/github.com/jfryy/qq" do
+      system "go", "build", "-o", bin/"qq", "."
     end
   end
 
@@ -40,4 +22,3 @@ class Qq < Formula
     assert_equal "somevalue", shell_output("cat test.json | #{bin}/qq .somekey -r").strip
   end
 end
-
