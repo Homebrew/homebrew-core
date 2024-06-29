@@ -21,37 +21,43 @@ class TemporalTables < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "96fd42f1d03e29962b80bca8ddeb2f25091c810760ee8cbc3163c1b3852e41f9"
   end
 
-  depends_on "postgresql@14"
+  depends_on "postgresql@14" => [:build, :test]
+  depends_on "postgresql@16" => [:build, :test]
 
-  def postgresql
-    deps.map(&:to_formula)
-        .find { |f| f.name.start_with?("postgresql@") }
+  def postgresqls
+    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
   end
 
   def install
-    system "make", "install", "PG_CONFIG=#{postgresql.opt_bin}/pg_config",
-                              "pkglibdir=#{lib/postgresql.name}",
-                              "datadir=#{share/postgresql.name}",
-                              "docdir=#{doc}"
+    postgresqls.each do |postgresql|
+      system "make", "install", "PG_CONFIG=#{postgresql.opt_bin}/pg_config",
+                                "pkglibdir=#{lib/postgresql.name}",
+                                "datadir=#{share/postgresql.name}",
+                                "docdir=#{doc}"
+      system "make", "clean"
+    end
   end
 
   test do
     ENV["LC_ALL"] = "C"
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
-    psql = postgresql.opt_bin/"psql"
-    port = free_port
+    postgresqls.each do |postgresql|
+      pg_ctl = postgresql.opt_bin/"pg_ctl"
+      psql = postgresql.opt_bin/"psql"
+      port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test"
-    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
+      datadir = testpath/postgresql.name
+      system pg_ctl, "initdb", "-D", datadir
+      (datadir/"postgresql.conf").write <<~EOS, mode: "a+"
 
-      shared_preload_libraries = 'temporal_tables'
-      port = #{port}
-    EOS
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
-    begin
-      system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"temporal_tables\";", "postgres"
-    ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+        shared_preload_libraries = 'temporal_tables'
+        port = #{port}
+      EOS
+      system pg_ctl, "start", "-D", datadir, "-l", testpath/"log-#{postgresql.name}"
+      begin
+        system psql, "-p", port.to_s, "-c", "CREATE EXTENSION \"temporal_tables\";", "postgres"
+      ensure
+        system pg_ctl, "stop", "-D", datadir
+      end
     end
   end
 end
