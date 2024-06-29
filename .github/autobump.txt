@@ -2071,6 +2071,7 @@ restic
 resvg
 retire
 revive
+rgbds
 rhit
 riemann
 riemann-client
