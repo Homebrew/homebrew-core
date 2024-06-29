@@ -1,19 +1,19 @@
 class Qq < Formula
   desc "Multi-tool structured format processor for query and transcoding."
   homepage "https://github.com/jfryy/qq"
-  url "https://github.com/jfryy/qq/archive/refs/tags/v0.1.5-alpha.tar.gz"
-  sha256 "5539959db9bc08cc7f72d9e4c152b007133d6393932cc0a103332d4acf2a979b"
+  url "https://github.com/jfryy/qq/archive/refs/tags/v0.1.5-stable.tar.gz"
+  sha256 "2ce422a2fa1f101bb93690a9115849f7325986ab5732e31a59c811607821c876"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8e8f1a0ae6d51accda2060290bc8e905c71f73912baaa6480634dbd6b0faad1b"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "8e8f1a0ae6d51accda2060290bc8e905c71f73912baaa6480634dbd6b0faad1b"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "8e8f1a0ae6d51accda2060290bc8e905c71f73912baaa6480634dbd6b0faad1b"
-    sha256 cellar: :any_skip_relocation, sonoma:         "29e7849a638dc185551e4fce7375f3279ecc1e4e9e5034b4c28994e5a59c6391"
-    sha256 cellar: :any_skip_relocation, ventura:        "29e7849a638dc185551e4fce7375f3279ecc1e4e9e5034b4c28994e5a59c6391"
-    sha256 cellar: :any_skip_relocation, monterey:       "29e7849a638dc185551e4fce7375f3279ecc1e4e9e5034b4c28994e5a59c6391"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5cb1815d1d7cbc88bcf2de921021aaf3b13ef0db782183253682fd87dd5f0b21"
-    sha256 cellar: :any_skip_relocation, arm64_linux:    "f7edcc9e5407c1ca19978b8be493f528e7a87c9e3a333b976608085c32daa78f"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "eaa9c320ae5265565e88cf0339877f1e23dbb36da77941f93dfa8de16fa3c56d"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "eaa9c320ae5265565e88cf0339877f1e23dbb36da77941f93dfa8de16fa3c56d"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "eaa9c320ae5265565e88cf0339877f1e23dbb36da77941f93dfa8de16fa3c56d"
+    sha256 cellar: :any_skip_relocation, sonoma:         "913c71c96b456b77a5b17076195966d0ad01322800ac4c1906f01c5194bba95f"
+    sha256 cellar: :any_skip_relocation, ventura:        "913c71c96b456b77a5b17076195966d0ad01322800ac4c1906f01c5194bba95f"
+    sha256 cellar: :any_skip_relocation, monterey:       "913c71c96b456b77a5b17076195966d0ad01322800ac4c1906f01c5194bba95f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d2d16913d5404b69e86887081d1d8b762825722573325dce59e49762fe1f22e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:    "d2d16913d5404b69e86887081d1d8b762825722573325dce59e49762fe1f22e3"
   end
 
   depends_on "go" => :build
