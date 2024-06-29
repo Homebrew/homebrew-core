@@ -133,6 +133,7 @@
   "python-certifi": "certifi",
   "python-chardet": "chardet",
   "python-cryptography": "cryptography",
+  "python-tabulate": "tabulate",
   "qt5": "qt@5",
   "racket": "minimal-racket",
   "rebar@3": "rebar3",
