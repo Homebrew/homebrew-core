@@ -86,6 +86,9 @@
   "bandcamp-dl": {
     "exclude_packages": ["certifi"]
   },
+  "bazarr": {
+    "extra_packages": ["setuptools"]
+  },
   "bbot": {
     "exclude_packages": ["certifi", "cryptography"]
   },

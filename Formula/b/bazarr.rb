@@ -25,7 +25,7 @@ class Bazarr < Formula
   depends_on "gcc"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "unar"
 
   uses_from_macos "libxml2", since: :ventura
@@ -37,15 +37,18 @@ class Bazarr < Formula
     sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
+    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
+  end
+
   resource "webrtcvad-wheels" do
     url "https://files.pythonhosted.org/packages/59/d9/17fe64f981a2d33c6e95e115c29e8b6bd036c2a0f90323585f1af639d5fc/webrtcvad-wheels-2.0.11.post1.tar.gz"
     sha256 "aa1f749b5ea5ce209df9bdef7be9f4844007e630ac87ab9dbc25dda73fd5d2b7"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3.11")
-    venv = virtualenv_create(libexec, "python3.11")
-
+    venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources
 
     if build.head?
@@ -62,13 +65,12 @@ class Bazarr < Formula
     binaries_file.write "[]"
 
     libexec.install Dir["*"]
-    (bin/"bazarr").write_env_script libexec/"bin/python", "#{libexec}/bazarr.py",
+    (bin/"bazarr").write_env_script venv.root/"bin/python", venv.root/"bazarr.py",
       NO_UPDATE:  "1",
       PATH:       "#{Formula["ffmpeg"].opt_bin}:#{HOMEBREW_PREFIX/"bin"}:$PATH",
-      PYTHONPATH: ENV["PYTHONPATH"]
+      PYTHONPATH: venv.site_packages
 
     pkgvar = var/"bazarr"
-
     pkgvar.mkpath
     pkgvar.install_symlink pkgetc => "config"
 
@@ -102,7 +104,7 @@ class Bazarr < Formula
     require "open3"
     require "timeout"
 
-    system "#{bin}/bazarr", "--help"
+    system bin/"bazarr", "--help"
 
     config_file = testpath/"config/config.ini"
     config_file.write <<~EOS
