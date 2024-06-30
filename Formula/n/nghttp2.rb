@@ -1,9 +1,9 @@
 class Nghttp2 < Formula
   desc "HTTP/2 C Library"
   homepage "https://nghttp2.org/"
-  url "https://github.com/nghttp2/nghttp2/releases/download/v1.61.0/nghttp2-1.61.0.tar.gz"
-  mirror "http://fresh-center.net/linux/www/nghttp2-1.61.0.tar.gz"
-  sha256 "aa7594c846e56a22fbf3d6e260e472268808d3b49d5e0ed339f589e9cc9d484c"
+  url "https://github.com/nghttp2/nghttp2/releases/download/v1.62.1/nghttp2-1.62.1.tar.gz"
+  mirror "http://fresh-center.net/linux/www/nghttp2-1.62.1.tar.gz"
+  sha256 "d0b0b9d00500ee4aa3bfcac00145d3b1ef372fd301c35bff96cf019c739db1b4"
   license "MIT"
 
   bottle do
@@ -34,17 +34,24 @@ class Nghttp2 < Formula
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
 
-  # Fix: shrpx_api_downstream_connection.cc:57:3: error:
-  # array must be initialized with a brace-enclosed initializer
-  # https://github.com/nghttp2/nghttp2/pull/1269
-  patch do
-    on_linux do
-      url "https://github.com/nghttp2/nghttp2/commit/829258e7038fe7eff849677f1ccaeca3e704eb67.patch?full_index=1"
-      sha256 "c4bcf5cf73d5305fc479206676027533bb06d4ff2840eb672f6265ba3239031e"
-    end
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1400
   end
 
+  on_linux do
+    depends_on "gcc"
+  end
+
+  fails_with :clang do
+    build 1400
+    cause "Requires C++20 support"
+  end
+
+  fails_with gcc: "11"
+
   def install
+    ENV.llvm_clang if OS.mac? && DevelopmentTools.clang_build_version <= 1400
+
     # fix for clang not following C++14 behaviour
     # https://github.com/macports/macports-ports/commit/54d83cca9fc0f2ed6d3f873282b6dd3198635891
     inreplace "src/shrpx_client_handler.cc", "return dconn;", "return std::move(dconn);"
