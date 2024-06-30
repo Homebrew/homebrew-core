@@ -33,6 +33,15 @@ class Doxygen < Formula
     cause "Need gcc>=7.2. See https://gcc.gnu.org/bugzilla/show_bug.cgi?id=66297"
   end
 
+  fails_with :clang do
+    build 1000
+    cause <<-EOS
+      doxygen-1.11.0/src/datetime.cpp:100:19: error: no viable constructor or deduction guide for deduction of template arguments of 'array'
+      static std::array g_specFormats
+                        ^
+    EOS
+  end
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DPYTHON_EXECUTABLE=#{which("python3") || which("python")}",
