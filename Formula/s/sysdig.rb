@@ -2,7 +2,7 @@ class Sysdig < Formula
   desc "System-level exploration and troubleshooting tool"
   homepage "https://sysdig.com/"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   stable do
     url "https://github.com/draios/sysdig/archive/refs/tags/0.37.1.tar.gz"
