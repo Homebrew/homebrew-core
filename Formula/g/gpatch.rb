@@ -24,8 +24,9 @@ class Gpatch < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
     system "make", "install"
+    bin.install_symlink bin/"patch" => "gpatch"
   end
 
   test do
