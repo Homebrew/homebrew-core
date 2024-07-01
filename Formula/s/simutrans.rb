@@ -4,6 +4,7 @@ class Simutrans < Formula
   url "svn://servers.simutrans.org/simutrans/trunk/", revision: "11266"
   version "124.1"
   license "Artistic-1.0"
+  revision 1
   head "https://github.com/simutrans/simutrans.git", branch: "master"
 
   livecheck do
