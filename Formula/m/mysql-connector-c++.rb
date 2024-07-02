@@ -1,8 +1,8 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.3.0-src.tar.gz"
-  sha256 "a17bf1fad12b1ab17f5f6c7766289fb87200e919453234c3ec1664d7734be8f8"
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.4.0-src.tar.gz"
+  sha256 "540b3d3b4d20ecf9f900bf55bba870718e50672f54fa2cdb124adf385796ce8b"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -24,9 +24,14 @@ class MysqlConnectorCxx < Formula
   depends_on "cmake" => :build
   depends_on "mysql-client"
   depends_on "openssl@3"
+  depends_on "zlib"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DINSTALL_LIB_DIR=lib", *std_cmake_args
+    args = %w[
+      -DINSTALL_LIB_DIR=lib
+      -DWITH_ZLIB=system
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
