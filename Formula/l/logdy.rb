@@ -1,8 +1,8 @@
 class Logdy < Formula
   desc "Web based real-time log viewer"
   homepage "https://logdy.dev"
-  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "e188b1d1d6cc6678cabf663a4f4446201f6d1c9d65d8a6c0769848fd939e3deb"
+  url "https://github.com/logdyhq/logdy-core/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "819992c40c1857ac7eef512fd13d7e7fce1c5576a4997a8d1a1aea6d04bd54c8"
   license "Apache-2.0"
 
   bottle do
