@@ -1362,6 +1362,7 @@ libfabric
 libffi
 libfido2
 libfontenc
+libgcrypt
 libgedit-gtksourceview
 libgeotiff
 libgetdata

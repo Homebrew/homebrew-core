@@ -4,6 +4,7 @@ class Dar < Formula
   url "https://downloads.sourceforge.net/project/dar/dar/2.7.15/dar-2.7.15.tar.gz"
   sha256 "fac56b59b78b5435ee19541ff4bd3dc329c8252ff78749ffea240f6421534bfe"
   license "GPL-2.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -20,19 +21,45 @@ class Dar < Formula
     sha256 x86_64_linux:   "85301842381745b10952ce739ba6af415c897e1adc1863748dbf8ae80885c672"
   end
 
+  depends_on "pkg-config" => :build
   depends_on "argon2"
-  depends_on "libgcrypt"
+  depends_on "libgpg-error" # for libgcrypt
   depends_on "lzo"
 
   uses_from_macos "zlib"
 
+  # upstream libgcrypt 1.11.0 support ticket, https://sourceforge.net/p/dar/feature-requests/218/
+  resource "libgcrypt" do
+    url "https://gnupg.org/ftp/gcrypt/libgcrypt/libgcrypt-1.10.3.tar.bz2"
+    sha256 "8b0870897ac5ac67ded568dcfadf45969cfa8a6beb0fd60af2a9eadc2a3272aa"
+  end
+
   def install
-    system "./configure", "--prefix=#{prefix}",
-                          "--disable-build-html",
+    (buildpath/"libgcrypt").install resource("libgcrypt")
+    cd "libgcrypt" do
+      system "./configure", "--prefix=#{libexec}",
+                            "--disable-silent-rules",
+                            "--enable-static",
+                            "--disable-asm",
+                            "--with-libgpg-error-prefix=#{Formula["libgpg-error"].opt_prefix}"
+
+      # The jitter entropy collector must be built without optimizations
+      ENV.O0 { system "make", "-C", "random", "rndjent.o", "rndjent.lo" }
+
+      # Parallel builds work, but only when run as separate steps
+      system "make"
+      MachO.codesign!("#{buildpath}/libgcrypt/tests/.libs/random") if OS.mac? && Hardware::CPU.arm?
+      system "make", "install"
+    end
+
+    ENV.prepend "LDFLAGS", "-L#{libexec}/lib"
+    ENV.prepend "CPPFLAGS", "-I#{libexec}/include"
+
+    system "./configure", "--disable-build-html",
                           "--disable-dar-static",
-                          "--disable-dependency-tracking",
                           "--disable-libxz-linking",
-                          "--enable-mode=64"
+                          "--enable-mode=64",
+                          *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
