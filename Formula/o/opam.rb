@@ -1,8 +1,8 @@
 class Opam < Formula
   desc "OCaml package manager"
   homepage "https://opam.ocaml.org"
-  url "https://github.com/ocaml/opam/releases/download/2.1.6/opam-full-2.1.6.tar.gz"
-  sha256 "d2af5edc85f552e0cf5ec0ddcc949d94f2dc550dc5df595174a06a4eaf8af628"
+  url "https://github.com/ocaml/opam/releases/download/2.2.0/opam-full-2.2.0.tar.gz"
+  sha256 "39334f36adbe280683487cf204b7b0642080fc5965747f7d6f7cc7b83cd7a192"
   license "LGPL-2.1-only"
   head "https://github.com/ocaml/opam.git", branch: "master"
 
