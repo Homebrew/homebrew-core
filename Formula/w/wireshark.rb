@@ -1,5 +1,5 @@
 class Wireshark < Formula
-  desc "Graphical network analyzer and capture tool"
+  desc "Network analyzer and capture tool - without graphical user interface"
   homepage "https://www.wireshark.org"
   url "https://www.wireshark.org/download/src/all-versions/wireshark-4.2.5.tar.xz"
   mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.2.5.tar.xz"
@@ -31,6 +31,7 @@ class Wireshark < Formula
   depends_on "libgcrypt"
   depends_on "libmaxminddb"
   depends_on "libnghttp2"
+  depends_on "libnghttp3"
   depends_on "libsmi"
   depends_on "libssh"
   depends_on "lua"
@@ -51,25 +52,15 @@ class Wireshark < Formula
 
   def install
     args = %W[
-      -DENABLE_CARES=ON
-      -DENABLE_GNUTLS=ON
-      -DENABLE_MAXMINDDB=ON
-      -DBUILD_wireshark_gtk=OFF
-      -DENABLE_PORTAUDIO=OFF
-      -DENABLE_LUA=ON
       -DLUA_INCLUDE_DIR=#{Formula["lua"].opt_include}/lua
       -DLUA_LIBRARY=#{Formula["lua"].opt_lib/shared_library("liblua")}
       -DCARES_INCLUDE_DIR=#{Formula["c-ares"].opt_include}
       -DGCRYPT_INCLUDE_DIR=#{Formula["libgcrypt"].opt_include}
       -DGNUTLS_INCLUDE_DIR=#{Formula["gnutls"].opt_include}
       -DMAXMINDDB_INCLUDE_DIR=#{Formula["libmaxminddb"].opt_include}
-      -DENABLE_SMI=ON
-      -DBUILD_sshdump=ON
-      -DBUILD_ciscodump=ON
-      -DENABLE_NGHTTP2=ON
       -DBUILD_wireshark=OFF
+      -DBUILD_logray=OFF
       -DENABLE_APPLICATION_BUNDLE=OFF
-      -DENABLE_QT5=OFF
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
     ]
 
