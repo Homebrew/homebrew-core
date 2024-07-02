@@ -39,12 +39,12 @@ class Curl < Formula
   depends_on "libidn2"
   depends_on "libnghttp2"
   depends_on "libssh2"
-  depends_on "openldap"
   depends_on "openssl@3"
   depends_on "rtmpdump"
   depends_on "zstd"
 
   uses_from_macos "krb5"
+  uses_from_macos "openldap"
   uses_from_macos "zlib"
 
   def install
