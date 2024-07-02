@@ -5,6 +5,7 @@ class GccAT13 < Formula
   mirror "https://ftpmirror.gnu.org/gcc/gcc-13.3.0/gcc-13.3.0.tar.xz"
   sha256 "0845e9621c9543a13f484e94584a49ffc0129970e9914624235fc1d061a0c083"
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
+  revision 1
 
   livecheck do
     url :stable
@@ -31,6 +32,8 @@ class GccAT13 < Formula
   depends_on "mpfr"
   depends_on "zstd"
 
+  uses_from_macos "flex" => :build
+  uses_from_macos "m4" => :build
   uses_from_macos "zlib"
 
   on_linux do
@@ -55,7 +58,7 @@ class GccAT13 < Formula
     #  - Ada and D, which require a pre-existing GCC to bootstrap
     #  - Go, currently not supported on macOS
     #  - BRIG
-    languages = %w[c c++ objc obj-c++ fortran]
+    languages = %w[c c++ objc obj-c++ fortran m2]
 
     pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
 
@@ -120,7 +123,8 @@ class GccAT13 < Formula
       # To make sure GCC does not record cellar paths, we configure it with
       # opt_prefix as the prefix. Then we use DESTDIR to install into a
       # temporary location, then move into the cellar path.
-      system "make", install_target, "DESTDIR=#{Pathname.pwd}/../instdir"
+      # Deparallelize for modula 2 as make install will block indefinitely.
+      ENV.deparallelize { system "make", install_target, "DESTDIR=#{Pathname.pwd}/../instdir" }
       mv Dir[Pathname.pwd/"../instdir/#{opt_prefix}/*"], prefix
     end
 
@@ -263,5 +267,18 @@ class GccAT13 < Formula
     EOS
     system "#{bin}/gfortran-#{version.major}", "-o", "test", "test.f90"
     assert_equal "Done\n", shell_output("./test")
+
+    (testpath/"hello.mod").write <<~EOS
+      MODULE hello;
+
+      FROM InOut IMPORT WriteString, WriteLn;
+
+      BEGIN
+           WriteString("Hello, world!");
+           WriteLn;
+      END hello.
+    EOS
+    system "#{bin}/gm2-#{version.major}", "-o", "hello-m2", "hello.mod"
+    assert_equal "Hello, world!\n", shell_output("./hello-m2")
   end
 end
