@@ -3,10 +3,9 @@ class Vunnel < Formula
 
   desc "Tool for collecting vulnerability data from various sources"
   homepage "https://github.com/anchore/vunnel"
-  url "https://files.pythonhosted.org/packages/68/1e/40d3a5465362182ac8495f9f8fd8a9c7bfca85e823075a25ebc64a727840/vunnel-0.25.0.tar.gz"
-  sha256 "bf97c14b2703760b2b3196a79384560002310613aad0c332963de06bc687d248"
+  url "https://files.pythonhosted.org/packages/ec/b3/8af0e4caf61bb10a52fb76429511f8e2258e1cacec79f3b62f310ecb1097/vunnel-0.26.0.tar.gz"
+  sha256 "72a5ea2ecba1ac06af639096d49fcb23fed2721a34c2ee69a826bc6c4f2719cc"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
@@ -62,6 +61,11 @@ class Vunnel < Formula
     sha256 "9dc71659d3b853c3018cd7b2ec34d5d054370128e12b79ee655498cb339cc711"
   end
 
+  resource "greenlet" do
+    url "https://files.pythonhosted.org/packages/17/14/3bddb1298b9a6786539ac609ba4b7c9c0842e12aa73aaa4d8d73ec8f8185/greenlet-3.0.3.tar.gz"
+    sha256 "43374442353259554ce33599da8b692d5aa96f8976d567d4badf263371fbe491"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
     sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
@@ -73,8 +77,8 @@ class Vunnel < Formula
   end
 
   resource "importlib-metadata" do
-    url "https://files.pythonhosted.org/packages/a0/fc/c4e6078d21fc4fa56300a241b87eae76766aa380a23fc450fc85bb7bf547/importlib_metadata-7.1.0.tar.gz"
-    sha256 "b78938b926ee8d5f020fc4772d487045805a55ddbad2ecf21c6d60938dc7fcd2"
+    url "https://files.pythonhosted.org/packages/76/72/33d1bb4be61f1327d3cd76fc41e2d001a6b748a0648d944c646643f123fe/importlib_metadata-7.2.1.tar.gz"
+    sha256 "509ecb2ab77071db5137c655e24ceb3eee66e7bbc6574165d0d114d9fc4bbe68"
   end
 
   resource "iniconfig" do
