@@ -9,6 +9,7 @@ class Jupyterlab < Formula
     "BSD-3-Clause",
     "MIT", # semver.py
   ]
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "d8bb0be5f5f148998e88961a12827bf36097fefc7a73c15c5f8076ce0052e468"
@@ -35,8 +36,8 @@ class Jupyterlab < Formula
   uses_from_macos "libxslt"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/db/4d/3970183622f0330d3c23d9b8a5f52e365e50381fd484d08e3285104333d3/anyio-4.3.0.tar.gz"
-    sha256 "f75253795a87df48568485fd18cdd2a3fa5c4f7c5be8e5e36637733fce06fed6"
+    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
+    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
   end
 
   resource "appnope" do
@@ -175,8 +176,8 @@ class Jupyterlab < Formula
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/f0/49/02663ec5fcfe3a8c9c17b2b6195db30c182749d14ae1bb7f91944b8f4f69/ipython-8.24.0.tar.gz"
-    sha256 "010db3f8a728a578bb641fdd06c063b9fb8e96a9464c63aec6310fbcb5e80501"
+    url "https://files.pythonhosted.org/packages/1c/5a/facbb5a0650e68b16134ce787b0990ee47f8b67316b0d844d9b183f212e6/ipython-8.25.0.tar.gz"
+    sha256 "c6ed726a140b6e725b911528f80439c534fac915246af3efc39440a6b0f9d716"
   end
 
   resource "isoduration" do
@@ -240,8 +241,8 @@ class Jupyterlab < Formula
   end
 
   resource "jupyter-server" do
-    url "https://files.pythonhosted.org/packages/23/d8/1534559049389928ba8abfd4b9ff544e43e4a14d91b42a09f9f4b56c18df/jupyter_server-2.14.0.tar.gz"
-    sha256 "659154cea512083434fd7c93b7fe0897af7a2fd0b9dd4749282b42eaac4ae677"
+    url "https://files.pythonhosted.org/packages/a8/17/f01e391b6299969a8d1d1aae7bdf40e284126a31147f5475325a90aadfa2/jupyter_server-2.14.1.tar.gz"
+    sha256 "12558d158ec7a0653bf96cc272bc7ad79e0127d503b982ed144399346694f726"
   end
 
   resource "jupyter-server-terminals" do
@@ -350,8 +351,8 @@ class Jupyterlab < Formula
   end
 
   resource "prompt-toolkit" do
-    url "https://files.pythonhosted.org/packages/cc/c6/25b6a3d5cd295304de1e32c9edbcf319a52e965b339629d37d42bb7126ca/prompt_toolkit-3.0.43.tar.gz"
-    sha256 "3527b7af26106cbc65a040bcc84839a3566ec1b051bb0bfe953631e704b0ff7d"
+    url "https://files.pythonhosted.org/packages/5d/0f/2a8cf0881833cae8a2b50f0ce63ba4662c44473640c1feeb054f19d33459/prompt_toolkit-3.0.46.tar.gz"
+    sha256 "869c50d682152336e23c4db7f74667639b5047494202ffe7670817053fd57795"
   end
 
   resource "psutil" do
@@ -405,8 +406,8 @@ class Jupyterlab < Formula
   end
 
   resource "requests" do
-    url "https://files.pythonhosted.org/packages/86/ec/535bf6f9bd280de6a4637526602a146a68fde757100ecf8c9333173392db/requests-2.32.2.tar.gz"
-    sha256 "dd951ff5ecf3e3b3aa26b40703ba77495dab41da839ae72ef3c8e5d8e2433289"
+    url "https://files.pythonhosted.org/packages/63/70/2bf7780ad2d390a8d301ad0b550f1581eadbd9a20f896afe06353c2a2913/requests-2.32.3.tar.gz"
+    sha256 "55365417734eb18255590a9ff9eb97e9e1da868d4ccd6402399eaf68af20a760"
   end
 
   resource "rfc3339-validator" do
@@ -460,8 +461,8 @@ class Jupyterlab < Formula
   end
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/bd/a2/ea124343e3b8dd7712561fe56c4f92eda26865f5e1040b289203729186f2/tornado-6.4.tar.gz"
-    sha256 "72291fa6e6bc84e626589f1c29d90a5a6d593ef5ae68052ee2ef000dfd273dee"
+    url "https://files.pythonhosted.org/packages/ee/66/398ac7167f1c7835406888a386f6d0d26ee5dbf197d8a571300be57662d3/tornado-6.4.1.tar.gz"
+    sha256 "92d3ab53183d8c50f8204a51e6f91d18a15d5ef261e84d452800d4ff6fc504e9"
   end
 
   resource "traitlets" do
@@ -495,8 +496,8 @@ class Jupyterlab < Formula
   end
 
   resource "webcolors" do
-    url "https://files.pythonhosted.org/packages/a1/fb/f95560c6a5d4469d9c49e24cf1b5d4d21ffab5608251c6020a965fb7791c/webcolors-1.13.tar.gz"
-    sha256 "c225b674c83fa923be93d235330ce0300373d02885cef23238813b0d5668304a"
+    url "https://files.pythonhosted.org/packages/b3/bf/cfe993a8acab0976a08cfa1a0a23cf9ce212b8c52cca40fbcca6e994acea/webcolors-24.6.0.tar.gz"
+    sha256 "1d160d1de46b3e81e58d0a280d0c78b467dc80f47294b91b1ad8029d2cedb55b"
   end
 
   resource "webencodings" do
