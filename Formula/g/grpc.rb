@@ -1,21 +1,11 @@
 class Grpc < Formula
   desc "Next generation open source RPC library and framework"
   homepage "https://grpc.io/"
+  url "https://github.com/grpc/grpc.git",
+      tag:      "v1.65.0",
+      revision: "45479fda2a083c4e46310b9bb6e45e625e381269"
   license "Apache-2.0"
-  revision 2
   head "https://github.com/grpc/grpc.git", branch: "master"
-
-  stable do
-    url "https://github.com/grpc/grpc.git",
-        tag:      "v1.62.2",
-        revision: "96f984744fe728e196c11d33b91b022566c0d40f"
-
-    # Backport fix for Protobuf 26
-    patch do
-      url "https://github.com/grpc/grpc/commit/98a96c5068da14ed29d70ca23818b5f408a2e7b4.patch?full_index=1"
-      sha256 "5c4fc4307d0943ce3c9a07921bddaa24ca3d504adf38c9b0f071e23327661ac1"
-    end
-  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created, so we check releases instead of the Git
