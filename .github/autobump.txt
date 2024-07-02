@@ -269,6 +269,7 @@ c3c
 c4core
 c7n
 ca-certificates
+cabal-install
 caddy
 cadence
 cadence-workflow
