@@ -1,10 +1,9 @@
 class Vtk < Formula
   desc "Toolkit for 3D computer graphics, image processing, and visualization"
   homepage "https://www.vtk.org/"
-  url "https://www.vtk.org/files/release/9.3/VTK-9.3.0.tar.gz"
-  sha256 "fdc7b9295225b34e4fdddc49cd06e66e94260cb00efee456e0f66568c9681be9"
+  url "https://www.vtk.org/files/release/9.3/VTK-9.3.1.tar.gz"
+  sha256 "8354ec084ea0d2dc3d23dbe4243823c4bfc270382d0ce8d658939fd50061cab8"
   license "BSD-3-Clause"
-  revision 1
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   bottle do
@@ -47,6 +46,9 @@ class Vtk < Formula
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "libaec"
+    depends_on "zstd"
+
     on_arm do
       if DevelopmentTools.clang_build_version == 1316
         depends_on "llvm" => :build
@@ -61,6 +63,9 @@ class Vtk < Formula
 
   on_linux do
     depends_on "libaec"
+    depends_on "libx11"
+    depends_on "libxcursor"
+    depends_on "mesa"
     depends_on "mesa-glu"
   end
 
