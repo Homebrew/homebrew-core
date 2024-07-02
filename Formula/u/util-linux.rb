@@ -35,6 +35,8 @@ class UtilLinux < Formula
 
   keg_only :shadowed_by_macos, "macOS provides the uuid.h header"
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "pkg-config" => :build
 
   uses_from_macos "libxcrypt"
@@ -53,6 +55,17 @@ class UtilLinux < Formula
     conflicts_with "flock", because: "both install `flock` binaries"
     conflicts_with "ossp-uuid", because: "both install `uuid.3` file"
     conflicts_with "rename", because: "both install `rename` binaries"
+  end
+
+  # Fix for https://github.com/util-linux/util-linux/issues/3071
+  # Remove with `autoconf` and `automake` build deps when included in a release.
+  patch do
+    url "https://github.com/util-linux/util-linux/commit/ff8ee29d648111eb222612ad4251e4c3b236a389.patch?full_index=1"
+    sha256 "0fcdcd07c7fe5c66b80917976064b260bac84635599e4437bff13857e8771075"
+  end
+  patch do
+    url "https://github.com/util-linux/util-linux/commit/0309a6f5ca018d83420e49e0f9d046fecdb29261.patch?full_index=1"
+    sha256 "0923e85a7381a33b888984ab79b079d6e52f2d96d274f85632a696b6cc352863"
   end
 
   # uuid_time function compatibility fix on macos
