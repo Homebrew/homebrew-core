@@ -1,9 +1,11 @@
 class Pyenv < Formula
   desc "Python version management"
   homepage "https://github.com/pyenv/pyenv"
-  url "https://github.com/pyenv/pyenv/archive/refs/tags/v2.4.5.tar.gz"
-  sha256 "24f3671a92492f49fa6f61dea861323ad853877c5cb2686c95bfa76339aa1301"
+  url "https://github.com/pyenv/pyenv/archive/refs/tags/v2.4.5_1.tar.gz"
+  version "2.4.5"
+  sha256 "a73d673f03baac56daa96cd47611eb2474a80599ffad3bf7a48e6748052ce498"
   license "MIT"
+  revision 1
   version_scheme 1
   head "https://github.com/pyenv/pyenv.git", branch: "master"
 
