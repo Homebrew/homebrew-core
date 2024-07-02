@@ -1,9 +1,9 @@
 class Xrootd < Formula
   desc "High performance, scalable, fault-tolerant access to data"
   homepage "https://xrootd.slac.stanford.edu/"
-  url "https://github.com/xrootd/xrootd/releases/download/v5.6.9/xrootd-5.6.9.tar.gz"
-  mirror "https://xrootd.slac.stanford.edu/download/v5.6.9/xrootd-5.6.9.tar.gz"
-  sha256 "44196167fbcf030d113e3749dfdecab934c43ec15e38e77481e29aac191ca3a8"
+  url "https://github.com/xrootd/xrootd/releases/download/v5.7.0/xrootd-5.7.0.tar.gz"
+  mirror "https://xrootd.slac.stanford.edu/download/v5.7.0/xrootd-5.7.0.tar.gz"
+  sha256 "214599bba98bc69875b82ac74f2d4b9ac8a554a1024119d8a9802b3d8b9986f8"
   license "LGPL-3.0-or-later"
   head "https://github.com/xrootd/xrootd.git", branch: "master"
 
@@ -30,6 +30,7 @@ class Xrootd < Formula
   depends_on "openssl@3"
   depends_on "readline"
 
+  uses_from_macos "curl"
   uses_from_macos "libxcrypt"
   uses_from_macos "libxml2"
   uses_from_macos "zlib"
