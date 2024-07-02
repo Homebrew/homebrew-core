@@ -29,6 +29,8 @@ class Lv < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "16aa28d4dfb99fbffc482973e91282d1b7a4986f3cdc2638805228962143d949"
   end
 
+  deprecate! date: "2024-07-02", because: :repo_removed
+
   uses_from_macos "ncurses"
 
   on_linux do
