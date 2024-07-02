@@ -1,9 +1,8 @@
 class ArduinoCli < Formula
   desc "Arduino command-line interface"
   homepage "https://github.com/arduino/arduino-cli"
-  url "https://github.com/arduino/arduino-cli.git",
-      tag:      "v1.0.1",
-      revision: "590e73bf0412a30780298415180ee085e8d27a07"
+  url "https://github.com/arduino/arduino-cli/archive/refs/tags/v1.0.2.tar.gz"
+  sha256 "3741dee1cf63eecd0b8b42f51c8e1570ceb464a38ff3acdbbeb214a88645d930"
   license "GPL-3.0-only"
   head "https://github.com/arduino/arduino-cli.git", branch: "master"
 
@@ -28,7 +27,7 @@ class ArduinoCli < Formula
     ldflags = %W[
       -s -w
       -X github.com/arduino/arduino-cli/version.versionString=#{version}
-      -X github.com/arduino/arduino-cli/version.commit=#{Utils.git_head(length: 8)}
+      -X github.com/arduino/arduino-cli/version.commit=#{tap.user}
       -X github.com/arduino/arduino-cli/version.date=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:)
@@ -37,14 +36,9 @@ class ArduinoCli < Formula
   end
 
   test do
-    system "#{bin}/arduino-cli", "sketch", "new", "test_sketch"
-    assert File.directory?("#{testpath}/test_sketch")
+    system bin/"arduino-cli", "sketch", "new", "test_sketch"
+    assert_predicate testpath/"test_sketch/test_sketch.ino", :exist?
 
-    version_output = shell_output("#{bin}/arduino-cli version 2>&1")
-    assert_match("arduino-cli  Version: #{version}", version_output)
-    assert_match("Commit:", version_output)
-    assert_match(/[a-f0-9]{8}/, version_output)
-    assert_match("Date: ", version_output)
-    assert_match(/\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z/, version_output)
+    assert_match version.to_s, shell_output("#{bin}/arduino-cli version")
   end
 end
