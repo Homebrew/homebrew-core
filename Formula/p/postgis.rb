@@ -68,6 +68,18 @@ class Postgis < Formula
     # https://github.com/protobuf-c/protobuf-c/pull/711
     ENV["PROTOCC"] = Formula["protobuf"].opt_bin/"protoc"
 
+    # PostGIS' build system assumes it is being installed to the same place as
+    # PostgreSQL, and looks for the `postgres` binary relative to the
+    # installation `bindir`. We gently support this system using an illusion.
+    #
+    # PostGIS links against the `postgres` binary for symbols that aren't
+    # exported in the public libraries `libpgcommon.a` and similar, so the
+    # build will break with confusing errors if this is omitted.
+    #
+    # See: https://github.com/NixOS/nixpkgs/commit/330fff02a675f389f429d872a590ed65fc93aedb
+    bin.mkpath
+    ln_s "#{postgresql.opt_bin}/postgres", "#{bin}/postgres"
+
     args = [
       "--with-projdir=#{Formula["proj"].opt_prefix}",
       "--with-jsondir=#{Formula["json-c"].opt_prefix}",
@@ -91,6 +103,8 @@ class Postgis < Formula
                               "pkglibdir=#{lib/postgresql.name}",
                               "datadir=#{share/postgresql.name}",
                               "PG_SHAREDIR=#{share/postgresql.name}"
+
+    rm "#{bin}/postgres"
 
     # Extension scripts
     bin.install %w[
