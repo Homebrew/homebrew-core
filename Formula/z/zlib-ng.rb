@@ -1,8 +1,8 @@
 class ZlibNg < Formula
   desc "Zlib replacement with optimizations for next generation systems"
   homepage "https://github.com/zlib-ng/zlib-ng"
-  url "https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.1.7.tar.gz"
-  sha256 "59e68f67cbb16999842daeb517cdd86fc25b177b4affd335cd72b76ddc2a46d8"
+  url "https://github.com/zlib-ng/zlib-ng/archive/refs/tags/2.2.1.tar.gz"
+  sha256 "ec6a76169d4214e2e8b737e0850ba4acb806c69eeace6240ed4481b9f5c57cdf"
   license "Zlib"
 
   # Upstream creates releases that use a stable tag (e.g., `v1.2.3`) but are
