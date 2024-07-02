@@ -64,6 +64,7 @@ apache-geode
 apache-opennlp
 apache-spark
 apachetop
+apibuilder-cli
 apidoc
 apkleaks
 apko

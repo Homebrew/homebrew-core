@@ -1,8 +1,8 @@
 class ApibuilderCli < Formula
   desc "Command-line interface to generate clients for api builder"
   homepage "https://www.apibuilder.io"
-  url "https://github.com/apicollective/apibuilder-cli/archive/refs/tags/0.1.46.tar.gz"
-  sha256 "8189b26f158d30ac09a8855fffa72fbaadbcb777eb3c1fca23e2532f333ba228"
+  url "https://github.com/apicollective/apibuilder-cli/archive/refs/tags/0.1.49.tar.gz"
+  sha256 "b6bd4a33554413eb63f9f3f2c8c5b0ba1926893aca8575b537602fac8bfb532d"
   license "MIT"
 
   bottle do
@@ -17,6 +17,12 @@ class ApibuilderCli < Formula
 
   uses_from_macos "ruby"
 
+  # patch to remove ask.rb file load, upstream pr ref, https://github.com/apicollective/apibuilder-cli/pull/89
+  patch do
+    url "https://github.com/apicollective/apibuilder-cli/commit/2f901ad345c8a5d3b7bf46934d97f9be2150eae7.patch?full_index=1"
+    sha256 "d57b7684247224c7d9e43b4b009da92c7a9c9ff9938e2376af544662c5dfd6c4"
+  end
+
   def install
     system "./install.sh", prefix
   end
@@ -26,6 +32,7 @@ class ApibuilderCli < Formula
       [default]
       token = abcd1234
     EOS
+
     assert_match "Profile default:",
                  shell_output("#{bin}/read-config --path config")
     assert_match "Could not find apibuilder configuration directory",
