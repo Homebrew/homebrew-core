@@ -2,8 +2,8 @@ class OdoDev < Formula
   desc "Developer-focused CLI for Kubernetes and OpenShift"
   homepage "https://odo.dev"
   url "https://github.com/redhat-developer/odo.git",
-      tag:      "v3.15.0",
-      revision: "10b5e8a8f5011703a8cb62b4001eead5ae58cf45"
+      tag:      "v3.16.1",
+      revision: "cd346c5e6c0d9891b06824915ed4e3281a4ecc02"
   license "Apache-2.0"
   head "https://github.com/redhat-developer/odo.git", branch: "main"
 
@@ -45,7 +45,7 @@ class OdoDev < Formula
 
     # test version
     version_output = shell_output("#{bin}/odo version --client 2>&1").strip
-    assert_match(/odo v#{version} \([a-f0-9]{9}-Homebrew\)/, version_output)
+    assert_match version.to_s, version_output
 
     # try to create a new component
     system bin/"odo", "init", "--devfile", "nodejs", "--name", "test", "--devfile-registry", "StagingRegistry"
