@@ -3,5 +3,6 @@
   "libadwaita": "1.5",
   "libart": "2.3",
   "libepoxy": "1.5",
+  "libxml2": "2.13",
   "libxslt": "1.1"
 }
