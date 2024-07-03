@@ -1270,6 +1270,7 @@ kpcli
 krakend
 krb5
 krew
+ksh93
 ksops
 ktfmt
 kube-linter
