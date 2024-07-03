@@ -1646,6 +1646,7 @@ mpv
 mqttui
 mrboom
 mruby
+msc-generator
 msgpack
 msgpack-cxx
 msmtp
