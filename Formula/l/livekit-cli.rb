@@ -1,8 +1,8 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v1.5.1.tar.gz"
-  sha256 "55b31b8bbe639d4c2c78ed61e7e84b874a0d1ccd2f80e92dffcb392deedf1805"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "a357acdaa0a6af7fde9236597fa6e17b8a6b3f41ebf796780bfc46a1bb7e0df9"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
@@ -19,12 +19,13 @@ class LivekitCli < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/livekit-cli"
+    system "go", "build", *std_go_args(ldflags: "-s -w"), "-o", "lk", "./cmd/lk"
+    bin.install "lk" => "lk"
   end
 
   test do
-    output = shell_output("#{bin}/livekit-cli create-token --list --api-key key --api-secret secret")
+    output = shell_output("#{bin}/lk token create --list --api-key key --api-secret secret")
     assert output.start_with?("valid for (mins):  5")
-    assert_match "livekit-cli version #{version}", shell_output("#{bin}/livekit-cli --version")
+    assert_match "lk version #{version}", shell_output("#{bin}/lk --version")
   end
 end
