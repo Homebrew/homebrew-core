@@ -9,6 +9,7 @@ class AudioVisualizer < Formula
 
   depends_on "cmake" => :build
   depends_on "numpy"
+  depends_on "portaudio"
   depends_on "python@3.12"
   depends_on "six"
 
