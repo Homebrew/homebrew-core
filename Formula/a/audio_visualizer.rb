@@ -3,8 +3,8 @@ class AudioVisualizer < Formula
 
   desc "Janky, yet charming, terminal audio visualizer"
   homepage "https://github.com/gituser12981u2/audio_visualizer"
-  url "https://github.com/gituser12981u2/audio_visualizer/releases/download/v1.0.0/audio_visualizer-1.0.0.tar.gz"
-  sha256 "a55259e6df97be89a9d336215f4ffde81e1541f7fb12b709c745faa7ed5505ca"
+  url "https://github.com/gituser12981u2/audio_visualizer/releases/download/v1.0.1/audio_visualizer-1.0.1.tar.gz"
+  sha256 "82f089e3d50e61329d8811cf14be4c80036d24c110b50b9a8a23a07aec8abed7"
   license "MIT"
 
   depends_on "cmake" => :build
@@ -58,15 +58,15 @@ class AudioVisualizer < Formula
   def install
     venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
 
-    system "echo", "This might take a while."
+    puts "\e[34m==>\e[0m \e[1mThis might take a while.\e[0m"
 
     resources.each do |r|
-      system "echo", "Installing #{r.name}"
+      puts "\e[32m==>\e[0m \e[1mInstalling \e[22m\e[32m#{r.name}\e[0m"
       venv.pip_install r
     end
 
     venv.pip_install_and_link buildpath
-    system "echo", "Installation completed"
+    puts "\e[32m==>\e[0m \e[1mInstallation completed\e[0m"
   end
 
   test do
