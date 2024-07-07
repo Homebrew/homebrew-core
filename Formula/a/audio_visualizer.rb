@@ -7,8 +7,6 @@ class AudioVisualizer < Formula
   sha256 "7748b515d9aa490a90652bd32ab7f1baec641fbf0f8dd32ba74d79c6f25bf780"
   license "MIT"
 
-  option "with-gpu", "Install GPU support via CuPy"
-
   depends_on "cmake" => :build
   depends_on "numpy"
   depends_on "python@3.12"
@@ -65,14 +63,25 @@ class AudioVisualizer < Formula
     venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
 
     system "echo", "This might take a while."
-    resources.each do |r|
-      next if r.name == "cupy" && !build.with?("gpu")
 
+    # Check if CUDA is available
+    cuda_available = ENV["CUDA_HOME"] || which("nvcc")
+    if cuda_available
+      system "echo", "CUDA -capable GPU detected. Installing CuPy"
+      venv.pip_install "cupy" # Installed CuPy if cuda is avaliable
+    end
+
+    resources.each do |r|
       system "echo", "Installing #{r.name}"
       venv.pip_install r
     end
 
     venv.pip_install_and_link buildpath
     system "echo", "Installation completed"
+  end
+
+  test do
+    assert_match "audio_visualizer 1.0.0", 
+    shell_output("#{bin}/audio-visualizer --version")
   end
 end
