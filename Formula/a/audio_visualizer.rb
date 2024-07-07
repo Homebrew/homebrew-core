@@ -4,7 +4,7 @@ class AudioVisualizer < Formula
   desc "Janky, yet charming, terminal audio visualizer"
   homepage "https://github.com/gituser12981u2/audio_visualizer"
   url "https://github.com/gituser12981u2/audio_visualizer/releases/download/v1.0.0/audio_visualizer-1.0.0.tar.gz"
-  sha256 "7748b515d9aa490a90652bd32ab7f1baec641fbf0f8dd32ba74d79c6f25bf780"
+  sha256 "a55259e6df97be89a9d336215f4ffde81e1541f7fb12b709c745faa7ed5505ca"
   license "MIT"
 
   depends_on "cmake" => :build
