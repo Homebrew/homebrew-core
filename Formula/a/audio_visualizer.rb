@@ -54,22 +54,10 @@ class AudioVisualizer < Formula
     sha256 "3a5726546da54116b687785d38b1db56997ce1d28e53e8d22fc656d8b92e533c"
   end
 
-  resource "cupy" do
-    url "https://files.pythonhosted.org/packages/4a/2b/4f403ddc271ccdb867ccd03482fdc63deca8f23154c2a5ff7b024fa86653/cupy-13.2.0.tar.gz"
-    sha256 "e4dbd2b2ed4159a5cc0c0f98a710a014950eb2c16eeb455e956128f3b3bd0d51"
-  end
-
   def install
     venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
 
     system "echo", "This might take a while."
-
-    # Check if CUDA is available
-    cuda_available = ENV["CUDA_HOME"] || which("nvcc")
-    if cuda_available
-      system "echo", "CUDA -capable GPU detected. Installing CuPy"
-      venv.pip_install "cupy" # Installed CuPy if cuda is avaliable
-    end
 
     resources.each do |r|
       system "echo", "Installing #{r.name}"
@@ -81,7 +69,7 @@ class AudioVisualizer < Formula
   end
 
   test do
-    assert_match "audio_visualizer 1.0.0", 
+    assert_match "audio_visualizer 1.0.0",
     shell_output("#{bin}/audio-visualizer --version")
   end
 end
