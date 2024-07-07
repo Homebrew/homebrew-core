@@ -70,7 +70,7 @@ class AudioVisualizer < Formula
   end
 
   test do
-    assert_match "audio_visualizer 1.0.0",
+    assert_match "audio_visualizer 1.0.1",
     shell_output("#{bin}/audio-visualizer --version")
   end
 end
