@@ -1021,7 +1021,6 @@ gpac
 gpg-tui
 gprof2dot
 gpsim
-gptscript
 gradle
 gradle-completion
 gradle-profiler
