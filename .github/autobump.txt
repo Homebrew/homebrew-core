@@ -2283,6 +2283,7 @@ sniffnet
 snort
 snowflake
 snyk-cli
+soapybladerf
 soapyremote
 socket_vmnet
 solana
