@@ -2,8 +2,8 @@ class ThorsSerializer < Formula
   desc "Declarative serialization library (JSON/YAML) for C++"
   homepage "https://github.com/Loki-Astari/ThorsSerializer"
   url "https://github.com/Loki-Astari/ThorsSerializer.git",
-      tag:      "3.0.2",
-      revision: "62f95423c42fd1acab45609a39f985021163d34f"
+      tag:      "3.1.1",
+      revision: "d39ab6076675e03e29b6adf5ba5574d2114c65ca"
   license "MIT"
 
   bottle do
@@ -68,7 +68,7 @@ class ThorsSerializer < Formula
     EOS
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test",
            "-I#{Formula["boost"].opt_include}",
-           "-I#{include}", "-L#{lib}", "-lThorSerialize17", "-lThorsLogging17", "-ldl"
+           "-I#{include}", "-L#{lib}", "-lThorSerialize", "-lThorsLogging", "-ldl"
     system "./test"
   end
 end

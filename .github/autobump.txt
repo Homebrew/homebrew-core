@@ -2456,6 +2456,7 @@ tfupdate
 tgui
 thanos
 theharvester
+thors-serializer
 thrift
 thriftgo
 tig
