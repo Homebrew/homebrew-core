@@ -2076,6 +2076,7 @@ quilt-installer
 quotatool
 qxmpp
 r
+r2r
 rabbitmq
 radamsa
 radare2
