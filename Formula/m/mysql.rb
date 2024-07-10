@@ -36,6 +36,11 @@ class Mysql < Formula
   uses_from_macos "cyrus-sasl"
   uses_from_macos "libedit"
 
+  # requires CLang 15
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1420
+  end
+
   on_linux do
     depends_on "patchelf" => :build
     depends_on "libtirpc"
