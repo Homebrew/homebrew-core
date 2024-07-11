@@ -46,13 +46,13 @@ class Mysql < Formula
     depends_on "libtirpc"
   end
 
+  conflicts_with "mariadb", "percona-server",
+    because: "mysql, mariadb, and percona install the same binaries"
+
   fails_with :clang do
     build 1420
     cause "Requires C++20 ranges"
   end
-
-  conflicts_with "mariadb", "percona-server",
-    because: "mysql, mariadb, and percona install the same binaries"
 
   def datadir
     var/"mysql"
