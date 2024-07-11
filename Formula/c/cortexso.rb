@@ -3,8 +3,8 @@ require "language/node"
 class Cortexso < Formula
   desc "Drop-in, local AI alternative to the OpenAI stack"
   homepage "https://jan.ai/cortex"
-  url "https://registry.npmjs.org/cortexso/-/cortexso-0.1.1.tgz"
-  sha256 "48efc16761eebfdd60e50211049554e7b781b30e56461042c6bf100e84d8d244"
+  url "https://registry.npmjs.org/cortexso/-/cortexso-0.1.6.tgz"
+  sha256 "50f16c355957df7e67321fd2f41ed8804706927611fd70418ebd11f7f8a6336c"
   license "Apache-2.0"
   head "https://github.com/janhq/cortex.git", branch: "dev"
 
@@ -18,6 +18,7 @@ class Cortexso < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "68a5b223387791ba534e7c06126c8938c62bc898176585d0d27755d575445696"
   end
 
+  depends_on "cmake" => :build
   depends_on "node"
 
   on_linux do
