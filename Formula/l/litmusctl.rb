@@ -1,8 +1,8 @@
 class Litmusctl < Formula
   desc "Command-line interface for interacting with LitmusChaos"
   homepage "https://litmuschaos.io"
-  url "https://github.com/litmuschaos/litmusctl/archive/refs/tags/1.7.0.tar.gz"
-  sha256 "f4e404b645651e0923d38b1c56ce4a6643bda3bc27d881cddbd82ee6f7a8a7e0"
+  url "https://github.com/shivam-Purohit/litmusctl/archive/refs/tags/1.8.0.tar.gz"
+  sha256 "8bbd7e41ddd420140ef17dabb693acb3a28f48e8e4e9459a957302b6d2a158db"
   license "Apache-2.0"
   head "https://github.com/litmuschaos/litmusctl.git", branch: "master"
 
