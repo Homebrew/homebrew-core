@@ -28,6 +28,7 @@ class Unnethack < Formula
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
+  uses_from_macos "ncurses"
 
   on_linux do
     depends_on "util-linux"
@@ -49,6 +50,9 @@ class Unnethack < Formula
   end
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # directory for version specific files that shouldn't be deleted when
     # upgrading/uninstalling
     version_specific_directory = "#{var}/unnethack/#{version}"
