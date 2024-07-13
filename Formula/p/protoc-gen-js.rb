@@ -1,8 +1,8 @@
 class ProtocGenJs < Formula
   desc "Protocol buffers JavaScript generator plugin"
   homepage "https://github.com/protocolbuffers/protobuf-javascript"
-  url "https://github.com/protocolbuffers/protobuf-javascript/archive/refs/tags/v3.21.2.tar.gz"
-  sha256 "35bca1729532b0a77280bf28ab5937438e3dcccd6b31a282d9ae84c896b6f6e3"
+  url "https://github.com/protocolbuffers/protobuf-javascript/archive/refs/tags/v3.21.3.tar.gz"
+  sha256 "916396bed2ebd3797f37aa5e86a09f2f0881e102be594daab061475005b6dcc3"
   license "BSD-3-Clause"
   head "https://github.com/protocolbuffers/protobuf-javascript.git", branch: "main"
 
