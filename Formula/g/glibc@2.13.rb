@@ -80,13 +80,6 @@ class GlibcAT213 < Formula
   depends_on :linux
   depends_on LinuxKernelRequirement
 
-  # Fix getconf files having random bytes at the end of their names.
-  # Backport of patch included in 2.16.
-  patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/d87dbbdadb5aa4899fd293be70f8087a412d6a59/glibc/2.13-getconf.diff"
-    sha256 "e945c11c76655cba6f3e1c13d847e57d6e591a5af3fd7d3eb2c200475bfcdaed"
-  end
-
   def install
     # Fix checking version of gcc-5 5.4.0, bad
     inreplace "configure", "3.4* | 4.[0-9]* )", "3.4* | [4-9].* | 1[0-3].*)"
