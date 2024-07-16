@@ -36,6 +36,8 @@ class Ffmpeg < Formula
   depends_on "lame"
   depends_on "libass"
   depends_on "libbluray"
+  depends_on "libdvdnav"
+  depends_on "libdvdread"
   depends_on "librist"
   depends_on "libsoxr"
   depends_on "libssh"
@@ -112,6 +114,8 @@ class Ffmpeg < Formula
       --enable-libaom
       --enable-libaribb24
       --enable-libbluray
+      --enable-libdvdnav
+      --enable-libdvdread
       --enable-libdav1d
       --enable-libharfbuzz
       --enable-libjxl
