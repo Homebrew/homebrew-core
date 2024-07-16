@@ -3,7 +3,7 @@ class Bitwise < Formula
   homepage "https://github.com/mellowcandle/bitwise"
   url "https://github.com/mellowcandle/bitwise/releases/download/v0.50/bitwise-v0.50.tar.gz"
   sha256 "806271fa5bf31de0600315e8720004a8f529954480e991ca84a9868dc1cae97e"
-  license "GPL-3.0"
+  license "GPL-3.0-or-later"
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "923c4828ff104f940038b9d6969759b08d90a3d2c89cb1c0e31b913a2d38769e"
