@@ -3,8 +3,8 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/67/78/bc0b26080ffb07e76e2ab078aef54ba6b0d2c5cecf9233cfe3a819c8d4b3/cycode-1.10.3.tar.gz"
-  sha256 "1584d510b510b5a3af2e72b17d300d40679e5a293ec9ab9cb00137efa55579f1"
+  url "https://files.pythonhosted.org/packages/ce/31/3c605d1c54bf939cff59db7588605d56d830c885333ff1a07b87d55c9562/cycode-1.10.5.tar.gz"
+  sha256 "af3a33e8145366589158860799a49e76c65d075e50714b9a748c7f34afdf58e4"
   license "MIT"
 
   bottle do
@@ -61,6 +61,11 @@ class Cycode < Formula
     sha256 "35f314a9f878467f5453cc1fee295c3e18e52f1b99f10f6cf5b1682e968a9e7c"
   end
 
+  resource "git-versioner" do
+    url "https://gitlab.com/alelec/__version__/-/archive/v7.1/__version__-v7.1.tar.gz"
+    sha256 "7525fe6cf9e6799a4a27d0e0b5af1bc12e0f123c35e9675162d0f09e8bbf4a5f"
+  end
+
   resource "idna" do
     url "https://files.pythonhosted.org/packages/21/ed/f86a79a07470cb07819390452f178b3bef1d375f2ec021ecfc709fc7cf07/idna-3.7.tar.gz"
     sha256 "028ff3aadf0609c1fd278d8ea3089299412a7a8b9bd005dd08b9f8285bcb5cfc"
@@ -79,6 +84,11 @@ class Cycode < Formula
   resource "pathspec" do
     url "https://files.pythonhosted.org/packages/a0/2a/bd167cdf116d4f3539caaa4c332752aac0b3a0cc0174cdb302ee68933e81/pathspec-0.11.2.tar.gz"
     sha256 "e0d8d0ac2f12da61956eb2306b69f9469b42f4deb0f3cb6ed47b9cce9996ced3"
+  end
+
+  resource "pip-system-certs" do
+    url "https://files.pythonhosted.org/packages/27/9a/4e949d0a281c5dd45c8d5b02b03fe32044936234675e967de49317a1daee/pip_system_certs-4.0.tar.gz"
+    sha256 "db8e6a31388d9795ec9139957df1a89fa5274fb66164456fd091a5d3e94c350c"
   end
 
   resource "pyjwt" do
@@ -102,8 +112,8 @@ class Cycode < Formula
   end
 
   resource "sentry-sdk" do
-    url "https://files.pythonhosted.org/packages/c9/9d/d61d64819ecb0481647229c3ee8ddc00887552acc23745fd65d0d4d066f3/sentry_sdk-2.8.0.tar.gz"
-    sha256 "aa4314f877d9cd9add5a0c9ba18e3f27f99f7de835ce36bd150e48a41c7c646f"
+    url "https://files.pythonhosted.org/packages/34/d8/ec3e43d4ce31e4f4cb6adb7210950362d71ce87a96c89934c4ac94f7110f/sentry_sdk-2.10.0.tar.gz"
+    sha256 "545fcc6e36c335faa6d6cda84669b6e17025f31efbf3b2211ec14efe008b75d1"
   end
 
   resource "six" do
@@ -124,6 +134,11 @@ class Cycode < Formula
   resource "urllib3" do
     url "https://files.pythonhosted.org/packages/c8/93/65e479b023bbc46dab3e092bda6b0005424ea3217d711964ccdede3f9b1b/urllib3-1.26.19.tar.gz"
     sha256 "3e3d753a8618b86d7de333b4223005f68720bcd6a7d2bcb9fbd2229ec7c1e429"
+  end
+
+  resource "wrapt" do
+    url "https://files.pythonhosted.org/packages/95/4c/063a912e20bcef7124e0df97282a8af3ff3e4b603ce84c481d6d7346be0a/wrapt-1.16.0.tar.gz"
+    sha256 "5f370f952971e7d17c7d1ead40e49f32345a7f7a5373571ef44d800d06b1899d"
   end
 
   def install
