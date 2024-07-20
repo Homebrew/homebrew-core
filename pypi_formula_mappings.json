@@ -262,7 +262,7 @@
   },
   "dvc": {
     "package_name": "dvc[all]",
-    "exclude_packages": ["certifi", "cryptography", "numpy"]
+    "exclude_packages": ["certifi", "cryptography", "numpy", "pygit2"]
   },
   "dxpy": {
     "exclude_packages": ["cryptography", "certifi"]
