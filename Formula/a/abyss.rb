@@ -1,8 +1,8 @@
 class Abyss < Formula
   desc "Genome sequence assembler for short reads"
   homepage "https://www.bcgsc.ca/resources/software/abyss"
-  url "https://github.com/bcgsc/abyss/releases/download/2.3.7/abyss-2.3.7.tar.gz"
-  sha256 "ba37780e79ec3aa359b6003e383caef13479a87f4d0022af01b86398f9ffca1f"
+  url "https://github.com/bcgsc/abyss/releases/download/2.3.8/abyss-2.3.8.tar.gz"
+  sha256 "3c262269043f619c79ec3dcd91f5595cb141229f9a13d1a76a952b9a0bfb0d84"
   license all_of: ["GPL-3.0-only", "LGPL-2.1-or-later", "MIT", "BSD-3-Clause"]
 
   livecheck do
@@ -45,20 +45,8 @@ class Abyss < Formula
   fails_with :clang # no OpenMP support
 
   resource "btllib" do
-    url "https://github.com/bcgsc/btllib/releases/download/v1.6.0/btllib-1.6.0.tar.gz"
-    sha256 "4a122c1047785dc865b8c94063714667f8ca43b8a881754eebd96dbb44fd1c3f"
-
-    # Fixes 'uint' was not declared in this scope
-    # Remove in next release
-    patch do
-      url "https://github.com/bcgsc/btllib/commit/43adf3d2671cc1ab780d23666e038055edb9d669.patch?full_index=1"
-      sha256 "47e0f70501c8f5d543eb2a956a226f0a1a51816123a9b2061a081fb92c7b3f0c"
-    end
-  end
-
-  resource "homebrew-testdata" do
-    url "https://www.bcgsc.ca/sites/default/files/bioinformatics/software/abyss/releases/1.3.4/test-data.tar.gz"
-    sha256 "28f8592203daf2d7c3b90887f9344ea54fda39451464a306ef0226224e5f4f0e"
+    url "https://github.com/bcgsc/btllib/releases/download/v1.7.2/btllib-1.7.2.tar.gz"
+    sha256 "4c1bb29fdbd7d9a39f960360a5d4b224d22189862b948027a8e3ecd67c635926"
   end
 
   def install
@@ -82,6 +70,11 @@ class Abyss < Formula
   end
 
   test do
+    resource "homebrew-testdata" do
+      url "https://www.bcgsc.ca/sites/default/files/bioinformatics/software/abyss/releases/1.3.4/test-data.tar.gz"
+      sha256 "28f8592203daf2d7c3b90887f9344ea54fda39451464a306ef0226224e5f4f0e"
+    end
+
     testpath.install resource("homebrew-testdata")
     if which("column")
       system "#{bin}/abyss-pe", "B=2G", "k=25", "name=ts", "in=reads1.fastq reads2.fastq"
