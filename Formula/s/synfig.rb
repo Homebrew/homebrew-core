@@ -55,6 +55,16 @@ class Synfig < Formula
 
   uses_from_macos "perl" => :build
 
+  on_macos do
+    depends_on "fontconfig"
+    depends_on "fribidi"
+    depends_on "glib"
+    depends_on "glibmm@2.66"
+    depends_on "harfbuzz"
+    depends_on "imath"
+    depends_on "libmng"
+  end
+
   fails_with gcc: "5"
 
   def install
