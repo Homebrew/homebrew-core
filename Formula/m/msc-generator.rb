@@ -32,9 +32,12 @@ class MscGenerator < Formula
   depends_on "bison" => :build
   depends_on "help2man" => :build
   depends_on "pkg-config" => :build
+
   depends_on "cairo"
+  depends_on "fontconfig"
   depends_on "glpk"
   depends_on "graphviz"
+  depends_on "libpng"
   depends_on "sdl2"
   depends_on "tinyxml2"
 
@@ -82,9 +85,11 @@ class MscGenerator < Formula
   test do
     # Try running the program
     system "#{bin}/msc-gen", "--version"
+
     # Construct a simple chart and check if PNG is generated (the default output format)
     (testpath/"simple.signalling").write("a->b;")
-    system "#{bin}/msc-gen", "simple.signalling"
+    system bin/"msc-gen", "simple.signalling"
+
     assert_predicate testpath/"simple.png", :exist?
     bytes = File.binread(testpath/"simple.png")
     assert_equal bytes[0..7], "\x89PNG\r\n\x1a\n".force_encoding("ASCII-8BIT")
