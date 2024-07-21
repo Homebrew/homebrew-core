@@ -22,6 +22,11 @@ class Gammaray < Formula
   depends_on "graphviz"
   depends_on "qt"
 
+  on_linux do
+    depends_on "elfutils"
+    depends_on "wayland"
+  end
+
   fails_with gcc: "5"
 
   def install
