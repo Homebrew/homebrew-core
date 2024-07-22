@@ -1,11 +1,10 @@
 class Eiffelstudio < Formula
   desc "Development environment for the Eiffel language"
   homepage "https://www.eiffel.com"
-  url "https://ftp.eiffel.com/pub/download/22.05/pp/PorterPackage_std_106302.tar"
-  version "22.05.10.6302"
-  sha256 "c2ede38b19cedead58a9e075cf79d6a4b113e049c0723fe9556c4f36ee68b80d"
-  license "GPL-2.0"
-  revision 1
+  url "https://ftp.eiffel.com/pub/download/23.09/pp/PorterPackage_std_23.09_107341.tar"
+  version "23.09.107341"
+  sha256 "f92dad3226b81e695ba6deb752d7b8e84351f1dcab20e18492cc56a2b7d8d4b1"
+  license "GPL-2.0-only"
 
   livecheck do
     url "https://ftp.eiffel.com/pub/download/latest/pp/"
