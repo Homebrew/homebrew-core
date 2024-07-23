@@ -1,8 +1,8 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://dev.mysql.com/doc/refman/8.4/en/"
-  url "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.1.tar.gz"
-  sha256 "db41f197d7170c54d7edc0d0c9a2730c225f4af05eced0f64becf9bb6c11013e"
+  url "https://dev.mysql.com/get/Downloads/MySQL-8.4/mysql-8.4.2.tar.gz"
+  sha256 "5657a78dc86bf0bf2227e0b05f8de5a2c447a816a112ffa26fa70083bcbe9814"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
