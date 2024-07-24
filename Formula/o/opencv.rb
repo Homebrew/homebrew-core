@@ -103,7 +103,7 @@ class Opencv < Formula
       -DBUILD_WEBP=OFF
       -DBUILD_ZLIB=OFF
       -DBUILD_opencv_hdf=OFF
-      -DBUILD_opencv_java=OFF
+      -DBUILD_opencv_java=ON
       -DBUILD_opencv_text=ON
       -DOPENCV_ENABLE_NONFREE=ON
       -DOPENCV_EXTRA_MODULES_PATH=#{buildpath}/opencv_contrib/modules
