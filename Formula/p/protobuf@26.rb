@@ -20,6 +20,8 @@ class ProtobufAT26 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "7460997e933897b54945444f56b3926407763cf2cdcc0d06b044f31eee252afa"
   end
 
+  keg_only :versioned_formula
+
   depends_on "cmake" => :build
   depends_on "abseil"
   depends_on "jsoncpp"
