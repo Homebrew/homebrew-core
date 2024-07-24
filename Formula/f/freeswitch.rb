@@ -49,6 +49,12 @@ class Freeswitch < Formula
   uses_from_macos "libxcrypt"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "freetype"
+    depends_on "libpng"
+    depends_on "opencore-amr"
+  end
+
   # https://github.com/Homebrew/homebrew/issues/42865
 
   #----------------------- Begin sound file resources -------------------------
@@ -138,6 +144,10 @@ class Freeswitch < Formula
     end
 
     resource("libks").stage do
+      # Work-around for build issue with Xcode 15.3
+      # upstream bug report, https://github.com/signalwire/libks/issues/204
+      ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+
       system "cmake", ".", *std_cmake_args(install_prefix: libexec/"libks")
       system "cmake", "--build", "."
       system "cmake", "--install", "."
