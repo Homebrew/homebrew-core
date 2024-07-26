@@ -40,6 +40,10 @@ class Erlang < Formula
     depends_on "coreutils" # sha(1|256)sum used for ex_doc download validation
   end
 
+  on_linux do
+    depends_on "mesa-glu"
+  end
+
   resource "html" do
     url "https://github.com/erlang/otp/releases/download/OTP-27.0.1/otp_doc_html_27.0.1.tar.gz"
     mirror "https://fossies.org/linux/misc/otp_doc_html_27.0.1.tar.gz"
