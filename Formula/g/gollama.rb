@@ -12,13 +12,19 @@ class Gollama < Formula
   end
 
   depends_on "go" => :build
+  depends_on "curl" => :test
 
   def install
     system "go", "build", "-mod=readonly", *std_go_args(ldflags: "-s -w -X main.Version=#{version}")
   end
 
   test do
+    api_status = shell_output("curl -s http://localhost:11434 || true")
+    if api_status == "Ollama is running"
+      assert_match "Search results for: test", shell_output("#{bin}/gollama -s test", 0)
+    else
+      assert_match "Error fetching models:", shell_output("#{bin}/gollama -s test", 1)
+    end
     assert_match version.to_s, shell_output("#{bin}/gollama -v")
-    assert_match "Search results for: test", shell_output("#{bin}/gollama -s test")
   end
 end
