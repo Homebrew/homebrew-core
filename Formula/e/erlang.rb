@@ -35,6 +35,8 @@ class Erlang < Formula
   depends_on "wxwidgets" # for GUI apps like observer
 
   uses_from_macos "libxslt" => :build
+  uses_from_macos "ncurses"
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "coreutils" # sha(1|256)sum used for ex_doc download validation
