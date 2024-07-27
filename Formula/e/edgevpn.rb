@@ -32,4 +32,19 @@ class Edgevpn < Formula
     assert_match "otp:", generate_token_output
     assert_match "max_message_size: 20971520", generate_token_output
   end
+
+  service do
+    run_args = [opt_bin/"edgevpn"]
+
+    if OS.mac?
+      used_utuns = `ifconfig | grep -E '^utun' | cut -d: -f1`.split("\n")
+      next_free_utun = used_utuns.map { |x| x.match(/utun(\d+)/)[1].to_i }.max.to_i + 1
+
+      run_args += ["--interface", "utun#{next_free_utun}"]
+    end
+
+    run run_args
+    require_root true
+    keep_alive true
+  end
 end
