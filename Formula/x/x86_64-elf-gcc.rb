@@ -24,6 +24,7 @@ class X8664ElfGcc < Formula
   depends_on "libmpc"
   depends_on "mpfr"
   depends_on "x86_64-elf-binutils"
+  depends_on "zstd"
 
   def install
     target = "x86_64-elf"
@@ -56,8 +57,9 @@ class X8664ElfGcc < Formula
         return i;
       }
     EOS
-    system "#{bin}/x86_64-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
-    assert_match "file format elf64-x86-64",
-      shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
+
+    system bin/"x86_64-elf-gcc", "-c", "-o", "test-c.o", "test-c.c"
+    output = shell_output("#{Formula["x86_64-elf-binutils"].bin}/x86_64-elf-objdump -a test-c.o")
+    assert_match "file format elf64-x86-64", output
   end
 end
