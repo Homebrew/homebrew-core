@@ -719,6 +719,7 @@ elvish
 emacs
 emacs-dracula
 embree
+embulk
 emqx
 emscripten
 enchant
