@@ -3,10 +3,9 @@ class Gnuradio < Formula
 
   desc "SDK for signal processing blocks to implement software radios"
   homepage "https://gnuradio.org/"
-  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.9.2.tar.gz"
-  sha256 "7fa154c423d01494cfa4c739faabad70b97f605238cd3fea8907b345b421fea1"
+  url "https://github.com/gnuradio/gnuradio/archive/refs/tags/v3.10.11.0.tar.gz"
+  sha256 "9ca658e6c4af9cfe144770757b34ab0edd23f6dcfaa6c5c46a7546233e5ecd29"
   license "GPL-3.0-or-later"
-  revision 8
   head "https://github.com/gnuradio/gnuradio.git", branch: "main"
 
   livecheck do
@@ -147,12 +146,6 @@ class Gnuradio < Formula
   resource "setuptools" do
     url "https://files.pythonhosted.org/packages/c8/1f/e026746e5885a83e1af99002ae63650b7c577af5c424d4c27edcf729ab44/setuptools-69.1.1.tar.gz"
     sha256 "5c0806c7d9af348e6dd3777b4f4dbb42c7ad85b190104837488eab9a7c945cf8"
-  end
-
-  # Allow qwt 6.3+
-  patch do
-    url "https://github.com/gnuradio/gnuradio/commit/ca344658756dab10a762571c51acf92c00c066c1.patch?full_index=1"
-    sha256 "7e16ca70d07ce61bc16870f756acc194eb893e22703c53ed2826f5cf90dc7f4e"
   end
 
   def python3
