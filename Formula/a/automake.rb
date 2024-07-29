@@ -1,7 +1,7 @@
 class Automake < Formula
   desc "Tool for generating GNU Standards-compliant Makefiles"
   homepage "https://www.gnu.org/software/automake/"
-  url "https://ftp.gnu.org/gnu/automake/automake-1.17.tar.xz"
+  url "http://ftp.vim.org/ftp/gnu/automake/automake-1.17.tar.xz"
   mirror "https://ftpmirror.gnu.org/automake/automake-1.17.tar.xz"
   sha256 "8920c1fc411e13b90bf704ef9db6f29d540e76d232cb3b2c9f4dc4cc599bd990"
   license "GPL-2.0-or-later"
