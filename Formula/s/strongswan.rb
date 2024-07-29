@@ -11,12 +11,13 @@ class Strongswan < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "5ba10147c3ecf0e90127558b0e71f9b5b5df75c6668d76f911b0aa549f935160"
-    sha256 arm64_ventura:  "0fdb596affa3c1c1477487023a78f80ef5335cffa9bfd6301899c382f4c390c2"
-    sha256 arm64_monterey: "f6d312b4f5d83e7717c01731dcecaac943579fee5f66e95f4b2afa022a0085eb"
-    sha256 sonoma:         "52ce245c069d24c7eaa8102d2d89921e6a29da7da3bfdfd052cd582c014c5235"
-    sha256 ventura:        "a6b6cd6c174a3e790a804e18c58b8c93f61b476b027d4a95b7fdc830aeba8d8a"
-    sha256 monterey:       "85aaddadf5bee611b7cf791175810fd0ac203adfdb3471e8a3918605004f51e7"
+    rebuild 1
+    sha256 arm64_sonoma:   "b60dab9422792d21de64de8f5ab42203f71bb1620edfd7801c2110ca7b0672a4"
+    sha256 arm64_ventura:  "0a1fa8983cd37750912fa4d76e55a6dcc1693f15df8c9144032321dab0c37f9b"
+    sha256 arm64_monterey: "8dd5ed7854c469a27efd3e6a4849a3b4b6d30c725554a0329196de93b22b84d4"
+    sha256 sonoma:         "b7119f1f155237b204bddc13bbf951eece16becca11f675f5a977d1395945c51"
+    sha256 ventura:        "732978bdf6f719e5750d4f9177750d760dd0bc617beff421bbdfda02d9909b42"
+    sha256 monterey:       "7344b1d75d5eba6e015d66158e03014f49034b52b1390a37fd8a7048e4358dd4"
   end
 
   head do
