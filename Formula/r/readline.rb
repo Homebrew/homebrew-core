@@ -1,7 +1,7 @@
 class Readline < Formula
   desc "Library for command-line editing"
   homepage "https://tiswww.case.edu/php/chet/readline/rltop.html"
-  url "https://ftp.gnu.org/gnu/readline/readline-8.2.tar.gz"
+  url "https://mirror.ihost.md/gnu/readline/readline-8.2.tar.gz"
   mirror "https://ftpmirror.gnu.org/readline/readline-8.2.tar.gz"
   version "8.2.10"
   sha256 "3feb7171f16a84ee82ca18a36d7b9be109a52c04f492a053331d7d1095007c35"
