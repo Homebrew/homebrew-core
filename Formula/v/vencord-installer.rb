@@ -15,5 +15,6 @@ class VencordInstaller < Formula
 
   test do
     assert_match "Vencord Installer Cli v#{version} (#{tap.user})", shell_output("#{bin}/vencord-installer -version")
+    assert_match "ERROR Discord stable not found", shell_output("#{bin}/vencord-installer -install -branch stable")
   end
 end
