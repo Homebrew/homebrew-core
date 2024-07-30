@@ -212,11 +212,28 @@ class Semgrep < Formula
       # Manually run steps from `opam exec -- make setup` to link Homebrew's tree-sitter
       system "opam", "update", "-y"
 
-      # We pass --no-depexts so as to disable the check for pkg-config.
-      # It seems to not be found when building on ubuntu
-      # See discussion on https://github.com/Homebrew/homebrew-core/pull/82693
-      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./libs/ocaml-tree-sitter-core"
-      system "opam", "install", "-y", "--deps-only", "--no-depexts", "./"
+      # We pass --no-depexts so as to disable the check for
+      # pkg-config.  It seems to not be found when building on ubuntu
+      #
+      # See discussion on
+      # https://github.com/Homebrew/homebrew-core/pull/82693 and also
+      # https://github.com/Homebrew/homebrew-core/pull/176636
+      #
+      # The reason opam thinks the package doesn't exist on linux brew
+      # is likely because opam uses the default system package manager
+      # to detect packages. This means linux brew uses brew to install
+      # dependencies, but opam tries to use package managers like
+      # apt-get to detect dependencies.
+      #
+      # I think this is still an ongoing feature request in opam:
+      # https://github.com/ocaml/opam/pull/4548
+      if OS.mac?
+        system "opam", "install", "-y", "--deps-only", "./libs/ocaml-tree-sitter-core"
+        system "opam", "install", "-y", "--deps-only", "./"
+      else
+        system "opam", "install", "-y", "--deps-only", "--no-depexts", "./libs/ocaml-tree-sitter-core"
+        system "opam", "install", "-y", "--deps-only", "--no-depexts", "./"
+      end
 
       # Run configure script in ocaml-tree-sitter-core
       cd "./libs/ocaml-tree-sitter-core" do
@@ -224,7 +241,6 @@ class Semgrep < Formula
       end
 
       # Install semgrep-core and spacegrep
-      system "opam", "install", "--deps-only", "-y", "."
       system "opam", "exec", "--", "make", "core"
       system "opam", "exec", "--", "make", "copy-core-for-cli"
 
@@ -240,7 +256,7 @@ class Semgrep < Formula
   end
 
   test do
-    system "#{bin}/semgrep", "--help"
+    system bin/"semgrep", "--help"
     (testpath/"script.py").write <<~EOS
       def silly_eq(a, b):
         return a + b == a + b
