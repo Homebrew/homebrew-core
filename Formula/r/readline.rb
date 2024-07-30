@@ -20,7 +20,7 @@ class Readline < Formula
     010 758e2ec65a0c214cfe6161f5cde3c5af4377c67d820ea01d13de3ca165f67b4c
   ].each_slice(2) do |p, checksum|
     patch :p0 do
-      url "https://ftp.gnu.org/gnu/readline/readline-8.2-patches/readline82-#{p}"
+      url "https://mirror.ihost.md/gnu/readline/readline-8.2-patches/readline82-#{p}"
       mirror "https://ftpmirror.gnu.org/readline/readline-8.2-patches/readline82-#{p}"
       sha256 checksum
     end
