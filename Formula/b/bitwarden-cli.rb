@@ -1,8 +1,8 @@
 class BitwardenCli < Formula
   desc "Secure and free password manager for all of your devices"
   homepage "https://bitwarden.com/"
-  url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2024.6.1.tar.gz"
-  sha256 "1dff0f6af422864aa9a4e8c226282cb3f4346a4c8e661effe2571e1553603e56"
+  url "https://github.com/bitwarden/clients/archive/refs/tags/cli-v2024.7.2.tar.gz"
+  sha256 "bf86961b36784dfb04e038a295ebfdd76fe1030f215ce58da18ec9607e535fa2"
   license "GPL-3.0-only"
 
   livecheck do
@@ -32,6 +32,17 @@ class BitwardenCli < Formula
         system "npm", "install", *std_npm_args
         bin.install_symlink Dir[libexec/"bin/*"]
       end
+
+      # Remove incompatible pre-built binaries
+      node_modules = libexec/"lib/node_modules/@bitwarden/cli/node_modules"
+
+      os = OS.kernel_name.downcase
+      arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
+
+      (node_modules/"argon2/prebuilds").glob("*.musl.node").map(&:unlink) if OS.linux?
+
+      node_modules.glob("argon2/prebuilds/*")
+                  .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
     end
 
     generate_completions_from_executable(
