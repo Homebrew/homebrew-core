@@ -42,6 +42,7 @@ class Curl < Formula
   depends_on "openssl@3"
   depends_on "rtmpdump"
   depends_on "zstd"
+  depends_on "c-ares"
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
@@ -70,6 +71,7 @@ class Curl < Formula
       --without-libpsl
       --with-zsh-functions-dir=#{zsh_completion}
       --with-fish-functions-dir=#{fish_completion}
+      --enable-ares
     ]
 
     args << if OS.mac?
