@@ -1,22 +1,10 @@
 class Abseil < Formula
   desc "C++ Common Libraries"
   homepage "https://abseil.io"
+  url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240722.0.tar.gz"
+  sha256 "f50e5ac311a81382da7fa75b97310e4b9006474f9560ac46f54a9967f07d4ae3"
   license "Apache-2.0"
   head "https://github.com/abseil/abseil-cpp.git", branch: "master"
-
-  stable do
-    url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20240116.2.tar.gz"
-    sha256 "733726b8c3a6d39a4120d7e45ea8b41a434cdacde401cba500f14236c49b39dc"
-
-    # upstream commit to avoid export of testonly target
-    patch do
-      url "https://github.com/abseil/abseil-cpp/commit/779a3565ac6c5b69dd1ab9183e500a27633117d5.patch?full_index=1"
-      sha256 "14ad7abbc20b10d57e00d0940e8338f69fd69f58d8285214848998e8687688cc"
-    end
-
-    # upstream fix to remove cyclic cmake dependency, see: https://github.com/abseil/abseil-cpp/commit/cd7f66cab520e99531979b3fd727a25616a1ccbb
-    patch :DATA
-  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "1f81e5b4e59baadeeb034b9e3ab39bfd6fa3452ba040454b20bc7be02f04e3f1"
@@ -78,22 +66,9 @@ class Abseil < Formula
         std::cout << "Joined string: " << s << "\\n";
       }
     EOS
+
     system ENV.cxx, "-std=c++17", "-I#{include}", "-L#{lib}", "-labsl_strings",
                     "test.cc", "-o", "test"
     assert_equal "Joined string: foo-bar-baz\n", shell_output("#{testpath}/test")
   end
 end
-
-__END__
-diff --git a/absl/random/CMakeLists.txt b/absl/random/CMakeLists.txt
-index bd363d88..7692a35b 100644
---- a/absl/random/CMakeLists.txt
-+++ b/absl/random/CMakeLists.txt
-@@ -112,7 +112,6 @@ absl_cc_library(
-     absl::raw_logging_internal
-     absl::random_distributions
-     absl::random_internal_distribution_caller
--    absl::random_internal_mock_overload_set
-     absl::random_random
-     absl::strings
-     absl::span
