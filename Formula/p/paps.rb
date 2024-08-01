@@ -4,7 +4,7 @@ class Paps < Formula
   url "https://github.com/dov/paps/archive/refs/tags/v0.8.0.tar.gz"
   sha256 "8fd8db04e6f8c5c164806d2c1b5fea6096daf583f83f06d1e4813ea61edc291f"
   license "LGPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_sonoma:   "78ee471e29dc3f714aadff0385280973225a6c1ae5116684a1a8edec97be517d"

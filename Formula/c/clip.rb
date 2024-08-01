@@ -2,7 +2,7 @@ class Clip < Formula
   desc "Create high-quality charts from the command-line"
   homepage "https://github.com/asmuth/clip"
   license "Apache-2.0"
-  revision 3
+  revision 4
   head "https://github.com/asmuth/clip.git", branch: "master"
 
   stable do
