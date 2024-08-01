@@ -41,8 +41,9 @@ class Curl < Formula
   depends_on "libssh2"
   depends_on "openssl@3"
   depends_on "rtmpdump"
-  depends_on "zstd"
   depends_on "c-ares"
+  depends_on "zstd"
+
 
   uses_from_macos "krb5"
   uses_from_macos "openldap"
