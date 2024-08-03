@@ -26,10 +26,9 @@ class Janet < Formula
 
   def install
     system "meson", "setup", "build", *std_meson_args
-    cd "build" do
-      system "ninja"
-      system "ninja", "install"
-    end
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
+
     ENV["PREFIX"] = prefix
     resource("jpm").stage do
       system bin/"janet", "bootstrap.janet"
