@@ -117,7 +117,7 @@ class Freeswitch < Formula
         tag:      "v2.0.6",
         revision: "3bc8dd0524a865becdd98c3806735eb306fe0a73"
 
-    # Fix compile with newer Clang, https://www.redhat.com/en/blog/new-warnings-and-errors-clang-15
+    # Fix compile with newer Clang, https://github.com/signalwire/libks/issues/217
     patch :DATA if DevelopmentTools.clang_build_version >= 1500
   end
 
