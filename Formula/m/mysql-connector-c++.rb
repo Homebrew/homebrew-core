@@ -1,8 +1,8 @@
 class MysqlConnectorCxx < Formula
   desc "MySQL database connector for C++ applications"
   homepage "https://dev.mysql.com/downloads/connector/cpp/"
-  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-8.3.0-src.tar.gz"
-  sha256 "a17bf1fad12b1ab17f5f6c7766289fb87200e919453234c3ec1664d7734be8f8"
+  url "https://dev.mysql.com/get/Downloads/Connector-C++/mysql-connector-c++-9.0.0-src.tar.gz"
+  sha256 "ed711b4f7b1ffdfc9a76048e195aff287e2d15dddebe0bca851b09e141422b30"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
@@ -11,22 +11,31 @@ class MysqlConnectorCxx < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c56f0934396d5ba2fc6cd1215ce6eb1dcac462f3cc94e814c24c447d6383d208"
-    sha256 cellar: :any,                 arm64_ventura:  "516568096d1d86555dc3f852f4bcb3ee29f823bce2f84f5b793c12497a5055f0"
-    sha256 cellar: :any,                 arm64_monterey: "59ab74403bb464e4bce2f021ac55cd15f20b36a61392113c328643e744889e15"
-    sha256 cellar: :any,                 sonoma:         "11477c00a9adb60a2ea3dc33567a6fb8fc46d370ffb39062aa745d92db31ff6e"
-    sha256 cellar: :any,                 ventura:        "33c6128f3bce09611f5e8b5305c0e482ab333f795963eabb289e4235257a1c48"
-    sha256 cellar: :any,                 monterey:       "c48c5b626bc825938b0678136f79bf4f16903830317435481c56385f2085472c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b8b96d13b8c14d3998a78f39c90021a78998b5a055753ae4efc3b52a3e92744"
+    sha256 cellar: :any,                 arm64_sonoma:   "194472846f7a30827dc1ce8a096bf8992921518f44cb9612755bf6a2b2dfaa4d"
+    sha256 cellar: :any,                 arm64_ventura:  "9ed7b1655aa310c02e2de3f5e13ca793061fb9ea4bcaed9390e60393797c90b7"
+    sha256 cellar: :any,                 arm64_monterey: "9d156aca528c8bfbc3ab7efd746fc1f88f4be17ee59b47d2171ed15765aac192"
+    sha256 cellar: :any,                 sonoma:         "be2ef544d3ed696df68265af2b48912588be5594197bcba7e293d6e71b9e0e44"
+    sha256 cellar: :any,                 ventura:        "95d4c09ec9e0a02e612848b4e63dc1e33cc2e3e656b0644fdf6f3a4ebeddb8a2"
+    sha256 cellar: :any,                 monterey:       "e40f820b8ce1d46f257ed98006474b20c571c2f25431bbda1a1bde30d1766a93"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3aad48ad2b6b9a0624aa16f28190f3f2a58b704da6a1f795e9529b8e0bc48acf"
   end
 
-  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "mysql-client"
+  depends_on "rapidjson" => :build
+  depends_on "lz4"
   depends_on "openssl@3"
+  depends_on "protobuf@21"
+  depends_on "zlib"
+  depends_on "zstd"
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DINSTALL_LIB_DIR=lib", *std_cmake_args
+    args = []
+    %w[lz4 protobuf rapidjson zlib zstd].each do |libname|
+      args << "-DWITH_#{libname.upcase}=system"
+      rm_r buildpath/"cdk/extra"/libname
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -47,7 +56,7 @@ class MysqlConnectorCxx < Formula
       }
     EOS
     system ENV.cxx, "test.cpp", "-std=c++11", "-I#{include}",
-                    "-L#{lib}", "-lmysqlcppconn8", "-o", "test"
+                    "-L#{lib}", "-lmysqlcppconnx", "-o", "test"
     output = shell_output("./test")
     assert_match "Connection refused", output
   end

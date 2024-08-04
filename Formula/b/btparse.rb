@@ -3,12 +3,14 @@ class Btparse < Formula
   homepage "https://metacpan.org/pod/distribution/Text-BibTeX/btparse/doc/btparse.pod"
   url "https://cpan.metacpan.org/authors/id/A/AM/AMBS/btparse/btparse-0.35.tar.gz"
   sha256 "631bf1b79dfd4c83377b416a12c349fe88ee37448dc82e41424b2f364a99477b"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
 
   bottle do
+    sha256 cellar: :any,                 arm64_sonoma:   "783d3d629c204b19bfcfa7e64dc138f89432392c29838999b95364d814ab6445"
     sha256 cellar: :any,                 arm64_ventura:  "d58ac5298bb8bfc1859e5333d541ea89ce1dba5a629c1360b48857eb307f6350"
     sha256 cellar: :any,                 arm64_monterey: "32ee64dd04210dd27edb63ba2d3a635995f379e54d60b9e797e52a913201b546"
     sha256 cellar: :any,                 arm64_big_sur:  "d69e49048e5366097bd7fe06b5ab9e40e3e97602896c613706559ab2c7aa4295"
+    sha256 cellar: :any,                 sonoma:         "2c03d25c93b9dd5a6ef76494499f0504d38fec90f3e098fced14b4f9b1bf0236"
     sha256 cellar: :any,                 ventura:        "79122577ccff4c437a09ca3d3a7f0fcb5270ff5b1b90be60442f420c3e1ee830"
     sha256 cellar: :any,                 monterey:       "3330e9fe95565967827105cbe3009bf533b1363f8b4454c3fa34a7bca72f9502"
     sha256 cellar: :any,                 big_sur:        "6080f2a4c252d49a4b265807ce77c290bd881b5339b7b2c19c5efc8a7f40b871"
@@ -20,13 +22,13 @@ class Btparse < Formula
   end
 
   def install
+    # workaround for Xcode 14.3
+    ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     # Fix flat namespace usage
     inreplace "configure", "${wl}-flat_namespace ${wl}-undefined ${wl}suppress", "${wl}-undefined ${wl}dynamic_lookup"
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--mandir=#{man}"
+    system "./configure", "--mandir=#{man}", *std_configure_args
     system "make", "install"
   end
 

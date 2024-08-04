@@ -3,19 +3,19 @@ class Flake8 < Formula
 
   desc "Lint your Python code for style and logical errors"
   homepage "https://flake8.pycqa.org/"
-  url "https://files.pythonhosted.org/packages/4e/34/64f8a43736d9862ced7dd0ea5c3ed99815b8ff4b826a4f3bfd3a1b0639b1/flake8-7.1.0.tar.gz"
-  sha256 "48a07b626b55236e0fb4784ee69a465fbf59d79eec1f5b4785c3d3bc57d17aa5"
+  url "https://files.pythonhosted.org/packages/37/72/e8d66150c4fcace3c0a450466aa3480506ba2cae7b61e100a2613afc3907/flake8-7.1.1.tar.gz"
+  sha256 "049d058491e228e03e67b390f311bbf88fce2dbaa8fa673e7aea87b7198b8d38"
   license "MIT"
   head "https://github.com/PyCQA/flake8.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "49ddf4432cde384acabb20c358a1aef419cb49d0a568d6dc5b7f467a8191f180"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "49ddf4432cde384acabb20c358a1aef419cb49d0a568d6dc5b7f467a8191f180"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "49ddf4432cde384acabb20c358a1aef419cb49d0a568d6dc5b7f467a8191f180"
-    sha256 cellar: :any_skip_relocation, sonoma:         "57430b00e092ae642ca5be869e51348531fc14e7b6909f720ffa848c0969f0ba"
-    sha256 cellar: :any_skip_relocation, ventura:        "57430b00e092ae642ca5be869e51348531fc14e7b6909f720ffa848c0969f0ba"
-    sha256 cellar: :any_skip_relocation, monterey:       "57430b00e092ae642ca5be869e51348531fc14e7b6909f720ffa848c0969f0ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b5131306521c0df505d4350b7b7cd7a0db851547d6b6b85f64f7a28162568fe1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ad181ea71a17364008997e187bdc0900c79d6fe7d97bc38632900ee74983fb33"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "ad181ea71a17364008997e187bdc0900c79d6fe7d97bc38632900ee74983fb33"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ad181ea71a17364008997e187bdc0900c79d6fe7d97bc38632900ee74983fb33"
+    sha256 cellar: :any_skip_relocation, sonoma:         "0f2f8cf687807008befc05e078d97bebe0f4c0db5adc7033ce150e3edaaf3e00"
+    sha256 cellar: :any_skip_relocation, ventura:        "0f2f8cf687807008befc05e078d97bebe0f4c0db5adc7033ce150e3edaaf3e00"
+    sha256 cellar: :any_skip_relocation, monterey:       "0f2f8cf687807008befc05e078d97bebe0f4c0db5adc7033ce150e3edaaf3e00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a6d5cf696bebd9fa866de7ba2bc38c3d6b7c17bcc964a166c73057b2978fce7d"
   end
 
   depends_on "python@3.12"
@@ -26,8 +26,8 @@ class Flake8 < Formula
   end
 
   resource "pycodestyle" do
-    url "https://files.pythonhosted.org/packages/10/56/52d8283e1a1c85695291040192776931782831e21117c84311cbdd63f70c/pycodestyle-2.12.0.tar.gz"
-    sha256 "442f950141b4f43df752dd303511ffded3a04c2b6fb7f65980574f0c31e6e79c"
+    url "https://files.pythonhosted.org/packages/43/aa/210b2c9aedd8c1cbeea31a50e42050ad56187754b34eb214c46709445801/pycodestyle-2.12.1.tar.gz"
+    sha256 "6838eae08bbce4f6accd5d5572075c63626a15ee3e6f842df996bf62f6d73521"
   end
 
   resource "pyflakes" do

@@ -1,25 +1,26 @@
-class MysqlClient < Formula
+class MysqlClientAT84 < Formula
   desc "Open source relational database management system"
-  homepage "https://dev.mysql.com/doc/refman/9.0/en/"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.0/mysql-9.0.1.tar.gz"
-  sha256 "18fa65f1ea6aea71e418fe0548552d9a28de68e2b8bc3ba9536599eb459a6606"
+  homepage "https://dev.mysql.com/doc/refman/8.4/en/"
+  url "https://cdn.mysql.com//Downloads/MySQL-8.4/mysql-8.4.2.tar.gz"
+  sha256 "5657a78dc86bf0bf2227e0b05f8de5a2c447a816a112ffa26fa70083bcbe9814"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
 
   livecheck do
-    formula "mysql"
+    url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4"
+    regex(/href=.*?mysql[._-](?:boost[._-])?v?(8\.4(?:\.\d+)*)\.t/i)
   end
 
   bottle do
-    sha256 arm64_sonoma:   "a60550ca6925d3ad75ffefb38b782800f58511f586e607faa73273a41355841d"
-    sha256 arm64_ventura:  "4fc42b3455b6dc68ed0a83b38eae48eee8c907b72974ff4c76a00ec7a0d08997"
-    sha256 arm64_monterey: "1b3b1f059ad68568f70d142d48f132501327aa376d8bea673bf1900834a1b094"
-    sha256 sonoma:         "5971074a3003479b0781bd4a44b1b009cc7c790357cc549b5d45074ee74572b8"
-    sha256 ventura:        "876135b9828ec40320e1a5c5ce082c85307732a212ba79027f39216a238cd765"
-    sha256 monterey:       "6ea086c4b5b684ff226b6d588d535dc0313e987c9e65cb7b42945262720af528"
-    sha256 x86_64_linux:   "e1d9c62f5e9c2111062a388403b2149259014fd0213bb1f82d1619c9b5e88d2a"
+    sha256 arm64_sonoma:   "8684e4bc1f5d8b3038c4f66a7c975169d54d539fa651dc55c8e2ea2ae5b90bc0"
+    sha256 arm64_ventura:  "1b9139148713510e6b5f673422794e56db746f8fb5ef04083bd7464e79f645b9"
+    sha256 arm64_monterey: "94b5558a918c6666de072ce296aa83bde2a6404bd10b945771c08fc91cdd0246"
+    sha256 sonoma:         "6b47b2ab1e8fb4a9edcd7e1d4a861e3a1241392a714d0434ec2a3b0a61786b1d"
+    sha256 ventura:        "e09c5e49038d3aadb4a5973a1724edca418d80da2edbe047dcd00abc93599c61"
+    sha256 monterey:       "fcf5e7e9f58425f8799f96fb580ad6dbdcfb9d5e09e8ca62562f0ff17a929dc5"
+    sha256 x86_64_linux:   "4d30ae0cf8e2585962a2d4aee480099f4e468d4531736a0df2536b72112df7f9"
   end
 
-  keg_only "it conflicts with mysql (which contains client libraries)"
+  keg_only :versioned_formula
 
   depends_on "bison" => :build
   depends_on "cmake" => :build

@@ -50,16 +50,12 @@ class EasyTag < Formula
     depends_on "perl-xml-parser" => :build
   end
 
-  # disable gtk-update-icon-cache
-  patch :DATA
-
   def install
     ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5" unless OS.mac?
-    ENV.append "LDFLAGS", "-lz"
+    ENV.append "LIBS", "-lz"
+    ENV["DESTDIR"] = "/"
 
-    system "./configure", *std_configure_args, "--disable-schemas-compile"
-    system "make"
-    ENV.deparallelize # make install fails in parallel
+    system "./configure", "--disable-schemas-compile", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
 
@@ -76,18 +72,3 @@ class EasyTag < Formula
     system bin/"easytag", "--version"
   end
 end
-
-__END__
-diff --git a/Makefile.in b/Makefile.in
-index 9dbde5f..4ffe52e 100644
---- a/Makefile.in
-+++ b/Makefile.in
-@@ -3960,8 +3960,6 @@ data/org.gnome.EasyTAG.gschema.valid: data/.dstamp
- @ENABLE_MAN_TRUE@		--path $(builddir)/doc --output $(builddir)/doc/ \
- @ENABLE_MAN_TRUE@		http://docbook.sourceforge.net/release/xsl/current/manpages/docbook.xsl $<
-
--install-data-hook: install-update-icon-cache
--uninstall-hook: uninstall-update-icon-cache
-
- install-update-icon-cache:
-	$(AM_V_at)$(POST_INSTALL)

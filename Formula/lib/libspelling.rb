@@ -1,7 +1,7 @@
 class Libspelling < Formula
   desc "Spellcheck library for GTK 4"
-  homepage "https://gitlab.gnome.org/chergert/libspelling"
-  url "https://gitlab.gnome.org/chergert/libspelling/-/archive/0.2.1/libspelling-0.2.1.tar.bz2"
+  homepage "https://gitlab.gnome.org/GNOME/libspelling"
+  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.2.1/libspelling-0.2.1.tar.bz2"
   sha256 "5393a9b93fda445598348a47c42d1ad13586c0bcf35dfd257afd613fd31812c1"
   license "LGPL-2.1-or-later"
 

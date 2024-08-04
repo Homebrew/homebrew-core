@@ -1,21 +1,19 @@
 class AgePluginYubikey < Formula
   desc "Plugin for encrypting files with age and PIV tokens such as YubiKeys"
   homepage "https://github.com/str4d/age-plugin-yubikey"
-  url "https://github.com/str4d/age-plugin-yubikey/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "721c2fd08fe8b7228ea43398475b954a8f0bc259b3a152f6f3b0dc66022df55e"
+  url "https://github.com/str4d/age-plugin-yubikey/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "65807403f0098569a473ffa76302b205da148a7f46b61fd331b8e323959978ba"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/str4d/age-plugin-yubikey.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "ea6a1f744b844e3828aee47de421d39dc45fd9225bf8639cf4a7611c5b7fd6f1"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "d483db38ef81bf77825584d6139b4044cad17e677e82ab3170511dee1e9253ab"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "04110190fbb7ad74a007b3f8e3529ef1ca7c0ef945dc206b88094494f4448f6c"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "7549e635e0904242a089b71a0d60c212385d2ff5140286d9e5731b7a5c8bd34f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "8d40886e241aca0f55869bbbc9402982ace3a4e32c8088060fd9007e56bcec5f"
-    sha256 cellar: :any_skip_relocation, ventura:        "bce97e22834bb8bcb69dac6e0b3935b7289ff527f67adc8ff4a44c663c48d330"
-    sha256 cellar: :any_skip_relocation, monterey:       "4c172585c6d95ffa9f134db3c8f739a2e52696123334e2b4e093be188162fe06"
-    sha256 cellar: :any_skip_relocation, big_sur:        "b306b141a739daa466bd6fc5806897eb4a2f2a4f11ef9b4ba20cf82738ac35ca"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdaa3e51ea5ade2f1292b027a5ff7b1bf0c793177165ddf247aa0bcf7c27f01a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "b00a1b3384bb12abb53559e7d45f7c00bc59cf253d437365ce1d9eba65c1ed43"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e53f702fa0b8742fa519c6605ce75ac46338e9cac6b5e94f28f5e1ac32476449"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "12d3c578b51f4fa1a2b4c75fbbee4a5a749552a8e9f5df6f9cd0a6a15877f10a"
+    sha256 cellar: :any_skip_relocation, sonoma:         "2473cd4b99557da25b8e2899b5cccc8238a0cb9704be98fb274438e06593cf09"
+    sha256 cellar: :any_skip_relocation, ventura:        "e5b92cc016f5f44f1c646dd717fd2b502f32fe69e6f1d4272f65f417d96b622d"
+    sha256 cellar: :any_skip_relocation, monterey:       "4dd83632a9120d7c0bd3d8cc220bba2bd9ef0530370b7a87276d9d7627925a33"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "82643b04b611338208b3bed82b767ade73d25bf088ee7bac22d678f4ce0b7651"
   end
 
   depends_on "rust" => :build

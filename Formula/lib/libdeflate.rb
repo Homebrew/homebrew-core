@@ -1,18 +1,18 @@
 class Libdeflate < Formula
   desc "Heavily optimized DEFLATE/zlib/gzip compression and decompression"
   homepage "https://github.com/ebiggers/libdeflate"
-  url "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.20.tar.gz"
-  sha256 "ed1454166ced78913ff3809870a4005b7170a6fd30767dc478a09b96847b9c2a"
+  url "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.21.tar.gz"
+  sha256 "50827d312c0413fbd41b0628590cd54d9ad7ebf88360cba7c0e70027942dbd01"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ef4bc3719c70acff476b1089a30f5ddc04c1c8ba548a01148b6d0ecad2f265d4"
-    sha256 cellar: :any,                 arm64_ventura:  "5817729d8b8bfe60f56c3eb67c4e845fe2fcf07875f83003f39ee6b0e663ce90"
-    sha256 cellar: :any,                 arm64_monterey: "e02c7c600bf3ab0e0a415220c3e475b379238455f6dc7d2576147b37fdee17ce"
-    sha256 cellar: :any,                 sonoma:         "c9d2b68426f8221614191519b44d12722ea9d7099830a43d71324a71d8425150"
-    sha256 cellar: :any,                 ventura:        "4250f3a839c6b6b3fef9ca0a0258c1d90f471a91a005f7efc6320865c5ed0e39"
-    sha256 cellar: :any,                 monterey:       "9076a50d73abd8ee01cc55c125622d97db62d64e51c32f6be2617ae60b1c66a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9570e5ed3a13f304bc21a451e420bd1ef92cebb66cc66701516bdd24fd89a334"
+    sha256 cellar: :any,                 arm64_sonoma:   "fea1730f71dee848ea635ebbf03ce45563d784e3ac51b1c49feedb8859e6d220"
+    sha256 cellar: :any,                 arm64_ventura:  "2391e55f34424f2fbf2d2c0c722ab5f26d0b2ef19b29298e9765078347be8121"
+    sha256 cellar: :any,                 arm64_monterey: "34a7a65a65e10326a3452c041d195306907ea6b20881c4e2b5484597730808ec"
+    sha256 cellar: :any,                 sonoma:         "abc65ab8eca7ddf0fcdce501d6127a626272c0f5dad13165d1f3f17d91c9a894"
+    sha256 cellar: :any,                 ventura:        "b488d5379e40d17416ee8f3d845916d564f18c7be8672e1529e0955d634f1b22"
+    sha256 cellar: :any,                 monterey:       "c6071f321bfb1639a070e1645dbf8ca78ee963cf989f9e200fc874cba5daf4f8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b6d0895f05a0ce647e5c1bfa96fda7bb543461e49b84bcf9e60586a31b6c311"
   end
 
   depends_on "cmake" => :build

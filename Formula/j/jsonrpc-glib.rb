@@ -1,20 +1,18 @@
 class JsonrpcGlib < Formula
   desc "GNOME library to communicate with JSON-RPC based peers"
   homepage "https://gitlab.gnome.org/GNOME/jsonrpc-glib"
-  url "https://download.gnome.org/sources/jsonrpc-glib/3.44/jsonrpc-glib-3.44.0.tar.xz"
-  sha256 "69406a0250d0cc5175408cae7eca80c0c6bfaefc4ae1830b354c0433bcd5ce06"
+  url "https://download.gnome.org/sources/jsonrpc-glib/3.44/jsonrpc-glib-3.44.1.tar.xz"
+  sha256 "1361d17e9c805646afe5102e59baf8ca450238600fcabd01586c654b78bb30df"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_sonoma:   "c86b5751c59cc742957f0efe1887465fc41051068be5410b1d6dc136bbb703c2"
-    sha256 cellar: :any, arm64_ventura:  "81179b347f42fa5088707b190fc8c44cce5b4674a95d99124d15e17f55e07c64"
-    sha256 cellar: :any, arm64_monterey: "b9968d2db4506aa9493ae18baa2baf3606b94a270910fdc5d4a3928f6a1eb26f"
-    sha256 cellar: :any, arm64_big_sur:  "7a93842a0f8c1f9d2e926fbeca2ba17d176616e66b29b26fe128f5d1e68730bc"
-    sha256 cellar: :any, sonoma:         "1b93a571974779646424517cdaae6efe3c9de77ee7ae4ca3c0a210c8f591dd63"
-    sha256 cellar: :any, ventura:        "1a7c09d2663ff3df9280511655b194ced292b3fdc366fe502bfee8105978525f"
-    sha256 cellar: :any, monterey:       "4c5889ec718dd7362a9593d3d4be9c76a12f2252e9eda92b165e945cd8883080"
-    sha256 cellar: :any, big_sur:        "5f6b0972656e86a895a4026f5738416eb37b798792adcd30edb4ad3868a8bb05"
-    sha256               x86_64_linux:   "03191c798dee38b9983e2afb84310debbbd3850b21ad675b6629aa9e8cd677cc"
+    sha256 cellar: :any, arm64_sonoma:   "2f74a9be30520cf2db1b7bb27ec12561b14d77dad8673fde2b3ca360d7c60388"
+    sha256 cellar: :any, arm64_ventura:  "c4a222df659e62204a4d37afe1e07a380b2e1418cc2a99b9a445d3a5a3a77238"
+    sha256 cellar: :any, arm64_monterey: "a820e5106b6a5683afa616cc68aa1dd09a94fa48a47c154ebb8fc3b3c6ae5284"
+    sha256 cellar: :any, sonoma:         "001dd9f46c106194cdb65ab86ca327af3639d88d7e569339d972f0989204c5b8"
+    sha256 cellar: :any, ventura:        "327ea36ff03c446861852f77250db9c4aaffd6c63bb0538d2af0a274d7f2e300"
+    sha256 cellar: :any, monterey:       "d6b2438a15f0a4c0dfb464bbc5cfa277deadad086bab02da55d453d6eb1f8c5b"
+    sha256               x86_64_linux:   "a4403578f986fa53a5f8c41444aeb7ba65f34e2e5685ab58c0424457c2f2eddd"
   end
 
   depends_on "gobject-introspection" => :build

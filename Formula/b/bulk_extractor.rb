@@ -4,6 +4,7 @@ class BulkExtractor < Formula
   url "https://github.com/simsong/bulk_extractor/releases/download/v2.1.1/bulk_extractor-2.1.1.tar.gz"
   sha256 "0cd57c743581a66ea94d49edac2e89210c80a2a7cc90dd254d56940b3d41b7f7"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,13 +12,13 @@ class BulkExtractor < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "0cbca66c6d233701e44105ed24a7ac4c726ce2480592a1ef303bcc59a9e7886d"
-    sha256 cellar: :any,                 arm64_ventura:  "52faa836f21c334c6733f48cc4d1d1ff87bce5bc53c69f62e8eaed685acd9201"
-    sha256 cellar: :any,                 arm64_monterey: "05799a612973ea890465a7e934f7824efe5a47e41663afbe6c6e54bb879b3c06"
-    sha256 cellar: :any,                 sonoma:         "3098a8bf4ab75ff8f51a44d0bf8746380d3da1540fcf85e3019678d868d34d12"
-    sha256 cellar: :any,                 ventura:        "360a71e4b8ea006a59ba71e355bad2f32e695e0626ccdac58f1317e6576b0ba3"
-    sha256 cellar: :any,                 monterey:       "18526411854a3ee4eece4d83defa121e8f7ffddaaeebada24fc47f4e5ad3a5b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d1cca868461a3cfbd8f38cb016e5db562a2152aadc01c6cecd957fed640db2b1"
+    sha256 cellar: :any,                 arm64_sonoma:   "d076c3c6ce906ef9136700601f34b51f720d3fc50d96ad04b578dcafa041c4d9"
+    sha256 cellar: :any,                 arm64_ventura:  "90bd56b74f11074cc420af7df33a15435cd46071eabaad0c7c081b7a225b83ae"
+    sha256 cellar: :any,                 arm64_monterey: "2bc48e662bd411bdaf258a34e214b00b6ee80f60904c8d846472610b798cbe67"
+    sha256 cellar: :any,                 sonoma:         "fa9d38135e6b10cdfeec2a55a259a936ba7fb8468ec91ab952edef37d46fdec2"
+    sha256 cellar: :any,                 ventura:        "e0d758881ed2de967484c0ab5ddf5bf815af8beed5c7cb52b5d434b1e762ee18"
+    sha256 cellar: :any,                 monterey:       "c68a03087991b70830a1d0fe79fdb7886767841335aebbee7060d8faf6e7f7ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ce9af040a2bc16c10f0752d4d78261753b076986d4b5a7ee420a8cca72b46cd1"
   end
 
   head do

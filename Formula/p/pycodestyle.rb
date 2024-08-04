@@ -3,19 +3,13 @@ class Pycodestyle < Formula
 
   desc "Simple Python style checker in one Python file"
   homepage "https://pycodestyle.pycqa.org/"
-  url "https://github.com/PyCQA/pycodestyle/archive/refs/tags/2.12.0.tar.gz"
-  sha256 "c72dccf2bf7ceb603b5bd8b737a511d5241e675e90d4f75bc8a12fe81f24c094"
+  url "https://github.com/PyCQA/pycodestyle/archive/refs/tags/2.12.1.tar.gz"
+  sha256 "231f65fbf5558e342cbad275245accb8a988d637cbeaf66508dd890f3d2d60fa"
   license "MIT"
   head "https://github.com/PyCQA/pycodestyle.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, ventura:        "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, monterey:       "3dcf668f52752b5bf2e97e0fd2d1e42dc2889c1b9e62fe2a36727d8156d221fb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "a44ef22a22f8a40ece9db61bf4447a5c68c192f042718cbf07fdcd8ebb202777"
+    sha256 cellar: :any_skip_relocation, all: "5a5e5b7a43191b52e17db358d76594cb53f3992ac7a342f068901326e654f812"
   end
 
   depends_on "python@3.12"

@@ -1,25 +1,25 @@
 class Libxtst < Formula
   desc "X.Org: Client API for the XTEST & RECORD extensions"
   homepage "https://www.x.org/"
-  url "https://www.x.org/archive/individual/lib/libXtst-1.2.4.tar.gz"
-  sha256 "01366506aeb033f6dffca5326af85f670746b0cabbfd092aabefb046cf48c445"
+  url "https://www.x.org/archive/individual/lib/libXtst-1.2.5.tar.gz"
+  sha256 "244ba6e1c5ffa44f1ba251affdfa984d55d99c94bb925a342657e5e7aaf6d39c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "768242a5ace51f41f96002aaeca551197da895fec5e1b93b68a79a0e6455d927"
-    sha256 cellar: :any,                 arm64_ventura:  "64703f879e6130e99a850a56567fc1a9de0024a0ed276a6eefa5768852c9870e"
-    sha256 cellar: :any,                 arm64_monterey: "3b8d22abd476602cb2892a68c31054a696e760aae1912dee00c08abaff710922"
-    sha256 cellar: :any,                 arm64_big_sur:  "41a2b4709a78d3b00dec19b298dc5551fe1eb2c530556c8daa75ef2f74527ed6"
-    sha256 cellar: :any,                 sonoma:         "8bbeae536d98b9a3e37fc39e162747c69d04b652cc992f1a7e9def46fa23f689"
-    sha256 cellar: :any,                 ventura:        "e9aa2923a5647444b5557ae761abdc05730c5c0bd836103853921ef9df38d4dc"
-    sha256 cellar: :any,                 monterey:       "4ff71b57fb57f02df2b01623684174c826203969bbbf49d9ac77c6f94b60f23c"
-    sha256 cellar: :any,                 big_sur:        "761a44edff4b064f0019e663d8cdd58753ad40910a6bd4fcea6c5e8f946ab3bf"
-    sha256 cellar: :any,                 catalina:       "4b7e04a2af86298d776f8a06da28a466a38f22aa4e24299b357ef7d0e11ec53a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9ed487372cd98ae495904e2c0c9b2fcc96cc6d080f0a13be344a37d99849af35"
+    sha256 cellar: :any,                 arm64_sonoma:   "aaefda085ce2cd52a2fccada770bc3280c75128ecbd66f92ea7afa25c11631c8"
+    sha256 cellar: :any,                 arm64_ventura:  "ee96653ea151d173c107e01ef1945ddca27e4585dc89c1eab34e7dd70a5718fa"
+    sha256 cellar: :any,                 arm64_monterey: "618320ced081879132c2a569a2e8843326628423bcc8b1fbca86a0de66cbdc11"
+    sha256 cellar: :any,                 sonoma:         "fac9520eabdd31b4defc300ec39c860da9809c8850415b2c8ba799e1849e5f2f"
+    sha256 cellar: :any,                 ventura:        "1b29a72e003a2f5b3ea2bf308ed8be1218146051fa941177a1eca49099558362"
+    sha256 cellar: :any,                 monterey:       "252a0ae6686b4d4f5098360cb7ed9a2f25d8dd122ae79150af3533509da1e102"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "51cacd4573d0d4e1cc33c83574cf4838d93de28276a9cd3c69496da8a4466771"
   end
 
   depends_on "pkg-config" => :build
   depends_on "util-macros" => :build
+
+  depends_on "libx11"
+  depends_on "libxext"
   depends_on "libxi"
   depends_on "xorgproto"
 

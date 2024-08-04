@@ -2,7 +2,7 @@ class Ntopng < Formula
   desc "Next generation version of the original ntop"
   homepage "https://www.ntop.org/products/traffic-analysis/ntop/"
   license "GPL-3.0-only"
-  revision 5
+  revision 6
 
   stable do
     url "https://github.com/ntop/ntopng/archive/refs/tags/5.2.1.tar.gz"
@@ -12,13 +12,13 @@ class Ntopng < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "8df6d0eb2c7d4d068a9cdec38da78c89cde9ba5b4f12f973079122dc75df05d1"
-    sha256 arm64_ventura:  "40d94f8ae91f6976185afd9f7df38445eb4bb564131c774de4bd5fff9ec48113"
-    sha256 arm64_monterey: "fff9eaa732a40c116c822f60f6f65e7454ed50c15db1e38869eda88e2d29125c"
-    sha256 sonoma:         "28057973193ccb7bc27b3da961851c461e65c8749ec9e68803b477b9c43f056d"
-    sha256 ventura:        "7b492dded11e9c5280a36ac7d62b114882aff16e252d8163b978d395033f70b9"
-    sha256 monterey:       "4cc9805b6124b4f331020e81d1df1960f47c5981be9b9126dc1f551785d540f0"
-    sha256 x86_64_linux:   "89145e39fcf271fb9e2504c083f7653c09f814ce5539e5d2d45dfb0b25f62433"
+    sha256 arm64_sonoma:   "778b00f575e753b94aa544362dde641f028932146c84f19f73076940a301b301"
+    sha256 arm64_ventura:  "3a22cb20eff4ebe2ef15b69d8a384f03103f9d8024290b3d8aae96275d2eccf6"
+    sha256 arm64_monterey: "88fcdf863e873ff238041e7fccf65b6bd32fb357f2f682d868b8d5394cc56428"
+    sha256 sonoma:         "87ceb2c71bcbc2adfe2a5393357d477730ace4435d75bc117c507937346a71fe"
+    sha256 ventura:        "e6820a187c13bf156dfb1146783cfb1bc735cba6fec26c01bbe461459d5a0ef3"
+    sha256 monterey:       "e7c66db0a5c80caff9cf98da11c3e5fdbfb9aa9c3f2f129509e48dae3300672a"
+    sha256 x86_64_linux:   "cf9a961dfd80df66a2ff55cf417cd4e41981cbb9464e9c877fc0bdeb61e5087a"
   end
 
   head do
@@ -89,13 +89,13 @@ class Ntopng < Formula
     fork do
       exec redis_bin/"redis-server", "--port", redis_port.to_s
     end
-    sleep 3
+    sleep 10
 
     mkdir testpath/"ntopng"
     fork do
       exec bin/"ntopng", "-i", test_fixtures("test.pcap"), "-d", testpath/"ntopng", "-r", "localhost:#{redis_port}"
     end
-    sleep 15
+    sleep 30
 
     assert_match "list", shell_output("#{redis_bin}/redis-cli -p #{redis_port} TYPE ntopng.trace")
   end

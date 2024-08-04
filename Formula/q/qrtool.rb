@@ -1,8 +1,8 @@
 class Qrtool < Formula
   desc "Utility for encoding or decoding QR code"
   homepage "https://sorairolake.github.io/qrtool/"
-  url "https://github.com/sorairolake/qrtool/archive/refs/tags/v0.11.3.tar.gz"
-  sha256 "e7ec7e93af7a2ccae2cc5c98454e07b62bc54a590c788837764a68561da65b5e"
+  url "https://github.com/sorairolake/qrtool/archive/refs/tags/v0.11.4.tar.gz"
+  sha256 "f783259f13388795b8894d8af661d0c5dea95ee0e7a38460174c56ad305ce7f3"
   license all_of: [
     "CC-BY-4.0",
     any_of: ["Apache-2.0", "MIT"],
@@ -10,13 +10,13 @@ class Qrtool < Formula
   head "https://github.com/sorairolake/qrtool.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "914aa81a5d899072c4c61552f9d985fd1100b4133e87cf602c736eebcb9da095"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e30ac5b5c350be553d7d9bc62c591a6ec6d2fbe9580b3b649a399ffffa91a19f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "6fcbed72ec9aea3fab608726adfbd65457253f5b4cea4ab43ff0588e47fd1614"
-    sha256 cellar: :any_skip_relocation, sonoma:         "3dc2b232fa5273686f24d0d836bf8b99a3feb50e1a195411104030b9bb184cfe"
-    sha256 cellar: :any_skip_relocation, ventura:        "70f284055f5c2319d183e98bca89d0f21440c75c947dc7305fcc293bca08be59"
-    sha256 cellar: :any_skip_relocation, monterey:       "583d3d16e621172d83f47ce12b18951120ffa04361c635913584d92e36427bc9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c80b817a888ad5b8883a58e5eb5ce062bde5b08677162481fe5c580a0b2d0ca2"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cfd094f526c6a3e4f50c3cc1ade4dfe895a335edf4c8e64faeaedd2553357513"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bb36c1f774e7f719196b47a4ffde8044a673079befa87a46d70a2f738a593d7e"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "f4e6cd6f9e05b8a5f22bcb96252e3950cd0da4e0fb11533c10509c199615d0a9"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1dc28e8c37e8b3a7d471c5611673105aacde87530b2700897adecc659b07c7f8"
+    sha256 cellar: :any_skip_relocation, ventura:        "d443394455e08dcc4da2ee8448cfe7c695222c9e28516a0b89289cd4880093b8"
+    sha256 cellar: :any_skip_relocation, monterey:       "a4a4e34defa3ddab09aa1e46341e9758e6985cebe72f2cec2d4e8431c3759bf5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ad068e15b4ab816b055de23d1710fcce54a71473511c74a45a46caa2a68f594a"
   end
 
   depends_on "asciidoctor" => :build

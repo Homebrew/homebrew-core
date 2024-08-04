@@ -18,21 +18,20 @@ class Xdpyinfo < Formula
   end
 
   depends_on "pkg-config" => :build
+
   depends_on "libx11"
   depends_on "libxcb"
   depends_on "libxext"
+  depends_on "libxi"
   depends_on "libxtst"
 
   def install
     args = %W[
-      --prefix=#{prefix}
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --disable-dependency-tracking
       --disable-silent-rules
     ]
-    system "./configure", *args
-    system "make"
+    system "./configure", *args, *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
@@ -40,6 +39,6 @@ class Xdpyinfo < Formula
     # xdpyinfo:  unable to open display "".
     return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
 
-    assert_match("xdpyinfo #{version}", shell_output("DISPLAY= xdpyinfo -version 2>&1"))
+    assert_match("xdpyinfo #{version}", shell_output("DISPLAY= xdpyinfo -version"))
   end
 end

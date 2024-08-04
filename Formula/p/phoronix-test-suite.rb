@@ -31,11 +31,6 @@ class PhoronixTestSuite < Formula
     bash_completion.install "dest/#{prefix}/../etc/bash_completion.d/phoronix-test-suite"
   end
 
-  # 7.4.0 installed files in the formula's rack so clean up the mess.
-  def post_install
-    rm_r([prefix/"../etc", prefix/"../usr"])
-  end
-
   test do
     cd pkgshare if OS.mac?
 

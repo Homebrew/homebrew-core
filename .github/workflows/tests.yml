@@ -91,6 +91,7 @@ jobs:
   report_analytics:
     runs-on: ubuntu-latest
     needs: formulae_detect
+    if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
     steps:
       - name: Publish Analytics to Summary
         env:

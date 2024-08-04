@@ -24,6 +24,11 @@ class XorgServer < Formula
   depends_on "xorgproto"   => :build
   depends_on "xtrans"      => :build
 
+  depends_on "libx11"
+  depends_on "libxau"
+  depends_on "libxcb"
+  depends_on "libxdmcp"
+  depends_on "libxext"
   depends_on "libxfixes"
   depends_on "libxfont2"
   depends_on "mesa"
@@ -45,6 +50,7 @@ class XorgServer < Formula
     depends_on "dbus"
     depends_on "libdrm"
     depends_on "libepoxy"
+    depends_on "libpciaccess"
     depends_on "libtirpc"
     depends_on "libxcvt"
     depends_on "libxshmfence"

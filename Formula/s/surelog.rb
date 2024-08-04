@@ -4,16 +4,17 @@ class Surelog < Formula
   url "https://github.com/chipsalliance/Surelog/archive/refs/tags/v1.83.tar.gz"
   sha256 "3add228495a6ef0e0e3921cb20c30ae09a32c04c76faab4f1a78e546e1d98d86"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/chipsalliance/Surelog.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "95cf3995027d36d2c86df419f3341ce30d92ef16e95ece9ed01aab03d2ceceae"
-    sha256 cellar: :any,                 arm64_ventura:  "29c3c557786fd9d33250026372b3ddf8ef83b1191739d7c2893e2b777e3460a6"
-    sha256 cellar: :any,                 arm64_monterey: "82363d3a40298dfc30497c5f15b866e0f7449419fb5d50657d910fe3a1d9c2d8"
-    sha256 cellar: :any,                 sonoma:         "adde2f28100f1daefe024e60e4df424e0498c27961dcc0d7c40bbc6a3224d039"
-    sha256 cellar: :any,                 ventura:        "2b18e6e0d005b03d528c80005244aa775ee210ca59b58a7fac3d5500d1b76799"
-    sha256 cellar: :any,                 monterey:       "be420f7e49e3cfeeef09cc0a2ef91d4ef1c3532fdfa38d2c3533b1ed115ecbfe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f46a99a35b0df3f2eb6074db85834ecc1d0376ef3381e58c92f0ba7d65e5ecb"
+    sha256 cellar: :any,                 arm64_sonoma:   "bcd63d5dda2502c7f7ced6d54e17754fdec46224574e31b0bf0181fc6d0d8234"
+    sha256 cellar: :any,                 arm64_ventura:  "185a909ffdafb865b3d39122d9b009178c090aa9be263af4816b2a1b7e1a3012"
+    sha256 cellar: :any,                 arm64_monterey: "821d955304204bc419cb9fbecbe4531c52ac98e62c10a801373e70d246fb98e6"
+    sha256 cellar: :any,                 sonoma:         "ce7287f5a3fed4547bfd0bdc9ec6c00a51ee8aa7aa8dd086ffcdeb4c5ab5ecd3"
+    sha256 cellar: :any,                 ventura:        "76e6d0cbe0788ebb2114e74dafde4f3ada4bfc84a47d01abfc3f9b9a74ae9996"
+    sha256 cellar: :any,                 monterey:       "32b749ec66c87c1aa1803fcffe5b5356265a9fe2961153dbc48082e2fa0dce6e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d0745d53fbbfbd435248d27a9bbdf3d2b488061200b46ea47a1df998eea3ec31"
   end
 
   depends_on "antlr" => :build

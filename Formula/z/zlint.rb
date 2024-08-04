@@ -1,19 +1,19 @@
 class Zlint < Formula
   desc "X.509 Certificate Linter focused on Web PKI standards and requirements"
   homepage "https://github.com/zmap/zlint"
-  url "https://github.com/zmap/zlint/archive/refs/tags/v3.6.2.tar.gz"
-  sha256 "6181f735e713b59242ecda493f9377a0873023ba70d2566a4cba453c05edb2a2"
+  url "https://github.com/zmap/zlint/archive/refs/tags/v3.6.3.tar.gz"
+  sha256 "9286b6f153d0a2accac135ae355074963e5afdc55d76d22f0792a76b9898d2e2"
   license "Apache-2.0"
   head "https://github.com/zmap/zlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f96df6787d7e778917724b21842370ebd7f99c9b62827ca5d5e0d4ec8c2c1374"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "38e8a59aeb955f9cf95ae0c7527acea0759a23e0ececcacf146ef5ad0921c51d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "3571eb8af6c8ec828f923e0445648aa15fed3480063936a56125cdc2fa873931"
-    sha256 cellar: :any_skip_relocation, sonoma:         "cdfd730af4703fbd3e3f9c99b897107c7e2efb788d2af8d77cde35bd9277d76b"
-    sha256 cellar: :any_skip_relocation, ventura:        "7157e453e8d89ddc0ed9b09984c4e171ca4d8da12a0aad016de3a68da092d986"
-    sha256 cellar: :any_skip_relocation, monterey:       "5f18c53d51cfede19e88d598d615b331ec9b4bbcadfa6377a8cc73d04abd146b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "fa5d22b5070fa855ba2cd902576e4584020994e83da6da093056441db05a5337"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9a967b62986a3a7ba2ed12679119628d5cfb6afa722e4411ce50d56264262055"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "bcf36b08cc7362a43f45885b80f5985e6def4985f00fe7a18bba14faca34ab2a"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "ffde7cfe3122f29f824eeb7d5ae7d4bdb693acfbc9303e55134195d5cc021821"
+    sha256 cellar: :any_skip_relocation, sonoma:         "d9c4d59a586d3cd889e600be4b6d230a940f6e5da5c7e6df0a5fe53b9f78839b"
+    sha256 cellar: :any_skip_relocation, ventura:        "cf2fab738d9836507ba51895f3d2f7e2e59f2fb05a6cd7ab0b1feebd12d93447"
+    sha256 cellar: :any_skip_relocation, monterey:       "84941ae9f45a82185fbe18f5e4630f43f6837b47eac77e4ae1e2f850b6d06028"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b7145a9724424e2a33b326b7b174c898d56632d8c897cd18cbf5e8f540eea117"
   end
 
   depends_on "go" => :build

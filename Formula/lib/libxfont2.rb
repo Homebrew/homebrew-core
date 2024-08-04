@@ -1,21 +1,18 @@
 class Libxfont2 < Formula
   desc "X11 font rasterisation library"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libXfont2-2.0.6.tar.gz"
-  sha256 "a944df7b6837c8fa2067f6a5fc25d89b0acc4011cd0bc085106a03557fb502fc"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXfont2-2.0.7.tar.gz"
+  sha256 "90b331c2fd2d0420767c4652e007d054c97a3f03a88c55e3b986bd3acfd7e338"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "9b460431534eaf8a4fc608aee15a4c6280a969dc41790a57074022aec30eb1b7"
-    sha256 cellar: :any,                 arm64_ventura:  "44da375c2fc8bafff763cfb2dba910dd678f57cf6ce2aeba8fd72e4fbb86c869"
-    sha256 cellar: :any,                 arm64_monterey: "09e50cb913e815ea32277dc0ec23e310bb6d4731e90e3412e9ee2affb5a262ae"
-    sha256 cellar: :any,                 arm64_big_sur:  "561f79f169796b4a1efa9e2d16ca265f4953d4a1f2cb6be6c8a27ad8304f5fd6"
-    sha256 cellar: :any,                 sonoma:         "2337adff049134c0599e19b96e9e11a685c24d0d97d5541cde98b04cc39a99cd"
-    sha256 cellar: :any,                 ventura:        "f94e0374fabd345c61bf9f1e075df63a3f463031dd50c3122993f839b6e0aa91"
-    sha256 cellar: :any,                 monterey:       "c4b1e0ccbbe516996d172865a1800982d2da702ffdce524c622e657fba52d066"
-    sha256 cellar: :any,                 big_sur:        "141d3bd006ad7bd579d4831694331cde1c53f6ef1c62c34c6ed14cd9143c948d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "35a40dae3956a3956ee2866692dcc600b659495599aa5f4ff4f42718d74ad777"
+    sha256 cellar: :any,                 arm64_sonoma:   "e33dc088fa4e022dd975f35be2e3f9c6d6f431e8d7b8aa17b6f7e3f2b5db1448"
+    sha256 cellar: :any,                 arm64_ventura:  "2857c874fab6fa57a282960550eeeaf8e5d2cdb36533bb64e313eb458e03dac4"
+    sha256 cellar: :any,                 arm64_monterey: "663b13f5a8beaaf145a6ef76ce3fa7320f6a0d07a3e7aa4ce07a9085d6d2e5da"
+    sha256 cellar: :any,                 sonoma:         "59052815ebda654383a9c9d8169bac87e8185d8b6590bb3c1323379d1aa16306"
+    sha256 cellar: :any,                 ventura:        "6a5489db0d7264a996eec1726eb2a2d990d1579af46708dfafe08d66c4937b45"
+    sha256 cellar: :any,                 monterey:       "73b90f18a8c56a14ffe1c4e8194102865f1719bbf362d05231203ee179e75013"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1290f56a9f831c1a2c8d8765bc300519e448bc334d6a156061cc5e05162a3c5f"
   end
 
   depends_on "pkg-config"  => :build

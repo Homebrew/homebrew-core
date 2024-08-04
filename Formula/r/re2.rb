@@ -5,6 +5,7 @@ class Re2 < Formula
   version "20240702"
   sha256 "eb2df807c781601c14a260a507a5bb4509be1ee626024cb45acbd57cb9d4032b"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/google/re2.git", branch: "main"
 
   # The `strategy` block below is used to massage upstream tags into the
@@ -19,13 +20,13 @@ class Re2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "824843d9a0e1ad155a4e1dabe6b71546422a644cdcbc2c135d8353ce93ccf8fb"
-    sha256 cellar: :any,                 arm64_ventura:  "d3956ff7c3c6c8b7c4894d68ad33e344f05e07cee06029b53fc5810c8a66fd2e"
-    sha256 cellar: :any,                 arm64_monterey: "887c5ea7a3f2b1649ed8f2d8ed5760763175c5638ac80e4e229d5508b38b91d8"
-    sha256 cellar: :any,                 sonoma:         "6cc7864e53c5c6b3d9aaa63782939b5ab5ab7bbe37a35624869f8124a0051a59"
-    sha256 cellar: :any,                 ventura:        "64f4aef693771a78177d80d42a188c9271c6c86fb832e01b2fe30ba1b9bd4a42"
-    sha256 cellar: :any,                 monterey:       "20d3766116d5cc14276f0e3a24448e8c6f94efcada0faafbd2b4fea877997ef4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c73a463b68031fdd2974e54be429573656b83d9fe66a770be340c2e43d3ce798"
+    sha256 cellar: :any,                 arm64_sonoma:   "9dc85bc8e5a00a1a642331e812871dc00ed4a272a8415ec523f278d0dbb1faab"
+    sha256 cellar: :any,                 arm64_ventura:  "5dd906163941f74bc6c69a3cfedd5ebc9c7dc46d7edae24ade05301d57213047"
+    sha256 cellar: :any,                 arm64_monterey: "f4605e85f6e65e78edc7235bcc3e94af9f14f085a917f1439eb1cdd925f21c43"
+    sha256 cellar: :any,                 sonoma:         "3a4ded074a9b16c0989fa50cad39ca056d58f97aabf7727842225b5842f6aeed"
+    sha256 cellar: :any,                 ventura:        "25f162c211fea6e9809c3bd9a8f629815dbc8210bc5a463f774b3adf5f1d630b"
+    sha256 cellar: :any,                 monterey:       "a5bad9ec8a9c26b3f5bfc8c1ef9427dd26323bd653a8283fdba5705a8cfca859"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3e12fc1cd41b67cd68a6b8f4c1a925b1027eb8a6528ee2bb140477dcdc7ac445"
   end
 
   depends_on "cmake" => :build

@@ -1,22 +1,18 @@
 class Isync < Formula
   desc "Synchronize a maildir with an IMAP server"
   homepage "https://isync.sourceforge.io/"
-  url "https://downloads.sourceforge.net/project/isync/isync/1.4.4/isync-1.4.4.tar.gz"
-  sha256 "7c3273894f22e98330a330051e9d942fd9ffbc02b91952c2f1896a5c37e700ff"
+  url "https://downloads.sourceforge.net/project/isync/isync/1.5.0/isync-1.5.0.tar.gz"
+  sha256 "a0c81e109387bf279da161453103399e77946afecf5c51f9413c5e773557f78d"
   license "GPL-2.0-or-later"
-  revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sonoma:   "fa5785b8d75e9d791f88667a8bb3419c4d23d470e5eea0e66ab01d38850cbbb2"
-    sha256 cellar: :any,                 arm64_ventura:  "e4e43c921a44c03f8e2e8023a1d7c381318ad5185ecfe7d9992f50afd7fb4152"
-    sha256 cellar: :any,                 arm64_monterey: "816db2393272d941460076dd9407191c669fb1fa95c23ffeb428645e7e18bf00"
-    sha256 cellar: :any,                 arm64_big_sur:  "29e8f407d075874ecfe535755910e5b013bc9da62c15ddd1f095270b642336c5"
-    sha256 cellar: :any,                 sonoma:         "af8ad403611fd3b45c185a537d7351a9b4538be7a161d6818d1e2326f9214fe0"
-    sha256 cellar: :any,                 ventura:        "abba23b4d43a1abeb313d1efaf43ed6ad8c0b83cd8cb02891a8d1de32b395d35"
-    sha256 cellar: :any,                 monterey:       "d76f4a0b6f3465f8a3b5443db5a67553ea0164350dbe1fc8a4106f4329f3ba5b"
-    sha256 cellar: :any,                 big_sur:        "b1b774bb526cfbf5742ebd662c521040be27c885d1b104cd7fa41ffd3e03f511"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c733c49de05ff2ebff3b768115e50b0ceed3326094c16df686b5a7f8d562e8c2"
+    sha256 cellar: :any,                 arm64_sonoma:   "e48cd1bef8b1a3f355cee8efacac1242108d9b1218944316854c42fd52cc188a"
+    sha256 cellar: :any,                 arm64_ventura:  "7393f7064f2a12a808527a5fd796231ec7cfe4d5ecfe103a5c61567e656f0203"
+    sha256 cellar: :any,                 arm64_monterey: "88124980b8f9888a48555fcba7e9a713280e5215f196e8b9ebbb42e63890cbd0"
+    sha256 cellar: :any,                 sonoma:         "742d3299abf0a6d07273413be8ba0045cbd4900bb394c2276eec0dc0814f238b"
+    sha256 cellar: :any,                 ventura:        "7315d82bf2b34a7ce8cee3380e0b072ff10e209f63b63f54d11e3a0a50207178"
+    sha256 cellar: :any,                 monterey:       "098a45ed674955e0182f538a5cd8766c6f9878e8f89d64a27beafd5f1a4efa9f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d879d13ee7d3d61649e167a19460d47e2a2a7153b4840aa68a99623e85c686f6"
   end
 
   head do

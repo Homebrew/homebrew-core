@@ -214,6 +214,7 @@ bindgen
 bingrep
 biodiff
 biome
+biosig
 bitrise
 bitwarden-cli
 bk
@@ -404,6 +405,7 @@ cliclick
 clifm
 clingo
 clipboard
+cloc
 clojure
 clojure-lsp
 clojurescript
@@ -423,6 +425,7 @@ clusterawsadm
 clusterctl
 clzip
 cmake-language-server
+cmark
 cmctl
 cmu-pocketsphinx
 cmus
@@ -641,6 +644,7 @@ dotnet
 dotslash
 dotter
 double-conversion
+dovi_tool
 doxygen
 dpkg
 dpp
@@ -1206,6 +1210,7 @@ ircd-hybrid
 iredis
 ispc
 istioctl
+isync
 itk
 ittapi
 ivy
@@ -1251,6 +1256,7 @@ jsdoc3
 json-fortran
 json2ts
 jsonnet
+jsonrpc-glib
 jsontoolkit
 jsvc
 jtbl
@@ -1407,6 +1413,7 @@ libfabric
 libffi
 libfido2
 libfontenc
+libfs
 libgedit-gtksourceview
 libgeotiff
 libgetdata
@@ -1563,6 +1570,7 @@ lune
 lunzip
 luv
 lux
+lwtools
 lxc
 lychee
 lynis
@@ -1845,6 +1853,7 @@ omega
 omniorb
 onednn
 onedrive
+onion-location
 onionprobe
 ooniprobe
 opa

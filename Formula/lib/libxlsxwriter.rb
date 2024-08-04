@@ -1,19 +1,19 @@
 class Libxlsxwriter < Formula
   desc "C library for creating Excel XLSX files"
   homepage "https://libxlsxwriter.github.io/"
-  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/RELEASE_1.1.7.tar.gz"
-  sha256 "1f378e25d8bb5be258d3e04d3d24b8c23ff21bf206e6e206661844a96ca25eda"
+  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/v1.1.8.tar.gz"
+  sha256 "122c98353e5b69284a1cd782be7ae67bdefde2146f8197ef89a1aaf886058e86"
   license "BSD-2-Clause"
   head "https://github.com/jmcnamara/libxlsxwriter.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "bcdd85a6317509a40dad85ae6d01787cce836aa7a1ee0c68f271a6ffc3c24105"
-    sha256 cellar: :any,                 arm64_ventura:  "0abd30edf3d9e22ee7bcd40db69bf72533b5b4fe78dc955ed768a61713353d35"
-    sha256 cellar: :any,                 arm64_monterey: "727d1888edf44e1ab6d492f1e93fd2dc16cf30ea2f6e7c645af869c4fbfc669f"
-    sha256 cellar: :any,                 sonoma:         "ee8449e171dfc128823cb694bff955828301b344a0a7996db6d2231f2f84a65d"
-    sha256 cellar: :any,                 ventura:        "eda382730dfb62b2d36664aa5d5bf84eb74b07216260ccf051f670de92bce6bd"
-    sha256 cellar: :any,                 monterey:       "42d5fd5887daf63689f95f8c7b00e202889847a30b8b02ab99a4cd17d1ef0673"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "73fbdacc0215ee565eae29791c17f9ad6fd1bbda2f3a93c4f2209e0a5ef84e18"
+    sha256 cellar: :any,                 arm64_sonoma:   "c568844ace62206789e83e4a830585e8fd58693af29449d379ea1c091a0e8269"
+    sha256 cellar: :any,                 arm64_ventura:  "20fa57cbd5a71882f7df98b124487a5ed57c37d99a0a179ac580e3b927d5f127"
+    sha256 cellar: :any,                 arm64_monterey: "2507eee99de1d3df0a1f0b05892a48a7ba10824a9b36dee7633d1ff3e0c6e754"
+    sha256 cellar: :any,                 sonoma:         "de23ba0e92ed60dadf900aae94aa07712d18f90616b381cca14dafb2d85c2d28"
+    sha256 cellar: :any,                 ventura:        "f1cefac3d915ec12277021d41062423d08455574528c47417cd25ed396ac9ba9"
+    sha256 cellar: :any,                 monterey:       "49d93fcec0c09fbe36c522758e9156ac338ba2e1de1a70c3585cf2a0938f38c1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "ff137185d193bf13fb093c30db484fccbb1a34fa79108a82d9dd3db18957657e"
   end
 
   uses_from_macos "zlib"

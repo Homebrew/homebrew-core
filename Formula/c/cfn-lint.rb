@@ -3,8 +3,8 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/07/6a/00c9c8b8594cd543bb0f966260e997b08f02f9969549a1f3220c53514de8/cfn_lint-1.9.3.tar.gz"
-  sha256 "a24288d29807b00770246f01f483d001a3dd991cd2851a685527318aa68ee45a"
+  url "https://files.pythonhosted.org/packages/c5/fd/b7509a1ab02469b94b718aacc814e079f131c1cf478be1ab369dc0ac5298/cfn_lint-1.9.4.tar.gz"
+  sha256 "550219b5f0a54c0d6ed331c22753bda6769eb69cbcc5f3b0bc0319377f366d61"
   license "MIT-0"
 
   livecheck do
@@ -13,13 +13,13 @@ class CfnLint < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "e005f0829534674386afec3e17e54e446f487c19e05a1b8b6763d77610f10039"
-    sha256 cellar: :any,                 arm64_ventura:  "9b22b0abeaf1b4151129dc11a94b462f928501971c16cfc75507dad6dee92d30"
-    sha256 cellar: :any,                 arm64_monterey: "095665a8f1d151902207c5191bb6c285ef525bc0b1c4b736d46c190d5927b4a4"
-    sha256 cellar: :any,                 sonoma:         "8770715b5316cbd1eda15aca35e733d9b5ede6bb9d0a32b79834290fd07e7014"
-    sha256 cellar: :any,                 ventura:        "6db3862cef2dd54e8d77ec2c4b49f0660ede083a5a0687582ee3a25ae534526e"
-    sha256 cellar: :any,                 monterey:       "6e9041ccb4eae000013edf745700d8322ed15a7dd6acad9e850c2db278c0f0a7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cf8bc886f0c3fa355682df142753fe4ef1dc2cf3e4ca48185e1f3352dce82afe"
+    sha256 cellar: :any,                 arm64_sonoma:   "618fc7d8f3015ffdca3fa7171475a08e35b2a97e10422babce33edbd1b142704"
+    sha256 cellar: :any,                 arm64_ventura:  "93e0b01a282f09ff51ed693c1f152490a66007f7b7ad38b93d2df0377ebf3bdd"
+    sha256 cellar: :any,                 arm64_monterey: "0e386ea096e16a8adfe0af1426550e6400895854518ca4dd20418777ad92d69b"
+    sha256 cellar: :any,                 sonoma:         "c75d4feadd9dd785e4b011566c62615565a4fce023a33ddc645f1eb5d1d69eac"
+    sha256 cellar: :any,                 ventura:        "b3041647a76a1bcc2cead63d706c3a8a01f2c7223afe4c643ae50573ee69d7a3"
+    sha256 cellar: :any,                 monterey:       "2428176c344ba4eed25f52bcf044c52ff4b21605481ffc45f3641761c53ce9ec"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d3b585686d1f15c66c54ee9a1279547cc31c5205c09a910c06a5880acfe2997"
   end
 
   depends_on "rust" => :build
@@ -32,8 +32,8 @@ class CfnLint < Formula
   end
 
   resource "attrs" do
-    url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
-    sha256 "935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"
+    url "https://files.pythonhosted.org/packages/39/31/ca3e2de55503d8ad75985865629f69a2c376a44428c5df1450b749d30751/attrs-24.1.0.tar.gz"
+    sha256 "adbdec84af72d38be7628e353a09b6a6790d15cd71819f6e9d7b0faa8a125745"
   end
 
   resource "aws-sam-translator" do

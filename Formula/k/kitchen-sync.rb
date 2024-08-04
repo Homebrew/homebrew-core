@@ -4,7 +4,7 @@ class KitchenSync < Formula
   url "https://github.com/willbryant/kitchen_sync/archive/refs/tags/v2.20.tar.gz"
   sha256 "e79e5dfad48b8345b1d80444a0e992b2f9b9c53f29f6f607647e567292a7d0f2"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/willbryant/kitchen_sync.git", branch: "master"
 
   livecheck do
@@ -13,13 +13,13 @@ class KitchenSync < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5f8cf7d2864d228a9dd683db4e4db77e7bd26299a27e57123de0024e49dd4cd9"
-    sha256 cellar: :any,                 arm64_ventura:  "e6ee691c1832150af1dc3a2107575d9eb4e679408bbd389ad8300d47e8aaa77d"
-    sha256 cellar: :any,                 arm64_monterey: "47bc5d86d010b784a109329b79c58369482dcd69a533cdcdfa1917b1e75e93f4"
-    sha256 cellar: :any,                 sonoma:         "e5b1253868e365244a55b34082af8f6652235d7dfdb701524a0209811b317395"
-    sha256 cellar: :any,                 ventura:        "21339399ddf59afa015707b5b746885a1ea63fce3ec5129999126af9c5297502"
-    sha256 cellar: :any,                 monterey:       "2e2a97794f7b569203f4d175ed72a23ca4bf97ec120777ccf1a55fa4f7be615a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "d7e328803005bb943025c372d5e2c3af128776606ea36538693f80d4af6e3ae8"
+    sha256 cellar: :any,                 arm64_sonoma:   "a4429aa5f1ee46f1d6c0405bbad656a787be6258d7d212ca528e6122155b91af"
+    sha256 cellar: :any,                 arm64_ventura:  "bff92ee576a17d3a49e9995fd0b867f1f38c9370deccd4aed62100a14c8348da"
+    sha256 cellar: :any,                 arm64_monterey: "e6a926959adfe33034c7b1f4b2dabcd2dfe4cd7f3a75b765c4da2e7fdf796586"
+    sha256 cellar: :any,                 sonoma:         "cab7d1d6d57d75a9d61778bc8e0751769c02d6e4d8e1c08bdd3d51e8b262423c"
+    sha256 cellar: :any,                 ventura:        "383c6f4945cadac4a243b6004e8bb6ee48e0173ecde263e22fc19df092f3f590"
+    sha256 cellar: :any,                 monterey:       "c3260fbd0437006a26c353ad2ae50b0440279054361e6d7f2a3f248755462dea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "8d02052dbe9d79877a1f9bf2765279cdee8ee9e14f0bb50dd345b9574ef433fa"
   end
 
   depends_on "cmake" => :build

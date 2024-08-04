@@ -4,7 +4,7 @@ class Libzdb < Formula
   url "https://tildeslash.com/libzdb/dist/libzdb-3.2.3.tar.gz"
   sha256 "a1957826fab7725484fc5b74780a6a7d0d8b7f5e2e54d26e106b399e0a86beb0"
   license "GPL-3.0-only"
-  revision 4
+  revision 5
 
   livecheck do
     url :homepage
@@ -12,13 +12,13 @@ class Libzdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "c33a3c53872c2cf138d6d36a30697feb3c772df7c3af38b18d06011b5c3dd1b3"
-    sha256 cellar: :any,                 arm64_ventura:  "9ced34617c452cd53fbb22fac4a25b00a7f747efe87bde70d8fac53478c94c19"
-    sha256 cellar: :any,                 arm64_monterey: "60a30c4782d5683eb45f4e516eddc2e826eae8e0be59496ab7b82d2775417244"
-    sha256 cellar: :any,                 sonoma:         "077224340fa1ac1f8cb9842ae4aa0db9cf306f0540189ecd1c16c298f2aa5e86"
-    sha256 cellar: :any,                 ventura:        "129e3bf0325c241fb4f8ae144c90e8e53845ada18ca753019d5705a22eca4148"
-    sha256 cellar: :any,                 monterey:       "645af9d42c7d9fb7b012f42bb2181d876f9b36e678cfd9441d8b74379c8eec8d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "787ffbba1df2908f13390d16ce3ffac1976f2f2acd937e3b2b33bc3f5af16fe4"
+    sha256 cellar: :any,                 arm64_sonoma:   "3b5c6db79896a7353c41b2a8415a718db42e7653cf2e8173aad1e051094fee55"
+    sha256 cellar: :any,                 arm64_ventura:  "7ac2411249ff9931effb968e5d90d3afcab3367cfa967e06c432cb54f83e8f87"
+    sha256 cellar: :any,                 arm64_monterey: "5c68468472d5674dbbbad4c6b135874b512add3ab4da70d8fc39877a242236af"
+    sha256 cellar: :any,                 sonoma:         "5fb1183dd63ab68fe2b9950ba8b5b6573c359a9696eb604973e135c37dc18a2a"
+    sha256 cellar: :any,                 ventura:        "d1093fca14675094c5ee76a56a26a0d1940baea3aa1bce5778c8780f4cb20992"
+    sha256 cellar: :any,                 monterey:       "42defdd2bcfb137b12c3ccd858071293b77357dce9252ea0a41e4c66022a44a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6b7fcc0e587c5370091190d157fbc725cf4ad4d9373904092878a7aa88746228"
   end
 
   depends_on "libpq"

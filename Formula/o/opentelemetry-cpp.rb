@@ -4,17 +4,17 @@ class OpentelemetryCpp < Formula
   url "https://github.com/open-telemetry/opentelemetry-cpp/archive/refs/tags/v1.16.1.tar.gz"
   sha256 "b8a78bb2a3a78133dbb08bcd04342f4b1e03cb4a19079b8416d408d905fffc37"
   license "Apache-2.0"
-  revision 1
+  revision 2
   head "https://github.com/open-telemetry/opentelemetry-cpp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "12ae7685c208fa6742bc123a17a4c3a265badfd751ca4ec6b9bf13dffbef1b19"
-    sha256 cellar: :any,                 arm64_ventura:  "6b764090ec06927ddec79b6fecc6535c836047051ff3e79011e2413fd987faec"
-    sha256 cellar: :any,                 arm64_monterey: "41eec49fb820d677f4eae82b979e59438c2732d4e3ebaa8558565ab6e1916b0e"
-    sha256 cellar: :any,                 sonoma:         "e36223f2a094979ad02b07d2cd795669a38a67268751540ea8dd1a1926b6bff6"
-    sha256 cellar: :any,                 ventura:        "e2b7059c2add01a4b466b545c2598be626922be894d5c284c8e2088bed7f360a"
-    sha256 cellar: :any,                 monterey:       "3b60f66609f33bd28450da580c948a5b2d6bba0eeec8aa10fddc9d278eab4e2f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "72b5ef82e69462c5648530f40715a95bb99d462cbc4aca7e97c28317487dff51"
+    sha256 cellar: :any,                 arm64_sonoma:   "718c8436bd5657a404058ed8b5323789e74cf5635fcfbd33f956051f075c7b06"
+    sha256 cellar: :any,                 arm64_ventura:  "8e9a8c6e20f30c79e2ed5745426731bd200974856f231cf4f72bec16e1a4f349"
+    sha256 cellar: :any,                 arm64_monterey: "d007d09bf0476bda6d35a6d9ddcab6ce4c81bca13a7f742920ace22c782fdc09"
+    sha256 cellar: :any,                 sonoma:         "0578c0f583f98cfa46e2f102a8f659ec176ba6bb6255b75c7303cb3aa644ccb1"
+    sha256 cellar: :any,                 ventura:        "cf1c0dc1cebd246c39af039afa414e1212e1b40bbede433b73fe787ca70a5152"
+    sha256 cellar: :any,                 monterey:       "9666cb1fc3484d89b0b07c735c76f5dfd2faa1438ea5ff9849ff4a3d7b7f65fc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "122941271565f41cab30bf7dae07b9629b2db3b443ae89ef054d96a8a0ad9acb"
   end
 
   depends_on "cmake" => :build

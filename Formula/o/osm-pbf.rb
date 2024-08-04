@@ -4,16 +4,16 @@ class OsmPbf < Formula
   url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.5.1.tar.gz"
   sha256 "183ad76c5905c7abd35d938824320ffb82d9ca8987796018f2da8380b51cdac2"
   license "LGPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "8c52a4cba8352a2f9a6bf211995451988d0856ff1b2679e8d13bc38c4fdedb24"
-    sha256 cellar: :any,                 arm64_ventura:  "4d007458fd90dd2c08c69e3e5c0f5b1b1e16b73db491831aec863f78bc003e2d"
-    sha256 cellar: :any,                 arm64_monterey: "f2516952057ddba353b9ed425b8c06f8b6a21085e05d0b369291ceec3306d942"
-    sha256 cellar: :any,                 sonoma:         "a49349e8d145ddb76fa0c86d5e91cda6e7c85214903f209105f554dedf67864c"
-    sha256 cellar: :any,                 ventura:        "529542e766816f1ae77a6d8df2d9f8aec86dd3fe437d8df11b88216d919b7608"
-    sha256 cellar: :any,                 monterey:       "2761c2d118502d0a2be7e249c205dc549c3f692702d2068e34a1901e264b91f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c7e6474ad7991ec6a292a9920328cf2df4e1b9a576ca38611b5849718651e56c"
+    sha256 cellar: :any,                 arm64_sonoma:   "fea28450b4e589a230b2ad3bc9c09ebf82e00fbb42009eff7bd2e9107f406e28"
+    sha256 cellar: :any,                 arm64_ventura:  "5b7eb454f12ec4ca03e72a30df8c8a7c3bc97a3fc29dd0fe68a698483f1860d3"
+    sha256 cellar: :any,                 arm64_monterey: "ea59fb9471428385f823d3846680d4771575af781ecca0dca6f1be67df432367"
+    sha256 cellar: :any,                 sonoma:         "170d31effbbbcf7a8f1523d2279ab2315516e77b370d2cedceeb6b93e4f50f17"
+    sha256 cellar: :any,                 ventura:        "3291a80e6ae49dddb36c226d3bf480b6043f758e6f9eb20171c9010d9608eb7b"
+    sha256 cellar: :any,                 monterey:       "e339d429555f1df0bd8cf24caea2e42d850e91ec5f8df965e2462de3c35c173d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "19883fe86c5fe064f3c70c8b18acd20d356465fe95548e8446664644eba9ed59"
   end
 
   depends_on "cmake" => :build

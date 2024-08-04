@@ -1,20 +1,9 @@
 class Cracklib < Formula
   desc "LibCrack password checking library"
   homepage "https://github.com/cracklib/cracklib"
+  url "https://github.com/cracklib/cracklib/releases/download/v2.10.2/cracklib-2.10.2.tar.bz2"
+  sha256 "e157c78e6f26a97d05e04b6fe9ced468e91fa015cc2b2b7584889d667a958887"
   license "LGPL-2.1-only"
-  head "https://github.com/cracklib/cracklib.git", branch: "main"
-
-  stable do
-    url "https://github.com/cracklib/cracklib/releases/download/v2.10.1/cracklib-2.10.1.tar.bz2"
-    sha256 "102ffe74865152a7ce03b5122135ac896b06cfb06684983abe3179e468787a51"
-
-    # Fix missing endian-related functions when building on macOS (from https://github.com/cracklib/cracklib/pull/97)
-    # Changes included upstream, remove on 2.10.2 or newer
-    patch do
-      url "https://raw.githubusercontent.com/Homebrew/formula-patches/3bd3ae1a12ffc359a7250dc4d7aeda0029f792e5/cracklib/2.10.1-endian.patch"
-      sha256 "965c6ec5d9119c56cf2e07af8a67fb4e2e4dafc577c1a4933976e18bb81e94b8"
-    end
-  end
 
   livecheck do
     url :stable
@@ -22,37 +11,35 @@ class Cracklib < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "0f231f48c8024fbf45ae1b8a15964bf1800388a38c6c531b63186ff70703252c"
-    sha256 arm64_ventura:  "e7d7c13b6c64b85343bb3a63e8d4f36bc73558b6c71d9a3a9c0a2d7a985690af"
-    sha256 arm64_monterey: "17727e4efe900789f4d4a2cf6a5be19c7a4cc96a2cde1153b95c454b0c8a936e"
-    sha256 sonoma:         "597400935abe1f841d1208c22bfc36e2f2f6e851b5af57c00c4c7c7e8eca4c50"
-    sha256 ventura:        "95547fe0db7ff728800cd10e1ced9534505bfdf11a3e9243f62c50b0b0abbf1f"
-    sha256 monterey:       "a5869de4d658a2da346aa9ebdc1a2a389bda5a1415ae66a850b3dc174b0273de"
-    sha256 x86_64_linux:   "95dfd460b7aa55d174a75a0248814ccca7770314b012368840790220b74ca9d9"
+    sha256 arm64_sonoma:   "0c5f49a46e9db39c735041120c5e89b06b1ec2b0e37ba2090973f2067ebee3ef"
+    sha256 arm64_ventura:  "c03e267a7d0d790f718537b89fa25c6aac1f7f75a3f23addfd07e059305d97b1"
+    sha256 arm64_monterey: "e76849125f0b2ee7631f381249e9b0acae465b5128c0d255a76fc0112a78539b"
+    sha256 sonoma:         "9da52404b23c1520018c0c412aefc7464d7cb0a088be20fc8105dd0df3577eb4"
+    sha256 ventura:        "65bf3c3f8b218c977b4bec89d25b27e21f5ffed8329510ba8227b7b0208375b6"
+    sha256 monterey:       "cd6d93ae08c1d7c2459f8bc95f3274f2d34c862ea5c1eceeb025ca74fce180a7"
+    sha256 x86_64_linux:   "9ecde5232f61599c25890b9056d7abfb6a15e30569eda7fb96eb5e447fe651d7"
   end
 
-  # Patch touches Makefile.am, autotools is needed to run autoreconf before build
-  # At 2.10.2 or newer, autotools is only needed for HEAD builds
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  head do
+    url "https://github.com/cracklib/cracklib.git", branch: "main"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+    depends_on "libtool" => :build
+  end
 
   depends_on "gettext"
 
   uses_from_macos "zlib"
 
   resource "cracklib-words" do
-    url "https://github.com/cracklib/cracklib/releases/download/v2.10.1/cracklib-words-2.10.1.bz2"
+    url "https://github.com/cracklib/cracklib/releases/download/v2.10.2/cracklib-words-2.10.2.bz2"
     sha256 "ec25ac4a474588c58d901715512d8902b276542b27b8dd197e9c2ad373739ec4"
   end
 
   def install
-    # At 2.10.2 or newer, all source code (including autotools files) are in src subdirectory
-    # (replace with a `cd do` block when possible)
-    Dir.chdir "src" if build.head?
-
-    # At 2.10.2 or newer, autoreconf is only needed for HEAD builds
-    system "autoreconf", "--force", "--install", "--verbose"
+    buildpath.install (buildpath/"src").children if build.head?
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",

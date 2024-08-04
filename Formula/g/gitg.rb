@@ -22,12 +22,15 @@ class Gitg < Formula
   end
 
   depends_on "gettext" => :build # for `msgfmt`
-  depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "vala" => :build
+
   depends_on "adwaita-icon-theme"
+  depends_on "cairo"
+  depends_on "gdk-pixbuf"
+  depends_on "glib"
   depends_on "gobject-introspection"
   depends_on "gpgme"
   depends_on "gspell"
@@ -42,6 +45,13 @@ class Gitg < Formula
   depends_on "libhandy"
   depends_on "libpeas@1"
   depends_on "libsecret"
+  depends_on "pango"
+
+  uses_from_macos "libxml2"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     # Work-around for build issue with Xcode 15.3: https://gitlab.gnome.org/GNOME/gitg/-/issues/465
@@ -59,10 +69,9 @@ class Gitg < Formula
   end
 
   test do
-    # test executable
     # Disable this part of test on Linux because display is not available.
     assert_match version.to_s, shell_output("#{bin}/gitg --version") if OS.mac?
-    # test API
+
     (testpath/"test.c").write <<~EOS
       #include <libgitg/libgitg.h>
 
@@ -71,87 +80,9 @@ class Gitg < Formula
         return 0;
       }
     EOS
-    atk = Formula["atk"]
-    cairo = Formula["cairo"]
-    fontconfig = Formula["fontconfig"]
-    freetype = Formula["freetype"]
-    gdk_pixbuf = Formula["gdk-pixbuf"]
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    gobject_introspection = Formula["gobject-introspection"]
-    gpgme = Formula["gpgme"]
-    gtkx3 = Formula["gtk+3"]
-    harfbuzz = Formula["harfbuzz"]
-    libepoxy = Formula["libepoxy"]
-    libffi = Formula["libffi"]
-    libgee = Formula["libgee"]
-    libgit2 = Formula["libgit2@1.7"]
-    libgit2_glib = Formula["libgit2-glib"]
-    libhandy = Formula["libhandy"]
-    libpng = Formula["libpng"]
-    pango = Formula["pango"]
-    pixman = Formula["pixman"]
-    flags = %W[
-      -I#{atk.opt_include}/atk-1.0
-      -I#{cairo.opt_include}/cairo
-      -I#{fontconfig.opt_include}
-      -I#{freetype.opt_include}/freetype2
-      -I#{gdk_pixbuf.opt_include}/gdk-pixbuf-2.0
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/gio-unix-2.0/
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{gobject_introspection.opt_include}/gobject-introspection-1.0
-      -I#{gpgme.opt_include}
-      -I#{gtkx3.opt_include}/gtk-3.0
-      -I#{harfbuzz.opt_include}/harfbuzz
-      -I#{include}/libgitg-1.0
-      -I#{libepoxy.opt_include}
-      -I#{libgee.opt_include}/gee-0.8
-      -I#{libffi.opt_lib}/libffi-3.0.13/include
-      -I#{libgit2.opt_include}
-      -I#{libgit2_glib.opt_include}/libgit2-glib-1.0
-      -I#{libhandy.opt_include}/libhandy-1
-      -I#{libpng.opt_include}/libpng16
-      -I#{pango.opt_include}/pango-1.0
-      -I#{pixman.opt_include}/pixman-1
-      -DGIT_SSH=1
-      -D_REENTRANT
-      -L#{atk.opt_lib}
-      -L#{cairo.opt_lib}
-      -L#{gdk_pixbuf.opt_lib}
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{gobject_introspection.opt_lib}
-      -L#{gpgme.opt_lib}
-      -L#{gtkx3.opt_lib}
-      -L#{libgee.opt_lib}
-      -L#{libgit2.opt_lib}
-      -L#{libgit2_glib.opt_lib}
-      -L#{libhandy.opt_lib}
-      -L#{lib}
-      -L#{pango.opt_lib}
-      -latk-1.0
-      -lcairo
-      -lcairo-gobject
-      -lgdk-3
-      -lgdk_pixbuf-2.0
-      -lgio-2.0
-      -lgirepository-1.0
-      -lgit2
-      -lgit2-glib-1.0
-      -lgitg-1.0
-      -lglib-2.0
-      -lgmodule-2.0
-      -lgobject-2.0
-      -lgpgme
-      -lgthread-2.0
-      -lgtk-3
-      -lhandy-1
-      -lpango-1.0
-      -lpangocairo-1.0
-    ]
-    flags << "-lintl" if OS.mac?
+
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libgit2@1.7"].opt_lib/"pkgconfig"
+    flags = shell_output("pkg-config --cflags --libs libgitg-1.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

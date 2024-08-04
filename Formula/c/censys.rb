@@ -3,19 +3,18 @@ class Censys < Formula
 
   desc "Command-line interface for the Censys APIs (censys.io)"
   homepage "https://github.com/censys/censys-python"
-  url "https://files.pythonhosted.org/packages/d1/21/9797900ebbed0fa2c961b2432a1c9cf9e41bbd6e8902debcf22ad9473d31/censys-2.2.12.tar.gz"
-  sha256 "da75c2e37f064b9ffd579650217cb8d3f129048949f997acee31a0cb34b6e0dd"
+  url "https://files.pythonhosted.org/packages/40/b1/49c9e64b8339f8ae1f8d29b3001dc710593a4f391cbf21442fd1ae5da4a3/censys-2.2.13.tar.gz"
+  sha256 "26aba12813a96c2f696056148d8a220fa329c014e367ef3171c0aad078408205"
   license "Apache-2.0"
-  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "14f606d6f10b2b8a5257177768c1ac9599366c3f45771b15b21d6ce50f488f7f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "14f606d6f10b2b8a5257177768c1ac9599366c3f45771b15b21d6ce50f488f7f"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "14f606d6f10b2b8a5257177768c1ac9599366c3f45771b15b21d6ce50f488f7f"
-    sha256 cellar: :any_skip_relocation, sonoma:         "b08270aa227459cdc5357406b74014e3f4b552da4fffe5e6fdd4fc9a14bf95f4"
-    sha256 cellar: :any_skip_relocation, ventura:        "b08270aa227459cdc5357406b74014e3f4b552da4fffe5e6fdd4fc9a14bf95f4"
-    sha256 cellar: :any_skip_relocation, monterey:       "b08270aa227459cdc5357406b74014e3f4b552da4fffe5e6fdd4fc9a14bf95f4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9f9b20ffaa7a6d3e621c2b75eda7cfd94986513e3031ae28cf20294982c65cbf"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "cb15f1341a68b12965350e7a8a69f3e461cf5793a99a6fac64dd1f12af72f1eb"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "cb15f1341a68b12965350e7a8a69f3e461cf5793a99a6fac64dd1f12af72f1eb"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "cb15f1341a68b12965350e7a8a69f3e461cf5793a99a6fac64dd1f12af72f1eb"
+    sha256 cellar: :any_skip_relocation, sonoma:         "1f18fc0e97118f5cdb03eec34455e87be3e257b83c0460f3b96f6b8ea3d02793"
+    sha256 cellar: :any_skip_relocation, ventura:        "1f18fc0e97118f5cdb03eec34455e87be3e257b83c0460f3b96f6b8ea3d02793"
+    sha256 cellar: :any_skip_relocation, monterey:       "1f18fc0e97118f5cdb03eec34455e87be3e257b83c0460f3b96f6b8ea3d02793"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "4dc19431648b4955d6f50e7508d6aa326856ca4b660a30b404a631eb4fdf9aa6"
   end
 
   depends_on "certifi"
@@ -76,8 +75,7 @@ class Censys < Formula
   end
 
   test do
-    assert_match "usage: censys", shell_output("#{bin}/censys --help")
     assert_equal "Censys Python Version: #{version}", shell_output("#{bin}/censys --version").strip
-    assert_match "Successfully configured credentials", pipe_output("#{bin}/censys asm config", "test\nn\n", 0)
+    assert_match "401 (Error Code: unknown), Unauthorized", pipe_output("#{bin}/censys asm config 2>&1", "test", 1)
   end
 end

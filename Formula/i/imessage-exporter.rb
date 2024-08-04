@@ -1,18 +1,18 @@
 class ImessageExporter < Formula
   desc "Command-line tool to export and inspect local iMessage database"
   homepage "https://github.com/ReagentX/imessage-exporter"
-  url "https://github.com/ReagentX/imessage-exporter/archive/refs/tags/2.0.0.tar.gz"
-  sha256 "139114b7e05c6a7f23ee93a5f3af3d39ba12b69a3a08b40c1125ce594e454628"
+  url "https://github.com/ReagentX/imessage-exporter/archive/refs/tags/2.0.1.tar.gz"
+  sha256 "44b31f41a5b1397e252f7a62e887f7c0fe9a26e481bfe2474747650776067974"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "8948ba21433e340f0d87c12008fc268ebbbbcfc64897f0a7fc02dcf6c02f9d8f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "e4198e265517f20c95133e94b9796f1363ddad3dab130fe9aa8a4daebe794df2"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "de08747b221ca822cace8bc0958987de1daaff02e59e60fafca6de97a3862c74"
-    sha256 cellar: :any_skip_relocation, sonoma:         "bafbeeb9de1821254c74b5bcb683a7e888a29af687b1edf657692589180b0eab"
-    sha256 cellar: :any_skip_relocation, ventura:        "fb423af36da67e9efca05a0147536cbf3f0516a2c2c18a7f7747f965bfd1cc40"
-    sha256 cellar: :any_skip_relocation, monterey:       "9e538074332315e9ee82533a7ff9fa9635d50a16c765b25c10bc5923123449fa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "e51bf24845dde36b01c75965bab8d46d8be14f47837c04205856d6b8d2ffca99"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6525eb9788300f1c26f1b86dad9322f46cbdb15b856a2c8eb4941af964cf4242"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "1617a9e265102f4dc49a8a645d05b91a918305596db7bb5d10ae416dfdfbdbf1"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "0b10c1f865f071ebd6feabe2b769556345a7114e38956a1d8e475382bb6fa9db"
+    sha256 cellar: :any_skip_relocation, sonoma:         "3de134831148ae0f7b3190e25287653f9ac6bf3813d133d5a39ba8b8f46f54c0"
+    sha256 cellar: :any_skip_relocation, ventura:        "46d9adcc731017c28002f88af049d628b5e963f22dc81a4f3db319d25bf39daa"
+    sha256 cellar: :any_skip_relocation, monterey:       "eb42f1fcd7fede1a1511ba7efc750689b5ae4e3c28517bea2b8a2bb4b51f7276"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "690b4b7f094f3f1e96dbf5f999df601905ffcfdd3f6f7e5a42e6cf98613d38eb"
   end
 
   depends_on "rust" => :build

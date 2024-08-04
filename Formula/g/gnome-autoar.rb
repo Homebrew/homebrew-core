@@ -26,9 +26,15 @@ class GnomeAutoar < Formula
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
+
+  depends_on "glib"
   depends_on "gtk+3"
   depends_on "libarchive"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def install
     system "meson", "setup", "build", *std_meson_args
@@ -49,30 +55,9 @@ class GnomeAutoar < Formula
         return 0;
       }
     EOS
-    gettext = Formula["gettext"]
-    glib = Formula["glib"]
-    libarchive = Formula["libarchive"]
-    pcre = Formula["pcre"]
-    flags = (ENV.cflags || "").split + (ENV.cppflags || "").split + (ENV.ldflags || "").split
-    flags += %W[
-      -I#{gettext.opt_include}
-      -I#{glib.opt_include}/glib-2.0
-      -I#{glib.opt_lib}/glib-2.0/include
-      -I#{include}/gnome-autoar-0
-      -I#{libarchive.opt_include}
-      -I#{pcre.opt_include}
-      -D_REENTRANT
-      -L#{gettext.opt_lib}
-      -L#{glib.opt_lib}
-      -L#{libarchive.opt_lib}
-      -L#{lib}
-      -larchive
-      -lgio-2.0
-      -lglib-2.0
-      -lgnome-autoar-0
-      -lgobject-2.0
-    ]
-    flags << "-lintl" if OS.mac?
+
+    ENV.prepend_path "PKG_CONFIG_PATH", Formula["libarchive"].opt_lib/"pkgconfig"
+    flags = shell_output("pkg-config --cflags --libs gnome-autoar-0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
   end

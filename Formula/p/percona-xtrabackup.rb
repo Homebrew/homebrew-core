@@ -5,6 +5,7 @@ class PerconaXtrabackup < Formula
   url "https://downloads.percona.com/downloads/Percona-XtraBackup-LATEST/Percona-XtraBackup-8.0.35-31/source/tarball/percona-xtrabackup-8.0.35-31.tar.gz"
   sha256 "c6bda1e7f983e5a667bff22d1d67d33404db4e741676d03c9c60bbd4b263cabf"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url "https://docs.percona.com/percona-xtrabackup/latest/"
@@ -19,13 +20,13 @@ class PerconaXtrabackup < Formula
   end
 
   bottle do
-    sha256 arm64_sonoma:   "4e946a2cfea03a1948984d70f7f962620ff5daa969dffb22fba8550245b9e963"
-    sha256 arm64_ventura:  "5933c6a83680e1f249f0ea0688710aebbad26e66a4c4371dc8e3d52fa9058434"
-    sha256 arm64_monterey: "f3ef69bc3099153309a5bc27abc74af7758d235c9ccbbdd562854f1328afa9d1"
-    sha256 sonoma:         "87c8f8dc9b73d22530f39db6ba3041258c2647e676a0a175876c66ae0c1c0ebf"
-    sha256 ventura:        "d23a41e05238236f562b0ef10d6836bf3f741a6962e5243ffcbcf4e981eb9d32"
-    sha256 monterey:       "3c7bae88a2359b7922269699dcf8d45bcf86e0ee0cd50d2a701175e34d77459f"
-    sha256 x86_64_linux:   "a7d51f7b824f4eef8dbaa13809d7f4ea45f46bdb8cf2c729c0068646b5a392e7"
+    sha256 arm64_sonoma:   "b5c06024f4c828b0f32b02ffae20618aaf49f68f29ea6e76447e78e8ea4dad95"
+    sha256 arm64_ventura:  "2ed8789709352a980495715cbea9250df93ea6dce312d5467f6291725630941c"
+    sha256 arm64_monterey: "e4d5dcf4b5a416efaaf07d84dbecb7947ce4bc7a300cbb1bf8312db6c97d512f"
+    sha256 sonoma:         "a571ccf5981b0ca05d3ddf313ac273191b52f0a88ce757c7b1d9f2e29ab08be1"
+    sha256 ventura:        "94ac98979fb87f800d8dd9e473d3a27825b20263895a5a8b78ee78239bd10696"
+    sha256 monterey:       "463d67d569e0ee402ef0192f6c6c51d485c955e50c73398c1c224bce7e710812"
+    sha256 x86_64_linux:   "9b680005cf3231ce6a6760aa4e580af5fe90be024702f9eb939815a0bc25b017"
   end
 
   depends_on "bison" => :build # needs bison >= 3.0.4
@@ -78,8 +79,8 @@ class PerconaXtrabackup < Formula
   end
 
   resource "DBD::mysql" do
-    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.006.tar.gz"
-    sha256 "4ca6c6415552a8acd3d8e01a96d0ac5a4a936e845c4c0e6a7ac6a10ad3798db7"
+    url "https://cpan.metacpan.org/authors/id/D/DV/DVEEDEN/DBD-mysql-5.008.tar.gz"
+    sha256 "a2324566883b6538823c263ec8d7849b326414482a108e7650edc0bed55bcd89"
   end
 
   # https://github.com/percona/percona-xtrabackup/blob/percona-xtrabackup-#{version}/cmake/boost.cmake

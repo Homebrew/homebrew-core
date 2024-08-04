@@ -1,8 +1,8 @@
 class VulkanProfiles < Formula
   desc "Tools for Vulkan profiles"
   homepage "https://github.com/KhronosGroup/Vulkan-Profiles"
-  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.3.289.tar.gz"
-  sha256 "b5130baf6eb8a8d06e5191f62fd75dfb36c85392c2d3b79aa9a4097e53d1394f"
+  url "https://github.com/KhronosGroup/Vulkan-Profiles/archive/refs/tags/v1.3.292.tar.gz"
+  sha256 "11e3af1c5ee681b4d74c1348e01a204759bd3af7fbbb88b2434542b02482623c"
   license "Apache-2.0"
   head "https://github.com/KhronosGroup/Vulkan-Profiles.git", branch: "main"
 
@@ -12,13 +12,13 @@ class VulkanProfiles < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "ffd4f14884eae0007a02b2b16daebaa72aa955cff7ceff39fe8a90641feb3f18"
-    sha256 cellar: :any,                 arm64_ventura:  "9fc053a1a4bc263f00027a85108f8a0fd420de1cfdd425695535c7d9ed677159"
-    sha256 cellar: :any,                 arm64_monterey: "267f1b8e76e4a79c6be190f043a5957a032995bdd3693ffab192c8c67f76554f"
-    sha256 cellar: :any,                 sonoma:         "82454ac0418d45ecad65fbfa2e8ee60906fb71b324fd5e517b60758b9d437f38"
-    sha256 cellar: :any,                 ventura:        "3f7e01bae73a13a40e8029a57349bc9d17437add20b048578d5561be516570a1"
-    sha256 cellar: :any,                 monterey:       "98625bc26f89ceb2da27f55af011de8a8fd59b61742de471b9dc071817ccf44a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "40a8435509a38326fc0a174c9650f37a755355d165ee31e84258d17dc647ca73"
+    sha256 cellar: :any,                 arm64_sonoma:   "428f9a33944afbf8d6553cf870c29b050f022c54bca8928a77c1448ce676b4e3"
+    sha256 cellar: :any,                 arm64_ventura:  "568f1828faa560a6499bced661f748942973c330fa83ddf671fdbe3b73bb0835"
+    sha256 cellar: :any,                 arm64_monterey: "abd228c2af7c5be6451038e3e0fa0d502a59b3c477efe92adf3537db5652bb37"
+    sha256 cellar: :any,                 sonoma:         "5295229419b4d237d316e1be1329b85b1c8520f8461e949000bcc61d0c6b3cb0"
+    sha256 cellar: :any,                 ventura:        "8fb2b6318e7163106ef2fbda8b235f2b0c7f33dbe4aac4dc6416c155d3695faa"
+    sha256 cellar: :any,                 monterey:       "ba49f72d80bbe4cd5199dd51b5179224e8516d2c1d77576c94e374268358b7e0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9c5585d3a20ab9952f26a8f7ef770a4f0fe38fe621d1b9c48044f83da5ef497a"
   end
 
   depends_on "cmake" => :build

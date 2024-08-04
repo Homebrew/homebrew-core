@@ -7,8 +7,11 @@ class Betty < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cdae1d186d5d81c47c8c3f603e379fb563e4d63844966a14c6c4c2f7319a5871"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "6d9822a13119b0500eb79e9c4cafaa064053c0870393092f1f0c6386592138d7"
   end
+
+  uses_from_macos "ruby"
 
   def install
     libexec.install "lib", "main.rb" => "betty"

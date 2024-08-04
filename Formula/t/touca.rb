@@ -8,13 +8,14 @@ class Touca < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "db63d5f14e5b12b46f6bf83f299fbdaa6c635785979ded9aad35861543f4f4b9"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "db63d5f14e5b12b46f6bf83f299fbdaa6c635785979ded9aad35861543f4f4b9"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "db63d5f14e5b12b46f6bf83f299fbdaa6c635785979ded9aad35861543f4f4b9"
-    sha256 cellar: :any_skip_relocation, sonoma:         "6b45015272a5d8987cd49b5e672f6a4fe382d4dda1d8b893b474952d542e4fe9"
-    sha256 cellar: :any_skip_relocation, ventura:        "6b45015272a5d8987cd49b5e672f6a4fe382d4dda1d8b893b474952d542e4fe9"
-    sha256 cellar: :any_skip_relocation, monterey:       "8572f59ccea2d9d4f3aca0de8e6b103d5d2e407ca5c83cb080e09ba81cdcdb6c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "5eac5cb706608b3c375dd16029960ac67701c55ea254cd5bf8fdeeb19cc8b134"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a9333e9833aa585a5f1d6ea2d039f1407164a389c1e1866a43dfc98e4d8f14a5"
+    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a9333e9833aa585a5f1d6ea2d039f1407164a389c1e1866a43dfc98e4d8f14a5"
+    sha256 cellar: :any_skip_relocation, arm64_monterey: "a9333e9833aa585a5f1d6ea2d039f1407164a389c1e1866a43dfc98e4d8f14a5"
+    sha256 cellar: :any_skip_relocation, sonoma:         "a9333e9833aa585a5f1d6ea2d039f1407164a389c1e1866a43dfc98e4d8f14a5"
+    sha256 cellar: :any_skip_relocation, ventura:        "a9333e9833aa585a5f1d6ea2d039f1407164a389c1e1866a43dfc98e4d8f14a5"
+    sha256 cellar: :any_skip_relocation, monterey:       "a9333e9833aa585a5f1d6ea2d039f1407164a389c1e1866a43dfc98e4d8f14a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "06bcb1c050f7b85013fa3b5a2ad5add68369fce76012f28e13741ce507be1745"
   end
 
   depends_on "certifi"
@@ -51,6 +52,8 @@ class Touca < Formula
   end
 
   def install
+    # Allow latest `certifi`: https://github.com/trytouca/trytouca/pull/663
+    inreplace "pyproject.toml", 'certifi = "^2022.12.7"', 'certifi = ">=2022.12.7"'
     virtualenv_install_with_resources
   end
 

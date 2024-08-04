@@ -25,6 +25,9 @@ class Binwalk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1e23a0c1cfd5ccb70085fb00191d971b545c79d5dfc3aa2693b9a552665db0d5"
   end
 
+  # https://github.com/ReFirmLabs/binwalk/issues/671
+  deprecate! date: "2024-08-03", because: :unmaintained
+
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build

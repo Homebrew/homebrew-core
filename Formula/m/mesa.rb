@@ -129,7 +129,6 @@ class Mesa < Formula
       args += %w[
         -Ddri3=enabled
         -Degl=enabled
-        -Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink
         -Dgallium-extra-hud=true
         -Dgallium-nine=true
         -Dgallium-omx=disabled
@@ -154,6 +153,9 @@ class Mesa < Formula
         -Dvulkan-drivers=amd,intel,intel_hasvk,swrast,virtio
         -Dvulkan-layers=device-select,intel-nullhw,overlay
       ]
+      if Hardware::CPU.intel?
+        args << "-Dgallium-drivers=r300,r600,radeonsi,nouveau,virgl,svga,swrast,i915,iris,crocus,zink"
+      end
     end
 
     system "meson", "setup", "build", *args, *std_meson_args

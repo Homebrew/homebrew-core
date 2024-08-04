@@ -4,6 +4,7 @@ class Mydumper < Formula
   url "https://github.com/mydumper/mydumper/archive/refs/tags/v0.16.5-1.tar.gz"
   sha256 "02cf1034e64f1beb45c5a37b6fffb100b2d928d8dd37a31407a6f97c18d36181"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,13 +13,13 @@ class Mydumper < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:   "5aed09623f292ffcaa4637199c972046824978cf153992c7d9517b89c2bd6a2d"
-    sha256 cellar: :any,                 arm64_ventura:  "9b1b7a90144992791dd6b177089f4a9943f3fa20ff59b6edcc08b1006d74ae53"
-    sha256 cellar: :any,                 arm64_monterey: "e0b736ace8c749bb2cfc414f5ecf788a5eecb3170b2cbbc4221e2725eb6453f8"
-    sha256 cellar: :any,                 sonoma:         "5d0db6364e0485cb90e62907af2797c021b3b28b640360b4b2f5be579d595457"
-    sha256 cellar: :any,                 ventura:        "7989140c43e698d05e55385f66ce658256cd05ee5c87f7d94c89f786bf31edff"
-    sha256 cellar: :any,                 monterey:       "c19a58de2e8c465a223a0585ee2d479dbd0f9831eaa44919c56a59bd322db1d4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "edd2c8919985eea7c730240591c44f44bbb4afccc852220b5b69206f699d7451"
+    sha256 cellar: :any,                 arm64_sonoma:   "fbb4ce17a024efb4bd7033db10281236a2e1328871ecec778b955ca25368bb41"
+    sha256 cellar: :any,                 arm64_ventura:  "0a1bc1806a13cbbbc02d472e79b7d6369b93066571c5642ecbe9a9202beb684f"
+    sha256 cellar: :any,                 arm64_monterey: "9031331ed5614e060b959765d6d78856273f3bd55cdddd09fe143536e5410b09"
+    sha256 cellar: :any,                 sonoma:         "adb353bb7aa6180f769c78686dabe53306c8b8f513547796ece5a03e828b9a27"
+    sha256 cellar: :any,                 ventura:        "7198ea58a45d4ca3c82dbc6d2171b1476407a121c8292d54eaf787dc53b82907"
+    sha256 cellar: :any,                 monterey:       "a6c167f4fa35f6adf3bae9a15917436e096b3abc3cbc628795b4829f0dd8e97e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1780467f83103f8cbd1ce0a4ac83d5c5d4c81527dc1263ffa698e5c072ae1eb6"
   end
 
   depends_on "cmake" => :build
