@@ -4,7 +4,7 @@ class Pdftoipe < Formula
   url "https://github.com/otfried/ipe-tools/archive/refs/tags/v7.2.24.1.tar.gz"
   sha256 "561b18fc2a7ae45c37c5d0390443b37f4585549f09cd7765d856456be24e5dbc"
   license "GPL-2.0-or-later"
-  revision 20
+  revision 21
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "3ffc098642fb07f56fdf7123d1ed96e89c08e2a90138fe14b75fbaa5fb1a0baa"
@@ -33,6 +33,8 @@ class Pdftoipe < Formula
     sha256 "61f507fcaa843c00e5aa06bc1c8ab1cbc2798214c5f794d2c9bd376f78b49a11"
   end
 
+  patch :DATA
+
   def install
     cd "pdftoipe" do
       system "make"
@@ -47,3 +49,18 @@ class Pdftoipe < Formula
     assert_match "<ipestyle>", File.read("test.ipe")
   end
 end
+
+__END__
+diff --git a/pdftoipe/Makefile b/pdftoipe/Makefile
+index 349285d..d2e6f40 100644
+--- a/pdftoipe/Makefile
++++ b/pdftoipe/Makefile
+@@ -23,7 +23,7 @@ else
+   TARGET   = pdftoipe
+ endif
+ 
+-CXXFLAGS += -Wno-write-strings -std=c++17
++CXXFLAGS += -Wno-write-strings -std=c++20
+ 
+ all: $(TARGET)
+ 
