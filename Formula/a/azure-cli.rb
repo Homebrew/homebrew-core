@@ -28,7 +28,7 @@ class AzureCli < Formula
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "openssl@3"
-  depends_on "python@3.11" # Python 3.12 issue: https://github.com/Azure/azure-cli/issues/27673
+  depends_on "python@3.12"
 
   uses_from_macos "libffi"
 
@@ -721,7 +721,7 @@ class AzureCli < Formula
     ENV["OPENSSL_DIR"] = Formula["openssl@3"].opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
-    venv = virtualenv_create(libexec, "python3.11", system_site_packages: false, without_pip: false)
+    venv = virtualenv_create(libexec, "python3.12", system_site_packages: false)
     venv.pip_install resources
 
     # Get the CLI components we'll install
