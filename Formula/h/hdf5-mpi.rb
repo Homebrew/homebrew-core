@@ -1,8 +1,9 @@
 class Hdf5Mpi < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/HDF5"
-  url "https://support.hdfgroup.org/ftp/HDF5/releases/hdf5-1.14/hdf5-1.14.3/src/hdf5-1.14.3.tar.bz2"
-  sha256 "9425f224ed75d1280bb46d6f26923dd938f9040e7eaebf57e66ec7357c08f917"
+  url "https://github.com/HDFGroup/hdf5/releases/download/hdf5_1.14.4.2/hdf5-1.14.4-2.tar.gz"
+  version "1.14.4"
+  sha256 "618934b9d45e34f328393e1fde73a8a67e973f8e5a6bae8b609d098a84cb0efe"
   license "BSD-3-Clause"
   version_scheme 1
 

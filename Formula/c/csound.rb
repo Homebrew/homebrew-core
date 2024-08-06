@@ -2,7 +2,7 @@ class Csound < Formula
   desc "Sound and music computing system"
   homepage "https://csound.com"
   license "LGPL-2.1-or-later"
-  revision 9
+  revision 11
   head "https://github.com/csound/csound.git", branch: "master"
 
   # Remove `stable` block when patches are no longer needed

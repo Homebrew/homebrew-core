@@ -5,6 +5,7 @@ class Octave < Formula
   mirror "https://ftpmirror.gnu.org/octave/octave-9.2.0.tar.xz"
   sha256 "21417afb579105b035cac0bea09201522e384893ae90a781b8727efa32765807"
   license "GPL-3.0-or-later"
+  revision 1
 
   # New tarballs appear on https://ftp.gnu.org/gnu/octave/ before a release is
   # announced, so we check the octave.org download page instead.
