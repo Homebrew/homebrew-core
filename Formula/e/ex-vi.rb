@@ -31,9 +31,18 @@ class ExVi < Formula
     because: "ex-vi and vim both install bin/ex and bin/view"
 
   def install
+    # Fix compile with newer Clang
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
     system "make", "install", "INSTALL=/usr/bin/install",
                               "PREFIX=#{prefix}",
                               "PRESERVEDIR=/var/tmp/vi.recover",
                               "TERMLIB=ncurses"
+  end
+
+  test do
+    (testpath/"test.txt").write("Hello, Homebrew!")
+    system bin/"ex", "-c", "wq", "test.txt"
+    assert_match "Hello, Homebrew!", (testpath/"test.txt").read
   end
 end
