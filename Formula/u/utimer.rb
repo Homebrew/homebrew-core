@@ -3,6 +3,7 @@ class Utimer < Formula
   homepage "https://launchpad.net/utimer"
   url "https://launchpad.net/utimer/0.4/0.4/+download/utimer-0.4.tar.gz"
   sha256 "07a9d28e15155a10b7e6b22af05c84c878d95be782b6b0afaadec2f7884aa0f7"
+  license "GPL-3.0-or-later"
   revision 1
 
   bottle do
@@ -19,19 +20,29 @@ class Utimer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "a44f6b1ef51bbbb0a61411585f06bc0d7e9d94083b04c11802f26ba2b2f36d8e"
   end
 
+  depends_on "gettext" => :build # for intltool
   depends_on "intltool" => :build
   depends_on "pkg-config" => :build
-  depends_on "gettext"
+
   depends_on "glib"
 
   uses_from_macos "perl" => :build
 
-  def install
-    ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
+  on_macos do
+    depends_on "gettext"
+  end
 
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+  on_linux do
+    depends_on "perl-xml-parser" => :build
+  end
+
+  def install
+    # Workaround for Xcode 14.3
+    ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
+
+    ENV.prepend_path "PERL5LIB", Formula["perl-xml-parser"].libexec/"lib/perl5" if OS.linux?
+
+    system "./configure", *std_configure_args
     system "make", "install"
   end
 
