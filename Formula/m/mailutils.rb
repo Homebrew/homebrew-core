@@ -23,6 +23,11 @@ class Mailutils < Formula
 
   uses_from_macos "libxcrypt"
 
+  on_macos do
+    depends_on "gettext"
+    depends_on "libunistring"
+  end
+
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     url "https://raw.githubusercontent.com/Homebrew/formula-patches/03cf8088210822aa2c1ab544ed58ea04c897d9c4/libtool/configure-big_sur.diff"
@@ -37,11 +42,11 @@ class Mailutils < Formula
     end
 
     system "./configure", "--disable-mh",
-                          "--prefix=#{prefix}",
                           "--without-fribidi",
                           "--without-gdbm",
                           "--without-guile",
-                          "--without-tokyocabinet"
+                          "--without-tokyocabinet",
+                          *std_configure_args
     system "make", "install"
   end
 
