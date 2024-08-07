@@ -36,6 +36,7 @@ class Ffmpeg < Formula
   depends_on "lame"
   depends_on "libass"
   depends_on "libbluray"
+  depends_on "libplacebo"
   depends_on "librist"
   depends_on "libsoxr"
   depends_on "libssh"
@@ -117,6 +118,7 @@ class Ffmpeg < Formula
       --enable-libjxl
       --enable-libmp3lame
       --enable-libopus
+      --enable-libplacebo
       --enable-librav1e
       --enable-librist
       --enable-librubberband
