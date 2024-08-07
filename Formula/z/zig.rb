@@ -5,6 +5,8 @@ class Zig < Formula
   sha256 "06c73596beeccb71cc073805bdb9c0e05764128f16478fa53bf17dfabc1d4318"
   license "MIT"
 
+  head "https://github.com/ziglang/zig.git", branch: "master"
+
   livecheck do
     url "https://ziglang.org/download/"
     regex(/href=.*?zig[._-]v?(\d+(?:\.\d+)+)\.t/i)
