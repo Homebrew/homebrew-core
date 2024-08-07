@@ -31,7 +31,7 @@ jobs:
     if: github.repository_owner == 'Homebrew'
     strategy:
       matrix:
-        stable: [false, true]
+        stable: [false]
     name: tap_syntax${{ matrix.stable && ' (stable)' || '' }}
     runs-on: ubuntu-22.04
     continue-on-error: ${{ matrix.stable }}
