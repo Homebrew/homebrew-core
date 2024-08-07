@@ -15,9 +15,7 @@ class AdwaitaIconTheme < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "d460a6991524bce66ca08453f5acaaf2529bfe00f18871f2bd95b47d3520efc1"
   end
 
-  depends_on "gettext" => :build
   depends_on "gtk4" => :build # for gtk4-update-icon-cache
-  depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
