@@ -3,8 +3,8 @@ class Dotnet < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/dotnet.git",
-      tag:      "v8.0.4",
-      revision: "83659133a1aa2b2d94f9c4ecebfa10d960e27706"
+      tag:      "v8.0.7",
+      revision: "8be139ddde52d33e24c7d82f813248ff9fc54b97"
   license "MIT"
 
   bottle do
