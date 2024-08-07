@@ -47,7 +47,7 @@ class Glibc < Formula
   mirror "https://ftpmirror.gnu.org/gnu/glibc/glibc-2.35.tar.gz"
   sha256 "3e8e0c6195da8dfbd31d77c56fb8d99576fb855fafd47a9e0a895e51fd5942d4"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
 
   livecheck do
     skip "glibc is pinned to the version present in Homebrew CI"
