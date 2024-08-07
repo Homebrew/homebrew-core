@@ -79,6 +79,11 @@ jobs:
       - run: brew test-bot --only-formulae-detect
         id: formulae-detect
 
+      - if: ${{ steps.formulae-detect.outputs.added_formulae != '' }}
+        run: brew audit --new "$ADDED_FORMULAE"
+        env:
+          ADDED_FORMULAE: ${{ steps.formulae-detect.outputs.added_formulae }}
+
       - name: Fetch detected formulae bottles
         if: >
           github.event_name == 'merge_group' ||
