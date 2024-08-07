@@ -36,19 +36,11 @@ class Vte3 < Formula
   depends_on "pcre2"
 
   on_macos do
-    depends_on "gettext"
-  end
-
-  on_ventura :or_newer do
     depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1500
-  end
-
-  on_monterey :or_older do
-    # We use GCC on older macOS as build fails with brew `llvm`.
+    depends_on "gettext"
     # Undefined symbols for architecture x86_64:
     #   "std::__1::__libcpp_verbose_abort(char const*, ...)", referenced from: ...
-    depends_on "gcc"
-    fails_with :clang
+    depends_on "llvm" if DevelopmentTools.clang_build_version <= 1400
   end
 
   on_linux do
@@ -70,10 +62,10 @@ class Vte3 < Formula
   patch :DATA
 
   def install
-    ENV.llvm_clang if OS.mac? && MacOS.version >= :ventura && DevelopmentTools.clang_build_version <= 1500
-    # Work around an Xcode 15 linker issue which causes linkage against LLVM's
-    # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", Formula["llvm"].opt_lib if DevelopmentTools.clang_build_version == 1500
+    if OS.mac?
+      ENV.llvm_clang if DevelopmentTools.clang_build_version <= 1500
+      ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++" if DevelopmentTools.clang_build_version <= 1400
+    end
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
