@@ -1,14 +1,10 @@
 class HicolorIconTheme < Formula
   desc "Fallback theme for FreeDesktop.org icon themes"
   homepage "https://wiki.freedesktop.org/www/Software/icon-theme/"
-  url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.17.tar.xz"
-  sha256 "317484352271d18cbbcfac3868eab798d67fff1b8402e740baa6ff41d588a9d8"
-  license all_of: ["FSFUL", "FSFULLR", "GPL-2.0-only", "X11"]
-
-  livecheck do
-    url :homepage
-    regex(/href=.*?hicolor-icon-theme[._-]v?(\d+(?:\.\d+)+)\.t/i)
-  end
+  url "https://icon-theme.freedesktop.org/releases/hicolor-icon-theme-0.18.tar.xz"
+  sha256 "db0e50a80aa3bf64bb45cbca5cf9f75efd9348cf2ac690b907435238c3cf81d7"
+  license "GPL-2.0-only"
+  head "https://gitlab.freedesktop.org/xdg/default-icon-theme.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d787c770005c2fddf276e0b17b62d1068fc6fc97b778ab376a72814be126b106"
@@ -27,20 +23,13 @@ class HicolorIconTheme < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "1153e436e03439c74a2eae87b6b5fbb6c8192607420dd5b01d0295a8ef29d2e5"
   end
 
-  head do
-    url "https://gitlab.freedesktop.org/xdg/default-icon-theme.git", branch: "master"
-    depends_on "autoconf" => :build
-    depends_on "automake" => :build
-  end
+  depends_on "meson" => :build
+  depends_on "ninja" => :build
 
   def install
-    args = %W[--prefix=#{prefix} --disable-silent-rules]
-    if build.head?
-      system "./autogen.sh", *args
-    else
-      system "./configure", *args
-    end
-    system "make", "install"
+    system "meson", "setup", "build", *std_meson_args
+    system "meson", "compile", "-C", "build", "--verbose"
+    system "meson", "install", "-C", "build"
   end
 
   test do
