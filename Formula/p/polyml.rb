@@ -1,8 +1,13 @@
 class Polyml < Formula
   desc "Standard ML implementation"
   homepage "https://www.polyml.org/"
-  url "https://github.com/polyml/polyml/archive/refs/tags/v5.9.tar.gz"
-  sha256 "5aa452a49f2ac0278668772af4ea0b9bf30c93457e60ff7f264c5aec2023c83e"
+  # url "https://github.com/polyml/polyml/archive/refs/tags/v5.9.tar.gz"
+  # sha256 "5aa452a49f2ac0278668772af4ea0b9bf30c93457e60ff7f264c5aec2023c83e"
+  #
+  # TESTING: Latest commit
+  url "https://github.com/polyml/polyml.git",
+      revision: "a71e81c152470d53bdcaff767fb7305d6908a9a1"
+  version "5.9"
   license "LGPL-2.1-or-later"
   head "https://github.com/polyml/polyml.git", branch: "master"
 
@@ -23,8 +28,16 @@ class Polyml < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking", "--disable-debug",
-                          "--prefix=#{prefix}"
+    # Use ld_classic to work around 'ld: LINKEDIT overlap of start of LINKEDIT and symbol table'
+    # Issue ref: https://github.com/polyml/polyml/issues/194
+    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
+
+    if Hardware::CPU.arm?
+      ENV.O0
+      ENV.deparallelize
+    end
+
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end
