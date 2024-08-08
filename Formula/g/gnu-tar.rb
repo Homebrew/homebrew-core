@@ -58,7 +58,7 @@ class GnuTar < Formula
     # Symlink the executable into libexec/gnubin as "tar"
     (libexec/"gnubin").install_symlink bin/"gtar" => "tar"
     (libexec/"gnuman/man1").install_symlink man1/"gtar.1" => "tar.1"
-    libexec.install_symlink "gnuman" => "man"
+    (libexec/"gnubin").install_symlink "../gnuman" => "man"
   end
 
   def caveats
