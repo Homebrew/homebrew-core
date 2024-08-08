@@ -20,54 +20,46 @@ class Hdf5Mpi < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "2d3d1ccbf33cbbe10e13a6969d682217e650eefbaecc0f4a2e62c79394ce06a7"
   end
 
-  depends_on "autoconf" => :build
-  depends_on "automake" => :build
-  depends_on "libtool" => :build
+  depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "libaec"
   depends_on "open-mpi"
+  depends_on "pkg-config"
 
   uses_from_macos "zlib"
 
   conflicts_with "hdf5", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
 
   def install
-    # Work around incompatibility with new linker (FB13194355)
-    # https://github.com/HDFGroup/hdf5/issues/3571
-    ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500
-
-    inreplace %w[c++/src/h5c++.in fortran/src/h5fc.in bin/h5cc.in],
-              "${libdir}/libhdf5.settings",
-              "#{pkgshare}/libhdf5.settings"
-
-    inreplace "src/Makefile.am",
-              "settingsdir=$(libdir)",
-              "settingsdir=#{pkgshare}"
-
-    if OS.mac?
-      system "autoreconf", "--force", "--install", "--verbose"
-    else
-      system "./autogen.sh"
-    end
-
-    args = %W[
-      --disable-dependency-tracking
-      --disable-silent-rules
-      --enable-build-mode=production
-      --enable-fortran
-      --enable-parallel
-      --prefix=#{prefix}
-      --with-szlib=#{Formula["libaec"].opt_prefix}
-      CC=mpicc
-      CXX=mpic++
-      FC=mpifort
-      F77=mpif77
-      F90=mpif90
+    ENV["libaec_DIR"] = Formula["libaec"].opt_prefix.to_s
+    args = %w[
+      -DHDF5_USE_GNU_DIRS:BOOL=ON
+      -DHDF5_INSTALL_CMAKE_DIR=lib/cmake/hdf5
+      -DHDF5_ENABLE_PARALLEL:BOOL=ON
+      -DALLOW_UNSUPPORTED:BOOL=ON
+      -DHDF5_BUILD_FORTRAN:BOOL=ON
+      -DHDF5_BUILD_CPP_LIB:BOOL=ON
+      -DHDF5_ENABLE_SZIP_SUPPORT:BOOL=ON
     ]
-    args << "--with-zlib=#{Formula["zlib"].opt_prefix}" if OS.linux?
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
 
-    system "./configure", *args
-    system "make", "install"
+    # Avoid c shims in settings files
+    inreplace_c_files = %w[
+      build/src/H5build_settings.c
+      build/src/libhdf5.settings
+    ]
+    inreplace inreplace_c_files, Superenv.shims_path/ENV.cc, ENV.cc
+
+    # Avoid cpp shims in settings files
+    inreplace_cxx_files = %w[
+      build/CMakeFiles/h5c++
+      build/CMakeFiles/h5hlc++
+    ]
+    inreplace_cxx_files << "build/src/libhdf5.settings" if OS.linux?
+    inreplace inreplace_cxx_files, Superenv.shims_path/ENV.cxx, ENV.cxx
+
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
@@ -112,5 +104,9 @@ class Hdf5Mpi < Formula
     EOS
     system bin/"h5pfc", "test.f90"
     assert_equal version.to_s, shell_output("./a.out").chomp
+
+    # Make sure that it was built with SZIP/libaec
+    config = shell_output("#{bin}/h5cc -showconfig")
+    assert_match %r{I/O filters.*DECODE}, config
   end
 end
