@@ -1,8 +1,8 @@
 class DartSdk < Formula
   desc "Dart Language SDK, including the VM, dart2js, core libraries, and more"
   homepage "https://dart.dev"
-  url "https://github.com/dart-lang/sdk/archive/refs/tags/3.4.4.tar.gz"
-  sha256 "2057c67402c38993780d38358fbe1e5ae5cc5b59cf29d579937caac97361716a"
+  url "https://github.com/dart-lang/sdk/archive/refs/tags/3.5.0.tar.gz"
+  sha256 "a2396d8809901cfca05e2fc9c2a3b363115335c4189c956fe7c9c8a56e278c55"
   license "BSD-3-Clause"
 
   bottle do
@@ -25,7 +25,7 @@ class DartSdk < Formula
   # always pull the latest commit from https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        revision: "6daca505974e4efe9df926521daca261f25f1994"
+        revision: "4c050c6f1a34c7b1aaf503d97b871afb8540e54f"
   end
 
   def install
@@ -39,7 +39,7 @@ class DartSdk < Formula
 
     chdir "sdk" do
       arch = Hardware::CPU.arm? ? "arm64" : "x64"
-      system "./tools/build.py", "--no-goma", "--mode=release", "--arch=#{arch}", "create_sdk"
+      system "./tools/build.py", "--mode=release", "--arch=#{arch}", "create_sdk"
       out = OS.linux? ? "out" : "xcodebuild"
       libexec.install Dir["#{out}/Release#{arch.capitalize}/dart-sdk/*"]
     end
