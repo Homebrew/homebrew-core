@@ -1,7 +1,7 @@
 class Harbour < Formula
   desc "Portable, xBase-compatible programming language and environment"
   homepage "https://harbour.github.io"
-  license "GPL-2.0"
+  license "GPL-2.0-or-later"
   revision 2
   head "https://github.com/harbour/core.git", branch: "master"
 
@@ -38,6 +38,7 @@ class Harbour < Formula
   uses_from_macos "bzip2"
   uses_from_macos "curl"
   uses_from_macos "expat"
+  uses_from_macos "ncurses"
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
