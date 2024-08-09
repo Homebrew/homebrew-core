@@ -36,9 +36,11 @@ class QtAT5 < Formula
   depends_on "glib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
+  depends_on "libtiff"
   depends_on macos: :sierra
   depends_on "pcre2"
   depends_on "webp"
+  depends_on "zstd"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "bison"
@@ -46,10 +48,17 @@ class QtAT5 < Formula
   uses_from_macos "krb5"
   uses_from_macos "libxslt"
   uses_from_macos "sqlite"
+  uses_from_macos "zlib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   on_linux do
     depends_on "alsa-lib"
     depends_on "at-spi2-core"
+    depends_on "dbus"
+    depends_on "expat"
     depends_on "fontconfig"
     depends_on "harfbuzz"
     depends_on "icu4c"
@@ -59,13 +68,21 @@ class QtAT5 < Formula
     depends_on "libproxy"
     depends_on "libsm"
     depends_on "libvpx"
+    depends_on "libx11"
+    depends_on "libxcb"
     depends_on "libxcomposite"
+    depends_on "libxdamage"
+    depends_on "libxext"
+    depends_on "libxfixes"
     depends_on "libxkbcommon"
     depends_on "libxkbfile"
+    depends_on "libxml2"
     depends_on "libxrandr"
     depends_on "libxtst"
+    depends_on "llvm"
     depends_on "mesa"
     depends_on "minizip"
+    depends_on "nspr"
     depends_on "nss"
     depends_on "opus"
     depends_on "pulseaudio"
@@ -78,7 +95,6 @@ class QtAT5 < Formula
     depends_on "xcb-util-keysyms"
     depends_on "xcb-util-renderutil"
     depends_on "xcb-util-wm"
-    depends_on "zstd"
   end
 
   fails_with gcc: "5"
