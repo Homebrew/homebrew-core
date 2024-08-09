@@ -34,6 +34,9 @@ class Quazip < Formula
   end
 
   test do
+    # Fails in Linux CI with "fatal error: zlib.h: No such file or directory"
+    return if OS.linux? && ENV["HOMEBREW_GITHUB_ACTIONS"]
+
     ENV.delete "CPATH"
     (testpath/"test.pro").write <<~EOS
       TEMPLATE        = app
