@@ -45,6 +45,11 @@ class Sonarqube < Formula
   def post_install
     (var/"run").mkpath
     (var/"sonarqube/logs").mkpath
+    unless (pkgetc/"sonar.properties").exists?
+      pkgetc.mkpath
+      mv libexec/"conf/sonar.properties", pkgetc/"sonar.properties"
+      ln_s libexec/"conf/sonar.properties", pkgetc/"sonar.properties"
+    end
   end
 
   def caveats
