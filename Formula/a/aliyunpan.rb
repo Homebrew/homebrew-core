@@ -16,7 +16,8 @@ class Aliyunpan < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "cce09c84f4d2f1693945d82ab873d0a419913a8bfc3b87d4acd160803abe76b1"
   end
 
-  depends_on "go" => :build
+  # use "go" again when https://github.com/tickstep/aliyunpan/issues/437 is resolved and released
+  depends_on "go@1.22" => :build
 
   def install
     system "go", "build", *std_go_args(ldflags: "-s -w")
