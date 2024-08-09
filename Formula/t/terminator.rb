@@ -6,6 +6,8 @@ class Terminator < Formula
   url "https://github.com/gnome-terminator/terminator/archive/refs/tags/v2.1.4.tar.gz"
   sha256 "b6a544426a19829f9e9bb41441a2f4789edc04f1867c84a436822d1af6a36d06"
   license "GPL-2.0-only"
+  revision 1
+  head "https://github.com/gnome-terminator/terminator.git", branch: "master"
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "977d208ffe8ac59d8a5ff0ef577ac0e6e6af388ca5bd637632227ad232a72326"
@@ -17,6 +19,9 @@ class Terminator < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "de5eb10e4a24584a4db44a6f84d7f355dff428f380bed522ed69a44e373f78a9"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
+  depends_on "cmake" => :build # for dbus-python
   depends_on "pygobject3"
   depends_on "python@3.12"
   depends_on "vte3"
@@ -28,6 +33,11 @@ class Terminator < Formula
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/cb/87/17d4c6d634c044ab08b11c0cd2a8a136d103713d438f8792d7be2c5148fb/configobj-5.0.8.tar.gz"
     sha256 "6f704434a07dc4f4dc7c9a745172c1cad449feb548febd9f7fe362629c627a97"
+  end
+
+  resource "dbus-python" do
+    url "https://files.pythonhosted.org/packages/c1/d3/6be85a9c772d6ebba0cc3ab37390dd6620006dcced758667e0217fb13307/dbus-python-1.3.2.tar.gz"
+    sha256 "ad67819308618b5069537be237f8e68ca1c7fcc95ee4a121fe6845b1418248f8"
   end
 
   resource "psutil" do
