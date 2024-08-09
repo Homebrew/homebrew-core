@@ -4,6 +4,7 @@ class Pypy39 < Formula
   url "https://downloads.python.org/pypy/pypy3.9-v7.3.16-src.tar.bz2"
   sha256 "5b75af3f8e76041e79c1ef5ce22ce63f8bd131733e9302081897d8f650e81843"
   license "MIT"
+  revision 1
   head "https://github.com/pypy/pypy.git", branch: "py3.9"
 
   livecheck do
@@ -37,13 +38,13 @@ class Pypy39 < Formula
   uses_from_macos "zlib"
 
   resource "pip" do
-    url "https://files.pythonhosted.org/packages/94/59/6638090c25e9bc4ce0c42817b5a234e183872a1129735a9330c472cc2056/pip-24.0.tar.gz"
-    sha256 "ea9bd1a847e8c5774a5777bb398c19e80bcd4e2aa16a4b301b718fe6f593aba2"
+    url "https://files.pythonhosted.org/packages/12/3d/d899257cace386bebb7bdf8a872d5fe3b935cc6381c3ddb76d3e5d99890d/pip-24.1.2.tar.gz"
+    sha256 "e5458a0b89f2755e0ee8c0c77613fe5273e05f337907874d64f13171a898a7ff"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/d6/4f/b10f707e14ef7de524fe1f8988a294fb262a29c9b5b12275c7e188864aed/setuptools-69.5.1.tar.gz"
-    sha256 "6c1fccdac05a97e598fb0ae3bbed5904ccb317337a51139dcd51453611bbb987"
+    url "https://files.pythonhosted.org/packages/65/d8/10a70e86f6c28ae59f101a9de6d77bf70f147180fbf40c3af0f64080adc3/setuptools-70.3.0.tar.gz"
+    sha256 "f171bab1dfbc86b132997f26a119f6056a57950d058587841a0082e8830f9dc5"
   end
 
   # Build fixes:
