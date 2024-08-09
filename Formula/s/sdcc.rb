@@ -30,12 +30,17 @@ class Sdcc < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
+  on_macos do
+    depends_on "zstd"
+  end
+
   on_system :linux, macos: :ventura_or_newer do
     depends_on "texinfo" => :build
   end
 
   def install
-    system "./configure", "--prefix=#{prefix}"
+    system "./configure", *std_configure_args
+
     system "make", "all"
     system "make", "install"
     rm Dir["#{bin}/*.el"]
@@ -47,7 +52,8 @@ class Sdcc < Formula
         return 0;
       }
     EOS
-    system bin/"sdcc", "-mz80", "#{testpath}/test.c"
+
+    system bin/"sdcc", "-mz80", testpath/"test.c"
     assert_predicate testpath/"test.ihx", :exist?
   end
 end
