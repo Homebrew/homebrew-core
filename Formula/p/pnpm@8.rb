@@ -26,8 +26,6 @@ class PnpmAT8 < Formula
 
   depends_on "node" => [:build, :test]
 
-  skip_clean "bin"
-
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")

@@ -18,8 +18,6 @@ class Yarn < Formula
   conflicts_with "hadoop", because: "both install `yarn` binaries"
   conflicts_with "corepack", because: "both install `yarn` and `yarnpkg` binaries"
 
-  skip_clean "libexec/bin"
-
   def install
     libexec.install buildpath.glob("*")
     (bin/"yarn").write_env_script libexec/"bin/yarn.js", PREFIX: HOMEBREW_PREFIX

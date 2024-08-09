@@ -24,8 +24,6 @@ class Pnpm < Formula
 
   conflicts_with "corepack", because: "both installs `pnpm` and `pnpx` binaries"
 
-  skip_clean "bin"
-
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
