@@ -52,14 +52,14 @@ class Gstreamer < Formula
 
   depends_on "bison" => :build
   depends_on "cargo-c" => :build
-  depends_on "gitlint" => :build
+  depends_on "gettext" => :build
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "nasm" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "yasm" => :build
+  depends_on "aom"
   depends_on "cairo"
   depends_on "dav1d"
   depends_on "faac"
@@ -67,51 +67,77 @@ class Gstreamer < Formula
   depends_on "fdk-aac"
   depends_on "ffmpeg@6"
   depends_on "flac"
-  depends_on "gettext"
+  depends_on "gdk-pixbuf"
   depends_on "glib"
-  depends_on "glib-networking"
   depends_on "graphene"
   depends_on "gtk+3"
   depends_on "gtk4"
+  depends_on "imath"
   depends_on "jpeg-turbo"
   depends_on "json-glib"
   depends_on "lame"
+  depends_on "libass"
   depends_on "libogg"
   depends_on "libpng"
-  depends_on "libpthread-stubs"
   depends_on "libshout"
+  depends_on "libsndfile"
   depends_on "libsodium"
-  depends_on "libsoup"
+  depends_on "libsoup" # no linkage on Linux as dlopen'd
   depends_on "libusrsctp"
   depends_on "libvorbis"
   depends_on "libvpx"
+  depends_on "libx11"
+  depends_on "libxcb"
+  depends_on "libxext"
+  depends_on "libxfixes"
+  depends_on "libxi"
+  depends_on "libxtst"
+  depends_on "little-cms2"
+  depends_on "mpg123"
+  depends_on "nettle"
+  depends_on "opencore-amr"
   depends_on "openexr"
+  depends_on "openjpeg"
   depends_on "openssl@3"
   depends_on "opus"
   depends_on "orc"
   depends_on "pango"
   depends_on "pygobject3"
   depends_on "python@3.12"
-  depends_on "rav1e"
   depends_on "rtmpdump"
   depends_on "speex"
+  depends_on "srt"
   depends_on "srtp"
+  depends_on "svt-av1"
   depends_on "taglib"
   depends_on "theora"
+  depends_on "webp"
   depends_on "x264"
-  depends_on "xz"
+  depends_on "x265"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "bzip2"
   uses_from_macos "curl"
+  uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   on_macos do
+    depends_on "gettext"
+    depends_on "harfbuzz"
     # musepack is not bottled on Linux
     # https://github.com/Homebrew/homebrew-core/pull/92041
     depends_on "musepack"
   end
 
   on_linux do
-    depends_on "freeglut"
+    depends_on "alsa-lib"
+    depends_on "libdrm"
+    depends_on "libva"
+    depends_on "libxdamage"
+    depends_on "libxv"
+    depends_on "mesa"
+    depends_on "pulseaudio"
+    depends_on "wayland"
   end
 
   def python3
@@ -225,8 +251,8 @@ class Gstreamer < Formula
   test do
     # TODO: Improve test according to suggestions at
     #   https://github.com/orgs/Homebrew/discussions/3740
-    system bin/"gst-inspect-1.0"
-    # system bin/"gst-validate-launcher", "--usage" # disabled until 3.12 is made the default python
+    assert_match(/^Total count: \d+ plugins/, shell_output(bin/"gst-inspect-1.0"))
+    system bin/"gst-validate-launcher", "--usage"
     system bin/"ges-launch-1.0", "--ges-version"
     system bin/"gst-inspect-1.0", "libav"
     system bin/"gst-inspect-1.0", "--plugin", "dvbsuboverlay"
