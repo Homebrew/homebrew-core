@@ -1,9 +1,9 @@
 class Libedit < Formula
   desc "BSD-style licensed readline alternative"
   homepage "https://thrysoee.dk/editline/"
-  url "https://thrysoee.dk/editline/libedit-20240517-3.1.tar.gz"
-  version "20240517-3.1"
-  sha256 "3a489097bb4115495f3bd85ae782852b7097c556d9500088d74b6fa38dbd12ff"
+  url "https://thrysoee.dk/editline/libedit-20240808-3.1.tar.gz"
+  version "20240808-3.1"
+  sha256 "5f0573349d77c4a48967191cdd6634dd7aa5f6398c6a57fe037cc02696d6099f"
   license "BSD-3-Clause"
 
   livecheck do
@@ -30,11 +30,6 @@ class Libedit < Formula
                           "--disable-silent-rules",
                           "--prefix=#{prefix}"
     system "make", "install"
-
-    if OS.linux?
-      # Conflicts with readline.
-      mv man3/"history.3", man3/"history_libedit.3"
-    end
   end
 
   test do
