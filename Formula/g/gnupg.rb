@@ -1,10 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.5.tar.bz2"
-  sha256 "f68f7d75d06cb1635c336d34d844af97436c3f64ea14bcb7c869782f96f44277"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.0.tar.bz2"
+  sha256 "2222c827d4e7087f15e7f72739d004abc1d05c6c5f0a5a12b24c6a6cc5d173fb"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
@@ -40,6 +39,9 @@ class Gnupg < Formula
   on_macos do
     depends_on "gettext"
   end
+
+  # Declare environ
+  patch :DATA
 
   def install
     libusb = Formula["libusb"]
@@ -94,3 +96,16 @@ class Gnupg < Formula
     end
   end
 end
+
+__END__
+--- a/common/exechelp-posix.c
++++ b/common/exechelp-posix.c
+@@ -76,6 +76,8 @@
+ #include "sysutils.h"
+ #include "exechelp.h"
+ 
++extern char **environ; 
++
+ 
+ /* Helper */
+ static inline gpg_error_t
