@@ -38,14 +38,14 @@ class Opentsdb < Formula
       system "make"
       bin.mkpath
       (pkgshare/"static/gwt/opentsdb/images/ie6").mkpath
-      system "make", "install"
+      ENV.deparallelize { system "make", "install" }
     end
 
     env = Language::Java.java_home_env("11")
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
     env["HBASE_HOME"] = Formula["hbase"].opt_libexec
     # We weren't able to get HBase native LZO compression working in Monterey
-    env["COMPRESSION"] = (MacOS.version >= :monterey) ? "NONE" : "LZO"
+    env["COMPRESSION"] = (OS.mac? && MacOS.version >= :monterey) ? "NONE" : "LZO"
 
     create_table = pkgshare/"tools/create_table_with_env.sh"
     create_table.write_env_script pkgshare/"tools/create_table.sh", env
@@ -105,7 +105,7 @@ class Opentsdb < Formula
 
     system "#{Formula["hbase"].opt_bin}/start-hbase.sh"
     begin
-      sleep 2
+      sleep 10
 
       system pkgshare/"tools/create_table_with_env.sh"
 
