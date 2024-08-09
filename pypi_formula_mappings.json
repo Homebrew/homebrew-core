@@ -93,6 +93,10 @@
   "bandcamp-dl": {
     "exclude_packages": ["certifi"]
   },
+  "bazarr": {
+    "package_name": "",
+    "extra_packages": ["lxml", "setuptools", "webrtcvad-wheels"]
+  },
   "bbot": {
     "exclude_packages": ["certifi", "cryptography"]
   },

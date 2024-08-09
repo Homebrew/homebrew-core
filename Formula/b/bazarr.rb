@@ -23,7 +23,7 @@ class Bazarr < Formula
   depends_on "gcc"
   depends_on "numpy"
   depends_on "pillow"
-  depends_on "python@3.11"
+  depends_on "python@3.12"
   depends_on "unar"
 
   uses_from_macos "libxml2", since: :ventura
@@ -35,15 +35,18 @@ class Bazarr < Formula
     sha256 "bb2dc4898180bea79863d5487e5f9c7c34297414bad54bcd0f0852aee9cfdb87"
   end
 
+  resource "setuptools" do
+    url "https://files.pythonhosted.org/packages/b2/9b/c154d7694227ff8f5ee5bdff2f8cf8a529ba8f53e80806dd984737c59b19/setuptools-71.0.4.tar.gz"
+    sha256 "48297e5d393a62b7cb2a10b8f76c63a73af933bd809c9e0d0d6352a1a0135dd8"
+  end
+
   resource "webrtcvad-wheels" do
     url "https://files.pythonhosted.org/packages/59/d9/17fe64f981a2d33c6e95e115c29e8b6bd036c2a0f90323585f1af639d5fc/webrtcvad-wheels-2.0.11.post1.tar.gz"
     sha256 "aa1f749b5ea5ce209df9bdef7be9f4844007e630ac87ab9dbc25dda73fd5d2b7"
   end
 
   def install
-    ENV.prepend_create_path "PYTHONPATH", libexec/Language::Python.site_packages("python3.11")
-    venv = virtualenv_create(libexec, "python3.11")
-
+    venv = virtualenv_create(libexec, "python3.12")
     venv.pip_install resources
 
     if build.head?
@@ -59,14 +62,17 @@ class Bazarr < Formula
     rm binaries_file
     binaries_file.write "[]"
 
+    # Prevent strange behavior of searching for a different python executable on macOS,
+    # which won't have the required dependencies
+    inreplace "bazarr.py", "def get_python_path():", "def get_python_path():\n    return sys.executable"
+
     libexec.install Dir["*"]
-    (bin/"bazarr").write_env_script libexec/"bin/python", "#{libexec}/bazarr.py",
+    (bin/"bazarr").write_env_script venv.root/"bin/python", libexec/"bazarr.py",
       NO_UPDATE:  "1",
       PATH:       "#{Formula["ffmpeg"].opt_bin}:#{HOMEBREW_PREFIX/"bin"}:$PATH",
-      PYTHONPATH: ENV["PYTHONPATH"]
+      PYTHONPATH: venv.site_packages
 
     pkgvar = var/"bazarr"
-
     pkgvar.mkpath
     pkgvar.install_symlink pkgetc => "config"
 
