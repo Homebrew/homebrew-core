@@ -1,8 +1,8 @@
 class Entr < Formula
   desc "Run arbitrary commands when files change"
   homepage "https://eradman.com/entrproject/"
-  url "https://eradman.com/entrproject/code/entr-5.5.tar.gz"
-  sha256 "128c0ce2efea5ae6bd3fd33c3cd31e161eb0c02609d8717ad37e95b41656e526"
+  url "https://eradman.com/entrproject/code/entr-5.6.tar.gz"
+  sha256 "0222b8df928d3b5a3b5194d63e7de098533e04190d9d9a154b926c6c1f9dd14e"
   license "ISC"
   head "https://github.com/eradman/entr.git", branch: "master"
 
@@ -24,7 +24,7 @@ class Entr < Formula
   def install
     ENV["PREFIX"] = prefix
     ENV["MANPREFIX"] = man
-    system "./configure"
+    system "./configure", *std_configure_args
     system "make"
     system "make", "install"
   end
@@ -35,6 +35,7 @@ class Entr < Formula
       sleep 0.5
       touch testpath/"test.2"
     end
-    assert_equal "New File", pipe_output("#{bin}/entr -n -p -d echo 'New File'", testpath).strip
+
+    assert_equal "New File", pipe_output("#{bin}/entr -n -p -d echo 'New File'", testpath.to_s).strip
   end
 end
