@@ -1,8 +1,8 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.0.2/task-3.0.2.tar.gz"
-  sha256 "633b76637b0c74e4845ffa28249f01a16ed2c84000ece58d4358e72bf88d5f10"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.1.0/task-3.1.0.tar.gz"
+  sha256 "1ae67c74b84067573a53095cf3cb6718245dd7dd808f19f9b3d85da445838b4f"
   license "MIT"
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
 
