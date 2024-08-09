@@ -1,9 +1,9 @@
 class X8664LinuxGnuBinutils < Formula
   desc "GNU Binutils for x86_64-linux-gnu cross development"
   homepage "https://www.gnu.org/software/binutils/binutils.html"
-  url "https://ftp.gnu.org/gnu/binutils/binutils-2.42.tar.bz2"
-  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.42.tar.bz2"
-  sha256 "aa54850ebda5064c72cd4ec2d9b056c294252991486350d9a97ab2a6dfdfaf12"
+  url "https://ftp.gnu.org/gnu/binutils/binutils-2.43.tar.bz2"
+  mirror "https://ftpmirror.gnu.org/binutils/binutils-2.43.tar.bz2"
+  sha256 "fed3c3077f0df7a4a1aa47b080b8c53277593ccbb4e5e78b73ffb4e3f265e750"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -34,11 +34,6 @@ class X8664LinuxGnuBinutils < Formula
     keg_only "it conflicts with `binutils`"
   end
 
-  resource "homebrew-sysroot" do
-    url "https://commondatastorage.googleapis.com/chrome-linux-sysroot/toolchain/2028cdaf24259d23adcff95393b8cc4f0eef714b/debian_bullseye_amd64_sysroot.tar.xz"
-    sha256 "1be60e7c456abc590a613c64fab4eac7632c81ec6f22734a61b53669a4407346"
-  end
-
   def install
     ENV.cxx11
 
@@ -66,6 +61,11 @@ class X8664LinuxGnuBinutils < Formula
   end
 
   test do
+    resource "homebrew-sysroot" do
+      url "https://commondatastorage.googleapis.com/chrome-linux-sysroot/toolchain/2028cdaf24259d23adcff95393b8cc4f0eef714b/debian_bullseye_amd64_sysroot.tar.xz"
+      sha256 "1be60e7c456abc590a613c64fab4eac7632c81ec6f22734a61b53669a4407346"
+    end
+
     assert_match "f()", shell_output("#{bin}/x86_64-linux-gnu-c++filt _Z1fv")
     return if OS.linux?
 
