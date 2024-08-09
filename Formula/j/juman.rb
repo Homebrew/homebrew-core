@@ -27,9 +27,15 @@ class Juman < Formula
   end
 
   def install
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
-    system "make"
+    ENV["LANG"] = "C"
+    ENV["LC_ALL"] = "C"
+
+    # Fix compile with newer Clang
+    if DevelopmentTools.clang_build_version >= 1403
+      ENV.append_to_cflags "-Wno-implicit-function-declaration -Wno-implicit-int"
+    end
+
+    system "./configure", *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end
 
