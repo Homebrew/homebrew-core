@@ -25,6 +25,10 @@ class Xdotool < Formula
   depends_on "libxkbcommon"
   depends_on "libxtst"
 
+  on_macos do
+    depends_on "libxi"
+  end
+
   # Disable clock_gettime() workaround since the real API is available on macOS >= 10.12
   # Note that the PR from this patch was actually closed originally because of problems
   # caused on pre-10.12 environments, but that is no longer a concern.
