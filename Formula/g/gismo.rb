@@ -1,8 +1,8 @@
 class Gismo < Formula
   desc "C++ library for isogeometric analysis (IGA)"
   homepage "https://gismo.github.io"
-  url "https://github.com/gismo/gismo/archive/refs/tags/v23.12.0.tar.gz"
-  sha256 "6dc78e1d0016a45aee879eec0e42faf010cd222800461d645f877ff0c1f2d1a2"
+  url "https://github.com/gismo/gismo/archive/refs/tags/v24.08.0.tar.gz"
+  sha256 "e72ca05e6a836748a04db5006e7fdf576fc22f0d6e369b2209875d95c17499fe"
   license "MPL-2.0"
   head "https://github.com/gismo/gismo.git", branch: "stable"
 
@@ -20,6 +20,8 @@ class Gismo < Formula
   depends_on "openblas"
   depends_on "suite-sparse"
   depends_on "superlu"
+
+  uses_from_macos "zlib"
 
   on_macos do
     depends_on "libomp"
