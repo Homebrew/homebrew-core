@@ -5,6 +5,7 @@ class Pc6001vx < Formula
   url "https://eighttails.up.seesaa.net/bin/PC6001VX_4.2.9_src.tar.gz"
   sha256 "6819cbf3a883a5b613c3b7f29255aa935afdb0c2dcb14c04e644d5b24be117c1"
   license "LGPL-2.1-or-later"
+  revision 1
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
@@ -17,7 +18,7 @@ class Pc6001vx < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "qt"
   depends_on "sdl2"
 
@@ -48,7 +49,7 @@ class Pc6001vx < Formula
     pid = fork do
       exec bin/"PC6001VX"
     end
-    sleep 30
+    sleep 45
     assert_predicate user_config_dir/"rom",
                      :exist?, "User config directory should exist"
   ensure

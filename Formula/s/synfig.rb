@@ -2,7 +2,7 @@ class Synfig < Formula
   desc "Command-line renderer"
   homepage "https://synfig.org/"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
 
   stable do
     url "https://downloads.sourceforge.net/project/synfig/development/1.5.1/synfig-1.5.1.tar.gz"
@@ -40,7 +40,7 @@ class Synfig < Formula
   depends_on "boost"
   depends_on "cairo"
   depends_on "etl"
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "fftw"
   depends_on "freetype"
   depends_on "gettext"
@@ -59,16 +59,16 @@ class Synfig < Formula
 
   def install
     ENV.prepend_path "PERL5LIB", Formula["intltool"].libexec/"lib/perl5" unless OS.mac?
-    ENV.cxx11
+    ENV.append "CXXFLAGS", "-std=c++14"
 
     if build.head?
       cd "synfig-core"
       system "./bootstrap.sh"
     end
-    system "./configure", *std_configure_args,
-                          "--disable-silent-rules",
+    system "./configure", "--disable-silent-rules",
                           "--with-boost=#{Formula["boost"].opt_prefix}",
-                          "--without-jpeg"
+                          "--without-jpeg",
+                          *std_configure_args
     system "make", "install"
   end
 

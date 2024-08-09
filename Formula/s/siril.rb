@@ -4,7 +4,7 @@ class Siril < Formula
   url "https://free-astro.org/download/siril-1.2.3.tar.bz2"
   sha256 "8ac660542d2bec5d608eaf9bf25a25e6ba574b58b5410bdb6ad401e1f86fa756"
   license "GPL-3.0-or-later"
-  revision 1
+  revision 2
   head "https://gitlab.com/free-astro/siril.git", branch: "master"
 
   bottle do
@@ -18,7 +18,6 @@ class Siril < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "intltool" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -27,7 +26,7 @@ class Siril < Formula
   depends_on "cairo"
   depends_on "cfitsio"
   depends_on "exiv2"
-  depends_on "ffmpeg@6"
+  depends_on "ffmpeg"
   depends_on "ffms2"
   depends_on "fftw"
   depends_on "gdk-pixbuf"

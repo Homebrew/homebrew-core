@@ -4,6 +4,7 @@ class Libgr < Formula
   url "https://github.com/sciapp/gr/archive/refs/tags/v0.73.7.tar.gz"
   sha256 "2584727b1413a337ef14daae1e61bdc5c946403031695b42ecfbf8bc1888d132"
   license "MIT"
+  revision 1
 
   bottle do
     rebuild 1
@@ -18,6 +19,7 @@ class Libgr < Formula
 
   depends_on "cmake" => :build
   depends_on "cairo"
+  depends_on "ffmpeg"
   depends_on "freetype"
   depends_on "glfw"
   depends_on "jpeg-turbo"
@@ -30,12 +32,7 @@ class Libgr < Formula
 
   uses_from_macos "zlib"
 
-  on_macos do
-    depends_on "ffmpeg"
-  end
-
   on_linux do
-    depends_on "ffmpeg@6"
     depends_on "libx11"
     depends_on "libxt"
     depends_on "mesa"
