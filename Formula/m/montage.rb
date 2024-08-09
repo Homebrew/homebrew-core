@@ -28,9 +28,14 @@ class Montage < Formula
   conflicts_with "wdiff", because: "both install an `mdiff` executable"
 
   def install
+    # Work around multiple definition of `fstatus'. Remove in the next release.
+    # Ref: https://github.com/Caltech-IPAC/Montage/commit/f5358e2152f301ecc44dd2d7fb33ee5daecc39f5
+    makefiles = %w[lib/src/coord/Makefile Montage/Makefile.LINUX]
+    inreplace makefiles, /^CC\s*=.*$/, "\\0 -fcommon" if OS.linux? && build.stable?
+
     # Avoid building bundled libraries
     libs = %w[bzip2 cfitsio freetype jpeg]
-    buildpath.glob("lib/src/{#{libs.join(",")}}*").map(&:rmtree)
+    rm_r buildpath.glob("lib/src/{#{libs.join(",")}}*")
     inreplace "lib/src/Makefile", /^[ \t]*\(cd (?:#{libs.join("|")}).*\)$/, ""
     inreplace "MontageLib/Makefile", %r{^.*/lib/src/(?:#{libs.join("|")}).*$\n}, ""
     inreplace "MontageLib/Viewer/Makefile.#{OS.kernel_name.upcase}",
