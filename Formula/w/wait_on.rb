@@ -22,12 +22,17 @@ class WaitOn < Formula
     sha256 cellar: :any_skip_relocation, el_capitan:     "f362694f30021c32557e23b5add36ac4bdfbcabc6056996c5d23fc125527d85d"
   end
 
-  depends_on "bsdmake" => :build
+  depends_on "bmake" => :build
 
   def install
-    system "bsdmake"
-    bin.install "wait_on"
-    man1.install "wait_on.1.gz"
+    args = %W[
+      PREFIX=#{prefix}
+      MANDIR=#{man}
+      MK_INSTALL_AS_USER=yes
+    ]
+
+    system "bmake", *args
+    system "bmake", *args, "install"
   end
 
   test do
