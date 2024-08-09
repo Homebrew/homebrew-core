@@ -3,10 +3,9 @@ class Bbot < Formula
 
   desc "OSINT automation tool"
   homepage "https://github.com/blacklanternsecurity/bbot"
-  url "https://files.pythonhosted.org/packages/ec/c8/1def3db8a9518c7c279f56e20170577cb396c63d2dae8a5f685463ac9708/bbot-1.1.8.tar.gz"
-  sha256 "500638905b701a8390ede59e86d2c79252bf91665f0c9059af5c414127eebc60"
+  url "https://files.pythonhosted.org/packages/99/47/caba62083f8d94fa83365a8771b50686ca2b55433e228e016ebfe06571ac/bbot-2.0.0.tar.gz"
+  sha256 "9f29c70145865356b0f8d79adb0a0899cdff5445a2e35b5c3a167379ba6bdceb"
   license "GPL-3.0-or-later"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sonoma:   "021f5dc3c8d202fbef0c0690cccc5f50ca6d8cac53ef00b35f2c2a3e088cf8c3"
@@ -64,8 +63,8 @@ class Bbot < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/b3/4d/27a3e6dd09011649ad5210bdf963765bc8fa81a0827a4fc01bafd2705c5b/cachetools-5.3.3.tar.gz"
-    sha256 "ba29e2dfa0b8b556606f097407ed1aa62080ee108ab0dc5ec9d6a723a007d105"
+    url "https://files.pythonhosted.org/packages/a7/3f/ea907ec6d15f68ea7f381546ba58adcb298417a59f01a2962cb5e486489f/cachetools-5.4.0.tar.gz"
+    sha256 "b8adc2e7c07f105ced7bc56dbb6dfbe7c4a00acce20e2227b3f355be89bc6827"
   end
 
   resource "charset-normalizer" do
@@ -74,8 +73,8 @@ class Bbot < Formula
   end
 
   resource "cloudcheck" do
-    url "https://files.pythonhosted.org/packages/36/22/0a8dd4eced10bde8e7aa36dfe938123dd3130f732c50f4f8169ace69a219/cloudcheck-3.1.0.318.tar.gz"
-    sha256 "ba7fcc026817aa05f74c7789d2ac306469f3143f91b3ea9f95c57c70a7b0b787"
+    url "https://files.pythonhosted.org/packages/f0/71/5d6ccd8694760294781ec5c5f3968855937351a58e2c6acb4433984d9801/cloudcheck-5.0.1.445.tar.gz"
+    sha256 "aa795d6ebe8636e9e422c162015d943c8b4001856d992a726c52a1f3c28dc7c0"
   end
 
   resource "deepdiff" do
@@ -94,8 +93,8 @@ class Bbot < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/69/7d/73d36db6955bde2ed495ce40ce02c9a2533b8c7b64fd42a38b1ee879ea18/filelock-3.15.1.tar.gz"
-    sha256 "58a2549afdf9e02e10720eaa4d4470f56386d7a6f72edd7d0596337af8ed7ad8"
+    url "https://files.pythonhosted.org/packages/08/dd/49e06f09b6645156550fb9aee9cc1e59aba7efbc972d665a1bd6ae0435d4/filelock-3.15.4.tar.gz"
+    sha256 "2207938cbc1844345cb01a5a95524dae30f0ce089eba5b00378295a17e3e90cb"
   end
 
   resource "h11" do
@@ -109,8 +108,8 @@ class Bbot < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/bd/26/2dc654950920f499bd062a211071925533f821ccdca04fa0c2fd914d5d06/httpx-0.26.0.tar.gz"
-    sha256 "451b55c30d5185ea6b23c2c793abf9bb237d2a7dfb901ced6ff69ad37ec1dfaf"
+    url "https://files.pythonhosted.org/packages/5c/2d/3da5bdf4408b8b2800061c339f240c1802f2e82d55e50bd39c5a881f47f0/httpx-0.27.0.tar.gz"
+    sha256 "a0cb88a46f32dc874e04ee956e4c2764aba2aa228f650b06788ba6bda2962ab5"
   end
 
   resource "idna" do
@@ -136,6 +135,11 @@ class Bbot < Formula
   resource "markupsafe" do
     url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
     sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+  end
+
+  resource "mmh3" do
+    url "https://files.pythonhosted.org/packages/63/96/aa247e82878b123468f0079ce2ac77e948315bab91ce45d2934a62e0af95/mmh3-4.1.0.tar.gz"
+    sha256 "a1cf25348b9acd229dda464a094d6170f47d2850a1fcb762a3b6172d2ce6ca4a"
   end
 
   resource "omegaconf" do
@@ -174,18 +178,18 @@ class Bbot < Formula
   end
 
   resource "pydantic" do
-    url "https://files.pythonhosted.org/packages/0d/fc/ccd0e8910bc780f1a4e1ab15e97accbb1f214932e796cff3131f9a943967/pydantic-2.7.4.tar.gz"
-    sha256 "0c84efd9548d545f63ac0060c1e4d39bb9b14db8b3c0652338aecc07b5adec52"
+    url "https://files.pythonhosted.org/packages/8c/99/d0a5dca411e0a017762258013ba9905cd6e7baa9a3fd1fe8b6529472902e/pydantic-2.8.2.tar.gz"
+    sha256 "6f62c13d067b0755ad1c21a34bdd06c0c12625a22b0fc09c6b149816604f7c2a"
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/02/d0/622cdfe12fb138d035636f854eb9dc414f7e19340be395799de87c1de6f6/pydantic_core-2.18.4.tar.gz"
-    sha256 "ec3beeada09ff865c344ff3bc2f427f5e6c26401cc6113d77e372c3fdac73864"
+    url "https://files.pythonhosted.org/packages/12/e3/0d5ad91211dba310f7ded335f4dad871172b9cc9ce204f5a56d76ccd6247/pydantic_core-2.20.1.tar.gz"
+    sha256 "26ca695eeee5f9f1aeeb211ffc12f10bcb6f71e2989988fda61dabd65db878d4"
   end
 
   resource "pyjwt" do
-    url "https://files.pythonhosted.org/packages/30/72/8259b2bccfe4673330cea843ab23f86858a419d8f1493f66d413a76c7e3b/PyJWT-2.8.0.tar.gz"
-    sha256 "57e28d156e3d5c10088e0c68abb90bfac3df82b40a71bd0daa20c65ccd5c23de"
+    url "https://files.pythonhosted.org/packages/fb/68/ce067f09fca4abeca8771fe667d89cc347d1e99da3e093112ac329c6020e/pyjwt-2.9.0.tar.gz"
+    sha256 "7e1e5b56cc735432a7369cbfa0efe50fa113ebecdc04ae6922deba8b84582d0c"
   end
 
   resource "python-daemon" do
@@ -194,8 +198,23 @@ class Bbot < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
+  end
+
+  resource "pyzmq" do
+    url "https://files.pythonhosted.org/packages/39/a3/3f8dac25b443ca527eddd9559b390bfb539f6ee6fb0b824427315dfe585d/pyzmq-26.1.0.tar.gz"
+    sha256 "6c5aeea71f018ebd3b9115c7cb13863dd850e98ca6b9258509de1246461a7e7f"
+  end
+
+  resource "radixtarget" do
+    url "https://files.pythonhosted.org/packages/8c/19/67a158229e14089efa732a8b3378331e6491b8c23873c73f0cef5763ca1c/radixtarget-1.1.0.18.tar.gz"
+    sha256 "1a3306891a22f7ff2c71d6cd42202af8852cdb4fb68e9a1e9a76a3f60aa98ab6"
+  end
+
+  resource "regex" do
+    url "https://files.pythonhosted.org/packages/3f/51/64256d0dc72816a4fe3779449627c69ec8fee5a5625fd60ba048f53b3478/regex-2024.7.24.tar.gz"
+    sha256 "9cfd009eed1a46b27c14039ad5bbc5e71b6367c5b2e6d5f5da0ea91600817506"
   end
 
   resource "requests" do
@@ -213,9 +232,14 @@ class Bbot < Formula
     sha256 "04ce76cbd63fded2078ce224785da6ecd42b9564b1390793f64ddecbe997b309"
   end
 
+  resource "setproctitle" do
+    url "https://files.pythonhosted.org/packages/ff/e1/b16b16a1aa12174349d15b73fd4b87e641a8ae3fb1163e80938dbbf6ae98/setproctitle-1.3.3.tar.gz"
+    sha256 "c913e151e7ea01567837ff037a23ca8740192880198b7fbb90b16d181607caae"
+  end
+
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/aa/60/5db2249526c9b453c5bb8b9f6965fcab0ddb7f40ad734420b3b421f7da44/setuptools-70.0.0.tar.gz"
-    sha256 "f211a66637b8fa059bb28183da127d4e86396c991a942b028c6650d4319c3fd0"
+    url "https://files.pythonhosted.org/packages/5e/11/487b18cc768e2ae25a919f230417983c8d5afa1b6ee0abd8b6db0b89fa1d/setuptools-72.1.0.tar.gz"
+    sha256 "8d243eff56d095e5817f796ede6ae32941278f542e0f941867cc05ae52b162ec"
   end
 
   resource "sniffio" do
@@ -276,6 +300,11 @@ class Bbot < Formula
   resource "xmltojson" do
     url "https://files.pythonhosted.org/packages/dc/ed/1d658daeb13fdf59aa90984f94452e76c9ab494bb53bf3ad6cbd37e6e320/xmltojson-2.0.2.tar.gz"
     sha256 "10719660409bd1825507e04d2fa4848c10591a092613bcd66651c7e0774f5405"
+  end
+
+  resource "yara-python" do
+    url "https://files.pythonhosted.org/packages/2f/3a/0d2970e76215ab7a835ebf06ba0015f98a9d8e11b9969e60f1ca63f04ba5/yara_python-4.5.1.tar.gz"
+    sha256 "52ab24422b021ae648be3de25090cbf9e6c6caa20488f498860d07f7be397930"
   end
 
   def install
