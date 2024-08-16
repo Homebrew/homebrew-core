@@ -5,8 +5,8 @@ class AvroC < Formula
   # https://github.com/Homebrew/homebrew-core/pull/146296#issuecomment-1737945877
   # https://apple.stackexchange.com/questions/197839/why-is-extracting-this-tgz-throwing-an-error-on-my-mac-but-not-on-linux
   url "https://github.com/apache/avro.git",
-      tag:      "release-1.11.3",
-      revision: "35ff8b997738e4d983871902d47bfb67b3250734"
+      tag:      "release-1.12.0",
+      revision: "8c27801dc8d42ccc00997f25c0b8f45f8d4a233e"
   license "Apache-2.0"
 
   bottle do
