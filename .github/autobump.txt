@@ -42,6 +42,7 @@ amber
 ammonite-repl
 amqp-cpp
 amtterm
+analog
 ancient
 angle-grinder
 angular-cli
