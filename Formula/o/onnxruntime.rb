@@ -21,9 +21,9 @@ class Onnxruntime < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dde778dd1564940af7b2116cba7d4c8b45b4d6e335c78620cf97b1e1e6a688b1"
   end
 
+  depends_on "abseil" => :build
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
-  depends_on "abseil" => :build
 
   fails_with gcc: "5" # GCC version < 7 is no longer supported
 
