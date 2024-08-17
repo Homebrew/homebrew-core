@@ -24,12 +24,17 @@ class KnotResolver < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
+
+  depends_on "fstrm"
   depends_on "gnutls"
   depends_on "knot"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "lmdb"
   depends_on "luajit"
+  depends_on "protobuf-c"
+
+  uses_from_macos "libedit"
 
   on_linux do
     depends_on "libcap-ng"
