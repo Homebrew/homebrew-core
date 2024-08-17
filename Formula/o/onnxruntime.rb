@@ -23,6 +23,7 @@ class Onnxruntime < Formula
 
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
+  depends_on "abseil" => :build
 
   fails_with gcc: "5" # GCC version < 7 is no longer supported
 
