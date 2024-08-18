@@ -4,21 +4,25 @@ class Agda < Formula
   # agda2hs.cabal specifies BSD-3-Clause but it installs an MIT LICENSE file.
   # Everything else specifies MIT license and installs corresponding file.
   license all_of: ["MIT", "BSD-3-Clause"]
-  revision 2
 
   stable do
-    url "https://github.com/agda/agda/archive/refs/tags/v2.6.4.3-r1.tar.gz"
-    sha256 "15a0ebf08b71ebda0510c8cad04b053beeec653ed26e2c537614a80de8b2e132"
-    version "2.6.4.3"
+    url "https://github.com/agda/agda/archive/refs/tags/v2.7.0.1.tar.gz"
+    sha256 "4a2c0a76c55368e1b70b157b3d35a82e073a0df8f587efa1e9aa8be3f89235be"
 
     resource "stdlib" do
-      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.1.tar.gz"
-      sha256 "72ca3ea25094efa0439e106f0d949330414232ec4cc5c3c3316e7e70dd06d431"
+      url "https://github.com/agda/agda-stdlib/archive/refs/tags/v2.1.1.tar.gz"
+      sha256 "ffb2884ff873064a53d4ac949f04b2cb5fca56d8ea1ee2cbe0bd657a0c1311b5"
     end
 
     resource "cubical" do
       url "https://github.com/agda/cubical/archive/refs/tags/v0.7.tar.gz"
       sha256 "25a0d1a0a01ba81888a74dfe864883547dbc1b06fa89ac842db13796b7389641"
+
+      # Bump Agda compat
+      patch do
+        url "https://github.com/agda/cubical/commit/6220641fc7c297a84c5e2c49614fae518cf6307d.patch?full_index=1"
+        sha256 "c6919e394ac9dc6efa016fa6b4e9163ce58142d48f7100b6bc354678fc982986"
+      end
     end
 
     resource "categories" do
@@ -33,8 +37,8 @@ class Agda < Formula
     end
 
     resource "agda2hs" do
-      url "https://github.com/agda/agda2hs/archive/refs/tags/v1.2.tar.gz"
-      sha256 "e80ffc90ff2ccb3933bf89a39ab16d920a6c7a7461a6d182faa0fb6c0446dbb8"
+      url "https://github.com/agda/agda2hs/archive/refs/tags/v1.3.tar.gz"
+      sha256 "0e2c11eae0af459d4c78c24efadb9a4725d12c951f9d94da4adda5a0bcb1b6f6"
     end
   end
 
@@ -75,8 +79,8 @@ class Agda < Formula
     end
   end
 
-  depends_on "cabal-install"
-  depends_on "emacs"
+  depends_on "cabal-install" => :build
+  depends_on "emacs" => :build
   depends_on "ghc"
 
   uses_from_macos "ncurses"
@@ -91,11 +95,6 @@ class Agda < Formula
       --allow-newer=agda2hs:base
       --allow-newer=agda2hs:filepath
     ]
-    # Workaround for https://github.com/agda/agda/commit/e11ae9875470aab7b68b98d9d9574e736dbcaddd
-    if build.stable?
-      odie "Remove allow-newer hashable workaround!" if version > "2.6.4.3"
-      ghc912_args << "--allow-newer=Agda:hashable"
-    end
 
     cabal_args = ghc912_args + std_cabal_v2_args.reject { |s| s["installdir"] }
 
@@ -118,15 +117,11 @@ class Agda < Formula
       # Issue ref: https://github.com/agda/agda/issues/7401
       # TODO: Try removing workaround when Agda 2.7.0 is released
       if build.stable?
-        odie "Try to remove Setup.hs workaround!" if version > "2.6.4.3"
+        odie "Try to remove Setup.hs workaround!" if version > "2.7.0.1"
         Pathname("cabal.project.local").write "packages: ./agda2hs.cabal ../Agda.cabal"
         inreplace buildpath/"Setup.hs", ' agda = bdir </> "agda" </> "agda" <.> agdaExeExtension',
                                         " agda = \"#{bin}/agda\" <.> agdaExeExtension"
       end
-
-      # Work around to build agda2hs with GHC 9.10
-      # Issue ref: https://github.com/agda/agda2hs/issues/347
-      inreplace "agda2hs.cabal", /( base .*&&) < 4\.20,/, "\\1 < 4.21,", build.stable?
 
       system "cabal", "--store-dir=#{libexec}", "v2-install", *std_cabal_v2_args, *ghc912_args
     end
@@ -134,7 +129,7 @@ class Agda < Formula
     # generate the standard library's documentation and vim highlighting files
     resource("stdlib").stage agdalib
     cd agdalib do
-      system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{lib}/agda"
+      system "cabal", "--store-dir=#{libexec}", "v2-install", *cabal_args, "--installdir=#{agdalib}"
       system "./GenerateEverything"
       cd "doc" do
         system bin/"agda", "-i", "..", "--html", "--vim", "README.agda"
@@ -273,6 +268,7 @@ class Agda < Formula
     agda2hstest = testpath/"Agda2HsTest.agda"
     agda2hstest.write <<~AGDA
       {-# OPTIONS --erasure #-}
+      module Agda2HsTest where
       open import Haskell.Prelude
 
       _≤_ : {{Ord a}} → a → a → Set
