@@ -1,9 +1,9 @@
 class Kalonys < Formula
   desc "Kalonys CLI"
   homepage "https://kalonys.fr"
-  url "https://kalonys-cli-artifacts.s3.amazonaws.com/kalonys-mac-1.0.1"
-  sha256 "e44077feffe62d40b7d31c190df61672217634e796be918273d6b1c6c79322b8"
-  version "1.0.1"
+  url "https://kalonys-cli-artifacts.s3.amazonaws.com/kalonys-mac-1.0.2"
+  sha256 "cce786e542049308d5a249616cb5a1c46938cc5cb3775939079be3403a638838"
+  version "1.0.2"
 
   def install
     bin.install "kalonys-mac" => "kalonys"
