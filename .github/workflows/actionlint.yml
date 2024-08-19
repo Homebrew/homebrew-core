@@ -1,0 +1,56 @@
+name: actionlint
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - '.github/workflows/*.ya?ml'
+  pull_request:
+    paths:
+      - '.github/workflows/*.ya?ml'
+
+concurrency:
+  group: "actionlint-${{ github.ref }}"
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_ENV_HINTS: 1
+
+jobs:
+  workflow_syntax:
+    if: github.repository_owner == 'Homebrew'
+    runs-on: ubuntu-22.04
+    container:
+      image: ghcr.io/homebrew/ubuntu22.04:master
+    steps:
+      - name: Set up Homebrew
+        id: setup-homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+        with:
+          core: true
+          cask: false
+          test-bot: false
+
+      - name: Set up actionlint
+        shell: bash
+        env:
+          HOMEBREW_TAP_REPOSITORY: ${{ steps.setup-homebrew.outputs.repository-path }}
+        run: |
+          brew install actionlint shellcheck
+
+          # Annotations work only relative to GITHUB_WORKSPACE
+          (shopt -s dotglob; rm -rf "${GITHUB_WORKSPACE:?}"/*; mv "${HOMEBREW_TAP_REPOSITORY:?}"/* "$GITHUB_WORKSPACE")
+          rmdir "$HOMEBREW_TAP_REPOSITORY"
+          ln -vs "$GITHUB_WORKSPACE" "$HOMEBREW_TAP_REPOSITORY"
+
+          # Setting `shell: /bin/bash` prevents shellcheck from running on
+          # those steps, so let's change them to `shell: bash` for linting.
+          sed -i 's:/bin/bash -e {0}:bash:' .github/workflows/*.y*ml
+          # The JSON matcher needs to be accessible to the container host.
+          cp "$(brew --repository)/.github/actionlint-matcher.json" "$HOME"
+          echo "::add-matcher::$HOME/actionlint-matcher.json"
+
+      - run: actionlint

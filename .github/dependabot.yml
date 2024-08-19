@@ -1,0 +1,17 @@
+# This file is synced from the `.github` repository, do not modify it directly.
+---
+version: 2
+updates:
+- package-ecosystem: github-actions
+  directory: "/"
+  schedule:
+    interval: daily
+  allow:
+  - dependency-type: all
+  ignore:
+  - dependency-name: actions/stale
+  groups:
+    artifacts:
+      patterns:
+      - actions/*-artifact
+
