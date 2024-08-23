@@ -1,8 +1,8 @@
 class Mlx < Formula
   desc "Array framework for Apple silicon"
   homepage "https://github.com/ml-explore/mlx"
-  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.13.0.tar.gz"
-  sha256 "a5226ef3ab3fad06631d0ac9e980286df9863f8267fc38193f815a514cec253b"
+  url "https://github.com/ml-explore/mlx/archive/refs/tags/v0.17.1.tar.gz"
+  sha256 "a694acec532af920407c4cff9b3627e440ce5ffa29ade7825ffe3be5abd48e3c"
   license "MIT"
   head "https://github.com/ml-explore/mlx.git", branch: "main"
 
@@ -18,7 +18,7 @@ class Mlx < Formula
   depends_on :macos
   depends_on "python@3.12"
 
-  # Update to GIT_TAG at https://github.com/ml-explore/mlx/blob/v#{version}/mlx/io/CMakeLists.txt#L21
+  # Update to GIT_TAG at https://github.com/ml-explore/mlx/blob/v#{version}/mlx/io/CMakeLists.txt#L33
   resource "gguflib" do
     url "https://github.com/antirez/gguf-tools/archive/af7d88d808a7608a33723fba067036202910acb3.tar.gz"
     sha256 "1ee2dde74a3f9506af9ad61d7638a5e87b5e891b5e36a5dd3d5f412a8ce8dd03"
