@@ -19,7 +19,8 @@ class DosboxStaging < Formula
   # an announcement on the homepage), not just a new version tag.
   livecheck do
     url :stable
-    strategy :github_latest
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases
   end
 
   bottle do
