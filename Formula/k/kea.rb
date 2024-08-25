@@ -10,9 +10,15 @@ class Kea < Formula
 
   livecheck do
     url "ftp://ftp.isc.org/isc/kea/"
-    # Match the final component lazily to avoid matching versions like `1.9.10` as `9.10`.
-    regex(/v?(\d+\.\d*[02468](?:\.\d+)+?)$/i)
-    strategy :page_match
+    regex(/^v?(\d+\.\d*[02468](?:\.\d+)*)$/i)
+    strategy :page_match do |page, regex|
+      page.lines(chomp: true).filter_map do |line|
+        candidate = line.split.last
+        next false unless regex.match?(candidate)
+
+        candidate
+      end
+    end
   end
 
   bottle do
