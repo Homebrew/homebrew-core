@@ -12,18 +12,9 @@ class OpentdfCli < Formula
     strategy :github_releases
   end
 
-  keg_only :versioned_formula
 
-  # disable! date: "2025-01-01", because: :deprecated_upstream
-
-  depends_on "bash" => :build
   depends_on "go" => :build
 
-  uses_from_macos "rsync" => :build
-
-  on_macos do
-    depends_on "coreutils" => :build
-  end
 
   def install
     ldflags = %W[
