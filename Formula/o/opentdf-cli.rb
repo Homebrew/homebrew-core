@@ -12,9 +12,7 @@ class OpentdfCli < Formula
     strategy :github_releases
   end
 
-
   depends_on "go" => :build
-
 
   def install
     ldflags = %W[
@@ -26,11 +24,6 @@ class OpentdfCli < Formula
     system "go", "build", *std_go_args(ldflags:), "-o", bin/"otdfctl"
 
     generate_completions_from_executable(bin/"otdfctl", "completion", base_name: "otdfctl")
-
-    # TODO: install man docs
-    # Leave this step for the end as this dirties the git tree
-    # system "hack/update-generated-docs.sh"
-    # man1
   end
 
   test do
@@ -39,5 +32,8 @@ class OpentdfCli < Formula
 
     version_output = shell_output("#{bin}/otdfctl --version 2>&1")
     assert_match version.to_s, version_output
+
+    profile_output = shell_output("#{bin}/otdfctl policy attributes list --host http://localhost:8080 --with-client-creds '{}' 2>&1")
+    assert_match "Profile missing credentials", profile_output
   end
 end
