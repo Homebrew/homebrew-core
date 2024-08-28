@@ -20,12 +20,17 @@ class Gexiv2 < Formula
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
-  depends_on "pkg-config" => :build
+  depends_on "pkg-config" => [:build, :test]
   depends_on "pygobject3" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "vala" => :build
+
   depends_on "exiv2"
   depends_on "glib"
+
+  on_macos do
+    depends_on "gettext"
+  end
 
   def python3
     "python3.12"
@@ -46,17 +51,15 @@ class Gexiv2 < Formula
   test do
     (testpath/"test.c").write <<~EOS
       #include <gexiv2/gexiv2.h>
+
       int main() {
         GExiv2Metadata *metadata = gexiv2_metadata_new();
         return 0;
       }
     EOS
 
-    system ENV.cc, "test.c", "-o", "test",
-                   "-I#{HOMEBREW_PREFIX}/include/glib-2.0",
-                   "-I#{HOMEBREW_PREFIX}/lib/glib-2.0/include",
-                   "-L#{lib}",
-                   "-lgexiv2"
+    pkg_config_flags = shell_output("pkg-config --cflags --libs gexiv2").chomp.split
+    system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"
 
     (testpath/"test.py").write <<~EOS
@@ -66,6 +69,7 @@ class Gexiv2 < Formula
       exif = GExiv2.Metadata('#{test_fixtures("test.jpg")}')
       print(exif.try_get_gps_info())
     EOS
+
     assert_equal "(longitude=0.0, latitude=0.0, altitude=0.0)\n", shell_output("#{python3} test.py")
   end
 end
