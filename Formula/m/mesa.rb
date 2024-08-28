@@ -3,8 +3,8 @@ class Mesa < Formula
 
   desc "Graphics Library"
   homepage "https://www.mesa3d.org/"
-  url "https://mesa.freedesktop.org/archive/mesa-24.1.6.tar.xz"
-  sha256 "da94c0908d5662467369b69ed8236da1e1577141a6e7d25171a9bf56383b34e8"
+  url "https://mesa.freedesktop.org/archive/mesa-24.2.0.tar.xz"
+  sha256 "c02bb72cea290f78b11895a0c95c7c92394f180d7ff66d4a762ec6950a58addf"
   license all_of: [
     "MIT",
     "Apache-2.0", # include/{EGL,GLES*,vk_video,vulkan}, src/egl/generate/egl.xml, src/mapi/glapi/registry/gl.xml
@@ -33,6 +33,7 @@ class Mesa < Formula
   end
 
   depends_on "bison" => :build # can't use from macOS, needs '> 2.3'
+  depends_on "libyaml" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
@@ -90,6 +91,11 @@ class Mesa < Formula
   resource "ply" do
     url "https://files.pythonhosted.org/packages/e5/69/882ee5c9d017149285cab114ebeab373308ef0f874fcdac9beb90e0ac4da/ply-3.11.tar.gz"
     sha256 "00c7c1aaa88358b9c765b6d3000c6eec0ba42abca5351b095321aef446081da3"
+  end
+
+  resource "pyyaml" do
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   def python3
