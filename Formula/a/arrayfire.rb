@@ -15,7 +15,7 @@ class Arrayfire < Formula
     sha256 cellar: :any, monterey:       "e0cdfa9839ea984d846c2fd7c9df45c337ae7159d07a590256896b1934d9670e"
   end
 
-  depends_on "boost@1.85" => :build
+  depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "fftw"
