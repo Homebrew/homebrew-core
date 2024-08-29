@@ -14,6 +14,8 @@ class Iproute2mac < Formula
   depends_on :macos
   depends_on "python@3.12"
 
+  conflicts_with "iproute4mac", because: "both provide same executables"
+
   def install
     libexec.install "src/iproute2mac.py"
     libexec.install "src/ip.py" => "ip"
