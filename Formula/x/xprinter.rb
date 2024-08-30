@@ -7,8 +7,10 @@ class Xprinter < Formula
   depends_on "macos-specific-dependency"
 
   def install
-    bin.install "xprinter"
-    bin.install "xprinter-server"
+    on_macos do
+      bin.install "xprinter"
+      bin.install "xprinter-server"
+    end
   end
 
   test do
