@@ -1,8 +1,8 @@
 class Webarchiver < Formula
   desc "Allows you to create Safari .webarchive files"
   homepage "https://github.com/newzealandpaul/webarchiver"
-  url "https://github.com/newzealandpaul/webarchiver/archive/refs/tags/0.10.tar.gz"
-  sha256 "06705d361ebb1de6411e4d386a01a60314aa52d5c20f64603c1b9652a3eceae4"
+  url "https://github.com/newzealandpaul/webarchiver/archive/refs/tags/0.12.tar.gz"
+  sha256 "bb21767a506841a41ca4ea44d78c6f3012e61ca327df620a7c312759e4b5866d"
   head "https://github.com/newzealandpaul/webarchiver.git", branch: "master"
 
   bottle do
@@ -18,8 +18,6 @@ class Webarchiver < Formula
     sha256 cellar: :any_skip_relocation, mojave:         "ffd1e97727c1551d6bfc63ba3980469ca7be4c99bbd89c1036671a1e3463e3e3"
     sha256 cellar: :any_skip_relocation, high_sierra:    "fe85ee50f8a3da76dcbcd8bb24c1bea05bde33525055c4d471c8b07fccadfa65"
   end
-
-  disable! date: "2024-08-11", because: :no_license
 
   depends_on xcode: ["6.0.1", :build]
   depends_on :macos
