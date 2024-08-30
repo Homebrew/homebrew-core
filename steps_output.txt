@@ -1,0 +1,6 @@
+Error: 5 failed steps!
+brew install --only-dependencies --verbose --formula --build-bottle xprinter
+brew fetch --formula --retry xprinter --build-bottle
+brew install --verbose --formula --build-bottle xprinter
+brew style --formula xprinter
+brew audit --formula xprinter --online --new

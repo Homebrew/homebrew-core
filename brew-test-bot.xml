@@ -1,0 +1,8 @@
+<?xml version='1.0'?>
+<testsuites>
+  <testsuite name='brew-test-bot.arm64_ventura' timestamp='2024-08-30T15:46:53+08:00'>
+    <testcase name='audit --formula xprinter --online --new' status='failed' time='0.951249' timestamp='2024-08-30T15:47:05+08:00'>
+      <failure message='failed: brew audit --formula xprinter --online --new'/>
+    </testcase>
+  </testsuite>
+</testsuites>
