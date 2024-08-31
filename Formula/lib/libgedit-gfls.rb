@@ -1,8 +1,8 @@
 class LibgeditGfls < Formula
   desc "Gedit Technology - File loading and saving"
   homepage "https://gitlab.gnome.org/World/gedit/libgedit-gfls"
-  url "https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.1.0/libgedit-gfls-0.1.0.tar.bz2"
-  sha256 "306ba5b25c73a6901069f0d535b845eb13167a7be2d15f86451ae5d9016229ca"
+  url "https://gitlab.gnome.org/World/gedit/libgedit-gfls/-/archive/0.2.0/libgedit-gfls-0.2.0.tar.bz2"
+  sha256 "4a01265feb9764718463ff723d4a9f2287ee118a95739c94415d1d09a2d7a6b5"
   license "LGPL-3.0-or-later"
   head "https://gitlab.gnome.org/World/gedit/libgedit-gfls.git", branch: "main"
 
