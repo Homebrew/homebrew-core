@@ -20,7 +20,8 @@ class Micro < Formula
   depends_on "go" => :build
 
   def install
-    system "make", "build-tags"
+    system "git", "fetch", "--tags", "--force"
+    system "make", "build"
     bin.install "micro"
     man1.install "assets/packaging/micro.1"
   end
