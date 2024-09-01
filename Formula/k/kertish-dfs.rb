@@ -2,9 +2,9 @@ class KertishDfs < Formula
   desc "Kertish FileSystem and Cluster Administration CLI"
   homepage "https://github.com/freakmaxi/kertish-dfs"
   url "https://github.com/freakmaxi/kertish-dfs/archive/refs/tags/v22.2.0147.tar.gz"
-  version "22.2.0147-532592"
   sha256 "a13d55b3f48ed0e16b1add3a44587072b22d21a9f95c444893dbf92e19ee5cee"
   license "GPL-3.0-only"
+  version_scheme 1
   head "https://github.com/freakmaxi/kertish-dfs.git", branch: "master"
 
   bottle do
