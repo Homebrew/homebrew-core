@@ -30,6 +30,9 @@ class Ldb < Formula
 
   uses_from_macos "python" => :build
 
+  conflicts_with "samba",
+    because: "both install `ldbadd`, `ldbdel`, `ldbedit`, `ldbmodify`, `ldbrename`, `ldbsearch` binaries"
+
   def install
     args = %W[
       --bundled-libraries=NONE
