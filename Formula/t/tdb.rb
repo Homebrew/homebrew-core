@@ -23,6 +23,8 @@ class Tdb < Formula
 
   uses_from_macos "python" => :build
 
+  conflicts_with "samba", because: "both install `tdbrestore`, `tdbtool` binaries"
+
   def install
     system "./configure", "--bundled-libraries=NONE",
                           "--disable-python",
