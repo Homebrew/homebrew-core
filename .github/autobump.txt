@@ -2070,6 +2070,7 @@ pipgrip
 pipx
 pivit
 pixi
+pixman
 pkgconf
 pkl
 plantuml

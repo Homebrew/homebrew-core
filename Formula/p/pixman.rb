@@ -6,7 +6,7 @@ class Pixman < Formula
   license "MIT"
 
   livecheck do
-    url "https://cairographics.org/releases/?C=M&O=D"
+    url "https://cairographics.org/releases/"
     regex(/href=.*?pixman[._-]v?(\d+\.\d*[02468](?:\.\d+)*)\.t/i)
   end
 
