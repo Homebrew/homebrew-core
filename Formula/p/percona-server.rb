@@ -2,8 +2,8 @@ class PerconaServer < Formula
   desc "Drop-in MySQL replacement"
   homepage "https://www.percona.com"
   # TODO: Check if we can use unversioned `protobuf` at version bump
-  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.36-28/source/tarball/percona-server-8.0.36-28.tar.gz"
-  sha256 "8a4b44bd9cf79a38e6275e8f5f9d4e8d2c308854b71fd5bf5d1728fff43a6844"
+  url "https://downloads.percona.com/downloads/Percona-Server-8.0/Percona-Server-8.0.37-29/source/tarball/percona-server-8.0.37-29.tar.gz"
+  sha256 "cd982adc0c4245876d7b77535098ae32f546765f54d35b3c8f1700a83c5988d3"
   license "BSD-3-Clause"
 
   livecheck do
