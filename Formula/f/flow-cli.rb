@@ -1,8 +1,8 @@
 class FlowCli < Formula
   desc "Command-line interface that provides utilities for building Flow applications"
   homepage "https://onflow.org"
-  url "https://github.com/onflow/flow-cli/archive/refs/tags/v1.20.5.tar.gz"
-  sha256 "654c29527bfefcbaf9ffb11d39629383a54abf2a6efe9b34d84889644b5dc975"
+  url "https://github.com/onflow/flow-cli/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "5767f8e2a1ff8ec4fbd4b04ddcdc0509fcc9e7cb24cfc02d7ec87f847ed9c222"
   license "Apache-2.0"
   head "https://github.com/onflow/flow-cli.git", branch: "master"
 
@@ -34,7 +34,7 @@ class FlowCli < Formula
 
   test do
     (testpath/"hello.cdc").write <<~EOS
-      pub fun main() {
+      access(all) fun main() {
         log("Hello, world!")
       }
     EOS
