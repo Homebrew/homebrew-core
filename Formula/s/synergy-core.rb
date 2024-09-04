@@ -123,15 +123,13 @@ class SynergyCore < Formula
   end
 
   test do
-    assert_equal shell_output("#{opt_bin}/synergys", 4),
-                 "synergys: no configuration available\n"
-    assert_equal shell_output("#{opt_bin}/synergyc", 3).split("\n")[0],
-                 "synergyc: a server address or name is required"
-
+    output_synergys = shell_output("#{opt_bin}/synergys 2>&1", 4).strip
+    assert_match(/synergys: no configuration available/, output_synergys)
+    output_synergyc = shell_output("#{opt_bin}/synergyc 2>&1", 3).strip
+    assert_match(/synergyc: a server address or name is required/, output_synergyc.split("\n")[0])
+  
     version_string = Regexp.quote(version.major_minor_patch)
-    assert_match(/synergys #{version_string}[-.0-9a-z]*, protocol version/,
-                 shell_output("#{opt_bin}/synergys --version", 3).lines.first)
-    assert_match(/synergyc #{version_string}[-.0-9a-z]*, protocol version/,
-                 shell_output("#{opt_bin}/synergyc --version", 3).lines.first)
+    assert_match /synergys v#{version_string}/, shell_output("#{bin}/synergys --version")
+    assert_match /synergyc v#{version_string}/, shell_output("#{bin}/synergyc --version")
   end
 end
