@@ -29,6 +29,8 @@ class Libxmlb < Formula
   depends_on "xz"
   depends_on "zstd"
 
+  uses_from_macos "python"
+
   def install
     rewrite_shebang detected_python_shebang, "src/generate-version-script.py"
 
