@@ -43,10 +43,10 @@ class SynergyCore < Formula
 
   depends_on "cmake" => :build
   depends_on "googletest" => :build
-  depends_on "pugixml"
-  depends_on "openssl@3"
-  depends_on "qt@6"
   depends_on "ninja"
+  depends_on "openssl@3"
+  depends_on "pugixml"
+  depends_on "qt"
 
   on_linux do
     depends_on "pkg-config" => :build
@@ -59,8 +59,8 @@ class SynergyCore < Formula
     depends_on "libxinerama"
     depends_on "libxkbfile"
     depends_on "libxrandr"
+    depends_on "libxt"
     depends_on "libxtst"
-    depends_on "libxt" 
   end
 
   fails_with gcc: "5" do
@@ -72,7 +72,7 @@ class SynergyCore < Formula
     inreplace "cmake/Packaging.cmake",
               "set(SYNERGY_BUNDLE_DIR ${CMAKE_BINARY_DIR}/bundle)",
               "set(SYNERGY_BUNDLE_DIR ${CMAKE_INSTALL_PREFIX}/bundle)"
-          
+
     # Disable macdeployqt to prevent copying dylibs
     inreplace "src/gui/CMakeLists.txt",
               /"execute_process\(COMMAND \${MACDEPLOYQT_CMD}.*\)"\)$/,
@@ -123,13 +123,16 @@ class SynergyCore < Formula
   end
 
   test do
+    # Test if `synergys` output contains the expected error message
     output_synergys = shell_output("#{opt_bin}/synergys 2>&1", 4).strip
     assert_match(/synergys: no configuration available/, output_synergys)
+
+    # Test if `synergyc` output's first line matches the expected error message
     output_synergyc = shell_output("#{opt_bin}/synergyc 2>&1", 3).strip
     assert_match(/synergyc: a server address or name is required/, output_synergyc.split("\n")[0])
-  
+
     version_string = Regexp.quote(version.major_minor_patch)
-    assert_match /synergys v#{version_string}/, shell_output("#{bin}/synergys --version")
-    assert_match /synergyc v#{version_string}/, shell_output("#{bin}/synergyc --version")
+    assert_match(/synergys v#{version_string}/, shell_output("#{bin}/synergys --version"))
+    assert_match(/synergyc v#{version_string}/, shell_output("#{bin}/synergyc --version"))
   end
 end
