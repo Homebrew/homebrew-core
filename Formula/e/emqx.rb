@@ -29,7 +29,7 @@ class Emqx < Formula
   depends_on "ccache"    => :build
   depends_on "cmake"     => :build
   depends_on "coreutils" => :build
-  depends_on "erlang" => :build
+  depends_on "erlang@26" => :build
   depends_on "freetds"   => :build
   depends_on "libtool"   => :build
   depends_on "openssl@3"
