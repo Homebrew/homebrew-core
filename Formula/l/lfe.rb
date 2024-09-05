@@ -17,7 +17,7 @@ class Lfe < Formula
   end
 
   depends_on "emacs" => :build
-  depends_on "erlang"
+  depends_on "erlang@26"
 
   def install
     system "make"
