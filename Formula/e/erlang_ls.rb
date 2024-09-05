@@ -15,7 +15,7 @@ class ErlangLs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "221ac9e5a40d613351cbfe50493670f09750d609368ddff6dcec09cc50c2cf70"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@26"
   depends_on "rebar3"
 
   def install
