@@ -22,7 +22,7 @@ class Gleam < Formula
   end
 
   depends_on "rust" => :build
-  depends_on "erlang"
+  depends_on "erlang@26"
   depends_on "rebar3"
 
   on_linux do
