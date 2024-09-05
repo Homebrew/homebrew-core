@@ -41,7 +41,7 @@ class Wrangler < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "e6ae31d2916213e6b6520c5ecbf68234a09182b468d8f68f95b862098b806e1a"
   end
 
-  depends_on "erlang"
+  depends_on "erlang@26"
 
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
