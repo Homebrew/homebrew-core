@@ -17,6 +17,8 @@ class Parallel < Formula
     sha256 cellar: :any_skip_relocation, all: "e272a8250ab0451b6bc1891228dd6d7577d5532d6c4cb409a3e3551e44395664"
   end
 
+  uses_from_macos "perl"
+
   conflicts_with "moreutils", because: "both install a `parallel` executable"
 
   def install
