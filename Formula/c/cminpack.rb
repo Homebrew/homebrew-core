@@ -21,7 +21,6 @@ class Cminpack < Formula
 
   def install
     args = %w[
-      -DUSE_BLAS=ON
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
       -DCMINPACK_LIB_INSTALL_DIR=lib
