@@ -77,6 +77,7 @@ class Gstreamer < Formula
   depends_on "json-glib"
   depends_on "lame"
   depends_on "libass"
+  depends_on "libnice"
   depends_on "libogg"
   depends_on "libpng"
   depends_on "libshout"
@@ -169,7 +170,7 @@ class Gstreamer < Formula
       -Dpython.purelibdir=#{site_packages}
       -Dpython=enabled
       -Dlibav=enabled
-      -Dlibnice=disabled
+      -Dlibnice=enabled
       -Dbase=enabled
       -Dgood=enabled
       -Dugly=enabled
@@ -199,6 +200,7 @@ class Gstreamer < Formula
       -Dgst-plugins-bad:opencv=disabled
       -Dgst-plugins-bad:sctp=enabled
       -Dgst-plugins-bad:sctp-internal-usrsctp=disabled
+      -Dgst-plugins-bad:webrtc=enabled
       -Dgst-plugins-good:soup=enabled
       -Dgst-plugins-rs:closedcaption=enabled
       -Dgst-plugins-rs:dav1d=enabled
@@ -281,6 +283,8 @@ class Gstreamer < Formula
     system bin/"gst-inspect-1.0", "--plugin", "x264"
     system bin/"gst-inspect-1.0", "--plugin", "rtspclientsink"
     system bin/"gst-inspect-1.0", "--plugin", "rsfile"
+    system bin/"gst-inspect-1.0", "--plugin", "nice"
+    system bin/"gst-inspect-1.0", "--plugin", "webrtc"
     system bin/"gst-inspect-1.0", "hlsdemux2"
   end
 end

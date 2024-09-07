@@ -26,7 +26,6 @@ class Libnice < Formula
 
   depends_on "glib"
   depends_on "gnutls"
-  depends_on "gstreamer"
 
   on_macos do
     depends_on "gettext"
