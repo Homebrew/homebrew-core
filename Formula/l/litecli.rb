@@ -3,8 +3,8 @@ class Litecli < Formula
 
   desc "CLI for SQLite Databases with auto-completion and syntax highlighting"
   homepage "https://github.com/dbcli/litecli"
-  url "https://files.pythonhosted.org/packages/19/a0/f4ba19d313c7721203d26c1491e314833ff7fb5799dc642206b585ed9104/litecli-1.11.1.tar.gz"
-  sha256 "c14f0d125f16a8f69a6689f6b59723032f8a309aa69476cd67cae685c9232471"
+  url "https://files.pythonhosted.org/packages/42/1e/b839189287b590917c0e6d587d6f68f6be5be151001e18963a193fbd6982/litecli-1.12.1.tar.gz"
+  sha256 "ccdcde0bcb1dd9e4548b084ffc188043798ce687bfc1074f2043f753f9df0526"
   license "BSD-3-Clause"
 
   bottle do
