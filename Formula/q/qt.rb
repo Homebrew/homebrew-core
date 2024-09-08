@@ -298,6 +298,7 @@ class Qt < Formula
     system "./configure", *config_args, "--", *cmake_args
     system "cmake", "--build", "."
     system "cmake", "--install", "."
+    system "ninja install_qch_docs"
 
     inreplace lib/"cmake/Qt6/qt.toolchain.cmake", "#{Superenv.shims_path}/", ""
 
