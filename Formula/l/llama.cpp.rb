@@ -11,6 +11,7 @@ class LlamaCpp < Formula
   livecheck do
     url :stable
     regex(/^v?b(\d+(?:\.\d+)*)$/i)
+    throttle 5
   end
 
   bottle do
