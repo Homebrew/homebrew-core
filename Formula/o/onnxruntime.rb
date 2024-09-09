@@ -2,8 +2,8 @@ class Onnxruntime < Formula
   desc "Cross-platform, high performance scoring engine for ML models"
   homepage "https://github.com/microsoft/onnxruntime"
   url "https://github.com/microsoft/onnxruntime.git",
-      tag:      "v1.17.1",
-      revision: "8f5c79cb63f09ef1302e85081093a3fe4da1bc7d"
+      tag:      "v1.19.2",
+      revision: "ffceed9d44f2f3efb9dd69fa75fea51163c91d91"
   license "MIT"
 
   livecheck do
@@ -21,8 +21,10 @@ class Onnxruntime < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "dde778dd1564940af7b2116cba7d4c8b45b4d6e335c78620cf97b1e1e6a688b1"
   end
 
+  depends_on "abseil" => :build
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
+  depends_on "protobuf"
 
   fails_with gcc: "5" # GCC version < 7 is no longer supported
 
@@ -33,6 +35,10 @@ class Onnxruntime < Formula
       -DPYTHON_EXECUTABLE=#{which("python3.12")}
       -Donnxruntime_BUILD_SHARED_LIB=ON
       -Donnxruntime_BUILD_UNIT_TESTS=OFF
+      -DONNX_CUSTOM_PROTOC_EXECUTABLE=#{Formula["protobuf"].opt_bin/"protoc"}
+      -DHOMEBREW_ALLOW_FETCHCONTENT=ON
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
     ]
 
     system "cmake", "-S", "cmake", "-B", "build", *cmake_args, *std_cmake_args
