@@ -1,35 +1,12 @@
-class SynergyCore < Formula
+class Synergy < Formula
   desc "Synergy, the keyboard and mouse sharing tool"
-  homepage "https://symless.com/synergy"
+  homepage "https://github.com/symless/synergy"
   url "https://github.com/symless/synergy/archive/refs/tags/1.15.1+r1.tar.gz"
   version "1.15.1"
   sha256 "42fbf26c634d2947c7efc45da8c9a153387bcdcb19c1102a4f7c4e95aad5c708"
 
-  # The synergy-core/LICENSE file contains the following preamble:
-  #   This program is released under the GPL with the additional exemption
-  #   that compiling, linking, and/or using OpenSSL is allowed.
-  # This preamble is followed by the text of the GPL-2.0.
-  #
-  # The synergy-core license is a free software license but it cannot be
-  # represented with the brew `license` statement.
-  #
-  # The GitHub Licenses API incorrectly says that this project is licensed
-  # strictly under GPLv2 (rather than GPLv2 plus a special exception).
-  # This requires synergy-core to appear as an exception in:
-  #   audit_exceptions/permitted_formula_license_mismatches.json
-  # That exception can be removed if the nonfree GitHub Licenses API is fixed.
-  license :cannot_represent
-  head "https://github.com/symless/synergy-core.git", branch: "master"
-
-  # This repository contains old 2.0.0 tags, one of which uses a stable tag
-  # format (`v2.0.0-stable`), despite being marked as "pre-release" on GitHub.
-  # The `GithubLatest` strategy is used to avoid these old tags without having
-  # to worry about missing a new 2.0.0 version in the future.
-  livecheck do
-    url :stable
-    regex(/[^"' >]*?v?(\d+(?:\.\d+)+)[^"' >]*?/i)
-    strategy :github_latest
-  end
+  license "GPL-2.0-only"
+  head "https://github.com/symless/synergy.git", branch: "master"
 
   bottle do
     sha256                               arm64_sonoma:   "b51e183a0c07609d4b5f81e194251ce29c93fc220b8989d50e7a7ee58ac49021"
@@ -70,7 +47,7 @@ class SynergyCore < Formula
   end
 
   fails_with gcc: "5" do
-    cause "synergy-core requires C++17 support"
+    cause "synergy requires C++17 support"
   end
 
   def install
@@ -109,12 +86,12 @@ class SynergyCore < Formula
     # Because we used `license :cannot_represent` above, tell the user how to
     # read the license.
     s = <<~EOS
-      Read the synergy-core license here:
+      Read the synergy license here:
         #{opt_prefix}/LICENSE
     EOS
     # The binaries built by brew are not signed by a trusted certificate, so the
     # user may need to revoke all permissions for 'Accessibility' and re-grant
-    # them when upgrading synergy-core.
+    # them when upgrading synergy.
     on_macos do
       s += "\n" + <<~EOS
         Synergy requires the 'Accessibility' permission.
@@ -124,7 +101,7 @@ class SynergyCore < Formula
         If Synergy still doesn't work, try clearing the 'Accessibility' list:
           sudo tccutil reset Accessibility
         You can then grant the 'Accessibility' permission again.
-        You may need to clear this list each time you upgrade synergy-core.
+        You may need to clear this list each time you upgrade synergy.
       EOS
       # On ARM, macOS is even more picky when dealing with applications not signed
       # by a trusted certificate, and, for whatever reason, both the app bundle and
