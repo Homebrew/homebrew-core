@@ -114,6 +114,8 @@ jobs:
           bottles-directory: ${{ env.BOTTLES_DIR }}
           cleanup: ${{ matrix.cleanup }}
 
+      - run: brew update
+
       - name: Check for existing bottle
         shell: brew ruby {0}
         env:
