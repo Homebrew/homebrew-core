@@ -5,7 +5,7 @@ class Synergy < Formula
   version "1.15.1"
   sha256 "42fbf26c634d2947c7efc45da8c9a153387bcdcb19c1102a4f7c4e95aad5c708"
 
-  license "GPL-2.0-only"
+  license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
   head "https://github.com/symless/synergy.git", branch: "master"
 
   bottle do
