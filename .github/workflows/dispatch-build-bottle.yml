@@ -89,6 +89,7 @@ jobs:
     timeout-minutes: ${{fromJson(github.event.inputs.timeout)}}
     permissions:
       contents: read
+      issues: write # for Homebrew/homebrew-test-bot#1209
     defaults:
       run:
         shell: /bin/bash -e {0}
