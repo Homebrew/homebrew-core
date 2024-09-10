@@ -1,8 +1,8 @@
 class Terrascan < Formula
   desc "Detect compliance and security violations across Infrastructure as Code"
   homepage "https://runterrascan.io/"
-  url "https://github.com/tenable/terrascan/archive/refs/tags/v1.19.4.tar.gz"
-  sha256 "1acd29aa2e31fa2c504904c97363afcea763c9ae99dbd02203a3e44937779b20"
+  url "https://github.com/tenable/terrascan/archive/refs/tags/v1.19.6.tar.gz"
+  sha256 "4e22fff904c582d806690e5c2a84f657e513d727224c2afb6db86ebbec0bd387"
   license "Apache-2.0"
   head "https://github.com/tenable/terrascan.git", branch: "master"
 
@@ -19,7 +19,13 @@ class Terrascan < Formula
   depends_on "go" => :build
 
   def install
-    system "go", "build", *std_go_args(ldflags: "-s -w"), "./cmd/terrascan"
+    # ignore protobuf conflicts
+    # upstream bug report, https://github.com/tenable/terrascan/issues/1702
+    ldflags = %w[
+      -s -w
+      -X google.golang.org/protobuf/reflect/protoregistry.conflictPolicy=ignore
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/terrascan"
   end
 
   test do
