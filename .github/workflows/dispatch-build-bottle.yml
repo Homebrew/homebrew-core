@@ -282,8 +282,6 @@ jobs:
             --head "$BOTTLE_BRANCH" \
             --reviewer '${{github.actor}}'
 
-          pull_number="$(gh pr list --head "$BOTTLE_BRANCH" --limit 1 --json number --jq '.[].number')"
-          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
           echo "head_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
 
       # There is a GitHub bug where labels are not properly recognised by workflows
@@ -291,23 +289,23 @@ jobs:
       # the `formulae_detect` step in `tests.yml`, so let's add the label separately
       # to avoid the bug.
       - name: Label PR
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
           GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
-        run: gh pr edit --add-label CI-published-bottle-commits "$PR"
+        run: gh pr edit --add-label CI-published-bottle-commits
 
       - name: Enable automerge
-        run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA" "$PR"
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
+        run: gh pr merge --auto --merge --delete-branch --match-head-commit "$SHA"
         env:
           GH_TOKEN: ${{secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN}}
-          PR: ${{steps.create-pr.outputs.pull_number}}
           SHA: ${{steps.create-pr.outputs.head_sha}}
 
       - name: Approve PR
+        working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ steps.create-pr.outputs.pull_number }}
-        run: gh pr review --approve "$PR"
+        run: gh pr review --approve
 
   comment:
     permissions:
