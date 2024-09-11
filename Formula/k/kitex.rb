@@ -1,8 +1,8 @@
 class Kitex < Formula
   desc "Golang RPC framework for microservices"
   homepage "https://github.com/cloudwego/kitex"
-  url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "6846e80ca4ec3f601184da3f450c91f2e69199ab7c915a35ad7c2bec46c78ccf"
+  url "https://github.com/cloudwego/kitex/archive/refs/tags/v0.11.2.tar.gz"
+  sha256 "6986d4c9ec75beea61a59e3c84a368b0b98684613d93ea30818c620ee1dd08fd"
   license "Apache-2.0"
   head "https://github.com/cloudwego/kitex.git", branch: "develop"
 
