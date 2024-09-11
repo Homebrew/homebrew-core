@@ -63,6 +63,9 @@ class Lrzsz < Formula
   end
 
   def install
+    # Fix for newer clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
+
     system "./configure", "--prefix=#{prefix}",
                           "--mandir=#{man}",
                           "--disable-nls"
