@@ -2,8 +2,8 @@ class ThorsMongo < Formula
   desc "Mongo API and Serialization library"
   homepage "https://github.com/Loki-Astari/ThorsMongo"
   url "https://github.com/Loki-Astari/ThorsMongo.git",
-      tag:      "3.4.01",
-      revision: "2f8a5df4d384050b95b10afa6cb7dcc8e714039d"
+      tag:      "3.5.02",
+      revision: "8733a8ec1fe890553a1699127b47356a2dd2f529"
   license "GPL-3.0-only"
 
   bottle do
@@ -35,6 +35,7 @@ class ThorsMongo < Formula
                           "--disable-test-with-integration",
                           "--disable-test-with-mongo-query",
                           "--disable-Mongo-Service"
+    system "g++", "--version"
     system "make"
     system "make", "install"
   end
