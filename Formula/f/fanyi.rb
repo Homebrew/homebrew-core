@@ -7,6 +7,7 @@ class Fanyi < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "0a1dfff14e86526a962d8ecdb4a5dec7552eb0dba5a4dc86d5f81ac0cfe86f0f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "492499711ec5231ee325e0545e3ac88fe3807846ada190ddd0fa403e192c93bd"
     sha256 cellar: :any_skip_relocation, arm64_ventura:  "492499711ec5231ee325e0545e3ac88fe3807846ada190ddd0fa403e192c93bd"
     sha256 cellar: :any_skip_relocation, arm64_monterey: "492499711ec5231ee325e0545e3ac88fe3807846ada190ddd0fa403e192c93bd"
