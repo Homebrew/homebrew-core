@@ -1,8 +1,8 @@
 class LivekitCli < Formula
   desc "Command-line interface to LiveKit"
   homepage "https://livekit.io"
-  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.1.0.tar.gz"
-  sha256 "b49a395169381140f39a9da8308ac100626e7697862fbee1e6c49fa9d1bce657"
+  url "https://github.com/livekit/livekit-cli/archive/refs/tags/v2.1.1.tar.gz"
+  sha256 "9dc68ebe2b7c3a63da59d30aa59abf4ddab8099e4b4c9079f9bba3386ffbd8bc"
   license "Apache-2.0"
   head "https://github.com/livekit/livekit-cli.git", branch: "main"
 
@@ -20,6 +20,10 @@ class LivekitCli < Formula
   depends_on "go" => :build
 
   def install
+    # Wrong version has been shipped.
+    # This has been fixed in a later version, remove with next version
+    inreplace "version.go", "2.1.0", "2.1.1"
+
     ldflags = "-s -w"
     system "go", "build", *std_go_args(ldflags:, output: bin/"lk"), "./cmd/lk"
 
