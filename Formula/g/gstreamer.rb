@@ -171,6 +171,7 @@ class Gstreamer < Formula
       -Dpython=enabled
       -Dlibav=enabled
       -Dlibnice=enabled
+      -Dlibnice-gstreamer-only=true
       -Dbase=enabled
       -Dgood=enabled
       -Dugly=enabled

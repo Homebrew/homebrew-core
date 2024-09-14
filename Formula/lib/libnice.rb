@@ -5,6 +5,15 @@ class Libnice < Formula
   sha256 "a5f724cf09eae50c41a7517141d89da4a61ec9eaca32da4a0073faed5417ad7e"
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
+  stable do
+    # break libnice circular dependancy with gstreamer
+    # https://github.com/Homebrew/homebrew-core/pull/183884
+    patch do
+      url "https://gitlab.freedesktop.org/gstreamer/gstreamer/-/raw/2c3d8e8e0c9a566331f127ab071b5b7c84b33def/subprojects/packagefiles/libnice-0.1.22/add-option-build-only-gstreamer.patch"
+      sha256 "32768e39b041f91a4ca805dc0a7ed10986a712ce6ac27f78c54274006d6c7920"
+    end
+  end
+
   livecheck do
     url "https://github.com/libnice/libnice.git"
     regex(/^v?(\d+(?:\.\d+)+)$/i)
@@ -36,7 +45,7 @@ class Libnice < Formula
   end
 
   def install
-    system "meson", "setup", "build", *std_meson_args
+    system "meson", "setup", "build", "-Dgstreamer=disabled", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
