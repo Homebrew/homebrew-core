@@ -30,10 +30,10 @@ class Rzip < Formula
   uses_from_macos "bzip2"
 
   def install
-    system "./configure", "--disable-debug",
-                          "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    # Workaround for newer Clang
+    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
+    system "./configure", *std_configure_args
     system "make", "install", "INSTALL_MAN=#{man}"
 
     bin.install_symlink "rzip" => "runzip"
