@@ -52,6 +52,11 @@ class Gcc < Formula
     depends_on "make" => :build
   end
 
+  on_sequoia :or_newer do
+    # Disable building of compat libgcc_s.1.dylib on Sequoia
+    patch :DATA
+  end
+
   on_linux do
     depends_on "binutils"
   end
@@ -305,3 +310,14 @@ class Gcc < Formula
     assert_equal "Hello, world!\n", shell_output("./hello-m2")
   end
 end
+__END__
+diff --git a/libgcc/config/i386/t-darwin b/libgcc/config/i386/t-darwin
+index 4c18da1efbf..0f61dd53d75 100644
+--- a/libgcc/config/i386/t-darwin
++++ b/libgcc/config/i386/t-darwin
+@@ -6,4 +6,4 @@ LIB2FUNCS_EXCLUDE = _fixtfdi _fixunstfdi _floatditf _floatunditf
+ SHLIB_MAPFILES += $(srcdir)/config/i386/libgcc-darwin.ver
+ 
+ # Build a legacy libgcc_s.1
+-BUILD_LIBGCCS1 = YES
++# BUILD_LIBGCCS1 = YES
