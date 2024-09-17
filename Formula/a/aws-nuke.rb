@@ -1,9 +1,8 @@
 class AwsNuke < Formula
   desc "Nuke a whole AWS account and delete all its resources"
   homepage "https://github.com/ekristen/aws-nuke"
-  url "https://github.com/ekristen/aws-nuke.git",
-      tag:      "v2.25.0",
-      revision: "e71283be2a03cd23c3c84f39ac72f1200c813349"
+  url "https://github.com/ekristen/aws-nuke/archive/refs/tags/v3.21.0.tar.gz"
+  sha256 "6dd17ec256a3801d28f1e068aa1f61e82cf9a42eb30fcc81322ef04f637855f9"
   license "MIT"
   head "https://github.com/ekristen/aws-nuke.git", branch: "main"
 
@@ -20,30 +19,17 @@ class AwsNuke < Formula
   depends_on "go" => :build
 
   def install
-    build_xdst="github.com/ekristen/aws-nuke/v#{version.major}/cmd"
+    build_xdst="github.com/ekristen/aws-nuke/v3"
     ldflags = %W[
       -s -w
-      -X #{build_xdst}.BuildVersion=#{version}
-      -X #{build_xdst}.BuildDate=#{time.strftime("%F")}
-      -X #{build_xdst}.BuildHash=#{Utils.git_head}
-      -X #{build_xdst}.BuildEnvironment=#{tap.user}
+      -X #{build_xdst}/pkg/common.VERSION=#{version}
+      -X #{build_xdst}/pkg/common.SUMMARY=#{version}
     ]
-    with_env(
-      "CGO_ENABLED" => "0",
-    ) do
-      system "go", "build", *std_go_args(ldflags:)
-    end
-
-    pkgshare.install "config"
-
-    generate_completions_from_executable(bin/"aws-nuke", "completion")
+    system "go", "build", *std_go_args(ldflags:)
   end
 
   test do
-    assert_match "InvalidClientTokenId", shell_output(
-      "#{bin}/aws-nuke --config #{pkgshare}/config/example.yaml --access-key-id fake --secret-access-key fake 2>&1",
-      255,
-    )
     assert_match "IAMUser", shell_output("#{bin}/aws-nuke resource-types")
+    assert_match version.to_s, shell_output("#{bin}/aws-nuke --version")
   end
 end
