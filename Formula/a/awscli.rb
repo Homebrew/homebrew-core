@@ -19,7 +19,7 @@ class Awscli < Formula
 
   depends_on "cmake" => :build
   depends_on "cryptography"
-  depends_on "python@3.11" # Python 3.12 issue: https://github.com/aws/aws-cli/issues/8342
+  depends_on "python@3.12"
 
   uses_from_macos "libffi"
   uses_from_macos "mandoc"
@@ -100,7 +100,7 @@ class Awscli < Formula
   end
 
   def python3
-    which("python3.11")
+    which("python3.12")
   end
 
   def install
