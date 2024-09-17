@@ -1,8 +1,8 @@
 class Cmix < Formula
   desc "Data compression program with high compression ratio"
   homepage "https://www.byronknoll.com/cmix.html"
-  url "https://github.com/byronknoll/cmix/archive/refs/tags/v20.tar.gz"
-  sha256 "a95b0d7430d61b558731e7627f41e170cb7802d1a8a862f38628f8d921dc61b2"
+  url "https://github.com/byronknoll/cmix/archive/refs/tags/v21.tar.gz"
+  sha256 "c0ff50f24604121bd7ccb843045c0946db1077cfb9ded10fe4c181883e6dbb42"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -16,8 +16,10 @@ class Cmix < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0092c27accca6642f12d8c0d79423e5722dd17cbd20a93c194f231999d0e8655"
   end
 
+  depends_on "llvm"
+
   def install
-    system "make"
+    system "make", "CC=#{Formula["llvm"].opt_bin/"clang"}"
     bin.install "cmix"
   end
 

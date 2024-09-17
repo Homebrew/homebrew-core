@@ -447,6 +447,7 @@ cmake-language-server
 cmark
 cmctl
 cminpack
+cmix
 cmu-pocketsphinx
 cmus
 cnats
