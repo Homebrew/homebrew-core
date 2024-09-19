@@ -2,8 +2,8 @@ class Cbmc < Formula
   desc "C Bounded Model Checker"
   homepage "https://www.cprover.org/cbmc/"
   url "https://github.com/diffblue/cbmc.git",
-      tag:      "cbmc-6.2.0",
-      revision: "27b845c975c6bbdfb2ccc6f40bdfae6793d12277"
+      tag:      "cbmc-6.3.0",
+      revision: "5bd494a1a961762a038ba8e055bc1e4a12dbba3b"
   license "BSD-4-Clause"
 
   bottle do
@@ -24,13 +24,6 @@ class Cbmc < Formula
   uses_from_macos "flex" => :build
 
   fails_with gcc: "5"
-
-  # Backport fix for CMake Error at jbmc/unit/CMakeLists.txt
-  # Cannot find source file: /tmp/unit/unit_tests.cpp
-  patch do
-    url "https://github.com/diffblue/cbmc/commit/faf92c5354e3aaca6c70013bb75b26a271c6f63d.patch?full_index=1"
-    sha256 "7dd49f1364a24b914e13e3e16de7611db10467f1235e308d1c7fa77291171de6"
-  end
 
   def install
     # Fixes: *** No rule to make target 'bin/goto-gcc',
