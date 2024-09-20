@@ -10,6 +10,7 @@ class Gitgen < Formula
     version "0.1.3"
     depends_on "python@3.9"
   
+  # Installs the formula using virtualenv_install_with_resources.
     def install
       virtualenv_install_with_resources
     end
