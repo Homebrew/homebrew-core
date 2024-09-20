@@ -15,7 +15,7 @@ class MinimalRacket < Formula
     sha256 x86_64_linux:   "7f0b0121aa0fdc6c94703ff619449ec8207166e4c9355a2a51145ee1f7ba0d35"
   end
 
-  disable! date: "2024-08-01", because: "uses deprecated `openssl@1.1`"
+  deprecate! date: "2023-10-24", because: "uses deprecated `openssl@1.1`"
 
   depends_on "openssl@1.1"
 
