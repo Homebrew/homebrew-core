@@ -17,6 +17,8 @@ class Rustfmt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0e93863d9f42ac0ec4bda61168758d82e2164a400ea80d929433c864728977ba"
   end
 
+  deprecate! date: "2024-09-20", because: "needs pre-built Rust libraries"
+
   depends_on "rustup" => :build
   depends_on "rust" => :test
   uses_from_macos "zlib"
