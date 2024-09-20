@@ -3,7 +3,7 @@ class Gitgen < Formula
   
     desc "A CLI tool for generating git commits to boost your GitHub activity"
     homepage "https://pypi.org/project/gitgen/"
-    url "https://github.com/mubashardev/gitgen/archive/refs/tags/v0.1.3.tar.gz" # Replace with your latest version
+    url "https://github.com/mubashardev/gitgen/archive/refs/tags/v0.1.3.tar.gz"
     sha256 "291061dc02dc96ee0c706ec6bc573f10b0d39419b3b30c1ce4444ea5d2ebbb0b"
     license "MIT"
     revision 1
