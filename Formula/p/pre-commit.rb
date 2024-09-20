@@ -9,14 +9,13 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "bea4d3515156f78af9a3210211ac741aa6d30f6413c35c2fbb8c7a3e396ece74"
-    sha256 cellar: :any,                 arm64_sonoma:   "038b2592f3bfeec760057063e5f946e7e47f8f151d9983d77ba6b6cff6b5ba93"
-    sha256 cellar: :any,                 arm64_ventura:  "561bbe8994339275497419d7eef007e8c696222cff93f65d7edd3a0b2f3399d3"
-    sha256 cellar: :any,                 arm64_monterey: "1dd80d9ef9977b5bef5fead88553b984b1170d7d3bb3851682566d0a2386bcb8"
-    sha256 cellar: :any,                 sonoma:         "4eee92e3da7bd144245205b70b8e8d7b45e7b3d10eec74408a45a21527d5742c"
-    sha256 cellar: :any,                 ventura:        "1e1530c1811e238955b98eae971e855bab0e38831e620ac34ab8e5c190e1d8c0"
-    sha256 cellar: :any,                 monterey:       "093e9df946e1e2eefbfa474b165608caaf4fd4b6b6026e7f020ecd8a9ec83aa2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "bdb2fb46ee71c585ac7260a73a03c682b86f367f04b7d4e28939bbe7e4718fa8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "f2bf0b048415d04f1d48c54e4fe77cdd0440ee0e9efa2ed1d1e8524d5f2123ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "2ffbafa32980ef3054bca3c95510c954fd6fe66c048624846146fcd869ff2e87"
+    sha256 cellar: :any,                 arm64_ventura: "2f4d71e2f67449168c41bd43c3d1e4a75288ad2a04e5237e68fffd6a37121a4f"
+    sha256 cellar: :any,                 sonoma:        "6a3b81463887cf55ac97d40cc00d8e71e452c19dee1bb04fae6426a150e503a0"
+    sha256 cellar: :any,                 ventura:       "05c375a7e7a15d389f28d1608a21976956241587e432d4de03f0587750eac6b6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "07cd830e4efc6aedbb1669df2326ea2c8488ba98855c372acedcbd7dc8b21a47"
   end
 
   depends_on "libyaml"
@@ -78,15 +77,17 @@ class PreCommit < Formula
   # Avoid relative paths
   def post_install
     xy = Language::Python.major_minor_version Formula["python@3.12"].opt_bin/python3
+    python_opt = Formula["python@3.12"].opt_prefix
+    python_cellar = python_opt.realpath
     dirs_to_fix = [libexec/"lib/python#{xy}"]
     dirs_to_fix << (libexec/"bin") if OS.linux?
     dirs_to_fix.each do |folder|
       folder.each_child do |f|
         next unless f.symlink?
 
-        realpath = f.realpath
+        abspath = f.realpath.sub python_cellar, python_opt
         rm f
-        ln_s realpath, f
+        ln_s abspath, f
       end
     end
   end
