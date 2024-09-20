@@ -22,7 +22,7 @@ class Aptos < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "rustfmt" => :build
+
   uses_from_macos "llvm" => :build
 
   on_linux do
@@ -39,8 +39,9 @@ class Aptos < Formula
   end
 
   def install
-    # FIXME: Figure out why cargo doesn't respect .cargo/config.toml's rustflags
-    ENV["RUSTFLAGS"] = "--cfg tokio_unstable -C force-frame-pointers=yes -C force-unwind-tables=yes"
+    # FIXME: Look into a different way to specify extra RUSTFLAGS in superenv as they are not additive
+    # Ref: https://github.com/Homebrew/brew/blob/master/Library/Homebrew/extend/ENV/super.rb#L65
+    ENV.append "RUSTFLAGS", "--cfg tokio_unstable -C force-frame-pointers=yes -C force-unwind-tables=yes"
     system "cargo", "install", *std_cargo_args(path: "crates/aptos"), "--profile=cli"
   end
 
