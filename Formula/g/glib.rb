@@ -3,8 +3,8 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.82/glib-2.82.0.tar.xz"
-  sha256 "f4c82ada51366bddace49d7ba54b33b4e4d6067afa3008e4847f41cb9b5c38d3"
+  url "https://download.gnome.org/sources/glib/2.82/glib-2.82.1.tar.xz"
+  sha256 "478634440bf52ee4ec4428d558787398c0be6b043c521beb308334b3db4489a6"
   license "LGPL-2.1-or-later"
 
   bottle do
@@ -25,6 +25,7 @@ class Glib < Formula
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build # for gobject-introspection
   depends_on "pcre2"
+  depends_on "python-packaging"
   depends_on "python@3.12"
 
   uses_from_macos "flex" => :build # for gobject-introspection
@@ -49,19 +50,8 @@ class Glib < Formula
                  "share/gir-1.0/GObject-2.0.gir", "share/gir-1.0/Gio-2.0.gir"
 
   resource "gobject-introspection" do
-    url "https://download.gnome.org/sources/gobject-introspection/1.80/gobject-introspection-1.80.1.tar.xz"
-    sha256 "a1df7c424e15bda1ab639c00e9051b9adf5cea1a9e512f8a603b53cd199bc6d8"
-
-    # Backport removed distutils.msvccompiler
-    patch do
-      url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/a2139dba59eac283a7f543ed737f038deebddc19.diff"
-      sha256 "62c1e9816effdb2f2d50bc577ea36b875cdd5e38f67ddb27eb0e0c380fa29700"
-    end
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
+    sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
   end
 
   # replace several hardcoded paths with homebrew counterparts
@@ -71,21 +61,13 @@ class Glib < Formula
   end
 
   def install
+    python = "python3.12"
     inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
 
-    # We don't use a venv as virtualenv_create runs `ENV.refurbish_args`. This causes `gint64`
-    # to be detected as `long` rather than `long long` on macOS which mismatches with `int64_t`.
-    # Although documented as valid (https://docs.gtk.org/glib/types.html#gint64), it can cause
-    # ABI breakage if type changes between releases (e.g. seen in `glibmm@2.66`) and it breaks
-    # assumptions made by some dependents. Also, GNOME prefers equivalence of types but cannot
-    # require it due to ABI impact - https://gitlab.gnome.org/GNOME/glib/-/merge_requests/2841
-    resource("packaging").stage do
-      system "python3.12", "-m", "pip", "install", "--target", share/"glib-2.0",
-                                                   *std_pip_args(prefix: false, build_isolation: true), "."
-    end
-    ENV.prepend_path "PYTHONPATH", share/"glib-2.0"
+    python_packaging_site_packages = Formula["python-packaging"].opt_prefix/Language::Python.site_packages(python)
+    (share/"glib-2.0").install_symlink python_packaging_site_packages.children
 
     # build patch for `ld: missing LC_LOAD_DYLIB (must link with at least libSystem.dylib) \
     # in ../gobject-introspection-1.80.1/build/tests/offsets/liboffsets-1.0.1.dylib`
