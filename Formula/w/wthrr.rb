@@ -20,5 +20,6 @@ class Wthrr < Formula
   test do
     system bin/"wthrr", "-h"
     assert_match version.to_s, shell_output("#{bin}/wthrr --version")
+    assert_match "not a terminal", shell_output("#{bin}/wthrr -l en_US Kyoto", 1)
   end
 end
