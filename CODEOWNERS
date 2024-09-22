@@ -21,3 +21,7 @@ audit_exceptions/permitted_formula_license_mismatches.json              @Homebre
 audit_exceptions/provided_by_macos_depends_on_allowlist.json            @Homebrew/tsc @MikeMcQuaid
 audit_exceptions/universal_binary_allowlist.json                        @Homebrew/tsc @carlocab 
 audit_exceptions/versioned_formula_dependent_conflicts_allowlist.json   @Homebrew/tsc @MikeMcQuaid
+
+# TODO: Remove me when the following PR is merged
+#   https://github.com/Homebrew/homebrew-core/pull/181351
+.github/autobump.txt @carlocab
