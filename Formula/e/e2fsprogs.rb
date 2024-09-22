@@ -28,7 +28,7 @@ class E2fsprogs < Formula
     sha256 x86_64_linux:   "eb63ea295700e11246a09b546f36a360db3c56c227deb4a30e12450e2c76dbab"
   end
 
-  keg_only "this installs several executables which shadow macOS system commands"
+  keg_only :shadowed_by_macos
 
   depends_on "pkg-config" => :build
 
@@ -37,6 +37,8 @@ class E2fsprogs < Formula
   end
 
   on_linux do
+    keg_only "it conflicts with the bundled copy in `krb5`"
+
     depends_on "util-linux"
   end
 
