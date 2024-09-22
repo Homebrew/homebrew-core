@@ -26,7 +26,6 @@ class Solidity < Formula
   depends_on "fmt" => :build
   depends_on "nlohmann-json" => :build
   depends_on "range-v3" => :build
-  depends_on xcode: ["11.0", :build]
   depends_on "boost"
   depends_on "z3"
 

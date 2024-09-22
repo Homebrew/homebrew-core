@@ -7,26 +7,20 @@ class Elixir < Formula
   head "https://github.com/elixir-lang/elixir.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "7ca716d5a31bd16b8daf574510f0c6b7744b2e13a2e88a017de20165e37e75df"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "38df4be9cc5d53e09ab70d93e97472093e9e6687dea055fd877a8af2bd8d0c44"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "8b51877646bf0cb5aeee54c6bf77fb793960f150b9a79afe079d9fca41d94fa5"
-    sha256 cellar: :any_skip_relocation, sonoma:        "d97946b5a8f1fe6e51c6c681b403d0b19b42d919d57123ebcec966ae5fe35dd7"
-    sha256 cellar: :any_skip_relocation, ventura:       "12e663933561c03c7cae89afc1856a46412098a29cb74e0ccb1a9d1515a00605"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4a4676a658b0dff75250cc27efbaa5b7a97c9e6dc9940afd3d14ad0c5b1caf3"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "83c653d7dadeb4c71c3553ac242c0f10cb9e37875e8afd8a0f39bf521c42dbd3"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "bbae081b57083375227d4db7ea0ae3da85c3161003571ee66d910c6cc4dcb8ff"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "4a1a4b967ba096b058e4a207a170ad53e63567c9923a7f52a4ee0d35e847d4b9"
+    sha256 cellar: :any_skip_relocation, sonoma:        "2434124c621056a611a2bc69d4d1a1e87844969c2d8af9726fca59542bce9ca0"
+    sha256 cellar: :any_skip_relocation, ventura:       "a36d73800c53df561c45caa34455d4c61e133ba5976ec85f369d4e2d0c362272"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3f64f95d70b861706bbdb653d48ef4e3c3fa5b265755212464797274a933ac6f"
   end
 
   depends_on "erlang"
 
   def install
-    system "make"
-    bin.install Dir["bin/*"] - Dir["bin/*.{bat,ps1}"]
-
-    Dir.glob("lib/*/ebin") do |path|
-      app = File.basename(File.dirname(path))
-      (lib/app).install path
-    end
-
-    system "make", "install_man", "PREFIX=#{prefix}"
+    # Set `Q=` for verbose `make` output
+    system "make", "Q=", "PREFIX=#{prefix}", "install"
   end
 
   test do

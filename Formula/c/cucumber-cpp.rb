@@ -19,15 +19,17 @@ class CucumberCpp < Formula
 
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
-  depends_on "qt@5" => :build
   depends_on "ruby" => :test
   depends_on "asio"
   depends_on "tclap"
 
   def install
+    # TODO: Remove these on next release as they are the defaults
     args = %w[
-      -DCUKE_DISABLE_GTEST=on
-      -DCUKE_ENABLE_EXAMPLES=on
+      -DCUKE_ENABLE_BOOST_TEST=OFF
+      -DCUKE_ENABLE_GTEST=OFF
+      -DCUKE_ENABLE_QT=OFF
+      -DCUKE_TESTS_UNIT=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

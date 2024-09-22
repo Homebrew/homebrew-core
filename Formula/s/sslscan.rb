@@ -1,20 +1,18 @@
 class Sslscan < Formula
   desc "Test SSL/TLS enabled services to discover supported cipher suites"
   homepage "https://github.com/rbsec/sslscan"
-  url "https://github.com/rbsec/sslscan/archive/refs/tags/2.1.4.tar.gz"
-  sha256 "3e2a5b1f53d1f132b4d999ff450d2cc40e9efb648cea89b74f5944b768a10e63"
+  url "https://github.com/rbsec/sslscan/archive/refs/tags/2.1.5.tar.gz"
+  sha256 "b36616b1d59f3276af6ff9495ab8178ec6812393582fb3c094c56cc873efe956"
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "adb787f95a7ca9af25dccb80f02fe15fed50a966bb9fe8ad6ba38d375f9bb9a3"
-    sha256 cellar: :any,                 arm64_sonoma:   "fccbdbc8cf90e71ed2c506706b06d9471c68937e1c5e687b4b1387b3fec130f7"
-    sha256 cellar: :any,                 arm64_ventura:  "4f9d17ab876d54b6f18ea2c640104b1999c6cd87f1eaf4a10afd42ff19eb4df3"
-    sha256 cellar: :any,                 arm64_monterey: "ed0df35dd2a730ed94ca21c866ff415191e6a83fad26874cd36fee8b6ae0533c"
-    sha256 cellar: :any,                 sonoma:         "ac7337ebcdf307764ce659add900de802ae599b014a877d2234f294abaa45c78"
-    sha256 cellar: :any,                 ventura:        "8fcabf2b9655997cac59b624bd210ec328e73660c83a5eadf273c54400d18eec"
-    sha256 cellar: :any,                 monterey:       "90f1d17b454ff8a8b9a31045cf7a9eb82db1c67d7ca45806ed62d7b5f364227d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "6a45abcb53b9be93a3af6302efb05dae2b2d6dda4c86319266ac4798abd3d367"
+    sha256 cellar: :any,                 arm64_sequoia: "1797e78a14d60fbe5858b5a8da65295b83bc44f4bc90b3d79c3bb02491ff3f47"
+    sha256 cellar: :any,                 arm64_sonoma:  "3a1564d527b7be9ca7d2a19ed6fade0e8ec32d534206c89a2fcd5b483169b20f"
+    sha256 cellar: :any,                 arm64_ventura: "d5b864e56730b2934f0d72c701c575b160ed5551ccba349ce2e63673fb36e13a"
+    sha256 cellar: :any,                 sonoma:        "74c4decb73061fadbecfa0e3c118411fd986dde4c10b218aee1c161d9a42d9f9"
+    sha256 cellar: :any,                 ventura:       "2a381ac121ccd746a9d1f5df5f1716ab2c86ce67f10475a2f4b145d088870f96"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e79b83ad91bc7a8a093b0a1df8aa09e86f975c213bfaa42a58aa0886c87e2f36"
   end
 
   depends_on "openssl@3"

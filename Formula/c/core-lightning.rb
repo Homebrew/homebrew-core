@@ -1,8 +1,8 @@
 class CoreLightning < Formula
   desc "Lightning Network implementation focusing on spec compliance and performance"
   homepage "https://github.com/ElementsProject/lightning"
-  url "https://github.com/ElementsProject/lightning/releases/download/v24.05/clightning-v24.05.zip"
-  sha256 "143ec914cf34c2baeea815a3627247661d9fd86649e970d09944345deb675818"
+  url "https://github.com/ElementsProject/lightning/releases/download/v24.08.1/clightning-v24.08.1.zip"
+  sha256 "d992af84dbb319fb4ac127663241cec04f54108e44c27e471d2cb2654702c01e"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class CoreLightning < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "89bfe8c5a864cdf3be8d836fa4c9f5a7f1daec70cc0da760fdbeae95c8d0b3d1"
-    sha256 cellar: :any,                 arm64_sonoma:   "efdab6fb6b3802cf94db6d83dd53a53dbb8ce1cecc0dc96fbc3f16718e8f0e52"
-    sha256 cellar: :any,                 arm64_ventura:  "c50c75665da2eb9f8118404e0134bf1266f0e4b28343ea73c45276a1179086b6"
-    sha256 cellar: :any,                 arm64_monterey: "f33be27ba45d8b8e6eae8012771d6f8bb007d9d3b4f59753cd2477c6f266bb37"
-    sha256 cellar: :any,                 sonoma:         "79e1b375686b4cacd508b77c1534ddb50f2b11e9c39243d59a6363dcb5fe3c12"
-    sha256 cellar: :any,                 ventura:        "8bfcdbf40114f765d8f956bbff9b6c904e2aae3f13c53240cc5d25a16bb7ee36"
-    sha256 cellar: :any,                 monterey:       "9aa7748aaf5a7ff1e3c64e48c6ebf679e1890e5ca572127bccd688c8c1744716"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "88d9a8df043561a371db4bc4b54a398a242d4c5bbd9d808d07b549e6b3ca7d63"
+    sha256 cellar: :any, arm64_sequoia: "0e87df26d10596226cf0773c3a89869aae29f8c6341065b173805e79b4dde5af"
+    sha256 cellar: :any, arm64_sonoma:  "a5a92f36df8ea4b81a09852e77bab0a6911b0f13518bab787b24325804aa8cf6"
+    sha256 cellar: :any, arm64_ventura: "b19deb168705a6a20d449a04bffc6ef0f0515192c813660adb7617856349260f"
+    sha256               sonoma:        "2a4303879db683387b91bd449f1e2c84c70609e6c747e19fe14d1eddba86b705"
+    sha256               ventura:       "8c35066c7fd414873f7d1aae4b3d89a187df2c425f32137bef8c15aac21778bc"
+    sha256               x86_64_linux:  "e79e6b97f384373f738d902097292812edf14eca24a10e7458be241c02d21ab5"
   end
 
   depends_on "autoconf" => :build
@@ -50,7 +48,7 @@ class CoreLightning < Formula
     cmd = "#{bin}/lightningd --daemon --network regtest --log-file lightningd.log"
     if OS.mac? && Hardware::CPU.arm?
       lightningd_output = shell_output("#{cmd} 2>&1", 10)
-      assert_match "lightningd: Could not run /lightning_channeld: No such file or directory", lightningd_output
+      assert_match "lightningd: Could not run #{bin}/lightning_channeld: No such file or directory", lightningd_output
     else
       lightningd_output = shell_output("#{cmd} 2>&1", 1)
       assert_match "Could not connect to bitcoind using bitcoin-cli. Is bitcoind running?", lightningd_output
