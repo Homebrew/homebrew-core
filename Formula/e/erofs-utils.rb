@@ -22,32 +22,32 @@ class ErofsUtils < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "lz4"
-  depends_on "util-linux" # for libuuid
   depends_on "xz"
 
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "libfuse@2"
+    depends_on "libfuse"
+    depends_on "util-linux" # for libuuid
   end
 
   def install
-    system "./autogen.sh"
-    args = std_configure_args + %w[
+    args = %w[
       --disable-silent-rules
       --enable-lz4
       --enable-lzma
       --without-selinux
     ]
 
-    # Enable erofsfuse only on Linux for now
+    # Enable erofsfuse only on Linux
     args << if OS.linux?
       "--enable-fuse"
     else
       "--disable-fuse"
     end
 
-    system "./configure", *args
+    system "./autogen.sh"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 
