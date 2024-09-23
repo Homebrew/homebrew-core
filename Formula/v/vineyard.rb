@@ -6,7 +6,7 @@ class Vineyard < Formula
   url "https://github.com/v6d-io/v6d/releases/download/v0.23.2/v6d-0.23.2.tar.gz"
   sha256 "2a2788ed77b9459477b3e90767a910e77e2035a34f33c29c25b9876568683fd4"
   license "Apache-2.0"
-  revision 3
+  revision 4
 
   bottle do
     sha256 arm64_sequoia: "372217d845366fd9983bed6d58ca20b7e3818cf8fb1d6c45908d4c870501a8f7"
@@ -113,7 +113,7 @@ class Vineyard < Formula
 
     # Work around an Xcode 15 linker issue which causes linkage against LLVM's
     # libunwind due to it being present in a library search path.
-    ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib
+    ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib if DevelopmentTools.clang_build_version >= 1500
 
     # Remove Homebrew's lib directory from LDFLAGS as it is not available during
     # `shell_output`.
