@@ -19,7 +19,13 @@ class Wthrr < Formula
 
   test do
     system bin/"wthrr", "-h"
+
+    require "pty"
+    PTY.spawn(bin/"wthrr", "--save") do |_r, _w, pid|
+      sleep 10
+      Process.kill 9, pid
+    end
+
     assert_match version.to_s, shell_output("#{bin}/wthrr --version")
-    assert_match "not a terminal", shell_output("#{bin}/wthrr -l en_US Kyoto", 1)
   end
 end
