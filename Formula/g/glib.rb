@@ -3,19 +3,17 @@ class Glib < Formula
 
   desc "Core application library for C"
   homepage "https://docs.gtk.org/glib/"
-  url "https://download.gnome.org/sources/glib/2.82/glib-2.82.0.tar.xz"
-  sha256 "f4c82ada51366bddace49d7ba54b33b4e4d6067afa3008e4847f41cb9b5c38d3"
+  url "https://download.gnome.org/sources/glib/2.82/glib-2.82.1.tar.xz"
+  sha256 "478634440bf52ee4ec4428d558787398c0be6b043c521beb308334b3db4489a6"
   license "LGPL-2.1-or-later"
 
   bottle do
-    sha256 arm64_sequoia:  "fabde59fd4ed3dd1168b9fcb2c7ad2962ac6862b2cbf75b2c79e0d3ad16a204a"
-    sha256 arm64_sonoma:   "4047dfc944e3dc37dfe960135d7db67ab8c8422ed311787d894cae93dba02b37"
-    sha256 arm64_ventura:  "3a15a1b25c99c4c391329d0233a939d77caae3855cb203e7918ffa9be9254e02"
-    sha256 arm64_monterey: "5b44345a0a91d94d9e4fc196ccfcfe05cdb47c1f986cdf285aac1f69270df213"
-    sha256 sonoma:         "805d2a6a335c180f53fd3969b3d16d9ee28c787b415fbdad8fbc777196011c1a"
-    sha256 ventura:        "8f5e08e3c5f963536f5f81cc810d0a2a40c457c4a5f42d8f33ebf603214b3597"
-    sha256 monterey:       "9b9af94e4333899c424e3464550acb4294a24290fa491551f9b690317ac2e7b3"
-    sha256 x86_64_linux:   "0d30e9405f5ae1ae74ac73618b3b3fff37b42eea1f9262a1df192ba4059eaab4"
+    sha256 arm64_sequoia: "922c92018e72eb1b0aa972a39f9b04227dd50c2600434943584727f3d78fd672"
+    sha256 arm64_sonoma:  "be85658ed18ee50aa6f9c9ca016bdc97bd665129f1de350a2c0ae45bd5cea1a8"
+    sha256 arm64_ventura: "ddfe7b3569d9e0ef8c279ad311910a0f5f238a97425f4aecc9c568430c6fc5f9"
+    sha256 sonoma:        "d84c34b9572aca1b723f915debdbcc676e1ce3528b0c6ced48c92adbe0ecb917"
+    sha256 ventura:       "319c0b60fad79996858ca4b440f58798b2ed45f0971881ff6b0b164a75de1619"
+    sha256 x86_64_linux:  "67d479d1efa505b1c6af6ed6e4fb75cc8d51c0275f50fc44ef954c73e94eecb9"
   end
 
   depends_on "bison" => :build # for gobject-introspection
@@ -25,6 +23,7 @@ class Glib < Formula
   depends_on "pkg-config" => :build
   depends_on "python-setuptools" => :build # for gobject-introspection
   depends_on "pcre2"
+  depends_on "python-packaging"
   depends_on "python@3.12"
 
   uses_from_macos "flex" => :build # for gobject-introspection
@@ -49,19 +48,8 @@ class Glib < Formula
                  "share/gir-1.0/GObject-2.0.gir", "share/gir-1.0/Gio-2.0.gir"
 
   resource "gobject-introspection" do
-    url "https://download.gnome.org/sources/gobject-introspection/1.80/gobject-introspection-1.80.1.tar.xz"
-    sha256 "a1df7c424e15bda1ab639c00e9051b9adf5cea1a9e512f8a603b53cd199bc6d8"
-
-    # Backport removed distutils.msvccompiler
-    patch do
-      url "https://gitlab.gnome.org/GNOME/gobject-introspection/-/commit/a2139dba59eac283a7f543ed737f038deebddc19.diff"
-      sha256 "62c1e9816effdb2f2d50bc577ea36b875cdd5e38f67ddb27eb0e0c380fa29700"
-    end
-  end
-
-  resource "packaging" do
-    url "https://files.pythonhosted.org/packages/51/65/50db4dda066951078f0a96cf12f4b9ada6e4b811516bf0262c0f4f7064d4/packaging-24.1.tar.gz"
-    sha256 "026ed72c8ed3fcce5bf8950572258698927fd1dbda10a5e981cdf0ac37f4f002"
+    url "https://download.gnome.org/sources/gobject-introspection/1.82/gobject-introspection-1.82.0.tar.xz"
+    sha256 "0f5a4c1908424bf26bc41e9361168c363685080fbdb87a196c891c8401ca2f09"
   end
 
   # replace several hardcoded paths with homebrew counterparts
@@ -71,21 +59,13 @@ class Glib < Formula
   end
 
   def install
+    python = "python3.12"
     inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
 
-    # We don't use a venv as virtualenv_create runs `ENV.refurbish_args`. This causes `gint64`
-    # to be detected as `long` rather than `long long` on macOS which mismatches with `int64_t`.
-    # Although documented as valid (https://docs.gtk.org/glib/types.html#gint64), it can cause
-    # ABI breakage if type changes between releases (e.g. seen in `glibmm@2.66`) and it breaks
-    # assumptions made by some dependents. Also, GNOME prefers equivalence of types but cannot
-    # require it due to ABI impact - https://gitlab.gnome.org/GNOME/glib/-/merge_requests/2841
-    resource("packaging").stage do
-      system "python3.12", "-m", "pip", "install", "--target", share/"glib-2.0",
-                                                   *std_pip_args(prefix: false, build_isolation: true), "."
-    end
-    ENV.prepend_path "PYTHONPATH", share/"glib-2.0"
+    python_packaging_site_packages = Formula["python-packaging"].opt_prefix/Language::Python.site_packages(python)
+    (share/"glib-2.0").install_symlink python_packaging_site_packages.children
 
     # build patch for `ld: missing LC_LOAD_DYLIB (must link with at least libSystem.dylib) \
     # in ../gobject-introspection-1.80.1/build/tests/offsets/liboffsets-1.0.1.dylib`

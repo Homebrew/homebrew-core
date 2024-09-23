@@ -7,14 +7,13 @@ class ErofsUtils < Formula
   head "https://git.kernel.org/pub/scm/linux/kernel/git/xiang/erofs-utils.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "164a47a66dc73dfd0c26c7bb2d79baf65b834b420768462f109bde33369afa91"
-    sha256 cellar: :any,                 arm64_sonoma:   "f0ffa1195c8c309d367c98c0c97ecfc5bf55bd4d55cfde8397cff07a29114242"
-    sha256 cellar: :any,                 arm64_ventura:  "c9e4842ed8febb197edb0f3b84736b1cbb7572b833aff557a11fbb8fe5d19f80"
-    sha256 cellar: :any,                 arm64_monterey: "9e1f64a8d4aa8393b1a76a9c6906996827528c51d09647ce2cfe082c7702f9e2"
-    sha256 cellar: :any,                 sonoma:         "d849d952892f18f6105a7ce0319ccc21fb2fb07038f625d43d5a320615601476"
-    sha256 cellar: :any,                 ventura:        "ad98edc8e3bcb73ff61567a9d5b8caeb3809e296f76021448cf5c33e62c77642"
-    sha256 cellar: :any,                 monterey:       "bf9e5c2fe1194e8f3127334dc4c1c3bb3d6685322ae7605e8559576e0ff3b496"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3b48446069899aa6ba26d6a5684e113bed0e5be0dc39bf5bb8512d280d487d9b"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "d60adbc4354d07b6b7f829e96c66e2d65bf4a6f18c60565c9f5619e5ce86b3fe"
+    sha256 cellar: :any,                 arm64_sonoma:  "5ddd2a802298bc22b0f7784f16890810e1af9f73dfd3ee58396f30102e2f227b"
+    sha256 cellar: :any,                 arm64_ventura: "0472e2455690195f3681afab6fe4927f4403f23e5ae3f70fb2bf8abe574a57e9"
+    sha256 cellar: :any,                 sonoma:        "84fe20c5fb319548a9217420714beb2156bc51238214bf73877d353947b95d98"
+    sha256 cellar: :any,                 ventura:       "559f2bbedd19edbb82cb79a3d8640ddc2d18c29b809ec011b51b787af244468b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "76937c27e27e87359203e58507c8a73eb6c7bbe8b877d3f1200efaef730e2a67"
   end
 
   depends_on "autoconf" => :build
@@ -22,32 +21,32 @@ class ErofsUtils < Formula
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
   depends_on "lz4"
-  depends_on "util-linux" # for libuuid
   depends_on "xz"
 
   uses_from_macos "zlib"
 
   on_linux do
-    depends_on "libfuse@2"
+    depends_on "libfuse"
+    depends_on "util-linux" # for libuuid
   end
 
   def install
-    system "./autogen.sh"
-    args = std_configure_args + %w[
+    args = %w[
       --disable-silent-rules
       --enable-lz4
       --enable-lzma
       --without-selinux
     ]
 
-    # Enable erofsfuse only on Linux for now
+    # Enable erofsfuse only on Linux
     args << if OS.linux?
       "--enable-fuse"
     else
       "--disable-fuse"
     end
 
-    system "./configure", *args
+    system "./autogen.sh"
+    system "./configure", *args, *std_configure_args
     system "make", "install"
   end
 

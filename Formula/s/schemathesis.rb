@@ -3,17 +3,17 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/4a/46/86732abca0d88f9fa0a30282609ecb3574a5432e70a36e1f9fd6ff3ce4a9/schemathesis-3.36.0.tar.gz"
-  sha256 "9487044ebbd14798f54fe91f52e118702fc4f44dae7047b0696ca4fb2732f60d"
+  url "https://files.pythonhosted.org/packages/14/c1/23a79458daf4a48aeba4b37faef5761071b142f6f8347ec0de88734d6c4f/schemathesis-3.36.1.tar.gz"
+  sha256 "67043bb96aa72f29c00e0ee4008f98117e0964024a7c8fe953db3d476dcab16c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "dba23e8089b68b06df502217d010f6fb1635226ed45de021d374d7c8e2f97154"
-    sha256 cellar: :any,                 arm64_sonoma:  "84948b733013ea3b00763559e2e909fae82dff917a4805ed8bc3c71f82949ef5"
-    sha256 cellar: :any,                 arm64_ventura: "58dc954993384ed169016e12ba1115d392c44fd7b29d51fa7a479c71de23ca36"
-    sha256 cellar: :any,                 sonoma:        "6c63c1978af36028412ec4bc3ab600f514e8b6603e1f3da54aa29be8de0bfa01"
-    sha256 cellar: :any,                 ventura:       "9c03b3f3348d62731e6570e35c69879713fdbf61d4f5cf75cc3a0574679cfeda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "daeaf231baf9b5f1e07970f41fc23822cc9cb4df3acfc38c07911957be6d57cb"
+    sha256 cellar: :any,                 arm64_sequoia: "4e8314559bf788173ab6d7c21a0aa3f601feee48eaa970095dea89e016ef5c00"
+    sha256 cellar: :any,                 arm64_sonoma:  "fd2451bec0fac453a3c54795e957585086dcb5562399bd0cfcf67ef1ca12819c"
+    sha256 cellar: :any,                 arm64_ventura: "3d2cf23ec961f0b6704d3ab119a2b197bc3a2e192cdee293f5e044468f93cfe4"
+    sha256 cellar: :any,                 sonoma:        "c92ab29656dd2ff0b509f1391d5f50c6066aac9ccd808ccc9d4589242a094c12"
+    sha256 cellar: :any,                 ventura:       "7563c7bf6320ddda2c03bb222d4100bc3c71a37bbefd2e138b7e94abdb2e53a9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "0a7da9f67d7c292d127e9d24b1cd0b5c486cc683dbf77a5f9b8bc7c974ae5e50"
   end
 
   depends_on "rust" => :build # for rpds-py
@@ -24,8 +24,8 @@ class Schemathesis < Formula
   conflicts_with "st", because: "both install `st` binaries"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
-    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
+    url "https://files.pythonhosted.org/packages/78/49/f3f17ec11c4a91fe79275c426658e509b07547f874b14c1a526d86a83fc8/anyio-4.6.0.tar.gz"
+    sha256 "137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb"
   end
 
   resource "arrow" do
@@ -224,8 +224,8 @@ class Schemathesis < Formula
   end
 
   resource "starlette" do
-    url "https://files.pythonhosted.org/packages/13/aa/57975da16ca0c368bbb5687daa6ad79561c2328a44667a1d6802e94df3e5/starlette-0.38.5.tar.gz"
-    sha256 "04a92830a9b6eb1442c766199d62260c3d4dc9c4f9188360626b1e0273cb7077"
+    url "https://files.pythonhosted.org/packages/42/b4/e25c3b688ef703d85e55017c6edd0cbf38e5770ab748234363d54ff0251a/starlette-0.38.6.tar.gz"
+    sha256 "863a1588f5574e70a821dadefb41e4881ea451a47a3cd1b4df359d4ffefe5ead"
   end
 
   resource "starlette-testclient" do

@@ -3,18 +3,17 @@ class Esphome < Formula
 
   desc "Make creating custom firmwares for ESP32/ESP8266 super easy"
   homepage "https://github.com/esphome/esphome"
-  url "https://files.pythonhosted.org/packages/36/e1/716c81b22e91cb3a9abc764f6f4b7cc34b74088636185e8eb8fc598b48a6/esphome-2024.9.0.tar.gz"
-  sha256 "a3e032363b65798ad51ee8bfd33d705653f9824d081309d71927bd67a124cf13"
+  url "https://files.pythonhosted.org/packages/12/1a/a6653acc001531c63734c9653db5bd30868c557a37febe69cbe1bd7819a7/esphome-2024.9.1.tar.gz"
+  sha256 "dcc9de58dcb6b33268ddaeab4b78885063e8be35f6d8fa6a9af701855ee25b40"
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_sequoia: "076ea69bec77ebb6a67237be409912ab855766813e4e13bad1a49992c5ba5907"
-    sha256 cellar: :any,                 arm64_sonoma:  "7b9e5222eb591f637bf790f56f552839e953f171d4735a26076434d09db3abab"
-    sha256 cellar: :any,                 arm64_ventura: "bf2008c6fc3bc2ad6f451821c4db7a2d2a46205d88926cc3930a2f71b58151d0"
-    sha256 cellar: :any,                 sonoma:        "eb5407484089e51893d3776a0fcaea619a0ba1935b17a5d1575e5eadad79b2d4"
-    sha256 cellar: :any,                 ventura:       "3bd74f95e56884b5af27da75ac3dd7d0b0fe6dffc72bb6bf06f80159ad4bdfbd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "379473077d43d54109dc701fae46ce819f600e897c0525838c48149c124f5f50"
+    sha256 cellar: :any,                 arm64_sequoia: "441f323aff756991b3832ecfc6546d9ca28125e64529dd608b73282eb9f273d0"
+    sha256 cellar: :any,                 arm64_sonoma:  "3a895130e7afe219d62af822da8a2dfc120a70524818789b3eab714164820528"
+    sha256 cellar: :any,                 arm64_ventura: "d8700d80e365b27ddb5e20a941a1ab2a47b2f1c9c90a62fb0016859da51d1f52"
+    sha256 cellar: :any,                 sonoma:        "30e3f206e38f99adb231f4257a140887f5542e3bcb656712aa3ac446840c67e9"
+    sha256 cellar: :any,                 ventura:       "89b9ab53bc7774bad67a13d0f3e2d85f46a0e56b990707b930d3baef90097d59"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9cfaa45b01dcdfac2d5486319d839253e830c0a5a2e85e5be11b071a18ef4576"
   end
 
   depends_on "certifi"
@@ -43,8 +42,8 @@ class Esphome < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/e6/e3/c4c8d473d6780ef1853d630d581f70d655b4f8d7553c6997958c283039a2/anyio-4.4.0.tar.gz"
-    sha256 "5aadc6a1bbb7cdb0bede386cac5e2940f5e2ff3aa20277e991cf028e0585ce94"
+    url "https://files.pythonhosted.org/packages/78/49/f3f17ec11c4a91fe79275c426658e509b07547f874b14c1a526d86a83fc8/anyio-4.6.0.tar.gz"
+    sha256 "137b4559cbb034c477165047febb6ff83f390fc3b20bf181c1fc0a728cb8beeb"
   end
 
   resource "argcomplete" do
