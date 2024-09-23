@@ -18,14 +18,20 @@ class Wthrr < Formula
   end
 
   test do
+    assert_match version.to_s, shell_output("#{bin}/wthrr --version")
     system bin/"wthrr", "-h"
 
     require "pty"
-    PTY.spawn(bin/"wthrr", "--save") do |_r, _w, pid|
-      sleep 10
-      Process.kill 9, pid
-    end
+    require "io/console"
 
-    assert_match version.to_s, shell_output("#{bin}/wthrr --version")
+    PTY.spawn(bin/"wthrr", "-l", "en_US", "Kyoto") do |r, w, _pid|
+      r.winsize = [80, 130]
+      sleep 3
+      begin
+        r.read
+      rescue Errno::EIO
+        # GNU/Linux raises EIO when read is done on closed pty
+      end
+    end
   end
 end
