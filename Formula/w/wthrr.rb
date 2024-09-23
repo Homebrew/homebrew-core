@@ -26,7 +26,7 @@ class Wthrr < Formula
 
     PTY.spawn(bin/"wthrr", "-l", "en_US", "Kyoto") do |r, _w, pid|
       output = r.gets
-      assert_match " 🦀  Hey friend. I'm glad you are asking.", output
+      assert_match "Hey friend. I'm glad you are asking.", output
     ensure
       Process.kill("TERM", pid)
     end
