@@ -2,8 +2,8 @@ class ThorsMongo < Formula
   desc "Mongo API and Serialization library"
   homepage "https://github.com/Loki-Astari/ThorsMongo"
   url "https://github.com/Loki-Astari/ThorsMongo.git",
-      tag:      "4.1.04",
-      revision: "4b8355e1d6654d2502c5773bdee3b3a3a7d272c1"
+      tag:      "4.2.02",
+      revision: "6502639bfa2db6d904fe96e708ce40d04640c6bf"
   license "GPL-3.0-only"
 
   bottle do
