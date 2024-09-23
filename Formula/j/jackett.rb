@@ -7,11 +7,11 @@ class Jackett < Formula
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sonoma:  "f66f3f623d73401bf452be63b32b66f25d29c6203a7f5deb5d0f6f1e66ba1a50"
-    sha256 cellar: :any,                 arm64_ventura: "883372381e209a8f5d55b20559cf71bf6867e18964469cd81827614b0f5dde50"
-    sha256 cellar: :any,                 sonoma:        "fdc69d63eeb8910c1ef522aaf9c7cbce75c8d9689605fd65af771a4945612758"
-    sha256 cellar: :any,                 ventura:       "64f132e1173b1b07eaaae98423e60e0886709e4d76ea6d2c38d23313f1af0308"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "6503bc9fbf983a02dc2384cfbcdf55befea72a06f37949060b819017dd62bcf0"
+    sha256 cellar: :any,                 arm64_sonoma:  "4e3370c470fdd6bd851490599adae1fe3e01297e8c5e344430fd58d0e5cd70e3"
+    sha256 cellar: :any,                 arm64_ventura: "298eedb2576401d3a68e82e17d7e4f4ebd939dec5c36fc8ecb5515111183f4c7"
+    sha256 cellar: :any,                 sonoma:        "0cbdb55bc5e884622842496ca6d40297f51d933a1b561b0c4290b6547453a7a3"
+    sha256 cellar: :any,                 ventura:       "afb3fd94a4ab2699c065dec59888c015e0c8d8cf2c38d0aaaec4998f1dafc257"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "246a318e06504ba4c3b7c59d42f2f95e0c863c15b5cf3f2f9d9f7ecc2b02bbe0"
   end
 
   depends_on "dotnet"
