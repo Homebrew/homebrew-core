@@ -21,7 +21,6 @@ class Nmail < Formula
   depends_on "libmagic"
   depends_on "ncurses"
   depends_on "openssl@3"
-  depends_on "util-linux" # for libuuid
   depends_on "xapian"
 
   uses_from_macos "curl"
@@ -30,8 +29,16 @@ class Nmail < Formula
   uses_from_macos "sqlite"
   uses_from_macos "zlib"
 
+  on_linux do
+    depends_on "util-linux" # for libuuid
+  end
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = []
+    # Workaround to use uuid from Xcode CLT
+    args << "-DLIBUUID_LIBRARIES=System" if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
