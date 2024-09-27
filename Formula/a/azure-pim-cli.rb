@@ -4,7 +4,7 @@ class AzurePimCli < Formula
   url "https://github.com/demoray/azure-pim-cli/archive/refs/tags/0.6.1.tar.gz"
   sha256 "04f8157a5645d2c6e388b4bd151effda7545779c79dc537a2dd8dcba4d14379f"
   license "MIT"
-  head "https://github.com/demoray/azure-pim-cli", branch: "main"
+  head "https://github.com/demoray/azure-pim-cli.git", branch: "main"
 
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
