@@ -6,8 +6,13 @@ class AzurePimCli < Formula
   license "MIT"
   head "https://github.com/demoray/azure-pim-cli", branch: "main"
 
+  depends_on "pkg-config" => :build
   depends_on "rust" => :build
   depends_on "azure-cli"
+
+  on_linux do
+    depends_on "openssl@3"
+  end
 
   def install
     system "cargo", "install", *std_cargo_args
