@@ -2257,6 +2257,7 @@ pypy3.10
 pyqt
 pyqt-builder
 pyright
+pyside
 pyside@2
 python-argcomplete
 python-build
