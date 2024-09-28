@@ -1,8 +1,8 @@
 class SignalCli < Formula
   desc "CLI and dbus interface for WhisperSystems/libsignal-service-java"
   homepage "https://github.com/AsamK/signal-cli"
-  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.5.tar.gz"
-  sha256 "c1fdc8ccff324278a9357aed04fa7de88ecba1fc270f5555b5cea77d415d1342"
+  url "https://github.com/AsamK/signal-cli/archive/refs/tags/v0.13.7.tar.gz"
+  sha256 "aab99f514602e6792b65b0722fc617faca3049cb76e61cc731bf57b07d37ccec"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -31,8 +31,8 @@ class SignalCli < Formula
   # url=https://github.com/AsamK/signal-cli/releases/download/v$version/signal-cli-$version.tar.gz
   # curl -fsSL $url | tar -tz | grep libsignal-client
   resource "libsignal-client" do
-    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.52.2.tar.gz"
-    sha256 "40ddc51bc5bf1013c583c07717ed00cedfafda55f9f9a43aad72f9a55986b199"
+    url "https://github.com/signalapp/libsignal/archive/refs/tags/v0.58.0.tar.gz"
+    sha256 "73b953583b46a84f56def63e1341566373632749ee4f2fde3ff0632e49e8b1e3"
   end
 
   def install
@@ -52,7 +52,8 @@ class SignalCli < Formula
       odie "#{res.name} needs to be updated to #{embedded_jar_version}!" if embedded_jar_version != res.version
 
       # rm originally-embedded libsignal_jni lib
-      system "zip", "-d", libsignal_client_jar, "libsignal_jni.so", "libsignal_jni.dylib", "signal_jni.dll"
+      # TODO: This needs to be updated to the new location inside `libsignal_client_jar`
+      # system "zip", "-d", libsignal_client_jar, "libsignal_jni.so", "libsignal_jni.dylib", "signal_jni.dll"
 
       # build & embed library for current platform
       cd "java" do
