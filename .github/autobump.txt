@@ -2369,6 +2369,7 @@ rrdtool
 rswift
 rsyncy
 rsyslog
+rtorrent
 rubberband
 ruby
 ruby@3.1
