@@ -275,17 +275,7 @@ class Gstreamer < Formula
       print (Gst.Fraction(num=3, denom=5))
     EOS
 
-    # FIXME: The initial plugin load takes a long time without extra permissions on
-    # macOS, which frequently causes the slower Intel macOS runners to time out.
-    # Need to allow a longer timeout or see if CI terminal can be made a developer tool.
-    #
-    # Ref: https://gitlab.freedesktop.org/gstreamer/gstreamer/-/issues/1119
-    skip_plugins = OS.mac? && Hardware::CPU.intel? && ENV["HOMEBREW_GITHUB_ACTIONS"]
-    ENV["GST_PLUGIN_SYSTEM_PATH"] = testpath if skip_plugins
-
     assert_match(/^Total count: \d+ plugin/, shell_output(bin/"gst-inspect-1.0"))
-    return if skip_plugins
-
     system bin/"ges-launch-1.0", "--ges-version"
     system bin/"gst-inspect-1.0", "libav"
     system bin/"gst-inspect-1.0", "--plugin", "dvbsuboverlay"
