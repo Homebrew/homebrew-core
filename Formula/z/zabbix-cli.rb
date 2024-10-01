@@ -3,8 +3,8 @@ class ZabbixCli < Formula
 
   desc "CLI tool for interacting with Zabbix monitoring system"
   homepage "https://unioslo.github.io/zabbix-cli/"
-  url "https://github.com/unioslo/zabbix-cli/archive/refs/tags/3.1.0.tar.gz"
-  sha256 "334cfda8cecc13c33a75d3ddb3e7238d24e6ddfaf159d77c70dea86aa186ca73"
+  url "https://github.com/unioslo/zabbix-cli/archive/refs/tags/3.1.2.tar.gz"
+  sha256 "290b2ed29909edba10016799c28ca2eaf67296c46e2338e075a09b1ca9a8f073"
   license "GPL-3.0-or-later"
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
@@ -14,12 +14,12 @@ class ZabbixCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5fa59fdb3bf6d02accd879fba6fa6be49495aebecaf14543190bf641cc606be0"
-    sha256 cellar: :any,                 arm64_sonoma:  "4b5232f5466cfbe994b4762fd610c0ee9f552847898b1fc4eb9f83da2f1595bd"
-    sha256 cellar: :any,                 arm64_ventura: "ddc417bffd543bab41ee43f397434ed2cefeae0608ab294da663ef5150560591"
-    sha256 cellar: :any,                 sonoma:        "409458557923ce8038fdd6c6a1f282d457c7dec0a23777f0b1a66d0cb5d93283"
-    sha256 cellar: :any,                 ventura:       "8a6f122c31c9b9ea890932bc384a37b1701ad6158cd9089cf7f6cd1991e46140"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "54c5ccca06e14863074673d28ed5378ef37106559722befde8326e325f9f7500"
+    sha256 cellar: :any,                 arm64_sequoia: "aee43e33776bb5aa4d107ce9be5785722577822e6c2967cda9741b0aec430f40"
+    sha256 cellar: :any,                 arm64_sonoma:  "b25a65a43949cfa380d280b38e4b314a4d655cafa0922f4af261c7c36efbf444"
+    sha256 cellar: :any,                 arm64_ventura: "4010961d342d1f8e6dc8a7017d66f7f1e86e26956719ee7192a543d3eebbb069"
+    sha256 cellar: :any,                 sonoma:        "633c579f0442c1ff877f82879ace6d7a8155290884f57c63a99311307fa58e35"
+    sha256 cellar: :any,                 ventura:       "ab20db6df830f8bd9f94614f5e624e53c5eb81ba878f8c4a78ac276609c80ca9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "91d95f1d85eaaf24cdd379dcc069e7fd7b2462c6bf5e5cb0bcff3a7c2cc7d8aa"
   end
 
   depends_on "rust" => :build # for pydantic_core
@@ -107,8 +107,8 @@ class ZabbixCli < Formula
   end
 
   resource "rich" do
-    url "https://files.pythonhosted.org/packages/92/76/40f084cb7db51c9d1fa29a7120717892aeda9a7711f6225692c957a93535/rich-13.8.1.tar.gz"
-    sha256 "8260cda28e3db6bf04d2d1ef4dbc03ba80a824c88b0e7668a0f23126a424844a"
+    url "https://files.pythonhosted.org/packages/f8/05/686acde8e7d0b29d2a74000db230ce4a6bc4188f26f56cc8ca46e5ee1c10/rich-13.9.0.tar.gz"
+    sha256 "06ff5147711c0f6cec2cdbb247a6cff251268a66d700c2557699bfe104fc0bf4"
   end
 
   resource "shellingham" do

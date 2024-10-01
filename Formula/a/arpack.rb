@@ -8,6 +8,7 @@ class Arpack < Formula
 
   bottle do
     rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "bbc370902c31da397dea1116ad0cea384c2ab8fabebfcf57a5b59dead58ed53d"
     sha256 cellar: :any,                 arm64_sonoma:  "2a38b56bc96151574fd11c85f0244f63a31f3d51305b1902b2cf2bd21c7784fa"
     sha256 cellar: :any,                 arm64_ventura: "653947ce18a5e7189e1e45a568e96670a847583cc46d979fde56f8fc295f2704"
     sha256 cellar: :any,                 sonoma:        "1694ae0fc82302280d5c96327965ca61e32bcc2c4aa75a41ba1eec6e2b0ec38f"
