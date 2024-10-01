@@ -17,17 +17,13 @@ class Cryptography < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4d1ef4342de33eeb4c6d4bd4653ba1463611d9592bf4e3570a7fc4a2e9fbfb01"
   end
 
+  depends_on "maturin" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "rust" => :build
   depends_on "cffi"
   depends_on "openssl@3"
-
-  resource "maturin" do
-    url "https://files.pythonhosted.org/packages/1d/ec/1f688d6ad82a568fd7c239f1c7a130d3fc2634977df4ef662ee0ac58a153/maturin-1.7.1.tar.gz"
-    sha256 "147754cb3d81177ee12d9baf575d93549e76121dacd3544ad6a50ab718de2b9c"
-  end
 
   resource "semantic-version" do
     url "https://files.pythonhosted.org/packages/7d/31/f2289ce78b9b473d582568c234e104d2a342fd658cc288a7553d83bb8595/semantic_version-2.10.0.tar.gz"
@@ -53,9 +49,11 @@ class Cryptography < Formula
   def install
     ENV.append_path "PATH", buildpath/"bin"
     pythons.each do |python3|
-      ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python3)
+      buildpath_site_packages = buildpath/Language::Python.site_packages(python3)
+      ENV.append_path "PYTHONPATH", buildpath_site_packages
 
-      deps = %w[setuptools setuptools-rust semantic-version maturin]
+      # Resources need to be installed in a particular order, so we can't use `resources.each`.
+      deps = %w[setuptools setuptools-rust semantic-version]
       deps.each do |r|
         resource(r).stage do
           system python3, "-m", "pip", "install", *std_pip_args(prefix: buildpath), "."
@@ -63,6 +61,8 @@ class Cryptography < Formula
       end
 
       system python3, "-m", "pip", "install", *std_pip_args, "."
+
+      ENV.remove "PYTHONPATH", buildpath_site_packages
     end
   end
 
