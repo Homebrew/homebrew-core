@@ -1,7 +1,7 @@
 class DualGit < Formula
   desc "Shell script to manage multiple git account with different ssh key"
   homepage "https://github.com/HalilSacpapa/dual_git"
-  url "https://github.com/HalilSacpapa/dual_git/archive/refs/tags/Alpha.tar.gz"
+  url "https://github.com/HalilSacpapa/dual_git/archive/refs/tags/alpha-v0.1.1.tar.gz"
   version "0.1"
   sha256 "371b009384e504446bf4066167df96394ec6f5ab9feb579f294ea16d433d8620"
   license "BSD-2-Clause"
