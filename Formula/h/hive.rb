@@ -1,9 +1,9 @@
 class Hive < Formula
   desc "Hadoop-based data summarization, query, and analysis"
   homepage "https://hive.apache.org"
-  url "https://www.apache.org/dyn/closer.lua?path=hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz"
-  sha256 "0c9b6a6359a7341b6029cc9347435ee7b379f93846f779d710b13f795b54bb16"
+  url "https://www.apache.org/dyn/closer.lua?path=hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/hive/hive-4.0.1/apache-hive-4.0.1-bin.tar.gz"
+  sha256 "2bf988a1ed17437b1103e367939c25a13f64d36cf6d1c3bef8c3f319f0067619"
   license "Apache-2.0"
 
   bottle do
