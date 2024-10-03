@@ -4,8 +4,8 @@ class Ortp < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.84/ortp-5.3.84.tar.bz2"
-    sha256 "e0b539a0021c8b6babca5efddc9362954148824f59c4c316d772a124ebbb51bd"
+    url "https://gitlab.linphone.org/BC/public/ortp/-/archive/5.3.88/ortp-5.3.88.tar.bz2"
+    sha256 "57f8648604082885f46e0487cb47d871c413c285fd0ba20331120a8a0048c51e"
 
     depends_on "mbedtls"
 
