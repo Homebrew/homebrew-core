@@ -4,7 +4,7 @@ class Zorba < Formula
   url "https://github.com/28msec/zorba/archive/refs/tags/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
   license "Apache-2.0"
-  revision 19
+  revision 20
 
   bottle do
     sha256 arm64_sequoia:  "c748d5b310b5949922950639ab308a570420a1814ac18791afd40fcee4748c29"
@@ -23,7 +23,7 @@ class Zorba < Formula
   depends_on "cmake" => :build
   depends_on "openjdk" => :build
   depends_on "flex"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "xerces-c"
 
   uses_from_macos "libxml2"
@@ -38,13 +38,21 @@ class Zorba < Formula
   end
 
   def install
+    # Work around for newer libxml2
+    ENV.append_to_cflags "-fpermissive" if OS.linux?
+
     # Workaround for error: use of undeclared identifier 'TRUE'
-    ENV.append "CFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
-    ENV.append "CXXFLAGS", "-DU_DEFINE_FALSE_AND_TRUE=1"
+    ENV.append_to_cflags "-DU_DEFINE_FALSE_AND_TRUE=1"
 
-    ENV.cxx11
+    # Workarounds for C++17 support needed due for newer ICU4C
+    ENV.append "CXXFLAGS", "-Dstatic_assert=static_assert" # Avoid redefining static_assert
+    if ENV.compiler == :clang
+      ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_AUTO_PTR=1"
+      ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_BINDERS=1"
+      ENV.append "CXXFLAGS", "-D_LIBCPP_ENABLE_CXX17_REMOVED_UNARY_BINARY_FUNCTION=1"
+    end
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_CXX_STANDARD=17", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
