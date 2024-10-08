@@ -21,7 +21,7 @@ class Libzdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "eac6ae172d51fd94fc04a71798011d683d07d46f0e52b5de22968289e74fd01a"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on macos: :high_sierra # C++ 17 is required
   depends_on "mysql-client"
   depends_on "sqlite"
