@@ -1,4 +1,4 @@
-class Libpq < Formula
+class LibpqAT17 < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/current/libpq.html"
   url "https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2"
@@ -21,6 +21,7 @@ class Libpq < Formula
   end
 
   keg_only "conflicts with postgres formula"
+  keg_only :versioned_formula
 
   depends_on "docbook" => :build
   depends_on "docbook-xsl" => :build
