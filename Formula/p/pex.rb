@@ -11,7 +11,7 @@ class Pex < Formula
     sha256 cellar: :any_skip_relocation, all: "81df4ae64bf5d25705cdb0fbaf1c09ab32bc0aecb2280fea08568ecfb10ac301"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
 
   def install
     system "make", "install", "prefix=#{prefix}", "mandir=#{man}"
