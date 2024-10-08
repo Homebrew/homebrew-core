@@ -35,7 +35,7 @@ class Freeswitch < Formula
   depends_on "jpeg-turbo"
   depends_on "ldns"
   depends_on "libpng"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libsndfile"
   depends_on "libtiff"
   depends_on "lua"
