@@ -23,7 +23,7 @@ class Sgr < Formula
   depends_on "rust" => :build # for pydantic
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "libpq" # for psycopg2-binary
+  depends_on "libpq@17" # for psycopg2-binary
   depends_on "openssl@3"
   depends_on "python@3.12"
 
