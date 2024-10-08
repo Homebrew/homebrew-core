@@ -49,7 +49,7 @@ class Gdal < Formula
   depends_on "libkml"
   depends_on "liblerc"
   depends_on "libpng"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libspatialite"
   depends_on "libtiff"
   depends_on "libxml2"
