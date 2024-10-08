@@ -24,7 +24,7 @@ class KitchenSync < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "mysql-client"
 
   fails_with gcc: "5"
