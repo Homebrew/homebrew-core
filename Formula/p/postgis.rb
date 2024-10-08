@@ -36,7 +36,7 @@ class Postgis < Formula
   depends_on "geos"
   depends_on "icu4c@75"
   depends_on "json-c"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libxml2"
   depends_on "pcre2"
   depends_on "proj"
