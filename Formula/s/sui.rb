@@ -20,7 +20,7 @@ class Sui < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "libpq" => :build
+  depends_on "libpq@17" => :build
   depends_on "rust" => :build
 
   on_linux do
