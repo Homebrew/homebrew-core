@@ -24,7 +24,7 @@ class CheckPostgres < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "15350f09487ed7fd501105b3abd217be8287cfdb4075b71673e179b1ba24cacc"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
   uses_from_macos "perl"
 
   def install
