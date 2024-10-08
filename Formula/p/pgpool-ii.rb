@@ -22,7 +22,7 @@ class PgpoolIi < Formula
   end
 
   depends_on "libmemcached"
-  depends_on "libpq"
+  depends_on "libpq@17"
 
   uses_from_macos "libxcrypt"
 
