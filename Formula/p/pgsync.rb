@@ -16,7 +16,7 @@ class Pgsync < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "be09e2268832219f7fe75c3dcb8c0baf0067cee5a80c325f423f07ab788fba29"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "ruby"
 
   resource "parallel" do
