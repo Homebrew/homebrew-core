@@ -1,8 +1,8 @@
 class Acpica < Formula
   desc "OS-independent implementation of the ACPI specification"
   homepage "https://github.com/acpica/acpica"
-  url "https://downloadmirror.intel.com/831952/acpica-unix2-20240827.tar.gz"
-  sha256 "d540e982f1391c2e5ee57c391d73035b40ba4fb2a98cee626db6ed12db59a737"
+  url "https://downloadmirror.intel.com/835329/acpica-unix2-20240927.tar.gz"
+  sha256 "4471a9c92f2f68b84be0647c4376a176fcb68a6289d7679c1b3a430507f65d71"
   license any_of: ["Intel-ACPI", "GPL-2.0-only", "BSD-3-Clause"]
   head "https://github.com/acpica/acpica.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Acpica < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b31e8c7f95deee0bd189976e2c0a5a97cb11b04a3a3ec436a638b6966ba72422"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ace6ea218550e822c41196257feb968d985866d37c7ece028c8b9741c74bfcbb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2eb8e278dfce3b743399d9ec82bab589fc02db5c5e5ed15dd8ce44843e5942b9"
-    sha256 cellar: :any_skip_relocation, sonoma:        "97b4de1502aff4b2dc06e1e056397f4c013137a2d439b3047d967caaf7182c73"
-    sha256 cellar: :any_skip_relocation, ventura:       "1c535e6f6302cf90254d1f89d51e5ba8d082f4cc86d1a8c2a51975dc91dfeab5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "332dfe0f91060ad3d0aa3d8ce4b7d747da6dcc77f92b0fcd51f4cdbde1ac4a71"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e365a4578890fecb9ca994a2a7bc162b01aeab1726450d3facfcd4838dd72f89"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4933bbf4367e5b2996e9090e367cf06381105b6881e7c66d0f387ddc62abb530"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "d3c66ef224e8cd8aab50fa7a8d776a6d3315db285c73cc40efa30c7769d85199"
+    sha256 cellar: :any_skip_relocation, sonoma:        "0d013f9272915ad9bc4521a7b1057a87a381a9858332f52cb19472067f80aee0"
+    sha256 cellar: :any_skip_relocation, ventura:       "aece8fec1058cc8c0046ef059bda98ec3301f08da7d2cc224631be2e079a65b3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a885756d3404a92a82f1a077e5ee31b8acb9e511b62e474ab4d48ea94218f8c8"
   end
 
   uses_from_macos "bison" => :build
@@ -25,9 +25,6 @@ class Acpica < Formula
   uses_from_macos "m4" => :build
 
   def install
-    # fix acpixf.h case issue, upstream bug report, https://github.com/acpica/acpica/issues/971
-    File.rename "source/include/ACPIXF.H", "source/include/acpixf.h"
-
     # ACPI_PACKED_POINTERS_NOT_SUPPORTED:
     # https://github.com/acpica/acpica/issues/781#issuecomment-1718084901
     system "make", "PREFIX=#{prefix}", "OPT_CFLAGS=\"-DACPI_PACKED_POINTERS_NOT_SUPPORTED\""

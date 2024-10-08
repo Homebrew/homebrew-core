@@ -17,35 +17,32 @@ class Pygit2 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "0470b2b8f8d41c65e39de0b01187c88112415d057cd52f8b881f9b97819c2359"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
   depends_on "cffi"
   depends_on "libgit2"
 
   def pythons
-    deps.select { |dep| dep.name.start_with?("python@") }
-        .map(&:to_formula)
-        .sort_by(&:version)
+    deps.map(&:to_formula)
+        .select { |f| f.name.start_with?("python@") }
+        .map { |f| f.opt_libexec/"bin/python" }
   end
 
   def install
-    pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      system python_exe, "-m", "pip", "install", *std_pip_args, "."
+    pythons.each do |python3|
+      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
   end
 
   test do
     assert_empty resources, "This formula should not have any resources!"
 
-    pythons.each do |python|
-      python_exe = python.opt_libexec/"bin/python"
-      pyversion = Language::Python.major_minor_version(python_exe)
+    pythons.each do |python3|
+      pyversion = Language::Python.major_minor_version(python3)
 
       (testpath/"#{pyversion}/hello.txt").write "Hello, pygit2."
       mkdir pyversion do
-        system python_exe, "-c", <<~PYTHON
+        system python3, "-c", <<~PYTHON
           import pygit2
           repo = pygit2.init_repository('#{testpath}/#{pyversion}', False) # git init
 

@@ -1,8 +1,8 @@
 class Govc < Formula
   desc "Command-line tool for VMware vSphere"
   homepage "https://github.com/vmware/govmomi/tree/master/govc"
-  url "https://github.com/vmware/govmomi/archive/refs/tags/v0.43.0.tar.gz"
-  sha256 "9eb27e89b1ca8b0b9dce722b27c7c95a731f30634c63959d5f4dae0b7d400dd0"
+  url "https://github.com/vmware/govmomi/archive/refs/tags/v0.44.0.tar.gz"
+  sha256 "7eaf61e0390184ce1b8a068805cea9776cbb7cbfc633bb01074274e36b768d1e"
   license "Apache-2.0"
 
   # Upstream appears to use GitHub releases to indicate that a version is
@@ -14,14 +14,12 @@ class Govc < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "6eb65004880ea5a14d467609df112ea3889ab0b9c553c1bf28313ca365b63a7e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d4abfec28c22fe0a4d6ab32a35673c1c0d6930b5b1f3842200d3e5d8438e0018"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "24962f279d00fa2f13e9d9c9fc3d444856ca992888ebbb50649c227967d57b09"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c2fcd8f59ba10d734115d2f9dd7846e2eb75920b2f27d4a53a4d544aeed83e57"
-    sha256 cellar: :any_skip_relocation, sonoma:         "49532948ca8a3bde8b163232269610c5a542cd56042b2c3cf4ba2fe2e3d934b8"
-    sha256 cellar: :any_skip_relocation, ventura:        "b6545182658a1de12633bf3a757125ac7d3edb01fb9f25ffef27394bc7449dd0"
-    sha256 cellar: :any_skip_relocation, monterey:       "2bcac392876cca83b94a60b9d7736fb47116aca9acf257f3dd8a38c059b50091"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "9052eda4369c8a26926261a081b5c7fed9faef50f037e42e1ff38e604e9b2b35"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "42f12faf8e7c3702f87a39ea53dd57eeb90aa5f3ca8110f10476a10f0900e6c0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "423435fe2f2eef76a293452c27597e45d750c0277cff43d7ead4a2275d71ae87"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "56668c2093ee80ae6f337b0a17865c42a69ce6707c792a8d39379c2ec8e9ae97"
+    sha256 cellar: :any_skip_relocation, sonoma:        "8489f5a9898c163558cc5fa1b75d8565239bb198e28dbbf63c6cf351220d5604"
+    sha256 cellar: :any_skip_relocation, ventura:       "00f8b2859b9304b6514a5744270af30b91b4938949a7ff59145401c741fd6a62"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "9a314d3416cbab4dd5135473993b272e847c2e58a431c90c9d552b5e41c110dd"
   end
 
   depends_on "go" => :build

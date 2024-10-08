@@ -22,7 +22,6 @@ class Libsoup < Formula
   depends_on "pkg-config" => [:build, :test]
   depends_on "python@3.12" => :build
   depends_on "vala" => :build
-  depends_on "icu4c" => :test
 
   depends_on "glib"
   depends_on "glib-networking"
@@ -71,7 +70,6 @@ class Libsoup < Formula
       }
     EOS
 
-    ENV.prepend_path "PKG_CONFIG_PATH", Formula["icu4c"].opt_lib/"pkgconfig"
     pkg_config_flags = shell_output("pkg-config --cflags --libs libsoup-3.0").chomp.split
     system ENV.cc, "test.c", "-o", "test", *pkg_config_flags
     system "./test"

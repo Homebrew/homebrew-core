@@ -4,6 +4,7 @@ class NodeAT18 < Formula
   url "https://nodejs.org/dist/v18.20.4/node-v18.20.4.tar.xz"
   sha256 "a76c7ea1b96aeb6963a158806260c8094b6244d64a696529d020547b9a95ca2a"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,14 +12,12 @@ class NodeAT18 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "a38e89175659bcc292095b0ef13454e99eb33c38c154ebb71531b8de58c0bfaf"
-    sha256 arm64_sonoma:   "7c337fb805a9514a54c8095b2552e98722ae330d764b42f446646a5fad202939"
-    sha256 arm64_ventura:  "8bc5c8830486ba150dea2fc6d1b78f8a25a5f4b0c98f5534559edf41e89c1a57"
-    sha256 arm64_monterey: "74d61167b069210de31f17e3be2cc6ff60a00788976007e42beb23bda4be7315"
-    sha256 sonoma:         "c9d9984520b1b793563d1fa1cada6ee38b9582a282a6e9d1c4a24ab22b28aa8b"
-    sha256 ventura:        "63cefefafcd17a416e54963f5d39740cb2850593f0046ce9b5a30a37ad6aee24"
-    sha256 monterey:       "415d5afb5aaf3e8e428365ad8844335a0c77eda5f0f686950c17ee67eb2b8944"
-    sha256 x86_64_linux:   "1e9afb516b736af7765900fa4e908c9a00c740b71887910a22a7af005046a7aa"
+    sha256 arm64_sequoia: "d380182d1f56e38f240355a650a2574dcf40de6be0c746a1955728df89815494"
+    sha256 arm64_sonoma:  "e7556ecd9d8553dee6736900e11bc3a65994e3ee6747332dd716daa0ab58d52b"
+    sha256 arm64_ventura: "7a8ae272cde099a2e3efa70f91bc315c67688cd602126dcd5d3d6861b62bf0fa"
+    sha256 sonoma:        "2c8a9eabf8f95ff26c0550665336f395574e50e9a5c441c62140fc2ecd2dbe12"
+    sha256 ventura:       "ea38619b3af837165fb11aa3038c5c11c47ae8eb5c5fd9b7d1b78f22dc78bf05"
+    sha256 x86_64_linux:  "766f4312b10705111eedd0ec8e08686f265ca4c72214977ed609515066928dd9"
   end
 
   keg_only :versioned_formula
@@ -32,7 +31,7 @@ class NodeAT18 < Formula
   depends_on "python@3.12" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"

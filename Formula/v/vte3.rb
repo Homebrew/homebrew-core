@@ -4,16 +4,15 @@ class Vte3 < Formula
   url "https://download.gnome.org/sources/vte/0.76/vte-0.76.4.tar.xz"
   sha256 "9c52d1da6c6f7409289351fc1cba8948cd3b47d048cbfede763a0f75b77453cc"
   license "LGPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 arm64_sequoia:  "e9968ae162ed90b8c97aa6c8628263a4287f83475e4bb94e3d16f4345831b4b0"
-    sha256 arm64_sonoma:   "e493a594877dcc06595b725b96dd915289bdd2293f467c746a07c685aaa0e9b2"
-    sha256 arm64_ventura:  "fef9c048213f11fe2cace83bd11a7c2d239bc3c4f0acad94206e7a758135f6ea"
-    sha256 arm64_monterey: "f80b773894ca38262ec0dcb54581c3daf3e975a3d6cb8f3f079b921289a824fb"
-    sha256 sonoma:         "422a31aaa3512958bd5f6546d5480ba2e61db36f674e0b3dfb6ee5eb8cf16f27"
-    sha256 ventura:        "4bd7c053119db55c5763afb4c8210b54932a578d55eaf17143bd9b9a6ee1f2ae"
-    sha256 monterey:       "4f9d6a846c608303d5f2bb81441732bc2be1fb5f1de94c103dd9fa191dca8f14"
-    sha256 x86_64_linux:   "f465add75933021f53c62287933fea92353640ec7e5e36c5be73ed0e541aa459"
+    sha256 arm64_sequoia: "4468041d31d005bde0d94d6eabcccb487d9695677da2c991d282ad3d99e4eb75"
+    sha256 arm64_sonoma:  "d6b90c1a4b8074748174b0823a22d191c55345f8d1f0129a69f44902822ba712"
+    sha256 arm64_ventura: "09bf5e914cd32247c5b571f61d51208b62f852b1a9002f9b184dfa95a6cf5b2a"
+    sha256 sonoma:        "029c5d9e8320e768c9dd89fadb8b54d3011aeed5146140b551008fd735a57599"
+    sha256 ventura:       "55731ac8cee88e9f008ca0f47b4bcae57db570b425f504d55def7c4251c708b8"
+    sha256 x86_64_linux:  "8f4ddada3aa7acd5f2d1df6f8bc0ab5a9ab1c4eda0a32e58c32c83bd01ef66cb"
   end
 
   depends_on "gettext" => :build
@@ -30,7 +29,7 @@ class Vte3 < Formula
   depends_on "gnutls"
   depends_on "gtk+3"
   depends_on "gtk4"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "lz4"
   depends_on macos: :mojave
   depends_on "pango"
@@ -64,9 +63,13 @@ class Vte3 < Formula
 
   def install
     if OS.mac? && DevelopmentTools.clang_build_version <= 1500
+      llvm = Formula["llvm"]
       ENV.llvm_clang
       if DevelopmentTools.clang_build_version <= 1400
-        ENV.prepend "LDFLAGS", "-L#{Formula["llvm"].opt_lib}/c++ -L#{Formula["llvm"].opt_lib} -lunwind"
+        ENV.prepend "LDFLAGS", "-L#{llvm.opt_lib}/c++ -L#{llvm.opt_lib} -lunwind"
+      else
+        # Avoid linkage to LLVM libunwind. Should have been handled by superenv but still occurs
+        ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib
       end
     end
 

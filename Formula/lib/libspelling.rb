@@ -4,16 +4,15 @@ class Libspelling < Formula
   url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.2.1/libspelling-0.2.1.tar.bz2"
   sha256 "5393a9b93fda445598348a47c42d1ad13586c0bcf35dfd257afd613fd31812c1"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "2c4271f43d13aea74b7c4d582489b7c442efd19cc71bcc7d27c741e5069b4794"
-    sha256 cellar: :any, arm64_sonoma:   "0b67d9b2b9d9b93e5a71cd91c413444c656e8a30f6477f18f4386bdf30fb9187"
-    sha256 cellar: :any, arm64_ventura:  "b66212b63da3b6f4b08f43c0aa91867c6519264bfef080a64213397910f457b4"
-    sha256 cellar: :any, arm64_monterey: "fa750d80d38e7dcf30ec59ffaf63e0fbe2d13f0586c28732072e5b1a6836a663"
-    sha256 cellar: :any, sonoma:         "53c748d558f513ad1e98da4c6f956fb39421e51c6d35503b4ab2b6b5bccace15"
-    sha256 cellar: :any, ventura:        "82747b3e4fd94dd53bc8a7bde8487bee99bd86252e58a014b10878389fcfa65e"
-    sha256 cellar: :any, monterey:       "c5cff6a0fc0b2ddc1a75e04f4ed0cc3197f571b80170522383b6fdf3d60577a6"
-    sha256               x86_64_linux:   "59f65192b18ebed20951c1aae5af463dec1206eef1bc4779114f5bf06c01d785"
+    sha256 cellar: :any, arm64_sequoia: "acdd32585f66bf2dcef0ef13c0166294ae3e8742eba12f88b4f8fcf78a9644e6"
+    sha256 cellar: :any, arm64_sonoma:  "ca7f5c29c5ffca0ef01ca9d2488eb1749e21ce456593096b4b60431a66b1cbd2"
+    sha256 cellar: :any, arm64_ventura: "c8487296937ad4d072c1728c97163c82247ee89f8caac40174518730b16826e4"
+    sha256 cellar: :any, sonoma:        "36dc778f440851ade2fe2b56c494e7058f3804117b04edf0ba7fb5f29a05d034"
+    sha256 cellar: :any, ventura:       "2f1018445dabc70101abef5a49e13b5e32c886f6d246f7788f651dad221cc4ab"
+    sha256               x86_64_linux:  "4b771175ee3b8db56799e624bcdb8e077b14487bd97a98a6fb40ba2b644e178a"
   end
 
   depends_on "gobject-introspection" => :build
@@ -26,7 +25,7 @@ class Libspelling < Formula
   depends_on "glib"
   depends_on "gtk4"
   depends_on "gtksourceview5"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "pango"
 
   on_macos do

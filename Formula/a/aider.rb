@@ -3,18 +3,18 @@ class Aider < Formula
 
   desc "AI pair programming in your terminal"
   homepage "https://aider.chat/"
-  url "https://files.pythonhosted.org/packages/ef/c3/37b143e3bb57c9c5ad3901f61f78085038628f135984e7e08dcf75baf7a3/aider_chat-0.59.0.tar.gz"
-  sha256 "8ea3b047f5f8f7783fab8fbedcd82881a198fc3620009a510c0964c217fd96dc"
+  url "https://files.pythonhosted.org/packages/94/61/f78dfd9f9f153cf2cffdc7cf3590c1d4e3bc9a79953dbccc30e7529ae63a/aider_chat-0.59.1.tar.gz"
+  sha256 "5e7ccb8c6b8054563d8c84a20f9d44dafd7f8f2e5fbb68275aa722386f2572f3"
   license "Apache-2.0"
   head "https://github.com/paul-gauthier/aider.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "83e944bbda8e05ed9c6382d9c193821e1f93875b3b4e381566516366ad5ad4e1"
-    sha256 cellar: :any,                 arm64_sonoma:  "d639560c118dd7800d98038c687f255676797ae977e5d7a951b062f0561ac624"
-    sha256 cellar: :any,                 arm64_ventura: "2cae1dd90dca766605746794b88a0a41d69f6b9ceec8226d43c1e464b9643216"
-    sha256 cellar: :any,                 sonoma:        "4b0ca16770bc6765c26bf0f8793d0d1db34b2c04a035950137c02d739db40abd"
-    sha256 cellar: :any,                 ventura:       "199a7cdbe4b78d9ca359d3681eb4a3520847edd4b6eaa087eae3bc59aa7d406e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fd1b12ab010994389e743ee34c54a6ed02d70d803005e19e436cf539de9cf543"
+    sha256 cellar: :any,                 arm64_sequoia: "77863957bc70d3cac83dade12bfdc0b8ec84a66a86e94300a54d221e208c9387"
+    sha256 cellar: :any,                 arm64_sonoma:  "82046e2a7bc6f751196e32183be855f962fb00dbf7e1f88a05fd72b5af38242b"
+    sha256 cellar: :any,                 arm64_ventura: "5d74cd69104ce3559aad0a8a807aed77d53d4f6ee3b90098d17c95ac19b10a88"
+    sha256 cellar: :any,                 sonoma:        "f04562e9631a5ec8351a7c387d55b3657e83b2c2306f5a782993e0b819f11158"
+    sha256 cellar: :any,                 ventura:       "d05862dae7e3dea423968a2b19d151a8203e644326f2717f023bb0ab72675938"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c46b141231ef2fbd12e67fecf1ee63b906fdf2f5f891cdf1a0d394504717c1fd"
   end
 
   depends_on "cython" => :build # for tree-sitter-languages

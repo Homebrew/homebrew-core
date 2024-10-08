@@ -29,7 +29,8 @@ class NodeAT14 < Formula
   depends_on "python@3.10" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c"
+  # Re-add an ICU4C dependency if extracting formula
+  # TODO: depends_on "icu4c"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@1.1"

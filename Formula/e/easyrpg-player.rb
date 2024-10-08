@@ -4,21 +4,19 @@ class EasyrpgPlayer < Formula
   url "https://easyrpg.org/downloads/player/0.8/easyrpg-player-0.8.tar.xz"
   sha256 "06e6d034348d1c52993d0be6b88fc3502a6c7718e366f691401539d5a2195c79"
   license "GPL-3.0-or-later"
-  revision 4
+  revision 5
 
   livecheck do
     url "https://github.com/EasyRPG/Player.git"
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "940fa9890761c2e0e6f97823f609b2a86c3d8c132af99041ccd291520ddb4937"
-    sha256 cellar: :any,                 arm64_sonoma:   "cb6367f8d7021433cb0777e645c3f2f23b03b78404baac81898c020f799ebc54"
-    sha256 cellar: :any,                 arm64_ventura:  "0b918d1a21110b3cc284d7ee0b453cf01cf9d306de3471e5ae868a522ac3ab38"
-    sha256 cellar: :any,                 arm64_monterey: "81ddad2d6f50aee5493a461d86c3cef8071d2b4f8186c32cbce7880fbbd7f4ad"
-    sha256 cellar: :any,                 sonoma:         "cbccb0b6c47ee38eecc699969f53e963f5edfb34f4290215f829ab501aa24ede"
-    sha256 cellar: :any,                 ventura:        "8d136de7c6d891113f50669181ccb5a81e244d6b7b1b63b969ea040379d60210"
-    sha256 cellar: :any,                 monterey:       "81a4c9e5b846c151b380ae620192e18cf8db7cebdb34d8d9766e8e96ce3173d5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "2af54063e4cd34ce5b2a9e1da3c515a464b1029a6fe071307c28a17cab8fc675"
+    sha256 cellar: :any,                 arm64_sequoia: "ed3647547b6f153cccfe3771832a67936708da6baf03e8d440f3237a75f84356"
+    sha256 cellar: :any,                 arm64_sonoma:  "5b27a034830a4050954923f9b206bb7246173db519e0b845191bb41429005a5e"
+    sha256 cellar: :any,                 arm64_ventura: "c163e38ecf71c3874abea6103d9bf1c9b860c35b7e0c07d6f52bcd6295b805c9"
+    sha256 cellar: :any,                 sonoma:        "04a3f8684b52013b2afd12721cf387120682a6a3a44c7022663fc56b968e3872"
+    sha256 cellar: :any,                 ventura:       "d76943f69db08caad588017b69493856909aee291ecc03137ea753f3e98ff7ca"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5a22f0febddd000ad159bad7a0422ed6bfb5f0e98a9e28d6d3d45c5a16857f12"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +24,7 @@ class EasyrpgPlayer < Formula
   depends_on "fmt"
   depends_on "freetype"
   depends_on "harfbuzz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "liblcf"
   depends_on "libpng"
   depends_on "libsndfile"

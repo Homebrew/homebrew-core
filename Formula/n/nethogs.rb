@@ -1,22 +1,17 @@
 class Nethogs < Formula
   desc "Net top tool grouping bandwidth per process"
   homepage "https://raboof.github.io/nethogs/"
-  url "https://github.com/raboof/nethogs/archive/refs/tags/v0.8.7.tar.gz"
-  sha256 "957d6afcc220dfbba44c819162f44818051c5b4fb793c47ba98294393986617d"
+  url "https://github.com/raboof/nethogs/archive/refs/tags/v0.8.8.tar.gz"
+  sha256 "111ade20cc545e8dfd7ce4e293bd6b31cd1678a989b6a730bd2fa2acc6254818"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "12587c9265a9512a84cd0a57ae620dbcdf358dc671d83ebdb3d627b6f5c0e573"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9132083206c8e1234c9c5e4e5e1f81ef9b992eeb41f4c75d89e5906f005e53d6"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bb8279f67ff45ea099cbb079aca0787666f98bd307a09f58e3089ec0eed797e"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "59ca360d633795f970278151bdb3c1a216cbd38f730a1ef87a40247cfae70a5e"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:  "8bc7e3c64c95cb630973707c7a0bbd38ffb05d01f750c0c9ca342aacaa4c4f1e"
-    sha256 cellar: :any_skip_relocation, sonoma:         "e3c2c90ffaf9e383fa5d03f30c3414bc83a625ee0e4d5f8635dd1395044eb393"
-    sha256 cellar: :any_skip_relocation, ventura:        "bc30be3873a9200346d0a6a0e52cd52a54ae3f504dec181b478d9a9f383ad1a9"
-    sha256 cellar: :any_skip_relocation, monterey:       "6d4164c21109b7af5a40e4f6ab8f5938a8a13e415fb7fc2ab26082f88a1b2319"
-    sha256 cellar: :any_skip_relocation, big_sur:        "02b86d804fd1346a681792ca116c0aa2576563b3fb980ea0b094fbcff9c323ae"
-    sha256 cellar: :any_skip_relocation, catalina:       "f253c8798f68bce3fc2bd8222cd9059098c105e4a5607a8d2c138056192289c0"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b8e0528292fd9515e0d56f1db637bf97727aa93209ea6211ae8152d8d47e0ff7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "b63822d0cd7c0e15f8a7dc5df156f7802b23d2481007cb9fc683a14c8f9f78ab"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "06a30ab6ab73071fd13b8655199f2bc0bc650c90240af29200f0a5dc681ced17"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "3ea77a752e043dcf59afb915ae001663d57b3f9bdf829efe1202b90802e90b29"
+    sha256 cellar: :any_skip_relocation, sonoma:        "94cf8d3019a7b344781b52bfc4d0dec42580382e143a8a308faac8cfe13780d8"
+    sha256 cellar: :any_skip_relocation, ventura:       "86e443cfcfb7f0956dfca5cc19282c525aff27f1c13be145360971e3161b251c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "11e366aab4953f52e2978a45b72cf4467d87218a71370e5ea83efe72e096f265"
   end
 
   uses_from_macos "libpcap"

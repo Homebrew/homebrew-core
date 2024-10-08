@@ -1,18 +1,18 @@
 class Ox < Formula
   desc "Independent Rust text editor that runs in your terminal"
   homepage "https://github.com/curlpipe/ox"
-  url "https://github.com/curlpipe/ox/archive/refs/tags/0.6.4.tar.gz"
-  sha256 "1659cd539b9765cc595479d1461f0a5b14f5fe5df3d3322fa882542c94b320bf"
+  url "https://github.com/curlpipe/ox/archive/refs/tags/0.6.5.tar.gz"
+  sha256 "410dc77ea2fcb9e73b8cba5121c3cf41215d4cf8cd219015d5f8e0caea4e42d7"
   license "GPL-2.0-only"
   head "https://github.com/curlpipe/ox.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "6e36107976deab2e61eda179f7ecbc47ba0871b0348351297b98a373e869e8d8"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f61b658c5ca6a36e28bf70308d0f09cecc47ddc309679ef9e528b93924ad01d8"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "2020bc71a0884b97ff1df57532f9c93024c6c49e0284f014fe31f5a8242392fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "21cdf86ab595a7d970b2125bd5149a1b728bf51f9bc8951fae50017c079fd93f"
-    sha256 cellar: :any_skip_relocation, ventura:       "a0607bf83b01b753fa44f09c7035047cea93558f49c584a9d0a24949f0ebde4c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "455efc8c57a1e7180b55f41b1d7aa71a6be8d23e1c2651a3643e101e60682053"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "060c52a419887a5520583a00299fe172783007003dc3f9e4f206e67f7333b883"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3e63eb5cdd11e15ea107d7060eb01cff1f2a829d73fdbbe4c197f3bfe770f5bd"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ea147cd207bd3da17daf5b19398f91603774ef3199450166b4e1d67fa9a9e080"
+    sha256 cellar: :any_skip_relocation, sonoma:        "80b1b95c00b08011eea01cf0cd5546f799cc1ca48e9873bef2d44d34a42cf106"
+    sha256 cellar: :any_skip_relocation, ventura:       "09390d0c3f184fb08ff465948b4cf8290ec20fa71406ea7291a18b84951aa966"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ec39a83e22f3e51f64487ec676d0badf67a03b813aa2da915583971b5901731e"
   end
 
   depends_on "rust" => :build

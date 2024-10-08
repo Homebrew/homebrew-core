@@ -7,6 +7,7 @@ class Samba < Formula
   url "https://download.samba.org/pub/samba/stable/samba-4.21.0.tar.gz"
   sha256 "09bb56db4ce003cafdbebe9bad368c4f4ff1945f732d18077d52f36ab20cef88"
   license "GPL-3.0-or-later"
+  revision 1
 
   livecheck do
     url "https://www.samba.org/samba/download/"
@@ -14,14 +15,12 @@ class Samba < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "65248677905982cf95884cd3ae76c29d309e96ef85962d06f4d8748174448a11"
-    sha256 arm64_sonoma:   "1313554b2cea443140277e014635f42b24f4ad327ed76a54abab98e0328ce50f"
-    sha256 arm64_ventura:  "52ba8d7910f9ef238b2bbf1d98fcc438deb7de2da727e31b0fe3641d21d9fd30"
-    sha256 arm64_monterey: "353d457204f8de6214fc10632b7af2946e2299cd050b3a2cb480ed3ab5a1b590"
-    sha256 sonoma:         "4e32f0d36741ef7ed0e84fb171938e15d33c6f8a3cf14b73a02a5df39f272bbc"
-    sha256 ventura:        "a6bd43a549aded7a993e9f64e0072cc1142ac3ef4cf18d6c7bf42c8207065c61"
-    sha256 monterey:       "e01579d1da7e89347842cacee7b673bb721fc93ddaa547db720dd91bed4facf9"
-    sha256 x86_64_linux:   "00fcc92aaf20aca13f869d84a999545a0bfa2a6059d97425928f31fa7faa6e87"
+    sha256 arm64_sequoia: "cee681962650872ad27a77818650000ad20f65b7e9b927b9e5701de8ee624091"
+    sha256 arm64_sonoma:  "5e18d171f9e78718652fe45746d36af7fb4a2ec8f9431a9f091a53ef96a9cfa4"
+    sha256 arm64_ventura: "f9940ed421054893d856f4b6c7f91b6d5960c01e83b340326ab8a951ad0a4ab5"
+    sha256 sonoma:        "0222776b48d2dde6eecdb80fee74fae4ebc21e5701a482e5af403fbbd46b0aaa"
+    sha256 ventura:       "97030caaae8ff576a65b0405f4a6e10d49fe6cb8a1557d458ee17c3afb6d1cc5"
+    sha256 x86_64_linux:  "d4bde32716721ff51b3f085c8910488d7c526584c8f8fc2b8d185b5c8ee3285f"
   end
 
   depends_on "bison" => :build
@@ -30,7 +29,7 @@ class Samba < Formula
   depends_on "gnutls"
   # icu4c can get linked if detected by pkg-config and there isn't a way to force disable
   # without disabling spotlight support. So we just enable the feature for all systems.
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "krb5"
   depends_on "libtasn1"
   depends_on "popt"

@@ -5,6 +5,7 @@ class Spidermonkey < Formula
   version "128.2.0"
   sha256 "9617a1e547d373fe25c2f5477ba1b2fc482b642dc54adf28d815fc36ed72d0c2"
   license "MPL-2.0"
+  revision 1
   head "https://hg.mozilla.org/mozilla-central", using: :hg
 
   # Spidermonkey versions use the same versions as Firefox, so we simply check
@@ -15,21 +16,19 @@ class Spidermonkey < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "a48639001f6f9ed05f6e4ebc1019c90973ca2527761e82a2bd4dc4d5e46032c5"
-    sha256 cellar: :any, arm64_sonoma:   "cbea1e2cff3267795eeac7b12c1033c2e1159bcf0fb2aaba19db5df928419e18"
-    sha256 cellar: :any, arm64_ventura:  "364079dc6acbed8160fda49345ce9028fc9f1b1d3a536bdfd14913f5693db4d4"
-    sha256 cellar: :any, arm64_monterey: "e63fd223d1d8b83fe4082a0b0bd194376a625559b7d5c74cef621f7953ae1a07"
-    sha256 cellar: :any, sonoma:         "3e023d4431f7d23e72db93475d90a7e557c9a384d441978caa4fb00f1375189d"
-    sha256 cellar: :any, ventura:        "d0ca7fb0c5eb46034d8071c688335aa3e160c3eae6573ef3f849669c5bb54257"
-    sha256 cellar: :any, monterey:       "047654f00524d97eb78fc4e3a468f04c05246a0b6cdda4ba635a4fb3692c98ca"
-    sha256               x86_64_linux:   "a0a206d3d430733f9567c7b435e719bb4f3a3708b3f096391624f1d3fa69fc1a"
+    sha256 cellar: :any, arm64_sequoia: "6fe0796eee858a564e69b1177dd570c2a44960d5fc6df5825d34f0ae5104e3ee"
+    sha256 cellar: :any, arm64_sonoma:  "11974635b9e35ccd0edf36f553732fc91e7a8b968603e9be54a09b2a13a21f99"
+    sha256 cellar: :any, arm64_ventura: "b41e468afe95410db6fa3dcec3b506567bd360214870b54b18243f83c8e4e5c8"
+    sha256 cellar: :any, sonoma:        "27799a651b2291ef1b6e15f5c09438c7383616852fa0020edcd0023f92732218"
+    sha256 cellar: :any, ventura:       "2c9b914fd1c12313bc3a1eb5af3788ffd35983e9e7b40f1f7cffbb17d3bf8caf"
+    sha256               x86_64_linux:  "a14155cd533018b60d756bf03f5123450683befe381854d92d18db20c9fcc812"
   end
 
   depends_on "cbindgen" => :build
   depends_on "pkg-config" => :build
   depends_on "python@3.12" => :build
   depends_on "rust" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "nspr"
   depends_on "readline"
 

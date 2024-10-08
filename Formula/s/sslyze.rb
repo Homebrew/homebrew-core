@@ -40,7 +40,6 @@ class Sslyze < Formula
   depends_on "rust" => :build # for cryptography
   depends_on "openssl@1.1"
   depends_on "pycparser"
-  depends_on "python-typing-extensions"
   depends_on "python@3.11"
 
   uses_from_macos "libffi", since: :catalina

@@ -1,7 +1,7 @@
 class Vip < Formula
   desc "Program that provides for interactive editing in a pipeline"
-  homepage "https://www.cs.duke.edu/~des/vip.html"
-  url "https://www.cs.duke.edu/~des/scripts/vip"
+  homepage "https://users.cs.duke.edu/~des/vip.html"
+  url "https://users.cs.duke.edu/~des/scripts/vip"
   version "19971113"
   sha256 "171278e8bd43abdbd3a4c35addda27a0d3c74fc784dbe60e4783d317ac249d11"
   # Permission is granted to reproduce and distribute this program

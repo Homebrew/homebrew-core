@@ -23,7 +23,6 @@ class Ldns < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "18e17dee3c78315e4b42f3aa15d8cb2b1f2efbc21b3fb444f373e3afa119ff84"
   end
 
-  depends_on "python-setuptools" => :build
   depends_on "swig" => :build
   depends_on "openssl@3"
   depends_on "python@3.12"

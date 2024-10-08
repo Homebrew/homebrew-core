@@ -79,7 +79,7 @@
   },
   "awscli": {
     "exclude_packages": ["cryptography"],
-    "extra_packages": ["flit-core", "setuptools", "wheel"]
+    "extra_packages": ["flit-core"]
   },
   "awscurl": {
     "exclude_packages": ["certifi", "cryptography"]
@@ -366,6 +366,9 @@
   "gptline": {
     "exclude_packages": ["certifi", "pillow"]
   },
+  "gptme": {
+    "exclude_packages": ["certifi"]
+  },
   "graph-tool": {
     "package_name": "",
     "exclude_packages": ["numpy", "pillow"],
@@ -617,7 +620,7 @@
   },
   "pydocstyle": "pydocstyle[toml]",
   "pygit2": {
-    "exclude_packages": ["cffi", "pycparser", "setuptools"]
+    "exclude_packages": ["cffi", "pycparser"]
   },
   "pyinstaller": {
     "extra_packages": ["macholib"]

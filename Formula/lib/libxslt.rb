@@ -4,6 +4,7 @@ class Libxslt < Formula
   url "https://download.gnome.org/sources/libxslt/1.1/libxslt-1.1.42.tar.xz"
   sha256 "85ca62cac0d41fc77d3f6033da9df6fd73d20ea2fc18b0a3609ffb4110e1baeb"
   license "X11"
+  revision 1
 
   # We use a common regex because libxslt doesn't use GNOME's "even-numbered
   # minor is stable" version scheme.
@@ -13,14 +14,12 @@ class Libxslt < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "bf13c5f7c1e76a199ed494c88c24eee4ba697acba83248566eb4e017cc9226c6"
-    sha256 cellar: :any,                 arm64_sonoma:   "3c3a336b56c8384b9c2956202cc78e28271db8b627a65227f77f049d387b8c05"
-    sha256 cellar: :any,                 arm64_ventura:  "fd6b363128cde585e7086df6d54c8473475a568842b6aa04add1947dae8b9135"
-    sha256 cellar: :any,                 arm64_monterey: "27c8a5e233ab19a82557b33c99f4e226610859832b27c18276a49c1a3765621d"
-    sha256 cellar: :any,                 sonoma:         "33fbe4982e16be91957f9eeb77f35f70385831d479a15b87908389a1077a475c"
-    sha256 cellar: :any,                 ventura:        "82e7425e4331d0024a053434efbd3e6035721a3f792b3fb5b8b8d72fce88cc73"
-    sha256 cellar: :any,                 monterey:       "1609668b445f07134b3f6fafa6cc0307d0659466f2d4aa708e0787bf3a064a6b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "222f19398d1b8f2d1efb196b2336d9b6a8b805abd6b3ab3f1d002112dc7fa67c"
+    sha256 cellar: :any,                 arm64_sequoia: "1e5743ac455f3135b1238d5bfc26860f5421093761b7c6974579d9db6dbd68d8"
+    sha256 cellar: :any,                 arm64_sonoma:  "3027548c825b0f6715294f5ba996e580b09c6530d459788044a6a095cf789a24"
+    sha256 cellar: :any,                 arm64_ventura: "ac34533e43ac19e2c259598ee0b233b7f75e66547423b7fe0a99f5b27be5c7fd"
+    sha256 cellar: :any,                 sonoma:        "bd9313ff618b8a9a2c4b55948d3a57162017e1c01deb2cc7e2529814be41f904"
+    sha256 cellar: :any,                 ventura:       "5ed5bfee0e7dbfc436885d85dd498beac016647ff997fe3da54ae3972899fdf2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "09861e3e118d40c2ab0eae14761182f95aa6c71600c5850bea1c0ee32afe0b1e"
   end
 
   head do
@@ -33,7 +32,6 @@ class Libxslt < Formula
 
   keg_only :provided_by_macos
 
-  depends_on "icu4c"
   depends_on "libgcrypt"
   depends_on "libxml2"
 

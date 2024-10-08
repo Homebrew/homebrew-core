@@ -4,6 +4,7 @@ class Node < Formula
   url "https://nodejs.org/dist/v22.9.0/node-v22.9.0.tar.xz"
   sha256 "a55aeb368dee93432f610127cf94ce682aac07b93dcbbaadd856df122c9239df"
   license "MIT"
+  revision 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
   livecheck do
@@ -12,19 +13,19 @@ class Node < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "0bfb1ebbf304458e9ff7c2cd0a1c410c06f51aa0fb8d458200cc274e2c66e16c"
-    sha256 arm64_sonoma:  "05299315937716d7646a7bcf911fbfd2dbafc0be73e42a126203b00b565ab657"
-    sha256 arm64_ventura: "c3eaf571f4e12eea25b74bbff5b82bd85c2117ecfc09af9bedaef238fdb94cc8"
-    sha256 sonoma:        "dfca05a3068ac014f25fe1a21c2c771d2a44cc7d04dfed556d6ca04b01033887"
-    sha256 ventura:       "538d42997595a59d7c242dc78fd4412121ae6e3ab475223a6f1b89ec3a8cad85"
-    sha256 x86_64_linux:  "ca407a117cf667d560a24f8db3de0f7675cea6f43f3832e7fbe5460501059e92"
+    sha256 arm64_sequoia: "cf11099a798826240964dcf984741456b73218f177dd16d8ec56be676e1f29d0"
+    sha256 arm64_sonoma:  "68dee27224d3715ce86766563d89a834c03d7d9b35eee7150c25d94ba29c8b1e"
+    sha256 arm64_ventura: "d9b7844150021e8ec32468c6e5cdec4f0863988643eab4b0578d8e16baaaefa0"
+    sha256 sonoma:        "df14e1b67ee62cf9a33300f59f3d6ff6c4280f76dfcaf5279baa673b874ad9f0"
+    sha256 ventura:       "9be7c7082adc46119a6c52ea413a5437094d33c894b4c833136387aa953bfb12"
+    sha256 x86_64_linux:  "9447d0936c6b3eb34cccaae5f55f8886f5c920dcb17743ac9569505c78b9b30c"
   end
 
   depends_on "pkg-config" => :build
   depends_on "python@3.12" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"

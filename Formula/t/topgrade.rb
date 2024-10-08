@@ -1,8 +1,8 @@
 class Topgrade < Formula
   desc "Upgrade all the things"
   homepage "https://github.com/topgrade-rs/topgrade"
-  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v15.0.0.tar.gz"
-  sha256 "53c6521041a6ffddf1ccb13f404f131919a2ef48deb3974fc71dc3be08db6cd0"
+  url "https://github.com/topgrade-rs/topgrade/archive/refs/tags/v16.0.0.tar.gz"
+  sha256 "c4af5ae7c03b92d726301c56aa7e6003ae9ba3d852afb77a8297add7001b2cc3"
   license "GPL-3.0-or-later"
   head "https://github.com/topgrade-rs/topgrade.git", branch: "main"
 
@@ -12,14 +12,12 @@ class Topgrade < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "53a750d9b35fae9273acfc14187f4154288035b245b833734ab01dab6d1e1030"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a17876bc268b32264706ce0768d126f1e87062259e7920b5856eda0fe6f333c0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "7bc4ae08ea5128a90c9b231f06c1fd6a871efeeca9880c8d15f664c3216b01e6"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "c9f1a51fb7c05c5952220c9eef82a4d28b87d64e2036fad148aacd232e6e7af1"
-    sha256 cellar: :any_skip_relocation, sonoma:         "fec96b7c87ab4abb423a1cb41cea81d2fe226a595fba6f1e03e731cc264a4d6f"
-    sha256 cellar: :any_skip_relocation, ventura:        "2c35b56e4d8806e003b882972bb41febb181d3f5631fcbcb2da231550a8a2599"
-    sha256 cellar: :any_skip_relocation, monterey:       "ab5883ebfafb6a25c7f2e571d5e02335a42572aa00ae8e8a12d43a9ae64f7369"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "cd3e41f16305e24be1634500dbee353578ffad71e46e211135afac6418cd6659"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "728b95806adb5272d8611a7923aa78300769408bb5b0c28d720b18fc32fb7279"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e128f9fc99561cf9965660590dcd3c858e3234f147d618e5696134ece0694374"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "7ad242079a25c1d2f8eabadc70c25014c754662a94b5c1911cb409d6c676cdec"
+    sha256 cellar: :any_skip_relocation, sonoma:        "f9d6f4d713e7b1101c8794ac5741ef1b00873751e6318d05de9cd447c8d8a082"
+    sha256 cellar: :any_skip_relocation, ventura:       "73972c7fce98c4678ded9d76dfb93cf0155c93e58002325da6aa0c32cef1d3e5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "614ebb965c4e21a69d85c14d919a9c8ee68673314205ab86116628eb55911f42"
   end
 
   depends_on "rust" => :build

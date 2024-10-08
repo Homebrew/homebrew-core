@@ -1,8 +1,8 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.03.00.tar.gz"
-  sha256 "0dae6d32184aca6f2cdbe818ee2f26aa58baa87d9e82f820914c63b35aa075de"
+  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.03.01.tar.gz"
+  sha256 "057b8e06590cf29a1bd22b6c83aa5daa816d5cbb2ba2548409d474d7dc10c5b8"
   license "BSD-3-Clause"
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
@@ -12,14 +12,12 @@ class Camlp5 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "42ff212f1602e47e511af4347b206a4f284b0fbb1c692f84ba83b29062dbca8d"
-    sha256 arm64_sonoma:   "351bc6f9bba7beebcd961e5bab9ebca32d8b4bd0507e1901cceb1e2930c6c493"
-    sha256 arm64_ventura:  "be8a0d5f7f033e1b79e416654b5b3eccca3201f689726d42b408faff6c8f6fe3"
-    sha256 arm64_monterey: "4eb4dbe6e3e66708c4e942e2ed10d90178cced35ea75367286c63b9ca21c07d5"
-    sha256 sonoma:         "906ffd7b6316f20a10d349d1170752298aeb0191eac7dcff6c22c01fb7618005"
-    sha256 ventura:        "23b352596c1e729f9094f5e05822d9c10b1a2b28e5c6d3b6bde5ae01d95c15a8"
-    sha256 monterey:       "8f42fe3372d348d38f9f3272036967bf0e6425de81df130a6aeebf76842e4e20"
-    sha256 x86_64_linux:   "6d732cb0df6a06f0f9ece5791d12169d032326ddb58306e17ea276d95abd3ebb"
+    sha256 arm64_sequoia: "8eb1bd182dff1a1f93c7cad292a550a0ff6a7700dd383d344e605661413b1f73"
+    sha256 arm64_sonoma:  "2b7feece68d3595e22218a9532a50cad7a835bf55555b8ae2acbe0aa001b206a"
+    sha256 arm64_ventura: "baac175d9fc1d95967bbd534fe163ed06461993f1fffa2a601c5a2daeb960942"
+    sha256 sonoma:        "32bedf850db730633846714e007e702464370f6bfe5018bc387ee3e55744466e"
+    sha256 ventura:       "b42b8272468115f0bc0fc793937a41f965dd09bf2cabd548d7fcbd974433042c"
+    sha256 x86_64_linux:  "40fdc0d4a01d13250fc2dfa8b8c1d7feaac99894e6deecd74b662d0dca58b812"
   end
 
   depends_on "ocaml-findlib" => :build

@@ -1,19 +1,17 @@
 class TerragruntAtlantisConfig < Formula
   desc "Generate Atlantis config for Terragrunt projects"
   homepage "https://github.com/transcend-io/terragrunt-atlantis-config"
-  url "https://github.com/transcend-io/terragrunt-atlantis-config/archive/refs/tags/v1.18.0.tar.gz"
-  sha256 "6b0d26b611836c121d19b6800d59ec3b705dd6b65f5b353f104337e171c16976"
+  url "https://github.com/transcend-io/terragrunt-atlantis-config/archive/refs/tags/v1.19.0.tar.gz"
+  sha256 "79cf097ca611f65d8134150a430a6843d98fa27d2891e650ddcae59025515bce"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "d1b7f0d1ec0b0c4968dc9dede7411fd60f8f62623ea9bcc5537f009d29c62e30"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d02ff6a8a53fd34d4a521381da440ec773f98dfcb062fcf615df2cc88f5deadb"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "4d529a165c03b52d89fbdc6b188db30dd4b10dcce8cb2c28cd1e47132f86c263"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ff99a9e35ba21df820b3e57b95b18a71ef1fa3511e1afda44877147e53e590de"
-    sha256 cellar: :any_skip_relocation, sonoma:         "55c1fe4342db8e73e096010cef6ae63759e0a1200179e2ae83aed6eb2c77d542"
-    sha256 cellar: :any_skip_relocation, ventura:        "e9b54db437f82455391b84b8eb284c237863f06bd7bf5554f3c06e83aff06a93"
-    sha256 cellar: :any_skip_relocation, monterey:       "bcb47c9243511561b9efc56f7dde315a447c3f0571bcd9f6e6fadd61a106ca41"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "789add0637f8e22d11aac2edccc8003ca1d8c8ffbf8d9af9b009d55396fd4cfa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "8ba1a4023db6d90cb11256764d737d6ead07a988501461f5fec015f016cb50f6"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "8ba1a4023db6d90cb11256764d737d6ead07a988501461f5fec015f016cb50f6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "8ba1a4023db6d90cb11256764d737d6ead07a988501461f5fec015f016cb50f6"
+    sha256 cellar: :any_skip_relocation, sonoma:        "e2c306175d1aedc0266307ed822db476cf145e7ec695a10b25a809c86e6dba73"
+    sha256 cellar: :any_skip_relocation, ventura:       "e2c306175d1aedc0266307ed822db476cf145e7ec695a10b25a809c86e6dba73"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cde2ed2116cb2de91059df9561862880a37ba97ab615be4b893ba430767f0135"
   end
 
   depends_on "go" => :build

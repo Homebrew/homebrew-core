@@ -4,15 +4,16 @@ class Harfbuzz < Formula
   url "https://github.com/harfbuzz/harfbuzz/archive/refs/tags/10.0.1.tar.gz"
   sha256 "e7358ea86fe10fb9261931af6f010d4358dac64f7074420ca9bc94aae2bdd542"
   license "MIT"
+  revision 1
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia: "d7d99294e4a9cec03e2564de8bfbff6a7e13deb0bd65f9dc0f1c252a238e2ccd"
-    sha256 cellar: :any, arm64_sonoma:  "47ff8bbd289471f8b5703009d59cb0269dd1dd028f71646586598466a9fa61aa"
-    sha256 cellar: :any, arm64_ventura: "59578346054df1c1060fde29159b90d3964fbec6462e77b5917d3db130077bf1"
-    sha256 cellar: :any, sonoma:        "adee20f05e347bd6c3b200b16af44b46b073e1319ff49eea6daf6cd38663b099"
-    sha256 cellar: :any, ventura:       "bef171dea7de12a26b1584dd149cf78d53e4c13614bcc386ea543d2c59483ede"
-    sha256               x86_64_linux:  "9735013cd10088bfbe0e92ef4ff534cfe07ed5924337a06971c85ba415f59c41"
+    sha256 cellar: :any, arm64_sequoia: "9929dbfee478a7df8af8a4dc20064b06075269a69c85c3ac7987debf32eb1613"
+    sha256 cellar: :any, arm64_sonoma:  "385db025846a56597809370f470ce1c387d818895c4f9151ece6d1fe6bd557d3"
+    sha256 cellar: :any, arm64_ventura: "d9048c6446a50919c93ebac94a1b5ffbe5b53f33be4c42a76272d272b7c287b8"
+    sha256 cellar: :any, sonoma:        "820ef457c7a3272aa5164b8231cb9f7a80751684ab73b4fe2878f69177ab5640"
+    sha256 cellar: :any, ventura:       "2da1ef5e13bb060f10654db7f573f5ca8fd6a96799c1a8b7c1b3f6caaaf40b6a"
+    sha256               x86_64_linux:  "0e3cce49524e68d3d89f703c7faca12791a4f5d0b674870bdba92ba5286e79da"
   end
 
   depends_on "gobject-introspection" => :build
@@ -25,7 +26,7 @@ class Harfbuzz < Formula
   depends_on "freetype"
   depends_on "glib"
   depends_on "graphite2"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
 
   resource "homebrew-test-ttf" do
     url "https://github.com/harfbuzz/harfbuzz/raw/fc0daafab0336b847ac14682e581a8838f36a0bf/test/shaping/fonts/sha1sum/270b89df543a7e48e206a2d830c0e10e5265c630.ttf"

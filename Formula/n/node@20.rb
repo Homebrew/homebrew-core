@@ -4,6 +4,7 @@ class NodeAT20 < Formula
   url "https://nodejs.org/dist/v20.18.0/node-v20.18.0.tar.xz"
   sha256 "7d9433e91fd88d82ba8de86e711ec41907638e227993d22e95126b02f6cd714a"
   license "MIT"
+  revision 1
 
   livecheck do
     url "https://nodejs.org/dist/"
@@ -11,12 +12,12 @@ class NodeAT20 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7c68b0e05da526f21f7929d71a8aec185822be8bf83b853d7ab7120a166fb531"
-    sha256 arm64_sonoma:  "70e2e6e729fc7d1d2c9dd8bf57cdc0d3e4730ac248a018bd049e049ea7b30bfc"
-    sha256 arm64_ventura: "6b3d3e21038b2a9e02d681ebfb5898659c13d43389990b10888d03212d198be8"
-    sha256 sonoma:        "62270f0eacf4b4bd767bd47b8d46c5fc855547f13479efc39c2bfa0d35c89c71"
-    sha256 ventura:       "0e0aceef3fbd35d0ed3594fc14f5ed84731bd8deb05f25150f44a46df8dad2b6"
-    sha256 x86_64_linux:  "9511eb283744e5dc9719e568207c8cf7ac6bdd930f178fcf583f46037c8b6782"
+    sha256 arm64_sequoia: "fd0df56bde79e20cbc279997e65e58c4924f868b70098f67a26c569622adaaff"
+    sha256 arm64_sonoma:  "fa339fffcdfe46f2e559a8f970e4877fffdba8fda457feaac05efa94503e7f30"
+    sha256 arm64_ventura: "74d229c42c021499276264761ec95f278a92a42efb1ed7098771407f50f1d738"
+    sha256 sonoma:        "212936d2f3c6d162c694a5c42e0713c125b2c0720a777ea2a4331d5f98389832"
+    sha256 ventura:       "bcfa8a4c57aa961914fcf5602e7260f0b69db140263c91c142bdd11fe9806c49"
+    sha256 x86_64_linux:  "ecc3904b5fef9a53271e8eb60dec9f740a4a4b130e25f0c425391df0c59f2083"
   end
 
   keg_only :versioned_formula
@@ -29,7 +30,7 @@ class NodeAT20 < Formula
   depends_on "python@3.12" => :build
   depends_on "brotli"
   depends_on "c-ares"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libnghttp2"
   depends_on "libuv"
   depends_on "openssl@3"

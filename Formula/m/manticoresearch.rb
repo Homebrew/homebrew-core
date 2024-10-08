@@ -9,6 +9,7 @@ class Manticoresearch < Formula
     { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
+  revision 1
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -19,14 +20,12 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "d1cc0bf982a31827707598ebfca997641504ff4807402ce3fefb7249e9898cb1"
-    sha256 arm64_sonoma:   "e8c8da051f17ed8e3984e7a73b2956fe9dbb15af20f6586f7c639b82871d8b76"
-    sha256 arm64_ventura:  "7af52d4fa6beb2a7fe7a7fab57d7781c50f340e1c4f164668e03ca543ffc36ba"
-    sha256 arm64_monterey: "f793c0bb62386e8cc63f9657788d587c06dc742b507ac3c28d1d828d7ad00c8e"
-    sha256 sonoma:         "6f42e036fa7fe8fa7b5e3da02e0c4e0c685c862e0a332d7329aa14d75264007a"
-    sha256 ventura:        "ed97b55541841ab96bec286202cbc13bd6e4b3768f82ad18b4a207d2f4d631c9"
-    sha256 monterey:       "be12886881943aa6c44fe6f6506322f08163f129e4c91fcb4d3db9a8045bee9c"
-    sha256 x86_64_linux:   "5ddaec2c620e960e04733e79738758b88ecdafa09284c11283561005c3cb2449"
+    sha256 arm64_sequoia: "c1d3ba2930306333adf8fb0b520fab4aa1049b8820848ab8ebebf26c65439392"
+    sha256 arm64_sonoma:  "62aa91631038e5eb4b927d98348799449b0d0279f682bbb57517aeefeb04a31f"
+    sha256 arm64_ventura: "b8967a7b72cdcacf9d52ee55b94da412bafc1fe0ab1a12405758ef1efc9684b9"
+    sha256 sonoma:        "d07adf6c1e6a4fbf85e6c0883a961837b3de87e79778b81c1118db8fc661237f"
+    sha256 ventura:       "14997a93fa20490c7b3709423817afb9637c27ef47ed4150f729f1d8faecffa7"
+    sha256 x86_64_linux:  "4e34dac8b96e920c3e8852afba0ebebc7f1010edff93c9c887d558ad1456a413"
   end
 
   depends_on "boost" => :build
@@ -36,7 +35,7 @@ class Manticoresearch < Formula
 
   # NOTE: `libpq`, `mysql-client`, `unixodbc` and `zstd` are dynamically loaded rather than linked
   depends_on "cctz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libpq"
   depends_on "mysql-client"
   depends_on "openssl@3"
@@ -57,7 +56,8 @@ class Manticoresearch < Formula
     # Issue ref: https://github.com/manticoresoftware/manticoresearch/issues/2393
     ENV.append_to_cflags "-fpermissive" if OS.linux?
 
-    ENV["ICU_ROOT"] = Formula["icu4c"].opt_prefix.to_s
+    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
+    ENV["ICU_ROOT"] = icu4c.opt_prefix.to_s
     ENV["OPENSSL_ROOT_DIR"] = Formula["openssl@3"].opt_prefix.to_s
     ENV["MYSQL_ROOT_DIR"] = Formula["mysql-client"].opt_prefix.to_s
     ENV["PostgreSQL_ROOT"] = Formula["libpq"].opt_prefix.to_s

@@ -4,8 +4,8 @@ class Uade < Formula
   license "GPL-2.0-only"
 
   stable do
-    url "https://zakalwe.fi/uade/uade3/uade-3.04.tar.bz2"
-    sha256 "8bff0f18ad81f0e1b99f77ee75a2a7f5bbcb5de2f0ad9fa064ae8202831fb8ef"
+    url "https://zakalwe.fi/uade/uade3/uade-3.05.tar.bz2"
+    sha256 "1a2dd9fdf8cf47c4587dcc09df16f1bb49374a9e7f8f53cdb4816d50c87e4f4c"
 
     resource "libzakalwe" do
       url "https://gitlab.com/hors/libzakalwe/-/archive/v1.0.0/libzakalwe-v1.0.0.tar.bz2"
@@ -24,12 +24,12 @@ class Uade < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "ec1014949e006642d06cc86209bcd20d4ca0020deb2bec1e62b577e2f60a3a3c"
-    sha256 arm64_sonoma:  "e30210f3367ef1a87ff0f24781352fb4e75217e2614eaccf39bed736dca55789"
-    sha256 arm64_ventura: "7f4aaf001b307e40a1c8d9c9244bfefbda96a904b6b34a3b657c0d6666417f7e"
-    sha256 sonoma:        "494bd0d2370b36e7d1dd7380762d75960efc4beadd4f24f5ec49ef998ad803c8"
-    sha256 ventura:       "f1555c43f27c03d1af5f490689a80ee5aaa1e82d837a942a221b8566b0aa3835"
-    sha256 x86_64_linux:  "18a55a968385ac01ae9e61d674001a0785fc7cdb25fc5f14aa72a1fc0a410c03"
+    sha256 arm64_sequoia: "bd88580d311132e6f8989d53759a3f4014c3bd2a799a4beeda45917443bd24b1"
+    sha256 arm64_sonoma:  "ebc44bdc2b0985767cfc0e758b626bdc7a4fd25d46fd131f9a345b49f1637170"
+    sha256 arm64_ventura: "dd63456268436dad18fad3257239338d9be764a2c65f66a116ec38dc9ad523c7"
+    sha256 sonoma:        "8efa9e1dc22e259d2608f0300414f326405fa336fa8bc7323a1894cc9eba424f"
+    sha256 ventura:       "c6c24f4dad586bede8ea9cb93103e5b7acdd4694503ffaa00bc66022022c2365"
+    sha256 x86_64_linux:  "57119bf1df980db377ed2a47e16a386060756151ca74a3506bac17685834c4b9"
   end
 
   head do

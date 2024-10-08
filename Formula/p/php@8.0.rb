@@ -34,7 +34,8 @@ class PhpAT80 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c"
+  # Re-add an ICU4C dependency if extracting formula
+  # TODO: depends_on "icu4c"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"

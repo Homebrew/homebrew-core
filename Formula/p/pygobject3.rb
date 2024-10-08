@@ -19,7 +19,6 @@ class Pygobject3 < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
   depends_on "python@3.11" => [:build, :test]
   depends_on "python@3.12" => [:build, :test]
 
@@ -36,19 +35,16 @@ class Pygobject3 < Formula
         .map { |f| f.opt_libexec/"bin/python" }
   end
 
-  def site_packages(python)
-    prefix/Language::Python.site_packages(python)
-  end
-
   def install
     pythons.each do |python|
       xy = Language::Python.major_minor_version(python)
       builddir = "buildpy#{xy}".delete(".")
+      site_packages = prefix/Language::Python.site_packages(python)
 
       system "meson", "setup", builddir, "-Dpycairo=enabled",
                                          "-Dpython=#{python}",
-                                         "-Dpython.platlibdir=#{site_packages(python)}",
-                                         "-Dpython.purelibdir=#{site_packages(python)}",
+                                         "-Dpython.platlibdir=#{site_packages}",
+                                         "-Dpython.purelibdir=#{site_packages}",
                                          "-Dtests=false",
                                          *std_meson_args
       system "meson", "compile", "-C", builddir, "--verbose"

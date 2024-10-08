@@ -7,12 +7,13 @@ class Aflxx < Formula
   revision 1
 
   bottle do
-    sha256 arm64_sequoia: "2d620933992908d3493f17b4e44c9f388e560c61ea07f5eeeaba6f06958c2981"
-    sha256 arm64_sonoma:  "a91b21cfbebbbf85e072a2b564391e9abe6dacd23ae846d779a274f54c5d56a0"
-    sha256 arm64_ventura: "af51fb3aacb8fc34e83c0d5473bcce88bcfcd5bee97a7d200df6b330573b1e74"
-    sha256 sonoma:        "9972f30928d25849cf62eec6af83b4598e4cd38e34a465af4b871ee8cfac443f"
-    sha256 ventura:       "3ecd8dae6fd187a902ac7e448e5f180440fc0a392ceb84569bc67a4dc3c498db"
-    sha256 x86_64_linux:  "d405240caa4d8bd5c3f2d912da1aa755134d450f87c05929560356692354cedb"
+    rebuild 1
+    sha256 arm64_sequoia: "bc36a276193f8bc347b58ede62c96289e5f4760c49df5b34880af7e1b096adef"
+    sha256 arm64_sonoma:  "007e43ccfcd0ababf4201c61ca8bd5af261aa2d8ccd92554dbe07f90466adf08"
+    sha256 arm64_ventura: "19152794969e4f6a35db1cfce3bba890a624ce00d60f0eb562fa9ded84026af7"
+    sha256 sonoma:        "0c1fb8e9a68cb26013482eb476e1b137193aba3c4b99e45ea53d16adc602a2a3"
+    sha256 ventura:       "e1339535ffd0683a2f9159054ed40d603a2071398a90acc0b76c470810a2e0b5"
+    sha256 x86_64_linux:  "e303493ba40b6ba430be07a4eaabe3ed65c86308dbdff712be5c16a527f808bf"
   end
 
   depends_on "coreutils" => :build
@@ -23,13 +24,15 @@ class Aflxx < Formula
   fails_with :clang
   fails_with :gcc
 
+  # Fix `-flat_namespace` flag usage.
+  # https://github.com/AFLplusplus/AFLplusplus/pull/2217
+  patch do
+    url "https://github.com/AFLplusplus/AFLplusplus/commit/cb5a61d8a1caf235a4852559086895ce841ac292.patch?full_index=1"
+    sha256 "f808b51a8ec184c58b53fe099f321b385b34c143c8c0abc5a427dfbfc09fe1fa"
+  end
+
   def install
     ENV.prepend_path "PATH", Formula["coreutils"].libexec/"gnubin"
-
-    inreplace "GNUmakefile.llvm" do |s|
-      s.gsub! "-Wl,-flat_namespace", ""
-      s.gsub! "-undefined,suppress", "-undefined,dynamic_lookup"
-    end
 
     if OS.mac?
       # Disable the in-build test runs as they require modifying system settings as root.

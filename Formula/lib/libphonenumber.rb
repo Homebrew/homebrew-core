@@ -4,6 +4,7 @@ class Libphonenumber < Formula
   url "https://github.com/google/libphonenumber/archive/refs/tags/v8.13.47.tar.gz"
   sha256 "b56ef9dbdfd91968242d63e38457cf58f1c03ddff5a9cb8862dd0138419f6cd2"
   license "Apache-2.0"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,19 +12,19 @@ class Libphonenumber < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "e1ae202197a6d43e8e0355acb819946759fb480d8a1b9fc7f5cf3dab6fb17a29"
-    sha256 cellar: :any,                 arm64_sonoma:  "a1435198085c9718426a289bb16f9f928b9ec9a653c38b5079b5c77219dac8a8"
-    sha256 cellar: :any,                 arm64_ventura: "4ca610893e61abf6013a8089d824aacead61ebea4b840434e1ef51802ad1a2e0"
-    sha256 cellar: :any,                 sonoma:        "5867593bf398b1d0d5419849f60cb743839cf97db940de97f806874e387b012e"
-    sha256 cellar: :any,                 ventura:       "16d5a8084179910da5ae18c8ef9f1ca114bc9bc07e909e8788e1d16ab1387338"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "eb568c65432547cf22b5baca9cd3d3206dc302182975434dc6557875ee34986c"
+    sha256 cellar: :any,                 arm64_sequoia: "9368e6ebb90d92ad63a1a8d42fb7193e832e0e941236a7b7b361904d257d49d5"
+    sha256 cellar: :any,                 arm64_sonoma:  "b55cd2955482f867d11222e395e48221c9c8d93ec7a58e9f76f665057726d6e9"
+    sha256 cellar: :any,                 arm64_ventura: "56ff353ae83e9d176e476441f0a269edc6c0c5c75f0d9c9fe6c2ccfe348e7da3"
+    sha256 cellar: :any,                 sonoma:        "61a70ae92b382b6821b673db9bed6b99af2f003c82e8f707f226e0c7956921c5"
+    sha256 cellar: :any,                 ventura:       "69fcafbd8223f8d4ec935e711b2feb358fa75118968698330ecf53d8084e4046"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "28094999cf5a057ab93f4379c271d7973481a31cecc7e1f6d6005085c8749e7d"
   end
 
   depends_on "cmake" => :build
   depends_on "openjdk" => :build
   depends_on "abseil"
   depends_on "boost"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "protobuf"
 
   fails_with gcc: "5" # For abseil and C++17

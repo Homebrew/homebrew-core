@@ -1,18 +1,17 @@
 class Awsdac < Formula
   desc "CLI tool for drawing AWS architecture"
   homepage "https://github.com/awslabs/diagram-as-code"
-  url "https://github.com/awslabs/diagram-as-code/archive/refs/tags/v0.21.5.tar.gz"
-  sha256 "92e68b8fc2bee44fc8a943153453ecd4fd86628f41e7564a83444e32fcca1a9c"
+  url "https://github.com/awslabs/diagram-as-code/archive/refs/tags/v0.21.6.tar.gz"
+  sha256 "1b3e955eb9df643246d3a9b88d2b951b0eb5cfb9b3d667ded2a4dbd5476551c3"
   license "Apache-2.0"
   head "https://github.com/awslabs/diagram-as-code.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "e73b9a8c44ae6644751a1161a74ceda06d1854e6a0213d137a9a146314a3d015"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e73b9a8c44ae6644751a1161a74ceda06d1854e6a0213d137a9a146314a3d015"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "e73b9a8c44ae6644751a1161a74ceda06d1854e6a0213d137a9a146314a3d015"
-    sha256 cellar: :any_skip_relocation, sonoma:        "ac92fff7b63af4a23ca3b9752c1e9225fdd91f77950aa9d7f97cfc49993a086e"
-    sha256 cellar: :any_skip_relocation, ventura:       "ac92fff7b63af4a23ca3b9752c1e9225fdd91f77950aa9d7f97cfc49993a086e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "adcac8fef947c7328f92f04c88f6f6a03f7850ff6eda76e8c61641b801aa30e1"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "adcac8fef947c7328f92f04c88f6f6a03f7850ff6eda76e8c61641b801aa30e1"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "adcac8fef947c7328f92f04c88f6f6a03f7850ff6eda76e8c61641b801aa30e1"
+    sha256 cellar: :any_skip_relocation, sonoma:        "341ad9e33312dde036869e78abdee6e39c13d4e48c5fd574031b0421e4386949"
+    sha256 cellar: :any_skip_relocation, ventura:       "341ad9e33312dde036869e78abdee6e39c13d4e48c5fd574031b0421e4386949"
   end
 
   depends_on "go" => :build

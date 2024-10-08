@@ -16,14 +16,17 @@ class Dafny < Formula
   # PR ref: https://github.com/dafny-lang/dafny/pull/5322
   deprecate! date: "2024-11-12", because: "uses deprecated `dotnet@6`"
 
+  depends_on "gradle" => :build
+  depends_on "openjdk" => [:build, :test]
+
   depends_on "dotnet@6"
-  # We use the latest Java version that is compatible with gradlew version in `dafny`.
-  # https://github.com/dafny-lang/dafny/blob/v#{version}/Source/DafnyRuntime/DafnyRuntimeJava/gradle/wrapper/gradle-wrapper.properties
-  # https://docs.gradle.org/current/userguide/compatibility.html
-  depends_on "openjdk@17"
   depends_on "z3"
 
   def install
+    # Use our `gradle` to build rather than wrapper which uses its own copy
+    rm("Source/DafnyRuntime/DafnyRuntimeJava/gradlew")
+    inreplace "Source/DafnyRuntime/DafnyRuntime.csproj", 'Command="./gradlew ', 'Command="gradle '
+
     system "make", "exe"
     libexec.install Dir["Binaries/*", "Scripts/quicktest.sh"]
 
@@ -45,5 +48,9 @@ class Dafny < Formula
                   shell_output("#{bin}/dafny verify #{testpath}/test.dfy")
     assert_equal "\nDafny program verifier finished with 1 verified, 0 errors\nhello, Dafny\n",
                   shell_output("#{bin}/dafny run #{testpath}/test.dfy")
+
+    ENV["JAVA_HOME"] = Language::Java.java_home
+    assert_match(/^\nDafny program verifier finished with 1 verified, 0 errors\n(.*\n)*hello, Dafny\n$/,
+                 shell_output("#{bin}/dafny run --target:java #{testpath}/test.dfy"))
   end
 end

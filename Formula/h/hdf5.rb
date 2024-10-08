@@ -16,12 +16,13 @@ class Hdf5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "5cc08587212e632e4ef2b8ca037d679cf011297333bfc95bd0f753b452e7b514"
-    sha256 cellar: :any,                 arm64_sonoma:  "4c249b2b21f8a306715a5d35f61b83f0b9839c0335f2a5751902ff2cfef1820b"
-    sha256 cellar: :any,                 arm64_ventura: "914aee87d16c9ddeaf88e00ef33db5cd4e942655c69ed91f11aac4f916dbc949"
-    sha256 cellar: :any,                 sonoma:        "72da6906e4f1589d8224f878278c09b445fdd077597be4065c3efe28eec5cf29"
-    sha256 cellar: :any,                 ventura:       "9b776abda0d9124d8afed04bf881521ca8ea4e9232a8bb82bf6d12209bcd4300"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "fa1d18554918eee7081b17be953886f1dc250d190792eef50e7a3cc4bb7b8bc8"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "3854f8260b7212ba4260e7a87a237601130046f13e8b652abc94bf088cabd2ed"
+    sha256 cellar: :any,                 arm64_sonoma:  "08e04fb1e3c98a790107802d6cabd95dd2158baafb4cdc44a4ac35e81df1bdb5"
+    sha256 cellar: :any,                 arm64_ventura: "c6ffe42943316ae68d90d0de32f7a149a12711c7f45891e9e36d5bad91d63bf5"
+    sha256 cellar: :any,                 sonoma:        "45f91f9d68a053b3c062f9ce7b1dac556e110bf26a2e8abb84d5a4274fa929c8"
+    sha256 cellar: :any,                 ventura:       "eca34a056cf666df2b93b9026ad1a76ccfc24c24b66f41e8949b02d678d3360c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a6fd5b8187cb81abdaf7108ecf539c453438ceb5f2b8f754d0eacee8c33e4fe2"
   end
 
   depends_on "cmake" => :build
@@ -32,6 +33,12 @@ class Hdf5 < Formula
   uses_from_macos "zlib"
 
   conflicts_with "hdf5-mpi", because: "hdf5-mpi is a variant of hdf5, one can only use one or the other"
+
+  # fix c++ regression, can be removed in next release
+  patch do
+    url "https://github.com/HDFGroup/hdf5/commit/ea76013648aac81cee941a7b7a86f21201d1debf.patch?full_index=1"
+    sha256 "c4413888131ddc372e2c6b19230c477f169e63c286efee3ddd6a7fe264eabacd"
+  end
 
   def install
     ENV["libaec_DIR"] = Formula["libaec"].opt_prefix.to_s

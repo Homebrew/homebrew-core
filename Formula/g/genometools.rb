@@ -19,7 +19,6 @@ class Genometools < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "python-setuptools" => :build
   depends_on "cairo"
   depends_on "glib"
   depends_on "pango"
@@ -46,7 +45,7 @@ class Genometools < Formula
         "gtlib = CDLL(\"libgenometools\" + soext)",
         "gtlib = CDLL(\"#{lib}/libgenometools\" + soext)"
 
-      system python3, "-m", "pip", "install", *std_pip_args, "."
+      system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
       system python3, "-m", "unittest", "discover", "tests"
     end
   end

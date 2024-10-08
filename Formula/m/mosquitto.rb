@@ -1,8 +1,8 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.0.18.tar.gz"
-  sha256 "d665fe7d0032881b1371a47f34169ee4edab67903b2cd2b4c083822823f4448a"
+  url "https://mosquitto.org/files/source/mosquitto-2.0.19.tar.gz"
+  sha256 "33af3637f119a61c509c01d2f8f6cc3d8be76f49e850132f2860af142abf82a9"
   # # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
@@ -14,14 +14,12 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia:  "049b824619543666afb4162d0498a37c2d47698a07ce58f72b92f7590e73feeb"
-    sha256 arm64_sonoma:   "ed6fa66f74bb88539a0ed66d32ebf20d58d099ab6fc2131703d2cb6c26f053e1"
-    sha256 arm64_ventura:  "f7946b65c41657ea97975c9ce2a2d1e2c63f6dd2f55a5ad048fe9afdbff00d29"
-    sha256 arm64_monterey: "96990068f0968e20dbef5b553804855046bc332e66a144f792e0a668a383ce38"
-    sha256 sonoma:         "30e0c34d24332a35286dcf4737a9715370a3d62ff501fb47412ef755f72ec3a8"
-    sha256 ventura:        "be22defe47ce61833d400523b75ca6a4d8a67ccc3c56bae5114f8f3290df3f90"
-    sha256 monterey:       "4702e5a0ca4da921a85b8970f0dd9e6ed64788522f483b66fd025cd281d2ceea"
-    sha256 x86_64_linux:   "d699f5436ec14373d7c83e6ec811c2ac5ffef9595db2c48df8bbb20f1e975ae2"
+    sha256 cellar: :any,                 arm64_sequoia: "27d84e42df62a0987a6a4e09e9c3ad889d34431aff518e8a4e2ba04f4deddd70"
+    sha256 cellar: :any,                 arm64_sonoma:  "cc28e95d9eb3e6001f7a10ae55d78194c80ab9da0a845659ed297e63165387a3"
+    sha256 cellar: :any,                 arm64_ventura: "c0c317cf03d4bc3ea06595498c4133a6e04754b139f9dc9a2df253f9e184aa7a"
+    sha256 cellar: :any,                 sonoma:        "f185dcb4542baba50bb99074e22ac703830034a5606b77fcf6b8bffac874742c"
+    sha256 cellar: :any,                 ventura:       "66a4fce1db1301186613ee23fc40d5564d87c6673443214315cb193aef2a2ba4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4a0ead2e42e910ff18f0595a0a8d402fd1eef81556f8487f936ef8f21ac917af"
   end
 
   depends_on "cmake" => :build
@@ -31,6 +29,11 @@ class Mosquitto < Formula
   depends_on "openssl@3"
 
   uses_from_macos "libxslt" => :build
+
+  # remove unsupported `--version-script` linker flag
+  on_macos do
+    patch :DATA
+  end
 
   on_linux do
     depends_on "util-linux"
@@ -71,3 +74,17 @@ class Mosquitto < Formula
     assert_equal 0, $CHILD_STATUS.exitstatus
   end
 end
+
+__END__
+diff --git a/lib/CMakeLists.txt b/lib/CMakeLists.txt
+index de53e8b..479b45d 100644
+--- a/lib/CMakeLists.txt
++++ b/lib/CMakeLists.txt
+@@ -106,7 +106,6 @@ set_target_properties(libmosquitto PROPERTIES
+ 	VERSION ${VERSION}
+ 	SOVERSION 1
+ 	LINK_DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/linker.version
+-	LINK_FLAGS "-Wl,--version-script=${CMAKE_CURRENT_SOURCE_DIR}/linker.version"
+ )
+ 
+ install(TARGETS libmosquitto

@@ -29,6 +29,7 @@ ain
 aiven-client
 akamai
 alda
+alembic
 algol68g
 aliddns
 aliyun-cli
@@ -184,6 +185,7 @@ bat
 bat-extras
 batik
 bats-core
+batt
 bazarr
 bazel
 bazel-diff
@@ -224,6 +226,7 @@ biodiff
 biome
 biosig
 bitrise
+bittwist
 bitwarden-cli
 bk
 bkcrack
@@ -249,6 +252,7 @@ bottom
 bounceback
 bowtie2
 box2d
+boxes
 bpftop
 breezy
 brev
@@ -299,6 +303,7 @@ calc
 calceph
 calcurse
 calicoctl
+camlp5
 canfigger
 capnp
 capstone
@@ -407,6 +412,7 @@ circleci
 circumflex
 citus
 cjson
+ckan
 clac
 clair
 clamav
@@ -558,6 +564,7 @@ cycode
 cyctl
 cyme
 cypher-shell
+cyphernetes
 cyrus-sasl
 cython
 czg
@@ -702,6 +709,7 @@ duck
 duckdb
 duckscript
 dufs
+dug
 dumpling
 dunamai
 dune
@@ -1103,6 +1111,7 @@ gperftools
 gpg-tui
 gprof2dot
 gpsim
+gptme
 gptscript
 gql
 gradle
@@ -1308,6 +1317,7 @@ jetty
 jetty-runner
 jfrog-cli
 jhipster
+jikken
 jimtcl
 jj
 jlog
@@ -1491,11 +1501,13 @@ libclc
 libcoap
 libcouchbase
 libcpuid
+libcss
 libcyaml
 libdap
 libdeflate
 libdivide
 libdnet
+libdom
 libdpp
 libdrm
 libedit
@@ -1521,6 +1533,7 @@ libgusb
 libgweather
 libhandy
 libheif
+libhubbub
 libical
 libidn2
 libimagequant
@@ -1724,6 +1737,7 @@ mariadb@11.2
 markdownlint-cli
 markdownlint-cli2
 marked
+marksman
 marp-cli
 massdriver
 matplotplusplus
@@ -1818,6 +1832,7 @@ monolith
 moon
 morpheus
 morse
+mosquitto
 moto
 mpc
 mpd
@@ -1995,6 +2010,7 @@ open-image-denoise
 open-mesh
 open-mpi
 open62541
+openapi-diff
 openbao
 openblas
 opencl-clhpp-headers
@@ -2066,6 +2082,7 @@ overtls
 ox
 oxipng
 oxker
+oxlint
 p11-kit
 pacapt
 packetbeat
@@ -2147,6 +2164,7 @@ pip-audit
 pip-tools
 pipdeptree
 pipenv
+pipet
 pipgrip
 pipx
 pivit
@@ -2970,6 +2988,7 @@ wstunnel
 wtfis
 wthrr
 wumpus
+wush
 wxmaxima
 wxpython
 wxwidgets

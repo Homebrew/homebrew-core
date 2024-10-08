@@ -1,19 +1,18 @@
 class Alembic < Formula
   desc "Open computer graphics interchange framework"
   homepage "http://alembic.io"
-  url "https://github.com/alembic/alembic/archive/refs/tags/1.8.6.tar.gz"
-  sha256 "c572ebdea3a5f0ce13774dd1fceb5b5815265cd1b29d142cf8c144b03c131c8c"
+  url "https://github.com/alembic/alembic/archive/refs/tags/1.8.7.tar.gz"
+  sha256 "3590f51f82e3675bb907f7a6a7149a76c06c23ef25d153e64391bcd22d86cc8c"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/alembic/alembic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "97541dbd48d88dbe679c25fa654fcaf2732ba4c231fff579adf21644543fc341"
-    sha256 cellar: :any,                 arm64_sonoma:  "5b8948889d3693cf5481acebbf180edef818ad2650acbf2531f00d11b662d27f"
-    sha256 cellar: :any,                 arm64_ventura: "54bd7fbaa1160d4798b5b3da9669e797214a21a17eaf5d53c4e32c57f3908d9a"
-    sha256 cellar: :any,                 sonoma:        "6f2a1d7c8aac2261a1c4a144af2229ebe8f21328f6874bca18749bf7e6c84d24"
-    sha256 cellar: :any,                 ventura:       "6bdbdcc31a712a6fb69ad706bae36fe508bf5ade77451f81e3279d86be3d3662"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a41b30e30ac093af2bbe2a2a6c09dbe783833165a2f8babac20a104d5d33ab2b"
+    sha256 cellar: :any,                 arm64_sequoia: "3edd7f3c3ebc3b64fdaa1130f865f91b307e772efd256d5fda086bc930c3e6bc"
+    sha256 cellar: :any,                 arm64_sonoma:  "f9d36ca1955b740cbc377fe5c655ab99fcf14144e8cd906a06e1340e7b9a4d57"
+    sha256 cellar: :any,                 arm64_ventura: "0d63d70231fd1f49bc0930ff0f47c6ada8ffa3c09d43edf845a74394cfb75893"
+    sha256 cellar: :any,                 sonoma:        "0ab1ce5ab65809f87b3566552cb9d2fee7a2f2126a620b9b8140785e2b0cda6a"
+    sha256 cellar: :any,                 ventura:       "149e6d1b898efa42b1e6aba279b7aff05acf5ccdefaa3685bfdb39ab72eba61f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "afa6ea2eb2307d8e4951ef0e24130abcc4137190dbc443834e56c3467abade5a"
   end
 
   depends_on "cmake" => :build

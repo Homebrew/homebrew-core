@@ -1,20 +1,18 @@
 class Presenterm < Formula
   desc "Terminal slideshow tool"
   homepage "https://github.com/mfontanini/presenterm"
-  url "https://github.com/mfontanini/presenterm/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "6462153e549124a70660eba2a47072f261dbca381639d929d1b49d1c08692b60"
+  url "https://github.com/mfontanini/presenterm/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "755f2c868c4723f66490b5c3ff7297944d59b9c382efc5f0714787437cfac3ef"
   license "BSD-2-Clause"
   head "https://github.com/mfontanini/presenterm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "627430b67712c530884fd61f3e60c1c7698c093b77c4100d79c43026661effd3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "09121d4eb2a43298676eb503ff5e468404e5875c283c3031cdf6bda94b191204"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "be6b4464439ce42b861a02c26ad20ecc12133118d3f0168bc9a3959401f9cdc4"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "777bf8e85cfc6ea21f2643ec421743f474b39aeb0c0fcc4bb1b944d46b5699e4"
-    sha256 cellar: :any_skip_relocation, sonoma:         "33f451d6afce138f071db6db0dc42e806d4aabb977415805c35f44e7d283b0a1"
-    sha256 cellar: :any_skip_relocation, ventura:        "7003bc96d8db291f8f1164384738345db19fd0341db390dc645b0f367d3a6fa7"
-    sha256 cellar: :any_skip_relocation, monterey:       "d839959646015d2390bc920ef0a7e2e644bcd3117303ab9ba6929df261c9aac7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "b075bfb4848885c7435c47241fcef585930efa5e5f2e81b08f28361feca65b64"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "32e9ea4720555ef99bb5fa056cd48ed01869d66b311b738774ff577d44736783"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0931fd5bc071c7d232f92911979b0fa954c5992001785f9fa6a4e9776eeb6dd6"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f7ff8a5713537c5d917f3b816e6bda13c91bdaf0e1fb5070e7117931ecb42f18"
+    sha256 cellar: :any_skip_relocation, sonoma:        "d907f2cbad59b10f56be3285f140648950a233a0803226bd0b3fd724b9939c12"
+    sha256 cellar: :any_skip_relocation, ventura:       "a37d714844a20661815bb943d549f5ddd773aa456edea98e3875ac9b11198e86"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "e83143fa91f1e69bb231709ca88a31f7c925cde4bbb282b7cbb8a8367c1d6975"
   end
 
   depends_on "rust" => :build

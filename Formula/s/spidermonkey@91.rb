@@ -25,7 +25,10 @@ class SpidermonkeyAT91 < Formula
   depends_on "pkg-config" => :build
   depends_on "python@3.9" => :build
   depends_on "rust" => :build
-  depends_on "icu4c"
+  # Can uncomment after https://github.com/Homebrew/homebrew-core/pull/192986
+  # as existing bottles are linked to ICU4C 74 like
+  # #{HOMEBREW_PREFIX}/opt/icu4c/lib/libicudata.74.dylib
+  # TODO: depends_on "icu4c@74"
   depends_on "nspr"
   depends_on "readline"
 

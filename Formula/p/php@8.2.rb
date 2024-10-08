@@ -6,6 +6,7 @@ class PhpAT82 < Formula
   mirror "https://fossies.org/linux/www/php-8.2.24.tar.xz"
   sha256 "80a5225746a9eb484475b312d4c626c63a88a037d8e56d214f30205e1ba1411a"
   license "PHP-3.01"
+  revision 1
 
   livecheck do
     url "https://www.php.net/downloads"
@@ -13,12 +14,12 @@ class PhpAT82 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "f069e47c20bd9add60eaf5b7900ec1ea80ceddc3547261011b0648d79368d43e"
-    sha256 arm64_sonoma:  "5da3d50380fb414607f2fab95228d84b8aa6b58ae3cd329416202b9c48b84077"
-    sha256 arm64_ventura: "674ed070c9e3358f4179c683eae93dc639b567a37a52f4aca58b96128834828d"
-    sha256 sonoma:        "f9f412aed8713eb7c73ad34eaca25ae023bfcbf5b40bf311b002df75de8effaa"
-    sha256 ventura:       "afd7347743fcb543f2f8ec1f68cf69d506edec3f40fe58aad7458f2629fe293a"
-    sha256 x86_64_linux:  "195ed79a4e372a98d4e5ecccf0ee4394be3c45c151f1a9f1fa11730e06813722"
+    sha256 arm64_sequoia: "3c6a83104193081c192959748f627b31d0ab07f80c4450d93f8f8427d7f476f5"
+    sha256 arm64_sonoma:  "26840d376aeb10ccf1e343572f63a0b98e72a24c6c26196d526f766e278f2ca4"
+    sha256 arm64_ventura: "07e09ca7226060abe42ea07012cf595a8877bcbf3292ff1dcd5d50c3325dfa2e"
+    sha256 sonoma:        "52cc2f48216f6ac3c06dfec4b9718b6e34eb34177fcdab29c59d1dd577933600"
+    sha256 ventura:       "6396e6ba27ee8fdc6a3f53f4dcec4c169144a849d03abe4ba6d071e1384b87a7"
+    sha256 x86_64_linux:  "aeaa83ed5f1510c3b8991fd894e8db051b87cf16b860a31a42443309f80e7a9d"
   end
 
   keg_only :versioned_formula
@@ -39,7 +40,7 @@ class PhpAT82 < Formula
   depends_on "gd"
   depends_on "gettext"
   depends_on "gmp"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "krb5"
   depends_on "libpq"
   depends_on "libsodium"
@@ -401,7 +402,7 @@ class PhpAT82 < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
 
@@ -414,7 +415,7 @@ class PhpAT82 < Formula
       pid = fork do
         exec Formula["httpd"].opt_bin/"httpd", "-X", "-f", "#{testpath}/httpd-fpm.conf"
       end
-      sleep 3
+      sleep 10
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
     ensure

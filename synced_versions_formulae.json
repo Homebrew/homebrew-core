@@ -1,10 +1,19 @@
 [
-  ["aarch64-elf-gcc", "arm-none-eabi-gcc", "i686-elf-gcc", "riscv64-elf-gcc", "x86_64-elf-gcc"],
+  [
+    "aarch64-elf-gcc",
+    "arm-none-eabi-gcc",
+    "i686-elf-gcc",
+    "m68k-elf-gcc",
+    "riscv64-elf-gcc",
+    "x86_64-elf-gcc"
+  ],
   [
     "aarch64-elf-binutils",
     "arm-linux-gnueabihf-binutils",
     "arm-none-eabi-binutils",
+    "binutils",
     "i686-elf-binutils",
+    "m68k-elf-binutils",
     "riscv64-elf-binutils",
     "x86_64-elf-binutils",
     "x86_64-linux-gnu-binutils"

@@ -1,20 +1,18 @@
 class Wasmer < Formula
   desc "Universal WebAssembly Runtime"
   homepage "https://wasmer.io"
-  url "https://github.com/wasmerio/wasmer/archive/refs/tags/v4.3.7.tar.gz"
-  sha256 "9bbbac3845888ee709c8b160fdefb0fe808f2cff23033464629e39a69f4694f8"
+  url "https://github.com/wasmerio/wasmer/archive/refs/tags/v4.4.0.tar.gz"
+  sha256 "c6af8119593be975000ebb322c666677579bd39748f5b63592785c1b0628ec86"
   license "MIT"
   head "https://github.com/wasmerio/wasmer.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "150135be11a6868267e2aba4a7cee1ae30575b02e92a8ad9289a6758e8f04bc6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "7fe192397c7475f97c7bf42a2c1e50c160b7f57f37135e8f448c13d37146e1d0"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "20bd629b921f92509ff52718460a9307a13c51dc37cc0afb6da737d074fb79de"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "ebbbd581ba28a38173860adb4bc6db451675a8b64f482a0fa2d2aebc9a9fb820"
-    sha256 cellar: :any_skip_relocation, sonoma:         "81e1fa195609f1289f9926520c916a1553c57cb133b4cf61d9b0b45f59995227"
-    sha256 cellar: :any_skip_relocation, ventura:        "48e711d48061f23e8fd1ac524ae1c4e98dec610a6ce84b22169609fc550f0933"
-    sha256 cellar: :any_skip_relocation, monterey:       "e44eacebde63e25a767a428a517fd1f320df6fddd51cb185ac26d933e12b51fc"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c32a9016da3221aced8377faf186d1cb31dbdf7c2aeecc2aef56e97cfb26ca0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "5da4e8eb35a041b04816a3559fa89905c98f7f6b1d31097cfd91c2cf57d70bd0"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4afde51f5b6dbe874c79db21cd14a5cbc2eb8abc9dbbb76052893ae0d55dbb85"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "f024defe733c6d8cdbad520c89f8214c50bcfe69afa8bc7b520a0f492363245a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "262343bc90e25f038ed469e300df1a25c4ec456365dcb80ad91fefa5d36e86fd"
+    sha256 cellar: :any_skip_relocation, ventura:       "6ca5f1311b857116068b7c7e8019271806b07e24f701afa3954abe19f24c8ac4"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ceb4746b2778dd083d4c78dc570c0044d85401f584408b4750ce56ee783210a5"
   end
 
   depends_on "cmake" => :build

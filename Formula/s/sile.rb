@@ -4,16 +4,15 @@ class Sile < Formula
   url "https://github.com/sile-typesetter/sile/releases/download/v0.15.5/sile-0.15.5.tar.zst"
   sha256 "d20137b02d16302d287670fd285ad28ac3b8d3af916460aa6bc8cbff9321b9f9"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "d917f65ee5c6f789430d31c28ff1129dcd59a463c103f4b6835511231ac1d25f"
-    sha256 cellar: :any,                 arm64_sonoma:   "a1801ebce21ef8b73214424bb9b2c8c8bcc4e28cee8493af697094a7363a8c40"
-    sha256 cellar: :any,                 arm64_ventura:  "2d9fcfe4e250baec177f8db23c8d58e053a35f6a105d2c16ddcd4324afd8f0bb"
-    sha256 cellar: :any,                 arm64_monterey: "f44480f15c1d1248b2c22fb9c5cb72ae6b69b3df4da6d949ffa682b8975968d5"
-    sha256 cellar: :any,                 sonoma:         "fa60e5df2d736decd381ff4f461d833d00954358567bab80a0dfd794d2020e83"
-    sha256 cellar: :any,                 ventura:        "1616bcc807d1757f2a68486c6cb20636e832da9854e2eec55850685753d376e7"
-    sha256 cellar: :any,                 monterey:       "417bb4b5ee1b3783d91e4d2821dd0d7c6fedc5ed47a3c192e27d0e5ffce3ca99"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "def682f18f0f928c68f5eefdd9a2fbfff89faae4f46ccafe0989f5403dd0b089"
+    sha256 cellar: :any,                 arm64_sequoia: "99457175ef945f3dadf7772a5803d241024dc3d0239c9374c127f31025065b16"
+    sha256 cellar: :any,                 arm64_sonoma:  "0336ffc9958c96ad39c4cadcfcdda8d7e87eaca22089f99c00632287670a4348"
+    sha256 cellar: :any,                 arm64_ventura: "077665bc074168d89805933aefdf8e651943b7e78d08c213c461431f67fa1789"
+    sha256 cellar: :any,                 sonoma:        "bde850dcc3bcebaddaeb56826ec4053387dee316bdb97e0b928aadb1a2cf1710"
+    sha256 cellar: :any,                 ventura:       "7e4cdb78860f0e020f3bbf3b4153ca22a79d8274675f5749fd26799ce2140e12"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "3bd7be9973e8d3840c1e73546b9409cad93dc7ba52497e0bc2f957f06cb856d8"
   end
 
   head do
@@ -31,7 +30,7 @@ class Sile < Formula
 
   depends_on "fontconfig"
   depends_on "harfbuzz"
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "libpng"
   depends_on "luajit"
   depends_on "luarocks"

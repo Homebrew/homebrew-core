@@ -4,7 +4,7 @@ class Pazpar2 < Formula
   url "https://ftp.indexdata.com/pub/pazpar2/pazpar2-1.14.1.tar.gz"
   sha256 "9baf590adb52cd796eccf01144eeaaf7353db1fd05ae436bdb174fe24362db53"
   license "GPL-2.0-or-later"
-  revision 5
+  revision 6
 
   livecheck do
     url "https://ftp.indexdata.com/pub/pazpar2/"
@@ -12,14 +12,12 @@ class Pazpar2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "2e52d8a22589e2f6678dc1d75ee1a467b64f1f1ae9104d0fba38839ae5191cbf"
-    sha256 cellar: :any,                 arm64_sonoma:   "0f5b9eda587cc7108478df960e74800ce079e09bc131199b24cc37c6ed2ed0aa"
-    sha256 cellar: :any,                 arm64_ventura:  "19fe5a070389f82d87c36335ac4b123d8c72cff599e973acda4adb6e7be0384f"
-    sha256 cellar: :any,                 arm64_monterey: "c849fb96b762c184451e288ccde1514420e2b8071856d000e5b0a4ba5176a278"
-    sha256 cellar: :any,                 sonoma:         "7da68c0e0be9587afa65f166f41e20d6e6e6dcfc1d0fa55443c747ca867e4f03"
-    sha256 cellar: :any,                 ventura:        "5ec6a7c0bd7bb41976b42b3514b5c66f58e0021a027ac7136fbc3d2e942d6055"
-    sha256 cellar: :any,                 monterey:       "e0d0e10a9d903782753abe567aa3610a310276f2f4ce0a1332c02e0b22e5cfa2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "3122dee93d74f767ca110f6ca80763c78c4fa9d376892b08fdbe3e27f98d0cce"
+    sha256 cellar: :any,                 arm64_sequoia: "4b341966194b7c988cc8b4af73502ce274e2d7ddc536fd73afeba131460a1b30"
+    sha256 cellar: :any,                 arm64_sonoma:  "7ccf897d5318cea5448194edf0ec10ac3c5ada0b9f3b5cf129fe04e30719149f"
+    sha256 cellar: :any,                 arm64_ventura: "7283dc88d4e3fb27f79439f7d7b8f289c1984735049e283c9b5a520f669eee38"
+    sha256 cellar: :any,                 sonoma:        "021b31c71579217e9dd7fdbd4f752ce4b155261e2647e90328a763cd96b12076"
+    sha256 cellar: :any,                 ventura:       "a84bf9859a3a7ba300b3a8325be1f714ffa1dabfa9b0ccd61b46d8351ffcc666"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "7e1d83bdb114ba8c0039248e08a224e042e1abd8f233aeef9306afe1ff6c2d0d"
   end
 
   head do
@@ -31,7 +29,7 @@ class Pazpar2 < Formula
 
   depends_on "pkg-config" => :build
 
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "yaz"
 
   uses_from_macos "libxml2"

@@ -4,7 +4,7 @@ class Libvisio < Formula
   url "https://dev-www.libreoffice.org/src/libvisio/libvisio-0.1.7.tar.xz"
   sha256 "8faf8df870cb27b09a787a1959d6c646faa44d0d8ab151883df408b7166bea4c"
   license "MPL-2.0"
-  revision 9
+  revision 10
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -12,26 +12,26 @@ class Libvisio < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_sequoia:  "87ac7f5c6b255fba3d53c09d49938f45ea373a7aaa12c8ab865ec690cafdf00b"
-    sha256 cellar: :any,                 arm64_sonoma:   "9bfe32f374fdb4df86bf8ebc699f3aa29812590301e9cf081b2bb84b0b99467b"
-    sha256 cellar: :any,                 arm64_ventura:  "e0c7e7d053872d13fb45dbab46fa56f56da4c1870102af9f099be704abfbed85"
-    sha256 cellar: :any,                 arm64_monterey: "35c16739c618799fba69e03d20f12721acfeb83dde4145cde6858d18c787c71a"
-    sha256 cellar: :any,                 sonoma:         "1b2b6787013e9a518bb237c218d860e229c8b3469d7a1770ced6d94d1ee8d170"
-    sha256 cellar: :any,                 ventura:        "2963b1b99018b111a783072a9d6abd0a02fe229e22a25d3c8ba0f6265069831a"
-    sha256 cellar: :any,                 monterey:       "b253cdf2cecb4346c3f09299e2e4231fede1f68b16bcf4ae81402e2cf0204875"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "0959a2cb94e549f664c6279543101f1a53840892c0155cb3a734cc03f552feb6"
+    sha256 cellar: :any,                 arm64_sequoia: "ebebaceb54777a026f7a0cfe6e3b9282dc40d359416a0a6ab9236ac0faad4d02"
+    sha256 cellar: :any,                 arm64_sonoma:  "fc2b2c30cf2e3df7f21a9b0518a454c1490182f555c32e80db1a944b1323991a"
+    sha256 cellar: :any,                 arm64_ventura: "84ba4a807fe220d9226d6de48f093c3c9eeb68d55d6026cbd2829454b7294158"
+    sha256 cellar: :any,                 sonoma:        "789b83140d9161fe4856e7c6c5dba97dea622c2ed05d736dcb0b99195f21f2c9"
+    sha256 cellar: :any,                 ventura:       "c6a08f0171c8df5718e886f36b8285d8701ecfce6c6c5d439c088f4d69b559fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "5c864ef2b4a42cb7e3b1b7aea3c8c0c3eb79d4df2de9ac3e1ff747c4d3ba6072"
   end
 
   depends_on "boost" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "librevenge"
 
   uses_from_macos "gperf" => :build
   uses_from_macos "libxml2"
 
   def install
+    # icu4c 75+ needs C++17
+    ENV.append "CXXFLAGS", "-std=gnu++17"
+
     system "./configure", "--disable-silent-rules",
                           "--disable-static",
                           "--disable-tests",

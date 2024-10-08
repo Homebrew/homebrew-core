@@ -4,6 +4,7 @@ class PostgresqlAT17 < Formula
   url "https://ftp.postgresql.org/pub/source/v17.0/postgresql-17.0.tar.bz2"
   sha256 "7e276131c0fdd6b62588dbad9b3bb24b8c3498d5009328dba59af16e819109de"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -11,12 +12,12 @@ class PostgresqlAT17 < Formula
   end
 
   bottle do
-    sha256 arm64_sequoia: "7345b4a703b655b5ef7bcb37a3dbc90b5406e4d06e7c4b8d30f8bd43f8499974"
-    sha256 arm64_sonoma:  "34876e4d4b26909d79f757d60f7cb34c6e2531c03120f103f5063a6cf62facd3"
-    sha256 arm64_ventura: "f2facfda470d494aea051eb64ba54c60171e5866fa032ef7c3fba3b488a69f13"
-    sha256 sonoma:        "a5258e4c8218b8ba6d91bb368581548042dc618e07a788e19d0fdf6b7297d7fd"
-    sha256 ventura:       "e25fa2f7a5dc496172f262913071f1a85ce03711b1edfd41a8e9f4a38d2c0b2e"
-    sha256 x86_64_linux:  "3a5e1daf6f1cef652cb39b869e0d8490c3bf29fcadc1869fbe7c92a7f37d6810"
+    sha256 arm64_sequoia: "ff4c595a664500c23a550c1ea283480c675238f50480a634ff9e235752865e6e"
+    sha256 arm64_sonoma:  "c88488c5475166a5c1825c7b4f0c483e29ddd5a5f283bab6c803e8b11a46949c"
+    sha256 arm64_ventura: "ec4b61a8c60394bd94d43c4d341538f39a9a9d080b3003ea7f35af882a6e38ce"
+    sha256 sonoma:        "ef87eee95dd9d573c7d3222289e636f036b6afb34cba1bea27d7f1aff56b5669"
+    sha256 ventura:       "e4d3338ef060f75c60d47dc3ed7654b7cbe74fb8694c2f67769c89be47375f99"
+    sha256 x86_64_linux:  "5ae14a14cf228b18fbd4985a73a0732cc2a15580f9e27da5fd611e0eab6623d3"
   end
 
   keg_only :versioned_formula
@@ -28,7 +29,7 @@ class PostgresqlAT17 < Formula
   depends_on "docbook-xsl" => :build
   depends_on "gettext" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   # GSSAPI provided by Kerberos.framework crashes when forked.
   # See https://github.com/Homebrew/homebrew-core/issues/47494.
   depends_on "krb5"

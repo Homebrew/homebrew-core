@@ -1,18 +1,18 @@
 class Watchman < Formula
   desc "Watch files and take action when they change"
   homepage "https://github.com/facebook/watchman"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.09.30.00.tar.gz"
-  sha256 "ef133090311353efcdcfc77c8d3bc67dd76450c317ec0b31eeeb84a665276494"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2024.10.07.00.tar.gz"
+  sha256 "cb38539b9bdf49351e21115124760c07f0585a5bc5577aac74551fd5879ad85b"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "94c4517fae44e073791aa487f696c42d8cae4193be104423a1f530f61d8c13f8"
-    sha256 cellar: :any,                 arm64_sonoma:  "e7b575c7c299a7b8082aaf31a16baec3ed09a6655557c7f0f38039ceb37536f5"
-    sha256 cellar: :any,                 arm64_ventura: "7503504ea56d2d1eaf1ebbd8583a7b29cc0f05db92513bd00fb8e0af04699066"
-    sha256 cellar: :any,                 sonoma:        "289d402b4b9a7b299bad62cb365cd27f4a2e9c1e63df5c0b0add791290206f34"
-    sha256 cellar: :any,                 ventura:       "b932761bd79ef4507361e992c346c44e5b270efe00d0bb9f9e6f64e72a9b4231"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "d40b8eab4ba1b515335a747b3f197615ca86855a1e5fe129e8d0d4dc33766e73"
+    sha256 cellar: :any,                 arm64_sequoia: "55bb8f0795e579827b84323e1f11de9027f89849138b3a80c740a57b63257309"
+    sha256 cellar: :any,                 arm64_sonoma:  "810fd1ed2b8277a523d26a10e65c5dcad712741665faf1e0575c48661fce383b"
+    sha256 cellar: :any,                 arm64_ventura: "e54d432f7df59fabe7982379ad039d4107994a9954843549f006c4594011445f"
+    sha256 cellar: :any,                 sonoma:        "e7c735d108d0e29a2238fdd51a834681350a36fbff54816ddb2c2aaac60fbf9a"
+    sha256 cellar: :any,                 ventura:       "1d9d747014d852953ae8d075aea03e586cdd761e773c938668ecc5a0d452b4a2"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "20d643946bf29859941567c4675347003d2c4dc93feec27ddcfbffed883683c3"
   end
 
   depends_on "cmake" => :build

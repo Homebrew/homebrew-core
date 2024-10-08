@@ -22,7 +22,6 @@ class Ktoblzcheck < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python-setuptools" => :build
   depends_on "python@3.12"
   depends_on "sqlite"
 
@@ -46,7 +45,7 @@ class Ktoblzcheck < Formula
     ENV.append_path "PYTHONPATH", buildpath/Language::Python.site_packages(python3)
     resources.each do |r|
       r.stage do
-        system python3, "-m", "pip", "install", *std_pip_args(prefix: buildpath), "."
+        system python3, "-m", "pip", "install", *std_pip_args(prefix: buildpath, build_isolation: true), "."
       end
     end
 

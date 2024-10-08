@@ -1,19 +1,17 @@
 class Libdeflate < Formula
   desc "Heavily optimized DEFLATE/zlib/gzip compression and decompression"
   homepage "https://github.com/ebiggers/libdeflate"
-  url "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.21.tar.gz"
-  sha256 "50827d312c0413fbd41b0628590cd54d9ad7ebf88360cba7c0e70027942dbd01"
+  url "https://github.com/ebiggers/libdeflate/archive/refs/tags/v1.22.tar.gz"
+  sha256 "7f343c7bf2ba46e774d8a632bf073235e1fd27723ef0a12a90f8947b7fe851d6"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "a2e3b45b459688f1e9653ee436e713f1186faa21ef86c06696e1ab56b9feabf9"
-    sha256 cellar: :any,                 arm64_sonoma:   "fea1730f71dee848ea635ebbf03ce45563d784e3ac51b1c49feedb8859e6d220"
-    sha256 cellar: :any,                 arm64_ventura:  "2391e55f34424f2fbf2d2c0c722ab5f26d0b2ef19b29298e9765078347be8121"
-    sha256 cellar: :any,                 arm64_monterey: "34a7a65a65e10326a3452c041d195306907ea6b20881c4e2b5484597730808ec"
-    sha256 cellar: :any,                 sonoma:         "abc65ab8eca7ddf0fcdce501d6127a626272c0f5dad13165d1f3f17d91c9a894"
-    sha256 cellar: :any,                 ventura:        "b488d5379e40d17416ee8f3d845916d564f18c7be8672e1529e0955d634f1b22"
-    sha256 cellar: :any,                 monterey:       "c6071f321bfb1639a070e1645dbf8ca78ee963cf989f9e200fc874cba5daf4f8"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "1b6d0895f05a0ce647e5c1bfa96fda7bb543461e49b84bcf9e60586a31b6c311"
+    sha256 cellar: :any,                 arm64_sequoia: "cb6e2d1eb27e02b14541f965fb81f8bfd98852e8db7729540e135c2a356ab4fb"
+    sha256 cellar: :any,                 arm64_sonoma:  "d0855ef6b2947b130aae38dc3f7e758c450b03dfcd4e923669b573d4aeefede1"
+    sha256 cellar: :any,                 arm64_ventura: "ad4a626589cb82f253cf065aef92ea5dc77f51bb80cbbf66558a212cd88665ac"
+    sha256 cellar: :any,                 sonoma:        "34c07181913c15251daa7dcf9801d29f1bb7abfb6719ea6c98054e48e25dcebb"
+    sha256 cellar: :any,                 ventura:       "d0fb44f38bffe30a903f94c28a4097e5b6a034af7d676931b351cac801aa985b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4014531967553e8f002d52585698b5f2cdc689e1359563145ec3723c7ddc490b"
   end
 
   depends_on "cmake" => :build

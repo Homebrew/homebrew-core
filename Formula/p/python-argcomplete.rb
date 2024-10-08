@@ -1,19 +1,17 @@
 class PythonArgcomplete < Formula
   desc "Tab completion for Python argparse"
   homepage "https://kislyuk.github.io/argcomplete/"
-  url "https://files.pythonhosted.org/packages/75/33/a3d23a2e9ac78f9eaf1fce7490fee430d43ca7d42c65adabbb36a2b28ff6/argcomplete-3.5.0.tar.gz"
-  sha256 "4349400469dccfb7950bb60334a680c58d88699bff6159df61251878dc6bf74b"
+  url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
+  sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:  "c2d3d4142c8bb8b3b5e52965ad6a4f7d5cecf47507552699c588d951f18bcc81"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:   "a6bdf0c57cde56a841474d3c34e03ef1c7b654a507ae53a5ba6b1e8986d0149d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:  "a6bdf0c57cde56a841474d3c34e03ef1c7b654a507ae53a5ba6b1e8986d0149d"
-    sha256 cellar: :any_skip_relocation, arm64_monterey: "a6bdf0c57cde56a841474d3c34e03ef1c7b654a507ae53a5ba6b1e8986d0149d"
-    sha256 cellar: :any_skip_relocation, sonoma:         "195df0a68e31aa3cc73b2785ab938582645a0dc45a2a8826105a2e6f5f9a1df2"
-    sha256 cellar: :any_skip_relocation, ventura:        "195df0a68e31aa3cc73b2785ab938582645a0dc45a2a8826105a2e6f5f9a1df2"
-    sha256 cellar: :any_skip_relocation, monterey:       "195df0a68e31aa3cc73b2785ab938582645a0dc45a2a8826105a2e6f5f9a1df2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "c56f3360735c936dd2fbb39bd8dc3c71307b9d81a900a22a1f2603e14729e857"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "ba92a9b10c5c664e217cceed4ea4620531f4d0968af95609371fd7817187787a"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ba92a9b10c5c664e217cceed4ea4620531f4d0968af95609371fd7817187787a"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "ba92a9b10c5c664e217cceed4ea4620531f4d0968af95609371fd7817187787a"
+    sha256 cellar: :any_skip_relocation, sonoma:        "df4493850b5c6e08be232c7cc861e5fe6be94310843f2f0c12e969e5a9e5fddb"
+    sha256 cellar: :any_skip_relocation, ventura:       "df4493850b5c6e08be232c7cc861e5fe6be94310843f2f0c12e969e5a9e5fddb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4aa09c2b9e5fa6919c6145a7f1e05ae4d8199087e2def1a5d19dfc4d3b44b636"
   end
 
   depends_on "python@3.11" => [:build, :test]

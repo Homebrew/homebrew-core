@@ -4,23 +4,22 @@ class Libzim < Formula
   url "https://github.com/openzim/libzim/archive/refs/tags/9.2.3.tar.gz"
   sha256 "7c6e7fcaf5bc82447edb12c6c573779af6d77b3b79227da57586e81c4e13f1bf"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_sequoia:  "679cd93009e9c5e0f0ae21ddc4b39487cf6beb02417e720b6e837f77d56b1331"
-    sha256 cellar: :any, arm64_sonoma:   "7568b83f08fc94270166a38329dfddce78683ec39f95fadbe58e435c07ced45e"
-    sha256 cellar: :any, arm64_ventura:  "37b642fca20f63876f6680c50f572c8b6174f35f40431c82a37c7f6de3bca1af"
-    sha256 cellar: :any, arm64_monterey: "2ef8b0cdc82668c43535df80f76baeb012c130fab6883f83e9eb0eaeca486200"
-    sha256 cellar: :any, sonoma:         "19018c8f6d7aeb22a6ef3087644fdb063efbf7479f03b37563b9fa01f4362f0b"
-    sha256 cellar: :any, ventura:        "a818dc7a2119af90bd80e0e74be039da19c4e8b1009bdf0762652ee659455fb1"
-    sha256 cellar: :any, monterey:       "a6207d366c82707f233e0bd6edc7c4b295a24fd9cca8d679868159dcb47eecb0"
-    sha256               x86_64_linux:   "c6fa0ec03e44ffed7d5d83d8c97ecbcfa41b6306dcda0f41c2b86920eb4ce45e"
+    sha256 cellar: :any, arm64_sequoia: "d339d5a5890ded1fb8757e081dd2e4d528e3e67e40076b10a0dd15cc82d56723"
+    sha256 cellar: :any, arm64_sonoma:  "aae5883407ff954530cb2821d78c0915d7136114cc4248fde3273c391eefc6c0"
+    sha256 cellar: :any, arm64_ventura: "590039265eea1d2575e5762ca1dcf3da86fa5227030452ea7153e567e6a50bd6"
+    sha256 cellar: :any, sonoma:        "f93174721a118c10a1a457910848da7bd9362276c5e7783ee5c8c6d0b3eaa2df"
+    sha256 cellar: :any, ventura:       "ce832e8ec4c125cb7a1a16b6ba016f36a4d2b2759df2c50a05ae74b0a5b5604f"
+    sha256               x86_64_linux:  "60f68c10567a9b1f4268af4ac89b9a910e4e69f9c864ec7d96a4e154a86521a7"
   end
 
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
 
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "xapian"
   depends_on "xz"
   depends_on "zstd"

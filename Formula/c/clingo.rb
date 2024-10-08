@@ -29,7 +29,6 @@ class Clingo < Formula
 
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
-  depends_on "python-setuptools" => :build
   depends_on "cffi"
   depends_on "lua"
   depends_on "python@3.12"
@@ -65,5 +64,6 @@ class Clingo < Formula
 
   test do
     assert_match "clingo version", shell_output("#{bin}/clingo --version")
+    system python3, "-c", "import clingo"
   end
 end

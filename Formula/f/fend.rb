@@ -1,8 +1,8 @@
 class Fend < Formula
   desc "Arbitrary-precision unit-aware calculator"
   homepage "https://printfn.github.io/fend"
-  url "https://github.com/printfn/fend/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "cc8ce470b8a08ec5c5973d5251987f12bbc3baa7137295c42e7d782b7b297786"
+  url "https://github.com/printfn/fend/archive/refs/tags/v1.5.3.tar.gz"
+  sha256 "b31befe0df562c5626c52d1cef70d272115054fa707debe56ade9e4f2f28a956"
   license "MIT"
   head "https://github.com/printfn/fend.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Fend < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "9d082d1eb3a649fab318b62292850a140c6f9509a43c585aeabb1464ad2b1604"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c70efb2ed0f28b67eca5d11db4554757ba3d20b6a6bb3c7fcb1d71c21339a12c"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "0c7f92df9f164b30559cdc214d6e1e54d0d037a81d1cade6a8b8e4897553804e"
-    sha256 cellar: :any_skip_relocation, sonoma:        "cc0440a34763f1916f0c7fccf4d6bbc6ce4e05aa35aca0b320b4d1a1462d80a6"
-    sha256 cellar: :any_skip_relocation, ventura:       "2d02fa9539e1c05d36a00ef3d13ccae2c6cb916b9f5448104544a5106a2e3211"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4e70f73f8834dba629f3906aa77597e82233f986ce6f4f4f3ea07c03817d05d2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "48b3493b2ef8b41ae98b823b759ce8d282994899c8c3d9cac066c80b1bfc05d8"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "b9f40c7b2fd01a37f515018006ef7cba9f639eb5f5e55659318b5f17e8df19ca"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "527dfdf3b7769259c507b60e519779eb0818ceadbfe78cbd8e0abadefc92f0ff"
+    sha256 cellar: :any_skip_relocation, sonoma:        "6842a139f8597c9f5520304ba372fae3f2a3aa2a18f5502d9544ccefb7b02d55"
+    sha256 cellar: :any_skip_relocation, ventura:       "273ed1e79298d9e0f02a07d86a9d756073ec7362728f4fb7e717b4aa6e32fe34"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "bfa4748015813df022131377c59bb657f9ff66c327230e25a471031ed6ff6ea5"
   end
 
   depends_on "pandoc" => :build

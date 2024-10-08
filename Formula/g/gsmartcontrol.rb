@@ -18,14 +18,28 @@ class Gsmartcontrol < Formula
   end
 
   depends_on "pkg-config" => :build
+  depends_on "atkmm@2.28"
+  depends_on "cairo"
+  depends_on "cairomm@1.14"
+  depends_on "glib"
+  depends_on "glibmm@2.66"
+  depends_on "gtk+3"
   depends_on "gtkmm3"
+  depends_on "libsigc++@2"
+  depends_on "pangomm@2.46"
   depends_on "pcre" # PCRE2 issue: https://github.com/ashaduri/gsmartcontrol/issues/40
   depends_on "smartmontools"
 
+  on_macos do
+    depends_on "at-spi2-core"
+    depends_on "gdk-pixbuf"
+    depends_on "gettext"
+    depends_on "harfbuzz"
+    depends_on "pango"
+  end
+
   def install
-    ENV.cxx11
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make"
     system "make", "install"
   end

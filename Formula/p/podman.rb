@@ -2,18 +2,18 @@ class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
   url "https://github.com/containers/podman.git",
-      tag:      "v5.2.3",
-      revision: "c5366a308e89edd9636b66faf79bd5cb18ed0905"
+      tag:      "v5.2.4",
+      revision: "76d0859d9f6e5d7c84392da9dcd2fae3447f789d"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   head "https://github.com/containers/podman.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "95f7e0e136a356bc452533bd514abf7ea0d6035a743fe8a9985398d0eea4f7fc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ff4085107b505dd34f0183325c667a7a969a527e1aae328d592430127997e759"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "199fd65f78e702a1ec3ca819a0468712a38528dba96fa863f261188cb8ce99fb"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f13a7acdd16c500869417e1a373416151d65d79c2d62998ca7e8f17e4c12f5f2"
-    sha256 cellar: :any_skip_relocation, ventura:       "31fb4084e4c8a89bf2bcf99013c8fdacfa6fb261753caf84f2b9da163797fc3f"
-    sha256                               x86_64_linux:  "4d24c3f5daff22cbc17464900a04bffe3f5bd7e7e1249630c66d0077e97fc016"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "4da39d3fbebbc9abf77b743cc608d5920bba702f16c61667f6acc2824a0a7383"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "66d592ecf1206c24e3d9cf4d6bb4568f51d24a3780b17f36bf86cbcd3dbbb8e4"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "1119f378c89dfccd27deac5c6341808354449bfeaaa37c11bbe135297be47046"
+    sha256 cellar: :any_skip_relocation, sonoma:        "88a6e9d579afafbb67fa3b725a20cec502c6ff80a197d66f9dc9020a3b1a66bb"
+    sha256 cellar: :any_skip_relocation, ventura:       "a6a485de41a14569c53a3948f794cb9274ddcae7836d22d10bdb098a4b07293c"
+    sha256                               x86_64_linux:  "7d0d4f90e04ba2fd4b71ddb1bb57b3fbfe1b854dab820e02bffc6876cf2476e2"
   end
 
   depends_on "go" => :build
