@@ -18,7 +18,7 @@ class Eralchemy < Formula
 
   depends_on "pkg-config" => :build
   depends_on "graphviz"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "openssl@3"
   depends_on "python@3.12"
 
