@@ -17,7 +17,7 @@ class PgCron < Formula
 
   depends_on "postgresql@14" => [:build, :test]
   depends_on "postgresql@17" => [:build, :test]
-  depends_on "libpq"
+  depends_on "libpq@17"
 
   on_macos do
     depends_on "gettext" # for libintl
