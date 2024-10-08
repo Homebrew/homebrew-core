@@ -17,7 +17,7 @@ class Pgcli < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "4efed42bcca9af8baaf6d54f5a300e57ae22dd5f34a797a1e4f1a8d07ca0a274"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "python@3.12"
 
   resource "cli-helpers" do
