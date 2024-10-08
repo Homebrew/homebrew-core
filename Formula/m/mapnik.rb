@@ -33,7 +33,7 @@ class Mapnik < Formula
   depends_on "icu4c@75"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libtiff"
   depends_on "libxml2"
   depends_on "proj"
