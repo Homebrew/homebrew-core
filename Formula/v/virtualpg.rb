@@ -20,7 +20,7 @@ class Virtualpg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "6a3eea533c6345f3ba72760bb196a0c673414e87b02763a4cb48f260acdce535"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "sqlite"
 
   def install
