@@ -23,7 +23,7 @@ class Doltgres < Formula
   end
 
   depends_on "go" => :build
-  depends_on "libpq" => :test
+  depends_on "libpq@17" => :test
 
   def install
     system "./postgres/parser/build.sh"
