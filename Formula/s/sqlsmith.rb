@@ -32,7 +32,7 @@ class Sqlsmith < Formula
   end
 
   depends_on "pkg-config" => :build
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libpqxx"
 
   uses_from_macos "sqlite"
