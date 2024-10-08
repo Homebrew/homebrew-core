@@ -37,7 +37,7 @@ class PhpAT80 < Formula
   # Re-add an ICU4C dependency if extracting formula
   # TODO: depends_on "icu4c"
   depends_on "krb5"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libsodium"
   depends_on "libzip"
   depends_on "oniguruma"
