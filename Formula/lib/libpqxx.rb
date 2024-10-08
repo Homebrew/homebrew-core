@@ -18,7 +18,7 @@ class Libpqxx < Formula
 
   depends_on "pkg-config" => :build
   depends_on "xmlto" => :build
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on macos: :catalina # requires std::filesystem
 
   uses_from_macos "python" => :build, since: :catalina
