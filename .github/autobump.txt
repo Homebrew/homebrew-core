@@ -1888,6 +1888,7 @@ nbdime
 ncc
 ncdc
 ncdu
+ncmdump
 ncnn
 nco
 ncspot
