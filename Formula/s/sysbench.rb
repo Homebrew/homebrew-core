@@ -23,7 +23,7 @@ class Sysbench < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "luajit"
   depends_on "mysql-client"
   depends_on "openssl@3"
