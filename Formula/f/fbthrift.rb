@@ -15,26 +15,30 @@ class Fbthrift < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "8250aa8a253d79f65d2a263b86e50e48b1bdd8f91b9cbda9be1177d420895309"
   end
 
-  depends_on "bison" => :build # Needs Bison 3.1+
+  depends_on "bison" => :build
+  depends_on "boost" => :build # Needs Bison 3.1+
   depends_on "cmake" => [:build, :test]
-  depends_on "python@3.12" => :build
-  depends_on "boost"
+  depends_on "mvfst" => [:build, :test]
   depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
   depends_on "gflags"
   depends_on "glog"
-  depends_on "mvfst"
   depends_on "openssl@3"
   depends_on "wangle"
   depends_on "zstd"
 
   uses_from_macos "flex" => :build
+  uses_from_macos "python" => :build
   uses_from_macos "zlib"
 
   on_macos do
     depends_on "llvm" if DevelopmentTools.clang_build_version <= 1100
+  end
+
+  on_linux do
+    depends_on "boost"
   end
 
   fails_with :clang do
