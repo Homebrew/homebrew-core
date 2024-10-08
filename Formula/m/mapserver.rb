@@ -33,7 +33,7 @@ class Mapserver < Formula
   depends_on "giflib"
   depends_on "jpeg-turbo"
   depends_on "libpng"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libxml2"
   depends_on "proj"
   depends_on "protobuf-c"
