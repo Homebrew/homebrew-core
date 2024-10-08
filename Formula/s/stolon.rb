@@ -25,7 +25,7 @@ class Stolon < Formula
 
   depends_on "go" => :build
   depends_on "consul" => :test
-  depends_on "libpq"
+  depends_on "libpq@17"
 
   def install
     ldflags = "-s -w -X github.com/sorintlab/stolon/cmd.Version=#{version}"
