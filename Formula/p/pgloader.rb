@@ -27,7 +27,7 @@ class Pgloader < Formula
   depends_on "buildapp" => :build
 
   depends_on "freetds"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "openssl@3"
   depends_on "sbcl"
   depends_on "zstd"
