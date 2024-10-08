@@ -19,7 +19,7 @@ class Pgcopydb < Formula
 
   depends_on "sphinx-doc" => :build
   depends_on "bdw-gc"
-  depends_on "libpq"
+  depends_on "libpq@17"
 
   def install
     system "make", "bin"
