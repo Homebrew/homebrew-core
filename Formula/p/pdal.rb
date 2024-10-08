@@ -31,7 +31,7 @@ class Pdal < Formula
   depends_on "hdf5"
   depends_on "laszip"
   depends_on "libgeotiff"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libxml2"
   depends_on "numpy"
   depends_on "openssl@3"
