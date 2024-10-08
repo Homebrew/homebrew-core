@@ -95,6 +95,7 @@
   "libcppa": "caf",
   "libcython": "cython",
   "libmongoclient": "mongo-cxx-driver",
+  "libpq": "libpq@17",
   "libpython-tabulate": "python-tabulate",
   "libsasl2": "cyrus-sasl",
   "libtorch": "pytorch",
