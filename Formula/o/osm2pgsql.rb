@@ -21,7 +21,7 @@ class Osm2pgsql < Formula
 
   depends_on "boost"
   depends_on "geos"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "luajit"
   depends_on "proj"
 
