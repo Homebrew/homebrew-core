@@ -17,7 +17,7 @@ class Dexter < Formula
   end
 
   depends_on "postgresql@16" => :test
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "ruby"
 
   resource "google-protobuf" do
