@@ -36,7 +36,7 @@ class Manticoresearch < Formula
   # NOTE: `libpq`, `mysql-client`, `unixodbc` and `zstd` are dynamically loaded rather than linked
   depends_on "cctz"
   depends_on "icu4c@75"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "mysql-client"
   depends_on "openssl@3"
   depends_on "re2"
