@@ -19,7 +19,7 @@ class QtPostgresql < Formula
 
   depends_on "cmake" => [:build, :test]
 
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "qt"
 
   fails_with gcc: "5"
