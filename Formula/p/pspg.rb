@@ -15,7 +15,7 @@ class Pspg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "3b7ace57d851b23431b34d1680c6210e52cdda49bb2003411dab730321c2870a"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "ncurses"
   depends_on "readline"
 
