@@ -25,7 +25,7 @@ class SpatialiteGui < Formula
   depends_on "pkg-config" => :build
   depends_on "freexl"
   depends_on "geos"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "librasterlite2"
   depends_on "librttopo"
   depends_on "libspatialite"
