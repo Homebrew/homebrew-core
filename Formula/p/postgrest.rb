@@ -24,7 +24,7 @@ class Postgrest < Formula
 
   depends_on "cabal-install" => :build
   depends_on "ghc@9.8" => :build
-  depends_on "libpq"
+  depends_on "libpq@17"
 
   uses_from_macos "zlib"
 
