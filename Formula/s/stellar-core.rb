@@ -33,7 +33,7 @@ class StellarCore < Formula
   depends_on "pandoc" => :build
   depends_on "pkg-config" => :build
   depends_on "rust" => :build
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libpqxx"
   depends_on "libsodium"
   depends_on macos: :catalina # Requires C++17 filesystem
