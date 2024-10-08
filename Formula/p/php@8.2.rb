@@ -42,7 +42,7 @@ class PhpAT82 < Formula
   depends_on "gmp"
   depends_on "icu4c@75"
   depends_on "krb5"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "libsodium"
   depends_on "libzip"
   depends_on "oniguruma"
