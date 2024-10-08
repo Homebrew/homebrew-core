@@ -24,7 +24,7 @@ class Inspircd < Formula
   depends_on "pkg-config" => :build
   depends_on "argon2"
   depends_on "gnutls"
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "mysql-client"
 
   uses_from_macos "openldap"
