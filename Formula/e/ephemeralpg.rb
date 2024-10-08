@@ -21,7 +21,7 @@ class Ephemeralpg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "6c65a1a3261c1f1633accdbeae50624751450c826f6ea113c533e2b20bbeedea"
   end
 
-  depends_on "libpq"
+  depends_on "libpq@17"
 
   def install
     system "make"
