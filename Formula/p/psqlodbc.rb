@@ -26,7 +26,7 @@ class Psqlodbc < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "libpq"
+  depends_on "libpq@17"
   depends_on "unixodbc"
 
   def install
