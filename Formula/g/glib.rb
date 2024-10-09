@@ -6,6 +6,7 @@ class Glib < Formula
   url "https://download.gnome.org/sources/glib/2.82/glib-2.82.1.tar.xz"
   sha256 "478634440bf52ee4ec4428d558787398c0be6b043c521beb308334b3db4489a6"
   license "LGPL-2.1-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "922c92018e72eb1b0aa972a39f9b04227dd50c2600434943584727f3d78fd672"
@@ -54,13 +55,17 @@ class Glib < Formula
 
   # replace several hardcoded paths with homebrew counterparts
   patch do
-    url "https://raw.githubusercontent.com/Homebrew/formula-patches/43467fd8dfc0e8954892ecc08fab131242dca025/glib/hardcoded-paths.diff"
-    sha256 "d81c9e8296ec5b53b4ead6917f174b06026eeb0c671dfffc4965b2271fb6a82c"
+    url "https://raw.githubusercontent.com/amolenaar/formula-patches/8d957735bc1409f530ca5c8dbc267339dab21c3e/glib/hardcoded-paths.diff"
+    sha256 "d846efd0bf62918350da94f850db33b0f8727fece9bfaf8164566e3094e80c97"
   end
 
   def install
     python = "python3.12"
-    inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
+    inreplace %w[
+      gio/xdgmime/xdgmime.c
+      girepository/girepository.c
+      glib/gutils.c
+    ], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
 
