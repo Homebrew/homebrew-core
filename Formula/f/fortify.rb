@@ -1,21 +1,18 @@
 class Fortify < Formula
   desc "Command-line tool designed to enhance file security through encryption"
   homepage "https://github.com/i3ash/fortify"
+  url "https://github.com/i3ash/fortify/archive/refs/tags/v1.0.10.tar.gz"
+  sha256 "6c26b867bc61d53f24d13934298b4d32e1b470750b6379f617f2153d67462793"
   license "MIT"
 
-  on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/i3ash/fortify/releases/download/v1.0.10/fortify-darwin-arm64"
-      sha256 "d57d9449a6cf96e091f12aaf3395bc163db122bbf426257f93a5e3012ea11911"
-    elsif Hardware::CPU.intel?
-      url "https://github.com/i3ash/fortify/releases/download/v1.0.10/fortify-darwin-x86_64"
-      sha256 "df3e264e62b245867c22efa7bcb9fdd66604dd16f5c3094ead96adf0ee7c7031"
-    end
-  end
+  depends_on "go" => :build
 
   def install
-    bin.install "fortify-darwin-arm64" => "fortify" if Hardware::CPU.arm?
-    bin.install "fortify-darwin-x86_64" => "fortify" if Hardware::CPU.intel?
+    ENV["GOPATH"] = buildpath
+    (buildpath/"src/github.com/i3ash/fortify").install buildpath.children
+    cd "src/github.com/i3ash/fortify" do
+      system "go", "build", *std_go_args(ldflags: "-s -w"), "."
+    end
   end
 
   test do
