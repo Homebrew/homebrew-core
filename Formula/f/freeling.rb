@@ -4,7 +4,7 @@ class Freeling < Formula
   url "https://github.com/TALP-UPC/FreeLing/releases/download/4.2/FreeLing-src-4.2.1.tar.gz"
   sha256 "c672a6379142ac2e872741e7662f17eccd8230bffc680564d2843d87480f1600"
   license "AGPL-3.0-only"
-  revision 6
+  revision 7
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "f0f0e3c141692fe62d6d1b4392ed2455083426962709498d85676ca1ecfef542"
@@ -17,7 +17,7 @@ class Freeling < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
 
   conflicts_with "dynet", because: "freeling ships its own copy of dynet"
   conflicts_with "eigen", because: "freeling ships its own copy of eigen"

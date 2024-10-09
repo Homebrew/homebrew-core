@@ -2,7 +2,7 @@ class Liblcf < Formula
   desc "Library for RPG Maker 2000/2003 games data"
   homepage "https://easyrpg.org/"
   license "MIT"
-  revision 3
+  revision 4
   head "https://github.com/EasyRPG/liblcf.git", branch: "master"
 
   stable do
@@ -27,7 +27,7 @@ class Liblcf < Formula
 
   depends_on "cmake" => :build
   depends_on "expat" # Building against `liblcf` fails with `uses_from_macos`
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
 
   def install
     system "cmake", "-S", ".", "-B", "build",

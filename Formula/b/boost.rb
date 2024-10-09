@@ -2,7 +2,7 @@ class Boost < Formula
   desc "Collection of portable C++ source libraries"
   homepage "https://www.boost.org/"
   license "BSL-1.0"
-  revision 1
+  revision 2
   head "https://github.com/boostorg/boost.git", branch: "master"
 
   stable do
@@ -39,7 +39,7 @@ class Boost < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "cd0a090c857598cd14490425b8a80351355e23c064d57d7e0a29ca1ea016d9fd"
   end
 
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "xz"
   depends_on "zstd"
 

@@ -4,7 +4,7 @@ class Gspell < Formula
   url "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.0.tar.xz"
   sha256 "64ea1d8e9edc1c25b45a920e80daf67559d1866ffcd7f8432fecfea6d0fe8897"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 arm64_sequoia: "9dec60f563ca9e60d876333171bb564382d00ffa5da910784489db6bc208691e"
@@ -28,7 +28,7 @@ class Gspell < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "harfbuzz"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "pango"
 
   on_macos do

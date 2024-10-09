@@ -9,7 +9,7 @@ class Manticoresearch < Formula
     { "GPL-2.0-only" => { with: "x11vnc-openssl-exception" } }, # galera
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
-  revision 1
+  revision 2
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "master"
 
@@ -35,7 +35,7 @@ class Manticoresearch < Formula
 
   # NOTE: `libpq`, `mysql-client`, `unixodbc` and `zstd` are dynamically loaded rather than linked
   depends_on "cctz"
-  depends_on "icu4c@75"
+  depends_on "icu4c@76"
   depends_on "libpq"
   depends_on "mysql-client"
   depends_on "openssl@3"
