@@ -4,7 +4,7 @@ class Unar < Formula
   url "https://github.com/MacPaw/XADMaster/archive/refs/tags/v1.10.8.tar.gz"
   sha256 "652953d7988b3c33f4f52b61c357afd1a7c2fc170e5e6e2219f4432b0c4cd39f"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
   head "https://github.com/MacPaw/XADMaster.git", branch: "master"
 
   bottle do
@@ -26,7 +26,7 @@ class Unar < Formula
 
   on_linux do
     depends_on "gnustep-base"
-    depends_on "icu4c"
+    depends_on "icu4c@75"
     depends_on "libobjc2"
     depends_on "wavpack"
   end

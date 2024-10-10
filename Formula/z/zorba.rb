@@ -4,7 +4,7 @@ class Zorba < Formula
   url "https://github.com/28msec/zorba/archive/refs/tags/3.1.tar.gz"
   sha256 "05eed935c0ff3626934a5a70724a42410fd93bc96aba1fa4821736210c7f1dd8"
   license "Apache-2.0"
-  revision 19
+  revision 20
 
   bottle do
     sha256 arm64_sequoia:  "c748d5b310b5949922950639ab308a570420a1814ac18791afd40fcee4748c29"
@@ -23,7 +23,7 @@ class Zorba < Formula
   depends_on "cmake" => :build
   depends_on "openjdk" => :build
   depends_on "flex"
-  depends_on "icu4c"
+  depends_on "icu4c@74"
   depends_on "xerces-c"
 
   uses_from_macos "libxml2"

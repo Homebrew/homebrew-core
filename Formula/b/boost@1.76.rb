@@ -4,7 +4,7 @@ class BoostAT176 < Formula
   url "https://boostorg.jfrog.io/artifactory/main/release/1.76.0/source/boost_1_76_0.tar.bz2"
   sha256 "f0397ba6e982c4450f27bf32a2a83292aba035b827a5623a14636ea583318c41"
   license "BSL-1.0"
-  revision 5
+  revision 6
 
   bottle do
     rebuild 1
@@ -20,7 +20,7 @@ class BoostAT176 < Formula
 
   deprecate! date: "2023-12-14", because: :versioned_formula
 
-  depends_on "icu4c"
+  depends_on "icu4c@74"
 
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
@@ -46,7 +46,7 @@ class BoostAT176 < Formula
     end
 
     # libdir should be set by --prefix but isn't
-    icu4c_prefix = Formula["icu4c"].opt_prefix
+    icu4c_prefix = Formula["icu4c@74"].opt_prefix
     bootstrap_args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}

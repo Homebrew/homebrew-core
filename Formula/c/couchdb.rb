@@ -5,6 +5,7 @@ class Couchdb < Formula
   mirror "https://archive.apache.org/dist/couchdb/source/3.4.1/apache-couchdb-3.4.1.tar.gz"
   sha256 "aaacea1bd66cf641fd8198dce662a337b359b69d8fd4737e3b0e306b549c3fe5"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "24da382c88e41fc5a3570380393262d1b7745ff7edb979a2bcc963630ea8aea1"
@@ -21,7 +22,7 @@ class Couchdb < Formula
   depends_on "erlang" => :build
   depends_on "libtool" => :build
   depends_on "pkg-config" => :build
-  depends_on "icu4c"
+  depends_on "icu4c@75"
   depends_on "openssl@3"
 
   uses_from_macos "ncurses"
