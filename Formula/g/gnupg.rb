@@ -1,10 +1,9 @@
 class Gnupg < Formula
   desc "GNU Pretty Good Privacy (PGP) package"
   homepage "https://gnupg.org/"
-  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.4.5.tar.bz2"
-  sha256 "f68f7d75d06cb1635c336d34d844af97436c3f64ea14bcb7c869782f96f44277"
+  url "https://gnupg.org/ftp/gcrypt/gnupg/gnupg-2.5.1.tar.bz2"
+  sha256 "8a34bb318499867962c939e156666ada93ed81f01926590ac68f3ff79178375e"
   license "GPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://gnupg.org/ftp/gcrypt/gnupg/"
@@ -53,6 +52,8 @@ class Gnupg < Formula
                              "--enable-all-tests",
                              "--with-pinentry-pgm=#{Formula["pinentry"].opt_bin}/pinentry"
       system "make"
+      # `make check` seems to fail unreproducibly if done in parallel.
+      ENV.deparallelize if OS.linux?
       system "make", "check"
       system "make", "install"
     end
