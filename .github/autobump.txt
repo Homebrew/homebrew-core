@@ -2859,6 +2859,7 @@ unicorn
 unison
 unisonlang
 universal-ctags
+unxip
 urdfdom
 urdfdom_headers
 uriparser
