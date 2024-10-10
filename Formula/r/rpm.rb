@@ -1,8 +1,8 @@
 class Rpm < Formula
   desc "Standard unix software packaging tool"
   homepage "https://rpm.org/"
-  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.19.x/rpm-4.19.1.1.tar.bz2"
-  sha256 "874091b80efe66f9de8e3242ae2337162e2d7131e3aa4ac99ac22155e9c521e5"
+  url "https://ftp.osuosl.org/pub/rpm/releases/rpm-4.20.x/rpm-4.20.0.tar.bz2"
+  sha256 "56ff7638cff98b56d4a7503ff59bc79f281a6ddffcda0d238c082bedfb5fbe7b"
   license "GPL-2.0-only"
   version_scheme 1
   head "https://github.com/rpm-software-management/rpm.git", branch: "master"
@@ -26,10 +26,12 @@ class Rpm < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
   depends_on "gawk" => :build
+  depends_on "gettext" => :build
   depends_on "python@3.12" => [:build, :test]
 
-  depends_on "gettext"
   depends_on "libarchive"
+  depends_on "libdwarf"
+  depends_on "libelf"
   depends_on "libmagic"
   depends_on "lua"
   # See https://github.com/rpm-software-management/rpm/issues/2222 for details.
@@ -46,6 +48,7 @@ class Rpm < Formula
   uses_from_macos "zlib"
 
   on_macos do
+    depends_on "gettext"
     depends_on "libomp"
   end
 
