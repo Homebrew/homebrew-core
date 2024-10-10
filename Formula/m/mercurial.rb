@@ -23,10 +23,10 @@ class Mercurial < Formula
     sha256 x86_64_linux:   "d7f3cc98cca1c75f5e74779f5c6dcc404337ecb4f42e462b78922b5d44ad6720"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def install
-    python3 = "python3.12"
+    python3 = "python3.13"
     system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
 
     # Install chg (see https://www.mercurial-scm.org/wiki/CHg)
