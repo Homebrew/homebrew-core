@@ -1,11 +1,22 @@
 class Llvm < Formula
   desc "Next-gen compiler infrastructure"
   homepage "https://llvm.org/"
-  url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.1/llvm-project-19.1.1.src.tar.xz"
-  sha256 "d40e933e2a208ee142898f85d886423a217e991abbcd42dd8211f507c93e1266"
   # The LLVM Project is under the Apache License v2.0 with LLVM Exceptions
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/llvm/llvm-project.git", branch: "main"
+
+  stable do
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-19.1.1/llvm-project-19.1.1.src.tar.xz"
+    sha256 "d40e933e2a208ee142898f85d886423a217e991abbcd42dd8211f507c93e1266"
+
+    # Backport relative `CLANG_CONFIG_FILE_SYSTEM_DIR` patch.
+    # Remove in LLVM 20.
+    # https://github.com/llvm/llvm-project/pull/110962
+    patch do
+      url "https://github.com/llvm/llvm-project/commit/1682c99a8877364f1d847395cef501e813804caa.patch?full_index=1"
+      sha256 "2d0a185e27ff2bc46531fc2c18c61ffab521ae8ece2db5b5bed498a15f3f3758"
+    end
+  end
 
   livecheck do
     url :stable
@@ -20,9 +31,6 @@ class Llvm < Formula
     sha256 cellar: :any,                 ventura:       "4e3c26f668b408d9806c6a4a8ff5299639c6153d3de6320ebb958c29b5f2576d"
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "fe6cd7c69619252eea13f0c5c590b2662541089d1a7e8bc606dbb07b1a769854"
   end
-
-  # Clang cannot find system headers if Xcode CLT is not installed
-  pour_bottle? only_if: :clt_installed
 
   keg_only :provided_by_macos
 
@@ -51,6 +59,10 @@ class Llvm < Formula
 
   def python3
     "python3.12"
+  end
+
+  def clang_config_file_dir
+    etc/"clang"
   end
 
   def install
@@ -116,6 +128,8 @@ class Llvm < Formula
       -DLLVM_ENABLE_Z3_SOLVER=#{versioned_formula? ? "OFF" : "ON"}
       -DLLVM_OPTIMIZED_TABLEGEN=ON
       -DLLVM_TARGETS_TO_BUILD=all
+      -DLLVM_USE_RELATIVE_PATHS_IN_FILES=ON
+      -DLLVM_SOURCE_PREFIX=.
       -DLLDB_USE_SYSTEM_DEBUGSERVER=ON
       -DLLDB_ENABLE_PYTHON=ON
       -DLLDB_ENABLE_LUA=OFF
@@ -126,6 +140,8 @@ class Llvm < Formula
       -DCLANG_PYTHON_BINDINGS_VERSIONS=#{python_versions.join(";")}
       -DLLVM_CREATE_XCODE_TOOLCHAIN=OFF
       -DCLANG_FORCE_MATCHING_LIBCLANG_SOVERSION=OFF
+      -DCLANG_CONFIG_FILE_SYSTEM_DIR=#{clang_config_file_dir.relative_path_from(bin)}
+      -DCLANG_CONFIG_FILE_USER_DIR=~/.config/clang
     ]
 
     if tap.present?
@@ -156,7 +172,6 @@ class Llvm < Formula
       args << "-DLIBCXX_INSTALL_LIBRARY_DIR=#{libcxx_install_libdir}"
       args << "-DLIBUNWIND_INSTALL_LIBRARY_DIR=#{libunwind_install_libdir}"
       args << "-DLIBCXXABI_INSTALL_LIBRARY_DIR=#{libcxx_install_libdir}"
-      args << "-DDEFAULT_SYSROOT=#{macos_sdk}" if macos_sdk
       runtimes_cmake_args << "-DCMAKE_INSTALL_RPATH=#{libcxx_rpaths.join("|")}"
 
       # Disable builds for OSes not supported by the CLT SDK.
@@ -412,6 +427,9 @@ class Llvm < Formula
       system "/usr/libexec/PlistBuddy", "-c", "Add:CompatibilityVersion integer 2", "Info.plist"
       xctoolchain.install "Info.plist"
       (xctoolchain/"usr").install_symlink [bin, include, lib, libexec, share]
+
+      # Install a major-versioned symlink that can be used across minor/patch version upgrades.
+      xctoolchain.parent.install_symlink xctoolchain.basename.to_s => "LLVM#{soversion}.xctoolchain"
     end
 
     # Install Vim plugins
@@ -445,10 +463,28 @@ class Llvm < Formula
     end
   end
 
+  def post_install
+    return unless OS.mac?
+    return unless (macos_sdk = MacOS.sdk_path_if_needed)
+
+    clang_config_file_dir.mkpath
+    %w[clang.cfg clang++.cfg].each do |config_file|
+      (clang_config_file_dir/config_file).atomic_write <<~CONFIG
+        --sysroot=#{macos_sdk}
+      CONFIG
+    end
+  end
+
   def caveats
     s = <<~EOS
-      `lld` is now provided in a separate formula:
+      CLANG_CONFIG_FILE_SYSTEM_DIR: #{clang_config_file_dir}
+      CLANG_CONFIG_FILE_USER_DIR:   ~/.config/clang
+
+      LLD is now provided in a separate formula:
         brew install lld
+
+      We plan to build LLVM 20 with `LLVM_ENABLE_EH=OFF`. Please see:
+        https://github.com/orgs/Homebrew/discussions/5654
     EOS
 
     on_macos do
@@ -461,6 +497,9 @@ class Llvm < Formula
           LDFLAGS="-L#{opt_lib}/c++ -L#{opt_lib}/unwind -lunwind"
 
         NOTE: You probably want to use the libunwind and libc++ provided by macOS unless you know what you're doing.
+
+        When upgrading to a new major version of macOS (e.g. 15 to 16), please run:
+          brew postinstall llvm
       EOS
     end
 
