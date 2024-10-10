@@ -23,6 +23,7 @@ class Orbuculum < Formula
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
   depends_on "capstone"
+  depends_on "dwarfutils"
   depends_on "libusb"
   depends_on "sdl2"
   depends_on "zeromq"
@@ -30,19 +31,20 @@ class Orbuculum < Formula
   uses_from_macos "ncurses"
 
   on_macos do
-    depends_on "libelf"
+    depends_on "libelf" => :build
   end
 
   on_linux do
     depends_on "elfutils"
   end
 
-  conflicts_with "dwarfutils", because: "both install `dwarfdump` binaries"
-
   def install
+    # Unbundle `dwarfutils`
+    inreplace "meson.build", "= subproject('libdwarf').get_variable('libdwarf')", "= dependency('libdwarf')"
+
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
-    system "meson", "install", "-C", "build", "--tags", "devel,runtime"
+    system "meson", "install", "-C", "build"
   end
 
   test do
