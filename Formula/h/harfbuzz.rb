@@ -20,7 +20,7 @@ class Harfbuzz < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@3.12" => [:build, :test]
+  depends_on "python@3.13" => [:build, :test]
   depends_on "pygobject3" => :test
   depends_on "cairo"
   depends_on "freetype"
@@ -57,6 +57,6 @@ class Harfbuzz < Formula
       shape = pipe_output("#{bin}/hb-shape 270b89df543a7e48e206a2d830c0e10e5265c630.ttf", "സ്റ്റ്").chomp
       assert_equal "[glyph201=0+1183|U0D4D=0+0]", shape
     end
-    system "python3.12", "-c", "from gi.repository import HarfBuzz"
+    system "python3.13", "-c", "from gi.repository import HarfBuzz"
   end
 end
