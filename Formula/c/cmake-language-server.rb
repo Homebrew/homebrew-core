@@ -13,7 +13,7 @@ class CmakeLanguageServer < Formula
     sha256 cellar: :any_skip_relocation, all: "6990801bff5c6c969e674d53a254218c949c0f71468faa41f8ad32fd0afd19ff"
   end
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "attrs" do
     url "https://files.pythonhosted.org/packages/e3/fc/f800d51204003fa8ae392c4e8278f256206e7a919b708eef054f5f4b650d/attrs-23.2.0.tar.gz"
