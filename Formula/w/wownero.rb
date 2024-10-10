@@ -38,7 +38,6 @@ class Wownero < Formula
   depends_on "cmake" => :build
   depends_on "miniupnpc" => :build
   depends_on "pkg-config" => :build
-  depends_on "boost@1.85"
   depends_on "hidapi"
   depends_on "libsodium"
   depends_on "libusb"
@@ -50,7 +49,35 @@ class Wownero < Formula
 
   conflicts_with "monero", because: "both install a wallet2_api.h header"
 
+  # Currently not compatible with boost 1.86.0 even with `monero` fix
+  # https://github.com/monero-project/monero/commit/ed955bf751e304569cd4c04f558360154e19610e
+  resource "boost" do
+    url "https://github.com/boostorg/boost/releases/download/boost-1.85.0/boost-1.85.0-b2-nodocs.tar.xz"
+    sha256 "09f0628bded81d20b0145b30925d7d7492fd99583671586525d5d66d4c28266a"
+  end
+
   def install
+    boost_prefix = buildpath/"boost"
+    resource("boost").stage do
+      Pathname("user-config.jam").write "using #{OS.mac? ? "darwin" : "gcc"} : : #{ENV.cxx} ;\n"
+
+      libs = %w[system filesystem thread date_time chrono regex serialization program_options locale]
+      args = %W[
+        --prefix=#{boost_prefix}
+        -j#{ENV.make_jobs}
+        --layout=system
+        --user-config=user-config.jam
+        threading=multi
+        link=static
+        cxxflags=-std=c++14
+      ]
+      args << "cxxflags=-stdlib=libc++" << "linkflags=-stdlib=libc++" if ENV.compiler == :clang
+
+      system "./bootstrap.sh", "--prefix=#{boost_prefix}", "--without-icu", "--with-libraries=#{libs.join(",")}"
+      system "./b2", *args, "install"
+      ENV.append_to_cflags "-I#{boost_prefix}/include"
+    end
+
     # Work around build error with Boost 1.85.0.
     # Reported to `monero` where issue needs to be fixed as `wownero` is a fork.
     # Issue ref: https://github.com/monero-project/monero/issues/9304
@@ -65,7 +92,7 @@ class Wownero < Formula
     inreplace "src/simplewallet/simplewallet.cpp", "boost::filesystem::complete(", "boost::filesystem::absolute("
 
     # Need to help CMake find `readline` when not using /usr/local prefix
-    args = %W[-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix}]
+    args = %W[-DReadline_ROOT_DIR=#{Formula["readline"].opt_prefix} -DCMAKE_PREFIX_PATH=#{boost_prefix}]
 
     # Build a portable binary (don't set -march=native)
     args << "-DARCH=default" if build.bottle?
