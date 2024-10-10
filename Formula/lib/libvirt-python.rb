@@ -4,6 +4,7 @@ class LibvirtPython < Formula
   url "https://download.libvirt.org/python/libvirt-python-10.8.0.tar.gz"
   sha256 "10cddc61c6bc5659c0eaa3e4c71f3d97c95abf327a51c207affb2e5f49f19f60"
   license "LGPL-2.1-or-later"
+  revision 1
 
   livecheck do
     url "https://download.libvirt.org/python/"
@@ -21,7 +22,7 @@ class LibvirtPython < Formula
 
   depends_on "pkg-config" => :build
   depends_on "libvirt"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   def pythons
     deps.map(&:to_formula)
@@ -36,14 +37,16 @@ class LibvirtPython < Formula
   end
 
   test do
-    system "python3.12", "-c",
-           # language=Python
-           <<~EOS
-             import libvirt
+    pythons.each do |python|
+      system python, "-c",
+             # language=Python
+             <<~EOS
+               import libvirt
 
-             with libvirt.open('test:///default') as conn:
-                 if libvirt.virGetLastError() is not None:
-                     raise SystemError("Failed to open a test connection")
-           EOS
+               with libvirt.open('test:///default') as conn:
+                   if libvirt.virGetLastError() is not None:
+                       raise SystemError("Failed to open a test connection")
+             EOS
+    end
   end
 end
