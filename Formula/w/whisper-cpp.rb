@@ -1,15 +1,10 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggerganov/whisper.cpp"
-  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.5.4.tar.gz"
-  sha256 "06eed84de310fdf5408527e41e863ac3b80b8603576ba0521177464b1b341a3a"
+  url "https://github.com/ggerganov/whisper.cpp/archive/refs/tags/v1.7.1.tar.gz"
+  sha256 "97f19a32212f2f215e538ee37a16ff547aaebc54817bd8072034e02466ce6d55"
   license "MIT"
   head "https://github.com/ggerganov/whisper.cpp.git", branch: "master"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "216f8aff7ce3a5d3c505b7fe1169fe08a6b3d232f455ba0f6c03de71497b2474"
@@ -22,27 +17,19 @@ class WhisperCpp < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "f7187c90ab975f4558c1762a608e09bd16f897690b55308aa27bb6d21e86c2e2"
   end
 
+  depends_on macos: :sonoma
+
   def install
     system "make"
     bin.install "main" => "whisper-cpp"
 
-    pkgshare.install ["samples/jfk.wav", "models/for-tests-ggml-tiny.bin", "ggml-metal.metal"]
-  end
-
-  def caveats
-    <<~EOS
-      whisper-cpp requires GGML model files to work. These are not downloaded by default.
-      To obtain model files (.bin), visit one of these locations:
-
-        https://huggingface.co/ggerganov/whisper.cpp/tree/main
-        https://ggml.ggerganov.com/
-    EOS
+    pkgshare.install ["samples/jfk.wav", "models/for-tests-ggml-tiny.bin", "ggml/src/ggml-metal.metal"]
   end
 
   test do
     cp [pkgshare/"jfk.wav", pkgshare/"for-tests-ggml-tiny.bin", pkgshare/"ggml-metal.metal"], testpath
 
-    system bin/"whisper-cpp", "samples", "-m", "for-tests-ggml-tiny.bin"
+    system bin/"whisper-cpp", "-m", "for-tests-ggml-tiny.bin", "jfk.wav"
     assert_equal 0, $CHILD_STATUS.exitstatus, "whisper-cpp failed with exit code #{$CHILD_STATUS.exitstatus}"
   end
 end
