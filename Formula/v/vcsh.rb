@@ -20,6 +20,9 @@ class Vcsh < Formula
   depends_on "libtool" => :build
 
   def install
+    # regenerate since the files were generated using automake 1.16
+    system "autoreconf", "--install", "--force", "--verbose"
+
     # Set GIT, SED, and GREP to prevent
     # hardcoding shim references and absolute paths.
     # We set this even where we have no shims because
