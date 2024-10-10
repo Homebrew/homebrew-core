@@ -64,6 +64,10 @@ class Vineyard < Formula
     ENV.remove "HOMEBREW_LIBRARY_PATHS", llvm.opt_lib if DevelopmentTools.clang_build_version >= 1500
     ENV.append "LDFLAGS", "-Wl,-rpath,#{llvm.opt_lib}/#{Hardware::CPU.arch}-unknown-linux-gnu" if OS.linux?
 
+    # Avoid using bundled deps
+    rm_r buildpath.glob("cmake/Build*.cmake")
+    rm_r %w[etcd-cpp-apiv3 hiredis pybind11 zstd].map { |subdir| buildpath/"thirdparty"/subdir }
+
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_CXX_STANDARD=17",
                     "-DCMAKE_CXX_STANDARD_REQUIRED=TRUE",
