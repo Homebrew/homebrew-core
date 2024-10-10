@@ -24,7 +24,7 @@ class Glib < Formula
   depends_on "python-setuptools" => :build # for gobject-introspection
   depends_on "pcre2"
   depends_on "python-packaging"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "flex" => :build # for gobject-introspection
   uses_from_macos "libffi", since: :catalina
@@ -59,7 +59,7 @@ class Glib < Formula
   end
 
   def install
-    python = "python3.12"
+    python = "python3.13"
     inreplace %w[gio/xdgmime/xdgmime.c glib/gutils.c], "@@HOMEBREW_PREFIX@@", HOMEBREW_PREFIX
     # Avoid the sandbox violation when an empty directory is created outside of the formula prefix.
     inreplace "gio/meson.build", "install_emptydir(glib_giomodulesdir)", ""
