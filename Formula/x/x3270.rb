@@ -4,6 +4,7 @@ class X3270 < Formula
   url "http://x3270.bgp.nu/download/04.03/suite3270-4.3ga9-src.tgz"
   sha256 "6404d27b29a40d896daab35ff153cab157d85094b38bdeb4ebaaaf2673ce4db1"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url "https://x3270.miraheze.org/wiki/Downloads"

@@ -4,6 +4,7 @@ class Gensio < Formula
   url "https://github.com/cminyard/gensio/releases/download/v2.8.9/gensio-2.8.9.tar.gz"
   sha256 "00bb5f0aa80d9978195f5efab5db403af22e5e7ed0f75c682da47577248bd333"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only", "Apache-2.0"]
+  revision 1
 
   bottle do
     sha256 arm64_sequoia:  "2fbbf769092237b2ad692909a156018d332448cd4f9746d4500a7e9fe6246341"

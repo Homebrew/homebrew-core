@@ -4,7 +4,7 @@ class Expect < Formula
   url "https://downloads.sourceforge.net/project/expect/Expect/5.45.4/expect5.45.4.tar.gz"
   sha256 "49a7da83b0bdd9f46d04a04deec19c7767bb9a323e40c4781f89caf760b92c34"
   license :public_domain
-  revision 2
+  revision 3
 
   livecheck do
     url :stable
@@ -30,7 +30,7 @@ class Expect < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on "tcl-tk"
+  depends_on "tcl-tk@8"
 
   conflicts_with "ircd-hybrid", because: "both install an `mkpasswd` binary"
   conflicts_with "bash-snippets", because: "both install `weather` binaries"
@@ -52,7 +52,7 @@ class Expect < Formula
   end
 
   def install
-    tcltk = Formula["tcl-tk"]
+    tcltk = Formula["tcl-tk@8"]
     args = %W[
       --prefix=#{prefix}
       --exec-prefix=#{prefix}

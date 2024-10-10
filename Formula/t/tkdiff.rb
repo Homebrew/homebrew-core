@@ -5,6 +5,7 @@ class Tkdiff < Formula
   version "5.7"
   sha256 "e2dec98e4c2f7c79a1e31290d3deaaa5915f53c8220c05728f282336bb2e405d"
   license "GPL-2.0-only"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,10 +24,11 @@ class Tkdiff < Formula
   end
 
   # upstream bug report about running with system tcl-tk, https://sourceforge.net/p/tkdiff/bugs/98/
-  depends_on "tcl-tk"
+  depends_on "tcl-tk@8"
 
   def install
     bin.install "tkdiff"
+    bin.env_script_all_files libexec, PATH: "#{Formula["tcl-tk@8"].opt_bin}:${PATH}"
   end
 
   test do

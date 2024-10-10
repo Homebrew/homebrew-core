@@ -6,7 +6,7 @@ class Wordnet < Formula
   version "3.1"
   sha256 "6c492d0c7b4a40e7674d088191d3aa11f373bb1da60762e098b8ee2dda96ef22"
   license :cannot_represent
-  revision 1
+  revision 2
 
   # This matches WordNet tarball versions as well as database file versions,
   # as these may differ.
@@ -31,7 +31,7 @@ class Wordnet < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:   "4e2dca6e992ebdeb9f9579b4291fad16955f8838b05b595ee009d4aa21f7a590"
   end
 
-  depends_on "tcl-tk"
+  depends_on "tcl-tk@8"
 
   resource "dict" do
     url "https://wordnetcode.princeton.edu/wn3.1.dict.tar.gz"
@@ -47,11 +47,12 @@ class Wordnet < Formula
     # Disable calling deprecated fields within the Tcl_Interp during compilation.
     # https://bugzilla.redhat.com/show_bug.cgi?id=902561
     ENV.append_to_cflags "-DUSE_INTERP_RESULT"
+    tcltk_lib = Formula["tcl-tk@8"].opt_lib
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}",
                           "--mandir=#{man}",
-                          "--with-tcl=#{Formula["tcl-tk"].opt_prefix}/lib",
-                          "--with-tk=#{Formula["tcl-tk"].opt_prefix}/lib"
+                          "--with-tcl=#{tcltk_lib}",
+                          "--with-tk=#{tcltk_lib}"
     ENV.deparallelize
     system "make", "install"
   end

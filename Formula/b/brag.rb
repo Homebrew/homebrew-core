@@ -4,6 +4,7 @@ class Brag < Formula
   url "https://downloads.sourceforge.net/project/brag/brag/1.4.3/brag-1.4.3.tar.gz"
   sha256 "f2c8110c38805c31ad181f4737c26e766dc8ecfa2bce158197b985be892cece6"
   license "GPL-2.0-or-later"
+  revision 1
 
   bottle do
     rebuild 1
@@ -13,11 +14,12 @@ class Brag < Formula
   depends_on "uudeview"
 
   on_linux do
-    depends_on "tcl-tk"
+    depends_on "tcl-tk@8"
   end
 
   def install
     bin.install "brag"
+    bin.env_script_all_files libexec, PATH: "#{Formula["tcl-tk@8"].opt_bin}:/usr/bin:${PATH}"
     man1.install "brag.1"
   end
 
