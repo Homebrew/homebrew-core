@@ -20,22 +20,25 @@ class PinentryMac < Formula
   depends_on "autoconf" => :build
   depends_on "automake" => :build
   depends_on "libtool" => :build
-  depends_on xcode: :build
-  depends_on "gettext"
-  depends_on "libassuan@2"
+  depends_on xcode: :build # for ibtool
+  depends_on "libassuan"
+  depends_on "libgpg-error"
   depends_on :macos
 
-  on_ventura :or_newer do
-    depends_on "texinfo" => :build
-  end
+  # Apply commit from `pinentry` to allow newer `libassuan`
+  # Ref: https://github.com/gpg/pinentry/commit/a39ba412ab24721d4edb6476156371f8bf1d3ff9
+  patch :DATA
 
   def install
-    system "autoreconf", "-fiv"
-    system "autoconf"
-    system "./configure", "--disable-ncurses", "--enable-maintainer-mode"
+    system "./autogen.sh"
+    system "./configure", "--disable-doc",
+                          "--disable-ncurses",
+                          "--disable-silent-rules",
+                          "--enable-maintainer-mode",
+                          *std_configure_args
     system "make"
     prefix.install "macosx/pinentry-mac.app"
-    bin.write_exec_script "#{prefix}/pinentry-mac.app/Contents/MacOS/pinentry-mac"
+    bin.write_exec_script prefix/"pinentry-mac.app/Contents/MacOS/pinentry-mac"
   end
 
   def caveats
@@ -51,3 +54,26 @@ class PinentryMac < Formula
     assert_match version.major_minor_patch.to_s, shell_output("#{bin}/pinentry-mac --version")
   end
 end
+
+__END__
+diff --git a/m4/libassuan.m4 b/m4/libassuan.m4
+index 79391bb..a2eb5d9 100644
+--- a/m4/libassuan.m4
++++ b/m4/libassuan.m4
+@@ -89,6 +89,7 @@ AC_DEFUN([_AM_PATH_LIBASSUAN_COMMON],
+
+   if test $ok = yes; then
+     AC_MSG_RESULT([yes ($libassuan_config_version)])
++    AC_DEFINE(LIBASSUAN_API_REQUESTED, $req_libassuan_api, Requested API version for libassuan)
+   else
+     AC_MSG_RESULT(no)
+   fi
+@@ -104,6 +105,8 @@ AC_DEFUN([_AM_PATH_LIBASSUAN_COMMON],
+         AC_MSG_CHECKING([LIBASSUAN API version])
+         if test "$req_libassuan_api" -eq "$tmp" ; then
+           AC_MSG_RESULT(okay)
++        elif test "$req_libassuan_api" -eq 2 -a "$tmp" -eq 3; then
++          AC_MSG_RESULT(okay)
+         else
+           ok=no
+           AC_MSG_RESULT([does not match.  want=$req_libassuan_api got=$tmp.])
