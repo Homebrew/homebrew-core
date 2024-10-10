@@ -19,10 +19,10 @@ class NicovideoDl < Formula
     sha256 cellar: :any_skip_relocation, all: "d20fe029f025c4cadd5c3ed25d58cd88886e32fd6d6fe16f51bfc0e2233bb80a"
   end
 
-  depends_on "python@3.12"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "nicovideo-dl"
+    rewrite_shebang detected_python_shebang(use_python_from_path: true), "nicovideo-dl"
     bin.install "nicovideo-dl"
   end
 
