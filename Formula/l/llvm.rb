@@ -710,8 +710,9 @@ class Llvm < Formula
       # Check that lldb can use Python
       lldb_script_interpreter_info = JSON.parse(shell_output("#{bin}/lldb --print-script-interpreter-info"))
       assert_equal "python", lldb_script_interpreter_info["language"]
+      python_executable = lldb_script_interpreter_info["executable"]
       python_test_cmd = "import pathlib, sys; print(pathlib.Path(sys.prefix).resolve())"
-      assert_match shell_output("#{python3} -c '#{python_test_cmd}'"),
+      assert_match shell_output("#{python_executable} -c '#{python_test_cmd}'"),
                    pipe_output("#{bin}/lldb", <<~EOS)
                      script
                      #{python_test_cmd}
