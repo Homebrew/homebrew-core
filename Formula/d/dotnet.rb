@@ -3,10 +3,9 @@ class Dotnet < Formula
   homepage "https://dotnet.microsoft.com/"
   # Source-build tag announced at https://github.com/dotnet/source-build/discussions
   url "https://github.com/dotnet/dotnet.git",
-      tag:      "v8.0.8",
-      revision: "e78e8a64f20e61e1fea4f24afca66ad1dc56285f"
+      tag:      "v8.0.10",
+      revision: "8922fe64a1903ed4e35e24568efb056b3e0fad43"
   license "MIT"
-  revision 1
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "89f252e00a7ac506f5fbfc0efdbab5086159bd2a86ae4ab6a6707af88ea488de"
