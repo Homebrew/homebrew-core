@@ -4,6 +4,7 @@ class Gtranslator < Formula
   url "https://download.gnome.org/sources/gtranslator/47/gtranslator-47.0.tar.xz"
   sha256 "76e1041c5efb0a88ba18764ea4588b4e1965fa50314e01a173fa3ea0150e1cd5"
   license "GPL-3.0-or-later"
+  revision 1
 
   bottle do
     sha256 arm64_sequoia: "1e473c7592f9b6dc332a0049af39d727b9e4c8b1f7ebf843a92154fcdb32d6bd"

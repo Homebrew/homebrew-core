@@ -1,8 +1,8 @@
 class Libspelling < Formula
   desc "Spellcheck library for GTK 4"
   homepage "https://gitlab.gnome.org/GNOME/libspelling"
-  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.2.1/libspelling-0.2.1.tar.bz2"
-  sha256 "5393a9b93fda445598348a47c42d1ad13586c0bcf35dfd257afd613fd31812c1"
+  url "https://gitlab.gnome.org/GNOME/libspelling/-/archive/0.4.2/libspelling-0.4.2.tar.bz2"
+  sha256 "42c78491d73b2e5be83526ee079cfe43bf04f25f445cfcc58613f149c586c566"
   license "LGPL-2.1-or-later"
   revision 1
 
@@ -36,8 +36,12 @@ class Libspelling < Formula
     depends_on "harfbuzz"
   end
 
+  on_linux do
+    depends_on "sysprof"
+  end
+
   def install
-    system "meson", "setup", "build", "-Ddocs=false", *std_meson_args
+    system "meson", "setup", "build", "-Ddocs=false", "-Dsysprof=#{OS.linux?}", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
   end
