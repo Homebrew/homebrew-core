@@ -162,8 +162,9 @@ class PostgresqlAT17 < Formula
     <<~EOS
       This formula has created a default database cluster with:
         initdb --locale=C -E UTF-8 #{postgresql_datadir}
-      For more details, read:
-        https://www.postgresql.org/docs/#{version.major}/app-initdb.html
+
+      When uninstalling, some dead symlinks are left behind so you may want to run:
+        brew cleanup --prune-prefix
     EOS
   end
 
