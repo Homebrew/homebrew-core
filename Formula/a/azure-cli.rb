@@ -15,12 +15,13 @@ class AzureCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "3cef897e955f801cbcaff2fc6165bdbf81bbe47101300888e1c7924494186a8a"
-    sha256 cellar: :any,                 arm64_sonoma:  "1032e96b36f872bc670bb4d8948dfaf104597a042f5ae3958c6872b918234a16"
-    sha256 cellar: :any,                 arm64_ventura: "02435e946a7b5b7f6dfa2515dd4592cde21cf8f0e25aa7712dc8d7504ee66bb7"
-    sha256 cellar: :any,                 sonoma:        "db27f0e479d681018ebc14baac416766a5d1c2ffa99739e26d4993ccb65c24a0"
-    sha256 cellar: :any,                 ventura:       "22f2c563e3c5f0d81fabcc1cb416c6e7ea0596a646ef63a15eb56146669f716c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "927a9f1530000e2faa78416d9d067e0155c2ca4494d54cf5ce9ac996b5d28d1d"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "ac8c0e1ff654f3c4ae6ef5551311c9743469cd9846dc79d3b8cc22b847065d33"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f2d734c060ed36088255b760192712df9de19fc0994d66c402c253f2b8e38a2"
+    sha256 cellar: :any,                 arm64_ventura: "45bc0e11b0fccbc3d79632d859aeaeda8b695a912bebe51aa1b6c3e3ded5bd62"
+    sha256 cellar: :any,                 sonoma:        "0075757f414dcc57a3a9bf48c8e9db03fa6e25b0a9b15c970267e5ff34460714"
+    sha256 cellar: :any,                 ventura:       "271ed3d69b0a4d74d5aa90f4e14daa41bbe87a399fa92b2a2e850ffbfe8726f5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca783f5aa86281ab2a6f0806c45b275648593b131601f004f12dcbe36b490444"
   end
 
   # `pkg-config`, `rust`, and `openssl@3` are for cryptography.
@@ -742,7 +743,8 @@ class AzureCli < Formula
       AZ_INSTALLER=HOMEBREW #{libexec}/bin/python -Im azure.cli "$@"
     EOS
 
-    bash_completion.install "az.completion" => "az"
+    generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "az",
+                                         base_name: "az", shell_parameter_format: :arg)
   end
 
   test do
