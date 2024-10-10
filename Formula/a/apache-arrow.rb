@@ -1,12 +1,21 @@
 class ApacheArrow < Formula
   desc "Columnar in-memory analytics layer designed to accelerate big data"
   homepage "https://arrow.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz"
-  mirror "https://archive.apache.org/dist/arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz"
-  sha256 "9d280d8042e7cf526f8c28d170d93bfab65e50f94569f6a790982a878d8d898d"
   license "Apache-2.0"
-  revision 8
+  revision 9
   head "https://github.com/apache/arrow.git", branch: "main"
+
+  stable do
+    url "https://www.apache.org/dyn/closer.lua?path=arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz"
+    mirror "https://archive.apache.org/dist/arrow/arrow-17.0.0/apache-arrow-17.0.0.tar.gz"
+    sha256 "9d280d8042e7cf526f8c28d170d93bfab65e50f94569f6a790982a878d8d898d"
+
+    # Backport support for LLVM 19
+    patch do
+      url "https://github.com/apache/arrow/commit/3505457946192ef2ee0beac3356d9c0ed0d22b0f.patch?full_index=1"
+      sha256 "60793569736ebc72ecddcd06443cf281342d7fa81b5d4727152247f2cb7ad58a"
+    end
+  end
 
   bottle do
     sha256 cellar: :any,                 arm64_sequoia: "2fc6008982d88365d2a0ca4465f00130b40dd2fd79f0df172c5ae93f759e42e2"
@@ -19,15 +28,15 @@ class ApacheArrow < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
+  depends_on "gflags" => :build
   depends_on "ninja" => :build
+  depends_on "xsimd" => :build
   depends_on "abseil"
   depends_on "aws-sdk-cpp"
   depends_on "brotli"
-  depends_on "bzip2"
   depends_on "c-ares"
-  depends_on "glog"
   depends_on "grpc"
-  depends_on "llvm@18"
+  depends_on "llvm"
   depends_on "lz4"
   depends_on "openssl@3"
   depends_on "protobuf"
@@ -39,6 +48,7 @@ class ApacheArrow < Formula
   depends_on "zstd"
 
   uses_from_macos "python" => :build
+  uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
   fails_with gcc: "5"
@@ -61,6 +71,7 @@ class ApacheArrow < Formula
       -DARROW_COMPUTE=ON
       -DARROW_CSV=ON
       -DARROW_DATASET=ON
+      -DARROW_DEPENDENCY_SOURCE=SYSTEM
       -DARROW_FILESYSTEM=ON
       -DARROW_FLIGHT=ON
       -DARROW_FLIGHT_SQL=ON
