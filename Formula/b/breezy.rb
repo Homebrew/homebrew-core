@@ -20,16 +20,17 @@ class Breezy < Formula
   depends_on "gettext" => :build
   depends_on "rust" => :build
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "configobj" do
     url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"
     sha256 "03c881bbf23aa07bccf1b837005975993c4ab4427ba57f959afdd9d1a2386848"
   end
 
+  # upstream bug report about sdist issue, https://github.com/jelmer/dulwich/issues/1372
   resource "dulwich" do
-    url "https://files.pythonhosted.org/packages/cf/ac/cf6420b90832c4ffbc88b92962dd0167c58632c2b8d508d5baf4ecb0c61d/dulwich-0.22.1.tar.gz"
-    sha256 "e36d85967cfbf25da1c7bc3d6921adc5baa976969d926aaf1582bd5fd7e94758"
+    url "https://github.com/jelmer/dulwich/archive/refs/tags/v0.22.2.tar.gz"
+    sha256 "fcc4b2c05ad68893341b9ff9a8b04291c024cc2f8ce89f96d5144015e75bfd44"
   end
 
   resource "fastbencode" do
@@ -80,7 +81,7 @@ class Breezy < Formula
   end
 
   test do
-    brz = "#{bin}/brz"
+    brz = bin/"brz"
     whoami = "Homebrew <homebrew@example.com>"
     system brz, "whoami", whoami
     assert_match whoami, shell_output("#{bin}/brz whoami")
