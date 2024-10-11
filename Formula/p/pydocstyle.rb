@@ -21,7 +21,7 @@ class Pydocstyle < Formula
 
   disable! date: "2023-11-04", because: :repo_archived
 
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "snowballstemmer" do
     url "https://files.pythonhosted.org/packages/44/7b/af302bebf22c749c56c9c3e8ae13190b5b5db37a33d9068652e8f73b7089/snowballstemmer-2.2.0.tar.gz"
