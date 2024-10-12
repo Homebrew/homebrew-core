@@ -1,10 +1,9 @@
 class Gmic < Formula
   desc "Full-Featured Open-Source Framework for Image Processing"
   homepage "https://gmic.eu/"
-  url "https://gmic.eu/files/source/gmic_3.4.2.tar.gz"
-  sha256 "9abd8377693715f87104bdbe077d45ecb00cf19f57c29f425eacda07c745fe8a"
+  url "https://gmic.eu/files/source/gmic_3.4.3.tar.gz"
+  sha256 "79951d06db2928c68bad1d352e536af3f454e9a3c09beefc2c1049d8b4084507"
   license "CECILL-2.1"
-  revision 1
   head "https://github.com/GreycLab/gmic.git", branch: "master"
 
   livecheck do
@@ -13,12 +12,12 @@ class Gmic < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "0f6aea0f8a903364aa0ce16c5b93e3ce5c8f1731032a7afce6bb47168fdb9173"
-    sha256 cellar: :any,                 arm64_sonoma:  "02d1a9cfde9f30969677d3f80bf7aef5b347624f4614dfadacbe70b46a79a381"
-    sha256 cellar: :any,                 arm64_ventura: "f756f70c63c0d7feecc96db001c33b3b508815470afd70772bac0b1827c48960"
-    sha256 cellar: :any,                 sonoma:        "159958616267b4f92a1b73e1451a9b15925cb5a90695d6f91cf58516c9e3f732"
-    sha256 cellar: :any,                 ventura:       "e852a229fe12e7370b5537cd355b3b06188f9ab1a400002bedab9b4b733ae3ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c27705afeffa586eab9809e5fad8d8da3d63650b2d1043730e80e4a8b723b911"
+    sha256 cellar: :any,                 arm64_sequoia: "a81973227c6fecf458cc4d7fbdc791e252163bf6aca986bce72be913c729b4bd"
+    sha256 cellar: :any,                 arm64_sonoma:  "1f54cf4661262c4cea2f68540559f81629675c29daa00f6ce791386030361526"
+    sha256 cellar: :any,                 arm64_ventura: "564d98e261a7ba3f83718d6f9455424db320a365c6b187e497e9d7b159fd85d8"
+    sha256 cellar: :any,                 sonoma:        "ae4ccc1771af3f2169ebab9f0388873779739da7e38f304b76ca5ef948658e52"
+    sha256 cellar: :any,                 ventura:       "2854b94bb3ccd14d2a9114655dedbd218cafbcf6c8e30e8f47cb81cba3a998c6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1daae27036c6d670c516e1144536eed9965425f1f832c7eca2dbea7057735a07"
   end
 
   depends_on "cmake" => :build

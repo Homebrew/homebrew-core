@@ -9,19 +9,22 @@ class Pwntools < Formula
   head "https://github.com/Gallopsled/pwntools.git", branch: "dev"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "18b7bcf44b558a174c8425ab0dcadfc08dcd945007fa8d183ae53ab136904c1d"
-    sha256 cellar: :any,                 arm64_sonoma:  "67329ba4714d394bc4730d57b3a8b205734ddfee4143e9fc9b373ad867d8a980"
-    sha256 cellar: :any,                 arm64_ventura: "bd68c24b3fb0c79779822c8e2d59598e2a12a3a42014e3980c8e06a2333fb365"
-    sha256 cellar: :any,                 sonoma:        "244dd038a4f1335ed17f00f3d7369d250a0c7cd478d04028e8b0fd783d19cffa"
-    sha256 cellar: :any,                 ventura:       "de7b7f3f13bf53ea4f6e79adb2fc1f976e6da34300f00df245e13639c5b0854f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "4cf0aaf21bfb8bbd5b72a202b71f3f9b29304bb928b9db94e0460f302fc222cc"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "0e7aa983e28968d0e759f87339af83df30559f76520cea0df8419578a9d7d029"
+    sha256 cellar: :any,                 arm64_sonoma:  "0c986ddb5f5d1b893084e478134d18affc39445ddab786f8683d483874e60aa3"
+    sha256 cellar: :any,                 arm64_ventura: "941e1f537ac635fe2046a4e5b4dc599a5f435fe99e9690527320809360c8f46c"
+    sha256 cellar: :any,                 sonoma:        "1f6766a96d195af4a6db727b5a5675a61ba89fbdf262a941cafdd48b62c94c38"
+    sha256 cellar: :any,                 ventura:       "23186b6e7aa869370b158e7b42a42a1f2b41447df807a219a4bc43b01bd965fa"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "71f432749646435cee8c4392b476d22476f6c8e338849bad143d4d442a4a0f1d"
   end
 
   depends_on "rust" => :build # for bcrypt
   depends_on "capstone"
   depends_on "certifi"
   depends_on "cryptography"
-  depends_on "python@3.12"
+  depends_on "libsodium" # for pynacl
+  depends_on "python@3.13"
+  depends_on "unicorn" # for unicorn resource
 
   uses_from_macos "libffi"
 
@@ -36,8 +39,8 @@ class Pwntools < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "colored-traceback" do
@@ -61,8 +64,8 @@ class Pwntools < Formula
   end
 
   resource "markupsafe" do
-    url "https://files.pythonhosted.org/packages/87/5b/aae44c6655f3801e81aa3eef09dbbf012431987ba564d7231722f68df02d/MarkupSafe-2.1.5.tar.gz"
-    sha256 "d283d37a890ba4c1ae73ffadf8046435c76e7bc2247bbb63c00bd1a709c6544b"
+    url "https://files.pythonhosted.org/packages/b4/d2/38ff920762f2247c3af5cbbbbc40756f575d9692d381d7c520f45deb9b8f/markupsafe-3.0.1.tar.gz"
+    sha256 "3e683ee4f5d0fa2dde4db77ed8dd8a876686e3fc417655c2ece9a90576905344"
   end
 
   resource "packaging" do
@@ -76,8 +79,8 @@ class Pwntools < Formula
   end
 
   resource "plumbum" do
-    url "https://files.pythonhosted.org/packages/23/62/06260ec9f1f5a8c04418f8c8c7c2877c80cac4ead97224fc14d92f0db6b4/plumbum-1.8.3.tar.gz"
-    sha256 "6092c85ab970b7a7a9d5d85c75200bc93be82b33c9bdf640ffa87d2d7c8709f0"
+    url "https://files.pythonhosted.org/packages/f0/5d/49ba324ad4ae5b1a4caefafbce7a1648540129344481f2ed4ef6bb68d451/plumbum-1.9.0.tar.gz"
+    sha256 "e640062b72642c3873bd5bdc3effed75ba4d3c70ef6b6a7b907357a84d909219"
   end
 
   resource "psutil" do
@@ -162,12 +165,17 @@ class Pwntools < Formula
 
   def install
     ENV["LIBUNICORN_PATH"] = Formula["unicorn"].opt_lib
-    virtualenv_install_with_resources
-    bin.each_child do |f|
-      f.unlink
-      # Use env scripts to help unicorn python bindings dynamically load shared library
-      f.write_env_script libexec/"bin"/f.basename, LIBUNICORN_PATH: Formula["unicorn"].opt_lib
+    ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_install_with_resources
+
+    # Use shared library from `unicorn` formula. The is mainly required if
+    # `unicorn` is unlinked as fallback load can find lib from linked path
+    pyunicorn_lib = venv.site_packages/"unicorn/lib"
+    pyunicorn_lib.mkpath
+    Formula["unicorn"].opt_lib.glob(shared_library("libunicorn", "*")).each do |libunicorn|
+      ln_s libunicorn.relative_path_from(pyunicorn_lib), pyunicorn_lib
     end
+
     bash_completion.install "extra/bash_completion.d/pwn"
     zsh_completion.install "extra/zsh_completion/_pwn"
   end
@@ -175,5 +183,8 @@ class Pwntools < Formula
   test do
     assert_equal "686f6d6562726577696e7374616c6c636f6d706c657465",
                  shell_output("#{bin}/hex homebrewinstallcomplete").strip
+
+    # Test that unicorn shared library can be loaded
+    system libexec/"bin/python", "-c", "import unicorn.unicorn"
   end
 end

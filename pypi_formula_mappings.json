@@ -116,7 +116,6 @@
     "extra_packages": ["msgpack", "packaging"]
   },
   "borgmatic": {
-    "extra_packages": ["ruamel-yaml-clib"],
     "exclude_packages": ["certifi"]
   },
   "bpython": {

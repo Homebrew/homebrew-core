@@ -8,18 +8,19 @@ class Grayskull < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "eb2499d0c0fd259979ffefc168733d11cd3e357a559f1c92d4b2ec1e0252abbd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "951002e8b0b93026ab91a819a939d6303a345f2b0e56f17ee146e2078ce59377"
-    sha256 cellar: :any_skip_relocation, arm64_ventura: "57f574e82a375e9e2eb4d22f662cf825a07f65467f013406d603cdd30898c6da"
-    sha256 cellar: :any_skip_relocation, sonoma:        "f22f80f0759a2b4b3c383626586582381e35541edc6975c08e87e53f30edc52a"
-    sha256 cellar: :any_skip_relocation, ventura:       "b71832fc1457205a34e848a0ef88b0db8e50f00ed3a44bd6e7d0815c13f56602"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "c8c9c864353c61a042cad04baf91aa53085034eeeea4f46348a64210537669af"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_sequoia: "f97d34e43834d353d4b143514ec60313f8b23101948fc30ecb99f7960b55b817"
+    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "dfcc3e796f28fabc581bcbd956211d20bc0f57c6eff3d9fd6001be4eb595b606"
+    sha256 cellar: :any_skip_relocation, arm64_ventura: "5eb83c32eac8da2cf4030cac9d2c5436f7ebb1b66236da379f67e1dd87335b78"
+    sha256 cellar: :any_skip_relocation, sonoma:        "691848c1e050ef49f89ff3aba57ee0419ef6883d2f060f08fbdcf5013c3ca481"
+    sha256 cellar: :any_skip_relocation, ventura:       "859659d75f409c334010f1004c80caf84950c8411a34ad34f08aafa015475da1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "cac73929ac5924499431e0a843706b593e766b71534029ec6b3d6face289951a"
   end
 
   depends_on "cmake" => :build
   depends_on "certifi"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   resource "beautifulsoup4" do
     url "https://files.pythonhosted.org/packages/b3/ca/824b1195773ce6166d388573fc106ce56d4a805bd7427b624e063596ec58/beautifulsoup4-4.12.3.tar.gz"
@@ -27,8 +28,8 @@ class Grayskull < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "colorama" do
@@ -52,8 +53,8 @@ class Grayskull < Formula
   end
 
   resource "pkginfo" do
-    url "https://files.pythonhosted.org/packages/4f/a1/f00755330cb34bc19b1ba744b9880c51a9b1ed8526039354736d5f4dfb0d/pkginfo-1.11.1.tar.gz"
-    sha256 "2e0dca1cf4c8e39644eed32408ea9966ee15e0d324c62ba899a393b3c6b467aa"
+    url "https://files.pythonhosted.org/packages/6f/c3/4f625ca754f4063200216658463a73106bf725dc27a66b84df35ebe7468c/pkginfo-1.11.2.tar.gz"
+    sha256 "c6bc916b8298d159e31f2c216e35ee5b86da7da18874f879798d0a1983537c86"
   end
 
   resource "progressbar2" do
@@ -79,11 +80,6 @@ class Grayskull < Formula
   resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
     sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
-  end
-
-  resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
-    sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
   end
 
   resource "ruamel-yaml-jinja2" do
@@ -112,13 +108,13 @@ class Grayskull < Formula
   end
 
   resource "tomli" do
-    url "https://files.pythonhosted.org/packages/c0/3f/d7af728f075fb08564c5949a9c95e44352e23dee646869fa104a3b2060a3/tomli-2.0.1.tar.gz"
-    sha256 "de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"
+    url "https://files.pythonhosted.org/packages/35/b9/de2a5c0144d7d75a57ff355c0c24054f965b2dc3036456ae03a51ea6264b/tomli-2.0.2.tar.gz"
+    sha256 "d46d457a85337051c36524bc5349dd91b1877838e2979ac5ced3e710ed8a60ed"
   end
 
   resource "tomli-w" do
-    url "https://files.pythonhosted.org/packages/49/05/6bf21838623186b91aedbda06248ad18f03487dc56fbc20e4db384abde6c/tomli_w-1.0.0.tar.gz"
-    sha256 "f463434305e0336248cac9c2dc8076b707d8a12d019dd349f5c1e382dd1ae1b9"
+    url "https://files.pythonhosted.org/packages/d4/19/b65f1a088ee23e37cdea415b357843eca8b1422a7b11a9eee6e35d4ec273/tomli_w-1.1.0.tar.gz"
+    sha256 "49e847a3a304d516a169a601184932ef0f6b61623fe680f836a2aa7128ed0d33"
   end
 
   resource "typing-extensions" do
@@ -132,10 +128,6 @@ class Grayskull < Formula
   end
 
   def install
-    # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
-    # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
-
     virtualenv_install_with_resources
   end
 

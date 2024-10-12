@@ -8,12 +8,13 @@ class Esphome < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "4119038ef608121a043bbfc163cc02dd8db1252ec9d513a4f7c69d92a71ad79f"
-    sha256 cellar: :any,                 arm64_sonoma:  "8a6685288549cfd3d4893c6dd38f0764ec9f9cc46fb94e54999b469d35321280"
-    sha256 cellar: :any,                 arm64_ventura: "101c8b3512f4ef179632279f6b50a3c9b3efbccace50974bdb30fea2a45dae03"
-    sha256 cellar: :any,                 sonoma:        "c280190356ab396fca531ef2033b2ec487f48c2418a3028418993c76b4c6e875"
-    sha256 cellar: :any,                 ventura:       "b63e1f3a0fb722dfe6d12745d486010e394f192d03668d977ebf2cba49c469aa"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "500e1299eddb8984e65206e392b1a171c1a026f507e818b2b99d2ae967d8443e"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "2060e59b1f42728e4b0f4ae6cf1f39203920326d7a2713d391242aaa39fc028d"
+    sha256 cellar: :any,                 arm64_sonoma:  "48eb42c225da0611d071fff1f7a866a92f7283fd94ffac03eeee2ed4dbcb82a2"
+    sha256 cellar: :any,                 arm64_ventura: "23d30f820b22066c7052c37225d6a6a1cca8dd7ab96285b022b2a761a8d77d39"
+    sha256 cellar: :any,                 sonoma:        "393afc07be16d85aba4ec42a1d6c4842c38ba72ed92c3fd4d20c8a9c4f95f36c"
+    sha256 cellar: :any,                 ventura:       "b74e2688b814563bdaa0b225ae934107ce8eb58371a6d3d0f426dcbc0460b885"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "b7ee7ea3347e83ed36120827b169f7e3afaf6338690445dcdf42726cdcff17b5"
   end
 
   depends_on "certifi"
@@ -22,7 +23,7 @@ class Esphome < Formula
   depends_on "libyaml"
   depends_on "pillow"
   depends_on "python-setuptools"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   uses_from_macos "libffi"
 
@@ -47,8 +48,8 @@ class Esphome < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/75/33/a3d23a2e9ac78f9eaf1fce7490fee430d43ca7d42c65adabbb36a2b28ff6/argcomplete-3.5.0.tar.gz"
-    sha256 "4349400469dccfb7950bb60334a680c58d88699bff6159df61251878dc6bf74b"
+    url "https://files.pythonhosted.org/packages/5f/39/27605e133e7f4bb0c8e48c9a6b87101515e3446003e0442761f6a02ac35e/argcomplete-3.5.1.tar.gz"
+    sha256 "eb1ee355aa2557bd3d0145de7b06b2a45b0ce461e1e7813f5d066039ab4177b4"
   end
 
   resource "async-interrupt" do
@@ -57,8 +58,8 @@ class Esphome < Formula
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/c7/bf/25cf92a83e1fe4948d7935ae3c02f4c9ff9cb9c13e977fba8af11a5f642c/bitarray-2.9.2.tar.gz"
-    sha256 "a8f286a51a32323715d77755ed959f94bef13972e9a2fe71b609e40e6d27957e"
+    url "https://files.pythonhosted.org/packages/0d/c7/a85f206e6b2fddb93964efe53685ad8da7d856e6975b005ed6a88f25b010/bitarray-2.9.3.tar.gz"
+    sha256 "9eff55cf189b0c37ba97156a00d640eb7392db58a8049be6f26ff2712b93fa89"
   end
 
   resource "bitstring" do
@@ -67,8 +68,8 @@ class Esphome < Formula
   end
 
   resource "bottle" do
-    url "https://files.pythonhosted.org/packages/fd/04/1c09ab851a52fe6bc063fd0df758504edede5cc741bd2e807bf434a09215/bottle-0.12.25.tar.gz"
-    sha256 "e1a9c94970ae6d710b3fb4526294dfeb86f2cb4a81eff3a4b98dc40fb0e5e021"
+    url "https://files.pythonhosted.org/packages/87/7e/eae463f832f64b3a1cb640384d155079e7dd2905116ab925e9bb04f66e75/bottle-0.13.1.tar.gz"
+    sha256 "a48852dc7a051353d3e4de3dd5590cd25de370bcfd94a72237561e314ceb0c88"
   end
 
   resource "chacha20poly1305-reuseable" do
@@ -76,9 +77,14 @@ class Esphome < Formula
     sha256 "dd8be876e25dfc51909eb35602b77a76e0d01a364584756ab3fa848e2407e4ec"
   end
 
+  resource "chardet" do
+    url "https://files.pythonhosted.org/packages/f3/0d/f7b6ab21ec75897ed80c17d79b15951a719226b9fababf1e40ea74d69079/chardet-5.2.0.tar.gz"
+    sha256 "1b3b6ff479a8c414bc3fa2c0852995695c4a026dcd6d0633b2dd092ca39c1cf7"
+  end
+
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/63/09/c1bc53dab74b1816a00d8d030de5bf98f724c52c1635e07681d312f20be8/charset-normalizer-3.3.2.tar.gz"
-    sha256 "f30c3cb33b24454a82faecaf01b19c18562b1e89558fb6c56de4d9118a032fd5"
+    url "https://files.pythonhosted.org/packages/f2/4f/e1808dc01273379acc506d18f1504eb2d299bd4131743b9fc54d7be4df1e/charset_normalizer-3.4.0.tar.gz"
+    sha256 "223217c3d4f82c3ac5e29032b3f1c2eb0fb591b72161f86d93f5719079dae93e"
   end
 
   resource "click" do
@@ -157,8 +163,8 @@ class Esphome < Formula
   end
 
   resource "platformio" do
-    url "https://files.pythonhosted.org/packages/13/78/8903f4f505a393ee48a18a00b4b9c866a726ef844d23ff3ce4863d710898/platformio-6.1.15.tar.gz"
-    sha256 "d3209a60d40340fdbab2c76ee23303d90e5ecea0a11f92980c9d2068d0975fde"
+    url "https://files.pythonhosted.org/packages/32/a0/4b1d18da2668a37b28beff3ecdc934940516302565c31a4cd4e17661a285/platformio-6.1.16.tar.gz"
+    sha256 "79387b45ca7df9c0c51cae82b3b0a40ba78d11d87cea385db47e1033d781e959"
   end
 
   resource "protobuf" do
@@ -187,8 +193,8 @@ class Esphome < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/cd/e5/af35f7ea75cf72f2cd079c95ee16797de7cd71f29ea7c68ae5ce7be1eda0/PyYAML-6.0.1.tar.gz"
-    sha256 "bfdf460b1736c775f2ba9f6a92bca30bc2095067b8a9d77876d1fad6cc3b4a43"
+    url "https://files.pythonhosted.org/packages/54/ed/79a089b6be93607fa5cdaedf301d7dfb23af5f25c398d5ead2525b063e17/pyyaml-6.0.2.tar.gz"
+    sha256 "d584d9ec91ad65861cc08d42e834324ef890a082e591037abe114850ff7bbc3e"
   end
 
   resource "reedsolo" do
@@ -204,11 +210,6 @@ class Esphome < Formula
   resource "ruamel-yaml" do
     url "https://files.pythonhosted.org/packages/29/81/4dfc17eb6ebb1aac314a3eb863c1325b907863a1b8b1382cdffcb6ac0ed9/ruamel.yaml-0.18.6.tar.gz"
     sha256 "8b27e6a217e786c6fbe5634d8f3f11bc63e0f80f6a5890f28863d9c45aac311b"
-  end
-
-  resource "ruamel-yaml-clib" do
-    url "https://files.pythonhosted.org/packages/46/ab/bab9eb1566cd16f060b54055dd39cf6a34bfa0240c53a7218c43e974295b/ruamel.yaml.clib-0.2.8.tar.gz"
-    sha256 "beb2e0404003de9a4cab9753a8805a8fe9320ee6673136ed7f04255fe60bb512"
   end
 
   resource "semantic-version" do
@@ -276,11 +277,10 @@ class Esphome < Formula
     sha256 "9ad8bc6e3f168fe8c164634c762d3265c775643defff10e26273623a12d73ae1"
   end
 
-  def install
-    # Work around ruamel.yaml.clib not building on Xcode 15.3, remove after a new release
-    # has resolved: https://sourceforge.net/p/ruamel-yaml-clib/tickets/32/
-    ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
+  # patch pyyaml and platformio to build with py3.13
+  patch :DATA
 
+  def install
     virtualenv_install_with_resources
   end
 
@@ -299,3 +299,49 @@ class Esphome < Formula
     system bin/"esphome", "compile", "test.yaml"
   end
 end
+
+__END__
+diff --git a/PKG-INFO b/PKG-INFO
+index b42efb7..74aef15 100644
+--- a/PKG-INFO
++++ b/PKG-INFO
+@@ -26,7 +26,7 @@ License-File: LICENSE
+ Requires-Dist: async_timeout==4.0.3; python_version <= "3.10"
+ Requires-Dist: cryptography==43.0.0
+ Requires-Dist: voluptuous==0.14.2
+-Requires-Dist: PyYAML==6.0.1
++Requires-Dist: PyYAML==6.0.2
+ Requires-Dist: paho-mqtt==1.6.1
+ Requires-Dist: colorama==0.4.6
+ Requires-Dist: icmplib==3.0.4
+@@ -34,7 +34,7 @@ Requires-Dist: tornado==6.4
+ Requires-Dist: tzlocal==5.2
+ Requires-Dist: tzdata>=2021.1
+ Requires-Dist: pyserial==3.5
+-Requires-Dist: platformio==6.1.15
++Requires-Dist: platformio==6.1.16
+ Requires-Dist: esptool==4.7.0
+ Requires-Dist: click==8.1.7
+ Requires-Dist: esphome-dashboard==20240620.0
+diff --git a/requirements.txt b/requirements.txt
+index 3e658de..84605e2 100644
+--- a/requirements.txt
++++ b/requirements.txt
+@@ -1,7 +1,7 @@
+ async_timeout==4.0.3; python_version <= "3.10"
+ cryptography==43.0.0
+ voluptuous==0.14.2
+-PyYAML==6.0.1
++PyYAML==6.0.2
+ paho-mqtt==1.6.1
+ colorama==0.4.6
+ icmplib==3.0.4
+@@ -9,7 +9,7 @@ tornado==6.4
+ tzlocal==5.2    # from time
+ tzdata>=2021.1  # from time
+ pyserial==3.5
+-platformio==6.1.15  # When updating platformio, also update Dockerfile
++platformio==6.1.16  # When updating platformio, also update Dockerfile
+ esptool==4.7.0
+ click==8.1.7
+ esphome-dashboard==20240620.0

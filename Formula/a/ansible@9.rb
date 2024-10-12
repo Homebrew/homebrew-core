@@ -9,12 +9,13 @@ class AnsibleAT9 < Formula
   revision 3
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia: "9009bb7e1317b6c6f95396e40d116a0dd0d7939274354278e7a8b88c75d5dc93"
-    sha256 cellar: :any,                 arm64_sonoma:  "9b91670881b9b4aea6f76c88a4b28734848d3026e2a0464f688a8dda2ce7eb41"
-    sha256 cellar: :any,                 arm64_ventura: "5c88669e1205dee92e7b55548070ed343d9a905557966e4ab7d41fb4329535a8"
-    sha256 cellar: :any,                 sonoma:        "d2014404822730f80f4b3ff56024d9e08ee9d055a057cc5ed56d22faccc59b1d"
-    sha256 cellar: :any,                 ventura:       "e99a11dbfd7d4367ee28cd968d13d4038783196d2f084c0d4378e818dda718a1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "baa1a183a38433525783a3d7872fb7f92218eed07def7e80fc9c90b535b0d137"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "4446687e7c44ca6f144260c2c39a1c03d3894983c6963cf3554c03d977cc0097"
+    sha256 cellar: :any,                 arm64_sonoma:  "f40d62cf7d41b017f42f63adefd4bbbce4b2c0a09123f871646018f1074e14b4"
+    sha256 cellar: :any,                 arm64_ventura: "dcd176f2bcf5642ee8670c51e4c4b2c6c8fb08cf939f28d2d696ba5acd650c41"
+    sha256 cellar: :any,                 sonoma:        "265381f8afc2a64a27f6ba4c0dc7d4757ed4c74cbe0d9081a41239231de0b54d"
+    sha256 cellar: :any,                 ventura:       "0409ffb08e5dcaec02841626254e4796660e67b1a067533339db2bf6cf956607"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "ca5336df2893ec25b42f9fd9773683c4fe18926eda46a5fb05835bb314bf3f62"
   end
 
   keg_only :versioned_formula
@@ -27,9 +28,10 @@ class AnsibleAT9 < Formula
   depends_on "rust" => :build
   depends_on "certifi"
   depends_on "cryptography"
+  depends_on "libsodium" # for pynacl
   depends_on "libssh"
   depends_on "libyaml"
-  depends_on "python@3.12"
+  depends_on "python@3.12" # must be 3.10-3.12
 
   uses_from_macos "krb5"
   uses_from_macos "libxml2", since: :ventura
@@ -533,15 +535,10 @@ class AnsibleAT9 < Formula
     sha256 "627ad26769b6831130239182afcb195f64fbf494626bc9eb4b2ac8170de5b775"
   end
 
-  def python3
-    "python3.12"
-  end
-
   def install
-    venv = virtualenv_create(libexec, python3)
-    venv.pip_install resources.reject { |r| r.name == "ansible-core" }
+    ENV["SODIUM_INSTALL"] = "system"
+    venv = virtualenv_install_with_resources without: "ansible-core"
     venv.pip_install_and_link resource("ansible-core")
-    venv.pip_install_and_link buildpath
   end
 
   test do
@@ -554,6 +551,7 @@ class AnsibleAT9 < Formula
         - name: ping
           ping:
     EOS
+    python3 = "python#{Language::Python.major_minor_version libexec/"bin/python"}"
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
       " ansible_python_interpreter=#{which(python3)}",

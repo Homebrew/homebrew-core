@@ -8,21 +8,20 @@ class Genometools < Formula
   head "https://github.com/genometools/genometools.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_sequoia:  "bd860c933e3158b691757af5aef7a545663460f0f826606ec3f8b6f77e11c9a7"
-    sha256 cellar: :any,                 arm64_sonoma:   "b77af810fa9096b084bb34232bb09883a7237ddac28d7fc35957793892a516eb"
-    sha256 cellar: :any,                 arm64_ventura:  "c079e91767b29ab5b0379cc09e4ca0960717c9cfa5e580d3527696edb59a6680"
-    sha256 cellar: :any,                 arm64_monterey: "fb27b879e1e52641f42f05e8ce408583e17722bddfe0e1c3f6cd677001eabc6d"
-    sha256 cellar: :any,                 sonoma:         "0092f0d2c9f6ba739db151bebfa5251372d34458577b16abeba11e816ca212f7"
-    sha256 cellar: :any,                 ventura:        "7e4baa8bc25ac68f65b1c2b1ea66b0e909514779d9c66bf40fca41aa4cc3cb3d"
-    sha256 cellar: :any,                 monterey:       "5d93f579a6e42f7a472ece7eb28116a7b9010c4782a3f8727547f81d2684801a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:   "da071e747525684debd137ce912248016a49ed34377020ca7a4192258ba44cc0"
+    rebuild 1
+    sha256 cellar: :any,                 arm64_sequoia: "da1c94350cca5fa3b665086a411fb4ed8cc5688ae2481634bb0247f8cdaa27e4"
+    sha256 cellar: :any,                 arm64_sonoma:  "d02b971ab006caed47c9684c217f2a7c7e71989acbc7747032041c71255da092"
+    sha256 cellar: :any,                 arm64_ventura: "0c63a6b823fb704a5b1b770576af562524cb4330efb2ab95ef00193cc8a0558c"
+    sha256 cellar: :any,                 sonoma:        "fcb8877202b8dbf18e12fe4dbca2a4cadbdcae3003b969cc747859be14d0e0cd"
+    sha256 cellar: :any,                 ventura:       "c7793a7fffe811824e76f17669d35189e7ddb96273e8e6fca0ceeb7b9ee905df"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "38195c0605998af265648a4c1efb0804987c6505110a0db321dd14512480b46d"
   end
 
   depends_on "pkg-config" => :build
   depends_on "cairo"
   depends_on "glib"
   depends_on "pango"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   on_macos do
     depends_on "gettext"
@@ -32,7 +31,7 @@ class Genometools < Formula
   conflicts_with "libslax", because: "both install `bin/gt`"
 
   def python3
-    which("python3.12")
+    which("python3.13")
   end
 
   def install
