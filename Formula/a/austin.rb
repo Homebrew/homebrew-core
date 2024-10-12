@@ -19,10 +19,11 @@ class Austin < Formula
 
   depends_on "autoconf" => :build
   depends_on "automake" => :build
-  depends_on "python@3.12" => :test
+
+  uses_from_macos "python" => :test
 
   def install
-    system "autoreconf", "--install"
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", *std_configure_args, "--disable-silent-rules"
     system "make"
     system "make", "install"
