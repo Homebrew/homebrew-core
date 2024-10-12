@@ -13,7 +13,7 @@ class HgFastExport < Formula
   end
 
   depends_on "mercurial"
-  depends_on "python@3.12"
+  depends_on "python@3.13"
 
   # Fix compatibility with Python 3.12 using open PR.
   # PR ref: https://github.com/frej/fast-export/pull/311
@@ -28,7 +28,7 @@ class HgFastExport < Formula
     # See https://github.com/Homebrew/homebrew-core/pull/90709#issuecomment-988548657
     %w[hg-fast-export.sh hg-reset.sh].each do |f|
       inreplace f, "for python_cmd in ",
-                   "for python_cmd in '#{which("python3.12")}' "
+                   "for python_cmd in '#{which("python3.13")}' "
     end
 
     libexec.install Dir["*"]
