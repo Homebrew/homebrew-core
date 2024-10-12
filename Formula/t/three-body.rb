@@ -1,8 +1,8 @@
 class ThreeBody < Formula
   desc "三体编程语言 Three Body Language written in Rust"
   homepage "https://github.com/rustq/3body-lang"
-  url "https://github.com/rustq/3body-lang/archive/refs/tags/0.6.1.tar.gz"
-  sha256 "ec8eda8a795608fcf187ac4ecbf3b7e6d8be80ca6cdefebf7c586837383694cb"
+  url "https://github.com/rustq/3body-lang/archive/refs/tags/0.6.3.tar.gz"
+  sha256 "bcdf74ac50c9132e359e6eed1e198edc5db126be979608849dd410460e822aac"
   license "MIT"
   head "https://github.com/rustq/3body-lang.git", branch: "main"
 
@@ -46,6 +46,7 @@ class ThreeBody < Formula
       撞()'").strip
     assert_equal "\"半人马星系\"", shell_output("#{bin}/3body -c '给 三体世界坐标 以 \"半人马星系\"; 广播(三体世界坐标);'").strip
     assert_equal "", shell_output("#{bin}/3body -c '冬眠(1000); 二向箔清理(); 毁灭();'").strip
-    assert_equal "[builtin function]", shell_output("#{bin}/3body -c '智子工程'").strip
+    assert_equal "", shell_output("#{bin}/3body -c '给 cx 以 程心(); 给 星环公司 以 法则(name, y, limit) { 给 掩体纪年 以 y; 面壁 (掩体纪年 <= limit) { 冬眠(1000); 广播([name, 掩体纪年]); 掩体纪年 = 掩体纪年 + 1; } } cx.thread(星环公司, [\"掩体工程\", 0, 11]) 冬眠(5000) cx.thread(星环公司, [\"研制曲率飞船\", 5, 11]) 冬眠(6000);'").strip
+    assert_equal "", shell_output("#{bin}/3body -c '冬眠(1000); 二向箔清理(); 毁灭();'").strip
   end
 end
